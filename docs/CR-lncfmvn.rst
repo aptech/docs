@@ -1,0 +1,21 @@
+
+lncdfmvn
+==============================================
+
+Purpose
+----------------
+
+Computes natural log of multivariate Normal cumulative distribution function.
+
+Format
+----------------
+.. function:: lncdfmvn(x, r)
+
+    :param x: abscissae.
+    :type x: KxL matrix
+
+    :param r: correlation matrix.
+    :type r: KxK matrix
+
+    :returns: y (*Lx1 vector*), ln Pr(X < x|r)
+

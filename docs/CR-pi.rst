@@ -1,0 +1,31 @@
+
+pi
+==============================================
+
+Purpose
+----------------
+Returns the mathematical constant π.
+
+Format
+----------------
+.. function:: pi
+
+    :returns: y (*scalar*), the value of π.
+
+Examples
+----------------
+
+::
+
+    //Print 14 digits and allow 16 digits worth of space for 
+    //each printed number
+    format /rdn 16,14;
+    print pi;
+
+will return:
+
+::
+
+    3.14159265358979
+
+pi mathematical constant circle

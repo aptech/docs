@@ -1,0 +1,25 @@
+
+vput
+==============================================
+
+Purpose
+----------------
+Inserts a matrix or string into a data buffer.
+
+Format
+----------------
+.. function:: vput(dbuf, x, xname)
+
+    :param dbuf: a data buffer containing various strings
+        and matrices. If  dbuf is a scalar 0, a new data buffer
+        will be created.
+    :type dbuf: Nx1 vector
+
+    :param x: item to be inserted into  dbuf.
+    :type x: LxM matrix or string
+
+    :param xname: the name of x, will be inserted with x into dbuf.
+    :type xname: string
+
+    :returns: dbufnew (*Kx1 vector*), the data buffer after x and  xname have been inserted.
+

@@ -1,0 +1,100 @@
+
+rndBinomial
+==============================================
+
+Purpose
+----------------
+
+Computes binomial pseudo-random numbers with the choice of underlying random number generator.
+
+Format
+----------------
+.. function:: rndBinomial(r, c, trials, prob, state) 
+			  rndBinomial(r, c, trials, prob)
+
+    :param r: number of rows of resulting matrix.
+    :type r: Scalar
+
+    :param c: number of columns of resulting matrix.
+    :type c: Scalar
+
+    :param trials: or
+        rx1 vector, or 1xc vector,
+        or scalar, the number of trials.
+    :type trials: r x c matrix
+
+    :param prob: or
+        rx1 vector, or 1xc vector,
+        or scalar, the probability of success of each trial.
+    :type prob: r x c matrix
+
+    :param state: Optional argument - scalar or opaque vector.
+        Scalar case:state = starting seed value only. If -1, GAUSS
+        computes the starting seed based on the system clock.
+        
+        Opaque vector case:state = the state vector returned from a previous
+        call to one of the rnd random number functions.
+    :type state: TODO
+
+    :returns: x (*r x c matrix*), binomially
+        distributed random numbers.
+
+    :returns: newstate (*Opaque vector*), the updated state.
+
+Examples
+----------------
+
+Basic usage
++++++++++++
+
+::
+
+    //Set seed for repeatable random numbers
+    rndseed 7345;
+    
+    //Simulate the number of successes from 1024 trials,
+    //each of which have a 40% chance of success, 3 times
+    n = 1024;
+    p = 0.4;		
+    k = rndBinomial(3, 1, n, p);
+
+After the code above, k should equal:
+
+::
+
+    413
+    390
+    427
+
+Pass seed and return state vector
++++++++++++++++++++++++++++++++++
+
+::
+
+    //Simulate the number of successes from 1024 trials,
+    //each of which have a 40% chance of success, 3 times
+    n = 1024;
+    p = 0.4;
+    
+    //Pass in seed as optional final input argument
+    //and return state vector as second output
+    { k, state } = rndBinomial(3, 1, n, p, 7345);
+
+After the code above, k should equal:
+
+::
+
+    413
+    390
+    427
+
+Technical Notes
++++++++++++++++
+
+The default generator for rndBinomial is the SFMT Mersenne-Twister
+19937. You can specifiy a different underlying random number generator
+with the function rndCreateState.
+
+.. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
+
+log lognormal pseudo-random numbers choice random number generator

@@ -1,0 +1,59 @@
+
+lapgeighv
+==============================================
+
+Purpose
+----------------
+
+Computes generalized eigenvalues and eigenvectors for a pair of real symmetric or Hermitian matrices.
+
+Format
+----------------
+.. function:: lapgeighv(A,  B)
+
+    :param A: real or complex symmetric or Hermitian matrix.
+    :type A: NxN matrix
+
+    :param B: real or complex positive definite symmetric or Hermitian matrix.
+    :type B: NxN matrix
+
+    :returns: ve (*Nx1 vector*), eigenvalues.
+
+    :returns: va (*NxN matrix*), eigenvectors.
+
+Examples
+----------------
+
+::
+
+    A = { 3 4 5,
+          2 5 2,
+          3 2 4 };
+     
+    B = { 4 2 2,
+          2 6 1,
+          2 1 8 };
+     
+    { ve, va } = lapgeighv(A,B);
+     
+    print ve;
+
+::
+
+    -0.0425
+     0.5082
+     0.8694
+
+::
+
+    print va;
+
+::
+
+    0.3575 -0.0996 0.9286
+    -0.2594  0.9446 0.2012
+    -0.8972 -0.3128 0.3118
+
+.. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`
+
+generalized eigenvalues eigenvectors real symmetric Hermitian matrix

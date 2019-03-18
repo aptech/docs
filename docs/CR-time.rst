@@ -1,0 +1,32 @@
+
+time
+==============================================
+
+Purpose
+----------------
+
+Returns the current system time.
+
+Format
+----------------
+.. function:: time
+
+    :returns: y (*4x1 numeric vector*), the current time in the
+        order: hours, minutes, seconds, and hundredths
+        of a second.
+
+Examples
+----------------
+
+::
+
+    print time;
+
+::
+
+    7.000000
+      31.000000
+      46.000000
+      33.000000
+
+.. seealso:: Functions :func:`date`, :func:`datestr`, :func:`datestring`, :func:`datestrymd`, :func:`hsec`, :func:`timestr`

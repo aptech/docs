@@ -1,0 +1,44 @@
+
+dttoposix
+==============================================
+
+Purpose
+----------------
+Converts DT scalar format to POSIX date/time format (seconds since Jan 1, 1970).
+
+Format
+----------------
+.. function:: dttoposix(dt)
+
+    :param dt: DT scalar format.
+    :type dt: NxK matrix
+
+    :returns: p_time (*NxK matrix*), date/times in POSIX format.
+
+Examples
+----------------
+
+::
+
+    // March 26th, 2001 at 08:51:18
+    dt = 20010326085118;
+    
+    // Convert to seconds since Jan 1, 1970
+    p_time = dttoposix(dt);
+    
+    print "p_time = " p_time;
+
+The above code produces the following output:
+
+::
+
+    p_time = 985596678;
+
+Remarks
++++++++
+
+In DT scalar format, 10:50:31 on July 15, 2010 is 20100703105031. A
+posix scalar gives the number of seconds since or before January 1,
+1970, UTC.
+
+.. seealso:: Functions :func:`dttostr`, :func:`dttostrc`, :func:`posixtostrc`, :func:`strtodt`, :func:`strtodt`

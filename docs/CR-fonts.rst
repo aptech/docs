@@ -1,0 +1,26 @@
+
+fonts
+==============================================
+
+Purpose
+----------------
+
+Loads fonts to be used in the graph. Note: this function is for the deprecated PQG graphics.
+
+Format
+----------------
+.. function:: fonts(str)
+
+    :param str: string or character vector containing the names
+        of fonts to be used in the plot. The
+        following fonts are available:
+    :type str: TODO
+
+    .. csv-table::
+        :widths: auto
+
+        "Simplex", "standard sans serif font."
+        "Simgrma", "Simplex greek, math."
+        "Microb", "bold and boxy."
+        "Complex", "standard font with serif."
+

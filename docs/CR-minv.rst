@@ -1,0 +1,45 @@
+
+minv
+==============================================
+
+Purpose
+----------------
+
+Performs an element by element comparison of two matrices and returns the minimum value for each element.  
+
+Format
+----------------
+.. function:: minv(x, y)
+
+    :param x: NxK matrix
+    :type x: TODO
+
+    :param y: NxK matrix
+    :type y: TODO
+
+    :returns: z (*TODO*), A NxK matrix whose values are the minimum of each element from the arguments x and y.
+
+Examples
+----------------
+
+::
+
+    //Create the multiplicative sequence 1, 2, 4, 8
+    x = seqm(1,2,4);
+    
+    //Reverse the order of the elements in 'x' and assign them 
+    //to 'y'
+    y = rev(x);
+    
+    z = minv(x,y);
+
+After the code above:
+
+::
+
+    1          8          1
+    x = 2      y = 4      z = 2
+        4          2          2
+        8          1          1
+
+.. seealso:: Functions :func:`maxv`

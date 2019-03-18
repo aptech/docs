@@ -1,0 +1,64 @@
+
+sortr, sortrc
+==============================================
+
+Purpose
+----------------
+Sorts the columns of a matrix of numeric or character data, with respect to a specified row.
+
+Format
+----------------
+.. function:: sortrc(x, r)
+
+    :param x: NxK matrix.
+    :type x: TODO
+
+    :param r: row of x on which to sort.
+    :type r: scalar
+
+    :returns: y (*TODO*), NxK matrix equal to x and sorted on row r.
+
+Examples
+----------------
+
+::
+
+    //Create a 5 x 3 matrix of random integers
+    //between 1 and 30
+    x = ceil(30*rndu(5, 3));
+    
+    //Sort the columns based upon the first row 
+    y = sortr(x,1);
+
+Examine the variables after the code above. Notice that the columns remain the same, but their order has changed.
+
+::
+
+    10.000 21.000 18.000 
+        11.000 30.000 20.000 
+    x = 10.000 23.000  7.000 
+         6.000  9.000 20.000 
+         7.000  4.000 30.000 
+         
+        10.000 18.000 21.000 
+        11.000 20.000 30.000 
+    y = 10.000  7.000 23.000 
+         6.000 20.000  9.000 
+         7.000 30.000  4.000
+
+If we were to use the same x, but sort on the 5th row:
+
+::
+
+    y2 = sortr(x, 5);
+
+We get the following result:
+
+::
+
+    21.000 10.000 18.000 
+         30.000 11.000 20.000 
+    y2 = 23.000 10.000  7.000 
+          9.000  6.000 20.000 
+          4.000  7.000 30.000
+
