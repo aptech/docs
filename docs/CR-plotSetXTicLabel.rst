@@ -71,7 +71,7 @@ The code above produces a graph with X-tic labels like the image below:
 XY formatted label
 
 Remarks
-+++++++
+-------
 
 **Time series format specifier**
 

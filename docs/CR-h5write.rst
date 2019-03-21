@@ -72,7 +72,7 @@ After the above code:
               5.5     6.6
 
 Remarks
-+++++++
+-------
 
 To write rows of data to an HDF5 dataset in a iterative manner, see
 writer.

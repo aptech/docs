@@ -63,7 +63,7 @@ Examples
     plotBar(myPlot, x, y);
 
 Remarks
-+++++++
+-------
 
 When graphing without the use of a plotControl structure, these settings
 may be chosen through the **Tools->Preferences->Graphics** menu, after

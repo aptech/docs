@@ -40,7 +40,7 @@ Examples
     plotXY(myPlot, x, y);
 
 Remarks
-+++++++
+-------
 
 To open a new graph window once, use plotOpenWindow. This function sets
 an attribute in a plotControl structure. It does not affect an existing

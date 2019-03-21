@@ -72,7 +72,7 @@ After the code above, mask will equal:
     1
 
 Remarks
-+++++++
+-------
 
 rowcontains is similar to the dot operators '.==' and '.$=='. The
 differences are that rowcontains allows for the comparison of more than

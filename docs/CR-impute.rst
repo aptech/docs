@@ -69,7 +69,7 @@ The above code will make the following assignments:
                   10   11    5.67
 
 Remarks
-+++++++
+-------
 
 -  If all elements of a column passed to impute are missing values,
    every element of the corresponding column returned will contain

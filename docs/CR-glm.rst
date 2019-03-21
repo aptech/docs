@@ -568,7 +568,7 @@ After running the code above, the  output is :
     Age                     0.0029575       0.00069211           4.2731         < 0.0001
 
 Remarks
-+++++++
+-------
 
 #. The glmControl structure stores the user defined options.
 #. The glmOut structure stores all the results after running glm

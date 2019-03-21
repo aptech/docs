@@ -36,7 +36,7 @@ Examples
     { l, u } = spLU(a);
 
 Remarks
-+++++++
+-------
 
 If the input matrix or either of the factors L and U are singular, the
 function will either terminate the program with an error message or

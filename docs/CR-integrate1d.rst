@@ -151,7 +151,7 @@ will result in:
     ans = 0.518798668212
 
 Remarks
-+++++++
+-------
 
 The user-provided function must be able to accept a vector of scalar
 values and return a vector of outputs. Make sure to use the element by

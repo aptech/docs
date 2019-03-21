@@ -75,7 +75,7 @@ After the code above, u, s and v will be equal to:
         -0.04     0.10    -0.99
 
 Remarks
-+++++++
+-------
 
 #. If x is an array, the resulting arrays u, s and v will contain their
    respective results for each of the corresponding 2-dimensional arrays

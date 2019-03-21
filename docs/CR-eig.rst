@@ -40,7 +40,7 @@ After the above code, lambda will equal:
 To calculate eigenvalues and eigenvectors see eigv. To calculate generalized eigenvalues and eigenvectors, see lapgeig, or lapgeigv.
 
 Remarks
-+++++++
+-------
 
 If A is an array, the result will be an array containing the eigenvalues
 of each 2-dimensional array described by the two trailing dimensions of

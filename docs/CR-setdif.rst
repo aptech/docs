@@ -99,7 +99,7 @@ The code above will produce the following output:
     xom
 
 Remarks
-+++++++
+-------
 
 Place smaller vector first for fastest operation.
 

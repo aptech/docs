@@ -83,7 +83,7 @@ If you add procedures to one of the files in your library, you will need to upda
     lib mylibrary -build;
 
 Remarks
-+++++++
+-------
 
 The library management functionality offered by the lib command can also
 be accomplished interactively with windows and buttons, using the

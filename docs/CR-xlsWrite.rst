@@ -71,7 +71,7 @@ Specify Path and Sheet Number
     ret = xlsWrite(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
 Remarks
-+++++++
+-------
 
 #. If xlsWrite fails, it will either terminate and print an error
    message or return a scalar error code, which can be detected with

@@ -50,7 +50,7 @@ Examples
     plotClearLayout();
 
 Remarks
-+++++++
+-------
 
 After calling this function all subsequent graphs will be plotted inside
 of the specified custom layout until the layout is reset with

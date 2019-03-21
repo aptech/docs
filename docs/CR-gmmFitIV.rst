@@ -189,7 +189,7 @@ The above code will print out the following report:
     P-value of J-stat:     0.072688216
 
 Remarks
-+++++++
+-------
 
 The supported dataset types are
 ` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,

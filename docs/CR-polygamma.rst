@@ -73,7 +73,7 @@ will return the value:
     -4.984e-06 + 8.217e-07i
 
 Remarks
-+++++++
+-------
 
 The polygamma function of order n is defined by the equation:
 

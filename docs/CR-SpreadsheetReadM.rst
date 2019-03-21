@@ -54,7 +54,7 @@ Portability
 **Windows**, **Linux** and **Mac**
 
 Remarks
-+++++++
+-------
 
 #. If range is a null string, then by default the read will begin at
    cell "A1".

@@ -69,7 +69,7 @@ will add σ2 to your title. While,
 will create Yt-1
 
 Remarks
-+++++++
+-------
 
 This function sets an attribute in a plotControl structure. It does not
 affect an existing graph, or a new graph drawn using the default

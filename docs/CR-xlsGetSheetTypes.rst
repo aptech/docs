@@ -53,7 +53,7 @@ would produce the following output:
     0      0      0      1
 
 Remarks
-+++++++
+-------
 
 K is the number of columns found in the spreadsheet.
 

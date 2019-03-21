@@ -36,7 +36,7 @@ Examples
     plotHistP(rndBeta(1000, 1, 2, 1), 30);
 
 Remarks
-+++++++
+-------
 
 After calling this function all subsequent graphs will be drawn to fill
 the entire graph window.

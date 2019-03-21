@@ -219,7 +219,7 @@ The above code will make the following assignments:
     n_pos_inf = 1.0552    n_neg_inf = 0.0176
 
 Remarks
-+++++++
+-------
 
 -  To compute the Euclidean norm of each column vector of a matrix,
    call:

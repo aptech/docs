@@ -40,7 +40,7 @@ Examples
     endif;
 
 Remarks
-+++++++
+-------
 
 This function can only be used with databases that support transactions.
 

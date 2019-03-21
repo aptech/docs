@@ -105,7 +105,7 @@ After the above code, ‘x1’ and ‘x2’ should be equal to:
 ^
 
 Remarks
-+++++++
+-------
 
 The properties of the pseudo-random numbers in x are:
 

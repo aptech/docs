@@ -167,7 +167,7 @@ After the code above:
          -0.7530 -   0.1336i  -0.5813 +   0.1154i   0.2225 -   0.1201i
 
 Remarks
-+++++++
+-------
 
 If a real matrix is passed in without a flag variable, the real Schur
 form will be returned. If a complex matrix is passed in without a flag

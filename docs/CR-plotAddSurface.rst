@@ -99,7 +99,7 @@ With a plotControl structure and color map
 The plot is
 
 Remarks
-+++++++
+-------
 
 If a plotControl structure is passed in to plotAddSurface, the only
 settings that will be checked are:

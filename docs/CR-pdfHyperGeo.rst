@@ -54,7 +54,7 @@ After running the code above, p is equal to:
     6.5132436e-05
 
 Remarks
-+++++++
+-------
 
 The probability density function for the hypergeometric distribution is
 defined as:

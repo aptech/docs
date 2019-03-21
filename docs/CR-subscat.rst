@@ -112,7 +112,7 @@ After the code above, x is equal to:
 Replacing instances of one particular value with another value can also be accomplished with reclassify and substute
 
 Remarks
-+++++++
+-------
 
 reclassifyCuts offers functionality similar to subscat, but:
 

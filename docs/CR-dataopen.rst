@@ -14,20 +14,80 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :param mode: 
-    :type mode: string containing one of the following:
+    :param mode: containing one of the following:
+    :type mode: string 
 
     .. csv-table::
         :widths: auto
 
-        ""read"", "Open file for read only."
-        ""append"", "Open file for append. The file pointer will start at the end of the file to add new rows."
-        ""update"", "Open file for update. Allows reading and writing. The file pointer will start at the first row."
+        "\"read\"", "Open file for read only."
+        "\"append\"", "Open file for append. The file pointer will start at the end of the file to add new rows."
+        "\"update\"", "Open file for update. Allows reading and writing. The file pointer will start at the first row."
 
     :returns: fh (*scalar*), file handle.
 
+Remarks
+-------
+
+1. The **file must exist before it can be opened** with the :func:`dataopen`
+command (to create a new file, see :func:`datacreate` or :func:`datasave`).
+
+2. The file handle returned by :func:`dataopen` is a scalar containing a
+positive integer value that uniquely identifies each file. This value is
+assigned by GAUSS when the :func:`create`, :func:`datacreate`, :func:`datacreatecomplex`, :func:`open`
+or :func:`dataopen` commands are executed. The file handle is used to reference
+the file in the commands :func:`readr` and :func:`writer`. If :func:`dataopen` fails, it returns
+a -1.
+
+3. A file can be opened simultaneously under more than one handle. If
+the value that is in the file handle when the :func:`dataopen` command begins to
+execute matches that of an already open file, the process will be
+aborted and a File already open error message will be given. This gives
+you some protection against opening a second file with the same handle
+as a currently open file. If this happens, you would no longer be able
+to access the first file.
+
+4. It is important to set unused file handles to zero because both
+:func:`dataopen` and :func:`datacreate` check the value that is in a file handle to see
+if it matches that of an open file before they proceed with the process
+of opening a file. You may set unused file handles to zero with the
+:func:`close` or :func:`closeall` commands.
+
+5. If filename does not have an extension, :func:`dataopen` appends a .dat
+extension before searching for the file. If the file is an ``.fmt`` matrix
+file, the extension must be explicitly given. If no path information is
+included, then :func:`dataopen` searches for the file in the current directory.
+
+6. Files opened in read mode cannot be written to. The pointer is set to
+the beginning of the file and the writer function is disabled for files
+opened in this way. This is the only mode available for matrix files
+(.fmt), which are always written in one piece with the :func:`save` command.
+
+7. Files opened in append mode cannot be read. The pointer is set to the
+end of the file so that a subsequent write to the file with the writer
+function will add data to the end of the file without overwriting any of
+the existing data in the file. The :func:`readr` function is disabled for files
+opened in this way. This mode is used to add additional rows to the end
+of a file.
+
+8. Files opened in update mode can be read from and written to. The
+pointer is set to the beginning of the file. This mode is used to make
+changes in a file.
+
+9. The supported data set types are "\*.dat", "\*.h5", "\*.fmt".
+
+For HDF5 file, the dataset must include schema and both file name and
+data set name must be provided, e.g.
+
+::
+
+    glm("h5://C:/gauss17/examples/testdata.h5/mydata").
+
 Examples
 ----------------
+
+Read from a GAUSS dataset
++++++++++++++++++++++++++
 
 ::
 
@@ -65,7 +125,7 @@ Examples
     //Load all contents of dataset
     new_x = loadd("my_ones.dat");
 
-After the code above, new_x should be equal to:
+After the code above, *new_x* should be equal to:
 
 ::
 
@@ -75,7 +135,8 @@ After the code above, new_x should be equal to:
      1  1
      1  1
 
-**Example 2: Write to a GAUSS dataset**
+Write to a GAUSS dataset
+++++++++++++++++++++++++
 
 ::
 
@@ -99,7 +160,7 @@ After the code above, new_x should be equal to:
    //Load all contents of dataset
    new_x = loadd("my_ones.dat");
 
-After the code above, new_x should be equal to:
+After the code above, *new_x* should be equal to:
 
 ::
 
@@ -109,63 +170,10 @@ After the code above, new_x should be equal to:
     1  1
     1  1
 
-Remarks
-+++++++
-
-1. The **file must exist before it can be opened** with the dataopen
-command (to create a new file, see datacreate or datasave).
-
-2. The file handle returned by dataopen is a scalar containing a
-positive integer value that uniquely identifies each file. This value is
-assigned by GAUSS when the create, datacreate, datacreatecomplex, open
-or dataopen commands are executed. The file handle is used to reference
-the file in the commands readr and writer. If dataopen fails, it returns
-a -1.
-
-3. A file can be opened simultaneously under more than one handle. If
-the value that is in the file handle when the dataopen command begins to
-execute matches that of an already open file, the process will be
-aborted and a File already open error message will be given. This gives
-you some protection against opening a second file with the same handle
-as a currently open file. If this happens, you would no longer be able
-to access the first file.
-
-4. It is important to set unused file handles to zero because both
-dataopen and datacreate check the value that is in a file handle to see
-if it matches that of an open file before they proceed with the process
-of opening a file. You may set unused file handles to zero with the
-close or closeall commands.
-
-5. If filename does not have an extension, dataopen appends a .dat
-extension before searching for the file. If the file is an .fmt matrix
-file, the extension must be explicitly given. If no path information is
-included, then dataopen searches for the file in the current directory.
-
-6. Files opened in read mode cannot be written to. The pointer is set to
-the beginning of the file and the writer function is disabled for files
-opened in this way. This is the only mode available for matrix files
-(.fmt), which are always written in one piece with the save command.
-
-7. Files opened in append mode cannot be read. The pointer is set to the
-end of the file so that a subsequent write to the file with the writer
-function will add data to the end of the file without overwriting any of
-the existing data in the file. The readr function is disabled for files
-opened in this way. This mode is used to add additional rows to the end
-of a file.
-
-8. Files opened in update mode can be read from and written to. The
-pointer is set to the beginning of the file. This mode is used to make
-changes in a file.
-
-9. The supported data set types are "*.dat", "*.h5", "*.fmt".
-
-For HDF5 file, the dataset must include schema and both file name and
-data set name must be provided, e.g.
-glm("h5://C:/gauss17/examples/testdata.h5/mydata").
-
 Source
 ------
 
 datafile.src
 
 .. seealso:: Functions :func:`open`, :func:`datacreate`, :func:`getHeaders`, :func:`writer`, :func:`readr`
+

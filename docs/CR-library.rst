@@ -65,7 +65,7 @@ Continuing with the last example in which the user, pgraph, cmlmt and gauss libr
 would open tsmt, while closing pgraph and cmlmt.
 
 Remarks
-+++++++
+-------
 
 For more information about the library system, see **Libraries**,
 Chapter 1 .

@@ -38,7 +38,7 @@ After the code above:
          0.000   -1.000    0.100         0.000   -0.447    0.894
 
 Remarks
-+++++++
+-------
 
 hess computes the Hessenberg form of a square matrix. The Hessenberg
 form is an intermediate step in computing eigenvalues. It also is useful

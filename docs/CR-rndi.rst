@@ -87,7 +87,7 @@ Using a state-vector
     { idx, state } = rndi(1050, 1, range, seed_start);
 
 Remarks
-+++++++
+-------
 
 r and c will be truncated to integers if necessary.
 

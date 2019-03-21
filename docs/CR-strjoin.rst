@@ -63,7 +63,7 @@ After the above code, names should be equal to the string:
     "'GDP' 'Gross Exports' 'Net Exports'"
 
 Remarks
-+++++++
+-------
 
 -  strjoin differs from strcombine by not adding a delimiter after the
    last element.

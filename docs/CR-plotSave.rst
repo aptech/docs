@@ -83,7 +83,7 @@ The .plot file extension is a JSON file that is the native format used
 by GAUSS to save graphs.
 
 Remarks
-+++++++
+-------
 
 The font sizes in the graph will not be scaled with the size change. So
 make sure to set the font sizes to the correct size for the final graph

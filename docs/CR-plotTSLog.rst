@@ -176,7 +176,7 @@ also represents the second quarter of April 2005.
     plotTSLog(200504, 4, y);
 
 Remarks
-+++++++
+-------
 
 Formatting for the X-tick labels can be set with the function
 plotSetXTicLabel. If a plotControl structure is not passed in to

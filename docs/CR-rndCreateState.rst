@@ -130,7 +130,7 @@ After the code above, r, should be equal to:
     	0.9375    0.0625
 
 Remarks
-+++++++
+-------
 
 The states returned from this function may NOT be used with rndMTu or
 any of the rndKM or rndLC functions.

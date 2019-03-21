@@ -78,7 +78,7 @@ After the code above:
         40
 
 Remarks
-+++++++
+-------
 
 Inputs x and y should have the same columns.
 

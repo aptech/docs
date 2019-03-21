@@ -80,7 +80,7 @@ matrix times the first eigenvector (2).
       1.7276361                   1.7276361
 
 Remarks
-+++++++
+-------
 
 The ideal setting for input ncv is problem dependent and cannot be
 easily predicted ahead of time. Increasing ncv will increase the amount

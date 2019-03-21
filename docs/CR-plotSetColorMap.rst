@@ -48,7 +48,7 @@ Examples
 The Plot is
 
 Remarks
-+++++++
+-------
 
 This function sets an attribute in a plotControl structure. It does not
 affect an existing graph, or a new graph drawn using the default

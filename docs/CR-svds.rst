@@ -47,7 +47,7 @@ After the code above, s will be equal to:
      2.24
 
 Remarks
-+++++++
+-------
 
 #. If x is an array, the result will be an array containing the singular
    values of each of the 2-dimensional arrays described by the two

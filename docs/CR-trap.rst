@@ -108,7 +108,7 @@ After the above code, b_hat is equal to:
    -1.7
 
 Remarks
-+++++++
+-------
 
 The trap flag is examined by some functions to control error handling.
 There are 16 bits in the trap flag, but most GAUSS functions will

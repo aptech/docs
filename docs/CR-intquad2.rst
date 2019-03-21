@@ -117,7 +117,7 @@ After the code above, ans should equal:
     0.44737953
 
 Remarks
-+++++++
+-------
 
 The user-defined function f must return a vector of function values.
 intquad2 will pass to user-defined functions a vector or matrix for x

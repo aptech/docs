@@ -162,7 +162,7 @@ The code above should print out the sorted eigenvalues as we see below.
     1.7902237
 
 Remarks
-+++++++
+-------
 
 -  The pair of matrices sa (sometimes called S) and sb (sometimes called
    T) are in generalized real Schur form if:

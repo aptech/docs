@@ -57,7 +57,7 @@ Examples
 The plot is
 
 Remarks
-+++++++
+-------
 
 To control the color and texture of the bars as well as whether they are
 stacked or side by side:

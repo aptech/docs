@@ -79,7 +79,7 @@ will assign lag_mat to equal:
          2.5      2.8      2.7
 
 Remarks
-+++++++
+-------
 
 If t is positive, lagTrim lags y back t time periods, so the first
 maxc(t) observations of y are removed.

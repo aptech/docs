@@ -255,7 +255,7 @@ This time, the following output will be printed to the screen:
     Gamma      0.5011      0.7758        0.6018     -0.6119      1.8235     10       0
 
 Remarks
-+++++++
+-------
 
 -  If pairwise deletion is used, the minima and maxima will be the true
    values for the valid data. The means and standard deviations will be

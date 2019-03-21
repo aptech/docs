@@ -43,7 +43,7 @@ After the code above, the variables comTrades and commodity will be equal to:
                  soybeans
 
 Remarks
-+++++++
+-------
 
 It is important to note that the return from uniquesa will always be a
 column vector, even if the input string array is a row vector.

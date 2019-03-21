@@ -67,7 +67,7 @@ After the code above, u, s and v will be equal to:
         -0.04     0.10    -0.99
 
 Remarks
-+++++++
+-------
 
 #. svd2 is not threadsafe. New code should use svdcusv instead.
 #. Error handling is controlled with the low bit of the trap flag. If

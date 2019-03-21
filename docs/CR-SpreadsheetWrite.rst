@@ -69,7 +69,7 @@ Portability
 **Windows**, **Linux** and **Mac**
 
 Remarks
-+++++++
+-------
 
 If spreadSheetWrite fails, it will either terminate and print an error
 message or return a scalar error code, which can be detected with

@@ -85,7 +85,7 @@ After the code above, X will equal the 3 x 2 complex matrix:
          -0.7502 + 0.2470i    -0.0636 - 0.4208i
 
 Remarks
-+++++++
+-------
 
 The equation AX + XB = C will not have a unique solution if the
 eigenvalues of the matrices A and -B are equal. In this case an error

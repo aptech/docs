@@ -89,7 +89,7 @@ The error terms (e[1,t] and e[2,t]) are not
   correlated with each other. The variance-covariance matrix is sig.
 
 Remarks
-+++++++
+-------
 
 recserar is particularly useful in dealing with time series.
 

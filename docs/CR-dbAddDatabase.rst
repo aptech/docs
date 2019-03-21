@@ -42,7 +42,7 @@ Examples
     db_id = dbAddDatabase(url);
 
 Remarks
-+++++++
+-------
 
 Before using the connection, it must be initialized. e.g., call some or
 all of dbSetDatabaseName(),

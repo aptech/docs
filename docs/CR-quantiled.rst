@@ -130,7 +130,7 @@ After the above code:
     270.00000        84.000000
 
 Remarks
-+++++++
+-------
 
 The supported dataset types are
 ` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,

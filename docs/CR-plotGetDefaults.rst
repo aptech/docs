@@ -39,7 +39,7 @@ Examples
     plotXY(myPlot, x, y);
 
 Remarks
-+++++++
+-------
 
 The plotGetDefaults function will use the default settings for the
 specified graph type. These may be accessed from the main menu bar:

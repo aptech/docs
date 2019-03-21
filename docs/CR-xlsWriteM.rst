@@ -68,7 +68,7 @@ Specify Path and Sheet Number
     ret = xlsWriteM(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
 Remarks
-+++++++
+-------
 
 #. The vls argument lets users control the export to Excel® empty cells
    and special types, according to the following table:

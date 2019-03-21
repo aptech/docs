@@ -86,7 +86,7 @@ After running the code above, sample is equal to:
     3.0    3.3
 
 Remarks
-+++++++
+-------
 
 Indices for taking a random sample can be created with GAUSS function
 rndi.

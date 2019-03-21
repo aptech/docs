@@ -52,7 +52,7 @@ After the above code, path is equal to:
     "C:/gauss/myProject/"
 
 Remarks
-+++++++
+-------
 
 Note that strcombine adds a delimiter after the final element. To
 combine strings with the delimiter added only between tokens, see

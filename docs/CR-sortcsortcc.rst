@@ -70,7 +70,7 @@ The above example code produces, letters_s equal to:
       gamma
 
 Remarks
-+++++++
+-------
 
 -  These functions will sort the rows of a matrix with respect to a
    specified column. That is, they will sort the elements of a column

@@ -162,7 +162,7 @@ The code above should print out the sorted eigenvalues as we see below.
     	 20.703871
 
 Remarks
-+++++++
+-------
 
 -  The pair of matrices S and T are in generalized complex Schur form if
    S and T are upper triangular and the diagonal of T contains positive

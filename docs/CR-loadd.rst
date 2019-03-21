@@ -173,7 +173,7 @@ After the above code,
     January 01, 2012
 
 Remarks
-+++++++
+-------
 
 -  Since loadd will load the entire dataset at once, the data set must
    be small enough to fit in memory. To read chunks of a dataset in an

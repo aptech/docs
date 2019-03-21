@@ -69,7 +69,7 @@ The output from the above code:
          -0.006
 
 Remarks
-+++++++
+-------
 
 If convergence is not reached within the maximum number of iterations
 allowed, the function will either terminate the program with an error

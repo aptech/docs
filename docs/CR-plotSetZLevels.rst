@@ -99,7 +99,7 @@ plotContour(myPlot, x, y, z);
 The Plot is
 
 Remarks
-+++++++
+-------
 
 -  To indicate a single Z-level, pass in a 2x1 vector with the same
    value for both elements:

@@ -28,7 +28,7 @@ Examples
     dbClose(db_id);
 
 Remarks
-+++++++
+-------
 
 Note: For some databases, the commit will fail and return 0 if there is
 an active query using the database for a SELECT statement. Make the

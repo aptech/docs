@@ -128,7 +128,7 @@ You can also use Latex to add complex math expression, or non-Latin scripts to y
 The plot is
 
 Remarks
-+++++++
+-------
 
 When the text interpreter is set to use Latex:
 

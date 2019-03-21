@@ -65,7 +65,7 @@ print parms;
         1984            2.551
 
 Remarks
-+++++++
+-------
 
 This function will convert numbers to either decimal representation or
 scientific notation, depending upon which is most compact. The behavior

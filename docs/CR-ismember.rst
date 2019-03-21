@@ -58,7 +58,7 @@ After the code above, mask will equal:
     0
 
 Remarks
-+++++++
+-------
 
 ismember is similar to the dot operators '.==' and '.$=='. The
 difference is that ismember allows for the comparison of more than one

@@ -35,7 +35,7 @@ The above code produces the following output:
     p_time = 985596678;
 
 Remarks
-+++++++
+-------
 
 In DT scalar format, 10:50:31 on July 15, 2010 is 20100703105031. A
 posix scalar gives the number of seconds since or before January 1,

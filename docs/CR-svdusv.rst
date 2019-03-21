@@ -61,7 +61,7 @@ After the code above, the outputs will have the following values;
         -0.95     0.31    -0.10
 
 Remarks
-+++++++
+-------
 
 #. If x is an array, the resulting arrays u, s and v will contain their
    respective results for each of the corresponding 2-dimensional arrays

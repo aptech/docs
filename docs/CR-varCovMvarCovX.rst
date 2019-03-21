@@ -67,7 +67,7 @@ After the code above, var_xm will be equal to:
       -0.0024871   0.0493555   0.8729622
 
 Remarks
-+++++++
+-------
 
 The variance covariance matrix is that of the population data matrix. It
 is computed as the moment matrix of deviations about the mean divided by

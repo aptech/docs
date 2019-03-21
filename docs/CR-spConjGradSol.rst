@@ -70,7 +70,7 @@ The results from the above code are:
            2.11500000
 
 Remarks
-+++++++
+-------
 
 If convergence is not reached within the maximum number of iterations
 allowed, the function will either terminate the program with an error

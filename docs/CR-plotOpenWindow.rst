@@ -36,7 +36,7 @@ Examples
     plotHistP(x3, 30);
 
 Remarks
-+++++++
+-------
 
 To automatically open each new graph in a new graph window, use
 plotSetNewWindow or set the preference in the main applicaton menu. This

@@ -47,7 +47,7 @@ major tic for every integer on the x-axis. We can make that change like this:
 8 tic marks
 
 Remarks
-+++++++
+-------
 
 Note that plotSetXTicInterval does not provide complete control over the
 x-axis tics. If the number of x-tics requested would cause an odd x-tic

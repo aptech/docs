@@ -73,7 +73,7 @@ plotBox(labels, y_1~y_2);
 ::
 
 Remarks
-+++++++
+-------
 
 Note that numeric labels added to the X-axis are only labels for the
 corresponding boxes. They do not imply any order or denote a particular

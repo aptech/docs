@@ -40,7 +40,7 @@ Examples
     plotXY(x, ln_price);
 
 Remarks
-+++++++
+-------
 
 If the only input to plotCanvasSize is the string "fill", then the graph
 canvas will be expanded to fill the available area.

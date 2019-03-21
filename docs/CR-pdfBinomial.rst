@@ -51,7 +51,7 @@ After running the code above, p is equal to:
       0.016621105
 
 Remarks
-+++++++
+-------
 
 The probability density function for the binomial distribution is
 defined as:

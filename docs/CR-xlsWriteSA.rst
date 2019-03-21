@@ -70,7 +70,7 @@ Specify Path and Sheet Number
     ret = xlsWriteSA(labels, "C:/mydata/myfile.xlsx", "D7", 2);
 
 Remarks
-+++++++
+-------
 
 #. The vls argument lets users control the export to Excel® empty cells
    and special types, according to the following table:

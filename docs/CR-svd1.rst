@@ -61,7 +61,7 @@ After the code above, the outputs will have the following values;
         -0.95     0.31    -0.10
 
 Remarks
-+++++++
+-------
 
 #. svd1 is not threadsafe. New code should use svdusv instead.
 #. Error handling is controlled with the low bit of the trap flag.

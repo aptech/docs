@@ -32,7 +32,7 @@ Examples
     ret = dbQueryExecPrepared(qid);
 
 Remarks
-+++++++
+-------
 
 The query may contain placeholders for binding values. Both Oracle style
 colon-name (e.g., :surname), and ODBC style (?) placeholders are

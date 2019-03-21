@@ -49,7 +49,7 @@ x_type = type(x);
 After the above code, x_type will equal: 13, indicating that x is a string.
 
 Remarks
-+++++++
+-------
 
 type is often used to verify that inputs to a user defined procedure are
 valued. For example, if an input is a file name, then it must be a

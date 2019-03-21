@@ -142,7 +142,7 @@ After the above code,
     WT           1.4713    0.3009      0.0906    1.0000    1.9900       398    2
 
 Remarks
-+++++++
+-------
 
 1. If pairwise deletion is used, the minima and maxima will be the true
 values for the valid data. The means and standard deviations will be

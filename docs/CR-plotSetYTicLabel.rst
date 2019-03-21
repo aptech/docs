@@ -120,7 +120,7 @@ This will give axes labels which look similar to below:
                 28°                 80.0%
 
 Remarks
-+++++++
+-------
 
 The parameters of a sprintf style format string are:
 

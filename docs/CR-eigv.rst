@@ -39,7 +39,7 @@ After the above code:
              -0.2754           0.5643   0.2234   1.0458
 
 Remarks
-+++++++
+-------
 
 If x is an array,lambda will be an array containing the eigenvalues of
 each 2-dimensional array described by the two trailing dimensions of x,

@@ -46,7 +46,7 @@ After the above code, x will be a 3x1 vector, conaining
     3
 
 Remarks
-+++++++
+-------
 
 -  To convert string arrays to floating point numeric values, or to
    convert strings representing complex data, use strtof.

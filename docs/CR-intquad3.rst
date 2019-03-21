@@ -113,7 +113,7 @@ zlim is defined to be a 2x3 matrix. The value of  ans should be:
      5.2994691
 
 Remarks
-+++++++
+-------
 
 The user-defined function f must return a vector of function values.
 intquad3 will pass to the user-defined function a vector or matrix for

@@ -45,7 +45,7 @@ After the code above, s will be equal to:
      2.24
 
 Remarks
-+++++++
+-------
 
 #. svd is not threadsafe. New code should use svds instead.
 #. Error handling is controlled with the low bit of the trap flag.

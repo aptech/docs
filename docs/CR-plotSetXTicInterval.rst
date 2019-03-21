@@ -127,7 +127,7 @@ Let's keep the tick labels on the same locations, however, create 1 tick label e
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
 Remarks
-+++++++
+-------
 
 plotSetXTicInterval is supported for use with XY, Scatter, Contour and
 time series plots. It is ignored by other plot types.

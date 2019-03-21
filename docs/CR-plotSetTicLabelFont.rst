@@ -43,7 +43,7 @@ Examples
     plotScatter(myPlot, x, y);
 
 Remarks
-+++++++
+-------
 
 plotSetTicLabelFont does not apply changes to surface plots.
 

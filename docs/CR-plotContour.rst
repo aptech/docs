@@ -59,7 +59,7 @@ Examples
     plotContour(myPlot, x, y, z);
 
 Remarks
-+++++++
+-------
 
 A vector of evenly spaced contour levels will be generated automatically
 from the z matrix data. Each contour level will be labeled. For

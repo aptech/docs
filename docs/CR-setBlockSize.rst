@@ -33,7 +33,7 @@ Examples
     call olsmt("mydata.dat", "Y ~ X1 + X2");
 
 Remarks
-+++++++
+-------
 
 setBlockSize controls the maximum number of rows to read at a time for
 functions which can process datasets in chunks, such as olsmt and

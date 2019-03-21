@@ -132,7 +132,7 @@ The code above, will return:
            6.2831853        6.2831853        3.1415927
 
 Remarks
-+++++++
+-------
 
 For miss, elements in x that are equal to the corresponding elements in
 v will be replaced with the GAUSS missing value code.

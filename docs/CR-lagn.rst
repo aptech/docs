@@ -119,7 +119,7 @@ will assign lag_mat to equal:
          0        0        0        0   0.9160
 
 Remarks
-+++++++
+-------
 
 If t is positive, lagn lags x back t time periods, so the first t
 observations of y are filled with missing values. Ift is negative, lagn

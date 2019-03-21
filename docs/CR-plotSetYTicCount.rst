@@ -47,7 +47,7 @@ major tic for 0.2 on the y-axis. We can make that change like this:
 11 tic marks
 
 Remarks
-+++++++
+-------
 
 Note that plotSeTYticCount does not provide complete control over the
 y-axis tics. If the number of y-tics requested would cause an odd tic

@@ -174,7 +174,7 @@ Time Series Plot With Custom X-tics
     plotTSHF(myPlot, dts, "quarters", y);
 
 Remarks
-+++++++
+-------
 
 Formatting for the X-tick labels can be set with the function
 plotSetXTicLabel. If a plotControl structure is not passed in to

@@ -119,7 +119,7 @@ Specify Sheet Number
     x = xlsReadM(file, "A2:A10", 1);
 
 Remarks
-+++++++
+-------
 
 #. If range is a null string, then by default the read will begin at
    cell "A1".
