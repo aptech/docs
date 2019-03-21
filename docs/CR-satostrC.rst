@@ -82,7 +82,7 @@ After the code above, commodity_prices_fmt should be equal to:
     "Year 2014"   "224.1 cts/lb"     "6.6 $/kg"
 
 Source
-++++++
+------
 
 strfns.src
 

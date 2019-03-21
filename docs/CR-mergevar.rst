@@ -55,7 +55,7 @@ is equivalent to:
     agInc = age~income;
 
 Source
-++++++
+------
 
 vars.src
 

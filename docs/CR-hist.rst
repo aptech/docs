@@ -60,7 +60,7 @@ Examples
     { b,m,f } = hist(x,20);
 
 Source
-++++++
+------
 
 phist.src
 

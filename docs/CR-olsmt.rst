@@ -264,7 +264,7 @@ The above code will produce the following output:
     Age          0.019892    0.036174    0.549896     0.583    0.002218    0.103165
 
 Source
-++++++
+------
 
 olsmt.src
 

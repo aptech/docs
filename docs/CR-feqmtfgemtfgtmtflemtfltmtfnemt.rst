@@ -66,7 +66,7 @@ Examples
     endif;
 
 Source
-++++++
+------
 
 fcomparemt.src
 

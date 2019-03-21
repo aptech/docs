@@ -68,7 +68,7 @@ Examples
     The rank of x = 2.000
 
 Source
-++++++
+------
 
 rref.src
 

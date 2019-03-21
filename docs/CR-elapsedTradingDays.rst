@@ -46,7 +46,7 @@ Examples
     nDays = 12
 
 Source
-++++++
+------
 
 finutils.src
 

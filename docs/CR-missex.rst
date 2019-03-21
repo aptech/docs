@@ -72,7 +72,7 @@ All values in the interval (0.30, 0.60) are converted
 to missing.
 
 Source
-++++++
+------
 
 datatran.src
 

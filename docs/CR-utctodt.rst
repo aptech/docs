@@ -39,7 +39,7 @@ Examples
     dt = 20120829183329
 
 Source
-++++++
+------
 
 time.src
 

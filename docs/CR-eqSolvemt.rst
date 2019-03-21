@@ -194,7 +194,7 @@ The parameter values returned by eqSolveMT are located in the par member of the 
     x2 = pvUnpack(out.par, "x2");
 
 Source
-++++++
+------
 
 eqsolvemt.src
 

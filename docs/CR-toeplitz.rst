@@ -37,7 +37,7 @@ After the code above, y is equal to:
     5  4  2  2  3
 
 Source
-++++++
+------
 
 toeplitz.src
 

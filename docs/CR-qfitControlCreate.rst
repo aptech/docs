@@ -31,7 +31,7 @@ The members of the qfitControl structure and their default values are described 
 manual entry for quantileFit.
 
 Source
-++++++
+------
 
 quantilefit.src
 

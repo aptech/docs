@@ -48,7 +48,7 @@ The code above, returns:
                  age              bmi
 
 Source
-++++++
+------
 
 intrsect.src
 

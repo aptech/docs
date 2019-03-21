@@ -95,7 +95,7 @@ errors for a Tobit model:
       0.65223067  0.099827309
 
 Source
-++++++
+------
 
 qnewton.src
 

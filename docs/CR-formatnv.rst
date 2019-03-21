@@ -43,7 +43,7 @@ old format. This code:
      C 3.0000
 
 Source
-++++++
+------
 
 gauss.src
 

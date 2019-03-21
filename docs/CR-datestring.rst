@@ -33,7 +33,7 @@ produces the following output:
     12/18/2015
 
 Source
-++++++
+------
 
 time.src
 

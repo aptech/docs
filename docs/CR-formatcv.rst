@@ -44,7 +44,7 @@ produces:
      C 3
 
 Source
-++++++
+------
 
 gauss.src
 

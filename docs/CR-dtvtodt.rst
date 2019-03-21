@@ -56,7 +56,7 @@ The code above assigns dt as follows:
     20120916110722
 
 Source
-++++++
+------
 
 time.src
 

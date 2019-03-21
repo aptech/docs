@@ -56,7 +56,7 @@ produces:
     22.1930
 
 Source
-++++++
+------
 
 finprocs.src
 

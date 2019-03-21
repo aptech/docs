@@ -48,7 +48,7 @@ After the code above, t is equal to:
     5365440000
 
 Source
-++++++
+------
 
 time.src
 

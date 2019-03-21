@@ -39,7 +39,7 @@ Examples
     pqgwin many;
 
 Source
-++++++
+------
 
 pgraph.src
 

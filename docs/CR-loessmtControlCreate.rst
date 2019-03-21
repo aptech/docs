@@ -22,7 +22,7 @@ Examples
     lc = loessmtControlCreate();
 
 Source
-++++++
+------
 
 loessmt.src
 

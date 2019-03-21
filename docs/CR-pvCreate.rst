@@ -25,7 +25,7 @@ Examples
     p1 = pvCreate();
 
 Source
-++++++
+------
 
 pv.src
 

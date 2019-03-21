@@ -39,7 +39,7 @@ Examples
     maximum
 
 Source
-++++++
+------
 
 strput.src
 

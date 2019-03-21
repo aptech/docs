@@ -73,7 +73,7 @@ This represents the polynomial:
     x3 - 6x2 + 11x - 6
 
 Source
-++++++
+------
 
 poly.src
 

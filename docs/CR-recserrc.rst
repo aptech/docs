@@ -54,7 +54,7 @@ numbers 2, 8, and 10 in base 2:
     1 0 1 0
 
 Source
-++++++
+------
 
 recserrc.src
 

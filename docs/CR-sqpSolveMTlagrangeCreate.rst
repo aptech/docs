@@ -24,7 +24,7 @@ Examples
     sla = sqpSolveMTlagrangeCreate();
 
 Source
-++++++
+------
 
 sqpsolvemt.src
 

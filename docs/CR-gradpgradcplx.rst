@@ -64,7 +64,7 @@ It is a 3x3 matrix because we are passing it 3 arguments and myfunc returns 3 re
  that; the off-diagonals are zeros because the cross-derivatives of 3 arguments are 0.
 
 Source
-++++++
+------
 
 gradp.src
 

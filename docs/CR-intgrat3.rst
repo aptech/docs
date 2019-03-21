@@ -83,7 +83,7 @@ radius 5. The result will be approximately twice the volume of a
 sphere of radius 5.
 
 Source
-++++++
+------
 
 intgrat.src
 

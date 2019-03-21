@@ -32,7 +32,7 @@ produces:
     y = 243.00000
 
 Source
-++++++
+------
 
 time.src
 

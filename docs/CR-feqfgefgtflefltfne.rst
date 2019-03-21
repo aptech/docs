@@ -68,7 +68,7 @@ Examples
     endif;
 
 Source
-++++++
+------
 
 fcompare.src
 

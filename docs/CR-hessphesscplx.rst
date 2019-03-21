@@ -61,7 +61,7 @@ The resulting matrix of second partial derivatives of g(b) evaluated at b=b0 is:
          66080.596 132161.059 198240.695
 
 Source
-++++++
+------
 
 hessp.src
 

@@ -26,7 +26,7 @@ Examples
     ctl = integrateControlCreate();
 
 Source
-++++++
+------
 
 integrate.src
 

@@ -76,7 +76,7 @@ Examples
      3.000 6.000
 
 Source
-++++++
+------
 
 pv.src
 

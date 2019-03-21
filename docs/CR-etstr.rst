@@ -43,7 +43,7 @@ Output:
     str = 12 days  2 hours  15 minutes  56.42 seconds
 
 Source
-++++++
+------
 
 time.src
 

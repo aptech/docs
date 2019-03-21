@@ -73,7 +73,7 @@ which look like:
          1 0 0       1
 
 Source
-++++++
+------
 
 datatran.src
 

@@ -87,7 +87,7 @@ The above code assigns e and y as follows:
         1.2000000
 
 Source
-++++++
+------
 
 datatran.src
 

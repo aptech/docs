@@ -61,7 +61,7 @@ The code above, should return the following output:
     1
 
 Source
-++++++
+------
 
 pv.src
 

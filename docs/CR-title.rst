@@ -33,7 +33,7 @@ Fonts may be specified in the title string. For instructions on
 using fonts, see Selecting Fonts, Section 1.0.1.
 
 Source
-++++++
+------
 
 pgraph.src
 

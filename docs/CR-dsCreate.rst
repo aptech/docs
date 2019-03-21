@@ -25,7 +25,7 @@ Examples
     myData = dsCreate();
 
 Source
-++++++
+------
 
 ds.src
 

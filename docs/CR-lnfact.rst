@@ -55,7 +55,7 @@ Examples
         5912.1282
 
 Source
-++++++
+------
 
 lnfact.src
 

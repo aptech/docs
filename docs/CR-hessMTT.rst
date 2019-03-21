@@ -53,7 +53,7 @@ Examples
     h = hessMTT(&fct,p1,d0);
 
 Source
-++++++
+------
 
 hessmtt.src
 

@@ -75,7 +75,7 @@ the number of observations minus one, N - 1. For a population covariance
 matrix which uses N rather than N - 1 see varCovM or varCovX.
 
 Source
-++++++
+------
 
 corrs.src
 

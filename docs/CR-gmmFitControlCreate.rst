@@ -32,7 +32,7 @@ The members of an gmmFitControl structure and default values are described in
 the manual entry for gmmFit.
 
 Source
-++++++
+------
 
 gmm_est.src
 

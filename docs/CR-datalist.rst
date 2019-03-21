@@ -36,7 +36,7 @@ This command will display the variables age, sex, and pay
 from the data set freq.dat.
 
 Source
-++++++
+------
 
 datalist.src
 

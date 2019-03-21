@@ -65,7 +65,7 @@ http://www-2.rotman.utoronto.ca/~hull/technicalnotes/TechnicalNote8.pdf
 Accessed August 2017.
 
 Source
-++++++
+------
 
 finprocs.src
 

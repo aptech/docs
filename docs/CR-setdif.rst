@@ -107,7 +107,7 @@ When there are a lot of duplicates, it is faster to remove them first
 with unique before calling this function.
 
 Source
-++++++
+------
 
 setdif.src
 

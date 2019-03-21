@@ -46,7 +46,7 @@ After the code above, md is equal to:
     6.0000
 
 Source
-++++++
+------
 
 median.src
 

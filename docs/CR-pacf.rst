@@ -214,7 +214,7 @@ data_pacf
 The plot produced by the code above should look like this:
 
 Source
-++++++
+------
 
 tsutil.src
 

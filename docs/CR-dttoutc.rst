@@ -40,7 +40,7 @@ The above code produces the following output:
     tc = 985633642;
 
 Source
-++++++
+------
 
 time.src
 

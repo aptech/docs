@@ -71,7 +71,7 @@ Remarks
    ignored.
 
 Source
-++++++
+------
 
 strfns.src
 

@@ -76,7 +76,7 @@ add will respond:
     Sum is: 15.00
 
 Source
-++++++
+------
 
 token.src
 

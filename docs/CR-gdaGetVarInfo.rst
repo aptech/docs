@@ -412,7 +412,7 @@ Examples
     vtab = gdaGetVarInfo("myfile.gda");
 
 Source
-++++++
+------
 
 gdafns.src
 

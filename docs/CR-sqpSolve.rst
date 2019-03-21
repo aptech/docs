@@ -91,7 +91,7 @@ Examples
     { x,f,lagr,ret } = sqpSolve(&fct,start);
 
 Source
-++++++
+------
 
 sqpsolve.src
 

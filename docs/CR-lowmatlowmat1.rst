@@ -49,7 +49,7 @@ The resulting matrices are
         1 -2  4       1  -2   1
 
 Source
-++++++
+------
 
 diag.src
 

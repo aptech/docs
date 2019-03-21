@@ -127,7 +127,7 @@ Produces the following output:
            2.0437573     2.0271770     1.9025695     1.9228044
 
 Source
-++++++
+------
 
 quantile.src
 

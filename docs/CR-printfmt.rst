@@ -82,7 +82,7 @@ The output from the three different print statements will be:
 Only the final print statement from printfmt correctly prints both columns.
 
 Source
-++++++
+------
 
 gauss.src
 

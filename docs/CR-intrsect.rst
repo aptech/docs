@@ -120,7 +120,7 @@ The code above, will print the following output:
       oil
 
 Source
-++++++
+------
 
 intrsect.src
 

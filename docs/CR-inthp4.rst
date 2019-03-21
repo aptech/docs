@@ -131,7 +131,7 @@ References
    ACM Transactions on Mathematical Software, 10(2):140-151, June 1984.
 
 Source
-++++++
+------
 
 inthp.src
 

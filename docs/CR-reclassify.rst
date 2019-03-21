@@ -96,7 +96,7 @@ After the code above, order_prices is equal to:
     9.95
 
 Source
-++++++
+------
 
 datatran.src
 

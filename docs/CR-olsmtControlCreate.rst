@@ -31,7 +31,7 @@ The members of the olsmtControl structure and their default values are described
 manual entry for olsmt.
 
 Source
-++++++
+------
 
 olsmt.src
 

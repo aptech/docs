@@ -26,7 +26,7 @@ Examples
     dsm = dstatmtControlCreate();
 
 Source
-++++++
+------
 
 dstatmt.src
 

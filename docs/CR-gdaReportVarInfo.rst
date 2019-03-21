@@ -53,7 +53,7 @@ produces:
       3   a1  array 10x100x10
 
 Source
-++++++
+------
 
 gdafns.src
 

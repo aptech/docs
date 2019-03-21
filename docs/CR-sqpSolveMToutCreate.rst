@@ -24,7 +24,7 @@ Examples
     out = sqpSolveMToutCreate();
 
 Source
-++++++
+------
 
 sqpsolvemt.src
 

@@ -87,7 +87,7 @@ and then remove the pth column which will result in:
          1 0 0       1
 
 Source
-++++++
+------
 
 datatran.src
 

@@ -75,7 +75,7 @@ the number of observations N. For a sample covariance matrix which uses
 N - 1 rather than N see varCovMS or varCovXS.
 
 Source
-++++++
+------
 
 corrs.src
 

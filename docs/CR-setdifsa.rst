@@ -46,7 +46,7 @@ Now sy is equal to:
     linda
 
 Source
-++++++
+------
 
 setdif.src
 

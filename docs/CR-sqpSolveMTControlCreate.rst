@@ -26,7 +26,7 @@ Examples
     s = sqpSolveMTControlCreate();
 
 Source
-++++++
+------
 
 sqpsolvemt.src
 

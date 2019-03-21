@@ -191,7 +191,7 @@ After the code above:
     normal
 
 Source
-++++++
+------
 
 datatran.src
 

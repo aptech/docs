@@ -118,7 +118,7 @@ as suggested by Fisher, N.I. ... 1993, 158.
     print b~sqrt(diag(cov));
 
 Source
-++++++
+------
 
 ribesl.src
 

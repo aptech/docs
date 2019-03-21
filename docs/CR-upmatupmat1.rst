@@ -41,7 +41,7 @@ The resulting matrices are:
         0  0  8       0  0  1
 
 Source
-++++++
+------
 
 diag.src
 

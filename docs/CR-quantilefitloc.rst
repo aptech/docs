@@ -75,7 +75,7 @@ Examples
     q = quantileFitLoc(Y, X);
 
 Source
-++++++
+------
 
 quantilefit.src
 

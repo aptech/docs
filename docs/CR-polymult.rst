@@ -79,7 +79,7 @@ would be:
 missing.)
 
 Source
-++++++
+------
 
 poly.src
 

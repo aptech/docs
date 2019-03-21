@@ -115,7 +115,7 @@ Here is what x looks like after substitution:
     N 37 11
 
 Source
-++++++
+------
 
 datatran.src
 

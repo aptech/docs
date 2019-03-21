@@ -60,7 +60,7 @@ Examples
           0.73534559
 
 Source
-++++++
+------
 
 poly.src
 

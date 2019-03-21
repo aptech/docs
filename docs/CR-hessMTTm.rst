@@ -58,7 +58,7 @@ Examples
     h = hessMTTm(&fct,p1,d0,mask);
 
 Source
-++++++
+------
 
 hessmtt.src
 

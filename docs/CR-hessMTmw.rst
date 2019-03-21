@@ -64,7 +64,7 @@ Examples
     h = hessMTmw(&fct,p1,d0,mask,wgt);
 
 Source
-++++++
+------
 
 hessmt.src
 

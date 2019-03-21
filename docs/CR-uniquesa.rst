@@ -49,7 +49,7 @@ It is important to note that the return from uniquesa will always be a
 column vector, even if the input string array is a row vector.
 
 Source
-++++++
+------
 
 uniquesa.src
 

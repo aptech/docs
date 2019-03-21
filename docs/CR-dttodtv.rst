@@ -64,7 +64,7 @@ Examples
     2010 3 26 11 7 22 1 84
 
 Source
-++++++
+------
 
 time.src
 

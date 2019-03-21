@@ -93,7 +93,7 @@ You can raise a matrix to the n'th power with the command:
 A*A*A*A*...*A
 
 Source
-++++++
+------
 
 poly.src
 

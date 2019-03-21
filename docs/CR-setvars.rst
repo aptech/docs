@@ -33,7 +33,7 @@ Examples
     nvec = setvars("freq");
 
 Source
-++++++
+------
 
 vars.src
 

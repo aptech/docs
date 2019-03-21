@@ -46,7 +46,7 @@ After the code above, d is equal to:
     621
 
 Source
-++++++
+------
 
 time.src
 

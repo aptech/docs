@@ -45,7 +45,7 @@ The above code assigns the variables ind and y as follows:
            1        mary
 
 Source
-++++++
+------
 
 uniquesa.src
 

@@ -62,7 +62,7 @@ Least squares problems with full rank can also be solved with the GAUSS
 functions: ols, olsqr and olsqr2.
 
 Source
-++++++
+------
 
 svdmt.src
 

@@ -55,7 +55,7 @@ produce:
     0.2177
 
 Source
-++++++
+------
 
 finprocs.src
 

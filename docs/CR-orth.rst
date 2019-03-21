@@ -36,7 +36,7 @@ After the code above:
         -0.81373347       0.58123819          0  1
 
 Source
-++++++
+------
 
 qqr.src
 

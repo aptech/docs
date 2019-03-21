@@ -42,7 +42,7 @@ The above code produces the following output:
     sally
 
 Source
-++++++
+------
 
 unionsa.src
 

@@ -285,7 +285,7 @@ Remarks
    dstatmt("h5://testdata.h5/mydata").
 
 Source
-++++++
+------
 
 dstatmt.src
 

@@ -111,7 +111,7 @@ pvPutParVector will overwrite the free parameters with the new data passed in.
       12.000  5.000 13.000
 
 Source
-++++++
+------
 
 pv.src
 

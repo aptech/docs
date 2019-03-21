@@ -42,7 +42,7 @@ After the above code, y is equal to:
      0.76159416
 
 Source
-++++++
+------
 
 trig.src
 

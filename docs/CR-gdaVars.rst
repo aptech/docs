@@ -24,7 +24,7 @@ Examples
     nvars = gdaVars("myfile.gda");
 
 Source
-++++++
+------
 
 gdafns.src
 

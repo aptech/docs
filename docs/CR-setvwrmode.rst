@@ -40,7 +40,7 @@ Examples
     call setvwrmode(oldmode);
 
 Source
-++++++
+------
 
 pgraph.src
 

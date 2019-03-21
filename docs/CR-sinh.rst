@@ -36,7 +36,7 @@ The above statement produces, y equal to:
     11.548739
 
 Source
-++++++
+------
 
 trig.src
 

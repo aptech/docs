@@ -51,7 +51,7 @@ Examples
     endwind;                  /* create graph */
 
 Source
-++++++
+------
 
 pdraw.src
 

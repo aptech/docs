@@ -101,7 +101,7 @@ with 500 observations (rows), and the columns are given the names 'V001',
 'V002', ..., 'V100'.
 
 Source
-++++++
+------
 
 datafile.src
 

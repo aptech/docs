@@ -46,7 +46,7 @@ The code above, returns the following:
 This will integrate the function between 0 and 1.
 
 Source
-++++++
+------
 
 intsimp.src
 

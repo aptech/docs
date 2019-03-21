@@ -167,7 +167,7 @@ definition of f(x,y). This allows f to return
 a vector or matrix of function values.
 
 Source
-++++++
+------
 
 intgrat.src
 

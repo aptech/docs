@@ -107,7 +107,7 @@ with 1000 observations (rows), and the columns are given the names 'random1'
 and 'random2'.
 
 Source
-++++++
+------
 
 datafile.src
 

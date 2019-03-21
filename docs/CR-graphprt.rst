@@ -83,7 +83,7 @@ The above string cmdstr will read as follows:
     "-c=1 -cf=mycvt.eps -q"
 
 Source
-++++++
+------
 
 pgraph.src
 

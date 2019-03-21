@@ -59,7 +59,7 @@ combine strings with the delimiter added only between tokens, see
 strjoin.
 
 Source
-++++++
+------
 
 strfns.src
 

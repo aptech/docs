@@ -74,7 +74,7 @@ Continuing with the data above:
         0.00 0.00
 
 Source
-++++++
+------
 
 fcompare.src
 

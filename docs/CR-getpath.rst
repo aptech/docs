@@ -37,7 +37,7 @@ Examples
 assuming that C:\gauss is the current directory.
 
 Source
-++++++
+------
 
 getpath.src
 

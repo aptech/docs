@@ -97,7 +97,7 @@ This example computes descriptive statistics on the
 first, fourth, fifth and eighth variables in myfile.gda.
 
 Source
-++++++
+------
 
 gdadstat.src
 

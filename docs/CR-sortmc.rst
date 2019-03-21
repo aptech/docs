@@ -56,7 +56,7 @@ based upon row one like sortc. Then sortmc sorted the rows in which
 the first column was the same (in our example they are both threes), based upon the values in the second column.
 
 Source
-++++++
+------
 
 sortmc.src
 

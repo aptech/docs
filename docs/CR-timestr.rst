@@ -33,7 +33,7 @@ Examples
     7:31:46
 
 Source
-++++++
+------
 
 time.src
 

@@ -58,7 +58,7 @@ example as shown. Otherwise you will need to substitute another
 data set name for "freqdata.dat".
 
 Source
-++++++
+------
 
 exctsmpl.src
 

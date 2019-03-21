@@ -132,7 +132,7 @@ If you wanted to calculate the statistics on just the first, third and fifth col
 Notice in these lines above that COLS still contains all of the variable names i.e. X1, X2, X3, X4 and X5. COLS should always contain the full list of all variables in the matrix A.
 
 Source
-++++++
+------
 
 gdadstat.src
 

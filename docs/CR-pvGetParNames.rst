@@ -62,7 +62,7 @@ Since mask has ones in the [1,1] and [2,2] locations, the code above, produces:
      P[2,2]
 
 Source
-++++++
+------
 
 pv.src
 

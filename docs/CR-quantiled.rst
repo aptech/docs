@@ -147,7 +147,7 @@ See also
 `Formula String <LF.11-FormulaString.html#FormulaString>`__
 
 Source
-++++++
+------
 
 quantile.src
 

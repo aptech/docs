@@ -45,7 +45,7 @@ This example calculates the complex Schur form for a real
 matrix a.
 
 Source
-++++++
+------
 
 schtoc.src
 

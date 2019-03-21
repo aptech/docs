@@ -164,7 +164,7 @@ data set name must be provided, e.g.
 glm("h5://C:/gauss17/examples/testdata.h5/mydata").
 
 Source
-++++++
+------
 
 datafile.src
 

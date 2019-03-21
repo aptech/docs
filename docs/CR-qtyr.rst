@@ -405,7 +405,7 @@ The QR algorithm is the numerically superior method for the solution of least sq
     s2 = sumc(q2ty^2);
 
 Source
-++++++
+------
 
 qtyr.src
 

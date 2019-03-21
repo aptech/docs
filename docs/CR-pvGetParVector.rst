@@ -69,7 +69,7 @@ print statement above, returns:
      2.000
 
 Source
-++++++
+------
 
 pv.src
 

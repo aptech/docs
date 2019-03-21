@@ -49,7 +49,7 @@ will return:
         4.1000000
 
 Source
-++++++
+------
 
 lag.src
 

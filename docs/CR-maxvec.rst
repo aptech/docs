@@ -44,7 +44,7 @@ Examples
     20000.000
 
 Source
-++++++
+------
 
 system.src
 

@@ -134,7 +134,7 @@ To integrate over a region which is bounded by functions, rather than
 just scalars, use intgrat2 or intgrat3.
 
 Source
-++++++
+------
 
 integral.src
 

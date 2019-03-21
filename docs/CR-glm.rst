@@ -593,7 +593,7 @@ Remarks
    (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
 
 Source
-++++++
+------
 
 glm.src
 

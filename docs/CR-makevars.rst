@@ -73,7 +73,7 @@ This is the same as the example above, except that strings are used
 for the variable names.
 
 Source
-++++++
+------
 
 vars.src
 

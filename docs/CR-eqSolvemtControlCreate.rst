@@ -32,7 +32,7 @@ The members of an eqSolvemtControl structure and default values are described in
 the manual entry for eqSolvemt.
 
 Source
-++++++
+------
 
 eqsolvemt.src
 

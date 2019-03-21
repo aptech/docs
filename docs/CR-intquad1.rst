@@ -91,7 +91,7 @@ After the code above, y should equal:
     0.31863247
 
 Source
-++++++
+------
 
 integral.src
 

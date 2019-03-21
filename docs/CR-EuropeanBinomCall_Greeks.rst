@@ -75,7 +75,7 @@ produces:
      56.677
 
 Source
-++++++
+------
 
 finprocs.src
 

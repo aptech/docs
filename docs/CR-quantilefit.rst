@@ -84,7 +84,7 @@ Examples
     qOut = quantileFit(Y, X, tau);
 
 Source
-++++++
+------
 
 quantilefit.src
 

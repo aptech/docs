@@ -81,7 +81,7 @@ Which will transform header_sa into:
     gamma
 
 Source
-++++++
+------
 
 strfns.src
 

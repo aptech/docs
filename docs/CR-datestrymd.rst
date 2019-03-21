@@ -35,7 +35,7 @@ returns:
     20151016
 
 Source
-++++++
+------
 
 time.src
 

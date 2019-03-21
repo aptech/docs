@@ -130,7 +130,7 @@ For higher performance if you plan to trim of the first nlags rows, use
 lagTrim.
 
 Source
-++++++
+------
 
 lag.src
 

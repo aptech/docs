@@ -57,7 +57,7 @@ Examples
      g = gradMTm(&fct,p1,d0,mask);
 
 Source
-++++++
+------
 
 gradmt.src
 

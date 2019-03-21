@@ -42,7 +42,7 @@ Examples
 The code above will assign n to be equal to 480.
 
 Source
-++++++
+------
 
 optim.src
 

@@ -174,7 +174,7 @@ The code above should return the following output:
     0.10305485
 
 Source
-++++++
+------
 
 qnewtonmt.src
 
