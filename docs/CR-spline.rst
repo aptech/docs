@@ -31,3 +31,21 @@ Format
 
     :returns: w (*TODO*), (K*g)x(N*g) matrix, interpolated ordinates.
 
+
+
+Remarks
+-------
+
+sigma contains the tension factor. This value indicates the curviness
+desired. If sigma is nearly zero (e.g., .001), the resulting surface is
+approximately the tensor product of cubic splines. Ifsigma is large
+(e.g., 50.0), the resulting surface is approximately bi-linear. Ifsigma
+equals zero, tensor products of cubic splines result. A standard value
+forsigma is approximately 1.
+
+g is the grid size factor. It determines the fineness of the output
+grid. Forg = 1, the output matrices are identical to the input matrices.
+Forg = 2, the output grid is twice as fine as the input grid, i.e.,u
+will have twice as many columns as x,v will have twice as many rows as
+y, andw will have twice as many rows and columns asz.
+

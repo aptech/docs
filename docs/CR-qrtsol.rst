@@ -19,3 +19,15 @@ Format
 
     :returns: x (*TODO*), PxL matrix.
 
+
+
+Remarks
+-------
+
+qrtsol applies a forward solve to R'x = b to solve for x. Generally R
+will be the R matrix from a QR factorization. qrtsol may be used,
+however, in any situation where R is upper triangular. If R is lower
+triangular, transpose before calling qrtsol.
+
+If R is not transposed, use qrsol.
+

@@ -27,3 +27,23 @@ Format
         "6", "Friday"
         "7", "Saturday"
 
+
+
+Remarks
+-------
+
+The DT scalar format is a double precision representation of the date
+and time. In the DT scalar format, the number
+
+::
+
+   a = 20150415183207;
+
+represents 18:32:07 or 6:32:07 PM on April 4, 2015.
+
+::
+
+   d = dayofweek(a);
+
+After running above code, d is 4 which means Wednesday.
+

@@ -22,3 +22,11 @@ Format
 
     :returns: dt (*TODO*), NxK matrix of DT scalar format dates.
 
+
+
+Remarks
+-------
+
+This amounts to 00:00:00 or midnight on the given day. The arguments
+must be ExE conformable.
+

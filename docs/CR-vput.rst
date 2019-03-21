@@ -23,3 +23,10 @@ Format
 
     :returns: dbufnew (*Kx1 vector*), the data buffer after x and  xname have been inserted.
 
+
+
+Remarks
+-------
+
+If dbuf already contains x, the new value of x will replace the old one.
+

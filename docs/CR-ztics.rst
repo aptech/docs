@@ -25,3 +25,14 @@ Format
         will be no labels.
     :type minordiv: scalar
 
+
+
+Remarks
+-------
+
+This routine fixes the scaling for all subsequent graphs until graphset
+is called.
+
+This gives you direct control over the axes endpoints and tick marks. If
+ztics is called after a call to scale3d, it will override scale3d.
+

@@ -62,3 +62,30 @@ Format
         "3     model matrices not conformable"
         "< 0     active constraints inconsistent"
 
+
+
+Remarks
+-------
+
+QProg solves the standard quadratic programming problem:
+
+::
+
+                   min ½x'Qx - x'R
+               
+
+subject to constraints,
+
+::
+
+                   Ax = B
+                   Cx ≤ D
+               
+
+and bounds,
+
+::
+
+                   xlow ≤ x ≤ xup
+               
+

@@ -36,3 +36,187 @@ Format
 
     :returns: e (*TODO*), Px1 permutation vector.
 
+
+
+Remarks
+-------
+
+Given X[.,E], where E is a permutation vector that permutes the columns
+of X, there is an orthogonal matrix Q such that Q'X[.,E] is zero below
+its diagonal, i.e.,
+
+::
+
+                   
+                       
+                           
+                               
+                                   
+                                       
+                                           Q
+                                           ′
+                                           X
+                                           
+                                               
+                                                    
+                                                   
+                                                       [
+                                                       .
+                                                       ⁢
+                                                       ,
+                                                        
+                                                       
+                                                           
+                                                               E
+                                                           
+                                                       
+                                                       ]
+                                                   
+                                                   =
+                                                    
+                                                   
+                                                       [
+                                                       
+                                                           
+                                                               
+                                                                   
+                                                                       
+                                                                           R
+                                                                       
+                                                                   
+                                                               
+                                                           
+                                                           
+                                                               
+                                                                   0
+                                                               
+                                                           
+                                                       
+                                                       ]
+                                                   
+                                               
+                                           
+                                       
+                                   
+                               
+                           
+                       
+                   
+               
+
+where R is upper triangular. If we partition
+
+::
+
+                   
+                       
+                           
+                               
+                                   
+                                       
+                                           Q
+                                           
+                                               
+                                                    
+                                                   =
+                                                    
+                                                   
+                                                       [
+                                                       
+                                                           
+                                                               
+                                                                   
+                                                                       Q
+                                                                   
+                                                                   
+                                                                       1
+                                                                   
+                                                               
+                                                               ⁢
+                                                                
+                                                               
+                                                                   
+                                                                        
+                                                                       Q
+                                                                   
+                                                                   
+                                                                       2
+                                                                   
+                                                               
+                                                           
+                                                       
+                                                       ]
+                                                   
+                                               
+                                           
+                                       
+                                   
+                               
+                           
+                       
+                   
+               
+
+where Q\ 1 has P columns, then
+
+::
+
+                   
+                       
+                           
+                               
+                                   
+                                       
+                                           X
+                                       
+                                   
+                                   
+                                       
+                                           
+                                               [
+                                               .
+                                               ⁢
+                                                
+                                               ,
+                                                
+                                               
+                                                   
+                                                       E
+                                                   
+                                               
+                                               ]
+                                                
+                                               =
+                                                
+                                               
+                                                   
+                                                       
+                                                           
+                                                               Q
+                                                           
+                                                           
+                                                               1
+                                                           
+                                                       
+                                                       ⁢
+                                                        
+                                                       R
+                                                   
+                                               
+                                           
+                                       
+                                   
+                               
+                           
+                       
+                   
+               
+
+is the QR decomposition of X[.,E].
+
+qtyrep allows you to control the pivoting. For example, suppose that X
+is a data set with a column of ones in the first column. If there are
+linear dependencies among the columns of X, the column of ones for the
+constant may get pivoted away. This column can be forced to be included
+among the linearly independent columns using pvt.
+

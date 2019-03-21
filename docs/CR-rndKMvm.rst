@@ -40,3 +40,10 @@ Format
 
     :returns: newstate (*500x1 vector*), the updated state.
 
+
+
+Remarks
+-------
+
+r and c will be truncated to integers if necessary.
+

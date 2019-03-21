@@ -44,3 +44,23 @@ Format
         "6", "illegal append value"
         "16", "(1) append specified but file did not exist; file was created (warning only)"
 
+
+
+Remarks
+-------
+
+If mode is set to (1) binary, a string of length len will be written to
+filename. If mode is set to (0) ASCII, the string will be output up to
+length len or until putf encounters a ^Z (ASCII 26) in str. The ^Z will
+not be written to filename.
+
+If append is set to (0) overwrite, the current contents of filename will
+be destroyed. If append is set to (1) append, filename will be created
+if it does not already exist.
+
+If an error occurs, putf will either return an error code or terminate
+the program with an error message, depending on the trap state. If bit 2
+(the 4's bit) of the trap flag is 0, putf will terminate with an error
+message. If bit 2 of the trap flag is 1, putf will return an error code.
+The value of the trap flag can be tested with trapchk.
+

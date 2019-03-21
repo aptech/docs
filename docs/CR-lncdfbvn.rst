@@ -23,3 +23,10 @@ Format
     :returns: y (*TODO*), max(N,L,P) x max(K,M,Q) matrix:
         ln Pr(X < x1, X < x2|r)
 
+
+
+Remarks
+-------
+
+x1, x2, and r must be ExE conformable.
+

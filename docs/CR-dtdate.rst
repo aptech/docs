@@ -31,3 +31,10 @@ Format
 
     :returns: dt (*TODO*), NxK matrix of DT scalar format dates.
 
+
+
+Remarks
+-------
+
+The arguments must be ExE conformable.
+

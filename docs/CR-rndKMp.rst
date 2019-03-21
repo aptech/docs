@@ -34,3 +34,16 @@ Format
 
     :returns: newstate (*500x1 vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) =  lambdaVar(x) =  lambdax  =  0, 1,....lambda  >  0
+
+r and c will be truncated to integers if necessary.
+

@@ -25,3 +25,20 @@ Format
     :returns: x (*r x c matrix*), Poisson
         distributed pseudo-random numbers.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
++--------------+---+-----------+
+| *E*\ (*x*)   | = | *lambda*  |
++--------------+---+-----------+
+| *Var*\ (*x*) | = | *lambda*  |
++--------------+---+-----------+
+| *x*          | = | 0,1,2,... |
++--------------+---+-----------+
+| *lambda*     | > | 0         |
++--------------+---+-----------+
+

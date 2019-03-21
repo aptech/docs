@@ -19,3 +19,15 @@ Format
     :param z: the Z position in plot coordinates.
     :type z: scalar
 
+
+
+Remarks
+-------
+
+The viewer MUST be outside of the workbox. The closer the observer, the
+more perspective distortion there will be.
+
+If viewxyz is not called, a default position will be calculated.
+
+Use view to locate the observer in workbox units.
+

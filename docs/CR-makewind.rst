@@ -30,3 +30,19 @@ Format
         If 0, the graphic panels will be nontransparent.
     :type typ: scalar
 
+
+
+Remarks
+-------
+
+Note that if this procedure is used when rotating the page, the passed
+parameters are scaled appropriately to the newly oriented page. The size
+and shift values will not be true inches when printed, but the graphic
+panel size to page size ratio will remain the same. The result of this
+implementation automates the rotation and eliminates the required
+graphic panel recalculations by the user.
+
+See the window command for creating tiled graphic panels. For more
+information on using graphic panels, see **Tiled Graphic Panels**,
+Section 1.0.1.
+

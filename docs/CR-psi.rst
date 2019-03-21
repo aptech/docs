@@ -16,3 +16,11 @@ Format
 
     :returns: f (*TODO*), NxK matrix.
 
+
+
+Remarks
+-------
+
+This program uses the analytical derivative of the log of the Lanczos
+series approximation for the Gamma function.
+

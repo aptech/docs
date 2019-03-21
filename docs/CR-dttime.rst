@@ -22,3 +22,10 @@ Format
 
     :returns: dt (*TODO*), NxK matrix of DT scalar format times.
 
+
+
+Remarks
+-------
+
+The arguments must be ExE conformable.
+

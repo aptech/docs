@@ -21,3 +21,14 @@ Format
         nontransparent (blanked).
     :type typ: scalar
 
+
+
+Remarks
+-------
+
+The graphic panels will be numbered from 1 to (row) x (col) starting
+from the left topmost graphic panel and moving right.
+
+See makewind for creating graphic panels of a specific size and
+position. (For more information, see **Graphic Panels**, Section 1.1.
+

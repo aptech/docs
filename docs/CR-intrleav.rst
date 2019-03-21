@@ -34,3 +34,15 @@ Format
         "-1", "numeric key, descending order"
         "-2", "character key, descending order"
 
+
+
+Remarks
+-------
+
+The two files MUST have exactly the same variables, that is, the same
+number of columns AND the same variable names. They must both already be
+sorted on the key column. This procedure will combine them into one
+large file, sorted by the key variable.
+
+If the inputs are null ("" or 0), the procedure will ask for them.
+

@@ -12,3 +12,15 @@ Format
 ----------------
 .. function:: nextwind
 
+
+
+Remarks
+-------
+
+This function selects the next available graphic panel to be the current
+graphic panel. This is the graphic panel in which the next graph will be
+drawn.
+
+See the discussion on using graphic panels in **Tiled Graphic Panels**,
+Section 1.0.1.
+

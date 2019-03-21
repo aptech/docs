@@ -18,3 +18,11 @@ Format
 
     :returns: x (*LxM matrix or string*), the item read from dbuf.
 
+
+
+Remarks
+-------
+
+vread, unlike vget, does not change the contents of dbuf. Reading x from
+dbuf does not remove it from dbuf.
+

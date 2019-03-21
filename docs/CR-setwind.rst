@@ -15,3 +15,15 @@ Format
     :param n: graphic panel number.
     :type n: scalar
 
+
+
+Remarks
+-------
+
+This function selects the specified graphic panel to be the current
+graphic panel. This is the graphic panel in which the next graph will be
+drawn.
+
+See the discussion on using graphic panels in **Graphic Panels**,
+Section 1.1.
+

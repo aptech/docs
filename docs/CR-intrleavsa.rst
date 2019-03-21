@@ -22,3 +22,14 @@ Format
 
     :returns: y (*TODO*), LxK interleaved (combined) string array.
 
+
+
+Remarks
+-------
+
+The two string arrays MUST have exactly the same number of columns AND
+have been already sorted on a key column.
+
+This procedure will combine them into one large string array, sorted by
+the key column.
+

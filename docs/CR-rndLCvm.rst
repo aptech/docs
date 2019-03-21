@@ -58,3 +58,10 @@ Format
         "[3]  the additive constant"
         "[4]  the original initialization seed"
 
+
+
+Remarks
+-------
+
+r and c will be truncated to integers if necessary.
+

@@ -11,3 +11,15 @@ Format
 ----------------
 .. function:: doswin
 
+
+
+Remarks
+-------
+
+Calling doswin is equivalent to:
+
+::
+
+   call
+    DOSWinOpen("", error(0));
+

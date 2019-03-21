@@ -25,3 +25,11 @@ Format
     :returns: xs (*_loess_numEvalx1 vector*), equally spaced
         abscissae values.
 
+
+
+Remarks
+-------
+
+Based on Cleveland, William S. "Robust Locally Weighted Regression and
+Smoothing Scatterplots." JASA, Vol. 74, 1979, 829-836.
+

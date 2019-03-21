@@ -39,3 +39,18 @@ Format
 
     :returns: newstate (*500x1 vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = a/(a+b)
+   Var(x) = a*b/((a+b+1)*(a+b2)
+   0 < x < 1a > 0b > 0
+
+r and c will be truncated to integers if necessary.
+

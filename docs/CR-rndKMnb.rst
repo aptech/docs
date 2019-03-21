@@ -39,3 +39,17 @@ Format
 
     :returns: newstate (*500x1 vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = (k * p)/(1 - p)
+   Var(x) = (k * p)/(1 - p)2x = 0, 1,....k > 00 < p < 1
+
+r and c will be truncated to integers if necessary.
+

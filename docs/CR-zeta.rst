@@ -15,3 +15,10 @@ Format
 
     :returns: f (*TODO*), NxK matrix.
 
+
+
+Remarks
+-------
+
+Euler MacLaurin series.
+

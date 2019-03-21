@@ -19,3 +19,11 @@ Format
     :param z: the Z length of the 3-D workbox.
     :type z: scalar
 
+
+
+Remarks
+-------
+
+The ratio between these values is what is important. If volume is not
+called, a default workbox will be calculated.
+

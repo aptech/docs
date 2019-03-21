@@ -24,3 +24,16 @@ Format
         "Microb", "bold and boxy."
         "Complex", "standard font with serif."
 
+
+
+Remarks
+-------
+
+The first font specified will be used for the axes numbers.
+
+If str is a null string, or fonts is not called, Simplex is loaded by
+default.
+
+For more information on how to select fonts within a text string, see
+**Publication Quality Graphics**, Chapter 1.
+

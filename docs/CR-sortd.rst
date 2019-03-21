@@ -31,3 +31,13 @@ Format
         "-1      numeric key, descending order."
         "-2      character key, descending order."
 
+
+
+Remarks
+-------
+
+The data setinfile will be sorted on the variablekeyvar, and will be
+placed in outfile.
+
+If the inputs are null ("" or 0), the procedure will ask for them.
+

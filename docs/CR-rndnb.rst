@@ -30,3 +30,12 @@ Format
     :returns: x (*r x c matrix*), negative
         binomial distributed pseudo-random numbers.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+

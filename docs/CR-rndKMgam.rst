@@ -35,3 +35,31 @@ Format
 
     :returns: newstate (*500x1 vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = alphaVar(x) = alphax > 0alpha > 0
+
+To generate gamma(alpha, theta) pseudo-random numbers where theta is a
+scale parameter, multiply the result of rndKMgam by theta.
+
+Thus
+
+::
+
+   z =  theta * rndgam(1,1, alpha);
+
+has the properties
+
+::
+
+   E(z) = alpha * thetaVar(z) = alpha * theta2z > 0alpha > 0theta > 0
+
+r and c will be truncated to integers if necessary.
+

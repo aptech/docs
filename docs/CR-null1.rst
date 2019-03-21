@@ -20,3 +20,23 @@ Format
 
     :returns: nu (*scalar*), the nullity of x.
 
+
+
+Remarks
+-------
+
+null1 computes an MxK matrix b, where K is the nullity of x, such that:
+
+::
+
+   x * b = 0 //NxK matrix of 0's
+
+and
+
+::
+
+   b'b = I   //MxM identity matrix
+
+The transpose of b is written to the data set named by dataset, unless
+the nullity of x is zero. If nu is zero, the data set is not written.
+

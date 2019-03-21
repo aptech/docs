@@ -18,3 +18,11 @@ Format
     :returns: err (*scalar*), 0 if successful, 1 if graphic panel matrix
         is invalid. Note that the file is written in either case.
 
+
+
+Remarks
+-------
+
+See the discussion on using graphics panels in **Tiled Graphic Panels**,
+Section 1.0.1.
+

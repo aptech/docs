@@ -21,3 +21,12 @@ Format
         Z values for a particular line.
     :type z: Nx1 or NxK matrix
 
+
+
+Remarks
+-------
+
+Missing values are ignored when plotting symbols. If missing values are
+encountered while plotting a curve, the curve will end and a new curve
+will begin plotting at the next non-missing value.
+

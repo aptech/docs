@@ -19,3 +19,11 @@ Format
 
     :returns: y (*Lx1 vector*), ln Pr(X < x|r)
 
+
+
+Remarks
+-------
+
+You can pass more than one set of abscissae at a time; each column of x
+is treated separately.
+

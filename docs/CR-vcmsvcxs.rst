@@ -19,3 +19,13 @@ Format
 
     :returns: vc (*TODO*), KxK variance-covariance matrix.
 
+
+
+Remarks
+-------
+
+The variance covariance matrix is that of the input data matrix. It is
+computed as the moment matrix of deviations about the mean divided by
+the number of observations N. For an unbiased estimator covariance
+matrix which uses N - 1 rather than N see vcm or vcx.
+

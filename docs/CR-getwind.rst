@@ -13,3 +13,11 @@ Format
 
     :returns: n (*scalar*), graphic panel number of current graphic panel.
 
+
+
+Remarks
+-------
+
+The current graphic panel is the graphic panel in which the next graph
+will be drawn.
+

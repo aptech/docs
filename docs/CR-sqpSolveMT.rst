@@ -80,3 +80,110 @@ Format
         "", "7", "error with constraints."
         "", "8", "function complex."
 
+
+
+Remarks
+-------
+
+There is one required user-provided procedure, the one computing the
+objective function to be minimized, and four other optional functions,
+one each for computing the equality constraints, the inequality
+constraints, the gradient of the objective function, and the Hessian of
+the objective function.
+
+All of these functions must take exactly the same input arguments. The
+first input argument is an instance of a structure of type PV. On input
+to the call to sqpSolveMT, this PV structure contains starting values
+for the parameters.
+
+Both of the structures of type PV are set up using the PV ''pack''
+procedures, pvPack, pvPackm, pvPacks, and pvPacksm. These procedures
+allow for setting up a parameter vector in a variety of ways.
+
+For example, we might have the following objective function for fitting
+a nonlinear curve to data:
+
+::
+
+   proc (1) = micherlitz(struct PV par1, y, x);
+      local p0,e,s2,x,y;
+      p0 = pvUnpack(par1, "parameters");
+      e = y - p0[1] - p0[2]*exp(-p0[3] * x);
+      retp(e'*e);
+   endp;
+
+In this example the dependent and independent variables are passed to
+the procedure as the second and third arguments to the procedure.
+
+The other optional procedures must take exactly the same arguments as
+the objective function. For example, to constrain the squared sum of the
+first two parameters to be greater than one in the above problem,
+provide the following procedure:
+
+::
+
+   proc (1) = ineqConst(struct PV par1, y, x);
+      local p0;
+      p0 = pvUnpack(p0, "parameters");
+      retp( (p0[2]+p0[1])^2 - 1);
+   endp;
+
+The following is a complete example for estimating the parameters of the
+Micherlitz equation in data with bounds constraints on the parameters
+and where an optional gradient procedure has been provided:
+
+::
+
+   //Create data needed by 'Micherlitz' procedure
+   y =  { 3.183,
+          3.059,
+          2.871,
+          2.622,
+          2.541,
+          2.184,
+          2.110,
+          2.075,
+          2.018,
+          1.903,
+          1.770,
+          1.762,
+          1.550 };
+    
+   x = seqa(1,1,13);
+    
+   //Declare control structure
+   struct sqpSolveMTControl c0;
+    
+   //Initialize structure to default values
+   c0 = sqpSolveMTControlCreate();
+    
+   //Constrain parameters to be positive  
+   c0.bounds = 0~100; 
+    
+   //Declare 'par1' to be a PV structure
+   struct PV par1;
+
+   //Initialize 'par1'
+   par1 = pvCreate();
+
+   //Add 3x1 vector named 'parameters' to 'p1'
+   par1 = pvPack(par1,.92|2.62|.114, "parameters");
+
+   //Declare 'out' to be an sqpsolvemt control structure
+   //to hold the results from sqpsolvemt
+   struct sqpSolveMTout out;
+
+   //Estimate the model parameters
+   out = sqpSolveMT(&Micherlitz,par1,y,x,c0);
+    
+   //Print returned parameter estimates
+   print "parameter estimates ";
+   print pvUnPack(out.par, "parameters");
+    
+   proc Micherlitz(struct PV par1, y, x);
+      local p0,e,s2;
+      p0 = pvUnpack(par1, "parameters");
+      e = y - p0[1] - p0[2]*exp(-p0[3] * x);
+     retp(e'*e);
+   endp;
+

@@ -22,3 +22,18 @@ Format
     :param minordiv: the number of minor subdivisions.
     :type minordiv: scalar
 
+
+
+Remarks
+-------
+
+This routine fixes the scaling for all subsequent graphs until graphset
+is called.
+
+This gives you direct control over the axes endpoints and tick marks. If
+ytics is called after a call to scale, it will override scale.
+
+X and Y axes numbering may be reversed for xy, logx, logy and loglog
+graphs. This may be accomplished by using a negative step value in the
+xtics and ytics functions.
+

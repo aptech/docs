@@ -33,3 +33,32 @@ Format
 
     :returns: indx2 (*Nx1 numeric vector*), the column indices of  var2.
 
+
+
+Remarks
+-------
+
+If an error occurs, indices2 will either return a scalar error code or
+terminate the program with an error message, depending on the trap
+state. If the low order bit of the trap flag is 0, indices2 will
+terminate with an error message. If the low order bit of the trap flag
+is 1, indices2 will return an error code. The value of the trap flag can
+be tested with trapchk; the return from indices2 can be tested with
+scalerr. You only need to check one argument; they will all be the same.
+The following error codes are possible:
+
+.. raw:: html
+
+   <div align="left">
+
++---+-----------------------------------------------------+
+| 1 | Can't open dataset.                                 |
++---+-----------------------------------------------------+
+| 2 | Index of variable out of range, or undefined data   |
+|   | set variables.                                      |
++---+-----------------------------------------------------+
+| 3 | First variable must be a single name or index.      |
++---+-----------------------------------------------------+
+| 4 | First variable contained in second set.             |
++---+-----------------------------------------------------+
+

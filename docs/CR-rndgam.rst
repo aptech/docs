@@ -25,3 +25,14 @@ Format
     :returns: x (*r x c matrix*), gamma
         distributed pseudo-random numbers.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = alphaVar(x) = alphax > 0alpha > 0
+
