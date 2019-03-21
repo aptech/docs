@@ -9,7 +9,7 @@ Computes implied volatilities for European put options using Black, Scholes, and
 
 Format
 ----------------
-.. function:: EuropeanBSPut_ImpVol(c,  S0,  K, r,  div,  tau)
+.. function:: EuropeanBSPut_ImpVol(c, S0, K, r, div, tau)
 
     :param c: put premiums
     :type c: Mx1 vector
@@ -24,7 +24,7 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar

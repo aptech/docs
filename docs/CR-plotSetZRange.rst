@@ -8,7 +8,7 @@ Sets the range for the Z-axis.
 
 Format
 ----------------
-.. function:: plotSetZRange(&myPlot,  z_min,  z_max)
+.. function:: plotSetZRange(&myPlot, z_min, z_max)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

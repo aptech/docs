@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: maxindc(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), Kx1 matrix containing the index of the maximum element in each column of x.
 

@@ -9,16 +9,16 @@ Computes numerical Hessian with weights.
 
 Format
 ----------------
-.. function:: hessMTw(&fct,  par1,  data1,  wgts)
+.. function:: hessMTw(&fct, par1, data1, wgts)
 
     :param &fct: pointer to procedure returning Nx1 vector.
     :type &fct: scalar
 
-    :param par1: an instance of structure of type PV containing parameter vector at which Hessian is to be evaluated.
-    :type par1: TODO
+    :param par1: 
+    :type par1: an instance of structure of type PV containing parameter vector at which Hessian is to be evaluated
 
-    :param data1: structure of type DS containing any data needed by  fct.
-    :type data1: TODO
+    :param data1: 
+    :type data1: structure of type DS containing any data needed by  fct
 
     :param wgts: weights.
     :type wgts: Nx1 vector

@@ -9,16 +9,16 @@ Computes numerical Hessian using gradient procedure with weights and using avail
 
 Format
 ----------------
-.. function:: hessMTTgw(&gfct,  par1,  data1,  wgts)
+.. function:: hessMTTgw(&gfct, par1, data1, wgts)
 
     :param gfct: pointer to procedure computing either 1xK gradient or NxK Jacobian
     :type gfct: scalar
 
-    :param par1: structure of type PV containing parameter vector at which Hessian is to be evaluated
-    :type par1: TODO
+    :param par1: 
+    :type par1: structure of type PV containing parameter vector at which Hessian is to be evaluated
 
-    :param data1: structure of type DS containing any data needed by fct
-    :type data1: TODO
+    :param data1: 
+    :type data1: structure of type DS containing any data needed by fct
 
     :param wgts: weights
     :type wgts: Nx1 vector

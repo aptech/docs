@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: svd(x)
 
-    :param x: NxP matrix whose singular values are to be computed.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix whose singular values are to be computed
 
     :returns: s (*Mx1 vector*), where M = min(N,P), containing the
         singular values of x arranged in descending order.

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: svd1(x)
 
-    :param x: NxP matrix whose singular values are to be computed.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix whose singular values are to be computed
 
     :returns: u (*NxN matrix*), the left singular vectors of x.
 

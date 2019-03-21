@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: trigamma(x)
 
-    :param x: MxN matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: MxN matrix or N-dimensional array
 
     :returns: y (*TODO*), MxN matrix or N-dimensional array, trigamma.
 

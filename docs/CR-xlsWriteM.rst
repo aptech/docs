@@ -8,10 +8,10 @@ Writes a GAUSS matrix to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: xlsWriteM(data,  file,  range,  sheet,  vls)
+.. function:: xlsWriteM(data, file, range, sheet, vls)
 
-    :param data: matrix.
-    :type data: TODO
+    :param data: 
+    :type data: matrix
 
     :param file: name of .xls or .xlsx file.
     :type file: string

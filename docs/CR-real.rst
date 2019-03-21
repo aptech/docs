@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: real(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
-    :returns: zr (*TODO*), NxK matrix or N-dimensional array, the real part of x.
+    :returns: zr (NxK matrix or N-dimensional array) the real part of x.
 
 Examples
 ----------------

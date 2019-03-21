@@ -14,14 +14,14 @@ Format
     :param x: Nx1 vector or scalar. x must be a positive number and < m
     :type x: NxK matrix
 
-    :param m: The size of the population from which draws will be made. ExE conformable with x. m must be > x, k and n.
-    :type m: TODO
+    :param m:  ExE conformable with x. m must be > x, k and n.
+    :type m: The size of the population from which draws will be made
 
-    :param k: The number of marked items. ExE conformable with  x.
-    :type k: TODO
+    :param k:  ExE conformable with  x.
+    :type k: The number of marked items
 
-    :param n: The number of items drawn from the population. ExE conformable with  x. 0 < k < m.
-    :type n: TODO
+    :param n:  ExE conformable with  x. 0 < k < m.
+    :type n: The number of items drawn from the population
 
     :returns: p (*TODO*), The probability of drawing x marked items. NxK matrix, Nx1 vector or scalar.
 

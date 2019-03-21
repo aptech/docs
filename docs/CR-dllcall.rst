@@ -16,9 +16,9 @@ Format
 			  (see dlibrary for an explanation of the search order) for a function named func, and calls the first instance it finds.  
 			  The default shared libraries are searched last.
 
-    :param func: the name of a function contained in a shared library (linked into GAUSS with dlibrary). If  func is not
+    :param func:  If  func is not
         specified or cannot be located in a shared library, dllcall will fail.
-    :type func: TODO
+    :type func: the name of a function contained in a shared library (linked into GAUSS with dlibrary)
 
     :param arg#: optional. These must be simple variable references; they cannot be expressions.
     :type arg#: arguments to be passed to  func

@@ -8,7 +8,7 @@ Replace all matches of a substring with a replacement string.
 
 Format
 ----------------
-.. function:: strreplace(str,  search,  replace)
+.. function:: strreplace(str, search, replace)
 
     :param str: to be searched and modified.
     :type str: string
@@ -31,7 +31,7 @@ str = "My doctor recommends more chocolates, because chocolates are healthy.";
 search = "chocolate";
 replace = "vegetable";
     
-new_str = strreplace(str,  search,  replace);
+new_str = strreplace(str, search, replace);
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 After the code above, new_str will be set to:
@@ -48,7 +48,7 @@ str = "100 Main Ave" $|
 search = "Avenue";
 replace = "Ave";
     
-new_str = strreplace(str,  search,  replace);
+new_str = strreplace(str, search, replace);
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 After the code above, new_str will be set to:

@@ -9,17 +9,17 @@ Used in data transformations.
 
 Format
 ----------------
-.. function:: recode(x,  e,  v)
+.. function:: recode(x, e, v)
 
-    :param x: Nx1 vector to be recoded (changed).
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector to be recoded (changed)
 
-    :param e: NxK matrix of 1's and 0's.
-    :type e: TODO
+    :param e: 
+    :type e: NxK matrix of 1's and 0's
 
-    :param v: Kx1 vector containing the new values to be
-        assigned to the recoded variable.
-    :type v: TODO
+    :param v: 
+    :type v: Kx1 vector containing the new values to be
+        assigned to the recoded variable
 
     :returns: y (*TODO*), Nx1 vector containing the recoded values of
         x.

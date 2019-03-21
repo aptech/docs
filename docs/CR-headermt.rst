@@ -9,7 +9,7 @@ Prints a header for a report.
 
 Format
 ----------------
-.. function:: headermt(prcnm,  dataset,  ver,  header,  title)
+.. function:: headermt(prcnm, dataset, ver, header, title)
 
     :param prcnm: name of procedure that calls header.
     :type prcnm: string

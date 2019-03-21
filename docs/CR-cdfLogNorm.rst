@@ -9,18 +9,18 @@ Computes the cumulative distribution function of the log-normal distribution.
 
 Format
 ----------------
-.. function:: cdfLogNorm(x, mu,  sigma)
+.. function:: cdfLogNorm(x[, mu, sigma])
 
-    :param x: or array, the limits of integration.
-    :type x: Matrix
+    :param x: the limits of integration.
+    :type x: matrix or array
 
-    :param mu: scalar, the mean parameter. Default = 0.
-    :type mu: Optional input
+    :param mu: Optional input, the mean parameter. Default = 0.
+    :type mu: scalar
 
-    :param sigma: scalar, the standard deviation parameter. Default = 1.
-    :type sigma: Optional input
+    :param sigma: Optional input, the standard deviation parameter. Default = 1.
+    :type sigma: scalar
 
-    :returns: p (*TODO*), Matrix or array of the same dimension as the input 'x', containing
+    :returns: p (matrix or array), the same dimension as the input *x*, containing
         the cumulative probabilities.
 
 Examples
@@ -34,7 +34,7 @@ Basic Example
     //Use default 'mu' and 'sigma'
     p = cdfLogNorm(1.7);
 
-After the above, code 'p' will equal:
+After the above, code *p* will equal:
 
 ::
 
@@ -55,7 +55,7 @@ Specify 'mu' and 'sigma'
     //parameterized by mu = 1.5 and sigma = 2
     p = cdfLogNorm(x, mu, sigma);
 
-After the above, code 'p' will equal:
+After the above, code *p* will equal:
 
 ::
 
@@ -64,3 +64,4 @@ After the above, code 'p' will equal:
     0.34331728
 
 .. seealso:: Functions :func:`cdfn_cdfNc`, :func:`pdfTruncNorm`, :func:`cdfTruncNorm`, :func:`pdfLogNorm`
+

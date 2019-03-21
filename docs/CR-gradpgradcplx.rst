@@ -24,8 +24,8 @@ Format
         endp;
     :type &f: TODO
 
-    :param x0: Kx1 vector of points at which to compute gradient.
-    :type x0: TODO
+    :param x0: 
+    :type x0: Kx1 vector of points at which to compute gradient
 
     :returns: g (*TODO*), NxK matrix containing the gradients of f with
         respect to the variable x at x0.

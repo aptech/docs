@@ -9,7 +9,7 @@ Computes Delta, Gamma, Theta, Vega, and Rho for European call options using Blac
 
 Format
 ----------------
-.. function:: EuropeanBSCall_Greeks(S0,  K, r,  div,  tau,  sigma)
+.. function:: EuropeanBSCall_Greeks(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar
@@ -21,7 +21,7 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar

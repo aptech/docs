@@ -8,51 +8,38 @@ Purpose
 
 Format
 ----------------
-.. function:: clusterSE(x, grp, resid) 
-			  		 
-			  clusterSE(x, grp, resid, const) 
-			   
-			  clusterSE(x, grp, resid, const, verbose) 
-			   
-			  clusterSE(x, grp, resid, const, verbose, var_names)	 
-			   
-			  clusterSE(dataset, formula, grp_var, resid) 
-			   
-			  clusterSE(dataset, formula, grp_var, resid, const) 
-			   
-			  clusterSE(dataset, formula, grp_var, resid, const, verbose) 
-			   
-			  clusterSE(dataset, formula, grp_var, resid, const, verbose, var_names)
+.. function:: clusterSE(x, grp, resid[, const, verbose, var_names])
+              clusterSE(dataset, formula, grp_var, resid[, const, verbose, var_names])
 
     :param x: independent regression variables, should not include a const.
-    :type x: N x K matrix
+    :type x: NxK matrix
 
     :param grp: vector of group indicators.
-    :type grp: NT x 1 matrix
+    :type grp: NTx1 matrix
 
-    :param resid: of ols residuals. Note: if using olsmt these are stored in the olsOut structure member resid.
-    :type resid: NT x 1 matrix
+    :param resid: ols residuals. Note: if using :func:`olsmt` these are stored in the :class:`olsOut` structure member *resid*.
+    :type resid: NTx1 matrix
 
     :param dataset: name of dataset.
     :type dataset: string
 
-    :param formula: formula string of the independent variables.
-        E.g "X1 + X2", 'X1' and 'X2' are names of independent variables;
+    :param formula: `formula string` of the independent variables.
+        E.g :code:`"X1 + X2"`, '*X1*' and '*X2*' are names of independent variables;
     :type formula: String
 
     :param grp_var: name of the group variable.
     :type grp_var: string
 
-    :param const: scalar, indicator variable for including a const. 1 for including a const, 0 for no const. Default = 1.
-    :type const: Optional input
+    :param const: Optional input, indicator variable for including a const. 1 for including a const, 0 for no const. Default = 1.
+    :type const: scalar
 
-    :param verbose: scalar, 1 to print results, 0 for no printing. Default = 1.
-    :type verbose: Optional input
+    :param verbose: Optional input, 1 to print results, 0 for no printing. Default = 1.
+    :type verbose: scalar
 
-    :param var_names: string array, variable names. Default = X1, X2, ..., XK.
-    :type var_names: Optional input
+    :param var_names: Optional input, variable names. Default = X1, X2, ..., XK.
+    :type var_names: string array
 
-    :returns: vce_cluster (*K x K matrix*), White cluster-robust variance-covariance matrix.
+    :returns: vce_cluster (*KxK matrix*), White cluster-robust variance-covariance matrix.
 
 Examples
 ----------------
@@ -108,7 +95,7 @@ This estimates the OLS regression and finds the i.i.d. standard errors:
     age:age     -0.001085    0.000058  -18.862899     0.000   -0.916788    0.265497
     tenure       0.039088    0.000774   50.479037     0.000    0.306895    0.370584
 
-Calling clusterSE estimates the cluster-robust standard errors:
+Calling :func:`clusterSE` estimates the cluster-robust standard errors:
 
 ::
 

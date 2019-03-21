@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: sysstate(case, y)
 
-    :param case: scalar 2-7, path to set.
-    :type case: TODO
+    :param case: , path to set.
+    :type case: scalar 2-7
 
     .. csv-table::
         :widths: auto

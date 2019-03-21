@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: pinv(x)
 
-    :param x: NxM matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxM matrix
 
     :returns: y (*TODO*), MxN matrix that satisfies the 4 Moore-Penrose
         conditions:

@@ -13,8 +13,8 @@ Format
 .. function:: upmat(x)  
 			  upmat1(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: u (*TODO*), NxK matrix containing the upper elements of x. The lower elements are
         replaced with zeros. upmat returns the main diagonal intact. upmat1

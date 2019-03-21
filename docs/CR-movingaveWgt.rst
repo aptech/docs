@@ -9,10 +9,10 @@ Computes weighted moving average of a series
 
 Format
 ----------------
-.. function:: movingaveWgt(x,  d,  w)
+.. function:: movingaveWgt(x, d, w)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :param d: order of moving average.
     :type d: scalar

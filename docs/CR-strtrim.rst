@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: strtrim(sa)
 
-    :param sa: NxM string array.
-    :type sa: TODO
+    :param sa: 
+    :type sa: NxM string array
 
     :returns: y (*TODO*), NxM string array.
 
@@ -51,7 +51,7 @@ each variable name is an element in the string array.
 ::
 
     //Create string similar to a messy header row
-    header_vars = "alpha, beta,   gamma";
+    header_vars = "alpha, beta, gamma";
     
     //Split string into 3x1 string array at comma locations//(notice the transpose operator ' at the end of the statement
     header_sa = strsplit(header_vars, ",")';

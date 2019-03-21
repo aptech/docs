@@ -9,10 +9,10 @@ Converts string dates to a matrix containing dates in Posix date/time format, us
 
 Format
 ----------------
-.. function:: strctoposix(x,  fmt)
+.. function:: strctoposix(x, fmt)
 
-    :param x: NxK string array containing dates.
-    :type x: TODO
+    :param x: 
+    :type x: NxK string array containing dates
 
     :param fmt: or  ExE conformable string array containing strftime date/time format characters.
     :type fmt: string

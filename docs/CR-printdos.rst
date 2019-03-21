@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: printdos s
 
-    :param s: string to be printed to the standard output.
-    :type s: TODO
+    :param s: 
+    :type s: string to be printed to the standard output
 
 Examples
 ----------------

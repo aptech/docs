@@ -10,10 +10,10 @@ plotHist instead.
 
 Format
 ----------------
-.. function:: hist(x,  v)
+.. function:: hist(x, v)
 
-    :param x: Mx1 vector of data.
-    :type x: TODO
+    :param x: 
+    :type x: Mx1 vector of data
 
     :param v: the breakpoints to be used to compute the frequencies
         - or -scalar, the number of categories.

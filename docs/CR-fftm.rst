@@ -9,7 +9,7 @@ Computes a multi-dimensional FFT.
 
 Format
 ----------------
-.. function:: fftm(x,  dim)
+.. function:: fftm(x, dim)
 
     :param x: data.
     :type x: Mx1 vector

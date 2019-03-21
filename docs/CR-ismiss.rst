@@ -12,8 +12,8 @@ Format
 ----------------
 .. function:: ismiss(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*scalar*), 1 if x contains any missing values, otherwise 0.
 

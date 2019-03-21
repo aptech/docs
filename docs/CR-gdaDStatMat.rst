@@ -9,10 +9,10 @@ Computes descriptive statistics on a selection of columns from a matrix located 
 
 Format
 ----------------
-.. function:: gdaDStatMat(dc0,  filename, gmat,  colind, vnamevar)
+.. function:: gdaDStatMat(dc0, filename, gmat, colind, vnamevar)
 
-    :param dc0: an instance of a dstatmtControl structure with the following members:
-    :type dc0: TODO
+    :param dc0: 
+    :type dc0: an instance of a dstatmtControl structure with the following members:
 
     .. csv-table::
         :widths: auto

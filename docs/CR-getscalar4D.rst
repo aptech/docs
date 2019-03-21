@@ -9,10 +9,10 @@ Gets a scalar from a 4-dimensional array.
 
 Format
 ----------------
-.. function:: getscalar4D(a,  i1,  i2,  i3,  i4)
+.. function:: getscalar4D(a, i1, i2, i3, i4)
 
-    :param a: 4-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: 4-dimensional array
 
     :param i1: index into the slowest moving dimension of the array.
     :type i1: scalar

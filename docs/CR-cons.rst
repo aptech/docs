@@ -13,6 +13,14 @@ Format
 
     :returns: x (*string*), the characters entered from the keyboard
 
+Remarks
+-------
+
+*x* is assigned the value of a character string typed in at the keyboard.
+The program will pause to accept keyboard input. The maximum length of
+the string that can be entered is 254 characters. The program will
+resume execution when the ``ENTER`` key is pressed.
+
 Examples
 ----------------
 
@@ -26,10 +34,11 @@ At the cursor enter:
 
     probability
 
-Now x will be equal to:
+Now *x* will be equal to:
 
 ::
 
     x = "probability";
 
 .. seealso:: Functions :func:`con`
+

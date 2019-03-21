@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: saveall fname
 
-    :param fname: literal or ^string, the path and
+    :param fname: , the path and
         filename of the compiled file to be created.
-    :type fname: TODO
+    :type fname: literal or ^string
 

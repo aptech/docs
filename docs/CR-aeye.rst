@@ -12,11 +12,19 @@ Format
 ----------------
 .. function:: aeye(ord)
 
-    :param ord: the sizes of the dimensions
-        of  a.
+    :param ord: the sizes of the dimensions of *a*.
     :type ord: Nx1 vector of orders
 
-    :returns: a (*TODO*), N-dimensional array, containing 2-dimensional identity arrays.
+    :returns: a (N-dimensional array), containing 2-dimensional identity arrays.
+
+Remarks
+-------
+
+If *ord* contains numbers that are not integers, they will be truncated to
+integers.
+
+The planes described by the two trailing dimensions of *a* will contain
+1's down the diagonal and 0's everywhere else.
 
 Examples
 ----------------
@@ -44,3 +52,4 @@ a will be a 2x3x3 array, such that:
     0 0 1
 
 .. seealso:: Functions :func:`eye`
+

@@ -9,7 +9,7 @@ Purpose
 
 Format
 ----------------
-.. function:: rowcontains(haystack,  needles)
+.. function:: rowcontains(haystack, needles)
 
     :param haystack: multi-dimensional array or string array in which to search.
     :type haystack: matrix

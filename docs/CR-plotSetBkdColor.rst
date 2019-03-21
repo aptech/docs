@@ -8,7 +8,7 @@ Sets the background color of a graph.
 
 Format
 ----------------
-.. function:: plotSetBkdColor(&myPlot,  color)
+.. function:: plotSetBkdColor(&myPlot, color)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

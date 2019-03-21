@@ -10,10 +10,10 @@ dataset.
 
 Format
 ----------------
-.. function:: null1(x,  dataset)
+.. function:: null1(x, dataset)
 
-    :param x: NxM matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxM matrix
 
     :param dataset: the name of a data set null1 will write.
     :type dataset: string

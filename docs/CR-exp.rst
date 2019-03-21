@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: exp(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
     :returns: y (*TODO*), NxK matrix or N-dimensional array containing  e, the base of natural
         logs, raised to the powers given by the

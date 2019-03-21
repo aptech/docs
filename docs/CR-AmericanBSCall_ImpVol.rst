@@ -8,7 +8,7 @@ Computes implied volatilities for American call options using Black, Scholes, an
 
 Format
 ----------------
-.. function:: AmericanBSCall_ImpVol(c,  S0,  K, r,  div,  tau)
+.. function:: AmericanBSCall_ImpVol(c, S0, K, r, div, tau)
 
     :param c: call premiums.
     :type c: Mx1 vector
@@ -23,7 +23,7 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
@@ -57,8 +57,7 @@ produces:
     0.19375031
 
 Source
-++++++
+------------
 
 finprocs.src
-
 

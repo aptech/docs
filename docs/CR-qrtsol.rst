@@ -9,13 +9,13 @@ Computes the solution of R'x = b where R is an upper triangular matrix.
 
 Format
 ----------------
-.. function:: qrtsol(b,  R)
+.. function:: qrtsol(b, R)
 
-    :param b: PxL matrix.
-    :type b: TODO
+    :param b: 
+    :type b: PxL matrix
 
-    :param R: PxP upper triangular matrix.
-    :type R: TODO
+    :param R: 
+    :type R: PxP upper triangular matrix
 
     :returns: x (*TODO*), PxL matrix.
 

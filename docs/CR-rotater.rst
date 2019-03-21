@@ -11,12 +11,12 @@ Format
 ----------------
 .. function:: rotater(x, r)
 
-    :param x: NxK matrix to be rotated.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix to be rotated
 
-    :param r: Nx1 or 1x1 matrix specifying the amount of
-        rotation.
-    :type r: TODO
+    :param r: 
+    :type r: Nx1 or 1x1 matrix specifying the amount of
+        rotation
 
     :returns: y (*TODO*), NxK rotated matrix.
 

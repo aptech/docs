@@ -9,25 +9,25 @@ Computes Wishart distributed random numbers given a covariance matrix.
 
 Format
 ----------------
-.. function:: rndWishart(numMats,  cov,  df, state) 
-			  rndWishart(numMats,  cov,  df)
+.. function:: rndWishart(numMats, cov, df, state) 
+			  rndWishart(numMats, cov, df)
 
     :param numMats: number of Wishart random matrices to create.
     :type numMats: Scalar
 
-    :param cov: NxM covariance matrix.
-    :type cov: TODO
+    :param cov: 
+    :type cov: NxM covariance matrix
 
     :param df: degrees of freedom.
     :type df: Scalar
 
-    :param state: Optional argument - scalar or opaque vector.
+    :param state: 
         Scalar case:state = starting seed value only. If -1, GAUSS
         computes the starting seed based on the system clock.
         
         Opaque vector case:state = the state vector returned from a previous
         call to one of the rnd random number functions.
-    :type state: TODO
+    :type state: Optional argument - scalar or opaque vector
 
     :returns: r (*TODO*), numMats * rows(cov) x N matrix, wishart random matrices.
 

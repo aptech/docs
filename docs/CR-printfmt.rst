@@ -12,8 +12,8 @@ Format
 ----------------
 .. function:: printfmt(x, mask)
 
-    :param x: NxK matrix which is to be printed.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix which is to be printed
 
     :param mask: 1 if x is numeric or 0 if x is character.
         

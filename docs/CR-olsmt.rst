@@ -22,8 +22,8 @@ Format
         E.g "y ~ -1 + X1 + X2", '-1' means no intercept model.
     :type formula: String
 
-    :param depvar: If  dataset contains a string:
-    :type depvar: TODO
+    :param depvar: 
+    :type depvar: If  dataset contains a string:
 
     .. csv-table::
         :widths: auto
@@ -32,8 +32,8 @@ Format
         "If  dataset is a null string or 0:"
         "Nx1 vector, the dependent variable."
 
-    :param indvars: If  dataset contains a string:
-    :type indvars: TODO
+    :param indvars: 
+    :type indvars: If  dataset contains a string:
 
     .. csv-table::
         :widths: auto
@@ -70,7 +70,7 @@ Format
         "", "0", "do not print statistics."
         "oc0.res", "scalar, default 0."
         "", "1", "compute residuals (resid) and Durbin-Watson statistic (dwstat.)"
-        "", "0", "oout.resid = 0,  oout.dwstat = 0."
+        "", "0", "oout.resid = 0, oout.dwstat = 0."
         "oc0.rnam", "string, default "_olsmtres".If the data is taken from a data set, a new data set will be created for the residuals, using the name in oc0.rnam."
         "oc0.maxvec", "scalar, default 20000.The largest number of elements allowed in any one matrix."
         "oc0.fcmptol", "scalar, default 1e-12.Tolerance used to fuzz the comparison operations to allow for round off error."

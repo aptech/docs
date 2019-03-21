@@ -8,13 +8,13 @@ Multiplies a sparse matrix transposed by a dense matrix.
 
 Format
 ----------------
-.. function:: spTrTDense(s,  d)
+.. function:: spTrTDense(s, d)
 
-    :param s: NxM sparse matrix.
-    :type s: TODO
+    :param s: 
+    :type s: NxM sparse matrix
 
-    :param d: NxL dense matrix.
-    :type d: TODO
+    :param d: 
+    :type d: NxL dense matrix
 
     :returns: y (*MxL dense matrix*), the result of  s'*d.
 

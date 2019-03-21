@@ -10,20 +10,20 @@ Format
 ----------------
 .. function:: cdfFc(x, n1, n2)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param n1: ExE conformable with x.
+    :param n1: ExE conformable with *x*.
     :type n1: LxM matrix
 
-    :param n2: ExE conformable with x and  n1.
+    :param n2: ExE conformable with *x* and *n1*.
     :type n2: PxQ matrix
 
-    :returns: y (*TODO*), max(N,L,P) by max(K,M,Q) matrix
+    :returns: y (*matrix*), max(N,L,P) by max(K,M,Q)
 
 Examples
 ----------------
-cdffc can be used to calculate a p-value from an F-statistic.
+:func:`cdffc` can be used to calculate a p-value from an F-statistic.
 
 ::
 
@@ -40,23 +40,20 @@ will return:
     0.042803132
 
 Remarks
-+++++++
+------------
 
-y is the integral from x to ∞ of the F distribution with n1 and n2
+*y* is the integral from *x* to :math:`∞` of the *F* distribution with *n1* and *n2*
 degrees of freedom.
 
 This equals
 
-::
+.. math:: 1 - G(x, n1, n2)
 
-   1 - G(x, n1, n2)
+where *G* is the *F* cdf with *n1* and *n2* degrees of freedom. Thus, to get the *F* cdf, use:
 
-where G is the F cdf with n1 and n2 degrees of freedom. Thus, to get the
-F cdf, use:
+:: 
 
-::
-
-   1 - cdfFc(x, n1, n2);
+    1 - cdfFc(x, n1, n2);
 
 The complement of the cdf is computed because this is what is most
 commonly needed in statistical applications, and because it can be
@@ -64,7 +61,7 @@ computed with fewer problems of roundoff error.
 
 Allowable ranges for the arguments are:
 
-::
+.. math::
 
     x > 0
    n1 > 0
@@ -72,20 +69,18 @@ Allowable ranges for the arguments are:
 
 A -1 is returned for those elements with invalid inputs.
 
-For max(n1,n2) <= 1000, the absolute error is approx. ±5e-13. For
-max(n1,n2) > 1000, Normal approximations are used and the absolute error
-is approx. ±2e-6.
+For :math:`max(n1,n2) <= 1000`, the absolute error is approx. :math:`±5e-13`. For
+:math:`max(n1,n2) > 1000`, Normal approximations are used and the absolute error
+is approx. :math:`±2e-6`.
 
-For higher accuracy when max(n1,n2) > 1000, use
+For higher accuracy when :math:`max(n1,n2) > 1000`, use
 
 ::
 
    cdfBeta(n2/(n2 + n1*x), n2/2, n1/2);
 
-.. seealso:: Functions :func:`cdfBeta`, :func:`cdfChic`, :func:`cdfN`, :func:`cdfNc`, :func:`cdfTc`, :func:`gamma`
-
 References
-++++++++++
+------------
 
 #. Bol'shev, L.N. "Asymptotically Perason's Transformations." Teor.
    Veroyat. Primen. Theory of Probability and its Applications. Vol. 8,
@@ -111,4 +106,5 @@ References
 #. Pike, M.C. and I.D. Hill, "Remark on Algorithm 179 Incomplete Beta
    Ratio." Comm. ACM. Vol. 10, No. 6, June 1967, 375-76.
 
-F complement cdf cumulative distribution function
+.. seealso:: Functions :func:`cdfBeta`, :func:`cdfChic`, :func:`cdfN`, :func:`cdfNc`, :func:`cdfTc`, :func:`gamma`
+

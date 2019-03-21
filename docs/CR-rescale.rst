@@ -8,10 +8,10 @@ Scales the columns of a matrix
 
 Format
 ----------------
-.. function:: rescale(x,  location,  scale_factor)
+.. function:: rescale(x, location, scale_factor)
 
-    :param x: NxK matrix or NxK array to be rescaled
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or NxK array to be rescaled
 
     :param location: used for column centering
     :type location: 1xK vector

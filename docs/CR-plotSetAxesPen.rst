@@ -8,7 +8,7 @@ Sets the color for the axes line.
 
 Format
 ----------------
-.. function:: plotSetAxesPen(&myPlot,  thickness)plotSetAxesPen(&myPlot,  thickness, clr)
+.. function:: plotSetAxesPen(&myPlot, thickness)plotSetAxesPen(&myPlot, thickness, clr)
 
     :param &myPlot: A plotControl structure pointer
     :type &myPlot: TODO

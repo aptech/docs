@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: det(x)
 
-    :param x: NxN square matrix or K-dimensional array where the last two dimensions are NxN .
-    :type x: TODO
+    :param x: 
+    :type x: NxN square matrix or K-dimensional array where the last two dimensions are NxN 
 
     :returns: y (*TODO*), scalar or [K-2]-dimensional array, the determinant(s) of x.
 

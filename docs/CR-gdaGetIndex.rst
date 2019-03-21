@@ -9,7 +9,7 @@ Gets the index of a variable in a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaGetIndex(filename,  varname)
+.. function:: gdaGetIndex(filename, varname)
 
     :param filename: name of data file.
     :type filename: string

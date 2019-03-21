@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: stdsc(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*Kx1 vector*), the standard
         deviation of each column of x.

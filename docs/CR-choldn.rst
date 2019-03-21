@@ -11,13 +11,38 @@ Format
 ----------------
 .. function:: choldn(C, x)
 
-    :param C: KxK upper triangular matrix.
-    :type C: TODO
+    :param C: 
+    :type C: KxK upper triangular matrix
 
-    :param x: the rows to downdate  C with.
+    :param x: the rows to downdate *C* with.
     :type x: NxK matrix
 
     :returns: r (*KxK upper triangular matrix*), the downdated matrix.
+
+Remarks
+-------
+
+If **trap 1** is set, :func:`choldn` returns scalar error code 60, otherwise it
+terminates the program with an error message.
+
+*C* should be a Cholesky factorization.
+
+::
+
+   choldn(C, x);
+
+is equivalent to
+::
+
+   chol(C'C - x'x);
+
+but :func:`choldn` is numerically much more stable.
+
+.. WARNING:: it is possible to render a Cholesky factorization non-positive
+    definite with choldn. You should keep an eye on the ratio of the largest
+    diagonal element of *r* to the smallest--if it gets very large, *r* may no
+    longer be positive definite. This ratio is a rough estimate of the
+    condition number of the matrix.
 
 Examples
 ----------------
@@ -37,4 +62,3 @@ Examples
 
 .. seealso:: Functions :func:`cholup`, :func:`chol`
 
-cholesky downdate upper triangular matrix

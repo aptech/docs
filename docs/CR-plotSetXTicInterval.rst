@@ -8,7 +8,7 @@ Controls the interval between X-axis tick labels and also allows the user to spe
 
 Format
 ----------------
-.. function:: plotSetXTicInterval(&myPlot,  ticInterval,  firstLabeled)plotSetXTicInterval(&myPlot,  ticInterval)
+.. function:: plotSetXTicInterval(&myPlot, ticInterval, firstLabeled)plotSetXTicInterval(&myPlot, ticInterval)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

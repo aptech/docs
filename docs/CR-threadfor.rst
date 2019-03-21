@@ -9,7 +9,7 @@ Begins a parallel for loop.
 
 Format
 ----------------
-.. function:: threadfor i (start,  stop,  step) 
+.. function:: threadfor i (start, stop, step) 
 			      . 
 			      . 
 			      . 

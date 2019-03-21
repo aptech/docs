@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: rows(x)
 
-    :param x: NxK matrix or sparse matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or sparse matrix
 
     :returns: y (*scalar*), number of rows in the specified matrix.
 

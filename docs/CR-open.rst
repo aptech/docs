@@ -13,7 +13,7 @@ Format
 			  filename for mode 
 			  filename for mode varindxi offs
 
-    :param filename: literal or ^string.
+    :param filename: 
         filename is the name of the file on the disk. The name can include
         a path if the directory to be used is not the current directory. This
         filename will automatically be given the extension .dat. If an
@@ -21,7 +21,7 @@ Format
         is an .fmt matrix file, the extension must be explicitly given. If
         the name of the file is to be taken from a string variable, the name
         of the string must be preceded by the ^ (caret) operator.
-    :type filename: TODO
+    :type filename: literal or ^string
 
     :param mode: the modes supported with the optional for subcommand are:
     :type mode: literal
@@ -51,7 +51,7 @@ Format
         known. For instance, if there are two variables, xvar and yvar in
         the data set, the index variables will have the names ixvar,
         iyvar. If xvar is the first column in the data file, and yvar
-        is the second, and if no offset,  offs, has been specified, then
+        is the second, and if no offset, offs, has been specified, then
         ixvar and iyvar will equal 1 and 2 respectively. If an offset of
         3 had been specified, then these variables would be assigned the
         values 4 and 5 respectively.

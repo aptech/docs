@@ -11,10 +11,15 @@ Format
 ----------------
 .. function:: conj(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :returns: y (*NxK matrix*), the complex conjugate of x.
+    :returns: y (*NxK matrix*), the complex conjugate of *x*.
+
+Remarks
+-------
+
+Compare :func:`conj` with the transpose (``'``) operator.
 
 Examples
 ----------------

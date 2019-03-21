@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: print  list_of_expressionsprint [[/typ]] [[/fmted]] [[/mf]] [[/jnt]] list_of_expressions[[]]
 
-    :param list_of_expressions: any GAUSS expressions that produce
-        matrices, arrays, stings, or string arrays and/or names of variables
+    :param list_of_expressions: , arrays, stings, or string arrays and/or names of variables
         to print, separated by spaces.
-    :type list_of_expressions: TODO
+    :type list_of_expressions: any GAUSS expressions that produce
+        matrices
 
     :param /typ: symbol type flag.
     :type /typ: literal

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: qre(x)
 
-    :param x: NxP matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix
 
     :returns: r (*KxP upper triangular matrix*), K = min(N,P).
 

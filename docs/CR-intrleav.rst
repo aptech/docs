@@ -9,7 +9,7 @@ Interleaves the rows of two files that have been sorted on a common variable to 
 
 Format
 ----------------
-.. function:: intrleav(infile1,  infile2,  outfile,  keyvar,  keytyp)
+.. function:: intrleav(infile1, infile2, outfile, keyvar, keytyp)
 
     :param infile1: name of input file 1.
     :type infile1: string

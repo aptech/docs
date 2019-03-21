@@ -8,10 +8,10 @@ Returns a sparse submatrix of a sparse matrix.
 
 Format
 ----------------
-.. function:: spSubmat(x,  rinds,  cinds)
+.. function:: spSubmat(x, rinds, cinds)
 
-    :param x: MxN sparse matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxN sparse matrix
 
     :param rinds: row indices.
     :type rinds: Kx1 vector

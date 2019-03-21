@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: scalmiss(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*scalar*), 1 if argument is a scalar missing value, 0 if not.
 

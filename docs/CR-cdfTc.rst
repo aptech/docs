@@ -8,15 +8,39 @@ Computes the complement of the cdf of the Student's t distribution.
 
 Format
 ----------------
-.. function:: cdfTc(x,  n)
+.. function:: cdfTc(x, n)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param n: ExE conformable with x.
+    :param n: ExE conformable with *x*.
     :type n: LxM matrix
 
-    :returns: y (*TODO*), max(N,L) by max(K,M) matrix.
+    :returns: y (*matrix*), max(N,L) by max(K,M) matrix.
+
+Remarks
+-------
+
+*y* is the integral from *x* to :math:`∞` of the t distribution with *n* degrees of
+freedom.
+
+Allowable ranges for the arguments are:
+
+.. math:: −∞⁢ ≤ x⁢ ≤+∞⁢         n>0 
+
+.. DANGER:: FIX EQUATION
+
+A -1 is returned for those elements with invalid inputs.
+
+This equals:
+
+.. math:: 1−F(x,n)
+
+where *F* is the t cdf with *n* degrees of freedom. Thus, to get the t cdf,
+subtract :code:`cdfTc(x, n)` from 1. The complement of the cdf is computed
+because this is what is most commonly needed in statistical
+applications, and because it can be computed with fewer problems of
+roundoff error.
 
 Examples
 ----------------
@@ -37,10 +61,8 @@ After running above code,
     0.39188165
     0.35796758
 
-.. seealso:: Functions :func:`cdfTci`
-
 Technical Notes
-+++++++++++++++
+------------
 
 For results greater than 0.5e-30, the absolute error is approx. ±1e-14
 and the relative error is approx. ±1e-12. If you multiply the relative
@@ -51,7 +73,7 @@ results less than 0.01, the actual error will be less. For example, for
 a result of 0.5e-30, the actual error is only ±0.5e-42.
 
 References
-++++++++++
+------------
 
 #. Abramowitz, M. and I.A. Stegun, eds. Handbook of Mathematical
    Functions. 7th ed. Dover, New York, 1970. ISBN 0-486-61272-4.
@@ -64,4 +86,5 @@ References
    Commonwealth Scientific and Industrial Research Organization,
    Australia, 1972.
 
-complement student t cdf cumulative distribution function
+.. seealso:: Functions :func:`cdfTci`
+

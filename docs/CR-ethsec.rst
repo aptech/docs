@@ -10,7 +10,7 @@ the date command, in hundredths of a second.
 
 Format
 ----------------
-.. function:: ethsec(tstart,  tend)
+.. function:: ethsec(tstart, tend)
 
     :param tstart: starting date, in the order:
         yr, mo, day, hundredths of a second.

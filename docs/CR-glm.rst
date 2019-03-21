@@ -17,13 +17,13 @@ Format
 			  glm(dataset_name, formula, family) 
 			  glm(dataset_name, formula, family, ctl)
 
-    :param y: n×1vector, the dependent, or response, variable.
+    :param y: , the dependent, or response, variable.
         n is the number of the observations used in the analysis.
-    :type y: TODO
+    :type y: n×1vector
 
-    :param x: n×k matrix, the independent, or explanatory, variables.
+    :param x: , the independent, or explanatory, variables.
         k is the number of the independent variables.
-    :type x: TODO
+    :type x: n×k matrix
 
     :param dataset_name: the name of data set. E.g. "credit.dat" or "example.fmt".
     :type dataset_name: String
@@ -58,10 +58,10 @@ Format
         Possion -- nature log.
     :type link: String
 
-    :param ctl: An instance of a glmControl
-        structure.  For an instance named
+    :param ctl:   For an instance named
         ct1, the members are:
-    :type ctl: TODO
+    :type ctl: An instance of a glmControl
+        structure
 
     .. csv-table::
         :widths: auto
@@ -69,7 +69,7 @@ Format
         "ctl.varNames", "(k+1)×1  string array or character matrix, the names of the variables. The first element must be the name of the dependent variable."
         "ctl.categoryIdx", "1×kd matrix, kd≤k. ctl.categoryIdx specifies the categorical variable columns to be used in the analysis.						e.g. If ctl.categoryIdx = 0, then it means no categorical variable; if ctl.categoryIdx = { 1 4}, then it means that column 1 and column 4 in x matrix are categorical variables. 						 Note: glm function uses the smallest number as the reference category in each categorical variable."
         "ctl.link", "String, the link function. Options include:"identity""inverse""inverse squared""ln""logit""probit""cloglog""canonical" The default link is the canonical link for each distribution."
-        "ctl.constantFlag", "Scalar, 					flag of constant term. The negative number means no intercept model, e.g. "-1". This member will be ignored if a formula string is used."
+        "ctl.constantFlag", "Scalar, flag of constant term. The negative number means no intercept model, e.g. "-1". This member will be ignored if a formula string is used."
         "ctl.printFlag", "String, 					"Y" or "N", flag of print to screen. The "N" means no printing."
         "ctl.maxIters", "Scalar, maximum iterations. The default ctl.maxIters is 25."
         "ctl.eps", "Scalar, convergence precision. The default is 1e-8."
@@ -395,7 +395,7 @@ A Poisson regression model with categorical variables, using matrix inputs.
     struct glmOut out_poi;
     out_poi = glm(y, x, "poisson", var_names, category_idx, link) ;
 
-After running above code,  the output is:
+After running above code, the output is:
 
 ::
 

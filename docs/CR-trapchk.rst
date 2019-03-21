@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: trapchk(m)
 
-    :param m: scalar mask value.
-    :type m: TODO
+    :param m: 
+    :type m: scalar mask value
 
     :returns: y (*TODO*), scalar which is the result of the bitwise
         logical AND of the trap flag

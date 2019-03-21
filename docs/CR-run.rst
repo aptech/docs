@@ -11,9 +11,9 @@ Format
 ----------------
 .. function:: run filename run -r filename
 
-    :param filename: literal or ^string,
+    :param filename: ,
         name of file to run.
-    :type filename: TODO
+    :type filename: literal or ^string
 
     .. csv-table::
         :widths: auto

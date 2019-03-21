@@ -10,7 +10,7 @@ at a time to a GAUSS data set.
 
 Format
 ----------------
-.. function:: combinated(fname,  vnames,  N,  K)
+.. function:: combinated(fname, vnames, N, K)
 
     :param fname: file name.
     :type fname: string
@@ -20,13 +20,13 @@ Format
     :type vname: 1x1 or Kx1 string array
 
     :param N: scalar.
-    :type N: TODO
+    :type N: scalar
 
-    :param K: scalar.
-    :type K: TODO
+    :param K: 
+    :type K: scalar
 
     :returns: ret (*scalar*), if data set was successfully written,
-        ret = number of rows written to data set. Otherwise,
+        *ret* = number of rows written to data set. Otherwise,
         one of the following:
 
     .. csv-table::
@@ -35,6 +35,12 @@ Format
         "0", "file already exists."
         "-1", "data set couldn't be created."
         "-n", "the (n-1)th write to thedata set failed."
+
+Remarks
+-------
+
+The rows of the data set in *fname* contain sequences of the integers from
+1 to *N* in combinations taken *K* at a time.
 
 Examples
 ----------------
@@ -98,11 +104,10 @@ will produce the following output:
     	Harry            Wendy 
     	Susan            Wendy
 
-The first row of the print output 'Jim Harry' is the first and second element of vnames,
-because the first row of y is equal to '1 2'. The fourth row of the print
-output is 'Harry Susan', because the fourth row of y is '2 3' and 'Harry' is the second element of vnames
+The first row of the print output 'Jim Harry' is the first and second element of *vnames*,
+because the first row of *y* is equal to '1 2'. The fourth row of the print
+output is 'Harry Susan', because the fourth row of *y* is '2 3' and 'Harry' is the second element of *vnames*
 while 'Susan' is the third element.
 
 .. seealso:: Functions :func:`combinate`, :func:`numCombinations`
 
-combination n choose k Gauss data set

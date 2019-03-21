@@ -8,23 +8,43 @@ Computes the cumulative distribution function for the noncentral chi-square dist
 
 Format
 ----------------
-.. function:: cdfChinc(x,  v,  d)
+.. function:: cdfChinc(x, v, d)
 
-    :param x: values of upper limits of integrals,
-        must be greater than 0.
+    :param x: values of upper limits of integrals, must be greater than 0.
     :type x: Nx1 vector
 
-    :param v: degrees of freedom, v> 0.
+    :param v: degrees of freedom, *v* > 0.
     :type v: scalar
 
-    :param d: noncentrality parameter, d> 0.
+    :param d: noncentrality parameter, *d* > 0.
         
         This is the square root of the noncentrality parameter
         that sometimes goes under the symbol lambda. (See Scheffe,
         The Analysis of Variance, App. IV, 1959.)
+
     :type d: scalar
 
-    :returns: y (*TODO*), Nx1 vector.
+    :returns: y (Nx1 vector)
+
+Remarks
+-------
+
+*y* is the integral from 0 to *x* of the noncentral chi-square distribution
+with *v* degrees of freedom and noncentrality *d*.
+
+:func:`cdfChinc` can return a vector of values, but the degrees of freedom and
+noncentrality parameter must be the same for all values of *x*.
+
+For invalid inputs, :func:`cdfChinc` will return a scalar error code which, when
+its value is assessed by function :func:`scalerr`, corresponds to the invalid
+input. If the first input is out of range, :func:`scalerr` will return a 1; if
+the second is out of range, :func:`scalerr` will return a 2; etc.
+
+Relation to :func:`cdfChic`:
+
+::
+
+   cdfChic(x, v) = 1 - cdfChinc(x, v, 0);
 
 Examples
 ----------------
@@ -45,4 +65,3 @@ The code above returns:
 
 .. seealso:: Functions :func:`cdfFnc`, :func:`cdfTnc`
 
-chi square noncentral cdf cumulative distribution function

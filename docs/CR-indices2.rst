@@ -10,7 +10,7 @@ Processes two sets of variable names or indices from a single file. The first is
 
 Format
 ----------------
-.. function:: indices2(dataset,  var1,  var2)
+.. function:: indices2(dataset, var1, var2)
 
     :param dataset: the name of the data set.
     :type dataset: string

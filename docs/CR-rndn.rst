@@ -17,13 +17,13 @@ Format
     :param c: column dimension.
     :type c: Scalar
 
-    :param state: Optional argument - scalar or opaque vector.
+    :param state: 
         Scalar case:state = starting seed value. If -1, GAUSS
         computes the starting seed based on the system clock.
         
         Opaque vector case:state = the state vector returned from a previous
         call to one of the rndn random number generators.
-    :type state: TODO
+    :type state: Optional argument - scalar or opaque vector
 
     :returns: y (*TODO*), r x c matrix of standard
         normal random numbers.

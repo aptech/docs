@@ -8,8 +8,8 @@ Adds an arrow to an existing graph.
 
 Format
 ----------------
-.. function:: plotAddArrow(myAnnotation,  x_start,  y_start,  x_end,  y_end,  head_size) 
-			          plotAddArrow( x_start,  y_start,  x_end,  y_end,  head_size)
+.. function:: plotAddArrow(myAnnotation, x_start, y_start, x_end, y_end, head_size) 
+			          plotAddArrow( x_start, y_start, x_end, y_end, head_size)
 
     :param myAnnotation: an instance of a plotAnnotation structure.
     :type myAnnotation: Optional argument

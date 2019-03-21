@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: vals(s)
 
-    :param s: string of length N where N > 0.
-    :type s: TODO
+    :param s: 
+    :type s: string of length N where N > 0
 
     :returns: y (*TODO*), Nx1 matrix containing the ASCII values of the
         characters in the string  s.

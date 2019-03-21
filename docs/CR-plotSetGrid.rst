@@ -8,7 +8,7 @@ Controls the settings for the background grid of a plot.
 
 Format
 ----------------
-.. function:: plotSetGrid(&myPlot, ticStyle, color)plotSetGrid(&myPlot,  ticStyle)plotSetGrid(&myPlot,  onOff)
+.. function:: plotSetGrid(&myPlot, ticStyle, color)plotSetGrid(&myPlot, ticStyle)plotSetGrid(&myPlot, onOff)
 
     :param ticStyle: specifies whether grid marks should be drawn on major tic marks. Options: "major"
     :type ticStyle: String

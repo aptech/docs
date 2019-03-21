@@ -10,14 +10,14 @@ Format
 ----------------
 .. function:: sylvester(A, B, C)
 
-    :param A: MxM real or complex matrix.
-    :type A: TODO
+    :param A: 
+    :type A: MxM real or complex matrix
 
-    :param B: NxN real or complex  matrix.
-    :type B: TODO
+    :param B: 
+    :type B: NxN real or complex  matrix
 
-    :param C: MxN real or complex matrix.
-    :type C: TODO
+    :param C: 
+    :type C: MxN real or complex matrix
 
     :returns: X (*MxN matrix*), solution to the equation AX + XB = C.
 

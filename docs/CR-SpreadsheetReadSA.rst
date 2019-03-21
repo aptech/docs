@@ -9,7 +9,7 @@ Reads and writes Excel files.
 
 Format
 ----------------
-.. function:: spreadSheetReadSA(file,  range,  sheet)
+.. function:: spreadSheetReadSA(file, range, sheet)
 
     :param file: name of .xls file.
     :type file: string
@@ -20,7 +20,7 @@ Format
     :param sheet: sheet number. Default = 1.
     :type sheet: scalar
 
-    :returns: sa (*TODO*), string array read from Excel.
+    :returns: sa (string array), read from Excel.
 
 Examples
 ----------------

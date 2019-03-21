@@ -12,10 +12,10 @@ Purpose
 Format
 ----------------
 .. function:: norm(A) 
-			  norm(A,  norm_type)
+			  norm(A, norm_type)
 
-    :param A: Nx1 vector or NxN matrix
-    :type A: TODO
+    :param A: 
+    :type A: Nx1 vector or NxN matrix
 
     :param norm_type: specifying which norm to compute.
         Matrix norm options:

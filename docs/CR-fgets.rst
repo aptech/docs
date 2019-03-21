@@ -9,7 +9,7 @@ Reads a line of text from a file.
 
 Format
 ----------------
-.. function:: fgets(f,  maxsize)
+.. function:: fgets(f, maxsize)
 
     :param f: file handle of a file opened with fopen.
     :type f: scalar
@@ -18,5 +18,4 @@ Format
         including the terminating null byte.
     :type maxsize: scalar
 
-    :returns: str (*TODO*), string.
-
+    :returns: str (string), 

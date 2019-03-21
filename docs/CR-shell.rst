@@ -10,9 +10,9 @@ Format
 ----------------
 .. function:: shell stmt
 
-    :param stmt: literal or ^string, the command to be
+    :param stmt: , the command to be
         executed.
-    :type stmt: TODO
+    :type stmt: literal or ^string
 
 Examples
 ----------------

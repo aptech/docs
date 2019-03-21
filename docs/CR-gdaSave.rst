@@ -9,7 +9,7 @@ Writes variables in a workspace to a GDA.
 
 Format
 ----------------
-.. function:: gdaSave(filename,  varnames,  exclude,  overwrite,  report)
+.. function:: gdaSave(filename, varnames, exclude, overwrite, report)
 
     :param filename: name of data file.
     :type filename: string

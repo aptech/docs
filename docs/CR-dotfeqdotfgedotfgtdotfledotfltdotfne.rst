@@ -10,7 +10,7 @@ roundoff error.
 
 Format
 ----------------
-.. function:: dotfne(a,  b)
+.. function:: dotfne(a, b)
 
     :param a: first matrix.
     :type a: NxK matrix

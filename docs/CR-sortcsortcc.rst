@@ -14,8 +14,8 @@ Format
     :param x: or string array.
     :type x: NxK matrix
 
-    :param c: scalar specifying one column of x to sort on.
-    :type c: TODO
+    :param c: 
+    :type c: scalar specifying one column of x to sort on
 
     :returns: y (*TODO*), NxK matrix equal to x and sorted on the column
         c.

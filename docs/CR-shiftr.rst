@@ -8,17 +8,17 @@ Shifts the rows of a matrix.
 
 Format
 ----------------
-.. function:: shiftr(x,  s,  f)
+.. function:: shiftr(x, s, f)
 
-    :param x: NxK matrix to be shifted.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix to be shifted
 
-    :param s: scalar or Nx1 vector specifying the amount of
-        shift.
-    :type s: TODO
+    :param s: 
+    :type s: scalar or Nx1 vector specifying the amount of
+        shift
 
-    :param f: scalar or Nx1 vector specifying the value to fill in.
-    :type f: TODO
+    :param f: 
+    :type f: scalar or Nx1 vector specifying the value to fill in
 
     :returns: y (*TODO*), NxK shifted matrix.
 

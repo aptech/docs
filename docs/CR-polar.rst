@@ -9,11 +9,11 @@ Graph data using polar coordinates. NOTE: This function is for use only with the
 
 Format
 ----------------
-.. function:: polar(radius,  theta)
+.. function:: polar(radius, theta)
 
-    :param radius: Nx1 or NxM matrix. Each column contains the magnitude for a particular line.
-    :type radius: TODO
+    :param radius:  Each column contains the magnitude for a particular line.
+    :type radius: Nx1 or NxM matrix
 
-    :param theta: Nx1 or NxM matrix. Each column represents the angle values for a particular line.
-    :type theta: TODO
+    :param theta:  Each column represents the angle values for a particular line.
+    :type theta: Nx1 or NxM matrix
 

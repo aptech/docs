@@ -9,10 +9,10 @@ Replaces missing values in the columns of a matrix by a specified imputation met
 
 Format
 ----------------
-.. function:: impute(X,  method)
+.. function:: impute(X, method)
 
-    :param X: NxK matrix.
-    :type X: TODO
+    :param X: 
+    :type X: NxK matrix
 
     :param method: specifying which imputation method to use.
         Valid options:"mean"String, replace missing values with the mean of the column (default)."median"String, replace missing values with the median of the column.

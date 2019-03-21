@@ -8,15 +8,28 @@ Computes the biased standard deviation of the elements across one dimension of a
 
 Format
 ----------------
-.. function:: astds(x,  dim)
+.. function:: astds(x, dim)
 
-    :param x: N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: N-dimensional array
 
     :param dim: number of dimension to sum across.
     :type dim: scalar
 
-    :returns: y (*TODO*), N-dimensional array, standard deviation across specified dimension of x.
+    :returns: y (N-dimensional array), standard deviation across specified dimension of *x*.
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
+
+This function essentially computes:
+
+.. math:: σ=1n⁢×∑i=1n(Xi−μ)2
+
+Thus, the divisor is *N* rather than *N-1*, where *N* is the number of
+elements being summed. See astd for the alternate definition.
 
 Examples
 ----------------
@@ -62,11 +75,7 @@ The code above produces the following output (due to the use of random data in t
         7.321   35.659
        26.441   23.333
 
-In this example, 16 standard Normal random variables are generated. They
-are multiplied by 25 and areshape'd into a
-4x2x2 array, and the standard deviation is computed
-across the third dimension of the array.
+In this example, 16 standard Normal random variables are generated. They are multiplied by 25 and :func:`areshape`'d into a 4x2x2 array, and the standard deviation is computed across the third dimension of the array.
 
 .. seealso:: Functions :func:`astd`, :func:`stdsc`
 
-sample standard deviation dimension array

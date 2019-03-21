@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: spNumNZE(x)
 
-    :param x: MxN sparse matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxN sparse matrix
 
     :returns: n (*scalar*), the number of non-zero elements in x.
 

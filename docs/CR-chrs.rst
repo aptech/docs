@@ -11,12 +11,20 @@ Format
 ----------------
 .. function:: chrs(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :returns: y (*TODO*), string of length N*K containing the characters
+    :returns: y (string), length N*K containing the characters
         whose ASCII values are equal to the values in
-        the elements of x.
+        the elements of *x*.
+
+Remarks
+-------
+
+
+This function is useful for embedding control codes in strings and for
+creating variable length strings when formatting printouts, reports,
+etc.
 
 Examples
 ----------------
@@ -33,7 +41,7 @@ The code above returns:
 
     *
 
-chrs can be used to create an interactive program in which the user is prompted
+:func:`chrs` can be used to create an interactive program in which the user is prompted
 for keyboard input which the code uses to make decisions.
 
 ::

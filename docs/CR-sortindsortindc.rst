@@ -11,8 +11,8 @@ Format
 .. function:: sortind(x) 
 			  sortindc(x)
 
-    :param x: Nx1 column vector.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 column vector
 
     :returns: ind (*TODO*), Nx1 vector representing sorted index of x.
 

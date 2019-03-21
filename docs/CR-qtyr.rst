@@ -12,11 +12,11 @@ Format
 ----------------
 .. function:: qtyr(y, X)
 
-    :param y: NxL matrix.
-    :type y: TODO
+    :param y: 
+    :type y: NxL matrix
 
-    :param X: NxP matrix.
-    :type X: TODO
+    :param X: 
+    :type X: NxP matrix
 
     :returns: qty (*TODO*), NxL unitary matrix.
 

@@ -9,18 +9,26 @@ Concatenates conformable matrices and arrays in a user-specified dimension.
 
 Format
 ----------------
-.. function:: aconcat(a,  b,  dim)
+.. function:: aconcat(a, b, dim)
 
-    :param a: matrix or N-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: matrix or N-dimensional array.
 
-    :param b: matrix or K-dimensional array, conformable with  a.
-    :type b: TODO
+    :param b: conformable with  a.
+    :type b: matrix or K-dimensional array
 
     :param dim: dimension in which to concatenate.
     :type dim: scalar
 
-    :returns: y (*TODO*), M-dimensional array, the result of the concatenation.
+    :returns: y (N-dimensional array), the result of the concatenation.
+
+Remarks
+-------
+
+*a* and *b* are conformable only if all of their dimensions except *dim* have
+the same sizes. If *a* or *b* is a matrix, then the size of dimension 1 is the
+number of columns in the matrix, and the size of dimension 2 is the
+number of rows in the matrix.
 
 Examples
 ----------------
@@ -34,7 +42,7 @@ Examples
     b = 3*ones(3,4);
     y = aconcat(a,b,3);
 
-y will be a 3x3x4 array, where [1,1,1]
+*y* will be a 3x3x4 array, where [1,1,1]
 through [2,3,4] are zeros and [3,1,1] through [3,2,4] are threes.
 
 ::
@@ -46,7 +54,7 @@ through [2,3,4] are zeros and [3,1,1] through [3,2,4] are threes.
     b = zeros(4,5);
     y = aconcat(a,b,3);
 
-y will be a 2x4x5 array, where [1,1,1] through [1,4,5]
+*y* will be a 2x4x5 array, where [1,1,1] through [1,4,5]
 are sequential integers beginning with 1, and [2,1,1] through
 [2,4,5] are zeros.
 
@@ -94,4 +102,3 @@ y will be a 2x3x5 array:
 
 .. seealso:: Functions :func:`areshape`
 
-| 

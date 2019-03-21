@@ -9,7 +9,7 @@ Merges two sorted files by a common variable.
 
 Format
 ----------------
-.. function:: mergeby(infile1, infile2,  outfile,  keytyp)
+.. function:: mergeby(infile1, infile2, outfile, keytyp)
 
     :param infile1: name of input file 1.
     :type infile1: string

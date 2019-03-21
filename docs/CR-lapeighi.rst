@@ -9,7 +9,7 @@ Computes eigenvalues only of a real symmetric or complex Hermitian matrix select
 
 Format
 ----------------
-.. function:: lapeighi(x,  il,  iu,  abstol)
+.. function:: lapeighi(x, il, iu, abstol)
 
     :param x: real symmetric or complex Hermitian.
     :type x: NxN matrix
@@ -17,12 +17,12 @@ Format
     :param il: index of the smallest desired eigenvalue ranking them from smallest to largest.
     :type il: scalar
 
-    :param iu: index of the largest desired eigenvalue,  iu must be greater than  il.
+    :param iu: index of the largest desired eigenvalue, iu must be greater than  il.
     :type iu: scalar
 
     :param abstol: the absolute error tolerance for the
         eigenvalues. An approximate eigenvalue is accepted as converged
-        when it is determined to lie in an interval [a,  b] of width less
+        when it is determined to lie in an interval [a, b] of width less
         than or equal to abstol +
         EPS*max(|a|, |b|), where EPS is machine precision. If  abstol is less than or equal to
         zero, then EPS*||T|| will be used in its place, where  T is the tridiagonal matrix obtained

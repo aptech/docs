@@ -11,13 +11,35 @@ Format
 ----------------
 .. function:: cholsol(b, C)
 
-    :param b: NxK matrix.
-    :type b: TODO
+    :param b: 
+    :type b: NxK matrix
 
-    :param C: NxN matrix.
-    :type C: TODO
+    :param C: 
+    :type C: NxN matrix
 
-    :returns: x (*TODO*), NxK matrix.
+    :returns: x (*NxK matrix*)
+
+Remarks
+-------
+
+*C* is the Cholesky factorization of a linear system of equations :math:`A`. *x* is
+the solution for :math:`Ax = b`. *b* can have more than one column. If so, the
+system is solved for each column, i.e., :math:`A\*x[., i] = b[., i]`.
+
+Since :math:`A\ -1 = I/A` and :code:`eye(N)` creates an identity matrix of size :math:`N`:
+
+::
+
+   cholsol(eye(N), C);
+
+is equivalent to:
+
+::
+
+   invpd(A);
+
+Thus, if you have the Cholesky factorization of :math:`A`, cholsol is the most
+efficient way to obtain the inverse of :math:`A`.
 
 Examples
 ----------------
@@ -46,4 +68,3 @@ Examples
 
 .. seealso:: Functions :func:`chol`
 
-solve system equation cholesky factorization matrix

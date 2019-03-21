@@ -8,15 +8,21 @@ Computes the sum across one dimension of an N-dimensional array.
 
 Format
 ----------------
-.. function:: asum(x,  dim)
+.. function:: asum(x, dim)
 
-    :param x: N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: N-dimensional array
 
     :param dim: number of dimension to sum across.
     :type dim: scalar
 
-    :returns: y (*TODO*), N-dimensional array.
+    :returns: y (N-dimensional array)
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
 
 Examples
 ----------------
@@ -30,7 +36,7 @@ Examples
     
     y = asum(x,3);
 
-x is a 2x3x4 array, such that:
+*x* is a 2x3x4 array, such that:
 
 ::
 
@@ -60,7 +66,7 @@ and y is equal to:
 
     y = asum(x,1);
 
-Using the same array x as the above example, this example computes the sum across the first dimension. y will be a 2x3x1 array, such that:
+Using the same array *x* as the above example, this example computes the sum across the first dimension. *y* will be a 2x3x1 array, such that:
 
 ::
 
@@ -77,3 +83,4 @@ Using the same array x as the above example, this example computes the sum acros
       90.000
 
 .. seealso:: Functions :func:`amean`
+

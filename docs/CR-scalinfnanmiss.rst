@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: scalinfnanmiss(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*scalar*), 1 if x is a scalar, infinity, NaN, or missing value, else 0.
 

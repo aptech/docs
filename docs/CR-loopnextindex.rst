@@ -17,11 +17,11 @@ Format
     :param i: where M<=N.
     :type i: Mx1 vector of indices into an array
 
-    :param o: Nx1 vector of orders of an N-dimensional array.
-    :type o: TODO
+    :param o: 
+    :type o: Nx1 vector of orders of an N-dimensional array
 
-    :param dim: scalar [1-M], index into the vector of indices  i, corresponding to the dimension to walk through, positive to walk the index forward, or negative to walk backward.
-    :type dim: TODO
+    :param dim: , index into the vector of indices  i, corresponding to the dimension to walk through, positive to walk the index forward, or negative to walk backward.
+    :type dim: scalar [1-M]
 
 Examples
 ----------------

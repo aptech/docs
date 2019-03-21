@@ -8,7 +8,7 @@ Controls the number of major tics on the X-axis of a 2-D plot.
 
 Format
 ----------------
-.. function:: plotSetXTicCount(&myPlot,  num_tics)
+.. function:: plotSetXTicCount(&myPlot, num_tics)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

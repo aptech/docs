@@ -15,8 +15,8 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :param type: string:
-    :type type: TODO
+    :param type: 
+    :type type: string:
 
     .. csv-table::
         :widths: auto

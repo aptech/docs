@@ -12,8 +12,8 @@ Format
 .. function:: inv(x) 
 			  invpd(x)
 
-    :param x: NxN matrix or K-dimensional array where the last two dimensions are NxN.
-    :type x: TODO
+    :param x: 
+    :type x: NxN matrix or K-dimensional array where the last two dimensions are NxN
 
     :returns: y (*TODO*), NxN matrix or K-dimensional array where the last two dimensions are NxN, containing the inverse of x.
 

@@ -13,14 +13,14 @@ Format
 ----------------
 .. function:: innerJoin(A, ca, B, cb)
 
-    :param A: Matrix to join
-    :type A: TODO
+    :param A: 
+    :type A: Matrix to join
 
     :param ca: or vector, key columns in 'A'
     :type ca: Scalar
 
-    :param B: Matrix to join with 'A'
-    :type B: TODO
+    :param B: 
+    :type B: Matrix to join with 'A'
 
     :param cb: key columns in 'B'
     :type cb: Scalar or vector

@@ -13,10 +13,17 @@ Format
     :param scalar_idx: index into vector or 1-dimensional array.
     :type scalar_idx: scalar
 
-    :param orders: Nx1 vector of orders of an N-dimensional array.
-    :type orders: TODO
+    :param orders: orders of an N-dimensional array
+    :type orders: Nx1 vector
 
     :returns: i (*Nx1 vector of indices*), index of corresponding element in N-dimensional array.
+
+Remarks
+-------
+
+This function and its opposite, :func:`singleindex`, allow you to easily convert
+between an N-dimensional index and its corresponding location in a
+1-dimensional object of the same size.
 
 Examples
 ----------------
@@ -62,7 +69,8 @@ The code above, produces the following output:
     getarray(a, ai) =    0.047
 
 This example allocates a vector of random numbers and creates a 4-dimensional array using the same data.
-The 50th element of the vector v corresponds to the element of array a
-that is indexed with ai.
+The 50th element of the vector *v* corresponds to the element of array *a*
+that is indexed with *ai*.
 
 .. seealso:: Functions :func:`singleindex`
+

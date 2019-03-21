@@ -8,16 +8,26 @@ Computes the cumulative distribution function for the Laplace distribution.
 
 Format
 ----------------
-.. function:: cdfLaplace(x,a,b)
+.. function:: cdfLaplace(x, a, b)
 
-    :param x: an Nx1 vector or scalar.
-    :type x: NxK matrix
+    :param x: 
+    :type x: NxK matrix or Nx1 vector or scalar.
 
-    :param a: Location parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with x.
-    :type a: TODO
+    :param a: Location parameter, ExE conformable with *x*.
+    :type a: NxK matrix or Nx1 vector or scalar
 
-    :param b: Scale parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with x.  b must be greater than 0.
-    :type b: TODO
+    :param b: Scale parameter; ExE conformable with *x*. *b* must be greater than 0.
+    :type b: NxK matrix or Nx1 vector or scalar
 
-    :returns: y (*NxK matrix*), Nx1 vector or scalar.
+    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+
+Remarks
+-------
+
+The cumulative distribution function for the Laplace distribution is
+defined as
+
+.. DANGER:: ADd missing equation here
+
+.. seealso:: :func:`cdfLaplaceInv`
 

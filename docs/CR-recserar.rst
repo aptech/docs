@@ -10,14 +10,14 @@ Format
 ----------------
 .. function:: recserar(x, y0, rho)
 
-    :param x: NxK matrix. If simulating an AR process, this would contain the error term and constant if included in the model.
-    :type x: TODO
+    :param x:  If simulating an AR process, this would contain the error term and constant if included in the model.
+    :type x: NxK matrix
 
-    :param y0: PxK matrix. The starting values for the series
-    :type y0: TODO
+    :param y0:  The starting values for the series
+    :type y0: PxK matrix
 
-    :param rho: PxK matrix. The AR parameters.
-    :type rho: TODO
+    :param rho:  The AR parameters.
+    :type rho: PxK matrix
 
     :returns: y (*TODO*), NxK matrix containing the series.
 

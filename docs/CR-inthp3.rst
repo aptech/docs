@@ -9,7 +9,7 @@ Integrates a user-defined function over the [a,+∞) interval that is oscillator
 
 Format
 ----------------
-.. function:: inthp3(&f,  pds,  ctl,  a)
+.. function:: inthp3(&f, pds, ctl, a)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar
@@ -27,8 +27,8 @@ Format
         "pds->type", "scalar."
         "The contents, if any, are set by the user and are passed by inthp1 to the user-provided function without modification."
 
-    :param ctl: instance of an inthpControl structure with members
-    :type ctl: TODO
+    :param ctl: 
+    :type ctl: instance of an inthpControl structure with members
 
     .. csv-table::
         :widths: auto

@@ -13,11 +13,30 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: y (*TODO*), Nx1 vector.
+    :returns: y (Nx1 vector)
+
+Remarks
+-------
+
+.. NOTE:: This function is deprecated. Use :func:`csvReadM` instead.
+
+The file extension must be included in the file name.
+
+Numbers in ASCII files must be delimited with spaces, commas, tabs, or
+newlines.
+
+This command loads as many elements as possible from the file into an
+Nx1 vector. This allows you to verify if the load was successful by
+calling :code:`rows(y)` after :func:`asciiload` to see how many elements were actually
+loaded. You may then reshape the Nx1 vector to the desired form. You
+could, for instance, put the number of rows and columns of the matrix
+right in the file as the first and second elements and reshape the
+remainder of the vector to the desired form using those values.
 
 Examples
 ----------------
-To load the file myfile.asc, containing the following data:
+
+To load the file `myfile.asc`, containing the following data:
 
 ::
 
@@ -56,7 +75,7 @@ you may use any of the following commands:
     */
     y = asciiload(path $+ fname);
 
-All of the above commands will set y to be equal to:
+All of the above commands will set *y* to be equal to:
 
 ::
 
@@ -68,3 +87,4 @@ All of the above commands will set y to be equal to:
     -12.725
 
 .. seealso:: Functions :func:`csvReadM`, :func:`load`, :func:`dataload`
+

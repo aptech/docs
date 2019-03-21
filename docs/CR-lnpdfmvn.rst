@@ -9,7 +9,7 @@ Computes multivariate Normal log-probabilities.
 
 Format
 ----------------
-.. function:: lnpdfmvn(x,  s)
+.. function:: lnpdfmvn(x, s)
 
     :param x: data.
     :type x: NxK matrix

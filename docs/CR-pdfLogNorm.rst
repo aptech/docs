@@ -9,7 +9,7 @@ Computes the probability density function of the log-normal distribution.
 
 Format
 ----------------
-.. function:: pdfLogNorm(x, mu,  sigma)
+.. function:: pdfLogNorm(x, mu, sigma)
 
     :param x: or array.
     :type x: Matrix

@@ -11,8 +11,10 @@ Format
 ----------------
 .. function:: convertsatostr(sa)
 
-    :param sa: 1x1 string array.
-    :type sa: TODO
+    :param sa: 
+    :type sa: 1x1 string array
 
-    :returns: str (*string*), sa converted to a string.
+    :returns: str (*string*), *sa* converted to a string.
+
+.. seealso:: :func:`convertstrtosa`
 

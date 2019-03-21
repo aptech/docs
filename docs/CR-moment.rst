@@ -9,10 +9,10 @@ Computes a cross-product matrix. This is the same as x'x.
 
 Format
 ----------------
-.. function:: moment(x,  d)
+.. function:: moment(x, d)
 
-    :param x: NxK matrix or M-dimensional array where  the last two dimensions are NxK.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or M-dimensional array where  the last two dimensions are NxK
 
     :param d: controls handling of missing values.
     :type d: scalar

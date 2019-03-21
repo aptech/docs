@@ -9,10 +9,10 @@ Returns a matrix containing the powers of the elements of x from 1 to p.
 
 Format
 ----------------
-.. function:: polymat(x,  p)
+.. function:: polymat(x, p)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :param p: positive integer.
     :type p: scalar

@@ -11,10 +11,16 @@ Format
 ----------------
 .. function:: cols(x)
 
-    :param x: NxK matrix or sparse matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or sparse matrix
 
-    :returns: p (*TODO*), number of columns in x.
+    :returns: p (*scalar*), number of columns in *x*.
+
+Remarks
+-------
+
+Use :func:`getorders` to return both the number of rows and columns in one call.
+If *x* is an empty matrix, :code:`rows(x)` and :code:`cols(x)` both return 0.
 
 Examples
 ----------------
@@ -34,3 +40,4 @@ After the code above:
     p = 3
 
 .. seealso:: Functions :func:`rows`, :func:`colsf`, :func:`getorders`, :func:`show`
+

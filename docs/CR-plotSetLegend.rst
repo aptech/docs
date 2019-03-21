@@ -9,10 +9,10 @@ Adds a legend to a graph.
 
 Format
 ----------------
-.. function:: plotSetLegend(&myPlot,  label,  location,  orientation) 
-			              plotSetLegend(&myPlot,  label,  location) 
-			              plotSetLegend(&myPlot,  label) 
-			              plotSetLegend(&myPlot,  turn_off)
+.. function:: plotSetLegend(&myPlot, label, location, orientation) 
+			              plotSetLegend(&myPlot, label, location) 
+			              plotSetLegend(&myPlot, label) 
+			              plotSetLegend(&myPlot, turn_off)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

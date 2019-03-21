@@ -9,7 +9,7 @@ Creates a sequence of dates in DT scalar format.
 
 Format
 ----------------
-.. function:: seqaDT(dt_start, inc,  unit, n)
+.. function:: seqaDT(dt_start, inc, unit, n)
 
     :param dt_start: containing a date/time in DT scalar format.
     :type dt_start: Scalar

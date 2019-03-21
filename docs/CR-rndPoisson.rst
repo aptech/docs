@@ -9,7 +9,7 @@ Computes Poisson pseudo-random numbers with a choice of underlying random number
 
 Format
 ----------------
-.. function:: rndPoisson(r, c,  lambda)
+.. function:: rndPoisson(r, c, lambda)
 
     :param r: number of rows of resulting matrix.
     :type r: Scalar

@@ -11,14 +11,14 @@ Format
 ----------------
 .. function:: polygamma(z,n)
 
-    :param z: NxK matrix; z may be complex.
-    :type z: TODO
+    :param z: 
+    :type z: NxK matrix; z may be complex
 
-    :param n: The order of the function. If n is 0 then f will be the Digamma function.
+    :param n:  If n is 0 then f will be the Digamma function.
         If n = 1,2,3, etc., then f will be
         the tri-, tetra-, penta-, s-, etc., Gamma function.
         Real (n) must be positive.
-    :type n: TODO
+    :type n: The order of the function
 
     :returns: f (*TODO*), NxK matrix;  f may be complex.
 

@@ -10,10 +10,16 @@ Format
 ----------------
 .. function:: arccos(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix or N-dimensional array containing the angle in radians whose cosine is x.
+    :returns: y (*NxK matrix or N-dimensional array*), containing the angle in radians whose cosine is *x*.
+
+Remarks
+-------
+
+If *x* is complex or has any elements whose absolute value is greater than
+1, complex results are returned.
 
 Examples
 ----------------
@@ -50,8 +56,8 @@ The code above, produces the following output:
          0.000
 
 Source
-++++++
+------------
 
 trig.src
 
-inverse cosine trigonometric
+

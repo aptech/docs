@@ -10,14 +10,14 @@ Format
 ----------------
 .. function:: xyz(x, y, z)
 
-    :param x: Nx1 or NxK matrix. Each column contains the X values for a particular line.
-    :type x: TODO
+    :param x:  Each column contains the X values for a particular line.
+    :type x: Nx1 or NxK matrix
 
-    :param y: Nx1 or NxK matrix. Each column contains the
+    :param y:  Each column contains the
         Y values for a particular line.
-    :type y: TODO
+    :type y: Nx1 or NxK matrix
 
-    :param z: Nx1 or NxK matrix. Each column contains the
+    :param z:  Each column contains the
         Z values for a particular line.
-    :type z: TODO
+    :type z: Nx1 or NxK matrix
 

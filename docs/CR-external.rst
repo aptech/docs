@@ -10,7 +10,7 @@ above or in a separate file from their definitions.
 
 Format
 ----------------
-.. function:: external proc dog,  catexternal keyword dogexternal fn dogexternal matrixx, y,  zexternal string mstr,  cstrexternal array a,  bexternal sparse matrix sma,  smbexternal struct structure_type sta,  stb
+.. function:: external proc dog, catexternal keyword dogexternal fn dogexternal matrixx, y, zexternal string mstr, cstrexternal array a, bexternal sparse matrix sma, smbexternal struct structure_type sta, stb
 
 Examples
 ----------------

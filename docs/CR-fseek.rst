@@ -8,7 +8,7 @@ Positions the file pointer in a file.
 
 Format
 ----------------
-.. function:: fseek(f,  offs,  base)
+.. function:: fseek(f, offs, base)
 
     :param f: file handle of a file opened with fopen.
     :type f: scalar

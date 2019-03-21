@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: iscplx(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
     :returns: y (*scalar*), 1 if x is complex, 0 if it is real.
 

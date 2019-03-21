@@ -17,16 +17,16 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param range: Optional argument. 2x1 matrix, the requested range of the random integers. The first element is the range minimum and the second element is the range maximum. If range is not supplied, the default range is  0 ≤ y < 232.
-    :type range: TODO
+    :param range:  2x1 matrix, the requested range of the random integers. The first element is the range minimum and the second element is the range maximum. If range is not supplied, the default range is  0 ≤ y < 232.
+    :type range: Optional argument
 
-    :param state: Optional argument - scalar or opaque vector.
+    :param state: 
         Scalar case:state = starting seed value. If -1, GAUSS
         computes the starting seed based on the system clock.
         
         Opaque vector case:state = the state vector returned from a previous
         call to one of the rnd random number generators.
-    :type state: TODO
+    :type state: Optional argument - scalar or opaque vector
 
     :returns: y (*TODO*), r x c matrix of random
         integers in the specified range.

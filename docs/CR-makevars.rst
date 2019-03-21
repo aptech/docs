@@ -9,18 +9,18 @@ Creates separate global vectors from the columns of a matrix.
 
 Format
 ----------------
-.. function:: makevars(x,  vnames,  xnames)
+.. function:: makevars(x, vnames, xnames)
 
-    :param x: NxK matrix whose columns will be converted into
-        individual vectors.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix whose columns will be converted into
+        individual vectors
 
-    :param vnames: string or Mx1 character vector containing names of global vectors to create. If 0, all names in  xnames will be used.
-    :type vnames: TODO
+    :param vnames:  If 0, all names in  xnames will be used.
+    :type vnames: string or Mx1 character vector containing names of global vectors to create
 
-    :param xnames: string or Kx1 character vector containing names
-        to be associated with the columns of the matrix x.
-    :type xnames: TODO
+    :param xnames: 
+    :type xnames: string or Kx1 character vector containing names
+        to be associated with the columns of the matrix x
 
 Examples
 ----------------

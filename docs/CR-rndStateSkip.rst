@@ -14,8 +14,8 @@ Format
     :param numSkip: the number of values to skip.
     :type numSkip: Scalar
 
-    :param state: Opaque state vector.
-    :type state: TODO
+    :param state: 
+    :type state: Opaque state vector
 
     :returns: newState (*Opaque vector*), the advanced state.
 

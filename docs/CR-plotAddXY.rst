@@ -12,14 +12,14 @@ Format
 .. function:: plotAddXY(myPlot, x, y) 
 			              plotAddXY(x, y)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
-    :param x: Nx1 or NxM matrix. Each column contains the
+    :param x:  Each column contains the
         X values for a particular line.
-    :type x: TODO
+    :type x: Nx1 or NxM matrix
 
-    :param y: Nx1 or NxM matrix. Each column contains the
+    :param y:  Each column contains the
         Y values for a particular line.
-    :type y: TODO
+    :type y: Nx1 or NxM matrix
 

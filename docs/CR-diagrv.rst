@@ -8,13 +8,13 @@ Inserts a vector into the diagonal of a matrix.
 
 Format
 ----------------
-.. function:: diagrv(x,  v)
+.. function:: diagrv(x, v)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param v: min(N,K)x1 vector.
-    :type v: TODO
+    :param v: ,K)x1 vector.
+    :type v: min(N
 
     :returns: y (*TODO*), NxK matrix equal to x with its principal diagonal elements equal to those of  v.
 

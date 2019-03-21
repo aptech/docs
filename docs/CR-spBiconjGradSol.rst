@@ -9,7 +9,7 @@ Attempts to solve the system of linear equations Ax = b using the biconjugate gr
 
 Format
 ----------------
-.. function:: spBiconjGradSol(a,  b,  epsilon,  maxit)
+.. function:: spBiconjGradSol(a, b, epsilon, maxit)
 
     :param a: sparse matrix.
     :type a: NxN
@@ -17,11 +17,11 @@ Format
     :param b: dense vector.
     :type b: Nx1
 
-    :param epsilon: Method tolerance: If epsilon is set to 0, the default tolerance is set to 1e-6.
-    :type epsilon: TODO
+    :param epsilon: , the default tolerance is set to 1e-6.
+    :type epsilon: Method tolerance: If epsilon is set to 0
 
-    :param maxit: Maximum number of iterations. If maxit is set to 0, the default setting is 300 iterations.
-    :type maxit: TODO
+    :param maxit:  If maxit is set to 0, the default setting is 300 iterations.
+    :type maxit: Maximum number of iterations
 
     :returns: x (*TODO*), Nx1 dense vector.
 

@@ -18,11 +18,11 @@ Format
         containing the result of each equation.
     :type &fct: TODO
 
-    :param par: an instance of a PV structure. The
+    :param par:  The
         par instance is passed to the user-provided procedure
         pointed to by &fct.  par is
         constructed using the pvPack functions.
-    :type par: TODO
+    :type par: an instance of a PV structure
 
     :param ...: Optional extra arguments.
         These arguments are passed untouched to the user-provided objective function, by sqpSolveMT.

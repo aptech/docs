@@ -9,7 +9,7 @@ Compute compute the probability for a chi-bar square statistic from an hypothesi
 
 Format
 ----------------
-.. function:: chiBarSquare(SL,  H,  a,  b, c,  d,  bounds)
+.. function:: chiBarSquare(SL, H, a, b, c, d, bounds)
 
     :param SL: chi-bar square statistic
     :type SL: scalar
@@ -25,9 +25,9 @@ Format
         These arguments specify the linear equality
         constraints of the following type:
         
-        a * X = b
+        .. math::  a * X = b
         
-        where x is the Kx1 parameter vector.
+        where *x* is the :math:`Kx1` parameter vector.
     :type b: Mx1 vector
 
     :param c: linear inequality constraint coefficients.
@@ -38,8 +38,9 @@ Format
         These arguments specify the linear inequality
         constraints of the following type:
         
-        c * X >= d
-        where x is the Kx1 parameter vector.
+        .. math::  c * X >= d
+
+        where *x* is the :math:`Kx1` parameter vector.
     :type d: Mx1 vector
 
     :param bounds: bounds on parameters. The first column
@@ -47,7 +48,22 @@ Format
         upper bounds.
     :type bounds: Kx2 matrix
 
-    :returns: SLprob (*scalar*), probability of  SL.
+    :returns: SLprob (*scalar*), probability of *SL*.
+
+Remarks
+-------
+
+See Silvapulle and Sen, *Constrained Statistical Inference*, page 75 for
+further details about this function. Let
+
+.. math::  Zpx1 N(0,V)
+
+where *V* is a positive definite covariance matrix. Define
+
+.. math::  x−2(V,C)=Z′V−1Z−min⁡θϵC⁢   (Z−θ)′ V−1(Z−θ) 
+
+*C* is a closed convex cone describing a set of constraints. ChiBarSquare
+computes the probability of this statistic given *V* and *C*.
 
 Examples
 ----------------
@@ -73,8 +89,7 @@ After running above code,
     SLprob = 0.10885000
 
 Source
-++++++
+------------
 
 hypotest.src
 
-probability chi bar square statistic

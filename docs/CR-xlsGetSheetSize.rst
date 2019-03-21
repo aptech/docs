@@ -9,7 +9,7 @@ Gets the size (rows and columns) of a specified sheet in an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: xlsGetSheetSize(file,  sheet)
+.. function:: xlsGetSheetSize(file, sheet)
 
     :param file: name of .xls or .xlsx file.
     :type file: string

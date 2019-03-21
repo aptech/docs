@@ -11,14 +11,20 @@ Format
 ----------------
 .. function:: blockDiag(A [, B, C ...])
 
-    :param A: One or more matrices.
-    :type A: TODO
+    :param A: 
+    :type A: One or more matrices
 
-    :returns: d (*TODO*), Diagonal matrix constructed from the input matrices.
+    :returns: d (matrix), Diagonal matrix constructed from the input matrices.
+
+Remarks
+----------------
+The input matrices may be square or rectangular. The matrices do not need to have the same dimensions.
 
 Examples
 ----------------
-Example: Basic example
+
+Basic example
++++++++++++++
 
 ::
 
@@ -30,22 +36,13 @@ Example: Basic example
     
     d = blockDiag(a, b, c);
 
-After the above code, 'd' should equal:
+After the above code, *d* should equal:
 
 ::
 
-    0.5 1.1   0   0   0   0 
+        0.5 1.1   0   0   0   0 
         2.0 0.3   0   0   0   0 
     d =   0   0 0.8   0   0   0 
           0   0   0 0.2 1.0 0.7 
           0   0   0 1.3 0.6 1.4
 
-Remarks
-+++++++
-
-The input matrices may be square or rectangular. The matrices do not
-need to have the same dimensions.
-
-.. raw:: html
-
-   </div>

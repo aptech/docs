@@ -11,7 +11,18 @@ procedure is defined to return nothing.
 
 Format
 ----------------
-.. function:: call function_name(argument_list)call function_name
+.. function:: call function_name
+              call function_name(argument_list)
+
+Remarks
+-------
+
+This is useful when you need to execute a function or procedure and do
+not need the value that it returns. It can also be used for calling
+procedures that have been defined to return nothing.
+
+function_name can be any intrinsic GAUSS function, a procedure (proc),
+or any valid expression.
 
 Examples
 ----------------
@@ -27,8 +38,9 @@ Examples
 
 The above example is the fastest way to compute the
 determinant of a positive definite matrix. The
-result of chol is discarded and detl is used to
+result of :func:`chol` is discarded and *detl* is used to
 retrieve the determinant that was computed during
-the call to chol.
+the call to :func:`chol`.
 
 .. seealso:: Functions :func:`proc`
+

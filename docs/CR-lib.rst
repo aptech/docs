@@ -17,8 +17,8 @@ Format
     :param file: name of source file to be updated or added.
     :type file: optional literal
 
-    :param flags: optional literal preceded by '-', controls operation of library update. To control handling of path information on source filenames:
-    :type flags: TODO
+    :param flags: , controls operation of library update. To control handling of path information on source filenames:
+    :type flags: optional literal preceded by '-'
 
     .. csv-table::
         :widths: auto

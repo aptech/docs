@@ -9,15 +9,21 @@ Computes the mean across one dimension of an N-dimensional array.
 
 Format
 ----------------
-.. function:: amean(x,  dim)
+.. function:: amean(x, dim)
 
-    :param x: N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: N-dimensional array.
 
     :param dim: number of dimension to compute the mean across.
     :type dim: scalar
 
-    :returns: y (*TODO*), [N-1]-dimensional array.
+    :returns: y ([N-1]-dimensional array)
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by dim will be collapsed to 1.
 
 Examples
 ----------------
@@ -32,7 +38,7 @@ Examples
     
     y = amean(x,3);
 
-x is a 2x3x4 array, such that:
+*x* is a 2x3x4 array, such that:
 [1,1,1] through [1,3,4] =
 
 ::
@@ -49,7 +55,7 @@ x is a 2x3x4 array, such that:
     17.000000       18.000000       19.000000       20.000000
     21.000000       22.000000       23.000000       24.000000
 
-y will be a 1x3x4 array, such that:
+*y* will be a 1x3x4 array, such that:
 [1,1,1] through [1,3,4] =
 
 ::
@@ -62,7 +68,7 @@ y will be a 1x3x4 array, such that:
 
     y = amean(x,1);
 
-Using the same array x as the above example, this example computes the mean across the first dimension. y will be a 2x3x1 array, such that:
+Using the same array *x* as the above example, this example computes the mean across the first dimension. *y* will be a 2x3x1 array, such that:
 [1,1,1] through [1,3,1] =
 
 ::
@@ -80,3 +86,4 @@ Using the same array x as the above example, this example computes the mean acro
     22.500000
 
 .. seealso:: Functions :func:`asum`
+

@@ -27,11 +27,11 @@ Format
         These arguments are passed untouched to the user-provided objective function, by QNewtonmt.
     :type ...: TODO
 
-    :param c: an instance of a QNewtonmtControl structure.
+    :param c: 
         Normally an instance is initialized by calling QNewtonmtControlCreate
         and members of this instance can be set to other values by the user.
         For an instance named c, the members are:
-    :type c: TODO
+    :type c: an instance of a QNewtonmtControl structure
 
     .. csv-table::
         :widths: auto

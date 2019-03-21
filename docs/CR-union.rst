@@ -9,13 +9,13 @@ Returns the union of two vectors with duplicates removed.
 
 Format
 ----------------
-.. function:: union(v1,  v2,  flag)
+.. function:: union(v1, v2, flag)
 
-    :param v1: Nx1 vector.
-    :type v1: TODO
+    :param v1: 
+    :type v1: Nx1 vector
 
-    :param v2: Mx1 vector.
-    :type v2: TODO
+    :param v2: 
+    :type v2: Mx1 vector
 
     :param flag: 1 if numeric data, 0 if character.
     :type flag: scalar

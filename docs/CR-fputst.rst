@@ -14,8 +14,8 @@ Format
     :param f: file handle of a file opened with fopen.
     :type f: scalar
 
-    :param sa: string or string array.
-    :type sa: TODO
+    :param sa: 
+    :type sa: string or string array
 
     :returns: numl (*scalar*), the number of lines written to the file.
 

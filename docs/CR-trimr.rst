@@ -8,18 +8,18 @@ Trims rows from the top and/or bottom of a matrix.
 
 Format
 ----------------
-.. function:: trimr(x,  t,  b)
+.. function:: trimr(x, t, b)
 
-    :param x: NxK matrix from which rows are to be trimmed.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix from which rows are to be trimmed
 
-    :param t: scalar containing the number of rows which are
-        to be removed from the top of x.
-    :type t: TODO
+    :param t: 
+    :type t: scalar containing the number of rows which are
+        to be removed from the top of x
 
-    :param b: scalar containing the number of rows which are
-        to be removed from the bottom of x.
-    :type b: TODO
+    :param b: 
+    :type b: scalar containing the number of rows which are
+        to be removed from the bottom of x
 
     :returns: y (*TODO*), RxK matrix where R=N-(t + b),
         containing the rows left after the trim.

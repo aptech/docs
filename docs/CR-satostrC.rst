@@ -14,8 +14,8 @@ Format
 ----------------
 .. function:: satostrC(sa, fmt)
 
-    :param sa: NxM string array.
-    :type sa: TODO
+    :param sa: 
+    :type sa: NxM string array
 
     :param fmt: 1xM, or Mx1 format specifier for each
         

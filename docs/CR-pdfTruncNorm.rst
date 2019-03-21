@@ -9,7 +9,7 @@ Computes the cumulative distribution function of the
 
 Format
 ----------------
-.. function:: pdfTruncNorm(x, a, b, mu_bar,  sigma_bar)
+.. function:: pdfTruncNorm(x, a, b, mu_bar, sigma_bar)
 
     :param x: NxK matrix, or N-dimensional array.
     :type x: Scalar
@@ -42,7 +42,7 @@ Examples
               
     //Compute the PDF at x = 0.5
     //over the closed region [-1,1]
-    p = pdfTruncNorm(x, a, b, mu,  s);
+    p = pdfTruncNorm(x, a, b, mu, s);
 
 After the above code, 'p' equals:
 

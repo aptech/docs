@@ -9,7 +9,7 @@ Gets the orders of a variable in a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaGetOrders(filename,  varname)
+.. function:: gdaGetOrders(filename, varname)
 
     :param filename: name of data file.
     :type filename: string

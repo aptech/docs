@@ -14,11 +14,11 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :param sql_statement: string containing a valid SQL statement.
-    :type sql_statement: TODO
+    :param sql_statement: 
+    :type sql_statement: string containing a valid SQL statement
 
-    :param placeholders: string (array) containing bind value(s).
-    :type placeholders: TODO
+    :param placeholders: 
+    :type placeholders: string (array) containing bind value(s)
 
     :returns: qid (*scalar*), query id to be used for result retrieval.
 

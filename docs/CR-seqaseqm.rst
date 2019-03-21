@@ -9,16 +9,16 @@ sequence.
 
 Format
 ----------------
-.. function:: seqm(start,  inc,  n)
+.. function:: seqm(start, inc, n)
 
-    :param start: scalar specifying the first element.
-    :type start: TODO
+    :param start: 
+    :type start: scalar specifying the first element
 
-    :param inc: scalar specifying increment.
-    :type inc: TODO
+    :param inc: 
+    :type inc: scalar specifying increment
 
-    :param n: scalar specifying the number of elements in the sequence.
-    :type n: TODO
+    :param n: 
+    :type n: scalar specifying the number of elements in the sequence
 
     :returns: y (*TODO*), nx1 vector containing the specified sequence.
 

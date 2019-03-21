@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: printfm(x, mask, fmt)
 
-    :param x: NxK matrix which is to be printed and which may contain both character and numeric data.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix which is to be printed and which may contain both character and numeric data
 
     :param mask: ExE conformable with x,
         containing ones and zeros, which is used to
@@ -20,9 +20,9 @@ Format
         character (0) or numeric (1) value.
     :type mask: LxM matrix
 
-    :param fmt: Kx3 or 1x3 matrix where each row specifies
-        the format for the respective column of x.
-    :type fmt: TODO
+    :param fmt: 
+    :type fmt: Kx3 or 1x3 matrix where each row specifies
+        the format for the respective column of x
 
     :returns: y (*scalar*), 1 if the function is successful and 0 if it fails.
 

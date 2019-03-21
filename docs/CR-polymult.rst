@@ -9,13 +9,13 @@ Multiplies polynomials.
 
 Format
 ----------------
-.. function:: polymult(c1,  c2)
+.. function:: polymult(c1, c2)
 
-    :param c1: (D1+1)x1 vector containing the coefficients of the first polynomial.
-    :type c1: TODO
+    :param c1: 
+    :type c1: (D1+1)x1 vector containing the coefficients of the first polynomial
 
-    :param c2: (D2+1)x1 vector containing the coefficients of the second polynomial.
-    :type c2: TODO
+    :param c2: 
+    :type c2: (D2+1)x1 vector containing the coefficients of the second polynomial
 
     :returns: c (*TODO*), (D1+D2)x1 vector containing the coefficients of the product of the two polynomials.
 

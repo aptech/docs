@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: uniquesa(sv)
 
-    :param sv: Nx1 or 1xN string vector.
-    :type sv: TODO
+    :param sv: 
+    :type sv: Nx1 or 1xN string vector
 
     :returns: y (*TODO*), sorted Mx1 string vector containing all unique
         elements found in  sv.

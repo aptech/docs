@@ -9,7 +9,7 @@ Computes implied volatilities for European call options using binomial method.
 
 Format
 ----------------
-.. function:: EuropeanBinomCall_ImpVol(c,  S0,  K, r,  div,  tau,  N)
+.. function:: EuropeanBinomCall_ImpVol(c, S0, K, r, div, tau, N)
 
     :param c: call premiums.
     :type c: Mx1 vector
@@ -24,13 +24,13 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
 
     :param N: number of time segments. A higher number of time segments will increase accuracy at the expense of increased computation time.
-    :type N: TODO
+    :type N: scalar
 
     :returns: sigma (*Mx1 vector*), volatility.
 

@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: packr(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), LxK submatrix of x containing only those rows
         that do not have missing values in any of their

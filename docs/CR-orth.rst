@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: orth(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), NxL matrix such that y'y = eye(L) and whose
         columns span the same space as the columns of

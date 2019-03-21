@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: vecr(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: yc (*TODO*), (N*K)x1 vector, the columns of x appended to
         each other.

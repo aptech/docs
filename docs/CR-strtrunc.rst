@@ -9,10 +9,10 @@ Truncates all elements of a string array to not longer than the specified number
 
 Format
 ----------------
-.. function:: strtrunc(sa,  maxlen)
+.. function:: strtrunc(sa, maxlen)
 
-    :param sa: NxK string array.
-    :type sa: TODO
+    :param sa: 
+    :type sa: NxK string array
 
     :param maxlen: maximum length.
     :type maxlen: 1xK or 1x1 matrix

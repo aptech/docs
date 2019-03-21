@@ -8,7 +8,7 @@ Computes Delta, Gamma, Theta, Vega, and Rho for American put options using Black
 
 Format
 ----------------
-.. function:: AmericanBSPut_Greeks(S0,  K, r,  div,  tau,  sigma)
+.. function:: AmericanBSPut_Greeks(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar
@@ -20,7 +20,7 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
@@ -37,6 +37,17 @@ Format
     :returns: v (*Mx1 vector*), vega.
 
     :returns: rh (*Mx1 vector*), rho.
+
+Global Input
+------------
+
+.. data:: \_fin_thetaType
+
+    *scalar*, if 1, one day look ahead, else, infinitesmal. Default = 0.
+
+.. data:: \_fin_epsilon
+
+    *scalar*, finite difference stepsize. Default = 1e-8.
 
 Examples
 ----------------
@@ -55,15 +66,16 @@ produces:
 
 ::
 
-    -0.35320196
-      0.0061105530
-     -8.2280908
-     66.227314
-    -39.607080
+     -0.35320196
+    0.0061105530
+      -8.2280908
+       66.227314
+      -39.607080
 
 Source
-++++++
+------------
 
 finprocs.src
 
 .. seealso:: Functions :func:`AmericanBSCall_ImpVol`, :func:`AmericanBSCall_Greeks`, :func:`AmericanBSPut_ImpVol`
+

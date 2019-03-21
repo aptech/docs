@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: fmod(x, y)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :param y: ExE conformable with x.
     :type y: LxM matrix

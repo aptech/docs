@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: ldl(A)
 
-    :param A: NxN real symmetric matrix.
-    :type A: TODO
+    :param A: 
+    :type A: NxN real symmetric matrix
 
     :returns: L (*NxN permuted*), lower triangular matrix, containing the factor L.
 

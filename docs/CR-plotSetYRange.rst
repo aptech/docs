@@ -8,7 +8,7 @@ Sets the range for the y-axis.
 
 Format
 ----------------
-.. function:: plotSetYRange(&myPlot,  y_min,  y_max)
+.. function:: plotSetYRange(&myPlot, y_min, y_max)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

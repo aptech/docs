@@ -9,7 +9,7 @@ Reads and writes Excel files.
 
 Format
 ----------------
-.. function:: spreadSheetWrite(data,  file,  range,  sheet)
+.. function:: spreadSheetWrite(data, file, range, sheet)
 
     :param data: string or string array, data to write.
     :type data: matrix

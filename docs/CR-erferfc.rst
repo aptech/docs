@@ -13,8 +13,8 @@ Format
 .. function:: erf(x) 
 			  erfc(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), NxK matrix.
 

@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: listColorPalettes(category)
 
-    :param category: String. List only color palettes that are defined as being part of the specified category. Some palettes do not have categories.
+    :param category:  List only color palettes that are defined as being part of the specified category. Some palettes do not have categories.
         Valid categories include: "" (list all available palettes), "diverging",  "qualitative" and "sequential".
         Valid categories include: "" (list all available palettes), "diverging",  "qualitative" and "sequential".
-    :type category: TODO
+    :type category: String
 
     :param Valid categories include: "" (list all available palettes), "diverging",  "qualitative" and "sequential".: 
     :type Valid categories include: "" (list all available palettes), "diverging",  "qualitative" and "sequential".: TODO

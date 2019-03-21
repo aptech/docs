@@ -5,19 +5,26 @@ combinate
 Purpose
 ----------------
 
-Computes combinations of  N things taken  K at a time.
+Computes combinations of *N* things taken *K* at a time.
 
 Format
 ----------------
-.. function:: combinate(N,  K)
+.. function:: combinate(N, K)
 
     :param N: scalar.
-    :type N: TODO
+    :type N: scalar
 
-    :param K: scalar.
-    :type K: TODO
+    :param K: 
+    :type K: scalar
 
-    :returns: y (*MxK matrix*), where M is the number of combinations of  N things taken  K at a time.
+    :returns: y (*MxK matrix*), where :math:`M` is the number of combinations of *N* things taken *K* at a time.
+
+Remarks
+-------
+
+"Things" are represented by a sequence of integers from 1 to *N*, and the
+integers in each row of *y* are the combinations of those integers taken *K*
+at a time.
 
 Examples
 ----------------
@@ -35,7 +42,7 @@ The code above will create the following output:
 
 ::
 
-    1.0000 2.0000
+     1.0000 2.0000
      1.0000 3.0000
      1.0000 4.0000
      2.0000 3.0000
@@ -44,4 +51,3 @@ The code above will create the following output:
 
 .. seealso:: Functions :func:`combinated`, :func:`numCombinations`
 
-combination n choose k

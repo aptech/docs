@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: powerM(A, n)
 
-    :param A: NxN square matrix
-    :type A: TODO
+    :param A: 
+    :type A: NxN square matrix
 
     :param n: the power or exponent.
     :type n: Scalar

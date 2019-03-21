@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: spGetNZE(x)
 
-    :param x: MxN sparse matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxN sparse matrix
 
     :returns: vals (*Nx1 vector*), non-zero values in x.
 

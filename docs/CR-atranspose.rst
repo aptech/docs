@@ -9,15 +9,21 @@ Transposes an N-dimensional array.
 
 Format
 ----------------
-.. function:: atranspose(x,  nd)
+.. function:: atranspose(x, nd)
 
-    :param x: N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: N-dimensional array
 
     :param nd: the new order of dimensions.
-    :type nd: Nx1 vector of dimension indices
+    :type nd: Nx1 vector
 
-    :returns: y (*TODO*), N-dimensional array, transposed according to  nd.
+    :returns: y (N-dimensional array), transposed according to *nd*.
+
+Remarks
+-------
+
+The vector of dimension indices must be a unique vector of integers,
+*1-N*, where 1 corresponds to the first element of the vector of orders.
 
 Examples
 ----------------
@@ -29,8 +35,7 @@ Examples
     nd = { 2,1,3 };
     y = atranspose(x,nd);
 
-This example transposes the dimensions of x that correspond to the first and second elements of the vector
-of orders. x is a 2x3x4 array, such that:
+This example transposes the dimensions of *x* that correspond to the first and second elements of the vector of orders. *x* is a 2x3x4 array, such that:
 
 ::
 
@@ -46,7 +51,7 @@ of orders. x is a 2x3x4 array, such that:
       17.000   18.000   19.000   20.000
       21.000   22.000   23.000   24.000
 
-y is a 3x2x4 array, such that:
+*y* is a 3x2x4 array, such that:
 
 ::
 
@@ -70,8 +75,7 @@ y is a 3x2x4 array, such that:
     nd = { 2,3,1 };
     y = atranspose(x,nd);
 
-Using the same array x as the example above, this example transposes all three
-dimensions of x, returning a 3x4x2 array y, such that:
+Using the same array *x* as the example above, this example transposes all three dimensions of *x*, returning a 3x4x2 array *y*, such that:
 
 ::
 
@@ -97,3 +101,4 @@ dimensions of x, returning a 3x4x2 array y, such that:
       12.000   24.000
 
 .. seealso:: Functions :func:`areshape`, :func:`squeeze`
+

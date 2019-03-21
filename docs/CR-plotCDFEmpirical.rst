@@ -10,14 +10,14 @@ Plots the cumulative distribution function
 Format
 ----------------
 .. function:: plotCDFEmpirical(myPlot, x, bins) 
-			  plotCDFEmpirical( x,  bins) 
+			  plotCDFEmpirical( x, bins) 
 			  plotCDFEmpirical( x )
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
-    :param x: N x 1 vector.
-    :type x: TODO
+    :param x: 
+    :type x: N x 1 vector
 
     :param bins: scalar or vector. If scalar, evenly spaced vector between x_min and x_max sized equal number of bins is used to find the empirical cdf. If vector, GAUSS uses the passed vector as the values at which to find empirical cdf.
     :type bins: Optional input

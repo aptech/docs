@@ -9,7 +9,7 @@ Reads lines of text from a file into a string array.
 
 Format
 ----------------
-.. function:: fgetsa(f,  numl)
+.. function:: fgetsa(f, numl)
 
     :param f: file handle of a file opened with fopen.
     :type f: scalar

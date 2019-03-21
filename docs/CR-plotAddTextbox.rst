@@ -8,8 +8,8 @@ Adds a textbox to an existing graph.
 
 Format
 ----------------
-.. function:: plotAddTextbox(text,  x_start,  y_start) 
-			  plotAddTextbox(myAnnotation,  text,  x_start,  y_start)
+.. function:: plotAddTextbox(text, x_start, y_start) 
+			  plotAddTextbox(myAnnotation, text, x_start, y_start)
 
     :param myAnnotation: a plotAnnotation structure.
     :type myAnnotation: Optional input

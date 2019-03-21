@@ -12,8 +12,8 @@ Format
 			  plotSetLegendFont(&myPlot, font, font_size) 
 			  plotSetLegendFont(&myPlot, font, font_size, font_color)
 
-    :param myPlot: A plotControl structure pointer.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure pointer
 
     :param font: font or font family name.
     :type font: String

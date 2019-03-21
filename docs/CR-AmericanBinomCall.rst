@@ -9,7 +9,7 @@ Prices American call options using binomial method.
 
 Format
 ----------------
-.. function:: AmericanBinomCall(S0,  K, r,  div,  tau,  sigma,  N)
+.. function:: AmericanBinomCall(S0, K, r, div, tau, sigma, N)
 
     :param S0: current price.
     :type S0: scalar
@@ -21,7 +21,7 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
@@ -30,9 +30,17 @@ Format
     :type sigma: scalar
 
     :param N: number of time segments. A higher number of segments will increase accuracy at the cost of computation time.
-    :type N: TODO
+    :type N: scalar
 
     :returns: c (*Mx1 vector*), call premiums.
+
+Remarks
+-------
+
+The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
+simplified approach," Journal of Financial Economics, 7:229:264) as
+described in Options, Futures, and other Derivatives by John C. Hull is
+the basis of this procedure.
 
 Examples
 ----------------
@@ -61,10 +69,7 @@ produces the output:
     12.745272
 
 Source
-++++++
+-------
 
 finprocs.src
 
-.. raw:: html
-
-   </div>

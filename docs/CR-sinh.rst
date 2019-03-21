@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: sinh(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), NxK matrix containing the hyperbolic sines of the elements of x.
 

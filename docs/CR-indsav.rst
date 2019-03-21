@@ -9,13 +9,13 @@ Checks one string array against another and returns the indices of the first str
 
 Format
 ----------------
-.. function:: indsav(what,  where)
+.. function:: indsav(what, where)
 
-    :param what: Nx1 string array which contains the values to be found in vector  where.
-    :type what: TODO
+    :param what: 
+    :type what: Nx1 string array which contains the values to be found in vector  where
 
-    :param where: Mx1 string array to be searched for the corresponding elements of  what.
-    :type where: TODO
+    :param where: 
+    :type where: Mx1 string array to be searched for the corresponding elements of  what
 
     :returns: indx (*Nx1 vector of indices*), the values of  what in  where.
 

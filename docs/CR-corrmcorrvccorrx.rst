@@ -1,5 +1,5 @@
 
-corrm,corrvc,corrx
+corrm, corrvc, corrx
 ==============================================
 
 Purpose
@@ -9,20 +9,31 @@ Computes an unbiased estimate of a correlation matrix.
 
 Format
 ----------------
-.. function:: corrx(x)
+.. function:: corrm(x)
+              corrvc(x)
+              corrx(x)
 
-    :param m: KxK moment (x'x) matrix. A constant term MUST have been
-        the first variable when the moment matrix was computed.
-    :type m: TODO
+    :param m: A constant term MUST have been the first variable when the moment matrix was computed.
+    :type m: KxK moment (x'x) matrix
 
-    :param vc: KxK variance-covariance matrix (of data or parameters).
-    :type vc: TODO
+    :param vc: data or parameters
+    :type vc: KxK variance-covariance matrix
 
-    :param x: NxK matrix of data.
-    :type x: TODO
+    :param x: data
+    :type x: NxK matrix
 
-    :returns: cx (*TODO*), PxP correlation matrix. For corrm, P = K-1. For corrvc and
-        corrx, P = K.
+    :returns: cx (*PxP correlation matrix*). For :func:`corrm`, :math:`P = K-1`. For :func:`corrvc` and
+        :func:`corrx`, :math:`P = K`.
+
+Remarks
+------------
+
+The correlation matrix is the standardized version of the unbiased
+estimator of the population variance-covariance matrix. It is computed
+using the moment matrix of deviations about the mean divided by the
+number of observations minus one :math:`N - 1`. For the observed
+correlation/covariance matrix which uses *N* rather than :math:`N - 1`, see :func:`corrms`
+and :func:`corrxs`.
 
 Examples
 ----------------
@@ -35,7 +46,7 @@ Examples
     print "x1 :" x1 ;
     print "x2 :" x2;
 
-After the above code, x1 and x2 look like:
+After the above code, *x1* and *x2* look like:
 
 ::
 
@@ -73,21 +84,10 @@ After the above code,
     	0.52196856        1.0000000       0.95548228 
     	0.75039768       0.95548228        1.0000000
 
-Remarks
-+++++++
-
-The correlation matrix is the standardized version of the unbiased
-estimator of the population variance-covariance matrix. It is computed
-using the moment matrix of deviations about the mean divided by the
-number of observations minus one N - 1. For the observed
-correlation/covariance matrix which uses N rather than N - 1, see corrms
-and corrxs.
-
 Source
-++++++
+------------
 
 corr.src
 
 .. seealso:: Functions :func:`momentd`, :func:`corrms`, :func:`corrxs`, :func:`varCovX`, :func:`varCovM`
 
-correlation matrix moment variance covariance

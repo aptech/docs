@@ -9,7 +9,7 @@ Creates a real data set.
 
 Format
 ----------------
-.. function:: datacreate(filename,  vnames,  col,  dtyp,  vtyp)
+.. function:: datacreate(filename, vnames, col, dtyp, vtyp)
 
     :param filename: name of data file.
     :type filename: string

@@ -10,13 +10,13 @@ matrix name, and index.
 
 Format
 ----------------
-.. function:: pvPacksmi(p1, x,  nm,  mask,  i)
+.. function:: pvPacksmi(p1, x, nm, mask, i)
 
-    :param p1: an instance of structure of type PV.
-    :type p1: TODO
+    :param p1: 
+    :type p1: an instance of structure of type PV
 
-    :param x: MxM symmetric matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxM symmetric matrix
 
     :param nm: matrix name.
     :type nm: string

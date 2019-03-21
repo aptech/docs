@@ -16,8 +16,8 @@ Format
     :param dname: name of the dataset in the HDF5 file.
     :type dname: String
 
-    :param x: Matrix or N-dimensional array, the data to write to the file.
-    :type x: TODO
+    :param x: , the data to write to the file.
+    :type x: Matrix or N-dimensional array
 
 Examples
 ----------------

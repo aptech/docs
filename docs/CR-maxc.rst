@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: maxc(x)
 
-    :param x: NxK matrix or sparse matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or sparse matrix
 
     :returns: y (*TODO*), Kx1 matrix containing the largest element in each column of x.
 

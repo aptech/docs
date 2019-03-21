@@ -8,10 +8,10 @@ Changes the values in a vector depending on the category a particular element fa
 
 Format
 ----------------
-.. function:: subscat(x,  breaks,  levels)
+.. function:: subscat(x, breaks, levels)
 
-    :param x: Nx1 vector.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector
 
     :param breaks: containing breakpoints
         specifying the ranges within which substitution

@@ -10,14 +10,14 @@ Format
 ----------------
 .. function:: submat(x, r, c)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param r: LxM matrix of row indices.
-    :type r: TODO
+    :param r: 
+    :type r: LxM matrix of row indices
 
-    :param c: PxQ matrix of column indices.
-    :type c: TODO
+    :param c: 
+    :type c: PxQ matrix of column indices
 
     :returns: y (*TODO*), (L*M)x(P*Q) submatrix of x, y may be larger
         than x.

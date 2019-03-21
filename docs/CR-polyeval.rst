@@ -11,17 +11,17 @@ Format
 ----------------
 .. function:: polyeval(x, coefs)
 
-    :param x: 1xK or NxN; that is, x can either represent K
+    :param x: , x can either represent K
         separate scalar values at which to evaluate the (scalar) polynomial(s), or it can represent a
         single NxN matrix.
-    :type x: TODO
+    :type x: 1xK or NxN; that is
 
-    :param c: (P+1)xK or (P+1)x1 matrix of coefficients of
-        polynomials to evaluate. If x is 1xK, then c
+    :param c:  If x is 1xK, then c
         must be (P+1)xK. If x is NxN, c must be (P+1)x1.
         That is, if x is a matrix, it can only be
         evaluated at a single set of coefficients.
-    :type c: TODO
+    :type c: (P+1)xK or (P+1)x1 matrix of coefficients of
+        polynomials to evaluate
 
     :returns: y (*TODO*), Kx1 vector (if c is (P+1)xK) or NxN matrix (if c
         is (P+1)x1 and x is NxN):

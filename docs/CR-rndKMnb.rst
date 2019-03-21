@@ -27,12 +27,12 @@ Format
         or scalar, ''probability'' argument for negative binomial distribution.
     :type p: r x c matrix
 
-    :param state: scalar or 500x1 vector.
+    :param state: 
         Scalar case:state = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
         
         500x1 vector case:state = the state vector returned from a previous
         call to one of the rndKM random number functions.
-    :type state: TODO
+    :type state: scalar or 500x1 vector
 
     :returns: x (*r x c matrix*), negative
         binomial distributed random numbers.

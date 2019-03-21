@@ -10,13 +10,13 @@ Computes the orthogonal-triangular (QR) decomposition of a matrix X using a pivo
 
 Format
 ----------------
-.. function:: qtyrep(y, x,  pvt)
+.. function:: qtyrep(y, x, pvt)
 
-    :param y: NxL matrix.
-    :type y: TODO
+    :param y: 
+    :type y: NxL matrix
 
-    :param x: NxP matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix
 
     :param pvt: controls the selection of the pivot
         columns:
@@ -25,9 +25,9 @@ Format
     .. csv-table::
         :widths: auto
 
-        "if pvt[i] > 0, 				x[i] is an initial column."
-        "if pvt[i] = 0, 				x[i] is a free column."
-        "if pvt[i] < 0, 				x[i] is a final column."
+        "if pvt[i] > 0, x[i] is an initial column."
+        "if pvt[i] = 0, x[i] is a free column."
+        "if pvt[i] < 0, x[i] is a final column."
         "The initial columns are placed at the beginning of the matrix and the final columns are placed at the end. Only the free columns will be moved during the decomposition."
 
     :returns: qty (*TODO*), NxL unitary matrix.

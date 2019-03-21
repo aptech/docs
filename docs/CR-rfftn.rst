@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: rfftn(x)
 
-    :param x: NxK real matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK real matrix
 
     :returns: y (*LxM matrix*), where L and M are the smallest prime
         factor products greater than or equal to N and K, respectively.

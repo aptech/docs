@@ -8,15 +8,21 @@ Performs matrix multiplication on the planes described by the two trailing dimen
 
 Format
 ----------------
-.. function:: amult(a,  b)
+.. function:: amult(a, b)
 
-    :param a: N-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: N-dimensional array
 
-    :param b: N-dimensional array.
-    :type b: TODO
+    :param b: 
+    :type b: N-dimensional array
 
-    :returns: y (*TODO*), N-dimensional array, containing the product of the matrix multiplication of the planes described by the two trailing dimensions of  a and  b.
+    :returns: y (N-dimensional array), containing the product of the matrix multiplication of the planes described by the two trailing dimensions of *a* and *b*.
+
+Remarks
+-------
+
+All leading dimensions must be strictly conformable, and the two
+trailing dimensions of each array must be matrix-product conformable.
 
 Examples
 ----------------
@@ -33,7 +39,7 @@ Examples
     //2x4 matrices in 'b'
     y = amult(a,b);
 
-a is a 2x3x2 array, such that:
+*a* is a 2x3x2 array, such that:
 [1,1,1] through [1,3,2] =
 
 ::
@@ -50,7 +56,7 @@ a is a 2x3x2 array, such that:
     9.0000000        10.000000 
     11.000000        12.000000
 
-b is a 2x2x4 array, such that:
+*b* is a 2x2x4 array, such that:
 [1,1,1] through [1,2,4] =
 
 ::
@@ -65,7 +71,7 @@ b is a 2x2x4 array, such that:
     9.0000000       10.000000       11.000000       12.000000 
     13.000000       14.000000       15.000000       16.000000
 
-y will be a 2x3x4 array, such that:
+*y* will be a 2x3x4 array, such that:
 [1,1,1] through [1,3,4] =
 
 ::

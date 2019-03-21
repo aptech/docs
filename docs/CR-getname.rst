@@ -12,8 +12,8 @@ Format
 ----------------
 .. function:: getname(dset)
 
-    :param dset: string specifying the name of the data set from which the function will obtain the variable names.
-    :type dset: TODO
+    :param dset: 
+    :type dset: string specifying the name of the data set from which the function will obtain the variable names
 
     :returns: y (*TODO*), Nx1 vector containing the names of all of the variables in the specified data set.
 

@@ -11,11 +11,10 @@ Format
 ----------------
 .. function:: cosh(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :returns: y (*TODO*), NxK matrix containing the hyperbolic cosines of
-        the elements of x.
+    :returns: y (*NxK matrix*) containing the hyperbolic cosines of the elements of *x*.
 
 Examples
 ----------------
@@ -36,8 +35,7 @@ Examples
         3.1416      11.5920
 
 Source
-++++++
+------------
 
 trig.src
 
-hyperbolic cosine trigonometric

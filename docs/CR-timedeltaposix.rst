@@ -9,7 +9,7 @@ Adds (or subtracts) time to a Posix date-time.
 
 Format
 ----------------
-.. function:: timeDeltaPosix(dt_start, inc,  unit)
+.. function:: timeDeltaPosix(dt_start, inc, unit)
 
     :param dt_start: containing 1 or more dates in POSIX time format.
     :type dt_start: NxK matrix

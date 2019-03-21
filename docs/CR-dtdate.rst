@@ -9,10 +9,10 @@ Creates a matrix in DT scalar format.
 
 Format
 ----------------
-.. function:: dtdate(year,  month,  day,  hour,  minute,  second)
+.. function:: dtdate(year, month, day, hour, minute, second)
 
-    :param year: NxK matrix of years.
-    :type year: TODO
+    :param year: 
+    :type year: NxK matrix of years
 
     :param month: 1-12.
     :type month: NxK matrix of months

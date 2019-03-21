@@ -9,10 +9,10 @@ Computes exponentially weighted moving average of a series.
 
 Format
 ----------------
-.. function:: movingaveExpwgt(x,  d,  p)
+.. function:: movingaveExpwgt(x, d, p)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :param d: order of moving average.
     :type d: scalar

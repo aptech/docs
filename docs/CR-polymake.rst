@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: polymake(r)
 
-    :param r: Nx1 vector containing roots of the desired polynomial.
-    :type r: TODO
+    :param r: 
+    :type r: Nx1 vector containing roots of the desired polynomial
 
     :returns: c (*TODO*), (N+1)x1 vector containing the coefficients of the
         Nth order polynomial with roots r:

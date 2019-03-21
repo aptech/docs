@@ -9,10 +9,10 @@ Converts a matrix containing dates in Posix date/time format to a string array, 
 
 Format
 ----------------
-.. function:: posixtostrc(x,  fmt)
+.. function:: posixtostrc(x, fmt)
 
-    :param x: NxK matrix containing dates in Posix date/time format (seconds since January 1, 1970).
-    :type x: TODO
+    :param x: , 1970).
+    :type x: NxK matrix containing dates in Posix date/time format (seconds since January 1
 
     :param fmt: or  ExE conformable string array containing strftime date/time format characters.
     :type fmt: string

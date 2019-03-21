@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: isinfnanmiss(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*scalar*), 1 if x contains any infinities, NaNs, or missing values, else 0.
 

@@ -11,11 +11,11 @@ Format
 ----------------
 .. function:: dot(x, y)
 
-    :param x: Nx1 vector or NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector or NxK matrix
 
-    :param y: Nx1 vector or NxK matrix.
-    :type y: TODO
+    :param y: 
+    :type y: Nx1 vector or NxK matrix
 
     :returns: z (*TODO*), scalar or Kx1 dot product
 

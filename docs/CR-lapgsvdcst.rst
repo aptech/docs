@@ -9,13 +9,13 @@ Compute the generalized singular value decomposition of a pair of real or comple
 
 Format
 ----------------
-.. function:: lapgsvdcst(A,  B)
+.. function:: lapgsvdcst(A, B)
 
-    :param A: MxN matrix.
-    :type A: TODO
+    :param A: 
+    :type A: MxN matrix
 
-    :param B: PxN matrix.
-    :type B: TODO
+    :param B: 
+    :type B: PxN matrix
 
     :returns: C (*Lx1 vector*), singular values for  A.
 

@@ -20,7 +20,7 @@ Format
 
     :param label_format: format's option:
         "D", e.g. 1.234567;
-        "E",  e.g.1.23E1;
+        "E", e.g.1.23E1;
         "G". "G" is either "D" or "E", whichever is more compact
     :type label_format: String
 

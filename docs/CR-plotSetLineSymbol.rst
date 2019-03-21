@@ -8,7 +8,7 @@ Sets the symbols displayed on the plotted points of a graph.
 
 Format
 ----------------
-.. function:: plotSetLineSymbol(&myPlot,  newSymbol,  symbolWidth)plotSetLineSymbol(&myPlot,  newSymbol)
+.. function:: plotSetLineSymbol(&myPlot, newSymbol, symbolWidth)plotSetLineSymbol(&myPlot, newSymbol)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: prodc(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), Kx1 matrix containing the products of all elements in each column of x.
 

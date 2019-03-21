@@ -9,7 +9,7 @@ Executes an executable program in the background and returns the process id to G
 
 Format
 ----------------
-.. function:: execbg(program,  comline)
+.. function:: execbg(program, comline)
 
     :param program: the name of the program, including the extension, to be executed.
     :type program: string

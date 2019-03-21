@@ -8,16 +8,16 @@ Computes residuals of a Vector ARMA model.
 
 Format
 ----------------
-.. function:: varmares(w,  phi,  theta)
+.. function:: varmares(w, phi, theta)
 
     :param w: time series.
     :type w: NxK matrix
 
-    :param phi: (K*P)xK matrix, AR coefficient matrices.
-    :type phi: TODO
+    :param phi: , AR coefficient matrices.
+    :type phi: (K*P)xK matrix
 
-    :param theta: (K*Q)xK matrix, MA coefficient matrices.
-    :type theta: TODO
+    :param theta: , MA coefficient matrices.
+    :type theta: (K*Q)xK matrix
 
     :returns: res (*NxK matrix*), residuals. If the calculation
         fails  res is set to missing value with error code:

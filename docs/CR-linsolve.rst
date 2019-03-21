@@ -11,11 +11,11 @@ Format
 ----------------
 .. function:: linsolve(b, A)
 
-    :param b: NxK matrix.
-    :type b: TODO
+    :param b: 
+    :type b: NxK matrix
 
-    :param A: NxN matrix.
-    :type A: TODO
+    :param A: 
+    :type A: NxN matrix
 
     :returns: x (*NxK matrix*), the linear solution of  b/A for each column in  b.
 

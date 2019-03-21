@@ -13,8 +13,8 @@ Format
 			   
 			  plotTSLog(myPlot, date_vec, label_unit, y)plotTSLog(date_vec, label_unit, y)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
     :param dtstart: starting date in DT scalar format. This input is used when the data is evenly spaced and yearly, quarterly or monthly.
     :type dtstart: Scalar
@@ -52,8 +52,8 @@ Format
         ""quarters"", ""
         ""years"", ""
 
-    :param y: Nx1 or NxM matrix. Each column contains the Y values for a particular line.
-    :type y: TODO
+    :param y:  Each column contains the Y values for a particular line.
+    :type y: Nx1 or NxM matrix
 
 Examples
 ----------------

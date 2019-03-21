@@ -8,13 +8,13 @@ Extracts an Nx1 vector of elements from an NxK matrix.
 
 Format
 ----------------
-.. function:: subvec(x,  ci)
+.. function:: subvec(x, ci)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param ci: Nx1 vector of column indices.
-    :type ci: TODO
+    :param ci: 
+    :type ci: Nx1 vector of column indices
 
     :returns: y (*TODO*), Nx1 vector containing the elements in x
         indicated by  ci.

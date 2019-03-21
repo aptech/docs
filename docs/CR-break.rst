@@ -4,11 +4,16 @@ break
 
 Purpose
 ----------------
- Breaks out of a do or for loop.
+Breaks out of a do or for loop.
 
 Format
 ----------------
 .. function:: break
+
+Remarks
+-------
+
+This command works just like in C.
 
 Examples
 ----------------
@@ -43,9 +48,5 @@ the use of random data, your matrix will have different non-zero elements above 
     0.000  0.000  1.000 -0.768
     0.000  0.000  0.000  1.000
 
-Remarks
-+++++++
-
-This command works just like in C.
-
 .. seealso:: Functions :func:`continue`, :func:`do`, :func:`for`
+

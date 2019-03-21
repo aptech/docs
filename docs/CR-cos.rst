@@ -11,11 +11,17 @@ Format
 ----------------
 .. function:: cos(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :returns: y (*TODO*), NxK matrix containing the cosines of the elements of
-        x.
+    :returns: y (*NxK matrix*) containing the cosines of the elements of *x*.
+
+Remarks
+-------
+
+For real matrices, *x* should contain angles measured in radians.
+
+To convert degrees to radians, multiply the degrees by :math:`π/180`.
 
 Examples
 ----------------
@@ -36,4 +42,3 @@ Examples
 
 .. seealso:: Functions :func:`atan`, :func:`atan2`, :func:`pi`
 
-cos trigonometric

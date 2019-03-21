@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: scalerr(c)
 
-    :param c: NxK matrix or sparse matrix or N-dimensional array, generally the return argument of a function or procedure call.
-    :type c: TODO
+    :param c: , generally the return argument of a function or procedure call.
+    :type c: NxK matrix or sparse matrix or N-dimensional array
 
     :returns: y (*TODO*), scalar or [N-2]-dimensional array, 0 if the argument
         is not a scalar error code, or the value of the error

@@ -5,7 +5,7 @@ base10
 Purpose
 ----------------
 
-Breaks number into a number of the form #.####... and a power of 10.
+Breaks number into a number of the form `#.####...` and a power of 10.
 
 Format
 ----------------
@@ -14,10 +14,10 @@ Format
     :param x: number to break down.
     :type x: scalar
 
-    :returns: M (*scalar*), in the range -10 < M < 10.
+    :returns: M (*scalar*), in the range -10 < *M* < 10.
 
     :returns: P (*scalar*), integer power such that:
-        M*10P = x
+        .. math:: M*10P = x
 
 Examples
 ----------------
@@ -39,10 +39,7 @@ and
     b*10^e = 4.5*10^3 = 4500
 
 Source
-++++++
+------------
 
 base10.src
 
-.. raw:: html
-
-   </div>

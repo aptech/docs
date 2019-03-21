@@ -9,7 +9,7 @@ Controls the settings for the X-axis label on a graph.
 
 Format
 ----------------
-.. function:: plotSetXLabel(&myPlot,  label,  font,  fontSize,  fontColor)plotSetXLabel(&myPlot,  label,  font,  fontSize)plotSetXLabel(&myPlot,  label,  font)plotSetXLabel(&myPlot,  label)
+.. function:: plotSetXLabel(&myPlot, label, font, fontSize, fontColor)plotSetXLabel(&myPlot, label, font, fontSize)plotSetXLabel(&myPlot, label, font)plotSetXLabel(&myPlot, label)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

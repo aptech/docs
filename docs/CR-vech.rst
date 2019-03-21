@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: vech(x)
 
-    :param x: NxN symmetric matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxN symmetric matrix
 
     :returns: v (*TODO*), (N*(N+1)/2)x1 vector, the lower triangular portion of the matrix x.
 

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: meanc(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), Kx1 matrix containing the mean of every column of x.
 

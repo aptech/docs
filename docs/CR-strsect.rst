@@ -8,11 +8,11 @@ Extracts a substring of a string.
 
 Format
 ----------------
-.. function:: strsect(str,  start,  len)
+.. function:: strsect(str, start, len)
 
-    :param str: string or scalar from which the segment is
-        to be obtained.
-    :type str: TODO
+    :param str: 
+    :type str: string or scalar from which the segment is
+        to be obtained
 
     :param start: the index of the substring
         in  str. The index of the first character is 1.

@@ -9,13 +9,13 @@ Returns a specified row from a matrix.
 
 Format
 ----------------
-.. function:: getRow(a,  row)
+.. function:: getRow(a, row)
 
-    :param a: NxK matrix
-    :type a: TODO
+    :param a: 
+    :type a: NxK matrix
 
-    :param row: The row of the matrix to extract.
-    :type row: TODO
+    :param row: 
+    :type row: The row of the matrix to extract
 
     :returns: y (*TODO*), A 1xK row vector.
 

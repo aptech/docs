@@ -9,7 +9,7 @@ Creates a matrix in DT scalar format containing only the hour, minute and second
 
 Format
 ----------------
-.. function:: dttime(hour,  minute,  second)
+.. function:: dttime(hour, minute, second)
 
     :param hour: 0-23.
     :type hour: NxK matrix of hours

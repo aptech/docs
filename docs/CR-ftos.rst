@@ -9,7 +9,7 @@ Converts a scalar into a string containing the decimal character representation 
 
 Format
 ----------------
-.. function:: ftos(x,  fmat,  field,  prec)
+.. function:: ftos(x, fmat, field, prec)
 
     :param x: the number to be converted.
     :type x: scalar
@@ -26,7 +26,7 @@ Format
         separate precisions for the real and imaginary parts of x.
     :type prec: scalar or 2x1 vector
 
-    :returns: y (*TODO*), string containing the decimal character equivalent of x in the format specified.
+    :returns: y (string), containing the decimal character equivalent of x in the format specified.
 
 Examples
 ----------------

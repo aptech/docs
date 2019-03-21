@@ -11,16 +11,23 @@ Format
 ----------------
 .. function:: cdfWeibull(x,k,lambda)
 
-    :param x: Nx1 vector or scalar. x must be greater than 0.
-    :type x: NxK matrix
+    :param x: must be greater than 0.
+    :type x: NxK matrix or Nx1 vector or scalar
 
-    :param k: Shape parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with x.  k must be greater than 0.
-    :type k: TODO
+    :param k: Shape parameter. ExE conformable with *x*. *k* must be greater than 0.
+    :type k: NxK matrix or Nx1 vector or scalar
 
-    :param lambda: Scale parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with x.  lambda must be greater than 0.
-    :type lambda: TODO
+    :param lambda: Scale parameter, ExE conformable with *x*. *lambda* must be greater than 0.
+    :type lambda: NxK matrix or Nx1 vector or scalar
 
-    :returns: y (*NxK matrix*), Nx1 vector or scalar.
+    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+
+Remarks
+------------
+
+The Weibull cumulative distribution function is defined as:
+
+.. math::  f(x;k,λ) = 1 - e-(x/λ)k
 
 Examples
 ----------------
@@ -37,15 +44,7 @@ Calculate the cdf for the Weibull distribution with different shape parameters.
 
 After running above code,
 
-Remarks
-+++++++
-
-The Weibull cumulative distribution function is defined as:
-
-::
-
-   f(x;k,λ) = 1 - e-(x/λ)k
+.. figure:: _static/images/cdfWeibull_1.png
 
 .. seealso:: Functions :func:`pdfWeibull`, :func:`cdfWeibullInv`
 
-Weibull cdf cumulative distribution function

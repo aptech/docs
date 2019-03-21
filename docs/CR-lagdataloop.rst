@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: var2:p2...]]
 
-    :param var: name of the variable to lag.
-    :type var: TODO
+    :param var: 
+    :type var: name of the variable to lag
 
     :param p: number of periods to lag.
     :type p: scalar constant

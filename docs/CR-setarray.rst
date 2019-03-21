@@ -8,16 +8,16 @@ Sets a contiguous subarray of an N-dimensional array.
 
 Format
 ----------------
-.. function:: setarray a,  loc,  src
+.. function:: setarray a, loc, src
 
-    :param a: N-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: N-dimensional array
 
     :param loc: where M is a value from 1 to N.
     :type loc: Mx1 vector of indices into the array to locate the subarray of interest
 
-    :param src: [N-M]-dimensional array, matrix, or scalar.
-    :type src: TODO
+    :param src: , matrix, or scalar.
+    :type src: [N-M]-dimensional array
 
 Examples
 ----------------

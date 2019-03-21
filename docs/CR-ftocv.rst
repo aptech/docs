@@ -13,8 +13,8 @@ Format
 ----------------
 .. function:: ftocv(x, field, prec)
 
-    :param x: NxK matrix containing numeric data to be converted.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix containing numeric data to be converted
 
     :param field: minimum field width.
     :type field: scalar

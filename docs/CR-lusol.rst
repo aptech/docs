@@ -10,16 +10,16 @@ Computes the solution of LUx = b where L is a lower triangular
 
 Format
 ----------------
-.. function:: lusol(b,  L,  U)
+.. function:: lusol(b, L, U)
 
-    :param b: PxK matrix.
-    :type b: TODO
+    :param b: 
+    :type b: PxK matrix
 
-    :param L: PxP lower triangular matrix.
-    :type L: TODO
+    :param L: 
+    :type L: PxP lower triangular matrix
 
-    :param U: PxP upper triangular matrix.
-    :type U: TODO
+    :param U: 
+    :type U: PxP upper triangular matrix
 
     :returns: x (*PxK matrix*), solution of LUx = b.
 

@@ -12,11 +12,11 @@ Format
 ----------------
 .. function:: qyre(y, x)
 
-    :param y: NxL matrix.
-    :type y: TODO
+    :param y: 
+    :type y: NxL matrix
 
-    :param x: NxP matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix
 
     :returns: qy (*TODO*), NxL unitary matrix.
 

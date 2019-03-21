@@ -9,7 +9,7 @@ Integrates a specified function using Simpson's method with end correction. A si
 
 Format
 ----------------
-.. function:: intsimp(&f,  xl,  tol)
+.. function:: intsimp(&f, xl, tol)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: TODO
@@ -18,8 +18,8 @@ Format
         The first element is the upper limit and the second element is the lower limit.
     :type xl: 2x1 vector
 
-    :param tol: The tolerance to be used in testing for convergence.
-    :type tol: TODO
+    :param tol: 
+    :type tol: The tolerance to be used in testing for convergence
 
     :returns: y (*TODO*), The estimated integral of f(x) between xl[1] and xl[2].
 

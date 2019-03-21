@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: delcols(X, r_idx)
 
-    :param X: Input matrix
-    :type X: TODO
+    :param X: 
+    :type X: Input matrix
 
     :param r_idx: or vector, index of columns to remove from 'X'.
         Negative integers will start from the back. For example,

@@ -14,5 +14,5 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: db_password (*TODO*), string containing the password for the specified database connection or a null string.
+    :returns: db_password (string), containing the password for the specified database connection or a null string.
 

@@ -9,14 +9,14 @@ Checks one character vector against another and returns the indices of the eleme
 
 Format
 ----------------
-.. function:: indcv(what,  where)
+.. function:: indcv(what, where)
 
-    :param what: Nx1 character vector which contains the elements to be found in vector
-        where.
-    :type what: TODO
+    :param what: 
+    :type what: Nx1 character vector which contains the elements to be found in vector
+        where
 
-    :param where: Mx1 character vector to be searched for matches to the elements of what.
-    :type where: TODO
+    :param where: 
+    :type where: Mx1 character vector to be searched for matches to the elements of what
 
     :returns: z (*TODO*), Nx1 vector of integers containing the indices of the corresponding element of what
         in  where.

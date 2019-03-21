@@ -19,8 +19,8 @@ Format
         next two arguments.
     :type dataset: string
 
-    :param depvar: If  dataset contains a string:
-    :type depvar: TODO
+    :param depvar: 
+    :type depvar: If  dataset contains a string:
 
     .. csv-table::
         :widths: auto
@@ -29,8 +29,8 @@ Format
         "If  dataset is a null string or 0:"
         "", "Nx1 vector, the dependent variable."
 
-    :param indvars: If  dataset contains a string:
-    :type indvars: TODO
+    :param indvars: 
+    :type indvars: If  dataset contains a string:
 
     .. csv-table::
         :widths: auto

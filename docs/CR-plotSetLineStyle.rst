@@ -9,7 +9,7 @@ Sets the line styles for a graph.
 
 Format
 ----------------
-.. function:: plotSetLineStyle(&myPlot,  newStyle)
+.. function:: plotSetLineStyle(&myPlot, newStyle)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

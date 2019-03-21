@@ -8,7 +8,7 @@ Controls the font name, size and color for the X and Y axis tic labels.
 
 Format
 ----------------
-.. function:: plotSetTicLabelFont(&myPlot, font)plotSetTicLabelFont(&myPlot, font,  size)plotSetTicLabelFont(&myPlot, font,  size,  color)
+.. function:: plotSetTicLabelFont(&myPlot, font)plotSetTicLabelFont(&myPlot, font, size)plotSetTicLabelFont(&myPlot, font, size, color)
 
     :param &myPlot: Pointer to a plotControl structure.
     :type &myPlot: TODO

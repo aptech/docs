@@ -10,12 +10,12 @@ Format
 ----------------
 .. function:: plotLogY(myPlot, x, y)plotLogY(x, y)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
-    :param x: Nx1 or NxM matrix. Each column represents the X values for a particular line.
-    :type x: TODO
+    :param x:  Each column represents the X values for a particular line.
+    :type x: Nx1 or NxM matrix
 
-    :param y: Nx1 or NxM matrix. Each column represents the Y values for a particular line.
-    :type y: TODO
+    :param y:  Each column represents the Y values for a particular line.
+    :type y: Nx1 or NxM matrix
 

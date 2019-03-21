@@ -10,13 +10,21 @@ Format
 ----------------
 .. function:: cdfPoissonInv(p, lambda)
 
-    :param p: Nx1 vector or scalar. 0 < p < 1.
+    :param p: Nx1 vector or scalar. :math:`0 < p < 1`.
     :type p: NxK matrix
 
-    :param lambda: ExE conformable with p. The mean parameter.
-    :type lambda: TODO
+    :param lambda: The mean parameter.
+    :type lambda: ExE conformable with *p*
 
-    :returns: x (*NxK matrix*), Nx1 vector or scalar.
+    :returns: x (*NxK matrix or Nx1 vector or scalar*)
+
+Remarks
+-------
+
+For invalid inputs, :func:`cdfPoissoninv` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 Examples
 ----------------
@@ -34,14 +42,5 @@ After running above code, the hospital should expect to see 224 or few patients 
 
     x = 224
 
-Remarks
-+++++++
-
-For invalid inputs, cdfPoissoninv will return a scalar error code which,
-when its value is assessed by function scalerr, corresponds to the
-invalid input. If the first input is out of range, scalerr will return a
-1; if the second is out of range, scalerr will return a 2; etc.
-
 .. seealso:: Functions :func:`cdfPoisson`, :func:`pdfPoisson`, :func:`cdfBinomial`, :func:`cdfNegBinomial`
 
-inverse poisson cdf cumulative distribution function

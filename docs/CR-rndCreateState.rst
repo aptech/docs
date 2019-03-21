@@ -30,7 +30,7 @@ Format
         ""sobol"", "Sobol quasi-random numbers"
         ""wh-01"", "Wichmann-Hill"
 
-    :param seed: starting seed value. if -1, 					GAUSS computes the starting seed based on the system clock.
+    :param seed: starting seed value. if -1, GAUSS computes the starting seed based on the system clock.
         NOTE: For the quasi-random number generators, "sobol"
         and "niederreiter", this second input is the dimension rather than a starting seed. For "sobol", 1 ≤ dimension ≤ 40. For niederreiter, 1 ≤ dimension ≤ 318. See examples below.
     :type seed: Scalar

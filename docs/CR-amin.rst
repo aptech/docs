@@ -9,15 +9,21 @@ Moves across one dimension of an N-dimensional array and finds the smallest elem
 
 Format
 ----------------
-.. function:: amin(x,  dim)
+.. function:: amin(x, dim)
 
-    :param x: N-dimensional array.
-    :type x: TODO
+    :param x: N-dimensional array 
+    :type x: array
 
     :param dim: number of dimension across which to find the minimum value.
     :type dim: scalar
 
-    :returns: y (*TODO*), N-dimensional array.
+    :returns: y (*N-dimensional array*) 
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
 
 Examples
 ----------------
@@ -40,7 +46,7 @@ Examples
     dim = 2;
     y = amin(x,dim);
 
-x is a 2x3x4 array, such that:
+*x* is a 2x3x4 array, such that:
 [1,1,1] through [1,3,4] =
 
 ::
@@ -57,7 +63,7 @@ x is a 2x3x4 array, such that:
      4.0000000       13.000000      -16.000000       11.000000 
      2.0000000      -1.0000000       12.000000      -16.000000
 
-y will be a 2x1x4 array, such that:
+*y* will be a 2x1x4 array, such that:
 [1,1,1] through [1,1,4] =
 
 ::
@@ -74,8 +80,8 @@ y will be a 2x1x4 array, such that:
 
     y = amin(x,1);
 
-Using the same array x as the above example, this example finds the minimum value across the first dimension.
-y will be a 2x3x1 array, such that:
+Using the same array *x* as the above example, this example finds the minimum value across the first dimension.
+*y* will be a 2x3x1 array, such that:
 [1,1,1] through [1,3,1] =
 
 ::
@@ -94,4 +100,3 @@ y will be a 2x3x1 array, such that:
 
 .. seealso:: Functions :func:`amax`, :func:`minc`
 
-| 

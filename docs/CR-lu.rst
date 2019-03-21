@@ -12,8 +12,8 @@ Format
 ----------------
 .. function:: lu(x)
 
-    :param x: NxN square nonsingular matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxN square nonsingular matrix
 
     :returns: l (*TODO*), NxN ''scrambled'' lower triangular matrix. This is
         a lower triangular matrix that has been reordered

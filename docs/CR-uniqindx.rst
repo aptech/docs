@@ -9,10 +9,10 @@ Computes the sorted index of x, leaving out duplicate elements.
 
 Format
 ----------------
-.. function:: uniqindx(x,  flag)
+.. function:: uniqindx(x, flag)
 
-    :param x: Nx1 or 1xN vector.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 or 1xN vector
 
     :param flag: 1 if numeric data, 0 if character.
     :type flag: scalar

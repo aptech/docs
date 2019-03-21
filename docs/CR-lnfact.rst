@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: lnfact(x)
 
-    :param x: NxK matrix or N-dimensional array, all elements must be positive.
-    :type x: TODO
+    :param x: , all elements must be positive.
+    :type x: NxK matrix or N-dimensional array
 
     :returns: y (*TODO*), NxK matrix containing the natural log of the factorial of each of the elements in x.
 

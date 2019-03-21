@@ -17,22 +17,22 @@ Format
     :param c: column dimension of the return matrix x
     :type c: Scalar
 
-    :param m: The size of the population from which draws will be made. ExE conformable with the row and column dimensions of the return matrix, r and c
-    :type m: TODO
+    :param m:  ExE conformable with the row and column dimensions of the return matrix, r and c
+    :type m: The size of the population from which draws will be made
 
-    :param k: The number of items in the population which possess a specified trait. ExE conformable with row and column dimensions of the return matrix, r, and c
-    :type k: TODO
+    :param k:  ExE conformable with row and column dimensions of the return matrix, r, and c
+    :type k: The number of items in the population which possess a specified trait
 
-    :param n: The number of items drawn from the population. ExE conformable with the dimensions of the return matrix, r and c
-    :type n: TODO
+    :param n:  ExE conformable with the dimensions of the return matrix, r and c
+    :type n: The number of items drawn from the population
 
-    :param state: Optional argument - scalar or opaque vector
-        Scalar case:state = starting seed value. If -1, GAUSS
+    :param state:  If -1, GAUSS
         computes the starting seed based on the system clock.
         
         Opaque vector case:state = the state vector returned from a previous
         call to one of the rndn random number generators
-    :type state: TODO
+    :type state: Optional argument - scalar or opaque vector
+        Scalar case:state = starting seed value
 
     :returns: x (*TODO*), The probability of drawing x items which possess a specified trait. NxK matrix, Nx1 vector or scalar
 

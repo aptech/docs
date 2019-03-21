@@ -9,13 +9,13 @@ Returns the intersection of two string vectors, with duplicates removed. NOTE: T
 
 Format
 ----------------
-.. function:: intrsectsa(sv1,  sv2)
+.. function:: intrsectsa(sv1, sv2)
 
-    :param sv1: Nx1 or 1xN string vector.
-    :type sv1: TODO
+    :param sv1: 
+    :type sv1: Nx1 or 1xN string vector
 
-    :param sv2: Mx1 or 1xM string vector.
-    :type sv2: TODO
+    :param sv2: 
+    :type sv2: Mx1 or 1xM string vector
 
     :returns: sy (*Lx1 vector containing all unique strings that are in both  sv1 and  sv2*), sorted in ascending order.
 

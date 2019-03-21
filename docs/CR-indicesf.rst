@@ -9,7 +9,7 @@ Processes a set of variable names or indices and returns a vector of variable na
 
 Format
 ----------------
-.. function:: indicesf(fp,  namein,  indxin)
+.. function:: indicesf(fp, namein, indxin)
 
     :param fp: file handle of an open data set.
     :type fp: scalar

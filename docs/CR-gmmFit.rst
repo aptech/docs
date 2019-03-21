@@ -11,9 +11,9 @@ Format
 ----------------
 .. function:: gmmFit(&fct, y, ..., gCtl )
 
-    :param fct: Pointer to user specified moment equation function `fct'.  The function must have the parameter vector to be estimated as the first input and a data matrix as the second input.The data matrix y and all optional arguments are passed, untouched, directly to the moment function. The function fct  should return the desired moments for the GMM objective function and should take the form:
+    :param fct:   The function must have the parameter vector to be estimated as the first input and a data matrix as the second input.The data matrix y and all optional arguments are passed, untouched, directly to the moment function. The function fct  should return the desired moments for the GMM objective function and should take the form:
         m = fct(b, y, ...);
-    :type fct: TODO
+    :type fct: Pointer to user specified moment equation function `fct'
 
     :param y: independent data vector.
     :type y: N x 1 matrix
@@ -22,8 +22,8 @@ Format
         These arguments are passed untouched to the user-provided moment function by gmmFit.
     :type ...: TODO
 
-    :param gCtl: an instance of an gmmControl structure. The following members of gCtl are referenced within the gmmFit routine:
-    :type gCtl: TODO
+    :param gCtl:  The following members of gCtl are referenced within the gmmFit routine:
+    :type gCtl: an instance of an gmmControl structure
 
     .. csv-table::
         :widths: auto

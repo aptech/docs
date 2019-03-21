@@ -10,13 +10,24 @@ Format
 ----------------
 .. function:: atan2(y, x)
 
-    :param y: NxK matrix or P-dimensional array where the last two dimensions are NxK, the y coordinate.
-    :type y: TODO
+    :param y: NxK matrix or P-dimensional array where the last two dimensions are NxK, the *y* coordinate.
+    :type y: matrix 
 
-    :param x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with y, the x coordinate.
-    :type x: TODO
+    :param x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with *y*, the *x* coordinate.
+    :type x: matrix 
 
-    :returns: z (*TODO*), max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
+    :returns: z (matrix) max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
+
+Remarks
+-------
+
+Given a point *x*, *y* in a Cartesian coordinate system, :func:`atan2` will give the
+correct angle with respect to the positive X axis. The answer will be in
+radians from :math:`-π` to :math:`+π`.
+
+To convert radians to degrees, multiply by :math:`180/π`.
+
+:func:`atan2` operates only on the real component of *x*, even if *x* is complex.
 
 Examples
 ----------------
@@ -45,4 +56,3 @@ After the code above:
 
 .. seealso:: Functions :func:`atan`, :func:`sin`, :func:`cos`, :func:`pi`, :func:`tan`, :func:`arcsin`, :func:`arccos`
 
-arctan arctangent coordinate inverse tangent trigonometric

@@ -10,13 +10,13 @@ triangular matrix.
 
 Format
 ----------------
-.. function:: utrisol(b,  U)
+.. function:: utrisol(b, U)
 
-    :param b: PxK matrix.
-    :type b: TODO
+    :param b: 
+    :type b: PxK matrix
 
-    :param U: PxP upper triangular matrix.
-    :type U: TODO
+    :param U: 
+    :type U: PxP upper triangular matrix
 
     :returns: x (*PxK matrix*), solution of Ux = b.
 

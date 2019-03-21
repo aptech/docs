@@ -5,19 +5,19 @@ cdfTnc
 Purpose
 ----------------
 
-The integral under noncentral Student's  t distribution, from
--∞ to x. It can return a vector of values,
+The integral under noncentral Student's :math:`t` distribution, from
+:math:`-∞` to *x*. It can return a vector of values,
 but the degrees of freedom and noncentrality parameter
-must be the same for all values of x.
+must be the same for all values of *x*.
 
 Format
 ----------------
-.. function:: cdfTnc(x,  v,  d)
+.. function:: cdfTnc(x, v, d)
 
     :param x: values of upper limits of integrals.
     :type x: Nx1 vector
 
-    :param v: degrees of freedom, v > 0.
+    :param v: degrees of freedom, :math:`v > 0`.
     :type v: scalar
 
     :param d: noncentrality parameter.
@@ -27,8 +27,13 @@ Format
         The Analysis of Variance, App. IV, 1959.)
     :type d: scalar
 
-    :returns: y (*Nx1 vector*), integrals from -∞ to x of
-        noncentral t.
+    :returns: y (*Nx1 vector*), integrals from :math:`-∞` to *x* of
+        noncentral *t*.
+
+Remarks
+------------
+
+.. math:: cdfTc(x, v) = 1 - cdfTnc(x, v,0)
 
 Examples
 ----------------
@@ -47,6 +52,8 @@ noncentral t distributions with different parameters.
 
 After running above code,
 
+.. figure:: _static/images/cdfTnc_1.png
+
 noncentral t distributions with different degree of freedoms.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -61,15 +68,8 @@ noncentral t distributions with different degree of freedoms.
 
 After running above code,
 
-::
-
+.. figure:: _static/images/cdfTnc_2.png
     
-
-Remarks
-+++++++
-
-cdfTc(x, v) = 1 - cdfTnc(x, v,0).
 
 .. seealso:: Functions :func:`cdfFnc`, :func:`cdfChinc`
 
-non central student t cdf cumulative distribution function

@@ -9,16 +9,16 @@ Computes numerical Hessian with mask.
 
 Format
 ----------------
-.. function:: hessMTm(&fct,  par1,  data1,  mask)
+.. function:: hessMTm(&fct, par1, data1, mask)
 
     :param &fct: pointer to procedure returning either Nx1 vector or scalar.
     :type &fct: scalar
 
-    :param par1: an instance of structure of type PV containing parameter vector at which Hessian is to be evaluated.
-    :type par1: TODO
+    :param par1: 
+    :type par1: an instance of structure of type PV containing parameter vector at which Hessian is to be evaluated
 
-    :param data1: structure of type DS containing any data needed by  fct.
-    :type data1: TODO
+    :param data1: 
+    :type data1: structure of type DS containing any data needed by  fct
 
     :param mask: elements in  h corresponding to elements of mask set to zero are not computed, otherwise are computed.
     :type mask: KxK matrix

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: lag1(x)
 
-    :param x: Nx1 column vector or NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 column vector or NxK matrix
 
     :returns: y (*NxK matrix*), x lagged 1 period.
 

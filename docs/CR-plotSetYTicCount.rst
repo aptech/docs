@@ -8,7 +8,7 @@ Controls the number of major tics on the y-axis of a 2-D plot.
 
 Format
 ----------------
-.. function:: plotSetYTicCount(&myPlot,  num_tics)
+.. function:: plotSetYTicCount(&myPlot, num_tics)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: strtofcplx(sa)
 
-    :param sa: NxK string array containing numeric data.
-    :type sa: TODO
+    :param sa: 
+    :type sa: NxK string array containing numeric data
 
     :returns: x (*TODO*), NxK complex matrix.
 

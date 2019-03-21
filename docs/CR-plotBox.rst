@@ -8,16 +8,16 @@ Graphs data using the box graph percentile method.
 
 Format
 ----------------
-.. function:: plotBox(myPlot,  group_id, y)plotBox(group_id, y)
+.. function:: plotBox(myPlot, group_id, y)plotBox(group_id, y)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
-    :param group_id: Mx1 vector for numeric labels or Mx1 string array for text labels. This contains the group numbers or string labels corresponding to each column of y data. If scalar 0, a sequence from 1 to cols(y) will be generated automatically for the X axis.
-    :type group_id: TODO
+    :param group_id:  This contains the group numbers or string labels corresponding to each column of y data. If scalar 0, a sequence from 1 to cols(y) will be generated automatically for the X axis.
+    :type group_id: Mx1 vector for numeric labels or Mx1 string array for text labels
 
-    :param y: NxM matrix. Each column represents the set of y values for an individual percentiles box symbol.
-    :type y: TODO
+    :param y:  Each column represents the set of y values for an individual percentiles box symbol.
+    :type y: NxM matrix
 
 Examples
 ----------------

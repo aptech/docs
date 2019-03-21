@@ -11,16 +11,30 @@ Format
 ----------------
 .. function:: cdfBeta(x, a, b)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param a: ExE conformable with x.
+    :param a: ExE conformable with *x*.
     :type a: LxM matrix
 
-    :param b: ExE conformable with x and  a.
+    :param b: ExE conformable with *x* and *a*.
     :type b: PxQ matrix
 
-    :returns: y (*TODO*), max(N,L,P) by max(K,M,Q) matrix.
+    :returns: y (*matrix*), max(N,L,P) by max(K,M,Q)
+
+Remarks
+-------
+
+*y* is the integral from 0 to *x* of the beta distribution with parameters *a*
+and *b*. Allowable ranges for the arguments are:
+
+.. math::  
+
+   0 ≤ x ≤ 1
+   a > 0
+   b > 0
+
+A -1 is returned for those elements with invalid inputs.
 
 Examples
 ----------------
@@ -43,12 +57,11 @@ After running above code,
     	0.26057158 
     	0.31087052
 
-.. seealso:: Functions :func:`cdfChic`, :func:`cdfFc`, :func:`cdfN`, :func:`cdfNc`, :func:`cdfTc`, :func:`gamma`
 
 Technical Notes
-+++++++++++++++
+-------------------
 
-cdfBeta has the following approximate accuracy:
+:func:`cdfBeta` has the following approximate accuracy:
 
 +--------+---+-----------+----+---------+----------------------------------+
 |        |   | max(a, b) | <= | 500     | absolute error is approx. ±5e-13 |
@@ -59,7 +72,7 @@ cdfBeta has the following approximate accuracy:
 +--------+---+-----------+----+---------+----------------------------------+
 
 References
-++++++++++
+------------
 
 #. Bol'shev, L.N."Asymptotically Perason's Transformations." Teor.
    Veroyat. Primen. Theory of Probability and its Applications. Vol. 8,
@@ -77,4 +90,5 @@ References
 #. Pike, M.C. and J.W. Pratt. "Remark on Algorithm 179 Incomplete Beta
    Ratio." Comm. ACM. Vol. 10, No. 6, June 1967, 375-76.
 
-cdf integral beta function
+.. seealso:: Functions :func:`cdfChic`, :func:`cdfFc`, :func:`cdfN`, :func:`cdfNc`, :func:`cdfTc`, :func:`gamma`
+

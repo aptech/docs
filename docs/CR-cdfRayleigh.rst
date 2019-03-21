@@ -8,20 +8,28 @@ Computes the Rayleigh cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfRayleigh(x,b)
+.. function:: cdfRayleigh(x, b)
 
-    :param x: an Nx1 vector or scalar. x must be greater than or equal to 0.
-    :type x: NxK matrix
+    :param x: must be greater than or equal to 0.
+    :type x: NxK matrix or an Nx1 vector or scalar
 
-    :param b: Scale parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with x.  b must be greater than 0.
-    :type b: TODO
+    :param b: Scale parameter, ExE conformable with *x*. *b* must be greater than 0.
+    :type b: NxK matrix or Nx1 vector or scalar
 
-    :returns: y (*NxK matrix*), Nx1 vector or scalar.
+    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+
+Remarks
+------------
+
+The Rayleigh cumulative distribution function is defined as
+
+.. math:: 1−exp⁡(−x22σ2)
+
+.. DANGER:: FIX EQUATION
 
 Examples
 ----------------
-Here is an example show the 
-Rayleigh 	cumulative distribution plot with different scale parameters.
+Here is an example show the Rayleigh cumulative distribution plot with different scale parameters.
 
 ::
 
@@ -32,19 +40,7 @@ Rayleigh 	cumulative distribution plot with different scale parameters.
 
 After running above code,
 
-::
-
-    
-
-Remarks
-+++++++
-
-The Rayleigh cumulative distribution function is defined as
-
-::
-
-   1−exp⁡(−x22σ2)
+.. figure:: _static/images/cdfRayleigh.png
 
 .. seealso:: Functions :func:`cdfRayleighInv`, :func:`pdfRayleigh`
 
-Rayleigh cdf cumulative distribution function

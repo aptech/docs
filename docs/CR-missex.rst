@@ -12,12 +12,12 @@ Format
 ----------------
 .. function:: missex(x, mask)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param mask: NxK logical matrix (matrix of 0's and 1's) that serves as a "mask" for x; the 1's in mask correspond to the values in x that are to be
-        converted into missing values.
-    :type mask: TODO
+    :param mask: 
+    :type mask: NxK logical matrix (matrix of 0's and 1's) that serves as a "mask" for x; the 1's in mask correspond to the values in x that are to be
+        converted into missing values
 
     :returns: y (*NxK matrix that equals x*), but with those
         elements that correspond to the 1's in  e converted to missing.

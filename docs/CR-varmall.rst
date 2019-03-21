@@ -8,16 +8,16 @@ Computes log-likelihood of a Vector ARMA model.
 
 Format
 ----------------
-.. function:: varmall(w,  phi,  theta,  vc)
+.. function:: varmall(w, phi, theta, vc)
 
     :param w: time series.
     :type w: NxK matrix
 
-    :param phi: (K*P)xK matrix, AR coefficient matrices.
-    :type phi: TODO
+    :param phi: , AR coefficient matrices.
+    :type phi: (K*P)xK matrix
 
-    :param theta: (K*Q)xK matrix, MA coefficient matrices.
-    :type theta: TODO
+    :param theta: , MA coefficient matrices.
+    :type theta: (K*Q)xK matrix
 
     :param vc: covariance matrix.
     :type vc: KxK matrix

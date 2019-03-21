@@ -13,12 +13,12 @@ Format
 .. function:: filename 
 			  filename [on|off|reset]
 
-    :param filename: literal or ^string.
+    :param filename: 
         
         The file=filename subcommand selects the file or device to which
         output is to be sent.If the name of the file is to be taken from a string variable, the
         name of the string must be preceded by the ^ (caret) operator.The default file name is output.out.
-    :type filename: TODO
+    :type filename: literal or ^string
 
     :param on, off, reset: mode flag:
     :type on, off, reset: literal

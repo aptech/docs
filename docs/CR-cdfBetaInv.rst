@@ -8,18 +8,25 @@ Computes the quantile or inverse of the Beta cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfBetaInv(p,a,b)
+.. function:: cdfBetaInv(p, a, b)
 
-    :param p: Nx1 vector or scalar. 0 < p < 1.
-    :type p: NxK matrix
+    :param p: 0 < *p* < 1.
+    :type p: NxK matrix, Nx1 vector or scalar
 
-    :param a: ExE conformable with p. 0 < a.
-    :type a: TODO
+    :param a: *p* < 0 < *a*.
+    :type a: ExE conformable
 
-    :param b: ExE conformable with p. 0 < b.
-    :type b: TODO
+    :param b: *p* < 0 < *b*.
+    :type b: ExE conformable
 
-    :returns: x (*NxK matrix*), Nx1 vector or scalar.
+    :returns: x (*NxK matrix, Nx1 vector or scalar*)
+
+Remarks
+----------------
+For invalid inputs, :func:`cdfBetaInv` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 Examples
 ----------------
@@ -44,4 +51,3 @@ After running above code,
 
 .. seealso:: Functions :func:`cdfBeta`, :func:`cdfBinomial`, :func:`cdfNegBinomial`
 
-cdf quantile inverse beta cumulative distribution function

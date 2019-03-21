@@ -10,10 +10,16 @@ Format
 ----------------
 .. function:: arcsin(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix or N-dimensional array, the angle in radians whose sine is x.
+    :returns: y (*NxK matrix or N-dimensional array*) the angle in radians whose sine is *x*.
+
+Remarks
+-------
+
+If *x* is complex or has any elements whose absolute value is greater than
+1, complex results are returned.
 
 Examples
 ----------------
@@ -24,7 +30,7 @@ Examples
     x = seqa(-1, 0.5, 5);
     y = arcsin(x);
 
-Assigns y to be equal to:
+Assigns *y* to be equal to:
 
 ::
 
@@ -35,8 +41,7 @@ Assigns y to be equal to:
      1.5707963
 
 Source
-++++++
+------------
 
 trig.src
 
-inverse sine trigonometric

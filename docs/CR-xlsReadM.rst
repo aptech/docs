@@ -8,7 +8,7 @@ Reads from an Excel® spreadsheet into a GAUSS matrix.
 
 Format
 ----------------
-.. function:: xlsReadM(file,  range,  sheet,  vls)
+.. function:: xlsReadM(file, range, sheet, vls)
 
     :param file: name of .xls or .xlsx file.
     :type file: string
@@ -25,7 +25,7 @@ Format
         all empty cells and special types being converted to GAUSS missing values.
     :type vls: null string or 9x1 matrix
 
-    :returns: mat (*TODO*), matrix or a scalar error code.
+    :returns: mat (matrix), or a scalar error code.
 
 Examples
 ----------------

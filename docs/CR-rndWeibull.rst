@@ -9,7 +9,7 @@ Computes Weibull pseudo-random numbers with the choice of underlying random numb
 
 Format
 ----------------
-.. function:: rndWeibull(r, c,  shape,  scale)
+.. function:: rndWeibull(r, c, shape, scale)
 
     :param r: number of rows of resulting matrix.
     :type r: Scalar
@@ -27,13 +27,13 @@ Format
         or scalar, scale parameter.
     :type scale: r x c matrix
 
-    :param state: Optional argument - scalar or opaque vector.
+    :param state: 
         Scalar case:state = starting seed value only. If -1, GAUSS
         computes the starting seed based on the system clock.
         
         Opaque vector case:state = the state vector returned from a previous
         call to one of the rnd random number functions.
-    :type state: TODO
+    :type state: Optional argument - scalar or opaque vector
 
     :returns: x (*r x c matrix*), Weibull
         distributed random numbers.

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: median(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: m (*TODO*), Kx1 vector containing the medians of the respective columns of x.
 

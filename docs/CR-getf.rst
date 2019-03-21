@@ -9,15 +9,15 @@ Loads an ASCII or binary file into a string.
 
 Format
 ----------------
-.. function:: getf(filename,  mode)
+.. function:: getf(filename, mode)
 
     :param filename: any valid file name.
     :type filename: string
 
-    :param mode: scalar 1 or 0 which determines if the file is to be loaded in ASCII mode (0) or binary mode (1).
-    :type mode: TODO
+    :param mode: 
+    :type mode: scalar 1 or 0 which determines if the file is to be loaded in ASCII mode (0) or binary mode (1)
 
-    :returns: y (*TODO*), string containing the file.
+    :returns: y (string), containing the file.
 
 Examples
 ----------------

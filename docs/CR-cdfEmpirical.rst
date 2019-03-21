@@ -9,18 +9,22 @@ Computes the cumulative distribution function
 
 Format
 ----------------
-.. function:: cdfEmpirical(x) 
-			  cdfEmpirical(x, bins)
+.. function:: cdfEmpirical(x[, bins]) 
 
-    :param x: N x 1 vector.
-    :type x: TODO
+    :param x: 
+    :type x: N x 1 vector
 
-    :param bins: scalar or vector. If scalar, evenly spaced vector between x_min and x_max sized equal number of bins is used to find the empirical cdf. If vector, GAUSS uses the passed vector as the values at which to find empirical cdf.
-    :type bins: Optional input
+    :param bins: Optional input. If scalar, evenly spaced vector between *x_min* and *x_max* sized equal number of bins is used to find the empirical cdf. If vector, GAUSS uses the passed vector as the values at which to find empirical cdf.
+    :type bins: scalar or vector
 
-    :returns: f (*TODO*), (N+1) x1 vector, cdf values, where N is equal to bins if bins is a scalar or number of rows in bins if bins is a vector.
+    :returns: f (matrix), (N+1) x1 vector, cdf values, where *N* is equal to *bins* if *bins* is a scalar or number of rows in *bins* if *bins* is a vector.
 
     :returns: breakpoint (*Nx1 vector*), break points used to calculate cdf values.
+
+Remarks
+-------
+
+*f* is the integral from :math:`-∞` to *x* of the empirical distribution function.
 
 Examples
 ----------------
@@ -56,7 +60,7 @@ After above code,
 
 ::
 
-    -INF       0.00000000 
+               -INF       0.00000000 
          -2.3124206      0.033333333 
          -1.6240227      0.066666667 
          -1.2763153       0.10000000 
@@ -90,6 +94,7 @@ After above code,
 
 The plot is
 
+.. image:: _static/images/plotcdfempirical.png
+
 .. seealso:: Functions :func:`plotCDFEmpirical`
 
-cdfEmpirical ecdf empirical distribution cdf

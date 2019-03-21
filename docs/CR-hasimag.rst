@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: hasimag(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*scalar*), 1 if the imaginary part of x has any nonzero elements, 0 if it consists entirely of 0's.
 

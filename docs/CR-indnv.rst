@@ -9,13 +9,13 @@ Checks one numeric vector against another and returns the indices of the element
 
 Format
 ----------------
-.. function:: indnv(what,  where)
+.. function:: indnv(what, where)
 
-    :param what: Nx1 numeric vector which contains the values to be found in vector  where.
-    :type what: TODO
+    :param what: 
+    :type what: Nx1 numeric vector which contains the values to be found in vector  where
 
-    :param where: Mx1 numeric vector to be searched for matches to the values in  what.
-    :type where: TODO
+    :param where: 
+    :type where: Mx1 numeric vector to be searched for matches to the values in  what
 
     :returns: z (*Nx1 vector of integers*), the indices of the corresponding elements of  what in  where.
 

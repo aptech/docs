@@ -12,8 +12,8 @@ Format
 .. function:: lowmat(x) 
 			  lowmat1(x)
 
-    :param x: NxN matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxN matrix
 
     :returns: L (*TODO*), NxN matrix containing the lower elements
         of the matrix. The upper elements

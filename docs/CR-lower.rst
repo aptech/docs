@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: lower(x)
 
-    :param x: string or NxK matrix of character data to be converted to lowercase.
-    :type x: TODO
+    :param x: 
+    :type x: string or NxK matrix of character data to be converted to lowercase
 
-    :returns: y (*TODO*), string or NxK matrix which contains the lowercase
+    :returns: y (string), or NxK matrix which contains the lowercase
         equivalent of the data in x.
 
 Examples

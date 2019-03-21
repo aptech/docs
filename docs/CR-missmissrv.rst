@@ -9,10 +9,10 @@ value code. missrv is the reverse of this, and converts missing values into spec
 
 Format
 ----------------
-.. function:: missrv(x,  v)
+.. function:: missrv(x, v)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :param v: ExE conformable with x.
     :type v: LxM matrix

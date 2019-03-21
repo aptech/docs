@@ -12,22 +12,22 @@ right, and a specified column of dummies is dropped.
 
 Format
 ----------------
-.. function:: dummydn(x,  v,  p)
+.. function:: dummydn(x, v, p)
 
-    :param x: Nx1 vector of data to be broken up into dummy
-        variables.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector of data to be broken up into dummy
+        variables
 
-    :param v: (K-1)x1 vector specifying the K-1 breakpoints
-        (these must be in ascending order) that determine the K
-        categories to be used. These categories should not
+    :param v:  These categories should not
         overlap.
-    :type v: TODO
+    :type v: (K-1)x1 vector specifying the K-1 breakpoints
+        (these must be in ascending order) that determine the K
+        categories to be used
 
-    :param p: positive integer in the range [1,K], specifying
+    :param p: ,K], specifying
         which column should be dropped in the matrix of
         dummy variables.
-    :type p: TODO
+    :type p: positive integer in the range [1
 
     :returns: y (*TODO*), Nx(K-1) matrix containing the K-1 dummy variables.
 

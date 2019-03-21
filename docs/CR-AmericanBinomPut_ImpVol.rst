@@ -8,7 +8,7 @@ Computes implied volatilities for American put options using binomial method.
 
 Format
 ----------------
-.. function:: AmericanBinomPut_ImpVol(c,  S0,  K, r,  div,  tau,  N)
+.. function:: AmericanBinomPut_ImpVol(c, S0, K, r, div, tau, N)
 
     :param c: put premiums
     :type c: Mx1 vector
@@ -23,15 +23,23 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
 
     :param N: number of time segments. A higher number of time segments will increase accuracy at the expense of increased computation time.
-    :type N: TODO
+    :type N: scalar
 
     :returns: sigma (*Mx1 vector*), volatility.
+
+Remarks
+-------
+
+The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
+simplified approach," Journal of Financial Economics, 7:229:264) as
+described in Options, Futures, and other Derivatives by John C. Hull is
+the basis of this procedure.
 
 Examples
 ----------------
@@ -61,10 +69,7 @@ produces:
     0.21309324
 
 Source
-++++++
+-------------
 
 finprocs.src
 
-.. raw:: html
-
-   </div>

@@ -9,10 +9,10 @@ Substitutes new values for old values in a matrix, depending on the outcome of a
 
 Format
 ----------------
-.. function:: substute(x,  e,  v)
+.. function:: substute(x, e, v)
 
-    :param x: NxK matrix containing the data to be changed.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix containing the data to be changed
 
     :param e: ExE conformable with x containing 1's and 0's.
     :type e: LxM matrix

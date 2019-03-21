@@ -9,7 +9,7 @@ Fuzzy comparison functions. These functions use _fcmptol to fuzz the comparison 
 
 Format
 ----------------
-.. function:: fne(a,  b)
+.. function:: fne(a, b)
 
     :param a: first matrix.
     :type a: NxK matrix

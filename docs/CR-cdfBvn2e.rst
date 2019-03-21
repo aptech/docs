@@ -9,7 +9,7 @@ Returns the bivariate Normal cumulative distribution function of a bounded recta
 
 Format
 ----------------
-.. function:: cdfBvn2e(h,  dh,  k,  dk, r)
+.. function:: cdfBvn2e(h, dh, k, dk, r)
 
     :param h: starting points of integration for variable 1.
     :type h: Nx1 vector
@@ -26,34 +26,58 @@ Format
     :param r: correlation coefficients between the two variables.
     :type r: Nx1 vector
 
-    :returns: y (*Nx1 vector*), the integral over the rectangle bounded by  h,  h +  dh,  k, and  k +  dk of the standardized bivariate Normal distribution.
+    :returns: y (*Nx1 vector*), the integral over the rectangle bounded by *h*, *h* + *dh*, *k*, and *k* + *dk* of the standardized bivariate Normal distribution.
 
     :returns: e (*Nx1 vector*), an error estimate.
+
+Remarks
+-------
+
+Scalar input arguments are okay; they will be expanded to Nx1 vectors.
+
+:func:`cdfBvn2e` computes:
+
+::
+
+     cdfBvn(h + dh, k +  dk, r) + cdfBvn(h, k, r) - cdfBvn(h, k + dk, r) - cdfBvn(h + dh, k, r)
+
+The real answer is :math:`y ± e`. The size of the error depends on the input arguments.
 
 Examples
 ----------------
 
-print 
-   cdfBvn2e(1,-1,1,-1,0.5);
+Example 1
++++++++++
 
-   1.4105101488974692e-001
-   1.9927918166193113e-014
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+::
 
-print 
-   cdfBvn2e(1,-1e-15,1,-1e-15,0.5);
+    print 
+    cdfBvn2e(1,-1,1,-1,0.5);
 
-   7.3955709864469857e-032
-   2.8306169312687801e-030
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    1.4105101488974692e-001
+    1.9927918166193113e-014
 
-print
-   cdfBvn2e(1,-1e-45,1,-1e-45,0.5);
+Example 2
++++++++++
 
-   0.0000000000000000e+000
-   2.8306169312687770e-060
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+::
+
+    print 
+    cdfBvn2e(1,-1e-15,1,-1e-15,0.5);
+
+    7.3955709864469857e-032
+    2.8306169312687801e-030
+
+Example 3
++++++++++
+
+::
+
+    print
+    cdfBvn2e(1,-1e-45,1,-1e-45,0.5);
+
+    0.0000000000000000e+000
+    2.8306169312687770e-060
 
 .. seealso:: Functions :func:`cdfBvn2`, :func:`lncdfbvn2`
 
-cdfbvn bounded rectangle cdf cumulative distribution function

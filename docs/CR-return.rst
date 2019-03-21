@@ -9,5 +9,5 @@ Returns from a subroutine.
 Format
 ----------------
 .. function:: return 
-			  return(x,  y,...)
+			  return(x, y,...)
 

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: rfftip(x)
 
-    :param x: NxK matrix or K-length vector.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or K-length vector
 
     :returns: y (*TODO*), LxM real matrix or M-length vector.
 

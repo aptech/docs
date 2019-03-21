@@ -14,14 +14,14 @@ Format
     :param &gfct: pointer to procedure computing either NxK Jacobian.
     :type &gfct: scalar
 
-    :param par1: an instance of structure of type PV containing parameter vector at which Hessian is to be evaluated.
-    :type par1: TODO
+    :param par1: 
+    :type par1: an instance of structure of type PV containing parameter vector at which Hessian is to be evaluated
 
-    :param data1: structure of type DS containing any data needed by  gfct.
-    :type data1: TODO
+    :param data1: 
+    :type data1: structure of type DS containing any data needed by  gfct
 
-    :param wgts: Nx1 vector.
-    :type wgts: TODO
+    :param wgts: 
+    :type wgts: Nx1 vector
 
     :returns: h (*KxK matrix*), Hessian.
 

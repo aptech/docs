@@ -9,7 +9,7 @@ Controls the settings for the Z-axis label on a surface plot.
 
 Format
 ----------------
-.. function:: plotSetZLabel(&myPlot,  label,  font,  fontSize,  fontColor)plotSetZLabel(&myPlot,  label,  font,  fontSize)plotSetZLabel(&myPlot,  label,  font)plotSetZLabel(&myPlot,  label)
+.. function:: plotSetZLabel(&myPlot, label, font, fontSize, fontColor)plotSetZLabel(&myPlot, label, font, fontSize)plotSetZLabel(&myPlot, label, font)plotSetZLabel(&myPlot, label)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

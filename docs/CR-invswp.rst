@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: invswp(x)
 
-    :param x: NxN matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxN matrix
 
     :returns: y (*NxN matrix*), the generalized inverse of x.
 

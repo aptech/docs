@@ -8,10 +8,10 @@ Writes a GAUSS string or string array to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: xlsWriteSA(data,  file,  range,  sheet,  vls)
+.. function:: xlsWriteSA(data, file, range, sheet, vls)
 
-    :param data: string or string array.
-    :type data: TODO
+    :param data: 
+    :type data: string or string array
 
     :param file: name of .xls file.
     :type file: string

@@ -12,8 +12,8 @@ Format
 .. function:: delete -flags symbol_list 
 			  delete symbol_list
 
-    :param flags: specify the type(s) of symbols to be deleted
-    :type flags: TODO
+    :param flags: 
+    :type flags: specify the type(s) of symbols to be deleted
 
     .. csv-table::
         :widths: auto

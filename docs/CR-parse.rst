@@ -8,14 +8,14 @@ Parses a string, returning a character vector of tokens.
 
 Format
 ----------------
-.. function:: parse(str,  delim)
+.. function:: parse(str, delim)
 
-    :param str: string consisting of a series of tokens and/or delimiters.
-    :type str: TODO
+    :param str: 
+    :type str: string consisting of a series of tokens and/or delimiters
 
-    :param delim: NxK character matrix of delimiters that might be
-        found in  str.
-    :type delim: TODO
+    :param delim: 
+    :type delim: NxK character matrix of delimiters that might be
+        found in  str
 
     :returns: tok (*TODO*), Mx1 character vector consisting of the tokens
         contained in  str. All tokens are returned; any

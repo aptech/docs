@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: dos commd
 
-    :param commd: literal or ^string, the OS command to be executed.
-    :type commd: TODO
+    :param commd: , the OS command to be executed.
+    :type commd: literal or ^string
 
 Examples
 ----------------

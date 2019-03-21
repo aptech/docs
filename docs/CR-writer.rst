@@ -10,11 +10,11 @@ Format
 ----------------
 .. function:: writer(fh, x)
 
-    :param fh: handle of the file that data is to be written to.
-    :type fh: TODO
+    :param fh: 
+    :type fh: handle of the file that data is to be written to
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), scalar specifying the number of rows of data
         actually written to the data set.

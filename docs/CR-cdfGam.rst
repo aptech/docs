@@ -8,15 +8,31 @@ Computes the incomplete gamma function.
 
 Format
 ----------------
-.. function:: cdfGam(x,  intlim)
+.. function:: cdfGam(x, intlim)
 
-    :param x: NxK matrix of data.
-    :type x: TODO
+    :param x: data
+    :type x: NxK matrix
 
-    :param intlim: ExE compatible with x, containing the integration limit.
+    :param intlim: ExE compatible with *x*, containing the integration limit.
     :type intlim: LxM matrix
 
-    :returns: g (*TODO*), max(N,L) by max(K,M) matrix.
+    :returns: g (*matrix*), max(N,L) by max(K,M) matrix.
+
+Remarks
+-------
+
+The incomplete gamma function returns the integral
+
+.. DANGER:: FIx equation that should go here.
+
+The allowable ranges for the arguments are:
+
+.. math::
+
+        x > 0
+   intlim > 0
+
+A -1 is returned for those elements with invalid inputs.
 
 Examples
 ----------------
@@ -52,9 +68,9 @@ After the code above:
 This computes the integrals over the range from 0 to 1, in increments of 0.2, at the parameter values 0.5, 1, 3, 10.
 
 Technical Notes
-+++++++++++++++
+------------
 
-cdfGam has the following approximate accuracy:
+:func:`cdfGam` has the following approximate accuracy:
 
 ::
 
@@ -64,7 +80,7 @@ cdfGam has the following approximate accuracy:
                            the absolute error is approx. ±3e-10
 
 References
-++++++++++
+------------
 
 #. Bhattacharjee, G.P. ''Algorithm AS 32, the Incomplete Gamma
    Integral.'' Applied Statistics. Vol. 19, 1970, 285-87.
@@ -77,4 +93,3 @@ References
    F, Beta, and other Common, Related Tail Probabilities, I.'' Journal
    of the American Statistical Association. Vol. 63, Dec. 1968, 1416-56.
 
-incomplete gamma cdf cumulative distribution function

@@ -11,11 +11,11 @@ Purpose
 
 Format
 ----------------
-.. function:: plotPACF(myPlot,  x,  k,  d) 
-			              plotPACF(x,  k, d)
+.. function:: plotPACF(myPlot, x, k, d) 
+			              plotPACF(x, k, d)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
     :param x: data.
     :type x: Nx1 vector

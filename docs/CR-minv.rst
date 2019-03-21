@@ -11,11 +11,11 @@ Format
 ----------------
 .. function:: minv(x, y)
 
-    :param x: NxK matrix
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param y: NxK matrix
-    :type y: TODO
+    :param y: 
+    :type y: NxK matrix
 
     :returns: z (*TODO*), A NxK matrix whose values are the minimum of each element from the arguments x and y.
 

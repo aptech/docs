@@ -8,11 +8,11 @@ Adds a bar or a set of bars to an existing graph.
 
 Format
 ----------------
-.. function:: plotAddBar(myPlot,  val,  ht) 
+.. function:: plotAddBar(myPlot, val, ht) 
 			              plotAddBar(val, ht)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
     :param val: bar labels. If scalar 0, a sequence from 1 to rows(ht) will be created.
     :type val: Nx1 numeric vector

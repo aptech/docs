@@ -9,10 +9,10 @@ Creates a matrix in DT scalar format containing only the year, month and day. Ti
 
 Format
 ----------------
-.. function:: dtday(year,  month,  day)
+.. function:: dtday(year, month, day)
 
-    :param year: NxK matrix of years.
-    :type year: TODO
+    :param year: 
+    :type year: NxK matrix of years
 
     :param month: 1-12.
     :type month: NxK matrix of months

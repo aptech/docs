@@ -10,13 +10,13 @@ Computes the solution of Rx = b where R is an
 
 Format
 ----------------
-.. function:: qrsol(b,  R)
+.. function:: qrsol(b, R)
 
-    :param b: PxL matrix.
-    :type b: TODO
+    :param b: 
+    :type b: PxL matrix
 
-    :param R: PxP upper triangular matrix.
-    :type R: TODO
+    :param R: 
+    :type R: PxP upper triangular matrix
 
     :returns: x (*TODO*), PxL matrix.
 

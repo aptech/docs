@@ -8,15 +8,15 @@ Solves the nonlinear programming problem using a sequential quadratic programmin
 
 Format
 ----------------
-.. function:: sqpSolve(&fct,  start)
+.. function:: sqpSolve(&fct, start)
 
     :param &fct: pointer to a procedure that computes the function to be minimized. This procedure must have one input
         argument, a vector of parameter values, and one output argument, the value of the function evaluated
         at the input vector of parameter values.
     :type &fct: TODO
 
-    :param start: Kx1 vector of start values.
-    :type start: TODO
+    :param start: 
+    :type start: Kx1 vector of start values
 
     :returns: x (*TODO*), Kx1 vector of parameters at minimum.
 

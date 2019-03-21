@@ -8,7 +8,7 @@ Finds the index of one string within another string.
 
 Format
 ----------------
-.. function:: strindx(where,  what,  start)
+.. function:: strindx(where, what, start)
 
     :param where: the data to be searched.
     :type where: string or scalar

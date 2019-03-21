@@ -8,7 +8,7 @@ Computes a two-dimensional interpolatory spline.
 
 Format
 ----------------
-.. function:: spline(x, y,  z, sigma, g)
+.. function:: spline(x, y, z, sigma, g)
 
     :param x: x-abscissae (x-axis values).
     :type x: Kx1 vector

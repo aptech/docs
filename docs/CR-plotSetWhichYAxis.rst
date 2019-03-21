@@ -8,7 +8,7 @@ Assigns curves to the right or left Y-axis.
 
 Format
 ----------------
-.. function:: plotSetWhichYAxis(&myPlot,  which)
+.. function:: plotSetWhichYAxis(&myPlot, which)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

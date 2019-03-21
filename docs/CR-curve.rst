@@ -9,7 +9,7 @@ Computes a one-dimensional smoothing curve.
 
 Format
 ----------------
-.. function:: curve(x, y,  d,  s,  sigma,  G)
+.. function:: curve(x, y, d, s, sigma, G)
 
     :param x: x-abscissae (X-axis values).
     :type x: Kx1 vector

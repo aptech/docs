@@ -10,7 +10,7 @@ updated variable is smaller or larger than the variable it is replacing.
 
 Format
 ----------------
-.. function:: gdaUpdateAndPack(filename, x,  varname)
+.. function:: gdaUpdateAndPack(filename, x, varname)
 
     :param filename: name of data file.
     :type filename: string

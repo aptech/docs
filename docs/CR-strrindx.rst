@@ -9,7 +9,7 @@ Searches from the end of the string to the beginning.
 
 Format
 ----------------
-.. function:: strrindx(where,  what,  start)
+.. function:: strrindx(where, what, start)
 
     :param where: the data to be searched.
     :type where: string or scalar

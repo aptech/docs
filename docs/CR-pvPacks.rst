@@ -9,13 +9,13 @@ Packs symmetric matrix into a structure of type PV.
 
 Format
 ----------------
-.. function:: pvPacks(p1, x,  nm)
+.. function:: pvPacks(p1, x, nm)
 
-    :param p1: an instance of structure of type PV.
-    :type p1: TODO
+    :param p1: 
+    :type p1: an instance of structure of type PV
 
-    :param x: MxM symmetric matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxM symmetric matrix
 
     :param nm: matrix name.
     :type nm: string

@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: stof(x)
 
-    :param x: string or NxK matrix containing character elements to be converted.
-    :type x: TODO
+    :param x: 
+    :type x: string or NxK matrix containing character elements to be converted
 
     :returns: y (*matrix*), the floating point equivalents of the ASCII numbers in x.
 

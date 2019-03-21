@@ -9,7 +9,7 @@ Gets a structure from a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaReadStruct(filename,  varname,  structure_type)
+.. function:: gdaReadStruct(filename, varname, structure_type)
 
     :param filename: name of data file.
     :type filename: string

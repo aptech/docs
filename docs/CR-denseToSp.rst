@@ -9,10 +9,10 @@ Converts a dense matrix to a sparse matrix.
 
 Format
 ----------------
-.. function:: denseToSp(x,  eps)
+.. function:: denseToSp(x, eps)
 
-    :param x: MxN dense matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxN dense matrix
 
     :param eps: elements of x whose absolute values are less than
         or equal to  eps will be treated as zero.

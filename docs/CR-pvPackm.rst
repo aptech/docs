@@ -9,13 +9,13 @@ Packs general matrix into a structure of type PV with a mask and matrix name.
 
 Format
 ----------------
-.. function:: pvPackm(p1, x,  nm,  mask)
+.. function:: pvPackm(p1, x, nm, mask)
 
-    :param p1: an instance of structure of type PV.
-    :type p1: TODO
+    :param p1: 
+    :type p1: an instance of structure of type PV
 
-    :param x: MxN matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: MxN matrix or N-dimensional array
 
     :param nm: name of matrix/array or N-dimensional array.
     :type nm: string

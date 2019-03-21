@@ -11,19 +11,27 @@ Format
 ----------------
 .. function:: cdfHyperGeo(x, m, k, n)
 
-    :param x: class="BodyD-Column2-Body1">NxK matrix, Nx1 vector or scalar. x must be a positive number and < m
-    :type x: TODO
+    :param x: must be a positive number and :math:`< m`
+    :type x: NxK matrix or Nx1 vector or scalar
 
-    :param m: The size of the population from which draws will be made. ExE conformable with x. m must be > x, k and n.
-    :type m: TODO
+    :param m: The size of the population from which draws will be made. ExE conformable with *x*. *m* must be :math:`> x, k and n`.
+    :type m: matrix
 
-    :param k: The number of marked items. ExE conformable with x. 0 < prob < 1.
-    :type k: TODO
+    :param k: The number of marked items. ExE conformable with *x*. :math:`0 < prob < 1`.
+    :type k: matrix
 
-    :param n: The number of items drawn from the population. ExE conformable with x. 0 < k < m.
-    :type n: TODO
+    :param n: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < k < m`.
+    :type n: matrix
 
-    :returns: p (*TODO*), The probability of drawing x or fewer marked items. NxK matrix, Nx1 vector or scalar.
+    :returns: p (*NxK matrix, Nx1 vector or scalar*), The probability of drawing *x* or fewer marked items. 
+
+Remarks
+------------
+
+For invalid inputs, :func:`cdfHyperGeo` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 Examples
 ----------------
@@ -33,7 +41,7 @@ You are given 120 hard drives, 14 of which are known to be bad. What is the prob
 
     p = cdfHyperGeo(2, 120, 14, 12);
 
-After running the code above, p is equal to:
+After running the code above, *p* is equal to:
 
 ::
 
@@ -57,14 +65,5 @@ After running the code above, p is equal to:
     0.94307042 
     0.47070798
 
-Remarks
-+++++++
-
-For invalid inputs, cdfHyperGeo will return a scalar error code which,
-when its value is assessed by function scalerr, corresponds to the
-invalid input. If the first input is out of range, scalerr will return a
-1; if the second is out of range, scalerr will return a 2; etc.
-
 .. seealso:: Functions :func:`pdfHyperGeo`, :func:`rndHyperGeo`, :func:`cdfBinomial`
 
-hypergeometric cdf cumulative distribution function

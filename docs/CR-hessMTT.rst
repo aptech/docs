@@ -14,11 +14,11 @@ Format
     :param fct: pointer to procedure returning either Nx1 vector or 1x1 scalar.
     :type fct: scalar
 
-    :param par1: structure of type PV containing parameter vector at which Hessian is to be evaluated
-    :type par1: TODO
+    :param par1: 
+    :type par1: structure of type PV containing parameter vector at which Hessian is to be evaluated
 
-    :param data1: structure of type DS containing any data needed by  fct
-    :type data1: TODO
+    :param data1: 
+    :type data1: structure of type DS containing any data needed by  fct
 
     :returns: h (*KxK matrix*), Hessian
 

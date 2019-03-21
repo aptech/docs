@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: plotTSHF(myPlot, date_vec, label_unit, y)plotTSHF(date_vec, label_unit, y)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
     :param date_vec: containing the dates for each observation in the y . The dates in date_vec are required to be:
         In Posix time/date format i.e. seconds since Jan 1, 1970.Sorted, increasing.
@@ -36,8 +36,8 @@ Format
         ""quarters"", ""
         ""years"", ""
 
-    :param y: Nx1 or NxM matrix. Each column contains the Y values for a particular line.
-    :type y: TODO
+    :param y:  Each column contains the Y values for a particular line.
+    :type y: Nx1 or NxM matrix
 
 Examples
 ----------------

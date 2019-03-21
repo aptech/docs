@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: imag(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
-    :returns: zi (*TODO*), NxK matrix or N-dimensional array, the imaginary part of x.
+    :returns: zi (NxK matrix or N-dimensional array) the imaginary part of x.
 
 Examples
 ----------------

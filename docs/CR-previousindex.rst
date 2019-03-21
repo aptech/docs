@@ -9,13 +9,13 @@ Returns the index of the previous element or subarray in an array.
 
 Format
 ----------------
-.. function:: previousindex(i,  o)
+.. function:: previousindex(i, o)
 
     :param i: where M <= N.
     :type i: Mx1 vector of indices into an array
 
-    :param o: Nx1 vector of orders of an N-dimensional array.
-    :type o: TODO
+    :param o: 
+    :type o: Nx1 vector of orders of an N-dimensional array
 
     :returns: pi (*Mx1 vector of indices*), the index of the previous element or subarray in the array corresponding to  o.
 

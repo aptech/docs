@@ -8,7 +8,7 @@ Sets and fixes scaling, axes numbering and tick marks for the Z axis. NOTE: This
 
 Format
 ----------------
-.. function:: ztics(min,  max,  step,  minordiv)
+.. function:: ztics(min, max, step, minordiv)
 
     :param min: the minimum value.
     :type min: scalar

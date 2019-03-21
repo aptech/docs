@@ -5,17 +5,17 @@ abs
 Purpose
 ----------------
 
-Returns the absolute value or complex modulus of x.
+Returns the absolute value or complex modulus of *x*.
 
 Format
 ----------------
 .. function:: abs(x)
 
-    :param x: NxK matrix or sparse matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or sparse matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix or sparse matrix or N-dimensional array
-        containing absolute values of x.
+    :returns: y (NxK matrix or sparse matrix or N-dimensional array) 
+        containing absolute values of *x*.
 
 Examples
 ----------------
@@ -43,4 +43,4 @@ In this example, a 2x2 matrix of Normal random
 numbers is generated and the absolute value of the
 matrix is computed.
 
-abs absolute value
+

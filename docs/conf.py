@@ -20,16 +20,20 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GAUSS'
-copyright = '2019, Aptech'
-author = 'Aptech'
+copyright = '2019, Aptech Systems, Inc'
+author = 'Aptech Systems, Inc'
 
 # The short X.Y version
-version = ''
+version = '19'
 # The full version, including alpha/beta/rc tags
 release = '19'
 
 
 # -- General configuration ---------------------------------------------------
+
+#primary_domain = 'gauss'
+
+default_role = 'any'
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #
@@ -71,13 +75,16 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
+highlight_language = 'gauss'
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -177,3 +184,16 @@ epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------
+
+def setup(sphinx):
+    import sys
+    import os
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'util')))
+    from GAUSSLexer import GAUSSLexer
+    from GAUSSDomain import GAUSSDomain
+    sphinx.add_lexer("gauss", GAUSSLexer())
+    sphinx.add_domain(GAUSSDomain)
+    #from GAUSSDomain import gaussDomain
+    #sphinx.add_domain(gaussDomain)
+    #sphinx.add_stylesheet("gauss.css")
+

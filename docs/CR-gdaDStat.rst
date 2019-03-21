@@ -9,10 +9,10 @@ Computes descriptive statistics on multiple Nx1 variables in a GAUSS Data Archiv
 
 Format
 ----------------
-.. function:: gdaDStat(dc0,  filename,  vars)
+.. function:: gdaDStat(dc0, filename, vars)
 
-    :param dc0: an instance of a dstatmtControl structure with the following members:
-    :type dc0: TODO
+    :param dc0: 
+    :type dc0: an instance of a dstatmtControl structure with the following members:
 
     .. csv-table::
         :widths: auto

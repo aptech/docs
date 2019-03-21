@@ -8,7 +8,7 @@ Writes a GAUSS matrix, string, or string array to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: xlsWrite(data,  file,  range,  sheet,  vls)
+.. function:: xlsWrite(data, file, range, sheet, vls)
 
     :param data: string, or string array.
     :type data: matrix

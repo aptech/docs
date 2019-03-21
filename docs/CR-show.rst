@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: show -flags symbolshow -flagsshow symbolshow
 
-    :param flags: flags to specify the symbol type that is shown.
-    :type flags: TODO
+    :param flags: 
+    :type flags: flags to specify the symbol type that is shown
 
     .. csv-table::
         :widths: auto
@@ -24,11 +24,11 @@ Format
         "g", "show only symbols with global references"
         "l", "show only symbols with all local references"
 
-    :param symbol: the name of the symbol to be shown. If the
+    :param symbol:  If the
         last character is an asterisk (*), all symbols
         beginning with the supplied characters will be
         shown.
-    :type symbol: TODO
+    :type symbol: the name of the symbol to be shown
 
 Examples
 ----------------

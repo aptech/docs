@@ -11,7 +11,7 @@ Purpose
 
 Format
 ----------------
-.. function:: qz(A,  B, sort_type)
+.. function:: qz(A, B, sort_type)
 
     :param A: real or complex general matrix
     :type A: NxN matrix
@@ -41,29 +41,29 @@ Format
         Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
     :type sort_type: Optional input
 
-    :param 1: "udi"
-        Absolute value of the eigenvalue less than 1.0. (Unit disk inside)
-    :type 1: TODO
+    :param 1: 0. (Unit disk inside)
+    :type 1: "udi"
+        Absolute value of the eigenvalue less than 1
 
-    :param 2: "udo"
-        Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside)
-    :type 2: TODO
+    :param 2: 0. (Unit disk outside)
+    :type 2: "udo"
+        Absolute value of the eigenvalue greater than or equal to 1
 
-    :param 3: "lhp"
-        Value of the real portion of the eigenvalue less than 0. (Left hand plane)
-    :type 3: TODO
+    :param 3:  (Left hand plane)
+    :type 3: "lhp"
+        Value of the real portion of the eigenvalue less than 0
 
-    :param 4: "rhp"
-        Value of the real portion of the eigenvalue greater than 0. (Right hand plane)
-    :type 4: TODO
+    :param 4:  (Right hand plane)
+    :type 4: "rhp"
+        Value of the real portion of the eigenvalue greater than 0
 
-    :param 5: "ref"
-        Real eigenvalues first. (Complex portion less than imagtol see remarks section)
-    :type 5: TODO
+    :param 5:  (Complex portion less than imagtol see remarks section)
+    :type 5: "ref"
+        Real eigenvalues first
 
-    :param 6: "cef"
-        Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
-    :type 6: TODO
+    :param 6:  (Complex portion greater than imagtol see remarks section)
+    :type 6: "cef"
+        Complex eigenvalues first
 
     :returns: S (*NxN matrix*), Schur form of  A
 

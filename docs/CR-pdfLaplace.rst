@@ -20,5 +20,5 @@ Format
     :param b: scale parameter.  b must be greater than 0.
     :type b: Scalar
 
-    :returns: y (*NxK matrix*), Nx1 vector or scalar.
+    :returns: y (*NxK matrix or Nx1 vector or scalar*)
 

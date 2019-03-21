@@ -13,19 +13,19 @@ Format
 			              plotAddArea(x, y)plotAddArea(myPlot, x, y, base) 
 			                          plotAddArea(x, y, base)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
-    :param x: Nx1 vector containing the
-        X coordinates.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector containing the
+        X coordinates
 
-    :param y: Nx1 or NxM matrix. Each column contains the
+    :param y:  Each column contains the
         height for the corresponding section of the graph. If y contains more than one column, each column will be stacked on top of the previous column.
-    :type y: TODO
+    :type y: Nx1 or NxM matrix
 
-    :param base: Scalar optional argument. The height for the base of the added area plot. The default value is zero. plotAddArea does not yet support a vector input for base.
-    :type base: TODO
+    :param base:  The height for the base of the added area plot. The default value is zero. plotAddArea does not yet support a vector input for base.
+    :type base: Scalar optional argument
 
 Examples
 ----------------

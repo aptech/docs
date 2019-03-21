@@ -17,8 +17,8 @@ Format
     :param size: the requested sample size
     :type size: scalar
 
-    :param replace: Optional argument. Scalar, if replace is 0, the sample is drawn without replacement. If replace is 1, the sample is drawn with replacement. Default is 0.
-    :type replace: TODO
+    :param replace:  Scalar, if replace is 0, the sample is drawn without replacement. If replace is 1, the sample is drawn with replacement. Default is 0.
+    :type replace: Optional argument
 
     :returns: s (*TODO*), size x cols(x) matrix, containing the sample taken from x.
 

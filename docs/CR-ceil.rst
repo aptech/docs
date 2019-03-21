@@ -5,16 +5,22 @@ ceil
 Purpose
 ----------------
 
-Round up toward +∞.
+Round up toward :math:`+∞`.
 
 Format
 ----------------
 .. function:: ceil(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :returns: y (*TODO*), NxK matrix.
+    :returns: y (*NxK matrix*)
+
+Remarks
+-------
+
+This rounds every element in the matrix *x* to an integer. The elements
+are rounded up toward :math:`+∞`.
 
 Examples
 ----------------
@@ -24,7 +30,7 @@ Examples
     x = 10*rndn(2,2);
     y = ceil(x);
 
-After the code above, the matrices x and y should hold values similar to below. Answers will vary due to the use of random numbers as the input to the ceil function.
+After the code above, the matrices *x* and *y* should hold values similar to below. Answers will vary due to the use of random numbers as the input to the ceil function.
 
 ::
 
@@ -32,3 +38,4 @@ After the code above, the matrices x and y should hold values similar to below. 
         13.1106   7.155113      14.000000  8.0000000
 
 .. seealso:: Functions :func:`floor`, :func:`trunc`
+

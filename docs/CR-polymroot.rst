@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: polymroot(c)
 
-    :param c: (N+1)*KxK matrix of coefficients of an Nth order polynomial of rank K.
-    :type c: TODO
+    :param c: 
+    :type c: (N+1)*KxK matrix of coefficients of an Nth order polynomial of rank K
 
     :returns: r (*TODO*), K*N vector containing the roots of the determinantal equation.
 

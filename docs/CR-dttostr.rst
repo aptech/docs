@@ -9,10 +9,10 @@ Converts a matrix containing dates in DT scalar format to a string array.
 
 Format
 ----------------
-.. function:: dttostr(x,  fmt)
+.. function:: dttostr(x, fmt)
 
-    :param x: NxK matrix containing dates in DT scalar format.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix containing dates in DT scalar format
 
     :param fmt: or  ExE conformable string array containing date/time format characters.
     :type fmt: string

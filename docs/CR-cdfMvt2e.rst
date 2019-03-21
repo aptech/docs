@@ -4,14 +4,14 @@ cdfMvt2e
 
 Purpose
 ----------------
-Computes multivariate Student's t cumulative distribution function with error management over [a,b].
+Computes multivariate Student's t cumulative distribution function with error management over ``[a,b]``.
 
 Format
 ----------------
-.. function:: cdfMvt2e(ctl,  a,  b,  R,  m,  v)
+.. function:: cdfMvt2e(ctl, a, b, R, m, v)
 
-    :param ctl: instance of a cdfmControl structure with members.
-    :type ctl: TODO
+    :param ctl: 
+    :type ctl: instance of a cdfmControl structure with members
 
     .. csv-table::
         :widths: auto
@@ -20,7 +20,7 @@ Format
         "ctl.absErrorTolerance", "scalar absolute error tolerance."
         "ctl.relErrorTolerance", "tolerance."
 
-    :param a: lower limits. K is the dimension of multivariate Student's t distribution. N is the number of MVT cdf integrals.
+    :param a: lower limits. *K* is the dimension of multivariate Student's t distribution. *N* is the number of MVT cdf integrals.
     :type a: NxK matrix
 
     :param b: upper limits.
@@ -35,7 +35,7 @@ Format
     :param v: degrees of freedom.
     :type v: scalar
 
-    :returns: y (*Nx1 vector*), a Pr(X ≥ a and X ≤ b|R,m).
+    :returns: y (*Nx1 vector*), a :math:`Pr(X ≥ a and X ≤ b|R,m)`.
 
     :returns: err (*Nx1 vector*), estimates of absolute error.
 
@@ -44,11 +44,37 @@ Format
     .. csv-table::
         :widths: auto
 
-        "0", "normal completion with err <  ctl.absErrorTolerance."
+        "0", "normal completion with err < ctl.absErrorTolerance."
         "1", "err  >  ctl.absErrorTolerance and ctl.maxEvaluations exceeded; increase ctl.maxEvaluations to decrease error."
-        "2", "K > 100 or K < 1."
-        "3", "R not positive semi-definite."
-        "missing", "R not properly defined."
+        "2", ":math:`K > 100` or :math:`K < 1`."
+        "3", "*R* not positive semi-definite."
+        "missing", "*R* not properly defined."
+
+Remarks
+------------
+
+-  The central multivariate Student's t cdf for the i-th row of *a* and *b*
+   is defined by where :math:`\nu \\in \\mathbb{R^+}` is a scale (or degree of freedom) 
+   parameter, :math:`z` is a K-dimensional Student's t multivariate distribution, and
+
+
+   For the non-central Student's t multivariate distribution cdf, we
+   have
+
+
+   where
+
+   
+   denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
+
+   Another form of non-central multivariate Student's t distribution cdf
+   is
+
+   .. TODO:: FIX ME
+
+
+-  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the
+   diagonal entries for :math:`\Sigma` on its diagonal.
 
 Examples
 ----------------
@@ -83,7 +109,7 @@ Uncorrelated variables
     //both variables being from -1e4 to 0
     { p, err, retcode } = cdfMvt2e(ctl, a, b, R, m, v );
 
-After the above code, both p  equal to 0.25.
+After the above code, both *p* equal to 0.25.
 
 .. math::
     T = P(-\infty <  X_1 \leq 0 \text{ and } - \infty < X_2 \leq 0) \approx 0.25.
@@ -122,7 +148,7 @@ Compute the multivariate student's t cdf at 3 separate pairs of upper limits
     //each pair of limits
     { p, err, retcode }  = cdfMvt2e(ctl, a, b, R, m, v);
 
-After the above code, p should equal:
+After the above code, *p* should equal:
 
 ::
 
@@ -172,7 +198,7 @@ Compute the non central multivariate student's t cdf
     //each pair of limits
     { p, err, retcode } = cdfMvt2e(ctl, a, b, R, m, v);
 
-After the above code, p should equal:
+After the above code, *p* should equal:
 
 ::
 
@@ -187,36 +213,9 @@ which means with non-central vector, the multivariate student's t cdf are:
     P(-20 \leq x_1 \leq +0 \text{ and } -10 \leq x_2 \leq +0.1) = 0.1519\\
     P(0 \leq x_1 \leq 1 \text{ and } 0 \leq x_2 \leq 1.1) = 0.0009
 
-Remarks
-+++++++
-
--  The central multivariate Student's t cdf for the i-th row of a and b
-   is defined by
-
-
-   where :math:`\nu \\in \\mathbb{R^+}` is a scale (or degree of freedom) parameter, :math:`z` is a K-dimensional Student's t multivariate distribution, and
-
-
-   For the non-central Student's t multivariate distribution cdf, we
-   have
-
-
-   where
-
-   
-   denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
-
-   Another form of non-central multivariate Student's t distribution cdf
-   is
-
-
--  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the
-   diagonal entries for :math:`\Sigma` on its diagonal.
-
-.. seealso:: Functions :func:`cdfMvte`, :func:`cdfMvtce`, :func:`cdfMvn2e`
 
 Source
-++++++
+------------
 
 cdfm.src
 
@@ -229,5 +228,5 @@ cdfm.src
    probabilities,'' Journal of Computational and Graphical Statistics,
    1:141-149, 1992.
 
-multivariate range student t error management cdf cumulative
-distribution function mvt
+.. seealso:: Functions :func:`cdfMvte`, :func:`cdfMvtce`, :func:`cdfMvn2e`
+

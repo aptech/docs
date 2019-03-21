@@ -8,15 +8,15 @@ Compute chi-square abscissae values given probability and degrees of freedom.
 
 Format
 ----------------
-.. function:: cdfChii(p,  n)
+.. function:: cdfChii(p, n)
 
     :param p: probabilities.
     :type p: MxN matrix
 
-    :param n: ExE conformable with  p, degrees of freedom.
+    :param n: ExE conformable with *p*, degrees of freedom.
     :type n: LxK matrix
 
-    :returns: c (*TODO*), max(M,L) by max(N,K) matrix, abscissae values for chi-squared distribution.
+    :returns: c (*matrix*), max(M,L) by max(N,K) matrix, abscissae values for chi-squared distribution.
 
 Examples
 ----------------
@@ -38,15 +38,14 @@ After the code above:
 
 ::
 
-    0.934227 6.231914 4.227479 
+        0.934227 6.231914 4.227479 
     x = 2.647158 1.203957 10.559593 
         5.868060 1.368600 1.963283
 
 Source
-++++++
+-----------
 
 cdfchii.src
 
 .. seealso:: Functions :func:`gammaii`
 
-chi square anscissae value probability df degree of freedom cdf

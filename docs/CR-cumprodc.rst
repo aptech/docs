@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: cumprodc(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :returns: y (*TODO*), NxK matrix containing the cumulative products
         of the columns of x.

@@ -9,7 +9,7 @@ Integrates a specified function using Gauss-Legendre quadrature. A suite of uppe
 
 Format
 ----------------
-.. function:: intquad1(&f,  xl,  ...)
+.. function:: intquad1(&f, xl,  ...)
 
     :param &f: pointer to the procedure containing the function to be integrated. This must be a function of x.
     :type &f: scalar
@@ -48,7 +48,7 @@ Note the use of the .* instead of *.
     //Calculate integral
     y = intquad1(&f,xlim);
 
-After the code above,  y should equal:
+After the code above, y should equal:
 
 ::
 
@@ -75,7 +75,7 @@ Passing in additional arguments
     //'a' as the final input to 'intquad1'
     y = intquad1(&f, xlim, a);
 
-After the code above,  y should equal:
+After the code above, y should equal:
 
 ::
 

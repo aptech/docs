@@ -10,22 +10,22 @@ Format
 ----------------
 .. function:: svdcusv(x)
 
-    :param x: NxP matrix or K-dimensional array
-        where the last two dimensions are NxP, whose singular
+    :param x: , whose singular
         values are to be computed.
-    :type x: TODO
+    :type x: NxP matrix or K-dimensional array
+        where the last two dimensions are NxP
 
     :returns: u (*TODO*), NxN or NxP matrix or
         K-dimensional array where the last two dimensions are NxN or
         NxP, the left singular vectors of x.
-        If N > P,  u is NxP, containing only the P left
+        If N > P, u is NxP, containing only the P left
         singular vectors of x.
 
     :returns: s (*TODO*), NxP or PxP diagonal matrix
         or K-dimensional array where the last two dimensions describe NxP
         or PxP diagonal arrays, the singular
         values of x arranged in descending order on the
-        principal diagonal. If N > P,  s is PxP.
+        principal diagonal. If N > P, s is PxP.
 
     :returns: v (*TODO*), PxP matrix or K-dimensional array
         where the last two dimensions are PxP, the right singular

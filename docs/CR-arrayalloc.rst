@@ -16,7 +16,18 @@ Format
     :param cf: 0 to allocate real array, or 1 to allocate complex array.
     :type cf: scalar
 
-    :returns: y (*TODO*), N-dimensional array.
+    :returns: y (N-dimensional array)
+
+Remarks
+-------
+
+The contents are unspecified. To create a new array with all elements
+initialized to a particular scalar value, use :func:`arrayinit`.
+
+:func:`arrayalloc` is used to allocate an array that will be written to in
+sections using :func:`setarray`, or indexed assignments. It is much faster to
+preallocate an array and fill in sections during a loop rather than
+adding new sections with concatentaion.
 
 Examples
 ----------------
@@ -26,7 +37,7 @@ Examples
     orders = { 2, 3, 4 };
     y = arrayalloc(orders, 1);
 
-y will be a complex 2x3x4 array with unspecified contents.
+*y* will be a complex 2x3x4 array with unspecified contents.
 
 ::
 
@@ -37,3 +48,4 @@ y will be a complex 2x3x4 array with unspecified contents.
     y = arrayalloc(orders, 0);
 
 .. seealso:: Functions :func:`arrayinit`, :func:`setarray`
+

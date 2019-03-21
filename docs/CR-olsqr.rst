@@ -11,11 +11,11 @@ Format
 ----------------
 .. function:: olsqr(y, x)
 
-    :param y: Nx1 vector containing dependent variable.
-    :type y: TODO
+    :param y: 
+    :type y: Nx1 vector containing dependent variable
 
-    :param x: NxP matrix containing independent variables.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix containing independent variables
 
     :returns: b (*TODO*), Px1 vector of least squares estimates of
         regression of y on x. If x does not have full

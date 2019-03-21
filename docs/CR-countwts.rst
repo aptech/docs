@@ -9,7 +9,7 @@ Returns a weighted count of the numbers of elements of a vector that fall into s
 
 Format
 ----------------
-.. function:: countwts(x,  v,  w)
+.. function:: countwts(x, v, w)
 
     :param x: the numbers to be counted.
     :type x: Nx1 vector
@@ -19,21 +19,32 @@ Format
         in ascending order (lowest to highest).
     :type v: Px1 vector
 
-    :param w: containing weights.
+    :param w: weights.
     :type w: Nx1 vector
 
-    :returns: c (*TODO*), Px1 vector containing the weighted counts of the
+    :returns: c (*Px1 vector*) the weighted counts of the
         elements of x that fall into the regions:
+
+        .. math::
         
-        x < v[1],
-        v[1] ≤ x < v[2],
-        .
-        .
-        .
-        v[p-1] ≤ x < v[p]
+            x < v[1],
+            v[1] ≤ x < v[2],
+            .
+            .
+            .
+            v[p-1] ≤ x < v[p]
         
-        That is, when x[i] falls into region j, the weight
-        w[i] is added to the jth counter.
+        That is, when :math:`x[i]` falls into region *j*, the weight
+        :math:`w[i]` is added to the jth counter.
+
+Remarks
+-------
+
+If any elements of *x* are greater than the last element of *v*, they will
+not be counted.
+
+Missing values are not counted unless there is a missing in *v*. A missing
+value in *v* MUST be the first element in *v*.
 
 Examples
 ----------------
@@ -47,7 +58,7 @@ Examples
 
 ::
 
-    0.0000000
+        0.0000000
         0.5000000
     c = 0.3330000
         2.0000000

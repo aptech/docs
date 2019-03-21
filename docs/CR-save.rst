@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: path xsave x
 
-    :param vflag: version flag.
-    :type vflag: TODO
+    :param vflag: 
+    :type vflag: version flag
 
     .. csv-table::
         :widths: auto
@@ -21,23 +21,23 @@ Format
         "-v92", "supported on UNIX, Windows"
         "-v96", "supported on all platformsSee also  Foreign Language Interface, Chapter  1, for details on the various versions. The default format can be specified in gauss.cfg by setting the dat_fmt_version configuration variable. If dat_fmt_version is not set, the default is v96."
 
-    :param path: literal or ^string, a default path to
+    :param path: , a default path to
         use for this and subsequent save's.
-    :type path: TODO
+    :type path: literal or ^string
 
     :param x: the name of the file the symbol will be saved
         in is the same as this with the proper extension added for the type
         of the symbol.
     :type x: a symbol name
 
-    :param lpath: literal or ^string, a local path and filename to be
+    :param lpath: , a local path and filename to be
         used for a particular symbol. This path will override the path
         previously set and the filename will override the name of the symbol
         being saved. The extension cannot be overridden.
-    :type lpath: TODO
+    :type lpath: literal or ^string
 
-    :param y: the symbol to be saved to  lpath.
-    :type y: TODO
+    :param y: 
+    :type y: the symbol to be saved to  lpath
 
 Examples
 ----------------

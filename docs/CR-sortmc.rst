@@ -9,10 +9,10 @@ Sorts a matrix on multiple columns.
 
 Format
 ----------------
-.. function:: sortmc(x,  v)
+.. function:: sortmc(x, v)
 
-    :param x: NxK matrix to be sorted.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix to be sorted
 
     :param v: in
         order, that are to be sorted. If an element is negative,

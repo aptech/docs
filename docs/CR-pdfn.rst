@@ -19,7 +19,7 @@ Format
     :param sigma: scalar, standard deviation parameter.
     :type sigma: Optional input
 
-    :returns: y (*NxK matrix*), or N-dimensional array,  containing the standard Normal
+    :returns: y (*NxK matrix*), or N-dimensional array, containing the standard Normal
         probability density function of x.
 
 Examples

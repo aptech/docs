@@ -9,13 +9,13 @@ Builds an Excel® range string from a row/column pair.
 
 Format
 ----------------
-.. function:: xlsMakeRange(row,  col)
+.. function:: xlsMakeRange(row, col)
 
-    :param row: scalar or 2x1 vector.
-    :type row: TODO
+    :param row: 
+    :type row: scalar or 2x1 vector
 
-    :param col: scalar or 2x1 vector.
-    :type col: TODO
+    :param col: 
+    :type col: scalar or 2x1 vector
 
     :returns: range (*string*), an Excel®-formatted range specifier.
 

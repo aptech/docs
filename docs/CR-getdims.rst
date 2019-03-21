@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: getdims(a)
 
-    :param a: N-dimensional array, matrix, string, string array or sparse matrix.
-    :type a: TODO
+    :param a: , matrix, string, string array or sparse matrix.
+    :type a: N-dimensional array
 
     :returns: ndims (*scalar*), the number of dimensions in the symbol.
 

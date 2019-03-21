@@ -9,7 +9,7 @@ NOTE: This function is deprecated--use rndBeta--but remains for backward compati
 
 Format
 ----------------
-.. function:: rndLCbeta(r, c,  a,  b, state)
+.. function:: rndLCbeta(r, c, a, b, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

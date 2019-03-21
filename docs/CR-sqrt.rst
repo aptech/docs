@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: sqrt(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix or N-dimensional array, the square roots of each
+    :returns: y (NxK matrix or N-dimensional array) the square roots of each
         element of x.
 
 Examples

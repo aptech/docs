@@ -8,7 +8,7 @@ Controls the formatting and angle of Y-axis tick labels for 2-D graphs.
 
 Format
 ----------------
-.. function:: plotSetYticLabel(&myPlot,  fmt,  angle)plotSetYticLabel(&myPlot,  fmt)
+.. function:: plotSetYticLabel(&myPlot, fmt, angle)plotSetYticLabel(&myPlot, fmt)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

@@ -12,8 +12,8 @@ Format
 			   
 			  			sep)
 
-    :param str: String or Nx1 string array to be split.
-    :type str: TODO
+    :param str: 
+    :type str: String or Nx1 string array to be split
 
     :param sep: string containing the
         

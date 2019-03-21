@@ -11,10 +11,16 @@ Format
 ----------------
 .. function:: arraytomat(a)
 
-    :param a: N-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: N-dimensional array
 
-    :returns: y (*KxL or 1xL matrix or scalar*), where L is the size of the fastest moving dimension of the array and K is the size of the second fastest moving dimension.
+    :returns: y (*KxL or 1xL matrix or scalar*), where *L* is the size of the fastest moving dimension of the array and *K* is the size of the second fastest moving dimension.
+
+Remarks
+-------
+
+:func:`arraytomat` will take an array of 1 or 2 dimensions or an N-dimensional
+array, in which the N-2 slowest moving dimensions each have a size of 1.
 
 Examples
 ----------------
@@ -39,11 +45,11 @@ Examples
     */
     y = arraytomat(a);
 
-The code above sets y equal to:
+The code above sets *y* equal to:
 
 ::
 
-    0.5    1.0    1.5    2.0
+     0.5    1.0    1.5    2.0
      2.5    3.0    3.5    4.0
      4.5    5.0    5.5    6.0
      6.5    7.0    7.5    8.0
@@ -51,3 +57,4 @@ The code above sets y equal to:
     10.5   11.0   11.5   12.0
 
 .. seealso:: Functions :func:`mattoarray`
+

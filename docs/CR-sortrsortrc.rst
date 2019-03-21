@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: sortrc(x, r)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :param r: row of x on which to sort.
     :type r: scalar

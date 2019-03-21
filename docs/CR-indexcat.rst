@@ -9,17 +9,17 @@ Returns the indices of the elements of a vector which fall into a specified cate
 
 Format
 ----------------
-.. function:: indexcat(x,  v)
+.. function:: indexcat(x, v)
 
-    :param x: Nx1 vector.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector
 
-    :param v: scalar or 2x1 vector.
+    :param v: 
         If scalar, the function returns the indices of all elements of x equal to  v.If 2x1, then the function returns the indices of all elements of x that fall into the range:
         
         v[1] < x <= v[2]
         If  v is scalar, it can contain a single missing to specify the missing value as the category.
-    :type v: TODO
+    :type v: scalar or 2x1 vector
 
     :returns: y (*Lx1 vector*), containing the indices of the
         elements of x which fall into the category defined

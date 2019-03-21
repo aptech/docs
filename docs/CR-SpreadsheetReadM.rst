@@ -9,7 +9,7 @@ Reads and writes Excel files.
 
 Format
 ----------------
-.. function:: spreadSheetReadM(file,  range,  sheet)
+.. function:: spreadSheetReadM(file, range, sheet)
 
     :param file: name of .xls, or .xlsx file.
     :type file: string
@@ -20,7 +20,7 @@ Format
     :param sheet: sheet number. Default = 1.
     :type sheet: scalar
 
-    :returns: x (*TODO*), matrix of numbers read from Excel.
+    :returns: x (matrix), numbers read from Excel.
 
 Examples
 ----------------

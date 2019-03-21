@@ -8,19 +8,19 @@ Multiplies a sparse matrix by a scalar.
 
 Format
 ----------------
-.. function:: spTScalar(s,  scal,  rinds,  cinds)
+.. function:: spTScalar(s, scal, rinds, cinds)
 
-    :param s: NxM sparse matrix.
-    :type s: TODO
+    :param s: 
+    :type s: NxM sparse matrix
 
-    :param scal: scalar.
-    :type scal: TODO
+    :param scal: 
+    :type scal: scalar
 
-    :param rinds: Kx1 vector of row indices.
-    :type rinds: TODO
+    :param rinds: 
+    :type rinds: Kx1 vector of row indices
 
-    :param cinds: Lx1 vector of column indices.
-    :type cinds: TODO
+    :param cinds: 
+    :type cinds: Lx1 vector of column indices
 
     :returns: y (*TODO*), KxL sparse matrix.
 

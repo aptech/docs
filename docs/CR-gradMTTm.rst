@@ -9,17 +9,17 @@ Computes numerical gradient with mask using threads.
 
 Format
 ----------------
-.. function:: gradMTTm(&fct,  par1,  data1,  mask)
+.. function:: gradMTTm(&fct, par1, data1, mask)
 
     :param &fct: pointer to procedure returning either Nx1 vector or 1x1 scalar
     :type &fct: scalar
 
-    :param par1: structure of type PV containing parameter
+    :param par1: 
+    :type par1: structure of type PV containing parameter
         vector at which gradient is to be evaluated
-    :type par1: TODO
 
-    :param data1: structure of type DS containing any data needed by  fct
-    :type data1: TODO
+    :param data1: 
+    :type data1: structure of type DS containing any data needed by  fct
 
     :param mask: elements in  g corresponding to
         elements of mask set to zero are not computed

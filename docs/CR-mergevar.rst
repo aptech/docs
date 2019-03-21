@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: mergevar(vnames)
 
-    :param vnames: string or Kx1 column vector containing the names of K global matrices.
-    :type vnames: TODO
+    :param vnames: 
+    :type vnames: string or Kx1 column vector containing the names of K global matrices
 
     :returns: x (*NxM matrix that contains the concatenated matrices*), where M is the sum of the columns in
         the K matrices specified in  vnames.

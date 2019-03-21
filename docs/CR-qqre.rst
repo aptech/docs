@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: qqre(x)
 
-    :param x: NxP matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix
 
     :returns: q1 (*NxK unitary matrix*), K = min(N,P).
 

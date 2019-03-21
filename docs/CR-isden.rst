@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: isden(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
     :returns: y (*scalar*), 1 if x contains a denormal, 0 if it does not.
 

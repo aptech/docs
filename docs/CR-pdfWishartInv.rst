@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: pdfWishartInv(IW, S, df)
 
-    :param IW: p x p positive definite matrix.
+    :param IW: 
         T
-    :type IW: TODO
+    :type IW: p x p positive definite matrix
 
-    :param S: p x p positive definite scale matrix.
+    :param S: 
         Ψ
-    :type S: TODO
+    :type S: p x p positive definite scale matrix
 
     :param df: degree of freedom.
         ν

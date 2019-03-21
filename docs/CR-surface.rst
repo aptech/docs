@@ -9,7 +9,7 @@ Graphs a 3-D surface. NOTE: This function is for use with the deprecated PQG gra
 
 Format
 ----------------
-.. function:: surface(x, y,  z)
+.. function:: surface(x, y, z)
 
     :param x: the X axis data.
     :type x: 1xK vector

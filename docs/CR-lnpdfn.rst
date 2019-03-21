@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: lnpdfn(x)
 
-    :param x: NxK matrix or N-dimensional array, data.
-    :type x: TODO
+    :param x: , data.
+    :type x: NxK matrix or N-dimensional array
 
-    :returns: z (*TODO*), NxK matrix or N-dimensional array, log-probabilities.
+    :returns: z (NxK matrix or N-dimensional array) log-probabilities.
 
 Examples
 ----------------

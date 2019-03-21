@@ -10,10 +10,10 @@ delimiter string.
 
 Format
 ----------------
-.. function:: strcombine(sa,  delim,  qchar)
+.. function:: strcombine(sa, delim, qchar)
 
-    :param sa: NxM string array.
-    :type sa: TODO
+    :param sa: 
+    :type sa: NxM string array
 
     :param delim: 1xM, or Mx1 delimiter string.
     :type delim: 1x1

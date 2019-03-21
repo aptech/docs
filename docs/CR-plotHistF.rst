@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: plotHistF(myPlot, f, c)plotHistF(f, c)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
     :param f: frequencies to be graphed.
     :type f: Nx1 vector

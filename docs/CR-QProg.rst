@@ -8,7 +8,7 @@ Solves the quadratic programming problem.
 
 Format
 ----------------
-.. function:: QProg(start, q, r,  a, b, c, d, bnds)
+.. function:: QProg(start, q, r, a, b, c, d, bnds)
 
     :param start: start values.
     :type start: Kx1 vector

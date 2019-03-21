@@ -9,7 +9,7 @@ Updates a variable in a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaUpdate(filename, x,  varname)
+.. function:: gdaUpdate(filename, x, varname)
 
     :param filename: name of data file.
     :type filename: string

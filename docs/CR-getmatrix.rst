@@ -9,10 +9,10 @@ Gets a contiguous matrix from an N-dimensional array.
 
 Format
 ----------------
-.. function:: getmatrix(a,  loc)
+.. function:: getmatrix(a, loc)
 
-    :param a: N-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: N-dimensional array
 
     :param loc: where M equals N, N-1 or N-2.
     :type loc: Mx1 vector of indices into the array to locate the matrix of interest

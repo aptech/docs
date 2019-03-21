@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: putvals(x, inds, vals)
 
-    :param x: MxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: MxK matrix or N-dimensional array
 
     :param inds: specifying where the new values
         are to be inserted, where D is the number of dimensions

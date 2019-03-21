@@ -11,14 +11,14 @@ Format
 .. function:: plotScatter(myPlot, x, y) 
 			              plotScatter(x, y)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
-    :param x: Nx1 or NxM matrix. Each column contains the X values for a particular data point.
-    :type x: TODO
+    :param x:  Each column contains the X values for a particular data point.
+    :type x: Nx1 or NxM matrix
 
-    :param y: Nx1 or NxM matrix. Each column contains the Y values for a particular data point.
-    :type y: TODO
+    :param y:  Each column contains the Y values for a particular data point.
+    :type y: Nx1 or NxM matrix
 
 Examples
 ----------------

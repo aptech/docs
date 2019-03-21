@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: vargetl(s)
 
-    :param s: string containing the name of the local symbol you wish to access.
-    :type s: TODO
+    :param s: 
+    :type s: string containing the name of the local symbol you wish to access
 
     :returns: y (*TODO*), contents of the variable whose name is
         in  s.

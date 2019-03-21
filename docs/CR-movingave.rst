@@ -9,10 +9,10 @@ Computes moving average of a series.
 
 Format
 ----------------
-.. function:: movingave(x,  d)
+.. function:: movingave(x, d)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :param d: order of moving average.
     :type d: scalar

@@ -10,9 +10,9 @@ Format
 ----------------
 .. function:: QProgmt(qIn )
 
-    :param qIn: instance of a qprogMTIn structure
+    :param qIn: 
+    :type qIn: instance of a qprogMTIn structure
         containing the following members:
-    :type qIn: TODO
 
     .. csv-table::
         :widths: auto

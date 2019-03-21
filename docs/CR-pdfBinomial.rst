@@ -14,11 +14,11 @@ Format
     :param successes: Nx1 vector or scalar. successes must be a positive number and < trials
     :type successes: NxK matrix
 
-    :param trials: ExE conformable with successes. trials must be > successes.
-    :type trials: TODO
+    :param trials:  trials must be > successes.
+    :type trials: ExE conformable with successes
 
-    :param prob: The probability of success on any given trial. ExE conformable with  successes. 0 < prob < 1.
-    :type prob: TODO
+    :param prob:  ExE conformable with  successes. 0 < prob < 1.
+    :type prob: The probability of success on any given trial
 
     :returns: p (*The probability of the specified number of successes*), NxK matrix, Nx1 vector or scalar.
 

@@ -9,7 +9,7 @@ Converts from polar to Cartesian coordinates.
 
 Format
 ----------------
-.. function:: tocart(r,  theta)
+.. function:: tocart(r, theta)
 
     :param r: radius.
     :type r: NxK real matrix

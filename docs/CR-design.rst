@@ -13,8 +13,8 @@ Format
 ----------------
 .. function:: design(x)
 
-    :param x: Nx1 vector.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector
 
     :returns: y (*NxK matrix*), where K = maxc(x); each row of y
         will contain a single 1, and the rest 0's. The

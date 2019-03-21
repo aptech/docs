@@ -9,10 +9,10 @@ Converts string dates to a matrix containing dates in DT Scalar date/time format
 
 Format
 ----------------
-.. function:: strctodt(x,  fmt)
+.. function:: strctodt(x, fmt)
 
-    :param x: NxK string array containing dates.
-    :type x: TODO
+    :param x: 
+    :type x: NxK string array containing dates
 
     :param fmt: or  ExE conformable string array containing strftime date/time format characters.
     :type fmt: string

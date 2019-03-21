@@ -8,18 +8,27 @@ Computes the binomial quantile or inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfBinomialInv(p,trials,prob)
+.. function:: cdfBinomialInv(p, trials, prob)
 
-    :param p: Nx1 vector or scalar. 0 < p < 1.
-    :type p: NxK matrix
+    :param p: :math:`0 < p < 1`.
+    :type p: NxK matrix, Nx1 vector or scalar
 
-    :param trials: ExE conformable with  p. trials > 0.
-    :type trials: TODO
+    :param trials: ExE conformable with *p*. *trials* > 0.
+    :type trials: matrix
 
-    :param prob: The probability of success on any given trial. ExE conformable with  p. 0 < prob < 1.
-    :type prob: TODO
+    :param prob: The probability of *success* on any given trial. ExE conformable with *p*. :math:`0 < prob < 1`.
+    :type prob: matrix
 
-    :returns: s (*TODO*), The number of successes. NxK matrix, Nx1 vector or scalar.
+    :returns: s (NxK matrix, Nx1 vector or scalar), The number of successes. 
+
+Remarks
+-----------
+
+For invalid inputs, :func:`cdfBinomialInv` will return a scalar error code
+which, when its value is assessed by function :func:`scalerr`, corresponds to
+the invalid input. If the first input is out of range, :func:`scalerr` will
+return a 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+
 
 Examples
 ----------------
@@ -42,14 +51,5 @@ After above code,
 
 This means that a team with a 60% chance of winning any one game would win between 43 and 55 games in 80% of seasons.
 
-Remarks
-+++++++
-
-For invalid inputs, cdfBinomialInv will return a scalar error code
-which, when its value is assessed by function scalerr, corresponds to
-the invalid input. If the first input is out of range, scalerr will
-return a 1; if the second is out of range, scalerr will return a 2; etc.
-
 .. seealso:: Functions :func:`cdfBinomial`, :func:`pdfBinomial`, :func:`cdfNegBinomial`, :func:`cdfNegBinomialInv`
 
-cdf binomial quantile inverse cumulative distribution function

@@ -9,13 +9,13 @@ Computes OLS coefficients using QR decomposition.
 
 Format
 ----------------
-.. function:: olsqrmt(y, x,  tol)
+.. function:: olsqrmt(y, x, tol)
 
-    :param y: Nx1 vector containing dependent variable.
-    :type y: TODO
+    :param y: 
+    :type y: Nx1 vector containing dependent variable
 
-    :param x: NxP matrix containing independent variables.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix containing independent variables
 
     :param tol: the tolerance for testing if
         diagonal elements are approaching zero. The

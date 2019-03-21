@@ -8,15 +8,29 @@ Computes the standard deviation of the elements across one dimension of an N-dim
 
 Format
 ----------------
-.. function:: astd(x,  dim)
+.. function:: astd(x, dim)
 
-    :param x: N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: N-dimensional array
 
     :param dim: number of dimension to sum across.
     :type dim: scalar
 
-    :returns: y (*TODO*), N-dimensional array, standard deviation across specified dimension of x.
+    :returns: y (N-dimensional array), standard deviation across specified dimension of *x*.
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
+
+For each column, this function essentially computes sample standard
+deviation, *s*:
+
+.. math:: s=1n−1⁢×∑i=1n(Xi−X¯)2
+
+Thus, the divisor is *N-1* rather than *N*, where *N* is the number of
+elements being summed. See :func:`astds` for the alternate definition.
 
 Examples
 ----------------
@@ -40,4 +54,3 @@ The code above should produce a 3x2 matrix with all elements close to 25 similar
 
 .. seealso:: Functions :func:`astds`, :func:`stdc`
 
-standard deviation elements dimension array

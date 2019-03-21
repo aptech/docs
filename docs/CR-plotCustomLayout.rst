@@ -9,7 +9,7 @@ Plots a graph of user-specified size at a user-specified location.
 
 Format
 ----------------
-.. function:: plotCustomLayout(xStart,  yStart,  width,  height)
+.. function:: plotCustomLayout(xStart, yStart, width, height)
 
     :param xStart: the distance from the left edge of the canvas to the left edge of the custom
         plot expressed as a number between 0 and 1.

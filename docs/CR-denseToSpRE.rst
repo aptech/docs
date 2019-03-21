@@ -9,10 +9,10 @@ Converts a dense matrix to a sparse matrix, using a relative epsilon.
 
 Format
 ----------------
-.. function:: denseToSpRE(x,  reps)
+.. function:: denseToSpRE(x, reps)
 
-    :param x: MxN dense matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxN dense matrix
 
     :param reps: relative epsilon. Elements of x will be treated as
         zero if their absolute values are less than or equal to  reps

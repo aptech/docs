@@ -8,7 +8,7 @@ Controls the settings for the title for a graph.
 
 Format
 ----------------
-.. function:: plotSetTitle(&myPlot,  title,  font,  fontSize,  fontColor)plotSetTitle(&myPlot,  title,  font)plotSetTitle(&myPlot,  title)
+.. function:: plotSetTitle(&myPlot, title, font, fontSize, fontColor)plotSetTitle(&myPlot, title, font)plotSetTitle(&myPlot, title)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: itos(x)
 
-    :param x: scalar or NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: scalar or NxK matrix
 
-    :returns: y (*TODO*), string or string array containing the string representation of the elements of x.
+    :returns: y (string), or string array containing the string representation of the elements of x.
 
 Examples
 ----------------

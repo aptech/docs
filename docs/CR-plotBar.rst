@@ -8,11 +8,11 @@ Generates a bar graph.
 
 Format
 ----------------
-.. function:: plotBar(myPlot,  labels,  height) 
-			              plotBar(labels,  height)
+.. function:: plotBar(myPlot, labels, height) 
+			              plotBar(labels, height)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
     :param labels: or Nx1 string array containing the bar labels. If scalar 0, a
         sequence from 1 to rows(height) will be created.

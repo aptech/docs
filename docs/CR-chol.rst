@@ -11,10 +11,31 @@ Format
 ----------------
 .. function:: chol(x)
 
-    :param x: NxN matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxN matrix
 
-    :returns: y (*TODO*), NxN matrix containing the Cholesky decomposition of x.
+    :returns: y (*NxN matrix*) containing the Cholesky decomposition of *x*.
+
+Remarks
+-------
+
+*y* is the "square root" matrix of *x*. That is, it is an upper triangular
+matrix such that :math:`x = y'y`.
+
+:func:`chol` does not check to see that the matrix is symmetric. :func:`chol` will look
+only at the upper half of the matrix including the principal diagonal.
+
+If the matrix *x* is symmetric but not positive definite, either an error
+message or an error code will be generated, depending on the lowest
+order bit of the trap flag:
+
++-----------------+-----------------------------------------------------+
+| **trap 0**      | Print error message and terminate program.          |
++-----------------+-----------------------------------------------------+
+| **trap 1**      | Return scalar error code 10.                        |
++-----------------+-----------------------------------------------------+
+
+See :func:`scalerr` and :func:`trap` for more details about error codes.
 
 Examples
 ----------------
@@ -42,4 +63,3 @@ Examples
 
 .. seealso:: Functions :func:`crout`, :func:`solpd`
 
-cholesky decomposition

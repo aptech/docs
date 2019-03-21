@@ -9,7 +9,7 @@ Computes pseudo-random numbers with Poisson distribution.
 
 Format
 ----------------
-.. function:: rndp(r, c,  lambda)
+.. function:: rndp(r, c, lambda)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

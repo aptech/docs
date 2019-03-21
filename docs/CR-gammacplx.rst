@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: gammacplx(z)
 
-    :param z: NxK matrix;  z may be complex.
-    :type z: TODO
+    :param z: 
+    :type z: NxK matrix;  z may be complex
 
     :returns: f (*TODO*), NxK matrix;  f may be complex.
 

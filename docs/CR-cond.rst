@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: cond(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :returns: c (*scalar*), an estimate of the condition number of x.
+    :returns: c (*scalar*), an estimate of the condition number of *x*.
         This equals the ratio of the largest singular
         value to the smallest. If the smallest singular
         value is zero or not all of the singular values
@@ -31,15 +31,14 @@ Examples
      
     y = cond(x);
 
-will assign y to equal:
+will assign *y* to equal:
 
 ::
 
     y = 9.8436943
 
 Source
-++++++
+------------
 
 svd.src
 
-compute condition number matrix

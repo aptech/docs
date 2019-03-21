@@ -9,7 +9,7 @@ Computes negative binomial pseudo-random numbers. NOTE: This function is depreca
 
 Format
 ----------------
-.. function:: rndLCnb(r, c,  k,  p, state)
+.. function:: rndLCnb(r, c, k, p, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

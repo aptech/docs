@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: squeeze(a)
 
-    :param a: Multi-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: Multi-dimensional array
 
     :returns: atrim (*TODO*), Multidimensional array or matrix with all dimensions
         equal to 1 removed.

@@ -9,7 +9,7 @@ Creates a graphic panel of specific size and position and adds it to the list of
 
 Format
 ----------------
-.. function:: makewind(xsize,  ysize,  xshft,  yshft,  typ)
+.. function:: makewind(xsize, ysize, xshft, yshft, typ)
 
     :param xsize: horizontal size of the graphic panel in inches.
     :type xsize: scalar

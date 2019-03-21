@@ -9,13 +9,13 @@ Returns the unique elements in one vector that are not present in a second vecto
 
 Format
 ----------------
-.. function:: setdif(v1,  v2,  typ)
+.. function:: setdif(v1, v2, typ)
 
-    :param v1: Nx1 vector.
-    :type v1: TODO
+    :param v1: 
+    :type v1: Nx1 vector
 
-    :param v2: Mx1 vector.
-    :type v2: TODO
+    :param v2: 
+    :type v2: Mx1 vector
 
     :param typ: scalar, type of data.
     :type typ: Optional input

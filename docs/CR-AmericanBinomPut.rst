@@ -8,7 +8,7 @@ Prices American put options using binomial method.
 
 Format
 ----------------
-.. function:: AmericanBinomPut(S0,  K, r,  div,  tau,  sigma,  N)
+.. function:: AmericanBinomPut(S0, K, r, div, tau, sigma, N)
 
     :param S0: current price.
     :type S0: scalar
@@ -20,7 +20,7 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
@@ -29,9 +29,17 @@ Format
     :type sigma: scalar
 
     :param N: number of time segments. A higher number of time segments will increase accuracy at the expense of increased computation time.
-    :type N: TODO
+    :type N: scalar
 
     :returns: c (*Mx1 vector*), put premiums.
+
+Remarks
+-------
+
+The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
+simplified approach," Journal of Financial Economics, 7:229:264) as
+described in Options, Futures, and other Derivatives by John C. Hull is
+the basis of this procedure.
 
 Examples
 ----------------
@@ -60,10 +68,7 @@ produces:
     22.462440
 
 Source
-++++++
+----------
 
 finprocs.src
 
-.. raw:: html
-
-   </div>

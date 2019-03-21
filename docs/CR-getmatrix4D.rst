@@ -9,10 +9,10 @@ Gets a contiguous matrix from a 4-dimensional array.
 
 Format
 ----------------
-.. function:: getmatrix4D(a,  i1,  i2)
+.. function:: getmatrix4D(a, i1, i2)
 
-    :param a: 4-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: 4-dimensional array
 
     :param i1: index into the slowest moving dimension of the array.
     :type i1: scalar

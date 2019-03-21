@@ -11,10 +11,10 @@ length.
 
 Format
 ----------------
-.. function:: strtruncpad(sa,  maxlen)
+.. function:: strtruncpad(sa, maxlen)
 
-    :param sa: NxK string array.
-    :type sa: TODO
+    :param sa: 
+    :type sa: NxK string array
 
     :param maxlen: maximum length.
     :type maxlen: 1xK or 1x1 matrix

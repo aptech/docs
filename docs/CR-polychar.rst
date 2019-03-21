@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: polychar(x)
 
-    :param x: NxN matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxN matrix
 
     :returns: c (*TODO*), (N+1)x1 vector of coefficients of the Nth order
         characteristic polynomial of x:

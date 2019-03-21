@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: round(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
     :returns: y (*TODO*), NxK matrix or N-dimensional array
         containing the rounded elements of x.

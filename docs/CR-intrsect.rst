@@ -8,7 +8,7 @@ Returns the intersection of two vectors, with duplicates removed.
 
 Format
 ----------------
-.. function:: intrsect(v1,  v2,  flag)
+.. function:: intrsect(v1, v2, flag)
 
     :param v1: or string array.
     :type v1: Nx1 vector
@@ -16,7 +16,7 @@ Format
     :param v2: or string array. NOTE: v2 must be the same type as v1
     :type v2: Mx1 vector
 
-    :param flag: scalar, if 1,  v1 and  v2 are numeric; if 0, character. Default is flag equal to 1 (numeric).
+    :param flag: scalar, if 1, v1 and  v2 are numeric; if 0, character. Default is flag equal to 1 (numeric).
     :type flag: Optional argument
 
     :returns: y (*Lx1 vector containing all unique values that are in both  v1 and  v2*), sorted in ascending order.
@@ -46,7 +46,7 @@ Basic usage, numeric
     //Find the ID's that are in both groups
     id_common = intrsect(id_a, id_b);
 
-After the code above,  id_common is equal to:
+After the code above, id_common is equal to:
 
 ::
 
@@ -70,7 +70,7 @@ Basic usage, string array
     //Find the variable names that are in both groups
     names_common = intrsect(names_a, names_b);
 
-After the code above,  names_common is equal to:
+After the code above, names_common is equal to:
 
 ::
 
@@ -102,7 +102,7 @@ A character vector is different from a string array. A character vector is up to
     //tells GAUSS to print as character data
     print $names_common;
 
-The code above,  will print the following output:
+The code above, will print the following output:
 
 ::
 

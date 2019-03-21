@@ -9,13 +9,13 @@ Computes number of combinations of n things taken k at a time.
 
 Format
 ----------------
-.. function:: numCombinations(n,  k)
+.. function:: numCombinations(n, k)
 
-    :param n: scalar.
-    :type n: TODO
+    :param n: 
+    :type n: scalar
 
-    :param k: scalar.
-    :type k: TODO
+    :param k: 
+    :type k: scalar
 
     :returns: y (*scalar*), number of combinations of  n things take  k at a time.
 

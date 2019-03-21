@@ -8,13 +8,13 @@ Converts a vector of indices for an N-dimensional array to a scalar vector index
 
 Format
 ----------------
-.. function:: singleindex(i,  o)
+.. function:: singleindex(i, o)
 
-    :param i: Nx1 vector of indices into an N-dimensional array.
-    :type i: TODO
+    :param i: 
+    :type i: Nx1 vector of indices into an N-dimensional array
 
-    :param o: Nx1 vector of orders of an N-dimensional array.
-    :type o: TODO
+    :param o: 
+    :type o: Nx1 vector of orders of an N-dimensional array
 
     :returns: si (*scalar*), index of corresponding element in 1-dimensional
         array or vector.

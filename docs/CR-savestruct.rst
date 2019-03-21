@@ -8,7 +8,7 @@ Saves a matrix of structures to a file on the disk.
 
 Format
 ----------------
-.. function:: saveStruct(instance,  file_name)
+.. function:: saveStruct(instance, file_name)
 
     :param instance: instances of a structure.
     :type instance: MxN matrix

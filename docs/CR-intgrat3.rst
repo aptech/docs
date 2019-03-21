@@ -10,25 +10,25 @@ Integrates the following triple integral, using user-defined functions and scala
 
 Format
 ----------------
-.. function:: intgrat3(&f,  xl,  gl,  hl)
+.. function:: intgrat3(&f, xl, gl, hl)
 
     :param &f: pointer to the procedure containing the function
-        to be integrated. f is a function of (x, y,  z).
+        to be integrated. f is a function of (x, y, z).
     :type &f: scalar
 
     :param xl: the limits of x. These
         must be scalar limits.
     :type xl: 2x1 or 2xN matrix
 
-    :param gl: 2x1 or 2xN matrix of function pointers. These
+    :param gl:  These
         procedures are functions of x.
-    :type gl: TODO
+    :type gl: 2x1 or 2xN matrix of function pointers
 
-    :param hl: 2x1 or 2xN matrix of function pointers. These
+    :param hl:  These
         procedures are functions of x and y.
-    :type hl: TODO
+    :type hl: 2x1 or 2xN matrix of function pointers
 
-    :returns: y (*TODO*), Nx1 vector of the estimated integral(s) of f(x,y,z) evaluated between the limits given by  xl,  gl and  hl.
+    :returns: y (*TODO*), Nx1 vector of the estimated integral(s) of f(x,y,z) evaluated between the limits given by  xl, gl and  hl.
 
 Examples
 ----------------

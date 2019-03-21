@@ -12,11 +12,11 @@ Format
 ----------------
 .. function:: msym str
 
-    :param str: literal or ^string (up to 8 letters) which,
+    :param str: ,
         if not surrounded by quotes, is forced to
         uppercase. This is the string to be printed
         for missing values. The default is '.'.
-    :type str: TODO
+    :type str: literal or ^string (up to 8 letters) which
 
 Examples
 ----------------

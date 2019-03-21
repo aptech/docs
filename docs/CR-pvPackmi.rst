@@ -12,18 +12,18 @@ Format
 ----------------
 .. function:: pvPackmi(p1, x, nm, mask, i)
 
-    :param p1: an instance of structure of type PV.
-    :type p1: TODO
+    :param p1: 
+    :type p1: an instance of structure of type PV
 
-    :param x: MxN matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: MxN matrix or N-dimensional array
 
     :param nm: matrix or array name.
     :type nm: string
 
-    :param mask: MxN matrix or N-dimensional array,
+    :param mask: ,
         mask of zeros and ones.
-    :type mask: TODO
+    :type mask: MxN matrix or N-dimensional array
 
     :param i: index of matrix or array in lookup table.
     :type i: scalar

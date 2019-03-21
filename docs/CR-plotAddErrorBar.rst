@@ -8,7 +8,7 @@ Adds an error bar or a set of bars to an existing 2-D graph.
 
 Format
 ----------------
-.. function:: plotAddErrorBar(myPlot, x, y, err)plotAddErrorBar(myPlot, x, y,  lwr, uppr)plotAddErrorBar(x, y, err)plotAddErrorBar(x, y, lwr, uppr)
+.. function:: plotAddErrorBar(myPlot, x, y, err)plotAddErrorBar(myPlot, x, y, lwr, uppr)plotAddErrorBar(x, y, err)plotAddErrorBar(x, y, lwr, uppr)
 
     :param myPlot: a plotControl structure.
     :type myPlot: Optional input
@@ -22,11 +22,11 @@ Format
     :param err: Nx1 or NxM matrix. Each column contains the error values for each Y column.
     :type err: Scalar
 
-    :param lwr: Nx1 or NxM matrix. Each column contains the lower bar heights for assymetrical error bars.
-    :type lwr: TODO
+    :param lwr:  Each column contains the lower bar heights for assymetrical error bars.
+    :type lwr: Nx1 or NxM matrix
 
-    :param uppr: Nx1 or NxM matrix. Each column contains the upper bar heights for assymetrical error bars.
-    :type uppr: TODO
+    :param uppr:  Each column contains the upper bar heights for assymetrical error bars.
+    :type uppr: Nx1 or NxM matrix
 
 Examples
 ----------------

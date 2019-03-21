@@ -19,9 +19,9 @@ Format
         expression is TRUE.
     :type val: scalar
 
-    :param expression: logical scalar-returning expression
-        that returns nonzero TRUE or zero FALSE.
-    :type expression: TODO
+    :param expression: 
+    :type expression: logical scalar-returning expression
+        that returns nonzero TRUE or zero FALSE
 
 Examples
 ----------------

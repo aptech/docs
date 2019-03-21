@@ -12,10 +12,10 @@ Format
 ----------------
 .. function:: pvTest(p1)
 
-    :param p1: an instance of structure of type PV.
-    :type p1: TODO
+    :param p1: 
+    :type p1: an instance of structure of type PV
 
-    :returns: i (*scalar*), if 0,  p1 is a proper structure of
+    :returns: i (*scalar*), if 0, p1 is a proper structure of
         type PV, else if 1, an improper or unitialized structure
         of type PV.
 

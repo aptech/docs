@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: topolar(xy)
 
-    :param xy: NxK complex matrix containing
+    :param xy: 
+    :type xy: NxK complex matrix containing
         the x coordinate in the real part and the y
-        coordinate in the imaginary part.
-    :type xy: TODO
+        coordinate in the imaginary part
 
     :returns: r (*NxK real matrix*), radius.
 

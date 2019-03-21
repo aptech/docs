@@ -8,7 +8,7 @@ Sets the fill style, transparency and color for area plots, histograms and bar g
 
 Format
 ----------------
-.. function:: plotSetFill(&myPlot, fillType, transparency_pct,  colors )plotSetFill(&myPlot, fillType, transparency_pct)plotSetFill(&myPlot, fillType)
+.. function:: plotSetFill(&myPlot, fillType, transparency_pct, colors )plotSetFill(&myPlot, fillType, transparency_pct)plotSetFill(&myPlot, fillType)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

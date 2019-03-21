@@ -13,9 +13,9 @@ Format
     :param filename: name of output file.
     :type filename: string
 
-    :param str: string to be written to filename. All or
+    :param str:  All or
         part of str may be written out.
-    :type str: TODO
+    :type str: string to be written to filename
 
     :param start: beginning position in str of output
         string.

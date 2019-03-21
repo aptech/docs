@@ -4,14 +4,14 @@ cdfMvtce
 
 Purpose
 ----------------
-Computes complement (upper tail ) of multivariate Student's t cumulative distribution function with error management.
+Computes complement (upper tail) of multivariate Student's t cumulative distribution function with error management.
 
 Format
 ----------------
-.. function:: cdfMvtce(ctl, x,  R,  m,  v)
+.. function:: cdfMvtce(ctl, x, R, m, v)
 
-    :param ctl: instance of a cdfmControl structure with members.
-    :type ctl: TODO
+    :param ctl: instance of a :class:`cdfmControl` structure with members
+    :type ctl: struct
 
     .. csv-table::
         :widths: auto
@@ -20,7 +20,7 @@ Format
         "ctl.absErrorTolerance", "scalar absolute error tolerance."
         "ctl.relErrorTolerance", "tolerance."
 
-    :param x: abscissae. K is the dimension of multivariate Student's t distribution. N is the number of MVT cdf integrals
+    :param x: abscissae. *K* is the dimension of multivariate Student's t distribution. *N* is the number of MVT cdf integrals
     :type x: NxK matrix
 
     :param R: correlation matrix.
@@ -32,7 +32,7 @@ Format
     :param v: degrees of freedom.
     :type v: scalar
 
-    :returns: y (*Nx1 vector*), Pr(X ≥ x|R,m).
+    :returns: y (*Nx1 vector*), :math:`Pr(X ≥ x|R,m)`.
 
     :returns: err (*Nx1 vector*), estimates of absolute error.
 
@@ -41,11 +41,33 @@ Format
     .. csv-table::
         :widths: auto
 
-        "0", "normal completion with err <  ctl.absErrorTolerance."
-        "1", "err  >  ctl.absErrorTolerance and ctl.maxEvaluationsexceeded; increase ctl.maxEvaluations to decrease error."
-        "2", "K > 100 or K < 1."
-        "3", "R not positive semi-definite."
-        "missing", "R not properly defined."
+        "0", "normal completion with err < ctl.absErrorTolerance."
+        "1", "err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded; increase ctl.maxEvaluations to decrease error."
+        "2", ":math:`K > 100` or :math:`K < 1`."
+        "3", "*R* not positive semi-definite."
+        "missing", "*R* not properly defined."
+
+Remarks
+------------
+
+.. DANGER:: FIX EQUATIONS
+
+-  The central multivariate Student's t upper tail cdf for the i-th row
+   of x is defined by
+
+
+   where :math:`\nu \\in \\mathbb{R^+}` is a scale (or degree of freedom) parameter, :math:`z` is 
+   a K-dimensional Student's t multivariate distribution, and 
+   
+   For the non-central multivariate Student's t distribution cdf, we have where
+   
+   denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty`.
+
+   Another form of non-central multivariate Student's t distribution cdf is
+
+
+-  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the
+   diagonal entries for :math:`\Sigma` on its diagonal.
 
 Examples
 ----------------
@@ -165,7 +187,7 @@ Compute the upper tail of non central multivariate student's t cdf
     //each pair of lower limits
     { p, err, retcode } = cdfMvtce(ctl, x, R, m, v);
 
-After the above code, p should equal:
+After the above code, *p* should equal:
 
 ::
 
@@ -180,38 +202,13 @@ which means with non-central vector, the multivariate student's t cdf are:
     P(x_1 \geq +0 \text{ and } x_2 \geq +0.1) = 0.0047\\
     P(x_1 \geq 1 \text{ and } x_2 \geq 1.1) = 0.0005
 
-Remarks
-+++++++
-
--  The central multivariate Student's t upper tail cdf for the i-th row
-   of x is defined by
-
-
-   where :math:`\nu \\in \\mathbb{R^+}` is a scale (or degree of freedom) parameter, :math:`z` is a K-dimensional Student's t multivariate distribution, and
-
-
-   For the non-central multivariate Student's t distribution cdf, we
-   have
-
-
-   where
-
-   
-   denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
-
-   Another form of non-central multivariate Student's t distribution cdf
-   is
-
-
--  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the
-   diagonal entries for :math:`\Sigma` on its diagonal.
-
 Source
-++++++
+------------
 
 cdfm.src
 
-.. seealso:: Functions :func:`cdfMvt2e`, :func:`cdfMvte`, :func:`cdfMvne`
+References
+------------
 
 #. Genz, A. and F. Bretz,''Numerical computation of multivariate
    t-probabilities with application to power calculation of multiple
@@ -221,5 +218,5 @@ cdfm.src
    probabilities,'' Journal of Computational and Graphical Statistics,
    1:141-149, 1992.
 
-multivariate complement student t error management cdf cumulative
-distribution function mvt upper tail
+.. seealso:: Functions :func:`cdfMvt2e`, :func:`cdfMvte`, :func:`cdfMvne`
+

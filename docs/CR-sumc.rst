@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: sumc(x)
 
-    :param x: NxK matrix or L-dimensional array where the last two dimensions are NxK.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or L-dimensional array where the last two dimensions are NxK
 
     :returns: y (*TODO*), Kx1 vector or L-dimensional array where the last two dimensions are Kx1.
 

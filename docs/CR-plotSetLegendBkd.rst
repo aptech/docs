@@ -8,8 +8,8 @@ Sets the opacity and color for the background of a graph legend.
 
 Format
 ----------------
-.. function:: plotSetLegendBkd(&myPlot,  opacity) 
-			  plotSetLegendBkd(&myPlot,  opacity,  bkd_clr)
+.. function:: plotSetLegendBkd(&myPlot, opacity) 
+			  plotSetLegendBkd(&myPlot, opacity, bkd_clr)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

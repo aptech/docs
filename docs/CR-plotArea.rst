@@ -11,18 +11,18 @@ Format
 ----------------
 .. function:: plotArea(myPlot, x, y)plotArea(x, y)plotArea(myPlot, x, y, base)plotArea(x, y, base)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
-    :param x: Nx1 matrix. The X values for a particular line.
-    :type x: TODO
+    :param x:  The X values for a particular line.
+    :type x: Nx1 matrix
 
-    :param y: Nx1 or NxM matrix. Each column contains the Y values for a particular line. If y contains more than
+    :param y:  Each column contains the Y values for a particular line. If y contains more than
         one column, each column will be stacked on top of the previous column.
-    :type y: TODO
+    :type y: Nx1 or NxM matrix
 
-    :param base: Scalar optional argument. The height for the base of the area plot. The default value is zero. plotArea does not yet support a vector input for base.
-    :type base: TODO
+    :param base:  The height for the base of the area plot. The default value is zero. plotArea does not yet support a vector input for base.
+    :type base: Scalar optional argument
 
 Examples
 ----------------

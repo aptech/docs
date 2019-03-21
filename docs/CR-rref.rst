@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: rref(x)
 
-    :param x: MxN matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxN matrix
 
     :returns: y (*TODO*), MxN matrix containing reduced row
         echelon form of x.

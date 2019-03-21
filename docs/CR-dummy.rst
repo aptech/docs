@@ -12,17 +12,17 @@ right.
 
 Format
 ----------------
-.. function:: dummy(x,  v)
+.. function:: dummy(x, v)
 
-    :param x: Nx1 vector of data that is to be broken up
-        into dummy variables.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector of data that is to be broken up
+        into dummy variables
 
-    :param v: (K-1)x1 vector specifying the K-1 breakpoints
-        (these must be in ascending order) that determine the K
-        categories to be used. These categories should not
+    :param v:  These categories should not
         overlap.
-    :type v: TODO
+    :type v: (K-1)x1 vector specifying the K-1 breakpoints
+        (these must be in ascending order) that determine the K
+        categories to be used
 
     :returns: y (*TODO*), NxK matrix containing the K dummy variables.
 

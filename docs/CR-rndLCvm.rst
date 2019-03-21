@@ -10,7 +10,7 @@ NOTE: This function is deprecated but remains for backward compatibility.
 
 Format
 ----------------
-.. function:: rndLCvm(r, c,  m,  k, state)
+.. function:: rndLCvm(r, c, m, k, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

@@ -13,10 +13,10 @@ inverse.
 
 Format
 ----------------
-.. function:: pinvmt(x,  tol)
+.. function:: pinvmt(x, tol)
 
-    :param x: NxM matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxM matrix
 
     :param tol: any singular values less than tol are treated as zero in determining the rank of the input matrix.
     :type tol: scalar

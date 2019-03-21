@@ -8,7 +8,7 @@ Sets and fixes scaling, axes numbering and tick marks for the Y axis. NOTE: This
 
 Format
 ----------------
-.. function:: ytics(min,  max,  step,  minordiv)
+.. function:: ytics(min, max, step, minordiv)
 
     :param min: the minimum value.
     :type min: scalar

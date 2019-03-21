@@ -5,20 +5,19 @@ bessely
 Purpose
 ----------------
 
-Computes a Bessel function of the second kind (Weber's function),
-Yn(x).
+Computes a Bessel function of the second kind (Weber's function), :math:`Y\ n\ (x)`.
 
 Format
 ----------------
 .. function:: bessely(n, x)
 
-    :param n: NxK matrix or P-dimensional array where the last two dimensions are NxK, the order of the Bessel function. Nonintegers will be truncated to an integer.
-    :type n: TODO
+    :param n: the order of the Bessel function. Nonintegers will be truncated to an integer.
+    :type n: NxK matrix or P-dimensional array where the last two dimensions are NxK
 
-    :param x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with  n.
-    :type x: TODO
+    :param x: 
+    :type x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with *n*.
 
-    :returns: y (*TODO*), max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
+    :returns: y, max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
 
 Examples
 ----------------
@@ -49,4 +48,3 @@ After the code above:
 
 .. seealso:: Functions :func:`besselj`, :func:`mbesseli`, :func:`besselk`
 
-bessel

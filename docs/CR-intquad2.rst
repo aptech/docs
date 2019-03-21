@@ -9,7 +9,7 @@ Integrates a specified function using Gauss-Legendre quadrature. A suite of uppe
 
 Format
 ----------------
-.. function:: intquad2(&f,  xl,  yl,  ...)
+.. function:: intquad2(&f, xl, yl,  ...)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar
@@ -46,7 +46,7 @@ Basic example
     //Calculate integral
     ans = intquad2(&f, xlim, ylim);
 
-After the code above,  ans should equal:
+After the code above, ans should equal:
 
 ::
 
@@ -82,7 +82,7 @@ x
 y
 x
 y
-The returned variable,   ans should be equal to:
+The returned variable, ans should be equal to:
 
 ::
 
@@ -110,7 +110,7 @@ Extra arguments to function
     //Calculate integral
     ans = intquad2(&f, xlim, ylim, a);
 
-After the code above,  ans should equal:
+After the code above, ans should equal:
 
 ::
 

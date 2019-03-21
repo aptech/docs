@@ -9,16 +9,19 @@ Computes the Cauchy inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfCauchyInv(p,a,b)
+.. function:: cdfCauchyInv(p, a, b)
 
-    :param p: Nx1 vector or scalar.  p must be greater than zero and less than 1.
-    :type p: NxK matrix
+    :param p: must be greater than zero and less than 1.
+    :type p: NxK matrix, Nx1 vector or scalar
 
-    :param a: Location parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with  p.
-    :type a: TODO
+    :param a: Location parameter, ExE conformable with *p*.
+    :type a: NxK matrix, Nx1 vector or scalar
 
-    :param b: Scale parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with  p.  b must be greater than 0.
-    :type b: TODO
+    :param b: Scale parameter, ExE conformable with *p*. *b* must be greater than 0.
+    :type b: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix*), Nx1 vector or scalar.
+    :returns: y (*NxK matrix, Nx1 vector or scalar*)
+
+
+.. seealso:: :func:`pdfCauchy`, :func:`cdfCauchy`
 

@@ -9,7 +9,7 @@ Determines whether each new graph is drawn in a new graph tab or re-uses a pre-e
 
 Format
 ----------------
-.. function:: plotSetNewWindow(&myPlot,  newW)
+.. function:: plotSetNewWindow(&myPlot, newW)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

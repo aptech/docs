@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: ntos(num, prec)
 
-    :param num: scalar or NxK matrix; the numbers to be converted to a string.
-    :type num: TODO
+    :param num: 
+    :type num: scalar or NxK matrix; the numbers to be converted to a string
 
     :param prec: optional argument; the number of digits to display. If the precision input is not specified, the default value is 6. Valid input values are: 1 ≤ prec ≤ 15.
     :type prec: Scalar

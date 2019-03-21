@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: cdfMvnce(ctl, x, R, m)
 
-    :param ctl: instance of a cdfmControl structure with members.
-    :type ctl: TODO
+    :param ctl: instance of a :class:`cdfmControl` structure with members
+    :type ctl: struct
 
     .. csv-table::
         :widths: auto
@@ -29,7 +29,7 @@ Format
     :param m: non-centrality vector.
     :type m: Kx1 vector
 
-    :returns: y (*Nx1 vector*), Pr(X ≥ x|R,m).
+    :returns: y (*Nx1 vector*), :math:`Pr(X ≥ x|R,m)`.
 
     :returns: err (*Nx1 vector*), estimates of absolute error.
 
@@ -38,11 +38,19 @@ Format
     .. csv-table::
         :widths: auto
 
-        "0", "normal completion with err < ctl.absErrorTolerance."
-        "1", "err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded; increase ctl.maxEvaluations to decrease error."
-        "2", "K > 100 or K < 1."
-        "3", "R not positive semi-definite."
-        "missing", "R not properly defined."
+        "0", "normal completion with :math:`err < ctl.absErrorTolerance`."
+        "1", ":math:`err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded`; increase *ctl.maxEvaluations* to decrease error."
+        "2", ":math:`K > 100` or :math:`K < 1`"
+        "3", "*R* not positive semi-definite."
+        "missing", "*R* not properly defined."
+
+Remarks
+------------
+
+-  The :func:`cdfMvnce` evaluates the upper tail of *MVN* integral, where :math:`1\leqslant i \\leqslant N` For the non-central *MVN*, we have
+   where :math:`z` denotes :math:`K` -dimensional multivariate normal distribution, ``FIX ME`` denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
+
+-  The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the diagonal entries for covariance matrix :math:`\Sigma` on its diagonal.
 
 Examples
 ----------------
@@ -75,7 +83,7 @@ Uncorrelated variables
     //both, being ≥ 0
     p2 = cdfnc(0) .* cdfnc(0);
 
-After the above code, both p and p2 should be equal to 0.25.
+After the above code, both *p* and *p2* should be equal to 0.25.
 
 .. math::
     \Phi = P(0 \leq  X_1 < \infty \text{ and } 0 \leq X_2 < \infty) \approx 0.25.
@@ -108,7 +116,7 @@ Compute the upper tail of multivariate normal cdf at 3 separate pairs of lower l
     //each pair of lower limits
     {p, err, retcode}  = cdfMvnce(ctl, x, R, m);
 
-After the above code, p should equal:
+After the above code, *p* should equal:
 
 ::
 
@@ -167,29 +175,14 @@ which means with non-central vector, the multivariate normal cdf are:
     P(x_1 \geq +0 \text{ and } x_2 \geq +0.1) = 0.0046\\
     P(x_1 \geq 1 \text{ and } x_2 \geq 1.1) = 0.0001
 
-Remarks
-+++++++
-
--  The cdfMvnce evaluates the upper tail of *MVN* integral, where :math:`1\leqslant i \\leqslant N` For the non-central *MVN*, we have
-
-
-   where :math:`z` denotes :math:`K` -dimensional multivariate normal distribution,
-
-   
-   denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
-
--  The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the
-   diagonal entries for covariance matrix :math:`\Sigma` on its diagonal.
-
 Source
-++++++
+------------
 
 cdfm.src
 
-.. seealso:: Functions :func:`cdfMvn2e`, :func:`cdfMvnce`, :func:`cdfMvte`
 
 References
-++++++++++
+------------
 
 #. Genz, A. and F. Bretz,''Numerical computation of multivariate
    t-probabilities with application to power calculation of multiple
@@ -200,5 +193,5 @@ References
    probabilities'', Journal of Computational and Graphical Statistics,
    1:141-149, 1992.
 
-multivariate complement upper tail normal error management cdf
-cumulative distribution function mvn
+.. seealso:: Functions :func:`cdfMvn2e`, :func:`cdfMvnce`, :func:`cdfMvte`
+

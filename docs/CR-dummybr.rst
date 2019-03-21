@@ -9,17 +9,17 @@ Creates a set of dummy (0/1) variables. The highest (rightmost) category is boun
 
 Format
 ----------------
-.. function:: dummybr(x,  v)
+.. function:: dummybr(x, v)
 
-    :param x: Nx1 vector of data that is to be broken up
-        into dummy variables.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector of data that is to be broken up
+        into dummy variables
 
-    :param v: Kx1 vector specifying the K breakpoints (these
-        must be in ascending order) that determine the K
-        categories to be used. These categories should not
+    :param v:  These categories should not
         overlap.
-    :type v: TODO
+    :type v: Kx1 vector specifying the K breakpoints (these
+        must be in ascending order) that determine the K
+        categories to be used
 
     :returns: y (*TODO*), NxK matrix containing the K dummy variables.
         Each row will have a maximum of one 1.

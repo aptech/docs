@@ -11,11 +11,11 @@ Purpose
 
 Format
 ----------------
-.. function:: plotACF(myPlot,  x,  k,  d) 
-			              plotACF(x,  k, d)
+.. function:: plotACF(myPlot, x, k, d) 
+			              plotACF(x, k, d)
 
-    :param myPlot: A plotControl structure for acf.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure for acf
 
     :param x: data.
     :type x: Nx1 vector

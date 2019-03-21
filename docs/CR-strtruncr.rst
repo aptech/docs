@@ -10,7 +10,7 @@ user-specified number of characters.
 
 Format
 ----------------
-.. function:: strtruncr(sa,  ntrunc)
+.. function:: strtruncr(sa, ntrunc)
 
     :param sa: Nx1, 1xM, or 1x1 string array.
     :type sa: NxM

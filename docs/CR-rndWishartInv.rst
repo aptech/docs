@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: rndWishartInv(cov, df)
 
-    :param cov: p x p positive definite covariance matrix.
-    :type cov: TODO
+    :param cov: 
+    :type cov: p x p positive definite covariance matrix
 
     :param df: degrees of freedom.
     :type df: Scalar

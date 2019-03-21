@@ -8,10 +8,10 @@ Inserts submatrices along the diagonal of a sparse matrix.
 
 Format
 ----------------
-.. function:: spDiagRvMat(x,  inds,  size,  a)
+.. function:: spDiagRvMat(x, inds, size, a)
 
-    :param x: MxN sparse matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxN sparse matrix
 
     :param inds: row and column indices into x at which to place the
         corresponding submatrices in a.

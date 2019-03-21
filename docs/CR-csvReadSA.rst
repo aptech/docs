@@ -8,7 +8,7 @@ Reads data from CSV file into a GAUSS string array.
 
 Format
 ----------------
-.. function:: csvReadSA(file,  row_range,  col_range, delimiter)
+.. function:: csvReadSA(file, row_range, col_range, delimiter)
 
     :param file: name of CSV file.
     :type file: string
@@ -18,25 +18,25 @@ Format
 
         ""
 
-    :param row_range: Optional input: scalar, or 2x1 matrix. The first element of row_range will specify the first row of the file to read. If there is a second element in row_range, it will specify the last row to read from the file. If there is no second element in row_range, GAUSS will read to the end of the file. If row_range is not passed in, all rows will be read from the file. Default = 1.
-    :type row_range: TODO
+    :param row_range: , or 2x1 matrix. The first element of row_range will specify the first row of the file to read. If there is a second element in row_range, it will specify the last row to read from the file. If there is no second element in row_range, GAUSS will read to the end of the file. If row_range is not passed in, all rows will be read from the file. Default = 1.
+    :type row_range: Optional input: scalar
 
     .. csv-table::
         :widths: auto
 
         ""
 
-    :param col_range: Optional input: scalar, or 2x1 matrix. The first element of col_range will specify the first column of the file to read. If there is a second element in col_range, it will specify the last column to read from the file. If there is no second element in col_range, GAUSS will read to the end of the file. If col_range is not passed in, all columns will be read from the file. Default = 1.
-    :type col_range: TODO
+    :param col_range: , or 2x1 matrix. The first element of col_range will specify the first column of the file to read. If there is a second element in col_range, it will specify the last column to read from the file. If there is no second element in col_range, GAUSS will read to the end of the file. If col_range is not passed in, all columns will be read from the file. Default = 1.
+    :type col_range: Optional input: scalar
 
     .. csv-table::
         :widths: auto
 
         ""
 
-    :param delimiter: Optional input: string. The character used to separate elements in the file. Examples include:
+    :param delimiter:  The character used to separate elements in the file. Examples include:
         space " "tab "\t"semi-colon ";"comma "," (Default)
-    :type delimiter: TODO
+    :type delimiter: Optional input: string
 
     :returns: s (*string array*), data read from the CSV file.
 

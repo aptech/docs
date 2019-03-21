@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: strtriml(sa)
 
-    :param sa: NxM string array.
-    :type sa: TODO
+    :param sa: 
+    :type sa: NxM string array
 
     :returns: y (*TODO*), NxM string array.
 

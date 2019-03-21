@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: svdusv(x)
 
-    :param x: NxP matrix or K-dimensional array where the last two dimensions are NxP, whose singular values are to be computed.
-    :type x: TODO
+    :param x: , whose singular values are to be computed.
+    :type x: NxP matrix or K-dimensional array where the last two dimensions are NxP
 
     :returns: u (*TODO*), NxN matrix or K-dimensional array where the last two dimensions are NxN, the left singular vectors
         of x.

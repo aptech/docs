@@ -5,21 +5,33 @@ bandcholsol
 Purpose
 ----------------
 
-Solves the system of equations 	Ax = b for x, given the lower
+Solves the system of equations :math:`Ax = b` for *x*, given the lower
 triangle of the Cholesky decomposition of a positive definite
-banded matrix  A.
+banded matrix :math:`A`.
 
 Format
 ----------------
-.. function:: bandcholsol(b,  l)
+.. function:: bandcholsol(b, l)
 
-    :param b: KxM matrix.
-    :type b: TODO
+    :param b: 
+    :type b: KxM matrix
 
-    :param l: KxN compact form matrix.
-    :type l: TODO
+    :param l: 
+    :type l: KxN compact form matrix
 
-    :returns: x (*TODO*), KxM matrix.
+    :returns: x (KxM matrix)
+
+Remarks
+________________
+
+Given a positive definite banded matrix *A*, there exists a matrix *L*, the
+lower triangle of the Cholesky decomposition of *A*, such that :math:`A = LL'`. *l*
+is the compact form of *L*; see :func:`band` for a description of the format of *l*.
+
+*b* can have more than one column. If so, :math:`Ax = b` is solved for each
+column. That is,
+
+.. math:: A*x[.,i] = b[.,i]
 
 Examples
 ----------------
@@ -51,6 +63,6 @@ After the code above is run:
             0.500  2.179      -0.110      0.700        0.700 
             0.918  1.469       0.673      1.800        1.800
 
+
 .. seealso:: Functions :func:`band`, :func:`bandchol`, :func:`bandltsol`, :func:`bandrv`, :func:`bandsolpd`
 
-Cholesky decomposition positive definite banded matrix solve equation

@@ -4,17 +4,19 @@ blendColorPalette
 
 Purpose
 ----------------
-Create a new palette that blends between a list of colors. ncolors must be greater than the length of the 'colors' vector.
+Create a new palette that blends between a list of colors. *ncolors* must be greater than the length of the *colors* vector.
 
 Format
 ----------------
 .. function:: blendColorPalette(colors, ncolors)
 
-    :param colors: Nx1 string array. List of existing colors.
-    :type colors: TODO
+    :param colors:  List of existing colors.
+    :type colors: Nx1 string array
 
-    :param ncolors: scalar. The number of colors to create for the new palette.
-    :type ncolors: TODO
+    :param ncolors:  The number of colors to create for the new palette.
+    :type ncolors: scalar
 
-    :returns: color_blend (*TODO*), ncolorsx1 string array containing color palette.
+    :returns: color_blend (string array) ncolorsx1 containing color palette.
+
+.. seealso:: :func:`getColorPalette`, :func:`listColorPalettes`, :func:`getHSLPalette`, :func:`getHSLuvPalette`
 

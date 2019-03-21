@@ -11,13 +11,19 @@ Format
 ----------------
 .. function:: amax(x, dim)
 
-    :param x: N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: N-dimensional array.
 
     :param dim: number of dimension across which to find the maximum value.
     :type dim: scalar
 
-    :returns: y (*TODO*), N-dimensional array.
+    :returns: y (N-dimensional array)
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
 
 Examples
 ----------------
@@ -50,7 +56,7 @@ x[2,1,1] through x[2,3,4] =
 
 ::
 
-    4.0000000      6.0000000       4.0000000       2.0000000
+     4.0000000      6.0000000       4.0000000       2.0000000
      1.0000000      16.000000       9.0000000      -4.0000000
     -4.0000000     -8.0000000      -10.000000       8.0000000
 
@@ -66,13 +72,13 @@ y[2,1,1] through y[2,1,4] =
 
     4.0000000       16.000000       9.0000000       8.0000000
 
-Use the same x array and calculate the max across dimension 1:
+Use the same *x* array and calculate the max across dimension 1:
 
 ::
 
     y2 = amax(x,1);
 
-After this calculation, x remains the same, but y2 is:
+After this calculation, *x* remains the same, but *y2* is:
 y2[1,1,1] through y2[1,3,1] =
 
 ::
@@ -90,3 +96,4 @@ y2[2,1,1] through y2[2,3,1] =
     8.0000000
 
 .. seealso:: Functions :func:`amin`, :func:`maxc`
+

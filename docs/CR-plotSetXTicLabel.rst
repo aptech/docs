@@ -8,7 +8,7 @@ Controls the formatting and angle of X-axis tic labels for 2-D graphs.
 
 Format
 ----------------
-.. function:: plotSetXTicLabel(&myPlot,  fmt,  angle)plotSetXTicLabel(&myPlot,  fmt)
+.. function:: plotSetXTicLabel(&myPlot, fmt, angle)plotSetXTicLabel(&myPlot, fmt)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

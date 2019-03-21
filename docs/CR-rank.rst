@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: rank(x)
 
-    :param x: NxP matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix
 
     :returns: k (*TODO*), an estimate of the rank of x. This
         equals the number of singular values of x

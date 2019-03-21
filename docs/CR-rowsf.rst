@@ -12,8 +12,8 @@ Format
 ----------------
 .. function:: rowsf(f)
 
-    :param f: file handle of an open file.
-    :type f: TODO
+    :param f: 
+    :type f: file handle of an open file
 
     :returns: y (*scalar*), number of rows in the specified file.
 

@@ -11,13 +11,13 @@ row of  e.
 
 Format
 ----------------
-.. function:: delif(x,  e)
+.. function:: delif(x, e)
 
-    :param x: NxK data matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK data matrix
 
-    :param e: Nx1 logical vector (vector of 0's and 1's).
-    :type e: TODO
+    :param e: 
+    :type e: Nx1 logical vector (vector of 0's and 1's)
 
     :returns: y (*TODO*), MxK data matrix consisting of the rows of y for
         which there is a 0 in the corresponding row of

@@ -9,10 +9,10 @@ Gets a scalar from a 3-dimensional array.
 
 Format
 ----------------
-.. function:: getscalar3D(a,  i1,  i2,  i3)
+.. function:: getscalar3D(a, i1, i2, i3)
 
-    :param a: 3-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: 3-dimensional array
 
     :param i1: index into the slowest moving dimension of the array.
     :type i1: scalar

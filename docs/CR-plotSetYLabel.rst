@@ -9,7 +9,7 @@ Controls the settings for the Y-axis label on a graph.
 
 Format
 ----------------
-.. function:: plotSetYLabel(&myPlot,  label,  font,  fontSize,  fontColor)plotSetYLabel(&myPlot,  label,  font,  fontSize)plotSetYLabel(&myPlot,  label,  font)plotSetYLabel(&myPlot,  label)
+.. function:: plotSetYLabel(&myPlot, label, font, fontSize, fontColor)plotSetYLabel(&myPlot, label, font, fontSize)plotSetYLabel(&myPlot, label, font)plotSetYLabel(&myPlot, label)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

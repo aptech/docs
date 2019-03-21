@@ -8,7 +8,7 @@ Prices American call options using Black, Scholes, and Merton method.
 
 Format
 ----------------
-.. function:: AmericanBSCall(S0,  K, r,  div,  tau,  sigma)
+.. function:: AmericanBSCall(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar
@@ -20,7 +20,7 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
@@ -69,6 +69,3 @@ Source
 
 finprocs.src
 
-.. raw:: html
-
-   </div>

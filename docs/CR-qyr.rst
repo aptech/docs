@@ -11,11 +11,11 @@ Format
 ----------------
 .. function:: qyr(y, x)
 
-    :param y: NxL matrix.
-    :type y: TODO
+    :param y: 
+    :type y: NxL matrix
 
-    :param X: NxP matrix.
-    :type X: TODO
+    :param X: 
+    :type X: NxP matrix
 
     :returns: qy (*TODO*), NxL unitary matrix.
 

@@ -11,9 +11,9 @@ Format
 ----------------
 .. function:: dtvnormal(t)
 
-    :param t: 1x8 date and time vector that has
-        one or more elements outside the normal range.
-    :type t: TODO
+    :param t: 
+    :type t: 1x8 date and time vector that has
+        one or more elements outside the normal range
 
     :returns: d (*TODO*), Normalized 1x8 date and time vector.
 

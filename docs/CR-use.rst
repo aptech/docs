@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: use fname
 
-    :param fname: literal or ^string, the name of a compiled file
+    :param fname: , the name of a compiled file
         created using the compile or the saveall command.
-    :type fname: TODO
+    :type fname: literal or ^string
 

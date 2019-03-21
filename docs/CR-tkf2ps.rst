@@ -10,7 +10,7 @@ NOTE: This function is deprecated and does not work for the new .plot graphics f
 
 Format
 ----------------
-.. function:: tkf2ps(tekfile,  psfile)
+.. function:: tkf2ps(tekfile, psfile)
 
     :param tekfile: name of .tkf file.
     :type tekfile: string

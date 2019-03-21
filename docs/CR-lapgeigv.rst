@@ -9,7 +9,7 @@ Computes generalized eigenvalues, left eigenvectors, and right eigenvectors for 
 
 Format
 ----------------
-.. function:: lapgeigv(A,  B)
+.. function:: lapgeigv(A, B)
 
     :param A: real or complex general matrix.
     :type A: NxN matrix

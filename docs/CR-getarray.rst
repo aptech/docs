@@ -9,10 +9,10 @@ Gets a contiguous subarray from an N-dimensional array.
 
 Format
 ----------------
-.. function:: getarray(a,  loc)
+.. function:: getarray(a, loc)
 
-    :param a: N-dimensional array.
-    :type a: TODO
+    :param a: 
+    :type a: N-dimensional array
 
     :param loc: where 1 <= M <= N.
     :type loc: Mx1 vector of indices into the array to locate the subarray of interest

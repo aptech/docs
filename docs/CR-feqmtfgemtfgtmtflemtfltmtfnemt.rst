@@ -10,7 +10,7 @@ for roundoff error.
 
 Format
 ----------------
-.. function:: fnemt(a,  b,  fcmptol)
+.. function:: fnemt(a, b, fcmptol)
 
     :param a: first matrix.
     :type a: NxK matrix

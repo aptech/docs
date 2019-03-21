@@ -25,8 +25,8 @@ Format
     :param append: 0 to overwrite entire file or 1 to append to file. Default = 0.
     :type append: optional scalar
 
-    :param newline: optional string specifying the character(s) to end a line in the file. Default = "\n".
-    :type newline: TODO
+    :param newline:  Default = "\n".
+    :type newline: optional string specifying the character(s) to end a line in the file
 
     :returns: ret (*TODO*), Scalar return code. 0 for success, or non-zero if an error occurred.
 

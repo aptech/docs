@@ -18,13 +18,13 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param state: scalar or 500x1 vector.
+    :param state: 
         Scalar case:state = starting seed value. If -1, GAUSS
         computes the starting seed based on the system clock.
         
         500x1 vector case:state = the state vector returned from a previous
         call to one of the rndKM random number generators.
-    :type state: TODO
+    :type state: scalar or 500x1 vector
 
     :returns: y (*TODO*), r x c matrix of random
         integers between 0 and 232 - 1, inclusive.

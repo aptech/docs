@@ -8,8 +8,8 @@ Adds an arrow, line, ellipse or rectangle to an existing graph.
 
 Format
 ----------------
-.. function:: plotAddShape(myAnnotation,  which_shape,  x_start,  y_start,  x_end,  y_end) 
-			              plotAddShape(which_shape,  x_start,  y_start,  x_end,  y_end)
+.. function:: plotAddShape(myAnnotation, which_shape, x_start, y_start, x_end, y_end) 
+			              plotAddShape(which_shape, x_start, y_start, x_end, y_end)
 
     :param myAnnotation: an instance of a plotAnnotation structure.
     :type myAnnotation: Optional argument

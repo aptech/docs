@@ -5,33 +5,50 @@ besselk
 Purpose
 ----------------
 
-Computes the modified Bessel function of the second kind, Kn(x).
+Computes the modified Bessel function of the second kind, :math:`K\ n\ (x)`.
 			
 
 Format
 ----------------
 .. function:: besselk(n, x)
 
-    :param n: Scalar or matrix order. Currently, only integer orders are supported.
-    :type n: TODO
+    :param n: order. Currently only integer orders are supported.
+    :type n: scalar or matrix
 
-    :param x: Scalar or matrix ExE conformable with 'n'. 'x' must be greater than 0.
-    :type x: TODO
+    :param x: conformable with *n*. *x* must be greater than 0.
+    :type x: scalar or matrix ExE 
 
-    :returns: K Scalar or matrix, the modified Bessel function result. (*TODO*), 
+    :returns: K (*scalar or matrix*), the modified Bessel function result.
+
+Remarks
+-------
+
+Currently the algorithm has the following limitations:
+
+-  The order, *n*, must be an integer.
+-  The values of *x* must be positive.
+-  The maximum supported value for *x* with an order greater than 1 is
+   limited to approximately 740. If the input is out of range, a NaN
+   (missing value) will be returned. If necessary, use the function
+   :func:`ismiss` to check for NaN's in the output.
+
 
 Examples
 ----------------
 
-x = { 0, 
-    0.5, 
-      1, 
-    1.5, 
-      2 };
-K = besselk(1, x);
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Basic usage
++++++++++
 
-After the above code, 'K', should equal:
+::
+    x = { 0, 
+        0.5, 
+          1, 
+        1.5, 
+          2 };
+
+    K = besselk(1, x);
+
+After the above code, *K*, should equal:
 
 ::
 
@@ -56,10 +73,10 @@ Compute data for first 3 orders
         1.5, 
           2 };
     
-    //Compute function for each order, 'n',  at all 'x' points
+    //Compute function for each order, 'n', at all 'x' points
     K = besselk(n,x);
 
-After the code above, 'K' should equal:
+After the code above, *K* should equal:
 
 ::
 
@@ -70,8 +87,5 @@ After the code above, 'K' should equal:
     0.11389387       0.13986588       0.25375975
 
  
-^
-
 .. seealso:: Functions :func:`bessely`, :func:`mbesseli`, :func:`besselj`
 
-bessel

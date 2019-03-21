@@ -9,10 +9,10 @@ Integrates a specified function using Gauss-Legendre quadrature. A suite of uppe
 
 Format
 ----------------
-.. function:: intquad3(&f,  xl,  yl,  zl, ...)
+.. function:: intquad3(&f, xl, yl, zl, ...)
 
     :param &f: pointer to the procedure containing the
-        function to be integrated.  f is a function of (x, y,  z).
+        function to be integrated.  f is a function of (x, y, z).
     :type &f: scalar
 
     :param xl: the limits of x.
@@ -28,7 +28,7 @@ Format
     :type ...: Optional
 
     :returns: y (*TODO*), Nx1 vector of the estimated integral(s) of f(x,y,z)
-        evaluated between the limits given by  xl,  yl, and  zl.
+        evaluated between the limits given by  xl, yl, and  zl.
 
 Examples
 ----------------
@@ -51,7 +51,7 @@ Basic example
     //Calculate integral
     ans = intquad3(&f,xlim, ylim, zlim);
 
-After the code above,  ans should equal:
+After the code above, ans should equal:
 
 ::
 
@@ -78,7 +78,7 @@ Passing extra arguments
     //Calculate integral, passing in extra scalar argument
     ans = intquad3(&f,xlim, ylim, zlim, a);
 
-After the code above,  ans should equal:
+After the code above, ans should equal:
 
 ::
 

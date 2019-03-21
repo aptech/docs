@@ -10,11 +10,24 @@ Format
 ----------------
 .. function:: atan(x)
 
-    :param x: NxK matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix or N-dimensional array containing the arctangents of x in
+    :returns: y (NxK matrix or N-dimensional array), containing the arctangents of *x* in
         radians.
+
+Remarks
+-------
+
+*y* will be the same size as *x*, containing the arctangents of the
+corresponding elements of *x*.
+
+For real *x*, the arctangent of *x* is the angle whose tangent is *x*. The
+result is a value in radians in the range :math:`-π/2` to :math:`+π/2`. To convert
+radians to degrees, multiply by :math:`180/π`.
+
+For complex *x*, the arctangent is defined everywhere except *i* and *-i*. If
+*x* is complex, *y* will be complex.
 
 Examples
 ----------------
@@ -40,4 +53,3 @@ After the code above:
 
 .. seealso:: Functions :func:`atan2`, :func:`sin`, :func:`cos`, :func:`pi`, :func:`tan`
 
-arctan arctangent inverse tangent trigonometric

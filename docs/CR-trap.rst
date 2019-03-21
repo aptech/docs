@@ -9,7 +9,7 @@ Sets the trap flag to enable or disable trapping of numerical errors.
 Format
 ----------------
 .. function:: trap val 
-			  trap val,  mask
+			  trap val, mask
 
     :param val: new trap value.
     :type val: scalar

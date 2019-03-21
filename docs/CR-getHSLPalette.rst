@@ -10,17 +10,17 @@ Format
 ----------------
 .. function:: getHSLPalette(ncolors, h, s, l)
 
-    :param ncolors: scalar. The number of colors to create for the palette.
-    :type ncolors: TODO
+    :param ncolors:  The number of colors to create for the palette.
+    :type ncolors: scalar
 
-    :param h: scalar. first hue. Default value is 0.01.
-    :type h: TODO
+    :param h:  first hue. Default value is 0.01.
+    :type h: scalar
 
-    :param s: scalar. saturation. Default value is 0.6.5
-    :type s: TODO
+    :param s:  saturation. Default value is 0.6.5
+    :type s: scalar
 
-    :param l: scalar. lightness. Default value is 0.6.
-    :type l: TODO
+    :param l:  lightness. Default value is 0.6.
+    :type l: scalar
 
     :returns: clrs (*TODO*), ncolorsx1 string array containing the newly created color palette.
 

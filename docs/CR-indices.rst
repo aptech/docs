@@ -9,7 +9,7 @@ Processes a set of variable names or indices and returns a vector of variable na
 
 Format
 ----------------
-.. function:: indices(dataset,  vars)
+.. function:: indices(dataset, vars)
 
     :param dataset: the name of the data set.
     :type dataset: string

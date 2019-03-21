@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: hess(A)
 
-    :param A: KxK real or complex matrix.
-    :type A: TODO
+    :param A: 
+    :type A: KxK real or complex matrix
 
     :returns: H (*KxK matrix*), Hessenberg form.
 

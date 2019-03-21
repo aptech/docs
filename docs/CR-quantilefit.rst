@@ -14,8 +14,8 @@ Format
     :param y: dependent variable.
     :type y: Nx1 vector
 
-    :param x: NxK matrix or sparse matrix or N-dimensional array.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix or sparse matrix or N-dimensional array
 
     :param dataset: name of dataset.
     :type dataset: string

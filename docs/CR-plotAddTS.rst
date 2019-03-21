@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: plotAddTS(myPlot, dtstart, frequency, y)plotAddTS(dtstart, frequency, y)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
     :param dtstart: starting date in DT scalar format.
     :type dtstart: Scalar
@@ -27,8 +27,8 @@ Format
         "4", "Quarterly"
         "12", "Monthly"
 
-    :param y: Nx1 or NxM matrix. Each column contains the Y values for a particular line.
-    :type y: TODO
+    :param y:  Each column contains the Y values for a particular line.
+    :type y: Nx1 or NxM matrix
 
 Examples
 ----------------

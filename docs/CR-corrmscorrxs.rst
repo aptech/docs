@@ -1,5 +1,5 @@
 
-corrms,corrxs
+corrms, corrxs
 ==============================================
 
 Purpose
@@ -9,16 +9,24 @@ Computes the observed correlation matrix.
 
 Format
 ----------------
-.. function:: corrxs(x)
+.. function:: corrms(m)
+              corrxs(x)
 
-    :param m: KxK moment (x'x) matrix. A constant term MUST have been
-        the first variable when the moment matrix was computed.
-    :type m: TODO
+    :param m: A constant term MUST have been the first variable when the moment matrix was computed.
+    :type m: KxK moment (x'x) matrix
 
-    :param x: NxK matrix of data.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix of data
 
-    :returns: cx (*TODO*), PxP correlation matrix. For corrms, P = K-1. For corrxs, P = K.
+    :returns: cx (*PxP correlation matrix*). For :func:`corrms`, :math:`P = K-1`. For :func:`corrxs`, :math:`P = K`.
+
+Remarks
+------------
+
+The correlation matrix is the standardized version of the
+correlation/covariance matrix computed from the input data, that is, it
+divides the sample size, *N*, rather than :math:`N - 1`. For an unbiased estimate
+correlation/covariance matrix which uses :math:`N - 1`, use :func:`corrm` or :func:`corrx`.
 
 Examples
 ----------------
@@ -31,7 +39,7 @@ Examples
     print "x1 :" x1 ;
     print "x2 :" x2;
 
-After the above code, x1 and x2 look like:
+After the above code, *x1* and *x2* look like:
 
 ::
 
@@ -64,19 +72,10 @@ After the above code,
     	0.52196856        1.0000000       0.95548228 
     	0.75039768       0.95548228        1.0000000
 
-Remarks
-+++++++
-
-The correlation matrix is the standardized version of the
-correlation/covariance matrix computed from the input data, that is, it
-divides the sample size, N, rather than N - 1. For an unbiased estimate
-correlation/covariance matrix which uses N - 1, use corrm or corrx.
-
 Source
-++++++
+------------
 
 corrs.src
 
 .. seealso:: Functions :func:`momentd`, :func:`corrm`, :func:`corrx`, :func:`varCovX`, :func:`varCovM`
 
-sample correlation matrix moment

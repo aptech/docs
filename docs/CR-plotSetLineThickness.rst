@@ -9,7 +9,7 @@ Sets the thickness of the lines on a graph.
 
 Format
 ----------------
-.. function:: plotSetLineThickness(&myPlot,  newTh)
+.. function:: plotSetLineThickness(&myPlot, newTh)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

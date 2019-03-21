@@ -12,8 +12,8 @@ Format
 ----------------
 .. function:: getorders(a)
 
-    :param a: N-dimensional array, matrix, sparse matrix, string or string array.
-    :type a: TODO
+    :param a: , matrix, sparse matrix, string or string array.
+    :type a: N-dimensional array
 
     :returns: orders (*Nx1 vector of orders*), the sizes of the dimensions of the array.
 

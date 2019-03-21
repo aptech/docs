@@ -9,10 +9,10 @@ Writes a matrix in memory to a GAUSS data set in a specified format on disk.
 
 Format
 ----------------
-.. function:: saved(x,  dataset,  vnames)
+.. function:: saved(x, dataset, vnames)
 
-    :param x: NxK matrix to save.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix to save
 
     :param dataset: name of data set. The type of file to create is inferred from the file extension. Valid file extensions include CSV, DAT, XLS, XLSX.
     :type dataset: string

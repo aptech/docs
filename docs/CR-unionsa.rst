@@ -9,13 +9,13 @@ Returns the union of two string vectors with duplicates removed.
 
 Format
 ----------------
-.. function:: unionsa(sv1,  sv2)
+.. function:: unionsa(sv1, sv2)
 
-    :param sv1: Nx1 or 1xN string vector.
-    :type sv1: TODO
+    :param sv1: 
+    :type sv1: Nx1 or 1xN string vector
 
-    :param sv2: Mx1 or 1xM string vector.
-    :type sv2: TODO
+    :param sv2: 
+    :type sv2: Mx1 or 1xM string vector
 
     :returns: y (*TODO*), Lx1 vector containing all unique values that
         are in  sv1 and  sv2, sorted in ascending

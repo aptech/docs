@@ -8,7 +8,7 @@ Sets the line colors for a graph.
 
 Format
 ----------------
-.. function:: plotSetLineColor(&myPlot,  colors)
+.. function:: plotSetLineColor(&myPlot, colors)
 
     :param &myPlot: A plotControl structure pointer.
     :type &myPlot: TODO

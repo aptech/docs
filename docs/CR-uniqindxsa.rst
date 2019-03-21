@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: uniqindxsa(sv)
 
-    :param sv: Nx1 or 1xN string vector.
-    :type sv: TODO
+    :param sv: 
+    :type sv: Nx1 or 1xN string vector
 
     :returns: ind (*Mx1 vector*), indices corresponding to the
         elements of  sv sorted in ascending order with

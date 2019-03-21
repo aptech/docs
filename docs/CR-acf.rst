@@ -14,12 +14,11 @@ Format
     :param y: data.
     :type y: Nx1 vector
 
-    :param k: maximum number of autocorrelations to compute.
-        0 < k < N.
+    :param k: maximum number of autocorrelations to compute. 0 < *k* < *N*.
     :type k: scalar
 
     :param d: order of differencing.
-        If only compute the autocorrelations from the original time series, then d equals 0.
+        If only compute the autocorrelations from the original time series, then *d* equals 0.
     :type d: scalar
 
     :returns: rk (*Kx1 vector*), sample autocorrelations.
@@ -27,33 +26,34 @@ Format
 Examples
 ----------------
 
-//Short time-series
-x = { 12.92, 
-      14.28,
-      13.31,
-      13.34,
-      12.71,
-      13.08,
-      11.86,
-      9.000,
-      8.190,
-      7.970,
-      8.350,
-      8.200,
-      8.120,
-      8.390,
-      8.660  };
+::
 
-//Maximum number of lags 
-k = 4;
-
-//Order of differencing
-d = 1;
-
-//Calculate and print result of autocorrelation function
-rk = acf(x, k, d);
-print rk;
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //Short time-series
+    x = { 12.92, 
+          14.28,
+          13.31,
+          13.34,
+          12.71,
+          13.08,
+          11.86,
+          9.000,
+          8.190,
+          7.970,
+          8.350,
+          8.200,
+          8.120,
+          8.390,
+          8.660  };
+    
+    //Maximum number of lags 
+    k = 4;
+    
+    //Order of differencing
+    d = 1;
+    
+    //Calculate and print result of autocorrelation function
+    rk = acf(x, k, d);
+    print rk;
 
 The code above produces the following output:
 
@@ -64,11 +64,13 @@ The code above produces the following output:
     -0.17367167 
     0.031921209
 
-Plot the ACF results with plotBar function. The first input 0 means using sequence numbers to name elements in the rk.
+Plot the ACF results with :func:`plotBar` function. The first input 0 means using sequence numbers to name elements in the *rk*.
 
 ::
 
     plotBar(0,rk);
+
+.. image:: _static/images/acf1.png 
 
 Calculate the autocorrelation function and plot the results for "beef_prices" data.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -90,8 +92,7 @@ Calculate the autocorrelation function and plot the results for "beef_prices" da
     //Call acf function
     beef_acf = acf(beef, k, d);
 
-beef
-beef_acf
+The following code can give the time plot and sample ACF plot based on the beef and beef_acf:
 
 ::
 
@@ -130,12 +131,12 @@ beef_acf
 
 You can use 'Add Text' to type 'Beef Prices' as the title in the graphics window. The plot is:
 
+.. image:: _static/images/beef_acf.png
+
 Source
-++++++
+--------------
 
 tsutil.src
 
 .. seealso:: Functions :func:`pacf`
 
-| 
-| sample autocorrelation

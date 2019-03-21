@@ -9,11 +9,11 @@ Computes quantiles from data in a matrix, given specified probabilities.
 
 Format
 ----------------
-.. function:: quantile(x,  e) 
-			  quantile(x,  e,  tp)
+.. function:: quantile(x, e) 
+			  quantile(x, e, tp)
 
-    :param x: NxK matrix of data.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix of data
 
     :param e: quantile levels or probabilities.
     :type e: Lx1 vector

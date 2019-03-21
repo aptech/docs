@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: mattoarray(x)
 
-    :param x: matrix.
-    :type x: TODO
+    :param x: 
+    :type x: matrix
 
     :returns: y (*TODO*), 1-or-2-dimensional array.
 

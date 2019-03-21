@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: setBlockSize(block_size)
 
-    :param block_size: scalar or string
-    :type block_size: TODO
+    :param block_size: 
+    :type block_size: scalar or string
 
     .. csv-table::
         :widths: auto

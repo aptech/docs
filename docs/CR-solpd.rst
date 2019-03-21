@@ -8,14 +8,14 @@ Solves a set of positive definite linear equations.
 
 Format
 ----------------
-.. function:: solpd(b,  A)
+.. function:: solpd(b, A)
 
-    :param b: NxK matrix or M-dimensional array where the last two dimensions are NxK.
-    :type b: TODO
+    :param b: 
+    :type b: NxK matrix or M-dimensional array where the last two dimensions are NxK
 
-    :param A: NxN symmetric positive definite matrix or M-dimensional array where the NxN 2-dimensional
-        arrays described by the last two dimensions are symmetric and positive definite.
-    :type A: TODO
+    :param A: 
+    :type A: NxN symmetric positive definite matrix or M-dimensional array where the NxN 2-dimensional
+        arrays described by the last two dimensions are symmetric and positive definite
 
     :returns: x (*TODO*), NxK matrix or M-dimensional array where the last two dimensions are NxK, the solutions for
         the system of equations, Ax = b.

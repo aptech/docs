@@ -9,7 +9,7 @@ Purpose
 
 Format
 ----------------
-.. function:: ismember(names,  missing)
+.. function:: ismember(names, missing)
 
     :param haystack: multi-dimensional array or string array in which to search.
     :type haystack: matrix

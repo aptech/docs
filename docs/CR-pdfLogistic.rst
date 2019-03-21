@@ -14,11 +14,11 @@ Format
     :param x: an Nx1 vector or scalar.
     :type x: NxK matrix
 
-    :param a: Location parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with x.
-    :type a: TODO
+    :param a: , Nx1 vector or scalar, ExE conformable with x.
+    :type a: Location parameter; NxK matrix
 
-    :param b: Scale parameter; NxK matrix, Nx1 vector or scalar, ExE conformable with x.  b must be greater than 0.
-    :type b: TODO
+    :param b: , Nx1 vector or scalar, ExE conformable with x.  b must be greater than 0.
+    :type b: Scale parameter; NxK matrix
 
-    :returns: y (*NxK matrix*), Nx1 vector or scalar.
+    :returns: y (*NxK matrix or Nx1 vector or scalar*)
 

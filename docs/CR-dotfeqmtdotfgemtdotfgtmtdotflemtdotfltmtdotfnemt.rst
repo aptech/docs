@@ -11,7 +11,7 @@ roundoff error.
 
 Format
 ----------------
-.. function:: dotfnemt(a,  b,  fcmptol)
+.. function:: dotfnemt(a, b, fcmptol)
 
     :param a: first matrix.
     :type a: NxK matrix

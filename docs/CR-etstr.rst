@@ -15,7 +15,7 @@ Format
         ethsec function.
     :type tothsecs: scalar
 
-    :returns: str (*TODO*), string containing the elapsed time in the form:
+    :returns: str (string), containing the elapsed time in the form:
 
     .. csv-table::
         :widths: auto

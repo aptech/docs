@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: toeplitz(x)
 
-    :param x: Kx1 vector.
-    :type x: TODO
+    :param x: 
+    :type x: Kx1 vector
 
     :returns: t (*TODO*), KxK Toeplitz matrix.
 

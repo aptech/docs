@@ -8,7 +8,7 @@ Computes Delta, Gamma, Theta, Vega, and Rho for American call options using Blac
 
 Format
 ----------------
-.. function:: AmericanBSCall_Greeks(S0,  K, r,  div,  tau,  sigma)
+.. function:: AmericanBSCall_Greeks(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar
@@ -20,7 +20,7 @@ Format
     :type r: scalar
 
     :param div: continuous dividend yield.
-    :type div: TODO
+    :type div: scalar
 
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
@@ -37,6 +37,15 @@ Format
     :returns: v (*Mx1 vector*), vega.
 
     :returns: rh (*Mx1 vector*), rho.
+
+Global Input
+------------
+
+.. csv-table::
+    :widths: auto
+
+    "\_fin_thetaType","scalar, if 1, one day look ahead, else, infinitesmal. Default = 0.
+    "\_fin_epsilon","scalar, finite difference stepsize. Default = 1e-8.
 
 Examples
 ----------------
@@ -61,10 +70,9 @@ produces:
       56.872008
 
 Source
-++++++
+----------
 
 finprocs.src
 
 .. seealso:: Functions :func:`AmericanBSCall_ImpVol`, :func:`AmericanBSCall`, :func:`AmericanBSPut_Greeks`, :func:`AmericanBinomCall_Greeks`
 
-| 

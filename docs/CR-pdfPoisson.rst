@@ -13,10 +13,10 @@ Format
     :param x: Nx1 vector or scalar. x must be a positive whole number.
     :type x: NxK matrix
 
-    :param lambda: ExE conformable with x. The mean parameter.
-    :type lambda: TODO
+    :param lambda:  The mean parameter.
+    :type lambda: ExE conformable with x
 
-    :returns: p (*NxK matrix*), Nx1 vector or scalar.
+    :returns: p (*NxK matrix or Nx1 vector or scalar*)
 
 Examples
 ----------------

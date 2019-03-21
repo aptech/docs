@@ -4,13 +4,23 @@ annotationGetDefaults
 
 Purpose
 ----------------
-Fills in an instance of a plotAnnotation structure with default values.
+Fills in an instance of a :class:`plotAnnotation` structure with default values.
 
 Format
 ----------------
 .. function:: annotationGetDefaults()
 
-    :returns: myAnnotation (*TODO*), An instance of a plotAnnotation structure with all members set to defaults.
+    :returns: myAnnotation (struct), An instance of a :class:`plotAnnotation` structure with all members set to defaults.
+
+Remarks
+-------
+
+:class:`plotAnnotation` structures are used with the `annotationSet` functions to
+programmatically control the attributes of the annotations that you add
+to graphs.
+
+To see a full example of adding an annotation to a graph, see the
+command reference page for :func:`plotAddLine`, :func:`plotAddShape` or :func:`plotAddTextbox`
 
 Examples
 ----------------
@@ -24,3 +34,4 @@ Examples
     myAnnotation = annotationGetDefaults();
 
 .. seealso:: Functions :func:`plotAddShape`, :func:`plotAddTextbox`, :func:`annotationSetLineColor`, :func:`annotationSetBkd`
+

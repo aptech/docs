@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: rfftp(x)
 
-    :param x: NxK real matrix or K-length real vector.
-    :type x: TODO
+    :param x: 
+    :type x: NxK real matrix or K-length real vector
 
     :returns: y (*TODO*), Lx(M/2+1) matrix or (M/2+1)-length vector, where
         L and M are the smallest powers of 2 greater than or equal

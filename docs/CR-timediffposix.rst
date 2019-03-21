@@ -9,7 +9,7 @@ Computes the difference between two dates in Posix date/time format.
 
 Format
 ----------------
-.. function:: timediffposix(dt_1, dt_2,  units)
+.. function:: timediffposix(dt_1, dt_2, units)
 
     :param dt_1: containing 1 or more date/times in Posix format.
     :type dt_1: NxK matrix

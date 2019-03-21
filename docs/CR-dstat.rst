@@ -17,10 +17,10 @@ Format
         to be a matrix containing the data.
     :type dataset: string
 
-    :param vars: the variables.
+    :param vars: 
         
         If  dataset contains the name of a  data set,vars will be interpreted as:
-    :type vars: TODO
+    :type vars: the variables
 
     .. csv-table::
         :widths: auto
@@ -30,7 +30,7 @@ Format
         "Kx1 numeric vector, indices of variables."
         "- or -"
         "formula string. e.g. "PAY + WT"  or ". - sex""
-        "These can be any size subset of the variables in the data set and can be in any order. If a scalar 0 is passed, all columns of the data set will be used.    If  dataset is null or 0,  vars will be interpreted as:"
+        "These can be any size subset of the variables in the data set and can be in any order. If a scalar 0 is passed, all columns of the data set will be used.    If  dataset is null or 0, vars will be interpreted as:"
         "NxK matrix, the data on which to compute the descriptive statistics."
 
     :returns: vnam (*Kx1 character vector*), the names of the variables

@@ -9,7 +9,7 @@ Sorts a data file on disk with respect to a specified variable.
 
 Format
 ----------------
-.. function:: sortd(infile,  outfile,  keyvar,  keytyp)
+.. function:: sortd(infile, outfile, keyvar, keytyp)
 
     :param infile: name of input file.
     :type infile: string

@@ -9,15 +9,15 @@ symbol whose name is given as a string argument.
 
 Format
 ----------------
-.. function:: varput(x,  n)
+.. function:: varput(x, n)
 
     :param x: array, string, or string array which is to be assigned to
         the target variable.
     :type x: matrix
 
-    :param n: string containing the name of the global symbol
-        which will be the target variable.
-    :type n: TODO
+    :param n: 
+    :type n: string containing the name of the global symbol
+        which will be the target variable
 
     :returns: y (*scalar*), 1 if the operation is successful and 0 if the operation fails.
 

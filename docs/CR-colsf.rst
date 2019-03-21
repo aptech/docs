@@ -5,17 +5,21 @@ colsf
 Purpose
 ----------------
 
-Returns the number of columns in a GAUSS data
-(.dat) file or GAUSS matrix (.fmt) file.
+Returns the number of columns in a GAUSS data (.dat) file or GAUSS matrix (.fmt) file.
 
 Format
 ----------------
 .. function:: colsf(fh)
 
-    :param fh: file handle of an open file.
-    :type fh: TODO
+    :param fh: file handle of an open file
+    :type fh: scalar
 
-    :returns: yf (*TODO*), number of columns in the file that has the handle fh.
+    :returns: yf (*scalar*), number of columns in the file that has the handle *fh*.
+
+Remarks
+-------
+
+In order to call *colsf* on a file, the file must be open.
 
 Examples
 ----------------
@@ -35,3 +39,4 @@ The result will be
     nCols = 10
 
 .. seealso:: Functions :func:`rowsf`, :func:`cols`, :func:`show`
+

@@ -11,11 +11,11 @@ Format
 .. function:: varCovM(mm) 
 			  varCovX(x)
 
-    :param mm: KxK moment (x'x) matrix. A constant term MUST have been the first variable when the moment matrix was computed.
-    :type mm: TODO
+    :param mm:  A constant term MUST have been the first variable when the moment matrix was computed.
+    :type mm: KxK moment (x'x) matrix
 
-    :param x: NxK matrix of data.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix of data
 
     :returns: vc (*TODO*), KxK variance-covariance matrix.
 

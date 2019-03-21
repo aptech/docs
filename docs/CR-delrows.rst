@@ -10,10 +10,10 @@ contains the indices of the rows to be deleted.
 
 Format
 ----------------
-.. function:: delrows(x,  r)
+.. function:: delrows(x, r)
 
-    :param x: NxK data matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK data matrix
 
     :param r: indices of rows to delete.
     :type r: Mx1 vector

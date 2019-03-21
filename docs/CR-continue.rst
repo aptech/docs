@@ -5,11 +5,16 @@ continue
 Purpose
 ----------------
 
-Jumps to the top of a do or for loop.
+Jumps to the top of a :func:`do` or :func:`for` loop.
 
 Format
 ----------------
 .. function:: continue
+
+Remarks
+------------
+
+This command works just as in **C**.
 
 Examples
 ----------------
@@ -51,11 +56,3 @@ After the loops above, x looks like:
     0.00000000       0.00000000       0.91500922       0.00000000 
     0.00000000       0.00000000       0.00000000       -1.6014053
 
-Remarks
-+++++++
-
-This command works just as in **C**.
-
-.. raw:: html
-
-   </div>

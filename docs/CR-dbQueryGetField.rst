@@ -10,7 +10,7 @@ that accepts a column name as input is available, but not as efficient.
 
 Format
 ----------------
-.. function:: dbQueryGetField(qid,  name)
+.. function:: dbQueryGetField(qid, name)
 
     :param qid: query number.
     :type qid: scalar

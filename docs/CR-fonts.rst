@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: fonts(str)
 
-    :param str: string or character vector containing the names
-        of fonts to be used in the plot. The
+    :param str:  The
         following fonts are available:
-    :type str: TODO
+    :type str: string or character vector containing the names
+        of fonts to be used in the plot
 
     .. csv-table::
         :widths: auto

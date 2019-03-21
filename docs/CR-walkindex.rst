@@ -9,18 +9,18 @@ Walks the index of an array forward or backward through a specified dimension.
 
 Format
 ----------------
-.. function:: walkindex(i,  o,  dim)
+.. function:: walkindex(i, o, dim)
 
     :param i: where M <= N.
     :type i: Mx1 vector of indices into an array
 
-    :param o: Nx1 vector of orders of an N-dimensional array.
-    :type o: TODO
+    :param o: 
+    :type o: Nx1 vector of orders of an N-dimensional array
 
-    :param dim: scalar [1-to-M], index into the vector of indices
+    :param dim: , index into the vector of indices
         i, corresponding to the dimension to walk through,
         positive to walk the index forward, or negative to walk backward.
-    :type dim: TODO
+    :type dim: scalar [1-to-M]
 
     :returns: ni (*Mx1 vector of indices*), the new index.
 

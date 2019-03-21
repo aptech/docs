@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: pvGetParNames(p1)
 
-    :param p1: an instance of structure of type PV.
-    :type p1: TODO
+    :param p1: 
+    :type p1: an instance of structure of type PV
 
     :returns: s (*Kx1 string array*), names of parameters.
 

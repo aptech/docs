@@ -9,10 +9,10 @@ Graphs a matrix of contour data.
 
 Format
 ----------------
-.. function:: plotContour(myPlot, x, y,  z)plotContour(x, y,  z)
+.. function:: plotContour(myPlot, x, y, z)plotContour(x, y, z)
 
-    :param myPlot: Optional input: plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: Optional input: plotControl structure
 
     :param x: the X axis data.
     :type x: 1xK vector

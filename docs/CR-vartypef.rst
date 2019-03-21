@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: vartypef(f)
 
-    :param f: file handle of an open file.
-    :type f: TODO
+    :param f: 
+    :type f: file handle of an open file
 
     :returns: y (*Nx1 vector of ones and zeros*), 1 if variable is
         numeric, 0 if character.

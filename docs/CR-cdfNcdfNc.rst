@@ -4,29 +4,73 @@ cdfn, cdfnc
 
 Purpose
 ----------------
-cdfn computes the cumulative distribution function
-(cdf) of the Normal distribution. cdfnc computes 1
+:func:`cdfn` computes the cumulative distribution function
+(cdf) of the Normal distribution. :func:`cdfnc` computes 1
 minus the cdf of the Normal distribution.
 
 Format
 ----------------
-.. function:: cdfn(x) 
-			  cdfn(x, mu) 
-			  cdfn(x, mu, sigma) 
-			  cdfnc(x)
+.. function:: cdfn(x[, mu, sigma]) 
+              cdfnc(x)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
-    :param mu: scalar, mean parameter.
-    :type mu: Optional input
+    :param mu: Optional input, mean parameter.
+    :type mu: scalar
 
-    :param sigma: scalar, standard deviation.
-    :type sigma: Optional input
+    :param sigma: Optional input, standard deviation.
+    :type sigma: scalar
 
-    :returns: n (*TODO*), NxK matrix.
+    :returns: n (*NxK matrix*)
 
-    :returns: nc (*TODO*), NxK matrix.
+    :returns: nc (*NxK matrix*)
+
+Remarks
+------------
+
+*n* is the integral from :math:`-∞` to *x* of the Normal density function, and *nc* is
+the integral from *x* to :math:`+∞`.
+
+Note that:
+
+::
+
+   cdfn(x) + cdfnc(x) = 1
+
+However, many applications expect :code:`cdfn(x)` to approach 1, but never
+actually reach it. Because of this, we have capped the return value of
+:func:`cdfn` at 1 - machine epsilon, or approximately 1 - 1.11e-16. As the
+relative error of :func:`cdfn` is about :math:`±5e-15` for :code:`cdfn(x)` around 1, this does
+not invalidate the result. What it does mean is that for :code:`abs(x)` >
+(approx.) 8.2924, the identity does not hold true. If you have a need
+for the uncapped value of :func:`cdfn`, the following code will return it:
+
+::
+
+   n = cdfn(x);
+   if n >= 1-eps;
+      n = 1;
+   endif;
+
+where the value of machine epsilon is obtained as follows:
+
+::
+
+   x = 1;
+   do while 1-x /= 1;
+      eps = x;
+      x = x/2;
+   endo;
+
+Note that this is an alternate definition of machine epsilon. Machine
+epsilon is usually defined as the smallest number such that
+1 + machine epsilon > 1, which is about 2.23e-16. This defines machine
+epsilon as the smallest number such that 1 -machine epsilon < 1, or
+about 1.11e-16.
+
+The :func:`erf` and :func:`erfc` functions are also provided, and may sometimes be more
+useful than :func:`cdfn` and :func:`cdfnc`.
 
 Examples
 ----------------
@@ -57,16 +101,19 @@ Specify mean and standard deviation
     sigma = 3;
     p = cdfn(x,mu,sigma);
 
+
+Example 3
+++++++++++
+
 After above code,
 
 ::
 
     p = 0.42074029
 
-x = { -2 -1 0 1 2 };
-n = cdfn(x);
-nc = cdfnc(x);
-++++++++++++++++++++++++++++++++++++++++++++++++
+    x = { -2 -1 0 1 2 };
+    n = cdfn(x);
+    nc = cdfnc(x);
 
 After above code,
 
@@ -76,58 +123,10 @@ After above code,
     n  =  0.0227501 0.15865525 0.5000000 0.8413447 0.9772498
     nc =  0.9772498 0.84134475 0.5000000 0.1586552 0.0227501
 
-Remarks
-+++++++
-
-n is the integral from -∞ to x of the Normal density function, and nc is
-the integral from x to +∞.
-
-Note that:
-
-::
-
-   cdfn(x) + cdfnc(x) = 1
-
-However, many applications expect cdfn(x) to approach 1, but never
-actually reach it. Because of this, we have capped the return value of
-cdfn at 1 - machine epsilon, or approximately 1 - 1.11e-16. As the
-relative error of cdfn is about ±5e-15 for cdfn(x) around 1, this does
-not invalidate the result. What it does mean is that for abs(x) >
-(approx.) 8.2924, the identity does not hold true. If you have a need
-for the uncapped value of cdfn, the following code will return it:
-
-::
-
-   n = cdfn(x);
-   if n >= 1-eps;
-      n = 1;
-   endif;
-
-where the value of machine epsilon is obtained as follows:
-
-::
-
-   x = 1;
-   do while 1-x /= 1;
-      eps = x;
-      x = x/2;
-   endo;
-
-Note that this is an alternate definition of machine epsilon. Machine
-epsilon is usually defined as the smallest number such that
-1 + machine epsilon > 1, which is about 2.23e-16. This defines machine
-epsilon as the smallest number such that 1 -machine epsilon < 1, or
-about 1.11e-16.
-
-The erf and erfc functions are also provided, and may sometimes be more
-useful than cdfn and cdfnc.
-
-.. seealso:: Functions :func:`erf`, :func:`erfc`, :func:`cdfBeta`, :func:`cdfChic`, :func:`cdfTc`, :func:`cdfFc`, :func:`gamma`
-
 Technical Notes
-+++++++++++++++
+------------
 
-For the integral from ∞ to x:
+For the integral from :math:`∞` to *x*:
 
 +---+---+---+---+---+-----------------------------------------------------+
 |   |   | x | < | - | cdfn underflows and 0.0 is returned                 |
@@ -145,11 +144,11 @@ For the integral from ∞ to x:
 | 0 | < | x |   |   | cdfn has a relative error of approx. ±5e-15         |
 +---+---+---+---+---+-----------------------------------------------------+
 
-For cdfnc, i.e., the integral from x to +∞, use the above accuracies but
-change x to -x.
+For :func:`cdfnc`, i.e., the integral from *x* to :math:`+∞`, use the above accuracies but
+change *x* to *-x*.
 
 References
-++++++++++
+------------
 
 #. Adams, A.G. ''Remark on Algorithm 304 Normal Curve Integral.'' Comm.
    ACM. Vol. 12, No. 10, Oct. 1969, 565-66.
@@ -164,4 +163,5 @@ References
    Distributions with Algorithms. Academic Press, New York, 1978, ISBN
    0-12-471140-5.
 
-complement normal cdf cumulative distribution function
+.. seealso:: Functions :func:`erf`, :func:`erfc`, :func:`cdfBeta`, :func:`cdfChic`, :func:`cdfTc`, :func:`cdfFc`, :func:`gamma`
+

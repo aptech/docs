@@ -14,8 +14,8 @@ Format
     :param b: the right hand sides of the system of linear equations.
     :type b: Nx1 vector or NxK matrix
 
-    :param ldl_factor: Nx(N+1) matrix, containing the a factorization returned from the GAUSS function ldlp.
-    :type ldl_factor: TODO
+    :param ldl_factor: , containing the a factorization returned from the GAUSS function ldlp.
+    :type ldl_factor: Nx(N+1) matrix
 
     :returns: x (*Nx1 vector or NxK matrix*), containing the solution to LDLTx = b.
 

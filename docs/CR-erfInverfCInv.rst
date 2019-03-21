@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: erfCInv(y)
 
-    :param y: scalar or NxK matrix. -1 < y < 1.
-    :type y: TODO
+    :param y:  -1 < y < 1.
+    :type y: scalar or NxK matrix
 
     :returns: x (*TODO*), scalar or NxK matrix.
 

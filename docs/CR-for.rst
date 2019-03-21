@@ -9,7 +9,7 @@ Begins a for loop.
 
 Format
 ----------------
-.. function:: for i (start,  stop,  step) 
+.. function:: for i (start, stop, step) 
 			                   . 
 			       . 
 			       . 

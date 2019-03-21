@@ -18,16 +18,16 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: Scalar
 
-    :param sigma: Scale parameter; Scalar, or matrix ExE conformable with ‘r’ and ‘c’.
-    :type sigma: TODO
+    :param sigma: , or matrix ExE conformable with ‘r’ and ‘c’.
+    :type sigma: Scale parameter; Scalar
 
-    :param state: Optional argument - scalar or opaque vector.
+    :param state: 
         Scalar case:state = starting seed value only. If -1, GAUSS
         computes the starting seed based on the system clock.
         
         Opaque vector case:state = the state vector returned from a previous
         call to one of the rnd random number functions.
-    :type state: TODO
+    :type state: Optional argument - scalar or opaque vector
 
     :returns: x (*r x c matrix*), rayleigh
         distributed random numbers.

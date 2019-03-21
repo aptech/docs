@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: polyroot(c)
 
-    :param c: (N+1)x1 vector of coefficients of an Nth order polynomial:
+    :param c: .. + c[n]*z + c[n+1]
+    :type c: (N+1)x1 vector of coefficients of an Nth order polynomial:
         
-        p(z) = c[1]*zn + c[2]*zn-1 + ... + c[n]*z + c[n+1]
-    :type c: TODO
+        p(z) = c[1]*zn + c[2]*zn-1 + 
 
     :returns: y (*Nx1 vector*), the roots of c.
 

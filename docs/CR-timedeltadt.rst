@@ -9,7 +9,7 @@ Adds (or subtracts) time to a DT scalar.
 
 Format
 ----------------
-.. function:: timeDeltaDT(dt_start, inc,  unit)
+.. function:: timeDeltaDT(dt_start, inc, unit)
 
     :param dt_start: containing 1 or more DT scalars.
     :type dt_start: NxK matrix

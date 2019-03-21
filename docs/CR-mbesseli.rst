@@ -9,10 +9,10 @@ Computes modified and exponentially scaled modified Bessels of the first kind of
 
 Format
 ----------------
-.. function:: mbesseli(x,  n,  alpha) 
+.. function:: mbesseli(x, n, alpha) 
 			  mbesseli0(x) 
 			  mbesseli1(x) 
-			  mbesselei(x,  n,  alpha) 
+			  mbesselei(x, n, alpha) 
 			  mbesselei0(x) 
 			  mbesselei1(x)
 

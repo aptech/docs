@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: spScale(x)
 
-    :param x: MxN sparse matrix.
-    :type x: TODO
+    :param x: 
+    :type x: MxN sparse matrix
 
     :returns: a (*TODO*), MxN scaled sparse matrix.
 

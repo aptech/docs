@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: strsplitPad(sv, n_cols)
 
-    :param sv: Nx1 string array.
-    :type sv: TODO
+    :param sv: 
+    :type sv: Nx1 string array
 
     :param n_cols: number of columns of output string array.
     :type n_cols: scalar

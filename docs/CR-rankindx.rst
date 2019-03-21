@@ -8,10 +8,10 @@ Returns the vector of ranks of a vector.
 
 Format
 ----------------
-.. function:: rankindx(x,  flag)
+.. function:: rankindx(x, flag)
 
-    :param x: Nx1 vector.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector
 
     :param flag: 1 for numeric data or 0 for character data.
     :type flag: scalar

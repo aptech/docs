@@ -11,24 +11,24 @@ Format
 ----------------
 .. function:: croutp(x)
 
-    :param x: NxN square nonsingular matrix.
-    :type x: TODO
+    :param x: NxN square nonsingular matrix 
+    :type x: matrix
 
-    :returns: y (*TODO*), (N+1)xN matrix containing the lower (L) and upper
-        (U) matrices of the Crout decomposition of a
-        permuted x. The N+1 row of the matrix y gives
-        the row order of the y matrix. The matrix must be
-        reordered prior to extracting the  L and
-        U matrices. Use lowmat and
-        upmat1 to extract the  L and  U matrices from the
-        reordered y matrix.
+    :returns: y (*(N+1)xN matrix*) containing the lower (:math:`L`) and upper
+        (:math:`U`) matrices of the Crout decomposition of a
+        permuted *x*. The N+1 row of the matrix *y* gives
+        the row order of the *y* matrix. The matrix must be
+        reordered prior to extracting the :math:`L` and
+        :math:`U` matrices. Use :func:`lowmat` and
+        :func:`upmat1` to extract the :math:`L` and :math:`U` matrices from the
+        reordered *y* matrix.
 
 Examples
 ----------------
 This example illustrates a procedure for extracting
-L and U of the permuted x matrix. It continues
-by sorting the result of LU to compare with the
-original matrix x.
+:math:`L` and :math:`U` of the permuted *x* matrix. It continues
+by sorting the result of :math:`LU` to compare with the
+original matrix *x*.
 
 ::
 
@@ -38,7 +38,7 @@ original matrix x.
      
     y = croutp(x);
 
-If we view 'y', we will see:
+If we view '*y*', we will see:
 
 ::
 
@@ -57,7 +57,7 @@ If we view 'y', we will see:
     //vector
     index = y[r,.]';
 
-Viewing 'indx' will reveal:
+Viewing '*indx*' will reveal:
 
 ::
 
@@ -84,8 +84,7 @@ Viewing 'indx' will reveal:
     //horizontal concatenation in the statement just above
     x2 = q[.,2:cols(q)];
 
-Now at the end of this example, x2 is equal to x.
+Now at the end of this example, *x2* is equal to *x*.
 
 .. seealso:: Functions :func:`crout`, :func:`chol`, :func:`lowmat`, :func:`lowmat1`, :func:`upmat`, :func:`upmat1`
 
-computes crout decomposition row pivoting real matrices

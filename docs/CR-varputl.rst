@@ -8,15 +8,15 @@ Allows a matrix, array, string, or string array to be assigned to a local symbol
 
 Format
 ----------------
-.. function:: varputl(x,  n)
+.. function:: varputl(x, n)
 
     :param x: array, string, or string array which is
         to be assigned to the target variable.
     :type x: matrix
 
-    :param n: string containing the name of the local symbol
-        which will be the target variable.
-    :type n: TODO
+    :param n: 
+    :type n: string containing the name of the local symbol
+        which will be the target variable
 
     :returns: y (*scalar*), 1 if the operation is successful and 0
         if the operation fails.

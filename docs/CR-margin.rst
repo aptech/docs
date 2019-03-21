@@ -9,7 +9,7 @@ Sets the margins for the current graph's graphic panel. Note: This function is f
 
 Format
 ----------------
-.. function:: margin(l, r,  t,  b)
+.. function:: margin(l, r, t, b)
 
     :param l: the left margin in inches.
     :type l: scalar

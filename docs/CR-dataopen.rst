@@ -9,13 +9,13 @@ Opens a data set.
 
 Format
 ----------------
-.. function:: dataopen(filename,  mode)
+.. function:: dataopen(filename, mode)
 
     :param filename: name of data file.
     :type filename: string
 
-    :param mode: string containing one of the following:
-    :type mode: TODO
+    :param mode: 
+    :type mode: string containing one of the following:
 
     .. csv-table::
         :widths: auto

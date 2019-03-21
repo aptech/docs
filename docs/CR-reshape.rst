@@ -8,10 +8,10 @@ Reshapes a matrix.
 
 Format
 ----------------
-.. function:: reshape(x,  r,  c)
+.. function:: reshape(x, r, c)
 
-    :param x: NxK matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxK matrix
 
     :param r: new row dimension.
     :type r: scalar

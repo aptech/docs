@@ -5,19 +5,19 @@ besselj
 Purpose
 ----------------
 
-Computes a Bessel function of the first kind, Jn(x).
+Computes a Bessel function of the first kind, :math:`J\ n\ (x)`.
 
 Format
 ----------------
 .. function:: besselj(n, x)
 
-    :param n: NxK matrix or P-dimensional array where the last two dimensions are NxK, the order of the Bessel function. Nonintegers will be truncated to an integer.
-    :type n: TODO
+    :param n: The order of the Bessel function. Nonintegers will be truncated to an integer.
+    :type n: NxK matrix or P-dimensional array where the last two dimensions are NxK
 
-    :param x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with  n.
-    :type x: TODO
+    :param x: 
+    :type x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with *n*.
 
-    :returns: y (*TODO*), max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
+    :returns: y, max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
 
 Examples
 ----------------
@@ -40,10 +40,10 @@ Examples
     plotXY(x, y);
 
 In the code above, the calculation of both the first and second order Bessel functions assigns the
-return from the first order calculation to be the first column of y and the return from the calculation
-of the second order function to be the second column of y.
-The plotXY function treats each incoming column as a separate line.
+return from the first order calculation to be the first column of *y* and the return from the calculation
+of the second order function to be the second column of *y*.
+
+The :func:`plotXY` function treats each incoming column as a separate line.
 
 .. seealso:: Functions :func:`bessely`, :func:`mbesseli`, :func:`besselk`
 
-bessel

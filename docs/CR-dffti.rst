@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: dffti(x)
 
-    :param x: Nx1 vector.
-    :type x: TODO
+    :param x: 
+    :type x: Nx1 vector
 
     :returns: y (*TODO*), Nx1 vector.
 

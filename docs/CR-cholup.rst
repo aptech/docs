@@ -11,13 +11,21 @@ Format
 ----------------
 .. function:: cholup(C, x)
 
-    :param C: KxK upper triangular matrix.
-    :type C: TODO
+    :param C: upper triangular matrix
+    :type C: KxK matrix
 
-    :param x: the rows to update  C with.
+    :param x: the rows to update *C* with.
     :type x: NxK matrix
 
     :returns: r (*KxK upper triangular matrix*), the updated matrix.
+
+Remarks
+-------
+
+*C* should be a Cholesky factorization.
+
+:code:`cholup(C, x)` is equivalent to :code:`chol(C'C + x'x)`, but cholup is numerically
+much more stable.
 
 Examples
 ----------------
@@ -37,4 +45,3 @@ Examples
 
 .. seealso:: Functions :func:`choldn`
 
-cholesky update upper triangular matrix

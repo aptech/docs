@@ -10,13 +10,13 @@ Computes the orthogonal-triangular (QR) decomposition of a matrix X using a pivo
 
 Format
 ----------------
-.. function:: qyrep(y, x,  pvt)
+.. function:: qyrep(y, x, pvt)
 
-    :param y: NxL matrix.
-    :type y: TODO
+    :param y: 
+    :type y: NxL matrix
 
-    :param x: NxP matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxP matrix
 
     :param pvt: controls the selection of the pivot
         columns:

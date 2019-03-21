@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: null(x)
 
-    :param x: NxM matrix.
-    :type x: TODO
+    :param x: 
+    :type x: NxM matrix
 
     :returns: b (*MxK matrix*), where K is the nullity of x, such that:
         

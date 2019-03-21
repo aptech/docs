@@ -10,11 +10,11 @@ Format
 ----------------
 .. function:: plotHist(myPlot, x, v)plotHist(x, v)
 
-    :param myPlot: A plotControl structure.
-    :type myPlot: TODO
+    :param myPlot: 
+    :type myPlot: A plotControl structure
 
-    :param x: Mx1 vector of data.
-    :type x: TODO
+    :param x: 
+    :type x: Mx1 vector of data
 
     :param v: the breakpoints to be used to compute the frequencies      - or -scalar, the number of categories
     :type v: Nx1 vector
