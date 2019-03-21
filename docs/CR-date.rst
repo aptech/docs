@@ -16,8 +16,7 @@ Format
 Remarks
 -------
 
-The hundredths of a second since midnight can be accessed using hsec.
-
+The hundredths of a second since midnight can be accessed using :func:`hsec`.
 
 Examples
 ----------------
@@ -28,9 +27,10 @@ Examples
 
 ::
 
-    2017.0 
+       2017.0 
           7.0 
          16.0 
     4571524.7
 
 .. seealso:: Functions :func:`time`, :func:`timestr`, :func:`ethsec`, :func:`hsec`, :func:`etstr`
+

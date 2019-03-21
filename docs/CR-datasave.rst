@@ -22,49 +22,22 @@ Format
 Remarks
 -------
 
-datasave can be used to save matrices, N-dimensional arrays, strings and
+:func:`datasave` can be used to save matrices, N-dimensional arrays, strings and
 string arrays. The following extensions are given to files that are
-saved with datasave:
+saved with :func:`datasave`:
 
-+---+-----------------------------------------------------+
-| m | .fmt                                                |
-| a |                                                     |
-| t |                                                     |
-| r |                                                     |
-| i |                                                     |
-| x |                                                     |
-+---+-----------------------------------------------------+
-| a | .fmt                                                |
-| r |                                                     |
-| r |                                                     |
-| a |                                                     |
-| y |                                                     |
-+---+-----------------------------------------------------+
-| s | .fst                                                |
-| t |                                                     |
-| r |                                                     |
-| i |                                                     |
-| n |                                                     |
-| g |                                                     |
-+---+-----------------------------------------------------+
-| s | .fst                                                |
-| t |                                                     |
-| r |                                                     |
-| i |                                                     |
-| n |                                                     |
-| g |                                                     |
-| a |                                                     |
-| r |                                                     |
-| r |                                                     |
-| a |                                                     |
-| y |                                                     |
-+---+-----------------------------------------------------+
+.. csv-table::
+    :widths: auto
+
+    "matrix", ".fmt"
+    "array", ".fmt"
+    "string", ".fst"
+    "string array", ".fst"
 
 See **Foreign Language Interface**, Chapter 1, for details on these file
 types.
 
-Use dataload to load a data file created with datasave.
-
+Use :func:`dataload` to load a data file created with :func:`datasave`.
 
 Examples
 ----------------
@@ -75,3 +48,4 @@ Examples
     ret = datasave("myfile.fmt",x);
 
 .. seealso:: Functions :func:`save`, :func:`dataload`
+

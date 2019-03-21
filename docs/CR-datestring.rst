@@ -10,12 +10,12 @@ Format
 ----------------
 .. function:: datestring(d)
 
-    :param d: like the date function returns. If this is 0, the date function will be called for
+    :param d: like the :func:`date` function returns. If this is 0, the :func:`date` function will be called for
         the current system date.
     :type d: 4x1 vector
 
-    :returns: str (*TODO*), 10 character string containing current date in
-        the form: mm/dd/yyyy
+    :returns: str (*string*), 10 character string containing current date in
+        the form: ``mm/dd/yyyy``
 
 Examples
 ----------------
@@ -38,3 +38,4 @@ Source
 time.src
 
 .. seealso:: Functions :func:`date`, :func:`datestr`, :func:`datestrymd`, :func:`time`, :func:`timestr`, :func:`ethsec`
+

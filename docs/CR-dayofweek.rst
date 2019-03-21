@@ -27,8 +27,6 @@ Format
         "6", "Friday"
         "7", "Saturday"
 
-
-
 Remarks
 -------
 
@@ -45,7 +43,7 @@ represents 18:32:07 or 6:32:07 PM on April 4, 2015.
 
    d = dayofweek(a);
 
-After running above code, d is 4 which means Wednesday.
+After running above code, *d* is 4 which means Wednesday.
 
 
 
@@ -53,4 +51,6 @@ Source
 ------
 
 time.src
+
+.. seealso:: :func:`dtday`, :func:`dttime`, :func:`dtdate`, :func:`dttostr`
 
