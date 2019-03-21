@@ -17,6 +17,14 @@ Format
 
     :returns: ret (*TODO*), 1 if successful. If unsuccessful the query position is set to an invalid position and 0 is returned.
 
+Remarks
+-------
+
+Note that the result must be in the active state or it will do nothing
+and return. This can be verified by calling the dbQueryIsSelect()
+function.
+
+
 Examples
 ----------------
 

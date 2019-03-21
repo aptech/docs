@@ -16,3 +16,17 @@ Format
 
     :returns: ret (*scalar*), 1 to indicate success and a 0 if the rollback fails.
 
+
+
+Remarks
+-------
+
+A rollback is only possible if the SQL driver supports transactions and
+a dbTransaction() has been started.
+
+Note: For some databases, the rollback will fail and return 0 if there
+is an active query using the database for a SELECT. Make the query
+inactive before doing the rollback.
+
+Call dbGetLastError() to get information about errors.
+

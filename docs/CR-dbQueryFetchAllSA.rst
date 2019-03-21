@@ -21,6 +21,16 @@ Format
 
     :returns: result (*string array*), containing the result set for the current query. If the result set is empty, a scalar error code is returned.
 
+Remarks
+-------
+
+For numerical only results, use dbQueryFetchAllM() to return a matrix.
+
+This function retrieves all rows at once. You can process rows in an
+iterative manner by using the dbQueryFetchNextM() and
+dbQueryFetchNextSA()functions.
+
+
 Examples
 ----------------
 

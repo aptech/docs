@@ -22,6 +22,17 @@ Format
 
     :returns: result (*matrix*), the result set; or if the result set is empty, a scalar error code.
 
+Remarks
+-------
+
+For string results, or to treat numerical results as strings, use
+dbQueryFetchAllSA() to return a string array.
+
+This function retrieves all rows at once. You can process rows in an
+iterative manner by using the dbQueryFetchOneM() and
+dbQueryFetchOneSA()functions.
+
+
 Examples
 ----------------
 

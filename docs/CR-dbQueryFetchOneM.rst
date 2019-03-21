@@ -21,6 +21,17 @@ Format
 
     :returns: record (*matrix*), if the query points to a valid row (dbQueryIsValid() returns true), the record is populated with the row's values. An empty record (scalmiss(record) is true) is returned when there is no active query (dbQueryIsActive() returns false).
 
+Remarks
+-------
+
+This function is only useful in an iterative context. You can easily
+retrieve all the results at once by using the dbQueryFetchAllM() and
+dbQueryFetchAllSA() functions.
+
+For string results, or to treat numerical results as a string, using
+dbQueryFetchOneSA() will return a string array.
+
+
 Examples
 ----------------
 

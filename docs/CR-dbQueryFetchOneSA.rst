@@ -27,6 +27,17 @@ Format
         
         returns false).
 
+Remarks
+-------
+
+This function is only useful in an iterative context. You can easily
+retrieve all the results at once by using the dbQueryFetchAllM() and
+dbQueryFetchAllSA() functions.
+
+For numerical only results, using dbQueryFetchOneM() will return a
+matrix instead of a string array.
+
+
 Examples
 ----------------
 
