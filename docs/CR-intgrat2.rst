@@ -119,6 +119,18 @@ Format
         f(x, y),
         evaluated between the limits given by  xl and  gl.
 
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \_intord        | scalar, the order of the integration. The larger    |
+|                 | \_intord, the more precise the final result will    |
+|                 | be. \_intord may be set to 2, 3, 4, 6, 8, 12, 16,   |
+|                 | 20, 24, 32, 40.                                     |
+|                 | Default = 12.                                       |
++-----------------+-----------------------------------------------------+
+
+
 Remarks
 -------
 

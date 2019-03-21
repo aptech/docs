@@ -37,6 +37,37 @@ Format
         "5     step length calculation failed"
         "6     function cannot be evaluated at initial parameter values"
 
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \_qn_RelGradTol | scalar, convergence tolerance for relative gradient |
+|                 | of estimated coefficients. Default = 1e-5.          |
++-----------------+-----------------------------------------------------+
+| \_qn_GradProc   | scalar, pointer to a procedure that computes the    |
+|                 | gradient of the function with respect to the        |
+|                 | parameters. This procedure must have a single input |
+|                 | argument, a Kx1 vector of parameter values, and a   |
+|                 | single output argument, a Kx1 vector of gradients   |
+|                 | of the function with respect to the parameters      |
+|                 | evaluated at the vector of parameter values. If     |
+|                 | \_qn_GradProc is 0, QNewton uses gradp.             |
++-----------------+-----------------------------------------------------+
+| \_qn_MaxIters   | scalar, maximum number of iterations. Default =     |
+|                 | 1e+5. Termination can be forced by pressing C on    |
+|                 | the keyboard.                                       |
++-----------------+-----------------------------------------------------+
+| \_qn_PrintIters | scalar, if 1, print iteration information. Default  |
+|                 | = 0. Can be toggled during iterations by pressing P |
+|                 | on the keyboard.                                    |
++-----------------+-----------------------------------------------------+
+| \_qn_ParNames   | Kx1 vector, labels for parameters.                  |
++-----------------+-----------------------------------------------------+
+| \_qn_PrintResul | scalar, if 1, results are printed.                  |
+| ts              |                                                     |
++-----------------+-----------------------------------------------------+
+
+
 Remarks
 -------
 

@@ -67,3 +67,15 @@ Source
 finprocs.src
 
 .. seealso:: Functions :func:`EuropeanBSCall_ImpVol`, :func:`EuropeanBSCall`, :func:`EuropeanBSPut_Greeks`, :func:`EuropeanBinomCall_Greeks`
+
+
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \_fin_thetaType | scalar, if 1, one day look ahead, else,             |
+|                 | infinitesmal. Default = 0.                          |
++-----------------+-----------------------------------------------------+
+| \_fin_epsilon   | scalar, finite difference stepsize. Default = 1e-8. |
++-----------------+-----------------------------------------------------+
+

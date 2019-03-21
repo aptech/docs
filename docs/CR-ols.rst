@@ -102,6 +102,132 @@ Format
 
     :returns: dwstat (*scalar*), Durbin-Watson statistic.
 
+Global Input
+------------
+
+Defaults are provided for the following global input variables, so they
+can be ignored unless you need control over the other options provided
+by this procedure.
+
+\__altnam
+
+
+
+character vector, default 0.
+
+This can be a (K+1)x1 or (K+2)x1 character vector of alternate variable
+names for the output. If \__con is 1, this must be (K+2)x1. The name of
+the dependent variable is the last element.
+
+\__con
+
+| scalar, default 1.
+
+ 
+
+1
+
+a constant term will be added, D = K+1.
+
+ 
+
+0
+
+no constant term will be added, D = K.
+
+ 
+
+A constant term will always be used in constructing the moment matrix m.
+
+\__miss
+
+scalar, default 0.
+
+ 
+
+0
+
+there are no missing values (fastest).
+
+ 
+
+1
+
+listwise deletion, drop any cases in which missings occur.
+
+ 
+
+2
+
+pairwise deletion, this is equivalent to setting missings to 0 when
+calculating m. The number of cases computed is equal to the total number
+of cases in the data set.
+
+\__olsalg
+
+string, default ''cholup.'' Selects the algorithm used for computing the
+parameter estimates. The default Cholesky update method is more
+computationally efficient; however, accuracy can suffer for poorly
+conditioned data. For higher accuracy, set \__olsalg to either qr or
+svd.
+
+ 
+
+qr
+
+Solves for the parameter estimates using a qr decomposition.
+
+ 
+
+svd
+
+Solves for the paramer estimates using a singular value decomposition.
+
+\__output
+
+scalar, default 1.
+
+ 
+
+1
+
+print the statistics.
+
+ 
+
+0
+
+do not print statistics.
+
+\__row
+
+scalar, the number of rows to read per iteration of the read loop.
+Default 0.
+
+If 0, the number of rows will be calculated internally. If you get an
+Insufficient memory error while executing ols, you can supply a value
+for \__row that works on your system.
+
+The answers may vary slightly due to rounding error differences when a
+different number of rows is read per iteration. You can use \__row to
+control this if you want to get exactly the same rounding effects
+between several runs.
+
+\_olsres
+
+scalar, default 0.
+
+ 
+
+1
+
+compute residuals (resid) and Durbin-Watson statistic (dwstat).
+
+ 
+
+0
+
+resid = 0, dwstat = 0.
 Remarks
 -------
 

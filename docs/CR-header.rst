@@ -29,3 +29,47 @@ Source
 
 gauss.src
 
+
+
+Global Input
+------------
+
+\__header
+
+
+
+string, containing one or more of the following letters:
+
+ 
+
+t
+
+title is to be printed
+
+ 
+
+l
+
+lines are to bracket the title
+
+ 
+
+d
+
+a date and time is to be printed
+
+ 
+
+v
+
+version number of program is to be printed
+
+ 
+
+f
+
+file name being analyzed is to be printed
+
+\__title
+
+string, title for header.

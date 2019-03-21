@@ -54,3 +54,15 @@ Source
 svd.src
 
 Moore-Penrose generalized pseudo-inverse
+
+
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \_svdtol        | scalar, any singular values less than \_svdtol are  |
+|                 | treated as zero in determining the rank of the      |
+|                 | input matrix. The default value for \_svdtol is     |
+|                 | 1.0e-13.                                            |
++-----------------+-----------------------------------------------------+
+

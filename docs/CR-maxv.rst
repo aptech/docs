@@ -19,6 +19,16 @@ Format
 
     :returns: z (*TODO*), A NxK matrix whose values are the maximum of each element from the arguments x and y.
 
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| x               | NxK matrix                                          |
++-----------------+-----------------------------------------------------+
+| y               | NxK matrix                                          |
++-----------------+-----------------------------------------------------+
+
+
 Remarks
 -------
 

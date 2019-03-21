@@ -64,3 +64,19 @@ svd.src
 .. seealso:: Functions :func:`svd2`, :func:`svds`
 
 singular value matrix
+
+
+Global Input
+------------
+
++---+-----------------------------------------------------+
+| \ | scalar, if the singular values cannot be computed,  |
+| _ | \_svderr will be nonzero.                           |
+| s |                                                     |
+| v |                                                     |
+| d |                                                     |
+| e |                                                     |
+| r |                                                     |
+| r |                                                     |
++---+-----------------------------------------------------+
+

@@ -14,7 +14,7 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: y (*matrix*), array, string or string array, data retrieved from the file.
+    :returns: y (*matrix or array or string or string array*), data retrieved from the file.
 
 Remarks
 -------
@@ -22,25 +22,13 @@ Remarks
 The proper extension must be included in the file name. Valid extensions
 are as follows:
 
-+---+-----------------------------------------------------+
-| . | matrix file                                         |
-| f |                                                     |
-| m |                                                     |
-| t |                                                     |
-+---+-----------------------------------------------------+
-|   | array file                                          |
-+---+-----------------------------------------------------+
-| . | string file                                         |
-| f |                                                     |
-| s |                                                     |
-| t |                                                     |
-+---+-----------------------------------------------------+
-|   | string array file                                   |
-+---+-----------------------------------------------------+
+.. csv-table::
+    :widths: auto
 
-See **Foreign Language Interface**, Chapter 1, for details on these file
-types.
+    ".fmt", "matrix or array file"
+    ".fst", "string or string array file"
 
+See `Foreign Language Interface, Chapter 1`, for details on these file types.
 
 Examples
 ----------------
@@ -50,3 +38,4 @@ Examples
     y = dataload("myfile.fmt");
 
 .. seealso:: Functions :func:`load`, :func:`datasave`
+

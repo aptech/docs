@@ -16,6 +16,14 @@ Format
 
     :returns: y (*scalar*), maximum vector length.
 
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \__maxvec       | scalar, maximum vector length allowed.              |
++-----------------+-----------------------------------------------------+
+
+
 Remarks
 -------
 

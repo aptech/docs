@@ -16,6 +16,14 @@ Format
 
     :returns: y (*scalar*), maximum memory to be used.
 
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \__maxbytes     | scalar, maximum memory to be used.                  |
++-----------------+-----------------------------------------------------+
+
+
 Remarks
 -------
 

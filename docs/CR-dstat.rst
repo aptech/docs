@@ -172,3 +172,71 @@ Source
 
 dstat.src
 
+
+
+Global Input
+------------
+
+\__altnam
+
+
+
+matrix, default 0.
+
+This can be a Kx1 character vector of alternate variable names for the
+output.
+
+\__maxbytes
+
+scalar, the maximum number of bytes to be read per iteration of the read
+loop. Default = 1e9.
+
+\__maxvec
+
+scalar, the largest number of elements allowed in any one matrix.
+Default = 20000.
+
+\__miss
+
+scalar, default 0.
+
+ 
+
+0
+
+there are no missing values (fastest).
+
+ 
+
+1
+
+listwise deletion, drop a row if any missings occur in it.
+
+ 
+
+2
+
+pairwise deletion.
+
+\__row
+
+scalar, the number of rows to read per iteration of the read loop.
+
+if 0, (default) the number of rows will be calculated using \__maxbytes
+and \__maxvec.
+
+\__output
+
+scalar, controls output, default 1.
+
+ 
+
+1
+
+print output table.
+
+ 
+
+0
+
+do not print output.

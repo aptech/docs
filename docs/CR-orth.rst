@@ -43,3 +43,20 @@ qqr.src
 .. seealso:: Functions :func:`qqr`, :func:`olsqr`
 
 orthonormal basis column space x
+
+
+Global Input
+------------
+
++---+-----------------------------------------------------+
+| \ | scalar, the tolerance for testing if diagonal       |
+| _ | elements are approaching zero. The default is       |
+| o | 1.0e-14.                                            |
+| r |                                                     |
+| t |                                                     |
+| h |                                                     |
+| t |                                                     |
+| o |                                                     |
+| l |                                                     |
++---+-----------------------------------------------------+
+

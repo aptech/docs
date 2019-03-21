@@ -19,6 +19,15 @@ Format
 
     :returns: y (*scalar*), 1 (TRUE) or 0 (FALSE).
 
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \_fcmptol       | scalar, comparison tolerance. The default value is  |
+|                 | 1.0e-15.                                            |
++-----------------+-----------------------------------------------------+
+
+
 Remarks
 -------
 

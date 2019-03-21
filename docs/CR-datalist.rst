@@ -17,6 +17,30 @@ Format
     :param var#: the names of the variables to list.
     :type var#: literal
 
+Global Input
+------------
+
+.. data:: __range
+
+    scalar, the range of rows to list. The default is all rows.
+
+.. data:: __miss
+
+    scalar, controls handling of missing values.
+
+    .. csv-table::
+        :widths: auto
+
+        0, "display rows with missing values."
+        1, "do not display rows with missing values."
+
+
+    The default is 0.
+
+.. data:: __prec
+
+    scalar, the number of digits to the right of the decimal point to display. The default is 3.
+
 Remarks
 -------
 
@@ -32,8 +56,7 @@ Examples
 
     datalist freq age sex pay;
 
-This command will display the variables age, sex, and pay
-from the data set freq.dat.
+This command will display the variables ``age``, ``sex``, and ``pay`` from the data set freq.dat.
 
 Source
 ------

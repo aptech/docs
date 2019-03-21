@@ -24,3 +24,19 @@ Source
 
 svd.src
 
+
+
+Global Input
+------------
+
++---+-----------------------------------------------------+
+| \ | scalar, the tolerance used in determining if any of |
+| _ | the singular values are effectively 0. The default  |
+| s | value is 10e\ :sup:`-13`. This can be changed       |
+| v | before calling the procedure.                       |
+| d |                                                     |
+| t |                                                     |
+| o |                                                     |
+| l |                                                     |
++---+-----------------------------------------------------+
+

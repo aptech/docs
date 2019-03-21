@@ -20,6 +20,15 @@ Format
 
     :returns: y (*TODO*), max(N,L) by max(K,M) matrix of 1's and 0's.
 
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \_fcmptol       | scalar, comparison tolerance. The default value is  |
+|                 | 1.0e-15.                                            |
++-----------------+-----------------------------------------------------+
+
+
 Remarks
 -------
 

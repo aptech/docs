@@ -143,3 +143,16 @@ Globals
 .. seealso:: Functions :func:`intquad1`, :func:`intquad2`, :func:`intsimp`, :func:`intgrat2`, :func:`intgrat3`
 
 intergrate 3-dimensional function user defined rectangular region
+
+
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \_intord        | scalar, the order of the integration. The larger    |
+|                 | \_intord, the more precise the final result will    |
+|                 | be. \_intord may be set to 2, 3, 4, 6, 8, 12, 16,   |
+|                 | 20, 24, 32, 40.                                     |
+|                 | Default = 12.                                       |
++-----------------+-----------------------------------------------------+
+

@@ -122,3 +122,50 @@ Source
 momentd.src
 
 dataset moment matrix
+
+
+Global Input
+------------
+
+\__con
+
+
+
+scalar, default 1.
+
+ 
+
+1      a constant term will be added.
+
+ 
+
+0      no constant term will be added.
+
+\__miss
+
+scalar, default 0.
+
+ 
+
+0      there are no missing values (fastest).
+
+ 
+
+| 1      do listwise deletion; drop an observation if
+|         any missings occur in it.
+
+ 
+
+| 2      do pairwise deletion; this is equivalent to
+|         setting missings to 0 when calculating m.
+
+\__row
+
+scalar, the number of rows to read per iteration of the read loop,
+default 0.
+
+If 0, the number of rows will be calculated internally.
+
+If you get an Insufficient memory error, or you want the rounding to be
+exactly the same between runs, you can set the number of rows to read
+before calling momentd.

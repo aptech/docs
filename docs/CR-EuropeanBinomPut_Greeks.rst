@@ -42,6 +42,17 @@ Format
 
     :returns: rh (*Mx1 vector*), rho.
 
+Global Input
+------------
+
++-----------------+-----------------------------------------------------+
+| \_fin_thetaType | scalar, if 1, one day look ahead, else,             |
+|                 | infinitesimal. Default = 0.                         |
++-----------------+-----------------------------------------------------+
+| \_fin_epsilon   | scalar, finite difference stepsize. Default = 1e-8. |
++-----------------+-----------------------------------------------------+
+
+
 Remarks
 -------
 
