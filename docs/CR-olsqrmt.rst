@@ -41,3 +41,10 @@ matrices it may produce better results.
 olsqrmt handles matrices that do not have full rank by returning zeros
 for the coefficients that cannot be estimated.
 
+
+
+Source
+------
+
+olsmt.src
+

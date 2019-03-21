@@ -220,3 +220,10 @@ linear dependencies among the columns of X, the column of ones for the
 constant may get pivoted away. This column can be forced to be included
 among the linearly independent columns using pvt.
 
+
+
+Source
+------
+
+qtyr.src
+

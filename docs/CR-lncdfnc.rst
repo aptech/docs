@@ -16,3 +16,10 @@ Format
 
     :returns: y (*NxK matrix*), ln (1 - Pr(X < x))
 
+
+
+Source
+------
+
+lncdfn.src
+

@@ -49,3 +49,10 @@ If you want direct control over the axes endpoints and tick marks, use
 xtics, ytics, or ztics. If one of these functions have been called, they
 will override scale3d.
 
+
+
+Source
+------
+
+pscale.src
+

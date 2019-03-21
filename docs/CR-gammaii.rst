@@ -20,3 +20,10 @@ Format
 
     :returns: x (*TODO*), max(M,K) by max(N,L) matrix, abscissae.
 
+
+
+Source
+------
+
+cdfchii.src
+

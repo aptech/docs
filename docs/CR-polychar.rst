@@ -26,3 +26,10 @@ Remarks
 
 The coefficient of x\ n is set to unity (c[1]=1).
 
+
+
+Source
+------
+
+poly.src
+

@@ -524,3 +524,10 @@ be avoided by using the function qtyre.
 
 For further discussion of QR factorizations see the remarks under qqr.
 
+
+
+Source
+------
+
+qr.src
+

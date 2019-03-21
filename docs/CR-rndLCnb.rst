@@ -59,3 +59,10 @@ Format
         "[3]  the additive constant"
         "[4]  the original initialization seed"
 
+
+
+Source
+------
+
+randlc.src
+

@@ -22,3 +22,10 @@ Format
 
     :returns: z (*Nx1 vector*), log-probabilities.
 
+
+
+Source
+------
+
+lnpdfn.src
+

@@ -42,3 +42,10 @@ The properties of the pseudo-random numbers in x are:
 | *lambda*     | > | 0         |
 +--------------+---+-----------+
 
+
+
+Source
+------
+
+random.src
+

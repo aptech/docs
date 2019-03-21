@@ -36,3 +36,10 @@ Polynomials above degree 6 are not likely to increase the accuracy for
 most data. Test \_polerr to determine the required \_poldeg for your
 problem.
 
+
+
+Source
+------
+
+polyint.src
+

@@ -47,3 +47,10 @@ represents 18:32:07 or 6:32:07 PM on April 4, 2015.
 
 After running above code, d is 4 which means Wednesday.
 
+
+
+Source
+------
+
+time.src
+

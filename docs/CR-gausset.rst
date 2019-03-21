@@ -11,3 +11,10 @@ Format
 ----------------
 .. function:: gausset
 
+
+
+Source
+------
+
+gauss.src
+

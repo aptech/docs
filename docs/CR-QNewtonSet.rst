@@ -10,3 +10,10 @@ Format
 ----------------
 .. function:: QNewtonSet
 
+
+
+Source
+------
+
+qnewton.src
+

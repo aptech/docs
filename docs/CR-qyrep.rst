@@ -294,3 +294,10 @@ where R\ 1\ :sub:` ` is a PxP upper triangular matrix andR\ 2 is
 Px(N-P). Thus Q is a PxP matrix and R is a PxN matrix containing R\ 1
 and R\ 2.
 
+
+
+Source
+------
+
+qyr.src
+

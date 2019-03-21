@@ -275,3 +275,10 @@ If N <P, the factorization assumes the form:
 where R\ 1 is a PxP upper triangular matrix and R\ 2 is Px(N-P). Thus Q
 is a PxP matrix and R is a PxN matrix containing R\ 1 and R\ 2.
 
+
+
+Source
+------
+
+qyr.src
+

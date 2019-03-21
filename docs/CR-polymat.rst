@@ -30,3 +30,10 @@ To do polynomial regression use ols:
 
    { vnam,m,b,stb,vc,stderr,sigma,cx,rsq,resid,dwstat } = ols(0,y, polymat(x,p));
 
+
+
+Source
+------
+
+polymat.src
+

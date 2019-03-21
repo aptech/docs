@@ -36,3 +36,10 @@ The properties of the pseudo-random numbers in x are:
 
    E(x) = alphaVar(x) = alphax > 0alpha > 0
 
+
+
+Source
+------
+
+random.src
+

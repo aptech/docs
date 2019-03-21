@@ -39,3 +39,10 @@ The properties of the pseudo-random numbers in x are:
 
 ::
 
+
+
+Source
+------
+
+random.src
+

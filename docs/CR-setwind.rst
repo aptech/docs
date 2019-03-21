@@ -27,3 +27,10 @@ drawn.
 See the discussion on using graphic panels in **Graphic Panels**,
 Section 1.1.
 
+
+
+Source
+------
+
+pwindow.src
+

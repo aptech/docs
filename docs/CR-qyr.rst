@@ -178,3 +178,10 @@ where Y is some NxL matrix, which will be a much smaller matrix.
 
 If either Q'Y or Q\ 1'Y are required, see qtyr.
 
+
+
+Source
+------
+
+qyr.src
+

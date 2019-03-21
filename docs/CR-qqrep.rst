@@ -217,3 +217,10 @@ among the linearly independent columns using pvt.
 If you want only the R matrix, see qrep. Not computing Q\ 1 can produce
 significant improvements in computing time and memory usage.
 
+
+
+Source
+------
+
+qqr.src
+

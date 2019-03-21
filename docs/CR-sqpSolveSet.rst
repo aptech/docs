@@ -11,3 +11,10 @@ Format
 ----------------
 .. function:: sqpSolveSet
 
+
+
+Source
+------
+
+sqpsolve.src
+

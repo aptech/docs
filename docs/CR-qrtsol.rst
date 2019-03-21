@@ -31,3 +31,10 @@ triangular, transpose before calling qrtsol.
 
 If R is not transposed, use qrsol.
 
+
+
+Source
+------
+
+qrsol.src
+

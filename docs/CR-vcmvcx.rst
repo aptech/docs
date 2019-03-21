@@ -32,3 +32,10 @@ of deviations about the mean divided by the number of observations minus
 one, N - 1. For an observed variance-covariance matrix which uses N
 rather than N - 1 see vcms or vcxs.
 
+
+
+Source
+------
+
+corr.src
+

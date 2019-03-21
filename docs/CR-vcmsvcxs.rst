@@ -29,3 +29,10 @@ computed as the moment matrix of deviations about the mean divided by
 the number of observations N. For an unbiased estimator covariance
 matrix which uses N - 1 rather than N see vcm or vcx.
 
+
+
+Source
+------
+
+corrs.src
+

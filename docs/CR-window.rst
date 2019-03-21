@@ -32,3 +32,10 @@ from the left topmost graphic panel and moving right.
 See makewind for creating graphic panels of a specific size and
 position. (For more information, see **Graphic Panels**, Section 1.1.
 
+
+
+Source
+------
+
+pwindow.src
+

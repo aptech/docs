@@ -50,3 +50,10 @@ categories are interpreted as follows:
      .
    freq[P] = b[P-1] < x < b[P]
 
+
+
+Source
+------
+
+phist.src
+

@@ -18,3 +18,10 @@ Format
         is invalid. Note that the current graphic panel configuration will
         be overwritten in either case.
 
+
+
+Source
+------
+
+pwindow.src
+

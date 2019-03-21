@@ -64,3 +64,10 @@ the program with an error message, depending on the trap state. If bit 2
 message. If bit 2 of the trap flag is 1, putf will return an error code.
 The value of the trap flag can be tested with trapchk.
 
+
+
+Source
+------
+
+putf.src
+

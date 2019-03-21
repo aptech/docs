@@ -45,3 +45,10 @@ If you want direct control over the axes endpoints and tick marks, use
 xtics or ytics. If xtics or ytics have been called after scale, they
 will override scale.
 
+
+
+Source
+------
+
+pscale.src
+

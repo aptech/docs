@@ -26,3 +26,10 @@ Remarks
 See the discussion on using graphics panels in **Tiled Graphic Panels**,
 Section 1.0.1.
 
+
+
+Source
+------
+
+pwindow.src
+

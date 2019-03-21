@@ -126,3 +126,10 @@ systems. However, unless the linearly independent columns happen to be
 the initial rows, such an analysis also requires pivoting (see qre and
 qrep).
 
+
+
+Source
+------
+
+qqr.src
+

@@ -26,3 +26,10 @@ Remarks
 
 This computes the multivariate Normal log-probability for each row of x.
 
+
+
+Source
+------
+
+lnpdfn.src
+

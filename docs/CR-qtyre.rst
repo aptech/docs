@@ -768,3 +768,10 @@ it can be shown that
 
    b = qrsol(Q'Y, R1)|zeros(N-P,1);
 
+
+
+Source
+------
+
+qtyr.src
+

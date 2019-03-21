@@ -34,3 +34,10 @@ If an insufficient memory error is encountered, change \__rowfac to a
 number less than 1.0 (e.g., 0.75). The number of rows read will be
 reduced in size by this factor.
 
+
+
+Source
+------
+
+gauss.src
+

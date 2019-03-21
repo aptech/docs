@@ -17,3 +17,10 @@ Format
 
     :returns: y (*TODO*), NxM string array.
 
+
+
+Source
+------
+
+strfns.src
+

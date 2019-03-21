@@ -23,3 +23,10 @@ Calling doswin is equivalent to:
    call
     DOSWinOpen("", error(0));
 
+
+
+Source
+------
+
+gauss.src
+

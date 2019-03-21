@@ -29,3 +29,10 @@ qrsol applies a backsolve to Rx = b to solve for x. Generally R will be
 the R matrix from a QR factorization. qrsol may be used, however, in any
 situation where R is upper triangular.
 
+
+
+Source
+------
+
+qrsol.src
+

@@ -187,3 +187,10 @@ and where an optional gradient procedure has been provided:
      retp(e'*e);
    endp;
 
+
+
+Source
+------
+
+sqpsolvemt.src
+

@@ -27,3 +27,10 @@ This uses a second-order Goertzel algorithm. It is considerably slower
 than ffti, but it may have some advantages in some circumstances. For
 one thing, N does not have to be an even power of 2.
 
+
+
+Source
+------
+
+dffti.src
+

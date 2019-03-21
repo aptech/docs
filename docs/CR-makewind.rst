@@ -46,3 +46,10 @@ See the window command for creating tiled graphic panels. For more
 information on using graphic panels, see **Tiled Graphic Panels**,
 Section 1.0.1.
 
+
+
+Source
+------
+
+pwindow.src
+

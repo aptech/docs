@@ -44,3 +44,10 @@ Remarks
 Based on Cleveland, William S. ''Robust Locally Weighted Regression and
 Smoothing Scatterplots.'' JASA, Vol. 74, 1979, 829-836.
 
+
+
+Source
+------
+
+loessmt.src
+
