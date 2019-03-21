@@ -52,3 +52,14 @@ Format
         "[N,13]", "n/a, 0"
         "finfo will be a scalar zero if no matches are found."
 
+
+
+Remarks
+-------
+
+fnames will contain file names only; any path information that was
+passed is dropped.
+
+The time stamp fields (finfo[N,9:11]) are expressed as the number of
+seconds since midnight, Jan. 1, 1970, Coordinated Universal Time (UTC).
+

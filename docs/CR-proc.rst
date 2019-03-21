@@ -30,3 +30,61 @@ Format
         or from other procedures.
     :type arglist: a list of names
 
+
+
+Remarks
+-------
+
+A procedure definition begins with the proc statement and ends with the
+endp statement.
+
+An example of a procedure definition is:
+
+::
+
+   proc dog(x,y,z); /* procedure declaration */
+   local a,b;        /* local variable declarations */
+      a = x .* x;
+      b = y .* y;
+      a = a ./ x;
+      b = b ./ y;
+      z = z .* z;
+      z = inv(z);
+      retp(a'b*z);  /* return with value of a'b*z */
+   endp;             /* end of procedure definition */
+
+Procedures can be used just as if they were functions intrinsic to the
+language. Below are the possible variations depending on the number of
+items the procedure returns.
+
+Returns 1 item:
+
+::
+
+   y = dog(i,j,k);
+
+Returns multiple items:
+
+::
+
+   { x,y,z } = cat(i,j,k);
+
+Returns no items:
+
+::
+
+   fish(i,j,k);
+
+If the procedure does not return any items or you want to discard the
+returned items:
+
+::
+
+   call
+   dog(i,j,k);
+
+Procedure definitions may not be nested.
+
+For more details on writing procedures, see **Procedures and Keywords**,
+Chapter 1.
+

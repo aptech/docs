@@ -35,3 +35,20 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+
+
+Remarks
+-------
+
+This function uses the definition of the Gumbel distribution
+corresponding to the minimum extreme. The properties of the
+pseudo-random numbers in y are:
+
+::
+
+   E(y) = location - γ*scale ≈ location - 0.5772*scale
+   γ = Euler-Mascheroni constant
+   Var(y) = (π2*scale2)/6
+
+r and c will be truncated to integers if necessary.
+

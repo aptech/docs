@@ -18,3 +18,16 @@ Format
 
     :returns: y (*MxL dense matrix*), the result of  s'*d.
 
+
+
+Remarks
+-------
+
+This may also be accomplished by the following code:
+
+::
+
+   y = s'*d;
+
+However, spTrTDense will be more efficient.
+

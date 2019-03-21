@@ -16,3 +16,11 @@ Format
 
     :returns: ret (*scalar*), 1 if the result set can only be scrolled through forward, otherwise a 0.
 
+
+
+Remarks
+-------
+
+Setting a query to "forward only" will usually improve performance. By
+default, queries are created with "forward only" off.
+

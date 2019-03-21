@@ -16,3 +16,11 @@ Format
 
     :returns: y (*TODO*), MxN matrix or N-dimensional array, trigamma.
 
+
+
+Remarks
+-------
+
+The trigamma function is the second derivative of the log of the gamma
+function with respect to its argument.
+

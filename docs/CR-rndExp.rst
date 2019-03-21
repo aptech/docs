@@ -33,3 +33,17 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are specified in terms
+of the scale parameter sometimes called β. This is the reciprocal of the
+rate parameter which is sometimes called λ:
+
+::
+
+   E(x) = scale = β = 1/rate = 1/λ
+   Var(x) = scale2 = β2 = 1/rate2 = 1/λ2
+

@@ -19,3 +19,16 @@ Format
 
     :returns: sa (*Nx1 string array*), N <=  numl.
 
+
+
+Remarks
+-------
+
+fgetsat operates identically to fgetsa, except that newlines are not
+retained as text is read into sa.
+
+In general, you don't want to use fgetsat on files opened in binary mode
+(see fopen). fgetsat drops the newlines, but it does NOT drop the
+carriage returns that precede them on some platforms. Printing out such
+a string array can produce unexpected results.
+

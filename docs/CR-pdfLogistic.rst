@@ -22,3 +22,16 @@ Format
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
 
+
+
+Remarks
+-------
+
+The probability density function for the logistic distribution is
+defined as
+
+::
+
+   f(x)=exp⁡(z)b(1+exp⁡(z))2
+   z=-⁡x-ab
+

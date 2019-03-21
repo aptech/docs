@@ -42,3 +42,13 @@ Format
         "12", "model not invertible"
         "13", "I+M'H'HM not positive definite"
 
+
+
+Remarks
+-------
+
+varmall is adapted from code developed by Jose Alberto Mauricio of the
+Universidad Complutense de Madrid. It was published as Algorithm AS311
+in Applied Statistics. Also described in ''Exact Maximum Likelihood
+Estimation of Stationary Vector ARMA Models,'' JASA, 90:282-264.
+

@@ -22,3 +22,15 @@ Format
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
 
+
+
+Remarks
+-------
+
+The probability density function for the Cauchy distribution is defined
+as
+
+::
+
+   f(x)=(πσ(1+(x−μσ)2))−1
+

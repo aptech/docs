@@ -19,3 +19,64 @@ Format
 
     :returns: f (*scalar*), file handle.
 
+
+
+Remarks
+-------
+
+filename can contain a path specification.
+
+omode is a sequence of characters that specify the mode in which to open
+the file. The first character must be one of:
+
++---+-----------------------------------------------------+
+| r | Open an existing file for reading. If the file does |
+|   | not exist, fopen fails.                             |
++---+-----------------------------------------------------+
+| w | Open or create a file for writing. If the file      |
+|   | already exists, its current contents will be        |
+|   | destroyed.                                          |
++---+-----------------------------------------------------+
+| a | Open or create a file for appending. All output is  |
+|   | appended to the end of the file.                    |
++---+-----------------------------------------------------+
+
+To this can be appended a + and/or a b. The + indicates the file is to
+opened for reading and writing, or update, as follows:
+
++---+-----------------------------------------------------+
+| r | Open an existing file for update. You can read from |
+| + | or write to any location in the file. If the file   |
+|   | does not exist, fopen fails.                        |
++---+-----------------------------------------------------+
+| w | Open or create a file for update. You can read from |
+| + | or write to any location in the file. If the file   |
+|   | already exists, its current contents will be        |
+|   | destroyed.                                          |
++---+-----------------------------------------------------+
+| a | Open or create a file for update. You can read from |
+| + | any location in the file, but all output will be    |
+|   | appended to the end of the file.                    |
++---+-----------------------------------------------------+
+
+Finally, the b indicates whether the file is to be opened in text or
+binary mode. If the file is opened in binary mode, the contents of the
+file are read verbatim; likewise, anything output to the file is written
+verbatim. In text mode (the default), carriage return-linefeed sequences
+are converted on input to linefeeds, or newlines. Likewise on output,
+newlines are converted to carriage return-linefeeds. Also in text mode,
+if a Ctrl+Z (char 26) is encountered during a read, it is interpreted as
+an end-of-file character, and reading ceases. In binary mode, Ctrl+Z is
+read in uninterpreted.
+
+The order of + and b is not significant; rb+ and r+b mean the same
+thing.
+
+You can both read from and write to a file opened for update. However,
+before switching from one to the other, you must make an fseek or fflush
+call, to flush the file's buffer.
+
+If fopen fails, it returns a 0.
+
+Use close and closeall to close files opened with fopen.
+

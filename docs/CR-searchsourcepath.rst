@@ -29,3 +29,11 @@ Format
     :returns: fpath (*string*), the path of  fname, or
         null string if  fname is not found.
 
+
+
+Remarks
+-------
+
+The source path is set by the src_path configuration variable in your
+GAUSSconfiguration file, gauss.cfg.
+

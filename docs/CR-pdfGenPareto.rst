@@ -25,3 +25,15 @@ Format
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
 
+
+
+Remarks
+-------
+
+The probability density function for the Generalized Pareto distribution
+is defined as
+
+::
+
+   f(x)={1σ(1+k(x−μ)σ)−1−1/k1σexp⁡(−(x−μ)σ)k≠0k=0
+

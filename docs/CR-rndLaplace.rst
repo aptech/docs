@@ -39,3 +39,17 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = location
+   Var(x) = 2*scale2
+
+r and c will be truncated to integers if necessary.
+

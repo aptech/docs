@@ -19,3 +19,12 @@ Format
 
     :returns: y (*NxK matrix*), filtered series. The first  d-1 rows of x are set to missing values.
 
+
+
+Remarks
+-------
+
+movingave is essentially a smoothing time series filter. The moving
+average is performed by column and thus it treats the NxK matrix as K
+time series of length N.
+

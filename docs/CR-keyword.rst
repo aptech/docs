@@ -19,3 +19,42 @@ Format
         accessed from outside the keyword or from other keywords or procedures.
     :type str: string
 
+
+
+Remarks
+-------
+
+A keyword definition begins with the keyword statement and ends with the
+endp statement. See **Procedures and Keywords**, Chapter 1.
+
+Keywords always have 1 string argument and 0 returns. GAUSS will take
+everything past name, excluding leading spaces, and pass it as a string
+argument to the keyword. Inside the keyword, the argument is a local
+string. The user is responsible to manipulate or parse the string.
+
+An example of a keyword definition is:
+
+::
+
+   keyword add(str);
+      local tok,sum;
+      sum = 0;
+      do until str $== "";
+         { tok, str } = token(str);
+         sum = sum + stof(tok);
+      endo;
+      print "Sum is: " sum;
+   endp;
+
+To use this keyword, type:
+
+::
+
+   add 1 2 3 4 5;
+
+This keyword will respond by printing:
+
+::
+
+   Sum is: 15
+

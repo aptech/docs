@@ -16,3 +16,11 @@ Format
 
     :returns: y (*TODO*), MxN matrix or N-dimensional array, digamma.
 
+
+
+Remarks
+-------
+
+The digamma function is the first derivative of the log of the gamma
+function with respect to its argument.
+

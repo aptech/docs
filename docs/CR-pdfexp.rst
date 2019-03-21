@@ -22,3 +22,15 @@ Format
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
 
+
+
+Remarks
+-------
+
+pdfExp calculates the probability density function for the two-parameter
+exponential distribution, which is defined as
+
+::
+
+   f(x)=1bexp⁡(−x−ab)
+

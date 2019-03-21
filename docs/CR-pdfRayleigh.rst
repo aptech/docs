@@ -19,3 +19,15 @@ Format
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
 
+
+
+Remarks
+-------
+
+The probability density function of the Rayleigh distribution is defined
+as
+
+::
+
+   fx=xb2exp⁡(−x22b2)
+

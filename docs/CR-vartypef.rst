@@ -17,3 +17,12 @@ Format
     :returns: y (*Nx1 vector of ones and zeros*), 1 if variable is
         numeric, 0 if character.
 
+
+
+Remarks
+-------
+
+This function should be used in place of older functions that are based
+on the case of the variable names. You should also use the v96 data set
+format.
+

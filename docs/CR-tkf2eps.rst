@@ -19,3 +19,15 @@ Format
 
     :returns: ret (*scalar*), 0 if successful
 
+
+
+Remarks
+-------
+
+The conversion is done using the global parameters in peps.dec. You can
+modify these globally by editing the .dec file, or locally by setting
+them in your program before calling tkf2eps.
+
+See the header of the output Encapsulated PostScript file and a
+PostScript manual if you want to modify these parameters.
+

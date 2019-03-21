@@ -22,3 +22,13 @@ Format
         K overlapping or side-by-side sets of N bars will be graphed.
     :type ht: NxK numeric vector
 
+
+
+Remarks
+-------
+
+plotAddBar may only add bars to 2-D graphs.
+
+This function will not change any of the current graph's settings other
+than to resize the view as necessary to display the new curve.
+

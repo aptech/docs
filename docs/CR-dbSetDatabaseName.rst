@@ -16,3 +16,28 @@ Format
     :param database_name: database name to apply to specified database connection.
     :type database_name: string
 
+
+
+Remarks
+-------
+
+For the OCI (Oracle) driver, the database name is the TNS Service Name.
+
+For the ODBC driver, the name can either be a DSN, a DSN filename (in
+which case the file must have a .dsn extension), or a connection string.
+
+For example, Microsoft Access users can use the following connection
+string to open an .mdb file directly, instead of having to create a DSN
+entry in the ODBC manager:
+
+::
+
+   ...
+   db_id = dbAddDatabase("ODBC");
+   dbSetDatabaseName(db_id, "DRIVER=
+      {Microsoft Access Driver (*.mdb)};
+      FIL={MS Access};
+      DBQ=myaccessfile.mdb");
+   dbOpen(db_id);
+   ...
+

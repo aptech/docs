@@ -26,3 +26,17 @@ Format
 
     :returns: p (*TODO*), Px1 vector of predicted values. (p = x*b)
 
+
+
+Remarks
+-------
+
+This provides an alternative to y/x for computing least squares
+coefficients.
+
+This procedure is slower than the / operator. However, for near singular
+matrices, it may produce better results.
+
+olsqr2 handles matrices that do not have full rank by returning zeros
+for the coefficients that cannot be estimated.
+

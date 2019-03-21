@@ -32,3 +32,19 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in y are:
+
+::
+
+
+   E(y) = (1 - prob)/prob;
+
+   Var(y) = (1 - prob)/prob2
+
+r and c will be truncated to integers if necessary.
+

@@ -19,3 +19,13 @@ Format
 
     :returns: z (*NxK matrix*), log-probabilities.
 
+
+
+Remarks
+-------
+
+This does not compute the log of the joint Student's t pdf. Instead, the
+scalar Normal density function is computed element-by-element.
+
+For multivariate probabilities with covariance matrix see lnpdfmvt.
+

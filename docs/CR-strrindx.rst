@@ -27,3 +27,31 @@ Format
     :returns: y (*scalar containing the index of the last occurrence of what*), within where, which is less than or equal to start. If
         no occurrence is found, it will be 0.
 
+
+
+Remarks
+-------
+
+A negative value for start causes the search to begin at the end of the
+string. An example of the use of strrindx is extracting a file name from
+a complete path specification:
+
+::
+
+   path = "/gauss/src/ols.src";
+   ps = "/";
+   pos = strrindx(path,ps,-1);
+   if pos;
+      name = strsect(path,pos+1,strlen(path)-pos);
+   else;
+      name = "";
+   endif;
+
+The above code makes the following assignments:
+
+::
+
+   pos = 11
+
+   name = ols.src
+

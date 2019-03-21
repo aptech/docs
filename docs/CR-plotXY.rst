@@ -20,3 +20,11 @@ Format
     :param y:  Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
+
+
+Remarks
+-------
+
+By default missing values in the y variable will be represented as gaps
+in the line.
+

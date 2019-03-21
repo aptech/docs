@@ -39,3 +39,21 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = k + λ
+   σ2(x) = 2*k + 4*λ
+
+where:
+::
+
+   k = df
+   λ = s_ncp^2
+

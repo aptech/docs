@@ -23,3 +23,11 @@ Format
 
     :returns: ret (*scalar*), 1 if the field is NULL or 0 otherwise.
 
+
+
+Remarks
+-------
+
+Note that for some drivers, dbQueryIsNull() will not return accurate
+information until after an attempt is made to retrieve data.
+

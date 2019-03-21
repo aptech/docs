@@ -40,3 +40,17 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = scale * gamma(1 + 1/shape)
+   Var(x) = scale2*( gamma(1 + 2/shape) - (gamma(1 + 1/shape))2 )
+
+r and c will be truncated to integers if necessary.
+

@@ -17,3 +17,11 @@ Format
     :param pswd: password for database.
     :type pswd: string
 
+
+
+Remarks
+-------
+
+This function must be called before the connection is opened with
+dbOpen() to have an effect.
+

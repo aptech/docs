@@ -16,3 +16,15 @@ Format
 
     :returns: y (*LxM matrix*), where L and M are the smallest powers of 2 greater than or equal to N and K, respectively.
 
+
+
+Remarks
+-------
+
+Computes the RFFT of x, scaled by 1/(L*M).
+
+This uses a Temperton Fast Fourier algorithm.
+
+If N or K is not a power of 2, x will be padded out with zeros before
+computing the transform.
+

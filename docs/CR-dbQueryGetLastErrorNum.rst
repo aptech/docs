@@ -13,3 +13,11 @@ Format
 
     :returns: err_num (*scalar*), number of last error.
 
+
+
+Remarks
+-------
+
+Because a failed query will not have a valid handle (id), this function
+retrieves stored error information about the last executed query.
+

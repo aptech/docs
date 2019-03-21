@@ -25,3 +25,25 @@ Format
     :returns: y (*scalar containing the index of the first occurrence of what*), within where, which is greater than or equal to start. If
         no occurrence is found, it will be 0.
 
+
+
+Remarks
+-------
+
+An example of the use of this function is the location of a name within
+a string of names:
+
+::
+
+   z = "nameagepaysex";
+   x = "pay";
+   y = strindx(z,x,1);
+
+The above code will set y equal to:
+
+::
+
+   8.00
+
+This function is used with strsect for extracting substrings.
+

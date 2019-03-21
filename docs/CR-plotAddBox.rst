@@ -20,3 +20,13 @@ Format
     :param y:  Each column represents the set of y values for an individual percentiles box symbol.
     :type y: NxM matrix
 
+
+
+Remarks
+-------
+
+plotAddBox may only add a box graph to 2-D graphs.
+
+This function will not change any of the current graph's settings other
+than to resize the view as necessary to display the new curve.
+

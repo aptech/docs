@@ -41,3 +41,17 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = exp(mu - 0.5*sigma2)
+   Var(x) = (exp(sigma2) - 1) * exp(2*mu + sigma2)
+
+r and c will be truncated to integers if necessary.
+

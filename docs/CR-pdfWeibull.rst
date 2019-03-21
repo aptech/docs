@@ -21,3 +21,15 @@ Format
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
 
+
+
+Remarks
+-------
+
+The probability density function of a Weibull random variable is defined
+as
+
+::
+
+   f(x,λ,k)={kλ0(xλ)k−1⁢ e−(x/λ)kx≥0⁢x<0
+

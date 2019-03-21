@@ -23,3 +23,13 @@ Format
         Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
+
+
+Remarks
+-------
+
+plotAddXY may only add curves to 2-D graphs.
+
+This function will not change any of the current graph's settings other
+than to resize the view as necessary to display the new curve.
+

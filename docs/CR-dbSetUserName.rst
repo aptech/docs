@@ -17,3 +17,11 @@ Format
     :param user_name: user name to apply to specified database connection.
     :type user_name: string
 
+
+
+Remarks
+-------
+
+This function must be called before the connection is opened with
+dbOpen() to have an effect.
+

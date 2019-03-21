@@ -14,3 +14,10 @@ Format
     :param qid: query number.
     :type qid: scalar
 
+
+
+Remarks
+-------
+
+You should rarely if ever need to call this function.
+

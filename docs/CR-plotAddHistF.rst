@@ -20,3 +20,13 @@ Format
         If this is a scalar 0, a sequence from 1 to rows(f) will be created.
     :type c: Nx1 vector
 
+
+
+Remarks
+-------
+
+plotAddHistF may only add a histogram to 2-D graphs.
+
+This function will not change any of the current graph's settings other
+than to resize the view as necessary to display the new curve.
+

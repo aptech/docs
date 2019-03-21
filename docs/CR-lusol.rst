@@ -23,3 +23,11 @@ Format
 
     :returns: x (*PxK matrix*), solution of LUx = b.
 
+
+
+Remarks
+-------
+
+If b has more than one column, each column is solved for separately,
+i.e., lusol solves LUx[., i] = b[., i].
+

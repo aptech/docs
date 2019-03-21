@@ -14,3 +14,10 @@ Format
     :param filename: name of file to debug.
     :type filename: Literal
 
+
+
+Remarks
+-------
+
+See **Debugging**, Section 1.1.
+

@@ -22,3 +22,15 @@ Format
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
 
+
+
+Remarks
+-------
+
+The probability density function for the Laplace distribution is defined
+as
+
+::
+
+   f(x)=12bexp-|x-a|b
+

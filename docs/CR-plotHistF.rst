@@ -20,3 +20,11 @@ Format
         rows(f) will be created.
     :type c: Nx1 vector
 
+
+
+Remarks
+-------
+
+The axes are not automatically labeled. Use the functions plotSetXLabel
+and plotSetYLabel.
+
