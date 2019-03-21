@@ -47,10 +47,6 @@ the FFT.
 Use the following table to determine what to call for a given function
 and matrix:
 
-.. raw:: html
-
-   <div align="center">
-
 +----------+---------+--------+---------+
 | FFT      | Vector  | Matrix | Matrix  |
 +----------+---------+--------+---------+

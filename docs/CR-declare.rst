@@ -64,10 +64,6 @@ The optional aop and clist arguments are allowed only for declaring
 matrices, strings, and string arrays. When you declare an N-dimensional
 array, sparse matrix, or structure, they will be initialized as follows:
 
-.. raw:: html
-
-   <div align="center">
-
 +---+-----------------------------------------------------+
 | * | **Initializes To**                                  |
 | * |                                                     |

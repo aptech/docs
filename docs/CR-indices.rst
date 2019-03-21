@@ -36,10 +36,6 @@ be tested with trapchk; the return from indices can be tested with
 scalerr. You only need to check one argument; they will both be the
 same. The following error codes are possible:
 
-.. raw:: html
-
-   <div align="center">
-
 +---+-----------------------------------------------------+
 | 1 | Can't open dataset.                                 |
 +---+-----------------------------------------------------+

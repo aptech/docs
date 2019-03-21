@@ -41,6 +41,3 @@ Source
 
 getpath.src
 
-.. raw:: html
-
-   </div>

@@ -29,6 +29,3 @@ Source
 
 ds.src
 
-.. raw:: html
-
-   </div>

@@ -43,6 +43,3 @@ setBlockSize is not threadsafe. To control the size of data blocks
 loaded in code which is threaded with threadBegin/threadStat or
 threadFor, you must call setBlockSize before the threads are created.
 
-.. raw:: html
-
-   </div>

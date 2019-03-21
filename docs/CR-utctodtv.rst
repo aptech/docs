@@ -23,10 +23,6 @@ Greenwich Mean Time.
 
 Each row of dtv, in DTV vector format, contains:
 
-.. raw:: html
-
-   <div class="INDT">
-
 +------------+------------------------------------------+
 | [N,1]      | Year, four digit integer.                |
 +------------+------------------------------------------+

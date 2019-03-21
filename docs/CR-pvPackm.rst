@@ -80,6 +80,3 @@ Source
 
 pv.src
 
-.. raw:: html
-
-   </div>

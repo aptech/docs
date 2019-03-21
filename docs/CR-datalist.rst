@@ -40,6 +40,3 @@ Source
 
 datalist.src
 
-.. raw:: html
-
-   </div>

@@ -25,7 +25,7 @@ Examples
     sa = cvtosa(cv);
     print sa;
 
-Now the variable sa is a string array with the same contents as cv as we can see from the output below:.
+Now the variable *sa* is a string array with the same contents as *cv* as we can see from the output below:
 
 ::
 
@@ -33,3 +33,4 @@ Now the variable sa is a string array with the same contents as cv as we can see
     MAX    MIN      QUARTILE
 
 .. seealso:: Functions :func:`stocv`, :func:`vget`, :func:`vlist`, :func:`vput`, :func:`vread`
+

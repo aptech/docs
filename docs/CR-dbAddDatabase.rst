@@ -60,6 +60,3 @@ allowed, but the syntax must remain the same. For example:
 is a valid connection URL, but will not set the password or port number
 fields.
 
-.. raw:: html
-
-   </div>

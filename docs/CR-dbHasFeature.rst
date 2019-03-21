@@ -48,6 +48,3 @@ Remarks
 Note that some databases need to be opened with dbOpen() before this can
 be determined.
 
-.. raw:: html
-
-   </div>

@@ -41,6 +41,3 @@ Globals
 
 \_isleap
 
-.. raw:: html
-
-   </div>

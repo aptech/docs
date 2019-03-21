@@ -210,6 +210,3 @@ Globals
 
 \__maxvec
 
-.. raw:: html
-
-   </div>

@@ -36,6 +36,3 @@ query inactive before doing the commit to resolve this problem.
 
 Call dbGetLastError() to get information about errors.
 
-.. raw:: html
-
-   </div>

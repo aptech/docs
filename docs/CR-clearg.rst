@@ -16,10 +16,6 @@ Format
 Remarks
 -------
 
-.. raw:: html
-
-   <div id="Remarks">
-
 It is considered a best practice to avoid using global variables inside
 of procedures when possible.
 

@@ -43,6 +43,3 @@ Source
 
 strput.src
 
-.. raw:: html
-
-   </div>

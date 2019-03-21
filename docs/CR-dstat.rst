@@ -172,6 +172,3 @@ Source
 
 dstat.src
 
-.. raw:: html
-
-   </div>

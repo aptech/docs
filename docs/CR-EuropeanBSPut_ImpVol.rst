@@ -59,6 +59,3 @@ Source
 
 finprocs.src
 
-.. raw:: html
-
-   </div>

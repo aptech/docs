@@ -30,8 +30,7 @@ Format
         "4", "4-byte, single precision."
         "8", "8-byte, double precision."
 
-    :param vtyp: types of variables, may contain
-        one or both of the following:
+    :param vtyp: types of variables, may contain one or both of the following:
     :type vtyp: scalar or Nx1 vector
 
     .. csv-table::
@@ -45,11 +44,11 @@ Format
 Remarks
 -------
 
-The file handle returned by datacreatecomplex is a scalar containing a
+The file handle returned by :func:`datacreatecomplex` is a scalar containing a
 positive integer value that uniquely identifies each file. This value is
-assigned by GAUSS when the create, datacreate, datacreatecomplex, open
-or dataopen commands are executed. The file handle is used to reference
-the file in the commands readr and writer. If datacreatecomplex fails,
+assigned by GAUSS when the :func:`create`, :func:`datacreate`, :func:`datacreatecomplex`, :func:`open`
+or :func:`dataopen` commands are executed. The file handle is used to reference
+the file in the commands :func:`readr` and :func:`writer`. If :func:`datacreatecomplex` fails,
 it returns a -1.
 
 Complex data is stored a row at a time, with the real and imaginary
@@ -60,24 +59,20 @@ If filename does not include a path, then the file is placed on the
 current directory. The file is given a .dat extension if no extension is
 specified.
 
-If col is set to 0, then the number of columns in the data set is
-controlled by the contents of vnames. If col is positive, then the file
-will contain col columns.
+If *col* is set to 0, then the number of columns in the data set is
+controlled by the contents of *vnames*. If *col* is positive, then the file
+will contain *col* columns.
 
-If vnames contains col elements, then each column is given the name
-contained in the corresponding row of vnames. If col is positive and
-vnames is a string, then the columns are given the names vnames1,
-vnames2, ..., vnamesN (or vnames01, vnames02, ..., vnamesN), where N =
-col. The numbers appended to vnames are padded on the left with zeros to
-the same length as N.
+If *vnames* contains *col* elements, then each column is given the name
+contained in the corresponding row of *vnames*. If *col* is positive and
+*vnames* is a string, then the columns are given the names ``vnames1,
+vnames2, ..., vnamesN (or vnames01, vnames02, ..., vnamesN)``, where :math:`N = col`. 
+The numbers appended to vnames are padded on the left with zeros to
+the same length as *N*.
 
-The dtyp argument allows you to specify the precision to use when
+The *dtyp* argument allows you to specify the precision to use when
 storing your data. Keep in mind the following range restrictions when
-selecting a value for dtyp:
-
-.. raw:: html
-
-   <div align="center">
+selecting a value for *dtyp*:
 
 +-----------+--------+---------------------------------------------------------+
 | Data Type | Digits | Range                                                   |
@@ -112,3 +107,4 @@ Source
 datafile.src
 
 .. seealso:: Functions :func:`datacreate`, :func:`create`, :func:`dataopen`, :func:`writer`
+

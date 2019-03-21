@@ -48,6 +48,3 @@ Source
 
 system.src
 
-.. raw:: html
-
-   </div>

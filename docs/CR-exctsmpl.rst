@@ -62,6 +62,3 @@ Source
 
 exctsmpl.src
 
-.. raw:: html
-
-   </div>

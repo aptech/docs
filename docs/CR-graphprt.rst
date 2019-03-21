@@ -87,6 +87,3 @@ Source
 
 pgraph.src
 
-.. raw:: html
-
-   </div>
