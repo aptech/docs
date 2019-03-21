@@ -15,6 +15,17 @@ Format
     :param str: control string.
     :type str: string
 
+Remarks
+-------
+
+graphprt is used to create hardcopy output automatically without user
+intervention. The input string str can have any of the following items,
+separated by spaces. If str is a null string, the interactive mode is
+entered. This is the default.
+
+-p
+
+
 Examples
 ----------------
 Automatic print using a single graphics call:

@@ -19,6 +19,13 @@ Format
 
     :returns: p1 (*TODO*), an instance of structure of type PV.
 
+Remarks
+-------
+
+Matrices or portions of matrices (stored using a mask) are stored in the
+structure of type PV as a vector in the p member.
+
+
 Examples
 ----------------
 

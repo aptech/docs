@@ -23,6 +23,26 @@ Format
     :param y_start: the Y coordinate for the start of the bounding box for each respective text box.
     :type y_start: Scalar or Nx1 vector
 
+Remarks
+-------
+
+plotAddTextbox will only add a textbox to an existing graph. It will not
+create a new graph if one does not already exist. You should also note
+that the top left corner of the bounding box will be located at the
+point on the graph that you specify. If the border is turned off, the
+text will not touch the exact coordinate that you input. In many cases
+this makes is simpler to label a point that is already part of a scatter
+or line series without covering it.
+
+Unlike the functions that add data to a plot, if a textbox created by
+plotAddTextbox lies outside of the current bounds of the X and Y axes,
+the axes will not extend further to provide room for the textbox. This
+gives you the ability to add text to any part of the scene, or between
+different subplots.
+
+plotAddTextbox does not currently support surface plots.
+
+
 Examples
 ----------------
 

@@ -22,6 +22,28 @@ Format
     :returns: y (*NxK matrix that equals x*), but with those
         elements that correspond to the 1's in  e converted to missing.
 
+Remarks
+-------
+
+The matrix e will usually be created by a logical expression. For
+instance, to convert all numbers between 10 and 15 in x to missing, the
+following code could be used:
+
+::
+
+                   y = missex(x, (x .> 10) .and (x .< 15));
+
+Note that "dot" operators MUST be used in constructing the logical
+expressions.
+
+For complex matrices, the missing value code is defined as a missing
+value entry in the real part of the matrix. For complex x, then, missex
+replaces elements with a ". + 0i" value.
+
+This function is like miss, but is more general in that a range of
+values can be converted into missings.
+
+
 Examples
 ----------------
 

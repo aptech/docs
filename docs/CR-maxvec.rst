@@ -16,6 +16,21 @@ Format
 
     :returns: y (*scalar*), maximum vector length.
 
+Remarks
+-------
+
+maxvec returns the value in the global scalar \__maxvec, which can be
+reset in the calling program.
+
+maxvec is called by **Run-Time Library** functions and applications when
+determining how many rows can be read from a data set in one call to
+readr.
+
+Using a value that is too large can cause excessive disk thrashing. The
+trick is to allow the algorithm making the disk reads to execute
+entirely in RAM.
+
+
 Examples
 ----------------
 

@@ -16,6 +16,22 @@ Format
 
     :returns: y (*TODO*), Kx1 matrix containing the smallest element in each column of x.
 
+Remarks
+-------
+
+If x is complex, minc uses the complex modulus (abs(x)) to determine the
+smallest elements.
+
+To find the minimum element in each row, transpose the matrix before
+applying the minc function.
+
+To find the minimum value in the whole matrix, nest two calls to minc:
+
+::
+
+   y = minc(minc(x));
+
+
 Examples
 ----------------
 

@@ -19,6 +19,12 @@ Format
     :returns: nvec (*Nx1 character vector*), containing the variable names
         defined in the data set.
 
+Remarks
+-------
+
+setvars is designed to be used interactively.
+
+
 Examples
 ----------------
 

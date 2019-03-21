@@ -17,6 +17,28 @@ Format
         symbols allowed.
     :type nos: scalar
 
+Remarks
+-------
+
+Procedures, user-defined functions, and global matrices, strings, and
+string arrays are all global symbols.
+
+If you would like your user-defined procedures to not be cleared after a
+new statement, you can either add them to a GAUSS Library or create a
+file in your GAUSSHOME directory with the same name as your procedure
+and a .g file extension. This file .g file should only contain your
+procedure.
+
+This command can be used with arguments as the first statement in a
+program to clear the symbol table and to allocate only as much space for
+program code as your program actually needs. When used in this manner,
+the auxiliary output will not be closed. This will allow you to open the
+auxiliary output from the command level and run a program without having
+to remove the new at the beginning of the program. If this command is
+not the first statement in your program, it will cause the program to
+terminate.
+
+
 Examples
 ----------------
 

@@ -16,6 +16,19 @@ Format
     :returns: y (*Kx1 vector*), the standard
         deviation of each column of x.
 
+Remarks
+-------
+
+This function essentially computes:
+
+::
+
+   sqrt(1/(N)*sumc((x-meanc(x)')2))
+
+Thus, the divisor is N rather than N-1, where N is the number of
+elements being summed. See stdc for the alternate definition.
+
+
 Examples
 ----------------
 

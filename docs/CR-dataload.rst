@@ -16,6 +16,32 @@ Format
 
     :returns: y (*matrix*), array, string or string array, data retrieved from the file.
 
+Remarks
+-------
+
+The proper extension must be included in the file name. Valid extensions
+are as follows:
+
++---+-----------------------------------------------------+
+| . | matrix file                                         |
+| f |                                                     |
+| m |                                                     |
+| t |                                                     |
++---+-----------------------------------------------------+
+|   | array file                                          |
++---+-----------------------------------------------------+
+| . | string file                                         |
+| f |                                                     |
+| s |                                                     |
+| t |                                                     |
++---+-----------------------------------------------------+
+|   | string array file                                   |
++---+-----------------------------------------------------+
+
+See **Foreign Language Interface**, Chapter 1, for details on these file
+types.
+
+
 Examples
 ----------------
 

@@ -25,6 +25,16 @@ Format
 
     :returns: y (*scalar*), the element of the array indicated by the indices.
 
+Remarks
+-------
+
+getscalar3D returns the scalar that is located in the [i1, i2, i3]
+position of array a.
+
+A call to getscalar3D is faster than using the more general getmatrix
+function to get a scalar from a 3-dimensional array.
+
+
 Examples
 ----------------
 

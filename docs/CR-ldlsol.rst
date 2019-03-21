@@ -19,6 +19,16 @@ Format
 
     :returns: x (*Nx1 vector or NxK matrix*), containing the solution to LDLTx = b.
 
+Remarks
+-------
+
+Matrix factorization is the most computationally intense part of solving
+a system of linear equations. The factorization can be saved and reused
+multiple times to prevent the need to repeat the matrix factorization
+step. ldlsol uses the LAPACK function dsytrs to solve the system of
+linear equations.
+
+
 Examples
 ----------------
 

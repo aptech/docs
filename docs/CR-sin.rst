@@ -15,6 +15,14 @@ Format
 
     :returns: y (*TODO*), NxK matrix or N-dimensional array containing the sine of x.
 
+Remarks
+-------
+
+For real data, x should contain angles measured in radians.
+
+To convert degrees to radians, multiply the degrees by π/180.
+
+
 Examples
 ----------------
 

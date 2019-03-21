@@ -31,6 +31,44 @@ Format
 
     :returns: ret (*scalar*), success flag, 1 if successful, 0 if not.
 
+Remarks
+-------
+
+If title is a null string (''''), the window will be titled
+''GAUSS-DOS''.
+
+Defaults are defined for the elements of attr. To use the default, set
+an element to a missing value. Set attr to a scalar missing to use all
+defaults. The defaults are defined as follows:
+
++-----+--------+-------------------------------------------------------+
+| [1] | varies | use x position of previous DOS window                 |
++-----+--------+-------------------------------------------------------+
+| [2] | varies | use y position of previous DOS window                 |
++-----+--------+-------------------------------------------------------+
+| [3] | 7      | white foreground                                      |
++-----+--------+-------------------------------------------------------+
+| [4] | 0      | black background                                      |
++-----+--------+-------------------------------------------------------+
+| [5] | 6      | 4+2: stop program and close window without confirming |
++-----+--------+-------------------------------------------------------+
+
+If the DOS window is already open, the new title and attr will be
+applied to it. Elements of attr that are missing are not reset to the
+default values, but are left as is.
+
+To set the close action flags value (attr[5]), just sum the desired bit
+values. For example:
+
+stop program (4) + close window (2) + confirm close (1) = 7
+
+The close action flags are only relevant when a user attempts to
+interactively close the DOS window while a program is running. If GAUSS
+is idle, the window will be closed immediately. Likewise, if a program
+calls DOSWinCloseall, the window is closed, but the program does not get
+terminated.
+
+
 Examples
 ----------------
 

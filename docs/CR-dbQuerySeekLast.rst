@@ -17,6 +17,14 @@ Format
 
     :returns: ret (*scalar*), returns 1 if successful. If unsuccessful the query position is set to an invalid position and 0 is returned.
 
+Remarks
+-------
+
+Note that the result must be in the active state and dbQueryIsSelect()
+must return 1 before calling this function or it will do nothing and
+return 0.
+
+
 Examples
 ----------------
 

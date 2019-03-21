@@ -16,6 +16,23 @@ Format
 
     :returns: y (*TODO*), Kx1 matrix containing the largest element in each column of x.
 
+Remarks
+-------
+
+If x is complex, maxc uses the complex modulus (abs(x)) to determine the
+largest elements.
+
+To find the maximum elements in each row of a matrix, transpose the
+matrix before applying the maxc function.
+
+To find the maximum value in the whole matrix if the matrix has more
+than one column, nest two calls to maxc:
+
+::
+
+   y = maxc(maxc(x));
+
+
 Examples
 ----------------
 

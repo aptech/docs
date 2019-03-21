@@ -36,6 +36,24 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = a/(a+b)
+
+   Var(x) = a*b/((a+b+1)*(a+b)2)
+
+   0 < x < 1
+   a > 0
+   b > 0
+
+r and c will be truncated to integers if necessary.
+
+
 Examples
 ----------------
 

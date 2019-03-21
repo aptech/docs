@@ -32,6 +32,29 @@ Format
         "5", "Five consecutive steps of maximum step lengthhave been taken; either norm2(F(x))asymptotes from above to a finite value in some direction or the maximum step length is too small."
         "6", "x seems to be an approximate local minimizer ofnorm2(F(x)) that is not a root of F(x).To find a root of F(x), restart eqSolvefrom a different region."
 
+Remarks
+-------
+
+The equation procedure should return a column vector containing the
+result for each equation. For example:
+
+::
+
+   Equation 1:   x12 + x22 - 2 = 0
+   Equation 2:   exp(x1-1) + x23 - 2 = 0
+
+::
+
+   proc (1) = f(var);
+      local x1,x2,eqns;
+      x1 = var[1];
+      x2 = var[2];
+      eqns[1] = x1^2 + x2^2 - 2;       /* Equation 1 */
+      eqns[2] = exp(x1-1) + x2^3 - 2;  /* Equation 2 */
+      retp(eqns);
+   endp;
+
+
 Examples
 ----------------
 

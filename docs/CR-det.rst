@@ -16,6 +16,24 @@ Format
 
     :returns: y (*TODO*), scalar or [K-2]-dimensional array, the determinant(s) of x.
 
+Remarks
+-------
+
+x may be any valid expression that returns a square matrix (number of
+rows equals number of columns) or a K-dimensional array where the last
+two dimensions are of equal size.
+
+If x is a K-dimensional array, the result will be a [K-2]-dimensional
+array containing the determinants of each 2-dimensional array described
+by the two trailing dimensions of x. In other words, for a 10x4x4 array,
+the result will be a 1-dimensional array of 10 elements containing the
+determinants of each of the 10 4x4 arrays contained in x.
+
+det computes an LU decomposition.
+
+detl can be much faster in many applications.
+
+
 Examples
 ----------------
 

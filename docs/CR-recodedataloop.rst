@@ -23,6 +23,25 @@ Format
     :type expression: logical scalar-returning expression
         that returns nonzero TRUE or zero FALSE
 
+Remarks
+-------
+
+If '$' is specified, the variable will be considered a character
+variable. If '#' is specified, the variable will be considered numeric.
+If neither is specified, the type of the variable will be left
+unchanged.
+
+The logical expressions must be mutually exclusive, that is only one may
+return TRUE for a given row (observation).
+
+If none of the expressions is TRUE for a given row (observation), its
+value will remain unchanged.
+
+Any variables referenced must already exist, either as elements of the
+source data set, as extern's, or as the result of a previous make,
+vector, or code statement.
+
+
 Examples
 ----------------
 

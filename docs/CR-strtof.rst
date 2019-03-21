@@ -15,6 +15,32 @@ Format
 
     :returns: x (*TODO*), NxK matrix.
 
+Remarks
+-------
+
+Elements with more than one numerical character separated by a delimiter
+such as a comma or a space will be interpreted as complex data. For
+example, the string:
+::
+
+   "1.2 1.9"
+
+will be converted into the number:
+
+::
+
+   1.2 + 1.9i
+
+Parentheses surrounding the numerical elements in the string will be
+ignored as will be a following i. The following strings will be
+interpreted as the same by
+
+strtof.
+::
+
+   "(2.31 4.72)""2.31 4.73""2.31,4.73i"
+
+
 Examples
 ----------------
 

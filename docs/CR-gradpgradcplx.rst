@@ -30,6 +30,16 @@ Format
     :returns: g (*NxK matrix*), containing the gradients of f with
         respect to the variable x at x0.
 
+Remarks
+-------
+
+gradp will return a row for every row that is returned by f. For
+instance, iff returns a scalar result, then gradp will return a 1xK row
+vector. This allows the same function to be used regardless of N, where
+N is the number of rows in the result returned byf. Thus, for instance,
+gradp can be used to compute the Jacobian matrix of a set of equations.
+
+
 Examples
 ----------------
 

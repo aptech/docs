@@ -51,6 +51,21 @@ Format
         "[3]  the additive constant"
         "[4]  the original initialization seed"
 
+Remarks
+-------
+
+r and c will be truncated to integers if necessary.
+
+Each seed is generated from the preceding seed, using the formula
+
+::
+
+   new_seed = (((a *  seed) % 232)+ c) % 232
+
+where % is the mod operator and where a is the multiplicative constant
+and c is the additive constant. The new seeds are the values returned.
+
+
 Examples
 ----------------
 

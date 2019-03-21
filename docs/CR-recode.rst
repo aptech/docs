@@ -24,6 +24,18 @@ Format
     :returns: y (*TODO*), Nx1 vector containing the recoded values of
         x.
 
+Remarks
+-------
+
+There should be no more than a single 1 in any row of e.
+
+For any given row N of x and e, if the Kth column of e is 1, the Kth
+element of v will replace the original element of x.
+
+If every column of e contains a 0, the original value of x will be
+unchanged.
+
+
 Examples
 ----------------
 

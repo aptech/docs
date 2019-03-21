@@ -27,6 +27,14 @@ Format
         "2", "b is too large to return in a single matrix"
         "Use scalerr to test for error returns."
 
+Remarks
+-------
+
+The orthogonal complement of the column space of x' is computed using
+the QR decomposition. This provides an orthonormal basis for the null
+space of x.
+
+
 Examples
 ----------------
 

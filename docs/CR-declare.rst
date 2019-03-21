@@ -44,6 +44,92 @@ Format
         or a null string.
     :type clist: a list of constants to assign to  symbol
 
+Remarks
+-------
+
+The declare syntax is similar to the let statement.
+
+declare generates no executable code. This is strictly for compile time
+initialization. The data on the right-hand side of the equal sign must
+be constants. No expressions or variables are allowed.
+
+declare statements are intended for initialization of global variables
+that are used by procedures in a library system.
+
+It is best to place declare statements in a separate file from procedure
+definitions. This will prevent redefinition errors when rerunning the
+same program without clearing your workspace.
+
+The optional aop and clist arguments are allowed only for declaring
+matrices, strings, and string arrays. When you declare an N-dimensional
+array, sparse matrix, or structure, they will be initialized as follows:
+
+.. raw:: html
+
+   <div align="center">
+
++---+-----------------------------------------------------+
+| * | **Initializes To**                                  |
+| * |                                                     |
+| V |                                                     |
+| a |                                                     |
+| r |                                                     |
+| i |                                                     |
+| a |                                                     |
+| b |                                                     |
+| l |                                                     |
+| e |                                                     |
+| T |                                                     |
+| y |                                                     |
+| p |                                                     |
+| e |                                                     |
+| * |                                                     |
+| * |                                                     |
++===+=====================================================+
+| N | 1-dimensional array of 1 containing 0               |
+| - |                                                     |
+| d |                                                     |
+| i |                                                     |
+| m |                                                     |
+| e |                                                     |
+| n |                                                     |
+| s |                                                     |
+| i |                                                     |
+| o |                                                     |
+| n |                                                     |
+| a |                                                     |
+| l |                                                     |
+| a |                                                     |
+| r |                                                     |
+| r |                                                     |
+| a |                                                     |
+| y |                                                     |
++---+-----------------------------------------------------+
+| s | empty sparse matrix                                 |
+| p |                                                     |
+| a |                                                     |
+| r |                                                     |
+| s |                                                     |
+| e |                                                     |
+| m |                                                     |
+| a |                                                     |
+| t |                                                     |
+| r |                                                     |
+| i |                                                     |
+| x |                                                     |
++---+-----------------------------------------------------+
+| s | structure containing empty and/or zeroed out        |
+| t | members                                             |
+| r |                                                     |
+| u |                                                     |
+| c |                                                     |
+| t |                                                     |
+| u |                                                     |
+| r |                                                     |
+| e |                                                     |
++---+-----------------------------------------------------+
+
+
 Examples
 ----------------
 

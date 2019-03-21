@@ -42,6 +42,53 @@ Format
         "19", "Data must be real."
         "20", "Data must be complex."
 
+Remarks
+-------
+
+This command overwrites part of the variable varname in filename with
+the data contained in x. The new data is written to varname beginning at
+the position indicated by index.
+
+If index is a scalar, it will be interpreted as the indexth element of
+the variable. Thus if varname references a 10x5 matrix, an index of 42
+would indicate the 42nd element, which is equivalent to the [8,2]
+element of the matrix (remember that GAUSS matrices are stored in row
+major order). If index is an Nx1 vector, then N must equal the number of
+dimensions in the variable referenced by varname.
+
+If varname references a string, then index must be a scalar containing
+an index into the string in characters.
+
+gdaWriteSome may not be used to extend the size of a variable in a GDA.
+If there are more elements (or characters for strings) in x than there
+are from the indexed position of the specified variable to the end of
+that variable, then gdaWriteSome will fail. Call gdaAppend to append
+data to an existing variable.
+
+The shape of x need not match the shape of the variable referenced by
+varname. If varnum references an NxK matrix, then x may be any LxM
+matrix (or P-dimensional array) that satisfies the size limitations
+described above. If x contains R elements, then the elements in x will
+simply replace the indexed element of the specified variable and the
+subsequent R-1 elements (as they are laid out in memory).
+
+If varname references a string array, then the size of the overall
+variable will change if the sum of the length of the string array
+elements in x is different than the sum of the length of the elements
+that they are replacing.
+
+In this case, if the variable increases in size, then the variable data
+will be rewritten after the last variable in the data file, moving the
+variable descriptor table to make room for the data and leaving empty
+bytes in its old location. This does not change the index of the
+variable because variable indices are determined NOTby the order of the
+variable data in a GDA, but by the order of the variable descriptors. If
+the variable decreases in size, then gdaWriteSome leaves empty bytes
+between the end of the variable and the beginning of the next variable
+in the data file. Call gdaPack to pack the data in a GDA, so it contains
+no empty bytes.
+
+
 Examples
 ----------------
 

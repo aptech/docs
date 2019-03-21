@@ -11,6 +11,34 @@ Format
 ----------------
 .. function:: detl
 
+Remarks
+-------
+
+Whenever one of the intrinsic matrix decomposition routines is executed,
+the determinant of the matrix is also computed and stored in a system
+variable. This function will return the value of that determinant and,
+because the value has been computed in a previous instruction, this will
+require no computation.
+
+The following functions will set the system variable used by detl:
+
++-----------------+-----------------------------------------------------+
+| chol(x)         |                                                     |
++-----------------+-----------------------------------------------------+
+| crout(x)        |                                                     |
++-----------------+-----------------------------------------------------+
+| croutp(x)       |                                                     |
++-----------------+-----------------------------------------------------+
+| det(x)          |                                                     |
++-----------------+-----------------------------------------------------+
+| inv(x)          |                                                     |
++-----------------+-----------------------------------------------------+
+| invpd(x)        |                                                     |
++-----------------+-----------------------------------------------------+
+| solpd(y, x)     | determinant of x                                    |
++-----------------+-----------------------------------------------------+
+
+
 Examples
 ----------------
 If both the inverse and the determinant of the

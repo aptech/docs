@@ -26,6 +26,26 @@ Format
 
     :returns: p1 (*TODO*), an instance of structure of type PV.
 
+Remarks
+-------
+
+pvPacksm does not support the packing of arrays.
+
+The mask allows storing a selected portion of a matrix into the packed
+vector. The ones in mask indicate an element to be stored in the packed
+matrix. When the matrix is unpacked (using pvUnpack) the elements
+corresponding to the zeros are restored. Elements corresponding to the
+ones come from the packed vector which may have been changed.
+
+Only the lower left portion of the mask matrix is used, and only the
+lower left portion of the x matrix is stored in the packed vector.
+
+If the mask is all zeros, the matrix is packed with the specified
+elements in the second argument but no elements of the matrix are
+entered into the parameter vector. When unpacked the matrix in the
+second argment is returned without modification.
+
+
 Examples
 ----------------
 

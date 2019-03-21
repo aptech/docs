@@ -16,6 +16,28 @@ Format
 
     :returns: y (*TODO*), Kx1 matrix containing the index of the maximum element in each column of x.
 
+Remarks
+-------
+
+If x is complex, maxindc uses the complex modulus (abs(x)) to determine
+the largest elements.
+
+To find the index of the maximum element in each row of a matrix,
+transpose the matrix before applying maxindc.
+
+To find the indices of the largest element in a matrix x, use:
+
+::
+
+   colInd = maxindc(maxc(x));
+   rowInd = maxindc(x[.,colInd]);
+
+If there are two or more ''largest'' elements in a column (i.e., two or
+more elements equal to each other and greater than all other elements),
+then maxindc returns the index of the first one found, which will be the
+smallest index.
+
+
 Examples
 ----------------
 

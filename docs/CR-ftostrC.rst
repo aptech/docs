@@ -19,6 +19,14 @@ Format
 
     :returns: sa (*TODO*), NxK string array.
 
+Remarks
+-------
+
+If fmt has K elements, each column of sa can be formatted separately. If
+x is complex, there must be two format specifications in each element of
+fmt.
+
+
 Examples
 ----------------
 

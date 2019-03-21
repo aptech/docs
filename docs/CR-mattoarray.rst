@@ -16,6 +16,13 @@ Format
 
     :returns: y (*TODO*), 1-or-2-dimensional array.
 
+Remarks
+-------
+
+If the argument x is a scalar, mattoarray will simply return the scalar,
+without changing it to a type array.
+
+
 Examples
 ----------------
 

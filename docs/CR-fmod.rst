@@ -19,6 +19,16 @@ Format
 
     :returns: r (*TODO*), max(N,L) by max(K,M) matrix.
 
+Remarks
+-------
+
+Returns the floating-point remainder r of x/y such that x = iy + r,
+where i is an integer, r has the same sign as x and \|r\| < \|y\|.
+
+Compare this with %, the modulo division operator. (See **Operators**,
+Chapter 1.)
+
+
 Examples
 ----------------
 This example extracts all of the years which are evenly divisible by four, from a vector with all of the years between 1900 and 2000.

@@ -18,6 +18,21 @@ Format
 
     :returns: y (*TODO*), NxK matrix.
 
+Remarks
+-------
+
+The erf and erfc functions are closely related to the Normal
+distribution:
+
+::
+
+   if x > 0
+      cdfn(x) = 0.5 * (1 + erf(x / sqrt(2));
+
+   if x ≤ 0
+      cdfn(x) = 0.5 * erfc(-x / sqrt(2)); 
+
+
 Examples
 ----------------
 

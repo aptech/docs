@@ -108,6 +108,32 @@ Format
         "", "If oc0.olsres = 1, the residuals will be computed.If the data is taken from a data set, a new data set will be created for the residuals, using thename in oc0.rnam. The residuals will be saved in this data set as anNx1 column. The oout.resid return value will be a string containing the name of the new data setcontaining the residuals. If the data is passed in as a matrix, theoout.resid return value will be the Nx1 vector of residuals."
         "oout.dwstat", "scalar, Durbin-Watson statistic."
 
+Remarks
+-------
+
+-  For poorly conditioned data the default setting for oc0.alg, using
+   the Cholesky update, may produce only four or five digits of accuracy
+   for the parameter estimates and standard error. For greater accuracy,
+   use either the qr or singular value decomposition algorithm by
+   setting oc0.alg to qr or svd. If you are unsure of the condition of
+   your data, set oc0.alg to qr.
+-  No output file is modified, opened, or closed by this procedure. If
+   you want output to be placed in a file, you need to open an output
+   file before calling olsmt.
+-  The supported dataset types are
+   ` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,
+   `Excel (XLS, XLSX) <FIO.3-Spreadsheets.html#data-source-excel>`__,
+   `HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__, `GAUSS Matrix
+   (FMT) <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__,
+   `GAUSS Dataset
+   (DAT) <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__, `Stata
+   (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
+-  For HDF5 file, the dataset must include `file
+   schema <FIO.4-HDF5Files.html#schema-hdf5>`__ and both file name and
+   data set name must be provided, e.g. olsmt("h5://testdata.h5/mydata",
+   formula).
+
+
 Examples
 ----------------
 

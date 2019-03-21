@@ -19,6 +19,12 @@ Format
 
     :returns: B (*NxN square matrix*), the power of a matrix A
 
+Remarks
+-------
+
+If n = 0, then the function will return an identity matrix.
+
+
 Examples
 ----------------
 

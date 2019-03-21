@@ -20,6 +20,49 @@ Format
     :returns: x (*TODO*), NxK matrix or M-dimensional array where the last two dimensions are NxK, the solutions for
         the system of equations, Ax = b.
 
+Remarks
+-------
+
+b can have more than one column. If so, the system of equations is
+solved for each column, i.e., A\*x[., i] = b[., i].
+
+This function uses the Cholesky decomposition to solve the system
+directly. Therefore it is more efficient than using inv(A)\*b.
+
+If b and A are M-dimensional arrays, the sizes of their corresponding
+M-2 leading dimensions must be the same. The resulting array will
+contain the solutions for the system of equations given by each of the
+corresponding 2-dimensional arrays described by the two trailing
+dimensions of b and A. In other words, for a 10x4x2 array b and a 10x4x4
+array A, the resulting array x will contain the solutions for each of
+the 10 corresponding 4x2 arrays contained in b and 4x4 arrays contained
+in A. Therefore, A[n,.,.]\*x[n,.,.] = b[n,.,.], for 1 ≤ n ≤ 10.
+
+solpd does not check to see that the matrix A is symmetric. solpd will
+look only at the upper half of the matrix including the principal
+diagonal.
+
+If the A matrix is not positive definite:
+
++-----------------+----------------------------------+
+|      **trap 1** | return scalar error code 30.     |
++-----------------+----------------------------------+
+|      **trap 0** | terminate with an error message. |
++-----------------+----------------------------------+
+
+One obvious use for this function is to solve for least squares
+coefficients. The effect of this function is thus similar to that of the
+/ operator.
+
+If X is a matrix of independent variables, and Y is a vector containing
+the dependent variable, then the following code will compute the least
+squares coefficients of the regression of Y on X:
+
+::
+
+   b = solpd(X'Y,X'X);
+
+
 Examples
 ----------------
 

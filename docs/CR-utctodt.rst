@@ -15,6 +15,14 @@ Format
 
     :returns: dt (*Nx1 vector*), DT scalar format.
 
+Remarks
+-------
+
+A UTC scalar gives the number of seconds since or before January 1, 1970
+Greenwich Mean Time. In DT scalar format, 08:35:52 on June 11, 2005 is
+20050611083552.
+
+
 Examples
 ----------------
 

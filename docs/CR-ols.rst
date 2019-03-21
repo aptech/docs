@@ -102,6 +102,31 @@ Format
 
     :returns: dwstat (*scalar*), Durbin-Watson statistic.
 
+Remarks
+-------
+
+-  For poorly conditioned data the default setting for \__olsalg, using
+   the Cholesky update, may produce only four or five digits of accuracy
+   for the parameter estimates and standard error. For greater accuracy,
+   use either the qr or singular value decomposition algorithm by
+   setting \__olsalg to qr or svd. If you are unsure of the condition of
+   your data, set \__olsalg to qr.
+-  No output file is modified, opened, or closed by this procedure. If
+   you want output to be placed in a file, you need to open an output
+   file before calling ols.
+-  The supported data set types are
+   `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,
+   `XLS <FIO.3-Spreadsheets.html#data-source-excel>`__,
+   `XLSX <FIO.3-Spreadsheets.html#data-source-excel>`__,
+   `HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__,
+   `FMT <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__,
+   `DAT <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__.
+-  For HDF5 file, the dataset must include `file
+   schema <FIO.4-HDF5Files.html#schema-hdf5>`__ and both file name and
+   data set name must be provided, e.g.
+   ols("h5://C:/gauss17/examples/testdata.h5/mydata", formula).
+
+
 Examples
 ----------------
 

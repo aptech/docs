@@ -33,6 +33,15 @@ Format
 
     :returns: va (*NxM matrix*), eigenvectors.
 
+Remarks
+-------
+
+lapeighvb computes eigenvalues and eigenvectors which are found on the
+half open interval [vl, vu]. lapeighvb is based on the LAPACK drivers
+DSYEVX and ZHEEVX. Further documentation of these functions may be found
+in the LAPACK User's Guide.
+
+
 Examples
 ----------------
 

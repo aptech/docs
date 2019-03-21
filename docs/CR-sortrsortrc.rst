@@ -18,6 +18,29 @@ Format
 
     :returns: y (*TODO*), NxK matrix equal to x and sorted on row r.
 
+Remarks
+-------
+
+These functions sort the columns of a matrix with respect to a specified
+row. That is, they sort the elements of a row and arrange all rows of
+the matrix in the same order as the sorted column.
+
+sortr assumes the row on which to sort is numeric. sortrc assumes that
+the row on which to sort contains character data.
+
+The matrix may contain both character and numeric data, but the sort row
+must be all of one type. Missing values will sort as if their value is
+below -∞.
+
+The sort will be in left to right ascending order. This function uses
+the Quicksort algorithm. If you need to obtain the matrix sorted left to
+right in descending order (i.e., ascending right to left), use:
+
+::
+
+   rev(sortr(x, r)')'
+
+
 Examples
 ----------------
 

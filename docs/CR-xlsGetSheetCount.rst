@@ -16,6 +16,20 @@ Format
 
     :returns: nsheets (*scalar*), sheet count or an error code.
 
+Remarks
+-------
+
+If xlsGetSheetCount fails, it will either terminate with an error
+message or return a scalar error code, which can be decoded with
+scalerr, depending on the lowest order bit of the trap flag.
+
++-----------------+-----------------------------------------------------+
+| **trap 0**      | Print error message and terminate program.          |
++-----------------+-----------------------------------------------------+
+| **trap 1**      | Return scalar error code 10.                        |
++-----------------+-----------------------------------------------------+
+
+
 Examples
 ----------------
 

@@ -19,6 +19,13 @@ Format
 
     :returns: y (*TODO*), [N-M]-dimensional subarray or scalar.
 
+Remarks
+-------
+
+If N-M>0, getarray will return an array of [N-M] dimensions, otherwise,
+if N-M=0, it will return a scalar.
+
+
 Examples
 ----------------
 

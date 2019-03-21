@@ -20,6 +20,53 @@ Format
 
         "-r", "flag, returns control to the calling program."
 
+Remarks
+-------
+
+The filename can be any legal file name. Filename extensions can be
+whatever you want, except for the compiled file extension, .gcg.
+Pathnames are okay. If the name is to be taken from a string variable,
+then the name of the string variable must be preceded by the ^ (caret)
+operator.
+
+The run statement can be used both from the command line and within a
+program. If used in a program, once control is given to another program
+through the run statement, there is no return to the original program
+unless the flag -r is used.
+
+If you specify a filename without an extension, GAUSS will first look
+for a compiled code program (i.e., a .gcg file) by that name, then a
+source code program by that name. For example, if you enter
+
+::
+
+   run dog;
+
+GAUSS will first look for the compiled code file dog.gcg, and run that
+if it finds it. If GAUSS cannot find dog.gcg, it will then look for the
+source code file dog with no extension.
+
+If a path is specified for the file, then no additional searching will
+be attempted if the file is not found.
+
+If a path is not specified, the current directory will be searched
+first, then each directory listed in src_path. The first instance found
+is run. src_path is defined in gauss.cfg.
+
++-----------------------------------+-----------------------------------+
+| run/gauss/myprog.prg;             | No additional search will be made |
+|                                   | if the file is not found.         |
++-----------------------------------+-----------------------------------+
+| runmyprog.prg;                    | The directories listed in         |
+|                                   | src_path will be searched for     |
+|                                   | myprog.prg if the file is not     |
+|                                   | found in the current directory.   |
++-----------------------------------+-----------------------------------+
+
+Programs can also be run by typing the filename on the OS command line
+when starting GAUSS.
+
+
 Examples
 ----------------
 

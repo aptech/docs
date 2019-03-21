@@ -22,6 +22,16 @@ Format
     :param attr: N-dimensional array or string array, the contents of the attribute.
     :type attr: Matrix
 
+Remarks
+-------
+
+-  Attributes in an HDF5 file cannot be read or written partially. The
+   entire contents of the attribute must be read or written in one call.
+-  GAUSS functions that take in an HDF5 dataset as a datasource (see
+   dstatmt, glm), expect the dataset to have an attribute called
+   "headers", containing the variable names of the dataset.
+
+
 Examples
 ----------------
 

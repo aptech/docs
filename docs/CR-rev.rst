@@ -15,6 +15,14 @@ Format
 
     :returns: y (*NxK matrix*), containing the reversed rows of x.
 
+Remarks
+-------
+
+The first row of y will be where the last row of x was and the last row
+will be where the first was and so on. This can be used to put a sorted
+matrix in descending order.
+
+
 Examples
 ----------------
 

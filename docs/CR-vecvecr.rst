@@ -20,6 +20,12 @@ Format
     :returns: yr (*TODO*), (N*K)x1 vector, the rows of x appended to
         each other and the result transposed.
 
+Remarks
+-------
+
+vecr is much faster.
+
+
 Examples
 ----------------
 

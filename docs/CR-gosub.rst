@@ -19,6 +19,34 @@ Format
 			       . 
 			  return
 
+Remarks
+-------
+
+For multi-line recursive user-defined functions, see **Procedures and
+Keywords**, Chapter 1.
+
+When a gosub statement is encountered, the program will branch to the
+label and begin executing from there. When a return statement is
+encountered, the program will resume executing at the statement
+following the gosub statement. Labels are 1-32 characters long and are
+followed by a colon. The characters can be A-Z or 0-9, but they must
+begin with an alphabetic character. Uppercase or lowercase is allowed.
+
+It is possible to pass parameters to subroutines and receive parameters
+from them when they return. See the second example, following.
+
+The only legal way to enter a subroutine is with a gosub statement.
+
+If your subroutines are at the end of your program, you should have an
+end statement before the first one to prevent the program from running
+into a subroutine without using a gosub. This will result in a Return
+without gosub error message.
+
+The variables used in subroutines are not local to the subroutine and
+can be accessed from other places in your program. (See **Procedures and
+Keywords**, Chapter 1.)
+
+
 Examples
 ----------------
 In the program below the name mysub is a label. When the gosub

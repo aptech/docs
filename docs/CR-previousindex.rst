@@ -19,6 +19,13 @@ Format
 
     :returns: pi (*Mx1 vector of indices*), the index of the previous element or subarray in the array corresponding to  o.
 
+Remarks
+-------
+
+previousindex will return a scalar error code if the index cannot be
+decremented.
+
+
 Examples
 ----------------
 

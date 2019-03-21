@@ -13,6 +13,12 @@ Format
 ----------------
 .. function:: date()
 
+Remarks
+-------
+
+The hundredths of a second since midnight can be accessed using hsec.
+
+
 Examples
 ----------------
 

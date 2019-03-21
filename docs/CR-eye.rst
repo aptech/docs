@@ -16,6 +16,15 @@ Format
 
     :returns: y (*TODO*), nxn identity matrix.
 
+Remarks
+-------
+
+If n is not an integer, it will be truncated to an integer.
+
+The matrix created will contain 1's down the diagonal and 0's everywhere
+else.
+
+
 Examples
 ----------------
 

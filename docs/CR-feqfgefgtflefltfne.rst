@@ -19,6 +19,35 @@ Format
 
     :returns: y (*scalar*), 1 (TRUE) or 0 (FALSE).
 
+Remarks
+-------
+
+The return value is TRUE if every comparison is TRUE.
+
+The statement:
+
+::
+
+   y = feq(a,b);
+
+is equivalent to:
+
+::
+
+   y = a eq b;
+
+For the sake of efficiency, these functions are not written to handle
+missing values. If a and b contain missing values, use missrv to convert
+the missing values to something appropriate before calling a fuzzy
+comparison function.
+
+The calling program can reset \_fcmptol before calling these procedures:
+
+::
+
+   _fcmptol = 1e-12;
+
+
 Examples
 ----------------
 

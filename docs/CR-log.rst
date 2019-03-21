@@ -17,6 +17,22 @@ Format
     :returns: y (*TODO*), NxK matrix or N-dimensional array containing the log 10 values of the
         elements of x.
 
+Remarks
+-------
+
+log is defined for x ≠ 0.
+
+You can turn the generation of complex numbers for negative inputs on or
+off in the GAUSS configuration file, and with the sysstate function,
+case 8. If you turn it off, log will generate an error for negative
+inputs.
+
+If x is already complex, the complex number state doesn't matter; log
+will compute a complex result.
+
+x can be any expression that returns a matrix.
+
+
 Examples
 ----------------
 

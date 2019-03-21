@@ -27,6 +27,15 @@ Format
     :param base:  The height for the base of the added area plot. The default value is zero. plotAddArea does not yet support a vector input for base.
     :type base: Scalar optional argument
 
+Remarks
+-------
+
+plotAddArea may only add curves to 2-D graphs.
+
+This function will not change any of the current graph's settings other
+than to resize the view as necessary to display the new curve.
+
+
 Examples
 ----------------
 Creating confidence intervals with plotAddArea

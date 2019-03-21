@@ -19,6 +19,12 @@ Format
         
         p(z)=c[1]*zn + c[2]*z(n-1) + ... c[n]*z + c[n+1]
 
+Remarks
+-------
+
+The coefficient of z\ :sup:`n` is set to unity (c[1]=1).
+
+
 Examples
 ----------------
 

@@ -27,6 +27,18 @@ Format
         equivalent of the corresponding elements in x
         in the format defined by  field and  prec.
 
+Remarks
+-------
+
+-  To convert numbers to strings, or string arrays, use ntos instead.
+-  Character vectors, as returned by ftocv, can only hold 8 characters.
+   Therefore, the field and prec inputs may not be greater than 8.
+-  If a number is narrower than field, it will be padded on the left
+   with zeros.
+
+If prec = 0, the decimal point will be suppressed.
+
+
 Examples
 ----------------
 

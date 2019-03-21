@@ -21,6 +21,16 @@ Format
         contained in  str. All tokens are returned; any
         delimiters found in  str are ignored.
 
+Remarks
+-------
+
+The tokens in str must be 8 characters or less in size. This is because
+they are returned in a character vector in which each element is
+represented as a double precision value. If they are longer, the
+contents of tok is unpredictable. Use string arrays to create arrays of
+text with elements longer than 8 characters.
+
+
 Examples
 ----------------
 

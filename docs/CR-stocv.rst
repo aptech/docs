@@ -16,6 +16,14 @@ Format
 
     :returns: v (*Nx1 character vector*), contains the contents of  s.
 
+Remarks
+-------
+
+stocv breakss up into a vector of 8-character length matrix elements.
+Note that the character information in the vector is not guaranteed to
+be null-terminated.
+
+
 Examples
 ----------------
 

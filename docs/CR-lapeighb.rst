@@ -35,6 +35,17 @@ Format
         the half open interval [vl, vu]. If no eigenvalues are found
         then  ve is a scalar missing value.
 
+Remarks
+-------
+
+lapeighb computes eigenvalues only which are found on on the half open
+interval [vl, vu]. To find eigenvalues within a specified range of
+indices see lapeighi. For eigenvectors see lapeighvi, or lapeighvb.
+lapeighb is based on the LAPACK drivers DSYEVX and ZHEEVX. Further
+documentation of these functions may be found in the LAPACK User's
+Guide.
+
+
 Examples
 ----------------
 

@@ -21,6 +21,13 @@ Format
         main diagonal intact. lowmat1 replaces the main
         diagonal with ones.
 
+Remarks
+-------
+
+The lowmat function along with upmat1 can be used to extract the LU
+factors from the return
+
+
 Examples
 ----------------
 

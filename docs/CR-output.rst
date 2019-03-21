@@ -30,6 +30,59 @@ Format
         "off", "closes the auxiliary output file and turns off theauxiliary output."
         "reset", "similar to the on subcommand, except that it alwayscreates a new file. If the file already exists, it will be destroyedand a new file by that name will be created. If it does not exist, itwill be created."
 
+Remarks
+-------
+
+After you have written to an output file you have to close the file
+before you can print it or edit it with the GAUSS editor. Use
+
+::
+
+   output off;
+
+The selection of the auxiliary output file or device remains in effect
+until a new selection is made, or until you get out of GAUSS. Thus, if a
+file is named as the output device in one program, it will remain the
+output device in subsequent programs until a new file=filename
+subcommand is encountered.
+
+The command
+
+::
+
+   output file=filename;
+
+will select the file or device but will not open it. A subsequent output
+on or output reset will open it and turn on the auxiliary output.
+
+The command output off will close the file and turn off the auxiliary
+output. The filename will remain the same. A subsequent output on will
+cause the file to be opened again for appending. A subsequent output
+reset will cause the existing file to be destroyed and then recreated
+and will turn on the auxiliary output.
+
+The command output by itself will cause the name and status (i.e., open
+or closed) of the current auxiliary output file to be printed to the
+window.
+
+The output to the console can be turned off and on using the screen off
+and screen on commands. Output to the auxiliary file or device can be
+turned off or on using the output off or output on command. The defaults
+are screen on and output off.
+
+The auxiliary file or device can be closed by an explicit output off
+statement, by an end statement, or by an interactive new statement.
+However, a new statement at the beginning of a program will not close
+the file. This allows programs with new statements in them to be run
+without reopening the auxiliary output file.
+
+If a program sends data to a disk file, it will execute much faster if
+the window is off.
+
+The outwidth command will set the line width of the output file. The
+default is 80.
+
+
 Examples
 ----------------
 

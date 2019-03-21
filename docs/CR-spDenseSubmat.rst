@@ -21,6 +21,12 @@ Format
 
     :returns: y (*KxL dense matrix*), the intersection of  rinds and  cinds.
 
+Remarks
+-------
+
+Ifrinds  orcinds are scalar zeros, all rows or columns will be returned.
+
+
 Examples
 ----------------
 

@@ -26,6 +26,12 @@ Format
         by  v. It will contain error code 13 if there are
         no elements in this category.
 
+Remarks
+-------
+
+Use a loop to pull out indices of multiple categories.
+
+
 Examples
 ----------------
 

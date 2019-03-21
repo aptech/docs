@@ -16,6 +16,12 @@ Format
 
     :returns: y (*TODO*), NxK matrix or N-dimensional array containing the elements of x rounded down.
 
+Remarks
+-------
+
+This rounds every element in x down to the nearest integer.
+
+
 Examples
 ----------------
 

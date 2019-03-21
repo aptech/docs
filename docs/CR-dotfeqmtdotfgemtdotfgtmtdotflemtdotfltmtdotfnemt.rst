@@ -24,6 +24,24 @@ Format
 
     :returns: y (*TODO*), max(N,L) by max(K,M) matrix of 1's and 0's.
 
+Remarks
+-------
+
+The return value is 1 if TRUE and 0 if FALSE.
+
+The statement:
+
+::
+
+   y = dotfeqmt(a,b,1e-13);
+
+is equivalent to:
+
+::
+
+   y = a .eq b;
+
+
 Examples
 ----------------
 

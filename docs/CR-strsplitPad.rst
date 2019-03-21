@@ -18,6 +18,32 @@ Format
 
     :returns: sa (*TODO*), Nx n_cols string array.
 
+Remarks
+-------
+
+Rows containing more than n_cols tokens are truncated and rows
+containing fewer than n_cols tokens are padded on the right with null
+strings. The following characters are considered delimiters between
+tokens:
+
++-----------------+----------+
+| space           | ASCII 32 |
++-----------------+----------+
+| tab             | ASCII 9  |
++-----------------+----------+
+| comma           | ASCII 44 |
++-----------------+----------+
+| newline         | ASCII 10 |
++-----------------+----------+
+| carriage return | ASCII 13 |
++-----------------+----------+
+
+Tokens containing delimiters must be enclosed in single or double quotes
+or parentheses. Tokens enclosed in single or double quotes will NOT
+retain the quotes upon translation. Tokens enclosed in parentheses WILL
+retain the parentheses after translation. Parentheses cannot be nested.
+
+
 Examples
 ----------------
 

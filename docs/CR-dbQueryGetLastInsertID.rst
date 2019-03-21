@@ -16,6 +16,19 @@ Format
 
     :returns: last_insert (*scalar*), object id
 
+Remarks
+-------
+
+If more than one row was touched by the insert, the behavior is
+undefined.
+
+For MySQL databases the row's auto-increment field will be returned.
+
+With a PSQL database, the table must contain OID's which were not
+created by default. Check the default_with_oids configuration variable
+to be sure.
+
+
 Examples
 ----------------
 

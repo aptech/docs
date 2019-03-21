@@ -22,6 +22,16 @@ Format
 
     :returns: y (*TODO*), NxK shifted matrix.
 
+Remarks
+-------
+
+The shift is performed within each row of the matrix, horizontally. If
+the shift value is positive, the elements in the row will be moved to
+the right. A negative shift value causes the elements to be moved to the
+left. The elements that are pushed off the end of the row are lost, and
+the fill value will be used for the new elements on the other end.
+
+
 Examples
 ----------------
 

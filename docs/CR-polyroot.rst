@@ -17,6 +17,16 @@ Format
 
     :returns: y (*Nx1 vector*), the roots of c.
 
+Remarks
+-------
+
+Zero leading terms will be stripped from c. When that occurs the order
+of y will be the order of the polynomial after the leading zeros have
+been stripped.
+
+c[1] need not be normalized to unity.
+
+
 Examples
 ----------------
 

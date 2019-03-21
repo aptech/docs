@@ -18,6 +18,15 @@ Format
 
     :returns: p (*NxK matrix or Nx1 vector or scalar*)
 
+Remarks
+-------
+
+For invalid inputs, pdfPoisson will return a scalar error code which,
+when its value is assessed by function scalerr, corresponds to the
+invalid input. If the first input is out of range, scalerr will return a
+1; if the second is out of range, scalerr will return a 2; etc.
+
+
 Examples
 ----------------
 

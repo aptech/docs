@@ -37,6 +37,17 @@ Format
         "5     step length calculation failed"
         "6     function cannot be evaluated at initial parameter values"
 
+Remarks
+-------
+
+If you are running in terminal mode, GAUSS will not see any input until
+you press ENTER. Pressing C on the keyboard will terminate iterations,
+and pressing P will toggle iteration output.
+
+To reset global variables for this function to their default values,
+call QNewtonSet.
+
+
 Examples
 ----------------
 This example computes maximum likelihood coefficients and standard

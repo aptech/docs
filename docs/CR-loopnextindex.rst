@@ -23,6 +23,23 @@ Format
     :param dim: , index into the vector of indices  i, corresponding to the dimension to walk through, positive to walk the index forward, or negative to walk backward.
     :type dim: scalar [1-M]
 
+Remarks
+-------
+
+If the argument dim is given, loopnextindex will walk through only the
+dimension indicated by dim in the specified direction. Otherwise, if dim
+is not given, each call to loopnextindex will increment i to index the
+next element or subarray of the corresponding array.
+
+loopnextindex will jump to the label indicated by lab if the index can
+walk further in the specified dimension and direction, otherwise it will
+fall out of the loop and continue through the program.
+
+When the index matches the vector of orders, the index will be reset to
+the beginning and program execution will resume at the statement
+following the loopnextindex statement.
+
+
 Examples
 ----------------
 At its essence, loopNextIndex provides a simple way to iterate over the orders of a multi-dimensional array.

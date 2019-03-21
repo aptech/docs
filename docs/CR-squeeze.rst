@@ -16,6 +16,16 @@ Format
     :returns: atrim (*TODO*), Multidimensional array or matrix with all dimensions
         equal to 1 removed.
 
+Remarks
+-------
+
+If the squeezed array contains two or fewer dimensions, the return will
+be of type matrix. If the squeezed array contains only one dimension,
+the orientation of the final two dimensions of the input will be
+preserved. For example, an input with dimensions 1x1x4, will return a
+1x4 row vector. Where a 1x1x4x1 input will return a column vector.
+
+
 Examples
 ----------------
 

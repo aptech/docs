@@ -13,6 +13,13 @@ Format
 
     :returns: y (*scalar*), hundredths of a second since midnight.
 
+Remarks
+-------
+
+The number of hundredths of a second since midnight can also be accessed
+as the [4,1] element of the vector returned by the date function.
+
+
 Examples
 ----------------
 

@@ -11,6 +11,14 @@ Format
 ----------------
 .. function:: endp
 
+Remarks
+-------
+
+endp marks the end of a procedure definition that began with a proc or
+keyword statement. (For details on writing and using procedures, see
+**Procedures and Keywords**, Chapter 1.)
+
+
 Examples
 ----------------
 

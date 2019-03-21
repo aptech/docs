@@ -66,6 +66,13 @@ Format
         "", "5", "Five consecutive steps of maximum step length have been taken; either norm2(fct(x) ) asymptotes fromabove to a finite value in some direction or the maximum step lengthis too small."
         "", "6", "x seems to be an approximate local minimizer of norm2( fct(x) ) that is not a root of fct(x). To find a root of fct(x), restart eqSolvemt from a different region."
 
+Remarks
+-------
+
+The equation procedure should return a column vector containing the
+result for each equation.
+
+
 Examples
 ----------------
 

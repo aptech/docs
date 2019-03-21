@@ -28,6 +28,32 @@ Format
     :param chunk_size: with the same dimensions as the data set, specifying the size of the chunks of data that will be created in the file.
     :type chunk_size: Matrix or array
 
+Remarks
+-------
+
+-  HDF5 files can hold more than one dataset. They are referenced in the
+   same manner as a Linux or Mac file system. The base or root node is
+   '/'. All datasets are relative to this root node.
+-  If a dataset name contains multiple intermediate groups, for example:
+
+   ::
+
+      "/surveys/household/Washington"
+
+   and the intermediate groups, ``surveys`` and ``household`` in the
+   above string, do not yet exist, h5create will create them.
+
+-  By default, HDF5 datasets may not change size. To make one of the
+   dimensions expandable, set it to \__INFP.
+-  All columns of an HDF5 dataset must be of the same data type.
+   However, multiple datasets with different data types may be created
+   in a single HDF5 file.
+-  Information about a dataset, called an attribute, may be attached to
+   a dataset in an HDF5 file with the function h5writeAttribute.
+-  Chunk size must be specified when users create a dataset with more
+   than 2 dimensions and one of those dimensions is unlimited (\__INFP).
+
+
 Examples
 ----------------
 

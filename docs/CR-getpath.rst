@@ -16,6 +16,12 @@ Format
 
     :returns: fname (*string*), filename with full drive and path.
 
+Remarks
+-------
+
+This function handles relative path references.
+
+
 Examples
 ----------------
 

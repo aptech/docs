@@ -16,6 +16,22 @@ Format
 
     :returns: s (*string*), contains the contents of  v.
 
+Remarks
+-------
+
+cvtos in effect appends the elements of v together into a single string.
+
+cvtos was written to operate in conjunction with stocv. If you pass it a
+character vector that does not conform to the output of stocv, you may
+get unexpected results. For example, cvtos does NOT look for 0
+terminating bytes in the elements of v; it assumes every element except
+the last is 8 characters long. If this is not true, there will be 0's in
+the middle of s.
+
+If the last element of v does not have a terminating 0 byte, cvtos
+supplies one for s.
+
+
 Examples
 ----------------
 

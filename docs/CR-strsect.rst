@@ -24,6 +24,15 @@ Format
     :returns: y (*string*), the extracted substring, or a null string if
         start is greater than the length of  str.
 
+Remarks
+-------
+
+If there are not enough characters in a string for the defined substring
+to be extracted, then a short string or a null string will be returned.
+
+If str is a matrix containing character data, it must be scalar.
+
+
 Examples
 ----------------
 

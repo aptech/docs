@@ -19,6 +19,21 @@ Format
 
     :returns: y (*NxK matrix*), the data read from the file.
 
+Remarks
+-------
+
+The first time a readr statement is encountered, the first r rows will
+be read. The next time it is encountered, the next r rows will be read
+in, and so on. If the end of the data set is reached before r rows can
+be read, then only those rows remaining will be read.
+
+After the last row has been read, the pointer is placed immediately
+after the end of the file. An attempt to read the file in these
+circumstances will cause an error message.
+
+To move the pointer to a specific place in the file use seekr.
+
+
 Examples
 ----------------
 

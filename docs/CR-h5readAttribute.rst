@@ -19,6 +19,16 @@ Format
     :param attr_name: the name of attribute.
     :type attr_name: String
 
+Remarks
+-------
+
+-  HDF5 does not support partial read or write of dataset attributes.
+   The entire contents of the attribute will be read.
+-  GAUSS functions that accept HDF5 datasets as a datasource, expect the
+   dataset to have an attribute named "headers", containing the variable
+   names of the dataset.
+
+
 Examples
 ----------------
 

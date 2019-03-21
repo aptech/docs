@@ -34,6 +34,13 @@ Format
         "11", "Variable name must be unique."
         "14", "File too large to be read on current platform."
 
+Remarks
+-------
+
+gdaWrite adds the data in x to the end of the variable data in filename,
+and gives the variable the name contained in varname.
+
+
 Examples
 ----------------
 

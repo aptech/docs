@@ -22,6 +22,19 @@ Format
         "append": open file for write, positioned at the end of the file.
     :type mode: string
 
+Remarks
+-------
+
+-  The file handle must be closed with either the close function or
+   closeall when you are finished using it.
+-  To read or write data to a file opened with h5open, use readr, and
+   writer.
+-  To read and write data to an HDF5 dataset without opening a file
+   handle, use h5read and h5write.
+-  The function dataopen can open file handles for reading and writing
+   to HDF5 datasets and other file types.
+
+
 Examples
 ----------------
 

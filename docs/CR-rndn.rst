@@ -30,6 +30,12 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+Remarks
+-------
+
+r and c will be truncated to integers if necessary.
+
+
 Examples
 ----------------
 

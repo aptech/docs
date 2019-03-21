@@ -27,6 +27,13 @@ Format
 
     :returns: y (*TODO*), r x c sparse matrix.
 
+Remarks
+-------
+
+Since sparse matrices are strongly typed in GAUSS, y must be defined as
+a sparse matrix before the call to spCreate.
+
+
 Examples
 ----------------
 

@@ -17,6 +17,13 @@ Format
     :returns: y (*TODO*), Nx1 matrix containing the ASCII values of the
         characters in the string  s.
 
+Remarks
+-------
+
+If the string is null, the function will fail and an error message will
+be given.
+
+
 Examples
 ----------------
 

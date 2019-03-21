@@ -16,6 +16,21 @@ Format
 
     :returns: y (*TODO*), min(N,K)x1 vector or L-dimensional array where the last two dimensions are min(N,K)x1.
 
+Remarks
+-------
+
+If x is a matrix, it need not be square. Otherwise, if x is an array,
+the last two dimensions need not be equal.
+
+If x is an array, the result will be an array containing the diagonals
+of each 2-dimensional array described by the two trailing dimensions of
+x. In other words, for a 10x4x4 array, the result will be a 10x4x1 array
+containing the diagonals of each of the 10 4x4 arrays contained in x.
+
+diagrv reverses the procedure and puts a vector into the diagonal of a
+matrix.
+
+
 Examples
 ----------------
 Get the diagonal from a matrix.

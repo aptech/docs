@@ -20,6 +20,21 @@ Format
 
     :returns: v (*NxN matrix*), right singular values.
 
+Remarks
+-------
+
+lapsvdcusv computes the singular value decomposition of a real or
+complex rectangular matrix. The SVD is
+
+::
+
+   x = usv'
+
+where v is the matrix of right singular vectors. lapsvdcusv is based on
+the LAPACK drivers DGESVD and ZGESVD. Further documentation of these
+functions may be found in the LAPACK User's Guide.
+
+
 Examples
 ----------------
 

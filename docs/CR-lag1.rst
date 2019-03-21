@@ -16,6 +16,15 @@ Format
 
     :returns: y (*NxK matrix*), x lagged 1 period.
 
+Remarks
+-------
+
+lag1 lags x by one time period, so the first observations of y are
+missing. lag1 assumes that each column of the input is a different time
+series and that each row is an observation. Therefore if a 1xK row
+vector is passed to lag1, it will return a 1xK of missing values.
+
+
 Examples
 ----------------
 

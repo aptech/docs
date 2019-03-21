@@ -16,6 +16,12 @@ Format
 
     :returns: zi (NxK matrix or N-dimensional array) the imaginary part of x.
 
+Remarks
+-------
+
+If x is real, zi will be an NxK matrix or N-dimensional array of zeros.
+
+
 Examples
 ----------------
 

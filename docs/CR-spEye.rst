@@ -15,6 +15,13 @@ Format
 
     :returns: y (*TODO*), n x n sparse identity matrix.
 
+Remarks
+-------
+
+Since sparse matrices are strongly typed in GAUSS, y must be defined as
+a sparse matrix before the call to spEye.
+
+
 Examples
 ----------------
 

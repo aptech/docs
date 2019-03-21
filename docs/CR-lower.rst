@@ -17,6 +17,14 @@ Format
     :returns: y (string), or NxK matrix which contains the lowercase
         equivalent of the data in x.
 
+Remarks
+-------
+
+If x is a numeric matrix, y will contain garbage. No error message will
+be generated since GAUSS does not distinguish between numeric and
+character data in matrices.
+
+
 Examples
 ----------------
 

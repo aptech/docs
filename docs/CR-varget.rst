@@ -17,6 +17,16 @@ Format
     :returns: y (*TODO*), contents of the variable whose name is
         in  s.
 
+Remarks
+-------
+
+This function searches the global symbol table for the symbol whose name
+is in s and returns the contents of the variable if it exists. If the
+symbol does not exist, the function will terminate with an Undefined
+symbol error message. If you want to check to see if a variable exists
+before using this function, use typecv.
+
+
 Examples
 ----------------
 

@@ -19,6 +19,13 @@ Format
 
     :returns: y (*TODO*), A 1xK row vector.
 
+Remarks
+-------
+
+getRow is designed to give an alternative access to rows in a matrix
+than indexing the matrix by brackets.
+
+
 Examples
 ----------------
 

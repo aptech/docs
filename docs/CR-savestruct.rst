@@ -18,6 +18,12 @@ Format
 
     :returns: retcode (*scalar*), 0 if successful, otherwise it will be non-zero.
 
+Remarks
+-------
+
+The file on the disk will be given a .fsr extension
+
+
 Examples
 ----------------
 

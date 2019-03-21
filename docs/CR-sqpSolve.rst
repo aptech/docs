@@ -50,6 +50,16 @@ Format
         "6", "line search failed"
         "7", "error with constraints"
 
+Remarks
+-------
+
+Pressing C on the keyboard will terminate iterations, and pressing P
+will toggle iteration output.
+
+sqpSolve is recursive, that is, it can call itself with another function
+and set of global variables,
+
+
 Examples
 ----------------
 

@@ -19,6 +19,13 @@ Format
 
     :returns: ni (*Mx1 vector of indices*), the index of the next element or subarray in the array corresponding to  o.
 
+Remarks
+-------
+
+nextindex will return a scalar error code if the index cannot be
+incremented.
+
+
 Examples
 ----------------
 

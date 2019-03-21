@@ -15,6 +15,14 @@ Format
 
     :returns: v (*TODO*), (N*(N+1)/2)x1 vector, the lower triangular portion of the matrix x.
 
+Remarks
+-------
+
+As you can see from the example below, vech will not check to see if x
+is symmetric. It just packs the lower trangular portion of the matrix
+into a column vector in row-wise order.
+
+
 Examples
 ----------------
 

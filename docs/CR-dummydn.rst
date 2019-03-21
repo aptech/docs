@@ -31,6 +31,23 @@ Format
 
     :returns: y (*TODO*), Nx(K-1) matrix containing the K-1 dummy variables.
 
+Remarks
+-------
+
+This is just like the function dummy, except that the pth column of the
+matrix of dummies is dropped. This ensures that the columns of the
+matrix of dummies do not sum to 1, and so these variables will not be
+collinear with a vector of ones.
+
+Missings are deleted before the dummy variables are created.
+
+All categories are open on the left (i.e., do not contain their left
+boundaries) and all but the highest are closed on the right (i.e., do
+contain their right boundaries). The highest (rightmost) category is
+unbounded on the right. Thus, only K-1 breakpoints are required to
+specify K dummy variables.
+
+
 Examples
 ----------------
 

@@ -19,6 +19,32 @@ Format
 
     :returns: y (*scalar*), 1 if variable is complex; 0 if real.
 
+Remarks
+-------
+
+If gdaIsCplx fails, it will return a scalar error code. Call scalerr to
+get the value of the error code. Valid error codes for this command
+include:
+
++---+-----------------------------------------------------+
+| 1 | Null file name.                                     |
++---+-----------------------------------------------------+
+| 2 | File open error.                                    |
++---+-----------------------------------------------------+
+| 4 | File read error.                                    |
++---+-----------------------------------------------------+
+| 5 | Invalid file type.                                  |
++---+-----------------------------------------------------+
+| 8 | Variable not found.                                 |
++---+-----------------------------------------------------+
+| 1 | File contains no variables.                         |
+| 0 |                                                     |
++---+-----------------------------------------------------+
+| 1 | File too large to be read on current platform.      |
+| 4 |                                                     |
++---+-----------------------------------------------------+
+
+
 Examples
 ----------------
 

@@ -19,6 +19,13 @@ Format
     :returns: y (*TODO*), Nx1 vector containing the elements in x
         indicated by  ci.
 
+Remarks
+-------
+
+Each element of y is from the corresponding row of x and the column set
+by the corresponding row of ci. In other words, y[i] = x[i, ci[i]].
+
+
 Examples
 ----------------
 

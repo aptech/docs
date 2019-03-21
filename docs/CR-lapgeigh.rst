@@ -19,6 +19,13 @@ Format
 
     :returns: ve (*Nx1 vector*), eigenvalues.
 
+Remarks
+-------
+
+veis the vector of eigenvalues of the solution of the generalized
+symmetric eigenproblem of the form Ax = λBx.
+
+
 Examples
 ----------------
 

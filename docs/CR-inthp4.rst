@@ -51,6 +51,34 @@ Format
     :returns: y (*Nx1 vector*), the estimated integrals of f(x)
         evaluated over the interval [a, b].
 
+Remarks
+-------
+
+The user-provided function must have the following format
+
+::
+
+                   f(struct DS *pds, x)
+
+where
+
++-----------------+-----------------------------------------------------+
+| pds             | scalar, pointer to an instance of a DS structure.   |
++-----------------+-----------------------------------------------------+
+| x               | scalar, value at which integral will be evaluated.  |
++-----------------+-----------------------------------------------------+
+
+If ctl.d can be specified (see Sikorski and Stenger, 1984),
+deterministic termination can be specified and accuracy guaranteed. if
+not, the heuristic method can be used and the value of ctl.d is
+disregarded.
+
+The pointer to the instance of the data structure, pds, is passed
+untouched to the user-provided procedure computing the function to be
+integrated. Any information needed by that function can be put into that
+data structure.
+
+
 Examples
 ----------------
 

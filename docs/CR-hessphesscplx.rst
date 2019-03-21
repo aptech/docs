@@ -22,6 +22,22 @@ Format
 
     :returns: h (*TODO*), KxK matrix of second derivatives of  f with respect to x at x0; this matrix will be symmetric.
 
+Remarks
+-------
+
+This procedure requires K*(K+1)/2 function evaluations. Thus if K is
+large, it may take a long time to compute the Hessian matrix.
+
+No more than 3-4 digit accuracy should be expected from this function,
+though it is possible for greater accuracy to be achieved with some
+functions.
+
+It is important that the function be properly scaled, in order to obtain
+greatest possible accuracy. Specifically, scale it so that the first
+derivatives are approximately the same size. If these derivatives differ
+by more than a factor of 100 or so, the results can be meaningless.
+
+
 Examples
 ----------------
 

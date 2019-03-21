@@ -15,6 +15,12 @@ Format
 
     :returns: y (*TODO*), MxN dense matrix.
 
+Remarks
+-------
+
+A dense matrix is just a normal format matrix.
+
+
 Examples
 ----------------
 

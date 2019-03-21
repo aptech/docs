@@ -16,6 +16,13 @@ Format
 ----------------
 .. function:: draw
 
+Remarks
+-------
+
+draw is especially useful when used in conjunction with transparent
+windows.
+
+
 Examples
 ----------------
 

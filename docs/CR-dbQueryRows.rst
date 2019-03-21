@@ -18,6 +18,14 @@ Format
 
     :returns: result_size (*scalar*), number of rows in the current result set of the active query. If the number of rows cannot be determined a -1 is returned.
 
+Remarks
+-------
+
+Note that if the query is not active or if the query is not a SELECT
+statement, a -1 is returned. These properties can be checked with
+dbQueryIsActive() or dbQueryIsSelect().
+
+
 Examples
 ----------------
 

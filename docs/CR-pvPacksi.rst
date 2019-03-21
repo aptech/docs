@@ -26,6 +26,12 @@ Format
 
     :returns: p1 (*TODO*), an instance of structure of type PV.
 
+Remarks
+-------
+
+pvPacksi does not support the packing of arrays.
+
+
 Examples
 ----------------
 

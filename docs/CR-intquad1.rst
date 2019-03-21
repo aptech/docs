@@ -26,6 +26,15 @@ Format
     :returns: y (*TODO*), Nx1 vector of the estimated integral(s) of f(x)
         evaluated between the limits given by  xl.
 
+Remarks
+-------
+
+The user-defined function f must return a vector of function values.
+intquad1 will pass to the user-defined function a vector or matrix for x
+and expect a vector or matrix to be returned. Use the .\* and ./ instead
+of \* and /.
+
+
 Examples
 ----------------
 

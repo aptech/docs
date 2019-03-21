@@ -21,6 +21,13 @@ Format
         one in the ith row will be in the round(x[i,1])
         column.
 
+Remarks
+-------
+
+Note that x does not have to contain integers: it will be rounded to
+nearest if necessary.
+
+
 Examples
 ----------------
 This example uses design to interchange the rows of a matrix.

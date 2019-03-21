@@ -20,6 +20,13 @@ Format
         That is, the rank of the largest element is N and the rank of the
         smallest is 1. (To get ranks in descending order, subtract y from N+1).
 
+Remarks
+-------
+
+rankindx assigns different ranks to elements that have equal values
+(ties). Missing values are assigned the lowest ranks.
+
+
 Examples
 ----------------
 

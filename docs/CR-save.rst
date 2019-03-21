@@ -39,6 +39,33 @@ Format
     :param y: 
     :type y: the symbol to be saved to  lpath
 
+Remarks
+-------
+
+save can be used to save matrices, strings, procedures, and functions.
+Procedures and functions must be compiled and resident in memory before
+they can be save'd.
+
+The following extensions will be given to files that are save'd:
+
++--------------+------+
+|    matrix    | .fmt |
++--------------+------+
+|    string    | .fst |
++--------------+------+
+|    procedure | .fcg |
++--------------+------+
+|    function  | .fcg |
++--------------+------+
+|    keyword   | .fcg |
++--------------+------+
+
+If the path= subcommand is used with save, the path string will be
+remembered until changed in a subsequent command. This path will be used
+whenever none is specified. The save path can be overridden in any
+particular save by specifying an explicit path and filename.
+
+
 Examples
 ----------------
 

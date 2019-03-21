@@ -36,6 +36,20 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = shape*scale
+   Var(x) = shape*scale2
+   x > 0
+   shape > 0
+   scale > 0
+
+
 Examples
 ----------------
 

@@ -34,6 +34,33 @@ Format
         "10", "File contains no variables."
         "14", "File too large to be read on current platform."
 
+Remarks
+-------
+
+This command updates the variable varname in filename with the data
+contained in x.
+
+If x is larger than the specified variable in the file, then gdaUpdate
+writes the new variable data after the last variable in the data file,
+moving the variable descriptor table to make room for the data and
+leaving empty bytes in the place of the old variable. This does not
+change the index of the variable because variable indices are determined
+NOT by the order of the variable data in a GDA, but by the order of the
+variable descriptors.
+
+If x is the same size or smaller than the specified variable in the
+file, then gdaUpdate writes the data in x over the specified variable.
+If x is smaller, then gdaUpdate leaves empty bytes between the end of
+the updated variable and the beginning of the next variable in the data
+file.
+
+This command updates variables quickly by not moving data in the file
+unnecessarily. However, calling gdaUpdate several times for one file may
+result in a file with a large number of empty bytes. To pack the data in
+a GDA, so it contains no empty bytes, call gdaPack. Or to update a
+variable without leaving empty bytes in the file, call gdaUpdateAndPack.
+
+
 Examples
 ----------------
 

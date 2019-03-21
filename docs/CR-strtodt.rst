@@ -18,6 +18,37 @@ Format
 
     :returns: x (*TODO*), NxK matrix of dates in DT scalar format.
 
+Remarks
+-------
+
+The DT scalar format is a double precision representation of the date
+and time. In the DT scalar format, the number:
+
+::
+
+   20120921223505
+
+represents 22:35:05 or 10:35:05 PM on September 21, 2012.
+
+The following formats are supported:
+
++------+-------------------------+
+| YYYY | Four digit year         |
++------+-------------------------+
+| YR   | Last two digits of year |
++------+-------------------------+
+| MO   | Number of month, 01-12  |
++------+-------------------------+
+| DD   | Day of month, 01-31     |
++------+-------------------------+
+| HH   | Hour of day, 00-23      |
++------+-------------------------+
+| MI   | Minute of hour, 00-59   |
++------+-------------------------+
+| SS   | Second of minute, 00-59 |
++------+-------------------------+
+
+
 Examples
 ----------------
 

@@ -17,6 +17,15 @@ Format
 
     :returns: str_left (*string*), str minus  token.
 
+Remarks
+-------
+
+str can be delimited with commas or spaces.
+
+The advantage of token over parse is that parse is limited to tokens of
+8 characters or less; token can extract tokens of any length.
+
+
 Examples
 ----------------
 Here is a keyword that uses token to parse its string parameter:

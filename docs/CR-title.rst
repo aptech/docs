@@ -14,6 +14,13 @@ Format
     :param str: the title to display above the graph.
     :type str: string
 
+Remarks
+-------
+
+Up to three lines of title may be produced by embedding a line feed
+character ("\L") in the title string.
+
+
 Examples
 ----------------
 

@@ -25,6 +25,13 @@ Format
 
         "y[1] = x mod z[1], x = trunc(x/z[1])y[2] = x mod z[2], x = trunc(x/z[2])y[3] = x mod z[3], x = trunc(x/z[3])   .   .   .y[n] = x mod z[n]"
 
+Remarks
+-------
+
+Can be used to convert from decimal to other number systems (radix
+conversion).
+
+
 Examples
 ----------------
 

@@ -16,6 +16,15 @@ Format
 
     :returns: ldl_factor (*TODO*), (N+1)xN matrix, containing the factors L and D as well as the permutation vector P, which can be passed directly to ldlsol to solve a system of linear equations.
 
+Remarks
+-------
+
+Matrix factorization is the most computationally intense part of solving
+a system of linear equations. The factorization can be saved and reused
+multiple times to prevent the need to repeat the matrix factorization
+step. ldlp uses the LAPACK function dsytrf to compute the factorization.
+
+
 Examples
 ----------------
 

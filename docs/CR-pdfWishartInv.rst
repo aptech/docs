@@ -25,6 +25,17 @@ Format
 
     :returns: y (*Scalar*), probability density function.
 
+Remarks
+-------
+
+pdfWishartInv calculates the probability density function for the
+inverse Wishart distribution, which is defined as
+
+::
+
+   f(T)=|Ψ|ν/2|T|ν+p+12⁢2νp2⁢Γp(ν2)exp⁡(−12tr(ΓT−1))
+
+
 Examples
 ----------------
 

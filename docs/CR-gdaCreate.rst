@@ -33,6 +33,16 @@ Format
         "6", "File already exists."
         "7", "Cannot create file."
 
+Remarks
+-------
+
+This command creates a GAUSS Data Archive containing only a header. To
+add data to the GDA, call gdaWrite.
+
+It is recommended that you include a .gda extension in filename.
+However, gdaCreate will not force an extension.
+
+
 Examples
 ----------------
 

@@ -31,6 +31,17 @@ Format
 
     :returns: ve (*TODO*), (iu-il+1)x1 vector, eigenvalues.
 
+Remarks
+-------
+
+lapeighi computes iu-il+1 eigenvalues only given a range of indices,
+i.e., the ith to jth eigenvalues, ranking them from smallest to largest.
+To find eigenvalues within a specified range see lapeighxb. For
+eigenvectors see lapeighvi, or lapeighvb. lapeighi is based on the
+LAPACK drivers DSYEVX and ZHEEVX. Further documentation of these
+functions may be found in the LAPACK User's Guide.
+
+
 Examples
 ----------------
 

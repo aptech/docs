@@ -73,6 +73,90 @@ Format
     :param p: controls the precision.
     :type p: Scalar expression
 
+Remarks
+-------
+
+-  For numeric values in matrices,p sets the number of significant
+   digits to be printed. For string arrays, strings, and character
+   elements in matrices,p sets the number of characters to be printed.
+   If a string is shorter than the specified precision, the entire
+   string is printed. For string arrays and strings, p = -1 means print
+   the entire string, regardless of its length p = -1 is illegal for
+   matrices; settingp>= 8 means the same thing for character elements.
+-  The /xxx slash parameters are optional. Field and precision are
+   optional also, but if one is included, then both must be included.
+   For example:
+
+   ::
+
+      // /xxx slash parameters omitted.
+      // field = 8, precision = 4
+      format 8,4;
+
+-  Slash parameters, if present, must precede the field and precision
+   parameters.
+-  A format statement stays in effect until it is overridden by a new
+   format statement. The slash parameters may be used in a print
+   statement to override the current default.
+
+   ::
+
+      x = rndn(2,2);
+
+      // l: left justified, e: scientific notation, c: follow with a comma 
+      print /lec x;
+
+      // r: right justified, d: decmial notation, t: follow with a tab 
+      print /rdt x;
+
+   will return:
+
+   ::
+
+      -1.24153744e+00 , 5.58408143e-01 ,
+       4.47416384e-01 ,-6.74269585e-01 ,
+
+           -1.24153744    0.55840814  
+            0.44741638    -0.67426958
+
+-  f andp may be any legal expressions that return scalars. Nonintegers
+   will be truncated to integers.
+
+   ::
+
+      digits = 2;
+      format /rd digits*4, digits
+      print x;
+
+   will return:
+
+   ::
+
+         -1.24     0.56 
+          0.45    -0.67
+
+-  The total width of field will be overridden if the number is too big
+   to fit into the space allotted. For instance, format/rds 1,0 can be
+   used to print integers with a single space between them, regardless
+   of the magnitudes of the integers.
+-  Complex numbers are printed with the sign of the imaginary half
+   separating them and an "i" appended to the imaginary half. Also, the
+   field parameter refers to the width of field for each half of the
+   number, so a complex number printed with a field of 8 will actually
+   take (at least) 20 spaces to print. The character printed after the
+   imaginary part can be changed (for example, to a "j") with the
+   sysstate function, case 9.
+-  The default when GAUSS is first started is:
+
+   ::
+
+      format /mb1 /ros 16,8;
+
+-  If character elements are to be printed, the precision should be at
+   least 8 or the elements will be truncated. This does not affect the
+   string data type.
+
+
 Examples
 ----------------
 For the examples below we will use a matrix elements of different magnitudes to more clearly show the differences between the different formatting options. This code will create that matrix:

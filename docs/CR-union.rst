@@ -23,6 +23,12 @@ Format
     :returns: y (*TODO*), Lx1 vector containing all unique values that are in
         v1 and  v2, sorted in ascending order.
 
+Remarks
+-------
+
+The combined elements of v1 and v2 must fit into a single vector.
+
+
 Examples
 ----------------
 

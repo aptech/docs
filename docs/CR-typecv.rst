@@ -22,6 +22,36 @@ Format
     :returns: y (*TODO*), scalar or Nx1 vector containing the types of
         the respective symbols in x.
 
+Remarks
+-------
+
+The values returned by typecv for the various variable types are as
+follows:
+
++----+---------------------------------------+
+| 5  | keyword (keyword)                     |
++----+---------------------------------------+
+| 6  | matrix (numeric, character, or mixed) |
++----+---------------------------------------+
+| 8  | procedure (proc)                      |
++----+---------------------------------------+
+| 9  | function (fn)                         |
++----+---------------------------------------+
+| 13 | string                                |
++----+---------------------------------------+
+| 15 | string array                          |
++----+---------------------------------------+
+| 17 | structure                             |
++----+---------------------------------------+
+| 21 | array                                 |
++----+---------------------------------------+
+| 23 | structure pointer                     |
++----+---------------------------------------+
+
+typecv will return the GAUSS missing value code if the symbol is not
+found, so it may be used to determine if a symbol is defined or not.
+
+
 Examples
 ----------------
 

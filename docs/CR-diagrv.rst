@@ -18,6 +18,12 @@ Format
 
     :returns: y (*TODO*), NxK matrix equal to x with its principal diagonal elements equal to those of  v.
 
+Remarks
+-------
+
+diag reverses the procedure and pulls the diagonal out of a matrix.
+
+
 Examples
 ----------------
 

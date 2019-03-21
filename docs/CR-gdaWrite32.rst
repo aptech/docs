@@ -35,6 +35,25 @@ Format
         "14", "File too large to be read on current platform."
         "25", "Not supported for use with a file created on a machine with a different byte order."
 
+Remarks
+-------
+
+gdaWrite32 adds the data in x to the end of the variable data in
+filename, and gives the variable the name contained in varname.
+
+This command is a speed optimization command for Windows. On all other
+platforms, this function is identical to gdaWrite. gdaWrite uses system
+file write commands that support 64-bit file sizes. These commands are
+slower on Windows XP than the 32-bit file write commands that were used
+for binary writes in GAUSS 6.0 and earlier. gdaWrite32 uses the 32-bit
+Windows system write commands, which will be faster on Windows XP. Note,
+however, that gdaWrite32 does not support 64-bit file sizes.
+
+This command does not support writing to a GDA that was created on a
+platform with a different byte order than the current machine. gdaWrite
+supports full cross-platform writing to GDA's.
+
+
 Examples
 ----------------
 

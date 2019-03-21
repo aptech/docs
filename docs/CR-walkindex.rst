@@ -24,6 +24,13 @@ Format
 
     :returns: ni (*Mx1 vector of indices*), the new index.
 
+Remarks
+-------
+
+walkindex will return a scalar error code if the index cannot walk
+further in the specified dimension and direction.
+
+
 Examples
 ----------------
 

@@ -22,6 +22,23 @@ Format
         the Normal distribution, i.e.,
         ln Pr(x < X < x+dx)
 
+Remarks
+-------
+
+The relative error is:
+
++-------------------+-----+-----------------+------------------+
+| \|x\| < 1         | and | dx < 1          | ±1e-14           |
++-------------------+-----+-----------------+------------------+
+| 1 < \|x\| < 37    | and | \|dx\| < 1/|x\| | ±1e-13           |
++-------------------+-----+-----------------+------------------+
+| min(x,x+dx) > -37 | and | y > -690        | ±1e-11 or better |
++-------------------+-----+-----------------+------------------+
+
+A relative error of ±1e-14 implies that the answer is accurate to better
+than ±1 in the 14th digit after the decimal point.
+
+
 Examples
 ----------------
 

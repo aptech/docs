@@ -16,6 +16,18 @@ Format
     :returns: y (NxK matrix or N-dimensional array) the square roots of each
         element of x.
 
+Remarks
+-------
+
+If x is negative, complex results are returned by default. You can turn
+the generation of complex numbers for negative inputs on or off in the
+GAUSS configuration file, and with the sysstate function, case 8. If you
+turn it off, sqrt will generate an error for negative inputs.
+
+If x is already complex, the complex number state does not matter; sqrt
+will compute a complex result.
+
+
 Examples
 ----------------
 

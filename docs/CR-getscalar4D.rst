@@ -28,6 +28,16 @@ Format
 
     :returns: y (*scalar*), the element of the array indicated by the indices.
 
+Remarks
+-------
+
+getscalar4D returns the scalar that is located in the [i1, i2, i3, i4]
+position of array a.
+
+A call to getscalar4D is faster than using the more general getmatrix
+function to get a scalar from a 4-dimensional array.
+
+
 Examples
 ----------------
 

@@ -16,6 +16,17 @@ Format
 
     :returns: r (*TODO*), K*N vector containing the roots of the determinantal equation.
 
+Remarks
+-------
+
+c is constructed of N+1 KxK coefficient matrices stacked vertically with
+the coefficient matrix of the t\ n at the top, t\ (n-1) next, down to
+the t\ 0 matrix at the bottom.
+
+Note that this procedure solves the scalar problem as well, that is, the
+one that POLYROOT solves.
+
+
 Examples
 ----------------
 Solve

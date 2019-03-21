@@ -19,6 +19,15 @@ Format
 
     :returns: sy (*Lx1 vector containing all unique strings that are in both  sv1 and  sv2*), sorted in ascending order.
 
+Remarks
+-------
+
+#. This function is deprecated, use intrsect instead.
+#. Place smaller vector first for fastest operation.
+#. If there are a lot of duplicates it is faster to remove them with
+   unique before calling intrsectsa.
+
+
 Examples
 ----------------
 

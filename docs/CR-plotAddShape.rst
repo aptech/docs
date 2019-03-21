@@ -30,6 +30,18 @@ Format
     :param y_end: the Y coordinate for the end of the bounding box for each respective shape.
     :type y_end: Scalar or Nx1 vector
 
+Remarks
+-------
+
+plotAddShape will add shapes to existing graphs. It will not create a
+new graph, however, if one does not already exist. Please also note that
+the top left corner of the bounding box for the shape will be placed at
+the coordinates that you specify. The bounding box is rectangular and
+will therefore not touch the edge of an ellipse at that point.
+
+plotAddShape is not yet supported for surface plots.
+
+
 Examples
 ----------------
 Example

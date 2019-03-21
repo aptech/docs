@@ -25,6 +25,17 @@ Format
 
     :returns: C (*Matrix*), result of join of 'A' and 'B'
 
+Remarks
+-------
+
+By default, outerJoin performs a left outer-join, retaining only the key
+columns from the first input matrix.
+
+The first columns of the output matrix C will be the columns of A in the
+same order as in A. The remaining columns of C will be the columns of B
+with the key columns removed.
+
+
 Examples
 ----------------
 

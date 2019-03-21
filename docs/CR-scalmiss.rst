@@ -15,6 +15,22 @@ Format
 
     :returns: y (*scalar*), 1 if argument is a scalar missing value, 0 if not.
 
+Remarks
+-------
+
+scalmiss first tests to see if the argument is a scalar. If it is not
+scalar, scalmiss returns a 0 without testing any of the elements.
+
+To test whether any element of a matrix is a missing value, use ismiss.
+scalmiss will execute much faster if the argument is a large matrix,
+since it will not test each element of the matrix but will simply return
+a 0.
+
+An element of x is considered to be a missing if and only if it contains
+a missing value in the real part. Thus, scalmiss and scalmiss would
+return a 1 for complex x = . + 1i, and a 0 for x = 1 + .i.
+
+
 Examples
 ----------------
 

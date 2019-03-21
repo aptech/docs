@@ -21,6 +21,16 @@ Format
 
     :returns: y (*Lx1 vector containing all unique values that are in both  v1 and  v2*), sorted in ascending order.
 
+Remarks
+-------
+
+#. If not matches are found, intrsect will return a scalar error code
+   that can be tested for with scalmiss.
+#. Place smaller vector first for fastest operation.
+#. If there are a lot of duplicates within a vector, it is faster to
+   remove them with the function unique before calling intrsect.
+
+
 Examples
 ----------------
 

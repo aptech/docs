@@ -19,6 +19,14 @@ Format
     :returns: si (*scalar*), index of corresponding element in 1-dimensional
         array or vector.
 
+Remarks
+-------
+
+This function and its opposite, arrayindex, allow you to convert between
+an N-dimensional index and its corresponding location in a 1-dimensional
+object of the same size.
+
+
 Examples
 ----------------
 

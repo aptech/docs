@@ -40,6 +40,31 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = num_s*(1 - prob)/prob
+   Var(x) = num_s*(1 - prob)/prob2
+   num_s > 0
+   0 < prob < 1
+
+rndNegBinomial has a different parameterization than the deprecated
+rndnb. To convert a call to rndnb to an equivalent call to
+rndNegBinomial, pass in 1 - prob in place of prob. For example, the
+following two calls are equivalent.
+
+::
+
+   x_1 = rndnb(1e6, 1, 15, 0.3);
+   x_2 = rndNegBinomial(1e6, 1, 15, 0.7);
+
+r and c will be truncated to integers if necessary.
+
+
 Examples
 ----------------
 

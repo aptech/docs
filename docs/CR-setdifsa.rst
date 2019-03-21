@@ -18,6 +18,15 @@ Format
 
     :returns: sy (*Lx1 vector containing all unique values that are in sv1 and are not in sv2*), sorted in ascending order.
 
+Remarks
+-------
+
+Place smaller vector first for fastest operation.
+
+When there are a lot of duplicates it is faster to remove them first
+with unique before calling this function.
+
+
 Examples
 ----------------
 

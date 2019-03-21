@@ -15,6 +15,14 @@ Format
 
     :returns: utc (*Nx1 vector*), UTC scalar format.
 
+Remarks
+-------
+
+In DT scalar format, 10:50:31 on July 15, 2010 is 20100703105031. A UTC
+scalar gives the number of seconds since or before January 1, 1970
+Greenwich Mean Time.
+
+
 Examples
 ----------------
 

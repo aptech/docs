@@ -13,6 +13,16 @@ Format
 
     :returns: y (*scalar*), ASCII value of next available key in keyboard buffer.
 
+Remarks
+-------
+
+If you are working in terminal mode, key does not "see" any keystrokes
+until ENTER is pressed. The value returned will be zero if no key is
+available in the buffer or it will equal the ASCII value of the key if
+one is available. The key is taken from the buffer at this time and the
+next call to key will return the next key.
+
+
 Examples
 ----------------
 

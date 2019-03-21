@@ -76,6 +76,80 @@ Format
         "n", "No trailing character.The default when GAUSS is first started is:                            format /m1 /ro 16,8;"
         ";;", "Double semicolons following a print statement willsuppress the final carriage return/line feed."
 
+Remarks
+-------
+
+The list of expressions MUST be separated by spaces. In print
+statements, because a space is the delimiter between expressions, NO
+SPACES are allowed inside expressions unless they are within index
+brackets, quotes, or parentheses.
+
+The printing of special characters is accomplished by the use of the
+backslash (\\) within double quotes. The options are:
+
++-----------------+-----------------------------------------------------+
+| \\b             | backspace (ASCII 8)                                 |
++-----------------+-----------------------------------------------------+
+| \\e             | escape (ASCII 27)                                   |
++-----------------+-----------------------------------------------------+
+| \\f             | form feed (ASCII 12)                                |
++-----------------+-----------------------------------------------------+
+| \\g             | beep (ASCII 7)                                      |
++-----------------+-----------------------------------------------------+
+| \\l             | line feed (ASCII 10)                                |
++-----------------+-----------------------------------------------------+
+| \\r             | carriage return (ASCII 13)                          |
++-----------------+-----------------------------------------------------+
+| \\t             | tab (ASCII 9)                                       |
++-----------------+-----------------------------------------------------+
+| \\###           | the character whose ASCII value is ''###''          |
+|                 | (decimal).                                          |
++-----------------+-----------------------------------------------------+
+
+Thus, \\13\10 is a carriage return/line feed sequence. The first three
+digits will be picked up here. So if the character to follow a special
+character is a digit, be sure to use three digits in the escape
+sequence. For example: \\0074 will be interpreted as 2 characters (ASCII
+7, "4")
+
+An expression with no assignment operator is an implicit print
+statement.
+
+If output on has been specified, then all subsequent print statements
+will be directed to the auxiliary output as well as the window. (See
+output.) The locate statement has no effect on what will be sent to the
+auxiliary output, so all formatting must be accomplished using tab
+characters or some other form of serial output.
+
+If the name of the symbol to be printed is prefixed with a $, it is
+assumed that the symbol is a matrix of characters.
+
+Note that GAUSS makes no distinction between matrices containing
+character data and those containing numeric data, so it is the
+responsibility of the user to use functions which operate on character
+matrices only on those matrices containing character data.
+
+These matrices of character strings have a maximum of 8 characters per
+element. A precision of 8 or more should be set when printing out
+character matrices or the elements will be truncated.
+
+Complex numbers are printed with the sign of the imaginary half
+separating them and an ''i'' appended to the imaginary half. Also, the
+current field width setting (see format) refers to the width of field
+for each half of the number, so a complex number printed with a field of
+8 will actually take (at least) 20 spaces to print.
+
+print'ing a sparse matrix results in a table of the non-zero values
+contained in the sparse matrix, followed by their corresponding row and
+column indices, respectively.
+
+A print statement by itself will cause a blank line to be printed:
+
+::
+
+   print;
+
+
 Examples
 ----------------
 

@@ -21,6 +21,20 @@ Format
 
     :returns: va (*NxN matrix*), eigenvectors.
 
+Remarks
+-------
+
+ve and va are the eigenvalues and eigenvectors of the solution of the
+generalized symmetric eigenproblem of the form Ax = λ B. Equivalently,
+va diagonalizes U\ '\ -1 A*U\ -1 in the following way
+
+::
+
+   va*U'-1 A*Y-1va' = ve
+
+where B = U'U. This procedure calls the LAPACK routines DSYGV and ZHEGV.
+
+
 Examples
 ----------------
 

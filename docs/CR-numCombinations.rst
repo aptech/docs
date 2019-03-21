@@ -19,6 +19,12 @@ Format
 
     :returns: y (*scalar*), number of combinations of  n things take  k at a time.
 
+Remarks
+-------
+
+To calculate all of the combinations, use the function combinate.
+
+
 Examples
 ----------------
 

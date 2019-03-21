@@ -16,6 +16,13 @@ Format
 
     :returns: m (*TODO*), Kx1 vector containing the medians of the respective columns of x.
 
+Remarks
+-------
+
+median will return a missing value for any column that contains a
+missing value.
+
+
 Examples
 ----------------
 

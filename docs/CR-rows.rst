@@ -15,6 +15,13 @@ Format
 
     :returns: y (*scalar*), number of rows in the specified matrix.
 
+Remarks
+-------
+
+Use getorders to return both the number of rows and columns in one call.
+If x is an empty matrix, rows(x) and cols(x) return 0.
+
+
 Examples
 ----------------
 

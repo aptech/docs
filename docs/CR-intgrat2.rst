@@ -119,6 +119,20 @@ Format
         f(x, y),
         evaluated between the limits given by  xl and  gl.
 
+Remarks
+-------
+
+The user-defined functions specified by f and gl must either
+
+#. Return a scalar constant
+
+         - or -
+
+#. Return a vector of function values. intgrat2 will pass to
+   user-defined functions a vector or matrix for x and y and expect a
+   vector or matrix to be returned. Use .\* and ./ instead of \* and /.
+
+
 Examples
 ----------------
 

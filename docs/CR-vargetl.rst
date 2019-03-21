@@ -16,6 +16,15 @@ Format
     :returns: y (*TODO*), contents of the variable whose name is
         in  s.
 
+Remarks
+-------
+
+This function searches the local symbol list for the symbol whose name
+is in s and returns the contents of the variable if it exists. If the
+symbol does not exist, the function will terminate with an Undefined
+symbol error message.
+
+
 Examples
 ----------------
 

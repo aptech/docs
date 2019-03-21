@@ -17,6 +17,21 @@ Format
 
     :returns: y (*scalar*), type of data in GAUSS data set.
 
+Remarks
+-------
+
+If fp is a valid GAUSS file handle, then y will be set to the type of
+the data in the file as follows:
+
++--------+----------------------------+
+|      2 | 2-byte signed integer      |
++--------+----------------------------+
+|      4 | 4-byte IEEE floating point |
++--------+----------------------------+
+|      8 | 8-byte IEEE floating point |
++--------+----------------------------+
+
+
 Examples
 ----------------
 

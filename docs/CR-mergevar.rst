@@ -17,6 +17,15 @@ Format
     :returns: x (*NxM matrix that contains the concatenated matrices*), where M is the sum of the columns in
         the K matrices specified in  vnames.
 
+Remarks
+-------
+
+The matrices specified in vnames must be globals and they must all have
+the same number of rows.
+
+This function is the opposite of makevars.
+
+
 Examples
 ----------------
 

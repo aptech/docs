@@ -15,6 +15,12 @@ Format
 
     :returns: zr (NxK matrix or N-dimensional array) the real part of x.
 
+Remarks
+-------
+
+If x is not complex, zr will be equal to x.
+
+
 Examples
 ----------------
 

@@ -33,6 +33,17 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+Remarks
+-------
+
+The properties of the pseudo-random numbers in X are:
+
+::
+
+   E(X) = df * cov
+   Var(Xij) = df * (cov2ij + covii*covjj)
+
+
 Examples
 ----------------
 

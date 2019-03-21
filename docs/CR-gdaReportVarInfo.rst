@@ -17,6 +17,17 @@ Format
 
     :returns: vinfo (*TODO*), Nx1 string array containing variable information.
 
+Remarks
+-------
+
+If you just want to print the information to the window, call
+gdaReportVarInfo without assigning the output to a symbol name:
+
+::
+
+                   gdaReportVarInfo(filename);
+
+
 Examples
 ----------------
 

@@ -22,6 +22,13 @@ Format
     :returns: y (*TODO*), (L*M)x(P*Q) submatrix of x, y may be larger
         than x.
 
+Remarks
+-------
+
+If r = 0, then all rows of x will be used. If c = 0, then all columns of
+x will be used.
+
+
 Examples
 ----------------
 

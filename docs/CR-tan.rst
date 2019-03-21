@@ -16,6 +16,14 @@ Format
 
     :returns: y (*TODO*), NxK matrix or N-dimensional array.
 
+Remarks
+-------
+
+For real matrices, x should contain angles measured in radians.
+
+To convert degrees to radians, multiply the degrees by π/180.
+
+
 Examples
 ----------------
 

@@ -24,6 +24,13 @@ Format
 
     :returns: y (*TODO*), max(N,L,P) by max(K,M,Q) matrix.
 
+Remarks
+-------
+
+The e matrix is usually the result of an expression or set of
+expressions using dot conditional and boolean operators.
+
+
 Examples
 ----------------
 

@@ -28,6 +28,14 @@ Format
 
     :returns: y (*scalar*), 1 if the function is successful and 0 if it fails.
 
+Remarks
+-------
+
+Default format for numeric data is: ''*.*lg '' 16 8
+
+Default format for character data is: ''*.*s '' 8 8
+
+
 Examples
 ----------------
 

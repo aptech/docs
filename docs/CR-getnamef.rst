@@ -16,6 +16,13 @@ Format
 
     :returns: y (*TODO*), Nx1 string array containing the names of all of the variables in the specified data set.
 
+Remarks
+-------
+
+The output, y, will have as many rows as there are variables in the data
+set.
+
+
 Examples
 ----------------
 

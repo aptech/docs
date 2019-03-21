@@ -24,6 +24,18 @@ Format
 
     :returns: y (*TODO*), KxL sparse matrix.
 
+Remarks
+-------
+
+Only the elements of s specified byrinds andcinds will be multiplied by
+scal. All other elements will be unchanged in the result.
+
+To select all rows or all columns, input a scalar 0 for rinds or cinds.
+
+Since sparse matrices are strongly typed in GAUSS, y must be defined as
+a sparse matrix before the call to spTScalar.
+
+
 Examples
 ----------------
 

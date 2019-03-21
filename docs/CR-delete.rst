@@ -30,6 +30,23 @@ Format
     :param symbol: name of symbol to be deleted. If symbol ends in an asterisk, all symbols matching the leading characters will be deleted.
     :type symbol: literal
 
+Remarks
+-------
+
+This completely and irrevocably deletes a symbol from GAUSS's memory and
+workspace.
+
+Flags must be preceded by a dash (e.g. -pfk). If the n (no pause) flag
+is used, you will not be asked for confirmation for each symbol.
+
+This command is supported only from interactive level. Since the
+interpreter executes a compiled pseudo-code, this command would
+invalidate a previously compiled code image and therefore would destroy
+any program it was a part of. If any symbols are deleted, all
+procedures, keywords and functions with global references to those
+symbols will be deleted as well.
+
+
 Examples
 ----------------
 

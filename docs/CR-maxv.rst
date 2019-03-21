@@ -19,6 +19,12 @@ Format
 
     :returns: z (*TODO*), A NxK matrix whose values are the maximum of each element from the arguments x and y.
 
+Remarks
+-------
+
+maxv works for sparse matrices as well as arrays.
+
+
 Examples
 ----------------
 

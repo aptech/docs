@@ -16,6 +16,24 @@ Format
 
     :returns: s (*TODO*), min(M,N)x1 vector, singular values.
 
+Remarks
+-------
+
+lapsvds computes the singular values of a real or complex rectangular
+matrix. The SVD is
+
+::
+
+   x = usv'
+
+where v is the matrix of right singular vectors. For the computation of
+the singular vectors, see lapsvdcusv and lapsvdusv.
+
+lapsvds is based on the LAPACK drivers DGESVD and ZGESVD. Further
+documentation of these functions may be found in the LAPACK User's
+Guide.
+
+
 Examples
 ----------------
 

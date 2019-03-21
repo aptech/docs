@@ -22,6 +22,32 @@ Format
 
     :returns: y (*TODO*), nx1 vector containing the specified sequence.
 
+Remarks
+-------
+
+For seqa, y will contain a first element equal to start, the second
+equal to start + inc, and the last equal to start + inc\*(n-1).
+
+For instance,
+
+::
+
+    seqa(1,1,10);
+
+will create a column vector containing the numbers 1, 2, ...10.
+For seqm, y will contain a first element equal to start, the second
+equal to start \* inc, and the last equal to start \* inc\ n-1.
+
+For instance,
+
+::
+
+   seqm(10,10,10);
+
+will create a column vector containing the numbers 10,
+100,...10\ :sup:`10`.
+
+
 Examples
 ----------------
 

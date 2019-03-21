@@ -16,6 +16,19 @@ Format
 
     :returns: z (NxK matrix or N-dimensional array) log-probabilities.
 
+Remarks
+-------
+
+This computes the log of the scalar Normal density function for each
+element of x. z could be computed by the following GAUSS code:
+
+::
+
+   z = -ln(sqrt(2*pi))-x .* x / 2;
+
+For multivariate log-probabilities, see lnpdfmvn.
+
+
 Examples
 ----------------
 

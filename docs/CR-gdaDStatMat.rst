@@ -67,6 +67,26 @@ Format
         "", "9", "altnames member of dstatmtControl structure wrong size."
         "", "11", "Data read error."
 
+Remarks
+-------
+
+Setcolind to a scalar 0 to use all of the columns in var.
+
+vnamevar must either reference an Mx1 string array variable containing
+variable names, where M is the number of columns in the data set
+variable, or be set to a scalar 0. If vnamevar references an Mx1 string
+array variable, then only the elements indicated by colind will be used.
+Otherwise, if vnamevar is set to a scalar 0, then the variable names for
+the output will be generated automatically (''X1,X2,...,XK'') unless the
+alternate variable names are set explicitly in the altnames member of
+the dstatmtControl structure.
+
+If pairwise deletion is used, the minima and maxima will be the true
+values for the valid data. The means and standard deviations will be
+computed using the correct number of valid observations for each
+variable.
+
+
 Examples
 ----------------
 In order to create a real, working example that you can use, you must first create a sample GAUSS Data Archive with the code below.

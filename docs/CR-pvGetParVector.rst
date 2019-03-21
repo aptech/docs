@@ -16,6 +16,13 @@ Format
 
     :returns: p (*Kx1 vector*), parameter vector.
 
+Remarks
+-------
+
+Matrices or portions of matrices (stored using a mask) are stored in the
+structure of type PV as a vector in the p member.
+
+
 Examples
 ----------------
 

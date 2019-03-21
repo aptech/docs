@@ -18,6 +18,20 @@ Format
     :returns: n (*scalar*), the next allowable size for the given dimension
         for computing an FFT or RFFT. n > n0.
 
+Remarks
+-------
+
+nextn and nextnevn determine allowable matrix dimensions for computing
+FFT's. The Temperton FFT routines (see table below) can handle any
+matrix whose dimensions can be expressed as:
+
+::
+
+   2px3qx5rx7s
+
+where p, q and r are nonnegative integers and s is equal to 0 or 1.
+
+
 Examples
 ----------------
 

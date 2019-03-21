@@ -17,6 +17,26 @@ Format
     :returns: y (*Kx1 vector*), the standard
         deviation of each column of x.
 
+Remarks
+-------
+
+This function essentially computes sample standard deviation, s:
+
+::
+
+   s=1n−1⁢×∑i=1n(Xi−X¯)2
+
+Thus, the divisor is N-1 rather than N, where N is the number of
+elements being summed.
+
+To convert to the population's standard deviation, multiply by
+:math:`\sqrt{\frac{n - 1}{n}}`
+:
+::
+
+   σ=s×n−1n
+
+
 Examples
 ----------------
 

@@ -24,6 +24,73 @@ Format
 
     :returns: y (*LxK matrix*), quantiles.
 
+Remarks
+-------
+
+Let {
+:math:`x_{(1)},...,x_{(n)}\,`
+} denote the order statistics, and let
+:math:`{\overset{\hat{}}{Q}}_{i}\left( p \right)\, = \,\left( 1 - \gamma \right)x_{(j)} + \gamma x_{(j + 1)}`
+denotes the sample quantiles, where
+:math:`\frac{j - m}{n} \leq p < \frac{j - m - 1}{n},\, m \in {\mathbb{R}},\, 0 \leq \gamma \leq 1.`
+The value of
+:math:`\gamma`
+is a function of integer part
+:math:`j = \, floor\left( pn + m \right)`
+and fractional part
+:math:`g = \, pn + m - j`
+. The
+:math:`m`
+is a constant determined by sample quantile type.
++---+-----------------------------------+
+| T | Definition                        |
+| y |                                   |
+| p |                                   |
+| e |                                   |
++---+-----------------------------------+
+| 1 | Discrete sample quantile type 1.  |
+|   | Inverse of empirical distribution |
+|   | function.                         |
++---+-----------------------------------+
+| 2 | Discrete sample quantile type 2.  |
+|   | Similar to type 1 except that     |
+|   | averaging at discontinuities.     |
++---+-----------------------------------+
+| 3 | Discrete sample quantile type 3.  |
+|   | SAS definition, choose the        |
+|   | nearest even order statistics.    |
++---+-----------------------------------+
+| 4 | Continous sample quantile type 4. |
+|   | Interpolating the step function   |
+|   | of definition 1.                  |
++---+-----------------------------------+
+| 5 | Continous sample quantile type 5. |
+|   | This is the value midway through  |
+|   | each step of definition 1.        |
++---+-----------------------------------+
+| 6 | Continous sample quantile type 6. |
+|   | The vertices divide the sample    |
+|   | space into n+1 regions, each with |
+|   | probability 1/(n+1).              |
++---+-----------------------------------+
+| 7 | Continous sample quantile type 7. |
+|   | The vertices divide the range     |
+|   | into n-1 regions, and 100p% of    |
+|   | the intervals lie to the left and |
+|   | 100(1-p)% lie to the right.       |
++---+-----------------------------------+
+| 8 | Continous sample quantile type 8. |
+|   | The resulting sample quantile is  |
+|   | median unbiased regardless the    |
+|   | distribution.                     |
++---+-----------------------------------+
+| 9 | Continous sample quantile type 9. |
+|   | The resulting sample quantile is  |
+|   | median unbiased if normal         |
+|   | distribution.                     |
++---+-----------------------------------+
+
+
 Examples
 ----------------
 

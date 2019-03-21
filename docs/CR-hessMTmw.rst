@@ -28,6 +28,13 @@ Format
 
     :returns: h (*KxK matrix*), Hessian.
 
+Remarks
+-------
+
+fct must evaluate to an Nx1 vector conformable to the weight vector.
+par1 must be created using the pvPack procedures.
+
+
 Examples
 ----------------
 

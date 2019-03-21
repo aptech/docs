@@ -33,6 +33,17 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = mu
+   Var(x) = cov
+
+
 Examples
 ----------------
 

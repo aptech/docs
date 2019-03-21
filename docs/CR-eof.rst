@@ -16,6 +16,17 @@ Format
 
     :returns: y (*scalar*), 1 if end of file has been reached, else 0.
 
+Remarks
+-------
+
+This function is used with readr and the fgetsxxxcommands to test for
+the end of a file.
+
+The seekr function can be used to set the pointer to a specific row
+position in a data set; the fseek function can be used to set the
+pointer to a specific byte offset in a file opened with fopen.
+
+
 Examples
 ----------------
 

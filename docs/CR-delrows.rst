@@ -21,6 +21,22 @@ Format
     :returns: y (*TODO*), PxK matrix contaning the remaining rows of x.
         If no rows remain, y will be an empty matrix.
 
+Remarks
+-------
+
+If r is an empty matrix, the result will be unchanged. Negative values
+of r are counted from the end of the matrix, therefore:
+
+::
+
+   r = -1;
+
+   y = delrows(x, r);
+
+will delete last row of x . The remaining rows of x will be assigned to
+y.
+
+
 Examples
 ----------------
 

@@ -21,6 +21,19 @@ Format
     :returns: z (*TODO*), Nx1 vector of integers containing the indices of the corresponding element of what
         in  where.
 
+Remarks
+-------
+
+If no matches are found for any of the elements in what, then the
+corresponding elements in the returned vector are set to the GAUSS
+missing value code.
+
+Both arguments will be forced to uppercase before the comparison.
+
+If there are duplicate elements in where, the index of the first match
+will be returned.
+
+
 Examples
 ----------------
 

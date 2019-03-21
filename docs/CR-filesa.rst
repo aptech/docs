@@ -16,6 +16,13 @@ Format
 
     :returns: y (*Nx1 string array of all file names that match*), or null string if none are found.
 
+Remarks
+-------
+
+y will contain file names only; any path information that was passed is
+dropped.
+
+
 Examples
 ----------------
 

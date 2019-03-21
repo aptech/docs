@@ -21,6 +21,14 @@ Format
         size of the fastest moving dimension of the array and K is the size
         of the second fastest moving dimension.
 
+Remarks
+-------
+
+Inputting an Nx1 locator vector will return a scalar, an (N-1)x1 locator
+vector will return a 1xL matrix, and an (N-2)x1 locator vector will
+return a KxL matrix.
+
+
 Examples
 ----------------
 

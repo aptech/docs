@@ -18,6 +18,21 @@ Format
 
     :returns: D (*NxN block diagonal matrix*), containing the factor D.
 
+Remarks
+-------
+
+-  Matrix factorization is the most computationally intense part of
+   solving a system of linear equations. The factorization can be saved
+   and reused multiple times to prevent the need to repeat the matrix
+   factorization step. If you only need the LDLT factorization for this
+   purpose, the combination of ldlp and ldlsol may be a better choice.
+-  The LDL matrix factorization without permutation is not numerically
+   stable for positive indefinite matrices. Therefore, this function
+   uses the permutation strategy from Bunch and Kaufman. The
+   permutations may result in an L matrix with elements above the
+   diagonal.
+
+
 Examples
 ----------------
 

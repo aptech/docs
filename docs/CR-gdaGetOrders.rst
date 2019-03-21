@@ -19,6 +19,39 @@ Format
 
     :returns: ord (*Mx1 vector*), orders of the variable in the GDA.
 
+Remarks
+-------
+
+If the specified variable is a matrix or string array, then ord will be
+a 2x1 vector containing the rows and columns of the variable
+respectively. If the variable is a string, then ord will be a scalar
+containing the length of the string. If the variable is an N-dimensional
+array, then ord will be an Nx1 vector containing the sizes of each
+dimension.
+
+If gdaGetOrders fails, it will return a scalar error code. Call scalerr
+to get the value of the error code. The error code may be any of the
+following:
+
++---+-----------------------------------------------------+
+| 1 | Null file name.                                     |
++---+-----------------------------------------------------+
+| 2 | File open error.                                    |
++---+-----------------------------------------------------+
+| 4 | File read error.                                    |
++---+-----------------------------------------------------+
+| 5 | Invalid file type.                                  |
++---+-----------------------------------------------------+
+| 8 | Variable not found.                                 |
++---+-----------------------------------------------------+
+| 1 | File contains no variables.                         |
+| 0 |                                                     |
++---+-----------------------------------------------------+
+| 1 | File too large to be read on current platform.      |
+| 4 |                                                     |
++---+-----------------------------------------------------+
+
+
 Examples
 ----------------
 

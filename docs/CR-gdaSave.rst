@@ -62,6 +62,32 @@ Format
         "16", "Cannot write to GDA - version outdated."
         "17", "Type mismatch."
 
+Remarks
+-------
+
+Only initialized variables are written to the GDA with gdaSave.
+
+If varnames is a null string and exclude is set to 0, it will be
+interpreted as indicating all of the variables in the workspace.
+
+You may add an asterisk (\*) to the end of a variable name in varnames
+to indicate that all variables beginning with the specified text are to
+be selected. For example, setting varnames to the string ''\_\*'' and
+setting exclude to 1 indicates that all variables EXCEPT those starting
+with an underscore should be written to the GDA.
+
+The names of the variables in the workspace are the names that are given
+to the variables when they are written to the GDA, with the exception of
+names that are changed to avoid conflicts.
+
+If you set overwrite to 2, and variable name conflicts are encountered,
+gdaSave will append an underscore and a number to the name of the
+variable it is adding. It will first try changing the name to name_1. If
+there is a conflict with that name, it will change it to name_2, and so
+on until it finds a name that does not conflict with any of the
+variables already in the GDA.
+
+
 Examples
 ----------------
 

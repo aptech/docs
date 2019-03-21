@@ -13,6 +13,16 @@ Format
 
     :returns: g_home (*string*), full path to GAUSS home directory.
 
+Remarks
+-------
+
+getGAUSSHome can be used to load and save files in directories that are
+relative to the GAUSS installation directory without knowing its exact
+location ahead of time. This can help to make programs that will run on
+multiple computers, using different paths without any changes to the
+code.
+
+
 Examples
 ----------------
 

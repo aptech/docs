@@ -16,6 +16,30 @@ Format
 
     :returns: y (*NxK matrix*), containing the natural log of the factorial of each of the elements in x.
 
+Remarks
+-------
+
+For integer x, this is (approximately) ln(x!). However, the computation
+is done using a formula, and the function is defined for noninteger x.
+
+In most formulae in which the factorial operator appears, it is possible
+to avoid computing the factorial directly, and to use lnfact instead.
+The advantage of this is that lnfact does not have the overflow problems
+that the factorial (!) operator has.
+
+For x > 1, this function has at least 6 digit accuracy, for x > 4 it has
+at least 9 digit accuracy, and for x > 10 it has at least 12 digit
+accuracy. For 0 < x < 1, accuracy is not known completely but is
+probably at least 6 digits.
+
+Sometimes log gamma is required instead of log factorial. These
+functions are related by:
+
+::
+
+   lngamma(x) = lnfact(x-1);
+
+
 Examples
 ----------------
 

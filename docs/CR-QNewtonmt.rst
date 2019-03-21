@@ -67,6 +67,48 @@ Format
         "out.moment", "KxK matrix, covariance matrix of parameters, if c.covType> 0."
         "out.hessian", "KxK matrix, matrix of second derivatives of objective function with respect to parameters."
 
+Remarks
+-------
+
+There is one required user-provided procedure, the one computing the
+objective function to be minimized, and another optional functions, the
+gradient of the objective function.
+
+These functions have one input argument that is an instance of type
+struct PV. On input to the call to QNewtonmt, the first argument
+contains starting values for the parameters. The arguments following the
+PV structure (except for the optional control structure) contain any
+required data.
+
+The PV structures are set up using the PV pack procedures, pvPack,
+pvPackm, pvPacks, and pvPacksm. These procedures allow for setting up a
+parameter vector in a variety of ways.
+
+For example, we might have the following objective function for fitting
+a nonlinear curve to data:
+
+::
+
+   proc (1) = Micherlitz(struct PV par1, y, x);
+      local p0,e,s2;
+      p0 = pvUnpack(par1, "parameters");
+      e = y - p0[1] - p0[2]*exp(-p0[3] * x);
+      retp(-lnpdfmvn(e,e'e/rows(e)));
+   endp;
+
+In this example the dependent and independent variables are passed to
+the procedure as the second and third arguments to the procedure.
+
+If the objective function is the negative of a proper log-likelihood,
+and if c.covType is set to 1, the covariance matrix of the parameters is
+computed and returned in out.moment, and standard errors, t-statistics
+and probabilities are printed if c.output = 1.
+
+If the objective function returns the negative of a vector of
+log-likelihoods, and if c.covType is set to 2, the quasi-maximum
+likelihood (QML) covariance matrix of the parameters is computed.
+
+
 Examples
 ----------------
 

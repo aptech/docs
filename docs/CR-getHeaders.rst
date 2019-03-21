@@ -16,6 +16,20 @@ Format
 
     :returns: headers (*TODO*), Px1 string array containing the variable names in the file.
 
+Remarks
+-------
+
+For convenience, 'getHeaders' will try to read variable names from Excel
+and CSV files. However, since these file types do not have a standard
+method specification for variable names, the first row of the file will
+be returned.
+
+CSV file names with a file extension other than .csv will need to start
+with the schema csv://.
+
+HDF5 file names must start with the schema h5://
+
+
 Examples
 ----------------
 

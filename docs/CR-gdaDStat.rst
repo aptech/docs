@@ -64,6 +64,21 @@ Format
         "", "9", "altnames member of dstatmtControl structure wrong size."
         "", "11", "Data read error."
 
+Remarks
+-------
+
+The variables referenced by vars must all be Nx1.
+
+The names of the variables in the GDA will be used for the output by
+default. To use alternate names, set the altnames member of the
+dstatmtControl structure.
+
+If pairwise deletion is used, the minima and maxima will be the true
+values for the valid data. The means and standard deviations will be
+computed using the correct number of valid observations for each
+variable.
+
+
 Examples
 ----------------
 

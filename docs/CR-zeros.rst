@@ -18,6 +18,14 @@ Format
 
     :returns: y (*TODO*), r x c matrix of zeros.
 
+Remarks
+-------
+
+This is faster than ones.
+
+Noninteger arguments will be truncated to an integer.
+
+
 Examples
 ----------------
 

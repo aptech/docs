@@ -11,6 +11,12 @@ Format
 ----------------
 .. function:: code_for_function
 
+Remarks
+-------
+
+Functions can be called in the same way as other procedures.
+
+
 Examples
 ----------------
 

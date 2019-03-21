@@ -17,6 +17,13 @@ Format
         elements of  sv sorted in ascending order with
         duplicates removed.
 
+Remarks
+-------
+
+Among sets of duplicates it is unpredictable which elements will be
+indexed.
+
+
 Examples
 ----------------
 

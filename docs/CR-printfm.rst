@@ -26,6 +26,77 @@ Format
 
     :returns: y (*scalar*), 1 if the function is successful and 0 if it fails.
 
+Remarks
+-------
+
+The mask is applied to the matrix x following the rules of standard
+element-by-element operations. If the corresponding element of mask is
+0, then that element of x is printed as a character string of up to 8
+characters. If mask contains a 1, then that element of x is assumed to
+be a double precision floating point number.
+
+The contents of fmt are as follows:
+
++----------+----------------+--------------------------------+
+|    [K,1] | format string, | a string 8 characters maximum. |
++----------+----------------+--------------------------------+
+|    [K,2] | field width,   | a number < 80.                 |
++----------+----------------+--------------------------------+
+|    [K,3] | precision,     | a number < 17.                 |
++----------+----------------+--------------------------------+
+
+The format strings correspond to the format slash commands as follows:
+
++-------------+------------+
+|    /rdn     | "*.*lf"    |
++-------------+------------+
+|    /ren     | "*.*lE"    |
++-------------+------------+
+|    /ron     | "#*.*lG"   |
++-------------+------------+
+|    /rzn     | "*.*lG"    |
++-------------+------------+
+|    /ldn     | "- *.*lf"  |
++-------------+------------+
+|    /len     | "- *.*lE"  |
++-------------+------------+
+|    /lon     | "-# *.*lG" |
++-------------+------------+
+|    /lzn     | "- *.*lG"  |
++-------------+------------+
+
+Complex numbers are printed with the sign of the imaginary half
+separating them and an "i" appended to the imaginary half. The field
+width refers to the width of field for each half of the number, so a
+complex number printed with a field of 8 will actually take (at least)
+20 spaces to print.
+
+If the precision = 0, the decimal point will be suppressed.
+
+The format string can be a maximum of 8 characters and is appended to a
+% sign and passed directly to the fprintf function in the standard C
+language I/O library. The lf, etc., are case sensitive. If you know C,
+you will easily be able to use this.
+
+If you want special characters to be printed after x, then include them
+as the last characters of the format string. For example:
+
++----------+----------------------------------------------+
+| "*.*lf," | right-justified decimal followed by a comma. |
++----------+----------------------------------------------+
+| "-*.*s " | left-justified string followed by a space.   |
++----------+----------------------------------------------+
+| "*.*lf"  | right-justified decimal followed by nothing. |
++----------+----------------------------------------------+
+
+If you want the beginning of the field padded with zeros, then put a "0"
+before the first "*" in the format string:
+
++----------+--------------------------+
+| "0*.*lf" | right-justified decimal. |
++----------+--------------------------+
+
+
 Examples
 ----------------
 Here is an example of printfm being used to print a

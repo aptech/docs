@@ -16,6 +16,22 @@ Format
 
     :returns: y (*TODO*), NxK matrix or N-dimensional array.
 
+Remarks
+-------
+
+| For each element of x this function returns the integral
+
+::
+
+   ∫0⧜t(x−1)⁢e−tdt
+
+All elements of x must be positive and less than or equal to 169. Values
+of x greater than 169 will cause an overflow.
+
+The natural log of gamma is often what is required and it can be
+computed without the overflow problems of gamma using lnfact.
+
+
 Examples
 ----------------
 

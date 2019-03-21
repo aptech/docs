@@ -32,6 +32,39 @@ Format
         dlibrary -dyour program will terminate with an error.
     :type -d: dump flag
 
+Remarks
+-------
+
+-  If no flags are used, the shared libraries listed are linked into
+   GAUSS and any previously linked libraries are dumped. When you call
+   dllcall, the shared libraries will be searched in the order listed
+   for the specified function. The first instance of the function found
+   will be called.
+
+-  dlibrary with no arguments prints out a list of the currently linked
+   shared libraries. The order in which they are listed is the order in
+   which they are searched for functions.
+
+-  dlibrary recognizes a default directory in which to look for dynamic
+   libraries. You can specify this by setting the variable dlib_path in
+   gauss.cfg. Set it to point to a single directory, not a sequence of
+   directories. sysstate, case 24, may also be used to get and set this
+   default.
+
+-  GAUSS maintains its own shared libraries which are listed when you
+   execute dlibrary with no arguments, and searched when you call
+   dllcall. The default shared library or libraries are searched last.
+   You can force them to be searched earlier by listing them explicitly
+   in a dlibrary statement. They are always active and are not unlinked
+   when you execute
+
+   ::
+
+      dlibrary -d
+
+For more information, see **Foreign Language Interface**, Chapter 1.
+
+
 Examples
 ----------------
 

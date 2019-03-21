@@ -20,6 +20,30 @@ Format
 
     :returns: y (*TODO*), max(N,L) by max(K,M) matrix of 1's and 0's.
 
+Remarks
+-------
+
+The return value is 1 if TRUE and 0 if FALSE.
+
+The statement:
+
+::
+
+   y = dotfeq(a,b);
+
+is equivalent to:
+
+::
+
+   y = a .eq b;
+
+The calling program can reset \_fcmptol before calling these procedures:
+
+::
+
+   _fcmptol = 1e-12;
+
+
 Examples
 ----------------
 

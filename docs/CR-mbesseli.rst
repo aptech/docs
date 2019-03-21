@@ -28,6 +28,32 @@ Format
     :returns: y (*KxN matrix*), evaluations of the modified Bessel or the exponentially scaled modified Bessel
         of the first kind of the nth order.
 
+Remarks
+-------
+
+For the functions that permit you to specify the order, the returned
+matrix contains a sequence of modified or exponentially scaled modified
+Bessel values of different orders. For the ith row of y:
+
+::
+
+   y[i,.] = Iα(x[i]) Iα+1(x[i])...Ialpha+n-1(x[i])
+
+The remaining functions generate modified Bessels of only the specified
+order.
+
+The exponentially scaled modified Bessels are related to the unscaled
+modifed Bessels in the following way:
+
+::
+
+   mbesselei0(x) = exp(-x) * mbesseli0(x)
+
+The use of the scaled versions of the modified Bessel can improve the
+numerical properties of some calculations by keeping the intermediate
+numbers small in size.
+
+
 Examples
 ----------------
 This example produces estimates for the "circular" response regression model (Fisher, N.I. Statistical Analysis of

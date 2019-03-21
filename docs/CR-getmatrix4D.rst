@@ -23,6 +23,17 @@ Format
     :returns: y (*KxL matrix*), where L is the size of the fastest moving
         dimension of the array and K is the size of the second fastest moving dimension.
 
+Remarks
+-------
+
+getmatrix4D returns the contiguous matrix that begins at the [i1,i2,1,1]
+position in array a and ends at the [i1, i2,K,L] position.
+
+A call to getmatrix4D is faster than using the more general getmatrix
+function to get a matrix from a 4-dimensional array, especially when i1
+and i2 are the counters from nested for loops.
+
+
 Examples
 ----------------
 

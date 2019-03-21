@@ -17,6 +17,26 @@ Format
 
     :returns: ret (*scalar*), if the record could not be retrieved, the result is positioned after the last record and 0 is returned. If the record is successfully retrieved, 1 is returned.
 
+Remarks
+-------
+
+Note that the result must be in the active state before calling this
+function or it will do nothing and return 0. You can verify the status
+of the query with dbQueryIsSelect().
+
+The following rules apply:
+
+If the result is currently located before the first record, e.g.,
+immediately after a query is executed, an attempt is made to retrieve
+the first record.
+
+If the result is currently located after the last record, there is no
+change and 0 is returned.
+
+If the result is located somewhere in the middle, an attempt is made to
+retrieve the next record.
+
+
 Examples
 ----------------
 

@@ -16,6 +16,18 @@ Format
 
     :returns: ind (*TODO*), Nx1 vector representing sorted index of x.
 
+Remarks
+-------
+
+sortind assumes that x contains numeric data. sortindc assumes that x
+contains character data.
+
+This function can be used to sort several matrices in the same way that
+some other reference matrix is sorted. To do this, create the index of
+the reference matrix, then use submat to rearrange the other matrices in
+the same way.
+
+
 Examples
 ----------------
 

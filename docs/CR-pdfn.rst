@@ -22,6 +22,18 @@ Format
     :returns: y (*NxK matrix*), or N-dimensional array, containing the standard Normal
         probability density function of x.
 
+Remarks
+-------
+
+This does not compute the joint Normal density function. Instead, the
+scalar Normal density function is computed element-by-element. y could
+be computed by the following GAUSS code:
+
+::
+
+   y =(1/sqrt(2*pi))*exp(-(x.*x)/2);
+
+
 Examples
 ----------------
 

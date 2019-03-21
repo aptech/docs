@@ -22,6 +22,15 @@ Format
 
     :returns: y (*TODO*), MxN sparse matrix.
 
+Remarks
+-------
+
+A dense matrix is just a normal format matrix.
+
+Since sparse matrices are strongly typed in GAUSS, y must be defined as
+a sparse matrix before the call to denseToSpRE.
+
+
 Examples
 ----------------
 

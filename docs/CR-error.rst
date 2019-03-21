@@ -19,6 +19,26 @@ Format
     :returns: y (*TODO*), scalar error code which can be interpreted as
         an integer with the scalerr function.
 
+Remarks
+-------
+
+The user may assign any number in the range 0-65535 to denote particular
+error conditions. This number may be tested for as an error code by
+scalerr.
+
+The scalerr function will return the value of the error code and so is
+the reverse of error. These user-generated error codes work in the same
+way as the intrinsic GAUSS error codes which are generated automatically
+when **trap 1** is on and certain GAUSS functions detect a numerical
+error such as a singular matrix.
+
+::
+
+                   error(0);
+
+is equal to the missing value code.
+
+
 Examples
 ----------------
 

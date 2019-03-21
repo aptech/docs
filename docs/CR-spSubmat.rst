@@ -21,6 +21,16 @@ Format
 
     :returns: s (*KxL sparse matrix*), the intersection of  rinds and  cinds.
 
+Remarks
+-------
+
+If rinds or cinds are scalar zeros, all rows or columns will be
+returned.
+
+Since sparse matrices are strongly typed in GAUSS, y must be defined as
+a sparse matrix before the call to spSubmat.
+
+
 Examples
 ----------------
 

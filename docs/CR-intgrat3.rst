@@ -30,6 +30,21 @@ Format
 
     :returns: y (*TODO*), Nx1 vector of the estimated integral(s) of f(x,y,z) evaluated between the limits given by  xl, gl and  hl.
 
+Remarks
+-------
+
+User-defined functions f, and those used in gl and hl must either:
+
+#. Return a scalar constant
+
+         - or -
+
+#. Return a vector of function values. intgrat3 will pass to
+   user-defined functions a vector or matrix for x and y and expect a
+   vector or matrix to be returned. Use .\* and ./ operators instead of
+   just \* and /.
+
+
 Examples
 ----------------
 

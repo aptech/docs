@@ -19,6 +19,32 @@ Format
 
     :returns: y (*TODO*), NxK matrix or string array equal to x and sorted on the column c.
 
+Remarks
+-------
+
+These functions will sort the rows of a matrix or string array with
+respect to a specified column. That is, they will sort the elements of a
+column and will arrange all rows of the object in the same order as the
+sorted column.
+
+sorthc assumes that the column to sort on is numeric. sorthcc assumes
+that the column to sort on contains character data.
+
+If x is a matrix, it may contain both character and numeric data, but
+the sort column must be all of one type. Missing values will sort as if
+their value is below -∞.
+
+The sort is in ascending order. This function uses the heap sort
+algorithm.
+
+If you need to obtain the matrix sorted in descending order, you can
+use:
+
+::
+
+   rev(sorthc(x, c))
+
+
 Examples
 ----------------
 

@@ -26,6 +26,12 @@ Format
 
     :returns: g (*TODO*), NxK Jacobian or 1xK gradient.
 
+Remarks
+-------
+
+par1 must be created using the pvPack procedures.
+
+
 Examples
 ----------------
 

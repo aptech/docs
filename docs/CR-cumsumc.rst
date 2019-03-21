@@ -17,6 +17,19 @@ Format
     :returns: y (*NxK matrix*), containing the cumulative sums of the
         columns of x.
 
+Remarks
+-------
+
+This is based on the recursive series function :func:`recserar`. :func:`recserar` could
+be called directly as follows:
+
+::
+
+    recserar(x, x[1,.],ones(1,cols(x)))
+
+to accomplish the same thing.
+
+
 Examples
 ----------------
 
@@ -42,3 +55,4 @@ Source
 cumsumc.src
 
 .. seealso:: Functions :func:`cumprodc`, :func:`recsercp`, :func:`recserar`
+

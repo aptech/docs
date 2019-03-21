@@ -41,6 +41,24 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   $\mu = np\\
+   \sigma^2 = np(1 - p)\\
+   \text{pmf } = {{n}\choose{k}}p^k(1 - p)^{n - k}\\
+   \text{ }\\
+   \text{n = number of trials}\\
+   \text{p = probability of success}\\
+   \text{k = number of successes}$
+
+r and c will be truncated to integers if necessary.
+
+
 Examples
 ----------------
 

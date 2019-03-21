@@ -31,6 +31,17 @@ Format
 
     :returns: va (*TODO*), Nx(iu- il+1) matrix, eigenvectors.
 
+Remarks
+-------
+
+lapeighvi computes iu-il+1 eigenvalues and eigenvectors given a range of
+indices, i.e., theith to jth eigenvalues, ranking them from smallest to
+largest. To find eigenvalues and eigenvectors within a specified range
+see lapeighvb. lapeighvi is based on the LAPACK drivers DSYEVX and
+ZHEEVX. Further documentation of these functions may be found in the
+LAPACK User's Guide.
+
+
 Examples
 ----------------
 

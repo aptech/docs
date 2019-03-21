@@ -17,6 +17,13 @@ Format
     :returns: num_rows (*scalar*), the number of rows affected by the result's SQL statement, or
         a -1 if it cannot be determined or the query is not active.
 
+Remarks
+-------
+
+Note that for SELECT statements, the value is undefined; use
+dbQueryRows() instead.
+
+
 Examples
 ----------------
 

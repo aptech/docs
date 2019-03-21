@@ -19,6 +19,23 @@ Format
     :param src: , matrix, or scalar.
     :type src: [N-M]-dimensional array
 
+Remarks
+-------
+
+setarray resets the specified subarray of a in place, without making a
+copy of the entire array. Therefore, it is faster than putarray.
+
+Ifloc is an Nx1 vector, then src must be a scalar. Ifloc is an [N-1]x1
+vector, thensrc must be a 1-dimensional array or a 1xL vector, where L
+is the size of the fastest moving dimension of the array. If loc is an
+[N-2]x1 vector, thensrc must be a KxL matrix, or a KxL 2-dimensional
+array, where K is the size of the second fastest moving dimension.
+
+Otherwise, ifloc is an Mx1 vector, thensrc must be an [N-M]-dimensional
+array, whose dimensions are the same size as the corresponding
+dimensions of array a.
+
+
 Examples
 ----------------
 

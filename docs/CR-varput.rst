@@ -21,6 +21,19 @@ Format
 
     :returns: y (*scalar*), 1 if the operation is successful and 0 if the operation fails.
 
+Remarks
+-------
+
+x and n may be global or local. The variable, whose name is in n, that x
+is assigned to is always a global.
+
+If the function fails, it will be because the global symbol table is
+full.
+
+This function is useful for returning values generated in local
+variables within a procedure to the global symbol table.
+
+
 Examples
 ----------------
 

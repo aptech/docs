@@ -24,6 +24,13 @@ Format
     :returns: y (*TODO*), RxK matrix where R=N-(t + b),
         containing the rows left after the trim.
 
+Remarks
+-------
+
+If either t or b is zero, then no rows will be trimmed from that end of
+the matrix.
+
+
 Examples
 ----------------
 

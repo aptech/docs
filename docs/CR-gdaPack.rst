@@ -29,6 +29,13 @@ Format
         "12", "File truncate error."
         "14", "File too large to be read on current platform."
 
+Remarks
+-------
+
+You may want to call gdaPack after several calls to gdaUpdate to remove
+all of the empty bytes from a GDA.
+
+
 Examples
 ----------------
 

@@ -27,6 +27,14 @@ Format
         is (P+1)x1 and x is NxN):
         y =( c[1,.].*xp + c[2,.].*x(p-1) + ... + c[p+1,.] )';
 
+Remarks
+-------
+
+In both the scalar and the matrix case, Horner's rule is used to do the
+evaluation. In the scalar case, the function recsercp is called (this
+implements an elaboration of Horner's rule).
+
+
 Examples
 ----------------
 Scalar example 1

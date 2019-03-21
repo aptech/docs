@@ -17,6 +17,14 @@ Format
     :param var#: the names of the variables to list.
     :type var#: literal
 
+Remarks
+-------
+
+The variables are listed in an interactive mode. As many rows and
+columns as will fit on the screen are displayed. You can use the cursor
+keys to pan and scroll around in the listing.
+
+
 Examples
 ----------------
 

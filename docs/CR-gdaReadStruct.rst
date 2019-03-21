@@ -35,6 +35,12 @@ Format
         "10", "File contains no variables."
         "14", "File too large to be read on current platform."
 
+Remarks
+-------
+
+instance can be an array of structures.
+
+
 Examples
 ----------------
 

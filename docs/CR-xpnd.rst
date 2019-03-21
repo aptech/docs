@@ -17,6 +17,16 @@ Format
         filling in a symmetric matrix with its elements.
         M =( (-1 + sqrt(1 + 8 * K) )/2)
 
+Remarks
+-------
+
+If v does not contain the right number of elements, (that is, if sqrt(1
++ 8 \* K) is not integral), then an error message is generated.
+
+This function is particularly useful for hard-coding symmetric matrices,
+because only about half of the matrix needs to be entered.
+
+
 Examples
 ----------------
 

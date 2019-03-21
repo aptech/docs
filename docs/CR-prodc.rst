@@ -16,6 +16,17 @@ Format
 
     :returns: y (*TODO*), Kx1 matrix containing the products of all elements in each column of x.
 
+Remarks
+-------
+
+To find the products of the elements in each row of a matrix, transpose
+before applying prodc. If x is complex, use the bookkeeping transpose
+(.').
+
+To find the products of all of the elements in a matrix, use the vecr
+function before applying prodc.
+
+
 Examples
 ----------------
 

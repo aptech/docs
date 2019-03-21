@@ -84,6 +84,48 @@ Format
         "26", "Cannot add structure definition."
         "27", "Structure definition does not match."
 
+Remarks
+-------
+
+For each variable in filename, gdaLoad will first compare the name of
+the variable against the names of the variables already resident in the
+GAUSS workspace to see if there is a match. If there is not a match, and
+create is set to 1, it will create a new variable. Otherwise if create
+is set to 0, it will skip that variable.
+
+If the variable name does match that of a variable already resident in
+the GAUSS workspace, and modify is set to 1, it will attempt to modify
+that variable. If the types of the two variables are different, and
+ftype is set to 1, it will force the type change if possible and modify
+the existing variable.
+
+If it cannot modify the variable or modify is set to 0, it will check to
+see if rename is set to 1, and if so, attempt to rename the variable,
+appending an \_ num to the variable name, beginning with num = 1 and
+counting upward until it finds a name with which there are no conflicts.
+If the variable cannot be modified and rename is set to 0, then the
+variable will be skipped.
+
+The rename argument also controls the handling of structure definitions.
+If a structure variable is encountered in the GDA file, and no variable
+of the same name exists in the workspace (or the variable is renamed),
+gdaLoad will attempt to find a structure definition in the workspace
+that matches the one in the GDA. Note that in order for structure
+definitions to match, the structure definition names must be the same as
+well as the number, order, names, and types of their members.
+
+If no matching structure definition is found, the definition in the file
+will be loaded into the workspace. If there is already a non-matching
+structure definition with the same name in the workspace and rename is
+set to 1, then gdaLoad will attempt to rename the structure definition,
+using the same method as it does for variable names.
+
+If a structure variable is encountered in the GDA file, a structure
+variable of the same name already exists in the workspace, and modify is
+set to 1, then gdaLoad will modify the existing variable, providing that
+the structure definitions of the two variables match.
+
+
 Examples
 ----------------
 

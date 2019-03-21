@@ -16,6 +16,28 @@ Format
 
     :returns: y (*TODO*), Kx1 matrix containing the index of the smallest element in each column of x.
 
+Remarks
+-------
+
+If x is complex, minindc uses the complex modulus (abs(x)) to determine
+the smallest elements.
+
+To find the index of the smallest element in each row, transpose the
+matrix before applying minindc.
+
+To find the index of the smallest element in a matrix x, use:
+
+::
+
+   colInd = minindc(minc(x));
+   rowInd = minindc(x[.,colInd]);
+
+If there are two or more "smallest" elements in a column (i.e., two or
+more elements equal to each other and less than all other elements),
+then minindc returns the index of the first one found, which will be the
+smallest index.
+
+
 Examples
 ----------------
 

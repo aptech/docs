@@ -23,6 +23,12 @@ Format
 
     :returns: h (*KxK matrix*), Hessian.
 
+Remarks
+-------
+
+par1 must be created using the pvPack procedures.
+
+
 Examples
 ----------------
 

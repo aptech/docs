@@ -27,6 +27,19 @@ Format
     :param step: the increment value.
     :type step: scalar expression
 
+Remarks
+-------
+
+#. The iterations of a threadfor loop may execute in any order.
+#. Indexed assignments to global variables that use the loop counter
+   behave the same as in a standard for loop.
+#. Non-indexed assignments will create a temporary variable that
+   persists only through the remainder of the current loop iteration.
+   For example:
+#. threadfor loops may not be nested
+#. Debugging inside of threadfor loops is currently not supported.
+
+
 Examples
 ----------------
 

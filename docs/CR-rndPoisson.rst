@@ -35,6 +35,19 @@ Format
 
     :returns: newstate (*Opaque vector*), the updated state.
 
+Remarks
+-------
+
+The properties of the pseudo-random numbers in x are:
+
+::
+
+   E(x) = lambda
+   Var(x) = lambda
+
+r and c will be truncated to integers if necessary.
+
+
 Examples
 ----------------
 The example below simulates 100 observations of a Poisson process with a mean of 17.

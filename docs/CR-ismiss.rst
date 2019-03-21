@@ -17,6 +17,14 @@ Format
 
     :returns: y (*scalar*), 1 if x contains any missing values, otherwise 0.
 
+Remarks
+-------
+
+An element of x is considered to be a missing if and only if it contains
+a missing value in the real part. Thus, if x = 1 + .i, ismiss(x) will
+return a 0.
+
+
 Examples
 ----------------
 

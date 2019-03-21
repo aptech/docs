@@ -24,6 +24,20 @@ Format
     :returns: y (*NxK matrix*), containing the K dummy variables.
         Each row will have a maximum of one 1.
 
+Remarks
+-------
+
+Missings are deleted before the dummy variables are created.
+
+All categories are open on the left (i.e., do not contain their left
+boundaries) and are closed on the right (i.e., do contain their right
+boundaries). Thus, K breakpoints are required to specify K dummy
+variables.
+
+The function dummy is similar to dummybr, but in that function the
+highest category is unbounded on the right.
+
+
 Examples
 ----------------
 

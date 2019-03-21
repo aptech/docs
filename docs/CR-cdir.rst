@@ -17,6 +17,16 @@ Format
 
     :returns: y (string), containing the drive and full path name of the current directory on the specified drive.
 
+Remarks
+-------
+
+If the current directory is the root directory, the returned string will
+end with a backslash, otherwise it will not.
+
+A null string or scalar zero can be passed in as an argument to obtain
+the current drive and path name.
+
+
 Examples
 ----------------
 If the current working directory is C:\gauss:

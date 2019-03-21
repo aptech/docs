@@ -29,6 +29,14 @@ Format
     :param head_size: the size of the arrowhead(s) in pixels. The first element of head_size is the size for head at the end of the arrow. The second element is the size of the head at the start of the arrow.
     :type head_size: 2x1 vector
 
+Remarks
+-------
+
+Please note that plotAddArrow will add arrows to existing graphs, it
+will not create a new graph if one does not exist. plotAddArrow is not
+yet supported for surface plots.
+
+
 Examples
 ----------------
 

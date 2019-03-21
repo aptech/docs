@@ -29,6 +29,21 @@ Format
     :returns: y (*Nx1 vector*), the log of the integral from h, k to  h+dh, k+dk
         of the standardized bivariate Normal distribution.
 
+Remarks
+-------
+
+Scalar input arguments are okay; they will be expanded to Nx1 vectors.
+
+lncdfbvn2 will abort if the computed integral is negative.
+
+lncdfbvn2 computes an error estimate for each set of inputs-the real
+integral is exp(y)±err. The size of the error depends on the input
+arguments. If **trap 2** is set, a warning message is displayed when err
+>= exp(y)/100.
+
+For an estimate of the actual error, see cdfBvn2e.
+
+
 Examples
 ----------------
 

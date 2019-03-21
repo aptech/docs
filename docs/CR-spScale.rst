@@ -19,6 +19,13 @@ Format
 
     :returns: s (*Nx1 vector*), column scale factors.
 
+Remarks
+-------
+
+spScale scales the elements of the matrix by powers of 10 so that they
+are all within (-10,10).
+
+
 Examples
 ----------------
 

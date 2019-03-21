@@ -16,6 +16,14 @@ Format
 
     :returns: index (*scalar*), query position
 
+Remarks
+-------
+
+The first record is at position zero. If the position is invalid, the
+function returns QSql::BeforeFirstRow or QSql::AfterLastRow, which are
+special negative values.
+
+
 Examples
 ----------------
 

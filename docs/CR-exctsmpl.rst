@@ -35,6 +35,15 @@ Format
         "", "-2", "can't open output file"
         "", "-3", "disk full"
 
+Remarks
+-------
+
+Random sampling is done with replacement. Thus, an observation may be in
+the resulting sample more than once. If percent is 100, the resulting
+sample will not be identical to the original sample, though it will be
+the same size.
+
+
 Examples
 ----------------
 

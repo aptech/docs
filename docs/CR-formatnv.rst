@@ -16,6 +16,13 @@ Format
 
     :returns: oldfmt (*1x3 vector*), the old format specification.
 
+Remarks
+-------
+
+See `printfm <CR-printfm.html#printfm>`__ for details on the format
+vector.
+
+
 Examples
 ----------------
 This example saves the old format, sets the format desired for

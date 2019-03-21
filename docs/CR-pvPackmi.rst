@@ -30,6 +30,21 @@ Format
 
     :returns: p1 (*TODO*), an instance of structure of type PV.
 
+Remarks
+-------
+
+The mask allows storing a selected portion of a matrix into the
+parameter vector. The ones in the mask matrix indicate an element to be
+stored in the parameter matrix. When the matrix is unpacked (using
+pvUnpackm) the elements corresponding to the zeros are restored.
+Elements corresponding to the ones come from the parameter vector.
+
+If the mask is all zeros, the matrix or array is packed with the
+specified elements in the second argument but no elements of the matrix
+or array are entered into the parameter vector. When unpacked the matrix
+or array in the second argment is returned without modification.
+
+
 Examples
 ----------------
 

@@ -21,6 +21,12 @@ Format
     :param val: the value to be bound.
     :type val: valid type
 
+Remarks
+-------
+
+Values cannot be bound to multiple locations in the query.
+
+
 Examples
 ----------------
 

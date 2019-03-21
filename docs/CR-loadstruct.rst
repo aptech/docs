@@ -21,6 +21,12 @@ Format
 
     :returns: retcode (*scalar*), 0 if successful, otherwise 1.
 
+Remarks
+-------
+
+instancecan be an array of structures.
+
+
 Examples
 ----------------
 

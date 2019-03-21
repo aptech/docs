@@ -25,6 +25,18 @@ Format
     :returns: y (*TODO*), MxK matrix or N-dimensional array, copy of x
         containing the new values in  vals.
 
+Remarks
+-------
+
+If x is a vector, inds should be an Lx1 vector. If x is a matrix, inds
+should be an Lx2 matrix. Otherwise if x is an N-dimensional array, inds
+should be an LxN matrix.
+
+putvals allows you to insert multiple values into a matrix or
+N-dimensional array at one time. This could also be accomplished using
+indexing inside a for loop.
+
+
 Examples
 ----------------
 
