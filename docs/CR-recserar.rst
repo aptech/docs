@@ -19,7 +19,7 @@ Format
     :param rho:  The AR parameters.
     :type rho: PxK matrix
 
-    :returns: y (*TODO*), NxK matrix containing the series.
+    :returns: y (*NxK matrix*), containing the series.
 
 Examples
 ----------------

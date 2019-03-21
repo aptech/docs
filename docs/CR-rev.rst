@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: y (*TODO*), NxK matrix containing the reversed rows of x.
+    :returns: y (*NxK matrix*), containing the reversed rows of x.
 
 Examples
 ----------------

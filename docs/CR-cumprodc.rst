@@ -14,20 +14,31 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: y (*TODO*), NxK matrix containing the cumulative products
-        of the columns of x.
+    :returns: y (*NxK matrix*) containing the cumulative products of the columns of *x*.
+
+Remarks
+-------
+
+This is based on the recursive series :func:`recsercp`. :func:`recsercp` could be called
+directly as follows:
+
+::
+
+   recsercp(x, zeros(1,cols(x)));
+
+to accomplish the same thing.
 
 Examples
 ----------------
 
 ::
-
-    x = { 1 -3,
+:func:`
+    x` = { 1 -3,
           2  2,
           3 -1 };
     y = cumprodc(x);
 
-Now if you view y, you will see:
+Now if you view *y*, you will see:
 
 ::
 
@@ -36,8 +47,9 @@ Now if you view y, you will see:
         6.000  6.000
 
 Source
-++++++
+------------
 
 cumprodc.src
 
 .. seealso:: Functions :func:`cumsumc`, :func:`recsercp`, :func:`recserar`
+

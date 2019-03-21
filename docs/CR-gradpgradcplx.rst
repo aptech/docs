@@ -27,7 +27,7 @@ Format
     :param x0: 
     :type x0: Kx1 vector of points at which to compute gradient
 
-    :returns: g (*TODO*), NxK matrix containing the gradients of f with
+    :returns: g (*NxK matrix*), containing the gradients of f with
         respect to the variable x at x0.
 
 Examples

@@ -21,7 +21,7 @@ Format
         must be in ascending order) that determine the K
         categories to be used
 
-    :returns: y (*TODO*), NxK matrix containing the K dummy variables.
+    :returns: y (*NxK matrix*), containing the K dummy variables.
         Each row will have a maximum of one 1.
 
 Examples

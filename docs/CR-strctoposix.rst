@@ -17,7 +17,7 @@ Format
     :param fmt: or  ExE conformable string array containing strftime date/time format characters.
     :type fmt: string
 
-    :returns: d (*TODO*), NxK matrix containing dates in Posix format (seconds since the Jan 1, 1970).
+    :returns: d (*NxK matrix*), containing dates in Posix format (seconds since the Jan 1, 1970).
 
 Examples
 ----------------

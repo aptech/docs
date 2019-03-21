@@ -41,7 +41,7 @@ Format
 Remarks
 ------------
 
-The standard input stream (stdin) can be read with csvReadM by passing
+The standard input stream (stdin) can be read with :func:`csvReadM` by passing
 in `__STDIN` as the filename input. Note that `__STDIN` should not be
 passed as a string, surrounded by quotes. Correct usage is shown below:
 

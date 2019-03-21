@@ -14,7 +14,7 @@ Format
     :param x: , all elements must be positive.
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix containing the natural log of the factorial of each of the elements in x.
+    :returns: y (*NxK matrix*), containing the natural log of the factorial of each of the elements in x.
 
 Examples
 ----------------

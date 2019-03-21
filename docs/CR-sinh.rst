@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: y (*TODO*), NxK matrix containing the hyperbolic sines of the elements of x.
+    :returns: y (*NxK matrix*), containing the hyperbolic sines of the elements of x.
 
 Examples
 ----------------

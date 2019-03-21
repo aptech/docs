@@ -17,7 +17,7 @@ Format
     :param fmt: or  ExE conformable string array containing strftime date/time format characters.
     :type fmt: string
 
-    :returns: d (*TODO*), NxK matrix containing dates in DT Scalar format (i.e. 200803170930).
+    :returns: d (*NxK matrix*), containing dates in DT Scalar format (i.e. 200803170930).
 
 Examples
 ----------------

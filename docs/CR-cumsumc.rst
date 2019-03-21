@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: y (*TODO*), NxK matrix containing the cumulative sums of the
+    :returns: y (*NxK matrix*), containing the cumulative sums of the
         columns of x.
 
 Examples
@@ -28,7 +28,7 @@ Examples
     
     y = cumsumc(x);
 
-Now if you view y, you will see:
+Now if you view *y*, you will see:
 
 ::
 
@@ -37,7 +37,7 @@ Now if you view y, you will see:
         6.000 -2.000
 
 Source
-++++++
+------------
 
 cumsumc.src
 

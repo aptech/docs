@@ -16,7 +16,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: u (*TODO*), NxK matrix containing the upper elements of x. The lower elements are
+    :returns: u (*NxK matrix*), containing the upper elements of x. The lower elements are
         replaced with zeros. upmat returns the main diagonal intact. upmat1
         replaces the main diagonal with ones.
 

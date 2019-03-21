@@ -8,59 +8,38 @@ Reads data from CSV file into a GAUSS string array.
 
 Format
 ----------------
-.. function:: csvReadSA(file, row_range, col_range, delimiter)
+.. function:: csvReadSA(file[, row_range[, col_range[, delimiter]]])
 
     :param file: name of CSV file.
     :type file: string
 
-    .. csv-table::
-        :widths: auto
+    :param row_range: Optional input. The first element of *row_range* will specify the first row of the file to read. If there is a second element in *row_range*, it will specify the last row to read from the file. If there is no second element in *row_range*, GAUSS will read to the end of the file. If *row_range* is not passed in, all rows will be read from the file. Default = 1.
+    :type row_range: scalar or 2x1 matrix
 
-        ""
+    :param col_range: Optional input. The first element of *col_range* will specify the first column of the file to read. If there is a second element in *col_range*, it will specify the last column to read from the file. If there is no second element in *col_range*, GAUSS will read to the end of the file. If *col_range* is not passed in, all columns will be read from the file. Default = 1.
+    :type col_range: : scalar or 2x1 matrix
 
-    :param row_range: , or 2x1 matrix. The first element of row_range will specify the first row of the file to read. If there is a second element in row_range, it will specify the last row to read from the file. If there is no second element in row_range, GAUSS will read to the end of the file. If row_range is not passed in, all rows will be read from the file. Default = 1.
-    :type row_range: Optional input: scalar
+    :param delimiter: Optional input. The character used to separate elements in the file. Examples include:
 
-    .. csv-table::
-        :widths: auto
+        - space ``" "``
+        - tab ``"\t"``
+        - semi-colon ``";"``
+        - comma ``","`` (Default)
 
-        ""
-
-    :param col_range: , or 2x1 matrix. The first element of col_range will specify the first column of the file to read. If there is a second element in col_range, it will specify the last column to read from the file. If there is no second element in col_range, GAUSS will read to the end of the file. If col_range is not passed in, all columns will be read from the file. Default = 1.
-    :type col_range: Optional input: scalar
-
-    .. csv-table::
-        :widths: auto
-
-        ""
-
-    :param delimiter:  The character used to separate elements in the file. Examples include:
-        space " "tab "\t"semi-colon ";"comma "," (Default)
-    :type delimiter: Optional input: string
+    :type delimiter: : string
 
     :returns: s (*string array*), data read from the CSV file.
 
-    .. csv-table::
-        :widths: auto
+Remarks
+-------
 
-        ""
+The standard input stream (stdin) can be read with :func:`csvReadSA` by passing
+in `__STDIN` as the filename input. Note that `__STDIN` should not be
+passed as a string, surrounded by quotes. Correct usage is shown below:
 
-    :returns: row_range (*TODO*), Optional input: scalar, or 2x1 matrix. The first element of row_range will specify the first row of the file to read. If there is a second element in row_range, it will specify the last row to read from the file. If there is no second element in row_range, GAUSS will read to the end of the file. If row_range is not passed in, all rows will be read from the file. Default = 1.
+::
 
-    .. csv-table::
-        :widths: auto
-
-        ""
-
-    :returns: col_range (*TODO*), Optional input: scalar, or 2x1 matrix. The first element of col_range will specify the first column of the file to read. If there is a second element in col_range, it will specify the last column to read from the file. If there is no second element in col_range, GAUSS will read to the end of the file. If col_range is not passed in, all columns will be read from the file. Default = 1.
-
-    .. csv-table::
-        :widths: auto
-
-        ""
-
-    :returns: delimiter (*TODO*), Optional input: string. The character used to separate elements in the file. Examples include:
-        space " tab "\t"semi-colon ";"comma "," (Default)
+   x = csvReadSA(__STDIN);
 
 Examples
 ----------------
@@ -116,13 +95,15 @@ Read all rows from one column
 Specify full path to file
 +++++++++++++++++++++++++
 
-Windows: Notice that double backslashes are needed inside of a string.
+Windows
 
 ::
 
     s = csvReadSA("C:\\mydata\\myfile.csv");
 
-Mac
+.. NOTE:: Notice that double backslashes are needed inside of a string on Windows
+
+macOS
 
 ::
 
@@ -134,15 +115,5 @@ Linux
 
     s = csvReadSA("/home/my_user/myfile.csv");
 
-Remarks
-+++++++
-
-The standard input stream (stdin) can be read with csvReadSA by passing
-in \__STDIN as the filename input. Note that \__STDIN should not be
-passed in as a string. Corrrect usage is shown below:
-
-::
-
-   x = csvReadSA(__STDIN);
-
 .. seealso:: Functions :func:`csvReadM`, :func:`getHeaders`, :func:`xlsReadM`, :func:`xlsReadSA`, :func:`xlsWrite`
+
