@@ -17,5 +17,5 @@ Format
     :param table_name: name of the table to reference.
     :type table_name: string
 
-    :returns: primary_index (*TODO*), 2x1 string array; the [1,1] element is the cursor name and the [2,1] element is the index name
+    :returns: primary_index (*2x1 string array*) the :math:`[1,1]`` element is the cursor name and the :math:`[2,1]`` element is the index name
 

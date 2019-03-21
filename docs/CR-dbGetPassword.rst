@@ -17,9 +17,8 @@ Format
     :returns: db_password (string), containing the password for the specified database connection or a null string.
 
 
-
 Remarks
 -------
 
-dbGetPassword() will only return passwords set with dbSetPassword().
+:func:`dbGetPassword` will only return passwords set with :func:`dbSetPassword`.
 

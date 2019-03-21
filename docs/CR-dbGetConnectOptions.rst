@@ -16,12 +16,12 @@ Format
 
     :returns: options (*string*), containing the connection options for the specified database connection.
 
-
-
 Remarks
 -------
 
-If you have not set any connection options with dbSetConnectOptions,
+If you have not set any connection options with :func:`dbSetConnectOptions`,
 then this function will return an empty string. For a full list of
-options see dbSetConnectOptions.
+options see :func:`dbSetConnectOptions`.
+
+.. seealso:: :func:`dbSetConnectOptions`
 

@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :param placeholder: Oracle style (:value_name) or index of ODBC style (?) placeholder.
+    :param placeholder: Oracle style (``:value_name``) or index of ODBC style (``?``) placeholder.
     :type placeholder: string
 
     :returns: val (*string*), bound value if previously set.
@@ -35,6 +35,8 @@ Examples
     print "Name = ";; 
     print dbQueryGetBoundValue(qid, ":fname");; 
     print dbQueryGetBoundValue(qid, ":lname");
+
+or 
 
 ::
 

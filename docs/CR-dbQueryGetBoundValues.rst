@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: bound_values (*TODO*), Nx2 string array. The first column contains the placeholders and the second column contains the corresponding values.
+    :returns: bound_values (*Nx2 string array*). The first column contains the placeholders and the second column contains the corresponding values.
 
 Examples
 ----------------

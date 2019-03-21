@@ -16,3 +16,5 @@ Format
 
     :returns: user_name (string), containing the user name associated with the specified database connection.
 
+.. seealso:: Functions :func:`dbSetUserName`
+

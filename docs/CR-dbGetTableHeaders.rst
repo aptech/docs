@@ -19,8 +19,6 @@ Format
 
     :returns: field_names (string array), containing the column names for the specified table or view.
 
-
-
 Remarks
 -------
 

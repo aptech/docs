@@ -9,38 +9,18 @@ Process an SQL statement and prepare a query. If placeholders is present, these 
 
 Format
 ----------------
-.. function:: dbCreateQuery(db_id, query) 
-			  dbCreateQuery(db_id, query, placeholders)
+.. function:: dbCreateQuery(db_id[, query[, placeholders]])
 
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :param query: database query to construct.
+    :param query: optional. database query to construct.
     :type query: string
 
-    :param placeholders: or string array  containing bind value(s).
-    :type placeholders: string
+    :param placeholders: optional. containing bind value(s).
+    :type placeholders: string or string array  
 
     :returns: qid (*scalar*), query id to be used for result retrieval.
-
-Examples
-----------------
-
-qid = dbCreateQuery("SELECT * FROM GDP
-     WHERE COUNTRY = ?", "USA");
-dbQueryExecPrepared(qid); 
-
-// Results as a matrix
-results = dbQueryFetchAllM(qid);
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-qid = dbCreateQuery("INSERT INTO 
-     PEOPLE(id, fname, lname) VALUES 
-     (NULL, ?, ?);");
-dbQueryBindValue(qid, "Joe");
-dbQueryBindValue(qid, "Smith");
-dbQueryExecPrepared(qid);
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Remarks
 -------
@@ -48,7 +28,32 @@ Remarks
 If the placeholders parameter is passed in, the values are bound
 sequentially to ODBC style parameters.
 
-See also
-++++++++
+Examples
+----------------
 
-`dbQueryPrepare <#dbQueryPrepare>`__
+Example 1
++++++++++
+
+::
+
+    qid = dbCreateQuery("SELECT * FROM GDP
+         WHERE COUNTRY = ?", "USA");
+    dbQueryExecPrepared(qid); 
+    
+    // Results as a matrix
+    results = dbQueryFetchAllM(qid);
+
+Example 2
++++++++++
+
+::
+
+    qid = dbCreateQuery("INSERT INTO 
+         PEOPLE(id, fname, lname) VALUES 
+         (NULL, ?, ?);");
+    dbQueryBindValue(qid, "Joe");
+    dbQueryBindValue(qid, "Smith");
+    dbQueryExecPrepared(qid);
+
+.. seealso:: :func:`dbQueryPrepare`
+

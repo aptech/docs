@@ -5,7 +5,7 @@ dbCommit
 Purpose
 ----------------
 
-Commits a transaction to the database if the driver supports transactions and a dbTransaction() has been started.
+Commits a transaction to the database if the driver supports transactions and a :func:`dbTransaction` has been started.
 
 Format
 ----------------
@@ -31,8 +31,8 @@ Remarks
 -------
 
 Note: For some databases, the commit will fail and return 0 if there is
-an active query using the database for a SELECT statement. Make the
+an active query using the database for a ``SELECT`` statement. Make the
 query inactive before doing the commit to resolve this problem.
 
-Call dbGetLastError() to get information about errors.
+Call :func:`dbGetLastError` to get information about errors.
 

@@ -14,8 +14,6 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-
-
 Remarks
 -------
 

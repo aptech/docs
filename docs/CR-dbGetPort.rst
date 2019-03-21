@@ -16,11 +16,9 @@ Format
 
     :returns: db_port (*scalar*), the port number of the specified database connection.
 
-
-
 Remarks
 -------
 
-dbGetPort() will only return the port number if it was previously set
-with dbSetPort().
+:func:`dbGetPort` will only return the port number if it was previously set
+with :func:`dbSetPort`.
 

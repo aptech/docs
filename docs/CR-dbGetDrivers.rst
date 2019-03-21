@@ -1,5 +1,5 @@
 
-dbGetDrivers();
+dbGetDrivers
 ==============================================
 
 Purpose
@@ -18,12 +18,11 @@ Examples
 
 ::
 
-    print 
-       dbGetDrivers();
+    print dbGetDrivers();
 
 ::
 
-    DB2
+        DB2
         MYSQL
         OCI
         ODBC

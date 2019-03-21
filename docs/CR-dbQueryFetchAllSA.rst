@@ -5,18 +5,17 @@ dbQueryFetchAllSA
 Purpose
 ----------------
 
-		Returns the result set for the current query as a string array. 
+Returns the result set for the current query as a string array. 
 
 Format
 ----------------
-.. function:: dbQueryFetchAllSA(qid) 
-			  dbQueryFetchAllSA(qid, columns)
+.. function:: dbQueryFetchAllSA(qid[, columns]) 
 
     :param qid: query number.
     :type qid: scalar
 
     :param columns: specific columns to pull out from result matrix.
-        Must be a subset of fields from SELECT statement.
+        Must be a subset of fields from ``SELECT`` statement.
     :type columns: string or string array
 
     :returns: result (*string array*), containing the result set for the current query. If the result set is empty, a scalar error code is returned.
@@ -24,12 +23,11 @@ Format
 Remarks
 -------
 
-For numerical only results, use dbQueryFetchAllM() to return a matrix.
+For numerical only results, use :func:`dbQueryFetchAllM` to return a matrix.
 
 This function retrieves all rows at once. You can process rows in an
-iterative manner by using the dbQueryFetchNextM() and
-dbQueryFetchNextSA()functions.
-
+iterative manner by using the :func:`dbQueryFetchNextM` and
+:func:`dbQueryFetchNextSA` functions.
 
 Examples
 ----------------
@@ -49,3 +47,4 @@ Examples
     endif;
 
 .. seealso:: Functions :func:`dbQueryFetchAllM`, :func:`dbQueryFetchNextSA`, :func:`dbQueryFetchNextM`
+
