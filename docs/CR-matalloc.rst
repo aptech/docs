@@ -17,7 +17,7 @@ Format
     :param c: columns.
     :type c: scalar
 
-    :returns: y (*TODO*), r x c matrix.
+    :returns: y (*r x c matrix*) .
 
 
 

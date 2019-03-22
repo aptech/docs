@@ -17,7 +17,7 @@ Format
     :param varname: name of sparse matrix variable in the GDA.
     :type varname: string
 
-    :returns: sm (*TODO*), sparse matrix.
+    :returns: sm (*sparse matrix*) .
 
 Remarks
 -------

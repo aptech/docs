@@ -18,7 +18,7 @@ Format
     :type r: Nx1 or 1x1 matrix specifying the amount of
         rotation
 
-    :returns: y (*TODO*), NxK rotated matrix.
+    :returns: y (*NxK rotated matrix*) .
 
 Remarks
 -------

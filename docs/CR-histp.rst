@@ -22,7 +22,7 @@ Format
 
     :returns: m (*Px1 vector*), the midpoints of each category.
 
-    :returns: freq (*TODO*), Px1 vector of computed frequency counts. This is the vector of counts, not percentages.
+    :returns: freq (*Px1 vector*) of computed frequency counts. This is the vector of counts, not percentages.
 
 
 

@@ -15,7 +15,7 @@ Format
     :param x: 
     :type x: NxN matrix or K-dimensional array where the last two dimensions are NxN
 
-    :returns: y (*TODO*), NxN matrix or K-dimensional array where the last two dimensions are NxN, containing the inverse of x.
+    :returns: y (*NxN matrix or K-dimensional array*) where the last two dimensions are NxN, containing the inverse of x.
 
 Remarks
 -------

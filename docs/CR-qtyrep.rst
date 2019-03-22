@@ -30,11 +30,11 @@ Format
         "if pvt[i] < 0, x[i] is a final column."
         "The initial columns are placed at the beginning of the matrix and the final columns are placed at the end. Only the free columns will be moved during the decomposition."
 
-    :returns: qty (*TODO*), NxL unitary matrix.
+    :returns: qty (*NxL unitary matrix*) .
 
     :returns: r (*KxP upper triangular matrix*), K = min(N,P).
 
-    :returns: e (*TODO*), Px1 permutation vector.
+    :returns: e (*Px1 permutation vector*) .
 
 
 

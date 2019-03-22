@@ -15,7 +15,7 @@ Format
     :param dset: 
     :type dset: string specifying the name of the data set from which the function will obtain the variable names
 
-    :returns: y (*TODO*), Nx1 vector containing the names of all of the variables in the specified data set.
+    :returns: y (*Nx1 vector*) containing the names of all of the variables in the specified data set.
 
 Remarks
 -------

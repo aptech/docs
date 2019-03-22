@@ -21,7 +21,7 @@ Format
     :param ncolors:  Optional. The desired number of colors for a specific palette. Default value is 6. If 'ncolors' is fewer than the minimum number of colors offered by a palette, then the minimum will be returned with a warning. The same behavior occurs when 'ncolors' is greater than the maximum number of colors a palette supports.
     :type ncolors: scalar
 
-    :returns: clrs (*TODO*), ncolors x 1 string array of hex values for each color in the palette.
+    :returns: clrs (*ncolors x 1 string array*) of hex values for each color in the palette.
 
 Examples
 ----------------

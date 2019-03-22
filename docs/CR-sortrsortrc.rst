@@ -16,7 +16,7 @@ Format
     :param r: row of x on which to sort.
     :type r: scalar
 
-    :returns: y (*TODO*), NxK matrix equal to x and sorted on row r.
+    :returns: y (*NxK matrix*) equal to x and sorted on row r.
 
 Remarks
 -------

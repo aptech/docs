@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: A matrix or an N-dimensional array
 
-    :returns: y (*TODO*), A matrix or an N-dimensional array with the same orders as the input. Every denormal in the input will be converted to 0 in the output.
+    :returns: y (*matrix or an N-dimensional array*) with the same orders as the input. Every denormal in the input will be converted to 0 in the output.
 
 Examples
 ----------------

@@ -22,7 +22,7 @@ Format
         default value is 10-14.
     :type tol: scalar
 
-    :returns: b (*TODO*), Px1 vector of least squares estimates of
+    :returns: b (*Px1 vector*) of least squares estimates of
         regression of y on x. If x does not have full
         rank, then the coefficients that cannot be
         estimated will be zero.

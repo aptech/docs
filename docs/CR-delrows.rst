@@ -18,7 +18,7 @@ Format
     :param r: indices of rows to delete.
     :type r: Mx1 vector
 
-    :returns: y (*TODO*), PxK matrix contaning the remaining rows of x.
+    :returns: y (*PxK matrix contaning*) the remaining rows of x.
         If no rows remain, y will be an empty matrix.
 
 Remarks

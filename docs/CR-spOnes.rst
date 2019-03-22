@@ -22,7 +22,7 @@ Format
     :param cinds: column indices of ones.
     :type cinds: Nx1 vector
 
-    :returns: y (*TODO*), r x c sparse matrix of ones.
+    :returns: y (*r x c sparse matrix*) of ones.
 
 Remarks
 -------

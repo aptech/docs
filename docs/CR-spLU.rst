@@ -13,10 +13,10 @@ Format
     :param a: non-singular sparse matrix.
     :type a: N x N
 
-    :returns: l (*TODO*), NxN ''scrambled'' lower-triangular sparse matrix. This is a lower triangular
+    :returns: l (*NxN ''scrambled'' lower-triangular sparse matrix*) . This is a lower triangular
         matrix that has been reordered based upon the row pivoting.
 
-    :returns: u (*TODO*), NxN ''scrambled'' upper-triangular sparse matrix. This is an upper triangular
+    :returns: u (*NxN ''scrambled'' upper-triangular sparse matrix*) . This is an upper triangular
         matrix that has been reordered based upon column pivoting to preserve sparsity.
 
 Examples

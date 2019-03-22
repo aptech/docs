@@ -16,7 +16,7 @@ Format
     :param c: columns of output matrix.
     :type c: scalar
 
-    :returns: y (*TODO*), r x c sparse matrix.
+    :returns: y (*r x c sparse matrix*) .
 
 Remarks
 -------

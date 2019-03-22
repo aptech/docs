@@ -28,7 +28,7 @@ Format
         procedures are functions of x and y.
     :type hl: 2x1 or 2xN matrix of function pointers
 
-    :returns: y (*TODO*), Nx1 vector of the estimated integral(s) of f(x,y,z) evaluated between the limits given by  xl, gl and  hl.
+    :returns: y (*Nx1 vector*) of the estimated integral(s) of f(x,y,z) evaluated between the limits given by  xl, gl and  hl.
 
 Global Input
 ------------

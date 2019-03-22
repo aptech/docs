@@ -22,7 +22,7 @@ Format
     :type data1: structure of type DS containing any data
         needed by  fct
 
-    :returns: g (*TODO*), NxK Jacobian or 1xK gradient.
+    :returns: g (*NxK Jacobian or 1xK gradient*) .
 
 Remarks
 -------

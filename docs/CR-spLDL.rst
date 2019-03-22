@@ -13,9 +13,9 @@ Format
     :param a: symmetric sparse matrix.
     :type a: N x N
 
-    :returns: l (*TODO*), NxN lower-triangular sparse matrix.
+    :returns: l (*NxN lower-triangular sparse matrix*) .
 
-    :returns: d (*TODO*), NxN diagonal sparse matrix.
+    :returns: d (*NxN diagonal sparse matrix*) .
 
 Examples
 ----------------

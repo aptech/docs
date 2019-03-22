@@ -21,7 +21,7 @@ Format
     :type b: scalar containing the number of rows which are
         to be removed from the bottom of x
 
-    :returns: y (*TODO*), RxK matrix where R=N-(t + b),
+    :returns: y (*RxK matrix*) where R=N-(t + b),
         containing the rows left after the trim.
 
 Remarks

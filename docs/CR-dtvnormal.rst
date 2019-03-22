@@ -15,7 +15,7 @@ Format
     :type t: 1x8 date and time vector that has
         one or more elements outside the normal range
 
-    :returns: d (*TODO*), Normalized 1x8 date and time vector.
+    :returns: d (*Normalized 1x8 date and time vector*) .
 
 Remarks
 -------

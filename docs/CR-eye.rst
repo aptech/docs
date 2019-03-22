@@ -14,7 +14,7 @@ Format
     :param n: size of identity matrix to be created.
     :type n: scalar
 
-    :returns: y (*TODO*), nxn identity matrix.
+    :returns: y (*nxn identity matrix*) .
 
 Remarks
 -------

@@ -17,7 +17,7 @@ Format
     :param row: 
     :type row: The row of the matrix to extract
 
-    :returns: y (*TODO*), A 1xK row vector.
+    :returns: y (*1xK row vector*) .
 
 Remarks
 -------

@@ -17,7 +17,7 @@ Format
     :param sv2: 
     :type sv2: Mx1 or 1xM string vector
 
-    :returns: y (*TODO*), Lx1 vector containing all unique values that
+    :returns: y (*Lx1 vector*) containing all unique values that
         are in  sv1 and  sv2, sorted in ascending
         order.
 

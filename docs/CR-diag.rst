@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: NxK matrix or L-dimensional array where the last two dimensions are NxK
 
-    :returns: y (*TODO*), min(N,K)x1 vector or L-dimensional array where the last two dimensions are min(N,K)x1.
+    :returns: y (*min(N,K)x1 vector or L-dimensional array*) where the last two dimensions are min(N,K)x1.
 
 Remarks
 -------

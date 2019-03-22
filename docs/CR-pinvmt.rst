@@ -21,7 +21,7 @@ Format
     :param tol: any singular values less than tol are treated as zero in determining the rank of the input matrix.
     :type tol: scalar
 
-    :returns: y (*TODO*), MxN matrix that satisfies the 4 Moore-Penrose
+    :returns: y (*MxN matrix*) that satisfies the 4 Moore-Penrose
         conditions:
 
     .. csv-table::

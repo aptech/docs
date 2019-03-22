@@ -21,7 +21,7 @@ Format
     :type v: Kx1 vector containing the new values to be
         assigned to the recoded variable
 
-    :returns: y (*TODO*), Nx1 vector containing the recoded values of
+    :returns: y (*Nx1 vector*) containing the recoded values of
         x.
 
 Remarks

@@ -20,7 +20,7 @@ Format
     :param sigma: scalar, the standard deviation parameter. Default = 1.
     :type sigma: Optional input
 
-    :returns: p (*TODO*), Matrix or array of the same dimension as the input 'x', containing
+    :returns: p (*Matrix or array*) of the same dimension as the input 'x', containing
         the probabilities.
 
 Examples

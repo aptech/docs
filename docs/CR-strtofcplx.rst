@@ -14,7 +14,7 @@ Format
     :param sa: 
     :type sa: NxK string array containing numeric data
 
-    :returns: x (*TODO*), NxK complex matrix.
+    :returns: x (*NxK complex matrix*) .
 
 
 

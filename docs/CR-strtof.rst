@@ -13,7 +13,7 @@ Format
     :param sa: 
     :type sa: NxK string array containing numeric data
 
-    :returns: x (*TODO*), NxK matrix.
+    :returns: x (*NxK matrix*) .
 
 Remarks
 -------

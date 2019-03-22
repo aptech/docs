@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: MxN matrix or N-dimensional array
 
-    :returns: y (*TODO*), MxN matrix or N-dimensional array, digamma.
+    :returns: y (*MxN matrix or N-dimensional array*) , digamma.
 
 
 

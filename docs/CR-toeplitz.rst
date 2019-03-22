@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: Kx1 vector
 
-    :returns: t (*TODO*), KxK Toeplitz matrix.
+    :returns: t (*KxK Toeplitz matrix*) .
 
 Examples
 ----------------

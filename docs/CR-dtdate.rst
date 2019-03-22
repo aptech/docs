@@ -29,7 +29,7 @@ Format
     :param second: 0-59.
     :type second: NxK matrix of seconds
 
-    :returns: dt (*TODO*), NxK matrix of DT scalar format dates.
+    :returns: dt (*NxK matrix*) of DT scalar format dates.
 
 
 

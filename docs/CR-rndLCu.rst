@@ -37,9 +37,9 @@ Format
         "[3]  the additive constant"
         "4x1 vector case:state = the state vector returned from a previouscall to one of the rndLC random number generators."
 
-    :returns: y (*TODO*), r x c matrix of uniform (0 < x < 1) random numbers.
+    :returns: y (*r x c matrix*) of uniform (0 < x < 1) random numbers.
 
-    :returns: newstate (*TODO*), 4x1 vector:
+    :returns: newstate (*4x1 vector*) :
 
     .. csv-table::
         :widths: auto

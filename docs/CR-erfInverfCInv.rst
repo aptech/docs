@@ -14,7 +14,7 @@ Format
     :param y:  -1 < y < 1.
     :type y: scalar or NxK matrix
 
-    :returns: x (*TODO*), scalar or NxK matrix.
+    :returns: x (*scalar or NxK matrix*) .
 
 Examples
 ----------------

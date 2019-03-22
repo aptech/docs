@@ -14,8 +14,7 @@ Format
     :param x: , abscissae.
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix or N-dimensional array,
-        ln Pr(X < x)
+    :returns: y (*NxK matrix or N-dimensional array,*)         ln Pr(X < x)
 
 
 

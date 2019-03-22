@@ -20,7 +20,7 @@ Format
     :param f: 
     :type f: scalar or Nx1 vector specifying the value to fill in
 
-    :returns: y (*TODO*), NxK shifted matrix.
+    :returns: y (*NxK shifted matrix*) .
 
 Remarks
 -------

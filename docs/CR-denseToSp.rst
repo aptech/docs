@@ -18,7 +18,7 @@ Format
         or equal to  eps will be treated as zero.
     :type eps: scalar
 
-    :returns: y (*TODO*), MxN sparse matrix.
+    :returns: y (*MxN sparse matrix*) .
 
 Remarks
 -------

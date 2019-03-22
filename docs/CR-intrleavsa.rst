@@ -20,7 +20,7 @@ Format
     :param ikey: index of the key column the string arrays are sorted on.
     :type ikey: scalar integer
 
-    :returns: y (*TODO*), LxK interleaved (combined) string array.
+    :returns: y (*LxK interleaved (combined) string array*) .
 
 
 

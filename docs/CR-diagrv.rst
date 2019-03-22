@@ -16,7 +16,7 @@ Format
     :param v: ,K)x1 vector.
     :type v: min(N
 
-    :returns: y (*TODO*), NxK matrix equal to x with its principal diagonal elements equal to those of  v.
+    :returns: y (*NxK matrix*) equal to x with its principal diagonal elements equal to those of  v.
 
 Remarks
 -------

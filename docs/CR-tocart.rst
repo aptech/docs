@@ -18,7 +18,7 @@ Format
         r, angle in radians.
     :type theta: LxM real matrix
 
-    :returns: xy (*TODO*), max(N,L) by max(K,M) complex matrix containing
+    :returns: xy (*max(N,L) by max(K,M) complex matrix*) containing
         the x coordinate in the real part and the y
         coordinate in the imaginary part.
 

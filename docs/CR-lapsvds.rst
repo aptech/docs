@@ -14,7 +14,7 @@ Format
     :param x: real or complex rectangular matrix.
     :type x: MxN matrix
 
-    :returns: s (*TODO*), min(M,N)x1 vector, singular values.
+    :returns: s (*min(M,N)x1 vector*) , singular values.
 
 Remarks
 -------

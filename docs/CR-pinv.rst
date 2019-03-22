@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: NxM matrix
 
-    :returns: y (*TODO*), MxN matrix that satisfies the 4 Moore-Penrose
+    :returns: y (*MxN matrix*) that satisfies the 4 Moore-Penrose
         conditions:
 
     .. csv-table::

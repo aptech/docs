@@ -20,7 +20,7 @@ Format
     :param n: 
     :type n: scalar specifying the number of elements in the sequence
 
-    :returns: y (*TODO*), nx1 vector containing the specified sequence.
+    :returns: y (*nx1 vector*) containing the specified sequence.
 
 Remarks
 -------

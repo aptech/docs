@@ -23,7 +23,7 @@ Format
     :param maxit:  If maxit is set to 0, the default setting is 300 iterations.
     :type maxit: Maximum number of iterations
 
-    :returns: x (*TODO*), Nx1 dense vector.
+    :returns: x (*Nx1 dense vector*) .
 
 Examples
 ----------------

@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: Nx1 vector
 
-    :returns: y (*TODO*), Nx1 vector.
+    :returns: y (*Nx1 vector*) .
 
 
 

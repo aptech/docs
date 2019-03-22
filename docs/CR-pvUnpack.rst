@@ -17,8 +17,7 @@ Format
     :param m: name of matrix, or integer, index of matrix.
     :type m: string
 
-    :returns: x (*TODO*), MxN general matrix or MxM symmetric matrix or
-        N-dimensional array.
+    :returns: x (*MxN general matrix or MxM symmetric matrix or*)         N-dimensional array.
 
 
 

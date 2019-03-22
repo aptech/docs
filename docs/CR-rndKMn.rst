@@ -26,7 +26,7 @@ Format
         call to one of the rndKM random number generators.
     :type state: scalar or 500x1 vector
 
-    :returns: y (*TODO*), r x c matrix of standard
+    :returns: y (*r x c matrix*) of standard
         normal random numbers.
 
     :returns: newstate (*500x1 vector*), the updated state.

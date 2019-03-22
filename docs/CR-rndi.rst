@@ -28,7 +28,7 @@ Format
         call to one of the rnd random number generators.
     :type state: Optional argument - scalar or opaque vector
 
-    :returns: y (*TODO*), r x c matrix of random
+    :returns: y (*r x c matrix*) of random
         integers in the specified range.
 
     :returns: newstate (*Opaque vector*), the updated state.

@@ -21,7 +21,7 @@ Format
 
     :returns: S (*Lx1 vector*), singular values for  B.
 
-    :returns: R (*TODO*), (K+L)x(K+L) upper triangular matrix.
+    :returns: R (*(K+L)x(K+L) upper triangular matrix*) .
 
 
 

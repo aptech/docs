@@ -16,7 +16,7 @@ Format
         to return the current system time.
     :type t: 4x1 vector from the time function
 
-    :returns: ts (*TODO*), 8 character string containing current time in
+    :returns: ts (*8 character string*) containing current time in
         the format:  hr:mn:sc
 
 Examples

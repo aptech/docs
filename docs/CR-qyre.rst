@@ -18,11 +18,11 @@ Format
     :param x: 
     :type x: NxP matrix
 
-    :returns: qy (*TODO*), NxL unitary matrix.
+    :returns: qy (*NxL unitary matrix*) .
 
     :returns: r (*KxP upper triangular matrix*), K = min(N,P).
 
-    :returns: e (*TODO*), Px1 permutation vector.
+    :returns: e (*Px1 permutation vector*) .
 
 
 

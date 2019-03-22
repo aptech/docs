@@ -17,7 +17,7 @@ Format
     :param y: 
     :type y: NxK matrix
 
-    :returns: z (*TODO*), A NxK matrix whose values are the minimum of each element from the arguments x and y.
+    :returns: z (*NxK matrix*) whose values are the minimum of each element from the arguments x and y.
 
 Global Input
 ------------

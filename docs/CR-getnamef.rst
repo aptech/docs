@@ -14,7 +14,7 @@ Format
     :param f: file handle of an open data set
     :type f: scalar
 
-    :returns: y (*TODO*), Nx1 string array containing the names of all of the variables in the specified data set.
+    :returns: y (*Nx1 string array*) containing the names of all of the variables in the specified data set.
 
 Remarks
 -------

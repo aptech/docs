@@ -18,7 +18,7 @@ Format
     :param ntrunc: Nx1, 1xM, or 1x1 matrix containing the number of characters to strip.
     :type ntrunc: NxM
 
-    :returns: y (*TODO*), String array result.
+    :returns: y (*String array*) result.
 
 
 

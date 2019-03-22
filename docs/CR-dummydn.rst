@@ -29,7 +29,7 @@ Format
         dummy variables.
     :type p: positive integer in the range [1
 
-    :returns: y (*TODO*), Nx(K-1) matrix containing the K-1 dummy variables.
+    :returns: y (*Nx(K-1) matrix*) containing the K-1 dummy variables.
 
 Remarks
 -------

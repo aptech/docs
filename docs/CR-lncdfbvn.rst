@@ -20,7 +20,7 @@ Format
     :param r: correlations.
     :type r: PxQ matrix
 
-    :returns: y (*TODO*), max(N,L,P) x max(K,M,Q) matrix:
+    :returns: y (*max(N,L,P) x max(K,M,Q) matrix*) :
         ln Pr(X < x1, X < x2|r)
 
 

@@ -16,7 +16,7 @@ Format
     :param c: the number of columns.
     :type c: scalar
 
-    :returns: y (*TODO*), r x c matrix of zeros.
+    :returns: y (*r x c matrix*) of zeros.
 
 Remarks
 -------

@@ -32,7 +32,7 @@ Format
         "1 for 0 ≤ y ≤ 1"
         "500x1 vector case:state = the state vector returned from a previous call to one of the rndKM random number generators."
 
-    :returns: y (*TODO*), r x c matrix of uniform
+    :returns: y (*r x c matrix*) of uniform
         random numbers, 0 ≤ y < 1.
 
     :returns: newstate (*500x1 vector*), the updated state.

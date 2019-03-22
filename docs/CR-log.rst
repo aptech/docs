@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix or N-dimensional array containing the log 10 values of the
+    :returns: y (*NxK matrix or N-dimensional array*) containing the log 10 values of the
         elements of x.
 
 Remarks

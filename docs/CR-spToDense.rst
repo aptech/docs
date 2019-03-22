@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: MxN sparse matrix
 
-    :returns: y (*TODO*), MxN dense matrix.
+    :returns: y (*MxN dense matrix*) .
 
 Remarks
 -------

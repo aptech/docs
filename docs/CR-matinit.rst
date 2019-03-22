@@ -20,7 +20,7 @@ Format
     :param v: value to initialize.
     :type v: scalar
 
-    :returns: y (*TODO*), r x c matrix with each element equal to the value of  v.
+    :returns: y (*r x c matrix*) with each element equal to the value of  v.
 
 Examples
 ----------------

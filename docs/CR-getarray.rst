@@ -17,7 +17,7 @@ Format
     :param loc: where 1 <= M <= N.
     :type loc: Mx1 vector of indices into the array to locate the subarray of interest
 
-    :returns: y (*TODO*), [N-M]-dimensional subarray or scalar.
+    :returns: y (*[N-M]-dimensional subarray or scalar*) .
 
 Remarks
 -------

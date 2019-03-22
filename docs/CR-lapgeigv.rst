@@ -21,9 +21,9 @@ Format
 
     :returns: va2 (*Nx1 vector*), denominator of eigenvalues.
 
-    :returns: lve (*TODO*), NxN left eigenvectors.
+    :returns: lve (*NxN left eigenvectors*) .
 
-    :returns: rve (*TODO*), NxN right eigenvectors.
+    :returns: rve (*NxN right eigenvectors*) .
 
 
 

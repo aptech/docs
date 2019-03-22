@@ -16,7 +16,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: y (*TODO*), scalar specifying the number of rows of data
+    :returns: y (*scalar*) specifying the number of rows of data
         actually written to the data set.
 
 Remarks

@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: matrix
 
-    :returns: y (*TODO*), 1-or-2-dimensional array.
+    :returns: y (*1-or-2-dimensional array*) .
 
 Remarks
 -------

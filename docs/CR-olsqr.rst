@@ -17,7 +17,7 @@ Format
     :param x: 
     :type x: NxP matrix containing independent variables
 
-    :returns: b (*TODO*), Px1 vector of least squares estimates of
+    :returns: b (*Px1 vector*) of least squares estimates of
         regression of y on x. If x does not have full
         rank, then the coefficients that cannot be
         estimated will be zero.

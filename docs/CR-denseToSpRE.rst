@@ -20,7 +20,7 @@ Format
         x.
     :type reps: scalar
 
-    :returns: y (*TODO*), MxN sparse matrix.
+    :returns: y (*MxN sparse matrix*) .
 
 Remarks
 -------

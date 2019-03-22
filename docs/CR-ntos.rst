@@ -17,7 +17,7 @@ Format
     :param prec: optional argument; the number of digits to display. If the precision input is not specified, the default value is 6. Valid input values are: 1 ≤ prec ≤ 15.
     :type prec: Scalar
 
-    :returns: str (*TODO*), String or NxK string array containing the string representation of the input.
+    :returns: str (*String or NxK string array*) containing the string representation of the input.
 
 Examples
 ----------------

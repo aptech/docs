@@ -45,7 +45,7 @@ Format
         E.g "y ~ -1 + X1 + X2", '-1' means no intercept model.
     :type formula: String
 
-    :returns: vnam (*TODO*), (K+2)x1 or (K+1)x1 character vector, the variable
+    :returns: vnam (*(K+2)x1 or (K+1)x1 character vector*) , the variable
         names used in the regression. If a constant term is
         used, this vector will be (K+2)x1, and the first
         name will be ''CONSTANT''. The last name will be the
@@ -87,7 +87,7 @@ Format
 
     :returns: sigma (*scalar*), standard deviation of residual.
 
-    :returns: cx (*TODO*), (K+1)x(K+1) matrix, correlation matrix of variables
+    :returns: cx (*(K+1)x(K+1) matrix*) , correlation matrix of variables
         with the dependent variable as the last column.
 
     :returns: rsq (*scalar*), R square, coefficient of determination.

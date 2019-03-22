@@ -27,7 +27,7 @@ Format
     :param ...: a variable number of extra scalar arguments to pass to the user function. These arguments will be passed to the user function untouched.
     :type ...: Optional
 
-    :returns: y (*TODO*), Nx1 vector of the estimated integral(s) of f(x,y,z)
+    :returns: y (*Nx1 vector*) of the estimated integral(s) of f(x,y,z)
         evaluated between the limits given by  xl, yl, and  zl.
 
 Examples

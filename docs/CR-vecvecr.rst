@@ -14,10 +14,10 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: yc (*TODO*), (N*K)x1 vector, the columns of x appended to
+    :returns: yc (*(N*K)x1 vector*) , the columns of x appended to
         each other.
 
-    :returns: yr (*TODO*), (N*K)x1 vector, the rows of x appended to
+    :returns: yr (*(N*K)x1 vector*) , the rows of x appended to
         each other and the result transposed.
 
 Remarks

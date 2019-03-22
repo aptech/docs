@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*TODO*), NxK matrix or N-dimensional array containing the sine of x.
+    :returns: y (*NxK matrix or N-dimensional array*) containing the sine of x.
 
 Remarks
 -------

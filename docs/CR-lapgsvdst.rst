@@ -17,11 +17,11 @@ Format
     :param B: 
     :type B: PxN matrix
 
-    :returns: D1 (*TODO*), Mx(K+L) matrix, with singular values for  A on diagonal.
+    :returns: D1 (*Mx(K+L) matrix*) , with singular values for  A on diagonal.
 
-    :returns: D2 (*TODO*), Px(K+L) matrix, with singular values for  B on diagonal.
+    :returns: D2 (*Px(K+L) matrix*) , with singular values for  B on diagonal.
 
-    :returns: Z (*TODO*), (K+L)xN matrix, partitioned matrix composed of a zero matrix and upper triangular matrix.
+    :returns: Z (*(K+L)xN matrix*) , partitioned matrix composed of a zero matrix and upper triangular matrix.
 
     :returns: U (*MxM matrix*), orthogonal transformation matrix.
 

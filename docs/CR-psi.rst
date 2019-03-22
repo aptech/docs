@@ -14,7 +14,7 @@ Format
     :param z: 
     :type z: NxK matrix;  z may be complex
 
-    :returns: f (*TODO*), NxK matrix.
+    :returns: f (*NxK matrix*) .
 
 
 

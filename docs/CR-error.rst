@@ -16,7 +16,7 @@ Format
     :param x: in the range 0-65535.
     :type x: scalar
 
-    :returns: y (*TODO*), scalar error code which can be interpreted as
+    :returns: y (*scalar*) error code which can be interpreted as
         an integer with the scalerr function.
 
 Remarks

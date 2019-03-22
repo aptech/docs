@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: m (*TODO*), Kx1 vector containing the medians of the respective columns of x.
+    :returns: m (*Kx1 vector*) containing the medians of the respective columns of x.
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: y (*TODO*), NxK matrix.
+    :returns: y (*NxK matrix*) .
 
 Remarks
 -------

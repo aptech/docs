@@ -20,7 +20,7 @@ Format
     :param p: containing non-zero values and row and column indices.
     :type p: Nx3 or Nx4 matrix
 
-    :returns: y (*TODO*), r x c sparse matrix.
+    :returns: y (*r x c sparse matrix*) .
 
 Remarks
 -------

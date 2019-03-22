@@ -23,8 +23,7 @@ Format
     :type c: (P+1)xK or (P+1)x1 matrix of coefficients of
         polynomials to evaluate
 
-    :returns: y (*TODO*), Kx1 vector (if c is (P+1)xK) or NxN matrix (if c
-        is (P+1)x1 and x is NxN):
+    :returns: y (*Kx1 vector (if c is (P+1)xK) or NxN matrix (if c*)         is (P+1)x1 and x is NxN):
         y =( c[1,.].*xp + c[2,.].*x(p-1) + ... + c[p+1,.] )';
 
 Remarks

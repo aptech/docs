@@ -24,7 +24,7 @@ Format
         to elements of  mask set to zero are not computed, otherwise they are computed.
     :type mask: Kx1 matrix
 
-    :returns: g (*TODO*), NxK Jacobian or 1xK gradient.
+    :returns: g (*NxK Jacobian or 1xK gradient*) .
 
 Remarks
 -------

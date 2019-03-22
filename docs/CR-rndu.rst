@@ -25,7 +25,7 @@ Format
         call to one of the rnd random number generators.
     :type state: Optional argument - scalar
 
-    :returns: y (*TODO*), r x c matrix of uniform
+    :returns: y (*r x c matrix*) of uniform
         random numbers, 0 <= y < 1.
 
     :returns: newstate (*Opaque vector*), the updated state.

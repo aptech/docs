@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: NxP matrix
 
-    :returns: k (*TODO*), an estimate of the rank of x. This
+    :returns: k (*n estimate*) of the rank of x. This
         equals the number of singular values of x
         that exceed a prespecified tolerance in absolute value.
 

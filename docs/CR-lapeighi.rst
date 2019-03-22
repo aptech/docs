@@ -29,7 +29,7 @@ Format
         by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
 
-    :returns: ve (*TODO*), (iu-il+1)x1 vector, eigenvalues.
+    :returns: ve (*(iu-il+1)x1 vector*) , eigenvalues.
 
 Remarks
 -------

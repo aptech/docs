@@ -15,7 +15,7 @@ Format
     :type x: NxP matrix or K-dimensional array
         where the last two dimensions are NxP
 
-    :returns: s (*TODO*), min(N,P)x1 vector or K-dimensional array where the last two dimensions are min(N,P)x1, the
+    :returns: s (*min(N,P)x1 vector or K-dimensional array*) where the last two dimensions are min(N,P)x1, the
         singular values of x arranged in descending order.
 
 Examples

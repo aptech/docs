@@ -27,9 +27,9 @@ Format
         where  T is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
 
-    :returns: ve (*TODO*), (iu- il+1)x1 vector, eigenvalues.
+    :returns: ve (*(iu- il+1)x1 vector*) , eigenvalues.
 
-    :returns: va (*TODO*), Nx(iu- il+1) matrix, eigenvectors.
+    :returns: va (*Nx(iu- il+1) matrix*) , eigenvectors.
 
 Remarks
 -------

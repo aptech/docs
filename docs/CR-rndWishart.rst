@@ -29,7 +29,7 @@ Format
         call to one of the rnd random number functions.
     :type state: Optional argument - scalar or opaque vector
 
-    :returns: r (*TODO*), numMats * rows(cov) x N matrix, wishart random matrices.
+    :returns: r (*numMats * rows(cov) x N matrix*) , wishart random matrices.
 
     :returns: newstate (*Opaque vector*), the updated state.
 

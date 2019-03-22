@@ -13,7 +13,7 @@ Format
     :param sv: 
     :type sv: Nx1 or 1xN string vector
 
-    :returns: y (*TODO*), sorted Mx1 string vector containing all unique
+    :returns: y (*sorted Mx1 string vector*) containing all unique
         elements found in  sv.
 
 Examples

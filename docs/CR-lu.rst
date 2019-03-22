@@ -15,11 +15,11 @@ Format
     :param x: 
     :type x: NxN square nonsingular matrix
 
-    :returns: l (*TODO*), NxN ''scrambled'' lower triangular matrix. This is
+    :returns: l (*NxN ''scrambled'' lower triangular matrix*) . This is
         a lower triangular matrix that has been reordered
         based on the row pivoting.
 
-    :returns: u (*TODO*), NxN upper triangular matrix.
+    :returns: u (*NxN upper triangular matrix*) .
 
 Examples
 ----------------

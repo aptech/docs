@@ -19,7 +19,7 @@ Format
         -1 will indicate to remove the final column of 'X'.
     :type r_idx: Scalar
 
-    :returns: X_trim (*TODO*), Matrix equal to input 'X' without columns specified by
+    :returns: X_trim (*Matrix*) equal to input 'X' without columns specified by
         input 'r_idx'. If no rows remain, 'X_trim' will be
         an empty matrix.
 

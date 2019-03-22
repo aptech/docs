@@ -20,7 +20,7 @@ Format
         character used to separate the input string into individual tokens.
     :type sep: Optional argument
 
-    :returns: sa (*TODO*), 1xK or NxK string array.
+    :returns: sa (*1xK or NxK string array*) .
 
 Remarks
 -------

@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: NxK matrix or L-dimensional array where the last two dimensions are NxK
 
-    :returns: y (*TODO*), Nx1 vector or L-dimensional array where the last two dimensions are Nx1.
+    :returns: y (*Nx1 vector or L-dimensional array*) where the last two dimensions are Nx1.
 
 Examples
 ----------------

@@ -35,7 +35,7 @@ Format
         ""sum"", "0", "Sum"
         ""ustd"", "0", "Standard deviation about the origin"
 
-    :returns: x_s (*TODO*), Matrix or multi-dimensional array, containing the scaled columns of x
+    :returns: x_s (*Matrix or multi-dimensional array*) , containing the scaled columns of x
 
     :returns: location (*1xK vector*), containing the values used to center the columns of the input matrix x
 

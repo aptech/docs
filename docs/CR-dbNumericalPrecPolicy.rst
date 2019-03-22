@@ -14,7 +14,7 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: prec_policy (*TODO*), scalar:
+    :returns: prec_policy (*scalar*) :
 
     .. csv-table::
         :widths: auto

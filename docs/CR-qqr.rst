@@ -16,7 +16,7 @@ Format
 
     :returns: q1 (*NxK unitary matrix*), K = min(N,P).
 
-    :returns: r (*TODO*), KxP upper triangular matrix.
+    :returns: r (*KxP upper triangular matrix*) .
 
 
 

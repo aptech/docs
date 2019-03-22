@@ -28,7 +28,7 @@ Format
         containing the new path.
     :type path: scalar 0 to get path
 
-    :returns: vi (*TODO*), 8x1 numeric vector containing version information:
+    :returns: vi (*8x1 numeric vector*) containing version information:
 
     .. csv-table::
         :widths: auto

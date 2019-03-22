@@ -15,7 +15,7 @@ Format
     :param sa: 
     :type sa: NxM string array
 
-    :returns: y (*TODO*), NxM string array.
+    :returns: y (*NxM string array*) .
 
 
 

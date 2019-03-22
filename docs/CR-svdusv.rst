@@ -13,13 +13,13 @@ Format
     :param x: , whose singular values are to be computed.
     :type x: NxP matrix or K-dimensional array where the last two dimensions are NxP
 
-    :returns: u (*TODO*), NxN matrix or K-dimensional array where the last two dimensions are NxN, the left singular vectors
+    :returns: u (*NxN matrix or K-dimensional array*) where the last two dimensions are NxN, the left singular vectors
         of x.
 
-    :returns: s (*TODO*), NxP diagonal matrix or K-dimensional array where the last two dimensions describe NxP diagonal
+    :returns: s (*NxP diagonal matrix or K-dimensional array*) where the last two dimensions describe NxP diagonal
         arrays, the singular values of x arranged in descending order on the principal diagonal.
 
-    :returns: v (*TODO*), PxP matrix or K-dimensional array where
+    :returns: v (*PxP matrix or K-dimensional array*) where
         the last two dimensions are PxP, the right singular vectors of x.
 
 Examples

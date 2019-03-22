@@ -14,7 +14,7 @@ Format
     :param s: 
     :type s: string of length N where N > 0
 
-    :returns: y (*TODO*), Nx1 matrix containing the ASCII values of the
+    :returns: y (*Nx1 matrix*) containing the ASCII values of the
         characters in the string  s.
 
 Remarks

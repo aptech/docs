@@ -17,7 +17,7 @@ Format
     :param r: ExE conformable with x, intervals.
     :type r: KxL matrix
 
-    :returns: y (*TODO*), max(M,K)xmax(N,L) matrix, the log of the integral
+    :returns: y (*max(M,K)xmax(N,L) matrix*) , the log of the integral
         from x to x+dx of
         the Normal distribution, i.e.,
         ln Pr(x < X < x+dx)

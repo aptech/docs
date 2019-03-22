@@ -48,7 +48,7 @@ Format
 
     :returns: x (*r x c matrix*), von Mises distributed random numbers.
 
-    :returns: newstate (*TODO*), 4x1 vector:
+    :returns: newstate (*4x1 vector*) :
 
     .. csv-table::
         :widths: auto

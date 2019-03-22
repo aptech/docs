@@ -31,9 +31,9 @@ Format
 
     :returns: yhat (*Nx1 vector*), predicted  depvar given  indvars.
 
-    :returns: ys (*TODO*), lc0.numEval x 1 vector, ordinate values given abscissae values in  xs.
+    :returns: ys (*lc0.numEval x 1 vector*) , ordinate values given abscissae values in  xs.
 
-    :returns: xs (*TODO*), lc0.numEval x 1 vector, equally spaced
+    :returns: xs (*lc0.numEval x 1 vector*) , equally spaced
         abscissae values.
 
 

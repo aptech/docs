@@ -13,7 +13,7 @@ Format
     :param x: 
     :type x: MxN sparse matrix
 
-    :returns: a (*TODO*), MxN scaled sparse matrix.
+    :returns: a (*MxN scaled sparse matrix*) .
 
     :returns: r (*Mx1 vector*), row scale factors.
 

@@ -19,7 +19,7 @@ Format
     :param x: 
     :type x: NxK matrix of data
 
-    :returns: vc (*TODO*), KxK variance-covariance matrix.
+    :returns: vc (*KxK variance-covariance matrix*) .
 
 
 

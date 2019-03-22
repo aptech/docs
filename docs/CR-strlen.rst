@@ -13,7 +13,7 @@ Format
     :param x: NxK matrix of character data, or NxK string array.
     :type x: string
 
-    :returns: y (*TODO*), scalar containing the exact length of the
+    :returns: y (*scalar*) containing the exact length of the
         string x, or NxK matrix or string array containing the lengths of the
         elements in x.
 

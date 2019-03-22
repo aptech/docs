@@ -24,7 +24,7 @@ Format
         one associated with  var1 will be selected.
     :type var2: Nx1 vector
 
-    :returns: name1 (*TODO*), scalar character matrix containing the name of the variable associated with
+    :returns: name1 (*scalar character matrix*) containing the name of the variable associated with
         var1.
 
     :returns: indx1 (*scalar*), the column index of  var1.

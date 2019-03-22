@@ -22,7 +22,7 @@ Format
     :param fcmptol: comparison tolerance.
     :type fcmptol: scalar
 
-    :returns: y (*TODO*), max(N,L) by max(K,M) matrix of 1's and 0's.
+    :returns: y (*max(N,L) by max(K,M) matrix*) of 1's and 0's.
 
 Remarks
 -------

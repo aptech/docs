@@ -30,7 +30,7 @@ Format
         "2x1 or 1x2 string vector:", "Contains left and right quote characters."
         "Default value is 0 (no quotes)."
 
-    :returns: y (*TODO*), Nx1 string vector result.
+    :returns: y (*Nx1 string vector*) result.
 
 Examples
 ----------------

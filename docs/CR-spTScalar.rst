@@ -22,7 +22,7 @@ Format
     :param cinds: 
     :type cinds: Lx1 vector of column indices
 
-    :returns: y (*TODO*), KxL sparse matrix.
+    :returns: y (*KxL sparse matrix*) .
 
 Remarks
 -------

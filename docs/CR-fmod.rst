@@ -17,7 +17,7 @@ Format
     :param y: ExE conformable with x.
     :type y: LxM matrix
 
-    :returns: r (*TODO*), max(N,L) by max(K,M) matrix.
+    :returns: r (*max(N,L) by max(K,M) matrix*) .
 
 Remarks
 -------

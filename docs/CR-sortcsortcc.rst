@@ -17,7 +17,7 @@ Format
     :param c: 
     :type c: scalar specifying one column of x to sort on
 
-    :returns: y (*TODO*), NxK matrix equal to x and sorted on the column
+    :returns: y (*NxK matrix*) equal to x and sorted on the column
         c.
 
 Examples

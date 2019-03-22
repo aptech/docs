@@ -18,7 +18,7 @@ Format
     :param X: 
     :type X: NxP matrix
 
-    :returns: qty (*TODO*), NxL unitary matrix.
+    :returns: qty (*NxL unitary matrix*) .
 
     :returns: r (*KxP upper triangular matrix*), K = min(N,P).
 

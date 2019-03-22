@@ -19,7 +19,7 @@ Format
     :param row: the row of cells to be scanned.
     :type row: scalar
 
-    :returns: types (*TODO*), 1xK vector of predefined data types representing the format of each cell in the specified row.
+    :returns: types (*1xK vector*) of predefined data types representing the format of each cell in the specified row.
         The possible types are:
 
     .. csv-table::

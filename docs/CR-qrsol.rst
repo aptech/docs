@@ -18,7 +18,7 @@ Format
     :param R: 
     :type R: PxP upper triangular matrix
 
-    :returns: x (*TODO*), PxL matrix.
+    :returns: x (*PxL matrix*) .
 
 
 

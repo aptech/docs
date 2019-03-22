@@ -15,7 +15,7 @@ Format
     :param x: 
     :type x: NxN matrix
 
-    :returns: L (*TODO*), NxN matrix containing the lower elements
+    :returns: L (*NxN matrix*) containing the lower elements
         of the matrix. The upper elements
         are replaced with zeros. lowmat returns the
         main diagonal intact. lowmat1 replaces the main

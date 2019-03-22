@@ -17,7 +17,7 @@ Format
     :param c: number of columns.
     :type c: scalar
 
-    :returns: y (*TODO*), r x c matrix of ones.
+    :returns: y (*r x c matrix*) of ones.
 
 Remarks
 -------

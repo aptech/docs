@@ -19,7 +19,7 @@ Format
         determined.
     :type x: string
 
-    :returns: y (*TODO*), scalar or Nx1 vector containing the types of
+    :returns: y (*scalar or Nx1 vector*) containing the types of
         the respective symbols in x.
 
 Remarks

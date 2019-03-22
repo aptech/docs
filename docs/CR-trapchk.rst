@@ -13,7 +13,7 @@ Format
     :param m: 
     :type m: scalar mask value
 
-    :returns: y (*TODO*), scalar which is the result of the bitwise
+    :returns: y (*scalar which is*) the result of the bitwise
         logical AND of the trap flag
         and the mask value.
 

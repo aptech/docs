@@ -19,7 +19,7 @@ Format
     :param c: new column dimension.
     :type c: scalar
 
-    :returns: y (*TODO*), r x c matrix created from the elements of  x.
+    :returns: y (*r x c matrix*) created from the elements of  x.
 
 Remarks
 -------

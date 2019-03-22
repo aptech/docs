@@ -38,10 +38,10 @@ Format
         "[3]  the additive constant"
         "4x1 vector case:state = the state vector returned from a previouscall to one of the rndLC random number generators."
 
-    :returns: x (*TODO*), r x c matrix of Poisson distributed random
+    :returns: x (*r x c matrix*) of Poisson distributed random
         numbers.
 
-    :returns: newstate (*TODO*), 4x1 vector:
+    :returns: newstate (*4x1 vector*) :
 
     .. csv-table::
         :widths: auto

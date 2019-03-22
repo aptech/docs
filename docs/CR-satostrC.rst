@@ -22,7 +22,7 @@ Format
         element copy.
     :type fmt: 1x1
 
-    :returns: y (*TODO*), NxM formatted string array.
+    :returns: y (*NxM formatted string array*) .
 
 Examples
 ----------------

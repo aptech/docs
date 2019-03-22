@@ -19,7 +19,7 @@ Format
         that column will be interpreted as character data.
     :type v: Lx1 vector containing integers specifying the columns
 
-    :returns: y (*TODO*), NxK sorted matrix.
+    :returns: y (*NxK sorted matrix*) .
 
 Examples
 ----------------

@@ -17,7 +17,7 @@ Format
     :param fmt: 1xK or 1x1 string array containing format information.
     :type fmt: Kx1
 
-    :returns: sa (*TODO*), NxK string array.
+    :returns: sa (*NxK string array*) .
 
 Remarks
 -------

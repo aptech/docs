@@ -17,8 +17,7 @@ Format
     :param y: 
     :type y: Nx1 vector or NxK matrix
 
-    :returns: z (*TODO*), scalar or Kx1 dot product
-
+    :returns: z (*scalar or Kx1 dot product*) 
 Examples
 ----------------
 

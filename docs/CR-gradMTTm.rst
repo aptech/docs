@@ -26,8 +26,7 @@ Format
         otherwise are computed.
     :type mask: Kx1 matrix
 
-    :returns: g (*TODO*), NxK Jacobian or 1xK gradient
-
+    :returns: g (*NxK Jacobian or 1xK gradient*) 
 Remarks
 -------
 

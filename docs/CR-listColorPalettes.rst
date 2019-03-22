@@ -18,7 +18,7 @@ Format
     :param Valid categories include: "" (list all available palettes), "diverging",  "qualitative" and "sequential".: 
     :type Valid categories include: "" (list all available palettes), "diverging",  "qualitative" and "sequential".: TODO
 
-    :returns: palettes (*TODO*), String array containing color palette names.
+    :returns: palettes (*String array*) containing color palette names.
 
 Examples
 ----------------

@@ -20,7 +20,7 @@ Format
         Real (n) must be positive.
     :type n: The order of the function
 
-    :returns: f (*TODO*), NxK matrix;  f may be complex.
+    :returns: f (*NxK matrix*) ;  f may be complex.
 
 Examples
 ----------------

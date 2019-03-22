@@ -27,7 +27,7 @@ Format
         "1      numeric (Default)."
         "2     character, case insensitive."
 
-    :returns: y (*TODO*), Lx1 vector containing all unique values
+    :returns: y (*Lx1 vector*) containing all unique values
         that are in  v1 and are not in
         v2, sorted in ascending order.
 

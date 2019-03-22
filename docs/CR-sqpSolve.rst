@@ -18,7 +18,7 @@ Format
     :param start: 
     :type start: Kx1 vector of start values
 
-    :returns: x (*TODO*), Kx1 vector of parameters at minimum.
+    :returns: x (*Kx1 vector*) of parameters at minimum.
 
     :returns: f (*scalar*), function evaluated at x.
 
@@ -36,7 +36,7 @@ Format
         ""bounds"", "Lagrangeans of bounds"
         "Whenever a constraint is active, its associated Lagrangean will be nonzero."
 
-    :returns: retcode (*TODO*), return code:
+    :returns: retcode (*return code*) :
 
     .. csv-table::
         :widths: auto

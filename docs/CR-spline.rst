@@ -25,11 +25,11 @@ Format
     :param g: grid size factor.
     :type g: scalar
 
-    :returns: u (*TODO*), (K*g)x1 vector, x-abscissae, regularly spaced.
+    :returns: u (*(K*g)x1 vector*) , x-abscissae, regularly spaced.
 
-    :returns: v (*TODO*), (N*g)x1 vector, y-abscissae, regularly spaced.
+    :returns: v (*(N*g)x1 vector*) , y-abscissae, regularly spaced.
 
-    :returns: w (*TODO*), (K*g)x(N*g) matrix, interpolated ordinates.
+    :returns: w (*(K*g)x(N*g) matrix*) , interpolated ordinates.
 
 
 

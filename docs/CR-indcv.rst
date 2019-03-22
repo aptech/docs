@@ -18,7 +18,7 @@ Format
     :param where: 
     :type where: Mx1 character vector to be searched for matches to the elements of what
 
-    :returns: z (*TODO*), Nx1 vector of integers containing the indices of the corresponding element of what
+    :returns: z (*Nx1 vector*) of integers containing the indices of the corresponding element of what
         in  where.
 
 Remarks

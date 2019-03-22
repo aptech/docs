@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: NxK matrix or sparse matrix
 
-    :returns: y (*TODO*), Kx1 matrix containing the smallest element in each column of x.
+    :returns: y (*Kx1 matrix*) containing the smallest element in each column of x.
 
 Remarks
 -------

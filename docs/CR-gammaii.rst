@@ -18,7 +18,7 @@ Format
         values.
     :type p: KxL matrix
 
-    :returns: x (*TODO*), max(M,K) by max(N,L) matrix, abscissae.
+    :returns: x (*max(M,K) by max(N,L) matrix*) , abscissae.
 
 
 

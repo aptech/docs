@@ -115,7 +115,7 @@ Format
         limit and the second row is the lower limit. N integrations are computed.
     :type gl: 2x1 or 2xN matrix of function pointers
 
-    :returns: y (*TODO*), Nx1 vector of the estimated integral(s) of
+    :returns: y (*Nx1 vector*) of the estimated integral(s) of
         f(x, y),
         evaluated between the limits given by  xl and  gl.
 

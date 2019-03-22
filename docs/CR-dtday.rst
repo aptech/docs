@@ -20,7 +20,7 @@ Format
     :param day: 1-31.
     :type day: NxK matrix of days
 
-    :returns: dt (*TODO*), NxK matrix of DT scalar format dates.
+    :returns: dt (*NxK matrix*) of DT scalar format dates.
 
 
 

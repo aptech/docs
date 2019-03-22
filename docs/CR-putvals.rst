@@ -22,7 +22,7 @@ Format
     :param vals: new values to insert.
     :type vals: Lx1 vector
 
-    :returns: y (*TODO*), MxK matrix or N-dimensional array, copy of x
+    :returns: y (*MxK matrix or N-dimensional array*) , copy of x
         containing the new values in  vals.
 
 Remarks

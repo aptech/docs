@@ -14,7 +14,7 @@ Format
     :param r: 
     :type r: Nx1 vector containing roots of the desired polynomial
 
-    :returns: c (*TODO*), (N+1)x1 vector containing the coefficients of the
+    :returns: c (*(N+1)x1 vector*) containing the coefficients of the
         Nth order polynomial with roots r:
         
         p(z)=c[1]*zn + c[2]*z(n-1) + ... c[n]*z + c[n+1]

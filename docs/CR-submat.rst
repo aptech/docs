@@ -19,7 +19,7 @@ Format
     :param c: 
     :type c: PxQ matrix of column indices
 
-    :returns: y (*TODO*), (L*M)x(P*Q) submatrix of x, y may be larger
+    :returns: y (*(L*M)x(P*Q) submatrix*) of x, y may be larger
         than x.
 
 Remarks

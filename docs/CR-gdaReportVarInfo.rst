@@ -15,7 +15,7 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: vinfo (*TODO*), Nx1 string array containing variable information.
+    :returns: vinfo (*Nx1 string array*) containing variable information.
 
 Remarks
 -------

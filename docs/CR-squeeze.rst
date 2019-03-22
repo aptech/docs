@@ -13,7 +13,7 @@ Format
     :param a: 
     :type a: Multi-dimensional array
 
-    :returns: atrim (*TODO*), Multidimensional array or matrix with all dimensions
+    :returns: atrim (*Multidimensional array or matrix*) with all dimensions
         equal to 1 removed.
 
 Remarks

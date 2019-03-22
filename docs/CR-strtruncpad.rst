@@ -19,5 +19,5 @@ Format
     :param maxlen: maximum length.
     :type maxlen: 1xK or 1x1 matrix
 
-    :returns: y (*TODO*), NxK string array result.
+    :returns: y (*NxK string array*) result.
 

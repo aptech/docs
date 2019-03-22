@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: Nx1 column vector
 
-    :returns: ind (*TODO*), Nx1 vector representing sorted index of x.
+    :returns: ind (*Nx1 vector representing sorted index*) of x.
 
 Remarks
 -------

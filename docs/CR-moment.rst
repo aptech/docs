@@ -24,7 +24,7 @@ Format
         "1", ""listwise deletion" is used. Any row that contains a missing value in any of its elements is excluded from the computation of the moment matrix. If every row in x contains missing values, then moment(x,1) will return a scalar zero."
         "2", ""pairwise deletion" is used. Any element of x that is missing is excluded from the computation of the moment matrix.  Note that this is seldom a satisfactory method of handling missing values, and special care must be taken in  computing the relevant number of observations and degrees of freedom."
 
-    :returns: y (*TODO*), KxK matrix or M-dimensional array where the last two dimensions are KxK, the cross-product of x.
+    :returns: y (*KxK matrix or M-dimensional array*) where the last two dimensions are KxK, the cross-product of x.
 
 Remarks
 -------

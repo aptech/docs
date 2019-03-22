@@ -16,7 +16,7 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: vtab (*TODO*), Nx1 array of gdavartable
+    :returns: vtab (*Nx1 array*) of gdavartable
         structures, where N is the number of variables in
         filename, containing the following members:
 

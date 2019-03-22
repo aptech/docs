@@ -20,7 +20,7 @@ Format
         E.g ". - Cards", '-' means exclude "Cards".
     :type varnames: Formula string
 
-    :returns: y (*TODO*), NxK matrix of data.
+    :returns: y (*NxK matrix*) of data.
 
 Examples
 ----------------

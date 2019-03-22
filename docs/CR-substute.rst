@@ -22,7 +22,7 @@ Format
         corresponding element of  e is 1.
     :type v: PxQ matrix
 
-    :returns: y (*TODO*), max(N,L,P) by max(K,M,Q) matrix.
+    :returns: y (*max(N,L,P) by max(K,M,Q) matrix*) .
 
 Remarks
 -------

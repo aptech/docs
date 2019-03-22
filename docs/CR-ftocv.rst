@@ -23,7 +23,7 @@ Format
         places after the decimal point.
     :type prec: scalar
 
-    :returns: y (*TODO*), NxK character matrix containing the decimal character
+    :returns: y (*NxK character matrix*) containing the decimal character
         equivalent of the corresponding elements in x
         in the format defined by  field and  prec.
 

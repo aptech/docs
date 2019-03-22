@@ -14,7 +14,7 @@ Format
     :param fname: the name of the data file.
     :type fname: String
 
-    :returns: headers (*TODO*), Px1 string array containing the variable names in the file.
+    :returns: headers (*Px1 string array*) containing the variable names in the file.
 
 Remarks
 -------

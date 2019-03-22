@@ -20,7 +20,7 @@ Format
     :param x0: 
     :type x0: Kx1 vector specifying the point at which the Hessian of f(x) is to be computed
 
-    :returns: h (*TODO*), KxK matrix of second derivatives of  f with respect to x at x0; this matrix will be symmetric.
+    :returns: h (*KxK matrix*) of second derivatives of  f with respect to x at x0; this matrix will be symmetric.
 
 Remarks
 -------

@@ -15,7 +15,7 @@ Format
     :type A: NxN matrix or K-dimensional array where
         the last two dimensions are NxN
 
-    :returns: lambda (*TODO*), Nx1 vector or K-dimensional array where the last two dimensions are Nx1, the
+    :returns: lambda (*Nx1 vector or K-dimensional array*) where the last two dimensions are Nx1, the
         eigenvalues of A.
 
 Examples
