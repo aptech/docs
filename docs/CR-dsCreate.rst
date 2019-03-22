@@ -5,7 +5,7 @@ dsCreate
 Purpose
 ----------------
 
-Creates an instance of a structure of type DS set to default values.
+Creates an instance of a structure of type :code:`DS` set to default values.
 
 Format
 ----------------

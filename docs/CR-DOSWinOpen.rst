@@ -5,7 +5,9 @@ DOSWinOpen
 Purpose
 ----------------
 
-Opens the DOS compatibility window and gives it the specified title and attributes. NOTE: This function is no longer supported. This documentation is provided as a reference for understanding legacy code. In many cases, you may simply comment out calls to DOSWinOpen and the program will run successfully in the program input/output window.
+Opens the DOS compatibility window and gives it the specified title and attributes. 
+
+.. WARNING:: This function is no longer supported. This documentation is provided as a reference for understanding legacy code. In many cases, you may simply comment out calls to :func:`DOSWinOpen` and the program will run successfully in the program input/output window.
 
 Format
 ----------------
@@ -34,8 +36,8 @@ Format
 Remarks
 -------
 
-If title is a null string (''''), the window will be titled
-''GAUSS-DOS''.
+If title is a null string (``""``) the window will be titled
+:code:`"GAUSS-DOS"`.
 
 Defaults are defined for the elements of attr. To use the default, set
 an element to a missing value. Set attr to a scalar missing to use all

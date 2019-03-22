@@ -16,15 +16,15 @@ Format
     :param x: 
     :type x: Nx1 vector
 
-    :returns: y (*NxK matrix*), where K = maxc(x); each row of y
+    :returns: y (*NxK matrix*), where :math:`K = maxc(x)`; each row of *y*
         will contain a single 1, and the rest 0's. The
-        one in the ith row will be in the round(x[i,1])
+        one in the ith row will be in the :code:`round(x[i,1])`
         column.
 
 Remarks
 -------
 
-Note that x does not have to contain integers: it will be rounded to
+Note that *x* does not have to contain integers: it will be rounded to
 nearest if necessary.
 
 
@@ -88,7 +88,7 @@ This final section returns:
     -7    -13      0     -1 
      5     -3     12      8
 
-This last print statement shows us that we have indeed changed the order of the rows. In x the row order is 1, 2, 3, 4. However, in x2, the row order is 3, 1, 4, 2 (i.e. the third row is now first, the first row is now second, etc.)
+This last print statement shows us that we have indeed changed the order of the rows. In *x* the row order is 1, 2, 3, 4. However, in *x2*, the row order is 3, 1, 4, 2 (i.e. the third row is now first, the first row is now second, etc.)
 
 Source
 ------
@@ -97,4 +97,3 @@ design.src
 
 .. seealso:: Functions :func:`cumprodc`, :func:`cumsumc`, :func:`recserrc`
 
-design matrix 0 1

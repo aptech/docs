@@ -5,7 +5,9 @@ DOSWinCloseall
 Purpose
 ----------------
 
-Closes the DOS compatibility window. NOTE: The DOS compatibility window is no longer supported. This documenation is provided as a reference for understanding legacy code.
+Closes the DOS compatibility window. 
+
+.. WARNING:: The DOS compatibility window is no longer supported. This documentation is provided as a reference for understanding legacy code.
 
 Format
 ----------------
@@ -14,10 +16,9 @@ Format
 Remarks
 -------
 
-Calling DOSWinCloseall closes the DOS window immediately, without asking
+Calling :func:`DOSWinCloseall` closes the DOS window immediately, without asking
 for confirmation. If a program is running, its I/O reverts to the
 Command window.
-
 
 Examples
 ----------------

@@ -1,11 +1,11 @@
 
-dotfeq,dotfge, dotfgt,dotfle,dotflt,dotfne
+dotfeq, dotfge, dotfgt, dotfle, dotflt, dotfne
 ==============================================
 
 Purpose
 ----------------
 
-Fuzzy comparison functions. These functions use _fcmptol to fuzz the comparison operations to allow for
+Fuzzy comparison functions. These functions use `_fcmptol` to fuzz the comparison operations to allow for
 roundoff error.
 
 Format
@@ -15,7 +15,7 @@ Format
     :param a: first matrix.
     :type a: NxK matrix
 
-    :param b: second matrix, ExE compatible with  a.
+    :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
     :returns: y (*max(N,L) by max(K,M) matrix*) of 1's and 0's.
@@ -23,16 +23,14 @@ Format
 Global Input
 ------------
 
-+-----------------+-----------------------------------------------------+
-| \_fcmptol       | scalar, comparison tolerance. The default value is  |
-|                 | 1.0e-15.                                            |
-+-----------------+-----------------------------------------------------+
+.. data:: \_fcmptol
 
+    scalar, comparison tolerance. The default value is 1.0e-15. 
 
 Remarks
 -------
 
-The return value is 1 if TRUE and 0 if FALSE.
+The return value is 1 if ``TRUE`` and 0 if ``FALSE``.
 
 The statement:
 
@@ -46,7 +44,7 @@ is equivalent to:
 
    y = a .eq b;
 
-The calling program can reset \_fcmptol before calling these procedures:
+The calling program can reset `_fcmptol` before calling these procedures:
 
 ::
 
@@ -87,11 +85,5 @@ Source
 
 fcompare.src
 
-Globals
-+++++++
+.. seealso:: Functions :func:`feq-fne`
 
-\_fcmptol
-
-.. seealso:: Functions 
-
-dot equal greater than less not

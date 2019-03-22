@@ -14,21 +14,21 @@ Format
     :param x: 
     :type x: MxN dense matrix
 
-    :param reps: relative epsilon. Elements of x will be treated as
-        zero if their absolute values are less than or equal to  reps
+    :param reps: relative epsilon. Elements of *x* will be treated as
+        zero if their absolute values are less than or equal to *reps*
         multiplied by the mean of the absolute values of the non-zero values in
-        x.
+        *x*.
     :type reps: scalar
 
-    :returns: y (*MxN sparse matrix*) .
+    :returns: y (*MxN sparse matrix*)
 
 Remarks
 -------
 
 A dense matrix is just a normal format matrix.
 
-Since sparse matrices are strongly typed in GAUSS, y must be defined as
-a sparse matrix before the call to denseToSpRE.
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`denseToSpRE`.
 
 
 Examples
@@ -45,7 +45,7 @@ Examples
     y = denseToSpRE(x,0.5);
     d = spToDense(y);
 
-After the code above, d is equal to:
+After the code above, *d* is equal to:
 
 ::
 
@@ -54,7 +54,7 @@ After the code above, d is equal to:
       5.00   0.00   0.00   7.00 
       0.00   0.00   0.00   2.20
 
-You can calculate the mean of the non-zero elements of x like this:
+You can calculate the mean of the non-zero elements of *x* like this:
 
 ::
 
@@ -75,6 +75,7 @@ You can calculate the mean of the non-zero elements of x like this:
     nnz =       7
     nzmean = 4.31
 
-The call to denseToSpRE towards the start of this example, removed all non-zeros less than 0.5*nzmean, or approximately 2.16.
+The call to :func:`denseToSpRE` towards the start of this example, removed all non-zeros less than :math:`0.5 * nzmean`, or approximately 2.16.
 
 .. seealso:: Functions :func:`denseToSp`, :func:`spCreate`, :func:`spToDense`
+

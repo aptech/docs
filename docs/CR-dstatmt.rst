@@ -9,51 +9,50 @@ Compute descriptive statistics.
 
 Format
 ----------------
-.. function:: dstatmt(dataset, vars, ctl)
+.. function:: dstatmt(dataset[, vars[, ctl]])
 
-    :param dataset: name of data set.
-        
-        If dataset is null or 0,
-        vars will be assumed
-        to be a matrix containing the data.
+    :param dataset: name of data set. If *dataset* is null or 0, *vars* will be assumed to be a matrix containing the data.
     :type dataset: string
 
-    :param vars: the variables.
-        
-        If dataset contains the name of a
-        data set, vars will be interpreted as:
-        If dataset is null or 0, vars will be interpreted as:
-    :type vars: Optional input
+    :param vars: Optional input. the variables. If *dataset* contains the name of a data set, *vars* will be interpreted as:
+        If *dataset* is null or 0, *vars* will be interpreted as:
+    :type vars: string or string array
 
-    .. csv-table::
-        :widths: auto
-
-        "Kx1 string array, names of variables."
-        "- or -"
-        "Kx1 numeric vector, indices of variables."
-        "- or -"
-        "formula string. e.g. "PAY + WT"  or ". - sex""
+        - Kx1 string array, names of variables.
+        - OR
+        - Kx1 numeric vector, indices of variables.
+        - OR
+        - formula string. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
 
     :param ctl: instance of a dstatmtControl structure containing the following members:
     :type ctl: Optional input
 
-    .. csv-table::
+    .. list-table::
         :widths: auto
+        :align: center
 
-        "ctl.altnames", "Kx1 string array of alternate variable names to be used if a matrix in memory is analyzed (i.e., dataset is a null string or 0). Default = ""."
-        "ctl.maxbytes", "scalar, the maximum numberof bytes to be read per iteration of the read loop. Default = 1e9."
-        "ctl.vartype", "Scalar, unused in dstatmt."
-        "ctl.miss", "scalar, default 0."
-        "", "0", "there are no missing values (fastest)."
-        "", "1", "listwise deletion, drop arow if any missings occur in it."
-        "", "2", "pairwise deletion."
-        "ctl.row", "scalar, the number of rows to readper iteration of the read loop.If 0, (default) the number of rows will becalculated using ctl.maxbytes andmaxvec."
-        "ctl.output", "scalar, controls output, default 1."
-        "", "1", "print output table."
-        "", "0", "do not print output."
-        "These can be any size subset of the variables inthe data set and can be in any order. If ascalar 0 is passed, all columns of the data setwill be used."
-        "NxK matrix, the data on which to compute the descriptive"
-        "statistics."
+        * - ctl.altnames
+          - Kx1 string array of alternate variable names to be used if a matrix in memory is analyzed (i.e., dataset is a null string or 0). Default = "".
+        * - *ctl.maxbytes*
+          - scalar, the maximum numberof bytes to be read per iteration of the read loop. Default = 1e9.
+        * - *ctl.vartype*
+          - scalar, unused in dstatmt.
+        * - *ctl.miss*
+          - scalar, default 0.
+              
+              :0: there are no missing values (fastest).
+              :1: listwise deletion, drop arow if any missings occur in it.
+              :2: pairwise deletion.
+
+        * - *ctl.row*
+          - scalar, the number of rows to read per iteration of the read loop.If 0, (default) the number of rows will be calculated using *ctl.maxbytes* and *maxvec*.
+        * - *ctl.output*
+          - scalar, controls output, default 1.
+          
+              :1: print output table.
+              :0: do not print output.
+
+    These can be any size subset of the variables in the data set and can be in any order. If a scalar 0 is passed, all columns of the data set will be used.
 
     :returns: dout (*struct*) instance of :class:`dstatmtOut` struct
         structure containing the following members:
@@ -61,19 +60,29 @@ Format
     .. csv-table::
         :widths: auto
 
-        "dout.vnames", "Kx1 string array, the names of the variablesused in the statistics."
-        "dout.mean", "Kx1 vector, means."
-        "dout.var", "Kx1 vector, variance."
-        "dout.std", "Kx1 vector, standard deviation."
-        "dout.min", "Kx1 vector, minima."
-        "dout.max", "Kx1 vector, maxima."
-        "dout.valid", "Kx1 vector, the number of valid cases."
-        "dout.missing", "Kx1 vector, the number of missing cases."
-        "dout.errcode", "scalar, error code, 0 if successful; otherwise, one of the following:"
-        "", "2", "Can't open file."
-        "", "7", "Too many missings - no data left after packing."
-        "", "9", "altnames member ofdstatmtControl structure wrong size."
-        "", "10", "vartype member ofdstatmtControl structure wrong size."
+        * - dout.vnames
+          - Kx1 string array, the names of the variablesused in the statistics.
+        * - dout.mean
+          - Kx1 vector, means.
+        * - dout.var
+          - Kx1 vector, variance.
+        * - dout.std
+          - Kx1 vector, standard deviation.
+        * - dout.min
+          - Kx1 vector, minima.
+        * - dout.max
+          - Kx1 vector, maxima.
+        * - dout.valid
+          - Kx1 vector, the number of valid cases.
+        * - dout.missing
+          - Kx1 vector, the number of missing cases.
+        * - dout.errcode
+          - scalar, error code, 0 if successful; otherwise, one of the following:
+
+              :2: Can't open file.
+              :7: Too many missings - no data left after packing.
+              :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
+              :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
 
 Examples
 ----------------
@@ -257,11 +266,12 @@ This time, the following output will be printed to the screen:
 Remarks
 -------
 
--  If pairwise deletion is used, the minima and maxima will be the true
+1. If pairwise deletion is used, the minima and maxima will be the true
    values for the valid data. The means and standard deviations will be
    computed using the correct number of valid observations for each
    variable.
--  For backwards compatiblitity, the following format is still
+
+2. For backwards compatiblitity, the following format is still
    supported:
 
    ::
@@ -271,25 +281,18 @@ Remarks
    However, all new code should use one of the formats listed at the top
    of this document.
 
--  The supported dataset types are
-   ` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,
-   `Excel (XLS, XLSX) <FIO.3-Spreadsheets.html#data-source-excel>`__,
-   `HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__, `GAUSS Matrix
-   (FMT) <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__,
-   `GAUSS Dataset
-   (DAT) <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__, `Stata
-   (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
--  For HDF5 files, the dataset must include a `file
-   schema <FIO.4-HDF5Files.html#schema-hdf5>`__ and both file name and
-   data set name must be provided, e.g.
-   dstatmt("h5://testdata.h5/mydata").
+3. The supported data set types are `CSV`, `XLS`, `XLSX`, `HDF5`, `FMT`, `DAT`, `DTA`, `STATA`
+
+
+.. DANGER:: Fix links here
+
+4. For `HDF5` files, the dataset must include a `file schema` and both file name and data set name must be provided, e.g.
+   :code:`dstatmt("h5://testdata.h5/mydata")`.
 
 Source
 ------
 
 dstatmt.src
 
-.. seealso:: Functions :func:`dstatmtControlCreate`
-`Formula String <LF.11-FormulaString.html#FormulaString>`__
+.. seealso:: Functions :func:`dstatmtControlCreate`, `formula string`
 
-descriptive statistics data handle

@@ -11,23 +11,23 @@ Format
 ----------------
 .. function:: diag(x)
 
-    :param x: 
-    :type x: NxK matrix or L-dimensional array where the last two dimensions are NxK
+    :param x: NxK matrix or L-dimensional array where the last two dimensions are NxK 
+    :type x: matrix or array
 
-    :returns: y (*min(N,K)x1 vector or L-dimensional array*) where the last two dimensions are min(N,K)x1.
+    :returns: y (*min(N,K)x1 vector or L-dimensional array*) where the last two dimensions are :math:`min(N,K)x1`.
 
 Remarks
 -------
 
-If x is a matrix, it need not be square. Otherwise, if x is an array,
+If *x* is a matrix, it need not be square. Otherwise, if *x* is an array,
 the last two dimensions need not be equal.
 
-If x is an array, the result will be an array containing the diagonals
+If *x* is an array, the result will be an array containing the diagonals
 of each 2-dimensional array described by the two trailing dimensions of
-x. In other words, for a 10x4x4 array, the result will be a 10x4x1 array
-containing the diagonals of each of the 10 4x4 arrays contained in x.
+*x*. In other words, for a 10x4x4 array, the result will be a 10x4x1 array
+containing the diagonals of each of the 10 4x4 arrays contained in *x*.
 
-diagrv reverses the procedure and puts a vector into the diagonal of a
+:func:`diagrv` reverses the procedure and puts a vector into the diagonal of a
 matrix.
 
 
@@ -56,7 +56,7 @@ After the above code,
     0.78613263 
     0.73350290
 
-Using diag function for a 3x4x4 dimensional array.
+Using :func:`diag` function for a 3x4x4 dimensional array.
 
 ::
 
@@ -66,7 +66,7 @@ Using diag function for a 3x4x4 dimensional array.
     x = areshape(x, 3|4|4);
     d = diag(x);
 
-Now x is equal to:
+Now *x* is equal to:
 
 ::
 
@@ -91,7 +91,7 @@ Now x is equal to:
        0.57916876      1.8180884     0.76104693      1.1237605
         1.0727710     -1.1071168      1.7443178     -1.0684433
 
-and d is a 3x4x1 array containing the diagonals from x above.
+and *d* is a 3x4x1 array containing the diagonals from *x* above.
 
 ::
 
@@ -117,3 +117,4 @@ and d is a 3x4x1 array containing the diagonals from x above.
           -1.0684433
 
 .. seealso:: Functions :func:`diagrv`
+

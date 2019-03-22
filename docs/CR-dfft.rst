@@ -14,23 +14,21 @@ Format
     :param x: 
     :type x: Nx1 vector
 
-    :returns: y (*Nx1 vector*) .
-
-
+    :returns: y (*Nx1 vector*)
 
 Remarks
 -------
 
-The transform is divided by N.
+The transform is divided by :math:`N`.
 
 This uses a second-order Goertzel algorithm. It is considerably slower
-than fft, but it may have some advantages in some circumstances. For one
-thing, N does not have to be an even power of 2.
-
-
+than :func:`fft`, but it may have some advantages in some circumstances. For one
+thing, :math:`N` does not have to be an even power of 2.
 
 Source
 ------
 
 dfft.src
+
+.. seealso:: :func:`dffti`, :func:`fft`, :func:`ffti`
 

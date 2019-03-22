@@ -33,7 +33,7 @@ of *r* are counted from the end of the matrix, therefore:
 
    y = delrows(x, r);
 
-will delete last row of *x* . The remaining rows of x will be assigned to *y*.
+will delete last row of *x* . The remaining rows of *x* will be assigned to *y*.
 
 
 Examples
@@ -61,3 +61,4 @@ After the code above:
          60 70 80
 
 .. seealso:: Functions :func:`delif`
+

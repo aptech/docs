@@ -6,7 +6,7 @@ Purpose
 ----------------
 
 Fuzzy comparison functions. These functions
-use the fcmptol argument to fuzz the comparison operations to allow for
+use the *fcmptol* argument to fuzz the comparison operations to allow for
 roundoff error.
 
 Format
@@ -16,7 +16,7 @@ Format
     :param a: first matrix.
     :type a: NxK matrix
 
-    :param b: second matrix, ExE compatible with  a.
+    :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
     :param fcmptol: comparison tolerance.
@@ -27,7 +27,7 @@ Format
 Remarks
 -------
 
-The return value is 1 if TRUE and 0 if FALSE.
+The return value is 1 if ``TRUE`` and 0 if ``FALSE``.
 
 The statement:
 
@@ -62,4 +62,5 @@ Source
 
 fcomparemt.src
 
-.. seealso:: Functions 
+.. seealso:: Functions :func:`feqmt-fnemt`
+

@@ -8,9 +8,10 @@ Purpose
 Graphs lines, symbols, and text using the PQG global
 variables. This procedure does not require actual X,
 Y, or Z data since its main purpose is to manually
-build graphs using  _pline,_pmsgctl, _psym,
-_paxes, _parrow and other globals.
-NOTE: This function is for the deprecated PQG graphics.
+build graphs using `_pline`, `_pmsgctl`, `_psym`,
+`_paxes`, `_parrow` and other globals.
+
+.. NOTE:: This function is for the deprecated PQG graphics.
 
 Format
 ----------------
@@ -19,9 +20,7 @@ Format
 Remarks
 -------
 
-draw is especially useful when used in conjunction with transparent
-windows.
-
+:func:`draw` is especially useful when used in conjunction with transparent windows.
 
 Examples
 ----------------
@@ -56,3 +55,4 @@ Source
 pdraw.src
 
 .. seealso:: Functions :func:`window`, :func:`makewind`
+

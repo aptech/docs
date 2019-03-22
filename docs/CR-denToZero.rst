@@ -28,7 +28,7 @@ Examples
        x2 = denToZero(x);
     endif;
 
-After the first line above, x is equal to:
+After the first line above, *x* is equal to:
 
 ::
 
@@ -36,7 +36,7 @@ After the first line above, x is equal to:
     2.902e-057
     3.000e+000
 
-At the end of the example, x is equal to:
+At the end of the example, *x* is equal to:
 
 ::
 

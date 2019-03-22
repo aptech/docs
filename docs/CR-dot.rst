@@ -18,6 +18,12 @@ Format
     :type y: Nx1 vector or NxK matrix
 
     :returns: z (*scalar or Kx1 dot product*) 
+
+Remarks
+-------
+
+Inputs *x* and *y* should have the same columns.
+
 Examples
 ----------------
 
@@ -76,11 +82,5 @@ After the code above:
     z = 19
         40
 
-Remarks
--------
-
-Inputs x and y should have the same columns.
-
 .. seealso:: Functions :func:`crossprd`, :func:`norm`
 
-dot product inner product scalar dot product

@@ -13,15 +13,15 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :param v: ,K)x1 vector.
-    :type v: min(N
+    :param v: 
+    :type v: min(N,K)x1 vector.
 
-    :returns: y (*NxK matrix*) equal to x with its principal diagonal elements equal to those of  v.
+    :returns: y (*NxK matrix*) equal to *x* with its principal diagonal elements equal to those of *v*.
 
 Remarks
 -------
 
-diag reverses the procedure and pulls the diagonal out of a matrix.
+:func:`diag` reverses the procedure and pulls the diagonal out of a matrix.
 
 
 Examples
@@ -37,8 +37,9 @@ After the code above:
 
 ::
 
-    0.614 0.686 0.633     1.000     1.000 0.686 0.633
+        0.614 0.686 0.633     1.000     1.000 0.686 0.633
     x = 0.802 0.185 0.707 v = 1.000 y = 0.802 1.000 0.707
         0.551 0.761 0.418     1.000     0.551 0.761 1.000
 
 .. seealso:: Functions :func:`diag`
+

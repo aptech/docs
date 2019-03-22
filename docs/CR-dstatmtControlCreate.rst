@@ -5,7 +5,7 @@ dstatmtControlCreate
 Purpose
 ----------------
 
-Fills a dstatmtControl structure with default settings.
+Fills a :class:`dstatmtControl` structure with default settings.
 
 Format
 ----------------
@@ -32,4 +32,3 @@ dstatmt.src
 
 .. seealso:: Functions :func:`dstatmt`
 
-default dstatmtControl structure dstatmt descriptive statistics

@@ -14,16 +14,15 @@ Format
 Remarks
 -------
 
-Commas are optional in variable_list.
+Commas are optional in *variable_list*.
 
 Deletes the specified variables from the output data set. Any variables
 referenced must already exist, either as elements of the source data
-set, or as the result of a previous make, vector, or code statement.
+set, or as the result of a previous :func:`make`, :func:`vector`, or :func:`code` statement.
 
-If neither keep nor drop is used, the output data set will contain all
+If neither :func:`keep` nor :func:`drop` is used, the output data set will contain all
 variables from the source data set, as well as any defined variables.
 The effects of multiple keep and drop statements are cumulative.
-
 
 Examples
 ----------------
@@ -33,3 +32,4 @@ Examples
     drop age, pay, sex;
 
 .. seealso:: Functions 
+
