@@ -41,7 +41,7 @@ Format
         Kx1 vector, indices of variables.
     :type vars: Kx1 string array
 
-    :returns: dout (*TODO*), an instance of a dstatmtOut structure with the following members:
+    :returns: dout (*struct*) instance of :class:`dstatmtOut` struct with the following members:
 
     .. csv-table::
         :widths: auto

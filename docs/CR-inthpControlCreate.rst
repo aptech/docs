@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: inthpControlCreate()
 
-    :returns: c (*TODO*), instance of inthpControl structure with
+    :returns: c (*struct*) instance of :class:`inthpControl` struct with
         members set to default values.
 
 

@@ -69,7 +69,7 @@ Format
         "gCtl.varNames", "string array, dependent variable names. Only used for						data vector input case. Default = 'X1', 'X2', ..."
         "gCtl.instNames", "string array, instrumental variable names. Only used for data vector input case. 						Default = 'Z1', 'Z2', ..."
 
-    :returns: gOut (*TODO*), an instance of an arimaOut structure containing the following members:
+    :returns: gOut (*struct*) instance of :class:`arimaOut` struct containing the following members:
 
     .. csv-table::
         :widths: auto

@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: dstatmtControlCreate()
 
-    :returns: c (*TODO*), instance of dstatmtControl structure with members set to default values.
+    :returns: c (*struct*) instance of :class:`dstatmtControl` struct with members set to default values.
 
 Examples
 ----------------

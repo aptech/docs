@@ -46,7 +46,7 @@ Format
         "c.PrintIters", "scalar, if nonzero, prints iteration information. Default = 0."
         "c.disableKey", "scalar, if nonzero, keyboard input disabled"
 
-    :returns: out (*TODO*), an instance of an QNewtonmtOut structure.
+    :returns: out (*struct*) instance of :class:`QNewtonmtOut` struct.
         For an instance named out, the members are:
 
     .. csv-table::

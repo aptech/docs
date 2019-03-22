@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: olsmtControlCreate()
 
-    :returns: c (*TODO*), instance of an olsmtControl structure
+    :returns: c (*struct*) instance of :class:`olsmtControl` struct
         with members set to default values.
 
 Examples

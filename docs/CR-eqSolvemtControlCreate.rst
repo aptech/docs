@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: eqSolvemtControlCreate()
 
-    :returns: c (*TODO*), instance of eqSolvemtControl structure with
+    :returns: c (*struct*) instance of :class:`eqSolvemtControl` struct with
         members set to default values.
 
 Examples

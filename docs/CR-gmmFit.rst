@@ -64,7 +64,7 @@ Format
         "gctl.D", "Mx1 vector, linear  inequality constraint constants:  gctl.C * p>=gctl.D where  p is a vector of the parameters."
         "gctl.bounds", "1x2 or Kx2  matrix, bounds on parameters. If 1x2 all  parameters have same bounds. Default = -1e256 1e256 ."
 
-    :returns: gOut (*TODO*), an instance of an arimaOut structure containing the following members:
+    :returns: gOut (*struct*) instance of :class:`arimaOut` struct containing the following members:
 
     .. csv-table::
         :widths: auto

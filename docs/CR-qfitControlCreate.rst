@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: qfitControlCreate()
 
-    :returns: qctl (*TODO*), instance of an qfitControl structure
+    :returns: qctl (*struct*) instance of :class:`qfitControl` struct
         with members set to default values.
 
 Examples

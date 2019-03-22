@@ -20,7 +20,7 @@ Format
     :param structure_type: structure type.
     :type structure_type: string
 
-    :returns: instance (*TODO*), instance of the structure.
+    :returns: instance (*struct*) instance of :class:`the` struct.
 
     :returns: retcode (*scalar*), 0 if successful, otherwise, any of the following error codes:
 

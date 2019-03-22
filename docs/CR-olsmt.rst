@@ -78,7 +78,7 @@ Format
         "", "qr", "Solves for the parameter estimates using a  qr decomposition."
         "", "svd", "Solves for the paramer estimates using a singular value decomposition."
 
-    :returns: oout (*TODO*), instance of an olsmtOut structure containing the following members:
+    :returns: oout (*struct*) instance of :class:`olsmtOut` struct containing the following members:
 
     .. csv-table::
         :widths: auto

@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: eqSolvemtOutCreate()
 
-    :returns: c (*TODO*), instance of eqSolvemtOut structure with members
+    :returns: c (*struct*) instance of :class:`eqSolvemtOut` struct with members
         set to default values.
 
 Examples

@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: gmmControlCreate()
 
-    :returns: c (*TODO*), instance of gmmFitControl structure with
+    :returns: c (*struct*) instance of :class:`gmmFitControl` struct with
         members set to default values.
 
 Examples

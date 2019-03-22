@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: integrateControlCreate()
 
-    :returns: c (*TODO*), instance of an integrateControl structure with members set to default values.
+    :returns: c (*struct*) instance of :class:`integrateControl` struct with members set to default values.
 
 Examples
 ----------------

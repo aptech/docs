@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: QNewtonmtControlCreate()
 
-    :returns: c (*TODO*), instance of QNewtonmtControl structure with members set to default values.
+    :returns: c (*struct*) instance of :class:`QNewtonmtControl` struct with members set to default values.
 
 
 

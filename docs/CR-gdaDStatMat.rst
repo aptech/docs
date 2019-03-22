@@ -45,7 +45,7 @@ Format
         - or -scalar, index of the string containing the variable names in the matrix.
     :type vnamevar: string
 
-    :returns: dout (*TODO*), an instance of a dstatmtOut structure with the following members:
+    :returns: dout (*struct*) instance of :class:`dstatmtOut` struct with the following members:
 
     .. csv-table::
         :widths: auto

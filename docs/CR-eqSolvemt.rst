@@ -49,7 +49,7 @@ Format
         "c.title", "string, printed as a title in output."
         "c.output", "scalar. If non-zero, final results are printed."
 
-    :returns: out (*TODO*), an instance of an eqSolvemtOut structure. For
+    :returns: out (*struct*) instance of :class:`eqSolvemtOut` struct. For
         an instance named  out, the members are:
 
     .. csv-table::

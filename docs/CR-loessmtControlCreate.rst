@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: loessmtControlCreate()
 
-    :returns: c (*TODO*), instance of a loessmtControl structure with members set to default values.
+    :returns: c (*struct*) instance of :class:`loessmtControl` struct with members set to default values.
 
 Examples
 ----------------

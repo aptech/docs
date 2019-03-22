@@ -27,7 +27,7 @@ Format
         "qIn.bounds", "Kx2 matrix, bounds on  qOut.x, the first column contains the lower bounds on  qOut.x, and the second column the upper bounds. If scalar 0, the bounds for all elements will default to ±1e200."
         "qIn.maxit", "scalar, maximum number of iterations. Default = 1000."
 
-    :returns: qOut (*TODO*), instance of a qprogMTOut structure
+    :returns: qOut (*struct*) instance of :class:`qprogMTOut` struct
         containing the following members:
 
     .. csv-table::
