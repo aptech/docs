@@ -45,3 +45,4 @@ Remarks
 This function can only be used with databases that support transactions.
 
 .. seealso:: Functions :func:`dbCommit`, :func:`dbRollback`
+

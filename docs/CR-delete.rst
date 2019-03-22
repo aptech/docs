@@ -9,11 +9,10 @@ Deletes global symbols from the symbol table.
 
 Format
 ----------------
-.. function:: delete -flags symbol_list 
-			  delete symbol_list
+.. function:: delete [-flags] symbol_list 
 
-    :param flags: 
-    :type flags: specify the type(s) of symbols to be deleted
+    :param flags: specify the type(s) of symbols to be deleted
+    :type flags: 
 
     .. csv-table::
         :widths: auto
@@ -36,7 +35,7 @@ Remarks
 This completely and irrevocably deletes a symbol from GAUSS's memory and
 workspace.
 
-Flags must be preceded by a dash (e.g. -pfk). If the n (no pause) flag
+Flags must be preceded by a dash (e.g. ``-pfk``). If the *n* (no pause) flag
 is used, you will not be asked for confirmation for each symbol.
 
 This command is supported only from interactive level. Since the
@@ -66,11 +65,11 @@ This should return:
     
     delete -m x;
 
-At the Delete?[Yes No Previous Quit] prompt, enter y.
+At the ``Delete?[Yes No Previous Quit]`` prompt, enter ``y``.
 
 ::
 
     show x;
 
-x no longer exists.
+*x* no longer exists.
 

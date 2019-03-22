@@ -4,7 +4,7 @@ dbSetDatabaseName
 
 Purpose
 ----------------
-Sets the connection's database name to name. To have effect, the database name must be set before the connection is opened. Alternatively, you can dbClose() the connection, set the database name, and call dbOpen() again.
+Sets the connection's database name to name. To have effect, the database name must be set before the connection is opened. Alternatively, you can :func:`dbClose` the connection, set the database name, and call :func:`dbOpen` again.
 
 Format
 ----------------
@@ -15,8 +15,6 @@ Format
 
     :param database_name: database name to apply to specified database connection.
     :type database_name: string
-
-
 
 Remarks
 -------
@@ -40,4 +38,6 @@ entry in the ODBC manager:
       DBQ=myaccessfile.mdb");
    dbOpen(db_id);
    ...
+
+.. seealso:: :func:`dbGetDatabaseName`
 

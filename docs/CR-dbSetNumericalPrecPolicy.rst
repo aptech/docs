@@ -15,7 +15,7 @@ Format
     :type db_id: scalar
 
     :param prec_policy: 
-    :type prec_policy: scalar:
+    :type prec_policy: scalar
 
     .. csv-table::
         :widths: auto

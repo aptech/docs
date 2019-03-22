@@ -17,11 +17,11 @@ Format
     :param port_num: port number for database connection to use.
     :type port_num: scalar
 
-
-
 Remarks
 -------
 
 This function must be called before the connection is opened with
-dbOpen() to have an effect.
+:func:`dbOpen` to have an effect.
+
+.. seealso:: :func:`dbGetPort`
 

@@ -12,20 +12,20 @@ Format
 ----------------
 .. function:: delrows(x, r)
 
-    :param x: 
-    :type x: NxK data matrix
+    :param x: data 
+    :type x: NxK matrix
 
     :param r: indices of rows to delete.
     :type r: Mx1 vector
 
-    :returns: y (*PxK matrix contaning*) the remaining rows of x.
-        If no rows remain, y will be an empty matrix.
+    :returns: y (*PxK matrix contaning*) the remaining rows of *x*.
+        If no rows remain, *y* will be an empty matrix.
 
 Remarks
 -------
 
-If r is an empty matrix, the result will be unchanged. Negative values
-of r are counted from the end of the matrix, therefore:
+If *r* is an empty matrix, the result will be unchanged. Negative values
+of *r* are counted from the end of the matrix, therefore:
 
 ::
 
@@ -33,8 +33,7 @@ of r are counted from the end of the matrix, therefore:
 
    y = delrows(x, r);
 
-will delete last row of x . The remaining rows of x will be assigned to
-y.
+will delete last row of *x* . The remaining rows of x will be assigned to *y*.
 
 
 Examples

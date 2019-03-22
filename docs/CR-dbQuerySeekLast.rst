@@ -20,7 +20,7 @@ Format
 Remarks
 -------
 
-Note that the result must be in the active state and dbQueryIsSelect()
+Note that the result must be in the active state and :func:`dbQueryIsSelect`
 must return 1 before calling this function or it will do nothing and
 return 0.
 
@@ -32,8 +32,7 @@ Examples
 
     // Given STATES is a table with all 
     // 50 states listed alphabetically
-    qid = dbExecQuery(db_id, "SELECT name 
-        FROM STATES");
+    qid = dbExecQuery(db_id, "SELECT name FROM STATES");
     
     // Move to last state
     ret = dbQuerySeekLast(qid);
@@ -46,7 +45,5 @@ Examples
     print dbQueryFetchOneSA(qid);
     endif;
 
-See also
-++++++++
+.. seealso:: Functions :func:`dbQuerySeekNext`, :func:`dbQuerySeekPrevious`, :func:`dbQuerySeekFirst`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`
 
-`dbQuerySeekNext <CR-dbQuerySeekNext.html#dbQuerySeekNext>`__\,\ `dbQuerySeekPrevious <CR-dbQuerySeekPrevious.html#dbQuerySeekPrevious>`__\,\ `dbQuerySeekFirst <CR-dbQuerySeekFirst.html#dbQuerySeekFirst>`__\,\ `dbQuerySeek <CR-dbQuerySeek.html#dbQuerySeek>`__\,\ `dbQueryGetPosition <CR-dbQueryGetPosition.html#dbQueryGetPosition>`__

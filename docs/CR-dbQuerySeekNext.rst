@@ -22,7 +22,7 @@ Remarks
 
 Note that the result must be in the active state before calling this
 function or it will do nothing and return 0. You can verify the status
-of the query with dbQueryIsSelect().
+of the query with :func:`dbQueryIsSelect`.
 
 The following rules apply:
 
@@ -42,8 +42,7 @@ Examples
 
 ::
 
-    qid = dbCreateQuery(db_id, "SELECT * 
-        FROM PEOPLE");
+    qid = dbCreateQuery(db_id, "SELECT * FROM PEOPLE");
     
     do while dbQuerySeekNext(qid);
         row = dbQueryFetchOneSA(qid);
@@ -52,3 +51,4 @@ Examples
     endo;
 
 .. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekPrevious`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`
+

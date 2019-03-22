@@ -17,11 +17,9 @@ Format
     :param host_name: the name to which the specified connection's host name should be assigned.
     :type host_name: string
 
-
-
 Remarks
 -------
 
 For this function to have an effect, it must be called before the
-database connection is opened with dbOpen().
+database connection is opened with :func:`dbOpen`.
 
