@@ -282,3 +282,4 @@ Source
 
 qyr.src
 
+.. seealso:: Functions :func:`qqr`, :func:`qre`, :func:`qyr`

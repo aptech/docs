@@ -36,3 +36,4 @@ Source
 
 qrsol.src
 
+.. seealso:: Functions :func:`qqr`, :func:`qr`, :func:`qtyr`, :func:`qrtsol`

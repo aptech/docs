@@ -16,3 +16,4 @@ Format
 
     :returns: y (*scalar*), 1 if x contains any infinities, NaNs, or missing values, else 0.
 
+.. seealso:: Functions :func:`scalinfnanmiss`, :func:`ismiss`, :func:`scalmiss`

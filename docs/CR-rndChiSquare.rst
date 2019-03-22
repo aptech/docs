@@ -57,3 +57,4 @@ where:
    k = df
    λ = s_ncp^2
 
+.. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

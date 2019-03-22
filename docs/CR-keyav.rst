@@ -13,3 +13,4 @@ Format
 
     :returns: x (*scalar*), value of key or 0 if no key is available.
 
+.. seealso:: Functions :func:`keyw`, :func:`key`

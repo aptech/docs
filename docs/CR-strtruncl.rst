@@ -26,3 +26,4 @@ Source
 
 strfns.src
 
+.. seealso:: Functions :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncpad`, :func:`strtruncr`

@@ -63,3 +63,4 @@ passed is dropped.
 The time stamp fields (finfo[N,9:11]) are expressed as the number of
 seconds since midnight, Jan. 1, 1970, Coordinated Universal Time (UTC).
 
+.. seealso:: Functions :func:`filesa`

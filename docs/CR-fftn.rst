@@ -55,3 +55,4 @@ the dimensions to which fftn would pad a matrix.)
 
 fftn scales the computed FFT by 1/(L*M).
 
+.. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftn`, :func:`rfftnp`, :func:`rfftp`

@@ -48,3 +48,4 @@ Source
 
 pgraph.src
 
+.. seealso:: Functions :func:`axmargin`

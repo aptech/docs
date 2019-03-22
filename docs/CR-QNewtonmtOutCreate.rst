@@ -19,3 +19,4 @@ Source
 
 qnewtonmt.src
 
+.. seealso:: Functions :func:`QNewtonmt`

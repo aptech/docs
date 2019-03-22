@@ -28,3 +28,4 @@ Remarks
 The axes are not automatically labeled. Use the functions plotSetXLabel
 and plotSetYLabel.
 
+.. seealso:: Functions :func:`plotHist`, :func:`plotBar`, :func:`plotSetXLabel`

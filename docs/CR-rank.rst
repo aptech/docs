@@ -40,3 +40,4 @@ Global Input
 | l |                                                     |
 +---+-----------------------------------------------------+
 
+.. seealso:: Functions :func:`detl`, :func:`norm`

@@ -34,3 +34,4 @@ exponential distribution, which is defined as
 
    f(x)=1bexp⁡(−x−ab)
 
+.. seealso:: Functions :func:`cdfexp`

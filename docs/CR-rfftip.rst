@@ -60,3 +60,4 @@ FFT, including negative frequency information, for input.
 Do not pass rfftip the output from rfft or rfftn-it will return
 incorrect results. Use rffti with those routines.
 
+.. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftn`, :func:`rfftnp`, :func:`rfftp`

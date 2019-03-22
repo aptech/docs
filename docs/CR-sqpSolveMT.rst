@@ -194,3 +194,4 @@ Source
 
 sqpsolvemt.src
 
+.. seealso:: Functions :func:`sqpSolveMTControlCreate`, :func:`sqpSolveMTlagrangeCreate`

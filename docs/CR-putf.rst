@@ -71,3 +71,4 @@ Source
 
 putf.src
 
+.. seealso:: Functions :func:`getf`

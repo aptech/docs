@@ -55,3 +55,4 @@ The properties of the pseudo-random numbers in x are:
 
 r and c will be truncated to integers if necessary.
 
+.. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

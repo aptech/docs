@@ -185,3 +185,4 @@ Source
 
 qyr.src
 
+.. seealso:: Functions :func:`qqr`, :func:`qyre`, :func:`qyrep`, :func:`olsqr`

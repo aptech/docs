@@ -25,3 +25,4 @@ The system command always returns an exit code to the operating system
 or invoking program. If you don't supply one, it returns 0. This is
 usually interpreted as indicating success.
 
+.. seealso:: Functions :func:`exec`

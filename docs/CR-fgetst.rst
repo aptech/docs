@@ -32,3 +32,4 @@ In general, you don't want to use fgetst on files opened in binary mode
 preceding carriage return used on some platforms. Printing out such a
 string can produce unexpected results.
 
+.. seealso:: Functions :func:`fgets`, :func:`fgetsat`, :func:`fopen`

@@ -32,3 +32,4 @@ Source
 
 pxy.src
 
+.. seealso:: Functions :func:`xyz`, :func:`logx`, :func:`logy`, :func:`loglog`

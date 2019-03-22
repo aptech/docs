@@ -54,3 +54,4 @@ The eigenvalues are in ascending order.
 The eigenvalues of a complex hermitian or real symmetric matrix are
 always real.
 
+.. seealso:: Functions :func:`eig`, :func:`eighv`, :func:`eigv`

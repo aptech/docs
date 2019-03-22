@@ -38,3 +38,4 @@ Source
 
 pgraph.src
 
+.. seealso:: Functions :func:`volume`, :func:`view`

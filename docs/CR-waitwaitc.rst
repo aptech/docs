@@ -27,3 +27,4 @@ Source
 
 wait.src, waitc.src
 
+.. seealso:: Functions :func:`pause`

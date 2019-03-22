@@ -47,3 +47,4 @@ rate parameter which is sometimes called λ:
    E(x) = scale = β = 1/rate = 1/λ
    Var(x) = scale2 = β2 = 1/rate2 = 1/λ2
 
+.. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

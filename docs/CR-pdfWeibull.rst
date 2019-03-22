@@ -33,3 +33,4 @@ as
 
    f(x,λ,k)={kλ0(xλ)k−1⁢ e−(x/λ)kx≥0⁢x<0
 
+.. seealso:: Functions :func:`cdfWeibull`, :func:`cdfWeibullInv`

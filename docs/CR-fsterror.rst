@@ -32,3 +32,4 @@ The Windows system command called by ftell does not set the internal
 error flag accessed by fstrerror. Therefore, calling fstrerror after
 ftell on Windows will not produce any error information.
 
+.. seealso:: Functions :func:`fopen`, :func:`ftell`

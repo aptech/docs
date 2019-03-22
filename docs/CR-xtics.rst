@@ -44,3 +44,4 @@ Source
 
 pscale.src
 
+.. seealso:: Functions :func:`scale`, :func:`ytics`, :func:`ztics`

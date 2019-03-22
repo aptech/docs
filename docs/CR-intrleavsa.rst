@@ -40,3 +40,4 @@ Source
 
 sortd.src
 
+.. seealso:: Functions :func:`intrleav`

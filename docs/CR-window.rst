@@ -39,3 +39,4 @@ Source
 
 pwindow.src
 
+.. seealso:: Functions :func:`endwind`, :func:`begwind`, :func:`setwind`, :func:`nextwind`, :func:`getwind`, :func:`makewind`

@@ -28,3 +28,4 @@ movingave is essentially a smoothing time series filter. The moving
 average is performed by column and thus it treats the NxK matrix as K
 time series of length N.
 
+.. seealso:: Functions :func:`movingaveWgt`, :func:`movingaveExpwgt`

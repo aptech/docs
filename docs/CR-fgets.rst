@@ -40,3 +40,4 @@ the file's buffer.
 If you pass fgets the handle of a file opened with open (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
+.. seealso:: Functions :func:`fgetst`, :func:`fgetsa`, :func:`fopen`

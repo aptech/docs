@@ -115,3 +115,4 @@ produces the singular value decomposition of AB\ :sup:`-1`:
 
 This procedure calls the LAPACK routines DGGSVD and ZGGSVD.
 
+.. seealso:: Functions :func:`lapgsvds`, :func:`lapgsvdcst`

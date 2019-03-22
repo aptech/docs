@@ -28,3 +28,4 @@ Source
 
 pack.src
 
+.. seealso:: Functions :func:`vlist`, :func:`vput`, :func:`vread`

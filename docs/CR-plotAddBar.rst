@@ -32,3 +32,4 @@ plotAddBar may only add bars to 2-D graphs.
 This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
+.. seealso:: Functions :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`, :func:`plotAddXY`

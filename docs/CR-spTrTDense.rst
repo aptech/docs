@@ -31,3 +31,4 @@ This may also be accomplished by the following code:
 
 However, spTrTDense will be more efficient.
 
+.. seealso:: Functions :func:`spTScalar`

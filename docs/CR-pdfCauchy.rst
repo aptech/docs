@@ -34,3 +34,4 @@ as
 
    f(x)=(πσ(1+(x−μσ)2))−1
 
+.. seealso:: Functions :func:`cdfCauchy`

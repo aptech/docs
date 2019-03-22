@@ -34,3 +34,4 @@ are not computed directly because some elements of va2 may be zero,
 i.e., the eigenvalues may be infinite. This procedure calls the LAPACK
 routines DGGEV and ZGGEV.
 
+.. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`

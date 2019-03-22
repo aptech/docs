@@ -301,3 +301,4 @@ Source
 
 qyr.src
 
+.. seealso:: Functions :func:`qr`, :func:`qqrep`, :func:`qrep`, :func:`qtyrep`

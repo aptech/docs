@@ -29,3 +29,4 @@ passed in is a pointer to a procedure.
 
 See **Procedures and Keywords**, Chapter 1.
 
+.. seealso:: Functions :func:`proc`

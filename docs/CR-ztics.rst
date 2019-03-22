@@ -43,3 +43,4 @@ Source
 
 pscale.src
 
+.. seealso:: Functions :func:`scale3d`, :func:`xtics`, :func:`ytics`, :func:`contour`

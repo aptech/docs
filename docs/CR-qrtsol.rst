@@ -38,3 +38,4 @@ Source
 
 qrsol.src
 
+.. seealso:: Functions 

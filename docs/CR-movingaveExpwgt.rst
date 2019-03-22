@@ -31,3 +31,4 @@ movingaveExpwgt is smoothing time series filter using exponential
 weights. The moving average as performed by column and thus it treats
 the NxK matrix as K time series of length N.
 
+.. seealso:: Functions :func:`movingaveWgt`, :func:`movingave`

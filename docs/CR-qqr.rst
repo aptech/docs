@@ -133,3 +133,4 @@ Source
 
 qqr.src
 
+.. seealso:: Functions :func:`qre`, :func:`qrep`, :func:`qtyr`, :func:`qtyre`, :func:`qtyrep`, :func:`qyr`, :func:`qyre`, :func:`qyrep`, :func:`olsqr`

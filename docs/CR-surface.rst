@@ -127,3 +127,4 @@ Source
 
 psurface.src
 
+.. seealso:: Functions :func:`volume`, :func:`view`

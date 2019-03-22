@@ -55,3 +55,4 @@ The above code makes the following assignments:
 
    name = ols.src
 
+.. seealso:: Functions :func:`strindx`, :func:`strlen`, :func:`strsect`, :func:`strput`

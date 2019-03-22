@@ -31,3 +31,4 @@ as
 
    fx=xb2exp⁡(−x22b2)
 
+.. seealso:: Functions :func:`cdfRayleighinv`

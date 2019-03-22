@@ -41,3 +41,4 @@ first, to flush the file's buffer.
 If you pass fgetsa the handle of a file opened with open (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
+.. seealso:: Functions :func:`fgetsat`, :func:`fgets`, :func:`fopen`

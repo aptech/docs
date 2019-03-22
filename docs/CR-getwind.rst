@@ -28,3 +28,4 @@ Source
 
 pwindow.src
 
+.. seealso:: Functions :func:`endwind`, :func:`begwind`, :func:`window`, :func:`setwind`, :func:`nextwind`

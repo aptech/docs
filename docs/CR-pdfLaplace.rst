@@ -34,3 +34,4 @@ as
 
    f(x)=12bexp-|x-a|b
 
+.. seealso:: Functions :func:`cdfCauchy`, :func:`pdfCauchy`

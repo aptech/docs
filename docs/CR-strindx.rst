@@ -47,3 +47,4 @@ The above code will set y equal to:
 
 This function is used with strsect for extracting substrings.
 
+.. seealso:: Functions :func:`strrindx`, :func:`strlen`, :func:`strsect`, :func:`strput`, :func:`strreplace`

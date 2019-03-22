@@ -33,3 +33,4 @@ Source
 
 poly.src
 
+.. seealso:: Functions :func:`polymake`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`

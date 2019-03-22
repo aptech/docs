@@ -20,3 +20,4 @@ Source
 
 pgraph.src
 
+.. seealso:: Functions :func:`title`, :func:`xlabel`, :func:`ylabel`

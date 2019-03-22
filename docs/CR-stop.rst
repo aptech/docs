@@ -23,3 +23,4 @@ or the auxiliary output.
 It is not necessary to put a stop or an end statement at the end of a
 program. If neither is found, an implicit stop is executed.
 
+.. seealso:: Functions :func:`end`, :func:`new`, :func:`system`

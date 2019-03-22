@@ -35,3 +35,4 @@ defined as
    f(x)=exp⁡(z)b(1+exp⁡(z))2
    z=-⁡x-ab
 
+.. seealso:: Functions :func:`cdflogistic`

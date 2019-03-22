@@ -43,3 +43,4 @@ Source
 
 random.src
 
+.. seealso:: Functions :func:`rndGamma`

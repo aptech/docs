@@ -33,3 +33,4 @@ Source
 
 pwindow.src
 
+.. seealso:: Functions :func:`loadwind`

@@ -63,3 +63,4 @@ are orthonormal.
 The eigenvalues of a complex hermitian or real symmetric matrix are
 always real.
 
+.. seealso:: Functions :func:`eig`, :func:`eigh`, :func:`eigv`

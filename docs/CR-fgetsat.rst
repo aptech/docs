@@ -32,3 +32,4 @@ In general, you don't want to use fgetsat on files opened in binary mode
 carriage returns that precede them on some platforms. Printing out such
 a string array can produce unexpected results.
 
+.. seealso:: Functions :func:`fgetsa`, :func:`fgetst`, :func:`fopen`

@@ -24,3 +24,4 @@ Source
 
 polar.src
 
+.. seealso:: Functions :func:`xy`, :func:`logx`, :func:`logy`, :func:`loglog`, :func:`scale`, :func:`xtics`, :func:`ytics`

@@ -19,3 +19,4 @@ Format
     :param y:  Each column represents the Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
+.. seealso:: Functions :func:`plotXY`, :func:`plotLogX`, :func:`plotLogLog`

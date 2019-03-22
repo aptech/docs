@@ -58,3 +58,4 @@ Source
 
 indices.src
 
+.. seealso:: Functions :func:`indicesf`, :func:`indices`

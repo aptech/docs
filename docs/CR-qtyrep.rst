@@ -227,3 +227,4 @@ Source
 
 qtyr.src
 
+.. seealso:: Functions :func:`qrep`, :func:`qtyre`

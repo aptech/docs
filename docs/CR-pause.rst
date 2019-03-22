@@ -28,3 +28,4 @@ Source
 
 pause.src
 
+.. seealso:: Functions :func:`wait`

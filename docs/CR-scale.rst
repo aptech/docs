@@ -52,3 +52,4 @@ Source
 
 pscale.src
 
+.. seealso:: Functions :func:`xtics`, :func:`ytics`, :func:`ztics`, :func:`scale3d`

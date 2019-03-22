@@ -16,3 +16,4 @@ Format
 
     :returns: y (*scalar*), 1 if the data set is complex, 0 if it is real.
 
+.. seealso:: Functions :func:`hasimag`, :func:`iscplx`

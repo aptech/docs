@@ -583,3 +583,4 @@ Source
 
 qqr.src
 
+.. seealso:: Functions :func:`qtyre`, :func:`olsqr`

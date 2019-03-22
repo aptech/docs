@@ -29,3 +29,4 @@ Source
 
 lnpdfn.src
 
+.. seealso:: Functions :func:`lnpdft`

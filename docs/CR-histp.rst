@@ -57,3 +57,4 @@ Source
 
 phist.src
 
+.. seealso:: Functions :func:`hist`, :func:`histf`, :func:`bar`

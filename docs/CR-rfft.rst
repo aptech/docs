@@ -28,3 +28,4 @@ This uses a Temperton Fast Fourier algorithm.
 If N or K is not a power of 2, x will be padded out with zeros before
 computing the transform.
 
+.. seealso:: Functions :func:`rffti`, :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`

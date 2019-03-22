@@ -37,3 +37,4 @@ Remarks
    text mode (see fopen), these newlines are also converted to carriage
    return-linefeed sequences on output.
 
+.. seealso:: Functions :func:`fputs`, :func:`fopen`

@@ -25,3 +25,4 @@ strtofcplx supports both real and complex data. It is slower than strtof
 for real matrices. strtofcplx requires the presence of the real part.
 The imaginary part can be absent.
 
+.. seealso:: Functions :func:`strtof`, :func:`ftostrC`

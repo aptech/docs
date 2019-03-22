@@ -224,3 +224,4 @@ Source
 
 qqr.src
 
+.. seealso:: Functions :func:`qqr`, :func:`qre`, :func:`olsqr`

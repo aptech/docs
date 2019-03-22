@@ -24,3 +24,4 @@ Format
 
     :returns: clrs (*ncolorsx1 string array*) containing the newly created color palette.
 
+.. seealso:: Functions :func:`getColorPalette`, :func:`listColorPalettes`, :func:`getHSLPalette`, :func:`blendColorPalette`

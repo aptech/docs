@@ -45,3 +45,4 @@ Source
 
 time.src
 
+.. seealso:: Functions :func:`dtday`, :func:`dttime`, :func:`utctodt`, :func:`dttostr`, :func:`dayofweek`

@@ -80,3 +80,4 @@ If fopen fails, it returns a 0.
 
 Use close and closeall to close files opened with fopen.
 
+.. seealso:: Functions :func:`fseek`, :func:`close`, :func:`closeall`

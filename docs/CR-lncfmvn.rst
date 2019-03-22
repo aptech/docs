@@ -34,3 +34,4 @@ Source
 
 lncdfn.src
 
+.. seealso:: Functions :func:`cdfmvn`, :func:`lncdfbvn`

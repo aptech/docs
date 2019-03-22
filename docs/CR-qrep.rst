@@ -231,3 +231,4 @@ Source
 
 qr.src
 
+.. seealso:: Functions :func:`qr`, :func:`qre`, :func:`qqrep`

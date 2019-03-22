@@ -23,3 +23,4 @@ Source
 
 finutils.src
 
+.. seealso:: Functions :func:`getPreviousWeekDay`

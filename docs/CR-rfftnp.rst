@@ -77,3 +77,4 @@ vector.)
 
 rfftnp scales the computed FFT by 1/(L*M).
 
+.. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftn`, :func:`rfftp`

@@ -21,3 +21,4 @@ Source
 
 inthp.src
 
+.. seealso:: Functions :func:`inthp1`, :func:`inthp2`, :func:`inthp3`, :func:`inthp4`

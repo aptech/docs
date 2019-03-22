@@ -88,3 +88,4 @@ Procedure definitions may not be nested.
 For more details on writing procedures, see **Procedures and Keywords**,
 Chapter 1.
 
+.. seealso:: Functions :func:`keyword`, :func:`call`, :func:`endp`, :func:`local`, :func:`retp`

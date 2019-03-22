@@ -53,3 +53,4 @@ Source
 
 sortd.src
 
+.. seealso:: Functions :func:`intrleavsa`

@@ -48,3 +48,4 @@ Source
 
 sortd.src
 
+.. seealso:: Functions :func:`sortmc`, :func:`sortc`, :func:`sorthc`

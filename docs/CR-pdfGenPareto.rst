@@ -37,3 +37,4 @@ is defined as
 
    f(x)={1σ(1+k(x−μ)σ)−1−1/k1σexp⁡(−(x−μ)σ)k≠0k=0
 
+.. seealso:: Functions :func:`cdfGenPareto`

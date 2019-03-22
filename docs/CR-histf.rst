@@ -33,3 +33,4 @@ Source
 
 phist.src
 
+.. seealso:: Functions :func:`hist`, :func:`bar`, :func:`xlabel`, :func:`ylabel`

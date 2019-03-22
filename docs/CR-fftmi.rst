@@ -120,3 +120,4 @@ Source
 
 fftm.src
 
+.. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftn`

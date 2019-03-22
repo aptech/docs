@@ -15,3 +15,4 @@ Format
 
     :returns: cv (*Kx1 character vector*) containing the types of the elements of  dbuf.
 
+.. seealso:: Functions :func:`vget`, :func:`vput`, :func:`vread`, :func:`vnamecv`

@@ -36,3 +36,4 @@ Source
 
 corrs.src
 
+.. seealso:: Functions :func:`momentd`, :func:`corrms`

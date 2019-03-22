@@ -39,3 +39,4 @@ rowsf returns the number of rows in a file.
 
 Do NOT try to seek beyond the end of a file.
 
+.. seealso:: Functions :func:`open`, :func:`readr`, :func:`rowsf`

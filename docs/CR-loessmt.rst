@@ -51,3 +51,4 @@ Source
 
 loessmt.src
 
+.. seealso:: Functions :func:`loessmtControlCreate`

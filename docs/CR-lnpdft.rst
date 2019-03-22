@@ -29,3 +29,4 @@ scalar Normal density function is computed element-by-element.
 
 For multivariate probabilities with covariance matrix see lnpdfmvt.
 
+.. seealso:: Functions :func:`lnpdfmvt`

@@ -20,3 +20,4 @@ Format
     :param theta:  Each column represents the angle values for a particular line.
     :type theta: Nx1 or NxM matrix
 
+.. seealso:: Functions :func:`plotXY`, :func:`plotLogX`, :func:`plotLayout`, :func:`plotSetXLabel`

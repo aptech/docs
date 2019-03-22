@@ -66,3 +66,4 @@ in as the argument to the trapchk function:
 | 15  | 32768         |
 +-----+---------------+
 
+.. seealso:: Functions :func:`scalerr`, :func:`trap`, :func:`error`

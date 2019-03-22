@@ -32,3 +32,4 @@ Source
 
 finutils.src
 
+.. seealso:: Functions :func:`getNextTradingDay`

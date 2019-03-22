@@ -52,3 +52,4 @@ and
 
 This procedure calls the LAPACK routines DGGEV and ZGGEV.
 
+.. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`

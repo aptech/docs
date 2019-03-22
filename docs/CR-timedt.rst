@@ -38,3 +38,4 @@ Source
 
 time.src
 
+.. seealso:: Functions :func:`todaydt`, :func:`timeutc`, :func:`dtdate`

@@ -37,3 +37,4 @@ Source
 
 vpack.src
 
+.. seealso:: Functions :func:`vget`, :func:`vlist`, :func:`vread`

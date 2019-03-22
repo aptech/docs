@@ -48,3 +48,4 @@ Source
 
 olsmt.src
 
+.. seealso:: Functions :func:`olsmt`, :func:`olsqr2`

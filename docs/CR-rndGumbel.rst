@@ -52,3 +52,4 @@ pseudo-random numbers in y are:
 
 r and c will be truncated to integers if necessary.
 
+.. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

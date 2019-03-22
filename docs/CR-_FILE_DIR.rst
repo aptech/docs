@@ -57,3 +57,4 @@ Remarks
        //Adding parentheses to the end is incorrect
       __FILE_DIR();            
 
+.. seealso:: Functions :func:`getgausshome`

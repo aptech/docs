@@ -28,3 +28,4 @@ Remarks
 By default missing values in the y variable will be represented as gaps
 in the line.
 
+.. seealso:: Functions :func:`plotLogX`, :func:`plotLogLog`, :func:`plotScatter`

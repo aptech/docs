@@ -34,3 +34,4 @@ Source
 
 pgraph.src
 
+.. seealso:: Functions :func:`view`

@@ -775,3 +775,4 @@ Source
 
 qtyr.src
 
+.. seealso:: Functions :func:`qqr`, :func:`qre`, :func:`qtyr`

@@ -21,3 +21,4 @@ Format
 
     :returns: y (*NxK string array*) result.
 
+.. seealso:: Functions :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`

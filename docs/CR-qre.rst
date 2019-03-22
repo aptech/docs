@@ -531,3 +531,4 @@ Source
 
 qr.src
 
+.. seealso:: Functions :func:`qqr`, :func:`olsqr`

@@ -17,3 +17,4 @@ Format
     :returns: d (*string*), new working directory, or
         null string if change failed.
 
+.. seealso:: Functions :func:`chdir`, :func:`cdir`

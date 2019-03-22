@@ -29,3 +29,4 @@ plotAddHist may only add a histogram to 2-D graphs.
 This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
+.. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`, :func:`plotAddXY`

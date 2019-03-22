@@ -37,3 +37,4 @@ Source
 
 time.src
 
+.. seealso:: Functions :func:`dttime`, :func:`dtdate`, :func:`utctodt`, :func:`dttostr`

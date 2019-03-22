@@ -25,3 +25,4 @@ Source
 
 pwindow.src
 
+.. seealso:: Functions :func:`savewind`

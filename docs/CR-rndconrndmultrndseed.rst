@@ -64,3 +64,4 @@ that should not usually be a problem.
 The parameters set by these commands remain in effect until new commands
 are encountered, or until GAUSS is restarted.
 
+.. seealso:: Functions :func:`rndu`, :func:`rndn`, :func:`rndi`, :func:`rndLCi`, :func:`rndKMi`

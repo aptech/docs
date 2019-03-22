@@ -26,3 +26,4 @@ Source
 
 plogx.src
 
+.. seealso:: Functions :func:`xy`, :func:`logy`, :func:`loglog`

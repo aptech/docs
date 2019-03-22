@@ -41,3 +41,4 @@ rfftp scales the computed FFT by 1/(L*M).
 
 rfftp uses the Temperton FFT algorithm.
 
+.. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftn`, :func:`rfftnp`

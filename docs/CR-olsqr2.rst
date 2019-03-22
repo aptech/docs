@@ -40,3 +40,4 @@ matrices, it may produce better results.
 olsqr2 handles matrices that do not have full rank by returning zeros
 for the coefficients that cannot be estimated.
 
+.. seealso:: Functions :func:`olsqr`, :func:`orth`, :func:`qqr`

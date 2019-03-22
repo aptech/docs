@@ -25,3 +25,4 @@ Computes the inverse FFT of x, scaled by 1/N.
 
 This uses a Temperton prime factor Fast Fourier algorithm.
 
+.. seealso:: Functions :func:`fft`, :func:`rfft`, :func:`rffti`

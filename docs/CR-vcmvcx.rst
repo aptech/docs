@@ -39,3 +39,4 @@ Source
 
 corr.src
 
+.. seealso:: Functions :func:`momentd`
