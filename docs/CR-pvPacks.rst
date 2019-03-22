@@ -20,7 +20,7 @@ Format
     :param nm: matrix name.
     :type nm: string
 
-    :returns: p1 (*TODO*), an instance of structure of type PV.
+    :returns: p1 (*struct*) instance of :class:`PV` struct.
 
 Remarks
 -------

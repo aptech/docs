@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: pvCreate()
 
-    :returns: p1 (*TODO*), an instance of structure of type PV
+    :returns: p1 (*struct*) instance of :class:`PV` struct
 
 Examples
 ----------------

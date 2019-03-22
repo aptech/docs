@@ -55,7 +55,7 @@ Format
         "NxK matrix, the data on which to compute the descriptive"
         "statistics."
 
-    :returns: dout (*TODO*), instance of a dstatmtOut
+    :returns: dout (*struct*) instance of :class:`dstatmtOut` struct
         structure containing the following members:
 
     .. csv-table::

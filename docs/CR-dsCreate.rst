@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: dsCreate()
 
-    :returns: s (*TODO*), instance of structure of type DS.
+    :returns: s (*struct*) instance of :class:`DS` struct.
 
 Examples
 ----------------

@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: sqpSolveMToutCreate()
 
-    :returns: s (*TODO*), instance of structure of type sqpSolveMTout.
+    :returns: s (*struct*) instance of :class:`sqpSolveMTout` struct.
 
 Examples
 ----------------

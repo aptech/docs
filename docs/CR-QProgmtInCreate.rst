@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: QProgmtInCreate()
 
-    :returns: s (*TODO*), instance of structure of type QProgmtIn.
+    :returns: s (*struct*) instance of :class:`QProgmtIn` struct.
 
 
 

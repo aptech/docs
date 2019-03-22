@@ -17,7 +17,7 @@ Format
     :param p: parameter vector.
     :type p: Kx1 vector
 
-    :returns: p1 (*TODO*), an instance of structure of type PV.
+    :returns: p1 (*struct*) instance of :class:`PV` struct.
 
 Remarks
 -------

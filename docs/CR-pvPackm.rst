@@ -23,7 +23,7 @@ Format
     :param mask: mask matrix of zeros and ones.
     :type mask: MxN matrix
 
-    :returns: p1 (*TODO*), an instance of structure of type PV.
+    :returns: p1 (*struct*) instance of :class:`PV` struct.
 
 Remarks
 -------

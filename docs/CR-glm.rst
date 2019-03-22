@@ -74,7 +74,7 @@ Format
         "ctl.maxIters", "Scalar, maximum iterations. The default ctl.maxIters is 25."
         "ctl.eps", "Scalar, convergence precision. The default is 1e-8."
 
-    :returns: out (*TODO*), An instance of a glmOut
+    :returns: out (*struct*) instance of :class:`glmOut` struct
         structure. For an instance named out, the members are:
 
     .. csv-table::

@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: sqpSolveMTlagrangeCreate()
 
-    :returns: s (*TODO*), instance of structure of type sqpSolveMTlagrange.
+    :returns: s (*struct*) instance of :class:`sqpSolveMTlagrange` struct.
 
 Examples
 ----------------

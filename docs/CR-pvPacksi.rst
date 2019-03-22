@@ -24,7 +24,7 @@ Format
     :param i: index of matrix in lookup table.
     :type i: scalar
 
-    :returns: p1 (*TODO*), an instance of structure of type PV.
+    :returns: p1 (*struct*) instance of :class:`PV` struct.
 
 Remarks
 -------

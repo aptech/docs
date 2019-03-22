@@ -12,7 +12,7 @@ Format
 ----------------
 .. function:: sqpSolveMTControlCreate()
 
-    :returns: s (*TODO*), instance of structure of type sqpSolveMTControl.
+    :returns: s (*struct*) instance of :class:`sqpSolveMTControl` struct.
 
 Examples
 ----------------

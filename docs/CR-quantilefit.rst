@@ -49,7 +49,7 @@ Format
         "qCtl.bootstrap", "Scalar, number of iterations for bootstrap standard errors and confidence intervals. Default = 0, for no bootstrap."
         "qCtl.alpha", "Scalar, alpha values for bootstrap confidence intervals. Ignored if qctl.bootstrap is set to 0."
 
-    :returns: qOut (*TODO*), An instance of the qfitOut structure:
+    :returns: qOut (*struct*) instance of :class:`qfitOut` struct structure:
 
     .. csv-table::
         :widths: auto
