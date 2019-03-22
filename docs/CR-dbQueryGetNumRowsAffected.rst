@@ -20,8 +20,7 @@ Format
 Remarks
 -------
 
-Note that for SELECT statements, the value is undefined; use
-dbQueryRows() instead.
+Note that for ``SELECT`` statements, the value is undefined; use :func:`dbQueryRows` instead.
 
 
 Examples
@@ -39,3 +38,4 @@ Examples
     1 row(s) were affected
 
 .. seealso:: Functions :func:`dbQueryRows`, :func:`dbHasFeature`
+

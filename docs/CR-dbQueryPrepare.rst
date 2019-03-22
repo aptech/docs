@@ -35,18 +35,19 @@ Remarks
 -------
 
 The query may contain placeholders for binding values. Both Oracle style
-colon-name (e.g., :surname), and ODBC style (?) placeholders are
+colon-name (e.g., ``:surname``), and ODBC style (``?``) placeholders are
 supported; but they cannot be mixed in the same query.
 
-Portability note: Some databases choose to delay preparing a query until
-it is executed the first time. In this case, preparing a syntactically
-incorrect query succeeds, but every consecutive dbQueryExecPrepared()
-will fail.
+.. note:: Portability: Some databases choose to delay preparing a query until
+    it is executed the first time. In this case, preparing a syntactically
+    incorrect query succeeds, but every consecutive :func:`dbQueryExecPrepared`
+    will fail.
 
 For SQLite, the query string can contain only one statement at a time.
 If more than one statement is given, the function returns 0.
 
 See also
-++++++++
+------------
 
-`dbQueryBindValue <CR-dbQueryBindValue.html#dbQueryBindValue>`__
+.. seealso:: Function :func:`dbQueryBindValue`
+

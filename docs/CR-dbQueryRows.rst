@@ -21,9 +21,9 @@ Format
 Remarks
 -------
 
-Note that if the query is not active or if the query is not a SELECT
+Note that if the query is not active or if the query is not a ``SELECT``
 statement, a -1 is returned. These properties can be checked with
-dbQueryIsActive() or dbQueryIsSelect().
+:func:`dbQueryIsActive` or :func:`dbQueryIsSelect`.
 
 
 Examples

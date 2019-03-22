@@ -20,7 +20,7 @@ Remarks
 -------
 
 The first record is at position zero. If the position is invalid, the
-function returns QSql::BeforeFirstRow or QSql::AfterLastRow, which are
+function returns `DB_BEFORE_FIRST_ROW` (-1) or `DB_AFTER_LAST_ROW` (-2), which are
 special negative values.
 
 

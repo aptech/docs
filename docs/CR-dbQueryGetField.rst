@@ -10,20 +10,21 @@ that accepts a column name as input is available, but not as efficient.
 
 Format
 ----------------
-.. function:: dbQueryGetField(qid, name)
+.. function:: dbQueryGetField(qid, idx_or_name)
 
     :param qid: query number.
     :type qid: scalar
 
-    :param idx: index of the field whose value should be returned.
-    :type idx: scalar
+    :param idx_or_name: index or name of the field whose value should be returned.
+    :type idx_or_name: scalar or string
 
+.. WARNING:: Using the *name* overload will result in decreased performance. Use with caution.
 
 
 Remarks
 -------
 
-The fields are numbered from left to right using the text of the SELECT
+The fields are numbered from left to right using the text of the ``SELECT``
 statement, e.g. in
 
 ::
@@ -41,6 +42,8 @@ statement, e.g. in
       // Using field name
    endo;
 
-Field 1 is forename and field 2 is surname. Using SELECT \* is not
+Field 1 is *forename* and field 2 is *surname*. Using ``SELECT *`` is not
 recommended because the order of the fields in the query is undefined.
+
+.. seealso:: :func:`dbQueryFetchOneM`, :func:`dbQueryFetchOneSA`
 

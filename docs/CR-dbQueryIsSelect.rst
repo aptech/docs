@@ -5,7 +5,7 @@ dbQueryIsSelect
 Purpose
 ----------------
 
-Reports whether the specified query is a SELECT statement.
+Reports whether the specified query is a ``SELECT`` statement.
 
 Format
 ----------------
@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: ret (*scalar*), 1 if the query is a SELECT statement or 0 otherwise.
+    :returns: ret (*scalar*), 1 if the query is a ``SELECT`` statement or 0 otherwise.
 
 Examples
 ----------------
