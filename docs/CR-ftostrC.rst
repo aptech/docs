@@ -14,17 +14,17 @@ Format
     :param x: real or complex.
     :type x: NxK matrix
 
-    :param fmt: 1xK or 1x1 string array containing format information.
-    :type fmt: Kx1
+    :param fmt: format information.
+    :type fmt: Kx1 or 1xK or 1x1 string array 
 
     :returns: sa (*NxK string array*) .
 
 Remarks
 -------
 
-If fmt has K elements, each column of sa can be formatted separately. If
-x is complex, there must be two format specifications in each element of
-fmt.
+If *fmt* has *K* elements, each column of *sa* can be formatted separately. If
+*x* is complex, there must be two format specifications in each element of
+*fmt*.
 
 
 Examples
@@ -33,10 +33,10 @@ Examples
 ::
 
     declare string fmtr = { "%6.3lf",
-                             "%11.8lf" };
+                            "%11.8lf" };
      
     declare string fmtc = { "(%6.3lf, %6.3lf)",
-                             "(%11.8lf, %11.8lf)" };
+                            "(%11.8lf, %11.8lf)" };
     
     xr = rndn(4, 2);
     xc = sqrt(xr')';
@@ -51,7 +51,7 @@ produces:
 
 ::
 
-    -0.166 1.05565441
+     -0.166 1.05565441
      -1.590 -0.79283296
       0.130 -1.84886957
       0.789 0.86089687
@@ -62,3 +62,4 @@ produces:
      ( 0.888, 0.000) ( 0.92784529, 0.00000000)
 
 .. seealso:: Functions :func:`strtof`, :func:`strtofcplx`
+

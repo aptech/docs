@@ -6,7 +6,7 @@ Purpose
 ----------------
 
 Allows the user to generate a user-defined error
-code which can be tested quickly with the scalerr
+code which can be tested quickly with the :func:`scalerr`
 function.
 
 Format
@@ -17,24 +17,24 @@ Format
     :type x: scalar
 
     :returns: y (*scalar*) error code which can be interpreted as
-        an integer with the scalerr function.
+        an integer with the :func:`scalerr` function.
 
 Remarks
 -------
 
 The user may assign any number in the range 0-65535 to denote particular
 error conditions. This number may be tested for as an error code by
-scalerr.
+:func:`scalerr`.
 
-The scalerr function will return the value of the error code and so is
+The :func:`scalerr` function will return the value of the error code and so is
 the reverse of error. These user-generated error codes work in the same
 way as the intrinsic GAUSS error codes which are generated automatically
-when **trap 1** is on and certain GAUSS functions detect a numerical
+when :code:`trap 1` is on and certain GAUSS functions detect a numerical
 error such as a singular matrix.
 
 ::
 
-                   error(0);
+    error(0);
 
 is equal to the missing value code.
 
@@ -62,11 +62,13 @@ The above code will print out the value:
 
     28
 
-The procedure syminv, below, returns error code 99 if the matrix is not
-symmetric. If invpd fails, it returns error code 20. If
-inv fails, it returns error code 50. The original trap state is
+Example 2
++++++++++
+
+The procedure ``syminv``, below, returns error code 99 if the matrix is not
+symmetric. If :func:`invpd` fails, it returns error code 20. If
+:func:`inv` fails, it returns error code 50. The original :func:`trap` state is
 restored before the procedure returns.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -100,3 +102,4 @@ restored before the procedure returns.
     endp;
 
 .. seealso:: Functions :func:`scalerr`, :func:`trap`, :func:`trapchk`
+

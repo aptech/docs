@@ -45,20 +45,21 @@ Format
 Global Input
 ------------
 
-+-----------------+-----------------------------------------------------+
-| \_fin_thetaType | scalar, if 1, one day look ahead, else,             |
-|                 | infinitesimal. Default = 0.                         |
-+-----------------+-----------------------------------------------------+
-| \_fin_epsilon   | scalar, finite difference stepsize. Default = 1e-8. |
-+-----------------+-----------------------------------------------------+
+.. data::  \_fin_thetaType
+
+    scalar, if 1, one day look ahead, else, infinitesimal. Default = 0.
+
+.. data::  \_fin_epsilon
+
+    scalar, finite difference stepsize. Default = 1e-8.
 
 
 Remarks
 -------
 
 The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
-simplified approach", Journal of Financial Economics, 7:229:264) as
-described in Options, Futures, and other Derivatives by John C. Hull is
+simplified approach", *Journal of Financial Economics*, 7:229:264) as
+described in *Options, Futures, and other Derivatives* by John C. Hull is
 the basis of this procedure.
 
 
@@ -91,3 +92,4 @@ Source
 finprocs.src
 
 .. seealso:: Functions :func:`EuropeanBinomPut_ImpVol`, :func:`EuropeanBinomPut`, :func:`EuropeanBinomCall_Greeks`, :func:`EuropeanBSPut_Greeks`
+

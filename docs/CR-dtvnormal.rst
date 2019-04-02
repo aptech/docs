@@ -11,9 +11,8 @@ Format
 ----------------
 .. function:: dtvnormal(t)
 
-    :param t: 
-    :type t: 1x8 date and time vector that has
-        one or more elements outside the normal range
+    :param t: 1x8 date and time vector that has one or more elements outside the normal range
+    :type t: matrix
 
     :returns: d (*Normalized 1x8 date and time vector*) .
 
@@ -69,3 +68,4 @@ After the code above:
     dEnd2 = 2012    2   21    6   21   37    2   51
 
 .. seealso:: Functions :func:`date`, :func:`ethsec`, :func:`etstr`, :func:`time`, :func:`timestr`, :func:`timeutc`, :func:`utctodtv`
+

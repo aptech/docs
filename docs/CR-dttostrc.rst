@@ -14,8 +14,8 @@ Format
     :param x: 
     :type x: NxK matrix containing dates in DT scalar format
 
-    :param fmt: or  ExE conformable string array containing strftime date/time format characters.
-    :type fmt: string
+    :param fmt: string or ExE conformable string array containing strftime date/time format characters.
+    :type fmt: string or string array.
 
     :returns: sa (*NxK string array*) .
 
@@ -29,7 +29,7 @@ and time. In the DT scalar format, the number
 
    20120703105031
 
-represents 10:50:31 or 10:50:31 AM on July 3, 2018. dttostrc converts a
+represents 10:50:31 or 10:50:31 AM on July 3, 2018. :func:`dttostrc` converts a
 date in DT scalar format to a character string using the format string
 in fmt.
 
@@ -138,7 +138,7 @@ The following formats are supported:
 +-----------------+-----------------------------------------------------+
 
 A complete DT scalar format number will have 14 digits all to the left
-of the decimal point. However, dttostrc will accept numbers with fewer
+of the decimal point. However, :func:`dttostrc` will accept numbers with fewer
 digits. It will assume that the first four digits are the year, the next
 two the month and so on.
 
@@ -146,9 +146,13 @@ two the month and so on.
 Examples
 ----------------
 
-dt = 20140317100312;
-print dttostrc(dt, "%F");
-++++++++++++++++++++++++++++++++++++++++++++++
+Example 1
++++++++++
+
+::
+
+    dt = 20140317100312;
+    print dttostrc(dt, "%F");
 
 produces the output:
 
@@ -156,8 +160,12 @@ produces the output:
 
     2014-03-17
 
-print dttostrc(20110117151218, "%A, %B %dth, %Y");
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 2
++++++++++
+
+::
+
+    print dttostrc(20110117151218, "%A, %B %dth, %Y");
 
 produces the output:
 
@@ -165,8 +173,12 @@ produces the output:
 
     Monday, January 17th, 2011
 
-print dttostrc(19411207074801, "Pearl Harbor was atacked on %B %d, %Y at %R %p");
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 3
++++++++++
+
+::
+
+    print dttostrc(19411207074801, "Pearl Harbor was atacked on %B %d, %Y at %R %p");
 
 produces the output:
 
@@ -174,11 +186,15 @@ produces the output:
 
     Pearl Harbor was atacked on December 07, 1941 at 07:48 AM
 
-x = { 19120317060424, 19370904010928, 19510221031129 };
-s = dttostrc(x, "%D");
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 4
++++++++++
 
-produces s equal to:
+::
+
+    x = { 19120317060424, 19370904010928, 19510221031129 };
+    s = dttostrc(x, "%D");
+
+produces *s* equal to:
 
 ::
 
@@ -186,14 +202,14 @@ produces s equal to:
     09/04/37
     02/21/51
 
-Continuing with the same x from above:
+Continuing with the same *x* from above:
 
 ::
 
     fmt = "%A, %D" $| "%a, %F" $| "%v";
     s = dttostrc(x, fmt);
 
-produces s equal to:
+produces *s* equal to:
 
 ::
 
@@ -202,3 +218,4 @@ produces s equal to:
          21-FEB-1951
 
 .. seealso:: Functions :func:`dttostr`, :func:`strctodt`, :func:`strtodt`, :func:`dttoutc`, :func:`posixtostrc`, :func:`strctoposix`, :func:`utctodt`
+

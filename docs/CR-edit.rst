@@ -17,11 +17,10 @@ Format
 Remarks
 -------
 
-The edit command does not follow the src_path to locate files. You must
-specify the location in the filename. The default location is the
-current directory.
+The :func:`edit` command does not follow the `src_path` to locate files. You must
+specify the location in the filename. The default location is the current directory.
 
-To edit the last run file, use F7 or the Action List toolbar.
+To edit the last run file, use ``F7`` or the Action List toolbar.
 
 
 Examples
@@ -32,3 +31,4 @@ Examples
     edit test1.e;
 
 .. seealso:: Functions :func:`run`
+

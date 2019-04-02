@@ -5,7 +5,7 @@ formatcv
 Purpose
 ----------------
 
-Sets the character data format used by printfmt.
+Sets the character data format used by :func:`printfmt`.
 
 Format
 ----------------
@@ -19,13 +19,13 @@ Format
 Remarks
 -------
 
-See printfm for details on the format vector.
+See :func:`printfm` for details on the format vector.
 
 
 Examples
 ----------------
 This example saves the old format, sets the format desired for
-printing x, prints x, then restores
+printing *x*, prints *x*, then restores
 the old format. This code:
 
 ::
@@ -39,7 +39,7 @@ produces:
 
 ::
 
-    A 1
+     A 1
      B 2
      C 3
 
@@ -49,8 +49,9 @@ Source
 gauss.src
 
 Globals
-+++++++
+-------
 
-\__fmtcv
+`\__fmtcv`
 
 .. seealso:: Functions :func:`formatnv`, :func:`printfm`, :func:`printfmt`
+

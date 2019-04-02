@@ -1,17 +1,17 @@
 
-erf,erfc
+erf, erfc
 ==============================================
 
 Purpose
 ----------------
 
-Computes the Gaussian error function (erf) and its
-complement (erfc).
+Computes the Gaussian error function (:func:`erf`) and its
+complement (:func:`erfc`).
 
 Format
 ----------------
 .. function:: erf(x) 
-			  erfc(x)
+              erfc(x)
 
     :param x: 
     :type x: NxK matrix
@@ -21,8 +21,7 @@ Format
 Remarks
 -------
 
-The erf and erfc functions are closely related to the Normal
-distribution:
+The :func:`erf` and :func:`erfc` functions are closely related to the Normal distribution:
 
 ::
 
@@ -61,12 +60,11 @@ produces the following output:
     0.500 0.400 0.300 0.520 0.428 0.329 0.480 0.572 0.671
     0.600 0.800 0.300 0.604 0.742 0.329 0.396 0.258 0.671
 
-.. seealso:: Functions :func:`cdfN`, :func:`cdfNc`
-
 Technical Notes
 +++++++++++++++
 
-erf and erfc are computed by summing the appropriate series and
+:func:`erf` and :func:`erfc` are computed by summing the appropriate series and
 continued fractions. They are accurate to about 12 or more digits.
 
-complement Gaussian error function
+.. seealso:: Functions :func:`cdfN`, :func:`cdfNc`
+

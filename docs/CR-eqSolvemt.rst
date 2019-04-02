@@ -12,59 +12,59 @@ Format
 
     :param &fct: pointer to a procedure that computes the
         function to be minimized. This procedure must have two input
-        arguments, an instance of a PV structure containing
-        the parameters, and an instance of a DS structure
+        arguments, an instance of a :class:`PV` structure containing
+        the parameters, and an instance of a :class:`DS` structure
         containing data, if any. And, one output argument, a column vector
         containing the result of each equation.
-    :type &fct: TODO
+    :type &fct: scalar function pointer
 
-    :param par:  The
-        par instance is passed to the user-provided procedure
-        pointed to by &fct.  par is
-        constructed using the pvPack functions.
-    :type par: an instance of a PV structure
+    :param par: The *par* instance is passed to the user-provided procedure pointed to by *&fct*. *par* is
+        constructed using the :func:`pvPack` functions.
+    :type par: an instance of a :class:`PV` structure
 
     :param ...: Optional extra arguments.
-        These arguments are passed untouched to the user-provided objective function, by sqpSolveMT.
-    :type ...: TODO
+        These arguments are passed untouched to the user-provided objective function, by :func:`sqpSolveMT`.
 
-    :param c: an instance of an eqSolvemtControl structure.
-        Normally an instance is initialized by calling
-        eqSolvemtControlCreate and members of this instance
+    :param c: Optional. Normally an instance is initialized by calling
+        :func:`eqSolvemtControlCreate` and members of this instance
         can be set to other values by the user. For an instance named
-        c, the members are:
-    :type c: Optional
+        *c*, the members are:
+    :type c: an instance of an :class:`eqSolvemtControl` structure.
 
     .. csv-table::
         :widths: auto
-
-        "c.jacobianProc", "pointer to a procedure which computes the analytical Jacobian. By default, eqSolvemtwill compute the Jacobian numerically."
+ 
+        "c.jacobianProc", "pointer to a procedure which computes the analytical Jacobian. By default, :func:`eqSolvemt` will compute the Jacobian numerically."
         "c.maxIters", "scalar, the maximum number of iterations. Default = 100."
-        "c.stepTolerance", "scalar, the step tolerance.Default = macheps2/3."
-        "c.typicalF", "Kx1 vector of the typicalfct(x) values at a point not near a root, used for scaling. Thisbecomes important when the magnitudes of the components of fct(x) areexpected to be very different. By default, function values are not scaled."
-        "c.typicalX", "Kx1 vector of the typical magnitude of x, used for scaling. This becomes important when themagnitudes of the components of x are expected to be very different. By default, variable values are not scaled."
+        "c.stepTolerance", "scalar, the step tolerance. Default = :math:`macheps^(2/3)`"
+        "c.typicalF", "Kx1 vector of the :code:`typicalfct(x)` values at a point not near a root, used for scaling. This becomes important when the magnitudes of the components of :code:`fct(x)` are expected to be very different. By default, function values are not scaled."
+        "c.typicalX", "Kx1 vector of the typical magnitude of *x*, used for scaling. This becomes important when the magnitudes of the components of x are expected to be very different. By default, variable values are not scaled."
         "c.printIters", "scalar, if nonzero, iteration information is printed. Default = 0."
-        "c.tolerance", "scalar, the tolerance of the scalarfunction f = 0.5*||fct(X)||2 required to terminate the algorithm.That is, the condition that |f(x)| <= c.tolerance must be met before that algorithm can terminatesuccessfully. Default = 1e-5."
-        "c.altNames", "Kx1 string array of alternate names to be used by the printed output.By default, the names ''X1,X2,X3...'' will be used."
+        "c.tolerance", "scalar, the tolerance of the scalar function :math:`f = 0.5*||fct(X)||2` required to terminate the algorithm.That is, the condition that :math:`|f(x)| <= c.tolerance` must be met before that algorithm can terminate successfully. Default = 1e-5."
+        "c.altNames", "Kx1 string array of alternate names to be used by the printed output. By default, the names :code:`\"X1,X2,X3...\"` will be used."
         "c.title", "string, printed as a title in output."
         "c.output", "scalar. If non-zero, final results are printed."
 
-    :returns: out (*struct*) instance of :class:`eqSolvemtOut` struct. For
-        an instance named  out, the members are:
+    :returns: out (*struct*) instance of :class:`eqSolvemtOut` struct. For an instance named *out*, the members are:
 
-    .. csv-table::
+    .. list-table::
         :widths: auto
+        :align: center
 
-        "out.par", "an instance of a PV structurecontaining the parameter estimates."
-        "out.fct", "scalar, function evaluated at x"
-        "out.retcode", "scalar, return code:"
-        "", "-1", "Jacobian is singular."
-        "", "1", "Norm of the scaled function value is less than c.tolerance. x given is anapproximate root of fct(x) (unless c.tolerance is too large)."
-        "", "2", "The scaled distance between the last two steps is less thanthe step-tolerance (c.stepTolerance). x may be an approximate root of fct(x), butit is also possible that the algorithm is making very slow progressand is not near a root, or the step-tolerance is too large."
-        "", "3", "The last global step failed to decrease norm2(fct(x) )sufficiently; either x is close to a root of fct(x)and no more accuracy is possible, or an incorrectly coded analyticJacobian is being used, or the secant approximation to the Jacobianis inaccurate, or the step-tolerance is too large."
-        "", "4", "Iteration limit exceeded."
-        "", "5", "Five consecutive steps of maximum step length have been taken; either norm2(fct(x) ) asymptotes fromabove to a finite value in some direction or the maximum step lengthis too small."
-        "", "6", "x seems to be an approximate local minimizer of norm2( fct(x) ) that is not a root of fct(x). To find a root of fct(x), restart eqSolvemt from a different region."
+        * - out.par
+          - an instance of a :class:`PV` structure containing the parameter estimates.
+        * - out.fct
+          - scalar, function evaluated at *x*
+        * - out.retcode
+          - scalar, return code:
+
+              :-1: Jacobian is singular.
+              :1: Norm of the scaled function value is less than c.tolerance. *x* given is an approximate root of :code:`fct(x)` (unless c.tolerance is too large).
+              :2: The scaled distance between the last two steps is less than the step-tolerance (c.stepTolerance). x may be an approximate root of :code:`fct(x)`, but it is also possible that the algorithm is making very slow progress and is not near a root, or the step-tolerance is too large.
+              :3: The last global step failed to decrease :code:`norm2(fct(x))` sufficiently; either *x* is close to a root of :code:`fct(x)` and no more accuracy is possible, or an incorrectly coded analytic Jacobian is being used, or the secant approximation to the Jacobian is inaccurate, or the step-tolerance is too large.
+              :4: Iteration limit exceeded.
+              :5: Five consecutive steps of maximum step length have been taken; either :code:`norm2(fct(x))` asymptotes from above to a finite value in some direction or the maximum step length is too small.
+              :6: *x* seems to be an approximate local minimizer of :code:`norm2(fct(x))` that is not a root of :code:`fct(x)`. To find a root of :code:`fct(x)`, restart :func:`eqSolvemt` from a different region.
 
 Remarks
 -------
@@ -168,7 +168,7 @@ Using control and output structures
        retp(z);
     endp;
 
-The code above will print out a report similar to the previous example. Notice that the variable names in the report are what we assigned to the altNames member of the control structure.
+The code above will print out a report similar to the previous example. Notice that the variable names in the report are what we assigned to the *altNames* member of the control structure.
 
 ::
 
@@ -180,7 +180,7 @@ The code above will print out a report similar to the previous example. Notice t
     beta                 1.00000               1.4352447511            0.0000000002 
     --------------------------------------------------------------------------------
 
-The parameter values returned by eqSolveMT are located in the par member of the eqsolveMTOut struct. They can be accessed with pvGetParVector or pvUnpack like this:
+The parameter values returned by :func:`eqSolveMT` are located in the par member of the :class:`eqsolveMTOut` struct. They can be accessed with :func:`pvGetParVector` or :func:`pvUnpack` like this:
 
 ::
 
@@ -200,4 +200,3 @@ eqsolvemt.src
 
 .. seealso:: Functions :func:`eqSolvemtControlCreate`, :func:`eqSolvemtOutCreate`
 
-solve system nonlinear equation

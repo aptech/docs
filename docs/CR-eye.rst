@@ -14,15 +14,14 @@ Format
     :param n: size of identity matrix to be created.
     :type n: scalar
 
-    :returns: y (*nxn identity matrix*) .
+    :returns: y (*NxN identity matrix*)
 
 Remarks
 -------
 
-If n is not an integer, it will be truncated to an integer.
+If *n* is not an integer, it will be truncated to an integer.
 
-The matrix created will contain 1's down the diagonal and 0's everywhere
-else.
+The matrix created will contain 1's down the diagonal and 0's everywhere else.
 
 
 Examples
@@ -32,7 +31,7 @@ Examples
 
     x = eye(3);
 
-The code above assigns x to be equal to:
+The code above assigns *x* to be equal to:
 
 ::
 
@@ -41,3 +40,4 @@ The code above assigns x to be equal to:
     0.0000 0.0000 1.0000
 
 .. seealso:: Functions :func:`zeros`, :func:`ones`
+

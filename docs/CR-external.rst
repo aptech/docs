@@ -10,29 +10,36 @@ above or in a separate file from their definitions.
 
 Format
 ----------------
-.. function:: external proc dog, catexternal keyword dogexternal fn dogexternal matrixx, y, zexternal string mstr, cstrexternal array a, bexternal sparse matrix sma, smbexternal struct structure_type sta, stb
+.. function:: external proc dog, cat
+              external keyword dog
+              external fn dog
+              external matrixx, y, z
+              external string mstr, cstr
+              external array a, b
+              external sparse matrix sma, smb
+              external struct structure_type sta, stb
 
 Remarks
 -------
 
-See **Procedures and Keywords**, Chapter 1.
+See `Procedures and Keywords`, Chapter 1.
 
 You may have several procedures in different files that reference the
-same global variable. By placing an external statement at the top of
+same global variable. By placing an :func:`external` statement at the top of
 each file, you can let the compiler know what the type of the symbol is.
 If the symbol is listed and strongly typed in an active library, no
-external statement is needed.
+:func:`external` statement is needed.
 
 If a matrix, string, N-dimensional array, sparse matrix, or structure
-appears in an external statement, it needs to appear once in a declare
-statement. If no declaration is found, an Undefined symbol error message
+appears in an :func:`external` statement, it needs to appear once in a :func:`declare`
+statement. If no declaration is found, an ``Undefined symbol`` error message
 will result.
 
 
 Examples
 ----------------
 Let us suppose that you created a set of procedures defined in
-different files, which all set a global matrix _errcode
+different files, which all set a global matrix *_errcode*
 to some scalar error code if errors were encountered.
 You could use the following code to call one of the procedures
 in the set and check whether it succeeded:
@@ -47,12 +54,13 @@ in the set and check whether it succeeded:
        end;
     endif;
 
-external
-_errcode
-myproc1
-external
-_errcode
-if
-_errcode
+Without the :func:`external` statement, the compiler would assume that *\_errcode*
+was a procedure and incorrectly compile this program. The file
+containing the *myproc1* procedure must also contain an :func:`external` statement
+that defines *\_errcode* as a matrix, but this would not be encountered by
+the compiler until the :func:`if` statement containing the reference to
+*\_errcode* in the main program file had already been incorrectly
+compiled.
 
 .. seealso:: Functions :func:`declare`
+

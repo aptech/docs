@@ -1,37 +1,41 @@
 
-feq,fge,fgt,fle,flt,fne
+feq, fge, fgt, fle, flt, fne
 ==============================================
 
 Purpose
 ----------------
 
-Fuzzy comparison functions. These functions use _fcmptol to fuzz the comparison operations to allow for roundoff error.
+Fuzzy comparison functions. These functions use `_fcmptol` to fuzz the comparison operations to allow for roundoff error.
 
 Format
 ----------------
-.. function:: fne(a, b)
+.. function:: feq(a, b)
+              fge(a, b)
+              fgt(a, b)
+              fle(a, b)
+              flt(a, b)
+              fne(a, b)
 
     :param a: first matrix.
     :type a: NxK matrix
 
-    :param b: second matrix, ExE compatible with  a.
+    :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
-    :returns: y (*scalar*), 1 (TRUE) or 0 (FALSE).
+    :returns: y (*scalar*), 1 (``TRUE``) or 0 (``FALSE``).
 
 Global Input
 ------------
 
-+-----------------+-----------------------------------------------------+
-| \_fcmptol       | scalar, comparison tolerance. The default value is  |
-|                 | 1.0e-15.                                            |
-+-----------------+-----------------------------------------------------+
+.. data::  \_fcmptol
+
+    scalar, comparison tolerance. The default value is 1.0e-15.
 
 
 Remarks
 -------
 
-The return value is TRUE if every comparison is TRUE.
+The return value is ``TRUE`` if every comparison is ``TRUE``.
 
 The statement:
 
@@ -46,11 +50,11 @@ is equivalent to:
    y = a eq b;
 
 For the sake of efficiency, these functions are not written to handle
-missing values. If a and b contain missing values, use missrv to convert
+missing values. If *a* and *b* contain missing values, use :func:`missrv` to convert
 the missing values to something appropriate before calling a fuzzy
 comparison function.
 
-The calling program can reset \_fcmptol before calling these procedures:
+The calling program can reset `\_fcmptol` before calling these procedures:
 
 ::
 
@@ -81,6 +85,5 @@ Source
 
 fcompare.src
 
-.. seealso:: Functions 
+.. seealso:: Functions :func:`dotfeq`, :func:`dotfge`, :func:`dotfgt`, :func:`dotfle`, :func:`dotflt`, :func:`dotfne`
 
-equal greater bigger less than not

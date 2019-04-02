@@ -5,7 +5,7 @@ eqSolveSet
 Purpose
 ----------------
 
-Sets global input used by eqSolve to default values.
+Sets global input used by :func:`eqSolve` to default values.
 
 Format
 ----------------
@@ -21,5 +21,5 @@ Format
 
     :returns: __eqs_MaxIters (*scalar*), Set to 100.
 
-    :returns: __eqs_StepTol (*scalar*), Set to __macheps2/3
+    :returns: __eqs_StepTol (*scalar*), Set to :math:`__macheps^(2/3)`
 

@@ -12,74 +12,95 @@ Format
 .. function:: gdaDStatMat(dc0, filename, gmat, colind, vnamevar)
 
     :param dc0: 
-    :type dc0: an instance of a dstatmtControl structure with the following members:
+    :type dc0: an instance of a :class:`dstatmtControl` structure with the following members:
 
-    .. csv-table::
+    .. list-table::
         :widths: auto
 
-        "dc0.altnames", "Kx1 string array of alternate variable names for the output. Default = "". If set, it must have the same number of rows as colind."
-        "dc0.maxbytes", "scalar, the maximum number of bytes to be read per iteration of the read loop. Default = 1e9."
-        "dc0.maxvec", "scalar, the largest number of elements allowed in any one matrix. Default = 20000."
-        "dc0.miss", "scalar, one of the following:"
-        "", "0", "There are no missing values (fastest)."
-        "", "1", "Listwise deletion, drop a row if any missings occur in it."
-        "", "2", "Pairwise deletion."
-        "", "Default = 0."
-        "dc0.output", "scalar, one of the following:"
-        "", "0", "Do not print output table."
-        "", "1", "Print output table."
-        "", "Default = 1."
-        "dc0.row", "scalar, the number of rows of  var to be read per iteration of the read loop.If 0, (default) the number of rows will be calculated using dc0.maxbytes and dc0.maxvec."
+        * - *dc0.altnames*
+          - Kx1 string array of alternate variable names for the output. Default = ``""``. If set, it must have the same number of rows as colind.
+        * - *dc0.maxbytes*
+          - scalar, the maximum number of bytes to be read per iteration of the read loop. Default = 1e9.
+        * - *dc0.maxvec*
+          - scalar, the largest number of elements allowed in any one matrix. Default = 20000.
+        * - *dc0.miss*
+          - scalar, one of the following:
+
+              :0: There are no missing values (fastest).
+              :1: Listwise deletion, drop a row if any missings occur in it.
+              :2: Pairwise deletion.
+
+            Default = 0.
+
+        * - *dc0.output*
+          - scalar, one of the following:
+
+              :0: Do not print output table.
+              :1: Print output table.
+
+            Default = 1.
+
+        * - *dc0.row*
+          - scalar, the number of rows of *var* to be read per iteration of the read loop. If 0, (default) the number of rows will be calculated using *dc0.maxbytes* and *dc0.maxvec*."
 
     :param filename: name of data file.
     :type filename: string
 
-    :param gmat: name of matrix
-        - or -scalar, index of matrix.
-    :type gmat: string
+    :param gmat: name of matrix or index of matrix.
+    :type gmat: string or scalar
 
     :param colind: indices of columns in variable to use.
     :type colind: Kx1 vector
 
-    :param vnamevar: name of the string containing the variable names in the matrix
-        - or -scalar, index of the string containing the variable names in the matrix.
-    :type vnamevar: string
+    :param vnamevar: name of the string containing the variable names in the matrix or 
+        index of the string containing the variable names in the matrix.
+    :type vnamevar: string or scalar
 
     :returns: dout (*struct*) instance of :class:`dstatmtOut` struct with the following members:
 
-    .. csv-table::
+    .. list-table::
         :widths: auto
 
-        "dout.vnames", "Kx1 string array, the names of the variables used in the statistics."
-        "dout.mean", "Kx1 vector, means."
-        "dout.var", "Kx1 vector, variance."
-        "dout.std", "Kx1 vector, standard deviation."
-        "dout.min", "Kx1 vector, minima."
-        "dout.max", "Kx1 vector, maxima."
-        "dout.valid", "Kx1 vector, the number of valid cases."
-        "dout.missing", "Kx1 vector, the number of missing cases."
-        "dout.errcode", "scalar, error code, 0 if successful, otherwise one of the following:"
-        "", "1", "No GDA indicated."
-        "", "3", "Variable must be Nx1."
-        "", "4", "Not implemented for complex data."
-        "", "5", "Variable must be type matrix."
-        "", "7", "Too many missings, no data left after packing."
-        "", "9", "altnames member of dstatmtControl structure wrong size."
-        "", "11", "Data read error."
+        * - *dout.vnames*
+          - Kx1 string array, the names of the variables used in the statistics.
+        * - *dout.mean*
+          - Kx1 vector, means.
+        * - *dout.var*
+          - Kx1 vector, variance.
+        * - *dout.std*
+          - Kx1 vector, standard deviation.
+        * - *dout.min*
+          - Kx1 vector, minima.
+        * - *dout.max*
+          - Kx1 vector, maxima.
+        * - *dout.valid*
+          - Kx1 vector, the number of valid cases.
+        * - *dout.missing*
+          - Kx1 vector, the number of missing cases.
+        * - *dout.errcode*
+          - scalar, error code, 0 if successful, otherwise one of the following:
+
+              :1: No GDA indicated.
+              :3: Variable must be Nx1.
+              :4: Not implemented for complex data.
+              :5: Variable must be type matrix.
+              :7: Too many missings, no data left after packing.
+              :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
+              :11: Data read error.
 
 Remarks
 -------
 
-Setcolind to a scalar 0 to use all of the columns in var.
+Set *colind* to a scalar 0 to use all of the columns in *var*.
 
-vnamevar must either reference an Mx1 string array variable containing
+*vnamevar* must either reference an Mx1 string array variable containing
 variable names, where M is the number of columns in the data set
-variable, or be set to a scalar 0. If vnamevar references an Mx1 string
+variable, or be set to a scalar 0. If *vnamevar* references an Mx1 string
 array variable, then only the elements indicated by colind will be used.
-Otherwise, if vnamevar is set to a scalar 0, then the variable names for
-the output will be generated automatically (''X1,X2,...,XK'') unless the
-alternate variable names are set explicitly in the altnames member of
-the dstatmtControl structure.
+Otherwise, if *vnamevar* is set to a scalar 0, then the variable names for
+the output will be generated automatically (:code:`"X1,X2,...,XK"`) unless the
+alternate variable names are set explicitly in the *altnames* member of
+the :class:`dstatmtControl` structure.
 
 If pairwise deletion is used, the minima and maxima will be the true
 values for the valid data. The means and standard deviations will be
@@ -103,8 +124,11 @@ In order to create a real, working example that you can use, you must first crea
     string vnames = { "X1", "X2", "X3", "X4", "X5" };
     ret = gdaWrite("myfile.gda", vnames, "COLS");
 
-This code above will create a GAUSS Data Archive containing two variables, the GAUSS matrix A containing the data and COLS which contains the names for the columns of the matrix A which are the model variables (X1, X2,...).
-The code below computes the statistics on each of the columns of the matrix A.
+This code above will create a GAUSS Data Archive containing two variables, the GAUSS matrix *A* 
+containing the data and *COLS* which contains the names for the columns of the matrix *A* which 
+are the model variables (*X1, X2,...*).
+
+The code below computes the statistics on each of the columns of the matrix *A*.
 
 ::
 
@@ -116,20 +140,20 @@ The code below computes the statistics on each of the columns of the matrix A.
     colind = { 1, 2, 3, 4, 5 };
     dout = gdaDStatMat(dc0, "myfile.gda", "A", colind, "COLS" );
 
-The final input to gdaDStatMat above tells the function the names to use for the columns of A. In this example, you can reference the COLS variable by name as you see in the example below. Alternatively, you can access this variable by index. Since COLS is the second variable in the GAUSS Data Archive created at the start of this example, the following is equivalent to the last line above:
+The final input to *gdaDStatMat* above tells the function the names to use for the columns of *A*. In this example, you can reference the *COLS* variable by name as you see in the example below. Alternatively, you can access this variable by index. Since *COLS* is the second variable in the GAUSS Data Archive created at the start of this example, the following is equivalent to the last line above:
 
 ::
 
     dout = gdaDStatMat(dc0, "myfile.gda", "A", colind, 2 );
 
-If you wanted to calculate the statistics on just the first, third and fifth columns of A:
+If you wanted to calculate the statistics on just the first, third and fifth columns of *A*:
 
 ::
 
     colind = { 1, 3, 5 };
     dout = gdaDStatMat(dc0, "myfile.gda", "A", colind, "COLS" );
 
-Notice in these lines above that COLS still contains all of the variable names i.e. X1, X2, X3, X4 and X5. COLS should always contain the full list of all variables in the matrix A.
+Notice in these lines above that *COLS* still contains all of the variable names i.e. *X1, X2, X3, X4 and X5*. *COLS* should always contain the full list of all variables in the matrix *A*.
 
 Source
 ------
@@ -138,4 +162,3 @@ gdadstat.src
 
 .. seealso:: Functions :func:`gdaDStat`, :func:`dstatmtControlCreate`
 
-multiple variables GDA descriptive statistics select column

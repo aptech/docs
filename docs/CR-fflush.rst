@@ -11,18 +11,16 @@ Format
 ----------------
 .. function:: fflush(f)
 
-    :param f: file handle of a file opened with fopen.
+    :param f: file handle of a file opened with :func:`fopen`.
     :type f: scalar
 
     :returns: ret (*scalar*), 0 if successful, -1 if not.
 
-
-
 Remarks
 -------
 
-If fflush fails, you can call fstrerror to find out why.
+If :func:`fflush` fails, you can call :func:`fstrerror` to find out why.
 
-If you pass fflush the handle of a file opened with open (i.e., a data
+If you pass :func:`fflush` the handle of a file opened with :func:`open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 

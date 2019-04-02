@@ -22,7 +22,7 @@ Remarks
 A UTC scalar gives the number of seconds since or before January 1, 1970
 Greenwich Mean Time.
 
-Each row of dtv, in DTV vector format, contains:
+Each row of *dtv*, in DTV vector format, contains:
 
 +-----------------+-----------------------------------------------------+
 |    [N,1]        | Year                                                |
@@ -57,3 +57,4 @@ Examples
     utc = 1342545228
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodt`, :func:`dttodtv`, :func:`dttoutc`, :func:`dtvtodt`, :func:`dtvtoutc`, :func:`strtodt`, :func:`dttostr`
+

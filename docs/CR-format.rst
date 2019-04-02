@@ -17,7 +17,7 @@ Format
     .. csv-table::
         :widths: auto
 
-        "/mat, /sa, /str", "Formatting parameters are maintained separately for matrices and arrays (/mat), string arrays (/sa), and strings (/str).You can specify more than one /typ flag; the format will be set for all types indicated. If no /typ flag is listed, format assumes /mat."
+        "/mat, /sa, /str", "Formatting parameters are maintained separately for matrices and arrays (*/mat*), string arrays (*/sa*), and strings (*/str*).You can specify more than one */typ* flag; the format will be set for all types indicated. If no */typ* flag is listed, format assumes */mat*."
 
     :param /fmted: enable formatting flag.
     :type /fmted: literal
@@ -25,7 +25,7 @@ Format
     .. csv-table::
         :widths: auto
 
-        "/on, /off", "Enable/disable formatting. When formatting is disabled, the contentsof a variable are dumped to the screen in a "raw" format./off is currently supported only for strings. "Raw" format for stringsmeans that the entire string is printed, starting at the currentcursor position. When formatting is enabled for strings, they arehandled the same as string arrays. This shouldn't be too surprising,since a string is actually a 1x1 string array."
+        "/on, /off", "Enable/disable formatting. When formatting is disabled, the contents of a variable are dumped to the screen in a \"raw\" format. */off* is currently supported only for strings. \"Raw\" format for strings means that the entire string is printed, starting at the current cursor position. When formatting is enabled for strings, they are handled the same as string arrays. This shouldn't be too surprising, since a string is actually a 1x1 string array."
 
     :param /mf: matrix row format flag.
     :type /mf: literal
@@ -33,39 +33,59 @@ Format
     .. csv-table::
         :widths: auto
 
-        "/m0", "no delimiters before or after rows when printing out matrices."
-        "/m1 or /mb1", "print 1 carriage return/line feed pair before each row of a matrix with more than 1 row."
-        "/m2 or /mb2", "print 2 carriage return/line feed pairs before each row of a matrix with more than 1 row."
-        "/m3 or /mb3", "print ''Row 1'', ''Row 2''... before each row of a matrix with more than one row."
-        "/ma1", "print 1 carriage return/line feed pair after each row of a matrix with more than 1 row."
-        "/ma2", "print 2 carriage return/line feed pairs after each row of a matrix with more than 1 row."
-        "/a1", "print 1 carriage return/line feed pair after each row of a matrix."
-        "/a2", "print 2 carriage return/line feed pairs after each row of a matrix."
-        "/b1", "print 1 carriage return/line feed pair before each row of a matrix."
-        "/b2", "print 2 carriage return/line feed pairs before each row of a matrix."
-        "/b3", "print ''Row 1'', ''Row 2''... before each row of a matrix."
+        "*/m0*", "no delimiters before or after rows when printing out matrices."
+        "*/m1 or /mb1*", "print 1 carriage return/line feed pair before each row of a matrix with more than 1 row."
+        "*/m2 or /mb2*", "print 2 carriage return/line feed pairs before each row of a matrix with more than 1 row."
+        "*/m3 or /mb3*", "print \"Row 1\", \"Row 2\"... before each row of a matrix with more than one row."
+        "*/ma1*", "print 1 carriage return/line feed pair after each row of a matrix with more than 1 row."
+        "*/ma2*", "print 2 carriage return/line feed pairs after each row of a matrix with more than 1 row."
+        "*/a1*", "print 1 carriage return/line feed pair after each row of a matrix."
+        "*/a2*", "print 2 carriage return/line feed pairs after each row of a matrix."
+        "*/b1*", "print 1 carriage return/line feed pair before each row of a matrix."
+        "*/b2*", "print 2 carriage return/line feed pairs before each row of a matrix."
+        "*/b3*", "print \"Row 1\", \"Row 2\"... before each row of a matrix."
 
-    :param /jnt: matrix element format flag - controls justification, notation and trailing character.
+    :param /jnt: matrix element format flag - controls *justification, notation and trailing* character.
     :type /jnt: literal
+
+    **Right-Justified**
 
     .. csv-table::
         :widths: auto
+        :align: center
 
-        "Right-Justified"
-        "/rd", "Signed decimal number in the form ####.####, where #### is one or more decimal digits. The number of digits before the decimal point depends on themagnitude of the number, and the number of digits after the decimal point depends on the precision. If theprecision is 0, no decimal point will be printed."
-        "/re", "Signed number in the form #.##E±###,where # is one decimal digit, ## is one or more decimaldigits depending on the precision, and ### is three decimal digits. If precision is 0, the form will be[-]#E±### with no decimal point printed."
-        "/ro", "This will give a format like /rd or /re depending on whichis most compact for the number being printed. A format like /re will be used only if the exponent value is less than -4 or greater than the precision. If a /re format is used,a decimal point will always appear. The precision signifies the number of significant digits displayed."
-        "/rz", "This will give a format like /rd or /re depending on which is most compact for the number being printed. A format like /re will be used only if the exponent value is less than -4 or greater than the precision. If a /re format is used,trailing zeros will be supressed and a decimal point will appear only if one or more digits follow it. Theprecision signifies the number of significant digits displayed."
-        "Left-Justified"
-        "/ld", "Signed decimal number in the form [-]####.####, where #### is one or more decimal digits. The number of digits before the decimal point depends on the magnitude of the number, and the number of digits after the decimal point depends on the precision. If the precision is 0, no decimal point will be printed. If the number is positive, a space character will replace the leading minus sign."
-        "/le", "Signed number in the form [-]#.##E±###, where # is one decimal digit, ## is one or more decimal digits depending on the precision, and ### is three decimal digits. If precision is 0, the form will be [-]#E±### with no decimal point printed. If the number is positive, a space character will replace the leading minus sign."
-        "/lo", "This will give a format like /ld or /le depending on which is most compact for the number being printed. A format like /le will be used only if the exponent value is less than -4 or greater than the precision. If a /le format is used, a decimal point will always appear. If the number is positive, a space character will replace the leading minus sign. The precision specifies the number of significant digits displayed."
-        "/lz", "This will give a format like /ld or /le depending on whichis most compact for the number being printed. A format like /le will be used only if the exponent value is less than -4 or greater than the precision. If a /le format is used, trailing zeros will be supressed and a decimal point will appear only if one or more digits follow it. If the number is positive, a space character will replace the leading minus sign. The precision specifies the number of significant digits displayed."
-        "Trailing CharacterThe following characters can be added to the /jnt parametersabove to control the trailing character if any:                            format /rdn 1,3;"
-        "s", "The number will be followed immediately by a space character. This is the default."
-        "c", "The number will be followed immediately by a comma."
-        "t", "The number will be followed immediately by a tab character."
-        "n", "No trailing character."
+        "*/rd*", "Signed decimal number in the form ####.####, where #### is one or more decimal digits. The number of digits before the decimal point depends on themagnitude of the number, and the number of digits after the decimal point depends on the precision. If theprecision is 0, no decimal point will be printed."
+        "*/re*", "Signed number in the form #.##E±###,where # is one decimal digit, ## is one or more decimaldigits depending on the precision, and ### is three decimal digits. If precision is 0, the form will be[-]#E±### with no decimal point printed."
+        "*/ro*", "This will give a format like /rd or /re depending on whichis most compact for the number being printed. A format like /re will be used only if the exponent value is less than -4 or greater than the precision. If a /re format is used,a decimal point will always appear. The precision signifies the number of significant digits displayed."
+        "*/rz*", "This will give a format like /rd or /re depending on which is most compact for the number being printed. A format like /re will be used only if the exponent value is less than -4 or greater than the precision. If a /re format is used,trailing zeros will be supressed and a decimal point will appear only if one or more digits follow it. Theprecision signifies the number of significant digits displayed."
+
+    **Left-Justified**
+
+    .. csv-table::
+        :widths: auto
+        :align: center
+
+        "*/ld*", "Signed decimal number in the form :math:`[-]####.####`, where *####* is one or more decimal digits. The number of digits before the decimal point depends on the magnitude of the number, and the number of digits after the decimal point depends on the precision. If the precision is 0, no decimal point will be printed. If the number is positive, a space character will replace the leading minus sign."
+        "*/le*", "Signed number in the form :math:`[-]#.##E±###`, where # is one decimal digit, *##* is one or more decimal digits depending on the precision, and *###* is three decimal digits. If precision is 0, the form will be :math:`[-]#E±###` with no decimal point printed. If the number is positive, a space character will replace the leading minus sign."
+        "*/lo*", "This will give a format like */ld* or */le* depending on which is most compact for the number being printed. A format like */le* will be used only if the exponent value is less than -4 or greater than the precision. If a */le* format is used, a decimal point will always appear. If the number is positive, a space character will replace the leading minus sign. The precision specifies the number of significant digits displayed."
+        "*/lz*", "This will give a format like */ld* or */le* depending on whichis most compact for the number being printed. A format like */le* will be used only if the exponent value is less than -4 or greater than the precision. If a */le* format is used, trailing zeros will be supressed and a decimal point will appear only if one or more digits follow it. If the number is positive, a space character will replace the leading minus sign. The precision specifies the number of significant digits displayed."
+
+    **Trailing Character**
+    
+    The following characters can be added to the */jnt* parametersabove to control the trailing character if any: 
+
+    ::
+
+        format /rdn 1,3;
+
+    .. csv-table::
+        :widths: auto
+        :align: center
+
+        "*s*", "The number will be followed immediately by a space character. This is the default."
+        "*c*", "The number will be followed immediately by a comma."
+        "*t*", "The number will be followed immediately by a tab character."
+        "*n*", "No trailing character."
 
     :param f: controls the field width.
     :type f: Scalar expression
@@ -76,14 +96,15 @@ Format
 Remarks
 -------
 
--  For numeric values in matrices,p sets the number of significant
+-  For numeric values in matrices, *p* sets the number of significant
    digits to be printed. For string arrays, strings, and character
-   elements in matrices,p sets the number of characters to be printed.
+   elements in matrices, *p* sets the number of characters to be printed.
    If a string is shorter than the specified precision, the entire
-   string is printed. For string arrays and strings, p = -1 means print
-   the entire string, regardless of its length p = -1 is illegal for
-   matrices; settingp>= 8 means the same thing for character elements.
--  The /xxx slash parameters are optional. Field and precision are
+   string is printed. For string arrays and strings, :code:`p = -1` means print
+   the entire string, regardless of its length :code:`p = -1` is illegal for
+   matrices; setting :math:`p >= 8` means the same thing for character elements.
+
+-  The */xxx* slash parameters are optional. Field and precision are
    optional also, but if one is included, then both must be included.
    For example:
 
@@ -93,9 +114,9 @@ Remarks
       // field = 8, precision = 4
       format 8,4;
 
--  Slash parameters, if present, must precede the field and precision
-   parameters.
--  A format statement stays in effect until it is overridden by a new
+-  Slash parameters, if present, must precede the field and precision parameters.
+
+-  A :func:`format` statement stays in effect until it is overridden by a new
    format statement. The slash parameters may be used in a print
    statement to override the current default.
 
@@ -119,7 +140,7 @@ Remarks
            -1.24153744    0.55840814  
             0.44741638    -0.67426958
 
--  f andp may be any legal expressions that return scalars. Nonintegers
+-  *f* and *p* may be any legal expressions that return scalars. Nonintegers
    will be truncated to integers.
 
    ::
@@ -136,16 +157,16 @@ Remarks
           0.45    -0.67
 
 -  The total width of field will be overridden if the number is too big
-   to fit into the space allotted. For instance, format/rds 1,0 can be
+   to fit into the space allotted. For instance, :code:`format /rds 1,0` can be
    used to print integers with a single space between them, regardless
    of the magnitudes of the integers.
 -  Complex numbers are printed with the sign of the imaginary half
-   separating them and an "i" appended to the imaginary half. Also, the
+   separating them and an "*i*" appended to the imaginary half. Also, the
    field parameter refers to the width of field for each half of the
    number, so a complex number printed with a field of 8 will actually
    take (at least) 20 spaces to print. The character printed after the
-   imaginary part can be changed (for example, to a "j") with the
-   sysstate function, case 9.
+   imaginary part can be changed (for example, to a "*j*") with the
+   :func:`sysstate` function, case 9.
 -  The default when GAUSS is first started is:
 
    ::
@@ -177,7 +198,7 @@ For the examples below we will use a matrix elements of different magnitudes to 
 
 ::
 
-    -1.1777603e-12      -0.92450840      -0.39442934 
+      -1.1777603e-12      -0.92450840      -0.39442934 
         -0.023389275        70796411.       0.19679620 
       -0.00076864628       0.47818734      -0.13173939
 
@@ -191,11 +212,11 @@ For the examples below we will use a matrix elements of different magnitudes to 
 
 ::
 
-    0.00000000      -0.92450840      -0.39442934 
-         -0.02338927 70796411.12351108       0.19679620 
+          0.00000000      -0.92450840      -0.39442934 
+        -0.02338927 70796411.12351108       0.19679620 
          -0.00076865       0.47818734      -0.13173939
 
-As mentioned in the Remarks section, if the number is too large to fit in the field, the field size will be ignored. The [2,2] element in the matrix above, needs a field width of 17 to print the 8 places after the decimal plus the 8 in front of the decimal and one for the decimal place. This causes the [2,3] element to be bumped over 1 space.
+As mentioned in the Remarks section, if the number is too large to fit in the field, the field size will be ignored. The :math:`[2,2]` element in the matrix above, needs a field width of 17 to print the 8 places after the decimal plus the 8 in front of the decimal and one for the decimal place. This causes the :math:`[2,3]` element to be bumped over 1 space.
 
 ::
 
@@ -241,12 +262,14 @@ As mentioned in the Remarks section, if the number is too large to fit in the fi
     format /rec 12,4;
     print x;
 
-print
+:code:`print x;` produces:
 
 ::
 
-    -1.1778e-12, -9.2451e-01, -3.9443e-01,
+     -1.1778e-12, -9.2451e-01, -3.9443e-01,
      -2.3389e-02,  7.0796e+07,  1.9680e-01,
      -7.6865e-04,  4.7819e-01, -1.3174e-01,
 
 .. seealso:: Functions :func:`formatcv`, :func:`formatnv`, :func:`print`, :func:`output`
+
+

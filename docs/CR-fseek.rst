@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: fseek(f, offs, base)
 
-    :param f: file handle of a file opened with fopen.
+    :param f: file handle of a file opened with :func:`fopen`.
     :type f: scalar
 
     :param offs: offset (in bytes).
@@ -33,19 +33,19 @@ Format
 Remarks
 -------
 
-fseek moves the file pointer offs bytes from the specified base
-position. offs can be positive or negative. The call may fail if the
-file buffer needs to be flushed (see fflush).
+:func:`fseek` moves the file pointer offs bytes from the specified base
+position. *offs* can be positive or negative. The call may fail if the
+file buffer needs to be flushed (see :func:`fflush`).
 
-If fseek fails, you can call fstrerror to find out why.
+If :func:`fseek` fails, you can call :func:`fstrerror` to find out why.
 
-For files opened for update (see fopen), the next operation can be a
+For files opened for update (see :func:`fopen`), the next operation can be a
 read or a write.
 
-fseek is not reliable when used on files opened in text mode (see
-fopen). This has to do with the conversion of carriage return-linefeed
-sequences to newlines. In particular, an fseek that follows one of the
-fgetxxx or fputxxx commands may not produce the expected result. For
+:func:`fseek` is not reliable when used on files opened in text mode (see
+:func:`fopen`). This has to do with the conversion of carriage return-linefeed
+sequences to newlines. In particular, an :func:`fseek` that follows one of the
+``fgetxxx`` or ``fputxxx`` commands may not produce the expected result. For
 example:
 
 ::
@@ -55,8 +55,9 @@ example:
    call fseek(f,p,0);
 
 is not reliable. We have found that the best results are obtained by
-fseek'ing to the beginning of the file and then fseek'ing to the desired
+:func:`fseek`'ing to the beginning of the file and then :func:`fseek`'ing to the desired
 location, as in
+
 ::
 
    p = ftell(f);
@@ -64,7 +65,8 @@ location, as in
    call fseek(f,0,0);
    call fseek(f,p,0);
 
-If you pass fseek the handle of a file opened with open (i.e., a data
+If you pass :func:`fseek` the handle of a file opened with :func:`open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
 .. seealso:: Functions :func:`fopen`
+

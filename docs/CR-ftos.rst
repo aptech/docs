@@ -17,162 +17,82 @@ Format
     :param fmat: the format string to control the conversion.
     :type fmat: string
 
-    :param field: the minimum field width. If field is 2x1, it
-        specifies separate field widths for the real and imaginary parts of x.
+    :param field: the minimum field width. If *field* is 2x1, it
+        specifies separate field widths for the real and imaginary parts of *x*.
     :type field: scalar or 2x1 vector
 
     :param prec: the number of places following
-        the decimal point. If  prec is 2x1, it specifies
-        separate precisions for the real and imaginary parts of x.
+        the decimal point. If *prec* is 2x1, it specifies
+        separate precisions for the real and imaginary parts of *x*.
     :type prec: scalar or 2x1 vector
 
-    :returns: y (string), containing the decimal character equivalent of x in the format specified.
+    :returns: y (*string*), containing the decimal character equivalent of *x* in the format specified.
 
 Remarks
 -------
 
-The format string corresponds to the format/jnt (justification,
-notation, trailing character)slash parameter as follows:
+The format string corresponds to the :code:`format /jnt` (justification,
+notation, trailing character) slash parameter as follows:
 
-+---+-----------------------------------------------------+
-|   | "%*.*lf"                                            |
-|   |                                                     |
-|   |                                                     |
-| / |                                                     |
-| r |                                                     |
-| d |                                                     |
-| n |                                                     |
-|   |                                                     |
-|   |                                                     |
-|   |                                                     |
-|   |                                                     |
-+---+-----------------------------------------------------+
-|   | "%*.*lE"                                            |
-|   |                                                     |
-|   |                                                     |
-| / |                                                     |
-| r |                                                     |
-| e |                                                     |
-| n |                                                     |
-+---+-----------------------------------------------------+
-|   | "%#*.*lG"                                           |
-|   |                                                     |
-|   |                                                     |
-| / |                                                     |
-| r |                                                     |
-| o |                                                     |
-| n |                                                     |
-+---+-----------------------------------------------------+
-|   | "%*.*lG"                                            |
-|   |                                                     |
-|   |                                                     |
-| / |                                                     |
-| r |                                                     |
-| z |                                                     |
-| n |                                                     |
-+---+-----------------------------------------------------+
-|   | "%- *.*lf"                                          |
-|   |                                                     |
-|   |                                                     |
-| / |                                                     |
-| l |                                                     |
-| d |                                                     |
-| n |                                                     |
-+---+-----------------------------------------------------+
-|   | "%- *.*lE"                                          |
-|   |                                                     |
-|   |                                                     |
-| / |                                                     |
-| l |                                                     |
-| e |                                                     |
-| n |                                                     |
-+---+-----------------------------------------------------+
-|   | "%-# *.*lG"                                         |
-|   |                                                     |
-|   |                                                     |
-| / |                                                     |
-| l |                                                     |
-| o |                                                     |
-| n |                                                     |
-+---+-----------------------------------------------------+
-|   | "%- *.*lG"                                          |
-|   |                                                     |
-|   |                                                     |
-| / |                                                     |
-| l |                                                     |
-| z |                                                     |
-| n |                                                     |
-+---+-----------------------------------------------------+
+.. list-table::
+    :widths: auto
 
-If x is complex, you can specify separate formats for the real and
+    * - */rdn*
+      - :code`"%\*.\*lf"`
+    * - */ren*
+      - :code`"%\*.\*lE"`
+    * - */ron*
+      - :code`"%#\*.\*lG"`
+    * - */rzn*
+      - :code`"%\*.\*lG"`
+    * - */ldn*
+      - :code`"%- \*.\*lf"`
+    * - */len*
+      - :code`"%- \*.\*lE"`
+    * - */lon*
+      - :code`"%-# \*.\*lG"`
+    * - */lzn*
+      - :code`"%- \*.\*lG"`
+
+If *x* is complex, you can specify separate formats for the real and
 imaginary parts by putting two format specifications in the format
 string. You can also specify separate fields and precisions. You can
-position the sign of the imaginary part by placing a "+" between the two
-format specifications. If you use two formats, no "i" is appended to the
+position the sign of the imaginary part by placing a "``+``" between the two
+format specifications. If you use two formats, no "``i``" is appended to the
 imaginary part. This is so you can use an alternate format if you
-prefer, for example, prefacing the imaginary part with a "j".
+prefer, for example, prefacing the imaginary part with a "``j``".
 
 The format string can be a maximum of 80 characters.
 
-If you want special characters to be printed after x, include them as
+If you want special characters to be printed after *x*, include them as
 the last characters of the format string. For example:
 
-+---+-----------------------------------------------------+
-| " | right-justified decimal followed by a comma.        |
-| % |                                                     |
-| * |                                                     |
-| . |                                                     |
-| * |                                                     |
-| l |                                                     |
-| f |                                                     |
-| , |                                                     |
-| " |                                                     |
-+---+-----------------------------------------------------+
-| " | left-justified string followed by a space.          |
-| % |                                                     |
-| - |                                                     |
-| * |                                                     |
-| . |                                                     |
-| * |                                                     |
-| s |                                                     |
-| " |                                                     |
-+---+-----------------------------------------------------+
-| " | right-justified decimal followed by nothing.        |
-| % |                                                     |
-| * |                                                     |
-| . |                                                     |
-| * |                                                     |
-| l |                                                     |
-| f |                                                     |
-| " |                                                     |
-+---+-----------------------------------------------------+
-|   | You can embed the format specification in the       |
-|   | middle of other text:                               |
-|   | ::                                                  |
-|   |                                                     |
-|   |    "Time: %*.*lf seconds."                          |
-|   |                                                     |
-|   | If you want the beginning of the field padded with  |
-|   | zeros, then put a "0" before the first "\*" in the  |
-|   | format string:                                      |
-+---+-----------------------------------------------------+
-| " | right-justified decimal.                            |
-| % |                                                     |
-| 0 |                                                     |
-| * |                                                     |
-| . |                                                     |
-| * |                                                     |
-| l |                                                     |
-| f |                                                     |
-| " |                                                     |
-+---+-----------------------------------------------------+
-|   | If prec = 0, the decimal point will be suppressed.  |
-+---+-----------------------------------------------------+
+.. list-table::
+    :widths: auto
 
+    * - :code`"%*.*lf,"`
+      - right-justified decimal followed by a comma.
+    * - :code`"%-*.*s "`
+      - left-justified string followed by a space.
+    * - :code`"%*.*lf"`
+      - right-justified decimal followed by nothing.
+
+ 	You can embed the format specification in the middle of other text:
+
+        ::
+
+            "Time: %*.*lf seconds."
+
+        If you want the beginning of the field padded with zeros, then put a "``0``" before the first "``\*``" in the format string:
+
+    * - :code`"%0*.*lf"`
+      - right-justified decimal.
+
+ 	If :math:`prec = 0`, the decimal point will be suppressed.
 
 Examples
 ----------------
-You can create custom formats for complex numbers with ftos. For example,
+You can create custom formats for complex numbers with :func:`ftos`. For example,
 
 ::
 
@@ -233,3 +153,4 @@ The results:
     om = "The maximum resistance is 929.86 ohms."
 
 .. seealso:: Functions :func:`ftocv`, :func:`stof`, :func:`format`
+

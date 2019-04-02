@@ -5,7 +5,7 @@ fmod
 Purpose
 ----------------
 
-Computes the floating-point remainder of x/y.
+Computes the floating-point remainder of :math:`x/y`.
 
 Format
 ----------------
@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :param y: ExE conformable with x.
+    :param y: ExE conformable with *x*.
     :type y: LxM matrix
 
     :returns: r (*max(N,L) by max(K,M) matrix*) .
@@ -22,11 +22,10 @@ Format
 Remarks
 -------
 
-Returns the floating-point remainder r of x/y such that x = iy + r,
-where i is an integer, r has the same sign as x and \|r\| < \|y\|.
+Returns the floating-point remainder *r* of :math:`x/y` such that :math:`x = iy + r`,
+where *i* is an integer, *r* has the same sign as *x* and :math:`\|r\| < \|y\|`.
 
-Compare this with %, the modulo division operator. (See **Operators**,
-Chapter 1.)
+Compare this with ``%``, the modulo division operator. (See `Operators`, Chapter 1.)
 
 
 Examples
@@ -62,7 +61,7 @@ produces:
 
 ::
 
-    1900     1952 
+        1900     1952 
         1904     1956 
         1908     1960 
         1912     1964 
@@ -76,4 +75,3 @@ produces:
         1944     1996 
         1948     2000
 
-remainders float

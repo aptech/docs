@@ -1,32 +1,37 @@
 
-feqmt,fgemt,fgtmt,flemt,fltmt,fnemt
+feqmt, fgemt, fgtmt, flemt, fltmt, fnemt
 ==============================================
 
 Purpose
 ----------------
 
-Fuzzy comparison functions. These functions use the fcmptol argument to fuzz the comparison operations to allow
+Fuzzy comparison functions. These functions use the *fcmptol* argument to fuzz the comparison operations to allow
 for roundoff error.
 
 Format
 ----------------
-.. function:: fnemt(a, b, fcmptol)
+.. function:: feqmt(a, b, fcmptol)
+              fgemt(a, b, fcmptol)
+              fgtmt(a, b, fcmptol)
+              flemt(a, b, fcmptol)
+              fltmt(a, b, fcmptol)
+              fnemt(a, b, fcmptol)
 
     :param a: first matrix.
     :type a: NxK matrix
 
-    :param b: second matrix, ExE compatible with  a.
+    :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
     :param fcmptol: comparison tolerance.
     :type fcmptol: scalar
 
-    :returns: y (*scalar*), 1 (TRUE) or 0 (FALSE).
+    :returns: y (*scalar*), 1 (``TRUE``) or 0 (``FALSE``).
 
 Remarks
 -------
 
-The return value is TRUE if every comparison is TRUE.
+The return value is ``TRUE`` if every comparison is ``TRUE``.
 
 The statement:
 
@@ -41,7 +46,7 @@ is equivalent to:
    y = a eq b;
 
 For the sake of efficiency, these functions are not written to handle
-missing values. If a and b contain missing values, use missrv to convert
+missing values. If *a* and *b* contain missing values, use :func:`missrv` to convert
 the missing values to something appropriate before calling a fuzzy
 comparison function.
 
@@ -70,4 +75,5 @@ Source
 
 fcomparemt.src
 
-.. seealso:: Functions 
+.. seealso:: Functions :func:`dotfeqmt`, :func:`dotfgemt`, :func:`dotfgtme`, :func:`dotflemt`, :func:`dotfltmt`, :func:`dotfnemt`
+

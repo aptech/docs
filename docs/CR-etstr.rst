@@ -12,7 +12,7 @@ Format
 .. function:: etstr(tothsecs)
 
     :param tothsecs: an elapsed time measured in hundredths of a second, as given, for instance, by the
-        ethsec function.
+        :func:`ethsec` function.
     :type tothsecs: scalar
 
     :returns: str (string), containing the elapsed time in the form:
@@ -48,3 +48,4 @@ Source
 time.src
 
 .. seealso:: Functions :func:`ethsec`
+

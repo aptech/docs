@@ -21,7 +21,7 @@ Remarks
 
 In DT scalar format, 15:10:55 on July 3, 2005 is 20050703151055.
 
-Each row of dtv, in DTV vector format, contains:
+Each row of *dtv*, in DTV vector format, contains:
 
 +-----------------+-----------------------------------------------------+
 | [N,1]           | Year                                                |
@@ -69,3 +69,4 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodtv`, :func:`dtvtodt`, :func:`dttoutc`, :func:`dtvtodt`, :func:`strtodt`, :func:`dttostr`
+

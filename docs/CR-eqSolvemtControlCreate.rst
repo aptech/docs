@@ -5,7 +5,7 @@ eqSolvemtControlCreate
 Purpose
 ----------------
 
-Creates default eqSolvemtControl structure.
+Creates default :class:`eqSolvemtControl` structure.
 
 Format
 ----------------
@@ -28,8 +28,8 @@ declared before it can be used.
     //initialize structure c
     c = eqSolvemtControlCreate();
 
-The members of an eqSolvemtControl structure and default values are described in
-the manual entry for eqSolvemt.
+The members of an :class:`eqSolvemtControl` structure and default values are described in
+the manual entry for :func:`eqSolvemt`.
 
 Source
 ------
@@ -38,4 +38,3 @@ eqsolvemt.src
 
 .. seealso:: Functions :func:`eqSolvemt`
 
-solve system nonlinear equation struct structure control create

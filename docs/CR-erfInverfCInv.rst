@@ -5,16 +5,16 @@ erfInv,erfCInv
 Purpose
 ----------------
 
-Computes the inverse of the Gaussian error function (erfInv) and its complement (erfcInv).
+Computes the inverse of the Gaussian error function (:func:`erfInv`) and its complement (:func:`erfcInv`).
 
 Format
 ----------------
 .. function:: erfCInv(y)
 
-    :param y:  -1 < y < 1.
+    :param y:  :math:`-1 < y < 1`
     :type y: scalar or NxK matrix
 
-    :returns: x (*scalar or NxK matrix*) .
+    :returns: x (*scalar or NxK matrix*)
 
 Examples
 ----------------
@@ -26,7 +26,7 @@ Examples
 
 ::
 
-    0.1000       0.1125 
+        0.1000       0.1125 
         0.2000       0.2227 
         0.3000       0.3286 
         0.4000       0.4284 
@@ -43,7 +43,7 @@ Examples
 
 ::
 
-    0.1000 
+        0.1000 
         0.2000 
         0.3000 
         0.4000 
@@ -56,4 +56,3 @@ Examples
 
 .. seealso:: Functions :func:`erf`, :func:`erfc`, :func:`cdfN`, :func:`cdfNC`, :func:`cdfNi`
 
-inverse complement Gaussian error function

@@ -5,7 +5,7 @@ formatnv
 Purpose
 ----------------
 
-Sets the numeric data format used by printfmt.
+Sets the numeric data format used by :func:`printfmt`.
 
 Format
 ----------------
@@ -19,14 +19,12 @@ Format
 Remarks
 -------
 
-See `printfm <CR-printfm.html#printfm>`__ for details on the format
-vector.
-
+See :func:`printfm` for details on the format vector.
 
 Examples
 ----------------
 This example saves the old format, sets the format desired for
-printing x, prints x, then restores the
+printing *x*, prints *x*, then restores the
 old format. This code:
 
 ::
@@ -48,8 +46,9 @@ Source
 gauss.src
 
 Globals
-+++++++
+------------
 
-\__fmtnv
+`\__fmtnv`
 
 .. seealso:: Functions :func:`formatcv`, :func:`printfm`, :func:`printfmt`
+

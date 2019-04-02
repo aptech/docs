@@ -11,25 +11,26 @@ Format
 ----------------
 .. function:: fgetst(f, maxsize)
 
-    :param f: file handle of a file opened with fopen.
+    :param f: file handle of a file opened with :func:`fopen`.
     :type f: scalar
 
     :param maxsize: maximum size of string to read in,
         including the null terminating byte.
     :type maxsize: scalar
 
-    :returns: str (string), 
+    :returns: str (string)
 
 
 Remarks
 -------
 
-fgetst operates identically to fgets, except that the newline is not
+:func:`fgetst` operates identically to fgets, except that the newline is not
 retained in the string.
 
-In general, you don't want to use fgetst on files opened in binary mode
-(see fopen). fgetst drops the newline, but it does NOT drop the
+In general, you don't want to use :func:`fgetst` on files opened in binary mode
+(see :func:`fopen`). :func:`fgetst` drops the newline, but it does NOT drop the
 preceding carriage return used on some platforms. Printing out such a
 string can produce unexpected results.
 
 .. seealso:: Functions :func:`fgets`, :func:`fgetsat`, :func:`fopen`
+

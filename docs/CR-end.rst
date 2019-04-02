@@ -14,14 +14,14 @@ Format
 Remarks
 -------
 
-end causes GAUSS to revert to interactive mode, and closes all open
-files. end also closes the auxiliary output file and turns the window
-on. It is not necessary to put an end statement at the end of a program.
+:func:`end` causes GAUSS to revert to interactive mode, and closes all open
+files. :func:`end` also closes the auxiliary output file and turns the window
+on. It is not necessary to put an :func:`end` statement at the end of a program.
 
-An end command can be placed above a label which begins a subroutine to
-make sure that a program does not enter a subroutine without a gosub.
+An :func:`end` command can be placed above a label which begins a subroutine to
+make sure that a program does not enter a subroutine without a :func:`gosub`.
 
-stop also terminates a program but closes no files and leaves the window
+:func:`stop` also terminates a program but closes no files and leaves the window
 setting as it is.
 
 
@@ -35,9 +35,10 @@ Examples
     print x;
     end;
 
-In this example, a matrix x is printed to the auxiliary output. The
-output to the window is turned off to speed up the printing. The end statement
+In this example, a matrix *x* is printed to the auxiliary output. The
+output to the window is turned off to speed up the printing. The :func:`end` statement
 is used to terminate the program, so the output file will be closed
 and the window turned back on.
 
 .. seealso:: Functions :func:`new`, :func:`stop`, :func:`system`
+

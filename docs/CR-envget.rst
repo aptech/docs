@@ -21,13 +21,19 @@ Format
 Examples
 ----------------
 
-//%USERPROFILE% is the user's home
-//directory on most Windows systems
-hm_dir = envget("USERPROFILE");
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 1
++++++++++
 
-Below is an example of a procedure that will open a data file using a path stored in an environment string called DPATH.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+::
+
+    //%USERPROFILE% is the user's home
+    //directory on most Windows systems
+    hm_dir = envget("USERPROFILE");
+
+Example 2
++++++++++
+
+Below is an example of a procedure that will open a data file using a path stored in an environment string called ``DPATH``.
 
 ::
 
@@ -57,3 +63,4 @@ The procedure returns the file handle and is called as follows:
     fp = dopen("myfile");
 
 .. seealso:: Functions :func:`cdir`
+

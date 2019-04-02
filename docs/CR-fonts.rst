@@ -5,14 +5,15 @@ fonts
 Purpose
 ----------------
 
-Loads fonts to be used in the graph. Note: this function is for the deprecated PQG graphics.
+Loads fonts to be used in the graph. 
+
+.. NOTE:: This function is for the deprecated PQG graphics.
 
 Format
 ----------------
 .. function:: fonts(str)
 
-    :param str:  The
-        following fonts are available:
+    :param str:  The following fonts are available:
     :type str: string or character vector containing the names
         of fonts to be used in the plot
 
@@ -24,18 +25,16 @@ Format
         "Microb", "bold and boxy."
         "Complex", "standard font with serif."
 
-
-
 Remarks
 -------
 
 The first font specified will be used for the axes numbers.
 
-If str is a null string, or fonts is not called, Simplex is loaded by
+If *str* is a null string, or :func:`fonts` is not called, Simplex is loaded by
 default.
 
 For more information on how to select fonts within a text string, see
-**Publication Quality Graphics**, Chapter 1.
+`Publication Quality Graphics`, Chapter 1.
 
 
 
@@ -45,3 +44,4 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`title`, :func:`xlabel`, :func:`ylabel`, :func:`zlabel`
+

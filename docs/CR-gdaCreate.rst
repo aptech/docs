@@ -37,10 +37,10 @@ Remarks
 -------
 
 This command creates a GAUSS Data Archive containing only a header. To
-add data to the GDA, call gdaWrite.
+add data to the GDA, call :func:`gdaWrite`.
 
-It is recommended that you include a .gda extension in filename.
-However, gdaCreate will not force an extension.
+It is recommended that you include a ``.gda`` extension in :func:`filename`.
+However, :func:`gdaCreate` will not force an extension.
 
 
 Examples
@@ -51,3 +51,4 @@ Examples
     ret = gdaCreate("myfile.gda",1);
 
 .. seealso:: Functions :func:`gdaWrite`
+

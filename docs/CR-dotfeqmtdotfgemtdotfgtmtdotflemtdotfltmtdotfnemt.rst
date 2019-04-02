@@ -1,6 +1,6 @@
 
-dotfeqmt,dotfgemt,dotfgtmt,dotflemt,dotfltmt,dotfnemt
-==============================================
+dotfeqmt, dotfgemt, dotfgtmt, dotflemt, dotfltmt, dotfnemt
+===========================================================
 
 Purpose
 ----------------
@@ -11,7 +11,12 @@ roundoff error.
 
 Format
 ----------------
-.. function:: dotfnemt(a, b, fcmptol)
+.. function:: dotfeqmt(a, b, fcmptol)
+              dotfgemt(a, b, fcmptol)
+              dotfgtme(a, b, fcmptol)
+              dotflemt(a, b, fcmptol)
+              dotfltmt(a, b, fcmptol)
+              dotfnemt(a, b, fcmptol)
 
     :param a: first matrix.
     :type a: NxK matrix
@@ -62,5 +67,5 @@ Source
 
 fcomparemt.src
 
-.. seealso:: Functions :func:`feqmt-fnemt`
+.. seealso:: Functions :func:`feqmt`, :func:`fgemt`, :func:`flemt`, :func:`fltmt`, :func:`fnemt`
 

@@ -49,7 +49,7 @@ Examples
     let dtv = { 2012 9 16 11 7 22 1 84 };
     dt = dtvtodt(dtv);
 
-The code above assigns dt as follows:
+The code above assigns *dt* as follows:
 
 ::
 
@@ -61,3 +61,4 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodtv`, :func:`dttodtv`, :func:`dttoutc`, :func:`strtodt`, :func:`dttostr`
+

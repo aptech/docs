@@ -17,9 +17,9 @@ Format
     :param comline: the arguments to be placed on the command line of the program being executed.
     :type comline: string
 
-    :returns: pid (*scalar*), the process id of the executable returned by program.
+    :returns: pid (*scalar*), the process id of the executable returned by *program*.
         
-        If execbg cannot execute program, the error returns
+        If :func:`execbg` cannot execute *program*, the error returns
         will be negative:
 
     .. csv-table::
@@ -43,9 +43,9 @@ Examples
 
 In this example, the ATOG ASCII conversion utility is
 executed under the execbg function. The name of the
-command file to be used, comd1.cmd, is passed to ATOG
-on its command line. The returned value, y, is tested
+command file to be used, ``comd1.cmd``, is passed to ATOG
+on its command line. The returned value, *y*, is tested
 to see whether ATOG was successful. If not successful the
 program terminates after printing an error message. See
- ATOG, Chapter  1.
+ `ATOG`, Chapter 1.
 

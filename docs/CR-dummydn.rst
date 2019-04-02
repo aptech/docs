@@ -14,27 +14,21 @@ Format
 ----------------
 .. function:: dummydn(x, v, p)
 
-    :param x: 
-    :type x: Nx1 vector of data to be broken up into dummy
-        variables
+    :param x: data to be broken up into dummy variables
+    :type x: Nx1 vector
 
-    :param v:  These categories should not
-        overlap.
-    :type v: (K-1)x1 vector specifying the K-1 breakpoints
-        (these must be in ascending order) that determine the K
-        categories to be used
+    :param v: (K-1)x1 vector specifying the :math:`K-1` breakpoints (these must be in ascending order) that determine the *K* categories to be used. These categories should not overlap.
+    :type v: matrix
 
-    :param p: ,K], specifying
-        which column should be dropped in the matrix of
-        dummy variables.
-    :type p: positive integer in the range [1
+    :param p: positive integer in the range :math:`[1,K]`, specifying which column should be dropped in the matrix of dummy variables.
+    :type p: scalar
 
-    :returns: y (*Nx(K-1) matrix*) containing the K-1 dummy variables.
+    :returns: y (*Nx(K-1) matrix*) containing the :math:`K-1` dummy variables.
 
 Remarks
 -------
 
-This is just like the function dummy, except that the pth column of the
+This is just like the function :func:`dummy`, except that the pth column of the
 matrix of dummies is dropped. This ensures that the columns of the
 matrix of dummies do not sum to 1, and so these variables will not be
 collinear with a vector of ones.
@@ -44,8 +38,8 @@ Missings are deleted before the dummy variables are created.
 All categories are open on the left (i.e., do not contain their left
 boundaries) and all but the highest are closed on the right (i.e., do
 contain their right boundaries). The highest (rightmost) category is
-unbounded on the right. Thus, only K-1 breakpoints are required to
-specify K dummy variables.
+unbounded on the right. Thus, only :math:`K-1` breakpoints are required to
+specify *K* dummy variables.
 
 
 Examples
@@ -67,7 +61,7 @@ Examples
     
     dm = dummydn(x,v,p);
 
-The code above produces four dummies based upon the breakpoints in the vector v:
+The code above produces four dummies based upon the breakpoints in the vector *v*:
 
 ::
 
@@ -92,3 +86,4 @@ Source
 datatran.src
 
 .. seealso:: Functions :func:`dummy`, :func:`dummybr`, :func:`code`, :func:`recode`, :func:`reclassifyCuts`, :func:`substute`, :func:`rescale`, :func:`reclassify`
+

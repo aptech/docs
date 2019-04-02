@@ -22,6 +22,7 @@ Remarks
 
 This command enables you to do your own error handling in your GAUSS
 programs. To print an error message to the window and error log file
-without file name and line number information, use errorlog.
+without file name and line number information, use :func:`errorlog`.
 
 .. seealso:: Functions :func:`errorlog`
+

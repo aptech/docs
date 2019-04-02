@@ -5,14 +5,13 @@ eqSolvemtOutCreate
 Purpose
 ----------------
 
-Creates default eqSolvemtOut structure.
+Creates default :class:`eqSolvemtOut` structure.
 
 Format
 ----------------
 .. function:: eqSolvemtOutCreate()
 
-    :returns: c (*struct*) instance of :class:`eqSolvemtOut` struct with members
-        set to default values.
+    :returns: c (*struct*) instance of :class:`eqSolvemtOut` struct with members set to default values.
 
 Examples
 ----------------
@@ -27,8 +26,8 @@ declared before it can be used.
     //Initialize structure
     c = eqSolvemtOutCreate();
 
-The members of an eqSolvemtOut structure and default values are described in
-the manual entry for eqSolvemt.
+The members of an :class:`eqSolvemtOut` structure and default values are described in
+the manual entry for :func:`eqSolvemt`.
 
 Source
 ------
@@ -36,3 +35,4 @@ Source
 eqsolvemt.src
 
 .. seealso:: Functions :func:`eqSolvemt`
+

@@ -5,7 +5,7 @@ floor
 Purpose
 ----------------
 
-Round down toward -∞.
+Round down toward :math:`-∞`.
 
 Format
 ----------------
@@ -14,12 +14,12 @@ Format
     :param x: 
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*) containing the elements of x rounded down.
+    :returns: y (*NxK matrix or N-dimensional array*) containing the elements of *x* rounded down.
 
 Remarks
 -------
 
-This rounds every element in x down to the nearest integer.
+This rounds every element in *x* down to the nearest integer.
 
 
 Examples
@@ -65,6 +65,7 @@ produces:
         0.00   314.00 
       -81.00   103.00
 
-Notice in the code above, how the \n at the end of the statement printing the line of asterisks, inserts a newline.
+Notice in the code above, how the ``\n`` at the end of the statement printing the line of asterisks, inserts a newline.
 
 .. seealso:: Functions :func:`ceil`, :func:`round`, :func:`trunc`
+

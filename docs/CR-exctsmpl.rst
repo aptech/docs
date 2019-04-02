@@ -39,7 +39,7 @@ Remarks
 -------
 
 Random sampling is done with replacement. Thus, an observation may be in
-the resulting sample more than once. If percent is 100, the resulting
+the resulting sample more than once. If *percent* is 100, the resulting
 sample will not be identical to the original sample, though it will be
 the same size.
 
@@ -51,11 +51,11 @@ Examples
 
     n = exctsmpl(getGAUSSHome()$+ "examples/freqdata.dat","rout",30);
 
-freqdata.dat is an example data set provided with GAUSS. Switching
-to the examples subdirectory of your GAUSS
+``freqdata.dat`` is an example data set provided with GAUSS. Switching
+to the *examples* subdirectory of your GAUSS
 installation directory will make it possible to do the above
 example as shown. Otherwise you will need to substitute another
-data set name for "freqdata.dat".
+data set name for :code:`"freqdata.dat"`.
 
 Source
 ------

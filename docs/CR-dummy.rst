@@ -14,17 +14,13 @@ Format
 ----------------
 .. function:: dummy(x, v)
 
-    :param x: 
-    :type x: Nx1 vector of data that is to be broken up
-        into dummy variables
+    :param x: data that is to be broken up into dummy variables
+    :type x: Nx1 vector
 
-    :param v:  These categories should not
-        overlap.
-    :type v: (K-1)x1 vector specifying the K-1 breakpoints
-        (these must be in ascending order) that determine the K
-        categories to be used
+    :param v: (K-1)x1 vector specifying the K-1 breakpoints (these must be in ascending order) that determine the K categories to be used. These categories should not overlap.
+    :type v: matrix 
 
-    :returns: y (*NxK matrix*), containing the K dummy variables.
+    :returns: y (*NxK matrix*), containing the *K* dummy variables.
 
 Remarks
 -------
@@ -34,12 +30,12 @@ Missings are deleted before the dummy variables are created.
 All categories are open on the left (i.e., do not contain their left
 boundaries) and all but the highest are closed on the right (i.e., do
 contain their right boundaries). The highest (rightmost) category is
-unbounded on the right. Thus, only K-1 breakpoints are required to
-specify K dummy variables.
+unbounded on the right. Thus, only :math:`K-1` breakpoints are required to
+specify *K* dummy variables.
 
-The function dummybr is similar to dummy, but in that function the
-highest category is bounded on the right. The function dummydn is also
-similar to dummy, but in that function a specified column of dummies is
+The function :func:`dummybr` is similar to :func:`dummy`, but in that function the
+highest category is bounded on the right. The function :func:`dummydn` is also
+similar to :func:`dummy`, but in that function a specified column of dummies is
 dropped.
 
 
@@ -59,7 +55,7 @@ Examples
     
     dm = dummy(x,v);
 
-The code above produces four dummies based upon the breakpoints in the vector v:
+The code above produces four dummies based upon the breakpoints in the vector *v*:
 
 ::
 
@@ -84,3 +80,4 @@ Source
 datatran.src
 
 .. seealso:: Functions :func:`dummybr`, :func:`dummydn`, :func:`code`, :func:`recode`, :func:`reclassifyCuts`, :func:`substute`, :func:`rescale`, :func:`reclassify`
+

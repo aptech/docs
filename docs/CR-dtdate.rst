@@ -38,11 +38,10 @@ Remarks
 
 The arguments must be ExE conformable.
 
-
-
 Source
 ------
 
 time.src
 
 .. seealso:: Functions :func:`dtday`, :func:`dttime`, :func:`utctodt`, :func:`dttostr`, :func:`dayofweek`
+

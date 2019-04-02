@@ -14,9 +14,11 @@ Format
 Remarks
 -------
 
-endp marks the end of a procedure definition that began with a proc or
-keyword statement. (For details on writing and using procedures, see
-**Procedures and Keywords**, Chapter 1.)
+:func:`endp` marks the end of a procedure definition that began with a :func:`proc` or
+:func:`keyword` statement. (For details on writing and using procedures, see
+`Procedures and Keywords`, Chapter 1.)
+
+.. DANGER:: fix reference to user guide
 
 
 Examples
@@ -37,8 +39,9 @@ After executing the above code:
 
 ::
 
-    0.1546 
+        0.1546 
     b = 1.5028 
        -0.1284
 
 .. seealso:: Functions :func:`proc`, :func:`keyword`, :func:`retp`
+
