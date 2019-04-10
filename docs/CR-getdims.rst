@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: getdims(a)
 
-    :param a: , matrix, string, string array or sparse matrix.
-    :type a: N-dimensional array
+    :param a: N-dimensional array, matrix, string, string array or sparse matrix.
+    :type a: any
 
     :returns: ndims (*scalar*), the number of dimensions in the symbol.
 
@@ -28,6 +28,7 @@ Examples
     //Find ut the number of dimensions in 'a'
     ndims = getdims(a);
 
-The code above, assigns ndims to be equal to 3.
+The code above, assigns *ndims* to be equal to 3.
 
 .. seealso:: Functions :func:`getorders`
+

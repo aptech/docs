@@ -22,14 +22,14 @@ Format
 Remarks
 -------
 
-If the specified variable is a matrix or string array, then ord will be
+If the specified variable is a matrix or string array, then *ord* will be
 a 2x1 vector containing the rows and columns of the variable
-respectively. If the variable is a string, then ord will be a scalar
+respectively. If the variable is a string, then *ord* will be a scalar
 containing the length of the string. If the variable is an N-dimensional
-array, then ord will be an Nx1 vector containing the sizes of each
+array, then *ord* will be an Nx1 vector containing the sizes of each
 dimension.
 
-If gdaGetOrders fails, it will return a scalar error code. Call scalerr
+If :func:`gdaGetOrders` fails, it will return a scalar error code. Call :func:`scalerr`
 to get the value of the error code. The error code may be any of the
 following:
 
@@ -60,3 +60,4 @@ Examples
     ord = gdaGetOrders("myfile.gda","x5");
 
 .. seealso:: Functions :func:`gdaGetName`, :func:`gdaGetIndex`
+

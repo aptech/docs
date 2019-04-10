@@ -10,10 +10,10 @@ Causes a branch to a label.
 Format
 ----------------
 .. function:: goto label 
-			       . 
-			       . 
-			       . 
-			  label:
+              . 
+              . 
+              . 
+              label:
 
 Remarks
 -------
@@ -27,11 +27,11 @@ Labels are always followed immediately by a colon.
 Labels do not have to be declared before they are used. GAUSS knows they
 are labels by the fact that they are followed immediately by a colon.
 
-When GAUSS encounters a goto statement, it jumps to the specified label
+When GAUSS encounters a :func:`goto` statement, it jumps to the specified label
 and continues execution of the program from there.
 
-Parameters can be passed in a goto statement the same way as they can
-with a gosub.
+Parameters can be passed in a :func:`goto` statement the same way as they can
+with a :func:`gosub`.
 
 
 Examples
@@ -53,3 +53,4 @@ Examples
     1.0000000 2.0000000 3.0000000
 
 .. seealso:: Functions :func:`gosub`, :func:`if`
+

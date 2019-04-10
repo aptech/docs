@@ -9,65 +9,97 @@ Estimate instrumental variables model using the generalized method of moments.
 
 Format
 ----------------
-.. function:: gmmFitIV(dataset, formula, inst_list, gCtl)
+.. function:: gmmFitIV(y, x[, gCtl])
+              gmmFitIV(y, x[, z[, gCtl]])
+              gmmFitIV(dataset, formula[, gCtl])
+              gmmFitIV(dataset, formula[, inst_list[, gCtl]])
 
     :param y: dependent data vector
-    :type y: N x 1 matrix
+    :type y: Nx1 matrix
 
     :param x: independent data matrix.
-    :type x: N x K matrix
+    :type x: NxK matrix
 
-    :param z: N x K matrix, instrumental variables
-        data matrix. If z is excluded, the linear model of y and x is estimated.
-    :type z: Optional input
+    :param z: Optional input, instrumental variables data matrix. If *z* is excluded, the linear model of *y* and *x* is estimated.
+    :type z: NxK matrix
 
     :param dataset: name of dataset.
     :type dataset: string
 
     :param formula: formula string of the model.
-        E.g "y ~ X1 + X2"  'y' is the name of dependent variable,  'X1' and 'X2' are names of independent variables;
-        E.g. "y ~ .", '.' means including all variables except dependent variable 'y';
+    
+        e.g :code:`"y ~ X1 + X2"`, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
+
+        e.g. :code:`"y ~ ."`, ``.`` means including all variables except dependent variable ``y``.
+
     :type formula: String
 
-    :param inst_list: formula string representing the
-        instrumental variables to be included in the model.							E.g. "pcturban + price + age + zip" specifies that the variables pcturban, price, age, and zip
+    :param inst_list: Optional input. Formula string representing the instrumental variables to be included in the model.
+    
+        e.g. :code:`"pcturban + price + age + zip"` specifies that the variables *pcturban*, *price*, *age*, and *zip*
         should be used as instrumental variables.
-    :type inst_list: Optional input
+    :type inst_list: string
 
-    :param gCtl: an instance of an gmmControl structure
-    :type gCtl: Optional argument
+    :param gCtl: Optional argument. An instance of an :class:`gmmControl` structure
+    :type gCtl: struct
 
-    .. csv-table::
+    .. list-table::
         :widths: auto
 
-        "gCtl.method", "string, GMM method to be used."
-        "", ""onestep"", "One-step GMM"
-        "", ""twostep"", "Two-step GMM"
-        "", ""iterative"", "Iterative GMM"
-        "", ""CU"", "Continuous updating GMMDefault = "twostep""
-        "gCtl.vceType", "string, variance-covariance matrix type."
-        "", ""unadj"", "Unadjusted, non-robust SE."
-        "", ""robust"", "Heteroscedastic robust SE."
-        "", ""hac"", "Heteroscedastic-autocorrelation robust SE.					Default = "robust""
-        "gCtl.wType", "string, type of weight matrix used. Ignored for one-step case."
-        "", ""unadj"", "Unadjusted, non-robust SE."
-        "", ""robust"", "Heteroscedastic robust SE."
-        "", ""hac"", "Heteroscedastic-autocorrelation robust SE.					Default = "robust""
-        "gCtl.hacKernel", "string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using"hac" weight matrix and/or variance-covariance matrix. Note: Bandwidth is determined using the Newey-West optimal lag length selection method. Default = "bartlett""
-        "", ""bartlett"", "Bartlett kernel."
-        "", ""parzen"", "Parzen kernel."
-        "", ""quad"", "Quadraticspectral kernel."
-        "gCtl.wInitMat", "data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of gCtl.wInit."
-        "gCtl.wInit", "string, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Else:"
-        "", ""identity"", "Identity matrix."
-        "", ""unadj"", "Weight matrix 1/n*inv(Z'Z). Assumes						moments are i.i.d. 					Default = "unadj""
-        "gCtl.gIter", "instance of gmmIterative structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:"
-        "", "gCtl.gIter.maxIter", "scalar, maximum number of iterations. 						Default = 500."
-        "", "gCtl.gIter.paramTol", "scalar, tolerance level for convergence based on parameter estimates. Default = 1e-6."
-        "", "gCtl.gIter.wTol", "scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-6."
-        "gCtl.noconstant", "scalar, specified to indicate if constant is included in model. Only valid if data vector input method is used. Set to 1 to exclude constant from model. Constant is always first parameter in parameter vector. Default = 0 [constant included].For dataset and string formula method to remove constant from model specify "-1" as first dependent variable:E.g. : "y ~ -1 + X1 + X2""
-        "gCtl.varNames", "string array, dependent variable names. Only used for						data vector input case. Default = 'X1', 'X2', ..."
-        "gCtl.instNames", "string array, instrumental variable names. Only used for data vector input case. 						Default = 'Z1', 'Z2', ..."
+        * - gCtl.method
+          - string, GMM method to be used.
+
+              :"onestep": One-step GMM
+              :"twostep": Two-step GMM
+              :"iterative": Iterative GMM
+              :"CU": Continuous updating GMM.
+              
+            Default = :code:`"twostep"`
+        * - gCtl.vceType
+          - string, variance-covariance matrix type.
+
+              :"unadj": Unadjusted, non-robust SE.
+              :"robust": Heteroscedastic robust SE.
+              :"hac": Heteroscedastic-autocorrelation robust SE. 
+              
+            Default = :code:`"robust"`
+        * - gCtl.wType
+          - string, type of weight matrix used. Ignored for one-step case.
+
+              :"unadj": Unadjusted, non-robust SE.
+              :"robust": Heteroscedastic robust SE.
+              :"hac": Heteroscedastic-autocorrelation robust SE.
+              
+            Default = :code:`"robust"`
+        * - gCtl.hacKernel
+          - string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using :code:`"hac"` weight matrix and/or variance-covariance matrix. 
+            
+              .. NOTE:: Bandwidth is determined using the Newey-West optimal lag length selection method. 
+
+              :"bartlett": Bartlett kernel.
+              :"parzen": Parzen kernel.
+              :"quad": Quadraticspectral kernel.
+
+            Default = ``"bartlett"``
+        * - gCtl.wInitMat
+          - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*.
+        * - gCtl.wInit
+          - string, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Else:
+
+              :"identity": Identity matrix.
+              :"unadj": Weight matrix :math:`1/n*inv(Z'Z)`. Assumes moments are i.i.d. Default = :code:`"unadj"`
+        * - gCtl.gIter
+          - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
+
+              :gCtl.gIter.maxIter: scalar, maximum number of iterations. Default = 500.
+              :gCtl.gIter.paramTol: scalar, tolerance level for convergence based on parameter estimates. Default = 1e-6.
+              :gCtl.gIter.wTol: scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-6.
+        * - gCtl.noconstant
+          - scalar, specified to indicate if constant is included in model. Only valid if data vector input method is used. Set to 1 to exclude constant from model. Constant is always first parameter in parameter vector. Default = 0 [constant included].For dataset and string formula method to remove constant from model specify :code:`"-1"` as first dependent variable: e.g.: :code:`"y ~ -1 + X1 + X2"`
+        * - gCtl.varNames
+          - string array, dependent variable names. Only used for data vector input case. Default = ``X1, X2, ...``
+        * - gCtl.instNames
+          - string array, instrumental variable names. Only used for data vector input case. Default = ``Z1, Z2, ...``
 
     :returns: gOut (*struct*) instance of :class:`arimaOut` struct containing the following members:
 
@@ -85,11 +117,16 @@ Format
         "gOut.JStat", "scalar, Hansen statistic of overidentification."
         "gOut.df", "scalar, degrees of freedom."
 
+Remarks
+-------
+
+The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
+
 Examples
 ----------------
 
-- with Formula String:
-++++++++++++++++++++++
+with Formula String
++++++++++++++++++++
 
 ::
 
@@ -128,7 +165,7 @@ The above code will print out the following report:
     
     Instruments: weight, length, Constant
 
-- with Data Matrix:
+with Data Matrix
 +++++++++++++++++++
 
 ::
@@ -188,16 +225,5 @@ The above code will print out the following report:
     Chi-Sq(   3) =        6.9753314 
     P-value of J-stat:     0.072688216
 
-Remarks
--------
-
-The supported dataset types are
-` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,
-`Excel (XLS, XLSX) <FIO.3-Spreadsheets.html#data-source-excel>`__,
-`HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__, `GAUSS Matrix
-(FMT) <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__, `GAUSS
-Dataset (DAT) <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__,
-`Stata (DTA) and SAS (SAS7BDAT,
-SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
-
 .. seealso:: Functions :func:`gmmControlCreate`, :func:`gmmFit`
+

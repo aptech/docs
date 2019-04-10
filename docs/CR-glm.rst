@@ -9,106 +9,156 @@ Solves the generalized linear model problems.
 
 Format
 ----------------
-.. function:: glm(y, x, family) 
-			  glm(y, x, family, var_names) 
-			  glm(y, x, family, var_names, categoryIdx ) 
-			  glm(y, x, family, var_names, categoryIdx, link) 
-			  glm(y, x, family, ctl) or  
-			  glm(dataset_name, formula, family) 
-			  glm(dataset_name, formula, family, ctl)
+.. function:: glm(y, x, family[, var_names[, categoryIdx[, link]]]) 
+              glm(y, x, family[, ctl])
+              glm(dataset_name, formula, family[, ctl]) 
 
-    :param y: , the dependent, or response, variable.
-        n is the number of the observations used in the analysis.
-    :type y: n×1vector
+    :param y:  the dependent, or response, variable. *n* is the number of the observations used in the analysis.
+    :type y: Nx1 vector
 
-    :param x: , the independent, or explanatory, variables.
-        k is the number of the independent variables.
-    :type x: n×k matrix
+    :param x: the independent, or explanatory, variables. *k* is the number of the independent variables.
+    :type x: NxK matrix
 
-    :param dataset_name: the name of data set. E.g. "credit.dat" or "example.fmt".
-    :type dataset_name: String
+    :param dataset_name: the name of data set. E.g. :code:`"credit.dat"` or :code:`"example.fmt"`.
+    :type dataset_name: string
 
     :param formula: formula string of the model.
-        E.g "y ~ X1 + X2", 'y' is the name of dependent variable, 'X1' and 'X2' are names of independent variables;
-        E.g. "y ~ .", '.' means including all variables except dependent variable 'y';
-        E.g "y ~ -1 + X1 + X2", '-1' means no intercept model.
-    :type formula: String
+        E.g :code:`"y ~ X1 + X2"`, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
+        E.g :code:`"y ~ ."`, ``.`` means including all variables except dependent variable ``y``;
+        E.g :code:`"y ~ -1 + X1 + X2"`, ``-1`` means no intercept model.
+    :type formula: string
 
     :param family: the distribution of the dependent variable. Options include:
-        "binomial""gamma""normal""poisson""inverse gaussian"
-    :type family: String
 
-    :param var_names: (k+1)×1⁢ string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
-        e.g., var_names = "admit" $| "gre" $| "gpa" $| "rank", then "admit" will be the label of the response variable, "gre", "gpa", "rank" are the labels of the independent variables corresponding to the order in the X matrix.
+        - :code:`"binomial"`
+        - :code:`"gamma"`
+        - :code:`"normal"`
+        - :code:`"poisson"`
+        - :code:`"inverse gaussian"`
+
+    :type family: string
+
+    :param var_names: (k+1)x1⁢ string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
+        e.g., :code:`var_names = "admit" $| "gre" $| "gpa" $| "rank"`, then :code:`"admit"` will be the label of the response variable, :code:`"gre"`, :code:`"gpa"`, :code:`"rank"` are the labels of the independent variables corresponding to the order in the *X* matrix.
     :type var_names: Optional argument
 
-    :param categoryIdx: 1×kd matrix, kd≤k. kd is the categorical variable index of X matrix.
-        categoryIdx specifies the categorical variable columns to be used in the analysis.
-        e.g. If categoryIdx = 0, then it means the independent variable does not contain any categorical variables;
-        if categoryIdx = { 1 4 }, then it means that column 1 and column 4 in the X matrix are categorical variables.
-        Note: The function glm uses the smallest number as the reference category in each categorical variable.
+
+    :param categoryIdx: 1xkd matrix, kd≤k. kd is the categorical variable index of *X* matrix.
+        *categoryIdx* specifies the categorical variable columns to be used in the analysis.
+        e.g. If *categoryIdx* = 0, then it means the independent variable does not contain any categorical variables;
+        if *categoryIdx* = :math:`{ 1 4 }`, then it means that column 1 and column 4 in the *X* matrix are categorical variables.
+
+        .. NOTE:: The function :func:`glm` uses the smallest number as the reference category in each categorical variable.
+
+        .. DANGER:: Fix equations here.
+
     :type categoryIdx: Optional argument
 
-    :param link: the link function. Options include:
-        "identity""inverse""inverse squared""ln""logit""probit""cloglog""canonical" The default link of each distribution is
-        the canonical link function:
+    :param link: the link function. Options include: 
+
+        - :code:`"identity"`
+        - :code:`"inverse"`
+        - :code:`"inverse squared"`
+        - :code:`"ln"`
+        - :code:`"logit"`
+        - :code:`"probit"`
+        - :code:`"cloglog"`
+        - :code:`"canonical"`
+
+        The default link of each distribution is the canonical link function:
         Normal -- identity;
         Binomial -- logit;
         Gamma -- inverse;
         Possion -- nature log.
-    :type link: String
+    :type link: string
 
-    :param ctl:   For an instance named
-        ct1, the members are:
-    :type ctl: An instance of a glmControl
-        structure
+    :param ctl: For an instance named *ct1*, the members are:
+    :type ctl: An instance of a :class:`glmControl` structure
 
-    .. csv-table::
+    .. list-table::
         :widths: auto
 
-        "ctl.varNames", "(k+1)×1  string array or character matrix, the names of the variables. The first element must be the name of the dependent variable."
-        "ctl.categoryIdx", "1×kd matrix, kd≤k. ctl.categoryIdx specifies the categorical variable columns to be used in the analysis.						e.g. If ctl.categoryIdx = 0, then it means no categorical variable; if ctl.categoryIdx = { 1 4}, then it means that column 1 and column 4 in x matrix are categorical variables. 						 Note: glm function uses the smallest number as the reference category in each categorical variable."
-        "ctl.link", "String, the link function. Options include:"identity""inverse""inverse squared""ln""logit""probit""cloglog""canonical" The default link is the canonical link for each distribution."
-        "ctl.constantFlag", "Scalar, flag of constant term. The negative number means no intercept model, e.g. "-1". This member will be ignored if a formula string is used."
-        "ctl.printFlag", "String, 					"Y" or "N", flag of print to screen. The "N" means no printing."
-        "ctl.maxIters", "Scalar, maximum iterations. The default ctl.maxIters is 25."
-        "ctl.eps", "Scalar, convergence precision. The default is 1e-8."
+        * - *ctl.varNames*
+          - :math:`(k+1) \times 1` string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
+        * - *ctl.categoryIdx*
+          - 1×kd matrix, kd≤k. *ctl.categoryIdx* specifies the categorical variable columns to be used in the analysis.	
+            e.g. If *ctl.categoryIdx* = 0, then it means no categorical variable; 
+            if *ctl.categoryIdx* = :code:`{ 1 4 }`, then it means that column 1 and column 4 in *x* matrix are categorical variables. 
+          
+            .. NOTE:: :func:`glm` function uses the smallest number as the reference category in each categorical variable.
+        * - *ctl.link*
+          - string, the link function. Options include:
 
-    :returns: out (*struct*) instance of :class:`glmOut` struct
-        structure. For an instance named out, the members are:
+              - :code:`"identity"`
+              - :code:`"inverse"`
+              - :code:`"inverse squared"`
+              - :code:`"ln"`
+              - :code:`"logit"`
+              - :code:`"probit"`
+              - :code:`"cloglog"`
+              - :code:`"canonical"`
+                
+            The default link is the canonical link for each distribution.
+        * - *ctl.constantFlag*
+          - scalar, flag of constant term. The negative number means no intercept model, e.g. :code:`"-1"`. This member will be ignored if a formula string is used.
+        * - *ctl.printFlag*
+          - string, :code:`"Y"` or :code:`"N"`, flag of print to screen. The :code:`"N"` means no printing.
+        * - *ctl.maxIters*
+          - scalar, maximum iterations. The default *ctl.maxIters* is 25.
+        * - *ctl.eps*
+          - scalar, convergence precision. The default is 1e-8.
 
-    .. csv-table::
+    .. DANGER:: Fix equations above
+
+    :returns: out (*struct*) instance of :class:`glmOut` struct structure. For an instance named *out*, the members are:
+
+    .. list-table::
         :widths: auto
 
-        "out.modelInfo", "An instance of a glmModelInfo structure. The members are:"
-        "", "out.modelInfo.distribution", "string, the distribution of dependent variable"
-        "", "out.modelInfo.link", "string, the link function used in the procedure"
-        "", "out.modelInfo.yName", "string, the label of dependent variable"
-        "", "out.modelInfo.xNames", "string array, the label of independent variables with intercept and dummy variables for each categorical variable"
-        "", "out.modelInfo.varNames", "string array, the label of variables"
-        "", "out.modelInfo.n", "scalar, the number of valid cases used in the analysis"
-        "", "out.modelInfo.df", "scalar, degree of freedom"
-        "out.modelSelect", "An instance of a glmModelSelection structure. The members are:"
-        "", "out.modelSelect.deviance", "scalar, the residual deviance from the fit model. The greater the deviance, the poorer the fit."
-        "", "out.modelSelect.pearson", "scalar, the Pearson Chi-square Statistics. Pearson statistic is an alternative to the deviance for testing the fitof certain GLMs."
-        "", "out.modelSelect.LL", "scalar, the log likelihood of the fit model"
-        "", "out.modelSelect.dispersion", "scalar, the estimate of the dispersion parameter by Pearson statistic and degree of freedom. It is fixed at 1 when the distribution is "poisson" or "binomial"."
-        "", "out.modelSelect.aic", "scalar, Akaike information criterion (AIC)"
-        "", "out.modelSelect.bic", "scalar, Bayesian information criterion (BIC)"
-        "out.coef", "An instance of a glmParameters structure. The members are:"
-        "", "out.coef.estimates", "matrix, the estimate value of parameters"
-        "", "out.coef.se", "matrix, the standard error of parameters"
-        "", "out.coef.testStat", "matrix, the statistic value of parameters"
-        "", "out.coef.testStatName", "string, the name of test statistic"
-        "", "out.coef.pvalue", "scalar, the p_value of parameters"
-        "out.yhat", "scalar, the fitted mean values for response variable"
-        "out.residuals", "matrix, residuals on the linear predictor scale, equal to the adjusted response value minus the fitted linear predictors"
-        "out.covmat", "matrix, the covariance matrix for the parameters"
-        "out.corrmat", "matrix, the correlation matrix for the parameters"
-        "out.constantFlag", "String, flag of constant term."
-        "out.iteration", "scalar, the number of iterations of IWLS used"
-        "out.maxIters", "scalar, the maximum iterations"
-        "out.eps", "scalar, convergence precision"
+        * - *out.modelInfo*
+          - An instance of a :class:`glmModelInfo` structure. The members are:
+
+              :out.modelInfo.distribution: string, the distribution of dependent variable
+              :out.modelInfo.link: string, the link function used in the procedure
+              :out.modelInfo.yName: string, the label of dependent variable
+              :out.modelInfo.xNames: string array, the label of independent variables with intercept and dummy variables for each categorical variable
+              :out.modelInfo.varNames: string array, the label of variables
+              :out.modelInfo.n: scalar, the number of valid cases used in the analysis
+              :out.modelInfo.df: scalar, degree of freedom
+
+        * - *out.modelSelect*
+          - An instance of a :class:`glmModelSelection` structure. The members are:
+
+              :out.modelSelect.deviance: scalar, the residual deviance from the fit model. The greater the deviance, the poorer the fit.
+              :out.modelSelect.pearson: scalar, the Pearson Chi-square Statistics. Pearson statistic is an alternative to the deviance for testing the fitof certain GLMs.
+              :out.modelSelect.LL: scalar, the log likelihood of the fit model
+              :out.modelSelect.dispersion: scalar, the estimate of the dispersion parameter by Pearson statistic and degree of freedom. It is fixed at 1 when the distribution is "poisson" or "binomial".
+              :out.modelSelect.aic: scalar, Akaike information criterion (AIC)
+              :out.modelSelect.bic: scalar, Bayesian information criterion (BIC)
+        * - *out.coef*
+          - An instance of a :class:`glmParameters` structure. The members are:
+
+              :out.coef.estimates: matrix, the estimate value of parameters
+              :out.coef.se: matrix, the standard error of parameters
+              :out.coef.testStat: matrix, the statistic value of parameters
+              :out.coef.testStatName: string, the name of test statistic
+              :out.coef.pvalue: scalar, the p_value of parameters
+        * - *out.yhat*
+          - scalar, the fitted mean values for response variable
+        * - *out.residuals*
+          - matrix, residuals on the linear predictor scale, equal to the adjusted response value minus the fitted linear predictors
+        * - *out.covmat*
+          - matrix, the covariance matrix for the parameters
+        * - *out.corrmat*
+          - matrix, the correlation matrix for the parameters
+        * - *out.constantFlag*
+          - string, flag of constant term.
+        * - *out.iteration*
+          - scalar, the number of iterations of IWLS used
+        * - *out.maxIters*
+          - scalar, the maximum iterations
+        * - *out.eps*
+          - scalar, convergence precision
 
 Examples
 ----------------
@@ -128,9 +178,7 @@ Ordinary linear regression with simulated data matrices.
     //Call glm function with the minimum inputs 
     call glm(y, x, "normal");
 
-This example will
-				compute a least squares regression of y on x. The results will be shown in the program input / output window. The return values
-				are discarded by using a call statement.
+This example will compute a least squares regression of *y* on *x*. The results will be shown in the program input / output window. The return values are discarded by using a :func:`call` statement.
 
 ::
 
@@ -163,7 +211,7 @@ Logistic regression using a formula string to reference data in a CSV file conta
     // Call glm function with formula string using 'factor' keyword to create dummy variables
     call glm(fname, "admit ~ factor(rank) + gre + gpa", "binomial");
 
-The code above will produce the following output. Note that 'rank = 1' is used as the base case.
+The code above will produce the following output. Note that :math:`rank = 1` is used as the base case.
 
 ::
 
@@ -186,7 +234,7 @@ The code above will produce the following output. Note that 'rank = 1' is used a
     gre                      0.0022644         0.001094           2.0699        0.0384651 
     gpa                        0.80404          0.33182           2.4231        0.0153879 
     
-    Note: Dispersion parameter for BINOMIAL distribution taken to be 1
+    // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
 
 Running a no intercept model from a STATA DTA file.
 +++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -205,7 +253,7 @@ Running a no intercept model from a STATA DTA file.
     //Call 'glm' with no intercept model	
     fit = glm(fname, "mpg ~ -1 + weight + gear_ratio",  "normal");
 
-After running the code above, the  output is :
+After running the code above, the output is :
 
 ::
 
@@ -242,7 +290,7 @@ Running a no intercept model from a SAS sas7bdat file.
     //Call 'glm' with no intercept model	
     fit = glm(fname, "homicide ~ unemployment + hourly_earn",  "normal");
 
-After running the code above, the  output is :
+After running the code above, the output is :
 
 ::
 
@@ -263,10 +311,10 @@ After running the code above, the  output is :
     unemployment           -0.0049983          0.91882       -0.0054399         0.995767 
     hourly_earn                15.487           2.2427           6.9057         < 0.0001
 
-Ordinary linear regression with categorical variables in a matrix. Sometimes it is necessary or preferable to reference
-model variables by index rather than name. This example illustrates the use of numeric indexing of model variables and how to specify
-categorical variables in a matrix.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ordinary linear regression with categorical variables in a matrix. 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Sometimes it is necessary or preferable to reference model variables by index rather than name. This example illustrates the use of numeric indexing of model variables and how to specify categorical variables in a matrix.
 
 ::
 
@@ -295,8 +343,8 @@ categorical variables in a matrix.
     //Call glm function with three necessary inputs and two optional inputs								
     call glm(y, x, "normal", label, categoryIdx);
 
-vnames is a string array containing all of the variable names from "credit.dat" returned from the getHeaders function. label contains only the variable names used in the regression. The first element must be the label of dependent variable, followed by the labels for the independent variables corresponding to the order in the x matrix.
-"Gender" and "Married" are categorical variables. The glm choose the smallest number(1) as the base category in each categorical variable. The following shows the output:
+*vnames* is a string array containing all of the variable names from ``credit.dat`` returned from the :func:`getHeaders` function. *label* contains only the variable names used in the regression. The first element must be the label of the dependent variable, followed by the labels for the independent variables corresponding to the order in the *x* matrix.
+:code:`"Gender"` and :code:`"Married"` are categorical variables. The glm chooses the smallest number(1) as the base category in each categorical variable. The following shows the output:
 
 ::
 
@@ -317,8 +365,12 @@ vnames is a string array containing all of the variable names from "credit.dat" 
     Married        2          -21.279           41.963         -0.50708         0.612383 
     Income                     6.0626          0.58077           10.439         < 0.0001
 
-Use a glmControl structure to control the link function and a glmOut structure to store the reuslts for a Probit regression with categorical variables.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    
+Using a control structure
++++++++++++++++++++++++++
+
+Use a :class:`glmControl` structure to control the link function and a :class:`glmOut` structure to store the reuslts for a Probit regression with categorical variables.
 
 ::
 
@@ -337,7 +389,7 @@ Use a glmControl structure to control the link function and a glmOut structure t
     struct glmOut out1;
     out1 = glm(fname, "admit ~ factor(rank) + gre + gpa", "binomial", binary_ctl);
 
-After running above code, the model estimates and diagnostic information will be stored in the out1 structure and the following output report will be displayed.
+After running above code, the model estimates and diagnostic information will be stored in the *out1* structure and the following output report will be displayed.
 
 ::
 
@@ -355,12 +407,12 @@ After running above code, the model estimates and diagnostic information will be
     ----------------     ------------     ------------     ------------     ------------ 
     CONSTANT                  -2.3868          0.67395          -3.5416      0.000397733 
     rank           2          -0.4154          0.19498          -2.1305        0.0331297 
-    	       3         -0.81214          0.20836          -3.8978         < 0.0001 
-    	       4          -0.9359          0.24527          -3.8158      0.000135764 
+                   3         -0.81214          0.20836          -3.8978         < 0.0001 
+                   4          -0.9359          0.24527          -3.8158      0.000135764 
     gre                     0.0013756       0.00065003           2.1162        0.0343292 
     gpa                       0.47773           0.1972           2.4226        0.0154097 
     
-    Note: Dispersion parameter for BINOMIAL distribution taken to be 1
+    // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
 
 A Poisson regression model with categorical variables, using matrix inputs.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -374,15 +426,15 @@ A Poisson regression model with categorical variables, using matrix inputs.
     fname = getGAUSShome() $+ "examples/poisson_sim.fmt";
     data = loadd(fname);	
     				
-    // Index dependent variable,'num_award' 				
+    // Index dependent variable, 'num_award' 				
     y = data[.,2];
     				
-    // Index independent variable,'prog' and 'math' 	
-    x = data[., 3 4];				
+    // Index independent variable, 'prog' and 'math' 	
+    x = data[.,3 4];				
     						
     // Specify the variable names	
     // since the matrices do not contain variable names	
-    string var_names = {"num_award","prog", "math"};
+    string var_names = {"num_award", "prog", "math"};
     	
     // Indicate that the first variable in 'x' is a categorical variable	
     category_idx = 1;
@@ -393,7 +445,7 @@ A Poisson regression model with categorical variables, using matrix inputs.
     // Declare the glmOut structure 				
     // All the results are saved in the out_poi 
     struct glmOut out_poi;
-    out_poi = glm(y, x, "poisson", var_names, category_idx, link) ;
+    out_poi = glm(y, x, "poisson", var_names, category_idx, link);
 
 After running above code, the output is:
 
@@ -413,13 +465,13 @@ After running above code, the output is:
     ----------------      ------------     ------------     ------------     ------------ 
     CONSTANT                   -5.2471          0.65845          -7.9689         < 0.0001 
     prog            2           1.0839          0.35825           3.0254       0.00248303 
-    		3          0.36981          0.44107          0.83844         0.401786 
+                    3          0.36981          0.44107          0.83844         0.401786 
     math                      0.070152         0.010599           6.6186         < 0.0001 
     
-    Note: Dispersion parameter for POISSON distribution taken to be 1
+    // Note: Dispersion parameter for POISSON distribution taken to be 1
 
-Using glmOut structure to save result for a Gamma regression with categorical variables.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Using a glmOut structure to save result for a Gamma regression with categorical variables.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -442,14 +494,14 @@ Using glmOut structure to save result for a Gamma regression with categorical va
     to = {1, -1, 0};
     				
     //Reclassify the character to number
-    x = reclassify(x,from,to);
+    x = reclassify(x, from, to);
     				
     //Declare 'ctl_gamma' as a glmControl struct
     struct glmControl ctl_gamma;
     				
     //Read variable names and transpose				
     //to a column vector
-    ctl_gamma.varNames = xlsReadSA(file,"A1:D1")';
+    ctl_gamma.varNames = xlsReadSA(file, "A1:D1")';
     								
     //Specify categorical columns	
     ctl_gamma.categoryIdx = { 1 2 3 };				
@@ -461,10 +513,10 @@ Using glmOut structure to save result for a Gamma regression with categorical va
     struct glmOut out_gamma;
     						
     //Call 'glm' and fill 'out_gamma' with results	
-    out_gamma = glm(y,x,"gamma",ctl_gamma );
+    out_gamma = glm(y, x, "gamma", ctl_gamma);
 
-In this example, the data set "yarn.xlsx" is used to perform a Gamma regression.
-After running the code above, the  output is :
+In this example, the data set "``yarn.xlsx``" is used to perform a Gamma regression.
+After running the code above, the output is :
 
 ::
 
@@ -482,14 +534,14 @@ After running the code above, the  output is :
     ----------------      ------------     ------------     ------------     ------------ 
     CONSTANT                    6.4841          0.09469           68.477         < 0.0001 
     amplitude       0           0.9136         0.087666           10.421         < 0.0001 
-    		1           1.6791         0.087666           19.153         < 0.0001 
+                    1           1.6791         0.087666           19.153         < 0.0001 
     load            0         -0.64738         0.087666          -7.3846         < 0.0001 
-    		1          -1.2654         0.087666          -14.435         < 0.0001 
+                    1          -1.2654         0.087666          -14.435         < 0.0001 
     cycles          0         -0.31872         0.087666          -3.6356       0.00164628 
-    		1          -0.7701         0.087666          -8.7844         < 0.0001
+                    1          -0.7701         0.087666          -8.7844         < 0.0001
 
-Using a "*.dat" file directly in glm for a Inverse Gaussian distribution.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Using a "\*.dat" file directly in glm for a Inverse Gaussian distribution.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -505,7 +557,7 @@ Using a "*.dat" file directly in glm for a Inverse Gaussian distribution.
     //Call 'glm' and fill 'fit_inv' with results	
     fit_inv = glm(fname, "plasma ~ lot1",  "inverse gaussian");
 
-After running the code above, the  output is :
+After running the code above, the output is:
 
 ::
 
@@ -546,7 +598,7 @@ Running a linear regression model using data transformations with HDF5 file.
     //Call 'glm' 
     call glm(dataset, formula,  "normal");
 
-After running the code above, the  output is :
+After running the code above, the output is :
 
 ::
 
@@ -570,27 +622,19 @@ After running the code above, the  output is :
 Remarks
 -------
 
-#. The glmControl structure stores the user defined options.
-#. The glmOut structure stores all the results after running glm
-   function.
-#. For the categorical variables, glm chooses the smallest value as the
+#. The :class:`glmControl` structure stores the user defined options.
+#. The :class:`glmOut` structure stores all the results after running :func:`glm` function.
+#. For the categorical variables, :func:`glm` chooses the smallest value as the
    base category. You can change the base category by using the
    reclassify or recode functions to change the base category with the
    smallest value in the variable.
-#. The dispersion parameter is calculated based on Pearson Chi-square
-   Statistics.
-#. The glm function cannot handle missing values. You can use packr
-   function to delete the rows of a matrix that contain any missing
-   values.
+#. The *dispersion* parameter is calculated based on Pearson Chi-square Statistics.
+#. The :func:`glm` function cannot handle missing values. You can use :func:`packr`
+   function to delete the rows of a matrix that contain any missing values.
 #. The weights for each observation are equal.
-#. The supported dataset types are
-   ` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,
-   `Excel (XLS, XLSX) <FIO.3-Spreadsheets.html#data-source-excel>`__,
-   `HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__, `GAUSS Matrix
-   (FMT) <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__,
-   `GAUSS Dataset
-   (DAT) <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__, `Stata
-   (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
+#. The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
+
+For HDF5 files, the dataset must include file schema and both file name and dataset name must be provided, e.g. :code:`glm("h5://C:/gauss19/examples/testdata.h5/mydata", formula, family)`
 
 Source
 ------
@@ -598,7 +642,5 @@ Source
 glm.src
 
 .. seealso:: Functions :func:`ols`, :func:`olsmt`, :func:`reclassify`, :func:`packr`
-String <LF.11-FormulaString.html>`__
 
-glm generalized linear model logistic regression binomial gamma normal
-poisson inverse gaussian no intercept formula
+

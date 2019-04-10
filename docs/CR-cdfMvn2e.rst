@@ -4,7 +4,7 @@ cdfMvn2e
 
 Purpose
 ----------------
-Computes the multivariate Normal cumulative distribution function with error management over the range ``[a,b]``.
+Computes the multivariate Normal cumulative distribution function with error management over the range :math:`[a,b]`.
 
 Format
 ----------------
@@ -41,8 +41,8 @@ Format
     .. csv-table::
         :widths: auto
 
-        "0", "normal completion with err < ctl.absErrorTolerance."
-        "1", "err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded; increase ctl.maxEvaluations to decrease error."
+        "0", "normal completion with :math:`err < ctl.absErrorTolerance`."
+        "1", ":math:`err > ctl.absErrorTolerance` and *ctl.maxEvaluations* exceeded; increase *ctl.maxEvaluations* to decrease error."
         "2", ":math:`K > 100` or :math:`K < 1`."
         "3", "*R* not positive semi-definite."
         "missing", "*R* not properly defined."

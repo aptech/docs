@@ -11,14 +11,14 @@ Format
 ----------------
 .. function:: getmatrix(a, loc)
 
-    :param a: 
+    :param a: data
     :type a: N-dimensional array
 
-    :param loc: where M equals N, N-1 or N-2.
-    :type loc: Mx1 vector of indices into the array to locate the matrix of interest
+    :param loc: indices into the array to locate the matrix of interest where *M* equals *N*, N-1 or N-2.
+    :type loc: Mx1 vector
 
-    :returns: y (*KxL or 1xL matrix or scalar*), where L is the
-        size of the fastest moving dimension of the array and K is the size
+    :returns: y (*KxL or 1xL matrix or scalar*), where *L* is the
+        size of the fastest moving dimension of the array and *K* is the size
         of the second fastest moving dimension.
 
 Remarks
@@ -44,7 +44,7 @@ Examples
     //Extract the second 3x2 array
     mat = getmatrix(a, 2);
 
-After code above a is equal to:
+After code above *a* is equal to:
 
 ::
 
@@ -66,12 +66,13 @@ After code above a is equal to:
            15.000000        16.000000
            17.000000        18.000000
 
-and mat is equal to:
+and *mat* is equal to:
 
 ::
 
-    7.0000000        8.0000000
+           7.0000000        8.0000000
            9.0000000        10.000000
            11.000000        12.000000
 
 .. seealso:: Functions :func:`getarray`, :func:`getmatrix4D`
+

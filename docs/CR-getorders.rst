@@ -12,13 +12,16 @@ Format
 ----------------
 .. function:: getorders(a)
 
-    :param a: , matrix, sparse matrix, string or string array.
-    :type a: N-dimensional array
+    :param a: data 
+    :type a: N-dimensional array or matrix or sparse matrix or string or string array
 
     :returns: orders (*Nx1 vector of orders*), the sizes of the dimensions of the array.
 
 Examples
 ----------------
+
+Example 1
++++++++++
 
 ::
 
@@ -36,14 +39,18 @@ After the code above:
              100
                3
 
-//Create 121x4 random matrix
-x = rndn(121, 4);
+Example 2
++++++++++
 
-//Get the number of rows and columns of the matrix
-dims = getorders(x);
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+::
 
-After the above code, dims should equal:
+    //Create 121x4 random matrix
+    x = rndn(121, 4);
+
+    //Get the number of rows and columns of the matrix
+    dims = getorders(x);
+
+After the above code, *dims* should equal:
 
 ::
 
@@ -51,3 +58,4 @@ After the above code, dims should equal:
       4
 
 .. seealso:: Functions :func:`getdims`, :func:`rows`, :func:`cols`
+

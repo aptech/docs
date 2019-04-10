@@ -9,60 +9,87 @@ Estimate parameters using generalized method of moments.
 
 Format
 ----------------
-.. function:: gmmFit(&fct, y, ..., gCtl )
+.. function:: gmmFit(&fct, y[, ...[, gCtl]])
 
-    :param fct:   The function must have the parameter vector to be estimated as the first input and a data matrix as the second input.The data matrix y and all optional arguments are passed, untouched, directly to the moment function. The function fct  should return the desired moments for the GMM objective function and should take the form:
+    :param fct: Pointer to user specified moment equation function *fct*. The function must have the parameter vector to be estimated as the first input and a data matrix as the second input. The data matrix *y* and all optional arguments are passed, untouched, directly to the moment function. The function *fct* should return the desired moments for the GMM objective function and should take the form:
+
+    ::
+
         m = fct(b, y, ...);
-    :type fct: Pointer to user specified moment equation function `fct'
+
+    :type fct: function pointer
 
     :param y: independent data vector.
-    :type y: N x 1 matrix
+    :type y: Nx1 matrix
 
-    :param ...: Optional inputs.
-        These arguments are passed untouched to the user-provided moment function by gmmFit.
-    :type ...: TODO
+    :param \.\.\.: Optional inputs. These arguments are passed untouched to the user-provided moment function by :func:`gmmFit`.
+    :type \.\.\.: Any
 
-    :param gCtl:  The following members of gCtl are referenced within the gmmFit routine:
-    :type gCtl: an instance of an gmmControl structure
+    :param gCtl: The following members of *gCtl* are referenced within the :func:`gmmFit` routine:
+    :type gCtl: an instance of an :class:`gmmControl` structure
 
-    .. csv-table::
+    .. list-table::
         :widths: auto
 
-        "gCtl.bStart", "column vector of parameter starting values. For all methods except continuous updating GMM default = 0.1. For continuous updating GMM default equals estimation from onestep GMM. Must be specified if data matrix syntax is used and gctl.numParms is not specified. For estimation stability it is highly recommended to speficy starting parameters."
-        "gCtl.method", "string, GMM method to be used. Default = "twostep"."
-        "", ""onestep"", "One-step GMM"
-        "", ""twostep"", "Two-step GMM"
-        "", ""iterative"", "Iterative GMM"
-        "", ""CU"", "Continuous updating GMM"
-        "gCtl.vceType", "string, variance-covariance matrix type. Default = "robust"."
-        "", ""unadj"", "Unadjusted, non-robust SE. This option is only available if the formula string syntax is used. It assumes a moment function of the form m = f(Z,u) or  m = f(X,u). The "unadj" vce is given by :math:`\sigma_{u}^2 (x'(z(z'z)^{-1}z)x)^{-1}`."
-        "", ""robust"", "Heteroscedastic robust SE."
-        "", ""hac"", "Heteroscedastic-autocorrelation robust SE."
-        "gCtl.wType", "string, type of weight matrix used. Ignored for one-step case. Default = "robust"."
-        "", ""unadj"", "Unadjusted, non-robust SE. This option is only available if the formula string syntax is used."
-        "", ""robust"", "Heteroscedastic robust SE."
-        "", ""hac"", "Heteroscedastic-autocorrelation robust SE."
-        "gCtl.hacKernel", "string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using "hac" weight matrix and/or variance-covariance matrix. Bandwidth is determined using the Newey-West optimal lag length selection method. Default = "bartlett"."
-        "", ""bartlett"", "Bartlett kernel."
-        "", ""parzen"", "Parzen kernel."
-        "", ""quad"", "Quadraticspectral kernel."
-        "gCtl.wInitMat", "data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of gCtl.wInit."
-        "gCtl.wInit", "string or data matrix, type of initial weight matrix used.If data matrix, the specified matrix is used as initial weighting matrix. Default = "identity"."
-        "", ""identity"", "Identity matrix."
-        "", ""unadj"", "Weight matrix :math:`\frac{1}{n}*inv(Z'Z)`. Assumes moments are i.i.d. This option is only available if the formula string syntax is used."
-        "gCtl.gIter", "instance of gmmIterative structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:"
-        "", "gCtl.gIter.maxIter", "scalar, maximum number of iterations."
-        "", "gCtl.gIter.parmTol", "scalar, tolerance level for convergence based on parameter estimates. Default = 1e-5."
-        "", "gCtl.gIter.wTol", "scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-5."
-        "gCtl.noconstant", "scalar, specified to indicate if constant is included in model.Only valid if data vector input method is used. Set to 1 to exclude constant from model. Constant is always first parameter in parameter vector. Default = 0 [constant included].For dataset and string formula method to remove constant from model specify "-1" as first dependent variable:E.g. : "y ~ -1 + X1 + X2""
-        "gCtl.varNames", "string array, dependent variable names. Only used for						data vector input case. Default = 'X1', 'X2', ..."
-        "gCtl.instNames", "string array, instrumental variable names. Only used for				data vector input case. Default = 'Z1', 'Z2', ..."
-        "gCtl.numParms", "scalar, number of parameters estimated in model. Must be specified if data matrix syntax is used and gCtl.bStart is not specified."
-        "gctl.A", "MxK matrix, linear equality  constraint coefficients:  gctl.A * p =  gctl.B where p is a vector of the parameters."
-        "gctl.B", "Mx1 vector, linear equality  constraint constants: gctl.A *  p = gctl.B where p is a vector of the parameters."
-        "gctl.C", "MxK matrix, linear inequality constraint coefficients:  gctl.C *  p >=gctl.D where p is a vector of the parameters."
-        "gctl.D", "Mx1 vector, linear  inequality constraint constants:  gctl.C * p>=gctl.D where  p is a vector of the parameters."
-        "gctl.bounds", "1x2 or Kx2  matrix, bounds on parameters. If 1x2 all  parameters have same bounds. Default = -1e256 1e256 ."
+        * - gCtl.bStart
+          - column vector of parameter starting values. For all methods except continuous updating GMM default = 0.1. For continuous updating GMM default equals estimation from onestep GMM. Must be specified if data matrix syntax is used and *gctl.numParms* is not specified. For estimation stability it is highly recommended to speficy starting parameters.
+        * - gCtl.method
+          - string, GMM method to be used. Default = :code:`"twostep"`.
+
+              :"onestep": One-step GMM
+              :"twostep": Two-step GMM
+              :"iterative": Iterative GMM
+              :"CU": Continuous updating GMM
+        * - gCtl.vceType
+          - string, variance-covariance matrix type. Default = :code:`"robust"`.
+
+              :"unadj": Unadjusted, non-robust SE. This option is only available if the formula string syntax is used. It assumes a moment function of the form :math:`m = f(Z, u)` or :math:`m = f(X, u)`. The :code:`"unadj"` vce is given by :math:`\sigma_{u}^2 (x'(z(z'z)^{-1}z)x)^{-1}`.
+              :"robust": Heteroscedastic robust SE.
+              :"hac": Heteroscedastic-autocorrelation robust SE.
+        * - gCtl.wType
+          - string, type of weight matrix used. Ignored for one-step case. Default = :code:`"robust"`.
+
+              :"unadj": Unadjusted, non-robust SE. This option is only available if the formula string syntax is used.
+              :"robust": Heteroscedastic robust SE.
+              :"hac": Heteroscedastic-autocorrelation robust SE.
+        * - gCtl.hacKernel
+          - string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using :code:`"hac"` weight matrix and/or variance-covariance matrix. Bandwidth is determined using the Newey-West optimal lag length selection method. Default = :code:`"bartlett"`.
+
+              :"bartlett": Bartlett kernel.
+              :"parzen": Parzen kernel.
+              :"quad": Quadraticspectral kernel.
+        * - gCtl.wInitMat
+          - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*.
+        * - gCtl.wInit
+          - string or data matrix, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Default = :code:`"identity"`.
+
+              :"identity": Identity matrix.
+              :"unadj": Weight matrix :math:`\frac{1}{n}*inv(Z'Z)`. Assumes moments are i.i.d. This option is only available if the formula string syntax is used.
+        * - gCtl.gIter
+          - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
+
+              :gCtl.gIter.maxIter: scalar, maximum number of iterations.
+              :gCtl.gIter.parmTol: scalar, tolerance level for convergence based on parameter estimates. Default = 1e-5.
+              :gCtl.gIter.wTol: scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-5.
+
+        * - gCtl.noconstant
+          - scalar, specified to indicate if constant is included in model. Only valid if data vector input method is used. Set to 1 to exclude constant from model. Constant is always first parameter in parameter vector. Default = 0 [constant included].For dataset and string formula method to remove constant from model specify :code:`"-1"` as first dependent variable: e.g. : :code:`"y ~ -1 + X1 + X2"`
+        * - gCtl.varNames
+          - string array, dependent variable names. Only used for data vector input case. Default = :code:`"X1", "X2", ...`
+        * - gCtl.instNames
+          - string array, instrumental variable names. Only used for data vector input case. Default = :code:`"Z1", "Z2", ...`
+        * - gCtl.numParms
+          - scalar, number of parameters estimated in model. Must be specified if data matrix syntax is used and *gCtl.bStart* is not specified.
+        * - gctl.A
+          - MxK matrix, linear equality constraint coefficients: :code:`gctl.A * p = gctl.B` where *p* is a vector of the parameters.
+        * - gctl.B
+          - Mx1 vector, linear equality constraint constants: :code:`gctl.A * p = gctl.B` where *p* is a vector of the parameters.
+        * - gctl.C
+          - MxK matrix, linear inequality constraint coefficients: :code:`gctl.C * p >= gctl.D` where *p* is a vector of the parameters.
+        * - gctl.D
+          - Mx1 vector, linear inequality constraint constants: :code:`gctl.C * p >= gctl.D` where *p* is a vector of the parameters.
+        * - gctl.bounds
+          - 1x2 or Kx2 matrix, bounds on parameters. If 1x2 all parameters have same bounds. Default = :code:`{ -1e256 1e256 }`.
 
     :returns: gOut (*struct*) instance of :class:`arimaOut` struct containing the following members:
 
@@ -85,59 +112,60 @@ Format
 Remarks
 -------
 
--  The user defined moment equation function should be set up to take at
-   least 2 inputs. The first input should always be the parameter vector
-   and the second input should always be the dependent data vector.
-   Additional optional arguments may be included. These arguments must
-   be passed into gmmFit in the order they are passed to the moment
-   equation.
+The user defined moment equation function should be set up to take at
+least 2 inputs. The first input should always be the parameter vector
+and the second input should always be the dependent data vector.
+Additional optional arguments may be included. These arguments must
+be passed into :func:`gmmFit` in the order they are passed to the moment
+equation.
 
-   Example One - Including four inputs:
+Including four inputs
++++++++++++++++++++++
 
-   ::
+::
 
-      m = meqn(b, y, x, z);
-                                  
-      proc meqn(b, yt, xt, zt);
-                                  
-          local ut,dt;
-                              
-          // OLS residuals
-          ut = yt - b[1] - b[2]*xt[.,1] - b[3]*xt[.,2];
-                                  
-          // Moment conditions
-          dt = ut.*zt;
-                                  
-          retp( dt );
-                                  
-      endp;
+    m = meqn(b, y, x, z);
+                                
+    proc meqn(b, yt, xt, zt);
+                                
+        local ut,dt;
+                            
+        // OLS residuals
+        ut = yt - b[1] - b[2]*xt[.,1] - b[3]*xt[.,2];
+                                
+        // Moment conditions
+        dt = ut.*zt;
+                                
+        retp( dt );
+                                
+    endp;
 
-   Example Two - Including two inputs:
+Including two inputs
+++++++++++++++++++++
 
-   ::
+::
 
-      m = meqn(b, y);
-                                  
-      proc meqn(b, yt);
-                                  
-          local g1, g2;
-                              
-          g1= yt.^2 - b/(b-2);
-          g2 = yt.^4 - (3*b^2)/((b-2)*(b-4));
-                                  
-          retp( g1~g2 );
-                                  
-      endp;
+    m = meqn(b, y);
+                                
+    proc meqn(b, yt);
+                                
+        local g1, g2;
+                            
+        g1= yt.^2 - b/(b-2);
+        g2 = yt.^4 - (3*b^2)/((b-2)*(b-4));
+                                
+        retp( g1~g2 );
+                                
+    endp;
 
--  The gmmFit function does not support dataset and formula string
-   syntax. Formula string syntax may be used for standard IV or ols
-   relationships in the gmmFitIV procedure.
-
+The :func:`gmmFit` function does not support dataset and formula string
+syntax. Formula string syntax may be used for standard IV or ols
+relationships in the :func:`gmmFitIV` procedure.
 
 Examples
 ----------------
 
-- Use data matrices
+Use data matrices
 +++++++++++++++++++
 
 ::
@@ -186,3 +214,4 @@ Examples
     endp;
 
 .. seealso:: Functions :func:`gmmFitControlCreate`, :func:`gmmFitIV`
+

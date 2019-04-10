@@ -22,7 +22,7 @@ Format
 Remarks
 -------
 
-If gdaRead fails, it will return a scalar error code. Call scalerr to
+If :func:`gdaRead` fails, it will return a scalar error code. Call *scalerr* to
 get the value of the error code. The error code may be any of the
 following:
 
@@ -53,3 +53,4 @@ Examples
     y = gdaRead("myfile.gda","x1");
 
 .. seealso:: Functions :func:`gdaReadByIndex`, :func:`gdaGetName`
+

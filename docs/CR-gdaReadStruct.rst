@@ -20,7 +20,7 @@ Format
     :param structure_type: structure type.
     :type structure_type: string
 
-    :returns: instance (*struct*) instance of :class:`the` struct.
+    :returns: instance (*struct*) instance of the struct.
 
     :returns: retcode (*scalar*), 0 if successful, otherwise, any of the following error codes:
 
@@ -38,7 +38,7 @@ Format
 Remarks
 -------
 
-instance can be an array of structures.
+*instance* can be an array of structures.
 
 
 Examples
@@ -60,3 +60,4 @@ Examples
     { msr, ret } = gdaReadStruct("myfile.gda","ms","mystruct");
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaReadSparse`, :func:`gdaWrite`
+

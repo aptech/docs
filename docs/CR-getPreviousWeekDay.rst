@@ -16,11 +16,10 @@ Format
 
     :returns: n (*scalar*), previous week day in DT scalar format.
 
-
-
 Source
 ------
 
 finutils.src
 
 .. seealso:: Functions :func:`getNextWeekDay`
+

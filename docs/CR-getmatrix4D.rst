@@ -26,12 +26,12 @@ Format
 Remarks
 -------
 
-getmatrix4D returns the contiguous matrix that begins at the [i1,i2,1,1]
-position in array a and ends at the [i1, i2,K,L] position.
+:func:`getmatrix4D` returns the contiguous matrix that begins at the :math:`[i1,i2,1,1]`
+position in array *a* and ends at the :math:`[i1, i2,K,L]` position.
 
-A call to getmatrix4D is faster than using the more general getmatrix
-function to get a matrix from a 4-dimensional array, especially when i1
-and i2 are the counters from nested for loops.
+A call to :func:`getmatrix4D` is faster than using the more general :func:`getmatrix`
+function to get a matrix from a 4-dimensional array, especially when *i1*
+and *i2* are the counters from nested :func:`for` loops.
 
 
 Examples
@@ -53,9 +53,10 @@ After the code above:
 
 ::
 
-    101   102   103   104   105
+        101   102   103   104   105
     y = 106   107   108   109   110
         111   112   113   114   115
         116   117   118   119   120
 
 .. seealso:: Functions :func:`getmatrix`, :func:`getscalar4D`, :func:`getarray`
+

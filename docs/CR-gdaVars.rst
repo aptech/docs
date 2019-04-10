@@ -29,3 +29,4 @@ Source
 gdafns.src
 
 .. seealso:: Functions :func:`gdaReportVarInfo`, :func:`gdaGetNames`
+

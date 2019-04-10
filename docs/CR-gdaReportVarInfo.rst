@@ -21,11 +21,11 @@ Remarks
 -------
 
 If you just want to print the information to the window, call
-gdaReportVarInfo without assigning the output to a symbol name:
+:func:`gdaReportVarInfo` without assigning the output to a symbol name:
 
 ::
 
-                   gdaReportVarInfo(filename);
+    gdaReportVarInfo(filename);
 
 
 Examples
@@ -58,3 +58,4 @@ Source
 gdafns.src
 
 .. seealso:: Functions :func:`gdaGetVarInfo`, :func:`gdaGetNames`, :func:`gdaGetTypes`, :func:`gdaGetOrders`
+

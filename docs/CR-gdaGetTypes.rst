@@ -35,7 +35,7 @@ vartypes may contain any of the following:
 | 1 |                                                     |
 +---+-----------------------------------------------------+
 
-If gdaGetTypes fails, it will return a scalar error code. Call scalerr
+If :func:`gdaGetTypes` fails, it will return a scalar error code. Call :func:`scalerr`
 to get the value of the error code. Valid error codes for this command
 include:
 
@@ -64,3 +64,4 @@ Examples
     vartypes = gdaGetTypes("myfile.gda");
 
 .. seealso:: Functions :func:`gdaGetNames`, :func:`gdaRead`
+

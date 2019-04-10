@@ -14,8 +14,8 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :param x: array, string or string array, data to write to the GDA.
-    :type x: matrix
+    :param x: data to write to the GDA.
+    :type x: matrix or array or string or string array
 
     :param varname: variable name.
     :type varname: string
@@ -37,8 +37,8 @@ Format
 Remarks
 -------
 
-gdaWrite adds the data in x to the end of the variable data in filename,
-and gives the variable the name contained in varname.
+:func:`gdaWrite` adds the data in *x* to the end of the variable data in *filename*,
+and gives the variable the name contained in *varname*.
 
 
 Examples
@@ -51,3 +51,4 @@ Examples
     ret = gdaWrite("myfile.gda",x,"x1");
 
 .. seealso:: Functions :func:`gdaWrite32`, :func:`gdaCreate`
+

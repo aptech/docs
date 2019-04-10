@@ -6,38 +6,41 @@ Purpose
 ----------------
 
 Computes the gradient vector or matrix (Jacobian) of a vector-valued function that has been defined in a
-procedure. Single-sided (forward difference) gradients are computed. gradcplx allows for
+procedure. Single-sided (forward difference) gradients are computed. :func:`gradcplx` allows for
 complex arguments. 
 
 Format
 ----------------
 .. function:: gradp(&f, x0) 
-			  gradcplx(&f, x0)
+              gradcplx(&f, x0)
 
-    :param &f: a pointer to a vector-valued function (f: Kx1 → Nx1)
-        defined as a procedure. It is acceptable for f(x)
-        to have been defined in terms of global
-        arguments in addition to x, and thus f can
+    :param &f: a pointer to a vector-valued function (f: :math:`Kx1 → Nx1`)
+        defined as a procedure. It is acceptable for :math:`f(x)`
+        to have been defined in terms of global arguments in addition to *x*, and thus *f* can
         return an Nx1 vector:
+
+    ::
+
         proc f(x);
-        retp( exp(x.*b));
+            retp( exp(x.*b));
         endp;
-    :type &f: TODO
 
-    :param x0: 
-    :type x0: Kx1 vector of points at which to compute gradient
+    :type &f: Function pointer
 
-    :returns: g (*NxK matrix*), containing the gradients of f with
-        respect to the variable x at x0.
+    :param x0: points at which to compute gradient
+    :type x0: Kx1 vector
+
+    :returns: g (*NxK matrix*), containing the gradients of *f* with
+        respect to the variable *x* at *x0*.
 
 Remarks
 -------
 
-gradp will return a row for every row that is returned by f. For
-instance, iff returns a scalar result, then gradp will return a 1xK row
-vector. This allows the same function to be used regardless of N, where
-N is the number of rows in the result returned byf. Thus, for instance,
-gradp can be used to compute the Jacobian matrix of a set of equations.
+:func:`gradp` will return a row for every row that is returned by *f*. For
+instance, :func:`iff` returns a scalar result, then :func:`gradp` will return a 1xK row
+vector. This allows the same function to be used regardless of *N*, where
+*N* is the number of rows in the result returned by *f*. Thus, for instance,
+:func:`gradp` can be used to compute the Jacobian matrix of a set of equations.
 
 
 Examples
@@ -52,7 +55,7 @@ Examples
     x0 = 2.5|3.0|3.5;
     y = gradp(&myfunc,x0);
 
-After the code above, y is equal to:
+After the code above, *y* is equal to:
 
 ::
 
@@ -70,4 +73,3 @@ gradp.src
 
 .. seealso:: Functions :func:`hessp`, :func:`hesscplx`
 
-gradient first derivative complex argument

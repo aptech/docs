@@ -23,9 +23,9 @@ Remarks
 -------
 
 If the file is loaded in ASCII mode, it will be tested to see if it
-contains any end of file characters. These are ^Z (ASCII 26). The file
-will be truncated before the first ^Z, and there will be no ^Z's in the
-string. This is the correct way to load most text files because the ^Z's
+contains any end of file characters. These are ``^Z`` (ASCII 26). The file
+will be truncated before the first ``^Z``, and there will be no ``^Z``'s in the
+string. This is the correct way to load most text files because the ``^Z``'s
 can cause problems when trying to print the string to a printer.
 
 If the file is loaded in binary mode, it will be loaded just like it is
@@ -34,6 +34,7 @@ with no changes.
 
 Examples
 ----------------
+
 Suppose you have a file which writes the results of its calculations to a file in a report format. For this example, we will use the code snippet below:
 
 ::
@@ -52,8 +53,7 @@ Suppose you have a file which writes the results of its calculations to a file i
     call ols("", y2, x2);
     output off;
 
-Running the code above will create a file named "regression_results.txt" and a file named "ols_results.txt" in your current working directory. You can retrieve the output from either of these files with the 
-getf command.
+Running the code above will create a file named "``regression_results.txt``" and a file named "``ols_results.txt``" in your current working directory. You can retrieve the output from either of these files with the :func:`getf` command.
 
 ::
 
@@ -79,3 +79,4 @@ You can take this further and create a procedure that will load a list of output
     endp;
 
 .. seealso:: Functions :func:`load`, :func:`save`, :func:`let`, :func:`con`
+

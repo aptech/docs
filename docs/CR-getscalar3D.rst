@@ -28,10 +28,10 @@ Format
 Remarks
 -------
 
-getscalar3D returns the scalar that is located in the [i1, i2, i3]
-position of array a.
+:func:`getscalar3D` returns the scalar that is located in the :math:`[i1, i2, i3]`
+position of array *a*.
 
-A call to getscalar3D is faster than using the more general getmatrix
+A call to :func:`getscalar3D` is faster than using the more general :func:`getmatrix`
 function to get a scalar from a 3-dimensional array.
 
 
@@ -48,11 +48,12 @@ Examples
     
     y = getscalar3D(a,1,3,2);
 
-A 2x3x4 dimensional array can be thought of as two 3x4 dimensional matrices. The call to getScalar3D above, returns the
-[3,2] element of the first of these matrices. The value of which is:
+A 2x3x4 dimensional array can be thought of as two 3x4 dimensional matrices. The call to :func:`getScalar3D` above, returns the
+:math:`[3,2]` element of the first of these matrices. The value of which is:
 
 ::
 
     y = 10
 
 .. seealso:: Functions :func:`getmatrix`, :func:`getscalar4D`, :func:`getarray`
+

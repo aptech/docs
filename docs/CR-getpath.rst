@@ -34,7 +34,7 @@ Examples
 
     C:\gauss\temp.e
 
-assuming that C:\gauss is the current directory.
+assuming that ``C:\gauss`` is the current directory.
 
 Source
 ------

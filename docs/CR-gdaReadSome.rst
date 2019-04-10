@@ -28,31 +28,31 @@ Format
 Remarks
 -------
 
-This command reads part of the variable varname in filename, beginning
-at the position indicated by index. The orders argument determines the
-size and shape of the object outputted by gdaReadSome. The number of
+This command reads part of the variable varname in *filename*, beginning
+at the position indicated by *index*. The *orders* argument determines the
+size and shape of the object outputted by :func:`gdaReadSome`. The number of
 elements read equals the product of all of the elements in orders.
 
-If index is a scalar, it will be interpreted as the indexth element of
-the variable. Thus if varname references a 10x5 matrix, an index of 42
-would indicate the 42nd element, which is equivalent to the [8,2]
+If *index* is a scalar, it will be interpreted as the *indexth* element of
+the variable. Thus if *varname* references a 10x5 matrix, an index of 42
+would indicate the 42nd element, which is equivalent to the :math:`[8,2]`
 element of the matrix (remember that GAUSS matrices are stored in row
-major order). If index is an Nx1 vector, then N must equal the number of
-dimensions in the variable referenced by varname.
+major order). If *index* is an Nx1 vector, then *N* must equal the number of
+dimensions in the variable referenced by *varname*.
 
-If orders is a Kx1 vector, then y will be a K-dimensional object. If
-orders is a scalar r, then y will be an rx1 column vector. To specify a
-1xr row vector, set output = { 1, r }.
+If *orders* is a Kx1 vector, then y will be a K-dimensional object. If
+*orders* is a scalar *r*, then *y* will be an rx1 column vector. To specify a
+1xr row vector, set :code:`output = { 1, r }`.
 
-If the variable referenced by varname is numeric (a matrix or array) and
-orders is a scalar or 2x1 vector, then y will of type matrix. If the
-variable is numeric and orders is an Nx1 vector where N>2, then y will
+If the variable referenced by *varname* is numeric (a matrix or array) and
+*orders* is a scalar or 2x1 vector, then *y* will of type matrix. If the
+variable is numeric and *orders* is an Nx1 vector where :math:`N > 2`, then *y* will
 be of type array.
 
-If varname references a string, then both index and orders must be
-scalars, and index must contain an index into the string in characters.
+If *varname* references a string, then both *index* and *orders* must be
+scalars, and *index* must contain an index into the string in characters.
 
-If gdaReadSome fails, it will return a scalar error code. Call scalerr
+If :func:`gdaReadSome` fails, it will return a scalar error code. Call :func:`scalerr`
 to get the value of the error code. The error code may be any of the
 following:
 
@@ -97,8 +97,9 @@ Examples
     orders = { 25,5 };
     y = gdaReadSome("myfile.gda","x1",index,orders);
 
-This example reads 25*5=125 elements from x1, beginning
-with the [35,20] element. The 125 elements are returned as
-a 25x5 matrix, y.
+This example reads :math:`25 * 5 = 125` elements from *x1*, beginning
+with the :math:`[35,20]` element. The 125 elements are returned as
+a 25x5 matrix, *y*.
 
 .. seealso:: Functions :func:`gdaWriteSome`, :func:`gdaRead`
+

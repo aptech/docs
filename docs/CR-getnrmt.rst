@@ -20,24 +20,20 @@ Format
     :param ncols: columns in the data file.
     :type ncols: scalar
 
-    :param row: if row is greater than 0,
-        nr will be set to  row.
+    :param row: if row is greater than 0, *nr* will be set to *row*.
     :type row: scalar
 
-    :param rowfac: nr will be reduced in
+    :param rowfac: *nr* will be reduced in
         size by this factor. If insufficient memory error
         is encounted, change this to a number less than
-        one (e.g., 0.9).
+        one (e.g. 0.9).
     :type rowfac: scalar
 
-    :param maxv: the largest number of elements allowed
-        in any one matrix.
+    :param maxv: the largest number of elements allowed in any one matrix.
     :type maxv: scalar
 
-    :returns: nr (*scalar*), number of rows readr should read per iteration
+    :returns: nr (*scalar*), number of rows :func:`readr` should read per iteration
         of the read loop.
-
-
 
 Source
 ------

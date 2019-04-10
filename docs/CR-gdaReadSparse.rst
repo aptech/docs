@@ -22,8 +22,8 @@ Format
 Remarks
 -------
 
-If gdaReadSparse fails, it will return a sparse scalar error code. Call
-scalerr to get the value of the error code. The error code may be any of
+If :func:`gdaReadSparse` fails, it will return a sparse scalar error code. Call
+:func:`scalerr` to get the value of the error code. The error code may be any of
 the following:
 
 +---+-----------------------------------------------------+
@@ -54,3 +54,4 @@ Examples
     sm1 = gdaReadSparse("myfile.gda","sm");
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaReadStruct`, :func:`gdaWrite`
+

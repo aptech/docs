@@ -12,22 +12,22 @@ Format
 .. function:: getHeaders(fname)
 
     :param fname: the name of the data file.
-    :type fname: String
+    :type fname: string
 
     :returns: headers (*Px1 string array*) containing the variable names in the file.
 
 Remarks
 -------
 
-For convenience, 'getHeaders' will try to read variable names from Excel
+For convenience, :func:`getHeaders` will try to read variable names from Excel
 and CSV files. However, since these file types do not have a standard
 method specification for variable names, the first row of the file will
 be returned.
 
-CSV file names with a file extension other than .csv will need to start
-with the schema csv://.
+CSV file names with a file extension other than ``.csv`` will need to start
+with the schema ``csv://``.
 
-HDF5 file names must start with the schema h5://
+HDF5 file names must start with the schema ``h5://``
 
 
 Examples
@@ -45,7 +45,7 @@ Excel Data
     //sheet of the XLSX file
     headers = getHeaders(fname);
 
-After the above code, 'headers' will contain:
+After the above code, *headers* will contain:
 
 ::
 
@@ -65,7 +65,7 @@ GAUSS dataset
     //Read headers from the dataset
     headers = getHeaders(fname);
 
-After the above code, 'headers' will contain:
+After the above code, *headers* will contain:
 
 ::
 
@@ -83,7 +83,7 @@ Stata dataset
     //Read headers from the dataset
     headers = getHeaders(fname);
 
-After the above code, 'headers' will contain:
+After the above code, *headers* will contain:
 
 ::
 
@@ -111,7 +111,7 @@ SAS dataset
     //Read headers from the dataset
     headers = getHeaders(fname);
 
-After the above code, 'headers' will contain:
+After the above code, *headers* will contain:
 
 ::
 
@@ -131,13 +131,9 @@ After the above code, 'headers' will contain:
     accident_death
     assault
 
-` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__
-`CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__, `Excel (XLS,
-XLSX) <FIO.3-Spreadsheets.html#data-source-excel>`__,
-`HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__, `GAUSS Matrix
-(FMT) <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__, `GAUSS
-Dataset (DAT) <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__,
-`Stata (DTA) and SAS (SAS7BDAT,
-SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
+The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
+
+.. DANGER:: Link up references
 
 .. seealso:: Functions :func:`csvReadSA`, :func:`dataopen`, :func:`getnamef`, :func:`loadd`, :func:`xlsReadSA`
+

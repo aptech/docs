@@ -5,8 +5,7 @@ gdaPack
 Purpose
 ----------------
 
-Packs the data in a GAUSS Data Archive, removing all empty bytes
-and truncating the file.
+Packs the data in a GAUSS Data Archive, removing all empty bytes and truncating the file.
 
 Format
 ----------------
@@ -32,7 +31,7 @@ Format
 Remarks
 -------
 
-You may want to call gdaPack after several calls to gdaUpdate to remove
+You may want to call gdaPack after several calls to :func:`gdaUpdate` to remove
 all of the empty bytes from a GDA.
 
 
@@ -44,3 +43,4 @@ Examples
     ret = gdaPack("myfile.gda");
 
 .. seealso:: Functions :func:`gdaUpdate`, :func:`gdaWrite`
+

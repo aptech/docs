@@ -19,8 +19,7 @@ Format
 Remarks
 -------
 
-The output, y, will have as many rows as there are variables in the data
-set.
+The output, *y*, will have as many rows as there are variables in the data set.
 
 
 Examples
@@ -28,7 +27,7 @@ Examples
 
 ::
 
-    file = getgausshome()$+ "examples/freqdata.dat";				
+    file = getGAUSSHome()$+ "examples/freqdata.dat";				
     //Open the dataset
     open f = ^file for read;
     
@@ -50,8 +49,9 @@ produces:
     sex 
     WT
 
-The above example assumes that the data set freqdata
-contains the variables: AGE, PAY, sex, WT.
-Note the use of vartypef to determine the types of these variables.
+The above example assumes that the data set ``freqdata``
+contains the variables: ``AGE, PAY, sex, WT``.
+Note the use of :func:`vartypef` to determine the types of these variables.
 
 .. seealso:: Functions :func:`getname`, :func:`getHeaders`, :func:`indcv`, :func:`vartypef`
+

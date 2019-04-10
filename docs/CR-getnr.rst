@@ -24,20 +24,23 @@ Format
         of the read loop.
 
 
-
 Remarks
 -------
 
-If \__row is greater than 0, nr will be set to \__row.
+If `__row` is greater than 0, *nr* will be set to `__row`.
 
-If an insufficient memory error is encountered, change \__rowfac to a
-number less than 1.0 (e.g., 0.75). The number of rows read will be
+If an insufficient memory error is encountered, change `__rowfac` to a
+number less than 1.0 (e.g. 0.75). The number of rows read will be
 reduced in size by this factor.
-
 
 
 Source
 ------
 
 gauss.src
+
+Globals
+-------
+
+`__row`, `__rowfac`, `__maxvec`
 

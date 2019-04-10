@@ -39,18 +39,18 @@ Format
 Remarks
 -------
 
-This command updates the variable varname in filename with the data
-contained in x. gdaUpdateAndPack always writes the data in x over the
-specified variable in the file. If x is larger than the specified
+This command updates the variable *varname* in *filename* with the data
+contained in *x*. :func:`gdaUpdateAndPack` always writes the data in *x* over the
+specified variable in the file. If *x* is larger than the specified
 variable, then it first moves all subsequent data in the file to make
-room for the new data. If x is smaller, then gdaUpdateAndPack writes the
+room for the new data. If *x* is smaller, then :func:`gdaUpdateAndPack` writes the
 data, packs all of the subsequent data, leaving no empty bytes after the
 updated variable, and truncates the file.
 
 This command uses disk space efficiently; however, it may be slow for
 large files (especially if the variable to be updated is one of the
 first variables in the file). If speed is a concern, you may want to use
-gdaUpdate instead.
+:func:`gdaUpdate` instead.
 
 
 Examples
@@ -66,3 +66,4 @@ Examples
     ret = gdaUpdateAndPack("myfile.gda",y,"x1");
 
 .. seealso:: Functions :func:`gdaUpdate`, :func:`gdaWrite`
+

@@ -11,19 +11,18 @@ Format
 ----------------
 .. function:: getTrRow(a, row)
 
-    :param a: 
+    :param a: data
     :type a: NxK matrix
 
-    :param row: 
-    :type row: The row of the matrix to extract
+    :param row: The row of the matrix to extract
+    :type row: scalar
 
-    :returns: y (*1xK row vector*) .
+    :returns: y (*1xK row vector*)
 
 Remarks
 -------
 
-getRow is designed to give an alternative access to rows in a matrix
-than indexing the matrix by brackets.
+:func:`getRow` is designed to give an alternative access to rows in a matrix than indexing the matrix by brackets.
 
 
 Examples
@@ -35,3 +34,4 @@ Examples
     y = getTrRow(a,3);
 
 .. seealso:: Functions :func:`getRow`
+

@@ -22,7 +22,7 @@ Format
 Remarks
 -------
 
-If gdaIsCplx fails, it will return a scalar error code. Call scalerr to
+If :func:`gdaIsCplx` fails, it will return a scalar error code. Call :func:`scalerr` to
 get the value of the error code. Valid error codes for this command
 include:
 

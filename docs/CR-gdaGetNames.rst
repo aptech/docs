@@ -19,7 +19,7 @@ Format
 Remarks
 -------
 
-If gdaGetNames fails, it will return a scalar error code. Call scalerr
+If :func:`gdaGetNames` fails, it will return a scalar error code. Call :func:`scalerr`
 to get the value of the error code. The error code may be any of the
 following:
 
@@ -51,3 +51,4 @@ Examples
     varnames = gdaGetNames("myfile.gda");
 
 .. seealso:: Functions :func:`gdaGetTypes`, :func:`gdaGetName`
+

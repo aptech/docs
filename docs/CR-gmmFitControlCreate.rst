@@ -16,6 +16,7 @@ Format
 
 Examples
 ----------------
+
 Since structures are strongly typed in GAUSS, each structure must be 
 declared before it can be used.
 
@@ -28,8 +29,8 @@ declared before it can be used.
     //initialize structure c
     c = gmmControlCreate();
 
-The members of an gmmFitControl structure and default values are described in
-the manual entry for gmmFit.
+The members of an :class:`gmmFitControl` structure and default values are described in
+the manual entry for :func:`gmmFit`.
 
 Source
 ------
@@ -37,3 +38,4 @@ Source
 gmm_est.src
 
 .. seealso:: Functions :func:`gmmFit`, :func:`gmmFitIV`
+
