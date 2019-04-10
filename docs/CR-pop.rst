@@ -56,4 +56,4 @@ After the code above:
 
 Note that there must be a separate pop statement for each matrix popped.
 
-.. seealso:: Functions :func:`gosub`, :func:`goto`, :func:`return`
+.. seealso:: Functions `gosub`, `goto`, :func:`return`

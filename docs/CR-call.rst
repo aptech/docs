@@ -42,5 +42,5 @@ result of :func:`chol` is discarded and *detl* is used to
 retrieve the determinant that was computed during
 the call to :func:`chol`.
 
-.. seealso:: Functions :func:`proc`
+.. seealso:: Functions `proc`
 

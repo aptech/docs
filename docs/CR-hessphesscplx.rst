@@ -5,27 +5,27 @@ hessp, hesscplx
 Purpose
 ----------------
 
-Computes the matrix of second partial derivatives (Hessian matrix) of a function defined as a procedure. hesscplx allows for
+Computes the matrix of second partial derivatives (Hessian matrix) of a function defined as a procedure. :func:`hesscplx` allows for
 complex arguments.
 
 Format
 ----------------
 .. function:: hessp(&f, x0)
 
-    :param &f: pointer to a single-valued function f(x),
-        defined as a procedure, taking a single Kx1 vector argument (f: Kx1 → 1x1);  f(x) may be defined
-        in terms of global arguments in addition to x.
-    :type &f: TODO
+    :param &f: pointer to a single-valued function :math:`f(x)`,
+        defined as a procedure, taking a single Kx1 vector argument (f: :math:`Kx1 → 1x1`); :math:`f(x)` may be defined
+        in terms of global arguments in addition to *x*.
+    :type &f: function pointer
 
-    :param x0: 
-    :type x0: Kx1 vector specifying the point at which the Hessian of f(x) is to be computed
+    :param x0: the point at which the Hessian of :math:`f(x)` is to be computed
+    :type x0: Kx1 vector
 
-    :returns: h (*KxK matrix*) of second derivatives of  f with respect to x at x0; this matrix will be symmetric.
+    :returns: h (*KxK matrix*) of second derivatives of *f* with respect to *x* at *x0*; this matrix will be symmetric.
 
 Remarks
 -------
 
-This procedure requires K*(K+1)/2 function evaluations. Thus if K is
+This procedure requires :math:`K*(K+1)/2` function evaluations. Thus if *K* is
 large, it may take a long time to compute the Hessian matrix.
 
 No more than 3-4 digit accuracy should be expected from this function,
@@ -52,11 +52,11 @@ Examples
     b0 = { 3, 2, 1 };
     h = hessp(&g,b0);
 
-The resulting matrix of second partial derivatives of g(b) evaluated at b=b0 is:
+The resulting matrix of second partial derivatives of :math:`g(b)` evaluated at :math:`b = b0` is:
 
 ::
 
-    22026.865  44053.686  66080.596
+         22026.865  44053.686  66080.596
     h =  44053.686  88107.753 132161.059
          66080.596 132161.059 198240.695
 
@@ -67,4 +67,3 @@ hessp.src
 
 .. seealso:: Functions :func:`gradp`, :func:`gradcplx`
 
-gradient Hessian derivative complex argument

@@ -37,5 +37,5 @@ Examples
 
     y = dataload("myfile.fmt");
 
-.. seealso:: Functions :func:`load`, :func:`datasave`
+.. seealso:: Functions `load`, :func:`datasave`
 

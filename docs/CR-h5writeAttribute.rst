@@ -11,16 +11,16 @@ Format
 .. function:: h5writeAttribute(fname, dname, attr_name, attr)
 
     :param fname: a name of the HDF5 file.
-    :type fname: String
+    :type fname: string
 
     :param dname: a name of the dataset in the HDF5 file.
-    :type dname: String
+    :type dname: string
 
     :param attr_name: the name of attribute to write.
-    :type attr_name: String
+    :type attr_name: string
 
     :param attr: N-dimensional array or string array, the contents of the attribute.
-    :type attr: Matrix
+    :type attr: matrix
 
 Remarks
 -------
@@ -28,8 +28,8 @@ Remarks
 -  Attributes in an HDF5 file cannot be read or written partially. The
    entire contents of the attribute must be read or written in one call.
 -  GAUSS functions that take in an HDF5 dataset as a datasource (see
-   dstatmt, glm), expect the dataset to have an attribute called
-   "headers", containing the variable names of the dataset.
+   :func:`dstatmt`, :func:`glm`), expect the dataset to have an attribute called
+   :code:`"headers"`, containing the variable names of the dataset.
 
 
 Examples
@@ -85,4 +85,3 @@ a: Add data and calculate descriptive statistics
 
 .. seealso:: Functions :func:`h5readAttribute`, :func:`h5read`, :func:`h5write`, :func:`h5create`, :func:`h5write`
 
-HDF5 h5 write

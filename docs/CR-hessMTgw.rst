@@ -14,13 +14,13 @@ Format
     :param &gfct: pointer to procedure computing either NxK Jacobian.
     :type &gfct: scalar
 
-    :param par1: 
-    :type par1: an instance of structure of type PV containing parameter vector at which Hessian is to be evaluated
+    :param par1: an instance of structure of type :class:`PV` containing parameter vector at which Hessian is to be evaluated
+    :type par1: struct
 
-    :param data1: 
-    :type data1: structure of type DS containing any data needed by  gfct
+    :param data1: structure of type :class:`DS` containing any data needed by *gfct*
+    :type data1: struct
 
-    :param wgts: 
+    :param wgts: weights
     :type wgts: Nx1 vector
 
     :returns: h (*KxK matrix*), Hessian.
@@ -28,7 +28,7 @@ Format
 Remarks
 -------
 
-par1 must be created using the pvPack procedures.
+*par1* must be created using the :func:`pvPack` procedures.
 
 
 Examples
@@ -62,4 +62,3 @@ Source
 
 hessmt.src
 
-gradient Hessian derivative weight

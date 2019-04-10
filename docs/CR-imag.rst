@@ -5,21 +5,21 @@ imag
 Purpose
 ----------------
 
-Returns the imaginary part of x.
+Returns the imaginary part of *x*.
 
 Format
 ----------------
 .. function:: imag(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: zi (NxK matrix or N-dimensional array) the imaginary part of x.
+    :returns: zi (NxK matrix or N-dimensional array) the imaginary part of *x*.
 
 Remarks
 -------
 
-If x is real, zi will be an NxK matrix or N-dimensional array of zeros.
+If *x* is real, *zi* will be an NxK matrix or N-dimensional array of zeros.
 
 
 Examples
@@ -37,3 +37,4 @@ Examples
         0  -6   7
 
 .. seealso:: Functions :func:`complex`, :func:`real`
+

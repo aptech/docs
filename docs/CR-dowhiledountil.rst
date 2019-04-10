@@ -106,5 +106,5 @@ Second loop:
 
     1 2 3 4 5 6 7 8 9 10
 
-.. seealso:: Functions :func:`continue`, :func:`break`
+.. seealso:: Functions `continue`, `break`
 

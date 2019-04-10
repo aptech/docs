@@ -31,7 +31,7 @@ position in array *a* and ends at the :math:`[i1, i2,K,L]` position.
 
 A call to :func:`getmatrix4D` is faster than using the more general :func:`getmatrix`
 function to get a matrix from a 4-dimensional array, especially when *i1*
-and *i2* are the counters from nested :func:`for` loops.
+and *i2* are the counters from nested `for` loops.
 
 
 Examples

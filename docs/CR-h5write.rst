@@ -11,12 +11,12 @@ Format
 .. function:: h5write(fname, dname, x)
 
     :param fname: name of the HDF5 file.
-    :type fname: String
+    :type fname: string
 
     :param dname: name of the dataset in the HDF5 file.
-    :type dname: String
+    :type dname: string
 
-    :param x: , the data to write to the file.
+    :param x: the data to write to the file.
     :type x: Matrix or N-dimensional array
 
 Examples
@@ -74,9 +74,7 @@ After the above code:
 Remarks
 -------
 
-To write rows of data to an HDF5 dataset in a iterative manner, see
-writer.
+To write rows of data to an HDF5 dataset in an iterative manner, see :func:`writer`.
 
 .. seealso:: Functions :func:`h5create`, :func:`h5read`, :func:`h5writeAttribute`, :func:`dataopen`, :func:`writer`, :func:`seekr`
 
-HDF5 h5 write

@@ -5,7 +5,7 @@ continue
 Purpose
 ----------------
 
-Jumps to the top of a :func:`do` or :func:`for` loop.
+Jumps to the top of a `do` or `for` loop.
 
 Format
 ----------------

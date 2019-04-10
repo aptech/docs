@@ -61,7 +61,7 @@ included, then :func:`dataopen` searches for the file in the current directory.
 6. Files opened in read mode cannot be written to. The pointer is set to
 the beginning of the file and the writer function is disabled for files
 opened in this way. This is the only mode available for matrix files
-(.fmt), which are always written in one piece with the :func:`save` command.
+(.fmt), which are always written in one piece with the `save` command.
 
 7. Files opened in append mode cannot be read. The pointer is set to the
 end of the file so that a subsequent write to the file with the writer

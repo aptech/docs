@@ -11,12 +11,39 @@ Format
 ----------------
 .. function:: hess(A)
 
-    :param A: 
+    :param A: data
     :type A: KxK real or complex matrix
 
     :returns: H (*KxK matrix*), Hessenberg form.
 
     :returns: Z (*KxK matrix*), transformation matrix.
+
+Remarks
+-------
+
+:func:`hess` computes the Hessenberg form of a square matrix. The Hessenberg
+form is an intermediate step in computing eigenvalues. It also is useful
+for solving certain matrix equations that occur in control theory (see
+*Van Loan, Charles F. "Using the Hessenberg Decomposition in Control
+Theory". Algorithms* and *Theory in Filtering and Control. Sorenson, D.C.
+and R.J. Wets, eds., Mathematical Programming Study No. 18, North
+Holland, Amsterdam, 1982, 102-111*).
+
+*Z* is an orthogonal matrix that transforms *A* into *H* and vice versa. Thus:
+
+::
+
+   H = Z'*A*Z
+
+and since *Z* is orthogonal,
+
+::
+
+   A = Z*H*Z'
+
+*A* is reduced to upper Hessenberg form using orthogonal similiarity
+transformations. This preserves the Frobenious norm of the matrix and
+the condition numbers of the eigenvalues.
 
 Examples
 ----------------
@@ -37,32 +64,5 @@ After the code above:
         -1.565    1.300   -0.400         0.000   -0.894   -0.447 
          0.000   -1.000    0.100         0.000   -0.447    0.894
 
-Remarks
--------
-
-hess computes the Hessenberg form of a square matrix. The Hessenberg
-form is an intermediate step in computing eigenvalues. It also is useful
-for solving certain matrix equations that occur in control theory (see
-Van Loan, Charles F. "Using the Hessenberg Decomposition in Control
-Theory". Algorithms and Theory in Filtering and Control. Sorenson, D.C.
-and R.J. Wets, eds., Mathematical Programming Study No. 18, North
-Holland, Amsterdam, 1982, 102-111).
-
-Z is an orthogonal matrix that transforms A into H and vice versa. Thus:
-
-::
-
-   H = Z'*A*Z
-
-and since Z is orthogonal,
-::
-
-   A = Z*H*Z'
-
-A is reduced to upper Hessenberg form using orthogonal similiarity
-transformations. This preserves the Frobenious norm of the matrix and
-the condition numbers of the eigenvalues.
-
 .. seealso:: Functions :func:`eig`, :func:`qz`, :func:`schur`
 
-upper Hessenberg form real matrix hess

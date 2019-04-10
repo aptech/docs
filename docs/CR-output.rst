@@ -137,4 +137,4 @@ feed added at the end of each 200 row block.
 The end statement above will automatically perform
 output off and screen on.
 
-.. seealso:: Functions :func:`outwidth`, :func:`screen`, :func:`end`, :func:`new`
+.. seealso:: Functions :func:`outwidth`, :func:`screen`, `end`, :func:`new`

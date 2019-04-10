@@ -8,21 +8,18 @@ Reads data from an HDF5 dataset into a GAUSS matrix.
 
 Format
 ----------------
-.. function:: h5read(fname, dname) 
-			   
-			  h5read(fname, dname, dims) 
-			  h5read(fname, dname, dims, offset)
+.. function:: h5read(fname, dname[, dims[, offset]])
 
     :param fname: a name of the HDF5 file.
-    :type fname: String
+    :type fname: string
 
-    :param dname: a name of the data set in HDF5 file. e.g. "/mydata".
-    :type dname: String
+    :param dname: a name of the data set in HDF5 file. e.g. :code:`"/mydata"`.
+    :type dname: string
 
-    :param dims: where N is the number of dimensions in the dataset, the dimensions of data to read.
+    :param dims: where *N* is the number of dimensions in the dataset, the dimensions of data to read.
     :type dims: Nx1 vector
 
-    :param offset: where N is the number of dimensions in the dataset, the data to skip.
+    :param offset: where *N* is the number of dimensions in the dataset, the data to skip.
     :type offset: Nx1 vector
 
 Examples
@@ -98,7 +95,7 @@ After the code above:
 ::
 
     y3 =    2 1 
-    	0 7
+            0 7
 
 Read HDF5 file with offset at more than one dimension
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -139,7 +136,7 @@ Read HDF5 file with offset at more than one dimension
     // Run h5read function 	 
     y4 = h5read("testdata.h5", dname, dims_read, offset);
 
-After the code above, we see that y4 is a 2x2x2 (number of dimensions to read dims_read) array, containing the contents of the x, after skipping the dimensions { 0, 2, 1 } specified in offset:
+After the code above, we see that *y4* is a 2x2x2 (number of dimensions to read *dims_read*) array, containing the contents of the *x*, after skipping the dimensions :math:`{ 0, 2, 1 }` specified in *offset*:
 
 ::
 
@@ -195,4 +192,3 @@ After the code above, we see that y4 is a 2x2x2 (number of dimensions to read di
 
 .. seealso:: Functions :func:`h5create`, :func:`h5write`, :func:`open`, :func:`create`, :func:`writer`, :func:`seekr`, :func:`eof`
 
-HDF5 h5 read data import

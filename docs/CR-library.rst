@@ -151,4 +151,4 @@ suspect it is autoloading the wrong copy of a procedure, use the Library
 Tool on the Edit Page, or the CTRL+F1 hotkey to locate the suspected
 function. It will use the same search path that the autoloader uses.
 
-.. seealso:: Functions :func:`declare`, :func:`external`, :func:`lib`, :func:`proc`
+.. seealso:: Functions :func:`declare`, `external`, :func:`lib`, `proc`

@@ -54,4 +54,4 @@ already exists, it will be overwritten.
 Turning the window off will speed up execution. The end statement
 above will automatically perform output off and screen on.
 
-.. seealso:: Functions :func:`output`, :func:`end`, :func:`new`
+.. seealso:: Functions :func:`output`, `end`, :func:`new`

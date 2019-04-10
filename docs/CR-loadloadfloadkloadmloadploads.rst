@@ -241,4 +241,4 @@ In the above program:
 This will get the old loadm path, set it to /data, load x.fmt and y.fmt,
 and reset the loadm path to its original setting.
 
-.. seealso:: Functions :func:`loadd`, :func:`dataload`, :func:`save`, :func:`let`, :func:`con`, :func:`cons`, :func:`sysstate`
+.. seealso:: Functions :func:`loadd`, :func:`dataload`, `save`, `let`, :func:`con`, :func:`cons`, :func:`sysstate`

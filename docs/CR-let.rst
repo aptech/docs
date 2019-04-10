@@ -206,4 +206,4 @@ assigns x to be:
     x = Median Income
         Country
 
-.. seealso:: Functions :func:`con`, :func:`cons`, :func:`declare`, :func:`load`
+.. seealso:: Functions :func:`con`, :func:`cons`, :func:`declare`, `load`

@@ -78,5 +78,5 @@ You can take this further and create a procedure that will load a list of output
        endfor;
     endp;
 
-.. seealso:: Functions :func:`load`, :func:`save`, :func:`let`, :func:`con`
+.. seealso:: Functions `load`, `save`, `let`, :func:`con`
 

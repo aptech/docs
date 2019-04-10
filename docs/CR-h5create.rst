@@ -8,22 +8,29 @@ Creates an HDF5 data file, or adds a new dataset to an existing HDF5 file.
 
 Format
 ----------------
-.. function:: h5create(fname, dname, dims) 
-			  h5create(fname, dname, dims, datatype) 
-			  h5create(fname, dname, dims, datatype, chunk_size)
+.. function:: h5create(fname, dname, dims[, datatype[, chunk_size]])
 
-    :param fname: name of the HDF5 file. The file extension, .h5 recommended, but not required.
-    :type fname: String
+    :param fname: name of the HDF5 file. The file extension, ``.h5`` recommended, but not required.
+    :type fname: string
 
-    :param dname: a name of the data set in HDF5 file. e.g. "/mydata".
-    :type dname: String
+    :param dname: a name of the data set in HDF5 file. e.g. :code:`"/mydata"`.
+    :type dname: string
 
-    :param dims: where N is the number of dimensions of the dataset, the size of each of the dimensions of the dataset.
+    :param dims: where @vN is the number of dimensions of the dataset, the size of each of the dimensions of the dataset.
     :type dims: Nx1 matrix
 
     :param datatype: data type. Valid options include:
-        "double" "float" "int64" "int32" "uint64" "uint32"Default is "double".
-    :type datatype: String
+
+        - :code:`"double"`
+        - :code:`"float"`
+        - :code:`"int64"`
+        - :code:`"int32"`
+        - :code:`"uint64"`
+        - :code:`"uint32"`
+          
+    Default is :code:`"double"`.
+
+    :type datatype: string
 
     :param chunk_size: with the same dimensions as the data set, specifying the size of the chunks of data that will be created in the file.
     :type chunk_size: Matrix or array
@@ -32,8 +39,8 @@ Remarks
 -------
 
 -  HDF5 files can hold more than one dataset. They are referenced in the
-   same manner as a Linux or Mac file system. The base or root node is
-   '/'. All datasets are relative to this root node.
+   same manner as a Linux or macOS file system. The base or root node is
+   ``/``. All datasets are relative to this root node.
 -  If a dataset name contains multiple intermediate groups, for example:
 
    ::
@@ -41,17 +48,17 @@ Remarks
       "/surveys/household/Washington"
 
    and the intermediate groups, ``surveys`` and ``household`` in the
-   above string, do not yet exist, h5create will create them.
+   above string, do not yet exist, :func:`h5create` will create them.
 
 -  By default, HDF5 datasets may not change size. To make one of the
-   dimensions expandable, set it to \__INFP.
+   dimensions expandable, set it to `__INFP`.
 -  All columns of an HDF5 dataset must be of the same data type.
    However, multiple datasets with different data types may be created
    in a single HDF5 file.
 -  Information about a dataset, called an attribute, may be attached to
    a dataset in an HDF5 file with the function h5writeAttribute.
 -  Chunk size must be specified when users create a dataset with more
-   than 2 dimensions and one of those dimensions is unlimited (\__INFP).
+   than 2 dimensions and one of those dimensions is unlimited (`__INFP`).
 
 
 Examples
@@ -116,4 +123,3 @@ Create a 3-Dimensional dataset and one intermediate group
 
 .. seealso:: Functions :func:`h5read`, :func:`h5write`, :func:`open`, :func:`create`, :func:`writer`, :func:`seekr`, :func:`eof`
 
-HDF5 create new h5

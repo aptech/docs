@@ -5,26 +5,24 @@ for
 Purpose
 ----------------
 
-Begins a for loop.
+Begins a `for` loop.
 
-.. DANGER:: Fix formatting for format
+.. index:: for
 
 Format
 ----------------
-.. function:: for i (start, stop, step)
-              endfor
 
-    :param i: the name of the counter variable.
-    :type i: literal
+::
 
-    :param start: the initial value of the counter.
-    :type start: scalar expression
+    for i (start, stop, step);
+        ...
+    endfor;
 
-    :param stop: the final value of the counter.
-    :type stop: scalar expression
+:i: the name of the counter variable.
+:start: (*scalar*) the initial value of the counter.
+:stop: (*scalar*) the the final value of the counter.
+:step: (*scalar*) the the increment value.
 
-    :param step: the increment value.
-    :type step: scalar expression
 
 Remarks
 -------
@@ -33,16 +31,16 @@ The counter is strictly local to the loop. The expressions, *start*, *stop*
 and *step* are evaluated only once when the loop initializes and are
 stored local to the loop.
 
-The commands :func:`break` and :func:`continue` are supported. The :func:`continue` command
-steps the counter and jumps to the top of the loop. The :func:`break` command
+The commands `break` and `continue` are supported. The `continue` command
+steps the counter and jumps to the top of the loop. The `break` command
 terminates the current loop.
 
-The loop terminates when the value of *i* exceeds *stop*. If :func:`break` is used
+The loop terminates when the value of *i* exceeds *stop*. If `break` is used
 to terminate the loop and you want the final value of the counter, you
-need to assign it to a variable before the :func:`break` statement (see the
+need to assign it to a variable before the `break` statement (see the
 third example, following).
 
-.. NOTE:: The :func:`for` loop is optimized for speed and much faster than a :func:`do` loop.
+.. NOTE:: The `for` loop is optimized for speed and much faster than a `do` loop.
 
 Examples
 ----------------

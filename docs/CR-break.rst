@@ -48,5 +48,5 @@ the use of random data, your matrix will have different non-zero elements above 
     0.000  0.000  1.000 -0.768
     0.000  0.000  0.000  1.000
 
-.. seealso:: Functions :func:`continue`, :func:`do`, :func:`for`
+.. seealso:: Functions `continue`, `do`, `for`
 

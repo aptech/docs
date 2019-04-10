@@ -56,6 +56,6 @@ Examples
        y = 0;
     endif;
 
-.. seealso:: Functions :func:`do`
+.. seealso:: Functions `do`
 
 | 

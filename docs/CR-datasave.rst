@@ -47,5 +47,5 @@ Examples
     x = rndn(1000,100);
     ret = datasave("myfile.fmt",x);
 
-.. seealso:: Functions :func:`save`, :func:`dataload`
+.. seealso:: Functions `save`, :func:`dataload`
 

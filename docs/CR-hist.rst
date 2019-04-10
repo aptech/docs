@@ -5,37 +5,42 @@ hist
 Purpose
 ----------------
 
-Computes and graphs a frequency histogram for a vector. The actual frequencies are plotted for each category. Note: this function is for use with the deprecated PQG graphics.
-plotHist instead.
+Computes and graphs a frequency histogram for a vector. The actual frequencies are plotted for each category. 
+
+.. NOTE:: this function is for use with the deprecated PQG graphics. Use :func:`plotHist` instead.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
 .. function:: hist(x, v)
 
-    :param x: 
-    :type x: Mx1 vector of data
+    :param x: data
+    :type x: Mx1 vector
 
-    :param v: the breakpoints to be used to compute the frequencies
-        - or -scalar, the number of categories.
-    :type v: Nx1 vector
+    :param v: the breakpoints to be used to compute the frequencies (vector) -or- the number of categories (scalar).
+    :type v: Nx1 vector or scalar
 
     :returns: b (*Px1 vector*), the breakpoints used for each category.
 
     :returns: m (*Px1 vector*), the midpoints of each category.
 
-    :returns: freq (*Px1 vector*) of computed frequency counts.
+    :returns: freq (*Px1 vector*) computed frequency counts.
 
 Remarks
 -------
 
 If a vector of breakpoints is specified, a final breakpoint equal to the
-maximum value of x will be added if the maximum breakpoint value is
+maximum value of *x* will be added if the maximum breakpoint value is
 smaller.
 
-If a number of categories is specified, the data will be divided into v
+If a number of categories is specified, the data will be divided into *v*
 evenly spaced categories.
 
-Each time an element falls into one of the categories specified in b,
+Each time an element falls into one of the categories specified in *b*,
 the corresponding element of freq will be incremented by one. The
 categories are interpreted as follows:
 
@@ -57,7 +62,7 @@ Examples
 
     library pgraph;
     x = rndn(5000,1);
-    { b,m,f } = hist(x,20);
+    { b, m, f } = hist(x, 20);
 
 Source
 ------
@@ -65,3 +70,4 @@ Source
 phist.src
 
 .. seealso:: Functions :func:`histp`, :func:`histf`, :func:`bar`
+

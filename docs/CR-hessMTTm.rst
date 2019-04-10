@@ -14,13 +14,13 @@ Format
     :param fct: pointer to procedure returning either Nx1 vector or 1x1 scalar.
     :type fct: scalar
 
-    :param par1: 
-    :type par1: structure of type PV containing parameter vector at which Hessian is to be evaluated
+    :param par1: structure of type :class:`PV` containing parameter vector at which Hessian is to be evaluated
+    :type par1: struct
 
-    :param data1: 
-    :type data1: structure of type DS containing any data needed by  fct
+    :param data1: structure of type :class:`DS` containing any data needed by *fct*
+    :type data1: struct
 
-    :param mask: elements in  h corresponding to elements of mask set to zero are not computed otherwise are computed
+    :param mask: elements in *h* corresponding to elements of *mask* set to zero are not computed otherwise are computed
     :type mask: KxK matrix
 
     :returns: h (*KxK matrix*), Hessian
@@ -28,8 +28,7 @@ Format
 Remarks
 -------
 
-par1 must be created using the pvPack procedures. Only lower left part
-of mask looked at.
+*par1* must be created using the :func:`pvPack` procedures. Only lower left part of *mask* looked at.
 
 
 Examples
@@ -62,4 +61,3 @@ Source
 
 hessmtt.src
 
-gradient Hessian derivative mask thread

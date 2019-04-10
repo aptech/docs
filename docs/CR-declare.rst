@@ -253,4 +253,4 @@ produces:
     * - ms.sm
       - empty sparse matrix
 
-.. seealso:: Functions :func:`let`, :func:`external`
+.. seealso:: Functions `let`, `external`

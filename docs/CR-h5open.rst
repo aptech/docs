@@ -13,25 +13,27 @@ Format
     :param fname: a name of HDF5 file to open.
     :type fname: string
 
-    :param dname: a name of a data set (or group) in HDF5 file. e.g. "/mydata".
+    :param dname: a name of a data set (or group) in HDF5 file. e.g. :code:`"/mydata"`.
     :type dname: string
 
     :param mode: the mode with which to open the file. Valid options include:
-        "open": open file for read, positioned at the first row.
-        "update": open file for write, positioned at the first row.
-        "append": open file for write, positioned at the end of the file.
+
+        - :code:`"open"`: open file for read, positioned at the first row.
+        - :code:`"update"`: open file for write, positioned at the first row.
+        - :code:`"append"`: open file for write, positioned at the end of the file.a
+
     :type mode: string
 
 Remarks
 -------
 
--  The file handle must be closed with either the close function or
-   closeall when you are finished using it.
--  To read or write data to a file opened with h5open, use readr, and
-   writer.
+-  The file handle must be closed with either the :func:`close` function or
+   :func:`closeall` when you are finished using it.
+-  To read or write data to a file opened with :func:`h5open`, use :func:`readr`, and
+   :func:`writer`.
 -  To read and write data to an HDF5 dataset without opening a file
-   handle, use h5read and h5write.
--  The function dataopen can open file handles for reading and writing
+   handle, use :func:`h5read` and :func:`h5write`.
+-  The function :func:`dataopen` can open file handles for reading and writing
    to HDF5 datasets and other file types.
 
 
@@ -97,4 +99,3 @@ After the code above
 
 .. seealso:: Functions :func:`h5create`, :func:`h5read`, :func:`h5write`, :func:`open`, :func:`dataopen`, :func:`readr`, :func:`seekr`
 
-HDF5 h5 open data import

@@ -120,5 +120,5 @@ In this example, the :func:`con` function is used to obtain
 the size of a square matrix of Normal random
 variables which is to be printed out.
 
-.. seealso:: Functions :func:`cons`, :func:`let`, :func:`load`
+.. seealso:: Functions :func:`cons`, `let`, `load`
 

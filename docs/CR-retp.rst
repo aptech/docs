@@ -23,4 +23,4 @@ expressions. Items are separated by commas.
 It is legal to return with no arguments, as long as the procedure is
 defined to return 0 arguments.
 
-.. seealso:: Functions :func:`proc`, :func:`keyword`, :func:`endp`
+.. seealso:: Functions `proc`, `keyword`, `endp`

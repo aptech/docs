@@ -19,8 +19,8 @@ Format
 
     :param ver: the first element is the
         major version number of the program, the second element is the revision number.
-        Normally this argument will be the version/revision global (__??_ver)
-        associated with the module within which header is called. This argument will be ignored if set to 0.
+        Normally this argument will be the version/revision global (*__??_ver*)
+        associated with the module within which :func:`header` is called. This argument will be ignored if set to 0.
     :type ver: 2x1 numeric vector
 
     :param header: containing one or more of the following letters:
@@ -37,7 +37,6 @@ Format
 
     :param title: title for header.
     :type title: string
-
 
 
 Source

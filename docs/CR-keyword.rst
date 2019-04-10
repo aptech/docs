@@ -58,4 +58,4 @@ This keyword will respond by printing:
 
    Sum is: 15
 
-.. seealso:: Functions :func:`proc`, :func:`local`, :func:`endp`
+.. seealso:: Functions `proc`, `local`, `endp`

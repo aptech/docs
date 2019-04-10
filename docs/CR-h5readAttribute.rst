@@ -11,13 +11,13 @@ Format
 .. function:: h5readAttribute(fname, dname, attr_name)
 
     :param fname: a name of HDF5 file.
-    :type fname: String
+    :type fname: string
 
     :param dname: a name of the HDF5 data set.
-    :type dname: String
+    :type dname: string
 
     :param attr_name: the name of attribute.
-    :type attr_name: String
+    :type attr_name: string
 
 Remarks
 -------
@@ -25,7 +25,7 @@ Remarks
 -  HDF5 does not support partial read or write of dataset attributes.
    The entire contents of the attribute will be read.
 -  GAUSS functions that accept HDF5 datasets as a datasource, expect the
-   dataset to have an attribute named "headers", containing the variable
+   dataset to have an attribute named :code:`"headers"`, containing the variable
    names of the dataset.
 
 
@@ -81,4 +81,3 @@ a: Add data and calculate descriptive statistics
 
 .. seealso:: Functions :func:`h5create`, :func:`h5writeAttribute`, :func:`h5read`, :func:`h5write`
 
-HDF5 h5 read attribute data import

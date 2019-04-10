@@ -86,5 +86,5 @@ All of the above commands will set *y* to be equal to:
      17.361
     -12.725
 
-.. seealso:: Functions :func:`csvReadM`, :func:`load`, :func:`dataload`
+.. seealso:: Functions :func:`csvReadM`, `load`, :func:`dataload`
 

@@ -14,18 +14,18 @@ Format
     :param &gfct: pointer to procedure computing either 1xK gradient or NxK Jacobian
     :type &gfct: scalar
 
-    :param par1: 
-    :type par1: structure of type PV containing parameter vector at which Hessian is to be evaluated
+    :param par1: structure of type :class:`PV` containing parameter vector at which Hessian is to be evaluated
+    :type par1: struct
 
-    :param data1: 
-    :type data1: structure of type DS containing any data needed by  fct
+    :param data1: structure of type :class:`DS` containing any data needed by *fct*
+    :type data1: struct
 
     :returns: h (*KxK matrix*), Hessian
 
 Remarks
 -------
 
-par1 must be created using the pvPack procedures.
+*par1* must be created using the :func:`pvPack` procedures.
 
 
 Examples
@@ -59,4 +59,3 @@ Source
 
 hessmtt.src
 
-gradient Hessian derivative thread
