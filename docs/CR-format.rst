@@ -12,80 +12,81 @@ Format
 .. function:: format [[/typ]] [[/fmted]] [[/mf]] [[/jnt]] [[f,p]]
 
     :param /typ: symbol type flag(s). Indicate which symbol types you are setting the output format for.
+
+        .. csv-table::
+            :widths: auto
+    
+            "/mat, /sa, /str", "Formatting parameters are maintained separately for matrices and arrays (*/mat*), string arrays (*/sa*), and strings (*/str*).You can specify more than one */typ* flag; the format will be set for all types indicated. If no */typ* flag is listed, format assumes */mat*."
+
     :type /typ: literal
 
-    .. csv-table::
-        :widths: auto
-
-        "/mat, /sa, /str", "Formatting parameters are maintained separately for matrices and arrays (*/mat*), string arrays (*/sa*), and strings (*/str*).You can specify more than one */typ* flag; the format will be set for all types indicated. If no */typ* flag is listed, format assumes */mat*."
-
     :param /fmted: enable formatting flag.
+
+        .. csv-table::
+            :widths: auto
+    
+            "/on, /off", "Enable/disable formatting. When formatting is disabled, the contents of a variable are dumped to the screen in a \"raw\" format. */off* is currently supported only for strings. \"Raw\" format for strings means that the entire string is printed, starting at the current cursor position. When formatting is enabled for strings, they are handled the same as string arrays. This shouldn't be too surprising, since a string is actually a 1x1 string array."
+
     :type /fmted: literal
 
-    .. csv-table::
-        :widths: auto
-
-        "/on, /off", "Enable/disable formatting. When formatting is disabled, the contents of a variable are dumped to the screen in a \"raw\" format. */off* is currently supported only for strings. \"Raw\" format for strings means that the entire string is printed, starting at the current cursor position. When formatting is enabled for strings, they are handled the same as string arrays. This shouldn't be too surprising, since a string is actually a 1x1 string array."
-
     :param /mf: matrix row format flag.
+
+        .. csv-table::
+            :widths: auto
+    
+            "*/m0*", "no delimiters before or after rows when printing out matrices."
+            "*/m1 or /mb1*", "print 1 carriage return/line feed pair before each row of a matrix with more than 1 row."
+            "*/m2 or /mb2*", "print 2 carriage return/line feed pairs before each row of a matrix with more than 1 row."
+            "*/m3 or /mb3*", "print \"Row 1\", \"Row 2\"... before each row of a matrix with more than one row."
+            "*/ma1*", "print 1 carriage return/line feed pair after each row of a matrix with more than 1 row."
+            "*/ma2*", "print 2 carriage return/line feed pairs after each row of a matrix with more than 1 row."
+            "*/a1*", "print 1 carriage return/line feed pair after each row of a matrix."
+            "*/a2*", "print 2 carriage return/line feed pairs after each row of a matrix."
+            "*/b1*", "print 1 carriage return/line feed pair before each row of a matrix."
+            "*/b2*", "print 2 carriage return/line feed pairs before each row of a matrix."
+            "*/b3*", "print \"Row 1\", \"Row 2\"... before each row of a matrix."
+
     :type /mf: literal
 
-    .. csv-table::
-        :widths: auto
-
-        "*/m0*", "no delimiters before or after rows when printing out matrices."
-        "*/m1 or /mb1*", "print 1 carriage return/line feed pair before each row of a matrix with more than 1 row."
-        "*/m2 or /mb2*", "print 2 carriage return/line feed pairs before each row of a matrix with more than 1 row."
-        "*/m3 or /mb3*", "print \"Row 1\", \"Row 2\"... before each row of a matrix with more than one row."
-        "*/ma1*", "print 1 carriage return/line feed pair after each row of a matrix with more than 1 row."
-        "*/ma2*", "print 2 carriage return/line feed pairs after each row of a matrix with more than 1 row."
-        "*/a1*", "print 1 carriage return/line feed pair after each row of a matrix."
-        "*/a2*", "print 2 carriage return/line feed pairs after each row of a matrix."
-        "*/b1*", "print 1 carriage return/line feed pair before each row of a matrix."
-        "*/b2*", "print 2 carriage return/line feed pairs before each row of a matrix."
-        "*/b3*", "print \"Row 1\", \"Row 2\"... before each row of a matrix."
-
     :param /jnt: matrix element format flag - controls *justification, notation and trailing* character.
-    :type /jnt: literal
 
-    **Right-Justified**
-
-    .. csv-table::
-        :widths: auto
-        :align: center
-
-        "*/rd*", "Signed decimal number in the form ####.####, where #### is one or more decimal digits. The number of digits before the decimal point depends on themagnitude of the number, and the number of digits after the decimal point depends on the precision. If theprecision is 0, no decimal point will be printed."
-        "*/re*", "Signed number in the form #.##E±###,where # is one decimal digit, ## is one or more decimaldigits depending on the precision, and ### is three decimal digits. If precision is 0, the form will be[-]#E±### with no decimal point printed."
-        "*/ro*", "This will give a format like /rd or /re depending on whichis most compact for the number being printed. A format like /re will be used only if the exponent value is less than -4 or greater than the precision. If a /re format is used,a decimal point will always appear. The precision signifies the number of significant digits displayed."
-        "*/rz*", "This will give a format like /rd or /re depending on which is most compact for the number being printed. A format like /re will be used only if the exponent value is less than -4 or greater than the precision. If a /re format is used,trailing zeros will be supressed and a decimal point will appear only if one or more digits follow it. Theprecision signifies the number of significant digits displayed."
-
-    **Left-Justified**
-
-    .. csv-table::
-        :widths: auto
-        :align: center
-
-        "*/ld*", "Signed decimal number in the form :math:`[-]####.####`, where *####* is one or more decimal digits. The number of digits before the decimal point depends on the magnitude of the number, and the number of digits after the decimal point depends on the precision. If the precision is 0, no decimal point will be printed. If the number is positive, a space character will replace the leading minus sign."
-        "*/le*", "Signed number in the form :math:`[-]#.##E±###`, where # is one decimal digit, *##* is one or more decimal digits depending on the precision, and *###* is three decimal digits. If precision is 0, the form will be :math:`[-]#E±###` with no decimal point printed. If the number is positive, a space character will replace the leading minus sign."
-        "*/lo*", "This will give a format like */ld* or */le* depending on which is most compact for the number being printed. A format like */le* will be used only if the exponent value is less than -4 or greater than the precision. If a */le* format is used, a decimal point will always appear. If the number is positive, a space character will replace the leading minus sign. The precision specifies the number of significant digits displayed."
-        "*/lz*", "This will give a format like */ld* or */le* depending on whichis most compact for the number being printed. A format like */le* will be used only if the exponent value is less than -4 or greater than the precision. If a */le* format is used, trailing zeros will be supressed and a decimal point will appear only if one or more digits follow it. If the number is positive, a space character will replace the leading minus sign. The precision specifies the number of significant digits displayed."
-
-    **Trailing Character**
+        **Right-Justified**
     
-    The following characters can be added to the */jnt* parametersabove to control the trailing character if any: 
+        .. csv-table::
+            :widths: auto
+    
+            "*/rd*", "Signed decimal number in the form ####.####, where #### is one or more decimal digits. The number of digits before the decimal point depends on themagnitude of the number, and the number of digits after the decimal point depends on the precision. If theprecision is 0, no decimal point will be printed."
+            "*/re*", "Signed number in the form #.##E±###,where # is one decimal digit, ## is one or more decimaldigits depending on the precision, and ### is three decimal digits. If precision is 0, the form will be[-]#E±### with no decimal point printed."
+            "*/ro*", "This will give a format like /rd or /re depending on whichis most compact for the number being printed. A format like /re will be used only if the exponent value is less than -4 or greater than the precision. If a /re format is used,a decimal point will always appear. The precision signifies the number of significant digits displayed."
+            "*/rz*", "This will give a format like /rd or /re depending on which is most compact for the number being printed. A format like /re will be used only if the exponent value is less than -4 or greater than the precision. If a /re format is used,trailing zeros will be supressed and a decimal point will appear only if one or more digits follow it. Theprecision signifies the number of significant digits displayed."
+    
+        **Left-Justified**
+    
+        .. csv-table::
+            :widths: auto
+    
+            "*/ld*", "Signed decimal number in the form :math:`[-]####.####`, where *####* is one or more decimal digits. The number of digits before the decimal point depends on the magnitude of the number, and the number of digits after the decimal point depends on the precision. If the precision is 0, no decimal point will be printed. If the number is positive, a space character will replace the leading minus sign."
+            "*/le*", "Signed number in the form :math:`[-]#.##E±###`, where # is one decimal digit, *##* is one or more decimal digits depending on the precision, and *###* is three decimal digits. If precision is 0, the form will be :math:`[-]#E±###` with no decimal point printed. If the number is positive, a space character will replace the leading minus sign."
+            "*/lo*", "This will give a format like */ld* or */le* depending on which is most compact for the number being printed. A format like */le* will be used only if the exponent value is less than -4 or greater than the precision. If a */le* format is used, a decimal point will always appear. If the number is positive, a space character will replace the leading minus sign. The precision specifies the number of significant digits displayed."
+            "*/lz*", "This will give a format like */ld* or */le* depending on whichis most compact for the number being printed. A format like */le* will be used only if the exponent value is less than -4 or greater than the precision. If a */le* format is used, trailing zeros will be supressed and a decimal point will appear only if one or more digits follow it. If the number is positive, a space character will replace the leading minus sign. The precision specifies the number of significant digits displayed."
+    
+        **Trailing Character**
+        
+        The following characters can be added to the */jnt* parametersabove to control the trailing character if any: 
+    
+        ::
+    
+            format /rdn 1,3;
+    
+        .. csv-table::
+            :widths: auto
+    
+            "*s*", "The number will be followed immediately by a space character. This is the default."
+            "*c*", "The number will be followed immediately by a comma."
+            "*t*", "The number will be followed immediately by a tab character."
+            "*n*", "No trailing character."
 
-    ::
-
-        format /rdn 1,3;
-
-    .. csv-table::
-        :widths: auto
-        :align: center
-
-        "*s*", "The number will be followed immediately by a space character. This is the default."
-        "*c*", "The number will be followed immediately by a comma."
-        "*t*", "The number will be followed immediately by a tab character."
-        "*n*", "No trailing character."
+    :type /jnt: literal
 
     :param f: controls the field width.
     :type f: Scalar expression

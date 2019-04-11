@@ -29,42 +29,42 @@ Format
         :func:`eqSolvemtControlCreate` and members of this instance
         can be set to other values by the user. For an instance named
         *c*, the members are:
-    :type c: an instance of an :class:`eqSolvemtControl` structure.
 
-    .. csv-table::
-        :widths: auto
- 
-        "c.jacobianProc", "pointer to a procedure which computes the analytical Jacobian. By default, :func:`eqSolvemt` will compute the Jacobian numerically."
-        "c.maxIters", "scalar, the maximum number of iterations. Default = 100."
-        "c.stepTolerance", "scalar, the step tolerance. Default = :math:`macheps^(2/3)`"
-        "c.typicalF", "Kx1 vector of the :code:`typicalfct(x)` values at a point not near a root, used for scaling. This becomes important when the magnitudes of the components of :code:`fct(x)` are expected to be very different. By default, function values are not scaled."
-        "c.typicalX", "Kx1 vector of the typical magnitude of *x*, used for scaling. This becomes important when the magnitudes of the components of x are expected to be very different. By default, variable values are not scaled."
-        "c.printIters", "scalar, if nonzero, iteration information is printed. Default = 0."
-        "c.tolerance", "scalar, the tolerance of the scalar function :math:`f = 0.5*||fct(X)||2` required to terminate the algorithm.That is, the condition that :math:`|f(x)| <= c.tolerance` must be met before that algorithm can terminate successfully. Default = 1e-5."
-        "c.altNames", "Kx1 string array of alternate names to be used by the printed output. By default, the names :code:`\"X1,X2,X3...\"` will be used."
-        "c.title", "string, printed as a title in output."
-        "c.output", "scalar. If non-zero, final results are printed."
+        .. csv-table::
+            :widths: auto
+     
+            "c.jacobianProc", "pointer to a procedure which computes the analytical Jacobian. By default, :func:`eqSolvemt` will compute the Jacobian numerically."
+            "c.maxIters", "scalar, the maximum number of iterations. Default = 100."
+            "c.stepTolerance", "scalar, the step tolerance. Default = :math:`macheps^(2/3)`"
+            "c.typicalF", "Kx1 vector of the :code:`typicalfct(x)` values at a point not near a root, used for scaling. This becomes important when the magnitudes of the components of :code:`fct(x)` are expected to be very different. By default, function values are not scaled."
+            "c.typicalX", "Kx1 vector of the typical magnitude of *x*, used for scaling. This becomes important when the magnitudes of the components of x are expected to be very different. By default, variable values are not scaled."
+            "c.printIters", "scalar, if nonzero, iteration information is printed. Default = 0."
+            "c.tolerance", "scalar, the tolerance of the scalar function :math:`f = 0.5*||fct(X)||2` required to terminate the algorithm.That is, the condition that :math:`|f(x)| <= c.tolerance` must be met before that algorithm can terminate successfully. Default = 1e-5."
+            "c.altNames", "Kx1 string array of alternate names to be used by the printed output. By default, the names :code:`\"X1,X2,X3...\"` will be used."
+            "c.title", "string, printed as a title in output."
+            "c.output", "scalar. If non-zero, final results are printed."
+
+    :type c: an instance of an :class:`eqSolvemtControl` structure.
 
     :returns: out (*struct*) instance of :class:`eqSolvemtOut` struct. For an instance named *out*, the members are:
 
-    .. list-table::
-        :widths: auto
-        :align: center
-
-        * - out.par
-          - an instance of a :class:`PV` structure containing the parameter estimates.
-        * - out.fct
-          - scalar, function evaluated at *x*
-        * - out.retcode
-          - scalar, return code:
-
-              :-1: Jacobian is singular.
-              :1: Norm of the scaled function value is less than c.tolerance. *x* given is an approximate root of :code:`fct(x)` (unless c.tolerance is too large).
-              :2: The scaled distance between the last two steps is less than the step-tolerance (c.stepTolerance). x may be an approximate root of :code:`fct(x)`, but it is also possible that the algorithm is making very slow progress and is not near a root, or the step-tolerance is too large.
-              :3: The last global step failed to decrease :code:`norm2(fct(x))` sufficiently; either *x* is close to a root of :code:`fct(x)` and no more accuracy is possible, or an incorrectly coded analytic Jacobian is being used, or the secant approximation to the Jacobian is inaccurate, or the step-tolerance is too large.
-              :4: Iteration limit exceeded.
-              :5: Five consecutive steps of maximum step length have been taken; either :code:`norm2(fct(x))` asymptotes from above to a finite value in some direction or the maximum step length is too small.
-              :6: *x* seems to be an approximate local minimizer of :code:`norm2(fct(x))` that is not a root of :code:`fct(x)`. To find a root of :code:`fct(x)`, restart :func:`eqSolvemt` from a different region.
+        .. list-table::
+            :widths: auto
+    
+            * - out.par
+              - an instance of a :class:`PV` structure containing the parameter estimates.
+            * - out.fct
+              - scalar, function evaluated at *x*
+            * - out.retcode
+              - scalar, return code:
+    
+                  :-1: Jacobian is singular.
+                  :1: Norm of the scaled function value is less than c.tolerance. *x* given is an approximate root of :code:`fct(x)` (unless c.tolerance is too large).
+                  :2: The scaled distance between the last two steps is less than the step-tolerance (c.stepTolerance). x may be an approximate root of :code:`fct(x)`, but it is also possible that the algorithm is making very slow progress and is not near a root, or the step-tolerance is too large.
+                  :3: The last global step failed to decrease :code:`norm2(fct(x))` sufficiently; either *x* is close to a root of :code:`fct(x)` and no more accuracy is possible, or an incorrectly coded analytic Jacobian is being used, or the secant approximation to the Jacobian is inaccurate, or the step-tolerance is too large.
+                  :4: Iteration limit exceeded.
+                  :5: Five consecutive steps of maximum step length have been taken; either :code:`norm2(fct(x))` asymptotes from above to a finite value in some direction or the maximum step length is too small.
+                  :6: *x* seems to be an approximate local minimizer of :code:`norm2(fct(x))` that is not a root of :code:`fct(x)`. To find a root of :code:`fct(x)`, restart :func:`eqSolvemt` from a different region.
 
 Remarks
 -------

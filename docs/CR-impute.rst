@@ -18,13 +18,13 @@ Format
 
         **Valid options:**
        
-    .. list-table::
-        :widths: auto
-
-        * - "mean"
-          - String, replace missing values with the mean of the column (default).
-        * - "median"
-          - String, replace missing values with the median of the column.
+        .. list-table::
+            :widths: auto
+    
+            * - "mean"
+              - string, replace missing values with the mean of the column (default).
+            * - "median"
+              - string, replace missing values with the median of the column.
 
     :type method: string
 

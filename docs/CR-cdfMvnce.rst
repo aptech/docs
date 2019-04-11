@@ -11,14 +11,15 @@ Format
 .. function:: cdfMvnce(ctl, x, R, m)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
+
+        .. csv-table::
+            :widths: auto
+    
+            "ctl.maxEvaluations", "scalar, maximum number of evaluations."
+            "ctl.absErrorTolerance", "scalar absolute error tolerance."
+            "ctl.relative", "error tolerance."
+
     :type ctl: struct
-
-    .. csv-table::
-        :widths: auto
-
-        "ctl.maxEvaluations", "scalar, maximum number of evaluations."
-        "ctl.absErrorTolerance", "scalar absolute error tolerance."
-        "ctl.relative", "error tolerance."
 
     :param x: abscissae.
     :type x: NxK matrix
@@ -35,14 +36,14 @@ Format
 
     :returns: retcode (*Nx1 vector*), return codes,
 
-    .. csv-table::
-        :widths: auto
-
-        "0", "normal completion with :math:`err < ctl.absErrorTolerance`."
-        "1", ":math:`err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded`; increase *ctl.maxEvaluations* to decrease error."
-        "2", ":math:`K > 100` or :math:`K < 1`"
-        "3", "*R* not positive semi-definite."
-        "missing", "*R* not properly defined."
+        .. csv-table::
+            :widths: auto
+    
+            "0", "normal completion with :math:`err < ctl.absErrorTolerance`."
+            "1", ":math:`err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded`; increase *ctl.maxEvaluations* to decrease error."
+            "2", ":math:`K > 100` or :math:`K < 1`"
+            "3", "*R* not positive semi-definite."
+            "missing", "*R* not properly defined."
 
 Remarks
 ------------
@@ -51,6 +52,8 @@ Remarks
    where :math:`z` denotes :math:`K` -dimensional multivariate normal distribution, ``FIX ME`` denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
 
 -  The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the diagonal entries for covariance matrix :math:`\Sigma` on its diagonal.
+
+.. DANGER:: FIX EQUATIONS
 
 Examples
 ----------------

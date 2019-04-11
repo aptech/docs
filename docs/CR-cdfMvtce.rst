@@ -11,14 +11,15 @@ Format
 .. function:: cdfMvtce(ctl, x, R, m, v)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
+
+        .. csv-table::
+            :widths: auto
+    
+            "ctl.maxEvaluations", "scalar, maximum number of evaluations."
+            "ctl.absErrorTolerance", "scalar absolute error tolerance."
+            "ctl.relErrorTolerance", "tolerance."
+
     :type ctl: struct
-
-    .. csv-table::
-        :widths: auto
-
-        "ctl.maxEvaluations", "scalar, maximum number of evaluations."
-        "ctl.absErrorTolerance", "scalar absolute error tolerance."
-        "ctl.relErrorTolerance", "tolerance."
 
     :param x: abscissae. *K* is the dimension of multivariate Student's t distribution. *N* is the number of MVT cdf integrals
     :type x: NxK matrix
@@ -38,14 +39,14 @@ Format
 
     :returns: retcode (*Nx1 vector*), return codes.
 
-    .. csv-table::
-        :widths: auto
-
-        "0", "normal completion with err < ctl.absErrorTolerance."
-        "1", "err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded; increase ctl.maxEvaluations to decrease error."
-        "2", ":math:`K > 100` or :math:`K < 1`."
-        "3", "*R* not positive semi-definite."
-        "missing", "*R* not properly defined."
+        .. csv-table::
+            :widths: auto
+    
+            "0", "normal completion with err < ctl.absErrorTolerance."
+            "1", "err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded; increase ctl.maxEvaluations to decrease error."
+            "2", ":math:`K > 100` or :math:`K < 1`."
+            "3", "*R* not positive semi-definite."
+            "missing", "*R* not properly defined."
 
 Remarks
 ------------

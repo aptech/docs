@@ -17,10 +17,10 @@ Format
 
     :returns: str (string), containing the elapsed time in the form:
 
-    .. csv-table::
-        :widths: auto
-
-        "# days", "# hours", "# minutes", "#,## seconds"
+        .. csv-table::
+            :widths: auto
+    
+            "# days", "# hours", "# minutes", "#,## seconds"
 
 Examples
 ----------------

@@ -15,14 +15,15 @@ Format
     :type filename: string
 
     :param mode: containing one of the following:
+
+        .. csv-table::
+            :widths: auto
+    
+            "\"read\"", "Open file for read only."
+            "\"append\"", "Open file for append. The file pointer will start at the end of the file to add new rows."
+            "\"update\"", "Open file for update. Allows reading and writing. The file pointer will start at the first row."
+
     :type mode: string 
-
-    .. csv-table::
-        :widths: auto
-
-        "\"read\"", "Open file for read only."
-        "\"append\"", "Open file for append. The file pointer will start at the end of the file to add new rows."
-        "\"update\"", "Open file for update. Allows reading and writing. The file pointer will start at the first row."
 
     :returns: fh (*scalar*), file handle.
 

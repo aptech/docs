@@ -26,14 +26,14 @@ Format
         Error returns are controlled by the low bit of
         the trap flag:
 
-    .. csv-table::
-        :widths: auto
-
-        "trap 0", "terminate with error message"
-        "trap 1", "return scalar negative integer"
-        "", "-1", "can't open input file"
-        "", "-2", "can't open output file"
-        "", "-3", "disk full"
+        .. csv-table::
+            :widths: auto
+    
+            "trap 0", "terminate with error message"
+            "trap 1", "return scalar negative integer"
+            "", "-1", "can't open input file"
+            "", "-2", "can't open output file"
+            "", "-3", "disk full"
 
 Remarks
 -------

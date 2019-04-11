@@ -20,12 +20,12 @@ Format
         structures, where *N* is the number of variables in
         *filename*, containing the following members:
 
-    .. csv-table::
-        :widths: auto
-
-        "*vtab[i].name*", "string, name of variable."
-        "*vtab[i].type*", "scalar, type of variable."
-        "*vtab[i].orders*", "Mx1 vector or scalar, orders of the variable."
+        .. csv-table::
+            :widths: auto
+    
+            "*vtab[i].name*", "string, name of variable."
+            "*vtab[i].type*", "scalar, type of variable."
+            "*vtab[i].orders*", "Mx1 vector or scalar, orders of the variable."
 
 Remarks
 -------

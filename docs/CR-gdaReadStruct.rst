@@ -24,16 +24,16 @@ Format
 
     :returns: retcode (*scalar*), 0 if successful, otherwise, any of the following error codes:
 
-    .. csv-table::
-        :widths: auto
-
-        "1", "Null file name."
-        "2", "File open error."
-        "4", "File read error."
-        "5", "Invalid file type."
-        "8", "Variable not found."
-        "10", "File contains no variables."
-        "14", "File too large to be read on current platform."
+        .. csv-table::
+            :widths: auto
+    
+            "1", "Null file name."
+            "2", "File open error."
+            "4", "File read error."
+            "5", "Invalid file type."
+            "8", "Variable not found."
+            "10", "File contains no variables."
+            "14", "File too large to be read on current platform."
 
 Remarks
 -------

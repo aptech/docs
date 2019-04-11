@@ -14,14 +14,12 @@ Format
     :param fp: file handle of an open data set.
     :type fp: scalar
 
-    :param namein: names
-        of selected columns in the data set. If set to a null string, columns
-        are selected using indxin
+    :param namein: names of selected columns in the data set. If set to a null string, columns
+        are selected using *indxin*
     :type namein: Nx1 string array
 
-    :param indxin: indices of selected
-        columns in the data set. If set to 0, columns are selected using
-        namein.
+    :param indxin: indices of selected columns in the data set. If set to 0, columns are selected using
+        *namein*.
     :type indxin: Nx1 vector
 
     :returns: name (*Nx1 string array*), the names of the selected columns.
@@ -33,10 +31,10 @@ Format
 Remarks
 -------
 
-If namein is a null string and indxin is 0, all columns of the data set
+If *namein* is a null string and indxin is 0, all columns of the data set
 will be selected.
 
-If an error occurs, indx will be set to a scalar error code. The
+If an error occurs, *indx* will be set to a scalar error code. The
 following error codes are possible:
 
 +---+-----------------------------------------------------+
@@ -48,10 +46,10 @@ following error codes are possible:
 +---+-----------------------------------------------------+
 
 
-
 Source
 ------
 
 indices.src
 
 .. seealso:: Functions :func:`indicesfn`, :func:`indices`
+

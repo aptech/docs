@@ -19,23 +19,25 @@ Format
         - array
         - sparse matrix
         - struct structure_type.
-              if *type* is not specified, matrix is assumed. Set *type* to string to initialize a string or string array variable.
+
+        if *type* is not specified, matrix is assumed. Set *type* to string to initialize a string or string array variable.
 
     :param symbol: the name of the symbol being declared
     :type symbol: 
 
     :param aop: the type of assignment to be made
+
+        .. csv-table::
+            :widths: auto
+    
+            "``=``", "if not initialized, initialize.If already initialized, reinitialize."
+            "``!=``", "if not initialized, initialize.If already initialized, reinitialize."
+            "``:=``", "if not initialized, initialize.If already initialized, redefinition error."
+            "``?=``", "if not initialized, initialize.If already initialized, leave as is."
+    
+        "If *aop* is specified, *clist* must be also."
+
     :type aop: literal
-
-    .. csv-table::
-        :widths: auto
-
-        "``=``", "if not initialized, initialize.If already initialized, reinitialize."
-        "``!=``", "if not initialized, initialize.If already initialized, reinitialize."
-        "``:=``", "if not initialized, initialize.If already initialized, redefinition error."
-        "``?=``", "if not initialized, initialize.If already initialized, leave as is."
-
-    "If *aop* is specified, *clist* must be also."
 
     :param clist: a list of constants to assign to *symbol*
         If *aop* *clist* is not specified, *symbol* is initialized as a scalar 0 or a null string.
@@ -239,7 +241,7 @@ produces:
 
 *ms* is a :code:`mystruct` structure, with its members set as follows:
 
-.. list-table:
+.. list-table::
     :widths: auto
 
     * - ms.m
@@ -254,3 +256,4 @@ produces:
       - empty sparse matrix
 
 .. seealso:: Functions `let`, `external`
+

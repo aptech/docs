@@ -21,15 +21,15 @@ Format
 
     :returns: retcode (*scalar*), the return code:
 
-    .. csv-table::
-        :widths: auto
-
-        "1", "Norm of the scaled function value is less than__Tol. x given is an approximate root of F(x)(unless __Tol is too large)."
-        "2", "The scaled distance between the last two steps isless than the step-tolerance (_eqs_StepTol).x may be an approximate root of F(x), but it isalso possible that the algorithm is making very slow progress and is not near a root, or the step-tolerance is too large."
-        "3", "The last global step failed to decreasenorm2(F(x)) sufficiently; either x is close to aroot of F(x) and no more accuracy is possible, oran incorrectly coded analytic Jacobian is being used, or the secant approximation to the Jacobianis inaccurate, or the step-tolerance is too large."
-        "4", "Iteration limit exceeded."
-        "5", "Five consecutive steps of maximum step lengthhave been taken; either norm2(F(x))asymptotes from above to a finite value in some direction or the maximum step length is too small."
-        "6", "x seems to be an approximate local minimizer ofnorm2(F(x)) that is not a root of F(x).To find a root of F(x), restart eqSolvefrom a different region."
+        .. csv-table::
+            :widths: auto
+    
+            "1", "Norm of the scaled function value is less than__Tol. x given is an approximate root of F(x)(unless __Tol is too large)."
+            "2", "The scaled distance between the last two steps isless than the step-tolerance (_eqs_StepTol).x may be an approximate root of F(x), but it isalso possible that the algorithm is making very slow progress and is not near a root, or the step-tolerance is too large."
+            "3", "The last global step failed to decreasenorm2(F(x)) sufficiently; either x is close to aroot of F(x) and no more accuracy is possible, oran incorrectly coded analytic Jacobian is being used, or the secant approximation to the Jacobianis inaccurate, or the step-tolerance is too large."
+            "4", "Iteration limit exceeded."
+            "5", "Five consecutive steps of maximum step lengthhave been taken; either norm2(F(x))asymptotes from above to a finite value in some direction or the maximum step length is too small."
+            "6", "x seems to be an approximate local minimizer ofnorm2(F(x)) that is not a root of F(x).To find a root of F(x), restart eqSolvefrom a different region."
 
 Global Input
 ------------

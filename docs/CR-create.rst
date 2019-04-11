@@ -12,21 +12,21 @@ Format
 .. function:: create [[vflag]][[-w32]][[complex]] fh=filename with vnames, col, dtyp, vtyp 
 
     :param vflag: version flag.
+
+        .. csv-table::
+            :widths: auto
+    
+            "-v89", "obsoleted, use -v96."
+            "-v92", "obsoleted, use-v96."
+            "-v96", "supported on all platforms."
+
+        For details on the various versions, see Foreign Language Interface, Chapter  1. 
+        The default format can be specified in gauss.cfg by
+        setting the dat_fmt_version configuration variable. The default, v96, should be used.
+
+        .. todo:: FIX LINK TO FLI CHAP 1
+
     :type vflag: literal
-
-    .. csv-table::
-        :widths: auto
-        :align: center
-
-        "-v89", "obsoleted, use -v96."
-        "-v92", "obsoleted, use-v96."
-        "-v96", "supported on all platforms."
-
-    For details on the various versions, see Foreign Language Interface, Chapter  1. 
-    The default format can be specified in gauss.cfg by
-    setting the dat_fmt_version configuration variable. The default, v96, should be used.
-
-    .. todo:: FIX LINK TO FLI CHAP 1
 
     :param filename: filename is the name to be given to the file on the disk.
         The name can include a path if the
@@ -63,27 +63,26 @@ Format
     :param dtyp: the precision used to store the data.
         This is a scalar expression containing 2, 4, or
         8, which is the number of bytes per element.
+
+        .. csv-table::
+            :widths: auto
+    
+            "2", "signed integer"
+            "4", "single precision"
+            "8", "double precision"
+    
+        .. csv-table::
+            :widths: auto
+            :header-rows: 1
+    
+            "Data Type", Digits, Range
+            "integer",4,":math:`-32768 < X < 32768`"
+            "single",6-7,":math:`43x10^{-37} < |X| < 3.37x10^{+38}`"
+            "double",15-16,":math:`19x10^{-307} < |X| < 1.67x10^{-308}`"
+
+        If the integer type is specified, numbers will berounded to the nearest integer as they are writtento the data set. If the data to be written to thefile contains character data, the precision must be 8 or the character information will be lost.
+
     :type dtyp: scalar
-
-    .. csv-table::
-        :widths: auto
-        :align: center
-
-        "2", "signed integer"
-        "4", "single precision"
-        "8", "double precision"
-
-    .. csv-table::
-        :widths: auto
-        :header-rows: 1
-        :align: center
-
-        "Data Type", Digits, Range
-        "integer",4,":math:`-32768 < X < 32768`"
-        "single",6-7,":math:`43x10^{-37} < |X| < 3.37x10^{+38}`"
-        "double",15-16,":math:`19x10^{-307} < |X| < 1.67x10^{-308}`"
-
-    If the integer type is specified, numbers will berounded to the nearest integer as they are writtento the data set. If the data to be written to thefile contains character data, the precision must be 8 or the character information will be lost.
 
     :param vtyp: types of variables.
         The types of the variables
@@ -99,21 +98,21 @@ Format
 .. function:: create [[vflag]][[-w32]][[complex]] fh=filename using comfile
 
     :param vflag: version flag.
+
+        .. csv-table::
+            :widths: auto
+    
+            "-v89", "obsoleted, use -v96."
+            "-v92", "obsoleted, use-v96."
+            "-v96", "supported on all platforms."
+    
+        For details on the various versions, see Foreign Language Interface, Chapter  1. 
+        The default format can be specified in gauss.cfg by
+        setting the dat_fmt_version configuration variable. The default, v96, should be used.
+    
+        .. todo:: FIX LINK TO FLI CHAP 1
+
     :type vflag: literal
-
-    .. csv-table::
-        :widths: auto
-        :align: center
-
-        "-v89", "obsoleted, use -v96."
-        "-v92", "obsoleted, use-v96."
-        "-v96", "supported on all platforms."
-
-    For details on the various versions, see Foreign Language Interface, Chapter  1. 
-    The default format can be specified in gauss.cfg by
-    setting the dat_fmt_version configuration variable. The default, v96, should be used.
-
-    .. todo:: FIX LINK TO FLI CHAP 1
 
     :param filename: filename is the name to be given to the file on the disk.
         The name can include a path if the
@@ -151,22 +150,21 @@ Format
         says that there are 10 variables and that they are to be named *xx01* through *xx10*. The numeric
         part of the names will be padded on the left with zeros as necessary so the names will sort correctly:
 
-    .. csv-table::
-        :widths: auto
-        :align: center
-
-        "xx1 ... xx9","1-9 names"
-        "xx01 ... xx10","10-99 names"
-        "xx001 ... xx100","100-999 names"
-        "xx0001 ... xx1000","1000-8100 names"
-
-    If *str* is omitted, the variable prefix will be "X". When *outvar* is used, *varlist* is a list 
-    of variable names, separated by spaces or commas. For instance: :code:`outvar x1, x2, zed;` specifies 
-    that there are to be 3 variables per row of the data set, and that they are to be named ``X1, X2, ZED``, 
-    in that :code:`order.outtyp` specifies the precision. It can be a constant: 2, 4, or 8, or it can be 
-    a literal: ``I, F, or D``. For an explanation of the available data types, see dtyp in ``create... with...`` 
-    previously. The *outtyp* statement does not have to be included. If it is not, then all data will 
-    be stored in 4 bytes as single precision floating point numbers.
+        .. csv-table::
+            :widths: auto
+    
+            "xx1 ... xx9","1-9 names"
+            "xx01 ... xx10","10-99 names"
+            "xx001 ... xx100","100-999 names"
+            "xx0001 ... xx1000","1000-8100 names"
+    
+        If *str* is omitted, the variable prefix will be "X". When *outvar* is used, *varlist* is a list 
+        of variable names, separated by spaces or commas. For instance: :code:`outvar x1, x2, zed;` specifies 
+        that there are to be 3 variables per row of the data set, and that they are to be named ``X1, X2, ZED``, 
+        in that :code:`order.outtyp` specifies the precision. It can be a constant: 2, 4, or 8, or it can be 
+        a literal: ``I, F, or D``. For an explanation of the available data types, see dtyp in ``create... with...`` 
+        previously. The *outtyp* statement does not have to be included. If it is not, then all data will 
+        be stored in 4 bytes as single precision floating point numbers.
 
     :type comfile: literal or ^string
 

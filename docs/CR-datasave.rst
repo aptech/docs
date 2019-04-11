@@ -13,8 +13,8 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :param x: array, string or string array, data to write to disk.
-    :type x: matrix
+    :param x: data to write to disk.
+    :type x: matrix or array or string or string array
 
     :returns: ret (*scalar*), return code, 0 if successful, or -1 if it is unable to
         write the file.

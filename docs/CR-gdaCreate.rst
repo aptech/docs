@@ -15,23 +15,24 @@ Format
     :type filename: string
 
     :param overwrite: one of the following:
+
+        .. csv-table::
+            :widths: auto
+    
+            "0", "error out if file already exists."
+            "1", "overwrite file if it already exists."
+
     :type overwrite: scalar
-
-    .. csv-table::
-        :widths: auto
-
-        "0", "error out if file already exists."
-        "1", "overwrite file if it already exists."
 
     :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
 
-    .. csv-table::
-        :widths: auto
-
-        "1", "Null file name."
-        "3", "File write error."
-        "6", "File already exists."
-        "7", "Cannot create file."
+        .. csv-table::
+            :widths: auto
+    
+            "1", "Null file name."
+            "3", "File write error."
+            "6", "File already exists."
+            "7", "Cannot create file."
 
 Remarks
 -------

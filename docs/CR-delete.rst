@@ -12,19 +12,20 @@ Format
 .. function:: delete [-flags] symbol_list 
 
     :param flags: specify the type(s) of symbols to be deleted
-    :type flags: 
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            "p", "procedures"
+            "k", "keywords"
+            "f", "fn functions"
+            "m", "matrices"
+            "s", "strings"
+            "g", "only procedures with global references"
+            "l", "only procedures with all local references"
+            "n", "no pause for confirmation"
 
-        "p", "procedures"
-        "k", "keywords"
-        "f", "fn functions"
-        "m", "matrices"
-        "s", "strings"
-        "g", "only procedures with global references"
-        "l", "only procedures with all local references"
-        "n", "no pause for confirmation"
+    :type flags: literal
 
     :param symbol: name of symbol to be deleted. If symbol ends in an asterisk, all symbols matching the leading characters will be deleted.
     :type symbol: literal

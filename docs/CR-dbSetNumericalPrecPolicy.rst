@@ -15,13 +15,14 @@ Format
     :type db_id: scalar
 
     :param prec_policy: 
+
+        .. csv-table::
+            :widths: auto
+    
+            "0", "Strings will be used to preserve precision."
+            "1", "Force 32-bit integer values."
+            "2", "Force 64-bit integer values."
+            "4", "Force double values. This is the default policy."
+
     :type prec_policy: scalar
-
-    .. csv-table::
-        :widths: auto
-
-        "0", "Strings will be used to preserve precision."
-        "1", "Force 32-bit integer values."
-        "2", "Force 64-bit integer values."
-        "4", "Force double values. This is the default policy."
 

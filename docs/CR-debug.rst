@@ -7,15 +7,19 @@ Purpose
 
 Runs a program under the source level debugger.
 
+.. index:: debug
+
 Format
 ----------------
-.. function:: debug filename
 
-    :param filename: name of file to debug.
-    :type filename: Literal
+::
+
+    debug filename;
+
+:filename: (*literal*), name of file to debug.
 
 Remarks
 -------
 
-See _Debugging, Section 1.1.
+See Debugging, Section 1.1.
 

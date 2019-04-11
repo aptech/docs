@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: indsav(what, where)
 
-    :param what: 
-    :type what: Nx1 string array which contains the values to be found in vector  where
+    :param what: contains the values to be found in vector *where*
+    :type what: Nx1 string array
 
-    :param where: 
-    :type where: Mx1 string array to be searched for the corresponding elements of  what
+    :param where: searched for the corresponding elements of *what*
+    :type where: Mx1 string array
 
-    :returns: indx (*Nx1 vector of indices*), the values of  what in  where.
+    :returns: indx (*Nx1 vector of indices*), the values of *what* in *where*.
 
 
 

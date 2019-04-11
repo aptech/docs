@@ -25,10 +25,10 @@ Format
 Remarks
 -------
 
-:func:`dllcall` works in conjunction with :func:`dlibrary`.  
-:func:`dlibrary` is used to link shared libraries into GAUSS  
+:func:`dllcall` works in conjunction with `dlibrary`.  
+`dlibrary` is used to link shared libraries into GAUSS  
 :func:`dllcall` is used to access the functions contained in those shared libraries. :func:`dllcall` searches the shared libraries  
-(see :func:`dlibrary` for an explanation of the search order) for a function named func, and calls the first instance it finds.  
+(see `dlibrary` for an explanation of the search order) for a function named func, and calls the first instance it finds.  
 The default shared libraries are searched last.
 
 *func* should be written to:
@@ -68,5 +68,5 @@ inside *func* assign the results to them before returning.
 
 For more information, see **Foreign Language Interface**, Chapter 1.
 
-.. seealso:: :func:`dlibrary`, :func:`sysstate`
+.. seealso:: `dlibrary`, :func:`sysstate`
 

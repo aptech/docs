@@ -16,16 +16,16 @@ Format
 
     :returns: d (*Nx1 vector*), integers indicating day of week of each date:
 
-    .. csv-table::
-        :widths: auto
-
-        "1", "Sunday"
-        "2", "Monday"
-        "3", "Tuesday"
-        "4", "Wednesday"
-        "5", "Thursday"
-        "6", "Friday"
-        "7", "Saturday"
+        .. csv-table::
+            :widths: auto
+    
+            "1", "Sunday"
+            "2", "Monday"
+            "3", "Tuesday"
+            "4", "Wednesday"
+            "5", "Thursday"
+            "6", "Friday"
+            "7", "Saturday"
 
 Remarks
 -------

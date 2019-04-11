@@ -24,16 +24,17 @@ Format
     :type ver: 2x1 numeric vector
 
     :param header: containing one or more of the following letters:
+
+        .. csv-table::
+            :widths: auto
+    
+            "t", "title is to be printed"
+            "l", "lines are to bracket the title"
+            "d", "a date and time is to be printed"
+            "v", "version number of program is to be printed"
+            "f", "file name being analyzed is to be printed"
+
     :type header: string
-
-    .. csv-table::
-        :widths: auto
-
-        "t", "title is to be printed"
-        "l", "lines are to bracket the title"
-        "d", "a date and time is to be printed"
-        "v", "version number of program is to be printed"
-        "f", "file name being analyzed is to be printed"
 
     :param title: title for header.
     :type title: string

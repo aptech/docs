@@ -73,92 +73,93 @@ Format
     :type link: string
 
     :param ctl: For an instance named *ct1*, the members are:
+
+        .. list-table::
+            :widths: auto
+    
+            * - *ctl.varNames*
+              - :math:`(k+1) \times 1` string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
+            * - *ctl.categoryIdx*
+              - 1×kd matrix, kd≤k. *ctl.categoryIdx* specifies the categorical variable columns to be used in the analysis.	
+                e.g. If *ctl.categoryIdx* = 0, then it means no categorical variable; 
+                if *ctl.categoryIdx* = :code:`{ 1 4 }`, then it means that column 1 and column 4 in *x* matrix are categorical variables. 
+              
+                .. NOTE:: :func:`glm` function uses the smallest number as the reference category in each categorical variable.
+            * - *ctl.link*
+              - string, the link function. Options include:
+    
+                  - :code:`"identity"`
+                  - :code:`"inverse"`
+                  - :code:`"inverse squared"`
+                  - :code:`"ln"`
+                  - :code:`"logit"`
+                  - :code:`"probit"`
+                  - :code:`"cloglog"`
+                  - :code:`"canonical"`
+                    
+                The default link is the canonical link for each distribution.
+            * - *ctl.constantFlag*
+              - scalar, flag of constant term. The negative number means no intercept model, e.g. :code:`"-1"`. This member will be ignored if a formula string is used.
+            * - *ctl.printFlag*
+              - string, :code:`"Y"` or :code:`"N"`, flag of print to screen. The :code:`"N"` means no printing.
+            * - *ctl.maxIters*
+              - scalar, maximum iterations. The default *ctl.maxIters* is 25.
+            * - *ctl.eps*
+              - scalar, convergence precision. The default is 1e-8.
+    
+        .. DANGER:: Fix equations above
+
     :type ctl: An instance of a :class:`glmControl` structure
-
-    .. list-table::
-        :widths: auto
-
-        * - *ctl.varNames*
-          - :math:`(k+1) \times 1` string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
-        * - *ctl.categoryIdx*
-          - 1×kd matrix, kd≤k. *ctl.categoryIdx* specifies the categorical variable columns to be used in the analysis.	
-            e.g. If *ctl.categoryIdx* = 0, then it means no categorical variable; 
-            if *ctl.categoryIdx* = :code:`{ 1 4 }`, then it means that column 1 and column 4 in *x* matrix are categorical variables. 
-          
-            .. NOTE:: :func:`glm` function uses the smallest number as the reference category in each categorical variable.
-        * - *ctl.link*
-          - string, the link function. Options include:
-
-              - :code:`"identity"`
-              - :code:`"inverse"`
-              - :code:`"inverse squared"`
-              - :code:`"ln"`
-              - :code:`"logit"`
-              - :code:`"probit"`
-              - :code:`"cloglog"`
-              - :code:`"canonical"`
-                
-            The default link is the canonical link for each distribution.
-        * - *ctl.constantFlag*
-          - scalar, flag of constant term. The negative number means no intercept model, e.g. :code:`"-1"`. This member will be ignored if a formula string is used.
-        * - *ctl.printFlag*
-          - string, :code:`"Y"` or :code:`"N"`, flag of print to screen. The :code:`"N"` means no printing.
-        * - *ctl.maxIters*
-          - scalar, maximum iterations. The default *ctl.maxIters* is 25.
-        * - *ctl.eps*
-          - scalar, convergence precision. The default is 1e-8.
-
-    .. DANGER:: Fix equations above
 
     :returns: out (*struct*) instance of :class:`glmOut` struct structure. For an instance named *out*, the members are:
 
-    .. list-table::
-        :widths: auto
-
-        * - *out.modelInfo*
-          - An instance of a :class:`glmModelInfo` structure. The members are:
-
-              :out.modelInfo.distribution: string, the distribution of dependent variable
-              :out.modelInfo.link: string, the link function used in the procedure
-              :out.modelInfo.yName: string, the label of dependent variable
-              :out.modelInfo.xNames: string array, the label of independent variables with intercept and dummy variables for each categorical variable
-              :out.modelInfo.varNames: string array, the label of variables
-              :out.modelInfo.n: scalar, the number of valid cases used in the analysis
-              :out.modelInfo.df: scalar, degree of freedom
-
-        * - *out.modelSelect*
-          - An instance of a :class:`glmModelSelection` structure. The members are:
-
-              :out.modelSelect.deviance: scalar, the residual deviance from the fit model. The greater the deviance, the poorer the fit.
-              :out.modelSelect.pearson: scalar, the Pearson Chi-square Statistics. Pearson statistic is an alternative to the deviance for testing the fitof certain GLMs.
-              :out.modelSelect.LL: scalar, the log likelihood of the fit model
-              :out.modelSelect.dispersion: scalar, the estimate of the dispersion parameter by Pearson statistic and degree of freedom. It is fixed at 1 when the distribution is "poisson" or "binomial".
-              :out.modelSelect.aic: scalar, Akaike information criterion (AIC)
-              :out.modelSelect.bic: scalar, Bayesian information criterion (BIC)
-        * - *out.coef*
-          - An instance of a :class:`glmParameters` structure. The members are:
-
-              :out.coef.estimates: matrix, the estimate value of parameters
-              :out.coef.se: matrix, the standard error of parameters
-              :out.coef.testStat: matrix, the statistic value of parameters
-              :out.coef.testStatName: string, the name of test statistic
-              :out.coef.pvalue: scalar, the p_value of parameters
-        * - *out.yhat*
-          - scalar, the fitted mean values for response variable
-        * - *out.residuals*
-          - matrix, residuals on the linear predictor scale, equal to the adjusted response value minus the fitted linear predictors
-        * - *out.covmat*
-          - matrix, the covariance matrix for the parameters
-        * - *out.corrmat*
-          - matrix, the correlation matrix for the parameters
-        * - *out.constantFlag*
-          - string, flag of constant term.
-        * - *out.iteration*
-          - scalar, the number of iterations of IWLS used
-        * - *out.maxIters*
-          - scalar, the maximum iterations
-        * - *out.eps*
-          - scalar, convergence precision
+        .. list-table::
+            :widths: auto
+    
+            * - *out.modelInfo*
+              - An instance of a :class:`glmModelInfo` structure. The members are:
+    
+                  :out.modelInfo.distribution: string, the distribution of dependent variable
+                  :out.modelInfo.link: string, the link function used in the procedure
+                  :out.modelInfo.yName: string, the label of dependent variable
+                  :out.modelInfo.xNames: string array, the label of independent variables with intercept and dummy variables for each categorical variable
+                  :out.modelInfo.varNames: string array, the label of variables
+                  :out.modelInfo.n: scalar, the number of valid cases used in the analysis
+                  :out.modelInfo.df: scalar, degree of freedom
+    
+            * - *out.modelSelect*
+              - An instance of a :class:`glmModelSelection` structure. The members are:
+    
+                  :out.modelSelect.deviance: scalar, the residual deviance from the fit model. The greater the deviance, the poorer the fit.
+                  :out.modelSelect.pearson: scalar, the Pearson Chi-square Statistics. Pearson statistic is an alternative to the deviance for testing the fitof certain GLMs.
+                  :out.modelSelect.LL: scalar, the log likelihood of the fit model
+                  :out.modelSelect.dispersion: scalar, the estimate of the dispersion parameter by Pearson statistic and degree of freedom. It is fixed at 1 when the distribution is "poisson" or "binomial".
+                  :out.modelSelect.aic: scalar, Akaike information criterion (AIC)
+                  :out.modelSelect.bic: scalar, Bayesian information criterion (BIC)
+            * - *out.coef*
+              - An instance of a :class:`glmParameters` structure. The members are:
+    
+                  :out.coef.estimates: matrix, the estimate value of parameters
+                  :out.coef.se: matrix, the standard error of parameters
+                  :out.coef.testStat: matrix, the statistic value of parameters
+                  :out.coef.testStatName: string, the name of test statistic
+                  :out.coef.pvalue: scalar, the p_value of parameters
+            * - *out.yhat*
+              - scalar, the fitted mean values for response variable
+            * - *out.residuals*
+              - matrix, residuals on the linear predictor scale, equal to the adjusted response value minus the fitted linear predictors
+            * - *out.covmat*
+              - matrix, the covariance matrix for the parameters
+            * - *out.corrmat*
+              - matrix, the correlation matrix for the parameters
+            * - *out.constantFlag*
+              - string, flag of constant term.
+            * - *out.iteration*
+              - scalar, the number of iterations of IWLS used
+            * - *out.maxIters*
+              - scalar, the maximum iterations
+            * - *out.eps*
+              - scalar, convergence precision
 
 Examples
 ----------------

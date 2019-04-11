@@ -16,35 +16,37 @@ Format
     :type dataset: string
 
     :param var1: variable name or index.
-        This can be either the name of the variable, or the column index of the variable.If null or 0, the last variable in the data set will be used.
+
+        This can be either the name of the variable, or the column index of the variable.
+        
+        If null or 0, the last variable in the data set will be used.
+
     :type var1: string or scalar
 
     :param var2: a character vector of names or a numeric vector of column indices.
-        If scalar 0, all variables in the data set except the
-        one associated with  var1 will be selected.
+        If scalar 0, all variables in the data set except the one associated with *var1* will be selected.
     :type var2: Nx1 vector
 
-    :returns: name1 (*scalar character matrix*) containing the name of the variable associated with
-        var1.
+    :returns: name1 (*scalar character matrix*) containing the name of the variable associated with *var1*.
 
-    :returns: indx1 (*scalar*), the column index of  var1.
+    :returns: indx1 (*scalar*), the column index of *var1*.
 
-    :returns: name2 (*Nx1 character vector*), the names associated with  var2.
+    :returns: name2 (*Nx1 character vector*), the names associated with *var2*.
 
-    :returns: indx2 (*Nx1 numeric vector*), the column indices of  var2.
+    :returns: indx2 (*Nx1 numeric vector*), the column indices of *var2*.
 
 
 
 Remarks
 -------
 
-If an error occurs, indices2 will either return a scalar error code or
-terminate the program with an error message, depending on the trap
-state. If the low order bit of the trap flag is 0, indices2 will
-terminate with an error message. If the low order bit of the trap flag
-is 1, indices2 will return an error code. The value of the trap flag can
-be tested with trapchk; the return from indices2 can be tested with
-scalerr. You only need to check one argument; they will all be the same.
+If an error occurs, :func:`indices2` will either return a scalar error code or
+terminate the program with an error message, depending on the `trap`
+state. If the low order bit of the `trap` flag is 0, :func:`indices2` will
+terminate with an error message. If the low order bit of the `trap` flag
+is 1, :func:`indices2` will return an error code. The value of the `trap` flag can
+be tested with :func:`trapchk`; the return from :func:`indices2` can be tested with
+:func:`scalerr`. You only need to check one argument; they will all be the same.
 The following error codes are possible:
 
 +---+-----------------------------------------------------+

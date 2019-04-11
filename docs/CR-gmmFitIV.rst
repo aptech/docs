@@ -41,81 +41,82 @@ Format
     :type inst_list: string
 
     :param gCtl: Optional argument. An instance of an :class:`gmmControl` structure
+
+        .. list-table::
+            :widths: auto
+    
+            * - gCtl.method
+              - string, GMM method to be used.
+    
+                  :"onestep": One-step GMM
+                  :"twostep": Two-step GMM
+                  :"iterative": Iterative GMM
+                  :"CU": Continuous updating GMM.
+                  
+                Default = :code:`"twostep"`
+            * - gCtl.vceType
+              - string, variance-covariance matrix type.
+    
+                  :"unadj": Unadjusted, non-robust SE.
+                  :"robust": Heteroscedastic robust SE.
+                  :"hac": Heteroscedastic-autocorrelation robust SE. 
+                  
+                Default = :code:`"robust"`
+            * - gCtl.wType
+              - string, type of weight matrix used. Ignored for one-step case.
+    
+                  :"unadj": Unadjusted, non-robust SE.
+                  :"robust": Heteroscedastic robust SE.
+                  :"hac": Heteroscedastic-autocorrelation robust SE.
+                  
+                Default = :code:`"robust"`
+            * - gCtl.hacKernel
+              - string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using :code:`"hac"` weight matrix and/or variance-covariance matrix. 
+                
+                  .. NOTE:: Bandwidth is determined using the Newey-West optimal lag length selection method. 
+    
+                  :"bartlett": Bartlett kernel.
+                  :"parzen": Parzen kernel.
+                  :"quad": Quadraticspectral kernel.
+    
+                Default = ``"bartlett"``
+            * - gCtl.wInitMat
+              - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*.
+            * - gCtl.wInit
+              - string, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Else:
+    
+                  :"identity": Identity matrix.
+                  :"unadj": Weight matrix :math:`1/n*inv(Z'Z)`. Assumes moments are i.i.d. Default = :code:`"unadj"`
+            * - gCtl.gIter
+              - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
+    
+                  :gCtl.gIter.maxIter: scalar, maximum number of iterations. Default = 500.
+                  :gCtl.gIter.paramTol: scalar, tolerance level for convergence based on parameter estimates. Default = 1e-6.
+                  :gCtl.gIter.wTol: scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-6.
+            * - gCtl.noconstant
+              - scalar, specified to indicate if constant is included in model. Only valid if data vector input method is used. Set to 1 to exclude constant from model. Constant is always first parameter in parameter vector. Default = 0 [constant included].For dataset and string formula method to remove constant from model specify :code:`"-1"` as first dependent variable: e.g.: :code:`"y ~ -1 + X1 + X2"`
+            * - gCtl.varNames
+              - string array, dependent variable names. Only used for data vector input case. Default = ``X1, X2, ...``
+            * - gCtl.instNames
+              - string array, instrumental variable names. Only used for data vector input case. Default = ``Z1, Z2, ...``
+
     :type gCtl: struct
-
-    .. list-table::
-        :widths: auto
-
-        * - gCtl.method
-          - string, GMM method to be used.
-
-              :"onestep": One-step GMM
-              :"twostep": Two-step GMM
-              :"iterative": Iterative GMM
-              :"CU": Continuous updating GMM.
-              
-            Default = :code:`"twostep"`
-        * - gCtl.vceType
-          - string, variance-covariance matrix type.
-
-              :"unadj": Unadjusted, non-robust SE.
-              :"robust": Heteroscedastic robust SE.
-              :"hac": Heteroscedastic-autocorrelation robust SE. 
-              
-            Default = :code:`"robust"`
-        * - gCtl.wType
-          - string, type of weight matrix used. Ignored for one-step case.
-
-              :"unadj": Unadjusted, non-robust SE.
-              :"robust": Heteroscedastic robust SE.
-              :"hac": Heteroscedastic-autocorrelation robust SE.
-              
-            Default = :code:`"robust"`
-        * - gCtl.hacKernel
-          - string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using :code:`"hac"` weight matrix and/or variance-covariance matrix. 
-            
-              .. NOTE:: Bandwidth is determined using the Newey-West optimal lag length selection method. 
-
-              :"bartlett": Bartlett kernel.
-              :"parzen": Parzen kernel.
-              :"quad": Quadraticspectral kernel.
-
-            Default = ``"bartlett"``
-        * - gCtl.wInitMat
-          - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*.
-        * - gCtl.wInit
-          - string, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Else:
-
-              :"identity": Identity matrix.
-              :"unadj": Weight matrix :math:`1/n*inv(Z'Z)`. Assumes moments are i.i.d. Default = :code:`"unadj"`
-        * - gCtl.gIter
-          - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
-
-              :gCtl.gIter.maxIter: scalar, maximum number of iterations. Default = 500.
-              :gCtl.gIter.paramTol: scalar, tolerance level for convergence based on parameter estimates. Default = 1e-6.
-              :gCtl.gIter.wTol: scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-6.
-        * - gCtl.noconstant
-          - scalar, specified to indicate if constant is included in model. Only valid if data vector input method is used. Set to 1 to exclude constant from model. Constant is always first parameter in parameter vector. Default = 0 [constant included].For dataset and string formula method to remove constant from model specify :code:`"-1"` as first dependent variable: e.g.: :code:`"y ~ -1 + X1 + X2"`
-        * - gCtl.varNames
-          - string array, dependent variable names. Only used for data vector input case. Default = ``X1, X2, ...``
-        * - gCtl.instNames
-          - string array, instrumental variable names. Only used for data vector input case. Default = ``Z1, Z2, ...``
 
     :returns: gOut (*struct*) instance of :class:`arimaOut` struct containing the following members:
 
-    .. csv-table::
-        :widths: auto
-
-        "gOut.paramEst", "column vector of final estimates. Constant, if included in model, is the first element."
-        "gOut.wFinal", "matrix, final weighting matrix."
-        "gOut.covPar", "matrix, estimated variance-covariance matrix."
-        "gOut.numParams", "scalar, number of parameters estimated in model."
-        "gOut.numMoments", "scalar, number of moments."
-        "gOut.numObs", "scalar, number of observations."
-        "gOut.numInstruments", "scalar, number of instruments."
-        "gOut.numMoments", "scalar, number of moments."
-        "gOut.JStat", "scalar, Hansen statistic of overidentification."
-        "gOut.df", "scalar, degrees of freedom."
+        .. csv-table::
+            :widths: auto
+    
+            "gOut.paramEst", "column vector of final estimates. Constant, if included in model, is the first element."
+            "gOut.wFinal", "matrix, final weighting matrix."
+            "gOut.covPar", "matrix, estimated variance-covariance matrix."
+            "gOut.numParams", "scalar, number of parameters estimated in model."
+            "gOut.numMoments", "scalar, number of moments."
+            "gOut.numObs", "scalar, number of observations."
+            "gOut.numInstruments", "scalar, number of instruments."
+            "gOut.numMoments", "scalar, number of moments."
+            "gOut.JStat", "scalar, Hansen statistic of overidentification."
+            "gOut.df", "scalar, degrees of freedom."
 
 Remarks
 -------

@@ -17,18 +17,17 @@ Format
     :type offs: scalar
 
     :param base: base position.
+
+        .. csv-table::
+            :widths: auto
+    
+            "0", "beginning of file."
+            "1", "current position of file pointer."
+            "2", "end of file."
+
     :type base: scalar
 
-    .. csv-table::
-        :widths: auto
-
-        "0", "beginning of file."
-        "1", "current position of file pointer."
-        "2", "end of file."
-
     :returns: ret (*scalar*), 0 if successful, 1 if not.
-
-
 
 Remarks
 -------

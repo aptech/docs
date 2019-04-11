@@ -5,8 +5,7 @@ combinated
 Purpose
 ----------------
 
-Writes combinations of N things taken K
-at a time to a GAUSS data set.
+Writes combinations of *N* things taken *K* at a time to a GAUSS data set.
 
 Format
 ----------------
@@ -16,25 +15,25 @@ Format
     :type fname: string
 
     :param vname: names of columns in data set. If 1x1 string, names will have column number appended. If null string, names will
-        be X1, X2, ...
+        be ``X1, X2, ...``
     :type vname: 1x1 or Kx1 string array
 
     :param N: scalar.
     :type N: scalar
 
-    :param K: 
+    :param K: count
     :type K: scalar
 
     :returns: ret (*scalar*), if data set was successfully written,
         *ret* = number of rows written to data set. Otherwise,
         one of the following:
 
-    .. csv-table::
-        :widths: auto
-
-        "0", "file already exists."
-        "-1", "data set couldn't be created."
-        "-n", "the (n-1)th write to thedata set failed."
+        .. csv-table::
+            :widths: auto
+    
+            "0", "file already exists."
+            "-1", "data set couldn't be created."
+            "-n", "the (n-1)th write to thedata set failed."
 
 Remarks
 -------

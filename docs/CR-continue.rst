@@ -7,9 +7,14 @@ Purpose
 
 Jumps to the top of a `do` or `for` loop.
 
+.. index:: continue
+
 Format
 ----------------
-.. function:: continue
+
+::
+
+    continue;
 
 Remarks
 ------------
@@ -38,7 +43,7 @@ Examples
        endfor;
     endfor;
 
-Before the loops, x looks like:
+Before the loops, *x* looks like:
 
 ::
 
@@ -47,7 +52,7 @@ Before the loops, x looks like:
     0.14056238       0.11221419       0.91500922       -2.2910169 
     1.4278412      -0.96476892       0.22852569       -1.6014053
 
-After the loops above, x looks like:
+After the loops above, *x* looks like:
 
 ::
 

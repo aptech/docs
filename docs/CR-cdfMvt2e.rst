@@ -4,21 +4,22 @@ cdfMvt2e
 
 Purpose
 ----------------
-Computes multivariate Student's t cumulative distribution function with error management over ``[a,b]``.
+Computes multivariate Student's t cumulative distribution function with error management over :math:`[a, b]`.
 
 Format
 ----------------
 .. function:: cdfMvt2e(ctl, a, b, R, m, v)
 
-    :param ctl: 
-    :type ctl: instance of a cdfmControl structure with members
+    :param ctl: instance of a :class:`cdfmControl` structure with members
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            "ctl.maxEvaluations", "scalar, maximum number of evaluations."
+            "ctl.absErrorTolerance", "scalar absolute error tolerance."
+            "ctl.relErrorTolerance", "tolerance."
 
-        "ctl.maxEvaluations", "scalar, maximum number of evaluations."
-        "ctl.absErrorTolerance", "scalar absolute error tolerance."
-        "ctl.relErrorTolerance", "tolerance."
+    :type ctl: struct
 
     :param a: lower limits. *K* is the dimension of multivariate Student's t distribution. *N* is the number of MVT cdf integrals.
     :type a: NxK matrix
@@ -41,14 +42,14 @@ Format
 
     :returns: retcode (*Nx1 vector*), return codes.
 
-    .. csv-table::
-        :widths: auto
-
-        "0", "normal completion with err < ctl.absErrorTolerance."
-        "1", "err  >  ctl.absErrorTolerance and ctl.maxEvaluations exceeded; increase ctl.maxEvaluations to decrease error."
-        "2", ":math:`K > 100` or :math:`K < 1`."
-        "3", "*R* not positive semi-definite."
-        "missing", "*R* not properly defined."
+        .. csv-table::
+            :widths: auto
+    
+            "0", "normal completion with err < ctl.absErrorTolerance."
+            "1", "err  >  ctl.absErrorTolerance and ctl.maxEvaluations exceeded; increase ctl.maxEvaluations to decrease error."
+            "2", ":math:`K > 100` or :math:`K < 1`."
+            "3", "*R* not positive semi-definite."
+            "missing", "*R* not properly defined."
 
 Remarks
 ------------
@@ -70,7 +71,7 @@ Remarks
    Another form of non-central multivariate Student's t distribution cdf
    is
 
-   .. TODO:: FIX ME
+.. DANGER:: FIX EQUATIONS
 
 
 -  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the

@@ -14,16 +14,16 @@ Format
 .. function:: fonts(str)
 
     :param str:  The following fonts are available:
-    :type str: string or character vector containing the names
-        of fonts to be used in the plot
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            "Simplex", "standard sans serif font."
+            "Simgrma", "Simplex greek, math."
+            "Microb", "bold and boxy."
+            "Complex", "standard font with serif."
 
-        "Simplex", "standard sans serif font."
-        "Simgrma", "Simplex greek, math."
-        "Microb", "bold and boxy."
-        "Complex", "standard font with serif."
+    :type str: string or character vector containing the names of fonts to be used in the plot
 
 Remarks
 -------

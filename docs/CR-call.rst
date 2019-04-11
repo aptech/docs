@@ -9,10 +9,15 @@ Calls a function or procedure when the returned
 value is not needed and can be ignored, or when the
 procedure is defined to return nothing.
 
+.. index:: call
+
 Format
 ----------------
-.. function:: call function_name
-              call function_name(argument_list)
+
+::
+
+    call function_name;
+    call function_name(argument_list);
 
 Remarks
 -------
@@ -21,7 +26,7 @@ This is useful when you need to execute a function or procedure and do
 not need the value that it returns. It can also be used for calling
 procedures that have been defined to return nothing.
 
-function_name can be any intrinsic GAUSS function, a procedure (proc),
+*function_name* can be any intrinsic GAUSS function, a procedure (`proc`),
 or any valid expression.
 
 Examples
@@ -42,5 +47,5 @@ result of :func:`chol` is discarded and *detl* is used to
 retrieve the determinant that was computed during
 the call to :func:`chol`.
 
-.. seealso:: Functions `proc`
+.. seealso:: keyword `proc`
 

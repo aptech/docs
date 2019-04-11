@@ -11,14 +11,15 @@ Format
 .. function:: cdfMvn2e(ctl, a, b, R, m)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members 
+
+        .. csv-table::
+            :widths: auto
+    
+            "ctl.maxEvaluations", "scalar, maximum number of evaluations."
+            "ctl.absErrorTolerance", "scalar absolute error tolerance."
+            "ctl.relative", "error tolerance."
+
     :type ctl: struct
-
-    .. csv-table::
-        :widths: auto
-
-        "ctl.maxEvaluations", "scalar, maximum number of evaluations."
-        "ctl.absErrorTolerance", "scalar absolute error tolerance."
-        "ctl.relative", "error tolerance."
 
     :param a: lower limits.
     :type a: NxK matrix
@@ -38,14 +39,16 @@ Format
 
     :returns: retcode (*Nx1 vector*), return codes.
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            "0", "normal completion with :math:`err < ctl.absErrorTolerance`."
+            "1", ":math:`err > ctl.absErrorTolerance` and *ctl.maxEvaluations* exceeded; increase *ctl.maxEvaluations* to decrease error."
+            "2", ":math:`K > 100` or :math:`K < 1`."
+            "3", "*R* not positive semi-definite."
+            "missing", "*R* not properly defined."
 
-        "0", "normal completion with :math:`err < ctl.absErrorTolerance`."
-        "1", ":math:`err > ctl.absErrorTolerance` and *ctl.maxEvaluations* exceeded; increase *ctl.maxEvaluations* to decrease error."
-        "2", ":math:`K > 100` or :math:`K < 1`."
-        "3", "*R* not positive semi-definite."
-        "missing", "*R* not properly defined."
+.. DANGER:: FIX EQUATIONS IN THIS DOC
 
 Remarks
 ------------

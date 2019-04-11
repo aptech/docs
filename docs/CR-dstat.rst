@@ -16,7 +16,6 @@ Format
     :type dataset: string
 
     :param vars: the variables. If *dataset* contains the name of a data set, *vars* will be interpreted as:
-    :type vars: string or string array 
 
         - Kx1 character vector, names of variables.
         - OR
@@ -25,10 +24,12 @@ Format
         - `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
 
         These can be any size subset of the variables in the data set and can be in any order. If a scalar 0 is passed, all columns of the data set will be used. If *dataset* is null or 0, *vars* will be interpreted as:
+
         NxK matrix, the data on which to compute the descriptive statistics.
 
-    :returns: vnam (*Kx1 character vector*), the names of the variables
-        used in the statistics.
+    :type vars: string or string array 
+
+    :returns: vnam (*Kx1 character vector*), the names of the variables used in the statistics.
 
     :returns: mean (*Kx1 vector*), means.
 

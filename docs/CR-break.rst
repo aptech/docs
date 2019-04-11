@@ -4,16 +4,21 @@ break
 
 Purpose
 ----------------
-Breaks out of a do or for loop.
+Breaks out of a `do` or `for` loop.
+
+.. index:: break
 
 Format
 ----------------
-.. function:: break
+
+::
+
+    break;
 
 Remarks
 -------
 
-This command works just like in C.
+This command works just like in **C**.
 
 Examples
 ----------------
@@ -38,7 +43,7 @@ Examples
                             this endfor */
     endfor;
 
-After running the code above, x should be a lower triangular matrix similar to below. Due to
+After running the code above, *x* should be a lower triangular matrix similar to below. Due to
 the use of random data, your matrix will have different non-zero elements above the diagonal.
 
 ::
@@ -48,5 +53,5 @@ the use of random data, your matrix will have different non-zero elements above 
     0.000  0.000  1.000 -0.768
     0.000  0.000  0.000  1.000
 
-.. seealso:: Functions `continue`, `do`, `for`
+.. seealso:: Functions `continue`, `do while`, `do until`, `for`
 

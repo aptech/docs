@@ -11,21 +11,21 @@ Format
 ----------------
 .. function:: indnv(what, where)
 
-    :param what: 
-    :type what: Nx1 numeric vector which contains the values to be found in vector  where
+    :param what: contains the values to be found in vector *where*
+    :type what: Nx1 numeric vector
 
-    :param where: 
-    :type where: Mx1 numeric vector to be searched for matches to the values in  what
+    :param where: searched for matches to the values in *what*
+    :type where: Mx1 numeric vector
 
-    :returns: z (*Nx1 vector of integers*), the indices of the corresponding elements of  what in  where.
+    :returns: z (*Nx1 vector of integers*), the indices of the corresponding elements of *what* in *where*.
 
 Remarks
 -------
 
-If no matches are found for any of the elements in what, then those
+If no matches are found for any of the elements in *what*, then those
 elements in the returned vector are set to the GAUSS missing value code.
 
-If there are duplicate elements in where, the index of the first match
+If there are duplicate elements in *where*, the index of the first match
 will be returned.
 
 
@@ -40,8 +40,9 @@ Examples
 
 ::
 
-    3
+        3
     z = 2
         5
 
 .. seealso:: Functions :func:`contains`, :func:`ismember`, :func:`rowcontains`
+

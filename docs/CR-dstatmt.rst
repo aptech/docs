@@ -16,7 +16,6 @@ Format
 
     :param vars: Optional input. the variables. If *dataset* contains the name of a data set, *vars* will be interpreted as:
         If *dataset* is null or 0, *vars* will be interpreted as:
-    :type vars: string or string array
 
         - Kx1 string array, names of variables.
         - OR
@@ -24,65 +23,67 @@ Format
         - OR
         - formula string. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
 
+    :type vars: string or string array
+
     :param ctl: instance of a dstatmtControl structure containing the following members:
-    :type ctl: Optional input
 
-    .. list-table::
-        :widths: auto
-        :align: center
-
-        * - ctl.altnames
-          - Kx1 string array of alternate variable names to be used if a matrix in memory is analyzed (i.e., dataset is a null string or 0). Default = "".
-        * - *ctl.maxbytes*
-          - scalar, the maximum numberof bytes to be read per iteration of the read loop. Default = 1e9.
-        * - *ctl.vartype*
-          - scalar, unused in dstatmt.
-        * - *ctl.miss*
-          - scalar, default 0.
+        .. list-table::
+            :widths: auto
+    
+            * - ctl.altnames
+              - Kx1 string array of alternate variable names to be used if a matrix in memory is analyzed (i.e., dataset is a null string or 0). Default = "".
+            * - *ctl.maxbytes*
+              - scalar, the maximum numberof bytes to be read per iteration of the read loop. Default = 1e9.
+            * - *ctl.vartype*
+              - scalar, unused in dstatmt.
+            * - *ctl.miss*
+              - scalar, default 0.
+                  
+                  :0: there are no missing values (fastest).
+                  :1: listwise deletion, drop arow if any missings occur in it.
+                  :2: pairwise deletion.
+    
+            * - *ctl.row*
+              - scalar, the number of rows to read per iteration of the read loop.If 0, (default) the number of rows will be calculated using *ctl.maxbytes* and *maxvec*.
+            * - *ctl.output*
+              - scalar, controls output, default 1.
               
-              :0: there are no missing values (fastest).
-              :1: listwise deletion, drop arow if any missings occur in it.
-              :2: pairwise deletion.
+                  :1: print output table.
+                  :0: do not print output.
+    
+        These can be any size subset of the variables in the data set and can be in any order. If a scalar 0 is passed, all columns of the data set will be used.
 
-        * - *ctl.row*
-          - scalar, the number of rows to read per iteration of the read loop.If 0, (default) the number of rows will be calculated using *ctl.maxbytes* and *maxvec*.
-        * - *ctl.output*
-          - scalar, controls output, default 1.
-          
-              :1: print output table.
-              :0: do not print output.
-
-    These can be any size subset of the variables in the data set and can be in any order. If a scalar 0 is passed, all columns of the data set will be used.
+    :type ctl: Optional input
 
     :returns: dout (*struct*) instance of :class:`dstatmtOut` struct
         structure containing the following members:
 
-    .. csv-table::
-        :widths: auto
-
-        * - dout.vnames
-          - Kx1 string array, the names of the variablesused in the statistics.
-        * - dout.mean
-          - Kx1 vector, means.
-        * - dout.var
-          - Kx1 vector, variance.
-        * - dout.std
-          - Kx1 vector, standard deviation.
-        * - dout.min
-          - Kx1 vector, minima.
-        * - dout.max
-          - Kx1 vector, maxima.
-        * - dout.valid
-          - Kx1 vector, the number of valid cases.
-        * - dout.missing
-          - Kx1 vector, the number of missing cases.
-        * - dout.errcode
-          - scalar, error code, 0 if successful; otherwise, one of the following:
-
-              :2: Can't open file.
-              :7: Too many missings - no data left after packing.
-              :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
-              :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
+        .. csv-table::
+            :widths: auto
+    
+            * - dout.vnames
+              - Kx1 string array, the names of the variablesused in the statistics.
+            * - dout.mean
+              - Kx1 vector, means.
+            * - dout.var
+              - Kx1 vector, variance.
+            * - dout.std
+              - Kx1 vector, standard deviation.
+            * - dout.min
+              - Kx1 vector, minima.
+            * - dout.max
+              - Kx1 vector, maxima.
+            * - dout.valid
+              - Kx1 vector, the number of valid cases.
+            * - dout.missing
+              - Kx1 vector, the number of missing cases.
+            * - dout.errcode
+              - scalar, error code, 0 if successful; otherwise, one of the following:
+    
+                  :2: Can't open file.
+                  :7: Too many missings - no data left after packing.
+                  :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
+                  :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
 
 Examples
 ----------------

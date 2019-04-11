@@ -22,13 +22,13 @@ Format
         If exec can't execute *program*,
         the error returns will be negative:
 
-    .. csv-table::
-        :widths: auto
-
-        "-1", "file not found"
-        "-2", "the file is not an executable file"
-        "-3", "not enough memory"
-        "-4", "command line too long"
+        .. csv-table::
+            :widths: auto
+    
+            "-1", "file not found"
+            "-2", "the file is not an executable file"
+            "-3", "not enough memory"
+            "-4", "command line too long"
 
 Examples
 ----------------

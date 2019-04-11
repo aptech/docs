@@ -7,33 +7,41 @@ Purpose
 
 Executes a series of statements in a loop as long as a given expression is true (or false).
 
+.. index:: do while, do until
+
 Format
 ----------------
-.. function:: do while expression ... endo
-              do until expression ... endo
-endo
+
+::
+
+    do while expression;
+        ...
+    endo;
+
+::
+
+    do until expression;
+        ...
+    endo;
 
 Remarks
 -------
 
-expression is any expression that returns a scalar. It is ``TRUE`` if it is
+*expression* is any expression that returns a scalar. It is ``TRUE`` if it is
 nonzero and ``FALSE`` if it is zero.
 
-In a :code:`do while` loop, execution of the loop will continue as long as the
-expression is ``TRUE``.
+In a `do while` loop, execution of the loop will continue as long as the expression is ``TRUE``.
 
-In a :code:`do until` loop, execution of the loop will continue as long as the
-expression is ``FALSE``.
+In a `do until` loop, execution of the loop will continue as long as the expression is ``FALSE``.
 
 The condition is checked at the top of the loop. If execution can
-continue, the statements of the loop are executed until the :code:`endo` is
+continue, the statements of the loop are executed until the `endo` is
 encountered. Then GAUSS returns to the top of the loop and checks the
 condition again.
 
-The :code:`do` loop does not automatically increment a counter. See the first
-example below.
+The `do` loop does not automatically increment a counter. See the first example below.
 
-:code:`do` loops may be nested.
+`do` loops may be nested.
 
 .. NOTE:: It is often possible to avoid using loops in GAUSS by using the
     appropriate matrix operator or function. It is almost always preferable
@@ -106,5 +114,5 @@ Second loop:
 
     1 2 3 4 5 6 7 8 9 10
 
-.. seealso:: Functions `continue`, `break`
+.. seealso:: keywords `continue`, `break`
 

@@ -21,23 +21,25 @@ Format
     :type col: scalar
 
     :param dtyp: data precision, one of the following:
+
+        .. csv-table::
+            :widths: auto
+    
+            "2", "2-byte, signed integer."
+            "4", "4-byte, single precision."
+            "8", "8-byte, double precision."
+
     :type dtyp: scalar
 
-    .. csv-table::
-        :widths: auto
-
-        "2", "2-byte, signed integer."
-        "4", "4-byte, single precision."
-        "8", "8-byte, double precision."
-
     :param vtyp: types of variables, may contain one or both of the following:
+
+        .. csv-table::
+            :widths: auto
+    
+            "0", "character variable."
+            "1", "numeric variable."
+
     :type vtyp: scalar or Nx1 vector
-
-    .. csv-table::
-        :widths: auto
-
-        "0", "character variable."
-        "1", "numeric variable."
 
     :returns: fh (*scalar*), file handle.
 
@@ -79,6 +81,7 @@ selecting a value for *dtyp*:
 | double    | 15-16  | 4.19 x 10\ :sup:`-307` < \|X\| < 1.67 x 10\ :sup:`+308` |
 +-----------+--------+---------------------------------------------------------+
 
+.. DANGER:: FIX EQUATIONS
 
 Examples
 ----------------

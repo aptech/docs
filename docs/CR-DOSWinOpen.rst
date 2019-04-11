@@ -17,19 +17,20 @@ Format
     :type title: string
 
     :param attr: window attributes.
+
+        .. csv-table::
+            :widths: auto
+    
+            "[1]", "window x position"
+            "[2]", "window y position"
+            "[3]", "text foreground color"
+            "[4]", "text background color"
+            "[5]", "close action bit flags"
+            "", "bit 0 (1's bit)", "issue dialog"
+            "", "bit 1 (2's bit)", "close window"
+            "", "bit 2 (4's bit)", "stop program"
+
     :type attr: 5x1 vector or scalar missing
-
-    .. csv-table::
-        :widths: auto
-
-        "[1]", "window x position"
-        "[2]", "window y position"
-        "[3]", "text foreground color"
-        "[4]", "text background color"
-        "[5]", "close action bit flags"
-        "", "bit 0 (1's bit)", "issue dialog"
-        "", "bit 1 (2's bit)", "close window"
-        "", "bit 2 (4's bit)", "stop program"
 
     :returns: ret (*scalar*), success flag, 1 if successful, 0 if not.
 

@@ -9,7 +9,8 @@ Integrates a user-defined function, using adaptive quadrature, over a user defin
 
 Format
 ----------------
-.. function:: integrate1d(&fct, x_min, x_max,  ..., ctl)
+.. function:: integrate1d(&fct, x_min, x_max[, ...[, ctl]])
+              integrate1d(&fct, x_min, x_max, ctl)
 
     :param &fct: pointer to the procedure containing the function to be integrated
     :type &fct: scalar
@@ -20,20 +21,21 @@ Format
     :param x_max: ending point for the integration
     :type x_max: scalar
 
-    :param ...: a variable number of extra arguments to pass to the user function. These arguments will be passed to the user function untouched.
-    :type ...: Optional input
+    :param ...: Optional input. a variable number of extra arguments to pass to the user function. These arguments will be passed to the user function untouched.
+    :type ...: any
 
-    :param ctl: an instance of an integrateControl structure with members
-    :type ctl: Optional input
+    :param ctl: Optional input. an instance of an :class:`integrateControl` structure with members
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            "ctl.subDivisions", "scalar, maximum number of divisions of the region (*x_min*, *x_max*)"
+            "ctl.absTol", "scalar, absolute accuracy requested."
+            "ctl.relTol", "scalar, relative accuracy requested."
 
-        "ctl.subDivisions", "scalar, maximum number of divisions of the region (x_min, x_max)"
-        "ctl.absTol", "scalar, absolute accuracy requested."
-        "ctl.relTol", "scalar, relative accuracy requested."
+    :type ctl: struct
 
-    :returns: y (*scalar*), the estimated integral of f(x) evaluated over the interval (x_min, x_max)
+    :returns: y (*scalar*), the estimated integral of :math:`f(x)` evaluated over the interval (*x_min*, *x_max*)
 
 Examples
 ----------------
@@ -175,7 +177,7 @@ will work as expected for a scalar input. For example:
    c = myProc(a);
    d = myProc(b);
 
-will assign c to be equal to 0.5 and d to be equal to 0.334. However, if
+will assign *c* to be equal to 0.5 and *d* to be equal to 0.334. However, if
 we pass in a vector like this:
 
 ::
@@ -185,7 +187,7 @@ we pass in a vector like this:
    c = myProc(a);
 
 we will cause an the error ``matrices not conformable`` when we try to
-multiply the incoming 2x1 vector times itself inside of myProc. To avoid
+multiply the incoming 2x1 vector times itself inside of *myProc*. To avoid
 this, we simply need to change the operators ``*`` and ``/`` to the
 element-by-element versions by prepending the operator with a dot like
 this:
@@ -198,6 +200,9 @@ this:
        retp(ret);
    endp;
 
+
+.. DANGER:: FIX equations above
+
 Source
 ------
 
@@ -205,4 +210,3 @@ integrate.src
 
 .. seealso:: Functions :func:`integrateControlCreate`, :func:`inthp2`, :func:`inthp3`, :func:`inthp4`
 
-intergrate user-defined adaptive quadrature
