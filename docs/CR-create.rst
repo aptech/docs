@@ -24,7 +24,7 @@ Format
         The default format can be specified in gauss.cfg by
         setting the dat_fmt_version configuration variable. The default, v96, should be used.
 
-        .. todo:: FIX LINK TO FLI CHAP 1
+        .. DANGER:: FIX LINK TO FLI CHAP 1
 
     :type vflag: literal
 
@@ -110,7 +110,7 @@ Format
         The default format can be specified in gauss.cfg by
         setting the dat_fmt_version configuration variable. The default, v96, should be used.
     
-        .. todo:: FIX LINK TO FLI CHAP 1
+        .. DANGER:: FIX LINK TO FLI CHAP 1
 
     :type vflag: literal
 

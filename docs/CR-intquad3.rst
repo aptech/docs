@@ -11,24 +11,48 @@ Format
 ----------------
 .. function:: intquad3(&f, xl, yl, zl, ...)
 
-    :param &f: pointer to the procedure containing the
-        function to be integrated.  f is a function of (x, y, z).
+    :param &f: pointer to the procedure containing the function to be integrated. *f* is a function of :math:`(x, y, z)`.
     :type &f: scalar
 
-    :param xl: the limits of x.
+    :param xl: the limits of *x*.
     :type xl: 2x1 or 2xN matrix
 
-    :param yl: the limits of y.
+    :param yl: the limits of *y*.
     :type yl: 2x1 or 2xN matrix
 
-    :param zl: the limits of  z.
+    :param zl: the limits of *z*.
     :type zl: 2x1 or 2xN matrix
 
-    :param ...: a variable number of extra scalar arguments to pass to the user function. These arguments will be passed to the user function untouched.
-    :type ...: Optional
+    :param ...: Optional. A variable number of extra scalar arguments to pass to the user function. These arguments will be passed to the user function untouched.
+    :type ...: any
 
-    :returns: y (*Nx1 vector*) of the estimated integral(s) of f(x,y,z)
-        evaluated between the limits given by  xl, yl, and  zl.
+    :returns: y (*Nx1 vector*) of the estimated integral(s) of :math:`f(x,y,z)` evaluated between the limits given by *xl*, *yl*, and *zl*.
+
+Global Input
+------------
+
+.. data:: \_intord
+
+    scalar, the order of the integration. The larger \_intord, the more precise the final result will be. \_intord may be set to 2, 3, 4, 6, 8, 12, 16, 20, 24, 32, 40.
+
+    Default = 12.
+
+Remarks
+-------
+
+The user-defined function *f* must return a vector of function values.
+:func:`intquad3` will pass to the user-defined function a vector or matrix for
+*x*, *y* and *z* and expect a vector or matrix to be returned. Use ``.*`` and ``./``
+instead of ``*`` and ``/``.
+
+:func:`intquad3` will expand scalars to the appropriate size. This means that
+functions can be defined to return a scalar constant. If users write
+their functions incorrectly (using ``*`` instead of ``.*,`` for example),
+:func:`intquad3` may not compute the expected integral, but the integral of a
+constant function.
+
+To integrate over a region which is bounded by functions, rather than
+just scalars, use :func:`intgrat2` or :func:`intgrat3`.
 
 Examples
 ----------------
@@ -51,7 +75,7 @@ Basic example
     //Calculate integral
     ans = intquad3(&f,xlim, ylim, zlim);
 
-After the code above, ans should equal:
+After the code above, *ans* should equal:
 
 ::
 
@@ -78,7 +102,7 @@ Passing extra arguments
     //Calculate integral, passing in extra scalar argument
     ans = intquad3(&f,xlim, ylim, zlim, a);
 
-After the code above, ans should equal:
+After the code above, *ans* should equal:
 
 ::
 
@@ -103,8 +127,8 @@ Multiple limits of integration
     //Calculate integrals
     ans = intquad3(&f,xlim, ylim, zlim);
 
-This will integrate the function f(x) = x*y*z over 3 sets of limits, since
-zlim is defined to be a 2x3 matrix. The value of  ans should be:
+This will integrate the function :math:`f(x) = x*y*z` over 3 sets of limits, since
+*zlim* is defined to be a 2x3 matrix. The value of *ans* should be:
 
 ::
 
@@ -112,47 +136,16 @@ zlim is defined to be a 2x3 matrix. The value of  ans should be:
      2.6692443 
      5.2994691
 
-Remarks
--------
-
-The user-defined function f must return a vector of function values.
-intquad3 will pass to the user-defined function a vector or matrix for
-x, y and z and expect a vector or matrix to be returned. Use .\* and ./
-instead of \* and /.
-
-intquad3 will expand scalars to the appropriate size. This means that
-functions can be defined to return a scalar constant. If users write
-their functions incorrectly (using \* instead of .\*, for example),
-intquad3 may not compute the expected integral, but the integral of a
-constant function.
-
-To integrate over a region which is bounded by functions, rather than
-just scalars, use intgrat2 or intgrat3.
-
 Source
 ------
 
 integral.src
 
 Globals
-+++++++
-
-\_intord, \_intq12, \_intq16, \_intq2, \_intq20, \_intq24, \_intq3,
-\_intq32, \_intq4, \_intq40, \_intq6, \_intq8
-
-.. seealso:: Functions :func:`intquad1`, :func:`intquad2`, :func:`intsimp`, :func:`intgrat2`, :func:`intgrat3`
-
-intergrate 3-dimensional function user defined rectangular region
-
-
-Global Input
 ------------
 
-+-----------------+-----------------------------------------------------+
-| \_intord        | scalar, the order of the integration. The larger    |
-|                 | \_intord, the more precise the final result will    |
-|                 | be. \_intord may be set to 2, 3, 4, 6, 8, 12, 16,   |
-|                 | 20, 24, 32, 40.                                     |
-|                 | Default = 12.                                       |
-+-----------------+-----------------------------------------------------+
+*_intord*, *_intq12*, *_intq16*, *_intq2*, *_intq20*, *_intq24*, *_intq3*,
+*_intq32*, *_intq4*, *_intq40*, *_intq6*, *_intq8*
+
+.. seealso:: Functions :func:`intquad1`, :func:`intquad2`, :func:`intsimp`, :func:`intgrat2`, :func:`intgrat3`
 

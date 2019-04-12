@@ -7,9 +7,14 @@ Purpose
 
 Terminates a program.
 
+.. _end:
+
 Format
 ----------------
-.. function:: end
+
+::
+
+    end
 
 Remarks
 -------
@@ -21,7 +26,7 @@ on. It is not necessary to put an `end` statement at the end of a program.
 An `end` command can be placed above a label which begins a subroutine to
 make sure that a program does not enter a subroutine without a `gosub`.
 
-:func:`stop` also terminates a program but closes no files and leaves the window
+`stop` also terminates a program but closes no files and leaves the window
 setting as it is.
 
 
@@ -40,5 +45,5 @@ output to the window is turned off to speed up the printing. The `end` statement
 is used to terminate the program, so the output file will be closed
 and the window turned back on.
 
-.. seealso:: Functions :func:`new`, :func:`stop`, :func:`system`
+.. seealso:: Functions :func:`new`, `stop`, :func:`system`
 

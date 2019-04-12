@@ -24,29 +24,27 @@ Format
     :type keyvar: string
 
     :param keytyp: data type of key variable.
+
+        .. csv-table::
+            :widths: auto
+    
+            "1", "numeric key, ascending order"
+            "2", "character key, ascending order"
+            "-1", "numeric key, descending order"
+            "-2", "character key, descending order"
+
     :type keytyp: scalar
-
-    .. csv-table::
-        :widths: auto
-
-        "1", "numeric key, ascending order"
-        "2", "character key, ascending order"
-        "-1", "numeric key, descending order"
-        "-2", "character key, descending order"
-
 
 
 Remarks
 -------
 
-The two files MUST have exactly the same variables, that is, the same
+The two files MUST have exactly the same variables; that is, the same
 number of columns AND the same variable names. They must both already be
-sorted on the key column. This procedure will combine them into one
-large file, sorted by the key variable.
+sorted on the *key* column. This procedure will combine them into one
+large file, sorted by the *key* variable.
 
-If the inputs are null ("" or 0), the procedure will ask for them.
-
-
+If the inputs are null (``""`` or 0), the procedure will ask for them.
 
 Source
 ------
@@ -54,3 +52,4 @@ Source
 sortd.src
 
 .. seealso:: Functions :func:`intrleavsa`
+

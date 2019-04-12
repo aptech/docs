@@ -60,7 +60,7 @@ Files are not automatically closed when a program terminates. This
 allows users to run a program that opens files, and then access the
 files from interactive mode after the program has been run. Files are
 automatically closed when GAUSS exits to the operating system or when a
-program is terminated with the `end` statement. :func:`stop` will terminate a
+program is terminated with the `end` statement. `stop` will terminate a
 program but not close files.
 
 As a rule it is good practice to make `end` the last statement in a

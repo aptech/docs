@@ -8,27 +8,30 @@ Returns the intersection of two vectors, with duplicates removed.
 
 Format
 ----------------
-.. function:: intrsect(v1, v2, flag)
+.. function:: intrsect(v1, v2[, flag])
 
-    :param v1: or string array.
-    :type v1: Nx1 vector
+    :param v1: data
+    :type v1: Nx1 vector or string array
 
-    :param v2: or string array. NOTE: v2 must be the same type as v1
-    :type v2: Mx1 vector
+    :param v2: data
+    
+        .. NOTE:: *v2* must be the same type as *v1*
 
-    :param flag: scalar, if 1, v1 and  v2 are numeric; if 0, character. Default is flag equal to 1 (numeric).
-    :type flag: Optional argument
+    :type v2: Mx1 vector or string array
 
-    :returns: y (*Lx1 vector containing all unique values that are in both  v1 and  v2*), sorted in ascending order.
+    :param flag: Optional argument, if 1, *v1* and *v2* are numeric; if 0, character. Default is *flag* equal to 1 (numeric).
+    :type flag: scalar
+
+    :returns: y (*Lx1 vector*), all unique values that are in both *v1* and *v2* sorted in ascending order.
 
 Remarks
 -------
 
-#. If not matches are found, intrsect will return a scalar error code
-   that can be tested for with scalmiss.
+#. If not matches are found, :func:`intrsect` will return a scalar error code
+   that can be tested for with :func:`scalmiss`.
 #. Place smaller vector first for fastest operation.
 #. If there are a lot of duplicates within a vector, it is faster to
-   remove them with the function unique before calling intrsect.
+   remove them with the function :func:`unique` before calling :func:`intrsect`.
 
 
 Examples
@@ -56,7 +59,7 @@ Basic usage, numeric
     //Find the ID's that are in both groups
     id_common = intrsect(id_a, id_b);
 
-After the code above, id_common is equal to:
+After the code above, *id_common* is equal to:
 
 ::
 
@@ -80,7 +83,7 @@ Basic usage, string array
     //Find the variable names that are in both groups
     names_common = intrsect(names_a, names_b);
 
-After the code above, names_common is equal to:
+After the code above, *names_common* is equal to:
 
 ::
 
@@ -125,3 +128,4 @@ Source
 intrsect.src
 
 .. seealso:: Functions :func:`intrsectsa`
+

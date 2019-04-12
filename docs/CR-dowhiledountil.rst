@@ -7,6 +7,9 @@ Purpose
 
 Executes a series of statements in a loop as long as a given expression is true (or false).
 
+.. _do:
+.. _do while:
+.. _do until:
 .. index:: do while, do until
 
 Format

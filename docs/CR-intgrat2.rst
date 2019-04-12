@@ -5,100 +5,9 @@ intgrat2
 Purpose
 ----------------
 
-Integrates the following double integral, using user-defined functions f, g1 and g2 and scalars a and b:
-                
-                    
-                        
-                            
-                                
-                                    
-                                        ∫
-                                    
-                                    
-                                        
-                                            
-                                                a
-                                            
-                                        
-                                    
-                                    
-                                        
-                                            
-                                                b
-                                            
-                                        
-                                    
-                                
-                            
-                            
-                            
-                            
-                                
-                                    
-                                        ∫
-                                    
-                                    
-                                        
-                                            
-                                                g
-                                            
-                                            
-                                                
-                                                    
-                                                        2
-                                                    
-                                                    
-                                                        (
-                                                        x
-                                                        )
-                                                    
-                                                
-                                            
-                                        
-                                    
-                                    
-                                        
-                                            
-                                                
-                                                    
-                                                        g
-                                                    
-                                                    
-                                                        
-                                                            
-                                                                1
-                                                            
-                                                            
-                                                                (
-                                                                x
-                                                                )
-                                                            
-                                                        
-                                                    
-                                                
-                                            
-                                        
-                                    
-                                
-                                
-                                
-                                    
-                                        f
-                                        (
-                                        x,
-                                        y
-                                        )
-                                        d
-                                        y
-                                        d
-                                        x
-                                    
-                                
-                            
-                        
-                    
-                
-            
+Integrates the following double integral, using user-defined functions *f*, *g1* and *g2* and scalars *a* and *b*:
+
+.. DANGER:: Add equation from original doc here.
 
 Format
 ----------------
@@ -107,17 +16,16 @@ Format
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar
 
-    :param xl: the limits of x. These must be scalar limits.
+    :param xl: the limits of *x*. These must be scalar limits.
     :type xl: 2x1 or 2xN matrix
 
-    :param gl: the limits of y.
-        For  xl and   gl, the first row is the upper
-        limit and the second row is the lower limit. N integrations are computed.
+    :param gl: the limits of *y*.
+
+        For *xl* and *gl*, the first row is the upper limit and the second row is the lower limit. *N* integrations are computed.
+
     :type gl: 2x1 or 2xN matrix of function pointers
 
-    :returns: y (*Nx1 vector*) of the estimated integral(s) of
-        f(x, y),
-        evaluated between the limits given by  xl and  gl.
+    :returns: y (*Nx1 vector*) of the estimated integral(s) of :math:`f(x, y)`, evaluated between the limits given by *xl* and *gl*.
 
 Global Input
 ------------
@@ -134,15 +42,15 @@ Global Input
 Remarks
 -------
 
-The user-defined functions specified by f and gl must either
+The user-defined functions specified by *f* and *gl* must either
 
 #. Return a scalar constant
 
          - or -
 
-#. Return a vector of function values. intgrat2 will pass to
-   user-defined functions a vector or matrix for x and y and expect a
-   vector or matrix to be returned. Use .\* and ./ instead of \* and /.
+#. Return a vector of function values. :func:`intgrat2` will pass to
+   user-defined functions a vector or matrix for *x* and *y* and expect a
+   vector or matrix to be returned. Use ``.*`` and ``./`` instead of ``*`` and ``/``.
 
 
 Examples
@@ -173,10 +81,8 @@ This will integrate the function
 
     f(x,y) = (cos(x)+1)(sin(y)+1)
 
-.*
-*
-definition of f(x,y). This allows f to return
-a vector or matrix of function values.
+over the upper half of the unit circle. Note the use of the ``.*`` operator instead of just ``*`` in the
+definition of :math:`f(x, y)`. This allows *f* to return a vector or matrix of function values.
 
 Source
 ------
@@ -184,11 +90,10 @@ Source
 intgrat.src
 
 Globals
-+++++++
+------------
 
-\_intord, \_intq12, \_intq16, \_intq2, \_intq20, \_intq24, \_intq3,
-\_intq32, \_intq4, \_intq40, \_intq6, \_intq8
+*_intord*, *_intq12*, *_intq16*, *_intq2*, *_intq20*, *_intq24*, *_intq3*,
+*_intq32*, *_intq4*, *_intq40*, *_intq6*, *_intq8*
 
 .. seealso:: Functions :func:`intgrat3`, :func:`intquad1`, :func:`intquad2`, :func:`intquad3`, :func:`intsimp`
 
-intergrate 2-dimensional user define adaptive quadrature

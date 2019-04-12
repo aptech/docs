@@ -7,6 +7,10 @@ Purpose
 
 Controls program flow with conditional branching.
 
+.. _if:
+.. _else:
+.. _elseif:
+.. _endif:
 .. index:: if, else, elseif, endif
 
 Format

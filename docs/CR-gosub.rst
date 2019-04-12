@@ -7,16 +7,22 @@ Purpose
 
 Causes a branch to a subroutine. 
 
-.. NOTE: This is an advanced function that gives extra flexibility for sophisticated users in some circumstances.
+.. NOTE:: This is an advanced function that gives extra flexibility for sophisticated users in some circumstances.
 
-In most cases, it is prefereable to create a procedure (proc).
+In most cases, it is prefereable to create a procedure (`proc`).
+
+.. _gosub:
+.. index:: gosub
 
 Format
 ----------------
-.. function:: gosub label
-              ...
-              label:
-              return
+
+::
+
+    gosub label;
+    ...
+    label:
+    return;
 
 Remarks
 -------

@@ -20,20 +20,15 @@ Format
     :param ikey: index of the key column the string arrays are sorted on.
     :type ikey: scalar integer
 
-    :returns: y (*LxK interleaved (combined) string array*) .
-
-
+    :returns: y (*LxK interleaved (combined) string array*)
 
 Remarks
 -------
 
 The two string arrays MUST have exactly the same number of columns AND
-have been already sorted on a key column.
+have been already sorted on a *key* column.
 
-This procedure will combine them into one large string array, sorted by
-the key column.
-
-
+This procedure will combine them into one large string array, sorted by the *key* column.
 
 Source
 ------
@@ -41,3 +36,4 @@ Source
 sortd.src
 
 .. seealso:: Functions :func:`intrleav`
+

@@ -12,16 +12,16 @@ Format
 .. function:: intsimp(&f, xl, tol)
 
     :param &f: pointer to the procedure containing the function to be integrated.
-    :type &f: TODO
+    :type &f: scalar
 
-    :param xl: the limits of x.
+    :param xl: the limits of *x*.
         The first element is the upper limit and the second element is the lower limit.
     :type xl: 2x1 vector
 
-    :param tol: 
-    :type tol: The tolerance to be used in testing for convergence
+    :param tol: The tolerance to be used in testing for convergence
+    :type tol: scalar
 
-    :returns: y (*TODO*), The estimated integral of f(x) between xl[1] and xl[2].
+    :returns: y (*scalar*), The estimated integral of :math:`f(x)` between :math:`xl[1]` and :math:`xl[2]`.
 
 Examples
 ----------------
@@ -29,7 +29,7 @@ Examples
 ::
 
     proc f(x);
-      retp(sin(x));
+        retp(sin(x));
     endp;
      
     let xl = { 1, 0 };
@@ -37,7 +37,7 @@ Examples
     y = intsimp(&f,xl,1e-8);
     print y;
 
-The code above, returns the following:
+The code above returns the following:
 
 ::
 
@@ -52,4 +52,3 @@ intsimp.src
 
 .. seealso:: Functions :func:`intquad1`, :func:`intquad2`, :func:`intquad3`, :func:`intgrat2`, :func:`intgrat3`
 
-intergrate Simpson
