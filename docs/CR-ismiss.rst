@@ -5,23 +5,22 @@ ismiss
 Purpose
 ----------------
 
-Returns a 1 if its matrix argument contains any missing
-values, otherwise returns a 0.
+Returns a 1 if its matrix argument contains any missing values, otherwise returns a 0.
 
 Format
 ----------------
 .. function:: ismiss(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*scalar*), 1 if x contains any missing values, otherwise 0.
+    :returns: y (*scalar*), 1 if *x* contains any missing values, otherwise 0.
 
 Remarks
 -------
 
-An element of x is considered to be a missing if and only if it contains
-a missing value in the real part. Thus, if x = 1 + .i, ismiss(x) will
+An element of *x* is considered to be a missing if and only if it contains
+a missing value in the real part. Thus, if :math:`x = 1 + .i`, ``ismiss(x)`` will
 return a 0.
 
 
@@ -57,7 +56,8 @@ Examples
            3.0000000 
            4.0000000
 
-To reset all missing values to a specified value, replace the call to packr
-above with a call to  missrv.
+To reset all missing values to a specified value, replace the call to :func:`packr`
+above with a call to :func:`missrv`.
 
 .. seealso:: Functions :func:`scalmiss`, :func:`miss`, :func:`missrv`, :func:`contains`
+

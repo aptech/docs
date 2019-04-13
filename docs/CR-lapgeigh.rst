@@ -22,8 +22,8 @@ Format
 Remarks
 -------
 
-veis the vector of eigenvalues of the solution of the generalized
-symmetric eigenproblem of the form Ax = λBx.
+*ve* is the vector of eigenvalues of the solution of the generalized
+symmetric eigenproblem of the form :math:`Ax = λBx`.
 
 
 Examples
@@ -50,8 +50,7 @@ The code above returns:
     0.6787
     0.9494
 
-This procedure calls the LAPACK routines DSYGV and ZHEGV.
+This procedure calls the LAPACK routines *DSYGV* and *ZHEGV*.
 
 .. seealso:: Functions :func:`lapgeig`, :func:`lapgeighv`
 
-generalized eigenvalue real symmetric Hermitian matrix

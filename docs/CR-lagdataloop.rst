@@ -7,18 +7,20 @@ Purpose
 
 Lags variables a specified number of periods.
 
+
+.. _lag:
+.. index:: lag
+
 Format
 ----------------
-.. function:: var2:p2...]]
 
-    :param var: 
-    :type var: name of the variable to lag
+::
 
-    :param p: number of periods to lag.
-    :type p: scalar constant
+    lag nv1 = var1: p1 [[nv2 = var2:p2...]];
 
-    :returns: nv (*TODO*), name of the new lagged variable.
-
+:var: (*string*) name of the variable to lag
+:p: (*scalar constant*) number of periods to lag.
+:returns: nv (*string*), name of the new lagged variable.
 
 
 Remarks

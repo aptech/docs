@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: iscplx(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*scalar*), 1 if x is complex, 0 if it is real.
+    :returns: y (*scalar*), 1 if *x* is complex, 0 if it is real.
 
 Examples
 ----------------
@@ -29,3 +29,4 @@ Examples
     endif;
 
 .. seealso:: Functions :func:`hasimag`, :func:`iscplxf`
+

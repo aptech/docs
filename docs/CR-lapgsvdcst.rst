@@ -11,17 +11,17 @@ Format
 ----------------
 .. function:: lapgsvdcst(A, B)
 
-    :param A: 
+    :param A: data
     :type A: MxN matrix
 
-    :param B: 
+    :param B: data
     :type B: PxN matrix
 
-    :returns: C (*Lx1 vector*), singular values for  A.
+    :returns: C (*Lx1 vector*), singular values for *A*.
 
-    :returns: S (*Lx1 vector*), singular values for  B.
+    :returns: S (*Lx1 vector*), singular values for *B*.
 
-    :returns: R (*(K+L)x(K+L) upper triangular matrix*) .
+    :returns: R (*(K+L)x(K+L) upper triangular matrix*)
 
     :returns: U (*MxM matrix*), orthogonal transformation matrix.
 
@@ -34,20 +34,19 @@ Format
 Remarks
 -------
 
-(1) The generalized singular value decomposition of A and B is
+(1) The generalized singular value decomposition of *A* and *B* is
 
-::
+.. math::
 
-   U'*A*Q = D1*Z
+    U'\*A\*Q = D1\*Z
 
-::
+.. math::
 
-   V'*B*Q = D2*Z
+    V'\*B\*Q = D2\*Z
 
-where U, V, and Q are orthogonal matrices (see lapgsvdcst and
-lapgsvdst). Letting K + L = the rank of A\|B then R is a (K+L)x(K+L)
-upper triangular matrix, D1 and D2 are Mx(K+L) and Px(K+L) matrices with
-entries on the diagonal, Z = [0 R], and if M-K-L >= 0
+where *U*, *V*, and *Q* are orthogonal matrices (see :func:`lapgsvdcst` and
+:func:`lapgsvdst`). Letting K + L = the rank of :math:`A\|B` then *R* is a :math:`(K+L)x(K+L)` upper 
+triangular matrix, *D1* and *D2* are Mx(K+L) and Px(K+L) matrices with entries on the diagonal, :math:`Z = [0 R]`, and if :math:`M-K-L >= 0`
 
 ::
 
@@ -68,7 +67,7 @@ entries on the diagonal, Z = [0 R], and if M-K-L >= 0
    [ 0 R ] = K [   0    R11  R12 ]
              L [   0     0   R22 ]
 
-or if M-K-L < 0
+or if :math:`M-K-L < 0`
 
 ::
 
@@ -106,13 +105,16 @@ where
 
    E2 = [ 0  D2 ]
 
-(3) The generalized singular value decomposition of A and B implicitly
-produces the singular value decomposition of AB\ :sup:`-1`:
+(3) The generalized singular value decomposition of *A* and *B* implicitly
+produces the singular value decomposition of :math:`AB\ :sup:`-1``:
 
-::
+.. DANGER:: verify equations on this page
+
+.. math::
 
    AB-1 = UD1D2-1V'
 
-This procedure calls the LAPACK routines DGGSVD and ZGGSVD.
+This procedure calls the LAPACK routines *DGGSVD* and *ZGGSVD*.
 
 .. seealso:: Functions :func:`lapgsvds`, :func:`lapgsvdst`
+

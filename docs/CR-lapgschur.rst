@@ -5,13 +5,11 @@ lapgschur
 Purpose
 ----------------
 
-			Compute the generalized Schur form of a pair of real or complex general matrices.
-
-		
+Compute the generalized Schur form of a pair of real or complex general matrices.
 
 Format
 ----------------
-.. function:: lapgschur(A, B, sort_type)
+.. function:: lapgschur(A, B[, sort_type])
 
     :param A: real or complex general matrix.
     :type A: NxN matrix
@@ -19,55 +17,35 @@ Format
     :param B: real or complex general matrix.
     :type B: NxN matrix
 
-    :param sort_type: scalar or string specifying how to sort the eigenvalues. Options include:
-        1"udi"Absolute value of the eigenvalue less than 1.0. (Unit disk inside).2"udo"Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside).3"lhp"Value of the real portion of th eigenvalue less than 0. (Left hand plane).4"rhp"Value of the real portion of th eigenvalue greater than 0. (Right hand plane).5"ref"Real eigenvalues first. (Complex portion less than imagtol).6"cef"Complex eigenvalues first. (Complex portion greater than imagtol).
-        1
-        "udi"
-        Absolute value of the eigenvalue less than 1.0. (Unit disk inside).
-        2
-        "udo"
-        Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside).
-        3
-        "lhp"
-        Value of the real portion of th eigenvalue less than 0. (Left hand plane).
-        4
-        "rhp"
-        Value of the real portion of th eigenvalue greater than 0. (Right hand plane).
-        5
-        "ref"
-        Real eigenvalues first. (Complex portion less than imagtol).
-        6
-        "cef"
-        Complex eigenvalues first. (Complex portion greater than imagtol).
-    :type sort_type: Optional input
+    :param sort_type: Optional input. How to sort the eigenvalues. Options include:
 
-    :param 1: 0. (Unit disk inside).
-    :type 1: "udi"
-        Absolute value of the eigenvalue less than 1
+        .. list-table::
+            :widths: auto
 
-    :param 2: 0. (Unit disk outside).
-    :type 2: "udo"
-        Absolute value of the eigenvalue greater than or equal to 1
+            * - 1
+              - "udi"
+              - Absolute value of the eigenvalue less than 1.0. (Unit disk inside).
+            * - 2
+              - "udo"
+              - Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside).
+            * - 3
+              - "lhp"
+              - Value of the real portion of th eigenvalue less than 0. (Left hand plane).
+            * - 4
+              - "rhp"
+              - Value of the real portion of th eigenvalue greater than 0. (Right hand plane).
+            * - 5
+              - "ref"
+              - Real eigenvalues first. (Complex portion less than :func:`imagtol`).
+            * - 6
+              - "cef"
+              - Complex eigenvalues first. (Complex portion greater than :func:`imagtol`).
 
-    :param 3:  (Left hand plane).
-    :type 3: "lhp"
-        Value of the real portion of th eigenvalue less than 0
+    :type sort_type: scalar or string
 
-    :param 4:  (Right hand plane).
-    :type 4: "rhp"
-        Value of the real portion of th eigenvalue greater than 0
+    :returns: sa (*NxN matrix*), Schur form of *A*, sometimes called *S*.
 
-    :param 5:  (Complex portion less than imagtol).
-    :type 5: "ref"
-        Real eigenvalues first
-
-    :param 6:  (Complex portion greater than imagtol).
-    :type 6: "cef"
-        Complex eigenvalues first
-
-    :returns: sa (*NxN matrix*), Schur form of  A, sometimes called S.
-
-    :returns: sb (*NxN matrix*), Schur form of  B, sometimes called T.
+    :returns: sb (*NxN matrix*), Schur form of *B*, sometimes called *T*.
 
     :returns: q (*NxN matrix*), left Schur vectors.
 
@@ -124,7 +102,7 @@ The above code should return the following output:
 Ordering eigenvalues
 ++++++++++++++++++++
 
-You can order the eigenvalues, by passing in the optional third input, sort_type. The code below uses the same A and B variables made in the example above.
+You can order the eigenvalues, by passing in the optional third input, *sort_type*. The code below uses the same *A* and *B* variables made in the example above.
 
 ::
 
@@ -164,34 +142,30 @@ The code above should print out the sorted eigenvalues as we see below.
 Remarks
 -------
 
--  The pair of matrices sa (sometimes called S) and sb (sometimes called
-   T) are in generalized real Schur form if:
+-  The pair of matrices *sa* (sometimes called *S*) and *sb* (sometimes called *T*) are in generalized real Schur form if:
 
-   -  sb is upper triangular with non-negative diagonal.
-   -  sa is block upper triangular with 1x1 and 2x2 blocks. The 1x1
+   -  *sb* is upper triangular with non-negative diagonal.
+   -  *sa* is block upper triangular with 1x1 and 2x2 blocks. The 1x1
       blocks correspond to real generalized eigenvalues and the 2x2
       blocks to pairs of complex conjugate eigenvalues.
 
 -  The real generalized eigenvalues can be computed by dividing the
-   diagonal element of sa by the corresponding diagonal element of sb.
+   diagonal element of sa by the corresponding diagonal element of *sb*.
 -  The complex generalized eigenvalues are computed by first
    constructing two complex conjugate numbers from 2x2 block where the
    real parts are on the diagonal of the block and the imaginary part on
    the off-diagonal. The eigenvalues are then computed by dividing the
    two complex conjugate values by their corresponding diagonal elements
-   of sb.
--  The generalized Schur vectors q and z are orthogonal matrices (q'q =
-   I and z'z = I) that reduce A and B to Schur form:
+   of *sb*.
+-  The generalized Schur vectors *q* and *z* are orthogonal matrices (:math:`q'q = I` and :math:`z'z = I`) that reduce *A* and *B* to Schur form:
 
    ::
 
-          sa = q'A*z
-          sb = q'B*z
+       sa = q'A*z
+       sb = q'B*z
 
-          A = q*sa*z'
-          B = q*sb*z'                 
+       A = q*sa*z'
+       B = q*sb*z'                 
 
--  If only the generalized eigenvalues are needed, you can call lapgeig,
-   or lapgeigv.
+-  If only the generalized eigenvalues are needed, you can call :func:`lapgeig`, or :func:`lapgeigv`.
 
-generalized Schur form real complex general matrix

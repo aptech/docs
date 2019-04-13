@@ -5,7 +5,7 @@ lapsvdcusv
 Purpose
 ----------------
 
-Computes the singular value decomposition of a real or complex rectangular matrix, returns compact U and  v.
+Computes the singular value decomposition of a real or complex rectangular matrix, returns compact *U* and *v*.
 
 Format
 ----------------
@@ -14,24 +14,24 @@ Format
     :param x: real or complex rectangular matrix.
     :type x: MxN matrix
 
-    :returns: u (*Mxmin(M,N) matrix*) , left singular vectors.
+    :returns: u (*Mxmin(M,N) matrix*), left singular vectors.
 
-    :returns: s (*min(M,N)xN matrix*) , singular values.
+    :returns: s (*min(M,N)xN matrix*), singular values.
 
     :returns: v (*NxN matrix*), right singular values.
 
 Remarks
 -------
 
-lapsvdcusv computes the singular value decomposition of a real or
+:func:`lapsvdcusv` computes the singular value decomposition of a real or
 complex rectangular matrix. The SVD is
 
 ::
 
    x = usv'
 
-where v is the matrix of right singular vectors. lapsvdcusv is based on
-the LAPACK drivers DGESVD and ZGESVD. Further documentation of these
+where *v* is the matrix of right singular vectors. :func:`lapsvdcusv` is based on
+the LAPACK drivers *DGESVD* and *ZGESVD*. Further documentation of these
 functions may be found in the LAPACK User's Guide.
 
 
@@ -52,7 +52,7 @@ Examples
 
 ::
 
-    -0.55531277  0.049048431 0.83019394 
+     -0.55531277  0.049048431 0.83019394 
      -0.43090168  0.83684123 -0.33766923 
      -0.71130266 -0.54524400 -0.44357356
 
@@ -62,7 +62,7 @@ Examples
 
 ::
 
-    13.895868 0.0000000 0.0000000 
+     13.895868 0.0000000 0.0000000 
      0.0000000 2.1893939 0.0000000 
      0.0000000 0.0000000 1.4344261
 
@@ -72,11 +72,9 @@ Examples
 
 ::
 
-    -0.13624432  -0.62209955 -0.77099263 
+     -0.13624432  -0.62209955 -0.77099263 
       0.46497296   0.64704876 -0.60425826 
       0.87477862  -0.44081748  0.20110275
 
 .. seealso:: Functions :func:`lapsvds`, :func:`lapsvdusv`
 
-singular value decomposition real complex rectangular matrix return
-compact

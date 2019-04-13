@@ -17,28 +17,28 @@ Format
     :param il: index of the smallest desired eigenvalue ranking them from smallest to largest.
     :type il: scalar
 
-    :param iu: index of the largest desired eigenvalue, iu must be greater than  il.
+    :param iu: index of the largest desired eigenvalue, *iu* must be greater than *il*.
     :type iu: scalar
 
     :param abstol: the absolute error tolerance for the
         eigenvalues. An approximate eigenvalue is accepted as converged when it is determined to lie in an interval
-        [a, b] of width less than or equal to abstol + EPS*max(|a|, |b|), where
-        EPS is machine precision. If abstol is less than or equal to zero, then EPS*||T|| will be used in its place,
-        where  T is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
+        :math:`[a, b]` of width less than or equal to :math:`abstol + EPS*max(|a|, |b|)`, where
+        *EPS* is machine precision. If *abstol* is less than or equal to zero, then :math:`EPS*||T||` will be used in its place,
+        where *T* is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
 
-    :returns: ve (*(iu- il+1)x1 vector*) , eigenvalues.
+    :returns: ve (*(iu-il+1)x1 vector*) eigenvalues.
 
-    :returns: va (*Nx(iu- il+1) matrix*) , eigenvectors.
+    :returns: va (*Nx(iu-il+1) matrix*) eigenvectors.
 
 Remarks
 -------
 
-lapeighvi computes iu-il+1 eigenvalues and eigenvectors given a range of
+:func:`lapeighvi` computes :math:`iu-il+1` eigenvalues and eigenvectors given a range of
 indices, i.e., theith to jth eigenvalues, ranking them from smallest to
 largest. To find eigenvalues and eigenvectors within a specified range
-see lapeighvb. lapeighvi is based on the LAPACK drivers DSYEVX and
-ZHEEVX. Further documentation of these functions may be found in the
+see :func:`lapeighvb`. :func:`lapeighvi` is based on the LAPACK drivers *DSYEVX* and
+*ZHEEVX*. Further documentation of these functions may be found in the
 LAPACK User's Guide.
 
 
@@ -70,4 +70,3 @@ Examples
 
 .. seealso:: Functions :func:`lapeighvb`, :func:`lapeighb`
 
-eigenvalue eigenvectors real symmetric complex Hermitian matrix

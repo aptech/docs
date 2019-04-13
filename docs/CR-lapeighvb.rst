@@ -17,28 +17,27 @@ Format
     :param vl: lower bound of the interval to be searched for eigenvalues.
     :type vl: scalar
 
-    :param vu: upper bound of the interval to be searched for eigenvalues;  vu must be greater than  vl.
+    :param vu: upper bound of the interval to be searched for eigenvalues; *vu* must be greater than *vl*.
     :type vu: scalar
 
     :param abstol: the absolute error tolerance for the
         eigenvalues. An approximate eigenvalue is accepted as converged
-        when it is determined to lie in an interval [a, b]
-        of width less than or equal to  abstol + EPS*max(|a|, |b|), where EPS is machine precision.
-        If abstol is less than or equal to zero, then EPS*||T|| will be used in its place, where
-        T is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
+        when it is determined to lie in an interval :math:`[a, b]`
+        of width less than or equal to :math:`abstol + EPS*max(|a|, |b|)`, where *EPS* is machine precision.
+        If *abstol* is less than or equal to zero, then :math:`EPS*||T||` will be used in its place, where
+        *T* is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
 
-    :returns: ve (*Mx1 vector*), eigenvalues, where M is the number of eigenvalues on the half open interval [vl, vu]. If no eigenvalues are found
-        then s is a scalar missing value.
+    :returns: ve (*Mx1 vector*), eigenvalues, where *M* is the number of eigenvalues on the half open interval :math:`[vl, vu]`. If no eigenvalues are found then *s* is a scalar missing value.
 
     :returns: va (*NxM matrix*), eigenvectors.
 
 Remarks
 -------
 
-lapeighvb computes eigenvalues and eigenvectors which are found on the
-half open interval [vl, vu]. lapeighvb is based on the LAPACK drivers
-DSYEVX and ZHEEVX. Further documentation of these functions may be found
+:func:`lapeighvb` computes eigenvalues and eigenvectors which are found on the
+half open interval :math:`[vl, vu]`. :func:`lapeighvb` is based on the LAPACK drivers
+*DSYEVX* and *ZHEEVX*. Further documentation of these functions may be found
 in the LAPACK User's Guide.
 
 
@@ -66,7 +65,7 @@ Examples
      -0.5774
       0.5774
 
-If you increase the value of vu to 12.
+If you increase the value of *vu* to 12.
 
 ::
 
@@ -85,5 +84,3 @@ If you increase the value of vu to 12.
      -0.5774   0.4908
       0.5774   0.8105
 
-eigenvalue and eigenvectors real symmetric complex Hermitian matrix
-selected by bounds

@@ -11,18 +11,18 @@ Format
 ----------------
 .. function:: lag1(x)
 
-    :param x: 
+    :param x: data
     :type x: Nx1 column vector or NxK matrix
 
-    :returns: y (*NxK matrix*), x lagged 1 period.
+    :returns: y (*NxK matrix*), *x* lagged 1 period.
 
 Remarks
 -------
 
-lag1 lags x by one time period, so the first observations of y are
-missing. lag1 assumes that each column of the input is a different time
+:func:`lag1` lags *x* by one time period, so the first observations of *y* are
+missing. :func:`lag1` assumes that each column of the input is a different time
 series and that each row is an observation. Therefore if a 1xK row
-vector is passed to lag1, it will return a 1xK of missing values.
+vector is passed to :func:`lag1`, it will return a 1xK of missing values.
 
 
 Examples
@@ -42,7 +42,7 @@ will return:
 
 ::
 
-    . 
+                . 
         1.2000000 
         3.4000000 
         2.5000000 
@@ -54,3 +54,4 @@ Source
 lag.src
 
 .. seealso:: Functions :func:`lagn`, :func:`ismiss`, :func:`packr`
+

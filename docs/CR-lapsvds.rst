@@ -14,24 +14,23 @@ Format
     :param x: real or complex rectangular matrix.
     :type x: MxN matrix
 
-    :returns: s (*min(M,N)x1 vector*) , singular values.
+    :returns: s (*min(M,N)x1 vector*), singular values.
 
 Remarks
 -------
 
-lapsvds computes the singular values of a real or complex rectangular
+:func:`lapsvds` computes the singular values of a real or complex rectangular
 matrix. The SVD is
 
 ::
 
    x = usv'
 
-where v is the matrix of right singular vectors. For the computation of
-the singular vectors, see lapsvdcusv and lapsvdusv.
+where *v* is the matrix of right singular vectors. For the computation of
+the singular vectors, see :func:`lapsvdcusv` and :func:`lapsvdusv`.
 
-lapsvds is based on the LAPACK drivers DGESVD and ZGESVD. Further
-documentation of these functions may be found in the LAPACK User's
-Guide.
+:func:`lapsvds` is based on the LAPACK drivers *DGESVD* and *ZGESVD*. Further
+documentation of these functions may be found in the LAPACK User's Guide.
 
 
 Examples
@@ -63,8 +62,7 @@ Examples
 
     10.352877 4.0190557 2.3801546
 
-Note the transpose operator (') at the end of the print statements. This causes the output of these column vectors to be printed as a row vector.
+Note the transpose operator (``'``) at the end of the print statements. This causes the output of these column vectors to be printed as a row vector.
 
 .. seealso:: Functions :func:`lapsvdcusv`, :func:`lapsvdusv`
 
-singular values real complex rectangular matrix

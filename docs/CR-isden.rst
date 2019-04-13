@@ -11,14 +11,14 @@ Format
 ----------------
 .. function:: isden(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*scalar*), 1 if x contains a denormal, 0 if it does not.
+    :returns: y (*scalar*), 1 if *x* contains a denormal, 0 if it does not.
 
 Examples
 ----------------
-Sometimes denormals can unnecessarily slow down calculations and it is best to flush them to zero. This example tests whether the vector x contains any denormals and thensets any values between 0 and 1e-25 to be equal to 0.
+Sometimes denormals can unnecessarily slow down calculations and it is best to flush them to zero. This example tests whether the vector *x* contains any denormals and then sets any values between 0 and 1e-25 to be equal to 0.
 
 ::
 
@@ -34,6 +34,7 @@ Sometimes denormals can unnecessarily slow down calculations and it is best to f
        x[idx] = 0;
     endif;
 
-Before the if block in the code above, the second element of x is equal to approximately 3e-57. After the if block this element is set equal to 0, the other elements of x are unchanged.
+Before the `if` block in the code above, the second element of *x* is equal to approximately 3e-57. After the `if` block this element is set equal to 0, the other elements of *x* are unchanged.
 
 .. seealso:: Functions :func:`denToZero`
+

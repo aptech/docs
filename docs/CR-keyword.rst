@@ -5,27 +5,30 @@ keyword
 Purpose
 ----------------
 
-Begins the definition of a keyword procedure. Keywords are user-defined functions with local or global variables.
+Begins the definition of a `keyword` procedure. Keywords are user-defined functions with local or global variables.
+
+.. _keyword:
+.. index:: keyword
 
 Format
 ----------------
-.. function:: keyword name(str)
 
-    :param name: name of the keyword. This name will be a global symbol.
-    :type name: literal
+::
 
-    :param str: a name to be used inside the keyword to refer to
-        the argument that is passed to the keyword when the keyword is called. This will always be local to the keyword, and cannot be
-        accessed from outside the keyword or from other keywords or procedures.
-    :type str: string
+    keyword name(str);
+        ...;
+    endp;
 
+:name: (*scalar*) name of the keyword. This name will be a global symbol.
+:str: (*string*) a name to be used inside the keyword to refer to the argument that is passed to the keyword when the keyword is called. 
+    This will always be local to the keyword, and cannot be accessed from outside the keyword or from other keywords or procedures.
 
 
 Remarks
 -------
 
-A keyword definition begins with the keyword statement and ends with the
-endp statement. See **Procedures and Keywords**, Chapter 1.
+A keyword definition begins with the `keyword` statement and ends with the
+`endp` statement. See **Procedures and Keywords**, Chapter 1.
 
 Keywords always have 1 string argument and 0 returns. GAUSS will take
 everything past name, excluding leading spaces, and pass it as a string
@@ -59,3 +62,4 @@ This keyword will respond by printing:
    Sum is: 15
 
 .. seealso:: Functions `proc`, `local`, `endp`
+

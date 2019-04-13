@@ -17,33 +17,35 @@ Format
     :param vl: lower bound of the interval to be searched for eigenvalues.
     :type vl: scalar
 
-    :param vu: upper bound of the interval to be searched for eigenvalues;  vu must be greater than  vl.
+    :param vu: upper bound of the interval to be searched for eigenvalues; *vu* must be greater than *vl*.
     :type vu: scalar
 
     :param abstol: the absolute error tolerance for the
         eigenvalues. An approximate eigenvalue is accepted as converged
-        when it is determined to lie in an interval [a, b] of
+        when it is determined to lie in an interval :math:`[a, b]` of
         width less than or equal to:
         
-        abstol + EPS*max(|a|, |b|)
-        where EPS is machine precision. If abstol is less than or equal to
-        zero, then EPS*||T|| will be used in its place,
-        where T is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
+        .. math:: 
+        
+            abstol + EPS*max(|a|, |b|)
+
+        where *EPS* is machine precision. If *abstol* is less than or equal to
+        zero, then :math:`EPS*||T||` will be used in its place,
+        where *T* is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
 
-    :returns: ve (*Mx1 vector*), eigenvalues, where M is the number of eigenvalues on
+    :returns: ve (*Mx1 vector*), eigenvalues, where *M* is the number of eigenvalues on
         the half open interval [vl, vu]. If no eigenvalues are found
-        then  ve is a scalar missing value.
+        then *ve* is a scalar missing value.
 
 Remarks
 -------
 
-lapeighb computes eigenvalues only which are found on on the half open
-interval [vl, vu]. To find eigenvalues within a specified range of
-indices see lapeighi. For eigenvectors see lapeighvi, or lapeighvb.
-lapeighb is based on the LAPACK drivers DSYEVX and ZHEEVX. Further
-documentation of these functions may be found in the LAPACK User's
-Guide.
+:func:`lapeighb` computes eigenvalues only which are found on on the half open
+interval :math:`[vl, vu]`. To find eigenvalues within a specified range of
+indices see :func:`lapeighi`. For eigenvectors see :func:`lapeighvi`, or :func:`lapeighvb`.
+:func:`lapeighb` is based on the LAPACK drivers *DSYEVX* and *ZHEEVX*. Further
+documentation of these functions may be found in the LAPACK User's Guide.
 
 
 Examples

@@ -24,15 +24,17 @@ Format
 Remarks
 -------
 
-ve and va are the eigenvalues and eigenvectors of the solution of the
-generalized symmetric eigenproblem of the form Ax = λ B. Equivalently,
-va diagonalizes U\ '\ -1 A*U\ -1 in the following way
+*ve* and *va* are the eigenvalues and eigenvectors of the solution of the
+generalized symmetric eigenproblem of the form :math:`Ax = λ B`. Equivalently,
+*va* diagonalizes :math:`U\ '\ -1 A*U\ -1` in the following way
 
-::
+.. DANGER:: Fix equations on this page
+
+.. math::
 
    va*U'-1 A*Y-1va' = ve
 
-where B = U'U. This procedure calls the LAPACK routines DSYGV and ZHEGV.
+where :math:`B = U'U`. This procedure calls the LAPACK routines *DSYGV* and *ZHEGV*.
 
 
 Examples
@@ -64,10 +66,9 @@ Examples
 
 ::
 
-    0.3575 -0.0996 0.9286
+     0.3575 -0.0996 0.9286
     -0.2594  0.9446 0.2012
     -0.8972 -0.3128 0.3118
 
 .. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`
 
-generalized eigenvalues eigenvectors real symmetric Hermitian matrix
