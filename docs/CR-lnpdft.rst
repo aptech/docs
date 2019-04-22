@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: lnpdft(x, nu)
 
-    :param x: data.
+    :param x: data
     :type x: NxK matrix
 
     :param nu: degrees of freedom.
@@ -19,14 +19,13 @@ Format
 
     :returns: z (*NxK matrix*), log-probabilities.
 
-
-
 Remarks
 -------
 
 This does not compute the log of the joint Student's t pdf. Instead, the
 scalar Normal density function is computed element-by-element.
 
-For multivariate probabilities with covariance matrix see lnpdfmvt.
+For multivariate probabilities with covariance matrix see :func:`lnpdfmvt`.
 
 .. seealso:: Functions :func:`lnpdfmvt`
+

@@ -19,14 +19,10 @@ Format
 
     :returns: z (*Nx1 vector*), log-probabilities.
 
-
-
 Remarks
 -------
 
-This computes the multivariate Normal log-probability for each row of x.
-
-
+This computes the multivariate Normal log-probability for each row of *x*.
 
 Source
 ------

@@ -20,17 +20,17 @@ Format
     :param r: correlations.
     :type r: PxQ matrix
 
-    :returns: y (*max(N,L,P) x max(K,M,Q) matrix*) :
-        ln Pr(X < x1, X < x2|r)
+    :returns: y (*max(N,L,P) x max(K,M,Q) matrix*) 
+    
+        .. math:: ln Pr(X < x1, X < x2|r)
 
 
+.. DANGER:: verify equations
 
 Remarks
 -------
 
-x1, x2, and r must be ExE conformable.
-
-
+*x1*, *x2*, and *r* must be ExE conformable.
 
 Source
 ------
@@ -38,3 +38,4 @@ Source
 lncdfn.src
 
 .. seealso:: Functions :func:`cdfbvn`
+

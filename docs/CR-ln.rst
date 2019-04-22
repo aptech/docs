@@ -5,34 +5,33 @@ ln
 Purpose
 ----------------
 
-Computes the natural log of all elements of x.
+Computes the natural log of all elements of *x*.
 
 Format
 ----------------
 .. function:: ln(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*)         containing the natural log values of the
-        elements of x.
+    :returns: y (*NxK matrix or N-dimensional array*) containing the natural log values of the elements of *x*.
 
 Remarks
 -------
 
-ln is defined for x ≠ 0.
+:func:`ln` is defined for :math:`x ≠ 0`.
 
-If x is negative, complex results are returned.
+If *x* is negative, complex results are returned.
 
 You can turn the generation of complex numbers for negative inputs on or
-off in the GAUSS configuration file, and with the sysstate function,
+off in the GAUSS configuration file, and with the :func:`sysstate` function,
 case 8. If you turn it off, ln will generate an error for negative
 inputs.
 
-If x is already complex, the complex number state doesn't matter; ln
+If *x* is already complex, the complex number state doesn't matter; :func:`ln`
 will compute a complex result.
 
-x can be any expression that returns a matrix.
+*x* can be any expression that returns a matrix.
 
 
 Examples
@@ -48,4 +47,3 @@ Examples
 
 .. seealso:: Functions :func:`log`
 
-natural logarithm log

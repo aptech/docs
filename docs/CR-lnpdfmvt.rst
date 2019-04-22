@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: lnpdfmvt(x, s, nu)
 
-    :param x: data.
+    :param x: data
     :type x: NxK matrix
 
     :param s: covariance matrix.
@@ -22,11 +22,10 @@ Format
 
     :returns: z (*Nx1 vector*), log-probabilities.
 
-
-
 Source
 ------
 
 lnpdfn.src
 
 .. seealso:: Functions :func:`lnpdft`
+
