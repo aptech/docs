@@ -149,4 +149,4 @@ The available cases are as follows:
 |                                   | tolerance.                        |
 +-----------------------------------+-----------------------------------+
 
-.. seealso:: Functions :func:`outwidth`, :func:`croutp`, :func:`inv`, :func:`chol`, :func:`solpd`, :func:`screen`, :func:`output`, :func:`format`, :func:`print`, :func:`hasimag`, :func:`dlibrary`, :func:`dllcall`, :func:`rndcon`, :func:`rndn`, :func:`rndu`, :func:`croutp`, :func:`inv`, :func:`chol`, :func:`solpd`, :func:`hasimag`
+.. seealso:: Functions :func:`outwidth`, :func:`croutp`, :func:`inv`, :func:`chol`, :func:`solpd`, :func:`screen`, :func:`output`, :func:`format`, :func:`print`, :func:`hasimag`, `dlibrary`, :func:`dllcall`, :func:`rndcon`, :func:`rndn`, :func:`rndu`, :func:`croutp`, :func:`inv`, :func:`chol`, :func:`solpd`, :func:`hasimag`

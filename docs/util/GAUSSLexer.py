@@ -34,7 +34,7 @@ class GAUSSLexer(RegexLexer):
     keyword = ("and", "bool", "break", "call", "callexe", "checkinterrupt", "clear", "clearg", "closeall", "cls", "comlog", "compile",
                "continue", "create", "debug", "declare", "delete", "disable", "dlibrary", "dllcall", "do", "dos", "edit", "ed", "else",
                "elseif", "enable", "end", "endfor", "endif", "endp", "endo", "errorlog", "errorlogat", "expr", "external", "fn",
-               "format", "for", "goto", "gosub", "graph", "if", "keyword", "library", "library", "line", "load", "loadarray", "loadexe",
+               "format", "for", "goto", "gosub", "graph", "if", "keyword", "lib", "library", "library", "line", "load", "loadarray", "loadexe",
                "loadf", "loadk", "loadm", "loadp", "loads", "loadx", "locate", "loopnextindex", "lprint", "lpwidth", "lshow",
                "msym", "ndpclex", "new", "not", "open", "or", "output", "outwidth", "plotsym", "plot", "pop", "prcsn", "print",
                "printdos", "proc", "push", "retp", "return", "rndcon", "rndmod", "rndmult", "rndseed", "run", "saveall", "save", "screen",

@@ -31,7 +31,7 @@ If the symbol is listed and strongly typed in an active library, no
 `external` statement is needed.
 
 If a matrix, string, N-dimensional array, sparse matrix, or structure
-appears in an `external` statement, it needs to appear once in a :func:`declare`
+appears in an `external` statement, it needs to appear once in a `declare`
 statement. If no declaration is found, an ``Undefined symbol`` error message
 will result.
 
@@ -62,5 +62,5 @@ the compiler until the `if` statement containing the reference to
 *\_errcode* in the main program file had already been incorrectly
 compiled.
 
-.. seealso:: Functions :func:`declare`
+.. seealso:: Functions `declare`
 

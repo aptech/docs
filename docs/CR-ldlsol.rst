@@ -5,7 +5,7 @@ ldlsol
 Purpose
 ----------------
 
-Computes the solution to a system of linear equations given a factorized matrix returned by the function ldlp and one or more right hand sides.
+Computes the solution to a system of linear equations given a factorized matrix returned by the function :func:`ldlp` and one or more right hand sides.
 
 Format
 ----------------
@@ -14,7 +14,7 @@ Format
     :param b: the right hand sides of the system of linear equations.
     :type b: Nx1 vector or NxK matrix
 
-    :param ldl_factor: , containing the a factorization returned from the GAUSS function ldlp.
+    :param ldl_factor: containing the a factorization returned from the function :func:`ldlp`.
     :type ldl_factor: Nx(N+1) matrix
 
     :returns: x (*Nx1 vector or NxK matrix*), containing the solution to LDLTx = b.
@@ -25,7 +25,7 @@ Remarks
 Matrix factorization is the most computationally intense part of solving
 a system of linear equations. The factorization can be saved and reused
 multiple times to prevent the need to repeat the matrix factorization
-step. ldlsol uses the LAPACK function dsytrs to solve the system of
+step. :func:`ldlsol` uses the LAPACK function *dsytrs* to solve the system of
 linear equations.
 
 
@@ -46,17 +46,14 @@ Examples
     //Solve system of equations
     x = ldlsol(b, ldl_f);
 
-Ax = b
-x
+The above code will solve the system of linear equations :math:`Ax = b`, assigning *x* to be equal to:
 
 ::
 
-    0.5729 
+         0.5729 
     x = -0.1529 
         -0.2829 
          0.1900
 
 .. seealso:: Functions :func:`ldlp`, :func:`lusol`, :func:`solpd`
 
-solution system linear equation given factorized matrix ldlp ldl
-factorization decomposition solve linear equation solution

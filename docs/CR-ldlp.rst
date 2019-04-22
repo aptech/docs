@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: ldlp(A)
 
-    :param A: 
+    :param A: data
     :type A: NxN real symmetric matrix
 
-    :returns: ldl_factor (*(N+1)xN matrix*) , containing the factors L and D as well as the permutation vector P, which can be passed directly to ldlsol to solve a system of linear equations.
+    :returns: ldl_factor (*(N+1)xN matrix*) containing the factors *L* and *D* as well as the permutation vector *P*, which can be passed directly to :func:`ldlsol` to solve a system of linear equations.
 
 Remarks
 -------
@@ -22,7 +22,7 @@ Remarks
 Matrix factorization is the most computationally intense part of solving
 a system of linear equations. The factorization can be saved and reused
 multiple times to prevent the need to repeat the matrix factorization
-step. ldlp uses the LAPACK function dsytrf to compute the factorization.
+step. :func:`ldlp` uses the LAPACK function *dsytrf* to compute the factorization.
 
 
 Examples
@@ -42,16 +42,14 @@ Examples
     //Solve system of equations
     x = ldlsol(b, ldl_f);
 
-Ax = b
-x
+The above code will solve the system of linear equations :math:`Ax = b`, assigning *x* to be equal to:
 
 ::
 
-    0.5729 
+         0.5729 
     x = -0.1529 
         -0.2829 
          0.1900
 
 .. seealso:: Functions :func:`ldlsol`, :func:`chol`, :func:`solpd`
 
-Bunch-Kaufmann factorization real symmetric matrix permutation vector

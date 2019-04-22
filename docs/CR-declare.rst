@@ -46,16 +46,16 @@ Format
 Remarks
 -------
 
-The :func:`declare` syntax is similar to the let statement.
+The `declare` syntax is similar to the let statement.
 
-:func:`declare` generates no executable code. This is strictly for compile time
+`declare` generates no executable code. This is strictly for compile time
 initialization. The data on the right-hand side of the equal sign must
 be constants. No expressions or variables are allowed.
 
-:func:`declare` statements are intended for initialization of global variables
+`declare` statements are intended for initialization of global variables
 that are used by procedures in a library system.
 
-It is best to place :func:`declare` statements in a separate file from procedure
+It is best to place `declare` statements in a separate file from procedure
 definitions. This will prevent redefinition errors when rerunning the
 same program without clearing your workspace.
 
@@ -93,9 +93,9 @@ Here are some of the possible uses of the three forms of declaration:
     * - ``!=``, ``=``
       - Interactive programming or any situation where a global by the same name
         will probably be sitting in the symbol table when the file containing
-        the :func:`declare` statement is compiled. The symbol will be reset.
+        the `declare` statement is compiled. The symbol will be reset.
         
-        This allows mixing :func:`declare` statements with the procedure definitions
+        This allows mixing `declare` statements with the procedure definitions
         that reference the global matrices and strings or placing them in your
         main file.
 
@@ -106,7 +106,7 @@ Here are some of the possible uses of the three forms of declaration:
         getting mixed up in your program. You probably need to rename one of
         them.
 
-        You need to place :func:`declare` statements in a separate file from the rest of
+        You need to place `declare` statements in a separate file from the rest of
         your program and procedure definitions.
 
     * - ``?=``
@@ -115,12 +115,12 @@ Here are some of the possible uses of the three forms of declaration:
         the file containing the declare's gets recompiled. This can get you into
         trouble if you are not careful.
 
-The :func:`declare` statement warning level is a compile option. Call :func:`config` in
+The `declare` statement warning level is a compile option. Call :func:`config` in
 the command line version of GAUSS or select **Preferences** from the
 **Tools** menu in the graphical user interface to edit this option. If
-`declare warnings` are on, you will be warned whenever a :func:`declare` statement
+`declare warnings` are on, you will be warned whenever a `declare` statement
 encounters a symbol that is already initialized. Here's what happens
-when you :func:`declare` a symbol that is already initialized when `declare warnings` are turned on:
+when you `declare` a symbol that is already initialized when `declare warnings` are turned on:
 
 
 .. list-table::

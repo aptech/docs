@@ -7,6 +7,7 @@ Purpose
 
 Begins a `for` loop.
 
+.. _for:
 .. index:: for
 
 Format

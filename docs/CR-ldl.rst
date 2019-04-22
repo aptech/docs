@@ -5,18 +5,18 @@ ldl
 Purpose
 ----------------
 
-Returns the L and D factors of the LDL' (or LDLT) factorization of a real symmetric matrix.
+Returns the *L* and *D* factors of the LDL' (or LDLT) factorization of a real symmetric matrix.
 
 Format
 ----------------
 .. function:: ldl(A)
 
-    :param A: 
+    :param A: data
     :type A: NxN real symmetric matrix
 
-    :returns: L (*NxN permuted*), lower triangular matrix, containing the factor L.
+    :returns: L (*NxN permuted*), lower triangular matrix, containing the factor *L*.
 
-    :returns: D (*NxN block diagonal matrix*), containing the factor D.
+    :returns: D (*NxN block diagonal matrix*), containing the factor *D*.
 
 Remarks
 -------
@@ -29,27 +29,33 @@ Remarks
 -  The LDL matrix factorization without permutation is not numerically
    stable for positive indefinite matrices. Therefore, this function
    uses the permutation strategy from Bunch and Kaufman. The
-   permutations may result in an L matrix with elements above the
+   permutations may result in an *L* matrix with elements above the
    diagonal.
 
 
 Examples
 ----------------
 
-A = { 5   9   3   4, 
-      9  -6   8   1, 
-      3   8   2   3, 
-      4   1   3   9 };
-
-//Factorize matrix 'A'
-{ L, D } = ldl(A);
-
-A_new = L * D *  L';
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Basic Usage
++++++++++++
 
 ::
 
-    -1.50     1.00     0.00     0.00 
+    A = { 5   9   3   4, 
+          9  -6   8   1, 
+          3   8   2   3, 
+          4   1   3   9 };
+    
+    //Factorize matrix 'A'
+    { L, D } = ldl(A);
+    
+    A_new = L * D *  L';
+
+After the code above:
+
+::
+
+           -1.50     1.00     0.00     0.00 
     L =     1.00     0.00     0.00     0.00 
            -1.33     0.81     1.00     0.00 
            -0.17     0.30    -0.25     1.00     
@@ -79,11 +85,11 @@ Permuted L matrix
     // Perform LDL decomposition 
     { L, D } = ldl(A);
 
-After the code above, the permuted L and diagonal D equal:
+After the code above, the permuted *L* and diagonal *D* equal:
 
 ::
 
-    1        0        0        0        0 
+               1        0        0        0        0 
          -0.3321   0.3114  -0.2380        1        0 
     L =   0.2873  -0.2494        1        0        0 
           0.4215        1        0        0        0 
@@ -97,4 +103,3 @@ After the code above, the permuted L and diagonal D equal:
 
 .. seealso:: Functions :func:`ldlp`, :func:`ldlsol`, :func:`chol`, :func:`solpd`
 
-Cholesky L D factor decomposition ldl factorization symmetric matrix
