@@ -5,29 +5,28 @@ lusol
 Purpose
 ----------------
 
-Computes the solution of LUx = b where L is a lower triangular
- matrix and U is an upper triangular matrix.
+Computes the solution of :math:`LUx = b` where *L* is a lower triangular
+ matrix and *U* is an upper triangular matrix.
 
 Format
 ----------------
 .. function:: lusol(b, L, U)
 
-    :param b: 
+    :param b: data
     :type b: PxK matrix
 
-    :param L: 
-    :type L: PxP lower triangular matrix
+    :param L: lower triangular matrix
+    :type L: PxP matrix
 
-    :param U: 
-    :type U: PxP upper triangular matrix
+    :param U: upper triangular matrix
+    :type U: PxP matrix
 
     :returns: x (*PxK matrix*), solution of LUx = b.
-
 
 
 Remarks
 -------
 
-If b has more than one column, each column is solved for separately,
-i.e., lusol solves LUx[., i] = b[., i].
+If *b* has more than one column, each column is solved for separately,
+i.e., :func:`lusol` solves :math:`LUx[., i] = b[., i]`.
 

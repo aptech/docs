@@ -17,14 +17,14 @@ Format
     :param structure_type: structure type.
     :type structure_type: string
 
-    :returns: instance (*struct*) instance of :class:`the` struct.
+    :returns: instance (*struct*) instance of the struct.
 
     :returns: retcode (*scalar*), 0 if successful, otherwise 1.
 
 Remarks
 -------
 
-instancecan be an array of structures.
+*instance* can be an array of structures.
 
 
 Examples

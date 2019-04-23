@@ -6,20 +6,19 @@ Purpose
 ----------------
 
 Computes the LU decomposition of a square matrix with partial
-(row) pivoting, such that: X = LU.
+(row) pivoting, such that: :math:`X = LU`.
 
 Format
 ----------------
 .. function:: lu(x)
 
-    :param x: 
-    :type x: NxN square nonsingular matrix
+    :param x: square nonsingular matrix
+    :type x: NxN matrix
 
-    :returns: l (*NxN ''scrambled'' lower triangular matrix*) . This is
-        a lower triangular matrix that has been reordered
-        based on the row pivoting.
+    :returns: l (*NxN matrix*) NxN "scrambled" lower triangular matrix. This is
+        a lower triangular matrix that has been reordered based on the row pivoting.
 
-    :returns: u (*NxN upper triangular matrix*) .
+    :returns: u (*NxN matrix*) upper triangular matrix
 
 Examples
 ----------------
@@ -39,7 +38,7 @@ Examples
 
 ::
 
-    -0.0195     0.4054    -0.0874 
+          -0.0195     0.4054    -0.0874 
     A =   -1.2948     0.1734     1.9712 
            0.5408    -0.1294     0.7646 
     
@@ -57,4 +56,3 @@ Examples
 
 .. seealso:: Functions :func:`crout`, :func:`croutp`, :func:`chol`
 
-LU decomposition row pivoting real and complex matrix

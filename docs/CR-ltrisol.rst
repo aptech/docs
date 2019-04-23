@@ -5,17 +5,24 @@ ltrisol
 Purpose
 ----------------
 
-Computes the solution of Lx = b where L is a lower triangular matrix.
+Computes the solution of :math:`Lx = b` where *L* is a lower triangular matrix.
 
 Format
 ----------------
 .. function:: ltrisol(b, L)
 
-    :param b: 
+    :param b: data
     :type b: PxK matrix
 
-    :param L: 
-    :type L: PxP lower triangular matrix
+    :param L: lower triangular matrix
+    :type L: PxP matrix
 
-    :returns: x (*PxK matrix*), soluion of Lx = b.
+    :returns: x (*PxK matrix*), soluion of :math:`Lx = b`.
+
+Remarks
+---------------
+
+:func:`ltrisol` applies a forward solve to :math:`Lx = b` to solve for *x*. If *b* has more
+than one column, each column will be solved for separately, 
+i.e., :func:`ltrisol` will apply a forward solve to :math:`L*x[., i] = b[., i]`.
 

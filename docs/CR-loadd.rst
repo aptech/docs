@@ -8,17 +8,20 @@ Loads data from a dataset. The supported dataset types are CSV, Excel (XLS, XLSX
 
 Format
 ----------------
-.. function:: loadd(dataset) 
-			  loadd(dataset, varnames)
+.. function:: loadd(dataset[, varnames]) 
 
     :param dataset: name of dataset.
     :type dataset: string
 
-    :param varnames: indicating which variable names to load from the data set
-        E.g ".", include all variables;
-        E.g.  "Income + Limit ", include "Income" and "Limit";
-        E.g ". - Cards", '-' means exclude "Cards".
-    :type varnames: Formula string
+    :param varnames: `Formula string` indicating which variable names to load from the data set
+
+        E.g ``"."``, include all variables;
+
+        E.g ``"Income + Limit "``, include ``"Income"`` and ``"Limit"``;
+
+        E.g ``". - Cards"``, ``-`` means exclude ``"Cards"``.
+
+    :type varnames: string
 
     :returns: y (*NxK matrix*) of data.
 
@@ -88,8 +91,10 @@ After the above code,
     106.025    6645.00    483.00    82.000    15.000    2.0000    2.0000    2.0000    2.0000    903.000 
     104.593    7075.00    514.00    71.000    11.000    1.0000    1.0000    1.0000    2.0000    580.000
 
-Load all columns of a GAUSS matrix file, .fmt. No variable names are stored in .fmt files. GAUSS allows the use of 'X1, X2, X2...XP' to reference variables in a .fmt file.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Load all columns of a GAUSS matrix file, .fmt
++++++++++++++++++++++++++++++++++++++++++++++
+
+No variable names are stored in ``.fmt`` files. GAUSS allows the use of ``X1, X2, X2...XP`` to reference variables in a ``.fmt`` file.
 
 ::
 
@@ -175,38 +180,33 @@ After the above code,
 Remarks
 -------
 
--  Since loadd will load the entire dataset at once, the data set must
+-  Since :func:`loadd` will load the entire dataset at once, the data set must
    be small enough to fit in memory. To read chunks of a dataset in an
-   iterative manner, use dataopen and readr.
--  If dataset is a null string or 0, the data set temp.dat will be
+   iterative manner, use :func:`dataopen` and :func:`readr`.
+-  If *dataset* is a null string or 0, the data set ``temp.dat`` will be
    loaded.
--  To load a matrix file, use an .fmt extension on dataset.
--  The supported dataset types are
-   ` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,
-   `Excel (XLS, XLSX) <FIO.3-Spreadsheets.html#data-source-excel>`__,
-   `HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__, `GAUSS Matrix
-   (FMT) <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__,
-   `GAUSS Dataset
-   (DAT) <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__, `Stata
-   (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
--  For HDF5 file, the dataset must include `file
-   schema <FIO.4-HDF5Files.html#schema-hdf5>`__ and both file name and
+-  To load a matrix file, use an ``.fmt`` extension on dataset.
+-  The supported dataset types are `CSV`, `Excel` (XLS, XLSX), `HDF5`, `GAUSS Matrix (FMT)`,
+   `GAUSS Dataset (DAT)`, `Stata` (DTA) and `SAS` (SAS7BDAT, SAS7BCAT).
+-  For `HDF5` file, the dataset must include schema and both file name and
    data set name must be provided, e.g.
-   loadd("h5://C:/gauss17/examples/testdata.h5/mydata").
+
+   ::
+   
+       loadd("h5://C:/gauss17/examples/testdata.h5/mydata").
 
 Source
 ------
 
 saveload.src
 
-See also
-++++++++
-
-`Formula
-String <LF.11-FormulaString.html#FormulaString>`__\,\ `dataopen <CR-dataopen.html#dataopen>`__\,\ `getHeaders <CR-getHeaders.html#getHeaders>`__\,\ `readr <CR-readr.html#readr>`__\,\ `saved <CR-saved.html#saved>`__
-
 Globals
-+++++++
+------------
 
 \__maxvec
+
+See also
+------------
+
+.. seealso:: `Formula String`, :func:`dataopen`, :func:`getHeader`, :func:`read`, :func:`save`
 

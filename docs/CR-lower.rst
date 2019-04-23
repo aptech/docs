@@ -11,18 +11,16 @@ Format
 ----------------
 .. function:: lower(x)
 
-    :param x: 
-    :type x: string or NxK matrix of character data to be converted to lowercase
+    :param x: data to be converted to lowercase
+    :type x: string or NxK matrix 
 
-    :returns: y (string), or NxK matrix which contains the lowercase
-        equivalent of the data in x.
+    :returns: y (*string*), or NxK matrix which contains the lowercase equivalent of the data in *x*.
 
 Remarks
 -------
 
-If x is a numeric matrix, y will contain garbage. No error message will
-be generated since GAUSS does not distinguish between numeric and
-character data in matrices.
+If *x* is a numeric matrix, *y* will contain garbage. No error message will
+be generated since GAUSS does not distinguish between numeric and character data in matrices.
 
 
 Examples
@@ -38,7 +36,9 @@ Examples
 
     math 401
 
-The lower function can be useful when performing case insensitive string comparisons. If you have a program that runs different code depending upon the variable name in a GAUSS dataset or spreadsheet file, you or your colleagues may want to analyze data with inconsistent use of case.
+The :func:`lower` function can be useful when performing case insensitive string comparisons. 
+If you have a program that runs different code depending upon the variable name in a GAUSS dataset 
+or spreadsheet file, you or your colleagues may want to analyze data with inconsistent use of case.
 
 ::
 
@@ -50,6 +50,7 @@ The lower function can be useful when performing case insensitive string compari
        //code for consumption branch
     endif;
 
-Using the lower function, the code above will operate correctly whether var1 is Consumption, CONSUMPTION or consumption.
+Using the :func:`lower` function, the code above will operate correctly whether *var1* is Consumption, CONSUMPTION or consumption.
 
 .. seealso:: Functions :func:`upper`
+

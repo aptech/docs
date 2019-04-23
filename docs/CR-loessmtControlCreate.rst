@@ -28,4 +28,3 @@ loessmt.src
 
 .. seealso:: Functions :func:`loessmt`
 
-coefficients locally weighted regression struct control create

@@ -7,21 +7,27 @@ Purpose
 
 Positions the cursor in the window.
 
+.. _locate:
+.. index:: locate
+
 Format
 ----------------
-.. function:: locate m, n
+
+::
+
+    locate m, n;
 
 Remarks
 -------
 
-locate locates the cursor in the current output window.
+`locate` locates the cursor in the current output window.
 
-m and n denote the row and column, respectively, at which the cursor is
+*m* and *n* denote the row and column, respectively, at which the cursor is
 to be located.
 
 The origin (1,1) is the upper left corner.
 
-mandn may be any expressions that return scalars. Nonintegers will be
+*m* and *n* may be any expressions that return scalars. Nonintegers will be
 truncated to an integer.
 
 
@@ -39,3 +45,4 @@ In this example the window is cleared without affecting
 the cursor position.
 
 .. seealso:: Functions :func:`csrlin`, :func:`csrcol`
+

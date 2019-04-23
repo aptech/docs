@@ -5,7 +5,14 @@ loadwind
 Purpose
 ----------------
 
-Load a previously saved graphic panel configuration. Note: This function is for use with the deprecated PQG graphics.
+Load a previously saved graphic panel configuration. 
+
+.. NOTE:: This function is for use with the deprecated PQG graphics.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -18,7 +25,10 @@ Format
         is invalid. Note that the current graphic panel configuration will
         be overwritten in either case.
 
+Globals
+-------
 
+\_pwindmx
 
 Source
 ------
@@ -26,3 +36,4 @@ Source
 pwindow.src
 
 .. seealso:: Functions :func:`savewind`
+
