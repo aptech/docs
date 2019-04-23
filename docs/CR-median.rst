@@ -11,17 +11,15 @@ Format
 ----------------
 .. function:: median(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: m (*Kx1 vector*) containing the medians of the respective columns of x.
+    :returns: m (*Kx1 vector*) containing the medians of the respective columns of *x*.
 
 Remarks
 -------
 
-median will return a missing value for any column that contains a
-missing value.
-
+:func:`median` will return a missing value for any column that contains a missing value.
 
 Examples
 ----------------
@@ -37,7 +35,7 @@ Examples
     //Calculate the median of each column of 'x'
     md = median(x);
 
-After the code above, md is equal to:
+After the code above, *md* is equal to:
 
 ::
 
@@ -50,4 +48,3 @@ Source
 
 median.src
 
-median matrix column

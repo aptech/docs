@@ -11,30 +11,30 @@ Format
 ----------------
 .. function:: maxindc(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*Kx1 matrix*) containing the index of the maximum element in each column of x.
+    :returns: y (*Kx1 matrix*) containing the index of the maximum element in each column of *x*.
 
 Remarks
 -------
 
-If x is complex, maxindc uses the complex modulus (abs(x)) to determine
+If *x* is complex, :func:`maxindc` uses the complex modulus (``abs(x)``) to determine
 the largest elements.
 
 To find the index of the maximum element in each row of a matrix,
-transpose the matrix before applying maxindc.
+transpose the matrix before applying :func:`maxindc`.
 
-To find the indices of the largest element in a matrix x, use:
+To find the indices of the largest element in a matrix *x*, use:
 
 ::
 
    colInd = maxindc(maxc(x));
-   rowInd = maxindc(x[.,colInd]);
+   rowInd = maxindc(x[., colInd]);
 
-If there are two or more ''largest'' elements in a column (i.e., two or
+If there are two or more "largest" elements in a column (i.e., two or
 more elements equal to each other and greater than all other elements),
-then maxindc returns the index of the first one found, which will be the
+then :func:`maxindc` returns the index of the first one found, which will be the
 smallest index.
 
 
@@ -47,7 +47,7 @@ Examples
     mx = maxc(x);
     mxInd = maxindc(x);
 
-If x is equal to:
+If *x* is equal to:
 
 ::
 
@@ -60,9 +60,10 @@ then
 
 ::
 
-    9            3 
+         9            3 
     mx = 9    mxInd = 2 
          6            4 
          8            3
 
 .. seealso:: Functions :func:`maxc`, :func:`minindc`, :func:`minc`
+

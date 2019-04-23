@@ -11,17 +11,16 @@ Format
 ----------------
 .. function:: mattoarray(x)
 
-    :param x: 
+    :param x: data
     :type x: matrix
 
-    :returns: y (*1-or-2-dimensional array*) .
+    :returns: y (*1-or-2-dimensional array*)
 
 Remarks
 -------
 
-If the argument x is a scalar, mattoarray will simply return the scalar,
+If the argument *x* is a scalar, :func:`mattoarray` will simply return the scalar,
 without changing it to a type array.
-
 
 Examples
 ----------------
@@ -31,6 +30,7 @@ Examples
     x = 5*ones(2,3);
     y = mattoarray(x);
 
-y will be a 2x3 array of fives.
+*y* will be a 2x3 array of fives.
 
 .. seealso:: Functions :func:`arraytomat`
+

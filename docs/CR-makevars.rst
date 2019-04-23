@@ -11,25 +11,23 @@ Format
 ----------------
 .. function:: makevars(x, vnames, xnames)
 
-    :param x: 
-    :type x: NxK matrix whose columns will be converted into
-        individual vectors
+    :param x: columns to be converted into individual vectors
+    :type x: NxK matrix
 
-    :param vnames:  If 0, all names in  xnames will be used.
-    :type vnames: string or Mx1 character vector containing names of global vectors to create
+    :param vnames: names of global vectors to create. If 0, all names in *xnames* will be used.
+    :type vnames: string or Mx1 character vector
 
-    :param xnames: 
-    :type xnames: string or Kx1 character vector containing names
-        to be associated with the columns of the matrix x
+    :param xnames: names to be associated with the columns of the matrix *x*
+    :type xnames: string or Kx1 character vector
 
 Remarks
 -------
 
-If xnames = 0, the prefix X will be used to create names. Therefore, if
-there are 9 columns in x, the names will be X1-X9, if there are 10, they
-will be X01-X10, and so on.
+If *xnames* = 0, the prefix ``X`` will be used to create names. Therefore, if
+there are 9 columns in *x*, the names will be ``X1-X9``, if there are 10, they
+will be ``X01-X10``, and so on.
 
-If xnames orvnames is a string, the individual names must be separated
+If *xnames* or *vnames* is a string, the individual names must be separated
 by spaces or commas:
 
 ::
@@ -37,12 +35,12 @@ by spaces or commas:
    vnames = "age pay sex";
 
 Since these new vectors are created at execution time, the compiler will
-not know they exist until after makevars has executed once. This means
+not know they exist until after :func:`makevars` has executed once. This means
 that you cannot access them by name unless you previously clear them or
-otherwise add them to the symbol table. (See setvars for a quick
+otherwise add them to the symbol table. (See :func:`setvars` for a quick
 interactive solution to this.)
 
-This function is the opposite of mergevar.
+This function is the opposite of :func:`mergevar`.
 
 
 Examples
@@ -57,8 +55,8 @@ Examples
     let vnames = age pay;
     makevars(x,vnames,xnames);
 
-Two global vectors, called age and pay, are created from the
-columns of x.
+Two global vectors, called *age* and *pay*, are created from the
+columns of *x*.
 
 ::
 
@@ -72,14 +70,15 @@ columns of x.
 This is the same as the example above, except that strings are used
 for the variable names.
 
+Globals
+------------
+
+\__vpad
+
 Source
 ------
 
 vars.src
 
-Globals
-+++++++
-
-\__vpad
-
 .. seealso:: Functions :func:`mergevar`, :func:`setvars`
+

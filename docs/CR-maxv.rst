@@ -11,29 +11,18 @@ Format
 ----------------
 .. function:: maxv(x, y)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :param y: 
+    :param y: data
     :type y: NxK matrix
 
-    :returns: z (*NxK matrix*) whose values are the maximum of each element from the arguments x and y.
-
-Global Input
-------------
-
-+-----------------+-----------------------------------------------------+
-| x               | NxK matrix                                          |
-+-----------------+-----------------------------------------------------+
-| y               | NxK matrix                                          |
-+-----------------+-----------------------------------------------------+
-
+    :returns: z (*NxK matrix*) whose values are the maximum of each element from the arguments *x* and *y*.
 
 Remarks
 -------
 
-maxv works for sparse matrices as well as arrays.
-
+:func:`maxv` works for sparse matrices as well as arrays.
 
 Examples
 ----------------
@@ -50,7 +39,7 @@ Examples
 
 ::
 
-    1       10       10 
+        1       10       10 
         2        9        9 
         3        8        8 
         4        7        7 
@@ -62,3 +51,4 @@ Examples
        10        1       10
 
 .. seealso:: Functions :func:`minv`
+

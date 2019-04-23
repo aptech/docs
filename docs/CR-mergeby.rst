@@ -21,14 +21,14 @@ Format
     :type outfile: string
 
     :param keytyp: data type of key variable.
+
+        .. csv-table::
+            :widths: auto
+    
+            "1", "numeric"
+            "2", "character"
+
     :type keytyp: scalar
-
-    .. csv-table::
-        :widths: auto
-
-        "1", "numeric"
-        "2", "character"
-
 
 
 Remarks
@@ -48,12 +48,10 @@ The output file will contain the key variable in its first column.
 
 It is not necessary for the two files to have the same number of rows.
 For each row for which the key variables match, a row will be created in
-the output file. outfile will contain the columns from infile1 followed
-by the columns from infile2 minus the key column from the second file.
+the output file. *outfile* will contain the columns from *infile1* followed
+by the columns from *infile2* minus the key column from the second file.
 
 If the inputs are null ("" or 0), the procedure will ask for them.
-
-
 
 Source
 ------

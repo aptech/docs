@@ -5,7 +5,14 @@ makewind
 Purpose
 ----------------
 
-Creates a graphic panel of specific size and position and adds it to the list of graphic panels. Note: This function is for the deprecated PQG graphics. For similar functionality, see plotLayout and plotCustomLayout.
+Creates a graphic panel of specific size and position and adds it to the list of graphic panels. 
+
+.. NOTE:: This function is for the deprecated PQG graphics. For similar functionality, see :func:`plotLayout` and :func:`plotCustomLayout`.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -17,20 +24,16 @@ Format
     :param ysize: vertical size of the graphic panel in inches.
     :type ysize: scalar
 
-    :param xshft: horizontal distance from left edge of
-        window in inches.
+    :param xshft: horizontal distance from left edge of window in inches.
     :type xshft: scalar
 
-    :param yshft: vertical distance from bottom edge of
-        window in inches.
+    :param yshft: vertical distance from bottom edge of window in inches.
     :type yshft: scalar
 
-    :param typ: graphic panel attribute type. If this value is
-        1, the graphic panels will be transparent.
+    :param typ: graphic panel attribute type. If this value is 1, the graphic panels will be transparent.
+
         If 0, the graphic panels will be nontransparent.
     :type typ: scalar
-
-
 
 Remarks
 -------
@@ -42,11 +45,9 @@ panel size to page size ratio will remain the same. The result of this
 implementation automates the rotation and eliminates the required
 graphic panel recalculations by the user.
 
-See the window command for creating tiled graphic panels. For more
+See the :func:`window` command for creating tiled graphic panels. For more
 information on using graphic panels, see **Tiled Graphic Panels**,
 Section 1.0.1.
-
-
 
 Source
 ------
@@ -54,3 +55,4 @@ Source
 pwindow.src
 
 .. seealso:: Functions :func:`window`, :func:`endwind`, :func:`setwind`, :func:`getwind`, :func:`begwind`, :func:`nextwind`
+

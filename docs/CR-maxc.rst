@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: maxc(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or sparse matrix
 
     :returns: y (*Kx1 matrix*) containing the largest element in each column of x.
@@ -19,14 +19,14 @@ Format
 Remarks
 -------
 
-If x is complex, maxc uses the complex modulus (abs(x)) to determine the
+If *x* is complex, :func:`maxc` uses the complex modulus (``abs(x)``) to determine the
 largest elements.
 
 To find the maximum elements in each row of a matrix, transpose the
-matrix before applying the maxc function.
+matrix before applying the :func:`maxc` function.
 
 To find the maximum value in the whole matrix if the matrix has more
-than one column, nest two calls to maxc:
+than one column, nest two calls to :func:`maxc`:
 
 ::
 
@@ -41,7 +41,7 @@ Examples
     x = rndBeta(4,2,3,1);
     y = maxc(x);
 
-If x equals:
+If *x* equals:
 
 ::
 
@@ -50,7 +50,7 @@ If x equals:
     0.82960656 0.58022236 
     0.80910492 0.61975567
 
-then y will equal:
+then *y* will equal:
 
 ::
 
@@ -58,3 +58,4 @@ then y will equal:
     0.95919009
 
 .. seealso:: Functions :func:`minc`, :func:`maxindc`, :func:`minindc`
+

@@ -11,19 +11,18 @@ Format
 ----------------
 .. function:: mergevar(vnames)
 
-    :param vnames: 
-    :type vnames: string or Kx1 column vector containing the names of K global matrices
+    :param vnames: names of K global matrices
+    :type vnames: string or Kx1 column vector
 
-    :returns: x (*NxM matrix that contains the concatenated matrices*), where M is the sum of the columns in
-        the K matrices specified in  vnames.
+    :returns: x (*NxM matrix*), contains the concatenated matrices where *M* is the sum of the columns in
+        the *K* matrices specified in *vnames*.
 
 Remarks
 -------
 
-The matrices specified in vnames must be globals and they must all have
-the same number of rows.
+The matrices specified in *vnames* must be globals and they must all have the same number of rows.
 
-This function is the opposite of makevars.
+This function is the opposite of :func:`makevars`.
 
 
 Examples
@@ -44,8 +43,8 @@ Examples
     //Merge the variables into 1 matrix
     agInc = mergevar(vnames);
 
-The column vectors age and income will be concatenated
-horizontally to create agInc. The above call to mergevar
+The column vectors *age* and *income* will be concatenated
+horizontally to create *agInc*. The above call to :func:`mergevar`
 is equivalent to:
 
 ::
@@ -60,3 +59,4 @@ Source
 vars.src
 
 .. seealso:: Functions :func:`makevars`
+

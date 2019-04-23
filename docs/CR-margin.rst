@@ -5,7 +5,14 @@ margin
 Purpose
 ----------------
 
-Sets the margins for the current graph's graphic panel. Note: This function is for use with the deprecated PQG graphics. For similar functionality, use plotCustomLayout.
+Sets the margins for the current graph's graphic panel. 
+
+.. NOTE:: This function is for use with the deprecated PQG graphics. For similar functionality, use :func:`plotCustomLayout`.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -23,8 +30,6 @@ Format
     :param b: the bottom margin in inches.
     :type b: scalar
 
-
-
 Remarks
 -------
 
@@ -36,12 +41,10 @@ labels and numbers for correct placement.
 
 All input inch values for this procedure are based on a full size window
 of 9x6.855 inches. If this procedure is used with a graphic panel, the
-values will be scaled to ''window inches'' automatically.
+values will be scaled to "window inches" automatically.
 
 If the axes must be placed an exact distance from the edge of the page,
-axmargin should be used.
-
-
+:func:`axmargin` should be used.
 
 Source
 ------
@@ -49,3 +52,4 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`axmargin`
+

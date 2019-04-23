@@ -9,34 +9,28 @@ Returns maximum memory to be used.
 
 Format
 ----------------
-.. function:: maxbytes
-
-    :param __maxbytes: maximum memory to be used.
-    :type __maxbytes: scalar
+.. function:: maxbytes()
 
     :returns: y (*scalar*), maximum memory to be used.
 
 Global Input
 ------------
 
-+-----------------+-----------------------------------------------------+
-| \__maxbytes     | scalar, maximum memory to be used.                  |
-+-----------------+-----------------------------------------------------+
-
+:__maxbytes: (*scalar*) maximum memory to be used.
 
 Remarks
 -------
 
-maxbytes returns the value in the global scalar \__maxbytes, which can
+:func:`maxbytes` returns the value in the global scalar *__maxbytes*, which can
 be reset in the calling program.
 
-maxbytes is called by **Run-Time Library** functions and applications
+:func:`maxbytes` is called by `Run-Time Library` functions and applications
 when determining how many rows can be read from a data set in one call
-to readr.
+to :func:`readr`.
 
-maxbytes replaced the obsolete command coreleft. If coreleft returns a
+:func:`maxbytes` replaced the obsolete command :func:`coreleft`. If :func:`coreleft` returns a
 meaningful number for your operating system and if you wish to reference
-it, set \__maxbytes = 0 and then call maxbytes.
+it, set *__maxbytes* = 0 and then call :func:`maxbytes`.
 
 
 Examples
@@ -47,9 +41,7 @@ Examples
     y = maxbytes;
     print y;
 
-::
-
-    100000000.000
+        100000000.000
 
 Source
 ------

@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: meanc(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*Kx1 matrix*) containing the mean of every column of x.
+    :returns: y (*Kx1 matrix*) containing the mean of every column of *x*.
 
 Examples
 ----------------
@@ -23,7 +23,7 @@ Examples
 
     x = meanc(rndu(1e5,4));
 
-After the code above, x is equal to:
+After the code above, *x* is equal to:
 
 ::
 
@@ -38,4 +38,3 @@ in this example, your results may differ slightly.
 
 .. seealso:: Functions :func:`stdc`
 
-mean value matrix column

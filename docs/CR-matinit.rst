@@ -20,7 +20,7 @@ Format
     :param v: value to initialize.
     :type v: scalar
 
-    :returns: y (*r x c matrix*) with each element equal to the value of  v.
+    :returns: y (*RxC matrix*) with each element equal to the value of *v*.
 
 Examples
 ----------------
@@ -30,10 +30,9 @@ Examples
     format /rd 6,2;
     print matinit(3, 4, pi);
 
-::
-
-    3.14   3.14   3.14   3.14 
+      3.14   3.14   3.14   3.14 
       3.14   3.14   3.14   3.14 
       3.14   3.14   3.14   3.14
 
 .. seealso:: Functions :func:`matalloc`, :func:`ones`, :func:`zeros`, :func:`eye`
+

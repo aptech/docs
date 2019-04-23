@@ -9,28 +9,22 @@ Returns maximum vector length allowed.
 
 Format
 ----------------
-.. function:: maxvec
-
-    :param __maxvec: maximum vector length allowed.
-    :type __maxvec: scalar
+.. function:: maxvec()
 
     :returns: y (*scalar*), maximum vector length.
 
 Global Input
 ------------
 
-+-----------------+-----------------------------------------------------+
-| \__maxvec       | scalar, maximum vector length allowed.              |
-+-----------------+-----------------------------------------------------+
-
+:__maxvec: (*scalar*) maximum vector length allowed.
 
 Remarks
 -------
 
-maxvec returns the value in the global scalar \__maxvec, which can be
+:func:`maxvec` returns the value in the global scalar *__maxvec*, which can be
 reset in the calling program.
 
-maxvec is called by **Run-Time Library** functions and applications when
+:func:`maxvec` is called by `Run-Time Library` functions and applications when
 determining how many rows can be read from a data set in one call to
 readr.
 
@@ -46,8 +40,6 @@ Examples
 
     y = maxvec;
     print y;
-
-::
 
     20000.000
 

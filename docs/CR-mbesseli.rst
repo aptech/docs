@@ -10,11 +10,11 @@ Computes modified and exponentially scaled modified Bessels of the first kind of
 Format
 ----------------
 .. function:: mbesseli(x, n, alpha) 
-			  mbesseli0(x) 
-			  mbesseli1(x) 
-			  mbesselei(x, n, alpha) 
-			  mbesselei0(x) 
-			  mbesselei1(x)
+              mbesseli0(x) 
+              mbesseli1(x) 
+              mbesselei(x, n, alpha) 
+              mbesselei0(x) 
+              mbesselei1(x)
 
     :param x: abscissae.
     :type x: Kx1 vector
@@ -22,7 +22,7 @@ Format
     :param n: highest order.
     :type n: scalar
 
-    :param alpha: 0 <= alpha < 1.
+    :param alpha: :math:`0 <= alpha < 1`.
     :type alpha: scalar
 
     :returns: y (*KxN matrix*), evaluations of the modified Bessel or the exponentially scaled modified Bessel
@@ -33,9 +33,9 @@ Remarks
 
 For the functions that permit you to specify the order, the returned
 matrix contains a sequence of modified or exponentially scaled modified
-Bessel values of different orders. For the ith row of y:
+Bessel values of different orders. For the ith row of *y*:
 
-::
+.. math::
 
    y[i,.] = Iα(x[i]) Iα+1(x[i])...Ialpha+n-1(x[i])
 
@@ -45,7 +45,7 @@ order.
 The exponentially scaled modified Bessels are related to the unscaled
 modifed Bessels in the following way:
 
-::
+.. math::
 
    mbesselei0(x) = exp(-x) * mbesseli0(x)
 
@@ -53,35 +53,39 @@ The use of the scaled versions of the modified Bessel can improve the
 numerical properties of some calculations by keeping the intermediate
 numbers small in size.
 
+.. DANGER:: review equations on this page
 
 Examples
 ----------------
-This example produces estimates for the "circular" response regression model (Fisher, N.I. Statistical Analysis of
-Circular Data. NY: Cambridge University Press, 1993.), where the
-dependent variable varies between -π and π in a circular manner. The model is
+This example produces estimates for the "circular" response regression 
+model (Fisher, N.I. Statistical Analysis of Circular Data. NY: Cambridge 
+University Press, 1993.), where the dependent variable varies between 
+:math:`-π` and :math:`π` in a circular manner. The model is
 
-::
+.. math::
 
     y = μ + G(XB)
 
-B
-x
-y
-G
-XB
+where *B* is a vector of regression coefficients, *x* a matrix of
+independent variables with a column of 1's included for a constant, and
+*y* a vector of "circular" dependent variables, and where :math:`G()` is a
+function mapping *XB* onto the :math:`[ -π, π ]` interval.
+
 The log-likelihood for this model is from Fisher, N.I. ... 1993, 159:
 
-::
+.. math::
 
     log⁡L=−N×ln⁡(I0(κ))+κ⁢NΣi⁢cos⁡(yi−μ−G(XiB))
 
 To generate estimates it is necessary to maximize this function using
-an iterative method.  QNewton is used here.
-κ is required to be nonnegative and therefore in the example
+an iterative method. :func:`QNewton` is used here.
+
+:math:`κ` is required to be nonnegative and therefore in the example
 below, the exponential of this parameter is estimated instead. Also,
 the exponentially scaled modified Bessel is used to improve numerical
 properties of the calculations.
-The arctan function is used in G() to map XB to the [ -π, π ] interval
+
+The arctan function is used in :math:`G()` to map *XB* to the :math:`[ -π, π ]` interval
 as suggested by Fisher, N.I. ... 1993, 158.
 
 ::
@@ -124,4 +128,3 @@ ribesl.src
 
 .. seealso:: Functions :func:`besselj`, :func:`besselk`, :func:`bessely`
 
-bessel
