@@ -11,20 +11,18 @@ Format
 ----------------
 .. function:: nextindex(i, o)
 
-    :param i: where M<=N.
-    :type i: Mx1 vector of indices into an array
+    :param i: indices into an array where :math:`M <= N`.
+    :type i: Mx1 vector
 
-    :param o: 
-    :type o: Nx1 vector of orders of an N-dimensional array
+    :param o: orders of an N-dimensional array
+    :type o: Nx1 vector
 
-    :returns: ni (*Mx1 vector of indices*), the index of the next element or subarray in the array corresponding to  o.
+    :returns: ni (*Mx1 vector of indices*), the index of the next element or subarray in the array corresponding to *o*.
 
 Remarks
 -------
 
-nextindex will return a scalar error code if the index cannot be
-incremented.
-
+:func:`nextindex` will return a scalar error code if the index cannot be incremented.
 
 Examples
 ----------------
@@ -48,15 +46,15 @@ After the code above, ind will be equal to:
     4
     1
 
-In this example, nextindex incremented ind
-to index the next 6x7 subarray in array a.
-Using the same data from above, a subsequent call to nextindex:
+In this example, :func:`nextindex` incremented *ind* to index the next 6x7 subarray in array *a*.
+
+Using the same data from above, a subsequent call to :func:`nextindex`:
 
 ::
 
     ind = nextindex(ind,orders);
 
-will assign ind to be equal to:
+will assign *ind* to be equal to:
 
 ::
 
@@ -65,3 +63,4 @@ will assign ind to be equal to:
     2
 
 .. seealso:: Functions :func:`previousindex`, :func:`loopnextindex`, :func:`walkindex`
+

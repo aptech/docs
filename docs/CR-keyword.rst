@@ -19,6 +19,8 @@ Format
         ...;
     endp;
 
+**Parameters:**
+
 :name: (*scalar*) name of the keyword. This name will be a global symbol.
 :str: (*string*) a name to be used inside the keyword to refer to the argument that is passed to the keyword when the keyword is called. 
     This will always be local to the keyword, and cannot be accessed from outside the keyword or from other keywords or procedures.

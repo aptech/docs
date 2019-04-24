@@ -8,14 +8,20 @@ Purpose
 Erases everything in memory including the symbol table; closes all open files as well as the auxiliary output and turns
 the window on if it was off; also allows the size of the new symbol table and the main program space to be specified.
 
+.. _new:
+.. index::
+
 Format
 ----------------
-.. function:: new 
-			  new nos
 
-    :param nos: optional input which indicates the maximum number of global
-        symbols allowed.
-    :type nos: scalar
+::
+
+    new;
+    new nos;
+
+**Parameters:**
+
+:nos: optional input which indicates the maximum number of global symbols allowed.
 
 Remarks
 -------
@@ -25,8 +31,8 @@ string arrays are all global symbols.
 
 If you would like your user-defined procedures to not be cleared after a
 new statement, you can either add them to a GAUSS Library or create a
-file in your GAUSSHOME directory with the same name as your procedure
-and a .g file extension. This file .g file should only contain your
+file in your `GAUSSHOME` directory with the same name as your procedure
+and a .g file extension. This file *.g* file should only contain your
 procedure.
 
 This command can be used with arguments as the first statement in a
@@ -54,3 +60,4 @@ Examples
              */
 
 .. seealso:: Functions :func:`clear`, :func:`delete`, :func:`output`
+

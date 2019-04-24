@@ -19,6 +19,8 @@ Format
     lib library -flag;
     lib library file -flag1 -flag2;
 
+**Parameters:**
+
 :library: (*literal*) name of library.
 :file: (*literal*) optional. name of source file to be updated or added.
 :flags: (*literal*) optional. preceded by ``-``, controls operation of library update. To control handling of path information on source filenames:

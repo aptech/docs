@@ -17,7 +17,7 @@ Format
     :param c: number of columns.
     :type c: scalar
 
-    :returns: y (*r x c matrix*) of ones.
+    :returns: y (*RxC matrix*) of ones.
 
 Remarks
 -------
@@ -32,7 +32,7 @@ Examples
 
     x = ones(3,2);
 
-The code above assigns x to be equal to:
+The code above assigns *x* to be equal to:
 
 ::
 
@@ -41,3 +41,4 @@ The code above assigns x to be equal to:
     1.0000000        1.0000000
 
 .. seealso:: Functions :func:`zeros`, :func:`eye`
+

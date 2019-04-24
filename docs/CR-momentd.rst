@@ -5,7 +5,7 @@ momentd
 Purpose
 ----------------
 
-Computes a moment (x'x) matrix from a GAUSS data set.
+Computes a moment (*x*'*x*) matrix from a GAUSS data set.
 
 Format
 ----------------
@@ -14,23 +14,68 @@ Format
     :param dataset: name of data set.
     :type dataset: string
 
-    :param vars: names of variables
-        
-        - or -Kx1 numeric vector, indices of columns.- or -Formula String. e.g. "PAY + WT"  or ". - 1"(include all variables besides intercept)These can be any size subset of the variables in the data set, and can be in any order. If a
-        scalar 0 is passed, all columns of the data set will be used.
-    :type vars: Kx1 string array
+    :param vars: 
 
-    :returns: m (*MxM matrix*), where M = K + __con, the moment matrix
-        constructed by calculating X'X where X is the data, with or without a constant vector of ones.
-        Error handling is controlled by the low order bit of the trap flag.
+        .. list-table::
+            :widths: auto
+            :header-rows: 1
+
+            * - Type
+              - Contents
+            * - Kx1 string array
+              - names of variables
+            * - Kx1 numeric vector
+              - indices of columns
+            * - string
+              - Formula string e.g. ``"PAY + WT"`` or ``". - 1"`` (include all variables besides intercept).
+                
+                These can be any size subset of the variables in the data set, and can be 
+                in any order. If a scalar 0 is passed, all columns of the data set will be used.
+
+    :type vars: Kx1 string array or Kx1 numeric vector or string
+
+    :returns: m (*MxM matrix*), where :math:`M = K + \_\_con`, the moment matrix
+        constructed by calculating :math:`X'X` where *X* is the data, with or without a constant vector of ones.
+
+        Error handling is controlled by the low order bit of the `trap` flag.
+
+
+        :trap 0: terminate with error message
+        :trap 1: return scalar error code in *m*
+
+            .. csv-table::
+                :widths: auto
+
+                "33", "too many missings"
+                "34", "file not found"
+
+Global Input
+------------
+
+:__con: (*scalar*), default 1.
 
     .. csv-table::
         :widths: auto
 
-        "trap 0    terminate with error message"
-        "trap 1    return scalar error code in  m"
-        "33   too many missings"
-        "34   file not found"
+        "1", "a constant term will be added."
+        "0", "no constant term will be added."
+
+:__miss: (*scalar*), default 0.
+
+    .. csv-table::
+        :widths: auto
+
+        "0", "there are no missing values (fastest)."
+        "1", "do listwise deletion; drop an observation if any missings occur in it."
+        "2", "do pairwise deletion; this is equivalent to setting missings to 0 when calculating m."
+
+:__row: (*scalar*), the number of rows to read per iteration of the read loop, default 0.
+
+    If 0, the number of rows will be calculated internally.
+
+    If you get an *Insufficient memory* error, or you want the rounding to be
+    exactly the same between runs, you can set the number of rows to read
+    before calling :func:`momentd`.
 
 Examples
 ----------------
@@ -100,72 +145,17 @@ After the above code,
 Remarks
 -------
 
--  The supported dataset types are
-   ` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,
-   `Excel (XLS, XLSX) <FIO.3-Spreadsheets.html#data-source-excel>`__,
-   `HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__, `GAUSS Matrix
-   (FMT) <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__,
-   `GAUSS Dataset
-   (DAT) <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__, `Stata
-   (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
--  Character vectors are supported for backward compatibility, but it
-   has been deprecated.
-
-See also
-++++++++
-
-`Formula String <LF.11-FormulaString.html#FormulaString>`__
+-  The supported dataset types are CSV, Excel, HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), 
+   Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
+-  Character vectors are supported for backward compatibility, but it has been deprecated.
 
 Source
 ------
 
 momentd.src
 
-dataset moment matrix
-
-
-Global Input
+See also
 ------------
 
-\__con
+.. seealso:: `Formula String`
 
-
-
-scalar, default 1.
-
- 
-
-1      a constant term will be added.
-
- 
-
-0      no constant term will be added.
-
-\__miss
-
-scalar, default 0.
-
- 
-
-0      there are no missing values (fastest).
-
- 
-
-| 1      do listwise deletion; drop an observation if
-|         any missings occur in it.
-
- 
-
-| 2      do pairwise deletion; this is equivalent to
-|         setting missings to 0 when calculating m.
-
-\__row
-
-scalar, the number of rows to read per iteration of the read loop,
-default 0.
-
-If 0, the number of rows will be calculated internally.
-
-If you get an Insufficient memory error, or you want the rounding to be
-exactly the same between runs, you can set the number of rows to read
-before calling momentd.

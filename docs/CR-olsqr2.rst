@@ -11,33 +11,34 @@ Format
 ----------------
 .. function:: olsqr2(y, x)
 
-    :param y: 
-    :type y: Nx1 vector containing dependent variable
+    :param y: dependent variable
+    :type y: Nx1 vector
 
-    :param x: 
-    :type x: NxP matrix containing independent variables
+    :param x: independent variables
+    :type x: NxP matrix
 
     :returns: b (*Px1 vector*) of least squares estimates of
-        regression of y on x. If x does not have full
+        regression of *y* on *x*. If *x* does not have full
         rank, then the coefficients that cannot be
         estimated will be zero.
 
-    :returns: r (*Px1 vector*) of residuals. (r = y - x*b)
+    :returns: r (*Px1 vector*) of residuals. (:math:`r = y - x*b`)
 
-    :returns: p (*Px1 vector*) of predicted values. (p = x*b)
+    :returns: p (*Px1 vector*) of predicted values. (:math:`p = x*b`)
 
 
 
 Remarks
 -------
 
-This provides an alternative to y/x for computing least squares
+This provides an alternative to :math:`y/x` for computing least squares
 coefficients.
 
-This procedure is slower than the / operator. However, for near singular
+This procedure is slower than the ``/`` operator. However, for near singular
 matrices, it may produce better results.
 
-olsqr2 handles matrices that do not have full rank by returning zeros
+:func:`olsqr2` handles matrices that do not have full rank by returning zeros
 for the coefficients that cannot be estimated.
 
 .. seealso:: Functions :func:`olsqr`, :func:`orth`, :func:`qqr`
+

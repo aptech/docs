@@ -5,7 +5,7 @@ numCombinations
 Purpose
 ----------------
 
-Computes number of combinations of n things taken k at a time.
+Computes number of combinations of *n* things taken *k* at a time.
 
 Format
 ----------------
@@ -17,12 +17,12 @@ Format
     :param k: 
     :type k: scalar
 
-    :returns: y (*scalar*), number of combinations of  n things take  k at a time.
+    :returns: y (*scalar*), number of combinations of *n* things take *k* at a time.
 
 Remarks
 -------
 
-To calculate all of the combinations, use the function combinate.
+To calculate all of the combinations, use the function :func:`combinate`.
 
 
 Examples
@@ -42,4 +42,3 @@ The code above, returns:
 
 .. seealso:: Functions :func:`combinate`, :func:`combinated`
 
-number combination n choose k

@@ -11,21 +11,21 @@ Format
 ----------------
 .. function:: minc(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or sparse matrix
 
-    :returns: y (*Kx1 matrix*) containing the smallest element in each column of x.
+    :returns: y (*Kx1 matrix*) containing the smallest element in each column of *x*.
 
 Remarks
 -------
 
-If x is complex, minc uses the complex modulus (abs(x)) to determine the
+If *x* is complex, :func:`minc` uses the complex modulus (``abs(x)``) to determine the
 smallest elements.
 
 To find the minimum element in each row, transpose the matrix before
-applying the minc function.
+applying the :func:`minc` function.
 
-To find the minimum value in the whole matrix, nest two calls to minc:
+To find the minimum value in the whole matrix, nest two calls to :func:`minc`:
 
 ::
 
@@ -40,7 +40,7 @@ Examples
     x = rndn(4,2);
     y = minc(x);
 
-If x is equal to:
+If *x* is equal to:
 
 ::
 
@@ -49,7 +49,7 @@ If x is equal to:
      0.8136  -2.3155
     -0.9947   1.4061
 
-then y will equal:
+then *y* will equal:
 
 ::
 
@@ -57,3 +57,4 @@ then y will equal:
     -2.3155
 
 .. seealso:: Functions :func:`maxc`, :func:`minindc`, :func:`maxindc`
+

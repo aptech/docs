@@ -11,8 +11,7 @@ Format
 ----------------
 .. function:: olsmtControlCreate()
 
-    :returns: c (*struct*) instance of :class:`olsmtControl` struct
-        with members set to default values.
+    :returns: c (*struct*) instance of :class:`olsmtControl` struct with members set to default values.
 
 Examples
 ----------------
@@ -27,8 +26,8 @@ before it can be used.
     // initialize structure 'ctl'
     ctl = olsmtControlCreate;
 
-The members of the olsmtControl structure and their default values are described in the
-manual entry for olsmt.
+The members of the :class:`olsmtControl` structure and their default values are described in the
+manual entry for :func:`olsmt`.
 
 Source
 ------
@@ -37,4 +36,3 @@ olsmt.src
 
 .. seealso:: Functions :func:`olsmt`
 
-ols least square regression linear struct structure control create

@@ -5,121 +5,40 @@ norm
 Purpose
 ----------------
 
-			Computes one of several specified matrix norms, or a vector p-norm.
-
-		
+Computes one of several specified matrix norms, or a vector p-norm.
 
 Format
 ----------------
-.. function:: norm(A) 
-			  norm(A, norm_type)
+.. function:: norm(A[, norm_type]) 
 
-    :param A: 
+    :param A: data
     :type A: Nx1 vector or NxN matrix
 
-    :param norm_type: specifying which norm to compute.
-        Matrix norm options:
-        
-        
-        
-        
-        1
-        Scalar, equivalent to:  maxc(sumc(abs(x)))
-        
-        
-        2
-        Scalar, the spectral norm, equivalent to: maxc(svds(x))
-        
-        
-        __INFP
-        Scalar, the infinity norm, equivalent to: maxc(sumr(abs(x)))
-        
-        
-        "fro"
-        String, the Frobenius norm, equivalent to: sqrt(sumc(vecr(x.^2))).
-        
-        
-        "nuc"
-        String, the nuclear norm, equivalent to: sumc(svds(A)).
-        
-        
-        
-        Vector norm options:
-        
-        
-        
-        
-        1
-        Scalar, equivalent to:  sumcs(abs(x)) for column vectors, or sumr(abs(x)) for row vectors.
-        
-        
-        2
-        Scalar, the l2 or Euclidean norm, equivalent to: sqrt(sumc(x.^2)), or sqrt(sumr(x.^2))
-        
-        
-        p
-        Scalar, any real number, equivalent to: sumc(abs(x.^p)).^(1/p), or sumr(abs(x.^p)).^(1/p)
-        
-        
-        __INFP
-        Scalar, equivalent to: maxc(abs(x)), or maxc(abs(x'))
-        
-        
-        __INFN
-        Scalar, equivalent to: minc(abs(x)), or minc(abs(x'))
-        1
-        Scalar, equivalent to:  maxc(sumc(abs(x)))
-        2
-        Scalar, the spectral norm, equivalent to: maxc(svds(x))
-        __INFP
-        Scalar, the infinity norm, equivalent to: maxc(sumr(abs(x)))
-        "fro"
-        String, the Frobenius norm, equivalent to: sqrt(sumc(vecr(x.^2))).
-        "nuc"
-        String, the nuclear norm, equivalent to: sumc(svds(A)).
-        1
-        Scalar, equivalent to:  sumcs(abs(x)) for column vectors, or sumr(abs(x)) for row vectors.
-        2
-        Scalar, the l2 or Euclidean norm, equivalent to: sqrt(sumc(x.^2)), or sqrt(sumr(x.^2))
-        p
-        Scalar, any real number, equivalent to: sumc(abs(x.^p)).^(1/p), or sumr(abs(x.^p)).^(1/p)
-        __INFP
-        Scalar, equivalent to: maxc(abs(x)), or maxc(abs(x'))
-        __INFN
-        Scalar, equivalent to: minc(abs(x)), or minc(abs(x'))
-    :type norm_type: Optional string or integer input
+    :param norm_type: optional. specifying which norm to compute. 
 
-    :param 1: equivalent to:  maxc(sumc(abs(x)))
-    :type 1: Scalar
+        ========= ==================
+        Matrix norm options
+        ============================
+        1         Scalar, equivalent to: ``maxc(sumc(abs(x)))``
+        2         Scalar,  the spectral norm, equivalent to: ``maxc(svds(x))``
+        \_\_INFP  Scalar, the infinity norm, equivalent to: ``maxc(sumr(abs(x)))``
+        "fro"     String, the Frobenius norm, equivalent to: ``sqrt(sumc(vecr(x.^2)))``.
+        "nuc"     String, the nuclear norm, equivalent to: ``sumc(svds(A))``.
+        ========= ==================
+   
+        ========= ==================
+        Vector norm options
+        ============================
+        1         Scalar, equivalent to: ``sumcs(abs(x))`` for column vectors, or ``sumr(abs(x))`` for row vectors.
+        2         Scalar, the l2 or Euclidean norm, equivalent to: ``sqrt(sumc(x.^2))``, or ``sqrt(sumr(x.^2))``
+        p         Scalar, any real number, equivalent to: ``sumc(abs(x.^p)).^(1/p)``, or ``sumr(abs(x.^p)).^(1/p)``
+        \_\_INFP  Scalar, equivalent to: ``maxc(abs(x))``, or ``maxc(abs(x'))``
+        \_\_INFN  Scalar, equivalent to: ``minc(abs(x))``, or ``minc(abs(x'))``
+        ========= ==================
 
-    :param 2: the spectral norm, equivalent to: maxc(svds(x))
-    :type 2: Scalar
+    :type norm_type: string or scalar
 
-    :param __INFP: the infinity norm, equivalent to: maxc(sumr(abs(x)))
-    :type __INFP: Scalar
-
-    :param "fro": the Frobenius norm, equivalent to: sqrt(sumc(vecr(x.^2))).
-    :type "fro": String
-
-    :param "nuc": the nuclear norm, equivalent to: sumc(svds(A)).
-    :type "nuc": String
-
-    :param 1: equivalent to:  sumcs(abs(x)) for column vectors, or sumr(abs(x)) for row vectors.
-    :type 1: Scalar
-
-    :param 2: the l2 or Euclidean norm, equivalent to: sqrt(sumc(x.^2)), or sqrt(sumr(x.^2))
-    :type 2: Scalar
-
-    :param p: any real number, equivalent to: sumc(abs(x.^p)).^(1/p), or sumr(abs(x.^p)).^(1/p)
-    :type p: Scalar
-
-    :param __INFP: equivalent to: maxc(abs(x)), or maxc(abs(x'))
-    :type __INFP: Scalar
-
-    :param __INFN: equivalent to: minc(abs(x)), or minc(abs(x'))
-    :type __INFN: Scalar
-
-    :returns: n (*Scalar*), the requested norm of  A
+    :returns: n (*Scalar*), the requested norm of *A*.
 
 Examples
 ----------------

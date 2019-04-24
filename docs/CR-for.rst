@@ -19,6 +19,8 @@ Format
         ...
     endfor;
 
+**Parameters:**
+
 :i: the name of the counter variable.
 :start: (*scalar*) the initial value of the counter.
 :stop: (*scalar*) the the final value of the counter.

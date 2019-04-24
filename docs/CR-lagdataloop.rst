@@ -18,6 +18,8 @@ Format
 
     lag nv1 = var1: p1 [[nv2 = var2:p2...]];
 
+**Parameters:**
+
 :var: (*string*) name of the variable to lag
 :p: (*scalar constant*) number of periods to lag.
 :returns: nv (*string*), name of the new lagged variable.

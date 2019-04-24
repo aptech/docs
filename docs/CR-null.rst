@@ -11,28 +11,37 @@ Format
 ----------------
 .. function:: null(x)
 
-    :param x: 
+    :param x: data
     :type x: NxM matrix
 
-    :returns: b (*MxK matrix*), where K is the nullity of x, such that:
-        
-        x * b = 0 //NxK matrix of 0'sand
-        b'b = I  //MxM identity matrixThe error returns are returned in  b:
+    :returns: b (*MxK matrix*), where *K* is the nullity of *x*, such that:
+       
+        ::
 
-    .. csv-table::
-        :widths: auto
+            x * b = 0 //NxK matrix of 0's
 
-        "error code", "reason"
-        "1", "there is no null space"
-        "2", "b is too large to return in a single matrix"
-        "Use scalerr to test for error returns."
+        and
+
+        ::
+
+            b'b = I  //MxM identity matrixThe error returns are returned in  b:
+
+        .. csv-table::
+            :widths: auto
+            :header-rows: 1
+    
+            "error code", "reason"
+            "1", "there is no null space"
+            "2", "*b* is too large to return in a single matrix"
+
+        Use :func:`scalerr` to test for error returns.
 
 Remarks
 -------
 
-The orthogonal complement of the column space of x' is computed using
+The orthogonal complement of the column space of *x'* is computed using
 the QR decomposition. This provides an orthonormal basis for the null
-space of x.
+space of *x*.
 
 
 Examples
@@ -51,19 +60,18 @@ After the code above:
 
 ::
 
-    -0.804  0.142 
+        -0.804  0.142 
     b =  0.331 -0.473  z = 0  0  i = 1  0
          0.473  0.331      0  0      0  1
          0.142  0.804
+
+Globals
+------------
+
+\_qrdc, \_qrsl
 
 Source
 ------
 
 null.src
 
-Globals
-+++++++
-
-\_qrdc, \_qrsl
-
-orthonormal basis for right null space

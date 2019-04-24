@@ -11,29 +11,18 @@ Format
 ----------------
 .. function:: minv(x, y)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :param y: 
+    :param y: data
     :type y: NxK matrix
 
-    :returns: z (*NxK matrix*) whose values are the minimum of each element from the arguments x and y.
-
-Global Input
-------------
-
-+-----------------+-----------------------------------------------------+
-| x               | NxK matrix                                          |
-+-----------------+-----------------------------------------------------+
-| y               | NxK matrix                                          |
-+-----------------+-----------------------------------------------------+
-
+    :returns: z (*NxK matrix*) whose values are the minimum of each element from the arguments *x* and *y*.
 
 Remarks
 -------
 
-minv works for sparse matrices as well as arrays.
-
+:func:`minv` works for sparse matrices as well as arrays.
 
 Examples
 ----------------
@@ -53,9 +42,10 @@ After the code above:
 
 ::
 
-    1          8          1
+        1          8          1
     x = 2      y = 4      z = 2
         4          2          2
         8          1          1
 
 .. seealso:: Functions :func:`maxv`
+

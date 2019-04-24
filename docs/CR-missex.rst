@@ -12,37 +12,35 @@ Format
 ----------------
 .. function:: missex(x, mask)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :param mask: 
-    :type mask: NxK logical matrix (matrix of 0's and 1's) that serves as a "mask" for x; the 1's in mask correspond to the values in x that are to be
-        converted into missing values
+    :param mask: (matrix of 0's and 1's) that serves as a "mask" for *x*; the 1's in 
+        mask correspond to the values in *x* that are to be converted into missing values
+    :type mask: NxK logical matrix 
 
-    :returns: y (*NxK matrix that equals x*), but with those
-        elements that correspond to the 1's in  e converted to missing.
+    :returns: y (*NxK matrix that equals x*), but with those elements that correspond to the 1's in *e* converted to missing.
 
 Remarks
 -------
 
-The matrix e will usually be created by a logical expression. For
-instance, to convert all numbers between 10 and 15 in x to missing, the
+The matrix *e* will usually be created by a logical expression. For
+instance, to convert all numbers between 10 and 15 in *x* to missing, the
 following code could be used:
 
 ::
 
-                   y = missex(x, (x .> 10) .and (x .< 15));
+    y = missex(x, (x .> 10) .and (x .< 15));
 
 Note that "dot" operators MUST be used in constructing the logical
 expressions.
 
 For complex matrices, the missing value code is defined as a missing
-value entry in the real part of the matrix. For complex x, then, missex
+value entry in the real part of the matrix. For complex *x*, then, :func:`missex`
 replaces elements with a ". + 0i" value.
 
-This function is like miss, but is more general in that a range of
+This function is like :func:`miss`, but is more general in that a range of
 values can be converted into missings.
-
 
 Examples
 ----------------
@@ -77,3 +75,4 @@ Source
 datatran.src
 
 .. seealso:: Functions :func:`miss`, :func:`missrv`
+

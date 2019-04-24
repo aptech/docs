@@ -17,6 +17,8 @@ Format
 
     loopnextindex lab, i, o [, dim];
 
+**Parameters:**
+
 :lab: (*literal*) label to jump to if `loopnextindex` succeeds.
 :i: (*Mx1 vector*) indices into an array where :math:`M <= N`.
 :o: (*Nx1 vector*) orders of an N-dimensional array

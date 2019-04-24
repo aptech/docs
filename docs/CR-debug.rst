@@ -16,6 +16,8 @@ Format
 
     debug filename;
 
+**Parameters:**
+
 :filename: (*literal*), name of file to debug.
 
 Remarks

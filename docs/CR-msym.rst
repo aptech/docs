@@ -8,24 +8,27 @@ Purpose
 Allows the user to set the symbol that GAUSS uses when missing values
 are converted to ASCII and vice versa.
 
+.. _msym:
+.. index:: msym
+
 Format
 ----------------
-.. function:: msym str
 
-    :param str: ,
-        if not surrounded by quotes, is forced to
-        uppercase. This is the string to be printed
-        for missing values. The default is '.'.
-    :type str: literal or ^string (up to 8 letters) which
+::
+
+    msym str;
+
+**Parameters:**
+
+:str: (*literal or ^string (up to 8 letters)*) if a string, and not surrounded by quotes, is forced to uppercase. 
+      This is the string to be printed for missing values. The default is '.'.
 
 Remarks
 -------
 
-The entire string will be printed out when converting to ASCII in print
-and printfm statements.
+The entire string will be printed out when converting to ASCII in `print` and `printfm` statements.
 
-When converting ASCII to binary in loadm and let statements, only the
-first character is significant. In other words,
+When converting ASCII to binary in `loadm` and `let` statements, only the first character is significant. In other words,
 
 ::
 
@@ -33,9 +36,9 @@ first character is significant. In other words,
 
 will cause 'H' to be converted to missing on input.
 
-This does not affect writer, which outputs data in binary format.
+This does not affect :func:`writer`, which outputs data in binary format.
 
-Note that msym is a keyword and not a variable being assigned to, so
+Note that `msym` is a keyword and not a variable being assigned to, so
 there is no equals sign between msym and the string that is being passed
 to it.
 
@@ -45,8 +48,9 @@ Examples
 In the example below, you first create simulated data. The data represents the scores that a group of students
 received on a particular test and also the time that they took. For your calculations, you only want to consider
 data from students that completed the test in less than 80 minutes.
+
 The code below replaces the scores from students that took more than 80 minutes with missing
-values. It uses the msym keyword to change the visual representation used for missing
+values. It uses the `msym` keyword to change the visual representation used for missing
 values from a '.' to a 'T'. Though, note that the underlying elements are still missing values, not character or string 
 elements.
 
@@ -84,7 +88,7 @@ The code above will return:
 
 ::
 
-    T 
+       T 
     1010 
      997 
     1002 
@@ -96,3 +100,4 @@ The code above will return:
        T
 
 .. seealso:: Functions :func:`print`, :func:`printfm`
+
