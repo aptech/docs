@@ -149,4 +149,3 @@ Remarks
 
 .. seealso:: Functions :func:`detl`, :func:`dot`, :func:`rank`
 
-complex QZ generalized Schur form real matrix sort eigenvalue

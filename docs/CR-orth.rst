@@ -11,12 +11,16 @@ Format
 ----------------
 .. function:: orth(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*NxL matrix*) such that y'y = eye(L) and whose
-        columns span the same space as the columns of
-        x; L is the rank of x.
+    :returns: y (*NxL matrix*) such that :math:`y'y = eye(L)` and whose
+        columns span the same space as the columns of *x*; *L* is the rank of *x*.
+
+Global Input
+------------
+
+:_orthol: (*scalar*), the tolerance for testing if diagonal elements are approaching zero. The default is 1.0e-14.
 
 Examples
 ----------------
@@ -41,22 +45,4 @@ Source
 qqr.src
 
 .. seealso:: Functions :func:`qqr`, :func:`olsqr`
-
-orthonormal basis column space x
-
-
-Global Input
-------------
-
-+---+-----------------------------------------------------+
-| \ | scalar, the tolerance for testing if diagonal       |
-| _ | elements are approaching zero. The default is       |
-| o | 1.0e-14.                                            |
-| r |                                                     |
-| t |                                                     |
-| h |                                                     |
-| t |                                                     |
-| o |                                                     |
-| l |                                                     |
-+---+-----------------------------------------------------+
 

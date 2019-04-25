@@ -11,30 +11,29 @@ Format
 ----------------
 .. function:: outerJoin(A, ca, B, cb)
 
-    :param A: 
-    :type A: Matrix to join
+    :param A: matrix to join
+    :type A: matrix
 
-    :param ca: or vector, key columns in 'A'
-    :type ca: Scalar
+    :param ca: key columns in *A*
+    :type ca: scalar or vector
 
-    :param B: 
-    :type B: Matrix to join with 'A'
+    :param B: matrix to join with *A*
+    :type B: matrix
 
-    :param cb: key columns in 'B'
-    :type cb: Scalar or vector
+    :param cb: key columns in *B*
+    :type cb: scalar or vector
 
-    :returns: C (*Matrix*), result of join of 'A' and 'B'
+    :returns: C (*matrix*), result of join of *A* and *B*
 
 Remarks
 -------
 
-By default, outerJoin performs a left outer-join, retaining only the key
+By default, :func:`outerJoin` performs a left outer-join, retaining only the key
 columns from the first input matrix.
 
-The first columns of the output matrix C will be the columns of A in the
-same order as in A. The remaining columns of C will be the columns of B
+The first columns of the output matrix *C* will be the columns of *A* in the
+same order as in *A*. The remaining columns of *C* will be the columns of *B*
 with the key columns removed.
-
 
 Examples
 ----------------
@@ -55,7 +54,7 @@ Basic example
     //columns of 'A' and 'B' as key columns
     C = outerJoin(A, 1, B, 1);
 
-After the code above, C equals:
+After the code above, *C* equals:
 
 ::
 
@@ -63,25 +62,29 @@ After the code above, C equals:
     2.0 2.2   .
     3.0 3.3  27
 
-A = { 1 3.1 12 0.5,
-      3 1.2 15 0.6,
-      5 4.4 19 1.1,
-      2 6.9 11 0.9 };
+Join on two columns
++++++++++++++++++++
 
-B = { 7 20 0.3 5,
-      2 12 1.1 1,
-      9 15 0.1 3 };
+::
 
-a_keys = { 1, 3 };
-b_keys = { 4, 2 };
+    A = { 1 3.1 12 0.5,
+          3 1.2 15 0.6,
+          5 4.4 19 1.1,
+          2 6.9 11 0.9 };
+    
+    B = { 7 20 0.3 5,
+          2 12 1.1 1,
+          9 15 0.1 3 };
+    
+    a_keys = { 1, 3 };
+    b_keys = { 4, 2 };
+    
+    //Perform a left-outer join on A and B, based on matches
+    //from the 1st column of A with the 4th column of B
+    //and the 3rd column of A with the 2nd column of B 
+    C = outerJoin(A, a_keys, B, b_keys);
 
-//Perform a left-outer join on A and B, based on matches
-//from the 1st column of A with the 4th column of B
-//and the 3rd column of A with the 2nd column of B 
-C = outerJoin(A, a_keys, B, b_keys);
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-After the code above, C equals:
+After the code above, *C* equals:
 
 ::
 
@@ -91,3 +94,4 @@ After the code above, C equals:
     2 6.9 11 0.9 .   .
 
 .. seealso:: Functions :func:`innerJoin`
+

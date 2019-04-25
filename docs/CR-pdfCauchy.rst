@@ -9,29 +9,29 @@ Computes the probability density function for the Cauchy distribution.
 
 Format
 ----------------
-.. function:: pdfCauchy(x,mu,sigma)
+.. function:: pdfCauchy(x, mu, sigma)
 
-    :param x: an Nx1 vector or scalar.
-    :type x: NxK matrix
+    :param x: data
+    :type x: NxK matrix or Nx1 vector or scalar
 
-    :param mu: , Nx1 vector or scalar, ExE conformable with x.
-    :type mu: Location parameter; NxK matrix
+    :param mu: Location parameter. ExE conformable with *x*.
+    :type mu: NxK matrix or Nx1 vector or scalar
 
-    :param sigma: , Nx1 vector or scalar, ExE conformable with x.  sigma must be greater than 0.
-    :type sigma: Scale parameter; NxK matrix
+    :param sigma: Scale parameter. ExE conformable with *x*. *sigma* must be greater than 0.
+    :type sigma: NxK matrix or Nx1 vector or scalar
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
-
-
 
 Remarks
 -------
 
-The probability density function for the Cauchy distribution is defined
-as
+The probability density function for the Cauchy distribution is defined as:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    f(x)=(πσ(1+(x−μσ)2))−1
 
 .. seealso:: Functions :func:`cdfCauchy`
+

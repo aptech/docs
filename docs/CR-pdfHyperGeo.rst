@@ -11,29 +11,30 @@ Format
 ----------------
 .. function:: pdfHyperGeo(x, m, k, n)
 
-    :param x: Nx1 vector or scalar. x must be a positive number and < m
-    :type x: NxK matrix
+    :param x: must be a positive number and < *m*
+    :type x: NxK matrix or Nx1 vector or scalar
 
-    :param m:  ExE conformable with x. m must be > x, k and n.
-    :type m: The size of the population from which draws will be made
+    :param m: The size of the population from which draws will be made. ExE conformable with *x*. *m* must be > *x*, *k* and *n*.
+    :type m: NxK matrix or Nx1 vector or scalar
 
-    :param k:  ExE conformable with  x.
-    :type k: The number of marked items
+    :param k: The number of marked items. ExE conformable with *x*.
+    :type k: NxK matrix or Nx1 vector or scalar
 
-    :param n:  ExE conformable with  x. 0 < k < m.
-    :type n: The number of items drawn from the population
+    :param n: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < k < m`.
+    :type n: NxK matrix or Nx1 vector or scalar
 
-    :returns: p (*TODO*), The probability of drawing x marked items. NxK matrix, Nx1 vector or scalar.
+    :returns: p (*NxK matrix, Nx1 vector or scalar*), The probability of drawing *x* marked items. 
 
 Examples
 ----------------
-You are given 50 hard drives, 4 of which are known to be bad. What is the probability of drawing exactly 1 bad hard drive if you randomly select 6 drives?
+You are given 50 hard drives, 4 of which are known to be bad. What is the probability of 
+drawing exactly 1 bad hard drive if you randomly select 6 drives?
 
 ::
 
     p = pdfHyperGeo(1, 50, 4, 6);
 
-After running the code above, p is equal to:
+After running the code above, *p* is equal to:
 
 ::
 
@@ -46,7 +47,7 @@ Continuing with the example above, what are the probabilities of drawing exactly
     x = { 2, 4 };
     p = pdfHyperGeo(x, 50, 4, 6);
 
-After running the code above, p is equal to:
+After running the code above, *p* is equal to:
 
 ::
 
@@ -56,8 +57,9 @@ After running the code above, p is equal to:
 Remarks
 -------
 
-The probability density function for the hypergeometric distribution is
-defined as:
+.. DANGER:: fix equations
+
+The probability density function for the hypergeometric distribution is defined as:
 
 :math:`P\left( x \middle| m,k,n \right)\text{ = }`
 :math:`\frac{\left( \left. \begin{matrix}
@@ -70,9 +72,11 @@ x \\
 m \\
 n \\
 \end{pmatrix}}`
-For invalid inputs, pdfHyperGeo will return a scalar error code which,
-when its value is assessed by function scalerr, corresponds to the
-invalid input. If the first input is out of range, scalerr will return a
-1; if the second is out of range, scalerr will return a 2; etc.
+
+For invalid inputs, :func:`pdfHyperGeo` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 .. seealso:: Functions :func:`cdfHyperGeo`, :func:`rndHyperGeo`, :func:`pdfBinomial`
+

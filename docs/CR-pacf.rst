@@ -11,15 +11,13 @@ Format
 ----------------
 .. function:: pacf(y, k, d)
 
-    :param y: data.
+    :param y: data
     :type y: Nx1 vector
 
-    :param k: maximum number of partial autocorrelations to compute.
-        0 < k < N.
+    :param k: maximum number of partial autocorrelations to compute. :math:`0 < k < N`.
     :type k: scalar
 
-    :param d: order of differencing.
-        If only compute the autocorrelations from the original time series, then d equals 0.
+    :param d: order of differencing. If only compute the autocorrelations from the original time series, then *d* equals 0.
     :type d: scalar
 
     :returns: rk (*Kx1 vector*), sample partial autocorrelations.
@@ -62,22 +60,20 @@ A sample partial autocorrelation function example.
 
 ::
 
-    0.15488076 
+      0.15488076 
     -0.035928234 
      -0.17063786 
      0.089875096
 
-Plot the PACF results with plotBar. Passing in 0 as the first input tells GAUSS to create a sequential series from 1 to the number of elements in rk as the x-tic labels.
+Plot the PACF results with :func:`plotBar`. Passing in 0 as the first input tells GAUSS to create a sequential series from 1 to the number of elements in *rk* as the x-tic labels.
 
 ::
 
     plotBar(0,rk);
 
-You can add labels for x-axis and y-axis interactively on the Graphics Page by selecting "View->Graph Settings" from the main menu. The plot is shown below:
+You can add labels for x-axis and y-axis interactively on the Graphics Page by selecting **View > Graph Settings** from the main menu. The plot is shown below:
 
-::
-
-    
+.. figure:: _static/images/pacf1.png 
 
 Calculate the partial autocorrelation function (PACF) and plot the results for "beef_prices" data.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -102,8 +98,8 @@ Calculate the partial autocorrelation function (PACF) and plot the results for "
     //Call pacf function
     beef_pacf = pacf(beef, k, d);
 
-beef
-beef_pacf
+
+Create a time series plot and sample partial autocorrelation (PACF) plot based on the *beef* and *beef_pacf* variables created above:
 
 ::
 
@@ -142,6 +138,8 @@ beef_pacf
 
 You can use 'Add Text' to type 'Beef Prices' as the title in the graphics window. The plot is:
 
+.. figure:: _static/images/beef_pacf.png 
+
 Compare ACF and PACF for "cow" data.
 ++++++++++++++++++++++++++++++++++++
 
@@ -167,12 +165,14 @@ Compare ACF and PACF for "cow" data.
     //call acf function
     data_acf = acf(data, k, d);
 
-data_acf
-data_pacf
+In this example, we compute the ACF and PACF for cow's temperature and save them in *data_acf* and *data_pacf*. 
+
+The following code plot autocorrelation (ACF) and sample partial autocorrelation (PACF):
 
 ::
 
-    //Compare ACF and PACF for cow's temperature data//Create sequential numbers 
+    //Compare ACF and PACF for cow's temperature data
+    //Create sequential numbers 
     years = seqa(1, 1, rows(data));
     											
     //Declare a plotControl structure 
@@ -213,6 +213,8 @@ data_pacf
 
 The plot produced by the code above should look like this:
 
+.. figure:: _static/images/cow_acf_pacf.png 
+
 Source
 ------
 
@@ -220,4 +222,3 @@ tsutil.src
 
 .. seealso:: Functions :func:`acf`
 
-sample partial autocorrelation
