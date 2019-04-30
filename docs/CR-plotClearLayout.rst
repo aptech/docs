@@ -10,6 +10,11 @@ Format
 ----------------
 .. function:: plotClearLayout()
 
+Remarks
+-------
+
+After calling this function all subsequent graphs will be drawn to fill the entire graph window.
+
 Examples
 ----------------
 
@@ -35,11 +40,5 @@ Examples
     //since the 1x2 plot layout has been cleared.
     plotHistP(rndBeta(1000, 1, 2, 1), 30);
 
-Remarks
--------
+.. seealso:: Functions :func:`plotSetBar`, :func:`plotBar`, :func:`plotLayout`, :func:`plotCustomLayout`
 
-After calling this function all subsequent graphs will be drawn to fill
-the entire graph window.
-
-.. seealso:: Functions :func:`plotSetBar`, :func:`plotBar`, :func:`plotLayout`
- <CR-plotCustomLayout.html#plotCustomLayout>`__

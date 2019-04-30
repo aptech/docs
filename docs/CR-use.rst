@@ -74,4 +74,4 @@ unnecessary to execute a new before use'ing a compiled file.
 
 use can appear only ONCE at the TOP of a program.
 
-.. seealso:: Functions :func:`compile`, :func:`run`, :func:`saveall`
+.. seealso:: Functions `compile`, `run`, `saveall`

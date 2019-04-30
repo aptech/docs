@@ -25,8 +25,6 @@ Format
 
     :returns: y (*NxK matrix or Nx1 vector or scalar*)
 
-
-
 Remarks
 -------
 

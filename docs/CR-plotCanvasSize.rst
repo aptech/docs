@@ -9,16 +9,44 @@ Controls the size of the canvas on which the next plot is drawn.
 
 Format
 ----------------
-.. function:: plotCanvasSize("fill")plotCanvasSize(units, size)plotCanvasSize(units, size, dpi)
+.. function:: plotCanvasSize("fill")
+              plotCanvasSize(units, size[, dpi])
 
-    :param units: the units of measurement for size, width and height. Valid options include: "cm" centimeters, “in” inches, "mm" millimeters, or "px" pixels. If the string "fill" is the only input, the graph canvas will stretch to fit the available area.
-    :type units: String
+    :param units: the units of measurement for *size*, *width* and *height*. 
+    
+        Valid options include:
+        
+        ===== ============
+        "cm"  centimeters
+        "in"  inches
+        "mm"  millimeters
+        "px"  pixels. 
+        ===== ============
+        
+        If the string "fill" is the only input, the graph canvas will stretch to fit the available area.
 
-    :param size: the width and height to set the graph canvas in terms of the specified units.
+    :type units: string
+
+    :param size: the *width* and *height* to set the graph canvas in terms of the specified units.
     :type size: 2x1 matrix
 
-    :param dpi: the number of dots per inch. This option applies only to physical measurements, such as centimeters and inches. It will be ignored if the “units” input is set to pixels.
-    :type dpi: Scalar
+    :param dpi: the number of dots per inch. This option applies only to physical measurements, such as centimeters and inches. It will be ignored if the "units" input is set to *pixels*.
+    :type dpi: scalar
+
+Remarks
+-------
+
+If the only input to :func:`plotCanvasSize` is the string "fill", then the graph
+canvas will be expanded to fill the available area.
+
+:func:`plotSetCanvas` controls the size of the entire graph canvas, not just a
+set of axes. Therefore when used with :func:`plotLayout` to create subplots,
+:func:`plotSetCanvas` will control the size of the bounding box allowed for all
+of the subplots together.
+
+After a call to :func:`plotSetCanvas`, all subsequent graphs will be drawn in a
+canvas of the size specified even if a new plot tab is created with
+:func:`plotOpenWindow`.
 
 Examples
 ----------------
@@ -39,19 +67,5 @@ Examples
     x = seqa(1, 1, rows(ln_price));
     plotXY(x, ln_price);
 
-Remarks
--------
-
-If the only input to plotCanvasSize is the string "fill", then the graph
-canvas will be expanded to fill the available area.
-
-plotSetCanvas controls the size of the entire graph canvas, not just a
-set of axes. Therefore when used with plotLayout to create subplots,
-plotSetCanvas will control the size of the bounding box allowed for all
-of the subplots together.
-
-After a call to plotSetCanvas, all subsequent graphs will be drawn in a
-canvas of the size specified even if a new plot tab is created with
-plotOpenWindow.
-
 .. seealso:: Functions :func:`plotOpenWindow`, :func:`plotSave`
+

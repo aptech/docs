@@ -109,4 +109,4 @@ y would be saved in /miscdata/y.fmt
 
 z would be saved in /miscdata/hisdata.fmt
 
-.. seealso:: Functions :func:`datasave`, `load`, :func:`saveall`, :func:`saved`
+.. seealso:: Functions :func:`datasave`, `load`, `saveall`, :func:`saved`

@@ -8,16 +8,24 @@ Computes and graphs a frequency histogram for a vector. The actual frequencies a
 
 Format
 ----------------
-.. function:: plotHist(myPlot, x, v)plotHist(x, v)
+.. function:: plotHist([myPlot, ]x, v)
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure
+    :param myPlot: Optional argument, a :class:`plotControl` structure
+    :type myPlot: struct
 
-    :param x: 
-    :type x: Mx1 vector of data
+    :param x: data
+    :type x: Mx1 vector
 
-    :param v: the breakpoints to be used to compute the frequencies      - or -scalar, the number of categories
-    :type v: Nx1 vector
+    :param v: 
+
+        ======= ==================
+        Type    Value
+        ======= ==================
+        vector  the breakpoints to be used to compute the frequencies.
+        scalar  the number of categories.
+        ======= ==================
+
+    :type v: Nx1 vector or scalar
 
 Examples
 ----------------
@@ -31,3 +39,4 @@ Examples
     plotHist(x, 20);
 
 .. seealso:: Functions :func:`plotHistP`, :func:`plotHistF`, :func:`plotBar`
+

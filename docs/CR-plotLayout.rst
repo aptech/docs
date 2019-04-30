@@ -8,13 +8,13 @@ Divides a plot into a grid of subplots and assigns the cell location in which to
 
 Format
 ----------------
-.. function:: plotLayout(gRows, gCols, ind)
+.. function:: plotLayout(g_rows, g_cols, ind)
 
-    :param gRows: number of rows of the graph layout.
-    :type gRows: scalar
+    :param g_rows: number of rows of the graph layout.
+    :type g_rows: scalar
 
-    :param gCols: number of columns of the graph layout.
-    :type gCols: scalar
+    :param g_cols: number of columns of the graph layout.
+    :type g_cols: scalar
 
     :param ind: cell location in which to place the next created graph.
     :type ind: scalar
@@ -53,7 +53,8 @@ Remarks
 -------
 
 After calling this function all subsequent graphs will be plotted inside
-of the specified layout until the layout is reset with plotLayout, or
-the layout is cleared with plotClearLayout.
+of the specified layout until the layout is reset with :func:`plotLayout`, or
+the layout is cleared with :func:`plotClearLayout`.
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotClearLayout`, :func:`plotCustomLayout`, :func:`plotHist`
+

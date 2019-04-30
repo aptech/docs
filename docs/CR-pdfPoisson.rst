@@ -4,27 +4,27 @@ pdfPoisson
 
 Purpose
 ----------------
-Computes the Poisson probability  mass  function.
+Computes the Poisson probability mass function.
 
 Format
 ----------------
 .. function:: pdfPoisson(x, lambda)
 
-    :param x: Nx1 vector or scalar. x must be a positive whole number.
-    :type x: NxK matrix
+    :param x: *x* must be a positive whole number.
+    :type x: NxK matrix or Nx1 vector or scalar
 
-    :param lambda:  The mean parameter.
-    :type lambda: ExE conformable with x
+    :param lambda: The mean parameter.
+    :type lambda: ExE conformable with *x*
 
     :returns: p (*NxK matrix or Nx1 vector or scalar*)
 
 Remarks
 -------
 
-For invalid inputs, pdfPoisson will return a scalar error code which,
-when its value is assessed by function scalerr, corresponds to the
-invalid input. If the first input is out of range, scalerr will return a
-1; if the second is out of range, scalerr will return a 2; etc.
+For invalid inputs, :func:`pdfPoisson` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 
 Examples
@@ -37,7 +37,7 @@ Basic example
 
     p = pdfPoisson(190,200);
 
-After the code above, p is equal to:
+After the code above, *p* is equal to:
 
 ::
 
@@ -54,7 +54,7 @@ Vector input
                200 };
     p = pdfPoisson(events,200);
 
-After the code above, p is equal to:
+After the code above, *p* is equal to:
 
 ::
 
@@ -79,7 +79,7 @@ Vector Inputs
     
     p = pdfPoisson(events,lambda);
 
-After the code above, p is equal to:
+After the code above, *p* is equal to:
 
 ::
 
@@ -89,3 +89,4 @@ After the code above, p is equal to:
     0.02214
 
 .. seealso:: Functions :func:`cdfPoisson`, :func:`cdfPoissonInv`, :func:`rndPoisson`
+

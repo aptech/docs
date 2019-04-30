@@ -8,17 +8,24 @@ Computes and graphs a percent frequency histogram of a vector. The percentages i
 
 Format
 ----------------
-.. function:: plotHistP(myPlot, x, v)plotHistP(x, v)
+.. function:: plotHistP([myPlot, ]x, v)
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure
+    :param myPlot: Optional argument, a :class:`plotControl` structure
+    :type myPlot: struct
 
-    :param x: 
-    :type x: Mx1 vector of data
+    :param x: data
+    :type x: Mx1 vector
 
-    :param v: the breakpoints to be used to compute the
-        frequencies                 - or -        scalar, the number of categories.
-    :type v: Nx1 vector
+    :param v:
+
+        ======= ==================
+        Type    Value
+        ======= ==================
+        vector  the breakpoints to be used to compute the frequencies.
+        scalar  the number of categories.
+        ======= ==================
+
+    :type v: Nx1 vector or scalar
 
 Examples
 ----------------
@@ -77,3 +84,4 @@ Control plot settings with plotControl structure
     plotHistP(myPlot, X, nbins);
 
 .. seealso:: Functions :func:`plotHist`, :func:`plotHistF`, :func:`plotBar`, :func:`plotBox`, :func:`plotScatter`
+

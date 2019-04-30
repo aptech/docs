@@ -15,29 +15,27 @@ Format
 ----------------
 .. function:: pinvmt(x, tol)
 
-    :param x: 
+    :param x: data
     :type x: NxM matrix
 
-    :param tol: any singular values less than tol are treated as zero in determining the rank of the input matrix.
+    :param tol: any singular values less than *tol* are treated as zero in determining the rank of the input matrix.
     :type tol: scalar
 
-    :returns: y (*MxN matrix*) that satisfies the 4 Moore-Penrose
-        conditions:
+    :returns: y (*MxN matrix*) that satisfies the 4 Moore-Penrose conditions:
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            ":math:`xyx = x`"
+            ":math:`yxy = y`"
+            ":math:`xy` is symmetric"
+            ":math:`yx` is symmetric"
 
-        "xyx = x"
-        "yxy = y"
-        "xy is symmetric"
-        "yx is symmetric"
-
-    :returns: err (*scalar*), if not all of the singular values
-        can be computed err will be nonzero.
+    :returns: err (*scalar*), if not all of the singular values can be computed *err* will be nonzero.
 
 Examples
 ----------------
-pinvmt can be used to solve an undertermined least squares problem.
+:func:`pinvmt` can be used to solve an undertermined least squares problem.
 
 ::
 
@@ -59,11 +57,10 @@ pinvmt can be used to solve an undertermined least squares problem.
     endif;
 
 Least squares problems with full rank can also be solved with the GAUSS
-functions: ols, olsqr and olsqr2.
+functions: :func:`ols`, :func:`olsqr` and :func:`olsqr2`.
 
 Source
 ------
 
 svdmt.src
 
-Moore-Penrose generalized pseudo-inverse

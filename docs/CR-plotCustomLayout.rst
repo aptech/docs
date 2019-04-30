@@ -9,20 +9,28 @@ Plots a graph of user-specified size at a user-specified location.
 
 Format
 ----------------
-.. function:: plotCustomLayout(xStart, yStart, width, height)
+.. function:: plotCustomLayout(x_start, y_start, width, height)
 
-    :param xStart: the distance from the left edge of the canvas to the left edge of the custom
+    :param x_start: the distance from the left edge of the canvas to the left edge of the custom
         plot expressed as a number between 0 and 1.
-    :type xStart: scalar
+    :type x_start: scalar
 
-    :param yStart: the distance from the bottom edge of the canvas to the bottom edge of the custom plot expressed as a number between 0 and 1.
-    :type yStart: scalar
+    :param y_start: the distance from the bottom edge of the canvas to the bottom edge 
+        of the custom plot expressed as a number between 0 and 1.
+    :type y_start: scalar
 
     :param width: the width of the custom plot expressed as a number between 0 and 1.
     :type width: scalar
 
     :param height: the height of the custom plot expressed as a number between 0 and 1.
     :type height: scalar
+
+Remarks
+-------
+
+After calling this function all subsequent graphs will be plotted inside
+of the specified custom layout until the layout is reset with
+:func:`plotLayout`, or the layout is cleared with :func:`plotClearLayout`.
 
 Examples
 ----------------
@@ -49,11 +57,5 @@ Examples
     //region
     plotClearLayout();
 
-Remarks
--------
-
-After calling this function all subsequent graphs will be plotted inside
-of the specified custom layout until the layout is reset with
-plotLayout, or the layout is cleared with plotClearLayout.
-
 .. seealso:: Functions :func:`plotSetBar`, :func:`plotBar`, :func:`plotHistP`, :func:`plotGetDefaults`
+

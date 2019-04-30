@@ -9,10 +9,10 @@ Graphs a matrix of contour data.
 
 Format
 ----------------
-.. function:: plotContour(myPlot, x, y, z)plotContour(x, y, z)
+.. function:: plotContour([myPlot, ]x, y, z)
 
-    :param myPlot: 
-    :type myPlot: Optional input: plotControl structure
+    :param myPlot: Optional argument, a :class:`plotControl` structure
+    :type myPlot: struct
 
     :param x: the X axis data.
     :type x: 1xK vector
@@ -58,16 +58,5 @@ Examples
     //Draw graph using plotcontrol structure
     plotContour(myPlot, x, y, z);
 
-Remarks
--------
+.. seealso:: Functions :func:`plotSurface`, :func:`plotSetContourLabels`
 
-A vector of evenly spaced contour levels will be generated automatically
-from the z matrix data. Each contour level will be labeled. For
-unlabeled contours, use ztics.
-
-To specify a vector of your own unequal contour levels, set the vector
-\_plev before calling contour.
-
-To specify your own evenly spaced contour levels, see ztics.
-
-.. seealso:: Functions :func:`plotSurface`

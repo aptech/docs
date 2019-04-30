@@ -8,24 +8,25 @@ Adds an error bar or a set of bars to an existing 2-D graph.
 
 Format
 ----------------
-.. function:: plotAddErrorBar(myPlot, x, y, err)plotAddErrorBar(myPlot, x, y, lwr, uppr)plotAddErrorBar(x, y, err)plotAddErrorBar(x, y, lwr, uppr)
+.. function:: plotAddErrorBar([myPlot, ]x, y, err)
+              plotAddErrorBar([myPlot, ]x, y, lwr, uppr)
 
-    :param myPlot: a plotControl structure.
-    :type myPlot: Optional input
+    :param myPlot: Optional input, a :class:`plotControl` structure.
+    :type myPlot: struct
 
-    :param x: Nx1 or NxM matrix. Each column contains the X values for a particular line.
-    :type x: Scalar
+    :param x: Each column contains the X values for a particular line.
+    :type x: scalar or Nx1 or NxM matrix
 
-    :param y: Nx1 or NxM matrix. Each column contains the Y values for a particular line.
-    :type y: Scalar
+    :param y: Each column contains the Y values for a particular line.
+    :type y: scalar or Nx1 or NxM matrix
 
-    :param err: Nx1 or NxM matrix. Each column contains the error values for each Y column.
-    :type err: Scalar
+    :param err: Each column contains the error values for each Y column.
+    :type err: scalar or Nx1 or NxM matrix
 
-    :param lwr:  Each column contains the lower bar heights for assymetrical error bars.
+    :param lwr: Each column contains the lower bar heights for assymetrical error bars.
     :type lwr: Nx1 or NxM matrix
 
-    :param uppr:  Each column contains the upper bar heights for assymetrical error bars.
+    :param uppr: Each column contains the upper bar heights for assymetrical error bars.
     :type uppr: Nx1 or NxM matrix
 
 Examples
@@ -55,9 +56,7 @@ Basic addition of error bars to scatter plot
 
 The plot is
 
-::
-
-    
+.. figure:: _static/images/plotadderrorbar1.png
 
 Assymetrical error bars to plot median and range
 ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -89,9 +88,7 @@ Assymetrical error bars to plot median and range
 
 The plot is
 
-::
-
-    
+.. figure:: _static/images/plotadderrorbar2.png
 
 Add error bars to XY plot, using plotControl structure
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -127,9 +124,7 @@ Add error bars to XY plot, using plotControl structure
 
 The plot is
 
-::
-
-    
+.. figure:: _static/images/plotadderrorbar3.png
 
 Add error bars to bar plot
 ++++++++++++++++++++++++++
@@ -206,6 +201,7 @@ Add error bars to bar plot
 
 The plot is
 
+.. figure:: _static/images/plotadderrorbar.png
+
 .. seealso:: Functions :func:`plotBar`
 
-plot error bar

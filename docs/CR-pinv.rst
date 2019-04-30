@@ -10,23 +10,33 @@ Format
 ----------------
 .. function:: pinv(x)
 
-    :param x: 
+    :param x: data
     :type x: NxM matrix
 
-    :returns: y (*MxN matrix*) that satisfies the 4 Moore-Penrose
-        conditions:
+    :returns: y (*MxN matrix*) that satisfies the 4 Moore-Penrose conditions:
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            ":math:`xyx = x`"
+            ":math:`yxy = y`"
+            ":math:`xy` is symmetric"
+            ":math:`yx` is symmetric"
 
-        "xyx = x"
-        "yxy = y"
-        "xy is symmetric"
-        "yx is symmetric"
+Global Input
+------------
+
+:_svdtol: (*scalar*), any singular values less than *_svdtol* are treated as zero 
+    in determining the rank of the input matrix. The default value for *_svdtol* is 1.0e-13.
+
+Global Output
+-------------
+
+:_svderr: (*scalar*), if not all of the singular values can be computed *_svderr* will be nonzero.
 
 Examples
 ----------------
-pinv can be used to solve an undertermined least squares problem.
+:func:`pinv` can be used to solve an undertermined least squares problem.
 
 ::
 
@@ -46,23 +56,10 @@ pinv can be used to solve an undertermined least squares problem.
     endif;
 
 Least squares problems with full rank can also be solved with the GAUSS
-functions: ols, olsqr and olsqr2.
+functions: :func:`ols`, :func:`olsqr` and :func:`olsqr2`.
 
 Source
 ------
 
 svd.src
-
-Moore-Penrose generalized pseudo-inverse
-
-
-Global Input
-------------
-
-+-----------------+-----------------------------------------------------+
-| \_svdtol        | scalar, any singular values less than \_svdtol are  |
-|                 | treated as zero in determining the rank of the      |
-|                 | input matrix. The default value for \_svdtol is     |
-|                 | 1.0e-13.                                            |
-+-----------------+-----------------------------------------------------+
 

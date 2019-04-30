@@ -9,19 +9,18 @@ Computes the probability density function of the log-normal distribution.
 
 Format
 ----------------
-.. function:: pdfLogNorm(x, mu, sigma)
+.. function:: pdfLogNorm(x[, mu[, sigma]])
 
-    :param x: or array.
-    :type x: Matrix
+    :param x: data
+    :type x: matrix or array
 
-    :param mu: scalar, the mean parameter. Default = 0.
-    :type mu: Optional input
+    :param mu: Optional input, the mean parameter. Default = 0.
+    :type mu: scalar
 
-    :param sigma: scalar, the standard deviation parameter. Default = 1.
-    :type sigma: Optional input
+    :param sigma: Optional input, the standard deviation parameter. Default = 1.
+    :type sigma: scalar
 
-    :returns: p (*Matrix or array*) of the same dimension as the input 'x', containing
-        the probabilities.
+    :returns: p (*matrix or array*) of the same dimension as the input *x*, containing the probabilities.
 
 Examples
 ----------------
@@ -34,7 +33,7 @@ Basic Example
     //Use default 'mu' and 'sigma'
     p = pdfLogNorm(3.1);
 
-After the above, code 'p' will equal:
+After the above, code *p* will equal:
 
 ::
 
@@ -55,12 +54,13 @@ Specify 'mu' and 'sigma'
     //parameterized by mu = 1.5 and sigma = 2
     p = pdfLogNorm(x, mu, sigma);
 
-After the above, code 'p' will equal:
+After the above, code *p* will equal:
 
 ::
 
-    0.32727408 
+     0.32727408 
      0.10918617 
     0.091940897
 
 .. seealso:: Functions :func:`cdfn_cdfNc`, :func:`pdfTruncNorm`, :func:`cdfTruncNorm`, :func:`cdfLogNorm`
+

@@ -45,4 +45,5 @@ the following statement at the top of each:
 
    use pgraph;
 
-.. seealso:: Functions :func:`compile`, :func:`run`, :func:`use`
+.. seealso:: Functions `compile`, `run`, `use`
+

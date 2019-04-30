@@ -11,9 +11,16 @@ Format
 .. function:: plotGetDefaults(graph)
 
     :param graph: name of graph type: bar, box, hist, polar, scatter, surface or xy.
-    :type graph: String
+    :type graph: string
 
-    :returns: myPlot (*TODO*), A plotControl structure.
+    :returns: myPlot (*struct*), a :class:`plotControl` structure.
+
+Remarks
+-------
+
+The :func:`plotGetDefaults` function will use the default settings for the
+specified graph type. These may be accessed from the main menu bar:
+**Tools > Preferences > Graphics**.
 
 Examples
 ----------------
@@ -38,11 +45,5 @@ Examples
     //Plot the data using the plotControl structure
     plotXY(myPlot, x, y);
 
-Remarks
--------
-
-The plotGetDefaults function will use the default settings for the
-specified graph type. These may be accessed from the main menu bar:
-**Tools->Preferences->Graphics**.
-
 .. seealso:: Functions :func:`plotSetBkdColor`, :func:`plotSetLineColor`, :func:`plotSetLineSymbol`
+

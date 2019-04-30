@@ -60,4 +60,4 @@ The command will cause the code in the program
             cond.inc to be merged into the current program at
  the point at which this statement appears.
 
-.. seealso:: Functions :func:`run`, :func:`lineson`
+.. seealso:: Functions `run`, :func:`lineson`

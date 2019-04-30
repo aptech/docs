@@ -4,13 +4,13 @@ pi
 
 Purpose
 ----------------
-Returns the mathematical constant π.
+Returns the mathematical constant :math:`π`.
 
 Format
 ----------------
 .. function:: pi
 
-    :returns: y (*scalar*), the value of π.
+    :returns: y (*scalar*), the value of :math:`π`.
 
 Examples
 ----------------
@@ -28,4 +28,3 @@ will return:
 
     3.14159265358979
 
-pi mathematical constant circle

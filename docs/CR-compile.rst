@@ -79,5 +79,5 @@ would be compiled to a file called qxy.gcg on the same subdirectory qxy.e was fo
 In this example, the `source path` would be searched for qxy.e which
 would be compiled to a file called xy.gcg on the current subdirectory.
 
-.. seealso:: Functions :func:`run`, :func:`use`, :func:`saveall`
+.. seealso:: Functions `run`, `use`, `saveall`
 

@@ -30,5 +30,5 @@ Examples
 
     edit test1.e;
 
-.. seealso:: Functions :func:`run`
+.. seealso:: Functions `run`
 

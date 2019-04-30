@@ -5,40 +5,39 @@ plotAddArea
 Purpose
 ----------------
 
-Adds a  cumulative area plot to an existing graph.
+Adds a cumulative area plot to an existing graph.
 
 Format
 ----------------
-.. function:: plotAddArea(myPlot, x, y) 
-			              plotAddArea(x, y)plotAddArea(myPlot, x, y, base) 
-			                          plotAddArea(x, y, base)
+.. function:: plotAddArea(x, y[, base])
+              plotAddArea(myPlot, x, y[, base])
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure
+    :param myPlot: A :class:`plotControl` structure
+    :type myPlot: struct
 
-    :param x: 
-    :type x: Nx1 vector containing the
-        X coordinates
+    :param x: the X coordinates
+    :type x: Nx1 vector
 
-    :param y:  Each column contains the
-        height for the corresponding section of the graph. If y contains more than one column, each column will be stacked on top of the previous column.
+    :param y: Each column contains the height for the corresponding section of the graph. 
+        If y contains more than one column, each column will be stacked on top of the previous column.
     :type y: Nx1 or NxM matrix
 
-    :param base:  The height for the base of the added area plot. The default value is zero. plotAddArea does not yet support a vector input for base.
-    :type base: Scalar optional argument
+    :param base: Optional argument. The height for the base of the added area plot. The default value is zero. :func:`plotAddArea` does not yet support a vector input for base.
+    :type base: scalar 
 
 Remarks
 -------
 
-plotAddArea may only add curves to 2-D graphs.
+:func:`plotAddArea` may only add curves to 2-D graphs.
 
-This function will not change any of the current graph's settings other
+This function will not change any of the current graph's settings other 
 than to resize the view as necessary to display the new curve.
-
 
 Examples
 ----------------
-Creating confidence intervals with plotAddArea
+
+Creating confidence intervals
++++++++++++++++++++++++++++++
 
 ::
 
@@ -68,7 +67,11 @@ Creating confidence intervals with plotAddArea
     //Add pdfn line
     plotAddXY(x, y);
 
-The code to create the graph below can be found in the file plotaddci.e in your GAUSS examples directory.
+The code to create the graph below can be found in the file *plotaddci.e* in your GAUSS examples directory.
+
 Creating confidence intervals with plotAddArea
 
+.. figure:: _static/images/gauss15_plotci_541.png
+
 .. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`
+

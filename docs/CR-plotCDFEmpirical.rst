@@ -9,26 +9,25 @@ Plots the cumulative distribution function
 
 Format
 ----------------
-.. function:: plotCDFEmpirical(myPlot, x, bins) 
-			  plotCDFEmpirical( x, bins) 
-			  plotCDFEmpirical( x )
+.. function:: plotCDFEmpirical([myPlot, ]x[, bins])
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure
+    :param myPlot: Optional argument, a :class:`plotControl` structure
+    :type myPlot: struct
 
-    :param x: 
-    :type x: N x 1 vector
+    :param x: data
+    :type x: Nx1 vector
 
-    :param bins: scalar or vector. If scalar, evenly spaced vector between x_min and x_max sized equal number of bins is used to find the empirical cdf. If vector, GAUSS uses the passed vector as the values at which to find empirical cdf.
-    :type bins: Optional input
+    :param bins: Optional input. If scalar, evenly spaced vector between *x_min* and *x_max* sized equal number of bins is 
+        used to find the empirical cdf. If vector, GAUSS uses the passed vector as the values at which to find empirical cdf.
+    :type bins: scalar or vector
 
 Examples
 ----------------
 
 ::
 
-    new ;
-    cls ;								
+    new;
+    cls;								
     rndseed 2223; 
     				
     // Create a random vector				
@@ -56,7 +55,7 @@ After above code,
 
 ::
 
-    -INF       0.00000000 
+               -INF       0.00000000 
          -2.3124206      0.033333333 
          -1.6240227      0.066666667 
          -1.2763153       0.10000000 
@@ -88,8 +87,9 @@ After above code,
           2.1240430       0.96666667 
           3.1784008        1.0000000
 
-The Plot is
+The plot is
+
+.. figure:: _static/images/plotcdfempirical.png
 
 .. seealso:: Functions :func:`cdfEmpirical`
 
-ecdf empirical cdf plot
