@@ -8,39 +8,48 @@ Controls the formatting and angle of Y-axis tick labels for 2-D graphs.
 
 Format
 ----------------
-.. function:: plotSetYticLabel(&myPlot, fmt, angle)plotSetYticLabel(&myPlot, fmt)
+.. function:: plotSetYticLabel(&myPlot, fmt[, angle])
 
-    :param &myPlot: A plotControl structure pointer.
+    :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param fmt: or 2x1 string array containing the desired formatting for the Y-axis tick labels. If a 2x1 string array is passed in, the first element of fmt will control the left Y-axis and the second element will control the right Y-axis. sprintf style formatting strings are supported. See Remarks below for more information.
-    :type fmt: String
+    :param fmt: the desired formatting for the Y-axis tick labels. If a 2x1 string array is passed in, the first element of *fmt* will control the left Y-axis and the second element will control the right Y-axis. sprintf style formatting strings are supported. See Remarks below for more information.
+    :type fmt: string or 2x1 string array
 
-    :param angle: the angle in degrees at which to display the Y-axis tick labels.
+    :param angle: Optional input, the angle in degrees at which to display the Y-axis tick labels.
     :type angle: Scalar
 
 Examples
 ----------------
 
-// Declare and initialize plotControl structure
-struct plotControl myPlot;
-myPlot = plotGetDefaults("scatter");
+Basic usage
++++++++++
 
-x = seqa(0, 0.005, 33);
-y = exp(x);
+::
 
-// Set the Y-tick format to be decimal
-// with three places after the decimal point,
-// i.e. 1.050, 1.010, etc, for all tick labels
-plotSetYticLabel(&myPlot, "%.3f");
+    // Declare and initialize plotControl structure
+    struct plotControl myPlot;
+    myPlot = plotGetDefaults("scatter");
+    
+    x = seqa(0, 0.005, 33);
+    y = exp(x);
+    
+    // Set the Y-tick format to be decimal
+    // with three places after the decimal point,
+    // i.e. 1.050, 1.010, etc, for all tick labels
+    plotSetYticLabel(&myPlot, "%.3f");
+    
+    // Draw the scatter plot
+    plotScatter(myPlot, x, y);
 
-// Draw the scatter plot
-plotScatter(myPlot, x, y);
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The code above produces a graph with Y-tick labels like the image below:
-Y-tick labels
-Changing to format string to "%g" will change the labels to appear like this:
+
+.. figure:: _static/images/psyti_scatter_1.png
+
+    Y-tick labels
+
+Changing to format string to ``"%g"`` will change the labels to appear like this:
 
 ::
 
@@ -52,7 +61,8 @@ Changing to format string to "%g" will change the labels to appear like this:
     1.05
     1.025
 
-"%.3e"
+
+Changing to format string to ``"%.3e"`` will change the labels to appear like this:
 
 ::
 
@@ -124,14 +134,15 @@ Remarks
 
 The parameters of a sprintf style format string are:
 
--  precision - a literal scalar numeral, the number of digits after the
-   decimal point
+-  precision - a literal scalar numeral, the number of digits after the decimal point
 -  format type - one of the following letters:
 
-   -  d - integer
-   -  e - scientific notation
-   -  f - floating point/decimal
-   -  g - either scientific or decimal, whichever is most compact
+   === ==================
+   d   integer
+   e   scientific notation
+   f   floating point/decimal
+   g   either scientific or decimal, whichever is most compact
+   === ==================
 
 The format of the format string is:
 
@@ -142,11 +153,13 @@ The format of the format string is:
 Below are some examples of different format strings and how they would
 represent pi
 
--  "%.2f"- 3.14
--  "%.4f" - 3.1415
--  "%.2e" - 3.14e+00
--  "%.2g" - 3.14
--  "%d" - 3
+======= ==================
+"%.2f"  3.14
+"%.4f"  3.1415
+"%.2e"  3.14e+00
+"%.2g"  3.14
+"%d"    3
+======= ==================
 
 This function sets an attribute in a :class:`plotControl` structure. It does not
 affect an existing graph, or a new graph drawn using the default
@@ -155,3 +168,4 @@ menu. See **GAUSS Graphics**, Chapter 1, for more information on the
 methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`dttostr`, :func:`strtodt`, :func:`plotSetYLabel`, :func:`plotSetXTicInterval`, :func:`plotSetTicLabelFont`
+

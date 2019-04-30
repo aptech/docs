@@ -10,14 +10,23 @@ Format
 ----------------
 .. function:: plotSetZRange(&myPlot, z_min, z_max)
 
-    :param &myPlot: A plotControl structure pointer.
+    :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
     :param z_min: minimum limit of the Z-axis.
-    :type z_min: Scalar
+    :type z_min: scalar
 
     :param z_max: maximum limit of the Z-axis.
-    :type z_max: Scalar
+    :type z_max: scalar
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the **Tools > Preferences > Graphics**
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -45,13 +54,5 @@ Examples
     
     plotSurface(myPlot, x', y, z');
 
-Remarks
--------
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools > Preferences > Graphics**
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`
+

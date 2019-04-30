@@ -8,19 +8,24 @@ Controls the font name, size and color for the X and Y axis tic labels.
 
 Format
 ----------------
-.. function:: plotSetTicLabelFont(&myPlot, font)plotSetTicLabelFont(&myPlot, font, size)plotSetTicLabelFont(&myPlot, font, size, color)
+.. function:: plotSetTicLabelFont(&myPlot, font[, size[, color]])
 
-    :param &myPlot: Pointer to a plotControl structure.
+    :param &myPlot: Pointer to a :class:`plotControl` structure.
     :type &myPlot: struct pointer
 
     :param font: the name of the desired font.
-    :type font: String
+    :type font: string
 
-    :param size: scalar, the size of the font in points.
-    :type size: Optional input
+    :param size: Optional input, the size of the font in points.
+    :type size: scalar
 
-    :param color: string, named color or RGB value.
-    :type color: Optional input
+    :param color: Optional input, named color or RGB value.
+    :type color: string
+
+Remarks
+-------
+
+:func:`plotSetTicLabelFont` does not apply changes to surface plots.
 
 Examples
 ----------------
@@ -42,9 +47,5 @@ Examples
     //Create graph with tic label settings applied above
     plotScatter(myPlot, x, y);
 
-Remarks
--------
-
-plotSetTicLabelFont does not apply changes to surface plots.
-
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`
+

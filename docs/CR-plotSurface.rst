@@ -9,10 +9,10 @@ Graphs a 3-D surface.
 
 Format
 ----------------
-.. function:: plotSurface([myPlot, ]x, y, z)plotSurface(x, y, z)
+.. function:: plotSurface([myPlot, ]x, y, z)
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure
+    :param myPlot: A :class:`plotControl` structure
+    :type myPlot: struct
 
     :param x: the X axis data.
     :type x: 1xK vector
@@ -47,4 +47,7 @@ Examples
     //Draw graph using plotcontrol structure
     plotSurface(myPlot, x, y, z);
 
+.. figure:: _static/images/plotsurf.png
+
 .. seealso:: Functions :func:`plotSetColorMap`, :func:`plotContour`, :func:`plotSetBkdColor`
+

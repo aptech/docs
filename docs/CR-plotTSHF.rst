@@ -8,36 +8,59 @@ Plots high-frequency and irregularly spaced time series data.
 
 Format
 ----------------
-.. function:: plotTSHF([myPlot, ]date_vec, label_unit, y)plotTSHF(date_vec, label_unit, y)
+.. function:: plotTSHF([myPlot, ]date_vec, label_unit, y)
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure
+    :param myPlot: A :class:`plotControl` structure
+    :type myPlot: struct
 
-    :param date_vec: containing the dates for each observation in the y . The dates in date_vec are required to be:
-        In Posix time/date format i.e. seconds since Jan 1, 1970.Sorted, increasing.
-        However, the dates in date_vec  may be:
+    :param date_vec: containing the dates for each observation in the *y* . The dates in *date_vec* are **required** to be:
+
+        - In POSIX time/date format i.e. seconds since Jan 1, 1970.
+        - Sorted, increasing.
+
+        However, the dates in *date_vec* **may be**:
         
-        Irregularly spaced
-        Any freqency which can be represented by DT Scalar format, such as by year, quarter, month, week, day, hour, minute, second or millisecond.
+        - Irregularly spaced
+        - Any freqency which can be represented by DT Scalar format, such as by year, quarter, month, week, day, hour, minute, second or millisecond.
+
     :type date_vec: Nx1 vector
 
     :param label_unit: containing the frequency with which to display the X axis tick labels. Valid options include:
-    :type label_unit: String
 
-    .. csv-table::
-        :widths: auto
+        - "milliseconds"
+        - "seconds"
+        - "minutes"
+        - "hours"
+        - "days"
+        - "months"
+        - "quarters"
+        - "years"
 
-        ""milliseconds"", ""
-        ""seconds"", ""
-        ""minutes"", ""
-        ""hours"", ""
-        ""days"", ""
-        ""months"", ""
-        ""quarters"", ""
-        ""years"", ""
+    :type label_unit: string
 
-    :param y:  Each column contains the Y values for a particular line.
+    :param y: Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
+
+Remarks
+-------
+
+Formatting for the X-tick labels can be set with the function
+:func:`plotSetXTicLabel`. If a :class:`plotControl` structure is not passed in to
+:func:`plotTSHF`, or the format specifier is not set with :func:`plotSetXTicLabel` the
+default formatting based on the time label unit and is as follows:
+
+=============== =====================
+"years"         "YYYY"
+"quarters"      "YYYY-QQ"
+"months"        "YYYY-MO"
+"days"          "MO-DD"
+"hours"         "HH:MI"
+"minutes"       "HH:MI"
+"seconds"       "HH:MI:SS"
+"milliseconds"  "HH:MI:SS.zzz"
+=============== =====================
+
+By default missing values in the *y* variable will be represented as gaps in the line.
 
 Examples
 ----------------
@@ -124,6 +147,8 @@ T-bill plot with full date vector
 Daily data with full date vector
 ++++++++++++++++++++++++++++++++
 
+.. figure:: _static/images/plotts_mac_xle_daily_500px.png
+
 ::
 
     // Fully pathed file name
@@ -147,6 +172,8 @@ Daily data with full date vector
 
 Time Series Plot With Custom X-tics
 +++++++++++++++++++++++++++++++++++
+
+.. figure:: _static/images/plotts_mac_tbill_400px.png
 
 ::
 
@@ -173,24 +200,5 @@ Time Series Plot With Custom X-tics
     //Draw time series plot, using settings in 'myPlot'
     plotTSHF(myPlot, dts, "quarters", y);
 
-Remarks
--------
-
-Formatting for the X-tick labels can be set with the function
-plotSetXTicLabel. If a plotControl structure is not passed in to
-plotTSHF, or the format specifier is not set with plotSetXTicLabel the
-default formatting based on the time label unit and is as follows:
-
--  "years": "YYYY"
--  "quarters: "YYYY-QQ"
--  "months": "YYYY-MO"
--  "days": "MO-DD"
--  "hours": "HH:MI"
--  "minutes": "HH:MI"
--  "seconds": "HH:MI:SS"
--  "milliseconds": "HH:MI:SS.zzz"
-
-By default missing values in the y variable will be represented as gaps
-in the line.
-
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotScatter`, :func:`plotTS`, :func:`plotTSLog`
+

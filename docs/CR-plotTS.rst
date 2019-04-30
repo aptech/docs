@@ -9,51 +9,68 @@ Creates a graph of time series data.
 
 Format
 ----------------
-.. function:: plotTS([myPlot, ]dtstart, frequency, y)plotTS(dtstart, frequency, y) 
-			   
-			  plotTS(myPlot, date_vec, label_unit, y)plotTS(date_vec, label_unit, y)
+.. function:: plotTS([myPlot, ]dtstart, frequency, y)
+              plotTS([myPlot, ]date_vec, label_unit, y)
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure
+    :param myPlot: A plotControl structure
+    :type myPlot: struct
 
-    :param dtstart: starting date in DT scalar format. This input is used when the data is evenly spaced and yearly, quarterly or monthly.
-    :type dtstart: Scalar
+    :param dtstart: starting date in DT scalar format. This input is used when the data is evenly 
+        spaced and yearly, quarterly or monthly.
+    :type dtstart: scalar
 
-    :param frequency: frequency of the data per year. NOTE: This option is only used with the scalar dtstart input. Valid options include:
-    :type frequency: Scalar
+    :param frequency: frequency of the data per year. 
+    
+        .. NOTE:: This option is only used with the scalar *dtstart* input. Valid options include:
 
-    .. csv-table::
-        :widths: auto
-
-        "1", "Yearly"
-        "4", "Quarterly"
-        "12", "Monthly"
-
-    :param date_vec: containing the dates for each observation in the y . The dates in date_vec are required to be:
-        In DT Scalar format.Sequential.
-        However, the dates in date_vec may be:
+            .. csv-table::
+                :widths: auto
         
-        Irregularly spaced
-        Any freqency which can be represented by DT Scalar format, such as by year, quarter, month, week, day, hour, minute and second.
+                "1", "Yearly"
+                "4", "Quarterly"
+                "12", "Monthly"
+
+    :type frequency: scalar
+
+    :param date_vec: containing the dates for each observation in the *y*. The dates in *date_vec* are **required** to be:
+
+        - In DT Scalar format.
+        - Sequential.
+
+        However, the dates in *date_vec* **may be**:
+        
+        - Irregularly spaced
+        - Any freqency which can be represented by DT Scalar format, such as by year, quarter, month, week, day, hour, minute and second.
+
     :type date_vec: Nx1 vector
 
     :param label_unit: containing the frequency with which to display the X axis tick labels.
-        NOTE: This input is only used with a full length date_vec vector. Valid options include:
-    :type label_unit: String
 
-    .. csv-table::
-        :widths: auto
+        .. NOTE:: This input is only used with a full length *date_vec* vector. Valid options include:
 
-        ""seconds"", ""
-        ""minutes"", ""
-        ""hours"", ""
-        ""days"", ""
-        ""months"", ""
-        ""quarters"", ""
-        ""years"", ""
+            - "seconds"
+            - "minutes"
+            - "hours"
+            - "days"
+            - "months"
+            - "quarters"
+            - "years"
+
+    :type label_unit: string
 
     :param y:  Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
+
+Remarks
+-------
+
+Formatting for the X-tick labels can be set with the function
+:func:`plotSetXTicLabel`. If a :class:`plotControl` structure is not passed in to :func:`plotTS`,
+or the format specifier is not set with :func:`plotSetXTicLabel` the default
+formatting: for annual data is ``"YYYY"``, for quarterly data ``"YYYY-QQ"`` and
+for monthly data is ``"YYYY-MO"``.
+
+.. NOTE:: By default missing values in the *y* variable will be represented as gaps in the line.
 
 Examples
 ----------------
@@ -115,6 +132,8 @@ T-bill plot with full date vector
 Daily data with full date vector
 ++++++++++++++++++++++++++++++++
 
+.. figure:: _static/images/plotts_mac_xle_daily_500px.png
+
 ::
 
     // Fully pathed file name
@@ -138,6 +157,8 @@ Daily data with full date vector
 
 Time Series Plot With Custom X-tics
 +++++++++++++++++++++++++++++++++++
+
+.. figure:: _static/images/plotts_mac_tbill_400px.png
 
 ::
 
@@ -164,10 +185,12 @@ Time Series Plot With Custom X-tics
     //Draw time series plot, using settings in 'myPlot'
     plotTS(myPlot, date_1, 12, y);
 
+Example 6
++++++++++
+
 In DT Scalar format, quarters are represented by supplying the first month of the quarter for
 the sixth and seventh leading digits. As we see below, 200504 represents April of 2005, but it
 also represents the second quarter of April 2005.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -175,16 +198,5 @@ also represents the second quarter of April 2005.
     //The second input specifies the data to be quarterly
     plotTS(200504, 4, y);
 
-Remarks
--------
-
-Formatting for the X-tick labels can be set with the function
-plotSetXTicLabel. If a plotControl structure is not passed in to plotTS,
-or the format specifier is not set with plotSetXTicLabel the default
-formatting: for annual data is "YYYY", for quarterly data "YYYY-QQ" and
-for monthly data is "YYYY-MO".
-
-By default missing values in the y variable will be represented as gaps
-in the line.
-
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotScatter`, :func:`plotTSHF`, :func:`plotTSLog`
+

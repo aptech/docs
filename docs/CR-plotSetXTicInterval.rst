@@ -8,16 +8,28 @@ Controls the interval between X-axis tick labels and also allows the user to spe
 
 Format
 ----------------
-.. function:: plotSetXTicInterval(&myPlot, ticInterval, firstLabeled)plotSetXTicInterval(&myPlot, ticInterval)
+.. function:: plotSetXTicInterval(&myPlot, ticInterval[, firstLabeled])
 
-    :param &myPlot: A plotControl structure pointer.
+    :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
     :param ticInterval: the number of X-values between X-axis tick labels.
-    :type ticInterval: Scalar
+    :type ticInterval: scalar
 
-    :param firstLabeled: the value of the first X-value on which to place a tick label.
-    :type firstLabeled: Scalar
+    :param firstLabeled: Optional input, the value of the first X-value on which to place a tick label.
+    :type firstLabeled: scalar
+
+Remarks
+-------
+
+:func:`plotSetXTicInterval` is supported for use with XY, Scatter, Contour and
+time series plots. It is ignored by other plot types.
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the **Tools > Preferences > Graphics**
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -45,6 +57,8 @@ XY plot
 
 Scalar starting date
 ++++++++++++++++++++
+
+.. figure:: _static/images/psxti1.png
 
 ::
 
@@ -77,6 +91,8 @@ If you would like to change the tick labels so that they start on the first full
     plotTS(myPlot, dtstart, frequency, y);
 
 This new plot should now have tick labels only on the first quarters of each year:
+
+.. figure:: _static/images/psxti2.png
 
 Daily data with full time vector
 ++++++++++++++++++++++++++++++++
@@ -112,6 +128,8 @@ Daily data with full time vector
     // Create a time series plot of the data.
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
+.. figure:: _static/images/psxti3.png
+
 Let's keep the tick labels on the same locations, however, create 1 tick label every quarter, instead of every 3 months. The following code will accomplish this.
 
 ::
@@ -126,16 +144,7 @@ Let's keep the tick labels on the same locations, however, create 1 tick label e
     //Create a time series plot of the data.
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
-Remarks
--------
-
-plotSetXTicInterval is supported for use with XY, Scatter, Contour and
-time series plots. It is ignored by other plot types.
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools > Preferences > Graphics**
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
+.. figure:: _static/images/psxti4.png
 
 .. seealso:: Functions :func:`dttostr`, :func:`strtodt`, :func:`plotSetXLabel`, :func:`plotSetXTicLabel`, :func:`plotSetTicLabelFont`
+
