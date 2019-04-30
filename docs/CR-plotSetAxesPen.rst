@@ -8,16 +8,25 @@ Sets the color for the axes line.
 
 Format
 ----------------
-.. function:: plotSetAxesPen(&myPlot, thickness)plotSetAxesPen(&myPlot, thickness, clr)
+.. function:: plotSetAxesPen(&myPlot, thickness[, clr])
 
-    :param &myPlot: A plotControl structure pointer
-    :type &myPlot: TODO
+    :param &myPlot: A :class:`plotControl` structure pointer
+    :type &myPlot: struct pointer
 
     :param thickness: the thickness of the axis line in pixels
     :type thickness: Scalar
 
     :param clr: name or rgb value of the new color for the axes
-    :type clr: String
+    :type clr: string
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the **Tools > Preferences > Graphics**
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -40,13 +49,5 @@ Examples
     //Plot the data with the new line colors
     plotXY(myPlot, x, y);
 
-Remarks
--------
-
-This function sets an attribute in a plotControl structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`
+

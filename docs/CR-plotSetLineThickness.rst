@@ -9,13 +9,22 @@ Sets the thickness of the lines on a graph.
 
 Format
 ----------------
-.. function:: plotSetLineThickness(&myPlot, newTh)
+.. function:: plotSetLineThickness(&myPlot, thickness)
 
-    :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :param &myPlot: A :class:`plotControl` structure pointer.
+    :type &myPlot: struct pointer
 
-    :param newTh: new line thickness settings.
-    :type newTh: 1 x N matrix
+    :param thickness: line thickness settings.
+    :type thickness: 1xN matrix
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the **Tools > Preferences > Graphics**
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -29,8 +38,8 @@ Examples
     myPlot = plotGetDefaults("xy");
     
     //Set all lines to have a thickness of 2
-    newTh = 2;
-    plotSetLineThickness(&myPlot, newTh);
+    thickness = 2;
+    plotSetLineThickness(&myPlot, thickness);
     
     //Create data
     x = seqa(0.1, 1, 50);
@@ -39,13 +48,5 @@ Examples
     //Plot the data with the new line thickness settings
     plotXY(myPlot, x, y);
 
-Remarks
--------
-
-This function sets an attribute in a plotControl structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotLayout`, :func:`plotSetTitle`
+

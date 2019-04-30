@@ -9,7 +9,7 @@ Creates a graph of time series data.
 
 Format
 ----------------
-.. function:: plotTS(myPlot, dtstart, frequency, y)plotTS(dtstart, frequency, y) 
+.. function:: plotTS([myPlot, ]dtstart, frequency, y)plotTS(dtstart, frequency, y) 
 			   
 			  plotTS(myPlot, date_vec, label_unit, y)plotTS(date_vec, label_unit, y)
 

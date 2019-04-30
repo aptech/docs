@@ -11,7 +11,7 @@ Format
 .. function:: plotSetWhichYAxis(&myPlot, which)
 
     :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :type &myPlot: struct pointer
 
     :param which: where each element contains either "right" or "left".
     :type which: String or Nx1 string array
@@ -47,9 +47,9 @@ Examples
 Remarks
 -------
 
-This function sets an attribute in a plotControl structure. It does not
+This function sets an attribute in a :class:`plotControl` structure. It does not
 affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
+settings that are accessible from the **Tools > Preferences > Graphics**
 menu. See **GAUSS Graphics**, Chapter 1, for more information on the
 methods available for customizing your graphs.
 

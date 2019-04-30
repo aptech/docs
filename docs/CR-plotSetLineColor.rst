@@ -10,11 +10,20 @@ Format
 ----------------
 .. function:: plotSetLineColor(&myPlot, colors)
 
-    :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :param &myPlot: A :class:`plotControl` structure pointer.
+    :type &myPlot: struct pointer
 
     :param colors: name or rgb value of the new colors.
     :type colors: String array
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the **Tools > Preferences > Graphics**
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -38,13 +47,5 @@ Examples
     //Plot the data with the new line colors
     plotXY(myPlot, x, y);
 
-Remarks
--------
-
-This function sets an attribute in a plotControl structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`
+

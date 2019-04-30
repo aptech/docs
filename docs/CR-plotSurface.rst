@@ -9,7 +9,7 @@ Graphs a 3-D surface.
 
 Format
 ----------------
-.. function:: plotSurface(myPlot, x, y, z)plotSurface(x, y, z)
+.. function:: plotSurface([myPlot, ]x, y, z)plotSurface(x, y, z)
 
     :param myPlot: 
     :type myPlot: A plotControl structure

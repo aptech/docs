@@ -11,7 +11,7 @@ Format
 .. function:: plotSetTitle(&myPlot, title, font, fontSize, fontColor)plotSetTitle(&myPlot, title, font)plotSetTitle(&myPlot, title)
 
     :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :type &myPlot: struct pointer
 
     :param title: the new title. This may contain HTML for the creation of Greek letters, mathematical symbols and text formatting.
     :type title: String
@@ -71,9 +71,9 @@ will create Yt-1
 Remarks
 -------
 
-This function sets an attribute in a plotControl structure. It does not
+This function sets an attribute in a :class:`plotControl` structure. It does not
 affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
+settings that are accessible from the **Tools > Preferences > Graphics**
 menu. See **GAUSS Graphics**, Chapter 1, for more information on the
 methods available for customizing your graphs.
 

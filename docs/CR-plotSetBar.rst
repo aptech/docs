@@ -10,32 +10,41 @@ Format
 ----------------
 .. function:: plotSetBar(&myPlot, fillType, barStacked)
 
-    :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :param &myPlot: A :class:`plotControl` structure pointer.
+    :type &myPlot: struct pointer
 
-    :param fillType: where N is the number of bar styles to set.
+    :param fillType: where *N* is the number of bar styles to set.
+
+        .. csv-table::
+            :widths: auto
+    
+            "0", "Solid, beveled edge"
+            "1", "Solid"
+            "2", "Dense 1"
+            "3", "Dense 2"
+            "4", "Dense 3"
+            "5", "Dense 4"
+            "6", "Dense 5"
+            "7", "Dense 6"
+            "8", "Horizontal lines"
+            "9", "Vertical lines"
+            "10", "Cross pattern"
+            "11", "B diagonal pattern"
+            "12", "F diagonal pattern"
+            "13", "Diagonal Cross"
+
     :type fillType: Nx1 vector
-
-    .. csv-table::
-        :widths: auto
-
-        "0", "Solid, beveled edge"
-        "1", "Solid"
-        "2", "Dense 1"
-        "3", "Dense 2"
-        "4", "Dense 3"
-        "5", "Dense 4"
-        "6", "Dense 5"
-        "7", "Dense 6"
-        "8", "Horizontal lines"
-        "9", "Vertical lines"
-        "10", "Cross pattern"
-        "11", "B diagonal pattern"
-        "12", "F diagonal pattern"
-        "13", "Diagonal Cross"
 
     :param barStacked: 1 for stacked or 0 for side-by-side bars.
     :type barStacked: Scalar
+
+Remarks
+-------
+
+When graphing without the use of a plotControl structure, these settings
+may be chosen through the **Tools > Preferences > Graphics** menu, after
+selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
+more information on the methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -68,16 +77,7 @@ Examples
     //Draw bar graph
     plotBar(myPlot, x, y);
 
-::
-
-    
-
-Remarks
--------
-
-When graphing without the use of a plotControl structure, these settings
-may be chosen through the **Tools->Preferences->Graphics** menu, after
-selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
-more information on the methods available for customizing your graphs.
+.. figure:: _static/images/plotsetbar.png
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`
+

@@ -9,7 +9,7 @@ Creates a graph of time series data with the Y-axis on a log scale.
 
 Format
 ----------------
-.. function:: plotTSLog(myPlot, dtstart, frequency, y)plotTSLog(dtstart, frequency, y) 
+.. function:: plotTSLog([myPlot, ]dtstart, frequency, y)plotTSLog(dtstart, frequency, y) 
 			   
 			  plotTSLog(myPlot, date_vec, label_unit, y)plotTSLog(date_vec, label_unit, y)
 

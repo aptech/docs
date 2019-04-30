@@ -9,7 +9,7 @@ Graphs X vs. Y using Cartesian coordinates.
 
 Format
 ----------------
-.. function:: plotXY(myPlot, x, y)plotXY(x, y)
+.. function:: plotXY([myPlot, ]x, y)plotXY(x, y)
 
     :param myPlot: 
     :type myPlot: A plotControl structure

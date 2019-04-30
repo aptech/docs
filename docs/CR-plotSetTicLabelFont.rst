@@ -11,7 +11,7 @@ Format
 .. function:: plotSetTicLabelFont(&myPlot, font)plotSetTicLabelFont(&myPlot, font, size)plotSetTicLabelFont(&myPlot, font, size, color)
 
     :param &myPlot: Pointer to a plotControl structure.
-    :type &myPlot: TODO
+    :type &myPlot: struct pointer
 
     :param font: the name of the desired font.
     :type font: String

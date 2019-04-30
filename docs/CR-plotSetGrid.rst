@@ -8,16 +8,17 @@ Controls the settings for the background grid of a plot.
 
 Format
 ----------------
-.. function:: plotSetGrid(&myPlot, ticStyle, color)plotSetGrid(&myPlot, ticStyle)plotSetGrid(&myPlot, onOff)
+.. function:: plotSetGrid(&myPlot, ticStyle[, color])
+              plotSetGrid(&myPlot, onOff)
 
     :param ticStyle: specifies whether grid marks should be drawn on major tic marks. Options: "major"
-    :type ticStyle: String
+    :type ticStyle: string
 
     :param color: name or rgb value of the new color.
-    :type color: String
+    :type color: string
 
-    :param onOff: turns the grid on or off. Options: "on" or "off." If used, this must be the only argument passed to the function besides the plotControl structure pointer.
-    :type onOff: String
+    :param onOff: turns the grid on or off. Options: "on" or "off." If used, this must be the only argument passed to the function besides the :class:`plotControl` structure pointer.
+    :type onOff: string
 
 Examples
 ----------------
@@ -40,3 +41,4 @@ Examples
     plotSetGrid(&myPlot, "off");
 
 .. seealso:: Functions :func:`plotCustomLayout`, :func:`plotSetTitle`
+

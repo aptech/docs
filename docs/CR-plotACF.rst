@@ -5,17 +5,14 @@ plotACF
 Purpose
 ----------------
 
-			Plot the autocorrelations function (ACF).
-
-			
+Plot the autocorrelations function (ACF).
 
 Format
 ----------------
-.. function:: plotACF(myPlot, x, k, d) 
-			              plotACF(x, k, d)
+.. function:: plotACF([myPlot, ]x, k, d) 
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure for acf
+    :param myPlot: Optional argument, a :class:`plotControl` structure for acf
+    :type myPlot: struct
 
     :param x: data.
     :type x: Nx1 vector
@@ -25,6 +22,21 @@ Format
 
     :param d: order of differencing.
     :type d: scalar
+
+Remarks
+-------
+
+To control the color and texture of the bars as well as whether they are
+stacked or side by side:
+
+If you are passing a :class:`plotControl` structure to your graph, you may use
+the function :func:`plotGetDefaults` and :func:`plotSetBar`.
+
+If you are not passing a :class:`plotControl` structure, these properties are set
+in the Preferences. To access the Graphics Preferences, select
+**Tools > Preferences** from the GAUSS main menu. Select **Graphics** on
+the left side of the preferences and then select **Bar** from the list
+of graph types.
 
 Examples
 ----------------
@@ -54,21 +66,9 @@ Examples
     
     plotACF( mp, x, k, d);
 
-The Plot is :
+The plot is:
 
-Remarks
--------
-
-To control the color and texture of the bars as well as whether they are
-stacked or side by side:
-
-If you are passing a plotControl structure to your graph, you may use
-the function plotGetDefaults and plotSetBar.
-
-If you are not passing a plotControl structure, these properties are set
-in the Preferences. To access the Graphics Preferences, select
-**Tools->Preferences** from the GAUSS main menu. Select ''Graphics'' on
-the left side of the preferences and then select ''Bar'' from the list
-of graph types.
+.. figure:: _static/images/plotacf1.png
 
 .. seealso:: Functions :func:`plotPACF`, :func:`ACF`, :func:`PACF`
+

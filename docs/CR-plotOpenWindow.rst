@@ -39,11 +39,11 @@ Remarks
 -------
 
 To automatically open each new graph in a new graph window, use
-plotSetNewWindow or set the preference in the main applicaton menu. This
-may be found by selecting **Tools->Preferences** and then clicking on
+:func:`plotSetNewWindow` or set the preference in the main applicaton menu. This
+may be found by selecting **Tools > Preferences** and then clicking on
 **Graphics** on the left side of the preferences window.
 
-If you select the radio button next to "New Window" at the top of the
+If you select the radio button next to **New Window** at the top of the
 graphics preferences window, each new graph will be automatically drawn
 in a new graphics window.
 

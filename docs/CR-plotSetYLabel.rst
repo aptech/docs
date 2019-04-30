@@ -12,7 +12,7 @@ Format
 .. function:: plotSetYLabel(&myPlot, label, font, fontSize, fontColor)plotSetYLabel(&myPlot, label, font, fontSize)plotSetYLabel(&myPlot, label, font)plotSetYLabel(&myPlot, label)
 
     :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :type &myPlot: struct pointer
 
     :param label: the new label or labels. If you are using more than one Y-axis, the first element of the 2x1 label string array
         will set the label for the left Y-axis and the second element will set the label for the right Y-axis. This may contain HTML for the creation of Greek letters, mathematical symbols and text formatting.
@@ -97,9 +97,9 @@ will create Yt-1
 Remarks
 -------
 
-This function sets an attribute in a plotControl structure. It does not
+This function sets an attribute in a :class:`plotControl` structure. It does not
 affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
+settings that are accessible from the **Tools > Preferences > Graphics**
 menu. See **GAUSS Graphics**, Chapter 1, for more information on the
 methods available for customizing your graphs.
 

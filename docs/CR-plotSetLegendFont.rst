@@ -8,21 +8,19 @@ Controls the legend font name, size and color.
 
 Format
 ----------------
-.. function:: plotSetLegendFont(&myPlot, font) 
-			  plotSetLegendFont(&myPlot, font, font_size) 
-			  plotSetLegendFont(&myPlot, font, font_size, font_color)
+.. function:: plotSetLegendFont(&myPlot, font[, font_size[, font_color]])
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure pointer
+    :param &myPlot: A :class:`plotControl` structure pointer
+    :type &myPlot: struct pointer
 
     :param font: font or font family name.
-    :type font: String
+    :type font: string
 
     :param font_size: font size in points.
-    :type font_size: Scalar
+    :type font_size: scalar
 
     :param font_color: named color or RGB value.
-    :type font_color: String
+    :type font_color: string
 
 Examples
 ----------------
@@ -56,4 +54,3 @@ Examples
 
 .. seealso:: Functions :func:`plotSetLegend`, :func:`plotSetLegendBkd`
 
-plot control legend font

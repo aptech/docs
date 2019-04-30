@@ -8,24 +8,35 @@ Sets the contour label for a graph.
 
 Format
 ----------------
-.. function:: plotSetContourLabels(&myPlot, show_labels) 
-			  plotSetContourLabels(&myPlot, show_labels, label_format) 
-			  plotSetContourLabels(&myPlot, show_labels, label_format, label_precision)
+.. function:: plotSetContourLabels(&myPlot, show_labels[, label_format[, label_precision]])
 
-    :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :param &myPlot: A :class:`plotControl` structure pointer.
+    :type &myPlot: struct pointer
 
     :param show_labels: 0 or 1. The flag of show labels on contours.
-    :type show_labels: Scalar
+    :type show_labels: scalar
 
-    :param label_format: format's option:
-        "D", e.g. 1.234567;
-        "E", e.g.1.23E1;
-        "G". "G" is either "D" or "E", whichever is more compact
-    :type label_format: String
+    :param label_format: Optional input. Format options:
 
-    :param label_precision: precision of contour label.
-    :type label_precision: Scalar
+        === =================
+        "D" e.g. 1.234567;
+        "E" e.g.1.23E1;
+        "G" "G" is either "D" or "E", whichever is more compact
+        === =================
+
+    :type label_format: string
+
+    :param label_precision: Optional input, precision of contour label.
+    :type label_precision: scalar
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the **Tools > Preferences > Graphics**
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -68,17 +79,9 @@ Examples
     //Draw graph using plotcontrol structure
     plotContour(myPlot, x, y, z);
 
-The Plot is
+The plot is
 
-Remarks
--------
-
-This function sets an attribute in a plotControl structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
+.. figure:: _static/images/plotsetcontourlabels.png
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetColorMap`, :func:`plotSetZLevels`
 
-plot control contour labels

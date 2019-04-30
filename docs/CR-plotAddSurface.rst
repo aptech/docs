@@ -8,7 +8,7 @@ Add a surface plot to an existing plot.
 
 Format
 ----------------
-.. function:: plotAddSurface(myPlot, x, y, z)plotAddSurface(x, y, z)
+.. function:: plotAddSurface([myPlot, ]x, y, z)plotAddSurface(x, y, z)
 
     :param myPlot: a plotControl structure.
     :type myPlot: Optional input

@@ -8,7 +8,7 @@ Plots high-frequency and irregularly spaced time series data.
 
 Format
 ----------------
-.. function:: plotTSHF(myPlot, date_vec, label_unit, y)plotTSHF(date_vec, label_unit, y)
+.. function:: plotTSHF([myPlot, ]date_vec, label_unit, y)plotTSHF(date_vec, label_unit, y)
 
     :param myPlot: 
     :type myPlot: A plotControl structure

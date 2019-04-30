@@ -11,7 +11,7 @@ Format
 .. function:: plotSetZLevels(&myPlot, zlevels)
 
     :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :type &myPlot: struct pointer
 
     :param zlevels: or Nx1 vector. If zlevels is a scalar, zlevels represents the number of different heights at which to draw contour lines (from MIN(Z) to MAX(Z)). If zlevels is an Nx1 vector, zlevels indicates the heights at which to draw the contour lines.
     :type zlevels: Scalar
@@ -109,10 +109,10 @@ Remarks
       single_level = { 1.5, 1.5 };
       plotSetLevels(&myPlot, single_level);
 
--  This function sets an attribute in a plotControl structure. It does
+-  This function sets an attribute in a :class:`plotControl` structure. It does
    not affect an existing graph, or a new graph drawn using the default
    settings that are accessible from the
-   **Tools->Preferences->Graphics** menu. See **GAUSS Graphics**,
+   **Tools > Preferences > Graphics** menu. See **GAUSS Graphics**,
    Chapter 1, for more information on the methods available for
    customizing your graphs.
 

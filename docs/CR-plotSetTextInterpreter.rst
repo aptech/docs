@@ -8,16 +8,43 @@ Controls the text interpreter settings for a graph.
 
 Format
 ----------------
-.. function:: plotSetTextInterpreter(&myPlot, interpreter)plotSetTextInterpreter(&myPlot, interpreter, location)
+.. function:: plotSetTextInterpreter(&myPlot, interpreter[, location])
 
-    :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :param &myPlot: A :class:`plotControl` structure pointer.
+    :type &myPlot: struct pointer
 
     :param interpreter: "html", "plain", "latex".
-    :type interpreter: String
+    :type interpreter: string
 
     :param location: "all", "legend", "title" or "axes". Default is "all".
-    :type location: String
+    :type location: string
+
+Remarks
+-------
+
+When the text interpreter is set to use LaTeX:
+
+-  Since backslashes inside of a string represent the escaping of a
+   character, use double backslashes to represent a backslash.
+-  The default mode is that of an in-line equation. To add a section of
+   strictly text, wrap the text only section in ``\\text{}``. For example:
+
+   ::
+
+      "\\text{The formula is } \\alpha + \\beta_1 X + \\epsilon"
+
+-  Text outside of a ``\\text{}`` section will use the TeX font. Text inside
+   of a ``\\text{}`` section will use whatever font was specified for the
+   label.
+
+The 'plain' text interpreter will allow you to pass in characters that
+would be invalid HTML, such as the symbols '``<``' and '``>``'.
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the **Tools > Preferences > Graphics**
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -63,7 +90,7 @@ You may add Greek letters, mathematical symbols, subscript and superscript to yo
     //Set the X-axis label
     plotSetXLabel(&myPlot, label_string);
 
-The code above will add the letter β to the graph title. The HTML 'sup' tag will create superscript and the 'sub' tag will create subscript. For example:
+The code above will add the letter :math:`β` to the graph title. The HTML 'sup' tag will create superscript and the 'sub' tag will create subscript. For example:
 
 ::
 
@@ -72,7 +99,9 @@ The code above will add the letter β to the graph title. The HTML 'sup' tag wil
     //Set the X-axis label
     plotSetXLabel(&myPlot, label_string);
 
-will add σ2 to your title. While,
+will add :math:`σ2` to your title. While,
+
+.. DANGER:: fix equation
 
 ::
 
@@ -83,10 +112,10 @@ will add σ2 to your title. While,
 
 will create Yt-1.
 
-Latex Interpreter
+LaTeX Interpreter
 +++++++++++++++++
 
-You can also use Latex to add complex math expression, or non-Latin scripts to your title, axes, and legend. You can use plotSetTextInterpreter to set "latex"for the text to be interpreted as Latex.
+You can also use LaTeX to add complex math expression, or non-Latin scripts to your title, axes, and legend. You can use :func:`plotSetTextInterpreter` to set "latex"for the text to be interpreted as LaTeX.
 
 ::
 
@@ -127,34 +156,7 @@ You can also use Latex to add complex math expression, or non-Latin scripts to y
 
 The plot is
 
-Remarks
--------
+.. figure:: _static/images/plotsettextinterpreter.png
 
-When the text interpreter is set to use Latex:
+.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetYLabel`, :func:`plotSetXLabel`, :func:`plotSetTitle`, :func:`plotSetLegend`
 
--  Since backslashes inside of a string represent the escaping of a
-   character, use double backslashes to represent a backslash.
--  The default mode is that of an in-line equation. To add a section of
-   strictly text, wrap the text only section in \\text{}. For example:
-
-   ::
-
-      "\\text{The formula is } \\alpha + \\beta_1 X + \\epsilon"
-
--  Text outside of a \\text{} section will use the TeX font. Text inside
-   of a \\text{} section will use whatever font was specified for the
-   label.
-
-The 'plain' text interpreter will allow you to pass in characters that
-would be invalid HTML, such as the symbols '<' and '>'.
-
-This function sets an attribute in a plotControl structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
-.. seealso:: Functions 
-labels <GG-GAUSSGraphics/GG-LaTeXinGAUSSGraphics.html>`__\,\ `plotGetDefaults <CR-plotGetDefaults.html#plotGetDefaults>`__\,\ `plotSetYLabel <CR-plotSetYLabel.html#plotSetYLabel>`__\,\ `plotSetXLabel <CR-plotSetXLabel.html#plotSetXLabel>`__\,\ `plotSetTitle <CR-plotSetTitle.html#plotSetTitle>`__\,\ `plotSetLegend <CR-plotSetLegend.html#plotSetLegend>`__
-
-plot control text interpreter Latex HTML plain

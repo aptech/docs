@@ -11,7 +11,7 @@ Purpose
 
 Format
 ----------------
-.. function:: plotPACF(myPlot, x, k, d) 
+.. function:: plotPACF([myPlot, ]x, k, d) 
 			              plotPACF(x, k, d)
 
     :param myPlot: 
@@ -67,7 +67,7 @@ the function plotGetDefaults and plotSetBar.
 
 If you are not passing a plotControl structure, these properties are set
 in the Preferences. To access the Graphics Preferences, select
-**Tools->Preferences** from the GAUSS main menu. Select ''Graphics'' on
+**Tools > Preferences** from the GAUSS main menu. Select ''Graphics'' on
 the left side of the preferences and then select ''Bar'' from the list
 of graph types.
 

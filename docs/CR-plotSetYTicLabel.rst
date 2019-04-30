@@ -11,7 +11,7 @@ Format
 .. function:: plotSetYticLabel(&myPlot, fmt, angle)plotSetYticLabel(&myPlot, fmt)
 
     :param &myPlot: A plotControl structure pointer.
-    :type &myPlot: TODO
+    :type &myPlot: struct pointer
 
     :param fmt: or 2x1 string array containing the desired formatting for the Y-axis tick labels. If a 2x1 string array is passed in, the first element of fmt will control the left Y-axis and the second element will control the right Y-axis. sprintf style formatting strings are supported. See Remarks below for more information.
     :type fmt: String
@@ -148,9 +148,9 @@ represent pi
 -  "%.2g" - 3.14
 -  "%d" - 3
 
-This function sets an attribute in a plotControl structure. It does not
+This function sets an attribute in a :class:`plotControl` structure. It does not
 affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the **Tools->Preferences->Graphics**
+settings that are accessible from the **Tools > Preferences > Graphics**
 menu. See **GAUSS Graphics**, Chapter 1, for more information on the
 methods available for customizing your graphs.
 
