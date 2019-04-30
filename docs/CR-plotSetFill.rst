@@ -54,21 +54,21 @@ Examples
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("bar");
     
-    //Set all bars to have a solid, blue, fill, with 50% opacity
+    // Set all bars to have a solid, blue, fill, with 50% opacity
     textures = 1;
     plotSetFill(&myPlot, textures, 0.5, "blue");
     
-    //Create data
+    // Create data
     x = seqa(1, 1, 5);
     y = { 1.5, 2, 3, 0.5, 1 };
     
-    //Draw bar graph
+    // Draw bar graph
     plotBar(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`

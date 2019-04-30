@@ -29,10 +29,10 @@ Examples
 
 ::
 
-    //Create the sequence 1, 2, 3,...10
+    // Create the sequence 1, 2, 3,...10
     x = seqa(1, 1, 10);
     
-    //Set 'y' equal to the reverse order of 'x'
+    // Set 'y' equal to the reverse order of 'x'
     y = rev(x);
     
     z = maxv(x,y);

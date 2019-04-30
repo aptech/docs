@@ -33,16 +33,16 @@ Examples
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
     
-    //Set X-axis to to range from -5 to +5
+    // Set X-axis to to range from -5 to +5
     plotSetXRange(&myPlot, -5, 5);
     
-    //Create and plot data using our x-range
+    // Create and plot data using our x-range
     x_1 = rndn(100, 1);
     x_2 = rndn(100, 1);
     

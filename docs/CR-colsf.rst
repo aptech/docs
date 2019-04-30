@@ -26,10 +26,10 @@ Examples
 
 ::
 
-    //Create a file with 10 columns
+    // Create a file with 10 columns
     create fp = myfile with x,10,4;
     
-    //Calculate the number of rows of the file created above
+    // Calculate the number of rows of the file created above
     nCols = colsf(fp);
 
 The result will be

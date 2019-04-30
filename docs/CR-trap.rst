@@ -25,12 +25,12 @@ First we will create some code that will return an error, stopping the program. 
 
 ::
 
-    //Create a singular matrix
+    // Create a singular matrix
     x = { 1 1 1,
           1 1 1,
           1 1 1 };
     
-    //Attempt to calculate inverse, but error
+    // Attempt to calculate inverse, but error
     //'matrix singular' stops program
     x_inv = inv(x);
 
@@ -38,33 +38,33 @@ In some cases, we would like our program to be able to detect certain errors and
 
 ::
 
-    //Create a singular matrix
+    // Create a singular matrix
     x = { 1 1 1,
           1 1 1,
           1 1 1 };
     
-    //Set the trap flag, to supress the error
+    // Set the trap flag, to supress the error
     trap 1;
     
-    //Attempt to calculate inverse
+    // Attempt to calculate inverse
     x_inv = inv(x);
 
 If you run the above code, you will notice that an error was not returned. With the trap set to 1, instead of stopping the program with an error message, GAUSS will set the variable x_inv equal to a scalar error code. A scalar error code is a missing value that contains an integer which can be used to identify the error. For more information on error codes, see scalerr and error. In this example, however, our main concern is with determining whether or not the return value is a scalar error code. We can do this with the GAUSS function, scalmiss.
 
 ::
 
-    //Create a singular matrix
+    // Create a singular matrix
     x = { 1 1 1,
           1 1 1,
           1 1 1 };
     
-    //Set the trap flag, to supress the error
+    // Set the trap flag, to supress the error
     trap 1;
     
-    //Attempt to calculate inverse
+    // Attempt to calculate inverse
     x_inv = inv(x);
     
-    //Check to see if 'x_inv', contains a scalar error code
+    // Check to see if 'x_inv', contains a scalar error code
     if scalmiss(x_inv);
         print  "matrix was singular";
     endif;
@@ -74,29 +74,29 @@ This example will built from the concepts in the example above to do something m
 
 ::
 
-   //Create a coefficient matrix with linear dependencies
+   // Create a coefficient matrix with linear dependencies
    x = { 1 1 0.8,
          1 1 1.5,
          1 1 0.6 };
 
-   //Create a dependent variable
+   // Create a dependent variable
    y = { -0.36, 
          -1.55, 
          -0.02 };
 
-   //Set the trap flag, to supress the error
+   // Set the trap flag, to supress the error
    trap 1;
 
-   //Attempt to compute the inverse of the moment matrix
+   // Attempt to compute the inverse of the moment matrix
    mmi = inv(x'x);
 
-   //Check to see if 'mmi', contains a scalar error code
+   // Check to see if 'mmi', contains a scalar error code
    if scalmiss(mmi);
-       //Compute the pseudo-inverse of the moment matrix
+       // Compute the pseudo-inverse of the moment matrix
        mmi = pinv(x'x);
    endif;
 
-   //Solve the linear equations
+   // Solve the linear equations
    b_hat = mmi * x'y;
 
 After the above code, b_hat is equal to:

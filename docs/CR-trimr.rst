@@ -36,10 +36,10 @@ Examples
 
 ::
 
-    //Create a 5x3 matrix of random uniform numbers
+    // Create a 5x3 matrix of random uniform numbers
     x = rndu(5,3);
     
-    //Remove the top 2 rows of x and the bottom row
+    // Remove the top 2 rows of x and the bottom row
     y = trimr(x,2,1);
 
 If x is equal to:

@@ -174,37 +174,37 @@ Use data matrices
     new;
     rndseed 12576;
     
-    //Simulate t distribution data
-    //degrees of freedom
+    // Simulate t distribution data
+    // degrees of freedom
     df = 10;
     
-    //Covariance matrix [columns are independent]
+    // Covariance matrix [columns are independent]
     sigma = { 1 0,
               0 1 };
     
-    //Number of observations>
+    // Number of observations>
     num = 500;
     
-    //Generate data
+    // Generate data
     y = rndMVt(num, sigma, df);
     
-    //Just use one of x's
+    // Just use one of x's
     yt = y[.,1];
     
     struct gmmControl gctl;
     gctl = gmmControlCreate();
     
-    //Set starting values
-    //This or number of parameters must 
-    //be specified if no x mats
+    // Set starting values
+    // This or number of parameters must 
+    // be specified if no x mats
     gctl.bStart = 7;
     
-    //Continuous estimation
+    // Continuous estimation
     struct gmmOut gOut1;
     gOut1 = gmmFit(&meqn, yt, gctl);
     
-    //User defined moment equation
-    //Use the y2 and y4 as moments
+    // User defined moment equation
+    // Use the y2 and y4 as moments
     proc (1) = meqn(b, yt);
         local g1,g2;
     

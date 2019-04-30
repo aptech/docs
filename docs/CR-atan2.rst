@@ -34,7 +34,7 @@ Examples
 
 ::
 
-    //Create the sequence -π, -π/2, 0, π/2, π
+    // Create the sequence -π, -π/2, 0, π/2, π
     x = seqa(-pi, pi/2, 5);
     y = 1;
     

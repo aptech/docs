@@ -31,17 +31,17 @@ Examples
 
 ::
 
-    //Create an additive sequence from 1-12, i.e. 1, 2, 3,...12
+    // Create an additive sequence from 1-12, i.e. 1, 2, 3,...12
     x = seqa(1, 1, 12);
     
-    //Reshape the sequential vector 'x' into a 4x3 matrix
+    // Reshape the sequential vector 'x' into a 4x3 matrix
     x = reshape(x,4,3);
     
-    //The column indices (one per row of 'x') indicating which
-    //values to extract from 'x'
+    // The column indices (one per row of 'x') indicating which
+    // values to extract from 'x'
     ci = { 2, 3, 1, 3 };
     
-    //Extract subvector from 'x' and assign it to 'y'
+    // Extract subvector from 'x' and assign it to 'y'
     y = subvec(x,ci);
 
 After the above code, x and y are equal to:

@@ -29,11 +29,11 @@ Examples
 
 ::
 
-    //Create the multiplicative sequence 1, 2, 4, 8
+    // Create the multiplicative sequence 1, 2, 4, 8
     x = seqm(1,2,4);
     
-    //Reverse the order of the elements in 'x' and assign them 
-    //to 'y'
+    // Reverse the order of the elements in 'x' and assign them 
+    // to 'y'
     y = rev(x);
     
     z = minv(x,y);

@@ -84,31 +84,31 @@ Uncorrelated variables
 
 ::
 
-    //Upper limits of integration for K dimensional multivariate Student's t distribution
+    // Upper limits of integration for K dimensional multivariate Student's t distribution
     x = { 0  0 };
     
-    //Identity matrix, indicates
-    //zero correlation between variables
+    // Identity matrix, indicates
+    // zero correlation between variables
     R = { 1 0,
           0 1 };
     				
-    //Define non-centrality vector 
+    // Define non-centrality vector 
     m  = { 0, 0 };
     				
-    //Define degree of freedom 
+    // Define degree of freedom 
     v  = 3;        		
     						
-    //Define control structure				
+    // Define control structure				
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
     
-    //Calculate cumulative probability of
-    //both variables being ≤ 0
+    // Calculate cumulative probability of
+    // both variables being ≤ 0
     { p, err, retcode } = cdfMvte(ctl, x, R, m, v );
     
-    //Calculate joint probablity of two
-    //variables with zero correlation,
-    //both, being ≤ 0
+    // Calculate joint probablity of two
+    // variables with zero correlation,
+    // both, being ≤ 0
     p2 = (1 - cdftc(0, v)) .*(1- cdftc(0, v));
 
 After the above code, both *p* and *p2* should be equal to 0.25.
@@ -121,30 +121,30 @@ Compute the multivariate student's t cdf at 3 separate pairs of upper limits
 
 ::
 
-    //Upper limits of integration
-    //x1 ≤ -1 and x2 ≤ -1.1
-    //x1 ≤ 0 and x2 ≤ 0.1
-    //x1 ≤ 1 and x2 ≤ 1.1
+    // Upper limits of integration
+    // x1 ≤ -1 and x2 ≤ -1.1
+    // x1 ≤ 0 and x2 ≤ 0.1
+    // x1 ≤ 1 and x2 ≤ 1.1
     x = {  -1   -1.1,
             0    0.1,
             1    1.1 };
     
-    //Correlation matrix
+    // Correlation matrix
     R = { 1  0.31,
           0.31  1};
     				
-    //Define non-centrality vector 
+    // Define non-centrality vector 
     m  = {0, 0};
     				
-    //Define degree of freedom 
+    // Define degree of freedom 
     v  = 3;      
     				      				
-    //Define control structure
+    // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
     				
-    //Calculate cumulative probability of
-    //each pair of upper limits
+    // Calculate cumulative probability of
+    // each pair of upper limits
     {p, err, retcode}  = cdfMvte(ctl, x, R, m, v);
 
 After the above code, *p* should equal:
@@ -167,31 +167,31 @@ Compute the non central multivariate student's t cdf
 
 ::
 
-    //Upper limits of integration
-    //x1 ≤ -1 and x2 ≤ -1.1
-    //x1 ≤ 0 and x2 ≤ 0.1
-    //x1 ≤ 1 and x2 ≤ 1.1
+    // Upper limits of integration
+    // x1 ≤ -1 and x2 ≤ -1.1
+    // x1 ≤ 0 and x2 ≤ 0.1
+    // x1 ≤ 1 and x2 ≤ 1.1
     x = {  -1   -1.1,
             0    0.1,
             1    1.1 };
     
-    //Correlation matrix
+    // Correlation matrix
     R = { 1  0.31,
           0.31  1};
     				
-    //Define non-centrality vector, Kx1
+    // Define non-centrality vector, Kx1
     m  = {  1, 
          -2.5 };
     				
-    //Define degree of freedom 
+    // Define degree of freedom 
     v  = 3;    
     				         				
-    //Define control structure
+    // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
     				
-    //Calculate cumulative probability of
-    //each pair of upper limits
+    // Calculate cumulative probability of
+    // each pair of upper limits
     { p, err, retcode } = cdfMvte(ctl, x, R, m, v);
 
 After the above code, *p* should equal:

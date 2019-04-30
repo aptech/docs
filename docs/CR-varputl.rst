@@ -39,24 +39,24 @@ Examples
        vars = { a b c d e };
        putvar = 0;
        
-       //Keep looping until the user enters a letter 
-       //a-e or A-E
+       // Keep looping until the user enters a letter 
+       // a-e or A-E
        do while putvar $/= vars;
-          //Two semi-colons at the end of a print statement, 
-          //prevents a 'new line' from being printed
+          // Two semi-colons at the end of a print statement, 
+          // prevents a 'new line' from being printed
           print "Assign x (" $vars "): ";;
           putvar = upper(cons);
           print;
        endo;
        
-       //Assign the variable whose letter/name was entered by 
-       //the user to be the value passed into 'myProc'
+       // Assign the variable whose letter/name was entered by 
+       // the user to be the value passed into 'myProc'
        call varputl(x,putvar);
        retp(a+b*c-d/e);
     endp;
     
-    //Format printing of numbers to allow 2 spaces between them 
-    //and 1 digit after the decimal place
+    // Format printing of numbers to allow 2 spaces between them 
+    // and 1 digit after the decimal place
     format /rds 2,1;
     
     z = myProc(17);

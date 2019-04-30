@@ -71,8 +71,8 @@ You can take this further and create a procedure that will load a list of output
        local k;
        for i(1, rows(fileList), 1);
           print "Press any key to view the next file:";
-          //wait for user input and assign the first key stroke
-          //to 'k'
+          // wait for user input and assign the first key stroke
+          // to 'k'
           k = keyw;
           print getf(fileList[i],1);
        endfor;

@@ -30,7 +30,7 @@ Examples
 
 ::
 
-    //Create an additive sequence from 1-24
+    // Create an additive sequence from 1-24
     x = seqa(1,1,24);
     
     //'Reshape' this 24x1 vector into a 2x3x4 dimensional array

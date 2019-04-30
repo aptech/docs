@@ -28,10 +28,10 @@ Examples
 
     sparse matrix y;
     
-    //Create a 4x4 sparse identity matrix
+    // Create a 4x4 sparse identity matrix
     y = spEye(4);
     
-    //Create a dense matrix with the same values as 'y'
+    // Create a dense matrix with the same values as 'y'
     d = spToDense(y);
 
 The dense matrix d is equal to:

@@ -18,10 +18,10 @@ Examples
 
 ::
 
-    //Declare 'p1' as an instance of a 'PV' structure
+    // Declare 'p1' as an instance of a 'PV' structure
     struct PV p1;
     
-    //Fill in 'p1' with default values
+    // Fill in 'p1' with default values
     p1 = pvCreate();
 
 Source

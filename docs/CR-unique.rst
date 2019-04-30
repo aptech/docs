@@ -28,7 +28,7 @@ Numeric
 
 ::
 
-    //Create a column vector with duplicate elements
+    // Create a column vector with duplicate elements
     years = { 1632, 
               2012, 
               1709, 
@@ -42,7 +42,7 @@ Numeric
               1924, 
               1960 };
     
-    //Sort 'years' and remove any duplicate elements
+    // Sort 'years' and remove any duplicate elements
     years_unique = unique(years);
 
 After the code above, the variables years and years_unique are assigned as follows:
@@ -67,7 +67,7 @@ Numeric Matrix
 
 ::
 
-    //Create a numeric matrix with duplicate elements
+    // Create a numeric matrix with duplicate elements
     years = { 1632          2012, 
               1709           1812, 
               1709           1989, 
@@ -75,7 +75,7 @@ Numeric Matrix
               1912           1912, 
               1924           1960 };
     
-    //Sort 'years' and remove any duplicate elements
+    // Sort 'years' and remove any duplicate elements
     years_unique = unique(years);
     print "years: " years;
     print;
@@ -110,22 +110,22 @@ Character data
 
 ::
 
-    //Create column character vector, by using
-    //numeric concatenation operator
+    // Create column character vector, by using
+    // numeric concatenation operator
     levels = "high" | "medium" | "medium" | "low" | 
              "high" | "medium" | "medium"; 
     
-    //Set flag to indicate data is character data
+    // Set flag to indicate data is character data
     flag = 0;
     
     
-    //Sort 'levels' alphabetically and
-    //remove any duplicate elements
+    // Sort 'levels' alphabetically and
+    // remove any duplicate elements
     levels_unique = unique(levels, flag);
     
     
-    //Note the $ used before the variable which
-    //tells GAUSS to print as characters
+    // Note the $ used before the variable which
+    // tells GAUSS to print as characters
     print $levels_unique;
 
 The code above will produce the following output:
@@ -156,12 +156,12 @@ will produce the following output:
 
 ::
 
-    //Create column string array
+    // Create column string array
     string levels = { "high",  "medium", "medium",  "low", 
              "high", "medium", "medium"}; 
     
-    //Sort 'levels' alphabetically and
-    //remove any duplicate elements
+    // Sort 'levels' alphabetically and
+    // remove any duplicate elements
     levels_unique = unique(levels);
     
     print levels_unique;
@@ -179,14 +179,14 @@ The code above will produce the following output:
 
 ::
 
-    //Create 3x2 string array 
+    // Create 3x2 string array 
     
     string levels = { "apple"      "watermelon", 
                       "banana"     "banana", 
                       "watermelon" "apple" }; 
     
-    //Sort 'levels' alphabetically and
-    //remove any duplicate elements
+    // Sort 'levels' alphabetically and
+    // remove any duplicate elements
     levels_unique = unique(levels);
     				
     print"levels: " levels;

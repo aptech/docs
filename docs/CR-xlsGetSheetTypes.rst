@@ -42,7 +42,7 @@ For example, let us suppose that a file named 'yarn.xlsx' exists in the GAUSS ho
     rowNum = 2;
     ctypes = xlsGetSheetTypes(fname, sheetNum, rowNum);
     
-    //Do not print any values after the decimal point
+    // Do not print any values after the decimal point
     format /rd 6,0;
     print ctypes;
 

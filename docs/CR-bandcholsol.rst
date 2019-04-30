@@ -38,20 +38,20 @@ Examples
 
 ::
 
-    //Create matrix 'A' and right-hand side 'b'
+    // Create matrix 'A' and right-hand side 'b'
     A = { 1 2 0 0,
           2 8 1 0,
           0 1 5 2,
           0 0 2 3 };
     b = { 1.3, 2.1, 0.7, 1.8 }; 
     
-    //Create banded matrix form of 'A'
+    // Create banded matrix form of 'A'
     Aband = band(A,1);
     
-    //Cholesky factorization of the banded 'A'
+    // Cholesky factorization of the banded 'A'
     Lband = bandchol(Aband);
     
-    //Solve the system of equations
+    // Solve the system of equations
     x = bandcholsol(b, Lband);
 
 After the code above is run:

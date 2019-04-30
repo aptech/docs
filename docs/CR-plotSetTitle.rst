@@ -42,19 +42,19 @@ Example 1
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
     
-    //Set the title, title font and title font size 
+    // Set the title, title font and title font size 
     plotSetTitle(&myPlot, "GAUSS Example Graph", "verdana", 10);
     
-    //Create data
+    // Create data
     x = rndn(1e5,1);
     
-    //Plot a histogram of the x data spread over 50 bins
+    // Plot a histogram of the x data spread over 50 bins
     plotHist(myPlot, x, 50);
 
 Example 2

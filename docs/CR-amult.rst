@@ -29,14 +29,14 @@ Examples
 
 ::
 
-    //Create an additive sequence from 1-12 and reshape it into
-    //a 2x3x2 dimensional array
+    // Create an additive sequence from 1-12 and reshape it into
+    // a 2x3x2 dimensional array
     a = areshape(seqa(1,1,12),2|3|2);
     
     b = areshape(seqa(1,1,16),2|2|4);
     
-    //Multiply the two 3x2 matrices in 'a' by the corresponding
-    //2x4 matrices in 'b'
+    // Multiply the two 3x2 matrices in 'a' by the corresponding
+    // 2x4 matrices in 'b'
     y = amult(a,b);
 
 *a* is a 2x3x2 array, such that:

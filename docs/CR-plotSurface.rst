@@ -28,23 +28,23 @@ Examples
 
 ::
 
-    //Clear out variables in GAUSS workspace
+    // Clear out variables in GAUSS workspace
     new;
     				
-    //Create contour data 
+    // Create contour data 
     x = seqa(-4, 0.1, 50)';
     y = x';
     z = sin(y) .* cos(x) ;
     
-    //Set up control structure with defaults 
-    //for surface plots
+    // Set up control structure with defaults 
+    // for surface plots
     struct plotControl myPlot;
     myPlot = plotGetDefaults("surface");
     
-    //Set color map 
+    // Set color map 
     plotSetColormap(&myPlot, "plasma");
     
-    //Draw graph using plotcontrol structure
+    // Draw graph using plotcontrol structure
     plotSurface(myPlot, x, y, z);
 
 .. figure:: _static/images/plotsurf.png

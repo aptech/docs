@@ -27,22 +27,22 @@ Examples
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     
     struct plotControl myPlot;
     
-    //Initialize plotControl structure with defaults for an
+    // Initialize plotControl structure with defaults for an
     //'xy' graph
     myPlot = plotGetDefaults("xy");
     
-    //Create some data to plot
+    // Create some data to plot
     x = seqa(-5, 0.1, 50);
     y = pdfn(x);
     
-    //Make a desired change to the plotControl structure
+    // Make a desired change to the plotControl structure
     plotSetTitle(&myPlot, "Default XY Settings");
     
-    //Plot the data using the plotControl structure
+    // Plot the data using the plotControl structure
     plotXY(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotSetBkdColor`, :func:`plotSetLineColor`, :func:`plotSetLineSymbol`

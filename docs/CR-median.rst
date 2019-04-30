@@ -26,13 +26,13 @@ Examples
 
 ::
 
-    //Set the seed for repeatable random data
+    // Set the seed for repeatable random data
     rndseed 4320993;
     
-    //Create uniform random integers between 1 and 10
+    // Create uniform random integers between 1 and 10
     x = ceil(10*rndu(100,3));
     
-    //Calculate the median of each column of 'x'
+    // Calculate the median of each column of 'x'
     md = median(x);
 
 After the code above, *md* is equal to:

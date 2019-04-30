@@ -27,10 +27,10 @@ Examples
 
     x = rndn(4,4);
     
-    //Loop through each row of 'x' using 'r' as the loop 
-    //counter
+    // Loop through each row of 'x' using 'r' as the loop 
+    // counter
     for r(1, rows(x), 1);
-       //For each row, loop through its elements 
+       // For each row, loop through its elements 
        for c(1, cols(x), 1);
           if c == r;     /* Set the diagonal to 1 */
              x[r,c] = 1;

@@ -28,20 +28,20 @@ Examples
 
 ::
 
-    //Assign values for the roots of the polynomial
+    // Assign values for the roots of the polynomial
     r = { 2, 1, 3 };
     
-    //Calculate the coefficients
+    // Calculate the coefficients
     c = polymake(r);
     
-    //Print 3 spaces for each number and 1 digit after the
-    //decimal place
+    // Print 3 spaces for each number and 1 digit after the
+    // decimal place
     format /rd 3,1;
     
-    //Iterate through each root in 'r'
+    // Iterate through each root in 'r'
     for i(1, 3, 1);
        rtmp = r[i];
-       //Calculate the polynomial
+       // Calculate the polynomial
        rout = c[1]*rtmp^3 + c[2]*rtmp^2 + c[3]*rtmp + c[4];
        print "rtmp = " rtmp "rout = " rout;
     endfor;

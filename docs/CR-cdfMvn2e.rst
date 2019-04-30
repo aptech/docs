@@ -65,26 +65,26 @@ Uncorrelated variables
 
 ::
 
-    //Lower limits of integration for K dimensional multivariate distribution
+    // Lower limits of integration for K dimensional multivariate distribution
     a = {-1e4 -1e4};
     
-    //Upper limits of integration for K dimensional multivariate distribution
+    // Upper limits of integration for K dimensional multivariate distribution
     b = {0 0};				
     
-    //Identity matrix, indicates
-    //zero correlation between variables
+    // Identity matrix, indicates
+    // zero correlation between variables
     R = { 1 0,
           0 1 };
     				
-    //Define non-centrality vector 
+    // Define non-centrality vector 
     m  = {0, 0};
             				
-    //Define control structure				
+    // Define control structure				
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
     
-    //Calculate cumulative probability of
-    //both variables being from -1e4 to  0
+    // Calculate cumulative probability of
+    // both variables being from -1e4 to  0
     {p, err, retcode} = cdfMvn2e(ctl, a, b, R, m );
 
 After the above code, both *p* equal to 0.25.
@@ -97,10 +97,10 @@ Compute the multivariate normal cdf at 3 separate pairs of upper limits
 
 ::
 
-    //Limits of integration
+    // Limits of integration
     //-5 ≤ x1 ≤ -1 and -8 ≤ x2 ≤ -1.1
     //-10 ≤ x1 ≤ 0 and -10 ≤ x2 ≤ 0.1
-    //0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
+    // 0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
     a = {   -5  -8,
            -20 -10,
             0    0 };
@@ -108,19 +108,19 @@ Compute the multivariate normal cdf at 3 separate pairs of upper limits
             0  0.1,
             1  1.1 };
     				
-    //Correlation matrix
+    // Correlation matrix
     R = { 1 0.31,
         0.31  1};
     				
-    //Define non-centrality vector 
+    // Define non-centrality vector 
     m  = {0, 0};
             				
-    //Define control structure
+    // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
     				
-    //Calculate cumulative probability of
-    //each pair of limits
+    // Calculate cumulative probability of
+    // each pair of limits
     {p, err, retcode}  = cdfMvn2e(ctl, a, b, R, m);
 
 After the above code, *p* should equal:
@@ -143,10 +143,10 @@ Compute the non central multivariate normal cdf
 
 ::
 
-    //Limits of integration
+    // Limits of integration
     //-5 ≤ x1 ≤ -1 and -8 ≤ x2 ≤ -1.1
     //-10 ≤ x1 ≤ 0 and -10 ≤ x2 ≤ 0.1
-    //0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
+    // 0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
     a = { -5  -8,
          -20 -10,
            0   0 };
@@ -154,20 +154,20 @@ Compute the non central multivariate normal cdf
             0  0.1,
             1  1.1 };
     
-    //Correlation matrix
+    // Correlation matrix
     R = {   1  0.31,
          0.31     1 };
     				
-    //Define non-centrality vector, Kx1
+    // Define non-centrality vector, Kx1
     m  = {   1, 
           -2.5 };
             				
-    //Define control structure
+    // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
     				
-    //Calculate cumulative probability of
-    //each pair of upper limits
+    // Calculate cumulative probability of
+    // each pair of upper limits
     {p, err, retcode} = cdfMvn2e(ctl, a, b, R, m);
 
 After the above code, *p* should equal:

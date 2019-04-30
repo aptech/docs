@@ -36,7 +36,7 @@ Examples
             1  0.7    2,
           1.2    1  1.2 };
     
-    //Draw a cumulative area plot of the columns of 'y'
+    // Draw a cumulative area plot of the columns of 'y'
     plotArea(x, y);
 
 .. seealso:: Functions :func:`plotLogX`, :func:`plotLogLog`, :func:`plotScatter`

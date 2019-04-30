@@ -28,7 +28,7 @@ Examples
 
 ::
 
-    //Create a sequence starting at 0 and increasing by pi/4
+    // Create a sequence starting at 0 and increasing by pi/4
     x = seqa(0, pi/4, 5);
     y = cos(x);
 

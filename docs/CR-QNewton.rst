@@ -87,12 +87,12 @@ errors for a Tobit model:
 ::
 
     /***qnewton.e - a Tobit model***/
-    //Get data
+    // Get data
     z = loadd("tobit");
     b0 = { 1, 1, 1, 1 };
     {b,f,g,retcode} = qnewton(&lpr,b0);
      
-    //Covariance matrix of parameters
+    // Covariance matrix of parameters
     h = hessp(&lpr,b);
     output file = qnewton.out reset;
      
@@ -103,7 +103,7 @@ errors for a Tobit model:
      
     output off;
      
-    //Log-likelihood proc 
+    // Log-likelihood proc 
     proc lpr(b);
        local s,m,u;
        s = b[4];

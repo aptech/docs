@@ -51,19 +51,19 @@ Examples
 
 ::
 
-    //Declare 'p1' to be a 'PV' struct
+    // Declare 'p1' to be a 'PV' struct
     struct PV p1;
     
-    //Apply 'PV' struct defaults
+    // Apply 'PV' struct defaults
     p1 = pvCreate();
      
-    //Declare symmetric matrix
+    // Declare symmetric matrix
     x = { 1 2 4,
           2 3 5,
           4 5 6};
     
-    //Create mask declaring the diagonal and 
-    //the (1,3) element to be parameters to estimate
+    // Create mask declaring the diagonal and 
+    // the (1,3) element to be parameters to estimate
     mask = { 1 0 1,
              0 1 0,
              1 0 1 };

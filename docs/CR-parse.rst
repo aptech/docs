@@ -74,26 +74,26 @@ printStats(names, data);
 proc (0) = printStats( names, data);
    local title, vars, sepVars;
 
-   //Set to print with 6 spaces between numbers and 0
-   //digits after the decimal
+   // Set to print with 6 spaces between numbers and 0
+   // digits after the decimal
    format /rd 6,0;
 	
-   //Create the titles to print for each column
+   // Create the titles to print for each column
    title = parse("var,mean,max,min", ",");
 	
-   //Extract the substrings from 'names' into a character 
-   //array using the comma as a separator between tokens
+   // Extract the substrings from 'names' into a character 
+   // array using the comma as a separator between tokens
    sepVars = parse(names, ",");
    print "-----------------------------------";
 	
-   //The '$' tells GAUSS to print as character data
+   // The '$' tells GAUSS to print as character data
    print $title';
    print "-----------------------------------"
-   //Loop through as many times as there are rows in
+   // Loop through as many times as there are rows in
    //'sepVars'
    for i( 1, rows(sepVars), 1);
-      //Two semi-colons at the end of a print statement
-      //prevents a new-line after the print
+      // Two semi-colons at the end of a print statement
+      // prevents a new-line after the print
       print $sepVars[i];;
       print meanc(data[.,i]);;
       print maxc(data[.,i]);;	

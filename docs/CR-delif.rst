@@ -31,9 +31,9 @@ operators. For instance:
 
 ::
 
-   //Create a vector 'e' with a 1 for each row in which the 
-   //value in the second column of 'x' is less than 100, 
-   //otherwise a 0
+   // Create a vector 'e' with a 1 for each row in which the 
+   // value in the second column of 'x' is less than 100, 
+   // otherwise a 0
    e = x[.,2] .> 100;
 
    y = delif(x, e);
@@ -55,7 +55,7 @@ Basic usage with column vector
 
 ::
 
-    //Create column vector
+    // Create column vector
     x = { 1.5,
           0.8,
           0.7,
@@ -64,11 +64,11 @@ Basic usage with column vector
           0.2,
           2.0 };
     
-    //Create logical vector of 1's and 0's
+    // Create logical vector of 1's and 0's
     e = x .> 1;
     
-    //Assign 'new_x' to be equal to 'x'
-    //with the rows removed in which 'e' equals 1
+    // Assign 'new_x' to be equal to 'x'
+    // with the rows removed in which 'e' equals 1
     new_x = delif(x, e);
 
 After the code above, *new_x* should equal:
@@ -86,7 +86,7 @@ In this example, we will remove all observations in which the value of the third
 
 ::
 
-    //Create a matrix with 3 columns
+    // Create a matrix with 3 columns
     x = { 20    10     2,
           33    13     3,
           37    12     2,
@@ -100,11 +100,11 @@ In this example, we will remove all observations in which the value of the third
     
     
     
-    //Create logical vector of 1's and 0's
+    // Create logical vector of 1's and 0's
     e = x[.,3] .== 3;
     
-    //Assign 'new_x' to be equal to 'x' without
-    //the rows in which the third column equals 3
+    // Assign 'new_x' to be equal to 'x' without
+    // the rows in which the third column equals 3
     new_x = delif(x, e);
 
 After the code above, *new_x* should be equal to:
@@ -127,7 +127,7 @@ In this example, we will remove all observations from *x* and *y* in which the v
 
 ::
 
-    //Create 'y' matrix
+    // Create 'y' matrix
     y = { 1, 
           1, 
           0, 
@@ -139,7 +139,7 @@ In this example, we will remove all observations from *x* and *y* in which the v
           0, 
           2 };
     
-    //Create 'x'  matrix
+    // Create 'x'  matrix
     x = { 1.6841  -0.1203, 
          -1.0433   0.2564, 
           1.2207  -1.4388, 
@@ -152,14 +152,14 @@ In this example, we will remove all observations from *x* and *y* in which the v
          -0.6330   0.4845 };
     
     
-    //Create logical vector of 1's and 0's
+    // Create logical vector of 1's and 0's
     e = y .== 2;
     
-    //Assign 'x' to be equal to 'x' without
-    //the rows in which 'y' equals 2
+    // Assign 'x' to be equal to 'x' without
+    // the rows in which 'y' equals 2
     x = delif(x, e);
     
-    //Remove all observations in which 'y' equals 2
+    // Remove all observations in which 'y' equals 2
     y = delif(y, e);
 
 After the code above, *y* and *x* should equal:
@@ -184,7 +184,7 @@ Logical comparison of multiple columns
          30 40 50,
          60 70 80 };
          
-    //Logical vector, comparing two columns
+    // Logical vector, comparing two columns
     e =(x[.,1] .gt 0) .and (x[.,3] .lt 100);
     
     y = delif(x,e);

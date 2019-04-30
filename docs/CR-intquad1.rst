@@ -52,15 +52,15 @@ Note the use of the ``.*`` instead of ``*``.
 
 ::
 
-    //Define function to be integrated
+    // Define function to be integrated
     proc f(x);
        retp(x.*sin(x));
     endp;
      
-    //Limits of integration
+    // Limits of integration
     xlim = { 1, 0 };
     
-    //Calculate integral
+    // Calculate integral
     y = intquad1(&f,xlim);
 
 After the code above, *y* should equal:
@@ -74,19 +74,19 @@ Passing in additional arguments
 
 ::
 
-    //Define function to be integrated
-    //with a second input
+    // Define function to be integrated
+    // with a second input
     proc f(x, a);
        retp(x.*sin(x .* a));
     endp;
     
-    //Create additional scalar argument 'a'
+    // Create additional scalar argument 'a'
     a = 3.14; 
     
-    //Limits of integration
+    // Limits of integration
     xlim = { 1, 0 };
     
-    //Calculate integral, passing in extra input
+    // Calculate integral, passing in extra input
     //'a' as the final input to 'intquad1'
     y = intquad1(&f, xlim, a);
 

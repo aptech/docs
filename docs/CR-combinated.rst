@@ -46,11 +46,11 @@ Examples
 
 ::
 
-    //Note: The '$|' operator vertically concatenates strings
+    // Note: The '$|' operator vertically concatenates strings
     vnames = "Jim"$|"Harry"$|"Susan"$|"Wendy";
     
-    //Create a dataset file named 'couples', containing all
-    //combinations of the names in 'vnames' taken 2 at a time
+    // Create a dataset file named 'couples', containing all
+    // combinations of the names in 'vnames' taken 2 at a time
     k = 2;
     m = combinated("couples","Spouse 1"$|"Spouse 2", rows(vnames),k);
      
@@ -66,15 +66,15 @@ Continuing from the code above:
 
 ::
 
-    //Open the file written above
+    // Open the file written above
     open f0 = "couples";
     
-    //Read in m=6 rows of the dataset into 'y'
+    // Read in m=6 rows of the dataset into 'y'
     y = readr(f0,m);
     print "y = " y;
     				
-    //Get the variable names from the dataset and assign them
-    //to 'names'
+    // Get the variable names from the dataset and assign them
+    // to 'names'
     names = getnamef(f0);
     f0=close(f0);
     print $names ;

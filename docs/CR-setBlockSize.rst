@@ -25,11 +25,11 @@ Examples
 
 ::
 
-    //Set maximum ammount of data to load at a time to be 10 Kilobytes
+    // Set maximum ammount of data to load at a time to be 10 Kilobytes
     setBlockSize("10K");
     
-    //Estimate model parameters, never loading more
-    //than 10 KB of 'mydata.dat' at a time
+    // Estimate model parameters, never loading more
+    // than 10 KB of 'mydata.dat' at a time
     call olsmt("mydata.dat", "Y ~ X1 + X2");
 
 Remarks

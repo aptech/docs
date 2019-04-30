@@ -42,8 +42,8 @@ Basic Example
           1 2,
           3 5 };
     
-    //Write contents of 'x' to 'myfile.xlsx'
-    //from cell 'A1' to 'B3'
+    // Write contents of 'x' to 'myfile.xlsx'
+    // from cell 'A1' to 'B3'
     ret = xlsWrite(x, "myfile.xlsx");
 
 'myfile.xlsx'is saved in your current working directory. You can find your current working directory in the main tool bar (in the top of GAUSS).
@@ -53,10 +53,10 @@ Write To a Range
 
 ::
 
-    //Create a 1x4 string array of variable names
+    // Create a 1x4 string array of variable names
     head = "Real GDP" $~  "Unemployment" $~ "CPI" $~ "PPI";
     
-    //Write the variable names to the cells 'C1:F1'
+    // Write the variable names to the cells 'C1:F1'
     ret = xlsWrite(head, "myfile.xlsx", "C1");
 
 Specify Path and Sheet Number
@@ -64,10 +64,10 @@ Specify Path and Sheet Number
 
 ::
 
-    //Create a 10x3 matrix of Bernoulli random variables
+    // Create a 10x3 matrix of Bernoulli random variables
     x = rndBernoulli(10, 3, 0.6);
     
-    //Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
+    // Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
     ret = xlsWrite(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
 Remarks
@@ -87,23 +87,23 @@ Remarks
 
    ::
 
-      //If this fails, it will end the program and print an error message
+      // If this fails, it will end the program and print an error message
       x = xlsWrite("myfile.xlsx");
 
    1.2 Turn off error message
 
    ::
 
-      //Turn error trapping on
+      // Turn error trapping on
       trap 1;
       x = xlsWrite("myfile.xlsx");
 
-      //Check to see if 'x' is a scalar error code
+      // Check to see if 'x' is a scalar error code
       if scalmiss(x);
-         //Code to handle error case here
+         // Code to handle error case here
       endif;
 
-      //Turn error trapping off
+      // Turn error trapping off
       trap 0;
 
 #. The vls argument lets users control the export to Excel® empty cells

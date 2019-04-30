@@ -39,9 +39,9 @@ Examples
     mu = 2.3;
     s = 1;
               
-    //Compute the CDF at x = 0.6
-    //over the closed region [-1,1]
-    //of the distribution N ~ (2.3, 1)
+    // Compute the CDF at x = 0.6
+    // over the closed region [-1,1]
+    // of the distribution N ~ (2.3, 1)
     p = cdfTruncNorm(x, a, b, mu, s);
     
     After the above code, 'p' equals:

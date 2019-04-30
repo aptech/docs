@@ -38,13 +38,13 @@ Use data set name
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
-    //Set up quantile levels			
+    // Set up quantile levels			
     e = { .025, .5, .975 };
-    //Choose all variables in the data set			
+    // Choose all variables in the data set			
     var = 0; 
-    //Compute quantiles
+    // Compute quantiles
     y = quantiled(file_name, e, var);
      
      print "medians";
@@ -70,13 +70,13 @@ Use .csv file and variable index
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file_name = getGAUSSHome() $+ "examples/binary.csv";
-    //Set up quantile levels			
+    // Set up quantile levels			
     e = { .025, .5, .975 };
-    //Set up variable index			
+    // Set up variable index			
     var = 2|3; 
-    //Compute quantiles
+    // Compute quantiles
     y = quantiled(file_name,e,var);							
      
      print "medians";
@@ -102,13 +102,13 @@ Use .xls file and formula string
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file_name = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
-    //Set up quantile levels			
+    // Set up quantile levels			
     e = { .025, .5, .975 };
-    //Set up formula string 			
+    // Set up formula string 			
     var = "Height + Weight" ; 
-    //Compute quantiles
+    // Compute quantiles
     y = quantiled(file_name,e,var);							
      print  "Height"$~"Weight";
      print  "medians";

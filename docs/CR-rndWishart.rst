@@ -49,11 +49,11 @@ Examples
 
 ::
 
-    //covariance matrix
+    // covariance matrix
     cov = {  1   0.5,
            0.5     1 };
     
-    //degrees of freedom
+    // degrees of freedom
     df = 7;
     
     X = rndWishart(1, cov, df);

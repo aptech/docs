@@ -52,8 +52,8 @@ Find instances of bad values in a string array
     names = "GDP" $| "NaN" $| "." $| "Inflation";
     missing = "NaN" $| "" $| ".";
     
-    //Search 'names' for instances of any of
-    //the strings in 'missing'
+    // Search 'names' for instances of any of
+    // the strings in 'missing'
     
     mask = ismember(names, missing);
     

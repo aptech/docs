@@ -28,17 +28,17 @@ Examples
 
 ::
 
-    //Set the rng seed for repeatable results               
+    // Set the rng seed for repeatable results               
     rndseed 345345;
     
-    //Set print formatting to print 4 spaces for each column
-    //and 0 numbers after the decimal
+    // Set print formatting to print 4 spaces for each column
+    // and 0 numbers after the decimal
     format /rd 4,0
     
-    //Create some random integers
+    // Create some random integers
     x = round(rndn(5,3)*10);
     
-    //Reverse the order of the columns
+    // Reverse the order of the columns
     y = rev(x);
     
     print "x = " x;

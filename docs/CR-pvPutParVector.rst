@@ -44,7 +44,7 @@ Examples
              0 1 0,
              1 0 1 };
      
-    //Packed as square matrix
+    // Packed as square matrix
     p1 = pvPackm(p1,x,"A",mask);
      
     print pvUnpack(p1,"A");

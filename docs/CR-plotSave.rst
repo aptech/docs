@@ -60,14 +60,14 @@ Basic save in GAUSS .plot format
 
 ::
 
-    //Create data
+    // Create data
     x = seqa(0.1, 0.1, 10);
     y = cos(x);
     
-    //Plot the data
+    // Plot the data
     plotXY(x, y);
     
-    //Save the graph as a GAUSS .plot file
+    // Save the graph as a GAUSS .plot file
     plotSave("mygraph.plot");
 
 Save as 640x480 PNG
@@ -75,14 +75,14 @@ Save as 640x480 PNG
 
 ::
 
-    //Create data
+    // Create data
     x = seqa(0.1, 0.1, 10);
     y = cos(x);
     
-    //Plot the data
+    // Plot the data
     plotXY(x, y);
     
-    //Save the graph as a 640 wide by 480 tall PNG file
+    // Save the graph as a 640 wide by 480 tall PNG file
     plotSave("mygraph.png", 640 | 480, "px");
 
 Save as 11x8.5 inch PDF at 300 DPI
@@ -90,11 +90,11 @@ Save as 11x8.5 inch PDF at 300 DPI
 
 ::
 
-    //Create data
+    // Create data
     x = seqa(0.1, 0.1, 10);
     y = cos(x);
     
-    //Plot the data
+    // Plot the data
     plotXY(x, y);
     
     plotSave("mygraph.png", 11 | 8.5, "in", 300);

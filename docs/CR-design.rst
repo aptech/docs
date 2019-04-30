@@ -34,14 +34,14 @@ This example uses design to interchange the rows of a matrix.
 
 ::
 
-    //Suppress printing of digits after the decimal place
+    // Suppress printing of digits after the decimal place
     format /rd 6,0;
     
-    //Set the rng seed for repeatable random numbers
+    // Set the rng seed for repeatable random numbers
     rndseed 345425235;
     
-    //Create a 4x4 matrix of random integers with a standard 
-    //deviation of 10
+    // Create a 4x4 matrix of random integers with a standard 
+    // deviation of 10
     x = round(10*rndn(4,4));
     print x;
 
@@ -58,10 +58,10 @@ Contintuing on with the example:
 
 ::
 
-    //The order of the rows we want
+    // The order of the rows we want
     rowOrder = { 3, 1, 4, 2 };
     
-    //Create a permutation matrix from 'rowOrder'
+    // Create a permutation matrix from 'rowOrder'
     p = design(rowOrder);
     print p;
 
@@ -74,8 +74,8 @@ This section returns:
     0      0      0      1 
     0      1      0      0
     
-    //Create a permuted version of 'x' with our preferred row 
-    //order
+    // Create a permuted version of 'x' with our preferred row 
+    // order
     x2 = p*x;
     print x2;
 

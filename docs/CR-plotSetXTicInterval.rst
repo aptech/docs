@@ -62,31 +62,31 @@ Scalar starting date
 
 ::
 
-    //Declare and initialize plotControl structure
+    // Declare and initialize plotControl structure
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
     
-    //Place one tick label every 4 x-values
+    // Place one tick label every 4 x-values
     ticInterval = 4;
     plotSetXTicInterval(&myPlot, ticInterval);
     
-    //Start the time series in April of 2008
+    // Start the time series in April of 2008
     dtstart = 200804;
     
-    //Specify quarterly data
+    // Specify quarterly data
     frequency = 4;
     
-    //Create the multiplicative sequence 1, 2, 4, 8...
+    // Create the multiplicative sequence 1, 2, 4, 8...
     y = seqm(1, 2, 10);
     
-    //Create a time series plot of the data.
+    // Create a time series plot of the data.
     plotTS(myPlot, dtstart, frequency, y);
 
 If you would like to change the tick labels so that they start on the first full year, 2009, continuing with the example from above, execute the following lines:
 
 ::
 
-    //Set the optional 'firstLabeled' parameter
+    // Set the optional 'firstLabeled' parameter
     plotSetXTicInterval(&myPlot, ticInterval, 2009);
     plotTS(myPlot, dtstart, frequency, y);
 
@@ -141,7 +141,7 @@ Let's keep the tick labels on the same locations, however, create 1 tick label e
     
     label_unit = "quarters";
     
-    //Create a time series plot of the data.
+    // Create a time series plot of the data.
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
 .. figure:: _static/images/psxti4.png

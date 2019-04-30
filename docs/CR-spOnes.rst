@@ -36,15 +36,15 @@ Examples
 
 ::
 
-    //declare sparse matrix
+    // declare sparse matrix
     sparse matrix y;
     
-    //Set row indices and column indices
+    // Set row indices and column indices
     rinds = { 1, 3, 5 };
     cinds = { 2, 1, 3 };
     
-    //Create a 5x4 sparse matrix with ones at the intersection 
-    //of the 'rind' and 'cind'
+    // Create a 5x4 sparse matrix with ones at the intersection 
+    // of the 'rind' and 'cind'
     y = spOnes(5,4,rinds,cinds);
 
 The resulting y is equal to:

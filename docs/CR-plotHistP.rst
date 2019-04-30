@@ -35,13 +35,13 @@ Basic example with specified number of bins
 
 ::
 
-    //Simulate random normal data to plot
+    // Simulate random normal data to plot
     X = rndn(100, 1);
     
-    //Number of bins to create
+    // Number of bins to create
     nbins = 30;
     
-    //Draw histogram with default settings
+    // Draw histogram with default settings
     plotHistP(X, nbins);
 
 Basic example with specified bin breakpoints
@@ -49,13 +49,13 @@ Basic example with specified bin breakpoints
 
 ::
 
-    //Simulate random normal data to plot
+    // Simulate random normal data to plot
     X = rndn(100, 1);
     
-    //Specify bin breakpoints
+    // Specify bin breakpoints
     brk_pts = { -3, -2, -1, 0, 1, 2, 3 };
     
-    //Draw histogram with default settings
+    // Draw histogram with default settings
     plotHistP(X, brk_pts);
 
 Control plot settings with plotControl structure
@@ -63,24 +63,24 @@ Control plot settings with plotControl structure
 
 ::
 
-    //Simulate random normal data to plot
+    // Simulate random normal data to plot
     X = rndn(100, 1);
     
-    //Number of bins to create
+    // Number of bins to create
     nbins = 30;
     
-    //Declare 'myPlot' to be a plotControl structure
-    //and fill with bar/hist default settings
+    // Declare 'myPlot' to be a plotControl structure
+    // and fill with bar/hist default settings
     struct plotControl myPlot;
     myPlot = plotGetDefaults("bar");
     
-    //Change Histogram fill settings
+    // Change Histogram fill settings
     fill_type = 1;
     opacity_pct = 0.8;
     fill_clr = "light blue";
     plotSetFill(&myPlot, fill_type, opacity_pct, fill_clr);
     
-    //Draw histogram with settings stored in 'myPlot'
+    // Draw histogram with settings stored in 'myPlot'
     plotHistP(myPlot, X, nbins);
 
 .. seealso:: Functions :func:`plotHist`, :func:`plotHistF`, :func:`plotBar`, :func:`plotBox`, :func:`plotScatter`

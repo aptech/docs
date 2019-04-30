@@ -18,10 +18,10 @@ Examples
 
 ::
 
-    //Retrieve seconds since January 1, 1970 GMT
+    // Retrieve seconds since January 1, 1970 GMT
     tc = timeutc;
     
-    //Convert to a date time vector
+    // Convert to a date time vector
     utv = utctodtv(tc);
 
 After the code above, tc and utv are equal to:

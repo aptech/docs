@@ -61,33 +61,33 @@ Simple bootstrap of the mean of one variable
 
 ::
 
-    //Create fully pathed name of dataset
+    // Create fully pathed name of dataset
     dataset = getGAUSSHome() $+ "examples/fueleconomy.dat";
     
-    //Load all contents of dataset
+    // Load all contents of dataset
     x = loadd(dataset);
     
-    //Extract 2nd column
+    // Extract 2nd column
     engine_disp = x[.,2];
     
     iters = 500;
     nobs = rows(engine_disp);
     
-    //Pre-allocate vector to hold sample means
+    // Pre-allocate vector to hold sample means
     sample_means = zeros(iters, 1);
     
     threadFor i(1, iters, 1);
-        //Create tmp variable 'idx',
-        //containing random integers from 1-nobs
+        // Create tmp variable 'idx',
+        // containing random integers from 1-nobs
         //'idx' exists ONLY during the loop
         idx = ceil(nobs * rndu(nobs, 1));
         
-        //Extract random sample into tmp variable,
+        // Extract random sample into tmp variable,
         //'sample'. Only exists during loop
         sample = engine_disp[idx];
         
-        //Calculate mean of sample
-        //and assign using loop counter
+        // Calculate mean of sample
+        // and assign using loop counter
         //'sample_means' will persist after loop
         sample_means[i] = meanc(sample);
     threadEndFor;

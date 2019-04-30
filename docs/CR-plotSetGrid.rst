@@ -25,19 +25,19 @@ Examples
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
     
-    //Set grid to be black and on the major tics only
+    // Set grid to be black and on the major tics only
     plotSetGrid(&myPlot, "major", "black");
     
-    //Create a scatter plot of random data
+    // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
     
-    //Turn off the grid
+    // Turn off the grid
     plotSetGrid(&myPlot, "off");
 
 .. seealso:: Functions :func:`plotCustomLayout`, :func:`plotSetTitle`

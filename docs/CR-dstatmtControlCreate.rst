@@ -18,11 +18,11 @@ Examples
 
 ::
 
-    //Declare 'dsm' as an instance of a 
+    // Declare 'dsm' as an instance of a 
     //'dstatmtControl' structure
     struct dstatmtControl dsm;
     
-    //Apply default values to 'dsm'
+    // Apply default values to 'dsm'
     dsm = dstatmtControlCreate();
 
 Source

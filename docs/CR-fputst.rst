@@ -43,16 +43,16 @@ Write string to text file
 
 ::
 
-   //Create string
+   // Create string
    quote = "A horse! a horse! my kingdom for a horse!.";
 
-   //Open file for writing
+   // Open file for writing
    fh = fopen("king_richard_III.txt", "w");
 
-   //Write the string to the first line of the file
+   // Write the string to the first line of the file
    call fputst(fh, quote);
 
-   //Close the file
+   // Close the file
    call close(fh);
 
 After the code above, you should have a file named ``king_richard_III.txt``
@@ -65,30 +65,30 @@ Example 2: Write CSV data to text file
 
 ::
 
-   //Create string containing a comma separated list
-   //of variable names (fputst will add an ending newline)
+   // Create string containing a comma separated list
+   // of variable names (fputst will add an ending newline)
    text = "alpha,beta,gamma,delta";
 
    fh = fopen("temp.csv", "w");
 
-   //Write the string to the first line of the file
+   // Write the string to the first line of the file
    call fputst(fh, text);
 
-   //Create some numeric data
+   // Create some numeric data
    x = { 1 2 3 4,
          5 6 7 8 };
 
-   //Convert numeric data to 2x4 string array
+   // Convert numeric data to 2x4 string array
    x_str = ntos(x);
 
-   //Combine each row of 'x_str' into
-   //a single comma separated string
+   // Combine each row of 'x_str' into
+   // a single comma separated string
    x_str = strjoin(x_str, ",");
 
-   //Write the comma separated data to the file
+   // Write the comma separated data to the file
    call fputst(fh, x_str);
 
-   //Close the file
+   // Close the file
    call close(fh);
 
 After the above code, you should have a file named ``temp.csv`` with the

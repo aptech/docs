@@ -38,8 +38,8 @@ Examples
 
     orders =(3,4,5,6,7);
     
-    //Create a 3x4x5x6x7 dimensional array with each element 
-    //equal to 1
+    // Create a 3x4x5x6x7 dimensional array with each element 
+    // equal to 1
     a = arrayinit(orders,1);
     
     ind = { 2,3,3 };

@@ -34,21 +34,21 @@ Examples
 
 ::
 
-    //Create matrix 'A' and right-hand side 'b'
+    // Create matrix 'A' and right-hand side 'b'
     A = { 1 2 0 0,
           2 8 1 0,
           0 1 5 2,
           0 0 2 3 };
     b = { 1.3, 2.1, 0.7, 1.8 };
     
-    //Create a matrix containing the lower triangular part 
+    // Create a matrix containing the lower triangular part 
     /of 'A'
     Alower = lowmat(A);
     
-    //Create banded matrix from of 'Alower'
+    // Create banded matrix from of 'Alower'
     Abandlow = band(Alower, 1);
     
-    //Solve the system of equations
+    // Solve the system of equations
     x = bandltsol(b, Abandlow);
 
 After the code above:

@@ -42,11 +42,11 @@ Basic example
 
 ::
 
-    //Set rndseed for repeatable random numbers
+    // Set rndseed for repeatable random numbers
     rndseed 4323;
     
-    //Create a 3x1 column vector of Rayleigh distributed
-    //random deviates with sigma equal to 2
+    // Create a 3x1 column vector of Rayleigh distributed
+    // random deviates with sigma equal to 2
     x = rndRayleigh(3, 1, 2);
 
 After the above code, ‘x’ should be equal to:
@@ -62,12 +62,12 @@ Columns with different sigma values
 
 ::
 
-    //Set rndseed for repeatable random numbers
+    // Set rndseed for repeatable random numbers
     rndseed 4323;
     
-    //Create a 3x2 column vector of Rayleigh distributed
-    //random deviates with sigma equal to 1 for the
-    //first column and equal to 3 for the second column
+    // Create a 3x2 column vector of Rayleigh distributed
+    // random deviates with sigma equal to 1 for the
+    // first column and equal to 3 for the second column
     sigma = { 1 3 };
     x = rndRayleigh(3, 2, sigma);
 
@@ -84,13 +84,13 @@ Using a state vector
 
 ::
 
-    //Create a 3x1 column vector of Rayleigh distributed
-    //random deviates with sigma equal to 2
+    // Create a 3x1 column vector of Rayleigh distributed
+    // random deviates with sigma equal to 2
     seed = 4323;
     { x1, state } = rndRayleigh(3, 1, 2, seed);
     
-    //Create 3 additional random deviates, using
-    //the state vector returned by the previous call
+    // Create 3 additional random deviates, using
+    // the state vector returned by the previous call
     { x2, state } = rndRayleigh(3, 1, 2, state);
 
 After the above code, ‘x1’ and ‘x2’ should be equal to:

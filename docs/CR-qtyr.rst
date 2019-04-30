@@ -398,10 +398,10 @@ The QR algorithm is the numerically superior method for the solution of least sq
     q1ty = qty[1:rows(r),.];
     q2ty = qty[rows(r)+1:rows(qty),.];
     
-    //LS coefficients 
+    // LS coefficients 
     b = qrsol(q1ty,r);
     
-    //Residual sums of squares 
+    // Residual sums of squares 
     s2 = sumc(q2ty^2);
 
 Source

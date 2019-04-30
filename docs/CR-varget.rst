@@ -36,11 +36,11 @@ Examples
     beta = 2;
     letter = "alpha";
     
-    //Check to see if a variable named alpha exists
+    // Check to see if a variable named alpha exists
     if typecv(letter) == miss(0,0);
        print letter " does NOT exist";
     else;
-       //Assign the value of the variable named alpha to 'tmp'
+       // Assign the value of the variable named alpha to 'tmp'
        tmp = varget(letter);
        print "the value of " letter " is: " tmp;
     endif;

@@ -55,23 +55,23 @@ Examples
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
     
-    //Set labels, location, and orientation of legend
+    // Set labels, location, and orientation of legend
     label = "sample A"$|"sample B";
     location = "top right";
     orientation = 0;
     plotSetLegend(&myPlot, label, location, orientation);
     
-    //Create data
+    // Create data
     x = rndn(30, 2);
     y = rndn(30, 2);
     
-    //Plot the data with the legend settings
+    // Plot the data with the legend settings
     plotScatter(myplot, x, y);
 
 .. seealso:: Functions :func:`plotSetLegendFont`, :func:`plotSetTextInterpreter`

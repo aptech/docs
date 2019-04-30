@@ -39,14 +39,14 @@ Examples
 
 ::
 
-    //Create a column vector 1, 2, 3...120
+    // Create a column vector 1, 2, 3...120
     a = seqa(1,1,120);
     
-    //Reshape the column vector into a 2x3x4x5 dimensional 
-    //array
+    // Reshape the column vector into a 2x3x4x5 dimensional 
+    // array
     a = areshape(a,2|3|4|5);
     
-    //Extract a submatrix
+    // Extract a submatrix
     y = getmatrix4D(a,2,3);
 
 After the code above:

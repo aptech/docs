@@ -55,13 +55,13 @@ Examples
 
 ::
 
-    //Declare 'y' to be a sparse matrx
+    // Declare 'y' to be a sparse matrx
     sparse matrix y;
     
-    //Create a 15x10 matrix 'y' in which:
-    //y[2,4] = 1.1; y[5,1] = 2.3; y[8,9] = 3.4; 
-    //y[13,5] = 4.2
-    //all other values in 'y' will be zeros
+    // Create a 15x10 matrix 'y' in which:
+    // y[2,4] = 1.1; y[5,1] = 2.3; y[8,9] = 3.4; 
+    // y[13,5] = 4.2
+    // all other values in 'y' will be zeros
     p = { 1.1 2 4, 2.3 5 1, 3.4 8 9, 4.2 13 5 };
     y = packedToSp(15,10,p);
 

@@ -42,8 +42,8 @@ Basic Example
           1 2,
           3 5 };
     
-    //Write contents of 'x' to 'myfile.xlsx'
-    //from cell 'A1' to 'B3'
+    // Write contents of 'x' to 'myfile.xlsx'
+    // from cell 'A1' to 'B3'
     ret = xlsWriteM(x, "myfile.xlsx");
 
 'myfile.xlsx'is saved in your current working directory. You can find your current working directory in the main tool bar (in the top of GAUSS).
@@ -53,7 +53,7 @@ Write To a Range
 
 ::
 
-    //Write 'x' from the previous example to the cells 'C2:D4'
+    // Write 'x' from the previous example to the cells 'C2:D4'
     ret = xlsWriteM(x, "myfile.xlsx", "C2");
 
 Specify Path and Sheet Number
@@ -61,10 +61,10 @@ Specify Path and Sheet Number
 
 ::
 
-    //Create a 10x3 matrix of Bernoulli random variables
+    // Create a 10x3 matrix of Bernoulli random variables
     x = rndBernoulli(10, 3, 0.6);
     
-    //Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
+    // Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
     ret = xlsWriteM(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
 Remarks

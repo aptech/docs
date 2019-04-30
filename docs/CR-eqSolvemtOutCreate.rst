@@ -20,10 +20,10 @@ declared before it can be used.
 
 ::
 
-    //declare structure
+    // declare structure
     struct eqSolvemtOut c;
     
-    //Initialize structure
+    // Initialize structure
     c = eqSolvemtOutCreate();
 
 The members of an :class:`eqSolvemtOut` structure and default values are described in

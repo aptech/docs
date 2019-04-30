@@ -24,13 +24,13 @@ Examples
 
 ::
 
-    //Set rndseed for repeatable random numbers
+    // Set rndseed for repeatable random numbers
     rndseed 7234242;
     
-    //Create three randomly generated independent variables
+    // Create three randomly generated independent variables
     x = rndn(500, 3);
     
-    //Create the population variance-covariance matrix from data matrix 'x'
+    // Create the population variance-covariance matrix from data matrix 'x'
     var_x = varCovX(x);
 
 After the code above, var_x will be equal to:
@@ -46,16 +46,16 @@ The population variance can also be calculated using the moment matrix, x’x an
 
 ::
 
-    //Set rndseed so 'rndn' will return the same numbers as above
+    // Set rndseed so 'rndn' will return the same numbers as above
     rndseed 7234242;
     
-    //Note: the ~ operator performs horizontal concatenation
+    // Note: the ~ operator performs horizontal concatenation
     x1 = ones(500,1)~rndn(500,3);
     
-    //Create moment matrix
+    // Create moment matrix
     x2 = x1'x1;
     
-    //Calculate variance-covariance matrix using the moment matrix
+    // Calculate variance-covariance matrix using the moment matrix
     var_xm = varCovM(x2);
 
 After the code above, var_xm will be equal to:

@@ -37,7 +37,7 @@ Find whether a matrix contains either 1 or -1
     
     needles = { -1, 1 };
     
-    //Search haystack for any match of -1 or 1
+    // Search haystack for any match of -1 or 1
     found = contains(haystack, needles);
 
 After the above code, *found* will equal 1, since *haystack* contains at least one element equal to one of the elements, -1 in this case, of *needles*.
@@ -47,14 +47,14 @@ Find whether a string array contains one of multiple specified missing values
 
 ::
 
-    //Create a string array containing a set of
-    //possible missing value indicators
+    // Create a string array containing a set of
+    // possible missing value indicators
     missing = "" $| "NaN" $| ".";
     
     variables = "height" $| "weight" $| "" $| "age"; 
     
-    //Search variables for any of the elements
-    //contained in missing
+    // Search variables for any of the elements
+    // contained in missing
     found = contains(variables, missing);
 
 After the above code, *found* will equal 1, since variables contains at least one element equal to one of the elements, a null string ("") in this case, of missing.

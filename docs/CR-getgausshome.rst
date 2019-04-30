@@ -45,10 +45,10 @@ loading a file from the GAUSS examples directory
 
 ::
 
-    //Create full path to dataset
+    // Create full path to dataset
     f_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
     
-    //Load the dataset
+    // Load the dataset
     fuel_economy = loadd(f_name);
 
 .. seealso:: Functions `__FILE_DIR`

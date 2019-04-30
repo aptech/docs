@@ -23,9 +23,9 @@ Examples
 
     x = { 1, 2i, 3 };
     if iscplx(x);
-       //code path for complex case
+       // code path for complex case
     else;
-       //code path for real case
+       // code path for real case
     endif;
 
 .. seealso:: Functions :func:`hasimag`, :func:`iscplxf`

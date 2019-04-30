@@ -34,10 +34,10 @@ Examples
 
 ::
 
-    //Create 3 columns of random normal numbers
+    // Create 3 columns of random normal numbers
     y = rndn(8100,3);
     
-    //Calculate the standard deviation of each column
+    // Calculate the standard deviation of each column
     std = stdsc(y);
 
 The return, in variable std is equal to:

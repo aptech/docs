@@ -34,16 +34,16 @@ Examples
 
 ::
 
-    //Create 12x1 vector with consecutive numbers
+    // Create 12x1 vector with consecutive numbers
     x = seqa(1, 1, 12);
     
-    //Reshape the 12x1 vector into a 3x4 matrix
+    // Reshape the 12x1 vector into a 3x4 matrix
     x = reshape(x, 3, 4);
     
     v1 = 1 3;
     v2 = 2 4;
     
-    //Extract sub-matrices
+    // Extract sub-matrices
     y = submat(x,v1,v2);
     z = submat(x,0,v2);
 

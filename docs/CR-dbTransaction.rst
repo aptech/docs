@@ -19,7 +19,7 @@ Examples
 
 ::
 
-    //If 'dbTransaction' succeeds
+    // If 'dbTransaction' succeeds
     if dbTransaction(db_id);
         // All queries must succeed, or all fail.
         if not dbExecQuery(db_id, 

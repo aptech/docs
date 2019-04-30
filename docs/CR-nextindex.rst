@@ -29,13 +29,13 @@ Examples
 
 ::
 
-    //Dimensions of an array
+    // Dimensions of an array
     orders = { 3, 4, 5, 6, 7);
     
-    //Starting index
+    // Starting index
     ind = { 2, 3, 5 };
     
-    //Return the index for the next element
+    // Return the index for the next element
     ind = nextindex(ind,orders);
 
 After the code above, ind will be equal to:

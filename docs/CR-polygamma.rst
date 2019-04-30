@@ -42,7 +42,7 @@ Example 1: Basic usage
 
 ::
 
-    //Both calls are equivalent
+    // Both calls are equivalent
     f = digamma(1);
     f2 = polygamma(1, 0);
 
@@ -70,7 +70,7 @@ Complex input
 
 ::
 
-    //Set 'z' equal to complex number -45.6-29.4i
+    // Set 'z' equal to complex number -45.6-29.4i
     z = { -45.6 - 29.4i };
     polygamma(z, 101);
 

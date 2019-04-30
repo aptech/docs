@@ -50,8 +50,8 @@ Examples
     rinds = 0;
     cinds = { 2,4 }; 
     
-    //Multiply all elements in the second and fourth column 
-    //by 'scal'
+    // Multiply all elements in the second and fourth column 
+    // by 'scal'
     y = spTScalar(x,10,rinds,cinds);
     d = spDenseSubmat(y,0,0);
 

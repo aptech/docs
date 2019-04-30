@@ -46,17 +46,17 @@ Examples
 
 ::
 
-    //Create some data to plot
+    // Create some data to plot
     y = rndn(100, 1);
     
-    //The first input starts the series in January of 1982
-    //The second input specifies the data to be monthly
+    // The first input starts the series in January of 1982
+    // The second input specifies the data to be monthly
     plotTS(1982, 12, y);
     
     y2 = rndu(28, 1);
     
-    //Add the data from 'y2' as quarterly data
-    //starting in Q2 of 1980
+    // Add the data from 'y2' as quarterly data
+    // starting in Q2 of 1980
     plotAddTS(198004, 4, y2);
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotTS`

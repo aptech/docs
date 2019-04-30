@@ -23,7 +23,7 @@ Examples
 
 ::
 
-    //Create a 10x3 matrix
+    // Create a 10x3 matrix
     x = {  -0.60     3.50     0.47, 
             8.40    16.50     0.27,
            11.40     6.50     0.17,
@@ -35,7 +35,7 @@ Examples
           -11.60   -19.50     0.77,
             6.40    11.50     0.07 };
     
-    //Calculate the singular values
+    // Calculate the singular values
     s = svds(x);
 
 After the code above, s will be equal to:
@@ -62,15 +62,15 @@ Remarks
 
    ::
 
-      //Turn on error trapping
+      // Turn on error trapping
       trap  1;
 
-      //Calculate singular values
+      // Calculate singular values
       s = svds(x);
 
-      //Check for success or failure
+      // Check for success or failure
       if ismiss(s);
-      //Code to handle failure case
+      // Code to handle failure case
       endif;
 
    Note that in the trap 1 case, if the input to svds is a
@@ -81,7 +81,7 @@ Remarks
 
    ::
 
-      //Check for success or failure of each submatrix
+      // Check for success or failure of each submatrix
       if ismiss(s[.,1,1]);
 
 #. Call either svdcusv or svdusv, to also calculate the right and left

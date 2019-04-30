@@ -37,7 +37,7 @@ Examples
 
 ::
 
-    //Print 3 digits after the decimal point
+    // Print 3 digits after the decimal point
     format /rd 5,3;
     
     x = { .5 .4 .3,
@@ -45,12 +45,12 @@ Examples
     y = erf(x);
     yc = erfc(x);
     
-    //The '~' operator performs horizontal concatenation
-    //and causes this print statement to format 'x', 
+    // The '~' operator performs horizontal concatenation
+    // and causes this print statement to format 'x', 
     //'y' and 'yc' as if they were one 2x9 matrix rather 
-    //than 3 2x3 matrices
-    //This does not change the variable values, only 
-    //their appearance for this print statement
+    // than 3 2x3 matrices
+    // This does not change the variable values, only 
+    // their appearance for this print statement
     print x~y~yc;
 
 produces the following output:

@@ -41,30 +41,30 @@ Creating confidence intervals
 
 ::
 
-    //Create the 'x' and 'y' for the normal
-    //probability density function
+    // Create the 'x' and 'y' for the normal
+    // probability density function
     x = seqa(-3.5, 0.1, 71);
     y = pdfn(x);
     
-    //Create the 'x' and 'y' points
-    //for the left tail
+    // Create the 'x' and 'y' points
+    // for the left tail
     edge = cdfni(0.05);
     x_ci = selif(x, (x .< edge));
     y_ci = y[1:rows(x_ci)];
     
-    //Draw filled in left tail
+    // Draw filled in left tail
     plotArea(x_ci, y_ci);
     
-    //Create the 'x' and 'y' points
-    //for the right tail
+    // Create the 'x' and 'y' points
+    // for the right tail
     edge = cdfni(0.95);
     x_ci = selif(x, (x .> edge));
     y_ci = y[rows(y)-rows(x_ci)+1:rows(y)];
     
-    //Add right tail to graph
+    // Add right tail to graph
     plotAddArea(x_ci, y_ci);
     
-    //Add pdfn line
+    // Add pdfn line
     plotAddXY(x, y);
 
 The code to create the graph below can be found in the file *plotaddci.e* in your GAUSS examples directory.

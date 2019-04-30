@@ -32,13 +32,13 @@ Basic example
 
 ::
 
-    //Create a 3x1 column vector
+    // Create a 3x1 column vector
     length = { 12, 25, 18 };
     
-    //Convert numeric data to a string array
+    // Convert numeric data to a string array
     length = ntos(length);
     
-    //Add '(cm)' after each number
+    // Add '(cm)' after each number
     fmt = "%s (cm)";
     
     length_fmt = satostrc(length, fmt);
@@ -56,21 +56,21 @@ Different formats for each column
 
 ::
 
-    //Create numeric matrices
+    // Create numeric matrices
     year = { 2012, 2013, 2014 };
     beef = { 187.9, 183.6, 224.1 };
     fish = { 4.8, 6.8, 6.6 };
     						
-    //Create a 3x3 matrix using horiztonal concatenation
+    // Create a 3x3 matrix using horiztonal concatenation
     commodity_prices = year ~ beef ~ fish;
     
     //%s indicates the location of the contents of the original string
     fmt = "Year %s" $~ "%s cts/lb" $~ "%s $/kg";
     
-    //Convert the numeric matrix to a string
+    // Convert the numeric matrix to a string
     commodity_prices = ntos(commodity_prices);
     
-    //Apply formatting
+    // Apply formatting
     commodity_prices_fmt = satostrC(commodity_prices, fmt);
 
 After the code above, commodity_prices_fmt should be equal to:

@@ -37,24 +37,24 @@ Examples
 
 ::
 
-    //Create an additive sequence starting from -pi and moving 
-    //forward in 0.1 increments
+    // Create an additive sequence starting from -pi and moving 
+    // forward in 0.1 increments
     x = seqa(-pi, 0.1, 63);
     
-    //Plot the cosine of x
+    // Plot the cosine of x
     plotXY(x, cos(x));
     
-    //Create a custom section for the next graph starting 10% 
-    //from the main graph's left edge, 10% from the bottom of 
-    //the main graph, with a width and height both equalling 
-    //30% of the width of the main graph.
+    // Create a custom section for the next graph starting 10% 
+    // from the main graph's left edge, 10% from the bottom of 
+    // the main graph, with a width and height both equalling 
+    // 30% of the width of the main graph.
     plotCustomLayout(0.1, 0.1, 0.3, 0.3);
     
-    //Plot the next graph in the custom layout
+    // Plot the next graph in the custom layout
     plotXY(x[1:20], cos(x[1:20] ) ));
     
-    //Prevent the next graph from being drawn in this custom 
-    //region
+    // Prevent the next graph from being drawn in this custom 
+    // region
     plotClearLayout();
 
 .. seealso:: Functions :func:`plotSetBar`, :func:`plotBar`, :func:`plotHistP`, :func:`plotGetDefaults`

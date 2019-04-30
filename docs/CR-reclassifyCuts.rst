@@ -30,7 +30,7 @@ Basic sequence
 
 ::
 
-    //Create column vector to place in categories
+    // Create column vector to place in categories
     x = {  0,
           0.1,
           0.2,
@@ -40,18 +40,18 @@ Basic sequence
           0.6,
           0.7 };
     
-    //Cut points for data in 'x'
+    // Cut points for data in 'x'
     cut_pts = { 0.2,
                 0.5 };
     
-    //Class 0: 	  x <= 0.2
-    //Class 1: 0.2 < x <= 0.5
-    //Class 2: 0.5 < x
+    // Class 0: 	  x <= 0.2
+    // Class 1: 0.2 < x <= 0.5
+    // Class 2: 0.5 < x
     r_open = reclassifyCuts(x, cut_pts);
     
-    //Class 0: 	  x < 0.2
-    //Class 1: 0.2 < x < 0.5
-    //Class 2: 0.5 < x 
+    // Class 0: 	  x < 0.2
+    // Class 1: 0.2 < x < 0.5
+    // Class 2: 0.5 < x 
     r_closed = reclassifyCuts(x, cut_pts, 1);
     				
     print "x = " x; 
@@ -105,7 +105,7 @@ Classifying blood pressure data
 
 ::
 
-    //Create a column of blood pressure data
+    // Create a column of blood pressure data
     bp = {  87, 
            154,
            127,
@@ -117,10 +117,10 @@ Classifying blood pressure data
            125,
            107 };
     
-    //Assign cut points
+    // Assign cut points
     cut_pts = { 120, 140 };
     
-    //Create categorical variable
+    // Create categorical variable
     bp_category = reclassifyCuts(bp, cut_pts);
     				
     print "bp = " bp;
@@ -165,10 +165,10 @@ We can take the categorical data output from reclassifyCuts and use the reclassi
 
 ::
 
-    //Starting categories
+    // Starting categories
     from = { 0, 1, 2 };
     
-    //New categories
+    // New categories
     to = "normal" $| "prehypertension" $| "hypertension";
     
     bp_category = reclassify(bp_category, from, to);

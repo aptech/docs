@@ -29,21 +29,21 @@ Real input
 
 ::
 
-    //Create a 3 x 3 real matrix
+    // Create a 3 x 3 real matrix
     A = {  0.9069  -0.3150  -0.9732,
            0.6023   0.6848   0.4925,
           -0.8555  -0.7430   0.6521 };
           
-    //Create a 2 x 2 real matrix
+    // Create a 2 x 2 real matrix
     B = { -0.9876   0.4503,
           -0.3043   0.9807 };
           
-    //Create a 3 x 2 real matrix
+    // Create a 3 x 2 real matrix
     C = { -0.8625   0.5247,
            0.6331  -0.3334,
            0.7912   0.0711 };
     
-    //Solve the Sylvester matrix equation
+    // Solve the Sylvester matrix equation
     X = sylvester(A, B, C);
 
 After the code above, X will equal the 3 x 2 matrix:
@@ -59,21 +59,21 @@ Complex input
 
 ::
 
-    //Create a 3 x 3 complex matrix
+    // Create a 3 x 3 complex matrix
     A = { 7 + 7i     4 + 10i     2 + 8i,
          10 - 3i    -7 -  5i   -10 - 7i,
           3 + 5i   -10 -  2i     2 - 4i };
           
-    //Create a 2 x 2 complex matrix
+    // Create a 2 x 2 complex matrix
     B = { 5 +  1i    -5 - 8i,
           8 - 10i    8 - 1i };
           
-    //Create a 3 x 2 complex matrix
+    // Create a 3 x 2 complex matrix
     C = { -9 - 3i   -1 - 1i,
            9 - 8i   -5 + 8i,
           -1 - 2i   -5 + 5i };
     
-    //Solve the Sylvester matrix equation
+    // Solve the Sylvester matrix equation
     X = sylvester(A, B, C);
 
 After the code above, X will equal the 3 x 2 complex matrix:

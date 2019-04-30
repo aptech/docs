@@ -24,13 +24,13 @@ Examples
 
 ::
 
-    //Create random normal data
+    // Create random normal data
     x = rndn(50, 1);
          
-    //Reverse the order of 'x' and set it to be the 'y' value
+    // Reverse the order of 'x' and set it to be the 'y' value
     y = rev(x);
          
-    //Plot the data
+    // Plot the data
     plotScatter(x, y);
 
 .. seealso:: Functions :func:`plotXY`, :func:`plotLogLog`, :func:`plotBox`, :func:`plotHistP`

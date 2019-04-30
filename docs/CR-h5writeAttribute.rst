@@ -40,19 +40,19 @@ Create an HDF5 dataset and add headers
 
 ::
 
-    //Create an HDF5 dataset with room for 100 observations of 4 variables
+    // Create an HDF5 dataset with room for 100 observations of 4 variables
     call h5create("commodities.h5", "/energy", 100 | 4);
     
-    //Variable names for the dataset			
+    // Variable names for the dataset			
     attr = "Crude Oil"$|"Gasoline"$|"Heating Oil"$|"Diesel";
     
-    //Define a name of the attributes				
+    // Define a name of the attributes				
     attr_name = "headers";
     
-    //Write attributes to a HDF5 file
+    // Write attributes to a HDF5 file
     call h5writeAttribute("commodities.h5", "/energy", attr_name, attr);							
     
-    //Read attributes from a HDF5 file
+    // Read attributes from a HDF5 file
     attr_read = h5readAttribute("commodities.h5", "/energy", attr_name);
 
 a: Add data and calculate descriptive statistics
@@ -60,18 +60,18 @@ a: Add data and calculate descriptive statistics
 
 ::
 
-    //Set seed for repeatable random data
+    // Set seed for repeatable random data
     rndseed 54235;
     
-    //Create 100x4 random normal data
+    // Create 100x4 random normal data
     x = rndn(100, 4);
     
-    //Write data to dataset created in the example above
+    // Write data to dataset created in the example above
     call h5write("commodities.h5", "/energy", x);
     
     
-    //Calculate descriptive statistics on some of the variables
-    //using an hdf5 file schema (h5://filename/dataset)
+    // Calculate descriptive statistics on some of the variables
+    // using an hdf5 file schema (h5://filename/dataset)
     call dstatmt("h5://commodities.h5/energy", "Gasoline + Heating Oil");
 
 ::

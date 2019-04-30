@@ -32,7 +32,7 @@ Sort rows of a matrix based upon first column
           1 3 2,
           3 4 8 };
     
-    //Sort 'x' based upon the first row
+    // Sort 'x' based upon the first row
     y = sortc(x,1);
 
 The above example code produces, y equal to:
@@ -48,15 +48,15 @@ Sort rows of a 5x1 string vector
 
 ::
 
-    //Create a 5x1 string array, using the string
-    //vertical concatenation operator '$|'
+    // Create a 5x1 string array, using the string
+    // vertical concatenation operator '$|'
     letters = "epsilon" $|
               "gamma" $|
               "beta" $|
               "alpha" $|
               "delta";
     
-    //Sort 'letters'
+    // Sort 'letters'
     letters_s = sortc(letters,1);
 
 The above example code produces, letters_s equal to:

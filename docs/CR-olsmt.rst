@@ -251,8 +251,8 @@ Basic usage with matrices
           5 3 1,
           3 5 5 };
     
-    //Perform least squares regression and print report to the screen
-    //The empty string, "" indicates that no dataset is used
+    // Perform least squares regression and print report to the screen
+    // The empty string, "" indicates that no dataset is used
     call olsmt("",y,x);
 
 Basic usage with a data set and a formula string
@@ -260,13 +260,13 @@ Basic usage with a data set and a formula string
 
 ::
 
-    //Create string with the name and full file path of the dataset
+    // Create string with the name and full file path of the dataset
     dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
     
-    //Create formula string specifying dependent and independent variables
+    // Create formula string specifying dependent and independent variables
     formula  = "homicide ~ unemployment + hourly_earn";
     
-    //Perform estimation
+    // Perform estimation
     call olsmt(dataset, formula);
 
 In this example, the data set "detroit.sas7bdat" is used to compute a
@@ -294,30 +294,30 @@ Use a data set, a list of variable names plus a control and output structure.
 
 ::
 
-    //Declare 'ols_ctl' to be an olsmtControl structure
-    //and fill with default settings
+    // Declare 'ols_ctl' to be an olsmtControl structure
+    // and fill with default settings
     struct olsmtControl ols_ctl;
     ols_ctl = olsmtControlCreate();
     
-    //Set the 'res' member of the olsmtControl structure
-    //so that 'olsmt' will compute residuals and the Durbin-Watson statistic
+    // Set the 'res' member of the olsmtControl structure
+    // so that 'olsmt' will compute residuals and the Durbin-Watson statistic
     ols_ctl.res = 1;
     
-    //Declare 'ols_out' to be an olsmtOut structure
-    //to hold the results of the computations
+    // Declare 'ols_out' to be an olsmtOut structure
+    // to hold the results of the computations
     struct olsmtOut ols_out;
     
-    //Create string with the name and full file path of the dataset
+    // Create string with the name and full file path of the dataset
     data = getGAUSSHome() $+ "examples/credit.dat";
     
-    //Create a string with the name of the dependent variable
+    // Create a string with the name of the dependent variable
     depvar = "Limit";
     
-    //Create 3x1 string array, containing the dependent variable names
+    // Create 3x1 string array, containing the dependent variable names
     indvars = "Balance" $| "Income" $|  "Age";
     
-    //Perform estimation, using settings in the 'ols_ctl'
-    //control structure and store the results in 'ols_out'
+    // Perform estimation, using settings in the 'ols_ctl'
+    // control structure and store the results in 'ols_out'
     ols_out = olsmt(data, depvar, indvars, ols_ctl);
 
 In this example, the data set "credit.dat" is used to compute a
@@ -331,12 +331,12 @@ Use a data set and variable indices
 
     dataset = getGAUSSHome() $+ "examples/credit.dat";
     
-    //Set the third variable in 'credit.dat', 'Rating'
-    //to be the dependent variable
+    // Set the third variable in 'credit.dat', 'Rating'
+    // to be the dependent variable
     depvar = 3;
     
-    //Set the first, second and fifth variables in 'credit.dat'
-    //to be the independent variables
+    // Set the first, second and fifth variables in 'credit.dat'
+    // to be the independent variables
     indepvar = { 1, 2, 5 };
     
     call olsmt(dataset, depvar, indepvar);

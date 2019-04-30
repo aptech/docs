@@ -67,8 +67,8 @@ This code assigns the following to y:
 
 ::
 
-    6  //6 for type matrix
-    y = 13  //13 for string
-         9  //9 for function
+    6  // 6 for type matrix
+    y = 13  // 13 for string
+         9  // 9 for function
 
 .. seealso:: Functions :func:`type`, :func:`typef`, :func:`varput`, :func:`varget`

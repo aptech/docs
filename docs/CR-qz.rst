@@ -81,20 +81,20 @@ Basic usage
 
 ::
 
-    //For repeatable random numbers
+    // For repeatable random numbers
     rndseed 23434;
     
-    //Matrix dimensions
+    // Matrix dimensions
     order = 4;
     
-    //Create 2 square, real matricies
+    // Create 2 square, real matricies
     A = rndn(order, order);
     B = rndn(order, order);
     
-    //Perform 'QZ' decomposition
+    // Perform 'QZ' decomposition
     { S, T, Q, Z } =  qz(A,B);
     
-    //Calculate generalized eigenvalues
+    // Calculate generalized eigenvalues
     eig_vals = diag(S) ./ diag(T);
     
     print "Generalized eigenvalues = ";
@@ -128,13 +128,13 @@ You can order the eigenvalues, by passing in the optional third input, sort_type
 
 ::
 
-    //Perform 'QZ' decomposition and
-    //reorder generalized eigenvalues, placing
-    //those with absolute value less than 1
-    //on the upper left
+    // Perform 'QZ' decomposition and
+    // reorder generalized eigenvalues, placing
+    // those with absolute value less than 1
+    // on the upper left
     { S, T, Q, Z } =  qz(A, B, "udi");
     
-    //Calculate generalized eigenvalues
+    // Calculate generalized eigenvalues
     eig_vals = diag(S) ./ diag(T);
     
     print "Generalized eigenvalues = ";
@@ -193,7 +193,7 @@ Remarks
 
    ::
 
-          //Set imagtol to 1e-15   
+          // Set imagtol to 1e-15   
           imagtol_org = sysstate(21, 1e-15);
 
    Note that while the function qz IS threadsafe, setting imagtol is NOT

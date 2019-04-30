@@ -50,8 +50,8 @@ Basic usage
           2 1.1 1,
           9 0.1 3 };
     
-    //Perform inner join on 'A' and 'B', based upon
-    //matches in column 1 of 'A' and column 3 of 'B'
+    // Perform inner join on 'A' and 'B', based upon
+    // matches in column 1 of 'A' and column 3 of 'B'
     C = innerJoin(A, 1, B, 3);
 
 After the code above, *C* equals:
@@ -80,9 +80,9 @@ Join on two columns
     a_keys = { 1, 3 };
     b_keys = { 4, 2 };
     
-    //Perform inner join on A and B, based on matches
-    //from the 1st column of A with the 4th column of B
-    //and the 3rd column of A with the 2nd column of B 
+    // Perform inner join on A and B, based on matches
+    // from the 1st column of A with the 4th column of B
+    // and the 3rd column of A with the 2nd column of B 
     C = innerJoin(A, a_keys, B, b_keys);
 
 After the code above, *C* equals:

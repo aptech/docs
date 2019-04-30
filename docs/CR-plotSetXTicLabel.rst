@@ -113,7 +113,7 @@ Time series
 
 ::
 
-    //Declare and initialize plotControl structure
+    // Declare and initialize plotControl structure
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
     
@@ -121,13 +121,13 @@ Time series
     
     plotSetXTicLabel(&myPlot, "YYYY-MO");
     
-    //Start the series in January 1982
+    // Start the series in January 1982
     dtstart = 198201;
     
-    //Specify the data to be monthly
+    // Specify the data to be monthly
     frequency = 12;				
     				
-    //Draw the time series plot
+    // Draw the time series plot
     plotTS(myPlot, dtstart, frequency, y);
 
 The code above produces a graph with X-tic labels like the image below:
@@ -153,7 +153,7 @@ Other than time series
 
 ::
 
-    //Declare and initialize plotControl structure
+    // Declare and initialize plotControl structure
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
     
@@ -162,7 +162,7 @@ Other than time series
     
     plotSetXTicLabel(&myPlot, "%.3f");
     
-    //Draw the graph, using our format specifier
+    // Draw the graph, using our format specifier
     plotXY(myPlot, x, y);
 
 The code above produces a graph with X-tic labels like the image below:

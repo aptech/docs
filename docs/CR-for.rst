@@ -53,7 +53,7 @@ Example 1
 
 ::
 
-    //A basic 'for' loop
+    // A basic 'for' loop
     for i (1, 4, 1);
        print i;
     endfor;

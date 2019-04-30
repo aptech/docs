@@ -27,10 +27,10 @@ Examples
 
 ::
 
-    //Declare 'y' a sparse matrix
+    // Declare 'y' a sparse matrix
     sparse matrix y;
     
-    //Create 3x3 sparse identity matrix
+    // Create 3x3 sparse identity matrix
     y = spEye(3);
 
 y is now equal to:

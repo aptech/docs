@@ -54,23 +54,23 @@ Examples
 
 ::
 
-    //Declare plotControl structure               
+    // Declare plotControl structure               
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
     
-    //Set line 1 to have no symbol
-    //Set line 2 to display an ellipse at each plotted point.
+    // Set line 1 to have no symbol
+    // Set line 2 to display an ellipse at each plotted point.
     newSymbol = { -1, 0 };
     symbolWidth = 5;
     plotSetLineSymbol(&myPlot, newSymbol, symbolWidth);
     
-    //Create data
+    // Create data
     x = seqa(0.1, 0.1, 50);
     y = sin(x)~cos(x);
     
-    //Plot the data with the new line symbols
+    // Plot the data with the new line symbols
     plotXY(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetXLabel`, :func:`plotSetLineColor`

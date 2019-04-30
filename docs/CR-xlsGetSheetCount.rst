@@ -49,14 +49,14 @@ trap state as in the example below.
 
 ::
 
-    //Turn on trap
+    // Turn on trap
     trap 1;
     
     nsheets = xlsGetSheetCount(fname);
     
-    //Check to see if xlsGetSheetCount returned an error code
+    // Check to see if xlsGetSheetCount returned an error code
     if scalmiss(nsheets);
-    //Code to execute in error case here
+    // Code to execute in error case here
     endif;
 
 .. seealso:: Functions :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`

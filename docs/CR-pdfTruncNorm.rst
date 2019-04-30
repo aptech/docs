@@ -40,8 +40,8 @@ Examples
     mu = 0;
     s = 1;
               
-    //Compute the PDF at x = 0.5
-    //over the closed region [-1,1]
+    // Compute the PDF at x = 0.5
+    // over the closed region [-1,1]
     p = pdfTruncNorm(x, a, b, mu, s);
 
 After the above code, *p* equals:

@@ -23,7 +23,7 @@ Examples
 
     x = { 1, exp(-724.5), 3 };
     
-    //If 'x' contains any denormals set them to 0
+    // If 'x' contains any denormals set them to 0
     if isden(x);
        x2 = denToZero(x);
     endif;

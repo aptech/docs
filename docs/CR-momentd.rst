@@ -87,8 +87,8 @@ Using indices of columns
 
     fname = getGAUSShome() $+ "examples/freqdata.dat";	
     							
-    //Calculate statistics on variables in dataset: PAY and WT
-    //Specify the index of PAY and WT
+    // Calculate statistics on variables in dataset: PAY and WT
+    // Specify the index of PAY and WT
     vars = 2|4;				
     m = momentd(fname, vars);
     
@@ -108,8 +108,8 @@ Using names of variables
 ::
 
     fname = getGAUSShome() $+ "examples/freqdata.dat";				
-    //Calculate statistics on variables in dataset: PAY and WT
-    //Define the names string array of PAY and WT				
+    // Calculate statistics on variables in dataset: PAY and WT
+    // Define the names string array of PAY and WT				
     string vars = {"PAY", "WT"};				
     m = momentd(fname, vars );
     print  m;
@@ -128,10 +128,10 @@ Using formula string
 ::
 
     fname = getGAUSShome() $+ "examples/freqdata.dat";	
-    //Define the formula for PAY and WT, remove the intercept (use - 1 )				
+    // Define the formula for PAY and WT, remove the intercept (use - 1 )				
     formula_str = "-1 + PAY + WT";	
     										
-    //Calculate statistics on variables in dataset: PAY and WT
+    // Calculate statistics on variables in dataset: PAY and WT
     m = momentd(fname, formula_str);
     print  m;
 

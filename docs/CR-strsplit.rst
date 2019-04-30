@@ -129,12 +129,12 @@ String array with supplied separator
 
 ::
 
-    //Create a 3x1 string array
+    // Create a 3x1 string array
     string dow_str = { "apple:technology",
                        "goldman sachs:finance",
                        "home depot:retail" };
     			
-    //Split 'dow_str' into a 3x2 string array 
+    // Split 'dow_str' into a 3x2 string array 
     dow_sa = strsplit(dow_str, ":");
 
 The above code sets dow_sa to be equal to:

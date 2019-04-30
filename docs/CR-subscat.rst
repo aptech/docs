@@ -79,7 +79,7 @@ This example combines 2 levels in a categorical label into one category.
 
 ::
 
-    //Create categorical vector with 3 levels
+    // Create categorical vector with 3 levels
     x = { 1, 
           1, 
           2,
@@ -91,7 +91,7 @@ This example combines 2 levels in a categorical label into one category.
           2, 
           0 }; 
     
-    //Assign all instances of 2 to 1, merging the second and third categories
+    // Assign all instances of 2 to 1, merging the second and third categories
     x = subscat(x, 2, 1);
 
 After the code above, x is equal to:

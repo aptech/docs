@@ -28,7 +28,7 @@ Examples
 
 ::
 
-    //Create a 10x3 matrix
+    // Create a 10x3 matrix
     x = {  -0.60     3.50     0.47, 
             8.40    16.50     0.27,
            11.40     6.50     0.17,
@@ -40,7 +40,7 @@ Examples
           -11.60   -19.50     0.77,
             6.40    11.50     0.07 };
     
-    //Calculate the singular values
+    // Calculate the singular values
     { u, s, v } = svd2(x);
 
 After the code above, u, s and v will be equal to:

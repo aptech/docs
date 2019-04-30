@@ -43,40 +43,40 @@ Examples
 
 ::
 
-    //Clear out variables in GAUSS workspace
+    // Clear out variables in GAUSS workspace
     new;
     
-    //Create data
+    // Create data
     x = seqa(-4,.125,161)';
     y = seqa(-8,.125,161);
     z = sin(x) .* cos(y) * .5;
     z = z .* sin(x/3) .* cos(y/3);
     z = z .* sin(x/5) + sin(y/2.5)/3 + sin(x/2.5)/3;
     
-    //Set up control structure with defaults
-    //for surface plots
+    // Set up control structure with defaults
+    // for surface plots
     struct plotControl myPlot;
     myPlot = plotGetDefaults("surface");
     
-    //Set title and Z axis label
+    // Set title and Z axis label
     plotSetTitle(&myPlot, "Contour plot example", "arial", 16, "black");
     
-    //Set color map for contour
+    // Set color map for contour
     plotSetColorMap(&myplot, "viridis");
     
-    //Set up flag of show label for contour
+    // Set up flag of show label for contour
     showLabels = 1; 
     
-    //Set up format for contour label
+    // Set up format for contour label
     label_format = "G";
     
-    //Set up precision for contour label
+    // Set up precision for contour label
     label_precision = 5; 
     
-    //Use function to set up contour labels
+    // Use function to set up contour labels
     plotSetContourLabels(&myplot, showlabels, label_format, label_precision);
     
-    //Draw graph using plotcontrol structure
+    // Draw graph using plotcontrol structure
     plotContour(myPlot, x, y, z);
 
 The plot is

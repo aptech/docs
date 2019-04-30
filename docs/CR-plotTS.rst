@@ -80,11 +80,11 @@ Basic time series plot with start date
 
 ::
 
-    //Create some data to plot
+    // Create some data to plot
     y = rndn(100, 1);
     
-    //The first input starts the series in January of 1982
-    //The second input specifies the data to be monthly
+    // The first input starts the series in January of 1982
+    // The second input specifies the data to be monthly
     plotTS(1982, 12, y);
 
 T-bill plot with scalar start date
@@ -92,19 +92,19 @@ T-bill plot with scalar start date
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
     
-    //Load scalar starting date
+    // Load scalar starting date
     date_1 = xlsReadM(file, "A2:A2");
     
-    //Load the first 20 observations from the time series
+    // Load the first 20 observations from the time series
     y = xlsReadM(file, "B2:B20");
     
-    //Specify the data is monthly
+    // Specify the data is monthly
     freq = 12;
     
-    //Draw the time series plot
+    // Draw the time series plot
     plotTS(date_1, freq, y);
 
 T-bill plot with full date vector
@@ -112,21 +112,21 @@ T-bill plot with full date vector
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
     
-    //Load date vector and tbill data
+    // Load date vector and tbill data
     x = loadd(file, "obs_date + tbill_3m");
     
-    //Separate date vector and tbill data
+    // Separate date vector and tbill data
     date_vec = x[.,1];
     y = x[.,2];
     
-    //Specify that tick labels should be
-    //on years, even though the data is monthly
+    // Specify that tick labels should be
+    // on years, even though the data is monthly
     label_unit = "years";
     
-    //Draw the time series plot
+    // Draw the time series plot
     plotTS(date_vec, label_unit, y);
 
 Daily data with full date vector
@@ -162,27 +162,27 @@ Time Series Plot With Custom X-tics
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
     
-    //Load date of observation 20 (header is row 1)
+    // Load date of observation 20 (header is row 1)
     date_1 = xlsReadM(file, "A21:A21");
     
-    //Load 28 observations
+    // Load 28 observations
     y = xlsReadM(file, "B21:B49");
     
-    //Declare 'myPlot' to be a plotControl structure
-    //and fill it with 'xy' default settings
+    // Declare 'myPlot' to be a plotControl structure
+    // and fill it with 'xy' default settings
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
     
-    //Place first 'X' tick mark at 1984 month 1 and draw one every 6 months
+    // Place first 'X' tick mark at 1984 month 1 and draw one every 6 months
     plotSetXTicInterval(&myPlot, 6, 1984);
     
-    //Display only 4 digit year on 'X' tick labels
+    // Display only 4 digit year on 'X' tick labels
     plotSetXTicLabel(&myPlot, "YYYY-QQ");
     
-    //Draw time series plot, using settings in 'myPlot'
+    // Draw time series plot, using settings in 'myPlot'
     plotTS(myPlot, date_1, 12, y);
 
 Example 6
@@ -194,8 +194,8 @@ also represents the second quarter of April 2005.
 
 ::
 
-    //The first input starts the series in the second quarter of 2005
-    //The second input specifies the data to be quarterly
+    // The first input starts the series in the second quarter of 2005
+    // The second input specifies the data to be quarterly
     plotTS(200504, 4, y);
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotScatter`, :func:`plotTSHF`, :func:`plotTSLog`

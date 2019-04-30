@@ -18,13 +18,13 @@ Format
        
         ::
 
-            x * b = 0 //NxK matrix of 0's
+            x * b = 0 // NxK matrix of 0's
 
         and
 
         ::
 
-            b'b = I  //MxM identity matrixThe error returns are returned in  b:
+            b'b = I  // MxM identity matrixThe error returns are returned in  b:
 
         .. csv-table::
             :widths: auto

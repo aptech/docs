@@ -45,14 +45,14 @@ Basic usage
 
 ::
 
-    //Starting seed value
+    // Starting seed value
     	seed = 123456;
     
-    	//Create state for generator 'mrg32k3a'
+    	// Create state for generator 'mrg32k3a'
     	state = rndCreateState("mrg32k3a", seed);
     
-    	//Create a 5x1 vector of random normal numbers with
-    	//the state created above
+    	// Create a 5x1 vector of random normal numbers with
+    	// the state created above
     	{ r, newstate } = rndn(5, 1, state);
 
 After the code above, r will equal:
@@ -80,15 +80,15 @@ Most random number generators have one single stream in which you can think of t
 
     seed = 123456;
     
-    	//Create a state from the 1028th substream of the
-    	//Mersenne-Twister 2203 RNG
+    	// Create a state from the 1028th substream of the
+    	// Mersenne-Twister 2203 RNG
     	state_mt = rndCreateState("mt2203-1028", seed);
     
-    	//Create a state from the 112th substream of the
-    	//Wichmann-Hill RNG
+    	// Create a state from the 112th substream of the
+    	// Wichmann-Hill RNG
     	state_wh = rndCreateState("wh-112", seed);
     
-    	//Generate numbers using the states
+    	// Generate numbers using the states
     	{ r1, state_mt } = rndu(4, 1, state_mt);
     	{ r2, state_wh } = rndu(4, 1, state_wh);
 
@@ -108,10 +108,10 @@ initializing the Sobol quasi-random number generator
 
 ::
 
-    //Initialize random seed with a dimension of 2
+    // Initialize random seed with a dimension of 2
     	state = rndCreateState("sobol", 2);
     
-    	//Create some random numbers using this state
+    	// Create some random numbers using this state
     	{ r, state } = rndu(10, 2, state);
 
 After the code above, r, should be equal to:

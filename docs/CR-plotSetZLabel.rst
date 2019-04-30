@@ -40,22 +40,22 @@ Examples
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("surface");
     
-    //Set the Z-axis label, label font, font size, and color 
+    // Set the Z-axis label, label font, font size, and color 
     plotSetZLabel(&myPlot, "Depth", "verdana", 10, "black");
     
-    //Create data
+    // Create data
     x = seqa(-10.6, .3, 71)';
     y = seqa(-12.4, .35, 71);
     z = sin(sqrt((x/2)^2+(y/2)^2)) ./ sqrt(x^2+y^4);
     z = z .* sin(x/3);
     
-    //Plot the data
+    // Plot the data
     plotSurface(myPlot, x, y, z);
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetXLabel`, :func:`plotSetXTicInterval`, :func:`plotSetXTicLabel`, :func:`plotSetYLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`

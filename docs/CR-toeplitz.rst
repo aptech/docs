@@ -20,10 +20,10 @@ Examples
 
 ::
 
-    //Create the sequence 1, 2, 3, 4, 5 and assign it to 'x'
+    // Create the sequence 1, 2, 3, 4, 5 and assign it to 'x'
     x = seqa(1,1,5);
     
-    //Create a diagonal-constant or Toeplitz matrix
+    // Create a diagonal-constant or Toeplitz matrix
     y = toeplitz(x);
 
 After the code above, y is equal to:

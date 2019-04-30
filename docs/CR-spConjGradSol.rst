@@ -35,19 +35,19 @@ Examples
              0.000      0.000 -2674.440 -3758.528  7457.899 };
      sparse matrix a;
      
-    //Set 'a' to be a sparse matrix with the same contents as 
-    //the dense matrix 'nz' 
+    // Set 'a' to be a sparse matrix with the same contents as 
+    // the dense matrix 'nz' 
     a = densetosp(nz,0);
     
-    //Create our right-hand-side
+    // Create our right-hand-side
     b = { 10.349,
            -3.117,
             4.240,
             0.013,
             2.115 };
      
-    //Setting the third and fourth arguments to 0 employs the 
-    //default tolerance maxit settings
+    // Setting the third and fourth arguments to 0 employs the 
+    // default tolerance maxit settings
     x = spConjGradSol(a,b,0,0);
      
     newb = a*x;

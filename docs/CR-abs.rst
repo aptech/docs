@@ -22,8 +22,8 @@ Examples
 
 ::
 
-    //Set random number generator seed for  
-    //repeatable random numbers
+    // Set random number generator seed for  
+    // repeatable random numbers
     rndseed 929212;
     
     x = rndn(2,2);

@@ -24,15 +24,15 @@ Examples
 
 ::
 
-    //Create the sequence 0.1, 0.2, 0.3, 0.4, 0.5
+    // Create the sequence 0.1, 0.2, 0.3, 0.4, 0.5
     x = seqa(0.1, 0.1, 5);
     
-    //Create the sequence 1, 1.1, 1.2, 1.3, 1.4
+    // Create the sequence 1, 1.1, 1.2, 1.3, 1.4
     x2 = seqa(1, 0.1, 5);
     
-    //Calculate a first order bessel function against 'x' and 
-    //calculate a third order bessel function agains 'x2'
-    //NOTE: The '~' provides horizontal concatenation
+    // Calculate a first order bessel function against 'x' and 
+    // calculate a third order bessel function agains 'x2'
+    // NOTE: The '~' provides horizontal concatenation
     ord = { 1 3 };
     y = bessely(ord, x~x2);
 

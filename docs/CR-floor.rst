@@ -27,19 +27,19 @@ Examples
 
 ::
 
-    //Set the seed for repeatable random numbers
+    // Set the seed for repeatable random numbers
     rndseed 9072345;
     
-    //Create random normal numbers with a standard 
-    //deviation of 100
+    // Create random normal numbers with a standard 
+    // deviation of 100
     x = 100*rndn(2,2);
     
-    //Round the numbers down
+    // Round the numbers down
     f = floor(x);
     
-    //Format so numbers will print in decimal form rather than
-    //scientific notation) and will show 2 digits after the 
-    //decimal point
+    // Format so numbers will print in decimal form rather than
+    // scientific notation) and will show 2 digits after the 
+    // decimal point
     format /rd 8,2;
     
     print "************************"; 

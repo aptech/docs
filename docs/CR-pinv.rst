@@ -40,10 +40,10 @@ Examples
 
 ::
 
-    //Create an underdetermined system of equations 'A'
+    // Create an underdetermined system of equations 'A'
     A = rndn(4, 5);
     
-    //Create a right hand side
+    // Create a right hand side
     b = rndn(4,1);
     
     if rank(A) < cols(A);

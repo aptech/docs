@@ -86,22 +86,22 @@ Basic usage
 
 ::
 
-    //Declare 'par' to be an instance of a PV vector
+    // Declare 'par' to be an instance of a PV vector
     struct PV par;
     
-    //Create default PV struct and add a parameter
-    //named 'x1' with a starting value of 1
+    // Create default PV struct and add a parameter
+    // named 'x1' with a starting value of 1
     par = pvPack(pvCreate(),1, "x1");
     
-    //Add a parameter named 'x2' to 'par'
-    //with a starting value of 1
+    // Add a parameter named 'x2' to 'par'
+    // with a starting value of 1
     par = pvPack(par,1, "x2");
      
-    //Solve the system of equations
-    //and print the output to the screen
+    // Solve the system of equations
+    // and print the output to the screen
     call eqSolvemt(&fct,par);
      
-    //The definition of the function to be minimized
+    // The definition of the function to be minimized
     proc fct(struct PV p);
        local x1, x2, z;
        x1 = pvUnpack(p, "x1");
@@ -132,34 +132,34 @@ Using control and output structures
 
 ::
 
-    //Declare control structure and fill with defaults
+    // Declare control structure and fill with defaults
     struct eqSolvemtControl c;
     c = eqSolvemtControlCreate();
      
-    //Turn on printing of iteration information
+    // Turn on printing of iteration information
     c.printIters = 1;
      
-    //Assign variable names printed output
+    // Assign variable names printed output
     c.altNames = "alpha" $| "beta";
     
-    //Declare 'par' to be an instance of a PV vector
+    // Declare 'par' to be an instance of a PV vector
     struct PV par;
     
-    //Create default PV struct and add a parameter
-    //named 'x1' with a starting value of 1
+    // Create default PV struct and add a parameter
+    // named 'x1' with a starting value of 1
     par = pvPack(pvCreate(),1, "x1");
     
-    //Add a parameter named 'x2' to 'par'
-    //with a starting value of 1
+    // Add a parameter named 'x2' to 'par'
+    // with a starting value of 1
     par = pvPack(par,1, "x2");
      
-    //Declare output structure to hold results
+    // Declare output structure to hold results
     struct eqSolvemtOut out;
     
-    //Solve the system of equations
+    // Solve the system of equations
     out = eqSolvemt(&fct,par,c);
      
-    //The definition of the function to be minimized
+    // The definition of the function to be minimized
     proc fct(struct PV p);
        local x1, x2, z;
        x1 = pvUnpack(p, "x1");
@@ -184,13 +184,13 @@ The parameter values returned by :func:`eqSolveMT` are located in the par member
 
 ::
 
-    //Return the values of 'x1' and 'x2' as a 2x1 vector
+    // Return the values of 'x1' and 'x2' as a 2x1 vector
     x_all = pvGetParVector(out.par);
     
-    //Return the value of 'x1'
+    // Return the value of 'x1'
     x1 = pvUnpack(out.par, "x1");
     
-    //Return the value of 'x2'
+    // Return the value of 'x2'
     x2 = pvUnpack(out.par, "x2");
 
 Source

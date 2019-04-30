@@ -35,21 +35,21 @@ Uncorrelated variables
 
 ::
 
-    //Upper limits of integration
+    // Upper limits of integration
     ulim = { 0, 0 };
     
-    //Identity matrix, indicates
-    //zero correlation between variables
+    // Identity matrix, indicates
+    // zero correlation between variables
     corr = { 1 0,
              0 1 };
     
-    //Calculate cumulative probability of
-    //both variables being ≤ 0
+    // Calculate cumulative probability of
+    // both variables being ≤ 0
     p = cdfmvn(ulim, corr);
     
-    //Calculate joint probablity of two
-    //variables with zero correlation,
-    //both, being ≤ 0
+    // Calculate joint probablity of two
+    // variables with zero correlation,
+    // both, being ≤ 0
     p2 = cdfn(0) .* cdfn(0);
 
 After the above code, both *p* and *p2* should be equal to 0.25.
@@ -59,16 +59,16 @@ Example 2
 
 ::
 
-    //Upper limits of integration
+    // Upper limits of integration
     ulim = { -0.5, 1 };
     
-    //Correlation matrix
+    // Correlation matrix
     corr = {   1  0.26,
             0.26     1 };
     
-    //Calculate cumulative probability of
-    //the first variable being ≤ -0.5
-    //and the second variable being ≤ 1
+    // Calculate cumulative probability of
+    // the first variable being ≤ -0.5
+    // and the second variable being ≤ 1
     p = cdfmvn(ulim, corr);
 
 After the above code, *p* should equal: 0.28025. It means :
@@ -81,19 +81,19 @@ Compute the cdf at 3 separate pairs of points
 
 ::
 
-    //Upper limits of integration
-    //x1 ≤ -1 and x2 ≤ -1.1
-    //x1 ≤  0 and x2 ≤ 0.1
-    //x1 ≤ 1 and x2 ≤ 1.1
+    // Upper limits of integration
+    // x1 ≤ -1 and x2 ≤ -1.1
+    // x1 ≤  0 and x2 ≤ 0.1
+    // x1 ≤ 1 and x2 ≤ 1.1
     ulim = {  -1   0    1,
             -1.1 0.1  1.1 };
     
-    //Correlation matrix
+    // Correlation matrix
     corr = {   1 0.31,
             0.31    1 };
     
-    //Calculate cumulative probability of
-    //each pair of upper limits
+    // Calculate cumulative probability of
+    // each pair of upper limits
     p = cdfmvn(ulim, corr);
 
 After the above code, p should equal:

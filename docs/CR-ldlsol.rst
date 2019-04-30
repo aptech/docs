@@ -40,10 +40,10 @@ Examples
           4   1   3   9 };
     b = { 1.4, 4, 0.5, 3 };
     
-    //Factorize matrix 'A'
+    // Factorize matrix 'A'
     ldl_f = ldlp(A);
     
-    //Solve system of equations
+    // Solve system of equations
     x = ldlsol(b, ldl_f);
 
 The above code will solve the system of linear equations :math:`Ax = b`, assigning *x* to be equal to:

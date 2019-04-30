@@ -30,10 +30,10 @@ Basic example without replacement
 
 ::
 
-    //Set seed for repeatable random draws
+    // Set seed for repeatable random draws
     rndseed  23423;
     
-    //Create a 7x1 vector
+    // Create a 7x1 vector
     x  = { 1,
            2,
            3,
@@ -42,7 +42,7 @@ Basic example without replacement
            6,
            7 };
     
-    //Take a sample of 3 elements without replacement
+    // Take a sample of 3 elements without replacement
     s  = sampleData(x, 3);
 
 After running the code above, s is equal to:
@@ -58,10 +58,10 @@ Basic example with replacement
 
 ::
 
-    //Set seed for repeatable random draws
+    // Set seed for repeatable random draws
     rndseed  23423;
     
-    //Create a 7x2 vector
+    // Create a 7x2 vector
     x  = { 1.2 1.8,
            2.7 2.1,
            3.0 3.3,
@@ -72,7 +72,7 @@ Basic example with replacement
     
     replace = 1;
     
-    //Take a sample of 5 rows of 'x' with replacement
+    // Take a sample of 5 rows of 'x' with replacement
     sample = sampleData(x, 5, replace);
 
 After running the code above, sample is equal to:

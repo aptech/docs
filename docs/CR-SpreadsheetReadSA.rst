@@ -71,21 +71,21 @@ Remarks
 
    ::
 
-      //Will end the program and print an error message
+      // Will end the program and print an error message
       x = spreadSheetReadSA("nonexistent_file.xlsx");
 
    ::
 
-      //Turn error trapping on
+      // Turn error trapping on
       trap 1;
       x = spreadSheetReadSA("nonexistent_file.xlsx");
 
-      //Check to see if 'x' is a scalar error code
+      // Check to see if 'x' is a scalar error code
       if scalmiss(x);
-         //Code to handle error case here
+         // Code to handle error case here
       endif;
 
-      //Turn error trapping off
+      // Turn error trapping off
       trap 0;
 
 .. seealso:: Functions :func:`scalerr`, :func:`error`, :func:`spreadSheetReadM`, :func:`spreadSheetWrite`

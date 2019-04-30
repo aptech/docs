@@ -18,10 +18,10 @@ Examples
 
 ::
 
-    //Declare 'myData' as instance of 'DS' structure
+    // Declare 'myData' as instance of 'DS' structure
     struct DS myData;
     
-    //Apply default settings
+    // Apply default settings
     myData = dsCreate();
 
 Source

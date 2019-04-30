@@ -38,11 +38,11 @@ Basic Example
 
 ::
 
-    //Create a 1x3 string array of variable names
+    // Create a 1x3 string array of variable names
     var_names = "Date" $~  "Price" $~ "Volume";
     
-    //Write contents of 'var_names' to 'myfile.xlsx'
-    //from cell 'A1' to 'C1'
+    // Write contents of 'var_names' to 'myfile.xlsx'
+    // from cell 'A1' to 'C1'
     ret = xlsWriteSA(var_names, "myfile.xlsx");
 
 'myfile.xlsx'is saved in your current working directory. You can find your current working directory in the main tool bar (in the top of GAUSS).
@@ -52,10 +52,10 @@ Write To a Range
 
 ::
 
-    //Create a 1x4 string array of variable names
+    // Create a 1x4 string array of variable names
     head = "Real GDP" $~  "Unemployment" $~ "CPI" $~ "PPI";
     
-    //Write the variable names to the cells 'C1:F1'
+    // Write the variable names to the cells 'C1:F1'
     ret = xlsWriteSA(head, "myfile.xlsx", "C1");
 
 Specify Path and Sheet Number
@@ -63,10 +63,10 @@ Specify Path and Sheet Number
 
 ::
 
-    //Create a 3x1 string array
+    // Create a 3x1 string array
     labels = "Normotensive" $|  "Hypertensive" $| "Hypotensive";
     
-    //Write the data from 'labels' to cells 'D7:D9' on sheet 2 of 'myfile.xlsx'
+    // Write the data from 'labels' to cells 'D7:D9' on sheet 2 of 'myfile.xlsx'
     ret = xlsWriteSA(labels, "C:/mydata/myfile.xlsx", "D7", 2);
 
 Remarks

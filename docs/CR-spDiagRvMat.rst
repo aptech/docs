@@ -52,7 +52,7 @@ Examples
 
     declare sparse matrix x,y;
     
-    //Create a 10x10 sparse identity matrix
+    // Create a 10x10 sparse identity matrix
     x = spEye(10);
     
     sx1 = { 2 3, 5 8 };
@@ -60,11 +60,11 @@ Examples
     sx3 = { 4 7 2, 6 5 3 };
     sx4 = { 9, 3 };
     
-    //Create a 4x3x4 dimensional array with every element set 
-    //to 0
+    // Create a 4x3x4 dimensional array with every element set 
+    // to 0
     a = arrayinit(4|3|4,0);
     
-    //Set some of the array values
+    // Set some of the array values
     a[1,1:2,1:2] = sx1;
     a[2,.,.] = sx2;
     a[3,1:2,1:3] = sx3;

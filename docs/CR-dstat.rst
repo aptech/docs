@@ -99,7 +99,7 @@ Example 1
 
     // Calculate statistics on all variables in dataset
     file = getGAUSShome() $+ "examples/freqdata.dat";				
-    //Calculate statistics on all variables in dataset: AGE, PAY, sex and WT
+    // Calculate statistics on all variables in dataset: AGE, PAY, sex and WT
     vars = 0;
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 
@@ -120,7 +120,7 @@ Example 2
 
 ::
 
-    //Calculate statistics on just AGE and PAY
+    // Calculate statistics on just AGE and PAY
     vars = { AGE, PAY };
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 
@@ -140,7 +140,7 @@ Example 3
 
 ::
 
-    //Calculate statistics on just AGE and PAY using numerical indices
+    // Calculate statistics on just AGE and PAY using numerical indices
     vars = { 1, 2 }; 
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 
@@ -160,9 +160,9 @@ Example 4
 
 ::
 
-    //Calculate statistics on just AGE and PAY using __miss
+    // Calculate statistics on just AGE and PAY using __miss
     vars = { 1, 2 }; 
-    //Drop rows with missing values				
+    // Drop rows with missing values				
     __miss = 1;
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 
@@ -181,10 +181,10 @@ Example 5
 
 ::
 
-    //Calculate statistics using formula string and  __miss
-    //Set up a formula string with all variables exclude "sex"
+    // Calculate statistics using formula string and  __miss
+    // Set up a formula string with all variables exclude "sex"
     vars = ". - sex"; 
-    //Drop rows with missing values				
+    // Drop rows with missing values				
     __miss = 1;
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 

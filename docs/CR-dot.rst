@@ -32,7 +32,7 @@ Basic usage
 
 ::
 
-    //Create two 4x1 column vectors
+    // Create two 4x1 column vectors
     x = { 5,
           9,
           3,
@@ -43,7 +43,7 @@ Basic usage
           8,
           1  };
     
-    //Compute dot product
+    // Compute dot product
     z = dot(x,y);
     
     print  "z = " z;
@@ -59,7 +59,7 @@ Dot product of the corresponding columns of two matrices
 
 ::
 
-    //Create two 4x2 matrices
+    // Create two 4x2 matrices
     x = { 5 1,
           9 3,
           3 8,
@@ -70,7 +70,7 @@ Dot product of the corresponding columns of two matrices
           8  3,
           1 -2 };
     
-    //Compute dot product
+    // Compute dot product
     z = dot(x, y);
     
     print  "z = " z;

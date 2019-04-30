@@ -56,29 +56,29 @@ elements.
 
 ::
 
-    //Set seed for repeatable random numbers
+    // Set seed for repeatable random numbers
     rndseed 543124;
     
-    //Random integers with a mean of 70 and range of 20 to
-    //represent time taken for test
+    // Random integers with a mean of 70 and range of 20 to
+    // represent time taken for test
     testTime = ceil(30 * rndu(10, 1)) + 60;
     
-    //Random integers with a mean of 1000 and a standard 
-    //deviation of 10
+    // Random integers with a mean of 1000 and a standard 
+    // deviation of 10
     score = ceil(10 * rndn(10, 1)) + 1000;
     
-    //Maximum allowed time for test
+    // Maximum allowed time for test
     maxTime = 80;
     
-    //Create a mask for times greater than maxTime
+    // Create a mask for times greater than maxTime
     mask = testTime .> maxTime;
     
-    //Set scores to be missing values if testTime is greater 
-    //than maxTime
+    // Set scores to be missing values if testTime is greater 
+    // than maxTime
     mScores = missex(score, mask);
     
-    //Set missing values to print as 'T' to represent that the 
-    //score was invalid because the student took too much time
+    // Set missing values to print as 'T' to represent that the 
+    // score was invalid because the student took too much time
     msym "T";
     
     format /rd 4,0;

@@ -32,10 +32,10 @@ Examples
 
     sparse matrix y;
     
-    //Create a 4x3 sparse matrix with all elements set to 0
+    // Create a 4x3 sparse matrix with all elements set to 0
     y = spZeros(4,3);
     
-    //Create a dense matrix with the same values as 'y'
+    // Create a dense matrix with the same values as 'y'
     d = spToDense(y);
 
 The contents of d are equal to:

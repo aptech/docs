@@ -51,20 +51,20 @@ Examples
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("bar");
     
-    //Set the first set of bars to have a solid-fill, the
-    //second set to have a fill of horizontal lines, the third 
-    //to have a diagonal cross fill and set the bars to be
-    //side-by-side.
+    // Set the first set of bars to have a solid-fill, the
+    // second set to have a fill of horizontal lines, the third 
+    // to have a diagonal cross fill and set the bars to be
+    // side-by-side.
     textures = { 0, 8, 13 };
     plotSetBar(&myPlot, textures, 0);
     
-    //Create data
+    // Create data
     x = seqa(1, 1, 5);
     y = {
     1.5       2    1.8,
@@ -74,7 +74,7 @@ Examples
       1     1.2    0.8
     	};
     
-    //Draw bar graph
+    // Draw bar graph
     plotBar(myPlot, x, y);
 
 .. figure:: _static/images/plotsetbar.png

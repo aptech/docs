@@ -34,14 +34,14 @@ Examples
 
 ::
 
-    //Create the sequence 1, 2, 3...20
+    // Create the sequence 1, 2, 3...20
     a = seqa(1, 1, 20);
     
-    //Reshape the column vector 'a' into a 3x3x2 dimensional 
-    //array
+    // Reshape the column vector 'a' into a 3x3x2 dimensional 
+    // array
     a = areshape(a, 3|3|2);
     
-    //Extract the second 3x2 array
+    // Extract the second 3x2 array
     mat = getmatrix(a, 2);
 
 After code above *a* is equal to:

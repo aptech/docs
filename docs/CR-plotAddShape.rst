@@ -53,22 +53,22 @@ Add a rectangle
 
 ::
 
-    //Draw simple graph
+    // Draw simple graph
     x = rndu(10, 1);
     y = rndu(10, 1);
     plotScatter(x, y);
     
-    //The rectangle will be drawn between
-    //third and sixth points on the plot
+    // The rectangle will be drawn between
+    // third and sixth points on the plot
     x_start = x[3];
     y_start = y[3];
     x_end = x[6];
     y_end = y[6];
     
-    //Shape type will be rectangle
+    // Shape type will be rectangle
     annotation_type = "rectangle";
     
-    //Add rectangle to graph
+    // Add rectangle to graph
     plotAddShape(annotation_type, x_start, y_start, x_end, y_end);
 
 .. seealso:: Functions :func:`plotAddTextbox`, :func:`annotationGetDefaults`

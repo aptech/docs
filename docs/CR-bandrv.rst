@@ -35,10 +35,10 @@ Examples
           0 1 5 2,
           0 0 2 3 };
      
-    //Create a version of 'x' in band format
+    // Create a version of 'x' in band format
     xBand = band(x,1);
      
-    //Expand the banded version of 'x' back to a full matrix
+    // Expand the banded version of 'x' back to a full matrix
     xNew = bandrv(xBand);
 
 After the code above:

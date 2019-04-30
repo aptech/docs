@@ -46,19 +46,19 @@ Basic usage
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
     
-    //Set the Y-axis label, label font, font size and color 
+    // Set the Y-axis label, label font, font size and color 
     plotSetYLabel(&myPlot, "Time (sec)", "verdana", 10, "black");
     
-    //Create data
+    // Create data
     x = rndn(1e5,1);
     
-    //Plot a histogram of the x data spread over 50 bins
+    // Plot a histogram of the x data spread over 50 bins
     plotHist(myPlot, x, 50);
 
 Setting both Y-axes
@@ -66,7 +66,7 @@ Setting both Y-axes
 
 ::
 
-    //Create with different Y-ranges
+    // Create with different Y-ranges
     x = seqa(1,1,5);
     y = { 98  1.5,
           92  0.9,
@@ -74,19 +74,19 @@ Setting both Y-axes
           94  2.1,
           95  2.4 };
     
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
     
-    //Set the first curve to use the left Y-axis and the second curve to use the right
+    // Set the first curve to use the left Y-axis and the second curve to use the right
     plotSetWhichYAxis(&myPlot, "left" $| "right");
     
-    //Set the left and right Y-axis labels
+    // Set the left and right Y-axis labels
     plotSetYLabel(&myPlot, "Number of subjects", "Percent classified");
     
-    //Plot the data
+    // Plot the data
     plotXY(myPlot, x, y);
 
 Example 3

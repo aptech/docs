@@ -31,19 +31,19 @@ Examples
 
 ::
 
-    //Clear out variables in GAUSS workspace
+    // Clear out variables in GAUSS workspace
     new;
     
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/beef_prices.csv";
     
-    //Import data set starting with row 2 and column 2
+    // Import data set starting with row 2 and column 2
     x = csvReadM(file,2,2);
     
-    //Max lags
+    // Max lags
     k = 20;
     
-    //Order of differencing
+    // Order of differencing
     d = 1;
     
     // PACF plot

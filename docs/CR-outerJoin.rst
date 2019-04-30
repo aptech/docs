@@ -50,8 +50,8 @@ Basic example
     B = { 1  9,
           3 27 };
     
-    //Perform left outer-join, using the first
-    //columns of 'A' and 'B' as key columns
+    // Perform left outer-join, using the first
+    // columns of 'A' and 'B' as key columns
     C = outerJoin(A, 1, B, 1);
 
 After the code above, *C* equals:
@@ -79,9 +79,9 @@ Join on two columns
     a_keys = { 1, 3 };
     b_keys = { 4, 2 };
     
-    //Perform a left-outer join on A and B, based on matches
-    //from the 1st column of A with the 4th column of B
-    //and the 3rd column of A with the 2nd column of B 
+    // Perform a left-outer join on A and B, based on matches
+    // from the 1st column of A with the 4th column of B
+    // and the 3rd column of A with the 2nd column of B 
     C = outerJoin(A, a_keys, B, b_keys);
 
 After the code above, *C* equals:

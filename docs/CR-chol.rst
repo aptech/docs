@@ -48,7 +48,7 @@ Examples
     
     y = chol(x);             
      
-    //y'y is equivalent to y'*y
+    // y'y is equivalent to y'*y
     ypy = y'y;
     
         95.2801   8.6983   3.7248    1.5449      9.7612   0.8911   0.3816   0.1583

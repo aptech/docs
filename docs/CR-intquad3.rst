@@ -62,17 +62,17 @@ Basic example
 
 ::
 
-    //Define function to integrate
+    // Define function to integrate
     proc f(x,y,z);
        retp(sqrt(x.^2 +  y.^2  +  z.^2));
     endp;
      
-    //Define limits of integration
+    // Define limits of integration
     xlim = { 1, 0 };
     ylim = { 1, 0 };
     zlim = { 3, 0 };
      
-    //Calculate integral
+    // Calculate integral
     ans = intquad3(&f,xlim, ylim, zlim);
 
 After the code above, *ans* should equal:
@@ -86,20 +86,20 @@ Passing extra arguments
 
 ::
 
-    //Define function to integrate which takes an additional argument
+    // Define function to integrate which takes an additional argument
     proc f(x,y,z,a);
        retp(sqrt(a .* x.^2 +  y.^2  +  z.^2));
     endp;
      
-    //Define limits of integration
+    // Define limits of integration
     xlim = { 1, 0 };
     ylim = { 1, 0 };
     zlim = { 3, 0 };
     
-    //Define extra scalar argument
+    // Define extra scalar argument
     a = 3.14;
      
-    //Calculate integral, passing in extra scalar argument
+    // Calculate integral, passing in extra scalar argument
     ans = intquad3(&f,xlim, ylim, zlim, a);
 
 After the code above, *ans* should equal:
@@ -113,18 +113,18 @@ Multiple limits of integration
 
 ::
 
-    //Define function to integrate
+    // Define function to integrate
     proc f(x,y,z);
        retp(sqrt(x.^2 +  y.^2  +  z.^2));
     endp;
      
-    //Define 3 sets of limits of integration
+    // Define 3 sets of limits of integration
     xlim = { 1, 0 };
     ylim = { 1, 0 };
     zlim = { 1 2 3, 
              0 0 0 };
      
-    //Calculate integrals
+    // Calculate integrals
     ans = intquad3(&f,xlim, ylim, zlim);
 
 This will integrate the function :math:`f(x) = x*y*z` over 3 sets of limits, since

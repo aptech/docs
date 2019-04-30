@@ -32,11 +32,11 @@ Examples
 
     rndseed 9823432;
     
-    //Create random normal numbers with a standard deviation
-    //of 10 and round them to the nearest integer
+    // Create random normal numbers with a standard deviation
+    // of 10 and round them to the nearest integer
     x = round(10*rndn(24,1));
     
-    //Reshape them from a 24x1 vector into 2x3x4 array
+    // Reshape them from a 24x1 vector into 2x3x4 array
     x = areshape(x,2|3|4);
     
     // Calculate the max across the second dimension

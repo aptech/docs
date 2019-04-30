@@ -31,25 +31,25 @@ Examples
 
 ::
 
-    //Define PV structure
+    // Define PV structure
     #include pv.sdf
-    //Declare 'p1' as an instance of a 'PV' structure
+    // Declare 'p1' as an instance of a 'PV' structure
     struct PV p1;
     
-    //Initialize 'p1' with default values
+    // Initialize 'p1' with default values
     p1 = pvCreate;
     
-    //Data to pack into the 'PV' struct
+    // Data to pack into the 'PV' struct
     x = { 1 2,
           3 4 };
     
-    //1's indicate an element to pack into the structure
-    //0's indicate elements to NOT pack into the structure
+    // 1's indicate an element to pack into the structure
+    // 0's indicate elements to NOT pack into the structure
     mask = { 1 0,
              0 1 };
     
-    //Pack values of 'x' selected by 'mask' into 'pi' and name 
-    //this resulting vector, 'P'
+    // Pack values of 'x' selected by 'mask' into 'pi' and name 
+    // this resulting vector, 'P'
     p1 = pvPackm(p1,x,"P",mask);
      
     print pvGetParNames(p1);

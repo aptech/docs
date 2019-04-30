@@ -39,10 +39,10 @@ Basic example
 
 ::
 
-    //Create 1x3 string array
+    // Create 1x3 string array
     sa_dir = "C:" $~ "gauss" $~ "myProject";
     
-    //Combine 1x3 string array with '/' at end of each element
+    // Combine 1x3 string array with '/' at end of each element
     path = strcombine(sa_dir, "/", 0);
 
 After the above code, path is equal to:

@@ -37,7 +37,7 @@ Examples
     // Move to last state
     ret = dbQuerySeekLast(qid);
     
-    //If 'ret' is equal to 0   
+    // If 'ret' is equal to 0   
     if not  ret;
        print  "dbQuerySeekLast failed";
     else;

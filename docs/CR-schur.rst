@@ -77,11 +77,11 @@ Real matrix with all real eigenvalues
 
 ::
 
-    //Create a 2 x 2 matrix
+    // Create a 2 x 2 matrix
     A = { 7 -2, 
          12 -5 };
     
-    //Calculate eigenvalues of 'A'
+    // Calculate eigenvalues of 'A'
     lambda = eig(A);
 
 After the code above, lambda should equal:
@@ -93,7 +93,7 @@ After the code above, lambda should equal:
 
 ::
 
-    //Continuing with 'A' from above
+    // Continuing with 'A' from above
     { S, Z } = schur(A);
 
 S
@@ -109,16 +109,16 @@ Real matrix with some complex eigenvalues
 
 ::
 
-    //Create a 3 x 3 matrix
+    // Create a 3 x 3 matrix
     A = {  1  -4  -1, 
            3  -1   9, 
           -9   1  -2 };
     
-    //Calculate real schur form, with complex eigenvalues
-    //stored as 2 x 2 blocks on the diagonal
+    // Calculate real schur form, with complex eigenvalues
+    // stored as 2 x 2 blocks on the diagonal
     { S_r, Z_r } = schur(A, "real");
     
-    //Calculate complex schur form
+    // Calculate complex schur form
     { S_c, Z_c } = schur(A, "complex");
 
 After the code above:
@@ -146,12 +146,12 @@ Complex matrix with sorted eigenvalues
 
 ::
 
-    //Create a 3 x 3 complex matrix
+    // Create a 3 x 3 complex matrix
     A = { -1.9615 + 0.4382i   0.0655 + 0.6913i  -1.1424 + 0.1997i, 
            0.1244 + 0.3783i  -0.2821 + 0.0588i   0.4854 + 0.4700i, 
            1.1271 + 0.7045i  -1.5245 - 0.9966i   1.4969 + 0.4450i };
     
-    //Place eigenvalues in unit circle at top-left
+    // Place eigenvalues in unit circle at top-left
     { S, Z } = schur(A, "complex", "udi");
 
 After the code above:

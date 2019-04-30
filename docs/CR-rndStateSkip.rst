@@ -26,14 +26,14 @@ Examples
 
     seed = 9192834;
     
-    //Create a state from the 118th substream of the
-    //Wichmann-Hill RNG
+    // Create a state from the 118th substream of the
+    // Wichmann-Hill RNG
     state = rndCreateState("wh-118", seed);
     
-    //Create a new state that is advanced by 2 numbers.
+    // Create a new state that is advanced by 2 numbers.
     newState = rndStateSkip(2, state);
     
-    //Create and compare numbers from the two state vectors
+    // Create and compare numbers from the two state vectors
     { r, state } = rndu(4, 1, state };
     { r2, newState } = rndu(2, 1, newState);
 

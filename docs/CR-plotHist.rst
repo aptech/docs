@@ -32,10 +32,10 @@ Examples
 
 ::
 
-    //Create some data to plot
+    // Create some data to plot
     x = rndn(5000, 1);
     
-    //Plot the data
+    // Plot the data
     plotHist(x, 20);
 
 .. seealso:: Functions :func:`plotHistP`, :func:`plotHistF`, :func:`plotBar`

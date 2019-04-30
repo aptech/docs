@@ -46,21 +46,21 @@ Examples
 
 ::
 
-    //Bernoulli random numbers can be used to model qualitative
-    //binary data (i.e., yes/no, true/false), such as marital
-    //status.
+    // Bernoulli random numbers can be used to model qualitative
+    // binary data (i.e., yes/no, true/false), such as marital
+    // status.
     
-    //Set the random seed for repeatable numbers.
+    // Set the random seed for repeatable numbers.
     rndseed 723940439;
     
-    //The percentage of married people in the population we
-    //would like to model.
+    // The percentage of married people in the population we
+    // would like to model.
     prob = 0.7;
     
-    //Create 10,000 Bernoulli random numbers
+    // Create 10,000 Bernoulli random numbers
     r = rndBernoulli(10000, 1, prob);
     
-    //The mean of 'r' should approximately equal 'prob'
+    // The mean of 'r' should approximately equal 'prob'
     mu = meanc(r);
     print mu;
 

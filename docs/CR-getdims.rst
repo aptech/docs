@@ -21,11 +21,11 @@ Examples
 
 ::
 
-    //Create a 2x120x12 random normal array
+    // Create a 2x120x12 random normal array
     nelems = 2 * 120 * 12;
     a = areshape(rndn(nelems, 1), 2|120|12);
     
-    //Find ut the number of dimensions in 'a'
+    // Find ut the number of dimensions in 'a'
     ndims = getdims(a);
 
 The code above, assigns *ndims* to be equal to 3.

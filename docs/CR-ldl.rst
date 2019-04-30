@@ -46,7 +46,7 @@ Basic Usage
           3   8   2   3, 
           4   1   3   9 };
     
-    //Factorize matrix 'A'
+    // Factorize matrix 'A'
     { L, D } = ldl(A);
     
     A_new = L * D *  L';

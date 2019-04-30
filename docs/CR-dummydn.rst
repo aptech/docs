@@ -47,16 +47,16 @@ Examples
 
 ::
 
-    //Set seed for repeatable random numbers
+    // Set seed for repeatable random numbers
     rndseed 135345;
     
-    //Create uniform random integers between 1 and 9
+    // Create uniform random integers between 1 and 9
     x = ceil(9*rndu(5,1));
     
-    //Set the breakpoints
+    // Set the breakpoints
     v = { 1, 5, 7 };
     
-    //Column to drop
+    // Column to drop
     p = 2;
     
     dm = dummydn(x,v,p);

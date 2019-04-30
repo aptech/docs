@@ -54,7 +54,7 @@ Examples
 
 ::
 
-    //Scalar inputs
+    // Scalar inputs
     r = 3;
     c = 6;
     range = xlsMakeRange(r, c);
@@ -68,7 +68,7 @@ produces:
 
 ::
 
-    //2x1 vector inputs
+    // 2x1 vector inputs
     r = { 2, 37 };
     c = { 3, 19 };
     range = xlsMakeRange(r, c);

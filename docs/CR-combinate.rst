@@ -31,7 +31,7 @@ Examples
 
 ::
 
-    //Calculate all combinations of 4 items chosen 2 at a time
+    // Calculate all combinations of 4 items chosen 2 at a time
     n = 4;
     k = 2;
     y = combinate(n,k);

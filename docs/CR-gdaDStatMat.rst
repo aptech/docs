@@ -115,13 +115,13 @@ In order to create a real, working example that you can use, you must first crea
 
 ::
 
-    //Create an example GAUSS Data Archive
+    // Create an example GAUSS Data Archive
     ret = gdaCreate("myfile.gda",1);
     
-    //Add a variable 'A' which is a 10x5 random normal matrix
+    // Add a variable 'A' which is a 10x5 random normal matrix
     ret = gdaWrite("myfile.gda",rndn(10,5),"A");
     
-    //Add a variable 'COLS' which is a 5x1 string array
+    // Add a variable 'COLS' which is a 5x1 string array
     string vnames = { "X1", "X2", "X3", "X4", "X5" };
     ret = gdaWrite("myfile.gda", vnames, "COLS");
 

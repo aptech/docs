@@ -28,18 +28,18 @@ Examples
 
 ::
 
-    //Define 'PV' structure
+    // Define 'PV' structure
     #include pv.sdf
-    //Declare 'p1' as an instance of a 'PV' structure
+    // Declare 'p1' as an instance of a 'PV' structure
     struct PV p1;
     
-    //Initialize 'p1' with default values
+    // Initialize 'p1' with default values
     p1 = pvCreate;
     
     x = { 1 2,
           3 4 };
     
-    //1's indicate elements to pack into 'p1' parameter vector
+    // 1's indicate elements to pack into 'p1' parameter vector
     mask = { 1 1,
              0 0 };
      

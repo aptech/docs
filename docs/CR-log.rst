@@ -37,8 +37,8 @@ Examples
 
 ::
 
-    //Create a 3x3 matrix of random uniform integers from 1 
-    //to 11
+    // Create a 3x3 matrix of random uniform integers from 1 
+    // to 11
     x = round(rndu(3,3)*10+1);
     y = log(x);
 

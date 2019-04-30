@@ -39,8 +39,8 @@ Example
 
 ::
 
-   //Create matrix with percent return
-   //of 4 stocks over 11 time periods
+   // Create matrix with percent return
+   // of 4 stocks over 11 time periods
    pcnt_return = {  0.0646   1.2326   0.0508  -0.0346,
                    -0.1632   0.1806   0.1104   0.1276, 
                     1.3477   1.3347   0.1424   0.0159, 
@@ -53,7 +53,7 @@ Example
                    -0.2218   0.3772   0.1189   0.1234, 
                     1.1778  -0.0464  -0.1282   0.2171 };
 
-   //Compute: all 4 principal component vectors,
+   // Compute: all 4 principal component vectors,
    //         percent variance explained
    //         matrix of factor loadings
    { p, v, a } = princomp(pcnt_return, 4);

@@ -44,7 +44,7 @@ Basic usage. If a state or seed is not passed in, then only the random numbers a
 
 ::
 
-    //Create a 100x1 vector of uniform random numbers
+    // Create a 100x1 vector of uniform random numbers
     y = rndu(100, 1);
 
 rndu can be used to create a vector of random integers in a specified range. The example below, creates 30 random integers in the range [1, 1000].
@@ -52,10 +52,10 @@ rndu can be used to create a vector of random integers in a specified range. The
 
 ::
 
-    //Largest number in integer range
+    // Largest number in integer range
     size = 1000; 
     
-    //Number of integers to calculate
+    // Number of integers to calculate
     num_indices = 30;
     
     idx = ceil(size .* rndu(num_indices, 1));
@@ -68,17 +68,17 @@ next generation of random numbers.
 
 ::
 
-    //starting seed
+    // starting seed
     state = 13;
     
-    //Number of submeans to calculate
+    // Number of submeans to calculate
     n_iters = 2000;
     
-    //Number of random numbers to generate
-    //on each iteration
+    // Number of random numbers to generate
+    // on each iteration
     k = 1000000;
     
-    //Pre-allocate 'submean' vector
+    // Pre-allocate 'submean' vector
     submean = zeros(n_iters, 1);
      
     for i(1, n_iters, 1);

@@ -47,11 +47,11 @@ Basic usage
 
 ::
 
-    //Set 'err_code' to contain a scalar error
-    //code, holding the value 28
+    // Set 'err_code' to contain a scalar error
+    // code, holding the value 28
     err_code = error(28);
     
-    //Decode error code
+    // Decode error code
     err_num = scalerr(err_code);
     
     print err_num;
@@ -75,27 +75,27 @@ restored before the procedure returns.
     proc syminv(x);
        local oldtrap,y;
     
-       //Check to see if 'x' is symmetric
+       // Check to see if 'x' is symmetric
        if not x == x';
           retp(error(99));
        endif;
     
-       //Store current error trap state
+       // Store current error trap state
        oldtrap = trapchk(0xffff);
     
-       //Turn on trapping of errors
+       // Turn on trapping of errors
        trap 1;
     
-       //Attempt matrix inversion with 'invpd'
+       // Attempt matrix inversion with 'invpd'
        y = invpd(x);
     
-       //Attempt inversion with 'inv' if
+       // Attempt inversion with 'inv' if
        //'invpd' returned an error code
        if scalerr(y);
           y = inv(x);
        endif;
     
-       //Reset trap state 
+       // Reset trap state 
        trap oldtrap,0xffff;
     
        retp(y);

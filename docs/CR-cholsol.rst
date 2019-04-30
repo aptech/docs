@@ -46,20 +46,20 @@ Examples
 
 ::
 
-    //Assign the right-hand side 'b' and the Cholesky 
-    //factorization 'C'
+    // Assign the right-hand side 'b' and the Cholesky 
+    // factorization 'C'
     b = { 0.03177513, 0.41823100, 1.70129375 };
     C = { 1.73351215 1.53201723 1.78102499,
                    0 1.09926365 0.63230050,
                    0          0 0.67015361 };
     
-    //Solve the system of equations
+    // Solve the system of equations
     x = cholsol(b,C);
     
-    //Note: C'C is equivalent to C'*C
+    // Note: C'C is equivalent to C'*C
     A = C'C;
     
-    //Solve the system of equations
+    // Solve the system of equations
     x2 = b/A;
     
         -1.9440       -1.9440

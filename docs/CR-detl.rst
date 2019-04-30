@@ -56,8 +56,8 @@ the following code will be the fastest for matrices larger than 10x10:
 
 ::
 
-    //The 'call' keyword tells GAUSS to ignore the values
-    //returned from chol
+    // The 'call' keyword tells GAUSS to ignore the values
+    // returned from chol
     call chol(x);
     xd = detl;
 

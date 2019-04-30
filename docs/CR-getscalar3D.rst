@@ -40,10 +40,10 @@ Examples
 
 ::
 
-    //Create a column vector 1, 2, 3,...24
+    // Create a column vector 1, 2, 3,...24
     a = seqa(1,1,24);
     
-    //Reshape the column vector into a 2x3x4 dimensional array
+    // Reshape the column vector into a 2x3x4 dimensional array
     a = areshape(a,2|3|4);
     
     y = getscalar3D(a,1,3,2);

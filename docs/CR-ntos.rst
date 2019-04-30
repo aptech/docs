@@ -39,10 +39,10 @@ Example 1
 
 ::
 
-    //Set 'pi_num' equal to the constant 'pi'
+    // Set 'pi_num' equal to the constant 'pi'
     pi_num = pi;
     
-    //Create a string containing the first 6 digits of pi
+    // Create a string containing the first 6 digits of pi
     pi_str = ntos(pi_num);
     print pi_str;
 
@@ -59,10 +59,10 @@ Example 2
 
     roi = 6.725301;
     
-    //Convert to string with 3 digits
+    // Convert to string with 3 digits
     roi_str = ntos(roi, 3);
     
-    //Combine strings
+    // Combine strings
     out = "The project had an ROI of " $+ roi_str $+ "%";
     print out;
 
@@ -81,7 +81,7 @@ Example 3
              1983 2.20272, 
              1984 2.55102 };
     
-    //Convert to string array with max of 5 digits per element
+    // Convert to string array with max of 5 digits per element
     parms = ntos(parm, 5);
 
     print parms;

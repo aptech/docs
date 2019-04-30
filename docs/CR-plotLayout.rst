@@ -24,29 +24,29 @@ Examples
 
 ::
 
-    //Create 10x4 matrix where each column is an additive
-    //sequence from 0.1 to 1.0
+    // Create 10x4 matrix where each column is an additive
+    // sequence from 0.1 to 1.0
     x = seqa(0.1, 0.1, 10);
     y = ones(10, 4).*x;
     
-    //Apply a function to each column of 'y'
+    // Apply a function to each column of 'y'
     y[.,1] = cos(x);
     y[.,2] = sin(x);
     y[.,3] = cdfn(x);
     y[.,4] = exp(x);
     
     for i(1, 4, 1);
-       //Divide plot canvas into a 2x2 grid of subplot
-       //locations and place each newly created graph in the
-       //next available cell location.
+       // Divide plot canvas into a 2x2 grid of subplot
+       // locations and place each newly created graph in the
+       // next available cell location.
        plotLayout(2, 2, i);
     
-       //Plot each column of y in a separate subplot window.
+       // Plot each column of y in a separate subplot window.
        plotXY(x, y[.,i]);
     endfor;
     
-    //Clear the layout so the next plot will not be inside this 
-    //layout
+    // Clear the layout so the next plot will not be inside this 
+    // layout
     plotClearLayout();
 
 Remarks

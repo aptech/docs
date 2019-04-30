@@ -34,11 +34,11 @@ Read all contents from the file "yarn.xlsx" located in GAUSS home working direct
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/yarn.xlsx";
     //"A1" means start from A1
-    //1 = sheet number 				
-    //Call xlsReadSA function
+    // 1 = sheet number 				
+    // Call xlsReadSA function
     s = xlsReadSA(file, "A1", 1);
 
 Read From a Range
@@ -75,21 +75,21 @@ Remarks
 
    ::
 
-      //Will end the program and print an error message
+      // Will end the program and print an error message
       x = xlsReadSA("nonexistent_file.xlsx");
 
    ::
 
-      //Turn error trapping on
+      // Turn error trapping on
       trap 1;
       x = xlsReadSA("nonexistent_file.xlsx");
 
-      //Check to see if 'x' is a scalar error code
+      // Check to see if 'x' is a scalar error code
       if scalmiss(x);
-         //Code to handle error case here
+         // Code to handle error case here
       endif;
 
-      //Turn error trapping off
+      // Turn error trapping off
       trap 0;
 
 #. By default, empty cells are imported as empty strings. The vls
@@ -124,11 +124,11 @@ Remarks
 
    ::
 
-      //Create a 9x1 vector of empty strings
+      // Create a 9x1 vector of empty strings
       vls = reshape("",9,1);
 
-      //Set the 1st and 8th element of 'vls' to the string 'NULL' so that
-      //Excel #NULL! and empty cells will be imported as the string 'NULL'
+      // Set the 1st and 8th element of 'vls' to the string 'NULL' so that
+      // Excel #NULL! and empty cells will be imported as the string 'NULL'
       vls[1] = "NULL;
       vls[8] = "NULL";
 

@@ -30,17 +30,17 @@ Examples
 
 ::
 
-    //Setting the rng seed allows for repeatable 
-    //random numbers
+    // Setting the rng seed allows for repeatable 
+    // random numbers
     rndseed 8237348;
     
-    //Create a 24x1 vector of random normal numbers 
-    //with a standard deviation of 10 and then round
-    //to the nearest integer value
+    // Create a 24x1 vector of random normal numbers 
+    // with a standard deviation of 10 and then round
+    // to the nearest integer value
     x = round(10*rndn(24,1));
     
-    //Reshape the 24x1 vector into a 2x3x4 dimensional array
-    //NOTE: The pipe operator '|' is for vertical concatenation
+    // Reshape the 24x1 vector into a 2x3x4 dimensional array
+    // NOTE: The pipe operator '|' is for vertical concatenation
     x = areshape(x,2|3|4);
     
     dim = 2;

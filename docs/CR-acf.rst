@@ -28,7 +28,7 @@ Examples
 
 ::
 
-    //Short time-series
+    // Short time-series
     x = { 12.92, 
           14.28,
           13.31,
@@ -45,13 +45,13 @@ Examples
           8.390,
           8.660  };
     
-    //Maximum number of lags 
+    // Maximum number of lags 
     k = 4;
     
-    //Order of differencing
+    // Order of differencing
     d = 1;
     
-    //Calculate and print result of autocorrelation function
+    // Calculate and print result of autocorrelation function
     rk = acf(x, k, d);
     print rk;
 
@@ -77,19 +77,19 @@ Calculate the autocorrelation function and plot the results for "beef_prices" da
 
 ::
 
-    //Get file name with full path
+    // Get file name with full path
     file = getGAUSSHome() $+ "examples/beef_prices.csv";
     
-    //Import data set starting with row 2 and column 2
+    // Import data set starting with row 2 and column 2
     beef = csvReadM(file, 2, 2);
     
-    //Max lags
+    // Max lags
     k = 10;
     
-    //Order of differencing
+    // Order of differencing
     d = 0; 
     
-    //Call acf function
+    // Call acf function
     beef_acf = acf(beef, k, d);
 
 The following code can give the time plot and sample ACF plot based on the beef and beef_acf:
@@ -97,31 +97,31 @@ The following code can give the time plot and sample ACF plot based on the beef 
 ::
 
     // Time series plot
-    //Step 1: Declare a plotControl structure 
+    // Step 1: Declare a plotControl structure 
     struct plotControl ctl;
     ctl = plotGetDefaults("xy");
     
-    //Step 2: the time plot
-    //Making a 1 by 2 plot, the first plot is the time plot
+    // Step 2: the time plot
+    // Making a 1 by 2 plot, the first plot is the time plot
     plotLayout(1,2,1);
     				
-    //Labels and format setting based on 'beef' matrix
+    // Labels and format setting based on 'beef' matrix
     plotSetYLabel(&ctl, "cents/lb");
     plotSetXLabel(&ctl, "Year");
     plotSetXTicLabel(&ctl, "YYYY");
     plotSetXTicInterval(&ctl, 120, 199501);
     
-    //Draw time series plot
+    // Draw time series plot
     plotTS(ctl, 1992, 12, beef);
     
-    //Making a 1 by 2 plot, the second plot is the ACF plot
+    // Making a 1 by 2 plot, the second plot is the ACF plot
     plotLayout(1,2,2);
     
-    //Step 3: ACF plot
-    //Fill 'ctl' structure with bar plot defaults
+    // Step 3: ACF plot
+    // Fill 'ctl' structure with bar plot defaults
     ctl = plotGetDefaults("bar");
     
-    //Set labels and format based on 'beef_acf' matrix 
+    // Set labels and format based on 'beef_acf' matrix 
     plotSetYLabel(&ctl, "ACF");
     plotSetXLabel(&ctl, "Lag");
     plotSetXTicInterval(&ctl, 1, 5);

@@ -21,11 +21,11 @@ declared before it can be used.
 
 ::
 
-    //declare 'c' as an 
-    //eqSolvemtControl structure 
+    // declare 'c' as an 
+    // eqSolvemtControl structure 
     struct eqSolvemtControl c;
     
-    //initialize structure c
+    // initialize structure c
     c = eqSolvemtControlCreate();
 
 The members of an :class:`eqSolvemtControl` structure and default values are described in

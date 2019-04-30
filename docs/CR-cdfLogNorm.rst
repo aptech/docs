@@ -31,7 +31,7 @@ Basic Example
 
 ::
 
-    //Use default 'mu' and 'sigma'
+    // Use default 'mu' and 'sigma'
     p = cdfLogNorm(1.7);
 
 After the above, code *p* will equal:
@@ -45,14 +45,14 @@ Specify 'mu' and 'sigma'
 
 ::
 
-    //Create vector of 'x' values
+    // Create vector of 'x' values
     x = { 0.1, 1.6, 2 };
     
     mu = 1.5;
     sigma = 2;
     
-    //Compute the CDF for the lognormal distribution
-    //parameterized by mu = 1.5 and sigma = 2
+    // Compute the CDF for the lognormal distribution
+    // parameterized by mu = 1.5 and sigma = 2
     p = cdfLogNorm(x, mu, sigma);
 
 After the above, code *p* will equal:

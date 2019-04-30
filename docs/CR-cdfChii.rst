@@ -26,12 +26,12 @@ value of 4:
 
 ::
 
-    //Set the rng seed for repeatable random numbers
+    // Set the rng seed for repeatable random numbers
     rndseed 464578;
     
-    //Set the 'probabilities' input equal to a 3x3 matrix of
-    //uniform random numbers and the degrees of freedom' input
-    //to be a 3x3 matrix with each element equal to '4'
+    // Set the 'probabilities' input equal to a 3x3 matrix of
+    // uniform random numbers and the degrees of freedom' input
+    // to be a 3x3 matrix with each element equal to '4'
     x = cdfChii(rndu(3,3),4+zeros(3,3));
 
 After the code above:

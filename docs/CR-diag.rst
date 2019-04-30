@@ -62,7 +62,7 @@ Using :func:`diag` function for a 3x4x4 dimensional array.
 
     x = rndn(48,1);
     
-    //Reshape the 48x1 vector into a 3x4x4 dimensional array
+    // Reshape the 48x1 vector into a 3x4x4 dimensional array
     x = areshape(x, 3|4|4);
     d = diag(x);
 

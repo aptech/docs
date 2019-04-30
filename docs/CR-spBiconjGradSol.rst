@@ -44,12 +44,12 @@ Examples
      sparse matrix a;
      a = densetosp(nz,0);
      
-     //Setting the third and fourth arguments to 0 employs the 
-     //default tolerance and maxit settings
+     // Setting the third and fourth arguments to 0 employs the 
+     // default tolerance and maxit settings
      x = spBiconjGradSol(a,b,0,0);
      
-     //Solve the system of equations using the '/' operator for 
-     //comparison
+     // Solve the system of equations using the '/' operator for 
+     // comparison
      x2 = b/a;
 
 The output from the above code:

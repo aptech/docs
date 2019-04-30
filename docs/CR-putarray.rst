@@ -41,12 +41,12 @@ Examples
 
 ::
 
-    //Create a 2x3x4x5x6 dimensional array with unspecified 
-    //contents
+    // Create a 2x3x4x5x6 dimensional array with unspecified 
+    // contents
     a = arrayalloc(2|3|4|5|6,0);
     
-    //Create a 4x5x6 dimensional array with all elements equal 
-    //to 5
+    // Create a 4x5x6 dimensional array with all elements equal 
+    // to 5
     src = arrayinit(4|5|6,5);
     
     loc = { 2,1 };

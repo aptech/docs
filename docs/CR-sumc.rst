@@ -20,14 +20,14 @@ Examples
 
 ::
 
-    //Create a 12x1 vector containing an additive sequence 
-    //counting by twos, from 0-22, i.e. 2, 4, 6, 8...22
+    // Create a 12x1 vector containing an additive sequence 
+    // counting by twos, from 0-22, i.e. 2, 4, 6, 8...22
     x = seqa(0,2,12);
     
-    //Reshape the 12x1 vector 'x' into a 3x4 matrix
+    // Reshape the 12x1 vector 'x' into a 3x4 matrix
     x = reshape(x,3,4));
     
-    //Sum the columns
+    // Sum the columns
     y = sumc(x);
 
 After the above code, the variables x and y are equal to:
@@ -45,12 +45,12 @@ After the above code, the variables x and y are equal to:
 
 ::
 
-    //Create an additive sequence from 1-24 and reshape it into 
-    //a 2x3x4 array
+    // Create an additive sequence from 1-24 and reshape it into 
+    // a 2x3x4 array
     a = areshape(seqa(1,1,24),2|3|4);
     
-    //Sum the columns across the second fastest moving 
-    //dimension
+    // Sum the columns across the second fastest moving 
+    // dimension
     z = sumc(a);
 
 a is a 2x3x4 array such that:

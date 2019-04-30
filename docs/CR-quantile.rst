@@ -96,14 +96,14 @@ Examples
 
 ::
 
-    //Set the rng seed for repeatable random numbers
+    // Set the rng seed for repeatable random numbers
                     
     rndseed 345567;
     
-    //Create a 1000x4 random normal matrix
+    // Create a 1000x4 random normal matrix
     x = rndn(1000,4);
     
-    //Quantile levels
+    // Quantile levels
     e = { .025, .5, .975 };
     			
     y = quantile(x, e);

@@ -56,23 +56,23 @@ Plain interpreter
 
     new;
     					
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
     
-    //Set the interpreter of axes 
+    // Set the interpreter of axes 
     plotSetTextInterpreter(&myPlot, "plain", "axes");
     
-    //Set the X-axis label, using the > character which would
-    //would fail with the default HTML interpreter.
+    // Set the X-axis label, using the > character which would
+    // would fail with the default HTML interpreter.
     plotSetXLabel(&myPlot, "Weight > 50 Kg");
     
-    //Create data
+    // Create data
     x = rndn(1e5,1);
     
-    //Plot a histogram of the x data spread over 50 bins
+    // Plot a histogram of the x data spread over 50 bins
     plotHist(myPlot, x, 50);
 
 HTML interpreter
@@ -82,12 +82,12 @@ You may add Greek letters, mathematical symbols, subscript and superscript to yo
 
 ::
 
-    //Set the interpreter of axes 
+    // Set the interpreter of axes 
     plotSetTextInterpreter(&myPlot, "html", "axes");		
     
     label_string = "β";
     
-    //Set the X-axis label
+    // Set the X-axis label
     plotSetXLabel(&myPlot, label_string);
 
 The code above will add the letter :math:`β` to the graph title. The HTML 'sup' tag will create superscript and the 'sub' tag will create subscript. For example:
@@ -96,7 +96,7 @@ The code above will add the letter :math:`β` to the graph title. The HTML 'sup'
 
     label_string = "σ<sup>2</sup>";
     
-    //Set the X-axis label
+    // Set the X-axis label
     plotSetXLabel(&myPlot, label_string);
 
 will add :math:`σ2` to your title. While,
@@ -107,7 +107,7 @@ will add :math:`σ2` to your title. While,
 
     label_string = "Y<sub>t-1</sub>";
     
-    //Set the X-axis label
+    // Set the X-axis label
     plotSetXLabel(&myPlot, label_string);
 
 will create Yt-1.

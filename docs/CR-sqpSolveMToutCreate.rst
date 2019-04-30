@@ -17,10 +17,10 @@ Examples
 
 ::
 
-    //Declare instance of structure
+    // Declare instance of structure
     struct sqpSolveMTout out;
     
-    //Initialize the structure to default values
+    // Initialize the structure to default values
     out = sqpSolveMToutCreate();
 
 Source

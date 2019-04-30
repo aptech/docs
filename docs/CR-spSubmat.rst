@@ -47,10 +47,10 @@ Examples
     
     y = denseToSp(x,0);
     
-    //Extract all columns; rows 1, 3 and 4
+    // Extract all columns; rows 1, 3 and 4
     z = spSubmat(y,1|3|4,0);
     
-    //Extract all values from 'z' into a dense matrix 'd'
+    // Extract all values from 'z' into a dense matrix 'd'
     d = spDenseSubmat(z,0,0);
 
 Now d is equal to:

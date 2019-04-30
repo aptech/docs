@@ -37,16 +37,16 @@ Use string labels
 
 ::
 
-    //Create two columns of random data
+    // Create two columns of random data
     nobs = 1e5;
     y_1 = rndPoisson(nobs, 1, 10);
     y_2 = rndPoisson(nobs, 1, 12);
     
-    //Create a 2x1 string array, using the
-    //horizontal string concatenation operator
+    // Create a 2x1 string array, using the
+    // horizontal string concatenation operator
     labels = "control" $| "experimental";
     
-    //Draw the two boxes
+    // Draw the two boxes
     plotBox(labels, y_1~y_2);
 
 .. figure:: _static/images/gauss15_boxplot_2.png
@@ -56,15 +56,15 @@ Using numeric labels
 
 ::
 
-    //Create two columns of random data
+    // Create two columns of random data
     nobs = 1e5;
     y_1 = rndn(nobs, 1);
     y_2 = rndn(nobs, 1);
     
-    //Create a 2x1 vector of numeric labels
+    // Create a 2x1 vector of numeric labels
     labels = { 2000, 2010 };
     
-    //Draw the two boxes
+    // Draw the two boxes
     plotBox(labels, y_1~y_2);
 
 .. figure:: _static/images/gauss15_boxplot_1.png

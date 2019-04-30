@@ -30,17 +30,17 @@ Examples
 
 ::
 
-    //Random integers between 1 and 72
+    // Random integers between 1 and 72
     age = ceil(72 * rndu(100, 1));
     
-    //Random normal numbers with a mean of 70 and a standard
-    //deviation of 10
+    // Random normal numbers with a mean of 70 and a standard
+    // deviation of 10
     income = 10 * rndn(100, 1) + 70;
     
-    //Vertically concatenate the strings
+    // Vertically concatenate the strings
     vnames = "age"$|"income";
     
-    //Merge the variables into 1 matrix
+    // Merge the variables into 1 matrix
     agInc = mergevar(vnames);
 
 The column vectors *age* and *income* will be concatenated
@@ -49,8 +49,8 @@ is equivalent to:
 
 ::
 
-    //Combine the matrices using the horizontal concatenation
-    //operator
+    // Combine the matrices using the horizontal concatenation
+    // operator
     agInc = age~income;
 
 Source

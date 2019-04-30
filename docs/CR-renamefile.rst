@@ -30,11 +30,11 @@ In this example, a file in the current working directory with the name "myfile.g
 
 ::
 
-    //On Windows
+    // On Windows
     ret = renamefile("c:\\gauss17\\myfile.gss",
       "c:\\gauss17\\mynewfile.gss");        
     
-    //On Linux/Mac
+    // On Linux/Mac
     ret = renamefile("/home/user/gauss17/myfile.gss",
       "/home/user/gauss17/mynewfile.gss");
 

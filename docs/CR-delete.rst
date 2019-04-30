@@ -52,7 +52,7 @@ Examples
 
 ::
 
-    //Create a matrix 'x'
+    // Create a matrix 'x'
     x = { 1, 2, 3, 4 };
     
     //'show' returns information about active symbols

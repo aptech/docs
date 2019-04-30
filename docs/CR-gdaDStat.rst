@@ -106,7 +106,7 @@ Examples
     struct dstatmtControl dc0;
     struct dstatmtOut dout;
     
-    //Set structure to default values
+    // Set structure to default values
     dc0 = dstatmtControlCreate();
     
     vars = { 1,4,5,8 };

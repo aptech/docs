@@ -47,10 +47,10 @@ At its essence, `loopnextindex` provides a simple way to iterate over the orders
 
 ::
 
-    //The orders of the array
+    // The orders of the array
     orders = { 2, 3, 4 };
     
-    //The starting index of the array
+    // The starting index of the array
     ind = { 1, 1, 1 };
     
     lnilab:

@@ -39,16 +39,16 @@ Examples
 
 ::
 
-    //Declare 'y' to be a sparse matrix
+    // Declare 'y' to be a sparse matrix
     
     sparse matrix y;
     
-    //Create the non-zero values to place in the sparse matrix
+    // Create the non-zero values to place in the sparse matrix
     vals = { 1.7, 2.4, 3.2, 4.5 };
     
-    //Set the row and column indices for the location in which
-    //to place each successive element of 'vals' into the new 
-    //matrix
+    // Set the row and column indices for the location in which
+    // to place each successive element of 'vals' into the new 
+    // matrix
     rinds = { 2,5,8,13 };
     cinds = { 4,1,9,5 };
     

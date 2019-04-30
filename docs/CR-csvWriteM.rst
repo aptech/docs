@@ -53,12 +53,12 @@ Write the contents from a matrix to a new file named  mydata.csv located in your
 
 ::
 
-    //Create a simple matrix
+    // Create a simple matrix
     x = { 1 2,
           3 4,
           5 6 };
     
-    //Write the contents of 'x' to a file named 'myfile.csv'
+    // Write the contents of 'x' to a file named 'myfile.csv'
     ret = csvWriteM(x, "myfile.csv");
 
 Create a tab separated text file
@@ -66,15 +66,15 @@ Create a tab separated text file
 
 ::
 
-    //Create a simple matrix
+    // Create a simple matrix
     x = { 1 2,
           3 4,
           5 6 };
     
-    //Specify the optional separator input to be a tab character
+    // Specify the optional separator input to be a tab character
     sep = "\t";
     
-    //Write the data to the file 'mytabdata.csv'
+    // Write the data to the file 'mytabdata.csv'
     ret = csvWriteM(x, "mytabdata.csv", sep);
 
 Specify the precision with which to write the data
@@ -82,18 +82,18 @@ Specify the precision with which to write the data
 
 ::
 
-    //Create a simple matrix
+    // Create a simple matrix
     x = { 1.102  2.001,
           3.041  4.232,
           5.113  6.523 };
     
-    //Specify the optional separator input to be a commar
+    // Specify the optional separator input to be a commar
     sep = ",";
     
-    //Specify the number of significant digits to print
+    // Specify the number of significant digits to print
     prec = 2;
     
-    //Write the data to the file 'mydata.csv'
+    // Write the data to the file 'mydata.csv'
     ret = csvWriteM(x, "mydata.csv", sep, prec);
 
 Append to an existing file
@@ -101,15 +101,15 @@ Append to an existing file
 
 ::
 
-    //Create a simple matrix
+    // Create a simple matrix
     x = { 9.008  1.005,
           1.445  4.247,
           2.913  1.020 };
     
-    //1 for append
+    // 1 for append
     append_flag = 1;
     
-    //Append the data to the file 'mydata.csv'
+    // Append the data to the file 'mydata.csv'
     ret = csvWriteM(x, "mydata.csv", ",", 2, append_flag);
 
 Specify Windows style CRLF line endings
@@ -117,7 +117,7 @@ Specify Windows style CRLF line endings
 
 ::
 
-    //Create a simple matrix
+    // Create a simple matrix
     x = { 9.008  1.005,
           1.445  4.247,
           2.913  1.020 };
@@ -125,7 +125,7 @@ Specify Windows style CRLF line endings
     //'\c\r' indicates carriage return followed by a line feed
     line_feed= "\c\r";
     
-    //Append the data to the file 'mydata.csv'
+    // Append the data to the file 'mydata.csv'
     ret = csvWriteM(x, "mydata.csv", ",", 2, 0, line_feed);
 
 Specify full path to file

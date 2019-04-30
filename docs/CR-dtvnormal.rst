@@ -53,11 +53,11 @@ Examples
     dStart = { 2011 08 21 6 21 37 0 0 };
     mnth = { 0 1 0 0 0 0 0 0 };
     
-    //Add 6 months to 'dStart' which will give a 14 for the 
-    //month
+    // Add 6 months to 'dStart' which will give a 14 for the 
+    // month
     dEnd = dStart + 6*mnth;
     
-    //Normalize the date vector
+    // Normalize the date vector
     dEnd2 = dtvnormal(dEnd);
 
 After the code above:

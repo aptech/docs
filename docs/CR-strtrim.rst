@@ -23,10 +23,10 @@ Basic example
 
 ::
 
-    //Create a string with leading and trailing spaces
+    // Create a string with leading and trailing spaces
     str = "   Time Series Estimation   ";
     
-    //Remove leading and trailing spaces from string
+    // Remove leading and trailing spaces from string
     str_mod = strtrim(str);
 
 After the code above, str should contain:
@@ -50,10 +50,10 @@ each variable name is an element in the string array.
 
 ::
 
-    //Create string similar to a messy header row
+    // Create string similar to a messy header row
     header_vars = "alpha, beta, gamma";
     
-    //Split string into 3x1 string array at comma locations//(notice the transpose operator ' at the end of the statement
+    // Split string into 3x1 string array at comma locations//(notice the transpose operator ' at the end of the statement
     header_sa = strsplit(header_vars, ",")';
 
 After the above code, header_sa will equal (NOTE: the print function will automatically align the string array, so 'print header_sa' will make it appear
@@ -69,7 +69,7 @@ You can remove the leading and trailing spaces with strtrim, like this:
 
 ::
 
-    //Remove leading and trailing spaces
+    // Remove leading and trailing spaces
     header_sa = strtrim(header_sa);
 
 Which will transform header_sa into:

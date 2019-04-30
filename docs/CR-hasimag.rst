@@ -47,9 +47,9 @@ Examples
           7   8i 9 };
      
     if hasimag(x);
-        //code path for complex case
+        // code path for complex case
     else;
-        //code path for real case
+        // code path for real case
     endif;
 
 .. seealso:: Functions :func:`iscplx`

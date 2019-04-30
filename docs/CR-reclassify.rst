@@ -31,7 +31,7 @@ Change instances of 1, 2 and 3 to 'low', 'medium' and 'high'.
 
 ::
 
-    //Vector to be changed
+    // Vector to be changed
     x = { 2,
           3,
           2,
@@ -43,8 +43,8 @@ Change instances of 1, 2 and 3 to 'low', 'medium' and 'high'.
              2,
              3 };
     
-    //Create a 3x1 string array using
-    //string vertical concatenation operator
+    // Create a 3x1 string array using
+    // string vertical concatenation operator
     to = "low" $| "medium" $| "high";
     
     x_new = reclassify(x, from, to);

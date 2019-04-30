@@ -15,24 +15,24 @@ Examples
 
 ::
 
-    //Create data
+    // Create data
     x = rndn(10000, 1);
     x2 = rndn(10000, 1);
     x3 = rndn(10000, 1); 
     
-    //Plot first vector as a percentage histogram with 30 bins
+    // Plot first vector as a percentage histogram with 30 bins
     plotHistP(x, 30);
     
-    //Plot second vector, drawing over the previously created 
-    //graph.
+    // Plot second vector, drawing over the previously created 
+    // graph.
     plotHistP(x2, 30);
     
-    //Create a new graphic window and plot the second vector as 
-    //a percentage histogram with 30 bins inside this new 
-    //window.
+    // Create a new graphic window and plot the second vector as 
+    // a percentage histogram with 30 bins inside this new 
+    // window.
     plotOpenWindow();
     
-    //Draw the graph
+    // Draw the graph
     plotHistP(x3, 30);
 
 Remarks

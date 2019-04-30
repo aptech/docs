@@ -47,13 +47,13 @@ Examples
 
 ::
 
-    //Set seed for repeatable random numbers
+    // Set seed for repeatable random numbers
     
     rndseed 49728424;
     
     x = rndu(3,2);
     
-    //Logical expression
+    // Logical expression
     mask =(x .> .30) .and (x .< .60);
     y = missex(x,mask);
 

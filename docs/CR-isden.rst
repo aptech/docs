@@ -24,13 +24,13 @@ Sometimes denormals can unnecessarily slow down calculations and it is best to f
 
     tol = 1e-25;
     
-    //Create a vector that contains a denormal
+    // Create a vector that contains a denormal
     x = { 1, exp(-724.5), 3 };
     
     if isden(x);
-       //Get the index of all elements between 0 and tol
+       // Get the index of all elements between 0 and tol
        idx = indexcat(x,0|tol);
-       //Set all elements between 0 and tol equal to 0
+       // Set all elements between 0 and tol equal to 0
        x[idx] = 0;
     endif;
 

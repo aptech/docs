@@ -34,27 +34,27 @@ This example extracts all of the years which are evenly divisible by four, from 
 
 ::
 
-    //Create a vector with all years from 1900 to 2000
-    //i.e. 1900, 1901, 1902...2000
+    // Create a vector with all years from 1900 to 2000
+    // i.e. 1900, 1901, 1902...2000
     yrs = seqa(1900, 1, 101);
     
-    //Create an empty matrix into which we can put our output
+    // Create an empty matrix into which we can put our output
     y4 = {};
     
-    //Loop through each element in yrs
+    // Loop through each element in yrs
     for i(1, rows(yrs), 1);
-       //If the 'i'th element of 'yrs' is evenly divisible by 
-       //4, vertically concatenate it on to the bottom of 'y4'
+       // If the 'i'th element of 'yrs' is evenly divisible by 
+       // 4, vertically concatenate it on to the bottom of 'y4'
        if not fmod(yrs[i], 4);
           y4 = y4|yrs[i];
        endif;
     endfor;
     
-    //No digits after the decimal place
+    // No digits after the decimal place
     format /rd 8,0;
     
-    //Split 'y4' into two columns, each with half of the data 
-    //and print the columns next to each other
+    // Split 'y4' into two columns, each with half of the data 
+    // and print the columns next to each other
     print y4[1:13]~y4[14:26];
 
 produces:

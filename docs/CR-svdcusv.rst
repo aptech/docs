@@ -33,7 +33,7 @@ Examples
 
 ::
 
-    //Create a 10x3 matrix
+    // Create a 10x3 matrix
     x = {  -0.60     3.50     0.47, 
             8.40    16.50     0.27,
            11.40     6.50     0.17,
@@ -45,7 +45,7 @@ Examples
           -11.60   -19.50     0.77,
             6.40    11.50     0.07 };
     
-    //Calculate the singular values
+    // Calculate the singular values
     { u, s, v } = svdcusv(x);
 
 After the code above, u, s and v will be equal to:
@@ -97,15 +97,15 @@ Remarks
 
    ::
 
-      //Turn on error trapping
+      // Turn on error trapping
       trap 1;
 
-      //Compute singular value decomposition
+      // Compute singular value decomposition
       { u, s, v } = svdcusv(x);
 
-      //Check for failure or success
+      // Check for failure or success
       if scalmiss(s[1,1]);
-         //Code for failure case
+         // Code for failure case
       endif;
 
    Note that in the trap 1 case, if the input to svdcusv is a
@@ -116,7 +116,7 @@ Remarks
 
    ::
 
-      //Check for success or failure of each submatrix
+      // Check for success or failure of each submatrix
       if ismiss(s[.,1,1]);
 
 .. seealso:: Functions :func:`svd2`, :func:`svds`, :func:`svdusv`

@@ -46,11 +46,11 @@ Examples
 
 ::
 
-    //Create a 5 x 3 matrix of random integers
-    //between 1 and 30
+    // Create a 5 x 3 matrix of random integers
+    // between 1 and 30
     x = ceil(30*rndu(5, 3));
     
-    //Sort the columns based upon the first row 
+    // Sort the columns based upon the first row 
     y = sortr(x,1);
 
 Examine the variables after the code above. Notice that the columns remain the same, but their order has changed.

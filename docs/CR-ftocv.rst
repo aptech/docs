@@ -43,10 +43,10 @@ Basic examples
 
 ::
 
-    //Field width for 7 characters (including '.'). Display 5 characters after decimal point
+    // Field width for 7 characters (including '.'). Display 5 characters after decimal point
     x = ftocv(1.23456789, 7,5);
     
-    //Print character vector
+    // Print character vector
     print $x;
 
 The code above will return the following output:
@@ -84,12 +84,12 @@ Combining text with numbers
 
     y = { 6, 7, 8, 9, 10 };
     
-    //Combine 'beta' with the vector of numbers in 'y'
-    //Use 2 characters for each number with 0 after the decimal point
+    // Combine 'beta' with the vector of numbers in 'y'
+    // Use 2 characters for each number with 0 after the decimal point
     x = 0 $+ "beta" $+ ftocv(y,2,0);
     
-    //Since the output is a character vector the dollar
-    //sign ($) must be used in front of the variable for printing
+    // Since the output is a character vector the dollar
+    // sign ($) must be used in front of the variable for printing
     print $x;
 
 results in the following output:

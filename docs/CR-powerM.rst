@@ -33,7 +33,7 @@ Examples
     A = { 1 2, 
           3 4 };
     					
-    //Compute power matrix
+    // Compute power matrix
     B = powerM(A, 3);
     
     print "A = " A; 

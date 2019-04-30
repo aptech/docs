@@ -49,11 +49,11 @@ Examples
 
 ::
 
-    //covariance matrix
+    // covariance matrix
     cov = { 1 0.3,
           0.3   1 };
     
-    //mean for each column of 'cov'
+    // mean for each column of 'cov'
     mu = { 0, 0 };
     
     x = rndMVn(100, mu, cov);

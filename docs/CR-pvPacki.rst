@@ -31,19 +31,19 @@ Examples
 
 ::
 
-    //Define the 'PV' structure
+    // Define the 'PV' structure
     #include pv.sdf
      
     y = rndn(100,1);
     x = rndn(100,5);
     
-    //Declare 'p1' as an instance of a 'PV' structure
+    // Declare 'p1' as an instance of a 'PV' structure
     struct PV p1;
     
-    //Initialize 'p1' with default values
+    // Initialize 'p1' with default values
     p1 = pvCreate;
     
-    //Pack the variables in with a variable name and an index
+    // Pack the variables in with a variable name and an index
     p1 = pvPacki(p1,y,"Y",1);
     p1 = pvPacki(p1,x,"X",2);
 
@@ -51,11 +51,11 @@ pvUnpack
 
 ::
 
-    //Unpack variables by index
+    // Unpack variables by index
     y = pvUnpack(p1,1);
     x = pvUnpack(p1,2);
     
-    //Unpack variables by variable name
+    // Unpack variables by variable name
     y = pvUnpack(p1,"Y");
     x = pvUnpack(p1,"X");
 

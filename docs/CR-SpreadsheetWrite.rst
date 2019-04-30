@@ -37,8 +37,8 @@ Basic Example
           1 2,
           3 5 };
     
-    //Write contents of 'x' to 'myfile.xlsx'
-    //from cell 'A1' to 'B3'
+    // Write contents of 'x' to 'myfile.xlsx'
+    // from cell 'A1' to 'B3'
     ret = spreadSheetWrite(x, "myfile.xlsx");
 
 Write To a Range
@@ -46,10 +46,10 @@ Write To a Range
 
 ::
 
-    //Create a 1x4 string array of variable names
+    // Create a 1x4 string array of variable names
     head = "Real GDP" $~  "Unemployment" $~ "CPI" $~ "PPI";
     
-    //Write the variable names to the cells 'C1:F1'
+    // Write the variable names to the cells 'C1:F1'
     ret = spreadSheetWrite(head, "myfile.xlsx", "C1");
 
 Specify Path and Sheet Number
@@ -57,10 +57,10 @@ Specify Path and Sheet Number
 
 ::
 
-    //Create a 10x3 matrix of Bernoulli random variables
+    // Create a 10x3 matrix of Bernoulli random variables
     x = rndBernoulli(10, 3, 0.6);
     
-    //Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
+    // Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
     ret = spreadSheetWrite(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
 Portability
@@ -83,20 +83,20 @@ scalmiss, depending on the state of the trap flag.
 
 ::
 
-   //If this fails, it will end the program and print an error message
+   // If this fails, it will end the program and print an error message
    x = spreadSheetWrite("myfile.xlsx");
 
 ::
 
-   //Turn error trapping on
+   // Turn error trapping on
    trap 1;
    x = spreadSheetWrite("myfile.xlsx");
 
-   //Check to see if 'x' is a scalar error code
+   // Check to see if 'x' is a scalar error code
    if scalmiss(x);
-      //Code to handle error case here
+      // Code to handle error case here
    endif;
 
-   //Turn error trapping off
+   // Turn error trapping off
 
 .. seealso:: Functions :func:`scalerr`, :func:`error`, :func:`SpreadsheetReadM`, :func:`SpreadsheetReadSA`

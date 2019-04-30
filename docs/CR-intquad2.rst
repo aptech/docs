@@ -59,16 +59,16 @@ Basic example
 
 ::
 
-    //Define function to be integrated
+    // Define function to be integrated
     proc f(x,y);
        retp(x .* sin(x + y));
     endp;
      
-    //Limits of integration
+    // Limits of integration
     xlim = { 1, 0 };
     ylim = { 1, 0 };
      
-    //Calculate integral
+    // Calculate integral
     ans = intquad2(&f, xlim, ylim);
 
 After the code above, *ans* should equal:
@@ -82,19 +82,19 @@ Multiple integration limits
 
 ::
 
-    //Define function to be integrated
+    // Define function to be integrated
     proc (1) = myProc(x,y);
        retp(x .* sin(x + y));
     endp;
     
-    //Define multiple integration limits
+    // Define multiple integration limits
     xlim = {  1  0.5,
             0.5    0 };
     
     ylim = {  1  0.5,
             0.5  0.3 };
     
-    //Calculate integrals
+    // Calculate integrals
     ans = intquad2(&myProc, xlim, ylim);
 
 This will integrate the function:
@@ -117,20 +117,20 @@ Extra arguments to function
 
 ::
 
-    //Define function to be integrated that takes an additional argument
+    // Define function to be integrated that takes an additional argument
     proc f(x,y,a);
        retp(x .* sin(a .* x + y));
     endp;
      
-    //Limits of integration
+    // Limits of integration
     xlim = { 1, 0 };
     ylim = { 1, 0 };
     
     
-    //Assign extra scalar argument
+    // Assign extra scalar argument
     a = pi/2;
      
-    //Calculate integral
+    // Calculate integral
     ans = intquad2(&f, xlim, ylim, a);
 
 After the code above, *ans* should equal:

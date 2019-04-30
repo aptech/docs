@@ -30,27 +30,27 @@ Examples
 
 ::
 
-    //Create data
+    // Create data
     x = seqa(0.1, 0.1, 50);
     
-    //Data with y-range of -1 to 1
+    // Data with y-range of -1 to 1
     y1 = sin(x);
     
-    //Data with y-range of 0 to 150
+    // Data with y-range of 0 to 150
     y2 = exp(x);
     
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
     
-    //Set the first curve, 'y1' to the left Y-axis
-    //Set the second curve 'y2' to the right Y-axis
+    // Set the first curve, 'y1' to the left Y-axis
+    // Set the second curve 'y2' to the right Y-axis
     string which = { "left", "right" };
     plotSetWhichYAxis(&myPlot, which);
     
-    //Plot the data
+    // Plot the data
     plotXY(myPlot, x, y1~y2);
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`

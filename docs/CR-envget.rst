@@ -27,7 +27,7 @@ Example 1
 ::
 
     //%USERPROFILE% is the user's home
-    //directory on most Windows systems
+    // directory on most Windows systems
     hm_dir = envget("USERPROFILE");
 
 Example 2
@@ -40,12 +40,12 @@ Below is an example of a procedure that will open a data file using a path store
     proc dopen(file);
        local fname,fp;
        fname = envget("DPATH");
-       //Check to see if DPATH is set or empty
+       // Check to see if DPATH is set or empty
        if fname $== "";
           fname = file;
        else;
-          //Check to see if 'fname' ends with
-          //a path separator
+          // Check to see if 'fname' ends with
+          // a path separator
           if strsect(fname,strlen(fname),1) $== "\\";
              fname = fname $+ file;
           else;

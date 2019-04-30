@@ -47,7 +47,7 @@ What are the chances that a baseball player with a long-term batting average of 
 ::
 
     // The cumulative probability of our player 
-    //getting 270 or fewer hits in the season  
+    // getting 270 or fewer hits in the season  
     p = cdfBinomial(270,704,.317); 
     p = 0.9999199430052614
 

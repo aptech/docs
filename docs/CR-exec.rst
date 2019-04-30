@@ -37,7 +37,7 @@ Examples
 
     y = exec("atog","comd1.cmd");
     
-    //If 'y' is nonzero
+    // If 'y' is nonzero
     if y;
        errorlog"atog failed";
        end;

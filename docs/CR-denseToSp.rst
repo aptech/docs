@@ -34,7 +34,7 @@ Examples
 
 ::
 
-    //Declare 'y' as a sparse matrix
+    // Declare 'y' as a sparse matrix
     sparse matrix y;
     
     x = { 0.01 0.00 0.01 1.00,
@@ -42,8 +42,8 @@ Examples
           0.00 0.01 0.00 0.00,
           0.02 0.00 -2 0.00 };
           
-    //Create a sparse matrix 'y' from 'x' and set all elements
-    //less than 0.04 equal to 0      
+    // Create a sparse matrix 'y' from 'x' and set all elements
+    // less than 0.04 equal to 0      
     y = denseToSp(x,0.04);
 
 After the code above, *y* is equal to:

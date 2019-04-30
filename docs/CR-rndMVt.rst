@@ -49,10 +49,10 @@ Examples
 
 ::
 
-    //degrees of freedom
+    // degrees of freedom
     df = 8;
     
-    //covariance matrix
+    // covariance matrix
     sigma = {   1 0.3,
               0.3   1 };
     

@@ -31,21 +31,21 @@ Examples
 
 ::
 
-    //Declare plotControl structure               
+    // Declare plotControl structure               
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
     
-    //Set all lines to have a thickness of 2
+    // Set all lines to have a thickness of 2
     thickness = 2;
     plotSetLineThickness(&myPlot, thickness);
     
-    //Create data
+    // Create data
     x = seqa(0.1, 1, 50);
     y = sin(x)~cos(x);
     
-    //Plot the data with the new line thickness settings
+    // Plot the data with the new line thickness settings
     plotXY(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotLayout`, :func:`plotSetTitle`

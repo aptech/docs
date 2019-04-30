@@ -40,8 +40,8 @@ Examples
 ::
 
     A = rndn(1000, 1000);
-    //Code that uses 'A' would be here
-    //Free memory holding 'A'
+    // Code that uses 'A' would be here
+    // Free memory holding 'A'
     clear A;
 
 .. seealso:: Functions :func:`clearg`, :func:`new`, :func:`show`, :func:`delete`

@@ -151,10 +151,10 @@ Examples
     
     x = 0
     
-    //Initialize 'x' with the specified values and 
-    //return a warning if 'x'already exists AND 
-    //the 'Compile Options: declare warnings' is 
-    //selected
+    // Initialize 'x' with the specified values and 
+    // return a warning if 'x'already exists AND 
+    // the 'Compile Options: declare warnings' is 
+    // selected
     declare matrix x != { 1 2 3, 4 5 6, 7 8 9 };
     
         1 2 3
@@ -191,11 +191,11 @@ Examples
         8
         9
     
-    //Create a 2x1 character matrix
+    // Create a 2x1 character matrix
     declare matrix x = alpha beta;
     
-    //To print character matrices, the '$' operator must
-    //be prepended to the variable name
+    // To print character matrices, the '$' operator must
+    // be prepended to the variable name
     print $x;
 
 The code snippet directly above, produces:
@@ -205,9 +205,9 @@ The code snippet directly above, produces:
     ALPHA 
      BETA
     
-    //Since this is declared as a matrix, the text in
-    //quotes will create a character vector, rather 
-    //than a string array
+    // Since this is declared as a matrix, the text in
+    // quotes will create a character vector, rather 
+    // than a string array
     declare matrix x = "mean" "variance";
     
     print $x;

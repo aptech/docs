@@ -59,7 +59,7 @@ Examples
 
 ::
 
-    //Execute structure definition
+    // Execute structure definition
     #include gdafns.sdf
     struct gdavartable vtab;
     

@@ -53,17 +53,17 @@ Examples
 
 ::
 
-    //Get file name with full path
+    // Get file name with full path
     dataset = getGAUSSHome() $+ "examples/beef_prices.csv";
     
-    //Load variable 'beef_price' from dataset
-    //and perform ln transform on variable
+    // Load variable 'beef_price' from dataset
+    // and perform ln transform on variable
     ln_price = loadd(dataset, "ln(beef_price)");
     
-    //Set plot canvas to be 640 by 480 pixels
+    // Set plot canvas to be 640 by 480 pixels
     plotCanvasSize("px", 640 | 480);
     
-    //Create x and draw graph in the 640 px by 480 px plot canvas
+    // Create x and draw graph in the 640 px by 480 px plot canvas
     x = seqa(1, 1, rows(ln_price));
     plotXY(x, ln_price);
 

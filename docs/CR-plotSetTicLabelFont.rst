@@ -32,19 +32,19 @@ Examples
 
 ::
 
-    //Simulate some data to plot 
+    // Simulate some data to plot 
     x = rndn(10, 1);
     y = x .* 3 + rndn(10,1);
     
-    //Declare ‘myPlot’ to be a plotControl structure
-    //and fill with default scatter plot settings
+    // Declare ‘myPlot’ to be a plotControl structure
+    // and fill with default scatter plot settings
     struct plotControl myPlot;
     myPlot = plotGetDefaults("scatter");
     
-    //Set axes tic labels to be 14 point 'times new roman'
+    // Set axes tic labels to be 14 point 'times new roman'
     plotSetTicLabelFont(&myPlot, "times new roman", 14);
     
-    //Create graph with tic label settings applied above
+    // Create graph with tic label settings applied above
     plotScatter(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`

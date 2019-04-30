@@ -38,11 +38,11 @@ Excel Data
 
 ::
 
-    //Get file name with full path
+    // Get file name with full path
     fname = getGAUSSHome() $+ "examples/yarn.xlsx";
      
-    //Read headers from the first row of the first
-    //sheet of the XLSX file
+    // Read headers from the first row of the first
+    // sheet of the XLSX file
     headers = getHeaders(fname);
 
 After the above code, *headers* will contain:
@@ -59,10 +59,10 @@ GAUSS dataset
 
 ::
 
-    //Get file name with full path
+    // Get file name with full path
     fname = getGAUSSHome() $+ "examples/fueleconomy.dat";
      
-    //Read headers from the dataset
+    // Read headers from the dataset
     headers = getHeaders(fname);
 
 After the above code, *headers* will contain:
@@ -77,10 +77,10 @@ Stata dataset
 
 ::
 
-    //Get file name with full path
+    // Get file name with full path
     fname = getGAUSSHome() $+ "examples/auto2.dta";
      
-    //Read headers from the dataset
+    // Read headers from the dataset
     headers = getHeaders(fname);
 
 After the above code, *headers* will contain:
@@ -105,10 +105,10 @@ SAS dataset
 
 ::
 
-    //Get file name with full path
+    // Get file name with full path
     fname = getGAUSSHome() $+ "examples/detroit.sas7bdat";
      
-    //Read headers from the dataset
+    // Read headers from the dataset
     headers = getHeaders(fname);
 
 After the above code, *headers* will contain:

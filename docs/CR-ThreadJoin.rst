@@ -26,18 +26,18 @@ Examples
 
 ::
 
-    ThreadBegin;        //Thread 1--isolates y,z
+    ThreadBegin;        // Thread 1--isolates y,z
        y = x'x;
        z = y'y;
     ThreadEnd;
-    ThreadBegin;        //Thread 2--isolates q,r
+    ThreadBegin;        // Thread 2--isolates q,r
        q = r'r;
        r = q'q;
     ThreadEnd;
-    ThreadStat n = m'm; //Thread 3--isolates n
-    ThreadStat p = o'o; //Thread 4--isolates p
-    ThreadJoin;         //Joins threads 1-4
-    b = z + r + n'p;     //y,z,q,r,n,p available again,
+    ThreadStat n = m'm; // Thread 3--isolates n
+    ThreadStat p = o'o; // Thread 4--isolates p
+    ThreadJoin;         // Joins threads 1-4
+    b = z + r + n'p;     // y,z,q,r,n,p available again,
                           // can be read and written
 
 Note how threads 1-4 isolate the various symbols they assign to--no other

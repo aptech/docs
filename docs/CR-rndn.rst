@@ -52,13 +52,13 @@ This example simulates the linear model: y = α + β1*X + ε
     alpha = 2.5;
     beta_1 = 0.8;
     
-    //Simulate error term
+    // Simulate error term
     err = rndn(num_obs, 1);
     
-    //Simulate 'x' variable
+    // Simulate 'x' variable
     x = rndn(num_obs, 1);
     
-    //Simulate data generating process
+    // Simulate data generating process
     y = alpha + beta_1*x + err;
 
 This example generates two thousand vectors of standard normal 
@@ -73,12 +73,12 @@ the next generation of random numbers.
     n = 2000;
     k = 1000000;
     
-    //Create vector to hold 'n' submeans
+    // Create vector to hold 'n' submeans
     submean = zeros(n, 1);
      
     for i(1, n, 1);
-       //Create a kx1 vector of random normal numbers,
-       //using the optional 'state' input
+       // Create a kx1 vector of random normal numbers,
+       // using the optional 'state' input
        { y,state } = rndn(k,1,state);
     
        submean[i] = meanc(y);

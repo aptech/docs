@@ -31,15 +31,15 @@ Examples
 
 ::
 
-    //Set seed for repeatable random numbers
+    // Set seed for repeatable random numbers
     rndseed 431234;
     
     x = rndn(8,1);
     
-    //Create 3 dimensional (2x1x4) array with 1 singleton dimension
+    // Create 3 dimensional (2x1x4) array with 1 singleton dimension
     a = areshape(x, 2|1|4);
     
-    //Create a 2x4 matrix 'x_2' from the 2x1x4 array 'a'
+    // Create a 2x4 matrix 'x_2' from the 2x1x4 array 'a'
     x_2 = squeeze(a);
 
 After the above code:

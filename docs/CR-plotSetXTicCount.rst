@@ -41,11 +41,11 @@ Examples
 
 ::
 
-    //Create some data to plot
+    // Create some data to plot
     x = seqa(-3, 0.1, 61);
     y = x.^3 + rndn(rows(x), 1);
     
-    //Plot the data
+    // Plot the data
     plotXY(x, y);
 
 .. figure:: _static/images/gauss15_psxtc_1.png
@@ -57,14 +57,14 @@ major tic for every integer on the x-axis. We can make that change like this:
 
 ::
 
-    //Declare and initialize plotControl structure
+    // Declare and initialize plotControl structure
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
     
-    //Set the x-axis to have 8 tic marks
+    // Set the x-axis to have 8 tic marks
     plotSetXTicCount(&myPlot, 8);
     
-    //Plot the data, using the plotControl structure
+    // Plot the data, using the plotControl structure
     plotXY(myPlot, x, y);
 
 .. figure:: _static/images/gauss15_psxtc_8.png

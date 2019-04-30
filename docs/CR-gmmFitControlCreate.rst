@@ -22,11 +22,11 @@ declared before it can be used.
 
 ::
 
-    //declare 'c' as an 
-    //gmmFitControl structure 
+    // declare 'c' as an 
+    // gmmFitControl structure 
     struct gmmFitControl c;
     
-    //initialize structure c
+    // initialize structure c
     c = gmmControlCreate();
 
 The members of an :class:`gmmFitControl` structure and default values are described in

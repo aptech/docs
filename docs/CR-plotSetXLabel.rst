@@ -43,20 +43,20 @@ Example 1
 
 ::
 
-    //Declare plotControl structure
+    // Declare plotControl structure
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
     
-    //Set the X-axis label, label font, label font size, and 
-    //label color 
+    // Set the X-axis label, label font, label font size, and 
+    // label color 
     plotSetXLabel(&myPlot, "Time (sec)", "verdana", 10, "black");
     
-    //Create data
+    // Create data
     x = rndn(1e5,1);
     
-    //Plot a histogram of the x data spread over 50 bins
+    // Plot a histogram of the x data spread over 50 bins
     plotHist(myPlot, x, 50);
 
 

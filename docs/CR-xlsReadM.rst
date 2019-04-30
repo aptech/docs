@@ -35,10 +35,10 @@ Basic Example
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
     
-    //Read in all data below header line
+    // Read in all data below header line
     x = xlsReadM(file, "A2");
 
 After the code above, the first 10 rows of x should be equal to:
@@ -61,10 +61,10 @@ Read From a Range
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/yarn.xlsx";
     
-    //Read in data from rows 2-9 of column 'D'
+    // Read in data from rows 2-9 of column 'D'
     x = xlsReadM(file, "D2:D9");
 
 After the code above, x should be equal to:
@@ -85,10 +85,10 @@ Reading dates
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
     
-    //Read the first element below the header from the first column
+    // Read the first element below the header from the first column
     date_1 = xlsReadM(file, "A2:A2");
 
 If the Excel file has marked a cell as a date, GAUSS will read it in DT scalar format. After the code above, date_1 will be equal to:
@@ -114,8 +114,8 @@ Specify Sheet Number
 
 ::
 
-    //Using the 'file' variable created in the previous example
-    //Pass in '1' as the third input, to specify the first sheet
+    // Using the 'file' variable created in the previous example
+    // Pass in '1' as the third input, to specify the first sheet
     x = xlsReadM(file, "A2:A10", 1);
 
 Remarks
@@ -138,7 +138,7 @@ Remarks
 
    ::
 
-      //Will end the program and print an error message
+      // Will end the program and print an error message
       x = xlsReadM("nonexistent_file.xlsx");
 
    2.2 Turn off error message
@@ -146,16 +146,16 @@ Remarks
    ::
 
                               
-      //Turn error trapping on
+      // Turn error trapping on
       trap 1;
       x = xlsReadM("nonexistent_file.xlsx");
 
-      //Check to see if 'x' is a scalar error code
+      // Check to see if 'x' is a scalar error code
       if scalmiss(x);
-         //Code to handle error case here
+         // Code to handle error case here
       endif;
 
-      //Turn error trapping off
+      // Turn error trapping off
       trap 0;
 
 #. By default, empty cells are imported as GAUSS missing values. The vls
@@ -189,11 +189,11 @@ Remarks
 
    ::
 
-      //Create a 9x1 vector of missing values
+      // Create a 9x1 vector of missing values
       vls = reshape(miss(0,0),9,1);
 
-      //Set the 4th element of 'vls' to +Infinity so that
-      //Excel #DIV/0! cells will be imported as +Infinity
+      // Set the 4th element of 'vls' to +Infinity so that
+      // Excel #DIV/0! cells will be imported as +Infinity
       vls[4] = __INFP;
 
       x = xlsReadM("myfile.xlsx", "A1", 1, vls);

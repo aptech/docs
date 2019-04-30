@@ -51,16 +51,16 @@ Write string to text file
 
 ::
 
-   //Create string
+   // Create string
    quote = "There is nothing either good or bad, but thinking makes it so.";
 
-   //Open file for writing
+   // Open file for writing
    fh = fopen("hamlet.txt", "w");
 
-   //Write the string to the first line of the file
+   // Write the string to the first line of the file
    call fputs(fh, quote);
 
-   //Close the file
+   // Close the file
    call close(fh);
 
 After the code above, you should have a file named ``hamlet.txt`` in your
@@ -71,33 +71,33 @@ Write CSV data to text file
 
 ::
 
-   //Create string containing a comma separated list
-   //of variable names and an ending newline
+   // Create string containing a comma separated list
+   // of variable names and an ending newline
    text = "alpha,beta,gamma,delta\n";
 
    fh = fopen("temp.csv", "w");
 
-   //Write the string to the first line of the file
+   // Write the string to the first line of the file
    call fputs(fh, text);
 
-   //Create some numeric data
+   // Create some numeric data
    x = { 1 2 3 4,
          5 6 7 8 };
 
-   //Convert numeric data to 2x4 string array
+   // Convert numeric data to 2x4 string array
    x_str = ntos(x);
 
-   //Combine each row of 'x_str' into
-   //a single comma separated string
+   // Combine each row of 'x_str' into
+   // a single comma separated string
    x_str = strjoin(x_str, ",");
 
-   //Add newlines to the end of each line
+   // Add newlines to the end of each line
    x_str = x_str $+ "\n";
 
-   //Write the comma separated data to the file
+   // Write the comma separated data to the file
    call fputs(fh, x_str);
 
-   //Close the file
+   // Close the file
    call close(fh);
 
 After the above code, you should have a file named ``temp.csv`` with the

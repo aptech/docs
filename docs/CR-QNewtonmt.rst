@@ -114,10 +114,10 @@ Examples
 
 ::
 
-    //Define function to be minimized
-    //The first input is a PV structure containing the parameters
-    //The following arguments contain data, other than the parameters,
-    //which is needed by the function
+    // Define function to be minimized
+    // The first input is a PV structure containing the parameters
+    // The following arguments contain data, other than the parameters,
+    // which is needed by the function
     proc (1) = Micherlitz(struct PV par1, y, x);
        local p0,e,s2;
        p0 = pvUnpack(par1, "parameters");
@@ -125,7 +125,7 @@ Examples
        retp(-lnpdfmvn(e,e'e/rows(e)));
     endp;
     
-    //Create extra data needed by objective function
+    // Create extra data needed by objective function
     y = { 3.183,
           3.059,
           2.871,
@@ -142,27 +142,27 @@ Examples
      
     x = seqa(1,1,13);
      
-    //Declare 'par' to be a PV structure
+    // Declare 'par' to be a PV structure
     struct PV par;
     
-    //Set PV defaults in 'par'
+    // Set PV defaults in 'par'
     par = pvCreate();
     
-    //Add a variable named 'parameters' to par with a 3x1
-    //vector of starting values
+    // Add a variable named 'parameters' to par with a 3x1
+    // vector of starting values
     par = pvPack(par, 1|1|0, "parameters");
      
-    //Declare 'out' to be a QNewtonmtOut structure
-    //to hold data returned by QNewtonmt
+    // Declare 'out' to be a QNewtonmtOut structure
+    // to hold data returned by QNewtonmt
     struct QNewtonmtout out;
     
-    //Minimize the 'Micherlitz' function
+    // Minimize the 'Micherlitz' function
     out = QNewtonmt(&Micherlitz,par,y,x);
     
-    //Get returned parameters from the output structure
+    // Get returned parameters from the output structure
     parms = pvGetParVector(out.par);
     
-    //Print returned parameters
+    // Print returned parameters
     print parms;
 
 The code above should return the following output:

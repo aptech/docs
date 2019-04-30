@@ -33,21 +33,21 @@ Examples
 
 ::
 
-    //Declare plotControl structure               
+    // Declare plotControl structure               
     struct plotControl myPlot;
     
-    //Initialize plotControl structure
+    // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
     
-    //Set graph to create a new graph tab
+    // Set graph to create a new graph tab
     new_window = 1;
     plotSetNewWindow(&myPlot, new_window);
     
-    //Create data
+    // Create data
     x = seqa(0.1, 1, 50);
     y = sin(x)~cos(x);
     
-    //Plot the data in a new graph tab window
+    // Plot the data in a new graph tab window
     plotXY(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotOpenWindow`, :func:`plotSetTitle`, :func:`plotSetLineColor`

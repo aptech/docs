@@ -28,34 +28,34 @@ Examples
 
 ::
 
-    //Clear out variables in GAUSS workspace
+    // Clear out variables in GAUSS workspace
     new;
     				
-    //Create contour data 
+    // Create contour data 
     x = seqa(-4,.125,161)';
     y = seqa(-8,.125,161);
     z = sin(x) .* cos(y) * .5;
     z = z .* sin(x/3) .* cos(y/3);
     z = z .* sin(x/5) + sin(y/2.5)/3 + sin(x/2.5)/3;
     
-    //Set up control structure with defaults 
-    //for surface plots
+    // Set up control structure with defaults 
+    // for surface plots
     struct plotControl myPlot;
     myPlot = plotGetDefaults("surface");
     
-    //Set title and Z axis label 
+    // Set title and Z axis label 
     plotSetTitle(&myPlot, "Contour plot example", "Courier bold", 16, "black");
     plotSetZLabel(&myPlot, "Height (m)", "Arial", 18);
     
-    //Turn off X and Y axis labels 
+    // Turn off X and Y axis labels 
     plotSetXLabel(&myPlot, "");
     plotSetYLabel(&myPlot, "");
     
-    //Set contour level colors
+    // Set contour level colors
     string rainbow = { "Red", "Orange", "Yellow", "Green", "Blue", "Purple" };
     plotSetLineColor(&myPlot, rainbow);
     
-    //Draw graph using plotcontrol structure
+    // Draw graph using plotcontrol structure
     plotContour(myPlot, x, y, z);
 
 .. seealso:: Functions :func:`plotSurface`, :func:`plotSetContourLabels`

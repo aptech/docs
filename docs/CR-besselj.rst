@@ -24,19 +24,19 @@ Examples
 
 ::
 
-    //Create the sequence 0.1, 0.2, 0.3,...,19.9
+    // Create the sequence 0.1, 0.2, 0.3,...,19.9
     x = seqa(0, 0.1, 200);
     
-    //Calculate a first order Bessel function
+    // Calculate a first order Bessel function
     ord = 1;
     y0 = besselj(ord, x);
     
-    //Calculate the first and second order Bessel function
+    // Calculate the first and second order Bessel function
     ord = { 1 2 };
     y = besselj(ord, x);
     
-    //Plot the output of the first and third order Bessel 
-    //functions
+    // Plot the output of the first and third order Bessel 
+    // functions
     plotXY(x, y);
 
 In the code above, the calculation of both the first and second order Bessel functions assigns the

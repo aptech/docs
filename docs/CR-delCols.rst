@@ -35,7 +35,7 @@ Example 1
           5  6  7  8,
           9 10 11 12 };
     				
-    //Remove the second column of 'X'
+    // Remove the second column of 'X'
     X_trim = delcols(X, 2);
 
 After the above code:
@@ -55,7 +55,7 @@ Example 2
           5  6  7  8,
           9 10 11 12 };
     			
-    //Remove the second and fourth columns of 'X'
+    // Remove the second and fourth columns of 'X'
     r_idx = { 2, 4 };
     X_trim = delcols(X, r_idx);
 
@@ -77,7 +77,7 @@ Example 3
           5  6  7  8,
           9 10 11 12 };
     			
-    //Remove the final column of 'X'
+    // Remove the final column of 'X'
     X_trim = delcols(X, -1);
 
 After the above code:

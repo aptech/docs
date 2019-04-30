@@ -47,12 +47,12 @@ Calculate the integral ∫031x+1ⅆx
 
 ::
 
-    //Define procedure to be integrated
+    // Define procedure to be integrated
     proc (1) = fct(x);
        retp(1 ./ (x + 1));
     endp;
     
-    //Calculate integral for procedure 'fct', from 0 - 3
+    // Calculate integral for procedure 'fct', from 0 - 3
     ans = integrate1d(&fct, 0, 3);
 
 will result in:
@@ -68,16 +68,16 @@ Calculate the integral ∫−10001000e−x22×aⅆx⁢⁢, a⁢=3
 
 ::
 
-    //Define procedure to be integrated
+    // Define procedure to be integrated
     proc (1) = myProc(x, var);
        retp(exp( -(x .* x) / (2 .* var) ));
     endp;
     
-    //Define limits of integration
+    // Define limits of integration
     x_min = -1000;
     x_max = 1000;
     
-    //Define extra argument for procedure 'myProc'
+    // Define extra argument for procedure 'myProc'
     a = 3;
     
     ans = integrate1d(&myProc, x_min, x_max, a);
@@ -95,16 +95,16 @@ Calculate the integral ∫−∞01σ2πe−(x−μ)22σ2ⅆx
 
 ::
 
-    //Define procedure to be integrated
+    // Define procedure to be integrated
     proc (1) = myPdfn(x, mu, sigma);
        retp(pdfn((x - mu) ./ sigma) ./ sigma);
     endp;
     
-    //Set bounds of integration to be (-Inf, 0)
+    // Set bounds of integration to be (-Inf, 0)
     x_min = __INFN;
     x_max = 0;
     
-    //Extra inputs for user function
+    // Extra inputs for user function
     mu = 0.33;
     sigma = 7;
     
@@ -123,25 +123,25 @@ Calculate the integral ∫−∞01σ2πe−(x−μ)22σ2ⅆx
 
 ::
 
-    //Define procedure to be integrated
+    // Define procedure to be integrated
     proc (1) = myPdfn(x, mu, sigma);
        retp(pdfn((x - mu) ./ sigma) ./ sigma);
     endp;
     
-    //Set bounds of integration to be (0, +Inf)
+    // Set bounds of integration to be (0, +Inf)
     x_min = 0;
     x_max = __INFP;
     
-    //Extra inputs for user function
+    // Extra inputs for user function
     mu = 0.33;
     sigma = 7;
     
-    //Declare instance of 'integrateControl' structure
-    //and fill with default values
+    // Declare instance of 'integrateControl' structure
+    // and fill with default values
     struct integrateControl ctl;
     ctl = integrateControlCreate();
     
-    //Lower required tolerance for faster return
+    // Lower required tolerance for faster return
     ctl.absTol = 1e-2;
     
     ans = integrate1d(&myPdfn, x_min, x_max, mu, sigma, ctl);

@@ -41,7 +41,7 @@ Scalar example 1
 
 ::
 
-    //Evaluate 2^4 + 2^3 + 2^1 + 2^0
+    // Evaluate 2^4 + 2^3 + 2^1 + 2^0
     x = 2;
     coefs = { 1, 1, 0, 1, 1 };
     y = polyeval(x,coefs);
@@ -53,7 +53,7 @@ Scalar example 2
 
 ::
 
-    //Evaluate 7*2^3 + 2^1 + 2^0
+    // Evaluate 7*2^3 + 2^1 + 2^0
     x = 2;
     coefs = { 7, 0, 1, 1 };
     y = polyeval(x,coefs);
@@ -65,7 +65,7 @@ Matrix example 1
 
 ::
 
-    //Evaluate A*A*A + 2*A
+    // Evaluate A*A*A + 2*A
     A = { 2 6,
           4 8 };
     coefs = { 1, 0, 2, 0 };
@@ -83,7 +83,7 @@ Matrix example 2
 
 ::
 
-    //Evaluate A*A*A*A
+    // Evaluate A*A*A*A
     A = { 1.2 3.1,
           1.7 0.8 };
     coefs = 1|zeros(4,1);

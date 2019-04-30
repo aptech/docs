@@ -27,7 +27,7 @@ Examples
 
 ::
 
-    //Create 6x3 matrix
+    // Create 6x3 matrix
     x = { -9.35    15.67   -41.75,
          -13.55    40.97    15.55, 
           -0.95   -17.03    40.15, 
@@ -35,7 +35,7 @@ Examples
            2.35   -36.73   -43.55, 
           13.35     6.87    16.45  };
     
-    //Perform matrix decomposition
+    // Perform matrix decomposition
     { u, s, v } = svdusv(x);
 
 After the code above, the outputs will have the following values;
@@ -86,15 +86,15 @@ Remarks
 
    ::
 
-      //Turn on error trapping
+      // Turn on error trapping
       trap 1;
 
-      //Compute singular value decomposition
+      // Compute singular value decomposition
       { u, s, v } = svdusv(x);
 
-      //Check for failure or success
+      // Check for failure or success
       if scalmiss(s[1,1]);
-         //Code for failure case
+         // Code for failure case
       endif;
 
    Note that in the trap 1 case, if the input to svdusv is a
@@ -105,7 +105,7 @@ Remarks
 
    ::
 
-      //Check for success or failure of each submatrix
+      // Check for success or failure of each submatrix
       if ismiss(s[.,1,1]);
 
 .. seealso:: Functions :func:`svd1`, :func:`svdcusv`, :func:`svds`

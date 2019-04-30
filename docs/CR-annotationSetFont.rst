@@ -60,18 +60,18 @@ Customized textbox
     struct plotAnnotation myTextbox;
     myTextbox = annotationGetDefaults();
     
-    //Set font to dark-gray, 14pt times
+    // Set font to dark-gray, 14pt times
     annotationSetFont(&myTextbox, "times", 14, "dark gray");
     
-    //Create text for textbox
+    // Create text for textbox
     box_text = "Trend change in Q2";
     
-    //The top-left corner of the text box
-    //will start at the point (3.5,1.5)
+    // The top-left corner of the text box
+    // will start at the point (3.5,1.5)
     x_start = 3.5;
     y_start = 1.5;
     
-    //Add textbox to last draw graph
+    // Add textbox to last draw graph
     plotAddTextbox(myTextbox, box_text, x_start, y_start);
 
 .. seealso:: Functions :func:`plotAddShape`, :func:`plotAddTextbox`, :func:`annotationGetDefaults`

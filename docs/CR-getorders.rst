@@ -25,10 +25,10 @@ Example 1
 
 ::
 
-    //Allocate a 5x100x3 dimensional array with each element equal to 0.
+    // Allocate a 5x100x3 dimensional array with each element equal to 0.
     a = arrayinit(5|100|3,0);
     
-    //Find the size of the dimensions in 'a'
+    // Find the size of the dimensions in 'a'
     orders = getorders(a);
 
 After the code above:
@@ -44,10 +44,10 @@ Example 2
 
 ::
 
-    //Create 121x4 random matrix
+    // Create 121x4 random matrix
     x = rndn(121, 4);
 
-    //Get the number of rows and columns of the matrix
+    // Get the number of rows and columns of the matrix
     dims = getorders(x);
 
 After the above code, *dims* should equal:

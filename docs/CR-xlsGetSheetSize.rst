@@ -62,18 +62,18 @@ trap state as in the example below.
 
     sheetNum = 1;
     
-    //Retain the old trap value so it can
-    //be reset to its previous state
+    // Retain the old trap value so it can
+    // be reset to its previous state
     oldtrap = trapchk(1);
     
-    //Set trap
+    // Set trap
     trap 1;
     
     { r, c } = xlsGetSheetSize(fname, sheetNum);
     
-    //Check to see if return value is an error code
+    // Check to see if return value is an error code
     if scalmiss(r);
-       //User error handling code here
+       // User error handling code here
     endif;
 
 .. seealso:: Functions :func:`xlsGetSheetCount`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`

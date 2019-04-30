@@ -134,14 +134,14 @@ with Formula String
     new;
     cls;
     				
-    //Declare gmm_result to be a gmmOut struct	
-    //to hold the results of the estimation
+    // Declare gmm_result to be a gmmOut struct	
+    // to hold the results of the estimation
     struct gmmOut gmm_result;
     
-    //Create fully pathed dataset file name string
+    // Create fully pathed dataset file name string
     auto_dset = getGAUSSHome() $+ "examples/auto";
     
-    //Perform estimation, using a formula string specification
+    // Perform estimation, using a formula string specification
     gmm_result = gmmFitIV(auto_dset, "mpg ~ weight + length");
 
 The above code will print out the following report:
@@ -180,21 +180,21 @@ with Data Matrix
     x = data[.,11 7];
     z = data[.,7 8 14:16];
     
-    //Declare gctl to be a gmmControl struct
-    //and fill with default settings
+    // Declare gctl to be a gmmControl struct
+    // and fill with default settings
     struct gmmControl gctl;
     gctl = gmmControlCreate();
     
-    //Set desired estimation options
+    // Set desired estimation options
     gctl.wInit = "unadj";
     
-    //Set method
+    // Set method
     gctl.method = "twostep";
     
-    //Set variance type
+    // Set variance type
     gctl.vceType = "robust";
     
-    //Weight matrix type
+    // Weight matrix type
     gctl.wType = "robust";
     
     struct gmmOut gOut;

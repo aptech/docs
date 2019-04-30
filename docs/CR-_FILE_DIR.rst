@@ -29,7 +29,7 @@ Remarks
 
    ::
 
-      //Create fully pathed dataset file name string
+      // Create fully pathed dataset file name string
       auto_dset = __FILE_DIR $+ "auto.dat";
 
    This code will set the string "auto.dat" equal to the full path to
@@ -40,13 +40,13 @@ Remarks
 
    ::
 
-      //Mac
+      // Mac
       "/Users/YourUserName/gauss/examples/auto.dat"
                       
-      //Windows
+      // Windows
       "C:\\gauss\\examples\\auto.dat"
                           
-      //Linux
+      // Linux
       "/home/yourusername/gauss/exmples/auto.dat
 
 -  Note that \__FILE_DIR is technically a GAUSS define, therefore it
@@ -54,7 +54,7 @@ Remarks
 
    ::
 
-       //Adding parentheses to the end is incorrect
+       // Adding parentheses to the end is incorrect
       __FILE_DIR();            
 
 .. seealso:: Functions :func:`getgausshome`

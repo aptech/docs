@@ -28,14 +28,14 @@ Examples
 
 ::
 
-    //Create a lowercase string
+    // Create a lowercase string
     x = "uppercase";
     
-    //Convert the string to upper case
+    // Convert the string to upper case
     y = upper(x);
     
-    //Adding the '$' tells GAUSS to treat the data as character
-    //data
+    // Adding the '$' tells GAUSS to treat the data as character
+    // data
     print $y;
 
 This code produces:

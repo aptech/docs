@@ -45,7 +45,7 @@ Basic Usage
 
 ::
 
-    //Get the first 3 colors from the ColorBrewer 'Dark2' palette
+    // Get the first 3 colors from the ColorBrewer 'Dark2' palette
     clrs = getColorPalette("Dark2", 3);
 
 After the above code, *clrs* should equal:

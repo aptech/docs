@@ -39,7 +39,7 @@ Set all elements between 0 and 2.25e-16 equal to 0.
 
 ::
 
-    //Create example vector
+    // Create example vector
     x = { 3.8e-21, 
               1.0, 
               3.5, 
@@ -51,7 +51,7 @@ Set all elements between 0 and 2.25e-16 equal to 0.
               2.2, 
               4.0 }; 
     
-    //Substitute all values less than 2.2e-16 with a zero
+    // Substitute all values less than 2.2e-16 with a zero
     x = substute(x, x .< 2.25e-16, 0);
 
 After the code above, x is equal to:

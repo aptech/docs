@@ -28,17 +28,17 @@ Examples
 
     rndseed   8989;
     x = rndn(4,4);
-    //Loop through each row of 'x' using 'r' as the loop
-    //counter
+    // Loop through each row of 'x' using 'r' as the loop
+    // counter
     for r(1, rows(x), 1);
-       //Loop through each element in our current row
+       // Loop through each element in our current row
        for c(1, cols(x), 1); /* continue jumps here */
-             //If we are on the diagonal skip the rest of the 
-             //inner loop
+             // If we are on the diagonal skip the rest of the 
+             // inner loop
              if c == r;
                 continue;
              endif;
-          //Set the non-diagonal elements to 0
+          // Set the non-diagonal elements to 0
           x[r,c] = 0;
        endfor;
     endfor;

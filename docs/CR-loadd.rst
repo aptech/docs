@@ -33,13 +33,13 @@ Load all contents of a GAUSS data set
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSShome() $+ "examples/credit.dat";				
     
-    //Load all rows from all columns of the dataset
+    // Load all rows from all columns of the dataset
     y = loadd(file);
     
-    //Print the first three rows of 'y'
+    // Print the first three rows of 'y'
     print y[1:3,.];
 
 After the above code, the following ouptut should be printed to the program input/output window.
@@ -55,16 +55,16 @@ Load specified variables from a dataset
 
 ::
 
-    //Load all variables with a formula string
+    // Load all variables with a formula string
     dat1 = loadd(file, "." );
     
-    //Load all observations of 'Balance' and 'Limit'
+    // Load all observations of 'Balance' and 'Limit'
     dat2 = loadd(file, "Balance + Limit" );
     
-    //Load all variables EXCEPT for 'Cards'
+    // Load all variables EXCEPT for 'Cards'
     dat3 = loadd(file, ". - Cards" );
     
-    //Print first three rows of each matrix
+    // Print first three rows of each matrix
     print  "All variables: " dat1[1:3,.];
     print  "Balance and Limit: " dat2[1:3,.];
     print  "All except Cards: " dat3[1:3,.];
@@ -98,13 +98,13 @@ No variable names are stored in ``.fmt`` files. GAUSS allows the use of ``X1, X2
 
 ::
 
-    //Create a matrix
+    // Create a matrix
     x = rndn(10, 4);
     
-    //Save to a matrix file, 'x.fmt'
+    // Save to a matrix file, 'x.fmt'
     save x;
     
-    //Load all columns of 'x.fmt'
+    // Load all columns of 'x.fmt'
     x_2 = loadd("x.fmt");
 
 Load specified columns of a GAUSS matrix file, .fmt.
@@ -112,13 +112,13 @@ Load specified columns of a GAUSS matrix file, .fmt.
 
 ::
 
-    //Create a matrix
+    // Create a matrix
     x = rndn(10, 4);
     
-    //Save to a matrix file, 'x.fmt'
+    // Save to a matrix file, 'x.fmt'
     save x;
     
-    //Load columns 2 and 4 from 'x.fmt'
+    // Load columns 2 and 4 from 'x.fmt'
     x_2 = loadd("x.fmt", "X2 + X4");
 
 Load three specified variables from a SAS dataset, .sas7bdat.
@@ -131,7 +131,7 @@ Load three specified variables from a SAS dataset, .sas7bdat.
     
     dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
     
-    //Create formula string specifying dependent and independent variables
+    // Create formula string specifying dependent and independent variables
     formula  = "homicide + unemployment + hourly_earn";
     
     y = loadd(dataset, formula);
@@ -155,16 +155,16 @@ Load a string date from a .csv file and automatically convert it to a POSIX date
 
     dataset = getGAUSSHome() $+ "examples/yellowstone.csv";
     
-    //Create formula string specifying that the column 'Date'
-    //from 'yellowstone.csv' is a string column (by using $) and
-    //that it should be loaded as a date with the 'date' keyword
+    // Create formula string specifying that the column 'Date'
+    // from 'yellowstone.csv' is a string column (by using $) and
+    // that it should be loaded as a date with the 'date' keyword
     formula  = "date($Date)";
     
-    //Load the date and convert to POSIX date/time format
+    // Load the date and convert to POSIX date/time format
     dt_pos = loadd(dataset, formula);
     
-    //Convert the first 5 dates to a string 'Month day, Year'
-    //and print them
+    // Convert the first 5 dates to a string 'Month day, Year'
+    // and print them
     print posixToStrc(dt_pos[1:5], "%B %d, %Y");
 
 After the above code,

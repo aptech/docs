@@ -37,9 +37,9 @@ Examples
 
 ::
 
-    //Create a 1e6x1 vector of random normal numbers with a
-    //standard deviation of 25 and reshape it into a 
-    //2e5x3x2 array
+    // Create a 1e6x1 vector of random normal numbers with a
+    // standard deviation of 25 and reshape it into a 
+    // 2e5x3x2 array
     rndseed 456;
     a = areshape(25*rndn(2e6,1),2e5|3|2);
     y = astd(a,3);

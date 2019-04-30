@@ -31,14 +31,14 @@ Examples
 
     x = { 1, 2, 3, 4 };
     
-    //Set the second element of 'x' to be a missing value
+    // Set the second element of 'x' to be a missing value
     x[2] = miss(0,0);
     
     print "before 'if' block, x = " x;
     
-    //If there are any missing values in 'x'
+    // If there are any missing values in 'x'
     if ismiss(x);
-       //Remove all rows with missing values from 'x'
+       // Remove all rows with missing values from 'x'
        x = packr(x);
     endif;
     

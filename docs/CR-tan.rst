@@ -29,7 +29,7 @@ Examples
 
 ::
 
-    //Create an additive sequence 0.1, 0.2, 0.3...0.9
+    // Create an additive sequence 0.1, 0.2, 0.3...0.9
     x = seqa(0.1, 0.1, 9);
     
     y = tan(x);

@@ -35,10 +35,10 @@ Examples
 
 ::
 
-    //Create a 2x3x4 array with each element set to 0
+    // Create a 2x3x4 array with each element set to 0
     a = arrayinit(2|3|4,0);
     
-    //Create a 3x4 matrix with each element set to 3
+    // Create a 3x4 matrix with each element set to 3
     b = 3*ones(3,4);
     y = aconcat(a,b,3);
 
@@ -47,8 +47,8 @@ through [2,3,4] are zeros and [3,1,1] through [3,2,4] are threes.
 
 ::
 
-    //Create an additive sequence from 1-20 and 'reshape' it
-    //into a 4x5 matrix
+    // Create an additive sequence from 1-20 and 'reshape' it
+    // into a 4x5 matrix
     a = reshape(seqa(1,1,20),4,5);
     
     b = zeros(4,5);
@@ -60,9 +60,9 @@ are sequential integers beginning with 1, and [2,1,1] through
 
 ::
 
-    //The pipe operator '|' causes vertical concatenation so
-    //that the statement 2|3|4 creates a 3x1 column vector
-    //equal to { 2, 3, 4 }
+    // The pipe operator '|' causes vertical concatenation so
+    // that the statement 2|3|4 creates a 3x1 column vector
+    // equal to { 2, 3, 4 }
     a = arrayinit(2|3|4,0);
     b = seqa(1,1,24);
     

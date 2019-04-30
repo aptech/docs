@@ -34,15 +34,15 @@ Examples
 
 ::
 
-    //Create two column vectors with character data
+    // Create two column vectors with character data
                     
     let v1 = mary jane linda john;
     let v2 = mary sally;
     
     x = union(v1,v2,0);
     
-    //The '$' in front of 'x' tells GAUSS to print 'x' as 
-    //character data
+    // The '$' in front of 'x' tells GAUSS to print 'x' as 
+    // character data
     print $x;
 
 The above code will produce the following results:

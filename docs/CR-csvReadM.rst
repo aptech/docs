@@ -59,13 +59,13 @@ Read all contents from the file housing.csv located in your GAUSS examples direc
 
 ::
 
-    //Get file name with full path
+    // Get file name with full path
     file = getGAUSSHome() $+ "examples/housing.csv";
     
-    //Read entire contents of 'housing.csv'
+    // Read entire contents of 'housing.csv'
     housing = csvReadM(file);
     
-    //Print the first 5 rows of all columns
+    // Print the first 5 rows of all columns
     print housing[1:5,.];
 
 The code above will produce the following output. Notice that the first row contains all missing values. 
@@ -89,17 +89,17 @@ In this example, we will skip the first row to avoid reading the header as numer
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/housing.csv";
     
-    //Row range will be from line 2 to the end of the file
-    //If no end to the range is specified, GAUSS will read to the end of the file
+    // Row range will be from line 2 to the end of the file
+    // If no end to the range is specified, GAUSS will read to the end of the file
     row_range = 2;
     
-    //Load the data from row 2 to the end of the file into 'housing'
+    // Load the data from row 2 to the end of the file into 'housing'
     housing = csvReadM(file, row_range);
     
-    //Print the first 5 rows of all columns
+    // Print the first 5 rows of all columns
     print housing[1:5,.];
 
 After the code above, housing should equal:
@@ -117,16 +117,16 @@ Read from a row range
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/housing.csv";
     
-    //Row range will be from line 3 to line 5
+    // Row range will be from line 3 to line 5
     row_range = { 3, 5 };
     
-    //Load the data from rows 3 to 5 of the file into 'housing'
+    // Load the data from rows 3 to 5 of the file into 'housing'
     housing = csvReadM(file, row_range);
     
-    //Print the entire contents of the variable 'housing'
+    // Print the entire contents of the variable 'housing'
     print housing;
 
 After the code above, housing should equal:
@@ -142,16 +142,16 @@ Read all rows of a range of columns
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/housing.csv";
     
-    //Row range from the first line to the end of the file
+    // Row range from the first line to the end of the file
     row_range = 1;
     
-    //Read only columns 2 through 4
+    // Read only columns 2 through 4
     col_range = { 2, 4 };
     
-    //Load the data from columns 2 through 4 into 'x'
+    // Load the data from columns 2 through 4 into 'x'
     x = csvReadM(file, row_range, col_range);
 
 Read all rows of one specific column
@@ -159,16 +159,16 @@ Read all rows of one specific column
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file = getGAUSSHome() $+ "examples/housing.csv";
     
-    //Row range from the first line to the end of the file
+    // Row range from the first line to the end of the file
     row_range = 1;
     
-    //Read only the 3rd column
+    // Read only the 3rd column
     col_range = { 3, 3 };
     
-    //Load the data from the 3rd column into 'x'
+    // Load the data from the 3rd column into 'x'
     x = csvReadM(file, row_range, col_range);
 
 Read all rows and all cols, with specified delimiter

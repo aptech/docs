@@ -59,20 +59,20 @@ Basic usage
 
 ::
 
-    //For repeatable random numbers
+    // For repeatable random numbers
     rndseed 23434;
     
-    //Matrix dimensions
+    // Matrix dimensions
     order = 4;
     
-    //Create 2 square, complex matricies
+    // Create 2 square, complex matricies
     A = complex(rndn(order, order), rndn(order,order));
     B = complex(rndn(order, order), rndn(order,order));
     
-    //Perform 'QZ' decomposition
+    // Perform 'QZ' decomposition
     { sa, sb, q, z } =  lapgschur(A,B);
     
-    //Calculate generalized eigenvalues
+    // Calculate generalized eigenvalues
     eig_vals = diag(sa) ./ diag(sb);
     
     print "Generalized eigenvalues = ";
@@ -106,13 +106,13 @@ You can order the eigenvalues, by passing in the optional third input, *sort_typ
 
 ::
 
-    //Perform 'QZ' decomposition and
-    //reorder generalized eigenvalues, placing
-    //those with absolute value less than 1
-    //on the upper left
+    // Perform 'QZ' decomposition and
+    // reorder generalized eigenvalues, placing
+    // those with absolute value less than 1
+    // on the upper left
     { sa, sb, q, z } =  lapgschur(A, B, "udi");
     
-    //Calculate generalized eigenvalues
+    // Calculate generalized eigenvalues
     eig_vals = diag(sa) ./ diag(sb);
     
     print "Generalized eigenvalues = ";

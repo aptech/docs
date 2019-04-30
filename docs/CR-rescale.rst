@@ -49,7 +49,7 @@ Specifying a scaling method
 
 ::
 
-    //Create a column vector
+    // Create a column vector
     x = {   12.5,
     	18.2,
     	10.8,
@@ -59,7 +59,7 @@ Specifying a scaling method
     	14.6,
     	16.7 };
     
-    //Standardize 'x' and return the location and scaling factors
+    // Standardize 'x' and return the location and scaling factors
     { x_s, location, scale_factor} = rescale(x, "standardize");
     				
     print "x_s = " x_s;				
@@ -88,7 +88,7 @@ Specifying a scaling method for multiple columns
 
 ::
 
-    //Create a matrix with 2 columns
+    // Create a matrix with 2 columns
     x = {   12.5 1088.5,
     	18.2  879.3,
     	10.8 1232.0,
@@ -98,7 +98,7 @@ Specifying a scaling method for multiple columns
     	14.6  656.7,
     	16.7 1251.5 };
     
-    //Standardize 'x' and return the location and scaling factors
+    // Standardize 'x' and return the location and scaling factors
     { x_s, location, scale_factor } = rescale(x, "standardize");
     				
     print"x_s = " x_s;				
@@ -130,7 +130,7 @@ Continuing with the variables used in example 2, we can apply the returned locat
 
 ::
 
-    //Additional observations
+    // Additional observations
     x_new = {  
     	 9.3  964.1,
     	10.9 1173.7,
@@ -141,11 +141,11 @@ Continuing with the variables used in example 2, we can apply the returned locat
     	20.2 1292.6,
     	18.5  833.1 };
     
-    //Standardize 'x' using the location and scaling factors
+    // Standardize 'x' using the location and scaling factors
     print"location = " location;				
     print"scale_factor = " scale_factor;
     								
-    //returned in example 2
+    // returned in example 2
     x_new_s = rescale(x_new, location, scale_factor);
     				
     print"x_new_s = " x_new_s;				

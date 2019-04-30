@@ -46,16 +46,16 @@ Basic Example
 
 ::
 
-    //Population size
+    // Population size
     m = 100;
     
-    //Number of marked items
+    // Number of marked items
     k = 25;
     
-    //Number of items drawn
+    // Number of items drawn
     n = 40;
     
-    //Compute 1 random number
+    // Compute 1 random number
     x = rndHyperGeo(1, 1, m, k, n);
 
 The example below shows how to create a random matrix in which each column has different parameters.
@@ -63,16 +63,16 @@ The example below shows how to create a random matrix in which each column has d
 
 ::
 
-    //Population size
+    // Population size
     m = 100;
     
-    //Number of marked items
+    // Number of marked items
     k = 25;
     
-    //1x2 row vector, number of items drawn
+    // 1x2 row vector, number of items drawn
     n = { 40 50 };
     
-    //Compute a 10 x 2 matrix of random number
+    // Compute a 10 x 2 matrix of random number
     x = rndHyperGeo(10, 2, m, k, n);
 
 Both columns of the variable x created in the code above use the same values for m and k. However, the first column of x will be calculated using the first element of n, 40. The second column of x will be calculated using the second element of n, 50.
@@ -82,19 +82,19 @@ Passing in a state vector
 
 ::
 
-    //Starting seed value
+    // Starting seed value
     seed = 23424;
     
-    //Population size
+    // Population size
     m = 100;
     
-    //Number of marked items
+    // Number of marked items
     k = 25;
     
-    //Number of items drawn
+    // Number of items drawn
     n = 40;
     
-    //Compute 1000x1 vector of random numbers
+    // Compute 1000x1 vector of random numbers
     { x, state } = rndHyperGeo(1000, 1, m, k, n, seed);
 
 .. seealso:: Functions :func:`cdfHyperGeo`, :func:`pdfHyperGeo`

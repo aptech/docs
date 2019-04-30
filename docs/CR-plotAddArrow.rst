@@ -50,11 +50,11 @@ Basic usage
     x_end = 0.4;
     y_end = 0.5;
     
-    //Set arrowhead at the end to 15 px
-    //No arrowhead at the beginning of the arrow
+    // Set arrowhead at the end to 15 px
+    // No arrowhead at the beginning of the arrow
     head_size = { 15, 0 };
     
-    //Add an arrow to graph
+    // Add an arrow to graph
     plotAddArrow(x_start, y_start, x_end, y_end, head_size);
 
 Add an arrow between points
@@ -62,12 +62,12 @@ Add an arrow between points
 
 ::
 
-    //Draw random scatter plot
+    // Draw random scatter plot
     x = rndu(10,1);
     y = rndu(10, 1);
     plotScatter(x, y);
     
-    //Add arrow from the first point to the ninth point
+    // Add arrow from the first point to the ninth point
     plotAddArrow(x[1], y[1], x[9], y[9], 12);
 
 .. seealso:: Functions :func:`plotAddTextbox`, :func:`annotationGetDefaults`, :func:`annotationSetLineColor`

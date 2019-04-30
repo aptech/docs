@@ -28,14 +28,14 @@ Examples
 ::
 
     file = getGAUSSHome()$+ "examples/freqdata.dat";				
-    //Open the dataset
+    // Open the dataset
     open f = ^file for read;
     
-    //Create a string array with the variable names from the 
-    //dataset
+    // Create a string array with the variable names from the 
+    // dataset
     y = getnamef(f);
     
-    //Check which variables are character and which are numeric
+    // Check which variables are character and which are numeric
     t = vartypef(f);
     
     print y;

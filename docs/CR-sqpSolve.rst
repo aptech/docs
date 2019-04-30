@@ -220,7 +220,7 @@ Examples
 
 ::
 
-    //Reset all sqpSolve global variables
+    // Reset all sqpSolve global variables
                     
     sqpSolveSet;
      

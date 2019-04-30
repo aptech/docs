@@ -46,7 +46,7 @@ Examples
 
 ::
 
-    //Create a string array
+    // Create a string array
     string sa = { "1.1" "2.2" "3.3", 
                   "4.4" "5.5" "6.6" };
     num = strtof(sa);

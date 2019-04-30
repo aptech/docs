@@ -20,11 +20,11 @@ Examples
 
 ::
 
-    //Create an additive sequence from 1-12 and reshape it into 
-    //a 3x4 matrix
+    // Create an additive sequence from 1-12 and reshape it into 
+    // a 3x4 matrix
     x = reshape(seqa(1,1,12),3,4);
     
-    //Sum the rows
+    // Sum the rows
     y = sumr(x);
 
 After the above code, the variables x and y will be:
@@ -37,8 +37,8 @@ After the above code, the variables x and y will be:
 
 ::
 
-    //Reshape an additive sequence from 1-24 into a 2x3x4 
-    //dimensional array
+    // Reshape an additive sequence from 1-24 into a 2x3x4 
+    // dimensional array
     a = areshape(seqa(1,1,24),2|3|4);
     z = sumr(a);
 

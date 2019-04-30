@@ -21,7 +21,7 @@ Examples
 
 ::
 
-    //Create an infinity
+    // Create an infinity
     x = 1/0;
     
     if scalInfNanMiss(x);

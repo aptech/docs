@@ -29,21 +29,21 @@ Examples
 
 ::
 
-    //Initialize 'k' so it will be 0 for the first iteration of
-    //the 'do while' loop
+    // Initialize 'k' so it will be 0 for the first iteration of
+    // the 'do while' loop
     k = 0;
     
-    //Prompt the user for input
+    // Prompt the user for input
     print"Continue Program? [Y/N]";
     
-    //Continually check for keyboard input and exit the loop on
-    //keyboard input
+    // Continually check for keyboard input and exit the loop on
+    // keyboard input
     do while (k == 0);
        k = key;
     endo;
     
-    //Follow a different code branch depending upon which key
-    //the user entered
+    // Follow a different code branch depending upon which key
+    // the user entered
     if k == vals("Y") or k == vals("y");
        print "You chose to continue";
     else;

@@ -85,10 +85,10 @@ An alternative parameterization specifies the negative binomial distribution in 
 
 ::
 
-    //dispersion parameter
+    // dispersion parameter
     dp = 12;
     
-    //mean parameter
+    // mean parameter
     mu = 3;
     
     x = rndNegBinomial(100, 1, dp, dp./(dp + mu));

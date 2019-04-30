@@ -93,11 +93,11 @@ Computing statistics on a GAUSS dataset
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
     
-    //Compute statistics for all variables in the dataset
-    //The 'call' keyword disregards return values from the function
+    // Compute statistics for all variables in the dataset
+    // The 'call' keyword disregards return values from the function
     call  dstatmt(file_name);
 
 The above example will print the following report to the program input/output window:
@@ -116,13 +116,13 @@ the second variable.
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
     
-    //Only calculate statistics on the second variable
+    // Only calculate statistics on the second variable
     vars = 2;
     
-    //Compute statistics for only the second variable in the dataset
+    // Compute statistics for only the second variable in the dataset
     call  dstatmt(file_name, vars);
 
 The following report is printed to the program input/output window.
@@ -139,14 +139,14 @@ Computing statistics on a csv dataset with formula string
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file_name = getGAUSSHome() $+ "examples/binary.csv";
     
-    //Set up a formula string with variables "gre" and "gpa"
+    // Set up a formula string with variables "gre" and "gpa"
     vars = "gre + gpa"; 
     					
-    //Compute statistics for all variables in the dataset
-    //The 'call' keyword disregards return values from the function
+    // Compute statistics for all variables in the dataset
+    // The 'call' keyword disregards return values from the function
     call  dstatmt(file_name, vars);
 
 The above example will print the following report to the program input/output window:
@@ -165,26 +165,26 @@ Using control and out structures
 
 ::
 
-    //Create file name with full path
+    // Create file name with full path
     file_name = getGAUSSHome() $+ "examples/credit.dat";
     
-    //Declare control structure and fill in with defaults
+    // Declare control structure and fill in with defaults
     struct dstatmtControl dctl;
     dctl = dstatmtControlCreate();
     
-    //Do not print output to the screen
+    // Do not print output to the screen
     dctl.output = 0;
     
-    //Declare output structure
+    // Declare output structure
     struct dstatmtOut dout;
     
-    //Calculate statistics on the 1st, 3rd and 6th variables
+    // Calculate statistics on the 1st, 3rd and 6th variables
     vars = { 1, 3, 6 };
     
-    //Calculate statistics, and place output in 'dout'
+    // Calculate statistics, and place output in 'dout'
     dout = dstatmt(file_name, vars, dctl);
     
-    //Print calculated means and variable names
+    // Print calculated means and variable names
     print dout.mean;
     print dout.vnames;
 
@@ -205,14 +205,14 @@ Computing statistics on a matrix
 
 ::
 
-    //Set random number seed for repeatable random numbers
+    // Set random number seed for repeatable random numbers
     rndseed 32452;
     
-    //Create a random matrix on which to compute statistics
+    // Create a random matrix on which to compute statistics
     X = rndn(10,3);
     
-    //The empty string as the second input tells GAUSS to
-    //compute statistics on a matrix rather than a dataset
+    // The empty string as the second input tells GAUSS to
+    // compute statistics on a matrix rather than a dataset
     call dstatmt("", X);
 
 The code above will print out the following report:
@@ -232,24 +232,24 @@ Computing statistics on a matrix, using structures
 
 ::
 
-    //Set random number seed for repeatable random numbers
+    // Set random number seed for repeatable random numbers
     rndseed 32452;
     
-    //Declare control structure and fill with default values
+    // Declare control structure and fill with default values
     struct dstatmtControl dctl;
     dctl = dstatmtControlCreate();
     
-    //Variable names for printed output
+    // Variable names for printed output
     dctl.altnames = "Alpha"$|"Beta"$|"Gamma";
     
-    //Declare structure to hold output values
+    // Declare structure to hold output values
     struct dstatmtOut dout;
     
-    //Create a random matrix on which to compute statistics
+    // Create a random matrix on which to compute statistics
     X = rndn(10,3);
     
-    //The empty string as the second input tells GAUSS to
-    //compute statistics on a matrix rather than a dataset
+    // The empty string as the second input tells GAUSS to
+    // compute statistics on a matrix rather than a dataset
     dout = dstatmt("", X, dctl);
 
 This time, the following output will be printed to the screen:

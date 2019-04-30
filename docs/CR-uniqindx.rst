@@ -35,11 +35,11 @@ Examples
 
     let x = 5 4 4 3 3 2 1;
     
-    //Create a sorted index of all the unique elements in 'x'
+    // Create a sorted index of all the unique elements in 'x'
     ind = uniqindx(x,1);
     
-    //Use the index 'ind' to return all of the unique elements 
-    //of 'x' in ascending order
+    // Use the index 'ind' to return all of the unique elements 
+    // of 'x' in ascending order
     y = x[ind];
 
 After running the above code, ind and y are equal to:

@@ -42,10 +42,10 @@ Examples
     let what = AGE PAY SEX;
     let where = AGE SEX JOB DATE PAY;
     
-    //Return the indices in 'where' of the items in 'what'
+    // Return the indices in 'where' of the items in 'what'
     z = indcv(what,where);
     
-    //Replace AGE, PAY, SEX with YEARS, BONUS, GENDER
+    // Replace AGE, PAY, SEX with YEARS, BONUS, GENDER
     where[z] = newVars;
 
 After the code above:

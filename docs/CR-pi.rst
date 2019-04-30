@@ -17,8 +17,8 @@ Examples
 
 ::
 
-    //Print 14 digits and allow 16 digits worth of space for 
-    //each printed number
+    // Print 14 digits and allow 16 digits worth of space for 
+    // each printed number
     format /rdn 16,14;
     print pi;
 

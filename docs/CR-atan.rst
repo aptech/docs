@@ -34,8 +34,8 @@ Examples
 
 ::
 
-    //Create a sequence with 5 elements starting at -pi and
-    //increasing by pi/2
+    // Create a sequence with 5 elements starting at -pi and
+    // increasing by pi/2
     x = seqa(-pi, pi/2, 5)
     y = atan(x);
     print "x = " x;

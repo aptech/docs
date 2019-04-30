@@ -39,7 +39,7 @@ Basic example
 
 ::
 
-    //Create a vector of years
+    // Create a vector of years
     y1 = { 1980,
            1984,
            1988,
@@ -58,7 +58,7 @@ Basic example
            2008,
            2016 };
     
-    //Set 'y_diff' equal to years in 'y1' and NOT in 'y2'
+    // Set 'y_diff' equal to years in 'y1' and NOT in 'y2'
     y_diff = setdif(y1, y2);
 
 After the code above, y_diff will be equal to:
@@ -75,19 +75,19 @@ Character data
 
 ::
 
-    //Create 2 vectors of character data using the
-    //numeric concatenation operator
+    // Create 2 vectors of character data using the
+    // numeric concatenation operator
     sp500 = "aapl" | "goog" | "msft" | "xom" | "wfc" | "jnj";
     nasdaq = "aapl" | "msft" | "amzn" | "goog" | "fb" | "gild";
     
-    //Set type to 'character, case insensitive'
+    // Set type to 'character, case insensitive'
     typ = 2;
     
-    //Find characters in sp500 and NOT in nasdaq
+    // Find characters in sp500 and NOT in nasdaq
     sp_only = setdif(sp500, nasdaq, 2);
     
-    //NOTE: The $ in front of the variable name tell
-    //GAUSS to print the variable as character data
+    // NOTE: The $ in front of the variable name tell
+    // GAUSS to print the variable as character data
     print $sp_only;
 
 The code above will produce the following output:

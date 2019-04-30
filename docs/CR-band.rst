@@ -41,13 +41,13 @@ Examples
           0 1 5 2,
           0 0 2 3 };
     
-    //Extract only the principal diagonal
+    // Extract only the principal diagonal
     b0 = band(x,0);
     
-    //Extract the principal diagonal and the first subdiagonal
+    // Extract the principal diagonal and the first subdiagonal
     b1 = band(x,1);
     
-    //Extract the principal diagonal and the first two subdiagonals
+    // Extract the principal diagonal and the first two subdiagonals
     b2 = band(x,2);
 
 After the code above:

@@ -65,7 +65,7 @@ Examples
     y = x;
     y[1,1] = 2*pi;
     
-    //Test for elements where 'x' is > 'y'
+    // Test for elements where 'x' is > 'y'
     t = dotfge(x,y);
 
 ::
@@ -77,7 +77,7 @@ Continuing with the data above:
 
 ::
 
-    //Test for elements where 'x' is < 'y '
+    // Test for elements where 'x' is < 'y '
     t = dotflt(x,y);
 
 ::

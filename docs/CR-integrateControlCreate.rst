@@ -18,11 +18,11 @@ Examples
 
 ::
 
-    //Declare 'ctl' as an instance of an 
+    // Declare 'ctl' as an instance of an 
     //'integrateControl' structure
     struct integrateControl ctl;
     
-    //Fill with default settings
+    // Fill with default settings
     ctl = integrateControlCreate();
 
 Source

@@ -32,10 +32,10 @@ Examples
 
 ::
 
-    //September 10, 2015
+    // September 10, 2015
     tStart = 20150910110231;
     
-    //September 28, 2015
+    // September 28, 2015
     tEnd = 20150928080722;
     
     nDays = elapsedTradingDays(tStart, tEnd);

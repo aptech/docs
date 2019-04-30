@@ -30,18 +30,18 @@ Basic usage
 
 ::
 
-    //Create starting parameter vector
+    // Create starting parameter vector
     start_vals = { 0,
                    1,
                    1 };
     
-    //Declare 'p1' as an instance of a 'PV' structure
+    // Declare 'p1' as an instance of a 'PV' structure
     struct PV p1;
     
-    //Initialize 'p1' with default settings
+    // Initialize 'p1' with default settings
     p1 = pvCreate();
     
-    //Add a variable named 'b' in 'p1' containing the data from 'start_vals'
+    // Add a variable named 'b' in 'p1' containing the data from 'start_vals'
     p1 = pvPack(p1, start_vals, "b");
 
 The data can be extracted using the pvUnpack

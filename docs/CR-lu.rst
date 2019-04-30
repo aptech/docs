@@ -25,11 +25,11 @@ Examples
 
 ::
 
-    //Set seed for repeatable random numbers
+    // Set seed for repeatable random numbers
     
     rndseed 13;
     
-    //Print format, display 4 digits after decimal point
+    // Print format, display 4 digits after decimal point
     format /rd 10,4;
     
     A = rndn(3,3);

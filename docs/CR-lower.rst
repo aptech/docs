@@ -45,9 +45,9 @@ or spreadsheet file, you or your colleagues may want to analyze data with incons
     var1 = "Consumption";
     
     if lower(var1) == "gdp";
-       //code for gdp branch
+       // code for gdp branch
     else if lower(var1) == "consumption";
-       //code for consumption branch
+       // code for consumption branch
     endif;
 
 Using the :func:`lower` function, the code above will operate correctly whether *var1* is Consumption, CONSUMPTION or consumption.

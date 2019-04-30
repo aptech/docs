@@ -43,18 +43,18 @@ Examples
     c1 = { "age", "height", "weight" };
     c2 = { 31, 70, 160 };
     
-    //Horizontally concatenate c1 and c2
+    // Horizontally concatenate c1 and c2
     c = c1~c2;
     
-    //Print 'c' as numeric data
+    // Print 'c' as numeric data
     print c;
     
-    //Print 'c' as character data
+    // Print 'c' as character data
     print $c;
     
-    //Print column 1 of 'c' as character data and column 2 as 
-    //numeric data
-    //Note: call disregards the return value
+    // Print column 1 of 'c' as character data and column 2 as 
+    // numeric data
+    // Note: call disregards the return value
     mask = { 0 1 };
     call printfmt(c, mask);
 

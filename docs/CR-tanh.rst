@@ -22,8 +22,8 @@ Examples
 
 ::
 
-    //Create a sequence starting at -0.5 and increasing by
-    //0.25, i.e. -0.5, -0.25, 0, 0.25...1
+    // Create a sequence starting at -0.5 and increasing by
+    // 0.25, i.e. -0.5, -0.25, 0, 0.25...1
     x = seqa(-0.5, 0.25, 7);
     x = x * pi;
     y = tanh(x);

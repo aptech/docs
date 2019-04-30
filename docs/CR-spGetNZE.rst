@@ -31,10 +31,10 @@ Examples
           5 0 0  0,
           0 0 0  3 };
     
-    //Create sparse matrix from 'x'       
+    // Create sparse matrix from 'x'       
     y = denseToSp(x,0);
     
-    //Get non-zero values, row indices and column indices
+    // Get non-zero values, row indices and column indices
     { v,r,c } = spGetNZE(y);
 
 v, the non-zero values, is equal to:

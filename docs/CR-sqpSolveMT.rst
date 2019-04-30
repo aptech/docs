@@ -134,7 +134,7 @@ and where an optional gradient procedure has been provided:
 
 ::
 
-   //Create data needed by 'Micherlitz' procedure
+   // Create data needed by 'Micherlitz' procedure
    y =  { 3.183,
           3.059,
           2.871,
@@ -151,32 +151,32 @@ and where an optional gradient procedure has been provided:
     
    x = seqa(1,1,13);
     
-   //Declare control structure
+   // Declare control structure
    struct sqpSolveMTControl c0;
     
-   //Initialize structure to default values
+   // Initialize structure to default values
    c0 = sqpSolveMTControlCreate();
     
-   //Constrain parameters to be positive  
+   // Constrain parameters to be positive  
    c0.bounds = 0~100; 
     
-   //Declare 'par1' to be a PV structure
+   // Declare 'par1' to be a PV structure
    struct PV par1;
 
-   //Initialize 'par1'
+   // Initialize 'par1'
    par1 = pvCreate();
 
-   //Add 3x1 vector named 'parameters' to 'p1'
+   // Add 3x1 vector named 'parameters' to 'p1'
    par1 = pvPack(par1,.92|2.62|.114, "parameters");
 
-   //Declare 'out' to be an sqpsolvemt control structure
-   //to hold the results from sqpsolvemt
+   // Declare 'out' to be an sqpsolvemt control structure
+   // to hold the results from sqpsolvemt
    struct sqpSolveMTout out;
 
-   //Estimate the model parameters
+   // Estimate the model parameters
    out = sqpSolveMT(&Micherlitz,par1,y,x,c0);
     
-   //Print returned parameter estimates
+   // Print returned parameter estimates
    print "parameter estimates ";
    print pvUnPack(out.par, "parameters");
     

@@ -49,12 +49,12 @@ If we view '*y*', we will see:
 
 ::
 
-    //This bottom row is the permutation index vector
-    //Calculate how many rows in 'y'
+    // This bottom row is the permutation index vector
+    // Calculate how many rows in 'y'
     r = rows(y);
     
-    //Extract the index row and transpose it into a column 
-    //vector
+    // Extract the index row and transpose it into a column 
+    // vector
     index = y[r,.]';
 
 Viewing '*indx*' will reveal:
@@ -67,21 +67,21 @@ Viewing '*indx*' will reveal:
 
 ::
 
-    //Rearrange the rows of 'y' based upon the index vector
+    // Rearrange the rows of 'y' based upon the index vector
     z = y[index,.];
     
     // obtain L and U of permuted matrix X
     L = lowmat(z); 
     U = upmat1(z);
     
-    //Horizontally concatenate the index vector and the product
-    //of L*U then pass that result into the 'sortc' function 
-    //which will sort this result based upon the first column 
+    // Horizontally concatenate the index vector and the product
+    // of L*U then pass that result into the 'sortc' function 
+    // which will sort this result based upon the first column 
     //(which is the index vector)
     q = sortc(index~(L*U),1);
     
-    //Remove the index vector, which we added by way of
-    //horizontal concatenation in the statement just above
+    // Remove the index vector, which we added by way of
+    // horizontal concatenation in the statement just above
     x2 = q[.,2:cols(q)];
 
 Now at the end of this example, *x2* is equal to *x*.

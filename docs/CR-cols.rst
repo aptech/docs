@@ -27,10 +27,10 @@ Examples
 
 ::
 
-    //Create a 100x3 matrix of uniform random numbers
+    // Create a 100x3 matrix of uniform random numbers
     x = rndu(100,3);
     
-    //Find out how many columns are in 'x'
+    // Find out how many columns are in 'x'
     p = cols(x);
 
 After the code above:

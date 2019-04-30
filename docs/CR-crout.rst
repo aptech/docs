@@ -35,14 +35,14 @@ Examples
           2 3 -2,
           1 -2 1 };
     
-    //Perform crout decomposition
+    // Perform crout decomposition
     y = crout(x);
     
-    //Extract lower triangle of 'y' and assign it to 'L'
+    // Extract lower triangle of 'y' and assign it to 'L'
     L = lowmat(y);
     
-    //Extract upper triangle of 'y', fill the diagonal with
-    //ones and assign it to 'L'
+    // Extract upper triangle of 'y', fill the diagonal with
+    // ones and assign it to 'L'
     U = upmat1(y);
 
 After the code above:

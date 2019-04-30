@@ -19,10 +19,10 @@ Examples
 
 ::
 
-    //Declare instance of structure
+    // Declare instance of structure
     struct sqpSolveMTControl s;
     
-    //Initialize the structure to default values
+    // Initialize the structure to default values
     s = sqpSolveMTControlCreate();
 
 Source

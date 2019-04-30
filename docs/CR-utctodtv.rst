@@ -47,8 +47,8 @@ Examples
 
 ::
 
-    //Set 'tc' equal to the number of seconds since January 1,
-    //1970
+    // Set 'tc' equal to the number of seconds since January 1,
+    // 1970
     tc = timeutc;
     print "tc = " tc;
     

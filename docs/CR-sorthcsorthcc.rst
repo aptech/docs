@@ -54,7 +54,7 @@ Examples
                 1 3 2
                 3 4 8;
     
-    //Sort x based upon the values in the third column
+    // Sort x based upon the values in the third column
     y = sorthc(x,3);
 
 This produces y equal to:

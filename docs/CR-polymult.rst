@@ -35,10 +35,10 @@ and returns the answer:
 
 ::
 
-    //Assign c1 to represent 2x + 1
+    // Assign c1 to represent 2x + 1
     c1 = { 2, 1 };
     
-    //Assign c2 to represent 2x2 + 1
+    // Assign c2 to represent 2x2 + 1
     c2 = { 2, 0, 1 };
     c = polymult(c1,c2);
 
@@ -67,12 +67,12 @@ would be:
 
 ::
 
-   //Using the pipe operator for vertical concatenation
+   // Using the pipe operator for vertical concatenation
    c1 = 5|0|6|3;
 
      or
 
-   //Using an array assignment
+   // Using an array assignment
    c1 = { 5, 0, 6, 3 };
 
 (Note that zeros must be explicitly given if there are powers of *x* missing.)

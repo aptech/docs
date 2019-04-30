@@ -67,11 +67,11 @@ Basic usage
 
 ::
 
-    //Set seed for repeatable random numbers
+    // Set seed for repeatable random numbers
     rndseed 7345;
     
-    //Simulate the number of successes from 1024 trials,
-    //each of which have a 40% chance of success, 3 times
+    // Simulate the number of successes from 1024 trials,
+    // each of which have a 40% chance of success, 3 times
     n = 1024;
     p = 0.4;		
     k = rndBinomial(3, 1, n, p);
@@ -89,13 +89,13 @@ Pass seed and return state vector
 
 ::
 
-    //Simulate the number of successes from 1024 trials,
-    //each of which have a 40% chance of success, 3 times
+    // Simulate the number of successes from 1024 trials,
+    // each of which have a 40% chance of success, 3 times
     n = 1024;
     p = 0.4;
     
-    //Pass in seed as optional final input argument
-    //and return state vector as second output
+    // Pass in seed as optional final input argument
+    // and return state vector as second output
     { k, state } = rndBinomial(3, 1, n, p, 7345);
 
 After the code above, k should equal:

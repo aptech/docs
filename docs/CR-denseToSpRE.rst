@@ -58,16 +58,16 @@ You can calculate the mean of the non-zero elements of *x* like this:
 
 ::
 
-    //Create a matrix of 1's and 0's with a 1 where the
-    //corresponding element in 'x' is not equal to 0
+    // Create a matrix of 1's and 0's with a 1 where the
+    // corresponding element in 'x' is not equal to 0
     mask = x ./= 0;
     
-    //Calculate the sum of 'mask', this is the number of 
-    //non-zeros in 'x'
+    // Calculate the sum of 'mask', this is the number of 
+    // non-zeros in 'x'
     nnz = sumc(sumc(mask));
     
-    //Divide the sum of the absolute value of 'x' by the number
-    //of non-zeros
+    // Divide the sum of the absolute value of 'x' by the number
+    // of non-zeros
     nzmean = sumc(sumc(abs(x)))/nnz;
 
 ::

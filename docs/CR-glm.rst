@@ -169,14 +169,14 @@ Ordinary linear regression with simulated data matrices.
 
 ::
 
-    //Set random number seed for repeatable random numbers
+    // Set random number seed for repeatable random numbers
     rndseed 86;
     
-    //Simulate data using rndn function 
+    // Simulate data using rndn function 
     x = rndn(100,4);
     y = rndn(100,1);
     
-    //Call glm function with the minimum inputs 
+    // Call glm function with the minimum inputs 
     call glm(y, x, "normal");
 
 This example will compute a least squares regression of *y* on *x*. The results will be shown in the program input / output window. The return values are discarded by using a `call` statement.
@@ -206,7 +206,7 @@ Logistic regression using a formula string to reference data in a CSV file conta
 
 ::
 
-    //Create string with fully pathed file name
+    // Create string with fully pathed file name
     fname = getGAUSShome() $+ "examples/binary.csv";				 
     
     // Call glm function with formula string using 'factor' keyword to create dummy variables
@@ -248,10 +248,10 @@ Running a no intercept model from a STATA DTA file.
     // File name with full path 
     fname = getGAUSShome() $+ "examples/auto2.dta";
     				
-    //Declare 'fit' to be a glmOut structure
+    // Declare 'fit' to be a glmOut structure
     struct glmOut fit;
     						
-    //Call 'glm' with no intercept model	
+    // Call 'glm' with no intercept model	
     fit = glm(fname, "mpg ~ -1 + weight + gear_ratio",  "normal");
 
 After running the code above, the output is :
@@ -285,10 +285,10 @@ Running a no intercept model from a SAS sas7bdat file.
     // File name with full path 
     fname = getGAUSSHome() $+ "examples/detroit.sas7bdat";
     				
-    //Declare 'fit' to be a glmOut structure
+    // Declare 'fit' to be a glmOut structure
     struct glmOut fit;
     						
-    //Call 'glm' with no intercept model	
+    // Call 'glm' with no intercept model	
     fit = glm(fname, "homicide ~ unemployment + hourly_earn",  "normal");
 
 After running the code above, the output is :
@@ -322,26 +322,26 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     new;
     cls;
     
-    //Create filename with full path
+    // Create filename with full path
     dataset = getGAUSSHome() $+ "examples/credit.dat";
     
-    //Import all data from the dataset				
+    // Import all data from the dataset				
     data = loadd(dataset);
     				
-    //Select the independent variables by index				
+    // Select the independent variables by index				
     x = data[., 1 7 9] ;
     				
-    //Select the dependent variable by index				
+    // Select the dependent variable by index				
     y = data[., 11];
     				
-    //Get the names of the variables in the dataset
+    // Get the names of the variables in the dataset
     vnames = getHeaders(dataset);
     label = vnames[ 11 1 7 9, 1 ];
     				
-    //Specify that the 2nd and 3rd columns in 'x' are categorical variables
+    // Specify that the 2nd and 3rd columns in 'x' are categorical variables
     categoryIdx = { 2 3 };
     				
-    //Call glm function with three necessary inputs and two optional inputs								
+    // Call glm function with three necessary inputs and two optional inputs								
     call glm(y, x, "normal", label, categoryIdx);
 
 *vnames* is a string array containing all of the variable names from ``credit.dat`` returned from the :func:`getHeaders` function. *label* contains only the variable names used in the regression. The first element must be the label of the dependent variable, followed by the labels for the independent variables corresponding to the order in the *x* matrix.
@@ -377,7 +377,7 @@ Use a :class:`glmControl` structure to control the link function and a :class:`g
 
     new;
     
-    //Create file name with full path  				
+    // Create file name with full path  				
     fname = getGAUSShome() $+ "examples/binary.csv"; 
     				
     // Declare 'binary_ctl' as a glmControl structure 
@@ -482,38 +482,38 @@ Using a glmOut structure to save result for a Gamma regression with categorical 
     // File name with full path 
     file = getGAUSShome() $+ "examples/yarn.xlsx";
     				
-    //Read 4th column as a numeric matrix
+    // Read 4th column as a numeric matrix
     y = xlsReadM(file, "D2:D28");
     
-    //Read columns 1, 2 and 3 as character data
+    // Read columns 1, 2 and 3 as character data
     x = xlsReadSA(file, "A2:C28");
     				
-    //Find unique categorical levels
+    // Find unique categorical levels
     from = uniquesa(x[.,1]);
     
-    //Numeric categorical levels
+    // Numeric categorical levels
     to = {1, -1, 0};
     				
-    //Reclassify the character to number
+    // Reclassify the character to number
     x = reclassify(x, from, to);
     				
-    //Declare 'ctl_gamma' as a glmControl struct
+    // Declare 'ctl_gamma' as a glmControl struct
     struct glmControl ctl_gamma;
     				
-    //Read variable names and transpose				
-    //to a column vector
+    // Read variable names and transpose				
+    // to a column vector
     ctl_gamma.varNames = xlsReadSA(file, "A1:D1")';
     								
-    //Specify categorical columns	
+    // Specify categorical columns	
     ctl_gamma.categoryIdx = { 1 2 3 };				
     								
-    //Specify link function
+    // Specify link function
     ctl_gamma.link = "ln";
     				
-    //Declare 'out_gamma' to be a glmOut structure
+    // Declare 'out_gamma' to be a glmOut structure
     struct glmOut out_gamma;
     						
-    //Call 'glm' and fill 'out_gamma' with results	
+    // Call 'glm' and fill 'out_gamma' with results	
     out_gamma = glm(y, x, "gamma", ctl_gamma);
 
 In this example, the data set "``yarn.xlsx``" is used to perform a Gamma regression.
@@ -552,10 +552,10 @@ Using a "\*.dat" file directly in glm for a Inverse Gaussian distribution.
     // File name with full path 
     fname = getGAUSShome() $+ "examples/clotting_time.dat";
     				
-    //Declare 'fit_inv' to be a glmOut structure
+    // Declare 'fit_inv' to be a glmOut structure
     struct glmOut fit_inv;
     						
-    //Call 'glm' and fill 'fit_inv' with results	
+    // Call 'glm' and fill 'fit_inv' with results	
     fit_inv = glm(fname, "plasma ~ lot1",  "inverse gaussian");
 
 After running the code above, the output is:
@@ -596,7 +596,7 @@ Running a linear regression model using data transformations with HDF5 file.
     // Define the formula for the linear model, using 'ln' data transformation
     formula = "ln(Weight) ~ ln(Height) + Age";
     
-    //Call 'glm' 
+    // Call 'glm' 
     call glm(dataset, formula,  "normal");
 
 After running the code above, the output is :

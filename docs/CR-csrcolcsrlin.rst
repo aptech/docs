@@ -39,11 +39,11 @@ Examples
     r = csrlin;
     c = csrcol;
     
-    //Clear the program input/output window
+    // Clear the program input/output window
     cls;
     
-    //Re-position the cursor to its location before the program 
-    //input/output window was cleared
+    // Re-position the cursor to its location before the program 
+    // input/output window was cleared
     locate r,c;
 
 In this example the screen is cleared without

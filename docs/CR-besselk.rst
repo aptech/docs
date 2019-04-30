@@ -63,17 +63,17 @@ Compute data for first 3 orders
 
 ::
 
-    //Row vector of orders, 'n'
+    // Row vector of orders, 'n'
     n = { 0 1 2 };
     
-    //Column vector 'x'
+    // Column vector 'x'
     x = { 0, 
         0.5, 
           1, 
         1.5, 
           2 };
     
-    //Compute function for each order, 'n', at all 'x' points
+    // Compute function for each order, 'n', at all 'x' points
     K = besselk(n,x);
 
 After the code above, *K* should equal:
