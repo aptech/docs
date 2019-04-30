@@ -11,20 +11,20 @@ Format
 ----------------
 .. function:: prodc(x)
 
-    :param x: 
+    :param x: dat
     :type x: NxK matrix
 
-    :returns: y (*Kx1 matrix*) containing the products of all elements in each column of x.
+    :returns: y (*Kx1 matrix*) containing the products of all elements in each column of *x*.
 
 Remarks
 -------
 
 To find the products of the elements in each row of a matrix, transpose
-before applying prodc. If x is complex, use the bookkeeping transpose
-(.').
+before applying prodc. If *x* is complex, use the bookkeeping transpose
+(``.'``).
 
-To find the products of all of the elements in a matrix, use the vecr
-function before applying prodc.
+To find the products of all of the elements in a matrix, use the :func:`vecr`
+function before applying :func:`prodc`.
 
 
 Examples
@@ -38,12 +38,13 @@ Examples
      
     y = prodc(x);
 
-The code above assigns y to be equal to:
+The code above assigns *y* to be equal to:
 
 ::
 
-    28
+         28
     y =  80
         162
 
 .. seealso:: Functions :func:`sumc`, :func:`meanc`, :func:`stdc`
+

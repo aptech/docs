@@ -9,28 +9,44 @@ Computes the polygamma function.
 
 Format
 ----------------
-.. function:: polygamma(z,n)
+.. function:: polygamma(z, n)
 
-    :param z: 
-    :type z: NxK matrix; z may be complex
+    :param z: z may be complex
+    :type z: NxK matrix
 
-    :param n:  If n is 0 then f will be the Digamma function.
-        If n = 1,2,3, etc., then f will be
-        the tri-, tetra-, penta-, s-, etc., Gamma function.
-        Real (n) must be positive.
+    :param n: If *n* is 0 then *f* will be the Digamma function.
+        If *n* = 1,2,3, etc., then *f* will be the tri-, tetra-, penta-, s-, etc., Gamma function.
+        Real (*n*) must be positive.
     :type n: The order of the function
 
-    :returns: f (*NxK matrix*) ;  f may be complex.
+    :returns: f (*NxK matrix*) *f* may be complex.
+
+Remarks
+-------
+
+The :func:`polygamma` function of order *n* is defined by the equation:
+
+.. math:: $\psi^{(n)}(z) = \\frac{d^n}{dz^n}\psi(z) = \\frac{d^{n+1}}{dz^{n+1}}ln\Gamma(z)$
+
+.. DANGER:: fix equation if needed
+
+This program uses the partial fraction expansion of the derivative of
+the log of the Lanczos series approximation for the Gamma function.
+Accurate to about 12 digits.
 
 Examples
 ----------------
 
-//Both calls are equivalent
-f = digamma(1);
-f2 = polygamma(1, 0);
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 1: Basic usage
+++++++++++++++++++++++
 
-After the code above, both f and f2 should be equal to -g, where g represents the Euler-Mascheroni constant:
+::
+
+    //Both calls are equivalent
+    f = digamma(1);
+    f2 = polygamma(1, 0);
+
+After the code above, both *f* and *f2* should be equal to :math:`-g`, where *g* represents the Euler-Mascheroni constant:
 
 ::
 
@@ -62,9 +78,14 @@ Complex input
 
     12.501909 + 9.0829590i
 
-z = { -11.5 - 0.577007813568142i };
-polygamma(z,10);
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Example 4
++++++++++
+
+::
+
+    z = { -11.5 - 0.577007813568142i };
+    polygamma(z,10);
 
 will return the value:
 
@@ -72,19 +93,8 @@ will return the value:
 
     -4.984e-06 + 8.217e-07i
 
-Remarks
--------
-
-The polygamma function of order n is defined by the equation:
-
-$\psi^{(n)}(z) = \\frac{d^n}{dz^n}\psi(z) =
-\\frac{d^{n+1}}{dz^{n+1}}ln\Gamma(z)$
-This program uses the partial fraction expansion of the derivative of
-the log of the Lanczos series approximation for the Gamma function.
-Accurate to about 12 digits.
-
 References
-++++++++++
+------------
 
 #. C. Lanczos, SIAM JNA 1, 1964. pp. 86-96.
 

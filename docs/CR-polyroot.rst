@@ -10,21 +10,24 @@ Format
 ----------------
 .. function:: polyroot(c)
 
-    :param c: .. + c[n]*z + c[n+1]
-    :type c: (N+1)x1 vector of coefficients of an Nth order polynomial:
-        
-        p(z) = c[1]*zn + c[2]*zn-1 + 
+    :param c: coefficients of an Nth order polynomial:
+    
+        .. math:: p(z) = c[1]*zn + c[2]*zn-1 + ... + c[n]*z + c[n+1]
 
-    :returns: y (*Nx1 vector*), the roots of c.
+    :type c: (N+1)x1 vector
+        
+    :returns: y (*Nx1 vector*), the roots of *c*.
+
+.. DANGER:: fix equations
 
 Remarks
 -------
 
-Zero leading terms will be stripped from c. When that occurs the order
-of y will be the order of the polynomial after the leading zeros have
+Zero leading terms will be stripped from *c*. When that occurs the order
+of *y* will be the order of the polynomial after the leading zeros have
 been stripped.
 
-c[1] need not be normalized to unity.
+:math:`c[1]` need not be normalized to unity.
 
 
 Examples
@@ -51,6 +54,8 @@ Examples
     print "The roots of the polynomial y = 7x^4 - 5x^3 + 4x - 3 are:"
     roots;
 
+The output reads:
+
 ::
 
     The roots of the polynomial y = 7x^4 - 5x^3 + 4x - 3 are:
@@ -66,4 +71,3 @@ poly.src
 
 .. seealso:: Functions :func:`polymake`, :func:`polychar`, :func:`polymult`, :func:`polyeval`
 
-roots of polynomial from coefficients

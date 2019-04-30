@@ -12,18 +12,17 @@ Format
 ----------------
 .. function:: printfmt(x, mask)
 
-    :param x: 
-    :type x: NxK matrix which is to be printed
+    :param x: matrix which is to be printed
+    :type x: NxK matrix
 
-    :param mask: 1 if x is numeric or 0 if x is character.
-        
+    :param mask: 1 if *x* is numeric or 0 if *x* is character.
         
         - or -
         
         1xK vector of 1's and 0's.
         
-        The corresponding column of x will be printed as numeric
-        where  mask = 1 and as character where  mask = 0.
+        The corresponding column of *x* will be printed as numeric
+        where :math:`mask = 1` and as character where :math:`mask = 0`.
     :type mask: scalar
 
     :returns: y (*scalar*), 1 if the function is successful and 0 if it fails.
@@ -31,9 +30,9 @@ Format
 Remarks
 -------
 
-Default format for numeric data is: ''*.*lg '' 16 8
+Default format for numeric data is: ``"*.*lg" 16 8``
 
-Default format for character data is: ''*.*s '' 8 8
+Default format for character data is: ``"*.*s" 8 8``
 
 
 Examples
@@ -79,7 +78,7 @@ The output from the three different print statements will be:
     height            70
     weight           160
 
-Only the final print statement from printfmt correctly prints both columns.
+Only the final print statement from :func:`printfmt` correctly prints both columns.
 
 Source
 ------
@@ -87,8 +86,9 @@ Source
 gauss.src
 
 Globals
-+++++++
+------------
 
 \__fmtcv, \__fmtnv
 
 .. seealso:: Functions :func:`formatcv`, :func:`formatnv`
+

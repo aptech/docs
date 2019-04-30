@@ -11,19 +11,18 @@ Format
 ----------------
 .. function:: previousindex(i, o)
 
-    :param i: where M <= N.
-    :type i: Mx1 vector of indices into an array
+    :param i: indices into an array where :math:`M <= N`.
+    :type i: Mx1 vector
 
-    :param o: 
-    :type o: Nx1 vector of orders of an N-dimensional array
+    :param o: orders of an N-dimensional array
+    :type o: Nx1 vector
 
-    :returns: pi (*Mx1 vector of indices*), the index of the previous element or subarray in the array corresponding to  o.
+    :returns: pi (*Mx1 vector of indices*), the index of the previous element or subarray in the array corresponding to *o*.
 
 Remarks
 -------
 
-previousindex will return a scalar error code if the index cannot be
-decremented.
+:func:`previousindex` will return a scalar error code if the index cannot be decremented.
 
 
 Examples
@@ -41,11 +40,11 @@ After the code above, ind is equal to:
 
 ::
 
-    2
+          2
     ind = 2
           5
 
-In this example, previousindex decremented ind
-to index the previous 6x7 subarray in array a.
+In this example, :func:`previousindex` decremented *ind* to index the previous 6x7 subarray in array *a*.
 
 .. seealso:: Functions :func:`nextindex`, :func:`loopnextindex`, :func:`walkindex`
+

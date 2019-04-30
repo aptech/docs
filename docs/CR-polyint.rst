@@ -23,35 +23,32 @@ Format
     :returns: y (*TODO*), result of interpolation or extrapolation.
 
 
-
 Global Input
 ------------
 
-+---+-----------------------------------------------------+
-| \ | scalar, the degree of polynomial required, default  |
-| _ | 6.                                                  |
-| p |                                                     |
-| o |                                                     |
-| l |                                                     |
-| d |                                                     |
-| e |                                                     |
-| g |                                                     |
-+---+-----------------------------------------------------+
+:_poldeg: (*scalar*), the degree of polynomial required, default 6.
 
+Global Output
+------------
+:_polerr: (*scalar*), interpolation error.
 
 Remarks
 -------
 
-Calculates an Nth order polynomial interpolation or extrapolation of x
-on y given the vectors xa and ya and the scalar x. The procedure uses
+Calculates an Nth order polynomial interpolation or extrapolation of *x*
+on *y* given the vectors xa and ya and the scalar *x*. The procedure uses
 Neville's algorithm to determine an up to Nth order polynomial and an
 error estimate.
 
 Polynomials above degree 6 are not likely to increase the accuracy for
-most data. Test \_polerr to determine the required \_poldeg for your
+most data. Test *_polerr* to determine the required *_poldeg* for your
 problem.
 
+Technical Notes
++++++++++++++++
 
+Press, W.P., B.P. Flannery, S.A. Teukolsky, and W.T. Vettering. 
+Numerical Recipes: The Art of Scientific Computing. NY: Cambridge Press, 1986.
 
 Source
 ------

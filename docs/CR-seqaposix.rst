@@ -4,14 +4,14 @@ seqaPosix
 
 Purpose
 ----------------
-Creates a sequence of dates in Posix date/time format.
+Creates a sequence of dates in POSIX date/time format.
 		
 
 Format
 ----------------
 .. function:: seqaPosix(dt_start, inc, unit, n)
 
-    :param dt_start: containing the starting date in Posix date/time format (seconds since Jan 1, 1970).
+    :param dt_start: containing the starting date in POSIX date/time format (seconds since Jan 1, 1970).
     :type dt_start: Scalar
 
     :param inc: the number of units for each of the n increments.

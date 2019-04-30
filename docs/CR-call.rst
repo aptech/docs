@@ -9,6 +9,7 @@ Calls a function or procedure when the returned
 value is not needed and can be ignored, or when the
 procedure is defined to return nothing.
 
+.. _call:
 .. index:: call
 
 Format

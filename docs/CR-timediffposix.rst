@@ -4,17 +4,17 @@ timediffposix
 
 Purpose
 ----------------
-Computes the difference between two dates in Posix date/time format.
+Computes the difference between two dates in POSIX date/time format.
 		
 
 Format
 ----------------
 .. function:: timediffposix(dt_1, dt_2, units)
 
-    :param dt_1: containing 1 or more date/times in Posix format.
+    :param dt_1: containing 1 or more date/times in POSIX format.
     :type dt_1: NxK matrix
 
-    :param dt_2: the second date in Posix format.
+    :param dt_2: the second date in POSIX format.
     :type dt_2: Scalar
 
     :param units: indicating the units in which to report the difference.

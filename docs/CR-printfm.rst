@@ -10,60 +10,50 @@ Format
 ----------------
 .. function:: printfm(x, mask, fmt)
 
-    :param x: 
-    :type x: NxK matrix which is to be printed and which may contain both character and numeric data
+    :param x: matrix which is to be printed and which may contain both character and numeric data
+    :type x: NxK matrix
 
-    :param mask: ExE conformable with x,
+    :param mask: ExE conformable with *x*,
         containing ones and zeros, which is used to
         specify whether the particular row,
         column, or element is to be printed as a
         character (0) or numeric (1) value.
     :type mask: LxM matrix
 
-    :param fmt: 
-    :type fmt: Kx3 or 1x3 matrix where each row specifies
-        the format for the respective column of x
+    :param fmt: matrix where each row specifies the format for the respective column of *x*
+    :type fmt: Kx3 or 1x3 matrix
 
     :returns: y (*scalar*), 1 if the function is successful and 0 if it fails.
 
 Remarks
 -------
 
-The mask is applied to the matrix x following the rules of standard
+The mask is applied to the matrix *x* following the rules of standard
 element-by-element operations. If the corresponding element of mask is
-0, then that element of x is printed as a character string of up to 8
-characters. If mask contains a 1, then that element of x is assumed to
+0, then that element of *x* is printed as a character string of up to 8
+characters. If mask contains a 1, then that element of *x* is assumed to
 be a double precision floating point number.
 
-The contents of fmt are as follows:
+The contents of *fmt* are as follows:
 
-+----------+----------------+--------------------------------+
-|    [K,1] | format string, | a string 8 characters maximum. |
-+----------+----------------+--------------------------------+
-|    [K,2] | field width,   | a number < 80.                 |
-+----------+----------------+--------------------------------+
-|    [K,3] | precision,     | a number < 17.                 |
-+----------+----------------+--------------------------------+
+============== =============== =============================
+:math:`[K,1]`  format string,  a string 8 characters maximum.
+:math:`[K,2]`  field width,    a number < 80.
+:math:`[K,3]`  precision,      a number < 17.
+============== =============== =============================
 
 The format strings correspond to the format slash commands as follows:
 
-+-------------+------------+
-|    /rdn     | "*.*lf"    |
-+-------------+------------+
-|    /ren     | "*.*lE"    |
-+-------------+------------+
-|    /ron     | "#*.*lG"   |
-+-------------+------------+
-|    /rzn     | "*.*lG"    |
-+-------------+------------+
-|    /ldn     | "- *.*lf"  |
-+-------------+------------+
-|    /len     | "- *.*lE"  |
-+-------------+------------+
-|    /lon     | "-# *.*lG" |
-+-------------+------------+
-|    /lzn     | "- *.*lG"  |
-+-------------+------------+
+======= ==============
+*/rdn*  "\*.\*lf"
+*/ren*  "\*.\*lE"
+*/ron*  "#\*.\*lG"
+*/rzn*  "\*.\*lG"
+*/ldn*  "- \*.\*lf"
+*/len*  "- \*.\*lE"
+*/lon*  "-# \*.\*lG"
+*/lzn*  "- \*.\*lG"
+======= ==============
 
 Complex numbers are printed with the sign of the imaginary half
 separating them and an "i" appended to the imaginary half. The field
@@ -71,31 +61,28 @@ width refers to the width of field for each half of the number, so a
 complex number printed with a field of 8 will actually take (at least)
 20 spaces to print.
 
-If the precision = 0, the decimal point will be suppressed.
+If the :math:`precision = 0`, the decimal point will be suppressed.
 
 The format string can be a maximum of 8 characters and is appended to a
-% sign and passed directly to the fprintf function in the standard C
-language I/O library. The lf, etc., are case sensitive. If you know C,
+``%`` sign and passed directly to the ``fprintf`` function in the standard C
+language I/O library. The *lf*, etc., are case sensitive. If you know C,
 you will easily be able to use this.
 
-If you want special characters to be printed after x, then include them
+If you want special characters to be printed after *x*, then include them
 as the last characters of the format string. For example:
 
-+----------+----------------------------------------------+
-| "*.*lf," | right-justified decimal followed by a comma. |
-+----------+----------------------------------------------+
-| "-*.*s " | left-justified string followed by a space.   |
-+----------+----------------------------------------------+
-| "*.*lf"  | right-justified decimal followed by nothing. |
-+----------+----------------------------------------------+
+=========== =========================================
+"\*.\*lf,"  right-justified decimal followed by a comma.
+"-\*.\*s "  left-justified string followed by a space.
+"\*.\*lf"   right-justified decimal followed by nothing.
+=========== =========================================
 
 If you want the beginning of the field padded with zeros, then put a "0"
-before the first "*" in the format string:
+before the first "``*``" in the format string:
 
-+----------+--------------------------+
-| "0*.*lf" | right-justified decimal. |
-+----------+--------------------------+
-
+=========== =========================
+"0\*.\*lf"  right-justified decimal.
+=========== =========================
 
 Examples
 ----------------
@@ -123,15 +110,17 @@ mixed numeric and character matrix:
     SEX 1.145, 3.4471E+00
     JOB 4.114, 8.5564E+00
 
-When the column of x to be printed contains all
-character elements, use a format string of "*.*s" if
-you want it right-justified, or "-*.*s" if you want
+When the column of *x* to be printed contains all
+character elements, use a format string of "\*.\*s" if
+you want it right-justified, or "-\*.\*s" if you want
 it left-justified. If the column is mixed character
 and numeric elements, then use the correct numeric
-format and printfm will substitute a default format
+format and `printfm` will substitute a default format
 string for those elements in the column that are
 character.
+
 Remember, the mask value controls whether an element
 will be printed as a number or a character string.
 
 .. seealso:: Functions :func:`print`, :func:`printdos`
+

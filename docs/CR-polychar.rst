@@ -11,22 +11,19 @@ Format
 ----------------
 .. function:: polychar(x)
 
-    :param x: 
+    :param x: data
     :type x: NxN matrix
 
-    :returns: c (*(N+1)x1 vector*) of coefficients of the Nth order
-        characteristic polynomial of x:
+    :returns: c (*(N+1)x1 vector*) of coefficients of the Nth order characteristic polynomial of *x*:
         
-        p(x) = c[1]*xn + c[2]*x(n-1) + ... + c[n]*x + c[n+1];
+        .. math:: p(x) = c[1]*xn + c[2]*x(n-1) + ... + c[n]*x + c[n+1];
 
-
+.. DANGER:: fix equations
 
 Remarks
 -------
 
-The coefficient of x\ n is set to unity (c[1]=1).
-
-
+The coefficient of :math:`x\ n` is set to unity (:math:`c[1]=1`).
 
 Source
 ------
@@ -34,3 +31,4 @@ Source
 poly.src
 
 .. seealso:: Functions :func:`polymake`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`
+

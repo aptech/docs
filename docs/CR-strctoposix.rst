@@ -5,7 +5,7 @@ strctoposix
 Purpose
 ----------------
 
-Converts string dates to a matrix containing dates in Posix date/time format, using the BSD strftime format specifiers.
+Converts string dates to a matrix containing dates in POSIX date/time format, using the BSD strftime format specifiers.
 
 Format
 ----------------
@@ -17,7 +17,7 @@ Format
     :param fmt: or  ExE conformable string array containing strftime date/time format characters.
     :type fmt: string
 
-    :returns: d (*NxK matrix*), containing dates in Posix format (seconds since the Jan 1, 1970).
+    :returns: d (*NxK matrix*), containing dates in POSIX format (seconds since the Jan 1, 1970).
 
 Remarks
 -------

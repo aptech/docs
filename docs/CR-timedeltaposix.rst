@@ -4,7 +4,7 @@ timeDeltaPosix
 
 Purpose
 ----------------
-Adds (or subtracts) time to a Posix date-time.
+Adds (or subtracts) time to a POSIX date-time.
 		
 
 Format

@@ -11,17 +11,17 @@ Format
 ----------------
 .. function:: polymroot(c)
 
-    :param c: 
-    :type c: (N+1)*KxK matrix of coefficients of an Nth order polynomial of rank K
+    :param c: (N+1)\*KxK matrix. coefficients of an Nth order polynomial of rank *K*
+    :type c: matrix
 
     :returns: r (*K*N vector*) containing the roots of the determinantal equation.
 
 Remarks
 -------
 
-c is constructed of N+1 KxK coefficient matrices stacked vertically with
-the coefficient matrix of the t\ n at the top, t\ (n-1) next, down to
-the t\ 0 matrix at the bottom.
+*c* is constructed of N+1 KxK coefficient matrices stacked vertically with
+the coefficient matrix of the :math:`t\ n` at the top, :math:`t\ (n-1)` next, down to
+the :math:`t\ 0` matrix at the bottom.
 
 Note that this procedure solves the scalar problem as well, that is, the
 one that POLYROOT solves.
@@ -31,9 +31,11 @@ Examples
 ----------------
 Solve
 
-::
+.. math::
 
     det(A2*t2 + A1*t + A0) = 0
+
+where
 
 ::
 
@@ -52,7 +54,7 @@ Solve
 
 ::
 
-    -4.3027756
+     -4.3027756
      -.69722436
      -2.6180340
      -.38196601

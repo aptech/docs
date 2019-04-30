@@ -11,20 +11,20 @@ Format
 ----------------
 .. function:: polyeval(x, coefs)
 
-    :param x: , x can either represent K
-        separate scalar values at which to evaluate the (scalar) polynomial(s), or it can represent a
-        single NxN matrix.
-    :type x: 1xK or NxN; that is
+    :param x: 1xK or NxN. can either represent *K* separate scalar values at which to evaluate 
+        the (scalar) polynomial(s), or it can represent a single NxN matrix.
+    :type x: vector or matrix.
 
-    :param c:  If x is 1xK, then c
-        must be (P+1)xK. If x is NxN, c must be (P+1)x1.
-        That is, if x is a matrix, it can only be
-        evaluated at a single set of coefficients.
-    :type c: (P+1)xK or (P+1)x1 matrix of coefficients of
-        polynomials to evaluate
+    :param c: (P+1)xK or (P+1)x1 matrix of coefficients of polynomials to evaluate. If *x* is 1xK, then *c* must be (P+1)xK. 
+        If *x* is NxN, *c* must be (P+1)x1. That is, if *x* is a matrix, it can only be evaluated 
+        at a single set of coefficients.
+    :type c: matrix
 
-    :returns: y (*Kx1 vector (if c is (P+1)xK) or NxN matrix (if c*)         is (P+1)x1 and x is NxN):
-        y =( c[1,.].*xp + c[2,.].*x(p-1) + ... + c[p+1,.] )';
+    :returns: y (*vector or matrix*) Kx1 vector (if *c* is (P+1)xK) or NxN matrix (if *c* is (P+1)x1 and *x* is NxN):
+
+        .. math:: y =( c[1,.].*xp + c[2,.].*x(p-1) + ... + c[p+1,.] )';
+
+.. DANGER:: fix equations
 
 Remarks
 -------
@@ -33,10 +33,11 @@ In both the scalar and the matrix case, Horner's rule is used to do the
 evaluation. In the scalar case, the function recsercp is called (this
 implements an elaboration of Horner's rule).
 
-
 Examples
 ----------------
+
 Scalar example 1
+++++++++++++++++
 
 ::
 
@@ -46,7 +47,9 @@ Scalar example 1
     y = polyeval(x,coefs);
 
 The result is 27. Note that this is the decimal value of the binary number 11011.
+
 Scalar example 2
+++++++++++++++++
 
 ::
 
@@ -56,7 +59,9 @@ Scalar example 2
     y = polyeval(x,coefs);
 
 The result is 59.
+
 Matrix example 1
+++++++++++++++++
 
 ::
 
@@ -66,14 +71,15 @@ Matrix example 1
     coefs = { 1, 0, 2, 0 };
     A_3 = polyeval(A, coefs);
 
-The above code will set A_3 equal to:
+The above code will set *A_3* equal to:
 
 ::
 
-    300    660 
+       300    660 
        440    960
 
 Matrix example 2
+++++++++++++++++
 
 ::
 
@@ -89,7 +95,7 @@ You can raise a matrix to the n'th power with the command:
 
     A_n = polyeval(A, 1|zeros(n,1));
 
-A*A*A*A*...*A
+(e.g: *A\*A\*A\*A\*...\*A*).
 
 Source
 ------
@@ -98,4 +104,3 @@ poly.src
 
 .. seealso:: Functions :func:`polymake`, :func:`polychar`, :func:`polymult`, :func:`polyroot`
 
-evaluates polynomial given coefficient

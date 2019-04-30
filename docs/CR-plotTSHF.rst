@@ -100,7 +100,7 @@ Plot Forex tick data with custom X-tick labels
     //Load dates as a string array from the first column of the file
     dt_s = csvReadSA(file, 2|21, 1|1);
     
-    // Convert the dates from string to Posix dates
+    // Convert the dates from string to POSIX dates
     // String dates look like: "20081031 125145000"
     dt_psx = strctoposix(dt_s, "%Y%m%d %H%M%S%L");
     

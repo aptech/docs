@@ -11,19 +11,17 @@ Format
 ----------------
 .. function:: polymake(r)
 
-    :param r: 
-    :type r: Nx1 vector containing roots of the desired polynomial
+    :param r: roots of the desired polynomial
+    :type r: Nx1 vector
 
-    :returns: c (*(N+1)x1 vector*) containing the coefficients of the
-        Nth order polynomial with roots r:
+    :returns: c (*(N+1)x1 vector*) containing the coefficients of the Nth order polynomial with roots *r*:
         
-        p(z)=c[1]*zn + c[2]*z(n-1) + ... c[n]*z + c[n+1]
+        .. math:: p(z)=c[1]*zn + c[2]*z(n-1) + ... c[n]*z + c[n+1]
 
 Remarks
 -------
 
-The coefficient of z\ :sup:`n` is set to unity (c[1]=1).
-
+The coefficient of z\ :sup:`n` is set to unity (:math:`c[1]=1`).
 
 Examples
 ----------------
@@ -48,7 +46,8 @@ Examples
        print "rtmp = " rtmp "rout = " rout;
     endfor;
 
-Since the values of r are roots for this polynomial, rout should equal 0.
+Since the values of *r* are roots for this polynomial, *rout* should equal 0.
+
 Thus the code above gives the following output:
 
 ::
@@ -57,20 +56,22 @@ Thus the code above gives the following output:
     rtmp = 1.0 rout = 0.0
     rtmp = 3.0 rout = 0.0
 
-This example assigns c to be equal to:
+This example assigns *c* to be equal to:
 
 ::
 
-    1.0
+         1.0
     c = -6.0
         11.0
         -6.0
 
 This represents the polynomial:
 
-::
+.. math::
 
     x3 - 6x2 + 11x - 6
+
+.. DANGER:: fix equations
 
 Source
 ------
@@ -79,4 +80,3 @@ poly.src
 
 .. seealso:: Functions :func:`polychar`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`
 
-polynomial coefficient root

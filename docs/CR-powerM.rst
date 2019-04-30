@@ -11,18 +11,18 @@ Format
 ----------------
 .. function:: powerM(A, n)
 
-    :param A: 
+    :param A: data
     :type A: NxN square matrix
 
     :param n: the power or exponent.
-    :type n: Scalar
+    :type n: scalar
 
-    :returns: B (*NxN square matrix*), the power of a matrix A
+    :returns: B (*NxN square matrix*), the power of a matrix *A*
 
 Remarks
 -------
 
-If n = 0, then the function will return an identity matrix.
+If :math:`n = 0`, then the function will return an identity matrix.
 
 
 Examples
@@ -54,4 +54,3 @@ After the code above:
 
 .. seealso:: Functions :func:`crossprd`
 
-matrix power n product operation

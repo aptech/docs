@@ -5,12 +5,25 @@ pqgwin
 Purpose
 ----------------
 
-Sets the graphics viewer mode. NOTE: This function is for use only with the deprecated PQG graphics.
+Sets the graphics viewer mode. 
+
+.. NOTE:: This function is for use only with the deprecated PQG graphics.
+
+Library
+-------
+
+pgraph
+
+.. _pqgwin:
+.. index:: pqgwin
 
 Format
 ----------------
-.. function:: pqgwin one 
-			  pqgwin many
+
+::
+
+    pqgwin one;
+    pqgwin many;
 
 Remarks
 -------
@@ -27,8 +40,8 @@ only a single viewer will be used. If you call
    pqgwin many
 
 a new viewer will be used for each graph.
-pqgwin manual and pqgwin auto are supported for backwards compatibility,
-manual = one, auto = many.
+
+``pqgwin manual`` and ``pqgwin auto`` are supported for backwards compatibility, ``manual = one``, ``auto = many``.
 
 
 Examples
@@ -44,3 +57,4 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`setvwrmode`
+

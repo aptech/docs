@@ -179,7 +179,7 @@ Ordinary linear regression with simulated data matrices.
     //Call glm function with the minimum inputs 
     call glm(y, x, "normal");
 
-This example will compute a least squares regression of *y* on *x*. The results will be shown in the program input / output window. The return values are discarded by using a :func:`call` statement.
+This example will compute a least squares regression of *y* on *x*. The results will be shown in the program input / output window. The return values are discarded by using a `call` statement.
 
 ::
 

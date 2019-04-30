@@ -11,28 +11,29 @@ Format
 ----------------
 .. function:: putarray(a, loc, src)
 
-    :param a: 
+    :param a: destination data
     :type a: N-dimensional array
 
-    :param loc: where M is a value from 1 to N.
-    :type loc: Mx1 vector of indices into the array to locate the subarray of interest
+    :param loc: indices into the array to locate the subarray of interest, where *M* is a value from 1 to *N*.
+    :type loc: Mx1 vector
 
-    :param src: , matrix, or scalar.
-    :type src: [N-M]-dimensional array
+    :param src: source data
+    :type src: [N-M]-dimensional array or matrix or scalar.
 
-    :returns: y (N-dimensional array), 
+    :returns: y (*N-dimensional array*)
+
 Remarks
 -------
 
-If loc is an Nx1 vector, then src must be a scalar. Ifloc is an [N-1]x1
-vector, then src must be a 1-dimensional array or a 1xL vector, where L
-is the size of the fastest moving dimension of the array. Ifloc is an
-[N-2]x1 vector, then src must be a KxL matrix, or a KxL 2-dimensional
-array, where K is the size of the second fastest moving dimension.
+If *loc* is an Nx1 vector, then *src* must be a scalar. If *loc* is an [N-1]x1
+vector, then *src* must be a 1-dimensional array or a 1xL vector, where *L*
+is the size of the fastest moving dimension of the array. If *loc* is an
+[N-2]x1 vector, then *src* must be a KxL matrix, or a KxL 2-dimensional
+array, where *K* is the size of the second fastest moving dimension.
 
-Otherwise, ifloc is an Mx1 vector, thensrc must be an [N-M]-dimensional
+Otherwise, if *loc* is an Mx1 vector, then *src* must be an [N-M]-dimensional
 array, whose dimensions are the same size as the corresponding
-dimensions of array a.
+dimensions of array *a*.
 
 
 Examples
@@ -51,7 +52,8 @@ Examples
     loc = { 2,1 };
     a = putarray(a,loc,src);
 
-a
-src
+This example sets the contiguous 4x5x6 subarray of *a* beginning at [2,1,1,1,1] to 
+the array *src*, in which each element is set to the specified value 5.
 
 .. seealso:: Functions :func:`setarray`
+

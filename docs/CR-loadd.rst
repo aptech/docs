@@ -148,7 +148,7 @@ After the above code,
     The number of variables equals:        3.0000000 
     The number of observations equals:        13.000000
 
-Load a string date from a .csv file and automatically convert it to a Posix date/time (seconds since Jan 1, 1970).
+Load a string date from a .csv file and automatically convert it to a POSIX date/time (seconds since Jan 1, 1970).
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
@@ -160,7 +160,7 @@ Load a string date from a .csv file and automatically convert it to a Posix date
     //that it should be loaded as a date with the 'date' keyword
     formula  = "date($Date)";
     
-    //Load the date and convert to Posix date/time format
+    //Load the date and convert to POSIX date/time format
     dt_pos = loadd(dataset, formula);
     
     //Convert the first 5 dates to a string 'Month day, Year'
