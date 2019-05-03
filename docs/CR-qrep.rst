@@ -4,227 +4,67 @@ qrep
 
 Purpose
 ----------------
-Computes the orthogonal-triangular (QR) decomposition of a matrix X, such that:
+Computes the orthogonal-triangular (QR) decomposition of a matrix :math:`X`, such that: :math:`X[.,E] = Q1R`
 
-X[.,E] = Q1R
+.. DANGER:: fix equations
 
 Format
 ----------------
 .. function:: qrep(X, pvt)
 
-    :param X: 
+    :param X: data
     :type X: NxP matrix
 
     :param pvt: controls the selection of the pivot columns:
+
+        .. csv-table::
+            :widths: auto
+    
+            "if :math:`pvt[i] > 0`, :math:`X[i]` is an initial column."
+            "if :math:`pvt[i] = 0`, :math:`X[i]` is a free column."
+            "if :math:`pvt[i] < 0`, :math:`X[i]` is a final column."
+    
+        The initial columns are placed at the beginning of the matrix and the final columns are placed at 
+        the end. Only the free columns will be moved during the decomposition.
+
     :type pvt: Px1 vector
 
-    .. csv-table::
-        :widths: auto
+    :returns: r (*KxP upper triangular matrix*), :math:`K = min(N,P)`.
 
-        "if pvt[i] > 0, X[i] is an initial column."
-        "if pvt[i] = 0, X[i] is a free column."
-        "if pvt[i] < 0, X[i] is a final column."
-        "The initial columns are placed at the beginningof the matrix and the final columns are placedat the end. Only the free columns will be movedduring the decomposition."
-
-    :returns: r (*KxP upper triangular matrix*), K = min(N,P).
-
-    :returns: e (*Px1 permutation vector*) .
-
-
+    :returns: e (*Px1 permutation vector*)
 
 Remarks
 -------
 
-qrep is the same as qqrep but doesn't return the Q\ 1 matrix. If Q\ 1 is
-not wanted, qrep will save a significant amount of time and memory
-usage, especially for large problems.
+:func:`qrep` is the same as :func:`qqrep` but doesn't return the :math:`Q\ 1` matrix. If :math:`Q\ 1` is
+not wanted, :func:`qrep` will save a significant amount of time and memory usage, especially for large problems.
 
-Given X[.,E], where E is a permutation vector that permutes the columns
-of X, there is an orthogonal matrix Q such that Q'X[.,E] is zero below
-its diagonal, i.e.,
+Given :math:`X[.,E]`, where :math:`E` is a permutation vector that permutes the columns
+of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[.,E]` is zero below its diagonal, i.e.,
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           ′
-                                           X
-                                           
-                                               
-                                                    
-                                                   
-                                                       [
-                                                       .
-                                                       ⁢
-                                                       ,
-                                                        
-                                                       
-                                                           
-                                                               E
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       
-                                                                           R
-                                                                       
-                                                                   
-                                                               
-                                                           
-                                                           
-                                                               
-                                                                   0
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+where :math:`R` is upper triangular. If we partition
 
-where R is upper triangular. If we partition
+.. math::
 
-::
+where :math:`Q\ 1` has :math:`P` columns, then
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           
-                                               
-                                                    
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       1
-                                                                   
-                                                               
-                                                               ⁢
-                                                                
-                                                               
-                                                                   
-                                                                        
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       2
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+.. math::
 
-where Q\ 1 has P columns, then
+is the QR decomposition of :math:`X[.,E]`.
 
-::
+:func:`qrep` does not return the :math:`Q\ 1` matrix because in most cases it is not
+required and can be very large. If you need the :math:`Q\ 1` matrix, see the
+function :func:`qqrep`. If you need the entire :math:`Q` matrix, call :func:`qyrep` with :math:`Y` set
+to a conformable identity matrix. For most problems :math:`Q'Y`, :math:`Q\ 1'Y`, or :math:`QY`,
+:math:`Q\ 1\ Y`, for some :math:`Y`, are required. For these cases see :func:`qtyrep` and :func:`qyrep`.
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           X
-                                       
-                                   
-                                   
-                                       
-                                           
-                                               [
-                                               .
-                                               ⁢
-                                                
-                                               ,
-                                                
-                                               
-                                                   
-                                                       E
-                                                   
-                                               
-                                               ]
-                                                
-                                               =
-                                                
-                                               
-                                                   
-                                                       
-                                                           
-                                                               Q
-                                                           
-                                                           
-                                                               1
-                                                           
-                                                       
-                                                       ⁢
-                                                        
-                                                       R
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
-
-is the QR decomposition of X[.,E].
-
-qrep does not return the Q\ 1 matrix because in most cases it is not
-required and can be very large. If you need the Q\ 1 matrix, see the
-function qqrep. If you need the entire Q matrix, call qyrep with Y set
-to a conformable identity matrix. For most problems Q'Y, Q\ 1'Y, or QY,
-Q\ 1\ Y, for some Y, are required. For these cases see qtyrep and qyrep.
-
-qrep allows you to control the pivoting. For example, suppose that X is
+:func:`qrep` allows you to control the pivoting. For example, suppose that :math:`X` is
 a data set with a column of ones in the first column. If there are
-linear dependencies among the columns of X, the column of ones for the
+linear dependencies among the columns of :math:`X`, the column of ones for the
 constant may get pivoted away. This column can be forced to be included
-among the linearly independent columns using pvt.
-
-
+among the linearly independent columns using *pvt*.
 
 Source
 ------
@@ -232,3 +72,4 @@ Source
 qr.src
 
 .. seealso:: Functions :func:`qr`, :func:`qre`, :func:`qqrep`
+

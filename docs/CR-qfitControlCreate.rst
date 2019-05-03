@@ -5,19 +5,17 @@ qfitControlCreate
 Purpose
 ----------------
 
-Creates default qfitControl structure.
+Creates default :class:`qfitControl` structure.
 
 Format
 ----------------
 .. function:: qfitControlCreate()
 
-    :returns: qctl (*struct*) instance of :class:`qfitControl` struct
-        with members set to default values.
+    :returns: qctl (*struct*) instance of :class:`qfitControl` struct with members set to default values.
 
 Examples
 ----------------
-Since structures are strongly typed in GAUSS, each structure must be declared
-before it can be used.
+Since structures are strongly typed in GAUSS, each structure must be declared before it can be used.
 
 ::
 
@@ -27,8 +25,8 @@ before it can be used.
     // Initialize structure 'ctl'
     ctl = qfitControlCreate();
 
-The members of the qfitControl structure and their default values are described in the
-manual entry for quantileFit.
+The members of the :class:`qfitControl` structure and their default values are described in the
+manual entry for :func:`quantileFit`.
 
 Source
 ------
@@ -36,3 +34,4 @@ Source
 quantilefit.src
 
 .. seealso:: Functions :func:`quantileFit`, :func:`quantileFitLoc`
+

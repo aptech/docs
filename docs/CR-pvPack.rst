@@ -5,16 +5,16 @@ pvPack
 Purpose
 ----------------
 
-Packs general matrix into a structure of type PV with matrix name.
+Packs general matrix into a structure of type :class:`PV` with matrix name.
 
 Format
 ----------------
 .. function:: pvPack(p1, x, nm)
 
-    :param p1: 
-    :type p1: an instance of structure of type PV
+    :param p1: an instance of structure of type :class:`PV`
+    :type p1: struct
 
-    :param x: 
+    :param x: data
     :type x: MxN matrix or N-dimensional array
 
     :param nm: name of matrix/array.
@@ -44,8 +44,7 @@ Basic usage
     // Add a variable named 'b' in 'p1' containing the data from 'start_vals'
     p1 = pvPack(p1, start_vals, "b");
 
-The data can be extracted using the pvUnpack
-command:
+The data can be extracted using the :func:`pvUnpack` command:
 
 ::
 
@@ -66,3 +65,4 @@ Source
 pv.src
 
 .. seealso:: Functions :func:`pvPackm`, :func:`pvPacks`, :func:`pvUnpack`
+

@@ -5,17 +5,16 @@ pvPacksm
 Purpose
 ----------------
 
-Packs symmetric matrix into a structure of type PV 
-with a mask.
+Packs symmetric matrix into a structure of type :class:`PV` with a mask.
 
 Format
 ----------------
 .. function:: pvPacksm(p1, x, nm, mask)
 
-    :param p1: 
-    :type p1: an instance of structure of type PV
+    :param p1: an instance of structure of type :class:`PV`
+    :type p1: struct
 
-    :param x: 
+    :param x: data
     :type x: MxM symmetric matrix
 
     :param nm: matrix name.
@@ -29,16 +28,16 @@ Format
 Remarks
 -------
 
-pvPacksm does not support the packing of arrays.
+:func:`pvPacksm` does not support the packing of arrays.
 
-The mask allows storing a selected portion of a matrix into the packed
-vector. The ones in mask indicate an element to be stored in the packed
-matrix. When the matrix is unpacked (using pvUnpack) the elements
+The *mask* allows storing a selected portion of a matrix into the packed
+vector. The ones in *mask* indicate an element to be stored in the packed
+matrix. When the matrix is unpacked (using :func:`pvUnpack`) the elements
 corresponding to the zeros are restored. Elements corresponding to the
 ones come from the packed vector which may have been changed.
 
-Only the lower left portion of the mask matrix is used, and only the
-lower left portion of the x matrix is stored in the packed vector.
+Only the lower left portion of the *mask* matrix is used, and only the
+lower left portion of the *x* matrix is stored in the packed vector.
 
 If the mask is all zeros, the matrix is packed with the specified
 elements in the second argument but no elements of the matrix are
@@ -72,15 +71,15 @@ Examples
      
     print pvUnpack(p1, "A");
 
-pvUnpack, will return the entire symmetrix matrix from p1.
+:func:`pvUnpack`, will return the entire symmetrix matrix from *p1*.
 
 ::
 
-    1.000 2.000 4.000
+      1.000 2.000 4.000
       2.000 3.000 5.000
       4.000 5.000 6.000
 
-pvGetParVector, returns the free, non-redundant parameters from p1 as a vector.
+:func:`pvGetParVector`, returns the free, non-redundant parameters from *p1* as a vector.
 
 ::
 
@@ -90,12 +89,12 @@ pvGetParVector, returns the free, non-redundant parameters from p1 as a vector.
 
 ::
 
-    1.000
+      1.000
       3.000
       4.000
       6.000
 
-pvPutParVector will overwrite the free parameters with the new data passed in.
+:func:`pvPutParVector` will overwrite the free parameters with the new data passed in.
 
 ::
 
@@ -106,7 +105,7 @@ pvPutParVector will overwrite the free parameters with the new data passed in.
 
 ::
 
-    10.000  2.000 12.000
+      10.000  2.000 12.000
        2.000 11.000  5.000       
       12.000  5.000 13.000
 

@@ -12,7 +12,7 @@ Format
 .. function:: sqpSolveMT(&fct, par1, ctl)
 
     :param &fct: pointer to a procedure that computes the
-        function to be minimized. The first input to this procedure must be an instance of structure of type PV.
+        function to be minimized. The first input to this procedure must be an instance of structure of type :class:`PV`.
     :type &fct: TODO
 
     :param par1: 
@@ -20,7 +20,7 @@ Format
         procedure pointed to by &fct.
         par1 is constructed using the ''pack''
         functions.
-    :type par1: an instance of structure of type PV
+    :type par1: an instance of structure of type :class:`PV`
 
     :param ...: Optional extra arguments.
         These arguments are passed untouched to the user-provided objective function, by sqpSolveMT.
@@ -60,7 +60,7 @@ Format
     .. csv-table::
         :widths: auto
 
-        "outx.par", "an instance of structure of type PV containing the parameter estimates will be placed in the member matrix  out.par."
+        "outx.par", "an instance of structure of type :class:`PV` containing the parameter estimates will be placed in the member matrix  out.par."
         "out.fct", "scalar, function evaluated at x."
         "out.lagr", "an instance of a SQPLagrange structure containing the Lagrangeans for the constraints. The members are:"
         "", "out.lagr.lineq", "Mx1 vector, Lagrangeans of linear equality constraints."
@@ -92,7 +92,7 @@ constraints, the gradient of the objective function, and the Hessian of
 the objective function.
 
 All of these functions must take exactly the same input arguments. The
-first input argument is an instance of a structure of type PV. On input
+first input argument is an instance of a structure of type :class:`PV`. On input
 to the call to sqpSolveMT, this PV structure contains starting values
 for the parameters.
 

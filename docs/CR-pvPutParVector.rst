@@ -5,14 +5,14 @@ pvPutParVector
 Purpose
 ----------------
 
-Inserts parameter vector into structure of type PV.
+Inserts parameter vector into structure of type :class:`PV`.
 
 Format
 ----------------
 .. function:: pvPutParVector(p1, p)
 
-    :param p1: 
-    :type p1: an instance of structure of type PV
+    :param p1: an instance of structure of type :class:`PV`
+    :type p1: struct
 
     :param p: parameter vector.
     :type p: Kx1 vector
@@ -22,9 +22,8 @@ Format
 Remarks
 -------
 
-Matrices or portions of matrices (stored using a mask) are stored in the
-structure of type PV as a vector in the p member.
-
+Matrices or portions of matrices (stored using a *mask*) are stored in the
+structure of type :class:`PV` as a vector in the *p* member.
 
 Examples
 ----------------
@@ -64,7 +63,7 @@ Examples
 
 ::
 
-    10.000  2.000 11.000
+      10.000  2.000 11.000
        2.000 12.000  5.000
       13.000  5.000 14.000
 

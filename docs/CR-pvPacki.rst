@@ -5,17 +5,16 @@ pvPacki
 Purpose
 ----------------
 
-Packs general matrix or array into a PV instance with
-name and index.
+Packs general matrix or array into a :class:`PV` instance with name and index.
 
 Format
 ----------------
 .. function:: pvPacki(p1, x, nm, i)
 
-    :param p1: 
-    :type p1: an instance of structure of type PV
+    :param p1: an instance of structure of type :class:`PV`
+    :type p1: struct
 
-    :param x: 
+    :param x: data
     :type x: MxN matrix or N-dimensional array
 
     :param nm: name of matrix or array, or null string.
@@ -47,7 +46,7 @@ Examples
     p1 = pvPacki(p1,y,"Y",1);
     p1 = pvPacki(p1,x,"X",2);
 
-pvUnpack
+These matrices can be extracted using the :func:`pvUnpack` command, indicating the variable to unpack either by index or by variable name:
 
 ::
 
@@ -60,3 +59,4 @@ pvUnpack
     x = pvUnpack(p1,"X");
 
 .. seealso:: Functions :func:`pvPack`, :func:`pvUnpack`
+

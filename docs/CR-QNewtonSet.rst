@@ -4,13 +4,11 @@ QNewtonSet
 
 Purpose
 ----------------
-Resets global variables used by QNewton to default values.
+Resets global variables used by :func:`QNewton` to default values.
 
 Format
 ----------------
-.. function:: QNewtonSet
-
-
+.. function:: QNewtonSet()
 
 Source
 ------

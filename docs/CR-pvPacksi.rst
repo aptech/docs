@@ -5,17 +5,16 @@ pvPacksi
 Purpose
 ----------------
 
-Packs symmetric matrix into a PV instance with matrix
-name and index.
+Packs symmetric matrix into a :class:`PV` instance with matrix name and index.
 
 Format
 ----------------
 .. function:: pvPacksi(p1, x, nm, i)
 
-    :param p1: 
-    :type p1: an instance of structure of type PV
+    :param p1: an instance of structure of type :class:`PV`
+    :type p1: struct
 
-    :param x: 
+    :param x: data
     :type x: MxM symmetric matrix
 
     :param nm: matrix name.
@@ -29,7 +28,7 @@ Format
 Remarks
 -------
 
-pvPacksi does not support the packing of arrays.
+:func:`pvPacksi` does not support the packing of arrays.
 
 
 Examples
@@ -47,7 +46,7 @@ Examples
     p1 = pvPacksi(p1,x, "A",1);
     p1 = pvPacksi(p1, eye(2), "I",2);
 
-These matrices can be extracted using the pvUnpack command.
+These matrices can be extracted using the :func:`pvUnpack` command.
 
 ::
 
@@ -70,3 +69,4 @@ These matrices can be extracted using the pvUnpack command.
     0.000 1.000
 
 .. seealso:: Functions :func:`pvPacks`, :func:`pvUnpack`
+

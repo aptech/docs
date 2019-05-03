@@ -5,7 +5,7 @@ pvCreate
 Purpose
 ----------------
 
-Returns an initialized instance of structure of type PV.
+Returns an initialized instance of structure of type :class:`PV`.
 
 Format
 ----------------

@@ -5,14 +5,14 @@ pvGetParVector
 Purpose
 ----------------
 
-Retrieves parameter vector from structure of type PV.
+Retrieves parameter vector from structure of type :class:`PV`.
 
 Format
 ----------------
 .. function:: pvGetParVector(p1)
 
-    :param p1: 
-    :type p1: an instance of structure of type PV
+    :param p1: an instance of structure of type :class:`PV`
+    :type p1: struct
 
     :returns: p (*Kx1 vector*), parameter vector.
 
@@ -20,7 +20,7 @@ Remarks
 -------
 
 Matrices or portions of matrices (stored using a mask) are stored in the
-structure of type PV as a vector in the p member.
+structure of type :class:`PV` as a vector in the p member.
 
 
 Examples
@@ -47,25 +47,24 @@ Examples
      
     print pvUnpack(p1,"X");
 
-pvUnpack returns the entire value of x that was packed in. Therefore, the print
+:func:`pvUnpack` returns the entire value of *x* that was packed in. Therefore, the `print`
 statement above, produces:
 
 ::
 
-    1.000 2.000
+     1.000 2.000
      3.000 4.000
 
 ::
 
-    print
-     pvGetParVector(p1);
+     print pvGetParVector(p1);
 
-pvGetParVector returns only those elements indicated by the mask variable and therefore the
-print statement above, returns:
+:func:`pvGetParVector` returns only those elements indicated by the mask variable and therefore the
+`print` statement above, returns:
 
 ::
 
-    1.000
+     1.000
      2.000
 
 Source

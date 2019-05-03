@@ -13,7 +13,7 @@ Format
     :param &fct: pointer to a procedure that computes the function to be minimized. This procedure must have one input
         argument, a vector of parameter values, and one output argument, the value of the function evaluated
         at the input vector of parameter values.
-    :type &fct: TODO
+    :type &fct: function pointer
 
     :param start: start values.
     :type start: Kx1 vector
@@ -26,57 +26,46 @@ Format
 
     :returns: ret (*scalar*), return code.
 
-    .. csv-table::
-        :widths: auto
-
-        "0     normal convergence"
-        "1     forced termination"
-        "2     max iterations exceeded"
-        "3     function calculation failed"
-        "4     gradient calculation failed"
-        "5     step length calculation failed"
-        "6     function cannot be evaluated at initial parameter values"
+        .. csv-table::
+            :widths: auto
+    
+            "0     normal convergence"
+            "1     forced termination"
+            "2     max iterations exceeded"
+            "3     function calculation failed"
+            "4     gradient calculation failed"
+            "5     step length calculation failed"
+            "6     function cannot be evaluated at initial parameter values"
 
 Global Input
 ------------
 
-+-----------------+-----------------------------------------------------+
-| \_qn_RelGradTol | scalar, convergence tolerance for relative gradient |
-|                 | of estimated coefficients. Default = 1e-5.          |
-+-----------------+-----------------------------------------------------+
-| \_qn_GradProc   | scalar, pointer to a procedure that computes the    |
-|                 | gradient of the function with respect to the        |
-|                 | parameters. This procedure must have a single input |
-|                 | argument, a Kx1 vector of parameter values, and a   |
-|                 | single output argument, a Kx1 vector of gradients   |
-|                 | of the function with respect to the parameters      |
-|                 | evaluated at the vector of parameter values. If     |
-|                 | \_qn_GradProc is 0, QNewton uses gradp.             |
-+-----------------+-----------------------------------------------------+
-| \_qn_MaxIters   | scalar, maximum number of iterations. Default =     |
-|                 | 1e+5. Termination can be forced by pressing C on    |
-|                 | the keyboard.                                       |
-+-----------------+-----------------------------------------------------+
-| \_qn_PrintIters | scalar, if 1, print iteration information. Default  |
-|                 | = 0. Can be toggled during iterations by pressing P |
-|                 | on the keyboard.                                    |
-+-----------------+-----------------------------------------------------+
-| \_qn_ParNames   | Kx1 vector, labels for parameters.                  |
-+-----------------+-----------------------------------------------------+
-| \_qn_PrintResul | scalar, if 1, results are printed.                  |
-| ts              |                                                     |
-+-----------------+-----------------------------------------------------+
+:_qn_RelGradTol: (*scalar*), convergence tolerance for relative gradient of estimated coefficients. Default = 1e-5.
+
+:_qn_GradProc: (*scalar*), pointer to a procedure that computes the gradient of the function with respect 
+    to the parameters. This procedure must have a single input argument, a Kx1 vector of parameter values,
+    and a single output argument, a Kx1 vector of gradients of the function with respect to the parameters 
+    evaluated at the vector of parameter values. If *_qn_GradProc* is 0, :func:`QNewton` uses :func:`gradp`.
+
+:_qn_MaxIters: (*scalar*), maximum number of iterations. Default = 1e+5. Termination can be forced by pressing :kbd:`C` on the keyboard.
+
+:_qn_PrintIters: (*scalar*), if 1, print iteration information. Default = 0. Can be toggled during iterations by 
+    pressing :kbd:`P` on the keyboard.
+
+:_qn_ParNames: (*Kx1 vector*), labels for parameters.
+
+:_qn_PrintResults: (*scalar*), if 1, results are printed.
 
 
 Remarks
 -------
 
 If you are running in terminal mode, GAUSS will not see any input until
-you press ENTER. Pressing C on the keyboard will terminate iterations,
-and pressing P will toggle iteration output.
+you press :kbd:`ENTER`. Pressing :kbd:`C` on the keyboard will terminate iterations,
+and pressing :kbd:`P` will toggle iteration output.
 
 To reset global variables for this function to their default values,
-call QNewtonSet.
+call :func:`QNewtonSet`.
 
 
 Examples
@@ -130,4 +119,3 @@ Source
 
 qnewton.src
 
-optimize function BFGS descent algorithm

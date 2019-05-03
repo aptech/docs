@@ -4,7 +4,7 @@ QNewtonmtOutCreate
 
 Purpose
 ----------------
-Creates default QNewtonmtOut structure.
+Creates default :class:`QNewtonmtOut` structure.
 
 Format
 ----------------
@@ -12,11 +12,10 @@ Format
 
     :returns: c (*struct*) instance of :class:`QNewtonmtOut` struct with members set to default values.
 
-
-
 Source
 ------
 
 qnewtonmt.src
 
 .. seealso:: Functions :func:`QNewtonmt`
+

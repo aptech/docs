@@ -4,7 +4,7 @@ QNewtonmtControlCreate
 
 Purpose
 ----------------
-Creates default QNewtonmtControl structure.
+Creates default :class:`QNewtonmtControl` structure.
 
 Format
 ----------------
@@ -12,11 +12,10 @@ Format
 
     :returns: c (*struct*) instance of :class:`QNewtonmtControl` struct with members set to default values.
 
-
-
 Source
 ------
 
 qnewtonmt.src
 
 .. seealso:: Functions :func:`QNewtonmt`
+

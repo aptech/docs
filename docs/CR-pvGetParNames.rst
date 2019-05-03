@@ -5,21 +5,21 @@ pvGetParNames
 Purpose
 ----------------
 
-Generates names for parameter vector stored in structure of type PV.
+Generates names for parameter vector stored in structure of type :class:`PV`.
 
 Format
 ----------------
 .. function:: pvGetParNames(p1)
 
-    :param p1: 
-    :type p1: an instance of structure of type PV
+    :param p1: an instance of structure of type *PV*
+    :type p1: struct
 
     :returns: s (*Kx1 string array*), names of parameters.
 
 Remarks
 -------
 
-If the vector in the structure of type PV was generated with matrix
+If the vector in the structure of type :class:`PV` was generated with matrix
 names, the parameter names will be concatenations of the matrix name
 with row and column numbers of the parameters in the matrix. Otherwise
 the names will have a generic prefix with concatenated row and column
@@ -54,11 +54,11 @@ Examples
      
     print pvGetParNames(p1);
 
-Since mask has ones in the [1,1] and [2,2] locations, the code above, produces:
+Since mask has ones in the :math:`[1,1]` and :math:`[2,2]` locations, the code above, produces:
 
 ::
 
-    P[1,1]
+     P[1,1]
      P[2,2]
 
 Source
