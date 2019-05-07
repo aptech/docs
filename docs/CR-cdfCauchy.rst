@@ -28,7 +28,7 @@ Remarks
 The cumulative distribution function for the Cauchy distribution is
 defined as:
 
-.. math:: 1/2 + 1/π arctan(x−a / b)
+.. math:: \frac{1}{2} + \frac{1}{\pi} arctan(\frac{x−a}{b})
 
 .. DANGER:: Fix equation
 

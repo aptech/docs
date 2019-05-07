@@ -4,7 +4,7 @@ cdfGam
 
 Purpose
 ----------------
-Computes the incomplete gamma function.
+Computes the regularized lower incomplete gamma function.
 
 Format
 ----------------
@@ -21,7 +21,10 @@ Format
 Remarks
 -------
 
-The incomplete gamma function returns the integral
+The regularized lower incomplete gamma function returns the integral
+
+.. math:: \text{cdfGam(x, intlim)} = \int_{0}^{intlim} \frac{e^{-t}t^{(x-1)}}{\Gamma(x)}dt
+
 
 .. DANGER:: FIx equation that should go here.
 
@@ -29,19 +32,41 @@ The allowable ranges for the arguments are:
 
 .. math::
 
-        x > 0
-   intlim > 0
+        x \gt 0\\
+   intlim \ge 0
 
 A -1 is returned for those elements with invalid inputs.
 
 Examples
 ----------------
 
+Basic example
++++++++++++++++
 ::
 
+    g = cdfGam(1.2, 3);
+
+After the above code, `g` will equal
+
+::
+
+   0.9287
+
+Matrix example
++++++++++++++++
+
+::
+
+    // Create a 1x4 row vector
     x = { 0.5 1 3 10 };
+
+    // Create a 6x1 column vector: 0, 0.2, 0.4, ..., 1.0
     intlim = seqa(0,.2,6);
+
+    // Compute for all combinations of the elements
+    // of 'x' and 'intlim'
     g = cdfGam(x,intlim);
+
     print "intlim = " intlim;				
     print "g = " g;
 
