@@ -5,762 +5,106 @@ qtyre
 Purpose
 ----------------
 
-Computes the orthogonal-triangular (QR) decomposition of a matrix X and returns
-Q'Y and R.
+Computes the orthogonal-triangular (QR) decomposition of a matrix X and returns :math:`Q'Y` and :math:`R`.
+
+.. DANGER:: fix all equations
 
 Format
 ----------------
 .. function:: qtyre(y, x)
 
-    :param y: 
+    :param y: data
     :type y: NxL matrix
 
-    :param x: 
+    :param x: data
     :type x: NxP matrix
 
-    :returns: qty (*NxL unitary matrix*) .
+    :returns: qty (*NxL matrix*) unitary matrix
 
-    :returns: r (*KxP upper triangular matrix*), K = min(N,P).
+    :returns: r (*KxP matrix*), upper triangular matrix. :math:`K = min(N,P)`.
 
-    :returns: e (*Px1 permutation vector*) .
-
-
+    :returns: e (*Px1 permutation vector*)
 
 Remarks
 -------
 
-Given X[.,E], where E is a permutation vector that permutes the columns
-of X, there is an orthogonal matrix Q such that Q'X[.,E] is zero below
+Given :math:`X[.,E]`, where :math:`E` is a permutation vector that permutes the columns
+of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[.,E]` is zero below
 its diagonal, i.e.,
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           ′
-                                           X
-                                           
-                                               
-                                                    
-                                                   
-                                                       [
-                                                       .
-                                                       ⁢
-                                                       ,
-                                                        
-                                                       
-                                                           
-                                                               E
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       
-                                                                           R
-                                                                       
-                                                                   
-                                                               
-                                                           
-                                                           
-                                                               
-                                                                   0
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+where :math:`R` is upper triangular. If we partition
 
-where R is upper triangular. If we partition
+.. math::
 
-::
+where :math:`Q\ 1` has :math:`P` columns, then
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           
-                                               
-                                                    
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       1
-                                                                   
-                                                               
-                                                               ⁢
-                                                                
-                                                               
-                                                                   
-                                                                        
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       2
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+.. math::
 
-where Q\ 1 has P columns, then
+is the QR decomposition of :math:`X[.,E]`.
 
-::
+If :math:`X` has rank :math:`P`, then the columns of :math:`X` will not be permuted. If :math:`X` has
+rank :math:`M < P`, then the :math:`M` linearly independent columns are permuted to the
+front of :math:`X` by :math:`E`. Partition the permuted :math:`X` in the following way:
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           X
-                                       
-                                   
-                                   
-                                       
-                                           
-                                               [
-                                               .
-                                               ⁢
-                                                
-                                               ,
-                                                
-                                               
-                                                   
-                                                       E
-                                                   
-                                               
-                                               ]
-                                                
-                                               =
-                                                
-                                               
-                                                   
-                                                       
-                                                           
-                                                               Q
-                                                           
-                                                           
-                                                               1
-                                                           
-                                                       
-                                                       ⁢
-                                                        
-                                                       R
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
-
-is the QR decomposition of X[.,E].
-
-If X has rank P, then the columns of X will not be permuted. If X has
-rank M<P, then the M linearly independent columns are permuted to the
-front of X by E. Partition the permuted X in the following way:
-
-::
+.. math::
 
    X[.⁢ , E] = [  X1⁢   X2⁢ ]
 
-where X\ 1 is NxM and X\ 2 is Nx(P-M). Further partition R in the
-following way:
+where :math:`X\ 1` is NxM and :math:`X\ 2` is Nx(P-M). Further partition :math:`R` in the following way:
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           R
-                                           ⁢
-                                           
-                                               
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       
-                                                                           
-                                                                               
-                                                                                   R
-                                                                               
-                                                                               
-                                                                                   
-                                                                                       
-                                                                                           11
-                                                                                       
-                                                                                   
-                                                                               
-                                                                           
-                                                                       
-                                                                   
-                                                               
-                                                               
-                                                                   
-                                                                       
-                                                                           
-                                                                               
-                                                                                   R
-                                                                               
-                                                                           
-                                                                       
-                                                                       
-                                                                           12
-                                                                       
-                                                                   
-                                                               
-                                                           
-                                                           
-                                                               
-                                                                   0
-                                                               
-                                                               
-                                                                   0
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                     
+where :math:`R\ 11` is MxM and :math:`R\ 12` is Mx(P-M). Then
 
-where R\ 11 is MxM and R\ 12 is Mx(P-M). Then
-
-::
-
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           A
-                                       
-                                   
-                                   
-                                       
-                                            
-                                           =
-                                            
-                                           
-                                               
-                                                   
-                                                       
-                                                           
-                                                               
-                                                                   R
-                                                               
-                                                               
-                                                                   −
-                                                                   1
-                                                               
-                                                           
-                                                       
-                                                       
-                                                           11
-                                                       
-                                                   
-                                                   ⁢
-                                                    
-                                                   
-                                                       
-                                                           R
-                                                       
-                                                       
-                                                           12
-                                                       
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+.. math::
 
 and
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           
-                                               
-                                                   X
-                                               
-                                               
-                                                   2
-                                               
-                                           
-                                           ⁢
-                                           
-                                               
-                                                   =
-                                                    
-                                                   
-                                                       
-                                                           
-                                                               
-                                                                   X
-                                                               
-                                                               
-                                                                   1
-                                                               
-                                                           
-                                                           ⁢
-                                                            
-                                                            
-                                                           A
-                                                       
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
 
-that is, A is an Mx(P-N) matrix defining the linear combinations of X\ 2
-with respect to X\ 1.
+that is, :math:`A` is an Mx(P-N) matrix defining the linear combinations of :math:`X\ 2`
+with respect to :math:`X\ 1`.
 
-For most problems Q or Q\ 1 is not it is required. Rather, we require
-Q'Y or Q\ 1'Y where Y is an NxL matrix. Since Q can be a very large
-matrix, qtyre has been provided for the calculation of Q'Y which will be
-a much smaller matrix. Q\ 1'Y will be a submatrix of Q'Y. In particular,
+For most problems :math:`Q` or :math:`Q\ 1` is not it is required. Rather, we require
+:math:`Q'Y` or :math:`Q\ 1'Y` where :math:`Y` is an NxL matrix. Since :math:`Q` can be a very large
+matrix, :func:`qtyre` has been provided for the calculation of :math:`Q'Y` which will be
+a much smaller matrix. :math:`Q\ 1'Y` will be a submatrix of :math:`Q'Y`. In particular,
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           
-                                               
-                                                    
-                                                   
-                                                       
-                                                           
-                                                               
-                                                                   Q
-                                                               
-                                                               
-                                                                   1
-                                                               
-                                                           
-                                                           ′
-                                                           Y
-                                                           
-                                                               
-                                                                    
-                                                                   =
-                                                                    
-                                                                   
-                                                                       
-                                                                           q
-                                                                           t
-                                                                           y
-                                                                       
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                   
-                                               
-                                           
-                                       
-                                   
-                                   
-                                       
-                                           [
-                                           
-                                               
-                                                   
-                                                       
-                                                           1
-                                                           :
-                                                       
-                                                   
-                                                   P
-                                                   
-                                                       
-                                                           ,
-                                                           .
-                                                       
-                                                   
-                                               
-                                           
-                                           ]
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+and :math:`Q\ 2'Y` is the remaining submatrix:
 
-and Q\ 2'Y is the remaining submatrix:
+.. math::
 
-::
+Suppose that :math:`X` is an NxK data set of independent variables and :math:`Y` is an
+Nx1 vector of dependent variables. Suppose further that :math:`X` contains
+linearly dependent columns, i.e., :math:`X` has rank :math:`M < P`. Then define
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           ⁢
-                                           
-                                               
-                                                    
-                                                   
-                                                       
-                                                           
-                                                               
-                                                                   Q
-                                                               
-                                                               
-                                                                   2
-                                                               
-                                                           
-                                                           ′
-                                                           Y
-                                                           
-                                                               
-                                                                    
-                                                                   =
-                                                                    
-                                                                   
-                                                                       
-                                                                           q
-                                                                           t
-                                                                           y
-                                                                       
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                   
-                                               
-                                           
-                                       
-                                   
-                                   
-                                       
-                                           [
-                                           
-                                               
-                                                   P
-                                                   
-                                                       
-                                                           +
-                                                           1
-                                                           :
-                                                       
-                                                   
-                                                   N
-                                                   
-                                                       
-                                                           ,
-                                                           .
-                                                       
-                                                   
-                                               
-                                           
-                                           ]
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+.. math::
 
-Suppose that X is an NxK data set of independent variables and Y is an
-Nx1 vector of dependent variables. Suppose further that X contains
-linearly dependent columns, i.e., X has rank M < P. Then define
-
-::
-
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           C
-                                           ⁢
-                                           
-                                               
-                                                   =
-                                                    
-                                                   
-                                                       
-                                                           
-                                                               
-                                                                   Q
-                                                               
-                                                               
-                                                                   1
-                                                               
-                                                           
-                                                           ′
-                                                           Y
-                                                           
-                                                               
-                                                                   
-                                                                       [
-                                                                       1
-                                                                       :
-                                                                       
-                                                                           
-                                                                               M
-                                                                               
-                                                                                   
-                                                                                       ,
-                                                                                       .
-                                                                                   
-                                                                               
-                                                                           
-                                                                       
-                                                                       ]
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-                   A⁢= R[1:M,1:M]
-
-and the vector (or matrix of L > 1) of least squares coefficients of the
+and the vector (or matrix of :math:`L > 1`) of least squares coefficients of the
 reduced, linearly independent problem is the solution of
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           A
-                                           b
-                                           ⁢
-                                           
-                                               
-                                                   =
-                                                    
-                                                   
-                                                       
-                                                           C
-                                                       
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
-
-To solve for b use qrsol:
+To solve for *b* use :func:`qrsol`:
 
 ::
 
    b = qrsol(C, A);
 
-If N < P, the factorization assumes the form:
+If :math:`N < P`, the factorization assumes the form:
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           ′
-                                           X
-                                           
-                                               
-                                                    
-                                                   
-                                                       [
-                                                       .
-                                                       ⁢
-                                                       ,
-                                                        
-                                                       
-                                                           
-                                                               E
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       R
-                                                                   
-                                                                   
-                                                                       1
-                                                                   
-                                                               
-                                                               ⁢
-                                                                
-                                                                
-                                                               
-                                                                   
-                                                                       R
-                                                                   
-                                                                   
-                                                                       2
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+where :math:`R\ 1` is a PxP upper triangular matrix and :math:`R\ 2` is Px(N-P). Thus :math:`Q`
+is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R\ 1` and :math:`R\ 2`. This
+type of factorization is useful for the solution of underdetermined systems. For the solution of
 
-where R\ 1 is a PxP upper triangular matrix and R\ 2 is Px(N-P). Thus Q
-is a PxP matrix and R is a PxN matrix containing R\ 1 and R\ 2. This
-type of factorization is useful for the solution of underdetermined
-systems. For the solution of
-
-::
-
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           X
-                                       
-                                   
-                                   
-                                       
-                                           [
-                                           .
-                                           ⁢
-                                            
-                                           ,
-                                            
-                                           
-                                               
-                                                   E
-                                               
-                                           
-                                           ]
-                                           
-                                               b
-                                           
-                                            
-                                           =
-                                           
-                                               Y 
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+.. math::
 
 it can be shown that
 
@@ -768,11 +112,10 @@ it can be shown that
 
    b = qrsol(Q'Y, R1)|zeros(N-P,1);
 
-
-
 Source
 ------
 
 qtyr.src
 
 .. seealso:: Functions :func:`qqr`, :func:`qre`, :func:`qtyr`
+

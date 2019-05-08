@@ -4,56 +4,68 @@ quantileFitLoc
 
 Purpose
 ----------------
-Perform local linear or quadratic quantile regression. .
+Perform local linear or quadratic quantile regression.
 
 Format
 ----------------
-.. function:: quantileFitLoc(y, x, qCtl) 
-			  quantileFitLoc(y, x, tau, xstar, qCtl) 
-			   
-			  quantileFitLoc(dataset, formula, qCtl) 
-			  quantileFitLoc(dataset, formula, tau, xstar, qCtl)
+.. function:: quantileFitLoc(y, x[, tau[, xstar]], [qCtl]);
+              quantileFitLoc(dataset, formula[, tau[, xstar]], [qCtl]);
 
     :param y: dependent variable.
     :type y: Nx1 vector
 
-    :param x: 
+    :param x: independent variables
     :type x: NxK matrix or sparse matrix or N-dimensional array
 
     :param dataset: name of dataset.
     :type dataset: string
 
     :param formula: formula string of the model.
-        E.g "y ~ X1 + X2", 'y' is the name of dependent variable, 'X1' and 'X2' are names of independent variables;
-        E.g. "y ~ .", '.' means including all variables except dependent variable 'y';
-        E.g "y ~ -1 + X1 + X2", '-1' means no intercept model.
-    :type formula: String
 
-    :param tau: Mx1 vector, quantile levels. Default = { 0.05, 0.5, 0.95 };
-    :type tau: Optional argument
+        E.g ``"y ~ X1 + X2"``, 'y' is the name of dependent variable, 'X1' and 'X2' are names of independent variables;
 
-    :param xstar: P*1 vector, quantile points. Default = seqa(0, 1/(50-1), 50).
-    :type xstar: Optional argument
+        E.g ``"y ~ ."``, '.' means including all variables except dependent variable 'y';
 
-    :param qCtl: instance of the qfitControl structure containing the following members:
-    :type qCtl: Optional argument
+        E.g ``"y ~ -1 + X1 + X2"``, '-1' means no intercept model.
 
-    .. csv-table::
-        :widths: auto
+    :type formula: string
 
-        "qCtl.bandwidth", "Scalar, the multiplicative factor of the bandwidth. Default = 1."
-        "qCtl.reg_type", "Scalar, the regression type. Default = 1."
-        "", "1", "Linear regression."
-        "", "2", "Quadratic regression."
-        "qCtl.varnames", "String array, variable names. Default = {"X1", "X2", ..., "XK"}."
-        "qCtl.verbose", "Scalar, print results Default = 1."
-        "", "1", "Printing on."
-        "", "0", "No printing."
-        "qCtl.const", "Scalar, include constant in regression. Default = 1."
-        "", "1", "a constant term will be added."
-        "", "0", "no constant term will be added."
+    :param tau: Optional argument, quantile levels. Default = { 0.05, 0.5, 0.95 };
+    :type tau: Mx1 vector
 
-    :returns: q (*PxM matrix*), estimated quantile Y|X=xstar
+    :param xstar: Optional argument, quantile points. Default = ``seqa(0, 1/(50-1), 50)``.
+    :type xstar: P*1 vector
+
+    :param qCtl: Optional argument. instance of the :class:`qfitControl` structure containing the following members:
+
+        .. list-table::
+            :widths: auto
+    
+            * - qCtl.bandwidth
+              - scalar, the multiplicative factor of the bandwidth. Default = 1.
+            * - qCtl.reg_type
+              - scalar, the regression type. Default = 1.
+    
+                :1: Linear regression.
+                :2: Quadratic regression.
+    
+            * - qCtl.varnames
+              - string array, variable names. Default = ``{"X1", "X2", ..., "XK"}``.
+            * - qCtl.verbose
+              - scalar, print results Default = 1.
+    
+                :1: Printing on.
+                :0: No printing.
+    
+            * - qCtl.const
+              - scalar, include constant in regression. Default = 1.
+    
+                :1: a constant term will be added.
+                :0: no constant term will be added.
+
+    :type qCtl: struct
+
+    :returns: q (*PxM matrix*), estimated quantile :math:`Y|X=xstar`
 
 Examples
 ----------------
@@ -80,3 +92,4 @@ Source
 quantilefit.src
 
 .. seealso:: Functions :func:`glm`, :func:`olsmt`, :func:`quantileFit`
+

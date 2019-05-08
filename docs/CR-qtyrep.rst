@@ -5,222 +5,65 @@ qtyrep
 Purpose
 ----------------
 
-Computes the orthogonal-triangular (QR) decomposition of a matrix X using a pivot vector
- and returns Q'Y and R.
+Computes the orthogonal-triangular (QR) decomposition of a matrix X using a pivot vector and returns :math:`Q'Y` and :math:`R`.
+
+.. DANGER:: fix equations
 
 Format
 ----------------
 .. function:: qtyrep(y, x, pvt)
 
-    :param y: 
+    :param y: data
     :type y: NxL matrix
 
-    :param x: 
+    :param x: data
     :type x: NxP matrix
 
-    :param pvt: controls the selection of the pivot
-        columns:
+    :param pvt: controls the selection of the pivot columns:
+
+        .. csv-table::
+            :widths: auto
+    
+            "if :math:`pvt[i] > 0`, :math:`x[i]` is an initial column."
+            "if :math:`pvt[i] = 0`, :math:`x[i]` is a free column."
+            "if :math:`pvt[i] < 0`, :math:`x[i]` is a final column."
+
+        The initial columns are placed at the beginning of the matrix and the final columns are placed at the end. Only the free columns will be moved during the decomposition.
+
     :type pvt: Px1 vector
 
-    .. csv-table::
-        :widths: auto
+    :returns: qty (*NxL matrix*) unitary matrix
 
-        "if pvt[i] > 0, x[i] is an initial column."
-        "if pvt[i] = 0, x[i] is a free column."
-        "if pvt[i] < 0, x[i] is a final column."
-        "The initial columns are placed at the beginning of the matrix and the final columns are placed at the end. Only the free columns will be moved during the decomposition."
+    :returns: r (*KxP matrix*), upper triangular matrix. :math:`K = min(N,P)`.
 
-    :returns: qty (*NxL unitary matrix*) .
-
-    :returns: r (*KxP upper triangular matrix*), K = min(N,P).
-
-    :returns: e (*Px1 permutation vector*) .
+    :returns: e (*Px1 vector*) permutation vector
 
 
 
 Remarks
 -------
 
-Given X[.,E], where E is a permutation vector that permutes the columns
-of X, there is an orthogonal matrix Q such that Q'X[.,E] is zero below
+Given :math:`X[.,E]`, where :math:`E` is a permutation vector that permutes the columns
+of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[.,E]` is zero below
 its diagonal, i.e.,
 
 ::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           ′
-                                           X
-                                           
-                                               
-                                                    
-                                                   
-                                                       [
-                                                       .
-                                                       ⁢
-                                                       ,
-                                                        
-                                                       
-                                                           
-                                                               E
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       
-                                                                           R
-                                                                       
-                                                                   
-                                                               
-                                                           
-                                                           
-                                                               
-                                                                   0
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
-
-where R is upper triangular. If we partition
+where :math:`R` is upper triangular. If we partition
 
 ::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           
-                                               
-                                                    
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       1
-                                                                   
-                                                               
-                                                               ⁢
-                                                                
-                                                               
-                                                                   
-                                                                        
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       2
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
-
-where Q\ 1 has P columns, then
+where :math:`Q\ 1` has :math:`P` columns, then
 
 ::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           X
-                                       
-                                   
-                                   
-                                       
-                                           
-                                               [
-                                               .
-                                               ⁢
-                                                
-                                               ,
-                                                
-                                               
-                                                   
-                                                       E
-                                                   
-                                               
-                                               ]
-                                                
-                                               =
-                                                
-                                               
-                                                   
-                                                       
-                                                           
-                                                               Q
-                                                           
-                                                           
-                                                               1
-                                                           
-                                                       
-                                                       ⁢
-                                                        
-                                                       R
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+is the QR decomposition of :math:`X[.,E]`.
 
-is the QR decomposition of X[.,E].
-
-qtyrep allows you to control the pivoting. For example, suppose that X
+:func:`qtyrep` allows you to control the pivoting. For example, suppose that :math:`X`
 is a data set with a column of ones in the first column. If there are
-linear dependencies among the columns of X, the column of ones for the
+linear dependencies among the columns of :math:`X`, the column of ones for the
 constant may get pivoted away. This column can be forced to be included
-among the linearly independent columns using pvt.
-
-
+among the linearly independent columns using *pvt*.
 
 Source
 ------
@@ -228,3 +71,4 @@ Source
 qtyr.src
 
 .. seealso:: Functions :func:`qrep`, :func:`qtyre`
+

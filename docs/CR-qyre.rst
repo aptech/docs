@@ -5,277 +5,57 @@ qyre
 Purpose
 ----------------
 
-Computes the orthogonal-triangular (QR) decomposition of a matrix x and returns
-            QY and R.                                  
+Computes the orthogonal-triangular (QR) decomposition of a matrix *x* and returns :math:`QY` and :math:`R`.
 
 Format
 ----------------
 .. function:: qyre(y, x)
 
-    :param y: 
+    :param y: data
     :type y: NxL matrix
 
-    :param x: 
+    :param x: data
     :type x: NxP matrix
 
-    :returns: qy (*NxL unitary matrix*) .
+    :returns: qy (*NxL matrix*) unitary matrix
 
-    :returns: r (*KxP upper triangular matrix*), K = min(N,P).
+    :returns: r (*KxP matrix*), upper triangular matrix. :math:`K = min(N,P)`.
 
-    :returns: e (*Px1 permutation vector*) .
+    :returns: e (*Px1 vector*) permutation vector
 
-
+.. DANGER:: fix equations
 
 Remarks
 -------
 
-Given X[.,E], where E is a permutation vector that permutes the columns
-of X, there is an orthogonal matrix Q such that Q'X[.,E] is zero below
+Given :math:`X[.,E]`, where :math:`E` is a permutation vector that permutes the columns
+of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[.,E]` is zero below
 its diagonal, i.e.,
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           ′
-                                           X
-                                           
-                                               
-                                                    
-                                                   
-                                                       [
-                                                       .
-                                                       ⁢
-                                                       ,
-                                                        
-                                                       
-                                                           
-                                                               E
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       
-                                                                           R
-                                                                       
-                                                                   
-                                                               
-                                                           
-                                                           
-                                                               
-                                                                   0
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                    
+where :math:`R` is upper triangular. If we partition
 
-where R is upper triangular. If we partition
+.. math::
 
-::
+where :math:`Q\ 1` has :math:`P` columns, then
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           
-                                               
-                                                    
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       1
-                                                                   
-                                                               
-                                                               ⁢
-                                                                
-                                                               
-                                                                   
-                                                                        
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       2
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+.. math::
 
-where Q\ 1 has P columns, then
+is the QR decomposition of :math:`X[.,E]`.
 
-::
+For most problems :math:`Q` or :math:`Q\ 1` is not what is required. Since :math:`Q` can be a
+very large matrix, :func:`qyre` has been provided for the calculation of :math:`QY`,
+where :math:`Y` is some NxL matrix, which will be a much smaller matrix.
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           X
-                                       
-                                   
-                                   
-                                       
-                                           
-                                               [
-                                               .
-                                               ⁢
-                                                
-                                               ,
-                                                
-                                               
-                                                   
-                                                       E
-                                                   
-                                               
-                                               ]
-                                                
-                                               =
-                                                
-                                               
-                                                   
-                                                       
-                                                           
-                                                               Q
-                                                           
-                                                           
-                                                               1
-                                                           
-                                                       
-                                                       ⁢
-                                                        
-                                                       R
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+If either :math:`Q'Y` or :math:`Q\ 1'Y` are required, see :func:`qtyre`.
 
-is the QR decomposition of X[.,E].
+If :math:`N < P`, the factorization assumes the form:
 
-For most problems Q or Q\ 1 is not what is required. Since Q can be a
-very large matrix, qyre has been provided for the calculation of QY,
-where Y is some NxL matrix, which will be a much smaller matrix.
+.. math::
 
-If either Q'Y or Q\ 1'Y are required, see qtyre.
-
-If N <P, the factorization assumes the form:
-
-::
-
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           ′
-                                           X
-                                           
-                                               
-                                                   
-                                                       [
-                                                       .
-                                                       ⁢
-                                                       ,
-                                                       
-                                                           
-                                                               E
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                                   ⁢
-                                   =
-                                    
-                                   
-                                       [
-                                       
-                                           
-                                               
-                                                   
-                                                       R
-                                                   
-                                                   
-                                                       1
-                                                   
-                                               
-                                               
-                                                   
-                                                        
-                                                       R
-                                                   
-                                                   
-                                                       2
-                                                   
-                                               
-                                           
-                                       
-                                       ]
-                                   
-                               
-                           
-                       
-                   
-               
-
-where R\ 1 is a PxP upper triangular matrix and R\ 2 is Px(N-P). Thus Q
-is a PxP matrix and R is a PxN matrix containing R\ 1 and R\ 2.
-
-
+where :math:`R\ 1` is a PxP upper triangular matrix and :math:`R\ 2` is Px(N-P). Thus :math:`Q`
+is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R\ 1` and :math:`R\ 2`.
 
 Source
 ------
@@ -283,3 +63,4 @@ Source
 qyr.src
 
 .. seealso:: Functions :func:`qqr`, :func:`qre`, :func:`qyr`
+

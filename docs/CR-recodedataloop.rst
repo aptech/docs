@@ -7,27 +7,40 @@ Purpose
 
 Changes the value of a variable with different values based on a set of logical expressions.
 
+.. _recodedataloop
+.. index:: recode(dataloop)
+
 Format
 ----------------
-.. function:: recode var with 
-			     orrecode # var with   orrecode $ var with val1 for expression_1, val2 for expression_2,  .  .  . valn for expression_n
 
-    :param var: the new variable name.
-    :type var: literal
+::
 
-    :param val: value to be used if corresponding
-        expression is TRUE.
-    :type val: scalar
+    recode var with 
+    //   or
+    recode # var with
+    //   or
+    recode $ var with
 
-    :param expression: 
-    :type expression: logical scalar-returning expression
-        that returns nonzero TRUE or zero FALSE
+    val1 for expression_1,
+    val2 for expression_2,
+      .
+      .
+      .
+    valn for expression_n;
+
+**Parameters**
+
+:var: (*literal*) the new variable name.
+
+:val: (*scalar*) value to be used if corresponding expression is TRUE.
+
+:expression: (*scalar*) logical scalar-returning expression that returns nonzero TRUE or zero FALSE
 
 Remarks
 -------
 
-If '$' is specified, the variable will be considered a character
-variable. If '#' is specified, the variable will be considered numeric.
+If '``$``' is specified, the variable will be considered a character
+variable. If '``#``' is specified, the variable will be considered numeric.
 If neither is specified, the type of the variable will be left
 unchanged.
 
@@ -38,8 +51,8 @@ If none of the expressions is TRUE for a given row (observation), its
 value will remain unchanged.
 
 Any variables referenced must already exist, either as elements of the
-source data set, as extern's, or as the result of a previous make,
-vector, or code statement.
+source data set, as `extern`'s, or as the result of a previous `make`,
+`vector`, or `code` statement.
 
 
 Examples
@@ -66,4 +79,5 @@ Examples
           1 for sex $=\,= "MALE",
           0 for sex $=\,= "FEMALE";
 
-.. seealso:: Functions 
+.. seealso:: Functions `code`
+

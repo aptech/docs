@@ -4,36 +4,32 @@ recode
 
 Purpose
 ----------------
-Changes the values of an existing vector from a vector of new values.
-Used in data transformations.
+Changes the values of an existing vector from a vector of new values. Used in data transformations.
 
 Format
 ----------------
 .. function:: recode(x, e, v)
 
-    :param x: 
-    :type x: Nx1 vector to be recoded (changed)
+    :param x: data to be recoded (changed)
+    :type x: Nx1 vector 
 
-    :param e: 
-    :type e: NxK matrix of 1's and 0's
+    :param e: matrix of 1's and 0's
+    :type e: NxK matrix
 
-    :param v: 
-    :type v: Kx1 vector containing the new values to be
-        assigned to the recoded variable
+    :param v: vector containing the new values to be assigned to the recoded variable
+    :type v: Kx1 vector
 
-    :returns: y (*Nx1 vector*) containing the recoded values of
-        x.
+    :returns: y (*Nx1 vector*) containing the recoded values of *x*.
 
 Remarks
 -------
 
-There should be no more than a single 1 in any row of e.
+There should be no more than a single 1 in any row of *e*.
 
-For any given row N of x and e, if the Kth column of e is 1, the Kth
-element of v will replace the original element of x.
+For any given row :math:`N` of *x* and *e*, if the Kth column of *e* is 1, the Kth
+element of *v* will replace the original element of *x*.
 
-If every column of e contains a 0, the original value of x will be
-unchanged.
+If every column of e contains a 0, the original value of *x* will be unchanged.
 
 
 Examples
@@ -67,11 +63,11 @@ Examples
     // the 0's and 1's in 'e'
     y = recode(x,e,v);
 
-The above code assigns e and y as follows:
+The above code assigns *e* and *y* as follows:
 
 ::
 
-    0   0   0   0
+        0   0   0   0
         0   0   1   0
     e = 0   1   0   0
         0   0   0   0
@@ -92,3 +88,4 @@ Source
 datatran.src
 
 .. seealso:: Functions :func:`code`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`substute`, :func:`rescale`, :func:`dummy`
+

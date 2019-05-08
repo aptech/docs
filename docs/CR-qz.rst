@@ -5,13 +5,11 @@ qz
 Purpose
 ----------------
 
-			Compute the complex QZ, or generalized Schur, form of a pair of real or complex general matrices with an option to sort the eigenvalues.
-
-		
+Compute the complex QZ, or generalized Schur, form of a pair of real or complex general matrices with an option to sort the eigenvalues.
 
 Format
 ----------------
-.. function:: qz(A, B, sort_type)
+.. function:: qz(A, B[, sort_type])
 
     :param A: real or complex general matrix
     :type A: NxN matrix
@@ -19,59 +17,66 @@ Format
     :param B: real or complex general matrix
     :type B: NxN matrix
 
-    :param sort_type: scalar or string specifying how to sort the eigenvalues. Options include:
-        1"udi"Absolute value of the eigenvalue less than 1.0. (Unit disk inside)2"udo"Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside)3"lhp"Value of the real portion of the eigenvalue less than 0. (Left hand plane)4"rhp"Value of the real portion of the eigenvalue greater than 0. (Right hand plane)5"ref"Real eigenvalues first. (Complex portion less than imagtol see remarks section)6"cef"Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
-        1
-        "udi"
-        Absolute value of the eigenvalue less than 1.0. (Unit disk inside)
-        2
-        "udo"
-        Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside)
-        3
-        "lhp"
-        Value of the real portion of the eigenvalue less than 0. (Left hand plane)
-        4
-        "rhp"
-        Value of the real portion of the eigenvalue greater than 0. (Right hand plane)
-        5
-        "ref"
-        Real eigenvalues first. (Complex portion less than imagtol see remarks section)
-        6
-        "cef"
-        Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
-    :type sort_type: Optional input
+    :param sort_type: Optional input, specifying how to sort the eigenvalues. Options include:
 
-    :param 1: 0. (Unit disk inside)
-    :type 1: "udi"
-        Absolute value of the eigenvalue less than 1
+        == ====== ===============================
+        1  "udi"  Absolute value of the eigenvalue less than 1.0. (Unit disk inside)
+        2  "udo"  Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside)
+        3  "lhp"  Value of the real portion of the eigenvalue less than 0. (Left hand plane)
+        4  "rhp"  Value of the real portion of the eigenvalue greater than 0. (Right hand plane)
+        5  "ref"  Real eigenvalues first. (Complex portion less than imagtol see remarks section)
+        6  "cef"  Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
+        == ====== ===============================
 
-    :param 2: 0. (Unit disk outside)
-    :type 2: "udo"
-        Absolute value of the eigenvalue greater than or equal to 1
+    :type sort_type: scalar or string 
 
-    :param 3:  (Left hand plane)
-    :type 3: "lhp"
-        Value of the real portion of the eigenvalue less than 0
+    :returns: S (*NxN matrix*), Schur form of *A*
 
-    :param 4:  (Right hand plane)
-    :type 4: "rhp"
-        Value of the real portion of the eigenvalue greater than 0
-
-    :param 5:  (Complex portion less than imagtol see remarks section)
-    :type 5: "ref"
-        Real eigenvalues first
-
-    :param 6:  (Complex portion greater than imagtol see remarks section)
-    :type 6: "cef"
-        Complex eigenvalues first
-
-    :returns: S (*NxN matrix*), Schur form of  A
-
-    :returns: T (*NxN matrix*), Schur form of  B
+    :returns: T (*NxN matrix*), Schur form of *B*
 
     :returns: Q (*NxN matrix*), left Schur vectors
 
     :returns: Z (*NxN matrix*), right Schur vectors
+
+Remarks
+-------
+
+-  The pair of matrices *S* and *T* are in generalized complex Schur form if
+   *S* and *T* are upper triangular and the diagonal of *T* contains positive
+   real numbers.
+
+-  The real generalized eigenvalues can be computed by dividing the
+   diagonal element of S by the corresponding diagonal element of *T*.
+
+-  The generalized Schur vectors *Q* and *Z* are orthogonal matrices (:math:`Q'Q = I`
+   and :math:`Z'Z = I`) that reduce *A* and *B* to Schur form:
+
+   .. math::
+
+       S = Q'A*Z
+       T = Q'B*Z
+
+       A = Q*S*Z'
+       B = Q*T*Z'      
+
+-  For the real generalized schur decomposition, call :func:`lapgschur`.
+
+-  If only the generalized eigenvalues are needed, you can call :func:`lapgeig`, or :func:`lapgeigv`.
+
+-  By default *imagtol* is set to 2.23e-16. If your program requires
+   *imagtol* to be a different value, you may change it using :func:`sysstate`
+   case 21, like this:
+
+   ::
+
+       // Set imagtol to 1e-15   
+       imagtol_org = sysstate(21, 1e-15);
+
+   Note that while the function :func:`qz` IS threadsafe, setting *imagtol* is NOT
+   threadsafe. Therefore, *imagtol* should not be changed inside of a
+   `threadStat` or `threadBegin` block.
+
+-  This procedure calls the *LAPACK* routine ``ZGGES``.
 
 Examples
 ----------------
@@ -110,7 +115,7 @@ The above code should return the following output:
     Generalized eigenvalues = 
     
     	   20.703871 -    1.9686543e-16i 
-              0.16170711 -    1.6939178e-17i 
+          0.16170711 -    1.6939178e-17i 
     	 -0.83402664 -       0.34681937i 
     	 -0.83402664 +       0.34681937i 
     
@@ -124,7 +129,8 @@ The above code should return the following output:
 Ordering eigenvalues
 ++++++++++++++++++++
 
-You can order the eigenvalues, by passing in the optional third input, sort_type. The code below uses the same A and B variables made in the example above.
+You can order the eigenvalues, by passing in the optional third input, *sort_type*. The code below 
+uses the same *A* and *B* variables made in the example above.
 
 ::
 
@@ -161,45 +167,3 @@ The code above should print out the sorted eigenvalues as we see below.
     	0.90326303 
     	 20.703871
 
-Remarks
--------
-
--  The pair of matrices S and T are in generalized complex Schur form if
-   S and T are upper triangular and the diagonal of T contains positive
-   real numbers.
-
--  The real generalized eigenvalues can be computed by dividing the
-   diagonal element of S by the corresponding diagonal element of T.
-
--  The generalized Schur vectors Qand Z are orthogonal matrices (Q'Q = I
-   and Z'Z = I) that reduce A and B to Schur form:
-
-   ::
-
-          S = Q'A*Z
-          T = Q'B*Z
-
-          A = Q*S*Z'
-          B = Q*T*Z'      
-
--  For the real generalized schur decomposition, call lapgschur.
-
--  If only the generalized eigenvalues are needed, you can call lapgeig,
-   or lapgeigv.
-
--  By default imagtol is set to 2.23e-16. If your program requires
-   imagtol to be a different value, you may change it using sysstate
-   case 21, like this:
-
-   ::
-
-          // Set imagtol to 1e-15   
-          imagtol_org = sysstate(21, 1e-15);
-
-   Note that while the function qz IS threadsafe, setting imagtol is NOT
-   threadsafe. Therefore, imagtol should not be changed inside of a
-   threadStat or threadBegin block.
-
--  This procedure calls the LAPACK routine ZGGES.
-
-complex QZ generalized Schur form real matrix sort eigenvalue

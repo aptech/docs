@@ -10,34 +10,23 @@ Format
 ----------------
 .. function:: rank(x)
 
-    :param x: 
+    :param x: data
     :type x: NxP matrix
 
-    :returns: k (*n estimate*) of the rank of x. This
-        equals the number of singular values of x
+    :returns: k, an estimate of the rank of *x*. This
+        equals the number of singular values of *x*
         that exceed a prespecified tolerance in absolute value.
 
+Global Input
+------------
 
+:_svdtol: scalar, the tolerance used in determining if any of the singular values 
+    are effectively 0. The default value is 10e\ :sup:`-13`. This can be changed 
+    before calling the procedure.
 
 Source
 ------
 
 svd.src
-
-
-
-Global Input
-------------
-
-+---+-----------------------------------------------------+
-| \ | scalar, the tolerance used in determining if any of |
-| _ | the singular values are effectively 0. The default  |
-| s | value is 10e\ :sup:`-13`. This can be changed       |
-| v | before calling the procedure.                       |
-| d |                                                     |
-| t |                                                     |
-| o |                                                     |
-| l |                                                     |
-+---+-----------------------------------------------------+
 
 .. seealso:: Functions :func:`detl`, :func:`norm`

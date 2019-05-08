@@ -17,18 +17,30 @@ Format
     :param e: quantile levels or probabilities.
     :type e: Lx1 vector
 
-    :param var: scalar zero, string array, or formula string.
-        If Kx1, character vector of labels selected for analysis, or numeric vector of column numbers in data set of variables selected for analysis.
-        If var is scalar zero, all columns are selected.
+    :param var: If Kx1, character vector of labels selected for analysis, or numeric vector of column numbers in data set of variables selected for analysis.
+
+        If *var* is scalar zero, all columns are selected.
         
+        If *dataset* is a matrix *var* cannot be a character vector.
         
-        
-        If dataset is a matrix var cannot be a character vector.
-        
-        If dataset includes variable names, then var could be a string array, e.g. "Height" $| "Weight"or formula string. e.g. "Height + Weight".
-    :type var: Kx1 vector
+        If *dataset* includes variable names, then *var* could be a string array, e.g. ``"Height" $| "Weight"`` or formula string. e.g. ``"Height + Weight"``.
+
+    :type var: Kx1 vector or scalar zero, string array, or formula string.
 
     :returns: y (*LxK matrix*), quantiles.
+
+Remarks
+-------
+
+- :func:`quantiled` will not succeed if ``N*minc(e)`` is less than 1, or ``N*maxc(e)`` is greater than :math:`N - 1`. In other words, to produce a quantile for a level of .001, the input matrix must have more than 1000 rows.
+
+- The supported data set types are CSV,	XLS, XLSX, HDF5, FMT, DAT.
+
+- For HDF5 file, the dataset must include file schema and both file name and data set name must be provided, e.g. 
+  
+  ::
+  
+      quantiled("h5://C:/gauss17/examples/testdata.h5/mydata", 0.5, 0).
 
 Examples
 ----------------
@@ -129,26 +141,9 @@ After the above code:
     175.00000        72.000000 
     270.00000        84.000000
 
-Remarks
--------
-
-The supported dataset types are
-` <FIO.1-DelimitedTextFiles.html#data-source-csv>`__\ `CSV <FIO.1-DelimitedTextFiles.html#data-source-csv>`__,
-`Excel (XLS, XLSX) <FIO.3-Spreadsheets.html#data-source-excel>`__,
-`HDF5 <FIO.4-HDF5Files.html#data-source-hdf5>`__, `GAUSS Matrix
-(FMT) <FIO.6-GAUSSMatrixFiles.html#data-source-gauss-matrix>`__, `GAUSS
-Dataset (DAT) <FIO.5-GAUSSDatasets.html#data-source-gauss-dataset>`__,
-`Stata (DTA) and SAS (SAS7BDAT,
-SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`__.
-
-See also
-++++++++
-
-`Formula String <LF.11-FormulaString.html#FormulaString>`__
-
 Source
 ------
 
 quantile.src
 
-quantile probability data set
+.. seealso:: `Formula string`

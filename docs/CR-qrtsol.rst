@@ -19,8 +19,6 @@ Format
 
     :returns: x (*PxL matrix*) 
 
-
-
 Remarks
 -------
 

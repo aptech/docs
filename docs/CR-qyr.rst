@@ -4,181 +4,47 @@ qyr
 
 Purpose
 ----------------
-Computes the orthogonal-triangular (QR) decomposition of a matrix X and returns
-            QY and R.
+Computes the orthogonal-triangular (QR) decomposition of a matrix :math:`X` and returns :math:`QY` and :math:`R`.
 
 Format
 ----------------
 .. function:: qyr(y, x)
 
-    :param y: 
+    :param y: data
     :type y: NxL matrix
 
-    :param X: 
+    :param X: data
     :type X: NxP matrix
 
-    :returns: qy (*NxL unitary matrix*) .
+    :returns: qy (*NxL matrix*) unitary matrix
 
-    :returns: r (*KxP upper triangular matrix*), K = min(N,P).
+    :returns: r (*KxP matrix*), upper triangular matrix. :math:`K = min(N,P)`.
 
-
+.. DANGER:: fix equations
 
 Remarks
 -------
 
-Given X, there is an orthogonal matrix Q such that Q'X is zero below its
-diagonal, i.e.,
+Given :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X` is zero below its diagonal, i.e.,
 
-::
+.. math::
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           ′
-                                           X
-                                           
-                                               
-                                                    
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       
-                                                                           R
-                                                                       
-                                                                   
-                                                               
-                                                           
-                                                           
-                                                               
-                                                                   0
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+where :math:`R` is upper triangular. If we partition
 
-where R is upper triangular. If we partition
+.. math::
 
-::
+where :math:`Q\ 1` has :math:`P` columns, then
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           Q
-                                           
-                                               
-                                                    
-                                                   =
-                                                    
-                                                   
-                                                       [
-                                                       
-                                                           
-                                                               
-                                                                   
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       1
-                                                                   
-                                                               
-                                                               ⁢
-                                                                
-                                                               
-                                                                   
-                                                                        
-                                                                       Q
-                                                                   
-                                                                   
-                                                                       2
-                                                                   
-                                                               
-                                                           
-                                                       
-                                                       ]
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
+.. math::
 
-where Q\ 1 has P columns, then
+is the QR decomposition of :math:`X`. If :math:`X` has linearly independent columns, :math:`R`
+is also the Cholesky factorization of the moment matrix of :math:`X`, i.e., of :math:`X'X`.
 
-::
+For most problems :math:`Q` or :math:`Q\ 1` is not what is required. Since :math:`Q` can be a
+very large matrix, :func:`qyr` has been provided for the calculation of :math:`QY`,
+where :math:`Y` is some NxL matrix, which will be a much smaller matrix.
 
-                   
-                       
-                           
-                               
-                                   
-                                       
-                                           X
-                                           ⁢
-                                           
-                                               
-                                                   =
-                                                    
-                                                   
-                                                       
-                                                           
-                                                               
-                                                                   Q
-                                                               
-                                                               
-                                                                   1
-                                                               
-                                                           
-                                                           ⁢
-                                                           R
-                                                       
-                                                   
-                                               
-                                           
-                                       
-                                   
-                               
-                           
-                       
-                   
-               
-
-is the QR decomposition of X. If X has linearly independent columns, R
-is also the Cholesky factorization of the moment matrix of X, i.e., of
-X'X.
-
-For most problems Q or Q\ 1 is not what is required. Since Q can be a
-very large matrix, qyr has been provided for the calculation of QY,
-where Y is some NxL matrix, which will be a much smaller matrix.
-
-If either Q'Y or Q\ 1'Y are required, see qtyr.
-
-
+If either :math:`Q'Y` or :math:`Q\ 1'Y` are required, see :func:`qtyr`.
 
 Source
 ------
@@ -186,3 +52,4 @@ Source
 qyr.src
 
 .. seealso:: Functions :func:`qqr`, :func:`qyre`, :func:`qyrep`, :func:`olsqr`
+

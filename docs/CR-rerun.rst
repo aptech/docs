@@ -7,18 +7,31 @@ Purpose
 
 Displays the most recently created graphics file.
 
+Library
+-------
+
+pgraph
+
+.. _rerun:
+.. index:: rerun
+
 Format
 ----------------
-.. function:: rerun
+
+::
+
+    rerun;
 
 
+Globals
+-------
+
+_pcmdlin, _pnotify, _psilent, _ptek, _pzoom
 
 Remarks
 -------
 
-rerun is used by the endwind function.
-
-
+:func:`rerun` is used by the :func:`endwind` function.
 
 Source
 ------

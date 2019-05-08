@@ -8,10 +8,11 @@ Scales the columns of a matrix
 
 Format
 ----------------
-.. function:: rescale(x, location, scale_factor)
+.. function:: rescale(x, method)
+              rescale(x, location, scale_factor)
 
-    :param x: 
-    :type x: NxK matrix or NxK array to be rescaled
+    :param x: data to be rescaled
+    :type x: NxK matrix or NxK array 
 
     :param location: used for column centering
     :type location: 1xK vector
@@ -20,26 +21,48 @@ Format
     :type scale_factor: 1xK vector
 
     :param method: name of scaling and centering method:
-    :type method: String
 
-    .. csv-table::
-        :widths: auto
+        .. list-table::
+            :widths: auto
+            :header-rows: 1
 
-        "Method", "Location", "scale_factor"
-        ""euclidean"", "0", "Euclidean length: ∑i=1nxi2"
-        ""mad"", "Median", "Absolute						deviation						from the					median"
-        ""maxabs"", "0", "Maximum absolute value"
-        ""midrange"", "(Max+Min)/2", "Range/2"
-        ""range"", "Minimum", "Range"
-        ""standardize"", "Mean", "Standard deviation"
-        ""sum"", "0", "Sum"
-        ""ustd"", "0", "Standard deviation about the origin"
+            * - Method
+              - Location
+              - scale_factor
+            * - "euclidean"
+              - 0
+              - Euclidean length: :math:`∑i=1nxi2`
+            * - "mad"
+              - Median
+              - Absolute deviation from the median
+            * - "maxabs"
+              - 0
+              - Maximum absolute value
+            * - "midrange"
+              - :math:`(Max+Min)/2`
+              - :math:`Range/2`
+            * - "range"
+              - Minimum
+              - Range
+            * - "standardize"
+              - Mean
+              - Standard deviation
+            * - "sum"
+              - 0
+              - Sum
+            * - "ustd"
+              - 0
+              - Standard deviation about the origin
 
-    :returns: x_s (*Matrix or multi-dimensional array*) , containing the scaled columns of x
+    :type method: string
 
-    :returns: location (*1xK vector*), containing the values used to center the columns of the input matrix x
+    :returns: x_s (*matrix or multi-dimensional array*), containing the scaled columns of *x*
 
-    :returns: scale_factor (*1xK vector*), containing the values used to scale the columns of the input matrix x
+    :returns: location (*1xK vector*), containing the values used to center the columns of the input matrix *x*
+
+    :returns: scale_factor (*1xK vector*), containing the values used to scale the columns of the input matrix *x*
+
+.. DANGER:: fix equations
 
 Examples
 ----------------
@@ -77,7 +100,7 @@ After the code above:
     	 -1.5326145 
     	 0.15444952 
     	  1.6038989 
-           -0.035642197 
+       -0.035642197 
     	 0.46334856 	
     				
     location =        14.750000 
@@ -116,7 +139,7 @@ After the code above:
     	 -1.5326145       0.78443315 
     	 0.15444952      -0.47968581 
     	  1.6038989      -0.10148025 
-           -0.035642197       -1.8306302 
+       -0.035642197       -1.8306302 
     	 0.46334856        1.0870957 
     								
     location =        14.750000        1029.8875 				
@@ -163,7 +186,7 @@ After the code above:
     	-0.91481638       0.70545637 
     	-0.86729345       0.99144060 
     	 -1.3425227       0.10454612 
-           -0.035642197       0.46214904 
+       -0.035642197       0.46214904 
     	 0.86729345       -1.0526353 
     	  1.2949998        1.2887072 
     	 0.89105492      -0.96531940 
@@ -179,3 +202,4 @@ After the code above:
     	  18.500000        833.10000
 
 .. seealso:: Functions :func:`code`, :func:`recode`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`rescale`, :func:`substute`
+

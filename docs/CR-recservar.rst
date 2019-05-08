@@ -8,16 +8,16 @@ Computes a vector autoregressive recursive (VAR) series.
 
 Format
 ----------------
-.. function:: recserVAR(x, y0, pi_)
+.. function:: recserVAR(x, y0, pi\_)
 
-    :param x: where N is the number of observations and K is the number of vectors in the series
+    :param x: where :math:`N` is the number of observations and :math:`K` is the number of vectors in the series
     :type x: NxK matrix
 
-    :param y0: where P is the order of the VAR model, the starting values for each vector in the series.
+    :param y0: where :math:`P` is the order of the VAR model, the starting values for each vector in the series.
     :type y0: PxK matrix
 
-    :param pi_: containing the VAR parameters.
-    :type pi_: KxK matrix
+    :param pi\_: containing the VAR parameters.
+    :type pi\_: KxK matrix
 
     :returns: y (*NxK matrix*), containing the series.
 
@@ -63,8 +63,6 @@ VAR(1) with constant
     
     // Simulate AR(2) model with constant
     y = recserVAR(eps + const, y0, pi_);
-
-See Also
-recserar, recserrc,
-            recsercp
+    
+.. seealso:: Functions :func:`recserar`, :func:`recserrc`, :func:`recsercp`
 
