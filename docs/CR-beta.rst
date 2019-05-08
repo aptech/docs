@@ -7,9 +7,7 @@ Purpose
 
 Computes the standard Beta function, also called the Euler integral. The beta function is defined as:
 
-.. math:: B(x,y) = ∫01 tx−1(1−t)y−1dt
-
-.. DANGER:: FIX EQUATION
+.. math:: B(x,y) = \int_{0}^{1} t^{x−1}(1−t)^{y−1}dt
 
 Format
 ----------------
@@ -28,7 +26,7 @@ Remarks
 
 The Beta function's relationship with the Gamma function is:
 
-.. math:: gamma(x)×gamma(y)gamma(x+y)
+.. math:: B(x,y) = \frac{\Gamma(x)×\Gamma(y)}{\Gamma(x+y)}
 
 
 .. seealso:: :func:`cdfBeta`, :func:`gamma`, :func:`gammacplx`, :func:`zeta`
