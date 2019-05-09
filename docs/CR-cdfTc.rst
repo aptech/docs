@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: cdfTc(x, n)
 
-    :param x: 
+    :param x:
     :type x: NxK matrix
 
     :param n: ExE conformable with *x*.
@@ -26,7 +26,10 @@ freedom.
 
 Allowable ranges for the arguments are:
 
-.. math:: −∞⁢ ≤ x⁢ ≤+∞⁢         n>0 
+.. math::
+
+−\infty \leq x⁢ \leq +\infty\\         
+n \gt 0 
 
 .. DANGER:: FIX EQUATION
 
@@ -34,7 +37,7 @@ A -1 is returned for those elements with invalid inputs.
 
 This equals:
 
-.. math:: 1−F(x,n)
+.. math:: 1 − F(x,n)
 
 where *F* is the t cdf with *n* degrees of freedom. Thus, to get the t cdf,
 subtract :code:`cdfTc(x, n)` from 1. The complement of the cdf is computed
@@ -55,7 +58,7 @@ After running above code,
 
 ::
 
-    y = 
+    y =
     0.46332617
     0.42713516
     0.39188165
@@ -87,4 +90,3 @@ References
    Australia, 1972.
 
 .. seealso:: Functions :func:`cdfTci`
-

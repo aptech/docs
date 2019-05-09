@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: gamma(x)
 
-    :param x: 
+    :param x:
     :type x: NxK matrix or N-dimensional array
 
     :returns: y (*NxK matrix or N-dimensional array*)
@@ -23,7 +23,7 @@ For each element of *x* this function returns the integral
 
 .. math::
 
-   ∫0⧜t(x−1)⁢e−tdt
+   \int_{0}^{\infty}t^{(x−1)⁢}e^{−t}dt
 
 .. DANGER:: FIX Equation
 
@@ -48,4 +48,3 @@ After the code above:
     y = 1.329340
 
 .. seealso:: Functions :func:`cdfchic`, :func:`cdfbeta`, :func:`cdffc`, :func:`cdfnc`, :func:`cdftc`, :func:`erf`, :func:`erfc`, :func:`lnfact`
-

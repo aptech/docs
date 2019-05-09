@@ -23,7 +23,9 @@ Remarks
 
 The Rayleigh cumulative distribution function is defined as
 
-.. math:: 1−exp⁡(−x22σ2)
+.. math::
+
+1 − exp⁡(\frac{-x^2}{2\sigma^2})
 
 .. DANGER:: FIX EQUATION
 
@@ -43,4 +45,3 @@ After running above code,
 .. figure:: _static/images/cdfRayleigh.png
 
 .. seealso:: Functions :func:`cdfRayleighInv`, :func:`pdfRayleigh`
-

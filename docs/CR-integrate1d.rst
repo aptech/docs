@@ -28,7 +28,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "ctl.subDivisions", "scalar, maximum number of divisions of the region (*x_min*, *x_max*)"
             "ctl.absTol", "scalar, absolute accuracy requested."
             "ctl.relTol", "scalar, relative accuracy requested."
@@ -43,15 +43,15 @@ Examples
 Basic Example
 +++++++++++++
 
-Calculate the integral ∫031x+1ⅆx
+Calculate the integral .. :math:`\int_{0}^{3}\frac{1}{x+1}dx`
 
 ::
 
     // Define procedure to be integrated
     proc (1) = fct(x);
-       retp(1 ./ (x + 1));
+       retp(1 ./ (x +1 1));
     endp;
-    
+
     // Calculate integral for procedure 'fct', from 0 - 3
     ans = integrate1d(&fct, 0, 3);
 
@@ -64,7 +64,7 @@ will result in:
 Passing extra arguments to the user function
 ++++++++++++++++++++++++++++++++++++++++++++
 
-Calculate the integral ∫−10001000e−x22×aⅆx⁢⁢, a⁢=3
+Calculate the integral :math:`\int_{-1000}^{1000}e^{-\frac{x^2}{2xa}dx \:,\: a\:=\:3`
 
 ::
 
@@ -72,14 +72,14 @@ Calculate the integral ∫−10001000e−x22×aⅆx⁢⁢, a⁢=3
     proc (1) = myProc(x, var);
        retp(exp( -(x .* x) / (2 .* var) ));
     endp;
-    
+
     // Define limits of integration
     x_min = -1000;
     x_max = 1000;
-    
+
     // Define extra argument for procedure 'myProc'
     a = 3;
-    
+
     ans = integrate1d(&myProc, x_min, x_max, a);
 
 will result in:
@@ -91,7 +91,7 @@ will result in:
 Bound at negative infinity
 ++++++++++++++++++++++++++
 
-Calculate the integral ∫−∞01σ2πe−(x−μ)22σ2ⅆx
+Calculate the integral :math:`\int_{-\infty}^{0}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x − \mu)^2}{2\sigma^2}}dx`
 
 ::
 
@@ -99,15 +99,15 @@ Calculate the integral ∫−∞01σ2πe−(x−μ)22σ2ⅆx
     proc (1) = myPdfn(x, mu, sigma);
        retp(pdfn((x - mu) ./ sigma) ./ sigma);
     endp;
-    
+
     // Set bounds of integration to be (-Inf, 0)
     x_min = __INFN;
     x_max = 0;
-    
+
     // Extra inputs for user function
     mu = 0.33;
     sigma = 7;
-    
+
     ans = integrate1d(&myPdfn, x_min, x_max, mu, sigma);
 
 will result in:
@@ -127,23 +127,23 @@ Calculate the integral ∫−∞01σ2πe−(x−μ)22σ2ⅆx
     proc (1) = myPdfn(x, mu, sigma);
        retp(pdfn((x - mu) ./ sigma) ./ sigma);
     endp;
-    
+
     // Set bounds of integration to be (0, +Inf)
     x_min = 0;
     x_max = __INFP;
-    
+
     // Extra inputs for user function
     mu = 0.33;
     sigma = 7;
-    
+
     // Declare instance of 'integrateControl' structure
     // and fill with default values
     struct integrateControl ctl;
     ctl = integrateControlCreate();
-    
+
     // Lower required tolerance for faster return
     ctl.absTol = 1e-2;
-    
+
     ans = integrate1d(&myPdfn, x_min, x_max, mu, sigma, ctl);
 
 will result in:
@@ -209,4 +209,3 @@ Source
 integrate.src
 
 .. seealso:: Functions :func:`integrateControlCreate`, :func:`inthp2`, :func:`inthp3`, :func:`inthp4`
-

@@ -24,7 +24,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "2", "2-byte, signed integer."
             "4", "4-byte, single precision."
             "8", "8-byte, double precision."
@@ -35,7 +35,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "character variable."
             "1", "numeric variable."
 
@@ -68,7 +68,7 @@ will contain *col* columns.
 If *vnames* contains *col* elements, then each column is given the name
 contained in the corresponding row of *vnames*. If *col* is positive and
 *vnames* is a string, then the columns are given the names ``vnames1,
-vnames2, ..., vnamesN (or vnames01, vnames02, ..., vnamesN)``, where :math:`N = col`. 
+vnames2, ..., vnamesN (or vnames01, vnames02, ..., vnamesN)``, where :math:`N = col`.
 The numbers appended to *vnames* are padded on the left with zeros to
 the same length as *N*.
 
@@ -79,11 +79,11 @@ selecting a value for *dtyp*:
 +-----------+--------+---------------------------------------------------------+
 | Data Type | Digits | Range                                                   |
 +-----------+--------+---------------------------------------------------------+
-| integer   | 4      | -32768 < X < 32767                                      |
+| integer   | 4      | -32768 \lt X \lt 32767                                  |
 +-----------+--------+---------------------------------------------------------+
-| single    | 6-7    | 8.43 x 10\ :sup:`-37` < \|X\| ≤ 3.37 x 10\ :sup:`+38`   |
+| single    | 6-7    | 8.43 x 10^{-37} \lt \left|X\right| \leq 3.37 x 10^{+38} |
 +-----------+--------+---------------------------------------------------------+
-| double    | 15-16  | 4.19 x 10\ :sup:`-307` < \|X\| < 1.67 x 10\ :sup:`+308` |
+| double    | 15-16  | 4.19 x 10^{-307} \lt \left|X\right| \lt 1.67 x 10^{+308}|
 +-----------+--------+---------------------------------------------------------+
 
 .. DANGER:: FIX EQUATIONS
@@ -110,4 +110,3 @@ Source
 datafile.src
 
 .. seealso:: Functions :func:`datacreate`, :func:`create`, :func:`dataopen`, :func:`writer`
-

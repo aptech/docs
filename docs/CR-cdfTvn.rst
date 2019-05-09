@@ -41,7 +41,14 @@ Allowable ranges for the arguments are:
 
 .. DANGER:: FIX EQUATION
 
-.. math:: −∞<x1<∞−∞<x2<∞−∞<x3<∞−1<rho12<1−1<rho23<1−1<rho13<1
+.. math::
+
+−\infty \lt x1 \lt \infty\\
+−\infty \lt x2 \lt \infty\\
+−\infty \lt x3 \lt \infty\\
+−1 \lt rho12 \lt 1\\
+−1 \lt rho23 \lt 1\\
+−1 \lt rho13 \lt 1\\
 
 In addition, *rho12*, *rho23* and *rho13* must come from a legitimate positive
 definite matrix. A -1 is returned for those rows with invalid inputs.
@@ -59,7 +66,7 @@ and *x3* having nonzero means and any positive standard deviations,
 transform by subtracting the mean and dividing by the standard
 deviation. For example:
 
-.. math::  x1=(      x1⁢− meanc(x1)   )  /  stdc(x1)
+.. math::  x1 = \frac{(x1 ⁢− meanc(x1))}{stdc(x1)}
 
 The absolute error for :func:`cdfTvn` is approximately ±2.5e-8 for the entire
 range of arguments.
@@ -75,4 +82,3 @@ References
 
 
 .. seealso:: :func:`cdfN`, :func:`cdfBvn`
-
