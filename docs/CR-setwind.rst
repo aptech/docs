@@ -6,7 +6,14 @@ Purpose
 ----------------
 
 Sets the current graphic panel to a previously created graphic 
-panel number. NOTE: This function is for use with the deprecated PQG graphics. Use plotLayout instead.
+panel number.
+
+.. NOTE:: This function is for use with the deprecated PQG graphics. Use plotLayout instead.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -14,8 +21,6 @@ Format
 
     :param n: graphic panel number.
     :type n: scalar
-
-
 
 Remarks
 -------
@@ -27,11 +32,10 @@ drawn.
 See the discussion on using graphic panels in **Graphic Panels**,
 Section 1.1.
 
-
-
 Source
 ------
 
 pwindow.src
 
 .. seealso:: Functions :func:`begwind`, :func:`endwind`, :func:`getwind`, :func:`nextwind`, :func:`makewind`, :func:`window`
+

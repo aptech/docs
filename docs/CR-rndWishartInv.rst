@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: rndWishartInv(cov, df)
 
-    :param cov: 
-    :type cov: p x p positive definite covariance matrix
+    :param cov: p x p positive definite covariance matrix
+    :type cov: matrix
 
     :param df: degrees of freedom.
-    :type df: Scalar
+    :type df: scalar
 
-    :returns: y (*Matrix*), a random matrix from inverse Wishart distribution.
+    :returns: y (*matrix*), a random matrix from inverse Wishart distribution.
 
 Examples
 ----------------
@@ -40,9 +40,5 @@ After above code,
     0.081211791      0.036818644 
     0.036818644      0.097064472
 
-See also
-++++++++
+.. seealso:: :func:`rndWishart`, :func:`rndMVn`, :func:`rndCreateState`
 
-`rndWishart <CR-rndWishart.html#rndWishart>`__\,\ `rndMVn <CR-rndMVn.html#rndMVn>`__\,\ `rndCreateState <CR-rndCreateState.html#rndCreateState>`__
-
-inverse Wishart pseudo-random random number generator

@@ -284,5 +284,5 @@ enter one backslash inside of double quotes. This
 is because a backslash is the escape character used
 to embed special characters in strings.
 
-.. seealso:: Functions :func:`datacreate`, :func:`datacreatecomplex`, :func:`open`, :func:`readr`, :func:`writer`, :func:`eof`, :func:`close`, :func:`output`, :func:`iscplxf`
+.. seealso:: Functions :func:`datacreate`, :func:`datacreatecomplex`, `open`, :func:`readr`, :func:`writer`, :func:`eof`, :func:`close`, `output`, :func:`iscplxf`
 

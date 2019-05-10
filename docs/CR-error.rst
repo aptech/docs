@@ -67,7 +67,7 @@ Example 2
 
 The procedure ``syminv``, below, returns error code 99 if the matrix is not
 symmetric. If :func:`invpd` fails, it returns error code 20. If
-:func:`inv` fails, it returns error code 50. The original :func:`trap` state is
+:func:`inv` fails, it returns error code 50. The original `trap` state is
 restored before the procedure returns.
 
 ::
@@ -101,5 +101,5 @@ restored before the procedure returns.
        retp(y);
     endp;
 
-.. seealso:: Functions :func:`scalerr`, :func:`trap`, :func:`trapchk`
+.. seealso:: Functions :func:`scalerr`, `trap`, `trapchk`
 

@@ -100,4 +100,4 @@ Source
 
 datatran.src
 
-.. seealso:: Functions :func:`code`, :func:`recode`, :func:`reclassifyCuts`, :func:`substute`, :func:`rescale`, :func:`dummy`, :func:`contains`
+.. seealso:: Functions `code`, :func:`recode`, :func:`reclassifyCuts`, :func:`substute`, :func:`rescale`, :func:`dummy`, :func:`contains`

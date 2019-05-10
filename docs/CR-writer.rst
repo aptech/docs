@@ -88,4 +88,4 @@ Examples
 In this example, a 10000x10 data set of Normal random numbers is written to a data set called data.dat. The
 variable names are X01 - X10.
 
-.. seealso:: Functions :func:`open`, :func:`close`, :func:`create`, :func:`readr`, :func:`saved`, :func:`seekr`
+.. seealso:: Functions `open`, :func:`close`, :func:`create`, :func:`readr`, :func:`saved`, :func:`seekr`

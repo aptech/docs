@@ -15,13 +15,13 @@ Remarks
 
 Commas in *variable_list* are optional.
 
-:func:`extern` tells the translator not to generate local code for the listed
+`extern` tells the translator not to generate local code for the listed
 variables, and not to assume that they are elements of the input data
 set.
 
-:func:`extern` statements should be placed before any reference to the symbols
+`extern` statements should be placed before any reference to the symbols
 listed. The specified names should not exist in the input data set, or
-be used in a :func:`make` statement.
+be used in a `make` statement.
 
 
 Examples

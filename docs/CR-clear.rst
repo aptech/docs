@@ -44,5 +44,5 @@ Examples
     // Free memory holding 'A'
     clear A;
 
-.. seealso:: Functions :func:`clearg`, :func:`new`, :func:`show`, :func:`delete`
+.. seealso:: Functions :func:`clearg`, `new`, :func:`show`, `delete`
 

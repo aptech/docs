@@ -35,7 +35,7 @@ order bit of the trap flag:
 | **trap 1**      | Return scalar error code 10.                        |
 +-----------------+-----------------------------------------------------+
 
-See :func:`scalerr` and :func:`trap` for more details about error codes.
+See :func:`scalerr` and `trap` for more details about error codes.
 
 Examples
 ----------------

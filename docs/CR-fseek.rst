@@ -64,7 +64,7 @@ location, as in
    call fseek(f,0,0);
    call fseek(f,p,0);
 
-If you pass :func:`fseek` the handle of a file opened with :func:`open` (i.e., a data
+If you pass :func:`fseek` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
 .. seealso:: Functions :func:`fopen`

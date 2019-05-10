@@ -5,15 +5,14 @@ rowsf
 Purpose
 ----------------
 
-Returns the number of rows in a GAUSS data set (.dat)
- file or GAUSS matrix (.fmt) file.
+Returns the number of rows in a GAUSS data set (*.dat*) file or GAUSS matrix (*.fmt*) file.
 
 Format
 ----------------
 .. function:: rowsf(f)
 
-    :param f: 
-    :type f: file handle of an open file
+    :param f: file handle of an open file
+    :type f: scalar
 
     :returns: y (*scalar*), number of rows in the specified file.
 
@@ -39,4 +38,5 @@ Examples
 
     7.00
 
-.. seealso:: Functions :func:`colsf`, :func:`open`, :func:`typef`
+.. seealso:: Functions :func:`colsf`, `open`, :func:`typef`
+

@@ -11,17 +11,35 @@ Format
 ----------------
 .. function:: saved(x, dataset, vnames)
 
-    :param x: 
-    :type x: NxK matrix to save
+    :param x: data to save
+    :type x: NxK matrix
 
-    :param dataset: name of data set. The type of file to create is inferred from the file extension. Valid file extensions include CSV, DAT, XLS, XLSX.
+    :param dataset: name of data set. The type of file to create is inferred from the file extension. 
+        Valid file extensions include CSV, DAT, XLS, XLSX.
     :type dataset: string
 
-    :param vnames: names for
-        the columns of the data set.
+    :param vnames: names for the columns of the data set.
     :type vnames: string or Kx1 character vector
 
     :returns: ret (*scalar*), 1 if successful, otherwise 0.
+
+Remarks
+-------
+
+**CSV**
+
+-  The line endings for CSV files on Windows will be '``\r\n``' and '``\n``' on Linux and macOS.
+-  Fifteen digits of precision will be written.
+-  :func:`csvWriteM` can be used to write CSV data with options to specify the
+   separator to be something other than a comma, to control the line
+   endings, or the precision to write the data.
+
+**DAT**
+
+-  If *dataset* is null or 0, the data set name will be *temp.dat*.
+-  If *vnames* is a null or 0, the variable names will begin with "X" and be numbered 1-K.
+-  If *vnames* is a string or has fewer elements than *x* has columns, it will be expanded as explained under `create`.
+-  The output data type is double precision.
 
 Examples
 ----------------
@@ -65,7 +83,7 @@ To save the data to as a comma separated text file, all we have to change is the
 Error checking
 ++++++++++++++
 
-The return value of saved can be used to check whether the data set save was successful. The example below checks the return value and creates an error if the save fails.
+The return value of :func:`saved` can be used to check whether the data set save was successful. The example below checks the return value and creates an error if the save fails.
 
 ::
 
@@ -81,30 +99,10 @@ The return value of saved can be used to check whether the data set save was suc
        end;
     endif;
 
-Remarks
--------
-
-**CSV**
-
--  The line endings for CSV files on Windows will be '\r\n' and '\n' on
-   Linux and macOS.
--  Fifteen digits of precision will be written.
--  csvWriteM can be used to write CSV data with options to specify the
-   separator to be something other than a comma, to control the line
-   endings, or the precision to write the data.
-
-**DAT**
-
--  If dataset is null or 0, the data set name will be temp.dat.
--  If vnames is a null or 0, the variable names will begin with ''X''
-   and be numbered 1-K.
--  If vnames is a string or has fewer elements than x has columns, it
-   will be expanded as explained under create.
--  The output data type is double precision.
-
 Source
 ------
 
 saveload.src
 
-.. seealso:: Functions :func:`loadd`, :func:`writer`, :func:`create`
+.. seealso:: Functions :func:`loadd`, :func:`writer`, `create`
+

@@ -11,14 +11,13 @@ Format
 ----------------
 .. function:: rotater(x, r)
 
-    :param x: 
-    :type x: NxK matrix to be rotated
+    :param x: NxK matrix to be rotated
+    :type x: matrix
 
-    :param r: 
-    :type r: Nx1 or 1x1 matrix specifying the amount of
-        rotation
+    :param r: Nx1 or 1x1 matrix specifying the amount of rotation
+    :type r: matrix
 
-    :returns: y (*NxK rotated matrix*) .
+    :returns: y (*NxK rotated matrix*)
 
 Remarks
 -------
@@ -30,7 +29,7 @@ either case, the elements that are pushed off the end of the row will
 wrap around to the opposite end of the same row.
 
 If the rotation value is greater than or equal to the number of columns
-in x, then the rotation value will be calculated using (r % cols(x)).
+in *x*, then the rotation value will be calculated using ``(r % cols(x))``.
 
 
 Examples
@@ -42,13 +41,13 @@ Examples
 
 ::
 
-    1  2  3           1            3  1  2
+           1  2  3           1            3  1  2
     If x =          and r =     Then y =
            4  5  6          -1            5  6  4
 
 ::
 
-    1  2  3           0            1  2  3
+           1  2  3           0            1  2  3
     
            4  5  6           1            6  4  5
     If x =          and r =     Then y =
@@ -57,3 +56,4 @@ Examples
           10 11 12           3           10 11 12
 
 .. seealso:: Functions :func:`shiftr`
+

@@ -6,26 +6,32 @@ Purpose
 ----------------
 Creates a sequence of dates in POSIX date/time format.
 		
-
 Format
 ----------------
 .. function:: seqaPosix(dt_start, inc, unit, n)
 
     :param dt_start: containing the starting date in POSIX date/time format (seconds since Jan 1, 1970).
-    :type dt_start: Scalar
+    :type dt_start: scalar
 
-    :param inc: the number of units for each of the n increments.
-    :type inc: Scalar
+    :param inc: the number of units for each of the *n* increments.
+    :type inc: scalar
 
-    :param unit: indicating the units for the increments in inc.
+    :param unit: indicating the units for the increments in *inc*.
         
-        Valid unit options:"years""months""days""hours""seconds"
-    :type unit: String
+        Valid unit options:
+
+        - "years"
+        - "months"
+        - "days"
+        - "hours"
+        - "seconds"
+
+    :type unit: string
 
     :param n: the number of elements to create.
-    :type n: Scalar
+    :type n: scalar
 
-    :returns: dt_vec (*nx1 vector*), starting at  dt_start and increasing by inc units.
+    :returns: dt_vec (*nx1 vector*), starting at *dt_start* and increasing by *inc* units.
 
 Examples
 ----------------
@@ -38,11 +44,11 @@ Examples
     // Create a sequence of 10 dates separated by 4 years
     dt_vec = seqaPosix(dt_start, 4, "years", 10);
 
-The above code will set dt_vec equal to:
+The above code will set *dt_vec* equal to:
 
 ::
 
-    317174400
+     317174400
      443404800
      569635200
      695865600
@@ -61,7 +67,7 @@ The above code will set dt_vec equal to:
     // Create a sequence of 6 dates separated by 30 minutes
     dt_vec = seqaPosix(dt_start, 30, "minutes", 6);
 
-The above code will set dt_vec equal to:
+The above code will set *dt_vec* equal to:
 
 ::
 
@@ -73,3 +79,4 @@ The above code will set dt_vec equal to:
     1047888000
 
 .. seealso:: Functions :func:`timeDeltaDT`, :func:`timeDiffDT`, :func:`seqaDT`, :func:`timeDiffPosix`
+

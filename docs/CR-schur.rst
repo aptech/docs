@@ -8,62 +8,30 @@ Computes the real or complex Schur form of a square matrix with the option to so
 
 Format
 ----------------
-.. function:: schur(A) 
-			  schur(A, flag) 
-			  schur(A, flag, sort_type)
+.. function:: schur(A[, flag[, sort_type]]) 
 
-    :param A: 
+    :param A: data
     :type A: KxK matrix
 
-    :param flag: string, to control whether output should be in real or complex Schur form. Valid options include:
-        "complex""real"
-    :type flag: Optional input
+    :param flag: Optional input, to control whether output should be in real or complex Schur form. Valid options include: 
 
-    :param sort_type: string specifying how to sort the eigenvalues. Options include:
-        1"udi"Absolute value of the eigenvalue less than 1.0. (Unit disk inside)2"udo"Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside)3"lhp"Value of the real portion of the eigenvalue less than 0. (Left hand plane)4"rhp"Value of the real portion of the eigenvalue greater than 0. (Right hand plane)5"ref"Real eigenvalues first. (Complex portion less than imagtol see remarks section)6"cef"Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
-        1
-        "udi"
-        Absolute value of the eigenvalue less than 1.0. (Unit disk inside)
-        2
-        "udo"
-        Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside)
-        3
-        "lhp"
-        Value of the real portion of the eigenvalue less than 0. (Left hand plane)
-        4
-        "rhp"
-        Value of the real portion of the eigenvalue greater than 0. (Right hand plane)
-        5
-        "ref"
-        Real eigenvalues first. (Complex portion less than imagtol see remarks section)
-        6
-        "cef"
-        Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
-    :type sort_type: Optional input
+        - "complex"
+        - "real"
 
-    :param 1: 0. (Unit disk inside)
-    :type 1: "udi"
-        Absolute value of the eigenvalue less than 1
+    :type flag: string
 
-    :param 2: 0. (Unit disk outside)
-    :type 2: "udo"
-        Absolute value of the eigenvalue greater than or equal to 1
+    :param sort_type: Optional input, specifying how to sort the eigenvalues. Options include:
 
-    :param 3:  (Left hand plane)
-    :type 3: "lhp"
-        Value of the real portion of the eigenvalue less than 0
+        === ====== ===========================================================
+        1   "udi"  Absolute value of the eigenvalue less than 1.0. (Unit disk inside)
+        2   "udo"  Absolute value of the eigenvalue greater than or equal to 1.0. (Unit disk outside)
+        3   "lhp"  Value of the real portion of the eigenvalue less than 0. (Left hand plane)
+        4   "rhp"  Value of the real portion of the eigenvalue greater than 0. (Right hand plane)
+        5   "ref"  Real eigenvalues first. (Complex portion less than imagtol see remarks section)
+        6   "cef"  Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
+        === ====== ===========================================================
 
-    :param 4:  (Right hand plane)
-    :type 4: "rhp"
-        Value of the real portion of the eigenvalue greater than 0
-
-    :param 5:  (Complex portion less than imagtol see remarks section)
-    :type 5: "ref"
-        Real eigenvalues first
-
-    :param 6:  (Complex portion greater than imagtol see remarks section)
-    :type 6: "cef"
-        Complex eigenvalues first
+    :type sort_type: string 
 
     :returns: S (*KxK matrix*), Schur form.
 
@@ -84,11 +52,11 @@ Real matrix with all real eigenvalues
     // Calculate eigenvalues of 'A'
     lambda = eig(A);
 
-After the code above, lambda should equal:
+After the code above, *lambda* should equal:
 
 ::
 
-    4.4641                     
+     4.4641
     -2.4641
 
 ::
@@ -96,8 +64,7 @@ After the code above, lambda should equal:
     // Continuing with 'A' from above
     { S, Z } = schur(A);
 
-S
-Z
+Now *S* and *Z* should equal:
 
 ::
 
@@ -158,7 +125,7 @@ After the code above:
 
 ::
 
-    -0.3548 +   0.8005i   2.4873 -   0.4942i  -1.3144 +   0.7286i 
+         -0.3548 +   0.8005i   2.4873 -   0.4942i  -1.3144 +   0.7286i 
     S =   0.0000               1.0504 -   0.5581i   0.1763 +   0.7846i 
           0.0000               0.0000              -1.4423 +   0.6996i 
     
@@ -172,25 +139,25 @@ Remarks
 If a real matrix is passed in without a flag variable, the real Schur
 form will be returned. If a complex matrix is passed in without a flag
 variable, GAUSS will check to see if any of the imaginary elements are
-greater than imagtol (2.23e-16 by default). If any imaginary elements
-are greater than imagtol, the complex Schur form will be calculated,
+greater than *imagtol* (2.23e-16 by default). If any imaginary elements
+are greater than *imagtol*, the complex Schur form will be calculated,
 otherwise the real Schur form will be returned. If a real flag is passed
 in with a complex matrix, the flag will be ignored and the complex Schur
 factorization will be returned.
 
 The real Schur form is an upper quasi-triangular matrix, that is, it is
 block triangular where the blocks are 2x2 submatrices which correspond
-to complex eigenvalues of A. If A has no complex eigenvalues, S will be
-strictly upper triangular. To convert the real Schur form of S to the
+to complex eigenvalues of *A*. If *A* has no complex eigenvalues, *S* will be
+strictly upper triangular. To convert the real Schur form of *S* to the
 complex Schur form, use the **Run-Time Library** function schtoc.
 
-Z is an orthogonal matrix that transforms A into S and vice versa. Thus
+*Z* is an orthogonal matrix that transforms *A* into *S* and vice versa. Thus
 
 ::
 
    S = Z'*A*Z;
 
-and since Z is orthogonal,
+and since *Z* is orthogonal,
 
 ::
 
@@ -198,4 +165,3 @@ and since Z is orthogonal,
 
 .. seealso:: Functions :func:`hess`, :func:`schtoc`
 
-real complex Schur decomposition matrix

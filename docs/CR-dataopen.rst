@@ -35,7 +35,7 @@ command (to create a new file, see :func:`datacreate` or :func:`datasave`).
 
 2. The file handle returned by :func:`dataopen` is a scalar containing a
 positive integer value that uniquely identifies each file. This value is
-assigned by GAUSS when the :func:`create`, :func:`datacreate`, :func:`datacreatecomplex`, :func:`open`
+assigned by GAUSS when the :func:`create`, :func:`datacreate`, :func:`datacreatecomplex`, `open`
 or :func:`dataopen` commands are executed. The file handle is used to reference
 the file in the commands :func:`readr` and :func:`writer`. If :func:`dataopen` fails, it returns
 a -1.
@@ -176,5 +176,5 @@ Source
 
 datafile.src
 
-.. seealso:: Functions :func:`open`, :func:`datacreate`, :func:`getHeaders`, :func:`writer`, :func:`readr`
+.. seealso:: Functions `open`, :func:`datacreate`, :func:`getHeaders`, :func:`writer`, :func:`readr`
 

@@ -10,23 +10,21 @@ Format
 ----------------
 .. function:: rref(x)
 
-    :param x: 
+    :param x: data
     :type x: MxN matrix
 
-    :returns: y (*MxN matrix*) containing reduced row
-        echelon form of x.
+    :returns: y (*MxN matrix*) containing reduced row echelon form of *x*.
 
 Remarks
 -------
 
-The tolerance used for zeroing elements is computed inside the procedure
-using:
+The tolerance used for zeroing elements is computed inside the procedure using:
 
 ::
 
    tol = maxc(m|n) * eps * maxc(abs(sumc(x')));
 
-where eps = 2.24e-16.
+where :math:`eps = 2.24e-16`.
 
 This procedure can be used to find the rank of a matrix. It is not as
 stable numerically as the singular value decomposition (which is used in
@@ -42,10 +40,9 @@ The following code can be used to compute the rank of a matrix:
 
    r = sumc(sumc(abs(y')) .> tol);
 
-where y is the output from rref, and tol is the tolerance used. This
+where *y* is the output from :func:`rref`, and *tol* is the tolerance used. This
 finds the number of rows with any nonzero elements, which gives the rank
 of the matrix, disregarding numeric problems.
-
 
 Examples
 ----------------
@@ -72,4 +69,3 @@ Source
 
 rref.src
 
-reduced row echelon form matrix

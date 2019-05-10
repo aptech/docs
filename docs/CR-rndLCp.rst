@@ -5,7 +5,8 @@ rndLCp
 Purpose
 ----------------
 Computes Poisson pseudo-random numbers.
-NOTE: This function is deprecated--use rndPoisson--but remains for backward compatibility.
+
+.. NOTE:: This function is deprecated--use :func:`rndPoisson`--but remains for backward compatibility.
 
 Format
 ----------------
@@ -20,38 +21,59 @@ Format
     :param lambda: mean parameter.
     :type lambda: scalar
 
-    :param state: or 3x1 vector, or 4x1 vector.
-        Scalar case:state = starting seed value only. System default
-        values are used for the additive and multiplicative constants.
+    :param state: 
+
+        **scalar case**
         
-        The defaults are 1013904223, and 1664525, respectively. These
-        may be changed with rndcon and rndmult.
-        3x1 vector case:
-    :type state: scalar
+            *state* = starting seed value only. System default values are used for the additive and multiplicative constants.
+            
+            The defaults are 1013904223, and 1664525, respectively. These may be changed with `rndcon` and `rndmult`.
+            
+            If *state* = -1, GAUSS computes the starting seed based on the system clock.
 
-    .. csv-table::
-        :widths: auto
+        **3x1 vector case**
 
-        "[1]  the starting seed, uses the system clock if < 0"
-        "If state < 0, GAUSS computes the starting seedbased on the system clock."
-        "[2]  the multiplicative constant"
-        "[3]  the additive constant"
-        "4x1 vector case:state = the state vector returned from a previouscall to one of the rndLC random number generators."
+            .. csv-table::
+                :widths: auto
+        
+                "[1]", "the starting seed, uses the system clock if -1"
+                "[2]", "the multiplicative constant"
+                "[3]", "the additive constant"
 
-    :returns: x (*r x c matrix*) of Poisson distributed random
-        numbers.
+        **4x1 vector case**
+        
+            *state* = the state vector returned from a previous call to one of the ``rndLC`` random number generators.
 
-    :returns: newstate (*4x1 vector*) :
+    :type state: scalar or vector
 
-    .. csv-table::
-        :widths: auto
+    :returns: x (*RxC matrix*) of Poisson distributed random numbers.
 
-        "[1]  the updated seed"
-        "[2]  the multiplicative constant"
-        "[3]  the additive constant"
-        "[4]  the original initialization seed"
+    :returns: newstate (*4x1 vector*)
 
+        .. csv-table::
+            :widths: auto
+    
+            "[1]", "the updated seed"
+            "[2]", "the multiplicative constant"
+            "[3]", "the additive constant"
+            "[4]", "the original initialization seed"
 
+Technical Notes
+---------------
+
+This function uses a linear congruential method, discussed in Kennedy,
+W.J. Jr., and J.E. Gentle, *Statistical Computing*, Marcel Dekker, Inc.
+1980, pp. 136-147. Each seed is generated from the preceding seed using
+the formula
+
+.. math::
+
+    new_seed = (((a * seed) % 232)+ c) % 232
+
+.. DANGER:: fix equations
+
+where ``%`` is the mod operator and where *a* is the multiplicative constant
+and *c* is the additive constant.
 
 Source
 ------

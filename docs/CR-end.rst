@@ -45,5 +45,5 @@ output to the window is turned off to speed up the printing. The `end` statement
 is used to terminate the program, so the output file will be closed
 and the window turned back on.
 
-.. seealso:: Functions :func:`new`, `stop`, :func:`system`
+.. seealso:: Functions `new`, `stop`, :func:`system`
 

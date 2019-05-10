@@ -25,7 +25,7 @@ The contents are unspecified. To create a new array with all elements
 initialized to a particular scalar value, use :func:`arrayinit`.
 
 :func:`arrayalloc` is used to allocate an array that will be written to in
-sections using :func:`setarray`, or indexed assignments. It is much faster to
+sections using `setarray`, or indexed assignments. It is much faster to
 preallocate an array and fill in sections during a loop rather than
 adding new sections with concatentaion.
 
@@ -47,5 +47,5 @@ Examples
     // Create a real 7x5x3 dimensional array 
     y = arrayalloc(orders, 0);
 
-.. seealso:: Functions :func:`arrayinit`, :func:`setarray`
+.. seealso:: Functions :func:`arrayinit`, `setarray`
 

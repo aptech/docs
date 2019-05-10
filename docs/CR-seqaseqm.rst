@@ -9,24 +9,25 @@ sequence.
 
 Format
 ----------------
-.. function:: seqm(start, inc, n)
+.. function:: seqa(start, inc, n)
+              seqm(start, inc, n)
 
-    :param start: 
-    :type start: scalar specifying the first element
+    :param start: specifying the first element
+    :type start: scalar
 
-    :param inc: 
-    :type inc: scalar specifying increment
+    :param inc: specifying increment
+    :type inc: scalar
 
-    :param n: 
-    :type n: scalar specifying the number of elements in the sequence
+    :param n: specifying the number of elements in the sequence
+    :type n: scalar
 
     :returns: y (*nx1 vector*) containing the specified sequence.
 
 Remarks
 -------
 
-For seqa, y will contain a first element equal to start, the second
-equal to start + inc, and the last equal to start + inc\*(n-1).
+For :func:`seqa`, *y* will contain a first element equal to *start*, the second
+equal to :math:`start + inc`, and the last equal to :math:`start + inc*(n-1)`.
 
 For instance,
 
@@ -35,8 +36,11 @@ For instance,
     seqa(1,1,10);
 
 will create a column vector containing the numbers 1, 2, ...10.
-For seqm, y will contain a first element equal to start, the second
-equal to start \* inc, and the last equal to start \* inc\ n-1.
+
+For :func:`seqm`, *y* will contain a first element equal to *start*, the second
+equal to :math:`start * inc`, and the last equal to :math:`start * inc^n-1`.
+
+.. DANGER:: fix equations
 
 For instance,
 
@@ -44,9 +48,7 @@ For instance,
 
    seqm(10,10,10);
 
-will create a column vector containing the numbers 10,
-100,...10\ :sup:`10`.
-
+will create a column vector containing the numbers 10, 100,...:math:`10^10`.
 
 Examples
 ----------------
@@ -69,7 +71,7 @@ Examples
 
     2 4 8 16 32 64 128 512 1024
 
-Note that the results have been transposed in this example. Both
-functions return Nx1 (column) vectors.
+Note that the results have been transposed in this example. Both functions return Nx1 (column) vectors.
 
 .. seealso:: Functions :func:`recserar`, :func:`recsercp`
+

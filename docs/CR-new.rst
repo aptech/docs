@@ -59,5 +59,5 @@ Examples
              ** and leave program space unchanged.
              */
 
-.. seealso:: Functions :func:`clear`, :func:`delete`, :func:`output`
+.. seealso:: Functions :func:`clear`, `delete`, `output`
 

@@ -12,13 +12,18 @@ Format
 .. function:: setBlockSize(block_size)
 
     :param block_size: 
+
+        **scalar:** fixed number of rows to use
+
+        **string:** string specifier for chunk size. options can be:
+            
+            - "10%" [10% of total system RAM]
+            - "500K" [500 Kilobytes]
+            - "10M" [10 Megabytes]
+            - "100M" [100 Megabytes]
+            - "1G"  [1 Gigabyte]
+
     :type block_size: scalar or string
-
-    .. csv-table::
-        :widths: auto
-
-        "scalar, fixed number of rows to use"
-        "string, string specifier for chunk size. options can be:					"10%" [10% of total system RAM] "500K" [500 Kilobytes] "10M" [10 Megabytes]"100M" [100 Megabytes]"1G"  [1 Gigabyte]"
 
 Examples
 ----------------
@@ -35,11 +40,10 @@ Examples
 Remarks
 -------
 
-setBlockSize controls the maximum number of rows to read at a time for
-functions which can process datasets in chunks, such as olsmt and
-dstatmt.
+:func:`setBlockSize` controls the maximum number of rows to read at a time for
+functions which can process datasets in chunks, such as :func:`olsmt` and :func:`dstatmt`.
 
-setBlockSize is not threadsafe. To control the size of data blocks
-loaded in code which is threaded with threadBegin/threadStat or
-threadFor, you must call setBlockSize before the threads are created.
+:func:`setBlockSize` is not threadsafe. To control the size of data blocks
+loaded in code which is threaded with `threadBegin`/`threadStat` or
+`threadFor`, you must call :func:`setBlockSize` before the threads are created.
 

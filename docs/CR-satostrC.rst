@@ -5,24 +5,19 @@ satostrC
 Purpose
 ----------------
 
-			Copies from one string array to another using a C language format specifier string for each 
-
-			element.
-		
+Copies from one string array to another using a C language format specifier string for each element.
 
 Format
 ----------------
 .. function:: satostrC(sa, fmt)
 
-    :param sa: 
+    :param sa: data
     :type sa: NxM string array
 
-    :param fmt: 1xM, or Mx1 format specifier for each
-        
-        element copy.
-    :type fmt: 1x1
+    :param fmt: 1x1, 1xM, or Mx1 format specifier for each element copy.
+    :type fmt: string or string array
 
-    :returns: y (*NxM formatted string array*) .
+    :returns: y (*NxM formatted string array*)
 
 Examples
 ----------------
@@ -43,7 +38,7 @@ Basic example
     
     length_fmt = satostrc(length, fmt);
 
-After the code above, length_fmt will equal:
+After the code above, *length_fmt* will equal:
 
 ::
 
@@ -73,7 +68,7 @@ Different formats for each column
     // Apply formatting
     commodity_prices_fmt = satostrC(commodity_prices, fmt);
 
-After the code above, commodity_prices_fmt should be equal to:
+After the code above, *commodity_prices_fmt* should be equal to:
 
 ::
 
@@ -87,3 +82,4 @@ Source
 strfns.src
 
 .. seealso:: Functions :func:`strcombine`
+

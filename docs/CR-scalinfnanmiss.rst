@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: scalinfnanmiss(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
     :returns: y (*scalar*), 1 if x is a scalar, infinity, NaN, or missing value, else 0.
@@ -31,3 +31,4 @@ Examples
     endif;
 
 .. seealso:: Functions :func:`isinfnanmiss`, :func:`ismiss`, :func:`scalmiss`
+

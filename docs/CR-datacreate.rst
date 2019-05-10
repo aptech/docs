@@ -48,7 +48,7 @@ Remarks
 
 The file handle returned by :func:`datacreate` is a scalar containing a positive
 integer value that uniquely identifies each file. This value is assigned
-by GAUSS when the :func:`create`, :func:`datacreate`, :func:`datacreatecomplex`, :func:`open` or
+by GAUSS when the :func:`create`, :func:`datacreate`, :func:`datacreatecomplex`, `open` or
 :func:`dataopen` commands are executed. The file handle is used to reference the
 file in the commands :func:`readr` and :func:`writer`. If :func:`datacreate` fails, it returns a
 -1.

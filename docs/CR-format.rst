@@ -271,6 +271,6 @@ As mentioned in the Remarks section, if the number is too large to fit in the fi
      -2.3389e-02,  7.0796e+07,  1.9680e-01,
      -7.6865e-04,  4.7819e-01, -1.3174e-01,
 
-.. seealso:: Functions :func:`formatcv`, :func:`formatnv`, :func:`print`, :func:`output`
+.. seealso:: Functions :func:`formatcv`, :func:`formatnv`, :func:`print`, `output`
 
 

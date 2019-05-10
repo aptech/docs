@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: close(handle)
 
-    :param handle: the file handle given to the file when it was opened with the :func:`open`,
+    :param handle: the file handle given to the file when it was opened with the `open`,
         :func:`create`, or :func:`fopen` command.
     :type handle: scalar
 
@@ -41,9 +41,9 @@ procedure is to do the following:
 
 This will set *f1* to 0 upon a successful close.
 
-It is important to set unused file handles to zero because both :func:`open` and
+It is important to set unused file handles to zero because both `open` and
 :func:`create` check the value that is in a file handle before they proceed with
-the process of opening a file. During :func:`open` or :func:`create`, if the value that
+the process of opening a file. During `open` or :func:`create`, if the value that
 is in the file handle matches that of an already open file, the process
 will be aborted and a File already open error message will be given.
 This gives you some protection against opening a second file with the

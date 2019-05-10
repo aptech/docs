@@ -5,9 +5,9 @@ rndLCi
 Purpose
 ----------------
 
-Returns a matrix of random integers, 0 ≤ y < 232, and the 
-state of the random number generator.
-NOTE: This function is deprecated but remains for backward compatibility. 
+Returns a matrix of random integers, :math:`0 ≤ y < 232`, and the state of the random number generator.
+
+.. NOTE:: This function is deprecated but remains for backward compatibility. 
 
 Format
 ----------------
@@ -19,52 +19,55 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param state: or 3x1 vector, or 4x1 vector.
-        Scalar case:state = starting seed value only. System default
-        values are used for the additive and multiplicative constants.
-        
-        The defaults are 1013904223, and 1664525, respectively. These
-        may be changed with rndcon and rndmult.
-        
-        If state < 0, GAUSS computes the starting seed
-        based on the system clock.3x1 vector case:
-    :type state: scalar
+    :param state: 
 
-    .. csv-table::
-        :widths: auto
+        **scalar case**
+        
+            *state* = starting seed value only. System default values are used for the additive and multiplicative constants.
+            
+            The defaults are 1013904223, and 1664525, respectively. These may be changed with `rndcon` and `rndmult`.
+            
+            If *state* = -1, GAUSS computes the starting seed based on the system clock.
 
-        "[1]  the starting seed, uses the system clock if < 0"
-        "[2]  the multiplicative constant"
-        "[3]  the additive constant"
-        "4x1 vector case:state = the state vector returned from a previous call to one of the rndLC random number generators."
+        **3x1 vector case**
+
+            .. csv-table::
+                :widths: auto
+        
+                "[1]", "the starting seed, uses the system clock if -1"
+                "[2]", "the multiplicative constant"
+                "[3]", "the additive constant"
+
+        **4x1 vector case**
+        
+            *state* = the state vector returned from a previous call to one of the ``rndLC`` random number generators.
+
+    :type state: scalar or vector
 
     :returns: y (*r x c matrix*) of random
         integers between 0 and 232 - 1, inclusive.
 
-    :returns: newstate (*4x1 vector*) :
+    :returns: newstate (*4x1 vector*)
 
-    .. csv-table::
-        :widths: auto
-
-        "[1]  the updated seed"
-        "[2]  the multiplicative constant"
-        "[3]  the additive constant"
-        "[4]  the original initialization seed"
+        .. csv-table::
+            :widths: auto
+    
+            "[1]", "the updated seed"
+            "[2]", "the multiplicative constant"
+            "[3]", "the additive constant"
+            "[4]", "the original initialization seed"
 
 Remarks
 -------
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 Each seed is generated from the preceding seed, using the formula
 
-::
+.. DANGER:: fix equations
 
-   new_seed = (((a *  seed) % 232)+ c) % 232
-
-where % is the mod operator and where a is the multiplicative constant
-and c is the additive constant. The new seeds are the values returned.
-
+where ``%`` is the mod operator and where *a* is the multiplicative constant
+and *c* is the additive constant. The new seeds are the values returned.
 
 Examples
 ----------------
@@ -89,3 +92,4 @@ Examples
     print "max " max;
 
 .. seealso:: Functions :func:`rndLCn`, :func:`rndLCu`, :func:`rndcon`, :func:`rndmult`
+

@@ -9,25 +9,28 @@ Computes Wishart distributed random numbers given a covariance matrix.
 
 Format
 ----------------
-.. function:: rndWishart(numMats, cov, df, state) 
-			  rndWishart(numMats, cov, df)
+.. function:: rndWishart(numMats, cov, df[, state])
 
     :param numMats: number of Wishart random matrices to create.
-    :type numMats: Scalar
+    :type numMats: scalar
 
-    :param cov: 
-    :type cov: NxM covariance matrix
+    :param cov: NxM covariance matrix
+    :type cov: matrix
 
     :param df: degrees of freedom.
-    :type df: Scalar
+    :type df: scalar
 
-    :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.
+    :param state: Optional argument.
+
+        **scalar case**
         
-        Opaque vector case:state = the state vector returned from a previous
-        call to one of the rnd random number functions.
-    :type state: Optional argument - scalar or opaque vector
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
+
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
 
     :returns: r (*numMats * rows(cov) x N matrix*) , wishart random matrices.
 
@@ -36,11 +39,14 @@ Format
 Remarks
 -------
 
-The properties of the pseudo-random numbers in X are:
+The properties of the pseudo-random numbers in *X* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    E(X) = df * cov
+
    Var(Xij) = df * (cov2ij + covii*covjj)
 
 
@@ -65,4 +71,3 @@ Examples
 
 .. seealso:: Functions :func:`rndWishartInv`, :func:`rndMVn`, :func:`rndCreateState`
 
-Wishart pseudo-random random number generator

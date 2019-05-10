@@ -47,5 +47,5 @@ Examples
 
 This statement will change the auxiliary output width to 132 columns.
 
-.. seealso:: Functions :func:`output`, :func:`print`
+.. seealso:: Functions `output`, :func:`print`
 

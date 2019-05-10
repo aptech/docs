@@ -33,5 +33,5 @@ initialize symbols not previously referenced. This command can be used
 inside of procedures to clear global matrices. It will ignore any locals
 by the same name.
 
-.. seealso:: :func:`clear`, :func:`delete`, :func:`new`, :func:`show`, `local`
+.. seealso:: :func:`clear`, `delete`, `new`, :func:`show`, `local`
 

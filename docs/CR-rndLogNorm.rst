@@ -9,50 +9,50 @@ Computes lognormal pseudo-random numbers with the choice of underlying random nu
 
 Format
 ----------------
-.. function:: rndLogNorm(r, c, mu, sigma, state) 
-			  rndLogNorm(r, c, mu, sigma)
+.. function:: rndLogNorm(r, c, mu, sigma[, state])
 
     :param r: number of rows of resulting matrix.
-    :type r: Scalar
+    :type r: scalar
 
     :param c: number of columns of resulting matrix.
-    :type c: Scalar
+    :type c: scalar
 
-    :param mu: or
-        rx1 vector, or 1xc vector,
-        or scalar, mean.
-    :type mu: r x c matrix
+    :param mu: r x c matrix or rx1 vector, or 1xc vector, or scalar, mean.
+    :type mu: matrix or vector or scalar
 
-    :param sigma: or
-        rx1 vector, or 1xc vector,
-        or scalar, standard deviation.
-    :type sigma: r x c matrix
+    :param sigma: r x c matrix or rx1 vector, or 1xc vector, or scalar, standard deviation.
+    :type sigma: matrix or vector or scalar
 
-    :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.
+    :param state: Optional argument.
+
+        **scalar case**
         
-        Opaque vector case:state = the state vector returned from a previous
-        call to one of the rnd random number functions.
-    :type state: Optional argument - scalar or opaque vector
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
-    :returns: x (*r x c matrix*), lognormal
-        distributed random numbers.
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
+
+    :returns: x (*RxC matrix*), lognormal distributed random numbers.
 
     :returns: newstate (*Opaque vector*), the updated state.
-
-
 
 Remarks
 -------
 
-The properties of the pseudo-random numbers in x are:
+The properties of the pseudo-random numbers in *x* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    E(x) = exp(mu - 0.5*sigma2)
+
    Var(x) = (exp(sigma2) - 1) * exp(2*mu + sigma2)
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
+

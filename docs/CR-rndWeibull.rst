@@ -9,49 +9,50 @@ Computes Weibull pseudo-random numbers with the choice of underlying random numb
 
 Format
 ----------------
-.. function:: rndWeibull(r, c, shape, scale)
+.. function:: rndWeibull(r, c, shape[, scale])
 
     :param r: number of rows of resulting matrix.
-    :type r: Scalar
+    :type r: scalar
 
     :param c: number of columns of resulting matrix.
-    :type c: Scalar
+    :type c: scalar
 
-    :param shape: or
-        rx1 vector, or 1xc vector,
-        or scalar, shape parameter.
-    :type shape: r x c matrix
+    :param shape: r x c matrix or rx1 vector, or 1xc vector, or scalar, shape parameter.
+    :type shape: matrix or vector or scalar
 
-    :param scale: or
-        rx1 vector, or 1xc vector,
-        or scalar, scale parameter.
-    :type scale: r x c matrix
+    :param scale: r x c matrix or rx1 vector, or 1xc vector, or scalar, scale parameter.
+    :type scale: matrix or vector or scalar
 
-    :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.
+    :param state: Optional argument.
+
+        **scalar case**
         
-        Opaque vector case:state = the state vector returned from a previous
-        call to one of the rnd random number functions.
-    :type state: Optional argument - scalar or opaque vector
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
-    :returns: x (*r x c matrix*), Weibull
-        distributed random numbers.
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
+
+    :returns: x (*RxC matrix*), Weibull distributed random numbers.
 
     :returns: newstate (*Opaque vector*), the updated state.
-
-
 
 Remarks
 -------
 
-The properties of the pseudo-random numbers in x are:
+The properties of the pseudo-random numbers in *x* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    E(x) = scale * gamma(1 + 1/shape)
+
    Var(x) = scale2*( gamma(1 + 2/shape) - (gamma(1 + 1/shape))2 )
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
+

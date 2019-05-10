@@ -190,5 +190,5 @@ After the code above, we see that *y4* is a 2x2x2 (number of dimensions to read 
          -0.55612014      0.084524826       0.60194547       0.26031576 
           0.49760949      0.070206385       0.65894867       0.73385573
 
-.. seealso:: Functions :func:`h5create`, :func:`h5write`, :func:`open`, :func:`create`, :func:`writer`, :func:`seekr`, :func:`eof`
+.. seealso:: Functions :func:`h5create`, :func:`h5write`, `open`, :func:`create`, :func:`writer`, :func:`seekr`, :func:`eof`
 

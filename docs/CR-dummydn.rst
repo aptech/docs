@@ -85,5 +85,5 @@ Source
 
 datatran.src
 
-.. seealso:: Functions :func:`dummy`, :func:`dummybr`, :func:`code`, :func:`recode`, :func:`reclassifyCuts`, :func:`substute`, :func:`rescale`, :func:`reclassify`
+.. seealso:: Functions :func:`dummy`, :func:`dummybr`, `code`, :func:`recode`, :func:`reclassifyCuts`, :func:`substute`, :func:`rescale`, :func:`reclassify`
 

@@ -32,7 +32,7 @@ code. Passing :math:`va[1]` to the scalerr function will return the index of the
 eigenvalue that failed. The eigenvalues for indices 1 to
 :code:`scalerr(va[1])-1` should be correct.
 
-Error handling is controlled with the low bit of the :func:`trap` flag.
+Error handling is controlled with the low bit of the `trap` flag.
 
 +----------------+----------------------------------------------+
 | :code:`trap 0` | set :math:`va[1]` and terminate with message |
@@ -41,7 +41,7 @@ Error handling is controlled with the low bit of the :func:`trap` flag.
 +----------------+----------------------------------------------+
 
 Invalid inputs, such as an infinity, missing value or NaN will cause an
-error. If the :func:`trap` is set to 1, *va* will be set to a scalar error
+error. If the `trap` is set to 1, *va* will be set to a scalar error
 code and program execution will continue. Passing this scalar error code
 to the :func:`scalerr` function will return -1.
 

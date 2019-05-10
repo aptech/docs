@@ -17,29 +17,20 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param k: ExE conformable with
-        r x c resulting matrix, ''event''
-        parameters for negative binomial distribution.
+    :param k: ExE conformable with r x c resulting matrix, "event" parameters for negative binomial distribution.
     :type k: MxN matrix
 
-    :param p: ExE conformable with
-        r x c resulting matrix, ''probability''
-        parameters for negative binomial distribution.
+    :param p: ExE conformable with r x c resulting matrix, "probability" parameters for negative binomial distribution.
     :type p: KxL matrix
 
-    :returns: x (*r x c matrix*), negative
-        binomial distributed pseudo-random numbers.
-
-
+    :returns: x (*RxC matrix*), negative binomial distributed pseudo-random numbers.
 
 Remarks
 -------
 
-The properties of the pseudo-random numbers in x are:
+The properties of the pseudo-random numbers in *x* are:
 
-::
-
-
+.. figure:: _static/images/img832.png
 
 Source
 ------

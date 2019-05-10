@@ -4,9 +4,9 @@ rndLCn
 
 Purpose
 ----------------
-Returns a matrix of standard normal (pseudo) random variables and 
-the state of the random number generator.
-NOTE: This function is deprecated--use rndn--but remains for backward compatibility. 
+Returns a matrix of standard normal (pseudo) random variables and the state of the random number generator.
+
+.. NOTE:: This function is deprecated--use :func:`rndn`--but remains for backward compatibility. 
 
 Format
 ----------------
@@ -18,42 +18,47 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param state: or 3x1 vector, or 4x1 vector.
-        Scalar case:state = starting seed value only. System default
-        values are used for the additive and multiplicative constants.
+    :param state: 
+
+        **scalar case**
         
-        The defaults are 1013904223, and 1664525, respectively. These
-        may be changed with rndcon and rndmult.
-        3x1 vector case:
-    :type state: scalar
+            *state* = starting seed value only. System default values are used for the additive and multiplicative constants.
+            
+            The defaults are 1013904223, and 1664525, respectively. These may be changed with `rndcon` and `rndmult`.
+            
+            If *state* = -1, GAUSS computes the starting seed based on the system clock.
 
-    .. csv-table::
-        :widths: auto
+        **3x1 vector case**
 
-        "[1]  the starting seed, uses the system clock if < 0"
-        "If state < 0, GAUSS computes the starting seedbased on the system clock."
-        "[2]  the multiplicative constant"
-        "[3]  the additive constant"
-        "4x1 vector case:state = the state vector returned from a previous call to one of the rndLC random number generators."
+            .. csv-table::
+                :widths: auto
+        
+                "[1]", "the starting seed, uses the system clock if -1"
+                "[2]", "the multiplicative constant"
+                "[3]", "the additive constant"
 
-    :returns: y (*r x c matrix*) of standard normal
-        random numbers.
+        **4x1 vector case**
+        
+            *state* = the state vector returned from a previous call to one of the ``rndLC`` random number generators.
 
-    :returns: newstate (*4x1 vector*) :
+    :type state: scalar or vector
 
-    .. csv-table::
-        :widths: auto
+    :returns: y (*RxC matrix*) of standard normal random numbers.
 
-        "[1]  the updated seed"
-        "[2]  the multiplicative constant"
-        "[3]  the additive constant"
-        "[4]  the original initialization seed"
+    :returns: newstate (*4x1 vector*)
+
+        .. csv-table::
+            :widths: auto
+    
+            "[1]", "the updated seed"
+            "[2]", "the multiplicative constant"
+            "[3]", "the additive constant"
+            "[4]", "the original initialization seed"
 
 Remarks
 -------
 
-r and c will be truncated to integers if necessary.
-
+*r* and *c* will be truncated to integers if necessary.
 
 Examples
 ----------------
@@ -75,17 +80,18 @@ Examples
     mean = meanc(submean);
     print mean;
 
-.. seealso:: Functions :func:`rndLCu`, :func:`rndLCi`, :func:`rndcon`, :func:`rndmult`
-
 Technical Notes
-+++++++++++++++
+----------------
 
 The normal random number generator is based on the uniform random number
 generator, using the fast acceptance-rejection algorithm proposed by
 Kinderman, A.J. and J.G. Ramage, "Computer Generation of Normal Random
-Numbers," Journal of the American Statistical Association, December
+Numbers," *Journal of the American Statistical Association*, December
 1976, Volume 71, Number 356, pp. 893-896. This algorithm calls the
 linear congruential uniform random number generator multiple times for
 each normal random number generated.
-See\ `rndLCu <CR-rndLCu.html#rndLCu>`__\ for a description of the
-uniform random number generator algorithm.
+
+See :func:`rndLCu` for a description of the uniform random number generator algorithm.
+
+.. seealso:: Functions :func:`rndLCu`, :func:`rndLCi`, :func:`rndcon`, :func:`rndmult`
+

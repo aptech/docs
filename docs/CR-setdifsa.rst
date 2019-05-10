@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: setdifsa(sv1, sv2)
 
-    :param sv1: 
+    :param sv1: data
     :type sv1: Nx1 or 1xN string vector
 
-    :param sv2: 
+    :param sv2: data
     :type sv2: Mx1 or 1xM string vector
 
-    :returns: sy (*Lx1 vector containing all unique values that are in sv1 and are not in sv2*), sorted in ascending order.
+    :returns: sy (*vector*) Lx1 vector containing all unique values that are in *sv1* and are not in *sv2*, sorted in ascending order.
 
 Remarks
 -------
@@ -24,8 +24,7 @@ Remarks
 Place smaller vector first for fastest operation.
 
 When there are a lot of duplicates it is faster to remove them first
-with unique before calling this function.
-
+with :func:`unique` before calling this function.
 
 Examples
 ----------------
@@ -37,7 +36,7 @@ Examples
      
     sy = setdifsa(sv1,sv2);
 
-Now sy is equal to:
+Now *sy* is equal to:
 
 ::
 
@@ -51,3 +50,4 @@ Source
 setdif.src
 
 .. seealso:: Functions :func:`setdif`
+

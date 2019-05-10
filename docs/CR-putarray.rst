@@ -55,5 +55,5 @@ Examples
 This example sets the contiguous 4x5x6 subarray of *a* beginning at [2,1,1,1,1] to 
 the array *src*, in which each element is set to the specified value 5.
 
-.. seealso:: Functions :func:`setarray`
+.. seealso:: Functions `setarray`
 

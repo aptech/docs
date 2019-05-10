@@ -17,19 +17,13 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param m: ExE conformable with
-        r x c, means for von Mises distribution.
+    :param m: ExE conformable with r x c, means for von Mises distribution.
     :type m: NxK matrix
 
-    :param k: ExE conformable with
-        r x c, shape argument for von Mises
-        distribution.
+    :param k: ExE conformable with r x c, shape argument for von Mises distribution.
     :type k: LxM matrix
 
-    :returns: x (*r x c matrix*), von Mises
-        distributed random numbers.
-
-
+    :returns: x (*RxC matrix*), von Mises distributed random numbers.
 
 Source
 ------

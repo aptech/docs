@@ -9,46 +9,55 @@ Computes uniform random numbers with a choice of underlying random number genera
 
 Format
 ----------------
-.. function:: rndu(r, c)
+.. function:: rndu(r, c[, state])
 
     :param r: row dimension.
-    :type r: Scalar
+    :type r: scalar
 
     :param c: column dimension.
-    :type c: Scalar
+    :type c: scalar
 
-    :param state: , or opaque vector.
-        Scalar case:state = starting seed value. If -1, GAUSS
-        computes the starting seed based on the system clock.
+    :param state: Optional argument.
+
+        **scalar case**
         
-        Opaque vector case:state = the state vector returned from a previous
-        call to one of the rnd random number generators.
-    :type state: Optional argument - scalar
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
-    :returns: y (*r x c matrix*) of uniform
-        random numbers, 0 <= y < 1.
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
+
+    :returns: y (*RxC matrix*) of uniform random numbers, :math:`0 <= y < 1`.
 
     :returns: newstate (*Opaque vector*), the updated state.
 
 Remarks
 -------
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 
 Examples
 ----------------
 
-Basic usage. If a state or seed is not passed in, then only the random numbers are returned.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 1
++++++++++
+
+Basic usage.
+
+If a state or seed is not passed in, then only the random numbers are returned.
 
 ::
 
     // Create a 100x1 vector of uniform random numbers
     y = rndu(100, 1);
 
-rndu can be used to create a vector of random integers in a specified range. The example below, creates 30 random integers in the range [1, 1000].
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 2
++++++++++
+
+:func:`rndu` can be used to create a vector of random integers in a specified range. The example below, creates 30 random integers in the range :math:`[1, 1000]`.
 
 ::
 
@@ -60,11 +69,13 @@ rndu can be used to create a vector of random integers in a specified range. The
     
     idx = ceil(size .* rndu(num_indices, 1));
 
+Example 3
++++++++++
+
 This example generates two thousand vectors of uniform random 
 numbers, each with one million elements. The state of the random 
 number generator after each iteration is used as an input to the 
 next generation of random numbers.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -90,12 +101,11 @@ next generation of random numbers.
     print 0.5-mean;
 
 Technical Notes
-+++++++++++++++
+---------------
 
 The default generator for rndu is the SFMT Mersenne-Twister 19937. You
 can specifiy a different underlying random number generator with the
-function rndCreateState.
+function :func:`rndCreateState`.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
 
-uniform random number generator

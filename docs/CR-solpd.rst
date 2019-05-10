@@ -91,6 +91,6 @@ Examples
      1.8192784    1.8192784   -2.2204460e-16
     -0.060848175 -0.060848175 -1.4710455e-15
 
-.. seealso:: Functions :func:`chol`, :func:`invpd`, :func:`trap`
+.. seealso:: Functions :func:`chol`, :func:`invpd`, `trap`
 
 solve system positive definite linear equation

@@ -119,4 +119,4 @@ Source
 
 datatran.src
 
-.. seealso:: Functions :func:`code`, :func:`recode`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`rescale`
+.. seealso:: Functions `code`, :func:`recode`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`rescale`

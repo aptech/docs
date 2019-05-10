@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: round(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*)         containing the rounded elements of x.
+    :returns: y (*NxK matrix or N-dimensional array*) containing the rounded elements of *x*.
 
 Examples
 ----------------
@@ -28,7 +28,8 @@ Examples
 
 ::
 
-    78.00  -14.00
+       78.00  -14.00
         5.00 -159.00
 
 .. seealso:: Functions :func:`trunc`, :func:`floor`, :func:`ceil`
+

@@ -51,5 +51,5 @@ has been reached. On the last iteration of the
 loop, all remaining observations are read in if
 there are 100 or fewer left.
 
-.. seealso:: Functions :func:`open`, :func:`readr`, :func:`seekr`
+.. seealso:: Functions `open`, :func:`readr`, :func:`seekr`
 

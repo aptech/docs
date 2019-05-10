@@ -5,11 +5,15 @@ scale
 Purpose
 ----------------
 
-Fixes the scaling for subsequent graphs. The
-axes endpoints and increments are computed as a best guess based on
-the data passed to it.
-Note: This function is for use with the deprecated PQG graphics.
+Fixes the scaling for subsequent graphs. The axes endpoints and increments are 
+computed as a best guess based on the data passed to it.
+
+.. NOTE:: This function is for use with the deprecated PQG graphics.
  
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -21,16 +25,14 @@ Format
     :param y: the Y axis data.
     :type y: matrix
 
-
-
 Remarks
 -------
 
-x and y must each have at least 2 elements. Only the minimum and maximum
+*x* and *y* must each have at least 2 elements. Only the minimum and maximum
 values are necessary.
 
-This routine fixes the scaling for all subsequent graphs until graphset
-is called. This also clears xtics and ytics whenever it is called.
+This routine fixes the scaling for all subsequent graphs until `graphset`
+is called. This also clears `xtics` and `ytics` whenever it is called.
 
 If either of the arguments is a scalar missing, the main graphics
 function will set the scaling for that axis using the actual data.
@@ -42,10 +44,8 @@ If an argument has 2 elements, and contains a missing value, that end of
 the axis will be scaled from the data by the main graphics function.
 
 If you want direct control over the axes endpoints and tick marks, use
-xtics or ytics. If xtics or ytics have been called after scale, they
-will override scale.
-
-
+`xtics` or `ytics`. If `xtics` or `ytics` have been called after `scale`, they
+will override `scale`.
 
 Source
 ------
@@ -53,3 +53,4 @@ Source
 pscale.src
 
 .. seealso:: Functions :func:`xtics`, :func:`ytics`, :func:`ztics`, :func:`scale3d`
+

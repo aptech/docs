@@ -195,4 +195,4 @@ Source
 
 datatran.src
 
-.. seealso:: Functions :func:`code`, :func:`recode`, :func:`reclassify`, :func:`substute`, :func:`rescale`
+.. seealso:: Functions `code`, :func:`recode`, :func:`reclassify`, :func:`substute`, :func:`rescale`

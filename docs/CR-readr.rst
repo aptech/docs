@@ -55,5 +55,5 @@ previous moment matrices. The result is the moment matrix for the
 entire data set. ``eof(dt)`` returns 1 when the end of the
 data set is encountered.
 
-.. seealso:: Functions :func:`open`, :func:`create`, :func:`writer`, :func:`seekr`, :func:`eof`
+.. seealso:: Functions `open`, :func:`create`, :func:`writer`, :func:`seekr`, :func:`eof`
 

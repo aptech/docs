@@ -32,7 +32,7 @@ Examples
 
     delete age < 40 or sex == 'FEMALE';
 
-.. seealso:: Function :func:`select`
+.. seealso:: Function `select`
 
 .. DANGER:: Fix this reference
 

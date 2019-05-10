@@ -21,6 +21,6 @@ Remarks
 
 If :func:`fflush` fails, you can call :func:`fstrerror` to find out why.
 
-If you pass :func:`fflush` the handle of a file opened with :func:`open` (i.e., a data
+If you pass :func:`fflush` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 

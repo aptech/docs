@@ -201,5 +201,5 @@ After the code above:
     	  20.200000        1292.6000 
     	  18.500000        833.10000
 
-.. seealso:: Functions :func:`code`, :func:`recode`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`rescale`, :func:`substute`
+.. seealso:: Functions `code`, :func:`recode`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`rescale`, :func:`substute`
 

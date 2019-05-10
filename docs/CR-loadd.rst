@@ -208,5 +208,5 @@ Globals
 See also
 ------------
 
-.. seealso:: `Formula String`, :func:`dataopen`, :func:`getHeader`, :func:`read`, :func:`save`
+.. seealso:: `Formula String`, :func:`dataopen`, :func:`getHeader`, :func:`read`, `save`
 

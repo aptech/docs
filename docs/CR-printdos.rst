@@ -40,5 +40,5 @@ Examples
     printdos "\27[7m"; /* set for reverse video */
     printdos "\27[0m"; /* set for normal text */
 
-.. seealso:: Functions :func:`print`, :func:`printfm`, :func:`screen`
+.. seealso:: Functions :func:`print`, :func:`printfm`, `screen`
 

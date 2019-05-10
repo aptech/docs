@@ -132,4 +132,4 @@ references and begin with eig.
 
 This command will show all matrices.
 
-.. seealso:: Functions :func:`new`, :func:`delete`
+.. seealso:: Functions `new`, `delete`

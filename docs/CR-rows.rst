@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: rows(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or sparse matrix
 
     :returns: y (*scalar*), number of rows in the specified matrix.
@@ -18,8 +18,9 @@ Format
 Remarks
 -------
 
-Use getorders to return both the number of rows and columns in one call.
-If x is an empty matrix, rows(x) and cols(x) return 0.
+Use :func:`getorders` to return both the number of rows and columns in one call.
+
+If *x* is an empty matrix, ``rows(x)`` and ``cols(x)`` return 0.
 
 
 Examples
@@ -33,7 +34,7 @@ Examples
 
 ::
 
-    1.00  1.00  1.00
+       1.00  1.00  1.00
        1.00  1.00  1.00
        1.00  1.00  1.00
 
@@ -46,3 +47,4 @@ Examples
     3.00
 
 .. seealso:: Functions :func:`cols`, :func:`getorders`, :func:`show`
+

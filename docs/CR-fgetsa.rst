@@ -38,7 +38,7 @@ avoid this. If the file was opened for update (see :func:`fopen`) and you are
 switching from writing to reading, don't forget to call :func:`fseek` or :func:`fflush`
 first, to flush the file's buffer.
 
-If you pass :func:`fgetsa` the handle of a file opened with :func:`open` (i.e., a data
+If you pass :func:`fgetsa` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
 .. seealso:: Functions :func:`fgetsat`, :func:`fgets`, :func:`fopen`

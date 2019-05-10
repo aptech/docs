@@ -12,18 +12,15 @@ Format
 ----------------
 .. function:: setvars(dataset)
 
-    :param dataset: the name of the GAUSS data set. Do not use
-        a file extension.
+    :param dataset: the name of the GAUSS data set. Do not use a file extension.
     :type dataset: string
 
-    :returns: nvec (*Nx1 character vector*), containing the variable names
-        defined in the data set.
+    :returns: nvec (*Nx1 character vector*), containing the variable names defined in the data set.
 
 Remarks
 -------
 
-setvars is designed to be used interactively.
-
+:func:`setvars` is designed to be used interactively.
 
 Examples
 ----------------
@@ -38,3 +35,4 @@ Source
 vars.src
 
 .. seealso:: Functions :func:`makevars`
+

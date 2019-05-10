@@ -21,7 +21,7 @@ Format
 Remarks
 -------
 
-The file on the disk will be given a .fsr extension
+The file on the disk will be given a *.fsr* extension
 
 
 Examples

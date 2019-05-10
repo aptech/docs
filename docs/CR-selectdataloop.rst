@@ -4,21 +4,25 @@ select (dataloop)
 
 Purpose
 ----------------
-Selects specific rows (observations) in a data loop based on a
-logical expression.
+Selects specific rows (observations) in a data loop based on a logical expression.
+
+.. _select:
+.. index:: select
 
 Format
 ----------------
-.. function:: select logical_expression
+
+::
+
+    select logical_expression;
 
 Remarks
 -------
 
-Selects only those rows for which logical_expression is TRUE. Any
+Selects only those rows for which *logical_expression* is ``TRUE``. Any
 variables referenced must already exist, either as elements of the
-source data set, as extern's, or as the result of a previous make,
-vector, or code statement.
-
+source data set, as `extern`'s, or as the result of a previous `make`,
+`vector`, or `code` statement.
 
 Examples
 ----------------
@@ -27,4 +31,5 @@ Examples
 
     select age > 40 AND sex $== 'MALE';
 
-.. seealso:: Functions 
+.. seealso:: `delete`
+

@@ -45,7 +45,7 @@ terminate the program with an error message, depending on the `trap`
 state. If the low order bit of the `trap` flag is 0, :func:`indices2` will
 terminate with an error message. If the low order bit of the `trap` flag
 is 1, :func:`indices2` will return an error code. The value of the `trap` flag can
-be tested with :func:`trapchk`; the return from :func:`indices2` can be tested with
+be tested with `trapchk`; the return from :func:`indices2` can be tested with
 :func:`scalerr`. You only need to check one argument; they will all be the same.
 The following error codes are possible:
 

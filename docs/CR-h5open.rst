@@ -97,5 +97,5 @@ After the code above
          10.0  20.0  30.0
          40.0  50.0  60.0
 
-.. seealso:: Functions :func:`h5create`, :func:`h5read`, :func:`h5write`, :func:`open`, :func:`dataopen`, :func:`readr`, :func:`seekr`
+.. seealso:: Functions :func:`h5create`, :func:`h5read`, :func:`h5write`, `open`, :func:`dataopen`, :func:`readr`, :func:`seekr`
 

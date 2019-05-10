@@ -135,4 +135,4 @@ To set only one bit and leave the others unchanged, use two arguments:
 | **trap 0,1;** | clear the ones bit |
 +---------------+--------------------+
 
-.. seealso:: Functions :func:`scalerr`, :func:`trapchk`, :func:`error`
+.. seealso:: Functions :func:`scalerr`, `trapchk`, :func:`error`

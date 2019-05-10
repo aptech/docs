@@ -26,9 +26,9 @@ When a list of handles follows :func:`closeall`, all files are closed and the
 file handles listed are set to scalar 0. This is safer than :func:`closeall`
 without a list of handles because the handles are cleared.
 
-It is important to set unused file handles to zero because both :func:`open` and
+It is important to set unused file handles to zero because both `open` and
 :func:`create` check the value that is in a file handle before they proceed with
-the process of opening a file. During :func:`open` or :func:`create`, if the value that
+the process of opening a file. During `open` or :func:`create`, if the value that
 is in the file handle matches that of an already open file, the process
 will be aborted and a File already open error message will be given.
 This gives you some protection against opening a second file with the
@@ -98,5 +98,5 @@ After running the above code,
 
 The first 1 means the "mydata.dat" file is closed.
 
-.. seealso:: Functions :func:`close`, :func:`open`
+.. seealso:: Functions :func:`close`, `open`
 

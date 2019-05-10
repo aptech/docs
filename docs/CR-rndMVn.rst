@@ -9,8 +9,7 @@ Computes multivariate normal random numbers given a covariance matrix.
 
 Format
 ----------------
-.. function:: rndMVn(num, mu, cov, state) 
-			  rndMVn(num, mu, cov)
+.. function:: rndMVn(num, mu, cov[, state])
 
     :param num: number of random vectors to create.
     :type num: Scalar
@@ -18,16 +17,20 @@ Format
     :param mu: mean vector.
     :type mu: Nx1 matrix
 
-    :param cov: 
-    :type cov: NxN covariance matrix
+    :param cov: covariance matrix
+    :type cov: NxN matrix
 
-    :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.
+    :param state: Optional argument.
+
+        **scalar case**
         
-        Opaque vector case:state = the state vector returned from a previous
-        call to one of the rnd random number functions.
-    :type state: Optional argument - scalar or opaque vector
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
+
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
 
     :returns: r (*numxN matrix*), multivariate normal random numbers.
 
@@ -36,11 +39,14 @@ Format
 Remarks
 -------
 
-The properties of the pseudo-random numbers in x are:
+The properties of the pseudo-random numbers in *x* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    E(x) = mu
+
    Var(x) = cov
 
 
@@ -60,4 +66,3 @@ Examples
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
 
-multivariate normal random number covariance matrix
