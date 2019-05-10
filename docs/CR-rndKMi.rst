@@ -5,8 +5,9 @@ rndKMi
 Purpose
 ----------------
 
-Returns a matrix of random integers, 0 ≤ y < 232, and the 
-state of the random number generator.
+Returns a matrix of random integers, :math:`0 ≤ y < 2_32`, and the state of the random number generator.
+
+.. DANGER:: fix equations
 
 Format
 ----------------
@@ -19,22 +20,25 @@ Format
     :type c: scalar
 
     :param state: 
-        Scalar case:state = starting seed value. If -1, GAUSS
-        computes the starting seed based on the system clock.
+
+        **scalar case**
         
-        500x1 vector case:state = the state vector returned from a previous
-        call to one of the rndKM random number generators.
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
+
+        **500x1 vector case**
+        
+            *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
+
     :type state: scalar or 500x1 vector
 
-    :returns: y (*r x c matrix*) of random
-        integers between 0 and 232 - 1, inclusive.
+    :returns: y (*RxC matrix*) of random integers between :math:`0` and :math:`2_32 - 1`, inclusive.
 
     :returns: newstate (*500x1 vector*), the updated state.
 
 Remarks
 -------
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 
 Examples
@@ -63,14 +67,12 @@ generation of random numbers.
     print "min " min;
     print "max " max;
 
+Technical Notes
+------------
+
+:func:`rndKMi` generates random integers using a KISS+Monster algorithm
+developed by George Marsaglia. KISS initializes the sequence used in the
+recur-with-carry Monster random number generator.
+
 .. seealso:: Functions :func:`rndKMn`, :func:`rndKMu`
 
-Technical Notes
-+++++++++++++++
-
-rndKMi generates random integers using a KISS+Monster algorithm
-developed by George Marsaglia. KISS initializes the sequence used in the
-recur-with-carry Monster random number generator. For more information
-on this generator see http://www.Aptech.com/random.
-
-random integer

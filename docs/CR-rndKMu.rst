@@ -4,8 +4,7 @@ rndKMu
 
 Purpose
 ----------------
-Returns a matrix of uniform (pseudo) random variables and the state
-of the random number generator.
+Returns a matrix of uniform (pseudo) random variables and the state of the random number generator.
 
 Format
 ----------------
@@ -17,31 +16,37 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param state: 2x1 vector, or 500x1 vector.
-        Scalar case:state = starting seed value. If -1, GAUSS
-        computes the starting seed based on the system clock.
-        
-        2x1 vector case:
-    :type state: scalar
+    :param state: 
 
-    .. csv-table::
-        :widths: auto
+        **scalar case**
 
-        "[1]    the starting seed, uses the system clock if -1"
-        "[2]    0 for 0 ≤ y < 1"
-        "1 for 0 ≤ y ≤ 1"
-        "500x1 vector case:state = the state vector returned from a previous call to one of the rndKM random number generators."
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
-    :returns: y (*r x c matrix*) of uniform
-        random numbers, 0 ≤ y < 1.
+        **2x1 vector case**
+
+            *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
+                
+            :[1]: the starting seed, uses the system clock if -1
+            :[2]: :math:`0` for :math:`0 ≤ y < 1`
+
+            :math:`1` for :math:`0 ≤ y ≤ 1`
+
+            .. DANGER:: check this logic... these seem the same?
+
+        **500x1 vector case**
+
+            *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
+
+    :type state: scalar or vector
+
+    :returns: y (*RxC matrix*) of uniform random numbers, :math:`0 ≤ y < 1`.
 
     :returns: newstate (*500x1 vector*), the updated state.
 
 Remarks
 -------
 
-r and c will be truncated to integers if necessary.
-
+*r* and *c* will be truncated to integers if necessary.
 
 Examples
 ----------------
@@ -59,7 +64,7 @@ next generation of random numbers.
     submean = {};
      
     do while c < n;
-       { y,state } = rndKMu(k,1,state);
+       { y, state } = rndKMu(k, 1, state);
        submean = submean | meanc(y);
        c = c + k;
     endo;
@@ -67,13 +72,14 @@ next generation of random numbers.
     mean = meanc(submean);
     print 0.5-mean;
 
+Technical Notes
+-----------------
+
+.. DANGER:: fix equations
+
+:func:`rndKMu` uses the recur-with-carry KISS-Monster algorithm described in the
+:func:`rndKMi` Technical Notes. Random integer seeds from :math:`0` to :math:`2\ 32-1` are
+generated. Each integer is divided by :math:`2_32` or :math:`2_32-1`.
+
 .. seealso:: Functions :func:`rndKMn`, :func:`rndKMi`
 
-Technical Notes
-+++++++++++++++
-
-rndKMu uses the recur-with-carry KISS-Monster algorithm described in the
-rndKMi Technical Notes. Random integer seeds from 0 to 2\ 32-1 are
-generated. Each integer is divided by 2\ 32 or 2\ 32-1.
-
-uniform pseudo-random numbers

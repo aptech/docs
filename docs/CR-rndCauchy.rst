@@ -9,44 +9,50 @@ Computes Cauchy random numbers with a choice of underlying random number generat
 
 Format
 ----------------
-.. function:: rndCauchy(rows, cols, location, scale, state) 
-			  rndCauchy(rows, cols, location, scale)
+.. function:: rndCauchy(rows, cols, location, scale[, state])
 
     :param rows: number of rows of resulting matrix.
-    :type rows: Scalar
+    :type rows: scalar
 
     :param cols: number of columns of resulting matrix.
-    :type cols: Scalar
+    :type cols: scalar
 
-    :param location: 
-    :type location: Scalar or ExE conformable matrix with rows and cols
+    :param location: scalar or ExE conformable matrix with rows and cols
+    :type location: scalar or matrix
 
-    :param scale: 
-    :type scale: Scalar or ExE conformable matrix with rows and cols
+    :param scale: scalar or ExE conformable matrix with rows and cols
+    :type scale: scalar or matrix
 
-    :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.Opaque vector case:state = the state vector returned from a previous
-        call to one of the standard random number functions.
-    :type state: Optional argument - scalar or opaque vector
+    :param state: Optional argument.
 
-    :returns: r (*rows x  cols matrix*), Cauchy distributed random numbers.
+        **scalar case**
+        
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
+
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
+
+    :returns: r (*rows x cols matrix*), Cauchy distributed random numbers.
 
     :returns: newstate (*Opaque vector*), the updated state.
-
-
 
 Remarks
 -------
 
-The properties of the pseudo-random numbers in x are:
+The properties of the pseudo-random numbers in *x* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    E(x) = undefined
    Var(x) = undefined
    Median(x) = location
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
+

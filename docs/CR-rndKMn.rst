@@ -19,22 +19,25 @@ Format
     :type c: scalar
 
     :param state: 
-        Scalar case:state = starting seed value. If -1, GAUSS
-        computes the starting seed based on the system clock.
+
+        **scalar case**
         
-        500x1 vector case:state = the state vector returned from a previous
-        call to one of the rndKM random number generators.
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
+
+        **500x1 vector case**
+        
+            *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
+
     :type state: scalar or 500x1 vector
 
-    :returns: y (*r x c matrix*) of standard
-        normal random numbers.
+    :returns: y (*RxC matrix*) of standard normal random numbers.
 
     :returns: newstate (*500x1 vector*), the updated state.
 
 Remarks
 -------
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 
 Examples
@@ -61,20 +64,19 @@ the next generation of random numbers.
     mean = meanc(submean);
     print mean;
 
-.. seealso:: Functions :func:`rndKMu`, :func:`rndKMi`
-
 Technical Notes
-+++++++++++++++
+------------
 
-rndKMn calls the uniform random number generator that is the basis for
-rndKMu multiple times for each normal random number generated. This is
-the recur-with-carry KISS+Monster algorithm described in the rndKMi
+:func:`rndKMn` calls the uniform random number generator that is the basis for
+:func:`rndKMu` multiple times for each normal random number generated. This is
+the recur-with-carry KISS+Monster algorithm described in the :func:`rndKMi`
 Technical Notes. Potential normal random numbers are filtered using the
 fast acceptance-rejection algorithm proposed by Kinderman, A.J. and J.G.
-Ramage, "Computer Generation of Normal Random Numbers," Journal of the
-American Statistical Association, December 1976, Volume 71, Number 356,
+Ramage, "Computer Generation of Normal Random Numbers," *Journal of the
+American Statistical Association*, December 1976, Volume 71, Number 356,
 pp. 893-896. It employs the error correction from Tirler et al. (2004),
 "An error in the Kinderman-Ramage method and how to fix it,"
-Computational and Data Analysis, Vol. 47, 433-40.
+*Computational and Data Analysis*, Vol. 47, 433-40.
 
-standard normal pseudo-random numbers
+.. seealso:: Functions :func:`rndKMu`, :func:`rndKMi`
+

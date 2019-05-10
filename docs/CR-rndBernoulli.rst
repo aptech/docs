@@ -9,35 +9,44 @@ Computes Bernoulli distributed random numbers.
 
 Format
 ----------------
-.. function:: rndBernoulli(r, c, prob)
+.. function:: rndBernoulli(r, c, prob[, state])
 
     :param r: number of rows of the output matrix.
-    :type r: Scalar
+    :type r: scalar
 
     :param c: number of columns of the output matrix.
-    :type c: Scalar
+    :type c: scalar
 
     :param prob: probability parameter.
-    :type prob: Scalar
+    :type prob: scalar
 
-    :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.Opaque vector case:state = the state vector returned from a previous
-        call to one of the rnd random number functions.
-    :type state: Optional argument - scalar or opaque vector
+    :param state: Optional argument.
 
-    :returns: r (*r x c matrix*), Bernoulli random numbers.
+        **scalar case**
+        
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
+
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
+
+    :returns: r (*RxC matrix*), Bernoulli random numbers.
 
     :returns: newstate (*Opaque vector*), the updated state.
 
 Remarks
 -------
 
-The properties of the pseudo-random numbers in x are:
+The properties of the pseudo-random numbers in *x* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    E(X) = prob
+
    Var(X) = prob * (1 - prob)
 
 
@@ -70,4 +79,3 @@ Examples
 
 .. seealso:: Functions :func:`rndMVn`, :func:`rndCreateState`
 
-random number Bernoulli distribution

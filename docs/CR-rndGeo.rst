@@ -9,43 +9,48 @@ Computes geometric pseudo-random numbers with a choice of underlying random numb
 
 Format
 ----------------
-.. function:: rndGeo(r, c, prob)
+.. function:: rndGeo(r, c, prob[, state])
 
     :param r: row dimension.
-    :type r: Scalar
+    :type r: scalar
 
     :param c: column dimension.
-    :type c: Scalar
+    :type c: scalar
 
-    :param prob: 
-    :type prob: Scalar or matrix: ExE conformatble with r and c columns
+    :param prob: scalar or matrix ExE conformatble with *r* and *c* columns
+    :type prob: scalar or matrix
 
-    :param state: 
-        Scalar case:state = starting seed value. If -1, GAUSS
-        computes the starting seed based on the system clock.
+    :param state: Optional argument.
+
+        **scalar case**
         
-        Opaque vector case:state = the state vector returned from a previous
-        call to one of the rnd random number generators.
-    :type state: Optional argument - scalar or opaque vector
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
-    :returns: y (*r x c matrix*) of geometrically distributed random numbers.
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
+
+    :returns: y (*RxC matrix*) of geometrically distributed random numbers.
 
     :returns: newstate (*Opaque vector*), the updated state.
-
-
 
 Remarks
 -------
 
-The properties of the pseudo-random numbers in y are:
+The properties of the pseudo-random numbers in *y* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
 
    E(y) = (1 - prob)/prob;
 
    Var(y) = (1 - prob)/prob2
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
+

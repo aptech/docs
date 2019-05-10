@@ -6,12 +6,16 @@ Purpose
 ----------------
 Returns from a subroutine.
 
+.. _return:
+.. index:: return
+
 Format
 ----------------
-.. function:: return 
-			  return(x, y,...)
 
+::
 
+    return;
+    return(x, y, ...);
 
 Remarks
 -------
@@ -22,4 +26,5 @@ Items are separated by commas.
 
 It is legal to return with no arguments and therefore return nothing.
 
-.. seealso:: Functions `gosub`, `pop`
+.. seealso:: `gosub`, `pop`
+

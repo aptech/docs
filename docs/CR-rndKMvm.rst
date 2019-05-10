@@ -17,26 +17,25 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param m: or
-        rx1 vector, or 1xc vector,
-        or scalar, means for vm distribution.
-    :type m: r x c matrix
+    :param m: r x c matrix or rx1 vector, or 1xc vector, or scalar, means for vm distribution.
+    :type m: mtarix or vector or scalar
 
-    :param k: or
-        rx1 vector, or 1xc vector,
-        or scalar, shape argument for vm distribution.
-    :type k: r x c matrix
+    :param k: r x c matrix or rx1 vector, or 1xc vector, or scalar, shape argument for vm distribution.
+    :type k: matrix or vector or scalar
 
     :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.
+
+        **scalar case**
         
-        500x1 vector case:state = the state vector returned from a previous
-        call to one of the rndKM random number functions.
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
+
+        **500x1 vector case**
+        
+            *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
+
     :type state: scalar or 500x1 vector
 
-    :returns: x (*r x c matrix*), von Mises
-        distributed random numbers.
+    :returns: x (*RxC matrix*), von Mises distributed random numbers.
 
     :returns: newstate (*500x1 vector*), the updated state.
 
@@ -45,9 +44,11 @@ Format
 Remarks
 -------
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
-
+Technical Notes
+---------------
+:func:`rndKMvm` uses the recur-with-carry KISS+Monster algorithm described in the :func:`rndKMi` Technical Notes.
 
 Source
 ------

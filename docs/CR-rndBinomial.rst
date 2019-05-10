@@ -9,44 +9,44 @@ Computes binomial pseudo-random numbers with the choice of underlying random num
 
 Format
 ----------------
-.. function:: rndBinomial(r, c, trials, prob, state) 
-			  rndBinomial(r, c, trials, prob)
+.. function:: rndBinomial(r, c, trials, prob[, state])
 
     :param r: number of rows of resulting matrix.
-    :type r: Scalar
+    :type r: scalar
 
     :param c: number of columns of resulting matrix.
-    :type c: Scalar
+    :type c: scalar
 
-    :param trials: or
-        rx1 vector, or 1xc vector,
-        or scalar, the number of trials.
-    :type trials: r x c matrix
+    :param trials: r x c matrix or rx1 vector, or 1xc vector, or scalar, the number of trials.
+    :type trials: matrix or vector or scalar
 
-    :param prob: or
-        rx1 vector, or 1xc vector,
-        or scalar, the probability of success of each trial.
-    :type prob: r x c matrix
+    :param prob: r x c matrix or rx1 vector, or 1xc vector, or scalar, the probability of success of each trial.
+    :type prob: matrix or vector or scalar
 
-    :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.
+    :param state: Optional argument.
+
+        **scalar case**
         
-        Opaque vector case:state = the state vector returned from a previous
-        call to one of the rnd random number functions.
-    :type state: Optional argument - scalar or opaque vector
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
-    :returns: x (*r x c matrix*), binomially
-        distributed random numbers.
+        **opaque vector case**
+        
+            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+    :type state: scalar or opaque vector
+
+    :returns: x (*RxC matrix*), binomially distributed random numbers.
 
     :returns: newstate (*Opaque vector*), the updated state.
 
 Remarks
 -------
 
-The properties of the pseudo-random numbers in x are:
+The properties of the pseudo-random numbers in *x* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    $\mu = np\\
    \sigma^2 = np(1 - p)\\
@@ -56,7 +56,7 @@ The properties of the pseudo-random numbers in x are:
    \text{p = probability of success}\\
    \text{k = number of successes}$
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
 
 Examples
@@ -76,7 +76,7 @@ Basic usage
     p = 0.4;		
     k = rndBinomial(3, 1, n, p);
 
-After the code above, k should equal:
+After the code above, *k* should equal:
 
 ::
 
@@ -98,7 +98,7 @@ Pass seed and return state vector
     // and return state vector as second output
     { k, state } = rndBinomial(3, 1, n, p, 7345);
 
-After the code above, k should equal:
+After the code above, *k* should equal:
 
 ::
 
@@ -111,8 +111,7 @@ Technical Notes
 
 The default generator for rndBinomial is the SFMT Mersenne-Twister
 19937. You can specifiy a different underlying random number generator
-with the function rndCreateState.
+with the function :func:`rndCreateState`.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
 
-log lognormal pseudo-random numbers choice random number generator

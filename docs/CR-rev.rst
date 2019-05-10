@@ -10,18 +10,17 @@ Format
 ----------------
 .. function:: rev(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*NxK matrix*), containing the reversed rows of x.
+    :returns: y (*NxK matrix*), containing the reversed rows of *x*.
 
 Remarks
 -------
 
-The first row of y will be where the last row of x was and the last row
+The first row of *y* will be where the last row of *x* was and the last row
 will be where the first was and so on. This can be used to put a sorted
 matrix in descending order.
-
 
 Examples
 ----------------
@@ -62,3 +61,4 @@ The code above produces the following output:
       10  -14   -7
 
 .. seealso:: Functions :func:`sortc`
+

@@ -17,21 +17,22 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param alpha: or
-        rx1 vector, or 1xc vector,
-        or scalar, shape argument for gamma distribution.
-    :type alpha: r x c matrix
+    :param alpha: r x c matrix or rx1 vector, or 1xc vector, or scalar, shape argument for gamma distribution.
+    :type alpha: matrix or vector or scalar
 
     :param state: 
-        Scalar case:state = starting seed value only. If -1, GAUSS
-        computes the starting seed based on the system clock.
+
+        **scalar case**
         
-        500x1 vector case:state = the state vector returned from a previous
-        call to one of the rndKM random number functions.
+            *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
+
+        **500x1 vector case**
+        
+            *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
+
     :type state: scalar or 500x1 vector
 
-    :returns: x (*r x c matrix*), gamma
-        distributed random numbers.
+    :returns: x (*RxC matrix*), gamma distributed random numbers.
 
     :returns: newstate (*500x1 vector*), the updated state.
 
@@ -40,14 +41,16 @@ Format
 Remarks
 -------
 
-The properties of the pseudo-random numbers in x are:
+The properties of the pseudo-random numbers in *x* are:
 
-::
+.. DANGER:: fix equations
+
+.. math::
 
    E(x) = alphaVar(x) = alphax > 0alpha > 0
 
-To generate gamma(alpha, theta) pseudo-random numbers where theta is a
-scale parameter, multiply the result of rndKMgam by theta.
+To generate ``gamma(alpha, theta)`` pseudo-random numbers where *theta* is a
+scale parameter, multiply the result of :func:`rndKMgam` by theta.
 
 Thus
 
@@ -57,13 +60,15 @@ Thus
 
 has the properties
 
-::
+.. math::
 
    E(z) = alpha * thetaVar(z) = alpha * theta2z > 0alpha > 0theta > 0
 
-r and c will be truncated to integers if necessary.
+*r* and *c* will be truncated to integers if necessary.
 
-
+Technical Notes
+---------------
+:func:`rndKMgam` uses the recur-with-carry KISS+Monster algorithm described in the :func:`rndKMi` Technical Notes.
 
 Source
 ------

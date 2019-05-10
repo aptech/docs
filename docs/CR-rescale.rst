@@ -74,13 +74,13 @@ Specifying a scaling method
 
     // Create a column vector
     x = {   12.5,
-    	18.2,
-    	10.8,
-    	8.3,
-    	15.4,
-    	21.5,
-    	14.6,
-    	16.7 };
+            18.2,
+            10.8,
+             8.3,
+            15.4,
+            21.5,
+            14.6,
+            16.7 };
     
     // Standardize 'x' and return the location and scaling factors
     { x_s, location, scale_factor} = rescale(x, "standardize");
@@ -113,13 +113,13 @@ Specifying a scaling method for multiple columns
 
     // Create a matrix with 2 columns
     x = {   12.5 1088.5,
-    	18.2  879.3,
-    	10.8 1232.0,
-    	 8.3 1189.8,
-    	15.4  932.1,
-    	21.5 1009.2,
-    	14.6  656.7,
-    	16.7 1251.5 };
+            18.2  879.3,
+            10.8 1232.0,
+             8.3 1189.8,
+            15.4  932.1,
+            21.5 1009.2,
+            14.6  656.7,
+            16.7 1251.5 };
     
     // Standardize 'x' and return the location and scaling factors
     { x_s, location, scale_factor } = rescale(x, "standardize");
@@ -148,8 +148,8 @@ After the code above:
 Applying previously created location and scaling factors
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Continuing with the variables used in example 2, we can apply the returned location and scaling factors to standardize
-			additional observations of our two variables.
+Continuing with the variables used in example 2, we can apply the returned location and 
+scaling factors to standardize additional observations of our two variables.
 
 ::
 

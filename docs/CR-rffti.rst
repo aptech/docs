@@ -11,18 +11,16 @@ Format
 ----------------
 .. function:: rffti(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*LxM real matrix*), where L and M are the smallest
-        prime factor products greater than or equal to N and K.
-
-
+    :returns: y (*LxM real matrix*), where :math:`L` and :math:`M` are the smallest
+        prime factor products greater than or equal to :math:`N` and :math:`K`.
 
 Remarks
 -------
 
-It is up to the user to guarantee that the input will return a real
-result. If in doubt, use ffti.
+It is up to the user to guarantee that the input will return a real result. If in doubt, use :func:`ffti`.
 
 .. seealso:: Functions :func:`rfft`, :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`
+
