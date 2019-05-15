@@ -16,7 +16,7 @@ Format
     :param dname: a name of the data set in HDF5 file. e.g. :code:`"/mydata"`.
     :type dname: string
 
-    :param dims: where @vN is the number of dimensions of the dataset, the size of each of the dimensions of the dataset.
+    :param dims: where :math:`N` is the number of dimensions of the dataset, the size of each of the dimensions of the dataset.
     :type dims: Nx1 matrix
 
     :param datatype: data type. Valid options include:
@@ -28,12 +28,12 @@ Format
         - :code:`"uint64"`
         - :code:`"uint32"`
           
-    Default is :code:`"double"`.
+        Default is :code:`"double"`.
 
     :type datatype: string
 
     :param chunk_size: with the same dimensions as the data set, specifying the size of the chunks of data that will be created in the file.
-    :type chunk_size: Matrix or array
+    :type chunk_size: matrix or array
 
 Remarks
 -------
