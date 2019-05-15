@@ -91,9 +91,9 @@ Global Input
 
     ::
 
-    proc eqproc(p);
-        retp(p[1]*p[2]-p[3]);
-    endp;
+        proc eqproc(p);
+            retp(p[1]*p[2]-p[3]);
+        endp;
 
 .. data:: \_sqp_C
 
