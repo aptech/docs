@@ -13,22 +13,22 @@ Format
     :param str: the string to parse.
     :type str: string
 
-    :returns: token (*string*), the first token in  str.
+    :returns: token (*string*), the first token in *str*.
 
-    :returns: str_left (*string*), str minus  token.
+    :returns: str_left (*string*), *str* minus *token*.
 
 Remarks
 -------
 
-str can be delimited with commas or spaces.
+*str* can be delimited with commas or spaces.
 
-The advantage of token over parse is that parse is limited to tokens of
-8 characters or less; token can extract tokens of any length.
+The advantage of :func:`token` over :func:`parse` is that :func:`parse` is limited to tokens of
+8 characters or less; :func:`token` can extract tokens of any length.
 
 
 Examples
 ----------------
-Here is a keyword that uses token to parse its string parameter:
+Here is a keyword that uses :func:`token` to parse its string parameter:
 
 ::
 
@@ -69,7 +69,7 @@ If you type:
     // internally as the 's' variable
     add 1 2 3 4 5 6;
 
-add will respond:
+*add* will respond:
 
 ::
 
@@ -81,3 +81,4 @@ Source
 token.src
 
 .. seealso:: Functions :func:`parse`
+

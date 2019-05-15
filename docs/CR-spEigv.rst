@@ -5,33 +5,42 @@ spEigv
 Purpose
 ----------------
 
-Computes a specified number of eigenvalues and eigenvectors of a square, sparse matrix  a.
+Computes a specified number of eigenvalues and eigenvectors of a square, sparse matrix *a*.
 
 Format
 ----------------
 .. function:: spEigv(a, nev, which, tol, maxit, ncv)
 
-    :param a: sparse matrix.
-    :type a: NxN square
+    :param a: NxN square, sparse matrix.
+    :type a: sparse matrix
 
     :param nev: number of eigenvalues to compute.
-    :type nev: Scalar
+    :type nev: scalar
 
-    :param which: may be one of the following: ''LM'' largest magnitude, ''LR'' largest real, ''LI'' largest imaginary, ''SR'' smallest real, or ''SI'' smallest imaginary. Default input 0, sets  which to ''LM.''
-    :type which: String
+    :param which: may be one of the following: "LM" largest magnitude, "LR" largest real, "LI" largest imaginary, "SR" smallest real, or "SI" smallest imaginary. Default input 0, sets *which* to "LM."
+    :type which: string
 
     :param tol: tolerance for eigenvalues. Default input 0, sets  tol to 1e-15.
-    :type tol: Scalar
+    :type tol: scalar
 
     :param maxit: maximum number of iterations. Default input 0, sets  maxit to  nevx(columns of  a)x100.
-    :type maxit: Scalar
+    :type maxit: scalar
 
-    :param ncv: size of Arnoldi factorization. The minimum setting is the greater of  nev+2 and 20. See Remarks on how to set  ncv. Default input 0, sets  ncv to 2x nev+1.
-    :type ncv: Scalar
+    :param ncv: size of Arnoldi factorization. The minimum setting is the greater of :math:`nev+2` and 20. See Remarks on how to set *ncv*. Default input 0, sets *ncv* to 2x :math:`nev+1`.
+    :type ncv: scalar
 
-    :returns: va (*nevx1 dense vector*) containing the computed eigenvalues of input matrix  a.
+    :returns: va (*nevx1 dense vector*) containing the computed eigenvalues of input matrix *a*.
 
-    :returns: ve (*Nx nev dense matrix*) containing the corresponding eigenvectors of input matrix  a.
+    :returns: ve (*Nx nev dense matrix*) containing the corresponding eigenvectors of input matrix *a*.
+
+Remarks
+-------
+
+The ideal setting for input *ncv* is problem dependent and cannot be
+easily predicted ahead of time. Increasing *ncv* will increase the amount
+of memory used during computation. For a large, sparse matrix, *ncv*
+should be small compared to the order of input matrix *a*. :func:`spEigv` is not
+thread-safe.
 
 Examples
 ----------------
@@ -45,7 +54,7 @@ Examples
 
 ::
 
-    21.276135  5.4078872 -19.817044  9.6771132 -19.211952
+        21.276135  5.4078872 -19.817044  9.6771132 -19.211952
         0.0000000 -4.4011007  10.445221 -5.1742289 -16.336474
     a = 0.0000000 -20.853017  7.6285434  0.0000000 -15.626397
        -12.637055  8.1227002  0.0000000 -8.7817892  0.0000000
@@ -79,16 +88,8 @@ matrix times the first eigenvector (2).
       7.6381149                   7.6381149
       1.7276361                   1.7276361
 
-Remarks
--------
-
-The ideal setting for input ncv is problem dependent and cannot be
-easily predicted ahead of time. Increasing ncv will increase the amount
-of memory used during computation. For a large, sparse matrix, ncv
-should be small compared to the order of input matrix a. spEigv is not
-thread-safe.
-
 Technical Notes
-+++++++++++++++
+----------------
 
 spEigv implements functions from the ARPACK library.
+

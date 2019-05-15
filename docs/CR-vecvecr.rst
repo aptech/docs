@@ -9,22 +9,20 @@ Creates a column vector by appending the columns/rows of a matrix to each other.
 
 Format
 ----------------
-.. function:: vecr(x)
+.. function:: vec(x)
+              vecr(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: yc (*(N*K)x1 vector*) , the columns of x appended to
-        each other.
+    :returns: yc (*(N*K)x1 vector*), the columns of *x* appended to each other.
 
-    :returns: yr (*(N*K)x1 vector*) , the rows of x appended to
-        each other and the result transposed.
+    :returns: yr (*(N*K)x1 vector*), the rows of *x* appended to each other and the result transposed.
 
 Remarks
 -------
 
-vecr is much faster.
-
+:func:`vecr` is much faster.
 
 Examples
 ----------------
@@ -36,11 +34,11 @@ Examples
     yc = vec(x);
     yr = vecr(x);
 
-The code above assigns the variables yc and yr:
+The code above assigns the variables *yc* and *yr*:
 
 ::
 
-    1       1
+         1       1
     yc = 3  yr = 2
          2       3
          4       4

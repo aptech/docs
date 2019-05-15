@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: spNumNZE(x)
 
-    :param x: 
+    :param x: data
     :type x: MxN sparse matrix
 
-    :returns: n (*scalar*), the number of non-zero elements in x.
+    :returns: n (*scalar*), the number of non-zero elements in *x*.
 
 Examples
 ----------------
@@ -27,7 +27,7 @@ Examples
           5 0 0  0,
           0 0 0  3 };
           
-     y = denseToSp(x,0);
+     y = denseToSp(x, 0);
      n = spNumNZE(y);
      print "The number of nonzeros is" n;
 
@@ -36,3 +36,4 @@ Examples
     4.00
 
 .. seealso:: Functions :func:`spGetNZE`
+

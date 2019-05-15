@@ -1,5 +1,5 @@
 
-ThreadStat
+threadStat
 ==============================================
 
 Purpose
@@ -7,17 +7,24 @@ Purpose
 
 Marks a single line of code to be executed as a thread.
 
+.. _threadStat:
+.. index:: threadStat
+
 Format
 ----------------
-.. function:: ThreadStat statement
+
+::
+
+    threadStat statement;
 
 Examples
 ----------------
 
 ::
 
-    ThreadStat m = n*p;
+    threadStat m = n*p;
 
-See ThreadJoin for an example of a fully-defined thread set.
+See `threadJoin` for an example of a fully-defined thread set.
 
-.. seealso:: Functions :func:`ThreadBegin`, :func:`ThreadEnd`, :func:`ThreadJoin`
+.. seealso:: Functions `threadBegin`, `threadEnd`, `threadJoin`
+

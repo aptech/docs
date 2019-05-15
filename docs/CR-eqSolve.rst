@@ -24,12 +24,14 @@ Format
         .. csv-table::
             :widths: auto
     
-            "1", "Norm of the scaled function value is less than__Tol. x given is an approximate root of F(x)(unless __Tol is too large)."
-            "2", "The scaled distance between the last two steps isless than the step-tolerance (_eqs_StepTol).x may be an approximate root of F(x), but it isalso possible that the algorithm is making very slow progress and is not near a root, or the step-tolerance is too large."
-            "3", "The last global step failed to decreasenorm2(F(x)) sufficiently; either x is close to aroot of F(x) and no more accuracy is possible, oran incorrectly coded analytic Jacobian is being used, or the secant approximation to the Jacobianis inaccurate, or the step-tolerance is too large."
+            "1", "Norm of the scaled function value is less than *__Tol*. *x* given is an approximate root of :math:`F(x)` (unless *__Tol* is too large)."
+            "2", "The scaled distance between the last two steps is less than the step-tolerance (*_eqs_StepTol*). *x* may be an approximate root of :math:`F(x)`, but it is also possible that the algorithm is making very slow progress and is not near a root, or the step-tolerance is too large."
+            "3", "The last global step failed to decrease ``norm2(F(x))`` sufficiently; either *x* is close to a root of :math:`F(x)` and no more accuracy is possible, or an incorrectly coded analytic Jacobian is being used, or the secant approximation to the Jacobian is inaccurate, or the step-tolerance is too large."
             "4", "Iteration limit exceeded."
-            "5", "Five consecutive steps of maximum step lengthhave been taken; either norm2(F(x))asymptotes from above to a finite value in some direction or the maximum step length is too small."
-            "6", "x seems to be an approximate local minimizer ofnorm2(F(x)) that is not a root of F(x).To find a root of F(x), restart eqSolvefrom a different region."
+            "5", "Five consecutive steps of maximum step length have been taken; either ``norm2(F(x))`` asymptotes from above to a finite value in some direction or the maximum step length is too small."
+            "6", "*x* seems to be an approximate local minimizer of ``norm2(F(x))`` that is not a root of :math:`F(x)`. To find a root of :math:`F(x)`, restart :func:`eqSolvefrom` a different region."
+
+.. DANGER:: check equations
 
 Global Input
 ------------
@@ -94,11 +96,8 @@ The following are set by :func:`gausset`:
     .. csv-table::
         :widths: auto
 
-
-    0,"Variable names are not padded to give them equal length. For example, *X1, X2,...,X10,...*"
-    1,"Variable names are padded with zeros to give them an equal number of
-      characters. For example, *X01,X02,...,X10,...* This is useful if you want
-      the variable names to sort properly."
+        "0", "Variable names are not padded to give them equal length. For example, *X1, X2,...,X10,...*"
+        "1", "Variable names are padded with zeros to give them an equal number of characters. For example, *X01,X02,...,X10,...* This is useful if you want the variable names to sort properly."
 
 Remarks
 -------

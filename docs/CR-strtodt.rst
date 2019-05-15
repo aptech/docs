@@ -10,11 +10,11 @@ Format
 ----------------
 .. function:: strtodt(sa, fmt)
 
-    :param sa: 
-    :type sa: NxK string array containing dates
+    :param sa: dates
+    :type sa: NxK string array
 
-    :param fmt: 
-    :type fmt: string containing date/time format characters
+    :param fmt: date/time format characters
+    :type fmt: string
 
     :returns: x (*NxK matrix*) of dates in DT scalar format.
 
@@ -97,3 +97,4 @@ produces:
     20100528000000.0
 
 .. seealso:: Functions :func:`dttostr`, :func:`dttoutc`, :func:`utctodt`
+

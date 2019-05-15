@@ -30,7 +30,7 @@ Format
         .. list-table::
             :widths: auto
     
-            * - ctl.altnames
+            * - *ctl.altnames*
               - Kx1 string array of alternate variable names to be used if a matrix in memory is analyzed (i.e., dataset is a null string or 0). Default = "".
             * - *ctl.maxbytes*
               - scalar, the maximum numberof bytes to be read per iteration of the read loop. Default = 1e9.

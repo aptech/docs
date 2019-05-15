@@ -4,7 +4,14 @@ viewxyz
 
 Purpose
 ----------------
-To set the position of the observer in plot coordinates for 3-D plots. NOTE: This function is for the deprecated PQG graphics.
+To set the position of the observer in plot coordinates for 3-D plots.
+
+.. NOTE:: This function is for the deprecated PQG graphics.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -19,19 +26,15 @@ Format
     :param z: the Z position in plot coordinates.
     :type z: scalar
 
-
-
 Remarks
 -------
 
 The viewer MUST be outside of the workbox. The closer the observer, the
 more perspective distortion there will be.
 
-If viewxyz is not called, a default position will be calculated.
+If :func:`viewxyz` is not called, a default position will be calculated.
 
-Use view to locate the observer in workbox units.
-
-
+Use :func:`view` to locate the observer in workbox units.
 
 Source
 ------
@@ -39,3 +42,4 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`volume`, :func:`view`
+

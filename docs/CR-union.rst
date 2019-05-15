@@ -11,22 +11,21 @@ Format
 ----------------
 .. function:: union(v1, v2, flag)
 
-    :param v1: 
+    :param v1: data
     :type v1: Nx1 vector
 
-    :param v2: 
+    :param v2: data
     :type v2: Mx1 vector
 
     :param flag: 1 if numeric data, 0 if character.
     :type flag: scalar
 
-    :returns: y (*Lx1 vector*) containing all unique values that are in
-        v1 and  v2, sorted in ascending order.
+    :returns: y (*Lx1 vector*) containing all unique values that are in *v1* and *v2*, sorted in ascending order.
 
 Remarks
 -------
 
-The combined elements of v1 and v2 must fit into a single vector.
+The combined elements of *v1* and *v2* must fit into a single vector.
 
 
 Examples

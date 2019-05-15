@@ -10,21 +10,19 @@ Format
 ----------------
 .. function:: subvec(x, ci)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :param ci: 
-    :type ci: Nx1 vector of column indices
+    :param ci: column indices
+    :type ci: Nx1 vector
 
-    :returns: y (*Nx1 vector*) containing the elements in x
-        indicated by  ci.
+    :returns: y (*Nx1 vector*) containing the elements in *x* indicated by *ci*.
 
 Remarks
 -------
 
-Each element of y is from the corresponding row of x and the column set
-by the corresponding row of ci. In other words, y[i] = x[i, ci[i]].
-
+Each element of *y* is from the corresponding row of *x* and the column set
+by the corresponding row of *ci*. In other words, :math:`y[i] = x[i, ci[i]]`.
 
 Examples
 ----------------
@@ -44,11 +42,11 @@ Examples
     // Extract subvector from 'x' and assign it to 'y'
     y = subvec(x,ci);
 
-After the above code, x and y are equal to:
+After the above code, *x* and *y* are equal to:
 
 ::
 
-    1  2  3
+         1  2  3
     x =  4  5  6
          7  8  9
         10 11 12

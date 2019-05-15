@@ -7,47 +7,73 @@ Purpose
 
 Begins a parallel for loop.
 
+.. _threadfor:
+.. _threadendfor:
+.. index:: threadfor, threadendfor
+
 Format
 ----------------
-.. function:: threadfor i (start, stop, step) 
-			      . 
-			      . 
-			      . 
-			  threadendfor
 
-    :param i: the name of the counter variable.
-    :type i: literal
+::
 
-    :param start: the initial value of the counter.
-    :type start: scalar expression
+    threadfor i (start, stop, step);
+      . 
+      . 
+      . 
+    threadendfor;
 
-    :param stop: the final value of the counter.
-    :type stop: scalar expression
+**Parameters**
 
-    :param step: the increment value.
-    :type step: scalar expression
+:i: (*literal*) the name of the counter variable.
+:start: (*scalar*) the initial value of the counter.
+:stop: (*scalar*) the final value of the counter.
+:step: (*scalar*) the increment value.
 
 Remarks
 -------
 
-#. The iterations of a threadfor loop may execute in any order.
+#. The iterations of a `threadfor` loop may execute in any order.
 #. Indexed assignments to global variables that use the loop counter
-   behave the same as in a standard for loop.
+   behave the same as in a standard `for` loop.
 #. Non-indexed assignments will create a temporary variable that
    persists only through the remainder of the current loop iteration.
    For example:
-#. threadfor loops may not be nested
-#. Debugging inside of threadfor loops is currently not supported.
+
+   #
+       a = 34.7;
+       threadfor i(1, 2, 1);
+           a = rndu(1,1);
+           print a;
+       threadEndfor;
+       
+       print a;
+
+   will produce output similar to the following:
+   
+   #
+
+       0.90560157 
+       0.52594285 
+       34.700000 
+
+#. `threadfor` loops may not be nested
+#. Debugging inside of `threadfor` loops is currently not supported.
 
 
 Examples
 ----------------
 
-//A basic 'threadfor' loop
-threadfor i (1, 4, 1);
-   print i;
-threadendfor;
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 1
++++++++++
+
+::
+
+    //A basic 'threadfor' loop
+    threadfor i (1, 4, 1);
+        print i;
+    threadendfor;
+
+The code above, will print out:
 
 ::
 
@@ -92,7 +118,5 @@ Simple bootstrap of the mean of one variable
         sample_means[i] = meanc(sample);
     threadEndFor;
 
-.. seealso:: Functions 
-considerations <MT-Multi-Threaded/MT-ThreadingPerformanceConsiderations.html>`__
+.. seealso:: `Performance considerations` 
 
-parallel threading loop

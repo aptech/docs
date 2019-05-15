@@ -10,30 +10,30 @@ Format
 ----------------
 .. function:: spTScalar(s, scal, rinds, cinds)
 
-    :param s: 
+    :param s: data
     :type s: NxM sparse matrix
 
-    :param scal: 
+    :param scal: data
     :type scal: scalar
 
-    :param rinds: 
-    :type rinds: Kx1 vector of row indices
+    :param rinds: row indices
+    :type rinds: Kx1 vector
 
-    :param cinds: 
-    :type cinds: Lx1 vector of column indices
+    :param cinds: column indices
+    :type cinds: Lx1 vector
 
-    :returns: y (*KxL sparse matrix*) .
+    :returns: y (*KxL sparse matrix*)
 
 Remarks
 -------
 
-Only the elements of s specified byrinds andcinds will be multiplied by
+Only the elements of *s* specified by *rinds* and *cinds* will be multiplied by
 scal. All other elements will be unchanged in the result.
 
-To select all rows or all columns, input a scalar 0 for rinds or cinds.
+To select all rows or all columns, input a scalar 0 for *rinds* or *cinds*.
 
-Since sparse matrices are strongly typed in GAUSS, y must be defined as
-a sparse matrix before the call to spTScalar.
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spTScalar`.
 
 
 Examples
@@ -48,14 +48,14 @@ Examples
           0 1 2 0 };
           
     rinds = 0;
-    cinds = { 2,4 }; 
+    cinds = { 2, 4 }; 
     
     // Multiply all elements in the second and fourth column 
     // by 'scal'
-    y = spTScalar(x,10,rinds,cinds);
-    d = spDenseSubmat(y,0,0);
+    y = spTScalar(x, 10, rinds, cinds);
+    d = spDenseSubmat(y, 0, 0);
 
-The result, in d is:
+The result, in *d* is:
 
 ::
 
@@ -65,3 +65,4 @@ The result, in d is:
     0 10 2 0
 
 .. seealso:: Functions :func:`spTrTDense`
+

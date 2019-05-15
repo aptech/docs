@@ -9,15 +9,16 @@ Sorts a matrix of numeric or character data, or a string array.
 
 Format
 ----------------
-.. function:: sorthcc(x, c)
+.. function:: srothc(x, c)
+              sorthcc(x, c)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or string array
 
-    :param c: 
-    :type c: scalar specifying one column of x to sort on
+    :param c: specifying one column of x to sort on
+    :type c: scalar
 
-    :returns: y (*NxK matrix or string array*) equal to x and sorted on the column c.
+    :returns: y (*NxK matrix or string array*) equal to *x* and sorted on the column *c*.
 
 Remarks
 -------
@@ -27,18 +28,16 @@ respect to a specified column. That is, they will sort the elements of a
 column and will arrange all rows of the object in the same order as the
 sorted column.
 
-sorthc assumes that the column to sort on is numeric. sorthcc assumes
+:func:`sorthc` assumes that the column to sort on is numeric. :func:`sorthcc` assumes
 that the column to sort on contains character data.
 
-If x is a matrix, it may contain both character and numeric data, but
+If *x* is a matrix, it may contain both character and numeric data, but
 the sort column must be all of one type. Missing values will sort as if
-their value is below -∞.
+their value is below :math:`-∞`.
 
-The sort is in ascending order. This function uses the heap sort
-algorithm.
+The sort is in ascending order. This function uses the heap sort algorithm.
 
-If you need to obtain the matrix sorted in descending order, you can
-use:
+If you need to obtain the matrix sorted in descending order, you can use:
 
 ::
 
@@ -57,7 +56,7 @@ Examples
     // Sort x based upon the values in the third column
     y = sorthc(x,3);
 
-This produces y equal to:
+This produces *y* equal to:
 
 ::
 
@@ -66,3 +65,4 @@ This produces y equal to:
     3 4 8
 
 .. seealso:: Functions :func:`sortc`, :func:`rev`
+

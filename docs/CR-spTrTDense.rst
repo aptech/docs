@@ -10,15 +10,13 @@ Format
 ----------------
 .. function:: spTrTDense(s, d)
 
-    :param s: 
+    :param s: data
     :type s: NxM sparse matrix
 
-    :param d: 
+    :param d: data
     :type d: NxL dense matrix
 
-    :returns: y (*MxL dense matrix*), the result of  s'*d.
-
-
+    :returns: y (*MxL dense matrix*), the result of :math:`s'\*d`.
 
 Remarks
 -------
@@ -29,6 +27,7 @@ This may also be accomplished by the following code:
 
    y = s'*d;
 
-However, spTrTDense will be more efficient.
+However, :func:`spTrTDense` will be more efficient.
 
 .. seealso:: Functions :func:`spTScalar`
+

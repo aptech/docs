@@ -5,7 +5,6 @@ timediffposix
 Purpose
 ----------------
 Computes the difference between two dates in POSIX date/time format.
-		
 
 Format
 ----------------
@@ -15,20 +14,20 @@ Format
     :type dt_1: NxK matrix
 
     :param dt_2: the second date in POSIX format.
-    :type dt_2: Scalar
+    :type dt_2: scalar
 
     :param units: indicating the units in which to report the difference.
         
-        
         Valid unit options:
         
-        "days"
-        "hours"
-        "minutes"
-        "seconds"
-    :type units: String
+        - "days"
+        - "hours"
+        - "minutes"
+        - "seconds"
 
-    :returns: diff (*Scalar*), the difference between dt_1 and dt_2 in terms of the specified units.
+    :type units: string
+
+    :returns: diff (*Scalar*), the difference between *dt_1* and *dt_2* in terms of the specified units.
 
 Examples
 ----------------
@@ -42,7 +41,7 @@ Examples
     // Compute the difference in terms of hours
     diff = timediffposix(dt_1, dt_2, "hours");
 
-The above code will set diff equal to:
+The above code will set *diff* equal to:
 
 ::
 
@@ -57,7 +56,7 @@ The above code will set diff equal to:
     // Calculate the difference
     diff = timediffposix(dt_1, dt_2, "minutes");
 
-The above code will set diff equal to:
+The above code will set *diff* equal to:
 
 ::
 
@@ -72,7 +71,7 @@ The above code will set diff equal to:
     // Find the time difference between the dates
     diff = timediffposix(dt_1, dt_2, "seconds");
 
-The above code will set diff equal to:
+The above code will set *diff* equal to:
 
 ::
 
@@ -80,3 +79,4 @@ The above code will set diff equal to:
     101
 
 .. seealso:: Functions :func:`timeDiffDT`, :func:`timeDeltaPosix`, :func:`seqadt`, :func:`seqaposix`
+

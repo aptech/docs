@@ -11,11 +11,11 @@ Format
 ----------------
 .. function:: strctodt(x, fmt)
 
-    :param x: 
-    :type x: NxK string array containing dates
+    :param x: dates
+    :type x: NxK string array
 
-    :param fmt: or  ExE conformable string array containing strftime date/time format characters.
-    :type fmt: string
+    :param fmt: containing *strftime* date/time format characters.
+    :type fmt: string or or ExE conformable string array 
 
     :returns: d (*NxK matrix*), containing dates in DT Scalar format (i.e. 200803170930).
 
@@ -130,53 +130,69 @@ The following format specifiers are supported:
 Examples
 ----------------
 
-print strctodt("2012/06/23", "%Y/%m/%d");
-+++++++++++++++++++++++++++++++++++++++++
+Example 1
++++++++++
+::
+
+   print strctodt("2012/06/23", "%Y/%m/%d");
 
 produces the output:
 
 ::
 
-    20120623000000
+   20120623000000
 
-print strctodt("1945-11-22 18:36:29", "%Y-%m-%d %H:%M:%S");
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 2
++++++++++
+::
+
+   print strctodt("1945-11-22 18:36:29", "%Y-%m-%d %H:%M:%S");
 
 produces the output:
 
 ::
 
-    19451122183629
+   19451122183629
 
-print strctodt("January 29, 1973 at  4:19 PM", "%B %d, %Y at %l:%M %p");
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 3
++++++++++
+::
+
+   print strctodt("January 29, 1973 at  4:19 PM", "%B %d, %Y at %l:%M %p");
 
 produces the output:
 
 ::
 
-    19730129161900
+   19730129161900
 
-ds = "Oct 23, 2007" $| "Feb 16, 2008";
-s = strctodt(ds, "%b %d, %Y");
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 4
++++++++++
+::
 
-produces s equal to:
+   ds = "Oct 23, 2007" $| "Feb 16, 2008";
+   s = strctodt(ds, "%b %d, %Y");
+
+produces *s* equal to:
 
 ::
 
-    20071023000000 
-    20080216000000
+   20071023000000 
+   20080216000000
 
-ds = "10/23/07 20:45:42" $| "02/16/08 14:32:22";
-s = strctodt(ds, "%x %X");
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 5
++++++++++
+::
 
-produces s equal to:
+   ds = "10/23/07 20:45:42" $| "02/16/08 14:32:22";
+   s = strctodt(ds, "%x %X");
+
+produces *s* equal to:
 
 ::
 
-    20071023204542 
-    20080216143222
+   20071023204542 
+   20080216143222
 
 .. seealso:: Functions :func:`posixtostrc`, :func:`dttostrc`, :func:`strtodt`, :func:`dttoutc`, :func:`utctodt`
+

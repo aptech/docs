@@ -5,19 +5,19 @@ upmat, upmat1
 Purpose
 ----------------
 
-Returns the upper portion of a matrix. upmat returns the main diagonal and every element above.
-           upmat1 is the same except it replaces the main diagonal with ones.
+Returns the upper portion of a matrix. :func:`upmat` returns the main diagonal and every element above. 
+:func:`upmat1` is the same except it replaces the main diagonal with ones.
 
 Format
 ----------------
-.. function:: upmat(x)  
-			  upmat1(x)
+.. function:: upmat(x)
+              upmat1(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: u (*NxK matrix*), containing the upper elements of x. The lower elements are
-        replaced with zeros. upmat returns the main diagonal intact. upmat1
+    :returns: u (*NxK matrix*), containing the upper elements of *x*. The lower elements are
+        replaced with zeros. :func:`upmat` returns the main diagonal intact. :func:`upmat1`
         replaces the main diagonal with ones.
 
 Examples
@@ -36,7 +36,7 @@ The resulting matrices are:
 
 ::
 
-    7  2 -1       1  2 -1
+        7  2 -1       1  2 -1
     u = 0  3 -2  u1 = 0  1 -2
         0  0  8       0  0  1
 
@@ -46,3 +46,4 @@ Source
 diag.src
 
 .. seealso:: Functions :func:`lowmat`, :func:`lowmat1`, :func:`diag`, :func:`diagrv`, :func:`crout`
+

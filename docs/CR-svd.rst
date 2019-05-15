@@ -10,11 +10,30 @@ Format
 ----------------
 .. function:: svd(x)
 
-    :param x: 
-    :type x: NxP matrix whose singular values are to be computed
+    :param x: matrix whose singular values are to be computed
+    :type x: NxP matrix 
 
-    :returns: s (*Mx1 vector*), where M = min(N,P), containing the
-        singular values of x arranged in descending order.
+    :returns: s (*Mx1 vector*), where :math:`M = min(N,P)`, containing the
+        singular values of *x* arranged in descending order.
+
+Global Input
+------------
+
+.. data:: _svderr
+
+    scalar, if the singular values cannot be computed, *\_svderr* will be nonzero.
+
+Remarks
+-------
+
+#. :func:`svd` is not threadsafe. New code should use :func:`svds` instead.
+#. Error handling is controlled with the low bit of the `trap` flag.
+
+   +------------+---------------------------------------------------------------+
+   | **trap 0** | set *\_svderr* to a non-zero value and terminate with message |
+   +------------+---------------------------------------------------------------+
+   | **trap 1** | set *\_svderr* to a non-zero value and continue execution     |
+   +------------+---------------------------------------------------------------+
 
 Examples
 ----------------
@@ -36,7 +55,7 @@ Examples
     // Calculate the singular values
     s = svd(x);
 
-After the code above, s will be equal to:
+After the code above, *s* will be equal to:
 
 ::
 
@@ -44,39 +63,10 @@ After the code above, s will be equal to:
     14.96 
      2.24
 
-Remarks
--------
-
-#. svd is not threadsafe. New code should use svds instead.
-#. Error handling is controlled with the low bit of the trap flag.
-
-   +------------+-------------------------------------------------------------+
-   | **trap 0** | set \_svderr to a non-zero value and terminate with message |
-   +------------+-------------------------------------------------------------+
-   | **trap 1** | set \_svderr to a non-zero value and continue execution     |
-   +------------+-------------------------------------------------------------+
-
 Source
 ------
 
 svd.src
 
 .. seealso:: Functions :func:`svd2`, :func:`svds`
-
-singular value matrix
-
-
-Global Input
-------------
-
-+---+-----------------------------------------------------+
-| \ | scalar, if the singular values cannot be computed,  |
-| _ | \_svderr will be nonzero.                           |
-| s |                                                     |
-| v |                                                     |
-| d |                                                     |
-| e |                                                     |
-| r |                                                     |
-| r |                                                     |
-+---+-----------------------------------------------------+
 

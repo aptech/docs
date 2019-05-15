@@ -15,20 +15,20 @@ Format
     :type dt_1: NxK matrix
 
     :param dt_2: the second date.
-    :type dt_2: Scalar
+    :type dt_2: scalar
 
     :param units: indicating the units in which to report the difference.
         
-        
         Valid unit options:
         
-        "days"
-        "hours"
-        "minutes"
-        "seconds"
-    :type units: String
+        - "days"
+        - "hours"
+        - "minutes"
+        - "seconds"
 
-    :returns: diff (*Scalar*), the difference between dt_1 and dt_2 in terms of the specified units.
+    :type units: string
+
+    :returns: diff (*Scalar*), the difference between *dt_1* and *dt_2* in terms of the specified units.
 
 Examples
 ----------------
@@ -44,7 +44,7 @@ Examples
     // Compute the difference in terms of hours
     diff = timeDiffDT(dt_1, dt_2, "hours");
 
-The above code will set diff equal to:
+The above code will set *diff* equal to:
 
 ::
 
@@ -61,7 +61,7 @@ The above code will set diff equal to:
     // Increment by 18 months
     diff = timeDiffDT(dt_1, dt_2, "minutes");
 
-The above code will set diff equal to:
+The above code will set *diff* equal to:
 
 ::
 
@@ -79,7 +79,7 @@ The above code will set diff equal to:
     // Find the time difference between the dates
     diff = timeDiffDT(dt_1, dt_2, "minutes");
 
-The above code will set diff equal to:
+The above code will set *diff* equal to:
 
 ::
 
@@ -87,3 +87,4 @@ The above code will set diff equal to:
     -134
 
 .. seealso:: Functions :func:`timeDeltaPosix`, :func:`seqadt`, :func:`seqaposix`
+

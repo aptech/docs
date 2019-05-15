@@ -11,13 +11,12 @@ Format
 ----------------
 .. function:: timestr(t)
 
-    :param t: or a zero. If
-        the input is 0, the time function will be called
+    :param t: 4x1 vector from the time function or a zero. If
+        the input is 0, the :func:`time` function will be called
         to return the current system time.
-    :type t: 4x1 vector from the time function
+    :type t: scalar or vector 
 
-    :returns: ts (*8 character string*) containing current time in
-        the format:  hr:mn:sc
+    :returns: ts (*8 character string*) containing current time in the format: ``hr:mn:sc``
 
 Examples
 ----------------
@@ -38,3 +37,4 @@ Source
 time.src
 
 .. seealso:: Functions :func:`date`, :func:`datestr`, :func:`datestring`, :func:`datestrymd`, :func:`ethsec`, :func:`etstr`, :func:`time`
+

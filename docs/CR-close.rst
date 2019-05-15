@@ -11,7 +11,7 @@ Format
 .. function:: close(handle)
 
     :param handle: the file handle given to the file when it was opened with the `open`,
-        :func:`create`, or :func:`fopen` command.
+        `create`, or :func:`fopen` command.
     :type handle: scalar
 
     :returns: y (*scalar*), 0 if successful, -1 if unsuccessful.
@@ -22,9 +22,9 @@ Remarks
 *handle* is the scalar file handle created when the file was opened. It
 will contain an integer which can be used to refer to the file.
 
-:func:`close` will close the file specified by *handle*, and will return a 0 if
+`close` will close the file specified by *handle*, and will return a 0 if
 successful and a -1 if not successful. The handle itself is not affected
-by :func:`close` unless the return value of :func:`close` is assigned to it.
+by `close` unless the return value of `close` is assigned to it.
 
 If *f1* is a file handle and it contains the value 7, then after:
 
@@ -42,19 +42,19 @@ procedure is to do the following:
 This will set *f1* to 0 upon a successful close.
 
 It is important to set unused file handles to zero because both `open` and
-:func:`create` check the value that is in a file handle before they proceed with
-the process of opening a file. During `open` or :func:`create`, if the value that
+`create` check the value that is in a file handle before they proceed with
+the process of opening a file. During `open` or `create`, if the value that
 is in the file handle matches that of an already open file, the process
 will be aborted and a File already open error message will be given.
 This gives you some protection against opening a second file with the
 same handle as a currently open file. If this happened, you would no
 longer be able to access the first file.
 
-An advantage of the :func:`close` function is that it returns a result which can
+An advantage of the `close` function is that it returns a result which can
 be tested to see if there were problems in closing a file. The most
 common reason for having a problem in closing a file is that the disk on
 which the file is located is no longer in the disk drive--or the handle
-was invalid. In both of these cases, :func:`close` will return a -1.
+was invalid. In both of these cases, `close` will return a -1.
 
 Files are not automatically closed when a program terminates. This
 allows users to run a program that opens files, and then access the

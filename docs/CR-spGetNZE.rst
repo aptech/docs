@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: spGetNZE(x)
 
-    :param x: 
+    :param x: data
     :type x: MxN sparse matrix
 
-    :returns: vals (*Nx1 vector*), non-zero values in x.
+    :returns: vals (*Nx1 vector*), non-zero values in *x*.
 
     :returns: rinds (*Nx1 vector*), row indices of corresponding non-zero values.
 
@@ -35,9 +35,9 @@ Examples
     y = denseToSp(x,0);
     
     // Get non-zero values, row indices and column indices
-    { v,r,c } = spGetNZE(y);
+    { v, r, c } = spGetNZE(y);
 
-v, the non-zero values, is equal to:
+*v*, the non-zero values, is equal to:
 
 ::
 
@@ -46,22 +46,23 @@ v, the non-zero values, is equal to:
      5 
      3
 
-r, the row indices, is equal to:
+*r*, the row indices, is equal to:
 
 ::
 
-    1 
+     1 
      2 
      4 
      5
 
-c, the column indices, is equal to:
+*c*, the column indices, is equal to:
 
 ::
 
-    4 
+     4 
      2 
      1 
      4
 
 .. seealso:: Functions :func:`spNumNZE`
+

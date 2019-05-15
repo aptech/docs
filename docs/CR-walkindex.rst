@@ -11,25 +11,23 @@ Format
 ----------------
 .. function:: walkindex(i, o, dim)
 
-    :param i: where M <= N.
+    :param i: where :math:`M <= N`.
     :type i: Mx1 vector of indices into an array
 
-    :param o: 
-    :type o: Nx1 vector of orders of an N-dimensional array
+    :param o: orders of an N-dimensional array
+    :type o: Nx1 vector
 
-    :param dim: , index into the vector of indices
-        i, corresponding to the dimension to walk through,
+    :param dim: :math:`[1-to-M]`, index into the vector of indices *i*, corresponding to the dimension to walk through,
         positive to walk the index forward, or negative to walk backward.
-    :type dim: scalar [1-to-M]
+    :type dim: scalar
 
     :returns: ni (*Mx1 vector of indices*), the new index.
 
 Remarks
 -------
 
-walkindex will return a scalar error code if the index cannot walk
+:func:`walkindex` will return a scalar error code if the index cannot walk
 further in the specified dimension and direction.
-
 
 Examples
 ----------------
@@ -47,12 +45,11 @@ Examples
 
 ::
 
-    2
+          2
     ind = 2
           3
 
-This example decrements the second value of the index vector 
-ind.
+This example decrements the second value of the index vector *ind*.
 
 ::
 
@@ -60,12 +57,12 @@ ind.
 
 ::
 
-    2
+          2
     ind = 2
           4
 
-Using the orders from the example above and the 
-ind that was returned, this example increments the third
-value of the index vector ind.
+Using the orders from the example above and the *ind* that was returned, 
+this example increments the third value of the index vector *ind*.
 
 .. seealso:: Functions :func:`nextindex`, :func:`previousindex`, :func:`loopnextindex`
+

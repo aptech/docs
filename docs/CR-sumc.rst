@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: sumc(x)
 
-    :param x: 
-    :type x: NxK matrix or L-dimensional array where the last two dimensions are NxK
+    :param x: NxK matrix or L-dimensional array where the last two dimensions are NxK
+    :type x: matrix or array
 
-    :returns: y (*Kx1 vector or L-dimensional array*) where the last two dimensions are Kx1.
+    :returns: y (*Kx1 vector or L-dimensional array*) where the last two dimensions are :math:`Kx1`.
 
 Examples
 ----------------
@@ -30,11 +30,11 @@ Examples
     // Sum the columns
     y = sumc(x);
 
-After the above code, the variables x and y are equal to:
+After the above code, the variables *x* and *y* are equal to:
 
 ::
 
-    0  2  4  6
+         0  2  4  6
     x =  8 10 12 14
         16 18 20 22
     
@@ -53,7 +53,7 @@ After the above code, the variables x and y are equal to:
     // dimension
     z = sumc(a);
 
-a is a 2x3x4 array such that:
+*a* is a 2x3x4 array such that:
 
 ::
 
@@ -69,7 +69,7 @@ a is a 2x3x4 array such that:
           17.000000     18.000000     19.000000     20.000000
           21.000000     22.000000     23.000000     24.000000
 
-Variable z is a 2x4x1 array equal to:
+Variable *z* is a 2x4x1 array equal to:
 
 ::
 
@@ -88,3 +88,4 @@ Variable z is a 2x4x1 array equal to:
           60.000000
 
 .. seealso:: Functions :func:`cumsumc`, :func:`meanc`, :func:`stdc`
+

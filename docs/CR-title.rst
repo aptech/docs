@@ -5,7 +5,14 @@ title
 Purpose
 ----------------
 
-Sets the title for the graph. NOTE: This function is for the deprecated PQG graphics. Use plotSetTitle instead.
+Sets the title for the graph.
+
+.. NOTE:: This function is for the deprecated PQG graphics. Use :func:`plotSetTitle` instead.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -18,7 +25,7 @@ Remarks
 -------
 
 Up to three lines of title may be produced by embedding a line feed
-character ("\L") in the title string.
+character (``"\L"``) in the title string.
 
 
 Examples
@@ -38,3 +45,4 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`xlabel`, :func:`ylabel`, :func:`fonts`
+

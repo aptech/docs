@@ -11,17 +11,15 @@ Format
 ----------------
 .. function:: vals(s)
 
-    :param s: 
-    :type s: string of length N where N > 0
+    :param s: string of length :math:`N` where :math:`N > 0`
+    :type s: string
 
-    :returns: y (*Nx1 matrix*) containing the ASCII values of the
-        characters in the string  s.
+    :returns: y (*Nx1 matrix*) containing the ASCII values of the characters in the string *s*.
 
 Remarks
 -------
 
-If the string is null, the function will fail and an error message will
-be given.
+If the string is null, the function will fail and an error message will be given.
 
 
 Examples
@@ -50,8 +48,8 @@ Examples
        print "Exiting program now";
     endif;
 
-In this example the key function is used to read 
-keyboard input. When key returns a nonzero value,
+In this example the :func:`key` function is used to read 
+keyboard input. When :func:`key` returns a nonzero value,
 meaning a key has been pressed, the ASCII value it
 returns is tested to see if it is an uppercase or lowercase 'Y'.
 If it is, the program will follow the first branch and print:
@@ -67,3 +65,4 @@ otherwise, it will follow the second branch and print:
     Exiting program now
 
 .. seealso:: Functions :func:`chrs`, :func:`ftos`, :func:`stof`
+

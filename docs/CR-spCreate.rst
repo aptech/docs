@@ -25,14 +25,13 @@ Format
     :param cinds: column indices of corresponding non-zero values.
     :type cinds: Nx1 vector
 
-    :returns: y (*r x c sparse matrix*) .
+    :returns: y (*RxC sparse matrix*)
 
 Remarks
 -------
 
-Since sparse matrices are strongly typed in GAUSS, y must be defined as
-a sparse matrix before the call to spCreate.
-
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spCreate`.
 
 Examples
 ----------------
@@ -54,21 +53,16 @@ Examples
     
     y = spCreate(15,10,vals,rinds,cinds);
 
-This example creates a 15x10 sparse matrix y, containing
-the following non-zero values:
-Non-zero value
-Index
+This example creates a 15x10 sparse matrix *y*, containing the following non-zero values:
 
-1.7
-(2,4)
-
-2.4
-(5,1)
-
-3.2
-(8,9)
-
-4.5
-(13,5)
+================ =======
+Non-zero value   Index
+================ =======
+1.7              (2,4)
+2.4              (5,1)
+3.2              (8,9)
+4.5              (13,5)
+================ =======
 
 .. seealso:: Functions :func:`packedToSp`, :func:`denseToSp`, :func:`spEye`
+

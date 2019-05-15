@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: toeplitz(x)
 
-    :param x: 
+    :param x: data
     :type x: Kx1 vector
 
-    :returns: t (*KxK Toeplitz matrix*) .
+    :returns: t (*KxK Toeplitz matrix*)
 
 Examples
 ----------------
@@ -26,7 +26,7 @@ Examples
     // Create a diagonal-constant or Toeplitz matrix
     y = toeplitz(x);
 
-After the code above, y is equal to:
+After the code above, *y* is equal to:
 
 ::
 
@@ -41,4 +41,3 @@ Source
 
 toeplitz.src
 
-Toeplitz matrix column vector

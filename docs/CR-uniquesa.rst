@@ -4,17 +4,18 @@ uniquesa
 
 Purpose
 ----------------
-Removes duplicate elements from a string vector. NOTE: uniquesa is deprecated. Instances of this function should be replaced by unique.
+Removes duplicate elements from a string vector.
+
+.. NOTE:: :func:`uniquesa` is deprecated. Instances of this function should be replaced by :func:`unique`.
 
 Format
 ----------------
 .. function:: uniquesa(sv)
 
-    :param sv: 
+    :param sv: data
     :type sv: Nx1 or 1xN string vector
 
-    :returns: y (*sorted Mx1 string vector*) containing all unique
-        elements found in  sv.
+    :returns: y (*sorted Mx1 string vector*) containing all unique elements found in *sv*.
 
 Examples
 ----------------
@@ -29,11 +30,11 @@ Examples
     // unique elements from 'comTrades'
     commodity = uniquesa(comTrades);
 
-After the code above, the variables comTrades and commodity will be equal to:
+After the code above, the variables *comTrades* and *commodity* will be equal to:
 
 ::
 
-    corn
+                     corn
                      gold                  coffee
                  soybeans                    corn
     comTrades =    silver   commodity =      gold
@@ -45,7 +46,7 @@ After the code above, the variables comTrades and commodity will be equal to:
 Remarks
 -------
 
-It is important to note that the return from uniquesa will always be a
+It is important to note that the return from :func:`uniquesa` will always be a
 column vector, even if the input string array is a row vector.
 
 Source
@@ -54,3 +55,4 @@ Source
 uniquesa.src
 
 .. seealso:: Functions :func:`unique`, :func:`uniqindxsa`, :func:`uniqindx`
+

@@ -13,14 +13,13 @@ Format
     :param n: order of identity matrix.
     :type n: scalar
 
-    :returns: y (*n x n sparse identity matrix*) .
+    :returns: y (*n x n sparse identity matrix*) 
 
 Remarks
 -------
 
-Since sparse matrices are strongly typed in GAUSS, y must be defined as
-a sparse matrix before the call to spEye.
-
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spEye`.
 
 Examples
 ----------------
@@ -33,7 +32,7 @@ Examples
     // Create 3x3 sparse identity matrix
     y = spEye(3);
 
-y is now equal to:
+*y* is now equal to:
 
 ::
 
@@ -42,3 +41,4 @@ y is now equal to:
     0  0  1
 
 .. seealso:: Functions :func:`spCreate`, :func:`spOnes`, :func:`denseToSp`
+

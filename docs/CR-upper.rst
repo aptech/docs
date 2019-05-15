@@ -10,17 +10,16 @@ Format
 ----------------
 .. function:: upper(x)
 
-    :param x: or NxK matrix, or string array containing the character data to be converted to uppercase.
-    :type x: string
+    :param x: the character data to be converted to uppercase.
+    :type x: string or NxK matrix, or string array 
 
-    :returns: y (*string*), or NxK matrix, or string array containing the uppercase equivalent of the data in x.
+    :returns: y (*string or NxK matrix or string array*) containing the uppercase equivalent of the data in *x*.
 
 Remarks
 -------
 
-If x is a numeric matrix, y will contain garbage. No error message will
-be generated since GAUSS does not distinguish between numeric and
-character data in matrices.
+If *x* is a numeric matrix, *y* will contain garbage. No error message will
+be generated since GAUSS does not distinguish between numeric and character data in matrices.
 
 
 Examples
@@ -45,3 +44,4 @@ This code produces:
     UPPERCASE
 
 .. seealso:: Functions :func:`lower`
+

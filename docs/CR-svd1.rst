@@ -4,23 +4,22 @@ svd1
 
 Purpose
 ----------------
-Computes the singular value decomposition of a matrix
- so that: x = u * s * v'.
+Computes the singular value decomposition of a matrix so that: :math:`x = u * s * v'`.
 
 Format
 ----------------
 .. function:: svd1(x)
 
-    :param x: 
-    :type x: NxP matrix whose singular values are to be computed
+    :param x: matrix whose singular values are to be computed
+    :type x: NxP matrix
 
-    :returns: u (*NxN matrix*), the left singular vectors of x.
+    :returns: u (*NxN matrix*), the left singular vectors of *x*.
 
     :returns: s (*NxP diagonal matrix*), containing the singular
-        values of x arranged in descending order on the
+        values of *x* arranged in descending order on the
         principal diagonal.
 
-    :returns: v (*PxP matrix*), the right singular vectors of x.
+    :returns: v (*PxP matrix*), the right singular vectors of *x*.
 
 Examples
 ----------------
@@ -63,14 +62,14 @@ After the code above, the outputs will have the following values;
 Remarks
 -------
 
-#. svd1 is not threadsafe. New code should use svdusv instead.
-#. Error handling is controlled with the low bit of the trap flag.
+#. :func:`svd1` is not threadsafe. New code should use svdusv instead.
+#. Error handling is controlled with the low bit of the `trap` flag.
 
-+------------+-------------------------------------------------------------+
-| **trap 0** | set \_svderr to a non-zero value and terminate with message |
-+------------+-------------------------------------------------------------+
-| **trap 1** | set \_svderr to a non-zero value and continue execution     |
-+------------+-------------------------------------------------------------+
++------------+---------------------------------------------------------------+
+| **trap 0** | set *\_svderr* to a non-zero value and terminate with message |
++------------+---------------------------------------------------------------+
+| **trap 1** | set *\_svderr* to a non-zero value and continue execution     |
++------------+---------------------------------------------------------------+
 
 Source
 ------
@@ -79,4 +78,3 @@ svd.src
 
 .. seealso:: Functions :func:`svd`, :func:`svd2`, :func:`svdusv`
 
-singular value decomposition X USV'

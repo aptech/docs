@@ -5,14 +5,20 @@ tkf2ps
 Purpose
 ----------------
 
-Converts a .tkf file to a PostScript file.
-NOTE: This function is deprecated and does not work for the new .plot graphics files. Use plotSave to convert .plot files to PS format.
+Converts a *.tkf* file to a PostScript file.
+
+.. NOTE:: This function is deprecated and does not work for the new *.plot* graphics files. Use :func:`plotSave` to convert *.plot* files to PS format.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
 .. function:: tkf2ps(tekfile, psfile)
 
-    :param tekfile: name of .tkf file.
+    :param tekfile: name of *.tkf* file.
     :type tekfile: string
 
     :param psfile: name of PostScript file.
@@ -20,14 +26,12 @@ Format
 
     :returns: ret (*scalar*), 0 if successful.
 
-
-
 Remarks
 -------
 
-The conversion is done using the global parameters in peps.dec. You can
-modify these globally by editing the .dec file, or locally by setting
-them in your program before calling tkf2ps.
+The conversion is done using the global parameters in *peps.dec*. You can
+modify these globally by editing the *.dec* file, or locally by setting
+them in your program before calling :func:`tkf2ps`.
 
 See the header of the output PostScript file and a PostScript manual if
 you want to modify these parameters.

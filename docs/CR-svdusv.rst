@@ -4,23 +4,22 @@ svdusv
 
 Purpose
 ----------------
-Computes the singular value decomposition of x so that: x = u * s * v'.
+Computes the singular value decomposition of *x* so that: :math:`x = u * s * v'`.
 
 Format
 ----------------
 .. function:: svdusv(x)
 
-    :param x: , whose singular values are to be computed.
-    :type x: NxP matrix or K-dimensional array where the last two dimensions are NxP
+    :param x: NxP matrix or K-dimensional array where the last two dimensions are NxP, whose singular values are to be computed.
+    :type x: matrix or array
 
-    :returns: u (*NxN matrix or K-dimensional array*) where the last two dimensions are NxN, the left singular vectors
+    :returns: u (*NxN matrix or K-dimensional array*) where the last two dimensions are :math:`NxN`, the left singular vectors
         of x.
 
-    :returns: s (*NxP diagonal matrix or K-dimensional array*) where the last two dimensions describe NxP diagonal
-        arrays, the singular values of x arranged in descending order on the principal diagonal.
+    :returns: s (*NxP diagonal matrix or K-dimensional array*) where the last two dimensions describe :math:`NxP` diagonal
+        arrays, the singular values of *x* arranged in descending order on the principal diagonal.
 
-    :returns: v (*PxP matrix or K-dimensional array*) where
-        the last two dimensions are PxP, the right singular vectors of x.
+    :returns: v (*PxP matrix or K-dimensional array*) where the last two dimensions are :math:`PxP`, the right singular vectors of *x*.
 
 Examples
 ----------------
@@ -63,23 +62,23 @@ After the code above, the outputs will have the following values;
 Remarks
 -------
 
-#. If x is an array, the resulting arrays u, s and v will contain their
+#. If *x* is an array, the resulting arrays *u*, *s* and *v* will contain their
    respective results for each of the corresponding 2-dimensional arrays
-   described by the two trailing dimensions of x. In other words, for a
-   10x4x5 array x:
+   described by the two trailing dimensions of *x*. In other words, for a
+   10x4x5 array *x*:
 
-   -  u will be a 10x4x4 array, containing the left singular vectors of
-      each of the 10 corresponding 4x5 arrays contained in x.
-   -  s will be a 10x4x5 array, containing the singular values.
-   -  v will be a 10x5x5 array containing, the right singular vectors.
+   -  *u* will be a 10x4x4 array, containing the left singular vectors of
+      each of the 10 corresponding 4x5 arrays contained in *x*.
+   -  *s* will be a 10x4x5 array, containing the singular values.
+   -  *v* will be a 10x5x5 array containing, the right singular vectors.
 
-#. Error handling is controlled by the trap command. If not all of the
+#. Error handling is controlled by the `trap` command. If not all of the
    singular values can be computed:
 
    +-----------------------------------+-----------------------------------+
    | **trap 0**                        | terminate with an error message   |
    +-----------------------------------+-----------------------------------+
-   | **trap 1**                        | set the first element of s to a   |
+   | **trap 1**                        | set the first element of *s* to a |
    |                                   | scalar missing value and continue |
    |                                   | execution                         |
    +-----------------------------------+-----------------------------------+
@@ -97,10 +96,10 @@ Remarks
          // Code for failure case
       endif;
 
-   Note that in the trap 1 case, if the input to svdusv is a
+   Note that in the ``trap 1`` case, if the input to :func:`svdusv` is a
    multi-dimensional array and the singular values for a submatrix fail
-   to compute, only the first value of that s submatrix will be set to a
-   missing value. For a 3 dimensional array, you could change the if
+   to compute, only the first value of that *s* submatrix will be set to a
+   missing value. For a 3 dimensional array, you could change the `if`
    check in the above example to:
 
    ::
@@ -110,4 +109,3 @@ Remarks
 
 .. seealso:: Functions :func:`svd1`, :func:`svdcusv`, :func:`svds`
 
-singular value decomposition x u s v'

@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: spScale(x)
 
-    :param x: 
+    :param x: data
     :type x: MxN sparse matrix
 
-    :returns: a (*MxN scaled sparse matrix*) .
+    :returns: a (*MxN scaled sparse matrix*) 
 
     :returns: r (*Mx1 vector*), row scale factors.
 
@@ -22,9 +22,7 @@ Format
 Remarks
 -------
 
-spScale scales the elements of the matrix by powers of 10 so that they
-are all within (-10,10).
-
+:func:`spScale` scales the elements of the matrix by powers of 10 so that they are all within :math:`(-10,10)`.
 
 Examples
 ----------------
@@ -36,7 +34,7 @@ Examples
            8 -100    0 };
     
     declare sparse matrix sm, smsc;
-    sm = denseToSp(x,0);
+    sm = denseToSp(x, 0);
      
     { smsc, r, c } = spScale(sm);
 
@@ -44,7 +42,7 @@ The results:
 
 ::
 
-    2.50  -0.12   0.00 
+            2.50  -0.12   0.00 
     smsc =  0.30   0.00  -0.11 
             0.80  -1.00   0.00 
     

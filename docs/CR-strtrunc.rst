@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: strtrunc(sa, maxlen)
 
-    :param sa: 
+    :param sa: data
     :type sa: NxK string array
 
     :param maxlen: maximum length.
@@ -27,11 +27,11 @@ Examples
     string s = { "best", "linear", "unbiased", "estimator" };
     ss = strtrunc(s, 6);
 
-After the code above, the variables s and ss are equal to:
+After the code above, the variables *s* and *ss* are equal to:
 
 ::
 
-    best
+            best
           linear
     s = unbiased
        estimator
@@ -42,3 +42,4 @@ After the code above, the variables s and ss are equal to:
           estima
 
 .. seealso:: Functions :func:`strtriml`, :func:`strtrimr`, :func:`strtruncl`, :func:`strtruncpad`, :func:`strtruncr`
+

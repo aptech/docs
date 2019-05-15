@@ -66,10 +66,12 @@ Format
         - :code:`"canonical"`
 
         The default link of each distribution is the canonical link function:
-        Normal -- identity;
-        Binomial -- logit;
-        Gamma -- inverse;
-        Possion -- nature log.
+
+        - Normal -- identity;
+        - Binomial -- logit;a
+        - Gamma -- inverse;
+        - Possion -- nature log.
+
     :type link: string
 
     :param ctl: For an instance named *ct1*, the members are:

@@ -11,11 +11,10 @@ Format
 ----------------
 .. function:: tanh(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*)         containing the hyperbolic tangents of the
-        elements of x.
+    :returns: y (*NxK matrix or N-dimensional array*) containing the hyperbolic tangents of the elements of *x*.
 
 Examples
 ----------------
@@ -28,7 +27,7 @@ Examples
     x = x * pi;
     y = tanh(x);
 
-After the above code, y is equal to:
+After the above code, *y* is equal to:
 
 ::
 
@@ -45,4 +44,3 @@ Source
 
 trig.src
 
-hyperbolic hyperbolic tangent trigonometric

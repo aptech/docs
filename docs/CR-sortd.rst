@@ -21,27 +21,23 @@ Format
     :type keyvar: string
 
     :param keytyp: type of key variable.
+
+        ==== ===========================
+        1    numeric key, ascending order."
+        2    character key, ascending order."
+        -1   numeric key, descending order."
+        -2   character key, descending order."
+        ==== ===========================
+
     :type keytyp: scalar
-
-    .. csv-table::
-        :widths: auto
-
-        "1      numeric key, ascending order."
-        "2      character key, ascending order."
-        "-1      numeric key, descending order."
-        "-2      character key, descending order."
-
 
 
 Remarks
 -------
 
-The data setinfile will be sorted on the variablekeyvar, and will be
-placed in outfile.
+The dataset *infile* will be sorted on the variable *keyvar*, and will be placed in *outfile*.
 
 If the inputs are null ("" or 0), the procedure will ask for them.
-
-
 
 Source
 ------
@@ -49,3 +45,4 @@ Source
 sortd.src
 
 .. seealso:: Functions :func:`sortmc`, :func:`sortc`, :func:`sorthc`
+

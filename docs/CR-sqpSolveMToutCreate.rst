@@ -4,7 +4,12 @@ sqpSolveMToutCreate
 
 Purpose
 ----------------
-Creates an instance of a structure of type sqpSolveMTout set to default values.
+Creates an instance of a structure of type :class:`sqpSolveMTout` set to default values.
+
+Include
+-------
+
+sqpsolvemt.sdf
 
 Format
 ----------------
@@ -30,4 +35,3 @@ sqpsolvemt.src
 
 .. seealso:: Functions :func:`sqpSolve`
 
-create struct structure type sqpSolveMTout default value

@@ -4,29 +4,28 @@ sortind, sortindc
 
 Purpose
 ----------------
-Returns the sorted index of x.
+Returns the sorted index of *x*.
 
 Format
 ----------------
 .. function:: sortind(x) 
-			  sortindc(x)
+              sortindc(x)
 
-    :param x: 
+    :param x: data
     :type x: Nx1 column vector
 
-    :returns: ind (*Nx1 vector representing sorted index*) of x.
+    :returns: ind (*Nx1 vector representing sorted index*) of *x*.
 
 Remarks
 -------
 
-sortind assumes that x contains numeric data. sortindc assumes that x
+:func:`sortind` assumes that *x* contains numeric data. :func:`sortindc` assumes that *x*
 contains character data.
 
 This function can be used to sort several matrices in the same way that
 some other reference matrix is sorted. To do this, create the index of
-the reference matrix, then use submat to rearrange the other matrices in
+the reference matrix, then use :func:`submat` to rearrange the other matrices in
 the same way.
-
 
 Examples
 ----------------
@@ -43,7 +42,7 @@ After running the above code:
 
 ::
 
-    9.00
+          9.00
           8.00
     x  =  0.00
           4.00

@@ -33,6 +33,8 @@ Examples
     dt = utctodt(tc);
     print "dt = " dt;
 
+produces:
+
 ::
 
     tc = 1346290409
@@ -44,3 +46,4 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodtv`, :func:`dttodtv`, :func:`dtvtodt`, :func:`dttoutc`, :func:`dtvtodt`, :func:`strtodt`, :func:`dttostr`
+

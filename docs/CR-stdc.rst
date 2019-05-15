@@ -4,38 +4,37 @@ stdc
 
 Purpose
 ----------------
-Computes the standard deviation of the
-elements in each column of a matrix.
+Computes the standard deviation of the elements in each column of a matrix.
 
 Format
 ----------------
 .. function:: stdc(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*Kx1 vector*), the standard
-        deviation of each column of x.
+    :returns: y (*Kx1 vector*), the standard deviation of each column of *x*.
+
+.. DANGER:: fix equations
 
 Remarks
 -------
 
-This function essentially computes sample standard deviation, s:
+This function essentially computes sample standard deviation, *s*:
 
-::
+.. math::
 
    s=1n−1⁢×∑i=1n(Xi−X¯)2
 
-Thus, the divisor is N-1 rather than N, where N is the number of
+Thus, the divisor is :math:`N-1` rather than :math:`N`, where :math:`N` is the number of
 elements being summed.
 
 To convert to the population's standard deviation, multiply by
-:math:`\sqrt{\frac{n - 1}{n}}`
-:
-::
+:math:`\sqrt{\frac{n - 1}{n}}`:
+
+.. math::
 
    σ=s×n−1n
-
 
 Examples
 ----------------
@@ -53,7 +52,7 @@ Examples
     // Compute the standard deviation of the column vector 'y'
     std = stdc(y);
 
-The standard deviation, in variable std, is equal to:
+The standard deviation, in variable *std*, is equal to:
 
 ::
 
@@ -61,4 +60,3 @@ The standard deviation, in variable std, is equal to:
 
 .. seealso:: Functions :func:`meanc`
 
-standard deviation column matrix

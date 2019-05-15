@@ -25,31 +25,29 @@ Format
     :param g: grid size factor.
     :type g: scalar
 
-    :returns: u (*(K*g)x1 vector*) , x-abscissae, regularly spaced.
+    :returns: u (*(K*g)x1 vector*), x-abscissae, regularly spaced.
 
-    :returns: v (*(N*g)x1 vector*) , y-abscissae, regularly spaced.
+    :returns: v (*(N*g)x1 vector*), y-abscissae, regularly spaced.
 
-    :returns: w (*(K*g)x(N*g) matrix*) , interpolated ordinates.
+    :returns: w (*(K*g)x(N*g) matrix*), interpolated ordinates.
 
 
 
 Remarks
 -------
 
-sigma contains the tension factor. This value indicates the curviness
-desired. If sigma is nearly zero (e.g., .001), the resulting surface is
-approximately the tensor product of cubic splines. Ifsigma is large
-(e.g., 50.0), the resulting surface is approximately bi-linear. Ifsigma
+*sigma* contains the tension factor. This value indicates the curviness
+desired. If *sigma* is nearly zero (e.g., .001), the resulting surface is
+approximately the tensor product of cubic splines. If *sigma* is large
+(e.g., 50.0), the resulting surface is approximately bi-linear. If *sigma*
 equals zero, tensor products of cubic splines result. A standard value
-forsigma is approximately 1.
+for *sigma* is approximately 1.
 
-g is the grid size factor. It determines the fineness of the output
-grid. Forg = 1, the output matrices are identical to the input matrices.
-Forg = 2, the output grid is twice as fine as the input grid, i.e.,u
-will have twice as many columns as x,v will have twice as many rows as
-y, andw will have twice as many rows and columns asz.
-
-
+*g* is the grid size factor. It determines the fineness of the output
+grid. For :math:`g = 1`, the output matrices are identical to the input matrices.
+For :math:`g = 2`, the output grid is twice as fine as the input grid, i.e., *u*
+will have twice as many columns as *x*, *v* will have twice as many rows as
+*y*, and *w* will have twice as many rows and columns as *z*.
 
 Source
 ------

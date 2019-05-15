@@ -11,19 +11,21 @@ Format
 ----------------
 .. function:: sortmc(x, v)
 
-    :param x: 
-    :type x: NxK matrix to be sorted
+    :param x: data to be sorted
+    :type x: NxK matrix
 
-    :param v: in
-        order, that are to be sorted. If an element is negative,
-        that column will be interpreted as character data.
-    :type v: Lx1 vector containing integers specifying the columns
+    :param v: vector containing integers specifying the columns in order, that are to be sorted. 
+        If an element is negative, that column will be interpreted as character data.
+    :type v: Lx1 vector
 
-    :returns: y (*NxK sorted matrix*) .
+    :returns: y (*NxK sorted matrix*)
 
 Examples
 ----------------
-sortmc
+
+:func:`sortmc` keeps all rows together. After it sorts on the first specified column, 
+it will continue to sort the rows of the matrix using the other specified columns ONLY 
+when there is a tie in the first column. For example:
 
 ::
 
@@ -40,7 +42,7 @@ will return:
 
 ::
 
-    1      2      8      9
+         1      2      8      9
     s1 = 3      7      4      1
          3      6      1      9
          9      2      5      6
@@ -50,10 +52,11 @@ will return:
          3      7      4      1
          9      2      5      6
 
-In the output above, we see that the difference between s1 and sm is
-that the second and third rows have been switched. This is because sortmc first sorted the matrix
-based upon row one like sortc. Then sortmc sorted the rows in which
-the first column was the same (in our example they are both threes), based upon the values in the second column.
+In the output above, we see that the difference between *s1* and *sm* is
+that the second and third rows have been switched. This is because :func:`sortmc` 
+first sorted the matrix based upon row one like :func:`sortc`. Then :func:`sortmc` sorted the 
+rows in which the first column was the same (in our example they are both threes), 
+based upon the values in the second column.
 
 Source
 ------
@@ -61,3 +64,4 @@ Source
 sortmc.src
 
 .. seealso:: Functions :func:`sortd`, :func:`sortc`, :func:`sortcc`, :func:`sorthc`, :func:`sorthcc`
+

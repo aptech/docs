@@ -10,12 +10,10 @@ Format
 ----------------
 .. function:: strtriml(sa)
 
-    :param sa: 
+    :param sa: data
     :type sa: NxM string array
 
-    :returns: y (*NxM string array*) .
-
-
+    :returns: y (*NxM string array*)
 
 Source
 ------
@@ -23,3 +21,4 @@ Source
 strfns.src
 
 .. seealso:: Functions :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncpad`, :func:`strtruncr`
+

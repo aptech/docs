@@ -9,16 +9,16 @@ Sorts a numeric matrix, character matrix or string array.
 
 Format
 ----------------
-.. function:: sortcc(x, c)
+.. function:: sortc(x, c)
+              sortcc(x, c)
 
-    :param x: or string array.
-    :type x: NxK matrix
+    :param x: data
+    :type x: NxK matrix or string array.
 
-    :param c: 
-    :type c: scalar specifying one column of x to sort on
+    :param c: specifying one column of *x* to sort on
+    :type c: scalar
 
-    :returns: y (*NxK matrix*) equal to x and sorted on the column
-        c.
+    :returns: y (*NxK matrix*) equal to *x* and sorted on the column *c*.
 
 Examples
 ----------------
@@ -35,7 +35,7 @@ Sort rows of a matrix based upon first column
     // Sort 'x' based upon the first row
     y = sortc(x,1);
 
-The above example code produces, y equal to:
+The above example code produces, *y* equal to:
 
 ::
 
@@ -59,11 +59,11 @@ Sort rows of a 5x1 string vector
     // Sort 'letters'
     letters_s = sortc(letters,1);
 
-The above example code produces, letters_s equal to:
+The above example code produces, *letters_s* equal to:
 
 ::
 
-    alpha
+      alpha
        beta
       delta
     epsilon
@@ -76,18 +76,18 @@ Remarks
    specified column. That is, they will sort the elements of a column
    and will arrange all rows of the matrix in the same order as the
    sorted column.
--  sortc assumes that the column to sort on is numeric. sortcc assumes
+-  :func:`sortc` assumes that the column to sort on is numeric. :func:`sortcc` assumes
    that the column to sort on contains character data.
 -  The matrix may contain both character and numeric data, but the sort
    column must be all of one type.
--  Missing values will sort as if their value is below -∞.
+-  Missing values will sort as if their value is below :math:`-∞`.
 -  The sort will be in ascending order.
 -  This function uses the Quicksort algorithm.
--  If you need to obtain the matrix sorted in descending order, you can
-   use:
+-  If you need to obtain the matrix sorted in descending order, you can use:
 
    ::
 
       rev(sortc(x, c))
 
 .. seealso:: Functions :func:`rev`, :func:`sortind`, :func:`unique`
+

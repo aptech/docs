@@ -8,12 +8,12 @@ Writes a GAUSS string or string array to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: xlsWriteSA(data, file, range, sheet, vls)
+.. function:: xlsWriteSA(data[, file[, range[, sheet[, vls]]]])
 
-    :param data: 
+    :param data: data
     :type data: string or string array
 
-    :param file: name of .xls file.
+    :param file: name of *.xls* file.
     :type file: string
 
     :param range: the starting point of the write, e.g. "a2". Default = "a1".
@@ -22,13 +22,57 @@ Format
     :param sheet: sheet number. Default = 1.
     :type sheet: scalar
 
-    :param vls: specifies the
-        conversion of GAUSS characters into Excel® empty cells
-        and special types (see Remarks). A null string results in
-        all null strings being converted to empty cells. Default = null string.
+    :param vls: specifies the conversion of GAUSS characters into Excel® empty cells
+        and special types (see Remarks). A null string results in all null strings being 
+        converted to empty cells. Default = null string.
     :type vls: null string or 9x1 string array
 
     :returns: ret (*scalar*), 0 if success or a scalar error code.
+
+Portability
+------------
+
+Windows, Linux and macOS
+
+The *vls* input is currently ignored on macOS and Linux. Missing values will be returned for all cells that are empty or contain errors.
+
+Remarks
+-------
+
+#. The *vls* argument lets users control the export to Excel® empty cells
+   and special types, according to the following table:
+
+   ============= ============
+   Row Number    Excel® Cell
+   ============= ============
+   1             empty cell
+   2             ``#N/A``
+   3             ``#VALUE!``
+   4             ``#DIV/0!``
+   5             ``#NAME?``
+   6             ``#REF!``
+   7             ``#NUM!``
+   8             ``#NULL!``
+   9             ``#ERR``
+   ============= ============
+
+   Use the following to convert all occurrences of "Division by Zero" to
+   ``#DIV/0!``, and all null strings to empty cells:
+
+   ::
+
+      vls = reshape("",9,1);
+      vls[4] = "Division by Zero";
+
+#. If :func:`xlsWriteSA` fails, it will either terminate and print an error
+   message or return a scalar error code, which can be decoded with
+   :func:`scalerr`, depending on the state of the `trap` flag.
+
+   +------------+--------------------------------------------+
+   | ``trap 0`` | Print error message and terminate program. |
+   +------------+--------------------------------------------+
+   | ``trap 1`` | Return scalar error code 10.               |
+   +------------+--------------------------------------------+
 
 Examples
 ----------------
@@ -45,7 +89,8 @@ Basic Example
     // from cell 'A1' to 'C1'
     ret = xlsWriteSA(var_names, "myfile.xlsx");
 
-'myfile.xlsx'is saved in your current working directory. You can find your current working directory in the main tool bar (in the top of GAUSS).
+'*myfile.xlsx*'is saved in your current working directory. You can find your current working directory 
+in the main tool bar (in the top of GAUSS).
 
 Write To a Range
 ++++++++++++++++
@@ -69,58 +114,5 @@ Specify Path and Sheet Number
     // Write the data from 'labels' to cells 'D7:D9' on sheet 2 of 'myfile.xlsx'
     ret = xlsWriteSA(labels, "C:/mydata/myfile.xlsx", "D7", 2);
 
-Remarks
--------
-
-#. The vls argument lets users control the export to Excel® empty cells
-   and special types, according to the following table:
-
-   +------------+-------------+
-   | Row Number | Excel® Cell |
-   +------------+-------------+
-   | 1          | empty cell  |
-   +------------+-------------+
-   | 2          | #N/A        |
-   +------------+-------------+
-   | 3          | #VALUE!     |
-   +------------+-------------+
-   | 4          | #DIV/0!     |
-   +------------+-------------+
-   | 5          | #NAME?      |
-   +------------+-------------+
-   | 6          | #REF!       |
-   +------------+-------------+
-   | 7          | #NUM!       |
-   +------------+-------------+
-   | 8          | #NULL!      |
-   +------------+-------------+
-   | 9          | #ERR        |
-   +------------+-------------+
-
-   Use the following to convert all occurrences of "Division by Zero" to
-   #DIV/0!, and all null strings to empty cells:
-
-   ::
-
-      vls = reshape("",9,1);
-      vls[4] = "Division by Zero";
-
-#. If xlsWriteSA fails, it will either terminate and print an error
-   message or return a scalar error code, which can be decoded with
-   scalerr, depending on the state of the trap flag.
-
-   +------------+--------------------------------------------+
-   | **trap 0** | Print error message and terminate program. |
-   +------------+--------------------------------------------+
-   | **trap 1** | Return scalar error code 10.               |
-   +------------+--------------------------------------------+
-
-Portability
-+++++++++++
-
-**Windows**, **Linux** and **Mac**
-
-The vls input is currently ignored on Mac and Linux. Missing values will
-be returned for all cells that are empty or contain errors.
-
 .. seealso:: Functions :func:`xlsReadM`, :func:`xlsWrite`, :func:`xlsWriteM`, :func:`xlsReadSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
+

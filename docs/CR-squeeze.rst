@@ -10,11 +10,10 @@ Format
 ----------------
 .. function:: squeeze(a)
 
-    :param a: 
+    :param a: data
     :type a: Multi-dimensional array
 
-    :returns: atrim (*Multidimensional array or matrix*) with all dimensions
-        equal to 1 removed.
+    :returns: atrim (*Multidimensional array or matrix*) with all dimensions equal to 1 removed.
 
 Remarks
 -------
@@ -56,3 +55,4 @@ After the above code:
                  -0.45845   0.77882 -0.36897  0.78537
 
 .. seealso:: Functions :func:`areshape`, :func:`atranspose`
+

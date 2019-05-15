@@ -4,18 +4,24 @@ spLDL
 
 Purpose
 ----------------
-Computes the LDL decomposition of a symmetric sparse matrix A.
+Computes the :math:`LDL` decomposition of a symmetric sparse matrix *A*.
 
 Format
 ----------------
 .. function:: spLDL(a)
 
-    :param a: symmetric sparse matrix.
-    :type a: N x N
+    :param a: NxN symmetric sparse matrix.
+    :type a: sparse matrix
 
-    :returns: l (*NxN lower-triangular sparse matrix*) .
+    :returns: l (*NxN lower-triangular sparse matrix*)
 
-    :returns: d (*NxN diagonal sparse matrix*) .
+    :returns: d (*NxN diagonal sparse matrix*)
+
+Remarks
+-------
+
+:func:`spLDL` will not check to see if the input matrix is symmetric. The
+function looks only at the lower triangular portion of the input matrix.
 
 Examples
 ----------------
@@ -32,18 +38,13 @@ Examples
      a = densetosp(nz,0);
      { l, d } = spLDL(a);
 
-Remarks
--------
-
-spLDL will not check to see if the input matrix is symmetric. The
-function looks only at the lower triangular portion of the input matrix.
-
-.. seealso:: Functions :func:`spLU`
-
 Technical Notes
-+++++++++++++++
+----------------
 
-spLDL implements functions from the TAUCS library:
+:func:`spLDL` implements functions from the TAUCS library:
 
 TAUCS Version 2.2 Copyright ©2003, by Sivan Toledo, Tel-Aviv University,
 stoledo@tau.ac.il. All Rights Reserved.
+
+.. seealso:: Functions :func:`spLU`
+

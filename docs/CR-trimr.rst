@@ -10,26 +10,23 @@ Format
 ----------------
 .. function:: trimr(x, t, b)
 
-    :param x: 
-    :type x: NxK matrix from which rows are to be trimmed
+    :param x: matrix from which rows are to be trimmed
+    :type x: NxK matrix
 
-    :param t: 
-    :type t: scalar containing the number of rows which are
-        to be removed from the top of x
+    :param t: containing the number of rows which are to be removed from the top of *x*
+    :type t: scalar
 
-    :param b: 
-    :type b: scalar containing the number of rows which are
-        to be removed from the bottom of x
+    :param b: containing the number of rows which are to be removed from the bottom of *x*
+    :type b: scalar
 
-    :returns: y (*RxK matrix*) where R=N-(t + b),
-        containing the rows left after the trim.
+    :returns: y (*RxK matrix*) where :math:`R=N-(t + b)`, containing the rows left after the trim.
+
+.. DANGER:: verify equation.
 
 Remarks
 -------
 
-If either t or b is zero, then no rows will be trimmed from that end of
-the matrix.
-
+If either *t* or *b* is zero, then no rows will be trimmed from that end of the matrix.
 
 Examples
 ----------------
@@ -42,7 +39,7 @@ Examples
     // Remove the top 2 rows of x and the bottom row
     y = trimr(x,2,1);
 
-If x is equal to:
+If *x* is equal to:
 
 ::
 
@@ -52,7 +49,7 @@ If x is equal to:
     0.054 0.084 0.526
     0.880 0.278 0.199
 
-then y will equal:
+then *y* will equal:
 
 ::
 
@@ -60,3 +57,4 @@ then y will equal:
     0.054 0.084 0.526
 
 .. seealso:: Functions :func:`submat`, :func:`rotater`, :func:`shiftr`
+

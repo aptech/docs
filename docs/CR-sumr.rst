@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: sumr(x)
 
-    :param x: 
-    :type x: NxK matrix or L-dimensional array where the last two dimensions are NxK
+    :param x: NxK matrix or L-dimensional array where the last two dimensions are NxK
+    :type x: matrix or array
 
     :returns: y (*Nx1 vector or L-dimensional array*) where the last two dimensions are Nx1.
 
@@ -27,11 +27,11 @@ Examples
     // Sum the rows
     y = sumr(x);
 
-After the above code, the variables x and y will be:
+After the above code, the variables *x* and *y* will be:
 
 ::
 
-    1  2  3  4        10
+        1  2  3  4        10
     x = 5  6  7  8   y =  26
         9 10 11 12        42
 
@@ -42,7 +42,7 @@ After the above code, the variables x and y will be:
     a = areshape(seqa(1,1,24),2|3|4);
     z = sumr(a);
 
-a is a 2x3x4 array such that:
+*a* is a 2x3x4 array such that:
 
 ::
 
@@ -58,7 +58,7 @@ a is a 2x3x4 array such that:
           17.000000     18.000000     19.000000     20.000000
           21.000000     22.000000     23.000000     24.000000
 
-The variable z is equal to:
+The variable *z* is equal to:
 
 ::
 
@@ -75,3 +75,4 @@ The variable z is equal to:
           90.000000
 
 .. seealso:: Functions :func:`sumc`
+

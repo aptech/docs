@@ -16,14 +16,13 @@ Format
     :param c: columns of output matrix.
     :type c: scalar
 
-    :returns: y (*r x c sparse matrix*) .
+    :returns: y (*RxC sparse matrix*)
 
 Remarks
 -------
 
-Since sparse matrices are strongly typed in GAUSS, y must be defined as
-a sparse matrix before the call to spZeros.
-
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spZeros`.
 
 Examples
 ----------------
@@ -38,7 +37,7 @@ Examples
     // Create a dense matrix with the same values as 'y'
     d = spToDense(y);
 
-The contents of d are equal to:
+The contents of *d* are equal to:
 
 ::
 
@@ -48,3 +47,4 @@ The contents of d are equal to:
     0 0 0
 
 .. seealso:: Functions :func:`spOnes`, :func:`spEye`
+

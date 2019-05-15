@@ -13,206 +13,201 @@ Format
     :param &fct: pointer to a procedure that computes the function to be minimized. This procedure must have one input
         argument, a vector of parameter values, and one output argument, the value of the function evaluated
         at the input vector of parameter values.
-    :type &fct: TODO
+    :type &fct: function pointer
 
-    :param start: 
-    :type start: Kx1 vector of start values
+    :param start: start values
+    :type start: Kx1 vector
 
     :returns: x (*Kx1 vector*) of parameters at minimum.
 
-    :returns: f (*scalar*), function evaluated at x.
+    :returns: f (*scalar*), function evaluated at *x*.
 
-    :returns: lagr (*vector*), created using vput. Contains the Lagrangean
-        for the constraints. They may be extracted with the
-        vread command using the following strings:
+    :returns: lagr (*vector*), created using :func:`vput`. Contains the Lagrangean
+        for the constraints. They may be extracted with the :func:`vread` command using the following strings:
 
-    .. csv-table::
-        :widths: auto
+        =========== ========================================
+        "lineq"     Lagrangeans of linear equality constraints
+        "nlineq"    Lagrangeans of nonlinear equality constraints
+        "linineq"   Lagrangeans of linear inequality constraints
+        "nlinineq"  Lagrangeans of nonlinear inequality constraints
+        "bounds"    Lagrangeans of bounds
+        =========== ========================================
 
-        ""lineq"", "Lagrangeans of linear equality constraints,"
-        ""nlineq"", "Lagrangeans of nonlinear equality constraints"
-        ""linineq"", "Lagrangeans of linear inequality constraints"
-        ""nlinineq"", "Lagrangeans of nonlinear inequality constraints"
-        ""bounds"", "Lagrangeans of bounds"
-        "Whenever a constraint is active, its associated Lagrangean will be nonzero."
+        Whenever a constraint is active, its associated Lagrangean will be nonzero.
 
-    :returns: retcode (*return code*) :
+    :returns: retcode (*scalar*) return code:
 
-    .. csv-table::
-        :widths: auto
+        == ====================================
+        0  normal convergence
+        1  forced exit
+        2  maximum number of iterations exceeded
+        3  function calculation failed
+        4  gradient calculation failed
+        5  Hessian calculation failed
+        6  line search failed
+        7  error with constraints
+        == ====================================
 
-        "0", "normal convergence"
-        "1", "forced exit"
-        "2", "maximum number of iterations exceeded"
-        "3", "function calculation failed"
-        "4", "gradient calculation failed"
-        "5", "Hessian calculation failed"
-        "6", "line search failed"
-        "7", "error with constraints"
+.. DANGER:: check equations
 
 Global Input
 ------------
 
-+-----------------+-----------------------------------------------------+
-| \_sqp_A         | MxK matrix, linear equality constraint              |
-|                 | coefficients.                                       |
-+-----------------+-----------------------------------------------------+
-| \_sqp_B         | Mx1 vector, linear equality constraint constants.   |
-|                 | These globals are used to specify linear equality   |
-|                 | constraints of the following type:                  |
-|                 |                                                     |
-|                 | where x is the Kx1 unknown parameter vector.        |
-+-----------------+-----------------------------------------------------+
-| \_sqp_EqProc    | scalar, pointer to a procedure that computes the    |
-|                 | nonlinear equality constraints. For example, the    |
-|                 | statement:                                          |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |    _sqp_EqProc = &eqproc;                           |
-|                 |                                                     |
-|                 | tells sqpSolve that nonlinear equality constraints  |
-|                 | are to be placed on the parameters and where the    |
-|                 | procedure computing them is to be found. The        |
-|                 | procedure must have one input argument, the Kx1     |
-|                 | vector of parameters, and one output argument, the  |
-|                 | Rx1 vector of computed constraints that are to be   |
-|                 | equal to zero. For example, suppose that you wish   |
-|                 | to place the following constraint:                  |
-|                 |                                                     |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |    p[1] * p[2] = p[3]                               |
-|                 |                                                     |
-|                 | The procedure for this is:                          |
-|                 |                                                     |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |    proc eqproc(p);                                  |
-|                 |      retp(p[1]*p[2]-p[3]);                          |
-|                 |    endp;                                            |
-+-----------------+-----------------------------------------------------+
-| \_sqp_C         | MxK matrix, linear inequality constraint            |
-|                 | coefficients.                                       |
-+-----------------+-----------------------------------------------------+
-| \_sqp_D         | Mx1 vector, linear inequality constraint constants. |
-|                 | These globals are used to specify linear inequality |
-|                 | constraints of the following type:                  |
-|                 |                                                     |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |    _sqp_C * X >= _sqp_D                             |
-|                 |                                                     |
-|                 | where x is the Kx1 unknown parameter vector.        |
-+-----------------+-----------------------------------------------------+
-| \_sqp_IneqProc  | scalar, pointer to a procedure that computes the    |
-|                 | nonlinear inequality constraints. For example the   |
-|                 | statement:                                          |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |    _sqp_EqProc = &ineqproc;                         |
-|                 |                                                     |
-|                 | tells sqpSolve that nonlinear equality constraints  |
-|                 | are to be placed on the parameters and where the    |
-|                 | procedure computing them is to be found. The        |
-|                 | procedure must have one input argument, the Kx1     |
-|                 | vector of parameters, and one output argument, the  |
-|                 | Rx1 vector of computed constraints that are to be   |
-|                 | equal to zero. For example, suppose that you wish   |
-|                 | to place the following constraint:                  |
-|                 |                                                     |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |    p[1] * p[2] >= p[3]                              |
-|                 |                                                     |
-|                 | The procedure for this is:                          |
-|                 |                                                     |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |    proc ineqproc(p);                                |
-|                 |      retp(p[1]*[2]-p[3]);                           |
-|                 |    endp;                                            |
-+-----------------+-----------------------------------------------------+
-| \_sqp_Bounds    | Kx2 matrix, bounds on parameters. The first column  |
-|                 | contains the lower bounds, and the second column    |
-|                 | the upper bounds. If the bounds for all the         |
-|                 | coefficients are the same, a 1x2 matrix may be      |
-|                 | used. Default is:                                   |
-|                 |      [1] -1e256     [2] 1e256                       |
-+-----------------+-----------------------------------------------------+
-| \_sqp_GradProc  | scalar, pointer to a procedure that computes the    |
-|                 | gradient of the function with respect to the        |
-|                 | parameters. For example, the statement:             |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |    _sqp_GradProc = &gradproc;                       |
-|                 |                                                     |
-|                 | tells sqpSolve that a gradient procedure exists and |
-|                 | where to find it. The user-provided procedure has   |
-|                 | two input arguments, a Kx1 vector of parameter      |
-|                 | values and an NxP matrix of data. The procedure     |
-|                 | returns a single output argument, an NxK matrix of  |
-|                 | gradients of the log-likelihood function with       |
-|                 | respect to the parameters evaluated at the vector   |
-|                 | of parameter values.                                |
-|                 |                                                     |
-|                 | Default = 0, i.e., no gradient procedure has been   |
-|                 | provided.                                           |
-+-----------------+-----------------------------------------------------+
-| \_sqp_HessProc  | scalar, pointer to a procedure that computes the    |
-|                 | Hessian, i.e., the matrix of second order partial   |
-|                 | derivatives of the function with respect to the     |
-|                 | parameters. For example, the instruction:           |
-|                 | ::                                                  |
-|                 |                                                     |
-|                 |     _sqp_HessProc = &hessproc;                      |
-|                 |                                                     |
-|                 | will tell sqpSolve that a procedure has been        |
-|                 | provided for the computation of the Hessian and     |
-|                 | where to find it. The procedure that is provided by |
-|                 | the user must have two input arguments, a Px1       |
-|                 | vector of parameter values and an NxK data matrix.  |
-|                 | The procedure returns a single output argument, the |
-|                 | PxP symmetric matrix of second order derivatives of |
-|                 | the function evaluated at the parameter values.     |
-+-----------------+-----------------------------------------------------+
-| \_sqp_MaxIters  | scalar, maximum number of iterations. Default =     |
-|                 | 1e+5. Termination can be forced by pressing C on    |
-|                 | the keyboard.                                       |
-+-----------------+-----------------------------------------------------+
-| \_sqp_DirTol    | scalar, convergence tolerance for gradient of       |
-|                 | estimated coefficients. Default = 1e-5. When this   |
-|                 | criterion has been satisifed, sqpSolve will exit    |
-|                 | the iterations.                                     |
-+-----------------+-----------------------------------------------------+
-| \_sqp_ParNames  | Kx1 character vector, parameter names.              |
-+-----------------+-----------------------------------------------------+
-| \_sqp_PrintIter | scalar, if nonzero, prints iteration information.   |
-| s               | Default = 0. Can be toggled during iterations by    |
-|                 | pressing P on the keyboard.                         |
-+-----------------+-----------------------------------------------------+
-| \_sqp_FeasibleT | scalar, if nonzero, parameters are tested for       |
-| est             | feasibility before computing function in line       |
-|                 | search. If function is defined outside inequality   |
-|                 | boundaries, then this test can be turned off.       |
-+-----------------+-----------------------------------------------------+
-| \_sqp_RandRadiu | scalar, if zero, no random search is attempted. If  |
-| s               | nonzero it is the radius of random search which is  |
-|                 | invoked whenever the usual line search fails.       |
-|                 | Default = .01.                                      |
-+-----------------+-----------------------------------------------------+
-| \__output       | scalar, if nonzero, results are printed. Default =  |
-|                 | 0.                                                  |
-+-----------------+-----------------------------------------------------+
+.. data:: \_sqp_A
+
+    MxK matrix, linear equality constraint coefficients.
+
+.. data:: \_sqp_B
+
+    Mx1 vector, linear equality constraint constants. These globals are used to specify 
+    linear equality constraints of the following type:
+    
+    .. math:: _sqp_A * x = _sqp_B
+    
+    where *x* is the Kx1 unknown parameter vector.
+
+.. data:: \_sqp_EqProc
+
+    scalar, pointer to a procedure that computes the nonlinear equality constraints. For example, the statement:
+
+    ::
+
+        _sqp_EqProc = &eqproc;
+
+    tells :func:`sqpSolve` that nonlinear equality constraints
+    are to be placed on the parameters and where the 
+    procedure computing them is to be found. The
+    procedure must have one input argument, the Kx1
+    vector of parameters, and one output argument, the
+    Rx1 vector of computed constraints that are to be
+    equal to zero. For example, suppose that you wish
+    to place the following constraint:
+
+    ::
+
+        p[1] * p[2] = p[3]
+
+    The procedure for this is:
+
+    ::
+
+    proc eqproc(p);
+        retp(p[1]*p[2]-p[3]);
+    endp;
+
+.. data:: \_sqp_C
+
+    MxK matrix, linear inequality constraint coefficients.
+    
+.. data:: \_sqp_D 
+
+    Mx1 vector, linear inequality constraint constants. These globals are used to 
+    specify linear inequality constraints of the following type:                  
+
+    .. math:: _sqp_C * X >= _sqp_D
+
+    where *x* is the Kx1 unknown parameter vector.        
+
+.. data:: \_sqp_IneqProc
+
+    scalar, pointer to a procedure that computes the nonlinear inequality constraints. For example the statement:
+
+    ::
+
+        _sqp_EqProc = &ineqproc;
+
+    tells :func:`sqpSolve` that nonlinear equality constraints are to be placed on the parameters and 
+    where the procedure computing them is to be found. The procedure must have one input argument, 
+    the Kx1 vector of parameters, and one output argument, the Rx1 vector of computed constraints that 
+    are to be equal to zero. For example, suppose that you wish to place the following constraint:
+
+    .. math:: p[1] * p[2] >= p[3]
+
+    The procedure for this is:
+
+    ::
+
+        proc ineqproc(p);
+            retp(p[1]*[2]-p[3]);
+        endp;
+
+.. data:: \_sqp_Bounds
+
+    Kx2 matrix, bounds on parameters. The first column contains the lower bounds, and the second 
+    column the upper bounds. If the bounds for all the coefficients are the same, a 1x2 matrix may 
+    be used. Default is:
+
+    ::
+    
+        [1] -1e256     [2] 1e256
+
+.. data:: \_sqp_GradProc
+
+    scalar, pointer to a procedure that computes the gradient of the function with respect to the parameters. For example, the statement:
+    
+    ::
+
+        _sqp_GradProc = &gradproc;
+
+    tells :func:`sqpSolve` that a gradient procedure exists and where to find it. The user-provided 
+    procedure has two input arguments, a Kx1 vector of parameter values and an NxP matrix of data. 
+    The procedure returns a single output argument, an NxK matrix of gradients of the log-likelihood 
+    function with respect to the parameters evaluated at the vector of parameter values.
+
+    Default = 0, i.e., no gradient procedure has been provided.
+
+.. data:: \_sqp_HessProc
+
+    scalar, pointer to a procedure that computes the Hessian, i.e., the matrix of second order 
+    partial derivatives of the function with respect to the parameters. For example, the instruction:
+
+    ::
+
+        _sqp_HessProc = &hessproc;
+
+    will tell sqpSolve that a procedure has been provided for the computation of the Hessian and 
+    where to find it. The procedure that is provided by the user must have two input arguments, 
+    a Px1 vector of parameter values and an NxK data matrix. The procedure returns a single output 
+    argument, the PxP symmetric matrix of second order derivatives of the function evaluated at the parameter values.
+    
+.. data:: \_sqp_MaxIters
+
+    scalar, maximum number of iterations. Default = 1e+5. Termination can be forced by pressing :kbd:`C` on the keyboard.
+
+.. data:: \_sqp_DirTol
+
+    scalar, convergence tolerance for gradient of estimated coefficients. Default = 1e-5. 
+    When this criterion has been satisifed, sqpSolve will exit the iterations.
+
+.. data:: \_sqp_ParNames
+
+    Kx1 character vector, parameter names.
+
+.. data:: \_sqp_PrintIter
+
+    scalar, if nonzero, prints iteration information. Default = 0. Can be toggled during iterations by pressing :kbd:`P` on the keyboard.
+
+.. data:: \_sqp_FeasibleT
+
+    scalar, if nonzero, parameters are tested for est feasibility before computing function in line search. 
+    If function is defined outside inequality boundaries, then this test can be turned off.
+
+.. data:: \_sqp_RandRadiu
+
+    scalar, if zero, no random search is attempted. If nonzero it is the radius of random search 
+    which is invoked whenever the usual line search fails. Default = .01.
+
+.. data:: \__output
+
+    scalar, if nonzero, results are printed. Default = 0.
 
 
 Remarks
 -------
 
-Pressing C on the keyboard will terminate iterations, and pressing P
-will toggle iteration output.
+Pressing :kbd:`C` on the keyboard will terminate iterations, and pressing :kbd:`P` will toggle iteration output.
 
-sqpSolve is recursive, that is, it can call itself with another function
-and set of global variables,
+:func:`sqpSolve` is recursive, that is, it can call itself with another function and set of global variables,
 
 
 Examples
@@ -250,4 +245,3 @@ Source
 
 sqpsolve.src
 
-solve nonlinear programming problem sequential quadratic

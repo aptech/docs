@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: xlsMakeRange(row, col)
 
-    :param row: 
+    :param row: row(s)
     :type row: scalar or 2x1 vector
 
-    :param col: 
+    :param col: column(s)
     :type col: scalar or 2x1 vector
 
     :returns: range (*string*), an Excel®-formatted range specifier.
@@ -22,30 +22,28 @@ Format
 Remarks
 -------
 
-If row is a 2x1 vector, it is interpreted as follows
+If *row* is a 2x1 vector, it is interpreted as follows
 
-+-----------------+-----------------------------------------------------+
-| row[1]          | starting row                                        |
-+-----------------+-----------------------------------------------------+
-| row[2]          | ending row                                          |
-+-----------------+-----------------------------------------------------+
+================ ==============
+:math:`row[1]`   starting row
+:math:`row[2]`   ending row
+================ ==============
 
-If col is a 2x1 vector, it is interpreted as follows:
+If *col* is a 2x1 vector, it is interpreted as follows:
 
-+-----------------+-----------------------------------------------------+
-| col[1]          | starting column                                     |
-+-----------------+-----------------------------------------------------+
-| col[2]          | ending column                                       |
-+-----------------+-----------------------------------------------------+
+================ ==============
+:math:`col[1]`   starting column
+:math:`col[2]`   ending column
+================ ==============
 
-If xlsMakeRange fails, it will either terminate and print an error
+If :func:`xlsMakeRange` fails, it will either terminate and print an error
 message or return a scalar error code, which can be decoded with
-scalerr, depending on the state of the trap flag.
+scalerr, depending on the state of the `trap` flag.
 
 +-----------------+-----------------------------------------------------+
-| **trap 0**      | Print error message and terminate program.          |
+| ``trap 0``      | Print error message and terminate program.          |
 +-----------------+-----------------------------------------------------+
-| **trap 1**      | Return scalar error code 10.                        |
+| ``trap 1``      | Return scalar error code 10.                        |
 +-----------------+-----------------------------------------------------+
 
 
@@ -81,3 +79,4 @@ produces:
     C2:S37
 
 .. seealso:: Functions :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`
+

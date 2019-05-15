@@ -10,11 +10,10 @@ Format
 ----------------
 .. function:: stdsc(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*Kx1 vector*), the standard
-        deviation of each column of x.
+    :returns: y (*Kx1 vector*), the standard deviation of each column of *x*.
 
 Remarks
 -------
@@ -25,8 +24,8 @@ This function essentially computes:
 
    sqrt(1/(N)*sumc((x-meanc(x)')2))
 
-Thus, the divisor is N rather than N-1, where N is the number of
-elements being summed. See stdc for the alternate definition.
+Thus, the divisor is :math:`N` rather than :math:`N-1`, where :math:`N` is the number of
+elements being summed. See :func:`stdc` for the alternate definition.
 
 
 Examples
@@ -40,7 +39,7 @@ Examples
     // Calculate the standard deviation of each column
     std = stdsc(y);
 
-The return, in variable std is equal to:
+The return, in variable *std* is equal to:
 
 ::
 
@@ -50,4 +49,3 @@ The return, in variable std is equal to:
 
 .. seealso:: Functions :func:`stdc`, :func:`astds`, :func:`meanc`
 
-sample standard deviation column matrix

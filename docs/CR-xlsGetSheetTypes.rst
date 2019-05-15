@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: xlsGetSheetTypes(file, sheet, row)
 
-    :param file: name of .xls or .xlsx file.
+    :param file: name of *.xls* or *.xlsx* file.
     :type file: string
 
     :param sheet: sheet index (1-based).
@@ -20,19 +20,42 @@ Format
     :type row: scalar
 
     :returns: types (*1xK vector*) of predefined data types representing the format of each cell in the specified row.
+
         The possible types are:
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            "0", "Text"
+            "1", "Numeric"
+            "2", "Date"
 
-        "0", "Text"
-        "1", "Numeric"
-        "2", "Date"
+Portability
+-----------
+
+Windows, Linux and macOS
+
+Remarks
+-------
+
+:math:`K` is the number of columns found in the spreadsheet.
+
+If :func:`xlsGetSheetTypes` fails, it will either terminate and print an error
+message or return a scalar error code, which can be decoded with
+scalerr, depending on the state of the `trap` flag.
+
++------------+--------------------------------------------+
+| ``trap 0`` | Print error message and terminate program. |
++------------+--------------------------------------------+
+| ``trap 1`` | Return scalar error code 10.               |
++------------+--------------------------------------------+
 
 Examples
 ----------------
-For example, let us suppose that a file named 'yarn.xlsx' exists in the GAUSS home directory.
-        Le us further suppose that the 'A1' element is a string and the 'B1:C1' elements are numbers. The first row has no other elements. Then the code:
+
+For example, let us suppose that a file named '*yarn.xlsx*' exists in the GAUSS home directory. 
+Let us further suppose that the 'A1' element is a string and the 'B1:C1' elements are numbers. 
+The first row has no other elements. Then the code:
 
 ::
 
@@ -52,19 +75,5 @@ would produce the following output:
 
     0      0      0      1
 
-Remarks
--------
-
-K is the number of columns found in the spreadsheet.
-
-If xlsGetSheetTypes fails, it will either terminate and print an error
-message or return a scalar error code, which can be decoded with
-scalerr, depending on the state of the trap flag.
-
-+------------+--------------------------------------------+
-| **trap 0** | Print error message and terminate program. |
-+------------+--------------------------------------------+
-| **trap 1** | Return scalar error code 10.               |
-+------------+--------------------------------------------+
-
 .. seealso:: Functions :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsMakeRange`
+

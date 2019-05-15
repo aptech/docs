@@ -10,17 +10,16 @@ Format
 ----------------
 .. function:: vargetl(s)
 
-    :param s: 
-    :type s: string containing the name of the local symbol you wish to access
+    :param s: the name of the local symbol you wish to access
+    :type s: string
 
-    :returns: y (*TODO*), contents of the variable whose name is
-        in  s.
+    :returns: y (*any*), contents of the variable whose name is in *s*.
 
 Remarks
 -------
 
 This function searches the local symbol list for the symbol whose name
-is in s and returns the contents of the variable if it exists. If the
+is in *s* and returns the contents of the variable if it exists. If the
 symbol does not exist, the function will terminate with an Undefined
 symbol error message.
 
@@ -69,3 +68,4 @@ The code above will produce the following output:
     -1.1716182730350617 -0.0519353312479753
 
 .. seealso:: Functions :func:`varputl`
+

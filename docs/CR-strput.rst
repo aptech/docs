@@ -10,15 +10,13 @@ Format
 ----------------
 .. function:: strput(substr, str, off)
 
-    :param substr: the substring to be laid over the other
-        string.
+    :param substr: the substring to be laid over the other string.
     :type substr: string
 
     :param str: the string to receive the substring.
     :type str: string
 
-    :param off: the offset in str to place substr. The offset
-        of the first byte is 1.
+    :param off: the offset in *str* to place *substr*. The offset of the first byte is 1.
     :type off: scalar
 
     :returns: y (*string*), the new string.

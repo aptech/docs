@@ -9,9 +9,9 @@ Reads and writes Excel files.
 
 Format
 ----------------
-.. function:: spreadSheetReadM(file, range, sheet)
+.. function:: spreadSheetReadM(file[, range[, sheet]])
 
-    :param file: name of .xls, or .xlsx file.
+    :param file: name of *.xls*, or *.xlsx* file.
     :type file: string
 
     :param range: range to read or write; e.g., "A1:B20". Default = "A1".
@@ -20,7 +20,7 @@ Format
     :param sheet: sheet number. Default = 1.
     :type sheet: scalar
 
-    :returns: x (matrix), numbers read from Excel.
+    :returns: x (*matrix*), numbers read from Excel.
 
 Examples
 ----------------
@@ -28,7 +28,7 @@ Examples
 Basic Example
 +++++++++++++
 
-Read all contents from the file myfile.xlsx located in your current GAUSS working directory.
+Read all contents from the file *myfile.xlsx* located in your current GAUSS working directory.
 
 ::
 
@@ -49,25 +49,24 @@ Specify Path and Sheet Number
     x = spreadSheetReadM("C:\\mydata\\myfile.xlsx", "A1", 1);
 
 Portability
-+++++++++++
+------------
 
-**Windows**, **Linux** and **Mac**
+**Windows**, **Linux** and **macOS**
 
 Remarks
 -------
 
-#. If range is a null string, then by default the read will begin at
+#. If *range* is a null string, then by default the read will begin at
    cell "A1".
 
-#. If spreadSheetReadM fails, it will either terminate and print an
+#. If :func:`spreadSheetReadM` fails, it will either terminate and print an
    error message or return a scalar error code, which can be decoded
-   with scalerr, depending on the state of the trap flag.
+   with :func:`scalerr`, depending on the state of the `trap` flag.
 
-   +------------+--------------------------------------------+
-   | **trap 0** | Print error message and terminate program. |
-   +------------+--------------------------------------------+
-   | **trap 1** | Return scalar error code.                  |
-   +------------+--------------------------------------------+
+   ============ =====================
+   ``trap 0``   print error message and terminate program
+   ``trap 1``   return scalar error code
+   ============ =====================
 
    ::
 
@@ -89,3 +88,4 @@ Remarks
       trap 0;
 
 .. seealso:: Functions :func:`scalerr`, :func:`error`, :func:`SpreadsheetReadSA`, :func:`SpreadsheetWrite`
+

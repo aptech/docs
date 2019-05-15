@@ -35,7 +35,7 @@ command (to create a new file, see :func:`datacreate` or :func:`datasave`).
 
 2. The file handle returned by :func:`dataopen` is a scalar containing a
 positive integer value that uniquely identifies each file. This value is
-assigned by GAUSS when the :func:`create`, :func:`datacreate`, :func:`datacreatecomplex`, `open`
+assigned by GAUSS when the `create`, :func:`datacreate`, :func:`datacreatecomplex`, `open`
 or :func:`dataopen` commands are executed. The file handle is used to reference
 the file in the commands :func:`readr` and :func:`writer`. If :func:`dataopen` fails, it returns
 a -1.
@@ -52,7 +52,7 @@ to access the first file.
 :func:`dataopen` and :func:`datacreate` check the value that is in a file handle to see
 if it matches that of an open file before they proceed with the process
 of opening a file. You may set unused file handles to zero with the
-:func:`close` or :func:`closeall` commands.
+`close` or :func:`closeall` commands.
 
 5. If filename does not have an extension, :func:`dataopen` appends a .dat
 extension before searching for the file. If the file is an ``.fmt`` matrix

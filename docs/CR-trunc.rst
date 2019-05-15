@@ -10,11 +10,10 @@ Format
 ----------------
 .. function:: trunc(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*)         containing the truncated elements of
-        x.
+    :returns: y (*NxK matrix or N-dimensional array*) containing the truncated elements of *x*.
 
 Examples
 ----------------
@@ -24,14 +23,14 @@ Examples
     x = 100*rndn(2,2);
     y = trunc(x);
 
-If x equals:
+If *x* equals:
 
 ::
 
     -153.373  -1.972
      109.412 127.732
 
-then, y will equal:
+then, *y* will equal:
 
 ::
 
@@ -39,3 +38,4 @@ then, y will equal:
      109.000 127.000
 
 .. seealso:: Functions :func:`ceil`, :func:`floor`, :func:`round`
+

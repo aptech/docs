@@ -13,7 +13,7 @@ Format
 ----------------
 .. function:: strtruncpad(sa, maxlen)
 
-    :param sa: 
+    :param sa: data
     :type sa: NxK string array
 
     :param maxlen: maximum length.
@@ -22,3 +22,4 @@ Format
     :returns: y (*NxK string array*) result.
 
 .. seealso:: Functions :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`
+

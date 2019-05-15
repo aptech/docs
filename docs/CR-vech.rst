@@ -10,15 +10,15 @@ Format
 ----------------
 .. function:: vech(x)
 
-    :param x: 
+    :param x: data
     :type x: NxN symmetric matrix
 
-    :returns: v (*(N*(N+1)/2)x1 vector*) , the lower triangular portion of the matrix x.
+    :returns: v (*(N*(N+1)/2)x1 vector*), the lower triangular portion of the matrix *x*.
 
 Remarks
 -------
 
-As you can see from the example below, vech will not check to see if x
+As you can see from the example below, :func:`vech` will not check to see if *x*
 is symmetric. It just packs the lower trangular portion of the matrix
 into a column vector in row-wise order.
 
@@ -43,7 +43,7 @@ After the code above:
 
 ::
 
-    11
+                       11
         11 12 13       21       11 21 31
     x = 21 22 23   v = 22  sx = 21 22 32
         31 32 33       31       31 32 33
@@ -51,3 +51,4 @@ After the code above:
                        33
 
 .. seealso:: Functions :func:`xpnd`
+

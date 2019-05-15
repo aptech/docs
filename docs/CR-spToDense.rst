@@ -10,16 +10,15 @@ Format
 ----------------
 .. function:: spToDense(x)
 
-    :param x: 
+    :param x: data
     :type x: MxN sparse matrix
 
-    :returns: y (*MxN dense matrix*) .
+    :returns: y (*MxN dense matrix*)
 
 Remarks
 -------
 
 A dense matrix is just a normal format matrix.
-
 
 Examples
 ----------------
@@ -34,7 +33,7 @@ Examples
     // Create a dense matrix with the same values as 'y'
     d = spToDense(y);
 
-The dense matrix d is equal to:
+The dense matrix *d* is equal to:
 
 ::
 
@@ -44,3 +43,4 @@ The dense matrix d is equal to:
     0  0  0  1
 
 .. seealso:: Functions :func:`spDenseSubmat`, :func:`denseToSp`
+

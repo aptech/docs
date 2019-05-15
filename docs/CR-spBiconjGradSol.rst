@@ -5,25 +5,42 @@ spBiconjGradSol
 Purpose
 ----------------
 
-Attempts to solve the system of linear equations Ax = b using the biconjugate gradient method where A is a sparse matrix.
+Attempts to solve the system of linear equations :math:`AxK = b` using the biconjugate gradient method where *A* is a sparse matrix.
 
 Format
 ----------------
 .. function:: spBiconjGradSol(a, b, epsilon, maxit)
 
-    :param a: sparse matrix.
-    :type a: NxN
+    :param a: NxN sparse matrix.
+    :type a: sparse matrix
 
-    :param b: dense vector.
-    :type b: Nx1
+    :param b: Nx1 dense vector
+    :type b: vector
 
-    :param epsilon: , the default tolerance is set to 1e-6.
-    :type epsilon: Method tolerance: If epsilon is set to 0
+    :param epsilon: Method tolerance: If epsilon is set to 0, the default tolerance is set to 1e-6.
+    :type epsilon: scalar
 
-    :param maxit:  If maxit is set to 0, the default setting is 300 iterations.
-    :type maxit: Maximum number of iterations
+    :param maxit: Maximum number of iterations. If maxit is set to 0, the default setting is 300 iterations.
+    :type maxit: scalar
 
-    :returns: x (*Nx1 dense vector*) .
+    :returns: x (*Nx1 dense vector*)
+
+Remarks
+-------
+
+If convergence is not reached within the maximum number of iterations
+allowed, the function will either terminate the program with an error
+message or return an error code which can be tested for with the :func:`scalerr`
+function. This depends on the `trap` state as follows:
+
+============ =====================
+``trap 1``   return error code: 60
+``trap 0``   terminate with error message: Unable to converge in allowed number of iterations.
+============ =====================
+
+If matrix *A* is not well conditioned use the ``/`` operator to perform the
+solve. If the matrix is symmetric, :func:`spConjGradSol` will be approximately
+twice as fast as :func:`spBiconjGradSol`.
 
 Examples
 ----------------
@@ -56,7 +73,7 @@ The output from the above code:
 
 ::
 
-    0.135 
+          0.135 
           0.055 
     x =  -0.137 
           0.018 
@@ -68,24 +85,5 @@ The output from the above code:
           0.018 
          -0.006
 
-Remarks
--------
-
-If convergence is not reached within the maximum number of iterations
-allowed, the function will either terminate the program with an error
-message or return an error code which can be tested for with the scalerr
-function. This depends on the trap state as follows:
-
-+-----------------------------------+-----------------------------------+
-| **trap 1**                        | return error code: 60             |
-+-----------------------------------+-----------------------------------+
-| **trap 0**                        | terminate with error message:     |
-|                                   | Unable to converge in allowed     |
-|                                   | number of iterations.             |
-+-----------------------------------+-----------------------------------+
-
-If matrix A is not well conditioned use the / operator to perform the
-solve. If the matrix is symmetric, spConjGradSol will be approximately
-twice as fast as spBiconjGradSol.
-
 .. seealso:: Functions :func:`spConjGradSol`
+

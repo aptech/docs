@@ -21,21 +21,18 @@ Format
     :type suf: string
 
     :returns: tname (*string*), unique temporary file name of the form
-        path/preXXXXnnnnnsuf,
-        where XXXX are 4 letters, and nnnnn
+        ``path/preXXXXnnnnnsuf``, where ``XXXX`` are 4 letters, and ``nnnnn`` 
         is the process id of the calling process.
-
-
 
 Remarks
 -------
 
-Any or all of the inputs may be a null string or 0. If path is not
+Any or all of the inputs may be a null string or 0. If *path* is not
 specified, the current working directory is used.
 
-If unable to create a unique file name of the form requested, tempname
+If unable to create a unique file name of the form requested, *tempname*
 returns a null string.
 
-WARNING: GAUSS does not remove temporary files created by tempname. It
-is left to the user to remove them when they are no longer needed.
+.. WARNING:: GAUSS does not remove temporary files created by :func:`tempname`. It
+    is left to the user to remove them when they are no longer needed.
 

@@ -9,11 +9,9 @@ Returns system date and time in DT scalar format.
 
 Format
 ----------------
-.. function:: timedt
+.. function:: timedt()
 
     :returns: dt (*scalar*), system date and time in DT scalar format.
-
-
 
 Remarks
 -------
@@ -31,11 +29,10 @@ represents:
 
    07:15:11 or 7:15:11 AM on March 6, 2010.
 
-
-
 Source
 ------
 
 time.src
 
 .. seealso:: Functions :func:`todaydt`, :func:`timeutc`, :func:`dtdate`
+

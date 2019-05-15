@@ -10,22 +10,18 @@ Format
 ----------------
 .. function:: varputl(x, n)
 
-    :param x: array, string, or string array which is
-        to be assigned to the target variable.
-    :type x: matrix
+    :param x: data which is to be assigned to the target variable.
+    :type x: matrix or array or string or string array 
 
-    :param n: 
-    :type n: string containing the name of the local symbol
-        which will be the target variable
+    :param n: the name of the local symbol which will be the target variable
+    :type n: string
 
-    :returns: y (*scalar*), 1 if the operation is successful and 0
-        if the operation fails.
+    :returns: y (*scalar*), 1 if the operation is successful and 0 if the operation fails.
 
 Remarks
 -------
 
-x and n may be global or local. The variable, whose name is in n, that x
-is assigned to is always a local.
+*x* and *n* may be global or local. The variable, whose name is in *n*, that *x* is assigned to is always a local.
 
 
 Examples
@@ -34,7 +30,7 @@ Examples
 ::
 
     proc myProc(x);
-    local a,b,c,d,e,vars,putvar;
+       local a,b,c,d,e,vars,putvar;
        a=1;b=2;c=3;d=5;e=7;
        vars = { a b c d e };
        putvar = 0;
@@ -62,7 +58,9 @@ Examples
     z = myProc(17);
     print " z is " z;
 
-produces (Note: this program will ask for user input  at the GAUSS command prompt):
+.. NOTE:: This example will ask for user input at the GAUSS command prompt
+
+produces:
 
 ::
 
@@ -71,3 +69,4 @@ produces (Note: this program will ask for user input  at the GAUSS command promp
      z is 22.3
 
 .. seealso:: Functions :func:`vargetl`
+

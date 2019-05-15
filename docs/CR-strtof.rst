@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: strtof(sa)
 
-    :param sa: 
-    :type sa: NxK string array containing numeric data
+    :param sa: numeric data
+    :type sa: NxK string array
 
-    :returns: x (*NxK matrix*) .
+    :returns: x (*NxK matrix*)
 
 Remarks
 -------
@@ -32,14 +32,12 @@ will be converted into the number:
    1.2 + 1.9i
 
 Parentheses surrounding the numerical elements in the string will be
-ignored as will be a following i. The following strings will be
-interpreted as the same by
+ignored as will be a following *i*. The following strings will be
+interpreted as the same by :func:`strtof`.
 
-strtof.
 ::
 
    "(2.31 4.72)""2.31 4.73""2.31,4.73i"
-
 
 Examples
 ----------------
@@ -51,7 +49,7 @@ Examples
                   "4.4" "5.5" "6.6" };
     num = strtof(sa);
 
-After the code above, num is a numeric matrix with the following values:
+After the code above, *num* is a numeric matrix with the following values:
 
 ::
 
@@ -59,3 +57,4 @@ After the code above, num is a numeric matrix with the following values:
     4.400  5.500 6.600
 
 .. seealso:: Functions :func:`strtofcplx`, :func:`ftostrC`
+

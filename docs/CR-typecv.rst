@@ -13,29 +13,24 @@ Format
 ----------------
 .. function:: typecv(x)
 
-    :param x: or Nx1 character vector or
-        string array which contains
-        the names of variables whose type is to be
-        determined.
-    :type x: string
+    :param x: contains the names of variables whose type is to be determined.
+    :type x: string or Nx1 character vector or string array
 
-    :returns: y (*scalar or Nx1 vector*) containing the types of
-        the respective symbols in x.
+    :returns: y (*scalar or Nx1 vector*) containing the types of the respective symbols in *x*.
 
 Remarks
 -------
 
-The values returned by typecv for the various variable types are as
-follows:
+The values returned by :func:`typecv` for the various variable types are as follows:
 
 +----+---------------------------------------+
-| 5  | keyword (keyword)                     |
+| 5  | keyword (`keyword`)                   |
 +----+---------------------------------------+
 | 6  | matrix (numeric, character, or mixed) |
 +----+---------------------------------------+
-| 8  | procedure (proc)                      |
+| 8  | procedure (`proc`)                    |
 +----+---------------------------------------+
-| 9  | function (fn)                         |
+| 9  | function (`fn`)                       |
 +----+---------------------------------------+
 | 13 | string                                |
 +----+---------------------------------------+
@@ -48,7 +43,7 @@ follows:
 | 23 | structure pointer                     |
 +----+---------------------------------------+
 
-typecv will return the GAUSS missing value code if the symbol is not
+:func:`typecv` will return the GAUSS missing value code if the symbol is not
 found, so it may be used to determine if a symbol is defined or not.
 
 
@@ -63,12 +58,13 @@ Examples
     let names = xvar yvar area;
     y = typecv(names);
 
-This code assigns the following to y:
+This code assigns the following to *y*:
 
 ::
 
-    6  // 6 for type matrix
+         6  // 6 for type matrix
     y = 13  // 13 for string
          9  // 9 for function
 
 .. seealso:: Functions :func:`type`, :func:`typef`, :func:`varput`, :func:`varget`
+

@@ -8,12 +8,12 @@ Writes a GAUSS matrix to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: xlsWriteM(data, file, range, sheet, vls)
+.. function:: xlsWriteM(data[, file[, range[, sheet[, vls]]]])
 
-    :param data: 
+    :param data: data
     :type data: matrix
 
-    :param file: name of .xls or .xlsx file.
+    :param file: name of *.xls* or *.xlsx* file.
     :type file: string
 
     :param range: the starting point of the write, e.g. "a2". Default = "a1"
@@ -22,13 +22,57 @@ Format
     :param sheet: sheet number. Default = 1.
     :type sheet: scalar
 
-    :param vls: specifies the
-        conversion of GAUSS values into Excel® empty cells
-        and special types (see Remarks). A null string results in
-        all GAUSS missing values being converted to empty cells. Default = null string.
+    :param vls: specifies the conversion of GAUSS values into Excel® empty cells
+        and special types (see Remarks). A null string results in all GAUSS missing 
+        values being converted to empty cells. Default = null string.
     :type vls: null string or 9x1 matrix
 
     :returns: ret (*scalar*), 0 if success or a scalar error code.
+
+Portability
+------------
+
+Windows, Linux and macOS
+
+The *vls* input is currently ignored on macOS and Linux. Missing values will be returned for all cells that are empty or contain errors.
+
+Remarks
+-------
+
+#. The *vls* argument lets users control the export to Excel® empty cells
+   and special types, according to the following table:
+
+   ============= ============
+   Row Number    Excel® Cell
+   ============= ============
+   1             empty cell
+   2             ``#N/A``
+   3             ``#VALUE!``
+   4             ``#DIV/0!``
+   5             ``#NAME?``
+   6             ``#REF!``
+   7             ``#NUM!``
+   8             ``#NULL!``
+   9             ``#ERR``
+   ============= ============
+
+   Use the following to convert all occurrences of 9999.99 to ``#DIV/0!`` in
+   Excel® and convert all GAUSS missing values to empty cells in Excel®:
+
+   ::
+
+      vls = reshape(error(0),9,1);
+      vls[4] = 9999.99;
+
+#. If :func:`xlsWriteM` fails, it will either terminate and print an error
+   message or return a scalar error code, which can be decoded with
+   :func:`scalerr`, depending on the state of the `trap` flag.
+
+   +------------+--------------------------------------------+
+   | ``trap 0`` | Print error message and terminate program. |
+   +------------+--------------------------------------------+
+   | ``trap 1`` | Return scalar error code 10.               |
+   +------------+--------------------------------------------+
 
 Examples
 ----------------
@@ -46,7 +90,8 @@ Basic Example
     // from cell 'A1' to 'B3'
     ret = xlsWriteM(x, "myfile.xlsx");
 
-'myfile.xlsx'is saved in your current working directory. You can find your current working directory in the main tool bar (in the top of GAUSS).
+'*myfile.xlsx*'is saved in your current working directory. You can find your current working directory 
+in the main tool bar (in the top of GAUSS).
 
 Write To a Range
 ++++++++++++++++
@@ -67,58 +112,5 @@ Specify Path and Sheet Number
     // Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
     ret = xlsWriteM(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
-Remarks
--------
-
-#. The vls argument lets users control the export to Excel® empty cells
-   and special types, according to the following table:
-
-   +------------+-------------+
-   | Row Number | Excel® Cell |
-   +------------+-------------+
-   | 1          | empty cell  |
-   +------------+-------------+
-   | 2          | #N/A        |
-   +------------+-------------+
-   | 3          | #VALUE!     |
-   +------------+-------------+
-   | 4          | #DIV/0!     |
-   +------------+-------------+
-   | 5          | #NAME?      |
-   +------------+-------------+
-   | 6          | #REF!       |
-   +------------+-------------+
-   | 7          | #NUM!       |
-   +------------+-------------+
-   | 8          | #NULL!      |
-   +------------+-------------+
-   | 9          | #ERR        |
-   +------------+-------------+
-
-   Use the following to convert all occurrences of 9999.99 to #DIV/0! in
-   Excel® and convert all GAUSS missing values to empty cells in Excel®:
-
-   ::
-
-      vls = reshape(error(0),9,1);
-      vls[4] = 9999.99;
-
-#. If xlsWriteM fails, it will either terminate and print an error
-   message or return a scalar error code, which can be decoded with
-   scalerr, depending on the state of the trap flag.
-
-   +------------+--------------------------------------------+
-   | **trap 0** | Print error message and terminate program. |
-   +------------+--------------------------------------------+
-   | **trap 1** | Return scalar error code 10.               |
-   +------------+--------------------------------------------+
-
-Portability
-+++++++++++
-
-**Windows**, **Linux** and **Mac**
-
-The vls input is currently ignored on Mac and Linux. Missing values will
-be returned for all cells that are empty or contain errors.
-
 .. seealso:: Functions :func:`xlsReadSA`, :func:`xlsReadM`, :func:`xlsWrite`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
+

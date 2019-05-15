@@ -5,7 +5,6 @@ timeDeltaDT
 Purpose
 ----------------
 Adds (or subtracts) time to a DT scalar.
-		
 
 Format
 ----------------
@@ -14,22 +13,22 @@ Format
     :param dt_start: containing 1 or more DT scalars.
     :type dt_start: NxK matrix
 
-    :param inc: the number of units to increment dt_start.
-    :type inc: Scalar
+    :param inc: the number of units to increment *dt_start*.
+    :type inc: scalar
 
-    :param unit: indicating the units for the increments in inc.
-        
+    :param unit: indicating the units for the increments in *inc*.
         
         Valid unit options:
         
-        "years"
-        "months"
-        "days"
-        "hours"
-        "seconds"
-    :type unit: String
+        - "years"
+        - "months"
+        - "days"
+        - "hours"
+        - "seconds"
 
-    :returns: t_inc (*Scalar*), dt_start, increased by inc units.
+    :type unit: string
+
+    :returns: t_inc (*Scalar*), *dt_start*, increased by *inc* units.
 
 Examples
 ----------------
@@ -42,7 +41,7 @@ Examples
     // Increment by 60 years
     dt_inc = timeDeltaDT(dt_start, 60, "years");
 
-The above code will set dt_inc equal to:
+The above code will set *dt_inc* equal to:
 
 ::
 
@@ -56,7 +55,7 @@ The above code will set dt_inc equal to:
     // Increment by 18 months
     dt_inc = timeDeltaDT(dt_start, 18, "months");
 
-The above code will set dt_inc equal to:
+The above code will set *dt_inc* equal to:
 
 ::
 
@@ -74,7 +73,7 @@ The above code will set dt_inc equal to:
     // Increment by 60 seconds
     dt_inc_2 = timeDeltaDT(dt_start, 60, "seconds");
 
-The above code will set dt_inc_1 and dt_inc_2 equal to:
+The above code will set *dt_inc_1* and *dt_inc_2* equal to:
 
 ::
 
@@ -82,3 +81,4 @@ The above code will set dt_inc_1 and dt_inc_2 equal to:
     20010101000000
 
 .. seealso:: Functions :func:`timeDeltaPosix`, :func:`seqadt`, :func:`seqaposix`, :func:`timediffPosix`, :func:`timediffDT`
+

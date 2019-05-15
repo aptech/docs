@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: sinh(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*NxK matrix*), containing the hyperbolic sines of the elements of x.
+    :returns: y (*NxK matrix*), containing the hyperbolic sines of the elements of *x*.
 
 Examples
 ----------------
@@ -24,7 +24,7 @@ Examples
     x = x * pi;
     y = sinh(x);
 
-The above statement produces, y equal to:
+The above statement produces, *y* equal to:
 
 ::
 
@@ -40,4 +40,3 @@ Source
 
 trig.src
 
-hyperbolic hyperbolic sine trigonometric

@@ -6,22 +6,27 @@ Purpose
 ----------------
 Sets the trap flag to enable or disable trapping of numerical errors.
 
+.. _trap:
+.. index:: trap
+
 Format
 ----------------
-.. function:: trap val 
-			  trap val, mask
 
-    :param val: new trap value.
-    :type val: scalar
+::
 
-    :param mask: optional mask to allow leaving some bits of the trap flag unchanged.
-    :type mask: scalar
+    trap val;
+    trap val, mask;
+
+:val: (*scalar*) new trap value.
+:mask: (*scalar*) optional mask to allow leaving some bits of the trap flag unchanged.
 
 Examples
 ----------------
 
+Example 1
++++++++++
+
 First we will create some code that will return an error, stopping the program. Then we will show how to trap and handle the error:
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -34,7 +39,9 @@ First we will create some code that will return an error, stopping the program. 
     //'matrix singular' stops program
     x_inv = inv(x);
 
-In some cases, we would like our program to be able to detect certain errors and recover from them. The next section of code will be the same as above, with the exception of setting the trap flag. We will see that it will not cause an error.
+In some cases, we would like our program to be able to detect certain errors and recover from them. 
+The next section of code will be the same as above, with the exception of setting the `trap` flag. 
+We will see that it will not cause an error.
 
 ::
 
@@ -49,7 +56,12 @@ In some cases, we would like our program to be able to detect certain errors and
     // Attempt to calculate inverse
     x_inv = inv(x);
 
-If you run the above code, you will notice that an error was not returned. With the trap set to 1, instead of stopping the program with an error message, GAUSS will set the variable x_inv equal to a scalar error code. A scalar error code is a missing value that contains an integer which can be used to identify the error. For more information on error codes, see scalerr and error. In this example, however, our main concern is with determining whether or not the return value is a scalar error code. We can do this with the GAUSS function, scalmiss.
+If you run the above code, you will notice that an error was not returned. With the `trap` set to 1, 
+instead of stopping the program with an error message, GAUSS will set the variable *x_inv* equal to 
+a scalar error code. A scalar error code is a missing value that contains an integer which can be 
+used to identify the error. For more information on error codes, see :func:`scalerr` and :func:`error`. 
+In this example, however, our main concern is with determining whether or not the return value is 
+a scalar error code. We can do this with the GAUSS function, :func:`scalmiss`.
 
 ::
 
@@ -69,8 +81,11 @@ If you run the above code, you will notice that an error was not returned. With 
         print  "matrix was singular";
     endif;
 
+
+Example 2
++++++++++
+
 This example will built from the concepts in the example above to do something more useful.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -99,7 +114,7 @@ This example will built from the concepts in the example above to do something m
    // Solve the linear equations
    b_hat = mmi * x'y;
 
-After the above code, b_hat is equal to:
+After the above code, *b_hat* is equal to:
 
 ::
 
@@ -110,29 +125,30 @@ After the above code, b_hat is equal to:
 Remarks
 -------
 
-The trap flag is examined by some functions to control error handling.
+The :func:`trap` flag is examined by some functions to control error handling.
 There are 16 bits in the trap flag, but most GAUSS functions will
 examine only the lowest order bit:
 
 +-------------+-------------------+
-| **trap 1;** | turn trapping on  |
+| ``trap 1;`` | turn trapping on  |
 +-------------+-------------------+
-| **trap 0;** | turn trapping off |
+| ``trap 0;`` | turn trapping off |
 +-------------+-------------------+
 
-If we extend the use of the trap flag, we will use the lower order bits
-of the trap flag. It would be wise for you to use the highest 8 bits of
-the trap flag if you create some sort of user-defined trap mechanism for
-use in your programs. (See the function trapchk for detailed
-instructions on testing the state of the trap flag; see error for
+If we extend the use of the `trap` flag, we will use the lower order bits
+of the `trap` flag. It would be wise for you to use the highest 8 bits of
+the `trap` flag if you create some sort of user-defined trap mechanism for
+use in your programs. (See the function `trapchk` for detailed
+instructions on testing the state of the trap flag; see `error` for
 generating user-defined error codes.)
 
 To set only one bit and leave the others unchanged, use two arguments:
 
 +---------------+--------------------+
-| **trap 1,1;** | set the ones bit   |
+| ``trap 1,1;`` | set the ones bit   |
 +---------------+--------------------+
-| **trap 0,1;** | clear the ones bit |
+| ``trap 0,1;`` | clear the ones bit |
 +---------------+--------------------+
 
 .. seealso:: Functions :func:`scalerr`, `trapchk`, :func:`error`
+

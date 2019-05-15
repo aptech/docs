@@ -12,24 +12,30 @@ Format
 ----------------
 .. function:: strcombine(sa, delim, qchar)
 
-    :param sa: 
+    :param sa: data
     :type sa: NxM string array
 
-    :param delim: 1xM, or Mx1 delimiter string.
-    :type delim: 1x1
+    :param delim: delimiter string.
+    :type delim: 1x1 or 1xM or Mx1 
 
-    :param qchar: 2x1, or 1x2 string vector
-        containing quote characters as required:
-    :type qchar: scalar
+    :param qchar: scalar, 2x1, or 1x2 string vector containing quote characters as required:
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
+    
+            "scalar:", "Use this character as quote character."
+            "", "If this is 0, no quotes are added."
+            "2x1 or 1x2 string vector:", "Contains left and right quote characters."
 
-        "scalar:", "Use this character as quote character."
-        "", "If this is 0, no quotes are added."
-        "2x1 or 1x2 string vector:", "Contains left and right quote characters."
+    :type qchar: scalar or vector
 
     :returns: y (*Nx1 string vector*) result.
+
+Remarks
+-------
+
+Note that :func:`strcombine` adds a delimiter after the final element. To
+combine strings with the delimiter added only between tokens, see :func:`strjoin`.
 
 Examples
 ----------------
@@ -51,16 +57,10 @@ After the above code, path is equal to:
 
     "C:/gauss/myProject/"
 
-Remarks
--------
-
-Note that strcombine adds a delimiter after the final element. To
-combine strings with the delimiter added only between tokens, see
-strjoin.
-
 Source
 ------
 
 strfns.src
 
 .. seealso:: Functions :func:`satostrC`, :func:`strjoin`
+

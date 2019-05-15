@@ -24,7 +24,7 @@ Examples
     // Convert to a date time vector
     utv = utctodtv(tc);
 
-After the code above, tc and utv are equal to:
+After the code above, *tc* and *utv* are equal to:
 
 ::
 
@@ -33,3 +33,4 @@ After the code above, tc and utv are equal to:
     utv = 2012 06 18 21 28 32 1 169
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`utctodtv`
+

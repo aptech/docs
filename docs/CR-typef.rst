@@ -5,8 +5,7 @@ typef
 Purpose
 ----------------
 
-Returns the type of data (the number of bytes
-per element) in a GAUSS data set.
+Returns the type of data (the number of bytes per element) in a GAUSS data set.
 
 Format
 ----------------
@@ -20,8 +19,7 @@ Format
 Remarks
 -------
 
-If fp is a valid GAUSS file handle, then y will be set to the type of
-the data in the file as follows:
+If *fp* is a valid GAUSS file handle, then *y* will be set to the type of the data in the file as follows:
 
 +--------+----------------------------+
 |      2 | 2-byte signed integer      |
@@ -57,9 +55,10 @@ Examples
     // the data in 'dat1'
     create fout = ^outfile with ^names, 0, typef(fin);
 
-In this example, a file dat2.dat is created which has
+In this example, a file *dat2.dat* is created which has
 the same variables and variable type as the input
-file, dat1.dat.  typef is used to return the type of
-the input file data for the create statement.
+file, *dat1.dat*. :func:`typef` is used to return the type of
+the input file data for the `create` statement.
 
 .. seealso:: Functions :func:`colsf`, :func:`rowsf`
+

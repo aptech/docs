@@ -121,5 +121,5 @@ Create a 3-Dimensional dataset and one intermediate group
     // Create another data set of the same type inside the same file
     call h5create("surveys.h5", "/household/Oregon", dims, dtype, chunk_size);
 
-.. seealso:: Functions :func:`h5read`, :func:`h5write`, `open`, :func:`create`, :func:`writer`, :func:`seekr`, :func:`eof`
+.. seealso:: Functions :func:`h5read`, :func:`h5write`, `open`, `create`, :func:`writer`, :func:`seekr`, :func:`eof`
 

@@ -16,14 +16,14 @@ Format
     :param c: the number of columns.
     :type c: scalar
 
-    :returns: y (*r x c matrix*) of zeros.
+    :returns: y (*RxC matrix*) of zeros.
 
 Remarks
 -------
 
-This is faster than ones.
+This is faster than :func:`ones`.
 
-Noninteger arguments will be truncated to an integer.
+Non-integer arguments will be truncated to an integer.
 
 
 Examples
@@ -43,3 +43,4 @@ The code above produces the following output:
     0.000    0.000
 
 .. seealso:: Functions :func:`ones`, :func:`eye`
+

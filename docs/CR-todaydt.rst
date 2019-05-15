@@ -10,11 +10,9 @@ always midnight (00:00:00), the beginning of the returned day.
 
 Format
 ----------------
-.. function:: todaydt
+.. function:: todaydt()
 
     :returns: dt (*scalar*), system date in DT scalar format.
-
-
 
 Remarks
 -------
@@ -28,11 +26,10 @@ and time. In the DT scalar format, the number:
 
 represents 13:05:25 or 1:05:25 PM on September 6, 2012.
 
-
-
 Source
 ------
 
 time.src
 
 .. seealso:: Functions :func:`timedt`, :func:`timeutc`, :func:`dtdate`
+

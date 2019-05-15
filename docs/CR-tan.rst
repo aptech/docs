@@ -11,17 +11,17 @@ Format
 ----------------
 .. function:: tan(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*) .
+    :returns: y (*NxK matrix or N-dimensional array*)
 
 Remarks
 -------
 
-For real matrices, x should contain angles measured in radians.
+For real matrices, *x* should contain angles measured in radians.
 
-To convert degrees to radians, multiply the degrees by π/180.
+To convert degrees to radians, multiply the degrees by :math:`π/180`.
 
 
 Examples
@@ -38,7 +38,7 @@ The above code produces:
 
 ::
 
-    0.1003346
+        0.1003346
         0.2027100
         0.3093362
         0.4227932
@@ -50,4 +50,3 @@ The above code produces:
 
 .. seealso:: Functions :func:`atan`, :func:`pi`
 
-tangent trigonometric

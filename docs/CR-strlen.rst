@@ -10,12 +10,11 @@ Format
 ----------------
 .. function:: strlen(x)
 
-    :param x: NxK matrix of character data, or NxK string array.
-    :type x: string
+    :param x: data
+    :type x: string or NxK matrix of character data, or NxK string array.
 
-    :returns: y (*scalar*) containing the exact length of the
-        string x, or NxK matrix or string array containing the lengths of the
-        elements in x.
+    :returns: y (*scalar*) containing the exact length of the string *x*, 
+        or NxK matrix or string array containing the lengths of the elements in *x*.
 
 Remarks
 -------
@@ -50,3 +49,4 @@ After running the code above:
     len2 = 14
 
 .. seealso:: Functions :func:`strsect`, :func:`strindx`, :func:`strrindx`
+

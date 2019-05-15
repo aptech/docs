@@ -10,22 +10,19 @@ Format
 ----------------
 .. function:: singleindex(i, o)
 
-    :param i: 
-    :type i: Nx1 vector of indices into an N-dimensional array
+    :param i: indices into an N-dimensional array
+    :type i: Nx1 vector
 
-    :param o: 
-    :type o: Nx1 vector of orders of an N-dimensional array
+    :param o: orders of an N-dimensional array
+    :type o: Nx1 vector
 
-    :returns: si (*scalar*), index of corresponding element in 1-dimensional
-        array or vector.
+    :returns: si (*scalar*), index of corresponding element in 1-dimensional array or vector.
 
 Remarks
 -------
 
-This function and its opposite, arrayindex, allow you to convert between
-an N-dimensional index and its corresponding location in a 1-dimensional
-object of the same size.
-
+This function and its opposite, :func:`arrayindex`, allow you to convert between
+an N-dimensional index and its corresponding location in a 1-dimensional object of the same size.
 
 Examples
 ----------------
@@ -55,10 +52,11 @@ Examples
     getarray(a,ai) = 49.000000
     v[vi] = 49.000000
 
-This example allocates a 3-dimensional array a and sets
-the element corresponding to the index vector ai to 49. It then 
-creates a vector, v, with the same data. The element in
-the array a that is indexed by ai corresponds
-to the element of the vector v that is indexed by vi.
+This example allocates a 3-dimensional array *a* and sets
+the element corresponding to the index vector *ai* to 49. It then 
+creates a vector, *v*, with the same data. The element in
+the array *a* that is indexed by *ai* corresponds
+to the element of the vector *v* that is indexed by *vi*.
 
 .. seealso:: Functions :func:`arrayindex`
+

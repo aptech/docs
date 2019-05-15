@@ -4,7 +4,14 @@ ztics
 
 Purpose
 ----------------
-Sets and fixes scaling, axes numbering and tick marks for the Z axis. NOTE: This function is for the deprecated PQG graphics.
+Sets and fixes scaling, axes numbering and tick marks for the Z axis.
+
+.. NOTE:: This function is for the deprecated PQG graphics.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -20,23 +27,18 @@ Format
     :type step: scalar
 
     :param minordiv: the number of minor subdivisions.
-        If this function is used with contour, contour labels
-        will be placed every  minordiv levels. If 0, there
-        will be no labels.
+        If this function is used with :func:`contour`, contour labels will be placed every 
+        *minordiv* levels. If 0, there will be no labels.
     :type minordiv: scalar
-
-
 
 Remarks
 -------
 
-This routine fixes the scaling for all subsequent graphs until graphset
+This routine fixes the scaling for all subsequent graphs until :func:`graphset`
 is called.
 
 This gives you direct control over the axes endpoints and tick marks. If
-ztics is called after a call to scale3d, it will override scale3d.
-
-
+:func:`ztics` is called after a call to :func:`scale3d`, it will override :func:`scale3d`.
 
 Source
 ------
@@ -44,3 +46,4 @@ Source
 pscale.src
 
 .. seealso:: Functions :func:`scale3d`, :func:`xtics`, :func:`ytics`, :func:`contour`
+

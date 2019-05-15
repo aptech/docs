@@ -6,21 +6,24 @@ Purpose
 ----------------
 Waits until any key is pressed.
 
+.. _wait:
+.. _waitc:
+.. index:: wait, waitc
+
 Format
 ----------------
-.. function:: wait 
-			  waitc
 
+::
 
+    wait;
+    waitc;
 
 Remarks
 -------
 
 If you are working in terminal mode, these commands do not "see" any
-keystrokes until ENTER is pressed. waitc clears any pending keystrokes
+keystrokes until :kbd:`ENTER` is pressed. `waitc` clears any pending keystrokes
 before waiting until another key is pressed.
-
-
 
 Source
 ------
@@ -28,3 +31,4 @@ Source
 wait.src, waitc.src
 
 .. seealso:: Functions :func:`pause`
+

@@ -27,7 +27,7 @@ Format
 Remarks
 -------
 
--  The file handle must be closed with either the :func:`close` function or
+-  The file handle must be closed with either the `close` function or
    :func:`closeall` when you are finished using it.
 -  To read or write data to a file opened with :func:`h5open`, use :func:`readr`, and
    :func:`writer`.

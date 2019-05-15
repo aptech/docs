@@ -10,17 +10,16 @@ Format
 ----------------
 .. function:: shiftr(x, s, f)
 
-    :param x: 
-    :type x: NxK matrix to be shifted
+    :param x: data to be shifted
+    :type x: NxK matrix 
 
-    :param s: 
-    :type s: scalar or Nx1 vector specifying the amount of
-        shift
+    :param s: specifying the amount of shift
+    :type s: scalar or Nx1 vector 
 
-    :param f: 
-    :type f: scalar or Nx1 vector specifying the value to fill in
+    :param f: specifying the value to fill in
+    :type f: scalar or Nx1 vector
 
-    :returns: y (*NxK shifted matrix*) .
+    :returns: y (*NxK shifted matrix*)
 
 Remarks
 -------
@@ -30,7 +29,6 @@ the shift value is positive, the elements in the row will be moved to
 the right. A negative shift value causes the elements to be moved to the
 left. The elements that are pushed off the end of the row are lost, and
 the fill value will be used for the new elements on the other end.
-
 
 Examples
 ----------------
@@ -45,7 +43,7 @@ Examples
          999 };
     y = shiftr(x,s,f);
 
-Now y is equal to:
+Now *y* is equal to:
 
 ::
 
@@ -63,7 +61,7 @@ Now y is equal to:
     f = 0;
     y2 = shiftr(x,s,f);
 
-Now y2 is equal to:
+Now *y2* is equal to:
 
 ::
 
@@ -72,3 +70,4 @@ Now y2 is equal to:
     0  0  7
 
 .. seealso:: Functions :func:`rotater`
+

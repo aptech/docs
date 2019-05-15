@@ -4,7 +4,14 @@ window
 
 Purpose
 ----------------
-Partitions the window into tiled regions (graphic panels) of equal size. NOTE: This function is for the deprecated PQG graphics.
+Partitions the window into tiled regions (graphic panels) of equal size. 
+
+.. NOTE:: This function is for the deprecated PQG graphics.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -21,18 +28,14 @@ Format
         nontransparent (blanked).
     :type typ: scalar
 
-
-
 Remarks
 -------
 
-The graphic panels will be numbered from 1 to (row) x (col) starting
+The graphic panels will be numbered from 1 to (*row*) x (*col*) starting
 from the left topmost graphic panel and moving right.
 
-See makewind for creating graphic panels of a specific size and
+See :func:`makewind` for creating graphic panels of a specific size and
 position. (For more information, see **Graphic Panels**, Section 1.1.
-
-
 
 Source
 ------
@@ -40,3 +43,4 @@ Source
 pwindow.src
 
 .. seealso:: Functions :func:`endwind`, :func:`begwind`, :func:`setwind`, :func:`nextwind`, :func:`getwind`, :func:`makewind`
+

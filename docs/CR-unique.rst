@@ -8,17 +8,15 @@ Sorts and removes duplicate elements from a vector.
 
 Format
 ----------------
-.. function:: unique(x, flag)
+.. function:: unique(x[, flag])
 
-    :param x: NxM character data, or NxM string array.
-    :type x: NxM numeric matrix
+    :param x: data
+    :type x: NxM numeric matrix or NxM character data, or NxM string array.
 
-    :param flag: scalar, 1 if numeric data, 0 if character data. Default is 1.
-        String array does not need a flag.
-    :type flag: Optional input
+    :param flag: Optional input, 1 if numeric data, 0 if character data. Default is 1. string array does not need a flag.
+    :type flag: scalar
 
-    :returns: y (*Mx1 vector*), sorted x with
-        the duplicates removed.
+    :returns: y (*Mx1 vector*), sorted *x* with the duplicates removed.
 
 Examples
 ----------------
@@ -45,11 +43,11 @@ Numeric
     // Sort 'years' and remove any duplicate elements
     years_unique = unique(years);
 
-After the code above, the variables years and years_unique are assigned as follows:
+After the code above, the variables *years* and *years_unique* are assigned as follows:
 
 ::
 
-    1632
+             1632
              2012                  1632
              1709                  1709
              1812                  1812
@@ -81,7 +79,7 @@ Numeric Matrix
     print;
     print "years_unique:" years_unique;
 
-After the code above, the variables years and years_unique are assigned as follows:
+After the code above, the variables *years* and *years_unique* are assigned as follows:
 
 ::
 
@@ -118,7 +116,6 @@ Character data
     // Set flag to indicate data is character data
     flag = 0;
     
-    
     // Sort 'levels' alphabetically and
     // remove any duplicate elements
     levels_unique = unique(levels, flag);
@@ -132,7 +129,7 @@ The code above will produce the following output:
 
 ::
 
-    high
+      high
        low
     medium
 
@@ -147,18 +144,18 @@ will produce the following output:
 
 ::
 
-    low
+       low
     medium 
       high
 
-: String array vector
+String array vector
 +++++++++++++++++++++
 
 ::
 
     // Create column string array
-    string levels = { "high",  "medium", "medium",  "low", 
-             "high", "medium", "medium"}; 
+    string levels = { "high", "medium", "medium", "low", 
+                      "high", "medium", "medium"}; 
     
     // Sort 'levels' alphabetically and
     // remove any duplicate elements
@@ -170,11 +167,11 @@ The code above will produce the following output:
 
 ::
 
-    high
+      high
        low
     medium
 
-: String array matrix
+String array matrix
 +++++++++++++++++++++
 
 ::
@@ -189,18 +186,18 @@ The code above will produce the following output:
     // remove any duplicate elements
     levels_unique = unique(levels);
     				
-    print"levels: " levels;
+    print "levels: " levels;
     print;
-    print"levels_unique:" levels_unique;
+    print "levels_unique:" levels_unique;
 
 The code above will produce the following output:
 
 ::
 
     levels: 
-    apple       		watermelon 
-    banana           	banana 
-    watermelon            	apple 
+    apple                       watermelon 
+    banana                      banana 
+    watermelon                  apple 
     
     levels_unique:
     apple 
@@ -208,3 +205,4 @@ The code above will produce the following output:
     watermelon
 
 .. seealso:: Functions :func:`sortc`, :func:`uniquesa`, :func:`uniqindx`
+

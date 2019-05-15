@@ -10,18 +10,17 @@ Format
 ----------------
 .. function:: sin(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*) containing the sine of x.
+    :returns: y (*NxK matrix or N-dimensional array*) containing the sine of *x*.
 
 Remarks
 -------
 
-For real data, x should contain angles measured in radians.
+For real data, *x* should contain angles measured in radians.
 
-To convert degrees to radians, multiply the degrees by π/180.
-
+To convert degrees to radians, multiply the degrees by :math:`π/180`.
 
 Examples
 ----------------
@@ -34,11 +33,10 @@ Examples
 
 ::
 
-    0.000000
+       0.000000
        0.479426
        0.841471
        0.997495
 
 .. seealso:: Functions :func:`atan`, :func:`cos`, :func:`sinh`, :func:`pi`
 
-sine trigonometric

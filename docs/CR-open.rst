@@ -237,5 +237,5 @@ to locate to the appropriate row in the matrix, and the row is read
 with :func:`readr` and placed in the matrix *rndsmpx*. This is continued
 until the complete sample has been obtained.
 
-.. seealso:: Functions :func:`dataopen`, :func:`create`, :func:`close`, :func:`closeall`, :func:`readr`, :func:`writer`, :func:`seekr`, :func:`eof`
+.. seealso:: Functions :func:`dataopen`, `create`, `close`, :func:`closeall`, :func:`readr`, :func:`writer`, :func:`seekr`, :func:`eof`
 

@@ -10,24 +10,21 @@ Format
 ----------------
 .. function:: submat(x, r, c)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :param r: 
-    :type r: LxM matrix of row indices
+    :param r: row indices
+    :type r: LxM matrix
 
-    :param c: 
-    :type c: PxQ matrix of column indices
+    :param c: column indices
+    :type c: PxQ matrix
 
-    :returns: y (*(L*M)x(P*Q) submatrix*) of x, y may be larger
-        than x.
+    :returns: y (*(L*M)x(P*Q) submatrix*) of *x*, *y* may be larger than *x*.
 
 Remarks
 -------
 
-If r = 0, then all rows of x will be used. If c = 0, then all columns of
-x will be used.
-
+If :math:`r = 0`, then all rows of *x* will be used. If :math:`c = 0`, then all columns of *x* will be used.
 
 Examples
 ----------------
@@ -51,7 +48,7 @@ After the code above, the matrix values are:
 
 ::
 
-    1  2  3  4
+        1  2  3  4
     x = 5  6  7  8
         9 10 11 12
     
@@ -63,3 +60,4 @@ After the code above, the matrix values are:
         10 12
 
 .. seealso:: Functions :func:`diag`, :func:`vec`, :func:`reshape`
+

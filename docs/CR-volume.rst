@@ -4,7 +4,14 @@ volume
 
 Purpose
 ----------------
-Sets the length, width, and height ratios of the 3-D workbox. NOTE: This function is for the deprecated PQG graphics.
+Sets the length, width, and height ratios of the 3-D workbox.
+
+.. NOTE:: This function is for the deprecated PQG graphics.
+
+Library
+-------
+
+pgraph
 
 Format
 ----------------
@@ -19,15 +26,11 @@ Format
     :param z: the Z length of the 3-D workbox.
     :type z: scalar
 
-
-
 Remarks
 -------
 
-The ratio between these values is what is important. If volume is not
+The ratio between these values is what is important. If :func:`volume` is not
 called, a default workbox will be calculated.
-
-
 
 Source
 ------
@@ -35,3 +38,4 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`view`
+

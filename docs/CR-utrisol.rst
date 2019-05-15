@@ -5,27 +5,25 @@ utrisol
 Purpose
 ----------------
 
-Computes the solution of Ux = b where  U is an upper
-triangular matrix.
+Computes the solution of :math:`Ux = b` where :math:`U` is an upper triangular matrix.
 
 Format
 ----------------
 .. function:: utrisol(b, U)
 
-    :param b: 
+    :param b: data
     :type b: PxK matrix
 
-    :param U: 
+    :param U: data
     :type U: PxP upper triangular matrix
 
-    :returns: x (*PxK matrix*), solution of Ux = b.
-
-
+    :returns: x (*PxK matrix*), solution of :math:`Ux = b`.
 
 Remarks
 -------
 
-utrisol applies a back solve to Ux = b to solve for x. If b has more
-than one column, each column is solved for separately, i.e., utrisol
-applies a back solve to U \* x[.,i]= b[.,i].
+:func:`utrisol` applies a back solve to :math:`Ux = b` to solve for :math:`x`. If :math:`b` has more
+than one column, each column is solved for separately, i.e., :func:`utrisol` applies a back solve to :math:`U \* x[.,i] = b[.,i]`.
+
+.. DANGER:: check equations
 

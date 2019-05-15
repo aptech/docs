@@ -10,19 +10,19 @@ Format
 ----------------
 .. function:: strsplitPad(sv, n_cols)
 
-    :param sv: 
+    :param sv: data
     :type sv: Nx1 string array
 
     :param n_cols: number of columns of output string array.
     :type n_cols: scalar
 
-    :returns: sa (*Nx n_cols string array*) .
+    :returns: sa (*Nx n_cols string array*)
 
 Remarks
 -------
 
-Rows containing more than n_cols tokens are truncated and rows
-containing fewer than n_cols tokens are padded on the right with null
+Rows containing more than *n_cols* tokens are truncated and rows
+containing fewer than *n_cols* tokens are padded on the right with null
 strings. The following characters are considered delimiters between
 tokens:
 
@@ -43,7 +43,6 @@ or parentheses. Tokens enclosed in single or double quotes will NOT
 retain the quotes upon translation. Tokens enclosed in parentheses WILL
 retain the parentheses after translation. Parentheses cannot be nested.
 
-
 Examples
 ----------------
 
@@ -57,12 +56,13 @@ Examples
      
      sa = strsplitPad(sv, 4);
 
-After the code above, sa will be equal to:
+After the code above, *sa* will be equal to:
 
 ::
 
     "alpha"    "beta" "gamma"    ""
-                    "delta" "epsilon"  "zeta" "eta"
-                    "theta"    "iota" "kappa"    ""
+    "delta" "epsilon"  "zeta" "eta"
+    "theta"    "iota" "kappa"    ""
 
 .. seealso:: Functions :func:`strsplit`
+

@@ -11,15 +11,13 @@ Format
 ----------------
 .. function:: unionsa(sv1, sv2)
 
-    :param sv1: 
+    :param sv1: data
     :type sv1: Nx1 or 1xN string vector
 
-    :param sv2: 
+    :param sv2: data
     :type sv2: Mx1 or 1xM string vector
 
-    :returns: y (*Lx1 vector*) containing all unique values that
-        are in  sv1 and  sv2, sorted in ascending
-        order.
+    :returns: y (*Lx1 vector*) containing all unique values that are in *sv1* and *sv2*, sorted in ascending order.
 
 Examples
 ----------------
@@ -47,3 +45,4 @@ Source
 unionsa.src
 
 .. seealso:: Functions :func:`union`
+

@@ -4,22 +4,22 @@ sylvester
 
 Purpose
 ----------------
-Computes the solution to the Sylvester matrix equation, AX + XB = C.
+Computes the solution to the Sylvester matrix equation, :math:`AX + XB = C`.
 
 Format
 ----------------
 .. function:: sylvester(A, B, C)
 
-    :param A: 
+    :param A: data
     :type A: MxM real or complex matrix
 
-    :param B: 
+    :param B: data
     :type B: NxN real or complex  matrix
 
-    :param C: 
+    :param C: data
     :type C: MxN real or complex matrix
 
-    :returns: X (*MxN matrix*), solution to the equation AX + XB = C.
+    :returns: X (*MxN matrix*), solution to the equation :math:`AX + XB = C`.
 
 Examples
 ----------------
@@ -46,7 +46,7 @@ Real input
     // Solve the Sylvester matrix equation
     X = sylvester(A, B, C);
 
-After the code above, X will equal the 3 x 2 matrix:
+After the code above, *X* will equal the 3x2 matrix:
 
 ::
 
@@ -76,7 +76,7 @@ Complex input
     // Solve the Sylvester matrix equation
     X = sylvester(A, B, C);
 
-After the code above, X will equal the 3 x 2 complex matrix:
+After the code above, *X* will equal the 3x2 complex matrix:
 
 ::
 
@@ -87,10 +87,9 @@ After the code above, X will equal the 3 x 2 complex matrix:
 Remarks
 -------
 
-The equation AX + XB = C will not have a unique solution if the
-eigenvalues of the matrices A and -B are equal. In this case an error
+The equation :math:`AX + XB = C` will not have a unique solution if the
+eigenvalues of the matrices *A* and *-B* are equal. In this case an error
 will be returned.
 
 .. seealso:: Functions :func:`hess`, :func:`schur`
 
-sylvester matrix equation

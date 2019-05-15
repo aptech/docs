@@ -4,16 +4,16 @@ spChol
 
 Purpose
 ----------------
-Computes the LL' decomposition of a sparse matrix A.
+Computes the :math:`LL'` decomposition of a sparse matrix *A*.
 
 Format
 ----------------
 .. function:: spChol(a)
 
-    :param a: symmetric, positive definite sparse matrix.
-    :type a: NxN
+    :param a: NxN symmetric, positive definite sparse matrix.
+    :type a: sparse matrix
 
-    :returns: l (*NxN lower-triangular sparse matrix*) .
+    :returns: l (*NxN lower-triangular sparse matrix*)
 
 Examples
 ----------------
@@ -34,11 +34,12 @@ Examples
     // Create matrix factorization          
     L = spChol(A);
 
-.. seealso:: Functions :func:`spLDL`, :func:`spLU`
-
 Technical Notes
-+++++++++++++++
+----------------
 
-spChol implements functions from the TAUCS library: TAUCS Version 2.2.
+:func:`spChol` implements functions from the TAUCS library: TAUCS Version 2.2.
 Copyright ©2001, 2002, 2003 by Sivan Toledo, Tel-Aviv University,
 stoledo@tau.ac.il. All Rights Reserved.
+
+.. seealso:: Functions :func:`spLDL`, :func:`spLU`
+
