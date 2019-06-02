@@ -26,13 +26,13 @@ Remarks
 
 *ve* and *va* are the eigenvalues and eigenvectors of the solution of the
 generalized symmetric eigenproblem of the form :math:`Ax = λ B`. Equivalently,
-*va* diagonalizes :math:`U\ '\ -1 A*U\ -1` in the following way
+*va* diagonalizes :math:`U\'^{-1}A*U^{-1}` in the following way
 
 .. DANGER:: Fix equations on this page
 
 .. math::
 
-   va*U'-1 A*Y-1va' = ve
+   va*U'^{-1}A*Y^{-1}va' = ve
 
 where :math:`B = U'U`. This procedure calls the LAPACK routines *DSYGV* and *ZHEGV*.
 
@@ -45,13 +45,13 @@ Examples
     A = { 3 4 5,
           2 5 2,
           3 2 4 };
-     
+
     B = { 4 2 2,
           2 6 1,
           2 1 8 };
-     
-    { ve, va } = lapgeighv(A,B);
-     
+
+    { ve, va } = lapgeighv(A, B);
+
     print ve;
 
 ::
@@ -71,4 +71,3 @@ Examples
     -0.8972 -0.3128 0.3118
 
 .. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`
-

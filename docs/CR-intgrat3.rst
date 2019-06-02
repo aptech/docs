@@ -6,7 +6,10 @@ Purpose
 ----------------
 
 Integrates the following triple integral, using user-defined functions and scalars for bounds:
-∫ab∫g2(x)g1(x)∫h2(x,y)h1(x,y) f(x,y,z)dzdydx
+
+.. math::
+
+   \int_{a}^{b}\int_{g_2(x)}^{g_1(x)} \int_{gh_2(x, y)}^{h_1(x, y)}f(x, y, z)dzdydx
 
 .. DANGER:: FIX EQUATION
 
@@ -26,7 +29,7 @@ Format
     :param hl: function pointers. These procedures are functions of *x* and *y*.
     :type hl: 2x1 or 2xN matrix
 
-    :returns: y (*Nx1 vector*) of the estimated integral(s) of :math:`f(x,y,z)` evaluated between the limits given by *xl*, *gl* and *hl*.
+    :returns: y (*Nx1 vector*) of the estimated integral(s) of :math:`f(x, y, z)` evaluated between the limits given by *xl*, *gl* and *hl*.
 
 Global Input
 ------------
@@ -60,35 +63,35 @@ Examples
 
 ::
 
-    proc f(x,y,z);
+    proc f(x, y, z);
     retp(2);
     endp;
-     
+
     proc g1(x);
-       retp(sqrt(25-x^2));
+       retp(sqrt(25 - x^2));
     endp;
-     
+
     proc g2(x);
        retp(-g1(x));
     endp;
-     
-    proc h1(x,y);
+
+    proc h1(x, y);
        retp(sqrt(25 - x^2 - y^2));
     endp;
-     
-    proc h2(x,y);
-       retp(-h1(x,y));
+
+    proc h2(x, y);
+       retp(-h1(x, y));
     endp;
-     
+
     xl = 5|-5;
     g0 = &g1|&g2;
     h0 = &h1|&h2;
-    
-    _intord = 40;
-    
-    y = intgrat3(&f,xl,g0,h0);
 
-This will integrate the function :math:`f(x,y,z)` over the sphere of
+    _intord = 40;
+
+    y = intgrat3(&f, xl, g0, h0);
+
+This will integrate the function :math:`f(x, y, z)` over the sphere of
 radius 5. The result will be approximately twice the volume of a
 sphere of radius 5.
 
@@ -104,4 +107,3 @@ Globals
 *_intq32*, *_intq4*, *_intq40*, *_intq6*, *_intq8*
 
 .. seealso:: Functions :func:`intgrat2`, :func:`intquad1`, :func:`intquad2`, :func:`intquad3`, :func:`intsimp`
-
