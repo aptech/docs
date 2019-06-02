@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: amean(x, dim)
 
-    :param x: 
+    :param x:
     :type x: N-dimensional array.
 
     :param dim: number of dimension to compute the mean across.
     :type dim: scalar
 
-    :returns: y ([N-1]-dimensional array)
+    :returns: y (*[N-1]-dimensional array*)
 
 Remarks
 -------
@@ -31,12 +31,12 @@ Examples
 ::
 
     // Create an additive sequence from 1-24
-    x = seqa(1,1,24);
-    
-    //'Reshape' this 24x1 vector into a 2x3x4 dimensional array
-    x = areshape(x,2|3|4);
-    
-    y = amean(x,3);
+    x = seqa(1, 1, 24);
+
+    // 'Reshape' this 24x1 vector into a 2x3x4 dimensional array
+    x = areshape(x, 2|3|4);
+
+    y = amean(x, 3);
 
 *x* is a 2x3x4 array, such that:
 [1,1,1] through [1,3,4] =
@@ -66,7 +66,7 @@ Examples
 
 ::
 
-    y = amean(x,1);
+    y = amean(x, 1);
 
 Using the same array *x* as the above example, this example computes the mean across the first dimension. *y* will be a 2x3x1 array, such that:
 [1,1,1] through [1,3,1] =
@@ -86,4 +86,3 @@ Using the same array *x* as the above example, this example computes the mean ac
     22.500000
 
 .. seealso:: Functions :func:`asum`
-

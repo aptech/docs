@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: areshape(x, o)
 
-    :param x: 
+    :param x:
     :type x: scalar or matrix or N-dimensional array.
 
     :param o: orders. the sizes of the dimensions of the new array.
     :type o: Mx1 vector
 
-    :returns: y (M-dimensional array) created from data in *x*.
+    :returns: y (*M-dimensional array*) created from data in *x*.
 
 Remarks
 -------
@@ -55,4 +55,3 @@ be set to the sequence of integers from 1 to 30 contained in the first 30 elemen
 *y* will be a 3x2x4 array. Since *y* contains 24 elements, and *x* contains 60, the elements of *y* will be set to the sequence of integers from 1 to 24 contained in the first 24 elements of *x*.
 
 .. seealso:: Functions :func:`aconcat`, :func:`squeeze`
-

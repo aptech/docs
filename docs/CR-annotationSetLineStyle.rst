@@ -40,10 +40,10 @@ Basic usage
     */
     struct plotAnnotation myAnnotation;
     myAnnotation = annotationGetDefaults();
-    
+
     // Set line style to 'dot'
     line_style = 3;
-    annotationSetLineStyle(&myAnnotation,line_style);
+    annotationSetLineStyle(&myAnnotation, line_style);
 
 Full example creating an ellipse with a dash border
 +++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -54,17 +54,17 @@ Full example creating an ellipse with a dash border
     x = seqa(0.1, 0.2, 10);
     y = 3 .* sin(x) + rndu(10, 1);
     plotXY(x, y);
-    
+
     /*
     ** Declare 'myAnnotation' to be an instance of a plotAnnotation structure
     ** and fill it in with default values
     */
     struct plotAnnotation myAnnotation;
     myAnnotation = annotationGetDefaults();
-    
+
     // Set line style to dash (for ellipse border in this case)
     annotationSetLineStyle(&myAnnotation, 2);
-    
+
     /*
     ** Add ellipse to 'xy' plot from above
     ** using settings from 'myAnnotation'
@@ -72,4 +72,3 @@ Full example creating an ellipse with a dash border
     plotAddShape(myAnnotation, "ellipse", 0.4, 1.5, 1, 2.9);
 
 .. seealso:: Functions :func:`plotAddTextbox`, :func:`plotAddArrow`, :func:`plotAddShape`, :func:`annotationGetDefaults`
-

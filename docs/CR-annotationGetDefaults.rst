@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: annotationGetDefaults()
 
-    :returns: myAnnotation (struct), An instance of a :class:`plotAnnotation` structure with all members set to defaults.
+    :returns: myAnnotation (*struct*), An instance of a :class:`plotAnnotation` structure with all members set to defaults.
 
 Remarks
 -------
@@ -29,9 +29,8 @@ Examples
 
     // Declare 'myAnnotation' to be an instance of a plotAnnotation structure
     struct plotAnnotation myAnnotation;
-    
+
     // Fill in 'myAnnotation' with default values
     myAnnotation = annotationGetDefaults();
 
 .. seealso:: Functions :func:`plotAddShape`, :func:`plotAddTextbox`, :func:`annotationSetLineColor`, :func:`annotationSetBkd`
-
