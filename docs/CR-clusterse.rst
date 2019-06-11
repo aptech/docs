@@ -8,8 +8,8 @@ Purpose
 
 Format
 ----------------
-.. function:: clusterSE(x, grp, resid[, const, verbose, var_names])
-              clusterSE(dataset, formula, grp_var, resid[, const, verbose, var_names])
+.. function:: clusterSE(x, grp, resid[, const[, verbose[, var_names]]])
+              clusterSE(dataset, formula, grp_var, resid[, const[, verbose[, var_names]]])
 
     :param x: independent regression variables, should not include a const.
     :type x: NxK matrix
@@ -17,7 +17,10 @@ Format
     :param grp: vector of group indicators.
     :type grp: NTx1 matrix
 
-    :param resid: ols residuals. Note: if using :func:`olsmt` these are stored in the :class:`olsOut` structure member *resid*.
+    :param resid: ols residuals.
+    
+        .. NOTE:: if using :func:`olsmt` these are stored in the :class:`olsOut` structure member *resid*.
+
     :type resid: NTx1 matrix
 
     :param dataset: name of dataset.
@@ -40,6 +43,7 @@ Format
     :type var_names: string array
 
     :returns: vce_cluster (*KxK matrix*), White cluster-robust variance-covariance matrix.
+
 
 Examples
 ----------------
@@ -107,7 +111,7 @@ The results:
 ::
 
     Total observations:                                        28101
-      Number of variables:                                           4
+    Number of variables:                                           4
     
               VARIABLE     Clustered SE
       -------------------------------------
