@@ -50,7 +50,7 @@ The statement:
 ::
 
     library pgraph;
-    axmargin(1,1,.5,.855);
+    axmargin(1, 1, .5, .855);
 
 will create a plot area of 7 inches horizontally by 5.5 inches
 vertically, and positioned 1 inch right and .855 up from the lower
@@ -60,4 +60,3 @@ Source
 ------------
 
 pgraph.src
-

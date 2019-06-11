@@ -15,7 +15,7 @@ Format
     :param ord: the sizes of the dimensions of *a*.
     :type ord: Nx1 vector of orders
 
-    :returns: a (N-dimensional array), containing 2-dimensional identity arrays.
+    :returns: a (*N-dimensional array*), containing 2-dimensional identity arrays.
 
 Remarks
 -------
@@ -52,4 +52,3 @@ a will be a 2x3x3 array, such that:
     0 0 1
 
 .. seealso:: Functions :func:`eye`
-

@@ -38,19 +38,18 @@ i.e., the eigenvalues may be infinite.
 
 .. DANGER:: Fix equations on this page
 
-The left and right eigenvectors diagonalize :math:`U'\ -1\ \*A*U\ -1` where :math:`B = U'*U`, that is,
+The left and right eigenvectors diagonalize :math:`U'^{-1}*A*U{-1}` where :math:`B = U'*U`, that is,
 
-::
+.. math::
 
-   lve*U'-1A*U*lve' = w
+   lve*U'^{-1}A*U*lve' = w
 
 and
 
-::
+.. math::
 
-   rve'U'-1*A*U-1*rve = w
+   rve'U'^{-1}*A*U^{-1}*rve = w
 
 This procedure calls the LAPACK routines *DGGEV* and *ZGGEV*.
 
 .. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`
-

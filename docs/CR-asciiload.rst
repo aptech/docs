@@ -13,7 +13,7 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: y (Nx1 vector)
+    :returns: y (*Nx1 vector*)
 
 Remarks
 -------
@@ -68,7 +68,7 @@ you may use any of the following commands:
 
     path = "C:/gauss/";
     fname = "myfile.asc";
-    
+
     /*
     ** The '$+' operator adds two strings together into one
     ** string
@@ -87,4 +87,3 @@ All of the above commands will set *y* to be equal to:
     -12.725
 
 .. seealso:: Functions :func:`csvReadM`, `load`, :func:`dataload`
-

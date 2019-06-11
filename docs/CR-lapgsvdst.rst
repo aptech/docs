@@ -38,16 +38,16 @@ Remarks
 
 .. math::
 
-   U'AQ = D1Z
+   U'AQ = D_1Z
 
 .. math::
 
-   V'BQ = D2Z
+   V'BQ = D_2Z
 
 where *U*, *V*, and *Q* are orthogonal matrices (see :func:`lapgsvdcst` and
 :func:`lapgsvdst`). Letting K+L = the rank of :math:`A\|B` then *R* is a (K+L)x(K+L) upper
 triangular matrix, *D1* and *D2* are Mx(K+L) and Px(K+L) matrices with
-entries on the diagonal, :math:`Z = [0R]`, and if :math:`M-K-L >= 0`
+entries on the diagonal, :math:`Z = [0R]`, and if :math:`M-K-L \geq 0`
 
 ::
 
@@ -68,7 +68,7 @@ entries on the diagonal, :math:`Z = [0R]`, and if :math:`M-K-L >= 0`
    [ 0 R ] = K [   0    R11  R12 ]
              L [   0     0   R22 ]
 
-or if :math:`M-K-L < 0`
+or if :math:`M-K-L \lt 0`
 
 ::
 
@@ -79,7 +79,7 @@ or if :math:`M-K-L < 0`
 ::
 
                      N-K-L  K   M-K  K+L-M
-                 K [   0   R11  R12   R13  ]   
+                 K [   0   R11  R12   R13  ]
    [ 0 R ] =   M-K [   0    0   R22   R23  ]
              K+L-M [   0    0    0    R33  ]
 
@@ -94,9 +94,9 @@ then
 
 .. math::
 
-   A = U'-1E1X
+   A = U'^{-1}E_1X
 
-   B = V'-1E2X-1
+   B = V'^{-1}E_2X^{-1}
 
 where
 
@@ -107,15 +107,14 @@ where
    E2 = [ 0  D2 ]
 
 (3) The generalized singular value decomposition of *A* and *B* implicitly
-produces the singular value decomposition of :math:`AB\ :sup:`-1``:
+produces the singular value decomposition of :math:`AB^{-1}`:
 
 .. math::
 
-   AB-1 = UD1D2-1V'
+   AB^{-1} = UD_1D_2^{-1}V'
 
 .. DANGER:: verify equations on this page
 
 This procedure calls the LAPACK routines *DGGSVD* and *ZGGSVD*.
 
 .. seealso:: Functions :func:`lapgsvds`, :func:`lapgsvdcst`
-

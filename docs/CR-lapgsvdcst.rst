@@ -21,7 +21,7 @@ Format
 
     :returns: S (*Lx1 vector*), singular values for *B*.
 
-    :returns: R (*(K+L)x(K+L) upper triangular matrix*)
+    :returns: R (*(K+L)x(K+L)*), upper triangular matrix.
 
     :returns: U (*MxM matrix*), orthogonal transformation matrix.
 
@@ -38,15 +38,15 @@ Remarks
 
 .. math::
 
-    U'\*A\*Q = D1\*Z
+    U'*A*Q = D1*Z
 
 .. math::
 
     V'\*B\*Q = D2\*Z
 
 where *U*, *V*, and *Q* are orthogonal matrices (see :func:`lapgsvdcst` and
-:func:`lapgsvdst`). Letting K + L = the rank of :math:`A\|B` then *R* is a :math:`(K+L)x(K+L)` upper 
-triangular matrix, *D1* and *D2* are Mx(K+L) and Px(K+L) matrices with entries on the diagonal, :math:`Z = [0 R]`, and if :math:`M-K-L >= 0`
+:func:`lapgsvdst`). Letting K + L = the rank of :math:`A\|B` then *R* is a :math:`(K+L)x(K+L)` upper
+triangular matrix, *D1* and *D2* are Mx(K+L) and Px(K+L) matrices with entries on the diagonal, :math:`Z = [0 R]`, and if :math:`M-K-L \geq 0`
 
 ::
 
@@ -67,7 +67,7 @@ triangular matrix, *D1* and *D2* are Mx(K+L) and Px(K+L) matrices with entries o
    [ 0 R ] = K [   0    R11  R12 ]
              L [   0     0   R22 ]
 
-or if :math:`M-K-L < 0`
+or if :math:`M-K-L \lt 0`
 
 ::
 
@@ -78,7 +78,7 @@ or if :math:`M-K-L < 0`
 ::
 
                      N-K-L  K   M-K  K+L-M
-                 K [   0   R11  R12   R13  ]   
+                 K [   0   R11  R12   R13  ]
    [ 0 R ] =   M-K [   0    0   R22   R23  ]
              K+L-M [   0    0    0    R33  ]
 
@@ -93,9 +93,9 @@ then
 
 ::
 
-   A = U'-1E1X
+   A = U'^{-1}E_1X
 
-   B = V'-1E2X-1
+   B = V'^{-1}E_2X^{-1}
 
 where
 
@@ -106,15 +106,14 @@ where
    E2 = [ 0  D2 ]
 
 (3) The generalized singular value decomposition of *A* and *B* implicitly
-produces the singular value decomposition of :math:`AB\ :sup:`-1``:
+produces the singular value decomposition of :math:`AB^{-1}`:
 
 .. DANGER:: verify equations on this page
 
 .. math::
 
-   AB-1 = UD1D2-1V'
+   AB^{-1} = UD_1D_2^{-1}V'
 
 This procedure calls the LAPACK routines *DGGSVD* and *ZGGSVD*.
 
 .. seealso:: Functions :func:`lapgsvds`, :func:`lapgsvdst`
-

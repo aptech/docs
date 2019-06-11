@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: atan(x)
 
-    :param x: 
+    :param x:
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (NxK matrix or N-dimensional array), containing the arctangents of *x* in
+    :returns: y (*NxK matrix or N-dimensional array*), containing the arctangents of *x* in
         radians.
 
 Remarks
@@ -34,8 +34,10 @@ Examples
 
 ::
 
-    // Create a sequence with 5 elements starting at -pi and
-    // increasing by pi/2
+    /*
+    ** Create a sequence with 5 elements starting at -pi and
+    ** increasing by pi/2
+    */
     x = seqa(-pi, pi/2, 5)
     y = atan(x);
     print "x = " x;
@@ -52,4 +54,3 @@ After the code above:
         3.142       1.263
 
 .. seealso:: Functions :func:`atan2`, :func:`sin`, :func:`cos`, :func:`pi`, :func:`tan`
-

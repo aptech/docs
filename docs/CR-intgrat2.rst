@@ -7,6 +7,10 @@ Purpose
 
 Integrates the following double integral, using user-defined functions *f*, *g1* and *g2* and scalars *a* and *b*:
 
+.. math::
+
+   \int_{a}^{b}\int_{g_2(x)}^{g_1(x)} f(x,y)dydx
+
 .. DANGER:: Add equation from original doc here.
 
 Format
@@ -58,28 +62,28 @@ Examples
 
 ::
 
-    proc (1) = f(x,y);
+    proc (1) = f(x, y);
        retp(cos(x) + 1).*(sin(y) + 1));
     endp;
-     
+
     proc (1) = g1(x);
-       retp(sqrt(1-x^2));
+       retp(sqrt(1 - x^2));
     endp;
-     
+
     proc (1) = g2(x);
        retp(0);
     endp;
-     
+
     xl = 1|-1;
     g0 = &g1|&g2;
     _intord = 40;
-    y = intgrat2(&f,xl,g0);
+    y = intgrat2(&f, xl, g0);
 
 This will integrate the function
 
 ::
 
-    f(x,y) = (cos(x)+1)(sin(y)+1)
+    f(x, y) = (cos(x) + 1)(sin(y) + 1)
 
 over the upper half of the unit circle. Note the use of the ``.*`` operator instead of just ``*`` in the
 definition of :math:`f(x, y)`. This allows *f* to return a vector or matrix of function values.
@@ -96,4 +100,3 @@ Globals
 *_intq32*, *_intq4*, *_intq40*, *_intq6*, *_intq8*
 
 .. seealso:: Functions :func:`intgrat3`, :func:`intquad1`, :func:`intquad2`, :func:`intquad3`, :func:`intsimp`
-

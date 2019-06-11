@@ -119,7 +119,7 @@ will result in:
 Using a control structure
 +++++++++++++++++++++++++
 
-Calculate the integral ∫−∞01σ2πe−(x−μ)22σ2ⅆx
+Calculate the integral :math:`\int_{-\infty}^{0}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x − \mu)^2}{2\sigma^2}}dx`
 
 ::
 
