@@ -8,13 +8,13 @@ Reshapes a scalar, matrix, or array into an array of user-specified size.
 
 Format
 ----------------
-.. function:: areshape(x, o)
+.. function:: areshape(x, orders)
 
     :param x:
     :type x: scalar or matrix or N-dimensional array.
 
-    :param o: orders. the sizes of the dimensions of the new array.
-    :type o: Mx1 vector
+    :param orders: orders. the sizes of the dimensions of the new array.
+    :type orders: Mx1 vector
 
     :returns: y (*M-dimensional array*) created from data in *x*.
 
@@ -39,7 +39,9 @@ Examples
 
 ::
 
+    // Create a 30x3 matrix with consecutive integer values
     x = reshape(seqa(1, 1, 90), 30, 3);
+
     orders = { 2, 3, 4, 5 };
     y = areshape(x, orders);
 
@@ -48,7 +50,9 @@ be set to the sequence of integers from 1 to 30 contained in the first 30 elemen
 
 ::
 
+    // Create a 20x3 matrix with consecutive integer values
     x = reshape(seqa(1, 1, 60), 20, 3);
+
     orders = { 3, 2, 4 };
     y = areshape(x, orders);
 

@@ -11,20 +11,23 @@ Format
 ----------------
 .. function:: acf(y, k, d)
 
-    :param y: data.
+    :param y: univariate time series.
     :type y: Nx1 vector
 
     :param k: maximum number of autocorrelations to compute. 0 < *k* < *N*.
     :type k: scalar
 
     :param d: order of differencing.
-        If only compute the autocorrelations from the original time series, then *d* equals 0.
+        Set *d* equal to 0 to compute the autocorrelations from the original time series.
     :type d: scalar
 
     :returns: rk (*Kx1 vector*), sample autocorrelations.
 
 Examples
 ----------------
+
+Basic example
++++++++++++++
 
 ::
 
@@ -96,16 +99,20 @@ The following code can give the time plot and sample ACF plot based on the beef 
 
 ::
 
-    // Time series plot
-    // Step 1: Declare a plotControl structure
+    /* 
+    ** Time series plot
+    */
+
+    // Declare plotControl structure and
+    // fill with default values for XY plots
     struct plotControl ctl;
     ctl = plotGetDefaults("xy");
 
-    // Step 2: the time plot
-    // Making a 1 by 2 plot, the first plot is the time plot
+    // Split canvas into a 1x2 grid.
+    // Place next graph in first cell.
     plotLayout(1, 2, 1);
 
-    // Labels and format setting based on 'beef' matrix
+    // Labels and format setting based on 'beef' time series
     plotSetYLabel(&ctl, "cents/lb");
     plotSetXLabel(&ctl, "Year");
     plotSetXTicLabel(&ctl, "YYYY");
@@ -114,22 +121,25 @@ The following code can give the time plot and sample ACF plot based on the beef 
     // Draw time series plot
     plotTS(ctl, 1992, 12, beef);
 
-    // Making a 1 by 2 plot, the second plot is the ACF plot
+    // Split canvas into a 1x2 grid.
+    // Place next graph in second cell.
     plotLayout(1, 2, 2);
 
-    // Step 3: ACF plot
+    /* 
+    ** ACF plot
+    */
+
     // Fill 'ctl' structure with bar plot defaults
     ctl = plotGetDefaults("bar");
 
     // Set labels and format based on 'beef_acf' matrix
     plotSetYLabel(&ctl, "ACF");
     plotSetXLabel(&ctl, "Lag");
-    plotSetXTicInterval(&ctl, 1, 5);
 
-    // ACF plot with plotBar function
+    // Draw ACF plot
     plotBar(ctl, seqa(1, 1, k), beef_acf);
 
-You can use 'Add Text' to type 'Beef Prices' as the title in the graphics window. The plot is:
+The above code will create the followig plot:
 
 .. image:: _static/images/beef_acf.png
 

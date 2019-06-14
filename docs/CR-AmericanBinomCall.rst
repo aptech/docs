@@ -5,7 +5,7 @@ AmericanBinomCall
 Purpose
 ----------------
 
-Prices American call options using binomial method.
+Prices American call options using the binomial method.
 
 Format
 ----------------

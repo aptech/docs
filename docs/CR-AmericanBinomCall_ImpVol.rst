@@ -4,7 +4,7 @@ AmericanBinomCall_ImpVol
 
 Purpose
 ----------------
-Computes implied volatilities for American call options using binomial method.
+Computes implied volatilities for American call options using the binomial method.
 
 Format
 ----------------

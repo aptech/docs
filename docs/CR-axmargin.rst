@@ -33,7 +33,7 @@ Remarks
 :func:`axmargin` sets an absolute distance from the axes to the edge of the
 graphic panel. Note that the user is responsible for allowing enough
 space in the margin if axes labels, numbers and title are used on the
-graph, since axmargin does not size the plot automatically as in the
+graph, since :func:`axmargin` does not size the plot automatically as in the
 case of margin.
 
 All input inch values for this procedure are based on a full size window

@@ -4,11 +4,11 @@ annotationSetBkd
 
 Purpose
 ----------------
-Sets the background color and transparency level for a textbox, rectangle or ellipse.
+Sets the background color and opacity level for a textbox, rectangle or ellipse.
 
 Format
 ----------------
-.. function:: annotationSetBkd(&myAnnotation, color, transparency)
+.. function:: annotationSetBkd(&myAnnotation, color, opacity)
 
     :param &myAnnotation:
     :type &myAnnotation: A pointer to an instance of a :class:`plotAnnotation` structure.
@@ -16,8 +16,8 @@ Format
     :param color: color name or hex HTML color code.
     :type color: string
 
-    :param transparency: transparency percentage. Valid range is between 0 and 1.
-    :type transparency: scalar
+    :param opacity: opacity percentage. Valid range is between 0 and 1.
+    :type opacity: scalar
 
 Examples
 ----------------

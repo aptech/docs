@@ -4,7 +4,7 @@ AmericanBSPut
 
 Purpose
 ----------------
-Prices American put options using Black, Scholes, and Merton method.
+Prices American put options using the Black, Scholes, and Merton method.
 
 Format
 ----------------

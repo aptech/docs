@@ -14,7 +14,7 @@ Format
     :param x: N-dimensional array
     :type x: array
 
-    :param dim: number of dimension across which to find the minimum value.
+    :param dim: the dimension across which to find the minimum value.
     :type dim: scalar
 
     :returns: y (*N-dimensional array*)
@@ -57,7 +57,7 @@ Examples
 
 ::
 
-    1.0000000      -11.000000       9.0000000      -8.0000000
+     1.0000000      -11.000000       9.0000000      -8.0000000
     -2.0000000      -10.000000      -6.0000000      -5.0000000
     -5.0000000       17.000000       9.0000000      -2.0000000
 

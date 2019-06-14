@@ -14,7 +14,7 @@ Format
     :param x:
     :type x: N-dimensional array.
 
-    :param dim: number of dimension across which to find the maximum value.
+    :param dim: the dimension across which to find the maximum value.
     :type dim: scalar
 
     :returns: y (*N-dimensional array*)

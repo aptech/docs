@@ -4,7 +4,7 @@ AmericanBinomPut
 
 Purpose
 ----------------
-Prices American put options using binomial method.
+Prices American put options using the binomial method.
 
 Format
 ----------------

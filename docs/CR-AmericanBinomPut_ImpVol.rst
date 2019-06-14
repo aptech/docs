@@ -4,7 +4,7 @@ AmericanBinomPut_ImpVol
 
 Purpose
 ----------------
-Computes implied volatilities for American put options using binomial method.
+Computes implied volatilities for American put options using the binomial method.
 
 Format
 ----------------

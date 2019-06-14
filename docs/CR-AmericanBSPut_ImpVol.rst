@@ -4,7 +4,7 @@ AmericanBSPut_ImpVol
 
 Purpose
 ----------------
-Computes implied volatilities for American put options using Black, Scholes, and Merton method.
+Computes implied volatilities for American put options using the Black, Scholes, and Merton method.
 
 Format
 ----------------

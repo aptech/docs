@@ -14,7 +14,7 @@ Format
     :param a:
     :type a: matrix or N-dimensional array.
 
-    :param b: conformable with  a.
+    :param b: conformable with  *a*.
     :type b: matrix or K-dimensional array
 
     :param dim: dimension in which to concatenate.
@@ -25,9 +25,10 @@ Format
 Remarks
 -------
 
-*a* and *b* are conformable only if all of their dimensions except *dim* have
-the same sizes. If *a* or *b* is a matrix, then the size of dimension 1 is the
-number of columns in the matrix, and the size of dimension 2 is the
+*a* and *b* are conformable if all dimensions other than the dimension specified by *dim* have
+the same sizes. 
+
+If *a* or *b* is a matrix, then the size of dimension 1 is the number of columns in the matrix, and the size of dimension 2 is the
 number of rows in the matrix.
 
 Examples

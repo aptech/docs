@@ -4,7 +4,7 @@ AmericanBinomPut_Greeks
 
 Purpose
 ----------------
-Computes Delta, Gamma, Theta, Vega, and Rho for American put options using binomial method.
+Computes Delta, Gamma, Theta, Vega, and Rho for American put options using the binomial method.
 
 Format
 ----------------

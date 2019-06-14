@@ -8,15 +8,15 @@ Creates an N-dimensional array with a specified fill value.
 
 Format
 ----------------
-.. function:: arrayinit(orders, value)
+.. function:: arrayinit(orders, val)
 
     :param orders: the sizes of the dimensions of the array.
     :type orders: Nx1 vector
 
-    :param value: value to initialize. If value is complex the result will be complex.
-    :type value: scalar
+    :param val: each element of the new array will be set equal to *val*. If *val* is complex the result will be complex.
+    :type val: scalar
 
-    :returns: y (*N-dimensional array*), with each element equal to the value of  value.
+    :returns: y (*N-dimensional array*), with each element equal to the value of *val*.
 
 Examples
 ----------------

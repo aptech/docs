@@ -4,7 +4,7 @@ AmericanBSCall
 
 Purpose
 ----------------
-Prices American call options using Black, Scholes, and Merton method.
+Prices American call options using the Black, Scholes, and Merton method.
 
 Format
 ----------------

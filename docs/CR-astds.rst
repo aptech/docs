@@ -29,7 +29,7 @@ This function essentially computes:
 .. math:: \sigma = \sqrt{\frac{1}{n}×\Sigma_{i=1}^n(X_i − \mu)^2}
 
 Thus, the divisor is *N* rather than *N-1*, where *N* is the number of
-elements being summed. See astd for the alternate definition.
+elements being summed. See :func:`astd` for the alternate definition.
 
 Examples
 ----------------

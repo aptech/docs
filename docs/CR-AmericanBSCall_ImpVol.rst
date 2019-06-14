@@ -4,7 +4,7 @@ AmericanBSCall_ImpVol
 
 Purpose
 ----------------
-Computes implied volatilities for American call options using Black, Scholes, and Merton method.
+Computes implied volatilities for American call options using the Black, Scholes, and Merton method.
 
 Format
 ----------------

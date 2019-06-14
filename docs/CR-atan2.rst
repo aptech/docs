@@ -40,6 +40,7 @@ Examples
 
     zpol = atan2(y, x);
     zdeg = zpol*(180/pi);
+
     print "x = " x;
     print "zpol = " zpol;
     print "zdeg = " zdeg;
@@ -48,7 +49,7 @@ After the code above:
 
 ::
 
-    -3.142         2.833         162.343
+       -3.142         2.833         162.343
        -1.571         2.575         147.518
     x = 0.000  zpol = 1.571  zdeg =  90.000
         1.571         0.567          32.482

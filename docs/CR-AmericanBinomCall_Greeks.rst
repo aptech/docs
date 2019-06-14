@@ -4,7 +4,7 @@ AmericanBinomCall_Greeks
 
 Purpose
 ----------------
-Computes Delta, Gamma, Theta, Vega, and Rho for American call options using binomial method.
+Computes Delta, Gamma, Theta, Vega, and Rho for American call options using the binomial method.
 
 Format
 ----------------

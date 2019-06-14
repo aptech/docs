@@ -4,7 +4,7 @@ asciiload
 
 Purpose
 ----------------
-Loads data from a delimited ASCII text file into an Nx1 vector. NOTE: This function is deprecated. Use csvReadM instead.
+Loads data from a delimited ASCII text file into an Nx1 vector. NOTE: This function is deprecated. Use :func:`csvReadM` instead.
 
 Format
 ----------------
@@ -40,7 +40,7 @@ To load the file `myfile.asc`, containing the following data:
 
 ::
 
-    2.805  16.568
+      2.805  16.568
      -4.871   3.399
      17.361 -12.725
 
@@ -79,7 +79,7 @@ All of the above commands will set *y* to be equal to:
 
 ::
 
-    2.805
+      2.805
      16.568
      -4.871
       3.399

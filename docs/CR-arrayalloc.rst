@@ -8,10 +8,10 @@ Creates an N-dimensional array with unspecified contents.
 
 Format
 ----------------
-.. function:: arrayalloc(o, cf)
+.. function:: arrayalloc(orders, cf)
 
-    :param o: the sizes of the dimensions of the array.
-    :type o: Nx1 vector of orders
+    :param orders: the sizes of the dimensions of the array.
+    :type orders: Nx1 vector of orders
 
     :param cf: 0 to allocate real array, or 1 to allocate complex array.
     :type cf: scalar

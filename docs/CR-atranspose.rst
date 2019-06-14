@@ -23,15 +23,19 @@ Remarks
 -------
 
 The vector of dimension indices must be a unique vector of integers,
-*1-N*, where 1 corresponds to the first element of the vector of orders.
+between 1 and N, where 1 corresponds to the first element of the vector of orders.
 
 Examples
 ----------------
 
 ::
 
+    // Create a vector of consecutive integers
     x = seqa(1, 1, 24);
+
+    // Reshape the vector into a 2x3x4 dimensional array
     x = areshape(x, 2|3|4);
+
     nd = { 2, 1, 3 };
     y = atranspose(x, nd);
 

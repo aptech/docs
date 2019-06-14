@@ -4,7 +4,7 @@ AmericanBSCall_Greeks
 
 Purpose
 ----------------
-Computes Delta, Gamma, Theta, Vega, and Rho for American call options using Black, Scholes, and Merton method.
+Computes Delta, Gamma, Theta, Vega, and Rho for American call options using the Black, Scholes, and Merton method.
 
 Format
 ----------------
@@ -63,9 +63,9 @@ produces:
 
 ::
 
-    0.64458004
-      0.021386935
-    -75.959642
+     0.64458004
+    0.021386935
+     -75.959642
       65.256275
       56.872008
 

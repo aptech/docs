@@ -4,7 +4,7 @@ AmericanBSPut_Greeks
 
 Purpose
 ----------------
-Computes Delta, Gamma, Theta, Vega, and Rho for American put options using Black, Scholes, and Merton method.
+Computes Delta, Gamma, Theta, Vega, and Rho for American put options using the Black, Scholes, and Merton method.
 
 Format
 ----------------

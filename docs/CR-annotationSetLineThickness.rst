@@ -4,7 +4,7 @@ annotationSetLineThickness
 
 Purpose
 ----------------
-Sets the line thickness for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
+Sets the line thickness for textbox, rectangle or ellipse borders as well as the thickness of lines and arrows.
 
 Format
 ----------------
@@ -34,7 +34,7 @@ Basic usage
     // Set line thickness to 1 pixel
     annotationSetLineThickness(&myAnnotation, 1);
 
-Full example setting thickness to zero to turn off rectangle border
+Full example setting thickness of rectangle border
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
