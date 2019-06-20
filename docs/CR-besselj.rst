@@ -5,7 +5,7 @@ besselj
 Purpose
 ----------------
 
-Computes a Bessel function of the first kind, :math:`J\ n\ (x)`.
+Computes a Bessel function of the first kind, :math:`J_n(x)`.
 
 Format
 ----------------
@@ -15,9 +15,9 @@ Format
     :type n: NxK matrix or P-dimensional array where the last two dimensions are NxK
 
     :param x:
-    :type x: (*LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with *n* *)
+    :type x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with n
 
-    :returns: y, (*max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N, L) by max(K, M)*)
+    :returns: y, max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N, L) by max(K, M)
 
 Examples
 ----------------
@@ -36,7 +36,7 @@ Examples
     y = besselj(n, x);
 
     /*
-    ** Plot the output of the first and third order Bessel
+    ** Plot the output of the first and second order Bessel
     ** functions
     */
     plotXY(x, y);

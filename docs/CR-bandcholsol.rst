@@ -13,10 +13,10 @@ Format
 ----------------
 .. function:: bandcholsol(b, l)
 
-    :param b:
+    :param b: The right-hand side(s).
     :type b: KxM matrix
 
-    :param l:
+    :param l: A Cholesky decomposition in compact (banded) form.
     :type l: KxN compact form matrix
 
     :returns: x (*KxM matrix*)
@@ -58,7 +58,7 @@ After the code above is run:
 
 ::
 
-    0.000  1.000       1.495      1.300        1.300
+            0.000  1.000       1.495      1.300        1.300
     Lband = 2.000  2.000  x = -0.098  b = 2.100  A*x = 2.100
             0.500  2.179      -0.110      0.700        0.700
             0.918  1.469       0.673      1.800        1.800
