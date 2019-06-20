@@ -94,7 +94,7 @@ You can use Latex to add equations to axis labels. Note that double-backslashes 
 ::
 
     // Tell GAUSS to interpret the axis label text as Latex
-    plotSetTextInterpreter(&myPlot, "Latex");
+    plotSetTextInterpreter(&myPlot, "Latex", "axes");
 
     // Add Latex axis label.
     plotSetXLabel(&myPlot, "\\sqrt{\\lambda}");
