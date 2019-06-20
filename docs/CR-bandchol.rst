@@ -15,7 +15,7 @@ Format
     :type a: matrix
 
     :returns: l (*KxN compact form matrix*), lower triangle of the Cholesky
-        decomposition of a.
+        decomposition of *a*.
 
 Remarks
 ----------------
@@ -32,10 +32,10 @@ Examples
           2 8 1 0,
           0 1 5 2,
           0 0 2 3 };
-    
+
     bx = band(x, 1);
     bl = bandchol(bx);
-    
+
     l = chol(x);
 
 After the code above:
@@ -48,4 +48,3 @@ After the code above:
          2   3        1   1       0   0   0   1
 
 .. seealso:: Functions :func:`band`, :func:`bandcholsol`, :func:`bandltsol`, :func:`bandrv`, :func:`bandsolpd`
-

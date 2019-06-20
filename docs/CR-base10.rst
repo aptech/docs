@@ -17,7 +17,8 @@ Format
     :returns: M (*scalar*), in the range -10 < *M* < 10.
 
     :returns: P (*scalar*), integer power such that:
-        .. math:: M*10P = x
+
+    .. math:: M*10^P = x
 
 Examples
 ----------------
@@ -42,4 +43,3 @@ Source
 ------------
 
 base10.src
-

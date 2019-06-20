@@ -8,18 +8,47 @@ Computes the exponential inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfExpInv(p, a, b)
+.. function:: cdfExpInv(p, loc, m)
 
-    :param p: must be greater than zero and less than 1.
-    :type p: NxK matrix or Nx1 vector or scalar
+    :param p: Probabilities at which to compute the inverse of the exponential cumulative distribution function. :math:`0 \lt p \lt 1`.
+    :type p: NxK matrix, Nx1 vector or scalar
 
-    :param a: Location parameter, ExE conformable with *p*.
-    :type a: ; NxK matrix or Nx1 vector or scalar
+    :param loc: Location parameter, ExE conformable with *p*. :math:`loc < x`.
+    :type loc: ; NxK matrix, Nx1 vector or scalar
 
-    :param b: Scale parameter, ExE conformable with *p*. *b* must be greater than 0.
-    :type b: NxK matrix or Nx1 vector or scalar
+    :param m: Mean parameter, ExE conformable with *p*. :math:`m > 0`.
+    :type m: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the exponential cdf with *loc* location and *m* mean evaluated at *x* is equal to or exceeds the corresponding value of *p*.
+
+Examples
+----------------
+
+::
+
+      // Probabilities
+      p = {0.1, 0.25, 0.5, 0.75, 0.95};
+
+      // Location parameter
+      loc = 0;
+
+      // Mean parameter
+      m = 2;
+
+      // Call cdfExp
+      x = cdfExpInv(p, loc, m);
+      print "x = " x;
+
+After above code,
+
+::
+
+      x =
+        0.2107
+        0.5754
+        1.3863
+        2.7726
+        5.9915
+
 
 .. seealso:: Functions :func:`pdfExp`, :func:`cdfExp`
-

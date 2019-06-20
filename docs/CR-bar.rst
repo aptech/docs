@@ -31,7 +31,7 @@ Global Input
     *scalar*, width and type of bars in bar graphs and histograms. The valid
     range is 0-1. If this is 0, the bars will be a single pixel wide. If
     this is 1, the bars will touch each other.
- 
+
     If this value is positive, the bars will overlap. If negative, the bars
     will be plotted side-by-side. The default is 0.5.
 
@@ -41,7 +41,7 @@ Global Input
 
     .. csv-table::
         :widths: auto
-       
+
         0,"no shading."
         1,"dots."
         2,"vertical cross-hatch."
@@ -50,7 +50,7 @@ Global Input
         5,"diagonal cross-hatch."
         6,"solid"
 
-       
+
     The second column controls the bar color.
 
 
@@ -70,19 +70,22 @@ bar are stored in :math:`x[i,.]`.
 
     library pgraph;
     graphset;
-     
-    t = seqa(0,1,10);
+
+    t = seqa(0, 1, 10);
     x =(t^2/2).*(1~0.7~0.3);
-     
+
     _plegctl = { 1 4 };
     _plegstr = "Accnt #1\000Accnt #2\000Accnt #3";
     title("Theoretical Savings Balance");
     xlabel("Years");
     ylabel("Dollars x 1000");
-    _pbartyp = { 1 10 }; /* Set color of the bars */
+
+    // Set color of the bars
+    _pbartyp = { 1 10 };
     _pnum = 2;
-    
-    bar(t,x); /* Use t vector to label X axis. */
+
+    // Use t vector to label X axis.
+    bar(t, x); 
 
 Source
 ------------
@@ -90,4 +93,3 @@ Source
 pbar.src
 
 .. seealso:: Functions :func:`asclabel`, :func:`xy`, :func:`logx`, :func:`logy`, :func:`loglog`, :func:`scale`, :func:`hist`
-

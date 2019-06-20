@@ -8,18 +8,18 @@ Computes the cumulative distribution function for the Laplace distribution.
 
 Format
 ----------------
-.. function:: cdfLaplace(x, a, b)
+.. function:: cdfLaplace(x, loc, scale)
 
-    :param x: 
-    :type x: NxK matrix or Nx1 vector or scalar.
+    :param x: Values at which to evaluate the cumulative distribution function for the Laplace distribution.
+    :type x: NxK matrix, Nx1 vector or scalar.
 
-    :param a: Location parameter, ExE conformable with *x*.
-    :type a: NxK matrix or Nx1 vector or scalar
+    :param loc: Location parameter, ExE conformable with *x*.
+    :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param b: Scale parameter; ExE conformable with *x*. *b* must be greater than 0.
-    :type b: NxK matrix or Nx1 vector or scalar
+    :param scale: Scale parameter; ExE conformable with *x*. :math:`0 < scale `.
+    :type scale: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function for the Laplace distribution evaluated at the corresponding element in *x*.
 
 Remarks
 -------
@@ -38,8 +38,16 @@ Examples
 ---------
 
 ::
+    // Values of interest
+    x = 2;
 
-    p = cdfLaplace(-2, 0, 3);
+    // Location parameter
+    loc = 0;
+
+    // Scale parameter
+    scale = 3;
+
+    p = cdfLaplace(x, loc, scale);
 
 After the above code, `p` will equal:
 
@@ -47,7 +55,4 @@ After the above code, `p` will equal:
 
     0.2567
 
-.. DANGER:: ADd missing equation here
-
 .. seealso:: :func:`cdfLaplaceInv`
-

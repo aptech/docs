@@ -14,10 +14,10 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "ctl.maxEvaluations", "scalar, maximum number of evaluations."
-            "ctl.absErrorTolerance", "scalar absolute error tolerance."
-            "ctl.relErrorTolerance", "tolerance."
+            "ctl.absErrorTolerance", "scalar, absolute error tolerance."
+            "ctl.relErrorTolerance", "scalar, tolerance."
 
     :type ctl: struct
 
@@ -44,7 +44,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "normal completion with err < ctl.absErrorTolerance."
             "1", "err  >  ctl.absErrorTolerance and ctl.maxEvaluations exceeded; increase ctl.maxEvaluations to decrease error."
             "2", ":math:`K > 100` or :math:`K < 1`."
@@ -55,7 +55,7 @@ Remarks
 ------------
 
 -  The central multivariate Student's t cdf for the i-th row of *a* and *b*
-   is defined by where :math:`\nu \\in \\mathbb{R^+}` is a scale (or degree of freedom) 
+   is defined by where :math:`\nu \\in \\mathbb{R^+}` is a scale (or degree of freedom)
    parameter, :math:`z` is a K-dimensional Student's t multivariate distribution, and
 
 
@@ -65,7 +65,7 @@ Remarks
 
    where
 
-   
+
    denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
 
    Another form of non-central multivariate Student's t distribution cdf
@@ -87,25 +87,25 @@ Uncorrelated variables
 
     // Lower limits of integration for K dimensional multivariate distribution
     a = { -1e4 -1e4 };
-    
+
     // Upper limits of integration for K dimensional multivariate distribution
-    b = { 0 0 };		
-    
+    b = { 0 0 };
+
     // Identity matrix, indicates
     // zero correlation between variables
     R = { 1 0,
           0 1 };
-    				
-    // Define non-centrality vector 
+
+    // Define non-centrality vector
     m  = { 0, 0 };
-    				
-    // Define degree of freedom 
-    v  = 3;        		
-    						
-    // Define control structure				
+
+    // Define degree of freedom
+    v  = 3;
+
+    // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
-    
+
     // Calculate cumulative probability of
     // both variables being from -1e4 to 0
     { p, err, retcode } = cdfMvt2e(ctl, a, b, R, m, v );
@@ -130,21 +130,21 @@ Compute the multivariate student's t cdf at 3 separate pairs of upper limits
     b = {  -1 -1.1,
             0  0.1,
             1  1.1 };
-    
+
     // Correlation matrix
     R = {    1 0.31,
           0.31    1};
-    				
-    // Define non-centrality vector 
+
+    // Define non-centrality vector
     m  = { 0, 0 };
-    				
-    // Define degree of freedom 
-    v  = 3;      
-    				      				
+
+    // Define degree of freedom
+    v  = 3;
+
     // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
-    				
+
     // Calculate cumulative probability of
     // each pair of limits
     { p, err, retcode }  = cdfMvt2e(ctl, a, b, R, m, v);
@@ -153,8 +153,8 @@ After the above code, *p* should equal:
 
 ::
 
-    0.06226091 
-    0.31743546 
+    0.06226091
+    0.31743546
     0.12010880
 
 which means that:
@@ -179,22 +179,22 @@ Compute the non central multivariate student's t cdf
     b = {  -1 -1.1,
             0  0.1,
             1  1.1 };
-    
+
     // Correlation matrix
     R = { 1    0.31,
           0.31    1 };
-    				
+
     // Define non-centrality vector, Kx1
-    m  = {  1, 
+    m  = {  1,
          -2.5 };
-    				
-    // Define degree of freedom 
-    v  = 3;    
-    				         				
+
+    // Define degree of freedom
+    v  = 3;
+
     // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
-    				
+
     // Calculate cumulative probability of
     // each pair of limits
     { p, err, retcode } = cdfMvt2e(ctl, a, b, R, m, v);
@@ -203,8 +203,8 @@ After the above code, *p* should equal:
 
 ::
 
-    0.02810292 
-    0.15190018 
+    0.02810292
+    0.15190018
     0.00092484
 
 which means with non-central vector, the multivariate student's t cdf are:
@@ -230,4 +230,3 @@ cdfm.src
    1:141-149, 1992.
 
 .. seealso:: Functions :func:`cdfMvte`, :func:`cdfMvtce`, :func:`cdfMvn2e`
-

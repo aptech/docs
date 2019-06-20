@@ -12,18 +12,18 @@ Format
 .. function:: pdfGenPareto(x, a, sigma, k)
 
     :param x: data 
-    :type x: NxK matrix or Nx1 vector or scalar.
+    :type x: NxK matrix, Nx1 vector or scalar.
 
     :param a: Location parameter, ExE conformable with *x*.
-    :type a: NxK matrix or Nx1 vector or scalar
+    :type a: NxK matrix, Nx1 vector or scalar
 
     :param sigma: Scale parameter, ExE conformable with *x*. *sigma* must be greater than 0.
-    :type sigma: NxK matrix or Nx1 vector or scalar
+    :type sigma: NxK matrix, Nx1 vector or scalar
 
     :param k: Shape parameter, ExE conformable with *x*.
-    :type k: NxK matrix or Nx1 vector or scalar
+    :type k: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+    :returns: y (*NxK matrix, Nx1 vector or scalar*)
 
 Remarks
 -------

@@ -35,11 +35,13 @@ Examples
 
 ::
 
-    // Create a positive definte matrix				
-    x = moment(rndn(100,4),0); 
-    // Call chol function 								
+    // Create a positive definte matrix
+    x = moment(rndn(100, 4), 0);
+
+    // Call chol function
     call chol(x);
-    // y is the determinant 				 
+
+    // y is the determinant
     y = detl;
 
 The above example is the fastest way to compute the
@@ -49,4 +51,3 @@ retrieve the determinant that was computed during
 the call to :func:`chol`.
 
 .. seealso:: keyword `proc`
-

@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: bandltsol(b, A)
 
-    :param b: 
+    :param b:
     :type b: KxM matrix
 
-    :param A: 
+    :param A:
     :type A: KxN compact form matrix
 
-    :returns: x (matrix), KxM matrix.
+    :returns: x (*matrix*), KxM matrix.
 
 Remarks
 -------
@@ -39,15 +39,18 @@ Examples
           2 8 1 0,
           0 1 5 2,
           0 0 2 3 };
+
     b = { 1.3, 2.1, 0.7, 1.8 };
-    
-    // Create a matrix containing the lower triangular part 
-    /of 'A'
+
+    /*
+    ** Create a matrix containing the lower triangular part
+    ** of 'A'
+    */
     Alower = lowmat(A);
-    
+
     // Create banded matrix from of 'Alower'
     Abandlow = band(Alower, 1);
-    
+
     // Solve the system of equations
     x = bandltsol(b, Abandlow);
 
@@ -61,4 +64,3 @@ After the code above:
              0  0  2  3         2  3      0.498     1.8            1.8
 
 .. seealso:: Functions :func:`band`, :func:`bandchol`, :func:`bandcholsol`, :func:`bandrv`, :func:`bandsolpd`
-

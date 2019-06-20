@@ -11,16 +11,16 @@ Format
 ----------------
 .. function:: cdfBinomial(successes, trials, prob)
 
-    :param successes: must be a positive number and < *trials*
+    :param successes: Must be a positive number and must be less than *trials*
     :type successes: NxK matrix, Nx1 vector or scalar
 
-    :param trials: must be > *successes*.
-    :type trials: ExE conformable
+    :param trials: ExE conformable with *successes*. *trials* must be greater than *successes*.
+    :type trials: LxM matrix
 
-    :param prob:  The probability of *success* on any given *trial* with *successes* :math:`0 < prob < 1`.
-    :type prob: ExE conformable 
+    :param prob:  ExE conformable with *successes*. The probability of *success* on any given *trial* with *successes*  :math:`0 < prob < 1`.
+    :type prob: PxQ matrix
 
-    :returns: p (*NxK matrix, Nx1 vector or scalar*)
+    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the binomial cdf value evaluated at the corresponding element in *x*.
 
 Remarks
 ------------
@@ -31,9 +31,6 @@ Remarks
    n \\
    i \\
    \end{pmatrix}\, p^{i}\left( 1 - p \right)^{n - i}}
-
-.. DANGER::
-   Inspect equation
 
 For invalid inputs, :func:`cdfBinomial` will return a scalar error code which,
 when its value is assessed by function :func:`scalerr`, corresponds to the
@@ -46,9 +43,23 @@ What are the chances that a baseball player with a long-term batting average of 
 
 ::
 
-    // The cumulative probability of our player 
-    // getting 270 or fewer hits in the season  
-    p = cdfBinomial(270,704,.317); 
+    /*
+    ** We will find the cumulative probability
+    ** of our player getting 270 or
+    ** fewer hits in the season
+    */
+
+    // Number of successes
+    successes = 270;
+
+    // Number of trials
+    trials = 704;
+
+    // Probability of success
+    prob = 0.317;
+
+    // Call cdfBinomial
+    p = cdfBinomial(successes, trials, prob);
     p = 0.9999199430052614
 
 Therefore the odds of this player breaking Ichiro's record:
@@ -59,4 +70,3 @@ Therefore the odds of this player breaking Ichiro's record:
 
 
 .. seealso:: Functions :func:`cdfBinomialInv`, :func:`cdfNegBinomial`, :func:`pdfBinomial`
-

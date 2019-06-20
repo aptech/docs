@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: bandsolpd(b, A)
 
-    :param b: 
+    :param b:
     :type b: KxM matrix
 
-    :param A: 
+    :param A:
     :type A: KxN compact form matrix
 
-    :returns: x (KxM matrix)
+    :returns: x (*KxM matrix*)
 
 Remarks
 -------
@@ -31,4 +31,3 @@ column. That is,
 .. math:: A*x[.,i] = b[.,i]
 
 .. seealso:: Functions :func:`band`, :func:`bandchol`, :func:`bandcholsol`, :func:`bandltsol`, :func:`bandrv`
-

@@ -8,39 +8,39 @@ Computes multivariate Normal cumulative distribution function with error managem
 
 Format
 ----------------
-.. function:: cdfMvne(ctl, x, R, m)
+.. function:: cdfMvne(ctl, x, corr, nonc)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
 
         .. csv-table::
             :widths: auto
-    
+
             "ctl.maxEvaluations", "scalar, maximum number of evaluations."
             "ctl.absErrorTolerance", "scalar absolute error tolerance."
             "ctl.relative", "error tolerance."
 
     :type ctl: struct
 
-    :param x: abscissae.
-    :type x: NxK matrix
+    :param x: Values at which to evaluate the multivariate normal cumulative distribution function. If *x* has more than one column, each column will be treated as a separate set of upper limits.
+    :type x: Kx1 vector or KxN matrix
 
-    :param R: correlation matrix.
-    :type R: KxK matrix
+    :param corr: correlation matrix.
+    :type corr: KxK matrix
 
-    :param m: non-centrality vector.
-    :type m: Kx1 vector
+    :param nonc: non-centrality vector.
+    :type nonc: Kx1 vector
 
-    :returns: y (*Nx1 vector*), :math:`Pr(X ≤ x|R,m)`.
+    :returns: **p** (*N x 1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate normal distribution for each corresponding columns in *x*. *p* will have as many elements as the input, *x*, has columns.
 
-    :returns: err (*Nx1 vector*), estimates of absolute error.
+    :returns: **err** (*Nx1 vector*) - estimates of absolute error.
 
-    :returns: retcode (*Nx1 vector*), return codes.
+    :returns: **retcode** (*Nx1 vector*) - return codes.
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "normal completion with err < ctl.absErrorTolerance."
-            "1", "err > ctl.absErrorTolerance and ctl.maxEvaluationsexceeded; increase ctl.maxEvaluations to decrease error"
+            "1", ":math:`err > ctl.absErrorTolerance` and ctl.maxEvaluations exceeded; increase ctl.maxEvaluations to decrease error"
             "2", ":math:`K > 100` or :math:`K < 1`"
             "3", "*R* not positive semi-definite"
             "missing", "*R* not properly defined"
@@ -48,18 +48,9 @@ Format
 Remarks
 ------------
 
-.. DANGER:: FIX EQUATIONS
+-  cdfMvne evaluates the *MVN* integral, where :math:`1\leqslant i \leqslant N` For the non-central *MVN* we have where :math:`z` denotes :math:`K` -dimensional multivariate normal distribution, denotes the :math:`K \times 1` non-centrality vector with :math:`-\infty<\:\ \delta_k <\:\ \infty` .
 
--  cdfMvne evaluates the *MVN* integral, where :math:`1\leqslant i \\leqslant N` For the non-central *MVN* we have
-
-
-   where :math:`z` denotes :math:`K` -dimensional multivariate normal distribution,
-
-   
-   denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
-
--  The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the
-   diagonal entries for covariance matrix :math:`\Sigma` on its diagonal.
+-  The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the diagonal entries for covariance matrix :math:`\Sigma` on its diagonal.
 
 Examples
 ----------------
@@ -71,26 +62,32 @@ Uncorrelated variables
 
     // Upper limits of integration for K dimensional multivariate distribution
     x = { 0  0 };
-    
-    // Identity matrix, indicates
-    // zero correlation between variables
-    R = { 1 0,
+
+    /*
+    ** Identity matrix, indicates
+    ** zero correlation between variables
+    */
+    corr = { 1 0,
           0 1 };
-    				
-    // Define non-centrality vector 
-    m  = { 0, 0 };	
-    						
-    // Define control structure				
+
+    // Define non-centrality vector
+    nonc = { 0, 0 };
+
+    // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
-    
-    // Calculate cumulative probability of
-    // both variables being ≤ 0
-    {p, err, retcode} = cdfMvne(ctl, x, R, m );
-    
-    // Calculate joint probablity of two
-    // variables with zero correlation,
-    // both, being ≤ 0
+
+    /*
+    ** Calculate cumulative probability of
+    ** both variables being ≤ 0
+    */
+    { p, err, retcode } = cdfMvne(ctl, x, corr, nonc);
+
+    /*
+    ** Calculate joint probability of two
+    ** variables with zero correlation,
+    ** both, being ≤ 0
+    */
     p2 = cdfn(0) .* cdfn(0);
 
 After the above code, both *p* and *p2* should be equal to 0.25.
@@ -103,35 +100,39 @@ Compute the multivariate normal cdf at 3 separate pairs of upper limits
 
 ::
 
-    // Upper limits of integration
-    // x1 ≤ -1 and x2 ≤ -1.1
-    // x1 ≤ 0 and x2 ≤ 0.1
-    // x1 ≤ 1 and x2 ≤ 1.1
+    /*
+    ** Upper limits of integration
+    ** x1 ≤ -1 and x2 ≤ -1.1
+    ** x1 ≤ 0 and x2 ≤ 0.1
+    ** x1 ≤ 1 and x2 ≤ 1.1
+    */
     x = {  -1   -1.1,
             0    0.1,
             1    1.1 };
-    
+
     // Correlation matrix
-    R = {   1  0.31,
+    corr = {   1  0.31,
          0.31     1 };
-    				
-    // Define non-centrality vector 
-    m  = { 0, 0 };
-            				
+
+    // Define non-centrality vector
+    nonc  = { 0, 0 };
+
     // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
-    				
-    // Calculate cumulative probability of
-    // each pair of upper limits
-    { p, err, retcode }  = cdfMvne(ctl, x, R, m);
+
+    /*
+    ** Calculate cumulative probability of
+    ** each pair of upper limits
+    */
+    { p, err, retcode }  = cdfMvne(ctl, x, corr, nonc);
 
 After the above code, *p* should equal:
 
 ::
 
-    0.040741382   
-    0.31981965   
+    0.040741382
+    0.31981965
     0.74642007
 
 which means that:
@@ -146,36 +147,39 @@ Compute the non central multivariate normal cdf
 
 ::
 
-    // Upper limits of integration
-    // x1 ≤ -1 and x2 ≤ -1.1
-    // x1 ≤ 0 and x2 ≤ 0.1
-    // x1 ≤ 1 and x2 ≤ 1.1
+    /* Upper limits of integration
+    ** x1 ≤ -1 and x2 ≤ -1.1
+    ** x1 ≤ 0 and x2 ≤ 0.1
+    ** x1 ≤ 1 and x2 ≤ 1.1
+    */
     x = {  -1   -1.1,
             0    0.1,
             1    1.1 };
-    
+
     // Correlation matrix
-    R = {   1  0.31,
+    corr = {   1  0.31,
          0.31     1 };
-    				
+
     // Define non-centrality vector, Kx1
-    m  = {  1, 
+    nonc  = {  1,
          -2.5 };
-            				
+
     // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
-    				
-    // Calculate cumulative probability of
-    // each pair of upper limits
-    {p, err, retcode} = cdfMvne(ctl, x, R, m);
+
+    /*
+    ** Calculate cumulative probability of
+    ** each pair of upper limits
+    */
+    { p, err, retcode } = cdfMvne(ctl, x, corr, nonc);
 
 After the above code, *p* should equal:
 
 ::
 
-    0.02246034 
-    0.15854761 
+    0.02246034
+    0.15854761
     0.49998320
 
 which means with non-central vector, the multivariate normal cdf are:
@@ -184,11 +188,6 @@ which means with non-central vector, the multivariate normal cdf are:
     P(x_1 \leq -1 \text{ and } x_2 \leq -1.1) = 0.0225\\
     P(x_1 \leq +0 \text{ and } x_2 \leq +0.1) = 0.1585\\
     P(x_1 \leq 1 \text{ and } x_2 \leq 1.1) = 0.5000
-
-Source
-------------
-
-cdfm.src
 
 References
 ------------
@@ -203,4 +202,3 @@ References
    1:141-149, 1992.
 
 .. seealso:: Functions :func:`cdfMvne`, :func:`cdfMvn2e`, :func:`cdfMvte`
-

@@ -12,7 +12,7 @@ Format
 .. function:: pdfLaplace(x,a,b)
 
     :param x: data
-    :type x: NxK matrix or Nx1 vector or scalar.
+    :type x: NxK matrix, Nx1 vector or scalar.
 
     :param a: location parameter.
     :type a: scalar
@@ -20,7 +20,7 @@ Format
     :param b: scale parameter. *b* must be greater than 0.
     :type b: scalar
 
-    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+    :returns: y (*NxK matrix, Nx1 vector or scalar*)
 
 Remarks
 -------

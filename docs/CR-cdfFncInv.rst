@@ -8,31 +8,68 @@ Computes the quantile or inverse of noncentral F cumulative distribution functio
 
 Format
 ----------------
-.. function:: cdfFncInv(y, dfn, dfd, nonc)
+.. function:: cdfFncInv(p, df_n, df_d, nonc)
 
-    :param y: Nx1 vector or scalar.
-    :type y: NxK matrix
+    :param p: Probabilities at which to compute the inverse of the noncentral F cumulative distribution function. :math:`0 \lt p \lt 1`.
+    :type p: NxK matrix, Nx1 vector or scalar
 
-    :param dfn: The degrees of freedom numerator. :math:`dfn > 0`.
-    :type dfn: ExE conformable with *y*
+    :param df_n: The degrees of freedom numerator. :math:`df_n > 0`.
+    :type df_n: ExE conformable with *p*
 
-    :param dfd: The degrees of freedom denominator. :math:`dfd > 0`.
-    :type dfd: ExE conformable with *y*
+    :param df_d: The degrees of freedom denominator. :math:`df_d > 0`.
+    :type df_d: ExE conformable with *p*
 
-    :param nonc: The noncentrality parameter. Note: This is the square root of the noncentrality parameter that sometimes goes under the symbol lambda. :math:`nonc > 0`.
-    :type nonc: ExE conformable with *y*
+    :param nonc: The noncentrality parameter. Note: This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`. :math:`nonc > 0`.
+    :type nonc: ExE conformable with *p*
 
-    :returns: x (*NxK matrix or Nx1 vector or scalar*). The upper limit of the integrals of the noncentral F distribution.
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the noncentral F cumulative distribution function with *df_n*, *df_d*, and *nonc* evaluated at *x* is equal to or exceeds the corresponding value of *p*.
 
 Remarks
 -------
-
-.. NOTE:: Input *nonc* is the square root of the noncentrality parameter that sometimes goes under the symbol lambda.
 
 For invalid inputs, :func:`cdfFncInv` will return a scalar error code which,
 when its value is assessed by function :func:`scalerr`, corresponds to the
 invalid input. If the first input is out of range, :func:`scalerr` will return a
 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
-.. seealso:: :func:`cdfFnc`, :func:`cdfChinc`, :func:`cdfChic`, :func:`cdfTnc`
+Examples
+----------------
 
+::
+
+  /*
+  ** Computing the parameters
+  */
+  // Number of observations
+  n_obs = 100;
+
+  // Number of variables
+  n_vars = 5;
+
+  // Setting n1
+  df_n = n_vars;
+
+  // Setting n2
+  df_d = n_obs - n_vars - 1;
+
+  // Probabilities
+  p = {0.1, 0.25, 0.5, 0.75, 0.95};
+
+  // Non-central parameter
+  nonc = 2;
+
+  // Call cdfFc
+  x = cdfFncInv(p, df_n, df_d, nonc);
+  print x;
+
+After running the above code,
+
+::
+
+   0.6483
+   1.0416
+   1.6350
+   2.4132
+   3.9044
+
+.. seealso:: :func:`cdfFnc`, :func:`cdfChinc`, :func:`cdfChic`, :func:`cdfTnc`

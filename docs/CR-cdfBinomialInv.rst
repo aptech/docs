@@ -10,16 +10,16 @@ Format
 ----------------
 .. function:: cdfBinomialInv(p, trials, prob)
 
-    :param p: :math:`0 < p < 1`.
+    :param p: Probabilities at which to compute the inverse of the Binomial cumulative distribution function. :math:`0 \lt p \lt 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
-    :param trials: ExE conformable with *p*. *trials* > 0.
-    :type trials: matrix
+    :param trials: ExE conformable with *p*. :math:`trials > 0`.
+    :type trials: LxM matrix
 
     :param prob: The probability of *success* on any given trial. ExE conformable with *p*. :math:`0 < prob < 1`.
-    :type prob: matrix
+    :type prob: PxQ matrix
 
-    :returns: s (NxK matrix, Nx1 vector or scalar), The number of successes. 
+    :returns: **s** (*NxK matrix, Nx1 vector or scalar*) - The number of successes.
 
 Remarks
 -----------
@@ -37,19 +37,27 @@ For our example we will define a reasonable range as falling between the top and
 
 ::
 
+    // Probability range
     range = { .10, .9 };
-    s = cdfBinomialInv(range, 82,.6);
+
+    // Number of trials
+    trials = 82;
+
+    // Probabiliy of success
+    prob = 0.6
+
+    // Call cdfBinomialInv
+    s = cdfBinomialInv(range, trials, prob);
     print 	"s = "	s;
 
 After above code,
 
 ::
 
-    s = 
+    s =
     	43
     	55
 
 This means that a team with a 60% chance of winning any one game would win between 43 and 55 games in 80% of seasons.
 
 .. seealso:: Functions :func:`cdfBinomial`, :func:`pdfBinomial`, :func:`cdfNegBinomial`, :func:`cdfNegBinomialInv`
-

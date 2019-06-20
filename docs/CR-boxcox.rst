@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: boxcox(x, lambda)
 
-    :param x: 
+    :param x:
     :type x: MxN matrix or P-dimensional array where the last two dimensions are MxN
 
-    :param lambda: 
+    :param lambda:
     :type lambda: KxL matrix or P-dimensional array where the last two dimensions are KxL, ExE conformable to x.
 
-    :returns: y, max(M,L)xmax(N,K) or P-dimensional array where the last two dimensions are max(M,L)xmax(N,K).
+    :returns: y, (*max(M,L)xmax(N,K) or P-dimensional array where the last two dimensions are max(M,L)xmax(N,K)*).
 
 Remarks
 -------
@@ -34,7 +34,7 @@ Examples
 
     x = { .2, .4, .8, 1, 1.2, 1.4 };
     lambda = .4;
-    y = boxcox(x,lambda);
+    y = boxcox(x, lambda);
 
 After the code above:
 
@@ -46,4 +46,3 @@ After the code above:
          0.000
          0.189
          0.360
-

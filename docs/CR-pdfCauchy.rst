@@ -12,15 +12,15 @@ Format
 .. function:: pdfCauchy(x, mu, sigma)
 
     :param x: data
-    :type x: NxK matrix or Nx1 vector or scalar
+    :type x: NxK matrix, Nx1 vector or scalar
 
     :param mu: Location parameter. ExE conformable with *x*.
-    :type mu: NxK matrix or Nx1 vector or scalar
+    :type mu: NxK matrix, Nx1 vector or scalar
 
     :param sigma: Scale parameter. ExE conformable with *x*. *sigma* must be greater than 0.
-    :type sigma: NxK matrix or Nx1 vector or scalar
+    :type sigma: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+    :returns: y (*NxK matrix, Nx1 vector or scalar*)
 
 Remarks
 -------

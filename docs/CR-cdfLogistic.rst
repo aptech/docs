@@ -8,18 +8,18 @@ Computes the cumulative distribution function for the logistic distribution.
 
 Format
 ----------------
-.. function:: cdfLogistic(x, a, b)
+.. function:: cdfLogistic(x, loc, scale)
 
-    :param x: 
-    :type x: NxK matrix or Nx1 vector or scalar.
+    :param x: Values at which to evaluate the cumulative distribution function for the logistic distribution.
+    :type x: NxK matrix, Nx1 vector or scalar.
 
-    :param a: Location parameter, ExE conformable with *x*.
-    :type a: NxK matrix or Nx1 vector or scalar
+    :param loc: Location parameter, ExE conformable with *x*.
+    :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param b: Scale parameter, ExE conformable with *x*. *b* must be greater than 0.
-    :type b: NxK matrix or Nx1 vector or scalar
+    :param scale: Scale parameter; ExE conformable with *x*. :math:`0 < scale `.
+    :type scale: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function for the logistic distribution evaluated at the corresponding element in *x*.
 
 Remarks
 -------
@@ -31,31 +31,33 @@ defined as:
 
     f(x, \mu, \sigma) = \frac{1}{1 + exp(-z)}
 
-.. DANGER:: Define missing equation
-
 where
 
 .. math::
 
     z = \frac{x - \mu}{\sigma}
 
-.. DANGER:: Define missing equation
-
 Examples
 --------
 
 ::
-
+    // Values of interest
     x = { 1, 2, 3 };
-    p = cdfLogistic(x, 0, 2);
+
+    // Location parameter
+    loc = 0;
+
+    // Scale parameter
+    s = 2;
+
+    p = cdfLogistic(x, loc, s);
 
 After the above code, `p` will equal:
 
 ::
 
-    0.6225 
-    0.7311 
-    0.8176 
+    0.6225
+    0.7311
+    0.8176
 
 .. seealso:: :func:`pdfLogistic`
-

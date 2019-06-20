@@ -4,33 +4,28 @@ cdfChinc
 
 Purpose
 ----------------
-Computes the cumulative distribution function for the noncentral chi-square distribution.
+Computes the cumulative distribution function for the noncentral chi-squared distribution.
 
 Format
 ----------------
-.. function:: cdfChinc(x, v, d)
+.. function:: cdfChinc(x, df, nonc)
 
-    :param x: values of upper limits of integrals, must be greater than 0.
+    :param x: Values at which to evaluate the complement of the chi-squared cdf. :math:`x > 0`.
     :type x: Nx1 vector
 
-    :param v: degrees of freedom, *v* > 0.
-    :type v: scalar
+    :param df: degrees of freedom, :math:`df > 0`.
+    :type df: scalar
 
-    :param d: noncentrality parameter, *d* > 0.
-        
-        This is the square root of the noncentrality parameter
-        that sometimes goes under the symbol lambda. (See Scheffe,
-        The Analysis of Variance, App. IV, 1959.)
+    :param nonc: noncentrality parameter, :math:`nonc > 0`. Note: This is the squared root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.  :math:`nonc > 0`.
+    :type nonc: scalar
 
-    :type d: scalar
-
-    :returns: y (Nx1 vector)
+    :returns: **p** (*Nx1 vector*) - Each element in *p* is the noncentral chi-squared cdf value evaluated at the corresponding element in *x*.
 
 Remarks
 -------
 
-*y* is the integral from 0 to *x* of the noncentral chi-square distribution
-with *v* degrees of freedom and noncentrality *d*.
+*p* is the integral from 0 to *x* of the noncentral chi-square distribution
+with *df* degrees of freedom and noncentrality *nonc*.
 
 :func:`cdfChinc` can return a vector of values, but the degrees of freedom and
 noncentrality parameter must be the same for all values of *x*.
@@ -51,17 +46,24 @@ Examples
 
 ::
 
+    // Values
     x = { .5, 1, 5, 25 };
-    print cdfChinc(x,4,2);
+
+    // Degrees of freedom
+    df = 4;
+
+    // Non-centrality parameter
+    nonc = 2;
+
+    print cdfChinc(x, df, nonc);
 
 The code above returns:
 
 ::
 
-    0.0042086234
+     0.0042086234
      0.016608592
      0.30954232
      0.99441140
 
 .. seealso:: Functions :func:`cdfFnc`, :func:`cdfTnc`
-

@@ -11,51 +11,43 @@ Format
 ----------------
 .. function:: cdfBeta(x, a, b)
 
-    :param x: 
+    :param x: Values at which to evaluate the Beta cdf. :math:`0 \leq x \leq 1`
     :type x: NxK matrix
 
-    :param a: ExE conformable with *x*.
+    :param a: ExE conformable with *x*. :math:`a > 0`
     :type a: LxM matrix
 
-    :param b: ExE conformable with *x* and *a*.
+    :param b: ExE conformable with *x* and *a*. :math:`b > 0`
     :type b: PxQ matrix
 
-    :returns: y (*matrix*), max(N,L,P) by max(K,M,Q)
-
-Remarks
--------
-
-*y* is the integral from 0 to *x* of the beta distribution with parameters *a*
-and *b*. Allowable ranges for the arguments are:
-
-.. math::  
-
-   0 ≤ x ≤ 1
-   a > 0
-   b > 0
-
-A -1 is returned for those elements with invalid inputs.
+    :returns: **p** (*matrix, max(N,L,P) by max(K,M,Q)*) - *p* is the integral from 0 to *x* of the beta distribution with parameters *a*
+    and *b*. A -1 is returned for those elements with invalid inputs.
 
 Examples
 ----------------
 
 ::
 
-    x = { .1, .2, .3, .4 };
+    // Values
+    x = { 0.0506, 0.1886, 0.3781, 0.5763 };
+
+    // Beta parameters
     a = 0.5;
     b = 0.3;
-    y = cdfBeta(x,a,b);
-    print "y = "	 y;
+
+    // Total probabilities
+    p = cdfBeta(x, a, b);
+    print "p = "	 p;
 
 After running above code,
 
 ::
 
-    y =
-    	0.14228251 
-    	0.20662575 
-    	0.26057158 
-    	0.31087052
+  p =
+    0.1000
+    0.2000
+    0.3000
+    0.4000
 
 
 Technical Notes
@@ -91,4 +83,3 @@ References
    Ratio." Comm. ACM. Vol. 10, No. 6, June 1967, 375-76.
 
 .. seealso:: Functions :func:`cdfChic`, :func:`cdfFc`, :func:`cdfN`, :func:`cdfNc`, :func:`cdfTc`, :func:`gamma`
-

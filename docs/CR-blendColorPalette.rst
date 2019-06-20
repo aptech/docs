@@ -16,7 +16,6 @@ Format
     :param ncolors:  The number of colors to create for the new palette.
     :type ncolors: scalar
 
-    :returns: color_blend (string array) ncolorsx1 containing color palette.
+    :returns: color_blend (*Ncolorsx1 string array*) containing color palette.
 
 .. seealso:: :func:`getColorPalette`, :func:`listColorPalettes`, :func:`getHSLPalette`, :func:`getHSLuvPalette`
-

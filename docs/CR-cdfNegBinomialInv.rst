@@ -11,7 +11,7 @@ Format
 .. function:: cdfNegBinomialInv(p, s, prob)
 
     :param p: :math:`0 < f < 1`.
-    :type p: NxK matrix or Nx1 vector or scalar
+    :type p: NxK matrix, Nx1 vector or scalar
 
     :param s: ExE conformable with *p*. :math:`0 < s`.
     :type s: matrix
@@ -19,7 +19,7 @@ Format
     :param prob: The probability of success on any given trial. ExE conformable with *p*. :math:`0 < prob < 1`.
     :type prob: matrix
 
-    :returns: f (*NxK matrix or Nx1 vector or scalar*)
+    :returns: f (*NxK matrix, Nx1 vector or scalar*)
 
 Remarks
 -------

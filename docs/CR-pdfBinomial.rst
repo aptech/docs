@@ -12,15 +12,15 @@ Format
 .. function:: pdfBinomial(successes,trials,prob)
 
     :param successes: must be a positive number and < *trials*
-    :type successes: NxK matrix or Nx1 vector or scalar
+    :type successes: NxK matrix, Nx1 vector or scalar
 
     :param trials: ExE conformable with *successes*. *trials* must be > *successes*.
-    :type trials: NxK matrix or Nx1 vector or scalar
+    :type trials: NxK matrix, Nx1 vector or scalar
 
     :param prob: The probability of success on any given trial. ExE conformable with *successes*. :math:`0 < prob < 1`.
-    :type prob: NxK matrix or Nx1 vector or scalar
+    :type prob: NxK matrix, Nx1 vector or scalar
 
-    :returns: p (*NxK matrix or Nx1 vector or scalar*) The probability of the specified number of *successes*.
+    :returns: p (*NxK matrix, Nx1 vector or scalar*) The probability of the specified number of *successes*.
 
 Examples
 ----------------

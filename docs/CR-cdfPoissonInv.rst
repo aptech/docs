@@ -16,7 +16,7 @@ Format
     :param lambda: The mean parameter.
     :type lambda: ExE conformable with *p*
 
-    :returns: x (*NxK matrix or Nx1 vector or scalar*)
+    :returns: x (*NxK matrix, Nx1 vector or scalar*)
 
 Remarks
 -------

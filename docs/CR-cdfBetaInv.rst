@@ -10,16 +10,16 @@ Format
 ----------------
 .. function:: cdfBetaInv(p, a, b)
 
-    :param p: 0 < *p* < 1.
+    :param p: Probabilities at which to compute the inverse of the Beta cumulative distribution function. :math:`0 \lt p \lt 1`
     :type p: NxK matrix, Nx1 vector or scalar
 
-    :param a: *p* < 0 < *a*.
-    :type a: ExE conformable
+    :param a: ExE conformable with *p*. :math:`a > 0`
+    :type a: LxM matrix
 
-    :param b: *p* < 0 < *b*.
-    :type b: ExE conformable
+    :param b: ExE conformable with *p* and *a*. :math:`b > 0`
+    :type b: PxQ matrix
 
-    :returns: x (*NxK matrix, Nx1 vector or scalar*)
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the Beta cdf evaluated at *x* is equal to or exceeds the corresponding value of *p*.
 
 Remarks
 ----------------
@@ -32,22 +32,25 @@ Examples
 ----------------
 
 ::
+    // List of probabilities
+    p = { 0.10, 0.20, 0.30, 0.40 };
 
-    y = { 0.14228251, 0.20662575, 0.26057158, 0.31087052 };
+    // Beta parameters
     a = 0.5;
     b = 0.3;
-    p = cdfBeta(y,a,b);
-    print "p = "	p;
 
-After running above code,
+    // Call cdfBetaInv
+    x = cdfBetaInv(p, a, b);
+    print "x = "	x;
+
+After running the above code,
 
 ::
 
-    p =
-    	0.1
-    	0.2
-    	0.3
-    	0.4
+  x =
+    0.0506
+    0.1886
+    0.3781
+    0.5763
 
 .. seealso:: Functions :func:`cdfBeta`, :func:`cdfBinomial`, :func:`cdfNegBinomial`
-

@@ -11,15 +11,15 @@ Format
 .. function:: pdfWeibull(x, k, lambda)
 
     :param x: *x* must be greater than 0.
-    :type x: NxK matrix or Nx1 vector or scalar
+    :type x: NxK matrix, Nx1 vector or scalar
 
     :param k: Shape parameter, ExE conformable with *x*. *k* must be greater than 0.
-    :type k: NxK matrix or Nx1 vector or scalar
+    :type k: NxK matrix, Nx1 vector or scalar
 
     :param lambda: Scale parameter, may be matrix, ExE conformable with *x*. *lambda* must be greater than 0.
     :type lambda: Nx1 vector or scalar
 
-    :returns: y (*NxK matrix or Nx1 vector or scalar*)
+    :returns: y (*NxK matrix, Nx1 vector or scalar*)
 
 Remarks
 -------

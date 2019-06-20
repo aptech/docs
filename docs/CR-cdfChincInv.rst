@@ -4,32 +4,57 @@ cdfChincInv
 
 Purpose
 ----------------
-Computes the quantile or inverse of noncentral chi-square cumulative distribution function.
+Computes the quantile or inverse of noncentral chi-squared cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfChincInv(y, df, nonc)
+.. function:: cdfChincInv(p, df, nonc)
 
-    :param y: Nx1 vector or scalar. The integral from 0 to *x*.
-    :type y: NxK matrix
+    :param p: Probabilities at which to compute the inverse of noncentral chi-squared cumulative distribution function. :math:`0 < p < 1`.
+    :type p: NxK matrix, Nx1 vector or scalar
 
-    :param df:  The degrees of freedom. *df* > 0.
-    :type df: ExE conformable with *y*
+    :param df:  The degrees of freedom. :math:`df > 0`.
+    :type df: ExE conformable with *p*
 
-    :param nonc:  The noncentrality parameter. Note: This is the square root of the noncentrality parameter that sometimes goes under the symbol lambda. *nonc* > 0.
-    :type nonc: ExE conformable with *y*
+    :param nonc:  The noncentrality parameter. Note: This is the squared root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.  :math:`nonc > 0`.
+    :type nonc: ExE conformable with *p*
 
-    :returns: x (*NxK matrix or Nx1 vector or scalar*). The upper limit of the integrals of the noncentral chi-square distribution with *df* degrees of freedom and noncentrality *nonc*.
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the noncentral chi-squared cdf with *df* degrees of freedom and *nonc* noncentrality evaluated at *x* is equal to or exceeds the corresponding value of *p*.
 
 Remarks
 -------
-
-.. NOTE:: Input *nonc* is the square root of the noncentrality parameter that sometimes goes under the symbol lambda.
 
 For invalid inputs, :func:`cdfChincinv` will return a scalar error code which,
 when its value is assessed by function :func:`scalerr`, corresponds to the
 invalid input. If the first input is out of range, :func:`scalerr` will return a
 1; if the second is out of range, scalerr will return a 2; etc.
 
-.. seealso:: :func:`cdfChinc`, :func:`cdfChic`, :func:`cdfFnc`, :func:`cdfTnc`
+Examples
+----------------
 
+::
+
+    // Probabilities
+    p = { .05, .1, .25, .5, .75, 0.90, 0.95 };
+
+    // Degrees of freedom
+    df = 4;
+
+    // Non-centrality parameter
+    nonc = 2;
+
+    print cdfChincInv(p, df, nonc);
+
+The code above returns:
+
+::
+
+  1.7650
+  2.5583
+  4.3564
+  7.1016
+  10.6736
+  14.6157
+  17.3093
+
+.. seealso:: :func:`cdfChinc`, :func:`cdfChic`, :func:`cdfFnc`, :func:`cdfTnc`

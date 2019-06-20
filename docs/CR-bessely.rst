@@ -14,10 +14,10 @@ Format
     :param n: the order of the Bessel function. Nonintegers will be truncated to an integer.
     :type n: NxK matrix or P-dimensional array where the last two dimensions are NxK
 
-    :param x: 
+    :param x:
     :type x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with *n*.
 
-    :returns: y, max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
+    :returns: y, ( *max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M) *).
 
 Examples
 ----------------
@@ -26,15 +26,17 @@ Examples
 
     // Create the sequence 0.1, 0.2, 0.3, 0.4, 0.5
     x = seqa(0.1, 0.1, 5);
-    
+
     // Create the sequence 1, 1.1, 1.2, 1.3, 1.4
     x2 = seqa(1, 0.1, 5);
-    
-    // Calculate a first order bessel function against 'x' and 
-    // calculate a third order bessel function agains 'x2'
-    // NOTE: The '~' provides horizontal concatenation
+
+    /*
+    ** Calculate a first order bessel function against 'x' and
+    ** calculate a third order bessel function agains 'x2'
+    ** NOTE: The '~' provides horizontal concatenation
+    */
     ord = { 1 3 };
-    y = bessely(ord, x~x2);
+    y = bessely(n, x~x2);
 
 After the code above:
 
@@ -47,4 +49,3 @@ After the code above:
         -1.471 -2.442         0.500  1.400
 
 .. seealso:: Functions :func:`besselj`, :func:`mbesseli`, :func:`besselk`
-

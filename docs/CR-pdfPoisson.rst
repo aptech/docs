@@ -11,12 +11,12 @@ Format
 .. function:: pdfPoisson(x, lambda)
 
     :param x: *x* must be a positive whole number.
-    :type x: NxK matrix or Nx1 vector or scalar
+    :type x: NxK matrix, Nx1 vector or scalar
 
     :param lambda: The mean parameter.
     :type lambda: ExE conformable with *x*
 
-    :returns: p (*NxK matrix or Nx1 vector or scalar*)
+    :returns: p (*NxK matrix, Nx1 vector or scalar*)
 
 Remarks
 -------

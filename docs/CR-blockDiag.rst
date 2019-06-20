@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: blockDiag(A [, B, C ...])
 
-    :param A: 
+    :param A:
     :type A: One or more matrices
 
-    :returns: d (matrix), Diagonal matrix constructed from the input matrices.
+    :returns: d (*matrix*), Diagonal matrix constructed from the input matrices.
 
 Remarks
 ----------------
@@ -33,16 +33,15 @@ Basic example
     b = 0.8;
     c = { 0.2 1.0 0.7,
           1.3 0.6 1.4 };
-    
+
     d = blockDiag(a, b, c);
 
 After the above code, *d* should equal:
 
 ::
 
-        0.5 1.1   0   0   0   0 
-        2.0 0.3   0   0   0   0 
-    d =   0   0 0.8   0   0   0 
-          0   0   0 0.2 1.0 0.7 
+        0.5 1.1   0   0   0   0
+        2.0 0.3   0   0   0   0
+    d =   0   0 0.8   0   0   0
+          0   0   0 0.2 1.0 0.7
           0   0   0 1.3 0.6 1.4
-

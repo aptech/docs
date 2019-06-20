@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: bandrv(a)
 
-    :param a: 
+    :param a:
     :type a: KxN compact form matrix
 
-    :returns: y (KxK symmetric banded matrix)
+    :returns: y (*KxK symmetric banded matrix*)
 
 Remarks
 -------
@@ -34,21 +34,20 @@ Examples
           2 8 1 0,
           0 1 5 2,
           0 0 2 3 };
-     
+
     // Create a version of 'x' in band format
-    xBand = band(x,1);
-     
+    a = band(x, 1);
+
     // Expand the banded version of 'x' back to a full matrix
-    xNew = bandrv(xBand);
+    y = bandrv(xBand);
 
 After the code above:
 
 ::
 
-             0   1       1   2   0   0          1   2   0   0 
-    xBand =  2   8   x = 2   8   1   0   xNew = 2   8   1   0 
-             1   5       0   1   5   2          0   1   5   2 
+             0   1       1   2   0   0          1   2   0   0
+        a =  2   8   x = 2   8   1   0      y = 2   8   1   0
+             1   5       0   1   5   2          0   1   5   2
              2   3       0   0   2   3          0   0   2   3
 
 .. seealso:: Functions :func:`band`, :func:`bandchol`, :func:`bandcholsol`, :func:`bandltsol`, :func:`bandsolpd`
-

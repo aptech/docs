@@ -12,16 +12,16 @@ Format
 .. function:: pdfHyperGeo(x, m, k, n)
 
     :param x: must be a positive number and < *m*
-    :type x: NxK matrix or Nx1 vector or scalar
+    :type x: NxK matrix, Nx1 vector or scalar
 
     :param m: The size of the population from which draws will be made. ExE conformable with *x*. *m* must be > *x*, *k* and *n*.
-    :type m: NxK matrix or Nx1 vector or scalar
+    :type m: NxK matrix, Nx1 vector or scalar
 
     :param k: The number of marked items. ExE conformable with *x*.
-    :type k: NxK matrix or Nx1 vector or scalar
+    :type k: NxK matrix, Nx1 vector or scalar
 
     :param n: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < k < m`.
-    :type n: NxK matrix or Nx1 vector or scalar
+    :type n: NxK matrix, Nx1 vector or scalar
 
     :returns: p (*NxK matrix, Nx1 vector or scalar*), The probability of drawing *x* marked items. 
 

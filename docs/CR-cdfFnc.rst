@@ -8,25 +8,22 @@ Computes the cumulative distribution function of the noncentral F distribution.
 
 Format
 ----------------
-.. function:: cdfFnc(x, n1, n2, d)
+.. function:: cdfFnc(x, df_n, df_d, nonc)
 
-    :param x: values of upper limits of integrals, :math:`x > 0`.
+    :param x: Values at which to evaluate the cdf of the noncentral F distribution. :math:`x > 0`.
     :type x: Nx1 vector
 
-    :param v1: degrees of freedom of numerator, :math:`n1 > 0`.
-    :type v1: scalar
+    :param df_n: degrees of freedom of numerator, :math:`df_n > 0`.
+    :type df_n: scalar
 
-    :param v2: degrees of freedom of denominator, :math:`n2 > 0`.
-    :type v2: scalar
+    :param df_d: degrees of freedom of denominator, :math:`df_d > 0`.
+    :type df_d: scalar
 
-    :param d: noncentrality parameter, :math:`d > 0`.
-        
-        This is the square root of the noncentrality parameter
-        that sometimes goes under the symbol lambda. (See Scheffe,
-        The Analysis of Variance, App. IV, 1959.)
-    :type d: scalar
+    :param nonc: noncentrality parameter. This is the square root of the noncentrality parameter
+        that sometimes goes under the symbol :math:`\lambda`. :math:`nonc > 0`.
+    :type nonc: scalar
 
-    :returns: y (*Nx1 vector*)
+    :returns: **p** (*Nx1 vector*) - Each element in *p* is the noncentral F distribution cdf value evaluated at the corresponding element in *x*.
 
 Remarks
 -------
@@ -36,5 +33,40 @@ its value is assessed by function :func:`scalerr`, corresponds to the invalid
 input. If the first input is out of range, :func:`scalerr` will return a 1; if
 the second is out of range, :func:`scalerr` will return a 2; etc.
 
-.. seealso:: :func:`cdfTnc`, :func:`cdfChinc`
+Examples
+----------------
 
+::
+
+  /*
+  ** Computing the parameters
+  */
+  // Number of observations
+  n_obs = 100;
+
+  // Number of variables
+  n_vars = 5;
+
+  // Setting n1
+  df_n = n_vars;
+
+  // Setting n2
+  df_d = n_obs - n_vars - 1;
+
+  // Value to calculate p_value at
+  f_stat = 2.4;
+
+  // Non-central parameter
+  nonc = 2;
+
+  // Call cdfFnc
+  p_value = cdfFnc(f_stat, df_n, df_d, nonc);
+  print p_value;
+
+will return:
+
+::
+
+  0.7468
+
+.. seealso:: :func:`cdfTnc`, :func:`cdfChinc`
