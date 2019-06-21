@@ -44,7 +44,7 @@ Examples
 
     After the code above:
 
-    ::
+::
 
     f = 0.0020202020
     
