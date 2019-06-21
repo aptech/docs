@@ -5,7 +5,7 @@ bessely
 Purpose
 ----------------
 
-Computes a Bessel function of the second kind (Weber's function), :math:`Y\ n\ (x)`.
+Computes a Bessel function of the second kind (Weber's function), :math:`Y_n(x)`.
 
 Format
 ----------------
@@ -15,9 +15,9 @@ Format
     :type n: NxK matrix or P-dimensional array where the last two dimensions are NxK
 
     :param x:
-    :type x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with *n*.
+    :type x: LxM matrix or P-dimensional array where the last two dimensions are LxM, ExE conformable with n.
 
-    :returns: y, ( *max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M) *).
+    :returns: y, max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
 
 Examples
 ----------------
@@ -42,7 +42,7 @@ After the code above:
 
 ::
 
-    -6.459 -5.822         0.100  1.000
+        -6.459 -5.822         0.100  1.000
         -3.324 -4.507         0.200  1.100
     y = -2.293 -3.590  x~x2 = 0.300  1.200
         -1.781 -2.930         0.400  1.300

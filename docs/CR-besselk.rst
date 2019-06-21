@@ -5,7 +5,7 @@ besselk
 Purpose
 ----------------
 
-Computes the modified Bessel function of the second kind, :math:`K\ n\ (x)`.
+Computes the modified Bessel function of the second kind, :math:`K_n(x)`.
 
 
 Format
@@ -54,10 +54,10 @@ After the above code, *K*, should equal:
 ::
 
     +INF
-      1.6564411
-     0.60190723
-     0.27738780
-     0.13986588
+    1.6564411
+    0.60190723
+    0.27738780
+    0.13986588
 
 Compute data for first 3 orders
 +++++++++++++++++++++++++++++++
@@ -82,8 +82,8 @@ After the code above, *K* should equal:
 ::
 
     +INF             +INF             +INF
-    0.92441907        1.6564411        7.5501836
-    0.42102444       0.60190723        1.6248389
+    0.92441907       1.6564411        7.5501836
+    0.42102444       0.60190723       1.6248389
     0.21380556       0.27738780       0.58365596
     0.11389387       0.13986588       0.25375975
 
