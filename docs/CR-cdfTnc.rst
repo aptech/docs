@@ -12,64 +12,69 @@ must be the same for all values of *x*.
 
 Format
 ----------------
-.. function:: cdfTnc(x, v, d)
+.. function:: cdfTnc(x, df, nonc)
 
     :param x: values of upper limits of integrals.
     :type x: Nx1 vector
 
-    :param v: degrees of freedom, :math:`v > 0`.
-    :type v: scalar
+    :param df: degrees of freedom, :math:`df > 0`.
+    :type df: scalar
 
-    :param d: noncentrality parameter.
-        
-        This is the square root of the noncentrality parameter
-        that sometimes goes under the symbol lambda. (See Scheffe,
-        The Analysis of Variance, App. IV, 1959.)
-    :type d: scalar
+    :param nonc: noncentrality parameter. This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.
+    :type nonc: scalar
 
-    :returns: y (*Nx1 vector*), integrals from :math:`-∞` to *x* of
-        noncentral *t*.
+    :returns:**p** (*Nx1 vector*) - Each element in *p* is the cumulative distribution function of the noncentral Student's t distribution evaluated at the corresponding element in *x*.
 
 Remarks
 ------------
 
-.. math:: cdfTc(x, v) = 1 - cdfTnc(x, v,0)
+.. math:: cdfTc(x, df) = 1 - cdfTnc(x, df, 0)
 
 Examples
 ----------------
 
-noncentral t distributions with different parameters.
+Noncentral t distributions with different parameters.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
-    // sigma = 5
-    x = seqa(0,0.2,101);
-    sigma = 5;
+    // Values to find cdf at
+    x = seqa(0, 0.2, 101);
+
+    // Noncentrality parameter
+    nonc = 5;
+
+    // Degrees of freedom
     df = 1~2~5~10~100;
-    y = cdfTnc(x, df, sigma');
-    plotxy(x, y);
+
+    // Call cdfTnc
+    p = cdfTnc(x, df, nonc);
+    plotxy(x, p);
 
 After running above code,
 
 .. figure:: _static/images/cdfTnc_1.png
 
-noncentral t distributions with different degree of freedoms.
+Noncentral t distributions with different degree of freedoms.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
-    // df = 10
-    x = seqa(-5,0.5,41);
-    sigma = seqa(0, 0.5, 7);
+    // Values to find cdf at
+    x = seqa(-5, 0.5, 41);
+
+    // Noncentrality parameter
+    nonc = seqa(0, 0.5, 7);
+
+    // Degrees of freedom
     df = 10;
-    y = cdfTnc(x, df, sigma');
-    plotxy(x, y);
+
+    p = cdfTnc(x, df, nonc');
+    plotxy(x, p);
 
 After running above code,
 
 .. figure:: _static/images/cdfTnc_2.png
-    
+
 
 .. seealso:: Functions :func:`cdfFnc`, :func:`cdfChinc`
-

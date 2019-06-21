@@ -15,7 +15,7 @@ Format
         will be used. If not, the current default drive will be used.
     :type s: string
 
-    :returns: y (string), containing the drive and full path name of the current directory on the specified drive.
+    :returns: **dir** (string) - containing the drive and full path name of the current directory on the specified drive.
 
 Remarks
 -------
@@ -33,8 +33,13 @@ If the current working directory is C:\gauss:
 
 ::
 
-    x = cdir(0);
+    // Get current directory
+    dir = cdir(0);
+
+    // Assign directory path
     y = cdir("d:");
+
+    // Print the directories
     print x;
     print y;
 
@@ -44,4 +49,3 @@ The code above will return:
 
     C:\gauss
     d:
-

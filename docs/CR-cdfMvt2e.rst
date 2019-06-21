@@ -8,7 +8,7 @@ Computes multivariate Student's t cumulative distribution function with error ma
 
 Format
 ----------------
-.. function:: cdfMvt2e(ctl, a, b, R, m, v)
+.. function:: cdfMvt2e(ctl, l_lim, u_lim, corr, nonc, df )
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
 
@@ -21,32 +21,32 @@ Format
 
     :type ctl: struct
 
-    :param a: lower limits. *K* is the dimension of multivariate Student's t distribution. *N* is the number of MVT cdf integrals.
-    :type a: NxK matrix
+    :param l_lim: lower limits. *K* is the dimension of multivariate Student's t distribution. *N* is the number of MVT cdf integrals.
+    :type l_lim: NxK matrix
 
-    :param b: upper limits.
-    :type b: NxK matrix
+    :param u_lim: upper limits.
+    :type u_lim: NxK matrix
 
-    :param R: correlation matrix.
-    :type R: KxK matrix
+    :param corr: correlation matrix.
+    :type corr: KxK matrix
 
-    :param m: noncentralities.
-    :type m: Kx1 vector
+    :param nonc: noncentralities.
+    :type nonc: Kx1 vector
 
-    :param v: degrees of freedom.
-    :type v: scalar
+    :param df: degrees of freedom.
+    :type df: scalar
 
-    :returns: y (*Nx1 vector*), a :math:`Pr(X ≥ a and X ≤ b|R,m)`.
+    :returns: **p** (*N x 1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate Student's t distribution for the corresponding columns in *l_lim* and *u_lim*. *p* will have as many elements as the input,*l_lim* and *u_lim*, have rows.
 
-    :returns: err (*Nx1 vector*), estimates of absolute error.
+    :returns: **err** (*Nx1 vector*) - estimates of absolute error.
 
-    :returns: retcode (*Nx1 vector*), return codes.
+    :returns: **retcode** (*Nx1 vector*) - return codes.
 
         .. csv-table::
             :widths: auto
 
-            "0", "normal completion with err < ctl.absErrorTolerance."
-            "1", "err  >  ctl.absErrorTolerance and ctl.maxEvaluations exceeded; increase ctl.maxEvaluations to decrease error."
+            "0", "normal completion with :math:`err < ctl.absErrorTolerance`."
+            "1", ":math:`err  >  ctl.absErrorTolerance` and ctl.maxEvaluations exceeded; increase ctl.maxEvaluations to decrease error."
             "2", ":math:`K > 100` or :math:`K < 1`."
             "3", "*R* not positive semi-definite."
             "missing", "*R* not properly defined."
@@ -58,24 +58,25 @@ Remarks
    is defined by where :math:`\nu \\in \\mathbb{R^+}` is a scale (or degree of freedom)
    parameter, :math:`z` is a K-dimensional Student's t multivariate distribution, and
 
+.. math:: T(a_i, b_i; \Sigma, \nu) = \frac{\Gamma(\frac{\nu+K}{2})}{\Gamma(\frac{\nu}{2})\sqrt{|\Sigma|(\nu\pi)^K}}\int_{a_{i1}}^{b_{i1}}\int_{a_{i2}}^{b_{i2}}\ldots\int_{a_{iK}}^{b_{iK}} \Big( 1 + \frac{z'\Sigma^{-1}z}{\nu} \Big)^{-\frac{\nu+K}{2}} dz\\
+   \equiv \frac{2^{1 - \frac{\nu}{2}}}{\Gamma(\frac{\nu}{2})}\Phi\Big(\frac{sa_i}{\sqrt{\nu}}, \frac{sb_i}{\sqrt{\nu}; \Sigma} \Big) ds
 
-   For the non-central Student's t multivariate distribution cdf, we
-   have
+   where :math:`\nu \in \mathbb{R^+}` is a scale (or degree of freedom) parameter, :math:`z` is
+   a K-dimensional Student's t multivariate distribution, and
 
-
-   where
-
-
-   denotes the :math:`K \\times 1` non-centrality vector with :math:`-\infty< \\delta_k < \\infty` .
-
-   Another form of non-central multivariate Student's t distribution cdf
-   is
-
-.. DANGER:: FIX EQUATIONS
+.. math:: \phi(a_i, b_i; \Sigma) = \frac{1}{\sqrt{|\Sigma|(2\pi)^2}}\int_{a_{i1}}^{b_{i1}}\int_{a_{i2}}^{b_{i2}}\ldots\int_{a_{iK}}^{b_{iK}} e^{-\frac{1}{2}z'\Sigma^{-1}z} dz
 
 
--  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the
-   diagonal entries for :math:`\Sigma` on its diagonal.
+  For the non-central Student's t multivariate distribution cdf, we have
+
+.. math:: T(a_i, b_i; \Sigma, \nu, \delta) = \frac{\Gamma(\frac{\nu+K}{2})}{\Gamma(\frac{\nu}{2})\sqrt{|\Sigma|(\nu\pi)^K}}\int_{a_{i1}}^{b_{i1}}\int_{a_{i2}}^{b_{i2}}\ldots\int_{a_{iK}}^{b_{iK}} \Big( 1 + \frac{(z - \delta)'\Sigma^{-1}(z - \delta)}{\nu} \Big)^{-\frac{\nu+K}{2}} dz\\
+   \equiv \frac{2^{1 - \frac{\nu}{2}}}{\Gamma(\frac{\nu}{2})}\Phi\Big(\frac{sa_i}{\sqrt{\nu}}, \frac{sb_i}{\sqrt{\nu}; \Sigma} \Big) ds
+
+   where :math:`\delta` denotes the :math:`K \times 1` non-centrality vector with :math:`-\infty< \delta_k < \infty`. Another form of non-central multivariate Student's t distribution cdf is
+
+.. math:: T(a_i, b_i; \Sigma, \nu, \delta) = \frac{2^{1 - \frac{\nu}{2}}}{\Gamma(\frac{\nu}{2})}\int_0^{\infty}s^{\nu-1}e^{-\frac{s^2}{2}}\Phi\Big(\frac{sa_i}{\sqrt{\nu}}-\delta, \frac{sb_i}{\sqrt{\nu}}-\delta; \Sigma \Big) ds
+
+-  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the diagonal entries for :math:`\Sigma` on its diagonal.
 
 Examples
 ----------------
@@ -86,29 +87,33 @@ Uncorrelated variables
 ::
 
     // Lower limits of integration for K dimensional multivariate distribution
-    a = { -1e4 -1e4 };
+    l_lim = { -1e4 -1e4 };
 
     // Upper limits of integration for K dimensional multivariate distribution
-    b = { 0 0 };
+    u_lim = { 0 0 };
 
-    // Identity matrix, indicates
-    // zero correlation between variables
-    R = { 1 0,
+    /*
+    ** Identity matrix, indicates
+    ** zero correlation between variables
+    */
+    corr = { 1 0,
           0 1 };
 
     // Define non-centrality vector
-    m  = { 0, 0 };
+    nonc  = { 0, 0 };
 
     // Define degree of freedom
-    v  = 3;
+    df  = 3;
 
     // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
 
-    // Calculate cumulative probability of
-    // both variables being from -1e4 to 0
-    { p, err, retcode } = cdfMvt2e(ctl, a, b, R, m, v );
+    /*
+    ** Calculate cumulative probability of
+    ** both variables being from -1e4 to 0
+    */
+    { p, err, retcode } = cdfMvt2e(ctl, l_lim, u_lim, corr, nonc, df );
 
 After the above code, both *p* equal to 0.25.
 
@@ -120,34 +125,39 @@ Compute the multivariate student's t cdf at 3 separate pairs of upper limits
 
 ::
 
-    // Limits of integration
-    //-5 ≤ x1 ≤ -1 and -8 ≤ x2 ≤ -1.1
-    //-20 ≤ x1 ≤ 0 and -10 ≤ x2 ≤ 0.1
-    // 0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
-    a = { -5  -8,
+    /*
+    ** Limits of integration
+    ** -5 ≤ x1 ≤ -1 and -8 ≤ x2 ≤ -1.1
+    ** -20 ≤ x1 ≤ 0 and -10 ≤ x2 ≤ 0.1
+    **  0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
+    */
+    l_lim = { -5  -8,
          -20 -10,
            0   0 };
-    b = {  -1 -1.1,
+
+    u_lim = {  -1 -1.1,
             0  0.1,
             1  1.1 };
 
     // Correlation matrix
-    R = {    1 0.31,
+    corr = {    1 0.31,
           0.31    1};
 
     // Define non-centrality vector
-    m  = { 0, 0 };
+    nonc  = { 0, 0 };
 
     // Define degree of freedom
-    v  = 3;
+    df  = 3;
 
     // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
 
-    // Calculate cumulative probability of
-    // each pair of limits
-    { p, err, retcode }  = cdfMvt2e(ctl, a, b, R, m, v);
+    /*
+    ** Calculate cumulative probability of
+    ** both variables being from -1e4 to 0
+    */
+    { p, err, retcode } = cdfMvt2e(ctl, l_lim, u_lim, corr, nonc, df );
 
 After the above code, *p* should equal:
 
@@ -169,35 +179,40 @@ Compute the non central multivariate student's t cdf
 
 ::
 
-    // Limits of integration
-    //-5 ≤ x1 ≤ -1 and -8 ≤ x2 ≤ -1.1
-    //-20 ≤ x1 ≤ 0 and -10 ≤ x2 ≤ 0.1
-    // 0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
-    a = {   -5  -8,
-           -20 -10,
-             0   0 };
-    b = {  -1 -1.1,
-            0  0.1,
-            1  1.1 };
+   /*
+   ** Limits of integration
+   ** -5 ≤ x1 ≤ -1 and -8 ≤ x2 ≤ -1.1
+   ** -20 ≤ x1 ≤ 0 and -10 ≤ x2 ≤ 0.1
+   **  0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
+   */
+   l_lim = { -5  -8,
+       -20 -10,
+         0   0 };
+
+    u_lim = {  -1 -1.1,
+          0  0.1,
+          1  1.1 };
 
     // Correlation matrix
-    R = { 1    0.31,
+    corr = { 1    0.31,
           0.31    1 };
 
     // Define non-centrality vector, Kx1
-    m  = {  1,
+    nonc  = {  1,
          -2.5 };
 
     // Define degree of freedom
-    v  = 3;
+    df  = 3;
 
     // Define control structure
     struct cdfmControl ctl;
     ctl = cdfmControlCreate();
 
-    // Calculate cumulative probability of
-    // each pair of limits
-    { p, err, retcode } = cdfMvt2e(ctl, a, b, R, m, v);
+    /*
+    ** Calculate cumulative probability of
+    ** both variables being from -1e4 to 0
+    */
+    { p, err, retcode } = cdfMvt2e(ctl, l_lim, u_lim, corr, nonc, df );
 
 After the above code, *p* should equal:
 

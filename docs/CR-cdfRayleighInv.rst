@@ -9,22 +9,46 @@ Computes the Rayleigh inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfRayleighInv(p, b)
+.. function:: cdfRayleighInv(p, shape)
 
-    :param p: must be greater than 0 and less than 1.
+    :param p: Probabilities at which to compute the logistic inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
-    :param b: Shape parameter, ExE conformable with *p*. *b* must be greater than 0.
-    :type b: NxK matrix, Nx1 vector or scalar
+    :param shape: Shape parameter, ExE conformable with *p*. *shape* must be greater than 0.
+    :type shape: NxK matrix, Nx1 vector or scalar
 
-    :returns: x (*NxK matrix, Nx1 vector or scalar*)
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the Rayleigh cumulative distribution function is equal to or exceeds the corresponding value of *p*.
 
 Remarks
 -------
 
 ::
 
-   cdfRayleighInv(cdfRayleigh(x,b), b) = x
+   cdfRayleighInv(cdfRayleigh(x, shape), shape) = x
 
+Examples
+----------------
+
+::
+
+  // Probabilities
+  p = {0.1,0.25, 0.5,0.75,0.95};
+
+  // Scale
+  scale = 0.5;
+
+  // Call Rayleigh function
+  x = cdfRayleighInv(p, scale);
+
+After running above code,
+
+::
+
+  x =
+    0.2295
+    0.3793
+    0.5887
+    0.8326
+    1.2239
+    
 .. seealso:: :func:`pdfRayleigh`, :func:`cdfRayleigh`
-

@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: cdfPoissonInv(p, lambda)
 
-    :param p: Nx1 vector or scalar. :math:`0 < p < 1`.
+    :param p: Probabilities at which to compute the logistic inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix
 
     :param lambda: The mean parameter.
     :type lambda: ExE conformable with *p*
 
-    :returns: x (*NxK matrix, Nx1 vector or scalar*)
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the Poisson cumulative distribution function is equal to or exceeds the corresponding value of *p*.
 
 Remarks
 -------
@@ -28,13 +28,19 @@ invalid input. If the first input is out of range, :func:`scalerr` will return a
 
 Examples
 ----------------
-Suppose that a hospital emergency department sees an average of 200 patients during the Friday evening shift. 
-If the hospital wants to have enough staff on hand to handle the patient load on 95% of Friday evenings, how 
+Suppose that a hospital emergency department sees an average of 200 patients during the Friday evening shift.
+If the hospital wants to have enough staff on hand to handle the patient load on 95% of Friday evenings, how
 many patients do they need staff on hand for?
 
 ::
+    // Probability
+    p = 0.95;
 
-    x = cdfPoissonInv(.95,200);
+    // The average observations
+    lambda = 200;
+
+    // Call cdfPoissonInv
+    x = cdfPoissonInv(p, lambda);
 
 After running above code, the hospital should expect to see 224 or few patients on 95% of Friday evenings.
 
@@ -43,4 +49,3 @@ After running above code, the hospital should expect to see 224 or few patients 
     x = 224
 
 .. seealso:: Functions :func:`cdfPoisson`, :func:`pdfPoisson`, :func:`cdfBinomial`, :func:`cdfNegBinomial`
-

@@ -17,8 +17,8 @@ Format
     :param mu: Optional input, the mean parameter. Default = 0.
     :type mu: scalar
 
-    :param sigma: Optional input, the standard deviation parameter. Default = 1.
-    :type sigma: scalar
+    :param std: Optional input, the standard deviation parameter. Default = 1.
+    :type std: scalar
 
     :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function of the log-normal distribution evaluated at the corresponding element in *x*.
 
@@ -39,7 +39,7 @@ After the above, code *p* will equal:
 
     0.70216179
 
-Specify 'mu' and 'sigma'
+Specify 'mu' and 'std'
 ++++++++++++++++++++++++
 
 ::
@@ -47,14 +47,17 @@ Specify 'mu' and 'sigma'
     // Create vector of 'x' values
     x = { 0.1, 1.6, 2 };
 
+    // Assign mu value
     mu = 1.5;
-    sigma = 2;
+
+    // Assign standard deviation
+    std = 2;
 
     /*
     ** Compute the CDF for the lognormal distribution
     ** parameterized by mu = 1.5 and sigma = 2
     */
-    p = cdfLogNorm(x, mu, sigma);
+    p = cdfLogNorm(x, mu, std);
 
 After the above, code *p* will equal:
 
