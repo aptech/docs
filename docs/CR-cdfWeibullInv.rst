@@ -11,16 +11,15 @@ Format
 ----------------
 .. function:: cdfWeibullInv(p, k, lambda)
 
-    :param p: must be greater than 0 and less than 1.
+    :param p: Probabilities at which to compute the Weibull inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
-    :param k: Shape parameter, ExE conformable with *x*. *k* must be greater than 0.
-    :type k: NxK matrix, Nx1 vector or scalar
+    :param shape: Shape parameter, ExE conformable with *x*. :math:`shape > 0`.
+    :type shape: NxK matrix, Nx1 vector or scalar
 
-    :param lambda: Scale parameter, ExE conformable with *x*. *lambda* must be greater than 0.
-    :type lambda: NxK matrix, Nx1 vector or scalar
+    :param scale: Scale parameter, ExE conformable with *x*. :math:`scale > 0`.
+    :type scale: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix, Nx1 vector or scalar*)
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the Weibull cumulative distribution function is equal to or exceeds the corresponding value of *p*.
 
 .. seealso:: :func:`pdfWeibull`, :func:`cdfWeibull`
-

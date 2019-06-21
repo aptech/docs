@@ -21,7 +21,7 @@ Format
 
     :type ctl: struct
 
-    :param x: Lower limits at which to evaluate the upper tail of the multivariate normal cumulative distribution function. If *x* has more than one column, each column will be treated as a separate set of upper limits.
+    :param x: Lower limits at which to evaluate the complement of the multivariate normal cumulative distribution function. If *x* has more than one column, each column will be treated as a separate set of upper limits.
     :type x: NxK matrix
 
     :param corr: correlation matrix.

@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: cdfLogisticInv(p, loc, scale)
 
-    :param p: Probabilities at which to compute the logistic inverse cumulative distribution function. :math:`0 \lt p \lt 1`.
+    :param p: Probabilities at which to compute the logistic inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
     :param loc: Location parameter, ExE conformable with *x*.

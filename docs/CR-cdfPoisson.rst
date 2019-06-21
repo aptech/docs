@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: cdfPoisson(x, lambda)
 
-    :param x: must be a positive whole number.
+    :param x: Values at which to evaluate the cumulative distribution function for the log-normal distribution. :math:`x > 0`.
     :type x: NxK matrix, Nx1 vector or scalar
 
     :param lambda: The mean parameter.
     :type lambda: ExE conformable with *x*
 
-    :returns: p (*NxK matrix, Nx1 vector or scalar*)
+    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function of the Poisson distribution evaluated at the corresponding element in *x*.
 
 Remarks
 -------
@@ -28,12 +28,17 @@ invalid input. If the first input is out of range, :func:`scalerr` will return a
 
 Examples
 ----------------
-Suppose that a hospital emergency department sees and average of 200 patients during the Friday 
+Suppose that a hospital emergency department sees and average of 200 patients during the Friday
 evening shift. What is the probability that they will see fewer than 250 patients during any one Friday evening shift.
 
 ::
+    // The mean parameter
+    lambda = 200;
 
-    p = cdfPoisson(250,200);
+    // Value to compute cdf .. attention::
+    x = 250;
+
+    p = cdfPoisson(x, lambda);
 
 After running above code,
 
@@ -42,4 +47,3 @@ After running above code,
     p = 0.99971538 or 99.715%
 
 .. seealso:: Functions :func:`cdfPoissonInv`, :func:`pdfPoisson`, :func:`cdfBinomial`, :func:`cdfNegBinomial`
-

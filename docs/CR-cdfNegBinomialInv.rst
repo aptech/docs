@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: cdfNegBinomialInv(p, s, prob)
 
-    :param p: :math:`0 < f < 1`.
+    :param p: The probability of observing *f* failures before observing *s*. :math:`0 < f < 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
     :param s: ExE conformable with *p*. :math:`0 < s`.
@@ -19,7 +19,7 @@ Format
     :param prob: The probability of success on any given trial. ExE conformable with *p*. :math:`0 < prob < 1`.
     :type prob: matrix
 
-    :returns: f (*NxK matrix, Nx1 vector or scalar*)
+    :returns: **f** (*NxK matrix, Nx1 vector or scalar*) - The number of failures that will be observed for each respective element in *p*.
 
 Remarks
 -------
@@ -44,22 +44,27 @@ is 17.36704%, then how many times of selling nothing?
 
 ::
 
-   // p is the probability of selling the last candy bar 
+   // p is the probability of selling the last candy bar
    p = 0.1736704;
-                   
-   // f is number of failure times                                
-   f = cdfNegBinomialInv(p, 5, 0.4); 
-                   
-   print  "selling nothing times =";          
-   print f;           
+
+   // Number of successes
+   s = 5;
+
+   // Probability of successes
+   prob = 4;
+
+   // f is number of failure times
+   f = cdfNegBinomialInv(p, s, prob);
+
+   print  "selling nothing times =";
+   print f;
 
 After running above code, the number of failure times is
 
 ::
 
    selling nothing times =
-   3.0000000 
-               
+   3.0000000
+
 
 .. seealso:: :func:`cdfBinomial`, :func:`cdfBinomialInv`, :func:`cdfNegBinomial`
-

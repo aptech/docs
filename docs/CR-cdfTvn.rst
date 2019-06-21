@@ -30,8 +30,8 @@ Format
     :param rho13: correlation coefficients between the two variables *x1* and *x3*
     :type rho13: scalar or Nx1 vector
 
-    :returns: c (*Nx1 vector*) result of the triple integral
-        from :math:`-∞` to *x1*, :math:`-∞` to *x2*, and :math:`-∞` to *x3*
+    :returns: **p** (*Nx1 vector*) - result of the triple integral
+        from :math:`-\infty\:\ to\:\ x_1`, :math:`-\infty\:\ to\:\ x_2`, and :math:`-\infty\:\ to\:\ x_3`
         of the standardized trivariate Normal density.
 
 Remarks
@@ -41,9 +41,7 @@ Allowable ranges for the arguments are:
 
 .. DANGER:: FIX EQUATION
 
-.. math::
-
-−\infty \lt x1 \lt \infty\\
+.. math:: −\infty < x1 < \infty\\
 −\infty \lt x2 \lt \infty\\
 −\infty \lt x3 \lt \infty\\
 −1 \lt rho12 \lt 1\\
@@ -70,6 +68,32 @@ deviation. For example:
 
 The absolute error for :func:`cdfTvn` is approximately ±2.5e-8 for the entire
 range of arguments.
+
+Examples
+----------------
+
+::
+    // Variables
+    x1 = 0.6;
+    x2 = 0.23;
+    x3 = 0.46;
+
+    //Correlations
+    rho12 = 0.2;
+    rho23 = 0.65;
+    rho13 = 0.78;
+
+    /*
+    ** Compute the CDF
+    */
+    p = cdfTvn(x1, x2, x3, rho12, rho23, rho13);
+    print "p =" p;
+
+After the above code, `x` will equal:
+
+::
+
+    p =  0.4373
 
 References
 ----------

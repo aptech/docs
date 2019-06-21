@@ -8,39 +8,27 @@ Computes the complement of the cdf of the Student's t distribution.
 
 Format
 ----------------
-.. function:: cdfTc(x, n)
+.. function:: cdfTc(x, df)
 
-    :param x:
-    :type x: NxK matrix
+    :param x: values at which to evaluate the cumulative distribution function for the log-normal distribution. :math:`−\infty \leq x \leq \infty`.
+    :type x: NxK matSrix
 
-    :param n: ExE conformable with *x*.
-    :type n: LxM matrix
+    :param df: ExE conformable with *x*. Degrees of freedom. :math:`df > 1`.
+    :type df: LxM matrix
 
-    :returns: y (*matrix*), max(N,L) by max(K,M) matrix.
+    :returns: **p** (*matrix, max(N,L) by max(K,M) matrix*) - Each element in *p* is the complement of the cumulative distribution function of the Student's t distribution evaluated at the corresponding element in *x*.
 
 Remarks
 -------
-
-*y* is the integral from *x* to :math:`∞` of the t distribution with *n* degrees of
-freedom.
-
-Allowable ranges for the arguments are:
-
-.. math::
-
-−\infty \leq x⁢ \leq +\infty\\         
-n \gt 0 
-
-.. DANGER:: FIX EQUATION
 
 A -1 is returned for those elements with invalid inputs.
 
 This equals:
 
-.. math:: 1 − F(x,n)
+.. math:: 1 − F(x,df)
 
-where *F* is the t cdf with *n* degrees of freedom. Thus, to get the t cdf,
-subtract :code:`cdfTc(x, n)` from 1. The complement of the cdf is computed
+where *F* is the t cdf with *df* degrees of freedom. Thus, to get the t cdf,
+subtract :code:`cdfTc(x, df)` from 1. The complement of the cdf is computed
 because this is what is most commonly needed in statistical
 applications, and because it can be computed with fewer problems of
 roundoff error.
@@ -49,16 +37,19 @@ Examples
 ----------------
 
 ::
-
+    // Values
     x = { .1, .2, .3, .4 };
-    n = 3;
-    y = cdfTc(x,n);
+
+    // Degrees of freedom
+    df = 3;
+
+    p = cdfTc(x, df);
 
 After running above code,
 
 ::
 
-    y =
+    p =
     0.46332617
     0.42713516
     0.39188165
