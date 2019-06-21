@@ -28,14 +28,19 @@ Examples
 
 ::
 
+    // Create a banded matrix in full general matrix form
     x = { 1 2 0 0,
           2 8 1 0,
           0 1 5 2,
           0 0 2 3 };
 
+    // Convert the matrix to compact (banded) form
     bx = band(x, 1);
+
+    // Compute the banded form Cholesky decomposition
     bl = bandchol(bx);
 
+    // Compute standard Cholesky decomposition
     l = chol(x);
 
 After the code above:
