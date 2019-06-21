@@ -31,7 +31,7 @@ is equivalent to
 
 Matrix names are retained in the symbol table after they are cleared.
 
-Matrices can be clear'ed even though they have not previously been
+Matrices can be cleared even though they have not previously been
 defined. :func:`clear` can be used to initialize matrices to scalar 0.
 
 Examples
@@ -40,9 +40,10 @@ Examples
 ::
 
     A = rndn(1000, 1000);
-    // Code that uses 'A' would be here
-    // Free memory holding 'A'
+    /*
+    ** Code that uses 'A' would be here
+    ** Free memory holding 'A'
+    */
     clear A;
 
 .. seealso:: Functions :func:`clearg`, `new`, :func:`show`, `delete`
-

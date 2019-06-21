@@ -32,9 +32,9 @@ Format
     :param G: grid size factor.
     :type G: scalar
 
-    :returns: u (*(K\*G)x1*) vector, x-abscissae, regularly spaced.
+    :returns: **u** (*(K\*G)x1*) - vector, x-abscissae, regularly spaced.
 
-    :returns: v (*(K\*G)x1*) vector, y-ordinates, regularly spaced.
+    :returns: **v** (*(K\*G)x1*) - vector, y-ordinates, regularly spaced.
 
 
 
@@ -59,4 +59,3 @@ Source
 ------
 
 spline.src
-

@@ -28,7 +28,7 @@ Format
 
     :type delimiter: : string
 
-    :returns: s (*string array*), data read from the CSV file.
+    :returns: **s** (*string array*) - data read from the CSV file.
 
 Remarks
 -------
@@ -60,7 +60,7 @@ Read From a Row Range
 
     // Row range will be from line 1 to line 25
     row_range = { 1, 25 };
-    
+
     // Load the data from rows 1 to 25 into 's'
     s = csvReadSA("myfile.csv", row_range);
 
@@ -71,10 +71,10 @@ Read all rows from a range of columns
 
     // Row range from the first line to the end of the file
     row_range = 1;
-    
+
     // Read only columns 2 though 7
     col_range = { 2, 7 };
-    
+
     // Load the data from columns 2 through 7 into 's'
     s = csvReadSA("myfile.csv", row_range, col_range);
 
@@ -85,10 +85,10 @@ Read all rows from one column
 
     // Row range from the first line to the end of the file
     row_range = 1;
-    
+
     // Read only column 4
     col_range = { 4, 4 };
-    
+
     // Load the data from column 4 into 's'
     s = csvReadSA("myfile.csv", row_range, col_range);
 
@@ -116,4 +116,3 @@ Linux
     s = csvReadSA("/home/my_user/myfile.csv");
 
 .. seealso:: Functions :func:`csvReadM`, :func:`getHeaders`, :func:`xlsReadM`, :func:`xlsReadSA`, :func:`xlsWrite`
-

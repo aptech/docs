@@ -14,7 +14,7 @@ Format
     :param fh: file handle of an open file
     :type fh: scalar
 
-    :returns: yf (*scalar*), number of columns in the file that has the handle *fh*.
+    :returns: **yf** (*scalar*) - number of columns in the file that has the handle *fh*.
 
 Remarks
 -------
@@ -28,7 +28,7 @@ Examples
 
     // Create a file with 10 columns
     create fp = myfile with x,10,4;
-    
+
     // Calculate the number of rows of the file created above
     nCols = colsf(fp);
 
@@ -39,4 +39,3 @@ The result will be
     nCols = 10
 
 .. seealso:: Functions :func:`rowsf`, :func:`cols`, :func:`show`
-

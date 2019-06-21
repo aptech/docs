@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: cosh(x)
 
-    :param x: 
+    :param x: data
     :type x: NxK matrix
 
-    :returns: y (*NxK matrix*) containing the hyperbolic cosines of the elements of *x*.
+    :returns: **y** (*NxK matrix*) containing the hyperbolic cosines of the elements of *x*.
 
 Examples
 ----------------
@@ -27,7 +27,7 @@ Examples
 
 ::
 
-    -1.5708       2.5092
+       -1.5708       2.5092
        -0.7854       1.3246
     x = 0.0000   y = 1.0000
         0.7854       1.3246
@@ -38,4 +38,3 @@ Source
 ------------
 
 trig.src
-

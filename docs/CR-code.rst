@@ -22,7 +22,7 @@ Format
     :param new_vals: the values to be assigned to the new variable
     :type new_vals: (K+1)x1 vector
 
-    :returns: y (*Nx1 vector*), containing the new values.
+    :returns: **y** (*Nx1 vector*) - containing the new values.
 
 Remarks
 ------------
@@ -51,28 +51,32 @@ Suppose we have a vector of blood pressure data that we want to separate into tw
          135,
          110,
          155 };
-    
+
     // Values for the classes
     new_val = { 1,
-                2 };      
-    
-    // Create a vector containing a 1 for every element
-    // which is less than 120, or a 0 otherwise
+                2 };
+
+    /*
+    ** Create a vector containing a 1 for every element
+    ** which is less than 120, or a 0 otherwise
+    */
     logical = x .<  120;
-    
-    // Create a new vector which contains the class
-    // assignment for each element in 'x'
+
+    /*
+    ** Create a new vector which contains the class
+    ** assignment for each element in 'x'
+    */
     x_class = code(logical, new_val);
 
 After the code above:
 
 ::
 
-    x = 91   logical =  1   x_class = 1 
-       121              0             2 
-        99              1             1 
-       135              0             2 
-       110              1             1 
+    x = 91   logical =  1   x_class = 1
+       121              0             2
+        99              1             1
+       135              0             2
+       110              1             1
        155              0             2
 
 Example 2
@@ -88,26 +92,34 @@ Continuing with the blood pressure example from above, we will now create a new 
          135,
          110,
          155 };
-    
+
     // Values for the classes
     new_val = { 1,
                 2,
                 3 };
-    
-    // Create a vector containing a 1 for every element
-    // which is 100 or less, or a 0 otherwise
+
+    /*
+    ** Create a vector containing a 1 for every element
+    ** which is less than 100, or a 0 otherwise
+    */
     logical_1 = x .<= 100;
-    
-    // Create a vector containing a 1 for every element
-    // which is between 100 and 120, or a 0 otherwise
+
+    /*
+    ** Create a vector containing a 1 for every element
+    ** which is between 100 and 120, or a 0 otherwise
+    */
     logical_2 = x .> 100 .and x .<=  120;
-    
-    // Form a 2 column logical vector using
-    // horizontal concatenation
+
+    /*
+    ** Form a 2 column logical vector using
+    ** horizontal concatenation
+    */
     logical = logical_1 ~ logical_2;
-    
-    // Create a new vector which contains the class
-    // assignment for each element in 'x'
+
+    /*
+    ** Create a new vector which contains the class
+    ** assignment for each element in 'x'
+    */
     x_class = code(logical, new_val);
 
 After the code above:
@@ -122,10 +134,4 @@ After the code above:
         155              0 0               3
 
 
-Source
-------------
-
-datatran.src
-
 .. seealso:: Functions :func:`recode`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`substute`, :func:`rescale`, :func:`dummy`
-

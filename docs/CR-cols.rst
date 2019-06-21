@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: cols(x)
 
-    :param x: 
+    :param x:
     :type x: NxK matrix or sparse matrix
 
-    :returns: p (*scalar*), number of columns in *x*.
+    :returns: **n_cols** (*scalar*) - number of columns in *x*.
 
 Remarks
 -------
@@ -28,16 +28,15 @@ Examples
 ::
 
     // Create a 100x3 matrix of uniform random numbers
-    x = rndu(100,3);
-    
+    x = rndu(100, 3);
+
     // Find out how many columns are in 'x'
-    p = cols(x);
+    n_cols = cols(x);
 
 After the code above:
 
 ::
 
-    p = 3
+    n_cols = 3
 
 .. seealso:: Functions :func:`rows`, :func:`colsf`, :func:`getorders`, :func:`show`
-

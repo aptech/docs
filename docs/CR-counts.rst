@@ -17,16 +17,14 @@ Format
     :param v: breakpoints specifying the ranges within which counts are to be made. The vector *v* MUST be sorted in ascending order.
     :type v: Px1 vector
 
-    :returns: c (*Px1 vector*), the counts of the elements of *x* that fall into the regions:
-       
+    :returns: **c** (*Px1 vector*) - the counts of the elements of *x* that fall into the regions:
+
         .. math::
 
-            x <= v[1],
-            v[1] < x <= v[2],
-            .
-            .
-            .
-            v[p-1] < x <= v[p]
+            x \leq v[1],\\
+            v[1] < x \leq v[2],\\
+            \vdots
+            v[p-1] < x \leq v[p]
 
 Remarks
 -------
@@ -58,12 +56,12 @@ then
        3
 
 The first category can be a missing value if you need to count missings
-directly. Also :math:`+∞` or :math:`-∞` are allowed as breakpoints. The missing value
+directly. Also :math:`+\infty` or :math:`-\infty` are allowed as breakpoints. The missing value
 must be the first breakpoint if it is included as a breakpoint and
-infinities must be in the proper location depending on their sign. :math:`-∞`
-must be in the :math:`[2,1]` element of the breakpoint vector if there is a
-missing value as a category as well, otherwise it has to be in the :math:`[1,1]`
-element. If :math:`+∞` is included, it must be the last element of the
+infinities must be in the proper location depending on their sign. :math:`-\infty`
+must be in the :math:`[2, 1]` element of the breakpoint vector if there is a
+missing value as a category as well, otherwise it has to be in the :math:`[1, 1]`
+element. If :math:`+\infty` is included, it must be the last element of the
 breakpoint vector.
 
 Examples
@@ -71,16 +69,20 @@ Examples
 
 ::
 
+    // Original data
     x = { 1.5, 3, 5, 4, 1, 3 };
+
+    // Break points
     v = { 0, 2, 4 };
-    c = counts(x,v);
+
+    // Get counts
+    c = counts(x, v);
 
 ::
 
-    1.5
+        1.5
         3       0       0
     x = 2   v = 2   c = 2
         4       4       3
         1
         3
-

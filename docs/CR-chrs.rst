@@ -11,12 +11,10 @@ Format
 ----------------
 .. function:: chrs(x)
 
-    :param x: 
+    :param x: matrix of ASCII values to be converted.
     :type x: NxK matrix
 
-    :returns: y (string), length N*K containing the characters
-        whose ASCII values are equal to the values in
-        the elements of *x*.
+    :returns: **y** (*NxK string*) - contains the characters whose ASCII values are equal to the values in the elements of *x*.
 
 Remarks
 -------
@@ -32,7 +30,7 @@ Examples
 ::
 
     // 42 is the ascii value for an asterisk '*'
-    
+
     print chrs(42);
 
 The code above returns:
@@ -48,14 +46,16 @@ for keyboard input which the code uses to make decisions.
 
     // Print a string to prompt the user for input
     print "Choose a parameter: Enter [a,b,c]";
-    
-    // Wait for the user to enter a keystroke and assign the 
-    // ASCII value of that key to 'param'
+
+    /*
+    ** Wait for the user to enter a keystroke and assign the
+    ** ASCII value of that key to 'param'
+    */
     param = keyw;
-    
+
     // Convert the ASCII value to a string
     paramString = chrs(param);
-    
+
     if paramString == "a";
        print "You have chosen:" "a";
        // execute code for this choice

@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: convertstrtosa(str)
 
-    :param str: 
+    :param str: The string to be converted
     :type str: string
 
-    :returns: sa (*1x1 string array*), *str* converted to a string array.
+    :returns: **sa** (*1x1 string array*) - *str* converted to a string array.
 
 Examples
 ----------------
@@ -33,4 +33,3 @@ You can check the types of your variables by viewing them on the GAUSS data page
     40 bytes     z            STRING ARRAY                     1,1
 
 .. seealso:: Functions :func:`convertsatostr`
-

@@ -9,21 +9,18 @@ Compute compute the probability for a chi-bar square statistic from an hypothesi
 
 Format
 ----------------
-.. function:: chiBarSquare(SL, H, a, b, c, d, bounds)
+.. function:: chiBarSquare(SL, cov, a, b, c, d, bounds)
 
     :param SL: chi-bar square statistic
     :type SL: scalar
 
-    :param H: positive covariance matrix
-    :type H: KxK matrix
+    :param cov: positive covariance matrix
+    :type cov: KxK matrix
 
     :param a: linear equality constraint coefficients
     :type a: MxK matrix
 
-    :param b: linear equality constraint constants
-
-        These arguments specify the linear equality
-        constraints of the following type:
+    :param b: linear equality constraint constants. These arguments specify the linear equality constraints of the following type:
 
         .. math::  a * X = b
 
@@ -33,10 +30,7 @@ Format
     :param c: linear inequality constraint coefficients.
     :type c: MxK matrix
 
-    :param d: linear inequality constraint constants.
-
-        These arguments specify the linear inequality
-        constraints of the following type:
+    :param d: linear inequality constraint constants. These arguments specify the linear inequality constraints of the following type:
 
         .. math::  c * X \leq d
 

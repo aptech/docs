@@ -11,17 +11,11 @@ Format
 ----------------
 .. function:: cos(x)
 
-    :param x: 
+    :param x: data, for real matrices should contain angles measured in radians. To convert degrees to radians, multiply the degrees by :math:`π/180`.
     :type x: NxK matrix
 
-    :returns: y (*NxK matrix*) containing the cosines of the elements of *x*.
+    :returns: **y** (*NxK matrix*) - containing the cosines of the elements of *x*.
 
-Remarks
--------
-
-For real matrices, *x* should contain angles measured in radians.
-
-To convert degrees to radians, multiply the degrees by :math:`π/180`.
 
 Examples
 ----------------
@@ -34,11 +28,10 @@ Examples
 
 ::
 
-    0.0000      1.0000
+        0.0000      1.0000
         0.7854      0.7071
     x = 1.5708  y = 0.0000
         2.3562     -0.7071
         3.1416     -1.0000
 
 .. seealso:: Functions :func:`atan`, :func:`atan2`, :func:`pi`
-

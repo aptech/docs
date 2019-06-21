@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: cvtosa(cv)
 
-    :param cv: to be converted to a string array.
-    :type cv: NxK character vector
+    :param cv: Character vector to be converted to a string array.
+    :type cv: NxK vector
 
-    :returns: sa (*NxK string array*), contains the contents of  cv.
+    :returns: **sa** (*NxK string array*) - contains the contents of  cv.
 
 Examples
 ----------------
@@ -33,4 +33,3 @@ Now the variable *sa* is a string array with the same contents as *cv* as we can
     MAX    MIN      QUARTILE
 
 .. seealso:: Functions :func:`stocv`, :func:`vget`, :func:`vlist`, :func:`vput`, :func:`vread`
-

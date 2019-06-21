@@ -16,7 +16,7 @@ Format
     :param c: column dimension of matrix.
     :type c: scalar
 
-    :returns: x (*rxc matrix*)
+    :returns: **x** (*rxc matrix*) - Matrix storing input from the keyboard.
 
 Remarks
 -------
@@ -24,7 +24,7 @@ Remarks
 :func:`con` gets input from the active window. GAUSS will not ''see'' any input
 until you press ``ENTER``, so follow each entry with an ``ENTER``.
 
-*r* and *c* may be any scalar-valued expressions. Nonintegers will be
+*r* and *c* may be any scalar-valued expressions. Non-integers will be
 truncated to an integer.
 
 If *r* and *c* are both set to 1, :func:`con` will cause a question mark to appear
@@ -100,8 +100,8 @@ Examples
 
 ::
 
-    n = con(1,1);
-    print rndn(n,n);
+    n = con(1, 1);
+    print rndn(n, n);
 
 If you enter 2 at the :func:`con` generated prompt:
 
@@ -121,4 +121,3 @@ the size of a square matrix of Normal random
 variables which is to be printed out.
 
 .. seealso:: Functions :func:`cons`, `let`, `load`
-

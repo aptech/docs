@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: clearg a, b, c
 
-    :returns: a,b,c (*scalar*), scalar global matrices containing 0.
+    :returns: **a,b,c** (*scalar*) - global matrices containing 0.
 
 Remarks
 -------
@@ -34,4 +34,3 @@ inside of procedures to clear global matrices. It will ignore any locals
 by the same name.
 
 .. seealso:: :func:`clear`, `delete`, `new`, :func:`show`, `local`
-

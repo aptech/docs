@@ -17,22 +17,24 @@ Format
     :param xi: the imaginary elements of *z*.
     :type xi: NxK real matrix or scalar
 
-    :returns: z (*NxK complex matrix*)
+    :returns: **z** (*NxK complex matrix*)
 
 Examples
 ----------------
 
 ::
 
-    x = { 4 6,
+    // The real elements
+    xr = { 4 6,
           9 8 };
-     
-    y = { 3 5,
-          1 7 };
-     
-    t = complex(x,y);
 
-After the code above, t will be equal to:
+    // The imaginary elements
+    xi = { 3 5,
+          1 7 };
+
+    z = complex(xr, xi);
+
+After the code above, *z* will be equal to:
 
 ::
 
@@ -40,4 +42,3 @@ After the code above, t will be equal to:
     9 + 1i 8 + 7i
 
 .. seealso:: Functions :func:`imag`, :func:`real`
-

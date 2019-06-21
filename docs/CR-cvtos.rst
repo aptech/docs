@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: cvtos(v)
 
-    :param v: to be converted to a string.
-    :type v: Nx1 character vector
+    :param v: Character vector to be converted to a string.
+    :type v: Nx1 vector
 
-    :returns: s (*string*), contains the contents of  v.
+    :returns: **s** (*string*) - contains the contents of  v.
 
 Remarks
 -------
@@ -47,4 +47,3 @@ Now the variable *s* is a string with the following contents.
     s = "Now is the time for all good men"
 
 .. seealso:: Functions :func:`stocv`, :func:`vget`, :func:`vlist`, :func:`vput`, :func:`vread`
-

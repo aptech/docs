@@ -14,7 +14,7 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: y (*NxK matrix*), the complex conjugate of *x*.
+    :returns: **y** (*NxK matrix*) - the complex conjugate of *x*.
 
 Remarks
 -------
@@ -36,4 +36,3 @@ Examples
     1 + 9i 2            1 - 9i 2
     x = 4 + 4i 0 + 5i   y = 4 - 4i 0 - 5i
         0 + 7i 8 - 2i       0 - 7i 8 + 2i
-

@@ -17,7 +17,7 @@ Format
     :param y: each column is treated as a 3x1 vector.
     :type y: 3xK matrix
 
-    :returns: z (*3xK matrix*), each column is the cross-product
+    :returns: **z** (*3xK matrix*) - each column is the cross-product
         (sometimes called vector product) of the
         corresponding columns of *x* and *y*.
 
@@ -33,24 +33,27 @@ Examples
 
 ::
 
+    // First matrix
     x = { 10  4,
           11 13,
          14 13 };
+
+    // Second matrix
     y = { 3 11,
           5 12,
           7  9 };
-    z = crossprd(x,y);
+
+    z = crossprd(x, y);
 
 After the above code,
 
 ::
 
-          7  -39 
-    z = -28  107 
+          7  -39
+    z = -28  107
          17  -95
 
 Source
 ------------
 
 crossprd.src
-
