@@ -52,6 +52,7 @@ Example 1
 +++++++++
 
 ::
+
     // Starting point of integration for variable 1
     h = 1;
 
