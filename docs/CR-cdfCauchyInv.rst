@@ -5,7 +5,7 @@ cdfCauchyInv
 Purpose
 ----------------
 
-Computes the Cauchy inverse cumulative distribution function.
+Computes the Cauchy inverse cumulative distribution function, also known as quantiles.
 
 Format
 ----------------
@@ -17,10 +17,10 @@ Format
     :param loc: Location parameter, ExE conformable with *p*.
     :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param scale: Scale parameter, ExE conformable with *p*. :math:`b > 0`
+    :param scale: Scale parameter, ExE conformable with *p*. :math:`scale > 0`
     :type scale: NxK matrix, Nx1 vector or scalar
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the Cauchy cdf evaluated at *x* is equal to or exceeds the corresponding value of *p*.
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - Each value of `x` is the value which if passed to :func:`cdfCauchy` will return the corresponding value of `p`.
 
 Examples
 ----------------
@@ -34,7 +34,7 @@ Examples
   loc = 2;
   scale = 0.75;
 
-  // Call cdfCauchyInv
+  // Compute Cauchy quantiles
   x = cdfCauchyInv(p, loc, scale);
   print "x =" x;
 
