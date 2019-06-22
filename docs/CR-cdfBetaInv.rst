@@ -19,7 +19,7 @@ Format
     :param b: ExE conformable with *p* and *a*. :math:`b > 0`
     :type b: PxQ matrix
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the Beta cdf evaluated at *x* is equal to or exceeds the corresponding value of *p*.
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - Each value of `x` is the value which if passed to :func:`cdfBeta` will return the corresponding value of `p`.
 
 Remarks
 ----------------
@@ -32,6 +32,7 @@ Examples
 ----------------
 
 ::
+
     // List of probabilities
     p = { 0.10, 0.20, 0.30, 0.40 };
 

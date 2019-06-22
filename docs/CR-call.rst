@@ -17,7 +17,7 @@ Format
 
 ::
 
-    call function_name;
+    call function_name();
     call function_name(argument_list);
 
 Remarks
