@@ -8,7 +8,7 @@ Compute chi-squared abscissae values given probability and degrees of freedom.
 
 Format
 ----------------
-.. function:: cdfChii(p, n)
+.. function:: cdfChii(p, df)
 
     :param p: probabilities.
     :type p: MxN matrix

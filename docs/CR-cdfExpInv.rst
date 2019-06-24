@@ -14,12 +14,12 @@ Format
     :type p: NxK matrix, Nx1 vector or scalar
 
     :param loc: Location parameter, ExE conformable with *p*. :math:`loc < x`.
-    :type loc: ; NxK matrix, Nx1 vector or scalar
+    :type loc: NxK matrix, Nx1 vector or scalar
 
     :param m: Mean parameter, ExE conformable with *p*. :math:`m > 0`.
     :type m: NxK matrix, Nx1 vector or scalar
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the exponential cdf with *loc* location and *m* mean evaluated at *x* is equal to or exceeds the corresponding value of *p*.
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the value such that the exponential cdf with *loc* location and *m* mean evaluated at *x* is equal to the corresponding value of *p*.
 
 Examples
 ----------------

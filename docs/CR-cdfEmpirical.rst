@@ -12,9 +12,9 @@ Format
 .. function:: cdfEmpirical(x[, bins])
 
     :param x: Data vector.
-    :type x: N x 1 vector
+    :type x: Nx1 vector
 
-    :param bins: Optional input. If scalar, evenly spaced vector between *x_min* and *x_max* sized equal number of bins is used to find the empirical cdf. If vector, GAUSS uses the passed vector as the values at which to find empirical cdf.
+    :param bins: Optional input. If scalar, an evenly spaced vector with *bins* elements is created between *x_min* and *x_max*. If vector, GAUSS uses the passed vector as the values at which to find empirical cdf.
     :type bins: scalar or vector
 
     :returns: **f** (*matrix), (N+1) x1 vector*) - cdf values, where *N* is equal to *bins* if *bins* is a scalar or number of rows in *bins* if *bins* is a vector.
@@ -24,15 +24,15 @@ Format
 Remarks
 -------
 
-*f* is the integral from :math:`-∞ \text{to} x` of the empirical distribution function.
+*f* is the integral from :math:`-\infty \text{ to } x` of the empirical distribution function.
 
 Examples
 ----------------
 
 ::
 
-    new ;
-    cls ;
+    new;
+    cls;
     rndseed 2223;
 
     // Create a random vector

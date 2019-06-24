@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: cdfChinc(x, df, nonc)
 
-    :param x: Values at which to evaluate the complement of the chi-squared cdf. :math:`x > 0`.
+    :param x: Values at which to evaluate the cdf of the noncentral chi-squared distribution. :math:`x > 0`.
     :type x: Nx1 vector
 
     :param df: degrees of freedom, :math:`df > 0`.
@@ -39,7 +39,7 @@ Relation to :func:`cdfChic`:
 
 ::
 
-   cdfChic(x, v) = 1 - cdfChinc(x, v, 0);
+   cdfChic(x, df) = 1 - cdfChinc(x, df, 0);
 
 Examples
 ----------------

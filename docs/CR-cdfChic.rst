@@ -9,10 +9,10 @@ Computes the complement of the cdf of the chi-squared distribution.
 
 Format
 ----------------
-.. function:: cdfChic(x, n)
+.. function:: cdfChic(x, df)
 
-    :param x: Values at which to evaluate the complement of the chi-squared cdf.
-    :type x: NxK matrix. :math:`x > 0`
+    :param x: Values at which to evaluate the complement of the chi-squared cdf. :math:`x > 0`
+    :type x: NxK matrix. 
 
     :param df: ExE conformable with *x*, degrees of freedom. :math:`df > 0`
     :type df: LxM matrix
@@ -25,8 +25,8 @@ Remarks
 
 A -1 is returned for those elements with invalid inputs.
 
-This equals :math:`1 - Χ_n^2(x)`, Thus, to get the chi-squared cdf, subtract
-:code:`cdfChic(x, n)` from 1. The complement of the cdf is computed because this
+This equals :math:`1 - Χ_{df}^2(x)`, Thus, to get the chi-squared cdf, subtract
+:code:`cdfChic(x, df)` from 1. The complement of the cdf is computed because this
 is what is most commonly needed in statistical applications and
 it can be computed with fewer problems of roundoff error.
 
@@ -34,6 +34,7 @@ Examples
 ----------------
 
 ::
+
     // Vector of values
     x = { .1, .2, .3, .4 };
 
