@@ -22,7 +22,7 @@ Format
     :param nonc: The noncentrality parameter. Note: This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`. :math:`nonc > 0`.
     :type nonc: ExE conformable with *p*
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the noncentral F cumulative distribution function with *df_n*, *df_d*, and *nonc* evaluated at *x* is equal to or exceeds the corresponding value of *p*.
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the value such that the noncentral F cumulative distribution function with *df_n*, *df_d*, and *nonc* evaluated at *x* is equal to the corresponding value of *p*.
 
 Remarks
 -------
@@ -46,19 +46,16 @@ Examples
   // Number of variables
   n_vars = 5;
 
-  // Setting n1
+  // Degrees of freedom
   df_n = n_vars;
-
-  // Setting n2
   df_d = n_obs - n_vars - 1;
 
   // Probabilities
   p = {0.1, 0.25, 0.5, 0.75, 0.95};
 
-  // Non-central parameter
+  // Non-centralty parameter
   nonc = 2;
 
-  // Call cdfFc
   x = cdfFncInv(p, df_n, df_d, nonc);
   print x;
 
