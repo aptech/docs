@@ -16,7 +16,7 @@ Format
     :param loc: Location parameter, ExE conformable with *x*. :math:`loc < x`.
     :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param m: Mean parameter, ExE conformable with *x*. :math:`m > 0`.
+    :param m: Mean parameter, ExE conformable with *x*. *m* is the inverse of the rate parameter which is often called :math:`\lambda`. :math:`m > 0`.
     :type m: NxK matrix, Nx1 vector or scalar
 
     :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the exponential cdf value evaluated at the corresponding element in *x*.
@@ -55,6 +55,6 @@ Remarks
 
 The cumulative distribution function for the exponential distribution is defined as
 
-.. math:: 1−exp⁡(− \frac{x−loc}{mean})
+.. math:: 1−exp⁡(− \frac{x−loc}{m})
 
 .. seealso:: Function :func:`pdfExp`
