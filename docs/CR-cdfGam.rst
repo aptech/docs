@@ -13,7 +13,7 @@ Format
     :param x: Values at which to evaluate the regularized lower incomplete gamma function. :math:`x > 0`.
     :type x: NxK matrix
 
-    :param int_lim: ExE compatible with *x*, containing the integration limit. :math:`int_lim > 0`.
+    :param int_lim: ExE compatible with *x*, containing the integration limit. :math:`int\_lim > 0`.
     :type int_lim: LxM matrix
 
     :returns: **p** (*matrix, max(N,L) by max(K,M)*) - Each element in *p* is the regularized lower incomplete gamma function evaluated at the corresponding element in *x*.
@@ -24,7 +24,7 @@ Remarks
 
 The regularized lower incomplete gamma function returns the integral
 
-.. math:: \text{cdfGam(x, int_lim)} = \int_{0}^{int_lim} \frac{e^{-t}t^{(x-1)}}{\Gamma(x)}dt
+.. math:: \text{cdfGam(x, int_lim)} = \int_{0}^{int\_lim} \frac{e^{-t}t^{(x-1)}}{\Gamma(x)}dt
 
 A -1 is returned for those elements with invalid inputs.
 
@@ -84,29 +84,3 @@ After the code above:
     0.84270079       0.63212056      0.080301397   1.1142548e-007
 
 This computes the integrals over the range from 0 to 1, in increments of 0.2, at the parameter values 0.5, 1, 3, 10.
-
-Technical Notes
-------------
-
-:func:`cdfGam` has the following approximate accuracy:
-
-::
-
-             x < 500     : the absolute error is approx. ±6e-13
-      500 <= x <= 10,000 : the absolute error is approx. ±3e-11
-   10,000 <  x           : a Normal approximation is used and
-                           the absolute error is approx. ±3e-10
-
-References
-------------
-
-#. Bhattacharjee, G.P. ''Algorithm AS 32, the Incomplete Gamma
-   Integral.'' Applied Statistics. Vol. 19, 1970, 285-87.
-
-#. Mardia, K.V. and P.J. Zemroch. Tables of the F- and Related
-   Distributions with Algorithms. Academic Press, New York, 1978. ISBN
-   0-12-471140-5.
-
-#. Peizer, D.B. and J.W. Pratt. ''A Normal Approximation for Binomial,
-   F, Beta, and other Common, Related Tail Probabilities, I.'' Journal
-   of the American Statistical Association. Vol. 63, Dec. 1968, 1416-56.

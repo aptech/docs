@@ -11,19 +11,19 @@ Format
 .. function:: cdfFnc(x, df_n, df_d, nonc)
 
     :param x: Values at which to evaluate the cdf of the noncentral F distribution. :math:`x > 0`.
-    :type x: Nx1 vector
+    :type x: NxK matrix
 
-    :param df_n: degrees of freedom of numerator, :math:`df_n > 0`.
-    :type df_n: scalar
+    :param df_n: ExE conformable with *x*. Degrees of freedom of numerator, :math:`df_n > 0`.
+    :type df_n: LxM matrix
 
-    :param df_d: degrees of freedom of denominator, :math:`df_d > 0`.
-    :type df_d: scalar
+    :param df_d: ExE conformable with *x* and *df_n*. Degrees of freedom of denominator, :math:`df_d > 0`.
+    :type df_d: PxQ matrix
 
-    :param nonc: noncentrality parameter. This is the square root of the noncentrality parameter
+    :param nonc: ExE conformable with *x*. The noncentrality parameter. This is the square root of the noncentrality parameter
         that sometimes goes under the symbol :math:`\lambda`. :math:`nonc > 0`.
-    :type nonc: scalar
+    :type nonc: RxS matrix
 
-    :returns: **p** (*Nx1 vector*) - Each element in *p* is the noncentral F distribution cdf value evaluated at the corresponding element in *x*.
+    :returns: **p** (*max(N,L,P,R) by max(K,M,Q,S) matrix*) - Each element in *p* is the noncentral F distribution cdf value evaluated at the corresponding element in *x*.
 
 Remarks
 -------
@@ -47,21 +47,19 @@ Examples
   // Number of variables
   n_vars = 5;
 
-  // Setting n1
+  // Degrees of freedom
   df_n = n_vars;
-
-  // Setting n2
   df_d = n_obs - n_vars - 1;
 
   // Value to calculate p_value at
   f_stat = 2.4;
 
-  // Non-central parameter
+  // Non-centrality parameter
   nonc = 2;
 
   // Call cdfFnc
-  p_value = cdfFnc(f_stat, df_n, df_d, nonc);
-  print p_value;
+  p = cdfFnc(f_stat, df_n, df_d, nonc);
+  print p;
 
 will return:
 

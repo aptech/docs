@@ -16,7 +16,7 @@ Format
     :param loc: Location parameter, ExE conformable with *x*.
     :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param scale: Scale parameter; ExE conformable with *x*. :math:`0 < scale `.
+    :param scale: Scale parameter; ExE conformable with *x*. :math:`0 < scale`.
     :type scale: NxK matrix, Nx1 vector or scalar
 
     :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function for the Laplace distribution evaluated at the corresponding element in *x*.
@@ -30,7 +30,7 @@ defined as
 .. math::
 
     f(x, \mu, b) = \begin{cases} \frac{1}{2} exp(\frac{(x-\mu)}{b}), & x \lt \mu\\
-    1 - \frac{1}{2} exp(-\frac{(x - \mu}{b})), & x \ge \mu
+    1 - \frac{1}{2} exp(-\frac{(x - \mu)}{b}), & x \ge \mu
     \end{cases}
 
 
@@ -38,6 +38,7 @@ Examples
 ---------
 
 ::
+
     // Values of interest
     x = 2;
 
@@ -53,6 +54,6 @@ After the above code, `p` will equal:
 
 ::
 
-    0.2567
+    0.7433
 
 .. seealso:: :func:`cdfLaplaceInv`

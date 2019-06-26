@@ -53,7 +53,7 @@ Examples
     // Set shape parameter
     shape = 5;
 
-    p = cdfGenPareto(3, mu, sigma, k);
+    p = cdfGenPareto(3, loc, scale, shape);
 
 After the above code, `p` is equal to
 
