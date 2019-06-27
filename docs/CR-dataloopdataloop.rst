@@ -13,7 +13,7 @@ Format
     :param infile: the name of the source data set.
     :type infile: string variable or literal
 
-    :returns: outfile (*string variable or literal*), the name of the output data set.
+    :returns: **outfile** (*string variable or literal*) - the name of the output data set.
 
 Remarks
 -------
@@ -22,7 +22,7 @@ The statements between the ``dataloop... endata`` commands are assumed to be
 metacode to be translated at compile time. The data from *infile* is
 manipulated by the specified statements, and stored to the data set
 *outfile*. Case is not significant within the ``dataloop... endata`` section,
-except for within quoted strings. Comments can be used as in any GAUSS code.
+except for within quoted strings. Comments can be used as in any **GAUSS** code.
 
 
 Examples
@@ -31,12 +31,13 @@ Examples
 ::
 
     src = "source";
+
+    // Dataloop section
     dataloop ^src dest;
-    make newvar = x1 + x2 + log(x3);
-    x6 = sqrt(x4);
-    keep x6, x5, newvar;
+      make newvar = x1 + x2 + log(x3);
+      x6 = sqrt(x4);
+      keep x6, x5, newvar;
     endata;
 
-Here, *src* is a string variable requiring the caret (``^``) operator,
-while *dest* is a string literal.
-
+Here, ``src`` is a string variable requiring the caret (``^``) operator,
+while ``dest`` is a string literal.

@@ -14,11 +14,11 @@ Format
     :param a: dates in DT format.
     :type a: Nx1 vector
 
-    :returns: d (*Nx1 vector*), integers indicating day of week of each date:
+    :returns: **d** (*Nx1 vector*) - integers indicating day of week of each date:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Sunday"
             "2", "Monday"
             "3", "Tuesday"
@@ -53,4 +53,3 @@ Source
 time.src
 
 .. seealso:: :func:`dtday`, :func:`dttime`, :func:`dtdate`, :func:`dttostr`
-

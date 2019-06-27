@@ -14,14 +14,16 @@ Format
         the current system date.
     :type d: 4x1 vector
 
-    :returns: str (*string*), 8 character string containing current date in the form: ``mo/dy/yr``
+    :returns: **str** (*string*) - 8 character string containing current date in the form: ``mo/dy/yr``
 
 Examples
 ----------------
 
 ::
-
+    // Date
     d = { 2015, 10, 09, 0 };
+
+    // Convert to mo/dy/yr format
     y = datestr(d);
     print y;
 
@@ -37,4 +39,3 @@ Source
 time.src
 
 .. seealso:: Functions :func:`date`, :func:`datestring`, :func:`datestrymd`, :func:`time`, :func:`timestr`, :func:`ethsec`
-
