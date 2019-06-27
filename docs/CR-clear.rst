@@ -16,7 +16,7 @@ Remarks
 
 
 If your program is running out of memory, or uses considerable system
-resources, using clear to deallocate large matrices after they are no
+resources, using :func:`clear` to deallocate large matrices after they are no
 longer needed may allow it to run more efficiently.
 
 ::

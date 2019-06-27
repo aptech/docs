@@ -14,9 +14,9 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: y (*matrix or array or string or string array*), data retrieved from the file.
+    :returns: **y** (*matrix or array or string or string array*) - data retrieved from the file.
 
-Remarks
+Remarks0
 -------
 
 The proper extension must be included in the file name. Valid extensions
@@ -38,4 +38,3 @@ Examples
     y = dataload("myfile.fmt");
 
 .. seealso:: Functions `load`, :func:`datasave`
-

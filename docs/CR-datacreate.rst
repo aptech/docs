@@ -41,7 +41,7 @@ Format
 
     :type vtyp: scalar or Nx1 vector
 
-    :returns: fh (*scalar*), file handle.
+    :returns: **fh** (*scalar*) - file handle.
 
 Remarks
 -------
@@ -65,7 +65,7 @@ contained in the corresponding row of *vnames*. If *col* is positive and
 *vnames* is a string, then the columns are given the names ``vnames1,
 vnames2, ..., vnamesN (or vnames01, vnames02, ..., vnamesN)``, where :math:`N = col`.
 The numbers appended to *vnames* are padded on the left with zeros to
-the same length as *N*.
+the same length as :math:`N`.
 
 The *dtyp* argument allows you to specify the precision to use when
 storing your data. Keep in mind the following range restrictions when
@@ -74,26 +74,37 @@ selecting a value for *dtyp*:
 +-----------+--------+---------------------------------------------------------+
 | Data Type | Digits | Range                                                   |
 +-----------+--------+---------------------------------------------------------+
-| integer   | 4      | -32768 \lt X \lt 32767                                  |
+| integer   | 4      | :math:`-32768 < X < 32767`                               |
 +-----------+--------+---------------------------------------------------------+
-| single    | 6-7    | 8.43 x 10^{-37} \lt \left|X\right| \leq 3.37 x 10^{+38} |
+| single    | 6-7    | :math:`8.43 x 10^{-37} < \left| X \right| \leq 3.37 x 10^{+38}`|
 +-----------+--------+---------------------------------------------------------+
-| double    | 15-16  | 4.19 x 10^{-307} \lt \left|X\right| \lt 1.67 x 10^{+308}|
+| double    | 15-16  |math:` 4.19 x 10^{-307} < \left| X \right| < 1.67 x 10^{+308}`|
 +-----------+--------+---------------------------------------------------------+
-
 .. DANGER:: FIX EQUATIONS
 
 Examples
 ----------------
 
 ::
+    // Name variables
+    string vnames = "V";
 
-    fh = datacreate("myfile.dat", "V",100,8,1);
+    /*
+    ** Create file handle
+    ** with vnames and 100 variables
+    ** containing double precision
+    ** numeric data.
+    */
+    fh = datacreate("myfile.dat", vnames, 100, 8, 1);
+
+    // Generate random complex data
     x = rndn(500,100);
-    r = writer(fh,x);
+
+    // Write file using file handle
+    r = writer(fh, x);
     ret = close(fh);
 
-This example creates a double precision data file called myfile.dat,
+This example creates a double precision data file called ``myfile.dat``,
 which is placed in the current directory. The file contains 100 columns
 with 500 observations (rows), and the columns are given the names ``'V001',
 'V002', ..., 'V100'``.
