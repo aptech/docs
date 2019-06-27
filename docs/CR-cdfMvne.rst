@@ -17,12 +17,12 @@ Format
 
             "ctl.maxEvaluations", "scalar, maximum number of evaluations."
             "ctl.absErrorTolerance", "scalar absolute error tolerance."
-            "ctl.relative", "error tolerance."
+            "ctl.relErrorTolerance", "error tolerance."
 
     :type ctl: struct
 
-    :param x: Values at which to evaluate the multivariate normal cumulative distribution function. If *x* has more than one column, each column will be treated as a separate set of upper limits.
-    :type x: Kx1 vector or KxN matrix
+    :param x: Upper limits at which to evaluate the lower tail of the multivariate normal cumulative distribution function. *x* must have K columns--one for each variable. If *x* has more than one row, each row will be treated as a separate set of upper limits.
+    :type x: 1xK vector or NxK matrix
 
     :param corr: correlation matrix.
     :type corr: KxK matrix
@@ -30,7 +30,7 @@ Format
     :param nonc: non-centrality vector.
     :type nonc: Kx1 vector
 
-    :returns: **p** (*N x 1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate normal distribution for each corresponding columns in *x*. *p* will have as many elements as the input, *x*, has columns.
+    :returns: **p** (*Nx1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate normal distribution for each corresponding columns in *x*. *p* will have as many elements as the input, *x*, has columns.
 
     :returns: **err** (*Nx1 vector*) - estimates of absolute error.
 
@@ -68,7 +68,7 @@ Uncorrelated variables
     ** zero correlation between variables
     */
     corr = { 1 0,
-          0 1 };
+             0 1 };
 
     // Define non-centrality vector
     nonc = { 0, 0 };
@@ -112,7 +112,7 @@ Compute the multivariate normal cdf at 3 separate pairs of upper limits
 
     // Correlation matrix
     corr = {   1  0.31,
-         0.31     1 };
+            0.31     1 };
 
     // Define non-centrality vector
     nonc  = { 0, 0 };
@@ -160,9 +160,8 @@ Compute the non central multivariate normal cdf
     corr = {   1  0.31,
          0.31     1 };
 
-    // Define non-centrality vector, Kx1
-    nonc  = {  1,
-         -2.5 };
+    // Define non-centrality parameter for each variable
+    nonc  = { 1, -2.5 };
 
     // Define control structure
     struct cdfmControl ctl;

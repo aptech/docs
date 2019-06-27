@@ -17,7 +17,7 @@ Format
 
             "ctl.maxEvaluations", "scalar, maximum number of evaluations."
             "ctl.absErrorTolerance", "scalar, absolute error tolerance."
-            "ctl.relative", "scalar, error tolerance."
+            "ctl.relErrorTolerance", "scalar, error tolerance."
 
     :type ctl: struct
 
@@ -33,7 +33,7 @@ Format
     :param nonc: non-centrality vector.
     :type nonc: Kx1 vector
 
-    :returns: **p** (*Nx1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate normal distribution for each corresponding columns in *x*. *p* will have as many elements as the inputs, *u_lim* and *l_lim*, have rows.:math:`Pr(X ≥ l_lim and X ≤ u_lim|corr, nonc)`.
+    :returns: **p** (*Nx1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate normal distribution for each corresponding columns in *x*. *p* will have as many elements as the inputs, *u_lim* and *l_lim*, have rows. :math:`Pr(X ≥ l\_lim \text{ and } X ≤ u\_lim|corr, nonc)`.
 
     :returns: **err** (*Nx1 vector*) - estimates of absolute error.
 
@@ -74,7 +74,7 @@ Uncorrelated variables
     ** zero correlation between variables
     */
     corr = { 1 0,
-          0 1 };
+             0 1 };
 
     // Define non-centrality vector
     nonc  = {0, 0};
@@ -92,7 +92,7 @@ Uncorrelated variables
 After the above code, both *p* equal to 0.25.
 
 .. math::
-    \Phi = P(-10000 \leq  X_1 \leq 0 \text{ and } - 10000 \leq X_2 \leq 0) \approx 0.25.
+    \Phi = P(-10000 \leq  X_1 \leq 0 \text{ and } -10000 \leq X_2 \leq 0) \approx 0.25.
 
 Compute the multivariate normal cdf at 3 separate pairs of upper limits
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -105,20 +105,20 @@ Compute the multivariate normal cdf at 3 separate pairs of upper limits
     ** -10 ≤ x1 ≤ 0 and -10 ≤ x2 ≤ 0.1
     ** 0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
     */
-    a = {   -5  -8,
-           -20 -10,
-            0    0 };
+    a = {  -5  -8,
+          -20 -10,
+            0   0 };
 
     b = {  -1 -1.1,
             0  0.1,
             1  1.1 };
 
     // Correlation matrix
-    corr = { 1 0.31,
-        0.31  1};
+    corr = {   1 0.31,
+            0.31    1};
 
     // Define non-centrality vector
-    m  = {0, 0};
+    nonc  = {0, 0};
 
     // Define control structure
     struct cdfmControl ctl;
@@ -166,11 +166,11 @@ Compute the non central multivariate normal cdf
 
     // Correlation matrix
     corr = {   1  0.31,
-         0.31     1 };
+            0.31     1 };
 
     // Define non-centrality vector, Kx1
     nonc  = {   1,
-          -2.5 };
+             -2.5 };
 
     // Define control structure
     struct cdfmControl ctl;
