@@ -17,7 +17,7 @@ Format
 
             "ctl.maxEvaluations", "scalar, maximum number of evaluations."
             "ctl.absErrorTolerance", "scalar, absolute error tolerance."
-            "ctl.relErrorTolerance", "scalar, tolerance."
+            "ctl.relErrorTolerance", "scalar, relative error tolerance."
 
     :type ctl: struct
 
@@ -36,7 +36,7 @@ Format
     :param df: degrees of freedom.
     :type df: scalar
 
-    :returns: **p** (*N x 1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate Student's t distribution for the corresponding columns in *l_lim* and *u_lim*. *p* will have as many elements as the input,*l_lim* and *u_lim*, have rows.
+    :returns: **p** (*Nx1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate Student's t distribution for the corresponding columns in *l_lim* and *u_lim*. *p* will have as many elements as the input, *l_lim* and *u_lim*, have rows.
 
     :returns: **err** (*Nx1 vector*) - estimates of absolute error.
 
@@ -51,32 +51,6 @@ Format
             "3", "*R* not positive semi-definite."
             "missing", "*R* not properly defined."
 
-Remarks
-------------
-
--  The central multivariate Student's t cdf for the i-th row of *a* and *b*
-   is defined by where :math:`\nu \\in \\mathbb{R^+}` is a scale (or degree of freedom)
-   parameter, :math:`z` is a K-dimensional Student's t multivariate distribution, and
-
-.. math:: T(a_i, b_i; \Sigma, \nu) = \frac{\Gamma(\frac{\nu+K}{2})}{\Gamma(\frac{\nu}{2})\sqrt{|\Sigma|(\nu\pi)^K}}\int_{a_{i1}}^{b_{i1}}\int_{a_{i2}}^{b_{i2}}\ldots\int_{a_{iK}}^{b_{iK}} \Big( 1 + \frac{z'\Sigma^{-1}z}{\nu} \Big)^{-\frac{\nu+K}{2}} dz\\
-   \equiv \frac{2^{1 - \frac{\nu}{2}}}{\Gamma(\frac{\nu}{2})}\Phi\Big(\frac{sa_i}{\sqrt{\nu}}, \frac{sb_i}{\sqrt{\nu}; \Sigma} \Big) ds
-
-   where :math:`\nu \in \mathbb{R^+}` is a scale (or degree of freedom) parameter, :math:`z` is
-   a K-dimensional Student's t multivariate distribution, and
-
-.. math:: \phi(a_i, b_i; \Sigma) = \frac{1}{\sqrt{|\Sigma|(2\pi)^2}}\int_{a_{i1}}^{b_{i1}}\int_{a_{i2}}^{b_{i2}}\ldots\int_{a_{iK}}^{b_{iK}} e^{-\frac{1}{2}z'\Sigma^{-1}z} dz
-
-
-  For the non-central Student's t multivariate distribution cdf, we have
-
-.. math:: T(a_i, b_i; \Sigma, \nu, \delta) = \frac{\Gamma(\frac{\nu+K}{2})}{\Gamma(\frac{\nu}{2})\sqrt{|\Sigma|(\nu\pi)^K}}\int_{a_{i1}}^{b_{i1}}\int_{a_{i2}}^{b_{i2}}\ldots\int_{a_{iK}}^{b_{iK}} \Big( 1 + \frac{(z - \delta)'\Sigma^{-1}(z - \delta)}{\nu} \Big)^{-\frac{\nu+K}{2}} dz\\
-   \equiv \frac{2^{1 - \frac{\nu}{2}}}{\Gamma(\frac{\nu}{2})}\Phi\Big(\frac{sa_i}{\sqrt{\nu}}, \frac{sb_i}{\sqrt{\nu}; \Sigma} \Big) ds
-
-   where :math:`\delta` denotes the :math:`K \times 1` non-centrality vector with :math:`-\infty< \delta_k < \infty`. Another form of non-central multivariate Student's t distribution cdf is
-
-.. math:: T(a_i, b_i; \Sigma, \nu, \delta) = \frac{2^{1 - \frac{\nu}{2}}}{\Gamma(\frac{\nu}{2})}\int_0^{\infty}s^{\nu-1}e^{-\frac{s^2}{2}}\Phi\Big(\frac{sa_i}{\sqrt{\nu}}-\delta, \frac{sb_i}{\sqrt{\nu}}-\delta; \Sigma \Big) ds
-
--  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the diagonal entries for :math:`\Sigma` on its diagonal.
 
 Examples
 ----------------
@@ -97,7 +71,7 @@ Uncorrelated variables
     ** zero correlation between variables
     */
     corr = { 1 0,
-          0 1 };
+             0 1 };
 
     // Define non-centrality vector
     nonc  = { 0, 0 };
@@ -132,16 +106,16 @@ Compute the multivariate student's t cdf at 3 separate pairs of upper limits
     **  0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
     */
     l_lim = { -5  -8,
-         -20 -10,
-           0   0 };
+             -20 -10,
+               0   0 };
 
-    u_lim = {  -1 -1.1,
-            0  0.1,
-            1  1.1 };
+    u_lim = { -1 -1.1,
+               0  0.1,
+               1  1.1 };
 
     // Correlation matrix
-    corr = {    1 0.31,
-          0.31    1};
+    corr = {   1 0.31,
+            0.31   1 };
 
     // Define non-centrality vector
     nonc  = { 0, 0 };
@@ -186,20 +160,19 @@ Compute the non central multivariate student's t cdf
    **  0 ≤ x1 ≤ 1 and 0 ≤ x2 ≤ 1.1
    */
    l_lim = { -5  -8,
-       -20 -10,
-         0   0 };
+            -20 -10,
+              0   0 };
 
-    u_lim = {  -1 -1.1,
-          0  0.1,
-          1  1.1 };
+    u_lim = { -1 -1.1,
+               0  0.1,
+               1  1.1 };
 
     // Correlation matrix
-    corr = { 1    0.31,
-          0.31    1 };
+    corr = {   1 0.31,
+            0.31    1 };
 
     // Define non-centrality vector, Kx1
-    nonc  = {  1,
-         -2.5 };
+    nonc  = {  1, -2.5 };
 
     // Define degree of freedom
     df  = 3;
