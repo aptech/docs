@@ -4,7 +4,7 @@ cdfMvnce
 
 Purpose
 ----------------
-Computes the upper tail of the multivariate Normal cumulative distribution function with error management.
+Computes the complement (upper tail) of the multivariate Normal cumulative distribution function with error management.
 
 Format
 ----------------
@@ -17,11 +17,11 @@ Format
 
             "ctl.maxEvaluations", "scalar, maximum number of evaluations."
             "ctl.absErrorTolerance", "scalar, absolute error tolerance."
-            "ctl.relative", "scalar, error tolerance."
+            "ctl.relErrorTolerance", "scalar, error tolerance."
 
     :type ctl: struct
 
-    :param x: Lower limits at which to evaluate the complement of the multivariate normal cumulative distribution function. If *x* has more than one column, each column will be treated as a separate set of upper limits.
+    :param x: Lower limits at which to evaluate the complement of the multivariate normal cumulative distribution function. *x* must have K columns--one for each variable. If *x* has more than one row, each row will be treated as a separate set of upper limits.
     :type x: NxK matrix
 
     :param corr: correlation matrix.
@@ -68,9 +68,9 @@ Uncorrelated variables
     ** zero correlation between variables
     */
     corr = { 1 0,
-          0 1 };
+             0 1 };
 
-    // Define non-centrality vector
+    // Define non-centrality parameter for each variable
     nonc  = { 0, 0};
 
     // Define control structure
@@ -102,9 +102,9 @@ Compute the upper tail of multivariate normal cdf at 3 separate pairs of lower l
 
     /*
     ** Lower limits of integration
-    ** x1 ≥ -1 and  x2 ≥ -1.1
-    ** x1 ≥ 0 and x2 ≥ 0.1
-    ** x1 ≥ 1 and x2 ≥ 1.1
+    ** x1 ≥ -1 and x2 ≥ -1.1
+    ** x1 ≥  0 and x2 ≥ 0.1
+    ** x1 ≥  1 and x2 ≥ 1.1
     */
     x = {  -1   -1.1,
             0    0.1,
@@ -114,7 +114,7 @@ Compute the upper tail of multivariate normal cdf at 3 separate pairs of lower l
     corr = {   1  0.31,
          0.31     1 };
 
-    // Define non-centrality vector
+    // Define non-centrality parameter for each variable
     nonc  = { 0, 0 };
 
     // Define control structure
@@ -149,20 +149,20 @@ Compute the upper tail of noncentral multivariate normal cdf
 
     /* Lower limits of integration
     ** x1 ≥ -1 and x2 ≥ -1.1
-    ** x1 ≥ 0 and  x2 ≥ 0.1
-    ** x1 ≥ 1 and x2 ≥ 1.1
+    ** x1 ≥  0 and  x2 ≥ 0.1
+    ** x1 ≥  1 and x2 ≥ 1.1
     */
     x = { -1   -1.1,
            0    0.1,
            1    1.1 };
 
     // Correlation matrix
-    corr = {    1  0.31,
-          0.31     1 };
+    corr = {   1  0.31,
+            0.31     1 };
 
     // Define non-centrality vector, Kx1
-    nonc  = {   1,
-          -2.5 };
+    // vector, one for each variable
+    nonc  = { 1, -2.5 };
 
     // Define control structure
     struct cdfmControl ctl;

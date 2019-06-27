@@ -16,7 +16,7 @@ Format
     :param loc: Location parameter, ExE conformable with *x*.
     :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param scale: Scale parameter; ExE conformable with *x*. :math:`0 < scale `.
+    :param scale: Scale parameter; ExE conformable with *x*. :math:`0 < scale`.
     :type scale: NxK matrix, Nx1 vector or scalar
 
     :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function for the logistic distribution evaluated at the corresponding element in *x*.
@@ -41,6 +41,7 @@ Examples
 --------
 
 ::
+
     // Values of interest
     x = { 1, 2, 3 };
 

@@ -16,7 +16,7 @@ Format
     :param corr: correlation matrix.
     :type corr: KxK matrix
 
-    :returns: **p** (*N x 1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate Normal distribution for each corresponding columns in *x*. *p* will have as many elements as the input, *x*, has columns.
+    :returns: **p** (*Nx1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate Normal distribution for each corresponding columns in *x*. *p* will have as many elements as the input, *x*, has columns.
 
 Remarks
 ------------
@@ -26,6 +26,7 @@ Remarks
 - The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D`
   denotes the diagonal matrix which has the square roots of the diagonal entries for covariance
   matrix :math:`\Sigma` on its diagonal.
+- :func:`cdfMvne` is more accurate and faster. Note that :func:`cdfMvne` takes a row vector of upper limits whereas :func:`cdfMvn` takes a column vector of limits.
 
 Examples
 ----------------
@@ -94,11 +95,11 @@ Compute the cdf at 3 separate pairs of points
     /*
     ** Upper limits of integration
     ** x1 ≤ -1 and x2 ≤ -1.1
-    ** x1 ≤  0 and x2 ≤ 0.1
-    ** x1 ≤ 1 and x2 ≤ 1.1
+    ** x1 ≤  0 and x2 ≤  0.1
+    ** x1 ≤  1 and x2 ≤  1.1
     */
     x = {  -1   0    1,
-            -1.1 0.1  1.1 };
+         -1.1 0.1  1.1 };
 
     // Correlation matrix
     corr = {   1 0.31,
