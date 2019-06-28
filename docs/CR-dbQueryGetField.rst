@@ -29,21 +29,24 @@ statement, e.g. in
 
 ::
 
-   qid = dbExecQuery("SELECT forename, surname FROM people");
+   // Execute query
+   qid = dbExecQuery(db_id, "SELECT forename, surname FROM people");
 
    do while dbQuerySeekNext(qid);
+      // Using field index
       forename = dbQueryGetField(qid, 1);
+
       // Using field index
       surname = dbQueryGetField(qid, 2);
-      // Using field index
+
+      // Using field name
       forename = dbQueryGetField(qid, "forename");
+
       // Using field name
       surname = dbQueryGetField(qid, "surname");
-      // Using field name
    endo;
 
 Field 1 is *forename* and field 2 is *surname*. Using ``SELECT *`` is not
 recommended because the order of the fields in the query is undefined.
 
 .. seealso:: :func:`dbQueryFetchOneM`, :func:`dbQueryFetchOneSA`
-

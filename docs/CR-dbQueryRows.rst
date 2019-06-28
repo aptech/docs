@@ -5,8 +5,8 @@ dbQueryRows
 Purpose
 ----------------
 
-Returns the size of the result (number of rows returned), or -1 if the size 
-cannot be determined or if the database does not support reporting information 
+Returns the size of the result (number of rows returned), or -1 if the size
+cannot be determined or if the database does not support reporting information
 about query sizes.
 
 Format
@@ -16,7 +16,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: result_size (*scalar*), number of rows in the current result set of the active query. If the number of rows cannot be determined a -1 is returned.
+    :returns: **result_size** (*scalar*) - number of rows in the current result set of the active query. If the number of rows cannot be determined a -1 is returned.
 
 Remarks
 -------
@@ -32,8 +32,7 @@ Examples
 ::
 
     // Given a table with US States.
-    qid = dbCreateQuery(db_id, "SELECT * 
+    qid = dbCreateQuery(db_id, "SELECT *
         FROM STATES");
-    
-    count = dbQueryRows(qid); // count = 50
 
+    count = dbQueryRows(qid); // count = 50

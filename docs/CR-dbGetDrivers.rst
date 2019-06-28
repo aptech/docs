@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: dbGetDrivers()
 
-    :returns: drivers (*Nx1 string array*), list of available database drivers.
+    :returns: **drivers** (*Nx1 string array*) - list of available database drivers.
 
 Examples
 ----------------
@@ -28,4 +28,3 @@ Examples
         ODBC
         PSQL
         SQLITE
-

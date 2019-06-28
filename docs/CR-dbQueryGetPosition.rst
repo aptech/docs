@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: index (*scalar*), query position
+    :returns: **index** (*scalar*) - query position
 
 Remarks
 -------
@@ -29,10 +29,12 @@ Examples
 
 ::
 
-    qid = dbCreateQuery(db_id, "SELECT * 
+    // Create and prepare query
+    qid = dbCreateQuery(db_id, "SELECT *
         FROM PEOPLE");
+
+    // Print record positions
     do while dbQuerySeekNext(qid);
-        print "Current index = " 
+        print "Current index = "
         dbQueryGetPosition(qid);
     endo;
-

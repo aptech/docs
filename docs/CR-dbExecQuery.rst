@@ -14,13 +14,13 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :param sql_statement: containing a valid SQL statement
+    :param sql_statement: Contains a valid SQL statement
     :type sql_statement: string
 
-    :param placeholders:  containing bind value(s)
+    :param placeholders:  Contains bind value(s)
     :type placeholders: string or string array
 
-    :returns: qid (*scalar*), query id to be used for result retrieval.
+    :returns: **qid** (*scalar*) - query id to be used for result retrieval.
 
 Examples
 ----------------
@@ -31,9 +31,15 @@ Example 1
 In the examples below, *db_id* is a previously created database id.
 
 ::
+    // Set SQL statement
+    sql_statement = "SELECT * FROM GDP WHERE COUNTRY = ?";
 
-    qid = dbExecQuery(db_id, "SELECT * FROM GDP WHERE COUNTRY = ?", "USA");
-    
+    // Set bind value
+    placeholders = "USA";
+
+    // Execute query
+    qid = dbExecQuery(db_id, sql_statement, placeholders);
+
     // Results as a matrix
     results = dbQueryFetchAllM(qid);
 
@@ -42,8 +48,14 @@ Example 2
 
 ::
 
-    bd_vals = "Joe"$|"Smith";
-    qid = dbExecQuery(db_id, "INSERT INTO PEOPLE(id, fname, lname) VALUES (NULL, ?, ?);", bd_vals);
+    // Set SQL statement
+    sql_statement = "INSERT INTO PEOPLE(id, fname, lname) VALUES (NULL, ?, ?);";
+
+    // Set bind values
+    placeholders = "Joe"$|"Smith";
+
+    // Execute query
+    qid = dbExecQuery(db_id, sql_statement, placeholders);
 
 
 Example 3
@@ -51,9 +63,16 @@ Example 3
 
 ::
 
-    qid = dbExecQuery("SELECT * FROM PEOPLE p WHERE p.FNAME = ?", "Joe");
+    // Set SQL statement
+    sql_statement = "SELECT * FROM PEOPLE p WHERE p.FNAME = ?";
+
+    // Set bind value
+    placeholders = "Joe";
+
+    // Execute query
+    qid = dbExecQuery(db_id, sql_statement, placeholders);
+
     // Results as a string array
     results = dbQueryFetchAllSA(qid);
 
 .. seealso:: Functions :func:`dbCreateQuery`
-

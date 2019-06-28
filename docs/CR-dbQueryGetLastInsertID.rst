@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: last_insert (*scalar*), object id
+    :returns: **last_insert** (*scalar*) - object id
 
 Remarks
 -------
@@ -33,17 +33,28 @@ Examples
 
 ::
 
-    // Given NAMES is an empty MySQL 
-    // table with the *id* column 
-    // auto-incrementing.
+    /*
+    ** Given NAMES is an empty MySQL
+    ** table with the *id* column
+    ** auto-incrementing.
+    */
+    // Add `MYSQL` to list of database connections
     db_id = dbAddDatabase("MYSQL");
-    qid = dbCreateQuery(db_id, "INSERT 
-        INTO NAMES (first, last) VALUES 
+
+    // Create and prepare query
+    qid = dbCreateQuery(db_id, "INSERT
+        INTO NAMES (first, last) VALUES
         ('John', 'Doe');");
-    
+
+    /*
+    ** Check if database supports ID of last
+    ** inserted row
+    */
     if dbHasFeature(db_id, "LastInsertId");
-        last_id = dbQueryGetLastInsertID(qid); 
+
+        // Get ID of last inserted row
+        last_id = dbQueryGetLastInsertID(qid);
+        
     endif;
 
 .. seealso:: Functions :func:`dbHasFeature`
-

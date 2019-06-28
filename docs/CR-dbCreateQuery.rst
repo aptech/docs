@@ -18,9 +18,9 @@ Format
     :type query: string
 
     :param placeholders: optional. containing bind value(s).
-    :type placeholders: string or string array  
+    :type placeholders: string or string array
 
-    :returns: qid (*scalar*), query id to be used for result retrieval.
+    :returns: **qid** (*scalar*) - query id to be used for result retrieval.
 
 Remarks
 -------
@@ -38,8 +38,8 @@ Example 1
 
     qid = dbCreateQuery("SELECT * FROM GDP
          WHERE COUNTRY = ?", "USA");
-    dbQueryExecPrepared(qid); 
-    
+    dbQueryExecPrepared(qid);
+
     // Results as a matrix
     results = dbQueryFetchAllM(qid);
 
@@ -48,12 +48,11 @@ Example 2
 
 ::
 
-    qid = dbCreateQuery("INSERT INTO 
-         PEOPLE(id, fname, lname) VALUES 
+    qid = dbCreateQuery("INSERT INTO
+         PEOPLE(id, fname, lname) VALUES
          (NULL, ?, ?);");
     dbQueryBindValue(qid, "Joe");
     dbQueryBindValue(qid, "Smith");
     dbQueryExecPrepared(qid);
 
 .. seealso:: :func:`dbQueryPrepare`
-

@@ -5,11 +5,11 @@ dbQueryFetchAllM
 Purpose
 ----------------
 
-Returns the result set for the current query as a matrix. 
+Returns the result set for the current query as a matrix.
 
 Format
 ----------------
-.. function:: dbQueryFetchAllM(qid[, columns]) 
+.. function:: dbQueryFetchAllM(qid[, columns])
 
     :param qid: query number.
     :type qid: scalar
@@ -17,7 +17,7 @@ Format
     :param columns: specific columns to pull out from result matrix. Must be a subset of fields from ``SELECT`` statement.
     :type columns: string or string array
 
-    :returns: result (*matrix*), the result set; or if the result set is empty, a scalar error code.
+    :returns: **result** (*matrix*) - the result set; or if the result set is empty, a scalar error code.
 
 Remarks
 -------
@@ -36,13 +36,15 @@ Examples
 Example 1
 +++++++++
 
-..
+::
 
+    // Execute query
     qid = dbExecQuery(db_id, "SELECT * FROM GDP");
-    
+
+    // Return results as a matrix
     gdp = dbQueryFetchAllM(qid);
-    				
-    // If 'gdp' is a scalar error code    
+
+    // If 'gdp' is a scalar error code
     if scalmiss(gdp);
          print "No results";
     else;
@@ -54,15 +56,18 @@ Example 2
 
 ::
 
-    qid = dbExecQuery(db_id, "SELECT * FROM 
+    // Execute query
+    qid = dbExecQuery(db_id, "SELECT * FROM
          PEOPLE WHERE COUNTRY = ?", "USA");
-    
-    // specify zipcode as column of interest
-    zipcodes = dbQueryFetchAllM(qid, "ZIPCODE"); 
-    
+
+    /*
+    ** Get results as a matrix using
+    ** zipcode as column of interest
+    */
+    zipcodes = dbQueryFetchAllM(qid, "ZIPCODE");
+
     if not scalmiss(zipcodes);
         print "zip codes = " zipcodes;
     endif;
 
 .. seealso:: Functions :func:`dbQueryFetchAllSA`, :func:`dbQueryFetchOneM`, :func:`dbQueryFetchOneSA`
-

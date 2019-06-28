@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: ret (*scalar*), 1 if the query is active or 0 if not.
+    :returns: **ret** (*scalar*) - 1 if the query is active or 0 if not.
 
 Remarks
 -------
@@ -36,14 +36,27 @@ Examples
 
 ::
 
+    // Create query
     qid = dbCreateQuery(db_id);
-    
-    dbQueryIsActive(qid); // False dbQueryPrepare(qid, "INSERT INTO TEST
-         (foo, bar) VALUES (1, 2);");
-    
-    dbQueryIsActive(qid); // False dbQueryExecPrepared(qid);
-    
-    dbQueryIsActive(qid); // True dbQueryFinish(qid);
-    
+
+    // Check if active
     dbQueryIsActive(qid); // False
 
+    // Prepare query
+    dbQueryPrepare(qid, "INSERT INTO TEST
+         (foo, bar) VALUES (1, 2);");
+
+    // Check if active
+    dbQueryIsActive(qid); // False
+
+    // Execute query
+    dbQueryExecPrepared(qid);
+
+    // Check if active
+    dbQueryIsActive(qid); // True
+
+    // Finish query
+    dbQueryFinish(qid);
+
+    // Check if active
+    dbQueryIsActive(qid); // False

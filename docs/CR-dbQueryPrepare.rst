@@ -17,18 +17,27 @@ Format
     :param query: database query to prepare.
     :type query: string
 
-    :returns: ret (*scalar*), 1 for success and 0 for failure.
+    :returns: **ret** (*scalar*) - 1 for success and 0 for failure.
 
 Examples
 ----------------
 
 ::
 
+    // Add "MYSQL" database to list of database connections
     db_id = dbAddDatabase("MYSQL");
+
+    // Create query
     qid = dbCreateQuery(db_id);
-    ret = dbQueryPrepare(qid, "SELECT * 
+
+    // Prepare query
+    ret = dbQueryPrepare(qid, "SELECT *
         FROM STOCKS WHERE SYMBOL = :sym");
+
+    // Set `:sym` placeholder
     dbQueryBindValue(qid, ":sym", "GOOG");
+
+    // Execute query
     ret = dbQueryExecPrepared(qid);
 
 Remarks
@@ -50,4 +59,3 @@ See also
 ------------
 
 .. seealso:: Function :func:`dbQueryBindValue`
-

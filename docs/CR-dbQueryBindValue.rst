@@ -5,7 +5,7 @@ dbQueryBindValue
 Purpose
 ----------------
 
-Set the placeholder placeholder to be bound to value val in the prepared statement. 
+Set the placeholder, *placeholder*, to be bound to value, *val*, in the prepared statement.
 Note that the placeholder mark (e.g ``:``) must be included when specifying the placeholder name.
 
 Format
@@ -32,12 +32,20 @@ Examples
 
 ::
 
+    // Adds "MYSQL"" to the list of database connections
     db_id = dbAddDatabase("MYSQL");
-    qid = dbCreateQuery(db_id);
-    dbQueryPrepare(qid, "SELECT * FROM 
-         PEOPLE WHERE FIRST = :fname AND 
-         LAST = :lname");
-    dbQueryBindValue(qid, ":fname", "John");
-    dbQueryBindValue(qid, ":lname", "Doe");
-    dbQueryExecPrepared(qid);
 
+    // Prepare a query
+    qid = dbCreateQuery(db_id);
+    dbQueryPrepare(qid, "SELECT * FROM
+         PEOPLE WHERE FIRST = :fname AND
+         LAST = :lname");
+
+    // Set `:fname` placeholder
+    dbQueryBindValue(qid, ":fname", "John");
+
+    // Set `:lname` placeholder
+    dbQueryBindValue(qid, ":lname", "Doe");
+
+    // Prepare the SQL query for execution
+    dbQueryExecPrepared(qid);

@@ -20,7 +20,7 @@ Format
     :param password: optional. password associated with the specified user name for this database.
     :type password: string
 
-    :returns: ret (*scalar*), 1 for success.
+    :returns: **ret** (*scalar*) - 1 for success.
 
 Examples
 ----------------
@@ -28,21 +28,30 @@ Examples
 Set driver and host
 
 ::
-
+    // Adds "MYSQL"" to the list of database connections
     db_id = dbAddDatabase("MYSQL");
+
+    // Set database connection's hostname
     dbSetHostName(db_id, "localhost");
 
 then, either
 
 ::
-
+    // Set database username
     dbSetUserName(db_id, "test");
+
+    // Set database password
     dbSetPassword(db_id, "password");
+
+    // Open database connection
     ret = dbOpen(db_id);
 
 or
 
 ::
-
+    /*
+    ** Open database connection
+    ** using option username input `test`
+    ** and optional password input `password`
+    */
     ret = dbOpen(db_id, "test", "password");
-

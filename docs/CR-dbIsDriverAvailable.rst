@@ -14,5 +14,4 @@ Format
     :param name: name of driver to check
     :type name: string
 
-    :returns: ret (*scalar*), 1 if the specified driver is available, or 0 if not.
-
+    :returns: **ret** (*scalar*) - 1 if the specified driver is available, or 0 if not.

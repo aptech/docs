@@ -14,11 +14,11 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :param type: 
+    :param type:
 
         .. csv-table::
             :widths: auto
-    
+
             ":code:`"Tables"`", "All tables visible to the user. This is the default value."
             ":code:`"System Tables"`", "Internal tables used by the database."
             ":code:`"Views"`", "All views visible to the user."
@@ -26,5 +26,4 @@ Format
 
     :type type: string:
 
-    :returns: tables (*Nx1 string array*) containing the information specified by the *type* parameter.
-
+    :returns: **tables** (*Nx1 string array*) - Contains the information specified by the *type* parameter.

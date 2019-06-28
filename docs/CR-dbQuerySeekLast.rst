@@ -5,7 +5,7 @@ dbQuerySeekLast
 Purpose
 ----------------
 
-Retrieves the last record in the result, if available, and positions the query 
+Retrieves the last record in the result, if available, and positions the query
 on the retrieved record.
 
 Format
@@ -15,7 +15,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: ret (*scalar*), returns 1 if successful. If unsuccessful the query position is set to an invalid position and 0 is returned.
+    :returns: **ret** (*scalar*) - returns 1 if successful. If unsuccessful the query position is set to an invalid position and 0 is returned.
 
 Remarks
 -------
@@ -30,20 +30,21 @@ Examples
 
 ::
 
-    // Given STATES is a table with all 
-    // 50 states listed alphabetically
+    /*
+    ** Given STATES is a table with all
+    ** 50 states listed alphabetically
+    */
     qid = dbExecQuery(db_id, "SELECT name FROM STATES");
-    
+
     // Move to last state
     ret = dbQuerySeekLast(qid);
-    
-    // If 'ret' is equal to 0   
+
+    // If 'ret' is equal to 0
     if not  ret;
        print  "dbQuerySeekLast failed";
     else;
-       // Print last state: Wyoming   
+       // Print last state: Wyoming
     print dbQueryFetchOneSA(qid);
     endif;
 
 .. seealso:: Functions :func:`dbQuerySeekNext`, :func:`dbQuerySeekPrevious`, :func:`dbQuerySeekFirst`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`
-

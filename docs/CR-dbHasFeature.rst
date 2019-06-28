@@ -14,9 +14,9 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :param feature: 
+    :param feature:
     :type feature: string
-    
+
         - DB_TRANSACTIONS
         - DB_QUERY_SIZE
         - DB_BLOB
@@ -32,7 +32,7 @@ Format
         - DB_FINISH_QUERY
         - DB_MULTIPLE_RESULT_SETS
 
-    :returns: ret (*scalar*), 1 if the database supports the specified
+    :returns: **ret** (*scalar*) - 1 if the database supports the specified
         feature, or 0 if not.
 
 Examples
@@ -40,21 +40,26 @@ Examples
 
 ::
 
+    // Set database connection index number
     db_id = dbAddDatabase("MYSQL");
-    
+
     // Create empty query
-    qid = dbCreateQuery(db_id); 
-    
+    qid = dbCreateQuery(db_id);
+
+    /*
+    ** Use dbHasFeature to set up a
+    ** conditional query
+    */
     if dbHasFeature(db_id, "NamedPlaceholders");
-         dbQueryPrepare(qid, "SELECT * FROM GDP 
+         dbQueryPrepare(qid, "SELECT * FROM GDP
          WHERE COUNTRY = :country");
          dbQueryBindValue(qid, ":country", "USA");
     else;
-         dbQueryPrepare(qid, "SELECT * FROM GDP 
+         dbQueryPrepare(qid, "SELECT * FROM GDP
          WHERE COUNTRY = ?");
          dbQueryAddBindValue(qid, "USA");
     endif;
-    
+
     dbQueryExecPrepared(qid);
 
 Remarks
@@ -62,4 +67,3 @@ Remarks
 
 Note that some databases need to be opened with :func:`dbOpen` before this can
 be determined.
-

@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: denToZero(x)
 
-    :param x: 
+    :param x: Data to be converted.
     :type x: A matrix or an N-dimensional array
 
-    :returns: y (*matrix or an N-dimensional array*) with the same orders as the input. Every denormal in the input will be converted to 0 in the output.
+    :returns: **y** (*matrix or an N-dimensional array*) - with the same orders as the input. Every denormal in the input will be converted to 0 in the output.
 
 Examples
 ----------------
@@ -22,25 +22,24 @@ Examples
 ::
 
     x = { 1, exp(-724.5), 3 };
-    
+
     // If 'x' contains any denormals set them to 0
     if isden(x);
-       x2 = denToZero(x);
+       y = denToZero(x);
     endif;
 
 After the first line above, *x* is equal to:
 
 ::
 
-    1.000e+000 
+    1.000e+000
     2.902e-057
     3.000e+000
 
-At the end of the example, *x* is equal to:
+At the end of the example, *y* is equal to:
 
 ::
 
-    1.000e+000 
-    0.000e+000 
+    1.000e+000
+    0.000e+000
     3.000e+000
-

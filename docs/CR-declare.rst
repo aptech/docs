@@ -23,18 +23,18 @@ Format
         if *type* is not specified, matrix is assumed. Set *type* to string to initialize a string or string array variable.
 
     :param symbol: the name of the symbol being declared
-    :type symbol: 
+    :type symbol:
 
     :param aop: the type of assignment to be made
 
         .. csv-table::
             :widths: auto
-    
+
             "``=``", "if not initialized, initialize.If already initialized, reinitialize."
             "``!=``", "if not initialized, initialize.If already initialized, reinitialize."
             "``:=``", "if not initialized, initialize.If already initialized, redefinition error."
             "``?=``", "if not initialized, initialize.If already initialized, leave as is."
-    
+
         "If *aop* is specified, *clist* must be also."
 
     :type aop: literal
@@ -94,7 +94,7 @@ Here are some of the possible uses of the three forms of declaration:
       - Interactive programming or any situation where a global by the same name
         will probably be sitting in the symbol table when the file containing
         the `declare` statement is compiled. The symbol will be reset.
-        
+
         This allows mixing `declare` statements with the procedure definitions
         that reference the global matrices and strings or placing them in your
         main file.
@@ -116,8 +116,7 @@ Here are some of the possible uses of the three forms of declaration:
         trouble if you are not careful.
 
 The `declare` statement warning level is a compile option. Call :func:`config` in
-the command line version of GAUSS or select **Preferences** from the
-**Tools** menu in the graphical user interface to edit this option. If
+the command line version of GAUSS or select **Preferences > Tools**  in the **User Interface** to edit this option. If
 `declare warnings` are on, you will be warned whenever a `declare` statement
 encounters a symbol that is already initialized. Here's what happens
 when you `declare` a symbol that is already initialized when `declare warnings` are turned on:
@@ -141,75 +140,123 @@ Examples
 ::
 
     declare matrix x,y,z;
-    
+
+After this code:
+
+::
+
     x = 0   y = 0   z = 0
+
+Now declare a string:
+
+::
+
     declare string x = "This string.";
-    
+
+After this code:
+
+::
+
     x = "This string."
-    
+
+In this example we declare a matrix *x* and set the matrix to specified values:
+
+::
+
     declare matrix x;
-    
+
+After this the *x* matrix is zero:
+
+::
+
     x = 0
-    
-    // Initialize 'x' with the specified values and 
-    // return a warning if 'x'already exists AND 
-    // the 'Compile Options: declare warnings' is 
-    // selected
+
+Now initialize the *x* matrix with specific values:
+
+::
+
+    /*
+    ** Initialize 'x' with the specified values and
+    ** return a warning if 'x' already exists AND
+    ** the 'Compile Options: declare warnings' is
+    ** selected
+    */
     declare matrix x != { 1 2 3, 4 5 6, 7 8 9 };
-    
+
+After this the *x* matrix is no longer zero and is filled with the specified values:
+
+::
+
         1 2 3
     x = 4 5 6
         7 8 9
-    
+
+Alternatively declare the *x* matrix dimensions and fill with values:
+
+::
+
     declare matrix x[3,3] = 1 2 3 4 5 6 7 8 9;
-    
+
+This yields the same results as the previous case:
+
+::
+
         1 2 3
     x = 4 5 6
         7 8 9
-    
+
+Now, fill a matrix of specific dimensions with a single value:
+
+::
+
     declare matrix x[3,3] = 1;
-    
+
+::
+
         1 1 1
     x = 1 1 1
         1 1 1
-    
+
+If there is no value specified the matrix is filled with zeroes:
+
+::
+
     declare matrix x[3,3];
-    
+
         0 0 0
     x = 0 0 0
         0 0 0
-    
-    declare matrix x = 1 2 3 4 5 6 7 8 9;
-    
-        1
-        2
-        3
-    x = 4
-        5
-        6
-        7
-        8
-        9
-    
+
+The previous examples have been numeric matrices. This case will create a character matrix:
+
+::
+
     // Create a 2x1 character matrix
     declare matrix x = alpha beta;
-    
-    // To print character matrices, the '$' operator must
-    // be prepended to the variable name
+
+    /*
+    ** To print character matrices, the '$' operator must
+    ** be prepended to the variable name
+    */
     print $x;
 
 The code snippet directly above, produces:
 
 ::
 
-    ALPHA 
+    ALPHA
      BETA
-    
-    // Since this is declared as a matrix, the text in
-    // quotes will create a character vector, rather 
-    // than a string array
+
+Even if we include ``"`` when declaring the values in a matrix, it will create a character matrix:
+
+::
+
+    /* Since this is declared as a matrix, the text in
+    ** quotes will create a character vector, rather
+    ** than a string array
+    */
     declare matrix x = "mean" "variance";
-    
+
     print $x;
 
 produces:
@@ -217,15 +264,9 @@ produces:
 ::
 
     mean variance
-    declare array a;
 
-*a* is a 1-dimensional array of 1 containing 0.
 
-::
-
-    declare sparse matrix sm;
-
-*sm* is an empty sparse matrix.
+Structures can hold various members including scalars, arrays, matrices, strings, and string arrays, and other structures. The must first be defined before being declared:
 
 ::
 
@@ -236,7 +277,7 @@ produces:
       array a;
       sparse matrix sm;
      };
-     
+
     declare struct mystruct ms;
 
 *ms* is a :code:`mystruct` structure, with its members set as follows:
@@ -256,4 +297,3 @@ produces:
       - empty sparse matrix
 
 .. seealso:: Functions `let`, `external`
-
