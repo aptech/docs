@@ -21,7 +21,7 @@ Format
 
     :type ctl: struct
 
-    :param x: Lower limits at which to evaluate the Student's t cumulative distribution function. If *x* has more than one column, each column will be treated as a separate set of upper limits. K is the dimension of the multivariate Student's t distribution. N is the number of MVT cdf integrals.
+    :param x: Lower limits at which to evaluate the Student's t cumulative distribution function. If *x* has more than one row, each row will be treated as a separate set of upper limits. K is the dimension of the multivariate Student's t distribution. N is the number of MVT cdf integrals.
     :type x: NxK matrix
 
     :param corr: correlation matrix.
@@ -48,35 +48,6 @@ Format
             "3", "*R* not positive semi-definite."
             "missing", "*R* not properly defined."
 
-Remarks
-------------
-
-.. DANGER:: FIX EQUATIONS
-
--  The central multivariate Student's t cdf for the i-th row of x is
-   defined by
-
-  .. math:: T(x_i; \Sigma, \nu) = \frac{\Gamma(\frac{\nu+K}{2})}{\Gamma(\frac{\nu}{2})\sqrt{|\Sigma|(\nu\pi)^K}}\int_{-\infty}^{x_{i1}}\int_{-\infty}^{x_{i2}}\ldots\int_{-\infty}^{x_{iK}} \Big( 1 + \frac{z'\Sigma^{-1}z}{\nu} \Big)^{-\frac{\nu+K}{2}} dz\\
-   \equiv \frac{2^{1 -  \frac{\nu}{2}}}{\Gamma(\frac{\nu}{2})}\int_0^{\infty}s^{\nu-1}e^{-\frac{s^2}{2}}\Phi\Big(\frac{sx_i}{\sqrt{\nu}}; \Sigma} \Big) ds
-
-   where :math:`\nu \in \mathbb{R^+}` is a scale (or degree of freedom) parameter, :math:`z` is a K-dimensional Student's t multivariate distribution, and
-
-.. math:: \phi(x_i; \Sigma) = \frac{1}{\sqrt{|\Sigma|(2\pi)^K}}\int_{-\infty}^{x_{i1}}\int_{-\infty}^{x_{i2}}\ldots\int_{-\infty}^{x_{iK}}  e^{-\frac{1}{2}z'\Sigma^{-1}z} dz
-
-   For the non-central multivariate Student's t distribution cdf, we
-   have
-
-.. math:: T(x_i; \Sigma, \nu, \delta) = \frac{\Gamma(\frac{\nu+K}{2})}{\Gamma(\frac{\nu}{2})\sqrt{|\Sigma|(\nu\pi)^K}}\int_{-\infty}^{x_{i1}}\int_{-\infty}^{x_{i2}}\ldots\int_{-\infty}^{x_{iK}} \Big( 1 + \frac{(z-\delta)'\Sigma^{-1}(z-\delta)}{\nu} \Big)^{-\frac{\nu+K}{2}} dz
-
-   where :math:`\delta` denotes the :math:`K \times 1` non-centrality vector with :math:`-\infty< \delta_k < \infty` .
-
-   Another form of non-central multivariate Student's t distribution cdf is
-
-.. math:: T(x_i; \Sigma, \nu, \delta) = \frac{2^{1 -  \frac{\nu}{2}}}{\Gamma(\frac{\nu}{2})}\int_0^{\infty}s^{\nu-1}e^{-\frac{s^2}{2}}\Phi\Big(\frac{sx_i}{\sqrt{\nu}}-\delta; \Sigma} \Big) ds
-
--  The correlation matrix :math:`R` is defined by covariance matrix :math:`\Sigma`, :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the
-   diagonal entries for :math:`\Sigma` on its diagonal.
-
 Examples
 ----------------
 
@@ -93,7 +64,7 @@ Uncorrelated variables
     ** zero correlation between variables
     */
     corr = { 1 0,
-          0 1 };
+             0 1 };
 
     // Define non-centrality vector
     nonc  = { 0, 0 };
@@ -114,7 +85,7 @@ Uncorrelated variables
     // Calculate joint probablity of two
     // variables with zero correlation,
     // both, being ≤ 0
-    p2 = (1 - cdftc(0, v)) .*(1- cdftc(0, v));
+    p2 = (1 - cdftc(0, df)) .* (1- cdftc(0, df));
 
 After the above code, both *p* and *p2* should be equal to 0.25.
 
@@ -137,8 +108,8 @@ Compute the multivariate student's t cdf at 3 separate pairs of upper limits
             1    1.1 };
 
     // Correlation matrix
-    corr = { 1  0.31,
-          0.31  1};
+    corr = {   1 0.31,
+            0.31    1 };
 
     // Define non-centrality vector
     nonc  = {0, 0};
@@ -187,12 +158,11 @@ Compute the non central multivariate student's t cdf
             1    1.1 };
 
     // Correlation matrix
-    corr = { 1  0.31,
-          0.31  1};
+    corr = {  1 0.31,
+           0.31    1 };
 
     // Define non-centrality vector, Kx1
-    nonc = {  1,
-         -2.5 };
+    nonc = {  1, -2.5 };
 
     // Define degree of freedom
     df  = 3;

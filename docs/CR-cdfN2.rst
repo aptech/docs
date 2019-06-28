@@ -4,19 +4,19 @@ cdfN2
 
 Purpose
 ----------------
-Computes interval of Normal cumulative distribution function.
+Computes the Normal cumulative distribution function over the interval between *x* and *x+dx*.
 
 Format
 ----------------
 .. function:: cdfN2(x, dx)
 
-    :param x: Values at which to evaluate the normal cumulative distribution function. If *x* has more than one column, each column will be treated as a separate set of upper limits.
+    :param x: Lower limit at which to evaluate the normal cumulative distribution function. 
     :type x: MxN matrix
 
-    :param dx: ExE conformable to x, intervals.
+    :param dx: ExE conformable to *x*, intervals used to compute the upper bound, *x + dx*.
     :type dx: KxL matrix
 
-    :returns: **P** (*matrix, max(M,K) by max(N,L)*) - The normal cumulative distribution function over the interval :math:`x` to :math:`x + dx`, i.e., :math:`Pr(x < X < x + dx)`
+    :returns: **p** (*matrix, max(M,K) by max(N,L)*) - The normal cumulative distribution function over the interval :math:`x` to :math:`x + dx`, i.e., :math:`Pr(x < X < x + dx)`
 
 Remarks
 -------
@@ -90,17 +90,18 @@ After the above code:
 ::
 
   // Starting value
-  x = { 0 0.25 1 -2 -1,
-  1 0 0.4 2.3 1,
-  3 1 0.9 0.4 0.1};
+  x = { 0 0.25   1  -2  -1,
+        1    0 0.4 2.3   1,
+        3    1 0.9 0.4 0.1 };
 
-  dx = {0.5 , 1.4 , 2};
+  dx = { 0.5, 1.4, 2 };
 
   print cdfN2(x, dx);
 
 After the above code:
 
 ::
+
   0.1915   0.1747   0.0918   0.0441   0.1499
   0.1505   0.4192   0.3086   0.0106   0.1505
   0.0013   0.1573   0.1822   0.3364   0.4423

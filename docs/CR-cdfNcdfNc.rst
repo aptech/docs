@@ -45,9 +45,9 @@ for the uncapped value of :func:`cdfn`, the following code will return it:
 
 ::
 
-   n = cdfn(x);
-   if n >= 1-eps;
-      n = 1;
+   p = cdfn(x);
+   if p >= 1-eps;
+      p = 1;
    endif;
 
 where the value of machine epsilon is obtained as follows:
@@ -72,10 +72,11 @@ useful than :func:`cdfn` and :func:`cdfnc`.
 Examples
 ----------------
 
-Basic example
+Example 1: Basic use
 +++++++++++++
 
 ::
+
     // Value to compute
     x = 0.5;
 
@@ -89,7 +90,7 @@ After above code,
     p =  0.69146246
     pc = 0.30853754
 
-Specify mean and standard deviation
+Example 2: Specify mean and standard deviation
 +++++++++++++++++++++++++++++++++++
 
 ::
@@ -105,15 +106,16 @@ Specify mean and standard deviation
 
     p = cdfn(x, mu, std);
 
-
-Example 3
-++++++++++
-
 After above code,
 
 ::
 
     p = 0.42074029
+
+Example 3
+++++++++++
+
+::
 
     // Value
     x = { -2 -1 0 1 2 };
@@ -128,37 +130,5 @@ After above code,
     x  = -2.0000000 -1.0000000 0.0000000 1.0000000 2.0000000
     p  =  0.0227501 0.15865525 0.5000000 0.8413447 0.9772498
     pc =  0.9772498 0.84134475 0.5000000 0.1586552 0.0227501
-
-Technical Notes
-------------
-
-For the integral from :math:`∞` to *x*:
-
-.. csv-table::
-    :widths: auto
-
-    ":math:`x \leq -37`", ":func:`cdfn` underflows and 0.0 is returned"
-    ":math:`-36 < x < -10`", ":func:`cdfn` has a relative error of approx. ±5e-12"
-    ":math:`-10 < x < 0`", ":func:`cdfn` has a relative error of approx. ±1e-13"
-    ":math:`0 < x`", ":func:`cdfn` has a relative error of approx. ±5e-15"
-
-For :func:`cdfnc`, i.e., the integral from *x* to :math:`+∞`, use the above accuracies but
-change *x* to *-x*.
-
-References
-------------
-
-#. Adams, A.G. ''Remark on Algorithm 304 Normal Curve Integral.'' Comm.
-   ACM. Vol. 12, No. 10, Oct. 1969, 565-66.
-
-#. Hill, I.D. and S.A. Joyce. ''Algorithm 304 Normal Curve Integral.''
-   Comm. ACM. Vol. 10, No. 6, June 1967, 374-75.
-
-#. Holmgren, B. ''Remark on Algorithm 304 Normal Curve Integral.'' Comm.
-   ACM. Vol. 13, No. 10, Oct. 1970.
-
-#. Mardia, K.V. and P.J. Zemroch. Tables of the F- and Related
-   Distributions with Algorithms. Academic Press, New York, 1978, ISBN
-   0-12-471140-5.
 
 .. seealso:: Functions :func:`erf`, :func:`erfc`, :func:`cdfBeta`, :func:`cdfChic`, :func:`cdfTc`, :func:`cdfFc`, :func:`gamma`

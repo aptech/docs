@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: cdfPoissonInv(p, lambda)
 
-    :param p: Probabilities at which to compute the logistic inverse cumulative distribution function. :math:`0 < p < 1`.
+    :param p: Probabilities at which to compute the Poisson inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix
 
     :param lambda: The mean parameter.
@@ -33,6 +33,7 @@ If the hospital wants to have enough staff on hand to handle the patient load on
 many patients do they need staff on hand for?
 
 ::
+
     // Probability
     p = 0.95;
 
