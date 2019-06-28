@@ -9,7 +9,7 @@ Calls functions located in dynamic libraries.
 
 Format
 ----------------
-.. function:: dllcall [-r] [-v] func(arg1...argN) 
+.. function:: dllcall [-r] [-v] func(arg1...argN)
 
     :param func: the name of a function contained in a shared library (linked into GAUSS with dlibrary). If *func* is not specified or cannot be located in a shared library, :func:`dllcall` will fail.
 
@@ -25,10 +25,10 @@ Format
 Remarks
 -------
 
-:func:`dllcall` works in conjunction with `dlibrary`.  
-`dlibrary` is used to link shared libraries into GAUSS  
-:func:`dllcall` is used to access the functions contained in those shared libraries. :func:`dllcall` searches the shared libraries  
-(see `dlibrary` for an explanation of the search order) for a function named func, and calls the first instance it finds.  
+:func:`dllcall` works in conjunction with `dlibrary`.
+`dlibrary` is used to link shared libraries into GAUSS
+:func:`dllcall` is used to access the functions contained in those shared libraries. :func:`dllcall` searches the shared libraries
+(see `dlibrary` for an explanation of the search order) for a function named *func*, and calls the first instance it finds.
 The default shared libraries are searched last.
 
 *func* should be written to:
@@ -69,4 +69,3 @@ inside *func* assign the results to them before returning.
 For more information, see **Foreign Language Interface**, Chapter 1.
 
 .. seealso:: `dlibrary`, :func:`sysstate`
-

@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: dttostr(x, fmt)
 
-    :param x: 
-    :type x: NxK matrix containing dates in DT scalar format
+    :param x: Contains dates in DT scalar format
+    :type x: NxK matrix
 
-    :param fmt: or  ExE conformable string array containing date/time format characters.
-    :type fmt: string
+    :param fmt:  Contains date/time format characters.
+    :type fmt: String or  ExE conformable string array
 
-    :returns: sa (*NxK string array*) .
+    :returns: **sa** (*NxK string array*) -Date in character string format.
 
 Remarks
 -------
@@ -57,7 +57,7 @@ The following formats are supported:
 +-----------------+-----------------------------------------------------+
 
 A complete DT scalar format number will have 14 digits all to the left
-of the decimal point. However, dttostr will accept numbers with fewer
+of the decimal point. However, :func:`dttostr` will accept numbers with fewer
 digits. It will assume that the first four digits are the year, the next
 two the month and so on.
 
@@ -72,7 +72,7 @@ Example 1
 
     dt = 201202;
     print dttostr(dt, "QQ-YYYY");
-    
+
     produces the output:
 
 ::
@@ -155,4 +155,3 @@ produces *s* equal to:
     21/02/1951
 
 .. seealso:: Functions :func:`dttostrc`, :func:`strtodt`, :func:`dttoutc`, :func:`utctodt`, :func:`posixtostrc`, :func:`strctoposix`
-

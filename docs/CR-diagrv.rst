@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: diagrv(x, v)
 
-    :param x: 
+    :param x: Data matrix.
     :type x: NxK matrix
 
-    :param v: 
+    :param v: Vector to replace the diagonal in *x* with.
     :type v: min(N,K)x1 vector.
 
-    :returns: y (*NxK matrix*) equal to *x* with its principal diagonal elements equal to those of *v*.
+    :returns: **y** (*NxK matrix*) - equal to *x* with its principal diagonal elements equal to those of *v*.
 
 Remarks
 -------
@@ -29,17 +29,24 @@ Examples
 
 ::
 
-    x = rndu(3,3);
+    // Set rng seed for reproducibility
+    rndseed 458716;
+
+    // Build random x matrix
+    x = rndu(3, 3);
+
+    // Vector of ones to put in diagonal
     v = ones(3,1);
-    y = diagrv(x,v);
+
+    // Call diagrv
+    y = diagrv(x, v);
 
 After the code above:
 
 ::
 
-        0.614 0.686 0.633     1.000     1.000 0.686 0.633
-    x = 0.802 0.185 0.707 v = 1.000 y = 0.802 1.000 0.707
-        0.551 0.761 0.418     1.000     0.551 0.761 1.000
+        0.967 0.318 0.465     1.000     1.000 0.318 0.465
+    x = 0.046 0.786 0.205 v = 1.000 y = 0.046 1.000 0.205
+        0.738 0.305 0.734     1.000     0.738 0.305 1.000
 
 .. seealso:: Functions :func:`diag`
-

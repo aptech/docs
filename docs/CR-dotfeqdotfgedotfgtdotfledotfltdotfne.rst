@@ -23,14 +23,14 @@ Format
     :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
-    :returns: y (*max(N,L) by max(K,M) matrix*) of 1's and 0's.
+    :returns: **y** (*max(N,L) by max(K,M)*) - matrix of 1's and 0's.
 
 Global Input
 ------------
 
 .. data:: \_fcmptol
 
-    scalar, comparison tolerance. The default value is 1.0e-15. 
+    scalar, comparison tolerance. The default value is 1.0e-15.
 
 Remarks
 -------
@@ -41,7 +41,7 @@ The statement:
 
 ::
 
-   y = dotfeq(a,b);
+   y = dotfeq(a, b);
 
 is equivalent to:
 
@@ -61,12 +61,12 @@ Examples
 
 ::
 
-    x = pi*ones(2,2);
+    x = pi*ones(2, 2);
     y = x;
-    y[1,1] = 2*pi;
-    
+    y[1, 1] = 2*pi;
+
     // Test for elements where 'x' is > 'y'
-    t = dotfge(x,y);
+    t = dotfge(x, y);
 
 ::
 
@@ -78,7 +78,7 @@ Continuing with the data above:
 ::
 
     // Test for elements where 'x' is < 'y '
-    t = dotflt(x,y);
+    t = dotflt(x, y);
 
 ::
 
@@ -91,4 +91,3 @@ Source
 fcompare.src
 
 .. seealso:: Functions :func:`feq-fne`
-

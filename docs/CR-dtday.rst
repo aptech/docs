@@ -11,21 +11,39 @@ Format
 ----------------
 .. function:: dtday(year, month, day)
 
-    :param year: NxK matrix of years 
-    :type year: matrix
+    :param year: Years
+    :type year: NxK matrix
 
-    :param month: NxK matrix of months. 1-12.
-    :type month: matrix
+    :param month: Months. :math:`1 \leq month \leq 12`.
+    :type month: NxK matrix
 
-    :param day: NxK matrix of days. 1-31.
+    :param day: Days. :math:`1 \leq month \leq 31`.
     :type day: matrix
 
-    :returns: dt (*NxK matrix*) of DT scalar format dates.
+    :returns: **dt** (*NxK matrix*) - DT scalar format dates.
 
 Remarks
 -------
 
 This amounts to 00:00:00 or midnight on the given day. The arguments must be ExE conformable.
+
+
+Examples
+----------------
+
+::
+
+    year = 2007;
+    month = 9;
+    day = 13;
+
+    dtday(year, month, day);
+
+After the above code:
+
+::
+    20070913000000
+
 
 Source
 ------
@@ -33,4 +51,3 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dttime`, :func:`dtdate`, :func:`utctodt`, :func:`dttostr`
-

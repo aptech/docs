@@ -14,7 +14,7 @@ Format
     :param dt: DT scalar format.
     :type dt: Nx1 vector
 
-    :returns: dtv (*Nx8 matrix*), DTV vector format.
+    :returns: **dtv** (*Nx8 matrix*) - DTV vector format.
 
 Remarks
 -------
@@ -56,6 +56,7 @@ Examples
 
 ::
 
+    // Convert dt to dtv
     dtv = dttodtv(dt);
     print "dtv = " dtv;
 
@@ -69,4 +70,3 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodtv`, :func:`dtvtodt`, :func:`dttoutc`, :func:`dtvtodt`, :func:`strtodt`, :func:`dttostr`
-

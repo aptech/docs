@@ -11,18 +11,14 @@ Format
 ----------------
 .. function:: dot(x, y)
 
-    :param x: 
+    :param x: first matrix.
     :type x: Nx1 vector or NxK matrix
 
-    :param y: 
+    :param y: second matrix, *y* should have the same number of columns as *x*.
     :type y: Nx1 vector or NxK matrix
 
-    :returns: z (*scalar or Kx1 dot product*) 
+    :returns: **z** (*scalar or Kx1*) - The dot product of *x* and *y*.
 
-Remarks
--------
-
-Inputs *x* and *y* should have the same columns.
 
 Examples
 ----------------
@@ -37,15 +33,15 @@ Basic usage
           9,
           3,
           4 };
-    
+
     y = { 9,
          -6,
           8,
           1  };
-    
+
     // Compute dot product
-    z = dot(x,y);
-    
+    z = dot(x, y);
+
     print  "z = " z;
 
 After the code above:
@@ -64,15 +60,15 @@ Dot product of the corresponding columns of two matrices
           9 3,
           3 8,
           4 2 };
-    
+
     y = { 9  8,
          -6  4,
           8  3,
           1 -2 };
-    
+
     // Compute dot product
     z = dot(x, y);
-    
+
     print  "z = " z;
 
 After the code above:
@@ -83,4 +79,3 @@ After the code above:
         40
 
 .. seealso:: Functions :func:`crossprd`, :func:`norm`
-

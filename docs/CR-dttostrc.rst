@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: dttostrc(x, fmt)
 
-    :param x: 
-    :type x: NxK matrix containing dates in DT scalar format
+    :param x: Contains dates in DT scalar format.
+    :type x: NxK matrix
 
-    :param fmt: string or ExE conformable string array containing strftime date/time format characters.
-    :type fmt: string or string array.
+    :param fmt: Contains strftime date/time format characters.
+    :type fmt: string or ExE conformable string array.
 
-    :returns: sa (*NxK string array*) .
+    :returns: **sa** (*NxK string array*) -  Converted dates in string array form.
 
 Remarks
 -------
@@ -31,7 +31,7 @@ and time. In the DT scalar format, the number
 
 represents 10:50:31 or 10:50:31 AM on July 3, 2018. :func:`dttostrc` converts a
 date in DT scalar format to a character string using the format string
-in fmt.
+in *fmt*.
 
 The following formats are supported:
 
@@ -152,6 +152,8 @@ Example 1
 ::
 
     dt = 20140317100312;
+
+    // Generate date in format "%Y-%m-%d".
     print dttostrc(dt, "%F");
 
 produces the output:
@@ -165,6 +167,10 @@ Example 2
 
 ::
 
+    /*
+    ** Print date including the full weekday name,
+    ** the full month name, the date, and the year.
+    */
     print dttostrc(20110117151218, "%A, %B %dth, %Y");
 
 produces the output:
@@ -178,13 +184,13 @@ Example 3
 
 ::
 
-    print dttostrc(19411207074801, "Pearl Harbor was atacked on %B %d, %Y at %R %p");
+    print dttostrc(19411207074801, "Pearl Harbor was attacked on %B %d, %Y at %R %p");
 
 produces the output:
 
 ::
 
-    Pearl Harbor was atacked on December 07, 1941 at 07:48 AM
+    Pearl Harbor was attacked on December 07, 1941 at 07:48 AM
 
 Example 4
 +++++++++
@@ -218,4 +224,3 @@ produces *s* equal to:
          21-FEB-1951
 
 .. seealso:: Functions :func:`dttostr`, :func:`strctodt`, :func:`strtodt`, :func:`dttoutc`, :func:`posixtostrc`, :func:`strctoposix`, :func:`utctodt`
-

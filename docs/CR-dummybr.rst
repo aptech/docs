@@ -12,13 +12,12 @@ Format
 .. function:: dummybr(x, v)
 
     :param x: data that is to be broken up into dummy variables
-    :type x: Nx1 vector 
+    :type x: Nx1 vector
 
-    :param v: specifying the *K* breakpoints (these must be in ascending order) that determine the *K* categories to be used. These categories should not overlap.
-    :type v: Kx1 vector 
+    :param v: specifies the *K* breakpoints (these must be in ascending order) that determine the *K* categories to be used. These categories should not overlap.
+    :type v: Kx1 vector
 
-    :returns: y (*NxK matrix*), containing the *K* dummy variables.
-        Each row will have a maximum of one 1.
+    :returns:**y** (*NxK matrix*) - containing the *K* dummy variables. Each row will have a maximum of one 1.
 
 Remarks
 -------
@@ -41,14 +40,14 @@ Examples
 
     // Set seed for repeatable random numbers
     rndseed 135345;
-    
+
     // Create uniform random integers between 1 and 9
-    x = ceil(9*rndu(5,1));
-    
+    x = ceil(9*rndu(5, 1));
+
     // Set the breakpoints
     v = { 1, 5, 7 };
-    
-    dm = dummybr(x,v);
+
+    dm = dummybr(x, v);
 
 The code above produces three dummies based upon the breakpoints in the vector *v*:
 
@@ -62,10 +61,10 @@ which look like:
 
 ::
 
-         0 1 0       2 
-         0 0 0       9 
-    dm = 0 1 0   x = 4 
-         0 0 1       7 
+         0 1 0       2
+         0 0 0       9
+    dm = 0 1 0   x = 4
+         0 0 1       7
          1 0 0       1
 
 Source
@@ -74,4 +73,3 @@ Source
 datatran.src
 
 .. seealso:: Functions :func:`dummydn`, :func:`dummy`, `code`, :func:`recode`, :func:`reclassifyCuts`, :func:`substute`, :func:`rescale`, :func:`reclassify`
-
