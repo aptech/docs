@@ -17,9 +17,9 @@ Format
     :type x: NxK matrix
 
     :param e: vector of 0's and 1's
-    :type e: Nx1 logical vector 
+    :type e: Nx1 logical vector
 
-    :returns: y (*MxK data matrix*) consisting of the rows of *y* for
+    :returns: **new_x** (*MxK matrix*) - consisting of the rows of *new_x* for
         which there is a 0 in the corresponding row of
         e. If no rows remain, :func:`delif` will return a scalar missing.
 
@@ -31,18 +31,19 @@ operators. For instance:
 
 ::
 
-   // Create a vector 'e' with a 1 for each row in which the 
-   // value in the second column of 'x' is less than 100, 
-   // otherwise a 0
-   e = x[.,2] .> 100;
+   /* Create a vector 'e' with a 1 for each row in which the
+   ** value in the second column of 'x' is less than 100,
+   ** otherwise a 0
+   */
+   e = x[., 2] .> 100;
 
-   y = delif(x, e);
+   new_x = delif(x, e);
 
 Or the equivalent statement:
 
 ::
 
-   y = delif(x, x[.,2] .> 100);
+   new_x = delif(x, x[., 2] .> 100);
 
 will delete all rows of *x* whose second element is greater than 100. The
 remaining rows of *x* will be assigned to *y*.
@@ -63,20 +64,22 @@ Basic usage with column vector
           1.9,
           0.2,
           2.0 };
-    
+
     // Create logical vector of 1's and 0's
     e = x .> 1;
-    
-    // Assign 'new_x' to be equal to 'x'
-    // with the rows removed in which 'e' equals 1
+
+    /*
+    ** Assign 'new_x' to be equal to 'x'
+    ** with the rows removed in which 'e' equals 1
+    */
     new_x = delif(x, e);
 
 After the code above, *new_x* should equal:
 
 ::
 
-    0.8 
-    0.7 
+    0.8
+    0.7
     0.2
 
 Matrix case
@@ -97,27 +100,29 @@ In this example, we will remove all observations in which the value of the third
           37     8     1,
           37     3     1,
           31     4     1 };
-    
-    
-    
+
+
+
     // Create logical vector of 1's and 0's
-    e = x[.,3] .== 3;
-    
-    // Assign 'new_x' to be equal to 'x' without
-    // the rows in which the third column equals 3
+    e = x[., 3] .== 3;
+
+    /*
+    ** Assign 'new_x' to be equal to 'x' without
+    ** the rows in which the third column equals 3
+    */
     new_x = delif(x, e);
 
 After the code above, *new_x* should be equal to:
 
 ::
 
-    20     10      2 
-    37     12      2 
-    35      8      1 
-    25     15      2 
-    34      8      2 
-    37      8      1 
-    37      3      1 
+    20     10      2
+    37     12      2
+    35      8      1
+    25     15      2
+    34      8      2
+    37      8      1
+    37      3      1
     31      4      1
 
 Create new 'x' and 'y' based on 'y'
@@ -128,52 +133,54 @@ In this example, we will remove all observations from *x* and *y* in which the v
 ::
 
     // Create 'y' matrix
-    y = { 1, 
-          1, 
-          0, 
-          2, 
-          0, 
-          1, 
-          1, 
-          0, 
-          0, 
+    y = { 1,
+          1,
+          0,
+          2,
+          0,
+          1,
+          1,
+          0,
+          0,
           2 };
-    
+
     // Create 'x'  matrix
-    x = { 1.6841  -0.1203, 
-         -1.0433   0.2564, 
-          1.2207  -1.4388, 
-          0.7423   0.2133, 
-          0.7288   1.0434, 
-          0.8115   1.8166, 
-         -0.3230   1.4763, 
-          1.2944   0.7635, 
-          1.3839   0.6648, 
+    x = { 1.6841  -0.1203,
+         -1.0433   0.2564,
+          1.2207  -1.4388,
+          0.7423   0.2133,
+          0.7288   1.0434,
+          0.8115   1.8166,
+         -0.3230   1.4763,
+          1.2944   0.7635,
+          1.3839   0.6648,
          -0.6330   0.4845 };
-    
-    
+
+
     // Create logical vector of 1's and 0's
     e = y .== 2;
-    
-    // Assign 'x' to be equal to 'x' without
-    // the rows in which 'y' equals 2
-    x = delif(x, e);
-    
-    // Remove all observations in which 'y' equals 2
-    y = delif(y, e);
 
-After the code above, *y* and *x* should equal:
+    /*
+    ** Assign 'new_x' to be equal to 'x' without
+    ** the rows in which 'y' equals 2
+    */
+    new_x = delif(x, e);
+
+    // Remove all observations in which 'y' equals 2
+    new_y = delif(y, e);
+
+After the code above, *new_y* and *new_x* should equal:
 
 ::
 
-    y = 1   x = 1.6841  -0.1203 
-        1      -1.0433   0.2564 
-        0       1.2207  -1.4388 
-        0       0.7288   1.0434 
-        1       0.8115   1.8166 
-        1      -0.3230   1.4763 
-        0       1.2944   0.7635 
-        0       1.3839   0.6648
+    new_y = 1   new_x = 1.6841  -0.1203
+            1           -1.0433   0.2564
+            0           1.2207  -1.4388
+            0           0.7288   1.0434
+            1           0.8115   1.8166
+            1           -0.3230   1.4763
+            0           1.2944   0.7635
+            0           1.3839   0.6648
 
 Logical comparison of multiple columns
 ++++++++++++++++++++++++++++++++++++++
@@ -183,17 +190,16 @@ Logical comparison of multiple columns
     x = { 0 10 20,
          30 40 50,
          60 70 80 };
-         
+
     // Logical vector, comparing two columns
     e =(x[.,1] .gt 0) .and (x[.,3] .lt 100);
-    
-    y = delif(x,e);
+
+    new_x = delif(x, e);
 
 After the code above:
 
 ::
 
-    y = 0 10 20
+    new_x = 0 10 20
 
 .. seealso:: Functions :func:`selif`
-

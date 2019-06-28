@@ -14,5 +14,4 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: host_name (*string*), name of database connection.
-
+    :returns: **host_name** (*string*) - name of database connection.

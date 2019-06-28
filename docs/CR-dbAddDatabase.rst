@@ -30,7 +30,7 @@ Format
         ``driver://username:password@hostname:port/database_name``
     :type connection_url: string
 
-    :returns: db_id (*scalar*), index into a table of all opened database connections, or 0 on failure.
+    :returns: **db_id** (*scalar*) - index into a table of all opened database connections, or 0 on failure.
 
 Examples
 ----------------
@@ -62,4 +62,3 @@ allowed, but the syntax must remain the same. For example:
 
 is a valid connection URL, but will not set the password or port number
 fields.
-

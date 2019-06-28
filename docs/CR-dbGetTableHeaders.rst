@@ -17,10 +17,9 @@ Format
     :param table_name: name of table or view.
     :type table_name: string
 
-    :returns: field_names (string array), containing the column names for the specified table or view.
+    :returns: **field_names** (string array) - containing the column names for the specified table or view.
 
 Remarks
 -------
 
 The order in which the fields appear in the record is undefined.
-

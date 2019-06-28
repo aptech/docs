@@ -29,25 +29,37 @@ Examples
 
     library pgraph;
     graphset;
-     
+
     begwind;
-    makewind(9,6.855,0,0,0); /* make full size window for 
-                              plot */
-    makewind(3,1,3,3,0);     /* make small overlapping window 
-                              for text */
+
+    // make full size window for  plot
+    makewind(9, 6.855, 0, 0, 0);
+
+    // make small overlapping window for text
+    makewind(3, 1, 3, 3, 0);
+
     setwind(1);
-       x = seqa(.1,.1,100);
-       y = sin(x); 
-       xy(x,y);              /* plot data in first window */
+
+       // Generate x and y
+       x = seqa(.1, .1, 100);
+       y = sin(x);
+
+       // plot data in first window
+       xy(x, y);
     nextwind;
+
        _pbox = 15;
        _paxes = 0;
        _pnum = 0;
        _ptitlht = 1;
        margin(0,0,2,0);
+
+       // add a smaller text window
        title("This is a text window.");
-       draw;                  /* add a smaller text window */
-    endwind;                  /* create graph */
+
+       // Create graph
+       draw;
+    endwind;                
 
 Source
 ------
@@ -55,4 +67,3 @@ Source
 pdraw.src
 
 .. seealso:: Functions :func:`window`, :func:`makewind`
-

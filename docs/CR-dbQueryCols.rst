@@ -14,5 +14,4 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: num_fields (*scalar*), number of fields.
-
+    :returns: **num_fields** (*scalar*) - number of fields.

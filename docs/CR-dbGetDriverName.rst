@@ -14,7 +14,7 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: driver_name (*string*), name of the database driver.
+    :returns: **driver_name** (*string*) - name of the database driver.
 
 Examples
 ----------------
@@ -27,4 +27,3 @@ Examples
 ::
 
     Driver = SQLITE
-

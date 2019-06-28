@@ -4,7 +4,7 @@ dbSetDatabaseName
 
 Purpose
 ----------------
-Sets the connection's database name to name. To have effect, the database name must be set before the connection is opened. Alternatively, you can :func:`dbClose` the connection, set the database name, and call :func:`dbOpen` again.
+Sets the connection's database name. To have effect, the database name must be set before the connection is opened. Alternatively, you can :func:`dbClose` the connection, set the database name, and call :func:`dbOpen` again.
 
 Format
 ----------------
@@ -30,14 +30,17 @@ entry in the ODBC manager:
 
 ::
 
-   ...
+   // Add ODBC to list of database connections
    db_id = dbAddDatabase("ODBC");
+
+   // Set database name
    dbSetDatabaseName(db_id, "DRIVER=
       {Microsoft Access Driver (*.mdb)};
       FIL={MS Access};
       DBQ=myaccessfile.mdb");
+
+   // Open database
    dbOpen(db_id);
-   ...
+
 
 .. seealso:: :func:`dbGetDatabaseName`
-

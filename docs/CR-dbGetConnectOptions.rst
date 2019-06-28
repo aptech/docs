@@ -5,7 +5,7 @@ dbGetConnectOptions
 Purpose
 ----------------
 
-Returns the connection options string used for a database connection. 
+Returns the connection options string used for a database connection.
 
 Format
 ----------------
@@ -14,7 +14,7 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: options (*string*), containing the connection options for the specified database connection.
+    :returns: **options** (*string*) - Contains the connection options for the specified database connection.
 
 Remarks
 -------
@@ -24,4 +24,3 @@ then this function will return an empty string. For a full list of
 options see :func:`dbSetConnectOptions`.
 
 .. seealso:: :func:`dbSetConnectOptions`
-

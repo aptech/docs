@@ -11,21 +11,38 @@ Format
 ----------------
 .. function:: dttime(hour, minute, second)
 
-    :param hour: NxK matrix of hours. 0-23.
-    :type hour: matrix
+    :param hour: Hours. :math:`0 \leq month \leq 23`.
+    :type hour: NxK matrix
 
-    :param minute: NxK matrix of minutes. 0-59.
-    :type minute: matrix
+    :param minute: Minutes. :math:`0 \leq month \leq 59`.
+    :type minute: NxK matrix
 
-    :param second: NxK matrix of seconds. 0-59.
-    :type second: matrix
+    :param second: Seconds. :math:`0 \leq month \leq 59`.
+    :type second: NxK matrix
 
-    :returns: dt (*NxK matrix*) of DT scalar format times.
+    :returns: **dt** (*NxK matrix*) - DT scalar format times.
 
 Remarks
 -------
 
 The arguments must be ExE conformable.
+
+Examples
+----------------
+
+::
+
+    hour = 11;
+    minute = 27;
+    seconds = 56;
+
+    dttime(hour, minute, seconds);
+
+After the above code:
+
+::
+    112756
+
 
 Source
 ------
@@ -33,4 +50,3 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dtday`, :func:`dtdate`, :func:`utctodt`, :func:`dttostr`
-

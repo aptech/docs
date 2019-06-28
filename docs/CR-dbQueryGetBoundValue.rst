@@ -17,36 +17,54 @@ Format
     :param placeholder: Oracle style (``:value_name``) or index of ODBC style (``?``) placeholder.
     :type placeholder: string
 
-    :returns: val (*string*), bound value if previously set.
+    :returns: **val** (*string*) - bound value if previously set.
 
 Examples
 ----------------
 
 ::
 
+    // Add `MYSQL` to list of database connections
     db_id = dbAddDatabase("MYSQL");
+
+    // Create and prepare `qid` query
     qid = dbCreateQuery(db_id);
-    dbQueryPrepare(qid, "SELECT * FROM 
-        PEOPLE WHERE FIRST = :fname AND 
+    dbQueryPrepare(qid, "SELECT * FROM
+        PEOPLE WHERE FIRST = :fname AND
         LAST = :lname");
+
+    // Set `:fname` placeholder
     dbQueryBindValue(qid, ":fname", "John");
+
+    // Set `:lname` placeholder
     dbQueryBindValue(qid, ":lname", "Doe");
-    
-    print "Name = ";; 
-    print dbQueryGetBoundValue(qid, ":fname");; 
+
+    /*
+    ** Print placeholders for `:fname` and `:lname`
+    ** using value names
+    */
+    print "Name = ";;
+    print dbQueryGetBoundValue(qid, ":fname");;
     print dbQueryGetBoundValue(qid, ":lname");
 
-or 
+or
 
 ::
 
+    // Add `MYSQL` to list of database connections
     db_id = dbAddDatabase("MYSQL");
+
+    // Create and prepare query
     string args = { "John", "Doe" };
-    qid = dbCreateQuery(db_id, "SELECT * FROM 
+    qid = dbCreateQuery(db_id, "SELECT * FROM
         PEOPLE WHERE FIRST = ? AND LAST = ?", args);
-    
-    print "Name = ";;  
-    print dbQueryGetBoundValue(qid, 1);; 
+
+    /*
+    ** Print placeholders for `:fname` and `:lname`
+    ** using indices 
+    */
+    print "Name = ";;
+    print dbQueryGetBoundValue(qid, 1);;
     print dbQueryGetBoundValue(qid, 2);
 
 results in
@@ -54,4 +72,3 @@ results in
 ::
 
     Name = John Doe
-

@@ -13,7 +13,7 @@ Format
     :param dtv: DTV vector format.
     :type dtv: Nx8 matrix
 
-    :returns: dt (*Nx1 vector*), DT scalar format.
+    :returns: **dt** (*Nx1 vector*) - DT scalar format.
 
 Remarks
 -------
@@ -61,4 +61,3 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodtv`, :func:`dttodtv`, :func:`dttoutc`, :func:`strtodt`, :func:`dttostr`
-

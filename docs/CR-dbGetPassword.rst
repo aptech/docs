@@ -14,11 +14,10 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: db_password (string), containing the password for the specified database connection or a null string.
+    :returns: **db_password** (string) - Contains the password for the specified database connection or a null string.
 
 
 Remarks
 -------
 
 :func:`dbGetPassword` will only return passwords set with :func:`dbSetPassword`.
-

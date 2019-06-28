@@ -11,25 +11,25 @@ Format
 ----------------
 .. function:: dtdate(year, month, day, hour, minute, second)
 
-    :param year: 
-    :type year: NxK matrix of years
+    :param year: Years
+    :type year: NxK matrix
 
-    :param month: 1-12.
-    :type month: NxK matrix of months
+    :param month: Months. :math:`1 \leq month \leq 12`.
+    :type month: NxK matrix
 
-    :param day: 1-31.
-    :type day: NxK matrix of days
+    :param day: Days. :math:`1 \leq month \leq 31`.
+    :type day: NxK matrix
 
-    :param hour: 0-23.
-    :type hour: NxK matrix of hours
+    :param hour: Hours. :math:`0 \leq month \leq 23`.
+    :type hour: NxK matrix
 
-    :param minute: 0-59.
-    :type minute: NxK matrix of minutes
+    :param minute: Minutes. :math:`0 \leq month \leq 59`.
+    :type minute: NxK matrix
 
-    :param second: 0-59.
-    :type second: NxK matrix of seconds
+    :param second: Seconds. :math:`0 \leq month \leq 59`.
+    :type second: NxK matrix
 
-    :returns: dt (*NxK matrix*) of DT scalar format dates.
+    :returns: **dt** (*NxK matrix*) - DT scalar format dates.
 
 
 
@@ -38,10 +38,30 @@ Remarks
 
 The arguments must be ExE conformable.
 
+
+Examples
+----------------
+
+::
+
+    year = 2012;
+    month = 12;
+    day = 21;
+    hour = 11;
+    minute = 27;
+    seconds = 56;
+
+    dtdate(year, month, day, hour, minute, seconds);
+
+After the above code:
+
+::
+    20121221112756
+
+
 Source
 ------
 
 time.src
 
 .. seealso:: Functions :func:`dtday`, :func:`dttime`, :func:`utctodt`, :func:`dttostr`, :func:`dayofweek`
-

@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: dbQueryGetLastErrorText()
 
-    :returns: err_txt (*2x1 string array*), database and driver text of last error.
+    :returns: **err_txt** (*2x1 string array*) - database and driver text of last error.
 
 Remarks
 -------
@@ -20,4 +20,3 @@ Because a failed query will not have a valid handle (*id*), this function
 retrieves stored error information about the last executed query.
 
 .. seealso:: :func:`dbQueryGetLastErrorNum`
-

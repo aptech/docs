@@ -27,7 +27,7 @@ Format
     :param fcmptol: comparison tolerance.
     :type fcmptol: scalar
 
-    :returns: y (*max(N,L) by max(K,M) matrix*) of 1's and 0's.
+    :returns: **y** (*max(N,L) by max(K,M)*) - matrix of 1's and 0's.
 
 Remarks
 -------
@@ -38,7 +38,7 @@ The statement:
 
 ::
 
-   y = dotfeqmt(a,b,1e-13);
+   y = dotfeqmt(a, b, 1e-13);
 
 is equivalent to:
 
@@ -52,9 +52,13 @@ Examples
 
 ::
 
-    x = rndu(2,2);
+    // Create x matrix
+    x = rndu(2, 2);
+
+    // Create y matrix
     y = x;
-    y[1,1] = y[1,1] + 0.00000002;
+    y[1, 1] = y[1, 1] + 0.00000002;
+
     t = dotfgemt(x,y,1e-15);
 
 ::
@@ -68,4 +72,3 @@ Source
 fcomparemt.src
 
 .. seealso:: Functions :func:`feqmt`, :func:`fgemt`, :func:`flemt`, :func:`fltmt`, :func:`fnemt`
-

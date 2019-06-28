@@ -14,7 +14,7 @@ Format
     :param name: name of file or files to delete.
     :type name: string or NxK string array
 
-    :returns: ret (*scalar or NxK matrix*), 0 if successful.
+    :returns: **ret** (*scalar or NxK matrix*) - 0 if successful.
 
 
 
@@ -30,4 +30,3 @@ fails it sets the C library ``errno`` value. :func:`deleteFile` returns the valu
 ``errno`` if ``unlink`` fails, otherwise it returns zero. If you want detailed
 information about the reason for failure, consult the C library ``unlink``
 documentation for your platform for details.
-

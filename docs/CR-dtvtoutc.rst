@@ -14,7 +14,7 @@ Format
     :param dtv: DTV vector format.
     :type dtv: Nx8 matrix
 
-    :returns: utc (*Nx1 vector*), UTC scalar format.
+    :returns: **utc** (*Nx1 vector*) - UTC scalar format.
 
 Remarks
 -------
@@ -53,8 +53,7 @@ Examples
 
 ::
 
-    dtv = 2012    7   17   10   13   48    2  198 
-    utc = 1342545228
+    dtv = 2019    6   28    0   24   10    5  178
+    utc = 1561706650
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodt`, :func:`dttodtv`, :func:`dttoutc`, :func:`dtvtodt`, :func:`dtvtoutc`, :func:`strtodt`, :func:`dttostr`
-

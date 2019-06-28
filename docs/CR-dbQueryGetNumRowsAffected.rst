@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: num_rows (*scalar*), the number of rows affected by the result's SQL statement, or
+    :returns: **num_rows** (*scalar*) - the number of rows affected by the result's SQL statement, or
         a -1 if it cannot be determined or the query is not active.
 
 Remarks
@@ -28,9 +28,12 @@ Examples
 
 ::
 
-    qid = dbCreateQuery(db_id, "INSERT INTO 
-         PEOPLE (fname, lname) VALUES 
+    // Create and prepare query
+    qid = dbCreateQuery(db_id, "INSERT INTO
+         PEOPLE (fname, lname) VALUES
          ('John', 'Doe');");
+
+    // Print report of number of rows affected
     print dbQueryGetNumRowsAffected(qid) " row(s) were affected";
 
 ::
@@ -38,4 +41,3 @@ Examples
     1 row(s) were affected
 
 .. seealso:: Functions :func:`dbQueryRows`, :func:`dbHasFeature`
-

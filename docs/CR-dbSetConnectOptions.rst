@@ -90,21 +90,25 @@ Examples
 
 ::
 
-    // MySQL connection
-    // use an SSL connection to the server
+    /*
+    ** MySQL connection
+    ** use an SSL connection to the server
+    */
     dbSetConnectOptions(db_id, "CLIENT_SSL=1;
-        CLIENT_IGNORE_SPACE=1"); 
-    
+        CLIENT_IGNORE_SPACE=1");
+
     if not dbOpen();
         // clears the connect option string
-        dbSetConnectOptions(db_id, ""); 
+        dbSetConnectOptions(db_id, "");
         ...
     endif;
 
 ::
 
-    // PostgreSQL connection
-    // enable PostgreSQL SSL connections
+    /*
+    ** PostgreSQL connection
+    ** enable PostgreSQL SSL connections
+    */
     dbSetConnectOptions(db_id, "requiressl=1");
     if not dbOpen();
         // clear options
@@ -118,11 +122,10 @@ Examples
     dbSetConnectOptions(db_id, "SQL_ATTR_ACCESS_MODE=
         SQL_MODE_READ_ONLY;
         SQL_ATTR_TRACE=
-        SQL_OPT_TRACE_ON"); 
+        SQL_OPT_TRACE_ON");
     // set ODBC options
     if not  dbOpen();
         // don't try to set this option
-        dbSetConnectOptions(db_id, ""); 
+        dbSetConnectOptions(db_id, "");
         ...
     endif;
-

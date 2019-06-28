@@ -13,7 +13,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: ret (*scalar*), 1 if the record is successfully retrieved. If the record could not be retrieved, the result is positioned before the first record and 0 is returned.
+    :returns: **ret** (*scalar*) - 1 if the record is successfully retrieved. If the record could not be retrieved, the result is positioned before the first record and 0 is returned.
 
 Remarks
 -------
@@ -35,4 +35,3 @@ the previous record.
 
 
 .. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekNext`, :func:`dbQuerySeek`, :func:`dbQueryGetPositino`
-

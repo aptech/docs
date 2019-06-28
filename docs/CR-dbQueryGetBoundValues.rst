@@ -21,14 +21,24 @@ Examples
 
 ::
 
+    // Add `MYSQL` to list of database connections
     db_id = dbAddDatabase("MYSQL");
+
+    // Create and prepare `qid` query
     qid = dbCreateQuery(db_id);
     dbQueryPrepare(qid, "SELECT * FROM
-         PEOPLE WHERE FIRST = :fname AND
-         LAST = :lname");
+      PEOPLE WHERE FIRST = :fname AND
+      LAST = :lname");
+
+    // Set `:fname` placeholder
     dbQueryBindValue(qid, ":fname", "John");
+
+    // Set `:lname` placeholder
     dbQueryBindValue(qid, ":lname", "Doe");
-    
+
+    /*
+    ** Print all `qid` placeholders
+    */
     print "Vars = " dbQueryGetBoundValues(qid);
 
 will print
@@ -38,4 +48,3 @@ will print
     Vars =
        :fname   John
        :lname   Doe
-

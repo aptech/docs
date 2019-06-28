@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: dsCreate()
 
-    :returns: s (*struct*) instance of :class:`DS` struct.
+    :returns: **s** (*struct*) - instance of :class:`DS` struct.
 
 Examples
 ----------------
@@ -20,7 +20,7 @@ Examples
 
     // Declare 'myData' as instance of 'DS' structure
     struct DS myData;
-    
+
     // Apply default settings
     myData = dsCreate();
 
@@ -28,4 +28,3 @@ Source
 ------
 
 ds.src
-

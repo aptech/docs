@@ -13,7 +13,7 @@ Format
     :param dt: DT scalar format.
     :type dt: Nx1 vector
 
-    :returns: utc (*Nx1 vector*), UTC scalar format.
+    :returns: **utc** (*Nx1 vector*) - UTC scalar format.
 
 Remarks
 -------
@@ -30,7 +30,7 @@ Examples
 
     dt = 20010326085118;
     tc = dttoutc(dt);
-     
+
     print "tc = " tc;
 
 The above code produces the following output:
@@ -45,4 +45,3 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodtv`, :func:`dttodtv`, :func:`dtvtodt`, :func:`dtvtoutc`, :func:`dtvtodt`, :func:`strtodt`, :func:`dttostr`
-

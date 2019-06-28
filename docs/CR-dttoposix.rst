@@ -13,7 +13,7 @@ Format
     :param dt: DT scalar format.
     :type dt: NxK matrix
 
-    :returns: p_time (*NxK matrix*), date/times in POSIX format.
+    :returns: **p_time** (*NxK matrix*) - date/times in POSIX format.
 
 Examples
 ----------------
@@ -22,10 +22,10 @@ Examples
 
     // March 26th, 2001 at 08:51:18
     dt = 20010326085118;
-    
+
     // Convert to seconds since Jan 1, 1970
     p_time = dttoposix(dt);
-    
+
     print "p_time = " p_time;
 
 The above code produces the following output:
@@ -42,4 +42,3 @@ posix scalar gives the number of seconds since or before January 1,
 1970, UTC.
 
 .. seealso:: Functions :func:`dttostr`, :func:`dttostrc`, :func:`posixtostrc`, :func:`strtodt`, :func:`strtodt`
-

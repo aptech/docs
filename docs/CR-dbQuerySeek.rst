@@ -5,8 +5,8 @@ dbQuerySeek
 Purpose
 ----------------
 
-Retrieves the record at a specified position, if available, and positions the query 
-on the retrieved record. 
+Retrieves the record at a specified position, if available, and positions the query
+on the retrieved record.
 
 Format
 ----------------
@@ -21,7 +21,7 @@ Format
     :param idx_type: 1 for relative position or 0 for absolute positioning. If not specified, absolute positioning is used.
     :type idx_type: scalar
 
-    :returns: ret (*scalar*), 1 if successful.
+    :returns: **ret** (*scalar*) - 1 if successful.
 
 
 
@@ -62,4 +62,3 @@ record if *idx* is negative), and 0 is returned. If the record is
 successfully retrieved, 1 is returned.
 
 .. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekNext`, :func:`dbQuerySeekPrevious`
-
