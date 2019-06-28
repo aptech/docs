@@ -39,25 +39,19 @@ Remarks
 
 Allowable ranges for the arguments are:
 
-.. DANGER:: FIX EQUATION
+.. math:: 
 
-.. math:: −\infty < x1 < \infty\\
-−\infty \lt x2 \lt \infty\\
-−\infty \lt x3 \lt \infty\\
-−1 \lt rho12 \lt 1\\
-−1 \lt rho23 \lt 1\\
-−1 \lt rho13 \lt 1\\
+     −\infty < x1 < \infty\\
+     −\infty \lt x2 \lt \infty\\
+     −\infty \lt x3 \lt \infty\\
+     −1 \lt rho12 \lt 1\\
+     −1 \lt rho23 \lt 1\\
+     −1 \lt rho13 \lt 1\\
 
 In addition, *rho12*, *rho23* and *rho13* must come from a legitimate positive
 definite matrix. A -1 is returned for those rows with invalid inputs.
 
 A separate integral is computed for each row of the inputs.
-
-The first 3 arguments (*x1*, *x2*, *x3*) must be the same length, *N*. The
-second 3 arguments (*rho12*, *rho23*, *rho13*) must also be the same length,
-and this length must be N or 1. If it is 1, then these values will be
-expanded to apply to all values of *x1*, *x2*, *x3*. All inputs must be column
-vectors.
 
 To find the integral under a general trivariate density, with *x1*, *x2*,
 and *x3* having nonzero means and any positive standard deviations,
@@ -73,6 +67,7 @@ Examples
 ----------------
 
 ::
+
     // Variables
     x1 = 0.6;
     x2 = 0.23;

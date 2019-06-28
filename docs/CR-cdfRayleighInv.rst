@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: cdfRayleighInv(p, shape)
 
-    :param p: Probabilities at which to compute the logistic inverse cumulative distribution function. :math:`0 < p < 1`.
+    :param p: Probabilities at which to compute the Rayleigh inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
     :param shape: Shape parameter, ExE conformable with *p*. *shape* must be greater than 0.
     :type shape: NxK matrix, Nx1 vector or scalar
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the smallest integer such that the Rayleigh cumulative distribution function is equal to or exceeds the corresponding value of *p*.
+    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the value such that the Rayleigh cumulative distribution function is equal to the corresponding value of *p*.
 
 Remarks
 -------
