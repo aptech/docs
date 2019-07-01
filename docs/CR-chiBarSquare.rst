@@ -62,6 +62,11 @@ Examples
 
 ::
 
+    // Covariance matrix
+    V = { 0.0005255598 -0.0006871606 -0.0003191342,
+         -0.0006871606 0.0037466205 0.0012285813,
+         -0.0003191342 0.0012285813 0.0009081412 };
+
     // Chi-bar square statistic
     SL = 3.860509;
 
@@ -69,7 +74,7 @@ Examples
     bounds = { 0 200, 0 200, 0 200 };
 
     // Covariance
-    vi = invpd(v);
+    vi = invpd(V);
 
     SLprob = chiBarSquare(SL, vi, 0, 0, 0, 0, bounds);
 

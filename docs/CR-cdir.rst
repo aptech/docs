@@ -11,9 +11,8 @@ Format
 ----------------
 .. function:: cdir(s)
 
-    :param s: if the first character is 'A'-'Z' and the second character is a colon ':', then that drive
-        will be used. If not, the current default drive will be used.
-    :type s: string
+    :param s: A null string, or a scalar 0.
+    :type s: string, or scalar
 
     :returns: **dir** (string) - containing the drive and full path name of the current directory on the specified drive.
 
@@ -29,23 +28,35 @@ the current drive and path name.
 
 Examples
 ----------------
-If the current working directory is C:\gauss:
+
+Windows Example
++++++++++++++++
+
+If the current working directory is ``C:\gauss``:
 
 ::
 
     // Get current directory
     dir = cdir(0);
 
-    // Assign directory path
-    y = cdir("d:");
-
-    // Print the directories
-    print x;
-    print y;
-
-The code above will return:
+After the code above, *dir* will equal:
 
 ::
 
     C:\gauss
-    d:
+
+macOS Example
++++++++++++++++
+
+If the current working directory is ``/Users/Research/gauss``:
+
+::
+
+    // Get current directory
+    dir = cdir(0);
+
+After the code above, *dir* will equal:
+
+::
+
+    /Users/Research/gauss

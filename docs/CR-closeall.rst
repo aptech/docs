@@ -60,42 +60,61 @@ Examples
     new;
     cls;
 
-    // Create 'mydata' matrix
+    // Create 'mydata' vector
     mydata = seqa(1, 1, 3);
 
-    // Using saved function to save mydata matrix into 'mydata.dat' file
-    saved(mydata, "mydata.dat", "x");
-    open f1 = dat1 for read;
-    open f2 = dat1 for update;
+    // Save 'mydata' vector into 'mydata.dat' file
+    call saved(mydata, "mydata.dat", "x");
+
+    /*
+    ** Open two file handles to 'mydata.dat'
+    **     f1 can only be used to read data.
+    **     f2 can be used to read or write data.
+    */
+    f1 = dataOpen("mydata.dat", "read");
+    f2 = dataOpen("mydata.dat", "update");
+
+
+    // Read all rows from 'mydata.dat'
     x = readr(f1, rowsf(f1));
+
+    // Modify the data and write it back
+    // to 'mydata.dat'
     x = sqrt(x);
     call writer(f2, x);
+
+    // Close both file handles and set them equal to zero
     closeall f1,f2;
 
     // Check the new data file
     mydata_new = loadd("mydata.dat");
+
     print "mydata = " mydata;
     print "x = " x;
     print "mydata_new = " mydata_new;
+    print "f1 = " f1;
+    print "f2 = " f2;
 
 After running the above code,
 
 ::
 
-    1.0000000
     mydata =
     	1.0000000
     	2.0000000
     	3.0000000
+
     x =
     	1.0000000
     	1.4142136
     	1.7320508
+
     mydata_new =
     	1.0000000
     	1.4142136
     	1.7320508
 
-The first 1 means the "mydata.dat" file is closed.
+    f1 = 0.000000
+    f2 = 0.000000
 
 .. seealso:: Functions `close`, `open`
