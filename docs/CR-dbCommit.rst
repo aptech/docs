@@ -21,10 +21,17 @@ Examples
 
 ::
 
+    // Add `SQLITE` to list of database connections
     db_id = dbAddDatabase("SQLITE");
+
+    // Execute query
     dbExecQuery(db_id, "INSERT INTO PEOPLE
         (first, last) VALUES ('John', 'Doe');");
+
+    // Commit transaction
     dbCommit(db_id);
+
+    // Close database
     dbClose(db_id);
 
 Remarks
