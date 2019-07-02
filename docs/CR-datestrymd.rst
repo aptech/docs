@@ -21,8 +21,9 @@ Examples
 ----------------
 
 ::
+
     // Date
-    d = { 2015, 10, 16, 0 };
+    d = { 2015, 10, 16 };
 
     // Convert date to the yyyymmdd format
     y = datestrymd(d);
