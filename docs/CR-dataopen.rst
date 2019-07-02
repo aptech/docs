@@ -19,9 +19,9 @@ Format
         .. csv-table::
             :widths: auto
 
-            "read, "Open file for read only."
+            "read", "Open file for read only."
             "append", "Open file for append. The file pointer will start at the end of the file to add new rows."
-            "update, "Open file for update. Allows reading and writing. The file pointer will start at the first row."
+            "update", "Open file for update. Allows reading and writing. The file pointer will start at the first row."
 
     :type mode: string
 
@@ -75,7 +75,7 @@ of a file.
 pointer is set to the beginning of the file. This mode is used to make
 changes in a file.
 
-9. The supported data set types are "\*.dat", "\*.h5", "\*.fmt".
+9. The supported data set types are ``.dat``, ``.h5``, ``.fmt``.
 
 For HDF5 file, the dataset must include schema and both file name and
 data set name must be provided, e.g.

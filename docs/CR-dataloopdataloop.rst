@@ -22,7 +22,7 @@ The statements between the ``dataloop... endata`` commands are assumed to be
 metacode to be translated at compile time. The data from *infile* is
 manipulated by the specified statements, and stored to the data set
 *outfile*. Case is not significant within the ``dataloop... endata`` section,
-except for within quoted strings. Comments can be used as in any **GAUSS** code.
+except for within quoted strings. Comments can be used as in any GAUSS code.
 
 
 Examples
