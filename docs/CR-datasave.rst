@@ -43,6 +43,7 @@ Examples
 ----------------
 
 ::
+  
     // Create random matrix
     x = rndn(1000, 100);
 
