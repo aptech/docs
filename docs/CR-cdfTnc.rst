@@ -5,30 +5,30 @@ cdfTnc
 Purpose
 ----------------
 
-The integral under noncentral Student's :math:`t` distribution, from
-:math:`-∞` to *x*. It can return a vector of values,
-but the degrees of freedom and noncentrality parameter
-must be the same for all values of *x*.
+The integral under the noncentral Student's :math:`t` distribution, from
+:math:`-∞` to *x*. 
 
 Format
 ----------------
 .. function:: cdfTnc(x, df, nonc)
 
     :param x: values of upper limits of integrals.
-    :type x: Nx1 vector
+    :type x: NxK matrix
 
-    :param df: degrees of freedom, :math:`df > 0`.
-    :type df: scalar
+    :param df: ExE conformable with *x*, the degrees of freedom, :math:`df > 0`.
+    :type df: LxM matrix
 
-    :param nonc: noncentrality parameter. This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.
-    :type nonc: scalar
+    :param nonc: ExE conformable with *x*, the noncentrality parameter. This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.
+    :type nonc: PxQ matrix
 
-    :returns:**p** (*Nx1 vector*) - Each element in *p* is the cumulative distribution function of the noncentral Student's t distribution evaluated at the corresponding element in *x*.
+    :returns: **p** (*max(N,L,P) by max(K,M,Q) matrix*) - Each element in *p* is the cumulative distribution function of the noncentral Student's t distribution evaluated at the corresponding element in *x*.
 
 Remarks
 ------------
 
-.. math:: cdfTc(x, df) = 1 - cdfTnc(x, df, 0)
+:: 
+
+    cdfTc(x, df) = 1 - cdfTnc(x, df, 0)
 
 Examples
 ----------------

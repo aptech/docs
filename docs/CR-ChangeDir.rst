@@ -16,4 +16,21 @@ Format
 
     :returns: **d** (*string*) - new working directory, or null string if change failed.
 
+Examples
+--------------
+
+If your current working directory is ``C:\gauss\time-series`` and you enter:
+
+::
+
+    changeDir("examples");
+
+Then :func:`changeDir` will return:
+
+::
+
+    C:\gauss\time-series\examples
+
+and set your working directory to that folder as well. The folder must exist before using this function.
+
 .. seealso:: Functions :func:`chdir`, :func:`cdir`

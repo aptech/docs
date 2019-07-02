@@ -4,7 +4,7 @@ close
 
 Purpose
 ----------------
-Closes a **GAUSS** file.
+Closes a file handle.
 
 Format
 ----------------
@@ -84,21 +84,26 @@ Examples
     // Create 'mydata' matrix
     mydata = seqa(1, 1, 3);
 
-    // Using saved function to save mydata matrix into 'mydata.dat' file
-    saved(mydata, "mydata.dat", "x");
+    // Save 'mydata' into 'mydata.dat' file
+    call saved(mydata, "mydata.dat", "x");
 
     // Set a random seed
     rndseed 855;
 
-    // Open 'mydata.dat' file
-    open f1 = mydata for append;
+    // Open handle to 'mydata.dat' which will allow
+    // reading, writing and appending
+    f1 = dataOpen("mydata.dat", "append");
 
     // Create an appended data set 'x'
     x = rndu(3, 1);
 
+    // Write new rows to 'mydata.dat'
     y = writer(f1, x);
+
+    // Close file handle
     f1 = close(f1);
 
+    // Load all rows from the dataset
     data_new = loadd("mydata.dat");
 
     print "mydata = " mydata;
@@ -109,15 +114,16 @@ After running above code,
 
 ::
 
-    1.0000000 
     mydata =
     	1.0000000
     	2.0000000
     	3.0000000
+
     x =
     	0.33589398
     	0.62804541
     	0.017829664
+
     data_new =
     	1.0000000
     	2.0000000
@@ -125,7 +131,5 @@ After running above code,
     	0.33589398
     	0.62804541
     	0.017829664
-
-The first 1 means the "mydata.dat" file is closed.
 
 .. seealso:: Functions :func:`closeall`

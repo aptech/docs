@@ -14,7 +14,7 @@ Format
     :param x: matrix of ASCII values to be converted.
     :type x: NxK matrix
 
-    :returns: **y** (*NxK string*) - contains the characters whose ASCII values are equal to the values in the elements of *x*.
+    :returns: **s** (*string*) - This 1x1 string will contain NxK characters whose ASCII values are equal to the values in the elements of *x*.
 
 Remarks
 -------
@@ -27,10 +27,12 @@ etc.
 Examples
 ----------------
 
+Basic example
++++++++++++++
+
 ::
 
     // 42 is the ascii value for an asterisk '*'
-
     print chrs(42);
 
 The code above returns:
@@ -38,6 +40,28 @@ The code above returns:
 ::
 
     *
+
+Multicharacter example
++++++++++++++++++++++
+
+::
+
+    // ASCII character codes:
+    // 72 -> H, 105 -> i, 33 -> !
+    acc = { 72 105 33 };
+
+    // Convert the character codes in 'acc'
+    // into a string of characters
+    s = chrs(acc);
+
+After the code above, *s* will equal:
+
+::
+
+    Hi!
+
+Interactive example
+++++++++++++++++++
 
 :func:`chrs` can be used to create an interactive program in which the user is prompted
 for keyboard input which the code uses to make decisions.

@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: cdfRayleigh(x, scale)
 
-    :param x: Values at which to evaluate the cumulative distribution function for the log-normal distribution. :math:`x \geq 0`.
+    :param x: Values at which to evaluate the cumulative distribution function for the Rayleigh distribution. :math:`x \geq 0`.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param scale: Scale parameter, ExE conformable with *x*. :math:`x > 0`.
+    :param scale: Scale parameter, ExE conformable with *x*. :math:`scale > 0`.
     :type scale: NxK matrix, Nx1 vector or scalar
 
     :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function of the Rayleigh distribution evaluated at the corresponding element in *x*.
@@ -30,6 +30,7 @@ Examples
 Here is an example show the Rayleigh cumulative distribution plot with different scale parameters.
 
 ::
+
     // Values
     x = seqa(0, 0.1, 100);
 

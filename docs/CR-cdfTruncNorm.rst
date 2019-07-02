@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: cdfTruncNorm(x, a, b, mu_bar, sigma_bar)
 
-    :param x: NxK matrix, or N-dimensional array. Values at which to evaluate the cumulative distribution function of the normal distribution.
-    :type x: Scalar
+    :param x: Values at which to evaluate the cumulative distribution function of the normal distribution.
+    :type x: NxK matrix
 
     :param l_lim: lower limit of the integration window.
     :type l_lim: Scalar
 
-    :param u_lim: lower limit of the integration window.
+    :param u_lim: upper limit of the integration window.
     :type u_lim: Scalar
 
     :param mu_bar: mean parameter.
@@ -32,6 +32,7 @@ Examples
 ----------------
 
 ::
+
     // Value
     x = 0.6;
 
@@ -54,7 +55,7 @@ Examples
     */
     p = cdfTruncNorm(x, l_lim, u_lim, mu_bar, std_bar);
 
-After the above code, 'p' equals:
+After the above code, *p* equals:
 
     0.45767633
 

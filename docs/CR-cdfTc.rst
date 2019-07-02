@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: cdfTc(x, df)
 
-    :param x: values at which to evaluate the cumulative distribution function for the log-normal distribution. :math:`−\infty \leq x \leq \infty`.
-    :type x: NxK matSrix
+    :param x: values at which to evaluate the cumulative distribution function for the Student's t distribution. :math:`−\infty \leq x \leq \infty`.
+    :type x: NxK matrix
 
     :param df: ExE conformable with *x*. Degrees of freedom. :math:`df > 1`.
     :type df: LxM matrix
 
-    :returns: **p** (*matrix, max(N,L) by max(K,M) matrix*) - Each element in *p* is the complement of the cumulative distribution function of the Student's t distribution evaluated at the corresponding element in *x*.
+    :returns: **p** (*matrix, max(N,L) by max(K,M)*) - Each element in *p* is the complement of the cumulative distribution function of the Student's t distribution evaluated at the corresponding element in *x*.
 
 Remarks
 -------
@@ -37,6 +37,7 @@ Examples
 ----------------
 
 ::
+
     // Values
     x = { .1, .2, .3, .4 };
 
