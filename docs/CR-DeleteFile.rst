@@ -14,16 +14,44 @@ Format
     :param name: name of file or files to delete.
     :type name: string or NxK string array
 
-    :returns: **ret** (*scalar or NxK matrix*) - 0 if successful.
+    :returns: **ret** (*scalar or NxK matrix*) - scalar if *name* is a string. If *name* is an NxK
+    string array, *ret* will be an NxK matrix reflecting the success or
+    failure of each separate file deletion. *ret* will be zero if file deletion is successful.
 
+Examples
+----------------
 
+::
 
+    // Create random x matrix
+    x = rndn(500,1);
+
+    // Save as GAUSS dataset
+    saved(x, "x.dat", "X1");
+
+    // Delete file
+    deleteFile("x.dat");
+
+This returns
+
+::
+
+    0.00000000
+
+Now we will try again to delete the ``x.dat`` file :
+
+::
+
+    // Delete file
+    deleteFile("x.dat");
+
+This returns
+
+::
+
+    2.0000000
 Remarks
 -------
-
-The return value, *ret*, is scalar if name is a string. If *name* is an NxK
-string array, *ret* will be an NxK matrix reflecting the success or
-failure of each separate file deletion.
 
 :func:`deleteFile` calls the C library ``unlink`` function for each file. If ``unlink``
 fails it sets the C library ``errno`` value. :func:`deleteFile` returns the value of
