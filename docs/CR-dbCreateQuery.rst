@@ -36,6 +36,7 @@ Example 1
 
 ::
 
+    // Create and prepare query
     qid = dbCreateQuery("SELECT * FROM GDP
          WHERE COUNTRY = ?", "USA");
     dbQueryExecPrepared(qid);
@@ -47,12 +48,18 @@ Example 2
 +++++++++
 
 ::
-
+    // Create query
     qid = dbCreateQuery("INSERT INTO
          PEOPLE(id, fname, lname) VALUES
          (NULL, ?, ?);");
+
+    // Set the placeholder
     dbQueryBindValue(qid, "Joe");
+
+    // Set the placeholder
     dbQueryBindValue(qid, "Smith");
+
+    // Execute query
     dbQueryExecPrepared(qid);
 
 .. seealso:: :func:`dbQueryPrepare`

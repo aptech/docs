@@ -31,6 +31,7 @@ Example 1
 In the examples below, *db_id* is a previously created database id.
 
 ::
+  
     // Set SQL statement
     sql_statement = "SELECT * FROM GDP WHERE COUNTRY = ?";
 
