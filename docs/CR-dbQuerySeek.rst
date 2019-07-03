@@ -32,7 +32,7 @@ The first record is at position 1. Note that the query must be in an
 active state before calling this function. The state of the query may be
 verified with the function :func:`dbQueryIsSelect`.
 
-If *idx_type* is 0 (the default), the following rules apply:
+**If *idx_type* is 0 (the default), the following rules apply:**
 
 If *idx* is negative, the result is positioned before the first record and
 0 is returned. Otherwise, an attempt is made to move to the record at
@@ -40,15 +40,16 @@ position *idx*. If the record at position *idx* could not be retrieved, the
 result is positioned after the last record and 0 is returned. If the
 record is successfully retrieved, 1 is returned.
 
-If *idx_type* is 1, the following rules apply:
+**If *idx_type* is 1, the following rules apply:**
 
 If the result is currently positioned before the first record or on the
 first record, and *idx* is negative, there is no change, and 0 is
 returned.
 
 If the result is currently located after the last record, and *idx* is
-positive, there is no change, and 0 is returned. If the result is
-currently located somewhere in the middle, and the relative offset *idx*
+positive, there is no change, and 0 is returned.
+
+If the result is currently located somewhere in the middle, and the relative offset *idx*
 moves the result below zero, the result is positioned before the first
 record and 0 is returned.
 

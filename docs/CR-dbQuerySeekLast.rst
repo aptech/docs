@@ -44,7 +44,7 @@ Examples
        print  "dbQuerySeekLast failed";
     else;
        // Print last state: Wyoming
-    print dbQueryFetchOneSA(qid);
+       print dbQueryFetchOneSA(qid);
     endif;
 
 .. seealso:: Functions :func:`dbQuerySeekNext`, :func:`dbQuerySeekPrevious`, :func:`dbQuerySeekFirst`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`
