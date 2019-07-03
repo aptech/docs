@@ -98,9 +98,10 @@ Examples
         CLIENT_IGNORE_SPACE=1");
 
     if not dbOpen();
-        // clears the connect option string
+
+        // Clears the connect option string
         dbSetConnectOptions(db_id, "");
-        ...
+
     endif;
 
 ::
@@ -111,9 +112,10 @@ Examples
     */
     dbSetConnectOptions(db_id, "requiressl=1");
     if not dbOpen();
-        // clear options
+
+        // Clears the connect option string
         dbSetConnectOptions(db_id, "");
-        ...
+
     endif;
 
 ::
@@ -123,9 +125,11 @@ Examples
         SQL_MODE_READ_ONLY;
         SQL_ATTR_TRACE=
         SQL_OPT_TRACE_ON");
-    // set ODBC options
+
+    // Set ODBC options
     if not  dbOpen();
-        // don't try to set this option
+
+        // Don't try to set this option
         dbSetConnectOptions(db_id, "");
-        ...
+
     endif;

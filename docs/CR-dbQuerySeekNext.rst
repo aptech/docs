@@ -26,16 +26,16 @@ of the query with :func:`dbQueryIsSelect`.
 
 The following rules apply:
 
-If the result is currently located before the first record, e.g.,
-immediately after a query is executed, an attempt is made to retrieve
-the first record.
+.. csv-table::
+    :widths: auto
 
-If the result is currently located after the last record, there is no
-change and 0 is returned.
-
-If the result is located somewhere in the middle, an attempt is made to
-retrieve the next record.
-
+    "**Result location**","**Action taken**"
+    "Before the first record","An attempt is made to retrieve
+    the first record."
+    "After the last record","There is no
+    change and 0 is returned."
+    "Somewhere between first and last record", "An attempt is made to
+    retrieve the next record."
 
 Examples
 ----------------
@@ -47,8 +47,10 @@ Examples
 
     do while dbQuerySeekNext(qid);
         row = dbQueryFetchOneSA(qid);
-        // Or dbQueryFetchOneM(qid) if data
-        // is numeric
+        /*
+        ** Or dbQueryFetchOneM(qid) if data
+        ** is numeric
+        */
     endo;
 
 .. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekPrevious`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`
