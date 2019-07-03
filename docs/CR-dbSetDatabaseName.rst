@@ -13,7 +13,7 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :param database_name: database name to apply to specified database connection.
+    :param database_name: the name to apply to the specified database connection.
     :type database_name: string
 
 Remarks
