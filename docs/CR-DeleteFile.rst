@@ -50,6 +50,9 @@ This returns
 ::
 
     2.0000000
+
+The ``errno`` value of 2 indicates that the file ``x.dat`` no longer exists when we try to delete the file the second time.
+
 Remarks
 -------
 
