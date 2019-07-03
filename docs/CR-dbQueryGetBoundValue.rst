@@ -44,7 +44,7 @@ Examples
     ** using value names
     */
     print "Name = ";;
-    print dbQueryGetBoundValue(qid, ":fname");;
+    print dbQueryGetBoundValue(qid, ":fname");
     print dbQueryGetBoundValue(qid, ":lname");
 
 or
@@ -61,10 +61,10 @@ or
 
     /*
     ** Print placeholders for `:fname` and `:lname`
-    ** using indices 
+    ** using indices
     */
     print "Name = ";;
-    print dbQueryGetBoundValue(qid, 1);;
+    print dbQueryGetBoundValue(qid, 1);
     print dbQueryGetBoundValue(qid, 2);
 
 results in

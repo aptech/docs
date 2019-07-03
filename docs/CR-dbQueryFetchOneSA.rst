@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :param columns: specific columns to pull from the result matrix. Must be a subset of fields from the ``SELECT`` statement.
+    :param columns: Optional input. Gives specific columns to pull from the result matrix. Must be a subset of fields from the ``SELECT`` statement.
     :type columns: string or string array
 
     :returns: **record** (*string array*) - if the query points to a valid row (:func:`dbQueryIsValid` returns
@@ -43,7 +43,7 @@ Examples
 
     /*
     ** Iteratively retrieve single records
-    ** and store as string 
+    ** and store as string
     */
     do while dbQuerySeekNext(qid);
         record = dbQueryFetchOneSA(qid);

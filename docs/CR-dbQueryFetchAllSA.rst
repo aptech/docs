@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :param columns: specific columns to pull out from result matrix.
+    :param columns: Optional input. Gives specific columns to pull out from result matrix.
         Must be a subset of fields from ``SELECT`` statement.
     :type columns: string or string array
 
@@ -45,7 +45,10 @@ Examples
     names = dbQueryFetchAllSA(qid,
          "FIRST_NAME"$|"LAST_NAME");
 
-    // If 'names' is not a scalar error code
+    /*
+    ** Print result if 'names'
+    ** is not a scalar error code
+    */
     if not scalmiss(names);
         print "People in the USA = " names;
     endif;

@@ -14,7 +14,7 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :param columns: specific columns to pull out from result matrix. Must be a subset of fields from ``SELECT`` statement.
+    :param columns: Optional input. Gives specific columns to pull out from result matrix. Must be a subset of fields from ``SELECT`` statement.
     :type columns: string or string array
 
     :returns: **result** (*matrix*) - the result set; or if the result set is empty, a scalar error code.
