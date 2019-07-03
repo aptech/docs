@@ -28,6 +28,7 @@ Examples
 Set driver and host
 
 ::
+
     // Adds "MYSQL"" to the list of database connections
     db_id = dbAddDatabase("MYSQL");
 
@@ -37,6 +38,7 @@ Set driver and host
 then, either
 
 ::
+
     // Set database username
     dbSetUserName(db_id, "test");
 
@@ -49,9 +51,10 @@ then, either
 or
 
 ::
+
     /*
     ** Open database connection
-    ** using option username input `test`
+    ** using optional username input `test`
     ** and optional password input `password`
     */
     ret = dbOpen(db_id, "test", "password");
