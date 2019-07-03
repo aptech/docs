@@ -16,10 +16,9 @@ Format
     :param x: Vector specifying the columns in which 1's for the design matrix should be placed.
     :type x: Nx1 vector
 
-    :returns: **y** (*NxK matrix*), where :math:`K = maxc(x)`; each row of *y*
+    :returns: **y** (*NxK matrix*) - each row of *y*
         will contain a single 1, and the rest 0's. The
-        one in the ith row will be in the :code:`round(x[i, 1])`
-        column.
+        one in the ith row will be in the :code:`round(x[i, 1])` column. The dimension *K* is such that :code:`K = maxc(x)`.
 
 Remarks
 -------
@@ -44,19 +43,19 @@ This example uses design to interchange the rows of a matrix.
     ** Create a 4x4 matrix of random integers with a standard
     ** deviation of 10
     */
-    x = round(10*rndn(4,4));
+    x = round(10*rndn(4, 4));
     print x;
 
 The code above returns:
 
 ::
 
-    4     12     -1    -10
+     4     12     -1    -10
      5     -3     12      8
     12     -2     21    -21
     -7    -13      0     -1
 
-Continuing on with the example:
+Continuing with the example:
 
 ::
 
@@ -76,6 +75,10 @@ This section returns:
     0      0      0      1
     0      1      0      0
 
+We can use ``p`` to permutate our  ``x``
+
+::
+  
     /*
     ** Create a permuted version of 'x' with our preferred row
     ** order

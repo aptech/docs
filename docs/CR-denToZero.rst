@@ -12,7 +12,7 @@ Format
 .. function:: denToZero(x)
 
     :param x: Data to be converted.
-    :type x: A matrix or an N-dimensional array
+    :type x: matrix or an N-dimensional array
 
     :returns: **y** (*matrix or an N-dimensional array*) - with the same orders as the input. Every denormal in the input will be converted to 0 in the output.
 

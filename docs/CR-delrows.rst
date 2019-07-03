@@ -51,7 +51,7 @@ Examples
     r = { 2,
           4 };
 
-    x_trim = delrows(x,r);
+    x_trim = delrows(x, r);
 
 After the code above:
 

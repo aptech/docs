@@ -20,7 +20,7 @@ Format
         *x*.
     :type reps: scalar
 
-    :returns: x_sparse (*MxN sparse matrix*) Sparse matrix converted from *x*.
+    :returns: **x_sparse** (*MxN sparse matrix*) - Sparse matrix converted from *x*.
 
 Remarks
 -------
@@ -44,9 +44,7 @@ Examples
            5   0   0    7,
            0   0  -2  2.2 };
 
-    /*
-    ** Create a sparse matrix 'x_sparse' from 'x'
-    */
+    // Create a sparse matrix 'x_sparse' from 'x'
     x_sparse = denseToSpRE(x, 0.5);
 
     // Convert `x_sparse` to new dense matrix
@@ -56,7 +54,7 @@ After the code above, *d* is equal to:
 
 ::
 
-    -9.00   0.00   0.00   0.00
+     -9.00   0.00   0.00   0.00
       0.00   4.00   0.00   0.00
       5.00   0.00   0.00   7.00
       0.00   0.00   0.00   2.20
@@ -88,6 +86,6 @@ You can calculate the mean of the non-zero elements of *x* like this:
     nnz =       7
     nzmean = 4.31
 
-The call to :func:`denseToSpRE` towards the start of this example, removed all non-zeros less than :math:`0.5 * nzmean \approx 2.16`.
+This implies that the call to :func:`denseToSpRE` towards the start of this example removed all non-zeros less than :math:`0.5 * nzmean \approx 2.16`.
 
 .. seealso:: Functions :func:`denseToSp`, :func:`spCreate`, :func:`spToDense`
