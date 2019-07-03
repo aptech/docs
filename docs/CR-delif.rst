@@ -19,7 +19,7 @@ Format
     :param e: vector of 0's and 1's
     :type e: Nx1 logical vector
 
-    :returns: **new_x** (*MxK matrix*) - consisting of the rows of *new_x* for
+    :returns: **new_x** (*MxK matrix*) - consisting of the rows of *x* for
         which there is a 0 in the corresponding row of
         e. If no rows remain, :func:`delif` will return a scalar missing.
 
@@ -31,7 +31,8 @@ operators. For instance:
 
 ::
 
-   /* Create a vector 'e' with a 1 for each row in which the
+   /*
+   ** Create a vector 'e' with a 1 for each row in which the
    ** value in the second column of 'x' is less than 100,
    ** otherwise a 0
    */
@@ -101,8 +102,6 @@ In this example, we will remove all observations in which the value of the third
           37     3     1,
           31     4     1 };
 
-
-
     // Create logical vector of 1's and 0's
     e = x[., 3] .== 3;
 
@@ -128,7 +127,7 @@ After the code above, *new_x* should be equal to:
 Create new 'x' and 'y' based on 'y'
 +++++++++++++++++++++++++++++++++++
 
-In this example, we will remove all observations from *x* and *y* in which the value of the third column is 3.
+In this example, we will remove all observations from *x* and *y* in which the value of the third column of *y* is 2.
 
 ::
 
@@ -192,7 +191,7 @@ Logical comparison of multiple columns
          60 70 80 };
 
     // Logical vector, comparing two columns
-    e =(x[.,1] .gt 0) .and (x[.,3] .lt 100);
+    e =(x[., 1] .gt 0) .and (x[., 3] .lt 100);
 
     new_x = delif(x, e);
 

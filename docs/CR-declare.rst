@@ -25,7 +25,7 @@ Format
     :param symbol: the name of the symbol being declared
     :type symbol:
 
-    :param aop: the type of assignment to be made
+    :param aop: the type of assignment to be made. If *aop* is specified, *clist* must be also.
 
         .. csv-table::
             :widths: auto
@@ -34,8 +34,6 @@ Format
             "``!=``", "if not initialized, initialize.If already initialized, reinitialize."
             "``:=``", "if not initialized, initialize.If already initialized, redefinition error."
             "``?=``", "if not initialized, initialize.If already initialized, leave as is."
-
-        "If *aop* is specified, *clist* must be also."
 
     :type aop: literal
 
@@ -46,7 +44,7 @@ Format
 Remarks
 -------
 
-The `declare` syntax is similar to the let statement.
+The `declare` syntax is similar to the `let` statement.
 
 `declare` generates no executable code. This is strictly for compile time
 initialization. The data on the right-hand side of the equal sign must
@@ -112,7 +110,7 @@ Here are some of the possible uses of the three forms of declaration:
     * - ``?=``
       - Interactive programming where some global defaults were set when you
         started and you don't want them reset for each successive run even if
-        the file containing the declare's gets recompiled. This can get you into
+        the file containing the `declare`'s gets recompiled. This can get you into
         trouble if you are not careful.
 
 The `declare` statement warning level is a compile option. Call :func:`config` in
@@ -159,24 +157,12 @@ After this code:
 
     x = "This string."
 
-In this example we declare a matrix *x* and set the matrix to specified values:
-
-::
-
-    declare matrix x;
-
-After this the *x* matrix is zero:
-
-::
-
-    x = 0
-
-Now initialize the *x* matrix with specific values:
+In this example we reinitialize the matrix *x* and set *x* to specified values:
 
 ::
 
     /*
-    ** Initialize 'x' with the specified values and
+    ** Re-initialize 'x' with the specified values and
     ** return a warning if 'x' already exists AND
     ** the 'Compile Options: declare warnings' is
     ** selected
@@ -223,6 +209,8 @@ If there is no value specified the matrix is filled with zeroes:
 
     declare matrix x[3,3];
 
+::
+
         0 0 0
     x = 0 0 0
         0 0 0
@@ -251,7 +239,8 @@ Even if we include ``"`` when declaring the values in a matrix, it will create a
 
 ::
 
-    /* Since this is declared as a matrix, the text in
+    /*
+    ** Since this is declared as a matrix, the text in
     ** quotes will create a character vector, rather
     ** than a string array
     */
@@ -266,7 +255,7 @@ produces:
     mean variance
 
 
-Structures can hold various members including scalars, arrays, matrices, strings, and string arrays, and other structures. The must first be defined before being declared:
+Structures can hold various members including scalars, arrays, matrices, strings, and string arrays, and other structures. The structure must first be defined before being declared:
 
 ::
 
@@ -285,15 +274,15 @@ Structures can hold various members including scalars, arrays, matrices, strings
 .. list-table::
     :widths: auto
 
-    * - ms.m
+    * - *ms.m*
       - empty matrix
-    * - ms.s
+    * - *ms.s*
       - null string
-    * - ms.sa
+    * - *ms.sa*
       - 1x1 string array containing a null string
-    * - ms.a
+    * - *ms.a*
       - 1-dimensional array of 1 containing 0
-    * - ms.sm
+    * - *ms.sm*
       - empty sparse matrix
 
 .. seealso:: Functions `let`, `external`
