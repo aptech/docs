@@ -17,7 +17,7 @@ Format
     :param x: Data that is to be broken up into dummy variables
     :type x: Nx1 vector
 
-    :param v: Specifies the K-1 breakpoints (these must be in ascending order) that determine the K categories to be used. These categories should not overlap.
+    :param v: Specifies the :math:`K-1` breakpoints (these must be in ascending order) that determine the :math:`K` categories to be used. These categories should not overlap.
     :type v: (K-1)x1 vector
 
     :returns: **y** (*NxK matrix*) - contains the *K* dummy variables.
