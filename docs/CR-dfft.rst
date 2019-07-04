@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: dfft(x)
 
-    :param x:
+    :param x: Values used to compute the discrete Fourier transform.
     :type x: Nx1 vector
 
     :returns: **y** (*Nx1 vector*) - The discrete Fourier transform.
@@ -51,11 +51,11 @@ After this ``f_k`` is equal to:
     8
     0
 
-Now take the discrete Fourier transform of f_k:
+Now take the discrete Fourier transform of ``f_k``:
 
 ::
 
-    // Discrete Fourier trasform
+    // Discrete Fourier transform
     print dfft(f_k);
 
 After the code the discrete Fourier transform is printed:

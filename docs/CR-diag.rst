@@ -14,7 +14,7 @@ Format
     :param x: Data matrix.
     :type x: NxK matrix or LxNxK array
 
-    :returns: **y** (*min(N,K)x1 vector or L-dimensional array*) - The diagonal of the *x* matrix where the last two dimensions are :math:`min(N,K)x1`.
+    :returns: **y** (*min(N,K)x1 vector or L-dimensional array*) - The diagonal of the *x* matrix where the last two dimensions are min(N,K)x1.
 
 Remarks
 -------
@@ -24,7 +24,7 @@ the last two dimensions need not be equal.
 
 If *x* is an array, the result will be an array containing the diagonals
 of each 2-dimensional array described by the two trailing dimensions of
-*x*. In other words, for a 10x4x4 array, the result will be a 10x4x1 array
+*x*. For example, for a 10x4x4 array, the result will be a 10x4x1 array
 containing the diagonals of each of the 10 4x4 arrays contained in *x*.
 
 :func:`diagrv` reverses the procedure and puts a vector into the diagonal of a
@@ -33,8 +33,9 @@ matrix.
 
 Examples
 ----------------
-Get the diagonal from a matrix.
 
+Get the diagonal from a matrix.
++++++++++++++++++++++++++++++++++++++++++++++
 ::
 
     // Set rng seed for reproducibility
@@ -64,7 +65,7 @@ After the above code,
     0.73350290
 
 Using :func:`diag` function for a 3x4x4 dimensional array.
-
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ::
 
     // Create random matrix

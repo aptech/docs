@@ -75,10 +75,10 @@ This section returns:
     0      0      0      1
     0      1      0      0
 
-We can use ``p`` to permutate our  ``x``
+We can use ``p`` to permutate the matrix  ``x``
 
 ::
-  
+
     /*
     ** Create a permuted version of 'x' with our preferred row
     ** order

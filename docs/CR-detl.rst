@@ -20,7 +20,7 @@ variable. This function will return the value of that determinant and,
 because the value has been computed in a previous instruction, this will
 require no computation.
 
-The following functions will set the system variable used by detl:
+The following functions will set the system variable used by :func:`detl`:
 
 +-------------------------+-----------------------------------------------------+
 | :code:`chol(x)`         |                                                     |
@@ -50,7 +50,7 @@ return both with the minimum amount of computation:
     xi = inv(x);
     xd = detl;
 
-The function :code:`det(x)` returns the determinant of a
+The function :func:`det(x)` returns the determinant of a
 matrix using the Crout decomposition. If you only want the determinant of a positive definite matrix,
 the following code will be the fastest for matrices larger than 10x10:
 
@@ -67,6 +67,6 @@ The Cholesky decomposition is computed and the
 result from that is discarded. The determinant
 saved during that instruction is retrieved using
 :func:`detl`. This can execute up to 2.5 times faster than
-:code:`det(x)` for large positive definite matrices.
+:func:`det(x)` for large positive definite matrices.
 
 .. seealso:: Functions :func:`det`, :func:`norm`

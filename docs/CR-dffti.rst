@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: dffti(x)
 
-    :param x:
+    :param x: values used to computer the inverse of the discrete Fourier transform.
     :type x: Nx1 vector
 
-    :returns: **y** (*Nx1 vector*) - The inverse discrete Fourier transform.
+    :returns: **y** (*Nx1 vector*) - the inverse discrete Fourier transform.
 
 Remarks
 -------
@@ -48,21 +48,21 @@ After this ``f_k`` is equal to:
 ::
 
     // Discrete Fourier transform
-    y = dfft(f_k);
+    x = dfft(f_k);
 
     // Inverse Fourier transform
-    x = dffti(y);
+    y = dffti(x);
 
 Now:
 
 ::
 
-    y =   5
+    x =   5
           0 -      1i
           3 +      0i
           0 +      1i
 
-    x =   8 +      0i
+    y =   8 +      0i
           4 +      0i
           8 +      0i
           0 +      0i
