@@ -5,7 +5,7 @@ DOSWinCloseall
 Purpose
 ----------------
 
-Closes the DOS compatibility window. 
+Closes the DOS compatibility window.
 
 .. WARNING:: The DOS compatibility window is no longer supported. This documentation is provided as a reference for understanding legacy code.
 
@@ -30,8 +30,5 @@ Examples
        errorlog "Failed to open DOS window, aborting";
        stop;
     endif;
-     .
-     .
-     .
+    
     DOSWinCloseall;
-

@@ -14,10 +14,10 @@ Format
     :param x: data that is to be broken up into dummy variables
     :type x: Nx1 vector
 
-    :param v: specifies the *K* breakpoints (these must be in ascending order) that determine the *K* categories to be used. These categories should not overlap.
+    :param v: specifies the :math:`K` breakpoints (these must be in ascending order) that determine the :math:`K` categories to be used. These categories should not overlap.
     :type v: Kx1 vector
 
-    :returns:**y** (*NxK matrix*) - containing the *K* dummy variables. Each row will have a maximum of one 1.
+    :returns: **y** (*NxK matrix*) - containing the :math:`K` dummy variables. Each row will have a maximum of one 1.
 
 Remarks
 -------
@@ -26,7 +26,7 @@ Missings are deleted before the dummy variables are created.
 
 All categories are open on the left (i.e., do not contain their left
 boundaries) and are closed on the right (i.e., do contain their right
-boundaries). Thus, *K* breakpoints are required to specify *K* dummy
+boundaries). Thus, :math:`K` breakpoints are required to specify :math:`K` dummy
 variables.
 
 The function :func:`dummy` is similar to :func:`dummybr`, but in that function the

@@ -11,39 +11,36 @@ Format
 ----------------
 .. function:: dstat(dataset, vars)
 
-    :param dataset: name of data set. If *dataset* is null or 0, *vars* will be assumed
+    :param dataset: name of dataset. If *dataset* is null or 0, *vars* will be assumed
         to be a matrix containing the data.
     :type dataset: string
 
-    :param vars: the variables. If *dataset* contains the name of a data set, *vars* will be interpreted as:
+    :param vars: the variables.
 
-        - Kx1 character vector, names of variables.
-        - OR
-        - Kx1 numeric vector, indices of variables.
-        - OR
-        - `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
+    If *dataset* contains the name of a dataset, *vars* will be interpreted as either a Kx1 character vector containing the names of variables,
+    a Kx1 numeric vector containing indices of variables, or a `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
 
-        These can be any size subset of the variables in the data set and can be in any order. If a scalar 0 is passed, all columns of the data set will be used. If *dataset* is null or 0, *vars* will be interpreted as:
+    These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
 
-        NxK matrix, the data on which to compute the descriptive statistics.
+    If *dataset* is null or 0, *vars* will be interpreted as a NxK matrix, the data on which to compute the descriptive statistics.
 
-    :type vars: string or string array 
+    :type vars: string or string array
 
-    :returns: vnam (*Kx1 character vector*), the names of the variables used in the statistics.
+    :returns: **vnam** (*Kx1 character vector*) - the names of the variables used in the statistics.
 
-    :returns: mean (*Kx1 vector*), means.
+    :returns: **mean** (*Kx1 vector*) - means.
 
-    :returns: var (*Kx1 vector*), variance.
+    :returns: **var** (*Kx1 vector*) - variance.
 
-    :returns: std (*Kx1 vector*), standard deviation.
+    :returns: **std** (*Kx1 vector*) - standard deviation.
 
-    :returns: min (*Kx1 vector*), minima.
+    :returns: **min** (*Kx1 vector*) - minima.
 
-    :returns: max (*Kx1 vector*), maxima.
+    :returns: **max** (*Kx1 vector*) - maxima.
 
-    :returns: valid (*Kx1 vector*), the number of valid cases.
+    :returns: **valid** (*Kx1 vector*) - the number of valid cases.
 
-    :returns: mis (*Kx1 vector*), the number of missing cases.
+    :returns: **mis** (*Kx1 vector*) - the number of missing cases.
 
 Global Input
 ------------
@@ -65,10 +62,10 @@ Global Input
 .. data:: __miss
 
     scalar, default 0.
-    
+
     .. csv-table::
         :widths: auto
-        
+
         0, "there are no missing values (fastest)."
         1, "listwise deletion, drop a row if any missings occur in it."
         2, "pairwise deletion."
@@ -98,7 +95,8 @@ Example 1
 ::
 
     // Calculate statistics on all variables in dataset
-    file = getGAUSShome() $+ "examples/freqdata.dat";				
+    file = getGAUSShome() $+ "examples/freqdata.dat";
+
     // Calculate statistics on all variables in dataset: AGE, PAY, sex and WT
     vars = 0;
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
@@ -141,7 +139,7 @@ Example 3
 ::
 
     // Calculate statistics on just AGE and PAY using numerical indices
-    vars = { 1, 2 }; 
+    vars = { 1, 2 };
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 
 After the above code,
@@ -161,8 +159,9 @@ Example 4
 ::
 
     // Calculate statistics on just AGE and PAY using __miss
-    vars = { 1, 2 }; 
-    // Drop rows with missing values				
+    vars = { 1, 2 };
+
+    // Drop rows with missing values
     __miss = 1;
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 
@@ -181,10 +180,13 @@ Example 5
 
 ::
 
-    // Calculate statistics using formula string and  __miss
-    // Set up a formula string with all variables exclude "sex"
-    vars = ". - sex"; 
-    // Drop rows with missing values				
+    /*
+    ** Calculate statistics using formula string and  __miss
+    ** Set up a formula string with all variables exclude "sex"
+    */
+    vars = ". - sex";
+
+    // Drop rows with missing values
     __miss = 1;
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 
@@ -207,9 +209,9 @@ values for the valid data. The means and standard deviations will be
 computed using the correct number of valid observations for each
 variable.
 
-2. The supported data set types are `CSV`, `XLS`, `XLSX`, `HDF5`, `FMT`, `DAT`.
+2. The supported dataset types are `CSV`, `XLS`, `XLSX`, `HDF5`, `FMT`, `DAT`, `DTA`.
 
-For HDF5 file, the dataset must include `file schema` and both file name and data set name must be provided, e.g.
+For HDF5 file, the dataset must include `file schema` and both file name and dataset name must be provided, e.g.
 :code:`dstat("h5://C:/gauss/examples/testdata.h5/mydata", formula)`
 
 .. seealso:: `Formula String`
@@ -218,4 +220,3 @@ Source
 ------
 
 dstat.src
-

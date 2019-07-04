@@ -68,7 +68,7 @@ values. For example:
     stop program (4) + close window (2) + confirm close (1) = 7
 
 The close action flags are only relevant when a user attempts to
-interactively close the DOS window while a program is running. If **GAUSS**
+interactively close the DOS window while a program is running. If GAUSS
 is idle, the window will be closed immediately. Likewise, if a program
 calls :func:`DOSWinCloseall`, the window is closed, but the program does not get
 terminated.

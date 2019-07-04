@@ -111,19 +111,19 @@ First loop:
 
     format /rd 1,0;
 
-      // Initialize counter
-      i = 1;
+    // Initialize counter
+    i = 1;
 
-      /*
-      ** Run do loop while i is
-      ** less than or equal to 10
-      */
-      do while i <= 10;
-          print i;;
+    /*
+    ** Run do loop while i is
+    ** less than or equal to 10
+    */
+    do while i <= 10;
+      print i;;
 
-          // Advance counter
-          i = i + 1;
-      endo;
+      // Advance counter
+      i = i + 1;
+    endo;
 
 ::
 

@@ -17,7 +17,7 @@ Format
     :param month: Months. :math:`1 \leq month \leq 12`.
     :type month: NxK matrix
 
-    :param day: Days. :math:`1 \leq month \leq 31`.
+    :param day: Days. :math:`1 \leq day \leq 31`.
     :type day: matrix
 
     :returns: **dt** (*NxK matrix*) - DT scalar format dates.
@@ -42,6 +42,7 @@ Examples
 After the above code:
 
 ::
+  
     20070913000000
 
 

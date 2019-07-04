@@ -46,6 +46,7 @@ Examples
 
        // plot data in first window
        xy(x, y);
+
     nextwind;
 
        _pbox = 15;
@@ -59,7 +60,8 @@ Examples
 
        // Create graph
        draw;
-    endwind;                
+
+    endwind;
 
 Source
 ------

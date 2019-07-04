@@ -17,7 +17,7 @@ Format
     :param fmt:  Contains date/time format characters.
     :type fmt: String or  ExE conformable string array
 
-    :returns: **sa** (*NxK string array*) -Date in character string format.
+    :returns: **sa** (*NxK string array*) - Date in character string format.
 
 Remarks
 -------
@@ -73,7 +73,7 @@ Example 1
     dt = 201202;
     print dttostr(dt, "QQ-YYYY");
 
-    produces the output:
+produces the output:
 
 ::
 

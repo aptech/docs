@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: dstatmtControlCreate()
 
-    :returns: **c** (*struct*) - instance of :class:`dstatmtControl` struct with members set to default values.
+    :returns: **dctl** (*struct*) - instance of :class:`dstatmtControl` struct with members set to default values.
 
 Examples
 ----------------
@@ -19,13 +19,13 @@ Examples
 ::
 
     /*
-    ** Declare 'dsm' as an instance of a
+    ** Declare 'dctl' as an instance of a
     ** 'dstatmtControl' structure
     */
-    struct dstatmtControl dsm;
+    struct dstatmtControl dctl;
 
-    // Apply default values to 'dsm'
-    dsm = dstatmtControlCreate();
+    // Apply default values to 'dctl'
+    dctl = dstatmtControlCreate();
 
 Source
 ------

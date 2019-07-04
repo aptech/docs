@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: dttime(hour, minute, second)
 
-    :param hour: Hours. :math:`0 \leq month \leq 23`.
+    :param hour: Hours. :math:`0 \leq hour \leq 23`.
     :type hour: NxK matrix
 
-    :param minute: Minutes. :math:`0 \leq month \leq 59`.
+    :param minute: Minutes. :math:`0 \leq minute \leq 59`.
     :type minute: NxK matrix
 
-    :param second: Seconds. :math:`0 \leq month \leq 59`.
+    :param second: Seconds. :math:`0 \leq second \leq 59`.
     :type second: NxK matrix
 
     :returns: **dt** (*NxK matrix*) - DT scalar format times.
@@ -41,6 +41,7 @@ Examples
 After the above code:
 
 ::
+
     112756
 
 

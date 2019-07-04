@@ -17,16 +17,16 @@ Format
     :param month: Months. :math:`1 \leq month \leq 12`.
     :type month: NxK matrix
 
-    :param day: Days. :math:`1 \leq month \leq 31`.
+    :param day: Days. :math:`1 \leq day \leq 31`.
     :type day: NxK matrix
 
-    :param hour: Hours. :math:`0 \leq month \leq 23`.
+    :param hour: Hours. :math:`0 \leq hour \leq 23`.
     :type hour: NxK matrix
 
-    :param minute: Minutes. :math:`0 \leq month \leq 59`.
+    :param minute: Minutes. :math:`0 \leq minutes \leq 59`.
     :type minute: NxK matrix
 
-    :param second: Seconds. :math:`0 \leq month \leq 59`.
+    :param second: Seconds. :math:`0 \leq seconds \leq 59`.
     :type second: NxK matrix
 
     :returns: **dt** (*NxK matrix*) - DT scalar format dates.
@@ -56,6 +56,7 @@ Examples
 After the above code:
 
 ::
+  
     20121221112756
 
 

@@ -17,7 +17,7 @@ Format
 Remarks
 -------
 
-This allows all operating system commands to be used from within **GAUSS**.
+This allows all operating system commands to be used from within GAUSS.
 It allows other programs to be run even though GAUSS is still resident
 in memory.
 
@@ -30,10 +30,10 @@ has been executed.
 
 All matrices are retained in memory when the OS is accessed in this way.
 This command allows the use of word processing, communications, and
-other programs from within **GAUSS**.
+other programs from within GAUSS.
 
 Do not execute programs that terminate and remain resident because they
-will be left resident inside of **GAUSS**'s workspace. Some examples are
+will be left resident inside of GAUSS's workspace. Some examples are
 programs that create RAM disks or print spoolers.
 
 If the command is to be taken from a string variable, the ``^`` (caret) must
@@ -50,10 +50,8 @@ Examples
     cmdstr = "atog mycfile";
     dos ^cmdstr;
 
-This will run the ATOG utility, using mycfile.cmd
+This will run the ATOG utility, using ``mycfile.cmd``
 as the ATOG command file. For more information, see `ATOG, Chapter 1`.
-
-.. DANGER:: link up chapter
 
 ::
 
@@ -62,7 +60,7 @@ as the ATOG command file. For more information, see `ATOG, Chapter 1`.
 This will use the DOS ``dir`` command to print a
 directory listing of all files with a ``.prg``
 extension on Windows. When the listing is finished, control
-will be returned to **GAUSS**.
+will be returned to GAUSS.
 
 ::
 
@@ -77,6 +75,6 @@ This will perform the same operation on Linux.
 This will cause a second level OS shell to be
 entered. The OS prompt will appear and OS
 commands or other programs can be executed. To
-return to **GAUSS**, type ``exit``.
+return to GAUSS, type ``exit``.
 
 .. seealso:: Functions :func:`exec`
