@@ -16,7 +16,26 @@ Format
 
     :returns: **y** (*MxN matrix or N-dimensional array*) - digamma.
 
+Examples
+----------------
 
+::
+
+  // Define x matrix
+  x = { 2, 6, 3, 49, 5 };
+
+  // Find digamma function
+  y = digamma(x);
+
+After this code:
+
+::
+
+  y =  0.42278434
+       1.7061177
+       0.92278434 
+       3.8815815
+       1.5061177
 
 Remarks
 -------
