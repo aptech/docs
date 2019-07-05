@@ -8,7 +8,7 @@ Purpose
 Completes the definition of a set of threads to be executed simultaneously.
 
 .. _threadJoin:
-.. indexA:: threadJoin
+.. index:: threadJoin
 
 Format
 ----------------
