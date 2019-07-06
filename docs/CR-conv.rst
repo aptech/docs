@@ -39,10 +39,15 @@ multiplying the two polynomials.
 Examples
 ----------------
 
+Full convolution
+++++++++++++++++
+
+The following example is equivalent to the following polynomial multiplication :math:`(x^2 + 3)(2x + 7) = 2x^3 + 7x^2 + 6x + 21`
+
 ::
 
     // Vectors
-    u = {1, 0, 1};
+    u = {1, 0, 3};
     v = {2, 7};
 
     /*
@@ -57,13 +62,16 @@ After the code the following is printed to the screen:
 
     2.0000
     7.0000
-    2.0000
-    7.0000 
+    6.0000
+   21.0000 
+
+Partial convolution
++++++++++++++++++++
 
 ::
 
     // Vectors
-    u = {1, 0, 1};
+    u = {1, 0, 3};
     v = {2, 7};
 
     /*

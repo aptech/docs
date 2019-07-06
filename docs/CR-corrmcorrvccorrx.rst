@@ -76,7 +76,7 @@ Continuing from above code,
 
     // Correlation of vc of x2
     vc = varCovMS(x2'x2);
-    print "corrvc(varCovMS(vc)):" corrvc(varCovMS(vc));
+    print "corrvc(varCovMS(x2'x2)):" corrvc(vc);
 
 After the above code,
 
@@ -86,11 +86,13 @@ After the above code,
     	 1.0000000       0.52196856       0.75039768
     	0.52196856        1.0000000       0.95548228
     	0.75039768       0.95548228        1.0000000
+
     corrm(x2'x2) :
     	 1.0000000       0.52196856       0.75039768
     	0.52196856        1.0000000       0.95548228
     	0.75039768       0.95548228        1.0000000
-    corrvc(varCovMS(x2'x2)):
+
+    corrvc(vc):
     	 1.0000000       0.52196856       0.75039768
     	0.52196856        1.0000000       0.95548228
     	0.75039768       0.95548228        1.0000000

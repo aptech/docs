@@ -12,17 +12,17 @@ Format
 ----------------
 .. function:: contains(haystack, needles)
 
-    :param haystack: multi-dimensional array or string array. The symbol to search.
-    :type haystack: matrix
+    :param haystack: The symbol to search.
+    :type haystack: matrix, N-dimensional array or string array
 
-    :param needles: multi-dimensional array or string array, containing the elements to look for.
-    :type needles: matrix
+    :param needles: The elements to look for.
+    :type needles: matrix, N-dimensional array or string array
 
     :returns: **found** (*scalar*) - 1 if one or more elements from *needles* was found in *haystack*, or 0 if no matches were found.
 
         If needles contains only one element, the output
-        from :func:`contains` will be the same as the '``==``' operator
-        for numeric data, or the '``$==``' operator for string data.
+        from :func:`contains` will be the same as the ``==`` operator
+        for numeric data, or the ``$==`` operator for string data.
 
 Examples
 ----------------

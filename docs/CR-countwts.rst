@@ -28,7 +28,7 @@ Format
 
             x < v[1],\\
             v[1] ≤ x < v[2],\\
-            \vdots
+            \vdots\\
             v[p-1] ≤ x < v[p]
 
         That is, when :math:`x[i]` falls into region *j*, the weight

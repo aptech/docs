@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: csvWriteM(data, filename[, sep[, prec[, append[, newline]]]])
 
-    :param data: containing the data to be written
+    :param data: containing the data to be written.
     :type data: matrix
 
     :param filename: valid filespec, name of CSV file to write.
@@ -33,7 +33,7 @@ Format
 Remarks
 ------------
 
-The standard output and standard error streams (stdin, stderr) can be
+The standard output and standard error streams (stdout, stderr) can be
 written to with :func:`csvWriteM` by passing in the variable `__STDOUT`, or
 `__STDERR` as the filename input. Note that `__STDOUT`, or `__STDERR`
 should not be passed in as a string. The following example shows correct
