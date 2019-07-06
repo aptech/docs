@@ -11,21 +11,23 @@ Format
 ----------------
 .. function:: eqSolvemtControlCreate()
 
-    :returns: c (*struct*) instance of :class:`eqSolvemtControl` struct with
+    :returns: **c** (*struct*) - instance of :class:`eqSolvemtControl` struct with
         members set to default values.
 
 Examples
 ----------------
-Since structures are strongly typed in GAUSS, each structure must be 
+Since structures are strongly typed in GAUSS, each structure must be
 declared before it can be used.
 
 ::
 
-    // declare 'c' as an 
-    // eqSolvemtControl structure 
+    /*
+    ** Declare 'c' as an
+    ** eqSolvemtControl structure
+    */
     struct eqSolvemtControl c;
-    
-    // initialize structure c
+
+    // Initialize structure c
     c = eqSolvemtControlCreate();
 
 The members of an :class:`eqSolvemtControl` structure and default values are described in
@@ -37,4 +39,3 @@ Source
 eqsolvemt.src
 
 .. seealso:: Functions :func:`eqSolvemt`
-

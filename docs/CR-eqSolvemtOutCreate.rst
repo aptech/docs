@@ -11,20 +11,20 @@ Format
 ----------------
 .. function:: eqSolvemtOutCreate()
 
-    :returns: c (*struct*) instance of :class:`eqSolvemtOut` struct with members set to default values.
+    :returns: **eqOut** (*struct*) - instance of :class:`eqSolvemtOut` struct with members set to default values.
 
 Examples
 ----------------
-Since structures are strongly typed in GAUSS, each structure must be 
+Since structures are strongly typed in GAUSS, each structure must be
 declared before it can be used.
 
 ::
 
-    // declare structure
-    struct eqSolvemtOut c;
-    
+    // Declare structure
+    struct eqSolvemtOut eqOut;
+
     // Initialize structure
-    c = eqSolvemtOutCreate();
+    eqOut = eqSolvemtOutCreate();
 
 The members of an :class:`eqSolvemtOut` structure and default values are described in
 the manual entry for :func:`eqSolvemt`.
@@ -35,4 +35,3 @@ Source
 eqsolvemt.src
 
 .. seealso:: Functions :func:`eqSolvemt`
-
