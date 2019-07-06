@@ -14,7 +14,7 @@ Format
     :param fh: file handle of an open file
     :type fh: scalar
 
-    :returns: **yf** (*scalar*) - number of columns in the file that has the handle *fh*.
+    :returns: **ncols** (*scalar*) - number of columns in the file that has the handle *fh*.
 
 Remarks
 -------
@@ -26,16 +26,21 @@ Examples
 
 ::
 
-    // Create a file with 10 columns
-    create fp = myfile with x,10,4;
+    // Create filename with full path
+    dataset = getGAUSSHome() $+ "examples/credit.dat";
 
-    // Calculate the number of rows of the file created above
-    nCols = colsf(fp);
+    // Open file handle for data reading only
+    fh = dataOpen(dataset, "read");
+
+    // Calculate the number of columns in the file created above
+    ncols = colsf(fh);
+
+    call close(fh);
 
 The result will be
 
 ::
 
-    nCols = 10
+    ncols = 11
 
 .. seealso:: Functions :func:`rowsf`, :func:`cols`, :func:`show`

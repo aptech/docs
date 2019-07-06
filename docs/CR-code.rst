@@ -13,10 +13,7 @@ Format
 ----------------
 .. function:: code(logical, new_vals)
 
-    :param logical: matrix of 1's and 0's. Each column of this matrix
-        is created by a logical expression using ''dot'' conditional and boolean operators. Each of these expressions should
-        return a column vector result. The columns are horizontally concatenated to produce logical. If more than
-        one of these vectors contains a 1 in any given row, the code function will terminate with an error message.
+    :param logical: matrix of 1’s and 0’s.  If any row contains more than a single 1, the function will terminate with an error message. 
     :type logical: NxK matrix
 
     :param new_vals: the values to be assigned to the new variable
@@ -27,13 +24,14 @@ Format
 Remarks
 ------------
 
-For every row in logical, if a 1 is in the first column, the first
-element of *new_vals* is used. If a 1 is in the second column, the second
-element of *new_vals* is used, and so on. If there are only zeros in the
-row, the last element of *new_vals* is used. This is the default value.
-
-If there is more than one 1 in any row of logical, the function will
-terminate with an error message.
+* The "dot" conditional and boolean operators can be used to create *logical*.
+* For every row in *logical*, if a 1 is in the first column, the first
+  element of *new_vals* is used. If a 1 is in the second column, the second
+  element of *new_vals* is used, and so on. 
+* If there are only zeros in the
+  row, the last element of *new_vals* is used. This is the default value.
+* If there is more than a single 1 in any row of *logical*, the function will
+  terminate with an error message.
 
 Examples
 ----------------
