@@ -56,7 +56,7 @@ Format
             ":math:`[N,12]`", "n/a, 0"
             ":math:`[N,13]`", "n/a, 0"
 
-        finfo will be a scalar zero if no matches are found.
+        *finfo* will be a scalar zero if no matches are found.
 
 Remarks
 -------
@@ -64,7 +64,7 @@ Remarks
 *fnames* will contain file names only; any path information that was
 passed is dropped.
 
-The time stamp fields (:math:`finfo[N,9:11]`) are expressed as the number of
+The time stamp fields (:math:`finfo[N, 9:11]`) are expressed as the number of
 seconds since midnight, Jan. 1, 1970, Coordinated Universal Time (UTC).
 
 .. seealso:: Functions :func:`filesa`

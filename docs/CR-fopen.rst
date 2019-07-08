@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: fopen(filename, omode)
 
-    :param filename: name of file to open.
+    :param filename: name of file to open, can contain a path specification.
     :type filename: string
 
     :param omode: file I/O mode. (See *Remarks*, below.)
@@ -29,8 +29,6 @@ unnecessary, because in Linux/macOS a newline is simply a linefeed.
 
 Remarks
 -------
-
-filename can contain a path specification.
 
 *omode* is a sequence of characters that specify the mode in which to open
 the file. The first character must be one of:

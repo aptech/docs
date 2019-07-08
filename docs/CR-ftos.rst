@@ -26,7 +26,7 @@ Format
         separate precisions for the real and imaginary parts of *x*.
     :type prec: scalar or 2x1 vector
 
-    :returns: **x_str** (*string*) - Contains the decimal character equivalent of *x* in the format specified.
+    :returns: **x_str** (*string*) - contains the decimal character equivalent of *x* in the format specified.
 
 Remarks
 -------
@@ -38,43 +38,45 @@ notation, trailing character) slash parameter as follows:
     :widths: auto
 
     * - */rdn*
-      - :code`"%\*.\*lf"`
+      - :code:`"%\*.\*lf"`
     * - */ren*
-      - :code`"%\*.\*lE"`
+      - :code:`"%\*.\*lE"`
     * - */ron*
-      - :code`"%#\*.\*lG"`
+      - :code:`"%#\*.\*lG"`
     * - */rzn*
-      - :code`"%\*.\*lG"`
+      - :code:`"%\*.\*lG"`
     * - */ldn*
-      - :code`"%- \*.\*lf"`
+      - :code:`"%- \*.\*lf"`
     * - */len*
-      - :code`"%- \*.\*lE"`
+      - :code:`"%- \*.\*lE"`
     * - */lon*
-      - :code`"%-# \*.\*lG"`
+      - :code:`"%-# \*.\*lG"`
     * - */lzn*
-      - :code`"%- \*.\*lG"`
+      - :code:`"%- \*.\*lG"`
 
 If *x* is complex, you can specify separate formats for the real and
 imaginary parts by putting two format specifications in the format
 string. You can also specify separate fields and precisions. You can
-position the sign of the imaginary part by placing a "``+``" between the two
-format specifications. If you use two formats, no "``i``" is appended to the
+position the sign of the imaginary part by placing a ``+`` between the two
+format specifications. If you use two formats, no ``i`` is appended to the
 imaginary part. This is so you can use an alternate format if you
-prefer, for example, prefacing the imaginary part with a "``j``".
+prefer, for example, prefacing the imaginary part with a ``j``.
 
 The format string can be a maximum of 80 characters.
 
 If you want special characters to be printed after *x*, include them as
-the last characters of the format string. For example:
+the last characters of the format string.
+
+For example:
 
 .. list-table::
     :widths: auto
 
-    * - :code`"%*.*lf,"`
+    * - :code:`"%*.*lf,"`
       - right-justified decimal followed by a comma.
-    * - :code`"%-*.*s "`
+    * - :code:`"%-*.*s "`
       - left-justified string followed by a space.
-    * - :code`"%*.*lf"`
+    * - :code:`"%*.*lf"`
       - right-justified decimal followed by nothing.
 
  	You can embed the format specification in the middle of other text:
@@ -83,9 +85,9 @@ the last characters of the format string. For example:
 
             "Time: %*.*lf seconds."
 
-        If you want the beginning of the field padded with zeros, then put a "``0``" before the first "``\*``" in the format string:
+        If you want the beginning of the field padded with zeros, then put a ``0`` before the first ``*`` in the format string:
 
-    * - :code`"%0*.*lf"`
+    * - :code:`"%0*.*lf"`
       - right-justified decimal.
 
  	If :math:`prec = 0`, the decimal point will be suppressed.

@@ -36,14 +36,18 @@ where *p*, *q* and *r* are nonnegative integers and *s* is equal to 0 or 1.
 If a dimension of *x* does not meet this requirement, it will be padded
 with zeros to the next allowable size before the FFT is computed.
 
-:func:`fftn` pads matrices to the next allowable dimensions; however, it
+The :func:`fftn` pads matrices to the next allowable dimensions. However, it
 generally runs faster for matrices whose dimensions are highly composite
-numbers, i.e., products of several factors (to various powers), rather
-than powers of a single factor. For example, even though it is bigger, a
+numbers. Highly composite numbers are products of several factors (to various powers), rather
+than powers of a single factor.
+
+For example, even though it is bigger, a
 33600x1 vector can compute as much as 20% faster than a 32768x1 vector,
 because 33600 is a highly composite number,
 :math:`2\ :sup:`6`\ x3x5\ :sup:`2`\ x7`, whereas 32768 is a simple power of 2,
-:math:`2\ :sup:`15``. For this reason, you may want to hand-pad matrices to
+:math:`2\ :sup:`15``.
+
+For this reason, you may want to hand-pad matrices to
 optimum dimensions before passing them to :func:`fftn`. The `Run-Time Library`
 includes a routine, :func:`optn`, for determining optimum dimensions.
 

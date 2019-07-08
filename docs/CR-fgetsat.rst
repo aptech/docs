@@ -24,11 +24,11 @@ Format
 Remarks
 -------
 
-:func:`fgetsat` operates identically to :func:`fgetsa`, except that newlines are not
+The :func:`fgetsat` procedure operates identically to :func:`fgetsa`, except that newlines are not
 retained as text is read into *sa*.
 
 In general, you don't want to use :func:`fgetsat` on files opened in binary mode
-(see :func:`fopen`). :func:`fgetsat` drops the newlines, but it does NOT drop the
+(see :func:`fopen`). The :func:`fgetsat` procedure drops the newlines, but it does NOT drop the
 carriage returns that precede them on some platforms. Printing out such
 a string array can produce unexpected results.
 

@@ -37,7 +37,7 @@ The statement:
 
 ::
 
-   y = feqmt(a,b,1e-15);
+   y = feqmt(a, b, 1e-15);
 
 is equivalent to:
 

@@ -19,22 +19,18 @@ Format
 
     :returns: **sa** (*Nx1 string array*) - Contains the text read from the file lines specified by the file handle *fh*. :math:`N <= numl`.
 
-
-
 Remarks
 -------
 
-:func:`fgetsa` reads up to *numl* lines of text. If :func:`fgetsa` reaches the end of the
-file before reading *numl* lines, *sa* will be shortened. Lines are read in
-the same manner as :func:`fgets`, except that no limit is placed on the size of
-a line. Thus, :func:`fgetsa` always returns complete lines of text. Newlines are
-retained. If *numl* is 1, :func:`fgetsa` returns a string. (This is one way to
-read a line from a file without placing a limit on the length of the
-line.)
+The :func:`fgetsa` procedure reads up to *numl* lines of text. If :func:`fgetsa` reaches the end of the file before reading *numl* lines, *sa* will be shortened. Lines are read in the same manner as :func:`fgets`, except that no limit is placed on the size of a line. Thus, :func:`fgetsa` always returns complete lines of text with newlines retained.
+
+If *numl* is 1, :func:`fgetsa` returns a string. (This is one way to read a line from a file without placing a limit on the length of the line.)
 
 If the file is already at end-of-file when you call :func:`fgetsa`, your program
 will terminate with an error. Use :func:`eof` in conjunction with fgetsa to
-avoid this. If the file was opened for update (see :func:`fopen`) and you are
+avoid this.
+
+If the file was opened for update (see :func:`fopen`) and you are
 switching from writing to reading, don't forget to call :func:`fseek` or :func:`fflush`
 first, to flush the file's buffer.
 

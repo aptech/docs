@@ -19,7 +19,7 @@ Format
 Remarks
 -------
 
-Computes the inverse FFT of *x*, scaled by :math:`1/N`.
+Computes the inverse Fourier Fast transform of *x*, scaled by :math:`1/N`.
 
 This uses a Temperton prime factor Fast Fourier algorithm.
 

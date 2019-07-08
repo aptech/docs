@@ -19,11 +19,11 @@ Format
 Remarks
 -------
 
-:func:`ftell` returns the position of the file pointer in terms of bytes from
+The :func:`ftell` function returns the position of the file pointer in terms of bytes from
 the beginning of the file. The call may fail if the file buffer needs to
 be flushed (see :func:`fflush`).
 
-If an error occurs, ftell returns -1. You can call :func:`fstrerror` to find out
+If an error occurs, :func:`ftell` returns -1. You can call :func:`fstrerror` to find out
 what the error was.
 
 If you pass :func:`ftell` the handle of a file opened with `open` (i.e., a data

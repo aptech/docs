@@ -23,11 +23,11 @@ Format
 Remarks
 -------
 
-:func:`fgetst` operates identically to :func:`fgets`, except that the newline is not
+The :func:`fgetst` procedure operates identically to :func:`fgets`, except that the newline is not
 retained in the string.
 
 In general, you don't want to use :func:`fgetst` on files opened in binary mode
-(see :func:`fopen`). :func:`fgetst` drops the newline, but it does NOT drop the
+(see :func:`fopen`). The :func:`fgetst` procedure drops the newline, but it does NOT drop the
 preceding carriage return used on some platforms. Printing out such a
 string can produce unexpected results.
 

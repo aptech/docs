@@ -14,7 +14,7 @@ Format
 Remarks
 -------
 
-Functions can be called in the same way as other procedures.
+Functions created usig `fn` can be called in the same way as other procedures.
 
 
 Examples
@@ -30,4 +30,3 @@ After the code above:
 ::
 
     a = 50.2625
-

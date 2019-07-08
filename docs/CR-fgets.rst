@@ -23,7 +23,7 @@ Format
 Remarks
 -------
 
-:func:`fgets` reads text from a file into a string. It reads up to a newline,
+The :func:`fgets` procedure reads text from a file into a string. It reads up to a newline,
 the end of the file, or :math:`maxsize-1` characters. The result is placed in
 *str*, which is then terminated with a null byte. The newline, if present,
 is retained.

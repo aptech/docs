@@ -41,7 +41,7 @@ The statement:
 
 ::
 
-   y = feq(a,b);
+   y = feq(a, b);
 
 is equivalent to:
 
