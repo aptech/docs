@@ -11,11 +11,11 @@ Format
 ----------------
 .. function:: exp(x)
 
-    :param x: 
+    :param x: The values used to compute :math:`e^x`.
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*) containing *e*, the base of natural
-        logs, raised to the powers given by the elements of *x*.
+    :returns: **y** (*NxK matrix or N-dimensional array*) - contains :math:`e^x`, the base of natural
+        logs raised to the powers given by the elements of *x*.
 
 Examples
 ----------------
@@ -39,9 +39,8 @@ Examples
 
 This example creates a 3x3 identity matrix and
 computes the exponential function for each one of
-its elements. 
+its elements.
 
 .. NOTE:: :code:`exp(1)` returns *e*, the base of natural logs.
 
 .. seealso:: Functions :func:`ln`
-
