@@ -17,7 +17,7 @@ Format
     :type row_range: scalar or 2x1 matrix
 
     :param col_range: Optional input. The first element of *col_range* will specify the first column of the file to read. If there is a second element in *col_range*, it will specify the last column to read from the file. If there is no second element in *col_range*, GAUSS will read to the end of the file. If *col_range* is not passed in, all columns will be read from the file. Default = 1.
-    :type col_range: : scalar or 2x1 matrix
+    :type col_range: scalar or 2x1 matrix
 
     :param delimiter: Optional input. The character used to separate elements in the file. Examples include:
 
@@ -26,7 +26,7 @@ Format
         - semi-colon ``";"``
         - comma ``","`` (Default)
 
-    :type delimiter: : string
+    :type delimiter: string
 
     :returns: **s** (*string array*) - data read from the CSV file.
 
@@ -47,7 +47,7 @@ Examples
 Basic Example
 +++++++++++++
 
-Read all contents from the file myfile.csv located in your current GAUSS working directory.
+Read all contents from the file ``myfile.csv`` located in your current GAUSS working directory.
 
 ::
 

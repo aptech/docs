@@ -47,14 +47,14 @@ Examples
 ::
 
     // Note: The '$|' operator vertically concatenates strings
-    vnames = "Jim"$|"Harry"$|"Susan"$|"Wendy";
+    vnames = "Jim" $| "Harry" $| "Susan" $| "Wendy";
 
     /*
-    ** Create a dataset file named 'couples', containing all
+    ** Create a dataset file named 'couples.dat', containing all
     ** combinations of the names in 'vnames' taken 2 at a time
     */
     k = 2;
-    m = combinated("couples", "Spouse 1"$|"Spouse 2", rows(vnames),k);
+    m = combinated("couples.dat", "Spouse 1" $| "Spouse 2", rows(vnames),k);
 
     print m "rows were written to the dataset";
 
@@ -69,19 +69,19 @@ Continuing from the code above:
 ::
 
     // Open the file written above
-    open f0 = "couples";
+    fh = dataOpen("couples.dat", "read");
 
     // Read in m=6 rows of the dataset into 'y'
-    y = readr(f0, m);
+    y = readr(fh, m);
     print "y = " y;
 
     /*
     ** Get the variable names from the dataset and assign them
     ** to 'names'
     */
-    names = getnamef(f0);
-    f0=close(f0);
-    print $names ;
+    names = getnamef(fh);
+    fh = close(fh);
+    print names';
 
     for i(1, rows(y),1);
       print vnames[y[i, .]]';
@@ -92,24 +92,24 @@ will produce the following output:
 ::
 
     y =
-    	1.0000000        2.0000000
-    	1.0000000        3.0000000
-    	1.0000000        4.0000000
-    	2.0000000        3.0000000
-    	2.0000000        4.0000000
-    	3.0000000        4.0000000
+        1.0000000        2.0000000
+        1.0000000        3.0000000
+        1.0000000        4.0000000
+        2.0000000        3.0000000
+        2.0000000        4.0000000
+        3.0000000        4.0000000
 
-    	Spouse 1         Spouse 2
-    	  Jim            Harry
-    	  Jim            Susan
-    	  Jim            Wendy
-    	Harry            Susan
-    	Harry            Wendy
-    	Susan            Wendy
+        Spouse 1         Spouse 2
+             Jim            Harry
+             Jim            Susan
+             Jim            Wendy
+           Harry            Susan
+           Harry            Wendy
+           Susan            Wendy
 
-The first row of the print output 'Jim Harry' is the first and second element of *vnames*,
-because the first row of *y* is equal to '1 2'. The fourth row of the print
-output is 'Harry Susan', because the fourth row of *y* is '2 3' and 'Harry' is the second element of *vnames*
-while 'Susan' is the third element.
+The first row of the output, ``Jim Harry``, is the first and second element of *vnames*,
+because the first row of *y* is equal to ``1 2``. The fourth row of the 
+output is ``Harry Susan``, because the fourth row of *y* is ``2 3`` and ``Harry`` is the second element of *vnames*
+while ``Susan`` is the third element.
 
 .. seealso:: Functions :func:`combinate`, :func:`numCombinations`

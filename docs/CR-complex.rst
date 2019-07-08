@@ -26,11 +26,11 @@ Examples
 
     // The real elements
     xr = { 4 6,
-          9 8 };
+           9 8 };
 
     // The imaginary elements
     xi = { 3 5,
-          1 7 };
+           1 7 };
 
     z = complex(xr, xi);
 
@@ -38,7 +38,7 @@ After the code above, *z* will be equal to:
 
 ::
 
-    4 + 3i 6 + 5i
-    9 + 1i 8 + 7i
+    4 + 3i   6 + 5i
+    9 + 1i   8 + 7i
 
 .. seealso:: Functions :func:`imag`, :func:`real`

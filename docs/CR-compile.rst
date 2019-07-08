@@ -56,7 +56,7 @@ Remarks
 
 -  When the compiled file is run, all previous symbols and procedures
    are deleted before the program is loaded. It is therefore unnecessary
-   to execute a `new` before run'ning a compiled file.
+   to execute a `new` before running a compiled file.
 
 -  If you want line number records in the compiled file you can put a
    `#lineson` statement in the source file or turn line tracking on from
