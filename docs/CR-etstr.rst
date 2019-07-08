@@ -15,11 +15,11 @@ Format
         :func:`ethsec` function.
     :type tothsecs: scalar
 
-    :returns: str (string), containing the elapsed time in the form:
+    :returns: **str** (string) - containing the elapsed time in the form:
 
         .. csv-table::
             :widths: auto
-    
+
             "# days", "# hours", "# minutes", "#,## seconds"
 
 Examples
@@ -27,19 +27,26 @@ Examples
 
 ::
 
-    d1 = { 2012, 1, 2, 0 };
-    d2 = { 2012, 1, 14, 815642 };
-    t = ethsec(d1,d2);
-    str = etstr(t);
-    
-    print "t   = " t;
+    // Set start time
+    t_start = { 2012, 1, 2, 0 };
+
+    // Set end time
+    t_end = { 2012, 1, 14, 815642 };
+
+    // Find elapsed time in hundredths of secs
+    tothsecs = ethsec(t_start, t_end);
+
+    // Convert elapsed time to string format
+    str = etstr(tothsecs);
+
+    print "tothsecs   = " tothsecs;
     print "str = " str;
 
 Output:
 
 ::
 
-    t   = 104495642.000
+    tothsecs   = 104495642.000
     str = 12 days  2 hours  15 minutes  56.42 seconds
 
 Source
@@ -48,4 +55,3 @@ Source
 time.src
 
 .. seealso:: Functions :func:`ethsec`
-

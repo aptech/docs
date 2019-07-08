@@ -10,18 +10,18 @@ the :func:`date` command, in hundredths of a second.
 
 Format
 ----------------
-.. function:: ethsec(tstart, tend)
+.. function:: ethsec(t_start, t_end)
 
-    :param tstart: starting date, in the order:
+    :param t_start: starting date, in the order:
         yr, mo, day, hundredths of a second.
-    :type tstart: 4x1 vector
+    :type t_start: 4x1 vector
 
-    :param tend: ending date, in the order:
+    :param t_end: ending date, in the order:
         yr, mo, day, hundredths of a second.
         MUST be later date than *tstart*.
-    :type tend: 4x1 vector
+    :type t_end: 4x1 vector
 
-    :returns: hs (*scalar*), elapsed time measured in hundredths of
+    :returns: **hs** (*scalar*) - elapsed time measured in hundredths of
         a second.
 
 Remarks
@@ -37,11 +37,16 @@ Examples
 
 ::
 
-    let date1 = 2008 1 2 0;
-    let date2 = 2009 9 14 0;
-    t = ethsec(date1,date2);
+  // Set start date
+  t_start = {2008 1 2 0};
 
-After the code above, *t* is equal to:
+  // Set ending date
+  t_end = {2009 9 14 0};
+
+  // Calculate elapsed hundredths of secs
+  hs = ethsec(t_start, t_end);
+
+After the code above, *hs* is equal to:
 
 ::
 
@@ -53,4 +58,3 @@ Source
 time.src
 
 .. seealso:: Functions :func:`dayinyr`
-

@@ -9,10 +9,10 @@ Computes implied volatilities for European put options using binomial method.
 
 Format
 ----------------
-.. function:: EuropeanBinomPut_ImpVol(c, S0, K, r, div, tau, N)
+.. function:: EuropeanBinomPut_ImpVol(p, S0, K, r, div, tau, N)
 
-    :param c: put premiums.
-    :type c: Mx1 vector
+    :param p: put premiums.
+    :type p: Mx1 vector
 
     :param S0: current price.
     :type S0: scalar
@@ -32,7 +32,7 @@ Format
     :param N: number of time segments. A higher number of time segments will increase accuracy at the expense of increased computation time.
     :type N: scalar
 
-    :returns: sigma (*Mx1 vector*), volatility.
+    :returns: **sigma** (*Mx1 vector*) - volatility.
 
 Remarks
 -------
@@ -48,16 +48,31 @@ Examples
 
 ::
 
+    // Specify put premiums
     p = { 14.60, 17.10, 20.10 };
+
+    // Specify current price
     S0 = 718.46;
+
+    // Specify strike prices
     K = { 720, 725, 730 };
+
+    // Specify risk free rate
     r = .0398;
+
+    // Specify dividend
     div = 0;
-    t0 = dtday(2012, 1, 30);
-    t1 = dtday(2012, 2, 16);
-    tau = elapsedTradingDays(t0, t1) /
+
+    // Specify start and end dates
+    t_start = dtday(2012, 1, 30);
+    t_end = dtday(2012, 2, 16);
+
+    // Find annualize elapsed trading days
+    tau = elapsedTradingDays(t_start, t_end) /
         annualTradingDays(2012);
-    sigma = EuropeanBinomPut_ImpVol(p, S0, K, r, 0, tau, 30);
+
+    // Compute volatility
+    sigma = EuropeanBinomPut_ImpVol(p, S0, K, r, div, tau, 30);
     print sigma;
 
 produces:
@@ -72,4 +87,3 @@ Source
 ------
 
 finprocs.src
-
