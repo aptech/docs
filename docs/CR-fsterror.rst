@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: fstrerror
 
-    :returns: s (*string*), error message.
+    :returns: **s** (*string*) - error message.
 
 Remarks
 -------
@@ -31,4 +31,3 @@ error flag accessed by :func:`fstrerror`. Therefore, calling :func:`fstrerror` a
 :func:`ftell` on Windows will not produce any error information.
 
 .. seealso:: Functions :func:`fopen`, :func:`ftell`
-

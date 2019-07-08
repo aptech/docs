@@ -9,12 +9,12 @@ Gets the error status of a file.
 
 Format
 ----------------
-.. function:: fcheckerr(f)
+.. function:: fcheckerr(fh)
 
-    :param f: file handle of a file opened with fopen.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
-    :returns: err (*scalar*), error status.
+    :returns: **err** (*scalar*) - error status.
 
 Remarks
 -------
@@ -25,4 +25,3 @@ otherwise 0.
 If you pass :func:`fcheckerr` the handle of a file opened with open (i.e., a
 data set or matrix file), your program will terminate with a fatal
 error.
-

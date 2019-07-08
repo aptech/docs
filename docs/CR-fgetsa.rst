@@ -5,26 +5,26 @@ fgetsa
 Purpose
 ----------------
 
-Reads lines of text from a file into a string array.
+Reads lines of text from a file into a string array retaining newlines.
 
 Format
 ----------------
-.. function:: fgetsa(f, numl)
+.. function:: fgetsa(fh, numl)
 
-    :param f: file handle of a file opened with fopen.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
     :param numl: number of lines to read.
     :type numl: scalar
 
-    :returns: sa (*Nx1 string array*), :math:`N <= numl`.
+    :returns: **sa** (*Nx1 string array*) - Contains the text read from the file lines specified by the file handle *fh*. :math:`N <= numl`.
 
 
 
 Remarks
 -------
 
-:func:`fgetsa` reads up tonuml lines of text. If :func:`fgetsa` reaches the end of the
+:func:`fgetsa` reads up to *numl* lines of text. If :func:`fgetsa` reaches the end of the
 file before reading *numl* lines, *sa* will be shortened. Lines are read in
 the same manner as :func:`fgets`, except that no limit is placed on the size of
 a line. Thus, :func:`fgetsa` always returns complete lines of text. Newlines are
@@ -42,4 +42,3 @@ If you pass :func:`fgetsa` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
 .. seealso:: Functions :func:`fgetsat`, :func:`fgets`, :func:`fopen`
-

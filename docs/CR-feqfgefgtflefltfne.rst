@@ -22,7 +22,7 @@ Format
     :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
-    :returns: y (*scalar*), 1 (``TRUE``) or 0 (``FALSE``).
+    :returns: **ret** (*scalar*) - returns 1 if ``TRUE``  and 0  if ``FALSE``.
 
 Global Input
 ------------
@@ -67,11 +67,11 @@ Examples
 ::
 
     _fcmptol = 1e-12;
-    
+
     x = rndu(2,2);
-    
+
     y = x + 0.5*(_fcmptol);
-    
+
     if fge(x,y);
        print "each element of x is greater than";
        print "or equal to each element of y";
@@ -86,4 +86,3 @@ Source
 fcompare.src
 
 .. seealso:: Functions :func:`dotfeq`, :func:`dotfge`, :func:`dotfgt`, :func:`dotfle`, :func:`dotflt`, :func:`dotfne`
-

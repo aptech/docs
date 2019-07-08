@@ -17,7 +17,7 @@ Format
     :param omode: file I/O mode. (See *Remarks*, below.)
     :type omode: string
 
-    :returns: f (*scalar*), file handle.
+    :returns: fh (*scalar*) - file handle.
 
 Portability
 -----------
@@ -74,4 +74,3 @@ If :func:`fopen` fails, it returns a 0.
 Use `close` and :func:`closeall` to close files opened with :func:`fopen`.
 
 .. seealso:: Functions :func:`fseek`, `close`, :func:`closeall`
-

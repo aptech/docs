@@ -14,7 +14,7 @@ Format
     :param newfmt: the new format specification.
     :type newfmt: 1x3 vector
 
-    :returns: oldfmt (*1x3 vector*), the old format specification.
+    :returns: **oldfmt** (*1x3 vector*) - the old format specification.
 
 Remarks
 -------
@@ -54,4 +54,3 @@ Globals
 `\__fmtcv`
 
 .. seealso:: Functions :func:`formatnv`, :func:`printfm`, :func:`printfmt`
-

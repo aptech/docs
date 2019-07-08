@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: fftn(x)
 
-    :param x: 
+    :param x: The data used to compute the FFT.
     :type x: NxK matrix
 
-    :returns: y (*LxM matrix*), where *L* and *M* are the smallest prime factor
+    :returns: **y** (*LxM matrix*) - where *L* and *M* are the smallest prime factor
         products greater than or equal to *N* and *K*, respectively.
 
 Remarks
@@ -54,4 +54,3 @@ the dimensions to which :func:`fftn` would pad a matrix.)
 :func:`fftn` scales the computed FFT by :math:`1/(L*M)`.
 
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftn`, :func:`rfftnp`, :func:`rfftp`
-

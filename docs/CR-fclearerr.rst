@@ -9,12 +9,12 @@ Gets the error status of a file, then clears it.
 
 Format
 ----------------
-.. function:: fclearerr(f)
+.. function:: fclearerr(fh)
 
-    :param f: file handle of a file opened with fopen.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
-    :returns: err (*scalar*), error status.
+    :returns: **err** (*scalar*) - error status.
 
 Remarks
 -------
@@ -33,4 +33,3 @@ error.
 
 The flag accessed by :func:`fclearerr` is not the same as that accessed by
 :func:`fstrerror`.
-

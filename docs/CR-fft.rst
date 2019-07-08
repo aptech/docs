@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: fft(x)
 
-    :param x: 
+    :param x: The values used to compute the Fast Fourier transform.
     :type x: NxK matrix
 
-    :returns: y (*LxM matrix*), where *L* and *M* are the smallest powers of 2 greater than or equal to *N* and *K*, respectively.
+    :returns: **y** (*LxM matrix*) - where *L* and *M* are the smallest powers of 2 greater than or equal to *N* and *K*, respectively.
 
 Remarks
 -------
@@ -26,4 +26,3 @@ This uses a Temperton Fast Fourier algorithm.
 If *N* or *K* is not a power of 2, *x* will be padded out with zeros before computing the transform.
 
 .. seealso:: Functions :func:`ffti`, :func:`rfft`, :func:`rffti`
-

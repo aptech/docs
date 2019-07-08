@@ -8,10 +8,10 @@ Positions the file pointer in a file.
 
 Format
 ----------------
-.. function:: fseek(f, offs, base)
+.. function:: fseek(fh, offs, base)
 
-    :param f: file handle of a file opened with :func:`fopen`.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
     :param offs: offset (in bytes).
     :type offs: scalar
@@ -20,14 +20,14 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "beginning of file."
             "1", "current position of file pointer."
             "2", "end of file."
 
     :type base: scalar
 
-    :returns: ret (*scalar*), 0 if successful, 1 if not.
+    :returns: **ret** (*scalar*) - 0 if successful, 1 if not.
 
 Remarks
 -------
@@ -68,4 +68,3 @@ If you pass :func:`fseek` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
 .. seealso:: Functions :func:`fopen`
-

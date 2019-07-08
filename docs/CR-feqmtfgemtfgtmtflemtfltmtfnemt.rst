@@ -26,7 +26,7 @@ Format
     :param fcmptol: comparison tolerance.
     :type fcmptol: scalar
 
-    :returns: y (*scalar*), 1 (``TRUE``) or 0 (``FALSE``).
+    :returns: **ret** (*scalar*) - returns 1 if ``TRUE``  and 0  if ``FALSE``.
 
 Remarks
 -------
@@ -57,11 +57,11 @@ Examples
 ::
 
     tol = 1e-12;
-    
+
     x = rndu(2,2);
-    
+
     y = x + 0.5*(tol);
-    
+
     if fgemt(x,y,tol);
        print "each element of x is greater than";
        print "or equal to each element of y";
@@ -76,4 +76,3 @@ Source
 fcomparemt.src
 
 .. seealso:: Functions :func:`dotfeqmt`, :func:`dotfgemt`, :func:`dotfgtme`, :func:`dotflemt`, :func:`dotfltmt`, :func:`dotfnemt`
-

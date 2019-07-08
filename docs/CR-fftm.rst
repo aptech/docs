@@ -17,7 +17,7 @@ Format
     :param dim: size of each dimension.
     :type dim: Kx1 vector
 
-    :returns: y (*Lx1 vector*), FFT of *x*.
+    :returns: **y** (*Lx1 vector*) - FFT of *x*.
 
 Remarks
 -------
@@ -33,11 +33,11 @@ containing two columns in sequence. Visually, *x* would look something
 like this:
 
 .. math::
-                   
+
       X_hyper = X_cube1|X_cube2
       X_cube1 = X_mat1|X_mat2
       X_mat1 = X_row1|X_row2
-               
+
 
 Or, in an extended GAUSS notation, *x* would be:
 
@@ -79,10 +79,10 @@ Here's an example, this time working with a 2x3x2x3 hypercube.
    let x2 = 1 2 6 24 120 720;
    let x3 = 13 17 19 23 29 31;
    xc2 = x1|x2|x3;                    /* cube 2 */
-    
+
    xh = xc1|xc2;                      /* hypercube */
    xhfft = fftm(xh,dim);
-    
+
    let dimi = 2 4 2 4;
    xhffti = fftmi(xhfft,dimi);
 
@@ -120,4 +120,3 @@ Source
 fftm.src
 
 .. seealso:: Functions :func:`fftmi`, :func:`fft`, :func:`ffti`, :func:`fftn`
-

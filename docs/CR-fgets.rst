@@ -5,20 +5,20 @@ fgets
 Purpose
 ----------------
 
-Reads a line of text from a file.
+Reads a line of text from a file, retaining the newline (if present).
 
 Format
 ----------------
-.. function:: fgets(f, maxsize)
+.. function:: fgets(fh, maxsize)
 
-    :param f: file handle of a file opened with fopen.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
     :param maxsize: maximum size of string to read in,
         including the terminating null byte.
     :type maxsize: scalar
 
-    :returns: str (string)
+    :returns: **str** (string) - Contains the text read from the file line specified by the file handle *fh*. The maximum size of the **str**, including the terminating null byte, is *maxsize*.
 
 Remarks
 -------
@@ -40,4 +40,3 @@ If you pass :func:`fgets` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
 .. seealso:: Functions :func:`fgetst`, :func:`fgetsa`, :func:`fopen`
-

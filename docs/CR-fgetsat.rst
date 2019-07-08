@@ -5,19 +5,19 @@ fgetsat
 Purpose
 ----------------
 
-Reads lines of text from a file into a string array.
+Reads lines of text from a file into a string array without retaining newlines.
 
 Format
 ----------------
-.. function:: fgetsat(f, numl)
+.. function:: fgetsat(fh, numl)
 
-    :param f: file handle of a file opened with :func:`fopen`.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
     :param numl: number of lines to read.
     :type numl: scalar
 
-    :returns: sa (*Nx1 string array*), :math:`N <= numl`.
+    :returns: **sa** (*Nx1 string array*) - Contains the text read from the file lines specified by the file handle *fh*. :math:`N <= numl`.
 
 
 
@@ -33,4 +33,3 @@ carriage returns that precede them on some platforms. Printing out such
 a string array can produce unexpected results.
 
 .. seealso:: Functions :func:`fgetsa`, :func:`fgetst`, :func:`fopen`
-

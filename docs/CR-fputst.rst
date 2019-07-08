@@ -9,15 +9,15 @@ Writes strings followed by a newline to a file.
 
 Format
 ----------------
-.. function:: fputst(f, sa)
+.. function:: fputst(fh, sa)
 
-    :param f: file handle of a file opened with fopen.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
     :param sa: data
     :type sa: string or string array
 
-    :returns: numl (*scalar*), the number of lines written to the file.
+    :returns: **numl** (*scalar*) - the number of lines written to the file.
 
 Remarks
 -------
@@ -109,4 +109,3 @@ Carriage return-linefeed conversion for files opened in text mode is
 unnecessary, because in Linux/macOS a newline is simply a linefeed.
 
 .. seealso:: Functions :func:`fputs`, :func:`fopen`
-

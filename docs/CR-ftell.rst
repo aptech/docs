@@ -9,12 +9,12 @@ Gets the position of the file pointer in a file.
 
 Format
 ----------------
-.. function:: ftell(f)
+.. function:: ftell(fh)
 
-    :param f: file handle of a file opened with :func:`fopen`.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
-    :returns: pos (*scalar*), current position of the file pointer in a file.
+    :returns: **pos** (*scalar*) - current position of the file pointer in a file.
 
 Remarks
 -------
@@ -30,4 +30,3 @@ If you pass :func:`ftell` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
 .. seealso:: Functions :func:`fopen`, :func:`fseek`
-

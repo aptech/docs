@@ -17,7 +17,7 @@ Format
     :param sa: data
     :type sa: string or string array
 
-    :returns: numl (*scalar*), the number of lines written to the file.
+    :returns: **numl** (*scalar*) - the number of lines written to the file.
 
 Remarks
 -------
@@ -118,4 +118,3 @@ Carriage return-linefeed conversion for files opened in text mode is
 unnecessary, because in Linux/macOS a newline is simply a linefeed.
 
 .. seealso:: Functions :func:`fputst`, :func:`fopen`
-

@@ -23,8 +23,8 @@ Format
 
 :i: the name of the counter variable.
 :start: (*scalar*) the initial value of the counter.
-:stop: (*scalar*) the the final value of the counter.
-:step: (*scalar*) the the increment value.
+:stop: (*scalar*) the final value of the counter.
+:step: (*scalar*) the increment value.
 
 
 Remarks
@@ -70,7 +70,7 @@ Example 2
 
 ::
 
-    x = zeros(10,5); 
+    x = zeros(10,5);
     for i (1, rows(x), 1);
       for j (1, cols(x), 1);
     	x[i,j] = i*j;
@@ -84,7 +84,7 @@ Example 3
 
     x = rndn(3,3);
     y = rndn(3,3);
-    
+
     for i (1, rows(x), 1);
        for j (1, cols(x), 1);
           if x[i,j] >= y[i,j];
@@ -104,15 +104,14 @@ Example 4
     li = 0;
     x = rndn(100,1);
     y = rndn(100,1);
-    
+
     for i (1, rows(x), 1);
        if x[i] != y[i];
           li = i;
           break;
        endif;
     endfor;
-    
+
     if li;
        print "Compare failed on row " li;
     endif;
-

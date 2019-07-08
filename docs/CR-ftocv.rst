@@ -5,7 +5,7 @@ ftocv
 Purpose
 ----------------
 
-Converts a matrix containing floating point  numbers into a matrix containing the decimal
+Converts a matrix containing floating point numbers into a matrix containing the decimal
  character representation of each element.
 
 Format
@@ -21,7 +21,7 @@ Format
     :param prec: the numbers created will have *prec* places after the decimal point.
     :type prec: scalar
 
-    :returns: y (*NxK character matrix*) containing the decimal character
+    :returns: **x_cv** (*NxK character matrix*) - contains the decimal character
         equivalent of the corresponding elements in *x* in the format defined by *field* and *prec*.
 
 Remarks
@@ -45,7 +45,7 @@ Basic examples
 
     // Field width for 7 characters (including '.'). Display 5 characters after decimal point
     x = ftocv(1.23456789, 7,5);
-    
+
     // Print character vector
     print $x;
 
@@ -83,11 +83,11 @@ Combining text with numbers
 ::
 
     y = { 6, 7, 8, 9, 10 };
-    
+
     // Combine 'beta' with the vector of numbers in 'y'
     // Use 2 characters for each number with 0 after the decimal point
     x = 0 $+ "beta" $+ ftocv(y,2,0);
-    
+
     // Since the output is a character vector the dollar
     // sign ($) must be used in front of the variable for printing
     print $x;
@@ -109,4 +109,3 @@ Notice that the (:code:`0 $+ `) above was necessary to
  controls the type of the result.
 
 .. seealso:: Functions :func:`ftos`, :func:`ntos`
-

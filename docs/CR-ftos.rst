@@ -26,7 +26,7 @@ Format
         separate precisions for the real and imaginary parts of *x*.
     :type prec: scalar or 2x1 vector
 
-    :returns: y (*string*), containing the decimal character equivalent of *x* in the format specified.
+    :returns: **x_str** (*string*) - Contains the decimal character equivalent of *x* in the format specified.
 
 Remarks
 -------
@@ -97,7 +97,7 @@ You can create custom formats for complex numbers with :func:`ftos`. For example
 ::
 
     let c = 24.56124+6.3224e-2i;
-     
+
     field = 1;
     prec = 3|5;
     fmat = "%lf + j%le is a complex number.";
@@ -116,23 +116,23 @@ Some other things you can do with ftos:
     let x = 929.857435324123;
     let y = 5.46;
     let z = 5;
-     
+
     field = 1;
     prec = 0;
     fmat = "%*.*lf";
     zz = ftos(z,fmat,field,prec);
-     
+
     field = 1;
     prec = 10;
     fmat = "%*.*lE";
     xx = ftos(x,fmat,field,prec);
-     
+
     field = 7;
     prec = 2;
     fmat = "%*.*lf seconds";
     s1 = ftos(x,fmat,field,prec);
     s2 = ftos(y,fmat,field,prec);
-     
+
     field = 1;
     prec = 2;
     fmat = "The maximum resistance is %*.*lf ohms.";
@@ -143,14 +143,13 @@ The results:
 ::
 
     zz = "5"
-    
+
     xx = "9.2985743532E+002"
-    
+
     s1 = "929.86 seconds"
-    
+
     s2 = "5.46 seconds"
-    
+
     om = "The maximum resistance is 929.86 ohms."
 
 .. seealso:: Functions :func:`ftocv`, :func:`stof`, :func:`format`
-
