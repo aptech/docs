@@ -25,7 +25,7 @@ Format
 Remarks
 -------
 
-If the placeholders parameter is passed in, the values are bound
+If the *placeholders* parameter is passed in, the values are bound
 sequentially to ODBC style parameters.
 
 Examples
@@ -38,7 +38,7 @@ Example 1
 
     // Create and prepare query
     qid = dbCreateQuery("SELECT * FROM GDP
-         WHERE COUNTRY = ?", "USA");
+                        WHERE COUNTRY = ?", "USA");
     dbQueryExecPrepared(qid);
 
     // Results as a matrix
@@ -48,10 +48,11 @@ Example 2
 +++++++++
 
 ::
+
     // Create query
     qid = dbCreateQuery("INSERT INTO
-         PEOPLE(id, fname, lname) VALUES
-         (NULL, ?, ?);");
+                        PEOPLE(id, fname, lname) VALUES
+                        (NULL, ?, ?);");
 
     // Set the placeholder
     dbQueryBindValue(qid, "Joe");

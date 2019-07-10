@@ -16,10 +16,10 @@ Format
     :type qid: scalar
 
     :param placeholder: Oracle style (``:value_name``) or index of ODBC style (``?``) placeholder.
-    :type placeholder: string
+    :type placeholder: matrix or string
 
     :param val: the value to be bound.
-    :type val: valid type
+    :type val: matrix or string 
 
 Remarks
 -------
