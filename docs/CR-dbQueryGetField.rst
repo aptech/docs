@@ -18,7 +18,7 @@ Format
     :param idx_or_name: index or name of the field whose value should be returned.
     :type idx_or_name: scalar or string
 
-.. WARNING:: Using the *name* overload will result in decreased performance. Use with caution.
+.. WARNING:: Specifying a string name may result in much slower performance than a numeric index. Use with caution.
 
 
 Remarks
