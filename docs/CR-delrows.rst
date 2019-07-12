@@ -16,7 +16,7 @@ Format
     :type x: NxK matrix
 
     :param r: indices of rows to delete.
-    :type r: Mx1 vector
+    :type r: Scalar or Mx1 vector
 
     :returns: **x_trim** (*PxK matrix*) - the remaining rows of *x*.
         If no rows remain, *x_trim* will be an empty matrix.
@@ -33,7 +33,7 @@ of *r* are counted from the end of the matrix, therefore:
 
    x_trim = delrows(x, r);
 
-will delete last row of *x* . The remaining rows of *x* will be assigned to *y*.
+will delete last row of *x* . The remaining rows of *x* will be assigned to *x_trim*.
 
 
 Examples

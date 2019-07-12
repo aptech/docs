@@ -43,12 +43,14 @@ The default shared libraries are searched last.
 
 In C syntax, *func* should take one of the following forms:
 
-.. csv-table::
-    :widths: auto
 
-    "1.",":code:`intfunc(void);`"
-    "2.",":code:`intfunc(double \*arg1 [, arg2...argN]);`"
-    "3.",":code:`intfunc(double \*arg[]);`"
++----+--------------------------------------------------+
+| 1. | :code:`int func(void);`                          |
++----+--------------------------------------------------+
+| 2. | :code:`int func(double *arg1 [, arg2...argN]);`  |
++----+--------------------------------------------------+
+| 3. | :code:`int func(double *arg[]);`                 |
++----+--------------------------------------------------+
 
 :func:`dllcall` can pass a list of up to 100 arguments to *func*; if it requires
 more arguments than that, you MUST write it to take a vector of

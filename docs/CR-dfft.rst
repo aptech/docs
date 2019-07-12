@@ -63,9 +63,9 @@ After the code the discrete Fourier transform is printed:
 ::
 
     5
-    0 -      1i
-    3 +      0i
-    0 +      1i
+    0 - 1i
+    3 + 0i
+    0 + 1i
 
 
 Source

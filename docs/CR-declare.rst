@@ -30,10 +30,10 @@ Format
         .. csv-table::
             :widths: auto
 
-            "``=``", "if not initialized, initialize.If already initialized, reinitialize."
-            "``!=``", "if not initialized, initialize.If already initialized, reinitialize."
-            "``:=``", "if not initialized, initialize.If already initialized, redefinition error."
-            "``?=``", "if not initialized, initialize.If already initialized, leave as is."
+            "``=``", "if not initialized, initialize. If already initialized, reinitialize."
+            "``!=``", "if not initialized, initialize. If already initialized, reinitialize."
+            "``:=``", "if not initialized, initialize. If already initialized, redefinition error."
+            "``?=``", "if not initialized, initialize. If already initialized, leave as is."
 
     :type aop: literal
 
@@ -62,13 +62,13 @@ matrices, strings, and string arrays. When you declare an N-dimensional
 array, sparse matrix, or structure, they will be initialized as follows:
 
 
-============= =====================================================
-Variable Type Initializes to
-============= =====================================================
-N-dimensional array 1-dimensional array of 1 containing 0
-sparse matrix empty sparse matrix
-structure     structure containing empty and/or zeroed out members.
-============= =====================================================
+====================  =====================================================
+Variable Type          Initializes to
+====================  =====================================================
+N-dimensional array   1-dimensional array of size 1 containing 0
+sparse matrix         empty sparse matrix
+structure             structure containing empty and/or zeroed out members.
+====================  =====================================================
 
 Complex numbers can be entered by joining the real and imaginary parts
 with a sign (+ or -); there should be no spaces between the numbers and
@@ -114,7 +114,7 @@ Here are some of the possible uses of the three forms of declaration:
         trouble if you are not careful.
 
 The `declare` statement warning level is a compile option. Call :func:`config` in
-the command line version of GAUSS or select **Preferences > Tools**  in the **User Interface** to edit this option. If
+the command line version of GAUSS or select **Tools > Preferences > Advanced**  in the **User Interface** to edit this option. If
 `declare warnings` are on, you will be warned whenever a `declare` statement
 encounters a symbol that is already initialized. Here's what happens
 when you `declare` a symbol that is already initialized when `declare warnings` are turned on:
@@ -281,7 +281,7 @@ Structures can hold various members including scalars, arrays, matrices, strings
     * - *ms.sa*
       - 1x1 string array containing a null string
     * - *ms.a*
-      - 1-dimensional array of 1 containing 0
+      - 1-dimensional array of length 1 containing 0
     * - *ms.sm*
       - empty sparse matrix
 

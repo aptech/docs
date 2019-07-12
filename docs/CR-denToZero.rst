@@ -21,7 +21,7 @@ Examples
 
 ::
 
-    x = { 1, exp(-724.5), 3 };
+    x =  1 | exp(-724.5) | 3;
 
     // If 'x' contains any denormals set them to 0
     if isden(x);
@@ -33,7 +33,7 @@ After the first line above, *x* is equal to:
 ::
 
     1.000e+000
-    2.902e-057
+          +DEN
     3.000e+000
 
 At the end of the example, *y* is equal to:

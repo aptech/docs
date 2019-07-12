@@ -9,18 +9,18 @@ Returns a matrix with specified columns removed.
 
 Format
 ----------------
-.. function:: delcols(x, r_idx)
+.. function:: delcols(x, c_idx)
 
     :param x:
     :type x: Input matrix
 
-    :param r_idx: or vector, index of columns to remove from *x*.
+    :param c_idx: index of columns to remove from *x*.
         Negative integers will start from the back. For example,
         -1 will indicate to remove the final column of *x*.
-    :type r_idx: Scalar
+    :type c_idx: Scalar or vector
 
     :returns: **x_trim** (*matrix*) - equal to input *x* without columns specified by
-        input *r_idx*. If no rows remain, *x_trim* will be
+        input *c_idx*. If no columns remain, *x_trim* will be
         an empty matrix.
 
 Examples
@@ -56,9 +56,9 @@ Example 2
           9 10 11 12 };
 
     // Remove the second and fourth columns of 'x'
-    r_idx = { 2, 4 };
+    c_idx = { 2, 4 };
 
-    x_trim = delcols(x, r_idx);
+    x_trim = delcols(x, c_idx);
 
 After the above code:
 
