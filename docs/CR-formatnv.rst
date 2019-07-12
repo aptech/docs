@@ -30,15 +30,26 @@ old format. This code:
 ::
 
     x = { A 1, B 2, C 3 };
+
+    /*
+    ** Set print format and save
+    ** old format 
+    */
     oldfmt = formatnv("*.*lf" ~ 8 ~ 4);
-    call printfmt(x,0~1);
+
+    call printfmt(x, 0~1);
+
+    /*
+    ** Set print format for printing
+    ** back to old format
+    */
     call formatnv(oldfmt);
 
 ::
 
-    A 1.0000
-     B 2.0000
-     C 3.0000
+     A   1.0000
+     B   2.0000
+     C   3.0000
 
 Source
 ------

@@ -71,8 +71,10 @@ Write CSV data to text file
 
 ::
 
-   // Create string containing a comma separated list
-   // of variable names and an ending newline
+   /*
+   ** Create string containing a comma separated list
+   ** of variable names and an ending newline
+   */
    text = "alpha,beta,gamma,delta\n";
 
    fh = fopen("temp.csv", "w");
@@ -87,8 +89,10 @@ Write CSV data to text file
    // Convert numeric data to 2x4 string array
    x_str = ntos(x);
 
-   // Combine each row of 'x_str' into
-   // a single comma separated string
+   /*
+   ** Combine each row of 'x_str' into
+   ** a single comma separated string
+   */
    x_str = strjoin(x_str, ",");
 
    // Add newlines to the end of each line

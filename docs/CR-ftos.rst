@@ -104,7 +104,7 @@ You can create custom formats for complex numbers with :func:`ftos`. For example
     field = 1;
     prec = 3|5;
     fmat = "%lf + j%le is a complex number.";
-    cc = ftos(c,fmat,field,prec);
+    cc = ftos(c, fmat, field, prec);
 
 results in
 
@@ -112,7 +112,7 @@ results in
 
     cc = "24.561 + j6.32240e-02 is a complex number."
 
-Some other things you can do with ftos:
+Some other things you can do with :func:`ftos`:
 
 ::
 
@@ -123,23 +123,23 @@ Some other things you can do with ftos:
     field = 1;
     prec = 0;
     fmat = "%*.*lf";
-    zz = ftos(z,fmat,field,prec);
+    zz = ftos(z, fmat, field, prec);
 
     field = 1;
     prec = 10;
     fmat = "%*.*lE";
-    xx = ftos(x,fmat,field,prec);
+    xx = ftos(x, fmat, field, prec);
 
     field = 7;
     prec = 2;
     fmat = "%*.*lf seconds";
-    s1 = ftos(x,fmat,field,prec);
-    s2 = ftos(y,fmat,field,prec);
+    s1 = ftos(x, fmat, field, prec);
+    s2 = ftos(y, fmat, field, prec);
 
     field = 1;
     prec = 2;
     fmat = "The maximum resistance is %*.*lf ohms.";
-    om = ftos(x,fmat,field,prec);
+    om = ftos(x, fmat, field, prec);
 
 The results:
 

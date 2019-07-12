@@ -44,7 +44,7 @@ Write string to text file
 ::
 
    // Create string
-   quote = "A horse! a horse! my kingdom for a horse!.";
+   quote = "A horse! a horse! my kingdom for a horse!";
 
    // Open file for writing
    fh = fopen("king_richard_III.txt", "w");
@@ -65,8 +65,10 @@ Example 2: Write CSV data to text file
 
 ::
 
-   // Create string containing a comma separated list
-   // of variable names (fputst will add an ending newline)
+   /*
+   ** Create string containing a comma separated list
+   ** of variable names (fputst will add an ending newline)
+   */
    text = "alpha,beta,gamma,delta";
 
    fh = fopen("temp.csv", "w");
@@ -81,8 +83,10 @@ Example 2: Write CSV data to text file
    // Convert numeric data to 2x4 string array
    x_str = ntos(x);
 
-   // Combine each row of 'x_str' into
-   // a single comma separated string
+   /*
+   ** Combine each row of 'x_str' into
+   ** a single comma separated string
+   */
    x_str = strjoin(x_str, ",");
 
    // Write the comma separated data to the file

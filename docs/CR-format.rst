@@ -103,7 +103,7 @@ Remarks
    If a string is shorter than the specified precision, the entire
    string is printed. For string arrays and strings, :code:`p = -1` means print
    the entire string, regardless of its length :code:`p = -1` is illegal for
-   matrices; setting :math:`p >= 8` means the same thing for character elements.
+   matrices; setting :code:`p >= 8` means the same thing for character elements.
 
 -  The */xxx* slash parameters are optional. Field and precision are
    optional also, but if one is included, then both must be included.
@@ -125,6 +125,8 @@ Remarks
 
    ::
 
+      rndseed 7986987;
+
       x = rndn(2, 2);
 
       // l: left justified, e: scientific notation, c: follow with a comma
@@ -137,11 +139,11 @@ Remarks
 
    ::
 
-      -1.24153744e+00 , 5.58408143e-01 ,
-       4.47416384e-01 ,-6.74269585e-01 ,
+     3.77117954e-01 ,-1.49080079e-01 ,
+     -3.94036154e-01 ,-6.26591191e-01 ,
 
-           -1.24153744    0.55840814
-            0.44741638    -0.67426958
+              0.37711795	     -0.14908008
+              -0.39403615	     -0.62659119
 
 -  *f* and *p* may be any legal expressions that return scalars. Non integers
    will be truncated to integers.
@@ -149,15 +151,15 @@ Remarks
    ::
 
       digits = 2;
-      format /rd digits*4, digits
+      format /rd digits*4, digits;
       print x;
 
    will return:
 
    ::
 
-         -1.24     0.56
-          0.45    -0.67
+        0.38    -0.15
+        -0.39   -0.63
 
 -  The total width of field will be overridden if the number is too big
    to fit into the space allotted. For instance, :code:`format /rds 1,0` can be
@@ -188,10 +190,10 @@ For the examples below we will use a matrix elements of different magnitudes to 
 ::
 
     rndseed 642354;
-    x = rndn(3,3);
-    x[2,2] = x[2,2] .* 1e8;
-    x[1,1] = x[1,1] .* 1e-12;
-    x[3,1] = x[3,1] .* 1e-3;
+    x = rndn(3, 3);
+    x[2, 2] = x[2, 2] .* 1e8;
+    x[1, 1] = x[1, 1] .* 1e-12;
+    x[3, 1] = x[3, 1] .* 1e-3;
 
 ::
 
@@ -207,9 +209,11 @@ For the examples below we will use a matrix elements of different magnitudes to 
 
 ::
 
-    // r: right justified d: decimal
-    // 16: field width is 16 places
-    // 8: print 8 digits after the decimal point
+    /*
+    ** r: right justified d: decimal
+    ** 16: field width is 16 places
+    ** 8: print 8 digits after the decimal point
+    */
     format /rd 16,8;
     print x;
 
@@ -223,10 +227,12 @@ As mentioned in the Remarks section, if the number is too large to fit in the fi
 
 ::
 
-    // r: right justified.
-    // z: decimal or scientific notation, whichever is more compact.
-    // 16: field width is 16 places
-    // 4: 4 digits after the decimal point, or 4 significant digits.
+    /*
+    ** r: right justified.
+    ** z: decimal or scientific notation, whichever is more compact.
+    ** 16: field width is 16 places
+    ** 4: 4 digits after the decimal point, or 4 significant digits.
+    */
     format /m3 /rz 16,4;
     print x;
 
@@ -241,11 +247,13 @@ As mentioned in the Remarks section, if the number is too large to fit in the fi
 
 ::
 
-    // m1: single new line after each row.
-    // l: left-justified.
-    // z: decimal or scientific notation, whichever is more compact.
-    // 12: field width is 12 places
-    // 4: 4 digits after the decimal point, or 4 significant digits.
+    /*
+    ** m1: single new line after each row.
+    ** l: left-justified.
+    ** z: decimal or scientific notation, whichever is more compact.
+    ** 12: field width is 12 places
+    ** 4: 4 digits after the decimal point, or 4 significant digits.
+    */
     format /m1 /lz 12,4;
     print x;
 
@@ -257,15 +265,15 @@ As mentioned in the Remarks section, if the number is too large to fit in the fi
 
 ::
 
-    // r: right-justified.
-    // e: scientific notation.
-    // c: follow each element with a comma.
-    // 12: field width is 12 places
-    // 4: 4 significant digits.
+    /*
+    ** r: right-justified.
+    ** e: scientific notation.
+    ** c: follow each element with a comma.
+    ** 12: field width is 12 places
+    ** 4: 4 significant digits.
+    */
     format /rec 12,4;
     print x;
-
-:code:`print x;` produces:
 
 ::
 

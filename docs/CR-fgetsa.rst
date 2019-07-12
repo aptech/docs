@@ -27,7 +27,7 @@ The :func:`fgetsa` procedure reads up to *numl* lines of text. If :func:`fgetsa`
 If *numl* is 1, :func:`fgetsa` returns a string. (This is one way to read a line from a file without placing a limit on the length of the line.)
 
 If the file is already at end-of-file when you call :func:`fgetsa`, your program
-will terminate with an error. Use :func:`eof` in conjunction with fgetsa to
+will terminate with an error. Use :func:`eof` in conjunction with :func:`fgetsa` to
 avoid this.
 
 If the file was opened for update (see :func:`fopen`) and you are
