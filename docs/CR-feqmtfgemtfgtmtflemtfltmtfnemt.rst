@@ -58,16 +58,16 @@ Examples
 
     tol = 1e-12;
 
-    x = rndu(2,2);
+    a = rndu(2, 2);
 
-    y = x + 0.5*(tol);
+    b = a + 0.5*(tol);
 
-    if fgemt(x,y,tol);
-       print "each element of x is greater than";
-       print "or equal to each element of y";
+    if fgemt(a, b, tol);
+       print "each element of a is greater than";
+       print "or equal to each element of b";
     else;
-       print "at least one element of x is less";
-       print "its corresponding element in y";
+       print "at least one element of a is less";
+       print "its corresponding element in b";
     endif;
 
 Source

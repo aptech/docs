@@ -44,8 +44,8 @@ than powers of a single factor.
 For example, even though it is bigger, a
 33600x1 vector can compute as much as 20% faster than a 32768x1 vector,
 because 33600 is a highly composite number,
-:math:`2\ :sup:`6`\ x3x5\ :sup:`2`\ x7`, whereas 32768 is a simple power of 2,
-:math:`2\ :sup:`15``.
+:math:`2^6 \times 3 \times 5^2 \times 7`, whereas 32768 is a simple power of 2,
+:math:`2^15`.
 
 For this reason, you may want to hand-pad matrices to
 optimum dimensions before passing them to :func:`fftn`. The `Run-Time Library`

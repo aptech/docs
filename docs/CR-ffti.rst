@@ -16,6 +16,28 @@ Format
 
     :returns: **y** (*LxM matrix*) - where *L* and *M* are the smallest prime factor products greater than or equal to *N* and *K*, respectively.
 
+Examples
+----------------
+
+::
+
+    x = { 8 1 6,
+          3 5 7,
+          4 9 2 };
+
+    x_ffti = ffti(fft(x));
+
+    print real(x_ffti);
+
+After the code:
+
+::
+
+    8.0000   1.0000   6.0000   0.0000
+    3.0000   5.0000   7.0000   0.0000
+    4.0000   9.0000   2.0000   0.0000
+    0.0000   0.0000   0.0000   0.0000
+    
 Remarks
 -------
 

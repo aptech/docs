@@ -67,6 +67,7 @@ The format string can be a maximum of 80 characters.
 If you want special characters to be printed after *x*, include them as
 the last characters of the format string.
 
+
 For example:
 
 .. list-table::
