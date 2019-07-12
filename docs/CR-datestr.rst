@@ -34,6 +34,11 @@ produces the following output:
 
     10/09/15
 
+Remarks
+------
+
+To create date strings with more formatting options, see :func:`dttostr`, :func:`dttostrc` and :func:`posixtostrc`.
+
 Source
 ------
 

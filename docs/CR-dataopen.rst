@@ -43,7 +43,7 @@ a -1.
 3. A file can be opened simultaneously under more than one handle. If
 the value that is in the file handle when the :func:`dataopen` command begins to
 execute matches that of an already open file, the process will be
-aborted and a File already open error message will be given. This gives
+aborted and a ``File already open`` error message will be given. This gives
 you some protection against opening a second file with the same handle
 as a currently open file. If this happens, you would no longer be able
 to access the first file.
@@ -60,12 +60,12 @@ file, the extension must be explicitly given. If no path information is
 included, then :func:`dataopen` searches for the file in the current directory.
 
 6. Files opened in read mode cannot be written to. The pointer is set to
-the beginning of the file and the writer function is disabled for files
+the beginning of the file and the :func:`writer` function is disabled for files
 opened in this way. This is the only mode available for matrix files
-(.fmt), which are always written in one piece with the `save` command.
+(``.fmt``), which are always written in one piece with the `save` command.
 
 7. Files opened in append mode cannot be read. The pointer is set to the
-end of the file so that a subsequent write to the file with the writer
+end of the file so that a subsequent write to the file with the :func:`writer`
 function will add data to the end of the file without overwriting any of
 the existing data in the file. The :func:`readr` function is disabled for files
 opened in this way. This mode is used to add additional rows to the end
@@ -77,12 +77,12 @@ changes in a file.
 
 9. The supported data set types are ``.dat``, ``.h5``, ``.fmt``.
 
-For HDF5 file, the dataset must include schema and both file name and
+For HDF5 files, the dataset must include schema and both file name and
 data set name must be provided, e.g.
 
 ::
 
-    glm("h5://C:/gauss17/examples/testdata.h5/mydata").
+    glm("h5://C:/gauss/examples/testdata.h5/mydata").
 
 Examples
 ----------------

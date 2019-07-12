@@ -52,8 +52,8 @@ by GAUSS when the `create`, :func:`datacreate`, :func:`datacreatecomplex`, `open
 :func:`dataopen` commands are executed. The file handle is used to reference the
 file in the commands :func:`readr` and :func:`writer`. If :func:`datacreate` fails, it returns a
 -1.
-If *filename* does not include a path, then the file is placed on the
-current directory. The file is given a .dat extension if no extension is
+If *filename* does not include a path, then the file is placed in the
+current directory. The file is given a ``.dat`` extension if no extension is
 specified.
 
 If *col* is set to 0, then the number of columns in the data set is
@@ -71,16 +71,15 @@ The *dtyp* argument allows you to specify the precision to use when
 storing your data. Keep in mind the following range restrictions when
 selecting a value for *dtyp*:
 
-+-----------+--------+----------------------------------------------------------------+
-| Data Type | Digits | Range                                                          |
-+-----------+--------+----------------------------------------------------------------+
-| integer   | 4      | :math:`-32768 < X < 32767`                                     |
-+-----------+--------+----------------------------------------------------------------+
-| single    | 6-7    | :math:`8.43 x 10^{-37} < \left| X \right| \leq 3.37 x 10^{+38}`|
-+-----------+--------+----------------------------------------------------------------+
-| double    | 15-16  | :math:`4.19 x 10^{-307} < \left| X \right| < 1.67 x 10^{+308}` |
-+-----------+--------+----------------------------------------------------------------+
-.. DANGER:: FIX EQUATIONS
++-----------+--------+-----------------------------------------------------------------+
+| Data Type | Digits | Range                                                           |
++-----------+--------+-----------------------------------------------------------------+
+| integer   | 5      | :math:`-32768 \lt X \lt 32767`                                  |
++-----------+--------+-----------------------------------------------------------------+
+| single    | 6-7    | :math:`8.43\times10^{-37} \lt|X| \leq 3.37 \times  10^{+38}`    |
++-----------+--------+-----------------------------------------------------------------+
+| double    | 15-16  | :math:`4.19\times10^{-307} \lt |X| \lt 1.67\times10^{+308}`     |
++-----------+--------+-----------------------------------------------------------------+
 
 Examples
 ----------------

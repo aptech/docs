@@ -52,11 +52,11 @@ Examples
     */
     if dbHasFeature(db_id, "NamedPlaceholders");
          dbQueryPrepare(qid, "SELECT * FROM GDP
-         WHERE COUNTRY = :country");
+                             WHERE COUNTRY = :country");
          dbQueryBindValue(qid, ":country", "USA");
     else;
          dbQueryPrepare(qid, "SELECT * FROM GDP
-         WHERE COUNTRY = ?");
+                             WHERE COUNTRY = ?");
          dbQueryAddBindValue(qid, "USA");
     endif;
 

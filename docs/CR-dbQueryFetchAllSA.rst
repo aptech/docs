@@ -26,8 +26,8 @@ Remarks
 For numerical only results, use :func:`dbQueryFetchAllM` to return a matrix.
 
 This function retrieves all rows at once. You can process rows in an
-iterative manner by using the :func:`dbQueryFetchNextM` and
-:func:`dbQueryFetchNextSA` functions.
+iterative manner by using :func:`dbQuerySeekNext` with either :func:`dbQueryFetchOneM` or
+:func:`dbQueryFetchOneSA`.
 
 Examples
 ----------------
