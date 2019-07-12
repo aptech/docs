@@ -69,6 +69,6 @@ call, to flush the file's buffer.
 
 If :func:`fopen` fails, it returns a 0.
 
-Use `close` and :func:`closeall` to close files opened with :func:`fopen`.
+Use :func:`close` and :func:`closeall` to close files opened with :func:`fopen`.
 
-.. seealso:: Functions :func:`fseek`, `close`, :func:`closeall`
+.. seealso:: Functions :func:`fseek`, :func:`close`, :func:`closeall`

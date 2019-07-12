@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: filesa(fspec)
 
-    :param fspec: file specification to search for. Can include path. Wildcards are allowed in *n*.
+    :param fspec: file specification to search for. Can include path and wildcards.
     :type fspec: string
 
     :returns: **fnames** (*Nx1 string array*) - all file names that match or null string if none are found.

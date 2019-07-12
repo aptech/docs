@@ -7,14 +7,21 @@ Purpose
 
 Allows user to create one-line functions.
 
+.. _fn:
+.. index:: fn
+
 Format
 ----------------
-.. function:: code_for_function
+
+::
+
+    fn ret = code_for_function;
+
 
 Remarks
 -------
 
-Functions created usig `fn` can be called in the same way as other procedures.
+Functions created using `fn` can be called in the same way as other procedures.
 
 
 Examples

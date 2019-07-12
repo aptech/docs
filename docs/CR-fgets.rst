@@ -18,7 +18,7 @@ Format
         including the terminating null byte.
     :type maxsize: scalar
 
-    :returns: **str** (string) - Contains the text read from the file line specified by the file handle *fh*. The maximum size of the **str**, including the terminating null byte, is *maxsize*.
+    :returns: **str** (string) - Contains the text read from the file line specified by the file handle *fh*. The maximum size of the *str*, including the terminating null byte, is *maxsize*.
 
 Remarks
 -------

@@ -32,16 +32,17 @@ the old format. This code:
 
     x = { A 1, B 2, C 3 };
     oldfmt = formatcv("*.*s" ~ 3 ~ 3);
-    call printfmt(x,0~1);
+
+    call printfmt(x, 0~1);
     call formatcv(oldfmt);
 
 produces:
 
 ::
 
-     A 1
-     B 2
-     C 3
+  A               1
+  B               2
+  C               3 
 
 Source
 ------
