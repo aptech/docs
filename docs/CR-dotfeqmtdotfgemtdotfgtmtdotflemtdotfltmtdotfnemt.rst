@@ -44,7 +44,7 @@ is equivalent to:
 
 ::
 
-   y = a .eq b;
+   y = abs(a-b) .<= 1e-13;
 
 
 Examples

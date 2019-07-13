@@ -7,6 +7,8 @@ Purpose
 
 Computes descriptive statistics.
 
+.. NOTE:: This function is deprecated, use :func:`dstatmt` instead.
+
 Format
 ----------------
 .. function:: dstat(dataset, vars)
@@ -17,12 +19,15 @@ Format
 
     :param vars: the variables.
 
-    If *dataset* contains the name of a dataset, *vars* will be interpreted as either a Kx1 character vector containing the names of variables,
-    a Kx1 numeric vector containing indices of variables, or a `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
+        If *dataset* contains the name of a dataset, *vars* will be interpreted as either:
 
-    These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
+            * A Kx1 character vector containing the names of variables.
+            * A Kx1 numeric vector containing indices of variables.
+            * A `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`.
 
-    If *dataset* is null or 0, *vars* will be interpreted as a NxK matrix, the data on which to compute the descriptive statistics.
+            These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
+
+        If *dataset* is null or 0, *vars* will be interpreted as a NxK matrix, the data on which to compute the descriptive statistics.
 
     :type vars: string or string array
 
@@ -118,8 +123,10 @@ Example 2
 
 ::
 
+    file = getGAUSShome() $+ "examples/freqdata.dat";
+
     // Calculate statistics on just AGE and PAY
-    vars = { AGE, PAY };
+    vars = "AGE" $| "PAY";
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
 
 After the above code,
@@ -138,6 +145,8 @@ Example 3
 
 ::
 
+    file = getGAUSShome() $+ "examples/freqdata.dat";
+
     // Calculate statistics on just AGE and PAY using numerical indices
     vars = { 1, 2 };
     { vnam, mean, var, std, min, max, valid, mis } = dstat(file, vars);
@@ -146,17 +155,19 @@ After the above code,
 
 ::
 
-    -------------------------------------------------------------------------------
-    Variable       Mean   Std Dev    Variance   Minimum   Maximum     Valid Missing
-    -------------------------------------------------------------------------------
-    AGE           -----     -----       -----    1.0000   10.0000       400    0
-    PAY          1.9675    0.8019      0.6431    1.0000    3.0000       400    0
+    ------------------------------------------------------------------------------
+    Variable       Mean   Std Dev    Variance   Minimum   Maximum   Valid  Missing
+    ------------------------------------------------------------------------------
+    AGE           -----     -----       -----    1.0000   10.0000     400    0
+    PAY          1.9675    0.8019      0.6431    1.0000    3.0000     400    0
 
 
 Example 4
 +++++++++
 
 ::
+
+    file = getGAUSShome() $+ "examples/freqdata.dat";
 
     // Calculate statistics on just AGE and PAY using __miss
     vars = { 1, 2 };
@@ -169,11 +180,11 @@ After the above code,
 
 ::
 
-    -------------------------------------------------------------------------------
-    Variable       Mean   Std Dev    Variance   Minimum   Maximum     Valid	 Missing
-    -------------------------------------------------------------------------------
-    AGE          5.6784    2.9932      8.9593    1.0000   10.0000       398    2
-    PAY          1.9623    0.8006      0.6409    1.0000    3.0000       398    2
+    ------------------------------------------------------------------------------
+    Variable       Mean   Std Dev    Variance   Minimum   Maximum   Valid  Missing
+    ------------------------------------------------------------------------------
+    AGE          5.6784    2.9932      8.9593    1.0000   10.0000     398    2
+    PAY          1.9623    0.8006      0.6409    1.0000    3.0000     398    2
 
 Example 5
 +++++++++
@@ -194,12 +205,59 @@ After the above code,
 
 ::
 
-    -------------------------------------------------------------------------------
-    Variable       Mean   Std Dev    Variance   Minimum   Maximum     Valid Missing
-    -------------------------------------------------------------------------------
-    AGE          5.6784    2.9932      8.9593    1.0000   10.0000       398    2
-    PAY          1.9623    0.8006      0.6409    1.0000    3.0000       398    2
-    WT           1.4713    0.3009      0.0906    1.0000    1.9900       398    2
+    -----------------------------------------------------------------------------
+    Variable       Mean   Std Dev    Variance   Minimum   Maximum   Valid Missing
+    -----------------------------------------------------------------------------
+    AGE          5.6784    2.9932      8.9593    1.0000   10.0000     398    2
+    PAY          1.9623    0.8006      0.6409    1.0000    3.0000     398    2
+    WT           1.4713    0.3009      0.0906    1.0000    1.9900     398    2
+
+
+Example 6
++++++++++++
+
+Descriptive statistics on a matrix.
+
+::
+
+    data = { 1 2, 3 4, 5 6, 7 8 };
+    call dstat("", data);
+
+After the above code,
+
+::
+
+    -----------------------------------------------------------------------------
+    Variable       Mean   Std Dev    Variance   Minimum   Maximum   Valid Missing
+    -----------------------------------------------------------------------------
+    X1                4     2.582       6.667         1         7       4    0
+    X2                5     2.582       6.667         2         8       4    0
+
+
+Example 7
++++++++++++
+
+Specify variable names.
+
+::
+    
+    // Note the use of the matrix concatenation operator, '|'
+    // instead of the string concatenation operator, `$|`,
+    // makes this a 2x1 character vector
+    __altnam = "ALPHA" | "BETA";
+    data = { 1 2, 3 4, 5 6, 7 8 };
+    call dstat("", data);
+
+After the above code,
+
+::
+
+    -----------------------------------------------------------------------------
+    Variable       Mean   Std Dev    Variance   Minimum   Maximum   Valid Missing
+    -----------------------------------------------------------------------------
+    ALPHA             4     2.582       6.667         1         7       4    0
+    BETA              5     2.582       6.667         2         8       4    0
+
 
 Remarks
 -------

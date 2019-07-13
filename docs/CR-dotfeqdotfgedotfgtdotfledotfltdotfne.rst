@@ -47,9 +47,12 @@ is equivalent to:
 
 ::
 
-   y = a .eq b;
+   // Is the absolute difference between the
+   // corresponding elements of 'a' and 'b' 
+   // less than or equal to '_fcmptol'?
+   y = abs(a - b) .<= _fcmptol;
 
-The calling program can reset `_fcmptol` before calling these procedures:
+The calling program can reset `_fcmptol` before calling these procedures. For example:
 
 ::
 
@@ -61,17 +64,21 @@ Examples
 
 ::
 
-    x = pi*ones(2, 2);
+    x = pi * ones(2, 2);
     y = x;
-    y[1, 1] = 2*pi;
+
+    y[1,1] = pi + 1e-14;
+    y[1,2] = pi + 3e-16;
 
     // Test for elements where 'x' is > 'y'
     t = dotfge(x, y);
 
+If `_fcmptol` is equal to `1e-15`, then
+
 ::
 
-    x = 3.14 3.14  y = 6.28 3.14  t = 0.00 1.00
-        3.14 3.14      3.14 3.14      1.00 1.00
+    t = 0.00 1.00
+        1.00 1.00
 
 Continuing with the data above:
 
