@@ -31,5 +31,5 @@ Examples
 
     drop age, pay, sex;
 
-.. seealso:: Functions 
+.. seealso:: `select`
 

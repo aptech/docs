@@ -54,6 +54,67 @@ The `do` loop does not automatically increment a counter. See the first example 
 Examples
 ----------------
 
+Basic examples
++++++++++++++++
+
+The following are examples of simple loops that execute a
+predetermined number of times. These loops will both have the result
+shown.
+
+:code:`do while` loop:
+
+::
+
+    format /rd 1,0;
+
+    // Initialize counter
+    i = 1;
+
+    /*
+    ** Run do loop while i is
+    ** less than or equal to 10
+    */
+    do while i <= 10;
+
+      // Two semi-colons at the end of a print
+      // statement keep all output on the same line
+      print i;;
+
+      // Advance counter
+      i = i + 1;
+    endo;
+
+::
+
+    1 2 3 4 5 6 7 8 9 10
+
+:code:`do until` loop:
+
+::
+
+    format /rd 1,0;
+
+    // Initialize counter
+    i = 1;
+
+    /*
+    ** Run do loop until i is
+    ** greater than to 10
+    */
+    do until i > 10;
+       print i;;
+
+       // Advance counter
+       i = i + 1;
+    endo;
+
+::
+
+    1 2 3 4 5 6 7 8 9 10
+
+Nested loops
+++++++++++++++
+
 ::
 
     // Set format
@@ -85,6 +146,8 @@ Examples
 
        // Advance i
        i = i + 1;
+
+       // Print newline
        print;
     endo;
 
@@ -98,59 +161,12 @@ The code above prints the following output:
     4,1 4,2 4,3
 
 In the example above, two nested loops are executed and the loop
-counter values are printed out. Note that the inner loop counter
+counter values are printed out. Note that the inner loop counter, :code:`j`,
 must be reset inside of the outer loop before entering the inner
-loop. An empty print statement is used to print a carriage
+loop. 
+
+An empty print statement is used to print a carriage
 return/line feed sequence after the inner loop finishes.
-The following are examples of simple loops that execute a
-predetermined number of times. These loops will both have the result
-shown.
-First loop:
 
-::
-
-    format /rd 1,0;
-
-    // Initialize counter
-    i = 1;
-
-    /*
-    ** Run do loop while i is
-    ** less than or equal to 10
-    */
-    do while i <= 10;
-      print i;;
-
-      // Advance counter
-      i = i + 1;
-    endo;
-
-::
-
-    1 2 3 4 5 6 7 8 9 10
-
-Second loop:
-
-::
-
-    format /rd 1,0;
-
-        // Initialize counter
-        i = 1;
-
-        /*
-        ** Run do loop until i is
-        ** greater than to 10
-        */
-        do until i > 10;
-           print i;;
-
-           // Advance counter
-           i = i + 1;
-        endo;
-
-::
-
-    1 2 3 4 5 6 7 8 9 10
 
 .. seealso:: keywords `continue`, `break`

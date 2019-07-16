@@ -14,10 +14,16 @@ Format
     :param x: first matrix.
     :type x: Nx1 vector or NxK matrix
 
-    :param y: second matrix, *y* should have the same number of columns as *x*.
+    :param y: second matrix, *y*.
     :type y: Nx1 vector or NxK matrix
 
     :returns: **z** (*scalar or Kx1*) - The dot product of *x* and *y*.
+
+
+Remarks
+----------
+
+*x* and *y* must have the same number columns, or one of them must only have a single column.
 
 
 Examples
@@ -49,6 +55,35 @@ After the code above:
 ::
 
     z = 19
+
+Dot product of an Nx1 vector and Nx2 matrix
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Create 4x1 vector
+    x = { 5,
+          9,
+          3,
+          4 };
+
+    // Create 4x2 matrix
+    y = { 9  8,
+         -6  4,
+          8  3,
+          1 -2 };
+
+    // Compute dot product
+    z = dot(x, y);
+
+    print  "z = " z;
+
+After the code above:
+
+::
+
+    z = 19
+        77
 
 Dot product of the corresponding columns of two matrices
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
