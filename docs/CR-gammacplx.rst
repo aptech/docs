@@ -9,12 +9,38 @@ Computes the Gamma function for complex inputs.
 
 Format
 ----------------
-.. function:: gammacplx(z)
+.. function:: gammacplx(x_cplx)
 
-    :param z: the values used to compute the Gamma function. May include complex elements.
-    :type z: NxK matrix;
+    :param x_cplx: the values used to compute the Gamma function. May include complex elements.
+    :type x_cplx: NxK matrix;
 
-    :returns: **f** (*NxK matrix*) ;  The values of the Gamma function evaluated at *x*. May be complex.
+    :returns: **g_cplx** (*NxK matrix*) ;  The values of the Gamma function evaluated at *x*. May be complex.
+
+Examples
+----------------
+
+::
+
+    // Real component
+    xr = { 2.5 ,
+    9.1 };
+
+    // Imaginary component
+    xi = { 3 ,
+    1 };
+
+    // Create complex matrix
+    x_cplx = complex(xr, xi);
+
+    // Compute gamma function
+    gammacplx(x_cplx);
+
+The results after the code:
+
+::
+
+    -0.21811897 +      0.072034763i
+    -25993.298 +        39350.237i
 
 Remarks
 ---------------

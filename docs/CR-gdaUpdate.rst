@@ -37,10 +37,10 @@ Format
 Remarks
 -------
 
-This command updates the variable :func:`varname` in :func:`filename` with the data
-contained in :func:`x`.
+This command updates the variable *varname* in *filename* with the data
+contained in *x*.
 
-If :func:`x` is larger than the specified variable in the file, then :func:`gdaUpdate`
+If *x* is larger than the specified variable in the file, then :func:`gdaUpdate`
 writes the new variable data after the last variable in the data file,
 moving the variable descriptor table to make room for the data and
 leaving empty bytes in the place of the old variable. This does not
@@ -66,11 +66,19 @@ Examples
 
 ::
 
-    x = rndn(100,50);
-    ret = gdaCreate("myfile.gda",1);
-    ret = gdaWrite("myfile.gda",x,"x1");
+    // Generate random variable x
+    x = rndn(100, 50);
 
-    y = rndn(75,5);
-    ret = gdaUpdate("myfile.gda",y,"x1");
+    // Create GDA `myFile`
+    ret = gdaCreate("myfile.gda", 1);
+
+    // Write `x`  to `myfile` as x1
+    ret = gdaWrite("myfile.gda", x, "x1");
+
+    // Generate random variable y
+    y = rndn(75, 5);
+
+    // Update x1 with y
+    ret = gdaUpdate("myfile.gda", y, "x1");
 
 .. seealso:: Functions :func:`gdaUpdateAndPack`, :func:`gdaPack`, :func:`gdaWrite`

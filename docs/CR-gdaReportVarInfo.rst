@@ -33,14 +33,28 @@ Examples
 
 ::
 
-    x1 = rndn(100,50);
-    x2 = rndn(75,5);
-    a = areshape(rndn(10000,1),10|100|10);
+    // Generate random variable x1
+    x1 = rndn(100, 50);
+
+    // Generate random variable x2
+    x2 = rndn(75, 5);
+
+    // Generate array a
+    a = areshape(rndn(10000, 1), 10|100|10);
+
+    // Create GDA named `myfile`
     fname = "myfile.gda";
-    ret = gdaCreate(fname,1);
-    ret = gdaWrite(fname,x1,"x1");
-    ret = gdaWrite(fname,x2,"x2");
-    ret = gdaWrite(fname,a,"a1");
+    ret = gdaCreate(fname, 1);
+
+    /*
+    ** Write variables x1, x2, and
+    ** a to `myFile`
+    */
+    ret = gdaWrite(fname, x1, "x1");
+    ret = gdaWrite(fname, x2, "x2");
+    ret = gdaWrite(fname, a, "a1");
+
+    // Report information about variables
     gdaReportVarInfo(fname);
 
 produces:

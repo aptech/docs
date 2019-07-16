@@ -31,10 +31,17 @@ Examples
 
 ::
 
-    a = seqa(1,1,720);
-    a = areshape(a,2|3|4|5|6);
-    loc = { 2,1 };
-    y = getarray(a,loc);
+    // Generate vector
+    vec_st = seqa(1, 1, 720);
+
+    // Reshape `vec` into array
+    a = areshape(vec_st, 2|3|4|5|6);
+
+    // Location index
+    loc = { 2, 1 };
+
+    // Get scalar at location 2,1 of array a
+    y = getarray(a, loc);
 
 *y* will be a 4x5x6 array of sequential values, beginning at :math:`[1,1,1]` with 361, and ending at :math:`[4,5,6]` with 480.
 

@@ -35,7 +35,7 @@ Format
             "0", "if file exists, return with an error code."
             "1", "if file exists, overwrite completely."
             "2", "if file exists, append to file, appending to variable names if necessary to avoid name conflicts."
-            "3", "if file exists, update file. When a name confict occurs, update the existing variable in the file with the new variable."
+            "3", "if file exists, update file. When a name conflict occurs, update the existing variable in the file with the new variable."
 
     :type overwrite: scalar
 
@@ -75,7 +75,7 @@ interpreted as indicating all of the variables in the workspace.
 
 You may add an asterisk (``*``) to the end of a variable name in *varnames*
 to indicate that all variables beginning with the specified text are to
-be selected. For example, setting varnames *to* the string :code:`"_*"` and
+be selected. For example, setting *varnames* to the string :code:`"_*"` and
 setting *exclude* to 1 indicates that all variables EXCEPT those starting
 with an underscore should be written to the GDA.
 
@@ -97,13 +97,13 @@ Examples
 ::
 
     run -r myfile.gau;
-    ret = gdaSave("myfile.gda","x*",0,2,3);
+    ret = gdaSave("myfile.gda","x*", 0, 2, 3);
 
 This example runs a GAUSS program called ``myfile.gau`` and then
 writes all initialized variables in the workspace beginning with 'x'
 to the file ``myfile.gda``. If ``myfile.gda`` already
 exists, this example appends to it, changing the names of the variables
-that it writes to the file if necessary to avoid name conficts. All writing
+that it writes to the file if necessary to avoid name conflicts. All writing
 and variable name changing is reported.
 
 .. seealso:: Functions :func:`gdaLoad`

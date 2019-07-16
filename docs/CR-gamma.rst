@@ -14,7 +14,7 @@ Format
     :param x: the values used to evaluate the gamma function.
     :type x: NxK matrix or N-dimensional array
 
-    :returns: **y** (*NxK matrix or N-dimensional array*) - the value of the gamma function evaluated at *x*.
+    :returns: **g** (*NxK matrix or N-dimensional array*) - the value of the gamma function evaluated at *x*.
 
 Remarks
 -------
@@ -37,12 +37,12 @@ Examples
 
 ::
 
-    y = gamma(2.5);
+    g = gamma(2.5);
 
 After the code above:
 
 ::
 
-    y = 1.329340
+    g = 1.329340
 
 .. seealso:: Functions :func:`cdfchic`, :func:`cdfbeta`, :func:`cdffc`, :func:`cdfnc`, :func:`cdftc`, :func:`erf`, :func:`erfc`, :func:`lnfact`

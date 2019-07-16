@@ -59,8 +59,7 @@ Examples
 
 ::
 
-    // Execute structure definition
-    #include gdafns.sdf
+    // Declare gdaVarTable structure
     struct gdavartable vtab;
 
     vtab = gdaGetVarInfo("myfile.gda");

@@ -58,11 +58,19 @@ Examples
 
 ::
 
-    x = rndn(100,50);
-    ret = gdaCreate("myfile.gda",1);
-    ret = gdaWrite("myfile.gda",x,"x1");
+    // Generate random variable x
+    x = rndn(100, 50);
 
-    y = rndn(75,5);
-    ret = gdaUpdateAndPack("myfile.gda",y,"x1");
+    // Create GDA `myFile`
+    ret = gdaCreate("myfile.gda", 1);
+
+    // Write `x`  to `myfile` as x1
+    ret = gdaWrite("myfile.gda", x ,"x1");
+
+    // Generate random variable y
+    y = rndn(75, 5);
+
+    // Update x1 with y and pack
+    ret = gdaUpdateAndPack("myfile.gda", y, "x1");
 
 .. seealso:: Functions :func:`gdaUpdate`, :func:`gdaWrite`

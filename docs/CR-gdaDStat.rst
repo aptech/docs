@@ -50,7 +50,7 @@ Format
     :param vnamevar: names of variables or indices of variables.
     :type vnamevar: Kx1 string array or Kx1 vector
 
-    :returns: dout (*struct*) instance of :class:`dstatmtOut` struct with the following members:
+    :returns: **dout** (*struct*) - instance of :class:`dstatmtOut` struct with the following members:
 
         .. list-table::
             :widths: auto
@@ -103,14 +103,20 @@ Examples
 
 ::
 
+    // Declare instance of dstatmtControl
     struct dstatmtControl dc0;
-    struct dstatmtOut dout;
 
     // Set structure to default values
     dc0 = dstatmtControlCreate();
 
-    vars = { 1,4,5,8 };
-    dout = gdaDStat(dc0,"myfile.gda",vars);
+    // Declare instance of dstatmtOut
+    struct dstatmtOut dout;
+
+    // Indices of variables to be evaluated
+    vars = { 1, 4, 5, 8 };
+
+    // Call gdaDStat
+    dout = gdaDStat(dc0, "myfile.gda", vars);
 
 This example computes descriptive statistics on the
 first, fourth, fifth and eighth variables in ``myfile.gda``.

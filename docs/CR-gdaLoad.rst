@@ -40,7 +40,7 @@ Format
             :widths: auto
 
             "0", "do not rename a variable retrieved from the data file when copying it into the workspace."
-            "1", "rename variables retrieved from the data file when copying theminto the workspace if there are name conflicts with existing variables, which may not be modified."
+            "1", "rename variables retrieved from the data file when copying them into the workspace if there are name conflicts with existing variables, which may not be modified."
 
     :type rename: scalar
 
@@ -49,12 +49,12 @@ Format
         .. csv-table::
             :widths: auto
 
-            "0", "do not force a type change on any variables in the workspacewhen modifying."
-            "1", "force a type change on a variable in the workspace when modifyingit with the data in a variable of the same name in the data file. Note that if  ftypes is set to 1, gdaLoadwill follow regular type change rules. The types of sparse matrixand structure variables will NOT be changed."
+            "0", "do not force a type change on any variables in the workspace when modifying."
+            "1", "force a type change on a variable in the workspace when modifying it with the data in a variable of the same name in the data file. Note that if  *ftypes* is set to 1, :func:`gdaLoad` will follow regular type change rules. The types of sparse matrix and structure variables will NOT be changed."
 
     :type ftypes: scalar
 
-    :param errh: controls the error handling of gdaLoad:
+    :param errh: controls the error handling of :func:`gdaLoad`:
 
         .. csv-table::
             :widths: auto
@@ -93,7 +93,7 @@ Format
 Remarks
 -------
 
-For each variable in :func:`filename`, :func:`gdaLoad` will first compare the name of
+For each variable in *filename*, :func:`gdaLoad` will first compare the name of
 the variable against the names of the variables already resident in the
 GAUSS workspace to see if there is a match. If there is not a match, and
 *create* is set to 1, it will create a new variable. Otherwise if *create*
@@ -107,7 +107,7 @@ the existing variable.
 
 If it cannot modify the variable or *modify* is set to 0, it will check to
 see if *rename* is set to 1, and if so, attempt to rename the variable,
-appending an \_ num to the variable name, beginning with :math:`num = 1` and
+appending an *\_ num* to the variable name, beginning with :math:`num = 1` and
 counting upward until it finds a name with which there are no conflicts.
 If the variable cannot be modified and *rename* is set to 0, then the
 variable will be skipped.
@@ -123,12 +123,12 @@ well as the number, order, names, and types of their members.
 If no matching structure definition is found, the definition in the file
 will be loaded into the workspace. If there is already a non-matching
 structure definition with the same name in the workspace and *rename* is
-set to 1, then gdaLoad will attempt to rename the structure definition,
+set to 1, then :func:`gdaLoad` will attempt to rename the structure definition,
 using the same method as it does for variable names.
 
 If a structure variable is encountered in the GDA file, a structure
 variable of the same name already exists in the workspace, and *modify* is
-set to 1, then gdaLoad will modify the existing variable, providing that
+set to 1, then :func:`gdaLoad` will modify the existing variable, providing that
 the structure definitions of the two variables match.
 
 
@@ -137,7 +137,42 @@ Examples
 
 ::
 
-    ret = gdaLoad("myfile.gda",1,1,1,1,1,3);
+    /*
+    ** Create new variables if same name
+    ** does not exist
+    */
+    create = 1;
+
+    /*
+    ** Modify variable if name matches
+    ** existing variable
+    */
+    modify = 1;
+
+    /*
+    ** Rename variables retrieved from the
+    ** data file when copying them into the
+    ** workspace if there are name conflicts
+    */
+    rename = 1;
+
+    /*
+    ** Force a type change on a variable in
+    ** the workspace when modifying it
+    */
+    ftypes = 1;
+
+    /*
+    ** Return an error code if operations
+    ** are skipped
+    */
+    errh = 1;
+
+    /*
+    ** Report only name changes and operations
+    ** that could not be performed
+    */
+    retcode = gdaLoad("myfile.gda", create, modify, rename, ftypes, errh, report)
 
 This example loads the variables in ``myfile.gda`` into the
 workspace, creating a new variable if a variable of the same name does not

@@ -59,8 +59,13 @@ Examples
 
 ::
 
-    x = rndn(100,50);
-    ret = gdaCreate("myfile.gda",1);
-    ret = gdaWrite32("myfile.gda",x,"x1");
+    // Generate random variable x
+    x = rndn(100, 50);
+
+    // Create GDA `myFile`
+    retcode1 = gdaCreate("myfile.gda", 1);
+
+    // Write `x`  to `myfile` as x1
+    retcode2 = gdaWrite32("myfile.gda", x, "x1");
 
 .. seealso:: Functions :func:`gdaWrite`, :func:`gdaCreate`

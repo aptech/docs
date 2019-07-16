@@ -31,7 +31,7 @@ Format
 Remarks
 -------
 
-You may want to call gdaPack after several calls to :func:`gdaUpdate` to remove
+You may want to call :func:`gdaPack` after several calls to :func:`gdaUpdate` to remove
 all of the empty bytes from a GDA.
 
 
@@ -40,6 +40,6 @@ Examples
 
 ::
 
-    ret = gdaPack("myfile.gda");
+    retcode = gdaPack("myfile.gda");
 
 .. seealso:: Functions :func:`gdaUpdate`, :func:`gdaWrite`

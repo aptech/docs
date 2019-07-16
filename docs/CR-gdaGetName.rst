@@ -44,6 +44,6 @@ Examples
 
 ::
 
-    varname = gdaGetName("myfile.gda",5);
+    varname = gdaGetName("myfile.gda", 5);
 
 .. seealso:: Functions :func:`gdaGetIndex`, :func:`gdaRead`, :func:`gdaGetNames`

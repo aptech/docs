@@ -17,7 +17,25 @@ Format
     :param p: incomplete gamma values.
     :type p: KxL matrix or ExE conformable with *a*
 
-    :returns: **x** (*max(M,K) by max(N,L) matrix*) - abscissae.
+    :returns: **g_ii** (*max(M,K) by max(N,L) matrix*) - abscissae.
+
+Examples
+----------------
+
+::
+
+    /*
+    ** Create sequence from 0
+    ** to 0.9 with a 0.001
+    ** increment
+    */
+    p = seqa(0, 0.001, 0.9/0.001);
+
+    // Find inverse incomplete gamma
+    g_ii = gammaii(3, p);
+
+    //  Plot results 
+    plotXY(p, g_ii);
 
 Globals
 -------

@@ -20,7 +20,7 @@ Format
     :param structure_type: structure type.
     :type structure_type: string
 
-    :returns: instance (*struct*) instance of the struct.
+    :returns: **instance** (*struct*) - instance of the struct.
 
     :returns: **retcode** (*scalar*) - 0 if successful, otherwise, any of the following error codes:
 
@@ -52,11 +52,22 @@ Examples
     };
 
     struct mystruct msw;
-    msw.x = rndn(500,25);
-    msw.a = areshape(rndn(5000,100),10|500|100);
-    ret = gdaCreate("myfile.gda",1);
-    ret = gdaWrite("myfile.gda",msw,"ms");
+    msw.x = rndn(500, 25);
+    msw.a = areshape(rndn(5000, 100), 10|500|100);
+
+    // Create GDA `myfile`
+    ret = gdaCreate("myfile.gda", 1);
+
+    /*
+    ** Write structure msw to `myfile`
+    ** and store as variable ms
+    */
+    retcode1 = gdaWrite("myfile.gda", msw, "ms");
+
+    // Declare new instance of mystruct, `msr`
     struct mystruct msr;
-    { msr, ret } = gdaReadStruct("myfile.gda","ms","mystruct");
+
+    // Read ms from GDA tp msr
+    { msr, retcode2 } = gdaReadStruct("myfile.gda", "ms", "mystruct");
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaReadSparse`, :func:`gdaWrite`
