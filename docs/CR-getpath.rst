@@ -14,7 +14,7 @@ Format
     :param pfname: partial filename with only partial or missing path information.
     :type pfname: string
 
-    :returns: fname (*string*), filename with full drive and path.
+    :returns: **fname** (*string*) - filename with full drive and path.
 
 Remarks
 -------
@@ -40,4 +40,3 @@ Source
 ------
 
 getpath.src
-

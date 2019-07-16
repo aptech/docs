@@ -9,71 +9,71 @@ Computes descriptive statistics on multiple Nx1 variables in a GAUSS Data Archiv
 
 Format
 ----------------
-.. function:: gdaDStat(dc0, filename, vars)
+.. function:: gdaDStat(dc0, filename, vnamevar)
 
     :param dc0: an instance of a :class:`dstatmtControl` structure with the following members:
 
         .. list-table::
             :widths: auto
-    
-            * - dc0.altnames
+
+            * - *dc0.altnames*
               - Kx1 string array of alternate variable names for the output. Default = ``""``
-            * - dc0.maxbytes
+            * - *dc0.maxbytes*
               - scalar, the maximum number of bytes to be read per iteration of the read loop. Default = 1e9.
-            * - dc0.maxvec
+            * - *dc0.maxvec*
               - scalar, the largest number of elements allowed in any one matrix. Default = 20000.
-            * - dc0.miss
+            * - *dc0.miss*
               - scalar, one of the following:
-    
+
                   :0: There are no missing values (fastest).
                   :1: Listwise deletion, drop a row if any missings occur in it.
                   :2: Pairwise deletion.
-    
+
                 Default = 0.
-    
-            * - dc0.output
+
+            * - *dc0.output*
               - scalar, one of the following:
-    
+
                   :0: Do not print output table.
                   :1: Print output table.
-    
+
                 Default = 1.
-    
-            * - dc0.row
-              - scalar, the number of rows of *var* to be read per iteration of the read loop. If 0, (default) the number of rows will be calculated using *dc0.maxbytes* and *dc0.maxvec*.
+
+            * - *dc0.row*
+              - scalar, the number of rows of *vnamevar* to be read per iteration of the read loop. If 0, (default) the number of rows will be calculated using *dc0.maxbytes* and *dc0.maxvec*.
 
     :type dc0: struct
 
     :param filename: name of data file.
     :type filename: string
 
-    :param vars: names of variables or indices of variables.
-    :type vars: Kx1 string array or Kx1 vector
+    :param vnamevar: names of variables or indices of variables.
+    :type vnamevar: Kx1 string array or Kx1 vector
 
     :returns: dout (*struct*) instance of :class:`dstatmtOut` struct with the following members:
 
         .. list-table::
             :widths: auto
-    
-            * - dout.vnames
+
+            * - *dout.vnames*
               - Kx1 string array, the names of the variables used in the statistics.
-            * - dout.mean
+            * - *dout.mean*
               - Kx1 vector, means.
-            * - dout.var
+            * - *dout.var*
               - Kx1 vector, variance.
-            * - dout.std
+            * - *dout.std*
               - Kx1 vector, standard deviation.
-            * - dout.min
+            * - *dout.min*
               - Kx1 vector, minima.
-            * - dout.max
+            * - *dout.max*
               - Kx1 vector, maxima.
-            * - dout.valid
+            * - *dout.valid*
               - Kx1 vector, the number of valid cases.
-            * - dout.missing
+            * - *dout.missing*
               - Kx1 vector, the number of missing cases.
-            * - dout.errcode
+            * - *dout.errcode*
               - scalar, error code, 0 if successful, or one of the following:
-    
+
                   :1: No GDA indicated.
                   :4: Not implemented for complex data.
                   :5: Variable must be type matrix.
@@ -105,10 +105,10 @@ Examples
 
     struct dstatmtControl dc0;
     struct dstatmtOut dout;
-    
+
     // Set structure to default values
     dc0 = dstatmtControlCreate();
-    
+
     vars = { 1,4,5,8 };
     dout = gdaDStat(dc0,"myfile.gda",vars);
 
@@ -121,4 +121,3 @@ Source
 gdadstat.src
 
 .. seealso:: Functions :func:`gdaDStatMat`, :func:`dstatmtControlCreate`
-

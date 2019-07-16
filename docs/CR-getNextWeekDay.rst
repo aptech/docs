@@ -14,7 +14,7 @@ Format
     :param a: date in DT scalar format.
     :type a: scalar
 
-    :returns: n (*scalar*), next week day in DT scalar format.
+    :returns: **n** (*scalar*) - next week day in DT scalar format.
 
 Source
 ------
@@ -22,4 +22,3 @@ Source
 finutils.src
 
 .. seealso:: Functions :func:`getPreviousWeekDay`
-

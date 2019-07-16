@@ -22,11 +22,11 @@ Format
 
     :returns: instance (*struct*) instance of the struct.
 
-    :returns: retcode (*scalar*), 0 if successful, otherwise, any of the following error codes:
+    :returns: **retcode** (*scalar*) - 0 if successful, otherwise, any of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "2", "File open error."
             "4", "File read error."
@@ -50,7 +50,7 @@ Examples
        matrix x;
        array a;
     };
-     
+
     struct mystruct msw;
     msw.x = rndn(500,25);
     msw.a = areshape(rndn(5000,100),10|500|100);
@@ -60,4 +60,3 @@ Examples
     { msr, ret } = gdaReadStruct("myfile.gda","ms","mystruct");
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaReadSparse`, :func:`gdaWrite`
-

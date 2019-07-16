@@ -11,21 +11,21 @@ Format
 ----------------
 .. function:: gmmControlCreate()
 
-    :returns: c (*struct*) instance of :class:`gmmFitControl` struct with
+    :returns: **c** (*struct*) - instance of :class:`gmmFitControl` struct with
         members set to default values.
 
 Examples
 ----------------
 
-Since structures are strongly typed in GAUSS, each structure must be 
+Since structures are strongly typed in GAUSS, each structure must be
 declared before it can be used.
 
 ::
 
-    // declare 'c' as an 
-    // gmmFitControl structure 
+    // declare 'c' as an
+    // gmmFitControl structure
     struct gmmFitControl c;
-    
+
     // initialize structure c
     c = gmmControlCreate();
 
@@ -38,4 +38,3 @@ Source
 gmm_est.src
 
 .. seealso:: Functions :func:`gmmFit`, :func:`gmmFitIV`
-

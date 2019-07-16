@@ -14,7 +14,7 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: nvars (*scalar*), the number of variables in  filename.
+    :returns: **nvars** (*scalar*) - the number of variables in  filename.
 
 Examples
 ----------------
@@ -29,4 +29,3 @@ Source
 gdafns.src
 
 .. seealso:: Functions :func:`gdaReportVarInfo`, :func:`gdaGetNames`
-

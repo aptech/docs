@@ -17,7 +17,7 @@ Format
     :param row: The row of the matrix to extract
     :type row: scalar
 
-    :returns: y (*1xK row vector*)
+    :returns: **y** (*1xK row vector*) - extracted data
 
 Remarks
 -------
@@ -32,7 +32,7 @@ First create a matrix, *a*:
 
 ::
 
-    a = rndn(10,10);
+    a = rndn(10, 10);
 
 Now you can assign a variable *y* to be equal the third row of *a* with either
 of the following statements.
@@ -50,4 +50,3 @@ or
 While both statements will produce the same result, the first may make for code that is easier to read and interpret.
 
 .. seealso:: Functions :func:`getTrRow`
-

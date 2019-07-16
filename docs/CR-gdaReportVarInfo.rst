@@ -5,7 +5,7 @@ gdaReportVarInfo
 Purpose
 ----------------
 
-Gets information about all of the variables in a GAUSS Data 
+Gets information about all of the variables in a GAUSS Data
 Archive and returns it in a string array formatted for printing.
 
 Format
@@ -15,7 +15,7 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: vinfo (*Nx1 string array*) containing variable information.
+    :returns: **vinfo** (*Nx1 string array*) - containing variable information.
 
 Remarks
 -------
@@ -58,4 +58,3 @@ Source
 gdafns.src
 
 .. seealso:: Functions :func:`gdaGetVarInfo`, :func:`gdaGetNames`, :func:`gdaGetTypes`, :func:`gdaGetOrders`
-

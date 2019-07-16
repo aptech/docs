@@ -22,7 +22,6 @@ Format
     :param l: lightness. Default value is 0.6.
     :type l: scalar
 
-    :returns: clrs (*ncolorsx1 string array*) containing the newly created color palette.
+    :returns: **clrs** (*ncolorsx1 string array*) - contains the newly created color palette.
 
 .. seealso:: Functions :func:`getColorPalette`, :func:`listColorPalettes`, :func:`getHSLuvPalette`, :func:`blendColorPalette`
-

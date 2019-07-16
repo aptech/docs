@@ -15,32 +15,32 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - *dc0.altnames*
-              - Kx1 string array of alternate variable names for the output. Default = ``""``. If set, it must have the same number of rows as colind.
+              - Kx1 string array of alternate variable names for the output. Default = ``""``. If set, it must have the same number of rows as *colind*.
             * - *dc0.maxbytes*
               - scalar, the maximum number of bytes to be read per iteration of the read loop. Default = 1e9.
             * - *dc0.maxvec*
               - scalar, the largest number of elements allowed in any one matrix. Default = 20000.
             * - *dc0.miss*
               - scalar, one of the following:
-    
+
                   :0: There are no missing values (fastest).
                   :1: Listwise deletion, drop a row if any missings occur in it.
                   :2: Pairwise deletion.
-    
+
                 Default = 0.
-    
+
             * - *dc0.output*
               - scalar, one of the following:
-    
+
                   :0: Do not print output table.
                   :1: Print output table.
-    
+
                 Default = 1.
-    
+
             * - *dc0.row*
-              - scalar, the number of rows of *var* to be read per iteration of the read loop. If 0, (default) the number of rows will be calculated using *dc0.maxbytes* and *dc0.maxvec*."
+              - scalar, the number of rows of *vnamevar* to be read per iteration of the read loop. If 0, (default) the number of rows will be calculated using *dc0.maxbytes* and *dc0.maxvec*."
 
     :type dc0: struct
 
@@ -53,7 +53,7 @@ Format
     :param colind: indices of columns in variable to use.
     :type colind: Kx1 vector
 
-    :param vnamevar: name of the string containing the variable names in the matrix or 
+    :param vnamevar: name of the string containing the variable names in the matrix or
         index of the string containing the variable names in the matrix.
     :type vnamevar: string or scalar
 
@@ -61,7 +61,7 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - *dout.vnames*
               - Kx1 string array, the names of the variables used in the statistics.
             * - *dout.mean*
@@ -80,7 +80,7 @@ Format
               - Kx1 vector, the number of missing cases.
             * - *dout.errcode*
               - scalar, error code, 0 if successful, otherwise one of the following:
-    
+
                   :1: No GDA indicated.
                   :3: Variable must be Nx1.
                   :4: Not implemented for complex data.
@@ -117,16 +117,16 @@ In order to create a real, working example that you can use, you must first crea
 
     // Create an example GAUSS Data Archive
     ret = gdaCreate("myfile.gda",1);
-    
+
     // Add a variable 'A' which is a 10x5 random normal matrix
     ret = gdaWrite("myfile.gda",rndn(10,5),"A");
-    
+
     // Add a variable 'COLS' which is a 5x1 string array
     string vnames = { "X1", "X2", "X3", "X4", "X5" };
     ret = gdaWrite("myfile.gda", vnames, "COLS");
 
-This code above will create a GAUSS Data Archive containing two variables, the GAUSS matrix *A* 
-containing the data and *COLS* which contains the names for the columns of the matrix *A* which 
+This code above will create a GAUSS Data Archive containing two variables, the GAUSS matrix *A*
+containing the data and *COLS* which contains the names for the columns of the matrix *A* which
 are the model variables (*X1, X2,...*).
 
 The code below computes the statistics on each of the columns of the matrix *A*.
@@ -136,7 +136,7 @@ The code below computes the statistics on each of the columns of the matrix *A*.
     #include dstatmt.sdf
     struct dstatmtControl dc0;
     struct dstatmtout dout;
-    
+
     dc0 = dstatmtControlCreate;
     colind = { 1, 2, 3, 4, 5 };
     dout = gdaDStatMat(dc0, "myfile.gda", "A", colind, "COLS" );
@@ -162,4 +162,3 @@ Source
 gdadstat.src
 
 .. seealso:: Functions :func:`gdaDStat`, :func:`dstatmtControlCreate`
-

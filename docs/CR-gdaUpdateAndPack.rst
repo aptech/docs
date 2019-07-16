@@ -21,11 +21,11 @@ Format
     :param varname: variable name.
     :type varname: string
 
-    :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
+    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "2", "File open error."
             "3", "File write error."
@@ -61,9 +61,8 @@ Examples
     x = rndn(100,50);
     ret = gdaCreate("myfile.gda",1);
     ret = gdaWrite("myfile.gda",x,"x1");
-     
+
     y = rndn(75,5);
     ret = gdaUpdateAndPack("myfile.gda",y,"x1");
 
 .. seealso:: Functions :func:`gdaUpdate`, :func:`gdaWrite`
-

@@ -17,7 +17,7 @@ Format
     :param p: incomplete gamma values.
     :type p: KxL matrix or ExE conformable with *a*
 
-    :returns: x (*max(M,K) by max(N,L) matrix*) , abscissae.
+    :returns: **x** (*max(M,K) by max(N,L) matrix*) - abscissae.
 
 Globals
 -------
@@ -29,4 +29,3 @@ Source
 ------
 
 cdfchii.src
-

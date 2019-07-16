@@ -14,7 +14,7 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: varnames (*Nx1 string array*), names of all the variables in the GDA.
+    :returns: **varnames** (*Nx1 string array*) - names of all the variables in the GDA.
 
 Remarks
 -------
@@ -51,4 +51,3 @@ Examples
     varnames = gdaGetNames("myfile.gda");
 
 .. seealso:: Functions :func:`gdaGetTypes`, :func:`gdaGetName`
-

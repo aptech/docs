@@ -16,12 +16,12 @@ Format
 
     :param par1: an instance of structure of type :class:`PV` containing parameter vector at which gradient is to be evaluated
     :type par1: struct
-        
+
 
     :param data1: structure of type DS containing any data needed by *fct*
     :type data1: struct
 
-    :returns: g (*NxK Jacobian or 1xK gradient*)
+    :returns: **g** (*NxK  or 1xK*) - Jacobian or gradient.
 
 Remarks
 -------
@@ -37,23 +37,22 @@ Examples
     #include optim.sdf
     struct PV p1;
     p1 = pvCreate;
-    p1 = pvPack(p1,0.1|0.2,"P");
-     
+    p1 = pvPack(p1, 0.1|0.2, "P");
+
     struct DS d0;
     d0 = dsCreate;
-    d0.dataMatrix = seqa(1,1,15);
-     
+    d0.dataMatrix = seqa(1, 1, 15);
+
     proc fct(struct PV p0, struct DS d0);
        local p,y;
        p = pvUnpack(p0, "P");
        y = p[1] * exp(-p[2] * d0.dataMatrix);
        retp(y);
     endp;
-     
-    g = gradMT(&fct,p1,d0);
+
+    g = gradMT(&fct, p1, d0);
 
 Source
 ------
 
 gradmt.src
-

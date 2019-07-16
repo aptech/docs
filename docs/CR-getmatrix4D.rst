@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: getmatrix4D(a, i1, i2)
 
-    :param a: 
+    :param a:
     :type a: 4-dimensional array
 
     :param i1: index into the slowest moving dimension of the array.
@@ -20,7 +20,7 @@ Format
     :param i2: index into the second slowest moving dimension of the array.
     :type i2: scalar
 
-    :returns: y (*KxL matrix*), where L is the size of the fastest moving
+    :returns: **y** (*KxL matrix*) - where L is the size of the fastest moving
         dimension of the array and K is the size of the second fastest moving dimension.
 
 Remarks
@@ -41,11 +41,11 @@ Examples
 
     // Create a column vector 1, 2, 3...120
     a = seqa(1,1,120);
-    
-    // Reshape the column vector into a 2x3x4x5 dimensional 
+
+    // Reshape the column vector into a 2x3x4x5 dimensional
     // array
     a = areshape(a,2|3|4|5);
-    
+
     // Extract a submatrix
     y = getmatrix4D(a,2,3);
 
@@ -59,4 +59,3 @@ After the code above:
         116   117   118   119   120
 
 .. seealso:: Functions :func:`getmatrix`, :func:`getscalar4D`, :func:`getarray`
-

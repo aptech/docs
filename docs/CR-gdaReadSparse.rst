@@ -17,7 +17,7 @@ Format
     :param varname: name of sparse matrix variable in the GDA.
     :type varname: string
 
-    :returns: sm (*sparse matrix*) .
+    :returns: **sm** (*sparse matrix*) .- The data contained in the variables in *varname*. 
 
 Remarks
 -------
@@ -54,4 +54,3 @@ Examples
     sm1 = gdaReadSparse("myfile.gda","sm");
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaReadStruct`, :func:`gdaWrite`
-

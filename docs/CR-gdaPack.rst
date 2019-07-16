@@ -14,11 +14,11 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
+    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "2", "File open error."
             "3", "File write error."
@@ -43,4 +43,3 @@ Examples
     ret = gdaPack("myfile.gda");
 
 .. seealso:: Functions :func:`gdaUpdate`, :func:`gdaWrite`
-

@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: gamma(x)
 
-    :param x:
+    :param x: the values used to evaluate the gamma function.
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*)
+    :returns: **y** (*NxK matrix or N-dimensional array*) - the value of the gamma function evaluated at *x*.
 
 Remarks
 -------
@@ -24,8 +24,6 @@ For each element of *x* this function returns the integral
 .. math::
 
    \int_{0}^{\infty}t^{(x−1)⁢}e^{−t}dt
-
-.. DANGER:: FIX Equation
 
 All elements of *x* must be positive and less than or equal to 169. Values
 of *x* greater than 169 will cause an overflow.

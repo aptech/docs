@@ -11,12 +11,12 @@ Format
 ----------------
 .. function:: gammacplx(z)
 
-    :param z: 
-    :type z: NxK matrix;  z may be complex
+    :param z: the values used to compute the Gamma function. May include complex elements.
+    :type z: NxK matrix;
 
-    :returns: f (*NxK matrix*) ;  f may be complex.
+    :returns: **f** (*NxK matrix*) ;  The values of the Gamma function evaluated at *x*. May be complex.
 
-Technical Notes
+Remarks
 ---------------
 
 Accuracy is 15 significant digits along the real axis and 13 significant
@@ -45,4 +45,3 @@ References
    complex Gamma approximation.''
 
 #. Original code by Paul Godfrey
-

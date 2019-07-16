@@ -5,8 +5,8 @@ gdaGetVarInfo
 Purpose
 ----------------
 
-Gets information about all of the variables in a GAUSS Data 
-Archive and returns it in an array of :class:`gdavartable` 
+Gets information about all of the variables in a GAUSS Data
+Archive and returns it in an array of :class:`gdavartable`
 structures.
 
 Format
@@ -16,13 +16,13 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: vtab (*Nx1 array*) of gdavartable
+    :returns: **vtab** (*Nx1 array*) - Contains :class:`gdavartable`
         structures, where *N* is the number of variables in
         *filename*, containing the following members:
 
         .. csv-table::
             :widths: auto
-    
+
             "*vtab[i].name*", "string, name of variable."
             "*vtab[i].type*", "scalar, type of variable."
             "*vtab[i].orders*", "Mx1 vector or scalar, orders of the variable."
@@ -40,7 +40,7 @@ The size of *vtab.orders* is dependent on the type of the variable as follows:
     "matrix", "2x1 vector containing the rows and columns of the matrix, respectively."
     "string", "scalar containing the length of string, excluding the null terminating byte."
     "string array", "2x1 vector containing the rows and columns of the string array, respectively."
-    
+
 *vtab.type* may contain any of the following:
 
 +----+--------------+
@@ -62,7 +62,7 @@ Examples
     // Execute structure definition
     #include gdafns.sdf
     struct gdavartable vtab;
-    
+
     vtab = gdaGetVarInfo("myfile.gda");
 
 Source
@@ -71,4 +71,3 @@ Source
 gdafns.src
 
 .. seealso:: Functions :func:`gdaReportVarInfo`, :func:`gdaGetNames`, :func:`gdaGetTypes`, :func:`gdaGetOrders`
-

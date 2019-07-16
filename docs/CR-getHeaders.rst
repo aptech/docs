@@ -5,7 +5,7 @@ getHeaders
 Purpose
 ----------------
 
-Returns the variable names in a dataset as a string array. 
+Returns the variable names in a dataset as a string array.
 
 Format
 ----------------
@@ -14,7 +14,7 @@ Format
     :param fname: the name of the data file.
     :type fname: string
 
-    :returns: headers (*Px1 string array*) containing the variable names in the file.
+    :returns: **headers** (*Px1 string array*) - contains the variable names in the file.
 
 Remarks
 -------
@@ -40,7 +40,7 @@ Excel Data
 
     // Get file name with full path
     fname = getGAUSSHome() $+ "examples/yarn.xlsx";
-     
+
     // Read headers from the first row of the first
     // sheet of the XLSX file
     headers = getHeaders(fname);
@@ -49,9 +49,9 @@ After the above code, *headers* will contain:
 
 ::
 
-    yarn_length     
-    amplitude   
-    load   
+    yarn_length
+    amplitude
+    load
     cycles
 
 GAUSS dataset
@@ -61,7 +61,7 @@ GAUSS dataset
 
     // Get file name with full path
     fname = getGAUSSHome() $+ "examples/fueleconomy.dat";
-     
+
     // Read headers from the dataset
     headers = getHeaders(fname);
 
@@ -69,7 +69,7 @@ After the above code, *headers* will contain:
 
 ::
 
-    annual_fuel_cost 
+    annual_fuel_cost
     engine_displacement
 
 Stata dataset
@@ -79,7 +79,7 @@ Stata dataset
 
     // Get file name with full path
     fname = getGAUSSHome() $+ "examples/auto2.dta";
-     
+
     // Read headers from the dataset
     headers = getHeaders(fname);
 
@@ -107,7 +107,7 @@ SAS dataset
 
     // Get file name with full path
     fname = getGAUSSHome() $+ "examples/detroit.sas7bdat";
-     
+
     // Read headers from the dataset
     headers = getHeaders(fname);
 
@@ -136,4 +136,3 @@ The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT)
 .. DANGER:: Link up references
 
 .. seealso:: Functions :func:`csvReadSA`, :func:`dataopen`, :func:`getnamef`, :func:`loadd`, :func:`xlsReadSA`
-

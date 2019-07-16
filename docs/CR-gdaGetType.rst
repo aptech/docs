@@ -17,7 +17,7 @@ Format
     :param varname: name of variable in the GDA.
     :type varname: string
 
-    :returns: vartype (*scalar*), type of the variable in the GDA.
+    :returns: **vartype** (*scalar*) - type of the variable in the GDA.
 
 Remarks
 -------
@@ -68,4 +68,3 @@ Examples
     vartype = gdaGetType("myfile.gda","x1");
 
 .. seealso:: Functions :func:`gdaGetTypes`
-

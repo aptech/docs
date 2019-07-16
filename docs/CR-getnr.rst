@@ -13,14 +13,14 @@ Format
 .. function:: getnr(nsets, ncols)
 
     :param nsets: estimate of the maximum number of duplicate
-        copies of the data matrix read by readr to be kept
+        copies of the data matrix read by :func:`readr` to be kept
         in memory during each iteration of the loop.
     :type nsets: scalar
 
     :param ncols: columns in the data file.
     :type ncols: scalar
 
-    :returns: nr (*scalar*), number of rows readr should read per iteration
+    :returns: **nr** (*scalar*) - number of rows :func:`readr` should read per iteration
         of the read loop.
 
 
@@ -43,4 +43,3 @@ Globals
 -------
 
 `__row`, `__rowfac`, `__maxvec`
-

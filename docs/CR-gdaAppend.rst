@@ -20,11 +20,11 @@ Format
     :param varname: variable name.
     :type varname: string
 
-    :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
+    :returns: **ret** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "2", "File open error."
             "3", "File write error."
@@ -63,7 +63,7 @@ Examples
     x = rndn(100,50);
     ret = gdaCreate("myfile.gda",1);
     ret = gdaWrite("myfile.gda",x,"x1");
-     
+
     y = rndn(25,50);
     ret = gdaAppend("myfile.gda",y,"x1");
 
@@ -71,4 +71,3 @@ This example adds :math:`25*50=1250` elements to *x1*,
 making it a 125x50 matrix.
 
 .. seealso:: Functions :func:`gdaWriteSome`, :func:`gdaUpdate`, :func:`gdaWrite`
-

@@ -21,7 +21,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "include all variables contained in *varnames*."
             "1", "exclude all variables contained in *varnames*."
 
@@ -31,7 +31,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "if file exists, return with an error code."
             "1", "if file exists, overwrite completely."
             "2", "if file exists, append to file, appending to variable names if necessary to avoid name conflicts."
@@ -43,18 +43,18 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "no reporting."
             "1", "report only name changes (note that name changes occur only when *overwrite* is set to 2)."
             "3", "report everything."
 
     :type report: scalar
 
-    :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
+    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "3", "File write error."
             "4", "File read error."
@@ -101,10 +101,9 @@ Examples
 
 This example runs a GAUSS program called ``myfile.gau`` and then
 writes all initialized variables in the workspace beginning with 'x'
-to the file ``myfile.gda``. If ``myfile.gda`` already 
-exists, this example appends to it, changing the names of the variables 
+to the file ``myfile.gda``. If ``myfile.gda`` already
+exists, this example appends to it, changing the names of the variables
 that it writes to the file if necessary to avoid name conficts. All writing
 and variable name changing is reported.
 
 .. seealso:: Functions :func:`gdaLoad`
-

@@ -23,7 +23,7 @@ Format
     :param orders: orders of object to output.
     :type orders: scalar or Kx1 vector
 
-    :returns: y (*matrix*), array, string or string array, variable data.
+    :returns: **y** (*matrix*) - array, string or string array, variable data.
 
 Remarks
 -------
@@ -92,7 +92,7 @@ Examples
     x = rndn(100,50);
     ret = gdaCreate("myfile.gda",1);
     ret = gdaWrite("myfile.gda",x,"x1");
-     
+
     index = { 35,20 };
     orders = { 25,5 };
     y = gdaReadSome("myfile.gda","x1",index,orders);
@@ -102,4 +102,3 @@ with the :math:`[35,20]` element. The 125 elements are returned as
 a 25x5 matrix, *y*.
 
 .. seealso:: Functions :func:`gdaWriteSome`, :func:`gdaRead`
-

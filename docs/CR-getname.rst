@@ -14,7 +14,7 @@ Format
     :param dset: the name of the data set from which the function will obtain the variable names
     :type dset: string
 
-    :returns: y (*Nx1 vector*) containing the names of all of the variables in the specified data set.
+    :returns: **y** (*Nx1 vector*) - contains the names of all of the variables in the specified data set.
 
 Remarks
 -------
@@ -35,9 +35,9 @@ produces:
 
 ::
 
-    AGE 
-    PAY 
-    sex 
+    AGE
+    PAY
+    sex
     WT
 
 The above example assumes that the data set *freqdata*
@@ -48,4 +48,3 @@ passed to the :func:`getname` function.
 .. DANGER:: Review above sentence... extension is included
 
 .. seealso:: Functions :func:`getnamef`, :func:`indcv`
-

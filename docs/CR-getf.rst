@@ -14,10 +14,10 @@ Format
     :param filename: any valid file name.
     :type filename: string
 
-    :param mode: 
-    :type mode: scalar 1 or 0 which determines if the file is to be loaded in ASCII mode (0) or binary mode (1)
+    :param mode: 1 or 0 which determines if the file is to be loaded in ASCII mode (0) or binary mode (1)
+    :type mode: scalar
 
-    :returns: y (string), containing the file.
+    :returns: **y** (string) - containing the file.
 
 Remarks
 -------
@@ -41,14 +41,14 @@ Suppose you have a file which writes the results of its calculations to a file i
 
     x1 = rndn(100,5);
     y1 = rndu(100,1);
-    
+
     output file = regression_results.txt reset;
     call ols("", y1, x1);
     output off;
-    
+
     x2 = rndn(100,5);
     y2 = rndu(100,1);
-    
+
     output file = ols_results.txt reset;
     call ols("", y2, x2);
     output off;
@@ -66,7 +66,7 @@ You can take this further and create a procedure that will load a list of output
 
     declare string array fileList = { "regression_results.txt", "ols_results.txt" };
     showOutput(fileList);
-    
+
     proc (0) = showOutput(fileList);
        local k;
        for i(1, rows(fileList), 1);
@@ -79,4 +79,3 @@ You can take this further and create a procedure that will load a list of output
     endp;
 
 .. seealso:: Functions `load`, `save`, `let`, :func:`con`
-

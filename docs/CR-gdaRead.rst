@@ -17,7 +17,7 @@ Format
     :param varname: name of variable in the GDA.
     :type varname: string
 
-    :returns: y (*matrix*), array, string or string array, variable data.
+    :returns: **y** (*matrix*) - array, string or string array, variable data.
 
 Remarks
 -------
@@ -50,7 +50,6 @@ Examples
 
 ::
 
-    y = gdaRead("myfile.gda","x1");
+    y = gdaRead("myfile.gda", "x1");
 
 .. seealso:: Functions :func:`gdaReadByIndex`, :func:`gdaGetName`
-

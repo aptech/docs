@@ -38,12 +38,12 @@ Format
 
     :type family: string
 
-    :param var_names: (k+1)x1⁢ string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
+    :param var_names: Optional argument, the names of the variables. The first element must be the name of the dependent variable.
         e.g., :code:`var_names = "admit" $| "gre" $| "gpa" $| "rank"`, then :code:`"admit"` will be the label of the response variable, :code:`"gre"`, :code:`"gpa"`, :code:`"rank"` are the labels of the independent variables corresponding to the order in the *X* matrix.
-    :type var_names: Optional argument
+    :type var_names: (k+1)x1⁢ string array or character matrix
 
 
-    :param categoryIdx: :math: `1 × k_d` matrix, :math: `k_d \leq k`. :math: `k_d` is the categorical variable index of *X* matrix.
+    :param categoryIdx: Optional argument, :math: `k_d \leq k`. :math: `k_d` is the categorical variable index of *X* matrix.
         *categoryIdx* specifies the categorical variable columns to be used in the analysis.
         e.g. If *categoryIdx* = 0, then it means the independent variable does not contain any categorical variables;
         if *categoryIdx* = :math:`{ 1 4 }`, then it means that column 1 and column 4 in the *X* matrix are categorical variables.
@@ -52,7 +52,7 @@ Format
 
         .. DANGER:: Fix equations here.
 
-    :type categoryIdx: Optional argument
+    :type categoryIdx: 1 × k_d matrix
 
     :param link: the link function. Options include:
 
@@ -74,13 +74,13 @@ Format
 
     :type link: string
 
-    :param ctl: For an instance named *ct1*, the members are:
+    :param ctl: Optional argument. For an instance named *ct1*, the members are:
 
         .. list-table::
             :widths: auto
 
             * - *ctl.varNames*
-              - :math:`(k+1) \times 1` string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
+              - :math: `(k+1) \times 1` string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
             * - *ctl.categoryIdx*
               - :math: `1 × k_d` matrix, :math: `k_d \leq k`. *ctl.categoryIdx* specifies the categorical variable columns to be used in the analysis.
                 e.g. If *ctl.categoryIdx* = 0, then it means no categorical variable;
@@ -111,9 +111,9 @@ Format
 
         .. DANGER:: Fix equations above
 
-    :type ctl: An instance of a :class:`glmControl` structure
+    :type ctl: an instance of a :class:`glmControl` structure
 
-    :returns: out (*struct*) instance of :class:`glmOut` struct structure. For an instance named *out*, the members are:
+    :returns: **out** (*struct*) - instance of :class:`glmOut` struct structure. For an instance named *out*, the members are:
 
         .. list-table::
             :widths: auto

@@ -7,30 +7,30 @@ Purpose
 
 Computes the gradient vector or matrix (Jacobian) of a vector-valued function that has been defined in a
 procedure. Single-sided (forward difference) gradients are computed. :func:`gradcplx` allows for
-complex arguments. 
+complex arguments.
 
 Format
 ----------------
-.. function:: gradp(&f, x0) 
-              gradcplx(&f, x0)
+.. function:: gradp(&fct, x0)
+              gradcplx(&fct, x0)
 
-    :param &f: a pointer to a vector-valued function (f: :math:`Kx1 → Nx1`)
-        defined as a procedure. It is acceptable for :math:`f(x)`
-        to have been defined in terms of global arguments in addition to *x*, and thus *f* can
+    :param &fct: a pointer to a vector-valued function (fct: :math:`Kx1 → Nx1`)
+        defined as a procedure. It is acceptable for :math:`fct(x)`
+        to have been defined in terms of global arguments in addition to *x*, and thus *fct* can
         return an Nx1 vector:
 
     ::
 
-        proc f(x);
+        proc fct(x);
             retp( exp(x.*b));
         endp;
 
-    :type &f: Function pointer
+    :type &fct: Function pointer
 
     :param x0: points at which to compute gradient
     :type x0: Kx1 vector
 
-    :returns: g (*NxK matrix*), containing the gradients of *f* with
+    :returns: **g** (*NxK matrix*) - containing the gradients of *fct* with
         respect to the variable *x* at *x0*.
 
 Remarks
@@ -51,7 +51,7 @@ Examples
     proc myfunc(x);
        retp(x .* 2 .* exp( x .* x ./ 3 ));
     endp;
-    
+
     x0 = 2.5|3.0|3.5;
     y = gradp(&myfunc,x0);
 
@@ -72,4 +72,3 @@ Source
 gradp.src
 
 .. seealso:: Functions :func:`hessp`, :func:`hesscplx`
-

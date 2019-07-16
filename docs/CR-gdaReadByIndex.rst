@@ -17,7 +17,7 @@ Format
     :param varind: index of variable in the GDA.
     :type varind: scalar
 
-    :returns: y (*matrix*), array, string or string array, variable data.
+    :returns: **y** (*matrix*) - array, string or string array, variable data.
 
 Remarks
 -------
@@ -50,4 +50,3 @@ Examples
     y = gdaReadByIndex("myfile.gda",3);
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaGetIndex`
-

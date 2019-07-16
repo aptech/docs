@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: getscalar4D(a, i1, i2, i3, i4)
 
-    :param a: 
+    :param a: Data
     :type a: 4-dimensional array
 
     :param i1: index into the slowest moving dimension of the array.
@@ -26,7 +26,7 @@ Format
     :param i4: index into the fastest moving dimension of the array.
     :type i4: scalar
 
-    :returns: y (*scalar*), the element of the array indicated by the indices.
+    :returns: **y** (*scalar*) - the element of the array indicated by the indices.
 
 Remarks
 -------
@@ -50,4 +50,3 @@ Examples
 The code above assigns *y* equal to 50.
 
 .. seealso:: Functions :func:`getmatrix`, :func:`getscalar3D`, :func:`getarray`
-

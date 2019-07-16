@@ -17,7 +17,7 @@ Format
     :param varind: index of variable in the GDA.
     :type varind: scalar
 
-    :returns: varname (*string*), name of variable in the GDA.
+    :returns: **varname** (*string*) - name of variable in the GDA.
 
 Remarks
 -------
@@ -47,4 +47,3 @@ Examples
     varname = gdaGetName("myfile.gda",5);
 
 .. seealso:: Functions :func:`gdaGetIndex`, :func:`gdaRead`, :func:`gdaGetNames`
-

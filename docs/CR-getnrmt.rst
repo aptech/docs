@@ -25,18 +25,17 @@ Format
 
     :param rowfac: *nr* will be reduced in
         size by this factor. If insufficient memory error
-        is encounted, change this to a number less than
+        is encountered, change this to a number less than
         one (e.g. 0.9).
     :type rowfac: scalar
 
     :param maxv: the largest number of elements allowed in any one matrix.
     :type maxv: scalar
 
-    :returns: nr (*scalar*), number of rows :func:`readr` should read per iteration
+    :returns: **nr** (*scalar*) - number of rows :func:`readr` should read per iteration
         of the read loop.
 
 Source
 ------
 
 gaussmt.src
-

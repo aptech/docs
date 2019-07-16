@@ -21,8 +21,8 @@ Format
     .. raw:: html
 
         <!-- START OF COLORS --><style>
-        .col-md-1 { 
-          text-align: right; 
+        .col-md-1 {
+          text-align: right;
         }
         #color-chips rect {
           stroke: #333;
@@ -35,7 +35,7 @@ Format
     :param ncolors:  Optional. The desired number of colors for a specific palette. Default value is 6. If '*ncolors*' is fewer than the minimum number of colors offered by a palette, then the minimum will be returned with a warning. The same behavior occurs when '*ncolors*' is greater than the maximum number of colors a palette supports.
     :type ncolors: scalar
 
-    :returns: clrs (*ncolors x 1 string array*) of hex values for each color in the palette.
+    :returns: **clrs** (*ncolors x 1 string array*) - hex values for each color in the palette.
 
 Examples
 ----------------
@@ -52,8 +52,8 @@ After the above code, *clrs* should equal:
 
 ::
 
-    #1b9e77 
-    #d95f02 
+    #1b9e77
+    #d95f02
     #7570b3
 
 These string values in *clrs* are hex values that describe RGB colors.
@@ -61,4 +61,3 @@ They can be passed directly to any of the GAUSS plotSet functions which
 take a color as an input.
 
 .. seealso:: Functions :func:`listColorPalettes`, :func:`getHSLPalette`, :func:`getHSLuvPalette`, :func:`blendColorPalette`
-

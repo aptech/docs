@@ -18,11 +18,11 @@ Remarks
 
 This procedure is used to reset the defaults between graphs.
 
-graphset may be called between each graphic panel to be displayed.
+:func:`graphset` may be called between each graphic panel to be displayed.
 
 To change the default values of the global control variables, make the
-appropriate changes in the file pgraph.dec and to the procedure
-graphset.
+appropriate changes in the file ``pgraph.dec`` and to the procedure
+:func:`graphset`.
 
 
 
@@ -30,4 +30,3 @@ Source
 ------
 
 pgraph.src
-
