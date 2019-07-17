@@ -63,6 +63,6 @@ Examples
 
 ::
 
-    vartype = gdaGetType("myfile.gda","x1");
+    vartype = gdaGetType("myfile.gda", "x1");
 
 .. seealso:: Functions :func:`gdaGetTypes`

@@ -56,10 +56,10 @@ Examples
        retp(y);
     endp;
 
-     mask = { 0, 1 };
+    mask = { 0, 1 };
 
-     // Find gradient
-     g = gradMTm(&fct, p1, d0, mask);
+    // Find gradient
+    g = gradMTm(&fct, p1, d0, mask);
 
 Source
 ------

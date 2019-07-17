@@ -60,7 +60,7 @@ Examples
 ::
 
     // Declare gdaVarTable structure
-    struct gdavartable vtab;
+    struct gdaVarTable vtab;
 
     vtab = gdaGetVarInfo("myfile.gda");
 

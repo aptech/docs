@@ -18,7 +18,6 @@ Format
     :type mode: scalar
 
     :returns: **str_contents** (string) - contains the file contents.
-      :depth: 2.
 
 Remarks
 -------
@@ -88,14 +87,18 @@ You can take this further and create a procedure that will load a list of output
 
     proc (0) = showOutput(fileList);
        local k;
+
        for i(1, rows(fileList), 1);
+
           print "Press any key to view the next file:";
+
           /*
           ** Wait for user input and assign the first key stroke
           ** to 'k'
           */
           k = keyw;
           print getf(fileList[i], 1);
+
        endfor;
     endp;
 

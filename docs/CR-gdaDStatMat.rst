@@ -40,7 +40,7 @@ Format
                 Default = 1.
 
             * - *dc0.row*
-              - scalar, the number of rows of *vnamevar* to be read per iteration of the read loop. If 0, (default) the number of rows will be calculated using *dc0.maxbytes* and *dc0.maxvec*."
+              - scalar, the number of rows of *vnamevar* to be read per iteration of the read loop. If 0, (default) the number of rows will be calculated using *dc0.maxbytes* and *dc0.maxvec*.
 
     :type dc0: struct
 
@@ -98,8 +98,8 @@ Set *colind* to a scalar 0 to use all of the columns in *vnamevar*.
 variable names, where M is the number of columns in the data set
 variable, or be set to a scalar 0. If *vnamevar* references an Mx1 string
 array variable, then only the elements indicated by *colind* will be used.
-Otherwise, if *vnamevar* is set to a scalar 0, then the variable names for
-the output will be generated automatically (:code:`"X1, X2, ..., XK"`) unless the
+Otherwise, if *vnamevar* is set to a scalar 0, then the variable names :code:`"X1, X2, ..., XK"` for
+the output will be generated automatically, unless the
 alternate variable names are set explicitly in the *dc0.altnames* member of
 the :class:`dstatmtControl` structure.
 

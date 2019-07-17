@@ -70,15 +70,15 @@ Examples
     x = rndn(100, 50);
 
     // Create GDA `myFile`
-    ret = gdaCreate("myfile.gda", 1);
+    retcode1 = gdaCreate("myfile.gda", 1);
 
     // Write `x`  to `myfile` as x1
-    ret = gdaWrite("myfile.gda", x, "x1");
+    retcode2 = gdaWrite("myfile.gda", x, "x1");
 
     // Generate random variable y
     y = rndn(75, 5);
 
     // Update x1 with y
-    ret = gdaUpdate("myfile.gda", y, "x1");
+    retcode3 = gdaUpdate("myfile.gda", y, "x1");
 
 .. seealso:: Functions :func:`gdaUpdateAndPack`, :func:`gdaPack`, :func:`gdaWrite`

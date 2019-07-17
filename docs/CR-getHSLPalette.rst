@@ -24,4 +24,22 @@ Format
 
     :returns: **clrs** (*ncolorsx1 string array*) - contains the newly created color palette.
 
+Examples
+----------------
+
+::
+
+    // Get the first 3 colors HSL colors
+    hsl_clrs = getHSLPalette(3);
+
+
+After the above code, *hsl_clrs* should equal:
+
+
+::
+
+    #db5f57
+    #57db5f
+    #5f57db
+
 .. seealso:: Functions :func:`getColorPalette`, :func:`listColorPalettes`, :func:`getHSLuvPalette`, :func:`blendColorPalette`

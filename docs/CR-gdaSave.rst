@@ -73,7 +73,7 @@ Only initialized variables are written to the GDA with :func:`gdaSave`.
 If *varnames* is a null string and *exclude* is set to 0, it will be
 interpreted as indicating all of the variables in the workspace.
 
-You may add an asterisk (``*``) to the end of a variable name in *varnames*
+You may add an asterisk, ``*``, to the end of a variable name in *varnames*
 to indicate that all variables beginning with the specified text are to
 be selected. For example, setting *varnames* to the string :code:`"_*"` and
 setting *exclude* to 1 indicates that all variables EXCEPT those starting

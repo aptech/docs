@@ -141,7 +141,7 @@ Examples
     ** Create new variables if same name
     ** does not exist
     */
-    create = 1;
+    create_new = 1;
 
     /*
     ** Modify variable if name matches
@@ -172,7 +172,7 @@ Examples
     ** Report only name changes and operations
     ** that could not be performed
     */
-    retcode = gdaLoad("myfile.gda", create, modify, rename, ftypes, errh, report)
+    retcode = gdaLoad("myfile.gda", create_new, modify, rename, ftypes, errh, report)
 
 This example loads the variables in ``myfile.gda`` into the
 workspace, creating a new variable if a variable of the same name does not

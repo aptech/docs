@@ -46,6 +46,7 @@ Examples
 
 ::
 
+    // Create structure
     struct mystruct {
        matrix x;
        array a;

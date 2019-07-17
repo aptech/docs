@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: gmmFit(&fct, y[, ...[, gCtl]])
 
-    :param fct: Pointer to user specified moment equation function *fct*. The function must have the parameter vector to be estimated as the first input and a data matrix as the second input. The data matrix *y* and all optional arguments are passed, untouched, directly to the moment function. The function *fct* should return the desired moments for the GMM objective function and should take the form:
+    :param &fct: Pointer to user specified moment equation function *&fct*. The function must have the parameter vector to be estimated as the first input and a data matrix as the second input. The data matrix *y* and all optional arguments are passed, untouched, directly to the moment function. The function *fct* should return the desired moments for the GMM objective function and should take the form:
 
     ::
 
         m = fct(b, y, ...);
 
-    :type fct: function pointer
+    :type &fct: function pointer
 
     :param y: independent data vector.
     :type y: Nx1 matrix
@@ -25,7 +25,7 @@ Format
     :param \.\.\.: Optional inputs. These arguments are passed untouched to the user-provided moment function by :func:`gmmFit`.
     :type \.\.\.: Any
 
-    :param gCtl: Optional argument. The following members of *gCtl* are referenced within the :func:`gmmFit` routine:
+    :param gCtl: Optional argument, an instance of an :class:`gmmControl` structure. The following members of *gCtl* are referenced within the :func:`gmmFit` routine:
 
         .. list-table::
             :widths: auto
@@ -90,7 +90,7 @@ Format
             * - *gctl.bounds*
               - 1x2 or Kx2 matrix, bounds on parameters. If 1x2 all parameters have same bounds. Default = :code:`{ -1e256 1e256 }`.
 
-    :type gCtl: an instance of an :class:`gmmControl` structure
+    :type gCtl: struct
 
     :returns: **gOut** (*struct*) - instance of :class:`gmmOut` struct containing the following members:
 

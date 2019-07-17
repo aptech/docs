@@ -41,12 +41,12 @@ Examples
 ::
 
     // Create a column vector 1, 2, 3,...24
-    a = seqa(1,1,24);
+    a = seqa(1, 1, 24);
 
     // Reshape the column vector into a 2x3x4 dimensional array
-    a = areshape(a,2|3|4);
+    a = areshape(a, 2|3|4);
 
-    y = getscalar3D(a,1,3,2);
+    y = getscalar3D(a, 1, 3, 2);
 
 A 2x3x4 dimensional array can be thought of as two 3x4 dimensional matrices. The call to :func:`getScalar3D` above, returns the
 :math:`[3,2]` element of the first of these matrices. The value of which is:

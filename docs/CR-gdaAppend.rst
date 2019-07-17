@@ -94,7 +94,6 @@ This prints :
     125.00000
     50.000000
 
-Appending the ``y`` matrix to *x1* adds :math:`25*50 = 1250` elements to *x1*,
-making it a 125x50 matrix.
+Appending the ``y`` matrix to ``x1`` adds :math:`25*50 = 1250` elements to ``x1``, making it a 125x50 matrix.
 
 .. seealso:: Functions :func:`gdaWriteSome`, :func:`gdaUpdate`, :func:`gdaWrite`

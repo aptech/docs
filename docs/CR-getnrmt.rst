@@ -5,8 +5,7 @@ getnrmt
 Purpose
 ----------------
 
-Computes number of rows to read per iteration for a program that
- reads data from a disk file in a loop.
+Computes number of rows to read per iteration for a program that reads data from a disk file in a loop.
 
 Format
 ----------------

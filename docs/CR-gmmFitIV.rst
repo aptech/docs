@@ -32,7 +32,7 @@ Format
 
         e.g. :code:`"y ~ ."`, ``.`` means including all variables except dependent variable ``y``.
 
-    :type formula: String
+    :type formula: string
 
     :param inst_list: Optional input. Formula string representing the instrumental variables to be included in the model.
 
@@ -102,7 +102,7 @@ Format
 
     :type gCtl: struct
 
-    :returns: gOut (*struct*) instance of :class:`arimaOut` struct containing the following members:
+    :returns: gOut (*struct*) instance of :class:`gmmOut` struct containing the following members:
 
         .. csv-table::
             :widths: auto
@@ -126,7 +126,7 @@ The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT)
 Examples
 ----------------
 
-with Formula String
+Formula String
 +++++++++++++++++++
 
 ::
@@ -134,8 +134,10 @@ with Formula String
     new;
     cls;
 
-    // Declare gmm_result to be a gmmOut struct
-    // to hold the results of the estimation
+    /*
+    ** Declare gmm_result to be a gmmOut struct
+    ** to hold the results of the estimation
+    */
     struct gmmOut gmm_result;
 
     // Create fully pathed dataset file name string
@@ -166,7 +168,7 @@ The above code will print out the following report:
 
     Instruments: weight, length, Constant
 
-with Data Matrix
+Data Matrix
 +++++++++++++++++++
 
 ::
@@ -176,12 +178,14 @@ with Data Matrix
 
     data = loadd(getGAUSSHome() $+ "examples/hsng.dat");
 
-    y = data[.,12];
-    x = data[.,11 7];
-    z = data[.,7 8 14:16];
+    y = data[., 12];
+    x = data[., 11 7];
+    z = data[., 7 8 14:16];
 
-    // Declare gctl to be a gmmControl struct
-    // and fill with default settings
+    /*
+    ** Declare gctl to be a gmmControl struct
+    ** and fill with default settings
+    */
     struct gmmControl gctl;
     gctl = gmmControlCreate();
 

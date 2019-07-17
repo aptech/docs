@@ -86,7 +86,7 @@ Format
 Remarks
 -------
 
-The variables referenced by *vars* must all be Nx1.
+The variables referenced by *vnamevar* must all be Nx1.
 
 The names of the variables in the GDA will be used for the output by
 default. To use alternate names, set the *altnames* member of the

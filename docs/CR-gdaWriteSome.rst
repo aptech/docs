@@ -98,19 +98,19 @@ Examples
     x = rndn(100, 50);
 
     // Create GDA `myFile`
-    ret = gdaCreate("myfile.gda", 1);
+    retcode1 = gdaCreate("myfile.gda", 1);
 
     // Write `x`  to `myfile` as x1
-    ret = gdaWrite("myfile.gda", x, "x1");
+    retcode2 = gdaWrite("myfile.gda", x, "x1");
 
     // Generate random variable y
-    y = rndn(75,5);
+    y = rndn(75, 5);
 
     // Define index
     index = { 52, 4 };
 
     // Overwrites part of x1
-    retcode = gdaWriteSome("myfile.gda", y, "x1", index);
+    retcode3 = gdaWriteSome("myfile.gda", y, "x1", index);
 
 This example replaces :math:`75 * 5= 375` elements in *x1*, beginning
 with the :math:`[52, 4]` element, with the elements in *y*.

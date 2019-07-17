@@ -17,7 +17,7 @@ Format
     :param p: incomplete gamma values.
     :type p: KxL matrix or ExE conformable with *a*
 
-    :returns: **g_ii** (*max(M,K) by max(N,L) matrix*) - abscissae.
+    :returns: **g_ii** (*max(M,K) by max(N,L) matrix*) - the inverse incomplete gamma function evaluate at *p*.
 
 Examples
 ----------------
@@ -34,7 +34,7 @@ Examples
     // Find inverse incomplete gamma
     g_ii = gammaii(3, p);
 
-    //  Plot results 
+    //  Plot results
     plotXY(p, g_ii);
 
 Globals
