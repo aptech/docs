@@ -68,7 +68,7 @@ Format
         The default link of each distribution is the canonical link function:
 
         - Normal -- identity;
-        - Binomial -- logit;a
+        - Binomial -- logit;
         - Gamma -- inverse;
         - Possion -- nature log.
 
@@ -363,7 +363,7 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     Log likelihood:             -2971     BIC:                                      5971
     Dispersion:            1.669e+005     Iterations:                                  2
 
-     					   Standard                             Prob
+     					                                Standard                              Prob
     Variable                 Estimate            Error          t-value             >|t|
     ----------------     ------------     ------------     ------------     ------------
     CONSTANT                   246.19           46.535           5.2903         < 0.0001
