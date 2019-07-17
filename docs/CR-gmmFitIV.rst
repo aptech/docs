@@ -79,7 +79,7 @@ Format
                   :"parzen": Parzen kernel.
                   :"quad": Quadraticspectral kernel.
 
-                Default = ``"bartlett"``
+                Default = :code:`"bartlett"`
             * - *gCtl.wInitMat*
               - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*.
             * - *gCtl.wInit*

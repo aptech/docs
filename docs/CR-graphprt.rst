@@ -6,7 +6,7 @@ Purpose
 ----------------
 
 Controls automatic printer hardcopy and conversion file output. Note: This function is for use with the deprecated PQG graphics. Use the
-plotSave function instead.
+func:`plotSave` function instead.
 
 Format
 ----------------
@@ -62,8 +62,11 @@ Automatic print using a single graphics call:
 
     load x,y;
 
-    graphprt("-p"); /* tell "xy" to print */
-    xy(x,y);         /* create graph and print */
+    // Tell xy to print
+    graphprt("-p");
+
+    // Create graph and print
+    xy(x, y);
 
 Automatic print using multiple graphic panels. Note :func:`graphprt` is called
 once just before the :func:`endwind` call:
@@ -75,14 +78,22 @@ once just before the :func:`endwind` call:
 
     load x,y;
 
+    // Create two windows
     begwind;
-    window(1,2,0);   /* create two windows */
+    window(1, 2, 0);
+
+    // First graphics call
     setwind(1);
-    xy(x,y);         /* first graphics call */
+    xy(x, y);
+
+    // Second graphics call
     nextwind;
-    xy(x,y);         /* second graphics call */
+    xy(x, y);
+
+
+    // Print page containing all graphs
     graphprt("-p");
-    endwind;        /* print page containing all graphs */
+    endwind;
 
 The next example shows how to build a string to be used with :func:`graphprt`:
 
@@ -92,14 +103,21 @@ The next example shows how to build a string to be used with :func:`graphprt`:
     graphset;
     load x,y;
 
-    cvtnam = "mycvt.eps"; /* name of output file */
-    /* concatenate options into one string */
+    // Name of output file
+    cvtnam = "mycvt.eps";
+
+    // Concatenate options into one string
     cmdstr = "-c=1" $+ " -cf=" $+ cvtnam;
     cmdstr = cmdstr $+ " -q";
 
-    graphprt(cmdstr); /* tell "xy" to convert and */
-    /* close */
-    xy(x,y); /* create graph and convert */
+    /*
+    ** Tell `xy` to convert and
+    ** close
+    */
+    graphprt(cmdstr);
+
+    // Create graph and convert
+    xy(x, y);
 
 The above string ``cmdstr`` will read as follows:
 

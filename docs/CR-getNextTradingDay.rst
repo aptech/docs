@@ -14,7 +14,27 @@ Format
     :param a: date in DT scalar format.
     :type a: scalar
 
-    :returns: **n** (*scalar*) - next trading day in DT scalar format.
+    :returns: **next_day** (*scalar*) - next trading day in DT scalar format.
+
+Examples
+----------------
+
+::
+
+    // Convert string to date to dt date
+    dt_date = strtodt("2012-07-12", "YYYY-MO-DD");
+
+    /*
+    ** Get next trading day and print
+    ** string form
+    */
+    dttostr(getNextTradingDay(dt_date), "YYYY-MO-DD");
+
+This prints the next trading day to the screen in string format
+
+::
+
+    2012-07-13
 
 
 Remarks

@@ -53,7 +53,7 @@ Examples
     endp;
 
     x0 = 2.5|3.0|3.5;
-    y = gradp(&myfunc,x0);
+    y = gradp(&myfunc, x0);
 
 After the code above, *y* is equal to:
 
@@ -63,7 +63,7 @@ After the code above, *y* is equal to:
     0.00000000        281.19753       0.00000000
     0.00000000       0.00000000        1087.9541
 
-It is a 3x3 matrix because we are passing it 3 arguments and myfunc returns 3 results when we do
+It is a 3x3 matrix because we are passing it 3 arguments and ``myfunc`` returns 3 results when we do
  that; the off-diagonals are zeros because the cross-derivatives of 3 arguments are 0.
 
 Source

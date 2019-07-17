@@ -43,9 +43,17 @@ Examples
 
 ::
 
-    a = seqa(1,1,120);
-    a = areshape(a,2|3|4|5);
-    y = getscalar4D(a,1,3,2,5);
+    // Create a column vector 1, 2, 3, ... ,120
+    a = seqa(1, 1, 120);
+
+    /*
+    ** Reshape the column vector
+    ** into a 2x3x4x5 dimensional array
+    */
+    a = areshape(a, 2|3|4|5);
+
+    // Get the scalar in the 1,3,2,5 element
+    y = getscalar4D(a, 1, 3, 2, 5);
 
 The code above assigns *y* equal to 50.
 

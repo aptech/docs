@@ -41,8 +41,10 @@ Excel Data
     // Get file name with full path
     fname = getGAUSSHome() $+ "examples/yarn.xlsx";
 
-    // Read headers from the first row of the first
-    // sheet of the XLSX file
+    /*
+    ** Read headers from the first row of the first
+    ** sheet of the XLSX file
+    */
     headers = getHeaders(fname);
 
 After the above code, *headers* will contain:

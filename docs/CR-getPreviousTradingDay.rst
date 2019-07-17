@@ -11,10 +11,30 @@ Format
 ----------------
 .. function:: getPreviousTradingDay(a)
 
-    :param a: date in DT scalar format.
-    :type a: scalar
+    :param date: date in DT scalar format.
+    :type date: scalar
 
-    :returns: **n** (*scalar*) - previous trading day in DT scalar format.
+    :returns: **prev_date** (*scalar*) - previous trading day in DT scalar format.
+
+Examples
+----------------
+
+::
+
+    // Convert string to date to dt date
+    dt_date = strtodt("2012-07-12", "YYYY-MO-DD");
+
+    /*
+    ** Get next trading day and print
+    ** string form
+    */
+    dttostr(getPreviousTradingDay(dt_date), "YYYY-MO-DD");
+
+This prints the previous trading day to the screen in string format
+
+::
+
+    2012-07-11
 
 Remarks
 -------

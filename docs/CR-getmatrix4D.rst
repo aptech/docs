@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: getmatrix4D(a, i1, i2)
 
-    :param a:
+    :param a: Data.
     :type a: 4-dimensional array
 
     :param i1: index into the slowest moving dimension of the array.
@@ -20,14 +20,14 @@ Format
     :param i2: index into the second slowest moving dimension of the array.
     :type i2: scalar
 
-    :returns: **y** (*KxL matrix*) - where L is the size of the fastest moving
-        dimension of the array and K is the size of the second fastest moving dimension.
+    :returns: **y** (*KxL matrix*) - where *L* is the size of the fastest moving
+        dimension of the array and *K* is the size of the second fastest moving dimension.
 
 Remarks
 -------
 
-:func:`getmatrix4D` returns the contiguous matrix that begins at the :math:`[i1,i2,1,1]`
-position in array *a* and ends at the :math:`[i1, i2,K,L]` position.
+:func:`getmatrix4D` returns the contiguous matrix that begins at the :math:`[i1, i2, 1, 1]`
+position in array *a* and ends at the :math:`[i1, i2, K, L]` position.
 
 A call to :func:`getmatrix4D` is faster than using the more general :func:`getmatrix`
 function to get a matrix from a 4-dimensional array, especially when *i1*
@@ -40,14 +40,16 @@ Examples
 ::
 
     // Create a column vector 1, 2, 3...120
-    a = seqa(1,1,120);
+    a = seqa(1, 1, 120);
 
-    // Reshape the column vector into a 2x3x4x5 dimensional
-    // array
-    a = areshape(a,2|3|4|5);
+    /*
+    ** Reshape the column vector into a 2x3x4x5 dimensional
+    ** array
+    */
+    a = areshape(a, 2|3|4|5);
 
     // Extract a submatrix
-    y = getmatrix4D(a,2,3);
+    y = getmatrix4D(a, 2, 3);
 
 After the code above:
 

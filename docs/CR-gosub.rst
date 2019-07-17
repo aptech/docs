@@ -5,7 +5,7 @@ gosub
 Purpose
 ----------------
 
-Causes a branch to a subroutine. 
+Causes a branch to a subroutine.
 
 .. NOTE:: This is an advanced function that gives extra flexibility for sophisticated users in some circumstances.
 
@@ -61,14 +61,14 @@ executed, the program will resume executing at the statement following the gosub
 
 ::
 
-    x = rndn(3,3);
+    x = rndn(3, 3);
     z = 0;
     gosub mysub;
     print z;
     end;
-     
+
     /* ------ Subroutines Follow ------ */
-     
+
     mysub:
      z = inv(x);
     return;
@@ -77,7 +77,7 @@ Parameters can be passed to subroutines in the following way (line numbers are a
 
 ::
 
-     1. gosub mysub(x,y);
+     1. gosub mysub(x, y);
      2. pop j; /* b will be in j */
      3. pop k; /* a will be in k */
      4. t = j*k;
@@ -92,42 +92,42 @@ Parameters can be passed to subroutines in the following way (line numbers are a
      13.
      14. a = inv(b)*b+a;
      15. b = a'b;
-     16. return(a,b);
+     16. return(a, b);
 
 In the above example, when the `gosub` statement is
 executed, the following sequence of events results (line numbers are included for clarity):
 
-1. 
+1.
 *x* and *y* are pushed on the stack and the program branches to the label *mysub* in line 10.
 
-11. 
+11.
 the second argument that was pushed, *y*, is pop'ped into *b*.
 
-12. 
+12.
 the first argument that was pushed, *x*, is pop'ped into *a*.
 
-14. 
+14.
 :code:`inv(b)*b+a` is assigned to *a*.
 
-15. 
+15.
 :code:`a'b` is assigned to *b*.
 
-16. 
+16.
 *a* and *b* are pushed on the stack and the program branches to the statement following the `gosub`, which is line 2.
 
-2. 
+2.
 the second argument that was pushed, *b*, is pop'ped into *j*.
 
-3. 
+3.
 the first argument that was pushed, *a*, is pop'ped into *k*.
 
-4. 
+4.
 :code:`j*k` is assigned to *t*.
 
-5. 
+5.
 *t* is printed.
 
-6. 
+6.
 the program is terminated with the *end* statement.
 Matrices are pushed on a last-in/first-out stack in
 the `gosub` and :func:`return` statements. They must be
@@ -137,4 +137,3 @@ or the `gosub` and the pop. Only one matrix may be
 pop'ped per pop statement.
 
 .. seealso:: Functions `goto`, `proc`, `pop`, :func:`return`
-

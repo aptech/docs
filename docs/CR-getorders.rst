@@ -26,7 +26,7 @@ Example 1
 ::
 
     // Allocate a 5x100x3 dimensional array with each element equal to 0.
-    a = arrayinit(5|100|3,0);
+    a = arrayinit(5|100|3, 0);
 
     // Find the size of the dimensions in 'a'
     orders = getorders(a);

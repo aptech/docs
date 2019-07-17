@@ -39,13 +39,13 @@ of the following statements.
 
 ::
 
-    y = getRow(a,3);
+    y = getRow(a, 3);
 
 or
 
 ::
 
-    y = a[3,.];
+    y = a[3, .];
 
 While both statements will produce the same result, the first may make for code that is easier to read and interpret.
 

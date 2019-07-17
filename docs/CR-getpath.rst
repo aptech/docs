@@ -27,6 +27,7 @@ Examples
 
 ::
 
+    // Get path of `temp.e`
     y = getpath("temp.e");
     print y;
 

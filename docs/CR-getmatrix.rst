@@ -17,7 +17,7 @@ Format
     :param loc: indices into the array to locate the matrix of interest where *M* equals *N*, N-1 or N-2.
     :type loc: Mx1 vector
 
-    :returns: **y** (*KxL or 1xL matrix or scalar*) - where *L* is the
+    :returns: **y** (*KxL or 1xL matrix or scalar*), where *L* is the
         size of the fastest moving dimension of the array and *K* is the size
         of the second fastest moving dimension.
 
@@ -37,8 +37,10 @@ Examples
     // Create the sequence 1, 2, 3...20
     a = seqa(1, 1, 20);
 
-    // Reshape the column vector 'a' into a 3x3x2 dimensional
-    // array
+    /*
+    ** Reshape the column vector 'a' into a 3x3x2 dimensional
+    ** array
+    */
     a = areshape(a, 3|3|2);
 
     // Extract the second 3x2 array
