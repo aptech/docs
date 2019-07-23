@@ -18,6 +18,9 @@ Format
 Examples
 ----------------
 
+Full length DT Scalar
++++++++++++++++++++++
+
 ::
 
     // March 26th, 2001 at 08:51:18
@@ -32,7 +35,31 @@ The above code produces the following output:
 
 ::
 
-    p_time = 985596678;
+    p_time = 985596678
+
+Vector of short DT Scalars
++++++++++++++++++++++++++++
+
+::
+
+    // Create a 2x1 vector of
+    // short DT Scalars
+    // March 21, 2000
+    // October 14, 2008
+    dt = { 20000321,
+           20081014 };
+
+    // Convert to seconds since Jan 1, 1970
+    p_time = dttoposix(dt);
+
+    print "p_time = " p_time;
+
+The above code produces the following output:
+
+::
+
+    p_time =  953596800 
+             1223942400
 
 Remarks
 -------

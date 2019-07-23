@@ -27,7 +27,7 @@ and time. In the DT scalar format, the number
 
 ::
 
-   20120703105031
+   20180703105031
 
 represents 10:50:31 or 10:50:31 AM on July 3, 2018. :func:`dttostrc` converts a
 date in DT scalar format to a character string using the format string
@@ -212,7 +212,10 @@ Continuing with the same *x* from above:
 
 ::
 
-    fmt = "%A, %D" $| "%a, %F" $| "%v";
+    fmt = "%A, %D" 
+          $| "%a, %F" 
+          $| "%v";
+
     s = dttostrc(x, fmt);
 
 produces *s* equal to:
