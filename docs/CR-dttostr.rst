@@ -86,27 +86,29 @@ Example 2
 
 ::
 
-    S0 = dttostr(utctodt(timeutc), "YYYY-MO-DD HH:MI:SS");
-    print ("Date and Time are: " $+ s0);
+    event_dt = 20191122063122;
+    s = dttostr(event_dt, "YYYY-MO-DD HH:MI:SS");
+    print ("The event occurred at: " $+ s);
 
 produces the output:
 
 ::
 
-    Date and time are: 2012-09-14 11:49:10
+    The event occurred at: 2019-11-22 06:31:22
 
 Example 3
 +++++++++
 
 ::
 
-    print dttostr(utctodt(timeutc), "Today is DD-MO-YR");
+    b_day = 19840228;
+    print dttostr(b_day, "Her birthday is DD-MO-YR");
 
 produces the output:
 
 ::
 
-    Today is 14-09-12
+    Her birthday is 28-02-84
 
 
 Example 4
@@ -129,7 +131,7 @@ Using the same *x* from above:
 
 ::
 
-    s = dttostr(x, "DD/MO/YYYY");
+    s = dttostr(x, "MO/DD/YYYY");
 
 produces *s* equal to:
 

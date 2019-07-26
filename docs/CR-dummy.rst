@@ -25,18 +25,18 @@ Format
 Remarks
 -------
 
-Missings are deleted before the dummy variables are created.
+* Missings are deleted before the dummy variables are created.
 
-All categories are open on the left (i.e., do not contain their left
-boundaries) and all but the highest are closed on the right (i.e., do
-contain their right boundaries). The highest (rightmost) category is
-unbounded on the right. Thus, only :math:`K-1` breakpoints are required to
-specify :math:`K` dummy variables.
+* All categories are open on the left (i.e., do not contain their left
+  boundaries) and all but the highest are closed on the right (i.e., do
+  contain their right boundaries). The highest (rightmost) category is
+  unbounded on the right. Thus, only :math:`K-1` breakpoints are required to
+  specify :math:`K` dummy variables.
 
-The function :func:`dummybr` is similar to :func:`dummy`, but in that function the
-highest category is bounded on the right. The function :func:`dummydn` is also
-similar to :func:`dummy`, but in that function a specified column of dummies is
-dropped.
+* The function :func:`dummybr` is similar to :func:`dummy`, but in that function the
+  highest category is bounded on the right. The function :func:`dummydn` is also
+  similar to :func:`dummy`, but in that function a specified column of dummies is
+  dropped.
 
 
 Examples
@@ -59,9 +59,9 @@ The code above produces four dummies based upon the breakpoints in the vector *v
 
 ::
 
-    x < 1
-    1 < x < 5
-    5 < x < 7
+    x <= 1
+    1 < x <= 5
+    5 < x <= 7
     7 < x
 
 which look like:

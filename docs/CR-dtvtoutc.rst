@@ -48,12 +48,20 @@ Examples
 
 ::
 
-    dtv = utctodtv(timeutc);
+    // Create a 1x8 DTV vector equal
+    // to January 1, 1970 00:00:00
+    dtv = { 1970 01 01 0 0 0 0 0 };
+
+    // Convert to number of seconds since
+    // January 1, 1970 GMT 
     utc = dtvtoutc(dtv);
+
+If the code above is run from a computer set to American Mountain Standard Time (UTC-7), then *utc* will equal
 
 ::
 
-    dtv = 2019    6   28    0   24   10    5  178
-    utc = 1561706650
+    utc = 25200
+
+This is because the input, *dtv*, is assumed to represent the local time, while the output is GMT. As the clock turned to 00:00:00 January 1, 1970 MST, GMT was seven hours ahead (7 * 60 * 60 = 25,200). 
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodt`, :func:`dttodtv`, :func:`dttoutc`, :func:`dtvtodt`, :func:`dtvtoutc`, :func:`strtodt`, :func:`dttostr`

@@ -46,7 +46,7 @@ Examples
 
 ::
 
-    let dtv = { 2012 9 16 11 7 22 1 84 };
+    dtv = { 2012 9 16 11 7 22 1 84 };
     dt = dtvtodt(dtv);
 
 The code above assigns *dt* as follows:
