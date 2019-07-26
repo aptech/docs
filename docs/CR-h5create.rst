@@ -58,7 +58,7 @@ Remarks
    However, multiple datasets with different data types may be created
    in a single HDF5 file.
 -  Information about a dataset, called an attribute, may be attached to
-   a dataset in an HDF5 file with the function h5writeAttribute.
+   a dataset in an HDF5 file with the function :func:`h5writeAttribute`.
 -  Chunk size must be specified when users create a dataset with more
    than 2 dimensions and one of those dimensions is unlimited (`__INFP`).
 
@@ -123,7 +123,10 @@ Create a 3-Dimensional dataset and one intermediate group
     ** Define a 3-dimensional dataset, containing 3 matrices with
     ** 8 columns and an expandable number of rows
     */
-    dims = 3|__INFP|8;
+    num_matrices = 3;
+    r = __INFP;
+    c = 8;
+    dims = num_matrices|r|c;
 
     // Store the data in chunks of 1000x8 elements
     chunk_size = { 1, 1000, 8 };
@@ -140,7 +143,7 @@ Create a 3-Dimensional dataset and one intermediate group
     */
     dname_new =  "/household/Oregon";
 
-    // Create new dataset 
+    // Create new dataset
     call h5create(fname, dname_new, dims, dtype, chunk_size);
 
 .. seealso:: Functions :func:`h5read`, :func:`h5write`, `open`, `create`, :func:`writer`, :func:`seekr`, :func:`eof`

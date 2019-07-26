@@ -26,7 +26,7 @@ Remarks
 
 -  HDF5 does not support partial read or write of dataset attributes.
    The entire contents of the attribute will be read.
--  GAUSS functions that accept HDF5 datasets as a datasource, expect the
+-  GAUSS functions that accept HDF5 datasets as a data source, expect the
    dataset to have an attribute named :code:`"headers"`, containing the variable
    names of the dataset.
 
@@ -39,8 +39,19 @@ Create an HDF5 dataset and add headers
 
 ::
 
+    // Define filename
+    fname = "commodities.h5";
+
+    // Define dataset within file
+    dname = "/energy";
+
+    // Define a size of 100 rows and 4 columns
+    r = 100;
+    c = 5;
+    dims  = r|c;
+
     // Create an HDF5 dataset with room for 100 observations of 4 variables
-    call h5create("commodities.h5", "/energy", 100 | 4);
+    call h5create(fname, dname, dims);
 
     // Variable names for the dataset
     attr = "Crude Oil"$|"Gasoline"$|"Heating Oil"$|"Diesel";
@@ -49,10 +60,10 @@ Create an HDF5 dataset and add headers
     attr_name = "headers";
 
     // Write attributes to a HDF5 file
-    call h5writeAttribute("commodities.h5", "/energy", attr_name, attr);
+    call h5writeAttribute(fname, dname, attr_name, attr);
 
     // Read attributes from a HDF5 file
-    attr_read = h5readAttribute("commodities.h5", "/energy", attr_name);
+    attr_read = h5readAttribute(fname, dname, attr_name);
 
 Add data and calculate descriptive statistics
 ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -66,7 +77,7 @@ Add data and calculate descriptive statistics
     x = rndn(100, 4);
 
     // Write data to dataset created in the example above
-    call h5write("commodities.h5", "/energy", x);
+    call h5write(fname, dname, x);
 
     /*
     ** Calculate descriptive statistics on some of the variables

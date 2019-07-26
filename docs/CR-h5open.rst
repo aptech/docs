@@ -49,17 +49,31 @@ Create and write to an HDF5 dataset
 
     rndseed 2344;
 
+    // Define filename
+    fname = "testdata.h5";
+
+    // Define dataset in HDF5 file
+    dname = "/mydata";
+
+    // Define a size of 4 rows and 3 columns
+    r = 4;
+    c = 3;
+    dims  = r|c;
+
     // Create a 4 row by 3 column  HDF5 dataset
-    call h5create("testdata.h5", "/mydata", 4 | 3);
+    call h5create(fname, dname, dims);
 
     // Create a 2x3 matrix
     x = { 1.1 2.2 3.3,
           4.4 5.5 6.6 };
 
-    // Open a file handle
-    fh = h5open("testdata.h5", "/mydata", "update");
+    // Define mode for opening file handle
+    mode = "update";
 
-    // Write the data in 'x' to the the first two rows
+    // Open a file handle
+    fh = h5open(fname, dname, mode);
+
+    // Write the data in 'x' to the first two rows
     call writer(fh, x);
 
     // Create a 2x3 matrix
@@ -77,8 +91,11 @@ Read data written in Example 1
 
 ::
 
+    // Define mode for opening file handle
+    mode = "read";
+
     // Open a file handle
-    fh = h5open("testdata.h5", "/mydata", "read");
+    fh = h5open(fname, dname, mode);
 
     // Read the first row
     a  = readr(fh, 1);

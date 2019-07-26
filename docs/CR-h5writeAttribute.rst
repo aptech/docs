@@ -45,7 +45,8 @@ Create an HDF5 dataset and add headers
     fname = "commodities.h5";
 
     // Name of dataset in HDf5 file
-    dname = "/energy"
+    dname = "/energy";
+    
     // Create an HDF5 dataset with room for 100 observations of 4 variables
     call h5create(fname, dname, 100 | 4);
 

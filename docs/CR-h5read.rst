@@ -38,8 +38,13 @@ Basic write then read entire contents of an HDF5 file
     // Define a name of a dataset
     dname = "/mydata";
 
+    // Define a size of 4 rows and 3 columns
+    r = 3;
+    c = 2;
+    dims  = r|c;
+
     // Create a 3x2 fixed dimension dataset in a HDF5 file
-    call h5create(fname, dname, 3|2);
+    call h5create(fname, dname, dims);
 
     // Create a 3x2 matrix
     x = { 9 4,
@@ -65,23 +70,35 @@ Read HDF5 first two rows and first two columns
 
 ::
 
+    // Define a name of a HDF5 file
+    fname = "testdata.h5";
+
+    // Define a name of a dataset
+    dname = "/mydata";
+
     // Size of data to read
     dims = 2|2;
 
     // Read data from file created in Example 1, above
-    y2 = h5read("testdata.h5", "/mydata", dims);
+    y2 = h5read(fname, dname, dims);
 
 After the code above:
 
 ::
 
     y2 =    9 4
-    	2 1
+    	      2 1
 
 Read HDF5 first two rows and first two columns
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
+
+    // Define a name of a HDF5 file
+    fname = "testdata.h5";
+
+    // Define a name of a dataset
+    dname = "/mydata";
 
     // Size of data to read
     dims = 2|2;
@@ -90,7 +107,7 @@ Read HDF5 first two rows and first two columns
     offset = 1|0;
 
     // Read data from file created in Example 1, above
-    y3 = h5read("testdata.h5", "/mydata", dims, offset);
+    y3 = h5read(fname, dname, dims, offset);
 
 After the code above:
 
@@ -103,6 +120,9 @@ Read HDF5 file with offset at more than one dimension
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
+
+    // Define a name of a HDF5 file
+    fname = "testdata.h5";
 
     // Define a new dataset name
     dname = "/highdimension";
@@ -117,7 +137,7 @@ Read HDF5 file with offset at more than one dimension
     chunk_size = 1|128|4;
 
     // Create "highdimension" dataset, inside file created in Example 1 (above)
-    call h5create("testdata.h5", dname, dims, datatype, chunk_size);
+    call h5create(fname, dname, dims, datatype, chunk_size);
 
     // Set seed for repeatable random numbers
     rndseed 7672342;
@@ -126,7 +146,7 @@ Read HDF5 file with offset at more than one dimension
     x = areshape(rndn(3 * 10 * 4, 1), 3 | 10 | 4);
 
     // Write it into dataset
-    call h5write("testdata.h5", dname, x);
+    call h5write(fname, dname, x);
 
     // Skip first two rows and first column of each
     // of the 3 matrices in the 3x10x4 array
@@ -136,7 +156,7 @@ Read HDF5 file with offset at more than one dimension
     dims_read = 2|2|2;
 
     // Run h5read function
-    y4 = h5read("testdata.h5", dname, dims_read, offset);
+    y4 = h5read(fname, dname, dims_read, offset);
 
 After the code above, we see that *y4* is a 2x2x2 (number of dimensions to read *dims_read*) array, containing the contents of the *x*, after skipping the dimensions :math:`{ 0, 2, 1 }` specified in *offset*:
 
