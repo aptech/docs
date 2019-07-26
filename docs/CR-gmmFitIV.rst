@@ -102,7 +102,7 @@ Format
 
     :type gCtl: struct
 
-    :returns: gOut (*struct*) instance of :class:`gmmOut` struct containing the following members:
+    :returns: **gOut** (*struct*) - instance of :class:`gmmOut` struct containing the following members:
 
         .. csv-table::
             :widths: auto
