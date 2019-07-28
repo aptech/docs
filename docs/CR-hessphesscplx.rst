@@ -20,7 +20,7 @@ Format
     :param x0: the point at which the Hessian of :math:`f(x)` is to be computed
     :type x0: Kx1 vector
 
-    :returns: h (*KxK matrix*) of second derivatives of *f* with respect to *x* at *x0*; this matrix will be symmetric.
+    :returns: **h** (*KxK matrix*) - Second derivatives of *f* with respect to *x* at *x0*; this matrix will be symmetric.
 
 Remarks
 -------
@@ -43,14 +43,18 @@ Examples
 
 ::
 
+    // X matrix
     x = { 1, 2, 3 };
-     
+
     proc g(b);
-    retp( exp(x'b));
+      retp( exp(x'b));
     endp;
-     
+
+    // Parameter startvalues
     b0 = { 3, 2, 1 };
-    h = hessp(&g,b0);
+
+    // Compute Hessian
+    h = hessp(&g, b0);
 
 The resulting matrix of second partial derivatives of :math:`g(b)` evaluated at :math:`b = b0` is:
 
@@ -66,4 +70,3 @@ Source
 hessp.src
 
 .. seealso:: Functions :func:`gradp`, :func:`gradcplx`
-

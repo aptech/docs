@@ -23,11 +23,11 @@ Format
         associated with the module within which :func:`header` is called. This argument will be ignored if set to 0.
     :type ver: 2x1 numeric vector
 
-    :param header: containing one or more of the following letters:
+    :param header: contains one or more of the following letters:
 
         .. csv-table::
             :widths: auto
-    
+
             "t", "title is to be printed"
             "l", "lines are to bracket the title"
             "d", "a date and time is to be printed"
@@ -39,9 +39,45 @@ Format
     :param title: title for header.
     :type title: string
 
+Examples
+----------------
+
+::
+
+        // The procedure name
+        proc_name = "myProcedure";
+
+        // The dataset name
+        dataset = "mydataset";
+
+        // Version number of program
+        ver = 1|1;
+
+        // Define title
+        title = "My procedure is the best";
+
+        /*
+        ** Specify header design to include
+        ** title, brackets, and date and time
+        ** and filename
+        */
+        header = "tlvf"
+
+        headermt(proc_name, dataset, ver, header, title);
+
+This will print to the screen :
+
+    ::
+
+      ===============================================================================
+                         My procedure is the best
+      ===============================================================================
+      myProcedure  Version 1.00 (R1)
+      ===============================================================================
+                             Data Set:  mydataset
+      -------------------------------------------------------------------------------
 
 Source
 ------
 
 gaussmt.src
-
