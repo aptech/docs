@@ -5,13 +5,13 @@ edit
 Purpose
 ----------------
 
-Edits a disk file.
+Opens a file in the GAUSS programming editor.
 
 Format
 ----------------
 .. function:: edit filename
 
-    :param filename: the name of the file to be edited.
+    :param filename: the name of the file to be opened.
     :type filename: literal
 
 Remarks
