@@ -5,7 +5,7 @@ envget
 Purpose
 ----------------
 
-Searches the environment table for a defined name.
+Returns the value of an environment variable from your operating system.
 
 Format
 ----------------
@@ -14,15 +14,15 @@ Format
     :param s: the name to be searched for.
     :type s: string
 
-    :returns: **name** (*string*) - the string that corresponds to that
-        name in the environment table or a null string if it
-        is not found.
+    :returns: **name** (*string*) - the value of the environment variable or a null string if it is not found.
 
 Examples
 ----------------
 
 Example 1
 +++++++++
+
+Get the path to the home directory on Windows.
 
 ::
 
@@ -31,6 +31,18 @@ Example 1
     ** directory on most Windows systems
     */
     hm_dir = envget("USERPROFILE");
+
+
+Get the path to the home directory on macOS or Linux.
+
+::
+
+    /*
+    ** $HOME is the user's home
+    ** directory on macOS and Linux
+    */
+    hm_dir = envget("HOME");
+
 
 Example 2
 +++++++++

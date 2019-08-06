@@ -30,31 +30,33 @@ pointer to a specific byte offset in a file opened with :func:`fopen`.
 Examples
 ----------------
 
+Read each row from a dataset one at a time and compute the sum of each column.
 ::
 
-    // Get file handle
-    open fh = dat1;
+    // Get file name with full path to dataset
+    fname = getGAUSSHome() $+ "examples/credit.dat";    
 
-    // Start counter
-    xx = 0;
+    // Get file handle, to read from dataset
+    fh = dataOpen(fname, "read");
+
+    sum = 0;
 
     // Iterate until reaching end of dataset
     do until eof(fh);
-        xx = xx + moment(readr(fh, 100), 0);
+        // Read one row of the dataset per iteration
+        tmp = readr(fh, 1);
+
+        sum = sum + tmp;
     endo;
 
-In this example, the data file ``dat1.dat`` is opened
-and given the handle *fh*. Then the data are read from
-this data set and are used to create the moment matrix (x'x) of the data. On each
-iteration of the loop, 100 additional rows of data are read in, and the moment matrix for this set of rows is computed and
-added to the matrix *xx*. When all the data have been
-read, *xx* will contain the entire moment matrix for
-the data set.
+After the above code, *sum* will equal:
+
+::
+
+  18087.6     1.89424e+06     141976     1183     22267     5380
 
 GAUSS will keep reading until :code:`eof(fh)` returns the
 value 1, which it will when the end of the data set
-has been reached. On the last iteration of the
-loop, all remaining observations are read in if
-there are 100 or fewer left.
+has been reached. 
 
 .. seealso:: Functions `open`, :func:`readr`, :func:`seekr`
