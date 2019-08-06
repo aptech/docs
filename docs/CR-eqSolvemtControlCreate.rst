@@ -5,7 +5,7 @@ eqSolvemtControlCreate
 Purpose
 ----------------
 
-Creates default :class:`eqSolvemtControl` structure.
+Fills an :class:`eqSolvemtControl` structure with default settings.
 
 Format
 ----------------
@@ -20,6 +20,8 @@ Since structures are strongly typed in GAUSS, each structure must be
 declared before it can be used.
 
 ::
+
+    new;
 
     /*
     ** Declare 'c' as an

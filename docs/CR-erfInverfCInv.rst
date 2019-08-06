@@ -9,10 +9,10 @@ Computes the inverse of the Gaussian error function (:func:`erfInv`) and its com
 
 Format
 ----------------
-.. function:: erfInv(y);
+.. function:: erfInv(y)
               erfCInv(y)
 
-    :param y:  Gaussian error function values. :math:`-1 < y < 1`
+    :param y:  Gaussian error function values. :math:`-1 < y < 1`.
     :type y: scalar or NxK matrix
 
     :returns: **x** (*scalar or NxK matrix*) - The inverse of the Gaussian error function.
@@ -49,7 +49,7 @@ This results in:
         0.9000       0.7969
         1.0000       0.8427
 
-Now find the inverse Gaussian error function of ``y`:
+Now find the inverse Gaussian error function of *y*:
 
 ::
 
@@ -72,7 +72,7 @@ Also finding the complement of the inverse Gaussian error function:
 
 ::
 
-    print erfCInv;
+    print erfCInv(y);
 
 ::
 

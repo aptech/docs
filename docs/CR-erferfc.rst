@@ -56,25 +56,11 @@ Examples
     */
     yc = erfc(x);
 
-    /*
-    ** The '~' operator performs horizontal concatenation
-    ** and causes this print statement to format 'x',
-    ** 'y' and 'yc' as if they were one 2x9 matrix rather
-    ** than 3 2x3 matrices
-    */
-    print x~y~yc;
-
-produces the following output:
+After the above code:
 
 ::
 
-    0.500 0.400 0.300 0.520 0.428 0.329 0.480 0.572 0.671
-    0.600 0.800 0.300 0.604 0.742 0.329 0.396 0.258 0.671
-
-Remarks
----------------
-
-:func:`erf` and :func:`erfc` are computed by summing the appropriate series and
-continued fractions. They are accurate to about 12 or more digits.
+    x = 0.500 0.400 0.300   y = 0.520 0.428 0.329   yc = 0.480 0.572 0.671
+        0.600 0.800 0.300       0.604 0.742 0.329        0.396 0.258 0.671
 
 .. seealso:: Functions :func:`cdfN`, :func:`cdfNc`

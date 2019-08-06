@@ -11,10 +11,10 @@ Format
 .. function:: eqSolvemt(&fct, par, ..., c)
 
     :param &fct: pointer to a procedure that computes the
-        function to be minimized. This procedure must have two input
-        arguments, an instance of a :class:`PV` structure containing
-        the parameters, and an instance of a :class:`DS` structure
-        containing data, if any. And, one output argument, a column vector
+        function to be minimized. This procedure must have an instance of a :class:`PV` structure 
+        containing the parameters as the first input. Extra data needed by this function may
+        be passed in after the :class:`PV` structure, but before the control structure. 
+        This procedure must have one output argument, a column vector
         containing the result of each equation.
     :type &fct: scalar function pointer
 
@@ -22,7 +22,7 @@ Format
         constructed using the :func:`pvPack` functions.
     :type par: an instance of a :class:`PV` structure
 
-    :param ...: Optional extra arguments.
+    :param ....: Optional extra arguments.
         These arguments are passed untouched to the user-provided objective function, by :func:`eqSolveMT`.
 
     :param c: Optional. Normally an instance is initialized by calling
@@ -88,14 +88,17 @@ result for each equation. For example, consider a two-equation system given by:
 
 ::
 
-   proc (1) = f(var);
+   proc (1) = f(struct PV p);
       local x1, x2, eqns;
 
       // Set x1
-      x1 = var[1];
+      x1 = pvUnpack(p, "x1");
 
       // Set x2
-      x2 = var[2];
+      x2 = pvUnpack(p, "x2");
+
+      // Preallocate output vector
+      eqns = { 0, 0 };
 
       // Equation 1
       eqns[1] = x1^2 + x2^2 - 2;
@@ -106,7 +109,7 @@ result for each equation. For example, consider a two-equation system given by:
       retp(eqns);
    endp;
 
-Note that the first equation in the system is contained in the first column of ``eqns`` and the second equations in contained in the second column of ``eqns``.
+Note that the first equation in the system is contained in the first row of ``eqns`` and the second equation is contained in the second row of ``eqns``.
 
 
 
@@ -122,6 +125,8 @@ For example, consider a two-equation system given by:
 
 
 ::
+
+    new;
 
     // Declare 'par' to be an instance of a PV vector
     struct PV par;
@@ -174,6 +179,8 @@ Again, consider a two-equation system given by:
 
 
 ::
+
+    new;
 
     // Declare control structure and fill with defaults
     struct eqSolvemtControl c;
