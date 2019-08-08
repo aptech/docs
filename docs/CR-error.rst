@@ -22,15 +22,28 @@ Format
 Remarks
 -------
 
-The user may assign any number in the range 0-65535 to denote particular
-error conditions. This number may be tested for as an error code by
-:func:`scalerr`.
+* You can test to see if a variable is a scalar error code with the function :func:`scalmiss`. For example:
+  ::
 
-The :func:`scalerr` function will return the value of the error code and so is
-the reverse of error. These user-generated error codes work in the same
-way as the intrinsic GAUSS error codes which are generated automatically
-when :code:`trap 1` is on and certain GAUSS functions detect a numerical
-error such as a singular matrix.
+      // Create scalar error code
+      x = error(4);
+
+      // Check to see if 'x' is a scalar error code
+      if scalmiss(x);
+          // If it is a scalar error code, print
+          // the error code
+          print scalerr(x);
+      endif;
+
+* The user may assign any number in the range 0-65535 to denote particular
+  error conditions. This number may be tested for as an error code by
+  :func:`scalerr`.
+
+* The :func:`scalerr` function will return the value of the error code and so is
+  the reverse of error. These user-generated error codes work in the same
+  way as the intrinsic GAUSS error codes which are generated automatically
+  when :code:`trap 1` is on and certain GAUSS functions detect a numerical
+  error such as a singular matrix.
 
 ::
 
@@ -65,41 +78,39 @@ The above code will print out the value:
 Example 2
 +++++++++
 
-The procedure ``syminv``, below, returns error code 99 if the matrix is not
-symmetric. If :func:`invpd` fails, it returns error code 20. If
-:func:`inv` fails, it returns error code 50. The original `trap` state is
-restored before the procedure returns.
+The example below creates a simple procedure which computes the square root of positive inputs, but
+returns a scalar error code for negative inputs.
 
 ::
 
-    proc syminv(x);
-       local oldtrap,y;
+    x_sqrt = mySqrt(-2);
     
-       // Check to see if 'x' is symmetric
-       if not x == x';
-          retp(error(99));
-       endif;
+    // Check to see if 'x_sqrt' is a scalar error code
+    if scalmiss(x_sqrt);
+        print "Error code returned with value: "$+ntos(scalerr(x_sqrt));
+    else;
+        print x_sqrt;
+    endif;
     
-       // Store current error trap state
-       oldtrap = trapchk(0xffff);
-    
-       // Turn on trapping of errors
-       trap 1;
-    
-       // Attempt matrix inversion with 'invpd'
-       y = invpd(x);
-    
-       // Attempt inversion with 'inv' if
-       //'invpd' returned an error code
-       if scalerr(y);
-          y = inv(x);
-       endif;
-    
-       // Reset trap state 
-       trap oldtrap,0xffff;
-    
-       retp(y);
+    proc (1) = mySqrt(x);
+        local ret;
+        
+        // If 'x' is negative, return
+        // a scalar error code
+        if x < 0;
+            ret = error(12);
+        else;
+            ret = sqrt(x);
+        endif;
+        
+        retp(ret);
     endp;
+
+The code above will print out:
+
+::
+
+    Error code returned with value: 12
 
 .. seealso:: Functions :func:`scalerr`, `trap`, `trapchk`
 

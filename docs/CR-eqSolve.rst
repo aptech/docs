@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: eqSolve(&F, start)
 
-    :param &F: a pointer to a procedure which computes the value at *x* of the equations to be solved.
+    :param &F: a pointer to a procedure which computes the value at *x* of the equations to be solved and returns them in a column vector.
     :type &F: scalar
 
     :param start: starting values.
@@ -31,7 +31,6 @@ Format
             "5", "Five consecutive steps of maximum step length have been taken; either ``norm2(F(x))`` asymptotes from above to a finite value in some direction or the maximum step length is too small."
             "6", "*x* seems to be an approximate local minimizer of ``norm2(F(x))`` that is not a root of :math:`F(x)`. To find a root of :math:`F(x)`, restart :func:`eqSolvefrom` a different region."
 
-.. DANGER:: check equations
 
 Global Input
 ------------
@@ -120,6 +119,9 @@ result for each equation. For example, consider a two-equation system given by:
       // Set x2
       x2 = var[2];
 
+      // Pre-allocate output vector
+      eqns = zeros(2,1);
+
       // Equation 1
       eqns[1] = x1^2 + x2^2 - 2;
 
@@ -129,15 +131,17 @@ result for each equation. For example, consider a two-equation system given by:
       retp(eqns);
    endp;
 
-Note that the first equation in the system is contained in the first column of ``eqns`` and the second equations in contained in the second column of ``eqns``.
+Note that the first equation in the system is contained in the first row of ``eqns`` and the second equation is in the second row of ``eqns``.
 
 Examples
 ----------------
 
 ::
 
+    // Reset all eqSolve global variables
     eqSolveSet();
 
+    // Procedure to compute nonlinear equations
     proc (1) = f(x);
        local f1, f2, f3;
 
@@ -153,6 +157,7 @@ Examples
        retp(f1|f2|f3);
     endp;
 
+    // Procedure to compute Jacobian
     proc (1) = fjc(x);
        local fjc1, fjc2, fjc3;
 
@@ -163,16 +168,19 @@ Examples
        retp(fjc1|fjc2|fjc3);
     endp;
 
+    // Starting values
     start = { -1, 12, -1 };
 
+    // Set pointer to Jacobian procedure
     _eqs_JacobianProc = &fjc;
 
+    // Perform estimation and print report
     { x, tcode } = eqSolve(&f, start);
 
 ::
 
     =========================================================
-     EqSolve Version 11.0.5              7/17/2015   5:47 pm
+     EqSolve Version 14.0.1              
     =========================================================
 
     ||F(X)|| at final solution:                   0.93699762
