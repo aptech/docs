@@ -9,7 +9,7 @@ Integrates a user-defined function over the :math:`[a,+∞)` interval.
 
 Format
 ----------------
-.. function:: inthp2(&f, pds, ctl, a)
+.. function:: inthp2(&f, pds, ctl, l_lim)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar
@@ -18,7 +18,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "pds->dataMatrix", "NxK matrix."
             "pds->dataArray", "NxKxL... array."
             "pds->vnames", "string array."
@@ -33,7 +33,7 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - ctl.maxEvaluations
               - scalar, maximum number of function evaluations, default = 1e5;
             * - ctl.p
@@ -56,10 +56,10 @@ Format
 
     :type ctl: struct
 
-    :param a: lower limits of integration.
-    :type a: 1xN vector
+    :param l_lim: lower limits of integration.
+    :type l_lim: 1xN vector
 
-    :returns: y (*Nx1 vector*), the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a,+∞)`.
+    :returns: **y** (*Nx1 vector*) - the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a,+∞)`.
 
 Remarks
 -------
@@ -72,13 +72,11 @@ The user-provided function must have the following format
 
 where
 
-+---+-----------------------------------------------------+
-| p | scalar, pointer to an instance of a DS structure.   |
-| d |                                                     |
-| s |                                                     |
-+---+-----------------------------------------------------+
-| x | scalar, value at which integral will be evaluated.  |
-+---+-----------------------------------------------------+
++-----+-----------------------------------------------------+
+| pds | scalar, pointer to an instance of a DS structure.   |
++-----+-----------------------------------------------------+
+| x   | scalar, value at which integral will be evaluated.  |
++-----+-----------------------------------------------------+
 
 If *ctl.d* can be specified (see *Sikorski and Stenger, 1984*),
 deterministic termination can be specified and accuracy guaranteed. If
@@ -96,33 +94,54 @@ Examples
 
 ::
 
-    #include inthp.sdf
-     
+    /*
+    ** Function to be integrated
+    ** note that ds pointer is
+    ** first input (*pd0)
+    */
     proc normal(struct DS *pd0, x);
        local var;
+
        var = pd0->dataMatrix;
+
        retp( (1/sqrt(2*pi*var))*exp( -(x*x) / (2*var) ));
     endp;
-     
-     
+
+    // Define DS structure
     struct DS d0;
+
+    // Define DS structure pointer
     struct DS *pd0;
-     
+
+    // Set pointer to d0
     pd0 = &d0;
-    
+
+    /*
+    ** Declare instance of inthpControl
+    ** structure
+    */
     struct inthpControl c0;
     c0 = inthpControlCreate;
-     
-    lim = 2;
-     
+
+    // Lower limit
+    l_lim = 2;
+
+    // Set termination parameter
     c0.d = pi/4;
+
+    // Set termination parameter
     c0.p = 2;
-     
+
+    // Set var
     var = 1;
-    d0.dataMatrix = var; 
-    
-    r = inthp2(&normal,pd0,c0,lim);
-     
+
+    // Set d0 data matrix
+    d0.dataMatrix = var;
+
+    // Integrate function fct
+    r = inthp2(&normal, pd0, c0, l_lim);
+
+    // Print results
     format /ld 16,10;
     print r;
     print cdfnc(2);
@@ -131,7 +150,7 @@ produces the following output:
 
 ::
 
-     0.0227501281 
+     0.0227501281
      0.0227501319
 
 References
@@ -146,4 +165,3 @@ Source
 inthp.src
 
 .. seealso:: Functions :func:`inthpControlCreate`, :func:`inthp1`, :func:`inthp3`, :func:`inthp4`
-

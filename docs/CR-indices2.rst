@@ -5,36 +5,70 @@ indices2
 Purpose
 ----------------
 
-Processes two sets of variable names or indices from a single file. The first is a single variable and
- the second is a set of variables. The first must not occur in the second set and all must be in the file.
+Processes two sets of variable names or indices from a single file. The first is a single variable and the second is a set of variables. The first must not occur in the second set and all must be in the file.
 
 Format
 ----------------
 .. function:: indices2(dataset, var1, var2)
 
-    :param dataset: the name of the data set.
+    :param dataset: the name of the dataset.
     :type dataset: string
 
     :param var1: variable name or index.
 
         This can be either the name of the variable, or the column index of the variable.
-        
-        If null or 0, the last variable in the data set will be used.
+
+        If null or 0, the last variable in the dataset will be used.
 
     :type var1: string or scalar
 
     :param var2: a character vector of names or a numeric vector of column indices.
-        If scalar 0, all variables in the data set except the one associated with *var1* will be selected.
+        If scalar 0, all variables in the dataset except the one associated with *var1* will be selected.
     :type var2: Nx1 vector
 
-    :returns: name1 (*scalar character matrix*) containing the name of the variable associated with *var1*.
+    :returns: **name1** (*scalar character matrix*) - the name of the variable associated with *var1*.
 
-    :returns: indx1 (*scalar*), the column index of *var1*.
+    :returns: **indx1** (*scalar*) - the column index of *var1*.
 
-    :returns: name2 (*Nx1 character vector*), the names associated with *var2*.
+    :returns: **name2** (*Nx1 character vector*) - the names associated with *var2*.
 
-    :returns: indx2 (*Nx1 numeric vector*), the column indices of *var2*.
+    :returns: **indx2** (*Nx1 numeric vector*) - the column indices of the variables in *var2*.
 
+Examples
+----------------
+
+::
+
+    // Create filename
+    filename = getGAUSSHome $+ "examples//auto.dat";
+
+    // Get variable names
+    var1 = "mpg";
+    var2 = "weight";
+
+    // Get indices and names of variables
+    {name1, indx1, name2, indx2 } = indices2(filename, "mpg", "weight");
+
+    // Print variable one name
+    print "Variable 1 name:" $name1;
+
+    // Print index for variable one
+    print "Variable 1 index:" indx1;
+
+    // Print variable two name
+    print "Variable 2 name:" $name2;
+
+    // Print index for variable two
+    print "Variable 2 index" indx2;
+
+This produces the following output:
+
+::
+
+    Variable 1 name:             mpg
+    Variable 1 index:       3.0000000
+    Variable 2 name:          weight
+    Variable 2 index       7.0000000
 
 
 Remarks
@@ -61,9 +95,7 @@ The following error codes are possible:
 +---+-----------------------------------------------------+
 
 
-
 Source
 ------
 
 indices2.src
-

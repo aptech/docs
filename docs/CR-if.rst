@@ -31,7 +31,7 @@ Format
 Remarks
 -------
 
-*scalar_expression* is any expression that returns a scalar. It is ``TRUE`` if
+The *scalar_expression* is any expression that returns a scalar. It is ``TRUE`` if
 it is not zero, and ``FALSE`` if it is zero.
 
 A list of statements is any set of GAUSS statements.
@@ -70,4 +70,3 @@ Examples
     endif;
 
 .. seealso:: keywords `do until`, `do while`
-

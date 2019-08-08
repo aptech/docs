@@ -35,7 +35,7 @@ Format
 
     :type ctl: struct
 
-    :returns: y (*scalar*), the estimated integral of :math:`f(x)` evaluated over the interval (*x_min*, *x_max*)
+    :returns: **y** (*scalar*) - the estimated integral of :math:`f(x)` evaluated over the interval (*x_min*, *x_max*)
 
 Examples
 ----------------
@@ -43,13 +43,13 @@ Examples
 Basic Example
 +++++++++++++
 
-Calculate the integral .. :math:`\int_{0}^{3}\frac{1}{x+1}dx`
+Calculate the integral :math:`\int_{0}^{3}\frac{1}{x+1}dx`
 
 ::
 
     // Define procedure to be integrated
     proc (1) = fct(x);
-       retp(1 ./ (x +1 1));
+       retp(1 ./ (x + 1));
     endp;
 
     // Calculate integral for procedure 'fct', from 0 - 3
@@ -64,7 +64,7 @@ will result in:
 Passing extra arguments to the user function
 ++++++++++++++++++++++++++++++++++++++++++++
 
-Calculate the integral :math:`\int_{-1000}^{1000}e^{-\frac{x^2}{2xa}dx \:,\: a\:=\:3`
+Calculate the integral :math:`\int_{-1000}^{1000} e^{-\frac{x^2}{2xa}dx}, a=3`
 
 ::
 
@@ -136,8 +136,10 @@ Calculate the integral :math:`\int_{-\infty}^{0}\frac{1}{\sigma\sqrt{2\pi}}e^{-\
     mu = 0.33;
     sigma = 7;
 
-    // Declare instance of 'integrateControl' structure
-    // and fill with default values
+    /*
+    ** Declare instance of 'integrateControl' structure
+    ** and fill with default values
+    */
     struct integrateControl ctl;
     ctl = integrateControlCreate();
 
@@ -199,9 +201,6 @@ this:
        ret = x ./ (x .* x);
        retp(ret);
    endp;
-
-
-.. DANGER:: FIX equations above
 
 Source
 ------

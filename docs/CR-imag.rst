@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: zi (NxK matrix or N-dimensional array) the imaginary part of *x*.
+    :returns: **zi** (*NxK matrix or N-dimensional array*) - the imaginary part of *x*.
 
 Remarks
 -------
@@ -27,8 +27,11 @@ Examples
 
 ::
 
+    // X-matrix
     x = { 4i 9    3,
           2  5-6i 7i };
+
+     // Find imaginary part of x
      y = imag(x);
 
 ::
@@ -37,4 +40,3 @@ Examples
         0  -6   7
 
 .. seealso:: Functions :func:`complex`, :func:`real`
-

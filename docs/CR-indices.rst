@@ -11,17 +11,104 @@ Format
 ----------------
 .. function:: indices(dataset, vars)
 
-    :param dataset: the name of the data set.
+    :param dataset: the name of the dataset.
     :type dataset: string
 
     :param vars: a character vector of names or a numeric vector of column indices.
-        If scalar 0, all variables in the data set will be selected.
+        If scalar 0, all variables in the dataset will be selected.
     :type vars: Nx1 vector
 
-    :returns: name (*Nx1 character vector*), the names associated with *vars*.
+    :returns: **varnames** (*Nx1 character vector*) - the names associated with *vars*.
 
-    :returns: indx (*Nx1 numeric vector*), the column indices associated with *vars*.
+    :returns: **indx** (*Nx1 numeric vector*) - the column indices associated with *vars*.
 
+Examples
+----------------
+
+Find indices for selection of variables
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Create character vector of variable names
+  let vars = mpg weight;
+
+  // Create filename
+  filename = getGAUSSHome $+ "examples//auto.dat";
+
+  // Get indices and names of variables
+  {varnames, ind } = indices(filename, vars);
+
+  // Print variables names
+  print "Variable names:" $varnames;
+
+  // Print variable indices
+  print "Variable indices:" ind;
+
+This produces the following output:
+
+::
+
+    Variable names:
+             mpg
+          weight
+    Variable indices:
+       3.0000000
+       7.0000000
+
+Find indices for all variables
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    /*
+    ** Set vars equal to zero to get
+    ** indices for all variables
+    */
+    vars =0;
+
+    // Create filename
+    filename = getGAUSSHome $+ "examples//auto.dat";
+
+    // Get indices and names of variables
+    {varnames, ind } = indices(filename, vars);
+
+    // Print variables names
+    print "Variable names:" $varnames;
+
+    // Print variables indices
+    print "Variable indices:" ind;
+
+This produces the following output
+
+::
+
+  Variable names:
+            make
+           price
+             mpg
+           rep78
+        headroom
+           trunk
+          weight
+          length
+            turn
+        displace
+        gear_rat
+         foreign
+  Variable indices:
+       1.0000000
+       2.0000000
+       3.0000000
+       4.0000000
+       5.0000000
+       6.0000000
+       7.0000000
+       8.0000000
+       9.0000000
+       10.000000
+       11.000000
+       12.000000
 
 Remarks
 -------
@@ -47,4 +134,3 @@ Source
 ------
 
 indices.src
-

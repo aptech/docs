@@ -5,7 +5,7 @@ intrsectsa
 Purpose
 ----------------
 
-Returns the intersection of two string vectors, with duplicates removed. 
+Returns the intersection of two string vectors, with duplicates removed.
 
 .. NOTE:: This function is deprecated, use :func:`intrsect` instead.
 
@@ -19,12 +19,11 @@ Format
     :param sv2: data
     :type sv2: Mx1 or 1xM string vector
 
-    :returns: sy (*Lx1 vector*), all unique strings that are in both *sv1* and *sv2* sorted in ascending order.
+    :returns: **s_intr** (*Lx1 vector*) - all unique strings that are in both *sv1* and *sv2* sorted in ascending order.
 
 Remarks
 -------
 
-#. This function is deprecated, use :func:`intrsect` instead.
 #. Place smaller vector first for fastest operation.
 #. If there are a lot of duplicates it is faster to remove them with
    :func:`unique` before calling :func:`intrsectsa`.
@@ -35,9 +34,12 @@ Examples
 
 ::
 
+    // Define string vector number one
     vars_a = "age" $| "weight" $| "bmi";
+
+    // Define string vector number two
     vars_b = "hdl" $| "ldl" $| "age" $| "bmi" $| "smoking";
-    
+
     shared_vars = intrsectsa(vars_a, vars_b);
     print "Both studies reported the following variables:";
     print shared_vars;
@@ -55,4 +57,3 @@ Source
 intrsect.src
 
 .. seealso:: Functions :func:`intrsect`
-

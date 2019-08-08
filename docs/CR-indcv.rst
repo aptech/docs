@@ -17,7 +17,7 @@ Format
     :param where: searched for matches to the elements of *what*
     :type where: Mx1 character vector
 
-    :returns: z (*Nx1 vector*) of integers containing the indices of the corresponding element of *what*
+    :returns: **z** (*Nx1 vector*) - of integers containing the indices of the corresponding element of *what*
         in *where*.
 
 Remarks
@@ -41,10 +41,10 @@ Examples
     let newVars = YEARS BONUS GENDER;
     let what = AGE PAY SEX;
     let where = AGE SEX JOB DATE PAY;
-    
+
     // Return the indices in 'where' of the items in 'what'
-    z = indcv(what,where);
-    
+    z = indcv(what, where);
+
     // Replace AGE, PAY, SEX with YEARS, BONUS, GENDER
     where[z] = newVars;
 
@@ -59,4 +59,3 @@ After the code above:
             BONUS
 
 .. seealso:: Functions :func:`indnv`, :func:`indsav`
-

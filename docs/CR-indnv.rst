@@ -17,7 +17,7 @@ Format
     :param where: searched for matches to the values in *what*
     :type where: Mx1 numeric vector
 
-    :returns: z (*Nx1 vector of integers*), the indices of the corresponding elements of *what* in *where*.
+    :returns: **z** (*Nx1 vector of integers*) - the indices of the corresponding elements of *what* in *where*.
 
 Remarks
 -------
@@ -34,9 +34,14 @@ Examples
 
 ::
 
+    // What elements to look for
     what = { 8, 7, 3 };
+
+    // Vector to look in
     where = { 2, 7, 8, 4, 3 };
-    z = indnv(what,where);
+
+    // Find locations of what in where 
+    z = indnv(what, where);
 
 ::
 
@@ -45,4 +50,3 @@ Examples
         5
 
 .. seealso:: Functions :func:`contains`, :func:`ismember`, :func:`rowcontains`
-

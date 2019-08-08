@@ -11,8 +11,6 @@ Integrates the following double integral, using user-defined functions *f*, *g1*
 
    \int_{a}^{b}\int_{g_2(x)}^{g_1(x)} f(x,y)dydx
 
-.. DANGER:: Add equation from original doc here.
-
 Format
 ----------------
 .. function:: intgrat2(&f, xl, gl)
@@ -23,13 +21,13 @@ Format
     :param xl: the limits of *x*. These must be scalar limits.
     :type xl: 2x1 or 2xN matrix
 
-    :param gl: the limits of *y*.
+    :param gl: Function pointers to functions defining the limits of *y*.
 
         For *xl* and *gl*, the first row is the upper limit and the second row is the lower limit. *N* integrations are computed.
 
-    :type gl: 2x1 or 2xN matrix of function pointers
+    :type gl: 2x1 or 2xN matrix
 
-    :returns: y (*Nx1 vector*) of the estimated integral(s) of :math:`f(x, y)`, evaluated between the limits given by *xl* and *gl*.
+    :returns: **y** (*Nx1 vector*) of the estimated integral(s) of :math:`f(x, y)`, evaluated between the limits given by *xl* and *gl*.
 
 Global Input
 ------------
@@ -63,7 +61,7 @@ Examples
 ::
 
     proc (1) = f(x, y);
-       retp(cos(x) + 1).*(sin(y) + 1));
+      retp((cos(x) + 1).*(sin(y) + 1));
     endp;
 
     proc (1) = g1(x);
@@ -74,9 +72,16 @@ Examples
        retp(0);
     endp;
 
+    // Limits
     xl = 1|-1;
+
+    // Create vector of function pointers
     g0 = &g1|&g2;
+
+    // Order of integration
     _intord = 40;
+
+    // Integrate
     y = intgrat2(&f, xl, g0);
 
 This will integrate the function
