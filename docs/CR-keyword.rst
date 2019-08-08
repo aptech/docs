@@ -22,7 +22,7 @@ Format
 **Parameters:**
 
 :name: (*scalar*) name of the keyword. This name will be a global symbol.
-:str: (*string*) a name to be used inside the keyword to refer to the argument that is passed to the keyword when the keyword is called. 
+:str: (*string*) a name to be used inside the keyword to refer to the argument that is passed to the keyword when the keyword is called.
     This will always be local to the keyword, and cannot be accessed from outside the keyword or from other keywords or procedures.
 
 
@@ -42,12 +42,17 @@ An example of a keyword definition is:
 ::
 
    keyword add(str);
-      local tok,sum;
+      local tok, sum;
+
       sum = 0;
+
       do until str $== "";
+
          { tok, str } = token(str);
          sum = sum + stof(tok);
+
       endo;
+
       print "Sum is: " sum;
    endp;
 
@@ -64,4 +69,3 @@ This keyword will respond by printing:
    Sum is: 15
 
 .. seealso:: Functions `proc`, `local`, `endp`
-

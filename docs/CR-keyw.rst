@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: keyw
 
-    :returns: k (*scalar*), ASCII value of the key pressed.
+    :returns: **k** (*scalar*) - ASCII value of the key pressed.
 
 
 Remarks
@@ -56,4 +56,3 @@ Value       Key Sequence
 =========== ================================
 
 .. seealso:: Functions :func:`key`, :func:`vals`, :func:`chrs`, :func:`upper`, :func:`lower`, :func:`con`, :func:`cons`
-
