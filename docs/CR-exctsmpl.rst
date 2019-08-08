@@ -49,10 +49,14 @@ Examples
 
 ::
 
-    n_rows = exctsmpl(getGAUSSHome()$+ "examples/freqdata.dat", "rout", 30);
+    // Create file name with full path
+    fname = getGAUSSHome()$+ "examples/credit.dat";
 
-The example dataset ``freqdata.dat`` is provided with GAUSS and stored in the *examples* subdirectory within your GAUSS
-installation directory. The output file ``rout.dat`` will be saved in your current working directory.
+    // Randomly sample 30% of the rows from 'credit.dat'
+    // and write them to a new dataset in the
+    // GAUSS working directory, named 'sample.dat' 
+    n_rows = exctsmpl(fname, "sample.dat", 30);
+
 
 Source
 ------

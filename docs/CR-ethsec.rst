@@ -37,20 +37,39 @@ Examples
 
 ::
 
-  // Set start date
-  t_start = {2008 1 2 0};
-
-  // Set ending date
-  t_end = {2009 9 14 0};
-
-  // Calculate elapsed hundredths of secs
-  hs = ethsec(t_start, t_end);
+    // Set start date
+    t_start = { 2009, 9, 14, 0 };
+    
+    // Set ending date
+    t_end = { 2009, 9, 14, 360 };
+    
+    // Calculate elapsed hundredths of secs
+    hs = ethsec(t_start, t_end);
 
 After the code above, *hs* is equal to:
 
 ::
 
-    5365440000
+    360
+
+::
+
+    // Set start date
+    t_start = { 2009, 9, 14, 0 };
+    
+    // Set ending date
+    t_end = { 2009, 9, 15, 0 };
+    
+    // Calculate elapsed hundredths of secs
+    hs = ethsec(t_start, t_end);
+
+After the code above, *hs* is equal to:
+
+::
+
+    8640000
+
+which is equal to :math:`24 \text{ hrs/day } \times 60 \text{ min/hr } \times 60 \text{ secs/min } \times 100 \text{ hsecs/sec}`.
 
 Source
 ------

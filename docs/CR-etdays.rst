@@ -36,10 +36,10 @@ Examples
 ::
 
     // Set start date
-    t_start = {2008 1 2};
+    t_start = { 2008, 1, 2 };
 
     // Set ending date
-    t_end = {2009 9 14};
+    t_end = { 2009, 9, 14 };
 
     // Calculate elapsed number of days
     d = etdays(t_start, t_end);
