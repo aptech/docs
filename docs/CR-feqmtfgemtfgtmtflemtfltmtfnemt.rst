@@ -37,38 +37,55 @@ The statement:
 
 ::
 
-   y = feqmt(a, b, 1e-15);
+   ret = feqmt(a, b, 1e-15);
 
 is equivalent to:
 
 ::
 
-   y = a eq b;
+   ret = abs(a-b) <= 1e-15;
 
 For the sake of efficiency, these functions are not written to handle
 missing values. If *a* and *b* contain missing values, use :func:`missrv` to convert
 the missing values to something appropriate before calling a fuzzy
 comparison function.
 
-
 Examples
 ----------------
+
+Example 1: Fuzzy equality
+++++++++++++++++++++++++++
 
 ::
 
     tol = 1e-12;
 
-    a = rndu(2, 2);
+    ret = feqmt(2, 2 + 1e-13, tol);
 
-    b = a + 0.5*(tol);
+The above code will set *ret* equal to 1, because 2 and (2 + 1e-13) differ by less than the value of ``tol``, which is 1e-12.
 
-    if fgemt(a, b, tol);
-       print "each element of a is greater than";
-       print "or equal to each element of b";
-    else;
-       print "at least one element of a is less";
-       print "its corresponding element in b";
-    endif;
+Example 2: Fuzzy greater than
+++++++++++++++++++++++++++++++
+
+::
+
+   tol = 1e-10;
+
+   a = 0.5;
+   b = a + 1e-5;
+   c = a + 1e-11; 
+
+   ret_1 = fgtmt(b, a, tol);
+
+   ret_2 = fgtmt(c, a, tol);
+
+After the code above:
+
+::
+
+    ret_1 = 1
+    ret_2 = 0
+
 
 Source
 ------

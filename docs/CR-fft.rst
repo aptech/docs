@@ -33,7 +33,7 @@ This is example uses the FFT to find the frequency component of a signal buried 
       L = 1500;
 
       // Time vector
-      t = seqa(1, 1, L-1)*big_T;
+      t = seqa(0, big_T, L);
 
 Now form the signal given by
 
@@ -49,7 +49,7 @@ Corrupt the signal with zero-mean white noise:
 ::
 
     // Add white noise
-    x = s + 2*rndn(rows(t));
+    x = s + 2*rndn(L,1);
 
 Finally, compute the Fourier transform:
 
