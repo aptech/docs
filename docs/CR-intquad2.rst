@@ -9,21 +9,21 @@ Integrates a specified function using Gauss-Legendre quadrature. A suite of uppe
 
 Format
 ----------------
-.. function:: intquad2(&f, xl, yl[, ...])
+.. function:: intquad2(&f, xlims, ylims[, ...])
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar
 
-    :param xl: the limits of *x*.
-    :type xl: 2x1 or 2xN matrix
+    :param xlims: the limits of *x*.
+    :type xlims: 2x1 or 2xN matrix
 
-    :param yl: the limits of *y*.
-    :type yl: 2x1 or 2xN matrix
+    :param ylims: the limits of *y*.
+    :type ylims: 2x1 or 2xN matrix
 
     :param ...: Optional. A variable number of extra scalar arguments to pass to the user function. These arguments will be passed to the user function untouched.
     :type ...: any
 
-    :returns: y (*Nx1 vector*) of the estimated integral(s) of :math:`f(x,y)` evaluated between the limits given by *xl* and *yl*.
+    :returns: **y** (*Nx1 vector*) - the estimated integral(s) of :math:`f(x,y)` evaluated between the limits given by *xl* and *yl*.
 
 Global Input
 ------------
@@ -31,7 +31,7 @@ Global Input
 .. data:: \_intord
 
     scalar, the order of the integration. The larger \_intord, the more precise the final result will be. \_intord may be set to 2, 3, 4, 6, 8, 12, 16, 20, 24, 32, 40.
-    
+
     Default = 12.
 
 Remarks
@@ -60,16 +60,16 @@ Basic example
 ::
 
     // Define function to be integrated
-    proc f(x,y);
+    proc f(x, y);
        retp(x .* sin(x + y));
     endp;
-     
+
     // Limits of integration
-    xlim = { 1, 0 };
-    ylim = { 1, 0 };
-     
+    xlims = { 1, 0 };
+    ylims = { 1, 0 };
+
     // Calculate integral
-    ans = intquad2(&f, xlim, ylim);
+    ans = intquad2(&f, xlims, ylims);
 
 After the code above, *ans* should equal:
 
@@ -83,19 +83,19 @@ Multiple integration limits
 ::
 
     // Define function to be integrated
-    proc (1) = myProc(x,y);
+    proc (1) = myProc(x, y);
        retp(x .* sin(x + y));
     endp;
-    
+
     // Define multiple integration limits
-    xlim = {  1  0.5,
+    xlims = {  1  0.5,
             0.5    0 };
-    
-    ylim = {  1  0.5,
+
+    ylims = {  1  0.5,
             0.5  0.3 };
-    
+
     // Calculate integrals
-    ans = intquad2(&myProc, xlim, ylim);
+    ans = intquad2(&myProc, xlims, ylims);
 
 This will integrate the function:
 
@@ -109,7 +109,7 @@ The returned variable, *ans* should be equal to:
 
 ::
 
-    0.18352849 
+    0.18352849
     0.016593029
 
 Extra arguments to function
@@ -118,20 +118,19 @@ Extra arguments to function
 ::
 
     // Define function to be integrated that takes an additional argument
-    proc f(x,y,a);
+    proc f(x, y, a);
        retp(x .* sin(a .* x + y));
     endp;
-     
+
     // Limits of integration
-    xlim = { 1, 0 };
-    ylim = { 1, 0 };
-    
-    
+    xlims = { 1, 0 };
+    ylims = { 1, 0 };
+
     // Assign extra scalar argument
     a = pi/2;
-     
+
     // Calculate integral
-    ans = intquad2(&f, xlim, ylim, a);
+    ans = intquad2(&f, xlims, ylims, a);
 
 After the code above, *ans* should equal:
 
@@ -151,4 +150,3 @@ Globals
 *_intq32*, *_intq4*, *_intq40*, *_intq6*, *_intq8*
 
 .. seealso:: Functions :func:`intquad1`, :func:`intquad3`, :func:`intsimp`, :func:`intgrat2`, :func:`intgrat3`
-

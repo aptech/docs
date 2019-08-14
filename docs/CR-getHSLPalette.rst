@@ -8,21 +8,38 @@ Create a set of evenly spaced colors in HSL hue space. The *h*, *s*, and *l* arg
 
 Format
 ----------------
-.. function:: getHSLPalette(ncolors, h, s, l)
+.. function:: getHSLPalette(ncolors[, h[, s[, l]]])
 
     :param ncolors: The number of colors to create for the palette.
     :type ncolors: scalar
 
-    :param h: first hue. Default value is 0.01.
+    :param h: Optional input, first hue. Default value is 0.01.
     :type h: scalar
 
-    :param s: saturation. Default value is 0.6.5
+    :param s: Optional input, saturation. Default value is 0.65.
     :type s: scalar
 
-    :param l: lightness. Default value is 0.6.
+    :param l: Optional input, lightness. Default value is 0.6.
     :type l: scalar
 
-    :returns: clrs (*ncolorsx1 string array*) containing the newly created color palette.
+    :returns: **clrs** (*ncolorsx1 string array*) - contains the newly created color palette.
+
+Examples
+----------------
+
+::
+
+    // Get the first 3 colors HSL colors
+    hsl_clrs = getHSLPalette(3);
+
+
+After the above code, *hsl_clrs* should equal:
+
+
+::
+
+    #db5f57
+    #57db5f
+    #5f57db
 
 .. seealso:: Functions :func:`getColorPalette`, :func:`listColorPalettes`, :func:`getHSLuvPalette`, :func:`blendColorPalette`
-

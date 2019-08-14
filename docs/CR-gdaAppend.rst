@@ -20,11 +20,11 @@ Format
     :param varname: variable name.
     :type varname: string
 
-    :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
+    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "2", "File open error."
             "3", "File write error."
@@ -60,15 +60,40 @@ Examples
 
 ::
 
-    x = rndn(100,50);
-    ret = gdaCreate("myfile.gda",1);
-    ret = gdaWrite("myfile.gda",x,"x1");
-     
-    y = rndn(25,50);
-    ret = gdaAppend("myfile.gda",y,"x1");
+    // Generate random x matrix
+    x = rndn(100, 50);
 
-This example adds :math:`25*50=1250` elements to *x1*,
-making it a 125x50 matrix.
+    /*
+    ** Create a GDA named `myfile`
+    ** and overwrite existing `myfile`
+    */
+    retcode1 = gdaCreate("myfile.gda", 1);
+
+    /*
+    ** Write x matrix to `myfile` GDA
+    ** and name it x1
+    */
+    retcode2 = gdaWrite("myfile.gda", x, "x1");
+
+    // Generate random y matrix
+    y = rndn(25, 50);
+
+    /*
+    ** Append y to existing x1 variable
+    ** in `myfile.gda`
+    */
+    retcode3 = gdaAppend("myfile.gda", y, "x1");
+
+    // Check orders of x1
+    gdaGetOrders("myfile.gda", "x1");
+
+This prints :
+
+::
+
+    125.00000
+    50.000000
+
+Appending the ``y`` matrix to ``x1`` adds :math:`25*50 = 1250` elements to ``x1``, making it a 125x50 matrix.
 
 .. seealso:: Functions :func:`gdaWriteSome`, :func:`gdaUpdate`, :func:`gdaWrite`
-

@@ -21,7 +21,7 @@ Format
         ============================
         1         Scalar, equivalent to: ``maxc(sumc(abs(x)))``
         2         Scalar,  the spectral norm, equivalent to: ``maxc(svds(x))``
-        \_\_INFP  Scalar, the infinity norm, equivalent to: ``maxc(sumr(abs(x)))``
+        \_\__INFP  Scalar, the infinity norm, equivalent to: ``maxc(sumr(abs(x)))``
         "fro"     String, the Frobenius norm, equivalent to: ``sqrt(sumc(vecr(x.^2)))``.
         "nuc"     String, the nuclear norm, equivalent to: ``sumc(svds(A))``.
         ========= ==================
@@ -32,7 +32,7 @@ Format
         1         Scalar, equivalent to: ``sumcs(abs(x))`` for column vectors, or ``sumr(abs(x))`` for row vectors.
         2         Scalar, the l2 or Euclidean norm, equivalent to: ``sqrt(sumc(x.^2))``, or ``sqrt(sumr(x.^2))``
         p         Scalar, any real number, equivalent to: ``sumc(abs(x.^p)).^(1/p)``, or ``sumr(abs(x.^p)).^(1/p)``
-        \_\_INFP  Scalar, equivalent to: ``maxc(abs(x))``, or ``maxc(abs(x'))``
+        \_\__INFP  Scalar, equivalent to: ``maxc(abs(x))``, or ``maxc(abs(x'))``
         \_\_INFN  Scalar, equivalent to: ``minc(abs(x))``, or ``minc(abs(x'))``
         ========= ==================
 

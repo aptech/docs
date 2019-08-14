@@ -26,7 +26,7 @@ See `Procedures and Keywords`, Chapter 1.
 
 You may have several procedures in different files that reference the
 same global variable. By placing an `external` statement at the top of
-each file, you can let the compiler know what the type of the symbol is.
+each file, you can let the compiler know the type of the symbol.
 If the symbol is listed and strongly typed in an active library, no
 `external` statement is needed.
 
@@ -47,8 +47,13 @@ in the set and check whether it succeeded:
 ::
 
     external matrix _errcode;
-    x = rndn(10,5);
+
+    // Generate random data
+    x = rndn(10, 5);
+
+    // Call procedure
     y = myproc1(x);
+
     if _errcode;
        print "myproc1 failed";
        end;
@@ -63,4 +68,3 @@ the compiler until the `if` statement containing the reference to
 compiled.
 
 .. seealso:: Functions `declare`
-

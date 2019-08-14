@@ -32,15 +32,15 @@ Format
     :param N: number of time segments. A higher number of time segments will increase accuracy at the expense of increased computation time.
     :type N: scalar
 
-    :returns: d (*Mx1 vector*), delta.
+    :returns: **d** (*Mx1 vector*) - delta.
 
-    :returns: g (*Mx1 vector*), gamma.
+    :returns: **g** (*Mx1 vector*) - gamma.
 
-    :returns: t (*Mx1 vector*), theta.
+    :returns: **t** (*Mx1 vector*) - theta.
 
-    :returns: v (*Mx1 vector*), vega.
+    :returns: **v** (*Mx1 vector*) - vega.
 
-    :returns: rh (*Mx1 vector*), rho.
+    :returns: **rh** (*Mx1 vector*) - rho.
 
 Global Input
 ------------
@@ -67,13 +67,25 @@ Examples
 
 ::
 
+    // Specify current price
     S0 = 305;
+
+    // Specify strike prices
     K = 300;
+
+    // Specify risk free rate
     r = .08;
+
+    // Specify volatility
     sigma = .25;
+
+    // Specify elapsed time to exercise
     tau = .33;
+
+    // Specify continuous dividend yield
     div = 0;
-    print EuropeanBinomcall_Greeks(S0, K, r, 0, tau, sigma, 30);
+
+    print EuropeanBinomcall_Greeks(S0, K, r, div, tau, sigma, 30);
 
 produces:
 
@@ -91,4 +103,3 @@ Source
 finprocs.src
 
 .. seealso:: Functions :func:`EuropeanBinomCall_ImpVol`, :func:`EuropeanBinomCall`, :func:`EuropeanBinomPut_Greeks`, :func:`EuropeanBSCall_Greeks`
-

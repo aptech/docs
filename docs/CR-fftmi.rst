@@ -17,7 +17,7 @@ Format
     :param dim: size of each dimension.
     :type dim: Kx1 vector
 
-    :returns: y (*Lx1 vector*), inverse FFT of *x*.
+    :returns: **y** (*Lx1 vector*) - inverse FFT of *x*.
 
 
 
@@ -34,13 +34,11 @@ sequence, each matrix containing two rows in sequence, and each row
 containing two columns in sequence. Visually, *x* would look something
 like this:
 
-::
+.. math::
 
-                   
-    X_hyper = X_cube1|X_cube2
-    X_cube1 = X_mat1|X_mat2
-    X_mat1 = X_row1|X_row2
-               
+      X\_hyper = X\_cube1|X\_cube2\\
+      X\_cube1 = X\_mat1|X\_mat2\\
+      X\_mat1 = X\_row1|X\_row2\\
 
 Or, in an extended GAUSS notation, *x* would be:
 
@@ -63,43 +61,28 @@ To be explicit, *x* would be laid out like this:
 If you look at the last diagram for the layout of *x*, you'll notice that
 each line actually constitutes the elements of an ordinary matrix in
 normal row-major order. This is easy to achieve with :func:`vecr`. Further, each
-pair of lines or ''matrices'' constitutes one of the desired cubes,
+pair of lines or matrices constitutes one of the desired cubes,
 again with all the elements in the correct order. And finally, the two
 cubes combine to form the hypercube. So, the process of construction is
 simply a sequence of concatenations of column vectors, with a :func:`vecr` step
 if necessary to get started.
 
-Here's an example, this time working with a 2x3x2x3 hypercube.
+Examples
+----------------
 
-::
-
-   let dim = 2 3 2 3;
-   let x1[2,3] = 1 2 3 4 5 6;
-   let x2[2,3] = 6 5 4 3 2 1;
-   let x3[2,3] = 1 2 3 5 7 11;
-   xc1 = vecr(x1)|vecr(x2)|vecr(x3); /* cube 1 */
-   let x1 = 1 1 2 3 5 8;
-   let x2 = 1 2 6 24 120 720;
-   let x3 = 13 17 19 23 29 31;
-   xc2 = x1|x2|x3;                    /* cube 2 */
-    
-   xh = xc1|xc2;                      /* hypercube */
-   xhffti = fftmi(xh,dim);
-
-We left out the :func:`vecr` step for the 2nd cube. It's not really necessary
-when you're constructing the matrices with let statements.
-
-*dim* contains the dimensions of *x*, beginning with the highest dimension.
-The last element of *dim* is the number of columns, the next to the last
+Here's an example, this time working with a 2x3x2x3 hypercube. The variable *dim* contains the dimensions of *x*, beginning with the highest dimension.
+The last element of dim is the number of columns, the next to the last
 element of *dim* is the number of rows, and so on. Thus
 
 ::
 
    dim = { 2, 3, 3 };
 
-indicates that the data in *x* is a 2x3x3 three-dimensional array, i.e.,
-two 3x3 matrices of data. Suppose that *x1* is the first 3x3 matrix and *x2*
-the second 3x3 matrix, then
+indicates that the data in *x* represents is a 2x3x3 three-dimensional array, i.e.,
+two 3x3 matrices of data.
+
+Suppose that *x1* is the first 3x3 matrix and *x2*
+the second 3x3 matrix, then:
 
 ::
 
@@ -107,13 +90,93 @@ the second 3x3 matrix, then
 
 The size of *dim* tells you how many dimensions *x* has.
 
+::
+
+   // Set dimensions of array
+   let dim = 2 3 2 3;
+
+   /*
+   ** Assign matrices to place in
+   ** first cube
+   */
+   let x1_1[2, 3] = 1 2 3 4 5 6;
+   let x2_1[2, 3] = 6 5 4 3 2 1;
+   let x3_1[2, 3] = 1 2 3 5 7 11;
+
+   /*
+   ** Form cube one by using vecr
+   ** to vectorize x1_1, x2_1, x3_1
+   ** then vertically concatenating
+   ** the results
+   */
+   xc1 = vecr(x1_1)|vecr(x2_1)|vecr(x3_1);
+
+This results in three 2x3 matrices, ``x1_1``, ``x2_1``, and ``x3_1`` and an 18x1 vector ``xc1``:
+
+::
+
+  x1_1 = 1.0000   2.0000   3.0000   x2_1 = 6.0000   5.0000   4.0000   x3_1 = 1.0000   2.0000   3.0000
+         4.0000   5.0000   6.0000          3.0000   2.0000   1.0000          5.0000   7.0000  11.0000
+
+  xc1 = 1.0000
+        2.0000
+        3.0000
+        4.0000
+        5.0000
+        6.0000
+        6.0000
+        5.0000
+        4.0000
+        3.0000
+        2.0000
+        1.0000
+        1.0000
+        2.0000
+        3.0000
+        5.0000
+        7.0000
+        11.0000
+
+To assign the second cube we will leave out the :func:`vecr` step. Instead we will construct ``x1``, ``x2``, and ``x3`` as vectors to using `let`.
+
+::
+
+    /*
+    ** Assign matrices to place in
+    ** second cube
+    */
+    let x1_2 = 1 1 2 3 5 8;
+    let x2_2 = 1 2 6 24 120 720;
+    let x3_2 = 13 17 19 23 29 31;
+
+    /*
+    ** Form cube two
+    ** by vertically concatenating
+    ** the x1_2, x2_2, and x3_2
+    ** vectors
+    */
+    xc2 = x1_2|x2_2|x3_2;
+
+This results in three 6x1 vectors ``x1_2``, ``x2_2``, and ``x3_2`` and an 18x1 vector ``xc2``:
+We will concatenate ``xc1`` and ``xc2`` and use :func:`fftm` to find the Fourier Fast Transform:
+
+::
+
+    // Hypercube
+    xh = xc1|xc2;
+    xhfft = fftm(xh, dim);
+
+    let dimi = 2 4 2 4;
+    xhffti = fftmi(xhfft, dimi);
+
 The arrays have to be padded in each dimension to the nearest power of
-two. Thus the output array can be larger than the input array. In the
-2x3x2x3 hypercube example, *x* would be padded from 2x3x2x3 out to
-2x4x2x4. The input vector would contain 36 elements, while the output
-vector would contain 64 elements.
+two. Thus the output array can be larger than the input array.
 
-
+In this example, ``xh`` is an 36x1 vector and ``xhfft`` is a 64x1 vector. This is because in the case of the
+2x3x2x3 hypercube example, *x* is padded from 2x3x2x3 out to
+2x4x2x4. Hence, the input vector contains 36 elements, while the output
+vector would contain 64 elements. You may have noticed that we use a
+*dim* with padded values at the end of the example to check our answer.
 
 Source
 ------
@@ -121,4 +184,3 @@ Source
 fftm.src
 
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftn`
-

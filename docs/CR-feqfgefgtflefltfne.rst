@@ -22,7 +22,7 @@ Format
     :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
-    :returns: y (*scalar*), 1 (``TRUE``) or 0 (``FALSE``).
+    :returns: **ret** (*scalar*) - returns 1 if ``TRUE``  and 0  if ``FALSE``.
 
 Global Input
 ------------
@@ -41,13 +41,13 @@ The statement:
 
 ::
 
-   y = feq(a,b);
+   ret = feq(a, b);
 
 is equivalent to:
 
 ::
 
-   y = a eq b;
+   ret = abs(a-b) <= _fcmptol;
 
 For the sake of efficiency, these functions are not written to handle
 missing values. If *a* and *b* contain missing values, use :func:`missrv` to convert
@@ -64,21 +64,38 @@ The calling program can reset `\_fcmptol` before calling these procedures:
 Examples
 ----------------
 
+Example 1: Fuzzy equality
+++++++++++++++++++++++++++
+
 ::
 
     _fcmptol = 1e-12;
-    
-    x = rndu(2,2);
-    
-    y = x + 0.5*(_fcmptol);
-    
-    if fge(x,y);
-       print "each element of x is greater than";
-       print "or equal to each element of y";
-    else;
-       print "at least one element of x is less";
-       print "its corresponding element in y";
-    endif;
+
+    ret = feq(2, 2 + 1e-13);
+
+The above code will set *ret* equal to 1, because 2 and (2 + 1e-13) differ by less than the value of ``_fcmptol``, which is 1e-12.
+
+Example 2: Fuzzy greater than
+++++++++++++++++++++++++++++++
+
+::
+
+   _fcmptol = 1e-10;
+
+   a = 0.5;
+   b = a + 1e-5;
+   c = a + 1e-11; 
+
+   ret_1 = fgt(b, a);
+
+   ret_2 = fgt(c, a);
+
+After the code above:
+
+::
+
+    ret_1 = 1
+    ret_2 = 0
 
 Source
 ------
@@ -86,4 +103,3 @@ Source
 fcompare.src
 
 .. seealso:: Functions :func:`dotfeq`, :func:`dotfge`, :func:`dotfgt`, :func:`dotfle`, :func:`dotflt`, :func:`dotfne`
-

@@ -13,11 +13,15 @@ Format
 
     :param lib1: the base name of the library or the pathed name of the library.
         `dlibrary` takes two types of arguments, ''base'' names and
-        file names. Arguments without any "``/``" path separators are assumed to be library base names, and are expanded by adding
-        the suffix ``.so``, ``.dll`` or ``.dylib``, depending on the platform. They are searched
-        for in the default dynamic library directory. Arguments that include "``/``" path separators
-        are assumed to be file names, and are not expanded. Relatively pathed file names are assumed to be specified relative to the
-        current working directory, not relative to the dynamic library directory.
+        file names. 
+
+        * Arguments without any "``/``" path separators are assumed to be library base names, and are expanded by adding
+          the suffix ``.so``, ``.dll`` or ``.dylib``, depending on the platform. They are searched
+          for in the default dynamic library directory. 
+        
+        * Arguments that include "``/``" path separators
+          are assumed to be file names, and are not expanded. Relatively pathed file names are assumed to be specified relative to the
+          current working directory, not relative to the dynamic library directory.
     :type lib1: literal
 
     :param -a: append flag. the shared libraries listed are added to the current set of shared libraries rather than replacing them. For search purposes,
@@ -32,7 +36,7 @@ Remarks
 
 -  If no flags are used, the shared libraries listed are linked into
    GAUSS and any previously linked libraries are dumped. When you call
-   dllcall, the shared libraries will be searched in the order listed
+   :func:`dllcall`, the shared libraries will be searched in the order listed
    for the specified function. The first instance of the function found
    will be called.
 

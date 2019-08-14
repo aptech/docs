@@ -23,7 +23,7 @@ Format
     :param mask: elements in *g* corresponding to elements of *mask* set to zero are not computed, otherwise they are computed.
     :type mask: Kx1 matrix
 
-    :returns: g (*NxK Jacobian or 1xK gradient*)
+    :returns: **g** (*NxK or 1xK*) - Jacobian or gradient.
 
 Remarks
 -------
@@ -36,27 +36,32 @@ Examples
 
 ::
 
-    #include optim.sdf
+    // Declare PV structure to store parameters
     struct PV p1;
     p1 = pvCreate;
-    p1 = pvPack(p1,0.1|0.2,"P");
-     
+    p1 = pvPack(p1, 0.1|0.2, "P");
+
+    // Declare DS structure to store data
     struct DS d0;
     d0 = dsCreate;
-    d0.dataMatrix = seqa(1,1,15);
-     
+    d0.dataMatrix = seqa(1, 1, 15);
+
+    // Write function
     proc fct(struct PV p0, struct DS d0);
+
        local p,y;
        p = pvUnpack(p0, "P");
        y = p[1] * exp(-p[2] * d0.dataMatrix);
+
        retp(y);
     endp;
-     
-     mask = { 0, 1 };
-     g = gradMTm(&fct,p1,d0,mask);
+
+    mask = { 0, 1 };
+
+    // Find gradient
+    g = gradMTm(&fct, p1, d0, mask);
 
 Source
 ------
 
 gradmt.src
-

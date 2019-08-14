@@ -23,7 +23,7 @@ Format
 
             x \leq v[1],\\
             v[1] < x \leq v[2],\\
-            \vdots
+            \vdots\\
             v[p-1] < x \leq v[p]
 
 Remarks
@@ -67,6 +67,11 @@ breakpoint vector.
 Examples
 ----------------
 
+Basic example
++++++++++++++
+
+Count the number of elements which are in a specific range.
+
 ::
 
     // Original data
@@ -82,7 +87,33 @@ Examples
 
         1.5
         3       0       0
-    x = 2   v = 2   c = 2
+    x = 5   v = 2   c = 2
         4       4       3
         1
         3
+
+Count integers
+++++++++++++++
+
+Count how many times each integer from 1 to 10 is present in a vector.
+
+::
+
+    x = { 9, 8, 9, 9, 6, 8, 6, 7 };
+
+    ints = seqa(1, 1, 10);
+
+    c = counts(x, ints);
+
+::
+
+          1      0 
+          2      0 
+          3      0 
+          4      0 
+   ints = 5  c = 0 
+          6      2 
+          7      1 
+          8      2 
+          9      3 
+         10      0 

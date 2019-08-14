@@ -18,17 +18,17 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "error out if file already exists."
             "1", "overwrite file if it already exists."
 
     :type overwrite: scalar
 
-    :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
+    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "3", "File write error."
             "6", "File already exists."
@@ -49,7 +49,10 @@ Examples
 
 ::
 
-    ret = gdaCreate("myfile.gda",1);
+  /*
+  ** Create a GDA named `myfile`
+  ** and overwrite existing `myfile`
+  */
+  ret = gdaCreate("myfile.gda", 1);
 
 .. seealso:: Functions :func:`gdaWrite`
-

@@ -5,7 +5,7 @@ fonts
 Purpose
 ----------------
 
-Loads fonts to be used in the graph. 
+Loads fonts to be used in the graph.
 
 .. NOTE:: This function is for the deprecated PQG graphics.
 
@@ -17,7 +17,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "Simplex", "standard sans serif font."
             "Simgrma", "Simplex greek, math."
             "Microb", "bold and boxy."
@@ -44,4 +44,3 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`title`, :func:`xlabel`, :func:`ylabel`, :func:`zlabel`
-

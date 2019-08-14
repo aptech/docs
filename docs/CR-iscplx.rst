@@ -14,19 +14,21 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*scalar*), 1 if *x* is complex, 0 if it is real.
+    :returns: **x_iscplx** (*scalar*) - 1 if *x* is complex, 0 if it is real.
 
 Examples
 ----------------
 
 ::
 
+    // Define x
     x = { 1, 2i, 3 };
+
+    // Test if x is complex
     if iscplx(x);
-       // code path for complex case
+       print "X is complex";
     else;
-       // code path for real case
+       print "X is not complex";
     endif;
 
 .. seealso:: Functions :func:`hasimag`, :func:`iscplxf`
-

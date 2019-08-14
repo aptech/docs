@@ -9,17 +9,17 @@ Returns a string array of file names.
 
 Format
 ----------------
-.. function:: filesa(n)
+.. function:: filesa(fspec)
 
-    :param n: file specification to search for. Can include path. Wildcards are allowed in *n*.
-    :type n: string
+    :param fspec: file specification to search for. Can include path and wildcards.
+    :type fspec: string
 
-    :returns: y (*Nx1 string array*), all file names that match or null string if none are found.
+    :returns: **fnames** (*Nx1 string array*) - all file names that match or null string if none are found.
 
 Remarks
 -------
 
-*y* will contain file names only; any path information that was passed is
+*fnames* will contain file names only; any path information that was passed is
 dropped.
 
 
@@ -28,7 +28,7 @@ Examples
 
 ::
 
-    y = filesa("ch*");
+    fnames = filesa("ch*");
 
 In this example all files listed in the
 current directory that begin with :code:`"ch"` will be
@@ -43,4 +43,3 @@ returned.
 This procedure will return 1 if the file exists or 0 if not.
 
 .. seealso:: Functions :func:`fileinfo`, :func:`shell`
-

@@ -26,7 +26,7 @@ Format
     :param wgts: weights
     :type wgts: Nx1 vector
 
-    :returns: h (*KxK matrix*), Hessian.
+    :returns: **h** (*KxK matrix*) - Hessian.
 
 Remarks
 -------
@@ -41,31 +41,42 @@ Examples
 
 ::
 
-    #include optim.sdf
-     
-    struct PV p1;
-    p1 = pvCreate;
-    p1 = pvPack(p1,0.1|0.2, "P");
-    struct DS d0;
-    d0 = dsCreate;
-    d0.dataMatrix = seqa(1,1,15);
-    wgts = zeros(5,1) | ones(10,1);
-     
-    mask = { 1 1,
-             1 0 };
-     
-    proc fct(&fct, struct PV p0, struct DS d0, wgts);
-       local p,y;
-     
-       p = pvUnpack(p0, "P");
-       y = p[1] * exp( -p[2] * d0.dataMatrix);
+  // Define a PV structure
+  struct PV p1;
+
+  // Create p1 PV structure
+  p1 = pvCreate;
+
+  // Fill PV structure
+  p1 = pvPack(p1, 0.1|0.2, "P");
+
+  // Create data matrix
+  x = seqa(1, 1, 15);
+
+  // Define weights
+  wgts = zeros(5,1) | ones(10,1);
+
+  // Mask
+  mask = { 1 1,
+           1 0 };
+
+  // Function to compute Hessian
+  proc fct(struct PV p0, x);
+      local p, y;
+
+      // Unpack parameters
+      p = pvUnpack(p0, "P");
+
+      // Define Hessian
+      y = p[1] * exp( -p[2] * x);
+
       retp(y);
-    endp;
-     
-    h = hessMTmw(&fct,p1,d0,mask,wgt);
+  endp;
+
+  // Find Hessian
+  h = hessMTmw(&fct, p1, x, mask, wgts);
 
 Source
 ------
 
 hessmt.src
-

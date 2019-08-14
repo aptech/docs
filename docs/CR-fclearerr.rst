@@ -9,12 +9,12 @@ Gets the error status of a file, then clears it.
 
 Format
 ----------------
-.. function:: fclearerr(f)
+.. function:: fclearerr(fh)
 
-    :param f: file handle of a file opened with fopen.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
-    :returns: err (*scalar*), error status.
+    :returns: **err** (*scalar*) - error status equal to 1 if there has been a read or write error on a file, 0 otherwise.
 
 Remarks
 -------
@@ -24,13 +24,9 @@ the file. Typically, once this flag is set, you can no longer do I/O on
 the file, even if the error is a recoverable one. :func:`fclearerr` clears the
 file's error flag, so you can attempt to continue using it.
 
-If there has been a read or write error on a file, :func:`fclearerr` returns 1,
-otherwise 0.
-
-If you pass :func:`fclearerr` the handle of a file opened with open (i.e., a
-data set or matrix file), your program will terminate with a fatal
+If you pass :func:`fclearerr` the handle of a file opened with :func:`open` (i.e., a
+dataset or matrix file), your program will terminate with a fatal
 error.
 
 The flag accessed by :func:`fclearerr` is not the same as that accessed by
 :func:`fstrerror`.
-

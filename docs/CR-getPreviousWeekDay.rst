@@ -9,12 +9,34 @@ Returns the previous day that is not on a weekend.
 
 Format
 ----------------
-.. function:: getPreviousWeekDay(a)
+.. function:: getPreviousWeekDay(date)
 
-    :param a: date in DT scalar format.
-    :type a: scalar
+    :param date: date in DT scalar format.
+    :type date: scalar
 
-    :returns: n (*scalar*), previous week day in DT scalar format.
+    :returns: **prev_weekday** (*scalar*) - previous weekday in DT scalar format.
+
+
+Examples
+----------------
+
+::
+
+  // Convert string to date to dt date
+  dt_date = strtodt("2010-11-01", "YYYY-MO-DD");
+
+  /*
+  ** Get next trading day and print
+  ** string form
+  */
+  dttostr(getPreviousWeekDay(dt_date), "YYYY-MO-DD");
+
+This prints the previous trading weekday to the screen in string format
+
+::
+
+   2010-10-29
+
 
 Source
 ------
@@ -22,4 +44,3 @@ Source
 finutils.src
 
 .. seealso:: Functions :func:`getNextWeekDay`
-

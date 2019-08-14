@@ -29,6 +29,34 @@ nearest integer if necessary.
 
 Examples
 ----------------
+
+Example 1: Create dummy variables
++++++++++++++++++++++++++++++++++
+
+:func:`design` makes it easy to create dummy variables from a vector of integers.
+
+::
+
+    // Vector of classes
+    c = { 3, 1, 1, 3, 2 };
+
+   // Create dummy variable
+   d = design(c);
+
+After the above code:
+
+::
+
+    d = 0 0 1
+        1 0 0
+        1 0 0
+        0 0 1
+        0 1 0
+
+
+Example 2: Create a permutation matrix
+++++++++++++++++++++++++++++++++++++++
+
 This example uses design to interchange the rows of a matrix.
 
 ::
@@ -60,10 +88,10 @@ Continuing with the example:
 ::
 
     // The order of the rows we want
-    rowOrder = { 3, 1, 4, 2 };
+    row_order = { 3, 1, 4, 2 };
 
-    // Create a permutation matrix from 'rowOrder'
-    p = design(rowOrder);
+    // Create a permutation matrix from 'row_order'
+    p = design(row_order);
     print p;
 
 This section returns:

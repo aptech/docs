@@ -32,7 +32,7 @@ Format
     :param N: number of time segments. A higher number of time segments will increase accuracy at the expense of increased computation time.
     :type N: scalar
 
-    :returns: sigma (*Mx1 vector*), volatility.
+    :returns: **sigma** (*Mx1 vector*) - volatility.
 
 Remarks
 -------
@@ -48,16 +48,31 @@ Examples
 
 ::
 
+    // Call  premiums
     c = { 13.70, 11.90, 9.10 };
+
+    // Specify current price
     S0 = 718.46;
+
+    // Specify strike prices
     K = { 720, 725, 730 };
+
+    // Specify risk free rate
     r = .0368;
+
+    // Specify dividend
     div = 0;
-    t0 = dtday(2012, 1, 30);
-    t1 = dtday(2012, 2, 16);
-    tau = elapsedTradingDays(t0,t1) /
+
+    // Specify start and end dates
+    t_start = dtday(2012, 1, 30);
+    t_end = dtday(2012, 2, 16);
+
+    // Find annualize elapsed trading days
+    tau = elapsedTradingDays(t_start, t_end) /
         annualTradingDays(2012);
-    sigma = EuropeanBinomCall_ImpVol(c, S0, K, r, 0, tau, 30);
+
+    // Compute implied volatility
+    sigma = EuropeanBinomCall_ImpVol(c, S0, K, r, div, tau, 30);
     print sigma;
 
 produces:
@@ -72,4 +87,3 @@ Source
 ------
 
 finprocs.src
-

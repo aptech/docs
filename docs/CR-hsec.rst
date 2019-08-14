@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: hsec
 
-    :returns: y (*scalar*), hundredths of a second since midnight.
+    :returns: **y** (*scalar*) - hundredths of a second since midnight.
 
 Remarks
 -------
@@ -25,11 +25,17 @@ Examples
 
 ::
 
-    x = rndu(1000,1000);
+    // Define random x matrix
+    x = rndu(1000, 1000);
+
+    // Starting time
     tStart = hsec;
-    
+
+    //  Multiply x*x
     y = x*x;
-    tTotal = hsec-tEnd;
+
+    // Calculate time elapsed
+    tTotal = hsec-tStart;
 
 In this example, :func:`hsec` is used to time a 1000x1000 multiplication in GAUSS. A 1000x1000 matrix,
 *x*, is created, and the current time, in hundredths of a
@@ -39,4 +45,3 @@ is subtracted from :func:`hsec` to give the time difference
 which is assigned to *tTotal*.
 
 .. seealso:: Functions :func:`date`, :func:`time`, :func:`timestr`, :func:`ethsec`, :func:`etstr`
-

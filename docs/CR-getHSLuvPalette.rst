@@ -22,7 +22,23 @@ Format
     :param l: Optional. lightness. Default value is 0.65
     :type l: scalar
 
-    :returns: clrs (*ncolorsx1 string array*) containing the newly created color palette.
+    :returns: **clrs** (*ncolorsx1 string array*) - contains the newly created color palette.
+
+Examples
+----------------
+
+::
+
+      // Get the first 3 colors HSL colors
+      hsluv_clrs = getHSLuvPalette(3);
+
+
+After the above code, *hsluv_clrs* should equal:
+
+::
+
+    #f77189
+    #50b131
+    #3ba3ec
 
 .. seealso:: Functions :func:`getColorPalette`, :func:`listColorPalettes`, :func:`getHSLPalette`, :func:`blendColorPalette`
-

@@ -5,7 +5,7 @@ iscplxf
 Purpose
 ----------------
 
-Returns whether a data set is complex or real.
+Returns whether a dataset is complex or real.
 
 Format
 ----------------
@@ -14,8 +14,7 @@ Format
     :param fh: file handle of an open file.
     :type fh: scalar
 
-    :returns: y (*scalar*), 1 if the data set is complex, 0 if it is real.
+    :returns: **fh_iscplx** (*scalar*) - 1 if the data set is complex, 0 if it is real.
 
 
 .. seealso:: Functions :func:`hasimag`, :func:`iscplx`
-

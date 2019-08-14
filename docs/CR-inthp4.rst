@@ -9,7 +9,7 @@ Integrates a user-defined function over the :math:`[a, b]` interval.
 
 Format
 ----------------
-.. function:: inthp4(&f, pds, ctl, c)
+.. function:: inthp4(&f, pds, ctl, lims)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar
@@ -18,7 +18,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "pds->dataMatrix", "NxK matrix."
             "pds->dataArray", "NxKxL... array."
             "pds->vnames", "string array."
@@ -33,7 +33,7 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - ctl.maxEvaluations
               - scalar, maximum number of function evaluations, default = 1e5;
             * - ctl.p
@@ -56,10 +56,10 @@ Format
 
     :type ctl: struct
 
-    :param c: upper and lower limits of integration, the ﬁrst row contains upper limits and the second row the lower.
-    :type c: 2×N vector
+    :param lims: upper and lower limits of integration, the ﬁrst row contains upper limits and the second row the lower.
+    :type lims: 2×N vector
 
-    :returns: y (*Nx1 vector*), the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a, b]`.
+    :returns: **y** (*Nx1 vector*) - the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a, b]`.
 
 Remarks
 -------
@@ -93,35 +93,56 @@ Examples
 
 ::
 
-    #include inthp.sdf
-     
+    /*
+    ** Function to be integrated
+    ** note that ds pointer is
+    ** first input (*pd0)
+    */
     proc fct(struct DS *pd0, x);
-       local a,b,c;
+       local a, b, c;
+
        a = pd0->dataMatrix[1];
        b = pd0->dataMatrix[2];
        c = pd0->dataMatrix[3];
+
        retp( 1/sqrt(a*x*x + b*x + c));
     endp;
-     
+
+    // Define DS structure
     struct DS d0;
+
+    // Define DS structure pointer
     struct DS *pd0;
-     
+
+    /*
+    ** Declare instance of inthpControl
+    ** structure
+    */
     struct inthpControl c0;
     c0 = inthpControlCreate;
-     
+
+    // Set termination parameter
     c0.p = 2;
+
+    // Set termination parameter
     c0.d = pi/2;
-     
+
+    // Set d0.dataMatrix
     a = -1;
     b = -2;
     c = 3;
-    pd0 = &d0;
     d0.dataMatrix = a|b|c;
-     
-    lim = 1 | -1;
-     
-    r = inthp4(&fct,pd0,c0,lim);
-     
+
+    // Set pointer to d0
+    pd0 = &d0;
+
+    // Set limits of integration
+    lims = 1 | -1;
+
+    // Integrate function
+    r = inthp4(&fct, pd0, c0, lims);
+
+    // Print results
     format /ld 16,10;
     print r;
     print pi/2;
@@ -131,7 +152,7 @@ produces the following output:
 ::
 
     1.5707962283
-     1.5707963268
+    1.5707963268
 
 References
 ++++++++++
@@ -145,4 +166,3 @@ Source
 inthp.src
 
 .. seealso:: Functions :func:`inthpControlCreate`, :func:`inthp1`, :func:`inthp2`, :func:`inthp3`
-

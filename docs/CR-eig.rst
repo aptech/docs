@@ -9,31 +9,30 @@ Computes the eigenvalues of a general matrix.
 
 Format
 ----------------
-.. function:: eig(A)
+.. function:: eig(x)
 
-    :param A: NxN matrix or K-dimensional array where the last two dimensions are NxN
-    :type A: matrix or array
+    :param x: data used to compute the eigenvalues.
+    :type x: NxN matrix or KxNxN array
 
-    :returns: lambda (*Nx1 vector or K-dimensional array*) where the last two dimensions are Nx1, the
-        eigenvalues of *A*.
+    :returns: **va** (*Nx1 vector or KxNx1 array*) - the eigenvalues of *x*.
 
 Examples
 ----------------
 
 ::
 
-    A = {  0.5  1.2  0.3, 
-           0.6  0.9  0.2, 
+    x = {  0.5  1.2  0.3,
+           0.6  0.9  0.2,
            0.8  1.5  0.0 };
-     
-    lambda = eig(A);
 
-After the above code, *lambda* will equal:
+    va = eig(x);
+
+After the above code, *va* will equal:
 
 ::
 
-    1.8626           
-    -0.1871           
+    1.8626
+    -0.1871
     -0.2754
 
 To calculate eigenvalues and eigenvectors see :func:`eigv`. To calculate generalized eigenvalues and eigenvectors, see :func:`lapgeig`, or :func:`lapgeigv`.
@@ -41,28 +40,28 @@ To calculate eigenvalues and eigenvectors see :func:`eigv`. To calculate general
 Remarks
 -------
 
-If *A* is an array, the result will be an array containing the eigenvalues
+If *x* is an array, *va* will be an array containing the eigenvalues
 of each 2-dimensional array described by the two trailing dimensions of
-A. In other words, for a 10x4x4 array, the result will be a 10x4x1 array
-containing the eigenvalues of each of the 10 4x4 arrays contained in *A*.
+*x*. For example, if *x* is a 10x4x4 array, *va* will be a 10x4x1 array
+containing the eigenvalues of each of the 10 4x4 arrays contained in *x*.
 
 **Errors**
 
-If the eigenvalues cannot all be determined, :math:`lambda[1]` is set to an
-error code. Passing :math:`lambda[1]` to the :func:`scalerr` function will return the
+If the eigenvalues cannot all be determined, *va[1]* is set to an
+error code. Passing *va[1]* to the :func:`scalerr` function will return the
 index of the eigenvalue that failed. The eigenvalues for indices
-:code:`scalerr(lambda[1])+1` to *N* should be correct.
+:math:`scalerr(va[1])+1 \to N` should be correct.
 
 Error handling is controlled with the low bit of the `trap` flag.
 
 +----------------+--------------------------------------------------+
-| :code:`trap 0` | set :math:`lambda[1]` and terminate with message |
+| :code:`trap 0` | set *va[1]* and terminate with message           |
 +----------------+--------------------------------------------------+
-| :code:`trap 1` | set :math:`lambda[1]` and continue execution     |
+| :code:`trap 1` | set *va[1]* and continue execution               |
 +----------------+--------------------------------------------------+
 
-Invalid inputs, such as an infinity, missing value or NaN will cause an
-error. If the `trap` is set to 1, *lambda* will be set to a scalar error
+Invalid inputs, such as an :math:`\infty`, missing value or NaN will cause an
+error. If the `trap` is set to 1, *va* will be set to a scalar error
 code and program execution will continue. Passing this scalar error code
 to the :func:`scalerr` function will return -1.
 
@@ -73,4 +72,3 @@ eigenvalues will appear consecutively with the eigenvalue having the
 positive imaginary part first.
 
 .. seealso:: Functions :func:`eigh`, :func:`eighv`, :func:`eigv`
-

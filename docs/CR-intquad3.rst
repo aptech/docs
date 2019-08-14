@@ -9,24 +9,24 @@ Integrates a specified function using Gauss-Legendre quadrature. A suite of uppe
 
 Format
 ----------------
-.. function:: intquad3(&f, xl, yl, zl, ...)
+.. function:: intquad3(&f, xlims, ylims, zlims, ...)
 
     :param &f: pointer to the procedure containing the function to be integrated. *f* is a function of :math:`(x, y, z)`.
     :type &f: scalar
 
-    :param xl: the limits of *x*.
-    :type xl: 2x1 or 2xN matrix
+    :param xlims: the limits of *x*.
+    :type xlims: 2x1 or 2xN matrix
 
-    :param yl: the limits of *y*.
-    :type yl: 2x1 or 2xN matrix
+    :param ylims: the limits of *y*.
+    :type ylims: 2x1 or 2xN matrix
 
-    :param zl: the limits of *z*.
-    :type zl: 2x1 or 2xN matrix
+    :param zlims: the limits of *z*.
+    :type zlims: 2x1 or 2xN matrix
 
     :param ...: Optional. A variable number of extra scalar arguments to pass to the user function. These arguments will be passed to the user function untouched.
     :type ...: any
 
-    :returns: y (*Nx1 vector*) of the estimated integral(s) of :math:`f(x,y,z)` evaluated between the limits given by *xl*, *yl*, and *zl*.
+    :returns: **y** (*Nx1 vector*) - of the estimated integral(s) of :math:`f(x,y,z)` evaluated between the limits given by *xl*, *yl*, and *zl*.
 
 Global Input
 ------------
@@ -63,17 +63,17 @@ Basic example
 ::
 
     // Define function to integrate
-    proc f(x,y,z);
+    proc f(x, y, z);
        retp(sqrt(x.^2 +  y.^2  +  z.^2));
     endp;
-     
+
     // Define limits of integration
-    xlim = { 1, 0 };
-    ylim = { 1, 0 };
-    zlim = { 3, 0 };
-     
+    xlims = { 1, 0 };
+    ylims = { 1, 0 };
+    zlims = { 3, 0 };
+
     // Calculate integral
-    ans = intquad3(&f,xlim, ylim, zlim);
+    ans = intquad3(&f, xlims, ylims, zlims);
 
 After the code above, *ans* should equal:
 
@@ -87,20 +87,20 @@ Passing extra arguments
 ::
 
     // Define function to integrate which takes an additional argument
-    proc f(x,y,z,a);
+    proc f(x, y, z, a);
        retp(sqrt(a .* x.^2 +  y.^2  +  z.^2));
     endp;
-     
+
     // Define limits of integration
-    xlim = { 1, 0 };
-    ylim = { 1, 0 };
-    zlim = { 3, 0 };
-    
+    xlims = { 1, 0 };
+    ylims = { 1, 0 };
+    zlims = { 3, 0 };
+
     // Define extra scalar argument
     a = 3.14;
-     
+
     // Calculate integral, passing in extra scalar argument
-    ans = intquad3(&f,xlim, ylim, zlim, a);
+    ans = intquad3(&f, xlims, ylims, zlims, a);
 
 After the code above, *ans* should equal:
 
@@ -114,26 +114,26 @@ Multiple limits of integration
 ::
 
     // Define function to integrate
-    proc f(x,y,z);
+    proc f(x, y, z);
        retp(sqrt(x.^2 +  y.^2  +  z.^2));
     endp;
-     
+
     // Define 3 sets of limits of integration
-    xlim = { 1, 0 };
-    ylim = { 1, 0 };
-    zlim = { 1 2 3, 
+    xlims = { 1, 0 };
+    ylims = { 1, 0 };
+    zlims = { 1 2 3,
              0 0 0 };
-     
+
     // Calculate integrals
-    ans = intquad3(&f,xlim, ylim, zlim);
+    ans = intquad3(&f, xlims, ylims, zlims);
 
 This will integrate the function :math:`f(x) = x*y*z` over 3 sets of limits, since
 *zlim* is defined to be a 2x3 matrix. The value of *ans* should be:
 
 ::
 
-    0.96059195 
-     2.6692443 
+    0.96059195
+     2.6692443
      5.2994691
 
 Source
@@ -148,4 +148,3 @@ Globals
 *_intq32*, *_intq4*, *_intq40*, *_intq6*, *_intq8*
 
 .. seealso:: Functions :func:`intquad1`, :func:`intquad2`, :func:`intsimp`, :func:`intgrat2`, :func:`intgrat3`
-

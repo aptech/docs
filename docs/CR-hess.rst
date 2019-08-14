@@ -14,9 +14,9 @@ Format
     :param A: data
     :type A: KxK real or complex matrix
 
-    :returns: H (*KxK matrix*), Hessenberg form.
+    :returns: **H** (*KxK matrix*) - Hessenberg form.
 
-    :returns: Z (*KxK matrix*), transformation matrix.
+    :returns: **Z** (*KxK matrix*) - transformation matrix.
 
 Remarks
 -------
@@ -53,16 +53,15 @@ Examples
     A = { 0.5 0.2 0.33,
           1.4 0.5 0.6,
           0.7 1.2 0.9 };
-     
+
     { H, Z } = hess(A);
 
 After the code above:
 
 ::
 
-    H =  0.500   -0.326    0.206     Z = 1.000    0.000    0.000 
-        -1.565    1.300   -0.400         0.000   -0.894   -0.447 
+    H =  0.500   -0.326    0.206     Z = 1.000    0.000    0.000
+        -1.565    1.300   -0.400         0.000   -0.894   -0.447
          0.000   -1.000    0.100         0.000   -0.447    0.894
 
 .. seealso:: Functions :func:`eig`, :func:`qz`, :func:`schur`
-

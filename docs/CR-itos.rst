@@ -11,29 +11,34 @@ Format
 ----------------
 .. function:: itos(x)
 
-    :param x: 
+    :param x:  data
     :type x: scalar or NxK matrix
 
-    :returns: y (string), or string array containing the string representation of the elements of x.
+    :returns: **str_int** (string) - or string array containing the string representation of the elements of x.
 
 Examples
 ----------------
 
-x = 4;
-str = itos(x);
-print "x = " x;
-print "str = " str;
+::
 
-x = 
-   1.000000
+  // Set x
+  x = 4;
 
-str = 
-   1
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // Convert integer to string
+  str_int = itos(x);
 
-for i(1, 4, 1);
-    print "iteration "$+itos(i);
-endfor;
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // Print results
+  print "x = " x;
+  print "str_int = " str_int;
+
+After this code:
+
+::
+
+  x =
+     4.000000
+
+  str_int =
+      4
 
 .. seealso:: Functions :func:`ftos`, :func:`stof`

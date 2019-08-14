@@ -7,39 +7,39 @@ Purpose
 
 Computes the gradient vector or matrix (Jacobian) of a vector-valued function that has been defined in a
 procedure. Single-sided (forward difference) gradients are computed. :func:`gradcplx` allows for
-complex arguments. 
+complex arguments.
 
 Format
 ----------------
-.. function:: gradp(&f, x0) 
-              gradcplx(&f, x0)
+.. function:: gradp(&fct, x0)
+              gradcplx(&fct, x0)
 
-    :param &f: a pointer to a vector-valued function (f: :math:`Kx1 → Nx1`)
-        defined as a procedure. It is acceptable for :math:`f(x)`
-        to have been defined in terms of global arguments in addition to *x*, and thus *f* can
+    :param &fct: a pointer to a vector-valued function (fct: :math:`Kx1 → Nx1`)
+        defined as a procedure. It is acceptable for :math:`fct(x)`
+        to have been defined in terms of global arguments in addition to *x*, and thus *fct* can
         return an Nx1 vector:
 
     ::
 
-        proc f(x);
+        proc fct(x);
             retp( exp(x.*b));
         endp;
 
-    :type &f: Function pointer
+    :type &fct: Function pointer
 
     :param x0: points at which to compute gradient
     :type x0: Kx1 vector
 
-    :returns: g (*NxK matrix*), containing the gradients of *f* with
+    :returns: **g** (*NxK matrix*) - containing the gradients of *fct* with
         respect to the variable *x* at *x0*.
 
 Remarks
 -------
 
-:func:`gradp` will return a row for every row that is returned by *f*. For
-instance, :func:`iff` returns a scalar result, then :func:`gradp` will return a 1xK row
+:func:`gradp` will return a row for every row that is returned by *fct*. For
+instance, if *fct* returns a scalar result, then :func:`gradp` will return a 1xK row
 vector. This allows the same function to be used regardless of *N*, where
-*N* is the number of rows in the result returned by *f*. Thus, for instance,
+*N* is the number of rows in the result returned by *fct*. Thus, for instance,
 :func:`gradp` can be used to compute the Jacobian matrix of a set of equations.
 
 
@@ -51,9 +51,9 @@ Examples
     proc myfunc(x);
        retp(x .* 2 .* exp( x .* x ./ 3 ));
     endp;
-    
+
     x0 = 2.5|3.0|3.5;
-    y = gradp(&myfunc,x0);
+    y = gradp(&myfunc, x0);
 
 After the code above, *y* is equal to:
 
@@ -63,7 +63,7 @@ After the code above, *y* is equal to:
     0.00000000        281.19753       0.00000000
     0.00000000       0.00000000        1087.9541
 
-It is a 3x3 matrix because we are passing it 3 arguments and myfunc returns 3 results when we do
+It is a 3x3 matrix because we are passing it 3 arguments and ``myfunc`` returns 3 results when we do
  that; the off-diagonals are zeros because the cross-derivatives of 3 arguments are 0.
 
 Source
@@ -72,4 +72,3 @@ Source
 gradp.src
 
 .. seealso:: Functions :func:`hessp`, :func:`hesscplx`
-

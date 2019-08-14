@@ -12,12 +12,12 @@ Format
 .. function:: csrcol
               csrlin
 
-    :returns: **y** (*scalar*) - row or column value.
+    :returns: **p** (*scalar*) - row or column position.
 
 Remarks
 -------
 
-*y* will contain the current column or row position of the cursor on the
+*p* will contain the current column or row position of the cursor on the
 screen. The upper left corner is (1,1).
 
 :func:`csrcol` returns the column position of the cursor. :func:`csrlin` returns the row
@@ -36,8 +36,10 @@ Examples
 
 ::
 
-    r = csrlin;
-    c = csrcol;
+    // Find current row and column
+    // position of the cursor
+    r = csrlin();
+    c = csrcol();
 
     // Clear the program input/output window
     cls;

@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*scalar*), 1 if the imaginary part of *x* has any nonzero elements, 0 if it consists entirely of 0's.
+    :returns: **y** (*scalar*) - 1 if the imaginary part of *x* has any nonzero elements, 0 if it consists entirely of 0's.
 
 Remarks
 -------
@@ -45,12 +45,13 @@ Examples
     x = { 1   2 3i,
           4-i 5 6i,
           7   8i 9 };
-     
+
     if hasimag(x);
         // code path for complex case
+        print "X has non-zero imaginary parts"
     else;
         // code path for real case
+        print "X does not have non-zero imaginary parts"
     endif;
 
 .. seealso:: Functions :func:`iscplx`
-

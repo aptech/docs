@@ -14,7 +14,7 @@ Format
     :type filename: string
 
     :param x: data to write to disk.
-    :type x: matrix or array or string or string array
+    :type x: matrix, array, string or string array
 
     :returns: **ret** (*scalar*) - return code, 0 if successful, or -1 if it is unable to
         write the file.
@@ -37,7 +37,7 @@ saved with :func:`datasave`:
 See **Foreign Language Interface**, Chapter 1, for details on these file
 types.
 
-Use :func:`dataload` to load a data file created with :func:`datasave`.
+Use :func:`dataload`, or :func:`loadd` to load a data file created with :func:`datasave`.
 
 Examples
 ----------------

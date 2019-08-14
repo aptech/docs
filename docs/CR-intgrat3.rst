@@ -9,9 +9,7 @@ Integrates the following triple integral, using user-defined functions and scala
 
 .. math::
 
-   \int_{a}^{b}\int_{g_2(x)}^{g_1(x)} \int_{gh_2(x, y)}^{h_1(x, y)}f(x, y, z)dzdydx
-
-.. DANGER:: FIX EQUATION
+   \int_{a}^{b}\int_{g_2(x)}^{g_1(x)} \int_{gh_2(x, y)}^{h_1(x, y)}f(x, y, z)\:dz\:dy\:dx
 
 Format
 ----------------
@@ -29,7 +27,7 @@ Format
     :param hl: function pointers. These procedures are functions of *x* and *y*.
     :type hl: 2x1 or 2xN matrix
 
-    :returns: y (*Nx1 vector*) of the estimated integral(s) of :math:`f(x, y, z)` evaluated between the limits given by *xl*, *gl* and *hl*.
+    :returns: **y** (*Nx1 vector*) - estimated integral(s) of :math:`f(x, y, z)` evaluated between the limits given by *xl*, *gl* and *hl*.
 
 Global Input
 ------------
@@ -63,32 +61,54 @@ Examples
 
 ::
 
+    // Function to be integrated
     proc f(x, y, z);
-    retp(2);
+      retp(2);
     endp;
 
+    /*
+    ** Function of x
+    ** to be integrated
+    */
     proc g1(x);
        retp(sqrt(25 - x^2));
     endp;
 
+    /*
+    ** Function of x
+    ** to be integrated
+    */
     proc g2(x);
        retp(-g1(x));
     endp;
 
+    /*
+    ** Function of x and y
+    ** to be integrated
+    */
     proc h1(x, y);
        retp(sqrt(25 - x^2 - y^2));
     endp;
 
+    /*
+    ** Function of x and y
+    ** to be integrated
+    */
     proc h2(x, y);
        retp(-h1(x, y));
     endp;
 
+    // Limits of x
     xl = 5|-5;
+
+    // Create pointer vectors
     g0 = &g1|&g2;
     h0 = &h1|&h2;
 
+    // The order of the integration
     _intord = 40;
 
+    // Find integral
     y = intgrat3(&f, xl, g0, h0);
 
 This will integrate the function :math:`f(x, y, z)` over the sphere of

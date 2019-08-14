@@ -22,6 +22,32 @@ Format
         associated with the module within which header is called. This argument will be ignored if set to 0.
     :type ver: 2x1 numeric vector
 
+Examples
+----------------
+
+::
+
+    // The procedure name
+    proc_name = "myProcedure";
+
+    // The dataset name
+    dataset = "mydataset";
+
+    // Version number of program
+    ver = 1|1;
+
+    header(proc_name, dataset, ver);
+
+This will print to the screen :
+
+::
+
+  ===============================================================================
+  myProcedure  Version 1.00 (R1)                            7/26/2019  12:37 pm
+  ===============================================================================
+                           Data Set:  mydataset
+  -------------------------------------------------------------------------------
+
 Source
 ------
 
@@ -34,7 +60,7 @@ Global Input
 
     .. csv-table::
         :widths: auto
-        
+
         "t", "title is to be printed"
         "l", "lines are to bracket the title"
         "d", "a date and time is to be printed"
@@ -42,4 +68,3 @@ Global Input
         "f", "file name being analyzed is to be printed"
 
 :__title: string, title for header.
-

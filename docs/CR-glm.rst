@@ -38,12 +38,12 @@ Format
 
     :type family: string
 
-    :param var_names: (k+1)x1⁢ string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
+    :param var_names: Optional argument, the names of the variables. The first element must be the name of the dependent variable.
         e.g., :code:`var_names = "admit" $| "gre" $| "gpa" $| "rank"`, then :code:`"admit"` will be the label of the response variable, :code:`"gre"`, :code:`"gpa"`, :code:`"rank"` are the labels of the independent variables corresponding to the order in the *X* matrix.
-    :type var_names: Optional argument
+    :type var_names: (k+1)x1⁢ string array or character matrix
 
 
-    :param categoryIdx: :math: `1 × k_d` matrix, :math: `k_d \leq k`. :math: `k_d` is the categorical variable index of *X* matrix.
+    :param categoryIdx: Optional argument, :math:`k_d \leq k`. :math:`k_d` is the categorical variable index of *X* matrix.
         *categoryIdx* specifies the categorical variable columns to be used in the analysis.
         e.g. If *categoryIdx* = 0, then it means the independent variable does not contain any categorical variables;
         if *categoryIdx* = :math:`{ 1 4 }`, then it means that column 1 and column 4 in the *X* matrix are categorical variables.
@@ -52,7 +52,7 @@ Format
 
         .. DANGER:: Fix equations here.
 
-    :type categoryIdx: Optional argument
+    :type categoryIdx: 1 × k_d matrix
 
     :param link: the link function. Options include:
 
@@ -68,13 +68,13 @@ Format
         The default link of each distribution is the canonical link function:
 
         - Normal -- identity;
-        - Binomial -- logit;a
+        - Binomial -- logit;
         - Gamma -- inverse;
         - Possion -- nature log.
 
     :type link: string
 
-    :param ctl: For an instance named *ct1*, the members are:
+    :param ctl: Optional argument. For an instance named *ct1*, the members are:
 
         .. list-table::
             :widths: auto
@@ -82,7 +82,7 @@ Format
             * - *ctl.varNames*
               - :math:`(k+1) \times 1` string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
             * - *ctl.categoryIdx*
-              - :math: `1 × k_d` matrix, :math: `k_d \leq k`. *ctl.categoryIdx* specifies the categorical variable columns to be used in the analysis.
+              - :math:`1 × k_d` matrix, :math:`k_d \leq k`. *ctl.categoryIdx* specifies the categorical variable columns to be used in the analysis.
                 e.g. If *ctl.categoryIdx* = 0, then it means no categorical variable;
                 if *ctl.categoryIdx* = :code:`{ 1 4 }`, then it means that column 1 and column 4 in *x* matrix are categorical variables.
 
@@ -111,9 +111,9 @@ Format
 
         .. DANGER:: Fix equations above
 
-    :type ctl: An instance of a :class:`glmControl` structure
+    :type ctl: an instance of a :class:`glmControl` structure
 
-    :returns: out (*struct*) instance of :class:`glmOut` struct structure. For an instance named *out*, the members are:
+    :returns: **out** (*struct*) - instance of :class:`glmOut` struct structure. For an instance named *out*, the members are:
 
         .. list-table::
             :widths: auto
@@ -175,8 +175,8 @@ Ordinary linear regression with simulated data matrices.
     rndseed 86;
 
     // Simulate data using rndn function
-    x = rndn(100,4);
-    y = rndn(100,1);
+    x = rndn(100, 4);
+    y = rndn(100, 1);
 
     // Call glm function with the minimum inputs
     call glm(y, x, "normal");
@@ -211,7 +211,10 @@ Logistic regression using a formula string to reference data in a CSV file conta
     // Create string with fully pathed file name
     fname = getGAUSShome() $+ "examples/binary.csv";
 
-    // Call glm function with formula string using 'factor' keyword to create dummy variables
+    /*
+    ** Call glm function with formula string
+    ** using 'factor' keyword to create dummy variables
+    */
     call glm(fname, "admit ~ factor(rank) + gre + gpa", "binomial");
 
 The code above will produce the following output. Note that :math:`rank = 1` is used as the base case.
@@ -232,8 +235,8 @@ The code above will produce the following output. Note that :math:`rank = 1` is 
     ----------------      ------------     ------------     ------------     ------------
     CONSTANT                     -3.99             1.14          -3.5001      0.000465027
     rank            2         -0.67544          0.31649          -2.1342        0.0328288
-    		3          -1.3402          0.34531          -3.8812      0.000103942
-    		4          -1.5515          0.41783          -3.7131      0.000204711
+    		            3          -1.3402          0.34531          -3.8812      0.000103942
+    		            4          -1.5515          0.41783          -3.7131      0.000204711
     gre                      0.0022644         0.001094           2.0699        0.0384651
     gpa                        0.80404          0.33182           2.4231        0.0153879
 
@@ -347,7 +350,7 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     call glm(y, x, "normal", label, categoryIdx);
 
 *vnames* is a string array containing all of the variable names from ``credit.dat`` returned from the :func:`getHeaders` function. *label* contains only the variable names used in the regression. The first element must be the label of the dependent variable, followed by the labels for the independent variables corresponding to the order in the *x* matrix.
-:code:`"Gender"` and :code:`"Married"` are categorical variables. The glm chooses the smallest number(1) as the base category in each categorical variable. The following shows the output:
+:code:`"Gender"` and :code:`"Married"` are categorical variables. The :func:`glm` chooses the smallest number(1) as the base category in each categorical variable. The following shows the output:
 
 ::
 
@@ -360,7 +363,7 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     Log likelihood:             -2971     BIC:                                      5971
     Dispersion:            1.669e+005     Iterations:                                  2
 
-     					   Standard                             Prob
+     					                                Standard                              Prob
     Variable                 Estimate            Error          t-value             >|t|
     ----------------     ------------     ------------     ------------     ------------
     CONSTANT                   246.19           46.535           5.2903         < 0.0001
@@ -435,18 +438,25 @@ A Poisson regression model with categorical variables, using matrix inputs.
     // Index independent variable, 'prog' and 'math'
     x = data[.,3 4];
 
-    // Specify the variable names
-    // since the matrices do not contain variable names
-    string var_names = {"num_award", "prog", "math"};
+    /*
+    ** Specify the variable names
+    ** since the matrices do not contain variable names
+    */
+    string var_names = { "num_award", "prog", "math" };
 
-    // Indicate that the first variable in 'x' is a categorical variable
+    /*
+    ** Indicate that the first variable in 'x'
+    ** is a categorical variable
+    */
     category_idx = 1;
 
     // specify the link function, 'ln'
     link = "ln";
 
-    // Declare the glmOut structure
-    // All the results are saved in the out_poi
+    /*
+    ** Declare the glmOut structure
+    ** All the results are saved in the out_poi
+    */
     struct glmOut out_poi;
     out_poi = glm(y, x, "poisson", var_names, category_idx, link);
 
@@ -473,7 +483,7 @@ After running above code, the output is:
 
     // Note: Dispersion parameter for POISSON distribution taken to be 1
 
-Using a glmOut structure to save result for a Gamma regression with categorical variables.
+Using a :class:`glmOut` structure to save result for a Gamma regression with categorical variables.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
@@ -491,10 +501,10 @@ Using a glmOut structure to save result for a Gamma regression with categorical 
     x = xlsReadSA(file, "A2:C28");
 
     // Find unique categorical levels
-    from = uniquesa(x[.,1]);
+    from = uniquesa(x[., 1]);
 
     // Numeric categorical levels
-    to = {1, -1, 0};
+    to = { 1, -1, 0 };
 
     // Reclassify the character to number
     x = reclassify(x, from, to);
@@ -502,8 +512,10 @@ Using a glmOut structure to save result for a Gamma regression with categorical 
     // Declare 'ctl_gamma' as a glmControl struct
     struct glmControl ctl_gamma;
 
-    // Read variable names and transpose
-    // to a column vector
+    /*
+    ** Read variable names and transpose
+    ** to a column vector
+    */
     ctl_gamma.varNames = xlsReadSA(file, "A1:D1")';
 
     // Specify categorical columns
@@ -518,7 +530,7 @@ Using a glmOut structure to save result for a Gamma regression with categorical 
     // Call 'glm' and fill 'out_gamma' with results
     out_gamma = glm(y, x, "gamma", ctl_gamma);
 
-In this example, the data set "``yarn.xlsx``" is used to perform a Gamma regression.
+In this example, the data set ``yarn.xlsx`` is used to perform a Gamma regression.
 After running the code above, the output is :
 
 ::
@@ -543,7 +555,7 @@ After running the code above, the output is :
     cycles          0         -0.31872         0.087666          -3.6356       0.00164628
                     1          -0.7701         0.087666          -8.7844         < 0.0001
 
-Using a "\*.dat" file directly in glm for a Inverse Gaussian distribution.
+Using a "\*.dat" file directly in :func:`glm` for a Inverse Gaussian distribution.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
@@ -591,11 +603,17 @@ Running a linear regression model using data transformations with HDF5 file.
     // Give a fully pathed HDF5 file name
     file_name = getGAUSShome() $+ "examples/nba_data.h5";
 
-    // Add the file schema "h5://" to the front Given a data set name in above file
-    // and the dataset name "/nba_data" to the back
+    /*
+    ** Add the file schema "h5://" to the front
+    ** Given a data set name in above file
+    ** and the dataset name "/nba_data" to the back
+    */
     dataset = "h5://" $+ file_name $+ "/nba_data";
 
-    // Define the formula for the linear model, using 'ln' data transformation
+    /*
+    ** Define the formula for the linear model,
+    ** using 'ln' data transformation
+    */
     formula = "ln(Weight) ~ ln(Height) + Age";
 
     // Call 'glm'

@@ -5,30 +5,30 @@ impute
 Purpose
 ----------------
 Replaces missing values in the columns of a matrix by a specified imputation method.
-		
+
 
 Format
 ----------------
-.. function:: impute(X[, method])
+.. function:: impute(x[, method])
 
-    :param X: data
-    :type X: NxK matrix
+    :param x: data
+    :type x: NxK matrix
 
-    :param method: Optional. Which imputation method to use.
+    :param method: Optional input. Specifies which imputation method to use.
 
         **Valid options:**
-       
+
         .. list-table::
             :widths: auto
-    
+
             * - "mean"
-              - string, replace missing values with the mean of the column (default).
+              - Replace missing values with the mean of the column (default).
             * - "median"
-              - string, replace missing values with the median of the column.
+              - Replace missing values with the median of the column.
 
     :type method: string
 
-    :returns: X_full (*matrix*), the input matrix with the missing values from each column filled in by the specified imputation method.
+    :returns: **x_full** (*matrix*) - the input matrix with the missing values from each column filled in by the specified imputation method.
 
 Examples
 ----------------
@@ -36,36 +36,36 @@ Examples
 ::
 
     // Create 3x3 matrix with a missing value
-    X = { 1    2    3,
+    x = { 1    2    3,
           4    .    5,
           7    8    9,
          10   11    . };
-    
+
     // Replace missing values with column mean
-    X_default = impute(X);
-    
+    x_default = impute(x);
+
     // Replace missing values with column median
-    X_median = impute(X, "median");
-    
+    x_median = impute(x, "median");
+
     // Replace missing values with column mean
-    X_mean = impute(X, "mean");
+    x_mean = impute(x, "mean");
 
 The above code will make the following assignments:
 
 ::
 
                    1    2    3
-    X_default =    4    7    5
+    x_default =    4    7    5
                    7    8    9
                   10   11    5.67
-    
+
                    1    2    3
-    X_median  =    4    8    5
+    x_median  =    4    8    5
                    7    8    9
                   10   11    5
-    
+
                    1    2    3
-    X_mean    =    4    7    5
+    x_mean    =    4    7    5
                    7    8    9
                   10   11    5.67
 
@@ -84,4 +84,3 @@ Remarks
    missing values (listwise deletion).
 
 .. seealso:: Functions :func:`missrv`, :func:`miss`, :func:`reclassify`, :func:`packr`
-

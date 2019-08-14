@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: fstrerror
 
-    :returns: s (*string*), error message.
+    :returns: **s** (*string*) - error message.
 
 Remarks
 -------
@@ -19,7 +19,9 @@ Remarks
 Any time an I/O error occurs on a file opened with :func:`fopen`, an internal
 error flag is updated. (This flag, unlike those accessed by :func:`fcheckerr`
 and :func:`fclearerr`, is not specific to a given file; rather, it is
-system-wide.) :func:`fstrerror` returns an error message based on the value of
+system-wide.)
+
+The :func:`fstrerror` function returns an error message based on the value of
 this flag, clearing it in the process. If no error has occurred, a null
 string is returned.
 
@@ -31,4 +33,3 @@ error flag accessed by :func:`fstrerror`. Therefore, calling :func:`fstrerror` a
 :func:`ftell` on Windows will not produce any error information.
 
 .. seealso:: Functions :func:`fopen`, :func:`ftell`
-

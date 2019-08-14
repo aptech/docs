@@ -20,6 +20,6 @@ Remarks
 -------
 
 Setting a query to "forward only" will usually improve performance. By
-default, queries are created with "forward only" off.
+default, queries are created with "forward only" on.
 
 .. seealso:: Functions :func:`dbQuerySetForwardOnly`, :func:`dbQuerySeekNext`

@@ -14,7 +14,7 @@ Format
     :param x: matrix or array used to find the determinant.
     :type x: NxN matrix or KxNxN array
 
-    :returns: **y** (*scalar or [K-2]-dimensional array*) - the determinant(s) of *x*.
+    :returns: **d** (*scalar or 1-dimensional array*) - the determinant(s) of *x*.
 
 Remarks
 -------
@@ -23,7 +23,7 @@ Remarks
 rows equals number of columns) or a K-dimensional array where the last
 two dimensions are of equal size.
 
-If *x* is a K-dimensional array, the result will be a [K-2]-dimensional
+If *x* is a K-dimensional array, the result will be a 1-dimensional
 array containing the determinants of each 2-dimensional array described
 by the two trailing dimensions of *x*. For example, for a 10x4x4 array,
 the result will be a 1-dimensional array of 10 elements containing the
@@ -43,15 +43,15 @@ Examples
           0 1 -2,
           1 3 4 };
 
-    y = det(x);
+    d = det(x);
 
     format /rd 3,0;
-    print "The determinant of y =" y;
+    print "The determinant of d =" d;
 
 The code above, produces:
 
 ::
 
-    The determinant of y = 25
+    The determinant of d = 25
 
 .. seealso:: Functions :func:`detl`

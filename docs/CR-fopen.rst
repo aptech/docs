@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: fopen(filename, omode)
 
-    :param filename: name of file to open.
+    :param filename: name of file to open, can contain a path specification.
     :type filename: string
 
     :param omode: file I/O mode. (See *Remarks*, below.)
     :type omode: string
 
-    :returns: f (*scalar*), file handle.
+    :returns: fh (*scalar*) - file handle.
 
 Portability
 -----------
@@ -29,8 +29,6 @@ unnecessary, because in Linux/macOS a newline is simply a linefeed.
 
 Remarks
 -------
-
-filename can contain a path specification.
 
 *omode* is a sequence of characters that specify the mode in which to open
 the file. The first character must be one of:
@@ -71,7 +69,6 @@ call, to flush the file's buffer.
 
 If :func:`fopen` fails, it returns a 0.
 
-Use `close` and :func:`closeall` to close files opened with :func:`fopen`.
+Use :func:`close` and :func:`closeall` to close files opened with :func:`fopen`.
 
-.. seealso:: Functions :func:`fseek`, `close`, :func:`closeall`
-
+.. seealso:: Functions :func:`fseek`, :func:`close`, :func:`closeall`

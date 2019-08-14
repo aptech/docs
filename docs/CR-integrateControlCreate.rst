@@ -11,17 +11,19 @@ Format
 ----------------
 .. function:: integrateControlCreate()
 
-    :returns: c (*struct*) instance of :class:`integrateControl` struct with members set to default values.
+    :returns: **c** (*struct*) - instance of :class:`integrateControl` struct with members set to default values.
 
 Examples
 ----------------
 
 ::
 
-    // Declare 'ctl' as an instance of an 
-    //'integrateControl' structure
+    /*
+    ** Declare 'ctl' as an instance of an
+    ** 'integrateControl' structure
+    */
     struct integrateControl ctl;
-    
+
     // Fill with default settings
     ctl = integrateControlCreate();
 

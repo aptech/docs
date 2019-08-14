@@ -4,7 +4,7 @@ blendColorPalette
 
 Purpose
 ----------------
-Create a new palette that blends between a list of colors. 
+Create a new palette that blends between a list of colors.
 
 Format
 ----------------
@@ -17,6 +17,28 @@ Format
     :type n_colors: scalar
 
     :returns: color_blend (*n_colorsx1 string array*) containing color palette.
+
+
+Format
+----------------
+
+::
+
+    /*
+    ** Make color palette with 5 colors
+    ** blending red, green, and yellow
+    */
+    clrs = blendColorPalette("Red"$|"Green"$|"Yellow", 5);
+
+The resulting colors :
+
+::
+
+    clrs = #ff0000
+           #813f00
+           #008000
+           #80c000
+           #ffff00
 
 Remarks
 ----------------

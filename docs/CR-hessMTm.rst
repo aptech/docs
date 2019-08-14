@@ -23,7 +23,7 @@ Format
     :param mask: elements in *h* corresponding to elements of *mask* set to zero are not computed, otherwise are computed.
     :type mask: KxK matrix
 
-    :returns: h (*KxK matrix*), Hessian.
+    :returns: **h** (*KxK matrix*) - Hessian.
 
 Remarks
 -------
@@ -35,29 +35,39 @@ Examples
 
 ::
 
-    #include optim.sdf
+    // Define a PV structure
     struct PV p1;
+
+    // Create p1 PV structure
     p1 = pvCreate;
-    p1 = pvPack(p1,0.1|0.2, "P");
-    struct DS d0;
-    d0 = dsCreate;
-    d0.dataMatrix = seqa(1,1,15);
-     
+
+    // Fill PV structure
+    p1 = pvPack(p1, 0.1|0.2, "P");
+
+    // Create data matrix
+    x = seqa(1, 1, 15);
+
+    // Mask
     mask = { 1 1,
              1 0 };
-     
-     proc fct(struct PV p0, struct DS d0);
-       local p,y;
-     
+
+    // Function to compute Hessian
+    proc fct(struct PV p0, struct DS d0);
+       local p, y;
+
+       // Unpack parameters
        p = pvUnpack(p0, "P");
+
+       // Define Hessian
        y = p[1] * exp( -p[2] * d0.dataMatrix);
+
       retp(y);
     endp;
-     
-    h = hessMTm(&fct,p1,d0,mask);
+
+    // Find Hessian
+    h = hessMTm(&fct, p1, d0, mask);
 
 Source
 ------
 
 hessmt.src
-

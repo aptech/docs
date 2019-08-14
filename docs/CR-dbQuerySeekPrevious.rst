@@ -24,14 +24,14 @@ can be verified with :func:`dbQueryIsSelect`.
 
 The following rules apply:
 
-If the result is currently located before the first record, there is no
-change and 0 is returned.
+    If the result is currently located before the first record, there is no
+    change and 0 is returned.
 
-If the result is currently located after the last record, an attempt is
-made to retrieve the last record.
+    If the result is currently located after the last record, an attempt is
+    made to retrieve the last record.
 
-If the result is somewhere in the middle, an attempt is made to retrieve
-the previous record.
+    If the result is somewhere in the middle, an attempt is made to retrieve
+    the previous record.
 
 
-.. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekNext`, :func:`dbQuerySeek`, :func:`dbQueryGetPositino`
+.. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekNext`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`

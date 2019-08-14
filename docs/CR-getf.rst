@@ -14,10 +14,10 @@ Format
     :param filename: any valid file name.
     :type filename: string
 
-    :param mode: 
-    :type mode: scalar 1 or 0 which determines if the file is to be loaded in ASCII mode (0) or binary mode (1)
+    :param mode: 1 or 0 which determines if the file is to be loaded in ASCII mode (0) or binary mode (1)
+    :type mode: scalar
 
-    :returns: y (string), containing the file.
+    :returns: **str_contents** (string) - contains the file contents.
 
 Remarks
 -------
@@ -39,26 +39,44 @@ Suppose you have a file which writes the results of its calculations to a file i
 
 ::
 
-    x1 = rndn(100,5);
-    y1 = rndu(100,1);
-    
+    // Generate random x1 and y1
+    x1 = rndn(100, 5);
+    y1 = rndu(100, 1);
+
+    /*
+    ** Set output file on and set
+    ** name to `regression_results`
+    */
     output file = regression_results.txt reset;
+
+    // Run OLS
     call ols("", y1, x1);
-    output off;
-    
-    x2 = rndn(100,5);
-    y2 = rndu(100,1);
-    
-    output file = ols_results.txt reset;
-    call ols("", y2, x2);
+
+    // Turn output off
     output off;
 
-Running the code above will create a file named "``regression_results.txt``" and a file named "``ols_results.txt``" in your current working directory. You can retrieve the output from either of these files with the :func:`getf` command.
+    // Generate random x2 and y2
+    x2 = rndn(100, 5);
+    y2 = rndu(100, 1);
+
+    /*
+    ** Set output file on and set
+    ** name to `ols_results`
+    */
+    output file = ols_results.txt reset;
+
+    // Run OLS
+    call ols("", y2, x2);
+
+    // Turn output off
+    output off;
+
+Running the code above will create a file named ``regression_results.txt`` and a file named ``ols_results.txt`` in your current working directory. You can retrieve the output from either of these files with the :func:`getf` command.
 
 ::
 
-    str = getf("regression_results.txt",1);
-    print str;
+    str_contents = getf("regression_results.txt", 1);
+    print str_contents;
 
 You can take this further and create a procedure that will load a list of output files for you. It can then print the output from each file as you are ready to read it.
 
@@ -66,17 +84,22 @@ You can take this further and create a procedure that will load a list of output
 
     declare string array fileList = { "regression_results.txt", "ols_results.txt" };
     showOutput(fileList);
-    
+
     proc (0) = showOutput(fileList);
        local k;
+
        for i(1, rows(fileList), 1);
+
           print "Press any key to view the next file:";
-          // wait for user input and assign the first key stroke
-          // to 'k'
+
+          /*
+          ** Wait for user input and assign the first key stroke
+          ** to 'k'
+          */
           k = keyw;
-          print getf(fileList[i],1);
+          print getf(fileList[i], 1);
+
        endfor;
     endp;
 
 .. seealso:: Functions `load`, `save`, `let`, :func:`con`
-

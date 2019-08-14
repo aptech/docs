@@ -5,7 +5,7 @@ hist
 Purpose
 ----------------
 
-Computes and graphs a frequency histogram for a vector. The actual frequencies are plotted for each category. 
+Computes and graphs a frequency histogram for a vector. The actual frequencies are plotted for each category.
 
 .. NOTE:: this function is for use with the deprecated PQG graphics. Use :func:`plotHist` instead.
 
@@ -24,11 +24,11 @@ Format
     :param v: the breakpoints to be used to compute the frequencies (vector) -or- the number of categories (scalar).
     :type v: Nx1 vector or scalar
 
-    :returns: b (*Px1 vector*), the breakpoints used for each category.
+    :returns: **b** (*Px1 vector*) - the breakpoints used for each category.
 
-    :returns: m (*Px1 vector*), the midpoints of each category.
+    :returns: **m** (*Px1 vector*) - the midpoints of each category.
 
-    :returns: freq (*Px1 vector*) computed frequency counts.
+    :returns: **freq** (*Px1 vector*) - computed frequency counts.
 
 Remarks
 -------
@@ -70,4 +70,3 @@ Source
 phist.src
 
 .. seealso:: Functions :func:`histp`, :func:`histf`, :func:`bar`
-

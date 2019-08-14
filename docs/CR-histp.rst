@@ -22,11 +22,11 @@ Format
     :param v: the breakpoints to be used to compute the frequencies (vector) -or- the number of categories (scalar).
     :type v: Nx1 vector or scalar
 
-    :returns: b (*Px1 vector*), the breakpoints used for each category.
+    :returns: **b** (*Px1 vector*) - the breakpoints used for each category.
 
-    :returns: m (*Px1 vector*), the midpoints of each category.
+    :returns: **m** (*Px1 vector*) - the midpoints of each category.
 
-    :returns: freq (*Px1 vector*) of computed frequency counts. This is the vector of counts, not percentages.
+    :returns: **freq** (*Px1 vector*) - Computed frequency counts. This is the vector of counts, not percentages.
 
 
 
@@ -62,4 +62,3 @@ Source
 phist.src
 
 .. seealso:: Functions :func:`hist`, :func:`histf`, :func:`bar`
-

@@ -5,8 +5,7 @@ ftocv
 Purpose
 ----------------
 
-Converts a matrix containing floating point  numbers into a matrix containing the decimal
- character representation of each element.
+Converts a matrix containing floating point numbers into a matrix containing the decimal character representation of each element.
 
 Format
 ----------------
@@ -21,7 +20,7 @@ Format
     :param prec: the numbers created will have *prec* places after the decimal point.
     :type prec: scalar
 
-    :returns: y (*NxK character matrix*) containing the decimal character
+    :returns: **x_cv** (*NxK character matrix*) - contains the decimal character
         equivalent of the corresponding elements in *x* in the format defined by *field* and *prec*.
 
 Remarks
@@ -31,8 +30,7 @@ Remarks
 -  Character vectors, as returned by :func:`ftocv`, can only hold 8 characters.
    Therefore, the *field* and *prec* inputs may not be greater than 8.
 -  If a number is narrower than *field*, it will be padded on the left with zeros.
-
-If :math:`prec = 0`, the decimal point will be suppressed.
+-  If :math:`prec = 0`, the decimal point will be suppressed.
 
 
 Examples
@@ -44,8 +42,8 @@ Basic examples
 ::
 
     // Field width for 7 characters (including '.'). Display 5 characters after decimal point
-    x = ftocv(1.23456789, 7,5);
-    
+    x = ftocv(1.23456789, 7, 5);
+
     // Print character vector
     print $x;
 
@@ -57,7 +55,7 @@ The code above will return the following output:
 
 ::
 
-    x = ftocv(1.23456789, 4,2);
+    x = ftocv(1.23456789, 4, 2);
     print $x;
 
 The code above will return the following output:
@@ -68,7 +66,7 @@ The code above will return the following output:
 
 ::
 
-    x = ftocv(1.23456789, 6,3);
+    x = ftocv(1.23456789, 6, 3);
     print $x;
 
 The code above will return the following output:
@@ -83,13 +81,17 @@ Combining text with numbers
 ::
 
     y = { 6, 7, 8, 9, 10 };
-    
-    // Combine 'beta' with the vector of numbers in 'y'
-    // Use 2 characters for each number with 0 after the decimal point
-    x = 0 $+ "beta" $+ ftocv(y,2,0);
-    
-    // Since the output is a character vector the dollar
-    // sign ($) must be used in front of the variable for printing
+
+    /*
+    ** Combine 'beta' with the vector of numbers in 'y'
+    ** Use 2 characters for each number with 0 after the decimal point
+    */
+    x = 0 $+ "beta" $+ ftocv(y, 2, 0);
+
+    /*
+    ** Since the output is a character vector the dollar
+    ** sign ($) must be used in front of the variable for printing
+    */
     print $x;
 
 results in the following output:
@@ -102,11 +104,10 @@ results in the following output:
           beta09
           beta10
 
-Notice that the (:code:`0 $+ `) above was necessary to
- force the type of the result to matrix because the
- string constant :code:`"beta"` would be of type string. The
- left operand in an expression containing a ``$+`` operator
- controls the type of the result.
+Notice that the ``0 $+`` above was necessary to
+force the type of the result to matrix because the
+string constant ``"beta"`` would be of type string. The
+left operand in an expression containing a ``$+`` operator
+controls the type of the result.
 
 .. seealso:: Functions :func:`ftos`, :func:`ntos`
-

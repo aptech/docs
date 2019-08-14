@@ -34,5 +34,3 @@ Examples
 
 .. seealso:: Function `select`
 
-.. DANGER:: Fix this reference
-

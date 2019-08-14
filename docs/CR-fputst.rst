@@ -9,15 +9,15 @@ Writes strings followed by a newline to a file.
 
 Format
 ----------------
-.. function:: fputst(f, sa)
+.. function:: fputst(fh, sa)
 
-    :param f: file handle of a file opened with fopen.
-    :type f: scalar
+    :param fh: file handle of a file opened with :func:`fopen`.
+    :type fh: scalar
 
     :param sa: data
     :type sa: string or string array
 
-    :returns: numl (*scalar*), the number of lines written to the file.
+    :returns: **numl** (*scalar*) - the number of lines written to the file.
 
 Remarks
 -------
@@ -44,7 +44,7 @@ Write string to text file
 ::
 
    // Create string
-   quote = "A horse! a horse! my kingdom for a horse!.";
+   quote = "A horse! a horse! my kingdom for a horse!";
 
    // Open file for writing
    fh = fopen("king_richard_III.txt", "w");
@@ -65,8 +65,10 @@ Example 2: Write CSV data to text file
 
 ::
 
-   // Create string containing a comma separated list
-   // of variable names (fputst will add an ending newline)
+   /*
+   ** Create string containing a comma separated list
+   ** of variable names (fputst will add an ending newline)
+   */
    text = "alpha,beta,gamma,delta";
 
    fh = fopen("temp.csv", "w");
@@ -81,8 +83,10 @@ Example 2: Write CSV data to text file
    // Convert numeric data to 2x4 string array
    x_str = ntos(x);
 
-   // Combine each row of 'x_str' into
-   // a single comma separated string
+   /*
+   ** Combine each row of 'x_str' into
+   ** a single comma separated string
+   */
    x_str = strjoin(x_str, ",");
 
    // Write the comma separated data to the file
@@ -109,4 +113,3 @@ Carriage return-linefeed conversion for files opened in text mode is
 unnecessary, because in Linux/macOS a newline is simply a linefeed.
 
 .. seealso:: Functions :func:`fputs`, :func:`fopen`
-

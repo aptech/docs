@@ -16,10 +16,13 @@ Format
 
     :param vars: the variables.
 
-     If *dataset* contains the name of a dataset, *vars* will be interpreted as either a Kx1 character vector containing the names of variables,
-     a Kx1 numeric vector containing indices of variables, or a `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
+     If *dataset* contains the name of a dataset, *vars* will be interpreted as either:
 
-     These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
+         * A Kx1 character vector containing the names of variables.
+         * A Kx1 numeric vector containing indices of variables. 
+         * A `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
+
+         These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
 
      If *dataset* is null or 0, *vars* will be interpreted as a NxK matrix, the data on which to compute the descriptive statistics.
 
@@ -51,7 +54,6 @@ Format
                   :1: print output table.
                   :0: do not print output.
 
-        These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
 
     :type ctl: Optional input
 
@@ -106,12 +108,12 @@ The above example will print the following report to the program input/output wi
 
 ::
 
-    -----------------------------------------------------------------------------------------------
-    Variable                Mean     Std Dev     Variance     Minimum     Maximum   Valid   Missing
-    -----------------------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------------------
+    Variable               Mean     Std Dev    Variance   Minimum   Maximum  Valid   Missing
+    ----------------------------------------------------------------------------------------
 
-    annual_fuel_cost      2.5371      0.6533       0.4267      1.0500      5.7000     978        0
-    engine_displacement   3.2333      1.3757       1.8925      1.0000      8.4000     978        0
+    annual_fuel_cost      2.537     0.6533      0.4267     1.05      5.70     978        0
+    engine_displacement   3.233      1.376       1.892     1.00      8.40     978        0
 
 The code below uses the second input, *vars*, to compute only the descriptive statistics for
 the second variable.
@@ -131,10 +133,10 @@ The following report is printed to the program input/output window.
 
 ::
 
-    -----------------------------------------------------------------------------------------------
-    Variable                 Mean     Std Dev    Variance     Minimum     Maximum   Valid   Missing
-    -----------------------------------------------------------------------------------------------
-    engine_displacement    3.2333      1.3757      1.8925      1.0000      8.4000     978         0
+    ----------------------------------------------------------------------------------------
+    Variable                Mean    Std Dev   Variance   Minimum   Maximum   Valid   Missing
+    ----------------------------------------------------------------------------------------
+    engine_displacement    3.233      1.376     1.892          1       8.4     978         0
 
 Computing statistics on a csv dataset with formula string
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -157,12 +159,12 @@ The above example will print the following report to the program input/output wi
 
 ::
 
-    ----------------------------------------------------------------------------------------
-    Variable        Mean     Std Dev      Variance     Minimum     Maximum     Valid Missing
-    ----------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------
+    Variable     Mean   Std Dev    Variance    Minimum     Maximum   Valid   Missing
+    --------------------------------------------------------------------------------
 
-    gre     587.7000    115.5165    13344.0702    220.0000    800.0000       400    0
-    gpa       3.3899      0.3806        0.1448      2.2600      4.0000       400    0
+    gre         587.7     115.5    1334e+04        220        800     400      0
+    gpa          3.39    0.3806      0.1448       2.26          4     400      0
 
 Using control and out structures
 ++++++++++++++++++++++++++++++++
@@ -225,13 +227,13 @@ The code above will print out the following report:
 
 ::
 
-    -----------------------------------------------------------------------------------
-    Variable     Mean     Std Dev      Variance     Minimum     Maximum  Valid  Missing
-    -----------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------
+    Variable    Mean    Std Dev     Variance     Minimum    Maximum  Valid  Missing
+    -------------------------------------------------------------------------------
 
-    X1         0.2348      0.8164        0.6664     -1.0736      1.4604     10       0
-    X2        -0.5062      1.1256        1.2669     -2.2231      1.2695     10       0
-    X3         0.5011      0.7758        0.6018     -0.6119      1.8235     10       0
+    X1        0.2348     0.8164       0.6664     -1.0736      1.46     10       0
+    X2       -0.5062      1.126        1.267      -2.223      1.269    10       0
+    X3        0.5011     0.7758       0.6018     -0.6119      1.823    10       0
 
 Computing statistics on a matrix, using structures
 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -264,13 +266,13 @@ This time, the following output will be printed to the screen:
 
 ::
 
-    -----------------------------------------------------------------------------------
-    Variable     Mean     Std Dev      Variance     Minimum     Maximum  Valid  Missing
-    -----------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------
+    Variable     Mean    Std Dev    Variance    Minimum    Maximum  Valid  Missing
+    ------------------------------------------------------------------------------
 
-    Alpha      0.2348      0.8164        0.6664     -1.0736      1.4604     10       0
-    Beta      -0.5062      1.1256        1.2669     -2.2231      1.2695     10       0
-    Gamma      0.5011      0.7758        0.6018     -0.6119      1.8235     10       0
+    Alpha      0.2348     0.8164      0.6664     -1.074      1.46      10       0
+    Beta      -0.5062     1.1256       1.267     -2.223     1.269      10       0
+    Gamma      0.5011     0.7758      0.6018    -0.6119     1.823      10       0
 
 Remarks
 -------
@@ -292,8 +294,6 @@ Remarks
 
 3. The supported dataset types are `CSV`, `XLS`, `XLSX`, `HDF5`, `FMT`, `DAT`, `DTA`
 
-
-.. DANGER:: Fix links here
 
 4. For `HDF5` files, the dataset must include a `file schema` and both file name and dataset name must be provided, e.g.
    :code:`dstatmt("h5://testdata.h5/mydata")`.

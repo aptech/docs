@@ -9,13 +9,13 @@ Purpose
 
 Format
 ----------------
-.. function:: inv(x) 
+.. function:: inv(x)
               invpd(x)
 
     :param x: data
     :type x: NxN matrix or K-dimensional array where the last two dimensions are NxN
 
-    :returns: y (*NxN matrix or K-dimensional array*) where the last two dimensions are NxN, containing the inverse of *x*.
+    :returns: **xi** (*NxN matrix or K-dimensional array*) where the last two dimensions are NxN, containing the inverse of *x*.
 
 Remarks
 -------
@@ -71,29 +71,37 @@ Examples
 
 ::
 
+    // Set random seed
+    rndseed 90701980;
+
+    // Set number of observations
     n = 4000;
-    x1 = rndn(n,1);
-    x = ones(n,1)~x1;
+
+    // Generate random x
+    x1 = rndn(n, 1);
+
+    // Add constant
+    x = ones(n, 1)~x1;
+
+    // Set true coefficients
     btrue = { 1, 0.5 };
-    y = x*btrue + rndn(n,1);
+
+    /*
+    ** Generate linear data with
+    ** random normal disturbances
+    */
+    y = x*btrue + rndn(n, 1);
+
+    // Compute OLS estimates of coefficients
     bols = invpd(x'x)*x'y;
 
 After the code above, *bols* will be equal to:
 
 ::
 
-    1.00237215 
-    0.48249445
+  1.0108262804
+  0.4633302971
 
-This example simulates some data and computes the
- :func:`ols` coefficient estimator using the :func:`invpd` function.
- First, the number of observations is specified.
- Second, a vector *x1* of standard Normal random
- variables is generated and is concatenated with a
- vector of :func:`ones` (to create a constant term). The true
- coefficients are specified, and the dependent
- variable *y* is created. Then the :func:`ols` coefficient
- estimates are computed.
+This example simulates some data and computes the :func:`ols` coefficient estimator using the :func:`invpd` function. First, the number of observations is specified. Second, a vector *x1* of standard Normal random variables is generated and is concatenated with a vector of :func:`ones` (to create a constant term). The true coefficients are specified, and the dependent variable *y* is created. Then the :func:`ols` coefficient estimates are computed.
 
 When computing least-squares problems with poorly conditioned matrices, the slash operator ``/`` and the function :func:`olsqr` will provide greater accuracy.
-

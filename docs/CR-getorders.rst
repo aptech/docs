@@ -12,10 +12,10 @@ Format
 ----------------
 .. function:: getorders(a)
 
-    :param a: data 
-    :type a: N-dimensional array or matrix or sparse matrix or string or string array
+    :param a: data
+    :type a: N-dimensional array, matrix, sparse matrix, string or string array
 
-    :returns: orders (*Nx1 vector of orders*), the sizes of the dimensions of the array.
+    :returns: **orders** (*Nx1 vector of orders*) - the sizes of the dimensions of the array.
 
 Examples
 ----------------
@@ -26,8 +26,8 @@ Example 1
 ::
 
     // Allocate a 5x100x3 dimensional array with each element equal to 0.
-    a = arrayinit(5|100|3,0);
-    
+    a = arrayinit(5|100|3, 0);
+
     // Find the size of the dimensions in 'a'
     orders = getorders(a);
 
@@ -58,4 +58,3 @@ After the above code, *dims* should equal:
       4
 
 .. seealso:: Functions :func:`getdims`, :func:`rows`, :func:`cols`
-

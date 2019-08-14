@@ -23,11 +23,11 @@ Format
     :param index: index into variable where new data is to be written.
     :type index: scalar or Nx1 vector
 
-    :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
+    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "2", "File open error."
             "3", "File write error."
@@ -81,7 +81,7 @@ In this case, if the variable increases in size, then the variable data
 will be rewritten after the last variable in the data file, moving the
 variable descriptor table to make room for the data and leaving empty
 bytes in its old location. This does not change the index of the
-variable because variable indices are determined NOTby the order of the
+variable because variable indices are determined NOT by the order of the
 variable data in a GDA, but by the order of the variable descriptors. If
 the variable decreases in size, then :func:`gdaWriteSome` leaves empty bytes
 between the end of the variable and the beginning of the next variable
@@ -94,16 +94,25 @@ Examples
 
 ::
 
-    x = rndn(100,50);
-    ret = gdaCreate("myfile.gda",1);
-    ret = gdaWrite("myfile.gda",x,"x1");
-     
-    y = rndn(75,5);
+    // Generate random variable x
+    x = rndn(100, 50);
+
+    // Create GDA `myFile`
+    retcode1 = gdaCreate("myfile.gda", 1);
+
+    // Write `x`  to `myfile` as x1
+    retcode2 = gdaWrite("myfile.gda", x, "x1");
+
+    // Generate random variable y
+    y = rndn(75, 5);
+
+    // Define index
     index = { 52, 4 };
-    ret = gdaWriteSome("myfile.gda",y,"x1",index);
+
+    // Overwrites part of x1
+    retcode3 = gdaWriteSome("myfile.gda", y, "x1", index);
 
 This example replaces :math:`75 * 5= 375` elements in *x1*, beginning
-with the :math:`[52,4]` element, with the elements in *y*.
+with the :math:`[52, 4]` element, with the elements in *y*.
 
 .. seealso:: Functions :func:`gdaReadSome`, :func:`gdaUpdate`, :func:`gdaWrite`
-

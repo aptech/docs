@@ -14,11 +14,11 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: ret (*scalar*), return code, 0 if successful, otherwise one of the following error codes:
+    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Null file name."
             "2", "File open error."
             "3", "File write error."
@@ -31,7 +31,7 @@ Format
 Remarks
 -------
 
-You may want to call gdaPack after several calls to :func:`gdaUpdate` to remove
+You may want to call :func:`gdaPack` after several calls to :func:`gdaUpdate` to remove
 all of the empty bytes from a GDA.
 
 
@@ -40,7 +40,6 @@ Examples
 
 ::
 
-    ret = gdaPack("myfile.gda");
+    retcode = gdaPack("myfile.gda");
 
 .. seealso:: Functions :func:`gdaUpdate`, :func:`gdaWrite`
-

@@ -5,7 +5,7 @@ getwind
 Purpose
 ----------------
 
-Retrieve the current graphic panel number. 
+Retrieve the current graphic panel number.
 
 .. NOTE:: This function is for use with the deprecated PQG graphics.
 
@@ -19,7 +19,7 @@ Format
 
 .. function:: getwind()
 
-    :returns: n (*scalar*), graphic panel number of current graphic panel.
+    :returns: **n** (*scalar*) - graphic panel number of current graphic panel.
 
 Remarks
 -------
@@ -33,4 +33,3 @@ Source
 pwindow.src
 
 .. seealso:: Functions :func:`endwind`, :func:`begwind`, :func:`window`, :func:`setwind`, :func:`nextwind`
-

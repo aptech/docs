@@ -14,7 +14,7 @@ Format
     :param newfmt: the new format specification.
     :type newfmt: 1x3 vector
 
-    :returns: oldfmt (*1x3 vector*), the old format specification.
+    :returns: **oldfmt** (*1x3 vector*) - the old format specification.
 
 Remarks
 -------
@@ -32,16 +32,17 @@ the old format. This code:
 
     x = { A 1, B 2, C 3 };
     oldfmt = formatcv("*.*s" ~ 3 ~ 3);
-    call printfmt(x,0~1);
+
+    call printfmt(x, 0~1);
     call formatcv(oldfmt);
 
 produces:
 
 ::
 
-     A 1
-     B 2
-     C 3
+  A               1
+  B               2
+  C               3 
 
 Source
 ------
@@ -54,4 +55,3 @@ Globals
 `\__fmtcv`
 
 .. seealso:: Functions :func:`formatnv`, :func:`printfm`, :func:`printfmt`
-

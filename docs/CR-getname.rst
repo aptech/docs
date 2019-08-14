@@ -14,12 +14,12 @@ Format
     :param dset: the name of the data set from which the function will obtain the variable names
     :type dset: string
 
-    :returns: y (*Nx1 vector*) containing the names of all of the variables in the specified data set.
+    :returns: **var_names** (*Nx1 vector*) - contains the names of all of the variables in the specified data set.
 
 Remarks
 -------
 
-The output, *y*, will have as many rows as there are variables in the data set.
+The output, *var_names*, will have as many rows as there are variables in the data set.
 
 
 Examples
@@ -27,25 +27,27 @@ Examples
 
 ::
 
-    y = getname(getGAUSSHome() $+ "examples/freqdata.dat");
+    /*
+    ** Get the variable names from
+    ** the file `freqdata` stored in the GAUSS
+    ** examples directory
+    */
+    var_names = getname(getGAUSSHome() $+ "examples/freqdata.dat");
+
+    // Print format
     format 8,8;
-    print $y;
+
+    // Print variable names
+    print $var_names;
 
 produces:
 
 ::
 
-    AGE 
-    PAY 
-    sex 
+    AGE
+    PAY
+    sex
     WT
 
-The above example assumes that the data set *freqdata*
-contains the variables: ``TIME, DIST, TEMP, FRICT``.
-Note that the extension is not included in the filename
-passed to the :func:`getname` function.
-
-.. DANGER:: Review above sentence... extension is included
 
 .. seealso:: Functions :func:`getnamef`, :func:`indcv`
-

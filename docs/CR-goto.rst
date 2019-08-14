@@ -9,10 +9,10 @@ Causes a branch to a label.
 
 Format
 ----------------
-.. function:: goto label 
-              . 
-              . 
-              . 
+.. function:: goto label
+              .
+              .
+              .
               label:
 
 Remarks
@@ -39,12 +39,12 @@ Examples
 
 ::
 
-    x = seqa(.1,.1,5);
+    x = seqa(.1, .1, 5);
     n = { 1 2 3 };
     goto  fip;
     print x;
     end;
-     
+
     fip:
     print n;
 
@@ -53,4 +53,3 @@ Examples
     1.0000000 2.0000000 3.0000000
 
 .. seealso:: Functions `gosub`, `if`
-

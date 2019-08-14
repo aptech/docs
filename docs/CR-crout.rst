@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: crout(x)
 
-    :param x: square nonsingular matrix
-    :type x: Nxn matrix
+    :param x: square nonsingular matrix.
+    :type x: NxN matrix
 
     :returns: **y** (*NxN matrix*) - containing the lower (:math:`L`) and upper
         (:math:`U`) matrices of the Crout decomposition of *x*. The

@@ -7,6 +7,8 @@ Purpose
 
 Loads matrices, N-dimensional arrays, strings and string arrays from a disk file.
 
+.. NOTE:: This function is deprecated, use :func:`loadd` instead.
+
 Format
 ----------------
 .. function:: dataload(filename)
@@ -16,7 +18,7 @@ Format
 
     :returns: **y** (*matrix or array or string or string array*) - data retrieved from the file.
 
-Remarks0
+Remarks
 -------
 
 The proper extension must be included in the file name. Valid extensions
