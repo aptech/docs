@@ -8,7 +8,7 @@ Computes the Riemann Zeta function.
 
 Format
 ----------------
-.. function:: zeta(z)
+.. function:: f = zeta(z)
 
     :param z: data. *z* may be complex
     :type z: NxK matrix

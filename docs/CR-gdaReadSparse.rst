@@ -9,7 +9,7 @@ Gets a sparse matrix from a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaReadSparse(filename, varname)
+.. function:: sm = gdaReadSparse(filename, varname)
 
     :param filename: name of data file.
     :type filename: string

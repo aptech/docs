@@ -11,7 +11,7 @@ banded matrix :math:`A`.
 
 Format
 ----------------
-.. function:: bandcholsol(b, l)
+.. function:: x = bandcholsol(b, l)
 
     :param b: The right-hand side(s).
     :type b: KxM matrix

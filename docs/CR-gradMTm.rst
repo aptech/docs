@@ -9,7 +9,7 @@ Computes numerical gradient with mask.
 
 Format
 ----------------
-.. function:: gradMTm(&fct, par1, data1, mask)
+.. function:: g = gradMTm(&fct, par1, data1, mask)
 
     :param &fct: pointer to procedure returning either Nx1 vector or 1x1 scalar.
     :type &fct: scalar

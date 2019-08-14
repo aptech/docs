@@ -9,7 +9,7 @@ Checks one string array against another and returns the indices of the first str
 
 Format
 ----------------
-.. function:: indsav(what, where)
+.. function:: indx = indsav(what, where)
 
     :param what: contains the values to be found in vector *where*
     :type what: Nx1 string array

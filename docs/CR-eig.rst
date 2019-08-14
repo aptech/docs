@@ -9,7 +9,7 @@ Computes the eigenvalues of a general matrix.
 
 Format
 ----------------
-.. function:: eig(x)
+.. function:: lambda = eig(x)
 
     :param x: data used to compute the eigenvalues.
     :type x: NxN matrix or KxNxN array

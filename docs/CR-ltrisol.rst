@@ -9,7 +9,7 @@ Computes the solution of :math:`Lx = b` where *L* is a lower triangular matrix.
 
 Format
 ----------------
-.. function:: ltrisol(b, L)
+.. function:: x = ltrisol(b, L)
 
     :param b: data
     :type b: PxK matrix

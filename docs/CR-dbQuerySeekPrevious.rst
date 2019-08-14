@@ -8,7 +8,7 @@ Retrieves the previous record in the result, if available, and positions the que
 
 Format
 ----------------
-.. function:: dbQuerySeekPrevious(qid)
+.. function:: ret = dbQuerySeekPrevious(qid)
 
     :param qid: query number.
     :type qid: scalar

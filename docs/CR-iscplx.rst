@@ -9,7 +9,7 @@ Returns whether a matrix or N-dimensional array is complex or real.
 
 Format
 ----------------
-.. function:: iscplx(x)
+.. function:: y = iscplx(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

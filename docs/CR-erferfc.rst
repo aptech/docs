@@ -10,8 +10,8 @@ complement (:func:`erfc`).
 
 Format
 ----------------
-.. function:: erf(x)
-              erfc(x)
+.. function:: y = erf(x)
+              y = erfc(x)
 
     :param x: The values used to compute the Gaussian error function or its complement.
     :type x: NxK matrix

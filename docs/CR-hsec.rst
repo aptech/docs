@@ -9,7 +9,7 @@ Returns the number of hundredths of a second since midnight.
 
 Format
 ----------------
-.. function:: hsec
+.. function:: y = hsec
 
     :returns: **y** (*scalar*) - hundredths of a second since midnight.
 

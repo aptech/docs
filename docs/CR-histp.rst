@@ -14,7 +14,7 @@ pgraph
 
 Format
 ----------------
-.. function:: histp(x, v)
+.. function:: { b, m, freq } = histp(x, v)
 
     :param x: data
     :type x: Mx1 vector

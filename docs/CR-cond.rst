@@ -9,7 +9,7 @@ Computes the condition number of a matrix using the singular value decomposition
 
 Format
 ----------------
-.. function:: cond(x)
+.. function:: c = cond(x)
 
     :param x: used to compute condition number
     :type x: NxK matrix

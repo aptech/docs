@@ -9,7 +9,7 @@ Allocates a matrix with unspecified contents.
 
 Format
 ----------------
-.. function:: matalloc(r, c)
+.. function:: y = matalloc(r, c)
 
     :param r: rows.
     :type r: scalar

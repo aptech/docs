@@ -9,7 +9,7 @@ Compute descriptive statistics.
 
 Format
 ----------------
-.. function:: dstatmt(dataset[, vars[, ctl]])
+.. function:: dout = dstatmt(dataset[, vars[, ctl]])
 
     :param dataset: name of dataset. If *dataset* is null or 0, *vars* will be assumed to be a matrix containing the data.
     :type dataset: string

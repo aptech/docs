@@ -9,7 +9,7 @@ Returns the default numerical precision policy for a specified database connecti
 
 Format
 ----------------
-.. function:: dbGetNumericalPrecPolicy(db_id)
+.. function:: prec_policy = dbGetNumericalPrecPolicy(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

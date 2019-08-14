@@ -8,7 +8,7 @@ Computes Delta, Gamma, Theta, Vega, and Rho for American call options using the 
 
 Format
 ----------------
-.. function:: AmericanBSCall_Greeks(S0, K, r, div, tau, sigma)
+.. function:: { d, g, t, v, rh } = AmericanBSCall_Greeks(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar

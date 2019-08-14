@@ -8,7 +8,7 @@ Vectorizes a symmetric matrix by retaining only the lower triangular portion of 
 
 Format
 ----------------
-.. function:: vech(x)
+.. function:: v = vech(x)
 
     :param x: data
     :type x: NxN symmetric matrix

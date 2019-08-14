@@ -9,7 +9,7 @@ Returns the length of a parameter vector.
 
 Format
 ----------------
-.. function:: pvLength(p1)
+.. function:: n = pvLength(p1)
 
     :param p1: an instance of structure of type *PV*
     :type p1: struct

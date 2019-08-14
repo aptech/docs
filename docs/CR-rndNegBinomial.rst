@@ -9,7 +9,7 @@ Computes negative binomial pseudo-random numbers with a choice of underlying ran
 
 Format
 ----------------
-.. function:: rndNegBinomial(r, c, ns, prob[, state])
+.. function:: { x, newstate } = rndNegBinomial(r, c, ns, prob[, state])
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

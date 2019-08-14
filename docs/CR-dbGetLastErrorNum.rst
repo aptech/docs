@@ -9,7 +9,7 @@ Returns information about the last error that occurred on the database.
 
 Format
 ----------------
-.. function:: dbGetLastErrorNum(db_id)
+.. function:: last_error = dbGetLastErrorNum(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

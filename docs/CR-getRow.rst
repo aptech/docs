@@ -9,7 +9,7 @@ Returns a specified row from a matrix.
 
 Format
 ----------------
-.. function:: getRow(a, row)
+.. function:: y = getRow(a, row)
 
     :param a: data
     :type a: NxK matrix

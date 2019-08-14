@@ -9,7 +9,7 @@ Converts a string or character matrix to lowercase.
 
 Format
 ----------------
-.. function:: lower(x)
+.. function:: y = lower(x)
 
     :param x: data to be converted to lowercase
     :type x: string or NxK matrix 

@@ -9,7 +9,7 @@ Reports whether an error occurred while attempting to open the database connecti
 
 Format
 ----------------
-.. function:: dbIsOpenError(db_id)
+.. function:: ret = dbIsOpenError(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

@@ -9,8 +9,8 @@ Computes Gumbel distributed random numbers with a choice of underlying random nu
 
 Format
 ----------------
-.. function:: rndGumbel(rows, cols, scale)
-              rndGumbel(rows, cols, location, scale[, state])
+.. function:: { r, newstate } = rndGumbel(rows, cols, scale)
+              { r, newstate } = rndGumbel(rows, cols, location, scale[, state])
 
 .. DANGER:: very format?
 

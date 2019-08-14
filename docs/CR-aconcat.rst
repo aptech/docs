@@ -9,7 +9,7 @@ Concatenates conformable matrices and arrays in a user-specified dimension.
 
 Format
 ----------------
-.. function:: aconcat(a, b, dim)
+.. function:: y = aconcat(a, b, dim)
 
     :param a:
     :type a: matrix or N-dimensional array.

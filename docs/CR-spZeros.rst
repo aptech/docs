@@ -8,7 +8,7 @@ Creates a sparse matrix containing no non-zero values.
 
 Format
 ----------------
-.. function:: spZeros(r, c)
+.. function:: y = spZeros(r, c)
 
     :param r: rows of output matrix.
     :type r: scalar

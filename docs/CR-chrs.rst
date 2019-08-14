@@ -9,7 +9,7 @@ Converts a matrix of ASCII values into a string containing the appropriate chara
 
 Format
 ----------------
-.. function:: chrs(x)
+.. function:: y = chrs(x)
 
     :param x: matrix of ASCII values to be converted.
     :type x: NxK matrix

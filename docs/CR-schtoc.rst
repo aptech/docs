@@ -9,7 +9,7 @@ Reduces any 2x2 blocks on the diagional of the real Schur matrix returned from :
 
 Format
 ----------------
-.. function:: schtoc(sch, trans)
+.. function:: { schc, transc } = schtoc(sch, trans)
 
     :param sch: real NxN matrix in Real Schur form. i.e., upper triangular except for possibly 2x2 blocks on the diagonal.
     :type sch: matrix

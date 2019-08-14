@@ -9,7 +9,7 @@ Moves across one dimension of an N-dimensional array and finds the smallest elem
 
 Format
 ----------------
-.. function:: amin(x, dim)
+.. function:: y = amin(x, dim)
 
     :param x: N-dimensional array
     :type x: array

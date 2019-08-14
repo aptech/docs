@@ -9,7 +9,7 @@ Returns the power n of a matrix A, as the matrix product of n copies of A.
 
 Format
 ----------------
-.. function:: powerM(A, n)
+.. function:: B = powerM(A, n)
 
     :param A: data
     :type A: NxN square matrix

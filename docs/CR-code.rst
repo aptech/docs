@@ -11,7 +11,7 @@ expressions is true.
 
 Format
 ----------------
-.. function:: code(logical, new_vals)
+.. function:: y = code(logical, new_vals)
 
     :param logical: matrix of 1’s and 0’s.  If any row contains more than a single 1, the function will terminate with an error message. 
     :type logical: NxK matrix

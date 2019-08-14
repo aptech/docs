@@ -9,7 +9,7 @@ Inserts parameter vector into structure of type :class:`PV`.
 
 Format
 ----------------
-.. function:: pvPutParVector(p1, p)
+.. function:: p1 = pvPutParVector(p1, p)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

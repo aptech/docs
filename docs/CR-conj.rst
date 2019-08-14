@@ -9,7 +9,7 @@ Returns the complex conjugate of a matrix.
 
 Format
 ----------------
-.. function:: conj(x)
+.. function:: y = conj(x)
 
     :param x: 
     :type x: NxK matrix

@@ -9,7 +9,7 @@ Converts DTV vector format to UTC scalar format.
 
 Format
 ----------------
-.. function:: dtvtoutc(dtv)
+.. function:: utc = dtvtoutc(dtv)
 
     :param dtv: DTV vector format.
     :type dtv: Nx8 matrix

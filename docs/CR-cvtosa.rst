@@ -9,7 +9,7 @@ Converts an NxK character vector to an NxK string array.
 
 Format
 ----------------
-.. function:: cvtosa(cv)
+.. function:: sa = cvtosa(cv)
 
     :param cv: Character vector to be converted to a string array.
     :type cv: NxK vector

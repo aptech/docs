@@ -8,7 +8,7 @@ Gets default settings for plotting graphs.
 
 Format
 ----------------
-.. function:: plotGetDefaults(graph)
+.. function:: myPlot = plotGetDefaults(graph)
 
     :param graph: name of graph type: bar, box, hist, polar, scatter, surface or xy.
     :type graph: string

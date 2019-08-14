@@ -9,7 +9,7 @@ Computes quantiles from data in a data set, given specified probabilities.
 
 Format
 ----------------
-.. function:: quantiled(dataset, e, var)
+.. function:: y = quantiled(dataset, e, var)
 
     :param dataset: data set name, or NxM matrix of data.
     :type dataset: string

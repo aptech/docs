@@ -9,7 +9,7 @@ Gets the names of all the variables in a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaGetNames(filename)
+.. function:: varnames = gdaGetNames(filename)
 
     :param filename: name of data file.
     :type filename: string

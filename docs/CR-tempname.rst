@@ -9,7 +9,7 @@ Creates a temporary file with a unique name.
 
 Format
 ----------------
-.. function:: tempname(path, pre, suf)
+.. function:: tname = tempname(path, pre, suf)
 
     :param path: path where the file will reside.
     :type path: string

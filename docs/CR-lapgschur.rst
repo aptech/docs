@@ -9,7 +9,7 @@ Compute the generalized Schur form of a pair of real or complex general matrices
 
 Format
 ----------------
-.. function:: lapgschur(A, B[, sort_type])
+.. function:: { sa, sb, q, z } = lapgschur(A, B[, sort_type])
 
     :param A: real or complex general matrix.
     :type A: NxN matrix

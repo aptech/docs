@@ -8,7 +8,7 @@ Generates a sparse matrix containing only ones and zeros
 
 Format
 ----------------
-.. function:: spOnes(r, c, rinds, cinds)
+.. function:: y = spOnes(r, c, rinds, cinds)
 
     :param r: rows of output matrix.
     :type r: scalar

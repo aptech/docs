@@ -8,7 +8,7 @@ Computes multivariate Student's t cumulative distribution function with error ma
 
 Format
 ----------------
-.. function:: cdfMvte(ctl, x, corr, nonc, df)
+.. function:: { y, err, retcode } = cdfMvte(ctl, x, corr, nonc, df)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
 

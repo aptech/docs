@@ -8,7 +8,7 @@ Converts a vector of indices for an N-dimensional array to a scalar vector index
 
 Format
 ----------------
-.. function:: singleindex(i, o)
+.. function:: si = singleindex(i, o)
 
     :param i: indices into an N-dimensional array
     :type i: Nx1 vector

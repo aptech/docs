@@ -9,7 +9,7 @@ Truncates all elements of a string array to not longer than the specified number
 
 Format
 ----------------
-.. function:: strtrunc(sa, maxlen)
+.. function:: y = strtrunc(sa, maxlen)
 
     :param sa: data
     :type sa: NxK string array

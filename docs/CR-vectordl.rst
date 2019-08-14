@@ -8,8 +8,8 @@ Specifies the creation of a new variable within a data loop.
 
 Format
 ----------------
-.. function:: numeric_expression 
-			  character_expression
+.. function:: vector # numvar = numeric_expression
+              vector # numvar = character_expression
 
 Remarks
 -------

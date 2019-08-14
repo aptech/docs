@@ -9,7 +9,7 @@ Creates default gmmFitControl structure.
 
 Format
 ----------------
-.. function:: gmmControlCreate()
+.. function:: c = gmmControlCreate()
 
     :returns: **c** (*struct*) - instance of :class:`gmmFitControl` struct with
         members set to default values.

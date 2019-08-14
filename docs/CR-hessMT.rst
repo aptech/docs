@@ -9,7 +9,7 @@ Computes numerical Hessian.
 
 Format
 ----------------
-.. function:: hessMT(&fct, par1, data1)
+.. function:: h = hessMT(&fct, par1, data1)
 
     :param &fct: pointer to procedure returning either Nx1 vector or 1x1 scalar.
     :type &fct: scalar

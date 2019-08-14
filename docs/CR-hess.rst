@@ -9,7 +9,7 @@ Computes the Hessenberg form of a square matrix.
 
 Format
 ----------------
-.. function:: hess(A)
+.. function:: { H, Z } = hess(A)
 
     :param A: data
     :type A: KxK real or complex matrix

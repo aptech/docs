@@ -8,7 +8,7 @@ Prices American put options using the Black, Scholes, and Merton method.
 
 Format
 ----------------
-.. function:: AmericanBSPut(S0, K, r, div, tau, sigma)
+.. function:: c = AmericanBSPut(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar

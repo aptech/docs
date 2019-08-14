@@ -9,7 +9,7 @@ Computes an orthonormal basis for the (right) null space of a matrix.
 
 Format
 ----------------
-.. function:: null(x)
+.. function:: b = null(x)
 
     :param x: data
     :type x: NxM matrix

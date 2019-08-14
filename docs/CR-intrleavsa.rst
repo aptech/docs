@@ -9,7 +9,7 @@ Interleaves the rows of two string arrays that have been sorted on a common colu
 
 Format
 ----------------
-.. function:: intrleavsa(sa1, sa2, ikey)
+.. function:: y = intrleavsa(sa1, sa2, ikey)
 
     :param sa1: String array 1
     :type sa1: NxK

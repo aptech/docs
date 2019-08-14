@@ -8,7 +8,7 @@ Prices American call options using the Black, Scholes, and Merton method.
 
 Format
 ----------------
-.. function:: AmericanBSCall(S0, K, r, div, tau, sigma)
+.. function:: c = AmericanBSCall(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar

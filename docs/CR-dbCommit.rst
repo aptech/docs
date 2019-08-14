@@ -9,7 +9,7 @@ Commits a transaction to the database if the driver supports transactions and a 
 
 Format
 ----------------
-.. function:: dbCommit(db_id)
+.. function:: ret = dbCommit(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

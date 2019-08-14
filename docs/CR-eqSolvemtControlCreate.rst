@@ -9,7 +9,7 @@ Fills an :class:`eqSolvemtControl` structure with default settings.
 
 Format
 ----------------
-.. function:: eqSolvemtControlCreate()
+.. function:: c = eqSolvemtControlCreate()
 
     :returns: **c** (*struct*) - instance of :class:`eqSolvemtControl` struct with
         members set to default values.

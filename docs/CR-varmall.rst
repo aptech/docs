@@ -8,7 +8,7 @@ Computes log-likelihood of a Vector ARMA model.
 
 Format
 ----------------
-.. function:: varmall(w, phi, theta, vc)
+.. function:: ll = varmall(w, phi, theta, vc)
 
     :param w: time series.
     :type w: NxK matrix

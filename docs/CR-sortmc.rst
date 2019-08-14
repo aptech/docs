@@ -9,7 +9,7 @@ Sorts a matrix on multiple columns.
 
 Format
 ----------------
-.. function:: sortmc(x, v)
+.. function:: y = sortmc(x, v)
 
     :param x: data to be sorted
     :type x: NxK matrix

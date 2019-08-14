@@ -9,7 +9,7 @@ Returns the number of rows in a GAUSS data set (*.dat*) file or GAUSS matrix (*.
 
 Format
 ----------------
-.. function:: rowsf(f)
+.. function:: y = rowsf(f)
 
     :param f: file handle of an open file
     :type f: scalar

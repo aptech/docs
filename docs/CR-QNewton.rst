@@ -8,7 +8,7 @@ Optimizes a function using the BFGS descent algorithm.
 
 Format
 ----------------
-.. function:: QNewton(&fct, start)
+.. function:: { x, f, g, ret } = QNewton(&fct, start)
 
     :param &fct: pointer to a procedure that computes the function to be minimized. This procedure must have one input
         argument, a vector of parameter values, and one output argument, the value of the function evaluated

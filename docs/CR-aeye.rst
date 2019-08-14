@@ -10,7 +10,7 @@ two trailing dimensions of the array are equal to the identity.
 
 Format
 ----------------
-.. function:: aeye(ord)
+.. function:: a = aeye(ord)
 
     :param ord: the sizes of the dimensions of *a*.
     :type ord: Nx1 vector of orders

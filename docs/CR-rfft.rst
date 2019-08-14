@@ -9,7 +9,7 @@ Computes a real 1- or 2-D Fast Fourier transform.
 
 Format
 ----------------
-.. function:: rfft(x)
+.. function:: y = rfft(x)
 
     :param x: data
     :type x: NxK real matrix

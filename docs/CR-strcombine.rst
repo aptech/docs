@@ -10,7 +10,7 @@ delimiter string.
 
 Format
 ----------------
-.. function:: strcombine(sa, delim, qchar)
+.. function:: y = strcombine(sa, delim, qchar)
 
     :param sa: data
     :type sa: NxM string array

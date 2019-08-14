@@ -9,7 +9,7 @@ Returns the absolute value or complex modulus of *x*.
 
 Format
 ----------------
-.. function:: abs(x)
+.. function:: y = abs(x)
 
     :param x:
     :type x: NxK matrix or sparse matrix or N-dimensional array

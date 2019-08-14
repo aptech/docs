@@ -11,7 +11,7 @@ Computes Gamma pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndLCgam(r, c, alpha, state)
+.. function:: { x, newstate } = rndLCgam(r, c, alpha, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

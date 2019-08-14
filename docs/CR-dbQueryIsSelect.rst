@@ -9,7 +9,7 @@ Reports whether the specified query is a ``SELECT`` statement.
 
 Format
 ----------------
-.. function:: dbQueryIsSelect(qid)
+.. function:: ret = dbQueryIsSelect(qid)
 
     :param qid: query number.
     :type qid: scalar

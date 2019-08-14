@@ -10,8 +10,8 @@ minus the cdf of the Normal distribution.
 
 Format
 ----------------
-.. function:: cdfn(x[, mu, sigma])
-              cdfnc(x)
+.. function:: n = cdfn(x[, mu, sigma])
+              n = cdfnc(x)
 
     :param x: Values at which to evaluate the normal cumulative distribution function or the complement of the normal cdf.
     :type x: NxK matrix

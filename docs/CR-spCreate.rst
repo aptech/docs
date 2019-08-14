@@ -8,7 +8,7 @@ Creates a sparse matrix from vectors of non-zero values, row indices, and column
 
 Format
 ----------------
-.. function:: spCreate(r, c, vals, rinds, cinds)
+.. function:: y = spCreate(r, c, vals, rinds, cinds)
 
     :param r: rows of output matrix.
     :type r: scalar

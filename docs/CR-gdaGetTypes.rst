@@ -9,7 +9,7 @@ Gets the types of all the variables in a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaGetTypes(filename)
+.. function:: vartypes = gdaGetTypes(filename)
 
     :param filename: name of data file.
     :type filename: string

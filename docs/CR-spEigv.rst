@@ -9,7 +9,7 @@ Computes a specified number of eigenvalues and eigenvectors of a square, sparse 
 
 Format
 ----------------
-.. function:: spEigv(a, nev, which, tol, maxit, ncv)
+.. function:: { va, ve } = spEigv(a, nev, which, tol, maxit, ncv)
 
     :param a: NxN square, sparse matrix.
     :type a: sparse matrix

@@ -9,7 +9,7 @@ Computes a complex 1- or 2-D FFT.
 
 Format
 ----------------
-.. function:: fftn(x)
+.. function:: y = fftn(x)
 
     :param x: The data used to compute the FFT.
     :type x: NxK matrix

@@ -9,7 +9,7 @@ Joins two matrices based upon user-specified key columns, with non-matching rows
 
 Format
 ----------------
-.. function:: innerJoin(A, ca, B, cb)
+.. function:: C = innerJoin(A, ca, B, cb)
 
     :param A: matrix to join
     :type A: matrix

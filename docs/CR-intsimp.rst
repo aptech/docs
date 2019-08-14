@@ -9,7 +9,7 @@ Integrates a specified function using Simpson's method with end correction. A si
 
 Format
 ----------------
-.. function:: intsimp(&f, xlims, tol)
+.. function:: y = intsimp(&f, xlims, tol)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar

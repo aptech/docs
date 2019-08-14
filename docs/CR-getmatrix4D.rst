@@ -9,7 +9,7 @@ Gets a contiguous matrix from a 4-dimensional array.
 
 Format
 ----------------
-.. function:: getmatrix4D(a, i1, i2)
+.. function:: y = getmatrix4D(a, i1, i2)
 
     :param a: Data.
     :type a: 4-dimensional array

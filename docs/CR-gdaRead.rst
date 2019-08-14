@@ -9,7 +9,7 @@ Gets a variable from a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaRead(filename, varname)
+.. function:: y = gdaRead(filename, varname)
 
     :param filename: name of data file.
     :type filename: string

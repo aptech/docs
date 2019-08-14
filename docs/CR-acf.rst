@@ -9,7 +9,7 @@ Computes sample autocorrelations.
 
 Format
 ----------------
-.. function:: acf(y, k, d)
+.. function:: rk = acf(y, k, d)
 
     :param y: univariate time series.
     :type y: Nx1 vector

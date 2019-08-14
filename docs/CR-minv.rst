@@ -9,7 +9,7 @@ Performs an element by element comparison of two matrices and returns the minimu
 
 Format
 ----------------
-.. function:: minv(x, y)
+.. function:: z = minv(x, y)
 
     :param x: data
     :type x: NxK matrix

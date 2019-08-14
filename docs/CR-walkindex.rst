@@ -9,7 +9,7 @@ Walks the index of an array forward or backward through a specified dimension.
 
 Format
 ----------------
-.. function:: walkindex(i, o, dim)
+.. function:: ni = walkindex(i, o, dim)
 
     :param i: where :math:`M <= N`.
     :type i: Mx1 vector of indices into an array

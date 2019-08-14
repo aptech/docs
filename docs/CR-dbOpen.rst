@@ -9,7 +9,7 @@ Opens a specified database connection using the current connection values.
 
 Format
 ----------------
-.. function:: dbOpen(db_id[, user_name, password])
+.. function:: ret = dbOpen(db_id[, user_name, password])
 
     :param db_id: database connection index number.
     :type db_id: scalar

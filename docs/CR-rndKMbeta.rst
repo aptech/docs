@@ -8,7 +8,7 @@ Computes beta pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndKMbeta(r, c, a, b, state)
+.. function:: { x, newstate } = rndKMbeta(r, c, a, b, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

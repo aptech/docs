@@ -10,7 +10,7 @@ Archive and returns it in a string array formatted for printing.
 
 Format
 ----------------
-.. function:: gdaReportVarInfo(filename)
+.. function:: vinfo = gdaReportVarInfo(filename)
 
     :param filename: name of data file.
     :type filename: string

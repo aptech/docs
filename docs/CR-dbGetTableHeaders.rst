@@ -9,7 +9,7 @@ Returns a string array populated with the names of all the fields in a specified
 
 Format
 ----------------
-.. function:: dbGetTableHeaders(db_id, table_name)
+.. function:: field_names = dbGetTableHeaders(db_id, table_name)
 
     :param db_id: database connection index number.
     :type db_id: scalar

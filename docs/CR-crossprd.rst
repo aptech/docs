@@ -9,7 +9,7 @@ Computes the cross-products (vector products) of sets of 3x1 vectors.
 
 Format
 ----------------
-.. function:: crossprd(x, y)
+.. function:: z = crossprd(x, y)
 
     :param x: each column is treated as a 3x1 vector.
     :type x: 3xK matrix

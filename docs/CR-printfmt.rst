@@ -10,7 +10,7 @@ format controlled by the functions formatcv and formatnv.
 
 Format
 ----------------
-.. function:: printfmt(x, mask)
+.. function:: y = printfmt(x, mask)
 
     :param x: matrix which is to be printed
     :type x: NxK matrix

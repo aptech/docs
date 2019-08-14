@@ -8,7 +8,7 @@ Read attributes from an HDF5 file into GAUSS.
 
 Format
 ----------------
-.. function:: h5readAttribute(fname, dname, attr_name)
+.. function:: attr_read = h5readAttribute(fname, dname, attr_name)
 
     :param fname: a name of HDF5 file.
     :type fname: string

@@ -10,7 +10,7 @@ standardized trivariate Normal density (lower tail).
 
 Format
 ----------------
-.. function:: cdfTvn(x1, x2, x3, rho12, rho23, rho13)
+.. function:: c = cdfTvn(x1, x2, x3, rho12, rho23, rho13)
 
     :param x1: upper limits of integration for variable 1
     :type x1: Nx1 vector

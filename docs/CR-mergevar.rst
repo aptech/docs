@@ -9,7 +9,7 @@ Accepts a list of names of global matrices, and concatenates the corresponding m
 
 Format
 ----------------
-.. function:: mergevar(vnames)
+.. function:: x = mergevar(vnames)
 
     :param vnames: names of K global matrices
     :type vnames: string or Kx1 column vector

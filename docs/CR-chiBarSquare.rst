@@ -9,7 +9,7 @@ Compute compute the probability for a chi-bar square statistic from an hypothesi
 
 Format
 ----------------
-.. function:: chiBarSquare(SL, cov, a, b, c, d, bounds)
+.. function:: SLprob = chiBarSquare(SL, cov, a, b, c, d, bounds)
 
     :param SL: chi-bar square statistic
     :type SL: scalar

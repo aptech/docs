@@ -9,7 +9,7 @@ Computes OLS coefficients, residuals, and predicted values using the QR decompos
 
 Format
 ----------------
-.. function:: olsqr2(y, x)
+.. function:: { b, r, p } = olsqr2(y, x)
 
     :param y: dependent variable
     :type y: Nx1 vector

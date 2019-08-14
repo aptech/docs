@@ -9,7 +9,7 @@ Gets a variable from a GAUSS Data Archive given a variable index.
 
 Format
 ----------------
-.. function:: gdaReadByIndex(filename, varind)
+.. function:: y = gdaReadByIndex(filename, varind)
 
     :param filename: name of data file.
     :type filename: string

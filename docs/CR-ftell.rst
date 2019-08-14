@@ -9,7 +9,7 @@ Gets the position of the file pointer in a file.
 
 Format
 ----------------
-.. function:: ftell(fh)
+.. function:: pos = ftell(fh)
 
     :param fh: file handle of a file opened with :func:`fopen`.
     :type fh: scalar

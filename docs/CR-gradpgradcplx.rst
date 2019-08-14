@@ -11,8 +11,8 @@ complex arguments.
 
 Format
 ----------------
-.. function:: gradp(&fct, x0)
-              gradcplx(&fct, x0)
+.. function:: g = gradp(&fct, x0)
+              g = gradcplx(&fct, x0)
 
     :param &fct: a pointer to a vector-valued function (fct: :math:`Kx1 → Nx1`)
         defined as a procedure. It is acceptable for :math:`fct(x)`

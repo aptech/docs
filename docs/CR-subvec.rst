@@ -8,7 +8,7 @@ Extracts an Nx1 vector of elements from an NxK matrix.
 
 Format
 ----------------
-.. function:: subvec(x, ci)
+.. function:: y = subvec(x, ci)
 
     :param x: data
     :type x: NxK matrix

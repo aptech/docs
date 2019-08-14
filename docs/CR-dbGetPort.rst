@@ -9,7 +9,7 @@ Returns the database connection's port number if it has been set.
 
 Format
 ----------------
-.. function:: dbGetPort(db_id)
+.. function:: db_port = dbGetPort(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

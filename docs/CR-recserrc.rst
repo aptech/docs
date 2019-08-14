@@ -9,7 +9,7 @@ Computes a recursive series involving division.
 
 Format
 ----------------
-.. function:: recserrc(x, z)
+.. function:: y = recserrc(x, z)
 
     :param x: data
     :type x: 1xK or Kx1 vector

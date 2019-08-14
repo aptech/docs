@@ -9,7 +9,7 @@ Changes file name.
 
 Format
 ----------------
-.. function:: renamefile("oldname","newname")
+.. function:: ret = renamefile("oldname","newname")
 
     :param oldname: existing file name.
     :type oldname: string

@@ -8,7 +8,7 @@ Loads data from a delimited ASCII text file into an Nx1 vector. NOTE: This funct
 
 Format
 ----------------
-.. function:: asciiload(filename)
+.. function:: y = asciiload(filename)
 
     :param filename: name of data file.
     :type filename: string

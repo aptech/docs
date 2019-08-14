@@ -8,7 +8,7 @@ Multiplies a sparse matrix by a scalar.
 
 Format
 ----------------
-.. function:: spTScalar(s, scal, rinds, cinds)
+.. function:: y = spTScalar(s, scal, rinds, cinds)
 
     :param s: data
     :type s: NxM sparse matrix

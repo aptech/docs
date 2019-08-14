@@ -13,7 +13,7 @@ Integrates the following double integral, using user-defined functions *f*, *g1*
 
 Format
 ----------------
-.. function:: intgrat2(&f, xl, gl)
+.. function:: y = intgrat2(&f, xl, gl)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar

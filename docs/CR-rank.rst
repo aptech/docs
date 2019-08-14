@@ -8,7 +8,7 @@ Computes the rank of a matrix, using the singular value decomposition.
 
 Format
 ----------------
-.. function:: rank(x)
+.. function:: k = rank(x)
 
     :param x: data
     :type x: NxP matrix

@@ -9,7 +9,7 @@ Returns the database connection's user name.
 
 Format
 ----------------
-.. function:: dbGetUserName(db_id)
+.. function:: user_name = dbGetUserName(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

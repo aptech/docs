@@ -9,7 +9,7 @@ Gets a scalar from a 4-dimensional array.
 
 Format
 ----------------
-.. function:: getscalar4D(a, i1, i2, i3, i4)
+.. function:: y = getscalar4D(a, i1, i2, i3, i4)
 
     :param a: Data
     :type a: 4-dimensional array

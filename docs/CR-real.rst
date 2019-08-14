@@ -8,7 +8,7 @@ Returns the real part of *x*.
 
 Format
 ----------------
-.. function:: real(x)
+.. function:: zr = real(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

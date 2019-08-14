@@ -10,7 +10,7 @@ sss
 
 Format
 ----------------
-.. function:: getorders(a)
+.. function:: orders = getorders(a)
 
     :param a: data
     :type a: N-dimensional array, matrix, sparse matrix, string or string array

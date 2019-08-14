@@ -9,7 +9,7 @@ Performs a Cholesky downdate of one or more rows on an upper triangular matrix.
 
 Format
 ----------------
-.. function:: choldn(C, x)
+.. function:: r = choldn(C, x)
 
     :param C: Upper triangular matrix to be operated on.
     :type C: KxK matrix

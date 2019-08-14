@@ -9,7 +9,7 @@ Moves across one dimension of an N-dimensional array and finds the largest eleme
 
 Format
 ----------------
-.. function:: amax(x, dim)
+.. function:: y = amax(x, dim)
 
     :param x:
     :type x: N-dimensional array.

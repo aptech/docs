@@ -8,7 +8,7 @@ Extracts a submatrix of a matrix, with the appropriate rows and columns given by
 
 Format
 ----------------
-.. function:: submat(x, r, c)
+.. function:: y = submat(x, r, c)
 
     :param x: data
     :type x: NxK matrix

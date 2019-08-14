@@ -8,7 +8,7 @@ Computes the cumulative distribution function for the negative binomial distribu
 
 Format
 ----------------
-.. function:: cdfNegBinomial(f, s, prob)
+.. function:: p = cdfNegBinomial(f, s, prob)
 
     :param f: Number of failures. :math:`0 < f`.
     :type f: NxK matrix, Nx1 vector or scalar

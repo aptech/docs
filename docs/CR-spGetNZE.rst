@@ -8,7 +8,7 @@ Returns the non-zero values in a sparse matrix, as well as their corresponding r
 
 Format
 ----------------
-.. function:: spGetNZE(x)
+.. function:: { vals, rowinds, colinds } = spGetNZE(x)
 
     :param x: data
     :type x: MxN sparse matrix

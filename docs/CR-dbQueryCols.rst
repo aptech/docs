@@ -9,7 +9,7 @@ Returns the number of fields in the record.
 
 Format
 ----------------
-.. function:: dbQueryCols(qid)
+.. function:: num_fields = dbQueryCols(qid)
 
     :param qid: query number.
     :type qid: scalar

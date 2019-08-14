@@ -8,7 +8,7 @@ Computes the Poisson probability mass function.
 
 Format
 ----------------
-.. function:: pdfPoisson(x, lambda)
+.. function:: p = pdfPoisson(x, lambda)
 
     :param x: *x* must be a positive whole number.
     :type x: NxK matrix, Nx1 vector or scalar

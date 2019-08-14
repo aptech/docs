@@ -9,7 +9,7 @@ symbol whose name is given as a string argument.
 
 Format
 ----------------
-.. function:: varput(x, n)
+.. function:: y = varput(x, n)
 
     :param x: data which is to be assigned to the target variable.
     :type x: matrix or array or string or string array 

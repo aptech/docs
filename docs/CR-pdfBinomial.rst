@@ -9,7 +9,7 @@ Computes the binomial probability density function.
 
 Format
 ----------------
-.. function:: pdfBinomial(successes,trials,prob)
+.. function:: p = pdfBinomial(successes,trials,prob)
 
     :param successes: must be a positive number and < *trials*
     :type successes: NxK matrix, Nx1 vector or scalar

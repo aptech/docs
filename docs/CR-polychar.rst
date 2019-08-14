@@ -9,7 +9,7 @@ Computes the characteristic polynomial of a square matrix.
 
 Format
 ----------------
-.. function:: polychar(x)
+.. function:: c = polychar(x)
 
     :param x: data
     :type x: NxN matrix

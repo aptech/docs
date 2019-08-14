@@ -9,7 +9,7 @@ Packs symmetric matrix into a structure of type :class:`PV`.
 
 Format
 ----------------
-.. function:: pvPacks(p1, x, nm)
+.. function:: p1 = pvPacks(p1, x, nm)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

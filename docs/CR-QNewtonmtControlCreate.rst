@@ -8,7 +8,7 @@ Creates default :class:`QNewtonmtControl` structure.
 
 Format
 ----------------
-.. function:: QNewtonmtControlCreate()
+.. function:: c = QNewtonmtControlCreate()
 
     :returns: c (*struct*) instance of :class:`QNewtonmtControl` struct with members set to default values.
 

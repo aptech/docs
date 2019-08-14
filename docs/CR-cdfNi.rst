@@ -8,7 +8,7 @@ Computes quantiles, or the inverse of the cdf of the Normal distribution.
 
 Format
 ----------------
-.. function:: cdfni(p)
+.. function:: x = cdfni(p)
 
     :param p: Normal probability levels, :math:`0 <= p <= 1`.
     :type p: NxK real matrix

@@ -8,7 +8,7 @@ Computes the quantile or inverse of noncentral chi-squared cumulative distributi
 
 Format
 ----------------
-.. function:: cdfChincInv(p, df, nonc)
+.. function:: x = cdfChincInv(p, df, nonc)
 
     :param p: Probabilities at which to compute the inverse of noncentral chi-squared cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar

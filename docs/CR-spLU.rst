@@ -8,7 +8,7 @@ Computes the :math:`LU` decomposition of a sparse matrix *A* with partial pivoti
 
 Format
 ----------------
-.. function:: spLU(a)
+.. function:: { l, u } = spLU(a)
 
     :param a: N x N non-singular sparse matrix.
     :type a: sparse matrix

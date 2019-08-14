@@ -9,7 +9,7 @@ Computes a multi-dimensional inverse FFT.
 
 Format
 ----------------
-.. function:: fftmi(x, dim)
+.. function:: y = fftmi(x, dim)
 
     :param x: data.
     :type x: Mx1 vector

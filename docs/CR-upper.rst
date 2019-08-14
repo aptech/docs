@@ -8,7 +8,7 @@ Converts a string, matrix of character data, or string array to uppercase.
 
 Format
 ----------------
-.. function:: upper(x)
+.. function:: y = upper(x)
 
     :param x: the character data to be converted to uppercase.
     :type x: string or NxK matrix, or string array 

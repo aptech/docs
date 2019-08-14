@@ -8,7 +8,7 @@ Returns the number of rows in a matrix.
 
 Format
 ----------------
-.. function:: rows(x)
+.. function:: y = rows(x)
 
     :param x: data
     :type x: NxK matrix or sparse matrix

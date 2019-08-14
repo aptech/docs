@@ -8,7 +8,7 @@ Computes the quantile or inverse negative binomial cumulative distribution funct
 
 Format
 ----------------
-.. function:: cdfNegBinomialInv(p, s, prob)
+.. function:: f = cdfNegBinomialInv(p, s, prob)
 
     :param p: The probability of observing *f* failures before observing *s* successes. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar

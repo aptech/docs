@@ -9,7 +9,7 @@ Performs an element by element comparison of two matrices and returns the maximu
 
 Format
 ----------------
-.. function:: maxv(x, y)
+.. function:: z = maxv(x, y)
 
     :param x: data
     :type x: NxK matrix

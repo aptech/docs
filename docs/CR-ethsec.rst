@@ -10,7 +10,7 @@ the :func:`date` command, in hundredths of a second.
 
 Format
 ----------------
-.. function:: ethsec(t_start, t_end)
+.. function:: hs = ethsec(t_start, t_end)
 
     :param t_start: starting date, in the order:
         yr, mo, day, hundredths of a second.

@@ -9,7 +9,7 @@ Converts a pair of real matrices to a complex matrix.
 
 Format
 ----------------
-.. function:: complex(xr, xi)
+.. function:: z = complex(xr, xi)
 
     :param xr: the real elements of *z*.
     :type xr: NxK real matrix

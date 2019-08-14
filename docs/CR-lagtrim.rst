@@ -9,7 +9,7 @@ Lags (or leads) a vector a specified number of time periods and removes the inco
 
 Format
 ----------------
-.. function:: lagTrim(y, t)
+.. function:: y = lagTrim(y, t)
 
     :param y: data
     :type y: Nx1 vector

@@ -9,7 +9,7 @@ Converts a matrix to a string array using a C language format specification.
 
 Format
 ----------------
-.. function:: ftostrC(x, fmt)
+.. function:: sa = ftostrC(x, fmt)
 
     :param x: real or complex.
     :type x: NxK matrix

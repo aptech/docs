@@ -8,7 +8,7 @@ Computes the quantile or inverse of the Beta cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfBetaInv(p, a, b)
+.. function:: x = cdfBetaInv(p, a, b)
 
     :param p: Probabilities at which to compute the inverse of the Beta cumulative distribution function. :math:`0 \lt p \lt 1`
     :type p: NxK matrix, Nx1 vector or scalar

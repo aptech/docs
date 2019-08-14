@@ -9,7 +9,7 @@ Creates a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaCreate(filename, overwrite)
+.. function:: ret = gdaCreate(filename, overwrite)
 
     :param filename: name of data file to create.
     :type filename: string

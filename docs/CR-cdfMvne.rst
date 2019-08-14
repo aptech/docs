@@ -8,7 +8,7 @@ Computes multivariate Normal cumulative distribution function with error managem
 
 Format
 ----------------
-.. function:: cdfMvne(ctl, x, corr, nonc)
+.. function:: { y, err, retcode } = cdfMvne(ctl, x, corr, nonc)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
 

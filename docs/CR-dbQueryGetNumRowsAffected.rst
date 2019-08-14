@@ -9,7 +9,7 @@ Reports the number of rows affected by the result's SQL statement.
 
 Format
 ----------------
-.. function:: dbQueryGetNumRowsAffected(qid)
+.. function:: num_rows = dbQueryGetNumRowsAffected(qid)
 
     :param qid: query number.
     :type qid: scalar

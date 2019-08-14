@@ -9,7 +9,7 @@ Converts a string into a matrix of its ASCII values.
 
 Format
 ----------------
-.. function:: vals(s)
+.. function:: y = vals(s)
 
     :param s: string of length :math:`N` where :math:`N > 0`
     :type s: string

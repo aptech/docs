@@ -12,8 +12,8 @@ Computes an unbiased estimate a variance-covariance matrix.
 
 Format
 ----------------
-.. function:: vcm(m) 
-              vcx(x)
+.. function:: vc = vcm(m)
+              vc = vcx(x)
 
     :param m:  A constant term MUST have been the first variable when the moment matrix was computed.
     :type m: KxK moment (:math:`x'x`) matrix

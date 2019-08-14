@@ -8,7 +8,7 @@ Splits a string into individual tokens.
 
 Format
 ----------------
-.. function:: strsplit(str[, sep])
+.. function:: sa = strsplit(str[, sep])
 
     :param str: data to be split
     :type str: string or Nx1 string array 

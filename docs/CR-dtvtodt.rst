@@ -8,7 +8,7 @@ Converts DT vector format to DT scalar format.
 
 Format
 ----------------
-.. function:: dtvtodt(dtv)
+.. function:: dt = dtvtodt(dtv)
 
     :param dtv: DTV vector format.
     :type dtv: Nx8 matrix

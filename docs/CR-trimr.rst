@@ -8,7 +8,7 @@ Trims rows from the top and/or bottom of a matrix.
 
 Format
 ----------------
-.. function:: trimr(x, t, b)
+.. function:: y = trimr(x, t, b)
 
     :param x: matrix from which rows are to be trimmed
     :type x: NxK matrix

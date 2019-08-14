@@ -9,7 +9,7 @@ Returns true if the argument is a scalar infinity, NaN, or missing value.
 
 Format
 ----------------
-.. function:: scalinfnanmiss(x)
+.. function:: y = scalinfnanmiss(x)
 
     :param x: data
     :type x: NxK matrix

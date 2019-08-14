@@ -8,7 +8,7 @@ Converts a string array to a numeric matrix.
 
 Format
 ----------------
-.. function:: strtof(sa)
+.. function:: x = strtof(sa)
 
     :param sa: numeric data
     :type sa: NxK string array

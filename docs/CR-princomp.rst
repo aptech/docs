@@ -9,7 +9,7 @@ Computes principal components of a data matrix.
 
 Format
 ----------------
-.. function:: princomp(x, j)
+.. function:: { p, v, a } = princomp(x, j)
 
     :param x: :math:`N > K`, full rank.
     :type x: NxK data matrix

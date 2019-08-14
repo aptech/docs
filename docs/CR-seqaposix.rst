@@ -8,7 +8,7 @@ Creates a sequence of dates in POSIX date/time format.
 		
 Format
 ----------------
-.. function:: seqaPosix(dt_start, inc, unit, n)
+.. function:: dt_vec = seqaPosix(dt_start, inc, unit, n)
 
     :param dt_start: containing the starting date in POSIX date/time format (seconds since Jan 1, 1970).
     :type dt_start: scalar

@@ -8,8 +8,8 @@ Computes a sample variance-covariance matrix.
 
 Format
 ----------------
-.. function:: varCovMS(mm) 
-              varCovXS(x)
+.. function:: vc = varCovMS(mm)
+              vc = varCovXS(x)
 
     :param mm: A constant term MUST have been the first variable when the moment matrix was computed.
     :type mm: KxK moment (:math:`x'x`) matrix

@@ -9,7 +9,7 @@ Computes an orthonormal basis for the column space of a matrix.
 
 Format
 ----------------
-.. function:: orth(x)
+.. function:: y = orth(x)
 
     :param x: data
     :type x: NxK matrix

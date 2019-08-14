@@ -9,7 +9,7 @@ Retrieves parameter vector from structure of type :class:`PV`.
 
 Format
 ----------------
-.. function:: pvGetParVector(p1)
+.. function:: p = pvGetParVector(p1)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

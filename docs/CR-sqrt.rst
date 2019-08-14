@@ -8,7 +8,7 @@ Computes the square root of every element in x.
 
 Format
 ----------------
-.. function:: sqrt(x)
+.. function:: y = sqrt(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

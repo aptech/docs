@@ -9,7 +9,7 @@ Changes the working directory within a program.
 
 Format
 ----------------
-.. function:: changeDir(s)
+.. function:: d = changeDir(s)
 
     :param s: directory to change to.
     :type s: string

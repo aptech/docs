@@ -8,7 +8,7 @@ Computes a real 1- or 2-D FFT.
 
 Format
 ----------------
-.. function:: rfftn(x)
+.. function:: y = rfftn(x)
 
     :param x: data
     :type x: NxK real matrix

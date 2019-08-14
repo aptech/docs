@@ -9,7 +9,7 @@ Computes numerical Hessian using gradient procedure with available threads.
 
 Format
 ----------------
-.. function:: hessMTTg(&gfct, par1, data1)
+.. function:: h = hessMTTg(&gfct, par1, data1)
 
     :param &gfct: pointer to procedure computing either 1xK gradient or NxK Jacobian
     :type &gfct: scalar

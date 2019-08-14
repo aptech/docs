@@ -8,7 +8,7 @@ Multiplies a sparse matrix transposed by a dense matrix.
 
 Format
 ----------------
-.. function:: spTrTDense(s, d)
+.. function:: y = spTrTDense(s, d)
 
     :param s: data
     :type s: NxM sparse matrix

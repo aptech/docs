@@ -9,7 +9,7 @@ Computes implied volatilities for European put options using Black, Scholes, and
 
 Format
 ----------------
-.. function:: EuropeanBSPut_ImpVol(c, S0, K, r, div, tau)
+.. function:: sigma = EuropeanBSPut_ImpVol(c, S0, K, r, div, tau)
 
     :param c: put premiums
     :type c: Mx1 vector

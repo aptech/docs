@@ -10,7 +10,7 @@ if it is a proper structure of type :class:`PV`.
 
 Format
 ----------------
-.. function:: pvTest(p1)
+.. function:: i = pvTest(p1)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

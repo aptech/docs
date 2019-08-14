@@ -9,8 +9,8 @@ Computes the observed correlation matrix.
 
 Format
 ----------------
-.. function:: corrms(m)
-              corrxs(x)
+.. function:: cx = corrms(m)
+              cx = corrxs(x)
 
     :param m: A constant term MUST have been the first variable when the moment matrix was computed.
     :type m: KxK moment (x'x) matrix

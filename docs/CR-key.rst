@@ -9,7 +9,7 @@ Returns the ASCII value of the next key available in the keyboard buffer.
 
 Format
 ----------------
-.. function:: key()
+.. function:: y = key()
 
     :returns: **y** (*scalar*) - ASCII value of next available key in keyboard buffer.
 

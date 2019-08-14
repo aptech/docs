@@ -9,7 +9,7 @@ Solves the nonlinear programming problem.
 
 Format
 ----------------
-.. function:: sqpSolveMT(&fct, par1[, ...], [ctl])
+.. function:: out = sqpSolveMT(&fct, par1[, ...], [ctl])
 
     :param &fct: pointer to a procedure that computes the function to be minimized. The first input 
         to this procedure must be an instance of structure of type :class:`PV`.

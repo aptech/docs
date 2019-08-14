@@ -9,7 +9,7 @@ Computes Delta, Gamma, Theta, Vega, and Rho for European put options using Black
 
 Format
 ----------------
-.. function:: EuropeanBSPut_Greeks(S0, K, r, div, tau, sigma)
+.. function:: { d, g, t, v, rh } = EuropeanBSPut_Greeks(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar

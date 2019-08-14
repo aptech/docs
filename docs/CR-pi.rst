@@ -8,7 +8,7 @@ Returns the mathematical constant :math:`π`.
 
 Format
 ----------------
-.. function:: pi
+.. function:: y = pi
 
     :returns: y (*scalar*), the value of :math:`π`.
 

@@ -9,7 +9,7 @@ Computes the floating-point remainder of :math:`x/y`.
 
 Format
 ----------------
-.. function:: fmod(x, y)
+.. function:: r = fmod(x, y)
 
     :param x:
     :type x: NxK matrix

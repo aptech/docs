@@ -9,7 +9,7 @@ Returns the value for a placeholder in a query.
 
 Format
 ----------------
-.. function:: dbQueryGetBoundValue(qid, placeholder)
+.. function:: val = dbQueryGetBoundValue(qid, placeholder)
 
     :param qid: query number.
     :type qid: scalar

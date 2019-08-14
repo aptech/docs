@@ -10,7 +10,7 @@ contains the indices of the rows to be deleted.
 
 Format
 ----------------
-.. function:: delrows(x, r)
+.. function:: y = delrows(x, r)
 
     :param x: data
     :type x: NxK matrix

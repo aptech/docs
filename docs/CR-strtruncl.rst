@@ -9,7 +9,7 @@ Truncates the left side of all elements of a string array by a user-specified nu
 
 Format
 ----------------
-.. function:: strtruncl(sa, ntrunc)
+.. function:: y = strtruncl(sa, ntrunc)
 
     :param sa: data
     :type sa: NxM or Nx1, 1xM, or 1x1 string array.

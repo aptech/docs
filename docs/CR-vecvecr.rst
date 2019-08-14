@@ -9,8 +9,8 @@ Creates a column vector by appending the columns/rows of a matrix to each other.
 
 Format
 ----------------
-.. function:: vec(x)
-              vecr(x)
+.. function:: yc = vec(x)
+              yc = vecr(x)
 
     :param x: data
     :type x: NxK matrix

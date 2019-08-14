@@ -9,7 +9,7 @@ Transposes an N-dimensional array.
 
 Format
 ----------------
-.. function:: atranspose(x, nd)
+.. function:: y = atranspose(x, nd)
 
     :param x:
     :type x: N-dimensional array

@@ -8,7 +8,7 @@ Converts a sparse matrix to a dense matrix.
 
 Format
 ----------------
-.. function:: spToDense(x)
+.. function:: y = spToDense(x)
 
     :param x: data
     :type x: MxN sparse matrix

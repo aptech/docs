@@ -9,7 +9,7 @@ Computes coefficients of locally weighted regression.
 
 Format
 ----------------
-.. function:: loessmt(lc0, depvar, indvars)
+.. function:: { yhat, ys, xs } = loessmt(lc0, depvar, indvars)
 
     :param lc0: containing the following members:
 

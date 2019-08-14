@@ -9,7 +9,7 @@ Computes the difference between two dates in DT scalar format.
 
 Format
 ----------------
-.. function:: timeDiffDT(dt_1, dt_2, units)
+.. function:: diff = timeDiffDT(dt_1, dt_2, units)
 
     :param dt_1: containing 1 or more DT scalars.
     :type dt_1: NxK matrix

@@ -8,7 +8,7 @@ Returns the types of the elements of a data buffer constructed with :func:`vput`
 
 Format
 ----------------
-.. function:: vtypecv(dbuf)
+.. function:: cv = vtypecv(dbuf)
 
     :param dbuf: a data buffer containing various strings and matrices.
     :type dbuf: Nx1 vector

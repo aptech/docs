@@ -8,7 +8,7 @@ Computes complement (upper tail) of multivariate Student's t cumulative distribu
 
 Format
 ----------------
-.. function:: cdfMvtce(ctl, x, corr, nonc, df)
+.. function:: { y, err, retcode } = cdfMvtce(ctl, x, corr, nonc, df)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
 

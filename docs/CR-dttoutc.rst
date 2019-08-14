@@ -8,7 +8,7 @@ Converts DT scalar format to UTC scalar format.
 
 Format
 ----------------
-.. function:: dttoutc(dt)
+.. function:: utc = dttoutc(dt)
 
     :param dt: DT scalar format.
     :type dt: Nx1 vector

@@ -9,7 +9,7 @@ Returns a list of available database drivers.
 
 Format
 ----------------
-.. function:: dbGetDrivers()
+.. function:: drivers = dbGetDrivers()
 
     :returns: **drivers** (*Nx1 string array*) - list of available database drivers.
 

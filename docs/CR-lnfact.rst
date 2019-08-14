@@ -9,7 +9,7 @@ Computes the natural log of the factorial function and can be used to compute lo
 
 Format
 ----------------
-.. function:: lnfact(x)
+.. function:: y = lnfact(x)
 
     :param x: all elements must be positive.
     :type x: NxK matrix or N-dimensional array

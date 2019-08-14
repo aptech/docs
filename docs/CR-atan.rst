@@ -8,7 +8,7 @@ Returns the arctangent of its argument.
 
 Format
 ----------------
-.. function:: atan(x)
+.. function:: y = atan(x)
 
     :param x:
     :type x: NxK matrix or N-dimensional array

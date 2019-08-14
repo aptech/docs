@@ -9,7 +9,7 @@ Computes the eigenvalues of a complex hermitian or real symmetric matrix.
 
 Format
 ----------------
-.. function:: eigh(x)
+.. function:: va = eigh(x)
 
     :param x: data used to compute the eigenvalues.
     :type x: NxN matrix or KxNxN array

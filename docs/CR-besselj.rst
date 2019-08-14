@@ -9,7 +9,7 @@ Computes a Bessel function of the first kind, :math:`J_n(x)`.
 
 Format
 ----------------
-.. function:: besselj(n, x)
+.. function:: y = besselj(n, x)
 
     :param n: The order of the Bessel function. Non-integers will be truncated to an integer.
     :type n: NxK matrix or P-dimensional array where the last two dimensions are NxK

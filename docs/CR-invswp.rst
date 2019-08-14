@@ -9,7 +9,7 @@ Computes a generalized sweep inverse.
 
 Format
 ----------------
-.. function:: invswp(x)
+.. function:: y = invswp(x)
 
     :param x: data
     :type x: NxN matrix

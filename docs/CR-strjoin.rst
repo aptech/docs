@@ -9,7 +9,7 @@ separated by a user-defined delimiter string.
 
 Format
 ----------------
-.. function:: strjoin(sa, delim[, qchar])
+.. function:: y = strjoin(sa, delim[, qchar])
 
     :param sa: data
     :type sa: NxM string array

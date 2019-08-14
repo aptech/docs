@@ -9,7 +9,7 @@ Computes the probability density function for the logistic distribution.
 
 Format
 ----------------
-.. function:: pdflogistic(x, a, b)
+.. function:: y = pdflogistic(x, a, b)
 
     :param x: data
     :type x: NxK matrix or an Nx1 vector or scalar

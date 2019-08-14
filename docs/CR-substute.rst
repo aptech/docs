@@ -9,7 +9,7 @@ Substitutes new values for old values in a matrix, depending on the outcome of a
 
 Format
 ----------------
-.. function:: substute(x, e, v)
+.. function:: y = substute(x, e, v)
 
     :param x: the data to be changed
     :type x: NxK matrix

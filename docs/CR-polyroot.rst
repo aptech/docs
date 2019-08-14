@@ -8,7 +8,7 @@ Computes the roots of a polynomial given the coefficients.
 
 Format
 ----------------
-.. function:: polyroot(c)
+.. function:: y = polyroot(c)
 
     :param c: coefficients of an Nth order polynomial:
     

@@ -10,12 +10,12 @@ for roundoff error.
 
 Format
 ----------------
-.. function:: feqmt(a, b, fcmptol)
-              fgemt(a, b, fcmptol)
-              fgtmt(a, b, fcmptol)
-              flemt(a, b, fcmptol)
-              fltmt(a, b, fcmptol)
-              fnemt(a, b, fcmptol)
+.. function:: y = feqmt(a, b, fcmptol)
+              y = fgemt(a, b, fcmptol)
+              y = fgtmt(a, b, fcmptol)
+              y = flemt(a, b, fcmptol)
+              y = fltmt(a, b, fcmptol)
+              y = fnemt(a, b, fcmptol)
 
     :param a: first matrix.
     :type a: NxK matrix

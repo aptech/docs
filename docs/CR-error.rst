@@ -11,7 +11,7 @@ function.
 
 Format
 ----------------
-.. function:: error(x)
+.. function:: y = error(x)
 
     :param x: in the range 0-65535.
     :type x: scalar

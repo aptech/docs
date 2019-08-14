@@ -9,7 +9,7 @@ Converts a matrix containing floating point numbers into a matrix containing the
 
 Format
 ----------------
-.. function:: ftocv(x, field, prec)
+.. function:: y = ftocv(x, field, prec)
 
     :param x: numeric data to be converted
     :type x: NxK matrix

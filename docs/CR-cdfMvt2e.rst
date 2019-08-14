@@ -8,7 +8,7 @@ Computes multivariate Student's t cumulative distribution function with error ma
 
 Format
 ----------------
-.. function:: cdfMvt2e(ctl, l_lim, u_lim, corr, nonc, df )
+.. function:: { y, err, retcode } = cdfMvt2e(ctl, l_lim, u_lim, corr, nonc, df )
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
 

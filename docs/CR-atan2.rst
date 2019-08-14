@@ -8,7 +8,7 @@ Computes an angle from an x, y coordinate.
 
 Format
 ----------------
-.. function:: atan2(y, x)
+.. function:: z = atan2(y, x)
 
     :param y: NxK matrix or P-dimensional array where the last two dimensions are NxK, the *y* coordinate.
     :type y: matrix

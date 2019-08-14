@@ -9,7 +9,7 @@ Computes implied volatilities for European call options using binomial method.
 
 Format
 ----------------
-.. function:: EuropeanBinomCall_ImpVol(c, S0, K, r, div, tau, N)
+.. function:: sigma = EuropeanBinomCall_ImpVol(c, S0, K, r, div, tau, N)
 
     :param c: call premiums.
     :type c: Mx1 vector

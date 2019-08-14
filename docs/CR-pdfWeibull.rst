@@ -8,7 +8,7 @@ Computes the probability density function of a Weibull random variable.
 
 Format
 ----------------
-.. function:: pdfWeibull(x, k, lambda)
+.. function:: y = pdfWeibull(x, k, lambda)
 
     :param x: *x* must be greater than 0.
     :type x: NxK matrix, Nx1 vector or scalar

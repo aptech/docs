@@ -8,7 +8,7 @@ Solves the quadratic programming problem.
 
 Format
 ----------------
-.. function:: QProgmt(qIn)
+.. function:: qOut = QProgmt(qIn)
 
     :param qIn: instance of a :class:`qprogMTIn` structure containing the following members:
 

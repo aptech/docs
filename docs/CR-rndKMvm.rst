@@ -9,7 +9,7 @@ Computes von Mises pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndKMvm(r, c, m, k, state)
+.. function:: { x, newstate } = rndKMvm(r, c, m, k, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

@@ -10,7 +10,7 @@ Creates a new random number stream for a specified generator type from a seed va
 
 Format
 ----------------
-.. function:: rndCreateState(brng, seed)
+.. function:: state = rndCreateState(brng, seed)
 
     :param brng: generator name. Options include:
 

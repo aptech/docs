@@ -9,7 +9,7 @@ Computes natural log of bivariate Normal cumulative distribution function.
 
 Format
 ----------------
-.. function:: lncdfbvn(x1, x2, r)
+.. function:: y = lncdfbvn(x1, x2, r)
 
     :param x1: abscissae.
     :type x1: NxK matrix

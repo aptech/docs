@@ -8,7 +8,7 @@ Computes the sorted index of a string vector, omitting duplicate elements.
 
 Format
 ----------------
-.. function:: uniqindxsa(sv)
+.. function:: ind = uniqindxsa(sv)
 
     :param sv: data
     :type sv: Nx1 or 1xN string vector

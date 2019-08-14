@@ -9,7 +9,7 @@ Returns the connection options string used for a database connection.
 
 Format
 ----------------
-.. function:: dbGetConnectOptions(db_id)
+.. function:: options = dbGetConnectOptions(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

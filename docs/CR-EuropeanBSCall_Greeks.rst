@@ -9,7 +9,7 @@ Computes Delta, Gamma, Theta, Vega, and Rho for European call options using Blac
 
 Format
 ----------------
-.. function:: EuropeanBSCall_Greeks(S0, K, r, div, tau, sigma)
+.. function:: { d, g, t, v, rh } = EuropeanBSCall_Greeks(S0, K, r, div, tau, sigma)
 
     :param S0: current price.
     :type S0: scalar

@@ -9,7 +9,7 @@ Computes natural log of Normal cumulative distribution function.
 
 Format
 ----------------
-.. function:: lncdfn(x)
+.. function:: y = lncdfn(x)
 
     :param x: abscissae.
     :type x: NxK matrix or N-dimensional array

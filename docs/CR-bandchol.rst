@@ -9,7 +9,7 @@ Computes the Cholesky decomposition of a positive definite banded matrix.
 
 Format
 ----------------
-.. function:: bandchol(a)
+.. function:: l = bandchol(a)
 
     :param a: KxN compact form matrix
     :type a: matrix

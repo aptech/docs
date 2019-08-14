@@ -9,7 +9,7 @@ Creates an instance of a structure of type :code:`DS` set to default values.
 
 Format
 ----------------
-.. function:: dsCreate()
+.. function:: s = dsCreate()
 
     :returns: **s** (*struct*) - instance of :class:`DS` struct.
 

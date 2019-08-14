@@ -9,7 +9,7 @@ Creates pseudo-random numbers with a chi-squared distribution, with an optional 
 
 Format
 ----------------
-.. function:: rndChiSquare(r, c, df[, s_ncp[, state]])
+.. function:: { x, newstate } = rndChiSquare(r, c, df[, s_ncp[, state]])
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

@@ -9,10 +9,10 @@ Estimate instrumental variables model using the generalized method of moments.
 
 Format
 ----------------
-.. function:: gmmFitIV(y, x[, gCtl])
-              gmmFitIV(y, x[, z[, gCtl]])
-              gmmFitIV(dataset, formula[, gCtl])
-              gmmFitIV(dataset, formula[, inst_list[, gCtl]])
+.. function:: gOut = gmmFitIV(y, x[, gCtl])
+              gOut = gmmFitIV(y, x[, z[, gCtl]])
+              gOut = gmmFitIV(dataset, formula[, gCtl])
+              gOut = gmmFitIV(dataset, formula[, inst_list[, gCtl]])
 
     :param y: dependent data vector
     :type y: Nx1 matrix

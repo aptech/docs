@@ -9,7 +9,7 @@ Computes negative binomial pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndKMnb(r, c, k, p, state)
+.. function:: { x, newstate } = rndKMnb(r, c, k, p, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

@@ -9,7 +9,7 @@ Writes a matrix in memory to a GAUSS data set in a specified format on disk.
 
 Format
 ----------------
-.. function:: saved(x, dataset, vnames)
+.. function:: ret = saved(x, dataset, vnames)
 
     :param x: data to save
     :type x: NxK matrix

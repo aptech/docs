@@ -9,7 +9,7 @@ Breaks number into a number of the form `#.####...` and a power of 10.
 
 Format
 ----------------
-.. function:: base10(x)
+.. function:: { M, P } = base10(x)
 
     :param x: number to break down.
     :type x: scalar

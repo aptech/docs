@@ -8,7 +8,7 @@ Computes the singular value decomposition of *x* so that: :math:`x = u * s * v'`
 
 Format
 ----------------
-.. function:: svdcusv(x)
+.. function:: { u, s, v } = svdcusv(x)
 
     :param x: , whose singular values are to be computed.
     :type x: NxP matrix or K-dimensional array where the last two dimensions are NxP

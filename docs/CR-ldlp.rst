@@ -9,7 +9,7 @@ Returns the Bunch-Kaufmann factorization of a real symmetric matrix along with a
 
 Format
 ----------------
-.. function:: ldlp(A)
+.. function:: ldl_factor = ldlp(A)
 
     :param A: data
     :type A: NxN real symmetric matrix

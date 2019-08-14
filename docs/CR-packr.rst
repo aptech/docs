@@ -8,7 +8,7 @@ Deletes the rows of a matrix that contain any missing values.
 
 Format
 ----------------
-.. function:: packr(x)
+.. function:: y = packr(x)
 
     :param x: data
     :type x: NxK matrix

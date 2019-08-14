@@ -12,7 +12,7 @@ right.
 
 Format
 ----------------
-.. function:: dummy(x, v)
+.. function:: y = dummy(x, v)
 
     :param x: Data that is to be broken up into dummy variables
     :type x: Nx1 vector

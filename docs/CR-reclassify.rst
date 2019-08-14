@@ -8,7 +8,7 @@ Replaces specified values of a matrix, array or string array
 
 Format
 ----------------
-.. function:: reclassify(x, from, to)
+.. function:: x_new = reclassify(x, from, to)
 
     :param x: string array or NxKxP array to be recoded (changed)
     :type x: NxK matrix

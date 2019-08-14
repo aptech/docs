@@ -8,7 +8,7 @@ Prices American put options using the binomial method.
 
 Format
 ----------------
-.. function:: AmericanBinomPut(S0, K, r, div, tau, sigma, N)
+.. function:: c = AmericanBinomPut(S0, K, r, div, tau, sigma, N)
 
     :param S0: current price.
     :type S0: scalar

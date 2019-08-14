@@ -9,7 +9,7 @@ Returns the object ID of the most recent inserted row if supported by the databa
 
 Format
 ----------------
-.. function:: dbQueryGetLastInsertID(qid)
+.. function:: last_insert = dbQueryGetLastInsertID(qid)
 
     :param qid: query number.
     :type qid: scalar

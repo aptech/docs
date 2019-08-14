@@ -9,7 +9,7 @@ Converts string dates to a matrix containing dates in POSIX date/time format, us
 
 Format
 ----------------
-.. function:: strctoposix(x, fmt)
+.. function:: d = strctoposix(x, fmt)
 
     :param x: dates
     :type x: NxK string array

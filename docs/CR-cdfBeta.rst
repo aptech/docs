@@ -9,7 +9,7 @@ Computes the incomplete Beta function (i.e., the cumulative distribution functio
 
 Format
 ----------------
-.. function:: cdfBeta(x, a, b)
+.. function:: y = cdfBeta(x, a, b)
 
     :param x: Values at which to evaluate the Beta cdf. :math:`0 \leq x \leq 1`
     :type x: NxK matrix

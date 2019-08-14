@@ -9,7 +9,7 @@ Computes the Rayleigh inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfRayleighInv(p, shape)
+.. function:: x = cdfRayleighInv(p, shape)
 
     :param p: Probabilities at which to compute the Rayleigh inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar

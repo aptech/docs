@@ -9,7 +9,7 @@ Computes Wishart distributed random numbers given a covariance matrix.
 
 Format
 ----------------
-.. function:: rndWishart(numMats, cov, df[, state])
+.. function:: { r, newstate } = rndWishart(numMats, cov, df[, state])
 
     :param numMats: number of Wishart random matrices to create.
     :type numMats: scalar

@@ -9,7 +9,7 @@ Creates default loessmtControl structure.
 
 Format
 ----------------
-.. function:: loessmtControlCreate()
+.. function:: c = loessmtControlCreate()
 
     :returns: c (*struct*) instance of :class:`loessmtControl` struct with members set to default values.
 

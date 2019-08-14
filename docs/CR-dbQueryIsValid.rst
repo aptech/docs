@@ -9,7 +9,7 @@ Reports whether the specified query is positioned on a valid record.
 
 Format
 ----------------
-.. function:: dbQueryIsValid(qid)
+.. function:: ret = dbQueryIsValid(qid)
 
     :param qid: query number.
     :type qid: scalar

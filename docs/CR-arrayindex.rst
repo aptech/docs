@@ -8,7 +8,7 @@ Converts a scalar vector index to a vector of indices for an N-dimensional array
 
 Format
 ----------------
-.. function:: arrayindex(scalar_idx, orders)
+.. function:: i = arrayindex(scalar_idx, orders)
 
     :param scalar_idx: index into vector or 1-dimensional array.
     :type scalar_idx: scalar

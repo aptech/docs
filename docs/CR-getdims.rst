@@ -9,7 +9,7 @@ Gets the number of dimensions in an array, matrix, string array or other symbol.
 
 Format
 ----------------
-.. function:: getdims(a)
+.. function:: ndims = getdims(a)
 
     :param a: N-dimensional array, matrix, string, string array or sparse matrix.
     :type a: any

@@ -9,7 +9,7 @@ Computes numerical Hessian using gradient procedure with weights and using avail
 
 Format
 ----------------
-.. function:: hessMTTgw(&gfct, par1, data1, wgts)
+.. function:: h = hessMTTgw(&gfct, par1, data1, wgts)
 
     :param gfct: pointer to procedure computing either 1xK gradient or NxK Jacobian
     :type gfct: scalar

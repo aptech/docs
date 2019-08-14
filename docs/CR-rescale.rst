@@ -8,8 +8,8 @@ Scales the columns of a matrix
 
 Format
 ----------------
-.. function:: rescale(x, method)
-              rescale(x, location, scale_factor)
+.. function:: { x_s, location, scale_factor } = rescale(x, method)
+              { x_s, location, scale_factor } = rescale(x, location, scale_factor)
 
     :param x: data to be rescaled
     :type x: NxK matrix or NxK array 

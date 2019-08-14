@@ -8,7 +8,7 @@ Reads data from an HDF5 dataset into a GAUSS matrix.
 
 Format
 ----------------
-.. function:: h5read(fname, dname[, dims[, offset]])
+.. function:: y = h5read(fname, dname[, dims[, offset]])
 
     :param fname: a name of the HDF5 file.
     :type fname: string

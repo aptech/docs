@@ -8,7 +8,7 @@ Computes implied volatilities for American put options using the Black, Scholes,
 
 Format
 ----------------
-.. function:: AmericanBSPut_ImpVol(c, S0, K, r, div, tau)
+.. function:: sigma = AmericanBSPut_ImpVol(c, S0, K, r, div, tau)
 
     :param c: put premiums.
     :type c: Mx1 vector

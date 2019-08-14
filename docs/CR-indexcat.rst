@@ -9,7 +9,7 @@ Returns the indices of the elements of a vector which fall into a specified cate
 
 Format
 ----------------
-.. function:: indexcat(x, v)
+.. function:: y = indexcat(x, v)
 
     :param x: data
     :type x: Nx1 vector

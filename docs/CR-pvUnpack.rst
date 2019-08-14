@@ -9,7 +9,7 @@ Unpacks matrices stored in a structure of type :class:`PV`.
 
 Format
 ----------------
-.. function:: pvUnpack(p1, m)
+.. function:: x = pvUnpack(p1, m)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

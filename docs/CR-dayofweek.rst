@@ -9,7 +9,7 @@ Returns day of week.
 
 Format
 ----------------
-.. function:: dayofweek(a)
+.. function:: d = dayofweek(a)
 
     :param a: dates in DT format.
     :type a: Nx1 vector

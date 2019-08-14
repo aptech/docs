@@ -9,7 +9,7 @@ Computes implied volatilities for European put options using binomial method.
 
 Format
 ----------------
-.. function:: EuropeanBinomPut_ImpVol(p, S0, K, r, div, tau, N)
+.. function:: sigma = EuropeanBinomPut_ImpVol(p, S0, K, r, div, tau, N)
 
     :param p: put premiums.
     :type p: Mx1 vector

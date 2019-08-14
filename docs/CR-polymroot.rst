@@ -9,7 +9,7 @@ Computes the roots of the determinant of a matrix polynomial.
 
 Format
 ----------------
-.. function:: polymroot(c)
+.. function:: r = polymroot(c)
 
     :param c: (N+1)\*KxK matrix. coefficients of an Nth order polynomial of rank *K*
     :type c: matrix

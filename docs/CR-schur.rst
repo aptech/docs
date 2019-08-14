@@ -8,7 +8,7 @@ Computes the real or complex Schur form of a square matrix with the option to so
 
 Format
 ----------------
-.. function:: schur(A[, flag[, sort_type]]) 
+.. function:: { S, Z } = schur(A[, flag[, sort_type]])
 
     :param A: data
     :type A: KxK matrix

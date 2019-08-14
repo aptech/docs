@@ -8,7 +8,7 @@ Converts DT scalar format to POSIX date/time format (seconds since Jan 1, 1970).
 
 Format
 ----------------
-.. function:: dttoposix(dt)
+.. function:: p_time = dttoposix(dt)
 
     :param dt: DT scalar format.
     :type dt: NxK matrix

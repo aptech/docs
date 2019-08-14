@@ -8,7 +8,7 @@ Returns the unique elements in one string vector that are not present in a secon
 
 Format
 ----------------
-.. function:: setdifsa(sv1, sv2)
+.. function:: sy = setdifsa(sv1, sv2)
 
     :param sv1: data
     :type sv1: Nx1 or 1xN string vector

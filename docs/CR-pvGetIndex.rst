@@ -9,7 +9,7 @@ Gets row indices of a matrix in a parameter vector.
 
 Format
 ----------------
-.. function:: pvGetIndex(p1, nm1)
+.. function:: id = pvGetIndex(p1, nm1)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

@@ -9,7 +9,7 @@ Returns a weighted count of the numbers of elements of a vector that fall into s
 
 Format
 ----------------
-.. function:: countwts(x, v, w)
+.. function:: c = countwts(x, v, w)
 
     :param x: the numbers to be counted.
     :type x: Nx1 vector

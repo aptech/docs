@@ -9,7 +9,7 @@ Computes a 1- or 2-D Fast Fourier transform.
 
 Format
 ----------------
-.. function:: fft(x)
+.. function:: y = fft(x)
 
     :param x: The values used to compute the Fast Fourier transform.
     :type x: NxK matrix

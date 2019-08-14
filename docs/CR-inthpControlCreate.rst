@@ -9,7 +9,7 @@ Creates default :class:`inthpControl` structure.
 
 Format
 ----------------
-.. function:: inthpControlCreate()
+.. function:: c = inthpControlCreate()
 
     :returns: **c** (*struct*) - instance of :class:`inthpControl` struct with members set to default values.
 

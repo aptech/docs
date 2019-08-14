@@ -9,7 +9,7 @@ Computes the singular values of a real or complex rectangular matrix
 
 Format
 ----------------
-.. function:: lapsvds(x)
+.. function:: s = lapsvds(x)
 
     :param x: real or complex rectangular matrix.
     :type x: MxN matrix

@@ -9,7 +9,7 @@ Returns the smallest number such that :math:`1 + eps > 1`.
 
 Format
 ----------------
-.. function:: machEpsilon()
+.. function:: eps = machEpsilon()
 
     :returns: eps (*scalar*), machine epsilon.
 

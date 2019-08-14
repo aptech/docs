@@ -9,7 +9,7 @@ Evaluates polynomials. Can either be one or more scalar polynomials or a single 
 
 Format
 ----------------
-.. function:: polyeval(x, coefs)
+.. function:: y = polyeval(x, coefs)
 
     :param x: 1xK or NxN. can either represent *K* separate scalar values at which to evaluate 
         the (scalar) polynomial(s), or it can represent a single NxN matrix.

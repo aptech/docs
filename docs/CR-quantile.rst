@@ -11,7 +11,7 @@ Computes quantiles from data in a matrix, given specified probabilities.
 
 Format
 ----------------
-.. function:: quantile(x, e[, tp]) 
+.. function:: y = quantile(x, e[, tp])
 
     :param x: data
     :type x: NxK matrix

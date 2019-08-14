@@ -9,12 +9,12 @@ Computes modified and exponentially scaled modified Bessels of the first kind of
 
 Format
 ----------------
-.. function:: mbesseli(x, n, alpha) 
-              mbesseli0(x) 
-              mbesseli1(x) 
-              mbesselei(x, n, alpha) 
-              mbesselei0(x) 
-              mbesselei1(x)
+.. function:: y = mbesseli(x, n, alpha)
+              y = mbesseli0(x)
+              y = mbesseli1(x)
+              y = mbesselei(x, n, alpha)
+              y = mbesselei0(x)
+              y = mbesselei1(x)
 
     :param x: abscissae.
     :type x: Kx1 vector

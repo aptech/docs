@@ -8,7 +8,7 @@ Solves a system of nonlinear equations.
 
 Format
 ----------------
-.. function:: eqSolvemt(&fct, par, ..., c)
+.. function:: out = eqSolvemt(&fct, par, ..., c)
 
     :param &fct: pointer to a procedure that computes the
         function to be minimized. This procedure must have an instance of a :class:`PV` structure 

@@ -10,7 +10,7 @@ Computes beta pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndLCbeta(r, c, a, b, state)
+.. function:: { x, newstate } = rndLCbeta(r, c, a, b, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

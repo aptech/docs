@@ -9,7 +9,7 @@ Computes standard Normal log-probabilities.
 
 Format
 ----------------
-.. function:: lnpdfn(x)
+.. function:: z = lnpdfn(x)
 
     :param x: data.
     :type x: NxK matrix or N-dimensional array

@@ -9,7 +9,7 @@ Computes inverse real 1- or 2-D Fast Fourier transform.
 
 Format
 ----------------
-.. function:: rffti(x)
+.. function:: y = rffti(x)
 
     :param x: data
     :type x: NxK matrix

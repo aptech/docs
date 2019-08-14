@@ -8,7 +8,7 @@ Performs matrix multiplication on the planes described by the two trailing dimen
 
 Format
 ----------------
-.. function:: amult(a, b)
+.. function:: y = amult(a, b)
 
     :param a:
     :type a: N-dimensional array

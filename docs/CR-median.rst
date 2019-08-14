@@ -9,7 +9,7 @@ Computes the medians of the columns of a matrix.
 
 Format
 ----------------
-.. function:: median(x)
+.. function:: m = median(x)
 
     :param x: data
     :type x: NxK matrix

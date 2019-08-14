@@ -8,7 +8,7 @@ Solves a set of positive definite linear equations.
 
 Format
 ----------------
-.. function:: solpd(b, A)
+.. function:: x = solpd(b, A)
 
     :param b: NxK matrix or M-dimensional array where the last two dimensions are NxK
     :type b: matrix or array

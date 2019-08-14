@@ -9,7 +9,7 @@ Computes inverse discrete Fourier transform.
 
 Format
 ----------------
-.. function:: dffti(x)
+.. function:: y = dffti(x)
 
     :param x: values used to computer the inverse of the discrete Fourier transform.
     :type x: Nx1 vector

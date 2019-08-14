@@ -8,7 +8,7 @@ Purpose
 
 Format
 ----------------
-.. function:: type(x)
+.. function:: t = type(x)
 
     :param x: local or global symbol, can be an expression.
     :type x: any

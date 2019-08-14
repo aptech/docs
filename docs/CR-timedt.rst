@@ -9,7 +9,7 @@ Returns system date and time in DT scalar format.
 
 Format
 ----------------
-.. function:: timedt()
+.. function:: dt = timedt()
 
     :returns: dt (*scalar*), system date and time in DT scalar format.
 

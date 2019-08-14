@@ -8,7 +8,7 @@ Inserts a matrix or string into a data buffer.
 
 Format
 ----------------
-.. function:: vput(dbuf, x, xname)
+.. function:: dbufnew = vput(dbuf, x, xname)
 
     :param dbuf: a data buffer containing various strings and matrices. 
         If *dbuf* is a scalar 0, a new data buffer will be created.

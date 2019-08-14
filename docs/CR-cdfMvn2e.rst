@@ -8,7 +8,7 @@ Computes the multivariate normal cumulative distribution function with error man
 
 Format
 ----------------
-.. function:: cdfMvn2e(ctl, l_lim, u_lim, corr, nonc)
+.. function:: { y, err, retcode } = cdfMvn2e(ctl, l_lim, u_lim, corr, nonc)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
 

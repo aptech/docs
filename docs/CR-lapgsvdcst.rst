@@ -9,7 +9,7 @@ Compute the generalized singular value decomposition of a pair of real or comple
 
 Format
 ----------------
-.. function:: lapgsvdcst(A, B)
+.. function:: { C, S, R, U, V, Q } = lapgsvdcst(A, B)
 
     :param A: data
     :type A: MxN matrix

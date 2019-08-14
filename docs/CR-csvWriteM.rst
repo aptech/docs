@@ -8,7 +8,7 @@ Write the contents of a GAUSS matrix to a CSV file.
 
 Format
 ----------------
-.. function:: csvWriteM(data, filename[, sep[, prec[, append[, newline]]]])
+.. function:: ret = csvWriteM(data, filename[, sep[, prec[, append[, newline]]]])
 
     :param data: containing the data to be written.
     :type data: matrix

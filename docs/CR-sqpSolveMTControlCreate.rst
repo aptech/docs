@@ -14,7 +14,7 @@ sqpsolvemt.sdf
 
 Format
 ----------------
-.. function:: sqpSolveMTControlCreate()
+.. function:: s = sqpSolveMTControlCreate()
 
     :returns: s (*struct*) instance of :class:`sqpSolveMTControl` struct.
 

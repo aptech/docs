@@ -9,7 +9,7 @@ Computes eigenvalues and eigenvectors of a complex hermitian or real symmetric m
 
 Format
 ----------------
-.. function:: eighv(x)
+.. function:: { va, ve } = eighv(x)
 
     :param x: data used to compute the eigenvalues and eigenvectors.
     :type x: NxN matrix or KxNxN array

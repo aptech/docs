@@ -9,8 +9,8 @@ Sorts a numeric matrix, character matrix or string array.
 
 Format
 ----------------
-.. function:: sortc(x, c)
-              sortcc(x, c)
+.. function:: y = sortc(x, c)
+              y = sortcc(x, c)
 
     :param x: data
     :type x: NxK matrix or string array.

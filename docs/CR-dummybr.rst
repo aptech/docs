@@ -9,7 +9,7 @@ Creates a set of dummy (0/1) variables. The highest (rightmost) category is boun
 
 Format
 ----------------
-.. function:: dummybr(x, v)
+.. function:: y = dummybr(x, v)
 
     :param x: data that is to be broken up into dummy variables
     :type x: Nx1 vector

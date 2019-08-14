@@ -9,7 +9,7 @@ Computes one of several specified matrix norms, or a vector p-norm.
 
 Format
 ----------------
-.. function:: norm(A[, norm_type]) 
+.. function:: n = norm(A[, norm_type])
 
     :param A: data
     :type A: Nx1 vector or NxN matrix

@@ -12,7 +12,7 @@ right, and a specified column of dummies is dropped.
 
 Format
 ----------------
-.. function:: dummydn(x, v, p)
+.. function:: y = dummydn(x, v, p)
 
     :param x: data to be broken up into dummy variables
     :type x: Nx1 vector

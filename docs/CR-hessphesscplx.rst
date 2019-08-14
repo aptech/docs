@@ -10,7 +10,7 @@ complex arguments.
 
 Format
 ----------------
-.. function:: hessp(&f, x0)
+.. function:: h = hessp(&f, x0)
 
     :param &f: pointer to a single-valued function :math:`f(x)`,
         defined as a procedure, taking a single Kx1 vector argument (f: :math:`Kx1 → 1x1`); :math:`f(x)` may be defined

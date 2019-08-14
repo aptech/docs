@@ -16,7 +16,7 @@ pgraph
 
 Format
 ----------------
-.. function:: tkf2eps(tekfile, epsfile)
+.. function:: ret = tkf2eps(tekfile, epsfile)
 
     :param tekfile: name of *.tkf* file.
     :type tekfile: string

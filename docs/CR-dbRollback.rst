@@ -9,7 +9,7 @@ Rolls back a transaction on the database.
 
 Format
 ----------------
-.. function:: dbRollback(db_id)
+.. function:: ret = dbRollback(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

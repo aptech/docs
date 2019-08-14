@@ -8,7 +8,7 @@ Retrieves a named color palette as a string array. Some names offer multiple pal
 
 Format
 ----------------
-.. function:: getColorPalette(name[, ncolors])
+.. function:: clrs = getColorPalette(name[, ncolors])
 
     :param name:  The name of the color palette. The full set of built-in color palettes can be seen here. The list of palettes can be queried with :func:`listColorPalettes`.
         .. DANGER:: Fix color brewer palette link "here"

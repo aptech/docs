@@ -9,7 +9,7 @@ Returns natural log of standardized bivariate Normal cumulative distribution fun
 
 Format
 ----------------
-.. function:: lncdfbvn2(h, dh, k, dk, r)
+.. function:: y = lncdfbvn2(h, dh, k, dk, r)
 
     :param h: upper limits of integration for variable 1.
     :type h: Nx1 vector

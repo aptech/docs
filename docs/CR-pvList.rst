@@ -9,7 +9,7 @@ Retrieves names of packed matrices in structure of type :class:`PV`.
 
 Format
 ----------------
-.. function:: pvList(p1)
+.. function:: n = pvList(p1)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

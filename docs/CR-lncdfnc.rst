@@ -9,7 +9,7 @@ Computes natural log of complement of Normal cumulative distribution function.
 
 Format
 ----------------
-.. function:: lncdfnc(x)
+.. function:: y = lncdfnc(x)
 
     :param x: abscissae.
     :type x: NxK matrix

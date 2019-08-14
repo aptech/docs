@@ -8,7 +8,7 @@ Accesses a local variable whose name is given as a string argument.
 
 Format
 ----------------
-.. function:: vargetl(s)
+.. function:: y = vargetl(s)
 
     :param s: the name of the local symbol you wish to access
     :type s: string

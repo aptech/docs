@@ -9,7 +9,7 @@ Tests if the end of a file has been reached.
 
 Format
 ----------------
-.. function:: eof(fh)
+.. function:: y = eof(fh)
 
     :param fh: file handle.
     :type fh: scalar

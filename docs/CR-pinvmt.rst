@@ -13,7 +13,7 @@ inverse.
 
 Format
 ----------------
-.. function:: pinvmt(x, tol)
+.. function:: { y, err } = pinvmt(x, tol)
 
     :param x: data
     :type x: NxM matrix

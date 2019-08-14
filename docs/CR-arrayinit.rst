@@ -8,7 +8,7 @@ Creates an N-dimensional array with a specified fill value.
 
 Format
 ----------------
-.. function:: arrayinit(orders, val)
+.. function:: y = arrayinit(orders, val)
 
     :param orders: the sizes of the dimensions of the array.
     :type orders: Nx1 vector

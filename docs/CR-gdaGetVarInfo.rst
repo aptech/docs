@@ -11,7 +11,7 @@ structures.
 
 Format
 ----------------
-.. function:: gdaGetVarInfo(filename)
+.. function:: vtab = gdaGetVarInfo(filename)
 
     :param filename: name of data file.
     :type filename: string

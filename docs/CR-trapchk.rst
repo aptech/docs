@@ -8,7 +8,7 @@ Tests the value of the trap flag.
 
 Format
 ----------------
-.. function:: trapchk(m)
+.. function:: y = trapchk(m)
 
     :param m: mask value
     :type m: scalar

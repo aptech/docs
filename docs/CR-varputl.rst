@@ -8,7 +8,7 @@ Allows a matrix, array, string, or string array to be assigned to a local symbol
 
 Format
 ----------------
-.. function:: varputl(x, n)
+.. function:: y = varputl(x, n)
 
     :param x: data which is to be assigned to the target variable.
     :type x: matrix or array or string or string array 

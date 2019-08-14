@@ -13,7 +13,7 @@ a valid record is ``NULL``.
 
 Format
 ----------------
-.. function:: dbQueryIsNull(qid, field)
+.. function:: ret = dbQueryIsNull(qid, field)
 
     :param qid: query number.
     :type qid: scalar

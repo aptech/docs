@@ -9,7 +9,7 @@ Allocates a matrix with a specified fill value.
 
 Format
 ----------------
-.. function:: matinit(r, c, v)
+.. function:: y = matinit(r, c, v)
 
     :param r: rows.
     :type r: scalar

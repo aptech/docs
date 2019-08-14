@@ -9,7 +9,7 @@ Computes a discrete Fourier transform.
 
 Format
 ----------------
-.. function:: dfft(x)
+.. function:: y = dfft(x)
 
     :param x: Values used to compute the discrete Fourier transform.
     :type x: Nx1 vector

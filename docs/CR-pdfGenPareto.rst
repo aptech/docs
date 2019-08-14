@@ -9,7 +9,7 @@ Computes the probability density function for the Generalized Pareto distributio
 
 Format
 ----------------
-.. function:: pdfGenPareto(x, a, sigma, k)
+.. function:: y = pdfGenPareto(x, a, sigma, k)
 
     :param x: data 
     :type x: NxK matrix, Nx1 vector or scalar.

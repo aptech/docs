@@ -9,7 +9,7 @@ Computes the cumulative distribution function of the log-normal distribution.
 
 Format
 ----------------
-.. function:: cdfLogNorm(x[, mu, sigma])
+.. function:: p = cdfLogNorm(x[, mu, sigma])
 
     :param x: Values at which to evaluate the cumulative distribution function for the log-normal distribution.
     :type x: NxK matrix, Nx1 vector or scalar.

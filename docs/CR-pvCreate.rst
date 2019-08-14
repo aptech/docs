@@ -9,7 +9,7 @@ Returns an initialized instance of structure of type :class:`PV`.
 
 Format
 ----------------
-.. function:: pvCreate()
+.. function:: p1 = pvCreate()
 
     :returns: p1 (*struct*) instance of :class:`PV` struct
 

@@ -8,7 +8,7 @@ Changes the values of an existing vector from a vector of new values. Used in da
 
 Format
 ----------------
-.. function:: recode(x, e, v)
+.. function:: y = recode(x, e, v)
 
     :param x: data to be recoded (changed)
     :type x: Nx1 vector 

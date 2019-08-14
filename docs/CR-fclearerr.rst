@@ -9,7 +9,7 @@ Gets the error status of a file, then clears it.
 
 Format
 ----------------
-.. function:: fclearerr(fh)
+.. function:: err = fclearerr(fh)
 
     :param fh: file handle of a file opened with :func:`fopen`.
     :type fh: scalar

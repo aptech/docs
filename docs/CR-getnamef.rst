@@ -9,7 +9,7 @@ Returns a string array containing the names of the variables in a GAUSS data set
 
 Format
 ----------------
-.. function:: getnamef(fh)
+.. function:: y = getnamef(fh)
 
     :param fh: file handle of an open data set
     :type fh: scalar

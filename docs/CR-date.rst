@@ -11,7 +11,7 @@ hundredths of a second since midnight.
 
 Format
 ----------------
-.. function:: date()
+.. function:: y = date()
 
 Remarks
 -------

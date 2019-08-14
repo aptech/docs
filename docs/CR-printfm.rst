@@ -8,7 +8,7 @@ Prints a matrix using a different format for each column of the matrix.
 
 Format
 ----------------
-.. function:: printfm(x, mask, fmt)
+.. function:: y = printfm(x, mask, fmt)
 
     :param x: matrix which is to be printed and which may contain both character and numeric data
     :type x: NxK matrix

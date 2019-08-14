@@ -9,7 +9,7 @@ Computes the Gamma function for complex inputs.
 
 Format
 ----------------
-.. function:: gammacplx(x_cplx)
+.. function:: f = gammacplx(x_cplx)
 
     :param x_cplx: the values used to compute the Gamma function. May include complex elements.
     :type x_cplx: NxK matrix;

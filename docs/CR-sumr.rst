@@ -8,7 +8,7 @@ Computes the sum of each row of a matrix or the sum of the fastest moving dimens
 
 Format
 ----------------
-.. function:: sumr(x)
+.. function:: y = sumr(x)
 
     :param x: NxK matrix or L-dimensional array where the last two dimensions are NxK
     :type x: matrix or array

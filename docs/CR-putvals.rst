@@ -9,7 +9,7 @@ Inserts values into a matrix or N-dimensional array.
 
 Format
 ----------------
-.. function:: putvals(x, inds, vals)
+.. function:: y = putvals(x, inds, vals)
 
     :param x: data
     :type x: MxK matrix or N-dimensional array

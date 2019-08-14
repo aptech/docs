@@ -8,7 +8,7 @@ Computes Delta, Gamma, Theta, Vega, and Rho for American put options using the b
 
 Format
 ----------------
-.. function:: AmericanBinomPut_Greeks(S0, K, r, div, tau, sigma, N)
+.. function:: { d, g, t, v, rh } = AmericanBinomPut_Greeks(S0, K, r, div, tau, sigma, N)
 
     :param S0: current price.
     :type S0: scalar

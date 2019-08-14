@@ -8,7 +8,7 @@ Moves the pointer in a *.dat* or *.fmt* file to a particular row.
 
 Format
 ----------------
-.. function:: seekr(fh, r)
+.. function:: y = seekr(fh, r)
 
     :param fh: file handle of an open file.
     :type fh: scalar

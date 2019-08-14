@@ -9,7 +9,7 @@ Performs a Cholesky update of one or more rows on an upper triangular matrix.
 
 Format
 ----------------
-.. function:: cholup(C, x)
+.. function:: r = cholup(C, x)
 
     :param C: upper triangular matrix
     :type C: KxK matrix

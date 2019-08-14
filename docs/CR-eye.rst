@@ -9,7 +9,7 @@ Creates an identity matrix.
 
 Format
 ----------------
-.. function:: eye(n)
+.. function:: y = eye(n)
 
     :param n: size of identity matrix to be created.
     :type n: scalar

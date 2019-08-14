@@ -8,7 +8,7 @@ Creates an instance of a structure of type :class:`QProgmtInCreate` with the *ma
 
 Format
 ----------------
-.. function:: QProgmtInCreate()
+.. function:: s = QProgmtInCreate()
 
     :returns: s (*struct*) instance of :class:`QProgmtIn` struct.
 

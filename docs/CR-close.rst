@@ -8,7 +8,7 @@ Closes a file handle.
 
 Format
 ----------------
-.. function:: close(handle)
+.. function:: y = close(handle)
 
     :param handle: the file handle given to the file when it was opened with the `open`,
         `create`, or :func:`fopen` command.

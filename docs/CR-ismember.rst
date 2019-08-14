@@ -9,7 +9,7 @@ Checks whether each element of a matrix or string array matches any element from
 
 Format
 ----------------
-.. function:: ismember(haystack, needles)
+.. function:: mask = ismember(haystack, needles)
 
     :param haystack: multi-dimensional array or string array in which to search.
     :type haystack: matrix

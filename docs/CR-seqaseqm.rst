@@ -9,8 +9,8 @@ sequence.
 
 Format
 ----------------
-.. function:: seqa(start, inc, n)
-              seqm(start, inc, n)
+.. function:: y = seqa(start, inc, n)
+              y = seqm(start, inc, n)
 
     :param start: specifying the first element
     :type start: scalar

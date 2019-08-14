@@ -9,7 +9,7 @@ Round up toward :math:`+∞`.
 
 Format
 ----------------
-.. function:: ceil(x)
+.. function:: y = ceil(x)
 
     :param x: Values to be rounded.
     :type x: NxK matrix

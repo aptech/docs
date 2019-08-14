@@ -9,7 +9,7 @@ Returns the index of the next element or subarray in an array.
 
 Format
 ----------------
-.. function:: nextindex(i, o)
+.. function:: ni = nextindex(i, o)
 
     :param i: indices into an array where :math:`M <= N`.
     :type i: Mx1 vector

@@ -9,7 +9,7 @@ Computes coefficients of locally weighted regression.
 
 Format
 ----------------
-.. function:: loess(depvar, indvars)
+.. function:: { yhat, ys, xs } = loess(depvar, indvars)
 
     :param depvar: dependent variable.
     :type depvar: Nx1 vector

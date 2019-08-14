@@ -9,7 +9,7 @@ Computes number of combinations of *n* things taken *k* at a time.
 
 Format
 ----------------
-.. function:: numCombinations(n, k)
+.. function:: y = numCombinations(n, k)
 
     :param n: 
     :type n: scalar

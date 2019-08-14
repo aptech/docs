@@ -9,7 +9,7 @@ Creates default olsmtControl structure.
 
 Format
 ----------------
-.. function:: olsmtControlCreate()
+.. function:: c = olsmtControlCreate()
 
     :returns: c (*struct*) instance of :class:`olsmtControl` struct with members set to default values.
 

@@ -9,7 +9,7 @@ Returns the result set for the current query as a matrix.
 
 Format
 ----------------
-.. function:: dbQueryFetchAllM(qid[, columns])
+.. function:: result = dbQueryFetchAllM(qid[, columns])
 
     :param qid: query number.
     :type qid: scalar

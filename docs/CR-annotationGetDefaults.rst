@@ -8,7 +8,7 @@ Fills in an instance of a :class:`plotAnnotation` structure with default values.
 
 Format
 ----------------
-.. function:: annotationGetDefaults()
+.. function:: myAnnotation = annotationGetDefaults()
 
     :returns: myAnnotation (*struct*), An instance of a :class:`plotAnnotation` structure with all members set to defaults.
 

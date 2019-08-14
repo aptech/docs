@@ -8,7 +8,7 @@ Reshapes a matrix.
 
 Format
 ----------------
-.. function:: reshape(x, r, c)
+.. function:: y = reshape(x, r, c)
 
     :param x: data
     :type x: NxK matrix

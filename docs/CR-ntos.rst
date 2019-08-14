@@ -9,7 +9,7 @@ Converts a floating point number to a string or string array with optionally spe
 
 Format
 ----------------
-.. function:: ntos(num[, prec])
+.. function:: str = ntos(num[, prec])
 
     :param num: the numbers to be converted to a string
     :type num: scalar or NxK matrix

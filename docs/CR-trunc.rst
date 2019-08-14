@@ -8,7 +8,7 @@ Converts numbers to integers by truncating the fractional portion.
 
 Format
 ----------------
-.. function:: trunc(x)
+.. function:: y = trunc(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

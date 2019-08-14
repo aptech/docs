@@ -9,7 +9,7 @@ Lags a matrix by one time period for time series analysis.
 
 Format
 ----------------
-.. function:: lag1(x)
+.. function:: y = lag1(x)
 
     :param x: data
     :type x: Nx1 column vector or NxK matrix

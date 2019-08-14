@@ -8,7 +8,7 @@ Computes the standard Normal (scalar) probability density function.
 
 Format
 ----------------
-.. function:: pdfn(x[, mu[, sigma]])
+.. function:: y = pdfn(x[, mu[, sigma]])
 
     :param x: data
     :type x: NxK matrix or N-dimensional array.

@@ -9,7 +9,7 @@ Computes natural log of interval of Normal cumulative distribution function.
 
 Format
 ----------------
-.. function:: lncdfn2(x, r)
+.. function:: y = lncdfn2(x, r)
 
     :param x: abscissae.
     :type x: MxN matrix

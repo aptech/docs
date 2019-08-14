@@ -9,9 +9,9 @@ Solves the generalized linear model problems.
 
 Format
 ----------------
-.. function:: glm(y, x, family[, var_names[, categoryIdx[, link]]])
-              glm(y, x, family[, ctl])
-              glm(dataset_name, formula, family[, ctl])
+.. function:: out = glm(y, x, family[, var_names[, categoryIdx[, link]]])
+              out = glm(y, x, family[, ctl])
+              out = glm(dataset_name, formula, family[, ctl])
 
     :param y:  the dependent, or response, variable. *n* is the number of the observations used in the analysis.
     :type y: Nx1 vector

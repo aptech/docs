@@ -9,7 +9,7 @@ Computes normally distributed pseudo-random numbers with a choice of underlying 
 
 Format
 ----------------
-.. function:: rndn(r, c[, state])
+.. function:: { y, newstate } = rndn(r, c[, state])
 
     :param r: row dimension.
     :type r: scalar

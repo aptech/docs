@@ -11,7 +11,7 @@ Computes descriptive statistics.
 
 Format
 ----------------
-.. function:: dstat(dataset, vars)
+.. function:: { vnam, mean, var, std, min, max, valid, mis } = dstat(dataset, vars)
 
     :param dataset: name of dataset. If *dataset* is null or 0, *vars* will be assumed
         to be a matrix containing the data.

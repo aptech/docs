@@ -8,7 +8,7 @@ Create a set of evenly spaced colors in HSL hue space. The *h*, *s*, and *l* arg
 
 Format
 ----------------
-.. function:: getHSLPalette(ncolors[, h[, s[, l]]])
+.. function:: clrs = getHSLPalette(ncolors[, h[, s[, l]]])
 
     :param ncolors: The number of colors to create for the palette.
     :type ncolors: scalar

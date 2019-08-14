@@ -9,7 +9,7 @@ Computes descriptive statistics on a selection of columns from a matrix located 
 
 Format
 ----------------
-.. function:: gdaDStatMat(dc0, filename, gmat, colind, vnamevar)
+.. function:: dout = gdaDStatMat(dc0, filename, gmat, colind, vnamevar)
 
     :param dc0: an instance of a :class:`dstatmtControl` structure with the following members:
 

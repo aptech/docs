@@ -8,7 +8,7 @@ Inserts a vector into the diagonal of a matrix.
 
 Format
 ----------------
-.. function:: diagrv(x, v)
+.. function:: y = diagrv(x, v)
 
     :param x: Data matrix.
     :type x: NxK matrix

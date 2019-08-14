@@ -8,7 +8,7 @@ Parses a string, returning a character vector of tokens.
 
 Format
 ----------------
-.. function:: parse(str, delim)
+.. function:: tok = parse(str, delim)
 
     :param str: 
     :type str: string consisting of a series of tokens and/or delimiters

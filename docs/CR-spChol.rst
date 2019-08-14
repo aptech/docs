@@ -8,7 +8,7 @@ Computes the :math:`LL'` decomposition of a sparse matrix *A*.
 
 Format
 ----------------
-.. function:: spChol(a)
+.. function:: l = spChol(a)
 
     :param a: NxN symmetric, positive definite sparse matrix.
     :type a: sparse matrix

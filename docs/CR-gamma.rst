@@ -9,7 +9,7 @@ Returns the value of the gamma function.
 
 Format
 ----------------
-.. function:: gamma(x)
+.. function:: y = gamma(x)
 
     :param x: the values used to evaluate the gamma function.
     :type x: NxK matrix or N-dimensional array

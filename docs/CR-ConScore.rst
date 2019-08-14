@@ -9,7 +9,7 @@ Compute local score statistic and its probability for hypotheses involving param
 
 Format
 ----------------
-.. function:: ConScore(H, G, grad, a, b, c, d, bounds, psi)
+.. function:: { SL, SLprob } = ConScore(H, G, grad, a, b, c, d, bounds, psi)
 
     :param H: Hessian of loglikelihood with respect to parameters.
     :type H: KxK matrix

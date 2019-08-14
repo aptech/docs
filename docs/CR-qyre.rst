@@ -9,7 +9,7 @@ Computes the orthogonal-triangular (QR) decomposition of a matrix *x* and return
 
 Format
 ----------------
-.. function:: qyre(y, x)
+.. function:: { qy, r, e } = qyre(y, x)
 
     :param y: data
     :type y: NxL matrix

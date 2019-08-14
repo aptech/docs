@@ -9,7 +9,7 @@ Lags (or leads) a matrix a specified number of time periods for time series anal
 
 Format
 ----------------
-.. function:: lagn(x, t[, fill]) 
+.. function:: y = lagn(x, t[, fill])
 
     :param x: data
     :type x: NxK matrix

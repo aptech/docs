@@ -9,7 +9,7 @@ Computes combinations of *N* things taken *K* at a time.
 
 Format
 ----------------
-.. function:: combinate(N, K)
+.. function:: y = combinate(N, K)
 
     :param N: Total number of things in population.
     :type N: scalar

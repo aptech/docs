@@ -13,7 +13,7 @@ sqpsolvemt.sdf
 
 Format
 ----------------
-.. function:: sqpSolveMToutCreate()
+.. function:: s = sqpSolveMToutCreate()
 
     :returns: s (*struct*) instance of :class:`sqpSolveMTout` struct.
 

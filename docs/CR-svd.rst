@@ -8,7 +8,7 @@ Computes the singular values of a matrix.
 
 Format
 ----------------
-.. function:: svd(x)
+.. function:: s = svd(x)
 
     :param x: matrix whose singular values are to be computed
     :type x: NxP matrix 

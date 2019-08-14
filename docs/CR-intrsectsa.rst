@@ -11,7 +11,7 @@ Returns the intersection of two string vectors, with duplicates removed.
 
 Format
 ----------------
-.. function:: intrsectsa(sv1, sv2)
+.. function:: y = intrsectsa(sv1, sv2)
 
     :param sv1: data
     :type sv1: Nx1 or 1xN string vector

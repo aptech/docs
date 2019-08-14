@@ -9,7 +9,7 @@ Computes the mean of every column of a matrix.
 
 Format
 ----------------
-.. function:: meanc(x)
+.. function:: y = meanc(x)
 
     :param x: data
     :type x: NxK matrix

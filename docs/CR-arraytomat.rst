@@ -9,7 +9,7 @@ Converts an array to type matrix.
 
 Format
 ----------------
-.. function:: arraytomat(a)
+.. function:: y = arraytomat(a)
 
     :param a: 
     :type a: N-dimensional array

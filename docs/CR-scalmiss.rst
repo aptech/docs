@@ -8,7 +8,7 @@ Tests to see if its argument is a scalar missing value.
 
 Format
 ----------------
-.. function:: scalmiss(x)
+.. function:: y = scalmiss(x)
 
     :param x: data
     :type x: NxK matrix

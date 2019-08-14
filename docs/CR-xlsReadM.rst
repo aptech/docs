@@ -8,7 +8,7 @@ Reads from an Excel® spreadsheet into a GAUSS matrix.
 
 Format
 ----------------
-.. function:: xlsReadM(file[, range[, sheet[, vls]]])
+.. function:: mat = xlsReadM(file[, range[, sheet[, vls]]])
 
     :param file: name of *.xls* or *.xlsx* file.
     :type file: string

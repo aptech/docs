@@ -8,7 +8,7 @@ Computes the inverse sine.
 
 Format
 ----------------
-.. function:: arcsin(x)
+.. function:: y = arcsin(x)
 
     :param x: 
     :type x: NxK matrix or N-dimensional array

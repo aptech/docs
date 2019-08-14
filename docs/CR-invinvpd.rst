@@ -9,8 +9,8 @@ Purpose
 
 Format
 ----------------
-.. function:: inv(x)
-              invpd(x)
+.. function:: y = inv(x)
+              y = invpd(x)
 
     :param x: data
     :type x: NxN matrix or K-dimensional array where the last two dimensions are NxN

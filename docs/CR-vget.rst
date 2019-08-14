@@ -8,7 +8,7 @@ Extracts a matrix or string from a data buffer constructed with :func:`vput`.
 
 Format
 ----------------
-.. function:: vget(dbuf, name)
+.. function:: { x, dbufnew } = vget(dbuf, name)
 
     :param dbuf: a data buffer containing various strings and matrices.
     :type dbuf: Nx1 vector

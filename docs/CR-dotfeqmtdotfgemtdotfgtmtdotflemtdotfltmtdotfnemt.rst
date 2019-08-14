@@ -11,12 +11,12 @@ roundoff error.
 
 Format
 ----------------
-.. function:: dotfeqmt(a, b, fcmptol)
-              dotfgemt(a, b, fcmptol)
-              dotfgtme(a, b, fcmptol)
-              dotflemt(a, b, fcmptol)
-              dotfltmt(a, b, fcmptol)
-              dotfnemt(a, b, fcmptol)
+.. function:: y = dotfeqmt(a, b, fcmptol)
+              y = dotfgemt(a, b, fcmptol)
+              y = dotfgtme(a, b, fcmptol)
+              y = dotflemt(a, b, fcmptol)
+              y = dotfltmt(a, b, fcmptol)
+              y = dotfnemt(a, b, fcmptol)
 
     :param a: first matrix.
     :type a: NxK matrix

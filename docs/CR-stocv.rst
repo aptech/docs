@@ -9,7 +9,7 @@ Converts a string to a character vector.
 
 Format
 ----------------
-.. function:: stocv(s)
+.. function:: v = stocv(s)
 
     :param s: to be converted to character vector.
     :type s: string

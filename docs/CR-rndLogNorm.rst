@@ -9,7 +9,7 @@ Computes lognormal pseudo-random numbers with the choice of underlying random nu
 
 Format
 ----------------
-.. function:: rndLogNorm(r, c, mu, sigma[, state])
+.. function:: { x, newstate } = rndLogNorm(r, c, mu, sigma[, state])
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

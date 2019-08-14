@@ -9,7 +9,7 @@ Computes the sorted index of *x*, leaving out duplicate elements.
 
 Format
 ----------------
-.. function:: uniqindx(x, flag)
+.. function:: index = uniqindx(x, flag)
 
     :param x: data
     :type x: Nx1 or 1xN vector

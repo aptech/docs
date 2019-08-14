@@ -9,7 +9,7 @@ Writes combinations of *N* things taken *K* at a time to a GAUSS dataset.
 
 Format
 ----------------
-.. function:: combinated(fname, vnames, N, K)
+.. function:: ret = combinated(fname, vnames, N, K)
 
     :param fname: file name.
     :type fname: string

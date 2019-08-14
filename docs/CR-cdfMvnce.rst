@@ -8,7 +8,7 @@ Computes the complement (upper tail) of the multivariate Normal cumulative distr
 
 Format
 ----------------
-.. function:: cdfMvnce(ctl, x, corr, nonc)
+.. function:: { y, err, retcode } = cdfMvnce(ctl, x, corr, nonc)
 
     :param ctl: instance of a :class:`cdfmControl` structure with members
 

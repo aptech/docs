@@ -9,7 +9,7 @@ Returns the index of the previous element or subarray in an array.
 
 Format
 ----------------
-.. function:: previousindex(i, o)
+.. function:: pi = previousindex(i, o)
 
     :param i: indices into an array where :math:`M <= N`.
     :type i: Mx1 vector

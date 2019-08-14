@@ -9,7 +9,7 @@ Returns a connection's password.
 
 Format
 ----------------
-.. function:: dbGetPassword(db_id)
+.. function:: db_password = dbGetPassword(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

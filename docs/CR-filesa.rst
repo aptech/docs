@@ -9,7 +9,7 @@ Returns a string array of file names.
 
 Format
 ----------------
-.. function:: filesa(fspec)
+.. function:: y = filesa(fspec)
 
     :param fspec: file specification to search for. Can include path and wildcards.
     :type fspec: string

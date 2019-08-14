@@ -9,7 +9,7 @@ Computes the probability density function for the Laplace distribution.
 
 Format
 ----------------
-.. function:: pdfLaplace(x,a,b)
+.. function:: y = pdfLaplace(x,a,b)
 
     :param x: data
     :type x: NxK matrix, Nx1 vector or scalar.

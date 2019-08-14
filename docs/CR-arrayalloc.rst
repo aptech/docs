@@ -8,7 +8,7 @@ Creates an N-dimensional array with unspecified contents.
 
 Format
 ----------------
-.. function:: arrayalloc(orders, cf)
+.. function:: y = arrayalloc(orders, cf)
 
     :param orders: the sizes of the dimensions of the array.
     :type orders: Nx1 vector of orders

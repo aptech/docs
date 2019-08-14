@@ -9,7 +9,7 @@ Computes the solution of :math:`R'x = b` where *R* is an upper triangular matrix
 
 Format
 ----------------
-.. function:: qrtsol(b, R)
+.. function:: x = qrtsol(b, R)
 
     :param b: data
     :type b: PxL matrix

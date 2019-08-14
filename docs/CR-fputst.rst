@@ -9,7 +9,7 @@ Writes strings followed by a newline to a file.
 
 Format
 ----------------
-.. function:: fputst(fh, sa)
+.. function:: numl = fputst(fh, sa)
 
     :param fh: file handle of a file opened with :func:`fopen`.
     :type fh: scalar

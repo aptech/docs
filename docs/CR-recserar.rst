@@ -8,7 +8,7 @@ Computes a vector of autoregressive recursive series.
 
 Format
 ----------------
-.. function:: recserar(x, y0, rho)
+.. function:: y = recserar(x, y0, rho)
 
     :param x: If simulating an AR process, this would contain the error term and constant if included in the model.
     :type x: NxK matrix

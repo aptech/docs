@@ -9,7 +9,7 @@ Creates a column vector from the diagonal of a matrix.
 
 Format
 ----------------
-.. function:: diag(x)
+.. function:: y = diag(x)
 
     :param x: Data matrix.
     :type x: NxK matrix or LxNxK array

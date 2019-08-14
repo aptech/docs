@@ -9,7 +9,7 @@ Computes the singular value decomposition of a real or complex rectangular matri
 
 Format
 ----------------
-.. function:: lapsvdcusv(x)
+.. function:: { u, s, v } = lapsvdcusv(x)
 
     :param x: real or complex rectangular matrix.
     :type x: MxN matrix

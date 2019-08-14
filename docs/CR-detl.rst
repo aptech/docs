@@ -9,7 +9,7 @@ Returns the determinant of the last matrix that was passed to one of the intrins
 
 Format
 ----------------
-.. function:: detl()
+.. function:: y = detl()
 
 Remarks
 -------

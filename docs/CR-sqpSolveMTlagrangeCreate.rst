@@ -13,7 +13,7 @@ sqpsolvemt.sdf
 
 Format
 ----------------
-.. function:: sqpSolveMTlagrangeCreate()
+.. function:: s = sqpSolveMTlagrangeCreate()
 
     :returns: s (*struct*) instance of :class:`sqpSolveMTlagrange` struct.
 

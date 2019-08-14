@@ -8,7 +8,7 @@ Selects rows from a matrix. Those selected are the rows for which there is a 1 i
 
 Format
 ----------------
-.. function:: selif(x, e)
+.. function:: y = selif(x, e)
 
     :param x: data
     :type x: NxK matrix or string array

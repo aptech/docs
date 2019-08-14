@@ -9,7 +9,7 @@ Deletes files.
 
 Format
 ----------------
-.. function:: deleteFile(name)
+.. function:: ret = deleteFile(name)
 
     :param name: name of file or files to delete.
     :type name: string or NxK string array

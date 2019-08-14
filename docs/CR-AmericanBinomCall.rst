@@ -9,7 +9,7 @@ Prices American call options using the binomial method.
 
 Format
 ----------------
-.. function:: AmericanBinomCall(S0, K, r, div, tau, sigma, N)
+.. function:: c = AmericanBinomCall(S0, K, r, div, tau, sigma, N)
 
     :param S0: current price.
     :type S0: scalar

@@ -9,7 +9,7 @@ Replaces missing values in the columns of a matrix by a specified imputation met
 
 Format
 ----------------
-.. function:: impute(x[, method])
+.. function:: X_full = impute(x[, method])
 
     :param x: data
     :type x: NxK matrix

@@ -11,7 +11,7 @@ Loads matrices, N-dimensional arrays, strings and string arrays from a disk file
 
 Format
 ----------------
-.. function:: dataload(filename)
+.. function:: y = dataload(filename)
 
     :param filename: name of data file.
     :type filename: string

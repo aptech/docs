@@ -8,7 +8,7 @@ Returns the names of the elements of a data buffer constructed with :func:`vput`
 
 Format
 ----------------
-.. function:: vnamecv(dbuf)
+.. function:: cv = vnamecv(dbuf)
 
     :param dbuf: a data buffer containing various strings and matrices.
     :type dbuf: Nx1 vector

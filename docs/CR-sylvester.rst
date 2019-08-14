@@ -8,7 +8,7 @@ Computes the solution to the Sylvester matrix equation, :math:`AX + XB = C`.
 
 Format
 ----------------
-.. function:: sylvester(A, B, C)
+.. function:: X = sylvester(A, B, C)
 
     :param A: data
     :type A: MxM real or complex matrix

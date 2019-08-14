@@ -9,7 +9,7 @@ Multiplies polynomials.
 
 Format
 ----------------
-.. function:: polymult(c1, c2)
+.. function:: c = polymult(c1, c2)
 
     :param c1: coefficients of the first polynomial
     :type c1: (D1+1)x1 vector

@@ -8,7 +8,7 @@ Converts a string array of dates to a matrix in DT scalar format.
 
 Format
 ----------------
-.. function:: strtodt(sa, fmt)
+.. function:: x = strtodt(sa, fmt)
 
     :param sa: dates
     :type sa: NxK string array

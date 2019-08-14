@@ -9,7 +9,7 @@ Estimate parameters using generalized method of moments.
 
 Format
 ----------------
-.. function:: gmmFit(&fct, y[, ...[, gCtl]])
+.. function:: gOut = gmmFit(&fct, y[, ...[, gCtl]])
 
     :param &fct: Pointer to user specified moment equation function *&fct*. The function must have the parameter vector to be estimated as the first input and a data matrix as the second input. The data matrix *y* and all optional arguments are passed, untouched, directly to the moment function. The function *fct* should return the desired moments for the GMM objective function and should take the form:
 

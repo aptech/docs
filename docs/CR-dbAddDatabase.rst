@@ -9,8 +9,8 @@ Adds a database to the list of database connections using the driver type or a c
 
 Format
 ----------------
-.. function:: dbAddDatabase(driver_type)
-              dbAddDatabase(connection_url)
+.. function:: db_id = dbAddDatabase(driver_type)
+              db_id = dbAddDatabase(connection_url)
 
     :param driver_type: supported options include:
 

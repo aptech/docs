@@ -9,7 +9,7 @@ Executes an executable program and returns the exit code to GAUSS.
 
 Format
 ----------------
-.. function:: exec(program, comline)
+.. function:: y = exec(program, comline)
 
     :param program: the name of the program, including the extension, to be executed.
     :type program: string

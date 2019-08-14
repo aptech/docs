@@ -9,7 +9,7 @@ Computes eigenvalues and eigenvectors of a general matrix.
 
 Format
 ----------------
-.. function:: eigv(x)
+.. function:: { lambda, v } = eigv(x)
 
     :param x: data used to compute the eigenvalues and eigenvectors.
     :type x: NxN matrix or KxNxN array

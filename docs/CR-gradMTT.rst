@@ -9,7 +9,7 @@ Computes numerical gradient using available threads.
 
 Format
 ----------------
-.. function:: gradMTT(&fct,par1,data1)
+.. function:: g = gradMTT(&fct,par1,data1)
 
     :param &fct: pointer to procedure returning either Nx1 vector or 1x1 scalar.
     :type &fct: scalar

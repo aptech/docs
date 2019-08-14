@@ -9,7 +9,7 @@ Returns a column vector containing the smallest element in each column of a matr
 
 Format
 ----------------
-.. function:: minc(x)
+.. function:: y = minc(x)
 
     :param x: data
     :type x: NxK matrix or sparse matrix

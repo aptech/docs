@@ -10,8 +10,8 @@ Returns the upper portion of a matrix. :func:`upmat` returns the main diagonal a
 
 Format
 ----------------
-.. function:: upmat(x)
-              upmat1(x)
+.. function:: u = upmat(x)
+              u = upmat1(x)
 
     :param x: data
     :type x: NxK matrix

@@ -9,7 +9,7 @@ Converts a scalar into a string containing the decimal character representation 
 
 Format
 ----------------
-.. function:: ftos(x, fmat, field, prec)
+.. function:: y = ftos(x, fmat, field, prec)
 
     :param x: the number to be converted.
     :type x: scalar

@@ -9,7 +9,7 @@ Computes the probability density function for the Cauchy distribution.
 
 Format
 ----------------
-.. function:: pdfCauchy(x, mu, sigma)
+.. function:: y = pdfCauchy(x, mu, sigma)
 
     :param x: data
     :type x: NxK matrix, Nx1 vector or scalar

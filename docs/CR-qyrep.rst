@@ -9,7 +9,7 @@ Computes the orthogonal-triangular (QR) decomposition of a matrix :math:`X` usin
 
 Format
 ----------------
-.. function:: qyrep(y, x, pvt)
+.. function:: { qy, r, e } = qyrep(y, x, pvt)
 
     :param y: data
     :type y: NxL matrix

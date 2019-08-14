@@ -9,7 +9,7 @@ Converts a dense matrix to a sparse matrix.
 
 Format
 ----------------
-.. function:: denseToSp(x, eps)
+.. function:: y = denseToSp(x, eps)
 
     :param x: Dense data matrix.
     :type x: MxN matrix

@@ -9,7 +9,7 @@ Computes the solution of :math:`Ux = b` where :math:`U` is an upper triangular m
 
 Format
 ----------------
-.. function:: utrisol(b, U)
+.. function:: x = utrisol(b, U)
 
     :param b: data
     :type b: PxK matrix

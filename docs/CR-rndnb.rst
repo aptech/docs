@@ -9,7 +9,7 @@ Computes pseudo-random numbers with negative binomial distribution.
 
 Format
 ----------------
-.. function:: rndnb(r, c, k, p)
+.. function:: x = rndnb(r, c, k, p)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

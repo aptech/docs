@@ -8,7 +8,7 @@ Computes the Moore-Penrose pseudo-inverse of a matrix, using the singular value 
 
 Format
 ----------------
-.. function:: pinv(x)
+.. function:: y = pinv(x)
 
     :param x: data
     :type x: NxM matrix

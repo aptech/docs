@@ -9,7 +9,7 @@ Gets the number of variables in a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaVars(filename)
+.. function:: nvars = gdaVars(filename)
 
     :param filename: name of data file.
     :type filename: string

@@ -9,7 +9,7 @@ Copies from one string array to another using a C language format specifier stri
 
 Format
 ----------------
-.. function:: satostrC(sa, fmt)
+.. function:: y = satostrC(sa, fmt)
 
     :param sa: data
     :type sa: NxM string array

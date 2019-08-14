@@ -10,7 +10,7 @@ Removes duplicate elements from a string vector.
 
 Format
 ----------------
-.. function:: uniquesa(sv)
+.. function:: y = uniquesa(sv)
 
     :param sv: data
     :type sv: Nx1 or 1xN string vector

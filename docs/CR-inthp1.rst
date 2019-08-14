@@ -9,7 +9,7 @@ Integrates a user-defined function over an infinite interval.
 
 Format
 ----------------
-.. function:: inthp1(&f, pds, ctl)
+.. function:: y = inthp1(&f, pds, ctl)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar

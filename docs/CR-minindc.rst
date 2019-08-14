@@ -9,7 +9,7 @@ Returns a column vector containing the index (i.e., row number) of the smallest 
 
 Format
 ----------------
-.. function:: minindc(x)
+.. function:: y = minindc(x)
 
     :param x: data
     :type x: NxK matrix

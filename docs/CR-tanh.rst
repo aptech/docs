@@ -9,7 +9,7 @@ Computes the hyperbolic tangent.
 
 Format
 ----------------
-.. function:: tanh(x)
+.. function:: y = tanh(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

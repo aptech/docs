@@ -9,7 +9,7 @@ Returns maximum memory to be used.
 
 Format
 ----------------
-.. function:: maxbytes()
+.. function:: y = maxbytes()
 
     :returns: y (*scalar*), maximum memory to be used.
 

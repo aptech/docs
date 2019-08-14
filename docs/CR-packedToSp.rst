@@ -9,7 +9,7 @@ Creates a sparse matrix from a packed matrix of non-zero values and row and colu
 
 Format
 ----------------
-.. function:: packedToSp(r, c, p)
+.. function:: y = packedToSp(r, c, p)
 
     :param r: rows of output matrix.
     :type r: scalar

@@ -9,7 +9,7 @@ Computes the solution of :math:`Rx = b` where :math:`R` is an upper triangular m
 
 Format
 ----------------
-.. function:: qrsol(b, R)
+.. function:: x = qrsol(b, R)
 
     :param b: data
     :type b: PxL matrix

@@ -9,7 +9,7 @@ Calculates the exponential function.
 
 Format
 ----------------
-.. function:: exp(x)
+.. function:: y = exp(x)
 
     :param x: The values used to compute :math:`e^x`.
     :type x: NxK matrix or N-dimensional array

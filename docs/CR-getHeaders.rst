@@ -9,7 +9,7 @@ Returns the variable names in a dataset as a string array.
 
 Format
 ----------------
-.. function:: getHeaders(fname)
+.. function:: headers = getHeaders(fname)
 
     :param fname: the name of the data file.
     :type fname: string

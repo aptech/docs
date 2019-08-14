@@ -9,8 +9,8 @@ Returns the lower portion of a matrix. :func:`lowmat` returns the main diagonal 
 
 Format
 ----------------
-.. function:: lowmat(x) 
-              lowmat1(x)
+.. function:: L = lowmat(x)
+              L = lowmat1(x)
 
     :param x: data
     :type x: NxN matrix

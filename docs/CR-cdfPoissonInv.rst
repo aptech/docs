@@ -8,7 +8,7 @@ Computes the quantile or inverse Poisson cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfPoissonInv(p, lambda)
+.. function:: x = cdfPoissonInv(p, lambda)
 
     :param p: Probabilities at which to compute the Poisson inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix

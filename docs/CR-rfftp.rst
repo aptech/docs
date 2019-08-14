@@ -9,7 +9,7 @@ Computes a real 1- or 2-D FFT. Returns the results in a packed format.
 
 Format
 ----------------
-.. function:: rfftp(x)
+.. function:: y = rfftp(x)
 
     :param x: data
     :type x: NxK real matrix or K-length real vector

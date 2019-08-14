@@ -11,7 +11,7 @@ Computes the standard Beta function, also called the Euler integral. The beta fu
 
 Format
 ----------------
-.. function:: beta(x,y)
+.. function:: f = beta(x,y)
 
     :param x: may be real or complex
     :type x: scalar or NxK matrix

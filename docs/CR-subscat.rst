@@ -8,7 +8,7 @@ Changes the values in a vector depending on the category a particular element fa
 
 Format
 ----------------
-.. function:: subscat(x, breaks, levels)
+.. function:: y = subscat(x, breaks, levels)
 
     :param x: data
     :type x: Nx1 vector

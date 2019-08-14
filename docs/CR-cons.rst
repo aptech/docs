@@ -9,7 +9,7 @@ Retrieves a character string from the keyboard.
 
 Format
 ----------------
-.. function:: cons()
+.. function:: x = cons()
 
     :returns: **x** (*string*) - the characters entered from the keyboard
 

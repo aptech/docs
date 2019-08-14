@@ -9,7 +9,7 @@ Executes a previously created and prepared query.
 
 Format
 ----------------
-.. function:: dbQueryExecPrepared(qid)
+.. function:: ret = dbQueryExecPrepared(qid)
 
     :param qid: query number.
     :type qid: scalar

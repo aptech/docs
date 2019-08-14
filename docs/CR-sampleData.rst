@@ -9,7 +9,7 @@ Returns a sample of the rows of a matrix, chosen with or without replacement
 
 Format
 ----------------
-.. function:: sampleData(x, size[, replace])
+.. function:: s = sampleData(x, size[, replace])
 
     :param x: population from which to take a sample
     :type x: matrix

@@ -9,9 +9,9 @@ Computes an unbiased estimate of a correlation matrix.
 
 Format
 ----------------
-.. function:: corrm(m)
-              corrvc(vc)
-              corrx(x)
+.. function:: cx = corrm(m)
+              cx = corrvc(vc)
+              cx = corrx(x)
 
     :param m: A constant term MUST have been the first variable when the moment matrix was computed.
     :type m: KxK moment (x'x) matrix

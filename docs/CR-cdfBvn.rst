@@ -8,7 +8,7 @@ Computes the cumulative distribution function of the standardized bivariate Norm
 
 Format
 ----------------
-.. function:: cdfBvn(h, k, r)
+.. function:: c = cdfBvn(h, k, r)
 
     :param h: the upper limits of integration for variable 1.
     :type h: NxK matrix

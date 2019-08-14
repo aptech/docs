@@ -9,7 +9,7 @@ Computes a cross-product matrix. This is the same as x'x.
 
 Format
 ----------------
-.. function:: moment(x, d)
+.. function:: y = moment(x, d)
 
     :param x: data
     :type x: NxK matrix or M-dimensional array where the last two dimensions are NxK

@@ -11,7 +11,7 @@ specified file.
 
 Format
 ----------------
-.. function:: searchsourcepath(fname, srcdir)
+.. function:: fpath = searchsourcepath(fname, srcdir)
 
     :param fname: name of file to search for.
     :type fname: string

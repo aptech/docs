@@ -8,7 +8,7 @@ Computes the Box-Cox function.
 
 Format
 ----------------
-.. function:: boxcox(x, lambda)
+.. function:: y = boxcox(x, lambda)
 
     :param x:
     :type x: MxN matrix or P-dimensional array where the last two dimensions are MxN

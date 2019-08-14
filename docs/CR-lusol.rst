@@ -10,7 +10,7 @@ Computes the solution of :math:`LUx = b` where *L* is a lower triangular
 
 Format
 ----------------
-.. function:: lusol(b, L, U)
+.. function:: x = lusol(b, L, U)
 
     :param b: data
     :type b: PxK matrix

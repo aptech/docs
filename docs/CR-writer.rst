@@ -8,7 +8,7 @@ Writes a matrix to a GAUSS data set.
 
 Format
 ----------------
-.. function:: writer(fh, x)
+.. function:: y = writer(fh, x)
 
     :param fh: handle of the file that data is to be written to
     :type fh: scalar

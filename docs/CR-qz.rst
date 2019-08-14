@@ -9,7 +9,7 @@ Compute the complex QZ, or generalized Schur, form of a pair of real or complex 
 
 Format
 ----------------
-.. function:: qz(A, B[, sort_type])
+.. function:: { S, T, Q, Z } = qz(A, B[, sort_type])
 
     :param A: real or complex general matrix
     :type A: NxN matrix

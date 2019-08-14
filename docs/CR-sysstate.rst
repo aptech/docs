@@ -9,7 +9,7 @@ Gets or sets general system parameters.
 
 Format
 ----------------
-.. function:: sysstate(case, y)
+.. function:: { rets... } = sysstate(case, y)
 
     :param case: , path to set.
     :type case: scalar 2-7

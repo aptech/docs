@@ -8,7 +8,7 @@ Computes the quantile or inverse of noncentral F cumulative distribution functio
 
 Format
 ----------------
-.. function:: cdfFncInv(p, df_n, df_d, nonc)
+.. function:: x = cdfFncInv(p, df_n, df_d, nonc)
 
     :param p: Probabilities at which to compute the inverse of the noncentral F cumulative distribution function. :math:`0 \lt p \lt 1`.
     :type p: NxK matrix, Nx1 vector or scalar

@@ -9,7 +9,7 @@ Returns the current system time.
 
 Format
 ----------------
-.. function:: time()
+.. function:: y = time()
 
     :returns: y (*4x1 numeric vector*), the current time in the
         order: hours, minutes, seconds, and hundredths of a second.

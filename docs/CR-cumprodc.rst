@@ -9,7 +9,7 @@ Computes the cumulative products of the columns of a matrix.
 
 Format
 ----------------
-.. function:: cumprodc(x)
+.. function:: y = cumprodc(x)
 
     :param x:
     :type x: NxK matrix

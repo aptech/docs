@@ -9,7 +9,7 @@ Returns a 1 if the database supports the specified feature.
 
 Format
 ----------------
-.. function:: dbHasFeature(db_id, feature)
+.. function:: ret = dbHasFeature(db_id, feature)
 
     :param db_id: database connection index number.
     :type db_id: scalar

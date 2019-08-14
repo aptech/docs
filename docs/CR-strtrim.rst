@@ -8,7 +8,7 @@ Strips all white space characters from the left and right side of each element i
 
 Format
 ----------------
-.. function:: strtrim(sa)
+.. function:: y = strtrim(sa)
 
     :param sa: data
     :type sa: NxM string array

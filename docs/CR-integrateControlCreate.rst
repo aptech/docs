@@ -9,7 +9,7 @@ Fills an integrateControl structure with default settings.
 
 Format
 ----------------
-.. function:: integrateControlCreate()
+.. function:: c = integrateControlCreate()
 
     :returns: **c** (*struct*) - instance of :class:`integrateControl` struct with members set to default values.
 

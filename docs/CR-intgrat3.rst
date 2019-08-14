@@ -13,7 +13,7 @@ Integrates the following triple integral, using user-defined functions and scala
 
 Format
 ----------------
-.. function:: intgrat3(&f, xl, gl, hl)
+.. function:: y = intgrat3(&f, xl, gl, hl)
 
     :param &f: pointer to the procedure containing the function to be integrated. *f* is a function of *(x, y, z)*.
     :type &f: scalar

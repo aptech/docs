@@ -9,7 +9,7 @@ Executes an SQL statement and creates a query.
 
 Format
 ----------------
-.. function:: dbExecQuery(db_id, sql_statement[, placeholders])
+.. function:: qid = dbExecQuery(db_id, sql_statement[, placeholders])
 
     :param db_id: database connection index number.
     :type db_id: scalar

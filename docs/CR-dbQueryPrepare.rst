@@ -9,7 +9,7 @@ Prepares a SQL query for execution.
 
 Format
 ----------------
-.. function:: dbQueryPrepare(qid, query)
+.. function:: ret = dbQueryPrepare(qid, query)
 
     :param qid: query index number.
     :type qid: scalar

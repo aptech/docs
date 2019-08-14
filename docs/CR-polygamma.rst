@@ -9,7 +9,7 @@ Computes the polygamma function.
 
 Format
 ----------------
-.. function:: polygamma(z, n)
+.. function:: f = polygamma(z, n)
 
     :param z: z may be complex
     :type z: NxK matrix

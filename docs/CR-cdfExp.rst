@@ -8,7 +8,7 @@ Computes the cumulative distribution function for the exponential distribution.
 
 Format
 ----------------
-.. function:: cdfExp(x, loc, m)
+.. function:: y = cdfExp(x, loc, m)
 
     :param x: Values at which to evaluate the exponential cdf. :math:`x > 0`.
     :type x: NxK matrix, Nx1 vector or scalar.

@@ -9,7 +9,7 @@ Solves a system of nonlinear equations.
 
 Format
 ----------------
-.. function:: eqSolve(&F, start)
+.. function:: { x, retcode } = eqSolve(&F, start)
 
     :param &F: a pointer to a procedure which computes the value at *x* of the equations to be solved and returns them in a column vector.
     :type &F: scalar

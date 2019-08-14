@@ -9,7 +9,7 @@ Formats an elapsed time measured in hundredths of a second to a string.
 
 Format
 ----------------
-.. function:: etstr(tothsecs)
+.. function:: str = etstr(tothsecs)
 
     :param tothsecs: an elapsed time measured in hundredths of a second, as given, for instance, by the
         :func:`ethsec` function.

@@ -9,8 +9,8 @@ Computes a least squares regression.
 
 Format
 ----------------
-.. function:: olsmt(dataset, formula[, oc0])
-              olsmt(dataset, depvar, indvars[, oc0])
+.. function:: oout = olsmt(dataset, formula[, oc0])
+              oout = olsmt(dataset, depvar, indvars[, oc0])
 
     :param dataset: name of data set or null string.
         If *dataset* is a null string, the procedure assumes that the actual data has been passed in the next two arguments.

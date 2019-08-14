@@ -8,7 +8,7 @@ Returns the length of a string.
 
 Format
 ----------------
-.. function:: strlen(x)
+.. function:: y = strlen(x)
 
     :param x: data
     :type x: string or NxK matrix of character data, or NxK string array.

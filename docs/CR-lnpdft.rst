@@ -9,7 +9,7 @@ Computes Student's t log-probabilities.
 
 Format
 ----------------
-.. function:: lnpdft(x, nu)
+.. function:: z = lnpdft(x, nu)
 
     :param x: data
     :type x: NxK matrix

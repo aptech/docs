@@ -9,7 +9,7 @@ Computes trigamma function.
 
 Format
 ----------------
-.. function:: trigamma(x)
+.. function:: y = trigamma(x)
 
     :param x: data
     :type x: MxN matrix or N-dimensional array

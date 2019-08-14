@@ -9,7 +9,7 @@ Converts a string array to a complex numeric matrix.
 
 Format
 ----------------
-.. function:: strtofcplx(sa)
+.. function:: x = strtofcplx(sa)
 
     :param sa: numeric data
     :type sa: NxK string array

@@ -8,7 +8,7 @@ Attempts to solve the system of linear equations :math:`Ax = b` using the conjug
 
 Format
 ----------------
-.. function:: spConjGradSol(a, b, epsilon, maxit)
+.. function:: x = spConjGradSol(a, b, epsilon, maxit)
 
     :param a: NxN symmetric sparse matrix.
     :type a: sparse matrix

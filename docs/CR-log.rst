@@ -9,7 +9,7 @@ Computes the log of all elements of *x*.
 
 Format
 ----------------
-.. function:: log(x)
+.. function:: y = log(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

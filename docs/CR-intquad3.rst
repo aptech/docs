@@ -9,7 +9,7 @@ Integrates a specified function using Gauss-Legendre quadrature. A suite of uppe
 
 Format
 ----------------
-.. function:: intquad3(&f, xlims, ylims, zlims, ...)
+.. function:: y = intquad3(&f, xlims, ylims, zlims, ...)
 
     :param &f: pointer to the procedure containing the function to be integrated. *f* is a function of :math:`(x, y, z)`.
     :type &f: scalar

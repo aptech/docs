@@ -8,7 +8,7 @@ Solves the system of equations :math:`Ax = b` for *x*, where *A* is a lower tria
 
 Format
 ----------------
-.. function:: bandltsol(b, A)
+.. function:: x = bandltsol(b, A)
 
     :param b:
     :type b: KxM matrix

@@ -8,7 +8,7 @@ Extracts a substring of a string.
 
 Format
 ----------------
-.. function:: strsect(str, start, len)
+.. function:: y = strsect(str, start, len)
 
     :param str: data from which the segment is to be obtained
     :type str: string or scalar

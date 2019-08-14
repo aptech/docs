@@ -8,7 +8,7 @@ Saves matrices, N-dimensional arrays, strings and string arrays to a disk file.
 
 Format
 ----------------
-.. function:: datasave(filename, x)
+.. function:: ret = datasave(filename, x)
 
     :param filename: name of data file.
     :type filename: string

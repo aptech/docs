@@ -9,7 +9,7 @@ Computes the products of all elements in each column of a matrix.
 
 Format
 ----------------
-.. function:: prodc(x)
+.. function:: y = prodc(x)
 
     :param x: dat
     :type x: NxK matrix

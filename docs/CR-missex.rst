@@ -10,7 +10,7 @@ expression.
 
 Format
 ----------------
-.. function:: missex(x, mask)
+.. function:: y = missex(x, mask)
 
     :param x: data
     :type x: NxK matrix

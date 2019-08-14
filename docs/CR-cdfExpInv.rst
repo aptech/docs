@@ -8,7 +8,7 @@ Computes the exponential inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfExpInv(p, loc, m)
+.. function:: y = cdfExpInv(p, loc, m)
 
     :param p: Probabilities at which to compute the inverse of the exponential cumulative distribution function. :math:`0 \lt p \lt 1`.
     :type p: NxK matrix, Nx1 vector or scalar

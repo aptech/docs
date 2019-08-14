@@ -8,7 +8,7 @@ Converts a string to floating point.
 
 Format
 ----------------
-.. function:: stof(x)
+.. function:: y = stof(x)
 
     :param x: character elements to be converted
     :type x: string or NxK matrix

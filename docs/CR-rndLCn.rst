@@ -10,7 +10,7 @@ Returns a matrix of standard normal (pseudo) random variables and the state of t
 
 Format
 ----------------
-.. function:: rndLCn(r, c, state)
+.. function:: { y, newstate } = rndLCn(r, c, state)
 
     :param r: row dimension.
     :type r: scalar

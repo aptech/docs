@@ -9,7 +9,7 @@ Packs general matrix or array into a :class:`PV` instance with name and index.
 
 Format
 ----------------
-.. function:: pvPacki(p1, x, nm, i)
+.. function:: p1 = pvPacki(p1, x, nm, i)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

@@ -9,7 +9,7 @@ Sets the numeric data format used by :func:`printfmt`.
 
 Format
 ----------------
-.. function:: formatnv(newfmt)
+.. function:: oldfmt = formatnv(newfmt)
 
     :param newfmt: the new format specification.
     :type newfmt: 1x3 vector

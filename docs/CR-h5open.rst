@@ -8,7 +8,7 @@ Open an HDF5 dataset and returns a file handle.
 
 Format
 ----------------
-.. function:: h5open(fname, dname, mode)
+.. function:: fh = h5open(fname, dname, mode)
 
     :param fname: a name of HDF5 file to open.
     :type fname: string

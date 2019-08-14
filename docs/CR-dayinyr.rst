@@ -8,7 +8,7 @@ Returns day number in the year of a given date.
 
 Format
 ----------------
-.. function:: dayinyr(dt)
+.. function:: daynum = dayinyr(dt)
 
     :param dt: A date in a 4-element column vector, in the order: year, month, day, and hundredths of a second since midnight. Same format as the :func:`date` function return.
     :type dt: 3x1 or 4x1 vector

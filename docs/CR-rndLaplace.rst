@@ -9,7 +9,7 @@ Computes Laplacian pseudo-random numbers with the choice of underlying random nu
 
 Format
 ----------------
-.. function:: rndLaplace(r, c, loc, scale[, state])
+.. function:: { x, newstate } = rndLaplace(r, c, loc, scale[, state])
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

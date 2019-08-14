@@ -8,7 +8,7 @@ Computes the reduced row echelon form of a matrix.
 
 Format
 ----------------
-.. function:: rref(x)
+.. function:: y = rref(x)
 
     :param x: data
     :type x: MxN matrix

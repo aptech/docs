@@ -9,7 +9,7 @@ Opens a data set.
 
 Format
 ----------------
-.. function:: dataopen(filename, mode)
+.. function:: fh = dataopen(filename, mode)
 
     :param filename: name of data file.
     :type filename: string

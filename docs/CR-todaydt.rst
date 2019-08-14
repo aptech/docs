@@ -10,7 +10,7 @@ always midnight (00:00:00), the beginning of the returned day.
 
 Format
 ----------------
-.. function:: todaydt()
+.. function:: dt = todaydt()
 
     :returns: dt (*scalar*), system date in DT scalar format.
 

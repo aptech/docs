@@ -8,7 +8,7 @@ Computes Poisson pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndKMp(r, c, lambda, state)
+.. function:: { x, newstate } = rndKMp(r, c, lambda, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

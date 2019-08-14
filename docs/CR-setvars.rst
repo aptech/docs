@@ -10,7 +10,7 @@ matrices with the same names.
 
 Format
 ----------------
-.. function:: setvars(dataset)
+.. function:: nvec = setvars(dataset)
 
     :param dataset: the name of the GAUSS data set. Do not use a file extension.
     :type dataset: string

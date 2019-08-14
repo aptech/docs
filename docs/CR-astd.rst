@@ -8,7 +8,7 @@ Computes the standard deviation of the elements across one dimension of an N-dim
 
 Format
 ----------------
-.. function:: astd(x, dim)
+.. function:: y = astd(x, dim)
 
     :param x:
     :type x: N-dimensional array

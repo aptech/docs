@@ -10,7 +10,7 @@ Purpose
 
 Format
 ----------------
-.. function:: contains(haystack, needles)
+.. function:: found = contains(haystack, needles)
 
     :param haystack: The symbol to search.
     :type haystack: matrix, N-dimensional array or string array

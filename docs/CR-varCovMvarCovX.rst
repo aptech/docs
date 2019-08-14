@@ -8,8 +8,8 @@ Computes the population variance-covariance matrix.
 
 Format
 ----------------
-.. function:: varCovM(mm) 
-              varCovX(x)
+.. function:: vc = varCovM(mm)
+              vc = varCovX(x)
 
     :param mm: A constant term MUST have been the first variable when the moment matrix was computed.
     :type mm: KxK moment (:math:`x'x`) matrix

@@ -9,7 +9,7 @@ Returns the full path to the GAUSS home directory.
 
 Format
 ----------------
-.. function:: getGAUSSHome()
+.. function:: g_home = getGAUSSHome()
 
     :returns: **g_home** (*string*) - full path to GAUSS home directory.
 

@@ -9,7 +9,7 @@ Checks one character vector against another and returns the indices of the eleme
 
 Format
 ----------------
-.. function:: indcv(what, where)
+.. function:: z = indcv(what, where)
 
     :param what: contains the elements to be found in vector *where*
     :type what: Nx1 character vector

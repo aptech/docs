@@ -9,7 +9,7 @@ Computes an inverse 1- or 2-D Fast Fourier transform.
 
 Format
 ----------------
-.. function:: ffti(x)
+.. function:: y = ffti(x)
 
     :param x: The values used to compute the inverse Fast Fourier transform.
     :type x: NxK matrix

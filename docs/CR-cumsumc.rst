@@ -9,7 +9,7 @@ Computes the cumulative sums of the columns of a matrix.
 
 Format
 ----------------
-.. function:: cumsumc(x)
+.. function:: y = cumsumc(x)
 
     :param x:
     :type x: NxK matrix

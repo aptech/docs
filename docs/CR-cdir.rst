@@ -9,7 +9,7 @@ Returns the current directory.
 
 Format
 ----------------
-.. function:: cdir(s)
+.. function:: y = cdir(s)
 
     :param s: A null string, or a scalar 0.
     :type s: string, or scalar

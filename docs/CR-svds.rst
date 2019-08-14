@@ -8,7 +8,7 @@ Computes the singular values of a *x*.
 
 Format
 ----------------
-.. function:: svds(x)
+.. function:: s = svds(x)
 
     :param x: NxP matrix or K-dimensional array where the last two dimensions are NxP, whose singular values are to be computed.
     :type x: matrix or array

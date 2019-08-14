@@ -9,7 +9,7 @@ Computes the probability mass function for the hypergeometric distribution.
 
 Format
 ----------------
-.. function:: pdfHyperGeo(x, m, k, n)
+.. function:: p = pdfHyperGeo(x, m, k, n)
 
     :param x: must be a positive number and < *m*
     :type x: NxK matrix, Nx1 vector or scalar

@@ -9,7 +9,7 @@ Computes numerical Hessian with weights.
 
 Format
 ----------------
-.. function:: hessMTw(&fct, par1, data1, wgts)
+.. function:: h = hessMTw(&fct, par1, data1, wgts)
 
     :param &fct: pointer to procedure returning Nx1 vector.
     :type &fct: scalar

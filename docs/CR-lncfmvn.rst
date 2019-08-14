@@ -9,7 +9,7 @@ Computes natural log of multivariate Normal cumulative distribution function.
 
 Format
 ----------------
-.. function:: lncdfmvn(x, r)
+.. function:: y = lncdfmvn(x, r)
 
     :param x: abscissae.
     :type x: KxL matrix

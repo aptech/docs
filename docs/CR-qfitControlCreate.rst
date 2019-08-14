@@ -9,7 +9,7 @@ Creates default :class:`qfitControl` structure.
 
 Format
 ----------------
-.. function:: qfitControlCreate()
+.. function:: qctl = qfitControlCreate()
 
     :returns: qctl (*struct*) instance of :class:`qfitControl` struct with members set to default values.
 

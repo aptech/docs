@@ -9,7 +9,7 @@ Computes the solution to a system of linear equations given a factorized matrix 
 
 Format
 ----------------
-.. function:: ldlsol(b, ldl_factor)
+.. function:: x = ldlsol(b, ldl_factor)
 
     :param b: the right hand sides of the system of linear equations.
     :type b: Nx1 vector or NxK matrix

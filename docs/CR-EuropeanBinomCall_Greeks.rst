@@ -9,7 +9,7 @@ Computes Delta, Gamma, Theta, Vega, and Rho for European call options using bino
 
 Format
 ----------------
-.. function:: EuropeanBinomCall_Greeks(S0, K, r, div, tau, sigma, N)
+.. function:: { d, g, t, v, rh } = EuropeanBinomCall_Greeks(S0, K, r, div, tau, sigma, N)
 
     :param S0: current price.
     :type S0: scalar

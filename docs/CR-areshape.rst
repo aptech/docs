@@ -8,7 +8,7 @@ Reshapes a scalar, matrix, or array into an array of user-specified size.
 
 Format
 ----------------
-.. function:: areshape(x, orders)
+.. function:: y = areshape(x, orders)
 
     :param x:
     :type x: scalar or matrix or N-dimensional array.

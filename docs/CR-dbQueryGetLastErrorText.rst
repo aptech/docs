@@ -9,7 +9,7 @@ Returns error information about the last error that occurred (if any) with the l
 
 Format
 ----------------
-.. function:: dbQueryGetLastErrorText()
+.. function:: err_txt = dbQueryGetLastErrorText()
 
     :returns: **err_txt** (*2x1 string array*) - database and driver text of last error.
 

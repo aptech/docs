@@ -9,7 +9,7 @@ Checks one numeric vector against another and returns the indices of the element
 
 Format
 ----------------
-.. function:: indnv(what, where)
+.. function:: z = indnv(what, where)
 
     :param what: contains the values to be found in vector *where*
     :type what: Nx1 numeric vector

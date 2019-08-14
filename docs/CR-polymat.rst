@@ -9,7 +9,7 @@ Returns a matrix containing the powers of the elements of x from 1 to p.
 
 Format
 ----------------
-.. function:: polymat(x, p)
+.. function:: y = polymat(x, p)
 
     :param x: data
     :type x: NxK matrix

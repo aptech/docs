@@ -11,7 +11,7 @@ Solves :math:`Ax = b` using the inverse function.
 
 Format
 ----------------
-.. function:: linsolve(b, A)
+.. function:: x = linsolve(b, A)
 
     :param b: data
     :type b: NxK matrix

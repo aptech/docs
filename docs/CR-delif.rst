@@ -11,7 +11,7 @@ row of *e*.
 
 Format
 ----------------
-.. function:: delif(x, e)
+.. function:: y = delif(x, e)
 
     :param x: data
     :type x: NxK matrix

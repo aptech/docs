@@ -8,7 +8,7 @@ Computes implied volatilities for American call options using the binomial metho
 
 Format
 ----------------
-.. function:: AmericanBinomCall_ImpVol(c, S0, K, r, div, tau, N)
+.. function:: sigma = AmericanBinomCall_ImpVol(c, S0, K, r, div, tau, N)
 
     :param c: call premiums
     :type c: Mx1 vector

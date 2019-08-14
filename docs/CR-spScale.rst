@@ -8,7 +8,7 @@ Scales a sparse matrix.
 
 Format
 ----------------
-.. function:: spScale(x)
+.. function:: { a, r, s } = spScale(x)
 
     :param x: data
     :type x: MxN sparse matrix

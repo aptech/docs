@@ -11,7 +11,7 @@ vector or string array.
 
 Format
 ----------------
-.. function:: typecv(x)
+.. function:: y = typecv(x)
 
     :param x: contains the names of variables whose type is to be determined.
     :type x: string or Nx1 character vector or string array

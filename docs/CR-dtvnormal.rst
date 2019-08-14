@@ -9,7 +9,7 @@ Normalizes a date and time (DTV) vector.
 
 Format
 ----------------
-.. function:: dtvnormal(t)
+.. function:: d = dtvnormal(t)
 
     :param t: 1x8 date and time vector that has one or more elements outside the normal range.
     :type t: matrix

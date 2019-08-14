@@ -9,7 +9,7 @@ Returns the number of columns in a GAUSS data (.dat) file or GAUSS matrix (.fmt)
 
 Format
 ----------------
-.. function:: colsf(fh)
+.. function:: yf = colsf(fh)
 
     :param fh: file handle of an open file
     :type fh: scalar

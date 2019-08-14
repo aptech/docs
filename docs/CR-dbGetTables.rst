@@ -9,7 +9,7 @@ Returns the database's tables, system tables and views.
 
 Format
 ----------------
-.. function:: dbGetTables(db_id[, type])
+.. function:: tables = dbGetTables(db_id[, type])
 
     :param db_id: database connection index number.
     :type db_id: scalar

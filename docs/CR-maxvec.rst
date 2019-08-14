@@ -9,7 +9,7 @@ Returns maximum vector length allowed.
 
 Format
 ----------------
-.. function:: maxvec()
+.. function:: y = maxvec()
 
     :returns: y (*scalar*), maximum vector length.
 

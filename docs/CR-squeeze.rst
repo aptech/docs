@@ -8,7 +8,7 @@ Remove any singleton dimensions from a multi-dimensional array.
 
 Format
 ----------------
-.. function:: squeeze(a)
+.. function:: atrim = squeeze(a)
 
     :param a: data
     :type a: Multi-dimensional array

@@ -9,7 +9,7 @@ Computes the cumulative distribution function
 
 Format
 ----------------
-.. function:: cdfEmpirical(x[, bins])
+.. function:: { f, break_points } = cdfEmpirical(x[, bins])
 
     :param x: Data vector.
     :type x: Nx1 vector

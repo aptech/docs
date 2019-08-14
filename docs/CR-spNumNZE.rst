@@ -8,7 +8,7 @@ Returns the number of non-zero elements in a sparse matrix.
 
 Format
 ----------------
-.. function:: spNumNZE(x)
+.. function:: n = spNumNZE(x)
 
     :param x: data
     :type x: MxN sparse matrix

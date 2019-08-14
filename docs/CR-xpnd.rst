@@ -8,7 +8,7 @@ Expands a column vector into a symmetric matrix.
 
 Format
 ----------------
-.. function:: xpnd(v)
+.. function:: x = xpnd(v)
 
     :param v: data to be expanded into a symmetric matrix.
     :type v: Kx1 vector

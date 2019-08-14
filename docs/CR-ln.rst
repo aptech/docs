@@ -9,7 +9,7 @@ Computes the natural log of all elements of *x*.
 
 Format
 ----------------
-.. function:: ln(x)
+.. function:: y = ln(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

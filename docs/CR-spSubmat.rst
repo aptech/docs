@@ -8,7 +8,7 @@ Returns a sparse submatrix of a sparse matrix.
 
 Format
 ----------------
-.. function:: spSubmat(x, rinds, cinds)
+.. function:: y = spSubmat(x, rinds, cinds)
 
     :param x: data
     :type x: MxN sparse matrix

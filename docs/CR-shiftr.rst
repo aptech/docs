@@ -8,7 +8,7 @@ Shifts the rows of a matrix.
 
 Format
 ----------------
-.. function:: shiftr(x, s, f)
+.. function:: y = shiftr(x, s, f)
 
     :param x: data to be shifted
     :type x: NxK matrix 

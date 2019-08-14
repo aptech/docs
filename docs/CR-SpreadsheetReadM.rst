@@ -9,7 +9,7 @@ Reads and writes Excel files.
 
 Format
 ----------------
-.. function:: spreadSheetReadM(file[, range[, sheet]])
+.. function:: x = spreadSheetReadM(file[, range[, sheet]])
 
     :param file: name of *.xls*, or *.xlsx* file.
     :type file: string

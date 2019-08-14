@@ -9,8 +9,8 @@ Computes a least squares regression.
 
 Format
 ----------------
-.. function:: ols(dataset, depvar, indvars) 
-              ols(dataset, formula)
+.. function:: { vnam, m, b, stb, vc, stderr, sigma, cx, rsq, resid, dwstat } = ols(dataset, depvar, indvars)
+              { vnam, m, b, stb, vc, stderr, sigma, cx, rsq, resid, dwstat } = ols(dataset, formula)
 
     :param dataset: name of data set or null string.
 

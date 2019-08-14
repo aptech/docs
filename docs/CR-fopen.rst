@@ -9,7 +9,7 @@ Opens a file.
 
 Format
 ----------------
-.. function:: fopen(filename, omode)
+.. function:: f = fopen(filename, omode)
 
     :param filename: name of file to open, can contain a path specification.
     :type filename: string

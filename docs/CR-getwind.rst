@@ -17,7 +17,7 @@ pgraph
 Format
 ----------------
 
-.. function:: getwind()
+.. function:: n = getwind()
 
     :returns: **n** (*scalar*) - graphic panel number of current graphic panel.
 

@@ -8,8 +8,8 @@ Purpose
 
 Format
 ----------------
-.. function:: clusterSE(x, grp, resid[, const[, verbose[, var_names]]])
-              clusterSE(dataset, formula, grp_var, resid[, const[, verbose[, var_names]]])
+.. function:: vce_cluster = clusterSE(x, grp, resid[, const[, verbose[, var_names]]])
+              vce_cluster = clusterSE(dataset, formula, grp_var, resid[, const[, verbose[, var_names]]])
 
     :param x: independent regression variables, should not include a const.
     :type x: NxK matrix

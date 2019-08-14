@@ -9,7 +9,7 @@ Calculates an Nth order polynomial interpolation.
 
 Format
 ----------------
-.. function:: polyint(xa, ya, x)
+.. function:: y = polyint(xa, ya, x)
 
     :param xa: x values.
     :type xa: Nx1 vector

@@ -9,7 +9,7 @@ Reports whether a specified database connection is open.
 
 Format
 ----------------
-.. function:: dbIsOpen(db_id)
+.. function:: ret = dbIsOpen(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

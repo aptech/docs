@@ -9,7 +9,7 @@ Reads part of a variable from a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaReadSome(filename, varname, index, orders)
+.. function:: y = gdaReadSome(filename, varname, index, orders)
 
     :param filename: name of data file.
     :type filename: string

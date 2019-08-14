@@ -9,7 +9,7 @@ Computes the mean across one dimension of an N-dimensional array.
 
 Format
 ----------------
-.. function:: amean(x, dim)
+.. function:: y = amean(x, dim)
 
     :param x:
     :type x: N-dimensional array.

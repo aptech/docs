@@ -9,7 +9,7 @@ Truncates the right side of all elements of a string array by a user-specified n
 
 Format
 ----------------
-.. function:: strtruncr(sa, ntrunc)
+.. function:: y = strtruncr(sa, ntrunc)
 
     :param sa: data
     :type sa: NxM or Nx1, 1xM, or 1x1 string array.

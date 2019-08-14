@@ -9,7 +9,7 @@ Creates a matrix of ones.
 
 Format
 ----------------
-.. function:: ones(r, c)
+.. function:: y = ones(r, c)
 
     :param r: number of rows.
     :type r: scalar

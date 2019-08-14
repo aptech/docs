@@ -9,7 +9,7 @@ Returns a column vector containing the largest element in each column of a matri
 
 Format
 ----------------
-.. function:: maxc(x)
+.. function:: y = maxc(x)
 
     :param x: data
     :type x: NxK matrix or sparse matrix

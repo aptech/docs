@@ -9,7 +9,7 @@ Creates a matrix in DT scalar format.
 
 Format
 ----------------
-.. function:: dtdate(year, month, day, hour, minute, second)
+.. function:: dt = dtdate(year, month, day, hour, minute, second)
 
     :param year: Years
     :type year: NxK matrix

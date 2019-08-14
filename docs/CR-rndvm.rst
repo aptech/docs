@@ -9,7 +9,7 @@ Computes von Mises pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndvm(r, c, m, k)
+.. function:: x = rndvm(r, c, m, k)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

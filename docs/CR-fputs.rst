@@ -9,7 +9,7 @@ Writes strings to a file.
 
 Format
 ----------------
-.. function:: fputs(f, sa)
+.. function:: numl = fputs(f, sa)
 
     :param f: file handle of a file opened with :func:`fopen`.
     :type f: scalar

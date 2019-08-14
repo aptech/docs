@@ -9,7 +9,7 @@ Computes the Psi (or Digamma) function.
 
 Format
 ----------------
-.. function:: psi(z)
+.. function:: f = psi(z)
 
     :param z: data. *z* may be complex
     :type z: NxK matrix

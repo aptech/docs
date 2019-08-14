@@ -11,7 +11,7 @@ length.
 
 Format
 ----------------
-.. function:: strtruncpad(sa, maxlen)
+.. function:: y = strtruncpad(sa, maxlen)
 
     :param sa: data
     :type sa: NxK string array

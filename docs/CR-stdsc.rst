@@ -8,7 +8,7 @@ Computes the standard deviation of the elements in each column of a matrix.
 
 Format
 ----------------
-.. function:: stdsc(x)
+.. function:: y = stdsc(x)
 
     :param x: data
     :type x: NxK matrix

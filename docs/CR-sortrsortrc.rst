@@ -8,8 +8,8 @@ Sorts the columns of a matrix of numeric or character data, with respect to a sp
 
 Format
 ----------------
-.. function:: sortr(x, r)
-              sortrc(x, r)
+.. function:: y = sortr(x, r)
+              y = sortrc(x, r)
 
     :param x: data
     :type x: NxK matrix

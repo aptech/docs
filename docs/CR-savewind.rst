@@ -16,7 +16,7 @@ pgraph
 
 Format
 ----------------
-.. function:: savewind(filename)
+.. function:: err = savewind(filename)
 
     :param filename: name of file.
     :type filename: string

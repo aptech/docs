@@ -9,7 +9,7 @@ Solves the system of equations :math:`Ax = b` for *x*, where *A* is a positive d
 
 Format
 ----------------
-.. function:: bandsolpd(b, A)
+.. function:: x = bandsolpd(b, A)
 
     :param b:
     :type b: KxM matrix

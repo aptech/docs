@@ -9,7 +9,7 @@ Round to the nearest integer.
 
 Format
 ----------------
-.. function:: round(x)
+.. function:: y = round(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

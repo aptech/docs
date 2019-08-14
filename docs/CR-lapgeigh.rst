@@ -9,7 +9,7 @@ Computes generalized eigenvalues for a pair of real symmetric or Hermitian matri
 
 Format
 ----------------
-.. function:: lapgeigh(A, B)
+.. function:: ve = lapgeigh(A, B)
 
     :param A: real or complex symmetric or Hermitian matrix.
     :type A: NxN matrix

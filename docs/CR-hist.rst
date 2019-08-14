@@ -16,7 +16,7 @@ pgraph
 
 Format
 ----------------
-.. function:: hist(x, v)
+.. function:: { b, m, freq } = hist(x, v)
 
     :param x: data
     :type x: Mx1 vector

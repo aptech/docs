@@ -8,7 +8,7 @@ Replace all matches of a substring with a replacement string.
 
 Format
 ----------------
-.. function:: strreplace(str, search, replace)
+.. function:: str_new = strreplace(str, search, replace)
 
     :param str: to be searched and modified.
     :type str: string

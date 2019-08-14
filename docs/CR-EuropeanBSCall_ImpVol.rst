@@ -9,7 +9,7 @@ Computes implied volatilities for European call options using Black, Scholes, an
 
 Format
 ----------------
-.. function:: EuropeanBSCall_ImpVol(c, S0, K, r, div, tau)
+.. function:: sigma = EuropeanBSCall_ImpVol(c, S0, K, r, div, tau)
 
     :param c: call premiums.
     :type c: Mx1 vector

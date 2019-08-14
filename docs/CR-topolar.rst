@@ -8,7 +8,7 @@ Converts from Cartesian to polar coordinates.
 
 Format
 ----------------
-.. function:: topolar(xy)
+.. function:: { r, theta } = topolar(xy)
 
     :param xy: NxK complex matrix containing the *x* coordinate in the real part and the *y* coordinate in the imaginary part
     :type xy: complex matrix

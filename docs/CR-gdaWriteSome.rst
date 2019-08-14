@@ -9,7 +9,7 @@ Overwrites part of a variable in a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaWriteSome(filename, x, varname, index)
+.. function:: ret = gdaWriteSome(filename, x, varname, index)
 
     :param filename: name of data file.
     :type filename: string

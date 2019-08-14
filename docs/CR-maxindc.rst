@@ -9,7 +9,7 @@ Returns a column vector containing the index (i.e., row number) of the maximum e
 
 Format
 ----------------
-.. function:: maxindc(x)
+.. function:: y = maxindc(x)
 
     :param x: data
     :type x: NxK matrix

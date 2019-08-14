@@ -9,7 +9,7 @@ Prices European call options using binomial method.
 
 Format
 ----------------
-.. function:: EuropeanBinomCall(S0, K, r, div, tau, sigma, N)
+.. function:: c = EuropeanBinomCall(S0, K, r, div, tau, sigma, N)
 
     :param S0: current price.
     :type S0: scalar

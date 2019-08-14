@@ -9,7 +9,7 @@ Converts DT scalar format to DTV vector format.
 
 Format
 ----------------
-.. function:: dttodtv(dt)
+.. function:: dtv = dttodtv(dt)
 
     :param dt: DT scalar format.
     :type dt: Nx1 vector

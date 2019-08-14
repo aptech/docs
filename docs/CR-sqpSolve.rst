@@ -8,7 +8,7 @@ Solves the nonlinear programming problem using a sequential quadratic programmin
 
 Format
 ----------------
-.. function:: sqpSolve(&fct, start)
+.. function:: { x, f, lagr, retcode } = sqpSolve(&fct, start)
 
     :param &fct: pointer to a procedure that computes the function to be minimized. This procedure must have one input
         argument, a vector of parameter values, and one output argument, the value of the function evaluated

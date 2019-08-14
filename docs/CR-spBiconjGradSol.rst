@@ -9,7 +9,7 @@ Attempts to solve the system of linear equations :math:`AxK = b` using the bicon
 
 Format
 ----------------
-.. function:: spBiconjGradSol(a, b, epsilon, maxit)
+.. function:: x = spBiconjGradSol(a, b, epsilon, maxit)
 
     :param a: NxN sparse matrix.
     :type a: sparse matrix

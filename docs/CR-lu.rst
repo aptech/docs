@@ -10,7 +10,7 @@ Computes the LU decomposition of a square matrix with partial
 
 Format
 ----------------
-.. function:: lu(x)
+.. function:: { l, u } = lu(x)
 
     :param x: square nonsingular matrix
     :type x: NxN matrix

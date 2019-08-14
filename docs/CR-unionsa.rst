@@ -9,7 +9,7 @@ Returns the union of two string vectors with duplicates removed.
 
 Format
 ----------------
-.. function:: unionsa(sv1, sv2)
+.. function:: y = unionsa(sv1, sv2)
 
     :param sv1: data
     :type sv1: Nx1 or 1xN string vector

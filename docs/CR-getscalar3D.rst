@@ -9,7 +9,7 @@ Gets a scalar from a 3-dimensional array.
 
 Format
 ----------------
-.. function:: getscalar3D(a, i1, i2, i3)
+.. function:: y = getscalar3D(a, i1, i2, i3)
 
     :param a: Data
     :type a: 3-dimensional array

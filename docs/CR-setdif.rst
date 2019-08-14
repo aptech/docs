@@ -9,7 +9,7 @@ Returns the unique elements in one vector that are not present in a second vecto
 
 Format
 ----------------
-.. function:: setdif(v1, v2[, typ])
+.. function:: y = setdif(v1, v2[, typ])
 
     :param v1: data
     :type v1: Nx1 vector

@@ -9,7 +9,7 @@ Computes sample partial autocorrelations.
 
 Format
 ----------------
-.. function:: pacf(y, k, d)
+.. function:: rk = pacf(y, k, d)
 
     :param y: data
     :type y: Nx1 vector

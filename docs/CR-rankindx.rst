@@ -8,7 +8,7 @@ Returns the vector of ranks of a vector.
 
 Format
 ----------------
-.. function:: rankindx(x, flag)
+.. function:: y = rankindx(x, flag)
 
     :param x: data
     :type x: Nx1 vector

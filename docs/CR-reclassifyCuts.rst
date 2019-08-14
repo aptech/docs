@@ -8,7 +8,7 @@ Replaces values of a matrix or array within specified ranges
 
 Format
 ----------------
-.. function:: reclassifyCuts(x, cut_pts, close_right)
+.. function:: x_new = reclassifyCuts(x, cut_pts, close_right)
 
     :param x: string array or NxKxP array to be recoded (changed)
     :type x: NxK matrix

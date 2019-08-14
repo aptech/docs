@@ -9,7 +9,7 @@ Returns the name of the connection's database driver.
 
 Format
 ----------------
-.. function:: dbGetDriverName(db_id)
+.. function:: driver_name = dbGetDriverName(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

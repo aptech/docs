@@ -9,7 +9,7 @@ Process an SQL statement and prepare a query. If placeholders is present, these 
 
 Format
 ----------------
-.. function:: dbCreateQuery(db_id[, query[, placeholders]])
+.. function:: qid = dbCreateQuery(db_id[, query[, placeholders]])
 
     :param db_id: database connection index number.
     :type db_id: scalar

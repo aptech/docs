@@ -9,7 +9,7 @@ Flushes a file's output buffer.
 
 Format
 ----------------
-.. function:: fflush(fh)
+.. function:: ret = fflush(fh)
 
     :param fh: file handle of a file opened with :func:`fopen`.
     :type fh: scalar

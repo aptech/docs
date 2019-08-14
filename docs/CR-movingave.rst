@@ -9,7 +9,7 @@ Computes moving average of a series.
 
 Format
 ----------------
-.. function:: movingave(x, d)
+.. function:: y = movingave(x, d)
 
     :param x: data
     :type x: NxK matrix

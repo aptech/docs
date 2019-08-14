@@ -9,7 +9,7 @@ Generates names for parameter vector stored in structure of type :class:`PV`.
 
 Format
 ----------------
-.. function:: pvGetParNames(p1)
+.. function:: s = pvGetParNames(p1)
 
     :param p1: an instance of structure of type *PV*
     :type p1: struct

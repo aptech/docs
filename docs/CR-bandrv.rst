@@ -8,7 +8,7 @@ Creates a symmetric banded matrix, given its compact form.
 
 Format
 ----------------
-.. function:: bandrv(a)
+.. function:: y = bandrv(a)
 
     :param a:
     :type a: KxN compact form matrix

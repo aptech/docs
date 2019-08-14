@@ -8,7 +8,7 @@ Computes the :math:`LDL` decomposition of a symmetric sparse matrix *A*.
 
 Format
 ----------------
-.. function:: spLDL(a)
+.. function:: { l, d } = spLDL(a)
 
     :param a: NxN symmetric sparse matrix.
     :type a: sparse matrix

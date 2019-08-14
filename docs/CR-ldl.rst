@@ -9,7 +9,7 @@ Returns the *L* and *D* factors of the LDL' (or LDLT) factorization of a real sy
 
 Format
 ----------------
-.. function:: ldl(A)
+.. function:: { L, D } = ldl(A)
 
     :param A: data
     :type A: NxN real symmetric matrix

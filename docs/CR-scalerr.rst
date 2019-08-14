@@ -8,7 +8,7 @@ Tests for a scalar error code.
 
 Format
 ----------------
-.. function:: scalerr(c)
+.. function:: y = scalerr(c)
 
     :param c: generally the return argument of a function or procedure call.
     :type c: NxK matrix or sparse matrix or N-dimensional array

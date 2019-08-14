@@ -9,7 +9,7 @@ Computes eigenvalues only of a real symmetric or complex Hermitian matrix select
 
 Format
 ----------------
-.. function:: lapeighi(x, il, iu, abstol)
+.. function:: ve = lapeighi(x, il, iu, abstol)
 
     :param x: real symmetric or complex Hermitian.
     :type x: NxN matrix

@@ -10,7 +10,7 @@ Computes the orthogonal-triangular (QR) decomposition of a matrix *x*, such that
 
 Format
 ----------------
-.. function:: qqre(x)
+.. function:: { q1, r, e } = qqre(x)
 
     :param x: data
     :type x: NxP matrix

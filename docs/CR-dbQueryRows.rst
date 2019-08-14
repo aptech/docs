@@ -11,7 +11,7 @@ about query sizes.
 
 Format
 ----------------
-.. function:: dbQueryRows(qid)
+.. function:: result_size = dbQueryRows(qid)
 
     :param qid: query number.
     :type qid: scalar

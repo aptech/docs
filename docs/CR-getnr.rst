@@ -9,7 +9,7 @@ Computes number of rows to read per iteration for a program that reads data from
 
 Format
 ----------------
-.. function:: getnr(nsets, ncols)
+.. function:: nr = getnr(nsets, ncols)
 
     :param nsets: estimate of the maximum number of duplicate
         copies of the data matrix read by :func:`readr` to be kept

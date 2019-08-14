@@ -9,7 +9,7 @@ Computes the coefficients of a polynomial given the roots.
 
 Format
 ----------------
-.. function:: polymake(r)
+.. function:: c = polymake(r)
 
     :param r: roots of the desired polynomial
     :type r: Nx1 vector

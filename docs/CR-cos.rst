@@ -9,7 +9,7 @@ Returns the cosine of its argument.
 
 Format
 ----------------
-.. function:: cos(x)
+.. function:: y = cos(x)
 
     :param x: data, for real matrices should contain angles measured in radians. To convert degrees to radians, multiply the degrees by :math:`π/180`.
     :type x: NxK matrix

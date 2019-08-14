@@ -8,7 +8,7 @@ Computes the inverse of the complement of the Student's t cdf.
 
 Format
 ----------------
-.. function:: cdfTci(p, df)
+.. function:: x = cdfTci(p, df)
 
     :param p: complementary Student's t probability levels, :math:`0 <= p <= 1`.
     :type p: NxK real matrix

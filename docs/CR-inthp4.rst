@@ -9,7 +9,7 @@ Integrates a user-defined function over the :math:`[a, b]` interval.
 
 Format
 ----------------
-.. function:: inthp4(&f, pds, ctl, lims)
+.. function:: y = inthp4(&f, pds, ctl, lims)
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar

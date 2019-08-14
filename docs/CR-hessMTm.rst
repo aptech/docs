@@ -9,7 +9,7 @@ Computes numerical Hessian with mask.
 
 Format
 ----------------
-.. function:: hessMTm(&fct, par1, data1, mask)
+.. function:: h = hessMTm(&fct, par1, data1, mask)
 
     :param &fct: pointer to procedure returning either Nx1 vector or scalar.
     :type &fct: scalar

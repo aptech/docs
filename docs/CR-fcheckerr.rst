@@ -9,7 +9,7 @@ Gets the error status of a file.
 
 Format
 ----------------
-.. function:: fcheckerr(fh)
+.. function:: err = fcheckerr(fh)
 
     :param fh: file handle of a file opened with :func:`fopen`.
     :type fh: scalar

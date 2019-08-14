@@ -8,7 +8,7 @@ Splits a string vector into a string array of the individual tokens. Pads on the
 
 Format
 ----------------
-.. function:: strsplitPad(sv, n_cols)
+.. function:: sa = strsplitPad(sv, n_cols)
 
     :param sv: data
     :type sv: Nx1 string array

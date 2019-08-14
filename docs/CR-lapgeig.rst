@@ -9,7 +9,7 @@ Computes generalized eigenvalues for a pair of real or complex general matrices.
 
 Format
 ----------------
-.. function:: lapgeig(A, B)
+.. function:: { va1, va2 } = lapgeig(A, B)
 
     :param A: real or complex general matrix.
     :type A: NxN matrix

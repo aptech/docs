@@ -9,7 +9,7 @@ Returns the natural log of the Gamma function.
 
 Format
 ----------------
-.. function:: lngammacplx(z)
+.. function:: f = lngammacplx(z)
 
     :param z: data. may be complex.
     :type z: NxK matrix

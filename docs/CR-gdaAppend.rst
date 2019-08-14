@@ -9,7 +9,7 @@ Appends data to a variable in a GAUSS Data Archive.
 
 Format
 ----------------
-.. function:: gdaAppend(filename, x, varname)
+.. function:: ret = gdaAppend(filename, x, varname)
 
     :param filename: name of data file.
     :type filename: string

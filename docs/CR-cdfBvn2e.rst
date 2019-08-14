@@ -9,7 +9,7 @@ Returns the bivariate Normal cumulative distribution function of a bounded recta
 
 Format
 ----------------
-.. function:: cdfBvn2e(h, dh, k, dk, r)
+.. function:: { y, e } = cdfBvn2e(h, dh, k, dk, r)
 
     :param h: starting points of integration for variable 1.
     :type h: Nx1 vector

@@ -8,7 +8,7 @@ Computes the Rayleigh cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfRayleigh(x, scale)
+.. function:: y = cdfRayleigh(x, scale)
 
     :param x: Values at which to evaluate the cumulative distribution function for the Rayleigh distribution. :math:`x \geq 0`.
     :type x: NxK matrix, Nx1 vector or scalar

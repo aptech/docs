@@ -9,7 +9,7 @@ Formats a time in a vector to a string.
 
 Format
 ----------------
-.. function:: timestr(t)
+.. function:: ts = timestr(t)
 
     :param t: 4x1 vector from the time function or a zero. If
         the input is 0, the :func:`time` function will be called

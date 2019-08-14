@@ -10,7 +10,7 @@ Computes Poisson pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndLCp(r, c, lambda, state)
+.. function:: { x, newstate } = rndLCp(r, c, lambda, state)
 
     :param r: row dimension.
     :type r: scalar

@@ -8,7 +8,7 @@ Reads data from CSV file into a GAUSS string array.
 
 Format
 ----------------
-.. function:: csvReadSA(file[, row_range[, col_range[, delimiter]]])
+.. function:: s = csvReadSA(file[, row_range[, col_range[, delimiter]]])
 
     :param file: name of CSV file.
     :type file: string

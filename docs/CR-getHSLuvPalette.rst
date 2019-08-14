@@ -8,7 +8,7 @@ Create a set of evenly spaced circular hues in the HSLuv system.
 
 Format
 ----------------
-.. function:: getHSLuvPalette(ncolors[, h[, s[, l]]])
+.. function:: clrs = getHSLuvPalette(ncolors[, h[, s[, l]]])
 
     :param ncolors:  The number of colors to create for the palette
     :type ncolors: scalar

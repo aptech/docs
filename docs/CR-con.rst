@@ -8,7 +8,7 @@ Requests input from the keyboard (console), and returns it in a matrix.
 
 Format
 ----------------
-.. function:: con(r, c)
+.. function:: x = con(r, c)
 
     :param r: row dimension of matrix.
     :type r: scalar

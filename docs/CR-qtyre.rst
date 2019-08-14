@@ -11,7 +11,7 @@ Computes the orthogonal-triangular (QR) decomposition of a matrix X and returns 
 
 Format
 ----------------
-.. function:: qtyre(y, x)
+.. function:: { qty, r, e } = qtyre(y, x)
 
     :param y: data
     :type y: NxL matrix

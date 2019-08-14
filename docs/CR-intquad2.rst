@@ -9,7 +9,7 @@ Integrates a specified function using Gauss-Legendre quadrature. A suite of uppe
 
 Format
 ----------------
-.. function:: intquad2(&f, xlims, ylims[, ...])
+.. function:: y = intquad2(&f, xlims, ylims[, ...])
 
     :param &f: pointer to the procedure containing the function to be integrated.
     :type &f: scalar

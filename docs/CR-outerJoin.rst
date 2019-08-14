@@ -9,7 +9,7 @@ Performs an outer join on two matrices based upon user-specified key columns.
 
 Format
 ----------------
-.. function:: outerJoin(A, ca, B, cb)
+.. function:: C = outerJoin(A, ca, B, cb)
 
     :param A: matrix to join
     :type A: matrix

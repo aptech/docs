@@ -9,7 +9,7 @@ Strips all whitespace characters from the right side of each element in a string
 
 Format
 ----------------
-.. function:: strtrimr(sa)
+.. function:: y = strtrimr(sa)
 
     :param sa: data
     :type sa: NxM string array

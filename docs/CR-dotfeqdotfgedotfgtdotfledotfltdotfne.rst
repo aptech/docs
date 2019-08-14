@@ -10,12 +10,12 @@ roundoff error.
 
 Format
 ----------------
-.. function:: dotfeq(a, b)
-              dotfge(a, b)
-              dotfgt(a, b)
-              dotfle(a, b)
-              dotflt(a, b)
-              dotfne(a, b)
+.. function:: y = dotfeq(a, b)
+              y = dotfge(a, b)
+              y = dotfgt(a, b)
+              y = dotfle(a, b)
+              y = dotflt(a, b)
+              y = dotfne(a, b)
 
     :param a: first matrix.
     :type a: NxK matrix

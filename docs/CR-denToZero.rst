@@ -9,7 +9,7 @@ Converts every denormal to a 0 in a matrix or array.
 
 Format
 ----------------
-.. function:: denToZero(x)
+.. function:: y = denToZero(x)
 
     :param x: Data to be converted.
     :type x: matrix or an N-dimensional array

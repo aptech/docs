@@ -11,7 +11,7 @@ NOTE: This function is deprecated but remains for backward compatibility.
 
 Format
 ----------------
-.. function:: rndLCu(r, c, state)
+.. function:: { y, newstate } = rndLCu(r, c, state)
 
     :param r: row dimension.
     :type r: scalar

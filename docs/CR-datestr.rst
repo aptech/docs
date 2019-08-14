@@ -8,7 +8,7 @@ Returns a date in a string.
 
 Format
 ----------------
-.. function:: datestr(d)
+.. function:: str = datestr(d)
 
     :param d: like the :func:`date` function returns. If this is 0, the :func:`date` function will be called for
         the current system date.

@@ -9,7 +9,7 @@ Reads a specified number of rows of data from a GAUSS data set
 
 Format
 ----------------
-.. function:: readr(f1, r)
+.. function:: y = readr(f1, r)
 
     :param f1: file handle of an open file.
     :type f1: scalar

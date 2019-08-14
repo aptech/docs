@@ -11,7 +11,7 @@ Returns a matrix of random integers, :math:`0 ≤ y < 2_32`, and the state of th
 
 Format
 ----------------
-.. function:: rndKMi(r, c, state)
+.. function:: { y, newstate } = rndKMi(r, c, state)
 
     :param r: row dimension.
     :type r: scalar

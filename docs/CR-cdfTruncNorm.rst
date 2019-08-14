@@ -8,7 +8,7 @@ Computes the cumulative distribution function of the normal distribution over th
 
 Format
 ----------------
-.. function:: cdfTruncNorm(x, a, b, mu_bar, sigma_bar)
+.. function:: p = cdfTruncNorm(x, a, b, mu_bar, sigma_bar)
 
     :param x: Values at which to evaluate the cumulative distribution function of the normal distribution.
     :type x: NxK matrix

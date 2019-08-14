@@ -9,7 +9,7 @@ Packs general matrix into a structure of type :class:`PV` with matrix name.
 
 Format
 ----------------
-.. function:: pvPack(p1, x, nm)
+.. function:: p1 = pvPack(p1, x, nm)
 
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct

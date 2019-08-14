@@ -11,7 +11,7 @@ Returns a matrix of random integers, :math:`0 ≤ y < 232`, and the state of the
 
 Format
 ----------------
-.. function:: rndLCi(r, c, state)
+.. function:: { y, newstate } = rndLCi(r, c, state)
 
     :param r: row dimension.
     :type r: scalar

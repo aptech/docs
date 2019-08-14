@@ -9,7 +9,7 @@ Returns error information about the last error that occurred (if any) with the l
 
 Format
 ----------------
-.. function:: dbQueryGetLastErrorNum()
+.. function:: err_num = dbQueryGetLastErrorNum()
 
     :returns: **err_num** (*scalar*) - number of last error.
 

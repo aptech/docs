@@ -9,7 +9,7 @@ Creates a complex data set.
 
 Format
 ----------------
-.. function:: datacreatecomplex(filename, vnames, col, dtyp, vtyp)
+.. function:: fh = datacreatecomplex(filename, vnames, col, dtyp, vtyp)
 
     :param filename: name of data file.
     :type filename: string

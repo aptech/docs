@@ -9,7 +9,7 @@ Gets a contiguous subarray from an N-dimensional array.
 
 Format
 ----------------
-.. function:: getarray(a, loc)
+.. function:: y = getarray(a, loc)
 
     :param a: array
     :type a: N-dimensional array

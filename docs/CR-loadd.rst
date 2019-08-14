@@ -8,7 +8,7 @@ Loads data from a dataset. The supported dataset types are CSV, Excel (XLS, XLSX
 
 Format
 ----------------
-.. function:: loadd(dataset[, varnames]) 
+.. function:: y = loadd(dataset[, varnames])
 
     :param dataset: name of dataset.
     :type dataset: string

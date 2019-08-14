@@ -11,7 +11,7 @@ Opens the DOS compatibility window and gives it the specified title and attribut
 
 Format
 ----------------
-.. function:: DOSWinOpen(title, attr)
+.. function:: ret = DOSWinOpen(title, attr)
 
     :param title: window title.
     :type title: string

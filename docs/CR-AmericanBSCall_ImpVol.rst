@@ -8,7 +8,7 @@ Computes implied volatilities for American call options using the Black, Scholes
 
 Format
 ----------------
-.. function:: AmericanBSCall_ImpVol(c, S0, K, r, div, tau)
+.. function:: sigma = AmericanBSCall_ImpVol(c, S0, K, r, div, tau)
 
     :param c: call premiums.
     :type c: Mx1 vector

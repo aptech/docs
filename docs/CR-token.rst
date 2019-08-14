@@ -8,7 +8,7 @@ Extracts the leading token from a string.
 
 Format
 ----------------
-.. function:: token(str)
+.. function:: { token, str_left } = token(str)
 
     :param str: the string to parse.
     :type str: string

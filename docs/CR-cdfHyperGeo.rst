@@ -9,7 +9,7 @@ Computes the cumulative distribution function for the hypergeometric distributio
 
 Format
 ----------------
-.. function:: cdfHyperGeo(x, pop_size, n_marked, n_items)
+.. function:: p = cdfHyperGeo(x, pop_size, n_marked, n_items)
 
     :param x: must be a positive number and :math:`0 < x < pop\_size`
     :type x: NxK matrix, Nx1 vector or scalar

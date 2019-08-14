@@ -9,7 +9,7 @@ Computes multivariate Student's t log-probabilities.
 
 Format
 ----------------
-.. function:: lnpdfmvt(x, s, nu)
+.. function:: z = lnpdfmvt(x, s, nu)
 
     :param x: data
     :type x: NxK matrix

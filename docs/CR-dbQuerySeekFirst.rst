@@ -10,7 +10,7 @@ on the retrieved record.
 
 Format
 ----------------
-.. function:: dbQuerySeekFirst(qid)
+.. function:: ret = dbQuerySeekFirst(qid)
 
     :param qid: query number.
     :type qid: scalar

@@ -11,7 +11,7 @@ Computes von Mises pseudo-random numbers.
 
 Format
 ----------------
-.. function:: rndLCvm(r, c, m, k, state)
+.. function:: { x, newstate } = rndLCvm(r, c, m, k, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

@@ -8,7 +8,7 @@ Computes the sum across one dimension of an N-dimensional array.
 
 Format
 ----------------
-.. function:: asum(x, dim)
+.. function:: y = asum(x, dim)
 
     :param x:
     :type x: N-dimensional array

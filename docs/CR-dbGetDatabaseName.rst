@@ -9,7 +9,7 @@ Returns the name of the database.
 
 Format
 ----------------
-.. function:: dbGetDatabaseName(db_id)
+.. function:: db_name = dbGetDatabaseName(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

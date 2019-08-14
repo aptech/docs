@@ -8,7 +8,7 @@ Returns a matrix of uniform (pseudo) random variables and the state of the rando
 
 Format
 ----------------
-.. function:: rndKMu(r, c, state)
+.. function:: { y, newstate } = rndKMu(r, c, state)
 
     :param r: row dimension.
     :type r: scalar

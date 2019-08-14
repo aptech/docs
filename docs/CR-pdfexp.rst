@@ -9,7 +9,7 @@ Computes the probability density function for the exponential distribution.
 
 Format
 ----------------
-.. function:: pdfexp(x, a, b)
+.. function:: y = pdfexp(x, a, b)
 
     :param x: *x* must be greater than *a*.
     :type x: NxK matrix, Nx1 vector or scalar

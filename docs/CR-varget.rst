@@ -8,7 +8,7 @@ Accesses a global variable whose name is given as a string argument.
 
 Format
 ----------------
-.. function:: varget(s)
+.. function:: y = varget(s)
 
     :param s: the name of the global symbol you wish to access
     :type s: string

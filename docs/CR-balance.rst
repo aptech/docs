@@ -8,7 +8,7 @@ Balances a square matrix.
 
 Format
 ----------------
-.. function:: balance(x)
+.. function:: { b, z } = balance(x)
 
     :param x:
     :type x: KxK matrix or N-dimensional array where the last two dimensions are KxK

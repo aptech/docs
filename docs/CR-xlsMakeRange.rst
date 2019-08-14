@@ -9,7 +9,7 @@ Builds an Excel® range string from a row/column pair.
 
 Format
 ----------------
-.. function:: xlsMakeRange(row, col)
+.. function:: range = xlsMakeRange(row, col)
 
     :param row: row(s)
     :type row: scalar or 2x1 vector

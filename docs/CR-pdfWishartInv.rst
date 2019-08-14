@@ -9,7 +9,7 @@ Computes the probability density function of the inverse Wishart distribution.
 
 Format
 ----------------
-.. function:: pdfWishartInv(IW, S, df)
+.. function:: y = pdfWishartInv(IW, S, df)
 
     :param IW: 
         T

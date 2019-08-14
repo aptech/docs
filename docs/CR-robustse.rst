@@ -9,8 +9,8 @@ Purpose
 
 Format
 ----------------
-.. function:: robustSE(x, resid[, const[, verbose[, var_names]]])
-              robustSE(dataset, formula, resid[, const[, verbose[, var_names]]])
+.. function:: vce_robust = robustSE(x, resid[, const[, verbose[, var_names]]])
+              vce_robust = robustSE(dataset, formula, resid[, const[, verbose[, var_names]]])
 
     :param x: independent regression variables, should not include a constant.
     :type x: NxK matrix

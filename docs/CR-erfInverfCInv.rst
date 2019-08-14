@@ -9,8 +9,8 @@ Computes the inverse of the Gaussian error function (:func:`erfInv`) and its com
 
 Format
 ----------------
-.. function:: erfInv(y)
-              erfCInv(y)
+.. function:: x = erfInv(y)
+              x = erfCInv(y)
 
     :param y:  Gaussian error function values. :math:`-1 < y < 1`.
     :type y: scalar or NxK matrix

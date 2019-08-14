@@ -9,7 +9,7 @@ Converts a scalar or matrix to the string representation of an integer.
 
 Format
 ----------------
-.. function:: itos(x)
+.. function:: str = itos(x)
 
     :param x:  data
     :type x: scalar or NxK matrix

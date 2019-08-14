@@ -9,7 +9,7 @@ Returns a date in a string in the form ``yyyymmdd``.
 
 Format
 ----------------
-.. function:: datestrymd(d)
+.. function:: str = datestrymd(d)
 
     :param d: A date in a 4-element column vector, in the order: year, month, day, and hundredths of a second since midnight. Same format as the :func:`date` function return. If this is 0, the :func:`date` function will be called for the current system date.
     :type d: 4x1 vector

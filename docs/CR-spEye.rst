@@ -8,7 +8,7 @@ Creates a sparse identity matrix.
 
 Format
 ----------------
-.. function:: spEye(n)
+.. function:: y = spEye(n)
 
     :param n: order of identity matrix.
     :type n: scalar

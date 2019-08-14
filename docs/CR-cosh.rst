@@ -9,7 +9,7 @@ Computes the hyperbolic cosine.
 
 Format
 ----------------
-.. function:: cosh(x)
+.. function:: y = cosh(x)
 
     :param x: data
     :type x: NxK matrix

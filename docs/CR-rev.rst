@@ -8,7 +8,7 @@ Reverses the order of the rows in a matrix.
 
 Format
 ----------------
-.. function:: rev(x)
+.. function:: y = rev(x)
 
     :param x: data
     :type x: NxK matrix

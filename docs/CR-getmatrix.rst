@@ -9,7 +9,7 @@ Gets a contiguous matrix from an N-dimensional array.
 
 Format
 ----------------
-.. function:: getmatrix(a, loc)
+.. function:: y = getmatrix(a, loc)
 
     :param a: data
     :type a: N-dimensional array

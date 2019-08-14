@@ -8,7 +8,7 @@ Converts UTC scalar format to DTV vector format.
 
 Format
 ----------------
-.. function:: utctodtv(utc)
+.. function:: dtv = utctodtv(utc)
 
     :param utc: UTC scalar format.
     :type utc: Nx1 vector

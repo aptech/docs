@@ -9,7 +9,7 @@ Creates a block-diagonal matrix from one or more input matrices.
 
 Format
 ----------------
-.. function:: blockDiag(A [, B, C ...])
+.. function:: d = blockDiag(A [, B, C ...])
 
     :param A:
     :type A: One or more matrices

@@ -8,8 +8,8 @@ Perform local linear or quadratic quantile regression.
 
 Format
 ----------------
-.. function:: quantileFitLoc(y, x[, tau[, xstar]], [qCtl]);
-              quantileFitLoc(dataset, formula[, tau[, xstar]], [qCtl]);
+.. function:: q = quantileFitLoc(y, x[, tau[, xstar]], [qCtl]);
+              q = quantileFitLoc(dataset, formula[, tau[, xstar]], [qCtl]);
 
     :param y: dependent variable.
     :type y: Nx1 vector

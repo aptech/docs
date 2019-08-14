@@ -9,7 +9,7 @@ Returns an Nx2 string array containing the placeholders and their corresponding 
 
 Format
 ----------------
-.. function:: dbQueryGetBoundValues(qid)
+.. function:: bound_values = dbQueryGetBoundValues(qid)
 
     :param qid: query number.
     :type qid: scalar

@@ -8,7 +8,7 @@ Creates a matrix of zeros.
 
 Format
 ----------------
-.. function:: zeros(r, c)
+.. function:: y = zeros(r, c)
 
     :param r: the number of rows.
     :type r: scalar

@@ -9,7 +9,7 @@ Rotates the rows of a matrix.
 
 Format
 ----------------
-.. function:: rotater(x, r)
+.. function:: y = rotater(x, r)
 
     :param x: NxK matrix to be rotated
     :type x: matrix

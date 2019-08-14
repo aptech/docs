@@ -8,7 +8,7 @@ Computes the hyperbolic sine.
 
 Format
 ----------------
-.. function:: sinh(x)
+.. function:: y = sinh(x)
 
     :param x: data
     :type x: NxK matrix

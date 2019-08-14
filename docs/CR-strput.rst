@@ -8,7 +8,7 @@ Lays a substring over a string.
 
 Format
 ----------------
-.. function:: strput(substr, str, off)
+.. function:: y = strput(substr, str, off)
 
     :param substr: the substring to be laid over the other string.
     :type substr: string

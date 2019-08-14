@@ -8,7 +8,7 @@ Extracts bands from a symmetric banded matrix.
 
 Format
 ----------------
-.. function:: band(y, n)
+.. function:: a = band(y, n)
 
     :param y: KxK symmetric banded matrix
     :type y: matrix

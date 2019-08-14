@@ -8,7 +8,7 @@ Computes the sum of each column of a matrix or the sum across the second-fastest
 
 Format
 ----------------
-.. function:: sumc(x)
+.. function:: y = sumc(x)
 
     :param x: NxK matrix or L-dimensional array where the last two dimensions are NxK
     :type x: matrix or array

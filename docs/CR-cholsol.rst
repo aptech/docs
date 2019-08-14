@@ -9,7 +9,7 @@ Solves a system of linear equations given the Cholesky factorization of the syst
 
 Format
 ----------------
-.. function:: cholsol(b, C)
+.. function:: x = cholsol(b, C)
 
     :param b: The system is solved for each column in *b*, i.e., :math:`A*x[., i] = b[., i]`.
     :type b: NxK matrix

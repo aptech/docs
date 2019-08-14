@@ -9,7 +9,7 @@ Prices European put options using binomial method.
 
 Format
 ----------------
-.. function:: EuropeanBinomPut(S0, K, r, div, tau, sigma, N)
+.. function:: c = EuropeanBinomPut(S0, K, r, div, tau, sigma, N)
 
     :param S0: current price.
     :type S0: scalar

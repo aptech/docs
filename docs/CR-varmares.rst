@@ -8,7 +8,7 @@ Computes residuals of a Vector ARMA model.
 
 Format
 ----------------
-.. function:: varmares(w, phi, theta)
+.. function:: res = varmares(w, phi, theta)
 
     :param w: time series.
     :type w: NxK matrix

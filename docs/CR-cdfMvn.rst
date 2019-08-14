@@ -8,7 +8,7 @@ Computes multivariate Normal cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfMvn(x, corr)
+.. function:: p = cdfMvn(x, corr)
 
     :param x: Values at which to evaluate the multivariate normal cumulative distribution function. If *x* has more than one column, each column will be treated as a separate set of upper limits.
     :type x: Kx1 vector or KxN matrix

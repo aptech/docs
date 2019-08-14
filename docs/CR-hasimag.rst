@@ -9,7 +9,7 @@ Tests whether the imaginary part of a complex matrix is negligible.
 
 Format
 ----------------
-.. function:: hasimag(x)
+.. function:: y = hasimag(x)
 
     :param x: data
     :type x: NxK matrix

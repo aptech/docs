@@ -8,7 +8,7 @@ Computes the inverse Wishart distributed random numbers given a covariance matri
 
 Format
 ----------------
-.. function:: rndWishartInv(cov, df)
+.. function:: y = rndWishartInv(cov, df)
 
     :param cov: p x p positive definite covariance matrix
     :type cov: matrix

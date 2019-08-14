@@ -8,7 +8,7 @@ Writes a GAUSS string or string array to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: xlsWriteSA(data[, file[, range[, sheet[, vls]]]])
+.. function:: ret = xlsWriteSA(data[, file[, range[, sheet[, vls]]]])
 
     :param data: data
     :type data: string or string array

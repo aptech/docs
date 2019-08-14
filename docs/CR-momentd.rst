@@ -9,7 +9,7 @@ Computes a moment (*x*'*x*) matrix from a GAUSS data set.
 
 Format
 ----------------
-.. function:: momentd(dataset, vars)
+.. function:: m = momentd(dataset, vars)
 
     :param dataset: name of data set.
     :type dataset: string

@@ -16,7 +16,7 @@ pgraph
 
 Format
 ----------------
-.. function:: loadwind(namestr)
+.. function:: err = loadwind(namestr)
 
     :param namestr: name of file to be loaded.
     :type namestr: string

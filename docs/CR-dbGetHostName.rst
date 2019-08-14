@@ -9,7 +9,7 @@ Returns the database connection's host name
 
 Format
 ----------------
-.. function:: dbGetHostName(db_id)
+.. function:: host_name = dbGetHostName(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

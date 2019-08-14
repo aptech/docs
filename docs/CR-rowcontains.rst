@@ -9,7 +9,7 @@ Checks whether any element in the row of a matrix or string array matches any el
 
 Format
 ----------------
-.. function:: rowcontains(haystack, needles)
+.. function:: mask = rowcontains(haystack, needles)
 
     :param haystack: multi-dimensional array or string array in which to search.
     :type haystack: matrix

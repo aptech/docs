@@ -8,7 +8,7 @@ Computes the binomial quantile or inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfBinomialInv(p, trials, prob)
+.. function:: s = cdfBinomialInv(p, trials, prob)
 
     :param p: Probabilities at which to compute the inverse of the Binomial cumulative distribution function. :math:`0 \lt p \lt 1`.
     :type p: NxK matrix, Nx1 vector or scalar

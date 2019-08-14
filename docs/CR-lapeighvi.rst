@@ -9,7 +9,7 @@ Computes selected eigenvalues and eigenvectors of a real symmetric or complex He
 
 Format
 ----------------
-.. function:: lapeighvi(x, il, iu, abstol)
+.. function:: { ve, va } = lapeighvi(x, il, iu, abstol)
 
     :param x: real symmetric or complex Hermitian.
     :type x: NxN matrix

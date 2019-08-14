@@ -8,7 +8,7 @@ Strips all whitespace characters from the left side of each element in a string 
 
 Format
 ----------------
-.. function:: strtriml(sa)
+.. function:: y = strtriml(sa)
 
     :param sa: data
     :type sa: NxM string array

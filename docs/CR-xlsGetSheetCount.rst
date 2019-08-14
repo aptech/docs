@@ -9,7 +9,7 @@ Gets the number of sheets in an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: xlsGetSheetCount(file)
+.. function:: nsheets = xlsGetSheetCount(file)
 
     :param file: name of *.xls* or *.xlsx* file.
     :type file: string

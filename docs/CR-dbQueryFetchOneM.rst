@@ -9,7 +9,7 @@ Returns a single row as an Nx1 matrix where *N* is the column count of the ``SEL
 
 Format
 ----------------
-.. function:: dbQueryFetchOneM(qid[, columns])
+.. function:: record = dbQueryFetchOneM(qid[, columns])
 
     :param qid: query number.
     :type qid: scalar

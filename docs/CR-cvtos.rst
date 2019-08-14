@@ -9,7 +9,7 @@ Converts a character vector to a string.
 
 Format
 ----------------
-.. function:: cvtos(v)
+.. function:: s = cvtos(v)
 
     :param v: Character vector to be converted to a string.
     :type v: Nx1 vector

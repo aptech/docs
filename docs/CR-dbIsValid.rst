@@ -9,7 +9,7 @@ Reports whether a specified database connection has a valid driver.
 
 Format
 ----------------
-.. function:: dbIsValid(db_id)
+.. function:: ret = dbIsValid(db_id)
 
     :param db_id: database connection index number.
     :type db_id: scalar

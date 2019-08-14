@@ -8,7 +8,7 @@ Sorts and removes duplicate elements from a vector.
 
 Format
 ----------------
-.. function:: unique(x[, flag])
+.. function:: y = unique(x[, flag])
 
     :param x: data
     :type x: NxM numeric matrix or NxM character data, or NxM string array.

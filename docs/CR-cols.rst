@@ -9,7 +9,7 @@ Returns the number of columns in a matrix.
 
 Format
 ----------------
-.. function:: cols(x)
+.. function:: p = cols(x)
 
     :param x:
     :type x: NxK matrix or sparse matrix

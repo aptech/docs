@@ -8,7 +8,7 @@ Creates a Toeplitz matrix from a column vector.
 
 Format
 ----------------
-.. function:: toeplitz(x)
+.. function:: t = toeplitz(x)
 
     :param x: data
     :type x: Kx1 vector

@@ -9,7 +9,7 @@ Returns the current internal position of the query.
 
 Format
 ----------------
-.. function:: dbQueryGetPosition(qid)
+.. function:: index = dbQueryGetPosition(qid)
 
     :param qid: query number.
     :type qid: scalar

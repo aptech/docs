@@ -9,7 +9,7 @@ Puts a contiguous subarray into an N-dimensional array and returns the resulting
 
 Format
 ----------------
-.. function:: putarray(a, loc, src)
+.. function:: y = putarray(a, loc, src)
 
     :param a: destination data
     :type a: N-dimensional array

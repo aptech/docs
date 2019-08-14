@@ -9,7 +9,7 @@ Returns the result set for the current query as a string array.
 
 Format
 ----------------
-.. function:: dbQueryFetchAllSA(qid[, columns])
+.. function:: result = dbQueryFetchAllSA(qid[, columns])
 
     :param qid: query number.
     :type qid: scalar

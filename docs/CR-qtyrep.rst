@@ -11,7 +11,7 @@ Computes the orthogonal-triangular (QR) decomposition of a matrix X using a pivo
 
 Format
 ----------------
-.. function:: qtyrep(y, x, pvt)
+.. function:: { qty, r, e } = qtyrep(y, x, pvt)
 
     :param y: data
     :type y: NxL matrix

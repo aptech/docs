@@ -9,7 +9,7 @@ Computes eigenvalues and eigenvectors of a real symmetric or complex Hermitian m
 
 Format
 ----------------
-.. function:: lapeighvb(x, vl, vu, abstol)
+.. function:: { ve, va } = lapeighvb(x, vl, vu, abstol)
 
     :param x: real symmetric or complex Hermitian.
     :type x: NxN matrix

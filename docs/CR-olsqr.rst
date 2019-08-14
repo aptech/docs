@@ -9,7 +9,7 @@ Computes OLS coefficients using QR decomposition.
 
 Format
 ----------------
-.. function:: olsqr(y, x)
+.. function:: b = olsqr(y, x)
 
     :param y: dependent variable
     :type y: Nx1 vector

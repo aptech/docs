@@ -11,7 +11,7 @@ Computes pseudo-random numbers with gamma distribution.
 
 Format
 ----------------
-.. function:: rndgam(r, c, alpha)
+.. function:: x = rndgam(r, c, alpha)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

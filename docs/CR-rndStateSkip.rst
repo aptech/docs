@@ -9,7 +9,7 @@ To advance a state vector by a specified number of values.
 
 Format
 ----------------
-.. function:: rndStateSkip(numSkip, state)
+.. function:: newState = rndStateSkip(numSkip, state)
 
     :param numSkip: the number of values to skip.
     :type numSkip: scalar

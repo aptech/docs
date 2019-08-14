@@ -9,8 +9,8 @@ Returns allowable matrix dimensions for computing FFT's.
 
 Format
 ----------------
-.. function:: nextn(n0) 
-              nextnevn(n0)
+.. function:: n = nextn(n0)
+              n = nextnevn(n0)
 
     :param n0: the length of a vector or the number of rows or columns in a matrix.
     :type n0: scalar

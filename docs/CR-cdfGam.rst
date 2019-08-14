@@ -8,7 +8,7 @@ Computes the regularized lower incomplete gamma function.
 
 Format
 ----------------
-.. function:: cdfGam(x, intlim)
+.. function:: g = cdfGam(x, intlim)
 
     :param x: Values at which to evaluate the regularized lower incomplete gamma function. :math:`x > 0`.
     :type x: NxK matrix

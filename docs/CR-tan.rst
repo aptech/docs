@@ -9,7 +9,7 @@ Returns the tangent of its argument.
 
 Format
 ----------------
-.. function:: tan(x)
+.. function:: y = tan(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

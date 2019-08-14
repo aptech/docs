@@ -9,7 +9,7 @@ Counts the numbers of elements of a vector that fall into specified ranges.
 
 Format
 ----------------
-.. function:: counts(x, v)
+.. function:: c = counts(x, v)
 
     :param x: the numbers to be counted
     :type x: Nx1 vector

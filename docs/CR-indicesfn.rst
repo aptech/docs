@@ -11,7 +11,7 @@ indices.
 
 Format
 ----------------
-.. function:: indicesfn(dataset, namein, indxin)
+.. function:: { name, indx } = indicesfn(dataset, namein, indxin)
 
     :param dataset: name of the dataset.
     :type dataset: string

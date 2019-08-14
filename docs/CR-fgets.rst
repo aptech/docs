@@ -9,7 +9,7 @@ Reads a line of text from a file, retaining the newline (if present).
 
 Format
 ----------------
-.. function:: fgets(fh, maxsize)
+.. function:: str = fgets(fh, maxsize)
 
     :param fh: file handle of a file opened with :func:`fopen`.
     :type fh: scalar

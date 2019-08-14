@@ -9,7 +9,7 @@ Transposes a matrix and then returns a single row from it.
 
 Format
 ----------------
-.. function:: getTrRow(a, row)
+.. function:: y = getTrRow(a, row)
 
     :param a: data
     :type a: NxK matrix

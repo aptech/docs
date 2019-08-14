@@ -9,7 +9,7 @@ Returns names and information for files that match a specification.
 
 Format
 ----------------
-.. function:: fileinfo(fspec)
+.. function:: { fnames, finfo } = fileinfo(fspec)
 
     :param fspec: file specification. Can include path and wildcards.
     :type fspec: string

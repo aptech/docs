@@ -9,8 +9,8 @@ Returns the position of the cursor.
 
 Format
 ----------------
-.. function:: csrcol
-              csrlin
+.. function:: y = csrcol
+              y = csrlin
 
     :returns: **p** (*scalar*) - row or column position.
 

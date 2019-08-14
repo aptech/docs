@@ -9,7 +9,7 @@ Converts a 1x1 string array to a string.
 
 Format
 ----------------
-.. function:: convertsatostr(sa)
+.. function:: str = convertsatostr(sa)
 
     :param sa:
     :type sa: 1x1 string array

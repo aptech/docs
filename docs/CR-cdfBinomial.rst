@@ -9,7 +9,7 @@ Computes the binomial cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfBinomial(successes, trials, prob)
+.. function:: p = cdfBinomial(successes, trials, prob)
 
     :param successes: Must be a positive number and must be less than *trials*
     :type successes: NxK matrix, Nx1 vector or scalar

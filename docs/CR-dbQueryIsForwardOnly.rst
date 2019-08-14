@@ -9,7 +9,7 @@ Reports whether you can only scroll forward through a result set.
 
 Format
 ----------------
-.. function:: dbQueryIsForwardOnly(qid)
+.. function:: ret = dbQueryIsForwardOnly(qid)
 
     :param qid: query number.
     :type qid: scalar

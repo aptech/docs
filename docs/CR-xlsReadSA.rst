@@ -8,7 +8,7 @@ Reads from an Excel® spreadsheet into a GAUSS string array or string.
 
 Format
 ----------------
-.. function:: xlsReadSA(file[, range[, sheet[, vls]]])
+.. function:: s = xlsReadSA(file[, range[, sheet[, vls]]])
 
     :param file: name of *.xls* or *.xlsx* file.
     :type file: string

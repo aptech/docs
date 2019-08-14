@@ -9,7 +9,7 @@ Returns 1 if the query is active.
 
 Format
 ----------------
-.. function:: dbQueryIsActive(qid)
+.. function:: ret = dbQueryIsActive(qid)
 
     :param qid: query number.
     :type qid: scalar

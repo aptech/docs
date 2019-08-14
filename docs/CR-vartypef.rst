@@ -8,7 +8,7 @@ Returns a vector of ones and zeros that indicate whether variables in a data set
 
 Format
 ----------------
-.. function:: vartypef(f)
+.. function:: y = vartypef(f)
 
     :param f: file handle of an open file
     :type f: scalar

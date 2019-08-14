@@ -9,7 +9,7 @@ Computes the digamma function.
 
 Format
 ----------------
-.. function:: digamma(x)
+.. function:: y = digamma(x)
 
     :param x: Values at which to compute the digamma function.
     :type x: MxN matrix or N-dimensional array

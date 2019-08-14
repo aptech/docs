@@ -9,7 +9,7 @@ Returns a scalar dot product of the columns of two matrices.
 
 Format
 ----------------
-.. function:: dot(x, y)
+.. function:: z = dot(x, y)
 
     :param x: first matrix.
     :type x: Nx1 vector or NxK matrix

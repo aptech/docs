@@ -9,7 +9,7 @@ Computes the probability density function of the Rayleigh distribution.
 
 Format
 ----------------
-.. function:: pdfRayleigh(x,b)
+.. function:: y = pdfRayleigh(x,b)
 
     :param x: *x* must be greater than 0.
     :type x: NxK matrix or an Nx1 vector or scalar

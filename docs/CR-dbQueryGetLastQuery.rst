@@ -9,7 +9,7 @@ Returns the text of the current query being used.
 
 Format
 ----------------
-.. function:: dbQueryGetLastQuery(qid)
+.. function:: query_string = dbQueryGetLastQuery(qid)
 
     :param qid: query number.
     :type qid: scalar

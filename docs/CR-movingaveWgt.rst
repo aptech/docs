@@ -9,7 +9,7 @@ Computes weighted moving average of a series
 
 Format
 ----------------
-.. function:: movingaveWgt(x, d, w)
+.. function:: y = movingaveWgt(x, d, w)
 
     :param x: data
     :type x: NxK matrix

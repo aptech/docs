@@ -8,7 +8,7 @@ Minimize an arbitrary function.
 
 Format
 ----------------
-.. function:: QNewtonmt(&fct, par[, ...[, c]])
+.. function:: out = QNewtonmt(&fct, par[, ...[, c]])
 
     :param &fct: pointer to a procedure that computes the
         function to be minimized. This procedure must have at least one input

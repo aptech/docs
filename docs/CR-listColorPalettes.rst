@@ -8,7 +8,7 @@ List available color palettes known by GAUSS.
 
 Format
 ----------------
-.. function:: listColorPalettes(category)
+.. function:: palettes = listColorPalettes(category)
 
     :param category: List only color palettes that are defined as being part of the specified category. 
         Some palettes do not have categories.

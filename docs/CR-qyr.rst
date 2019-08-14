@@ -8,7 +8,7 @@ Computes the orthogonal-triangular (QR) decomposition of a matrix :math:`X` and 
 
 Format
 ----------------
-.. function:: qyr(y, x)
+.. function:: { qy, r } = qyr(y, x)
 
     :param y: data
     :type y: NxL matrix

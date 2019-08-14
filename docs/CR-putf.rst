@@ -8,7 +8,7 @@ Writes the contents of a string to a file.
 
 Format
 ----------------
-.. function:: putf(filename, str, start, len, mode, append)
+.. function:: ret = putf(filename, str, start, len, mode, append)
 
     :param filename: name of output file.
     :type filename: string

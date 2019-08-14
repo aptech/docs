@@ -8,7 +8,7 @@ Computes number of trading days in a given year.
 
 Format
 ----------------
-.. function:: annualTradingDays(a)
+.. function:: n = annualTradingDays(a)
 
     :param a: year.
     :type a: scalar

@@ -9,7 +9,7 @@ Computes the Weibull inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfWeibullInv(p, shape, scale)
+.. function:: y = cdfWeibullInv(p, shape, scale)
 
     :param p: Probabilities at which to compute the Weibull inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar

@@ -9,7 +9,7 @@ Computes the convolution of two vectors.
 
 Format
 ----------------
-.. function:: conv(b, x, f, l)
+.. function:: c = conv(b, x, f, l)
 
     :param b:
     :type b: Nx1 vector

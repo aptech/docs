@@ -9,7 +9,7 @@ Returns the primary index for the specified table.
 
 Format
 ----------------
-.. function:: dbGetPrimaryIndex(db_id, table_name)
+.. function:: primary_index = dbGetPrimaryIndex(db_id, table_name)
 
     :param db_id: database connection index number.
     :type db_id: scalar

@@ -9,7 +9,7 @@ Returns the type of data (the number of bytes per element) in a GAUSS data set.
 
 Format
 ----------------
-.. function:: typef(fp)
+.. function:: y = typef(fp)
 
     :param fp: file handle of an open file.
     :type fp: scalar

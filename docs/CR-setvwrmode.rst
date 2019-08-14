@@ -16,7 +16,7 @@ pgraph
 
 Format
 ----------------
-.. function:: setvwrmode(mode)
+.. function:: oldmode = setvwrmode(mode)
 
     :param mode: new mode or null string.
 

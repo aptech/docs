@@ -8,7 +8,7 @@ Returns the sine of its argument.
 
 Format
 ----------------
-.. function:: sin(x)
+.. function:: y = sin(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

@@ -9,8 +9,8 @@ Integrates a user-defined function, using adaptive quadrature, over a user defin
 
 Format
 ----------------
-.. function:: integrate1d(&fct, x_min, x_max[, ...[, ctl]])
-              integrate1d(&fct, x_min, x_max, ctl)
+.. function:: y = integrate1d(&fct, x_min, x_max[, ...[, ctl]])
+              y = integrate1d(&fct, x_min, x_max, ctl)
 
     :param &fct: pointer to the procedure containing the function to be integrated
     :type &fct: scalar

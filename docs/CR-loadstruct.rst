@@ -9,7 +9,7 @@ Loads a structure into memory from a file on the disk.
 
 Format
 ----------------
-.. function:: loadstruct(file_name, structure_type)
+.. function:: { instance, retcode } = loadstruct(file_name, structure_type)
 
     :param file_name: name of file containing structure.
     :type file_name: string

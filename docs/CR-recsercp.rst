@@ -10,7 +10,7 @@ Horner's rule, and to convert from base *b* representations of numbers to decima
 
 Format
 ----------------
-.. function:: recsercp(x, z)
+.. function:: y = recsercp(x, z)
 
     :param x: data
     :type x: NxK or 1xK matrix

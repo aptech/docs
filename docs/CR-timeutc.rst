@@ -9,7 +9,7 @@ Returns the number of seconds since January 1, 1970 Greenwich Mean Time.
 
 Format
 ----------------
-.. function:: timeutc
+.. function:: tc = timeutc
 
     :returns: tc (*scalar*), number of seconds since January 1, 1970 Greenwich Mean Time.
 

@@ -9,7 +9,7 @@ Sets the character data format used by :func:`printfmt`.
 
 Format
 ----------------
-.. function:: formatcv(newfmt)
+.. function:: oldfmt = formatcv(newfmt)
 
     :param newfmt: the new format specification.
     :type newfmt: 1x3 vector

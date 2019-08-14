@@ -8,7 +8,7 @@ Computes the biased standard deviation of the elements across one dimension of a
 
 Format
 ----------------
-.. function:: astds(x, dim)
+.. function:: y = astds(x, dim)
 
     :param x:
     :type x: N-dimensional array

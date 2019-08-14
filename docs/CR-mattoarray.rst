@@ -9,7 +9,7 @@ Converts a matrix to a type array.
 
 Format
 ----------------
-.. function:: mattoarray(x)
+.. function:: y = mattoarray(x)
 
     :param x: data
     :type x: matrix

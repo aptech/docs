@@ -8,7 +8,7 @@ Computes the inverse cosine.
 
 Format
 ----------------
-.. function:: arccos(x)
+.. function:: y = arccos(x)
 
     :param x: 
     :type x: NxK matrix or N-dimensional array

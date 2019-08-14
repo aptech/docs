@@ -8,7 +8,7 @@ Computes the Poisson cumulative distribution function.
 
 Format
 ----------------
-.. function:: cdfPoisson(x, lambda)
+.. function:: p = cdfPoisson(x, lambda)
 
     :param x: Values at which to evaluate the cumulative distribution function for the Poisson distribution. :math:`x > 0`.
     :type x: NxK matrix, Nx1 vector or scalar

@@ -8,7 +8,7 @@ Computes implied volatilities for American put options using the binomial method
 
 Format
 ----------------
-.. function:: AmericanBinomPut_ImpVol(c, S0, K, r, div, tau, N)
+.. function:: sigma = AmericanBinomPut_ImpVol(c, S0, K, r, div, tau, N)
 
     :param c: put premiums
     :type c: Mx1 vector

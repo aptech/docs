@@ -10,7 +10,7 @@ the state of the random number generator.
 
 Format
 ----------------
-.. function:: rndKMn(r, c, state)
+.. function:: { y, newstate } = rndKMn(r, c, state)
 
     :param r: row dimension.
     :type r: scalar

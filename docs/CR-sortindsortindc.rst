@@ -8,8 +8,8 @@ Returns the sorted index of *x*.
 
 Format
 ----------------
-.. function:: sortind(x) 
-              sortindc(x)
+.. function:: ind = sortind(x)
+              ind = sortindc(x)
 
     :param x: data
     :type x: Nx1 column vector

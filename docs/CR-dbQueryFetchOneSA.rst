@@ -9,7 +9,7 @@ Returns a single row as a string vector containing the field information for the
 
 Format
 ----------------
-.. function:: dbQueryFetchOneSA(qid[, columns])
+.. function:: record = dbQueryFetchOneSA(qid[, columns])
 
     :param qid: query number.
     :type qid: scalar

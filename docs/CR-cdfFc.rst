@@ -8,7 +8,7 @@ Computes the complement of the cumulative distribution function of the F distrib
 
 Format
 ----------------
-.. function:: cdfFc(x, df_n, df_d)
+.. function:: y = cdfFc(x, df_n, df_d)
 
     :param x: Values at which to evaluate the complement of the F distribution cdf. :math:`x > 0`.
     :type x: NxK matrix

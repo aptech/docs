@@ -9,7 +9,7 @@ Computes the Crout decomposition of a square matrix without row pivoting, such t
 
 Format
 ----------------
-.. function:: crout(x)
+.. function:: y = crout(x)
 
     :param x: square nonsingular matrix.
     :type x: NxN matrix

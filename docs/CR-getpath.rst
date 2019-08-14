@@ -9,7 +9,7 @@ Returns an expanded filename including the drive and path.
 
 Format
 ----------------
-.. function:: getpath(pfname)
+.. function:: fname = getpath(pfname)
 
     :param pfname: partial filename with only partial or missing path information.
     :type pfname: string

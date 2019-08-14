@@ -8,7 +8,7 @@ Returns the intersection of two vectors, with duplicates removed.
 
 Format
 ----------------
-.. function:: intrsect(v1, v2[, flag])
+.. function:: y = intrsect(v1, v2[, flag])
 
     :param v1: data
     :type v1: Nx1 vector or string array

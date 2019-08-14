@@ -8,7 +8,7 @@ Computes the singular value decomposition of a matrix so that: :math:`x = u * s 
 
 Format
 ----------------
-.. function:: svd1(x)
+.. function:: { u, s, v } = svd1(x)
 
     :param x: matrix whose singular values are to be computed
     :type x: NxP matrix

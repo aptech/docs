@@ -8,7 +8,7 @@ Reads data from CSV file into a GAUSS matrix.
 
 Format
 ----------------
-.. function:: csvReadM(file[, row_range[, col_range[, delimiter]]])
+.. function:: mat = csvReadM(file[, row_range[, col_range[, delimiter]]])
 
     :param file: name of CSV file.
     :type file: string
