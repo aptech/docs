@@ -15,8 +15,17 @@ Format
     :type name: string or NxK string array
 
     :returns: **ret** (*scalar or NxK matrix*) - scalar if *name* is a string. If *name* is an NxK
-    string array, *ret* will be an NxK matrix reflecting the success or
-    failure of each separate file deletion. *ret* will be zero if file deletion is successful.
+        string array, *ret* will be an NxK matrix reflecting the success or
+        failure of each separate file deletion. *ret* will be zero if file deletion is successful.
+
+Remarks
+-------
+
+:func:`deleteFile` calls the C library ``unlink`` function for each file. If ``unlink``
+fails it sets the C library ``errno`` value. :func:`deleteFile` returns the value of
+``errno`` if ``unlink`` fails, otherwise it returns zero. If you want detailed
+information about the reason for failure, consult the C library ``unlink``
+documentation for your platform for details.
 
 Examples
 ----------------
@@ -53,11 +62,3 @@ This returns
 
 The ``errno`` value of 2 indicates that the file ``x.dat`` no longer exists when we try to delete the file the second time.
 
-Remarks
--------
-
-:func:`deleteFile` calls the C library ``unlink`` function for each file. If ``unlink``
-fails it sets the C library ``errno`` value. :func:`deleteFile` returns the value of
-``errno`` if ``unlink`` fails, otherwise it returns zero. If you want detailed
-information about the reason for failure, consult the C library ``unlink``
-documentation for your platform for details.
