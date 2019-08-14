@@ -10,13 +10,15 @@ Format
 ----------------
 .. function:: y = boxcox(x, lambda)
 
-    :param x:
-    :type x: MxN matrix or P-dimensional array where the last two dimensions are MxN
+    :param x: where the last two dimensions are MxN
+    :type x: MxN matrix or P-dimensional array 
 
-    :param lambda:
-    :type lambda: KxL matrix or P-dimensional array where the last two dimensions are KxL, ExE conformable to x.
+    :param lambda: where the last two dimensions are KxL, ExE conformable to x.
+    :type lambda: KxL matrix or P-dimensional array
 
-    :returns: y, (*max(M,L)xmax(N,K) or P-dimensional array where the last two dimensions are max(M,L)xmax(N,K)*).
+    :return y: where the last two dimensions are max(M,L)xmax(N,K)
+
+    :type y: max(M,L)xmax(N,K) or P-dimensional array
 
 Remarks
 -------

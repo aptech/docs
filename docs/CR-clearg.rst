@@ -11,7 +11,14 @@ Format
 ----------------
 .. function:: clearg a, b, c
 
-    :returns: **a,b,c** (*scalar*) - global matrices containing 0.
+    :return a: global matrix containing 0.
+    :type a: scalar
+
+    :return b: global matrix containing 0.
+    :type b: scalar
+
+    :return c: global matrix containing 0.
+    :type c: scalar
 
 Remarks
 -------
