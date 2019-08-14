@@ -17,7 +17,9 @@ Format
     :param m: name of matrix, or integer, index of matrix.
     :type m: string
 
-    :returns: x (*matrix or array*) MxN general matrix or MxM symmetric matrix or N-dimensional array
+    :return x: MxN general matrix or MxM symmetric matrix or N-dimensional array
+
+    :type x: matrix or array
 
 Source
 ------

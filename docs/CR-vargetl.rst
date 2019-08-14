@@ -13,7 +13,9 @@ Format
     :param s: the name of the local symbol you wish to access
     :type s: string
 
-    :returns: y (*any*), contents of the variable whose name is in *s*.
+    :return y: contents of the variable whose name is in *s*.
+
+    :type y: any
 
 Remarks
 -------

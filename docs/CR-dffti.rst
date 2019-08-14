@@ -14,7 +14,9 @@ Format
     :param x: values used to computer the inverse of the discrete Fourier transform.
     :type x: Nx1 vector
 
-    :returns: **y** (*Nx1 vector*) - the inverse discrete Fourier transform.
+    :return y: the inverse discrete Fourier transform.
+
+    :type y: Nx1 vector
 
 Remarks
 -------

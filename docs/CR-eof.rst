@@ -14,7 +14,9 @@ Format
     :param fh: file handle.
     :type fh: scalar
 
-    :returns: **ret** (*scalar*) - 1 if end of file has been reached, else 0.
+    :return ret: 1 if end of file has been reached, else 0.
+
+    :type ret: scalar
 
 Remarks
 -------

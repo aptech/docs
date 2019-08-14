@@ -50,7 +50,7 @@ Format
 
     :type report: scalar
 
-    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
+    :return retcode: return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
@@ -64,6 +64,8 @@ Format
             "14", "File too large to be read on current platform."
             "16", "Cannot write to GDA - version outdated."
             "17", "Type mismatch."
+
+    :type retcode: scalar
 
 Remarks
 -------

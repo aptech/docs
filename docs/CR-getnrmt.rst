@@ -31,8 +31,10 @@ Format
     :param maxv: the largest number of elements allowed in any one matrix.
     :type maxv: scalar
 
-    :returns: **nr** (*scalar*) - number of rows :func:`readr` should read per iteration
+    :return nr: number of rows :func:`readr` should read per iteration
         of the read loop.
+
+    :type nr: scalar
 
 Source
 ------

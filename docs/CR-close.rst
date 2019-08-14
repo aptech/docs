@@ -14,7 +14,9 @@ Format
         `create`, or :func:`fopen` command.
     :type handle: scalar
 
-    :returns: y (*scalar*), 0 if successful, -1 if unsuccessful.
+    :return y: 0 if successful, -1 if unsuccessful.
+
+    :type y: scalar
 
 Remarks
 -------

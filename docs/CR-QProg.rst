@@ -35,17 +35,27 @@ Format
         upper bounds. If scalar 0, the bounds for all elements will default to ±1e200.
     :type bnds: Kx2 matrix
 
-    :returns: x (*Kx1 vector*), coefficients at the minimum of the function.
+    :return x: coefficients at the minimum of the function.
 
-    :returns: u1 (*Mx1 vector*), Lagrangian coefficients of equality constraints.
+    :type x: Kx1 vector
 
-    :returns: u2 (*Nx1 vector*), Lagrangian coefficients of inequality constraints.
+    :return u1: Lagrangian coefficients of equality constraints.
 
-    :returns: u3 (*Kx1 vector*), Lagrangian coefficients of lower bounds.
+    :type u1: Mx1 vector
 
-    :returns: u4 (*Kx1 vector*), Lagrangian coefficients of upper bounds.
+    :return u2: Lagrangian coefficients of inequality constraints.
 
-    :returns: ret (*scalar*), return code.
+    :type u2: Nx1 vector
+
+    :return u3: Lagrangian coefficients of lower bounds.
+
+    :type u3: Kx1 vector
+
+    :return u4: Lagrangian coefficients of upper bounds.
+
+    :type u4: Kx1 vector
+
+    :return ret: return code.
 
         .. list-table::
             :widths: auto
@@ -55,6 +65,8 @@ Format
             "*2*", "accuracy is insufficient to maintain decreasing function values"
             "*3*", "matrices not conformable"
             "*< 0*", "constraints inconsistent"
+
+    :type ret: scalar
 
 Global Input
 ------------

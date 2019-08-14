@@ -44,10 +44,12 @@ Format
 
     :type state: scalar or vector
 
-    :returns: y (*RxC matrix*) of uniform (:math:`0 < x < 1`) random numbers.
+    :return y: of uniform (:math:`0 < x < 1`) random numbers.
 
-    :returns: newstate (*4x1 vector*)
+    :type y: RxC matrix
 
+    :return newstate: 
+    
         .. csv-table::
             :widths: auto
     
@@ -55,6 +57,8 @@ Format
             "[2]", "the multiplicative constant"
             "[3]", "the additive constant"
             "[4]", "the original initialization seed"
+
+    :type newstate: 4x1 vector
 
 Remarks
 -------

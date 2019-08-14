@@ -13,7 +13,9 @@ Format
     :param graph: name of graph type: bar, box, hist, polar, scatter, surface or xy.
     :type graph: string
 
-    :returns: myPlot (*struct*), a :class:`plotControl` structure.
+    :return myPlot: a :class:`plotControl` structure.
+
+    :type myPlot: struct
 
 Remarks
 -------

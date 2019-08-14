@@ -13,7 +13,9 @@ Format
     :param a: data
     :type a: Multi-dimensional array
 
-    :returns: atrim (*Multidimensional array or matrix*) with all dimensions equal to 1 removed.
+    :return atrim: with all dimensions equal to 1 removed.
+
+    :type atrim: Multidimensional array or matrix
 
 Remarks
 -------

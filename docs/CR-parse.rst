@@ -17,9 +17,11 @@ Format
     :type delim: NxK character matrix of delimiters that might be
         found in  str
 
-    :returns: tok (*Mx1 character vector*) consisting of the tokens
+    :return tok: consisting of the tokens
         contained in  str. All tokens are returned; any
         delimiters found in  str are ignored.
+
+    :type tok: Mx1 character vector
 
 Remarks
 -------

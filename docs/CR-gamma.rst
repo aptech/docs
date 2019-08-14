@@ -14,7 +14,9 @@ Format
     :param x: the values used to evaluate the gamma function.
     :type x: NxK matrix or N-dimensional array
 
-    :returns: **g** (*NxK matrix or N-dimensional array*) - the value of the gamma function evaluated at *x*.
+    :return g: the value of the gamma function evaluated at *x*.
+
+    :type g: NxK matrix or N-dimensional array
 
 Remarks
 -------

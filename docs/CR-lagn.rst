@@ -20,7 +20,9 @@ Format
     :param fill: Optional input, the value to fill the newly missing observations. Default is a missing value, ``.``.
     :type fill: scalar or Px1 vector
 
-    :returns: y (*NxK matrix*), *x* lagged *t* periods.
+    :return y: *x* lagged *t* periods.
+
+    :type y: NxK matrix
 
 Remarks
 -------

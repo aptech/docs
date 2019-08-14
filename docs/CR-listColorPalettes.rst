@@ -22,7 +22,9 @@ Format
 
     :type category: string
 
-    :returns: palettes (*string array*) containing color palette names.
+    :return palettes: containing color palette names.
+
+    :type palettes: string array
 
 Remarks
 -------

@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: Kx1 vector
 
-    :returns: t (*KxK Toeplitz matrix*)
+    :return t: 
+
+    :type t: KxK Toeplitz matrix
 
 Examples
 ----------------

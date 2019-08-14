@@ -17,7 +17,9 @@ Format
     :param placeholder: Oracle style (``:value_name``) or index of ODBC style (``?``) placeholder.
     :type placeholder: string
 
-    :returns: **val** (*string*) - bound value if previously set.
+    :return val: bound value if previously set.
+
+    :type val: string
 
 Examples
 ----------------

@@ -14,7 +14,9 @@ Format
     :param a: date in DT scalar format.
     :type a: scalar
 
-    :returns: **next_day** (*scalar*) - next trading day in DT scalar format.
+    :return next_day: next trading day in DT scalar format.
+
+    :type next_day: scalar
 
 Examples
 ----------------

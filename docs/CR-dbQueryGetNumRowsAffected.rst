@@ -14,8 +14,10 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **num_rows** (*scalar*) - the number of rows affected by the result's SQL statement, or
+    :return num_rows: the number of rows affected by the result's SQL statement, or
         a -1 if it cannot be determined or the query is not active.
+
+    :type num_rows: scalar
 
 Remarks
 -------

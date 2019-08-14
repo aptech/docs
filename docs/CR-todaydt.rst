@@ -12,7 +12,9 @@ Format
 ----------------
 .. function:: dt = todaydt()
 
-    :returns: dt (*scalar*), system date in DT scalar format.
+    :return dt: system date in DT scalar format.
+
+    :type dt: scalar
 
 Remarks
 -------

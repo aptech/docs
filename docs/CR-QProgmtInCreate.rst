@@ -10,7 +10,9 @@ Format
 ----------------
 .. function:: s = QProgmtInCreate()
 
-    :returns: s (*struct*) instance of :class:`QProgmtIn` struct.
+    :return s: instance of :class:`QProgmtIn` struct.
+
+    :type s: struct
 
 Source
 ------

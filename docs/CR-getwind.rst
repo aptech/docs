@@ -19,7 +19,9 @@ Format
 
 .. function:: n = getwind()
 
-    :returns: **n** (*scalar*) - graphic panel number of current graphic panel.
+    :return n: graphic panel number of current graphic panel.
+
+    :type n: scalar
 
 Remarks
 -------

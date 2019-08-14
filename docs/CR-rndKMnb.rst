@@ -35,9 +35,13 @@ Format
 
     :type state: scalar or 500x1 vector
 
-    :returns: x (*RxC matrix*), negative binomial distributed random numbers.
+    :return x: negative binomial distributed random numbers.
 
-    :returns: newstate (*500x1 vector*), the updated state.
+    :type x: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: 500x1 vector
 
 Remarks
 -------

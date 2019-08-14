@@ -16,8 +16,9 @@ Format
     :param int_lim: ExE compatible with *x*, containing the integration limit. :math:`int\_lim > 0`.
     :type int_lim: LxM matrix
 
-    :returns: **p** (*matrix, max(N,L) by max(K,M)*) - Each element in *p* is the regularized lower incomplete gamma function evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the regularized lower incomplete gamma function evaluated at the corresponding element in *x*.
 
+    :type p: matrix, max(N,L) by max(K,M)
 
 Remarks
 -------

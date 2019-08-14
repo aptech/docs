@@ -30,8 +30,10 @@ Format
     :param x0: points at which to compute gradient
     :type x0: Kx1 vector
 
-    :returns: **g** (*NxK matrix*) - containing the gradients of *fct* with
+    :return g: containing the gradients of *fct* with
         respect to the variable *x* at *x0*.
+
+    :type g: NxK matrix
 
 Remarks
 -------

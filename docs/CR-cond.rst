@@ -14,11 +14,13 @@ Format
     :param x: used to compute condition number
     :type x: NxK matrix
 
-    :returns: **c** (*scalar*) - an estimate of the condition number of *x*.
+    :return c: an estimate of the condition number of *x*.
         This equals the ratio of the largest singular
         value to the smallest. If the smallest singular
         value is zero or not all of the singular values
         can be computed, the return value is 1e300.
+
+    :type c: scalar
 
 Examples
 ----------------

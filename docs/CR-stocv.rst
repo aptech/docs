@@ -14,7 +14,9 @@ Format
     :param s: to be converted to character vector.
     :type s: string
 
-    :returns: v (*Nx1 character vector*), contains the contents of *s*.
+    :return v: contains the contents of *s*.
+
+    :type v: Nx1 character vector
 
 Remarks
 -------

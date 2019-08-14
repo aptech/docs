@@ -14,7 +14,9 @@ Format
     :param s: the name to be searched for.
     :type s: string
 
-    :returns: **name** (*string*) - the value of the environment variable or a null string if it is not found.
+    :return name: the value of the environment variable or a null string if it is not found.
+
+    :type name: string
 
 Examples
 ----------------

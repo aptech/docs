@@ -14,7 +14,9 @@ Format
     :param x: Data to be converted.
     :type x: matrix or an N-dimensional array
 
-    :returns: **y** (*matrix or an N-dimensional array*) - with the same orders as the input. Every denormal in the input will be converted to 0 in the output.
+    :return y: with the same orders as the input. Every denormal in the input will be converted to 0 in the output.
+
+    :type y: matrix or an N-dimensional array
 
 Examples
 ----------------

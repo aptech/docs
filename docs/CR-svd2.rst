@@ -13,15 +13,21 @@ Format
     :param x: matrix whose singular values are to be computed
     :type x: NxP matrix
 
-    :returns: u (*NxN or NxP matrix*), the left singular vectors of *x*.
+    :return u: the left singular vectors of *x*.
         If :math:`N > P`, then *u* will be :math:`NxP`, containing only the :math:`P` left
         singular vectors of *x*.
 
-    :returns: s (*NxP or PxP diagonal matrix*), containing the singular
+    :type u: NxN or NxP matrix
+
+    :return s: containing the singular
         values of *x* arranged in descending order on the
         principal diagonal. If :math:`N > P`, then *s* will be :math:`PxP`.
 
-    :returns: v (*PxP matrix*), the right singular vectors of *x*.
+    :type s: NxP or PxP diagonal matrix
+
+    :return v: the right singular vectors of *x*.
+
+    :type v: PxP matrix
 
 Remarks
 -------

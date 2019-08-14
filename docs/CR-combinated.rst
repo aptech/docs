@@ -24,7 +24,7 @@ Format
     :param K: Number of things drawn each time.
     :type K: scalar
 
-    :returns: **ret** (*scalar*) - if dataset was successfully written,
+    :return ret: if dataset was successfully written,
         *ret* = number of rows written to dataset. Otherwise,
         one of the following:
 
@@ -34,6 +34,8 @@ Format
             "0", "file already exists."
             "-1", "dataset couldn't be created."
             "-n", "the (n-1)th write to the dataset failed."
+
+    :type ret: scalar
 
 Remarks
 -------

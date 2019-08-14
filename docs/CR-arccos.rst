@@ -13,7 +13,9 @@ Format
     :param x: 
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*), containing the angle in radians whose cosine is *x*.
+    :return y: containing the angle in radians whose cosine is *x*.
+
+    :type y: NxK matrix or N-dimensional array
 
 Remarks
 -------

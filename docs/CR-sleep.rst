@@ -13,7 +13,9 @@ Format
     :param secs: number of seconds to sleep.
     :type secs: scalar
 
-    :returns: unslept (*scalar*), number of seconds not slept.
+    :return unslept: number of seconds not slept.
+
+    :type unslept: scalar
 
 Remarks
 -------

@@ -17,7 +17,9 @@ Format
     :param where: searched for the corresponding elements of *what*
     :type where: Mx1 string array
 
-    :returns: **indx** (*Nx1 vector of indices*) - the values of *what* in *where*.
+    :return indx: the values of *what* in *where*.
+
+    :type indx: Nx1 vector of indices
 
 Examples
 ----------------

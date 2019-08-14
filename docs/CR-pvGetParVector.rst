@@ -14,7 +14,9 @@ Format
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct
 
-    :returns: p (*Kx1 vector*), parameter vector.
+    :return p: parameter vector.
+
+    :type p: Kx1 vector
 
 Remarks
 -------

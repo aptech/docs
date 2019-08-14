@@ -14,7 +14,9 @@ Format
     :param x: Values at which to compute the digamma function.
     :type x: MxN matrix or N-dimensional array
 
-    :returns: **y** (*MxN matrix or N-dimensional array*) - digamma.
+    :return y: digamma.
+
+    :type y: MxN matrix or N-dimensional array
 
 Examples
 ----------------

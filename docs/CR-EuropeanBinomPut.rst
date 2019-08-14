@@ -32,7 +32,9 @@ Format
     :param N: number of time segments. A higher number of time segments will increase accuracy at the expense of increased computation time.
     :type N: scalar
 
-    :returns: **p** (*Mx1 vector*) - put premiums.
+    :return p: put premiums.
+
+    :type p: Mx1 vector
 
 Remarks
 -------

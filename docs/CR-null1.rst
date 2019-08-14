@@ -17,7 +17,9 @@ Format
     :param dataset: the name of a data set :func:`null1` will write.
     :type dataset: string
 
-    :returns: nu (*scalar*), the nullity of *x*.
+    :return nu: the nullity of *x*.
+
+    :type nu: scalar
 
 Remarks
 -------

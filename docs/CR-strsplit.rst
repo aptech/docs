@@ -16,7 +16,9 @@ Format
     :param sep: Optional argument, containing the character used to separate the input string into individual tokens.
     :type sep: string 
 
-    :returns: sa (*1xK or NxK string array*)
+    :return sa: 
+
+    :type sa: 1xK or NxK string array
 
 Remarks
 -------

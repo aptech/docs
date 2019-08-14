@@ -32,8 +32,10 @@ Format
         - DB_FINISH_QUERY
         - DB_MULTIPLE_RESULT_SETS
 
-    :returns: **ret** (*scalar*) - 1 if the database supports the specified
+    :return ret: 1 if the database supports the specified
         feature, or 0 if not.
+
+    :type ret: scalar
 
 Examples
 ----------------

@@ -59,7 +59,9 @@ Format
     :param lims: upper and lower limits of integration, the ﬁrst row contains upper limits and the second row the lower.
     :type lims: 2×N vector
 
-    :returns: **y** (*Nx1 vector*) - the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a, b]`.
+    :return y: the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a, b]`.
+
+    :type y: Nx1 vector
 
 Remarks
 -------

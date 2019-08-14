@@ -23,7 +23,7 @@ Format
     :param index: index into variable where new data is to be written.
     :type index: scalar or Nx1 vector
 
-    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
+    :return retcode: return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
@@ -41,6 +41,8 @@ Format
             "18", "Argument wrong size."
             "19", "Data must be real."
             "20", "Data must be complex."
+
+    :type retcode: scalar
 
 Remarks
 -------

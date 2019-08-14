@@ -21,7 +21,9 @@ Format
         for the original values of *x* when the corresponding element of *e* is 1.
     :type v: PxQ matrix
 
-    :returns: y (*max(N,L,P) by max(K,M,Q) matrix*)
+    :return y: 
+
+    :type y: max(N,L,P) by max(K,M,Q) matrix
 
 Remarks
 -------

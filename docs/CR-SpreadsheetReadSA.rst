@@ -20,7 +20,9 @@ Format
     :param sheet: sheet number. Default = 1.
     :type sheet: scalar
 
-    :returns: sa (*string array*), read from Excel.
+    :return sa: read from Excel.
+
+    :type sa: string array
 
 Examples
 ----------------

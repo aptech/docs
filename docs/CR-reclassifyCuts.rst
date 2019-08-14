@@ -19,8 +19,10 @@ Format
     :param close_right: optional argument, 1 if the cut_pts should be the right end-point of the interval, or 0 if the values in cut_pts should start the next interval
     :type close_right: Scalar
 
-    :returns: x_new (*Matrix*), multi-dimensional array or string array with the same dimensions as the input x, containing the recoded values of
+    :return x_new: multi-dimensional array or string array with the same dimensions as the input x, containing the recoded values of
         x
+
+    :type x_new: matrix
 
 Examples
 ----------------

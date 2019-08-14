@@ -20,7 +20,9 @@ Format
     :param p: smoothing coefficient where :math:`0 > p > 1`.
     :type p: scalar
 
-    :returns: y (*NxK matrix*), filtered series. The first :math:`d-1` rows of *x* are set to missing values.
+    :return y: filtered series. The first :math:`d-1` rows of *x* are set to missing values.
+
+    :type y: NxK matrix
 
 Remarks
 -------

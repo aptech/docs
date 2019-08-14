@@ -18,13 +18,19 @@ Format
     :param start: start values.
     :type start: Kx1 vector
 
-    :returns: x (*Kx1 vector*), coefficients at the minimum of the function.
+    :return x: coefficients at the minimum of the function.
 
-    :returns: f (*scalar*), value of function at minimum.
+    :type x: Kx1 vector
 
-    :returns: g (*Kx1 vector*), gradient at the minimum of the function.
+    :return f: value of function at minimum.
 
-    :returns: ret (*scalar*), return code.
+    :type f: scalar
+
+    :return g: gradient at the minimum of the function.
+
+    :type g: Kx1 vector
+
+    :return ret: return code.
 
         .. csv-table::
             :widths: auto
@@ -36,6 +42,8 @@ Format
             "4     gradient calculation failed"
             "5     step length calculation failed"
             "6     function cannot be evaluated at initial parameter values"
+
+    :type ret: scalar
 
 Global Input
 ------------

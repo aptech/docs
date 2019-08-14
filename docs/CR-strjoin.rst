@@ -29,7 +29,9 @@ Format
 
     :type qchar: scalar, 2x1, or 1x2 string vector 
 
-    :returns: y (*Nx1 string vector*) result.
+    :return y: result.
+
+    :type y: Nx1 string vector
 
 Examples
 ----------------

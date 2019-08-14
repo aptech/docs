@@ -36,7 +36,9 @@ Format
 
     :type delimiter: string
 
-    :returns: **mat** (*matrix*) - data read from the CSV file.
+    :return mat: data read from the CSV file.
+
+    :type mat: matrix
 
 Remarks
 ------------

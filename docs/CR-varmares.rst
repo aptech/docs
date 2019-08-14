@@ -19,7 +19,7 @@ Format
     :param theta: MA coefficient matrices.
     :type theta: (K*Q)xK matrix
 
-    :returns: res (*NxK matrix*), residuals. If the calculation fails *res* is set to missing value with error code:
+    :return res: residuals. If the calculation fails *res* is set to missing value with error code:
 
         ============= ==============================
         Error Code    Reason for Failure
@@ -37,6 +37,7 @@ Format
         13            :math:`I+M'H'HM` not positive definite
         ============= ==============================
 
+    :type res: NxK matrix
 
 Remarks
 -------

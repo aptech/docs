@@ -17,10 +17,12 @@ Format
     :param needles: the elements to search for in haystack.
     :type needles: vector or string array
 
-    :returns: mask (*vector*), with the same number of rows as
+    :return mask: with the same number of rows as
         the input *haystack*, containing only 1's and 0's. Each element
         of the output, *mask*, will contain a 1 if any element in
         the corresponding row of *haystack* matches any element in *needles*.
+
+    :type mask: vector
 
 Remarks
 -------

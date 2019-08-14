@@ -16,7 +16,7 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: **vtab** (*Nx1 array*) - Contains :class:`gdavartable`
+    :return vtab: Contains :class:`gdavartable`
         structures, where *N* is the number of variables in
         *filename*, containing the following members:
 
@@ -26,6 +26,8 @@ Format
             "*vtab[i].name*", "string, name of variable."
             "*vtab[i].type*", "scalar, type of variable."
             "*vtab[i].orders*", "Mx1 vector or scalar, orders of the variable."
+
+    :type vtab: Nx1 array
 
 Remarks
 -------

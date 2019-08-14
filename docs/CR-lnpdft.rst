@@ -17,7 +17,9 @@ Format
     :param nu: degrees of freedom.
     :type nu: scalar
 
-    :returns: z (*NxK matrix*), log-probabilities.
+    :return z: log-probabilities.
+
+    :type z: NxK matrix
 
 Remarks
 -------

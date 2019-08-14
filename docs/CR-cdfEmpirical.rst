@@ -17,9 +17,13 @@ Format
     :param bins: Optional input. If scalar, an evenly spaced vector with *bins* elements is created between *x_min* and *x_max*. If vector, GAUSS uses the passed vector as the values at which to find empirical cdf.
     :type bins: scalar or vector
 
-    :returns: **f** (*matrix), (N+1) x1 vector*) - cdf values, where *N* is equal to *bins* if *bins* is a scalar or number of rows in *bins* if *bins* is a vector.
+    :return f: cdf values, where *N* is equal to *bins* if *bins* is a scalar or number of rows in *bins* if *bins* is a vector.
 
-    :returns: **breakpoint** (*Nx1 vector*) - break points used to calculate cdf values.
+    :type f: matrix), (N+1) x1 vector
+
+    :return breakpoint: break points used to calculate cdf values.
+
+    :type breakpoint: Nx1 vector
 
 Remarks
 -------

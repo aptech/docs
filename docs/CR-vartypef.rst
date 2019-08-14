@@ -13,7 +13,9 @@ Format
     :param f: file handle of an open file
     :type f: scalar
 
-    :returns: y (*Nx1 vector of ones and zeros*), 1 if variable is numeric, 0 if character.
+    :return y: 1 if variable is numeric, 0 if character.
+
+    :type y: Nx1 vector of ones and zeros
 
 Remarks
 -------

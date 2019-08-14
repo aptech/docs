@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: s = fstrerror
 
-    :returns: **s** (*string*) - error message.
+    :return s: error message.
+
+    :type s: string
 
 Remarks
 -------

@@ -15,7 +15,9 @@ Format
     :param a: data
     :type a: N-dimensional array, matrix, sparse matrix, string or string array
 
-    :returns: **orders** (*Nx1 vector of orders*) - the sizes of the dimensions of the array.
+    :return orders: the sizes of the dimensions of the array.
+
+    :type orders: Nx1 vector of orders
 
 Examples
 ----------------

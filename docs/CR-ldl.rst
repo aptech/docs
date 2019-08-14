@@ -14,9 +14,13 @@ Format
     :param A: data
     :type A: NxN real symmetric matrix
 
-    :returns: L (*NxN permuted*), lower triangular matrix, containing the factor *L*.
+    :return L: lower triangular matrix, containing the factor *L*.
 
-    :returns: D (*NxN block diagonal matrix*), containing the factor *D*.
+    :type L: NxN permuted
+
+    :return D: containing the factor *D*.
+
+    :type D: NxN block diagonal matrix
 
 Remarks
 -------

@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: c = dstatmtControlCreate()
 
-    :returns: **dctl** (*struct*) - instance of :class:`dstatmtControl` struct with members set to default values.
+    :return dctl: instance of :class:`dstatmtControl` struct with members set to default values.
+
+    :type dctl: struct
 
 Examples
 ----------------

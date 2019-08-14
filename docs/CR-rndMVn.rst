@@ -32,9 +32,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: r (*numxN matrix*), multivariate normal random numbers.
+    :return r: multivariate normal random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type r: numxN matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

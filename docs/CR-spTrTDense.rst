@@ -16,7 +16,9 @@ Format
     :param d: data
     :type d: NxL dense matrix
 
-    :returns: y (*MxL dense matrix*), the result of :math:`s'\*d`.
+    :return y: the result of :math:`s'\*d`.
+
+    :type y: MxL dense matrix
 
 Remarks
 -------

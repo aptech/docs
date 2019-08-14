@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: **x_isden** (*scalar*) - 1 if *x* contains a denormal, 0 if it does not.
+    :return x_isden: 1 if *x* contains a denormal, 0 if it does not.
+
+    :type x_isden: scalar
 
 Examples
 ----------------

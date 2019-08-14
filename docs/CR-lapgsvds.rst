@@ -17,13 +17,17 @@ Format
     :param B: data
     :type B: PxN real or complex matrix
 
-    :returns: C (*Lx1 vector*), singular values for *A*.
+    :return C: singular values for *A*.
 
-    :returns: S (*Lx1 vector*), singular values for *B*.
+    :type C: Lx1 vector
 
-    :returns: R (*(K+L)x(K+L)*) upper triangular matrix.
+    :return S: singular values for *B*.
 
+    :type S: Lx1 vector
 
+    :return R: upper triangular matrix.
+
+    :type R: (K+L)x(K+L)
 
 Remarks
 -------

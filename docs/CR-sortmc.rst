@@ -18,7 +18,9 @@ Format
         If an element is negative, that column will be interpreted as character data.
     :type v: Lx1 vector
 
-    :returns: y (*NxK sorted matrix*)
+    :return y: 
+
+    :type y: NxK sorted matrix
 
 Examples
 ----------------

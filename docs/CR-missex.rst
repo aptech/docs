@@ -19,7 +19,9 @@ Format
         mask correspond to the values in *x* that are to be converted into missing values
     :type mask: NxK logical matrix 
 
-    :returns: y (*NxK matrix that equals x*), but with those elements that correspond to the 1's in *e* converted to missing.
+    :return y: but with those elements that correspond to the 1's in *e* converted to missing.
+
+    :type y: NxK matrix that equals x
 
 Remarks
 -------

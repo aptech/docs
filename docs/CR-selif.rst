@@ -16,7 +16,9 @@ Format
     :param e: Nx1 vector of 1's and 0's
     :type e: vector
 
-    :returns: y (*MxK matrix or string array*) consisting of the rows of *x* for which there is a 1 in the corresponding row of *e*.
+    :return y: consisting of the rows of *x* for which there is a 1 in the corresponding row of *e*.
+
+    :type y: MxK matrix or string array
 
 Remarks
 -------

@@ -33,11 +33,15 @@ Format
     :param nonc: non-centrality vector.
     :type nonc: Kx1 vector
 
-    :returns: **p** (*Nx1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate normal distribution for each corresponding columns in *x*. *p* will have as many elements as the inputs, *u_lim* and *l_lim*, have rows. :math:`Pr(X ≥ l\_lim \text{ and } X ≤ u\_lim|corr, nonc)`.
+    :return p: Each element in *p* is the cumulative distribution function of the multivariate normal distribution for each corresponding columns in *x*. *p* will have as many elements as the inputs, *u_lim* and *l_lim*, have rows. :math:`Pr(X ≥ l\_lim \text{ and } X ≤ u\_lim|corr, nonc)`.
 
-    :returns: **err** (*Nx1 vector*) - estimates of absolute error.
+    :type p: Nx1 vector
 
-    :returns: **retcode** (*Nx1 vector*) - return codes.
+    :return err: estimates of absolute error.
+
+    :type err: Nx1 vector
+
+    :return retcode: return codes.
 
         .. csv-table::
             :widths: auto
@@ -47,6 +51,8 @@ Format
             "2", ":math:`K > 100` or :math:`K < 1`."
             "3", "*corr* not positive semi-definite."
             "missing", "*corr* not properly defined."
+
+    :type retcode: Nx1 vector
 
 Remarks
 ------------

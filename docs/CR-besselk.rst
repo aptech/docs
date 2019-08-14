@@ -18,7 +18,9 @@ Format
     :param x: conformable with *n*. *x* must be greater than 0.
     :type x: scalar or matrix ExE
 
-    :returns: K (*scalar or matrix*), the modified Bessel function result.
+    :return K: the modified Bessel function result.
+
+    :type K: scalar or matrix
 
 Remarks
 -------

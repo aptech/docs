@@ -14,7 +14,9 @@ Format
     :param x: Data matrix.
     :type x: NxK matrix or LxNxK array
 
-    :returns: **y** (*min(N,K)x1 vector or L-dimensional array*) - The diagonal of the *x* matrix where the last two dimensions are min(N,K)x1.
+    :return y: The diagonal of the *x* matrix where the last two dimensions are min(N,K)x1.
+
+    :type y: min(N,K)x1 vector or L-dimensional array
 
 Remarks
 -------

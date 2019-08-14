@@ -17,7 +17,7 @@ Format
     :param v: breakpoints specifying the ranges within which counts are to be made. The vector *v* MUST be sorted in ascending order.
     :type v: Px1 vector
 
-    :returns: **c** (*Px1 vector*) - the counts of the elements of *x* that fall into the regions:
+    :return c: the counts of the elements of *x* that fall into the regions:
 
         .. math::
 
@@ -25,6 +25,8 @@ Format
             v[1] < x \leq v[2],\\
             \vdots\\
             v[p-1] < x \leq v[p]
+
+    :type c: Px1 vector
 
 Remarks
 -------

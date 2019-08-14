@@ -20,7 +20,9 @@ Format
     :param b: ExE conformable with *x* and *a*. :math:`b > 0`
     :type b: PxQ matrix
 
-    :returns: **p** (*matrix, max(N,L,P) by max(K,M,Q)*) - *p* is the integral from 0 to *x* of the beta distribution with parameters *a* and *b*. A -1 is returned for those elements with invalid inputs.
+    :return p: *p* is the integral from 0 to *x* of the beta distribution with parameters *a* and *b*. A -1 is returned for those elements with invalid inputs.
+
+    :type p: matrix, max(N,L,P) by max(K,M,Q)
 
 Examples
 ----------------

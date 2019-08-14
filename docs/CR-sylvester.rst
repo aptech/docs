@@ -19,7 +19,9 @@ Format
     :param C: data
     :type C: MxN real or complex matrix
 
-    :returns: X (*MxN matrix*), solution to the equation :math:`AX + XB = C`.
+    :return X: solution to the equation :math:`AX + XB = C`.
+
+    :type X: MxN matrix
 
 Examples
 ----------------

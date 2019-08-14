@@ -16,7 +16,9 @@ Format
     :param x: contains the names of variables whose type is to be determined.
     :type x: string or Nx1 character vector or string array
 
-    :returns: y (*scalar or Nx1 vector*) containing the types of the respective symbols in *x*.
+    :return y: containing the types of the respective symbols in *x*.
+
+    :type y: scalar or Nx1 vector
 
 Remarks
 -------

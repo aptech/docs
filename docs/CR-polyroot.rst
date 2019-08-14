@@ -16,7 +16,9 @@ Format
 
     :type c: (N+1)x1 vector
         
-    :returns: y (*Nx1 vector*), the roots of *c*.
+    :return y: the roots of *c*.
+
+    :type y: Nx1 vector
 
 .. DANGER:: fix equations
 

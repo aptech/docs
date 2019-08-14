@@ -12,7 +12,9 @@ Format
 .. function:: y = csrcol
               y = csrlin
 
-    :returns: **p** (*scalar*) - row or column position.
+    :return p: row or column position.
+
+    :type p: scalar
 
 Remarks
 -------

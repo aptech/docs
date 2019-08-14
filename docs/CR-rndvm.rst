@@ -23,7 +23,9 @@ Format
     :param k: ExE conformable with r x c, shape argument for von Mises distribution.
     :type k: LxM matrix
 
-    :returns: x (*RxC matrix*), von Mises distributed random numbers.
+    :return x: von Mises distributed random numbers.
+
+    :type x: RxC matrix
 
 Source
 ------

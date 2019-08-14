@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxM matrix
 
-    :returns: b (*MxK matrix*), where *K* is the nullity of *x*, such that:
+    :return b: where *K* is the nullity of *x*, such that:
        
         ::
 
@@ -35,6 +35,8 @@ Format
             "2", "*b* is too large to return in a single matrix"
 
         Use :func:`scalerr` to test for error returns.
+
+    :type b: MxK matrix
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: **varnames** (*Nx1 string array*) - names of all the variables in the GDA.
+    :return varnames: names of all the variables in the GDA.
+
+    :type varnames: Nx1 string array
 
 Remarks
 -------

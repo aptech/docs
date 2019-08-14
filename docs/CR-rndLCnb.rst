@@ -50,10 +50,12 @@ Format
 
     :type state: scalar or vector
 
-    :returns: x (*RxC matrix*), negative binomial distributed random numbers.
+    :return x: negative binomial distributed random numbers.
 
-    :returns: newstate (*4x1 vector*)
+    :type x: RxC matrix
 
+    :return newstate: 
+    
         .. csv-table::
             :widths: auto
     
@@ -61,6 +63,8 @@ Format
             "[2]", "the multiplicative constant"
             "[3]", "the additive constant"
             "[4]", "the original initialization seed"
+
+    :type newstate: 4x1 vector
 
 Technical Notes
 ---------------

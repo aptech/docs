@@ -21,7 +21,9 @@ Format
     :param n: specifying the number of elements in the sequence
     :type n: scalar
 
-    :returns: y (*nx1 vector*) containing the specified sequence.
+    :return y: containing the specified sequence.
+
+    :type y: nx1 vector
 
 Remarks
 -------

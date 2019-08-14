@@ -21,8 +21,10 @@ Format
         MUST be later date than *tstart*.
     :type t_end: 4x1 vector
 
-    :returns: **hs** (*scalar*) - elapsed time measured in hundredths of
+    :return hs: elapsed time measured in hundredths of
         a second.
+
+    :type hs: scalar
 
 Remarks
 -------

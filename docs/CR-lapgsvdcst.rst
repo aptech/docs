@@ -17,19 +17,29 @@ Format
     :param B: data
     :type B: PxN matrix
 
-    :returns: C (*Lx1 vector*), singular values for *A*.
+    :return C: singular values for *A*.
 
-    :returns: S (*Lx1 vector*), singular values for *B*.
+    :type C: Lx1 vector
 
-    :returns: R (*(K+L)x(K+L)*), upper triangular matrix.
+    :return S: singular values for *B*.
 
-    :returns: U (*MxM matrix*), orthogonal transformation matrix.
+    :type S: Lx1 vector
 
-    :returns: V (*PxP matrix*), orthogonal transformation matrix.
+    :return R: upper triangular matrix.
 
-    :returns: Q (*NxN matrix*), orthogonal transformation matrix.
+    :type R: (K+L)x(K+L)
 
+    :return U: orthogonal transformation matrix.
 
+    :type U: MxM matrix
+
+    :return V: orthogonal transformation matrix.
+
+    :type V: PxP matrix
+
+    :return Q: orthogonal transformation matrix.
+
+    :type Q: NxN matrix
 
 Remarks
 -------

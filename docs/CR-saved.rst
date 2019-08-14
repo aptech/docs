@@ -21,7 +21,9 @@ Format
     :param vnames: names for the columns of the data set.
     :type vnames: string or Kx1 character vector
 
-    :returns: ret (*scalar*), 1 if successful, otherwise 0.
+    :return ret: 1 if successful, otherwise 0.
+
+    :type ret: scalar
 
 Remarks
 -------

@@ -22,7 +22,9 @@ Format
     :param alpha: ExE conformable with r x c resulting matrix, shape parameters for gamma distribution.
     :type alpha: MxN matrix
 
-    :returns: x (*r x c matrix*), gamma distributed pseudo-random numbers.
+    :return x: gamma distributed pseudo-random numbers.
+
+    :type x: r x c matrix
 
 Remarks
 -------

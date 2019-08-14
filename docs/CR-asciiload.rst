@@ -13,7 +13,9 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: y (*Nx1 vector*)
+    :return y: 
+
+    :type y: Nx1 vector
 
 Remarks
 -------

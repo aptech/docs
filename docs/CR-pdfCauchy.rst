@@ -20,7 +20,9 @@ Format
     :param sigma: Scale parameter. ExE conformable with *x*. *sigma* must be greater than 0.
     :type sigma: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix, Nx1 vector or scalar*)
+    :return y: 
+
+    :type y: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param x: Symmetric, positive definite square matrix.
     :type x: NxN matrix
 
-    :returns: **u** (*NxN matrix*) - containing the Cholesky decomposition of *x*.
+    :return u: containing the Cholesky decomposition of *x*.
+
+    :type u: NxN matrix
 
 Remarks
 -------

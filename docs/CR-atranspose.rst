@@ -17,7 +17,9 @@ Format
     :param nd: the new order of dimensions.
     :type nd: Nx1 vector
 
-    :returns: y (*N-dimensional array*), transposed according to *nd*.
+    :return y: transposed according to *nd*.
+
+    :type y: N-dimensional array
 
 Remarks
 -------

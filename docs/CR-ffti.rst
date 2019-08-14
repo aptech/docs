@@ -14,7 +14,9 @@ Format
     :param x: The values used to compute the inverse Fast Fourier transform.
     :type x: NxK matrix
 
-    :returns: **y** (*LxM matrix*) - where *L* and *M* are the smallest prime factor products greater than or equal to *N* and *K*, respectively.
+    :return y: where *L* and *M* are the smallest prime factor products greater than or equal to *N* and *K*, respectively.
+
+    :type y: LxM matrix
 
 Examples
 ----------------

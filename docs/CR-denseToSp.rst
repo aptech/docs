@@ -18,7 +18,9 @@ Format
         or equal to *eps* will be treated as zero.
     :type eps: scalar
 
-    :returns: **x_sparse** (*MxN sparse matrix*) - Sparse matrix converted from *x*.
+    :return x_sparse: Sparse matrix converted from *x*.
+
+    :type x_sparse: MxN sparse matrix
 
 Remarks
 -------

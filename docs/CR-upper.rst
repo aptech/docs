@@ -13,7 +13,9 @@ Format
     :param x: the character data to be converted to uppercase.
     :type x: string or NxK matrix, or string array 
 
-    :returns: y (*string or NxK matrix or string array*) containing the uppercase equivalent of the data in *x*.
+    :return y: containing the uppercase equivalent of the data in *x*.
+
+    :type y: string or NxK matrix or string array
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param a: 
     :type a: N-dimensional array
 
-    :returns: y (*KxL or 1xL matrix or scalar*), where *L* is the size of the fastest moving dimension of the array and *K* is the size of the second fastest moving dimension.
+    :return y: where *L* is the size of the fastest moving dimension of the array and *K* is the size of the second fastest moving dimension.
+
+    :type y: KxL or 1xL matrix or scalar
 
 Remarks
 -------

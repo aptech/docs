@@ -31,9 +31,13 @@ Format
 
     :type state: scalar or 500x1 vector
 
-    :returns: y (*RxC matrix*) of random integers between :math:`0` and :math:`2_32 - 1`, inclusive.
+    :return y: of random integers between :math:`0` and :math:`2_32 - 1`, inclusive.
 
-    :returns: newstate (*500x1 vector*), the updated state.
+    :type y: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: 500x1 vector
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: MxN matrix or N-dimensional array
 
-    :returns: y (*MxN matrix or N-dimensional array*), trigamma.
+    :return y: trigamma.
+
+    :type y: MxN matrix or N-dimensional array
 
 Remarks
 -------

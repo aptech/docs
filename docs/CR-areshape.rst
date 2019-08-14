@@ -16,7 +16,9 @@ Format
     :param orders: orders. the sizes of the dimensions of the new array.
     :type orders: Mx1 vector
 
-    :returns: y (*M-dimensional array*) created from data in *x*.
+    :return y: created from data in *x*.
+
+    :type y: M-dimensional array
 
 Remarks
 -------

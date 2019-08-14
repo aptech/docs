@@ -13,8 +13,10 @@ Format
     :param x: data
     :type x: NxK real matrix
 
-    :returns: y (*LxM matrix*), where :math:`L` and :math:`M` are the smallest prime
+    :return y: where :math:`L` and :math:`M` are the smallest prime
         factor products greater than or equal to :math:`N` and :math:`K`, respectively.
+
+    :type y: LxM matrix
 
 Remarks
 -------

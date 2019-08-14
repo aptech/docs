@@ -32,11 +32,13 @@ Format
     :param G: grid size factor.
     :type G: scalar
 
-    :returns: **u** (*(K\*G)x1*) - vector, x-abscissae, regularly spaced.
+    :return u: vector, x-abscissae, regularly spaced.
 
-    :returns: **v** (*(K\*G)x1*) - vector, y-ordinates, regularly spaced.
+    :type u: (KxG)x1
 
+    :return v: vector, y-ordinates, regularly spaced.
 
+    :type v: (KxG)x1
 
 Remarks
 -------

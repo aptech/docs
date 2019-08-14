@@ -16,7 +16,9 @@ Format
     :param x: The values used to compute the Gaussian error function or its complement.
     :type x: NxK matrix
 
-    :returns: **y** (*NxK matrix*) - the Gaussian error function (:func:`erf`) or the complement of the Gaussian error function (:func:`erfc`).
+    :return y: the Gaussian error function (:func:`erf`) or the complement of the Gaussian error function (:func:`erfc`).
+
+    :type y: NxK matrix
 
 Remarks
 -------

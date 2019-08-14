@@ -19,7 +19,9 @@ Format
     :param x: the data to write to the file.
     :type x: Matrix or N-dimensional array
 
-    :returns: **retcode** (*scalar*) - 0 if successful, non-zero otherwise.
+    :return retcode: 0 if successful, non-zero otherwise.
+
+    :type retcode: scalar
 
 Examples
 ----------------

@@ -23,7 +23,9 @@ Format
     :param fmt: matrix where each row specifies the format for the respective column of *x*
     :type fmt: Kx3 or 1x3 matrix
 
-    :returns: y (*scalar*), 1 if the function is successful and 0 if it fails.
+    :return y: 1 if the function is successful and 0 if it fails.
+
+    :type y: scalar
 
 Remarks
 -------

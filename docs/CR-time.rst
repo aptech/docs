@@ -11,8 +11,10 @@ Format
 ----------------
 .. function:: y = time()
 
-    :returns: y (*4x1 numeric vector*), the current time in the
+    :return y: the current time in the
         order: hours, minutes, seconds, and hundredths of a second.
+
+    :type y: 4x1 numeric vector
 
 Examples
 ----------------

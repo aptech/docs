@@ -68,13 +68,15 @@ Format
 
     :type formula: string
 
-    :returns: vnam (*(K+2)x1 or (K+1)x1 character vector*) , the variable
+    :return vnam: the variable
         names used in the regression. If a constant term is
         used, this vector will be :math:`(K+2)x1`, and the first
         name will be "CONSTANT". The last name will be the
         name of the dependent variable.
 
-    :returns: m (*MxM matrix*), where :math:`M = K+2`, the moment matrix constructed by calculating
+    :type vnam: (K+2)x1 or (K+1)x1 character vector
+
+    :return m: where :math:`M = K+2`, the moment matrix constructed by calculating
         :math:`x'x` where *x* is a matrix containing all useable observations and having columns in the order:
 
         .. csv-table::
@@ -85,7 +87,9 @@ Format
 
         A constant term is always used in computing *m*.
 
-    :returns: b (*Dx1 vector*), the least squares estimates of parameters
+    :type m: MxM matrix
+
+    :return b: the least squares estimates of parameters
 
         Error handling is controlled by the low order bit of the `trap` flag.
 
@@ -104,19 +108,33 @@ Format
 
         The system can become underdetermined if you use listwise deletion and have missing values. In that case, it is possible to skip so many cases that there are fewer useable rows than columns in the data set.
 
-    :returns: stb (*Kx1 vector*), the standardized coefficients.
+    :type b: Dx1 vector
 
-    :returns: vc (*DxD matrix*), the variance-covariance matrix of estimates.
+    :return stb: the standardized coefficients.
 
-    :returns: stderr (*Dx1 vector*), the standard errors of the estimated parameters.
+    :type stb: Kx1 vector
 
-    :returns: sigma (*scalar*), standard deviation of residual.
+    :return vc: the variance-covariance matrix of estimates.
 
-    :returns: cx (*(K+1)x(K+1) matrix*) , correlation matrix of variables with the dependent variable as the last column.
+    :type vc: DxD matrix
 
-    :returns: rsq (*scalar*), R square, coefficient of determination.
+    :return stderr: the standard errors of the estimated parameters.
 
-    :returns: resid (*residuals*), :math:`resid = y - x * b`.
+    :type stderr: Dx1 vector
+
+    :return sigma: standard deviation of residual.
+
+    :type sigma: scalar
+
+    :return cx: correlation matrix of variables with the dependent variable as the last column.
+
+    :type cx: (K+1)x(K+1) matrix
+
+    :return rsq: R square, coefficient of determination.
+
+    :type rsq: scalar
+
+    :return resid: :math:`resid = y - x * b`.
 
         If *_olsres* = 1, the residuals will be computed.
 
@@ -125,7 +143,11 @@ Format
         The *resid* return value will be a string containing the name of the new data set containing the residuals.
         If the data is passed in as a matrix, the *resid* return value will be the Nx1 vector of residuals.
 
-    :returns: dwstat (*scalar*), Durbin-Watson statistic.
+    :type resid: residuals
+
+    :return dwstat: Durbin-Watson statistic.
+
+    :type dwstat: scalar
 
 .. DANGER:: Fix equations
 

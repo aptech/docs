@@ -16,7 +16,9 @@ Format
     :param dim: number of dimension to sum across.
     :type dim: scalar
 
-    :returns: y (*N-dimensional array*), standard deviation across specified dimension of *x*.
+    :return y: standard deviation across specified dimension of *x*.
+
+    :type y: N-dimensional array
 
 Remarks
 -------

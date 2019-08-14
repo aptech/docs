@@ -19,7 +19,9 @@ Format
     :param off: the offset in *str* to place *substr*. The offset of the first byte is 1.
     :type off: scalar
 
-    :returns: y (*string*), the new string.
+    :return y: the new string.
+
+    :type y: string
 
 Examples
 ----------------

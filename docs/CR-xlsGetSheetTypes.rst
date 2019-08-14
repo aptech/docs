@@ -19,7 +19,7 @@ Format
     :param row: the row of cells to be scanned.
     :type row: scalar
 
-    :returns: types (*1xK vector*) of predefined data types representing the format of each cell in the specified row.
+    :return types: of predefined data types representing the format of each cell in the specified row.
 
         The possible types are:
 
@@ -29,6 +29,8 @@ Format
             "0", "Text"
             "1", "Numeric"
             "2", "Date"
+
+    :type types: 1xK vector
 
 Portability
 -----------

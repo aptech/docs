@@ -14,7 +14,9 @@ Format
     :param A:
     :type A: One or more matrices
 
-    :returns: d (*matrix*), Diagonal matrix constructed from the input matrices.
+    :return d: Diagonal matrix constructed from the input matrices.
+
+    :type d: matrix
 
 Remarks
 ----------------

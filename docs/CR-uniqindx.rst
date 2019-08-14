@@ -17,8 +17,10 @@ Format
     :param flag: 1 if numeric data, 0 if character.
     :type flag: scalar
 
-    :returns: index (*Mx1 vector*), indices corresponding to the
+    :return index: indices corresponding to the
         elements of *x* sorted in ascending order with duplicates removed.
+
+    :type index: Mx1 vector
 
 Remarks
 -------

@@ -17,7 +17,9 @@ Format
     :param dim: the dimension across which to compute the mean.
     :type dim: scalar
 
-    :returns: y (*[N-1]-dimensional array*)
+    :return y: 
+
+    :type y: [N-1]-dimensional array
 
 Remarks
 -------

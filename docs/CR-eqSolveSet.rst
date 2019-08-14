@@ -11,17 +11,29 @@ Format
 ----------------
 .. function:: eqSolveSet
 
-    :returns: **__eqs_TypicalX** (*scalar*) - Set to 0.
+    :return __eqs_TypicalX: Set to 0.
 
-    :returns: **__eqs_TypicalF** (*scalar*) - Set to 0.
+    :type __eqs_TypicalX: scalar
 
-    :returns: **__eqs_IterInfo** (*scalar*) - Set to 0.
+    :return __eqs_TypicalF: Set to 0.
 
-    :returns: **__eqs_JacobianProc** (*scalar*) - Set to 0.
+    :type __eqs_TypicalF: scalar
 
-    :returns: **__eqs_MaxIters** (*scalar*) - Set to 100.
+    :return __eqs_IterInfo: Set to 0.
 
-    :returns: **__eqs_StepTol** (*scalar*) - Set to :math:`\_\_macheps^{2/3}`
+    :type __eqs_IterInfo: scalar
+
+    :return __eqs_JacobianProc: Set to 0.
+
+    :type __eqs_JacobianProc: scalar
+
+    :return __eqs_MaxIters: Set to 100.
+
+    :type __eqs_MaxIters: scalar
+
+    :return __eqs_StepTol: Set to :math:`\_\_macheps^{2/3}`
+
+    :type __eqs_StepTol: scalar
 
 Examples
 -----------------

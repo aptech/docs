@@ -65,7 +65,9 @@ Format
 
     :type qCtl: struct
 
-    :returns: q (*PxM matrix*), estimated quantile :math:`Y|X=xstar`
+    :return q: estimated quantile :math:`Y|X=xstar`
+
+    :type q: PxM matrix
 
 Examples
 ----------------

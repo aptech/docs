@@ -17,7 +17,9 @@ Format
     :param where: searched for matches to the values in *what*
     :type where: Mx1 numeric vector
 
-    :returns: **z** (*Nx1 vector of integers*) - the indices of the corresponding elements of *what* in *where*.
+    :return z: the indices of the corresponding elements of *what* in *where*.
+
+    :type z: Nx1 vector of integers
 
 Remarks
 -------

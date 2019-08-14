@@ -20,10 +20,11 @@ Format
     :param r: correlations.
     :type r: PxQ matrix
 
-    :returns: y (*max(N,L,P) x max(K,M,Q) matrix*) 
+    :return y: 
     
         .. math:: ln Pr(X < x1, X < x2|r)
 
+    :type y: max(N,L,P) x max(K,M,Q) matrix
 
 .. DANGER:: verify equations
 

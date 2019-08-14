@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: c = integrateControlCreate()
 
-    :returns: **c** (*struct*) - instance of :class:`integrateControl` struct with members set to default values.
+    :return c: instance of :class:`integrateControl` struct with members set to default values.
+
+    :type c: struct
 
 Examples
 ----------------

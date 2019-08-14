@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: eps = machEpsilon()
 
-    :returns: eps (*scalar*), machine epsilon.
+    :return eps: machine epsilon.
+
+    :type eps: scalar
 
 Source
 ------

@@ -17,7 +17,7 @@ Format
     :param comline: the arguments to be placed on the command line of the program being executed.
     :type comline: string
 
-    :returns: **ret** (*scalar*) - the exit code returned by *program*.
+    :return ret: the exit code returned by *program*.
 
         If exec can't execute *program*,
         the error returns will be negative:
@@ -29,6 +29,8 @@ Format
             "-2", "the file is not an executable file"
             "-3", "not enough memory"
             "-4", "command line too long"
+
+    :type ret: scalar
 
 Examples
 ----------------

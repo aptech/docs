@@ -22,7 +22,9 @@ Format
     :param l: Optional. lightness. Default value is 0.65
     :type l: scalar
 
-    :returns: **clrs** (*ncolorsx1 string array*) - contains the newly created color palette.
+    :return clrs: contains the newly created color palette.
+
+    :type clrs: ncolorsx1 string array
 
 Examples
 ----------------

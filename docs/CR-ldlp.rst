@@ -14,7 +14,9 @@ Format
     :param A: data
     :type A: NxN real symmetric matrix
 
-    :returns: ldl_factor (*(N+1)xN matrix*) containing the factors *L* and *D* as well as the permutation vector *P*, which can be passed directly to :func:`ldlsol` to solve a system of linear equations.
+    :return ldl_factor: containing the factors *L* and *D* as well as the permutation vector *P*, which can be passed directly to :func:`ldlsol` to solve a system of linear equations.
+
+    :type ldl_factor: (N+1)xN matrix
 
 Remarks
 -------

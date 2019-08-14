@@ -14,7 +14,9 @@ Format
     :param sa: numeric data
     :type sa: NxK string array
 
-    :returns: x (*NxK complex matrix*)
+    :return x: 
+
+    :type x: NxK complex matrix
 
 Remarks
 -------

@@ -16,7 +16,9 @@ Format
     :param flag: Optional input, 1 if numeric data, 0 if character data. Default is 1. string array does not need a flag.
     :type flag: scalar
 
-    :returns: y (*Mx1 vector*), sorted *x* with the duplicates removed.
+    :return y: sorted *x* with the duplicates removed.
+
+    :type y: Mx1 vector
 
 Examples
 ----------------

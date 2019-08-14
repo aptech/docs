@@ -28,7 +28,7 @@ Format
         containing the new path.
     :type path: scalar 0 to get path
 
-    :returns: vi (*8x1 numeric vector*) containing version information:
+    :return vi: containing version information:
 
     .. csv-table::
         :widths: auto
@@ -53,7 +53,7 @@ Format
         "", "10", "Linux"
         "", "12", "Mac OS"
 
-
+    :type vi: 8x1 numeric vector
 
 Remarks
 -------

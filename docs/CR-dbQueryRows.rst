@@ -16,7 +16,9 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **result_size** (*scalar*) - number of rows in the current result set of the active query. If the number of rows cannot be determined a -1 is returned.
+    :return result_size: number of rows in the current result set of the active query. If the number of rows cannot be determined a -1 is returned.
+
+    :type result_size: scalar
 
 Remarks
 -------

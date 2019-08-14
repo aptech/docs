@@ -25,8 +25,10 @@ Format
     :param std_bar: standard deviation parameter.
     :type std_bar: Scalar
 
-    :returns: **p** (*scalar or NxK matrix or N-dimensional array*) - the probability density
+    :return p: the probability density
         of the cumulative distribution over the interval from *l_lim* to *u_lim*.
+
+    :type p: scalar or NxK matrix or N-dimensional array
 
 Examples
 ----------------

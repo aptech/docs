@@ -17,7 +17,9 @@ Format
     :param dim: size of each dimension.
     :type dim: Kx1 vector
 
-    :returns: **y** (*Lx1 vector*) - FFT of *x*.
+    :return y: FFT of *x*.
+
+    :type y: Lx1 vector
 
 Remarks
 -------

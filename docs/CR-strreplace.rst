@@ -19,8 +19,10 @@ Format
     :param replace: the substring with which to replace all instances of *search* found in *str*.
     :type replace: string
 
-    :returns: str_new (*string*) New string which is the same as *str*, except that
+    :return str_new: new string which is the same as *str*, except that
         all instances of *search* have been replaced with *replace*.
+
+    :type str_new: string
 
 Examples
 ----------------

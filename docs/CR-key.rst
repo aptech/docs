@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: y = key()
 
-    :returns: **y** (*scalar*) - ASCII value of next available key in keyboard buffer.
+    :return y: ASCII value of next available key in keyboard buffer.
+
+    :type y: scalar
 
 Remarks
 -------

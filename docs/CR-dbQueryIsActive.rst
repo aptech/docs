@@ -14,7 +14,9 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **ret** (*scalar*) - 1 if the query is active or 0 if not.
+    :return ret: 1 if the query is active or 0 if not.
+
+    :type ret: scalar
 
 Remarks
 -------

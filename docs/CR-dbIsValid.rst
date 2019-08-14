@@ -14,7 +14,9 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: **ret** (*scalar*) - 1 if the database connection has a valid driver or 0 if not.
+    :return ret: 1 if the database connection has a valid driver or 0 if not.
+
+    :type ret: scalar
 
 Examples
 ----------------

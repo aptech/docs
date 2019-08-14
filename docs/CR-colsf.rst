@@ -14,7 +14,9 @@ Format
     :param fh: file handle of an open file
     :type fh: scalar
 
-    :returns: **ncols** (*scalar*) - number of columns in the file that has the handle *fh*.
+    :return ncols: number of columns in the file that has the handle *fh*.
+
+    :type ncols: scalar
 
 Remarks
 -------

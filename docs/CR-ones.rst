@@ -17,7 +17,9 @@ Format
     :param c: number of columns.
     :type c: scalar
 
-    :returns: y (*RxC matrix*) of ones.
+    :return y: of ones.
+
+    :type y: RxC matrix
 
 Remarks
 -------

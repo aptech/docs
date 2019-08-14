@@ -17,9 +17,13 @@ Format
     :param trans: real NxN matrix. the associated transformation matrix.
     :type trans: matrix
 
-    :returns: schc (*NxN matrix*), possibly complex, strictly upper triangular. The diagonal entries are the eigenvalues.
+    :return schc: possibly complex, strictly upper triangular. The diagonal entries are the eigenvalues.
 
-    :returns: transc (*NxN matrix*), possibly complex, the associated transformation matrix.
+    :type schc: NxN matrix
+
+    :return transc: possibly complex, the associated transformation matrix.
+
+    :type transc: NxN matrix
 
 Remarks
 -------

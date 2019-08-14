@@ -16,7 +16,9 @@ Format
     :param df: degrees of freedom, :math:`df > 1`, *df* need not be an integer. ExE conformable with *p*.
     :type df: LxM real matrix
 
-    :returns: **x** (*matrix, max(N,L) by max(K,M) real*)- each value of *x* is the value such that the complement of the Student's t distribution is equal to the corresponding value of *p*. :code:`cdfTc(x, df) =  p`.
+    :return x: each value of *x* is the value such that the complement of the Student's t distribution is equal to the corresponding value of *p*. :code:`cdfTc(x, df) =  p`.
+
+    :type x: matrix, max(N,L) by max(K,M) real
 
 Examples
 ----------------

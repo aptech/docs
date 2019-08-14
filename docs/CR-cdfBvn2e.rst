@@ -26,9 +26,13 @@ Format
     :param r: correlation coefficients between the two variables.
     :type r: Nx1 vector
 
-    :returns: **p** (*Nx1 vector*), the integral over the rectangle bounded by *h*, *h* + *dh*, *k*, and *k* + *dk* of the standardized bivariate Normal distribution.
+    :return p: the integral over the rectangle bounded by *h*, *h* + *dh*, *k*, and *k* + *dk* of the standardized bivariate Normal distribution.
 
-    :returns: **e** (*Nx1 vector*), an error estimate.
+    :type p: Nx1 vector
+
+    :return e: an error estimate.
+
+    :type e: Nx1 vector
 
 Remarks
 -------

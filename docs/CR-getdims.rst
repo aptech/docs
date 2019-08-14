@@ -14,7 +14,9 @@ Format
     :param a: N-dimensional array, matrix, string, string array or sparse matrix.
     :type a: any
 
-    :returns: **ndims** (*scalar*) - the number of dimensions in the symbol.
+    :return ndims: the number of dimensions in the symbol.
+
+    :type ndims: scalar
 
 Examples
 ----------------

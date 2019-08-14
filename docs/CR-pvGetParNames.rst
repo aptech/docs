@@ -14,7 +14,9 @@ Format
     :param p1: an instance of structure of type *PV*
     :type p1: struct
 
-    :returns: s (*Kx1 string array*), names of parameters.
+    :return s: names of parameters.
+
+    :type s: Kx1 string array
 
 Remarks
 -------

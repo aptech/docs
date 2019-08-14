@@ -13,7 +13,9 @@ Format
     :param utc: UTC scalar format.
     :type utc: Nx1 vector
 
-    :returns: dt (*Nx1 vector*), DT scalar format.
+    :return dt: DT scalar format.
+
+    :type dt: Nx1 vector
 
 Remarks
 -------

@@ -17,7 +17,9 @@ Format
     :param col: column(s)
     :type col: scalar or 2x1 vector
 
-    :returns: range (*string*), an Excel®-formatted range specifier.
+    :return range: an Excel®-formatted range specifier.
+
+    :type range: string
 
 Remarks
 -------

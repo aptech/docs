@@ -13,7 +13,9 @@ Format
     :param dtv: DTV vector format.
     :type dtv: Nx8 matrix
 
-    :returns: **dt** (*Nx1 vector*) - DT scalar format.
+    :return dt: DT scalar format.
+
+    :type dt: Nx1 vector
 
 Remarks
 -------

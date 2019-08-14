@@ -17,7 +17,9 @@ Format
     :param x: the rows to downdate *C* with.
     :type x: NxK matrix
 
-    :returns: **r** (*KxK upper triangular matrix*) - the downdated matrix.
+    :return r: the downdated matrix.
+
+    :type r: KxK upper triangular matrix
 
 Remarks
 -------

@@ -23,7 +23,9 @@ Format
     :param mask: elements in *g* corresponding to elements of *mask* set to zero are not computed otherwise are computed.
     :type mask: Kx1 matrix
 
-    :returns: **g** (*NxK or 1xK*) - Jacobian or gradient.
+    :return g: Jacobian or gradient.
+
+    :type g: NxK or 1xK
 
 Remarks
 -------

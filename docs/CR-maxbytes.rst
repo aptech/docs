@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: y = maxbytes()
 
-    :returns: y (*scalar*), maximum memory to be used.
+    :return y: maximum memory to be used.
+
+    :type y: scalar
 
 Global Input
 ------------

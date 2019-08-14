@@ -19,7 +19,9 @@ Format
     :param cinds: column indices.
     :type cinds: Lx1 vector
 
-    :returns: y (*KxL dense matrix*), the intersection of *rinds* and *cinds*.
+    :return y: the intersection of *rinds* and *cinds*.
+
+    :type y: KxL dense matrix
 
 Remarks
 -------

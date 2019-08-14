@@ -24,7 +24,9 @@ Format
     :param psfile: name of PostScript file.
     :type psfile: string
 
-    :returns: ret (*scalar*), 0 if successful.
+    :return ret: 0 if successful.
+
+    :type ret: scalar
 
 Remarks
 -------

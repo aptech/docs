@@ -28,7 +28,7 @@ Format
     :param append: file write mode, (0) overwrite or (1) append.
     :type append: scalar
 
-    :returns: ret (*scalar*), return code.
+    :return ret: return code.
 
         .. csv-table::
             :widths: auto
@@ -41,6 +41,8 @@ Format
             "5", "null output string, or illegal mode value"
             "6", "illegal append value"
             "16", "(1) append specified but file did not exist; file was created (warning only)"
+
+    :type ret: scalar
 
 Remarks
 -------

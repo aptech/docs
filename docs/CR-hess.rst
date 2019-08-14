@@ -14,9 +14,13 @@ Format
     :param A: data
     :type A: KxK real or complex matrix
 
-    :returns: **H** (*KxK matrix*) - Hessenberg form.
+    :return H: Hessenberg form.
 
-    :returns: **Z** (*KxK matrix*) - transformation matrix.
+    :type H: KxK matrix
+
+    :return Z: transformation matrix.
+
+    :type Z: KxK matrix
 
 Remarks
 -------

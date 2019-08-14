@@ -17,7 +17,9 @@ Format
     :param numl: number of lines to read.
     :type numl: scalar
 
-    :returns: **sa** (*Nx1 string array*) - Contains the text read from the file lines specified by the file handle *fh*. :math:`N <= numl`.
+    :return sa: Contains the text read from the file lines specified by the file handle *fh*. :math:`N <= numl`.
+
+    :type sa: Nx1 string array
 
 Remarks
 -------

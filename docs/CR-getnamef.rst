@@ -14,7 +14,9 @@ Format
     :param fh: file handle of an open data set
     :type fh: scalar
 
-    :returns: **var_names** (*Nx1 string array*) - contains the names of all of the variables in the specified data set.
+    :return var_names: contains the names of all of the variables in the specified data set.
+
+    :type var_names: Nx1 string array
 
 Remarks
 -------

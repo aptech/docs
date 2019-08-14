@@ -34,7 +34,7 @@ Format
 
     :type vars: Kx1 string array or Kx1 numeric vector or string
 
-    :returns: m (*MxM matrix*), where :math:`M = K + \_\_con`, the moment matrix
+    :return m: where :math:`M = K + \_\_con`, the moment matrix
         constructed by calculating :math:`X'X` where *X* is the data, with or without a constant vector of ones.
 
         Error handling is controlled by the low order bit of the `trap` flag.
@@ -48,6 +48,8 @@ Format
 
                 "33", "too many missings"
                 "34", "file not found"
+
+    :type m: MxM matrix
 
 Global Input
 ------------

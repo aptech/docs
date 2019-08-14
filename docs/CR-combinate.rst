@@ -17,7 +17,9 @@ Format
     :param K: Number of things drawn each time.
     :type K: scalar
 
-    :returns: **y** (*MxK matrix*) - Matrix of all possible combinations, where :math:`M` is the number of combinations of *N* things taken *K* at a time.
+    :return y: Matrix of all possible combinations, where :math:`M` is the number of combinations of *N* things taken *K* at a time.
+
+    :type y: MxK matrix
 
 Remarks
 -------

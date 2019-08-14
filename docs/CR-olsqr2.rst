@@ -17,16 +17,20 @@ Format
     :param x: independent variables
     :type x: NxP matrix
 
-    :returns: b (*Px1 vector*) of least squares estimates of
+    :return b: of least squares estimates of
         regression of *y* on *x*. If *x* does not have full
         rank, then the coefficients that cannot be
         estimated will be zero.
 
-    :returns: r (*Px1 vector*) of residuals. (:math:`r = y - x*b`)
+    :type b: Px1 vector
 
-    :returns: p (*Px1 vector*) of predicted values. (:math:`p = x*b`)
+    :return r: of residuals. (:math:`r = y - x*b`)
 
+    :type r: Px1 vector
 
+    :return p: of predicted values. (:math:`p = x*b`)
+
+    :type p: Px1 vector
 
 Remarks
 -------

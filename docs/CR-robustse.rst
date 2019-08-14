@@ -33,7 +33,9 @@ Format
     :param var_names: Optional input, variable names. Default = X1, X2, ..., XK.
     :type var_names: string array
 
-    :returns: vce_robust (*KxK matrix*), Huber-White heteroscedastic robust variance-covariance matrix.
+    :return vce_robust: Huber-White heteroscedastic robust variance-covariance matrix.
+
+    :type vce_robust: KxK matrix
 
 Examples
 ----------------

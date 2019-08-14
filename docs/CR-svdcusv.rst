@@ -13,15 +13,21 @@ Format
     :param x: , whose singular values are to be computed.
     :type x: NxP matrix or K-dimensional array where the last two dimensions are NxP
 
-    :returns: u (*NxN or NxP matrix or K-dimensional array*) where the last two dimensions are :math:`NxN` or
+    :return u: where the last two dimensions are :math:`NxN` or
         :math:`NxP`, the left singular vectors of *x*. If :math:`N > P`, *u* is :math:`NxP`, containing only the :math:`P` left
         singular vectors of *x*.
 
-    :returns: s (*NxP or PxP diagonal matrix or K-dimensional array*) where the last two dimensions describe :math:`NxP`
+    :type u: NxN or NxP matrix or K-dimensional array
+
+    :return s: where the last two dimensions describe :math:`NxP`
         or :math:`PxP` diagonal arrays, the singular values of *x* arranged in descending order on the
         principal diagonal. If :math:`N > P`, *s* is :math:`PxP`.
 
-    :returns: v (*PxP matrix or K-dimensional array*) where the last two dimensions are :math:`PxP`, the right singular vectors of *x*.
+    :type s: NxP or PxP diagonal matrix or K-dimensional array
+
+    :return v: where the last two dimensions are :math:`PxP`, the right singular vectors of *x*.
+
+    :type v: PxP matrix or K-dimensional array
 
 Remarks
 -------

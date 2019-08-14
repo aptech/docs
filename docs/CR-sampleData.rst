@@ -20,7 +20,9 @@ Format
     :param replace: Optional argument, if *replace* is 0, the sample is drawn without replacement. If *replace* is 1, the sample is drawn with replacement. Default is 0.
     :type replace: scalar
 
-    :returns: s (*size x cols(x) matrix*), containing the sample taken from *x*.
+    :return s: containing the sample taken from *x*.
+
+    :type s: size x cols(x) matrix
 
 Remarks
 -------

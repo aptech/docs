@@ -18,7 +18,9 @@ Format
     :param c: specifying one column of x to sort on
     :type c: scalar
 
-    :returns: y (*NxK matrix or string array*) equal to *x* and sorted on the column *c*.
+    :return y: equal to *x* and sorted on the column *c*.
+
+    :type y: NxK matrix or string array
 
 Remarks
 -------

@@ -28,7 +28,9 @@ Format
 
     :type unit: string
 
-    :returns: t_inc (*Scalar*), *dt_start*, increased by *inc* units.
+    :return t_inc: *dt_start*, increased by *inc* units.
+
+    :type t_inc: Scalar
 
 Examples
 ----------------

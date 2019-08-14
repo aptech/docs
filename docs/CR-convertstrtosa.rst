@@ -14,7 +14,9 @@ Format
     :param str: The string to be converted
     :type str: string
 
-    :returns: **sa** (*1x1 string array*) - *str* converted to a string array.
+    :return sa: *str* converted to a string array.
+
+    :type sa: 1x1 string array
 
 Examples
 ----------------

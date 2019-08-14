@@ -13,7 +13,9 @@ Format
     :param a:
     :type a: KxN compact form matrix
 
-    :returns: y (*KxK symmetric banded matrix*)
+    :return y: 
+
+    :type y: KxK symmetric banded matrix
 
 Remarks
 -------

@@ -19,7 +19,9 @@ Format
     :param c: new column dimension.
     :type c: scalar
 
-    :returns: y (*RxC matrix*) created from the elements of *x*.
+    :return y: created from the elements of *x*.
+
+    :type y: RxC matrix
 
 Remarks
 -------

@@ -20,7 +20,9 @@ Format
     :param password: optional. password associated with the specified user name for this database.
     :type password: string
 
-    :returns: **ret** (*scalar*) - 1 for success.
+    :return ret: 1 for success.
+
+    :type ret: scalar
 
 Examples
 ----------------

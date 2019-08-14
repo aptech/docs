@@ -14,8 +14,9 @@ Format
     :param x: The values used to compute the Fast Fourier transform.
     :type x: NxK matrix
 
-    :returns: **y** (*LxM matrix*) - where *L* and *M* are the smallest powers of 2 greater than or equal to *N* and *K*, respectively.
+    :return y: where *L* and *M* are the smallest powers of 2 greater than or equal to *N* and *K*, respectively.
 
+    :type y: LxM matrix
 
 Examples
 ----------------

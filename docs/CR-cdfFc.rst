@@ -19,7 +19,9 @@ Format
     :param df_d: ExE conformable with *x* and *df_n*. Degrees of freedom of denominator, :math:`df_d > 0`.
     :type df_d: PxQ matrix
 
-    :returns: **p** (*matrix, max(N,L,P) by max(K,M,Q)*) - Each element in *p* is the complement of the F distribution cdf value evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the complement of the F distribution cdf value evaluated at the corresponding element in *x*.
+
+    :type p: matrix, max(N,L,P) by max(K,M,Q)
 
 Examples
 ----------------

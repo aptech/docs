@@ -20,7 +20,9 @@ Format
     :param sheet: sheet number. Default = 1.
     :type sheet: scalar
 
-    :returns: x (*matrix*), numbers read from Excel.
+    :return x: numbers read from Excel.
+
+    :type x: matrix
 
 Examples
 ----------------

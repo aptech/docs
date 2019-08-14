@@ -19,7 +19,9 @@ Format
     :param prob: The probability of success on any given trial. ExE conformable with *p*. :math:`0 < prob < 1`.
     :type prob: matrix
 
-    :returns: **f** (*NxK matrix, Nx1 vector or scalar*) - The number of failures that will be observed before *s* successes.
+    :return f: The number of failures that will be observed before *s* successes.
+
+    :type f: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

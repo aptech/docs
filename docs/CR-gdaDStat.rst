@@ -50,7 +50,7 @@ Format
     :param vnamevar: names of variables or indices of variables.
     :type vnamevar: Kx1 string array or Kx1 vector
 
-    :returns: **dout** (*struct*) - instance of :class:`dstatmtOut` struct with the following members:
+    :return dout: instance of :class:`dstatmtOut` struct with the following members:
 
         .. list-table::
             :widths: auto
@@ -82,6 +82,8 @@ Format
                   :8: Name variable wrong size.
                   :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
                   :11: Data read error.
+
+    :type dout: struct
 
 Remarks
 -------

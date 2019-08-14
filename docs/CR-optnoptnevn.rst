@@ -14,8 +14,10 @@ Format
     :param n0: the length of a vector or the number of rows or columns in a matrix.
     :type n0: scalar
 
-    :returns: n (*scalar*), the next optimal size for the given dimension
+    :return n: the next optimal size for the given dimension
         for computing an FFT or RFFT. :math:`n > n0`.
+
+    :type n: scalar
 
 Remarks
 -------

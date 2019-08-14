@@ -22,8 +22,9 @@ Format
     :param shape: Shape parameter, ExE conformable with *x*.
     :type shape: NxK matrix, Nx1 vector or scalar
 
-    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* isthe Generalized Pareto cdf evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* isthe Generalized Pareto cdf evaluated at the corresponding element in *x*.
 
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

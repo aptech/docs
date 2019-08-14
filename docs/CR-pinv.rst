@@ -13,7 +13,7 @@ Format
     :param x: data
     :type x: NxM matrix
 
-    :returns: y (*MxN matrix*) that satisfies the 4 Moore-Penrose conditions:
+    :return y: that satisfies the 4 Moore-Penrose conditions:
 
         .. csv-table::
             :widths: auto
@@ -22,6 +22,8 @@ Format
             ":math:`yxy = y`"
             ":math:`xy` is symmetric"
             ":math:`yx` is symmetric"
+
+    :type y: MxN matrix
 
 Global Input
 ------------

@@ -15,7 +15,9 @@ Format
     :param sv: data
     :type sv: Nx1 or 1xN string vector
 
-    :returns: y (*sorted Mx1 string vector*) containing all unique elements found in *sv*.
+    :return y: containing all unique elements found in *sv*.
+
+    :type y: sorted Mx1 string vector
 
 Examples
 ----------------

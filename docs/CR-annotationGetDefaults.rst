@@ -10,7 +10,9 @@ Format
 ----------------
 .. function:: myAnnotation = annotationGetDefaults()
 
-    :returns: myAnnotation (*struct*), An instance of a :class:`plotAnnotation` structure with all members set to defaults.
+    :return myAnnotation: An instance of a :class:`plotAnnotation` structure with all members set to defaults.
+
+    :type myAnnotation: struct
 
 Remarks
 -------

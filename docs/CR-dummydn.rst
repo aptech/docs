@@ -23,7 +23,9 @@ Format
     :param p: positive integer in the range :math:`[1, K]`, specifying which column should be dropped in the matrix of dummy variables.
     :type p: scalar
 
-    :returns: **y** (*Nx(K-1) matrix*) - contains the :math:`K-1` dummy variables.
+    :return y: contains the :math:`K-1` dummy variables.
+
+    :type y: Nx(K-1) matrix
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: **x_iscplx** (*scalar*) - 1 if *x* is complex, 0 if it is real.
+    :return x_iscplx: 1 if *x* is complex, 0 if it is real.
+
+    :type x_iscplx: scalar
 
 Examples
 ----------------

@@ -19,7 +19,9 @@ Format
     :param b: ExE conformable with *p* and *a*. :math:`b > 0`
     :type b: PxQ matrix
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - Each value of `x` is the value which if passed to :func:`cdfBeta` will return the corresponding value of `p`.
+    :return x: Each value of `x` is the value which if passed to :func:`cdfBeta` will return the corresponding value of `p`.
+
+    :type x: NxK matrix, Nx1 vector or scalar
 
 Remarks
 ----------------

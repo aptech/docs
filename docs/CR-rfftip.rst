@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix or K-length vector
 
-    :returns: y (*LxM real matrix or M-length vector*)
+    :return y: 
+
+    :type y: LxM real matrix or M-length vector
 
 Remarks
 -------

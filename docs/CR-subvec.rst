@@ -16,7 +16,9 @@ Format
     :param ci: column indices
     :type ci: Nx1 vector
 
-    :returns: y (*Nx1 vector*) containing the elements in *x* indicated by *ci*.
+    :return y: containing the elements in *x* indicated by *ci*.
+
+    :type y: Nx1 vector
 
 Remarks
 -------

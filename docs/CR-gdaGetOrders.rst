@@ -17,7 +17,9 @@ Format
     :param varname: name of variable in the GDA.
     :type varname: string
 
-    :returns: **ord** (*Mx1 vector*) - orders of the variable in the GDA.
+    :return ord: orders of the variable in the GDA.
+
+    :type ord: Mx1 vector
 
 Remarks
 -------

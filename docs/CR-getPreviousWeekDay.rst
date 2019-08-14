@@ -14,8 +14,9 @@ Format
     :param date: date in DT scalar format.
     :type date: scalar
 
-    :returns: **prev_weekday** (*scalar*) - previous weekday in DT scalar format.
+    :return prev_weekday: previous weekday in DT scalar format.
 
+    :type prev_weekday: scalar
 
 Examples
 ----------------

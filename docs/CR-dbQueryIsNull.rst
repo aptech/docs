@@ -21,7 +21,9 @@ Format
     :param field: index into result set.
     :type field: scalar
 
-    :returns: **ret** (*scalar*) - 1 if the field is ``NULL`` or 0 otherwise.
+    :return ret: 1 if the field is ``NULL`` or 0 otherwise.
+
+    :type ret: scalar
 
 Remarks
 -------

@@ -11,6 +11,8 @@ Format
 ----------------
 .. function:: x = keyav()
 
-    :returns: **x** (*scalar*) - value of key or 0 if no key is available.
+    :return x: value of key or 0 if no key is available.
+
+    :type x: scalar
 
 .. seealso:: Functions :func:`keyw`, :func:`key`

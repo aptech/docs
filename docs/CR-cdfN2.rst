@@ -16,7 +16,9 @@ Format
     :param dx: ExE conformable to *x*, intervals used to compute the upper bound, *x + dx*.
     :type dx: KxL matrix
 
-    :returns: **p** (*matrix, max(M,K) by max(N,L)*) - The normal cumulative distribution function over the interval :math:`x` to :math:`x + dx`, i.e., :math:`Pr(x < X < x + dx)`
+    :return p: The normal cumulative distribution function over the interval :math:`x` to :math:`x + dx`, i.e., :math:`Pr(x < X < x + dx)`
+
+    :type p: matrix, max(M,K) by max(N,L)
 
 Remarks
 -------

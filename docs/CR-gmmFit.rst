@@ -92,7 +92,7 @@ Format
 
     :type gCtl: struct
 
-    :returns: **gOut** (*struct*) - instance of :class:`gmmOut` struct containing the following members:
+    :return gOut: instance of :class:`gmmOut` struct containing the following members:
 
         .. csv-table::
             :widths: auto
@@ -109,6 +109,8 @@ Format
             "*gOut.numInstruments*", "scalar, number of instruments."
             "*gOut.JStat*", "scalar, Hansen statistic of overidentification."
             "*gOut.df*", "scalar, degrees of freedom."
+
+    :type gOut: struct
 
 Remarks
 -------

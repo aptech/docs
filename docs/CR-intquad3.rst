@@ -26,7 +26,9 @@ Format
     :param ...: Optional. A variable number of extra scalar arguments to pass to the user function. These arguments will be passed to the user function untouched.
     :type ...: any
 
-    :returns: **y** (*Nx1 vector*) - of the estimated integral(s) of :math:`f(x,y,z)` evaluated between the limits given by *xl*, *yl*, and *zl*.
+    :return y: of the estimated integral(s) of :math:`f(x,y,z)` evaluated between the limits given by *xl*, *yl*, and *zl*.
+
+    :type y: Nx1 vector
 
 Global Input
 ------------

@@ -22,7 +22,9 @@ Format
     :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
-    :returns: **ret** (*scalar*) - returns 1 if ``TRUE``  and 0  if ``FALSE``.
+    :return ret: returns 1 if ``TRUE``  and 0  if ``FALSE``.
+
+    :type ret: scalar
 
 Global Input
 ------------

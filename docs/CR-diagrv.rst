@@ -16,7 +16,9 @@ Format
     :param v: Vector to replace the diagonal in *x* with.
     :type v: min(N,K)x1 vector.
 
-    :returns: **y** (*NxK matrix*) - equal to *x* with its principal diagonal elements equal to those of *v*.
+    :return y: equal to *x* with its principal diagonal elements equal to those of *v*.
+
+    :type y: NxK matrix
 
 Remarks
 -------

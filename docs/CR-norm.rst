@@ -38,7 +38,9 @@ Format
 
     :type norm_type: string or scalar
 
-    :returns: n (*Scalar*), the requested norm of *A*.
+    :return n: the requested norm of *A*.
+
+    :type n: Scalar
 
 Examples
 ----------------

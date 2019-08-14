@@ -16,7 +16,9 @@ Format
     :param orders: orders of an N-dimensional array
     :type orders: Nx1 vector
 
-    :returns: i (*Nx1 vector of indices*), index of corresponding element in N-dimensional array.
+    :return i: index of corresponding element in N-dimensional array.
+
+    :type i: Nx1 vector of indices
 
 Remarks
 -------

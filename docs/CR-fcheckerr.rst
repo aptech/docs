@@ -14,8 +14,10 @@ Format
     :param fh: file handle of a file opened with :func:`fopen`.
     :type fh: scalar
 
-    :returns: **err** (*scalar*) - error status equal to 1 if there has been a read or write error on a file,
+    :return err: error status equal to 1 if there has been a read or write error on a file,
               0 otherwise.
+
+    :type err: scalar
 
 Remarks
 -------

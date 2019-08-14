@@ -32,9 +32,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: r (*num x N matrix*), multivariate student-t distributed random numbers.
+    :return r: multivariate student-t distributed random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type r: num x N matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

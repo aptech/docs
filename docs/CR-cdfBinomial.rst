@@ -20,7 +20,9 @@ Format
     :param prob:  ExE conformable with *successes*. The probability of *success* on any given *trial* with *successes*  :math:`0 < prob < 1`.
     :type prob: PxQ matrix
 
-    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the binomial cdf value evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the binomial cdf value evaluated at the corresponding element in *x*.
+
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 ------------

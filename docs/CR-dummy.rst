@@ -20,7 +20,9 @@ Format
     :param v: Specifies the :math:`K-1` breakpoints (these must be in ascending order) that determine the :math:`K` categories to be used. These categories should not overlap.
     :type v: (K-1)x1 vector
 
-    :returns: **y** (*NxK matrix*) - contains the *K* dummy variables.
+    :return y: contains the *K* dummy variables.
+
+    :type y: NxK matrix
 
 Remarks
 -------

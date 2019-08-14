@@ -20,7 +20,9 @@ Format
     :param day: Days. :math:`1 \leq day \leq 31`.
     :type day: matrix
 
-    :returns: **dt** (*NxK matrix*) - DT scalar format dates.
+    :return dt: DT scalar format dates.
+
+    :type dt: NxK matrix
 
 Remarks
 -------

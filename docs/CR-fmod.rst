@@ -17,7 +17,9 @@ Format
     :param y: ExE conformable with *x*.
     :type y: LxM matrix
 
-    :returns: **r** (*max(N,L) by max(K,M) matrix*) - The floating point remainders of :math:`x/y`.
+    :return r: The floating point remainders of :math:`x/y`.
+
+    :type r: max(N,L) by max(K,M) matrix
 
 Remarks
 -------

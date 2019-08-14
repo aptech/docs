@@ -13,11 +13,17 @@ Format
     :param x: data
     :type x: MxN sparse matrix
 
-    :returns: a (*MxN scaled sparse matrix*) 
+    :return a: 
 
-    :returns: r (*Mx1 vector*), row scale factors.
+    :type a: MxN scaled sparse matrix
 
-    :returns: s (*Nx1 vector*), column scale factors.
+    :return r: row scale factors.
+
+    :type r: Mx1 vector
+
+    :return s: column scale factors.
+
+    :type s: Nx1 vector
 
 Remarks
 -------

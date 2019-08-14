@@ -31,7 +31,9 @@ Format
     :param N: number of time segments. A higher number of time segments will increase accuracy at the expense of increased computation time.
     :type N: scalar
 
-    :returns: sigma (*Mx1 vector*), volatility.
+    :return sigma: volatility.
+
+    :type sigma: Mx1 vector
 
 Remarks
 -------

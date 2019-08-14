@@ -22,13 +22,17 @@ Format
     :param v: the breakpoints to be used to compute the frequencies (vector) -or- the number of categories (scalar).
     :type v: Nx1 vector or scalar
 
-    :returns: **b** (*Px1 vector*) - the breakpoints used for each category.
+    :return b: the breakpoints used for each category.
 
-    :returns: **m** (*Px1 vector*) - the midpoints of each category.
+    :type b: Px1 vector
 
-    :returns: **freq** (*Px1 vector*) - Computed frequency counts. This is the vector of counts, not percentages.
+    :return m: the midpoints of each category.
 
+    :type m: Px1 vector
 
+    :return freq: Computed frequency counts. This is the vector of counts, not percentages.
+
+    :type freq: Px1 vector
 
 Remarks
 -------

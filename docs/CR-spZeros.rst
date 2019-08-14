@@ -16,7 +16,9 @@ Format
     :param c: columns of output matrix.
     :type c: scalar
 
-    :returns: y (*RxC sparse matrix*)
+    :return y: 
+
+    :type y: RxC sparse matrix
 
 Remarks
 -------

@@ -13,7 +13,9 @@ Format
     :param utc: UTC scalar format.
     :type utc: Nx1 vector
 
-    :returns: dtv (*Nx8 matrix*), DTV vector format.
+    :return dtv: DTV vector format.
+
+    :type dtv: Nx8 matrix
 
 Remarks
 -------

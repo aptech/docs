@@ -23,7 +23,9 @@ Format
         ν
     :type df: Scalar
 
-    :returns: y (*Scalar*), probability density function.
+    :return y: probability density function.
+
+    :type y: Scalar
 
 Remarks
 -------

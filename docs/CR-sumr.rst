@@ -13,7 +13,9 @@ Format
     :param x: NxK matrix or L-dimensional array where the last two dimensions are NxK
     :type x: matrix or array
 
-    :returns: y (*Nx1 vector or L-dimensional array*) where the last two dimensions are Nx1.
+    :return y: where the last two dimensions are Nx1.
+
+    :type y: Nx1 vector or L-dimensional array
 
 Examples
 ----------------

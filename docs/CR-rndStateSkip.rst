@@ -17,7 +17,9 @@ Format
     :param state: opaque state vector
     :type state: vector
 
-    :returns: newState (*Opaque vector*), the advanced state.
+    :return newState: the advanced state.
+
+    :type newState: Opaque vector
 
 Examples
 ----------------

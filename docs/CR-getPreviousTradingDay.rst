@@ -14,7 +14,9 @@ Format
     :param date: date in DT scalar format.
     :type date: scalar
 
-    :returns: **prev_date** (*scalar*) - previous trading day in DT scalar format.
+    :return prev_date: previous trading day in DT scalar format.
+
+    :type prev_date: scalar
 
 Examples
 ----------------

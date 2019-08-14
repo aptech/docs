@@ -20,9 +20,11 @@ Format
         at a single set of coefficients.
     :type c: matrix
 
-    :returns: y (*vector or matrix*) Kx1 vector (if *c* is (P+1)xK) or NxN matrix (if *c* is (P+1)x1 and *x* is NxN):
+    :return y: Kx1 vector (if *c* is (P+1)xK) or NxN matrix (if *c* is (P+1)x1 and *x* is NxN):
 
         .. math:: y =( c[1,.].*xp + c[2,.].*x(p-1) + ... + c[p+1,.] )';
+
+    :type y: vector or matrix
 
 .. DANGER:: fix equations
 

@@ -28,7 +28,9 @@ Format
 
     :type units: string
 
-    :returns: diff (*Scalar*), the difference between *dt_1* and *dt_2* in terms of the specified units.
+    :return diff: the difference between *dt_1* and *dt_2* in terms of the specified units.
+
+    :type diff: Scalar
 
 Examples
 ----------------

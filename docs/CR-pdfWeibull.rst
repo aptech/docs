@@ -19,7 +19,9 @@ Format
     :param lambda: Scale parameter, may be matrix, ExE conformable with *x*. *lambda* must be greater than 0.
     :type lambda: Nx1 vector or scalar
 
-    :returns: y (*NxK matrix, Nx1 vector or scalar*)
+    :return y: 
+
+    :type y: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

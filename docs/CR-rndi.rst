@@ -34,9 +34,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: y (*RxC matrix*) of random integers in the specified range.
+    :return y: of random integers in the specified range.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type y: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

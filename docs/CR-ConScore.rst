@@ -53,9 +53,13 @@ Format
     :param psi: indices of the set of parameters in the hypothesis
     :type psi: matrix
 
-    :returns: **SL** (*scalar*) - local score statistic of hypothesis.
+    :return SL: local score statistic of hypothesis.
 
-    :returns: **SLprob** (*scalar*) - probability of *SL*.
+    :type SL: scalar
+
+    :return SLprob: probability of *SL*.
+
+    :type SLprob: scalar
 
 Remarks
 -------

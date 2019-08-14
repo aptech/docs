@@ -19,7 +19,9 @@ Format
     :param v: vector containing the new values to be assigned to the recoded variable
     :type v: Kx1 vector
 
-    :returns: y (*Nx1 vector*) containing the recoded values of *x*.
+    :return y: containing the recoded values of *x*.
+
+    :type y: Nx1 vector
 
 Remarks
 -------

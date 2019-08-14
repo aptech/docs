@@ -27,7 +27,9 @@ Format
         converted to empty cells. Default = null string.
     :type vls: null string or 9x1 string array
 
-    :returns: ret (*scalar*), 0 if success or a scalar error code.
+    :return ret: 0 if success or a scalar error code.
+
+    :type ret: scalar
 
 Portability
 ------------

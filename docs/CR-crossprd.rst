@@ -17,9 +17,11 @@ Format
     :param y: each column is treated as a 3x1 vector.
     :type y: 3xK matrix
 
-    :returns: **z** (*3xK matrix*) - each column is the cross-product
+    :return z: each column is the cross-product
         (sometimes called vector product) of the
         corresponding columns of *x* and *y*.
+
+    :type z: 3xK matrix
 
 Remarks
 -------

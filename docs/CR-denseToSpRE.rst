@@ -20,7 +20,9 @@ Format
         *x*.
     :type reps: scalar
 
-    :returns: **x_sparse** (*MxN sparse matrix*) - Sparse matrix converted from *x*.
+    :return x_sparse: Sparse matrix converted from *x*.
+
+    :type x_sparse: MxN sparse matrix
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: **options** (*string*) - Contains the connection options for the specified database connection.
+    :return options: Contains the connection options for the specified database connection.
+
+    :type options: string
 
 Remarks
 -------

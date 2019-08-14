@@ -35,7 +35,9 @@ Format
     :param chunk_size: with the same dimensions as the dataset, specifying the size of the chunks of data that will be created in the file.
     :type chunk_size: matrix or array
 
-    :returns: **retcode** (*scalar*) - 0 if successful, non-zero otherwise.
+    :return retcode: 0 if successful, non-zero otherwise.
+
+    :type retcode: scalar
 
 Remarks
 -------

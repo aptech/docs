@@ -17,7 +17,9 @@ Format
     :param varname: name of variable in the GDA.
     :type varname: string
 
-    :returns: **y** (*matrix*) - array, string or string array, variable data.
+    :return y: array, string or string array, variable data.
+
+    :type y: matrix
 
 Remarks
 -------

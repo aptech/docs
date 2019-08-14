@@ -27,7 +27,9 @@ Format
 
     :type base: scalar
 
-    :returns: **ret** (*scalar*) - 0 if successful, 1 if not.
+    :return ret: 0 if successful, 1 if not.
+
+    :type ret: scalar
 
 Remarks
 -------

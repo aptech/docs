@@ -18,9 +18,13 @@ Format
         If scalar 0, all variables in the dataset will be selected.
     :type vars: Nx1 vector
 
-    :returns: **varnames** (*Nx1 character vector*) - the names associated with *vars*.
+    :return varnames: the names associated with *vars*.
 
-    :returns: **indx** (*Nx1 numeric vector*) - the column indices associated with *vars*.
+    :type varnames: Nx1 character vector
+
+    :return indx: the column indices associated with *vars*.
+
+    :type indx: Nx1 numeric vector
 
 Examples
 ----------------

@@ -19,7 +19,9 @@ Format
     :param sv2: data
     :type sv2: Mx1 or 1xM string vector
 
-    :returns: **s_intr** (*Lx1 vector*) - all unique strings that are in both *sv1* and *sv2* sorted in ascending order.
+    :return s_intr: all unique strings that are in both *sv1* and *sv2* sorted in ascending order.
+
+    :type s_intr: Lx1 vector
 
 Remarks
 -------

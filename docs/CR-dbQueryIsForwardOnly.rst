@@ -14,7 +14,9 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **ret** (*scalar*) - 1 if the result set can only be scrolled through forward, otherwise a 0.
+    :return ret: 1 if the result set can only be scrolled through forward, otherwise a 0.
+
+    :type ret: scalar
 
 Remarks
 -------

@@ -29,9 +29,13 @@ Format
 
     :type pvt: Px1 vector
 
-    :returns: r (*KxP upper triangular matrix*), :math:`K = min(N,P)`.
+    :return r: :math:`K = min(N,P)`.
 
-    :returns: e (*Px1 permutation vector*)
+    :type r: KxP upper triangular matrix
+
+    :return e: 
+
+    :type e: Px1 permutation vector
 
 Remarks
 -------

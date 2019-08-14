@@ -21,7 +21,9 @@ Format
     :param tol: The tolerance to be used in testing for convergence
     :type tol: scalar
 
-    :returns: **y** (*scalar*) - The estimated integral of :math:`f(x)` between :math:`xlims[1]` and :math:`xlims[2]`.
+    :return y: The estimated integral of :math:`f(x)` between :math:`xlims[1]` and :math:`xlims[2]`.
+
+    :type y: scalar
 
 Examples
 ----------------

@@ -14,9 +14,11 @@ Format
     :param x: abscissae.
     :type x: NxK matrix
 
-    :returns: y (*NxK matrix*)
+    :return y:
     
         .. math:: ln\ (1 - Pr(X < x))
+
+    :type y: NxK matrix
 
 Source
 ------

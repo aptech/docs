@@ -14,7 +14,9 @@ Format
     :param p1: an instance of structure of type :class:`PV`
     :type p1: struct
 
-    :returns: n (*Kx1 string vector*), names of packed matrices.
+    :return n: names of packed matrices.
+
+    :type n: Kx1 string vector
 
 Source
 ------

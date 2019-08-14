@@ -13,7 +13,9 @@ Format
     :param a: year.
     :type a: scalar
 
-    :returns: n (*scalar*), number of trading days in year.
+    :return n: number of trading days in year.
+
+    :type n: scalar
 
 Remarks
 -------

@@ -13,9 +13,13 @@ Format
     :param x:
     :type x: KxK matrix or N-dimensional array where the last two dimensions are KxK
 
-    :returns: b (*KxK matrix or N-dimensional array where the last two dimensions are KxK*), balanced matrix)
+    :return b: balanced matrix
 
-    :returns: z (*KxK matrix or N-dimensional array where the last two dimensions are KxK*), diagonal scale matrix)
+    :type b: KxK matrix or N-dimensional array where the last two dimensions are KxK
+
+    :return z: diagonal scale matrix
+
+    :type z: KxK matrix or N-dimensional array where the last two dimensions are KxK
 
 Remarks
 ---------------------

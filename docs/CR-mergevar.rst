@@ -14,8 +14,10 @@ Format
     :param vnames: names of K global matrices
     :type vnames: string or Kx1 column vector
 
-    :returns: x (*NxM matrix*), contains the concatenated matrices where *M* is the sum of the columns in
+    :return x: contains the concatenated matrices where *M* is the sum of the columns in
         the *K* matrices specified in *vnames*.
+
+    :type x: NxM matrix
 
 Remarks
 -------

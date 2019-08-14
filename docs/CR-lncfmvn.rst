@@ -17,9 +17,11 @@ Format
     :param r: correlation matrix.
     :type r: KxK matrix
 
-    :returns: y (*Lx1 vector*)
+    :return y:
     
         .. math:: ln Pr(X < x|r)
+
+    :type y: Lx1 vector
 
 .. DANGER:: verify equations
 

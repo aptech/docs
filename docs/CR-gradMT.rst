@@ -21,7 +21,9 @@ Format
     :param data1: structure of type DS containing any data needed by *fct*
     :type data1: struct
 
-    :returns: **g** (*NxK  or 1xK*) - Jacobian or gradient.
+    :return g: Jacobian or gradient.
+
+    :type g: NxK  or 1xK
 
 Remarks
 -------

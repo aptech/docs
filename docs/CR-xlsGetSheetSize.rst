@@ -17,9 +17,13 @@ Format
     :param sheet: sheet index (1-based). Default = 1.
     :type sheet: scalar
 
-    :returns: r (*scalar*), number of rows.
+    :return r: number of rows.
 
-    :returns: c (*scalar*), number of columns.
+    :type r: scalar
+
+    :return c: number of columns.
+
+    :type c: scalar
 
 Portability
 -----------

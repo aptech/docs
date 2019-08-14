@@ -19,7 +19,9 @@ Format
     :param new_vals: the values to be assigned to the new variable
     :type new_vals: (K+1)x1 vector
 
-    :returns: **y** (*Nx1 vector*) - containing the new values.
+    :return y: containing the new values.
+
+    :type y: Nx1 vector
 
 Remarks
 ------------

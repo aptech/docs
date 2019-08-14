@@ -17,7 +17,9 @@ Format
     :param c: columns.
     :type c: scalar
 
-    :returns: y (*RxC matrix*)
+    :return y: 
+
+    :type y: RxC matrix
 
 Remarks
 -------

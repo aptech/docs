@@ -21,9 +21,9 @@ Format
     :param idx_type: 1 for relative position or 0 for absolute positioning. If not specified, absolute positioning is used.
     :type idx_type: scalar
 
-    :returns: **ret** (*scalar*) - 1 if successful.
+    :return ret: 1 if successful.
 
-
+    :type ret: scalar
 
 Remarks
 -------

@@ -21,7 +21,7 @@ Format
     :param varname: variable name.
     :type varname: string
 
-    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
+    :return retcode: return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
@@ -35,6 +35,8 @@ Format
             "10", "File contains no variables."
             "12", "File truncate error."
             "14", "File too large to be read on current platform."
+
+    :type retcode: scalar
 
 Remarks
 -------

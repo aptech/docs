@@ -13,9 +13,13 @@ Format
     :param xy: NxK complex matrix containing the *x* coordinate in the real part and the *y* coordinate in the imaginary part
     :type xy: complex matrix
         
-    :returns: r (*NxK real matrix*), radius.
+    :return r: radius.
 
-    :returns: theta (*NxK real matrix*), angle in radians.
+    :type r: NxK real matrix
+
+    :return theta: angle in radians.
+
+    :type theta: NxK real matrix
 
 Source
 ------

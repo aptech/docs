@@ -14,7 +14,9 @@ Format
     :param file: name of *.xls* or *.xlsx* file.
     :type file: string
 
-    :returns: nsheets (*scalar*), sheet count or an error code.
+    :return nsheets: sheet count or an error code.
+
+    :type nsheets: scalar
 
 Portability
 -----------

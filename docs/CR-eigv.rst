@@ -14,9 +14,13 @@ Format
     :param x: data used to compute the eigenvalues and eigenvectors.
     :type x: NxN matrix or KxNxN array
 
-    :returns: **va** (*Nx1 vector or KxNx1 array*) - the eigenvalues of *x*.
+    :return va: the eigenvalues of *x*.
 
-    :returns: **ve** (*NxN matrix or KxNxN array*) - the eigenvectors of *x*.
+    :type va: Nx1 vector or KxNx1 array
+
+    :return ve: the eigenvectors of *x*.
+
+    :type ve: NxN matrix or KxNxN array
 
 Remarks
 -------

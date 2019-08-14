@@ -34,9 +34,11 @@ Format
         where *T* is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
 
-    :returns: ve (*Mx1 vector*), eigenvalues, where *M* is the number of eigenvalues on
+    :return ve: eigenvalues, where *M* is the number of eigenvalues on
         the half open interval [vl, vu]. If no eigenvalues are found
         then *ve* is a scalar missing value.
+
+    :type ve: Mx1 vector
 
 Remarks
 -------

@@ -25,7 +25,9 @@ Format
     :param cinds: column indices of corresponding non-zero values.
     :type cinds: Nx1 vector
 
-    :returns: y (*RxC sparse matrix*)
+    :return y: 
+
+    :type y: RxC sparse matrix
 
 Remarks
 -------

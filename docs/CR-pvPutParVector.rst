@@ -17,7 +17,9 @@ Format
     :param p: parameter vector.
     :type p: Kx1 vector
 
-    :returns: p1 (*struct*) instance of :class:`PV` struct.
+    :return p1: instance of :class:`PV` struct.
+
+    :type p1: struct
 
 Remarks
 -------

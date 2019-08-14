@@ -20,8 +20,10 @@ Format
     :param i2: index into the second slowest moving dimension of the array.
     :type i2: scalar
 
-    :returns: **y** (*KxL matrix*) - where *L* is the size of the fastest moving
+    :return y: where *L* is the size of the fastest moving
         dimension of the array and *K* is the size of the second fastest moving dimension.
+
+    :type y: KxL matrix
 
 Remarks
 -------

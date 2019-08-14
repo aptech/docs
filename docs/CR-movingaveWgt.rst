@@ -20,7 +20,9 @@ Format
     :param w: weights.
     :type w: dx1 vector
 
-    :returns: y (*NxK matrix*), filtered series. The first :math:`d-1` rows of *x* are set to missing values.
+    :return y: filtered series. The first :math:`d-1` rows of *x* are set to missing values.
+
+    :type y: NxK matrix
 
 Remarks
 -------

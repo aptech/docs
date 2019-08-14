@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: MxN matrix
 
-    :returns: y (*MxN matrix*) containing reduced row echelon form of *x*.
+    :return y: containing reduced row echelon form of *x*.
+
+    :type y: MxN matrix
 
 Remarks
 -------

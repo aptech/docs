@@ -15,7 +15,9 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **ret** (*scalar*) - if the record could not be retrieved, the result is positioned after the last record and 0 is returned. If the record is successfully retrieved, 1 is returned.
+    :return ret: if the record could not be retrieved, the result is positioned after the last record and 0 is returned. If the record is successfully retrieved, 1 is returned.
+
+    :type ret: scalar
 
 Remarks
 -------

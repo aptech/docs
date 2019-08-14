@@ -14,7 +14,9 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **index** (*scalar*) - query position
+    :return index: query position
+
+    :type index: scalar
 
 Remarks
 -------

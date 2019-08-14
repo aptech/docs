@@ -39,9 +39,13 @@ Format
 
     :type state: scalar or vector
 
-    :returns: y (*RxC matrix*) of uniform random numbers, :math:`0 ≤ y < 1`.
+    :return y: of uniform random numbers, :math:`0 ≤ y < 1`.
 
-    :returns: newstate (*500x1 vector*), the updated state.
+    :type y: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: 500x1 vector
 
 Remarks
 -------

@@ -77,7 +77,7 @@ Format
 
     :type report: scalar
 
-    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
+    :return retcode: return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
@@ -89,6 +89,8 @@ Format
             "24", "Variables skipped."
             "26", "Cannot add structure definition."
             "27", "Structure definition does not match."
+
+    :type retcode: scalar
 
 Remarks
 -------

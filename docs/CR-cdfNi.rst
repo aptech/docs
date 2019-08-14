@@ -13,7 +13,9 @@ Format
     :param p: Normal probability levels, :math:`0 <= p <= 1`.
     :type p: NxK real matrix
 
-    :returns: **x** (*NxK real matrix*) - each value of *x* is the value such that the normal cumulative distribution function is equal to the corresponding value of *p*. :code:`cdfn(x) = p`
+    :return x: each value of *x* is the value such that the normal cumulative distribution function is equal to the corresponding value of *p*. :code:`cdfn(x) = p`
+
+    :type x: NxK real matrix
 
 Examples
 -------

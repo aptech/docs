@@ -42,8 +42,9 @@ Format
     :param var_names: Optional input, variable names. Default = X1, X2, ..., XK.
     :type var_names: string array
 
-    :returns: **vce_cluster** (*KxK matrix*) - White cluster-robust variance-covariance matrix.
+    :return vce_cluster: White cluster-robust variance-covariance matrix.
 
+    :type vce_cluster: KxK matrix
 
 Examples
 ----------------

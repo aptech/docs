@@ -14,7 +14,9 @@ Format
     :param x: dat
     :type x: NxK matrix
 
-    :returns: y (*Kx1 matrix*) containing the products of all elements in each column of *x*.
+    :return y: containing the products of all elements in each column of *x*.
+
+    :type y: Kx1 matrix
 
 Remarks
 -------

@@ -14,11 +14,15 @@ Format
     :param x: number to break down.
     :type x: scalar
 
-    :returns: M (*scalar*), in the range -10 < *M* < 10.
+    :return M: in the range -10 < *M* < 10.
 
-    :returns: P (*scalar*), integer power such that:
+    :type M: scalar
+
+    :return P: integer power such that:
 
     .. math:: M*10^P = x
+
+    :type P: scalar
 
 Examples
 ----------------

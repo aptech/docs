@@ -17,7 +17,9 @@ Format
     :param y: data
     :type y: NxK matrix
 
-    :returns: z (*NxK matrix*) whose values are the maximum of each element from the arguments *x* and *y*.
+    :return z: whose values are the maximum of each element from the arguments *x* and *y*.
+
+    :type z: NxK matrix
 
 Remarks
 -------

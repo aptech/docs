@@ -17,7 +17,9 @@ Format
     :param fmt: 1x1, 1xM, or Mx1 format specifier for each element copy.
     :type fmt: string or string array
 
-    :returns: y (*NxM formatted string array*)
+    :return y: 
+
+    :type y: NxM formatted string array
 
 Examples
 ----------------

@@ -17,7 +17,9 @@ Format
     :param x: the rows to update *C* with.
     :type x: NxK matrix
 
-    :returns: **r** (*KxK upper triangular matrix*) - the updated matrix.
+    :return r: the updated matrix.
+
+    :type r: KxK upper triangular matrix
 
 Remarks
 -------

@@ -20,7 +20,9 @@ Format
         MUST be later than *tstart*.
     :type t_end: 3x1 or 4x1 vector
 
-    :returns: **days** (*scalar*) - elapsed time measured in days.
+    :return days: elapsed time measured in days.
+
+    :type days: scalar
 
 Remarks
 -------

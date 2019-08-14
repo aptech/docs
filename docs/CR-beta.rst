@@ -19,7 +19,9 @@ Format
     :param y: ExE conformable with x.
     :type y: LxM matrix
 
-    :returns: f (*NxK matrix*)
+    :return f: 
+
+    :type f: NxK matrix
 
 Remarks
 ---------------

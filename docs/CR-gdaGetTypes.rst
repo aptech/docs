@@ -14,8 +14,10 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: **vartypes** (*Nx1 vector*) - types of all
+    :return vartypes: types of all
         the variables in the GDA.
+
+    :type vartypes: Nx1 vector
 
 Remarks
 -------

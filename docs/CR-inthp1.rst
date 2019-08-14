@@ -56,7 +56,9 @@ Format
 
     :type ctl: struct
 
-    :returns: **y** (*scalar*) - estimated integral of :math:`f(x)` evaluated over the interval :math:`(-∞,+∞)`.
+    :return y: estimated integral of :math:`f(x)` evaluated over the interval :math:`(-∞,+∞)`.
+
+    :type y: scalar
 
 Remarks
 -------

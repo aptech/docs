@@ -21,7 +21,9 @@ Format
     :param nonc: ExE conformable with *x*, the noncentrality parameter. This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.
     :type nonc: PxQ matrix
 
-    :returns: **p** (*max(N,L,P) by max(K,M,Q) matrix*) - Each element in *p* is the cumulative distribution function of the noncentral Student's t distribution evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the cumulative distribution function of the noncentral Student's t distribution evaluated at the corresponding element in *x*.
+
+    :type p: max(N,L,P) by max(K,M,Q) matrix
 
 Remarks
 ------------

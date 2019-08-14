@@ -16,9 +16,13 @@ Format
     :param name: the name of the string or matrix to extract from *dbuf*.
     :type name: string
 
-    :returns: x (*LxM matrix or string*), the item extracted from *dbuf*.
+    :return x: the item extracted from *dbuf*.
 
-    :returns: dbufnew (*Kx1 vector*), the remainder of *dbuf* after *x* has been extracted.
+    :type x: LxM matrix or string
+
+    :return dbufnew: the remainder of *dbuf* after *x* has been extracted.
+
+    :type dbufnew: Kx1 vector
 
 Source
 ------

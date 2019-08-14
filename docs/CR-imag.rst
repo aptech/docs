@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: **zi** (*NxK matrix or N-dimensional array*) - the imaginary part of *x*.
+    :return zi: the imaginary part of *x*.
+
+    :type zi: NxK matrix or N-dimensional array
 
 Remarks
 -------

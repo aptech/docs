@@ -20,7 +20,9 @@ Format
     :param prob: The probability of success on any given trial. ExE conformable with *successes*. :math:`0 < prob < 1`.
     :type prob: NxK matrix, Nx1 vector or scalar
 
-    :returns: p (*NxK matrix, Nx1 vector or scalar*) The probability of the specified number of *successes*.
+    :return p: The probability of the specified number of *successes*.
+
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Examples
 ----------------

@@ -32,9 +32,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: y (*RxC matrix*) of geometrically distributed random numbers.
+    :return y: of geometrically distributed random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type y: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

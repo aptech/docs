@@ -16,7 +16,9 @@ Format
     :param n_cols: number of columns of output string array.
     :type n_cols: scalar
 
-    :returns: sa (*Nx n_cols string array*)
+    :return sa: 
+
+    :type sa: Nx n_cols string array
 
 Remarks
 -------

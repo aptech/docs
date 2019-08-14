@@ -17,7 +17,9 @@ Format
     :param varind: index of variable in the GDA.
     :type varind: scalar
 
-    :returns: **varname** (*string*) - name of variable in the GDA.
+    :return varname: name of variable in the GDA.
+
+    :type varname: string
 
 Remarks
 -------

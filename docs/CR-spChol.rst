@@ -13,7 +13,9 @@ Format
     :param a: NxN symmetric, positive definite sparse matrix.
     :type a: sparse matrix
 
-    :returns: l (*NxN lower-triangular sparse matrix*)
+    :return l: 
+
+    :type l: NxN lower-triangular sparse matrix
 
 Examples
 ----------------

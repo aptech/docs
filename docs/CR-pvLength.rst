@@ -14,7 +14,9 @@ Format
     :param p1: an instance of structure of type *PV*
     :type p1: struct
 
-    :returns: n (*scalar*), length of parameter vector in *p1*.
+    :return n: length of parameter vector in *p1*.
+
+    :type n: scalar
 
 Source
 ------

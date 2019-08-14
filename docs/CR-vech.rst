@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: NxN symmetric matrix
 
-    :returns: v (*(N*(N+1)/2)x1 vector*), the lower triangular portion of the matrix *x*.
+    :return v: the lower triangular portion of the matrix *x*.
+
+    :type v: (N*(N+1)/2)x1 vector
 
 Remarks
 -------

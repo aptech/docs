@@ -17,8 +17,9 @@ Format
     :param y: second matrix, *y*.
     :type y: Nx1 vector or NxK matrix
 
-    :returns: **z** (*scalar or Kx1*) - The dot product of *x* and *y*.
+    :return z: The dot product of *x* and *y*.
 
+    :type z: scalar or Kx1
 
 Remarks
 ----------

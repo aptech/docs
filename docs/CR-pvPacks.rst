@@ -20,7 +20,9 @@ Format
     :param nm: matrix name.
     :type nm: string
 
-    :returns: p1 (*struct*) instance of :class:`PV` struct.
+    :return p1: instance of :class:`PV` struct.
+
+    :type p1: struct
 
 Remarks
 -------

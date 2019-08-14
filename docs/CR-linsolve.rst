@@ -19,7 +19,9 @@ Format
     :param A: data
     :type A: NxN matrix
 
-    :returns: x (*NxK matrix*), the linear solution of :math:`b/A` for each column in *b*.
+    :return x: the linear solution of :math:`b/A` for each column in *b*.
+
+    :type x: NxK matrix
 
 Remarks
 -------

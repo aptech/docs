@@ -20,7 +20,9 @@ Format
     :param nu: degrees of freedom.
     :type nu: scalar
 
-    :returns: z (*Nx1 vector*), log-probabilities.
+    :return z: log-probabilities.
+
+    :type z: Nx1 vector
 
 Source
 ------

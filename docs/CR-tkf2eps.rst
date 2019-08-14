@@ -24,7 +24,9 @@ Format
     :param epsfile: name of Encapsulated PostScript file.
     :type epsfile: string
 
-    :returns: ret (*scalar*), 0 if successful
+    :return ret: 0 if successful
+
+    :type ret: scalar
 
 Remarks
 -------

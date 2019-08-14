@@ -20,7 +20,9 @@ Format
     :param xname: the name of *x*, will be inserted with *x* into *dbuf*.
     :type xname: string
 
-    :returns: dbufnew (*Kx1 vector*), the data buffer after *x* and *xname* have been inserted.
+    :return dbufnew: the data buffer after *x* and *xname* have been inserted.
+
+    :type dbufnew: Kx1 vector
 
 Remarks
 -------

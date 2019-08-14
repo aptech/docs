@@ -41,7 +41,9 @@ Format
 
     :type vtyp: scalar or Nx1 vector
 
-    :returns: **fh** (*scalar*) - file handle.
+    :return fh: file handle.
+
+    :type fh: scalar
 
 Remarks
 -------

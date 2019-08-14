@@ -16,7 +16,9 @@ Format
     :param df: ExE conformable with *p*, degrees of freedom. :math:`df \gt 0`
     :type df: LxK matrix
 
-    :returns: **c** (*matrix, max(M,L) by max(N,K) matrix*), abscissae values for chi-squared distribution.
+    :return c: abscissae values for chi-squared distribution.
+
+    :type c: matrix, max(M,L) by max(N,K) matrix
 
 Examples
 ----------------

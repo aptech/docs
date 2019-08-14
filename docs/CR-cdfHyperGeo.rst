@@ -23,7 +23,9 @@ Format
     :param n_drawn: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < n\_drawn < pop\_size`.
     :type n_drawn: matrix
 
-    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - The probability of drawing *x* or fewer marked items.
+    :return p: The probability of drawing *x* or fewer marked items.
+
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 ------------

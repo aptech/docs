@@ -19,7 +19,9 @@ Format
     :param l: A Cholesky decomposition in compact (banded) form.
     :type l: KxN compact form matrix
 
-    :returns: x (*KxM matrix*)
+    :return x: 
+
+    :type x: KxM matrix
 
 Remarks
 ________________

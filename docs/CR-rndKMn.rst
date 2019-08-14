@@ -30,9 +30,13 @@ Format
 
     :type state: scalar or 500x1 vector
 
-    :returns: y (*RxC matrix*) of standard normal random numbers.
+    :return y: of standard normal random numbers.
 
-    :returns: newstate (*500x1 vector*), the updated state.
+    :type y: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: 500x1 vector
 
 Remarks
 -------

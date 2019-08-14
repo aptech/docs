@@ -23,7 +23,9 @@ Format
     :param p: ExE conformable with r x c resulting matrix, "probability" parameters for negative binomial distribution.
     :type p: KxL matrix
 
-    :returns: x (*RxC matrix*), negative binomial distributed pseudo-random numbers.
+    :return x: negative binomial distributed pseudo-random numbers.
+
+    :type x: RxC matrix
 
 Remarks
 -------

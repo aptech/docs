@@ -23,7 +23,9 @@ Format
     :param n: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < k < m`.
     :type n: NxK matrix, Nx1 vector or scalar
 
-    :returns: p (*NxK matrix, Nx1 vector or scalar*), The probability of drawing *x* marked items. 
+    :return p: The probability of drawing *x* marked items.
+
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Examples
 ----------------

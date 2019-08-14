@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: **y** (*NxK matrix*) containing the hyperbolic cosines of the elements of *x*.
+    :return y: containing the hyperbolic cosines of the elements of *x*.
+
+    :type y: NxK matrix
 
 Examples
 ----------------

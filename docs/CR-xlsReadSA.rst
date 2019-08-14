@@ -24,7 +24,9 @@ Format
         being converted to null strings. Default = null string.
     :type vls: null string or 9x1 string array
 
-    :returns: s (*string*), string array or a scalar error code.
+    :return s: string array or a scalar error code.
+
+    :type s: string
 
 Portability
 ------------

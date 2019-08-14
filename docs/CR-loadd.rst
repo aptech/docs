@@ -23,7 +23,9 @@ Format
 
     :type varnames: string
 
-    :returns: y (*NxK matrix*) of data.
+    :return y: of data.
+
+    :type y: NxK matrix
 
 Examples
 ----------------

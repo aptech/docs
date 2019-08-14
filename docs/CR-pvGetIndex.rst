@@ -17,7 +17,9 @@ Format
     :param nm1: name or row number of matrix 
     :type nm1: string or scalar
 
-    :returns: id (*Kx1 vector*), row indices of matrix described by *nm1* in parameter vector.
+    :return id: row indices of matrix described by *nm1* in parameter vector.
+
+    :type id: Kx1 vector
 
 Source
 ------

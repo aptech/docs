@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*NxK matrix*), containing the reversed rows of *x*.
+    :return y: containing the reversed rows of *x*.
+
+    :type y: NxK matrix
 
 Remarks
 -------

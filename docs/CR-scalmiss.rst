@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*scalar*), 1 if argument is a scalar missing value, 0 if not.
+    :return y: 1 if argument is a scalar missing value, 0 if not.
+
+    :type y: scalar
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*)
+    :return y: 
+
+    :type y: NxK matrix or N-dimensional array
 
 Remarks
 -------

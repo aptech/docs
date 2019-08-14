@@ -28,7 +28,9 @@ Format
 
     :type delimiter: string
 
-    :returns: **s** (*string array*) - data read from the CSV file.
+    :return s: data read from the CSV file.
+
+    :type s: string array
 
 Remarks
 -------

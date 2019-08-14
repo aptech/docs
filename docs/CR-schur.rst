@@ -33,9 +33,13 @@ Format
 
     :type sort_type: string 
 
-    :returns: S (*KxK matrix*), Schur form.
+    :return S: Schur form.
 
-    :returns: Z (*KxK matrix*), transformation matrix.
+    :type S: KxK matrix
+
+    :return Z: transformation matrix.
+
+    :type Z: KxK matrix
 
 Examples
 ----------------

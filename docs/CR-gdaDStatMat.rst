@@ -57,7 +57,7 @@ Format
         index of the string containing the variable names in the matrix.
     :type vnamevar: string or scalar
 
-    :returns: **dout** (*struct*) - instance of :class:`dstatmtOut` struct with the following members:
+    :return dout: instance of :class:`dstatmtOut` struct with the following members:
 
         .. list-table::
             :widths: auto
@@ -88,6 +88,8 @@ Format
                   :7: Too many missings, no data left after packing.
                   :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
                   :11: Data read error.
+
+    :type dout: struct
 
 Remarks
 -------

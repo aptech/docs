@@ -30,11 +30,15 @@ Format
     :param nonc: non-centrality vector.
     :type nonc: Kx1 vector
 
-    :returns: **p** (*Nx1 vector*) - :math:`Pr(X ≥ x|corr, nonc)`. The probability in the upper tail of the multivariate normal cumulative distribution function for each corresponding set of limits in *x*.
+    :return p: :math:`Pr(X ≥ x|corr, nonc)`. The probability in the upper tail of the multivariate normal cumulative distribution function for each corresponding set of limits in *x*.
 
-    :returns: **err** (*Nx1 vector*) - estimates of absolute error.
+    :type p: Nx1 vector
 
-    :returns: **retcode** (*Nx1 vector*) - return codes.
+    :return err: estimates of absolute error.
+
+    :type err: Nx1 vector
+
+    :return retcode: return codes.
 
         .. csv-table::
             :widths: auto
@@ -44,6 +48,8 @@ Format
             "2", ":math:`K > 100` or :math:`K < 1`"
             "3", "*R* not positive semi-definite."
             "missing", "*R* not properly defined."
+
+    :type retcode: Nx1 vector
 
 Remarks
 ------------

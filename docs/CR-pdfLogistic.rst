@@ -20,9 +20,9 @@ Format
     :param b: Scale parameter, ExE conformable with *x*. *b* must be greater than 0.
     :type b: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix, Nx1 vector or scalar*)
+    :return y: 
 
-
+    :type y: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

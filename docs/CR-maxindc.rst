@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*Kx1 matrix*) containing the index of the maximum element in each column of *x*.
+    :return y: containing the index of the maximum element in each column of *x*.
+
+    :type y: Kx1 matrix
 
 Remarks
 -------

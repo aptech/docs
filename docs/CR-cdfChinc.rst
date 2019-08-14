@@ -19,7 +19,9 @@ Format
     :param nonc: noncentrality parameter, :math:`nonc > 0`. Note: This is the squared root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.  :math:`nonc > 0`.
     :type nonc: scalar
 
-    :returns: **p** (*Nx1 vector*) - Each element in *p* is the noncentral chi-squared cdf value evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the noncentral chi-squared cdf value evaluated at the corresponding element in *x*.
+
+    :type p: Nx1 vector
 
 Remarks
 -------

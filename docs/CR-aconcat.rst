@@ -20,7 +20,9 @@ Format
     :param dim: dimension in which to concatenate.
     :type dim: scalar
 
-    :returns: y (*N-dimensional array*), the result of the concatenation.
+    :return y: the result of the concatenation.
+
+    :type y: N-dimensional array
 
 Remarks
 -------

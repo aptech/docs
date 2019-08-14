@@ -56,7 +56,7 @@ Format
 
     :type c: an instance of an :class:`eqSolvemtControl` structure.
 
-    :returns: **out** (*struct*) - instance of :class:`eqSolvemtOut` struct. For an instance named *out*, the members are:
+    :return out: instance of :class:`eqSolvemtOut` struct. For an instance named *out*, the members are:
 
         .. list-table::
             :widths: auto
@@ -75,6 +75,8 @@ Format
                   :4: Iteration limit exceeded.
                   :5: Five consecutive steps of maximum step length have been taken; either :code:`norm2(fct(x))` asymptotes from above to a finite value in some direction or the maximum step length is too small.
                   :6: *x* seems to be an approximate local minimizer of :code:`norm2(fct(x))` that is not a root of :code:`fct(x)`. To find a root of :code:`fct(x)`, restart :func:`eqSolvemt` from a different region.
+
+    :type out: struct
 
 Remarks
 -------

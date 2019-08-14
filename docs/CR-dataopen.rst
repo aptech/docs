@@ -25,7 +25,9 @@ Format
 
     :type mode: string
 
-    :returns: **fh** (*scalar*) - file handle.
+    :return fh: file handle.
+
+    :type fh: scalar
 
 Remarks
 -------

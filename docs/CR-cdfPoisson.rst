@@ -16,7 +16,9 @@ Format
     :param lambda: The mean parameter.
     :type lambda: ExE conformable with *x*
 
-    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function of the Poisson distribution evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the cumulative distribution function of the Poisson distribution evaluated at the corresponding element in *x*.
+
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

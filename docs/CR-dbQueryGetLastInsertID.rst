@@ -14,7 +14,9 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **last_insert** (*scalar*) - object id
+    :return last_insert: object id
+
+    :type last_insert: scalar
 
 Remarks
 -------

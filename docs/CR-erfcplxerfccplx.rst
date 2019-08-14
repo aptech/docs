@@ -15,7 +15,9 @@ Format
     :param z: The complex inputs used to compute the Gaussian error function or its complement. :math:`z > 0`
     :type z: NxK complex matrix
 
-    :returns: **f_cplx** (*NxK complex matrix*) - the Gaussian error function (:func:`erfcplx`) or the complement of the Gaussian error function (:func:`erfccplx`).
+    :return f_cplx: the Gaussian error function (:func:`erfcplx`) or the complement of the Gaussian error function (:func:`erfccplx`).
+
+    :type f_cplx: NxK complex matrix
 
 Examples
 ----------------

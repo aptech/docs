@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: c = loessmtControlCreate()
 
-    :returns: c (*struct*) instance of :class:`loessmtControl` struct with members set to default values.
+    :return c: instance of :class:`loessmtControl` struct with members set to default values.
+
+    :type c: struct
 
 Examples
 ----------------

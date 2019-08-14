@@ -13,8 +13,10 @@ Format
     :param x: data
     :type x: string or NxK matrix of character data, or NxK string array.
 
-    :returns: y (*scalar*) containing the exact length of the string *x*, 
+    :return y: containing the exact length of the string *x*, 
         or NxK matrix or string array containing the lengths of the elements in *x*.
+
+    :type y: scalar
 
 Remarks
 -------

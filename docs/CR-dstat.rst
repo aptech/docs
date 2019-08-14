@@ -31,21 +31,37 @@ Format
 
     :type vars: string or string array
 
-    :returns: **vnam** (*Kx1 character vector*) - the names of the variables used in the statistics.
+    :return vnam: the names of the variables used in the statistics.
 
-    :returns: **mean** (*Kx1 vector*) - means.
+    :type vnam: Kx1 character vector
 
-    :returns: **var** (*Kx1 vector*) - variance.
+    :return mean: means.
 
-    :returns: **std** (*Kx1 vector*) - standard deviation.
+    :type mean: Kx1 vector
 
-    :returns: **min** (*Kx1 vector*) - minima.
+    :return var: variance.
 
-    :returns: **max** (*Kx1 vector*) - maxima.
+    :type var: Kx1 vector
 
-    :returns: **valid** (*Kx1 vector*) - the number of valid cases.
+    :return std: standard deviation.
 
-    :returns: **mis** (*Kx1 vector*) - the number of missing cases.
+    :type std: Kx1 vector
+
+    :return min: minima.
+
+    :type min: Kx1 vector
+
+    :return max: maxima.
+
+    :type max: Kx1 vector
+
+    :return valid: the number of valid cases.
+
+    :type valid: Kx1 vector
+
+    :return mis: the number of missing cases.
+
+    :type mis: Kx1 vector
 
 Global Input
 ------------

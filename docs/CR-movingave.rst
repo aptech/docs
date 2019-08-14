@@ -17,7 +17,9 @@ Format
     :param d: order of moving average.
     :type d: scalar
 
-    :returns: y (*NxK matrix*), filtered series. The first :math:`d-1` rows of *x* are set to missing values.
+    :return y: filtered series. The first :math:`d-1` rows of *x* are set to missing values.
+
+    :type y: NxK matrix
 
 Remarks
 -------

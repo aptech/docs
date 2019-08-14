@@ -14,7 +14,9 @@ Format
     :param x: 
     :type x: NxK matrix
 
-    :returns: **y** (*NxK matrix*) - the complex conjugate of *x*.
+    :return y: the complex conjugate of *x*.
+
+    :type y: NxK matrix
 
 Remarks
 -------

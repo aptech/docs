@@ -17,7 +17,9 @@ Format
     :param varname: name of variable in the GDA.
     :type varname: string
 
-    :returns: **ind** (*scalar*) - index of variable in the GDA.
+    :return ind: index of variable in the GDA.
+
+    :type ind: scalar
 
 Remarks
 -------

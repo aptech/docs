@@ -13,7 +13,9 @@ Format
     :param n: order of identity matrix.
     :type n: scalar
 
-    :returns: y (*n x n sparse identity matrix*) 
+    :return y: 
+
+    :type y: n x n sparse identity matrix
 
 Remarks
 -------

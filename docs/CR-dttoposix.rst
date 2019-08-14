@@ -13,7 +13,9 @@ Format
     :param dt: DT scalar format.
     :type dt: NxK matrix
 
-    :returns: **p_time** (*NxK matrix*) - date/times in POSIX format.
+    :return p_time: date/times in POSIX format.
+
+    :type p_time: NxK matrix
 
 Examples
 ----------------

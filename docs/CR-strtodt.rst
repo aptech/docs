@@ -16,7 +16,9 @@ Format
     :param fmt: date/time format characters
     :type fmt: string
 
-    :returns: x (*NxK matrix*) of dates in DT scalar format.
+    :return x: of dates in DT scalar format.
+
+    :type x: NxK matrix
 
 Remarks
 -------

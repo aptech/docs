@@ -45,7 +45,7 @@ Format
 
     :type c: struct
 
-    :returns: out (*struct*) instance of :class:`QNewtonmtOut` struct.
+    :return out: instance of :class:`QNewtonmtOut` struct.
 
         For an instance named *out*, the members are:
 
@@ -73,6 +73,8 @@ Format
               - KxK matrix, covariance matrix of parameters, if *c.covType* > 0.
             * - out.hessian
               - KxK matrix, matrix of second derivatives of objective function with respect to parameters.
+
+    :type out: struct
 
 Remarks
 -------

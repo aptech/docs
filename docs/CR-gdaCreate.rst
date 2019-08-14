@@ -24,7 +24,7 @@ Format
 
     :type overwrite: scalar
 
-    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
+    :return retcode: return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
@@ -33,6 +33,8 @@ Format
             "3", "File write error."
             "6", "File already exists."
             "7", "Cannot create file."
+
+    :type retcode: scalar
 
 Remarks
 -------

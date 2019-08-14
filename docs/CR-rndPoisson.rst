@@ -32,9 +32,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: x (*r x c matrix*), Poisson distributed random numbers.
+    :return x: Poisson distributed random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type x: r x c matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

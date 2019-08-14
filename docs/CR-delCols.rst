@@ -19,9 +19,11 @@ Format
         -1 will indicate to remove the final column of *x*.
     :type c_idx: Scalar or vector
 
-    :returns: **x_trim** (*matrix*) - equal to input *x* without columns specified by
+    :return x_trim: equal to input *x* without columns specified by
         input *c_idx*. If no columns remain, *x_trim* will be
         an empty matrix.
+
+    :type x_trim: matrix
 
 Examples
 ----------------

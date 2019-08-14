@@ -16,7 +16,9 @@ Format
     :param c: column dimension of matrix.
     :type c: scalar
 
-    :returns: **x** (*rxc matrix*) - Matrix storing input from the keyboard.
+    :return x: Matrix storing input from the keyboard.
+
+    :type x: rxc matrix
 
 Remarks
 -------

@@ -17,7 +17,9 @@ Format
     :param L: lower triangular matrix
     :type L: PxP matrix
 
-    :returns: x (*PxK matrix*), soluion of :math:`Lx = b`.
+    :return x: soluion of :math:`Lx = b`.
+
+    :type x: PxK matrix
 
 Remarks
 ---------------

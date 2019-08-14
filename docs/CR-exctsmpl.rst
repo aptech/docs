@@ -21,7 +21,7 @@ Format
         This must be in the range 0-100.
     :type percent: scalar
 
-    :returns: **n_rows** (*scalar*) - number of rows in output dataset.
+    :return n_rows: number of rows in output dataset.
 
         Error returns are controlled by the low bit of
         the :func:`trap` flag:
@@ -34,6 +34,8 @@ Format
             "", "-1", "can't open input file"
             "", "-2", "can't open output file"
             "", "-3", "disk full"
+
+    :type n_rows: scalar
 
 Remarks
 -------

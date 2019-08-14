@@ -15,7 +15,9 @@ Format
     :param y:  Gaussian error function values. :math:`-1 < y < 1`.
     :type y: scalar or NxK matrix
 
-    :returns: **x** (*scalar or NxK matrix*) - The inverse of the Gaussian error function.
+    :return x: The inverse of the Gaussian error function.
+
+    :type x: scalar or NxK matrix
 
 Examples
 ----------------

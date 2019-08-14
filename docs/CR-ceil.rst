@@ -14,7 +14,9 @@ Format
     :param x: Values to be rounded.
     :type x: NxK matrix
 
-    :returns: **y** (*NxK matrix*) - Rounded values.
+    :return y: Rounded values.
+
+    :type y: NxK matrix
 
 Remarks
 -------

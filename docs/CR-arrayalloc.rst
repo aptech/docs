@@ -16,7 +16,9 @@ Format
     :param cf: 0 to allocate real array, or 1 to allocate complex array.
     :type cf: scalar
 
-    :returns: y (*N-dimensional array*)
+    :return y: 
+
+    :type y: N-dimensional array
 
 Remarks
 -------

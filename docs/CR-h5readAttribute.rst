@@ -19,7 +19,9 @@ Format
     :param attr_name: the name of attribute.
     :type attr_name: string
 
-    :returns: **attr_read** (*Matrix, array or string array*) - entire contents of the HDF5 dataset attribute.
+    :return attr_read: entire contents of the HDF5 dataset attribute.
+
+    :type attr_read: matrix, array or string array
 
 Remarks
 -------

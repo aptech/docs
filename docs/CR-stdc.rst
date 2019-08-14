@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*Kx1 vector*), the standard deviation of each column of *x*.
+    :return y: the standard deviation of each column of *x*.
+
+    :type y: Kx1 vector
 
 .. DANGER:: fix equations
 

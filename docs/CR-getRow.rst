@@ -17,7 +17,9 @@ Format
     :param row: The row of the matrix to extract
     :type row: scalar
 
-    :returns: **y** (*1xK row vector*) - extracted data
+    :return y: extracted data
+
+    :type y: 1xK row vector
 
 Remarks
 -------

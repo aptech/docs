@@ -17,7 +17,9 @@ Format
     :param r: Nx1 or 1x1 matrix specifying the amount of rotation
     :type r: matrix
 
-    :returns: y (*NxK rotated matrix*)
+    :return y: 
+
+    :type y: NxK rotated matrix
 
 Remarks
 -------

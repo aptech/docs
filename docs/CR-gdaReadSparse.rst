@@ -17,7 +17,9 @@ Format
     :param varname: name of sparse matrix variable in the GDA.
     :type varname: string
 
-    :returns: **sm** (*sparse matrix*) .- The data contained in the variables in *varname*.
+    :return sm: .- The data contained in the variables in *varname*.
+
+    :type sm: sparse matrix
 
 Remarks
 -------

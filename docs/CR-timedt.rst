@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: dt = timedt()
 
-    :returns: dt (*scalar*), system date and time in DT scalar format.
+    :return dt: system date and time in DT scalar format.
+
+    :type dt: scalar
 
 Remarks
 -------

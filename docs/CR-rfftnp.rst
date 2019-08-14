@@ -14,11 +14,11 @@ Format
     :param x: data
     :type x: NxK real matrix or K-length real vector
 
-    :returns: y (*Lx(M/2+1) matrix or (M/2+1)-length vector*), where
+    :return y: where
         :math:`L` and :math:`M` are the smallest prime factor products greater than or
         equal to :math:`N` and :math:`K`, respectively.
 
-
+    :type y: Lx(M/2+1) matrix or (M/2+1)-length vector
 
 Remarks
 -------

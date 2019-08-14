@@ -16,8 +16,10 @@ Format
     :param x: in the range 0-65535.
     :type x: scalar
 
-    :returns: y (*scalar*) error code which can be interpreted as
+    :return y: error code which can be interpreted as
         an integer with the :func:`scalerr` function.
+
+    :type y: scalar
 
 Remarks
 -------

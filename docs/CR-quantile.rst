@@ -22,7 +22,9 @@ Format
     :param tp: 1, 2, ..., 9. Sample quantile type. Default is 4.
     :type tp: scalar
 
-    :returns: y (*LxK matrix*), quantiles.
+    :return y: quantiles.
+
+    :type y: LxK matrix
 
 Remarks
 -------

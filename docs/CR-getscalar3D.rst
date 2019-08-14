@@ -23,7 +23,9 @@ Format
     :param i3: index into the fastest moving dimension of the array.
     :type i3: scalar
 
-    :returns: **y** (*scalar*) - the element of the array indicated by the indices.
+    :return y: the element of the array indicated by the indices.
+
+    :type y: scalar
 
 Remarks
 -------

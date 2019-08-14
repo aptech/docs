@@ -19,7 +19,9 @@ Format
     :param nonc:  The noncentrality parameter. Note: This is the squared root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.  :math:`nonc > 0`.
     :type nonc: ExE conformable with *p*
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the value such that the noncentral chi-squared cdf with *df* degrees of freedom and *nonc* noncentrality evaluated at *x* is equal to the corresponding value of *p*.
+    :return x: each value of *x* is the value such that the noncentral chi-squared cdf with *df* degrees of freedom and *nonc* noncentrality evaluated at *x* is equal to the corresponding value of *p*.
+
+    :type x: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

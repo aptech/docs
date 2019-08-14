@@ -14,11 +14,13 @@ Format
     :param x: square nonsingular matrix.
     :type x: NxN matrix
 
-    :returns: **y** (*NxN matrix*) - containing the lower (:math:`L`) and upper
+    :return y: containing the lower (:math:`L`) and upper
         (:math:`U`) matrices of the Crout decomposition of *x*. The
         main diagonal of *y* is the main diagonal of the
         lower matrix *L*. The upper matrix has an implicit main
         diagonal of ones. Use :func:`lowmat` and :func:`upmat1` to extract the :math:`L` and :math:`U` matrices from *y*.
+
+    :type y: NxN matrix
 
 Remarks
 -------

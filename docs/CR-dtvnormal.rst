@@ -14,7 +14,9 @@ Format
     :param t: 1x8 date and time vector that has one or more elements outside the normal range.
     :type t: matrix
 
-    :returns: **d** (*1x8 vector*) - Normalized 1x8 date and time vector.
+    :return d: Normalized 1x8 date and time vector.
+
+    :type d: 1x8 vector
 
 Remarks
 -------

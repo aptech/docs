@@ -17,7 +17,9 @@ Format
     :param ntrunc: the number of characters to strip.
     :type ntrunc: NxM or Nx1, 1xM, or 1x1 matrix 
 
-    :returns: y (*string array*) result
+    :return y: result
+
+    :type y: string array
 
 Source
 ------

@@ -13,7 +13,9 @@ Format
     :param dt: A date in a 4-element column vector, in the order: year, month, day, and hundredths of a second since midnight. Same format as the :func:`date` function return.
     :type dt: 3x1 or 4x1 vector
 
-    :returns: daynum (*scalar*) - the day number of that date in that year.
+    :return daynum: the day number of that date in that year.
+
+    :type daynum: scalar
 
 Examples
 ----------------

@@ -22,7 +22,9 @@ Format
     :param attr: N-dimensional array or string array, the contents of the attribute.
     :type attr: matrix
 
-    :returns: **retcode** (*scalar*) - 0 if successful, non-zero otherwise.
+    :return retcode: 0 if successful, non-zero otherwise.
+
+    :type retcode: scalar
 
 -------
 

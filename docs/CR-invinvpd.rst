@@ -15,7 +15,9 @@ Format
     :param x: data
     :type x: NxN matrix or K-dimensional array where the last two dimensions are NxN
 
-    :returns: **xi** (*NxN matrix or K-dimensional array*) where the last two dimensions are NxN, containing the inverse of *x*.
+    :return xi: where the last two dimensions are NxN, containing the inverse of *x*.
+
+    :type xi: NxN matrix or K-dimensional array
 
 Remarks
 -------

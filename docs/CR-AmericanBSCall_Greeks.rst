@@ -28,15 +28,25 @@ Format
     :param sigma: volatility.
     :type sigma: scalar
 
-    :returns: d (*Mx1 vector*), delta.
+    :return d: delta.
 
-    :returns: g (*Mx1 vector*), gamma.
+    :type d: Mx1 vector
 
-    :returns: t (*Mx1 vector*), theta.
+    :return g: gamma.
 
-    :returns: v (*Mx1 vector*), vega.
+    :type g: Mx1 vector
 
-    :returns: rh (*Mx1 vector*), rho.
+    :return t: theta.
+
+    :type t: Mx1 vector
+
+    :return v: vega.
+
+    :type v: Mx1 vector
+
+    :return rh: rho.
+
+    :type rh: Mx1 vector
 
 Global Input
 ------------

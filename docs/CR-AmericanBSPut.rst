@@ -28,7 +28,9 @@ Format
     :param sigma: volatility.
     :type sigma: scalar
 
-    :returns: c (*Mx1 vector*), put premiums.
+    :return c: put premiums.
+
+    :type c: Mx1 vector
 
 Examples
 ----------------

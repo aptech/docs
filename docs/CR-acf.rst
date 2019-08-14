@@ -21,7 +21,9 @@ Format
         Set *d* equal to 0 to compute the autocorrelations from the original time series.
     :type d: scalar
 
-    :returns: rk (*Kx1 vector*), sample autocorrelations.
+    :return rk: sample autocorrelations.
+
+    :type rk: Kx1 vector
 
 Examples
 ----------------

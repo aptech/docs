@@ -11,8 +11,9 @@ Format
 ----------------
 .. function:: k = keyw
 
-    :returns: **k** (*scalar*) - ASCII value of the key pressed.
+    :return k: ASCII value of the key pressed.
 
+    :type k: scalar
 
 Remarks
 -------

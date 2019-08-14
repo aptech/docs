@@ -11,9 +11,9 @@ Format
 ----------------
 .. function:: path = __FILE_DIR
 
-    :returns: path (*string*), containing the full path to the file which contains the usage of __FILE_DIR.
+    :return path: containing the full path to the file which contains the usage of __FILE_DIR.
 
-
+    :type path: string
 
 Remarks
 -------

@@ -149,7 +149,7 @@ Format
 
     :type oc0: struct
 
-    :returns: oout (*struct*) instance of :class:`olsmtOut` struct containing the following members:
+    :return oout: instance of :class:`olsmtOut` struct containing the following members:
 
         .. list-table::
             :widths: auto
@@ -210,6 +210,8 @@ Format
                 the oout.resid return value will be the Nx1 vector of residuals.
             * - oout.dwstat
               - scalar, Durbin-Watson statistic.
+
+    :type oout: struct
 
 Remarks
 -------

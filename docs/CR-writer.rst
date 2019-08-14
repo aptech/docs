@@ -16,7 +16,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*scalar*) specifying the number of rows of data actually written to the data set.
+    :return y: specifying the number of rows of data actually written to the data set.
+
+    :type y: scalar
 
 Remarks
 -------

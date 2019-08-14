@@ -16,9 +16,11 @@ Format
     :param x: Vector specifying the columns in which 1's for the design matrix should be placed.
     :type x: Nx1 vector
 
-    :returns: **y** (*NxK matrix*) - each row of *y*
+    :return y: each row of *y*
         will contain a single 1, and the rest 0's. The
         one in the ith row will be in the :code:`round(x[i, 1])` column. The dimension *K* is such that :code:`K = maxc(x)`.
+
+    :type y: NxK matrix
 
 Remarks
 -------

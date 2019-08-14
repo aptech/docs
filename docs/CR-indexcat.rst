@@ -23,10 +23,12 @@ Format
 
     :type v: scalar or 2x1 vector
 
-    :returns: **y** (*Lx1 vector*) - Indices of the
+    :return y: Indices of the
         elements of *x* which fall into the category defined
         by *v*. It will contain error code 13 if there are
         no elements in this category.
+
+    :type y: Lx1 vector
 
 Examples
 ----------------

@@ -14,9 +14,11 @@ Format
     :param fspec: file specification. Can include path and wildcards.
     :type fspec: string
 
-    :returns: **fnames** (*Nx1 string array*) - all file names that match, null string if none are found.
+    :return fnames: all file names that match, null string if none are found.
 
-    :returns: **finfo** (*Nx13 matrix*) - information about matching files.
+    :type fnames: Nx1 string array
+
+    :return finfo: information about matching files.
 
         **Linux**
 
@@ -57,6 +59,8 @@ Format
             ":math:`[N,13]`", "n/a, 0"
 
         *finfo* will be a scalar zero if no matches are found.
+
+    :type finfo: Nx13 matrix
 
 Examples
 ----------------

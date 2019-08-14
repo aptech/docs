@@ -56,11 +56,17 @@ Format
 
     :type method: string
 
-    :returns: x_s (*matrix or multi-dimensional array*), containing the scaled columns of *x*
+    :return x_s: containing the scaled columns of *x*
 
-    :returns: location (*1xK vector*), containing the values used to center the columns of the input matrix *x*
+    :type x_s: matrix or multi-dimensional array
 
-    :returns: scale_factor (*1xK vector*), containing the values used to scale the columns of the input matrix *x*
+    :return location: containing the values used to center the columns of the input matrix *x*
+
+    :type location: 1xK vector
+
+    :return scale_factor: containing the values used to scale the columns of the input matrix *x*
+
+    :type scale_factor: 1xK vector
 
 .. DANGER:: fix equations
 

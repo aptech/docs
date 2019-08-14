@@ -20,7 +20,9 @@ Format
     :param flag: 1 if numeric data, 0 if character.
     :type flag: scalar
 
-    :returns: y (*Lx1 vector*) containing all unique values that are in *v1* and *v2*, sorted in ascending order.
+    :return y: containing all unique values that are in *v1* and *v2*, sorted in ascending order.
+
+    :type y: Lx1 vector
 
 Remarks
 -------

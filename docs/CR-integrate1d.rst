@@ -35,7 +35,9 @@ Format
 
     :type ctl: struct
 
-    :returns: **y** (*scalar*) - the estimated integral of :math:`f(x)` evaluated over the interval (*x_min*, *x_max*)
+    :return y: the estimated integral of :math:`f(x)` evaluated over the interval (*x_min*, *x_max*)
+
+    :type y: scalar
 
 Examples
 ----------------

@@ -14,7 +14,7 @@ Format
     :param x:  square nonsingular matrix.
     :type x: NxN matrix
 
-    :returns: **lup** (*(N+1)xN matrix*) - containing the lower (:math:`L`) and upper
+    :return lup: containing the lower (:math:`L`) and upper
         (:math:`U`) matrices of the Crout decomposition of a
         permuted *x*. The :math:`N+1` row of the matrix *lup* gives
         the row order of the *lup* matrix. The matrix must be
@@ -22,6 +22,8 @@ Format
         :math:`U` matrices. Use :func:`lowmat` and
         :func:`upmat1` to extract the :math:`L` and :math:`U` matrices from the
         reordered *lup* matrix.
+
+    :type lup: (N+1)xN matrix
 
 Examples
 ----------------

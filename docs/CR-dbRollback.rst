@@ -14,7 +14,9 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: **ret** (*scalar*) - 1 to indicate success and a 0 if the rollback fails.
+    :return ret: 1 to indicate success and a 0 if the rollback fails.
+
+    :type ret: scalar
 
 Remarks
 -------

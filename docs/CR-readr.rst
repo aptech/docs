@@ -17,7 +17,9 @@ Format
     :param r: number of rows to read.
     :type r: scalar
 
-    :returns: y (*NxK matrix*), the data read from the file.
+    :return y: the data read from the file.
+
+    :type y: NxK matrix
 
 Remarks
 -------

@@ -16,7 +16,9 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: **y** (*matrix or array or string or string array*) - data retrieved from the file.
+    :return y: data retrieved from the file.
+
+    :type y: matrix or array or string or string array
 
 Remarks
 -------

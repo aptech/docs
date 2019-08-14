@@ -13,8 +13,10 @@ Format
     :param x:
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*), containing the arctangents of *x* in
+    :return y: containing the arctangents of *x* in
         radians.
+
+    :type y: NxK matrix or N-dimensional array
 
 Remarks
 -------

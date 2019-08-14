@@ -14,7 +14,9 @@ Format
     :param x: matrix of ASCII values to be converted.
     :type x: NxK matrix
 
-    :returns: **s** (*string*) - This 1x1 string will contain NxK characters whose ASCII values are equal to the values in the elements of *x*.
+    :return s: This 1x1 string will contain NxK characters whose ASCII values are equal to the values in the elements of *x*.
+
+    :type s: string
 
 Remarks
 -------

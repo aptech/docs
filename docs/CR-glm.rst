@@ -113,7 +113,7 @@ Format
 
     :type ctl: an instance of a :class:`glmControl` structure
 
-    :returns: **out** (*struct*) - instance of :class:`glmOut` struct structure. For an instance named *out*, the members are:
+    :return out: instance of :class:`glmOut` struct structure. For an instance named *out*, the members are:
 
         .. list-table::
             :widths: auto
@@ -162,6 +162,8 @@ Format
               - scalar, the maximum iterations
             * - *out.eps*
               - scalar, convergence precision
+
+    :type out: struct
 
 Examples
 ----------------

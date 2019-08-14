@@ -16,7 +16,9 @@ Format
     :param b:
     :type b: N-dimensional array
 
-    :returns: y (*N-dimensional array*), containing the product of the matrix multiplication of the planes described by the two trailing dimensions of *a* and *b*.
+    :return y: containing the product of the matrix multiplication of the planes described by the two trailing dimensions of *a* and *b*.
+
+    :type y: N-dimensional array
 
 Remarks
 -------

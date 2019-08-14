@@ -49,10 +49,12 @@ Format
 
     :type state: scalar or vector
 
-    :returns: x (*RxC matrix*), beta distributed random numbers.
+    :return x: beta distributed random numbers.
 
-    :returns: newstate (*4x1 vector*)
+    :type x: RxC matrix
 
+    :return newstate: 
+    
         .. csv-table::
             :widths: auto
     
@@ -61,6 +63,7 @@ Format
             "[3]", "the additive constant"
             "[4]", "the original initialization seed"
 
+    :type newstate: 4x1 vector
 
 Technical Notes
 ---------------

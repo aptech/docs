@@ -14,7 +14,9 @@ Format
     :param x_cplx: the values used to compute the Gamma function. May include complex elements.
     :type x_cplx: NxK matrix;
 
-    :returns: **g_cplx** (*NxK matrix*) -  the values of the Gamma function evaluated at *x*. May be complex.
+    :return g_cplx: the values of the Gamma function evaluated at *x*. May be complex.
+
+    :type g_cplx: NxK matrix
 
 Examples
 ----------------

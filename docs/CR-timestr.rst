@@ -16,7 +16,9 @@ Format
         to return the current system time.
     :type t: scalar or vector 
 
-    :returns: ts (*8 character string*) containing current time in the format: ``hr:mn:sc``
+    :return ts: containing current time in the format: ``hr:mn:sc``
+
+    :type ts: 8 character string
 
 Examples
 ----------------

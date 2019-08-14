@@ -17,7 +17,9 @@ Format
     :param o: orders of an N-dimensional array
     :type o: Nx1 vector
 
-    :returns: ni (*Mx1 vector of indices*), the index of the next element or subarray in the array corresponding to *o*.
+    :return ni: the index of the next element or subarray in the array corresponding to *o*.
+
+    :type ni: Mx1 vector of indices
 
 Remarks
 -------

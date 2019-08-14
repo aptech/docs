@@ -17,7 +17,9 @@ Format
     :param s: covariance matrix.
     :type s: KxK matrix
 
-    :returns: z (*Nx1 vector*), log-probabilities.
+    :return z: log-probabilities.
+
+    :type z: Nx1 vector
 
 Remarks
 -------

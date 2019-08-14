@@ -20,9 +20,11 @@ Format
     :param suf: a suffix to end the file name with.
     :type suf: string
 
-    :returns: tname (*string*), unique temporary file name of the form
+    :return tname: unique temporary file name of the form
         ``path/preXXXXnnnnnsuf``, where ``XXXX`` are 4 letters, and ``nnnnn`` 
         is the process id of the calling process.
+
+    :type tname: string
 
 Remarks
 -------

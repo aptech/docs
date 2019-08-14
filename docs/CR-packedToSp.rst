@@ -20,7 +20,9 @@ Format
     :param p: containing non-zero values and row and column indices.
     :type p: Nx3 or Nx4 matrix
 
-    :returns: y (*RxC sparse matrix*)
+    :return y: 
+
+    :type y: RxC sparse matrix
 
 Remarks
 -------

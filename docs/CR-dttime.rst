@@ -20,7 +20,9 @@ Format
     :param second: Seconds. :math:`0 \leq second \leq 59`.
     :type second: NxK matrix
 
-    :returns: **dt** (*NxK matrix*) - DT scalar format times.
+    :return dt: DT scalar format times.
+
+    :type dt: NxK matrix
 
 Remarks
 -------

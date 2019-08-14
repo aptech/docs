@@ -29,7 +29,9 @@ Format
     :param tau: elapsed time to exercise in annualized days of trading.
     :type tau: scalar
 
-    :returns: sigma (*Mx1 vector*), volatility.
+    :return sigma: volatility.
+
+    :type sigma: Mx1 vector
 
 Examples
 ----------------

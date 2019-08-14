@@ -14,7 +14,9 @@ Format
     :param x:
     :type x: NxK matrix
 
-    :returns: **y** (*NxK matrix*) - containing the cumulative sums of the columns of *x*.
+    :return y: containing the cumulative sums of the columns of *x*.
+
+    :type y: NxK matrix
 
 Remarks
 -------

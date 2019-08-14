@@ -14,7 +14,9 @@ Format
     :param fp: file handle of an open file.
     :type fp: scalar
 
-    :returns: y (*scalar*), type of data in GAUSS data set.
+    :return y: type of data in GAUSS data set.
+
+    :type y: scalar
 
 Remarks
 -------

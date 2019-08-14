@@ -17,9 +17,11 @@ Format
     :param start: starting values.
     :type start: Kx1 vector
 
-    :returns: **x** (*Kx1 vector*) - solution.
+    :return x: solution.
 
-    :returns: **retcode** (*scalar*) - the return code:
+    :type x: Kx1 vector
+
+    :return retcode: the return code:
 
         .. csv-table::
             :widths: auto
@@ -31,6 +33,7 @@ Format
             "5", "Five consecutive steps of maximum step length have been taken; either ``norm2(F(x))`` asymptotes from above to a finite value in some direction or the maximum step length is too small."
             "6", "*x* seems to be an approximate local minimizer of ``norm2(F(x))`` that is not a root of :math:`F(x)`. To find a root of :math:`F(x)`, restart :func:`eqSolvefrom` a different region."
 
+    :type retcode: scalar
 
 Global Input
 ------------

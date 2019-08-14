@@ -16,7 +16,9 @@ Format
     :param r: the row number to which the pointer is to be moved.
     :type r: scalar
 
-    :returns: y (*scalar*), the row number to which the pointer has been moved.
+    :return y: the row number to which the pointer has been moved.
+
+    :type y: scalar
 
 Remarks
 -------

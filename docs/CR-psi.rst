@@ -14,7 +14,9 @@ Format
     :param z: data. *z* may be complex
     :type z: NxK matrix
 
-    :returns: f (*NxK matrix*)
+    :return f: 
+
+    :type f: NxK matrix
 
 Remarks
 -------

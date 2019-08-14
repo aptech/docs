@@ -17,7 +17,9 @@ Format
     :param r: row of *x* on which to sort.
     :type r: scalar
 
-    :returns: y (*NxK matrix*) equal to *x* and sorted on row *r*.
+    :return y: equal to *x* and sorted on row *r*.
+
+    :type y: NxK matrix
 
 Remarks
 -------

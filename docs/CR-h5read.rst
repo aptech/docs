@@ -22,7 +22,9 @@ Format
     :param offset: where *N* is the number of dimensions in the dataset, the data to skip.
     :type offset: Nx1 vector
 
-    :returns: **y** (*Matrix or array*) - the data requested from the file.
+    :return y: the data requested from the file.
+
+    :type y: matrix or array
 
 Examples
 ----------------

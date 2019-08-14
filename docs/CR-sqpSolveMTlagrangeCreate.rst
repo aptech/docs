@@ -15,7 +15,9 @@ Format
 ----------------
 .. function:: s = sqpSolveMTlagrangeCreate()
 
-    :returns: s (*struct*) instance of :class:`sqpSolveMTlagrange` struct.
+    :return s: instance of :class:`sqpSolveMTlagrange` struct.
+
+    :type s: struct
 
 Examples
 ----------------

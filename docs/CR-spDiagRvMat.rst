@@ -22,7 +22,9 @@ Format
     :param a: containing the submatrices to insert into *x*.
     :type a: KxLxP array
 
-    :returns: y (*MxN sparse matrix*), a copy of *x* containing the specified insertions.
+    :return y: a copy of *x* containing the specified insertions.
+
+    :type y: MxN sparse matrix
 
 Remarks
 -------

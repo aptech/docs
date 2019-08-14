@@ -17,7 +17,9 @@ Format
     :param sa: data
     :type sa: string or string array
 
-    :returns: **numl** (*scalar*) - the number of lines written to the file.
+    :return numl: the number of lines written to the file.
+
+    :type numl: scalar
 
 Remarks
 -------

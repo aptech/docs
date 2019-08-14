@@ -15,7 +15,9 @@ Format
     :param dataset: the name of the GAUSS data set. Do not use a file extension.
     :type dataset: string
 
-    :returns: nvec (*Nx1 character vector*), containing the variable names defined in the data set.
+    :return nvec: containing the variable names defined in the data set.
+
+    :type nvec: Nx1 character vector
 
 Remarks
 -------

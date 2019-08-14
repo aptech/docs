@@ -14,7 +14,9 @@ Format
     :param dset: the name of the data set from which the function will obtain the variable names
     :type dset: string
 
-    :returns: **var_names** (*Nx1 vector*) - contains the names of all of the variables in the specified data set.
+    :return var_names: contains the names of all of the variables in the specified data set.
+
+    :type var_names: Nx1 vector
 
 Remarks
 -------

@@ -20,8 +20,10 @@ Format
         assigned to the recoded variable
     :type to: kx1 vector
 
-    :returns: x_new (*Matrix*), multi-dimensional array or string array with the same dimensions as the input x, containing the recoded values of
+    :return x_new: multi-dimensional array or string array with the same dimensions as the input x, containing the recoded values of
         x
+
+    :type x_new: matrix
 
 Examples
 ----------------

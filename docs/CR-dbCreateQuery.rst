@@ -20,7 +20,9 @@ Format
     :param placeholders: optional. containing bind value(s).
     :type placeholders: string or string array
 
-    :returns: **qid** (*scalar*) - query id to be used for result retrieval.
+    :return qid: query id to be used for result retrieval.
+
+    :type qid: scalar
 
 Remarks
 -------

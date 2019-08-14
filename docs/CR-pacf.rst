@@ -20,7 +20,9 @@ Format
     :param d: order of differencing. If only compute the autocorrelations from the original time series, then *d* equals 0.
     :type d: scalar
 
-    :returns: rk (*Kx1 vector*), sample partial autocorrelations.
+    :return rk: sample partial autocorrelations.
+
+    :type rk: Kx1 vector
 
 Examples
 ----------------

@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: matrix
 
-    :returns: y (*1-or-2-dimensional array*)
+    :return y: 
+
+    :type y: 1-or-2-dimensional array
 
 Remarks
 -------

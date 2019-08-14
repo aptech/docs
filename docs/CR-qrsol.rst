@@ -17,7 +17,9 @@ Format
     :param R: upper triangular matrix
     :type R: PxP matrix
 
-    :returns: x (*PxL matrix*)
+    :return x: 
+
+    :type x: PxL matrix
 
 Remarks
 -------

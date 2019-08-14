@@ -17,7 +17,9 @@ Format
     :param varname: name of variable in the GDA.
     :type varname: string
 
-    :returns: **is_cmplx** (*scalar*) - 1 if variable is complex; 0 if real.
+    :return is_cmplx: 1 if variable is complex; 0 if real.
+
+    :type is_cmplx: scalar
 
 Remarks
 -------

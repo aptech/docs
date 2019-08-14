@@ -14,7 +14,9 @@ Format
     :param f: file handle of an open file
     :type f: scalar
 
-    :returns: y (*scalar*), number of rows in the specified file.
+    :return y: number of rows in the specified file.
+
+    :type y: scalar
 
 Examples
 ----------------

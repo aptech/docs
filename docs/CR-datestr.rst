@@ -14,7 +14,9 @@ Format
         the current system date.
     :type d: 4x1 vector
 
-    :returns: **str** (*string*) - 8 character string containing current date in the form: ``mo/dy/yr``
+    :return str: 8 character string containing current date in the form: ``mo/dy/yr``
+
+    :type str: string
 
 Examples
 ----------------

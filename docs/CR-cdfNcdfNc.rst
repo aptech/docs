@@ -22,9 +22,13 @@ Format
     :param std: Optional input, standard deviation.
     :type std: scalar
 
-    :returns: **p** (*NxK matrix*) - Each element in *p* is the normal cumulative distribution function evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the normal cumulative distribution function evaluated at the corresponding element in *x*.
 
-    :returns: **pc** (*NxK matrix*) - Each element in *pc* is the complement of the normal cumulative distribution function evaluated at the corresponding element in *x*.
+    :type p: NxK matrix
+
+    :return pc: Each element in *pc* is the complement of the normal cumulative distribution function evaluated at the corresponding element in *x*.
+
+    :type pc: NxK matrix
 
 Remarks
 ------------

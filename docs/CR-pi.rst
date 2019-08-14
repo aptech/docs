@@ -10,7 +10,9 @@ Format
 ----------------
 .. function:: y = pi
 
-    :returns: y (*scalar*), the value of :math:`π`.
+    :return y: the value of :math:`π`.
+
+    :type y: scalar
 
 Examples
 ----------------

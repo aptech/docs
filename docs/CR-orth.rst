@@ -14,8 +14,10 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*NxL matrix*) such that :math:`y'y = eye(L)` and whose
+    :return y: such that :math:`y'y = eye(L)` and whose
         columns span the same space as the columns of *x*; *L* is the rank of *x*.
+
+    :type y: NxL matrix
 
 Global Input
 ------------

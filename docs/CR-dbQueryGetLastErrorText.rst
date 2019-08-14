@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: err_txt = dbQueryGetLastErrorText()
 
-    :returns: **err_txt** (*2x1 string array*) - database and driver text of last error.
+    :return err_txt: database and driver text of last error.
+
+    :type err_txt: 2x1 string array
 
 Remarks
 -------

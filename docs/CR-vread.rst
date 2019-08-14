@@ -16,7 +16,9 @@ Format
     :param xname: the name of the matrix or string to read from *dbuf*.
     :type xname: string
 
-    :returns: x (*LxM matrix or string*), the item read from *dbuf*.
+    :return x: the item read from *dbuf*.
+
+    :type x: LxM matrix or string
 
 Remarks
 -------

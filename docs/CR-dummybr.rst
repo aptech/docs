@@ -17,7 +17,9 @@ Format
     :param v: specifies the :math:`K` breakpoints (these must be in ascending order) that determine the :math:`K` categories to be used. These categories should not overlap.
     :type v: Kx1 vector
 
-    :returns: **y** (*NxK matrix*) - containing the :math:`K` dummy variables. Each row will have a maximum of one 1.
+    :return y: containing the :math:`K` dummy variables. Each row will have a maximum of one 1.
+
+    :type y: NxK matrix
 
 Remarks
 -------

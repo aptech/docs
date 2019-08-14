@@ -14,7 +14,9 @@ Format
     :param fname: the name of the data file.
     :type fname: string
 
-    :returns: **headers** (*Px1 string array*) - contains the variable names in the file.
+    :return headers: contains the variable names in the file.
+
+    :type headers: Px1 string array
 
 Remarks
 -------

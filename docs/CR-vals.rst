@@ -14,7 +14,9 @@ Format
     :param s: string of length :math:`N` where :math:`N > 0`
     :type s: string
 
-    :returns: y (*Nx1 matrix*) containing the ASCII values of the characters in the string *s*.
+    :return y: containing the ASCII values of the characters in the string *s*.
+
+    :type y: Nx1 matrix
 
 Remarks
 -------

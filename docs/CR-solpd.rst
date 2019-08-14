@@ -17,8 +17,10 @@ Format
         NxN 2-dimensional arrays described by the last two dimensions are symmetric and positive definite
     :type A: matrix or array
 
-    :returns: x (*NxK matrix or M-dimensional array*) where the last two dimensions are NxK, the solutions for
+    :return x: where the last two dimensions are NxK, the solutions for
         the system of equations, :math:`Ax = b`.
+
+    :type x: NxK matrix or M-dimensional array
 
 Remarks
 -------

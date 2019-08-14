@@ -19,7 +19,9 @@ Format
         Real (*n*) must be positive.
     :type n: The order of the function
 
-    :returns: f (*NxK matrix*) *f* may be complex.
+    :return f: *f* may be complex.
+
+    :type f: NxK matrix
 
 Remarks
 -------

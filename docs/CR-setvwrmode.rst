@@ -27,7 +27,9 @@ Format
 
     :type mode: string
 
-    :returns: oldmode (*string*), previous *mode*.
+    :return oldmode: previous *mode*.
+
+    :type oldmode: string
 
 Remarks
 -------

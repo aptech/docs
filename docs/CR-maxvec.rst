@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: y = maxvec()
 
-    :returns: y (*scalar*), maximum vector length.
+    :return y: maximum vector length.
+
+    :type y: scalar
 
 Global Input
 ------------

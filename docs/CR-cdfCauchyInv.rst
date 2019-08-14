@@ -20,7 +20,9 @@ Format
     :param scale: Scale parameter, ExE conformable with *p*. :math:`scale > 0`
     :type scale: NxK matrix, Nx1 vector or scalar
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - Each value of `x` is the value which if passed to :func:`cdfCauchy` will return the corresponding value of `p`.
+    :return x: Each value of `x` is the value which if passed to :func:`cdfCauchy` will return the corresponding value of `p`.
+
+    :type x: NxK matrix, Nx1 vector or scalar
 
 Examples
 ----------------

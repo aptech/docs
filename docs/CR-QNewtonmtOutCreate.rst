@@ -10,7 +10,9 @@ Format
 ----------------
 .. function:: c = QNewtonmtOutCreate()
 
-    :returns: c (*struct*) instance of :class:`QNewtonmtOut` struct with members set to default values.
+    :return c: instance of :class:`QNewtonmtOut` struct with members set to default values.
+
+    :type c: struct
 
 Source
 ------

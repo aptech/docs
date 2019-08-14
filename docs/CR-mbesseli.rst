@@ -25,8 +25,10 @@ Format
     :param alpha: :math:`0 <= alpha < 1`.
     :type alpha: scalar
 
-    :returns: y (*KxN matrix*), evaluations of the modified Bessel or the exponentially scaled modified Bessel
+    :return y: evaluations of the modified Bessel or the exponentially scaled modified Bessel
         of the first kind of the nth order.
+
+    :type y: KxN matrix
 
 Remarks
 -------

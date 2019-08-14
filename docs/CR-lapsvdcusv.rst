@@ -14,11 +14,17 @@ Format
     :param x: real or complex rectangular matrix.
     :type x: MxN matrix
 
-    :returns: u (*Mxmin(M,N) matrix*), left singular vectors.
+    :return u: left singular vectors.
 
-    :returns: s (*min(M,N)xN matrix*), singular values.
+    :type u: Mxmin(M,N) matrix
 
-    :returns: v (*NxN matrix*), right singular values.
+    :return s: singular values.
+
+    :type s: min(M,N)xN matrix
+
+    :return v: right singular values.
+
+    :type v: NxN matrix
 
 Remarks
 -------

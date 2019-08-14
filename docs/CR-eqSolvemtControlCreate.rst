@@ -11,8 +11,10 @@ Format
 ----------------
 .. function:: c = eqSolvemtControlCreate()
 
-    :returns: **c** (*struct*) - instance of :class:`eqSolvemtControl` struct with
+    :return c: instance of :class:`eqSolvemtControl` struct with
         members set to default values.
+
+    :type c: struct
 
 Examples
 ----------------

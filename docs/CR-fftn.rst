@@ -14,8 +14,10 @@ Format
     :param x: The data used to compute the FFT.
     :type x: NxK matrix
 
-    :returns: **y** (*LxM matrix*) - where *L* and *M* are the smallest prime factor
+    :return y: where *L* and *M* are the smallest prime factor
         products greater than or equal to *N* and *K*, respectively.
+
+    :type y: LxM matrix
 
 Remarks
 -------

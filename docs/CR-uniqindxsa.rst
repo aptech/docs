@@ -13,8 +13,10 @@ Format
     :param sv: data
     :type sv: Nx1 or 1xN string vector
 
-    :returns: ind (*Mx1 vector*), indices corresponding to the
+    :return ind: indices corresponding to the
         elements of *sv* sorted in ascending order with duplicates removed.
+
+    :type ind: Mx1 vector
 
 Remarks
 -------

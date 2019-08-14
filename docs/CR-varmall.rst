@@ -22,7 +22,7 @@ Format
     :param vc: covariance matrix.
     :type vc: KxK matrix
 
-    :returns: ll (*scalar*), log-likelihood. If the calculation fails *ll* is set to missing value with error code:
+    :return ll: log-likelihood. If the calculation fails *ll* is set to missing value with error code:
 
         ============= ==============================
         Error Code    Reason for Failure
@@ -40,6 +40,8 @@ Format
         12            model not invertible
         13            :math:`I+M'H'HM` not positive definite
         ============= ==============================
+
+    :type ll: scalar
 
 Remarks
 -------

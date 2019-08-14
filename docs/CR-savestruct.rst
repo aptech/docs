@@ -16,7 +16,9 @@ Format
     :param file_name: name of file on disk to contain matrix of structures.
     :type file_name: string
 
-    :returns: retcode (*scalar*), 0 if successful, otherwise it will be non-zero.
+    :return retcode: 0 if successful, otherwise it will be non-zero.
+
+    :type retcode: scalar
 
 Remarks
 -------

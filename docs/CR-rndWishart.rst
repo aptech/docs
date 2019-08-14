@@ -32,9 +32,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: r (*numMats * rows(cov) x N matrix*) , wishart random matrices.
+    :return r: wishart random matrices.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type r: numMats * rows(cov) x N matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

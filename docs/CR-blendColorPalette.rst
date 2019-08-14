@@ -16,8 +16,9 @@ Format
     :param n_colors:  The number of colors to create for the new palette.
     :type n_colors: scalar
 
-    :returns: color_blend (*n_colorsx1 string array*) containing color palette.
+    :return color_blend: containing color palette.
 
+    :type color_blend: n_colorsx1 string array
 
 Format
 ----------------

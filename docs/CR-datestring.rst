@@ -13,8 +13,10 @@ Format
     :param d: A date in a 4-element column vector, in the order: year, month, day, and hundredths of a second since midnight. Same format as the :func:`date` function return. If this is 0, the :func:`date` function will be called for the current system date.
     :type d: 4x1 vector
 
-    :returns: **str** (*string*) - 10 character string containing current date in
+    :return str: 10 character string containing current date in
         the form: ``mm/dd/yyyy``
+
+    :type str: string
 
 Examples
 ----------------

@@ -23,7 +23,9 @@ Format
     :param b: second matrix, ExE compatible with *a*.
     :type b: LxM matrix
 
-    :returns: **y** (*max(N,L) by max(K,M)*) - matrix of 1's and 0's.
+    :return y: matrix of 1's and 0's.
+
+    :type y: max(N,L) by max(K,M)
 
 Global Input
 ------------

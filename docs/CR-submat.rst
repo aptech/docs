@@ -19,7 +19,9 @@ Format
     :param c: column indices
     :type c: PxQ matrix
 
-    :returns: y (*(L*M)x(P*Q) submatrix*) of *x*, *y* may be larger than *x*.
+    :return y: of *x*, *y* may be larger than *x*.
+
+    :type y: (L*M)x(P*Q) submatrix
 
 Remarks
 -------

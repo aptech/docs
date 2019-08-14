@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: **x_ismiss** (*scalar*) - 1 if *x* contains any missing values, otherwise 0.
+    :return x_ismiss: 1 if *x* contains any missing values, otherwise 0.
+
+    :type x_ismiss: scalar
 
 Remarks
 -------

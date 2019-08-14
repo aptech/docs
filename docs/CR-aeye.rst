@@ -15,7 +15,9 @@ Format
     :param ord: the sizes of the dimensions of *a*.
     :type ord: Nx1 vector of orders
 
-    :returns: a (*N-dimensional array*), containing 2-dimensional identity arrays.
+    :return a: containing 2-dimensional identity arrays.
+
+    :type a: N-dimensional array
 
 Remarks
 -------

@@ -23,7 +23,9 @@ Format
     :param wgts: weights
     :type wgts: Nx1 vector
 
-    :returns: **h** (*KxK matrix*) - Hessian.
+    :return h: Hessian.
+
+    :type h: KxK matrix
 
 Remarks
 -------

@@ -22,8 +22,10 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: **cx** (*PxP correlation matrix*) - For :func:`corrm`, :math:`P = K-1`. For :func:`corrvc` and
+    :return cx: For :func:`corrm`, :math:`P = K-1`. For :func:`corrvc` and
         :func:`corrx`, :math:`P = K`.
+
+    :type cx: PxP correlation matrix
 
 Remarks
 ------------

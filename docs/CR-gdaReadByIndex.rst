@@ -17,7 +17,9 @@ Format
     :param varind: index of variable in the GDA.
     :type varind: scalar
 
-    :returns: **y** (*matrix*) - array, string or string array, variable data.
+    :return y: array, string or string array, variable data.
+
+    :type y: matrix
 
 Remarks
 -------

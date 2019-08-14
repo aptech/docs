@@ -17,7 +17,9 @@ Format
     :param C: The Cholesky factorization of a linear system of equations :math:`A`.
     :type C: NxN matrix
 
-    :returns: **x** (*NxK matrix*) - the solution for :math:`Ax = b`.
+    :return x: the solution for :math:`Ax = b`.
+
+    :type x: NxK matrix
 
 Remarks
 -------

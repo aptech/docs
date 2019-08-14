@@ -20,7 +20,9 @@ Format
     :param v: value to initialize.
     :type v: scalar
 
-    :returns: y (*RxC matrix*) with each element equal to the value of *v*.
+    :return y: with each element equal to the value of *v*.
+
+    :type y: RxC matrix
 
 Examples
 ----------------

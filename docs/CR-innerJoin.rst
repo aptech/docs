@@ -23,7 +23,9 @@ Format
     :param cb: key columns in *B*
     :type cb: scalar or vector
 
-    :returns: **C** (*matrix*) - result of join of *A* and *B*
+    :return C: result of join of *A* and *B*
+
+    :type C: matrix
 
 Remarks
 -------

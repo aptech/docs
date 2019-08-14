@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: tc = timeutc
 
-    :returns: tc (*scalar*), number of seconds since January 1, 1970 Greenwich Mean Time.
+    :return tc: number of seconds since January 1, 1970 Greenwich Mean Time.
+
+    :type tc: scalar
 
 Examples
 ----------------

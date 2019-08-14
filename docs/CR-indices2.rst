@@ -26,13 +26,21 @@ Format
         If scalar 0, all variables in the dataset except the one associated with *var1* will be selected.
     :type var2: Nx1 vector
 
-    :returns: **name1** (*scalar character matrix*) - the name of the variable associated with *var1*.
+    :return name1: the name of the variable associated with *var1*.
 
-    :returns: **indx1** (*scalar*) - the column index of *var1*.
+    :type name1: scalar character matrix
 
-    :returns: **name2** (*Nx1 character vector*) - the names associated with *var2*.
+    :return indx1: the column index of *var1*.
 
-    :returns: **indx2** (*Nx1 numeric vector*) - the column indices of the variables in *var2*.
+    :type indx1: scalar
+
+    :return name2: the names associated with *var2*.
+
+    :type name2: Nx1 character vector
+
+    :return indx2: the column indices of the variables in *var2*.
+
+    :type indx2: Nx1 numeric vector
 
 Examples
 ----------------

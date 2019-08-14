@@ -40,7 +40,9 @@ Format
     :param bounds: bounds on parameters. The first column contains the lower bounds, and the second column the upper bounds.
     :type bounds: Kx2 matrix
 
-    :returns: **SLprob** (*scalar*) - probability of *SL*.
+    :return SLprob: probability of *SL*.
+
+    :type SLprob: scalar
 
 Remarks
 -------

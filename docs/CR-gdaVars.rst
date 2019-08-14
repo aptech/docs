@@ -14,7 +14,9 @@ Format
     :param filename: name of data file.
     :type filename: string
 
-    :returns: **nvars** (*scalar*) - the number of variables in  filename.
+    :return nvars: the number of variables in  filename.
+
+    :type nvars: scalar
 
 Examples
 ----------------

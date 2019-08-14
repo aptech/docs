@@ -15,9 +15,13 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: yc (*(N*K)x1 vector*), the columns of *x* appended to each other.
+    :return yc: the columns of *x* appended to each other.
 
-    :returns: yr (*(N*K)x1 vector*), the rows of *x* appended to each other and the result transposed.
+    :type yc: (N*K)x1 vector
+
+    :return yr: the rows of *x* appended to each other and the result transposed.
+
+    :type yr: (N*K)x1 vector
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param s: directory to change to.
     :type s: string
 
-    :returns: **d** (*string*) - new working directory, or null string if change failed.
+    :return d: new working directory, or null string if change failed.
+
+    :type d: string
 
 Examples
 --------------

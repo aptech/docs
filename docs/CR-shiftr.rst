@@ -19,7 +19,9 @@ Format
     :param f: specifying the value to fill in
     :type f: scalar or Nx1 vector
 
-    :returns: y (*NxK shifted matrix*)
+    :return y: 
+
+    :type y: NxK shifted matrix
 
 Remarks
 -------

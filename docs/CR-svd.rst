@@ -13,8 +13,10 @@ Format
     :param x: matrix whose singular values are to be computed
     :type x: NxP matrix 
 
-    :returns: s (*Mx1 vector*), where :math:`M = min(N,P)`, containing the
+    :return s: where :math:`M = min(N,P)`, containing the
         singular values of *x* arranged in descending order.
+
+    :type s: Mx1 vector
 
 Global Input
 ------------

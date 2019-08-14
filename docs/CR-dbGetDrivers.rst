@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: drivers = dbGetDrivers()
 
-    :returns: **drivers** (*Nx1 string array*) - list of available database drivers.
+    :return drivers: list of available database drivers.
+
+    :type drivers: Nx1 string array
 
 Examples
 ----------------

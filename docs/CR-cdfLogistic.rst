@@ -19,7 +19,9 @@ Format
     :param scale: Scale parameter; ExE conformable with *x*. :math:`0 < scale`.
     :type scale: NxK matrix, Nx1 vector or scalar
 
-    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function for the logistic distribution evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the cumulative distribution function for the logistic distribution evaluated at the corresponding element in *x*.
+
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

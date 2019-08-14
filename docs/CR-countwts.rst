@@ -21,7 +21,7 @@ Format
     :param w: weights.
     :type w: Nx1 vector
 
-    :returns: **c** (*Px1 vector*) - the weighted counts of the
+    :return c: the weighted counts of the
         elements of x that fall into the regions:
 
         .. math::
@@ -33,6 +33,8 @@ Format
 
         That is, when :math:`x[i]` falls into region *j*, the weight
         :math:`w[i]` is added to the jth counter.
+
+    :type c: Px1 vector
 
 Remarks
 -------

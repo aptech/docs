@@ -14,7 +14,9 @@ Format
     :param x:
     :type x: NxK matrix or sparse matrix
 
-    :returns: **n_cols** (*scalar*) - number of columns in *x*.
+    :return n_cols: number of columns in *x*.
+
+    :type n_cols: scalar
 
 Remarks
 -------

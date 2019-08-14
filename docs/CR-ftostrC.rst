@@ -17,7 +17,9 @@ Format
     :param fmt: format information.
     :type fmt: Kx1 or 1xK or 1x1 string array
 
-    :returns: **sa** (*NxK string array*) - contains the contents of *x* converted into a string array.
+    :return sa: contains the contents of *x* converted into a string array.
+
+    :type sa: NxK string array
 
 Remarks
 -------

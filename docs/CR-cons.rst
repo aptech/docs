@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: x = cons()
 
-    :returns: **x** (*string*) - the characters entered from the keyboard
+    :return x: the characters entered from the keyboard
+
+    :type x: string
 
 Remarks
 -------

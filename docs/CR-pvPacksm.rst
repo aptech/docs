@@ -23,7 +23,9 @@ Format
     :param mask: mask matrix of zeros and ones.
     :type mask: MxM matrix
 
-    :returns: p1 (*struct*) instance of :class:`PV` struct.
+    :return p1: instance of :class:`PV` struct.
+
+    :type p1: struct
 
 Remarks
 -------

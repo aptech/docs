@@ -19,7 +19,9 @@ Format
     :param scale: Scale parameter; ExE conformable with *x*. :math:`0 < scale`.
     :type scale: NxK matrix, Nx1 vector or scalar
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the value such that the Laplace cumulative distribution function with *loc* and *scale* evaluated at *x* is equal to the corresponding value of *p*.
+    :return x: each value of *x* is the value such that the Laplace cumulative distribution function with *loc* and *scale* evaluated at *x* is equal to the corresponding value of *p*.
+
+    :type x: NxK matrix, Nx1 vector or scalar
 
 Examples
 ---------

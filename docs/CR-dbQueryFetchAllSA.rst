@@ -18,7 +18,9 @@ Format
         Must be a subset of fields from ``SELECT`` statement.
     :type columns: string or string array
 
-    :returns: **result** (*string array*) - containing the result set for the current query. If the result set is empty, a scalar error code is returned.
+    :return result: containing the result set for the current query. If the result set is empty, a scalar error code is returned.
+
+    :type result: string array
 
 Remarks
 -------

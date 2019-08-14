@@ -17,7 +17,9 @@ Format
     :param c2: coefficients of the second polynomial
     :type c2: (D2+1)x1 vector
 
-    :returns: c (*(D1+D2)x1 vector*) containing the coefficients of the product of the two polynomials.
+    :return c: containing the coefficients of the product of the two polynomials.
+
+    :type c: (D1+D2)x1 vector
 
 Examples
 ----------------

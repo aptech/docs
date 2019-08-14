@@ -57,7 +57,7 @@ Format
 
     :type ctl: Optional input
 
-    :returns: dout (*struct*) instance of :class:`dstatmtOut` struct
+    :return dout: instance of :class:`dstatmtOut` struct
         structure containing the following members:
 
         .. list-table::
@@ -86,6 +86,8 @@ Format
                   :7: Too many missings - no data left after packing.
                   :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
                   :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
+
+    :type dout: struct
 
 Examples
 ----------------

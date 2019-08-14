@@ -17,9 +17,13 @@ Format
     :param structure_type: structure type.
     :type structure_type: string
 
-    :returns: instance (*struct*) instance of the struct.
+    :return instance: instance of the struct.
 
-    :returns: retcode (*scalar*), 0 if successful, otherwise 1.
+    :type instance: struct
+
+    :return retcode: 0 if successful, otherwise 1.
+
+    :type retcode: scalar
 
 Remarks
 -------

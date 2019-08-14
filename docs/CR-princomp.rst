@@ -17,13 +17,19 @@ Format
     :param j: number of principal components to be computed (:math:`j <= K`).
     :type j: scalar
 
-    :returns: p (*NxJ matrix*) of the first *j* principal components of *x* in descending order of amount of variance explained.
+    :return p: of the first *j* principal components of *x* in descending order of amount of variance explained.
 
-    :returns: v (*Jx1 vector*) of fractions of variance explained.
+    :type p: NxJ matrix
 
-    :returns: a (*JxK matrix*), factor loadings such that:
+    :return v: of fractions of variance explained.
+
+    :type v: Jx1 vector
+
+    :return a: factor loadings such that:
         
         .. math:: x = p*a + error.
+
+    :type a: JxK matrix
 
 .. DANGER:: fix equations
 

@@ -17,7 +17,9 @@ Format
     :param omode: file I/O mode. (See *Remarks*, below.)
     :type omode: string
 
-    :returns: fh (*scalar*) - file handle.
+    :return fh: file handle.
+
+    :type fh: scalar
 
 Portability
 -----------

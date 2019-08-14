@@ -16,9 +16,13 @@ Format
     :param X: data
     :type X: NxP matrix
 
-    :returns: qy (*NxL matrix*) unitary matrix
+    :return qy: unitary matrix
 
-    :returns: r (*KxP matrix*), upper triangular matrix. :math:`K = min(N,P)`.
+    :type qy: NxL matrix
+
+    :return r: upper triangular matrix. :math:`K = min(N,P)`.
+
+    :type r: KxP matrix
 
 .. DANGER:: fix equations
 

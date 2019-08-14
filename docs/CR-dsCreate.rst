@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: s = dsCreate()
 
-    :returns: **s** (*struct*) - instance of :class:`DS` struct.
+    :return s: instance of :class:`DS` struct.
+
+    :type s: struct
 
 Examples
 ----------------

@@ -28,8 +28,10 @@ Format
 
     :type typ: scalar
 
-    :returns: y (*Lx1 vector*) containing all unique values
+    :return y: containing all unique values
         that are in *v1* and are not in *v2*, sorted in ascending order.
+
+    :type y: Lx1 vector
 
 Remarks
 -------

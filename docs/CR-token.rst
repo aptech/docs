@@ -13,9 +13,13 @@ Format
     :param str: the string to parse.
     :type str: string
 
-    :returns: token (*string*), the first token in *str*.
+    :return token: the first token in *str*.
 
-    :returns: str_left (*string*), *str* minus *token*.
+    :type token: string
+
+    :return str_left: *str* minus *token*.
+
+    :type str_left: string
 
 Remarks
 -------

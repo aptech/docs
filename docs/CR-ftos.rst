@@ -26,7 +26,9 @@ Format
         separate precisions for the real and imaginary parts of *x*.
     :type prec: scalar or 2x1 vector
 
-    :returns: **x_str** (*string*) - contains the decimal character equivalent of *x* in the format specified.
+    :return x_str: contains the decimal character equivalent of *x* in the format specified.
+
+    :type x_str: string
 
 Remarks
 -------

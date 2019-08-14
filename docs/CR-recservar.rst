@@ -19,7 +19,9 @@ Format
     :param pi\_: containing the VAR parameters.
     :type pi\_: KxK matrix
 
-    :returns: y (*NxK matrix*), containing the series.
+    :return y: containing the series.
+
+    :type y: NxK matrix
 
 Examples
 ----------------

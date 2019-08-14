@@ -17,9 +17,13 @@ Format
     :param B: real or complex general matrix.
     :type B: NxN matrix
 
-    :returns: va1 (*Nx1 vector*), numerator of eigenvalues.
+    :return va1: numerator of eigenvalues.
 
-    :returns: va2 (*Nx1 vector*), denominator of eigenvalues.
+    :type va1: Nx1 vector
+
+    :return va2: denominator of eigenvalues.
+
+    :type va2: Nx1 vector
 
 Remarks
 -------

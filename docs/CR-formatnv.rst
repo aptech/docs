@@ -14,7 +14,9 @@ Format
     :param newfmt: the new format specification.
     :type newfmt: 1x3 vector
 
-    :returns: **oldfmt** (*1x3 vector*) - the old format specification.
+    :return oldfmt: the old format specification.
+
+    :type oldfmt: 1x3 vector
 
 Remarks
 -------

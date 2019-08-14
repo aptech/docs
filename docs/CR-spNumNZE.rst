@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: MxN sparse matrix
 
-    :returns: n (*scalar*), the number of non-zero elements in *x*.
+    :return n: the number of non-zero elements in *x*.
+
+    :type n: scalar
 
 Examples
 ----------------

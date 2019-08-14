@@ -16,7 +16,9 @@ Format
     :param o: orders of an N-dimensional array
     :type o: Nx1 vector
 
-    :returns: si (*scalar*), index of corresponding element in 1-dimensional array or vector.
+    :return si: index of corresponding element in 1-dimensional array or vector.
+
+    :type si: scalar
 
 Remarks
 -------

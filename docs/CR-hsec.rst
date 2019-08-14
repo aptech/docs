@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: y = hsec
 
-    :returns: **y** (*scalar*) - hundredths of a second since midnight.
+    :return y: hundredths of a second since midnight.
+
+    :type y: scalar
 
 Remarks
 -------

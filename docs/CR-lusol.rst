@@ -21,8 +21,9 @@ Format
     :param U: upper triangular matrix
     :type U: PxP matrix
 
-    :returns: x (*PxK matrix*), solution of LUx = b.
+    :return x: solution of LUx = b.
 
+    :type x: PxK matrix
 
 Remarks
 -------

@@ -24,9 +24,13 @@ Format
         *namein*.
     :type indxin: Nx1 vector
 
-    :returns: **name** (*Nx1 string array*) - the names of the selected columns.
+    :return name: the names of the selected columns.
 
-    :returns: **indx** (*Nx1 vector*) - the indices of the selected columns.
+    :type name: Nx1 string array
+
+    :return indx: the indices of the selected columns.
+
+    :type indx: Nx1 vector
 
 Examples
 ----------------

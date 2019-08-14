@@ -49,7 +49,7 @@ Format
 
     :type ctl: struct
 
-    :returns: out (*struct*), an instance of an :class:`sqpSolveMTout` structure. For an instance named *out*, the members are:
+    :return out: an instance of an :class:`sqpSolveMTout` structure. For an instance named *out*, the members are:
 
         .. list-table::
             :widths: auto
@@ -84,6 +84,8 @@ Format
                   :6: line search failed.
                   :7: error with constraints.
                   :8: function complex.
+
+    :type out: struct
 
 Remarks
 -------

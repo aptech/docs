@@ -17,7 +17,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: vc (*KxK variance-covariance matrix*)
+    :return vc: 
+
+    :type vc: KxK variance-covariance matrix
 
 Remarks
 -------

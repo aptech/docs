@@ -25,7 +25,9 @@ Format
         where :math:`mask = 1` and as character where :math:`mask = 0`.
     :type mask: scalar
 
-    :returns: y (*scalar*), 1 if the function is successful and 0 if it fails.
+    :return y: 1 if the function is successful and 0 if it fails.
+
+    :type y: scalar
 
 Remarks
 -------

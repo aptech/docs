@@ -17,7 +17,9 @@ Format
     :param xi: the imaginary elements of *z*.
     :type xi: NxK real matrix or scalar
 
-    :returns: **z** (*NxK complex matrix*)
+    :return z: 
+
+    :type z: NxK complex matrix
 
 Examples
 ----------------

@@ -29,9 +29,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: y (*RxC matrix*) of standard normal random numbers.
+    :return y: of standard normal random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type y: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

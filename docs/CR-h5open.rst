@@ -24,7 +24,9 @@ Format
 
     :type mode: string
 
-    :returns: **fh** (*scalar*) - file handle for use with :func:`readr`, or :func:`writer`.
+    :return fh: file handle for use with :func:`readr`, or :func:`writer`.
+
+    :type fh: scalar
 
 Remarks
 -------

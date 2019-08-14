@@ -32,9 +32,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: r (*RxC matrix*), Bernoulli random numbers.
+    :return r: Bernoulli random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type r: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

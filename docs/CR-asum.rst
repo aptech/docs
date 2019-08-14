@@ -16,7 +16,9 @@ Format
     :param dim: the dimension across which to sum.
     :type dim: scalar
 
-    :returns: y (*N-dimensional array*)
+    :return y: 
+
+    :type y: N-dimensional array
 
 Remarks
 -------

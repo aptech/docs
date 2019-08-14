@@ -90,10 +90,12 @@ Format
         a numeric variable and zero elements indicate character variables.
     :type vtyp: matrix
 
-    :returns: **fh** (*scalar*) - the file handle which will be used by most commands to refer to the file within
+    :return fh: the file handle which will be used by most commands to refer to the file within
         GAUSS. This file handle is actually a scalar containing an integer value that uniquely
         identifies each file. This value is assigned by GAUSS when the
         create (or open) command is executed.
+
+    :type fh: scalar
 
 .. function:: create [[vflag]][[-w32]][[complex]] fh=filename using comfile
 
@@ -168,10 +170,12 @@ Format
 
     :type comfile: literal or ^string
 
-    :returns: fh (*scalar*) the file handle which will be used by most commands to refer to the file within
+    :return fh: the file handle which will be used by most commands to refer to the file within
         GAUSS. This file handle is actually a scalar containing an integer value that uniquely
         identifies each file. This value is assigned by GAUSS when the
         create (or open) command is executed.
+
+    :type fh: scalar
 
 Remarks
 -------

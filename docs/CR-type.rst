@@ -13,7 +13,7 @@ Format
     :param x: local or global symbol, can be an expression.
     :type x: any
 
-    :returns: t (*scalar*), argument type.
+    :return t: argument type.
 
         .. csv-table::
             :widths: auto
@@ -25,6 +25,8 @@ Format
             "21", "array"
             "23", "structure pointer"
             "23", "sparse matrix"
+
+    :type t: scalar
 
 Examples
 ----------------

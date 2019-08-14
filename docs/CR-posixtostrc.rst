@@ -17,7 +17,9 @@ Format
     :param fmt: containing strftime date/time format characters.
     :type fmt: string or ExE conformable string array
 
-    :returns: sa (*NxK string array*)
+    :return sa: 
+
+    :type sa: NxK string array
 
 Remarks
 -------

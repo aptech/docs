@@ -27,7 +27,9 @@ Format
 
     :type var: Kx1 vector or scalar zero, string array, or formula string.
 
-    :returns: y (*LxK matrix*), quantiles.
+    :return y: quantiles.
+
+    :type y: LxK matrix
 
 Remarks
 -------

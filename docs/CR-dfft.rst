@@ -14,7 +14,9 @@ Format
     :param x: Values used to compute the discrete Fourier transform.
     :type x: Nx1 vector
 
-    :returns: **y** (*Nx1 vector*) - The discrete Fourier transform.
+    :return y: The discrete Fourier transform.
+
+    :type y: Nx1 vector
 
 Remarks
 -------

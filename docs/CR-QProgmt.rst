@@ -27,7 +27,7 @@ Format
 
     :type qIn: struct
 
-    :returns: qOut (*struct*) instance of :class:`qprogMTOut` struct containing the following members:
+    :return qOut: instance of :class:`qprogMTOut` struct containing the following members:
 
         .. list-table::
             :widths: auto
@@ -50,6 +50,8 @@ Format
                 :*2*: machine accuracy is insufficient to maintain decreasing function values
                 :*3*: model matrices not conformable
                 :*< 0*: active constraints inconsistent
+
+    :type qOut: struct
 
 Remarks
 -------

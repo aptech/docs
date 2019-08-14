@@ -16,7 +16,9 @@ Format
     :param val: each element of the new array will be set equal to *val*. If *val* is complex the result will be complex.
     :type val: scalar
 
-    :returns: y (*N-dimensional array*), with each element equal to the value of *val*.
+    :return y: with each element equal to the value of *val*.
+
+    :type y: N-dimensional array
 
 Examples
 ----------------

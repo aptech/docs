@@ -14,8 +14,9 @@ Format
     :param x: data
     :type x: NxN matrix
 
-    :returns: **xig** (*NxN matrix*) - the generalized inverse of *x*.
+    :return xig: the generalized inverse of *x*.
 
+    :type xig: NxN matrix
 
 Remarks
 -------

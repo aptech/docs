@@ -23,7 +23,9 @@ Format
     :param orders: orders of object to output.
     :type orders: scalar or Kx1 vector
 
-    :returns: **y** (*matrix*) - array, string or string array, variable data.
+    :return y: array, string or string array, variable data.
+
+    :type y: matrix
 
 Remarks
 -------

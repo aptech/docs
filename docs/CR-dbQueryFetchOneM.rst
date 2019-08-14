@@ -17,7 +17,9 @@ Format
     :param columns: Optional input. Gives specific columns to pull from the result matrix. Must be a subset of fields from the ``SELECT`` statement.
     :type columns: string or string array
 
-    :returns: **record** (*matrix*) - if the query points to a valid row (:func:`dbQueryIsValid` returns true), the record is populated with the row's values. An empty record (:code:`scalmiss(record)` is true) is returned when there is no active query (:func:`dbQueryIsActive` returns false).
+    :return record: if the query points to a valid row (:func:`dbQueryIsValid` returns true), the record is populated with the row's values. An empty record (:code:`scalmiss(record)` is true) is returned when there is no active query (:func:`dbQueryIsActive` returns false).
+
+    :type record: matrix
 
 Remarks
 -------

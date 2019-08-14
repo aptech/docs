@@ -32,9 +32,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: x (*RxC matrix*), rayleigh distributed random numbers.
+    :return x: rayleigh distributed random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type x: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Examples
 ----------------

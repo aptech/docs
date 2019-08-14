@@ -41,9 +41,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: x (*NxK matrix, Nx1 vector or scalar*), The probability of drawing *x* items which possess a specified trait. 
+    :return x: The probability of drawing *x* items which possess a specified trait.
 
-    :returns: new_state (*Opaque vector*), the updated state
+    :type x: NxK matrix, Nx1 vector or scalar
+
+    :return new_state: the updated state
+
+    :type new_state: Opaque vector
 
 Examples
 ----------------

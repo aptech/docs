@@ -28,7 +28,9 @@ Format
         where *T* is the tridiagonal matrix obtaineda by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
 
-    :returns: ve (*(iu-il+1)x1 vector*) eigenvalues.
+    :return ve: eigenvalues.
+
+    :type ve: (iu-il+1)x1 vector
 
 Remarks
 -------

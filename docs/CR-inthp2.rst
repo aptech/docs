@@ -59,7 +59,9 @@ Format
     :param l_lim: lower limits of integration.
     :type l_lim: 1xN vector
 
-    :returns: **y** (*Nx1 vector*) - the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a,+∞)`.
+    :return y: the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a,+∞)`.
+
+    :type y: Nx1 vector
 
 Remarks
 -------

@@ -13,8 +13,10 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*LxK submatrix*) of *x* containing only those rows
+    :return y: of *x* containing only those rows
         that do not have missing values in any of their elements.
+
+    :type y: LxK submatrix
 
 Remarks
 -------

@@ -17,7 +17,9 @@ Format
     :param fmt: containing strftime date/time format characters.
     :type fmt: string or ExE conformable string array 
 
-    :returns: d (*NxK matrix*), containing dates in POSIX format (seconds since the Jan 1, 1970).
+    :return d: containing dates in POSIX format (seconds since the Jan 1, 1970).
+
+    :type d: NxK matrix
 
 Remarks
 -------

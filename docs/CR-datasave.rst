@@ -16,8 +16,10 @@ Format
     :param x: data to write to disk.
     :type x: matrix, array, string or string array
 
-    :returns: **ret** (*scalar*) - return code, 0 if successful, or -1 if it is unable to
+    :return ret: return code, 0 if successful, or -1 if it is unable to
         write the file.
+
+    :type ret: scalar
 
 Remarks
 -------

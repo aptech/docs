@@ -33,11 +33,15 @@ Format
     :param df: degrees of freedom.
     :type df: scalar
 
-    :returns: **p** (*N x 1 vector*) - Each element in *p* is the cumulative distribution function of the multivariate Student's t distribution for the corresponding elements in *x*.
+    :return p: Each element in *p* is the cumulative distribution function of the multivariate Student's t distribution for the corresponding elements in *x*.
 
-    :returns: **err** (*Nx1 vector*) - estimates of absolute error.
+    :type p: N x 1 vector
 
-    :returns: **retcode** (*Nx1 vector*) - return codes.
+    :return err: estimates of absolute error.
+
+    :type err: Nx1 vector
+
+    :return retcode: return codes.
 
         .. csv-table::
             :widths: auto
@@ -47,6 +51,8 @@ Format
             "2", ":math:`K > 100` or :math:`K < 1`."
             "3", "*R* not positive semi-definite."
             "missing", "*R* not properly defined."
+
+    :type retcode: Nx1 vector
 
 Examples
 ----------------

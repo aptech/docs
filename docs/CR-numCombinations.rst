@@ -17,7 +17,9 @@ Format
     :param k: 
     :type k: scalar
 
-    :returns: y (*scalar*), number of combinations of *n* things take *k* at a time.
+    :return y: number of combinations of *n* things take *k* at a time.
+
+    :type y: scalar
 
 Remarks
 -------

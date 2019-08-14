@@ -17,7 +17,9 @@ Format
     :param ldl_factor: containing the a factorization returned from the function :func:`ldlp`.
     :type ldl_factor: Nx(N+1) matrix
 
-    :returns: x (*Nx1 vector or NxK matrix*), containing the solution to LDLTx = b.
+    :return x: containing the solution to LDLTx = b.
+
+    :type x: Nx1 vector or NxK matrix
 
 Remarks
 -------

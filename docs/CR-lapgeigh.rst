@@ -17,7 +17,9 @@ Format
     :param B: real or complex positive definite symmetric or Hermitian matrix.
     :type B: NxN matrix
 
-    :returns: ve (*Nx1 vector*), eigenvalues.
+    :return ve: eigenvalues.
+
+    :type ve: Nx1 vector
 
 Remarks
 -------

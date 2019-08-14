@@ -34,7 +34,9 @@ Format
 
     :type seed: scalar
 
-    :returns: state (*Opaque vector*), the newly created state.
+    :return state: the newly created state.
+
+    :type state: Opaque vector
 
 Examples
 ----------------

@@ -30,9 +30,11 @@ Format
     :param rho13: correlation coefficients between the two variables *x1* and *x3*
     :type rho13: scalar or Nx1 vector
 
-    :returns: **p** (*Nx1 vector*) - result of the triple integral
+    :return p: result of the triple integral
         from :math:`-\infty\:\ to\:\ x_1`, :math:`-\infty\:\ to\:\ x_2`, and :math:`-\infty\:\ to\:\ x_3`
         of the standardized trivariate Normal density.
+
+    :type p: Nx1 vector
 
 Remarks
 -------

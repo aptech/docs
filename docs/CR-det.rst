@@ -14,7 +14,9 @@ Format
     :param x: matrix or array used to find the determinant.
     :type x: NxN matrix or KxNxN array
 
-    :returns: **d** (*scalar or 1-dimensional array*) - the determinant(s) of *x*.
+    :return d: the determinant(s) of *x*.
+
+    :type d: scalar or 1-dimensional array
 
 Remarks
 -------

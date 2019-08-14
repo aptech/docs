@@ -14,7 +14,9 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **ret** (*scalar*) - 1 if the query is positioned on a valid record  or 0 otherwise.
+    :return ret: 1 if the query is positioned on a valid record or 0 otherwise.
+
+    :type ret: scalar
 
 Examples
 ----------------

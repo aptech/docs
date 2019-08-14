@@ -16,7 +16,9 @@ Format
     :param n: number of subdiagonals.
     :type n: scalar
 
-    :returns: a (*matrix*), Kx(N+1) matrix, 1 subdiagonal per column.
+    :return a: Kx(N+1) matrix, 1 subdiagonal per column.
+
+    :type a: matrix
 
 Remarks
 -------

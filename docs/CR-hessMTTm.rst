@@ -23,7 +23,9 @@ Format
     :param mask: elements in *h* corresponding to elements of *mask* set to zero are not computed otherwise are computed
     :type mask: KxK matrix
 
-    :returns: **h** (*KxK matrix*) - Hessian
+    :return h: Hessian
+
+    :type h: KxK matrix
 
 Remarks
 -------

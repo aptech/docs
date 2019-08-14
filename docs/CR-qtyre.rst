@@ -19,11 +19,17 @@ Format
     :param x: data
     :type x: NxP matrix
 
-    :returns: qty (*NxL matrix*) unitary matrix
+    :return qty: unitary matrix
 
-    :returns: r (*KxP matrix*), upper triangular matrix. :math:`K = min(N,P)`.
+    :type qty: NxL matrix
 
-    :returns: e (*Px1 permutation vector*)
+    :return r: upper triangular matrix. :math:`K = min(N,P)`.
+
+    :type r: KxP matrix
+
+    :return e: 
+
+    :type e: Px1 permutation vector
 
 Remarks
 -------

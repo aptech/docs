@@ -27,7 +27,9 @@ Format
 
     :type gl: 2x1 or 2xN matrix
 
-    :returns: **y** (*Nx1 vector*) of the estimated integral(s) of :math:`f(x, y)`, evaluated between the limits given by *xl* and *gl*.
+    :return y: of the estimated integral(s) of :math:`f(x, y)`, evaluated between the limits given by *xl* and *gl*.
+
+    :type y: Nx1 vector
 
 Global Input
 ------------

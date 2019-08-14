@@ -19,8 +19,10 @@ Format
     :param r: ExE conformable with *h* and *k*, the correlation coefficients between the two variables.
     :type r: PxQ matrix
 
-    :returns: **p** (*matrix), max(N,L,P) by max(K,M,Q) matrix*), the result of the double integral
+    :return p: the result of the double integral
         from :math:`-∞` to h and :math:`-∞` to *k* of the standardized bivariate Normal density :math:`f(x, y, r)`.
+
+    :type p: matrix), max(N,L,P) by max(K,M,Q) matrix
 
 Remarks
 -------

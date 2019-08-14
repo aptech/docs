@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: g_home = getGAUSSHome()
 
-    :returns: **g_home** (*string*) - full path to GAUSS home directory.
+    :return g_home: full path to GAUSS home directory.
+
+    :type g_home: string
 
 Remarks
 -------

@@ -20,8 +20,9 @@ Format
     :param x: x value to solve for.
     :type x: scalar
 
-    :returns: y (*TODO*), result of interpolation or extrapolation.
+    :return y: result of interpolation or extrapolation.
 
+    :type y: TODO
 
 Global Input
 ------------
@@ -30,6 +31,7 @@ Global Input
 
 Global Output
 ------------
+
 :_polerr: (*scalar*), interpolation error.
 
 Remarks
@@ -45,7 +47,7 @@ most data. Test *_polerr* to determine the required *_poldeg* for your
 problem.
 
 Technical Notes
-+++++++++++++++
+----------------
 
 Press, W.P., B.P. Flannery, S.A. Teukolsky, and W.T. Vettering. 
 Numerical Recipes: The Art of Scientific Computing. NY: Cambridge Press, 1986.

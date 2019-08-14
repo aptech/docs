@@ -13,9 +13,13 @@ Format
     :param a: NxN symmetric sparse matrix.
     :type a: sparse matrix
 
-    :returns: l (*NxN lower-triangular sparse matrix*)
+    :return l: 
 
-    :returns: d (*NxN diagonal sparse matrix*)
+    :type l: NxN lower-triangular sparse matrix
+
+    :return d: 
+
+    :type d: NxN diagonal sparse matrix
 
 Remarks
 -------

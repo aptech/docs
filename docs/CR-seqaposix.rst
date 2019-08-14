@@ -31,7 +31,9 @@ Format
     :param n: the number of elements to create.
     :type n: scalar
 
-    :returns: dt_vec (*nx1 vector*), starting at *dt_start* and increasing by *inc* units.
+    :return dt_vec: starting at *dt_start* and increasing by *inc* units.
+
+    :type dt_vec: nx1 vector
 
 Examples
 ----------------

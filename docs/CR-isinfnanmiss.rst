@@ -14,6 +14,8 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: **y** (*scalar*) - 1 if *x* contains any infinities, NaNs, or missing values, else 0.
+    :return y: 1 if *x* contains any infinities, NaNs, or missing values, else 0.
+
+    :type y: scalar
 
 .. seealso:: Functions :func:`scalinfnanmiss`, :func:`ismiss`, :func:`scalmiss`

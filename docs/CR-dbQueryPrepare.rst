@@ -17,7 +17,9 @@ Format
     :param query: database query to prepare.
     :type query: string
 
-    :returns: **ret** (*scalar*) - 1 for success and 0 for failure.
+    :return ret: 1 for success and 0 for failure.
+
+    :type ret: scalar
 
 Examples
 ----------------

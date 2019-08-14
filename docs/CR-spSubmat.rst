@@ -19,7 +19,9 @@ Format
     :param cinds: column indices.
     :type cinds: Lx1 vector
 
-    :returns: s (*KxL sparse matrix*), the intersection of *rinds* and *cinds*.
+    :return s: the intersection of *rinds* and *cinds*.
+
+    :type s: KxL sparse matrix
 
 Remarks
 -------

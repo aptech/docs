@@ -11,8 +11,10 @@ Format
 ----------------
 .. function:: c = gmmControlCreate()
 
-    :returns: **c** (*struct*) - instance of :class:`gmmFitControl` struct with
+    :return c: instance of :class:`gmmFitControl` struct with
         members set to default values.
+
+    :type c: struct
 
 Examples
 ----------------

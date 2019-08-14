@@ -14,7 +14,9 @@ Format
     :param c: (N+1)\*KxK matrix. coefficients of an Nth order polynomial of rank *K*
     :type c: matrix
 
-    :returns: r (*K*N vector*) containing the roots of the determinantal equation.
+    :return r: containing the roots of the determinantal equation.
+
+    :type r: K*N vector
 
 Remarks
 -------

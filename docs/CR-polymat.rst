@@ -17,8 +17,10 @@ Format
     :param p: positive integer.
     :type p: scalar
 
-    :returns: y (*Nx(p*K) matrix*) containing powers of the elements of *x* from 1 to *p*. 
+    :return y: containing powers of the elements of *x* from 1 to *p*. 
         The first *K* columns will contain first powers, the second *K* columns second powers, and so on.
+
+    :type y: Nx(p*K) matrix
 
 Remarks
 -------

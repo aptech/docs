@@ -17,7 +17,9 @@ Format
     :param p: incomplete gamma values.
     :type p: KxL matrix or ExE conformable with *a*
 
-    :returns: **g_ii** (*max(M,K) by max(N,L) matrix*) - the inverse incomplete gamma function evaluate at *p*.
+    :return g_ii: the inverse incomplete gamma function evaluate at *p*.
+
+    :type g_ii: max(M,K) by max(N,L) matrix
 
 Examples
 ----------------

@@ -30,7 +30,9 @@ Format
         ``driver://username:password@hostname:port/database_name``
     :type connection_url: string
 
-    :returns: **db_id** (*scalar*) - index into a table of all opened database connections, or 0 on failure.
+    :return db_id: index into a table of all opened database connections, or 0 on failure.
+
+    :type db_id: scalar
 
 Examples
 ----------------

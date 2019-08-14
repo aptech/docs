@@ -13,7 +13,9 @@ Format
     :param x: character elements to be converted
     :type x: string or NxK matrix
 
-    :returns: y (*matrix*), the floating point equivalents of the ASCII numbers in *x*.
+    :return y: the floating point equivalents of the ASCII numbers in *x*.
+
+    :type y: matrix
 
 Remarks
 -------

@@ -20,7 +20,9 @@ Format
     :param b: the scale parameter. sometimes called *beta*. *b* must be greater than 0.
     :type b: scalar
 
-    :returns: y (*NxK matrix, Nx1 vector or scalar*)
+    :return y: 
+
+    :type y: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

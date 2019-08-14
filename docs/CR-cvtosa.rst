@@ -14,7 +14,9 @@ Format
     :param cv: Character vector to be converted to a string array.
     :type cv: NxK vector
 
-    :returns: **sa** (*NxK string array*) - contains the contents of  cv.
+    :return sa: contains the contents of *cv*.
+
+    :type sa: NxK string array
 
 Examples
 ----------------

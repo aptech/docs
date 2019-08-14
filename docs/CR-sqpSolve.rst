@@ -18,11 +18,15 @@ Format
     :param start: start values
     :type start: Kx1 vector
 
-    :returns: x (*Kx1 vector*) of parameters at minimum.
+    :return x: of parameters at minimum.
 
-    :returns: f (*scalar*), function evaluated at *x*.
+    :type x: Kx1 vector
 
-    :returns: lagr (*vector*), created using :func:`vput`. Contains the Lagrangean
+    :return f: function evaluated at *x*.
+
+    :type f: scalar
+
+    :return lagr: created using :func:`vput`. Contains the Lagrangean
         for the constraints. They may be extracted with the :func:`vread` command using the following strings:
 
         =========== ========================================
@@ -35,7 +39,9 @@ Format
 
         Whenever a constraint is active, its associated Lagrangean will be nonzero.
 
-    :returns: retcode (*scalar*) return code:
+    :type lagr: vector
+
+    :return retcode: return code:
 
         == ====================================
         0  normal convergence
@@ -47,6 +53,8 @@ Format
         6  line search failed
         7  error with constraints
         == ====================================
+
+    :type retcode: scalar
 
 .. DANGER:: check equations
 

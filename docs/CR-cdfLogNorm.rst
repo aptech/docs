@@ -20,7 +20,9 @@ Format
     :param std: Optional input, the standard deviation parameter. Default = 1.
     :type std: scalar
 
-    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the cumulative distribution function of the log-normal distribution evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the cumulative distribution function of the log-normal distribution evaluated at the corresponding element in *x*.
+
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Examples
 ----------------

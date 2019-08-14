@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: p1 = pvCreate()
 
-    :returns: p1 (*struct*) instance of :class:`PV` struct
+    :return p1: instance of :class:`PV` struct
+
+    :type p1: struct
 
 Examples
 ----------------

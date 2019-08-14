@@ -13,7 +13,7 @@ Format
     :param v: data to be expanded into a symmetric matrix.
     :type v: Kx1 vector
 
-    :returns: x (*MxM matrix*), the results of taking *v* and
+    :return x: the results of taking *v* and
         filling in a symmetric matrix with its elements.
 
         .. math::
@@ -21,6 +21,8 @@ Format
             M = (-1 + sqrt(1 + 8 * K)) / 2
 
         .. DANGER:: fix equations
+
+    :type x: MxM matrix
 
 Remarks
 -------

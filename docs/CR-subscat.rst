@@ -23,7 +23,7 @@ Format
     :param levels: containing values to be substituted.
     :type levels: Px1 vector
 
-    :returns: y (*Nx1 vector*), with the elements in *levels* substituted for
+    :return y: with the elements in *levels* substituted for
         the original elements of *x* according to which of the regions the elements of *x* fall into:
 
         ::
@@ -35,6 +35,8 @@ Format
             x > breaks[p] → the original value of x
 
         If missing is not a category specified in *breaks*, missings in *x* are passed through without change.
+
+    :type y: Nx1 vector
 
 Remarks
 -------

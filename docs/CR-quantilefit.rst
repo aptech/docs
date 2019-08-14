@@ -65,7 +65,7 @@ Format
 
     :type qCtl: struct
 
-    :returns: qOut (*struct*) instance of :class:`qfitOut` struct structure:
+    :return qOut: instance of :class:`qfitOut` struct structure:
 
         .. csv-table::
             :widths: auto
@@ -75,6 +75,8 @@ Format
             "qOut.u_minus", "NxM matrix, negative part of residuals."
             "qOut.ci", "array, with a 2xK matrix containing bootstrapped lower and upper confidence intervals stored on separate planes for each tau specified."
             "qOut.se", "matrix, with bootstrapped standard errors, stored in separate columns for each tau specified."
+
+    :type qOut: struct
 
 Examples
 ----------------

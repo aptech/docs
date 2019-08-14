@@ -29,9 +29,13 @@ Format
     :param ncv: size of Arnoldi factorization. The minimum setting is the greater of :math:`nev+2` and 20. See Remarks on how to set *ncv*. Default input 0, sets *ncv* to 2x :math:`nev+1`.
     :type ncv: scalar
 
-    :returns: va (*nevx1 dense vector*) containing the computed eigenvalues of input matrix *a*.
+    :return va: containing the computed eigenvalues of input matrix *a*.
 
-    :returns: ve (*Nx nev dense matrix*) containing the corresponding eigenvectors of input matrix *a*.
+    :type va: nevx1 dense vector
+
+    :return ve: containing the corresponding eigenvectors of input matrix *a*.
+
+    :type ve: Nx nev dense matrix
 
 Remarks
 -------

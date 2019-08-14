@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: Nx1 column vector or NxK matrix
 
-    :returns: y (*NxK matrix*), *x* lagged 1 period.
+    :return y: *x* lagged 1 period.
+
+    :type y: NxK matrix
 
 Remarks
 -------

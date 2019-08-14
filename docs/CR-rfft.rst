@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK real matrix
 
-    :returns: y (*LxM matrix*), where :math:`L` and :math:`M` are the smallest powers of 2 greater than or equal to :math:`N` and :math:`K`, respectively.
+    :return y: where :math:`L` and :math:`M` are the smallest powers of 2 greater than or equal to :math:`N` and :math:`K`, respectively.
+
+    :type y: LxM matrix
 
 Remarks
 -------

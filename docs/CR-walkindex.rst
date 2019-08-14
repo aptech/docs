@@ -21,7 +21,9 @@ Format
         positive to walk the index forward, or negative to walk backward.
     :type dim: scalar
 
-    :returns: ni (*Mx1 vector of indices*), the new index.
+    :return ni: the new index.
+
+    :type ni: Mx1 vector of indices
 
 Remarks
 -------

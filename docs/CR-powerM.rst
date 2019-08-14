@@ -17,7 +17,9 @@ Format
     :param n: the power or exponent.
     :type n: scalar
 
-    :returns: B (*NxN square matrix*), the power of a matrix *A*
+    :return B: the power of a matrix *A*
+
+    :type B: NxN square matrix
 
 Remarks
 -------

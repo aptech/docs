@@ -14,7 +14,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :returns: y (*Kx1 matrix*) containing the mean of every column of *x*.
+    :return y: containing the mean of every column of *x*.
+
+    :type y: Kx1 matrix
 
 Examples
 ----------------

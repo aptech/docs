@@ -23,7 +23,9 @@ Format
     :param sheet: sheet number. Default = 1.
     :type sheet: scalar
 
-    :returns: ret (*success code*), 0 if successful, else error code.
+    :return ret: 0 if successful, else error code.
+
+    :type ret: success code
 
 Examples
 ----------------

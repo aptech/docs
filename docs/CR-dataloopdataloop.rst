@@ -13,7 +13,9 @@ Format
     :param infile: the name of the source data set.
     :type infile: string variable or literal
 
-    :returns: **outfile** (*string variable or literal*) - the name of the output data set.
+    :return outfile: the name of the output data set.
+
+    :type outfile: string variable or literal
 
 Remarks
 -------

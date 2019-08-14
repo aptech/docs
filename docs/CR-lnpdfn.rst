@@ -14,7 +14,9 @@ Format
     :param x: data.
     :type x: NxK matrix or N-dimensional array
 
-    :returns: z (*NxK matrix or N-dimensional array*) log-probabilities.
+    :return z: log-probabilities.
+
+    :type z: NxK matrix or N-dimensional array
 
 Remarks
 -------

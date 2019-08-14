@@ -19,9 +19,11 @@ Format
     :param e: vector of 0's and 1's
     :type e: Nx1 logical vector
 
-    :returns: **new_x** (*MxK matrix*) - consisting of the rows of *x* for
+    :return new_x: consisting of the rows of *x* for
         which there is a 0 in the corresponding row of
         e. If no rows remain, :func:`delif` will return a scalar missing.
+
+    :type new_x: MxK matrix
 
 Remarks
 -------

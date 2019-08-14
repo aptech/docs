@@ -18,11 +18,13 @@ Format
     :param needles: The elements to look for.
     :type needles: matrix, N-dimensional array or string array
 
-    :returns: **found** (*scalar*) - 1 if one or more elements from *needles* was found in *haystack*, or 0 if no matches were found.
+    :return found: 1 if one or more elements from *needles* was found in *haystack*, or 0 if no matches were found.
 
         If needles contains only one element, the output
         from :func:`contains` will be the same as the ``==`` operator
         for numeric data, or the ``$==`` operator for string data.
+
+    :type found: scalar
 
 Examples
 ----------------

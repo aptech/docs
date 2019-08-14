@@ -15,7 +15,9 @@ Format
 ----------------
 .. function:: s = sqpSolveMToutCreate()
 
-    :returns: s (*struct*) instance of :class:`sqpSolveMTout` struct.
+    :return s: instance of :class:`sqpSolveMTout` struct.
+
+    :type s: struct
 
 Examples
 ----------------

@@ -16,7 +16,9 @@ Format
     :param A:
     :type A: KxN compact form matrix
 
-    :returns: x (*matrix*), KxM matrix.
+    :return x: KxM matrix.
+
+    :type x: matrix
 
 Remarks
 -------

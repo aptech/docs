@@ -16,7 +16,9 @@ Format
     :param sv2: data
     :type sv2: Mx1 or 1xM string vector
 
-    :returns: sy (*vector*) Lx1 vector containing all unique values that are in *sv1* and are not in *sv2*, sorted in ascending order.
+    :return sy: Lx1 vector containing all unique values that are in *sv1* and are not in *sv2*, sorted in ascending order.
+
+    :type sy: vector
 
 Remarks
 -------

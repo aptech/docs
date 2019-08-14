@@ -21,7 +21,7 @@ Format
     :param tol: any singular values less than *tol* are treated as zero in determining the rank of the input matrix.
     :type tol: scalar
 
-    :returns: y (*MxN matrix*) that satisfies the 4 Moore-Penrose conditions:
+    :return y: that satisfies the 4 Moore-Penrose conditions:
 
         .. csv-table::
             :widths: auto
@@ -31,7 +31,11 @@ Format
             ":math:`xy` is symmetric"
             ":math:`yx` is symmetric"
 
-    :returns: err (*scalar*), if not all of the singular values can be computed *err* will be nonzero.
+    :type y: MxN matrix
+
+    :return err: if not all of the singular values can be computed *err* will be nonzero.
+
+    :type err: scalar
 
 Examples
 ----------------

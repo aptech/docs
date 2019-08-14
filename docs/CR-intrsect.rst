@@ -22,7 +22,9 @@ Format
     :param flag: Optional argument, if 1, *v1* and *v2* are numeric; if 0, character. Default is *flag* equal to 1 (numeric).
     :type flag: scalar
 
-    :returns: **y** (*Lx1 vector*) - all unique values that are in both *v1* and *v2* sorted in ascending order.
+    :return y: all unique values that are in both *v1* and *v2* sorted in ascending order.
+
+    :type y: Lx1 vector
 
 Remarks
 -------

@@ -14,7 +14,7 @@ Format
     :param a: dates in DT format.
     :type a: Nx1 vector
 
-    :returns: **d** (*Nx1 vector*) - integers indicating day of week of each date:
+    :return d: integers indicating day of week of each date:
 
         .. csv-table::
             :widths: auto
@@ -26,6 +26,8 @@ Format
             "5", "Thursday"
             "6", "Friday"
             "7", "Saturday"
+
+    :type d: Nx1 vector
 
 Remarks
 -------

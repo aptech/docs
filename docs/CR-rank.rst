@@ -13,9 +13,11 @@ Format
     :param x: data
     :type x: NxP matrix
 
-    :returns: k (*scalar*), an estimate of the rank of *x*. This
+    :return k: an estimate of the rank of *x*. This
         equals the number of singular values of *x*
         that exceed a prespecified tolerance in absolute value.
+
+    :type k: scalar
 
 Global Input
 ------------

@@ -23,7 +23,9 @@ Format
         that sometimes goes under the symbol :math:`\lambda`. :math:`nonc > 0`.
     :type nonc: RxS matrix
 
-    :returns: **p** (*max(N,L,P,R) by max(K,M,Q,S) matrix*) - Each element in *p* is the noncentral F distribution cdf value evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the noncentral F distribution cdf value evaluated at the corresponding element in *x*.
+
+    :type p: max(N,L,P,R) by max(K,M,Q,S) matrix
 
 Remarks
 -------

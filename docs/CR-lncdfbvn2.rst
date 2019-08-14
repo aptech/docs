@@ -26,8 +26,10 @@ Format
     :param r: correlation coefficients between the two variables.
     :type r: Nx1 vector
 
-    :returns: y (*Nx1 vector*), the log of the integral from h, k to  h+dh, k+dk
+    :return y: the log of the integral from h, k to  h+dh, k+dk
         of the standardized bivariate Normal distribution.
+
+    :type y: Nx1 vector
 
 Remarks
 -------

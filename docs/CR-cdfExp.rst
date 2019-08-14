@@ -19,7 +19,9 @@ Format
     :param m: Mean parameter, ExE conformable with *x*. *m* is the inverse of the rate parameter which is often called :math:`\lambda`. :math:`m > 0`.
     :type m: NxK matrix, Nx1 vector or scalar
 
-    :returns: **p** (*NxK matrix, Nx1 vector or scalar*) - Each element in *p* is the exponential cdf value evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the exponential cdf value evaluated at the corresponding element in *x*.
+
+    :type p: NxK matrix, Nx1 vector or scalar
 
 Examples
 ----------------

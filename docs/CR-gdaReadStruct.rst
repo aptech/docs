@@ -20,9 +20,11 @@ Format
     :param structure_type: structure type.
     :type structure_type: string
 
-    :returns: **instance** (*struct*) - instance of the struct.
+    :return instance: instance of the struct.
 
-    :returns: **retcode** (*scalar*) - 0 if successful, otherwise, any of the following error codes:
+    :type instance: struct
+
+    :return retcode: 0 if successful, otherwise, any of the following error codes:
 
         .. csv-table::
             :widths: auto
@@ -34,6 +36,8 @@ Format
             "8", "Variable not found."
             "10", "File contains no variables."
             "14", "File too large to be read on current platform."
+
+    :type retcode: scalar
 
 Remarks
 -------

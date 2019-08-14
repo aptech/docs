@@ -32,7 +32,9 @@ Format
 
     :type attr: 5x1 vector or scalar missing
 
-    :returns: **ret** (*scalar*) - success flag, 1 if successful, 0 if not.
+    :return ret: success flag, 1 if successful, 0 if not.
+
+    :type ret: scalar
 
 Remarks
 -------

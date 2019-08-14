@@ -11,7 +11,9 @@ Format
 ----------------
 .. function:: err_num = dbQueryGetLastErrorNum()
 
-    :returns: **err_num** (*scalar*) - number of last error.
+    :return err_num: number of last error.
+
+    :type err_num: scalar
 
 Remarks
 -------

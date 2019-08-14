@@ -17,7 +17,9 @@ Format
     :param t: number of time periods.
     :type t: scalar or Px1 vector
 
-    :returns: y (*NxP matrix*), *y* lagged *t* periods.
+    :return y: *y* lagged *t* periods.
+
+    :type y: NxP matrix
 
 Remarks
 -------

@@ -14,7 +14,9 @@ Format
     :param n: size of identity matrix to be created.
     :type n: scalar
 
-    :returns: **y** (*NxN identity matrix*) - identity matrix, containing 1's down the diagonal and 0's everywhere else.
+    :return y: identity matrix, containing 1's down the diagonal and 0's everywhere else.
+
+    :type y: NxN identity matrix
 
 Remarks
 -------

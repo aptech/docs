@@ -32,9 +32,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: r (*rows x cols matrix*), exponentially distributed random numbers.
+    :return r: exponentially distributed random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type r: rows x cols matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

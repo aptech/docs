@@ -13,11 +13,17 @@ Format
     :param x: data
     :type x: MxN sparse matrix
 
-    :returns: vals (*Nx1 vector*), non-zero values in *x*.
+    :return vals: non-zero values in *x*.
 
-    :returns: rinds (*Nx1 vector*), row indices of corresponding non-zero values.
+    :type vals: Nx1 vector
 
-    :returns: cinds (*Nx1 vector*), column indices of corresponding non-zero values.
+    :return rinds: row indices of corresponding non-zero values.
+
+    :type rinds: Nx1 vector
+
+    :return cinds: column indices of corresponding non-zero values.
+
+    :type cinds: Nx1 vector
 
 Examples
 ----------------

@@ -17,7 +17,9 @@ Format
     :param shape: Shape parameter, ExE conformable with *p*. *shape* must be greater than 0.
     :type shape: NxK matrix, Nx1 vector or scalar
 
-    :returns: **x** (*NxK matrix, Nx1 vector or scalar*) - each value of *x* is the value such that the Rayleigh cumulative distribution function is equal to the corresponding value of *p*.
+    :return x: each value of *x* is the value such that the Rayleigh cumulative distribution function is equal to the corresponding value of *p*.
+
+    :type x: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

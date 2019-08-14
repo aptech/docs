@@ -14,9 +14,11 @@ Format
     :param name: name of file or files to delete.
     :type name: string or NxK string array
 
-    :returns: **ret** (*scalar or NxK matrix*) - scalar if *name* is a string. If *name* is an NxK
+    :return ret: scalar if *name* is a string. If *name* is an NxK
         string array, *ret* will be an NxK matrix reflecting the success or
         failure of each separate file deletion. *ret* will be zero if file deletion is successful.
+
+    :type ret: scalar or NxK matrix
 
 Remarks
 -------

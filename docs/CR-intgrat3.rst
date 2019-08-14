@@ -27,7 +27,9 @@ Format
     :param hl: function pointers. These procedures are functions of *x* and *y*.
     :type hl: 2x1 or 2xN matrix
 
-    :returns: **y** (*Nx1 vector*) - estimated integral(s) of :math:`f(x, y, z)` evaluated between the limits given by *xl*, *gl* and *hl*.
+    :return y: estimated integral(s) of :math:`f(x, y, z)` evaluated between the limits given by *xl*, *gl* and *hl*.
+
+    :type y: Nx1 vector
 
 Global Input
 ------------

@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: NxK matrix or sparse matrix
 
-    :returns: y (*scalar*), number of rows in the specified matrix.
+    :return y: number of rows in the specified matrix.
+
+    :type y: scalar
 
 Remarks
 -------

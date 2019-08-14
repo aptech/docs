@@ -20,7 +20,7 @@ Format
     :param varname: variable name.
     :type varname: string
 
-    :returns: **retcode** (*scalar*) - return code, 0 if successful, otherwise one of the following error codes:
+    :return retcode: return code, 0 if successful, otherwise one of the following error codes:
 
         .. csv-table::
             :widths: auto
@@ -34,6 +34,8 @@ Format
             "11", "Variable name must be unique."
             "14", "File too large to be read on current platform."
             "25", "Not supported for use with a file created on a machine with a different byte order."
+
+    :type retcode: scalar
 
 Remarks
 -------

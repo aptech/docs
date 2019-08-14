@@ -15,7 +15,9 @@ Format
     :param qid: query number.
     :type qid: scalar
 
-    :returns: **ret** (*scalar*) - 1 if successful. If unsuccessful the query position is set to an invalid position and 0 is returned.
+    :return ret: 1 if successful. If unsuccessful the query position is set to an invalid position and 0 is returned.
+
+    :type ret: scalar
 
 Remarks
 -------

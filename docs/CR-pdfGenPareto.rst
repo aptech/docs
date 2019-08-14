@@ -23,7 +23,9 @@ Format
     :param k: Shape parameter, ExE conformable with *x*.
     :type k: NxK matrix, Nx1 vector or scalar
 
-    :returns: y (*NxK matrix, Nx1 vector or scalar*)
+    :return y: 
+
+    :type y: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

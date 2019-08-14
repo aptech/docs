@@ -35,9 +35,13 @@ Format
 
     :type state: scalar or opaque vector
 
-    :returns: x (*RxC matrix*), beta distributed random numbers.
+    :return x: beta distributed random numbers.
 
-    :returns: newstate (*Opaque vector*), the updated state.
+    :type x: RxC matrix
+
+    :return newstate: the updated state.
+
+    :type newstate: Opaque vector
 
 Remarks
 -------

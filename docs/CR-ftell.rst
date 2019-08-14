@@ -14,7 +14,9 @@ Format
     :param fh: file handle of a file opened with :func:`fopen`.
     :type fh: scalar
 
-    :returns: **pos** (*scalar*) - current position of the file pointer in a file.
+    :return pos: current position of the file pointer in a file.
+
+    :type pos: scalar
 
 Remarks
 -------

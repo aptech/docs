@@ -30,11 +30,17 @@ Format
     :param indvars: independent variables.
     :type indvars: NxK matrix
 
-    :returns: yhat (*Nx1 vector*), predicted *depvar* given *indvars*.
+    :return yhat: predicted *depvar* given *indvars*.
 
-    :returns: ys (*lc0.numEval x 1 vector*), ordinate values given abscissae values in *xs*.
+    :type yhat: Nx1 vector
 
-    :returns: xs (*lc0.numEval x 1 vector*), equally spaced abscissae values.
+    :return ys: ordinate values given abscissae values in *xs*.
+
+    :type ys: lc0.numEval x 1 vector
+
+    :return xs: equally spaced abscissae values.
+
+    :type xs: lc0.numEval x 1 vector
 
 Remarks
 -------

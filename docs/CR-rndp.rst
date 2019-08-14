@@ -20,9 +20,9 @@ Format
     :param lambda: ExE conformable with r x c resulting matrix, shape parameters for Poisson distribution.
     :type lambda: MxN matrix
 
-    :returns: x (*r x c matrix*), Poisson distributed pseudo-random numbers.
+    :return x: Poisson distributed pseudo-random numbers.
 
-
+    :type x: r x c matrix
 
 Remarks
 -------

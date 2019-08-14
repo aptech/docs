@@ -20,8 +20,9 @@ Format
     :param ikey: index of the key column the string arrays are sorted on.
     :type ikey: scalar integer
 
-    :returns: **y** (*LxK string array*) - combined string array.
+    :return y: combined string array.
 
+    :type y: LxK string array
 
 Examples
 ----------------

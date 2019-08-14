@@ -17,7 +17,9 @@ Format
     :param U: data
     :type U: PxP upper triangular matrix
 
-    :returns: x (*PxK matrix*), solution of :math:`Ux = b`.
+    :return x: solution of :math:`Ux = b`.
+
+    :type x: PxK matrix
 
 Remarks
 -------

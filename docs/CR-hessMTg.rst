@@ -20,7 +20,9 @@ Format
     :param data1: structure of type :class:`DS` containing any data needed by *gfct*
     :type data1: struct
 
-    :returns: **h** (*KxK matrix*) - Hessian.
+    :return h: Hessian.
+
+    :type h: KxK matrix
 
 Remarks
 -------

@@ -17,8 +17,10 @@ Format
     :param t_end: date in DT scalar format.
     :type t_end: scalar
 
-    :returns: **n_days** (*Scalar*) - number of trading days between dates inclusively, that is,
+    :return n_days: number of trading days between dates inclusively, that is,
         elapsed time includes the dates *t_start* and *t_end*.
+
+    :type n_days: Scalar
 
 Remarks
 -------

@@ -17,9 +17,11 @@ Format
     :param theta: ExE conformable with *r*, angle in radians.
     :type theta: LxM real matrix
 
-    :returns: xy (*max(N,L) by max(K,M) complex matrix*) containing
+    :return xy: containing
         the *x* coordinate in the real part and the *y*
         coordinate in the imaginary part.
+
+    :type xy: max(N,L) by max(K,M) complex matrix
 
 Source
 ------

@@ -13,7 +13,9 @@ Format
     :param sa: data
     :type sa: NxM string array
 
-    :returns: y (*NxM string array*)
+    :return y: 
+
+    :type y: NxM string array
 
 Examples
 ----------------

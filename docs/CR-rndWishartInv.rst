@@ -16,7 +16,9 @@ Format
     :param df: degrees of freedom.
     :type df: scalar
 
-    :returns: y (*matrix*), a random matrix from inverse Wishart distribution.
+    :return y: a random matrix from inverse Wishart distribution.
+
+    :type y: matrix
 
 Examples
 ----------------

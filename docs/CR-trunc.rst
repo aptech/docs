@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (*NxK matrix or N-dimensional array*) containing the truncated elements of *x*.
+    :return y: containing the truncated elements of *x*.
+
+    :type y: NxK matrix or N-dimensional array
 
 Examples
 ----------------

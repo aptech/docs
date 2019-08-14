@@ -30,13 +30,21 @@ Format
 
     :type sort_type: scalar or string 
 
-    :returns: S (*NxN matrix*), Schur form of *A*
+    :return S: Schur form of *A*
 
-    :returns: T (*NxN matrix*), Schur form of *B*
+    :type S: NxN matrix
 
-    :returns: Q (*NxN matrix*), left Schur vectors
+    :return T: Schur form of *B*
 
-    :returns: Z (*NxN matrix*), right Schur vectors
+    :type T: NxN matrix
+
+    :return Q: left Schur vectors
+
+    :type Q: NxN matrix
+
+    :return Z: right Schur vectors
+
+    :type Z: NxN matrix
 
 Remarks
 -------

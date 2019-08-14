@@ -20,7 +20,9 @@ Format
     :param src: source data
     :type src: [N-M]-dimensional array or matrix or scalar.
 
-    :returns: y (*N-dimensional array*)
+    :return y: 
+
+    :type y: N-dimensional array
 
 Remarks
 -------

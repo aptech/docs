@@ -17,7 +17,9 @@ Format
     :param n: the name of the global symbol which will be the target variable
     :type n: string
 
-    :returns: y (*scalar*), 1 if the operation is successful and 0 if the operation fails.
+    :return y: 1 if the operation is successful and 0 if the operation fails.
+
+    :type y: scalar
 
 Remarks
 -------
