@@ -14,7 +14,9 @@ Format
     :param s: A null string, or a scalar 0.
     :type s: string, or scalar
 
-    :returns: **dir** (string) - containing the drive and full path name of the current directory on the specified drive.
+    :return dir: containing the drive and full path name of the current directory on the specified drive.
+
+    :type dir: string
 
 Remarks
 -------

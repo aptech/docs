@@ -28,7 +28,9 @@ Format
     :param newline: optional. specifying the character(s) to end a line in the file. Default = ``"\n"``.
     :type newline: string
 
-    :returns: **ret** (scalar) - return code. 0 for success, or non-zero if an error occurred.
+    :return ret: return code. 0 for success, or non-zero if an error occurred.
+
+    :type ret: scalar
 
 Remarks
 ------------

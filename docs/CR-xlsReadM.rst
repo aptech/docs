@@ -24,7 +24,9 @@ Format
         all empty cells and special types being converted to GAUSS missing values.
     :type vls: null string or 9x1 matrix
 
-    :returns: mat (matrix), or a scalar error code.
+    :return mat: or a scalar error code.
+
+    :type mat: matrix
 
 Portability
 ------------

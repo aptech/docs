@@ -15,12 +15,14 @@ Format
         :func:`ethsec` function.
     :type tothsecs: scalar
 
-    :returns: **str** (string) - containing the elapsed time in the form:
+    :return str: containing the elapsed time in the form:
 
         .. csv-table::
             :widths: auto
 
             "# days", "# hours", "# minutes", "#,## seconds"
+
+    :type str: string
 
 Examples
 ----------------

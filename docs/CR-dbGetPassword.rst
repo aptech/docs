@@ -14,8 +14,9 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: **db_password** (string) - Contains the password for the specified database connection or a null string.
+    :return db_password: Contains the password for the specified database connection or a null string.
 
+    :type db_password: string
 
 Remarks
 -------

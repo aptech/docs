@@ -14,6 +14,8 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: **user_name** (string) - containing the user name associated with the specified database connection.
+    :return user_name: containing the user name associated with the specified database connection.
+
+    :type user_name: string
 
 .. seealso:: Functions :func:`dbSetUserName`

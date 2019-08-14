@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: zr (NxK matrix or N-dimensional array) the real part of *x*.
+    :return zr: the real part of *x*.
+
+    :type zr: NxK matrix or N-dimensional array
 
 Remarks
 -------

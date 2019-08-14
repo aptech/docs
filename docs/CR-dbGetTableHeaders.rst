@@ -17,7 +17,9 @@ Format
     :param table_name: name of table or view.
     :type table_name: string
 
-    :returns: **field_names** (string array) - containing the column names for the specified table or view.
+    :return field_names: containing the column names for the specified table or view.
+
+    :type field_names: string array
 
 Remarks
 -------

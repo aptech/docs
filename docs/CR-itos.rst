@@ -14,7 +14,9 @@ Format
     :param x:  data
     :type x: scalar or NxK matrix
 
-    :returns: **str_int** (string) - or string array containing the string representation of the elements of x.
+    :return str_int: or string array containing the string representation of the elements of x.
+
+    :type str_int: string
 
 Examples
 ----------------

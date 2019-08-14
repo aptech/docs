@@ -13,7 +13,9 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :returns: y (NxK matrix or N-dimensional array) the square roots of each element of *x*.
+    :return y: the square roots of each element of *x*.
+
+    :type y: NxK matrix or N-dimensional array
 
 Remarks
 -------
