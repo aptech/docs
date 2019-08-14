@@ -31,7 +31,7 @@ release = '19'
 
 # -- General configuration ---------------------------------------------------
 
-#primary_domain = 'gauss'
+primary_domain = 'gauss'
 
 default_role = 'any'
 
@@ -195,11 +195,14 @@ def setup(sphinx):
     import sys
     import os
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'util')))
-    from GAUSSLexer import GAUSSLexer
-    from GAUSSDomain import GAUSSDomain
-    sphinx.add_lexer("gauss", GAUSSLexer())
-    sphinx.add_domain(GAUSSDomain)
-    #from GAUSSDomain import gaussDomain
-    #sphinx.add_domain(gaussDomain)
-    #sphinx.add_stylesheet("gauss.css")
 
+    from GAUSSLexer import GAUSSLexer
+    sphinx.add_lexer("gauss", GAUSSLexer())
+
+    import GAUSSDomain
+    GAUSSDomain.setup(sphinx)
+
+    from GAUSSHTMLTranslator import GAUSSHTMLTranslator
+    sphinx.set_translator('html',
+                          GAUSSHTMLTranslator,
+                          override=True)
