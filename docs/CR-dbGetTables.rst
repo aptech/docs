@@ -26,4 +26,7 @@ Format
 
     :type type: string:
 
-    :returns: **tables** (*Nx1 string array*) - Contains the information specified by the *type* parameter.
+    :return tables: Contains the information specified by the *type* parameter.
+
+    :type tables: Nx1 string array
+

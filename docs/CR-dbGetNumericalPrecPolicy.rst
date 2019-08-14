@@ -14,7 +14,7 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: **prec_policy** (*scalar*) -
+    :return prec_policy: 
 
         .. csv-table::
             :widths: auto
@@ -23,3 +23,6 @@ Format
             "DB_LOW_PRECISION_INT32", "Force 32-bit integer values"
             "DB_LOW_PRECISION_INT64", "Force 64-bit integer values"
             "DB_LOW_PRECISION_DOUBLE", "Force double values. This is the default policy."
+
+    :type prec_policy: scalar
+

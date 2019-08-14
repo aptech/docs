@@ -14,4 +14,7 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
-    :returns: **ret** (*scalar*) - 1 if there was an error or 0 if not.
+    :return ret: 1 if there was an error or 0 if not.
+
+    :type ret: scalar
+
