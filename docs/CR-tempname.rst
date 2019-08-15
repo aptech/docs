@@ -21,7 +21,7 @@ Format
     :type suf: string
 
     :return tname: unique temporary file name of the form
-        ``path/preXXXXnnnnnsuf``, where ``XXXX`` are 4 letters, and ``nnnnn`` 
+        :file:`path/pre{XXXX}nnnnnsuf`, where ``XXXX`` are 4 letters, and ``nnnnn`` 
         is the process id of the calling process.
 
     :rtype tname: string
