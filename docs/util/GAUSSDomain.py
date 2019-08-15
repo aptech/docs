@@ -247,12 +247,12 @@ class PyObject(ObjectDescription):
                        can_collapse=True),
         PyTypedField('returnvalue', label=_('Returns'),
                      names=('returns', 'return'),
-                     typerolename='class', typenames=('rtype'),
+                     typerolename='class', typenames=('rtype',),
                      can_collapse=True),
         # Field('returnvalue', label=_('Returns'), has_arg=False,
         #       names=('returns', 'return')),
-        PyField('returntype', label=_('Return type'), has_arg=False,
-                names=('rtype',), bodyrolename='class'),
+        # PyField('returntype', label=_('Return type'), has_arg=False,
+        #         names=('rtype',), bodyrolename='class'),
     ]
 
     allow_nesting = False
