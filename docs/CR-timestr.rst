@@ -18,7 +18,7 @@ Format
 
     :return ts: containing current time in the format: ``hr:mn:sc``
 
-    :type ts: 8 character string
+    :rtype ts: 8 character string
 
 Examples
 ----------------

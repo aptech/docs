@@ -25,7 +25,7 @@ Format
             y(1) = x(1) + z(1)
             y(t) = y(t - 1) * x(t) + z(t), t=2,...N
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

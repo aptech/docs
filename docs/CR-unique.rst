@@ -18,7 +18,7 @@ Format
 
     :return y: sorted *x* with the duplicates removed.
 
-    :type y: Mx1 vector
+    :rtype y: Mx1 vector
 
 Examples
 ----------------

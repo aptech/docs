@@ -16,7 +16,7 @@ Format
 
     :return va: the eigenvalues of *x*.
 
-    :type va: Nx1 vector or KxNx1 array
+    :rtype va: Nx1 vector or KxNx1 array
 
 Remarks
 -------

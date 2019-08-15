@@ -17,7 +17,7 @@ Format
 
     :return orders: the sizes of the dimensions of the array.
 
-    :type orders: Nx1 vector of orders
+    :rtype orders: Nx1 vector of orders
 
 Examples
 ----------------

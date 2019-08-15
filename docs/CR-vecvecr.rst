@@ -17,11 +17,11 @@ Format
 
     :return yc: the columns of *x* appended to each other.
 
-    :type yc: (N*K)x1 vector
+    :rtype yc: (N*K)x1 vector
 
     :return yr: the rows of *x* appended to each other and the result transposed.
 
-    :type yr: (N*K)x1 vector
+    :rtype yr: (N*K)x1 vector
 
 Remarks
 -------

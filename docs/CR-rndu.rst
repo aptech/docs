@@ -31,11 +31,11 @@ Format
 
     :return y: of uniform random numbers, :math:`0 <= y < 1`.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

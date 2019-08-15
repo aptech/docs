@@ -17,7 +17,7 @@ Format
     :return err: error status equal to 1 if there has been a read or write error on a file,
               0 otherwise.
 
-    :type err: scalar
+    :rtype err: scalar
 
 Remarks
 -------

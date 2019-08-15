@@ -17,7 +17,7 @@ Format
 
     :return a: containing 2-dimensional identity arrays.
 
-    :type a: N-dimensional array
+    :rtype a: N-dimensional array
 
 Remarks
 -------

@@ -32,11 +32,11 @@ Format
 
     :return y: of standard normal random numbers.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
     :return newstate: the updated state.
 
-    :type newstate: 500x1 vector
+    :rtype newstate: 500x1 vector
 
 Remarks
 -------

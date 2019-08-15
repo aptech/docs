@@ -19,7 +19,7 @@ Format
 
     :return y: result.
 
-    :type y: string array
+    :rtype y: string array
 
 Source
 ------

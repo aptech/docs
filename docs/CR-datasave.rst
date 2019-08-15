@@ -19,7 +19,7 @@ Format
     :return ret: return code, 0 if successful, or -1 if it is unable to
         write the file.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

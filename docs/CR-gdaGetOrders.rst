@@ -19,7 +19,7 @@ Format
 
     :return ord: orders of the variable in the GDA.
 
-    :type ord: Mx1 vector
+    :rtype ord: Mx1 vector
 
 Remarks
 -------

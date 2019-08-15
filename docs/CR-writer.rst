@@ -18,7 +18,7 @@ Format
 
     :return y: specifying the number of rows of data actually written to the data set.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

@@ -30,7 +30,7 @@ Format
 
     :return ve: eigenvalues.
 
-    :type ve: (iu-il+1)x1 vector
+    :rtype ve: (iu-il+1)x1 vector
 
 Remarks
 -------

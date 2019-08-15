@@ -19,7 +19,7 @@ Format
 
     :return ve: eigenvalues.
 
-    :type ve: Nx1 vector
+    :rtype ve: Nx1 vector
 
 Remarks
 -------

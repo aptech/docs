@@ -19,7 +19,7 @@ Format
 
     :return x: each value of *x* is the value such that the Rayleigh cumulative distribution function is equal to the corresponding value of *p*.
 
-    :type x: NxK matrix, Nx1 vector or scalar
+    :rtype x: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

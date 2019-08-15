@@ -38,7 +38,7 @@ Format
         the half open interval [vl, vu]. If no eigenvalues are found
         then *ve* is a scalar missing value.
 
-    :type ve: Mx1 vector
+    :rtype ve: Mx1 vector
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
 
     :return dir: containing the drive and full path name of the current directory on the specified drive.
 
-    :type dir: string
+    :rtype dir: string
 
 Remarks
 -------

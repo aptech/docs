@@ -35,7 +35,7 @@ Format
             "14", "File too large to be read on current platform."
             "25", "Not supported for use with a file created on a machine with a different byte order."
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

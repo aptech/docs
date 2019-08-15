@@ -13,7 +13,7 @@ Format
 
     :return g_home: full path to GAUSS home directory.
 
-    :type g_home: string
+    :rtype g_home: string
 
 Remarks
 -------

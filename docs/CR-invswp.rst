@@ -16,7 +16,7 @@ Format
 
     :return xig: the generalized inverse of *x*.
 
-    :type xig: NxN matrix
+    :rtype xig: NxN matrix
 
 Remarks
 -------

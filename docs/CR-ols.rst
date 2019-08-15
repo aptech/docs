@@ -74,7 +74,7 @@ Format
         name will be "CONSTANT". The last name will be the
         name of the dependent variable.
 
-    :type vnam: (K+2)x1 or (K+1)x1 character vector
+    :rtype vnam: (K+2)x1 or (K+1)x1 character vector
 
     :return m: where :math:`M = K+2`, the moment matrix constructed by calculating
         :math:`x'x` where *x* is a matrix containing all useable observations and having columns in the order:
@@ -87,7 +87,7 @@ Format
 
         A constant term is always used in computing *m*.
 
-    :type m: MxM matrix
+    :rtype m: MxM matrix
 
     :return b: the least squares estimates of parameters
 
@@ -108,31 +108,31 @@ Format
 
         The system can become underdetermined if you use listwise deletion and have missing values. In that case, it is possible to skip so many cases that there are fewer useable rows than columns in the data set.
 
-    :type b: Dx1 vector
+    :rtype b: Dx1 vector
 
     :return stb: the standardized coefficients.
 
-    :type stb: Kx1 vector
+    :rtype stb: Kx1 vector
 
     :return vc: the variance-covariance matrix of estimates.
 
-    :type vc: DxD matrix
+    :rtype vc: DxD matrix
 
     :return stderr: the standard errors of the estimated parameters.
 
-    :type stderr: Dx1 vector
+    :rtype stderr: Dx1 vector
 
     :return sigma: standard deviation of residual.
 
-    :type sigma: scalar
+    :rtype sigma: scalar
 
     :return cx: correlation matrix of variables with the dependent variable as the last column.
 
-    :type cx: (K+1)x(K+1) matrix
+    :rtype cx: (K+1)x(K+1) matrix
 
     :return rsq: R square, coefficient of determination.
 
-    :type rsq: scalar
+    :rtype rsq: scalar
 
     :return resid: :math:`resid = y - x * b`.
 
@@ -143,11 +143,11 @@ Format
         The *resid* return value will be a string containing the name of the new data set containing the residuals.
         If the data is passed in as a matrix, the *resid* return value will be the Nx1 vector of residuals.
 
-    :type resid: residuals
+    :rtype resid: residuals
 
     :return dwstat: Durbin-Watson statistic.
 
-    :type dwstat: scalar
+    :rtype dwstat: scalar
 
 .. DANGER:: Fix equations
 

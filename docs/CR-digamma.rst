@@ -16,7 +16,7 @@ Format
 
     :return y: digamma.
 
-    :type y: MxN matrix or N-dimensional array
+    :rtype y: MxN matrix or N-dimensional array
 
 Examples
 ----------------

@@ -67,7 +67,7 @@ Format
 
     :return q: estimated quantile :math:`Y|X=xstar`
 
-    :type q: PxM matrix
+    :rtype q: PxM matrix
 
 Examples
 ----------------

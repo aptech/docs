@@ -30,7 +30,7 @@ Format
 
     :return ret: return code. 0 for success, or non-zero if an error occurred.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 ------------

@@ -20,7 +20,7 @@ Format
     :return index: indices corresponding to the
         elements of *x* sorted in ascending order with duplicates removed.
 
-    :type index: Mx1 vector
+    :rtype index: Mx1 vector
 
 Remarks
 -------

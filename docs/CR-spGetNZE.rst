@@ -15,15 +15,15 @@ Format
 
     :return vals: non-zero values in *x*.
 
-    :type vals: Nx1 vector
+    :rtype vals: Nx1 vector
 
     :return rinds: row indices of corresponding non-zero values.
 
-    :type rinds: Nx1 vector
+    :rtype rinds: Nx1 vector
 
     :return cinds: column indices of corresponding non-zero values.
 
-    :type cinds: Nx1 vector
+    :rtype cinds: Nx1 vector
 
 Examples
 ----------------

@@ -23,7 +23,7 @@ Format
     :return y: containing the index of the first occurrence of *what*, within *where*, 
         which is greater than or equal to *start*. If no occurrence is found, it will be 0.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

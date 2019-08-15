@@ -21,7 +21,7 @@ Format
 
     :return f: 
 
-    :type f: NxK matrix
+    :rtype f: NxK matrix
 
 Remarks
 ---------------

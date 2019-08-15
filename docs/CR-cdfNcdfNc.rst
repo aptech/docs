@@ -24,11 +24,11 @@ Format
 
     :return p: Each element in *p* is the normal cumulative distribution function evaluated at the corresponding element in *x*.
 
-    :type p: NxK matrix
+    :rtype p: NxK matrix
 
     :return pc: Each element in *pc* is the complement of the normal cumulative distribution function evaluated at the corresponding element in *x*.
 
-    :type pc: NxK matrix
+    :rtype pc: NxK matrix
 
 Remarks
 ------------

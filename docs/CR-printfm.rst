@@ -25,7 +25,7 @@ Format
 
     :return y: 1 if the function is successful and 0 if it fails.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

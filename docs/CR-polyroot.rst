@@ -18,7 +18,7 @@ Format
         
     :return y: the roots of *c*.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 .. DANGER:: fix equations
 

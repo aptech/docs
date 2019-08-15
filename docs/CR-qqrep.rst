@@ -30,15 +30,15 @@ Format
 
     :return q1: ``K = min(N,P)``.
 
-    :type q1: NxK unitary matrix
+    :rtype q1: NxK unitary matrix
 
     :return r: 
 
-    :type r: KxP upper triangular matrix
+    :rtype r: KxP upper triangular matrix
 
     :return e: 
 
-    :type e: Px1 permutation vector
+    :rtype e: Px1 permutation vector
 
 Remarks
 -------

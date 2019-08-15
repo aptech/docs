@@ -34,7 +34,7 @@ Format
 
     :return dt_vec: starting at *dt_start* and increasing by *inc* units.
 
-    :type dt_vec: nx1 vector
+    :rtype dt_vec: nx1 vector
 
 Examples
 ----------------

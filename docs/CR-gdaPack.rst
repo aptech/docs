@@ -28,7 +28,7 @@ Format
             "12", "File truncate error."
             "14", "File too large to be read on current platform."
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

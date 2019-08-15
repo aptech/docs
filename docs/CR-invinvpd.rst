@@ -17,7 +17,7 @@ Format
 
     :return xi: where the last two dimensions are NxN, containing the inverse of *x*.
 
-    :type xi: NxN matrix or K-dimensional array
+    :rtype xi: NxN matrix or K-dimensional array
 
 Remarks
 -------

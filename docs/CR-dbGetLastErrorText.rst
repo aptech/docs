@@ -16,5 +16,5 @@ Format
 
     :return last_error: details of last error on the specified database.
 
-    :type last_error: string
+    :rtype last_error: string
 

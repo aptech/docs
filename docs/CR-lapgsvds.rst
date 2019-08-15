@@ -19,15 +19,15 @@ Format
 
     :return C: singular values for *A*.
 
-    :type C: Lx1 vector
+    :rtype C: Lx1 vector
 
     :return S: singular values for *B*.
 
-    :type S: Lx1 vector
+    :rtype S: Lx1 vector
 
     :return R: upper triangular matrix.
 
-    :type R: (K+L)x(K+L)
+    :rtype R: (K+L)x(K+L)
 
 Remarks
 -------

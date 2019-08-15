@@ -76,7 +76,7 @@ Format
             "qOut.ci", "array, with a 2xK matrix containing bootstrapped lower and upper confidence intervals stored on separate planes for each tau specified."
             "qOut.se", "matrix, with bootstrapped standard errors, stored in separate columns for each tau specified."
 
-    :type qOut: struct
+    :rtype qOut: struct
 
 Examples
 ----------------

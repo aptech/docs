@@ -25,7 +25,7 @@ Format
 
     :return x: negative binomial distributed pseudo-random numbers.
 
-    :type x: RxC matrix
+    :rtype x: RxC matrix
 
 Remarks
 -------

@@ -23,7 +23,7 @@ Format
 
     :return y: 
 
-    :type y: max(N,L,P) by max(K,M,Q) matrix
+    :rtype y: max(N,L,P) by max(K,M,Q) matrix
 
 Remarks
 -------

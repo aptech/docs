@@ -16,7 +16,7 @@ Format
 
     :return v: contains the contents of *s*.
 
-    :type v: Nx1 character vector
+    :rtype v: Nx1 character vector
 
 Remarks
 -------

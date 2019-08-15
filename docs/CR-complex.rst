@@ -19,7 +19,7 @@ Format
 
     :return z: 
 
-    :type z: NxK complex matrix
+    :rtype z: NxK complex matrix
 
 Examples
 ----------------

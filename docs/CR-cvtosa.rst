@@ -16,7 +16,7 @@ Format
 
     :return sa: contains the contents of *cv*.
 
-    :type sa: NxK string array
+    :rtype sa: NxK string array
 
 Examples
 ----------------

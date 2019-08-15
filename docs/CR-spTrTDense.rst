@@ -18,7 +18,7 @@ Format
 
     :return y: the result of :math:`s'\*d`.
 
-    :type y: MxL dense matrix
+    :rtype y: MxL dense matrix
 
 Remarks
 -------

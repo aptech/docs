@@ -19,7 +19,7 @@ Format
 
     :return d: containing dates in POSIX format (seconds since the Jan 1, 1970).
 
-    :type d: NxK matrix
+    :rtype d: NxK matrix
 
 Remarks
 -------

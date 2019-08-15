@@ -37,23 +37,23 @@ Format
 
     :return x: coefficients at the minimum of the function.
 
-    :type x: Kx1 vector
+    :rtype x: Kx1 vector
 
     :return u1: Lagrangian coefficients of equality constraints.
 
-    :type u1: Mx1 vector
+    :rtype u1: Mx1 vector
 
     :return u2: Lagrangian coefficients of inequality constraints.
 
-    :type u2: Nx1 vector
+    :rtype u2: Nx1 vector
 
     :return u3: Lagrangian coefficients of lower bounds.
 
-    :type u3: Kx1 vector
+    :rtype u3: Kx1 vector
 
     :return u4: Lagrangian coefficients of upper bounds.
 
-    :type u4: Kx1 vector
+    :rtype u4: Kx1 vector
 
     :return ret: return code.
 
@@ -66,7 +66,7 @@ Format
             "*3*", "matrices not conformable"
             "*< 0*", "constraints inconsistent"
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Global Input
 ------------

@@ -20,7 +20,7 @@ Format
     :return n_days: number of trading days between dates inclusively, that is,
         elapsed time includes the dates *t_start* and *t_end*.
 
-    :type n_days: Scalar
+    :rtype n_days: Scalar
 
 Remarks
 -------

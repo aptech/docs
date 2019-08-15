@@ -19,7 +19,7 @@ Format
 
     :return d: containing dates in DT Scalar format (i.e. 200803170930).
 
-    :type d: NxK matrix
+    :rtype d: NxK matrix
 
 Remarks
 -------

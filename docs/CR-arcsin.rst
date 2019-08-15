@@ -15,7 +15,7 @@ Format
 
     :return y: the angle in radians whose sine is *x*.
 
-    :type y: NxK matrix or N-dimensional array
+    :rtype y: NxK matrix or N-dimensional array
 
 Remarks
 -------

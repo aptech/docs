@@ -19,7 +19,7 @@ Format
 
     :return id: row indices of matrix described by *nm1* in parameter vector.
 
-    :type id: Kx1 vector
+    :rtype id: Kx1 vector
 
 Source
 ------

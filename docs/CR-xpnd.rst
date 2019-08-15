@@ -22,7 +22,7 @@ Format
 
         .. DANGER:: fix equations
 
-    :type x: MxM matrix
+    :rtype x: MxM matrix
 
 Remarks
 -------

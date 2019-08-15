@@ -118,7 +118,7 @@ Format
             "*gOut.JStat*", "scalar, Hansen statistic of overidentification."
             "*gOut.df*", "scalar, degrees of freedom."
 
-    :type gOut: struct
+    :rtype gOut: struct
 
 Remarks
 -------

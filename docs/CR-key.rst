@@ -13,7 +13,7 @@ Format
 
     :return y: ASCII value of next available key in keyboard buffer.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

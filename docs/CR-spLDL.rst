@@ -15,11 +15,11 @@ Format
 
     :return l: 
 
-    :type l: NxN lower-triangular sparse matrix
+    :rtype l: NxN lower-triangular sparse matrix
 
     :return d: 
 
-    :type d: NxN diagonal sparse matrix
+    :rtype d: NxN diagonal sparse matrix
 
 Remarks
 -------

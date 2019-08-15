@@ -16,7 +16,7 @@ Format
 
     :return y: 1 if x is a scalar, infinity, NaN, or missing value, else 0.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Examples
 ----------------

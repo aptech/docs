@@ -25,7 +25,7 @@ Format
 
     :return h: Hessian.
 
-    :type h: KxK matrix
+    :rtype h: KxK matrix
 
 Remarks
 -------

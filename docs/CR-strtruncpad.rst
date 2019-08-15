@@ -21,7 +21,7 @@ Format
 
     :return y: result.
 
-    :type y: NxK string array
+    :rtype y: NxK string array
 
 .. seealso:: Functions :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`
 

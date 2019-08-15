@@ -21,7 +21,7 @@ Format
     :return x_trim: the remaining rows of *x*.
         If no rows remain, *x_trim* will be an empty matrix.
 
-    :type x_trim: PxK matrix
+    :rtype x_trim: PxK matrix
 
 Remarks
 -------

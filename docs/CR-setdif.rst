@@ -31,7 +31,7 @@ Format
     :return y: containing all unique values
         that are in *v1* and are not in *v2*, sorted in ascending order.
 
-    :type y: Lx1 vector
+    :rtype y: Lx1 vector
 
 Remarks
 -------

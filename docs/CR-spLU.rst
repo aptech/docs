@@ -16,12 +16,12 @@ Format
     :return l: . This is a lower triangular
         matrix that has been reordered based upon the row pivoting.
 
-    :type l: NxN "scrambled" lower-triangular sparse matrix
+    :rtype l: NxN "scrambled" lower-triangular sparse matrix
 
     :return u: . This is an upper triangular
         matrix that has been reordered based upon column pivoting to preserve sparsity.
 
-    :type u: NxN "scrambled" upper-triangular sparse matrix
+    :rtype u: NxN "scrambled" upper-triangular sparse matrix
 
 Remarks
 -------

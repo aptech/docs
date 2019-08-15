@@ -16,7 +16,7 @@ Format
 
     :return bound_values: The first column contains the placeholders and the second column contains the corresponding values.
 
-    :type bound_values: Nx2 string array
+    :rtype bound_values: Nx2 string array
 
 Examples
 ----------------

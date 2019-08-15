@@ -19,7 +19,7 @@ Format
 
     :return newState: the advanced state.
 
-    :type newState: Opaque vector
+    :rtype newState: Opaque vector
 
 Examples
 ----------------

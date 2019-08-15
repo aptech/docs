@@ -18,7 +18,7 @@ Format
 
     :return y: containing the product of the matrix multiplication of the planes described by the two trailing dimensions of *a* and *b*.
 
-    :type y: N-dimensional array
+    :rtype y: N-dimensional array
 
 Remarks
 -------

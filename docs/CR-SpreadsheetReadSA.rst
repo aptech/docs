@@ -22,7 +22,7 @@ Format
 
     :return sa: read from Excel.
 
-    :type sa: string array
+    :rtype sa: string array
 
 Examples
 ----------------

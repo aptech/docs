@@ -19,7 +19,7 @@ Format
 
     :return y: 
 
-    :type y: NxK rotated matrix
+    :rtype y: NxK rotated matrix
 
 Remarks
 -------

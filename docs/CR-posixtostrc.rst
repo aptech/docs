@@ -19,7 +19,7 @@ Format
 
     :return sa: 
 
-    :type sa: NxK string array
+    :rtype sa: NxK string array
 
 Remarks
 -------

@@ -20,7 +20,7 @@ Format
 
     :return str: Contains the text read from the file line specified by the file handle *fh*. The maximum size of the *str*, including the terminating null byte, is *maxsize*.
 
-    :type str: string
+    :rtype str: string
 
 Remarks
 -------

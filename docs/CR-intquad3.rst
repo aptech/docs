@@ -28,7 +28,7 @@ Format
 
     :return y: of the estimated integral(s) of :math:`f(x,y,z)` evaluated between the limits given by *xl*, *yl*, and *zl*.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Global Input
 ------------

@@ -20,7 +20,7 @@ Format
 
     :return result: containing the result set for the current query. If the result set is empty, a scalar error code is returned.
 
-    :type result: string array
+    :rtype result: string array
 
 Remarks
 -------

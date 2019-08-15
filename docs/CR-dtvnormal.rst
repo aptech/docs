@@ -16,7 +16,7 @@ Format
 
     :return d: Normalized 1x8 date and time vector.
 
-    :type d: 1x8 vector
+    :rtype d: 1x8 vector
 
 Remarks
 -------

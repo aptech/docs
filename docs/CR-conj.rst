@@ -16,7 +16,7 @@ Format
 
     :return y: the complex conjugate of *x*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

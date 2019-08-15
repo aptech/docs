@@ -26,7 +26,7 @@ Format
 
     :return ret: 0 if successful.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

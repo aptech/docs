@@ -18,7 +18,7 @@ Format
 
     :return s: instance of :class:`sqpSolveMTControl` struct.
 
-    :type s: struct
+    :rtype s: struct
 
 Examples
 ----------------

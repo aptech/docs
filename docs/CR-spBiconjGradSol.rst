@@ -25,7 +25,7 @@ Format
 
     :return x: 
 
-    :type x: Nx1 dense vector
+    :rtype x: Nx1 dense vector
 
 Remarks
 -------

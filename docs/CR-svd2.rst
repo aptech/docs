@@ -17,17 +17,17 @@ Format
         If :math:`N > P`, then *u* will be :math:`NxP`, containing only the :math:`P` left
         singular vectors of *x*.
 
-    :type u: NxN or NxP matrix
+    :rtype u: NxN or NxP matrix
 
     :return s: containing the singular
         values of *x* arranged in descending order on the
         principal diagonal. If :math:`N > P`, then *s* will be :math:`PxP`.
 
-    :type s: NxP or PxP diagonal matrix
+    :rtype s: NxP or PxP diagonal matrix
 
     :return v: the right singular vectors of *x*.
 
-    :type v: PxP matrix
+    :rtype v: PxP matrix
 
 Remarks
 -------

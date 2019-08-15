@@ -16,7 +16,7 @@ Format
 
     :return x_ismiss: 1 if *x* contains any missing values, otherwise 0.
 
-    :type x_ismiss: scalar
+    :rtype x_ismiss: scalar
 
 Remarks
 -------

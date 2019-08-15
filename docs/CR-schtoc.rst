@@ -19,11 +19,11 @@ Format
 
     :return schc: possibly complex, strictly upper triangular. The diagonal entries are the eigenvalues.
 
-    :type schc: NxN matrix
+    :rtype schc: NxN matrix
 
     :return transc: possibly complex, the associated transformation matrix.
 
-    :type transc: NxN matrix
+    :rtype transc: NxN matrix
 
 Remarks
 -------

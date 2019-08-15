@@ -16,7 +16,7 @@ Format
 
     :return sa: *str* converted to a string array.
 
-    :type sa: 1x1 string array
+    :rtype sa: 1x1 string array
 
 Examples
 ----------------

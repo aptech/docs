@@ -28,19 +28,19 @@ Format
 
     :return name1: the name of the variable associated with *var1*.
 
-    :type name1: scalar character matrix
+    :rtype name1: scalar character matrix
 
     :return indx1: the column index of *var1*.
 
-    :type indx1: scalar
+    :rtype indx1: scalar
 
     :return name2: the names associated with *var2*.
 
-    :type name2: Nx1 character vector
+    :rtype name2: Nx1 character vector
 
     :return indx2: the column indices of the variables in *var2*.
 
-    :type indx2: Nx1 numeric vector
+    :rtype indx2: Nx1 numeric vector
 
 Examples
 ----------------

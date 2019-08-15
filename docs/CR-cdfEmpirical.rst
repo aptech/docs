@@ -19,11 +19,11 @@ Format
 
     :return f: cdf values, where *N* is equal to *bins* if *bins* is a scalar or number of rows in *bins* if *bins* is a vector.
 
-    :type f: matrix), (N+1) x1 vector
+    :rtype f: matrix), (N+1) x1 vector
 
     :return breakpoint: break points used to calculate cdf values.
 
-    :type breakpoint: Nx1 vector
+    :rtype breakpoint: Nx1 vector
 
 Remarks
 -------

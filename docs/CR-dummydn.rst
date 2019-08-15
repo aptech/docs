@@ -25,7 +25,7 @@ Format
 
     :return y: contains the :math:`K-1` dummy variables.
 
-    :type y: Nx(K-1) matrix
+    :rtype y: Nx(K-1) matrix
 
 Remarks
 -------

@@ -19,7 +19,7 @@ Format
 
     :return range: an Excel®-formatted range specifier.
 
-    :type range: string
+    :rtype range: string
 
 Remarks
 -------

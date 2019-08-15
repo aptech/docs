@@ -15,7 +15,7 @@ Format
 
     :return t: 
 
-    :type t: KxK Toeplitz matrix
+    :rtype t: KxK Toeplitz matrix
 
 Examples
 ----------------

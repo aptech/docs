@@ -16,7 +16,7 @@ Format
 
     :return driver_name: name of the database driver.
 
-    :type driver_name: string
+    :rtype driver_name: string
 
 Examples
 ----------------

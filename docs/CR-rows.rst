@@ -15,7 +15,7 @@ Format
 
     :return y: number of rows in the specified matrix.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

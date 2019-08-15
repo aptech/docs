@@ -22,7 +22,7 @@ Format
 
     :return y: *x* lagged *t* periods.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

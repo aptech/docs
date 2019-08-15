@@ -18,7 +18,7 @@ Format
 
     :return y: standard deviation across specified dimension of *x*.
 
-    :type y: N-dimensional array
+    :rtype y: N-dimensional array
 
 Remarks
 -------

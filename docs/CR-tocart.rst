@@ -21,7 +21,7 @@ Format
         the *x* coordinate in the real part and the *y*
         coordinate in the imaginary part.
 
-    :type xy: max(N,L) by max(K,M) complex matrix
+    :rtype xy: max(N,L) by max(K,M) complex matrix
 
 Source
 ------

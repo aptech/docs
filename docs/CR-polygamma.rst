@@ -21,7 +21,7 @@ Format
 
     :return f: *f* may be complex.
 
-    :type f: NxK matrix
+    :rtype f: NxK matrix
 
 Remarks
 -------

@@ -20,15 +20,15 @@ Format
 
     :return x: coefficients at the minimum of the function.
 
-    :type x: Kx1 vector
+    :rtype x: Kx1 vector
 
     :return f: value of function at minimum.
 
-    :type f: scalar
+    :rtype f: scalar
 
     :return g: gradient at the minimum of the function.
 
-    :type g: Kx1 vector
+    :rtype g: Kx1 vector
 
     :return ret: return code.
 
@@ -43,7 +43,7 @@ Format
             "5     step length calculation failed"
             "6     function cannot be evaluated at initial parameter values"
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Global Input
 ------------

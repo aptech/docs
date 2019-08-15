@@ -25,7 +25,7 @@ Format
 
     :return ret: 0 if successful, else error code.
 
-    :type ret: success code
+    :rtype ret: success code
 
 Examples
 ----------------

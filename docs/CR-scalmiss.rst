@@ -15,7 +15,7 @@ Format
 
     :return y: 1 if argument is a scalar missing value, 0 if not.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

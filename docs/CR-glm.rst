@@ -163,7 +163,7 @@ Format
             * - *out.eps*
               - scalar, convergence precision
 
-    :type out: struct
+    :rtype out: struct
 
 Examples
 ----------------

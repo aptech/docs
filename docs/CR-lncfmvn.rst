@@ -21,7 +21,7 @@ Format
     
         .. math:: ln Pr(X < x|r)
 
-    :type y: Lx1 vector
+    :rtype y: Lx1 vector
 
 .. DANGER:: verify equations
 

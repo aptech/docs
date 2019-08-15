@@ -16,7 +16,7 @@ Format
 
     :return var_names: contains the names of all of the variables in the specified data set.
 
-    :type var_names: Nx1 string array
+    :rtype var_names: Nx1 string array
 
 Remarks
 -------

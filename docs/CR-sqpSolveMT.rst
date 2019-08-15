@@ -85,7 +85,7 @@ Format
                   :7: error with constraints.
                   :8: function complex.
 
-    :type out: struct
+    :rtype out: struct
 
 Remarks
 -------

@@ -18,7 +18,7 @@ Format
 
     :return y: consisting of the rows of *x* for which there is a 1 in the corresponding row of *e*.
 
-    :type y: MxK matrix or string array
+    :rtype y: MxK matrix or string array
 
 Remarks
 -------

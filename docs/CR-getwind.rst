@@ -21,7 +21,7 @@ Format
 
     :return n: graphic panel number of current graphic panel.
 
-    :type n: scalar
+    :rtype n: scalar
 
 Remarks
 -------

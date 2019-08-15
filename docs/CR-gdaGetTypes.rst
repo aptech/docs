@@ -17,7 +17,7 @@ Format
     :return vartypes: types of all
         the variables in the GDA.
 
-    :type vartypes: Nx1 vector
+    :rtype vartypes: Nx1 vector
 
 Remarks
 -------

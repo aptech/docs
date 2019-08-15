@@ -16,5 +16,5 @@ Format
 
     :return ret: 1 if the connection is open or 0 if it is closed.
 
-    :type ret: scalar
+    :rtype ret: scalar
 

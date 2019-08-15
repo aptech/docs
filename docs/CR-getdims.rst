@@ -16,7 +16,7 @@ Format
 
     :return ndims: the number of dimensions in the symbol.
 
-    :type ndims: scalar
+    :rtype ndims: scalar
 
 Examples
 ----------------

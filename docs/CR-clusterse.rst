@@ -44,7 +44,7 @@ Format
 
     :return vce_cluster: White cluster-robust variance-covariance matrix.
 
-    :type vce_cluster: KxK matrix
+    :rtype vce_cluster: KxK matrix
 
 Examples
 ----------------

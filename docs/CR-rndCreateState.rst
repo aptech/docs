@@ -36,7 +36,7 @@ Format
 
     :return state: the newly created state.
 
-    :type state: Opaque vector
+    :rtype state: Opaque vector
 
 Examples
 ----------------

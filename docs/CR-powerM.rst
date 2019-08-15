@@ -19,7 +19,7 @@ Format
 
     :return B: the power of a matrix *A*
 
-    :type B: NxN square matrix
+    :rtype B: NxN square matrix
 
 Remarks
 -------

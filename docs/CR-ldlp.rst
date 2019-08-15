@@ -16,7 +16,7 @@ Format
 
     :return ldl_factor: containing the factors *L* and *D* as well as the permutation vector *P*, which can be passed directly to :func:`ldlsol` to solve a system of linear equations.
 
-    :type ldl_factor: (N+1)xN matrix
+    :rtype ldl_factor: (N+1)xN matrix
 
 Remarks
 -------

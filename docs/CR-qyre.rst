@@ -19,15 +19,15 @@ Format
 
     :return qy: unitary matrix
 
-    :type qy: NxL matrix
+    :rtype qy: NxL matrix
 
     :return r: upper triangular matrix. :math:`K = min(N,P)`.
 
-    :type r: KxP matrix
+    :rtype r: KxP matrix
 
     :return e: permutation vector
 
-    :type e: Px1 vector
+    :rtype e: Px1 vector
 
 .. DANGER:: fix equations
 

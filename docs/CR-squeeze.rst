@@ -15,7 +15,7 @@ Format
 
     :return atrim: with all dimensions equal to 1 removed.
 
-    :type atrim: Multidimensional array or matrix
+    :rtype atrim: Multidimensional array or matrix
 
 Remarks
 -------

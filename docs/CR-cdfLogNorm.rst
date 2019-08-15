@@ -22,7 +22,7 @@ Format
 
     :return p: Each element in *p* is the cumulative distribution function of the log-normal distribution evaluated at the corresponding element in *x*.
 
-    :type p: NxK matrix, Nx1 vector or scalar
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Examples
 ----------------

@@ -16,7 +16,7 @@ Format
 
     :return y: containing the cosines of the elements of *x*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Examples
 ----------------

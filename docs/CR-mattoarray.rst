@@ -16,7 +16,7 @@ Format
 
     :return y: 
 
-    :type y: 1-or-2-dimensional array
+    :rtype y: 1-or-2-dimensional array
 
 Remarks
 -------

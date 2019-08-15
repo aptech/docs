@@ -16,7 +16,7 @@ Format
 
     :return y: identity matrix, containing 1's down the diagonal and 0's everywhere else.
 
-    :type y: NxN identity matrix
+    :rtype y: NxN identity matrix
 
 Remarks
 -------

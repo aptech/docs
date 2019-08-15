@@ -22,7 +22,7 @@ Format
 
     :return x: numbers read from Excel.
 
-    :type x: matrix
+    :rtype x: matrix
 
 Examples
 ----------------

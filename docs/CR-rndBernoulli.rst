@@ -34,11 +34,11 @@ Format
 
     :return r: Bernoulli random numbers.
 
-    :type r: RxC matrix
+    :rtype r: RxC matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

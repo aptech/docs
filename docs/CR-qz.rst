@@ -32,19 +32,19 @@ Format
 
     :return S: Schur form of *A*
 
-    :type S: NxN matrix
+    :rtype S: NxN matrix
 
     :return T: Schur form of *B*
 
-    :type T: NxN matrix
+    :rtype T: NxN matrix
 
     :return Q: left Schur vectors
 
-    :type Q: NxN matrix
+    :rtype Q: NxN matrix
 
     :return Z: right Schur vectors
 
-    :type Z: NxN matrix
+    :rtype Z: NxN matrix
 
 Remarks
 -------

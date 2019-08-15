@@ -55,11 +55,11 @@ Format
 
     :return SL: local score statistic of hypothesis.
 
-    :type SL: scalar
+    :rtype SL: scalar
 
     :return SLprob: probability of *SL*.
 
-    :type SLprob: scalar
+    :rtype SLprob: scalar
 
 Remarks
 -------

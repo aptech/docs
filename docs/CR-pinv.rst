@@ -23,7 +23,7 @@ Format
             ":math:`xy` is symmetric"
             ":math:`yx` is symmetric"
 
-    :type y: MxN matrix
+    :rtype y: MxN matrix
 
 Global Input
 ------------

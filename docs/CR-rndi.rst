@@ -36,11 +36,11 @@ Format
 
     :return y: of random integers in the specified range.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

@@ -34,11 +34,11 @@ Format
 
     :return r: wishart random matrices.
 
-    :type r: numMats * rows(cov) x N matrix
+    :rtype r: numMats * rows(cov) x N matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

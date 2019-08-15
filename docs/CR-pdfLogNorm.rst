@@ -22,7 +22,7 @@ Format
 
     :return p: of the same dimension as the input *x*, containing the probabilities.
 
-    :type p: matrix or array
+    :rtype p: matrix or array
 
 Examples
 ----------------

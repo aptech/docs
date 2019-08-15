@@ -18,7 +18,7 @@ Format
 
     :return a: Kx(N+1) matrix, 1 subdiagonal per column.
 
-    :type a: matrix
+    :rtype a: matrix
 
 Remarks
 -------

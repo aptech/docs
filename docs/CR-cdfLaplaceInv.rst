@@ -21,7 +21,7 @@ Format
 
     :return x: each value of *x* is the value such that the Laplace cumulative distribution function with *loc* and *scale* evaluated at *x* is equal to the corresponding value of *p*.
 
-    :type x: NxK matrix, Nx1 vector or scalar
+    :rtype x: NxK matrix, Nx1 vector or scalar
 
 Examples
 ---------

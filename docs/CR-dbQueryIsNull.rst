@@ -23,7 +23,7 @@ Format
 
     :return ret: 1 if the field is ``NULL`` or 0 otherwise.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

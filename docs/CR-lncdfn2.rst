@@ -21,7 +21,7 @@ Format
         
         .. math:: ln\ Pr(x < X < x+dx)
 
-    :type y: max(M,K)xmax(N,L) matrix
+    :rtype y: max(M,K)xmax(N,L) matrix
 
 Remarks
 -------

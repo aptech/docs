@@ -15,7 +15,7 @@ Format
 
     :return y: containing the sine of *x*.
 
-    :type y: NxK matrix or N-dimensional array
+    :rtype y: NxK matrix or N-dimensional array
 
 Remarks
 -------

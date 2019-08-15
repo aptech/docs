@@ -19,7 +19,7 @@ Format
 
     :return result: the result set; or if the result set is empty, a scalar error code.
 
-    :type result: matrix
+    :rtype result: matrix
 
 Remarks
 -------

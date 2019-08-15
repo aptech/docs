@@ -32,7 +32,7 @@ Format
 
     :return db_id: index into a table of all opened database connections, or 0 on failure.
 
-    :type db_id: scalar
+    :rtype db_id: scalar
 
 Examples
 ----------------

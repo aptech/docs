@@ -19,7 +19,7 @@ Format
 
     :return z: log-probabilities.
 
-    :type z: NxK matrix
+    :rtype z: NxK matrix
 
 Remarks
 -------

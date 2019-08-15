@@ -15,7 +15,7 @@ Format
 
     :return y: 
 
-    :type y: MxN dense matrix
+    :rtype y: MxN dense matrix
 
 Remarks
 -------

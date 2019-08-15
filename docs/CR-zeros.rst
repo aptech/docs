@@ -18,7 +18,7 @@ Format
 
     :return y: of zeros.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
 Remarks
 -------

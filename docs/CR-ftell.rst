@@ -16,7 +16,7 @@ Format
 
     :return pos: current position of the file pointer in a file.
 
-    :type pos: scalar
+    :rtype pos: scalar
 
 Remarks
 -------

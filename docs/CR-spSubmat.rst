@@ -21,7 +21,7 @@ Format
 
     :return s: the intersection of *rinds* and *cinds*.
 
-    :type s: KxL sparse matrix
+    :rtype s: KxL sparse matrix
 
 Remarks
 -------

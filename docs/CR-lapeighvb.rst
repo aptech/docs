@@ -30,11 +30,11 @@ Format
 
     :return ve: eigenvalues, where *M* is the number of eigenvalues on the half open interval :math:`[vl, vu]`. If no eigenvalues are found then *s* is a scalar missing value.
 
-    :type ve: Mx1 vector
+    :rtype ve: Mx1 vector
 
     :return va: eigenvectors.
 
-    :type va: NxM matrix
+    :rtype va: NxM matrix
 
 Remarks
 -------

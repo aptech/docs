@@ -15,7 +15,7 @@ Format
 
     :return zr: the real part of *x*.
 
-    :type zr: NxK matrix or N-dimensional array
+    :rtype zr: NxK matrix or N-dimensional array
 
 Remarks
 -------

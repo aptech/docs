@@ -17,7 +17,7 @@ Format
 
     :return vinfo: containing variable information.
 
-    :type vinfo: Nx1 string array
+    :rtype vinfo: Nx1 string array
 
 Remarks
 -------

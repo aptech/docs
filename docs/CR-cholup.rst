@@ -19,7 +19,7 @@ Format
 
     :return r: the updated matrix.
 
-    :type r: KxK upper triangular matrix
+    :rtype r: KxK upper triangular matrix
 
 Remarks
 -------

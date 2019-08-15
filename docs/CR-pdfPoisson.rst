@@ -18,7 +18,7 @@ Format
 
     :return p: 
 
-    :type p: NxK matrix, Nx1 vector or scalar
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

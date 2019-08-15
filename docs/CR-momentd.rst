@@ -49,7 +49,7 @@ Format
                 "33", "too many missings"
                 "34", "file not found"
 
-    :type m: MxM matrix
+    :rtype m: MxM matrix
 
 Global Input
 ------------

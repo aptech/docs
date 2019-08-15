@@ -22,7 +22,7 @@ Format
     :return y: the extracted substring, or a null string if
         *start* is greater than the length of *str*.
 
-    :type y: string
+    :rtype y: string
 
 Remarks
 -------

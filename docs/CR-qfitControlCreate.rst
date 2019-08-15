@@ -13,7 +13,7 @@ Format
 
     :return qctl: instance of :class:`qfitControl` struct with members set to default values.
 
-    :type qctl: struct
+    :rtype qctl: struct
 
 Examples
 ----------------

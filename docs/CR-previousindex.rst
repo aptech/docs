@@ -19,7 +19,7 @@ Format
 
     :return pi: the index of the previous element or subarray in the array corresponding to *o*.
 
-    :type pi: Mx1 vector of indices
+    :rtype pi: Mx1 vector of indices
 
 Remarks
 -------

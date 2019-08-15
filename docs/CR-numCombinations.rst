@@ -19,7 +19,7 @@ Format
 
     :return y: number of combinations of *n* things take *k* at a time.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

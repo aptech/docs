@@ -19,7 +19,7 @@ Format
 
     :return sa: contains the contents of *x* converted into a string array.
 
-    :type sa: NxK string array
+    :rtype sa: NxK string array
 
 Remarks
 -------

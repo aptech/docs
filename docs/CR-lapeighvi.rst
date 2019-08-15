@@ -29,11 +29,11 @@ Format
 
     :return ve: eigenvalues.
 
-    :type ve: (iu-il+1)x1 vector
+    :rtype ve: (iu-il+1)x1 vector
 
     :return va: eigenvectors.
 
-    :type va: Nx(iu-il+1) matrix
+    :rtype va: Nx(iu-il+1) matrix
 
 Remarks
 -------

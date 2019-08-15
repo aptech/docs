@@ -15,7 +15,7 @@ Format
 
     :return y: containing the uppercase equivalent of the data in *x*.
 
-    :type y: string or NxK matrix or string array
+    :rtype y: string or NxK matrix or string array
 
 Remarks
 -------

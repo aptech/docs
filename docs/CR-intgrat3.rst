@@ -29,7 +29,7 @@ Format
 
     :return y: estimated integral(s) of :math:`f(x, y, z)` evaluated between the limits given by *xl*, *gl* and *hl*.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Global Input
 ------------

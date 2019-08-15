@@ -58,7 +58,7 @@ Format
 
     :return y: estimated integral of :math:`f(x)` evaluated over the interval :math:`(-∞,+∞)`.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

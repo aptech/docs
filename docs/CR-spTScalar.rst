@@ -24,7 +24,7 @@ Format
 
     :return y: 
 
-    :type y: KxL sparse matrix
+    :rtype y: KxL sparse matrix
 
 Remarks
 -------

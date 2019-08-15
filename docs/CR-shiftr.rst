@@ -21,7 +21,7 @@ Format
 
     :return y: 
 
-    :type y: NxK shifted matrix
+    :rtype y: NxK shifted matrix
 
 Remarks
 -------

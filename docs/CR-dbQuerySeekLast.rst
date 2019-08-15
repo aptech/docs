@@ -17,7 +17,7 @@ Format
 
     :return ret: returns 1 if successful. If unsuccessful the query position is set to an invalid position and 0 is returned.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

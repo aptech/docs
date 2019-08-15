@@ -16,5 +16,5 @@ Format
 
     :return db_name: name of the database.
 
-    :type db_name: string
+    :rtype db_name: string
 

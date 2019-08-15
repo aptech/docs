@@ -20,7 +20,7 @@ Format
     :return x: where the last two dimensions are NxK, the solutions for
         the system of equations, :math:`Ax = b`.
 
-    :type x: NxK matrix or M-dimensional array
+    :rtype x: NxK matrix or M-dimensional array
 
 Remarks
 -------

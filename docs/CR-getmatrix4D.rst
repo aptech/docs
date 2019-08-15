@@ -23,7 +23,7 @@ Format
     :return y: where *L* is the size of the fastest moving
         dimension of the array and *K* is the size of the second fastest moving dimension.
 
-    :type y: KxL matrix
+    :rtype y: KxL matrix
 
 Remarks
 -------

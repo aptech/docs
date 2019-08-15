@@ -19,7 +19,7 @@ Format
 
     :return varname: name of variable in the GDA.
 
-    :type varname: string
+    :rtype varname: string
 
 Remarks
 -------

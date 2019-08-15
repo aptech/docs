@@ -21,7 +21,7 @@ Format
 
     :return y: containing the series.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Examples
 ----------------

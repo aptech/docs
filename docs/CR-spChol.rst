@@ -15,7 +15,7 @@ Format
 
     :return l: 
 
-    :type l: NxN lower-triangular sparse matrix
+    :rtype l: NxN lower-triangular sparse matrix
 
 Examples
 ----------------

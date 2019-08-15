@@ -20,7 +20,7 @@ Format
         That is, the rank of the largest element is :math:`N` and the rank of the
         smallest is 1. (To get ranks in descending order, subtract *y* from N+1).
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 -------

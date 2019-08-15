@@ -19,7 +19,7 @@ Format
 
     :return x: containing the solution to LDLTx = b.
 
-    :type x: Nx1 vector or NxK matrix
+    :rtype x: Nx1 vector or NxK matrix
 
 Remarks
 -------

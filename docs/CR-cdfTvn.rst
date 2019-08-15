@@ -34,7 +34,7 @@ Format
         from :math:`-\infty\:\ to\:\ x_1`, :math:`-\infty\:\ to\:\ x_2`, and :math:`-\infty\:\ to\:\ x_3`
         of the standardized trivariate Normal density.
 
-    :type p: Nx1 vector
+    :rtype p: Nx1 vector
 
 Remarks
 -------

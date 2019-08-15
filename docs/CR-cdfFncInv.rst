@@ -24,7 +24,7 @@ Format
 
     :return x: each value of *x* is the value such that the noncentral F cumulative distribution function with *df_n*, *df_d*, and *nonc* evaluated at *x* is equal to the corresponding value of *p*.
 
-    :type x: NxK matrix, Nx1 vector or scalar
+    :rtype x: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

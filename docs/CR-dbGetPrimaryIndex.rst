@@ -19,5 +19,5 @@ Format
 
     :return primary_index: the :math:`[1,1]` element is the cursor name and the :math:`[2,1]` element is the index name
 
-    :type primary_index: 2x1 string array
+    :rtype primary_index: 2x1 string array
 

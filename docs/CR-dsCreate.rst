@@ -13,7 +13,7 @@ Format
 
     :return s: instance of :class:`DS` struct.
 
-    :type s: struct
+    :rtype s: struct
 
 Examples
 ----------------

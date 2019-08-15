@@ -16,7 +16,7 @@ Format
 
     :return ret: 1 if the result set can only be scrolled through forward, otherwise a 0.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

@@ -46,7 +46,7 @@ Format
 
     :return y: of uniform (:math:`0 < x < 1`) random numbers.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
     :return newstate: 
     
@@ -58,7 +58,7 @@ Format
             "[3]", "the additive constant"
             "[4]", "the original initialization seed"
 
-    :type newstate: 4x1 vector
+    :rtype newstate: 4x1 vector
 
 Remarks
 -------

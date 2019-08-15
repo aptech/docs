@@ -23,7 +23,7 @@ Format
 
     :return ni: the new index.
 
-    :type ni: Mx1 vector of indices
+    :rtype ni: Mx1 vector of indices
 
 Remarks
 -------

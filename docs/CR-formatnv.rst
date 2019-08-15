@@ -16,7 +16,7 @@ Format
 
     :return oldfmt: the old format specification.
 
-    :type oldfmt: 1x3 vector
+    :rtype oldfmt: 1x3 vector
 
 Remarks
 -------

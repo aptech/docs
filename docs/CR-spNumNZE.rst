@@ -15,7 +15,7 @@ Format
 
     :return n: the number of non-zero elements in *x*.
 
-    :type n: scalar
+    :rtype n: scalar
 
 Examples
 ----------------

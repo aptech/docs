@@ -24,7 +24,7 @@ Format
 
     :return y: all unique values that are in both *v1* and *v2* sorted in ascending order.
 
-    :type y: Lx1 vector
+    :rtype y: Lx1 vector
 
 Remarks
 -------

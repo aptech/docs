@@ -43,11 +43,11 @@ Format
 
     :return x: The probability of drawing *x* items which possess a specified trait.
 
-    :type x: NxK matrix, Nx1 vector or scalar
+    :rtype x: NxK matrix, Nx1 vector or scalar
 
     :return new_state: the updated state
 
-    :type new_state: Opaque vector
+    :rtype new_state: Opaque vector
 
 Examples
 ----------------

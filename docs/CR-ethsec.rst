@@ -24,7 +24,7 @@ Format
     :return hs: elapsed time measured in hundredths of
         a second.
 
-    :type hs: scalar
+    :rtype hs: scalar
 
 Remarks
 -------

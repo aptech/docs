@@ -25,7 +25,7 @@ Format
 
     :return p: Each element in *p* is the noncentral F distribution cdf value evaluated at the corresponding element in *x*.
 
-    :type p: max(N,L,P,R) by max(K,M,Q,S) matrix
+    :rtype p: max(N,L,P,R) by max(K,M,Q,S) matrix
 
 Remarks
 -------

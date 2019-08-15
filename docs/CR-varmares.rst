@@ -37,7 +37,7 @@ Format
         13            :math:`I+M'H'HM` not positive definite
         ============= ==============================
 
-    :type res: NxK matrix
+    :rtype res: NxK matrix
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
 
     :return str_int: or string array containing the string representation of the elements of x.
 
-    :type str_int: string
+    :rtype str_int: string
 
 Examples
 ----------------

@@ -19,15 +19,15 @@ Format
 
     :return yhat: predicted *depvar* given *indvars*.
 
-    :type yhat: Nx1 vector
+    :rtype yhat: Nx1 vector
 
     :return ys: ordinate values given abscissae values in *xs*.
 
-    :type ys: _loess_numEvalx1 vector
+    :rtype ys: _loess_numEvalx1 vector
 
     :return xs: equally spaced abscissae values.
 
-    :type xs: _loess_numEvalx1 vector
+    :rtype xs: _loess_numEvalx1 vector
 
 Global Input
 ------------

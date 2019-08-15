@@ -25,7 +25,7 @@ Format
 
     :return x: von Mises distributed random numbers.
 
-    :type x: RxC matrix
+    :rtype x: RxC matrix
 
 Source
 ------

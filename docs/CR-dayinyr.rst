@@ -15,7 +15,7 @@ Format
 
     :return daynum: the day number of that date in that year.
 
-    :type daynum: scalar
+    :rtype daynum: scalar
 
 Examples
 ----------------

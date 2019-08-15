@@ -25,7 +25,7 @@ Format
 
     :return p: The probability of drawing *x* or fewer marked items.
 
-    :type p: NxK matrix, Nx1 vector or scalar
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 ------------

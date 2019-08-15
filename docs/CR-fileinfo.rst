@@ -16,7 +16,7 @@ Format
 
     :return fnames: all file names that match, null string if none are found.
 
-    :type fnames: Nx1 string array
+    :rtype fnames: Nx1 string array
 
     :return finfo: information about matching files.
 
@@ -60,7 +60,7 @@ Format
 
         *finfo* will be a scalar zero if no matches are found.
 
-    :type finfo: Nx13 matrix
+    :rtype finfo: Nx13 matrix
 
 Examples
 ----------------

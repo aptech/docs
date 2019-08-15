@@ -16,7 +16,7 @@ Format
     :return y: containing the arctangents of *x* in
         radians.
 
-    :type y: NxK matrix or N-dimensional array
+    :rtype y: NxK matrix or N-dimensional array
 
 Remarks
 -------

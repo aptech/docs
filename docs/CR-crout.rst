@@ -20,7 +20,7 @@ Format
         lower matrix *L*. The upper matrix has an implicit main
         diagonal of ones. Use :func:`lowmat` and :func:`upmat1` to extract the :math:`L` and :math:`U` matrices from *y*.
 
-    :type y: NxN matrix
+    :rtype y: NxN matrix
 
 Remarks
 -------

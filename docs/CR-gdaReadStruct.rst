@@ -22,7 +22,7 @@ Format
 
     :return instance: instance of the struct.
 
-    :type instance: struct
+    :rtype instance: struct
 
     :return retcode: 0 if successful, otherwise, any of the following error codes:
 
@@ -37,7 +37,7 @@ Format
             "10", "File contains no variables."
             "14", "File too large to be read on current platform."
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

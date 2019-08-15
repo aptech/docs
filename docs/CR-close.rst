@@ -16,7 +16,7 @@ Format
 
     :return y: 0 if successful, -1 if unsuccessful.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

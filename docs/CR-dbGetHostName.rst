@@ -16,5 +16,5 @@ Format
 
     :return host_name: name of database connection.
 
-    :type host_name: string
+    :rtype host_name: string
 

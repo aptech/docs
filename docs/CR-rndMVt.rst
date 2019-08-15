@@ -34,11 +34,11 @@ Format
 
     :return r: multivariate student-t distributed random numbers.
 
-    :type r: num x N matrix
+    :rtype r: num x N matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

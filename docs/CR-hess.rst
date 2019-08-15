@@ -16,11 +16,11 @@ Format
 
     :return H: Hessenberg form.
 
-    :type H: KxK matrix
+    :rtype H: KxK matrix
 
     :return Z: transformation matrix.
 
-    :type Z: KxK matrix
+    :rtype Z: KxK matrix
 
 Remarks
 -------

@@ -24,7 +24,7 @@ Format
     :return y: containing the index of the last occurrence of *what*, within *where*, 
         which is less than or equal to *start*. If no occurrence is found, it will be 0.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

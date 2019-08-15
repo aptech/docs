@@ -18,7 +18,7 @@ Format
 
     :return p: The normal cumulative distribution function over the interval :math:`x` to :math:`x + dx`, i.e., :math:`Pr(x < X < x + dx)`
 
-    :type p: matrix, max(M,K) by max(N,L)
+    :rtype p: matrix, max(M,K) by max(N,L)
 
 Remarks
 -------

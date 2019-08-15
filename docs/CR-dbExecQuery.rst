@@ -22,7 +22,7 @@ Format
 
     :return qid: query id to be used for result retrieval.
 
-    :type qid: scalar
+    :rtype qid: scalar
 
 Examples
 ----------------

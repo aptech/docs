@@ -16,7 +16,7 @@ Format
 
     :return d: new working directory, or null string if change failed.
 
-    :type d: string
+    :rtype d: string
 
 Examples
 --------------

@@ -16,7 +16,7 @@ Format
 
     :return prev_weekday: previous weekday in DT scalar format.
 
-    :type prev_weekday: scalar
+    :rtype prev_weekday: scalar
 
 Examples
 ----------------

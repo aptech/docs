@@ -21,7 +21,7 @@ Format
 
     :return x: each value of *x* is the value such that the noncentral chi-squared cdf with *df* degrees of freedom and *nonc* noncentrality evaluated at *x* is equal to the corresponding value of *p*.
 
-    :type x: NxK matrix, Nx1 vector or scalar
+    :rtype x: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

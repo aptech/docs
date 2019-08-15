@@ -16,7 +16,7 @@ Format
 
     :return varnames: names of all the variables in the GDA.
 
-    :type varnames: Nx1 string array
+    :rtype varnames: Nx1 string array
 
 Remarks
 -------

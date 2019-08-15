@@ -35,7 +35,7 @@ Format
 
     :return vce_robust: Huber-White heteroscedastic robust variance-covariance matrix.
 
-    :type vce_robust: KxK matrix
+    :rtype vce_robust: KxK matrix
 
 Examples
 ----------------

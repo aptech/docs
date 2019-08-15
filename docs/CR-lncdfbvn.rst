@@ -24,7 +24,7 @@ Format
     
         .. math:: ln Pr(X < x1, X < x2|r)
 
-    :type y: max(N,L,P) x max(K,M,Q) matrix
+    :rtype y: max(N,L,P) x max(K,M,Q) matrix
 
 .. DANGER:: verify equations
 

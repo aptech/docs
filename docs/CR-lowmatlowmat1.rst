@@ -19,7 +19,7 @@ Format
         of the matrix. The upper elements are replaced with zeros. :func:`lowmat` returns the
         main diagonal intact. :func:`lowmat1` replaces the main diagonal with ones.
 
-    :type L: NxN matrix
+    :rtype L: NxN matrix
 
 Remarks
 -------

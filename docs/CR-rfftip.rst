@@ -16,7 +16,7 @@ Format
 
     :return y: 
 
-    :type y: LxM real matrix or M-length vector
+    :rtype y: LxM real matrix or M-length vector
 
 Remarks
 -------

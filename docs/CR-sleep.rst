@@ -15,7 +15,7 @@ Format
 
     :return unslept: number of seconds not slept.
 
-    :type unslept: scalar
+    :rtype unslept: scalar
 
 Remarks
 -------

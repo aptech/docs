@@ -16,7 +16,7 @@ Format
 
     :return ret: 1 for success or 0 for failure.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Examples
 ----------------

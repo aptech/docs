@@ -22,7 +22,7 @@ Format
 
     :return rk: sample partial autocorrelations.
 
-    :type rk: Kx1 vector
+    :rtype rk: Kx1 vector
 
 Examples
 ----------------

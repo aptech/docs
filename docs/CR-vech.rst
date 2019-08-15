@@ -15,7 +15,7 @@ Format
 
     :return v: the lower triangular portion of the matrix *x*.
 
-    :type v: (N*(N+1)/2)x1 vector
+    :rtype v: (N*(N+1)/2)x1 vector
 
 Remarks
 -------

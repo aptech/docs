@@ -18,7 +18,7 @@ Format
 
     :return y: created from data in *x*.
 
-    :type y: M-dimensional array
+    :rtype y: M-dimensional array
 
 Remarks
 -------

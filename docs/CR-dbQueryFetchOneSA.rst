@@ -21,7 +21,7 @@ Format
         true), the record is populated with the row's values. An empty record (:code:`scalmiss(record)` is true) is
         returned when there is no active query :func:`dbQueryIsActive` returns false).
 
-    :type record: string array
+    :rtype record: string array
 
 Remarks
 -------

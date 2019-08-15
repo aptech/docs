@@ -16,6 +16,6 @@ Format
 
     :return fh_iscplx: 1 if the data set is complex, 0 if it is real.
 
-    :type fh_iscplx: scalar
+    :rtype fh_iscplx: scalar
 
 .. seealso:: Functions :func:`hasimag`, :func:`iscplx`

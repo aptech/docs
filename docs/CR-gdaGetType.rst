@@ -19,7 +19,7 @@ Format
 
     :return vartype: type of the variable in the GDA.
 
-    :type vartype: scalar
+    :rtype vartype: scalar
 
 Remarks
 -------

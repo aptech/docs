@@ -13,7 +13,7 @@ Format
 
     :return dt: system date and time in DT scalar format.
 
-    :type dt: scalar
+    :rtype dt: scalar
 
 Remarks
 -------

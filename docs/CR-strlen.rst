@@ -16,7 +16,7 @@ Format
     :return y: containing the exact length of the string *x*, 
         or NxK matrix or string array containing the lengths of the elements in *x*.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

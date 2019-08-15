@@ -13,7 +13,7 @@ Format
 
     :return eps: machine epsilon.
 
-    :type eps: scalar
+    :rtype eps: scalar
 
 Source
 ------

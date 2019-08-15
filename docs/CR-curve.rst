@@ -34,11 +34,11 @@ Format
 
     :return u: vector, x-abscissae, regularly spaced.
 
-    :type u: (KxG)x1
+    :rtype u: (KxG)x1
 
     :return v: vector, y-ordinates, regularly spaced.
 
-    :type v: (KxG)x1
+    :rtype v: (KxG)x1
 
 Remarks
 -------

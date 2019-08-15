@@ -16,7 +16,7 @@ Format
     :return ind: indices corresponding to the
         elements of *sv* sorted in ascending order with duplicates removed.
 
-    :type ind: Mx1 vector
+    :rtype ind: Mx1 vector
 
 Remarks
 -------

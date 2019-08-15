@@ -17,7 +17,7 @@ Format
 
     :return y: containing all unique elements found in *sv*.
 
-    :type y: sorted Mx1 string vector
+    :rtype y: sorted Mx1 string vector
 
 Examples
 ----------------

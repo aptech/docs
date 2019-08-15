@@ -17,7 +17,7 @@ Format
     :return x: contains the concatenated matrices where *M* is the sum of the columns in
         the *K* matrices specified in *vnames*.
 
-    :type x: NxM matrix
+    :rtype x: NxM matrix
 
 Remarks
 -------

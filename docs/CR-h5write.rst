@@ -21,7 +21,7 @@ Format
 
     :return retcode: 0 if successful, non-zero otherwise.
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Examples
 ----------------

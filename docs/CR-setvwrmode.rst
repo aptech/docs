@@ -29,7 +29,7 @@ Format
 
     :return oldmode: previous *mode*.
 
-    :type oldmode: string
+    :rtype oldmode: string
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
 
     :return fname: filename with full drive and path.
 
-    :type fname: string
+    :rtype fname: string
 
 Remarks
 -------

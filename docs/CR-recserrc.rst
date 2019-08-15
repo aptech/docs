@@ -29,7 +29,7 @@ Format
                .
             y[n] = x mod z[n]
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

@@ -21,7 +21,7 @@ Format
         (sometimes called vector product) of the
         corresponding columns of *x* and *y*.
 
-    :type z: 3xK matrix
+    :rtype z: 3xK matrix
 
 Remarks
 -------

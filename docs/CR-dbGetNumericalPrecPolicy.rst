@@ -24,5 +24,5 @@ Format
             "DB_LOW_PRECISION_INT64", "Force 64-bit integer values"
             "DB_LOW_PRECISION_DOUBLE", "Force double values. This is the default policy."
 
-    :type prec_policy: scalar
+    :rtype prec_policy: scalar
 

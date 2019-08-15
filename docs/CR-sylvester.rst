@@ -21,7 +21,7 @@ Format
 
     :return X: solution to the equation :math:`AX + XB = C`.
 
-    :type X: MxN matrix
+    :rtype X: MxN matrix
 
 Examples
 ----------------

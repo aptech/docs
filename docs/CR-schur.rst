@@ -35,11 +35,11 @@ Format
 
     :return S: Schur form.
 
-    :type S: KxK matrix
+    :rtype S: KxK matrix
 
     :return Z: transformation matrix.
 
-    :type Z: KxK matrix
+    :rtype Z: KxK matrix
 
 Examples
 ----------------

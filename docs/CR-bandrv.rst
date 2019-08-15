@@ -15,7 +15,7 @@ Format
 
     :return y: 
 
-    :type y: KxK symmetric banded matrix
+    :rtype y: KxK symmetric banded matrix
 
 Remarks
 -------

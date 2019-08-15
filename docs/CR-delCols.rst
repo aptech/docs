@@ -23,7 +23,7 @@ Format
         input *c_idx*. If no columns remain, *x_trim* will be
         an empty matrix.
 
-    :type x_trim: matrix
+    :rtype x_trim: matrix
 
 Examples
 ----------------

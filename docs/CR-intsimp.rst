@@ -23,7 +23,7 @@ Format
 
     :return y: The estimated integral of :math:`f(x)` between :math:`xlims[1]` and :math:`xlims[2]`.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Examples
 ----------------

@@ -19,7 +19,7 @@ Format
 
     :return sa: Date in character string format.
 
-    :type sa: NxK string array
+    :rtype sa: NxK string array
 
 Remarks
 -------

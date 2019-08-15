@@ -30,7 +30,7 @@ Format
 
     :return diff: the difference between *dt_1* and *dt_2* in terms of the specified units.
 
-    :type diff: Scalar
+    :rtype diff: Scalar
 
 Examples
 ----------------

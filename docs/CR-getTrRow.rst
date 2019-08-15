@@ -19,7 +19,7 @@ Format
 
     :return y: extracted data.
 
-    :type y: 1xK row vector
+    :rtype y: 1xK row vector
 
 Remarks
 -------

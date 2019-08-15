@@ -13,7 +13,7 @@ Format
 
     :return dctl: instance of :class:`dstatmtControl` struct with members set to default values.
 
-    :type dctl: struct
+    :rtype dctl: struct
 
 Examples
 ----------------

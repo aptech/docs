@@ -90,7 +90,7 @@ Format
             "26", "Cannot add structure definition."
             "27", "Structure definition does not match."
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

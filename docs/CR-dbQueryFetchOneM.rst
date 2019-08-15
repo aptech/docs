@@ -19,7 +19,7 @@ Format
 
     :return record: if the query points to a valid row (:func:`dbQueryIsValid` returns true), the record is populated with the row's values. An empty record (:code:`scalmiss(record)` is true) is returned when there is no active query (:func:`dbQueryIsActive` returns false).
 
-    :type record: matrix
+    :rtype record: matrix
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
     :return y: of *x* containing only those rows
         that do not have missing values in any of their elements.
 
-    :type y: LxK submatrix
+    :rtype y: LxK submatrix
 
 Remarks
 -------

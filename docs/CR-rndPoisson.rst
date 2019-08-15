@@ -34,11 +34,11 @@ Format
 
     :return x: Poisson distributed random numbers.
 
-    :type x: r x c matrix
+    :rtype x: r x c matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

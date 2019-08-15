@@ -34,11 +34,11 @@ Format
 
     :return y: of geometrically distributed random numbers.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

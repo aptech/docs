@@ -15,7 +15,7 @@ Format
 
     :return y: containing reduced row echelon form of *x*.
 
-    :type y: MxN matrix
+    :rtype y: MxN matrix
 
 Remarks
 -------

@@ -21,7 +21,7 @@ Format
 
     :return y: created from the elements of *x*.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
 Remarks
 -------

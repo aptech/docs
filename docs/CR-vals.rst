@@ -16,7 +16,7 @@ Format
 
     :return y: containing the ASCII values of the characters in the string *s*.
 
-    :type y: Nx1 matrix
+    :rtype y: Nx1 matrix
 
 Remarks
 -------

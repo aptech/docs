@@ -247,7 +247,7 @@ class PyObject(ObjectDescription):
                        can_collapse=True),
         PyTypedField('returnvalue', label=_('Returns'),
                      names=('returns', 'return'),
-                     typerolename='class', typenames=('rtype', 'type'),
+                     typerolename='class', typenames=('rtype'),
                      can_collapse=True),
         # Field('returnvalue', label=_('Returns'), has_arg=False,
         #       names=('returns', 'return')),

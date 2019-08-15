@@ -16,7 +16,7 @@ Format
 
     :return u: containing the Cholesky decomposition of *x*.
 
-    :type u: NxN matrix
+    :rtype u: NxN matrix
 
 Remarks
 -------

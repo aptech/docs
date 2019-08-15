@@ -28,7 +28,7 @@ Format
 
     :return p1: instance of :class:`PV` struct.
 
-    :type p1: struct
+    :rtype p1: struct
 
 Remarks
 -------

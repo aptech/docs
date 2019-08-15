@@ -23,7 +23,7 @@ Format
 
     :return vc: 
 
-    :type vc: KxK variance-covariance matrix
+    :rtype vc: KxK variance-covariance matrix
 
 Remarks
 -------

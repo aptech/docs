@@ -16,7 +16,7 @@ Format
 
     :return y: with the same orders as the input. Every denormal in the input will be converted to 0 in the output.
 
-    :type y: matrix or an N-dimensional array
+    :rtype y: matrix or an N-dimensional array
 
 Examples
 ----------------

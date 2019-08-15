@@ -19,7 +19,7 @@ Format
 
     :return y: 
 
-    :type y: NxM formatted string array
+    :rtype y: NxM formatted string array
 
 Examples
 ----------------

@@ -16,7 +16,7 @@ Format
 
     :return ncols: number of columns in the file that has the handle *fh*.
 
-    :type ncols: scalar
+    :rtype ncols: scalar
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
 
     :return z: log-probabilities.
 
-    :type z: NxK matrix or N-dimensional array
+    :rtype z: NxK matrix or N-dimensional array
 
 Remarks
 -------

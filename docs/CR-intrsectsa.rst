@@ -21,7 +21,7 @@ Format
 
     :return s_intr: all unique strings that are in both *sv1* and *sv2* sorted in ascending order.
 
-    :type s_intr: Lx1 vector
+    :rtype s_intr: Lx1 vector
 
 Remarks
 -------

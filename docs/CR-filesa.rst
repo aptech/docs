@@ -16,7 +16,7 @@ Format
 
     :return fnames: all file names that match or null string if none are found.
 
-    :type fnames: Nx1 string array
+    :rtype fnames: Nx1 string array
 
 Remarks
 -------

@@ -15,7 +15,7 @@ Format
 
     :return myPlot: a :class:`plotControl` structure.
 
-    :type myPlot: struct
+    :rtype myPlot: struct
 
 Remarks
 -------

@@ -87,7 +87,7 @@ Format
                   :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
                   :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
 
-    :type dout: struct
+    :rtype dout: struct
 
 Examples
 ----------------

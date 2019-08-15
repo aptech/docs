@@ -17,7 +17,7 @@ Format
     :return y: contains :math:`e^x`, the base of natural
         logs raised to the powers given by the elements of *x*.
 
-    :type y: NxK matrix or N-dimensional array
+    :rtype y: NxK matrix or N-dimensional array
 
 Examples
 ----------------

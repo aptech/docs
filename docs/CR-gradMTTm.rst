@@ -25,7 +25,7 @@ Format
 
     :return g: Jacobian or gradient.
 
-    :type g: NxK or 1xK
+    :rtype g: NxK or 1xK
 
 Remarks
 -------

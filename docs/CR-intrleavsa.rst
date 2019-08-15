@@ -22,7 +22,7 @@ Format
 
     :return y: combined string array.
 
-    :type y: LxK string array
+    :rtype y: LxK string array
 
 Examples
 ----------------

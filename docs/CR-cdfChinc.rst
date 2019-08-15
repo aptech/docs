@@ -21,7 +21,7 @@ Format
 
     :return p: Each element in *p* is the noncentral chi-squared cdf value evaluated at the corresponding element in *x*.
 
-    :type p: Nx1 vector
+    :rtype p: Nx1 vector
 
 Remarks
 -------

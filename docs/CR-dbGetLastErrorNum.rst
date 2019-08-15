@@ -16,5 +16,5 @@ Format
 
     :return last_error: number of last error on the specified database.
 
-    :type last_error: scalar
+    :rtype last_error: scalar
 

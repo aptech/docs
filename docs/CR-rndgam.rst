@@ -24,7 +24,7 @@ Format
 
     :return x: gamma distributed pseudo-random numbers.
 
-    :type x: r x c matrix
+    :rtype x: r x c matrix
 
 Remarks
 -------

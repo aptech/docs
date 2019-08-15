@@ -18,7 +18,7 @@ Format
         :math:`L` and :math:`M` are the smallest powers of 2 greater than or equal
         to :math:`N` and :math:`K`, respectively.
 
-    :type y: Lx(M/2+1) matrix or (M/2+1)-length vector
+    :rtype y: Lx(M/2+1) matrix or (M/2+1)-length vector
 
 Remarks
 -------

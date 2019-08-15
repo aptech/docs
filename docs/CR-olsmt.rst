@@ -211,7 +211,7 @@ Format
             * - oout.dwstat
               - scalar, Durbin-Watson statistic.
 
-    :type oout: struct
+    :rtype oout: struct
 
 Remarks
 -------

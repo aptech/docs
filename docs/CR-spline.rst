@@ -27,15 +27,15 @@ Format
 
     :return u: x-abscissae, regularly spaced.
 
-    :type u: (K*g)x1 vector
+    :rtype u: (K*g)x1 vector
 
     :return v: y-abscissae, regularly spaced.
 
-    :type v: (N*g)x1 vector
+    :rtype v: (N*g)x1 vector
 
     :return w: interpolated ordinates.
 
-    :type w: (K*g)x(N*g) matrix
+    :rtype w: (K*g)x(N*g) matrix
 
 Remarks
 -------

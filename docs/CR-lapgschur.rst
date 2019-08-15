@@ -45,19 +45,19 @@ Format
 
     :return sa: Schur form of *A*, sometimes called *S*.
 
-    :type sa: NxN matrix
+    :rtype sa: NxN matrix
 
     :return sb: Schur form of *B*, sometimes called *T*.
 
-    :type sb: NxN matrix
+    :rtype sb: NxN matrix
 
     :return q: left Schur vectors.
 
-    :type q: NxN matrix
+    :rtype q: NxN matrix
 
     :return z: right Schur vectors.
 
-    :type z: NxN matrix
+    :rtype z: NxN matrix
 
 Examples
 ----------------

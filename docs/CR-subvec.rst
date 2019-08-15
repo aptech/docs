@@ -18,7 +18,7 @@ Format
 
     :return y: containing the elements in *x* indicated by *ci*.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 -------

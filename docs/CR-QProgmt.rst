@@ -52,7 +52,7 @@ Format
                 :*< 0*: active constraints inconsistent
 
 
-    :type qOut: struct
+    :rtype qOut: struct
 
 
 Remarks

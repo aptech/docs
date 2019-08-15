@@ -16,7 +16,7 @@ Format
 
     :return y: number of rows in the specified file.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Examples
 ----------------

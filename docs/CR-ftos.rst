@@ -28,7 +28,7 @@ Format
 
     :return x_str: contains the decimal character equivalent of *x* in the format specified.
 
-    :type x_str: string
+    :rtype x_str: string
 
 Remarks
 -------

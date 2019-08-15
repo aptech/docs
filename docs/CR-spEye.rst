@@ -15,7 +15,7 @@ Format
 
     :return y: 
 
-    :type y: n x n sparse identity matrix
+    :rtype y: n x n sparse identity matrix
 
 Remarks
 -------

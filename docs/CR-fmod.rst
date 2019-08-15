@@ -19,7 +19,7 @@ Format
 
     :return r: The floating point remainders of :math:`x/y`.
 
-    :type r: max(N,L) by max(K,M) matrix
+    :rtype r: max(N,L) by max(K,M) matrix
 
 Remarks
 -------

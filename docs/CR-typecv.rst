@@ -18,7 +18,7 @@ Format
 
     :return y: containing the types of the respective symbols in *x*.
 
-    :type y: scalar or Nx1 vector
+    :rtype y: scalar or Nx1 vector
 
 Remarks
 -------

@@ -13,7 +13,7 @@ Format
 
     :return err_num: number of last error.
 
-    :type err_num: scalar
+    :rtype err_num: scalar
 
 Remarks
 -------

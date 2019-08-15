@@ -61,7 +61,7 @@ Format
 
     :return y: the estimated integrals of :math:`f(x)` evaluated over the interval :math:`[a, b]`.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 -------

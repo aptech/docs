@@ -18,7 +18,7 @@ Format
 
     :return p: Each element in *p* is the cumulative distribution function of the multivariate Normal distribution for each corresponding columns in *x*. *p* will have as many elements as the input, *x*, has columns.
 
-    :type p: Nx1 vector
+    :rtype p: Nx1 vector
 
 Remarks
 ------------

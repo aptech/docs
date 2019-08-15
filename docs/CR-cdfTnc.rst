@@ -23,7 +23,7 @@ Format
 
     :return p: Each element in *p* is the cumulative distribution function of the noncentral Student's t distribution evaluated at the corresponding element in *x*.
 
-    :type p: max(N,L,P) by max(K,M,Q) matrix
+    :rtype p: max(N,L,P) by max(K,M,Q) matrix
 
 Remarks
 ------------

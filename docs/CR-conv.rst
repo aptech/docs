@@ -30,7 +30,7 @@ Format
         f'th to the last convolutions are computed. If *f* and *l*
         are both zero, all the convolutions are computed.
 
-    :type c: Qx1 result
+    :rtype c: Qx1 result
 
 Remarks
 -------

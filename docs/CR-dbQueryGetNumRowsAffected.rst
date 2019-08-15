@@ -17,7 +17,7 @@ Format
     :return num_rows: the number of rows affected by the result's SQL statement, or
         a -1 if it cannot be determined or the query is not active.
 
-    :type num_rows: scalar
+    :rtype num_rows: scalar
 
 Remarks
 -------

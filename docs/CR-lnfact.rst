@@ -16,7 +16,7 @@ Format
 
     :return y: containing the natural log of the factorial of each of the elements in *x*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

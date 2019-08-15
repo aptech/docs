@@ -29,7 +29,7 @@ Format
     :return p: the probability density
         of the cumulative distribution over the interval from *a* to *b*.
 
-    :type p: scalar or NxK matrix or N-dimensional array
+    :rtype p: scalar or NxK matrix or N-dimensional array
 
 Examples
 ----------------

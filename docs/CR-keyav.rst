@@ -13,6 +13,6 @@ Format
 
     :return x: value of key or 0 if no key is available.
 
-    :type x: scalar
+    :rtype x: scalar
 
 .. seealso:: Functions :func:`keyw`, :func:`key`

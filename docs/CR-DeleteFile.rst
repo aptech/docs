@@ -18,7 +18,7 @@ Format
         string array, *ret* will be an NxK matrix reflecting the success or
         failure of each separate file deletion. *ret* will be zero if file deletion is successful.
 
-    :type ret: scalar or NxK matrix
+    :rtype ret: scalar or NxK matrix
 
 Remarks
 -------

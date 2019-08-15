@@ -13,7 +13,7 @@ Format
 
     :return x: the characters entered from the keyboard
 
-    :type x: string
+    :rtype x: string
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
 
     :return y: containing the natural log values of the elements of *x*.
 
-    :type y: NxK matrix or N-dimensional array
+    :rtype y: NxK matrix or N-dimensional array
 
 Remarks
 -------

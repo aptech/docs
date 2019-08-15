@@ -18,7 +18,7 @@ Format
     
         .. math:: ln\ (1 - Pr(X < x))
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Source
 ------

@@ -15,7 +15,7 @@ Format
 
     :return dt: DT scalar format.
 
-    :type dt: Nx1 vector
+    :rtype dt: Nx1 vector
 
 Remarks
 -------

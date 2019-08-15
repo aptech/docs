@@ -20,7 +20,7 @@ Format
     :return z: of integers containing the indices of the corresponding element of *what*
         in *where*.
 
-    :type z: Nx1 vector
+    :rtype z: Nx1 vector
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
 
     :return n_cols: number of columns in *x*.
 
-    :type n_cols: scalar
+    :rtype n_cols: scalar
 
 Remarks
 -------

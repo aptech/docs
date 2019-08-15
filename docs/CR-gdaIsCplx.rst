@@ -19,7 +19,7 @@ Format
 
     :return is_cmplx: 1 if variable is complex; 0 if real.
 
-    :type is_cmplx: scalar
+    :rtype is_cmplx: scalar
 
 Remarks
 -------

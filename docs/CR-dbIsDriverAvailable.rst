@@ -16,5 +16,5 @@ Format
 
     :return ret: 1 if the specified driver is available, or 0 if not.
 
-    :type ret: scalar
+    :rtype ret: scalar
 

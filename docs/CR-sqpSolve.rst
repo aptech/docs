@@ -20,11 +20,11 @@ Format
 
     :return x: of parameters at minimum.
 
-    :type x: Kx1 vector
+    :rtype x: Kx1 vector
 
     :return f: function evaluated at *x*.
 
-    :type f: scalar
+    :rtype f: scalar
 
     :return lagr: created using :func:`vput`. Contains the Lagrangean
         for the constraints. They may be extracted with the :func:`vread` command using the following strings:
@@ -39,7 +39,7 @@ Format
 
         Whenever a constraint is active, its associated Lagrangean will be nonzero.
 
-    :type lagr: vector
+    :rtype lagr: vector
 
     :return retcode: return code:
 
@@ -54,7 +54,7 @@ Format
         7  error with constraints
         == ====================================
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 .. DANGER:: check equations
 

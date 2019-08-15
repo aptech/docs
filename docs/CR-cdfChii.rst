@@ -18,7 +18,7 @@ Format
 
     :return c: abscissae values for chi-squared distribution.
 
-    :type c: matrix, max(M,L) by max(N,K) matrix
+    :rtype c: matrix, max(M,L) by max(N,K) matrix
 
 Examples
 ----------------

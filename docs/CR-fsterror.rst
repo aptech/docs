@@ -13,7 +13,7 @@ Format
 
     :return s: error message.
 
-    :type s: string
+    :rtype s: string
 
 Remarks
 -------

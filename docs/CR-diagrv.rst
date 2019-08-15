@@ -18,7 +18,7 @@ Format
 
     :return y: equal to *x* with its principal diagonal elements equal to those of *v*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

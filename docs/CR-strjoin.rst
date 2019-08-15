@@ -31,7 +31,7 @@ Format
 
     :return y: result.
 
-    :type y: Nx1 string vector
+    :rtype y: Nx1 string vector
 
 Examples
 ----------------

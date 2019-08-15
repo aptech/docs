@@ -26,15 +26,15 @@ Format
 
     :return b: the breakpoints used for each category.
 
-    :type b: Px1 vector
+    :rtype b: Px1 vector
 
     :return m: the midpoints of each category.
 
-    :type m: Px1 vector
+    :rtype m: Px1 vector
 
     :return freq: computed frequency counts.
 
-    :type freq: Px1 vector
+    :rtype freq: Px1 vector
 
 Remarks
 -------

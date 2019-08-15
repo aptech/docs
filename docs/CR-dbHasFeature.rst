@@ -35,7 +35,7 @@ Format
     :return ret: 1 if the database supports the specified
         feature, or 0 if not.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Examples
 ----------------

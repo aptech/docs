@@ -26,11 +26,11 @@ Format
 
     :return name: the names of the selected columns.
 
-    :type name: Nx1 string array
+    :rtype name: Nx1 string array
 
     :return indx: the indices of the selected columns.
 
-    :type indx: Nx1 vector
+    :rtype indx: Nx1 vector
 
 Examples
 ----------------

@@ -24,7 +24,7 @@ Format
 
         .. math:: y =( c[1,.].*xp + c[2,.].*x(p-1) + ... + c[p+1,.] )';
 
-    :type y: vector or matrix
+    :rtype y: vector or matrix
 
 .. DANGER:: fix equations
 

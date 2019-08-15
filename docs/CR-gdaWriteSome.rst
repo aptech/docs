@@ -42,7 +42,7 @@ Format
             "19", "Data must be real."
             "20", "Data must be complex."
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

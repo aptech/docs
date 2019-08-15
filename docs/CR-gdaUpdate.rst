@@ -34,7 +34,7 @@ Format
             "10", "File contains no variables."
             "14", "File too large to be read on current platform."
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

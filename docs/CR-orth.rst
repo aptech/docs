@@ -17,7 +17,7 @@ Format
     :return y: such that :math:`y'y = eye(L)` and whose
         columns span the same space as the columns of *x*; *L* is the rank of *x*.
 
-    :type y: NxL matrix
+    :rtype y: NxL matrix
 
 Global Input
 ------------

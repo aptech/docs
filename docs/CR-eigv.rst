@@ -16,11 +16,11 @@ Format
 
     :return va: the eigenvalues of *x*.
 
-    :type va: Nx1 vector or KxNx1 array
+    :rtype va: Nx1 vector or KxNx1 array
 
     :return ve: the eigenvectors of *x*.
 
-    :type ve: NxN matrix or KxNxN array
+    :rtype ve: NxN matrix or KxNxN array
 
 Remarks
 -------

@@ -20,7 +20,7 @@ Format
         replaced with zeros. :func:`upmat` returns the main diagonal intact. :func:`upmat1`
         replaces the main diagonal with ones.
 
-    :type u: NxK matrix
+    :rtype u: NxK matrix
 
 Examples
 ----------------

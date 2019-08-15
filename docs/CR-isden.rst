@@ -16,7 +16,7 @@ Format
 
     :return x_isden: 1 if *x* contains a denormal, 0 if it does not.
 
-    :type x_isden: scalar
+    :rtype x_isden: scalar
 
 Examples
 ----------------

@@ -19,7 +19,7 @@ Format
 
     :return sm: .- The data contained in the variables in *varname*.
 
-    :type sm: sparse matrix
+    :rtype sm: sparse matrix
 
 Remarks
 -------

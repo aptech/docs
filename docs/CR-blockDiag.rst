@@ -16,7 +16,7 @@ Format
 
     :return d: Diagonal matrix constructed from the input matrices.
 
-    :type d: matrix
+    :rtype d: matrix
 
 Remarks
 ----------------

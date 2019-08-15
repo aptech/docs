@@ -15,7 +15,7 @@ Format
 
     :return p_time: date/times in POSIX format.
 
-    :type p_time: NxK matrix
+    :rtype p_time: NxK matrix
 
 Examples
 ----------------

@@ -12,7 +12,7 @@ Format
 
     :return y: the value of :math:`π`.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Examples
 ----------------

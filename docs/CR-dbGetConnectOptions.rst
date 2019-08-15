@@ -16,7 +16,7 @@ Format
 
     :return options: Contains the connection options for the specified database connection.
 
-    :type options: string
+    :rtype options: string
 
 Remarks
 -------

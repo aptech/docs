@@ -12,7 +12,7 @@ Format
 
     :return myAnnotation: An instance of a :class:`plotAnnotation` structure with all members set to defaults.
 
-    :type myAnnotation: struct
+    :rtype myAnnotation: struct
 
 Remarks
 -------

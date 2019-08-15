@@ -35,7 +35,7 @@ Format
             "-1", "dataset couldn't be created."
             "-n", "the (n-1)th write to the dataset failed."
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

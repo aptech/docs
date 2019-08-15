@@ -19,7 +19,7 @@ Format
 
     :return y: The subarray of interest located in the *loc* of *a*.
 
-    :type y: [N-M]-dimensional array or scalar
+    :rtype y: [N-M]-dimensional array or scalar
 
 Remarks
 -------

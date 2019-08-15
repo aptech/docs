@@ -30,7 +30,7 @@ Format
             "1", "Numeric"
             "2", "Date"
 
-    :type types: 1xK vector
+    :rtype types: 1xK vector
 
 Portability
 -----------

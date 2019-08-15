@@ -18,7 +18,7 @@ Format
         
         .. math:: p(z)=c[1]*zn + c[2]*z(n-1) + ... c[n]*z + c[n+1]
 
-    :type c: (N+1)x1 vector
+    :rtype c: (N+1)x1 vector
 
 Remarks
 -------

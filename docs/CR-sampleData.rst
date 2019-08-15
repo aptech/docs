@@ -22,7 +22,7 @@ Format
 
     :return s: containing the sample taken from *x*.
 
-    :type s: size x cols(x) matrix
+    :rtype s: size x cols(x) matrix
 
 Remarks
 -------

@@ -18,7 +18,7 @@ Format
 
     :return x: KxM matrix.
 
-    :type x: matrix
+    :rtype x: matrix
 
 Remarks
 -------

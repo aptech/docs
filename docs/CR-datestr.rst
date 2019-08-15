@@ -16,7 +16,7 @@ Format
 
     :return str: 8 character string containing current date in the form: ``mo/dy/yr``
 
-    :type str: string
+    :rtype str: string
 
 Examples
 ----------------

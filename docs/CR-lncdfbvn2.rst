@@ -29,7 +29,7 @@ Format
     :return y: the log of the integral from h, k to  h+dh, k+dk
         of the standardized bivariate Normal distribution.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 -------

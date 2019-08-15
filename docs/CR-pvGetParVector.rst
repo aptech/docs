@@ -16,7 +16,7 @@ Format
 
     :return p: parameter vector.
 
-    :type p: Kx1 vector
+    :rtype p: Kx1 vector
 
 Remarks
 -------

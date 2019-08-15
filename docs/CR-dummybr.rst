@@ -19,7 +19,7 @@ Format
 
     :return y: containing the :math:`K` dummy variables. Each row will have a maximum of one 1.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

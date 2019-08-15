@@ -27,7 +27,7 @@ Format
             "6", "Friday"
             "7", "Saturday"
 
-    :type d: Nx1 vector
+    :rtype d: Nx1 vector
 
 Remarks
 -------

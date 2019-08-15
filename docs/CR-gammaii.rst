@@ -19,7 +19,7 @@ Format
 
     :return g_ii: the inverse incomplete gamma function evaluate at *p*.
 
-    :type g_ii: max(M,K) by max(N,L) matrix
+    :rtype g_ii: max(M,K) by max(N,L) matrix
 
 Examples
 ----------------

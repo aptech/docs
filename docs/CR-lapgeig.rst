@@ -19,11 +19,11 @@ Format
 
     :return va1: numerator of eigenvalues.
 
-    :type va1: Nx1 vector
+    :rtype va1: Nx1 vector
 
     :return va2: denominator of eigenvalues.
 
-    :type va2: Nx1 vector
+    :rtype va2: Nx1 vector
 
 Remarks
 -------

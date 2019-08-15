@@ -16,7 +16,7 @@ Format
 
     :return x: 
 
-    :type x: NxK complex matrix
+    :rtype x: NxK complex matrix
 
 Remarks
 -------

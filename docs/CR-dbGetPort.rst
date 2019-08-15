@@ -16,7 +16,7 @@ Format
 
     :return db_port: the port number of the specified database connection.
 
-    :type db_port: scalar
+    :rtype db_port: scalar
 
 Remarks
 -------

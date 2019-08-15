@@ -34,11 +34,11 @@ Format
 
     :return r: multivariate normal random numbers.
 
-    :type r: numxN matrix
+    :rtype r: numxN matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

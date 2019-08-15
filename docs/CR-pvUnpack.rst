@@ -19,7 +19,7 @@ Format
 
     :return x: MxN general matrix or MxM symmetric matrix or N-dimensional array
 
-    :type x: matrix or array
+    :rtype x: matrix or array
 
 Source
 ------

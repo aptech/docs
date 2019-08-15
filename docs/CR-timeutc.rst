@@ -13,7 +13,7 @@ Format
 
     :return tc: number of seconds since January 1, 1970 Greenwich Mean Time.
 
-    :type tc: scalar
+    :rtype tc: scalar
 
 Examples
 ----------------

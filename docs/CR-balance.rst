@@ -15,11 +15,11 @@ Format
 
     :return b: balanced matrix
 
-    :type b: KxK matrix or N-dimensional array where the last two dimensions are KxK
+    :rtype b: KxK matrix or N-dimensional array where the last two dimensions are KxK
 
     :return z: diagonal scale matrix
 
-    :type z: KxK matrix or N-dimensional array where the last two dimensions are KxK
+    :rtype z: KxK matrix or N-dimensional array where the last two dimensions are KxK
 
 Remarks
 ---------------------

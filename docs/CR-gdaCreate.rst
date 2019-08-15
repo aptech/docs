@@ -34,7 +34,7 @@ Format
             "6", "File already exists."
             "7", "Cannot create file."
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

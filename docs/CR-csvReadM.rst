@@ -38,7 +38,7 @@ Format
 
     :return mat: data read from the CSV file.
 
-    :type mat: matrix
+    :rtype mat: matrix
 
 Remarks
 ------------

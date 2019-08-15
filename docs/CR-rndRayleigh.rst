@@ -34,11 +34,11 @@ Format
 
     :return x: rayleigh distributed random numbers.
 
-    :type x: RxC matrix
+    :rtype x: RxC matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Examples
 ----------------

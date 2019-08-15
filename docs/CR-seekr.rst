@@ -18,7 +18,7 @@ Format
 
     :return y: the row number to which the pointer has been moved.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

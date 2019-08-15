@@ -20,7 +20,7 @@ Format
 
     :return K: the modified Bessel function result.
 
-    :type K: scalar or matrix
+    :rtype K: scalar or matrix
 
 Remarks
 -------

@@ -40,7 +40,7 @@ Format
 
     :return n: the requested norm of *A*.
 
-    :type n: Scalar
+    :rtype n: Scalar
 
 Examples
 ----------------

@@ -20,7 +20,7 @@ Format
 
     :return y: equal to *x* and sorted on the column *c*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Examples
 ----------------

@@ -17,7 +17,7 @@ Format
 
     :return f_cplx: the Gaussian error function (:func:`erfcplx`) or the complement of the Gaussian error function (:func:`erfccplx`).
 
-    :type f_cplx: NxK complex matrix
+    :rtype f_cplx: NxK complex matrix
 
 Examples
 ----------------

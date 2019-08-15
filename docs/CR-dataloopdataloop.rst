@@ -15,7 +15,7 @@ Format
 
     :return outfile: the name of the output data set.
 
-    :type outfile: string variable or literal
+    :rtype outfile: string variable or literal
 
 Remarks
 -------

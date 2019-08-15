@@ -16,7 +16,7 @@ Format
     :return s: where :math:`M = min(N,P)`, containing the
         singular values of *x* arranged in descending order.
 
-    :type s: Mx1 vector
+    :rtype s: Mx1 vector
 
 Global Input
 ------------

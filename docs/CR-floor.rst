@@ -16,7 +16,7 @@ Format
 
     :return x_floor: Contains the elements of *x* rounded down to the nearest integer.
 
-    :type x_floor: NxK matrix or N-dimensional array
+    :rtype x_floor: NxK matrix or N-dimensional array
 
 Examples
 ----------------

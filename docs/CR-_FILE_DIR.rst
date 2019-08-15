@@ -13,7 +13,7 @@ Format
 
     :return path: containing the full path to the file which contains the usage of __FILE_DIR.
 
-    :type path: string
+    :rtype path: string
 
 Remarks
 -------

@@ -16,7 +16,7 @@ Format
 
     :return n: length of parameter vector in *p1*.
 
-    :type n: scalar
+    :rtype n: scalar
 
 Source
 ------

@@ -21,7 +21,7 @@ Format
 
     :return y: of *x*, *y* may be larger than *x*.
 
-    :type y: (L*M)x(P*Q) submatrix
+    :rtype y: (L*M)x(P*Q) submatrix
 
 Remarks
 -------

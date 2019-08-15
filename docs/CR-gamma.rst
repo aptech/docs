@@ -16,7 +16,7 @@ Format
 
     :return g: the value of the gamma function evaluated at *x*.
 
-    :type g: NxK matrix or N-dimensional array
+    :rtype g: NxK matrix or N-dimensional array
 
 Remarks
 -------

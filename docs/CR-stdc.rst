@@ -15,7 +15,7 @@ Format
 
     :return y: the standard deviation of each column of *x*.
 
-    :type y: Kx1 vector
+    :rtype y: Kx1 vector
 
 .. DANGER:: fix equations
 

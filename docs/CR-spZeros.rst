@@ -18,7 +18,7 @@ Format
 
     :return y: 
 
-    :type y: RxC sparse matrix
+    :rtype y: RxC sparse matrix
 
 Remarks
 -------

@@ -15,7 +15,7 @@ Format
 
     :return y: the floating point equivalents of the ASCII numbers in *x*.
 
-    :type y: matrix
+    :rtype y: matrix
 
 Remarks
 -------

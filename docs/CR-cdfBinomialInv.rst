@@ -21,7 +21,7 @@ Format
 
     :return s: The number of successes.
 
-    :type s: NxK matrix, Nx1 vector or scalar
+    :rtype s: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -----------

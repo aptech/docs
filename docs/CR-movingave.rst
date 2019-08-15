@@ -19,7 +19,7 @@ Format
 
     :return y: filtered series. The first :math:`d-1` rows of *x* are set to missing values.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

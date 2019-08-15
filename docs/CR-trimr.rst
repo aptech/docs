@@ -21,7 +21,7 @@ Format
 
     :return y: where :math:`R=N-(t + b)`, containing the rows left after the trim.
 
-    :type y: RxK matrix
+    :rtype y: RxK matrix
 
 .. DANGER:: verify equation.
 

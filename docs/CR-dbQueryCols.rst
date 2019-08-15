@@ -16,5 +16,5 @@ Format
 
     :return num_fields: number of fields.
 
-    :type num_fields: scalar
+    :rtype num_fields: scalar
 

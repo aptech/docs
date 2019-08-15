@@ -23,7 +23,7 @@ Format
     :return x_cv: contains the decimal character
         equivalent of the corresponding elements in *x* in the format defined by *field* and *prec*.
 
-    :type x_cv: NxK character matrix
+    :rtype x_cv: NxK character matrix
 
 Remarks
 -------

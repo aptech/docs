@@ -32,11 +32,11 @@ Format
 
     :return p: :math:`Pr(X ≥ x|corr, nonc)`. The probability in the upper tail of the multivariate normal cumulative distribution function for each corresponding set of limits in *x*.
 
-    :type p: Nx1 vector
+    :rtype p: Nx1 vector
 
     :return err: estimates of absolute error.
 
-    :type err: Nx1 vector
+    :rtype err: Nx1 vector
 
     :return retcode: return codes.
 
@@ -49,7 +49,7 @@ Format
             "3", "*R* not positive semi-definite."
             "missing", "*R* not properly defined."
 
-    :type retcode: Nx1 vector
+    :rtype retcode: Nx1 vector
 
 Remarks
 ------------

@@ -42,7 +42,7 @@ Format
 
     :return SLprob: probability of *SL*.
 
-    :type SLprob: scalar
+    :rtype SLprob: scalar
 
 Remarks
 -------

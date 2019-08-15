@@ -22,7 +22,7 @@ Format
 
     :return y: 
 
-    :type y: NxK matrix, Nx1 vector or scalar
+    :rtype y: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

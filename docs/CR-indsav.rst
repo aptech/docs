@@ -19,7 +19,7 @@ Format
 
     :return indx: the values of *what* in *where*.
 
-    :type indx: Nx1 vector of indices
+    :rtype indx: Nx1 vector of indices
 
 Examples
 ----------------

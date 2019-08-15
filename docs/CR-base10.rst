@@ -16,13 +16,13 @@ Format
 
     :return M: in the range -10 < *M* < 10.
 
-    :type M: scalar
+    :rtype M: scalar
 
     :return P: integer power such that:
 
     .. math:: M*10^P = x
 
-    :type P: scalar
+    :rtype P: scalar
 
 Examples
 ----------------

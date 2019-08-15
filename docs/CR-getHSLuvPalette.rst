@@ -24,7 +24,7 @@ Format
 
     :return clrs: contains the newly created color palette.
 
-    :type clrs: ncolorsx1 string array
+    :rtype clrs: ncolorsx1 string array
 
 Examples
 ----------------

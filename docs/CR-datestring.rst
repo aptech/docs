@@ -16,7 +16,7 @@ Format
     :return str: 10 character string containing current date in
         the form: ``mm/dd/yyyy``
 
-    :type str: string
+    :rtype str: string
 
 Examples
 ----------------

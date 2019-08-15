@@ -30,7 +30,7 @@ Format
 
     :return x_full: the input matrix with the missing values from each column filled in by the specified imputation method.
 
-    :type x_full: matrix
+    :rtype x_full: matrix
 
 Examples
 ----------------

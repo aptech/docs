@@ -19,7 +19,7 @@ Format
         type :class:`PV`, else if 1, an improper or unitialized structure
         of type :class:`PV`.
 
-    :type i: scalar
+    :rtype i: scalar
 
 Source
 ------

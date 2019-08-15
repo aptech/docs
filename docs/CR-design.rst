@@ -20,7 +20,7 @@ Format
         will contain a single 1, and the rest 0's. The
         one in the ith row will be in the :code:`round(x[i, 1])` column. The dimension *K* is such that :code:`K = maxc(x)`.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

@@ -19,7 +19,7 @@ Format
 
     :return p: Each element in *p* is the complement of the chi-squared cdf value evaluated at the corresponding element in *x*.
 
-    :type p: matrix, max(N,L) by max(K,M)
+    :rtype p: matrix, max(N,L) by max(K,M)
 
 Remarks
 -------

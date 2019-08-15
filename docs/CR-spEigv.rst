@@ -31,11 +31,11 @@ Format
 
     :return va: containing the computed eigenvalues of input matrix *a*.
 
-    :type va: nevx1 dense vector
+    :rtype va: nevx1 dense vector
 
     :return ve: containing the corresponding eigenvectors of input matrix *a*.
 
-    :type ve: Nx nev dense matrix
+    :rtype ve: Nx nev dense matrix
 
 Remarks
 -------

@@ -17,7 +17,7 @@ Format
 
     :return nvec: containing the variable names defined in the data set.
 
-    :type nvec: Nx1 character vector
+    :rtype nvec: Nx1 character vector
 
 Remarks
 -------

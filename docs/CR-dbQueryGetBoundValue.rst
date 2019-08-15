@@ -19,7 +19,7 @@ Format
 
     :return val: bound value if previously set.
 
-    :type val: string
+    :rtype val: string
 
 Examples
 ----------------

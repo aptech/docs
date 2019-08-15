@@ -19,7 +19,7 @@ Format
 
     :return ind: index of variable in the GDA.
 
-    :type ind: scalar
+    :rtype ind: scalar
 
 Remarks
 -------

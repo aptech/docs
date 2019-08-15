@@ -24,7 +24,7 @@ Format
 
     :return y: a copy of *x* containing the specified insertions.
 
-    :type y: MxN sparse matrix
+    :rtype y: MxN sparse matrix
 
 Remarks
 -------

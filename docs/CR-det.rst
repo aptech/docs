@@ -16,7 +16,7 @@ Format
 
     :return d: the determinant(s) of *x*.
 
-    :type d: scalar or 1-dimensional array
+    :rtype d: scalar or 1-dimensional array
 
 Remarks
 -------

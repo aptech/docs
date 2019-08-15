@@ -15,7 +15,7 @@ Format
 
     :return y: where the last two dimensions are :math:`Kx1`.
 
-    :type y: Kx1 vector or L-dimensional array
+    :rtype y: Kx1 vector or L-dimensional array
 
 Examples
 ----------------

@@ -26,7 +26,7 @@ Format
         rank, then the coefficients that cannot be
         estimated will be zero.
 
-    :type b: Px1 vector
+    :rtype b: Px1 vector
 
 Remarks
 -------

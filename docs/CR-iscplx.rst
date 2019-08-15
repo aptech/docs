@@ -16,7 +16,7 @@ Format
 
     :return x_iscplx: 1 if *x* is complex, 0 if it is real.
 
-    :type x_iscplx: scalar
+    :rtype x_iscplx: scalar
 
 Examples
 ----------------

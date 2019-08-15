@@ -14,7 +14,7 @@ Format
     :return c: instance of :class:`gmmFitControl` struct with
         members set to default values.
 
-    :type c: struct
+    :rtype c: struct
 
 Examples
 ----------------

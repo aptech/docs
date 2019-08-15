@@ -18,7 +18,7 @@ Format
 
     :return x: each value of *x* is the smallest integer such that the Poisson cumulative distribution function is equal to or exceeds the corresponding value of *p*.
 
-    :type x: NxK matrix, Nx1 vector or scalar
+    :rtype x: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

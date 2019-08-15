@@ -18,7 +18,7 @@ Format
 
     :return i: index of corresponding element in N-dimensional array.
 
-    :type i: Nx1 vector of indices
+    :rtype i: Nx1 vector of indices
 
 Remarks
 -------

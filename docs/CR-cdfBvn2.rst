@@ -29,7 +29,7 @@ Format
     :return p: the integral over the rectangle bounded by *h*, *h* + *dh*,
         *k*, and *k* + *dk* of the standardized bivariate Normal distribution.
 
-    :type p: Nx1 vector
+    :rtype p: Nx1 vector
 
 Remarks
 -------

@@ -19,7 +19,7 @@ Format
 
     :return y: array where the last two dimensions are max(N, L) by max(K, M) 
 
-    :type y: max(N,L) by max(K,M) matrix or P-dimensional array
+    :rtype y: max(N,L) by max(K,M) matrix or P-dimensional array
 
 Examples
 ----------------

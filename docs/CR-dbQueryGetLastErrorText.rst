@@ -13,7 +13,7 @@ Format
 
     :return err_txt: database and driver text of last error.
 
-    :type err_txt: 2x1 string array
+    :rtype err_txt: 2x1 string array
 
 Remarks
 -------

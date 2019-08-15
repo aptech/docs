@@ -42,7 +42,7 @@ Format
             "6", "illegal append value"
             "16", "(1) append specified but file did not exist; file was created (warning only)"
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

@@ -19,7 +19,7 @@ Format
 
     :return str_contents: contains the file contents.
 
-    :type str_contents: string
+    :rtype str_contents: string
 
 Remarks
 -------

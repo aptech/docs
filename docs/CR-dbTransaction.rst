@@ -16,7 +16,7 @@ Format
 
     :return ret: 1 to indicate success and a 0 if the transaction fails.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Examples
 ----------------

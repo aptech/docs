@@ -16,11 +16,11 @@ Format
 
     :return L: lower triangular matrix, containing the factor *L*.
 
-    :type L: NxN permuted
+    :rtype L: NxN permuted
 
     :return D: containing the factor *D*.
 
-    :type D: NxN block diagonal matrix
+    :rtype D: NxN block diagonal matrix
 
 Remarks
 -------

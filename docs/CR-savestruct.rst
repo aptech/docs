@@ -18,7 +18,7 @@ Format
 
     :return retcode: 0 if successful, otherwise it will be non-zero.
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

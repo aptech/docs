@@ -15,7 +15,7 @@ Format
 
     :return cv: containing the names of the elements of *dbuf*.
 
-    :type cv: Kx1 character vector
+    :rtype cv: Kx1 character vector
 
 .. seealso:: Functions :func:`vget`, :func:`vput`, :func:`vread`, :func:`vtypecv`
 

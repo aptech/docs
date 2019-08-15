@@ -33,35 +33,35 @@ Format
 
     :return vnam: the names of the variables used in the statistics.
 
-    :type vnam: Kx1 character vector
+    :rtype vnam: Kx1 character vector
 
     :return mean: means.
 
-    :type mean: Kx1 vector
+    :rtype mean: Kx1 vector
 
     :return var: variance.
 
-    :type var: Kx1 vector
+    :rtype var: Kx1 vector
 
     :return std: standard deviation.
 
-    :type std: Kx1 vector
+    :rtype std: Kx1 vector
 
     :return min: minima.
 
-    :type min: Kx1 vector
+    :rtype min: Kx1 vector
 
     :return max: maxima.
 
-    :type max: Kx1 vector
+    :rtype max: Kx1 vector
 
     :return valid: the number of valid cases.
 
-    :type valid: Kx1 vector
+    :rtype valid: Kx1 vector
 
     :return mis: the number of missing cases.
 
-    :type mis: Kx1 vector
+    :rtype mis: Kx1 vector
 
 Global Input
 ------------

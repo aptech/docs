@@ -22,7 +22,7 @@ Format
 
     :return dbufnew: the data buffer after *x* and *xname* have been inserted.
 
-    :type dbufnew: Kx1 vector
+    :rtype dbufnew: Kx1 vector
 
 Remarks
 -------

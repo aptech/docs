@@ -16,7 +16,7 @@ Format
 
     :return ret: 1 if the query is a ``SELECT`` statement or 0 otherwise.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Examples
 ----------------

@@ -22,7 +22,7 @@ Format
 
     :return y: contains the *K* dummy variables.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

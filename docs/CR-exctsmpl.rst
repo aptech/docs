@@ -35,7 +35,7 @@ Format
             "", "-2", "can't open output file"
             "", "-3", "disk full"
 
-    :type n_rows: scalar
+    :rtype n_rows: scalar
 
 Remarks
 -------

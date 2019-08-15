@@ -19,7 +19,7 @@ Format
 
     :return y: Matrix of all possible combinations, where :math:`M` is the number of combinations of *N* things taken *K* at a time.
 
-    :type y: MxK matrix
+    :rtype y: MxK matrix
 
 Remarks
 -------

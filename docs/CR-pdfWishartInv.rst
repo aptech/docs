@@ -25,7 +25,7 @@ Format
 
     :return y: probability density function.
 
-    :type y: Scalar
+    :rtype y: Scalar
 
 Remarks
 -------

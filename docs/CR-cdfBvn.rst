@@ -22,7 +22,7 @@ Format
     :return p: the result of the double integral
         from :math:`-∞` to h and :math:`-∞` to *k* of the standardized bivariate Normal density :math:`f(x, y, r)`.
 
-    :type p: matrix), max(N,L,P) by max(K,M,Q) matrix
+    :rtype p: matrix), max(N,L,P) by max(K,M,Q) matrix
 
 Remarks
 -------

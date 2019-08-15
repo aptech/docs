@@ -19,7 +19,7 @@ Format
 
     :return field_names: containing the column names for the specified table or view.
 
-    :type field_names: string array
+    :rtype field_names: string array
 
 Remarks
 -------

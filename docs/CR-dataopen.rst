@@ -27,7 +27,7 @@ Format
 
     :return fh: file handle.
 
-    :type fh: scalar
+    :rtype fh: scalar
 
 Remarks
 -------

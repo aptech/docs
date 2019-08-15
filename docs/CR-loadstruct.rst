@@ -19,11 +19,11 @@ Format
 
     :return instance: instance of the struct.
 
-    :type instance: struct
+    :rtype instance: struct
 
     :return retcode: 0 if successful, otherwise 1.
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

@@ -23,7 +23,7 @@ Format
 
     :return y: containing the specified sequence.
 
-    :type y: nx1 vector
+    :rtype y: nx1 vector
 
 Remarks
 -------

@@ -22,7 +22,7 @@ Format
 
     :return dt: DT scalar format times.
 
-    :type dt: NxK matrix
+    :rtype dt: NxK matrix
 
 Remarks
 -------

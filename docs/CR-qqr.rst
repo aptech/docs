@@ -17,11 +17,11 @@ Format
 
     :return q1: :math:`K = min(N,P)`.
 
-    :type q1: NxK unitary matrix
+    :rtype q1: NxK unitary matrix
 
     :return r: 
 
-    :type r: KxP upper triangular matrix
+    :rtype r: KxP upper triangular matrix
 
 Remarks
 -------

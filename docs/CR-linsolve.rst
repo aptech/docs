@@ -21,7 +21,7 @@ Format
 
     :return x: the linear solution of :math:`b/A` for each column in *b*.
 
-    :type x: NxK matrix
+    :rtype x: NxK matrix
 
 Remarks
 -------

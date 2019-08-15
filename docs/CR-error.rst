@@ -19,7 +19,7 @@ Format
     :return y: error code which can be interpreted as
         an integer with the :func:`scalerr` function.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

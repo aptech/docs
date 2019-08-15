@@ -27,7 +27,7 @@ Format
             "*vtab[i].type*", "scalar, type of variable."
             "*vtab[i].orders*", "Mx1 vector or scalar, orders of the variable."
 
-    :type vtab: Nx1 array
+    :rtype vtab: Nx1 array
 
 Remarks
 -------

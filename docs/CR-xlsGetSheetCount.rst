@@ -16,7 +16,7 @@ Format
 
     :return nsheets: sheet count or an error code.
 
-    :type nsheets: scalar
+    :rtype nsheets: scalar
 
 Portability
 -----------

@@ -22,7 +22,7 @@ Format
     :return nr: number of rows :func:`readr` should read per iteration
         of the read loop.
 
-    :type nr: scalar
+    :rtype nr: scalar
 
 Remarks
 -------

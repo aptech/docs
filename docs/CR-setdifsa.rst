@@ -18,7 +18,7 @@ Format
 
     :return sy: Lx1 vector containing all unique values that are in *sv1* and are not in *sv2*, sorted in ascending order.
 
-    :type sy: vector
+    :rtype sy: vector
 
 Remarks
 -------

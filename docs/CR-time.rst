@@ -14,7 +14,7 @@ Format
     :return y: the current time in the
         order: hours, minutes, seconds, and hundredths of a second.
 
-    :type y: 4x1 numeric vector
+    :rtype y: 4x1 numeric vector
 
 Examples
 ----------------

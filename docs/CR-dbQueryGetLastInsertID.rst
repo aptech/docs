@@ -16,7 +16,7 @@ Format
 
     :return last_insert: object id
 
-    :type last_insert: scalar
+    :rtype last_insert: scalar
 
 Remarks
 -------

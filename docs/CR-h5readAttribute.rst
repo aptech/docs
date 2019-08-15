@@ -21,7 +21,7 @@ Format
 
     :return attr_read: entire contents of the HDF5 dataset attribute.
 
-    :type attr_read: matrix, array or string array
+    :rtype attr_read: matrix, array or string array
 
 Remarks
 -------

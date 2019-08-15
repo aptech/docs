@@ -16,7 +16,7 @@ Format
 
     :return next_day: next trading day in DT scalar format.
 
-    :type next_day: scalar
+    :rtype next_day: scalar
 
 Examples
 ----------------

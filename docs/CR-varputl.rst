@@ -18,7 +18,7 @@ Format
 
     :return y: 1 if the operation is successful and 0 if the operation fails.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

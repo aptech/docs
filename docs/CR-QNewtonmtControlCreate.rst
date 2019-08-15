@@ -12,7 +12,7 @@ Format
 
     :return c: instance of :class:`QNewtonmtControl` struct with members set to default values.
 
-    :type c: struct
+    :rtype c: struct
 
 Source
 ------

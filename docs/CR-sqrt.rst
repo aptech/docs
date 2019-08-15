@@ -15,7 +15,7 @@ Format
 
     :return y: the square roots of each element of *x*.
 
-    :type y: NxK matrix or N-dimensional array
+    :rtype y: NxK matrix or N-dimensional array
 
 Remarks
 -------

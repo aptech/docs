@@ -18,7 +18,7 @@ Format
 
     :return z: max(N,L) by max(K,M) matrix or P-dimensional array where the last two dimensions are max(N,L) by max(K,M).
 
-    :type z: matrix
+    :rtype z: matrix
 
 Remarks
 -------

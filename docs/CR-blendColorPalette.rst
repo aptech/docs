@@ -18,7 +18,7 @@ Format
 
     :return color_blend: containing color palette.
 
-    :type color_blend: n_colorsx1 string array
+    :rtype color_blend: n_colorsx1 string array
 
 Format
 ----------------

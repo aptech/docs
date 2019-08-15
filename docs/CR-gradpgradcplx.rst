@@ -33,7 +33,7 @@ Format
     :return g: containing the gradients of *fct* with
         respect to the variable *x* at *x0*.
 
-    :type g: NxK matrix
+    :rtype g: NxK matrix
 
 Remarks
 -------

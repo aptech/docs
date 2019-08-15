@@ -30,7 +30,7 @@ Format
             "-3", "not enough memory"
             "-4", "command line too long"
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Examples
 ----------------

@@ -16,7 +16,7 @@ Format
 
     :return r: containing the roots of the determinantal equation.
 
-    :type r: K*N vector
+    :rtype r: K*N vector
 
 Remarks
 -------

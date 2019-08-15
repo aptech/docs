@@ -18,11 +18,11 @@ Format
 
     :return r: :math:`K = min(N,P)`.
 
-    :type r: KxP upper triangular matrix
+    :rtype r: KxP upper triangular matrix
 
     :return e: permutation vector
 
-    :type e: Px1 vector
+    :rtype e: Px1 vector
 
 Remarks
 -------

@@ -13,7 +13,7 @@ Format
 
     :return y: maximum vector length.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Global Input
 ------------

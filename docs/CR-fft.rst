@@ -16,7 +16,7 @@ Format
 
     :return y: where *L* and *M* are the smallest powers of 2 greater than or equal to *N* and *K*, respectively.
 
-    :type y: LxM matrix
+    :rtype y: LxM matrix
 
 Examples
 ----------------

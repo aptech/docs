@@ -13,7 +13,7 @@ Format
 
     :return drivers: list of available database drivers.
 
-    :type drivers: Nx1 string array
+    :rtype drivers: Nx1 string array
 
 Examples
 ----------------

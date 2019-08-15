@@ -21,7 +21,7 @@ Format
 
     :return y: containing the standard Normal probability density function of *x*.
 
-    :type y: NxK matrix or N-dimensional array
+    :rtype y: NxK matrix or N-dimensional array
 
 Remarks
 -------

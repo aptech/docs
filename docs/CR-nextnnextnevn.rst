@@ -18,7 +18,7 @@ Format
     :return n: the next allowable size for the given dimension
         for computing an FFT or RFFT. :math:`n > n0`.
 
-    :type n: scalar
+    :rtype n: scalar
 
 Remarks
 -------

@@ -29,7 +29,7 @@ Format
     :return fpath: the path of  fname, or
         null string if  fname is not found.
 
-    :type fpath: string
+    :rtype fpath: string
 
 Remarks
 -------

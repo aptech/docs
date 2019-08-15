@@ -19,7 +19,7 @@ Format
 
     :return numl: the number of lines written to the file.
 
-    :type numl: scalar
+    :rtype numl: scalar
 
 Remarks
 -------

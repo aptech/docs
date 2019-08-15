@@ -26,7 +26,7 @@ Format
             "23", "structure pointer"
             "23", "sparse matrix"
 
-    :type t: scalar
+    :rtype t: scalar
 
 Examples
 ----------------

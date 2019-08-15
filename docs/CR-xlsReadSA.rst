@@ -26,7 +26,7 @@ Format
 
     :return s: string array or a scalar error code.
 
-    :type s: string
+    :rtype s: string
 
 Portability
 ------------

@@ -16,15 +16,15 @@ Format
 
     :return u: left singular vectors.
 
-    :type u: MxM matrix
+    :rtype u: MxM matrix
 
     :return s: singular values.
 
-    :type s: MxN matrix
+    :rtype s: MxN matrix
 
     :return v: right singular values.
 
-    :type v: NxN matrix
+    :rtype v: NxN matrix
 
 Remarks
 -------

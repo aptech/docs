@@ -14,7 +14,7 @@ Format
 
     :return dt: system date in DT scalar format.
 
-    :type dt: scalar
+    :rtype dt: scalar
 
 Remarks
 -------

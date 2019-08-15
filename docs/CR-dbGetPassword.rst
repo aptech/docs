@@ -16,7 +16,7 @@ Format
 
     :return db_password: Contains the password for the specified database connection or a null string.
 
-    :type db_password: string
+    :rtype db_password: string
 
 Remarks
 -------

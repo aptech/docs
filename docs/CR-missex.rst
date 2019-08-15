@@ -21,7 +21,7 @@ Format
 
     :return y: but with those elements that correspond to the 1's in *e* converted to missing.
 
-    :type y: NxK matrix that equals x
+    :rtype y: NxK matrix that equals x
 
 Remarks
 -------

@@ -15,7 +15,7 @@ Format
 
     :return x: each value of *x* is the value such that the normal cumulative distribution function is equal to the corresponding value of *p*. :code:`cdfn(x) = p`
 
-    :type x: NxK real matrix
+    :rtype x: NxK real matrix
 
 Examples
 -------

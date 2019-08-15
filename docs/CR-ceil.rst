@@ -16,7 +16,7 @@ Format
 
     :return y: Rounded values.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

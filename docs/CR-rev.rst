@@ -15,7 +15,7 @@ Format
 
     :return y: containing the reversed rows of *x*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

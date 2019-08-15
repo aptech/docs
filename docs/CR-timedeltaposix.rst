@@ -30,7 +30,7 @@ Format
 
     :return t_inc: *dt_start*, increased by *inc* units.
 
-    :type t_inc: Scalar
+    :rtype t_inc: Scalar
 
 Examples
 ----------------

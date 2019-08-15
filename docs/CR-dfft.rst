@@ -16,7 +16,7 @@ Format
 
     :return y: The discrete Fourier transform.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 -------

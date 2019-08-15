@@ -15,11 +15,11 @@ Format
         
     :return r: radius.
 
-    :type r: NxK real matrix
+    :rtype r: NxK real matrix
 
     :return theta: angle in radians.
 
-    :type theta: NxK real matrix
+    :rtype theta: NxK real matrix
 
 Source
 ------

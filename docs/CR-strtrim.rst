@@ -15,7 +15,7 @@ Format
 
     :return y: 
 
-    :type y: NxM string array
+    :rtype y: NxM string array
 
 Examples
 ----------------

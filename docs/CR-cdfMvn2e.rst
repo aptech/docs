@@ -35,11 +35,11 @@ Format
 
     :return p: Each element in *p* is the cumulative distribution function of the multivariate normal distribution for each corresponding columns in *x*. *p* will have as many elements as the inputs, *u_lim* and *l_lim*, have rows. :math:`Pr(X ≥ l\_lim \text{ and } X ≤ u\_lim|corr, nonc)`.
 
-    :type p: Nx1 vector
+    :rtype p: Nx1 vector
 
     :return err: estimates of absolute error.
 
-    :type err: Nx1 vector
+    :rtype err: Nx1 vector
 
     :return retcode: return codes.
 
@@ -52,7 +52,7 @@ Format
             "3", "*corr* not positive semi-definite."
             "missing", "*corr* not properly defined."
 
-    :type retcode: Nx1 vector
+    :rtype retcode: Nx1 vector
 
 Remarks
 ------------

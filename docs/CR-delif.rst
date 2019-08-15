@@ -23,7 +23,7 @@ Format
         which there is a 0 in the corresponding row of
         e. If no rows remain, :func:`delif` will return a scalar missing.
 
-    :type new_x: MxK matrix
+    :rtype new_x: MxK matrix
 
 Remarks
 -------

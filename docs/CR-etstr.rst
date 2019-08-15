@@ -22,7 +22,7 @@ Format
 
             "# days", "# hours", "# minutes", "#,## seconds"
 
-    :type str: string
+    :rtype str: string
 
 Examples
 ----------------

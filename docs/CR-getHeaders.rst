@@ -16,7 +16,7 @@ Format
 
     :return headers: contains the variable names in the file.
 
-    :type headers: Px1 string array
+    :rtype headers: Px1 string array
 
 Remarks
 -------

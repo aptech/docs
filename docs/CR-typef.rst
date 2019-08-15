@@ -16,7 +16,7 @@ Format
 
     :return y: type of data in GAUSS data set.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

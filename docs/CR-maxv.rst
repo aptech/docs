@@ -19,7 +19,7 @@ Format
 
     :return z: whose values are the maximum of each element from the arguments *x* and *y*.
 
-    :type z: NxK matrix
+    :rtype z: NxK matrix
 
 Remarks
 -------

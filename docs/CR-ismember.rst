@@ -19,7 +19,7 @@ Format
 
     :return mask: multi-dimensional array or string array the same size as the input *haystack*, containing only 1's and 0's. Each element of the output, *mask*, will contain a 1 if the corresponding element of haystack matches one or more elements in *needles*.
 
-    :type mask: matrix
+    :rtype mask: matrix
 
 Examples
 ----------------

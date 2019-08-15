@@ -17,7 +17,7 @@ Format
     :return l: lower triangle of the Cholesky
         decomposition of *a*.
 
-    :type l: KxN compact form matrix
+    :rtype l: KxN compact form matrix
 
 Remarks
 ----------------

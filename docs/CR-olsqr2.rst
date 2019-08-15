@@ -22,15 +22,15 @@ Format
         rank, then the coefficients that cannot be
         estimated will be zero.
 
-    :type b: Px1 vector
+    :rtype b: Px1 vector
 
     :return r: of residuals. (:math:`r = y - x*b`)
 
-    :type r: Px1 vector
+    :rtype r: Px1 vector
 
     :return p: of predicted values. (:math:`p = x*b`)
 
-    :type p: Px1 vector
+    :rtype p: Px1 vector
 
 Remarks
 -------

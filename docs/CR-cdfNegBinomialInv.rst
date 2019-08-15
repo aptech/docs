@@ -21,7 +21,7 @@ Format
 
     :return f: The number of failures that will be observed before *s* successes.
 
-    :type f: NxK matrix, Nx1 vector or scalar
+    :rtype f: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------

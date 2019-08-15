@@ -18,7 +18,7 @@ Format
 
     :return sa: 
 
-    :type sa: Nx n_cols string array
+    :rtype sa: Nx n_cols string array
 
 Remarks
 -------

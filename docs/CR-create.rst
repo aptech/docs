@@ -95,7 +95,7 @@ Format
         identifies each file. This value is assigned by GAUSS when the
         create (or open) command is executed.
 
-    :type fh: scalar
+    :rtype fh: scalar
 
 .. function:: create [[vflag]][[-w32]][[complex]] fh=filename using comfile
 
@@ -175,7 +175,7 @@ Format
         identifies each file. This value is assigned by GAUSS when the
         create (or open) command is executed.
 
-    :type fh: scalar
+    :rtype fh: scalar
 
 Remarks
 -------

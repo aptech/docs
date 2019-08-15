@@ -16,7 +16,7 @@ Format
 
     :return nvars: the number of variables in  filename.
 
-    :type nvars: scalar
+    :rtype nvars: scalar
 
 Examples
 ----------------

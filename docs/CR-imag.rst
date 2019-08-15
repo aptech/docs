@@ -16,7 +16,7 @@ Format
 
     :return zi: the imaginary part of *x*.
 
-    :type zi: NxK matrix or N-dimensional array
+    :rtype zi: NxK matrix or N-dimensional array
 
 Remarks
 -------

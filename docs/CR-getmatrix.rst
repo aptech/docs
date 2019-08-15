@@ -21,7 +21,7 @@ Format
         size of the fastest moving dimension of the array and *K* is the size
         of the second fastest moving dimension.
 
-    :type y: KxL or 1xL matrix or scalar
+    :rtype y: KxL or 1xL matrix or scalar
 
 Remarks
 -------

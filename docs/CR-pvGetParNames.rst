@@ -16,7 +16,7 @@ Format
 
     :return s: names of parameters.
 
-    :type s: Kx1 string array
+    :rtype s: Kx1 string array
 
 Remarks
 -------

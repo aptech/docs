@@ -22,7 +22,7 @@ Format
 
     :return z: log-probabilities.
 
-    :type z: Nx1 vector
+    :rtype z: Nx1 vector
 
 Source
 ------

@@ -30,7 +30,7 @@ Format
 
     :return c: call premiums.
 
-    :type c: Mx1 vector
+    :rtype c: Mx1 vector
 
 Examples
 ----------------

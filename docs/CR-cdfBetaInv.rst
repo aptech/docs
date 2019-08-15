@@ -21,7 +21,7 @@ Format
 
     :return x: Each value of `x` is the value which if passed to :func:`cdfBeta` will return the corresponding value of `p`.
 
-    :type x: NxK matrix, Nx1 vector or scalar
+    :rtype x: NxK matrix, Nx1 vector or scalar
 
 Remarks
 ----------------

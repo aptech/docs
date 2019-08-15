@@ -21,7 +21,7 @@ Format
 
     :return y: containing the recoded values of *x*.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 -------

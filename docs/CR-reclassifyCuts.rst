@@ -22,7 +22,7 @@ Format
     :return x_new: multi-dimensional array or string array with the same dimensions as the input x, containing the recoded values of
         x
 
-    :type x_new: matrix
+    :rtype x_new: matrix
 
 Examples
 ----------------

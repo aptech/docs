@@ -19,7 +19,7 @@ Format
 
     :return y: equal to *x* and sorted on row *r*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

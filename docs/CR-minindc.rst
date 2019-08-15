@@ -16,7 +16,7 @@ Format
 
     :return y: containing the index of the smallest element in each column of *x*.
 
-    :type y: Kx1 matrix
+    :rtype y: Kx1 matrix
 
 Remarks
 -------

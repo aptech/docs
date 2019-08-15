@@ -15,17 +15,17 @@ Format
 
     :return u: the left singular vectors of *x*.
 
-    :type u: NxN matrix
+    :rtype u: NxN matrix
 
     :return s: containing the singular
         values of *x* arranged in descending order on the
         principal diagonal.
 
-    :type s: NxP diagonal matrix
+    :rtype s: NxP diagonal matrix
 
     :return v: the right singular vectors of *x*.
 
-    :type v: PxP matrix
+    :rtype v: PxP matrix
 
 Examples
 ----------------

@@ -15,7 +15,7 @@ Format
 
     :return y: 
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 -------

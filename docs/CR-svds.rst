@@ -16,7 +16,7 @@ Format
     :return s: where the last two dimensions are :math:`min(N,P)x1`, the
         singular values of *x* arranged in descending order.
 
-    :type s: min(N,P)x1 vector or K-dimensional array
+    :rtype s: min(N,P)x1 vector or K-dimensional array
 
 Remarks
 -------

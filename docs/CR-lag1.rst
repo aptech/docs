@@ -16,7 +16,7 @@ Format
 
     :return y: *x* lagged 1 period.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

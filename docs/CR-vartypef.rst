@@ -15,7 +15,7 @@ Format
 
     :return y: 1 if variable is numeric, 0 if character.
 
-    :type y: Nx1 vector of ones and zeros
+    :rtype y: Nx1 vector of ones and zeros
 
 Remarks
 -------

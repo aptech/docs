@@ -19,7 +19,7 @@ Format
 
     :return nu: the nullity of *x*.
 
-    :type nu: scalar
+    :rtype nu: scalar
 
 Remarks
 -------

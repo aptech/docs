@@ -25,7 +25,7 @@ Format
 
     :return y: the element of the array indicated by the indices.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

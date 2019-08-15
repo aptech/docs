@@ -16,7 +16,7 @@ Format
     :return y: the result of the bitwise
         logical AND of the `trap` flag and the *mask* value.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

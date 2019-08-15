@@ -21,7 +21,7 @@ Format
 
     :return y: containing the new values.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 ------------

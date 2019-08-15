@@ -29,7 +29,7 @@ Format
 
     :return ret: 0 if success or a scalar error code.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Portability
 ------------

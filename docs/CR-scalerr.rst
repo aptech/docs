@@ -17,7 +17,7 @@ Format
         is not a scalar error code, or the value of the error
         code as an integer if the argument is an error code.
 
-    :type y: scalar or [N-2]-dimensional array
+    :rtype y: scalar or [N-2]-dimensional array
 
 Remarks
 -------

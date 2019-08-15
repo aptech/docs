@@ -33,11 +33,11 @@ Format
 
     :return y: of random integers between :math:`0` and :math:`2_32 - 1`, inclusive.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
     :return newstate: the updated state.
 
-    :type newstate: 500x1 vector
+    :rtype newstate: 500x1 vector
 
 Remarks
 -------

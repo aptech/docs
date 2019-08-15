@@ -16,7 +16,7 @@ Format
 
     :return y: The diagonal of the *x* matrix where the last two dimensions are min(N,K)x1.
 
-    :type y: min(N,K)x1 vector or L-dimensional array
+    :rtype y: min(N,K)x1 vector or L-dimensional array
 
 Remarks
 -------

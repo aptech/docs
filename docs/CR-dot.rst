@@ -19,7 +19,7 @@ Format
 
     :return z: The dot product of *x* and *y*.
 
-    :type z: scalar or Kx1
+    :rtype z: scalar or Kx1
 
 Remarks
 ----------

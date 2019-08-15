@@ -19,7 +19,7 @@ Format
 
     :return y: the data read from the file.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

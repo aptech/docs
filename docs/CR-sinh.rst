@@ -15,7 +15,7 @@ Format
 
     :return y: containing the hyperbolic sines of the elements of *x*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Examples
 ----------------

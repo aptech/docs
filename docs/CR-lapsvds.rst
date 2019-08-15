@@ -16,7 +16,7 @@ Format
 
     :return s: singular values.
 
-    :type s: min(M,N)x1 vector
+    :rtype s: min(M,N)x1 vector
 
 Remarks
 -------

@@ -13,7 +13,7 @@ Format
 
     :return c: instance of :class:`inthpControl` struct with members set to default values.
 
-    :type c: struct
+    :rtype c: struct
 
 Source
 ------

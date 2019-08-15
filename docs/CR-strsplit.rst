@@ -18,7 +18,7 @@ Format
 
     :return sa: 
 
-    :type sa: 1xK or NxK string array
+    :rtype sa: 1xK or NxK string array
 
 Remarks
 -------

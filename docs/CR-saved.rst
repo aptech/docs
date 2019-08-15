@@ -23,7 +23,7 @@ Format
 
     :return ret: 1 if successful, otherwise 0.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

@@ -40,11 +40,11 @@ Format
 
     :return r: Gumbel distributed random numbers.
 
-    :type r: rows x cols matrix
+    :rtype r: rows x cols matrix
 
     :return newstate: the updated state.
 
-    :type newstate: Opaque vector
+    :rtype newstate: Opaque vector
 
 Remarks
 -------

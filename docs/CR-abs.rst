@@ -16,7 +16,7 @@ Format
 
     :return y: containing absolute values of *x*.
 
-    :type y: NxK matrix or sparse matrix or N-dimensional array
+    :rtype y: NxK matrix or sparse matrix or N-dimensional array
 
 Examples
 ----------------

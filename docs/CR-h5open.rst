@@ -26,7 +26,7 @@ Format
 
     :return fh: file handle for use with :func:`readr`, or :func:`writer`.
 
-    :type fh: scalar
+    :rtype fh: scalar
 
 Remarks
 -------

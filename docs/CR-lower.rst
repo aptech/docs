@@ -16,7 +16,7 @@ Format
 
     :return y: or NxK matrix which contains the lowercase equivalent of the data in *x*.
 
-    :type y: string
+    :rtype y: string
 
 Remarks
 -------

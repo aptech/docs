@@ -18,7 +18,7 @@ Format
 
     :return si: index of corresponding element in 1-dimensional array or vector.
 
-    :type si: scalar
+    :rtype si: scalar
 
 Remarks
 -------

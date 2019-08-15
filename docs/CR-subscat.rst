@@ -36,7 +36,7 @@ Format
 
         If missing is not a category specified in *breaks*, missings in *x* are passed through without change.
 
-    :type y: Nx1 vector
+    :rtype y: Nx1 vector
 
 Remarks
 -------

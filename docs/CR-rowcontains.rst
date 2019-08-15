@@ -22,7 +22,7 @@ Format
         of the output, *mask*, will contain a 1 if any element in
         the corresponding row of *haystack* matches any element in *needles*.
 
-    :type mask: vector
+    :rtype mask: vector
 
 Remarks
 -------

@@ -16,6 +16,6 @@ Format
 
     :return str: *sa* converted to a string.
 
-    :type str: string
+    :rtype str: string
 
 .. seealso:: :func:`convertstrtosa`

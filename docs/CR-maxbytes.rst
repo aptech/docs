@@ -13,7 +13,7 @@ Format
 
     :return y: maximum memory to be used.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Global Input
 ------------

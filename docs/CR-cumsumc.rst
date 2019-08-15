@@ -16,7 +16,7 @@ Format
 
     :return y: containing the cumulative sums of the columns of *x*.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

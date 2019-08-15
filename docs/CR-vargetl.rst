@@ -15,7 +15,7 @@ Format
 
     :return y: contents of the variable whose name is in *s*.
 
-    :type y: any
+    :rtype y: any
 
 Remarks
 -------

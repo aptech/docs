@@ -19,7 +19,7 @@ Format
 
     :return x: solution of :math:`Ux = b`.
 
-    :type x: PxK matrix
+    :rtype x: PxK matrix
 
 Remarks
 -------

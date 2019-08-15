@@ -16,7 +16,7 @@ Format
 
     :return g_cplx: the values of the Gamma function evaluated at *x*. May be complex.
 
-    :type g_cplx: NxK matrix
+    :rtype g_cplx: NxK matrix
 
 Examples
 ----------------

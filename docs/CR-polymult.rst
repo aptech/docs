@@ -19,7 +19,7 @@ Format
 
     :return c: containing the coefficients of the product of the two polynomials.
 
-    :type c: (D1+D2)x1 vector
+    :rtype c: (D1+D2)x1 vector
 
 Examples
 ----------------

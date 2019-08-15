@@ -18,11 +18,11 @@ Format
 
     :return x: the item extracted from *dbuf*.
 
-    :type x: LxM matrix or string
+    :rtype x: LxM matrix or string
 
     :return dbufnew: the remainder of *dbuf* after *x* has been extracted.
 
-    :type dbufnew: Kx1 vector
+    :rtype dbufnew: Kx1 vector
 
 Source
 ------

@@ -34,7 +34,7 @@ Format
 
     :return ret: success flag, 1 if successful, 0 if not.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

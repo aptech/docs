@@ -19,7 +19,7 @@ Format
 
     :return y: of ones.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
 Remarks
 -------

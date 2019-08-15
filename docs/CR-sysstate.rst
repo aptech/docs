@@ -53,7 +53,7 @@ Format
         "", "10", "Linux"
         "", "12", "Mac OS"
 
-    :type vi: 8x1 numeric vector
+    :rtype vi: 8x1 numeric vector
 
 Remarks
 -------

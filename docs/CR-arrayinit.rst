@@ -18,7 +18,7 @@ Format
 
     :return y: with each element equal to the value of *val*.
 
-    :type y: N-dimensional array
+    :rtype y: N-dimensional array
 
 Examples
 ----------------

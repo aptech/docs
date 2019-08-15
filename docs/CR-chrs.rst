@@ -16,7 +16,7 @@ Format
 
     :return s: This 1x1 string will contain NxK characters whose ASCII values are equal to the values in the elements of *x*.
 
-    :type s: string
+    :rtype s: string
 
 Remarks
 -------

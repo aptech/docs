@@ -28,7 +28,7 @@ Format
     :return p: the probability density
         of the cumulative distribution over the interval from *l_lim* to *u_lim*.
 
-    :type p: scalar or NxK matrix or N-dimensional array
+    :rtype p: scalar or NxK matrix or N-dimensional array
 
 Examples
 ----------------

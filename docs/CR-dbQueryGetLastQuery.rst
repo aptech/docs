@@ -16,5 +16,5 @@ Format
 
     :return query_string: text of the current query, or empty string if there is no current query.
 
-    :type query_string: string
+    :rtype query_string: string
 

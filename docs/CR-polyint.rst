@@ -22,7 +22,7 @@ Format
 
     :return y: result of interpolation or extrapolation.
 
-    :type y: TODO
+    :rtype y: TODO
 
 Global Input
 ------------

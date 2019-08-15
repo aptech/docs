@@ -24,7 +24,7 @@ Format
 
     :return y: the data requested from the file.
 
-    :type y: matrix or array
+    :rtype y: matrix or array
 
 Examples
 ----------------

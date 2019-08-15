@@ -19,11 +19,11 @@ Format
 
     :return ve: eigenvalues.
 
-    :type ve: Nx1 vector
+    :rtype ve: Nx1 vector
 
     :return va: eigenvectors.
 
-    :type va: NxN matrix
+    :rtype va: NxN matrix
 
 Remarks
 -------

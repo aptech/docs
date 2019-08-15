@@ -19,7 +19,7 @@ Format
 
     :return x: soluion of :math:`Lx = b`.
 
-    :type x: PxK matrix
+    :rtype x: PxK matrix
 
 Remarks
 ---------------

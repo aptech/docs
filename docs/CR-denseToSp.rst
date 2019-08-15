@@ -20,7 +20,7 @@ Format
 
     :return x_sparse: Sparse matrix converted from *x*.
 
-    :type x_sparse: MxN sparse matrix
+    :rtype x_sparse: MxN sparse matrix
 
 Remarks
 -------

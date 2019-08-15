@@ -28,7 +28,7 @@ Format
     :return y: evaluations of the modified Bessel or the exponentially scaled modified Bessel
         of the first kind of the nth order.
 
-    :type y: KxN matrix
+    :rtype y: KxN matrix
 
 Remarks
 -------

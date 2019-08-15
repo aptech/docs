@@ -20,7 +20,7 @@ Format
         value is zero or not all of the singular values
         can be computed, the return value is 1e300.
 
-    :type c: scalar
+    :rtype c: scalar
 
 Examples
 ----------------

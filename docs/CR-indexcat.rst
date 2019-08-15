@@ -28,7 +28,7 @@ Format
         by *v*. It will contain error code 13 if there are
         no elements in this category.
 
-    :type y: Lx1 vector
+    :rtype y: Lx1 vector
 
 Examples
 ----------------

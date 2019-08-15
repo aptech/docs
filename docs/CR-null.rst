@@ -36,7 +36,7 @@ Format
 
         Use :func:`scalerr` to test for error returns.
 
-    :type b: MxK matrix
+    :rtype b: MxK matrix
 
 Remarks
 -------

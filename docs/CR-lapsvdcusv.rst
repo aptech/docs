@@ -16,15 +16,15 @@ Format
 
     :return u: left singular vectors.
 
-    :type u: Mxmin(M,N) matrix
+    :rtype u: Mxmin(M,N) matrix
 
     :return s: singular values.
 
-    :type s: min(M,N)xN matrix
+    :rtype s: min(M,N)xN matrix
 
     :return v: right singular values.
 
-    :type v: NxN matrix
+    :rtype v: NxN matrix
 
 Remarks
 -------

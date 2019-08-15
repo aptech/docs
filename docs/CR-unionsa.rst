@@ -19,7 +19,7 @@ Format
 
     :return y: containing all unique values that are in *sv1* and *sv2*, sorted in ascending order.
 
-    :type y: Lx1 vector
+    :rtype y: Lx1 vector
 
 Examples
 ----------------

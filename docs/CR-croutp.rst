@@ -23,7 +23,7 @@ Format
         :func:`upmat1` to extract the :math:`L` and :math:`U` matrices from the
         reordered *lup* matrix.
 
-    :type lup: (N+1)xN matrix
+    :rtype lup: (N+1)xN matrix
 
 Examples
 ----------------

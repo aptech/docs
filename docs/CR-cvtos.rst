@@ -16,7 +16,7 @@ Format
 
     :return s: contains the contents of *v*.
 
-    :type s: string
+    :rtype s: string
 
 Remarks
 -------

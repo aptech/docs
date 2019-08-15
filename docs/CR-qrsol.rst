@@ -19,7 +19,7 @@ Format
 
     :return x: 
 
-    :type x: PxL matrix
+    :rtype x: PxL matrix
 
 Remarks
 -------

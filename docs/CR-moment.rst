@@ -30,7 +30,7 @@ Format
 
     :return y: where the last two dimensions are KxK, the cross-product of *x*.
 
-    :type y: KxK matrix or M-dimensional array
+    :rtype y: KxK matrix or M-dimensional array
 
 Remarks
 -------

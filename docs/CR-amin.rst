@@ -19,7 +19,7 @@ Format
 
     :return y: 
 
-    :type y: N-dimensional array
+    :rtype y: N-dimensional array
 
 Remarks
 -------

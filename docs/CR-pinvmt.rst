@@ -31,11 +31,11 @@ Format
             ":math:`xy` is symmetric"
             ":math:`yx` is symmetric"
 
-    :type y: MxN matrix
+    :rtype y: MxN matrix
 
     :return err: if not all of the singular values can be computed *err* will be nonzero.
 
-    :type err: scalar
+    :rtype err: scalar
 
 Examples
 ----------------

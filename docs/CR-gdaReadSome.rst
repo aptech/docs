@@ -25,7 +25,7 @@ Format
 
     :return y: array, string or string array, variable data.
 
-    :type y: matrix
+    :rtype y: matrix
 
 Remarks
 -------

@@ -24,7 +24,7 @@ Format
 :p: (*scalar constant*) number of periods to lag.
     :return nv: name of the new lagged variable.
 
-    :type nv: string
+    :rtype nv: string
 
 Remarks
 -------

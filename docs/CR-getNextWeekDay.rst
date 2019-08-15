@@ -16,7 +16,7 @@ Format
 
     :return next_week: next week day in DT scalar format.
 
-    :type next_week: scalar
+    :rtype next_week: scalar
 
 Examples
 ----------------

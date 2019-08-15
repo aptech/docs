@@ -34,7 +34,7 @@ Format
         That is, when :math:`x[i]` falls into region *j*, the weight
         :math:`w[i]` is added to the jth counter.
 
-    :type c: Px1 vector
+    :rtype c: Px1 vector
 
 Remarks
 -------

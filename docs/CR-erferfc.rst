@@ -18,7 +18,7 @@ Format
 
     :return y: the Gaussian error function (:func:`erf`) or the complement of the Gaussian error function (:func:`erfc`).
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Remarks
 -------

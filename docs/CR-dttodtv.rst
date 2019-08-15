@@ -16,7 +16,7 @@ Format
 
     :return dtv: DTV vector format.
 
-    :type dtv: Nx8 matrix
+    :rtype dtv: Nx8 matrix
 
 Remarks
 -------

@@ -37,7 +37,7 @@ Format
 
     :return y: the estimated integral of :math:`f(x)` evaluated over the interval (*x_min*, *x_max*)
 
-    :type y: scalar
+    :rtype y: scalar
 
 Examples
 ----------------

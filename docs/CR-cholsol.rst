@@ -19,7 +19,7 @@ Format
 
     :return x: the solution for :math:`Ax = b`.
 
-    :type x: NxK matrix
+    :rtype x: NxK matrix
 
 Remarks
 -------

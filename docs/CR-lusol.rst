@@ -23,7 +23,7 @@ Format
 
     :return x: solution of LUx = b.
 
-    :type x: PxK matrix
+    :rtype x: PxK matrix
 
 Remarks
 -------

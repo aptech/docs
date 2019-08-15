@@ -31,7 +31,7 @@ Format
 
     :return sigma: volatility.
 
-    :type sigma: Mx1 vector
+    :rtype sigma: Mx1 vector
 
 Examples
 ----------------

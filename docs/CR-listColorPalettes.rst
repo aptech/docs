@@ -24,7 +24,7 @@ Format
 
     :return palettes: containing color palette names.
 
-    :type palettes: string array
+    :rtype palettes: string array
 
 Remarks
 -------

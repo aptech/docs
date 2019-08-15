@@ -16,7 +16,7 @@ Format
 
     :return m: containing the medians of the respective columns of *x*.
 
-    :type m: Kx1 vector
+    :rtype m: Kx1 vector
 
 Remarks
 -------

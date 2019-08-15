@@ -29,7 +29,7 @@ Format
 
     :return ret: 0 if successful, 1 if not.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

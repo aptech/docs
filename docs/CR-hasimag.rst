@@ -16,7 +16,7 @@ Format
 
     :return y: 1 if the imaginary part of *x* has any nonzero elements, 0 if it consists entirely of 0's.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

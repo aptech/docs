@@ -37,11 +37,11 @@ Format
 
     :return x: negative binomial distributed random numbers.
 
-    :type x: RxC matrix
+    :rtype x: RxC matrix
 
     :return newstate: the updated state.
 
-    :type newstate: 500x1 vector
+    :rtype newstate: 500x1 vector
 
 Remarks
 -------

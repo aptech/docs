@@ -16,7 +16,7 @@ Format
 
     :return n: names of packed matrices.
 
-    :type n: Kx1 string vector
+    :rtype n: Kx1 string vector
 
 Source
 ------

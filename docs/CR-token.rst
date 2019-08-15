@@ -15,11 +15,11 @@ Format
 
     :return token: the first token in *str*.
 
-    :type token: string
+    :rtype token: string
 
     :return str_left: *str* minus *token*.
 
-    :type str_left: string
+    :rtype str_left: string
 
 Remarks
 -------

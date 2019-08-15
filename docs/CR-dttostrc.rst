@@ -19,7 +19,7 @@ Format
 
     :return sa: Converted dates in string array form.
 
-    :type sa: NxK string array
+    :rtype sa: NxK string array
 
 Remarks
 -------

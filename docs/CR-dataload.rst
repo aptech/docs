@@ -18,7 +18,7 @@ Format
 
     :return y: data retrieved from the file.
 
-    :type y: matrix or array or string or string array
+    :rtype y: matrix or array or string or string array
 
 Remarks
 -------

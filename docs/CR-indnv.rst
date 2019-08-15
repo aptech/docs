@@ -19,7 +19,7 @@ Format
 
     :return z: the indices of the corresponding elements of *what* in *where*.
 
-    :type z: Nx1 vector of integers
+    :rtype z: Nx1 vector of integers
 
 Remarks
 -------

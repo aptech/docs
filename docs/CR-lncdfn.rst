@@ -18,7 +18,7 @@ Format
     
         .. math:: ln Pr(X < x)
 
-    :type y: NxK matrix or N-dimensional array
+    :rtype y: NxK matrix or N-dimensional array
 
 .. DANGER:: verify equations
 

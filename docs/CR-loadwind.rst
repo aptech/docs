@@ -25,7 +25,7 @@ Format
         is invalid. Note that the current graphic panel configuration will
         be overwritten in either case.
 
-    :type err: scalar
+    :rtype err: scalar
 
 Globals
 -------

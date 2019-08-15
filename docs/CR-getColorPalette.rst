@@ -37,7 +37,7 @@ Format
 
     :return clrs: hex values for each color in the palette.
 
-    :type clrs: ncolors x 1 string array
+    :rtype clrs: ncolors x 1 string array
 
 Examples
 ----------------

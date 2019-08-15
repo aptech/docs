@@ -24,7 +24,7 @@ Format
 
     :return y: quantiles.
 
-    :type y: LxK matrix
+    :rtype y: LxK matrix
 
 Remarks
 -------

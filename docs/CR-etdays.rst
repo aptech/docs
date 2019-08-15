@@ -22,7 +22,7 @@ Format
 
     :return days: elapsed time measured in days.
 
-    :type days: scalar
+    :rtype days: scalar
 
 Remarks
 -------

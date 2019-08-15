@@ -21,7 +21,7 @@ Format
 
     :return y: the intersection of *rinds* and *cinds*.
 
-    :type y: KxL dense matrix
+    :rtype y: KxL dense matrix
 
 Remarks
 -------

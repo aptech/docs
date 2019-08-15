@@ -19,7 +19,7 @@ Format
 
     :return ni: the index of the next element or subarray in the array corresponding to *o*.
 
-    :type ni: Mx1 vector of indices
+    :rtype ni: Mx1 vector of indices
 
 Remarks
 -------

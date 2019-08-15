@@ -16,7 +16,7 @@ Format
 
     :return index: query position
 
-    :type index: scalar
+    :rtype index: scalar
 
 Remarks
 -------

@@ -21,7 +21,7 @@ Format
 
     :return p: Each element in *p* is the complement of the F distribution cdf value evaluated at the corresponding element in *x*.
 
-    :type p: matrix, max(N,L,P) by max(K,M,Q)
+    :rtype p: matrix, max(N,L,P) by max(K,M,Q)
 
 Examples
 ----------------

@@ -20,7 +20,7 @@ Format
 
     :return y: 
 
-    :type y: NxK sorted matrix
+    :rtype y: NxK sorted matrix
 
 Examples
 ----------------

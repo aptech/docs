@@ -12,7 +12,7 @@ Format
 
     :return s: instance of :class:`QProgmtIn` struct.
 
-    :type s: struct
+    :rtype s: struct
 
 Source
 ------

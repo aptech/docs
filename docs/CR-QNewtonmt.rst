@@ -74,7 +74,7 @@ Format
             * - out.hessian
               - KxK matrix, matrix of second derivatives of objective function with respect to parameters.
 
-    :type out: struct
+    :rtype out: struct
 
 Remarks
 -------

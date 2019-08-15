@@ -16,7 +16,7 @@ Format
 
     :return ind: of *x*.
 
-    :type ind: Nx1 vector representing sorted index
+    :rtype ind: Nx1 vector representing sorted index
 
 Remarks
 -------

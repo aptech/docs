@@ -18,7 +18,7 @@ Format
 
     :return x: Matrix storing input from the keyboard.
 
-    :type x: rxc matrix
+    :rtype x: rxc matrix
 
 Remarks
 -------

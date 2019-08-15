@@ -18,7 +18,7 @@ Format
 
     :return y: where the last two dimensions are max(M,L)xmax(N,K)
 
-    :type y: max(M,L)xmax(N,K) or P-dimensional array
+    :rtype y: max(M,L)xmax(N,K) or P-dimensional array
 
 Remarks
 -------

@@ -20,7 +20,7 @@ Format
     :return y: containing powers of the elements of *x* from 1 to *p*. 
         The first *K* columns will contain first powers, the second *K* columns second powers, and so on.
 
-    :type y: Nx(p*K) matrix
+    :rtype y: Nx(p*K) matrix
 
 Remarks
 -------

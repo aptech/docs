@@ -21,15 +21,15 @@ Format
 
     :return qty: unitary matrix
 
-    :type qty: NxL matrix
+    :rtype qty: NxL matrix
 
     :return r: upper triangular matrix. :math:`K = min(N,P)`.
 
-    :type r: KxP matrix
+    :rtype r: KxP matrix
 
     :return e: 
 
-    :type e: Px1 permutation vector
+    :rtype e: Px1 permutation vector
 
 Remarks
 -------

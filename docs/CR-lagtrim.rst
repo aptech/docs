@@ -19,7 +19,7 @@ Format
 
     :return y: *y* lagged *t* periods.
 
-    :type y: NxP matrix
+    :rtype y: NxP matrix
 
 Remarks
 -------

@@ -13,7 +13,7 @@ Format
 
     :return y: hundredths of a second since midnight.
 
-    :type y: scalar
+    :rtype y: scalar
 
 Remarks
 -------

@@ -18,7 +18,7 @@ Format
 
     :return x: each value of *x* is the value such that the complement of the Student's t distribution is equal to the corresponding value of *p*. :code:`cdfTc(x, df) =  p`.
 
-    :type x: matrix, max(N,L) by max(K,M) real
+    :rtype x: matrix, max(N,L) by max(K,M) real
 
 Examples
 ----------------

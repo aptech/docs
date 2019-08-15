@@ -29,7 +29,7 @@ Format
 
     :return y: matrix of 1's and 0's.
 
-    :type y: max(N,L) by max(K,M)
+    :rtype y: max(N,L) by max(K,M)
 
 Remarks
 -------

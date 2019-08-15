@@ -18,11 +18,11 @@ Format
     :return l: NxN "scrambled" lower triangular matrix. This is
         a lower triangular matrix that has been reordered based on the row pivoting.
 
-    :type l: NxN matrix
+    :rtype l: NxN matrix
 
     :return u: upper triangular matrix
 
-    :type u: NxN matrix
+    :rtype u: NxN matrix
 
 Examples
 ----------------

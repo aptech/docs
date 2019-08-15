@@ -21,7 +21,7 @@ Format
 
     :return y: the new string.
 
-    :type y: string
+    :rtype y: string
 
 Examples
 ----------------

@@ -15,7 +15,7 @@ Format
 
     :return n: number of trading days in year.
 
-    :type n: scalar
+    :rtype n: scalar
 
 Remarks
 -------

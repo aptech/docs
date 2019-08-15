@@ -49,7 +49,7 @@ Format
 
     :return x: gamma distributed random numbers.
 
-    :type x: RxC matrix
+    :rtype x: RxC matrix
 
     :return newstate: 
     
@@ -61,7 +61,7 @@ Format
             "[3]", "the additive constant"
             "[4]", "the original initialization seed"
 
-    :type newstate: 4x1 vector
+    :rtype newstate: 4x1 vector
 
 Technical Notes
 ---------------

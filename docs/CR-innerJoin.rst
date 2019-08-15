@@ -25,7 +25,7 @@ Format
 
     :return C: result of join of *A* and *B*
 
-    :type C: matrix
+    :rtype C: matrix
 
 Remarks
 -------

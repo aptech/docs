@@ -14,7 +14,7 @@ Format
 
     :return p: row or column position.
 
-    :type p: scalar
+    :rtype p: scalar
 
 Remarks
 -------

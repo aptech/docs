@@ -26,7 +26,7 @@ Format
             \vdots\\
             v[p-1] < x \leq v[p]
 
-    :type c: Px1 vector
+    :rtype c: Px1 vector
 
 Remarks
 -------

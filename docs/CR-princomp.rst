@@ -19,17 +19,17 @@ Format
 
     :return p: of the first *j* principal components of *x* in descending order of amount of variance explained.
 
-    :type p: NxJ matrix
+    :rtype p: NxJ matrix
 
     :return v: of fractions of variance explained.
 
-    :type v: Jx1 vector
+    :rtype v: Jx1 vector
 
     :return a: factor loadings such that:
         
         .. math:: x = p*a + error.
 
-    :type a: JxK matrix
+    :rtype a: JxK matrix
 
 .. DANGER:: fix equations
 

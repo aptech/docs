@@ -16,7 +16,7 @@ Format
 
     :return name: the value of the environment variable or a null string if it is not found.
 
-    :type name: string
+    :rtype name: string
 
 Examples
 ----------------

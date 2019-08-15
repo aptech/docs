@@ -25,7 +25,7 @@ Format
 
     :return y: of data.
 
-    :type y: NxK matrix
+    :rtype y: NxK matrix
 
 Examples
 ----------------

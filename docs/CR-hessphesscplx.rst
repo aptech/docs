@@ -22,7 +22,7 @@ Format
 
     :return h: Second derivatives of *f* with respect to *x* at *x0*; this matrix will be symmetric.
 
-    :type h: KxK matrix
+    :rtype h: KxK matrix
 
 Remarks
 -------

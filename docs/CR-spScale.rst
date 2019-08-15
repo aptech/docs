@@ -15,15 +15,15 @@ Format
 
     :return a: 
 
-    :type a: MxN scaled sparse matrix
+    :rtype a: MxN scaled sparse matrix
 
     :return r: row scale factors.
 
-    :type r: Mx1 vector
+    :rtype r: Mx1 vector
 
     :return s: column scale factors.
 
-    :type s: Nx1 vector
+    :rtype s: Nx1 vector
 
 Remarks
 -------

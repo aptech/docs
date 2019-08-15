@@ -17,7 +17,7 @@ Format
 
     :return x: The inverse of the Gaussian error function.
 
-    :type x: scalar or NxK matrix
+    :rtype x: scalar or NxK matrix
 
 Examples
 ----------------

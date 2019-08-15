@@ -24,7 +24,7 @@ Format
 
     :return y: of ones.
 
-    :type y: RxC sparse matrix
+    :rtype y: RxC sparse matrix
 
 Remarks
 -------

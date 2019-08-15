@@ -17,17 +17,17 @@ Format
         :math:`NxP`, the left singular vectors of *x*. If :math:`N > P`, *u* is :math:`NxP`, containing only the :math:`P` left
         singular vectors of *x*.
 
-    :type u: NxN or NxP matrix or K-dimensional array
+    :rtype u: NxN or NxP matrix or K-dimensional array
 
     :return s: where the last two dimensions describe :math:`NxP`
         or :math:`PxP` diagonal arrays, the singular values of *x* arranged in descending order on the
         principal diagonal. If :math:`N > P`, *s* is :math:`PxP`.
 
-    :type s: NxP or PxP diagonal matrix or K-dimensional array
+    :rtype s: NxP or PxP diagonal matrix or K-dimensional array
 
     :return v: where the last two dimensions are :math:`PxP`, the right singular vectors of *x*.
 
-    :type v: PxP matrix or K-dimensional array
+    :rtype v: PxP matrix or K-dimensional array
 
 Remarks
 -------

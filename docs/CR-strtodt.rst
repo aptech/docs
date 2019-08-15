@@ -18,7 +18,7 @@ Format
 
     :return x: of dates in DT scalar format.
 
-    :type x: NxK matrix
+    :rtype x: NxK matrix
 
 Remarks
 -------

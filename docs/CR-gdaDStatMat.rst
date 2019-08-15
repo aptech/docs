@@ -89,7 +89,7 @@ Format
                   :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
                   :11: Data read error.
 
-    :type dout: struct
+    :rtype dout: struct
 
 Remarks
 -------

@@ -18,7 +18,7 @@ Format
 
     :return y: a random matrix from inverse Wishart distribution.
 
-    :type y: matrix
+    :rtype y: matrix
 
 Examples
 ----------------

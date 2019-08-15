@@ -15,7 +15,7 @@ Format
 
     :return utc: UTC scalar format.
 
-    :type utc: Nx1 vector
+    :rtype utc: Nx1 vector
 
 Remarks
 -------

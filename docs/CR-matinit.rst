@@ -22,7 +22,7 @@ Format
 
     :return y: with each element equal to the value of *v*.
 
-    :type y: RxC matrix
+    :rtype y: RxC matrix
 
 Examples
 ----------------

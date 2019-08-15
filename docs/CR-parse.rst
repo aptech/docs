@@ -21,7 +21,7 @@ Format
         contained in  str. All tokens are returned; any
         delimiters found in  str are ignored.
 
-    :type tok: Mx1 character vector
+    :rtype tok: Mx1 character vector
 
 Remarks
 -------

@@ -24,7 +24,7 @@ Format
         from :func:`contains` will be the same as the ``==`` operator
         for numeric data, or the ``$==`` operator for string data.
 
-    :type found: scalar
+    :rtype found: scalar
 
 Examples
 ----------------

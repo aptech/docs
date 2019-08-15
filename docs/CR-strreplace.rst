@@ -22,7 +22,7 @@ Format
     :return str_new: new string which is the same as *str*, except that
         all instances of *search* have been replaced with *replace*.
 
-    :type str_new: string
+    :rtype str_new: string
 
 Examples
 ----------------

@@ -22,7 +22,7 @@ Format
 
     :return str: containing the string representation of the input.
 
-    :type str: string or NxK string array
+    :rtype str: string or NxK string array
 
 Remarks
 -------

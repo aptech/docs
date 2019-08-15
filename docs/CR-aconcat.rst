@@ -22,7 +22,7 @@ Format
 
     :return y: the result of the concatenation.
 
-    :type y: N-dimensional array
+    :rtype y: N-dimensional array
 
 Remarks
 -------

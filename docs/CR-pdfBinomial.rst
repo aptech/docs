@@ -22,7 +22,7 @@ Format
 
     :return p: The probability of the specified number of *successes*.
 
-    :type p: NxK matrix, Nx1 vector or scalar
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Examples
 ----------------

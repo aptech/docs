@@ -19,7 +19,7 @@ Format
 
     :return y: inverse FFT of *x*.
 
-    :type y: Lx1 vector
+    :rtype y: Lx1 vector
 
 Remarks
 -------

@@ -26,7 +26,7 @@ Format
 
     :return mat: or a scalar error code.
 
-    :type mat: matrix
+    :rtype mat: matrix
 
 Portability
 ------------

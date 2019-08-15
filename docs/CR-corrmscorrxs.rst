@@ -20,7 +20,7 @@ Format
 
     :return cx: For :func:`corrms`, :math:`P = K-1`. For :func:`corrxs`, :math:`P = K`.
 
-    :type cx: PxP correlation matrix
+    :rtype cx: PxP correlation matrix
 
 Remarks
 ------------

@@ -20,11 +20,11 @@ Format
 
     :return varnames: the names associated with *vars*.
 
-    :type varnames: Nx1 character vector
+    :rtype varnames: Nx1 character vector
 
     :return indx: the column indices associated with *vars*.
 
-    :type indx: Nx1 numeric vector
+    :rtype indx: Nx1 numeric vector
 
 Examples
 ----------------

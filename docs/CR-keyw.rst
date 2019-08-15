@@ -13,7 +13,7 @@ Format
 
     :return k: ASCII value of the key pressed.
 
-    :type k: scalar
+    :rtype k: scalar
 
 Remarks
 -------

@@ -18,7 +18,7 @@ Format
 
     :return x: the item read from *dbuf*.
 
-    :type x: LxM matrix or string
+    :rtype x: LxM matrix or string
 
 Remarks
 -------

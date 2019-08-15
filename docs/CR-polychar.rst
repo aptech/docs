@@ -18,7 +18,7 @@ Format
         
         .. math:: p(x) = c[1]*xn + c[2]*x(n-1) + ... + c[n]*x + c[n+1];
 
-    :type c: (N+1)x1 vector
+    :rtype c: (N+1)x1 vector
 
 .. DANGER:: fix equations
 

@@ -16,7 +16,7 @@ Format
 
     :return ret: 1 if the query is active or 0 if not.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

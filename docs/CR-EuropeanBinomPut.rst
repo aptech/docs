@@ -34,7 +34,7 @@ Format
 
     :return p: put premiums.
 
-    :type p: Mx1 vector
+    :rtype p: Mx1 vector
 
 Remarks
 -------

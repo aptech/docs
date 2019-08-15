@@ -65,7 +65,7 @@ Format
             "16", "Cannot write to GDA - version outdated."
             "17", "Type mismatch."
 
-    :type retcode: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------

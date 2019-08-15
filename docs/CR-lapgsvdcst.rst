@@ -19,27 +19,27 @@ Format
 
     :return C: singular values for *A*.
 
-    :type C: Lx1 vector
+    :rtype C: Lx1 vector
 
     :return S: singular values for *B*.
 
-    :type S: Lx1 vector
+    :rtype S: Lx1 vector
 
     :return R: upper triangular matrix.
 
-    :type R: (K+L)x(K+L)
+    :rtype R: (K+L)x(K+L)
 
     :return U: orthogonal transformation matrix.
 
-    :type U: MxM matrix
+    :rtype U: MxM matrix
 
     :return V: orthogonal transformation matrix.
 
-    :type V: PxP matrix
+    :rtype V: PxP matrix
 
     :return Q: orthogonal transformation matrix.
 
-    :type Q: NxN matrix
+    :rtype Q: NxN matrix
 
 Remarks
 -------

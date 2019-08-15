@@ -19,11 +19,11 @@ Format
 
     :return r: number of rows.
 
-    :type r: scalar
+    :rtype r: scalar
 
     :return c: number of columns.
 
-    :type c: scalar
+    :rtype c: scalar
 
 Portability
 -----------

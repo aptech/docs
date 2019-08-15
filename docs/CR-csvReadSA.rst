@@ -30,7 +30,7 @@ Format
 
     :return s: data read from the CSV file.
 
-    :type s: string array
+    :rtype s: string array
 
 Remarks
 -------

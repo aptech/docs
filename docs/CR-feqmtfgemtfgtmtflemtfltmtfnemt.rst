@@ -28,7 +28,7 @@ Format
 
     :return ret: returns 1 if ``TRUE``  and 0  if ``FALSE``.
 
-    :type ret: scalar
+    :rtype ret: scalar
 
 Remarks
 -------

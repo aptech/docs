@@ -31,23 +31,23 @@ Format
 
     :return d: delta.
 
-    :type d: Mx1 vector
+    :rtype d: Mx1 vector
 
     :return g: gamma.
 
-    :type g: Mx1 vector
+    :rtype g: Mx1 vector
 
     :return t: theta.
 
-    :type t: Mx1 vector
+    :rtype t: Mx1 vector
 
     :return v: vega.
 
-    :type v: Mx1 vector
+    :rtype v: Mx1 vector
 
     :return rh: rho.
 
-    :type rh: Mx1 vector
+    :rtype rh: Mx1 vector
 
 Global Input
 ------------

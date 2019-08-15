@@ -28,5 +28,5 @@ Format
 
     :return tables: Contains the information specified by the *type* parameter.
 
-    :type tables: Nx1 string array
+    :rtype tables: Nx1 string array
 
