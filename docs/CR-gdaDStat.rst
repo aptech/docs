@@ -121,7 +121,7 @@ Examples
     dout = gdaDStat(dc0, "myfile.gda", vars);
 
 This example computes descriptive statistics on the
-first, fourth, fifth and eighth variables in ``myfile.gda``.
+first, fourth, fifth and eighth variables in :file:`myfile.gda`.
 
 Source
 ------

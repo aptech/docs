@@ -55,7 +55,7 @@ by GAUSS when the `create`, :func:`datacreate`, :func:`datacreatecomplex`, `open
 file in the commands :func:`readr` and :func:`writer`. If :func:`datacreate` fails, it returns a
 -1.
 If *filename* does not include a path, then the file is placed in the
-current directory. The file is given a ``.dat`` extension if no extension is
+current directory. The file is given a :file:`.dat` extension if no extension is
 specified.
 
 If *col* is set to 0, then the number of columns in the data set is
@@ -106,7 +106,7 @@ Examples
     r = writer(fh, x);
     ret = close(fh);
 
-This example creates a double precision data file called ``myfile.dat``,
+This example creates a double precision data file called :file:`myfile.dat`,
 which is placed in the current directory. The file contains 100 columns
 with 500 observations (rows), and the columns are given the names ``'V001',
 'V002', ..., 'V100'``.

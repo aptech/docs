@@ -46,7 +46,7 @@ Examples
 
 In this example, the ATOG ASCII conversion utility is
 executed under the :func:`execbg`. The name of the
-command file to be used, ``comd1.cmd``, is passed to ATOG
+command file to be used, :file:`comd1.cmd`, is passed to ATOG
 on its command line. The returned value, *pid*, is tested
 to see whether ATOG was successful. If not successful the
 program terminates after printing an error message. See 

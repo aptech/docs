@@ -47,7 +47,7 @@ Examples
 
 In this example the ATOG ASCII conversion utility is
 executed under the :func:`exec` function. The name of the
-command file to be used, ``comd1.cmd``, is passed to
+command file to be used, :file:`comd1.cmd`, is passed to
 ATOG on its command line. The exit code *ret* returned
 by :func:`exec` is tested to see if ATOG was successful;
 if not, the program will be terminated after printing

@@ -101,9 +101,9 @@ Examples
     run -r myfile.gau;
     ret = gdaSave("myfile.gda","x*", 0, 2, 3);
 
-This example runs a GAUSS program called ``myfile.gau`` and then
+This example runs a GAUSS program called :file:`myfile.gau` and then
 writes all initialized variables in the workspace beginning with 'x'
-to the file ``myfile.gda``. If ``myfile.gda`` already
+to the file :file:`myfile.gda`. If :file:`myfile.gda` already
 exists, this example appends to it, changing the names of the variables
 that it writes to the file if necessary to avoid name conflicts. All writing
 and variable name changing is reported.

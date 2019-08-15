@@ -16,7 +16,7 @@ Format
         file names. 
 
         * Arguments without any "``/``" path separators are assumed to be library base names, and are expanded by adding
-          the suffix ``.so``, ``.dll`` or ``.dylib``, depending on the platform. They are searched
+          the suffix :file:`.so`, :file:`.dll` or :file:`.dylib`, depending on the platform. They are searched
           for in the default dynamic library directory. 
         
         * Arguments that include "``/``" path separators
@@ -46,7 +46,7 @@ Remarks
 
 -  `dlibrary` recognizes a default directory in which to look for dynamic
    libraries. You can specify this by setting the variable *dlib_path* in
-   ``gauss.cfg``. Set it to point to a single directory, not a sequence of
+   :file:`gauss.cfg`. Set it to point to a single directory, not a sequence of
    directories. `sysstate`, `case 24`, may also be used to get and set this
    default.
 
@@ -74,7 +74,7 @@ Loading a shared library and unloading previously loaded shared libraries
 
     dlibrary mylib;
 
-The above command passes the base name of the shared library to load. GAUSS will expand this base name to a platform specific shared library name. The expanded name on Windows is ``mylib.dll``. On Linux it is ``libmylib.so`` and on Mac, ``libmylib.dylib``. Since we did not pass the ``-a`` flag, GAUSS, will unload any shared libraries that were previously loaded with the `dlibrary` command.
+The above command passes the base name of the shared library to load. GAUSS will expand this base name to a platform specific shared library name. The expanded name on Windows is :file:`mylib.dll`. On Linux it is :file:`libmylib.so` and on Mac, :file:`libmylib.dylib`. Since we did not pass the ``-a`` flag, GAUSS, will unload any shared libraries that were previously loaded with the `dlibrary` command.
 
 Loading a shared library and keeping previously loaded shared libraries
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

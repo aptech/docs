@@ -28,7 +28,7 @@ be attempted if the file is not found.
 
 If a path is not specified, the current directory will be searched
 first, then each directory listed in ``src_path``. ``src_path`` is defined in
-``gauss.cfg``.
+:file:`gauss.cfg`.
 
 +-----------------------------------+-----------------------------------+
 | #include/gauss/myprog.prc         | No additional search will be made |
@@ -36,7 +36,7 @@ first, then each directory listed in ``src_path``. ``src_path`` is defined in
 +-----------------------------------+-----------------------------------+
 | #includemyprog.prc                | The directories listed in         |
 |                                   | ``src_path`` will be searched for |
-|                                   | ``myprog.prc`` if the file is not |
+|                                   | :file:`myprog.prc` if the file is not |
 |                                   | found in the current directory.   |
 +-----------------------------------+-----------------------------------+
 
@@ -56,6 +56,6 @@ Examples
 
     #include  "/gauss/inc/cond.inc"
 
-The command will cause the code in the program ``cond.inc`` to be merged into the current program at the point at which this statement appears.
+The command will cause the code in the program :file:`cond.inc` to be merged into the current program at the point at which this statement appears.
 
 .. seealso:: Functions `run`, :func:`lineson`

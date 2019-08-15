@@ -73,7 +73,7 @@ Suppose you have a file which writes the results of its calculations to a file i
     // Turn output off
     output off;
 
-Running the code above will create a file named ``regression_results.txt`` and a file named ``ols_results.txt`` in your current working directory. You can retrieve the output from either of these files with the :func:`getf` command.
+Running the code above will create a file named :file:`regression_results.txt` and a file named :file:`ols_results.txt` in your current working directory. You can retrieve the output from either of these files with the :func:`getf` command.
 
 ::
 

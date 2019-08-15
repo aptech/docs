@@ -49,7 +49,7 @@ This returns
 
     0.00000000
 
-Now we will try again to delete the ``x.dat`` file :
+Now we will try again to delete the :file:`x.dat` file :
 
 ::
 
@@ -62,5 +62,5 @@ This returns
 
     2.0000000
 
-The ``errno`` value of 2 indicates that the file ``x.dat`` no longer exists when we try to delete the file the second time.
+The ``errno`` value of 2 indicates that the file :file:`x.dat` no longer exists when we try to delete the file the second time.
 

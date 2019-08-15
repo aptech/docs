@@ -65,7 +65,7 @@ Write string to text file
    // Close the file
    call close(fh);
 
-After the code above, you should have a file named ``hamlet.txt`` in your
+After the code above, you should have a file named :file:`hamlet.txt` in your
 current working directory, containing the contents of the quote string.
 
 Write CSV data to text file
@@ -106,7 +106,7 @@ Write CSV data to text file
    // Close the file
    call close(fh);
 
-After the above code, you should have a file named ``temp.csv`` with the
+After the above code, you should have a file named :file:`temp.csv` with the
 following contents:
 
 ::

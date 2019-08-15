@@ -351,7 +351,7 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     // Call glm function with three necessary inputs and two optional inputs
     call glm(y, x, "normal", label, categoryIdx);
 
-*vnames* is a string array containing all of the variable names from ``credit.dat`` returned from the :func:`getHeaders` function. *label* contains only the variable names used in the regression. The first element must be the label of the dependent variable, followed by the labels for the independent variables corresponding to the order in the *x* matrix.
+*vnames* is a string array containing all of the variable names from :file:`credit.dat` returned from the :func:`getHeaders` function. *label* contains only the variable names used in the regression. The first element must be the label of the dependent variable, followed by the labels for the independent variables corresponding to the order in the *x* matrix.
 :code:`"Gender"` and :code:`"Married"` are categorical variables. The :func:`glm` chooses the smallest number(1) as the base category in each categorical variable. The following shows the output:
 
 ::
@@ -532,7 +532,7 @@ Using a :class:`glmOut` structure to save result for a Gamma regression with cat
     // Call 'glm' and fill 'out_gamma' with results
     out_gamma = glm(y, x, "gamma", ctl_gamma);
 
-In this example, the data set ``yarn.xlsx`` is used to perform a Gamma regression.
+In this example, the data set :file:`yarn.xlsx` is used to perform a Gamma regression.
 After running the code above, the output is :
 
 ::

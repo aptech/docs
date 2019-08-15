@@ -57,7 +57,7 @@ Examples
 Basic Example
 +++++++++++++
 
-Read all contents from the file ``housing.csv`` located in your GAUSS examples directory.
+Read all contents from the file :file:`housing.csv` located in your GAUSS examples directory.
 
 ::
 
@@ -71,7 +71,7 @@ Read all contents from the file ``housing.csv`` located in your GAUSS examples d
     print housing[1:5, .];
 
 The code above will produce the following output. Notice that the first row contains all missing values.
-This is because the first row of the file ``housing.csv`` contains a header. :func:`csvReadM` reads in textual
+This is because the first row of the file :file:`housing.csv` contains a header. :func:`csvReadM` reads in textual
 data as missing values by default. You can easily remove any rows that contain all missing values with
 the function :func:`packr` (which stands for "pack rows").
 

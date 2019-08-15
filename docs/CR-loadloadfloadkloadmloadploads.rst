@@ -64,12 +64,12 @@ will be used automatically as follows:
 .. csv-table::
     :widths: auto
 
-    "`load`", "``.fmt`` - matrix file or delimited ASCII file"
-    "`loadm`", "``.fmt`` - matrix file or delimited ASCII file"
-    "`loads`", "``.fst`` - string file"
-    "`loadf`", "``.fcg`` - user-defined function (`fn`) file"
-    "`loadk`", "``.fcg`` - user-defined keyword (`keyword`) file"
-    "`loadp`", "``.fcg`` - user-defined procedure (`proc`) file"
+    "`load`", ":file:`.fmt` - matrix file or delimited ASCII file"
+    "`loadm`", ":file:`.fmt` - matrix file or delimited ASCII file"
+    "`loads`", ":file:`.fst` - string file"
+    "`loadf`", ":file:`.fcg` - user-defined function (`fn`) file"
+    "`loadk`", ":file:`.fcg` - user-defined keyword (`keyword`) file"
+    "`loadp`", ":file:`.fcg` - user-defined procedure (`proc`) file"
 
 These commands also signal to the compiler what type of object the
 symbol is so that later references to it will be compiled correctly.
@@ -134,7 +134,7 @@ no checking will be done. If you use:
 GAUSS will still load as many elements as possible from the file into an
 Nx1 matrix and then automatically reshape it using the dimensions given.
 
-If you `load` data from a file, ``data.asc``, which contains nine numbers (1 2
+If you `load` data from a file, :file:`data.asc`, which contains nine numbers (1 2
 3 4 5 6 7 8 9), then the resulting matrix will be as follows:
 
 ::
@@ -189,7 +189,7 @@ If you `load` data from a file, ``data.asc``, which contains nine numbers (1 2
 
    loadm k = /gauss/x;
 
-This will load ``/gauss/x.fmt`` into *k*.
+This will load :file:`/gauss/x.fmt` into *k*.
 
 If the ``path=`` subcommand is used with `load` and `save`, the *path* string will
 be remembered until changed in a subsequent command. This path will be
@@ -214,7 +214,7 @@ This will change the `loadm` path without loading anything.
 
      load path = /gauss x,y,z;
 
-This will load ``x.fmt``, ``y.fmt``, and ``z.fmt`` using ``/gauss`` as a path. This path
+This will load :file:`x.fmt`, :file:`y.fmt`, and :file:`z.fmt` using :file:`/gauss` as a path. This path
 will be used for the next `load` if none is specified.
 
 The `load` path or `save` path can be overridden in any particular `load` or
@@ -228,11 +228,11 @@ The `load` path or `save` path can be overridden in any particular `load` or
 
 In the above program:
 
-``/data/mydata1.fmt`` would be loaded into a matrix called *x*.
+:file:`/data/mydata1.fmt` would be loaded into a matrix called *x*.
 
-``/miscdata/y.fmt`` would be loaded into a matrix called *y*.
+:file:`/miscdata/y.fmt` would be loaded into a matrix called *y*.
 
-``/miscdata/hisdata.fmt`` would be loaded into a matrix called *z*.
+:file:`/miscdata/hisdata.fmt` would be loaded into a matrix called *z*.
 
 
 ::
@@ -241,7 +241,7 @@ In the above program:
    load x, y;
    call sysstate(5,oldmpath);
 
-This will get the old `loadm` path, set it to ``/data``, load ``x.fmt`` and ``y.fmt``,
+This will get the old `loadm` path, set it to :file:`/data`, load :file:`x.fmt` and :file:`y.fmt`,
 and reset the `loadm` path to its original setting.
 
 .. seealso:: Functions :func:`loadd`, :func:`dataload`, `save`, `let`, :func:`con`, :func:`cons`, :func:`sysstate`

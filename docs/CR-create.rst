@@ -220,7 +220,7 @@ Examples
     closeall f1;
 
 This example uses ``create... with...`` to create a
-double precision data file called ``simdat.dat`` on
+double precision data file called :file:`simdat.dat` on
 the default drive with 5 columns. The :func:`writer`
 command is used to write 10000 rows of Normal random
 numbers into the file. The variables (columns) will
@@ -264,7 +264,7 @@ follows:
 Giving the names: ``VAR1, VAR2, VAR3, VAR4``.
 
 The next example assumes a command file
-called ``comd.gcf`` containing the following lines,
+called :file:`comd.gcf` containing the following lines,
 created using a text editor:
 
 ::
@@ -274,7 +274,7 @@ created using a text editor:
 
 Then the following program could be used to write
 100 rows of random integers into a file called
-``smpl.dat`` in the subdirectory called ``/gauss/data``:
+:file:`smpl.dat` in the subdirectory called :file:`/gauss/data`:
 
 ::
 

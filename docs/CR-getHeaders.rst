@@ -26,7 +26,7 @@ and CSV files. However, since these file types do not have a standard
 method specification for variable names, the first row of the file will
 be returned.
 
-CSV file names with a file extension other than ``.csv`` will need to start
+CSV file names with a file extension other than :file:`.csv` will need to start
 with the schema ``csv://``.
 
 HDF5 file names must start with the schema ``h5://``

@@ -56,7 +56,7 @@ Examples
 
     datalist freq age sex pay;
 
-This command will display the variables ``age``, ``sex``, and ``pay`` from the dataset ``freq.dat``.
+This command will display the variables ``age``, ``sex``, and ``pay`` from the dataset :file:`freq.dat`.
 
 Source
 ------

@@ -50,7 +50,7 @@ Examples
     cmdstr = "atog mycfile";
     dos ^cmdstr;
 
-This will run the ATOG utility, using ``mycfile.cmd``
+This will run the ATOG utility, using :file:`mycfile.cmd`
 as the ATOG command file. For more information, see `ATOG, Chapter 1`.
 
 ::
@@ -58,7 +58,7 @@ as the ATOG command file. For more information, see `ATOG, Chapter 1`.
     > dir *.prg;
 
 This will use the DOS ``dir`` command to print a
-directory listing of all files with a ``.prg``
+directory listing of all files with a :file:`.prg`
 extension on Windows. When the listing is finished, control
 will be returned to GAUSS.
 

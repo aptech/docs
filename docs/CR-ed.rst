@@ -18,7 +18,7 @@ Format
 Examples
 --------------
 
-If your GAUSS working directory is GAUSSHOME/examples, then you can open the example file ``ols.e`` in the alternate editor with this command:
+If your GAUSS working directory is GAUSSHOME/examples, then you can open the example file :file:`ols.e` in the alternate editor with this command:
 
 ::
 
@@ -27,7 +27,7 @@ If your GAUSS working directory is GAUSSHOME/examples, then you can open the exa
 Remarks
 -------
 
-The default name of the editor is set in ``gauss.cfg``. To change the name
+The default name of the editor is set in :file:`gauss.cfg`. To change the name
 of the editor used from within a GAUSS session enter:
 
 ::

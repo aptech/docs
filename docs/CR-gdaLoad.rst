@@ -176,12 +176,12 @@ Examples
     */
     retcode = gdaLoad("myfile.gda", create_new, modify, rename, ftypes, errh, report)
 
-This example loads the variables in ``myfile.gda`` into the
+This example loads the variables in :file:`myfile.gda` into the
 workspace, creating a new variable if a variable of the same name does not
 already exist, modifying an existing variable if a variable of the same
 name does already exist and the modification does not result in an impossible
 type change, and renaming the variable if none of the above is possible.
-The example returns an error code if any variables in ``myfile.gda``
+The example returns an error code if any variables in :file:`myfile.gda`
 are skipped and reports all activity.
 
 .. seealso:: Functions :func:`gdaSave`

@@ -5,7 +5,7 @@ gausset
 Purpose
 ----------------
 
-Resets the global control variables declared in ``gauss.dec``.
+Resets the global control variables declared in :file:`gauss.dec`.
 
 Format
 ----------------

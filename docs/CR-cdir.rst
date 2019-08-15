@@ -50,7 +50,7 @@ After the code above, *dir* will equal:
 macOS Example
 +++++++++++++++
 
-If the current working directory is ``/Users/Research/gauss``:
+If the current working directory is :file:`/Users/Research/gauss`:
 
 ::
 

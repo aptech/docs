@@ -37,7 +37,7 @@ the string, as in:
    filestr = "mydata/adat";
    loadarray x = ^filestr;
 
-If no extension is supplied, then an ``.fmt`` extension will be assumed.
+If no extension is supplied, then an :file:`.fmt` extension will be assumed.
 
 `loadarray` accepts pathnames. The following is legal:
 
@@ -45,7 +45,7 @@ If no extension is supplied, then an ``.fmt`` extension will be assumed.
 
    loadarray k = /gauss/a;
 
-This will load ``/gauss/a.fmt`` into *k*.
+This will load :file:`/gauss/a.fmt` into *k*.
 
 If the ``path=`` subcommand is used, the *path* string will be remembered
 until changed in a subsequent command. This path will be used for all
@@ -64,7 +64,7 @@ This will change the `loadarray` path without loading anything.
 
    loadarray path = /gauss a,b,c;
 
-This will load ``a.fmt``, ``b.fmt``, and ``c.fmt`` using ``/gauss`` as a path. This path
+This will load :file:`a.fmt`, :file:`b.fmt`, and :file:`c.fmt` using :file:`/gauss` as a path. This path
 will be used for the next `loadarray`, `loadm`, or `load` call if none is specified.
 
 The `load` path or `save` path can be overridden in any particular `load` or
@@ -78,11 +78,11 @@ The `load` path or `save` path can be overridden in any particular `load` or
 
 In the above program:
 
-``/data/mydata1.fmt`` would be loaded into an array called *a*.
+:file:`/data/mydata1.fmt` would be loaded into an array called *a*.
 
-``/miscdata/b.fmt`` would be loaded into an array called *b*.
+:file:`/miscdata/b.fmt` would be loaded into an array called *b*.
 
-``/miscdata/hisdata.fmt`` would be loaded into an array called *c*.
+:file:`/miscdata/hisdata.fmt` would be loaded into an array called *c*.
 
 ::
 
@@ -90,8 +90,8 @@ In the above program:
    loadarray a, b;
    call  sysstate(5,oldarraypath);
 
-This will get the old `loadarray` path, set it to ``/data``, load ``a.fmt`` and
-``b.fmt``, and reset the `loadarray` path to its original setting.
+This will get the old `loadarray` path, set it to :file:`/data`, load :file:`a.fmt` and
+:file:`b.fmt`, and reset the `loadarray` path to its original setting.
 
 .. seealso:: Functions `load`, `save`, `let`, :func:`sysstate`
 

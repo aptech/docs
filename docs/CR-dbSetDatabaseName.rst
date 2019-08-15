@@ -22,10 +22,10 @@ Remarks
 For the OCI (Oracle) driver, the database name is the TNS Service Name.
 
 For the ODBC driver, the name can either be a DSN, a DSN filename (in
-which case the file must have a ``.dsn`` extension), or a connection string.
+which case the file must have a :file:`.dsn` extension), or a connection string.
 
 For example, Microsoft Access users can use the following connection
-string to open an ``.mdb`` file directly, instead of having to create a DSN
+string to open an :file:`.mdb` file directly, instead of having to create a DSN
 entry in the ODBC manager:
 
 ::

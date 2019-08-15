@@ -57,14 +57,14 @@ of opening a file. You may set unused file handles to zero with the
 `close` or :func:`closeall` commands.
 
 5. If filename does not have an extension, :func:`dataopen` appends a .dat
-extension before searching for the file. If the file is an ``.fmt`` matrix
+extension before searching for the file. If the file is an :file:`.fmt` matrix
 file, the extension must be explicitly given. If no path information is
 included, then :func:`dataopen` searches for the file in the current directory.
 
 6. Files opened in read mode cannot be written to. The pointer is set to
 the beginning of the file and the :func:`writer` function is disabled for files
 opened in this way. This is the only mode available for matrix files
-(``.fmt``), which are always written in one piece with the `save` command.
+(:file:`.fmt`), which are always written in one piece with the `save` command.
 
 7. Files opened in append mode cannot be read. The pointer is set to the
 end of the file so that a subsequent write to the file with the :func:`writer`
@@ -77,7 +77,7 @@ of a file.
 pointer is set to the beginning of the file. This mode is used to make
 changes in a file.
 
-9. The supported data set types are ``.dat``, ``.h5``, ``.fmt``.
+9. The supported data set types are :file:`.dat`, ``.h5``, :file:`.fmt`.
 
 For HDF5 files, the dataset must include schema and both file name and
 data set name must be provided, e.g.

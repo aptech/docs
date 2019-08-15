@@ -24,16 +24,16 @@ Remarks
 
 For more information about the library system, see **Libraries**, Chapter 1 .
 
-The required extension for library files is ``.lcg``.
+The required extension for library files is :file:`.lcg`.
 
 Library searching
 +++++++++++++++++
 
 If a list of library names is given, they will be the new set of active
-libraries. The two default libraries are ``user.lcg`` and ``gauss.lcg``. Unless
-otherwise specified, ``user.lcg`` will be searched first and ``gauss.lcg`` will
+libraries. The two default libraries are :file:`user.lcg` and :file:`gauss.lcg`. Unless
+otherwise specified, :file:`user.lcg` will be searched first and :file:`gauss.lcg` will
 be searched last. Any other user-specified libraries will be searched
-after ``user.lcg`` in the order they were entered in the `library` statement.
+after :file:`user.lcg` in the order they were entered in the `library` statement.
 
 If the statement:
 

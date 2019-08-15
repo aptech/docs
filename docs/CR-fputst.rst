@@ -57,7 +57,7 @@ Write string to text file
    // Close the file
    call close(fh);
 
-After the code above, you should have a file named ``king_richard_III.txt``
+After the code above, you should have a file named :file:`king_richard_III.txt`
 in your current working directory, containing the contents of the quote
 string followed by an empty line. To avoid the final empty line, use
 :func:`fputs`.
@@ -97,7 +97,7 @@ Example 2: Write CSV data to text file
    // Close the file
    call close(fh);
 
-After the above code, you should have a file named ``temp.csv`` with the
+After the above code, you should have a file named :file:`temp.csv` with the
 following contents:
 
 ::

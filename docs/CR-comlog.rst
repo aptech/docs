@@ -33,7 +33,7 @@ Remarks
   the log file by deleting any previous commands.
 
 * Interactive mode statements are always logged into the file specified by
-  the ``log_file`` configuration variable in the ``gauss.cfg`` file, regardless of the state of `comlog`.
+  the ``log_file`` configuration variable in the :file:`gauss.cfg` file, regardless of the state of `comlog`.
 
 * The command :code:`comlog file= filename` selects the file but does not turn on logging.
 

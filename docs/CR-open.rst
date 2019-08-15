@@ -134,7 +134,7 @@ Examples
     
     dt = close(dt);
 
-In the example above, the existing data set ``/data/rawdat.dat`` is
+In the example above, the existing data set :file:`/data/rawdat.dat` is
 opened for appending new data. The name of the file is in the string variable *fname*. In
 this example the file handle is tested to see if the file was opened
 successfully. The matrix *x* is written to this data set. The

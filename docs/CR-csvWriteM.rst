@@ -51,7 +51,7 @@ Examples
 Basic Example
 +++++++++++++
 
-Write the contents from a matrix to a new file named  ``myfile.csv`` located in your current working directory.
+Write the contents from a matrix to a new file named  :file:`myfile.csv` located in your current working directory.
 
 ::
 

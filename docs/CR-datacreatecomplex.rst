@@ -60,7 +60,7 @@ halves interleaved, element by element. For columns containing character
 data, the imaginary parts are zeroed out.
 
 If *filename* does not include a path, then the file is placed in the
-current directory. The file is given a ``.dat`` extension if no extension is
+current directory. The file is given a :file:`.dat` extension if no extension is
 specified.
 
 If *col* is set to 0, then the number of columns in the data set is
@@ -112,7 +112,7 @@ Examples
     r = writer(fh, x);
     ret = close(fh);
 
-This example creates a complex double precision data file called ``myfilecplx.dat``,
+This example creates a complex double precision data file called :file:`myfilecplx.dat`,
 which is placed in the current directory. The file contains 2 columns
 with 1000 observations (rows), and the columns are given the names ``random1``
 and ``random2``.

@@ -16,7 +16,7 @@ Format
 Remarks
 -------
 
-This function uses `rerun` to display the most recently created ``.tkf`` file.
+This function uses `rerun` to display the most recently created :file:`.tkf` file.
 
 Source
 ------

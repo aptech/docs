@@ -85,19 +85,19 @@ contains the file is added to the filename in the library entry.
 Examples
 ----------------
 
-Let us suppose that you have a file named ``myprocs.gss`` located in your GAUSS *src* directory. Let us further suppose that you would like to create a new library named *mylibrary*. You could accomplish that task like this:
+Let us suppose that you have a file named :file:`myprocs.gss` located in your GAUSS *src* directory. Let us further suppose that you would like to create a new library named *mylibrary*. You could accomplish that task like this:
 
 ::
 
     lib mylibrary myprocs.gss;
 
-Now that this library has been created, you could add other files in the same manner. To add a file named ``mystats.gss`` would look like this:
+Now that this library has been created, you could add other files in the same manner. To add a file named :file:`mystats.gss` would look like this:
 
 ::
 
     lib mylibrary mystats.gss;
 
-This second command will add the file ``mystats.gss`` to the mylibrary which was created in the first step above. It will not overwrite or replace the library.
+This second command will add the file :file:`mystats.gss` to the mylibrary which was created in the first step above. It will not overwrite or replace the library.
 
 You may print the list of files contained in the library by using the ``-list`` flag. Entering the command:
 
@@ -113,7 +113,7 @@ at the GAUSS command line will produce the output similar to:
         myprocs.gss
         mystats.gs
 
-If you add procedures to one of the files in your library, you will need to update the library to reflect these new changes. Continuing with the example from above, if you added some new procedures to the file ``mystats.gss``, you could update the *mylibrary* library with the following command:
+If you add procedures to one of the files in your library, you will need to update the library to reflect these new changes. Continuing with the example from above, if you added some new procedures to the file :file:`mystats.gss`, you could update the *mylibrary* library with the following command:
 
 ::
 

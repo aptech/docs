@@ -78,14 +78,14 @@ Examples
     spath = "/gauss";
     save path = ^spath x,y,z;
 
-Save *x*, *y*, and *z* using ``/gauss`` as the path. This path will be used for the next `save` if none is specified.
+Save *x*, *y*, and *z* using :file:`/gauss` as the path. This path will be used for the next `save` if none is specified.
 
 ::
 
     svp = "/gauss/data";
     save path = ^svp n, k, /gauss/quad1=quad;
 
-*n* and *k* will be saved using ``/gauss/data`` as the save path, quad will be saved in ``/gauss`` 
+*n* and *k* will be saved using :file:`/gauss/data` as the save path, quad will be saved in :file:`/gauss` 
 with the name :file:`quad1.fmt`. On platforms that use the backslash as the path separator, the
 double backslash is required inside double quotes to produce a backslash because it
 is the escape character in quoted strings. It is not required when specifying
@@ -95,7 +95,7 @@ literals.
 
     save path=/procs;
 
-Change save path to ``/procs``.
+Change save path to :file:`/procs`.
 
 ::
 
@@ -104,11 +104,11 @@ Change save path to ``/procs``.
 
 In the above program:
 
-*x* would be saved in ``/data/mydata1.fmt``
+*x* would be saved in :file:`/data/mydata1.fmt`
 
-*y* would be saved in ``/miscdata/y.fmt``
+*y* would be saved in :file:`/miscdata/y.fmt`
 
-*z* would be saved in ``/miscdata/hisdata.fmt``
+*z* would be saved in :file:`/miscdata/hisdata.fmt`
 
 .. seealso:: Functions :func:`datasave`, `load`, `saveall`, :func:`saved`
 
