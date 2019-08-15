@@ -36,7 +36,7 @@ Remarks
 
 If *mode* is a null string, the current mode will be returned with no changes made.
 
-If "one" is set, the viewer executable will be *vwr.exe*.
+If "one" is set, the viewer executable will be :func:`vwr.exe`.
 
 
 Examples
