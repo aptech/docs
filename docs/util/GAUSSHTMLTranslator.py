@@ -1,6 +1,15 @@
+from docutils import nodes
 from sphinx import addnodes
-import GAUSSDomain
 from sphinx.writers.html import HTMLTranslator
+
+
+class desc_returnlist(nodes.Part, nodes.Inline, nodes.FixedTextElement):
+    """Node for a general parameter list."""
+    child_text_separator = ', '
+
+
+class desc_return(nodes.Part, nodes.Inline, nodes.FixedTextElement):
+    """Node for a single return."""
 
 
 class GAUSSHTMLTranslator(HTMLTranslator):
@@ -27,7 +36,7 @@ class GAUSSHTMLTranslator(HTMLTranslator):
         # type: (nodes.Element) -> None
 
         self.return_count = sum(
-            [isinstance(c, GAUSSDomain.desc_return) # source.docs.util.
+            [isinstance(c, desc_return) # source.docs.util.
              for c in node.children])
         # How many required parameters are left.
         self.required_params_left = self.return_count
@@ -64,3 +73,5 @@ class GAUSSHTMLTranslator(HTMLTranslator):
             self.body.append('</em>')
         if self.required_params_left:
             self.body.append(self.param_separator)
+
+

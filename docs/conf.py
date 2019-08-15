@@ -203,6 +203,8 @@ def setup(sphinx):
     GAUSSDomain.setup(sphinx)
 
     from GAUSSHTMLTranslator import GAUSSHTMLTranslator
-    sphinx.set_translator('html',
-                          GAUSSHTMLTranslator,
-                          override=True)
+
+    for builder in ['html', 'readthedocs']:
+        sphinx.set_translator(builder,
+                              GAUSSHTMLTranslator,
+                              override=True)

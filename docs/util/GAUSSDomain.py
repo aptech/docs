@@ -13,6 +13,7 @@ import re
 from docutils import nodes
 from docutils.parsers.rst import directives
 from six import iteritems
+from GAUSSHTMLTranslator import desc_returnlist, desc_return
 
 from sphinx import addnodes, locale
 from sphinx.deprecation import DeprecatedDict, RemovedInSphinx30Warning
@@ -112,15 +113,6 @@ def _pseudo_parse_arglist(signode, arglist):
         signode[-1] += addnodes.desc_parameter(arglist, arglist)
     else:
         signode += paramlist
-
-
-class desc_returnlist(nodes.Part, nodes.Inline, nodes.FixedTextElement):
-    """Node for a general parameter list."""
-    child_text_separator = ', '
-
-
-class desc_return(nodes.Part, nodes.Inline, nodes.FixedTextElement):
-    """Node for a single return."""
 
 
 def _pseudo_parse_returns(signode, returns):
@@ -986,3 +978,4 @@ def setup(app):
         'parallel_read_safe': True,
         'parallel_write_safe': True,
     }
+
