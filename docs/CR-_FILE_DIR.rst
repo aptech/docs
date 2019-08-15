@@ -11,18 +11,18 @@ Format
 ----------------
 .. function:: path = __FILE_DIR
 
-    :return path: containing the full path to the file which contains the usage of __FILE_DIR.
+    :return path: containing the full path to the file which contains the usage of `__FILE_DIR`.
 
     :rtype path: string
 
 Remarks
 -------
 
--  \__FILE_DIR is only available for use inside a program file. It
+-  `__FILE_DIR` is only available for use inside a program file. It
    cannot be used at the GAUSS command prompt.
--  A common use of \__FILE_DIR is to locate a data file which is in the
+-  A common use of `__FILE_DIR` is to locate a data file which is in the
    same directory as the code file, but may not be the current working
-   directory. For example, the GAUSS example file gmmfitiv_auto.e is
+   directory. For example, the GAUSS example file :file:`gmmfitiv_auto.e` is
    located in the GAUSS examples directory. This example code needs to
    load a dataset which is also located in the GAUSS examples directory.
    For this purpose, it uses the line:
@@ -49,7 +49,7 @@ Remarks
       // Linux
       "/home/yourusername/gauss/exmples/auto.dat
 
--  Note that \__FILE_DIR is technically a GAUSS define, therefore it
+-  Note that `__FILE_DIR` is technically a GAUSS define, therefore it
    cannot be appended with parentheses like this:
 
    ::
@@ -58,3 +58,4 @@ Remarks
       __FILE_DIR();            
 
 .. seealso:: Functions :func:`getgausshome`
+
