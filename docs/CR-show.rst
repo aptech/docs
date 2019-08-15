@@ -7,7 +7,7 @@ Purpose
 Displays the global symbol table.
 
 .. _show:
-.. index::
+.. index:: show
 
 Format
 ----------------
@@ -100,7 +100,7 @@ array, then it gives the orders of each dimension. As follows:
 Rets=Args             if procedure, keyword, or function
 Row,Col               if matrix, sparse matrix, string array, or structure
 Length                if string
-OrdN,...,Ord2,Ord1    if array, where :math:`N is the slowest moving dimension of the array, and Ord is the order (or size) of a dimension 
+OrdN,...,Ord2,Ord1    if array, where :math:`N` is the slowest moving dimension of the array, and Ord is the order (or size) of a dimension 
 ===================== ===========================================
 
 If the symbol is an array of structures, the 'Info' column will display

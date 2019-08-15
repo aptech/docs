@@ -39,7 +39,8 @@ Remarks
    persists only through the remainder of the current loop iteration.
    For example:
 
-   #
+   ::
+
        a = 34.7;
        threadfor i(1, 2, 1);
            a = rndu(1,1);
@@ -50,7 +51,7 @@ Remarks
 
    will produce output similar to the following:
    
-   #
+   :: 
 
        0.90560157 
        0.52594285 

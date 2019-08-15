@@ -204,7 +204,7 @@ def setup(sphinx):
 
     from GAUSSHTMLTranslator import GAUSSHTMLTranslator
 
-    for builder in ['html', 'readthedocs']:
+    for builder in ['html', 'readthedocs', 'readthedocssinglehtmllocalmedia']:
         sphinx.set_translator(builder,
                               GAUSSHTMLTranslator,
                               override=True)

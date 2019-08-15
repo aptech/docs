@@ -63,7 +63,7 @@ Global Input
 
         ::
 
-       _pzclr = { 1, 10, 15 };
+            _pzclr = { 1, 10, 15 };
 
     #. To specify multiple colors distributed over selected ranges, the Z 
            ranges as well as the colors must be manually input by the user. The 
