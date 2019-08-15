@@ -5,7 +5,7 @@ readr
 Purpose
 ----------------
 Reads a specified number of rows of data from a GAUSS data set
-(*.dat*) file or a GAUSS matrix (*.fmt*) file.
+(:file:`.dat`) file or a GAUSS matrix (:file:`.fmt`) file.
 
 Format
 ----------------

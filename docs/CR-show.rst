@@ -80,8 +80,8 @@ FUNCTION, KEYWORD, MATRIX, PROCEDURE, STRING, STRING ARRAY, or STRUCT.
 If the symbol is a procedure, keyword or function, the 'References'
 column will show if it makes any global references. If it makes only
 local references, the procedure or function can be saved to disk in an
-*.fcg* file with the `save` command. If the function or procedure makes any
-global references, it cannot be saved in an *.fcg* file.
+:file:`.fcg` file with the `save` command. If the function or procedure makes any
+global references, it cannot be saved in an :file:`.fcg` file.
 
 If the symbol is a structure, the 'References' column will contain the
 structure type. A structure pointer is indicated by a ``*`` following the

@@ -13,7 +13,7 @@ Format
     :param data: data
     :type data: matrix
 
-    :param file: name of *.xls* or *.xlsx* file.
+    :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
     :param range: the starting point of the write, e.g. "a2". Default = "a1"

@@ -4,7 +4,7 @@ seekr
 
 Purpose
 ----------------
-Moves the pointer in a *.dat* or *.fmt* file to a particular row.
+Moves the pointer in a :file:`.dat` or :file:`.fmt` file to a particular row.
 
 Format
 ----------------

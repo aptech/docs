@@ -5,7 +5,7 @@ rowsf
 Purpose
 ----------------
 
-Returns the number of rows in a GAUSS data set (*.dat*) file or GAUSS matrix (*.fmt*) file.
+Returns the number of rows in a GAUSS data set (:file:`.dat`) file or GAUSS matrix (:file:`.fmt`) file.
 
 Format
 ----------------

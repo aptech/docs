@@ -30,7 +30,7 @@ Remarks
 -------
 
 The *filename* can be any legal file name. Filename extensions can be
-whatever you want, except for the compiled file extension, *.gcg*.
+whatever you want, except for the compiled file extension, :file:`.gcg`.
 Pathnames are okay. If the name is to be taken from a string variable,
 then the name of the string variable must be preceded by the ``^`` (caret)
 operator.
@@ -41,7 +41,7 @@ through the `run` statement, there is no return to the original program
 unless the flag ``-r`` is used.
 
 If you specify a filename without an extension, GAUSS will first look
-for a compiled code program (i.e., a *.gcg* file) by that name, then a
+for a compiled code program (i.e., a :file:`.gcg` file) by that name, then a
 source code program by that name. For example, if you enter
 
 ::

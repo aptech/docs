@@ -24,8 +24,8 @@ Format
 :filename: (*literal or ^string*) name of the file on the disk. The name can include
     a path if the directory to be used is not the current directory. This
     filename will automatically be given the extension .dat. If an
-    extension is specified, the *.dat* will be overridden. If the file
-    is an *.fmt* matrix file, the extension must be explicitly given. If
+    extension is specified, the :file:`.dat` will be overridden. If the file
+    is an :file:`.fmt` matrix file, the extension must be explicitly given. If
     the name of the file is to be taken from a string variable, the name
     of the string must be preceded by the ``^`` (caret) operator.
 
@@ -34,7 +34,7 @@ Format
     .. csv-table::
         :widths: auto
 
-        "read", "This is the default file opening mode and will be the one used if none is specified. Files opened in this mode cannot bewritten to. The pointer is set to the beginning of the file and the :func:`writer` function is disabled for files opened in this way. This is the only mode available for matrix files (*.fmt*), which are always written in one piece with the `save` command."
+        "read", "This is the default file opening mode and will be the one used if none is specified. Files opened in this mode cannot bewritten to. The pointer is set to the beginning of the file and the :func:`writer` function is disabled for files opened in this way. This is the only mode available for matrix files (:file:`.fmt`), which are always written in one piece with the `save` command."
         "append", "Files opened in this mode cannot be read. The pointer will be set to the end of the file so that a subsequent write to the file with the :func:`writer` function will add data to the end of the file without overwriting any of the existing data in the file. The :func:`readr` function is disabled for files opened in this way. This mode is used to add additional rows to the end of a file."
         "update", "Files opened in this mode can be read from and written to. The pointer will be set to the beginning of the file. This mode is used to make changes in a file."
 
@@ -64,7 +64,7 @@ Format
     3 had been specified, then these variables would be assigned the
     values 4 and 5 respectively.
 
-    The *varindxi* option cannot be used with *.fmt* matrix
+    The *varindxi* option cannot be used with :file:`.fmt` matrix
     files because no column names are stored with them.
 
     If *varindxi* is used, GAUSS will ignore the Undefined symbol
@@ -183,7 +183,7 @@ variables: *visc*, *temp*, *lub*, and *rpm*:
     call seekr(f1,1);
 
 In this example, the data set :file:`dat1.dat` is opened for reading (the
-*.dat* and the ``for read`` are implicit). *varindxi* is specified
+:file:`.dat` and the ``for read`` are implicit). *varindxi* is specified
 with no constant. Thus, index variables are created that give the
 positions of the variables in the data set. The first 100 rows of the
 data set are read into the matrix *dtx*. Then, specified variables
@@ -228,7 +228,7 @@ thus give the correct positions of the variables in *y*.
 
 In this example, a 10% random sample of rows is drawn from the
 matrix file :file:`x.fmt` and put into the matrix *rndsmpx*. Note that the
-extension *.fmt* must be specified explicitly in the `open` statement.
+extension :file:`.fmt` must be specified explicitly in the `open` statement.
 The :func:`rowsf` command is used to obtain the number of rows in :file:`x.fmt`.
 This number is multiplied by 0.10 and the result is rounded to the
 nearest integer; this yields the desired sample size. Then random

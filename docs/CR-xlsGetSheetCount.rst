@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: nsheets = xlsGetSheetCount(file)
 
-    :param file: name of *.xls* or *.xlsx* file.
+    :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
     :return nsheets: sheet count or an error code.

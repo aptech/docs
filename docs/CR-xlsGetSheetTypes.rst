@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: nsheets = xlsGetSheetTypes(file, sheet, row)
 
-    :param file: name of *.xls* or *.xlsx* file.
+    :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
     :param sheet: sheet index (1-based).

@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: x = spreadSheetReadM(file[, range[, sheet]])
 
-    :param file: name of *.xls*, or *.xlsx* file.
+    :param file: name of :file:`.xls`, or :file:`.xlsx` file.
     :type file: string
 
     :param range: range to read or write; e.g., "A1:B20". Default = "A1".

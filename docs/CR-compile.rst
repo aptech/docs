@@ -25,7 +25,7 @@ Format
 
 
 :fname: (*literal or ^string*) optional, the name of the file to be created. If not given, the 
-    file will have the same filename and path as source. It will have a *.gcg* extension.
+    file will have the same filename and path as source. It will have a :file:`.gcg` extension.
 
 Remarks
 -------

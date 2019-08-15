@@ -23,11 +23,11 @@ Format
 Remarks
 -------
 
-The file extension will be *.gcg*.
+The file extension will be :file:`.gcg`.
 
 A file will be created containing all your matrices, strings, and
 procedures. No main code segment will be saved. This just means it will
-be a *.gcg* file with no main program code (see `compile`). The rest of the
+be a :file:`.gcg` file with no main program code (see `compile`). The rest of the
 contents of memory will be saved, including all global matrices,
 strings, functions and procedures. Local variables are not saved. This
 can be used inside a program to take a snapshot of the state of your

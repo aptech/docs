@@ -13,7 +13,7 @@ Format
     :param data: data
     :type data: string or string array
 
-    :param file: name of *.xls* file.
+    :param file: name of :file:`.xls` file.
     :type file: string
 
     :param range: the starting point of the write, e.g. "a2". Default = "a1".

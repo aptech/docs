@@ -130,7 +130,7 @@ Format
     :param comfile: the name of a command file that
         contains the information needed to create the
         file. The default extension for the command
-        file is *.gcf*, which can be overridden.
+        file is :file:`.gcf`, which can be overridden.
         There are three possible commands in this file:
 
         ::

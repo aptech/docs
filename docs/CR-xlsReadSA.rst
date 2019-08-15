@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: s = xlsReadSA(file[, range[, sheet[, vls]]])
 
-    :param file: name of *.xls* or *.xlsx* file.
+    :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
     :param range: range to read, e.g. "A2:B20" or the starting point of the read, e.g. "A2". Default = "A1".
