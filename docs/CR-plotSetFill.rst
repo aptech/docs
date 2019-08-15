@@ -45,7 +45,7 @@ Remarks
 -------
 
 When graphing without the use of a plotControl structure, these settings
-may be chosen through the **Tools > Preferences > Graphics** menu, after
+may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
 selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
 more information on the methods available for customizing your graphs.
 

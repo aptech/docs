@@ -34,7 +34,7 @@ the function :func:`plotGetDefaults` and :func:`plotSetBar`.
 
 If you are not passing a :class:`plotControl` structure, these properties are set
 in the Preferences. To access the Graphics Preferences, select
-**Tools > Preferences** from the GAUSS main menu. Select **Graphics** on
+:menuselection:`Tools --> Preferences` from the GAUSS main menu. Select **Graphics** on
 the left side of the preferences and then select **Bar** from the list
 of graph types.
 

@@ -40,7 +40,7 @@ Remarks
 
 To automatically open each new graph in a new graph window, use
 :func:`plotSetNewWindow` or set the preference in the main applicaton menu. This
-may be found by selecting **Tools > Preferences** and then clicking on
+may be found by selecting :menuselection:`Tools --> Preferences` and then clicking on
 **Graphics** on the left side of the preferences window.
 
 If you select the radio button next to **New Window** at the top of the

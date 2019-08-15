@@ -60,7 +60,7 @@ Remarks
 
 -  If you want line number records in the compiled file you can put a
    `#lineson` statement in the source file or turn line tracking on from
-   the main GAUSS menu, **Tools > Preferences > Advanced**.
+   the main GAUSS menu, :menuselection:`Tools --> Preferences --> Advanced`.
 
 -  Don't try to include compiled files with `#include`.
 

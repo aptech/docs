@@ -114,10 +114,10 @@ Here are some of the possible uses of the three forms of declaration:
         trouble if you are not careful.
 
 The `declare` statement warning level is a compile option. Call :func:`config` in
-the command line version of GAUSS or select **Tools > Preferences > Advanced**  in the **User Interface** to edit this option. If
-`declare warnings` are on, you will be warned whenever a `declare` statement
-encounters a symbol that is already initialized. Here's what happens
-when you `declare` a symbol that is already initialized when `declare warnings` are turned on:
+the command line version of GAUSS or select :menuselection:`Tools --> Preferences --> Advanced` 
+in the **User Interface** to edit this option. If ``declare warnings`` are on, you will be warned 
+whenever a `declare` statement encounters a symbol that is already initialized. Here's what happens
+when you `declare` a symbol that is already initialized when ``declare warnings`` are turned on:
 
 
 .. list-table::
