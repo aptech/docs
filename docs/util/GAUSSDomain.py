@@ -448,7 +448,8 @@ class PyModulelevel(PyObject):
 
     def needs_arglist(self):
         # type: () -> bool
-        return self.objtype == 'function'
+        #return self.objtype == 'function'
+        return False
 
     def get_index_text(self, modname, name_cls):
         # type: (unicode, unicode) -> unicode
