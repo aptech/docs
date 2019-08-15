@@ -14,7 +14,7 @@ Format
     :param filename: name of the file to create with a file type extension.
         Available file extensions include: .jpg, .plot, .png, .pdf, .svg, .tiff 
         
-        .. NOTE:: Available file types may vary per system. A list of valid types can be found in the **File > Export Graph** file dialog window).
+        .. NOTE:: Available file types may vary per system. A list of valid types can be found in the :menuselection:`File --> Export Graph` file dialog window.
 
     :type filename: string
 

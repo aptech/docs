@@ -73,7 +73,7 @@ Plot the PACF results with :func:`plotBar`. Passing in 0 as the first input tell
 
     plotBar(0,rk);
 
-You can add labels for x-axis and y-axis interactively on the Graphics Page by selecting **View > Graph Settings** from the main menu. The plot is shown below:
+You can add labels for x-axis and y-axis interactively on the Graphics Page by selecting :menuselection:`View --> Graph Settings` from the main menu. The plot is shown below:
 
 .. figure:: _static/images/pacf1.png 
 
