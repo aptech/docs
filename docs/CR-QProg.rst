@@ -57,7 +57,7 @@ Format
 
     :return ret: return code.
 
-        .. list-table::
+        .. csv-table::
             :widths: auto
     
             "*0*", "termination"

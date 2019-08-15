@@ -97,7 +97,7 @@ represent pi
 "%.2e"  3.14e+00
 "%.2g"  3.14
 "%d"    3
-====== ===========
+======= ===========
 
 This function sets an attribute in a :class:`plotControl` structure. It does not
 affect an existing graph, or a new graph drawn using the default

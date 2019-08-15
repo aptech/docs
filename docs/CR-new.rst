@@ -9,7 +9,7 @@ Erases everything in memory including the symbol table; closes all open files as
 the window on if it was off; also allows the size of the new symbol table and the main program space to be specified.
 
 .. _new:
-.. index::
+.. index:: new
 
 Format
 ----------------

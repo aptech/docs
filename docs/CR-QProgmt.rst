@@ -12,18 +12,18 @@ Format
 
     :param qIn: instance of a :class:`qprogMTIn` structure containing the following members:
 
-    .. csv-table::
-        :widths: auto
-
-        "qIn.start", "Kx1 vector, start values."
-        "qIn.q", "KxK matrix, symmetric model matrix."
-        "qIn.r", "Kx1 vector, model constant vector."
-        "qIn.a", "MxK matrix, equality constraint coefficient matrix, or scalar 0, no equality constraints."
-        "qIn.b", "Mx1 vector, equality constraint constant vector, or scalar 0, will be expanded to Mx1 vector of zeros."
-        "qIn.c", "NxK matrix, inequality constraint coefficient matrix, or scalar 0, no inequality constraints."
-        "qIn.d", "Nx1 vector, inequality constraint constant vector, or scalar 0, will be expanded to Nx1 vector of zeros."
-        "qIn.bounds", "Kx2 matrix, bounds on *qOut.x*, the first column contains the lower bounds on *qOut.x*, and the second column the upper bounds. If scalar 0, the bounds for all elements will default to ±1e200."
-        "qIn.maxit", "scalar, maximum number of iterations. Default = 1000."
+        .. csv-table::
+            :widths: auto
+    
+            "qIn.start", "Kx1 vector, start values."
+            "qIn.q", "KxK matrix, symmetric model matrix."
+            "qIn.r", "Kx1 vector, model constant vector."
+            "qIn.a", "MxK matrix, equality constraint coefficient matrix, or scalar 0, no equality constraints."
+            "qIn.b", "Mx1 vector, equality constraint constant vector, or scalar 0, will be expanded to Mx1 vector of zeros."
+            "qIn.c", "NxK matrix, inequality constraint coefficient matrix, or scalar 0, no inequality constraints."
+            "qIn.d", "Nx1 vector, inequality constraint constant vector, or scalar 0, will be expanded to Nx1 vector of zeros."
+            "qIn.bounds", "Kx2 matrix, bounds on *qOut.x*, the first column contains the lower bounds on *qOut.x*, and the second column the upper bounds. If scalar 0, the bounds for all elements will default to ±1e200."
+            "qIn.maxit", "scalar, maximum number of iterations. Default = 1000."
 
     :type qIn: struct
 
@@ -51,7 +51,9 @@ Format
                 :*3*: model matrices not conformable
                 :*< 0*: active constraints inconsistent
 
+
     :type qOut: struct
+
 
 Remarks
 -------

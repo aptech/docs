@@ -99,7 +99,7 @@ Now that this library has been created, you could add other files in the same ma
 
 This second command will add the file ``mystats.gss`` to the mylibrary which was created in the first step above. It will not overwrite or replace the library.
 
-You may print the list of files contained in the library by using the ````-list```` flag. Entering the command:
+You may print the list of files contained in the library by using the ``-list`` flag. Entering the command:
 
 ::
 

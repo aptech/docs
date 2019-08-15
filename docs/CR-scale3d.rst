@@ -8,7 +8,7 @@ Purpose
 Fixes the scaling for subsequent graphs. The axes endpoints and increments are computed as a best guess based on
 the data passed to it. 
 
-.. NOTEL:: This function is for use with the deprecated PQG graphics.
+.. NOTE:: This function is for use with the deprecated PQG graphics.
  
 
 Format

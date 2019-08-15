@@ -51,11 +51,13 @@ Format
 Global Input
 ------------
 
-.. csv-table::
+.. list-table::
     :widths: auto
 
-    "\_fin_thetaType","scalar, if 1, one day look ahead, else, infinitesmal. Default = 0.
-    "\_fin_epsilon","scalar, finite difference stepsize. Default = 1e-8.
+    * - \_fin_thetaType
+      - scalar, if 1, one day look ahead, else, infinitesmal. Default = 0.
+    * - \_fin_epsilon
+      - scalar, finite difference stepsize. Default = 1e-8.
 
 Examples
 ----------------

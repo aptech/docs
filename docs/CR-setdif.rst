@@ -22,9 +22,9 @@ Format
         .. csv-table::
             :widths: auto
     
-            "0" "character, case sensitive."
-            "1" "numeric (Default)."
-            "2" "character, case insensitive."
+            "0", "character, case sensitive."
+            "1", "numeric (Default)."
+            "2", "character, case insensitive."
 
     :type typ: scalar
 
