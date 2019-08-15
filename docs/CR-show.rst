@@ -113,7 +113,7 @@ nonfunction program code. The maximum program space can be controlled by
 the `new` command.
 
 The maximum number of global and local symbols is controlled by the
-*maxglobals* and *maxlocals* configuration variables in *gauss.cfg*.
+*maxglobals* and *maxlocals* configuration variables in :file:`gauss.cfg`.
 
 Examples
 ----------------

@@ -55,7 +55,7 @@ scalerr, depending on the state of the `trap` flag.
 Examples
 ----------------
 
-For example, let us suppose that a file named '*yarn.xlsx*' exists in the GAUSS home directory. 
+For example, let us suppose that a file named ':file:`yarn.xlsx`' exists in the GAUSS home directory. 
 Let us further suppose that the 'A1' element is a string and the 'B1:C1' elements are numbers. 
 The first row has no other elements. Then the code:
 

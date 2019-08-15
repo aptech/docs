@@ -57,9 +57,9 @@ Examples
     // the data in 'dat1'
     create fout = ^outfile with ^names, 0, typef(fin);
 
-In this example, a file *dat2.dat* is created which has
+In this example, a file :file:`dat2.dat` is created which has
 the same variables and variable type as the input
-file, *dat1.dat*. :func:`typef` is used to return the type of
+file, :file:`dat1.dat`. :func:`typef` is used to return the type of
 the input file data for the `create` statement.
 
 .. seealso:: Functions :func:`colsf`, :func:`rowsf`

@@ -47,7 +47,7 @@ This lists the contents of the *./src* subdirectory, then returns to GAUSS.
 
     shell cmp n1.fmt n1.fmt.old;
 
-This compares the matrix file *n1.fmt* to an older version of
+This compares the matrix file :file:`n1.fmt` to an older version of
 itself, *n1.fmt.old*, to see if it has changed.
 
 When ``cmp`` finishes, control is returned to GAUSS.

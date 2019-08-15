@@ -85,7 +85,7 @@ Examples
     
     fp = close(fp);
 
-In this example, a 10000x10 data set of Normal random numbers is written to a data set called *data.dat*. 
+In this example, a 10000x10 data set of Normal random numbers is written to a data set called :file:`data.dat`. 
 The variable names are ``X01 - X10``.
 
 .. seealso:: Functions `open`, `close`, `create`, :func:`readr`, :func:`saved`, :func:`seekr`

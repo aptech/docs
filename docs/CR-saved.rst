@@ -38,7 +38,7 @@ Remarks
 
 **DAT**
 
--  If *dataset* is null or 0, the data set name will be *temp.dat*.
+-  If *dataset* is null or 0, the data set name will be :file:`temp.dat`.
 -  If *vnames* is a null or 0, the variable names will begin with "X" and be numbered 1-K.
 -  If *vnames* is a string or has fewer elements than *x* has columns, it will be expanded as explained under `create`.
 -  The output data type is double precision.

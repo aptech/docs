@@ -54,7 +54,7 @@ Examples
     end;
 
 The program above will write the contents of the GAUSS file
-*mydata.dat* into an ASCII file called *mydata.asc*. If *mydata.asc*
+:file:`mydata.dat` into an ASCII file called :file:`mydata.asc`. If :file:`mydata.asc`
 already exists, it will be overwritten. Turning the window 
 off will speed up execution. The `end` statement
 above will automatically perform ``output off`` and ``screen on``.

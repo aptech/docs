@@ -48,8 +48,8 @@ source code program by that name. For example, if you enter
 
    run dog;
 
-GAUSS will first look for the compiled code file *dog.gcg*, and run that
-if it finds it. If GAUSS cannot find *dog.gcg*, it will then look for the
+GAUSS will first look for the compiled code file :file:`dog.gcg`, and run that
+if it finds it. If GAUSS cannot find :file:`dog.gcg`, it will then look for the
 source code file *dog* with no extension.
 
 If a path is specified for the file, then no additional searching will

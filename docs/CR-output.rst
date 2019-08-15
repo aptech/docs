@@ -29,7 +29,7 @@ Format
     If the name of the file is to be taken from a string variable, the name of the string must 
     be preceded by the ``^`` (caret) operator..
     
-    The default file name is *output.out*.
+    The default file name is :file:`output.out`.
 
 :on, off, reset: (*literal*) mode flag:
 
@@ -100,9 +100,9 @@ Examples
 
     output file = out1.out on;
 
-This statement will open the file *out1.out* and will cause the
+This statement will open the file :file:`out1.out` and will cause the
 results of all subsequent `print` statements to be sent to that
-file. If *out1.out* already exists, the new output will be appended.
+file. If :file:`out1.out` already exists, the new output will be appended.
 
 ::
 
@@ -134,9 +134,9 @@ This statement will create a new output file using
     end;
 
 The program above will write the contents of the
-GAUSS file *mydata.dat* into an ASCII file called
-*mydata.asc*. If there had been an existing file by
-the name of *mydata.asc*, it would have been overwritten.
+GAUSS file :file:`mydata.dat` into an ASCII file called
+:file:`mydata.asc`. If there had been an existing file by
+the name of :file:`mydata.asc`, it would have been overwritten.
 
 The ``/m1`` parameter in the `format` statement in
 combination with the ``;;`` at the end of the `print`

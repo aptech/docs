@@ -28,7 +28,7 @@ Format
     ``-v92``  supported on UNIX, Windows
     ``-v96``  supported on all platforms. See also `Foreign Language Interface`, 
               Chapter 1, for details on the various versions. The default format 
-              can be specified in *gauss.cfg* by setting the *dat_fmt_version* configuration 
+              can be specified in :file:`gauss.cfg` by setting the *dat_fmt_version* configuration 
               variable. If *dat_fmt_version* is not set, the default is *v96*.
     ========= =========================================
 
@@ -86,7 +86,7 @@ Save *x*, *y*, and *z* using ``/gauss`` as the path. This path will be used for 
     save path = ^svp n, k, /gauss/quad1=quad;
 
 *n* and *k* will be saved using ``/gauss/data`` as the save path, quad will be saved in ``/gauss`` 
-with the name *quad1.fmt*. On platforms that use the backslash as the path separator, the
+with the name :file:`quad1.fmt`. On platforms that use the backslash as the path separator, the
 double backslash is required inside double quotes to produce a backslash because it
 is the escape character in quoted strings. It is not required when specifying
 literals.

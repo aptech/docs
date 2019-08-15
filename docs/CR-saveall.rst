@@ -40,7 +40,7 @@ or `use`.
    external proc xy,logx,logy,loglog,hist;
    saveall pgraph;
 
-This would create a file called *pgraph.gcg*, containing all the
+This would create a file called :file:`pgraph.gcg`, containing all the
 procedures, strings and matrices needed to run **Publication Quality
 Graphics** programs. Other programs could be compiled very quickly with
 the following statement at the top of each:

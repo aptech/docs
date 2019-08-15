@@ -261,7 +261,7 @@ Example 1
     call ols(0,y,x);
     output off;
 
-In this example, the output from :func:`ols` is put into a file called *ols.out*
+In this example, the output from :func:`ols` is put into a file called :file:`ols.out`
 as well as being printed to the window. This example will compute a
 least squares regression of *y* on *x*. The return values are discarded by
 using a `call` statement.
@@ -276,7 +276,7 @@ using a `call` statement.
     { nam, m, b, stb, vc, std, sig, cx, rsq, resid, dbw } = ols(data, depvar, indvars);
     output off;
 
-In this example, the data set *olsdat.dat* is used to compute a
+In this example, the data set :file:`olsdat.dat` is used to compute a
 regression. The dependent variable is *score*. The independent variables
 are: *region*, *age*, and *marstat*. The residuals and Durbin-Watson statistic
 will be computed. The output will be sent to the printer as well as the

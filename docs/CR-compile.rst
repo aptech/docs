@@ -76,14 +76,14 @@ Examples
     compile qxy.e;
 
 In this example, the `source path` would be searched for qxy.e, which
-would be compiled to a file called *qxy.gcg* on the same subdirectory *qxy.e* was found.
+would be compiled to a file called :file:`qxy.gcg` on the same subdirectory *qxy.e* was found.
 
 ::
 
     compile qxy.e xy;
 
 In this example, the `source path` would be searched for *qxy.e* which
-would be compiled to a file called *xy.gcg* on the current subdirectory.
+would be compiled to a file called :file:`xy.gcg` on the current subdirectory.
 
 .. seealso:: Functions `run`, `use`, `saveall`
 

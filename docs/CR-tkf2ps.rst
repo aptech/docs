@@ -31,7 +31,7 @@ Format
 Remarks
 -------
 
-The conversion is done using the global parameters in *peps.dec*. You can
+The conversion is done using the global parameters in :file:`peps.dec`. You can
 modify these globally by editing the *.dec* file, or locally by setting
 them in your program before calling :func:`tkf2ps`.
 

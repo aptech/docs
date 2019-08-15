@@ -157,7 +157,7 @@ number of rows that were attempted, then the disk is probably full.
     
     closeall fin,fout;
 
-In the above example, the same file, *mydata.dat*, is opened twice with
+In the above example, the same file, :file:`mydata.dat`, is opened twice with
 two different file handles. It is opened for read with the handle
 *fin*, and it is opened for update with the handle *fout*. This will
 allow the file to be transformed in place without taking up the extra
@@ -171,7 +171,7 @@ written back out using the output handle. This type of operation
 works fine as long as the total number of rows and columns does not
 change.
 
-The following example assumes a data file named *dat1.dat* that has the
+The following example assumes a data file named :file:`dat1.dat` that has the
 variables: *visc*, *temp*, *lub*, and *rpm*:
 
 ::
@@ -182,7 +182,7 @@ variables: *visc*, *temp*, *lub*, and *rpm*:
     y = dtx[.,itemp];
     call seekr(f1,1);
 
-In this example, the data set *dat1.dat* is opened for reading (the
+In this example, the data set :file:`dat1.dat` is opened for reading (the
 *.dat* and the ``for read`` are implicit). *varindxi* is specified
 with no constant. Thus, index variables are created that give the
 positions of the variables in the data set. The first 100 rows of the
@@ -227,9 +227,9 @@ thus give the correct positions of the variables in *y*.
     fx = close(fx);
 
 In this example, a 10% random sample of rows is drawn from the
-matrix file *x.fmt* and put into the matrix *rndsmpx*. Note that the
+matrix file :file:`x.fmt` and put into the matrix *rndsmpx*. Note that the
 extension *.fmt* must be specified explicitly in the `open` statement.
-The :func:`rowsf` command is used to obtain the number of rows in *x.fmt*.
+The :func:`rowsf` command is used to obtain the number of rows in :file:`x.fmt`.
 This number is multiplied by 0.10 and the result is rounded to the
 nearest integer; this yields the desired sample size. Then random
 integers (*r*) in the range 1 to *rf* are generated. :func:`seekr` is used

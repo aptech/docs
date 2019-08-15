@@ -30,7 +30,7 @@ Examples
 Basic Example
 +++++++++++++
 
-Read all contents from the file *myfile.xlsx* located in your current GAUSS working directory as a string array.
+Read all contents from the file :file:`myfile.xlsx` located in your current GAUSS working directory as a string array.
 
 ::
 

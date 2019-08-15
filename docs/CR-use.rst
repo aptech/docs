@@ -34,7 +34,7 @@ words, if *xy.e* had the following lines:
    external proc xy;
    x = seqa(0.1,0.1,100);
 
-it could be compiled to *xy.gcg*. Then the following program could be run:
+it could be compiled to :file:`xy.gcg`. Then the following program could be run:
 
 ::
 
@@ -60,7 +60,7 @@ set of closely related programs. For example:
    external proc xy,logx,logy,loglog,hist;
    saveall pgraph;
 
-This would create a file called *pgraph.gcg* containing all the
+This would create a file called :file:`pgraph.gcg` containing all the
 procedures, strings and matrices needed to run PQG programs. Other
 programs could be compiled very quickly with the following statement at
 the top of each:

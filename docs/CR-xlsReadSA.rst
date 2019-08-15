@@ -109,7 +109,7 @@ Examples
 Basic Example with Specify Path and Sheet Number
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-Read all contents from the file "*yarn.xlsx*" located in GAUSS home working directory as a string array.
+Read all contents from the file ":file:`yarn.xlsx`" located in GAUSS home working directory as a string array.
 
 ::
 
@@ -130,7 +130,7 @@ Read From a Range
 Read your own data
 ++++++++++++++++++
 
-Read all contents from the file *myfile.xlsx* located in your current GAUSS working directory as a string array.
+Read all contents from the file :file:`myfile.xlsx` located in your current GAUSS working directory as a string array.
 
 ::
 

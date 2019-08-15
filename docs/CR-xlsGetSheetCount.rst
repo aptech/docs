@@ -43,7 +43,7 @@ Examples
 Example 1
 +++++++++
 
-If you had an Excel file named '*yarn.xlsx*' in the GAUSS home directory, then you could 
+If you had an Excel file named ':file:`yarn.xlsx`' in the GAUSS home directory, then you could 
 determine the number of sheets in the file with the following code:
 
 ::

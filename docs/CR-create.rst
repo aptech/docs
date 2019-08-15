@@ -109,7 +109,7 @@ Format
             "-v96", "supported on all platforms."
 
         For details on the various versions, see Foreign Language Interface, Chapter  1.
-        The default format can be specified in *gauss.cfg* by
+        The default format can be specified in :file:`gauss.cfg` by
         setting the *dat_fmt_version* configuration variable. The default, v96, should be used.
 
         .. DANGER:: FIX LINK TO FLI CHAP 1

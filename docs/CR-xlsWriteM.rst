@@ -92,7 +92,7 @@ Basic Example
     // from cell 'A1' to 'B3'
     ret = xlsWriteM(x, "myfile.xlsx");
 
-'*myfile.xlsx*'is saved in your current working directory. You can find your current working directory 
+':file:`myfile.xlsx`'is saved in your current working directory. You can find your current working directory 
 in the main tool bar (in the top of GAUSS).
 
 Write To a Range
