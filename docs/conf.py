@@ -202,6 +202,9 @@ def setup(sphinx):
     import GAUSSDomain
     GAUSSDomain.setup(sphinx)
 
+    import GAUSSRoles
+    GAUSSRoles.setup(sphinx)
+
     from GAUSSHTMLTranslator import GAUSSHTMLTranslator
 
     for builder in ['html', 'readthedocs', 'readthedocssinglehtmllocalmedia']:
