@@ -10,7 +10,6 @@ Welcome to GAUSS's documentation!
    :maxdepth: 1
    :caption: Contents:
 
-   user-guide
    command-reference
 
 
@@ -18,15 +17,6 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
+.. * :ref:`modindex`
 * :ref:`search`
-
-.. highlight:: gauss
-    :linenothreshold: 5
-
-.. code-block:: gauss
-    :caption: ols.e
-    :name: ols-e
-
-    z = ols(x, y);
 

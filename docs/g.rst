@@ -1,0 +1,76 @@
+G
+=================
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Functions:
+
+    CR-gammacplx
+    CR-gammaii
+    CR-gamma
+    CR-gausset
+    CR-gdaAppend
+    CR-gdaCreate
+    CR-gdaDStatMat
+    CR-gdaDStat
+    CR-gdaGetIndex
+    CR-gdaGetName
+    CR-gdaGetNames
+    CR-gdaGetOrders
+    CR-gdaGetType
+    CR-gdaGetTypes
+    CR-gdaGetVarInfo
+    CR-gdaIsCplx
+    CR-gdaLoad
+    CR-gdaPack
+    CR-gdaReadByIndex
+    CR-gdaRead
+    CR-gdaReadSome
+    CR-gdaReadSparse
+    CR-gdaReadStruct
+    CR-gdaReportVarInfo
+    CR-gdaSave
+    CR-gdaUpdateAndPack
+    CR-gdaUpdate
+    CR-gdaVars
+    CR-gdaWrite32
+    CR-gdaWrite
+    CR-gdaWriteSome
+    CR-getarray
+    CR-getColorPalette
+    CR-getdims
+    CR-getf
+    CR-getgausshome
+    CR-getHeaders
+    CR-getHSLPalette
+    CR-getHSLuvPalette
+    CR-getmatrix4D
+    CR-getmatrix
+    CR-getnamef
+    CR-getname
+    CR-getNextTradingDay
+    CR-getNextWeekDay
+    CR-getnrmt
+    CR-getnr
+    CR-getorders
+    CR-getpath
+    CR-getPreviousTradingDay
+    CR-getPreviousWeekDay
+    CR-getRow
+    CR-getscalar3D
+    CR-getscalar4D
+    CR-getTrRow
+    CR-getwind
+    CR-glm
+    CR-gmmFitControlCreate
+    CR-gmmFitIV
+    CR-gmmFit
+    CR-gosub
+    CR-goto
+    CR-gradMTm
+    CR-gradMT
+    CR-gradMTTm
+    CR-gradMTT
+    CR-gradpgradcplx
+    CR-graphprt
+    CR-graphset

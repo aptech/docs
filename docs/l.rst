@@ -1,0 +1,69 @@
+L
+=================
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Functions:
+
+    CR-lag1
+    CR-lagdataloop
+    CR-lagn
+    CR-lagtrim
+    CR-lapeighb
+    CR-lapeighi
+    CR-lapeighvb
+    CR-lapeighvi
+    CR-lapgeigh
+    CR-lapgeighv
+    CR-lapgeig
+    CR-lapgeigv
+    CR-lapgschur
+    CR-lapgsvdcst
+    CR-lapgsvds
+    CR-lapgsvdst
+    CR-lapsvdcusv
+    CR-lapsvds
+    CR-lapsvdusv
+    CR-ldlp
+    CR-ldl
+    CR-ldlsol
+    CR-let
+    CR-library
+    CR-lib
+    CR-linesonlinesoff
+    CR-linsolve
+    CR-listColorPalettes
+    CR-listwisedataloop
+    CR-lncdfbvn2
+    CR-lncdfbvn
+    CR-lncdfn2
+    CR-lncdfnc
+    CR-lncdfn
+    CR-lncfmvn
+    CR-lnfact
+    CR-lngammacplx
+    CR-lnpdfmvn
+    CR-lnpdfmvt
+    CR-lnpdfn
+    CR-lnpdft
+    CR-ln
+    CR-loadarray
+    CR-loadd
+    CR-loadloadfloadkloadmloadploads
+    CR-loadstruct
+    CR-loadwind
+    CR-local
+    CR-locate
+    CR-loessmtControlCreate
+    CR-loessmt
+    CR-loess
+    CR-loglog
+    CR-log
+    CR-logx
+    CR-logy
+    CR-loopnextindex
+    CR-lower
+    CR-lowmatlowmat1
+    CR-ltrisol
+    CR-lu
+    CR-lusol

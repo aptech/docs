@@ -14,9 +14,9 @@ Format
     :param x: data
     :type x: Nx1 column vector
 
-    :return ind: of *x*.
+    :return ind: representing sorted index of *x*.
 
-    :rtype ind: Nx1 vector representing sorted index
+    :rtype ind: Nx1 vector
 
 Remarks
 -------
