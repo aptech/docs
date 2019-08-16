@@ -26,7 +26,7 @@ Format
     :param fcmptol: comparison tolerance.
     :type fcmptol: scalar
 
-    :return ret: returns 1 if ``TRUE``  and 0  if ``FALSE``.
+    :return ret: returns 1 if ``TRUE`` and 0 if ``FALSE``.
 
     :rtype ret: scalar
 
