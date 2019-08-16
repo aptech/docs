@@ -17,12 +17,12 @@ class GAUSSHTMLTranslator(HTMLTranslator):
     Our custom GAUSS HTML translator.
     """
 
-    def unknown_visit(self, node):
-        super().unknown_visit(node)
-
     def __init__(self, *args):
         super().__init__(*args)
-        self.return_count = 0
+        self.multiple_returns = False
+
+    def unknown_visit(self, node):
+        super().unknown_visit(node)
 
     # def visit_desc_name(self, node):
     #     # type: (nodes.Element) -> None
@@ -35,20 +35,24 @@ class GAUSSHTMLTranslator(HTMLTranslator):
     def visit_desc_returnlist(self, node):
         # type: (nodes.Element) -> None
 
-        self.return_count = sum(
+        self.first_param = 1
+        self.optional_param_level = 0
+
+        self.multiple_returns = len(node.children) > 1
+
+        # How many required parameters are left.
+        self.required_params_left = sum(
             [isinstance(c, desc_return) # source.docs.util.
              for c in node.children])
-        # How many required parameters are left.
-        self.required_params_left = self.return_count
 
-        if self.return_count > 1:
+        if self.multiple_returns:
             self.body.append('<span class="sig-curly">{</span> ')
 
         self.param_separator = node.child_text_separator
 
     def depart_desc_returnlist(self, node):
         # type: (nodes.Element) -> None
-        if self.return_count > 1:
+        if self.multiple_returns:
             self.body.append(' <span class="sig-curly">}</span>')
 
         self.body.append(' <span class="sig-equals">=</span> ')
@@ -60,18 +64,20 @@ class GAUSSHTMLTranslator(HTMLTranslator):
     #     foo([a, ]b, c[, d])
     #
     def visit_desc_return(self, node):
-        # type: (nodes.Element) -> None
-        if not self.required_params_left:
+        # type: (nodes.Node) -> None
+        if self.first_param:
+            self.first_param = 0
+        elif not self.required_params_left:
             self.body.append(self.param_separator)
-        self.required_params_left -= 1
+        if self.optional_param_level == 0:
+            self.required_params_left -= 1
         if not node.hasattr('noemph'):
             self.body.append('<em>')
 
     def depart_desc_return(self, node):
-        # type: (nodes.Element) -> None
+        # type: (nodes.Node) -> None
         if not node.hasattr('noemph'):
             self.body.append('</em>')
         if self.required_params_left:
             self.body.append(self.param_separator)
-
 

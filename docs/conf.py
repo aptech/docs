@@ -103,6 +103,14 @@ html_context = {
     ],
 }
 
+html_logo = '_static/images/gauss_logo.png'
+
+html_theme_options = {
+    'prev_next_buttons_location': 'both',
+    'style_external_links': True,
+    'style_nav_header_background': '#455560',
+}
+
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #

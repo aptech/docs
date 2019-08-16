@@ -67,16 +67,12 @@ locale.pairindextypes = DeprecatedDict(
 )
 
 
-def _pseudo_parse_arglist(signode, arglist):
+def _pseudo_parse_generic(signode, arglist, desc_listtype, desc_type):
     # type: (addnodes.desc_signature, unicode) -> None
-    """"Parse" a list of arguments separated by commas.
-
-    Arguments can have "optional" annotations given by enclosing them in
-    brackets.  Currently, this will split at any comma, even if it's inside a
-    string literal (e.g. default argument value).
+    """ "Parse" a list of returns separated by commas.
     """
-    paramlist = addnodes.desc_parameterlist()
-    stack = [paramlist]
+    genericlist = desc_listtype()
+    stack = [genericlist]
     try:
         for argument in arglist.split(','):
             argument = argument.strip()
@@ -95,7 +91,7 @@ def _pseudo_parse_arglist(signode, arglist):
                 ends_open += 1
                 argument = argument[:-1].strip()
             if argument:
-                stack[-1] += addnodes.desc_parameter(argument, argument)
+                stack[-1] += desc_type(argument, argument)
             while ends_open:
                 stack.append(addnodes.desc_optional())
                 stack[-2] += stack[-1]
@@ -108,32 +104,23 @@ def _pseudo_parse_arglist(signode, arglist):
     except IndexError:
         # if there are too few or too many elements on the stack, just give up
         # and treat the whole argument list as one argument, discarding the
-        # already partially populated paramlist node
-        signode += addnodes.desc_parameterlist()
-        signode[-1] += addnodes.desc_parameter(arglist, arglist)
+        # already partially populated returnlist node
+        signode += desc_listtype()
+        signode[-1] += desc_type(arglist, arglist)
     else:
-        signode += paramlist
+        signode += genericlist
+
+
+def _pseudo_parse_arglist(signode, arglist):
+    _pseudo_parse_generic(signode, arglist,
+                          addnodes.desc_parameterlist,
+                          addnodes.desc_parameter)
 
 
 def _pseudo_parse_returns(signode, returns):
-    # type: (addnodes.desc_signature, unicode) -> None
-    """ "Parse" a list of returns separated by commas.
-    """
-    # paramlist = addnodes.desc_parameterlist()
-    returnlist = desc_returnlist()
-    try:
-        all = returns.split(',')
-
-        for argument in all:
-            argument = argument.strip()
-
-            # paramlist += addnodes.desc_parameter(argument, argument)
-            returnlist += desc_return(argument, argument)
-    except Exception:
-        pass
-
-    # signode += paramlist
-    signode += returnlist
+    _pseudo_parse_generic(signode, returns,
+                          desc_returnlist,
+                          desc_return)
 
 
 # This override allows our inline type specifiers to behave like :class: link
@@ -360,7 +347,8 @@ class PyObject(ObjectDescription):
             'module', self.env.ref_context.get('py:module'))
         fullname = (modname and modname + '.' or '') + name_cls[0]
         # note target
-        if fullname not in self.state.document.ids:
+        # if fullname not in self.state.document.ids:
+        if fullname not in signode['names']:
             signode['names'].append(fullname)
             signode['ids'].append(fullname)
             signode['first'] = (not self.names)
@@ -448,7 +436,7 @@ class PyModulelevel(PyObject):
 
     def needs_arglist(self):
         # type: () -> bool
-        #return self.objtype == 'function'
+        # return self.objtype == 'function'
         return False
 
     def get_index_text(self, modname, name_cls):
