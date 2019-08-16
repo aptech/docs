@@ -69,7 +69,7 @@ the next generation of random numbers.
     print mean;
 
 Technical Notes
-------------
+---------------
 
 :func:`rndKMn` calls the uniform random number generator that is the basis for
 :func:`rndKMu` multiple times for each normal random number generated. This is

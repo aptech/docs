@@ -18,7 +18,7 @@ Format
     :rtype x: NxK real matrix
 
 Examples
--------
+--------
 
 Basic Example
 +++++++++++++
@@ -34,7 +34,7 @@ The code above will print
     0.67448975
 
 Example with vector input
-++++++++++++++++++++++++
++++++++++++++++++++++++++
 
 ::
 

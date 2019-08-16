@@ -59,7 +59,7 @@ After running above code,
     0.35796758
 
 Technical Notes
-------------
+---------------
 
 For results greater than 0.5e-30, the absolute error is approx. ±1e-14
 and the relative error is approx. ±1e-12. If you multiply the relative

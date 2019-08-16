@@ -44,7 +44,7 @@ The code above returns:
     *
 
 Multicharacter example
-+++++++++++++++++++++
+++++++++++++++++++++++
 
 ::
 
@@ -63,7 +63,7 @@ After the code above, *s* will equal:
     Hi!
 
 Interactive example
-++++++++++++++++++
++++++++++++++++++++
 
 :func:`chrs` can be used to create an interactive program in which the user is prompted
 for keyboard input which the code uses to make decisions.

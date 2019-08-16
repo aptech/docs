@@ -91,7 +91,7 @@ Example 2
     { x, newstate } = rndBeta(100, 5, 3, 2, seed);
 
 Technical Notes
-------------
+---------------
 
 The default generator for :func:`rndBeta` is the SFMT Mersenne-Twister 19937. 
 You can specifiy a different underlying random number generator with the function :func:`rndCreateState`.

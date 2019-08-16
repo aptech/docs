@@ -38,7 +38,7 @@ returns:
     20151016
 
 Remarks
-------
+-------
 
 To create date strings with more formatting options, see :func:`dttostr`, :func:`dttostrc` and :func:`posixtostrc`.
 

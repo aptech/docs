@@ -100,7 +100,7 @@ Save as 11x8.5 inch PDF at 300 DPI
     plotSave("mygraph.png", 11 | 8.5, "in", 300);
 
 Technical Notes
-------------
+---------------
 
 The :file:`.plot` file extension is a JSON file that is the native format used
 by GAUSS to save graphs.

@@ -30,7 +30,7 @@ Global Input
 :_poldeg: (*scalar*), the degree of polynomial required, default 6.
 
 Global Output
-------------
+-------------
 
 :_polerr: (*scalar*), interpolation error.
 

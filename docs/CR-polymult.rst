@@ -54,7 +54,7 @@ After the code above:
         1
 
 Technical Notes
-------------
+---------------
 
 If the degree of *c1* is *D1* (e.g., if :math:`D1=3`, then the polynomial
 corresponding to *c1* is cubic), then there must be D1+1 elements in *c1*

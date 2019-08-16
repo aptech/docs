@@ -102,7 +102,7 @@ reciprocal of the *rate* parameter as the fourth argument to :func:`rndGamma`.
     x = rndGamma(5, 1, shape, 1/rate);
 
 Technical Notes
-------------
+---------------
 
 The default generator for :func:`rndGamma` is the SFMT Mersenne-Twister 19937.
 You can specifiy a different underlying random number generator with the

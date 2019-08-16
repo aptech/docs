@@ -37,7 +37,7 @@ produces the following output:
     12/18/2015
 
 Remarks
-------
+-------
 
 To create date strings with more formatting options, see :func:`dttostr`, :func:`dttostrc` and :func:`posixtostrc`.
 

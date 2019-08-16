@@ -72,7 +72,7 @@ generation of random numbers.
     print "max " max;
 
 Technical Notes
-------------
+---------------
 
 :func:`rndKMi` generates random integers using a KISS+Monster algorithm
 developed by George Marsaglia. KISS initializes the sequence used in the

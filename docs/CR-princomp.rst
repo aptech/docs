@@ -41,7 +41,7 @@ Adapted from a program written by Mico Loretan.
 The algorithm is based on Theil, Henri "Principles of Econometrics." Wiley, NY, 1971, 46-56.
 
 Example
-------
+-------
 
 ::
 
