@@ -9,7 +9,8 @@ Returns a matrix of random integers from a user defined range.
 
 Format
 ----------------
-.. function:: y = rndi(r, c[, range[, state]])
+.. function:: y = rndi(r, c[, range])
+              { y, newstate } = rndi(r, c, range, state)
 
     :param r: row dimension.
     :type r: scalar

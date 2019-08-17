@@ -9,7 +9,8 @@ Computes rayleigh pseudo-random numbers with the choice of underlying random num
 
 Format
 ----------------
-.. function:: { x, newstate } = rndRayleigh(r, c, sigma[, state])
+.. function:: x = rndRayleigh(r, c, sigma)
+              { x, newstate } = rndRayleigh(r, c, sigma, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

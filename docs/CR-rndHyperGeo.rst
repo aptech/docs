@@ -9,7 +9,8 @@ Computes the random numbers for the hypergeometric distribution
 
 Format
 ----------------
-.. function:: x = rndHyperGeo(r, c, m, k, n[, state])
+.. function:: x = rndHyperGeo(r, c, m, k, n)
+              { x, newstate } = rndHyperGeo(r, c, m, k, n, state)
 
     :param r: row dimension of the return matrix *x*
     :type r: scalar

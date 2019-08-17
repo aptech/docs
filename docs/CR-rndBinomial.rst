@@ -9,7 +9,8 @@ Computes binomial pseudo-random numbers with the choice of underlying random num
 
 Format
 ----------------
-.. function:: { x, newstate } = rndBinomial(r, c, trials, prob[, state])
+.. function:: x = rndBinomial(r, c, trials, prob)
+              { x, newstate } = rndBinomial(r, c, trials, prob, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

@@ -9,7 +9,8 @@ Computes geometric pseudo-random numbers with a choice of underlying random numb
 
 Format
 ----------------
-.. function:: { y, newstate } = rndGeo(r, c, prob[, state])
+.. function:: y = rndGeo(r, c, prob)
+              { y, newstate } = rndGeo(r, c, prob, state)
 
     :param r: row dimension.
     :type r: scalar

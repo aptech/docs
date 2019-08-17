@@ -9,7 +9,8 @@ Computes multivariate normal random numbers given a covariance matrix.
 
 Format
 ----------------
-.. function:: { r, newstate } = rndMVn(num, mu, cov[, state])
+.. function:: r = rndMVn(num, mu, cov)
+              { r, newstate } = rndMVn(num, mu, cov, state)
 
     :param num: number of random vectors to create.
     :type num: Scalar

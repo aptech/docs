@@ -9,7 +9,8 @@ Computes uniform random numbers with a choice of underlying random number genera
 
 Format
 ----------------
-.. function:: { y, newstate } = rndu(r, c[, state])
+.. function:: y = rndu(r, c)
+              { y, newstate } = rndu(r, c, state)
 
     :param r: row dimension.
     :type r: scalar

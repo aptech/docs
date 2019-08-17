@@ -70,7 +70,7 @@ Format
         - Normal -- identity;
         - Binomial -- logit;
         - Gamma -- inverse;
-        - Possion -- nature log.
+        - Poisson -- nature log.
 
     :type link: string
 

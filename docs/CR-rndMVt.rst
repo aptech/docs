@@ -9,7 +9,8 @@ Computes multivariate Student-t distributed random numbers given a covariance ma
 
 Format
 ----------------
-.. function:: { r, newstate } = rndMVt(num, cov, df[, state])
+.. function:: r = rndMVt(num, cov, df)
+              { r, newstate } = rndMVt(num, cov, df, state)
 
     :param num: number of random vectors to create.
     :type num: scalar

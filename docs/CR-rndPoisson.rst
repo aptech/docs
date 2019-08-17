@@ -9,7 +9,8 @@ Computes Poisson pseudo-random numbers with a choice of underlying random number
 *
 Format
 ----------------
-.. function:: { x, newstate } = rndPoisson(r, c, lambda[, state])
+.. function:: x = rndPoisson(r, c, lambda)
+              { x, newstate } = rndPoisson(r, c, lambda, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

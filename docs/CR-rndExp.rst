@@ -9,7 +9,8 @@ Computes exponentially distributed random numbers with a choice of underlying ra
 
 Format
 ----------------
-.. function:: { r, newstate } = rndExp(rows, cols, scale[, state])
+.. function:: r = rndExp(rows, cols, scale)
+              { r, newstate } = rndExp(rows, cols, scale, state)
 
     :param rows: number of rows of resulting matrix.
     :type rows: scalar

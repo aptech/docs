@@ -9,7 +9,8 @@ Computes beta pseudo-random numbers with a choice of underlying random number ge
 
 Format
 ----------------
-.. function:: { x, newstate } = rndBeta(r, c, a, b[, state])
+.. function:: x = rndBeta(r, c, a, b)
+              { x, newstate } = rndBeta(r, c, a, b, state)
 
     :param r: number of rows of resulting matrix.
     :type r: Scalar

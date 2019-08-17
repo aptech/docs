@@ -9,7 +9,8 @@ Computes Weibull pseudo-random numbers with the choice of underlying random numb
 
 Format
 ----------------
-.. function:: { x, newstate } = rndWeibull(r, c, shape[, scale])
+.. function:: x = rndWeibull(r, c, shape, scale)
+              { x, newstate } = rndWeibull(r, c, shape, scale, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar

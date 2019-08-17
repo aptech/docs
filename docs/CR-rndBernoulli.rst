@@ -9,7 +9,8 @@ Computes Bernoulli distributed random numbers.
 
 Format
 ----------------
-.. function:: { r[, newstate] } = rndBernoulli(r, c, prob[, state])
+.. function:: r = rndBernoulli(r, c, prob)
+              { r, newstate } = rndBernoulli(r, c, prob, state)
 
     :param r: number of rows of the output matrix.
     :type r: scalar

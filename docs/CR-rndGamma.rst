@@ -9,7 +9,8 @@ Computes gamma pseudo-random numbers with a choice of underlying random number g
 
 Format
 ----------------
-.. function:: { x, newstate } = rndGamma(r, c, shape, scale[, state])
+.. function:: x = rndGamma(r, c, shape, scale)
+              { x, newstate } = rndGamma(r, c, shape, scale, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar
