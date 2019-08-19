@@ -29,5 +29,5 @@ a { color:#455560; }
 .wy-nav-top { background:#455560; }
 .wy-nav-top img { background-color:#455560; }
 .rst-content a tt,.rst-content a tt,.rst-content a code { color:#455560; }
-.rst-content dl:not(.docutils) dt { #455560; }
+.rst-content dl:not(.docutils) dt { color: #455560; background-color: #d8e2e9; border-top-color: #455560 }
 
