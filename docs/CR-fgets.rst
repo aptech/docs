@@ -22,6 +22,40 @@ Format
 
     :rtype str: string
 
+Examples
+---------
+
+::
+
+    // Specify file name with full path
+    fname = getGAUSSHome() $+ "examples/housing.csv";
+
+    // Open file handle for reading
+    fh = fopen(fname, "r");
+
+   // Read the first line of the file
+   // (up to 100 characters)
+   s = fgets(fh, 100);
+
+After the above code, *s* will equal:
+
+::
+
+   "taxes","beds","baths","new","price","size"
+
+::
+
+   // Read the second line of the file
+   // by running 'fgets' again with the
+   // same file handle.
+   s = fgets(fh, 100);
+
+After running the line above, *s* will be equal to:
+
+::
+
+    3104,4,2,0,279.9,2048
+
 Remarks
 -------
 

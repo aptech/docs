@@ -21,6 +21,31 @@ Format
 
     :rtype sa: Nx1 string array
 
+Examples
+---------
+
+::
+
+     // Specify file name with full path
+     fname = getGAUSSHome() $+ "examples/housing.csv";
+    
+     // Open file handle for reading
+     fh = fopen(fname, "r");
+    
+     // Read the first 3 lines of the file
+     s = fgetsa(fh, 3);
+
+After the above code, *s* will equal:
+
+::
+
+    "taxes","beds","baths","new","price","size"
+    3104,4,2,0,279.9,2048
+    1173,2,1,0,146.5,912
+
+Note that *s* will be a 3x1 string array. Though the final character in each line is the newline character. So if you print
+the contents of *s* in GAUSS, you will see an empty line between each line of text.
+
 Remarks
 -------
 

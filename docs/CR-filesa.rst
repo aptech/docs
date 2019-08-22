@@ -28,13 +28,27 @@ dropped.
 Examples
 ----------------
 
+Example 1: List all example files
++++++++++++++++++++++++++++++++++
+
+Print out the list of all files located in the GAUSS examples directory which end with the file extension :file:`.e`.
+
+::
+    
+    fspec = getGAUSSHome() $+ "examples/*.e";
+    print filesa(fspec);
+
+Example 2: Find which start with specific letters
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This example will search the current working directory for any file which starts with ``ch``.
+
 ::
 
     fnames = filesa("ch*");
 
-In this example all files listed in the
-current directory that begin with :code:`"ch"` will be
-returned.
+Example 3: Create proc to check if a file exists
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 

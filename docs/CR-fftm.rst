@@ -88,22 +88,25 @@ the second 3x3 matrix, then:
 
 ::
 
-   x = vecr(x1)|vecr(x2)
+   x = vecr(x1) | vecr(x2)
 
 The size of *dim* tells you how many dimensions *x* has.
 
 ::
 
    // Set dimensions of array
-   let dim = 2 3 2 3;
+   dim = { 2, 3, 2, 3 };
 
    /*
    ** Assign matrices to place in
-   ** first cube
+   ** first 3x2x3 cube
    */
-   let x1_1[2, 3] = 1 2 3 4 5 6;
-   let x2_1[2, 3] = 6 5 4 3 2 1;
-   let x3_1[2, 3] = 1 2 3 5 7 11;
+   x1_1 = { 1 2 3, 
+            4 5 6 };
+   x2_1 = { 6 5 4, 
+            3 2 1 };
+   x3_1 = { 1 2 3, 
+            5 7 11 };
 
    /*
    ** Form cube one by using vecr
@@ -111,7 +114,7 @@ The size of *dim* tells you how many dimensions *x* has.
    ** then vertically concatenating
    ** the results
    */
-   xc1 = vecr(x1_1)|vecr(x2_1)|vecr(x3_1);
+   xc1 = vecr(x1_1) | vecr(x2_1) | vecr(x3_1);
 
 This results in three 2x3 matrices, ``x1_1``, ``x2_1``, and ``x3_1`` and an 18x1 vector ``xc1``:
 
@@ -139,17 +142,17 @@ This results in three 2x3 matrices, ``x1_1``, ``x2_1``, and ``x3_1`` and an 18x1
         7.0000
         11.0000
 
-To assign the second cube we will leave out the :func:`vecr` step. Instead we will construct ``x1``, ``x2``, and ``x3`` as vectors to using `let`.
+To assign the second cube we will leave out the :func:`vecr` step. Instead we will construct ``x1``, ``x2``, and ``x3`` as vectors.
 
 ::
 
     /*
     ** Assign matrices to place in
-    ** second cube
+    ** second 3x2x3 cube
     */
-    let x1_2 = 1 1 2 3 5 8;
-    let x2_2 = 1 2 6 24 120 720;
-    let x3_2 = 13 17 19 23 29 31;
+    x1_2 = { 1, 1, 2, 3, 5, 8 };
+    x2_2 = { 1, 2, 6, 24, 120, 720 };
+    x3_2 = { 13, 17, 19, 23, 29, 31 };
 
     /*
     ** Form cube two
@@ -157,7 +160,7 @@ To assign the second cube we will leave out the :func:`vecr` step. Instead we wi
     ** the x1_2, x2_2, and x3_2
     ** vectors
     */
-    xc2 = x1_2|x2_2|x3_2;
+    xc2 = x1_2 | x2_2 | x3_2;
 
 This results in three 6x1 vectors ``x1_2``, ``x2_2``, and ``x3_2`` and an 18x1 vector ``xc2``:
 We will concatenate ``xc1`` and ``xc2`` and use :func:`fftm` to find the Fourier Fast Transform:
@@ -165,10 +168,10 @@ We will concatenate ``xc1`` and ``xc2`` and use :func:`fftm` to find the Fourier
 ::
 
     // Hypercube
-    xh = xc1|xc2;
+    xh = xc1 | xc2;
     xhfft = fftm(xh, dim);
 
-    let dimi = 2 4 2 4;
+    dimi = { 2, 4, 2, 4 };
     xhffti = fftmi(xhfft, dimi);
 
 The arrays have to be padded in each dimension to the nearest power of

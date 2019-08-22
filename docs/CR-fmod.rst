@@ -32,7 +32,29 @@ Compare this with ``%``, the modulo division operator. (See `Operators`, Chapter
 
 Examples
 ----------------
+
+Example 1: Basic usage
++++++++++++++++
+
+::
+
+   x = { 1.3 2.5,
+         4.2 6.0 };
+
+   a = fmod(x, 0.5);
+   b = fmod(x, 2);
+
+After the above code, *a* and *b* will equal:
+
+::
+
+    a = 0.3 0  b = 1.3 0.5
+        0.2 0      0.2   0
+
 This example extracts all of the years which are evenly divisible by four, from a vector with all of the years between 1900 and 2000.
+
+Example 2: Find years divisible by 4
+++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -42,43 +64,28 @@ This example extracts all of the years which are evenly divisible by four, from 
     */
     yrs = seqa(1900, 1, 101);
 
-    // Create an empty matrix into which we can put our output
-    y4 = {};
+    // Create a vector with 0 if the element
+    // is evenly divisible by 4
+    mask = fmod(yrs, 4);
 
-    // Loop through each element in yrs
-    for i(1, rows(yrs), 1);
-       /*
-       ** If the 'i'th element of 'yrs' is evenly divisible by
-       ** 4, vertically concatenate it on to the bottom of 'y4'
-       */
-       if not fmod(yrs[i], 4);
-          y4 = y4|yrs[i];
-       endif;
-    endfor;
+    // Return all rows where 'mask' is equal to 0
+    // (or delete all rows if they are non-zero)
+    yrs_4 = delif(yrs, mask);
 
-    // No digits after the decimal place
-    format /rd 8,0;
-
-    /*
-    ** Split 'y4' into two columns, each with half of the data
-    ** and print the columns next to each other
-    */
-    print y4[1:13]~y4[14:26];
+    // Print the first 10 rows
+    print yrs_4[1:10];
 
 produces:
 
 ::
 
-        1900     1952
-        1904     1956
-        1908     1960
-        1912     1964
-        1916     1968
-        1920     1972
-        1924     1976
-        1928     1980
-        1932     1984
-        1936     1988
-        1940     1992
-        1944     1996
-        1948     2000
+        1900
+        1904
+        1908
+        1912
+        1916
+        1920
+        1924
+        1928
+        1932
+        1936
