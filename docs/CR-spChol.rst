@@ -26,9 +26,9 @@ Examples
     sparse matrix L;
     
     // Create a small, simple positive-definite matrix
-    let x = { 9.53984224e+001 -5.84272701e+000 1.99970335e+001,
-             -5.84272701e+000  1.09765831e+002 2.52038945e+000,
-              1.99970335e+001  2.52038945e+000 4.71834812e+000 };
+    x = { 9.53984224e+001 -5.84272701e+000 1.99970335e+001,
+         -5.84272701e+000  1.09765831e+002 2.52038945e+000,
+          1.99970335e+001  2.52038945e+000 4.71834812e+000 };
     
     // Create the sparse matrix A from x, keeping all elements
     A = denseToSp(x, 0);
