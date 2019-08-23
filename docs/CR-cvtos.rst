@@ -39,7 +39,7 @@ Examples
 
 ::
 
-    let v = { "Now is t" "he time " "for all " "good men" };
+    v = { "Now is t" "he time " "for all " "good men" };
     s = cvtos(v);
 
 Now the variable *s* is a string with the following contents.
