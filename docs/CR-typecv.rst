@@ -57,7 +57,7 @@ Examples
     xvar = sqrt(5);
     yvar = "betahat";
     fn area(r) = pi*r*r;
-    let names = xvar yvar area;
+    names = { xvar, yvar, area };
     y = typecv(names);
 
 This code assigns the following to *y*:

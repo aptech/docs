@@ -51,8 +51,8 @@ Examples
     let x[3,3] = 101 35 50000
                  102 29 13000
                  103 37 18000;
-    let xnames = id age pay;
-    let vnames = age pay;
+    xnames = { id, age, pay };
+    vnames = { age, pay };
     makevars(x,vnames,xnames);
 
 Two global vectors, called *age* and *pay*, are created from the

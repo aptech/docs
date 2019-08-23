@@ -32,7 +32,7 @@ Examples
 
 ::
 
-    let x = 5 4 4 3 3 2 1;
+    x = { 5, 4, 4, 3, 3, 2, 1 };
     
     // Create a sorted index of all the unique elements in 'x'
     ind = uniqindx(x,1);

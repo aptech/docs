@@ -40,9 +40,9 @@ Examples
 
 ::
 
-    let newVars = YEARS BONUS GENDER;
-    let what = AGE PAY SEX;
-    let where = AGE SEX JOB DATE PAY;
+    newVars = { YEARS, BONUS, GENDER };
+    what = { AGE, PAY, SEX };
+    where = { AGE, SEX, JOB, DATE, PAY };
 
     // Return the indices in 'where' of the items in 'what'
     z = indcv(what, where);

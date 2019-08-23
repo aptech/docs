@@ -199,7 +199,7 @@ Examples
 
 ::
 
-    let vnames = age sex educat wage occ;
+    vnames = { age, sex, educat, wage, occ };
     create f1 = simdat with ^vnames,0,8;
 
     obs = 0;

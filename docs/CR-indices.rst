@@ -35,7 +35,7 @@ Find indices for selection of variables
 ::
 
   // Create character vector of variable names
-  let vars = mpg weight;
+  vars = { mpg, weight };
 
   // Create filename
   filename = getGAUSSHome $+ "examples//auto.dat";

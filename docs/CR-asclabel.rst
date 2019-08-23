@@ -29,7 +29,7 @@ This illustrates how to label the X axis with the months of the year:
 ::
 
     library pgraph;				
-    let lab = JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC;
+    lab = { JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC };
     asclabel(lab, 0);
 
 This will also work:

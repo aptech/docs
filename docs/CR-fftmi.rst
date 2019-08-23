@@ -93,7 +93,7 @@ The size of *dim* tells you how many dimensions *x* has.
 ::
 
    // Set dimensions of array
-   let dim = 2 3 2 3;
+   dim = { 2, 3, 2, 3 };
 
    /*
    ** Assign matrices to place in
@@ -145,9 +145,9 @@ To assign the second cube we will leave out the :func:`vecr` step. Instead we wi
     ** Assign matrices to place in
     ** second cube
     */
-    let x1_2 = 1 1 2 3 5 8;
-    let x2_2 = 1 2 6 24 120 720;
-    let x3_2 = 13 17 19 23 29 31;
+    x1_2 = { 1, 1, 2, 3, 5, 8 };
+    x2_2 = { 1, 2, 6, 24, 120, 720 };
+    x3_2 = { 13, 17, 19, 23, 29, 31 };
 
     /*
     ** Form cube two
@@ -166,7 +166,7 @@ We will concatenate ``xc1`` and ``xc2`` and use :func:`fftm` to find the Fourier
     xh = xc1|xc2;
     xhfft = fftm(xh, dim);
 
-    let dimi = 2 4 2 4;
+    dimi = { 2, 4, 2, 4 };
     xhffti = fftmi(xhfft, dimi);
 
 The arrays have to be padded in each dimension to the nearest power of

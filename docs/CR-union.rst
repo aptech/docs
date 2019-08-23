@@ -37,8 +37,8 @@ Examples
 
     // Create two column vectors with character data
                     
-    let v1 = mary jane linda john;
-    let v2 = mary sally;
+    v1 = { mary, jane, linda, john };
+    v2 = { mary, sally };
     
     x = union(v1,v2,0);
     

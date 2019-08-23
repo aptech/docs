@@ -101,7 +101,7 @@ You can create custom formats for complex numbers with :func:`ftos`. For example
 
 ::
 
-    let c = 24.56124+6.3224e-2i;
+    c = { 24.56124+6.3224e-2i };
 
     field = 1;
     prec = 3|5;
@@ -118,9 +118,9 @@ Some other things you can do with :func:`ftos`:
 
 ::
 
-    let x = 929.857435324123;
-    let y = 5.46;
-    let z = 5;
+    x = { 929.857435324123 };
+    y = { 5.46 };
+    z = { 5 };
 
     field = 1;
     prec = 0;

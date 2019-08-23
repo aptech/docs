@@ -81,7 +81,7 @@ Examples
 
 ::
 
-    let attr = 50 50 7 0 7;
+    attr = { 50, 50, 7, 0, 7 };
 
     if not DOSWinOpen("Legacy Window", attr);
        errorlog "Failed to open DOS window, aborting";

@@ -337,7 +337,7 @@ string arrays are recommended over character matrices..
 
 ::
 
-    let x = AGE PAY SEX;
+    x = { AGE, PAY, SEX };
     format /m1 8,8;
     print $x;
 
