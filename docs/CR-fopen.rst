@@ -55,7 +55,9 @@ opened for reading and writing, or update, as follows:
 Finally, the ``b`` indicates whether the file is to be opened in text or
 binary mode. If the file is opened in binary mode, the contents of the
 file are read verbatim; likewise, anything output to the file is written
-verbatim. In text mode (the default), carriage return-linefeed sequences
+verbatim. 
+
+In text mode (the default), carriage return-linefeed sequences
 are converted on input to linefeeds, or newlines. Likewise on output,
 newlines are converted to carriage return-linefeeds. Also in text mode,
 if a ``Ctrl+Z`` (char 26) is encountered during a read, it is interpreted as
@@ -73,4 +75,4 @@ If :func:`fopen` fails, it returns a 0.
 
 Use :func:`close` and :func:`closeall` to close files opened with :func:`fopen`.
 
-.. seealso:: Functions :func:`fseek`, :func:`close`, :func:`closeall`
+.. seealso:: Functions :func:`fgets`, :func:`fputs`, :func:`fseek`, :func:`close`, :func:`closeall`

@@ -43,7 +43,7 @@ to terminate the loop and you want the final value of the counter, you
 need to assign it to a variable before the `break` statement (see the
 third example, following).
 
-.. NOTE:: The `for` loop is optimized for speed and much faster than a `do` loop.
+.. NOTE:: The `for` loop is optimized for speed and much faster than a `do` loop. However, it is best to vectorize code to avoid loops if possible.
 
 Examples
 ----------------
@@ -70,43 +70,52 @@ Example 2
 
 ::
 
+    // Pre-allocate matrix to fill in
     x = zeros(10,5);
+
+    // Iterate over all rows in 'x'
     for i (1, rows(x), 1);
+
+      // Iterate over all columns in the i'th row
       for j (1, cols(x), 1);
     	x[i, j] = i*j;
       endfor;
+
     endfor;
 
 After this loop, ``x`` is:
 
 ::
 
-    x =  1.0000000        2.0000000        3.0000000        4.0000000        5.0000000
-         2.0000000        4.0000000        6.0000000        8.0000000        10.000000
-         3.0000000        6.0000000        9.0000000        12.000000        15.000000
-         4.0000000        8.0000000        12.000000        16.000000        20.000000
-         5.0000000        10.000000        15.000000        20.000000        25.000000
-         6.0000000        12.000000        18.000000        24.000000        30.000000
-         7.0000000        14.000000        21.000000        28.000000        35.000000
-         8.0000000        16.000000        24.000000        32.000000        40.000000
-         9.0000000        18.000000        27.000000        36.000000        45.000000
-         10.000000        20.000000        30.000000        40.000000        50.000000
+    x =  1.00    2.00    3.00
+         2.00    4.00    6.00
+         3.00    6.00    9.00
+         4.00    8.00    12.0
 
 Example 3
 +++++++++
 
 ::
 
+    // Create two random normal matrices
     x = rndn(3, 3);
     y = rndn(3, 3);
 
+    // Iterate over all rows
     for i (1, rows(x), 1);
+
+       // Iterate over all columns in the i'th row
        for j (1, cols(x), 1);
 
+          // If the corresponding element in 'x'
+          // is greater than the corresponding
+          // element in 'y', go to the next element
           if x[i, j] >= y[i, j];
              continue;
           endif;
 
+          // Swap the corresponding elements
+          // of 'x' and 'y'
           temp = x[i, j];
           x[i, j] = y[i, j];
           y[i, j] = temp;
@@ -120,9 +129,13 @@ Example 4
 ::
 
     li = 0;
-    x = rndn(100, 1);
-    y = rndn(100, 1);
+    x = { 1, 2, 3, 4, 5 };
+    y = { 1, 2, 9, 4, 5 };
 
+    /*
+    ** Loop over all elements until
+    ** 'x' and 'y' do not match.
+    */
     for i (1, rows(x), 1);
        if x[i] != y[i];
           li = i;
@@ -130,6 +143,9 @@ Example 4
        endif;
     endfor;
 
+    // If 'li' does not equal zero,
+    // print the row on which a
+    // difference was found
     if li;
        print "Compare failed on row " li;
     endif;
