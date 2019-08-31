@@ -158,8 +158,8 @@ Remarks
 
    ::
 
-        0.38    -0.15
-        -0.39   -0.63
+         0.38    -0.15
+        -0.39    -0.63
 
 -  The total width of field will be overridden if the number is too big
    to fit into the space allotted. For instance, :code:`format /rds 1,0` can be

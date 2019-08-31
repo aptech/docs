@@ -106,6 +106,8 @@ following contents:
    1,2,3,4
    5,6,7,8
 
+Note that :func:`saved` provides a simpler way to write CSV data.
+
 Portability
 -----------
 

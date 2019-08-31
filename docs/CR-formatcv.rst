@@ -32,10 +32,21 @@ the old format. This code:
 
 ::
 
-    x = { A 1, B 2, C 3 };
+    // Create matrix with a mix of
+    // character and numeric data
+    x = { A 1, 
+          B 2, 
+          C 3 };
+
+    // Set the global format control
+    // for 'printfmt' and retrieve
+    // the previous setting
     oldfmt = formatcv("*.*s" ~ 3 ~ 3);
 
+    // Print the data with new format settings
     call printfmt(x, 0~1);
+
+    // Reset the formatting to the original settings 
     call formatcv(oldfmt);
 
 produces:

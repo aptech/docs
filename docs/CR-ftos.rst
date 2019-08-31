@@ -101,26 +101,27 @@ You can create custom formats for complex numbers with :func:`ftos`. For example
 
 ::
 
-    c = { 24.56124+6.3224e-2i };
+    // Create a complex number
+    c = complex(24.56124, 6.3224e-2);
 
     field = 1;
     prec = 3|5;
-    fmat = "%lf + j%le is a complex number.";
+    fmat = "%lf + %lej is a complex number.";
     cc = ftos(c, fmat, field, prec);
 
 results in
 
 ::
 
-    cc = "24.561 + j6.32240e-02 is a complex number."
+    cc = "24.561 + 6.32240e-02j is a complex number."
 
 Some other things you can do with :func:`ftos`:
 
 ::
 
-    x = { 929.857435324123 };
-    y = { 5.46 };
-    z = { 5 };
+    x = 929.857435324123;
+    y = 5.46;
+    z = 5;
 
     field = 1;
     prec = 0;

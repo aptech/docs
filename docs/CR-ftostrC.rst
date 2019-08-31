@@ -34,6 +34,29 @@ Examples
 
 ::
 
+Example 1
++++++++++++
+
+::
+
+    grade = 0.937;
+    print ftostrC(100 * grade, "Your course grade is: %f");
+    print ftostrC(100 * grade, "Your course grade is: %.1f");
+    print ftostrC(100 * grade, "Your course grade is: %9.3f");
+
+will return:
+
+::
+
+    Your course grade is: 93.700000
+    Your course grade is: 93.7
+    Your course grade is:    93.700
+
+Example 2:
++++++++++++
+
+::
+
     declare string fmtr = { "%6.3lf",
                             "%11.8lf" };
 
