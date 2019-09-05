@@ -9,7 +9,7 @@ Fills a :class:`dstatmtControl` structure with default settings.
 
 Format
 ----------------
-.. function:: c = dstatmtControlCreate()
+.. function:: dctl = dstatmtControlCreate()
 
     :return dctl: instance of :class:`dstatmtControl` struct with members set to default values.
 

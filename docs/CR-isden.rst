@@ -9,7 +9,7 @@ Returns whether a scalar, matrix or N-dimensional array contains denormals.
 
 Format
 ----------------
-.. function:: y = isden(x)
+.. function:: x_isden = isden(x)
 
     :param x: data
     :type x: NxK matrix or N-dimensional array

@@ -8,7 +8,7 @@ Writes a GAUSS matrix, N-dimensional array or string array as an attribute of an
 
 Format
 ----------------
-.. function:: ret = h5writeAttribute(fname, dname, attr_name, attr)
+.. function:: retcode = h5writeAttribute(fname, dname, attr_name, attr)
 
     :param fname: a name of the HDF5 file.
     :type fname: string

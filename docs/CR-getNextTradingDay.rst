@@ -9,7 +9,7 @@ Returns the next trading day.
 
 Format
 ----------------
-.. function:: n = getNextTradingDay(a)
+.. function:: next_day = getNextTradingDay(a)
 
     :param a: date in DT scalar format.
     :type a: scalar

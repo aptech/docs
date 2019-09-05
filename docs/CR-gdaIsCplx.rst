@@ -9,7 +9,7 @@ Checks to see if a variable in a GAUSS Data Archive is complex.
 
 Format
 ----------------
-.. function:: y = gdaIsCplx(filename, varname)
+.. function:: is_cmplx = gdaIsCplx(filename, varname)
 
     :param filename: name of data file.
     :type filename: string

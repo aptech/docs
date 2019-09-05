@@ -9,8 +9,8 @@ Computes the Gaussian error function (:func:`erfcplx`) and its complement (:func
 
 Format
 ----------------
-.. function:: f = erfcplx(z)
-              f = erfccplx(z)
+.. function:: f_cplx = erfcplx(z)
+              f_cplx = erfccplx(z)
 
     :param z: The complex inputs used to compute the Gaussian error function or its complement. :math:`z > 0`
     :type z: NxK complex matrix

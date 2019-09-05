@@ -9,7 +9,7 @@ Returns a column vector containing the names of the variables in a GAUSS data se
 
 Format
 ----------------
-.. function:: y = getname(dset)
+.. function:: var_names = getname(dset)
 
     :param dset: the name of the data set from which the function will obtain the variable names
     :type dset: string

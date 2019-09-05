@@ -9,7 +9,7 @@ Round down toward :math:`-∞`.
 
 Format
 ----------------
-.. function:: y = floor(x)
+.. function:: x_floor = floor(x)
 
     :param x: The values to be rounded down.
     :type x: NxK matrix or N-dimensional array

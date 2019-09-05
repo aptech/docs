@@ -8,7 +8,7 @@ Computes the cumulative distribution function for the Generalized Pareto distrib
 
 Format
 ----------------
-.. function:: y = cdfGenPareto(x, loc, scale, shape)
+.. function:: p = cdfGenPareto(x, loc, scale, shape)
 
     :param x: Values at which to evaluate the Generalized Pareto cdf. :math:`x > 0`.
     :type x: NxK matrix, Nx1 vector or scalar

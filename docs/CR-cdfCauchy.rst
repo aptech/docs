@@ -9,7 +9,7 @@ Computes the cumulative distribution function for the Cauchy distribution.
 
 Format
 ----------------
-.. function:: y = cdfCauchy(x, loc, scale)
+.. function:: p = cdfCauchy(x, loc, scale)
 
     :param x: Values at which to evaluate the Cauchy cdf.
     :type x: NxK matrix, Nx1 vector or scalar.

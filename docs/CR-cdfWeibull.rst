@@ -9,7 +9,7 @@ Computes the cumulative distribution function for the Weibull distribution.
 
 Format
 ----------------
-.. function:: y = cdfWeibull(x,shape,scale)
+.. function:: p = cdfWeibull(x,shape,scale)
 
     :param x: Values at which to evaluate the cumulative distribution function for the Weibull distribution. :math:`x \geq 0`.
     :type x: NxK matrix, Nx1 vector or scalar

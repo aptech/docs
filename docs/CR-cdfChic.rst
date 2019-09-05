@@ -9,7 +9,7 @@ Computes the complement of the cdf of the chi-squared distribution.
 
 Format
 ----------------
-.. function:: y = cdfChic(x, df)
+.. function:: p = cdfChic(x, df)
 
     :param x: Values at which to evaluate the complement of the chi-squared cdf. :math:`x > 0`
     :type x: NxK matrix. 

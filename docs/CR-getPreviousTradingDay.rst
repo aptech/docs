@@ -9,7 +9,7 @@ Returns the previous trading day.
 
 Format
 ----------------
-.. function:: n = getPreviousTradingDay(a)
+.. function:: prev_date = getPreviousTradingDay(a)
 
     :param date: date in DT scalar format.
     :type date: scalar

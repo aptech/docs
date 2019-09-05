@@ -9,7 +9,7 @@ Returns the next day that is not on a weekend.
 
 Format
 ----------------
-.. function:: n = getNextWeekDay(a)
+.. function:: next_week = getNextWeekDay(a)
 
     :param a: date in DT scalar format.
     :type a: scalar

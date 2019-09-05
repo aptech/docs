@@ -9,7 +9,7 @@ Returns the previous day that is not on a weekend.
 
 Format
 ----------------
-.. function:: n = getPreviousWeekDay(date)
+.. function:: prev_weekday = getPreviousWeekDay(date)
 
     :param date: date in DT scalar format.
     :type date: scalar

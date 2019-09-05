@@ -8,7 +8,7 @@ Gets the cell format types of a row in an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: nsheets = xlsGetSheetTypes(file, sheet, row)
+.. function:: types = xlsGetSheetTypes(file, sheet, row)
 
     :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string

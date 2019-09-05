@@ -8,7 +8,7 @@ Computes the cumulative distribution function for the Laplace distribution.
 
 Format
 ----------------
-.. function:: y = cdfLaplace(x, loc, scale)
+.. function:: p = cdfLaplace(x, loc, scale)
 
     :param x: Values at which to evaluate the cumulative distribution function for the Laplace distribution.
     :type x: NxK matrix, Nx1 vector or scalar.

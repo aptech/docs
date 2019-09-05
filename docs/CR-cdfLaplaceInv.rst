@@ -8,7 +8,7 @@ Computes the Laplace inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: y = cdfLaplaceInv(p, loc, scale)
+.. function:: x = cdfLaplaceInv(p, loc, scale)
 
     :param p: Probabilities at which to compute the inverse of the Laplace cumulative distribution function. :math:`0 \lt p \lt 1`.
     :type p: NxK matrix, Nx1 vector or scalar

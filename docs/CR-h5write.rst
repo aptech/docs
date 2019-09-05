@@ -8,7 +8,7 @@ Write a GAUSS matrix or N-dimensional array to an HDF5 dataset.
 
 Format
 ----------------
-.. function:: ret = h5write(fname, dname, x)
+.. function:: retcode = h5write(fname, dname, x)
 
     :param fname: name of the HDF5 file.
     :type fname: string

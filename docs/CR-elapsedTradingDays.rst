@@ -9,7 +9,7 @@ Computes number of trading days between two dates inclusively.
 
 Format
 ----------------
-.. function:: n = elapsedTradingDays(t_start, t_end)
+.. function:: n_days = elapsedTradingDays(t_start, t_end)
 
     :param t_start: date in DT scalar format.
     :type t_start: scalar

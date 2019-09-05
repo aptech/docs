@@ -9,7 +9,7 @@ Returns a matrix with specified columns removed.
 
 Format
 ----------------
-.. function:: X_trim = delcols(x, c_idx)
+.. function:: x_trim = delcols(x, c_idx)
 
     :param x:
     :type x: Input matrix

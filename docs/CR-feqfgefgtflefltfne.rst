@@ -9,12 +9,12 @@ Fuzzy comparison functions. These functions use `_fcmptol` to fuzz the compariso
 
 Format
 ----------------
-.. function:: y = feq(a, b)
-              y = fge(a, b)
-              y = fgt(a, b)
-              y = fle(a, b)
-              y = flt(a, b)
-              y = fne(a, b)
+.. function:: ret = feq(a, b)
+              ret = fge(a, b)
+              ret = fgt(a, b)
+              ret = fle(a, b)
+              ret = flt(a, b)
+              ret = fne(a, b)
 
     :param a: first matrix.
     :type a: NxK matrix

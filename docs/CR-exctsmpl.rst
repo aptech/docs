@@ -9,7 +9,7 @@ Computes a random subsample of a dataset.
 
 Format
 ----------------
-.. function:: n = exctsmpl(infile, outfile, percent)
+.. function:: n_rows = exctsmpl(infile, outfile, percent)
 
     :param infile: the name of the original dataset.
     :type infile: string

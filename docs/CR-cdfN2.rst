@@ -8,7 +8,7 @@ Computes the Normal cumulative distribution function over the interval between *
 
 Format
 ----------------
-.. function:: y = cdfN2(x, dx)
+.. function:: p = cdfN2(x, dx)
 
     :param x: Lower limit at which to evaluate the normal cumulative distribution function. 
     :type x: MxN matrix
