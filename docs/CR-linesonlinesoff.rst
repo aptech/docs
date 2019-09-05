@@ -5,15 +5,15 @@
 Purpose
 ----------------
 
-The  #lineson command causes GAUSS to embed line
+The  `#lineson` command causes GAUSS to embed line
 number and file name records in a program for the
-purpose of reporting the location where an error occurs. The 
-#linesoff command causes GAUSS to stop embedding line and file
+purpose of reporting the location where an error occurs. The
+`#linesoff` command causes GAUSS to stop embedding line and file
 records in a program.
 
 Format
 ----------------
-.. function:: #lineson 
+.. function:: #lineson
 			  #linesoff
 
 
@@ -38,7 +38,7 @@ typed in the window and run from the command line), since there are no
 line numbers in such programs.
 
 Line number tracking can be turned on and off through the user
-interface, but the #lineson and #linesoff commands will override that.
+interface, but the `#lineson` and `#linesoff` commands will override that.
 
 The line numbers and file names given at run-time will reflect the last
 record encountered in the code. If you have a mixture of procedures that
@@ -46,12 +46,12 @@ were compiled without line and file records and procedures that were
 compiled with line and file records, use the trace command to locate
 exactly where the error occurs.
 
-The Currently active call error message will always be correct. If it
-states that it was executing procedure xyz at line number nnn in file
-ABC and xyz has no line nnn or is not in file ABC, you know that it just
-did not encounter any line or file records in xyz before it crashed.
+The currently active call error message will always be correct. If it
+states that it was executing procedure *xyz* at line number *nnn* in file
+*ABC* and *xyz* has no line *nnn* or is not in file *ABC*, you know that it just
+did not encounter any line or file records in *xyz* before it crashed.
 
-When using #include'd files, the line number and file name will be
+When using `#include`'d files, the line number and file name will be
 correct for the file the error was in within the limits stated above.
 
 .. seealso:: Functions :func:`trace`

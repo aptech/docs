@@ -24,7 +24,7 @@ Format
 Remarks
 -------
 
--  If *t* is positive, :func:`lagTrim` lags *y* back *t* time periods, so the first ``maxc(t)`` observations of *y* are removed.
+- If *t* is positive, :func:`lagTrim` lags *y* back *t* time periods, so the first ``maxc(t)`` observations of *y* are removed.
 
 - If *t* is negative, :func:`lagTrim` leads *y* forward *t* time periods, so the last ``maxc(t)`` observations of *y* are removed.
 
@@ -41,17 +41,24 @@ Single lag
 
 ::
 
+    // Specify number of lags
+    nlags = 2;
+
+    // Define y matrix
     y = { 1.4, 2.7, 3.1, 2.9, 3.2, 2.5, 2.8 };
-    y_lag = lagTrim(y, 2);
+
+    // Lag y nlags number of lags
+    // and trim missing values
+    y_lag = lagTrim(y, nlags);
 
 will assign *y_lag* to equal:
 
 ::
 
-           1.4 
-           2.7 
-           3.1 
-           2.9 
+           1.4
+           2.7
+           3.1
+           2.9
            3.2
 
 Multiple lags
@@ -61,17 +68,23 @@ If the number of time periods to lag is a Px1 column vector, then the output mat
 
 ::
 
+    // Specify to compute the 1, 2, and 3 lags
     nlags = { 1, 2, 3 };
+
+    // Define y vector
     y = { 1.4, 2.7, 3.1, 2.9, 3.2, 2.5, 2.8 };
+
+    // Compute the 1, 2, and 3 lags of y
+    // and trim missing values
     y_lag = lagTrim(y, nlags);
 
 will assign *lag_mat* to equal:
 
 ::
 
-         3.1      2.7      1.4 
-         2.9      3.1      2.7 
-         3.2      2.9      3.1 
+         3.1      2.7      1.4
+         2.9      3.1      2.7
+         3.2      2.9      3.1
          2.5      3.2      2.9
 
 Multiple leads
@@ -81,16 +94,22 @@ If the number of time periods to lag is a Px1 column vector, then the output mat
 
 ::
 
+    // Specify nlags to find
+    // the 1st and 2nd lead
+    // and 3rd lag of y
     nlags = { -1, -2, 3 };
+
+    // Define y vector
     y = { 1.4, 2.7, 3.1, 2.9, 3.2, 2.5, 2.8 };
+
+    // Lag y using nlags
     y_lag = lagTrim(y, nlags);
 
 will assign *lag_mat* to equal:
 
 ::
 
-         3.2      2.5      1.4 
+         3.2      2.5      1.4
          2.5      2.8      2.7
 
 .. seealso:: Functions :func:`lagn`
-

@@ -46,7 +46,7 @@ libraries. If it is found, it will be compiled. If it cannot be found in
 a library, the deletion state determines how it is handled:
 
 +------------------+-----------------------------------------------------+
-| autodelete *on*  | search for myproc.g                                 |
+| autodelete *on*  | search for :file:`myproc.g`                         |
 +------------------+-----------------------------------------------------+
 | autodelete *off* | return Undefined symbol error message               |
 +------------------+-----------------------------------------------------+
@@ -67,7 +67,7 @@ editor. Here is an example:
    /*
    ** This is a GAUSS library file.
    */
-    
+
    eig.src
        eig     : proc
        eigsym  : proc
@@ -127,7 +127,7 @@ will produce output similar to:
 
     Library path: C:\gauss17\gaussplot\lib
                   C:\gauss17\lib
-    
+
     Libraries:    C:\gauss17\lib\user.lcg
                   C:\gauss17\lib\gauss.lcg
 
@@ -146,7 +146,7 @@ After executing the code above, entering the `library` command without any argum
 
     Library path: C:\gauss17\gaussplot\lib
                   C:\gauss17\lib
-    
+
     Libraries:    C:\gauss17\lib\user.lcg
                   C:\gauss17\lib\pgraph.lcg
                   C:\gauss17\lib\cmlmt.lcg
@@ -168,4 +168,3 @@ Continuing with the last example in which the user, ``pgraph``, ``cmlmt`` and ``
 would open ``tsmt``, while closing ``pgraph`` and ``cmlmt``.
 
 .. seealso:: Functions `declare`, `external`, `lib`, `proc`
-

@@ -25,7 +25,7 @@ Expressions and variable names are not allowed in the `let` command, expressions
 
 ::
 
-    let x[2,1] = 3*a b
+    let x[2, 1] = 3*a b
 
 are illegal. To define matrices by combining matrices and expressions,
 use an expression containing the concatenation operators: ``~`` and ``|``.
@@ -212,4 +212,3 @@ assigns *x* to be:
         Country
 
 .. seealso:: Functions :func:`con`, :func:`cons`, `declare`, `load`
-

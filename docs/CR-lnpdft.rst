@@ -9,17 +9,38 @@ Computes Student's t log-probabilities.
 
 Format
 ----------------
-.. function:: z = lnpdft(x, nu)
+.. function:: z = lnpdft(x, df)
 
-    :param x: data
+    :param x: values at which to compute the Student's t log-probabilities.
     :type x: NxK matrix
 
-    :param nu: degrees of freedom.
-    :type nu: scalar
+    :param df: degrees of freedom.
+    :type df: scalar
 
     :return z: log-probabilities.
 
     :rtype z: NxK matrix
+
+Examples
+----------------
+
+::
+
+        // Set x
+        x = { -2, -1, 0, 1, 2 };
+
+        // Degrees of freedom
+        df = 5;
+
+        z = lnpdft(x, df);
+
+::
+
+        -2.73198
+        -1.51558
+  z =   -0.96862
+        -1.51558
+        -2.73198 
 
 Remarks
 -------
@@ -30,4 +51,3 @@ scalar Normal density function is computed element-by-element.
 For multivariate probabilities with covariance matrix see :func:`lnpdfmvt`.
 
 .. seealso:: Functions :func:`lnpdfmvt`
-

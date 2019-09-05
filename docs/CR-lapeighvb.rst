@@ -50,15 +50,23 @@ Examples
 
 ::
 
+    // Assign x
     x = { 5 2 1,
           2 6 2,
           1 2 9 };
-     
+
+    // Set lower bound to be searched
     vl = 5;
+
+    // Set upper bound to be searched
     vu = 10;
-    { ve, va } = lapeighvb(x,vl,vu,0);
-    
-    print "Eigenvalues" ve;
+
+    // Find eigenvalues within the bounds of
+    // vl and vu and the corresponding
+    // eigenvectors
+    { ve, va } = lapeighvb(x, vl, vu, 0);
+
+    print "Eigenvalues = " ve;
     print "Eigenvectors = " va;
 
 ::
@@ -73,10 +81,19 @@ If you increase the value of *vu* to 12.
 
 ::
 
-    { ve, va } = lapeighvb(x,5,12,0);
-    
-    print "Eigenvalues" ve;
-    print "Eigenvectors = " va;
+  // Set lower bound to be searched
+  vl = 5;
+
+  // Set upper bound to be searched
+  vu = 12;
+
+  // Find eigenvalues within the bounds of
+  // vl and vu and the corresponding
+  // eigenvectors
+  { ve, va } = lapeighvb(x, vl, vu, 0);
+
+  print "Eigenvalues = " ve;
+  print "Eigenvectors = " va;
 
 ::
 
@@ -87,4 +104,3 @@ If you increase the value of *vu* to 12.
      -0.5774   0.3197
      -0.5774   0.4908
       0.5774   0.8105
-

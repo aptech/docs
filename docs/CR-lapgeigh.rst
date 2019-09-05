@@ -33,15 +33,21 @@ Examples
 
 ::
 
+    // Assign A
     A = { 3 4 5,
           2 5 2,
           3 2 4 };
-     
+
+    // Assign B
     B = { 4 2 2,
           2 6 1,
           2 1 8 };
-     
-    ve = lapgeigh(A,B);
+
+    // Find eigenvalues of the solution of the generalized
+    // symmetric eigenproblem  Ax = gBx 
+    ve = lapgeigh(A, B);
+
+    // Print eigenvalues
     print ve;
 
 The code above returns:
@@ -55,4 +61,3 @@ The code above returns:
 This procedure calls the LAPACK routines *DSYGV* and *ZHEGV*.
 
 .. seealso:: Functions :func:`lapgeig`, :func:`lapgeighv`
-

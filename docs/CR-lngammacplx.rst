@@ -11,12 +11,38 @@ Format
 ----------------
 .. function:: f = lngammacplx(z)
 
-    :param z: data. may be complex.
-    :type z: NxK matrix
+    :param x_cplx: data. may be complex.
+    :type x_cplx: NxK matrix
 
-    :return f: 
+    :return f: The natural log of the Gamma function evaluated at *x_cplx*.
 
     :rtype f: NxK matrix
+
+Examples
+----------------
+
+::
+
+        // Real component
+        xr = { 2.5 ,
+               9.1 };
+
+        // Imaginary component
+        xi = { 3 ,
+               1 };
+
+        // Create complex matrix
+        x_cplx = complex(xr, xi);
+
+        // Compute gamma function
+        lngammacplx(x_cplx);
+
+The results after the code:
+
+::
+
+    -1.47095 +   2.82262i
+    10.76131 +   2.15456i
 
 Remarks
 -------
@@ -26,7 +52,7 @@ part than ``ln(gammacplx(z))``. This is because ``lngammacplx(z)`` returns the
 value of the logarithm of ``gamma(z)`` on the corresponding branch of the
 complex plane, while a call to ``ln(z)`` always returns a function value
 with an imaginary part within :math:`[-π,π]`. Hence the imaginary part of the
-result can differ by a multiple of :math:`2*π`. However, ``exp(lngammacplx(z)) = gammacplx(z)``. 
+result can differ by a multiple of :math:`2*π`. However, ``exp(lngammacplx(z)) = gammacplx(z)``.
 This routine uses a Lanczos series approximation for the complex ``ln(gamma)`` function.
 
 References
@@ -48,4 +74,3 @@ References
    complex Gamma approximation.''
 
 #. Original code by Paul Godfrey
-

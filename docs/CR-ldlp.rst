@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: ldl_factor = ldlp(A)
 
-    :param A: data
-    :type A: NxN real symmetric matrix
+    :param A: real symmetric data matrix
+    :type A: NxN matrix
 
-    :return ldl_factor: containing the factors *L* and *D* as well as the permutation vector *P*, which can be passed directly to :func:`ldlsol` to solve a system of linear equations.
+    :return ldl_factor: contains the factors *L* and *D* as well as the permutation vector *P*, which can be passed directly to :func:`ldlsol` to solve a system of linear equations.
 
     :rtype ldl_factor: (N+1)xN matrix
 
@@ -32,15 +32,18 @@ Examples
 
 ::
 
-    A = { 5   9   3   4, 
-          9  -6   8   1, 
-          3   8   2   3, 
+    // Assign A matrix
+    A = { 5   9   3   4,
+          9  -6   8   1,
+          3   8   2   3,
           4   1   3   9 };
+
+    // Assign b matrix
     b = { 1.4, 4, 0.5, 3 };
-    
+
     // Factorize matrix 'A'
     ldl_f = ldlp(A);
-    
+
     // Solve system of equations
     x = ldlsol(b, ldl_f);
 
@@ -48,10 +51,9 @@ The above code will solve the system of linear equations :math:`Ax = b`, assigni
 
 ::
 
-         0.5729 
-    x = -0.1529 
-        -0.2829 
+         0.5729
+    x = -0.1529
+        -0.2829
          0.1900
 
 .. seealso:: Functions :func:`ldlsol`, :func:`chol`, :func:`solpd`
-

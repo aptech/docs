@@ -69,23 +69,23 @@ Basic usage
 
     // For repeatable random numbers
     rndseed 23434;
-    
+
     // Matrix dimensions
     order = 4;
-    
+
     // Create 2 square, complex matricies
-    A = complex(rndn(order, order), rndn(order,order));
-    B = complex(rndn(order, order), rndn(order,order));
-    
+    A = complex(rndn(order, order), rndn(order, order));
+    B = complex(rndn(order, order), rndn(order, order));
+
     // Perform 'QZ' decomposition
-    { sa, sb, q, z } =  lapgschur(A,B);
-    
+    { sa, sb, q, z } =  lapgschur(A, B);
+
     // Calculate generalized eigenvalues
     eig_vals = diag(sa) ./ diag(sb);
-    
+
     print "Generalized eigenvalues = ";
     print eig_vals;
-    
+
     print "Absolute value of the generalized eigenvalues = ";
     print abs(eig_vals);
 
@@ -93,24 +93,24 @@ The above code should return the following output:
 
 ::
 
-    Generalized eigenvalues = 
-    
-    -0.76631163 -        1.3445924i 
-     0.65409426 -       0.18908938i 
-    -0.012440975 +       0.47626474i 
-    -0.75927986 +        1.6212326i 
-    
-    Absolute value of the generalized eigenvalues = 
-    
-    1.5476312 
-    0.68087745 
-    0.47642721 
+    Generalized eigenvalues =
+
+    -0.76631163 -        1.3445924i
+     0.65409426 -       0.18908938i
+    -0.012440975 +       0.47626474i
+    -0.75927986 +        1.6212326i
+
+    Absolute value of the generalized eigenvalues =
+
+    1.5476312
+    0.68087745
+    0.47642721
     1.7902237
 
 Ordering eigenvalues
 ++++++++++++++++++++
 
-You can order the eigenvalues, by passing in the optional third input, *sort_type*. The code below uses the same *A* and *B* variables made in the example above.
+You can order the eigenvalues by passing in the optional third input, *sort_type*. The code below uses the same *A* and *B* variables made in the example above.
 
 ::
 
@@ -119,13 +119,13 @@ You can order the eigenvalues, by passing in the optional third input, *sort_typ
     // those with absolute value less than 1
     // on the upper left
     { sa, sb, q, z } =  lapgschur(A, B, "udi");
-    
+
     // Calculate generalized eigenvalues
     eig_vals = diag(sa) ./ diag(sb);
-    
+
     print "Generalized eigenvalues = ";
     print (eig_vals);
-    
+
     print "Absolute value of the generalized eigenvalues = ";
     print abs(eig_vals);
 
@@ -133,18 +133,18 @@ The code above should print out the sorted eigenvalues as we see below.
 
 ::
 
-    Generalized eigenvalues = 
-    
-     0.65409426 -       0.18908938i 
-    -0.012440975 +      0.47626474i 
-    -0.76631163 -        1.3445924i 
-    -0.75927986 +        1.6212326i 
-    
-    Absolute value of the generalized eigenvalues = 
-    
-    0.68087745 
-    0.47642721 
-    1.5476312 
+    Generalized eigenvalues =
+
+     0.65409426 -       0.18908938i
+    -0.012440975 +      0.47626474i
+    -0.76631163 -        1.3445924i
+    -0.75927986 +        1.6212326i
+
+    Absolute value of the generalized eigenvalues =
+
+    0.68087745
+    0.47642721
+    1.5476312
     1.7902237
 
 Remarks
@@ -158,7 +158,7 @@ Remarks
       blocks to pairs of complex conjugate eigenvalues.
 
 -  The real generalized eigenvalues can be computed by dividing the
-   diagonal element of sa by the corresponding diagonal element of *sb*.
+   diagonal element of *sa* by the corresponding diagonal element of *sb*.
 -  The complex generalized eigenvalues are computed by first
    constructing two complex conjugate numbers from 2x2 block where the
    real parts are on the diagonal of the block and the imaginary part on
@@ -173,7 +173,6 @@ Remarks
        sb = q'B*z
 
        A = q*sa*z'
-       B = q*sb*z'                 
+       B = q*sb*z'
 
 -  If only the generalized eigenvalues are needed, you can call :func:`lapgeig`, or :func:`lapgeigv`.
-

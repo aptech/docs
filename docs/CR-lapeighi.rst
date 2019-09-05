@@ -23,9 +23,9 @@ Format
     :param abstol: the absolute error tolerance for the
         eigenvalues. An approximate eigenvalue is accepted as converged
         when it is determined to lie in an interval :math:`[a, b]` of width less
-        than or equal to :math:`abstol + EPS*max(|a|, |b|)`, where *EPS* is machine precision. 
-        If *abstol* is less than or equal to zero, then :math:`EPS*||T||` will be used in its place, 
-        where *T* is the tridiagonal matrix obtaineda by reducing the input matrix to tridiagonal form.
+        than or equal to :math:`abstol + EPS*max(|a|, |b|)`, where *EPS* is machine precision.
+        If *abstol* is less than or equal to zero, then :math:`EPS*||T||` will be used in its place,
+        where *T* is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
 
     :return ve: eigenvalues.
@@ -48,13 +48,22 @@ Examples
 
 ::
 
+    // Define x matrix
     x = { 5 2 1,
           2 6 2,
           1 2 9 };
-     
+
+    // Index of smallest desired eigenvalue
     il = 2;
+
+    // Index of largest desired eigenvalue
     iu = 3;
-    ve = lapeighi(x,il,iu,0);
+
+    // Compute eigenvalues with indices between
+    // il and iu
+    ve = lapeighi(x, il, iu, 0);
+
+    // Print eigenvalues
     print ve;
 
 The code above calculates the second and third eigenvalues and returns:
@@ -68,8 +77,18 @@ To calculate the first, second and third eigenvalues, reusing the same *x* from 
 
 ::
 
-    ve = lapeighi(x,1,3,0);
-    print ve;
+  // Index of smallest desired eigenvalue
+  il = 1;
+
+  // Index of largest desired eigenvalue
+  iu = 3;
+
+  // Compute eigenvalues with indices between
+  // il and iu
+  ve = lapeighi(x, il, iu, 0);
+
+  // Print eigenvalues
+  print ve;
 
 The output from this code is:
 
@@ -80,4 +99,3 @@ The output from this code is:
     10.6056
 
 .. seealso:: Functions :func:`lapeighb`, :func:`lapeighvi`, :func:`lapeighvb`
-

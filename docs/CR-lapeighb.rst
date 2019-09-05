@@ -23,13 +23,7 @@ Format
     :param abstol: the absolute error tolerance for the
         eigenvalues. An approximate eigenvalue is accepted as converged
         when it is determined to lie in an interval :math:`[a, b]` of
-        width less than or equal to:
-        
-        .. math:: 
-        
-            abstol + EPS*max(|a|, |b|)
-
-        where *EPS* is machine precision. If *abstol* is less than or equal to
+        width less than or equal to :math:`abstol + EPS*max(|a|, |b|)`, where *EPS* is machine precision. If *abstol* is less than or equal to
         zero, then :math:`EPS*||T||` will be used in its place,
         where *T* is the tridiagonal matrix obtained by reducing the input matrix to tridiagonal form.
     :type abstol: scalar
@@ -43,7 +37,7 @@ Format
 Remarks
 -------
 
-:func:`lapeighb` computes eigenvalues only which are found on on the half open
+:func:`lapeighb` computes eigenvalues only which are found on the half open
 interval :math:`[vl, vu]`. To find eigenvalues within a specified range of
 indices see :func:`lapeighi`. For eigenvectors see :func:`lapeighvi`, or :func:`lapeighvb`.
 :func:`lapeighb` is based on the LAPACK drivers *DSYEVX* and *ZHEEVX*. Further
@@ -55,13 +49,21 @@ Examples
 
 ::
 
+    // Define x matrix
     x = { 5 2 1,
           2 6 2,
           1 2 9 };
-     
+
+    // Lower bound of interval to be searched
     vl = 5;
+
+    // Upper bound of interval to be searched
     vu = 10;
-    ve = lapeighb(x,vl,vu,1e-15);
+
+    // Find eigenvalues in the range vl to vu
+    ve = lapeighb(x, vl, vu, 1e-15);
+
+    // Print eigenvalues
     print ve;
 
 The code above returns:
@@ -71,5 +73,3 @@ The code above returns:
     6.0000
 
 .. seealso:: Functions :func:`lapeighvi`, :func:`lapeighvb`
-
-eigenvalues real symmetric complex Hermitian matrix selected by bounds

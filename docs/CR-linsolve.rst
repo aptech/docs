@@ -7,8 +7,6 @@ Purpose
 
 Solves :math:`Ax = b` using the inverse function.
 
-.. DANGER:: verify equation s
-
 Format
 ----------------
 .. function:: x = linsolve(b, A)
@@ -41,9 +39,14 @@ Examples
 
 ::
 
+    // Assign b
     b = { 2, 3, 4 };
+
+    // Assign A
     A = { 10 2 3, 6 14 2, 1 1 9 };
-    x = linsolve(b,A);
+
+    //  Solve Ax = b
+    x = linsolve(b, A);
     print x
 
 ::
@@ -53,4 +56,3 @@ Examples
     0.42446043
 
 .. seealso:: Functions :func:`qrsol`, :func:`qrtsol`, :func:`solpd`, :func:`cholsol`
-

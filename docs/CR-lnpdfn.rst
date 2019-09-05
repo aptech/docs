@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: z = lnpdfn(x)
 
-    :param x: data.
+    :param x: values at which to compute the normal log probabilities.
     :type x: NxK matrix or N-dimensional array
 
     :return z: log-probabilities.
@@ -41,9 +41,8 @@ Examples
 
 ::
 
-    -2.9189385 
-        -1.4189385 
-    z = -0.9189385
-        -1.4189385 
         -2.9189385
-
+        -1.4189385
+    z = -0.9189385
+        -1.4189385
+        -2.9189385

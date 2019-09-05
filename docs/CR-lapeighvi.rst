@@ -39,7 +39,7 @@ Remarks
 -------
 
 :func:`lapeighvi` computes :math:`iu-il+1` eigenvalues and eigenvectors given a range of
-indices, i.e., theith to jth eigenvalues, ranking them from smallest to
+indices, i.e., the ith to jth eigenvalues, ranking them from smallest to
 largest. To find eigenvalues and eigenvectors within a specified range
 see :func:`lapeighvb`. :func:`lapeighvi` is based on the LAPACK drivers *DSYEVX* and
 *ZHEEVX*. Further documentation of these functions may be found in the
@@ -51,13 +51,20 @@ Examples
 
 ::
 
+    // Assign x
     x = { 5 2 1,
           2 6 2,
           1 2 9 };
-     
+
+    // Index of smallest desired eigenvalue
     il = 2;
+
+    // Index of largest desired eigenvalue
     iu = 3;
-    { ve,va } = lapeighvi(x,il,iu,0);
+
+    // Compute eigenvalues with indices between
+    // il and iu and the corresponding eigenvectors
+    { ve, va } = lapeighvi(x, il, iu, 0);
     print "ve = " ve;
     print "va = " va;
 
@@ -66,11 +73,10 @@ Examples
     ve =
     6.0000
     10.6056
-    
+
     va =
     -0.5774   0.3197
     -0.5774   0.4908
      0.5774   0.8105
 
 .. seealso:: Functions :func:`lapeighvb`, :func:`lapeighb`
-

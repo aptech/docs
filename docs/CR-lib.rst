@@ -27,35 +27,35 @@ Format
 
     .. csv-table::
         :widths: auto
-    
+
         "``-addpath``", "add paths to entries without paths and expand relative paths."
         "``-gausspath``", "reset all paths using a normal file search."
         "``-leavepath``", "(default) leave all path information untouched."
         "``-nopath``", "drop all path information."
-    
+
     To specify a library update or a complete library build:
-    
+
     .. csv-table::
         :widths: auto
-    
+
         "``-update``", "(default) update the symbol information for the specified file only."
         "``-build``", "update the symbol information for every library entry by compiling the actual source file."
         "``-delete``", "delete a file from the library."
         "``-list``", "list files in a library."
-    
+
     To control the symbol type information placed in the library file:
-    
+
     .. csv-table::
         :widths: auto
-    
+
         "``-strong``", "(default) use strongly typed symbol entries."
         "``-weak``", "save no type information. This should only be used to build a library compatible with a previous version of GAUSS."
-    
+
     To control location of temporary files for a complete library build:
-    
+
     .. csv-table::
         :widths: auto
-    
+
         "``-tmp``", "(default) use the directory pointed to by the *tmp_path* configuration variable. If *tmp_path* is not defined, `lib` will look for a *tmp* environment variable."
         "``-disk``", "use the same directory listed in the *lib_path* configuration variable."
 
@@ -85,7 +85,7 @@ contains the file is added to the filename in the library entry.
 Examples
 ----------------
 
-Let us suppose that you have a file named :file:`myprocs.gss` located in your GAUSS *src* directory. Let us further suppose that you would like to create a new library named *mylibrary*. You could accomplish that task like this:
+Let us suppose that you have a file named :file:`myprocs.gss` located in your GAUSS `src` directory. Let us further suppose that you would like to create a new library named *mylibrary*. You could accomplish that task like this:
 
 ::
 
@@ -97,7 +97,7 @@ Now that this library has been created, you could add other files in the same ma
 
     lib mylibrary mystats.gss;
 
-This second command will add the file :file:`mystats.gss` to the mylibrary which was created in the first step above. It will not overwrite or replace the library.
+This second command will add the file :file:`mystats.gss` to the *mylibrary* which was created in the first step above. It will not overwrite or replace the library.
 
 You may print the list of files contained in the library by using the ``-list`` flag. Entering the command:
 
@@ -126,4 +126,3 @@ Note that, as in the command above, the ``-update`` flag must be used with a fil
     lib mylibrary -build;
 
 .. seealso:: Keyword `library`
-

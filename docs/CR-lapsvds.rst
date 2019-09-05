@@ -40,10 +40,12 @@ Examples
 
 ::
 
+    // Assign x matrix
     x = { 2.143 4.345 6.124,
           1.244 5.124 3.412,
           0.235 5.657 8.214 };
-     
+
+    // Compute the singular value decomposition
     va = lapsvds(x);
     print va';
 
@@ -53,10 +55,12 @@ Examples
 
 ::
 
+    // Assign xi
     xi = { 4+1 3+1 2+2,
            1+2 5+3 2+2,
            1+1 2+1 6+2 };
-     
+
+    // Compute the singular value decomposition
     ve = lapsvds(xi);
     print ve';
 
@@ -67,4 +71,3 @@ Examples
 Note the transpose operator (``'``) at the end of the print statements. This causes the output of these column vectors to be printed as a row vector.
 
 .. seealso:: Functions :func:`lapsvdcusv`, :func:`lapsvdusv`
-

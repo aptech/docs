@@ -22,7 +22,7 @@ Format
 
     :rtype s: MxN matrix
 
-    :return v: right singular values.
+    :return v: right singular vectors.
 
     :rtype v: NxN matrix
 
@@ -46,12 +46,13 @@ Examples
 
 ::
 
+    // Assign x
     x = { 2.143 4.345 6.124,
           1.244 5.124 3.412,
           0.235 5.657 8.214 };
-     
-    { u,s,v } = lapsvdusv(x);
-     
+
+    { u, s, v } = lapsvdusv(x);
+
     print u;
 
 ::
@@ -77,8 +78,7 @@ Examples
 ::
 
      -0.1362  0.4650  0.8748
-      0.6221  0.6470 -0.4408 
+      0.6221  0.6470 -0.4408
      -0.7710 -0.6043  0.2011
 
 .. seealso:: Functions :func:`lapsvds`, :func:`lapsvdcusv`
-

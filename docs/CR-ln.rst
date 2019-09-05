@@ -27,7 +27,7 @@ If *x* is negative, complex results are returned.
 
 You can turn the generation of complex numbers for negative inputs on or
 off in the GAUSS configuration file, and with the :func:`sysstate` function,
-case 8. If you turn it off, ln will generate an error for negative
+case 8. If you turn it off, :func:`ln` will generate an error for negative
 inputs.
 
 If *x* is already complex, the complex number state doesn't matter; :func:`ln`
@@ -48,4 +48,3 @@ Examples
     y = 2.7725887
 
 .. seealso:: Functions :func:`log`
-
