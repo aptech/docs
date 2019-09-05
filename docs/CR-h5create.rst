@@ -8,7 +8,7 @@ Creates an HDF5 data file, or adds a new dataset to an existing HDF5 file.
 
 Format
 ----------------
-.. function:: ret = h5create(fname, dname, dims[, datatype[, chunk_size]])
+.. function:: retcode = h5create(fname, dname, dims[, datatype[, chunk_size]])
 
     :param fname: name of the HDF5 file. The file extension, ``.h5``, is recommended, but not required.
     :type fname: string

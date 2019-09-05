@@ -8,7 +8,7 @@ Computes the complement of the cdf of the Student's t distribution.
 
 Format
 ----------------
-.. function:: y = cdfTc(x, df)
+.. function:: p = cdfTc(x, df)
 
     :param x: values at which to evaluate the cumulative distribution function for the Student's t distribution. :math:`−\infty \leq x \leq \infty`.
     :type x: NxK matrix

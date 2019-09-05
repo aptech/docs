@@ -8,7 +8,7 @@ Create a new palette that blends between a list of colors.
 
 Format
 ----------------
-.. function:: clrs = blendColorPalette(colors, n_colors)
+.. function:: color_blend = blendColorPalette(colors, n_colors)
 
     :param colors:  List of existing colors.
     :type colors: Nx1 string array

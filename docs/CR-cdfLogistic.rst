@@ -8,7 +8,7 @@ Computes the cumulative distribution function for the logistic distribution.
 
 Format
 ----------------
-.. function:: y = cdfLogistic(x, loc, scale)
+.. function:: p = cdfLogistic(x, loc, scale)
 
     :param x: Values at which to evaluate the cumulative distribution function for the logistic distribution.
     :type x: NxK matrix, Nx1 vector or scalar.

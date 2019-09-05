@@ -9,7 +9,7 @@ Loads an ASCII or binary file into a string.
 
 Format
 ----------------
-.. function:: y = getf(filename, mode)
+.. function:: str_contents = getf(filename, mode)
 
     :param filename: any valid file name.
     :type filename: string

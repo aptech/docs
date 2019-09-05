@@ -9,7 +9,7 @@ Returns the value of an environment variable from your operating system.
 
 Format
 ----------------
-.. function:: y = envget(s)
+.. function:: name = envget(s)
 
     :param s: the name to be searched for.
     :type s: string

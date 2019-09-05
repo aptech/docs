@@ -9,7 +9,7 @@ Computes the inverse incomplete gamma function.
 
 Format
 ----------------
-.. function:: x = gammaii(a, p)
+.. function:: g_ii = gammaii(a, p)
 
     :param a: exponents.
     :type a: MxN matrix

@@ -9,7 +9,7 @@ Returns whether a dataset is complex or real.
 
 Format
 ----------------
-.. function:: y = iscplxf(fh)
+.. function:: fh_iscplx = iscplxf(fh)
 
     :param fh: file handle of an open file.
     :type fh: scalar

@@ -9,7 +9,7 @@ Writes a variable to a GAUSS Data Archive using 32-bit system file write command
 
 Format
 ----------------
-.. function:: ret = gdaWrite32(filename, x, varname)
+.. function:: retcode = gdaWrite32(filename, x, varname)
 
     :param filename: name of data file.
     :type filename: string

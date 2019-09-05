@@ -9,7 +9,7 @@ Returns a 1 if its matrix argument contains any missing values, otherwise return
 
 Format
 ----------------
-.. function:: y = ismiss(x)
+.. function:: x_ismiss = ismiss(x)
 
     :param x: data
     :type x: NxK matrix

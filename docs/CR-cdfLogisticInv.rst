@@ -8,7 +8,7 @@ Computes the logistic inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: y = cdfLogisticInv(p, loc, scale)
+.. function:: x = cdfLogisticInv(p, loc, scale)
 
     :param p: Probabilities at which to compute the logistic inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar

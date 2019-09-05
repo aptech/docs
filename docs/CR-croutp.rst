@@ -9,7 +9,7 @@ Computes the Crout decomposition of a square matrix with partial (row) pivoting.
 
 Format
 ----------------
-.. function:: y = croutp(x)
+.. function:: lup = croutp(x)
 
     :param x:  square nonsingular matrix.
     :type x: NxN matrix

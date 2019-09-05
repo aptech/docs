@@ -9,7 +9,7 @@ Returns the determinant of a square matrix.
 
 Format
 ----------------
-.. function:: y = det(x)
+.. function:: d = det(x)
 
     :param x: matrix or array used to find the determinant.
     :type x: NxN matrix or KxNxN array

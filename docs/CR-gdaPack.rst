@@ -9,7 +9,7 @@ Packs the data in a GAUSS Data Archive, removing all empty bytes and truncating 
 
 Format
 ----------------
-.. function:: ret = gdaPack(filename)
+.. function:: retcode = gdaPack(filename)
 
     :param filename: name of data file.
     :type filename: string

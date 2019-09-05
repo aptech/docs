@@ -9,7 +9,7 @@ Computes the Cholesky decomposition of a symmetric, positive definite square mat
 
 Format
 ----------------
-.. function:: y = chol(x)
+.. function:: u = chol(x)
 
     :param x: Symmetric, positive definite square matrix.
     :type x: NxN matrix

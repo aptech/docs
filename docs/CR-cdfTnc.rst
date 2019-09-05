@@ -10,7 +10,7 @@ The integral under the noncentral Student's :math:`t` distribution, from
 
 Format
 ----------------
-.. function:: y = cdfTnc(x, df, nonc)
+.. function:: p = cdfTnc(x, df, nonc)
 
     :param x: values of upper limits of integrals.
     :type x: NxK matrix

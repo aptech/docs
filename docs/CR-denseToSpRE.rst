@@ -9,7 +9,7 @@ Converts a dense matrix to a sparse matrix, using a relative epsilon.
 
 Format
 ----------------
-.. function:: y = denseToSpRE(x, reps)
+.. function:: x_sparse = denseToSpRE(x, reps)
 
     :param x: Dense data matrix.
     :type x: MxN matrix

@@ -8,7 +8,7 @@ Computes the cumulative distribution function for the noncentral chi-squared dis
 
 Format
 ----------------
-.. function:: y = cdfChinc(x, df, nonc)
+.. function:: p = cdfChinc(x, df, nonc)
 
     :param x: Values at which to evaluate the cdf of the noncentral chi-squared distribution. :math:`x > 0`.
     :type x: Nx1 vector

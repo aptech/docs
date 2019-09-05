@@ -9,7 +9,7 @@ Loads variables in a GDA into the workspace.
 
 Format
 ----------------
-.. function:: ret = gdaLoad(filename, create, modify, rename, ftypes, errh, report)
+.. function:: retcode = gdaLoad(filename, create, modify, rename, ftypes, errh, report)
 
     :param filename: name of data file.
     :type filename: string

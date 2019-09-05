@@ -8,7 +8,7 @@ Computes the cumulative distribution function of the noncentral F distribution.
 
 Format
 ----------------
-.. function:: y = cdfFnc(x, df_n, df_d, nonc)
+.. function:: p = cdfFnc(x, df_n, df_d, nonc)
 
     :param x: Values at which to evaluate the cdf of the noncentral F distribution. :math:`x > 0`.
     :type x: NxK matrix
