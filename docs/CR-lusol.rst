@@ -25,9 +25,33 @@ Format
 
     :rtype x: PxK matrix
 
+Examples
+--------------
+
+::
+
+    A = { 3 -1 5,
+          -2 0 5,
+          7 2 -2};
+
+    b = { 6 -4,
+          3 2,
+          7 -5};
+
+    // Lower decomposition
+    {l, u } = lu(A);
+
+    // Solve system of equations
+    X = lusol(b, l, u);
+
+::
+
+    x =   0.87654  -1.00000
+          1.38272   1.00000
+          0.95062   0.00000
+
 Remarks
 -------
 
 If *b* has more than one column, each column is solved for separately,
 i.e., :func:`lusol` solves :math:`LUx[., i] = b[., i]`.
-

@@ -23,11 +23,12 @@ Format
 
     :return ys: ordinate values given abscissae values in *xs*.
 
-    :rtype ys: _loess_numEvalx1 vector
+    :rtype ys: *_loess_numEval*x1 vector
 
     :return xs: equally spaced abscissae values.
 
-    :rtype xs: _loess_numEvalx1 vector
+    :rtype xs: *_loess_numEval*x1 vector
+
 
 Global Input
 ------------
@@ -41,6 +42,22 @@ Global Input
     "*_loess_WgtType*", "scalar, type of weights. If 1, robust, symmetric weights, otherwise Gaussian. Default = 1."
     "*__output*", "scalar, if 1, iteration information and results are printed, otherwise nothing is printed."
 
+Examples
+-----------
+
+::
+
+      // Load dataset
+      data = loadd("lowess1.dta", "h1 + depth");
+
+      // Define independent variable
+      depvar = data[., 1];
+
+      // Defined dependent variable
+      indvars = data[., 2];
+
+      { yhat, ys, xs } = loess(depvar, indvars);
+
 
 Remarks
 -------
@@ -52,4 +69,3 @@ Source
 ------
 
 loess.src
-

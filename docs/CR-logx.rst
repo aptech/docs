@@ -9,10 +9,6 @@ Graphs X vs. Y using log coordinates for the X axis.
 
 .. NOTE:: This function is for use with the deprecated PQG graphics. Use :func:`plotLogX` instead.
 
-Library
--------
-
-pgraph
 
 Format
 ----------------
@@ -30,4 +26,3 @@ Source
 plogx.src
 
 .. seealso:: Functions :func:`xy`, :func:`logy`, :func:`loglog`
-

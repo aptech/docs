@@ -27,7 +27,7 @@ to be located.
 
 The origin (1,1) is the upper left corner.
 
-*m* and *n* may be any expressions that return scalars. Nonintegers will be
+*m* and *n* may be any expressions that return scalars. Non-integers will be
 truncated to an integer.
 
 
@@ -36,13 +36,19 @@ Examples
 
 ::
 
+    // Get current row position of cursor
     r = csrlin;
+
+    // Get current column positin of cursor
     c = csrcol;
+
+    // Clear screen
     cls;
+
+    // Place cursor at r, c
     locate r,c;
 
 In this example the window is cleared without affecting
 the cursor position.
 
 .. seealso:: Functions :func:`csrlin`, :func:`csrcol`
-

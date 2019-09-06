@@ -25,7 +25,7 @@ Format
 Remarks
 -------
 
-All the ``loadxx`` commands use the same syntax-they only differ in the
+All the ``loadxx`` commands use the same syntax, they only differ in the
 types of symbols you use them for:
 
 .. list-table::
@@ -86,11 +86,11 @@ dummy definition will be replaced with the saved definition:
 
    loadp corrmat;
    y = corrmat;
-    
+
    keyword regress(x); endp;
    loadk regress;
    regress x on y z t from data01;
-    
+
    fn sqrd=;
    loadf sqrd;
    y = sqrd(4.5);
@@ -151,8 +151,8 @@ If you `load` data from a file, :file:`data.asc`, which contains nine numbers (1
 
 ::
 
-       1 2 3 
-   x = 4 5 6 
+       1 2 3
+   x = 4 5 6
        7 8 9
 
 ::
@@ -182,6 +182,9 @@ If you `load` data from a file, :file:`data.asc`, which contains nine numbers (1
        1 2 3 4 5
    x = 6 7 8 9 1
        2 3 4 5 6
+
+Load and save paths
++++++++++++++++++++
 
 `load` accepts pathnames. The following is legal:
 
@@ -245,4 +248,3 @@ This will get the old `loadm` path, set it to :file:`/data`, load :file:`x.fmt` 
 and reset the `loadm` path to its original setting.
 
 .. seealso:: Functions :func:`loadd`, :func:`dataload`, `save`, `let`, :func:`con`, :func:`cons`, :func:`sysstate`
-
