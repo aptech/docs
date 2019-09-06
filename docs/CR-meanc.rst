@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :return y: containing the mean of every column of *x*.
+    :return y: contains the mean of every column of *x*.
 
     :rtype y: Kx1 matrix
 
@@ -23,7 +23,7 @@ Examples
 
 ::
 
-    x = meanc(rndu(1e5,4));
+    x = meanc(rndu(1e5, 4));
 
 After the code above, *x* is equal to:
 
@@ -39,4 +39,3 @@ a matrix, and the mean is computed for each column. Due to the use of random inp
 in this example, your results may differ slightly.
 
 .. seealso:: Functions :func:`stdc`
-

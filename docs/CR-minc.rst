@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix or sparse matrix
 
-    :return y: containing the smallest element in each column of *x*.
+    :return y: contains the smallest element in each column of *x*.
 
     :rtype y: Kx1 matrix
 
@@ -39,7 +39,10 @@ Examples
 
 ::
 
-    x = rndn(4,2);
+    // Create random matrix
+    x = rndn(4, 2);
+
+    // Find minimum in each column 
     y = minc(x);
 
 If *x* is equal to:
@@ -59,4 +62,3 @@ then *y* will equal:
     -2.3155
 
 .. seealso:: Functions :func:`maxc`, :func:`minindc`, :func:`maxindc`
-

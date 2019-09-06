@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :return y: containing the index of the maximum element in each column of *x*.
+    :return y: contains the index of the maximum element in each column of *x*.
 
     :rtype y: Kx1 matrix
 
@@ -45,27 +45,31 @@ Examples
 
 ::
 
-    x = round(rndn(4,4)*5);
+    // Generate random x matrix
+    x = round(rndn(4, 4)*5);
+
+    // Find maximum by column
     mx = maxc(x);
+
+    // Find the indices of the maximums in each column
     mxInd = maxindc(x);
 
 If *x* is equal to:
 
 ::
 
-    -2   -8   -1   -2 
-    -1    9    0    7 
-     9    0    4    8 
+    -2   -8   -1   -2
+    -1    9    0    7
+     9    0    4    8
     -2    6    6    1
 
 then
 
 ::
 
-         9            3 
-    mx = 9    mxInd = 2 
-         6            4 
+         9            3
+    mx = 9    mxInd = 2
+         6            4
          8            3
 
 .. seealso:: Functions :func:`maxc`, :func:`minindc`, :func:`minc`
-

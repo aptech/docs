@@ -51,9 +51,23 @@ Examples
     let x[3,3] = 101 35 50000
                  102 29 13000
                  103 37 18000;
+
+    // Names associated with x
     xnames = { id, age, pay };
+
+    // Global variables to create
     vnames = { age, pay };
-    makevars(x,vnames,xnames);
+
+    // Create global variables
+    makevars(x, vnames, xnames);
+
+    print age;
+
+::
+
+    35.00000
+    29.00000
+    37.00000
 
 Two global vectors, called *age* and *pay*, are created from the
 columns of *x*.
@@ -63,9 +77,23 @@ columns of *x*.
     let x[3,3] = 101 35 50000
                  102 29 13000
                  103 37 18000;
+
+    // Names associated with x
     xnames = "id age pay";
+
+    // Global variables to create
     vnames = "age pay";
-    makevars(x,vnames,xnames);
+
+    // Create global variables
+    makevars(x, vnames, xnames);
+
+    print age;
+
+::
+
+    35.00000
+    29.00000
+    37.00000
 
 This is the same as the example above, except that strings are used
 for the variable names.
@@ -81,4 +109,3 @@ Source
 vars.src
 
 .. seealso:: Functions :func:`mergevar`, :func:`setvars`
-

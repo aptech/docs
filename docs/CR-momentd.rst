@@ -5,16 +5,16 @@ momentd
 Purpose
 ----------------
 
-Computes a moment (*x*'*x*) matrix from a GAUSS data set.
+Computes a moment (*x*'*x*) matrix from a GAUSS dataset.
 
 Format
 ----------------
 .. function:: m = momentd(dataset, vars)
 
-    :param dataset: name of data set.
+    :param dataset: name of dataset.
     :type dataset: string
 
-    :param vars: 
+    :param vars:
 
         .. list-table::
             :widths: auto
@@ -28,8 +28,8 @@ Format
               - indices of columns
             * - string
               - Formula string e.g. ``"PAY + WT"`` or ``". - 1"`` (include all variables besides intercept).
-                
-                These can be any size subset of the variables in the data set, and can be 
+
+                These can be any size subset of the variables in the data set, and can be
                 in any order. If a scalar 0 is passed, all columns of the data set will be used.
 
     :type vars: Kx1 string array or Kx1 numeric vector or string
@@ -87,21 +87,23 @@ Using indices of columns
 
 ::
 
-    fname = getGAUSShome() $+ "examples/freqdata.dat";	
-    							
+    fname = getGAUSShome() $+ "examples/freqdata.dat";
+
     // Calculate statistics on variables in dataset: PAY and WT
     // Specify the index of PAY and WT
-    vars = 2|4;				
+    vars = 2|4;
+
+    // Find moment
     m = momentd(fname, vars);
-    
+
     print  m;
 
 After the above code,
 
 ::
 
-    400.00000        787.00000        587.98000 
-    787.00000        1805.0000        1161.1400 
+    400.00000        787.00000        587.98000
+    787.00000        1805.0000        1161.1400
     587.98000        1161.1400        900.38540
 
 Using names of variables
@@ -109,10 +111,14 @@ Using names of variables
 
 ::
 
-    fname = getGAUSShome() $+ "examples/freqdata.dat";				
+    // Get filename
+    fname = getGAUSShome() $+ "examples/freqdata.dat";
+
     // Calculate statistics on variables in dataset: PAY and WT
-    // Define the names string array of PAY and WT				
-    string vars = {"PAY", "WT"};				
+    // Define the names string array of PAY and WT
+    string vars = {"PAY", "WT"};
+
+    // Find moment
     m = momentd(fname, vars );
     print  m;
 
@@ -120,8 +126,8 @@ After the above code,
 
 ::
 
-    400.00000        787.00000        587.98000 
-    787.00000        1805.0000        1161.1400 
+    400.00000        787.00000        587.98000
+    787.00000        1805.0000        1161.1400
     587.98000        1161.1400        900.38540
 
 Using formula string
@@ -129,10 +135,12 @@ Using formula string
 
 ::
 
-    fname = getGAUSShome() $+ "examples/freqdata.dat";	
-    // Define the formula for PAY and WT, remove the intercept (use - 1 )				
-    formula_str = "-1 + PAY + WT";	
-    										
+    // Get filename
+    fname = getGAUSShome() $+ "examples/freqdata.dat";
+
+    // Define the formula for PAY and WT
+    formula_str = "PAY + WT";
+
     // Calculate statistics on variables in dataset: PAY and WT
     m = momentd(fname, formula_str);
     print  m;
@@ -141,13 +149,14 @@ After the above code,
 
 ::
 
-    1805.0000        1161.1400 
-    1161.1400        900.38540
+      400.00000        787.00000        587.98000
+      787.00000        1805.0000        1161.1400
+      587.98000        1161.1400        900.38540
 
 Remarks
 -------
 
--  The supported dataset types are CSV, Excel, HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), 
+-  The supported dataset types are CSV, Excel, HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT),
    Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
 -  Character vectors are supported for backward compatibility, but it has been deprecated.
 
@@ -160,4 +169,3 @@ See also
 ------------
 
 .. seealso:: `Formula String`
-

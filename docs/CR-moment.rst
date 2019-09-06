@@ -18,7 +18,7 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - 0
               - missing values will not be checked for. This is the fastest option.
             * - 1
@@ -59,10 +59,33 @@ Examples
 ----------------
 
 ::
+  
+    rndseed 129070;
 
-    xx = moment(x,2);
+    // Create data
+    x = ones(100, 3)*rndn(100, 3);
+    b_true = {1.3 0.5 0.75 -1.9};
+
+    y = x*b_true' + 0.5*rndn(100,3);
+
+    // Create moment matrix
+    xx = moment(x, 2);
+
+    // Find inverse of moment matrix
     ixx = invpd(xx);
-    b = ixx*missrv(x,0)'y;
+
+    // Find coefficients
+    b = ixx*missrv(x, 0)'y;
+
+    print "b_true~b_est";
+    b_true'~b_est;
+
+::
+
+     1.3000000        1.2808949
+     0.50000000       0.49703322
+     0.75000000       0.73297298
+     -1.9000000       -1.8087071
 
 In this example, the regression of *y* on *x* is
 computed. The moment matrix (*xx*) is formed using the
@@ -71,4 +94,3 @@ second parameter is 2). Then *xx* is inverted using
 the :func:`invpd` function. Finally, the ols coefficients
 are computed. :func:`missrv` is used to emulate pairwise
 deletion by setting missing values to 0.
-

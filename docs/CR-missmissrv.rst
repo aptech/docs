@@ -18,7 +18,7 @@ Format
     :param v: ExE conformable with *x*.
     :type v: LxM matrix
 
-    :return y: 
+    :return y: matrix with missing values either replaced or added.
 
     :rtype y: max(N,L) by max(K,M) matrix
 
@@ -48,7 +48,7 @@ element.
 Missing values are given special treatment in the following functions
 and operators: :math:`b/A` (matrix division when *a* is not square and neither *a*
 nor *b* is scalar), :func:`counts`, :func:`scalmiss`, :func:`maxc`, :func:`maxindc`,
-:func:`minc`, :func:`minindc`, :func:`miss`, :func:`missex`, :func:`missrv`, 
+:func:`minc`, :func:`minindc`, :func:`miss`, :func:`missex`, :func:`missrv`,
 :func:`moment`, :func:`packr`, :func:`scalmiss`, :func:`sortc`.
 
 As long as you know a matrix contains no missings to begin with, :func:`miss`
@@ -57,7 +57,7 @@ example:
 
 ::
 
-   y = missrv(miss(x,0),1);
+   y = missrv(miss(x, 0), 1);
 
 will convert 0's to 1's.
 
@@ -82,14 +82,14 @@ Replace missing values
           .  5  .,
           7  8  .,
           . 10 11 };
-    
+
     // Replace all missing values with 0.
     x_2 = missrv(x, 0);
-    
-    
+
+
     // Create a 1x3 row vector.
     replace = { -1 -2 -3 };
-    
+
     // Replace missing values with the element
     // in the corresponding column of 'replace'
     x_3 = missrv(x, replace);
@@ -98,14 +98,14 @@ After the code above:
 
 ::
 
-            1    0    3 
-    x_2 =   0    5    0 
-            7    8    0 
+            1    0    3
+    x_2 =   0    5    0
+            7    8    0
             0   10   11
-    
-            1   -2    3 
-    x_3 =  -1    5   -3 
-            7    8   -3 
+
+            1   -2    3
+    x_3 =  -1    5   -3
+            7    8   -3
            -1   10   11
 
 Replace specific numbers with missing values
@@ -118,14 +118,14 @@ Replace specific numbers with missing values
           4  5  6,
           7  8  4,
           4 10 11 };
-    
+
     // Replace all instances of 4 with a missing value.
     x_2 = miss(x, 4);
-    
-    
+
+
     // Create a 1x3 row vector.
     replace = { 4 5 6 };
-    
+
     // Replace all instances of 4 in the first column,
     // 5 in the second column and 6 in the third with a missing.
     x_3 = miss(x, replace);
@@ -134,14 +134,14 @@ After the code above:
 
 ::
 
-            1    2    3 
-    x_2 =   .    5    6 
-            7    8    . 
+            1    2    3
+    x_2 =   .    5    6
+            7    8    .
             .   10   11
-    
-            1    2    3 
-    x_3 =   .    .    . 
-            7    8    4 
+
+            1    2    3
+    x_3 =   .    .    .
+            7    8    4
             .   10   11
 
 Example 3
@@ -151,39 +151,38 @@ Example 3
 
     // Create a 3x3 matrix with each element equal to 1
     x = ones(3, 3);
-    
+
     // Assign the diagonal of 'x' to be equal to pi
     x = diagrv(x, pi);
-    
+
     print "x = " x;
-    
-    // Change all 1's in 'x' into missing values and assign to 
+
+    // Change all 1's in 'x' into missing values and assign to
     // xmiss
     xmiss = miss(x, 1);
-    
+
     print "xmiss = " xmiss;
-    
+
     // Change all missings in 'xmiss' into 2*pi and assign to x2
     x2 = missrv(xmiss, 2*pi);
-    
+
     print "x2 = " x2;
 
 The code above, will return:
 
 ::
 
-    x = 
-           3.1415927        1.0000000        1.0000000 
-           1.0000000        3.1415927        1.0000000 
-           1.0000000        1.0000000        3.1415927 
-    xmiss = 
-           3.1415927                .                . 
-                   .        3.1415927                . 
-                   .                .        3.1415927 
-    x2 = 
-           3.1415927        6.2831853        6.2831853 
-           6.2831853        3.1415927        6.2831853 
+    x =
+           3.1415927        1.0000000        1.0000000
+           1.0000000        3.1415927        1.0000000
+           1.0000000        1.0000000        3.1415927
+    xmiss =
+           3.1415927                .                .
+                   .        3.1415927                .
+                   .                .        3.1415927
+    x2 =
+           3.1415927        6.2831853        6.2831853
+           6.2831853        3.1415927        6.2831853
            6.2831853        6.2831853        3.1415927
 
 .. seealso:: Functions :func:`counts`, :func:`impute`, :func:`ismiss`, :func:`missex`, :func:`packr`, :func:`scalmiss`
-

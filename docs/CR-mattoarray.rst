@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: matrix
 
-    :return y: 
+    :return y: data converted to an array type. 
 
     :rtype y: 1-or-2-dimensional array
 
@@ -29,10 +29,13 @@ Examples
 
 ::
 
-    x = 5*ones(2,3);
+    // Set x to be a 2x3 matrix of fives
+    x = 5*ones(2, 3);
+
+    // Convert x to an array
+    // and save as  y
     y = mattoarray(x);
 
 *y* will be a 2x3 array of fives.
 
 .. seealso:: Functions :func:`arraytomat`
-

@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :return y: containing the index of the smallest element in each column of *x*.
+    :return y: contains the index of the smallest element in each column of *x*.
 
     :rtype y: Kx1 matrix
 
@@ -45,8 +45,13 @@ Examples
 
 ::
 
-    x = round(rndn(5,4)*5);
+    // Create random matrix
+    x = round(rndn(5, 4)*5);
+
+    // Find minimum of each column
     y = minc(x);
+
+    // Find indices of minimum of each column
     z = minindc(x);
 
 If *x* is equal to:
@@ -69,4 +74,3 @@ then *y* and *z* are equal to:
          -5          5
 
 .. seealso:: Functions :func:`maxindc`, :func:`minc`, :func:`maxc`
-

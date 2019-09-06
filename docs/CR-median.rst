@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :return m: containing the medians of the respective columns of *x*.
+    :return m: contains the medians of the respective columns of *x*.
 
     :rtype m: Kx1 vector
 
@@ -30,10 +30,10 @@ Examples
 
     // Set the seed for repeatable random data
     rndseed 4320993;
-    
+
     // Create uniform random integers between 1 and 10
-    x = ceil(10*rndu(100,3));
-    
+    x = ceil(10*rndu(100, 3));
+
     // Calculate the median of each column of 'x'
     md = median(x);
 
@@ -49,4 +49,3 @@ Source
 ------
 
 median.src
-
