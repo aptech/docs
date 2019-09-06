@@ -104,6 +104,8 @@ it will be interpreted as an empty matrix when you load it again.
 ASCII data files
 ++++++++++++++++
 
+.. NOTE:: This function is a deprecated function. Consider using :func:`csvReadM` instead.
+
 To load ASCII data files, square brackets follow the name of the symbol.
 
 Numbers in ASCII files must be delimited with spaces, commas, tabs, or
