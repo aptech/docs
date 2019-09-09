@@ -23,21 +23,17 @@ Format
 Remarks
 -------
 
-:func:`nextn` and :func:`nextnevn` determine allowable matrix dimensions for computing
-FFT's. The Temperton FFT routines (see table below) can handle any matrix whose dimensions can be expressed as:
+The Temperton FFT routines (see table below) can handle any matrix whose dimensions can be expressed as:
 
 .. math::
 
-   2px3qx5rx7s
-
-.. DANGER:: fix equations
+   2p \times 3q \times 5r \times 7s
 
 where *p*, *q* and *r* are nonnegative integers and *s* is equal to 0 or 1.
 
-with one restriction: the vector length or matrix column size must be even (*p* must be positive) when computing RFFT's.
+The one restriction is that the vector length or matrix column size must be even (*p* must be positive) when computing RFFT's.
 
-:func:`fftn`, etc., automatically pad matrices (with zeros) to the next allowable dimensions; :func:`nextn` and :func:`nextnevn` 
-are provided in case you want to check or fix matrix sizes yourself.
+The :func:`fftn`, etc., functions will automatically pad matrices (with zeros) to the next allowable dimensions. The functions :func:`nextn` and :func:`nextnevn` are provided in case you want to check or fix matrix sizes yourself.
 
 Use the following table to determine what to call for a given function and matrix:
 
@@ -66,4 +62,3 @@ Source
 optim.src
 
 .. seealso:: Functions :func:`fftn`, :func:`optn`, :func:`optnevn`, :func:`rfftn`, :func:`rfftnp`
-

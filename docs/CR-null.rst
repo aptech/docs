@@ -15,21 +15,25 @@ Format
     :type x: NxM matrix
 
     :return b: where *K* is the nullity of *x*, such that:
-       
+
         ::
 
-            x * b = 0 // NxK matrix of 0's
+            // NxK matrix of 0's
+            x * b = 0
 
         and
 
         ::
 
-            b'b = I  // MxM identity matrixThe error returns are returned in  b:
+            // MxM identity matrix
+            b'b = I
+
+        The error returns are returned in b:
 
         .. csv-table::
             :widths: auto
             :header-rows: 1
-    
+
             "error code", "reason"
             "1", "there is no null space"
             "2", "*b* is too large to return in a single matrix"
@@ -51,9 +55,9 @@ Examples
 
 ::
 
-    let x[2,4] = 2 1 3 -1
+    let x[2, 4] = 2 1 3 -1
                  3 5 1  2;
-     
+
     b = null(x);
     z = x*b;
     i = b'b;
@@ -62,7 +66,7 @@ After the code above:
 
 ::
 
-        -0.804  0.142 
+        -0.804  0.142
     b =  0.331 -0.473  z = 0  0  i = 1  0
          0.473  0.331      0  0      0  1
          0.142  0.804
@@ -76,4 +80,3 @@ Source
 ------
 
 null.src
-

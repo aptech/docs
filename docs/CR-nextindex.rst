@@ -9,17 +9,17 @@ Returns the index of the next element or subarray in an array.
 
 Format
 ----------------
-.. function:: ni = nextindex(i, o)
+.. function:: nind = nextindex(ind, orders)
 
-    :param i: indices into an array where :math:`M <= N`.
-    :type i: Mx1 vector
+    :param ind: indices into an array where :math:`M <= N`.
+    :type ind: Mx1 vector
 
-    :param o: orders of an N-dimensional array
-    :type o: Nx1 vector
+    :param orders: orders of an N-dimensional array
+    :type orders: Nx1 vector
 
-    :return ni: the index of the next element or subarray in the array corresponding to *o*.
+    :return nind: the index of the next element or subarray in the array corresponding to *orders*.
 
-    :rtype ni: Mx1 vector of indices
+    :rtype nind: Mx1 vector
 
 Remarks
 -------
@@ -32,15 +32,15 @@ Examples
 ::
 
     // Dimensions of an array
-    orders = { 3, 4, 5, 6, 7);
-    
+    orders = { 3, 4, 5, 6, 7 };
+
     // Starting index
     ind = { 2, 3, 5 };
-    
-    // Return the index for the next element
-    ind = nextindex(ind,orders);
 
-After the code above, ind will be equal to:
+    // Return the index for the next element
+    nind1 = nextindex(ind, orders);
+
+After the code above, *nind1* will be equal to:
 
 ::
 
@@ -54,9 +54,9 @@ Using the same data from above, a subsequent call to :func:`nextindex`:
 
 ::
 
-    ind = nextindex(ind,orders);
+    nind2 = nextindex(nind1, orders);
 
-will assign *ind* to be equal to:
+will assign *nind2* to be equal to:
 
 ::
 
@@ -65,4 +65,3 @@ will assign *ind* to be equal to:
     2
 
 .. seealso:: Functions :func:`previousindex`, :func:`loopnextindex`, :func:`walkindex`
-
