@@ -19,7 +19,7 @@ Format
     save path=path x;
     save x;
 
-**Paramters**
+**Parameters**
 
 :vflag: (*literal*) version flag
 
