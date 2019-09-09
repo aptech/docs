@@ -241,12 +241,14 @@ Basic usage with matrices
 
 ::
 
+    // Set y matrix
     y = { 2,
           3,
           1,
           7,
           5 };
 
+    //  Set x matrix
     x = { 1 3 2,
           2 3 1,
           7 1 7,
@@ -255,7 +257,7 @@ Basic usage with matrices
 
     // Perform least squares regression and print report to the screen
     // The empty string, "" indicates that no dataset is used
-    call olsmt("",y,x);
+    call olsmt("", y, x);
 
 Basic usage with a dataset and a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -331,6 +333,7 @@ Use a dataset and variable indices
 
 ::
 
+    // Set dataset name 
     dataset = getGAUSSHome() $+ "examples/credit.dat";
 
     // Set the third variable in 'credit.dat', 'Rating'

@@ -109,7 +109,7 @@ file. If :file:`out1.out` already exists, the new output will be appended.
     output file = out2.out;
     output on;
 
-This is equivalent to the previous example.
+This is equivalent to the previous example, with the exception that the file opened is named :file:`out2.out`.
 
 ::
 
@@ -127,7 +127,7 @@ This statement will create a new output file using
     open fp = mydata;
 
     do until eof(fp);
-       print readr(fp,200);;
+       print readr(fp, 200);;
     endo;
 
     fp = close(fp);

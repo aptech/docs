@@ -32,6 +32,21 @@ Format
 
     :rtype p: Px1 vector
 
+Examples
+----------------
+
+::
+
+        rndseed 129727134;
+
+        // Assign random matrices
+        x = rndn(150, 4);
+        y = rndn(150, 1);
+
+        // Solve OLS coefficient using QR decomposition
+        { b, r, p } = olsqr2(y, x);
+
+
 Remarks
 -------
 

@@ -42,10 +42,11 @@ Examples
 
 ::
 
-    A = rndn(4, 4);
-    b = rndn(4, 1);
+    // Random matrices
+    x = rndn(4, 4);
+    y = rndn(4, 1);
 
     // Solve OLS coefficient using QR decomposition
-    x = olsqr(b, A);
+    b = olsqr(y, x);
 
 .. seealso:: Functions :func:`ols`, :func:`olsqr2`, :func:`orth`, :func:`qqr`

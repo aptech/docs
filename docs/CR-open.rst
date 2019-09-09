@@ -119,14 +119,19 @@ Examples
 
 ::
 
+    // Filename
     fname = "/data/rawdat";
+
+    // Open file for reading
     open dt = ^fname for append;
 
+    // Error if no file found
     if dt == -1;
        print "File not found";
        end;
     endif;
-    y = writer(dt,x);
+
+    y = writer(dt, x);
     if y /= rows(x);
        print "Disk Full";
        end;
@@ -150,9 +155,9 @@ number of rows that were attempted, then the disk is probably full.
     open fout = mydata for update;
 
     do until eof(fin);
-       x = readr(fin,100);
-       x[.,1 3] = ln(x[.,1 3];
-       call writer(fout,x);
+       x = readr(fin, 100);
+       x[., 1 3] = ln(x[. ,1 3];
+       call writer(fout, x);
     endo;
 
     closeall fin,fout;
@@ -177,10 +182,10 @@ variables: *visc*, *temp*, *lub*, and *rpm*:
 ::
 
     open f1 = dat1 varindxi;
-    dtx = readr(f1,100);
-    x = dtx[.,irpm ilub ivisc];
-    y = dtx[.,itemp];
-    call seekr(f1,1);
+    dtx = readr(f1, 100);
+    x = dtx[., irpm ilub ivisc];
+    y = dtx[., itemp];
+    call seekr(f1, 1);
 
 In this example, the dataset :file:`dat1.dat` is opened for reading (the
 :file:`.dat` and the ``for read`` are implicit). *varindxi* is specified
@@ -196,7 +201,7 @@ reset the pointer to the beginning of the file.
     open q1 = dat1 varindx;
     open q2 = dat2 varindx colsf(q1);
     nr = 100;
-    y = readr(q1,nr)~readr(q2,nr);
+    y = readr(q1, nr)~readr(q2, nr);
     closeall q1,q2;
 
 In this example, two data sets are opened for reading and index
@@ -216,12 +221,12 @@ thus give the correct positions of the variables in *y*.
     open fx = x.fmt;
     rf = rowsf(fx);
     sampsize = round(rf*0.1);
-    rndsmpx = zeros(sampsize,colsf(fx));
+    rndsmpx = zeros(sampsize, colsf(fx));
 
     for(1, sampsize, 1);
-       r = ceil(rndu(1,1)*rf);
-       call seekr(fx,r);
-       rndsmpx[i,.] = readr(fx,1);
+       r = ceil(rndu(1, 1)*rf);
+       call seekr(fx, r);
+       rndsmpx[i, .] = readr(fx, 1);
     endfor;
 
     fx = close(fx);

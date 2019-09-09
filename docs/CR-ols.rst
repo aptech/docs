@@ -245,20 +245,27 @@ Example 1
 
 ::
 
+    // Set y matrix
     y = { 2,
           3,
           1,
           7,
           5 };
 
+    // Set x matrix
     x = { 1 3 2,
           2 3 1,
           7 1 7,
           5 3 1,
           3 5 5 };
 
+    // Set output to file
     output file = ols.out reset;
-    call ols(0,y,x);
+
+    // Estimate OLS function
+    call ols(0, y, x);
+
+    // Turn off output
     output off;
 
 In this example, the output from :func:`ols` is put into a file called :file:`ols.out`
@@ -268,11 +275,22 @@ using a `call` statement.
 
 ::
 
+    // Set the data file
     data = "olsdat";
+
+    // Dependent variable
     depvar = { score };
+
+    // independent variables
     indvars = { region, age, marstat };
+
+    // Turn on residuals
     _olsres = 1;
+
+    // Set output file
     output file = lpt1 on;
+
+    // Call OLS
     { nam, m, b, stb, vc, std, sig, cx, rsq, resid, dbw } = ols(data, depvar, indvars);
     output off;
 
@@ -289,11 +307,15 @@ Pass in a dataset name and variable names
 
 ::
 
+    // Set filename
     fname = getGAUSShome() $+ "examples/credit.dat";
-    // Specify the formula, Limit is dependent variable and Balance, Income and Age are independent variables
+
+    // Specify the formula, Limit is dependent variable and Balance,
+    // Income and Age are independent variables
     dep = "Limit";
     string indep = {"Balance", "Income", "Age"};
 
+    // Call ols function
     call ols(fname, dep, indep);
 
 After the above code,
@@ -323,11 +345,15 @@ Pass in a dataset name and a `Formula string`
 
 ::
 
+    // Get filename
     fname = getGAUSShome() $+ "examples/credit.dat";
 
-    // Specify the formula, 'Limit' is dependent variable and 'Balance', 'Income' and 'Age' are independent variables, '-1' means remove the intercept in the model
+    // Specify the formula, 'Limit' is dependent variable
+    // and 'Balance', 'Income' and 'Age' are independent
+    // variables, '-1' means remove the intercept in the model
     formula = "Limit ~ - 1 + Balance + Income + Age ";
 
+    // Call the OLS function    
     call ols(fname, formula);
 
 After the above code,
