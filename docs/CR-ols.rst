@@ -43,8 +43,8 @@ Format
            type                   value
         ===================== ==============
         Kx1 character vector  names of independent variables
-        Kx1 numeric vector    indices of independent variables. These can be any size subset of the variables in the dataset 
-                              and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used except 
+        Kx1 numeric vector    indices of independent variables. These can be any size subset of the variables in the dataset
+                              and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used except
                               for the one used for the dependent variable.
         ===================== ==============
 
@@ -60,18 +60,18 @@ Format
 
     :param formula: formula string of the model.
 
-        E.g ``"y ~ X1 + X2"``, 'y' is the name of dependent variable, '``X1``' and '``X2``' are names of independent variables;
+        E.g ``"y ~ X1 + X2"``, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
 
-        E.g ``"y ~ ."``, '.' means including all variables except dependent variable 'y';
+        E.g ``"y ~ ."``, '.' means including all variables except dependent variable ``y``;
 
-        E.g ``"y ~ -1 + X1 + X2"``, '-1' means no intercept model.
+        E.g ``"y ~ -1 + X1 + X2"``, ``-1`` means no intercept model.
 
     :type formula: string
 
     :return vnam: the variable
         names used in the regression. If a constant term is
-        used, this vector will be :math:`(K+2)x1`, and the first
-        name will be "CONSTANT". The last name will be the
+        used, this vector will be :math:`(K+2) \times 1`, and the first
+        name will be ``CONSTANT``. The last name will be the
         name of the dependent variable.
 
     :rtype vnam: (K+2)x1 or (K+1)x1 character vector
@@ -81,7 +81,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "1.0", "indvars", "depvar"
             "(constant)", "(independent variables)", "(dependent variable)"
 
@@ -98,7 +98,7 @@ Format
 
             .. csv-table::
                 :widths: auto
-        
+
                 "30", "system singular"
                 "31", "system underdetermined"
                 "32", "same number of columns as rows"
@@ -139,7 +139,7 @@ Format
         If *_olsres* = 1, the residuals will be computed.
 
         If the data is taken from a dataset, a new dataset will be created for the residuals, using the
-        name in the global string variable *_olsrnam*. The residuals will be saved in this dataset as an Nx1 column. 
+        name in the global string variable *_olsrnam*. The residuals will be saved in this dataset as an Nx1 column.
         The *resid* return value will be a string containing the name of the new dataset containing the residuals.
         If the data is passed in as a matrix, the *resid* return value will be the Nx1 vector of residuals.
 
@@ -160,8 +160,8 @@ by this procedure.
 
 :__altnam: (*character vector*), default 0.
 
-    This can be a :math:`(K+1)x1` or :math:`(K+2)x1` character vector of alternate variable
-    names for the output. If *__con* is 1, this must be :math:`(K+2)x1`. The name of the dependent variable is the last element.
+    This can be a :math:`(K+1) \times 1` or :math:`(K+2) \times 1` character vector of alternate variable
+    names for the output. If *__con* is 1, this must be :math:`(K+2) \times 1`. The name of the dependent variable is the last element.
 
 :__con: (*scalar*), default 1.
 
@@ -189,7 +189,7 @@ by this procedure.
 
     === ===============
     qr  Solves for the parameter estimates using a qr decomposition.
-    svd Solves for the paramer estimates using a singular value decomposition.
+    svd Solves for the parameter estimates using a singular value decomposition.
     === ===============
 
 :__output: (*scalar*), default 1.
@@ -202,9 +202,9 @@ by this procedure.
 :__row: (*scalar*), the number of rows to read per iteration of the read loop. Default 0.
 
     If 0, the number of rows will be calculated internally. If you get an
-    Insufficient memory error while executing :func:`ols`, you can supply a value
+    insufficient memory error while executing :func:`ols`, you can supply a value
     for *__row* that works on your system.
-    
+
     The answers may vary slightly due to rounding error differences when a
     different number of rows is read per iteration. You can use *__row* to
     control this if you want to get exactly the same rounding effects
@@ -250,13 +250,13 @@ Example 1
           1,
           7,
           5 };
-     
+
     x = { 1 3 2,
           2 3 1,
           7 1 7,
           5 3 1,
           3 5 5 };
-     
+
     output file = ols.out reset;
     call ols(0,y,x);
     output off;
@@ -289,11 +289,11 @@ Pass in a dataset name and variable names
 
 ::
 
-    fname = getGAUSShome() $+ "examples/credit.dat"; 
-    // Specify the formula, Limit is dependent variable and Balance, Income and Age are independent variables 
+    fname = getGAUSShome() $+ "examples/credit.dat";
+    // Specify the formula, Limit is dependent variable and Balance, Income and Age are independent variables
     dep = "Limit";
     string indep = {"Balance", "Income", "Age"};
- 
+
     call ols(fname, dep, indep);
 
 After the above code,
@@ -307,14 +307,14 @@ After the above code,
     R-squared:                   0.939      Rbar-squared:                     0.939
     Residual SS:         129727134.947      Std error of est:               572.358
     F(3,396):                 2031.029      Probability of F:                 0.000
- 
+
     Standard                 Prob   Standardized  Cor with
     Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
     -------------------------------------------------------------------------------
-    CONSTANT  1521.904666  102.228802   14.887240     0.000       ---         ---  
+    CONSTANT  1521.904666  102.228802   14.887240     0.000       ---         ---
     Balance      3.168467    0.070635   44.856923     0.000    0.631111    0.861697
     Income      32.566995    0.935925   34.796581     0.000    0.497271    0.792088
-    Age          1.677855    1.694288    0.990301     0.323    0.012539    0.100888             
+    Age          1.677855    1.694288    0.990301     0.323    0.012539    0.100888
 
 Example 3
 +++++++++
@@ -323,11 +323,11 @@ Pass in a dataset name and a `Formula string`
 
 ::
 
-    fname = getGAUSShome() $+ "examples/credit.dat"; 
-                    
-    // Specify the formula, 'Limit' is dependent variable and 'Balance', 'Income' and 'Age' are independent variables, '-1' means remove the intercept in the model 
+    fname = getGAUSShome() $+ "examples/credit.dat";
+
+    // Specify the formula, 'Limit' is dependent variable and 'Balance', 'Income' and 'Age' are independent variables, '-1' means remove the intercept in the model
     formula = "Limit ~ - 1 + Balance + Income + Age ";
-                    
+
     call ols(fname, formula);
 
 After the above code,
@@ -340,13 +340,13 @@ After the above code,
     R-squared:                   0.982      Rbar-squared:                     0.982
     Residual SS:         202331711.222      Std error of est:               713.899
     F(3,397):                 7125.008      Probability of F:                 0.000
- 
+
     Standard                 Prob   Standardized  Cor with
     Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
     -------------------------------------------------------------------------------
     Balance      3.429796    0.085339   40.190438     0.000    0.451757    0.923618
     Income      33.447531    1.165041   28.709327     0.000    0.363912    0.922459
-    Age         23.718127    1.027629   23.080436     0.000    0.262414    0.871984 
+    Age         23.718127    1.027629   23.080436     0.000    0.262414    0.871984
 
 Source
 ------
@@ -354,4 +354,3 @@ Source
 ols.src
 
 .. seealso:: Functions :func:`olsqr`, `Formula string`
-

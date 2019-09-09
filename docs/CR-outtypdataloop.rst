@@ -17,10 +17,10 @@ Format
 Remarks
 -------
 
-num_constant must be 2, 4, or 8, to specify integer, single precision,
+*num_constant* must be 2, 4, or 8, to specify integer, single precision,
 or double precision, respectively.
 
-If outtyp is not specified, the precison of the output dataset will be
+If :func:`outtyp` is not specified, the precision of the output dataset will be
 that of the input dataset. If character data is present in the data
 set, the precision will be forced to double.
 
@@ -31,4 +31,3 @@ Examples
 ::
 
     outtyp 8;
-

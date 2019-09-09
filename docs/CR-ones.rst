@@ -17,14 +17,14 @@ Format
     :param c: number of columns.
     :type c: scalar
 
-    :return y: of ones.
+    :return y: contains ones in all elements.
 
     :rtype y: RxC matrix
 
 Remarks
 -------
 
-Noninteger arguments will be truncated to an integer.
+Non-integer arguments will be truncated to an integer.
 
 
 Examples
@@ -32,15 +32,14 @@ Examples
 
 ::
 
-    x = ones(3,2);
+    x = ones(3, 2);
 
 The code above assigns *x* to be equal to:
 
 ::
 
-    1.0000000        1.0000000 
-    1.0000000        1.0000000 
+    1.0000000        1.0000000
+    1.0000000        1.0000000
     1.0000000        1.0000000
 
 .. seealso:: Functions :func:`zeros`, :func:`eye`
-

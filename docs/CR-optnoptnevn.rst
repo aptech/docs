@@ -22,29 +22,27 @@ Format
 Remarks
 -------
 
-:func:`optn` and :func:`optnevn` determine optimal matrix dimensions for computing
+The :func:`optn` and :func:`optnevn` procedures determine optimal matrix dimensions for computing
 FFT's. The Temperton FFT routines (see table following) can handle any
 matrix whose dimensions can be expressed as:
 
-.. DANGER:: fix equations
-
 .. math::
 
-   2px3qx5rx7s
+   2p \times 3q \times 5r \times 7s
 
 where *p*, *q* and *r* are nonnegative integers and *s* is equal to 0 or 1.
 
 with one restriction: the vector length or matrix column size must be
 even (*p* must be positive) when computing RFFT's.
 
-:func:`fftn`, etc., pad matrices to the next allowable dimensions; however, they
+The :func:`fftn`, etc., procedures pad matrices to the next allowable dimensions. However, they
 generally run faster for matrices whose dimensions are highly composite
 numbers, that is, products of several factors (to various powers),
 rather than powers of a single factor. For example, even though it is
 bigger, a 33600x1 vector can compute as much as 20% faster than a
 32768x1 vector, because 33600 is a highly composite number, 2\ :sup:`6`
 \* 3 \* 5\ :sup:`2` \* 7, whereas 32768 is a simple power of 2,
-2\ :sup:`15`. :func:`optn` and :func:`optnevn` are provided so you can take advantage of
+2\ :sup:`15`. The :func:`optn` and :func:`optnevn` procedures are provided so you can take advantage of
 this fact by hand-sizing matrices to optimal dimensions before computing
 the FFT.
 
@@ -71,4 +69,3 @@ Examples
 The above code assigns *n* to be equal to 240.
 
 .. seealso:: Functions :func:`fftn`, :func:`nextn`, :func:`nextnevn`, :func:`rfftn`, :func:`rfftnp`
-

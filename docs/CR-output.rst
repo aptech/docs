@@ -5,8 +5,8 @@ output
 Purpose
 ----------------
 
-This command makes it possible to direct the output of print statements to two different places simultaneously. 
-One output device is always the window or standard output. The other can be selected by the user to be any disk 
+This command makes it possible to direct the output of print statements to two different places simultaneously.
+One output device is always the window or standard output. The other can be selected by the user to be any disk
 file or other suitable output device such as a printer.
 
 .. _output:
@@ -22,13 +22,13 @@ Format
 
 **Parameters:**
 
-:filename: (*literal or ^string*) 
-           
+:filename: (*literal or ^string*)
+
     The ``file=filename`` subcommand selects the file or device to which output is to be sent.
-    
-    If the name of the file is to be taken from a string variable, the name of the string must 
+
+    If the name of the file is to be taken from a string variable, the name of the string must
     be preceded by the ``^`` (caret) operator..
-    
+
     The default file name is :file:`output.out`.
 
 :on, off, reset: (*literal*) mode flag:
@@ -62,12 +62,12 @@ The command
 
    output file=filename;
 
-will select the file or device but will not open it. A subsequent ``output on`` 
+will select the file or device but will not open it. A subsequent ``output on``
 or ``output reset`` will open it and turn on the auxiliary output.
 
 The command ``output off`` will close the file and turn off the auxiliary
 output. The filename will remain the same. A subsequent ``output on`` will
-cause the file to be opened again for appending. A subsequent ``output reset`` 
+cause the file to be opened again for appending. A subsequent ``output reset``
 will cause the existing file to be destroyed and then recreated
 and will turn on the auxiliary output.
 
@@ -125,11 +125,11 @@ This statement will create a new output file using
     screen off;
     format /m1/rz 1,8;
     open fp = mydata;
-    
+
     do until eof(fp);
        print readr(fp,200);;
     endo;
-    
+
     fp = close(fp);
     end;
 
@@ -149,4 +149,3 @@ The `end` statement above will automatically perform
 ``output off`` and ``screen on``.
 
 .. seealso:: Functions :func:`outwidth`, `screen`, `end`, `new`
-

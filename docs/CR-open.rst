@@ -44,7 +44,7 @@ Format
     create a set of global scalars that contain the index (column
     position) of the variables in a GAUSS data file. These "index
     variables" will have the same names as the corresponding variables
-    in the data file but with "i" added as a prefix. They can be used
+    in the data file but with ``i`` added as a prefix. They can be used
     inside index brackets, and with functions like submat to access
     specific columns of a matrix without having to remember the column
     position.
@@ -56,27 +56,27 @@ Format
 
     The index variables are useful for creating submatrices of specific
     variables without requiring that the positions of the variables be
-    known. For instance, if there are two variables, xvar and yvar in
+    known. For instance, if there are two variables, *xvar* and *yvar* in
     the dataset, the index variables will have the names *ixvar*,
     *iyvar*. If *xvar* is the first column in the data file, and *yvar*
     is the second, and if no offset, *offs*, has been specified, then
-    *ixvar* and *iyvar* will equal 1 and 2 respectively. If an offset of
+    *ixvar* and *iyvar* will equal ``1`` and ``2`` respectively. If an offset of
     3 had been specified, then these variables would be assigned the
-    values 4 and 5 respectively.
+    values ``4`` and ``5`` respectively.
 
     The *varindxi* option cannot be used with :file:`.fmt` matrix
     files because no column names are stored with them.
 
     If *varindxi* is used, GAUSS will ignore the Undefined symbol
-    error for global symbols that start with "i". This makes it much
+    error for global symbols that start with ``i``. This makes it much
     more convenient to use index variables because they don't have to be
     cleared before they are accessed in the program. Clearing is
     otherwise necessary because the index variables do not exist until
     execution time when the data file is actually opened and the names
     are read in from the header of the file. At compile time a statement like:
-    ``y=x[.,ixvar];`` will be illegal if the compiler has never heard
+    ``y = x[., ixvar];`` will be illegal if the compiler has never heard
     of *ixvar*. If *varindxi* is used, this error will be ignored for
-    symbols beginning with "i". Any symbols that are accessed before
+    symbols beginning with ``i``. Any symbols that are accessed before
     they have been initialized with a real value will be trapped at
     execution time with a Variable not initialized error.
 
@@ -103,7 +103,7 @@ second example following.
 
 If the value that is in the file handle when the `open` command begins to
 execute matches that of an already open file, the process will be
-aborted and a *File already open* message will be given. This gives you
+aborted and a ``File already open`` message will be given. This gives you
 some protection against opening a second file with the same handle as a
 currently open file. If this happens, you would no longer be able to
 access the first file.
@@ -121,7 +121,7 @@ Examples
 
     fname = "/data/rawdat";
     open dt = ^fname for append;
-    
+
     if dt == -1;
        print "File not found";
        end;
@@ -131,7 +131,7 @@ Examples
        print "Disk Full";
        end;
     endif;
-    
+
     dt = close(dt);
 
 In the example above, the existing dataset :file:`/data/rawdat.dat` is
@@ -148,13 +148,13 @@ number of rows that were attempted, then the disk is probably full.
 
     open fin = mydata for read;
     open fout = mydata for update;
-    
+
     do until eof(fin);
        x = readr(fin,100);
        x[.,1 3] = ln(x[.,1 3];
        call writer(fout,x);
     endo;
-    
+
     closeall fin,fout;
 
 In the above example, the same file, :file:`mydata.dat`, is opened twice with
@@ -217,13 +217,13 @@ thus give the correct positions of the variables in *y*.
     rf = rowsf(fx);
     sampsize = round(rf*0.1);
     rndsmpx = zeros(sampsize,colsf(fx));
-    
+
     for(1, sampsize, 1);
        r = ceil(rndu(1,1)*rf);
        call seekr(fx,r);
        rndsmpx[i,.] = readr(fx,1);
     endfor;
-    
+
     fx = close(fx);
 
 In this example, a 10% random sample of rows is drawn from the
@@ -238,4 +238,3 @@ with :func:`readr` and placed in the matrix *rndsmpx*. This is continued
 until the complete sample has been obtained.
 
 .. seealso:: Functions :func:`dataopen`, `create`, `close`, :func:`closeall`, :func:`readr`, :func:`writer`, :func:`seekr`, :func:`eof`
-
