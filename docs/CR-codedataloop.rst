@@ -38,7 +38,7 @@ The logical expressions must be mutually exclusive, i.e., only one may
 return TRUE for a given row (observation).
 
 Any variables referenced must already exist, either as elements of the
-source data set, as externs, or as the result of a previous make,
+source dataset, as externs, or as the result of a previous make,
 vector, or code statement.
 
 If no default value is specified, 999 is used.

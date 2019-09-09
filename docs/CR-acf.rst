@@ -85,7 +85,7 @@ Calculate the autocorrelation function and plot the results for "beef_prices" da
     // Get file name with full path
     file = getGAUSSHome() $+ "examples/beef_prices.csv";
 
-    // Import data set starting with row 2 and column 2
+    // Import dataset starting with row 2 and column 2
     beef = csvReadM(file, 2, 2);
 
     // Max lags

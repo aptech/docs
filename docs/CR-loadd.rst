@@ -13,7 +13,7 @@ Format
     :param dataset: name of dataset.
     :type dataset: string
 
-    :param varnames: `Formula string` indicating which variable names to load from the data set
+    :param varnames: `Formula string` indicating which variable names to load from the dataset
 
         E.g ``"."``, include all variables;
 
@@ -30,7 +30,7 @@ Format
 Examples
 ----------------
 
-Load all contents of a GAUSS data set
+Load all contents of a GAUSS dataset
 +++++++++++++++++++++++++++++++++++++
 
 ::
@@ -182,16 +182,16 @@ After the above code,
 Remarks
 -------
 
--  Since :func:`loadd` will load the entire dataset at once, the data set must
+-  Since :func:`loadd` will load the entire dataset at once, the dataset must
    be small enough to fit in memory. To read chunks of a dataset in an
    iterative manner, use :func:`dataopen` and :func:`readr`.
--  If *dataset* is a null string or 0, the data set :file:`temp.dat` will be
+-  If *dataset* is a null string or 0, the dataset :file:`temp.dat` will be
    loaded.
 -  To load a matrix file, use an :file:`.fmt` extension on dataset.
 -  The supported dataset types are `CSV`, `Excel` (XLS, XLSX), `HDF5`, `GAUSS Matrix (FMT)`,
    `GAUSS Dataset (DAT)`, `Stata` (DTA) and `SAS` (SAS7BDAT, SAS7BCAT).
 -  For `HDF5` file, the dataset must include schema and both file name and
-   data set name must be provided, e.g.
+   dataset name must be provided, e.g.
 
 ::
 

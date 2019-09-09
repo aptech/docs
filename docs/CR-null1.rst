@@ -71,7 +71,7 @@ and
    // MxM identity matrix
    b'b = I
 
-The transpose of *b* is written to the data set named by *dataset*, unless
+The transpose of *b* is written to the dataset named by *dataset*, unless
 the nullity of *x* is zero. If *nu* is zero, the dataset is not written.
 
 Globals

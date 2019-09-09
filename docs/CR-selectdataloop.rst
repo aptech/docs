@@ -21,7 +21,7 @@ Remarks
 
 Selects only those rows for which *logical_expression* is ``TRUE``. Any
 variables referenced must already exist, either as elements of the
-source data set, as `extern`'s, or as the result of a previous `make`,
+source dataset, as `extern`'s, or as the result of a previous `make`,
 `vector`, or `code` statement.
 
 Examples

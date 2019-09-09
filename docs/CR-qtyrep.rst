@@ -64,7 +64,7 @@ where :math:`Q\ 1` has :math:`P` columns, then
 is the QR decomposition of :math:`X[.,E]`.
 
 :func:`qtyrep` allows you to control the pivoting. For example, suppose that :math:`X`
-is a data set with a column of ones in the first column. If there are
+is a dataset with a column of ones in the first column. If there are
 linear dependencies among the columns of :math:`X`, the column of ones for the
 constant may get pivoted away. This column can be forced to be included
 among the linearly independent columns using *pvt*.

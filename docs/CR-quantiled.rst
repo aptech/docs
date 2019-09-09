@@ -5,19 +5,19 @@ quantiled
 Purpose
 ----------------
 
-Computes quantiles from data in a data set, given specified probabilities.
+Computes quantiles from data in a dataset, given specified probabilities.
 
 Format
 ----------------
 .. function:: y = quantiled(dataset, e, var)
 
-    :param dataset: data set name, or NxM matrix of data.
+    :param dataset: dataset name, or NxM matrix of data.
     :type dataset: string
 
     :param e: quantile levels or probabilities.
     :type e: Lx1 vector
 
-    :param var: If Kx1, character vector of labels selected for analysis, or numeric vector of column numbers in data set of variables selected for analysis.
+    :param var: If Kx1, character vector of labels selected for analysis, or numeric vector of column numbers in dataset of variables selected for analysis.
 
         If *var* is scalar zero, all columns are selected.
         
@@ -36,9 +36,9 @@ Remarks
 
 - :func:`quantiled` will not succeed if ``N*minc(e)`` is less than 1, or ``N*maxc(e)`` is greater than :math:`N - 1`. In other words, to produce a quantile for a level of .001, the input matrix must have more than 1000 rows.
 
-- The supported data set types are CSV,	XLS, XLSX, HDF5, FMT, DAT.
+- The supported dataset types are CSV,	XLS, XLSX, HDF5, FMT, DAT.
 
-- For HDF5 file, the dataset must include file schema and both file name and data set name must be provided, e.g. 
+- For HDF5 file, the dataset must include file schema and both file name and dataset name must be provided, e.g. 
   
   ::
   
@@ -47,7 +47,7 @@ Remarks
 Examples
 ----------------
 
-Use data set name
+Use dataset name
 +++++++++++++++++
 
 ::
@@ -56,7 +56,7 @@ Use data set name
     file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
     // Set up quantile levels			
     e = { .025, .5, .975 };
-    // Choose all variables in the data set			
+    // Choose all variables in the dataset			
     var = 0; 
     // Compute quantiles
     y = quantiled(file_name, e, var);

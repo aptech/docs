@@ -4,7 +4,7 @@ writer
 
 Purpose
 ----------------
-Writes a matrix to a GAUSS data set.
+Writes a matrix to a GAUSS dataset.
 
 Format
 ----------------
@@ -16,7 +16,7 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :return y: specifying the number of rows of data actually written to the data set.
+    :return y: specifying the number of rows of data actually written to the dataset.
 
     :rtype y: scalar
 
@@ -25,19 +25,19 @@ Remarks
 
 The file must have been opened with `create`, `open` for append, or `open` for update.
 
-The data in *x* will be written to the data set whose handle is *fh*
+The data in *x* will be written to the dataset whose handle is *fh*
 starting at the current pointer position in the file. The pointer
 position in the file will be updated, so the next call to :func:`writer` will
 put the next block of data after the first block. (See `open` and `create`
 for the initial pointer positions in the file for reading and writing.)
 
-*x* must have the same number of columns as the data set. :func:`colsf` returns
-the number of columns in a data set.
+*x* must have the same number of columns as the dataset. :func:`colsf` returns
+the number of columns in a dataset.
 
-:func:`writer` returns the number of rows actually written to the data set. If *y*
+:func:`writer` returns the number of rows actually written to the dataset. If *y*
 does not equal ``rows(x)``, the disk is probably full.
 
-If the data set is not double precision, the data will be rounded as it
+If the dataset is not double precision, the data will be rounded as it
 is written out.
 
 If the data contain character elements, the file must be double
@@ -52,9 +52,9 @@ with the :func:`miss` function:
 
     x = miss(x,-32768);
 
-Trying to write complex data to a data set that was originally created
+Trying to write complex data to a dataset that was originally created
 to store real data will cause a program to abort with an error message.
-(See `create` for details on creating a complex data set.)
+(See `create` for details on creating a complex dataset.)
 
 
 Examples
@@ -85,7 +85,7 @@ Examples
     
     fp = close(fp);
 
-In this example, a 10000x10 data set of Normal random numbers is written to a data set called :file:`data.dat`. 
+In this example, a 10000x10 dataset of Normal random numbers is written to a dataset called :file:`data.dat`. 
 The variable names are ``X01 - X10``.
 
 .. seealso:: Functions `open`, `close`, `create`, :func:`readr`, :func:`saved`, :func:`seekr`

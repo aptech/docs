@@ -14,7 +14,7 @@ Format
     :param prcnm: name of procedure that calls header.
     :type prcnm: string
 
-    :param dataset: name of data set.
+    :param dataset: name of dataset.
     :type dataset: string
 
     :param ver: the first element is the
@@ -74,7 +74,7 @@ This will print to the screen :
       ===============================================================================
       myProcedure  Version 1.00 (R1)
       ===============================================================================
-                             Data Set:  mydataset
+                             dataset:  mydataset
       -------------------------------------------------------------------------------
 
 Source

@@ -35,6 +35,6 @@ are allowed.
 
 Lagging is executed before any other transformations. If the new
 variable name is different from that of the variable to lag, the new
-variable is first created and appended to a temporary data set. This
-temporary data set becomes the input data set for the dataloop, and is
+variable is first created and appended to a temporary dataset. This
+temporary dataset becomes the input dataset for the dataloop, and is
 then automatically deleted.

@@ -85,7 +85,7 @@ and :math:`Q\ 2'Y` is the remaining submatrix:
 
 .. math::
 
-Suppose that :math:`X` is an NxK data set of independent variables and :math:`Y` is an
+Suppose that :math:`X` is an NxK dataset of independent variables and :math:`Y` is an
 Nx1 vector of dependent variables. Suppose further that :math:`X` contains
 linearly dependent columns, i.e., :math:`X` has rank :math:`M < P`. Then define
 

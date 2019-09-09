@@ -57,7 +57,7 @@ Format
     The index variables are useful for creating submatrices of specific
     variables without requiring that the positions of the variables be
     known. For instance, if there are two variables, xvar and yvar in
-    the data set, the index variables will have the names *ixvar*,
+    the dataset, the index variables will have the names *ixvar*,
     *iyvar*. If *xvar* is the first column in the data file, and *yvar*
     is the second, and if no offset, *offs*, has been specified, then
     *ixvar* and *iyvar* will equal 1 and 2 respectively. If an offset of
@@ -134,13 +134,13 @@ Examples
     
     dt = close(dt);
 
-In the example above, the existing data set :file:`/data/rawdat.dat` is
+In the example above, the existing dataset :file:`/data/rawdat.dat` is
 opened for appending new data. The name of the file is in the string variable *fname*. In
 this example the file handle is tested to see if the file was opened
-successfully. The matrix *x* is written to this data set. The
+successfully. The matrix *x* is written to this dataset. The
 number of columns in *x* must be the same as the number of columns in
-the existing data set. The first row in *x* will be placed after the
-last row in the existing data set. The :func:`writer` function will return
+the existing dataset. The first row in *x* will be placed after the
+last row in the existing dataset. The :func:`writer` function will return
 the number of rows actually written. If this does not equal the
 number of rows that were attempted, then the disk is probably full.
 
@@ -182,11 +182,11 @@ variables: *visc*, *temp*, *lub*, and *rpm*:
     y = dtx[.,itemp];
     call seekr(f1,1);
 
-In this example, the data set :file:`dat1.dat` is opened for reading (the
+In this example, the dataset :file:`dat1.dat` is opened for reading (the
 :file:`.dat` and the ``for read`` are implicit). *varindxi* is specified
 with no constant. Thus, index variables are created that give the
-positions of the variables in the data set. The first 100 rows of the
-data set are read into the matrix *dtx*. Then, specified variables
+positions of the variables in the dataset. The first 100 rows of the
+dataset are read into the matrix *dtx*. Then, specified variables
 in a specified order are assigned to the matrices *x* and *y* using
 the index variables. The last line uses the :func:`seekr` function to
 reset the pointer to the beginning of the file.
@@ -201,8 +201,8 @@ reset the pointer to the beginning of the file.
 
 In this example, two data sets are opened for reading and index
 variables are created for each. A constant is added to the indices
-for the second data set (*q2*), equal to the number of variables
-(columns) in the first data set (*q1*). Thus, if there are
+for the second dataset (*q2*), equal to the number of variables
+(columns) in the first dataset (*q1*). Thus, if there are
 three variables *x1*, *x2*, *x3* in *q1*, and three variables *y1*,
 *y2*, *y3* in *q2*, the index variables that were created when the
 files were opened would be *ix1*, *ix2*, *ix3*, *iy1*, *iy2*, *iy3*.

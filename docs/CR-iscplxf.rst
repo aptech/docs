@@ -14,7 +14,7 @@ Format
     :param fh: file handle of an open file.
     :type fh: scalar
 
-    :return fh_iscplx: 1 if the data set is complex, 0 if it is real.
+    :return fh_iscplx: 1 if the dataset is complex, 0 if it is real.
 
     :rtype fh_iscplx: scalar
 

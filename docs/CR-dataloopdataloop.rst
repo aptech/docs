@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: dataloop infile outfile
 
-    :param infile: the name of the source data set.
+    :param infile: the name of the source dataset.
     :type infile: string variable or literal
 
-    :return outfile: the name of the output data set.
+    :return outfile: the name of the output dataset.
 
     :rtype outfile: string variable or literal
 
@@ -22,7 +22,7 @@ Remarks
 
 The statements between the ``dataloop... endata`` commands are assumed to be
 metacode to be translated at compile time. The data from *infile* is
-manipulated by the specified statements, and stored to the data set
+manipulated by the specified statements, and stored to the dataset
 *outfile*. Case is not significant within the ``dataloop... endata`` section,
 except for within quoted strings. Comments can be used as in any GAUSS code.
 

@@ -14,7 +14,7 @@ Format
     :param prcnm: name of procedure that calls :func:`header`.
     :type prcnm: string
 
-    :param dataset: name of data set.
+    :param dataset: name of dataset.
     :type dataset: string
 
     :param ver: the first element is the major version number of the program, the
@@ -45,7 +45,7 @@ This will print to the screen :
   ===============================================================================
   myProcedure  Version 1.00 (R1)                            7/26/2019  12:37 pm
   ===============================================================================
-                           Data Set:  mydataset
+                           dataset:  mydataset
   -------------------------------------------------------------------------------
 
 Source

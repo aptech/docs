@@ -65,7 +65,7 @@ to a conformable identity matrix. For most problems :math:`Q'Y`, :math:`Q\ 1'Y`,
 :math:`Q\ 1\ Y`, for some :math:`Y`, are required. For these cases see :func:`qtyrep` and :func:`qyrep`.
 
 :func:`qrep` allows you to control the pivoting. For example, suppose that :math:`X` is
-a data set with a column of ones in the first column. If there are
+a dataset with a column of ones in the first column. If there are
 linear dependencies among the columns of :math:`X`, the column of ones for the
 constant may get pivoted away. This column can be forced to be included
 among the linearly independent columns using *pvt*.

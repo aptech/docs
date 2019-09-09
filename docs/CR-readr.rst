@@ -4,7 +4,7 @@ readr
 
 Purpose
 ----------------
-Reads a specified number of rows of data from a GAUSS data set
+Reads a specified number of rows of data from a GAUSS dataset
 (:file:`.dat`) file or a GAUSS matrix (:file:`.fmt`) file.
 
 Format
@@ -26,7 +26,7 @@ Remarks
 
 The first time a :func:`readr` statement is encountered, the first *r* rows will
 be read. The next time it is encountered, the next *r* rows will be read
-in, and so on. If the end of the data set is reached before *r* rows can
+in, and so on. If the end of the dataset is reached before *r* rows can
 be read, then only those rows remaining will be read.
 
 After the last row has been read, the pointer is placed immediately
@@ -51,11 +51,11 @@ Examples
      
     dt = close(dt);
 
-This code reads data from a data set 400 rows at a time. The moment
+This code reads data from a dataset 400 rows at a time. The moment
 matrix for each set of rows is computed and added to the sum of the
 previous moment matrices. The result is the moment matrix for the 
-entire data set. ``eof(dt)`` returns 1 when the end of the
-data set is encountered.
+entire dataset. ``eof(dt)`` returns 1 when the end of the
+dataset is encountered.
 
 .. seealso:: Functions `open`, `create`, :func:`writer`, :func:`seekr`, :func:`eof`
 

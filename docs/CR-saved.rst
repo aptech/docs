@@ -5,7 +5,7 @@ saved
 Purpose
 ----------------
 
-Writes a matrix in memory to a GAUSS data set in a specified format on disk.
+Writes a matrix in memory to a GAUSS dataset in a specified format on disk.
 
 Format
 ----------------
@@ -14,11 +14,11 @@ Format
     :param x: data to save
     :type x: NxK matrix
 
-    :param dataset: name of data set. The type of file to create is inferred from the file extension. 
+    :param dataset: name of dataset. The type of file to create is inferred from the file extension. 
         Valid file extensions include CSV, DAT, XLS, XLSX.
     :type dataset: string
 
-    :param vnames: names for the columns of the data set.
+    :param vnames: names for the columns of the dataset.
     :type vnames: string or Kx1 character vector
 
     :return ret: 1 if successful, otherwise 0.
@@ -38,7 +38,7 @@ Remarks
 
 **DAT**
 
--  If *dataset* is null or 0, the data set name will be :file:`temp.dat`.
+-  If *dataset* is null or 0, the dataset name will be :file:`temp.dat`.
 -  If *vnames* is a null or 0, the variable names will begin with "X" and be numbered 1-K.
 -  If *vnames* is a string or has fewer elements than *x* has columns, it will be expanded as explained under `create`.
 -  The output data type is double precision.
@@ -85,7 +85,7 @@ To save the data to as a comma separated text file, all we have to change is the
 Error checking
 ++++++++++++++
 
-The return value of :func:`saved` can be used to check whether the data set save was successful. The example below checks the return value and creates an error if the save fails.
+The return value of :func:`saved` can be used to check whether the dataset save was successful. The example below checks the return value and creates an error if the save fails.
 
 ::
 

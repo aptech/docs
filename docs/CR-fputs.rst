@@ -42,7 +42,7 @@ Remarks
    what it was.
 -  If the file was opened for update (see :func:`fopen`) and you are switching from reading to writing, don't forget to call :func:`fseek` or
    :func:`fflush` first, to flush the file's buffer.
--  If you pass :func:`fputs` the handle of a file opened with `open` (i.e., a data set or matrix file),
+-  If you pass :func:`fputs` the handle of a file opened with `open` (i.e., a dataset or matrix file),
    your program will terminate with a fatal error.
 
 Examples

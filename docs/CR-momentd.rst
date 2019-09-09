@@ -29,8 +29,8 @@ Format
             * - string
               - Formula string e.g. ``"PAY + WT"`` or ``". - 1"`` (include all variables besides intercept).
 
-                These can be any size subset of the variables in the data set, and can be
-                in any order. If a scalar 0 is passed, all columns of the data set will be used.
+                These can be any size subset of the variables in the dataset, and can be
+                in any order. If a scalar 0 is passed, all columns of the dataset will be used.
 
     :type vars: Kx1 string array or Kx1 numeric vector or string
 

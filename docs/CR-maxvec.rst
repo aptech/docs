@@ -27,7 +27,7 @@ Remarks
 reset in the calling program.
 
 :func:`maxvec` is called by `Run-Time Library` functions and applications when
-determining how many rows can be read from a data set in one call to
+determining how many rows can be read from a dataset in one call to
 readr.
 
 Using a value that is too large can cause excessive disk thrashing. The

@@ -5,7 +5,7 @@ dataopen
 Purpose
 ----------------
 
-Opens a data set.
+Opens a dataset.
 
 Format
 ----------------
@@ -77,10 +77,10 @@ of a file.
 pointer is set to the beginning of the file. This mode is used to make
 changes in a file.
 
-9. The supported data set types are :file:`.dat`, ``.h5``, :file:`.fmt`.
+9. The supported dataset types are :file:`.dat`, ``.h5``, :file:`.fmt`.
 
 For HDF5 files, the dataset must include schema and both file name and
-data set name must be provided, e.g.
+dataset name must be provided, e.g.
 
 ::
 

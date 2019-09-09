@@ -97,7 +97,7 @@ Remarks
 Set *colind* to a scalar 0 to use all of the columns in *vnamevar*.
 
 *vnamevar* must either reference an Mx1 string array variable containing
-variable names, where M is the number of columns in the data set
+variable names, where M is the number of columns in the dataset
 variable, or be set to a scalar 0. If *vnamevar* references an Mx1 string
 array variable, then only the elements indicated by *colind* will be used.
 Otherwise, if *vnamevar* is set to a scalar 0, then the variable names :code:`"X1, X2, ..., XK"` for

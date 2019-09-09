@@ -57,7 +57,7 @@ and :math:`Q\ 2'Y` is the remaining submatrix:
 
 .. math::
 
-Suppose that :math:`X` is an NxK data set of independent variables, and :math:`Y` is an
+Suppose that :math:`X` is an NxK dataset of independent variables, and :math:`Y` is an
 Nx1 vector of dependent variables. Then it can be shown that
 
 .. math::

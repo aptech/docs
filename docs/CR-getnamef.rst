@@ -5,23 +5,23 @@ getnamef
 Purpose
 ----------------
 
-Returns a string array containing the names of the variables in a GAUSS data set.
+Returns a string array containing the names of the variables in a GAUSS dataset.
 
 Format
 ----------------
 .. function:: var_names = getnamef(fh)
 
-    :param fh: file handle of an open data set
+    :param fh: file handle of an open dataset
     :type fh: scalar
 
-    :return var_names: contains the names of all of the variables in the specified data set.
+    :return var_names: contains the names of all of the variables in the specified dataset.
 
     :rtype var_names: Nx1 string array
 
 Remarks
 -------
 
-The output, *y*, will have as many rows as there are variables in the data set.
+The output, *y*, will have as many rows as there are variables in the dataset.
 
 
 Examples
@@ -53,7 +53,7 @@ produces:
     sex
     WT
 
-The above example assumes that the data set ``freqdata``
+The above example assumes that the dataset ``freqdata``
 contains the variables: ``AGE, PAY, sex, WT``.
 Note the use of :func:`vartypef` to determine the types of these variables.
 

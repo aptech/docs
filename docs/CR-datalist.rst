@@ -5,13 +5,13 @@ datalist
 Purpose
 ----------------
 
-List selected variables from a data set.
+List selected variables from a dataset.
 
 Format
 ----------------
 .. function:: datalist dataset [[var 1 [[var 2 ...]]]]
 
-    :param dataset: name of the data set.
+    :param dataset: name of the dataset.
     :type dataset: literal
 
     :param var#: the names of the variables to list.

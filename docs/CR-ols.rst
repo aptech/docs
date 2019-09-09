@@ -12,7 +12,7 @@ Format
 .. function:: { vnam, m, b, stb, vc, stderr, sigma, cx, rsq, resid, dwstat } = ols(dataset, depvar, indvars)
               { vnam, m, b, stb, vc, stderr, sigma, cx, rsq, resid, dwstat } = ols(dataset, formula)
 
-    :param dataset: name of data set or null string.
+    :param dataset: name of dataset or null string.
 
         If *dataset* is a null string, the procedure assumes that the actual data has been passed in the next two arguments.
 
@@ -24,7 +24,7 @@ Format
            type         value
         =========== ==============
         string      name of dependent variable
-        scalar      index of dependent variable. If scalar 0, the last column of the data set will be used.
+        scalar      index of dependent variable. If scalar 0, the last column of the dataset will be used.
         =========== ==============
 
         If *dataset* is a null string or 0:
@@ -43,8 +43,8 @@ Format
            type                   value
         ===================== ==============
         Kx1 character vector  names of independent variables
-        Kx1 numeric vector    indices of independent variables. These can be any size subset of the variables in the data set 
-                              and can be in any order. If a scalar 0 is passed, all columns of the data set will be used except 
+        Kx1 numeric vector    indices of independent variables. These can be any size subset of the variables in the dataset 
+                              and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used except 
                               for the one used for the dependent variable.
         ===================== ==============
 
@@ -106,7 +106,7 @@ Format
                 "34", "file not found"
                 "35", "no variance in an independent variable"
 
-        The system can become underdetermined if you use listwise deletion and have missing values. In that case, it is possible to skip so many cases that there are fewer useable rows than columns in the data set.
+        The system can become underdetermined if you use listwise deletion and have missing values. In that case, it is possible to skip so many cases that there are fewer useable rows than columns in the dataset.
 
     :rtype b: Dx1 vector
 
@@ -138,9 +138,9 @@ Format
 
         If *_olsres* = 1, the residuals will be computed.
 
-        If the data is taken from a data set, a new data set will be created for the residuals, using the
-        name in the global string variable *_olsrnam*. The residuals will be saved in this data set as an Nx1 column. 
-        The *resid* return value will be a string containing the name of the new data set containing the residuals.
+        If the data is taken from a dataset, a new dataset will be created for the residuals, using the
+        name in the global string variable *_olsrnam*. The residuals will be saved in this dataset as an Nx1 column. 
+        The *resid* return value will be a string containing the name of the new dataset containing the residuals.
         If the data is passed in as a matrix, the *resid* return value will be the Nx1 vector of residuals.
 
     :rtype resid: residuals
@@ -179,7 +179,7 @@ by this procedure.
     1   listwise deletion, drop any cases in which missings occur.
     2   pairwise deletion, this is equivalent to setting missings to 0 when
         calculating *m*. The number of cases computed is equal to the total number
-        of cases in the data set.
+        of cases in the dataset.
     === ===============
 
 :__olsalg: (*string*), default "cholup". Selects the algorithm used for computing the
@@ -229,9 +229,9 @@ Remarks
 - No output file is modified, opened, or closed by this procedure. If
   you want output to be placed in a file, you need to open an output
   file before calling :func:`ols`.
-- The supported data set types are CSV, XLS, XLSX, HDF5, FMT, DAT
+- The supported dataset types are CSV, XLS, XLSX, HDF5, FMT, DAT
 - For HDF5 file, the dataset must include `file schema` and both file name and
-  data set name must be provided, e.g.
+  dataset name must be provided, e.g.
 
   ::
 
@@ -276,7 +276,7 @@ using a `call` statement.
     { nam, m, b, stb, vc, std, sig, cx, rsq, resid, dbw } = ols(data, depvar, indvars);
     output off;
 
-In this example, the data set :file:`olsdat.dat` is used to compute a
+In this example, the dataset :file:`olsdat.dat` is used to compute a
 regression. The dependent variable is *score*. The independent variables
 are: *region*, *age*, and *marstat*. The residuals and Durbin-Watson statistic
 will be computed. The output will be sent to the printer as well as the
@@ -285,7 +285,7 @@ window and the returned values are assigned to variables.
 Example 2
 +++++++++
 
-Pass in a data set name and variable names
+Pass in a dataset name and variable names
 
 ::
 
@@ -319,7 +319,7 @@ After the above code,
 Example 3
 +++++++++
 
-Pass in a data set name and a `Formula string`
+Pass in a dataset name and a `Formula string`
 
 ::
 

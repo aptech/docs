@@ -5,7 +5,7 @@ datacreate
 Purpose
 ----------------
 
-Creates a real data set.
+Creates a real dataset.
 
 Format
 ----------------
@@ -58,7 +58,7 @@ If *filename* does not include a path, then the file is placed in the
 current directory. The file is given a :file:`.dat` extension if no extension is
 specified.
 
-If *col* is set to 0, then the number of columns in the data set is
+If *col* is set to 0, then the number of columns in the dataset is
 controlled by the contents of *vnames*. If *col* is positive, then the file
 will contain *col* columns.
 

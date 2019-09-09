@@ -5,23 +5,23 @@ getname
 Purpose
 ----------------
 
-Returns a column vector containing the names of the variables in a GAUSS data set.
+Returns a column vector containing the names of the variables in a GAUSS dataset.
 
 Format
 ----------------
 .. function:: var_names = getname(dset)
 
-    :param dset: the name of the data set from which the function will obtain the variable names
+    :param dset: the name of the dataset from which the function will obtain the variable names
     :type dset: string
 
-    :return var_names: contains the names of all of the variables in the specified data set.
+    :return var_names: contains the names of all of the variables in the specified dataset.
 
     :rtype var_names: Nx1 vector
 
 Remarks
 -------
 
-The output, *var_names*, will have as many rows as there are variables in the data set.
+The output, *var_names*, will have as many rows as there are variables in the dataset.
 
 
 Examples

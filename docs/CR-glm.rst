@@ -19,7 +19,7 @@ Format
     :param x: the independent, or explanatory, variables. *k* is the number of the independent variables.
     :type x: NxK matrix
 
-    :param dataset_name: the name of data set. E.g. :code:`"credit.dat"` or :code:`"example.fmt"`.
+    :param dataset_name: the name of dataset. E.g. :code:`"credit.dat"` or :code:`"example.fmt"`.
     :type dataset_name: string
 
     :param formula: formula string of the model.
@@ -532,7 +532,7 @@ Using a :class:`glmOut` structure to save result for a Gamma regression with cat
     // Call 'glm' and fill 'out_gamma' with results
     out_gamma = glm(y, x, "gamma", ctl_gamma);
 
-In this example, the data set :file:`yarn.xlsx` is used to perform a Gamma regression.
+In this example, the dataset :file:`yarn.xlsx` is used to perform a Gamma regression.
 After running the code above, the output is :
 
 ::
@@ -607,7 +607,7 @@ Running a linear regression model using data transformations with HDF5 file.
 
     /*
     ** Add the file schema "h5://" to the front
-    ** Given a data set name in above file
+    ** Given a dataset name in above file
     ** and the dataset name "/nba_data" to the back
     */
     dataset = "h5://" $+ file_name $+ "/nba_data";

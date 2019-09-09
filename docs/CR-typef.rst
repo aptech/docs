@@ -5,7 +5,7 @@ typef
 Purpose
 ----------------
 
-Returns the type of data (the number of bytes per element) in a GAUSS data set.
+Returns the type of data (the number of bytes per element) in a GAUSS dataset.
 
 Format
 ----------------
@@ -14,7 +14,7 @@ Format
     :param fp: file handle of an open file.
     :type fp: scalar
 
-    :return y: type of data in GAUSS data set.
+    :return y: type of data in GAUSS dataset.
 
     :rtype y: scalar
 
@@ -51,7 +51,7 @@ Examples
     // dataset
     names = getname(infile);
     
-    // Create a new data set file using the same variable names
+    // Create a new dataset file using the same variable names
     // as 'dat1', with 1 column per data element and using the 
     // same size data, i.e. the number of bytes per element, as 
     // the data in 'dat1'

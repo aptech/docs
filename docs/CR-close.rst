@@ -96,7 +96,7 @@ Examples
     // reading, writing and appending
     f1 = dataOpen("mydata.dat", "append");
 
-    // Create an appended data set 'x'
+    // Create an appended dataset 'x'
     x = rndu(3, 1);
 
     // Write new rows to 'mydata.dat'
