@@ -13,11 +13,10 @@ Format
     :param x: *x* must be a positive whole number.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param lambda: The mean parameter.
-    :type lambda: ExE conformable with *x*
+    :param lambda: The mean parameter. ExE conformable with *x*.
+    :type lambda: NxK matrix, Nx1 vector or scalar
 
-    :return p: 
-
+    :return p: the Poisson probability mass function evaluated at the elements in *x*.
     :rtype p: NxK matrix, Nx1 vector or scalar
 
 Remarks
@@ -60,9 +59,9 @@ After the code above, *p* is equal to:
 
 ::
 
-    0.00285 
-    0.01056 
-    0.02243 
+    0.00285
+    0.01056
+    0.02243
     0.02820
 
 Vector Inputs
@@ -78,17 +77,16 @@ Vector Inputs
                190,
                200,
                210 };
-    
+
     p = pdfPoisson(events,lambda);
 
 After the code above, *p* is equal to:
 
 ::
 
-    0.02304 
-    0.02274 
-    0.02243 
+    0.02304
+    0.02274
+    0.02243
     0.02214
 
 .. seealso:: Functions :func:`cdfPoisson`, :func:`cdfPoissonInv`, :func:`rndPoisson`
-

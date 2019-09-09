@@ -8,20 +8,19 @@ Computes the standard Normal (scalar) probability density function.
 
 Format
 ----------------
-.. function:: y = pdfn(x[, mu[, sigma]])
+.. function:: p = pdfn(x[, mu[, sigma]])
 
     :param x: data
     :type x: NxK matrix or N-dimensional array.
 
-    :param mu: Optional input, mean parameter.
+    :param mu: Optional input, mean parameter. Default = 0.
     :type mu: scalar
 
-    :param sigma: Optional input, standard deviation parameter.
+    :param sigma: Optional input, standard deviation parameter. Default = 1.
     :type sigma: scalar
 
-    :return y: containing the standard Normal probability density function of *x*.
-
-    :rtype y: NxK matrix or N-dimensional array
+    :return p: contains the standard Normal probability density function of *x*.
+    :rtype p: NxK matrix or N-dimensional array
 
 Remarks
 -------
@@ -50,10 +49,10 @@ After the code above:
 
 ::
 
-        0.0044318484 
-         0.053990967 
-    y  =  0.39894228 
-         0.053990967 
+        0.0044318484
+         0.053990967
+    y  =  0.39894228
+         0.053990967
          0.004431848
 
 Example 2
@@ -61,7 +60,7 @@ Example 2
 
     x = 1.5;
     mu = 3;
-    sigma = 2; 
+    sigma = 2;
     p = pdfn(x, mu, sigma);
 
 After the code above, *p* should equal:
@@ -71,4 +70,3 @@ After the code above, *p* should equal:
     0.15056872
 
 .. seealso:: Functions :func:`pdfTruncNorm`
-

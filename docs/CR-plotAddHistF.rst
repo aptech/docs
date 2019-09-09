@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: plotAddHistF([myPlot, ]f, c)
 
-    :param myPlot: A :class:`plotControl` structure
+    :param myPlot: Optional argument. A :class:`plotControl` structure.
     :type myPlot: struct
 
     :param f: frequencies to be graphed.
@@ -29,4 +29,3 @@ This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
 .. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistP`, :func:`plotAddPolar`, :func:`plotAddXY`
-

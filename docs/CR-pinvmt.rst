@@ -5,11 +5,9 @@ pinvmt
 Purpose
 ----------------
 
-Computes the Moore-Penrose pseudo-inverse   of a matrix, using the singular
-value decomposition.
-
-This pseudo-inverse is one particular type of generalized
-inverse. 
+Computes the Moore-Penrose pseudo-inverse of a matrix, using the singular
+value decomposition. This pseudo-inverse is one particular type of generalized
+inverse.
 
 Format
 ----------------
@@ -25,7 +23,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             ":math:`xyx = x`"
             ":math:`yxy = y`"
             ":math:`xy` is symmetric"
@@ -34,7 +32,6 @@ Format
     :rtype y: MxN matrix
 
     :return err: if not all of the singular values can be computed *err* will be nonzero.
-
     :rtype err: scalar
 
 Examples
@@ -44,13 +41,13 @@ Examples
 ::
 
     tol = 1e-13;
-    
+
     // Create an underdetermined system of equations 'A'
     A = rndn(4, 5);
-    
+
     // Create a right hand side
     b = rndn(4,1);
-    
+
     if rank(A) < cols(A);
        print "A does not have full rank, using pinvmt to solve";
        Api = pinvmt(A, tol);
@@ -67,4 +64,3 @@ Source
 ------
 
 svdmt.src
-

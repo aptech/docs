@@ -14,7 +14,7 @@ Format
     :param z: data. *z* may be complex
     :type z: NxK matrix
 
-    :return f: 
+    :return f: the Psi function computed at *z*.
 
     :rtype f: NxK matrix
 
@@ -39,4 +39,3 @@ References
 #. S. Chang, ''Computation of special functions,'' 1996.
 
 #. Original code by Paul Godfrey
-

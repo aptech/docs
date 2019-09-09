@@ -17,7 +17,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "No fill"
             "1", "Solid"
             "2", "Dense 1"
@@ -35,10 +35,10 @@ Format
 
     :type fillType: Nx1 vector
 
-    :param transparency_pct: between 0 and 1. The percent opacity of the fill.
+    :param transparency_pct: Optional argument, between 0 and 1. The percent opacity of the fill.
     :type transparency_pct: scalar
 
-    :param colors: color names or HTML hex value colors.
+    :param colors: Optional argument, color names or HTML hex value colors.
     :type colors: string array
 
 Remarks
@@ -56,20 +56,19 @@ Examples
 
     // Declare plotControl structure
     struct plotControl myPlot;
-    
+
     // Initialize plotControl structure
     myPlot = plotGetDefaults("bar");
-    
+
     // Set all bars to have a solid, blue, fill, with 50% opacity
     textures = 1;
     plotSetFill(&myPlot, textures, 0.5, "blue");
-    
+
     // Create data
     x = seqa(1, 1, 5);
     y = { 1.5, 2, 3, 0.5, 1 };
-    
+
     // Draw bar graph
     plotBar(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`
-

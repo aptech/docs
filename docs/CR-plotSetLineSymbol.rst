@@ -17,7 +17,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "-1", "None."
             "0", "Ellipse."
             "1", "Rectangle."
@@ -37,7 +37,7 @@ Format
 
     :type newSymbol: matrix
 
-    :param symbolWidth: Optional input, width to draw line symbols.
+    :param symbolWidth: Optional argument, width to draw line symbols.
     :type symbolWidth: scalar
 
 Remarks
@@ -54,24 +54,23 @@ Examples
 
 ::
 
-    // Declare plotControl structure               
+    // Declare plotControl structure
     struct plotControl myPlot;
-    
+
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
-    
+
     // Set line 1 to have no symbol
     // Set line 2 to display an ellipse at each plotted point.
     newSymbol = { -1, 0 };
     symbolWidth = 5;
     plotSetLineSymbol(&myPlot, newSymbol, symbolWidth);
-    
+
     // Create data
     x = seqa(0.1, 0.1, 50);
     y = sin(x)~cos(x);
-    
+
     // Plot the data with the new line symbols
     plotXY(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetXLabel`, :func:`plotSetLineColor`
-

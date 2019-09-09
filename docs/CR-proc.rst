@@ -44,7 +44,7 @@ An example of a procedure definition is:
 
 ::
 
-   proc dog(x,y,z); /* procedure declaration */
+   proc dog(x, y, z); /* procedure declaration */
    local a,b;        /* local variable declarations */
       a = x .* x;
       b = y .* y;
@@ -90,4 +90,3 @@ For more details on writing procedures, see **Procedures and Keywords**,
 Chapter 1.
 
 .. seealso:: Functions `keyword`, `call`, `endp`, `local`, `retp`
-

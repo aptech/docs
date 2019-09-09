@@ -15,18 +15,18 @@ Format
     :type &myPlot: struct pointer
 
     :param label: the new label or labels. If you are using more than one Y-axis, the first element of the 2x1 label string array
-        will set the label for the left Y-axis and the second element will set the label for the right Y-axis. 
+        will set the label for the left Y-axis and the second element will set the label for the right Y-axis.
         This may contain HTML for the creation of Greek letters, mathematical symbols and text formatting.
     :type label: String or 2x1 string array
     :type label: string
 
-    :param font: Optional input, font or font family name.
+    :param font: Optional argument, font or font family name.
     :type font: string
 
-    :param fontSize: Optional input, font size in points.
+    :param fontSize: Optional argument, font size in points.
     :type fontSize: scalar
 
-    :param fontColor: Optional input, named color or RGB value.
+    :param fontColor: Optional argument, named color or RGB value.
     :type fontColor: string
 
 Remarks
@@ -48,16 +48,16 @@ Example 1: Basic usage
 
     // Declare plotControl structure
     struct plotControl myPlot;
-    
+
     // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
-    
-    // Set the Y-axis label, label font, font size and color 
+
+    // Set the Y-axis label, label font, font size and color
     plotSetYLabel(&myPlot, "Time (sec)", "verdana", 10, "black");
-    
+
     // Create data
     x = rndn(1e5,1);
-    
+
     // Plot a histogram of the x data spread over 50 bins
     plotHist(myPlot, x, 50);
 
@@ -73,19 +73,19 @@ Example 2: Setting both Y-axes
           97  1.3,
           94  2.1,
           95  2.4 };
-    
+
     // Declare plotControl structure
     struct plotControl myPlot;
-    
+
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
-    
+
     // Set the first curve to use the left Y-axis and the second curve to use the right
     plotSetWhichYAxis(&myPlot, "left" $| "right");
-    
+
     // Set the left and right Y-axis labels
     plotSetYLabel(&myPlot, "Number of subjects", "Percent classified");
-    
+
     // Plot the data
     plotXY(myPlot, x, y);
 
@@ -132,4 +132,3 @@ The code above will add :math:`\sqrt{\lambda}` to your y-axis label.
 
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetXLabel`, :func:`plotSetXTicInterval`, :func:`plotSetXTicLabel`, :func:`plotSetZLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`
-

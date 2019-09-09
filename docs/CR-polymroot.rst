@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: r = polymroot(c)
 
-    :param c: (N+1)\*KxK matrix. coefficients of an Nth order polynomial of rank *K*
+    :param c: (N+1)*KxK matrix. coefficients of an Nth order polynomial of rank *K*
     :type c: matrix
 
-    :return r: containing the roots of the determinantal equation.
+    :return r: contains the roots of the determinantal equation.
 
     :rtype r: K*N vector
 
@@ -50,7 +50,7 @@ where
     a2 = { 1 2, 2 1 };
     a1 = { 5 8, 10 7 };
     a0 = { 3 4, 6 5 };
-    
+
     // The pipe operator '|' provides vertical concatenation
     print  polymroot(a2|a1|a0);
 
@@ -60,4 +60,3 @@ where
      -.69722436
      -2.6180340
      -.38196601
-

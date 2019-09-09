@@ -14,11 +14,10 @@ Format
     :param x: dates in POSIX date/time format (seconds since January 1, 1970).
     :type x: NxK matrix
 
-    :param fmt: containing strftime date/time format characters.
+    :param fmt: contains strftime date/time format characters.
     :type fmt: string or ExE conformable string array
 
-    :return sa: 
-
+    :return sa: dates in POSIX date/time format found in *x* converted to a string array.
     :rtype sa: NxK string array
 
 Remarks
@@ -214,4 +213,3 @@ produces *s* equal to:
     Jessica was born on Feb 16th, 2008
 
 .. seealso:: Functions :func:`dttostrc`, :func:`strctodt`, :func:`strctoposix`, :func:`dttostr`, :func:`strtodt`, :func:`dttoutc`, :func:`utctodt`
-

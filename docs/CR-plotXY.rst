@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: plotXY([myPlot, ]x, y)
 
-    :param myPlot: A plotControl structure
+    :param myPlot: Optional argument, a :class:`plotControl` structure.
     :type myPlot: struct
 
     :param x: Each column contains the X values for a particular line.
@@ -27,4 +27,3 @@ By default missing values in the y variable will be represented as gaps
 in the line.
 
 .. seealso:: Functions :func:`plotLogX`, :func:`plotLogLog`, :func:`plotScatter`
-

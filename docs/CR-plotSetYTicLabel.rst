@@ -16,7 +16,7 @@ Format
     :param fmt: the desired formatting for the Y-axis tick labels. If a 2x1 string array is passed in, the first element of *fmt* will control the left Y-axis and the second element will control the right Y-axis. sprintf style formatting strings are supported. See Remarks below for more information.
     :type fmt: string or 2x1 string array
 
-    :param angle: Optional input, the angle in degrees at which to display the Y-axis tick labels.
+    :param angle: Optional argument, the angle in degrees at which to display the Y-axis tick labels.
     :type angle: Scalar
 
 Examples
@@ -30,15 +30,15 @@ Basic usage
     // Declare and initialize plotControl structure
     struct plotControl myPlot;
     myPlot = plotGetDefaults("scatter");
-    
+
     x = seqa(0, 0.005, 33);
     y = exp(x);
-    
+
     // Set the Y-tick format to be decimal
     // with three places after the decimal point,
     // i.e. 1.050, 1.010, etc, for all tick labels
     plotSetYticLabel(&myPlot, "%.3f");
-    
+
     // Draw the scatter plot
     plotScatter(myPlot, x, y);
 
@@ -85,24 +85,24 @@ Left and right Y-axis formatting.
                     27,
                     19,
                     22 };
-                    
+
     pct = { 6.3,
             10.4,
             13.2,
             80.7,
             28.5 };
-    
+
     X = seqa(1, 1, 5);
-    
+
     // Declare plotControl structure and fill
     // with default values for 'xy' plots
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
-    
+
     // Use the left Y-axis for the first line
     // and the right Y-axis for the second line
     plotSetWhichYAxis(&myPlot, "left" $| "right");
-    
+
     /*
     ** Set the format for the tick labels
     ** of each Y-axis
@@ -113,12 +113,12 @@ Left and right Y-axis formatting.
     ** "%.1f%%" - Print one number after the decimal, followed by
     **            a percent sign.
     */
-    
+
     fmt =  "%d°" $| /* format for left Y-axis */
           "%.1f%%";     /* format for right Y-axis */
-    
+
     plotSetYTicLabel(&myPlot, fmt);
-    
+
     // Draw the plot using the settings applied above
     plotXY(myPlot, X, temperature ~ pct);
 
@@ -168,4 +168,3 @@ menu. See **GAUSS Graphics**, Chapter 1, for more information on the
 methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`dttostr`, :func:`strtodt`, :func:`plotSetYLabel`, :func:`plotSetXTicInterval`, :func:`plotSetTicLabelFont`
-

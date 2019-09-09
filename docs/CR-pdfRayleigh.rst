@@ -9,7 +9,7 @@ Computes the probability density function of the Rayleigh distribution.
 
 Format
 ----------------
-.. function:: y = pdfRayleigh(x,b)
+.. function:: p = pdfRayleigh(x,b)
 
     :param x: *x* must be greater than 0.
     :type x: NxK matrix or an Nx1 vector or scalar
@@ -17,9 +17,8 @@ Format
     :param b: Scale parameter, ExE conformable with *x*. *b* must be greater than 0.
     :type b: NxK matrix, Nx1 vector or scalar
 
-    :return y: 
-
-    :rtype y: NxK matrix, Nx1 vector or scalar
+    :return p: the probability density function of the Rayleigh distribution evaluated at *x*.
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------
@@ -34,4 +33,3 @@ as
    fx=xb2exp⁡(−x22b2)
 
 .. seealso:: Functions :func:`cdfRayleighinv`
-

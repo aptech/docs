@@ -10,24 +10,24 @@ format controlled by the functions formatcv and formatnv.
 
 Format
 ----------------
-.. function:: y = printfmt(x, mask)
+.. function:: retcode = printfmt(x, mask)
 
     :param x: matrix which is to be printed
     :type x: NxK matrix
 
     :param mask: 1 if *x* is numeric or 0 if *x* is character.
-        
+
         - or -
-        
+
         1xK vector of 1's and 0's.
-        
+
         The corresponding column of *x* will be printed as numeric
         where :math:`mask = 1` and as character where :math:`mask = 0`.
     :type mask: scalar
 
-    :return y: 1 if the function is successful and 0 if it fails.
+    :return retcode: 1 if the function is successful and 0 if it fails.
 
-    :rtype y: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------
@@ -44,17 +44,17 @@ Examples
 
     c1 = { "age", "height", "weight" };
     c2 = { 31, 70, 160 };
-    
+
     // Horizontally concatenate c1 and c2
     c = c1~c2;
-    
+
     // Print 'c' as numeric data
     print c;
-    
+
     // Print 'c' as character data
     print $c;
-    
-    // Print column 1 of 'c' as character data and column 2 as 
+
+    // Print column 1 of 'c' as character data and column 2 as
     // numeric data
     // Note: call disregards the return value
     mask = { 0 1 };
@@ -93,4 +93,3 @@ Globals
 \__fmtcv, \__fmtnv
 
 .. seealso:: Functions :func:`formatcv`, :func:`formatnv`
-

@@ -16,7 +16,7 @@ Format
     :param interpreter: "html", "plain", "latex".
     :type interpreter: string
 
-    :param location: "all", "legend", "title" or "axes". Default is "all".
+    :param location: Optional argument, which attributes the interpreter change applies to : "all", "legend", "title" or "axes". Default is "all".
     :type location: string
 
 Remarks
@@ -55,23 +55,23 @@ Plain interpreter
 ::
 
     new;
-    					
+
     // Declare plotControl structure
     struct plotControl myPlot;
-    
+
     // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
-    
-    // Set the interpreter of axes 
+
+    // Set the interpreter of axes
     plotSetTextInterpreter(&myPlot, "plain", "axes");
-    
+
     // Set the X-axis label, using the > character which would
     // would fail with the default HTML interpreter.
     plotSetXLabel(&myPlot, "Weight > 50 Kg");
-    
+
     // Create data
     x = rndn(1e5,1);
-    
+
     // Plot a histogram of the x data spread over 50 bins
     plotHist(myPlot, x, 50);
 
@@ -82,11 +82,11 @@ You may add Greek letters, mathematical symbols, subscript and superscript to yo
 
 ::
 
-    // Set the interpreter of axes 
-    plotSetTextInterpreter(&myPlot, "html", "axes");		
-    
+    // Set the interpreter of axes
+    plotSetTextInterpreter(&myPlot, "html", "axes");
+
     label_string = "β";
-    
+
     // Set the X-axis label
     plotSetXLabel(&myPlot, label_string);
 
@@ -95,7 +95,7 @@ The code above will add the letter :math:`β` to the graph title. The HTML 'sup'
 ::
 
     label_string = "σ<sup>2</sup>";
-    
+
     // Set the X-axis label
     plotSetXLabel(&myPlot, label_string);
 
@@ -106,7 +106,7 @@ will add :math:`σ2` to your title. While,
 ::
 
     label_string = "Y<sub>t-1</sub>";
-    
+
     // Set the X-axis label
     plotSetXLabel(&myPlot, label_string);
 
@@ -120,37 +120,37 @@ You can also use LaTeX to add complex math expression, or non-Latin scripts to y
 ::
 
     new;
-    				
+
     // Declare plotControl structure
     struct plotControl myPlot;
-    
+
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
-    
+
     // Set up text interpreter
     plotSetTextInterpreter(&myPlot, "latex", "all");
-    
+
     // Set up X-axis label
     label_string = "x";
     plotSetXLabel(&myPlot, label_string, "arial", 20);
-    
+
     // Set up legend in LateX format
     string legend_string = {
     "y_1 = \\cos{(x)}",
     "y_2 = \\sin{(\\frac{x}{2})} = \\pm \\sqrt{\\frac{1-\\cos{(x)}}{2}}",
     "y_3 = \\cos{(\\frac{x}{2})} = \\pm \\sqrt{\\frac{1+\\cos{(x)}}{2}}"};
-        
+
     plotSetLegend(&myPlot, legend_string, "bottom",1);
     plotSetLegendFont(&myPlot, "arial", 20);
-    
+
     // Set up title
     title_string = "Trigonometric\\ Functions";
     plotSetTitle(&myPlot, title_string, "arial", 24);
-    
+
     // Create data
     n = 50;
     x = seqa(0,(2*pi)/(n-1), n);
-    
+
     // Plot
     plotXY(myPlot, x, cos(x)~sin(x/2)~cos(x/2));
 
@@ -159,4 +159,3 @@ The plot is
 .. figure:: _static/images/plotsettextinterpreter.png
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetYLabel`, :func:`plotSetXLabel`, :func:`plotSetTitle`, :func:`plotSetLegend`
-

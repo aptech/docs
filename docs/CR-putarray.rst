@@ -20,7 +20,7 @@ Format
     :param src: source data
     :type src: [N-M]-dimensional array or matrix or scalar.
 
-    :return y: 
+    :return y: resulting array with destination data in *a* inserted into the source data. 
 
     :rtype y: N-dimensional array
 
@@ -43,19 +43,18 @@ Examples
 
 ::
 
-    // Create a 2x3x4x5x6 dimensional array with unspecified 
+    // Create a 2x3x4x5x6 dimensional array with unspecified
     // contents
     a = arrayalloc(2|3|4|5|6,0);
-    
-    // Create a 4x5x6 dimensional array with all elements equal 
+
+    // Create a 4x5x6 dimensional array with all elements equal
     // to 5
     src = arrayinit(4|5|6,5);
-    
+
     loc = { 2,1 };
     a = putarray(a,loc,src);
 
-This example sets the contiguous 4x5x6 subarray of *a* beginning at [2,1,1,1,1] to 
+This example sets the contiguous 4x5x6 subarray of *a* beginning at [2,1,1,1,1] to
 the array *src*, in which each element is set to the specified value 5.
 
 .. seealso:: Functions `setarray`
-

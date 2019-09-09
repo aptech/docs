@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: plotAddHistP([myPlot, ]x, v)
 
-    :param myPlot: A :class:`plotControl` structure
+    :param myPlot: Optional argument. A :class:`plotControl` structure.
     :type myPlot: struct
 
     :param x: data
     :type x: Mx1 vector
 
-    :param v: 
+    :param v:
 
         ======= ==================
         Type    Value
@@ -37,4 +37,3 @@ This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
 .. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddPolar`, :func:`plotAddXY`
-

@@ -11,16 +11,14 @@ Format
 ----------------
 .. function:: c = polychar(x)
 
-    :param x: data
+    :param x: data.
     :type x: NxN matrix
 
-    :return c: of coefficients of the Nth order characteristic polynomial of *x*:
-        
-        .. math:: p(x) = c[1]*xn + c[2]*x(n-1) + ... + c[n]*x + c[n+1];
+    :return c: coefficients of the Nth order characteristic polynomial of *x*:
+
+        .. math:: p(x) = c[1]*x^n + c[2]*x^{(n-1)} + ... + c[n]*x + c[n+1];
 
     :rtype c: (N+1)x1 vector
-
-.. DANGER:: fix equations
 
 Remarks
 -------
@@ -33,4 +31,3 @@ Source
 poly.src
 
 .. seealso:: Functions :func:`polymake`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`
-

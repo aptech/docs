@@ -14,13 +14,13 @@ Format
     :type &myPlot: struct pointer
 
     :param fmt: the desired formatting for the X-axis tic labels.
-    
+
         - Time series graphs use the same formatting type as function :func:`dttostr`.
         - Other graph types use a sprintf style formatting string. See Remarks below for more details.
 
     :type fmt: string
 
-    :param angle: the angle in degrees at which to display the X-axis tic labels.
+    :param angle: Optional argument, the angle in degrees at which to display the X-axis tic labels.
     :type angle: scalar
 
 Remarks
@@ -116,17 +116,17 @@ Time series
     // Declare and initialize plotControl structure
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
-    
+
     y = rndn(5, 1);
-    
+
     plotSetXTicLabel(&myPlot, "YYYY-MO");
-    
+
     // Start the series in January 1982
     dtstart = 198201;
-    
+
     // Specify the data to be monthly
-    frequency = 12;				
-    				
+    frequency = 12;
+
     // Draw the time series plot
     plotTS(myPlot, dtstart, frequency, y);
 
@@ -156,12 +156,12 @@ Other than time series
     // Declare and initialize plotControl structure
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
-    
+
     x = seqa(0.015, 0.015, 10);
     y = cos(x.^2);
-    
+
     plotSetXTicLabel(&myPlot, "%.3f");
-    
+
     // Draw the graph, using our format specifier
     plotXY(myPlot, x, y);
 
@@ -172,4 +172,3 @@ The code above produces a graph with X-tic labels like the image below:
     XY formatted label
 
 .. seealso:: Functions :func:`dttostr`, :func:`strtodt`, :func:`plotSetXLabel`, :func:`plotSetXTicInterval`, :func:`plotSetTicLabelFont`
-

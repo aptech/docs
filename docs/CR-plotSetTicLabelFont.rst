@@ -16,10 +16,10 @@ Format
     :param font: the name of the desired font.
     :type font: string
 
-    :param size: Optional input, the size of the font in points.
+    :param size: Optional argument, the size of the font in points.
     :type size: scalar
 
-    :param color: Optional input, named color or RGB value.
+    :param color: Optional argument, named color or RGB value.
     :type color: string
 
 Remarks
@@ -32,20 +32,19 @@ Examples
 
 ::
 
-    // Simulate some data to plot 
+    // Simulate some data to plot
     x = rndn(10, 1);
     y = x .* 3 + rndn(10,1);
-    
+
     // Declare ‘myPlot’ to be a plotControl structure
     // and fill with default scatter plot settings
     struct plotControl myPlot;
     myPlot = plotGetDefaults("scatter");
-    
+
     // Set axes tic labels to be 14 point 'times new roman'
     plotSetTicLabelFont(&myPlot, "times new roman", 14);
-    
+
     // Create graph with tic label settings applied above
     plotScatter(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`
-

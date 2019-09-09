@@ -16,10 +16,10 @@ Format
     :param title: the new title. This may contain HTML for the creation of Greek letters, mathematical symbols and text formatting.
     :type title: string
 
-    :param font: Optional input, font or font family name.
+    :param font: Optional argument, font or font family name.
     :type font: string
 
-    :param fontSize: Optional input, font size in points.
+    :param fontSize: Optional argument, font size in points.
     :type fontSize: scalar
 
     :param fontColor: Optional input, named color or RGB value.
@@ -44,23 +44,23 @@ Example 1
 
     // Declare plotControl structure
     struct plotControl myPlot;
-    
+
     // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
-    
-    // Set the title, title font and title font size 
+
+    // Set the title, title font and title font size
     plotSetTitle(&myPlot, "GAUSS Example Graph", "verdana", 10);
-    
+
     // Create data
     x = rndn(1e5,1);
-    
+
     // Plot a histogram of the x data spread over 50 bins
     plotHist(myPlot, x, 50);
 
 Example 2
 +++++++++
 
-You may add Greek letters, mathematical symbols, subscript and superscript to your title using HTML. 
+You may add Greek letters, mathematical symbols, subscript and superscript to your title using HTML.
 To add HTML to a label, you need to wrap the text to be interpreted as HTML in HTML tags.
 
 ::
@@ -87,4 +87,3 @@ will add :math:`σ2` to your title. While,
 will create :math:`Yt-1`
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetYLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`
-

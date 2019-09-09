@@ -17,7 +17,7 @@ Format
     :param p: positive integer.
     :type p: scalar
 
-    :return y: containing powers of the elements of *x* from 1 to *p*. 
+    :return y: contains powers of the elements of *x* from 1 to *p*. 
         The first *K* columns will contain first powers, the second *K* columns second powers, and so on.
 
     :rtype y: Nx(p*K) matrix
@@ -36,4 +36,3 @@ Source
 ------
 
 polymat.src
-

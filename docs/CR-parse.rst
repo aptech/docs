@@ -10,18 +10,18 @@ Format
 ----------------
 .. function:: tok = parse(str, delim)
 
-    :param str: 
-    :type str: string consisting of a series of tokens and/or delimiters
+    :param str: consists of a series of tokens and/or delimiters
+    :type str: string
 
-    :param delim: 
-    :type delim: NxK character matrix of delimiters that might be
-        found in  str
+    :param delim: character matrix of delimiters that might be
+        found in *str*
+    :type delim: NxK matrix
 
-    :return tok: consisting of the tokens
+    :return tok: consists of the tokens
         contained in  str. All tokens are returned; any
-        delimiters found in  str are ignored.
+        delimiters found in *str* are ignored.
 
-    :rtype tok: Mx1 character vector
+    :rtype tok: Mx1 vector
 
 Remarks
 -------
@@ -47,9 +47,9 @@ The code above will return:
 
 ::
 
-    GDP 
-       GNP 
-        M1 
+    GDP
+       GNP
+        M1
         M2
 
 obs = 1000;
@@ -58,7 +58,7 @@ names = "Age,Weight,Height";
 //Create uniform random integers between 1 and 77
 data1 = ceil(77 * rndu(obs,1));
 
-//Create normal random integers centered at 100 with a 
+//Create normal random integers centered at 100 with a
 //standard deviation of 9
 data2 = ceil(100 + 9*rndn(obs,1));
 
@@ -79,15 +79,15 @@ proc (0) = printStats( names, data);
    // Set to print with 6 spaces between numbers and 0
    // digits after the decimal
    format /rd 6,0;
-	
+
    // Create the titles to print for each column
    title = parse("var,mean,max,min", ",");
-	
-   // Extract the substrings from 'names' into a character 
+
+   // Extract the substrings from 'names' into a character
    // array using the comma as a separator between tokens
    sepVars = parse(names, ",");
    print "-----------------------------------";
-	
+
    // The '$' tells GAUSS to print as character data
    print $title';
    print "-----------------------------------"
@@ -98,7 +98,7 @@ proc (0) = printStats( names, data);
       // prevents a new-line after the print
       print $sepVars[i];;
       print meanc(data[.,i]);;
-      print maxc(data[.,i]);;	
+      print maxc(data[.,i]);;
       print minc(data[.,i]);
    endfor;
    print "-----------------------------------";
@@ -110,11 +110,11 @@ The code above will produce output like this:
 ::
 
     -----------------------------------
-       var   mean    max    min 
+       var   mean    max    min
     -----------------------------------
-       Age     38     77      1 
-    Weight    101    135     75 
-    Height     31     60      1 
+       Age     38     77      1
+    Weight    101    135     75
+    Height     31     60      1
     -----------------------------------
 
 .. seealso:: Functions :func:`token`

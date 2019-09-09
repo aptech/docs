@@ -9,9 +9,9 @@ Adds an XY graph to an existing graph.
 
 Format
 ----------------
-.. function:: plotAddXY([myPlot, ]x, y) 
+.. function:: plotAddXY([myPlot, ]x, y)
 
-    :param myPlot: A :class:`plotControl` structure
+    :param myPlot: Optional argument. A :class:`plotControl` structure.
     :type myPlot: struct
 
     :param x: Each column contains the X values for a particular line.
@@ -29,4 +29,3 @@ This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
 .. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`
-

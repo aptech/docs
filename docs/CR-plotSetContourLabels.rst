@@ -16,7 +16,7 @@ Format
     :param show_labels: 0 or 1. The flag of show labels on contours.
     :type show_labels: scalar
 
-    :param label_format: Optional input. Format options:
+    :param label_format: Optional argument. Format options:
 
         === =================
         "D" e.g. 1.234567;
@@ -26,7 +26,7 @@ Format
 
     :type label_format: string
 
-    :param label_precision: Optional input, precision of contour label.
+    :param label_precision: Optional argument, precision of contour label.
     :type label_precision: scalar
 
 Remarks
@@ -45,37 +45,37 @@ Examples
 
     // Clear out variables in GAUSS workspace
     new;
-    
+
     // Create data
     x = seqa(-4,.125,161)';
     y = seqa(-8,.125,161);
     z = sin(x) .* cos(y) * .5;
     z = z .* sin(x/3) .* cos(y/3);
     z = z .* sin(x/5) + sin(y/2.5)/3 + sin(x/2.5)/3;
-    
+
     // Set up control structure with defaults
     // for surface plots
     struct plotControl myPlot;
     myPlot = plotGetDefaults("surface");
-    
+
     // Set title and Z axis label
     plotSetTitle(&myPlot, "Contour plot example", "arial", 16, "black");
-    
+
     // Set color map for contour
     plotSetColorMap(&myplot, "viridis");
-    
+
     // Set up flag of show label for contour
-    showLabels = 1; 
-    
+    showLabels = 1;
+
     // Set up format for contour label
     label_format = "G";
-    
+
     // Set up precision for contour label
-    label_precision = 5; 
-    
+    label_precision = 5;
+
     // Use function to set up contour labels
     plotSetContourLabels(&myplot, showlabels, label_format, label_precision);
-    
+
     // Draw graph using plotcontrol structure
     plotContour(myPlot, x, y, z);
 
@@ -84,4 +84,3 @@ The plot is
 .. figure:: _static/images/plotsetcontourlabels.png
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetColorMap`, :func:`plotSetZLevels`
-

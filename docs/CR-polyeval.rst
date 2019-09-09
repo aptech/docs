@@ -11,22 +11,21 @@ Format
 ----------------
 .. function:: y = polyeval(x, coefs)
 
-    :param x: 1xK or NxN. can either represent *K* separate scalar values at which to evaluate 
+    :param x: can either represent *K* separate scalar values at which to evaluate
         the (scalar) polynomial(s), or it can represent a single NxN matrix.
-    :type x: vector or matrix.
+    :type x: 1xK vector or NxN matrix.
 
-    :param c: (P+1)xK or (P+1)x1 matrix of coefficients of polynomials to evaluate. If *x* is 1xK, then *c* must be (P+1)xK. 
-        If *x* is NxN, *c* must be (P+1)x1. That is, if *x* is a matrix, it can only be evaluated 
+    :param c:  coefficients of polynomials to evaluate. If *x* is 1xK, then *c* must be (P+1)xK.
+        If *x* is NxN, *c* must be (P+1)x1. That is, if *x* is a matrix, it can only be evaluated
         at a single set of coefficients.
-    :type c: matrix
+    :type c: (P+1)xK or (P+1)x1 matrix
 
-    :return y: Kx1 vector (if *c* is (P+1)xK) or NxN matrix (if *c* is (P+1)x1 and *x* is NxN):
+    :return y:  Kx1 vector (if *c* is (P+1)xK) or NxN matrix (if *c* is (P+1)x1 and *x* is NxN):
 
-        .. math:: y =( c[1,.].*xp + c[2,.].*x(p-1) + ... + c[p+1,.] )';
+        .. math:: y =( c[1, .]*x^p + c[2, .]*x^{(p-1)} + ... + c[p+1, .] )';
 
-    :rtype y: vector or matrix
+    :rtype y: Kx1 vector or NxN matrix
 
-.. DANGER:: fix equations
 
 Remarks
 -------
@@ -77,7 +76,7 @@ The above code will set *A_3* equal to:
 
 ::
 
-       300    660 
+       300    660
        440    960
 
 Matrix example 2
@@ -105,4 +104,3 @@ Source
 poly.src
 
 .. seealso:: Functions :func:`polymake`, :func:`polychar`, :func:`polymult`, :func:`polyroot`
-

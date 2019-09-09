@@ -16,7 +16,7 @@ Format
     :param opacity: a value between 0 (completely transparent) and 1 (completely opaque).
     :type opacity: Scalar
 
-    :param bkd_clr: Optional input, the name or rgb value of the new background colors
+    :param bkd_clr: Optional argument, the name or rgb value of the new background colors.
     :type bkd_clr: string
 
 Remarks
@@ -40,19 +40,19 @@ Example 1
     // and fill with default settings
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
-    
+
     // Set legend text
     plotSetLegend(&myPlot, "Sin" $| "Cos");
-    
+
     // Set the legend background to be
     // 90% opaque and gray.
     clrs = "gray";
     plotSetLegendBkd(&myPlot, 0.9, clrs);
-    
+
     // Create data
     x = seqa(0.1, 1, 50);
     y = sin(x)~cos(x);
-    
+
     // Plot the data with the new line colors
     plotXY(myPlot, x, y);
 
@@ -65,21 +65,20 @@ Example 2
     // and fill with default settings
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
-    
+
     // Set legend text
     plotSetLegend(&myPlot, "Sin" $| "Cos");
-    
+
     // Set the legend background to be completely transparent.
     // This will make the legend background and border invisible.
     // Th legend text will still be seen.
     plotSetLegendBkd(&myPlot, 0);
-    
+
     // Create data
     x = seqa(0.1, 1, 50);
     y = sin(x)~cos(x);
-    
+
     // Plot the data with the new line colors
     plotXY(myPlot, x, y);
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLegendFont`
-

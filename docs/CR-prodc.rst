@@ -14,7 +14,7 @@ Format
     :param x: dat
     :type x: NxK matrix
 
-    :return y: containing the products of all elements in each column of *x*.
+    :return y: contains the products of all elements in each column of *x*.
 
     :rtype y: Kx1 matrix
 
@@ -37,7 +37,7 @@ Examples
     x = { 1 2 3,
           4 5 6,
           7 8 9 };
-     
+
     y = prodc(x);
 
 The code above assigns *y* to be equal to:
@@ -49,4 +49,3 @@ The code above assigns *y* to be equal to:
         162
 
 .. seealso:: Functions :func:`sumc`, :func:`meanc`, :func:`stdc`
-

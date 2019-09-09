@@ -8,7 +8,7 @@ Prints a matrix using a different format for each column of the matrix.
 
 Format
 ----------------
-.. function:: y = printfm(x, mask, fmt)
+.. function:: retcode = printfm(x, mask, fmt)
 
     :param x: matrix which is to be printed and which may contain both character and numeric data
     :type x: NxK matrix
@@ -23,9 +23,9 @@ Format
     :param fmt: matrix where each row specifies the format for the respective column of *x*
     :type fmt: Kx3 or 1x3 matrix
 
-    :return y: 1 if the function is successful and 0 if it fails.
+    :return retcode: 1 if the function is successful and 0 if it fails.
 
-    :rtype y: scalar
+    :rtype retcode: scalar
 
 Remarks
 -------
@@ -97,12 +97,12 @@ mixed numeric and character matrix:
                  "PAY" 1.23456677 1.23456789
                  "SEX" 1.14454345 3.44718234
                  "JOB" 4.11429432 8.55649341;
-     
+
     let mask[1,3] = 0 1 1;      /* character numeric numeric */
     let fmt[3,3] = "-*.*s " 8 8 /* first column format */
     "*.*lf," 10 3               /* second column format */
     "*.*le " 12 4;              /* third column format */
-     
+
     d = printfm(x,mask,fmt);
 
 ::
@@ -125,4 +125,3 @@ Remember, the mask value controls whether an element
 will be printed as a number or a character string.
 
 .. seealso:: Functions :func:`print`, :func:`printdos`
-

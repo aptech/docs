@@ -9,7 +9,7 @@ Computes the binomial probability density function.
 
 Format
 ----------------
-.. function:: p = pdfBinomial(successes,trials,prob)
+.. function:: p = pdfBinomial(successes, trials, prob)
 
     :param successes: must be a positive number and < *trials*
     :type successes: NxK matrix, Nx1 vector or scalar
@@ -21,12 +21,11 @@ Format
     :type prob: NxK matrix, Nx1 vector or scalar
 
     :return p: The probability of the specified number of *successes*.
-
     :rtype p: NxK matrix, Nx1 vector or scalar
 
 Examples
 ----------------
-A polling company randomly selects 1,024 prospective voters in a region where 55% support 
+A polling company randomly selects 1,024 prospective voters in a region where 55% support
 their candidate. What is the probability that exactly 600 of those selected support their candidate?
 
 ::
@@ -39,7 +38,7 @@ After running the code above, *p* is equal to:
 
     0.0017226334
 
-Continuing with the example above, what would be the probability of selecting the same number 
+Continuing with the example above, what would be the probability of selecting the same number
 of voters that support their candidate if their candidate's support in the region was 50% or 60%?
 
 ::
@@ -51,7 +50,7 @@ After running the code above, *p* is equal to:
 
 ::
 
-    6.3351627e-09 
+    6.3351627e-09
       0.016621105
 
 Remarks
@@ -77,4 +76,3 @@ invalid input. If the first input is out of range, :func:`scalerr` will return a
 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 .. seealso:: Functions :func:`cdfBinomial`, :func:`cdfBinomialInv`
-

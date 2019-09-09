@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: plotAddScatter([myPlot, ]x, y)
 
-    :param myPlot: A plotControl structure
+    :param myPlot: Optional argument. A :class:`plotControl` structure.
     :type myPlot: struct
 
     :param x: Each column contains the X values for a particular data point.
@@ -28,4 +28,3 @@ This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
 .. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddScatter`, :func:`plotAddXY`
-

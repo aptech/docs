@@ -9,7 +9,7 @@ Computes the probability density function for the logistic distribution.
 
 Format
 ----------------
-.. function:: y = pdflogistic(x, a, b)
+.. function:: p = pdflogistic(x, a, b)
 
     :param x: data
     :type x: NxK matrix or an Nx1 vector or scalar
@@ -20,9 +20,8 @@ Format
     :param b: Scale parameter, ExE conformable with *x*. *b* must be greater than 0.
     :type b: NxK matrix, Nx1 vector or scalar
 
-    :return y: 
-
-    :rtype y: NxK matrix, Nx1 vector or scalar
+    :return p: the probability density function for the logistic distribution at the elements in *x*.
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------
@@ -38,4 +37,3 @@ defined as
    z=-⁡x-ab
 
 .. seealso:: Functions :func:`cdflogistic`
-

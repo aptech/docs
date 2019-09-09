@@ -9,7 +9,7 @@ Computes the probability density function for the exponential distribution.
 
 Format
 ----------------
-.. function:: y = pdfexp(x, a, b)
+.. function:: p = pdfexp(x, a, b)
 
     :param x: *x* must be greater than *a*.
     :type x: NxK matrix, Nx1 vector or scalar
@@ -20,9 +20,9 @@ Format
     :param b: the scale parameter. sometimes called *beta*. *b* must be greater than 0.
     :type b: scalar
 
-    :return y: 
+    :return p: the probability density function for the exponential distribution for the elements in *x*.
 
-    :rtype y: NxK matrix, Nx1 vector or scalar
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------
@@ -37,4 +37,3 @@ exponential distribution, which is defined as
    f(x)=1bexp⁡(−x−ab)
 
 .. seealso:: Functions :func:`cdfexp`
-

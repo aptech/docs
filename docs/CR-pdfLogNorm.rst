@@ -5,7 +5,7 @@ pdfLogNorm
 Purpose
 ----------------
 Computes the probability density function of the log-normal distribution.
-  
+
 
 Format
 ----------------
@@ -20,8 +20,7 @@ Format
     :param sigma: Optional input, the standard deviation parameter. Default = 1.
     :type sigma: scalar
 
-    :return p: of the same dimension as the input *x*, containing the probabilities.
-
+    :return p: of the same dimension as the input *x*, contains the probabilities of the log-normal distribution.
     :rtype p: matrix or array
 
 Examples
@@ -48,10 +47,10 @@ Specify 'mu' and 'sigma'
 
     // Create vector of 'x' values
     x = { 0.1, 1.6, 2 };
-    
+
     mu = 1.5;
     sigma = 2;
-    
+
     // Compute the PDF for the lognormal distribution
     // parameterized by mu = 1.5 and sigma = 2
     p = pdfLogNorm(x, mu, sigma);
@@ -60,9 +59,8 @@ After the above, code *p* will equal:
 
 ::
 
-     0.32727408 
-     0.10918617 
+     0.32727408
+     0.10918617
     0.091940897
 
 .. seealso:: Functions :func:`cdfn_cdfNc`, :func:`pdfTruncNorm`, :func:`cdfTruncNorm`, :func:`cdfLogNorm`
-

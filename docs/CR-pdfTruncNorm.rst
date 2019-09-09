@@ -5,7 +5,7 @@ pdfTruncNorm
 Purpose
 ----------------
 Computes the cumulative distribution function of the
-		normal distibution over the interval from a to b.
+		normal distribution over the interval from a to b.
 
 Format
 ----------------
@@ -29,7 +29,7 @@ Format
     :return p: the probability density
         of the cumulative distribution over the interval from *a* to *b*.
 
-    :rtype p: scalar or NxK matrix or N-dimensional array
+    :rtype p: NxK matrix, N-dimensional array or scalar
 
 Examples
 ----------------
@@ -41,7 +41,7 @@ Examples
     b = 1;
     mu = 0;
     s = 1;
-              
+
     // Compute the PDF at x = 0.5
     // over the closed region [-1,1]
     p = pdfTruncNorm(x, a, b, mu, s);
@@ -53,4 +53,3 @@ After the above code, *p* equals:
     0.51570345
 
 .. seealso:: Functions :func:`pdfn`, :func:`cdfTruncNorm`, :func:`cdfLogNorm`
-

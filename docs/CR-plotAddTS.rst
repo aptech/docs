@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: plotAddTS([myPlot, ]dtstart, frequency, y)
 
-    :param myPlot: A plotControl structure 
+    :param myPlot: Optional argument. A :class:`plotControl` structure.
     :type myPlot: struct
 
     :param dtstart: starting date in DT scalar format.
@@ -21,7 +21,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "1", "Yearly"
             "4", "Quarterly"
             "12", "Monthly"
@@ -48,16 +48,15 @@ Examples
 
     // Create some data to plot
     y = rndn(100, 1);
-    
+
     // The first input starts the series in January of 1982
     // The second input specifies the data to be monthly
     plotTS(1982, 12, y);
-    
+
     y2 = rndu(28, 1);
-    
+
     // Add the data from 'y2' as quarterly data
     // starting in Q2 of 1980
     plotAddTS(198004, 4, y2);
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotTS`
-

@@ -14,9 +14,9 @@ Format
     :param r: roots of the desired polynomial
     :type r: Nx1 vector
 
-    :return c: containing the coefficients of the Nth order polynomial with roots *r*:
-        
-        .. math:: p(z)=c[1]*zn + c[2]*z(n-1) + ... c[n]*z + c[n+1]
+    :return c: contains the coefficients of the Nth order polynomial with roots *r*:
+
+        .. math:: p(z)=c[1]*z^n + c[2]*z^{(n-1)} + ... c[n]*z + c[n+1]
 
     :rtype c: (N+1)x1 vector
 
@@ -32,14 +32,14 @@ Examples
 
     // Assign values for the roots of the polynomial
     r = { 2, 1, 3 };
-    
+
     // Calculate the coefficients
     c = polymake(r);
-    
+
     // Print 3 spaces for each number and 1 digit after the
     // decimal place
     format /rd 3,1;
-    
+
     // Iterate through each root in 'r'
     for i(1, 3, 1);
        rtmp = r[i];
@@ -81,4 +81,3 @@ Source
 poly.src
 
 .. seealso:: Functions :func:`polychar`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`
-

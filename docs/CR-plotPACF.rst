@@ -7,15 +7,15 @@ Purpose
 
 			Plot the partial autocorrelations function(PACF).
 
-				
+
 
 Format
 ----------------
-.. function:: plotPACF([myPlot, ]x, k, d) 
+.. function:: plotPACF([myPlot, ]x, k, d)
 			              plotPACF(x, k, d)
 
-    :param myPlot: 
-    :type myPlot: A plotControl structure
+		:param myPlot: Optional argument, a :class:`plotControl` structure
+		:type myPlot: struct
 
     :param x: data.
     :type x: Nx1 vector
@@ -33,25 +33,25 @@ Examples
 
     // Clear out variables in GAUSS workspace
     new;
-    
+
     // Create file name with full path
     file = getGAUSSHome() $+ "examples/beef_prices.csv";
-    
+
     // Import dataset starting with row 2 and column 2
     x = csvReadM(file,2,2);
-    
+
     // Max lags
     k = 20;
-    
+
     // Order of differencing
     d = 1;
-    
+
     // PACF plot
     struct plotControl mp;
     mp = plotGetDefaults("bar");
-    
+
     plotSetTitle(&mp, "beef_prices", "Arial", 20);
-    
+
     plotPACF( mp, x, k, d);
 
 The plot is

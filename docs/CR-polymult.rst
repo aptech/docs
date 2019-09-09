@@ -17,7 +17,7 @@ Format
     :param c2: coefficients of the second polynomial
     :type c2: (D2+1)x1 vector
 
-    :return c: containing the coefficients of the product of the two polynomials.
+    :return c: contains the coefficients of the product of the two polynomials.
 
     :rtype c: (D1+D2)x1 vector
 
@@ -39,7 +39,7 @@ and returns the answer:
 
     // Assign c1 to represent 2x + 1
     c1 = { 2, 1 };
-    
+
     // Assign c2 to represent 2x2 + 1
     c2 = { 2, 0, 1 };
     c = polymult(c1,c2);
@@ -87,4 +87,3 @@ Source
 poly.src
 
 .. seealso:: Functions :func:`polymake`, :func:`polychar`, :func:`polyroot`, :func:`polyeval`
-

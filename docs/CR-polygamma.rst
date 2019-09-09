@@ -20,7 +20,6 @@ Format
     :type n: The order of the function
 
     :return f: *f* may be complex.
-
     :rtype f: NxK matrix
 
 Remarks

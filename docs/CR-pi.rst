@@ -11,7 +11,6 @@ Format
 .. function:: y = pi
 
     :return y: the value of :math:`π`.
-
     :rtype y: scalar
 
 Examples
@@ -19,7 +18,7 @@ Examples
 
 ::
 
-    // Print 14 digits and allow 16 digits worth of space for 
+    // Print 14 digits and allow 16 digits worth of space for
     // each printed number
     format /rdn 16,14;
     print pi;
@@ -29,4 +28,3 @@ will return:
 ::
 
     3.14159265358979
-

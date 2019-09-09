@@ -11,16 +11,14 @@ Format
 .. function:: y = polyroot(c)
 
     :param c: coefficients of an Nth order polynomial:
-    
-        .. math:: p(z) = c[1]*zn + c[2]*zn-1 + ... + c[n]*z + c[n+1]
+
+        .. math:: p(z) = c[1]*^n + c[2]*z^{n-1} + ... + c[n]*z + c[n+1]
 
     :type c: (N+1)x1 vector
-        
+
     :return y: the roots of *c*.
 
     :rtype y: Nx1 vector
-
-.. DANGER:: fix equations
 
 Remarks
 -------
@@ -41,17 +39,17 @@ Examples
     ** Consider the polynomial
     ** y = 7x^4 - 5x^3 + 4x - 3
     */
-    
+
     /*
     ** First create vector of coefficients.
     ** Note that because there is no x^2 term
     ** we must place a 0 as the third element
     */
     c = 7|(-5)|0|4|(-3);
-    
+
     // Find roots
     roots = polyroot(c);
-    
+
     // Print roots
     print "The roots of the polynomial y = 7x^4 - 5x^3 + 4x - 3 are:"
     roots;
@@ -72,4 +70,3 @@ Source
 poly.src
 
 .. seealso:: Functions :func:`polymake`, :func:`polychar`, :func:`polymult`, :func:`polyeval`
-

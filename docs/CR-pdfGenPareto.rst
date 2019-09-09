@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: y = pdfGenPareto(x, a, sigma, k)
 
-    :param x: data 
+    :param x: data
     :type x: NxK matrix, Nx1 vector or scalar.
 
     :param a: Location parameter, ExE conformable with *x*.
@@ -23,9 +23,9 @@ Format
     :param k: Shape parameter, ExE conformable with *x*.
     :type k: NxK matrix, Nx1 vector or scalar
 
-    :return y: 
+    :return p: the probability density function for the Generalized Pareto distribution for the elements in *x*.
 
-    :rtype y: NxK matrix, Nx1 vector or scalar
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------
@@ -40,4 +40,3 @@ is defined as
    f(x)={1σ(1+k(x−μ)σ)−1−1/k1σexp⁡(−(x−μ)σ)k≠0k=0
 
 .. seealso:: Functions :func:`cdfGenPareto`
-

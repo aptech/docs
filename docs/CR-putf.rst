@@ -14,9 +14,9 @@ Format
     :type filename: string
 
     :param str: data to be written to filename. All or part of *str* may be written out.
-    :type str: string 
+    :type str: string
 
-    :param start: beginning position in str of output string.
+    :param start: beginning position in *str* of output string.
     :type start: scalar
 
     :param len: length of output string.
@@ -32,7 +32,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "normal return"
             "1", "null file name"
             "2", "file open error"
@@ -49,7 +49,7 @@ Remarks
 
 If *mode* is set to (1) binary, a string of length *len* will be written to
 filename. If *mode* is set to (0) ASCII, the string will be output up to
-length *len* or until :func:`putf` encounters a ``^Z`` (ASCII 26) in *str*. 
+length *len* or until :func:`putf` encounters a ``^Z`` (ASCII 26) in *str*.
 The ``^Z`` will not be written to filename.
 
 If *append* is set to (0) overwrite, the current contents of *filename* will
@@ -68,4 +68,3 @@ Source
 putf.src
 
 .. seealso:: Functions :func:`getf`
-
