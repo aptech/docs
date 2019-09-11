@@ -5,11 +5,11 @@ pmm
 Purpose
 ----------------
 
-Replaces missing values with imputed values using predictive mean matching.
+Replaces missing values with imputed values using local residual draws (LRD).
 
 Format
 ----------------
-.. function:: y_imputed = pmm(y, x[, iCtl]])
+.. function:: y_imputed = lrd(y, x[, iCtl]])
 
     :param y: data vector with missing values.
     :type y: Nx1 vector
@@ -75,7 +75,7 @@ Examples
   x = rndn(18, 5);
 
   // First test default cases
-  y_imp = pmm(y, x);
+  y_imp = lrd(y, x);
 
   // Now use control structure
   struct imputeControl iCtl;
@@ -84,7 +84,7 @@ Examples
   // Change matching type to type 2
   // instead of default type 1
   iCtl.matchingType = 0;
-  y_imp0 = pmm(y, x, iCtl);
+  y_imp0 = lrd(y, x, iCtl);
 
 
   // Change linear prediction type to
@@ -93,23 +93,22 @@ Examples
   iCtl = imputeControlCreate();
 
   icTl.linearMethod = "predict";
-  y_imp_predict = pmm(y, x, iCtl);
+  y_imp_predict = lrd(y, x, iCtl);
 
   // Use dmax method
   struct imputeControl iCtl;
   iCtl = imputeControlCreate();
 
-  icTl.dmax = 4.5;
-  y_imp_dmax = pmm(y, x, iCtl);
+  icTl.dmax = 10.2;
+  y_imp_dmax = lrd(y, x, iCtl);
 
-  // Turn off adaptiveDmax
-  // Note that this leaves missing values
-  // in imputed dataset
+  // Turn off adaptiveDmax method
   icTl.adaptiveDmax = 0;
-  y_imp_dmax_noadapt = pmm(y, x, iCtl);
+  y_imp_dmax_noadapt = lrd(y, x, iCtl);
 
   print "y-matrix ~ y_imp_default ~ y_imp_type0 ~ y_imp_linear ~ y_imp_dmax ~ y_imp_dmax_noadapt";
   y~y_imp~y_imp0~y_imp_predict~y_imp_dmax~y_imp_dmax_noadapt;
+
 
 After the code
 
@@ -117,23 +116,23 @@ After the code
 
   y-matrix ~ y_imp_default ~ y_imp_type0 ~ y_imp_linear ~ y_imp_dmax ~ y_imp_dmax_noadapt
 
-       1.2700000        1.2700000        1.2700000        1.2700000        1.2700000        1.2700000
-               .       -1.2308107       0.80802246       0.80802158        1.0745335                .
-       7.1200000        7.1200000        7.1200000        7.1200000        7.1200000        7.1200000
-               .       0.80802246       -1.1697303       -2.1980657       -2.1979831       -2.1979831
-       2.8000000        2.8000000        2.8000000        2.8000000        2.8000000        2.8000000
-               .       0.80802246       -1.1697303       0.80802158        1.0745335        1.9460724
-               .       0.80802246       0.80802246       -2.1980657       -1.1697303       -1.1697303
-       5.2300000        5.2300000        5.2300000        5.2300000        5.2300000        5.2300000
-       8.9900000        8.9900000        8.9900000        8.9900000        8.9900000        8.9900000
-       10.100000        10.100000        10.100000        10.100000        10.100000        10.100000
-       9.1000000        9.1000000        9.1000000        9.1000000        9.1000000        9.1000000
-      0.90000000       0.90000000       0.90000000       0.90000000       0.90000000       0.90000000
-       3.7000000        3.7000000        3.7000000        3.7000000        3.7000000        3.7000000
-               .        1.0745335        1.0745335       0.80802158       -2.1979831        4.7229624
-               .        5.3760367       0.80802246       0.80802158       -1.1697303                .
-       11.090000        11.090000        11.090000        11.090000        11.090000        11.090000
-       2.0300000        2.0300000        2.0300000        2.0300000        2.0300000        2.0300000
-               .       -1.2308107        4.7229624       0.80802158       -1.1697303                .
+  1.2700000        1.2700000        1.2700000        1.2700000        1.2700000        1.2700000
+  .               -3.6584875       -9.4679023       -11.397429       -23.801245       -4.8997636
+  7.1200000        7.1200000        7.1200000        7.1200000        7.1200000        7.1200000
+  .               -10.735510       -2.5913771       -4.5208579       -22.507836        7.2560455
+  2.8000000        2.8000000        2.8000000        2.8000000        2.8000000        2.8000000
+  .               -11.086245        5.3175585        3.3880495       -7.9034589        19.796561
+  .                1.0035588       -1.0572517       -2.9868469       -3.9396284        6.0343289
+  5.2300000        5.2300000        5.2300000        5.2300000        5.2300000        5.2300000
+  8.9900000        8.9900000        8.9900000        8.9900000        8.9900000        8.9900000
+  10.100000        10.100000        10.100000        10.100000        10.100000        10.100000
+  9.1000000        9.1000000        9.1000000        9.1000000        9.1000000        9.1000000
+  0.90000000      0.90000000       0.90000000       0.90000000       0.90000000       0.90000000
+  3.7000000        3.7000000        3.7000000        3.7000000        3.7000000        3.7000000
+  .                4.1158382       0.68201337       -1.2477475       -1.1316844        9.0871923
+  .                0.26102954       2.1197702       0.19038551       -3.5113311        8.0466419
+  11.090000        11.090000        11.090000        11.090000        11.090000        11.090000
+  2.0300000        2.0300000        2.0300000        2.0300000        2.0300000        2.0300000
+  .                1.9089200       -2.6121706       -4.5418312       -3.6541027        5.1254762
 
 .. seealso:: Functions :func:`pmm`, :func:`impute`, :func:`imputePredict`
