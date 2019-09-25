@@ -4,15 +4,15 @@ aggregate
 
 Purpose
 ----------------
-Aggregates the data in the columns of a matrix based upon a key column with a choice of method.
+Aggregates the data in the columns of a matrix based upon a column containing group ids with a choice of method.
 
 
 Format
 ----------------
 .. function:: x_agg = aggregate(x [, method])
 
-    :param x: data
-    :type x: NxK matrix, where the first column contains the ids for the groups on which to aggregate.
+    :param x: data, where the first column contains the ids for the groups on which to aggregate.
+    :type x: NxK matrix
 
     :param method: Specifies which aggregation method to use.
 
@@ -75,6 +75,8 @@ The above code will make the following assignments:
 
 Example 2
 ++++++++++++
+
+::
 
     // Create a matrix where the first
     // column is the group id
