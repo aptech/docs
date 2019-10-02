@@ -46,16 +46,16 @@ class GAUSSHTMLTranslator(HTMLTranslator):
              for c in node.children])
 
         if self.multiple_returns:
-            self.body.append('<span class="sig-curly">{</span> ')
+            self.body.append('<span class="sig-curly">{</span>&nbsp;')
 
         self.param_separator = node.child_text_separator
 
     def depart_desc_returnlist(self, node):
         # type: (nodes.Element) -> None
         if self.multiple_returns:
-            self.body.append(' <span class="sig-curly">}</span>')
+            self.body.append('&nbsp;<span class="sig-curly">}</span>')
 
-        self.body.append(' <span class="sig-equals">=</span> ')
+        self.body.append('&nbsp;<span class="sig-equals">=</span>&nbsp;')
 
     # If required parameters are still to come, then put the comma after
     # the parameter.  Otherwise, put the comma before.  This ensures that
