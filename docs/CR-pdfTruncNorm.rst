@@ -4,8 +4,7 @@ pdfTruncNorm
 
 Purpose
 ----------------
-Computes the cumulative distribution function of the
-		normal distribution over the interval from a to b.
+Computes the cumulative distribution function of the normal distribution over the interval from *a* to *b*.
 
 Format
 ----------------
