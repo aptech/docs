@@ -13,7 +13,7 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param ticInterval: the number of X-values between X-axis tick labels.
+    :param ticInterval: the distance between X-axis tick labels.
     :type ticInterval: scalar
 
     :param firstLabeled: Optional input, the value of the first X-value on which to place a tick label.
