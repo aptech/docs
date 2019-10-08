@@ -29,7 +29,7 @@ Format
 
 Examples
 ----------------
-You are given 50 hard drives, 4 of which are known to be bad. What is the probability of 
+You are given 50 hard drives, 4 of which are known to be bad. What is the probability of
 drawing exactly 1 bad hard drive if you randomly select 6 drives?
 
 ::
@@ -53,13 +53,11 @@ After running the code above, *p* is equal to:
 
 ::
 
-    0.061615284 
+    0.061615284
     6.5132436e-05
 
 Remarks
 -------
-
-.. DANGER:: fix equations
 
 The probability density function for the hypergeometric distribution is defined as:
 
@@ -81,4 +79,3 @@ invalid input. If the first input is out of range, :func:`scalerr` will return a
 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 .. seealso:: Functions :func:`cdfHyperGeo`, :func:`rndHyperGeo`, :func:`pdfBinomial`
-

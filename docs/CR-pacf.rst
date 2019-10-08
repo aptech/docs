@@ -112,7 +112,7 @@ Create a time series plot and sample partial autocorrelation (PACF) plot based o
 
     // Make a 1 by 2 plot with the time series
     // plot in the [1,1] location
-    plotLayout(1,2,1);
+    plotLayout(1, 2, 1);
 
     // Labels and format settings for 'beef' matrix plot
     plotSetYLabel(&ctl, "cents/lb");
@@ -124,7 +124,7 @@ Create a time series plot and sample partial autocorrelation (PACF) plot based o
     plotTS(ctl, 1992, 12, beef);
 
     // Making a 1 by 2 plot, the second plot is the PACF plot
-    plotLayout(1,2,2);
+    plotLayout(1, 2, 2);
 
     // ACF plot
     // Fill 'ctl' structure with defaults settings for bar plots
@@ -136,7 +136,7 @@ Create a time series plot and sample partial autocorrelation (PACF) plot based o
     plotSetXTicInterval(&ctl, 1, 5);
 
     // PACF plot with plotBar function
-    plotBar(ctl, seqa(1,1,k), beef_pacf);
+    plotBar(ctl, seqa(1, 1, k), beef_pacf);
 
 You can use 'Add Text' to type 'Beef Prices' as the title in the graphics window. The plot is:
 
@@ -189,10 +189,10 @@ The following code plot autocorrelation (ACF) and sample partial autocorrelation
     plotSetXLabel(&cow_ctl, "Year");
 
     // Making a 2 by 1 plot, the first plot is the time plot
-    plotLayout(2,1,1);
+    plotLayout(2, 1, 1);
 
     // Time plot
-    plotXY(cow_ctl,years, data );
+    plotXY(cow_ctl, years, data );
 
     // Change type of plotControl struct
     cow_ctl = plotgetdefaults("bar");
@@ -202,13 +202,13 @@ The following code plot autocorrelation (ACF) and sample partial autocorrelation
     plotSetXLabel(&cow_ctl, "Lag");
 
     // Place the 2nd plot in the second cell of a 2 by 1 grid
-    plotLayout(2,1,2);
+    plotLayout(2, 1, );
 
     // ACF plot
-    plotBar(cow_ctl, seqa(1,1,k), data_acf);
+    plotBar(cow_ctl, seqa(1, 1, k), data_acf);
 
     // PACF plot
-    plotAddBar(seqa(1,1,k), data_pacf);
+    plotAddBar(seqa(1, 1, k), data_pacf);
 
     // Clear 2 by 1 plot layout for next plots
     plotClearLayout();

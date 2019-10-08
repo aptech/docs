@@ -36,7 +36,7 @@ Basic example
 
 ::
 
-    p = pdfPoisson(190,200);
+    p = pdfPoisson(190, 200);
 
 After the code above, *p* is equal to:
 
@@ -53,7 +53,7 @@ Vector input
                180,
                190,
                200 };
-    p = pdfPoisson(events,200);
+    p = pdfPoisson(events, 200);
 
 After the code above, *p* is equal to:
 
@@ -78,7 +78,7 @@ Vector Inputs
                200,
                210 };
 
-    p = pdfPoisson(events,lambda);
+    p = pdfPoisson(events, lambda);
 
 After the code above, *p* is equal to:
 

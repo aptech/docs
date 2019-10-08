@@ -29,9 +29,9 @@ Remarks
 `pdfWishartInv` calculates the probability density function for the
 inverse Wishart distribution, which is defined as
 
-::
+.. math::
 
-   f(T)=|Ψ|ν/2|T|ν+p+12⁢2νp2⁢Γp(ν2)exp⁡(−12tr(ΓT−1))
+    f(T) = \frac{ |\Psi|^{\nu/2} }{ |T|^{ \frac{ \nu + p + 1}{2} }⁢ 2^{\frac{\nu p}{2}}⁢\Gamma_p(\frac{\nu}{2}) } exp\big⁡(−\frac{1}{2}tr(\Gamma T^{−1})\big)
 
 
 Examples

@@ -39,7 +39,7 @@ Examples
           7 -5};
 
     // Lower decomposition
-    {l, u } = lu(A);
+    { l, u } = lu(A);
 
     // Solve system of equations
     X = lusol(b, l, u);

@@ -27,10 +27,12 @@ Remarks
 
 The probability density function of a Weibull random variable is defined as
 
-.. DANGER:: fix equations
-
 .. math::
 
-   f(x,λ,k)={kλ0(xλ)k−1⁢ e−(x/λ)kx≥0⁢x<0
+    f(x, \lambda, k) = \begin{cases}
+    \frac{k}{\lambda} \big(\frac{x}{\lambda}\big)^{k-1} e^{-(x/\lambda)k}, & x \geq 0\\
+    0, &  x < 0
+    \end{cases}
+
 
 .. seealso:: Functions :func:`cdfWeibull`, :func:`cdfWeibullInv`

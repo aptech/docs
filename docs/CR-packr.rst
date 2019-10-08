@@ -98,7 +98,8 @@ Example 3
     do until eof(fp);
        // Read in 100 lines of the data file and remove any rows
        // with missing values
-       x = packr(readr(fp,100));
+       x = packr(readr(fp, 100));
+       
        // Check to see if 'packr' returned a missing value; if
        // not, update 'obs' and 'sum'
        if not scalmiss(x);

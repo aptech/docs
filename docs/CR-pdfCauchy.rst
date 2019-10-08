@@ -29,10 +29,8 @@ Remarks
 
 The probability density function for the Cauchy distribution is defined as:
 
-.. DANGER:: fix equations
-
 .. math::
 
-   f(x)=(πσ(1+(x−μσ)2))−1
+   f(x) = \bigg(\pi \sigma \Big(1+\Big(\frac{x−\mu}{\sigma}\Big)^2\Big)\bigg) ^{−1}
 
 .. seealso:: Functions :func:`cdfCauchy`

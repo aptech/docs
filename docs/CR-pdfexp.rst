@@ -30,10 +30,8 @@ Remarks
 :func:`pdfExp` calculates the probability density function for the two-parameter
 exponential distribution, which is defined as
 
-.. DANGER:: Fix equations
-
 .. math::
 
-   f(x)=1bexp⁡(−x−ab)
+    f(x) = \frac{1}{b} exp \big( − \frac{x−a}{b} \big)
 
 .. seealso:: Functions :func:`cdfexp`

@@ -86,7 +86,6 @@ Examples
   iCtl.matchingType = 0;
   y_imp0 = lrd(y, x, iCtl);
 
-
   // Change linear prediction type to
   // predict instead of bayes
   struct imputecontrol iCtl;

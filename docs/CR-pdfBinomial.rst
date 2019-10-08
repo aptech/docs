@@ -30,7 +30,7 @@ their candidate. What is the probability that exactly 600 of those selected supp
 
 ::
 
-    p = pdfBinomial(600, 1024,0.55);
+    p = pdfBinomial(600, 1024, 0.55);
 
 After running the code above, *p* is equal to:
 
@@ -55,9 +55,6 @@ After running the code above, *p* is equal to:
 
 Remarks
 -------
-
-.. DANGER:: FIx equations
-
 The probability density function for the binomial distribution is
 defined as:
 

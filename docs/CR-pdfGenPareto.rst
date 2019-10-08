@@ -33,10 +33,12 @@ Remarks
 The probability density function for the Generalized Pareto distribution
 is defined as
 
-.. DANGER:: fix equations
-
 .. math::
 
-   f(x)={1σ(1+k(x−μ)σ)−1−1/k1σexp⁡(−(x−μ)σ)k≠0k=0
+    f(x)= \begin{cases}
+    \frac{1}{\sigma}\big(1 + k
+      \frac{x-\mu}{\sigma} \big)^{-1 - 1/k},& k\neq 0\\
+    \frac{1}{\sigma}exp(\frac{x-\mu}{\sigma}), &  k = 0
+    \end{cases}
 
 .. seealso:: Functions :func:`cdfGenPareto`

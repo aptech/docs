@@ -9,7 +9,7 @@ Computes the probability density function for the Laplace distribution.
 
 Format
 ----------------
-.. function:: p = pdfLaplace(x,a,b)
+.. function:: p = pdfLaplace(x, a, b)
 
     :param x: data
     :type x: NxK matrix, Nx1 vector or scalar.
@@ -28,10 +28,8 @@ Remarks
 
 The probability density function for the Laplace distribution is defined as
 
-.. DANGER:: Fix equations
+.. math::
 
-::
-
-   f(x)=12bexp-|x-a|b
+   f(x) = \frac{1}{2b} exp \bigg(- \frac{|x-a|}{b} \bigg)
 
 .. seealso:: Functions :func:`cdfCauchy`, :func:`pdfCauchy`

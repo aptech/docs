@@ -33,7 +33,7 @@ defined as
 
 .. math::
 
-   f(x)=exp⁡(z)b(1+exp⁡(z))2
-   z=-⁡x-ab
+   f(x) = \frac{exp⁡(z)}{b(1 + exp⁡(z))^2}\\
+   z = -⁡ \frac{x-a}{b}
 
 .. seealso:: Functions :func:`cdflogistic`
