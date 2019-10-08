@@ -26,7 +26,7 @@ Format
             * - "mode"
             * - "min"
             * - "max"
-            * - "sd"
+            * - "sd" (sample standard deviation)
             * - "variance"
 
     :type method: string
@@ -41,16 +41,18 @@ Examples
 Example 1
 +++++++++++++
 
+This example aggregates a matrix with one group id column and one column of data by mean and then by minimum.
+
 ::
 
     // Create a matrix where the first
     // column is the group id
-    X = { 1002  5, 
+    X = { 1002  7, 
           1001  2, 
-          1004  5, 
+          1004  9, 
           1001  8, 
           1004  6, 
-          1003  2, 
+          1003  3, 
           1002  5, 
           1001  4 };
     
@@ -75,6 +77,8 @@ The above code will make the following assignments:
 
 Example 2
 ++++++++++++
+
+This example aggregates the data from a matrix with one group id column and two data columns first by sample standard deviation and then by variance.
 
 ::
 
@@ -103,8 +107,8 @@ The above code will make the following assignments:
 
 ::
 
-    agg_sd  = 1001    27.48     2.85 
-              1002    27.30     4.91
+    agg_sd  = 1001    30.10     3.13
+              1002    29.90     5.38
 
     agg_var = 1001   755.14     8.14 
               1002   745.14    24.11
