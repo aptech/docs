@@ -146,7 +146,10 @@ Format
 
                 :"qr": Solves for the parameter estimates using a  qr decomposition.
                 :"svd": Solves for the parameter estimates using a singular value decomposition.
-
+            * - oc0.weights
+              - Kx1 Vector, if defined, specifies weights to be used in the weighted least squares. If not defined, ordinary least squares will be computed.
+            * - oc0.weightsVar
+              - String, name of the variable used for weighting. Only valid if dataset and formula is specified. Will override any weights in *oCtl.weights*.
     :type oc0: struct
 
     :return oout: instance of :class:`olsmtOut` struct containing the following members:
@@ -333,7 +336,7 @@ Use a dataset and variable indices
 
 ::
 
-    // Set dataset name 
+    // Set dataset name
     dataset = getGAUSSHome() $+ "examples/credit.dat";
 
     // Set the third variable in 'credit.dat', 'Rating'
@@ -364,6 +367,28 @@ The above code will produce the following output:
     Income       0.018253    0.028857    0.632538     0.527    0.004158    0.791378
     Limit        0.066587    0.000436  152.717620     0.000    0.993363    0.996880
     Age          0.019892    0.036174    0.549896     0.583    0.002218    0.103165
+
+Basic usage with weights
++++++++++++++++++++++++++
+
+::
+
+  // Define data
+  parent = { 0.21, 0.2, 0.19, 0.18, 0.17, 0.16, 0.15 };
+  progeny = { 0.1726, 0.1707, 0.1637, 0.164, 0.1613, 0.1617, 0.1598 };
+  sd = {0.01988, 0.01938, 0.01896, 0.02037, 0.01654, 0.01594, 0.01763 };
+
+  // Calculate weights
+  weights = 1./SD.^2;
+
+  // Set up olsControl structure
+  struct olsmtControl oCtl;
+  oCtl = olsmtControlCreate();
+  oCtl.weights = weights;
+
+  // olsmt output structure
+  struct olsmtOut out_ols;
+  out_ols = olsmt("", progeny, parent, oCtl);
 
 Source
 ------
