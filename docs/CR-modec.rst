@@ -53,11 +53,11 @@ This example will load the variables, *Cards*, *Age* and *Education* from the da
     fname = getGAUSSHome() $+ "examples/credit.dat";
     
     // Load three variables by name 
-    X = loadd(fname, "Cards + Age + Education")
+    X = loadd(fname, "Cards + Age + Education");
     
     // Compute the mode of each of the
     // three columns in 'X'
-    m = modec(X)
+    m = modec(X);
 
 After the code above, *m* will equal:
 
