@@ -390,6 +390,24 @@ Basic usage with weights
   struct olsmtOut out_ols;
   out_ols = olsmt("", progeny, parent, oCtl);
 
+The above code will produce the following output:
+
+::
+
+  Valid cases:                     7      Dependent variable:                   Y
+  Missing cases:                   0      Deletion method:                   None
+  Total SS:                  572.494      Degrees of freedom:                   5
+  R-squared:                   0.852      Rbar-squared:                     0.823
+  Residual SS:                 0.061      Std error of est:                 0.110
+  F(1,5):                     28.812      Probability of F:                 0.002
+
+                            Standard                 Prob   Standardized  Cor with
+  Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
+  -------------------------------------------------------------------------------
+
+  CONSTANT     0.127964  0.00681124     18.7872     0.000    0.778572    0.999643
+  X1           0.204801   0.0381548     5.36763     0.003    0.222444    0.996209
+
 Source
 ------
 
