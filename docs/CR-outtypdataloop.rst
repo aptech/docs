@@ -14,6 +14,13 @@ Format
     :param num_constant: precision of output dataset.
     :type num_constant: scalar
 
+Examples
+----------------
+
+::
+
+    outtyp 8;
+
 Remarks
 -------
 
@@ -25,9 +32,3 @@ that of the input dataset. If character data is present in the data
 set, the precision will be forced to double.
 
 
-Examples
-----------------
-
-::
-
-    outtyp 8;

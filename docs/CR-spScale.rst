@@ -25,11 +25,6 @@ Format
 
     :rtype s: Nx1 vector
 
-Remarks
--------
-
-:func:`spScale` scales the elements of the matrix by powers of 10 so that they are all within :math:`(-10,10)`.
-
 Examples
 ----------------
 
@@ -59,4 +54,9 @@ The results:
             0.10 
     r =     0.10 
             0.10
+
+Remarks
+-------
+
+:func:`spScale` scales the elements of the matrix by powers of 10 so that they are all within :math:`(-10,10)`.
 

@@ -21,6 +21,13 @@ Format
 
     :rtype is_cmplx: scalar
 
+Examples
+----------------
+
+::
+
+    is_cmplx = gdaIsCplx("myfile.gda", "x1");
+
 Remarks
 -------
 
@@ -45,9 +52,3 @@ include:
 +----+-----------------------------------------------------+
 
 
-Examples
-----------------
-
-::
-
-    is_cmplx = gdaIsCplx("myfile.gda", "x1");

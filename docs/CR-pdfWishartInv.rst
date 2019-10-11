@@ -23,17 +23,6 @@ Format
     :return p: probability density function.
     :rtype p: Scalar
 
-Remarks
--------
-
-`pdfWishartInv` calculates the probability density function for the
-inverse Wishart distribution, which is defined as
-
-.. math::
-
-    f(T) = \frac{ |\Psi|^{\nu/2} }{ |T|^{ \frac{ \nu + p + 1}{2} }⁢ 2^{\frac{\nu p}{2}}⁢\Gamma_p(\frac{\nu}{2}) } exp\big⁡(−\frac{1}{2}tr(\Gamma T^{−1})\big)
-
-
 Examples
 ----------------
 
@@ -61,9 +50,16 @@ After above code,
 
     6.0267322e-007
 
-See also
-++++++++
+Remarks
+-------
 
-`rndWishart <CR-rndWishart.html#rndWishart>`__\,\ `rndWishartInv <CR-rndWishartInv.html#rndWishartInv>`__
+`pdfWishartInv` calculates the probability density function for the
+inverse Wishart distribution, which is defined as
 
-pdf inverse Wishart
+.. math::
+
+    f(T) = \frac{ |\Psi|^{\nu/2} }{ |T|^{ \frac{ \nu + p + 1}{2} }⁢ 2^{\frac{\nu p}{2}}⁢\Gamma_p(\frac{\nu}{2}) } exp\big⁡(−\frac{1}{2}tr(\Gamma T^{−1})\big)
+
+
+.. seealso:: :func:`rndWishart`, :func:`rndWishartInv`
+

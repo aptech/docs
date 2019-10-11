@@ -20,12 +20,6 @@ Format
 
     :rtype y: Nx1 vector
 
-Remarks
--------
-
-Each element of *y* is from the corresponding row of *x* and the column set
-by the corresponding row of *ci*. In other words, :math:`y[i] = x[i, ci[i]]`.
-
 Examples
 ----------------
 
@@ -57,4 +51,10 @@ After the above code, *x* and *y* are equal to:
      y = 6
          7
         12
+
+Remarks
+-------
+
+Each element of *y* is from the corresponding row of *x* and the column set
+by the corresponding row of *ci*. In other words, :math:`y[i] = x[i, ci[i]]`.
 

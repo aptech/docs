@@ -27,24 +27,6 @@ Format
 :step: (*scalar*)  - the increment value.
 
 
-Remarks
--------
-
-The counter is strictly local to the loop. The expressions, *start*, *stop*
-and *step* are evaluated only once when the loop initializes and are
-stored local to the loop.
-
-The commands `break` and `continue` are supported. The `continue` command
-steps the counter and jumps to the top of the loop. The `break` command
-terminates the current loop.
-
-The loop terminates when the value of *i* exceeds *stop*. If `break` is used
-to terminate the loop and you want the final value of the counter, you
-need to assign it to a variable before the `break` statement (see the
-third example, following).
-
-.. NOTE:: The `for` loop is optimized for speed and much faster than a `do` loop. However, it is best to vectorize code to avoid loops if possible.
-
 Examples
 ----------------
 
@@ -149,3 +131,22 @@ Example 4
     if li;
        print "Compare failed on row " li;
     endif;
+
+Remarks
+-------
+
+The counter is strictly local to the loop. The expressions, *start*, *stop*
+and *step* are evaluated only once when the loop initializes and are
+stored local to the loop.
+
+The commands `break` and `continue` are supported. The `continue` command
+steps the counter and jumps to the top of the loop. The `break` command
+terminates the current loop.
+
+The loop terminates when the value of *i* exceeds *stop*. If `break` is used
+to terminate the loop and you want the final value of the counter, you
+need to assign it to a variable before the `break` statement (see the
+third example, following).
+
+.. NOTE:: The `for` loop is optimized for speed and much faster than a `do` loop. However, it is best to vectorize code to avoid loops if possible.
+

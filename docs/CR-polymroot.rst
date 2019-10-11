@@ -18,17 +18,6 @@ Format
 
     :rtype r: K*N vector
 
-Remarks
--------
-
-*c* is constructed of N+1 KxK coefficient matrices stacked vertically with
-the coefficient matrix of the :math:`t\ n` at the top, :math:`t\ (n-1)` next, down to
-the :math:`t\ 0` matrix at the bottom.
-
-Note that this procedure solves the scalar problem as well, that is, the
-one that POLYROOT solves.
-
-
 Examples
 ----------------
 Solve
@@ -60,3 +49,15 @@ where
      -.69722436
      -2.6180340
      -.38196601
+
+Remarks
+-------
+
+*c* is constructed of N+1 KxK coefficient matrices stacked vertically with
+the coefficient matrix of the :math:`t\ n` at the top, :math:`t\ (n-1)` next, down to
+the :math:`t\ 0` matrix at the bottom.
+
+Note that this procedure solves the scalar problem as well, that is, the
+one that POLYROOT solves.
+
+

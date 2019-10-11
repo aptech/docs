@@ -25,12 +25,6 @@ Format
 
     :rtype retcode: scalar
 
-Remarks
--------
-
-*instance* can be an array of structures.
-
-
 Examples
 ----------------
 
@@ -76,3 +70,10 @@ Now load the saved instance as a new instance *countries_new*
   countries_new = reshape(countries_new, 2, 1);
 
   { countries_new, retcode } = loadStruct("countries", "country");
+
+Remarks
+-------
+
+*instance* can be an array of structures.
+
+

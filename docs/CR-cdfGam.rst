@@ -20,15 +20,6 @@ Format
 
     :rtype p: matrix, max(N,L) by max(K,M)
 
-Remarks
--------
-
-The regularized lower incomplete gamma function returns the integral
-
-.. math:: \text{cdfGam(x, int_lim)} = \int_{0}^{int\_lim} \frac{e^{-t}t^{(x-1)}}{\Gamma(x)}dt
-
-A -1 is returned for those elements with invalid inputs.
-
 Examples
 ----------------
 
@@ -85,3 +76,13 @@ After the code above:
     0.84270079       0.63212056      0.080301397   1.1142548e-007
 
 This computes the integrals over the range from 0 to 1, in increments of 0.2, at the parameter values 0.5, 1, 3, 10.
+
+Remarks
+-------
+
+The regularized lower incomplete gamma function returns the integral
+
+.. math:: \text{cdfGam(x, int_lim)} = \int_{0}^{int\_lim} \frac{e^{-t}t^{(x-1)}}{\Gamma(x)}dt
+
+A -1 is returned for those elements with invalid inputs.
+

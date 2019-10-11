@@ -18,17 +18,6 @@ Format
 
     :rtype ind: Nx1 vector
 
-Remarks
--------
-
-:func:`sortind` assumes that *x* contains numeric data. :func:`sortindc` assumes that *x*
-contains character data.
-
-This function can be used to sort several matrices in the same way that
-some other reference matrix is sorted. To do this, create the index of
-the reference matrix, then use :func:`submat` to rearrange the other matrices in
-the same way.
-
 Examples
 ----------------
 
@@ -61,4 +50,15 @@ After running the above code:
     y  =  6.00
           8.00
           9.00
+
+Remarks
+-------
+
+:func:`sortind` assumes that *x* contains numeric data. :func:`sortindc` assumes that *x*
+contains character data.
+
+This function can be used to sort several matrices in the same way that
+some other reference matrix is sorted. To do this, create the index of
+the reference matrix, then use :func:`submat` to rearrange the other matrices in
+the same way.
 

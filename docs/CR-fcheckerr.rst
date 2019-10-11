@@ -19,12 +19,6 @@ Format
 
     :rtype err: scalar
 
-Remarks
--------
-
-If you pass :func:`fcheckerr` the handle of a file opened with :func:`open` (i.e., a
-dataset or matrix file), your program will terminate with a fatal error.
-
 Examples
 ----------
 
@@ -52,3 +46,10 @@ After the above code, the program will print:
 ::
 
     File write failed
+
+Remarks
+-------
+
+If you pass :func:`fcheckerr` the handle of a file opened with :func:`open` (i.e., a
+dataset or matrix file), your program will terminate with a fatal error.
+

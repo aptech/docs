@@ -23,11 +23,6 @@ Format
 
     :rtype yr: (N*K)x1 vector
 
-Remarks
--------
-
-:func:`vecr` is much faster.
-
 Examples
 ----------------
 
@@ -46,4 +41,9 @@ The code above assigns the variables *yc* and *yr*:
     yc = 3  yr = 2
          2       3
          4       4
+
+Remarks
+-------
+
+:func:`vecr` is much faster.
 

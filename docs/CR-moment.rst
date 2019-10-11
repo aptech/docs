@@ -32,29 +32,6 @@ Format
 
     :rtype y: KxK matrix or M-dimensional array
 
-Remarks
--------
-
-The fact that the moment matrix is symmetric is taken into account to
-cut execution time almost in half.
-
-If *x* is an array, the result will be an array containing the
-cross-products of each 2-dimensional array described by the two trailing
-dimensions of *x*. In other words, for a 10x4x4 array *x*, the resulting
-array *y* will contain the cross-products of each of the 10 4x4 arrays
-contained in *x*, so :math:`y[n,.,.]=x[n,.,.]'x[n,.,.]` for :math:`1 <= n <= 10`.
-
-If there is no missing data then d = 0 should be used because it will be
-faster.
-
-The ``/`` operator (matrix division) will automatically form a moment matrix
-(performing pairwise deletions if ``trap 2`` is set) and will compute
-the ols coefficients of a regression. However, it can only be used for
-data sets that are small enough to fit into a single matrix. In
-addition, the moment matrix and its inverse cannot be recovered if the ``/``
-operator is used.
-
-
 Examples
 ----------------
 
@@ -94,3 +71,27 @@ second parameter is 2). Then *xx* is inverted using
 the :func:`invpd` function. Finally, the ols coefficients
 are computed. :func:`missrv` is used to emulate pairwise
 deletion by setting missing values to 0.
+
+Remarks
+-------
+
+The fact that the moment matrix is symmetric is taken into account to
+cut execution time almost in half.
+
+If *x* is an array, the result will be an array containing the
+cross-products of each 2-dimensional array described by the two trailing
+dimensions of *x*. In other words, for a 10x4x4 array *x*, the resulting
+array *y* will contain the cross-products of each of the 10 4x4 arrays
+contained in *x*, so :math:`y[n,.,.]=x[n,.,.]'x[n,.,.]` for :math:`1 <= n <= 10`.
+
+If there is no missing data then d = 0 should be used because it will be
+faster.
+
+The ``/`` operator (matrix division) will automatically form a moment matrix
+(performing pairwise deletions if ``trap 2`` is set) and will compute
+the ols coefficients of a regression. However, it can only be used for
+data sets that are small enough to fit into a single matrix. In
+addition, the moment matrix and its inverse cannot be recovered if the ``/``
+operator is used.
+
+

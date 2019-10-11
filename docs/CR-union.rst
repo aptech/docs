@@ -24,12 +24,6 @@ Format
 
     :rtype y: Lx1 vector
 
-Remarks
--------
-
-The combined elements of *v1* and *v2* must fit into a single vector.
-
-
 Examples
 ----------------
 
@@ -55,4 +49,10 @@ The above code will produce the following results:
     LINDA
      MARY
     SALLY
+
+Remarks
+-------
+
+The combined elements of *v1* and *v2* must fit into a single vector.
+
 

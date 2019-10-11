@@ -20,14 +20,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-The multiplication operator, ``*``, performs the same operation for arrays as :func:`amult`.
-
-All leading dimensions must be strictly conformable, and the two
-trailing dimensions of each array must be matrix-product conformable.
-
 Examples
 ----------------
 
@@ -95,3 +87,12 @@ Examples
     167.00000       182.00000       197.00000       212.00000
     211.00000       230.00000       249.00000       268.00000
     255.00000       278.00000       301.00000       324.00000
+
+Remarks
+-------
+
+The multiplication operator, ``*``, performs the same operation for arrays as :func:`amult`.
+
+All leading dimensions must be strictly conformable, and the two
+trailing dimensions of each array must be matrix-product conformable.
+

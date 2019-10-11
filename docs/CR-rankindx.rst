@@ -22,13 +22,6 @@ Format
 
     :rtype y: Nx1 vector
 
-Remarks
--------
-
-:func:`rankindx` assigns different ranks to elements that have equal values
-(ties). Missing values are assigned the lowest ranks.
-
-
 Examples
 ----------------
 
@@ -46,4 +39,11 @@ After the code above, *r* is equal to:
     r = 5
         2
         3
+
+Remarks
+-------
+
+:func:`rankindx` assigns different ranks to elements that have equal values
+(ties). Missing values are assigned the lowest ranks.
+
 

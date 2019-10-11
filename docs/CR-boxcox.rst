@@ -20,15 +20,6 @@ Format
 
     :rtype y: max(M,L)xmax(N,K) or P-dimensional array
 
-Remarks
--------
-
-Allowable range for *x* is: :math:`x > 0`
-
-The :func:`boxcox` function computes:
-
-.. math:: boxcox(x) = (xλ - 1)/λ
-
 Examples
 ----------------
 
@@ -48,3 +39,13 @@ After the code above:
          0.000
          0.189
          0.360
+
+Remarks
+-------
+
+Allowable range for *x* is: :math:`x > 0`
+
+The :func:`boxcox` function computes:
+
+.. math:: boxcox(x) = (xλ - 1)/λ
+
