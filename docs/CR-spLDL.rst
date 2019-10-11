@@ -21,12 +21,6 @@ Format
 
     :rtype d: NxN diagonal sparse matrix
 
-Remarks
--------
-
-:func:`spLDL` will not check to see if the input matrix is symmetric. The
-function looks only at the lower triangular portion of the input matrix.
-
 Examples
 ----------------
 
@@ -41,6 +35,12 @@ Examples
              
      a = densetosp(nz,0);
      { l, d } = spLDL(a);
+
+Remarks
+-------
+
+:func:`spLDL` will not check to see if the input matrix is symmetric. The
+function looks only at the lower triangular portion of the input matrix.
 
 Technical Notes
 ----------------

@@ -21,34 +21,6 @@ Format
 
     :rtype range: string
 
-Remarks
--------
-
-If *row* is a 2x1 vector, it is interpreted as follows
-
-================ ==============
-:math:`row[1]`   starting row
-:math:`row[2]`   ending row
-================ ==============
-
-If *col* is a 2x1 vector, it is interpreted as follows:
-
-================ ==============
-:math:`col[1]`   starting column
-:math:`col[2]`   ending column
-================ ==============
-
-If :func:`xlsMakeRange` fails, it will either terminate and print an error
-message or return a scalar error code, which can be decoded with
-scalerr, depending on the state of the `trap` flag.
-
-+-----------------+-----------------------------------------------------+
-| ``trap 0``      | Print error message and terminate program.          |
-+-----------------+-----------------------------------------------------+
-| ``trap 1``      | Return scalar error code 10.                        |
-+-----------------+-----------------------------------------------------+
-
-
 Examples
 ----------------
 
@@ -79,6 +51,34 @@ produces:
 ::
 
     C2:S37
+
+Remarks
+-------
+
+If *row* is a 2x1 vector, it is interpreted as follows
+
+================ ==============
+:math:`row[1]`   starting row
+:math:`row[2]`   ending row
+================ ==============
+
+If *col* is a 2x1 vector, it is interpreted as follows:
+
+================ ==============
+:math:`col[1]`   starting column
+:math:`col[2]`   ending column
+================ ==============
+
+If :func:`xlsMakeRange` fails, it will either terminate and print an error
+message or return a scalar error code, which can be decoded with
+scalerr, depending on the state of the `trap` flag.
+
++-----------------+-----------------------------------------------------+
+| ``trap 0``      | Print error message and terminate program.          |
++-----------------+-----------------------------------------------------+
+| ``trap 1``      | Return scalar error code 10.                        |
++-----------------+-----------------------------------------------------+
+
 
 .. seealso:: Functions :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`
 

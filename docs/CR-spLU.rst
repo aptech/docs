@@ -23,20 +23,6 @@ Format
 
     :rtype u: NxN "scrambled" upper-triangular sparse matrix
 
-Remarks
--------
-
-If the input matrix or either of the factors :math:`L` and :math:`U` are singular, the
-function will either terminate the program with an error message or
-return an error code which can be tested for with the :func:`scalerr` function.
-
-This depends on the `trap` state as follows:
-
-============ =====================
-``trap 1``   return error code: 50
-``trap 0``   terminate with error message: Matrix singular
-============ =====================
-
 Examples
 ----------------
 
@@ -52,6 +38,20 @@ Examples
     
     a = densetosp(nz, 0);
     { l, u } = spLU(a);
+
+Remarks
+-------
+
+If the input matrix or either of the factors :math:`L` and :math:`U` are singular, the
+function will either terminate the program with an error message or
+return an error code which can be tested for with the :func:`scalerr` function.
+
+This depends on the `trap` state as follows:
+
+============ =====================
+``trap 1``   return error code: 50
+``trap 0``   terminate with error message: Matrix singular
+============ =====================
 
 Technical Notes
 ----------------

@@ -18,12 +18,6 @@ Format
 
     :rtype var_names: Nx1 string array
 
-Remarks
--------
-
-The output, *y*, will have as many rows as there are variables in the dataset.
-
-
 Examples
 ----------------
 
@@ -56,5 +50,11 @@ produces:
 The above example assumes that the dataset ``freqdata``
 contains the variables: ``AGE, PAY, sex, WT``.
 Note the use of :func:`vartypef` to determine the types of these variables.
+
+Remarks
+-------
+
+The output, *y*, will have as many rows as there are variables in the dataset.
+
 
 .. seealso:: Functions :func:`getname`, :func:`getHeaders`, :func:`indcv`, :func:`vartypef`

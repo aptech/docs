@@ -61,18 +61,6 @@ Format
 
     :rtype newstate: 4x1 vector
 
-Remarks
--------
-
-*r* and *c* will be truncated to integers if necessary.
-
-Each seed is generated from the preceding seed, using the formula
-
-.. DANGER:: fix equations
-
-where ``%`` is the mod operator and where *a* is the multiplicative constant
-and *c* is the additive constant. The new seeds are the values returned.
-
 Examples
 ----------------
 
@@ -94,6 +82,18 @@ Examples
      
     print "min " min;
     print "max " max;
+
+Remarks
+-------
+
+*r* and *c* will be truncated to integers if necessary.
+
+Each seed is generated from the preceding seed, using the formula
+
+.. DANGER:: fix equations
+
+where ``%`` is the mod operator and where *a* is the multiplicative constant
+and *c* is the additive constant. The new seeds are the values returned.
 
 .. seealso:: Functions :func:`rndLCn`, :func:`rndLCu`, :func:`rndcon`, :func:`rndmult`
 

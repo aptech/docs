@@ -24,6 +24,18 @@ Format
 
     :rtype b: Px1 vector
 
+Examples
+----------------
+
+::
+
+    // Random matrices
+    x = rndn(4, 4);
+    y = rndn(4, 1);
+
+    // Solve OLS coefficient using QR decomposition
+    b = olsqr(y, x);
+
 Remarks
 -------
 
@@ -36,17 +48,5 @@ matrices it may produce better results.
 The :func:`olsqr` procedure handles matrices that do not have full rank by returning zeros for
 the coefficients that cannot be estimated.
 
-
-Examples
-----------------
-
-::
-
-    // Random matrices
-    x = rndn(4, 4);
-    y = rndn(4, 1);
-
-    // Solve OLS coefficient using QR decomposition
-    b = olsqr(y, x);
 
 .. seealso:: Functions :func:`ols`, :func:`olsqr2`, :func:`orth`, :func:`qqr`

@@ -30,23 +30,6 @@ Portability
 
 Windows, Linux and macOS
 
-Remarks
--------
-
-If :func:`xlsGetSheetSize` fails, it will either terminate and print an error
-message or return a scalar error code, which can be decoded with
-scalerr, depending on the state of the `trap` flag.
-
-+-----------------+-----------------------------------------------------+
-| ``trap 0``      | Print error message and terminate program.          |
-+-----------------+-----------------------------------------------------+
-| ``trap 1``      | Return scalar error code 10.                        |
-+-----------------+-----------------------------------------------------+
-
-If a scalar error code is returned, both return values will be set with
-the error code.
-
-
 Examples
 ----------------
 
@@ -89,6 +72,23 @@ you can set the `trap` state as in the example below.
     if scalmiss(r);
        // User error handling code here
     endif;
+
+Remarks
+-------
+
+If :func:`xlsGetSheetSize` fails, it will either terminate and print an error
+message or return a scalar error code, which can be decoded with
+scalerr, depending on the state of the `trap` flag.
+
++-----------------+-----------------------------------------------------+
+| ``trap 0``      | Print error message and terminate program.          |
++-----------------+-----------------------------------------------------+
+| ``trap 1``      | Return scalar error code 10.                        |
++-----------------+-----------------------------------------------------+
+
+If a scalar error code is returned, both return values will be set with
+the error code.
+
 
 .. seealso:: Functions :func:`xlsGetSheetCount`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
 

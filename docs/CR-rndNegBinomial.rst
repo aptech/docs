@@ -44,35 +44,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-The properties of the pseudo-random numbers in *x* are:
-
-.. math::
-
-   E(x) = num_s*(1 - prob)/prob 
-
-   Var(x) = num_s*(1 - prob)/prob2
-
-   num_s > 0
-
-   0 < prob < 1
-
-.. DANGER:: fix equations
-
-:func:`rndNegBinomial` has a different parameterization than the deprecated
-:func:`rndnb`. To convert a call to :func:`rndnb` to an equivalent call to
-:func:`rndNegBinomial`, pass in :math:`1 - prob` in place of *prob*. For example, the
-following two calls are equivalent.
-
-::
-
-   x_1 = rndnb(1e6, 1, 15, 0.3);
-   x_2 = rndNegBinomial(1e6, 1, 15, 0.7);
-
-*r* and *c* will be truncated to integers if necessary.
-
 Examples
 ----------------
 
@@ -104,6 +75,35 @@ An alternative parameterization specifies the negative binomial distribution in 
     mu = 3;
     
     x = rndNegBinomial(100, 1, dp, dp./(dp + mu));
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in *x* are:
+
+.. math::
+
+   E(x) = num_s*(1 - prob)/prob 
+
+   Var(x) = num_s*(1 - prob)/prob2
+
+   num_s > 0
+
+   0 < prob < 1
+
+.. DANGER:: fix equations
+
+:func:`rndNegBinomial` has a different parameterization than the deprecated
+:func:`rndnb`. To convert a call to :func:`rndnb` to an equivalent call to
+:func:`rndNegBinomial`, pass in :math:`1 - prob` in place of *prob*. For example, the
+following two calls are equivalent.
+
+::
+
+   x_1 = rndnb(1e6, 1, 15, 0.3);
+   x_2 = rndNegBinomial(1e6, 1, 15, 0.7);
+
+*r* and *c* will be truncated to integers if necessary.
 
 Technical Notes
 ----------------

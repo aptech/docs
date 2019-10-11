@@ -23,27 +23,6 @@ Format
 
     :rtype y: NxK matrix that equals x
 
-Remarks
--------
-
-The matrix *e* will usually be created by a logical expression. For
-instance, to convert all numbers between 10 and 15 in *x* to missing, the
-following code could be used:
-
-::
-
-    y = missex(x, (x .> 10) .and (x .< 15));
-
-Note that "dot" operators MUST be used in constructing the logical
-expressions.
-
-For complex matrices, the missing value code is defined as a missing
-value entry in the real part of the matrix. For complex *x*, then, :func:`missex`
-replaces elements with a ". + 0i" value.
-
-This function is like :func:`miss`, but is more general in that a range of
-values can be converted into missings.
-
 Examples
 ----------------
 
@@ -69,6 +48,27 @@ After the code above:
 A 3x2 matrix of uniform random numbers is created.
 All values in the interval (0.30, 0.60) are converted
 to missing.
+
+Remarks
+-------
+
+The matrix *e* will usually be created by a logical expression. For
+instance, to convert all numbers between 10 and 15 in *x* to missing, the
+following code could be used:
+
+::
+
+    y = missex(x, (x .> 10) .and (x .< 15));
+
+Note that "dot" operators MUST be used in constructing the logical
+expressions.
+
+For complex matrices, the missing value code is defined as a missing
+value entry in the real part of the matrix. For complex *x*, then, :func:`missex`
+replaces elements with a ". + 0i" value.
+
+This function is like :func:`miss`, but is more general in that a range of
+values can be converted into missings.
 
 Source
 ------

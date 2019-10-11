@@ -12,6 +12,15 @@ Format
 .. function:: #include filename
 			  #include "filename"
 
+Examples
+----------------
+
+::
+
+    #include  "/gauss/inc/cond.inc"
+
+The command will cause the code in the program :file:`cond.inc` to be merged into the current program at the point at which this statement appears.
+
 Remarks
 -------
 
@@ -48,14 +57,5 @@ reflects the actual line number within the `#include`'d file. See `#lineson`
 for a more complete discussion of the use of and the validity of line
 numbers when debugging.
 
-
-Examples
-----------------
-
-::
-
-    #include  "/gauss/inc/cond.inc"
-
-The command will cause the code in the program :file:`cond.inc` to be merged into the current program at the point at which this statement appears.
 
 .. seealso:: Functions `run`, :func:`lineson`

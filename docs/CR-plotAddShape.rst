@@ -33,18 +33,6 @@ Format
     :param y_end: the Y coordinate for the end of the bounding box for each respective shape.
     :type y_end: scalar or Nx1 vector
 
-Remarks
--------
-
-:func:`plotAddShape` will add shapes to existing graphs. It will not create a
-new graph, however, if one does not already exist. 
-
-.. NOTE:: The top left corner of the bounding box for the shape will be placed at
-    the coordinates that you specify. The bounding box is rectangular and
-    will therefore not touch the edge of an ellipse at that point.
-
-:func:`plotAddShape` is not yet supported for surface plots.
-
 Examples
 ----------------
 
@@ -70,6 +58,18 @@ Add a rectangle
     
     // Add rectangle to graph
     plotAddShape(annotation_type, x_start, y_start, x_end, y_end);
+
+Remarks
+-------
+
+:func:`plotAddShape` will add shapes to existing graphs. It will not create a
+new graph, however, if one does not already exist. 
+
+.. NOTE:: The top left corner of the bounding box for the shape will be placed at
+    the coordinates that you specify. The bounding box is rectangular and
+    will therefore not touch the edge of an ellipse at that point.
+
+:func:`plotAddShape` is not yet supported for surface plots.
 
 .. seealso:: Functions :func:`plotAddTextbox`, :func:`annotationGetDefaults`
 

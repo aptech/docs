@@ -67,6 +67,21 @@ Format
 
     :rtype retcode: scalar
 
+Examples
+----------------
+
+::
+
+    run -r myfile.gau;
+    ret = gdaSave("myfile.gda","x*", 0, 2, 3);
+
+This example runs a GAUSS program called :file:`myfile.gau` and then
+writes all initialized variables in the workspace beginning with 'x'
+to the file :file:`myfile.gda`. If :file:`myfile.gda` already
+exists, this example appends to it, changing the names of the variables
+that it writes to the file if necessary to avoid name conflicts. All writing
+and variable name changing is reported.
+
 Remarks
 -------
 
@@ -92,20 +107,5 @@ there is a conflict with that name, it will change it to *name_2*, and so
 on until it finds a name that does not conflict with any of the
 variables already in the GDA.
 
-
-Examples
-----------------
-
-::
-
-    run -r myfile.gau;
-    ret = gdaSave("myfile.gda","x*", 0, 2, 3);
-
-This example runs a GAUSS program called :file:`myfile.gau` and then
-writes all initialized variables in the workspace beginning with 'x'
-to the file :file:`myfile.gda`. If :file:`myfile.gda` already
-exists, this example appends to it, changing the names of the variables
-that it writes to the file if necessary to avoid name conflicts. All writing
-and variable name changing is reported.
 
 .. seealso:: Functions :func:`gdaLoad`

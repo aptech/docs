@@ -27,14 +27,6 @@ Format
 
     :rtype h: KxK matrix
 
-Remarks
--------
-
-*fct* must evaluate to an Nx1 vector conformable to the *weight* vector.
-
-*par1* must be created using the :func:`pvPack` procedures.
-
-
 Examples
 ----------------
 
@@ -70,6 +62,14 @@ Examples
 
     // Find Hessian
     h = hessMTw(&fct, p1, x, wgt);
+
+Remarks
+-------
+
+*fct* must evaluate to an Nx1 vector conformable to the *weight* vector.
+
+*par1* must be created using the :func:`pvPack` procedures.
+
 
 Source
 ------

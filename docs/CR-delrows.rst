@@ -23,21 +23,6 @@ Format
 
     :rtype x_trim: PxK matrix
 
-Remarks
--------
-
-If *r* is an empty matrix, the result will be unchanged. Negative values
-of *r* are counted from the end of the matrix, therefore:
-
-::
-
-   r = -1;
-
-   x_trim = delrows(x, r);
-
-will delete last row of *x* . The remaining rows of *x* will be assigned to *x_trim*.
-
-
 Examples
 ----------------
 
@@ -62,5 +47,20 @@ After the code above:
     x_trim =   0 10 20
               32 42 52
               60 70 80
+
+Remarks
+-------
+
+If *r* is an empty matrix, the result will be unchanged. Negative values
+of *r* are counted from the end of the matrix, therefore:
+
+::
+
+   r = -1;
+
+   x_trim = delrows(x, r);
+
+will delete last row of *x* . The remaining rows of *x* will be assigned to *x_trim*.
+
 
 .. seealso:: Functions :func:`delif`

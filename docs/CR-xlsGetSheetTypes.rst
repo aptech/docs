@@ -37,21 +37,6 @@ Portability
 
 Windows, Linux and macOS
 
-Remarks
--------
-
-:math:`K` is the number of columns found in the spreadsheet.
-
-If :func:`xlsGetSheetTypes` fails, it will either terminate and print an error
-message or return a scalar error code, which can be decoded with
-scalerr, depending on the state of the `trap` flag.
-
-+------------+--------------------------------------------+
-| ``trap 0`` | Print error message and terminate program. |
-+------------+--------------------------------------------+
-| ``trap 1`` | Return scalar error code 10.               |
-+------------+--------------------------------------------+
-
 Examples
 ----------------
 
@@ -76,6 +61,21 @@ would produce the following output:
 ::
 
     0      0      0      1
+
+Remarks
+-------
+
+:math:`K` is the number of columns found in the spreadsheet.
+
+If :func:`xlsGetSheetTypes` fails, it will either terminate and print an error
+message or return a scalar error code, which can be decoded with
+scalerr, depending on the state of the `trap` flag.
+
++------------+--------------------------------------------+
+| ``trap 0`` | Print error message and terminate program. |
++------------+--------------------------------------------+
+| ``trap 1`` | Return scalar error code 10.               |
++------------+--------------------------------------------+
 
 .. seealso:: Functions :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsMakeRange`
 

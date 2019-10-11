@@ -23,16 +23,6 @@ Format
 
     :rtype tok: Mx1 vector
 
-Remarks
--------
-
-The tokens in str must be 8 characters or less in size. This is because
-they are returned in a character vector in which each element is
-represented as a double precision value. If they are longer, the
-contents of tok is unpredictable. Use string arrays to create arrays of
-text with elements longer than 8 characters.
-
-
 Examples
 ----------------
 
@@ -119,6 +109,16 @@ The code above will produce output like this:
     Weight    101    135     75
     Height     31     60      1
     -----------------------------------
+
+Remarks
+-------
+
+The tokens in str must be 8 characters or less in size. This is because
+they are returned in a character vector in which each element is
+represented as a double precision value. If they are longer, the
+contents of tok is unpredictable. Use string arrays to create arrays of
+text with elements longer than 8 characters.
+
 
 .. seealso:: Functions :func:`token`
 

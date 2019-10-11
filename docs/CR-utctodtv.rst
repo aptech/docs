@@ -17,6 +17,26 @@ Format
 
     :rtype dtv: Nx8 matrix
 
+Examples
+----------------
+
+::
+
+    // Set 'tc' equal to the number of seconds since January 1,
+    // 1970
+    tc = timeutc;
+    print "tc = " tc;
+    
+    dtv = utctodtv(tc);
+    print "dtv = " dtv;
+
+produces:
+
+::
+
+    tc = 1340315529
+    dtv = 2012 6 21 14 52 9 4 172
+
 Remarks
 -------
 
@@ -43,26 +63,6 @@ Each row of dtv, in DTV vector format, contains:
 | :math`[N,8]`      | Days since Jan 1 of current year, 0-365. |
 +-------------------+------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    // Set 'tc' equal to the number of seconds since January 1,
-    // 1970
-    tc = timeutc;
-    print "tc = " tc;
-    
-    dtv = utctodtv(tc);
-    print "dtv = " dtv;
-
-produces:
-
-::
-
-    tc = 1340315529
-    dtv = 2012 6 21 14 52 9 4 172
 
 .. seealso:: Functions :func:`dtvnormal`, :func:`timeutc`, :func:`utctodt`, :func:`dttodtv`, :func:`dttoutc`, :func:`dtvtodt`, :func:`dtvtoutc`, :func:`strtodt`, :func:`dttostr`
 

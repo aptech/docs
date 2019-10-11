@@ -21,12 +21,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-The output *y*, will have the same sizes of dimensions as *x*, except that
-the dimension indicated by *dim* will be collapsed to 1.
-
 Examples
 ----------------
 
@@ -105,5 +99,11 @@ Using the same array *x* as the above example, this example finds the minimum va
     -4.0000000
     -16.000000
     -16.000000
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
 
 .. seealso:: Functions :func:`amax`, :func:`minc`

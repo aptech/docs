@@ -21,13 +21,6 @@ Format
 
     :rtype y: 1xK row vector
 
-Remarks
--------
-
-:func:`getRow` is designed to give an alternative access to rows in a matrix
-than indexing the matrix by brackets.
-
-
 Examples
 ----------------
 First create a matrix, *a*:
@@ -50,5 +43,12 @@ or
     y = a[3, .];
 
 While both statements will produce the same result, the first may make for code that is easier to read and interpret.
+
+Remarks
+-------
+
+:func:`getRow` is designed to give an alternative access to rows in a matrix
+than indexing the matrix by brackets.
+
 
 .. seealso:: Functions :func:`getTrRow`

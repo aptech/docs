@@ -44,26 +44,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-The properties of the pseudo-random numbers in *x* are:
-
-.. DANGER:: fix equations
-
-.. math::
-
-   $\mu = np\\
-   \sigma^2 = np(1 - p)\\
-   \text{pmf } = {{n}\choose{k}}p^k(1 - p)^{n - k}\\
-   \text{ }\\
-   \text{n = number of trials}\\
-   \text{p = probability of success}\\
-   \text{k = number of successes}$
-
-*r* and *c* will be truncated to integers if necessary.
-
-
 Examples
 ----------------
 
@@ -117,6 +97,26 @@ Technical Notes
 The default generator for rndBinomial is the SFMT Mersenne-Twister
 19937. You can specifiy a different underlying random number generator
 with the function :func:`rndCreateState`.
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in *x* are:
+
+.. DANGER:: fix equations
+
+.. math::
+
+   $\mu = np\\
+   \sigma^2 = np(1 - p)\\
+   \text{pmf } = {{n}\choose{k}}p^k(1 - p)^{n - k}\\
+   \text{ }\\
+   \text{n = number of trials}\\
+   \text{p = probability of success}\\
+   \text{k = number of successes}$
+
+*r* and *c* will be truncated to integers if necessary.
+
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
 

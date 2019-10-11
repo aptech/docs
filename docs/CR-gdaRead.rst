@@ -21,6 +21,13 @@ Format
 
     :rtype y: matrix
 
+Examples
+----------------
+
+::
+
+    y = gdaRead("myfile.gda", "x1");
+
 Remarks
 -------
 
@@ -44,12 +51,5 @@ following:
 | 14 | File too large to be read on current platform.      |
 +----+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    y = gdaRead("myfile.gda", "x1");
 
 .. seealso:: Functions :func:`gdaReadByIndex`, :func:`gdaGetName`

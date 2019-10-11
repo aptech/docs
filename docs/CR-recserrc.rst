@@ -31,11 +31,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-Can be used to convert from decimal to other number systems (radix conversion).
-
 Examples
 ----------------
 
@@ -55,6 +50,11 @@ in the last step) the digits representing the decimal numbers 2, 8, and 10 in ba
     0 0 1 0
     1 0 0 0
     1 0 1 0
+
+Remarks
+-------
+
+Can be used to convert from decimal to other number systems (radix conversion).
 
 Source
 ------

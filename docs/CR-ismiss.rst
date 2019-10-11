@@ -18,14 +18,6 @@ Format
 
     :rtype x_ismiss: scalar
 
-Remarks
--------
-
-An element of *x* is considered to be a missing if and only if it contains
-a missing value in the real part. Thus, if :math:`x = 1 + .i`, ``ismiss(x)`` will
-return a 0.
-
-
 Examples
 ----------------
 
@@ -60,5 +52,13 @@ Examples
 
 To reset all missing values to a specified value, replace the call to :func:`packr`
 above with a call to :func:`missrv`.
+
+Remarks
+-------
+
+An element of *x* is considered to be a missing if and only if it contains
+a missing value in the real part. Thus, if :math:`x = 1 + .i`, ``ismiss(x)`` will
+return a 0.
+
 
 .. seealso:: Functions :func:`scalmiss`, :func:`miss`, :func:`missrv`, :func:`contains`

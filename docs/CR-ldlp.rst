@@ -18,15 +18,6 @@ Format
 
     :rtype ldl_factor: (N+1)xN matrix
 
-Remarks
--------
-
-Matrix factorization is the most computationally intense part of solving
-a system of linear equations. The factorization can be saved and reused
-multiple times to prevent the need to repeat the matrix factorization
-step. :func:`ldlp` uses the LAPACK function *dsytrf* to compute the factorization.
-
-
 Examples
 ----------------
 
@@ -55,5 +46,14 @@ The above code will solve the system of linear equations :math:`Ax = b`, assigni
     x = -0.1529
         -0.2829
          0.1900
+
+Remarks
+-------
+
+Matrix factorization is the most computationally intense part of solving
+a system of linear equations. The factorization can be saved and reused
+multiple times to prevent the need to repeat the matrix factorization
+step. :func:`ldlp` uses the LAPACK function *dsytrf* to compute the factorization.
+
 
 .. seealso:: Functions :func:`ldlsol`, :func:`chol`, :func:`solpd`

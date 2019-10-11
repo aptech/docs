@@ -24,12 +24,6 @@ Format
 
     :rtype qid: scalar
 
-Remarks
--------
-
-If the *placeholders* parameter is passed in, the values are bound
-sequentially to ODBC style parameters.
-
 Examples
 ----------------
 
@@ -64,5 +58,11 @@ Example 2
 
     // Execute query
     dbQueryExecPrepared(qid);
+
+Remarks
+-------
+
+If the *placeholders* parameter is passed in, the values are bound
+sequentially to ODBC style parameters.
 
 .. seealso:: :func:`dbQueryPrepare`

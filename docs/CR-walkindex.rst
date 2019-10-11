@@ -25,12 +25,6 @@ Format
 
     :rtype ni: Mx1 vector of indices
 
-Remarks
--------
-
-:func:`walkindex` will return a scalar error code if the index cannot walk
-further in the specified dimension and direction.
-
 Examples
 ----------------
 
@@ -65,6 +59,12 @@ This example decrements the second value of the index vector *ind*.
 
 Using the orders from the example above and the *ind* that was returned, 
 this example increments the third value of the index vector *ind*.
+
+Remarks
+-------
+
+:func:`walkindex` will return a scalar error code if the index cannot walk
+further in the specified dimension and direction.
 
 .. seealso:: Functions :func:`nextindex`, :func:`previousindex`, :func:`loopnextindex`
 

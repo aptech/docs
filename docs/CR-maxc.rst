@@ -18,23 +18,6 @@ Format
 
     :rtype y: Kx1 matrix
 
-Remarks
--------
-
-If *x* is complex, :func:`maxc` uses the complex modulus (``abs(x)``) to determine the
-largest elements.
-
-To find the maximum elements in each row of a matrix, transpose the
-matrix before applying the :func:`maxc` function.
-
-To find the maximum value in the whole matrix if the matrix has more
-than one column, nest two calls to :func:`maxc`:
-
-::
-
-   y = maxc(maxc(x));
-
-
 Examples
 ----------------
 
@@ -61,5 +44,22 @@ then *y* will equal:
 
     0.90393029
     0.95919009
+
+Remarks
+-------
+
+If *x* is complex, :func:`maxc` uses the complex modulus (``abs(x)``) to determine the
+largest elements.
+
+To find the maximum elements in each row of a matrix, transpose the
+matrix before applying the :func:`maxc` function.
+
+To find the maximum value in the whole matrix if the matrix has more
+than one column, nest two calls to :func:`maxc`:
+
+::
+
+   y = maxc(maxc(x));
+
 
 .. seealso:: Functions :func:`minc`, :func:`maxindc`, :func:`minindc`

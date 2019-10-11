@@ -19,23 +19,6 @@ Format
               external sparse matrix sma, smb
               external struct structure_type sta, stb
 
-Remarks
--------
-
-See `Procedures and Keywords`, Chapter 1.
-
-You may have several procedures in different files that reference the
-same global variable. By placing an `external` statement at the top of
-each file, you can let the compiler know the type of the symbol.
-If the symbol is listed and strongly typed in an active library, no
-`external` statement is needed.
-
-If a matrix, string, N-dimensional array, sparse matrix, or structure
-appears in an `external` statement, it needs to appear once in a `declare`
-statement. If no declaration is found, an ``Undefined symbol`` error message
-will result.
-
-
 Examples
 ----------------
 Let us suppose that you created a set of procedures defined in
@@ -66,5 +49,22 @@ that defines *\_errcode* as a matrix, but this would not be encountered by
 the compiler until the `if` statement containing the reference to
 *\_errcode* in the main program file had already been incorrectly
 compiled.
+
+Remarks
+-------
+
+See `Procedures and Keywords`, Chapter 1.
+
+You may have several procedures in different files that reference the
+same global variable. By placing an `external` statement at the top of
+each file, you can let the compiler know the type of the symbol.
+If the symbol is listed and strongly typed in an active library, no
+`external` statement is needed.
+
+If a matrix, string, N-dimensional array, sparse matrix, or structure
+appears in an `external` statement, it needs to appear once in a `declare`
+statement. If no declaration is found, an ``Undefined symbol`` error message
+will result.
+
 
 .. seealso:: Functions `declare`

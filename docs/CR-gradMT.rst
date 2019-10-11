@@ -25,12 +25,6 @@ Format
 
     :rtype g: NxK  or 1xK
 
-Remarks
--------
-
-*par1* must be created using the :func:`pvPack` procedures.
-
-
 Examples
 ----------------
 
@@ -58,6 +52,12 @@ Examples
 
     // Find gradient 
     g = gradMT(&fct, p1, d0);
+
+Remarks
+-------
+
+*par1* must be created using the :func:`pvPack` procedures.
+
 
 Source
 ------

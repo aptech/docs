@@ -26,6 +26,37 @@ Format
     ``-r``    flag, returns control to the calling program.
     ========= ==================================
 
+Examples
+----------------
+
+Example 1
++++++++++
+
+::
+
+    run myprog.prg;
+
+Example 2
++++++++++
+
+::
+
+    name = "myprog.prg";
+    run ^name;
+
+Example 3
++++++++++
+
+::
+
+    x = rndn(3,3);
+    run -r myprog.prg;
+    y = inv(x);
+    e = x*y;
+
+In this case, GAUSS will execute the lines after the run command. If the 
+the ``-r`` is omitted, the lines following the run command will not be executed within a program.
+
 Remarks
 -------
 
@@ -72,36 +103,5 @@ is run. *src_path* is defined in gauss.cfg.
 Programs can also be run by typing the filename on the OS command line
 when starting GAUSS.
 
-
-Examples
-----------------
-
-Example 1
-+++++++++
-
-::
-
-    run myprog.prg;
-
-Example 2
-+++++++++
-
-::
-
-    name = "myprog.prg";
-    run ^name;
-
-Example 3
-+++++++++
-
-::
-
-    x = rndn(3,3);
-    run -r myprog.prg;
-    y = inv(x);
-    e = x*y;
-
-In this case, GAUSS will execute the lines after the run command. If the 
-the ``-r`` is omitted, the lines following the run command will not be executed within a program.
 
 .. seealso:: `#include`

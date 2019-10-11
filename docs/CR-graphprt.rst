@@ -15,42 +15,6 @@ Format
     :param str: control string.
     :type str: string
 
-Remarks
--------
-
-:func:`graphprt` is used to create hardcopy output automatically without user
-intervention. The input string *str* can have any of the following items,
-separated by spaces. If *str* is a null string, the interactive mode is
-entered. This is the default.
-
-.. list-table::
-    :widths: auto
-
-    * - \-p
-      - print graph
-    * - \-po=c
-      - set print orientation:
-
-        :l: landscape
-        :p: portrait
-    * - \-c=n
-      - convert to another file format:
-
-        :1: Encapsulated PostScript file.
-        :3: HPGL Plotter file.
-        :5: BMP (Windows Bitmap).
-        :8: WMF (Windows Enhanced Metafile).
-
-    * - \-cf=name
-      - set converted output file name.
-    * - \-i
-      - minimize (iconize) the graphics window.
-    * - \-q
-      - close window after processing.
-    * - \-w=n
-      - display graph, wait n seconds, then continue.
-
-
 Examples
 ----------------
 Automatic print using a single graphics call:
@@ -124,6 +88,42 @@ The above string ``cmdstr`` will read as follows:
 ::
 
     "-c=1 -cf=mycvt.eps -q"
+
+Remarks
+-------
+
+:func:`graphprt` is used to create hardcopy output automatically without user
+intervention. The input string *str* can have any of the following items,
+separated by spaces. If *str* is a null string, the interactive mode is
+entered. This is the default.
+
+.. list-table::
+    :widths: auto
+
+    * - \-p
+      - print graph
+    * - \-po=c
+      - set print orientation:
+
+        :l: landscape
+        :p: portrait
+    * - \-c=n
+      - convert to another file format:
+
+        :1: Encapsulated PostScript file.
+        :3: HPGL Plotter file.
+        :5: BMP (Windows Bitmap).
+        :8: WMF (Windows Enhanced Metafile).
+
+    * - \-cf=name
+      - set converted output file name.
+    * - \-i
+      - minimize (iconize) the graphics window.
+    * - \-q
+      - close window after processing.
+    * - \-w=n
+      - display graph, wait n seconds, then continue.
+
 
 Source
 ------

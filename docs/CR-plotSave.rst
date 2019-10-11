@@ -45,13 +45,6 @@ Format
 
     :type dpi: scalar
 
-Remarks
--------
-
-The font sizes in the graph will not be scaled with the size change. So
-make sure to set the font sizes to the correct size for the final graph
-dimensions.
-
 Examples
 ----------------
 
@@ -98,6 +91,13 @@ Save as 11x8.5 inch PDF at 300 DPI
     plotXY(x, y);
     
     plotSave("mygraph.png", 11 | 8.5, "in", 300);
+
+Remarks
+-------
+
+The font sizes in the graph will not be scaled with the size change. So
+make sure to set the font sizes to the correct size for the final graph
+dimensions.
 
 Technical Notes
 ---------------

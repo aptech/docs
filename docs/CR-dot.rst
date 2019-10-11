@@ -21,12 +21,6 @@ Format
 
     :rtype z: scalar or Kx1
 
-Remarks
-----------
-
-*x* and *y* must have the same number columns, or one of them must only have a single column.
-
-
 Examples
 ----------------
 
@@ -113,5 +107,11 @@ After the code above:
 
     z = 19
         40
+
+Remarks
+----------
+
+*x* and *y* must have the same number columns, or one of them must only have a single column.
+
 
 .. seealso:: Functions :func:`crossprd`, :func:`norm`

@@ -18,12 +18,6 @@ Format
 
     :rtype zi: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-If *x* is real, *zi* will be an NxK matrix or N-dimensional array of zeros.
-
-
 Examples
 ----------------
 
@@ -40,5 +34,11 @@ Examples
 
     y = 4   0   0
         0  -6   7
+
+Remarks
+-------
+
+If *x* is real, *zi* will be an NxK matrix or N-dimensional array of zeros.
+
 
 .. seealso:: Functions :func:`complex`, :func:`real`

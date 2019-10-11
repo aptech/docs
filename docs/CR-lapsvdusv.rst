@@ -26,21 +26,6 @@ Format
 
     :rtype v: NxN matrix
 
-Remarks
--------
-
-:func:`lapsvdusv` computes the singular value decomposition of a real or complex
-rectangular matrix. The SVD is
-
-::
-
-   x = usv'
-
-where *v* is the matrix of right singular vectors. :func:`lapsvdusv` is based on
-the LAPACK drivers *DGESVD* and *ZGESVD*. Further documentation of these
-functions may be found in the LAPACK User's Guide.
-
-
 Examples
 ----------------
 
@@ -80,5 +65,20 @@ Examples
      -0.1362  0.4650  0.8748
       0.6221  0.6470 -0.4408
      -0.7710 -0.6043  0.2011
+
+Remarks
+-------
+
+:func:`lapsvdusv` computes the singular value decomposition of a real or complex
+rectangular matrix. The SVD is
+
+::
+
+   x = usv'
+
+where *v* is the matrix of right singular vectors. :func:`lapsvdusv` is based on
+the LAPACK drivers *DGESVD* and *ZGESVD*. Further documentation of these
+functions may be found in the LAPACK User's Guide.
+
 
 .. seealso:: Functions :func:`lapsvds`, :func:`lapsvdcusv`

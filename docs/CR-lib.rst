@@ -59,29 +59,6 @@ Format
         "``-tmp``", "(default) use the directory pointed to by the *tmp_path* configuration variable. If *tmp_path* is not defined, `lib` will look for a *tmp* environment variable."
         "``-disk``", "use the same directory listed in the *lib_path* configuration variable."
 
-Remarks
--------
-
-The library management functionality offered by the `lib` command can also
-be accomplished interactively with windows and buttons, using the
-Library Tool in the user interface. See **The Library Tool**, Chapter 1,
-for more information on using the Library Tool.
-
-The flags can be shortened to one or two letters, as long as they remain
-unique-for example, ``-b`` to ``-build`` a library, ``-li`` to list files in a
-library.
-
-If the filenames include a full path, the compilation process is faster
-because no unnecessary directory searching is needed during the
-autoloading process. The default path handling adds a path to each file
-listed in the library and also expands any relative paths so the system
-will work from any drive or subdirectory.
-
-When a path is added to a filename containing no path information, the
-file is searched for on the current directory and then on each
-subdirectory listed in *src_path*. The first path encountered that
-contains the file is added to the filename in the library entry.
-
 Examples
 ----------------
 
@@ -124,5 +101,28 @@ Note that, as in the command above, the ``-update`` flag must be used with a fil
 ::
 
     lib mylibrary -build;
+
+Remarks
+-------
+
+The library management functionality offered by the `lib` command can also
+be accomplished interactively with windows and buttons, using the
+Library Tool in the user interface. See **The Library Tool**, Chapter 1,
+for more information on using the Library Tool.
+
+The flags can be shortened to one or two letters, as long as they remain
+unique-for example, ``-b`` to ``-build`` a library, ``-li`` to list files in a
+library.
+
+If the filenames include a full path, the compilation process is faster
+because no unnecessary directory searching is needed during the
+autoloading process. The default path handling adds a path to each file
+listed in the library and also expands any relative paths so the system
+will work from any drive or subdirectory.
+
+When a path is added to a filename containing no path information, the
+file is searched for on the current directory and then on each
+subdirectory listed in *src_path*. The first path encountered that
+contains the file is added to the filename in the library entry.
 
 .. seealso:: Keyword `library`

@@ -21,6 +21,20 @@ Format
 
     :rtype ret: scalar
 
+Examples
+----------------
+
+::
+  
+    // Create random matrix
+    x = rndn(1000, 100);
+
+    /*
+    ** Save x to file named
+    ** myfile.fmt
+    */
+    ret = datasave("myfile.fmt", x);
+
 Remarks
 -------
 
@@ -40,19 +54,5 @@ See **Foreign Language Interface**, Chapter 1, for details on these file
 types.
 
 Use :func:`dataload`, or :func:`loadd` to load a data file created with :func:`datasave`.
-
-Examples
-----------------
-
-::
-  
-    // Create random matrix
-    x = rndn(1000, 100);
-
-    /*
-    ** Save x to file named
-    ** myfile.fmt
-    */
-    ret = datasave("myfile.fmt", x);
 
 .. seealso:: Functions `save`, :func:`dataload`

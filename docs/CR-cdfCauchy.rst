@@ -24,16 +24,6 @@ Format
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
--------
-
-The cumulative distribution function for the Cauchy distribution is
-defined as:
-
-.. math:: \frac{1}{2} + \frac{1}{\pi} arctan(\frac{x−a}{b})
-
-where `a` is the location parameter and `b` is the scale parameter.
-
 Examples
 ----------------
 
@@ -68,5 +58,15 @@ After running the above code,
      -1.2123   0.0730 
       0.2336   0.1278 
       1.9085   0.4614
+
+Remarks
+-------
+
+The cumulative distribution function for the Cauchy distribution is
+defined as:
+
+.. math:: \frac{1}{2} + \frac{1}{\pi} arctan(\frac{x−a}{b})
+
+where `a` is the location parameter and `b` is the scale parameter.
 
 .. seealso:: :func:`pdfCauchy`

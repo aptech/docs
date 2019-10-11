@@ -16,26 +16,6 @@ Format
     :param num_tics: the number of major tics to place on the X-axis.
     :type num_tics: Scalar
 
-Remarks
--------
-
-Note that :func:`plotSetXTicInterval` does not provide complete control over the
-x-axis tics. If the number of x-tics requested would cause an odd x-tic
-interval, GAUSS will create a number of tics that will provide more even
-spacing. For instance, in the example above, 8 tics gave a space between
-tics of 1. If we chose 9 tics, the spacing between tics would be 0.889.
-In that case, GAUSS would instead draw 8 tics for a more even
-appearance.
-
-For more control over the x-axis of time series plots, use
-:func:`plotSetXTicInterval` instead.
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 Examples
 ----------------
 
@@ -70,6 +50,26 @@ major tic for every integer on the x-axis. We can make that change like this:
 .. figure:: _static/images/gauss15_psxtc_8.png
 
     8 tic marks
+
+Remarks
+-------
+
+Note that :func:`plotSetXTicInterval` does not provide complete control over the
+x-axis tics. If the number of x-tics requested would cause an odd x-tic
+interval, GAUSS will create a number of tics that will provide more even
+spacing. For instance, in the example above, 8 tics gave a space between
+tics of 1. If we chose 9 tics, the spacing between tics would be 0.889.
+In that case, GAUSS would instead draw 8 tics for a more even
+appearance.
+
+For more control over the x-axis of time series plots, use
+:func:`plotSetXTicInterval` instead.
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotSetXTicInterval`, :func:`plotSetXLabel`
 

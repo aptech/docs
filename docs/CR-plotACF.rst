@@ -23,21 +23,6 @@ Format
     :param d: order of differencing.
     :type d: scalar
 
-Remarks
--------
-
-To control the color and texture of the bars as well as whether they are
-stacked or side by side:
-
-If you are passing a :class:`plotControl` structure to your graph, you may use
-the function :func:`plotGetDefaults` and :func:`plotSetBar`.
-
-If you are not passing a :class:`plotControl` structure, these properties are set
-in the Preferences. To access the Graphics Preferences, select
-:menuselection:`Tools --> Preferences` from the GAUSS main menu. Select **Graphics** on
-the left side of the preferences and then select **Bar** from the list
-of graph types.
-
 Examples
 ----------------
 
@@ -69,6 +54,21 @@ Examples
 The plot is:
 
 .. figure:: _static/images/plotacf1.png
+
+Remarks
+-------
+
+To control the color and texture of the bars as well as whether they are
+stacked or side by side:
+
+If you are passing a :class:`plotControl` structure to your graph, you may use
+the function :func:`plotGetDefaults` and :func:`plotSetBar`.
+
+If you are not passing a :class:`plotControl` structure, these properties are set
+in the Preferences. To access the Graphics Preferences, select
+:menuselection:`Tools --> Preferences` from the GAUSS main menu. Select **Graphics** on
+the left side of the preferences and then select **Bar** from the list
+of graph types.
 
 .. seealso:: Functions :func:`plotPACF`, :func:`ACF`, :func:`PACF`
 

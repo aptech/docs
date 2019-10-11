@@ -60,17 +60,6 @@ Format
     :param y:  Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
-Remarks
--------
-
-Formatting for the X-tick labels can be set with the function
-:func:`plotSetXTicLabel`. If a :class:`plotControl` structure is not passed in to
-:func:`plotTSLog`, or the format specifier is not set with :func:`plotSetXTicLabel` the
-default formatting: for annual data is ``"YYYY"``, for quarterly data
-``"YYYY-QQ"`` and for monthly data is ``"YYYY-MO"``.
-
-By default missing values in the *y* variable will be represented as gaps in the line.
-
 Examples
 ----------------
 
@@ -192,5 +181,16 @@ also represents the second quarter of April 2005.
     // The first input starts the series in the second quarter of 2005
     // The second input specifies the data to be quarterly
     plotTSLog(200504, 4, y);
+
+Remarks
+-------
+
+Formatting for the X-tick labels can be set with the function
+:func:`plotSetXTicLabel`. If a :class:`plotControl` structure is not passed in to
+:func:`plotTSLog`, or the format specifier is not set with :func:`plotSetXTicLabel` the
+default formatting: for annual data is ``"YYYY"``, for quarterly data
+``"YYYY-QQ"`` and for monthly data is ``"YYYY-MO"``.
+
+By default missing values in the *y* variable will be represented as gaps in the line.
 
 .. seealso:: Functions :func:`plotTS`, :func:`plotTSHF`, :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotScatter`

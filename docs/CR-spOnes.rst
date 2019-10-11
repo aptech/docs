@@ -26,12 +26,6 @@ Format
 
     :rtype y: RxC sparse matrix
 
-Remarks
--------
-
-Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
-a sparse matrix before the call to :func:`spOnes`.
-
 Examples
 ----------------
 
@@ -57,6 +51,12 @@ The resulting *y* is equal to:
     1  0  0  0
     0  0  0  0
     0  0  1  0
+
+Remarks
+-------
+
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spOnes`.
 
 .. seealso:: Functions :func:`spCreate`, :func:`spEye`, :func:`spZeros`, :func:`denseToSp`
 

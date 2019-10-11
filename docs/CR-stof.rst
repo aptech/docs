@@ -17,16 +17,6 @@ Format
 
     :rtype y: matrix
 
-Remarks
--------
-
--  To convert string arrays to floating point numeric values, or to
-   convert strings representing complex data, use :func:`strtof`.
--  If *x* is a null string (""), :func:`stof` will return a 0.
--  This uses the same input conversion routine as `loadm` and `let`. It will
-   convert character elements and missing values. :func:`stof` also converts
-   complex numbers in the same manner as `let`.
-
 Examples
 ----------------
 
@@ -68,6 +58,16 @@ After the above code, *x* will be a 3x1 vector, containing
     1
     2
     3
+
+Remarks
+-------
+
+-  To convert string arrays to floating point numeric values, or to
+   convert strings representing complex data, use :func:`strtof`.
+-  If *x* is a null string (""), :func:`stof` will return a 0.
+-  This uses the same input conversion routine as `loadm` and `let`. It will
+   convert character elements and missing values. :func:`stof` also converts
+   complex numbers in the same manner as `let`.
 
 .. seealso:: Functions :func:`ftos`, :func:`ftocv`, :func:`chrs`, :func:`strtof`
 

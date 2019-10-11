@@ -20,17 +20,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-The contents are unspecified. To create a new array with all elements
-initialized to a particular scalar value, use :func:`arrayinit`.
-
-:func:`arrayalloc` is used to allocate an array that will be written to in
-sections using `setarray`, or indexed assignments. It is much faster to
-preallocate an array and fill in sections during a loop rather than
-adding new sections with concatentaion.
-
 Examples
 ----------------
 
@@ -48,5 +37,16 @@ Examples
 
     // Create a real 7x5x3 dimensional array
     y = arrayalloc(orders, 0);
+
+Remarks
+-------
+
+The contents are unspecified. To create a new array with all elements
+initialized to a particular scalar value, use :func:`arrayinit`.
+
+:func:`arrayalloc` is used to allocate an array that will be written to in
+sections using `setarray`, or indexed assignments. It is much faster to
+preallocate an array and fill in sections during a loop rather than
+adding new sections with concatentaion.
 
 .. seealso:: Functions :func:`arrayinit`, `setarray`

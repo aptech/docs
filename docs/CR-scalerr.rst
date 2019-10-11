@@ -19,6 +19,26 @@ Format
 
     :rtype y: scalar or [N-2]-dimensional array
 
+Examples
+----------------
+
+::
+
+    trap 1;
+    cm = invpd(x);
+    trap 0;
+    
+    if scalerr(cm);
+       cm = inv(x);
+    endif;
+
+In this example invpd will return a :func:`scalar` error code if the matrix
+*x* is not positive definite. If :func:`scalerr` returns with a nonzero
+value, the program will use the :func:`inv` function, which is slower, to
+compute the inverse. Since the `trap` state has been turned off, if
+:func:`inv` fails, the program will terminate with a Matrix singular
+error message.
+
 Remarks
 -------
 
@@ -82,26 +102,6 @@ Following are some of the functions that are affected by the `trap` state:
     * - `inv`
       - 50
       - Matrix not positive definite
-
-Examples
-----------------
-
-::
-
-    trap 1;
-    cm = invpd(x);
-    trap 0;
-    
-    if scalerr(cm);
-       cm = inv(x);
-    endif;
-
-In this example invpd will return a :func:`scalar` error code if the matrix
-*x* is not positive definite. If :func:`scalerr` returns with a nonzero
-value, the program will use the :func:`inv` function, which is slower, to
-compute the inverse. Since the `trap` state has been turned off, if
-:func:`inv` fails, the program will terminate with a Matrix singular
-error message.
 
 .. seealso:: Functions :func:`error`, `trap`, `trapchk`
 

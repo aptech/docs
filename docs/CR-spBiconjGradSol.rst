@@ -27,23 +27,6 @@ Format
 
     :rtype x: Nx1 dense vector
 
-Remarks
--------
-
-If convergence is not reached within the maximum number of iterations
-allowed, the function will either terminate the program with an error
-message or return an error code which can be tested for with the :func:`scalerr`
-function. This depends on the `trap` state as follows:
-
-============ =====================
-``trap 1``   return error code: 60
-``trap 0``   terminate with error message: Unable to converge in allowed number of iterations.
-============ =====================
-
-If matrix *A* is not well conditioned use the ``/`` operator to perform the
-solve. If the matrix is symmetric, :func:`spConjGradSol` will be approximately
-twice as fast as :func:`spBiconjGradSol`.
-
 Examples
 ----------------
 
@@ -86,6 +69,23 @@ The output from the above code:
     x2 = -0.137 
           0.018 
          -0.006
+
+Remarks
+-------
+
+If convergence is not reached within the maximum number of iterations
+allowed, the function will either terminate the program with an error
+message or return an error code which can be tested for with the :func:`scalerr`
+function. This depends on the `trap` state as follows:
+
+============ =====================
+``trap 1``   return error code: 60
+``trap 0``   terminate with error message: Unable to converge in allowed number of iterations.
+============ =====================
+
+If matrix *A* is not well conditioned use the ``/`` operator to perform the
+solve. If the matrix is symmetric, :func:`spConjGradSol` will be approximately
+twice as fast as :func:`spBiconjGradSol`.
 
 .. seealso:: Functions :func:`spConjGradSol`
 

@@ -21,6 +21,13 @@ Format
 
     :rtype y: matrix
 
+Examples
+----------------
+
+::
+
+    y = gdaReadByIndex("myfile.gda", 3);
+
 Remarks
 -------
 
@@ -41,12 +48,5 @@ the following:
 +----+-----------------------------------------------------+
 | 10 | File contains no variables.                         |
 +----+-----------------------------------------------------+
-
-Examples
-----------------
-
-::
-
-    y = gdaReadByIndex("myfile.gda", 3);
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaGetIndex`

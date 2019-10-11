@@ -21,14 +21,6 @@ Format
 
     :rtype sa: NxK string array
 
-Remarks
--------
-
-If *fmt* has *K* elements, each column of *sa* can be formatted separately. If
-*x* is complex, there must be two format specifications in each element of
-*fmt*.
-
-
 Examples
 ----------------
 
@@ -85,5 +77,13 @@ produces:
      ( 0.000, -1.261) ( 0.00000000, -0.89041168)
      ( 0.361, 0.000) ( 0.00000000, -1.35973143)
      ( 0.888, 0.000) ( 0.92784529, 0.00000000)
+
+Remarks
+-------
+
+If *fmt* has *K* elements, each column of *sa* can be formatted separately. If
+*x* is complex, there must be two format specifications in each element of
+*fmt*.
+
 
 .. seealso:: Functions :func:`strtof`, :func:`strtofcplx`

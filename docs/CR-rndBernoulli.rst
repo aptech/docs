@@ -41,20 +41,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-The properties of the pseudo-random numbers in *x* are:
-
-.. DANGER:: fix equations
-
-.. math::
-
-   E(X) = prob
-
-   Var(X) = prob * (1 - prob)
-
-
 Examples
 ----------------
 
@@ -81,6 +67,20 @@ Examples
 ::
 
     0.70270000
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in *x* are:
+
+.. DANGER:: fix equations
+
+.. math::
+
+   E(X) = prob
+
+   Var(X) = prob * (1 - prob)
+
 
 .. seealso:: Functions :func:`rndMVn`, :func:`rndCreateState`
 

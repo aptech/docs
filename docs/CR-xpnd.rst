@@ -24,16 +24,6 @@ Format
 
     :rtype x: MxM matrix
 
-Remarks
--------
-
-If *v* does not contain the right number of elements, (that is, if :math:`sqrt(1 + 8 \* K)` is not 
-integral), then an error message is generated.
-
-This function is particularly useful for hard-coding symmetric matrices,
-because only about half of the matrix needs to be entered.
-
-
 Examples
 ----------------
 
@@ -59,6 +49,16 @@ After the code above, the variables *x* and *y* are equal to:
         8
         9
        10
+
+Remarks
+-------
+
+If *v* does not contain the right number of elements, (that is, if :math:`sqrt(1 + 8 \* K)` is not 
+integral), then an error message is generated.
+
+This function is particularly useful for hard-coding symmetric matrices,
+because only about half of the matrix needs to be entered.
+
 
 .. seealso:: Functions :func:`vech`
 

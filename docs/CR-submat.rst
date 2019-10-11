@@ -23,11 +23,6 @@ Format
 
     :rtype y: (L*M)x(P*Q) submatrix
 
-Remarks
--------
-
-If :math:`r = 0`, then all rows of *x* will be used. If :math:`c = 0`, then all columns of *x* will be used.
-
 Examples
 ----------------
 
@@ -60,6 +55,11 @@ After the code above, the matrix values are:
          2  4
     z =  6  8
         10 12
+
+Remarks
+-------
+
+If :math:`r = 0`, then all rows of *x* will be used. If :math:`c = 0`, then all columns of *x* will be used.
 
 .. seealso:: Functions :func:`diag`, :func:`vec`, :func:`reshape`
 

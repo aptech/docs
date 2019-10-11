@@ -29,14 +29,6 @@ Format
         head at the end of the arrow. The second element is the size of the head at the start of the arrow.
     :type head_size: 2x1 vector
 
-Remarks
--------
-
-Please note that :func:`plotAddArrow` will add arrows to existing graphs, it
-will not create a new graph if one does not exist. :func:`plotAddArrow` is not
-yet supported for surface plots.
-
-
 Examples
 ----------------
 
@@ -69,5 +61,13 @@ Add an arrow between points
 
     // Add arrow from the first point to the ninth point
     plotAddArrow(x[1], y[1], x[9], y[9], 12);
+
+Remarks
+-------
+
+Please note that :func:`plotAddArrow` will add arrows to existing graphs, it
+will not create a new graph if one does not exist. :func:`plotAddArrow` is not
+yet supported for surface plots.
+
 
 .. seealso:: Functions :func:`plotAddTextbox`, :func:`annotationGetDefaults`, :func:`annotationSetLineColor`

@@ -39,12 +39,6 @@ Format
 
     :rtype newstate: 500x1 vector
 
-Remarks
--------
-
-*r* and *c* will be truncated to integers if necessary.
-
-
 Examples
 ----------------
 This example generates two thousand vectors of random integers, 
@@ -70,6 +64,12 @@ generation of random numbers.
      
     print "min " min;
     print "max " max;
+
+Remarks
+-------
+
+*r* and *c* will be truncated to integers if necessary.
+
 
 Technical Notes
 ---------------

@@ -217,26 +217,6 @@ by this procedure.
     0   *resid* = 0, *dwstat* = 0.
     === ===============
 
-Remarks
--------
-
-- For poorly conditioned data the default setting for *__olsalg*, using
-  the Cholesky update, may produce only four or five digits of accuracy
-  for the parameter estimates and standard error. For greater accuracy,
-  use either the *qr* or singular value decomposition algorithm by
-  setting *__olsalg* to ``qr`` or ``svd``. If you are unsure of the condition of
-  your data, set *__olsalg* to ``qr``.
-- No output file is modified, opened, or closed by this procedure. If
-  you want output to be placed in a file, you need to open an output
-  file before calling :func:`ols`.
-- The supported dataset types are CSV, XLS, XLSX, HDF5, FMT, DAT
-- For HDF5 file, the dataset must include `file schema` and both file name and
-  dataset name must be provided, e.g.
-
-  ::
-
-        ols("h5://C:/gauss/examples/testdata.h5/mydata", formula).
-
 Examples
 --------
 
@@ -373,6 +353,26 @@ After the above code,
     Balance      3.429796    0.085339   40.190438     0.000    0.451757    0.923618
     Income      33.447531    1.165041   28.709327     0.000    0.363912    0.922459
     Age         23.718127    1.027629   23.080436     0.000    0.262414    0.871984
+
+Remarks
+-------
+
+- For poorly conditioned data the default setting for *__olsalg*, using
+  the Cholesky update, may produce only four or five digits of accuracy
+  for the parameter estimates and standard error. For greater accuracy,
+  use either the *qr* or singular value decomposition algorithm by
+  setting *__olsalg* to ``qr`` or ``svd``. If you are unsure of the condition of
+  your data, set *__olsalg* to ``qr``.
+- No output file is modified, opened, or closed by this procedure. If
+  you want output to be placed in a file, you need to open an output
+  file before calling :func:`ols`.
+- The supported dataset types are CSV, XLS, XLSX, HDF5, FMT, DAT
+- For HDF5 file, the dataset must include `file schema` and both file name and
+  dataset name must be provided, e.g.
+
+  ::
+
+        ols("h5://C:/gauss/examples/testdata.h5/mydata", formula).
 
 Source
 ------

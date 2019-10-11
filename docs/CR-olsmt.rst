@@ -216,26 +216,6 @@ Format
 
     :rtype oout: struct
 
-Remarks
--------
-
-- For poorly conditioned data the default setting for *oC0.olsalg*, using
-  the Cholesky update, may produce only four or five digits of accuracy
-  for the parameter estimates and standard error. For greater accuracy,
-  use either the qr or singular value decomposition algorithm by
-  setting *oC0.olsalg* to ``qr`` or ``svd``. If you are unsure of the condition of
-  your data, set *oC0.olsalg* to ``qr``.
-- No output file is modified, opened, or closed by this procedure. If
-  you want output to be placed in a file, you need to open an output
-  file before calling :func:`olsmt`.
-- The supported dataset types are CSV, XLS, XLSX, HDF5, FMT, DAT
-- For HDF5 file, the dataset must include `file schema` and both file name and
-  dataset name must be provided, e.g.
-
-  ::
-
-      ols("h5://C:/gauss/examples/testdata.h5/mydata", formula).
-
 Examples
 ----------------
 
@@ -407,6 +387,26 @@ The above code will produce the following output:
 
   CONSTANT     0.127964  0.00681124     18.7872     0.000    0.778572    0.999643
   X1           0.204801   0.0381548     5.36763     0.003    0.222444    0.996209
+
+Remarks
+-------
+
+- For poorly conditioned data the default setting for *oC0.olsalg*, using
+  the Cholesky update, may produce only four or five digits of accuracy
+  for the parameter estimates and standard error. For greater accuracy,
+  use either the qr or singular value decomposition algorithm by
+  setting *oC0.olsalg* to ``qr`` or ``svd``. If you are unsure of the condition of
+  your data, set *oC0.olsalg* to ``qr``.
+- No output file is modified, opened, or closed by this procedure. If
+  you want output to be placed in a file, you need to open an output
+  file before calling :func:`olsmt`.
+- The supported dataset types are CSV, XLS, XLSX, HDF5, FMT, DAT
+- For HDF5 file, the dataset must include `file schema` and both file name and
+  dataset name must be provided, e.g.
+
+  ::
+
+      ols("h5://C:/gauss/examples/testdata.h5/mydata", formula).
 
 Source
 ------

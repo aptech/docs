@@ -18,15 +18,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-:func:`lag1` lags *x* by one time period, so the first observations of *y* are
-missing. :func:`lag1` assumes that each column of the input is a different time
-series and that each row is an observation. Therefore if a 1xK row
-vector is passed to :func:`lag1`, it will return a 1xK of missing values.
-
-
 Examples
 ----------------
 
@@ -86,6 +77,15 @@ will return:
     3.4000000       0.97000000
     2.5000000        1.4000000
     4.1000000       0.70000000
+
+Remarks
+-------
+
+:func:`lag1` lags *x* by one time period, so the first observations of *y* are
+missing. :func:`lag1` assumes that each column of the input is a different time
+series and that each row is an observation. Therefore if a 1xK row
+vector is passed to :func:`lag1`, it will return a 1xK of missing values.
+
 
 Source
 ------

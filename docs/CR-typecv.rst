@@ -20,6 +20,25 @@ Format
 
     :rtype y: scalar or Nx1 vector
 
+Examples
+----------------
+
+::
+
+    xvar = sqrt(5);
+    yvar = "betahat";
+    fn area(r) = pi*r*r;
+    names = { xvar, yvar, area };
+    y = typecv(names);
+
+This code assigns the following to *y*:
+
+::
+
+         6  // 6 for type matrix
+    y = 13  // 13 for string
+         9  // 9 for function
+
 Remarks
 -------
 
@@ -48,25 +67,6 @@ The values returned by :func:`typecv` for the various variable types are as foll
 :func:`typecv` will return the GAUSS missing value code if the symbol is not
 found, so it may be used to determine if a symbol is defined or not.
 
-
-Examples
-----------------
-
-::
-
-    xvar = sqrt(5);
-    yvar = "betahat";
-    fn area(r) = pi*r*r;
-    names = { xvar, yvar, area };
-    y = typecv(names);
-
-This code assigns the following to *y*:
-
-::
-
-         6  // 6 for type matrix
-    y = 13  // 13 for string
-         9  // 9 for function
 
 .. seealso:: Functions :func:`type`, :func:`typef`, :func:`varput`, :func:`varget`
 

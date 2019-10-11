@@ -43,20 +43,6 @@ Global Input
 +-----------------+-----------------------------------------------------+
 
 
-Remarks
--------
-
-The user-defined functions specified by *f* and *gl* must either
-
-#. Return a scalar constant
-
-         - or -
-
-#. Return a vector of function values. :func:`intgrat2` will pass to
-   user-defined functions a vector or matrix for *x* and *y* and expect a
-   vector or matrix to be returned. Use ``.*`` and ``./`` instead of ``*`` and ``/``.
-
-
 Examples
 ----------------
 
@@ -94,6 +80,20 @@ This will integrate the function
 
 over the upper half of the unit circle. Note the use of the ``.*`` operator instead of just ``*`` in the
 definition of :math:`f(x, y)`. This allows *f* to return a vector or matrix of function values.
+
+Remarks
+-------
+
+The user-defined functions specified by *f* and *gl* must either
+
+#. Return a scalar constant
+
+         - or -
+
+#. Return a vector of function values. :func:`intgrat2` will pass to
+   user-defined functions a vector or matrix for *x* and *y* and expect a
+   vector or matrix to be returned. Use ``.*`` and ``./`` instead of ``*`` and ``/``.
+
 
 Source
 ------

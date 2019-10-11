@@ -19,17 +19,6 @@ Format
 
     :rtype vinfo: Nx1 string array
 
-Remarks
--------
-
-If you just want to print the information to the window, call
-:func:`gdaReportVarInfo` without assigning the output to a symbol name:
-
-::
-
-    gdaReportVarInfo(filename);
-
-
 Examples
 ----------------
 
@@ -67,6 +56,17 @@ produces:
       1   x1  matrix 100x50
       2   x2  matrix 75x5
       3   a1  array 10x100x10
+
+Remarks
+-------
+
+If you just want to print the information to the window, call
+:func:`gdaReportVarInfo` without assigning the output to a symbol name:
+
+::
+
+    gdaReportVarInfo(filename);
+
 
 Source
 ------

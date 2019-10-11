@@ -44,21 +44,6 @@ Format
 
     :rtype SLprob: scalar
 
-Remarks
--------
-
-See Silvapulle and Sen, *Constrained Statistical Inference*, page 75 for
-further details about this function. Let
-
-.. math::  Z_{px1} N(0, V)
-
-where *V* is a positive definite covariance matrix. Define
-
-.. math::  x^{-2}(V, C)=Z′V^{-1}Z−\min_{\theta \epsilon C}(Z - \theta)′ V^{-1}(Z - \theta) 
-
-*C* is a closed convex cone describing a set of constraints. :func:`ChiBarSquare`
-computes the probability of this statistic given *V* and *C*.
-
 Examples
 ----------------
 
@@ -85,6 +70,21 @@ After running above code,
 ::
 
     SLprob = 0.10885000
+
+Remarks
+-------
+
+See Silvapulle and Sen, *Constrained Statistical Inference*, page 75 for
+further details about this function. Let
+
+.. math::  Z_{px1} N(0, V)
+
+where *V* is a positive definite covariance matrix. Define
+
+.. math::  x^{-2}(V, C)=Z′V^{-1}Z−\min_{\theta \epsilon C}(Z - \theta)′ V^{-1}(Z - \theta) 
+
+*C* is a closed convex cone describing a set of constraints. :func:`ChiBarSquare`
+computes the probability of this statistic given *V* and *C*.
 
 Source
 ------------

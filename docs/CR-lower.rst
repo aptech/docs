@@ -18,13 +18,6 @@ Format
 
     :rtype y: string
 
-Remarks
--------
-
-If *x* is a numeric matrix, *y* will contain garbage. No error message will
-be generated since GAUSS does not distinguish between numeric and character data in matrices.
-
-
 Examples
 ----------------
 
@@ -53,5 +46,12 @@ or spreadsheet file, you or your colleagues may want to analyze data with incons
     endif;
 
 Using the :func:`lower` function, the code above will operate correctly whether *var1* is ``Consumption``, ``CONSUMPTION`` or ``consumption``.
+
+Remarks
+-------
+
+If *x* is a numeric matrix, *y* will contain garbage. No error message will
+be generated since GAUSS does not distinguish between numeric and character data in matrices.
+
 
 .. seealso:: Functions :func:`upper`

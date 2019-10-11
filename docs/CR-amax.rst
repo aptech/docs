@@ -21,12 +21,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-The output *y*, will have the same sizes of dimensions as *x*, except that
-the dimension indicated by *dim* will be collapsed to 1.
-
 Examples
 ----------------
 
@@ -98,5 +92,11 @@ y2[2,1,1] through y2[2,3,1] =
     6.0000000
     16.000000
     8.0000000
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
 
 .. seealso:: Functions :func:`amin`, :func:`maxc`

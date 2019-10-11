@@ -38,6 +38,47 @@ Windows, Linux and macOS
 
 The *vls* input is currently ignored on macOS and Linux. Missing values will be returned for all cells that are empty or contain errors.
 
+Examples
+----------------
+
+Basic Example
++++++++++++++
+
+::
+
+    x = { 0 1,
+          1 2,
+          3 5 };
+    
+    // Write contents of 'x' to 'myfile.xlsx'
+    // from cell 'A1' to 'B3'
+    ret = xlsWrite(x, "myfile.xlsx");
+
+':file:`myfile.xlsx`'is saved in your current working directory. You can find your current working directory 
+in the main tool bar (in the top of GAUSS).
+
+Write To a Range
+++++++++++++++++
+
+::
+
+    // Create a 1x4 string array of variable names
+    head = "Real GDP" $~  "Unemployment" $~ "CPI" $~ "PPI";
+    
+    // Write the variable names to the cells 'C1:F1'
+    ret = xlsWrite(head, "myfile.xlsx", "C1");
+
+Specify Path and Sheet Number
++++++++++++++++++++++++++++++
+
+::
+
+    // Create a 10x3 matrix of Bernoulli random variables
+    x = rndBernoulli(10, 3, 0.6);
+    
+    // Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
+    ret = xlsWrite(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
+
 Remarks
 -------
 
@@ -98,47 +139,6 @@ Remarks
 
       vls = reshape(error(0),9,1);
       vls[4] = 9999.99;
-
-Examples
-----------------
-
-Basic Example
-+++++++++++++
-
-::
-
-    x = { 0 1,
-          1 2,
-          3 5 };
-    
-    // Write contents of 'x' to 'myfile.xlsx'
-    // from cell 'A1' to 'B3'
-    ret = xlsWrite(x, "myfile.xlsx");
-
-':file:`myfile.xlsx`'is saved in your current working directory. You can find your current working directory 
-in the main tool bar (in the top of GAUSS).
-
-Write To a Range
-++++++++++++++++
-
-::
-
-    // Create a 1x4 string array of variable names
-    head = "Real GDP" $~  "Unemployment" $~ "CPI" $~ "PPI";
-    
-    // Write the variable names to the cells 'C1:F1'
-    ret = xlsWrite(head, "myfile.xlsx", "C1");
-
-Specify Path and Sheet Number
-+++++++++++++++++++++++++++++
-
-::
-
-    // Create a 10x3 matrix of Bernoulli random variables
-    x = rndBernoulli(10, 3, 0.6);
-    
-    // Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
-    ret = xlsWrite(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
 .. seealso:: Functions :func:`xlsReadSA`, :func:`xlsReadM`, :func:`xlsWriteM`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
 

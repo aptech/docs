@@ -21,6 +21,15 @@ Format
 
 :n: (*scalar*) width of auxiliary output.
 
+Examples
+----------------
+
+::
+
+    outwidth 132;
+
+This statement will change the auxiliary output width to 132 columns.
+
 Remarks
 -------
 
@@ -37,14 +46,5 @@ additional lines will be inserted.
 
 The default is setting is 256.
 
-
-Examples
-----------------
-
-::
-
-    outwidth 132;
-
-This statement will change the auxiliary output width to 132 columns.
 
 .. seealso:: Functions `output`, :func:`print`

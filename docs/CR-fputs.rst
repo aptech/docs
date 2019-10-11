@@ -21,30 +21,6 @@ Format
 
     :rtype numl: scalar
 
-Remarks
--------
-
--  To write to the standard output stream or the standard error stream,
-   pass in `\__STDOUT` or `\__STDERR` as the file handle argument.
-
-   ::
-
-      str = "sample string";
-      num = fputs(__STDOUT, str);
-
--  :func:`fputs` writes the contents of each string in *sa*, minus the null
-   terminating byte, to the file specified. If the file was opened in
-   text mode (see :func:`fopen`), any newlines present in the strings are
-   converted to carriage return-linefeed sequences on output.
--  If *numl* is not equal to the number of elements in *sa*, there may have been an I/O
-   error while writing the file. You can use :func:`fcheckerr` or :func:`fclearerr` to
-   check this. If there was an error, you can call :func:`fstrerror` to find out
-   what it was.
--  If the file was opened for update (see :func:`fopen`) and you are switching from reading to writing, don't forget to call :func:`fseek` or
-   :func:`fflush` first, to flush the file's buffer.
--  If you pass :func:`fputs` the handle of a file opened with `open` (i.e., a dataset or matrix file),
-   your program will terminate with a fatal error.
-
 Examples
 --------
 
@@ -116,6 +92,30 @@ following contents:
    5,6,7,8
 
 Note that :func:`saved` provides a simpler way to write CSV data.
+
+Remarks
+-------
+
+-  To write to the standard output stream or the standard error stream,
+   pass in `\__STDOUT` or `\__STDERR` as the file handle argument.
+
+   ::
+
+      str = "sample string";
+      num = fputs(__STDOUT, str);
+
+-  :func:`fputs` writes the contents of each string in *sa*, minus the null
+   terminating byte, to the file specified. If the file was opened in
+   text mode (see :func:`fopen`), any newlines present in the strings are
+   converted to carriage return-linefeed sequences on output.
+-  If *numl* is not equal to the number of elements in *sa*, there may have been an I/O
+   error while writing the file. You can use :func:`fcheckerr` or :func:`fclearerr` to
+   check this. If there was an error, you can call :func:`fstrerror` to find out
+   what it was.
+-  If the file was opened for update (see :func:`fopen`) and you are switching from reading to writing, don't forget to call :func:`fseek` or
+   :func:`fflush` first, to flush the file's buffer.
+-  If you pass :func:`fputs` the handle of a file opened with `open` (i.e., a dataset or matrix file),
+   your program will terminate with a fatal error.
 
 Portability
 -----------

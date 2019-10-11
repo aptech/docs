@@ -42,14 +42,6 @@ Format
 
     :rtype b: MxK matrix
 
-Remarks
--------
-
-The orthogonal complement of the column space of *x'* is computed using
-the QR decomposition. This provides an orthonormal basis for the null
-space of *x*.
-
-
 Examples
 ----------------
 
@@ -70,6 +62,14 @@ After the code above:
     b =  0.331 -0.473  z = 0  0  i = 1  0
          0.473  0.331      0  0      0  1
          0.142  0.804
+
+Remarks
+-------
+
+The orthogonal complement of the column space of *x'* is computed using
+the QR decomposition. This provides an orthonormal basis for the null
+space of *x*.
+
 
 Globals
 ------------

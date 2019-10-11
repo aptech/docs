@@ -17,6 +17,13 @@ Format
 
     keep variable_list;
 
+Examples
+----------------
+
+::
+
+    keep age, pay, sex;
+
 Remarks
 -------
 
@@ -32,13 +39,6 @@ variables from the source dataset, as well as any newly defined
 variables. The effects of multiple `keep` and `drop` statements are
 cumulative.
 
-
-Examples
-----------------
-
-::
-
-    keep age, pay, sex;
 
 .. seealso:: `drop`
 

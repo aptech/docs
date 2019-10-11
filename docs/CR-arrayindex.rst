@@ -20,13 +20,6 @@ Format
 
     :rtype i: Nx1 vector of indices
 
-Remarks
--------
-
-This function and its opposite, :func:`singleindex`, allow you to easily convert
-between an N-dimensional index and its corresponding location in a
-1-dimensional object of the same size.
-
 Examples
 ----------------
 
@@ -73,6 +66,13 @@ The code above, produces the following output:
 This example allocates a vector of random numbers and creates a 4-dimensional array using the same data.
 The 50th element of the vector *v* corresponds to the element of array *a*
 that is indexed with *ai*.
+
+Remarks
+-------
+
+This function and its opposite, :func:`singleindex`, allow you to easily convert
+between an N-dimensional index and its corresponding location in a
+1-dimensional object of the same size.
 
 .. seealso:: Functions :func:`singleindex`
 

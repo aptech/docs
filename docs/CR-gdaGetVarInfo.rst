@@ -29,6 +29,16 @@ Format
 
     :rtype vtab: Nx1 array
 
+Examples
+----------------
+
+::
+
+    // Declare gdaVarTable structure
+    struct gdaVarTable vtab;
+
+    vtab = gdaGetVarInfo("myfile.gda");
+
 Remarks
 -------
 
@@ -55,16 +65,6 @@ The size of *vtab.orders* is dependent on the type of the variable as follows:
 | 21 | array        |
 +----+--------------+
 
-
-Examples
-----------------
-
-::
-
-    // Declare gdaVarTable structure
-    struct gdaVarTable vtab;
-
-    vtab = gdaGetVarInfo("myfile.gda");
 
 Source
 ------

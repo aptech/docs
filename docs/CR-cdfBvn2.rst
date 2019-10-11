@@ -31,22 +31,6 @@ Format
 
     :rtype p: Nx1 vector
 
-Remarks
--------
-
-Scalar input arguments are okay; they will be expanded to Nx1 vectors.
-
-:func:`cdfBvn2` computes:
-
-::
-
-     cdfBvn(h + dh, k+ dk, r) + cdfBvn(h, k, r) - cdfBvn(h, k + dk, r) - cdfBvn(h + dh, k, r)
-
-:func:`cdfBvn2` computes an error estimate for each set of inputs. The size of
-the error depends on the input arguments. If **trap 2** is set, a
-warning message is displayed when the error reaches 0.01 :func:`abs(y)`. For an
-estimate of the actual error, see :func:`cdfBvn2e`.
-
 Examples
 ----------------
 
@@ -119,5 +103,21 @@ After running the above code,
     WARNING: Dubious accuracy from cdfBvn2:
     0.000e+000 +/- 2.8e-060
     0.0000000000000000e+000
+
+Remarks
+-------
+
+Scalar input arguments are okay; they will be expanded to Nx1 vectors.
+
+:func:`cdfBvn2` computes:
+
+::
+
+     cdfBvn(h + dh, k+ dk, r) + cdfBvn(h, k, r) - cdfBvn(h, k + dk, r) - cdfBvn(h + dh, k, r)
+
+:func:`cdfBvn2` computes an error estimate for each set of inputs. The size of
+the error depends on the input arguments. If **trap 2** is set, a
+warning message is displayed when the error reaches 0.01 :func:`abs(y)`. For an
+estimate of the actual error, see :func:`cdfBvn2e`.
 
 .. seealso:: Functions :func:`cdfBvn2e`, :func:`lncdfbvn2`

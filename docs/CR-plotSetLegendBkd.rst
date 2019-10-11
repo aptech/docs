@@ -19,15 +19,6 @@ Format
     :param bkd_clr: Optional argument, the name or rgb value of the new background colors.
     :type bkd_clr: string
 
-Remarks
--------
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 Examples
 ----------------
 
@@ -80,5 +71,14 @@ Example 2
 
     // Plot the data with the new line colors
     plotXY(myPlot, x, y);
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLegendFont`

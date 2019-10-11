@@ -18,11 +18,6 @@ Format
 
     :rtype ncols: scalar
 
-Remarks
--------
-
-In order to call *colsf* on a file, the file must be open.
-
 Examples
 ----------------
 
@@ -44,5 +39,10 @@ The result will be
 ::
 
     ncols = 11
+
+Remarks
+-------
+
+In order to call *colsf* on a file, the file must be open.
 
 .. seealso:: Functions :func:`rowsf`, :func:`cols`, :func:`show`

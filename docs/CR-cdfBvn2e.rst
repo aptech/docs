@@ -34,19 +34,6 @@ Format
 
     :rtype e: Nx1 vector
 
-Remarks
--------
-
-Scalar input arguments are okay; they will be expanded to Nx1 vectors.
-
-:func:`cdfBvn2e` computes:
-
-::
-
-     cdfBvn(h + dh, k +  dk, r) + cdfBvn(h, k, r) - cdfBvn(h, k + dk, r) - cdfBvn(h + dh, k, r)
-
-The real answer is :math:`y ± e`. The size of the error depends on the input arguments.
-
 Examples
 ----------------
 
@@ -106,5 +93,18 @@ After running the above code,
 
     0.0000000000000000e+000
     2.8306169312687770e-060
+
+Remarks
+-------
+
+Scalar input arguments are okay; they will be expanded to Nx1 vectors.
+
+:func:`cdfBvn2e` computes:
+
+::
+
+     cdfBvn(h + dh, k +  dk, r) + cdfBvn(h, k, r) - cdfBvn(h, k + dk, r) - cdfBvn(h + dh, k, r)
+
+The real answer is :math:`y ± e`. The size of the error depends on the input arguments.
 
 .. seealso:: Functions :func:`cdfBvn2`, :func:`lncdfbvn2`

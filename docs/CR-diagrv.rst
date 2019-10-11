@@ -20,12 +20,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-:func:`diag` reverses the procedure and pulls the diagonal out of a matrix.
-
-
 Examples
 ----------------
 
@@ -50,5 +44,11 @@ After the code above:
         0.967 0.318 0.465     1.000     1.000 0.318 0.465
     x = 0.046 0.786 0.205 v = 1.000 y = 0.046 1.000 0.205
         0.738 0.305 0.734     1.000     0.738 0.305 1.000
+
+Remarks
+-------
+
+:func:`diag` reverses the procedure and pulls the diagonal out of a matrix.
+
 
 .. seealso:: Functions :func:`diag`

@@ -21,18 +21,6 @@ Format
 
     :rtype y: NxP matrix
 
-Remarks
--------
-
-- If *t* is positive, :func:`lagTrim` lags *y* back *t* time periods, so the first ``maxc(t)`` observations of *y* are removed.
-
-- If *t* is negative, :func:`lagTrim` leads *y* forward *t* time periods, so the last ``maxc(t)`` observations of *y* are removed.
-
-- :func:`lagn` is similar to :func:`lagTrim`, but :func:`lagn`:
-
-    -  Fills the first *t* rows of each column with missing values.
-    -  Uses more memory and is slower than :func:`lagTrim`.
-
 Examples
 ----------------
 
@@ -111,5 +99,17 @@ will assign *lag_mat* to equal:
 
          3.2      2.5      1.4
          2.5      2.8      2.7
+
+Remarks
+-------
+
+- If *t* is positive, :func:`lagTrim` lags *y* back *t* time periods, so the first ``maxc(t)`` observations of *y* are removed.
+
+- If *t* is negative, :func:`lagTrim` leads *y* forward *t* time periods, so the last ``maxc(t)`` observations of *y* are removed.
+
+- :func:`lagn` is similar to :func:`lagTrim`, but :func:`lagn`:
+
+    -  Fills the first *t* rows of each column with missing values.
+    -  Uses more memory and is slower than :func:`lagTrim`.
 
 .. seealso:: Functions :func:`lagn`

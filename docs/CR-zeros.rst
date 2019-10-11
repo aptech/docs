@@ -20,14 +20,6 @@ Format
 
     :rtype y: RxC matrix
 
-Remarks
--------
-
-This is faster than :func:`ones`.
-
-Non-integer arguments will be truncated to an integer.
-
-
 Examples
 ----------------
 
@@ -43,6 +35,14 @@ The code above produces the following output:
     0.000    0.000
     0.000    0.000
     0.000    0.000
+
+Remarks
+-------
+
+This is faster than :func:`ones`.
+
+Non-integer arguments will be truncated to an integer.
+
 
 .. seealso:: Functions :func:`ones`, :func:`eye`
 

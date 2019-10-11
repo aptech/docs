@@ -26,20 +26,6 @@ Format
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
--------
-
-The cumulative distribution function for the Generalized Pareto
-distribution is defined as:
-
-.. math::
-
-    f(x,\mu,\sigma,k) =
-    \begin{cases} 1 - (1 + k\frac{x-\mu}{\sigma})^{\frac{-1}{k}},& k \ne 0\\
-    1 - exp(-\frac{x-\mu}{\sigma}), & k = 0
-    \end{cases}
-
-
 Examples
 ---------
 
@@ -61,6 +47,20 @@ After the above code, `p` is equal to
 ::
 
      0.3482
+
+
+Remarks
+-------
+
+The cumulative distribution function for the Generalized Pareto
+distribution is defined as:
+
+.. math::
+
+    f(x,\mu,\sigma,k) =
+    \begin{cases} 1 - (1 + k\frac{x-\mu}{\sigma})^{\frac{-1}{k}},& k \ne 0\\
+    1 - exp(-\frac{x-\mu}{\sigma}), & k = 0
+    \end{cases}
 
 
 .. seealso:: :func:`pdfGenPareto`

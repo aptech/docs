@@ -22,19 +22,6 @@ Format
 
     :rtype K: scalar or matrix
 
-Remarks
--------
-
-Currently the algorithm has the following limitations:
-
--  The order, *n*, must be an integer.
--  The values of *x* must be positive.
--  The maximum supported value for *x* with an order greater than 1 is
-   limited to approximately 740. If the input is out of range, a NaN
-   (missing value) will be returned. If necessary, use the function
-   :func:`ismiss` to check for NaN's in the output.
-
-
 Examples
 ----------------
 
@@ -90,4 +77,17 @@ After the code above, *K* should equal:
     0.11389387       0.13986588       0.25375975
 
  
+Remarks
+-------
+
+Currently the algorithm has the following limitations:
+
+-  The order, *n*, must be an integer.
+-  The values of *x* must be positive.
+-  The maximum supported value for *x* with an order greater than 1 is
+   limited to approximately 740. If the input is out of range, a NaN
+   (missing value) will be returned. If necessary, use the function
+   :func:`ismiss` to check for NaN's in the output.
+
+
 .. seealso:: Functions :func:`bessely`, :func:`mbesseli`, :func:`besselj`

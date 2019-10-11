@@ -21,17 +21,6 @@ Format
 
     :rtype record: matrix
 
-Remarks
--------
-
-This function is only useful in an iterative context. You can easily
-retrieve all the results at once by using the :func:`dbQueryFetchAllM` and
-:func:`dbQueryFetchAllSA` functions.
-
-For string results, or to treat numerical results as a string, using
-:func:`dbQueryFetchOneSA` will return a string array.
-
-
 Examples
 ----------------
 
@@ -50,5 +39,16 @@ Examples
        ytd = record[1];
        total = record[2];
     endo;
+
+Remarks
+-------
+
+This function is only useful in an iterative context. You can easily
+retrieve all the results at once by using the :func:`dbQueryFetchAllM` and
+:func:`dbQueryFetchAllSA` functions.
+
+For string results, or to treat numerical results as a string, using
+:func:`dbQueryFetchOneSA` will return a string array.
+
 
 .. seealso:: Functions :func:`dbQueryFetchOneSA`, :func:`dbQueryFetchAllM`, :func:`dbQueryFetchAllSA`, :func:`dbQueryGetField`

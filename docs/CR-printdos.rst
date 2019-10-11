@@ -21,6 +21,14 @@ Format
 
 :s: (*string*) to be printed to the standard output
 
+Examples
+----------------
+
+::
+
+    printdos "\27[7m"; /* set for reverse video */
+    printdos "\27[0m"; /* set for normal text */
+
 Remarks
 -------
 
@@ -31,14 +39,6 @@ auxiliary output.
 This function was used in the past to send escape sequences to the
 ansi.sys device driver on DOS. It still works on some terminals.
 
-
-Examples
-----------------
-
-::
-
-    printdos "\27[7m"; /* set for reverse video */
-    printdos "\27[0m"; /* set for normal text */
 
 .. seealso:: Functions :func:`print`, :func:`printfm`, `screen`
 

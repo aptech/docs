@@ -28,6 +28,19 @@ Format
         ...
     endif;
 
+Examples
+----------------
+
+::
+
+    if x < 0;
+       y = -1;
+    elseif x > 0;
+       y = 1;
+    else;
+       y = 0;
+    endif;
+
 Remarks
 -------
 
@@ -55,18 +68,5 @@ within an `if` statement.
 
 Note the semicolon after the `else` statement.
 
-
-Examples
-----------------
-
-::
-
-    if x < 0;
-       y = -1;
-    elseif x > 0;
-       y = 1;
-    else;
-       y = 0;
-    endif;
 
 .. seealso:: keywords `do until`, `do while`

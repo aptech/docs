@@ -21,17 +21,6 @@ Format
 
     :rtype result: matrix
 
-Remarks
--------
-
-For string results, or to treat numerical results as strings, use
-:func:`dbQueryFetchAllSA` to return a string array.
-
-This function retrieves all rows at once. You can process rows in an
-iterative manner by using the :func:`dbQueryFetchOneM` and
-:func:`dbQueryFetchOneSA` functions.
-
-
 Examples
 ----------------
 
@@ -71,5 +60,16 @@ Example 2
     if not scalmiss(zipcodes);
         print "zip codes = " zipcodes;
     endif;
+
+Remarks
+-------
+
+For string results, or to treat numerical results as strings, use
+:func:`dbQueryFetchAllSA` to return a string array.
+
+This function retrieves all rows at once. You can process rows in an
+iterative manner by using the :func:`dbQueryFetchOneM` and
+:func:`dbQueryFetchOneSA` functions.
+
 
 .. seealso:: Functions :func:`dbQueryFetchAllSA`, :func:`dbQueryFetchOneM`, :func:`dbQueryFetchOneSA`

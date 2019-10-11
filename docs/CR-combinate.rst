@@ -21,13 +21,6 @@ Format
 
     :rtype y: MxK matrix
 
-Remarks
--------
-
-"Things" are represented by a sequence of integers from 1 to *N*, and the
-integers in each row of *y* are the combinations of those integers taken *K*
-at a time.
-
 Examples
 ----------------
 
@@ -50,5 +43,12 @@ The code above will create the following output:
      2.0000 3.0000
      2.0000 4.0000
      3.0000 4.0000
+
+Remarks
+-------
+
+"Things" are represented by a sequence of integers from 1 to *N*, and the
+integers in each row of *y* are the combinations of those integers taken *K*
+at a time.
 
 .. seealso:: Functions :func:`combinated`, :func:`numCombinations`

@@ -43,15 +43,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-*r* and *c* will be truncated to integers if necessary.
-
-This generator is automatically seeded using the system clock when GAUSS
-first starts. However, that can be overridden using the `rndseed`
-statement, or passing in a seed or state as the last input to :func:`rndi`.
-
 Examples
 ----------------
 
@@ -104,6 +95,15 @@ Using a state-vector
     seed_start = 5423432;
     range = { 20, 150 };
     { idx, state } = rndi(1050, 1, range, seed_start);
+
+Remarks
+-------
+
+*r* and *c* will be truncated to integers if necessary.
+
+This generator is automatically seeded using the system clock when GAUSS
+first starts. However, that can be overridden using the `rndseed`
+statement, or passing in a seed or state as the last input to :func:`rndi`.
 
 .. seealso:: Functions :func:`rndu`, :func:`rndn`, :func:`rndseed`, :func:`rndCreateState`
 

@@ -35,78 +35,6 @@ Windows, Linux and macOS
 
 The *vls* input is currently ignored on macOS and Linux. Missing values will be returned for all cells that are empty or contain errors.
 
-Remarks
--------
-
-#. If range is a null string, then by default the read will begin at
-   cell "A1".
-
-#. If :func:`xlsReadM` fails, it will either terminate and print an error
-   message or return a scalar error code, which can be decoded with
-   :func:`scalerr`, depending on the state of the `trap` flag.
-
-   +------------+--------------------------------------------+
-   | ``trap 0`` | Print error message and terminate program. |
-   +------------+--------------------------------------------+
-   | ``trap 1`` | Return scalar error code.                  |
-   +------------+--------------------------------------------+
-
-   2.1 An error message example
-
-   ::
-
-      // Will end the program and print an error message
-      x = xlsReadM("nonexistent_file.xlsx");
-
-   2.2 Turn off error message
-
-   ::
-
-                              
-      // Turn error trapping on
-      trap 1;
-      x = xlsReadM("nonexistent_file.xlsx");
-
-      // Check to see if 'x' is a scalar error code
-      if scalmiss(x);
-         // Code to handle error case here
-      endif;
-
-      // Turn error trapping off
-      trap 0;
-
-#. By default, empty cells are imported as GAUSS missing values. The vls
-   argument lets users control the import of Excel® empty cells and
-   special types, according to the following table:
-
-   ============= ============
-   Row Number    Excel® Cell
-   ============= ============
-   1             empty cell
-   2             ``#N/A``
-   3             ``#VALUE!``
-   4             ``#DIV/0!``
-   5             ``#NAME?``
-   6             ``#REF!``
-   7             ``#NUM!``
-   8             ``#NULL!``
-   9             ``#ERR``
-   ============= ============
-
-   Use the following to convert all occurrences of ``#DIV/0!`` to ``+Infinity``,
-   and all other empty cells and special types to GAUSS missing values:
-
-   ::
-
-      // Create a 9x1 vector of missing values
-      vls = reshape(miss(0, 0), 9, 1);
-
-      // Set the 4th element of 'vls' to +Infinity so that
-      // Excel #DIV/0! cells will be imported as +Infinity
-      vls[4] = __INFP;
-
-      x = xlsReadM("myfile.xlsx", "A1", 1, vls);
-
 Examples
 ----------------
 
@@ -197,6 +125,78 @@ Specify Sheet Number
     // Using the 'file' variable created in the previous example
     // Pass in '1' as the third input, to specify the first sheet
     x = xlsReadM(file, "A2:A10", 1);
+
+Remarks
+-------
+
+#. If range is a null string, then by default the read will begin at
+   cell "A1".
+
+#. If :func:`xlsReadM` fails, it will either terminate and print an error
+   message or return a scalar error code, which can be decoded with
+   :func:`scalerr`, depending on the state of the `trap` flag.
+
+   +------------+--------------------------------------------+
+   | ``trap 0`` | Print error message and terminate program. |
+   +------------+--------------------------------------------+
+   | ``trap 1`` | Return scalar error code.                  |
+   +------------+--------------------------------------------+
+
+   2.1 An error message example
+
+   ::
+
+      // Will end the program and print an error message
+      x = xlsReadM("nonexistent_file.xlsx");
+
+   2.2 Turn off error message
+
+   ::
+
+                              
+      // Turn error trapping on
+      trap 1;
+      x = xlsReadM("nonexistent_file.xlsx");
+
+      // Check to see if 'x' is a scalar error code
+      if scalmiss(x);
+         // Code to handle error case here
+      endif;
+
+      // Turn error trapping off
+      trap 0;
+
+#. By default, empty cells are imported as GAUSS missing values. The vls
+   argument lets users control the import of Excel® empty cells and
+   special types, according to the following table:
+
+   ============= ============
+   Row Number    Excel® Cell
+   ============= ============
+   1             empty cell
+   2             ``#N/A``
+   3             ``#VALUE!``
+   4             ``#DIV/0!``
+   5             ``#NAME?``
+   6             ``#REF!``
+   7             ``#NUM!``
+   8             ``#NULL!``
+   9             ``#ERR``
+   ============= ============
+
+   Use the following to convert all occurrences of ``#DIV/0!`` to ``+Infinity``,
+   and all other empty cells and special types to GAUSS missing values:
+
+   ::
+
+      // Create a 9x1 vector of missing values
+      vls = reshape(miss(0, 0), 9, 1);
+
+      // Set the 4th element of 'vls' to +Infinity so that
+      // Excel #DIV/0! cells will be imported as +Infinity
+      vls[4] = __INFP;
+
+      x = xlsReadM("myfile.xlsx", "A1", 1, vls);
 
 .. seealso:: Functions :func:`xlsReadSA`, :func:`xlsWrite`, :func:`xlsWriteM`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
 

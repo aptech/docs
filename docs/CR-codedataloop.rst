@@ -27,22 +27,6 @@ Format
     :param expression: logical scalar-returning expression that returns nonzero TRUE or zero FALSE
     :type expression: scalar
 
-Remarks
--------
-
-If '$' is specified, the new variable will be considered a character
-variable. If '#' or nothing is specified, the new variable will be
-considered numeric.
-
-The logical expressions must be mutually exclusive, i.e., only one may
-return TRUE for a given row (observation).
-
-Any variables referenced must already exist, either as elements of the
-source dataset, as externs, or as the result of a previous make,
-vector, or code statement.
-
-If no default value is specified, 999 is used.
-
 Examples
 ----------------
 
@@ -59,6 +43,22 @@ Examples
     code $ sex with
     "MALE" for gender == 1,
     "FEMALE" for gender == 0;
+
+Remarks
+-------
+
+If '$' is specified, the new variable will be considered a character
+variable. If '#' or nothing is specified, the new variable will be
+considered numeric.
+
+The logical expressions must be mutually exclusive, i.e., only one may
+return TRUE for a given row (observation).
+
+Any variables referenced must already exist, either as elements of the
+source dataset, as externs, or as the result of a previous make,
+vector, or code statement.
+
+If no default value is specified, 999 is used.
 
 .. seealso:: Functions :func:`recode`
 

@@ -34,35 +34,6 @@ Global Input
     scalar, comparison tolerance. The default value is 1.0e-15.
 
 
-Remarks
--------
-
-The return value is ``TRUE`` if every comparison is ``TRUE``.
-
-The statement:
-
-::
-
-   ret = feq(a, b);
-
-is equivalent to:
-
-::
-
-   ret = abs(a-b) <= _fcmptol;
-
-For the sake of efficiency, these functions are not written to handle
-missing values. If *a* and *b* contain missing values, use :func:`missrv` to convert
-the missing values to something appropriate before calling a fuzzy
-comparison function.
-
-The calling program can reset `\_fcmptol` before calling these procedures:
-
-::
-
-   _fcmptol = 1e-12;
-
-
 Examples
 ----------------
 
@@ -98,6 +69,35 @@ After the code above:
 
     ret_1 = 1
     ret_2 = 0
+
+Remarks
+-------
+
+The return value is ``TRUE`` if every comparison is ``TRUE``.
+
+The statement:
+
+::
+
+   ret = feq(a, b);
+
+is equivalent to:
+
+::
+
+   ret = abs(a-b) <= _fcmptol;
+
+For the sake of efficiency, these functions are not written to handle
+missing values. If *a* and *b* contain missing values, use :func:`missrv` to convert
+the missing values to something appropriate before calling a fuzzy
+comparison function.
+
+The calling program can reset `\_fcmptol` before calling these procedures:
+
+::
+
+   _fcmptol = 1e-12;
+
 
 Source
 ------

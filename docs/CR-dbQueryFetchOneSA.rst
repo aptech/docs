@@ -23,17 +23,6 @@ Format
 
     :rtype record: string array
 
-Remarks
--------
-
-This function is only useful in an iterative context. You can easily
-retrieve all the results at once by using the :func:`dbQueryFetchAllM` and
-:func:`dbQueryFetchAllSA` functions.
-
-For numerical only results, using :func:`dbQueryFetchOneM` will return a
-matrix instead of a string array.
-
-
 Examples
 ----------------
 
@@ -52,5 +41,16 @@ Examples
         country = record[1];
         total = record[2];
     endo;
+
+Remarks
+-------
+
+This function is only useful in an iterative context. You can easily
+retrieve all the results at once by using the :func:`dbQueryFetchAllM` and
+:func:`dbQueryFetchAllSA` functions.
+
+For numerical only results, using :func:`dbQueryFetchOneM` will return a
+matrix instead of a string array.
+
 
 .. seealso:: Functions :func:`dbQueryFetchOneM`, :func:`dbQueryFetchAllM`, :func:`dbQueryFetchAllSA`, :func:`dbQueryGetField`

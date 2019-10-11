@@ -21,15 +21,6 @@ Format
 
     :rtype str_left: string
 
-Remarks
--------
-
-*str* can be delimited with commas or spaces.
-
-The advantage of :func:`token` over :func:`parse` is that :func:`parse` is limited to tokens of
-8 characters or less; :func:`token` can extract tokens of any length.
-
-
 Examples
 ----------------
 Here is a keyword that uses :func:`token` to parse its string parameter:
@@ -78,6 +69,15 @@ If you type:
 ::
 
     Sum is: 15.00
+
+Remarks
+-------
+
+*str* can be delimited with commas or spaces.
+
+The advantage of :func:`token` over :func:`parse` is that :func:`parse` is limited to tokens of
+8 characters or less; :func:`token` can extract tokens of any length.
+
 
 Source
 ------

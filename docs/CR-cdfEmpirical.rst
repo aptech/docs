@@ -25,11 +25,6 @@ Format
 
     :rtype breakpoint: Nx1 vector
 
-Remarks
--------
-
-*f* is the integral from :math:`-\infty \text{ to } x` of the empirical distribution function.
-
 Examples
 ----------------
 
@@ -99,5 +94,10 @@ After above code,
 The plot is
 
 .. image:: _static/images/plotcdfempirical.png
+
+Remarks
+-------
+
+*f* is the integral from :math:`-\infty \text{ to } x` of the empirical distribution function.
 
 .. seealso:: Functions :func:`plotCDFEmpirical`

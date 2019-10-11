@@ -30,18 +30,18 @@ Format
 
     :rtype retcode: scalar
 
-Remarks
--------
-
-You may want to call :func:`gdaPack` after several calls to :func:`gdaUpdate` to remove
-all of the empty bytes from a GDA.
-
-
 Examples
 ----------------
 
 ::
 
     retcode = gdaPack("myfile.gda");
+
+Remarks
+-------
+
+You may want to call :func:`gdaPack` after several calls to :func:`gdaUpdate` to remove
+all of the empty bytes from a GDA.
+
 
 .. seealso:: Functions :func:`gdaUpdate`, :func:`gdaWrite`

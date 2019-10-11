@@ -21,16 +21,6 @@ Format
 
     :rtype z: Nx1 vector of integers
 
-Remarks
--------
-
-If no matches are found for any of the elements in *what*, then those
-elements in the returned vector are set to the GAUSS missing value code.
-
-If there are duplicate elements in *where*, the index of the first match
-will be returned.
-
-
 Examples
 ----------------
 
@@ -50,5 +40,15 @@ Examples
         3
     z = 2
         5
+
+Remarks
+-------
+
+If no matches are found for any of the elements in *what*, then those
+elements in the returned vector are set to the GAUSS missing value code.
+
+If there are duplicate elements in *where*, the index of the first match
+will be returned.
+
 
 .. seealso:: Functions :func:`contains`, :func:`ismember`, :func:`rowcontains`

@@ -19,6 +19,15 @@ Format
 
     :rtype n: scalar
 
+Examples
+----------------
+
+::
+
+    n = optn(231);
+
+The above code assigns *n* to be equal to 240.
+
 Remarks
 -------
 
@@ -58,14 +67,5 @@ Function         Length           Rows          Columns
 :func:`rfftn`    :func:`optnevn`  :func:`optn`  :func:`optnevn`
 :func:`rfftnp`   :func:`optnevn`  :func:`optn`  :func:`optnevn`
 ================ ================ ============= ================
-
-Examples
-----------------
-
-::
-
-    n = optn(231);
-
-The above code assigns *n* to be equal to 240.
 
 .. seealso:: Functions :func:`fftn`, :func:`nextn`, :func:`nextnevn`, :func:`rfftn`, :func:`rfftnp`

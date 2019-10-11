@@ -22,6 +22,21 @@ Format
 :new: (*scalar*) new value for trace flag.
 :mask: (*scalar*) optional mask to allow leaving some bits of the trace flag unchanged.
 
+Examples
+----------------
+
+::
+
+    trace 1+8;    // trace fn/proc calls/returns to standard 
+                  // output 
+    trace 2+8;    // trace line numbers to standard output 
+    trace 1+2+8;  // trace line numbers and fn/proc calls/
+                  // returns to standard output
+    trace 1+16;   // trace fn/proc calls/returns to printer 
+    trace 2+16;   // trace line numbers to printer
+    trace 1+2+16; // trace line numbers and fn/proc calls/ 
+                  // returns to printer
+
 Remarks
 -------
 
@@ -74,21 +89,6 @@ To set a single bit use two arguments:
 +------------------+----------------------------+
 | ``trace 0,16;``  | turn off output to printer |
 +------------------+----------------------------+
-
-Examples
-----------------
-
-::
-
-    trace 1+8;    // trace fn/proc calls/returns to standard 
-                  // output 
-    trace 2+8;    // trace line numbers to standard output 
-    trace 1+2+8;  // trace line numbers and fn/proc calls/
-                  // returns to standard output
-    trace 1+16;   // trace fn/proc calls/returns to printer 
-    trace 2+16;   // trace line numbers to printer
-    trace 1+2+16; // trace line numbers and fn/proc calls/ 
-                  // returns to printer
 
 .. seealso:: Functions :func:`lineson`
 

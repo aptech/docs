@@ -16,23 +16,6 @@ Format
     :param zlevels: If *zlevels* is a scalar, *zlevels* represents the number of different heights at which to draw contour lines (from ``MIN(Z)`` to ``MAX(Z)``). If *zlevels* is an Nx1 vector, *zlevels* indicates the heights at which to draw the contour lines.
     :type zlevels: scalar or Nx1 vector
 
-Remarks
--------
-
--  To indicate a single Z-level, pass in a 2x1 vector with the same value for both elements:
-
-   ::
-
-      single_level = { 1.5, 1.5 };
-      plotSetLevels(&myPlot, single_level);
-
--  This function sets an attribute in a :class:`plotControl` structure. It does
-   not affect an existing graph, or a new graph drawn using the default
-   settings that are accessible from the
-   :menuselection:`Tools --> Preferences --> Graphics` menu. See **GAUSS Graphics**,
-   Chapter 1, for more information on the methods available for
-   customizing your graphs.
-
 Examples
 ----------------
 
@@ -121,6 +104,23 @@ Example 3
 The plot is
 
 .. figure:: _static/images/plotsetzlevels.png
+
+Remarks
+-------
+
+-  To indicate a single Z-level, pass in a 2x1 vector with the same value for both elements:
+
+   ::
+
+      single_level = { 1.5, 1.5 };
+      plotSetLevels(&myPlot, single_level);
+
+-  This function sets an attribute in a :class:`plotControl` structure. It does
+   not affect an existing graph, or a new graph drawn using the default
+   settings that are accessible from the
+   :menuselection:`Tools --> Preferences --> Graphics` menu. See **GAUSS Graphics**,
+   Chapter 1, for more information on the methods available for
+   customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetColorMap`, :func:`plotSetContourLabels`
 

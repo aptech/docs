@@ -18,13 +18,6 @@ Format
 
     :rtype v: Nx1 character vector
 
-Remarks
--------
-
-:func:`stocv` breaks *s* up into a vector of 8-character length matrix elements.
-
-.. NOTE:: The character information in the vector is not guaranteed to be null-terminated.
-
 Examples
 ----------------
 
@@ -42,6 +35,13 @@ Examples
          "for all "
     
          "good men"
+
+Remarks
+-------
+
+:func:`stocv` breaks *s* up into a vector of 8-character length matrix elements.
+
+.. NOTE:: The character information in the vector is not guaranteed to be null-terminated.
 
 .. seealso:: Functions :func:`cvtos`, :func:`vget`, :func:`vlist`, :func:`vput`, :func:`vread`
 

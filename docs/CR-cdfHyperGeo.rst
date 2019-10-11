@@ -27,14 +27,6 @@ Format
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
-------------
-
-For invalid inputs, :func:`cdfHyperGeo` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
-
 Examples
 ----------------
 You are given 120 hard drives, 14 of which are known to be bad. What is the probability of drawing 2 or fewer bad hard drive if you randomly select 12 drives?
@@ -87,5 +79,13 @@ After running the code above, *p* is equal to:
 
     0.94307042
     0.47070798
+
+Remarks
+------------
+
+For invalid inputs, :func:`cdfHyperGeo` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 .. seealso:: Functions :func:`pdfHyperGeo`, :func:`rndHyperGeo`, :func:`cdfBinomial`

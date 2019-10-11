@@ -21,6 +21,89 @@ Format
 
     :rtype sa: NxK string array
 
+Examples
+----------------
+
+Example 1
++++++++++
+
+::
+
+    dt = 20140317100312;
+
+    // Generate date in format "%Y-%m-%d".
+    print dttostrc(dt, "%F");
+
+produces the output:
+
+::
+
+    2014-03-17
+
+Example 2
++++++++++
+
+::
+
+    /*
+    ** Print date including the full weekday name,
+    ** the full month name, the date, and the year.
+    */
+    print dttostrc(20110117151218, "%A, %B %dth, %Y");
+
+produces the output:
+
+::
+
+    Monday, January 17th, 2011
+
+Example 3
++++++++++
+
+::
+
+    print dttostrc(19411207074801, "Pearl Harbor was attacked on %B %d, %Y at %R %p");
+
+produces the output:
+
+::
+
+    Pearl Harbor was attacked on December 07, 1941 at 07:48 AM
+
+Example 4
++++++++++
+
+::
+
+    x = { 19120317060424, 19370904010928, 19510221031129 };
+    s = dttostrc(x, "%D");
+
+produces *s* equal to:
+
+::
+
+    03/17/12
+    09/04/37
+    02/21/51
+
+Continuing with the same *x* from above:
+
+::
+
+    fmt = "%A, %D" 
+          $| "%a, %F" 
+          $| "%v";
+
+    s = dttostrc(x, fmt);
+
+produces *s* equal to:
+
+::
+
+    Sunday, 03/17/12
+     Sat, 1937-09-04
+         21-FEB-1951
+
 Remarks
 -------
 
@@ -144,88 +227,5 @@ of the decimal point. However, :func:`dttostrc` will accept numbers with fewer
 digits. It will assume that the first four digits are the year, the next
 two the month and so on.
 
-
-Examples
-----------------
-
-Example 1
-+++++++++
-
-::
-
-    dt = 20140317100312;
-
-    // Generate date in format "%Y-%m-%d".
-    print dttostrc(dt, "%F");
-
-produces the output:
-
-::
-
-    2014-03-17
-
-Example 2
-+++++++++
-
-::
-
-    /*
-    ** Print date including the full weekday name,
-    ** the full month name, the date, and the year.
-    */
-    print dttostrc(20110117151218, "%A, %B %dth, %Y");
-
-produces the output:
-
-::
-
-    Monday, January 17th, 2011
-
-Example 3
-+++++++++
-
-::
-
-    print dttostrc(19411207074801, "Pearl Harbor was attacked on %B %d, %Y at %R %p");
-
-produces the output:
-
-::
-
-    Pearl Harbor was attacked on December 07, 1941 at 07:48 AM
-
-Example 4
-+++++++++
-
-::
-
-    x = { 19120317060424, 19370904010928, 19510221031129 };
-    s = dttostrc(x, "%D");
-
-produces *s* equal to:
-
-::
-
-    03/17/12
-    09/04/37
-    02/21/51
-
-Continuing with the same *x* from above:
-
-::
-
-    fmt = "%A, %D" 
-          $| "%a, %F" 
-          $| "%v";
-
-    s = dttostrc(x, fmt);
-
-produces *s* equal to:
-
-::
-
-    Sunday, 03/17/12
-     Sat, 1937-09-04
-         21-FEB-1951
 
 .. seealso:: Functions :func:`dttostr`, :func:`strctodt`, :func:`strtodt`, :func:`dttoutc`, :func:`posixtostrc`, :func:`strctoposix`, :func:`utctodt`

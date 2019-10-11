@@ -23,26 +23,6 @@ Format
 
     :rtype p: Nx1 vector
 
-Remarks
--------
-
-*p* is the integral from 0 to *x* of the noncentral chi-square distribution
-with *df* degrees of freedom and noncentrality *nonc*.
-
-:func:`cdfChinc` can return a vector of values, but the degrees of freedom and
-noncentrality parameter must be the same for all values of *x*.
-
-For invalid inputs, :func:`cdfChinc` will return a scalar error code which, when
-its value is assessed by function :func:`scalerr`, corresponds to the invalid
-input. If the first input is out of range, :func:`scalerr` will return a 1; if
-the second is out of range, :func:`scalerr` will return a 2; etc.
-
-Relation to :func:`cdfChic`:
-
-::
-
-   cdfChic(x, df) = 1 - cdfChinc(x, df, 0);
-
 Examples
 ----------------
 
@@ -67,5 +47,25 @@ The code above returns:
      0.016608592
      0.30954232
      0.99441140
+
+Remarks
+-------
+
+*p* is the integral from 0 to *x* of the noncentral chi-square distribution
+with *df* degrees of freedom and noncentrality *nonc*.
+
+:func:`cdfChinc` can return a vector of values, but the degrees of freedom and
+noncentrality parameter must be the same for all values of *x*.
+
+For invalid inputs, :func:`cdfChinc` will return a scalar error code which, when
+its value is assessed by function :func:`scalerr`, corresponds to the invalid
+input. If the first input is out of range, :func:`scalerr` will return a 1; if
+the second is out of range, :func:`scalerr` will return a 2; etc.
+
+Relation to :func:`cdfChic`:
+
+::
+
+   cdfChic(x, df) = 1 - cdfChinc(x, df, 0);
 
 .. seealso:: Functions :func:`cdfFnc`, :func:`cdfTnc`

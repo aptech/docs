@@ -27,13 +27,6 @@ Format
     :rtype y: Kx1 vector or NxN matrix
 
 
-Remarks
--------
-
-In both the scalar and the matrix case, Horner's rule is used to do the
-evaluation. In the scalar case, the function recsercp is called (this
-implements an elaboration of Horner's rule).
-
 Examples
 ----------------
 
@@ -97,6 +90,13 @@ You can raise a matrix to the n'th power with the command:
     A_n = polyeval(A, 1|zeros(n,1));
 
 (e.g: *A\*A\*A\*A\*...\*A*).
+
+Remarks
+-------
+
+In both the scalar and the matrix case, Horner's rule is used to do the
+evaluation. In the scalar case, the function recsercp is called (this
+implements an elaboration of Horner's rule).
 
 Source
 ------

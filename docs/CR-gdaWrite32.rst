@@ -37,6 +37,20 @@ Format
 
     :rtype retcode: scalar
 
+Examples
+----------------
+
+::
+
+    // Generate random variable x
+    x = rndn(100, 50);
+
+    // Create GDA `myFile`
+    retcode1 = gdaCreate("myfile.gda", 1);
+
+    // Write `x`  to `myfile` as x1
+    retcode2 = gdaWrite32("myfile.gda", x, "x1");
+
 Remarks
 -------
 
@@ -55,19 +69,5 @@ This command does not support writing to a GDA that was created on a
 platform with a different byte order than the current machine. :func:`gdaWrite`
 supports full cross-platform writing to GDA's.
 
-
-Examples
-----------------
-
-::
-
-    // Generate random variable x
-    x = rndn(100, 50);
-
-    // Create GDA `myFile`
-    retcode1 = gdaCreate("myfile.gda", 1);
-
-    // Write `x`  to `myfile` as x1
-    retcode2 = gdaWrite32("myfile.gda", x, "x1");
 
 .. seealso:: Functions :func:`gdaWrite`, :func:`gdaCreate`

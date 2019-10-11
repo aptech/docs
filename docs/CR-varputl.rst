@@ -20,12 +20,6 @@ Format
 
     :rtype y: scalar
 
-Remarks
--------
-
-*x* and *n* may be global or local. The variable, whose name is in *n*, that *x* is assigned to is always a local.
-
-
 Examples
 ----------------
 
@@ -69,6 +63,12 @@ produces:
     Assign x ( A  B  C  D  E ): a
     
      z is 22.3
+
+Remarks
+-------
+
+*x* and *n* may be global or local. The variable, whose name is in *n*, that *x* is assigned to is always a local.
+
 
 .. seealso:: Functions :func:`vargetl`
 

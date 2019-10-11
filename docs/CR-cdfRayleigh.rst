@@ -20,13 +20,6 @@ Format
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
-------------
-
-The Rayleigh cumulative distribution function is defined as
-
-.. math:: 1 − exp⁡(\frac{-x^2}{2\sigma^2})
-
 Examples
 ----------------
 Here is an example show the Rayleigh cumulative distribution plot with different scale parameters.
@@ -47,5 +40,12 @@ Here is an example show the Rayleigh cumulative distribution plot with different
 After running above code,
 
 .. figure:: _static/images/cdfRayleigh.png
+
+Remarks
+------------
+
+The Rayleigh cumulative distribution function is defined as
+
+.. math:: 1 − exp⁡(\frac{-x^2}{2\sigma^2})
 
 .. seealso:: Functions :func:`cdfRayleighInv`, :func:`pdfRayleigh`

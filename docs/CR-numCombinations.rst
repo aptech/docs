@@ -21,12 +21,6 @@ Format
 
     :rtype y: scalar
 
-Remarks
--------
-
-To calculate all of the combinations, use the function :func:`combinate`.
-
-
 Examples
 ----------------
 
@@ -41,6 +35,12 @@ The code above, returns:
 ::
 
     53130.0000
+
+Remarks
+-------
+
+To calculate all of the combinations, use the function :func:`combinate`.
+
 
 .. seealso:: Functions :func:`combinate`, :func:`combinated`
 

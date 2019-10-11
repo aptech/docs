@@ -18,15 +18,6 @@ Format
 
     :rtype y: Nx1 vector
 
-Remarks
--------
-
-The transform is divided by :math:`N`.
-
-This uses a second-order Goertzel algorithm. It is considerably slower
-than :func:`ffti`, but it may have some advantages in some circumstances. For
-one thing, :math:`N` does not have to be an even power of 2.
-
 Examples
 ----------------
 
@@ -68,6 +59,15 @@ Now:
           4 +      0i
           8 +      0i
           0 +      0i
+
+Remarks
+-------
+
+The transform is divided by :math:`N`.
+
+This uses a second-order Goertzel algorithm. It is considerably slower
+than :func:`ffti`, but it may have some advantages in some circumstances. For
+one thing, :math:`N` does not have to be an even power of 2.
 
 Source
 ------

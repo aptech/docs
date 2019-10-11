@@ -21,13 +21,6 @@ Format
     :param str: the title to display above the graph.
     :type str: string
 
-Remarks
--------
-
-Up to three lines of title may be produced by embedding a line feed
-character (``"\L"``) in the title string.
-
-
 Examples
 ----------------
 
@@ -38,6 +31,13 @@ Examples
 
 Fonts may be specified in the title string. For instructions on 
 using fonts, see Selecting Fonts, Section 1.0.1.
+
+Remarks
+-------
+
+Up to three lines of title may be produced by embedding a line feed
+character (``"\L"``) in the title string.
+
 
 Source
 ------

@@ -24,15 +24,6 @@ Format
 
     :rtype x_sparse: MxN sparse matrix
 
-Remarks
--------
-
-A dense matrix is just a normal format matrix.
-
-Since sparse matrices are strongly typed in GAUSS, *x_sparse* must be defined as
-a sparse matrix before the call to :func:`denseToSpRE`.
-
-
 Examples
 ----------------
 
@@ -89,5 +80,14 @@ You can calculate the mean of the non-zero elements of *x* like this:
     nzmean = 4.31
 
 This implies that the call to :func:`denseToSpRE` towards the start of this example removed all non-zeros less than :math:`0.5 * nzmean \approx 2.16`.
+
+Remarks
+-------
+
+A dense matrix is just a normal format matrix.
+
+Since sparse matrices are strongly typed in GAUSS, *x_sparse* must be defined as
+a sparse matrix before the call to :func:`denseToSpRE`.
+
 
 .. seealso:: Functions :func:`denseToSp`, :func:`spCreate`, :func:`spToDense`

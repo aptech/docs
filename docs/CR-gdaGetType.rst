@@ -21,6 +21,13 @@ Format
 
     :rtype vartype: scalar
 
+Examples
+----------------
+
+::
+
+    vartype = gdaGetType("myfile.gda", "x1");
+
 Remarks
 -------
 
@@ -59,12 +66,5 @@ following:
 | 14 | File too large to be read on current platform.      |
 +----+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    vartype = gdaGetType("myfile.gda", "x1");
 
 .. seealso:: Functions :func:`gdaGetTypes`

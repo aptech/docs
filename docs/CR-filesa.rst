@@ -18,13 +18,6 @@ Format
 
     :rtype fnames: Nx1 string array
 
-Remarks
--------
-
-*fnames* will contain file names only; any path information that was passed is
-dropped.
-
-
 Examples
 ----------------
 
@@ -57,5 +50,12 @@ Example 3: Create proc to check if a file exists
     endp;
 
 This procedure will return 1 if the file exists or 0 if not.
+
+Remarks
+-------
+
+*fnames* will contain file names only; any path information that was passed is
+dropped.
+
 
 .. seealso:: Functions :func:`fileinfo`, :func:`shell`

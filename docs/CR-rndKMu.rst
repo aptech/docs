@@ -47,11 +47,6 @@ Format
 
     :rtype newstate: 500x1 vector
 
-Remarks
--------
-
-*r* and *c* will be truncated to integers if necessary.
-
 Examples
 ----------------
 This example generates two thousand vectors of uniform random 
@@ -75,6 +70,11 @@ next generation of random numbers.
      
     mean = meanc(submean);
     print 0.5-mean;
+
+Remarks
+-------
+
+*r* and *c* will be truncated to integers if necessary.
 
 Technical Notes
 -----------------

@@ -17,11 +17,6 @@ Format
 
     :rtype y: MxN dense matrix
 
-Remarks
--------
-
-A dense matrix is just a normal format matrix.
-
 Examples
 ----------------
 
@@ -43,6 +38,11 @@ The dense matrix *d* is equal to:
     0  1  0  0
     0  0  1  0
     0  0  0  1
+
+Remarks
+-------
+
+A dense matrix is just a normal format matrix.
 
 .. seealso:: Functions :func:`spDenseSubmat`, :func:`denseToSp`
 

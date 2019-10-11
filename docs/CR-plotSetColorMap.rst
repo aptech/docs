@@ -22,15 +22,6 @@ Format
 
     :type color_type: string
 
-Remarks
--------
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 Examples
 ----------------
 
@@ -63,6 +54,15 @@ Examples
 The plot is
 
 .. figure:: _static/images/plotSetColorMap.png
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetContourLabels`, :func:`plotSetZLevels`
 

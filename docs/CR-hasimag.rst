@@ -18,6 +18,23 @@ Format
 
     :rtype y: scalar
 
+Examples
+----------------
+
+::
+
+    x = { 1   2 3i,
+          4-i 5 6i,
+          7   8i 9 };
+
+    if hasimag(x);
+        // code path for complex case
+        print "X has non-zero imaginary parts"
+    else;
+        // code path for real case
+        print "X does not have non-zero imaginary parts"
+    endif;
+
 Remarks
 -------
 
@@ -38,22 +55,5 @@ converted to a real matrix to pass through those functions.
 :func:`iscplx` is useful as a preliminary check because for large matrices it is
 much faster than :func:`hasimag`.
 
-
-Examples
-----------------
-
-::
-
-    x = { 1   2 3i,
-          4-i 5 6i,
-          7   8i 9 };
-
-    if hasimag(x);
-        // code path for complex case
-        print "X has non-zero imaginary parts"
-    else;
-        // code path for real case
-        print "X does not have non-zero imaginary parts"
-    endif;
 
 .. seealso:: Functions :func:`iscplx`

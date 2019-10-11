@@ -23,13 +23,6 @@ Format
 
     :rtype z: 3xK matrix
 
-Remarks
--------
-
-The cross-product vector *z* is orthogonal to both *x* and *y*. :code:`sumc(x .* z)`
-and :code:`sumc(y .* z)` will be Kx1 vectors, all of whose elements are 0
-(except for rounding error).
-
 Examples
 ----------------
 
@@ -54,6 +47,13 @@ After the above code,
           7  -39
     z = -28  107
          17  -95
+
+Remarks
+-------
+
+The cross-product vector *z* is orthogonal to both *x* and *y*. :code:`sumc(x .* z)`
+and :code:`sumc(y .* z)` will be Kx1 vectors, all of whose elements are 0
+(except for rounding error).
 
 Source
 ------------

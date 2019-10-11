@@ -18,6 +18,28 @@ Format
 
     :rtype dtv: Nx8 matrix
 
+Examples
+----------------
+
+::
+
+    dt = 20100326110722;
+    print "dt = " dt;
+
+::
+
+    20100326110722
+
+::
+
+    // Convert dt to dtv
+    dtv = dttodtv(dt);
+    print "dtv = " dtv;
+
+::
+
+    2010 3 26 11 7 22 5 84
+
 Remarks
 -------
 
@@ -43,28 +65,6 @@ Each row of *dtv*, in DTV vector format, contains:
 | [N,8]           | Days since Jan 1 of current year, 0-365             |
 +-----------------+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    dt = 20100326110722;
-    print "dt = " dt;
-
-::
-
-    20100326110722
-
-::
-
-    // Convert dt to dtv
-    dtv = dttodtv(dt);
-    print "dtv = " dtv;
-
-::
-
-    2010 3 26 11 7 22 5 84
 
 Source
 ------

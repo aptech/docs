@@ -18,20 +18,6 @@ Format
 
     :rtype headers: Px1 string array
 
-Remarks
--------
-
-For convenience, :func:`getHeaders` will try to read variable names from Excel
-and CSV files. However, since these file types do not have a standard
-method specification for variable names, the first row of the file will
-be returned.
-
-CSV file names with a file extension other than :file:`.csv` will need to start
-with the schema ``csv://``.
-
-HDF5 file names must start with the schema ``h5://``
-
-
 Examples
 ----------------
 
@@ -138,5 +124,19 @@ After the above code, *headers* will contain:
 The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
 
 .. DANGER:: Link up references
+
+Remarks
+-------
+
+For convenience, :func:`getHeaders` will try to read variable names from Excel
+and CSV files. However, since these file types do not have a standard
+method specification for variable names, the first row of the file will
+be returned.
+
+CSV file names with a file extension other than :file:`.csv` will need to start
+with the schema ``csv://``.
+
+HDF5 file names must start with the schema ``h5://``
+
 
 .. seealso:: Functions :func:`csvReadSA`, :func:`dataopen`, :func:`getnamef`, :func:`loadd`, :func:`xlsReadSA`

@@ -21,52 +21,6 @@ Format
 
     :rtype y: Lx1 vector
 
-Remarks
--------
-
-The multi-dimensional data are laid out in a recursive or hierarchical
-fashion in the vector *x*. That is to say, the elements of any given
-dimension are stored in sequence left to right within the vector, with
-each element containing a sequence of elements of the next smaller
-dimension. In abstract terms, a 4-dimensional 2x2x2x2 hypercubic *x* would
-consist of two cubes in sequence, each cube containing two matrices in
-sequence, each matrix containing two rows in sequence, and each row
-containing two columns in sequence. Visually, *x* would look something
-like this:
-
-.. math::
-
-      X\_hyper = X\_cube1|X\_cube2\\
-      X\_cube1 = X\_mat1|X\_mat2\\
-      X\_mat1 = X\_row1|X\_row2\\
-
-Or, in an extended GAUSS notation, *x* would be:
-
-::
-
-   Xhyper = x[1,.,.,.] | x[2,.,.,.];
-   Xcube1 = x[1,1,.,.] | x[1,2,.,.];
-   Xmat1 = x[1,1,1,.] | x[1,1,2,.];
-   Xrow1 = x[1,1,1,1] | x[1,1,1,2];
-
-To be explicit, *x* would be laid out like this:
-
-::
-
-   x[1,1,1,1] x[1,1,1,2] x[1,1,2,1] x[1,1,2,2]
-   x[1,2,1,1] x[1,2,1,2] x[1,2,2,1] x[1,2,2,2]
-   x[2,1,1,1] x[2,1,1,2] x[2,1,2,1] x[2,1,2,2]
-   x[2,2,1,1] x[2,2,1,2] x[2,2,2,1] x[2,2,2,2]
-
-If you look at the last diagram for the layout of *x*, you'll notice that
-each line actually constitutes the elements of an ordinary matrix in
-normal row-major order. This is easy to achieve with :func:`vecr`. Further, each
-pair of lines or matrices constitutes one of the desired cubes,
-again with all the elements in the correct order. And finally, the two
-cubes combine to form the hypercube. So, the process of construction is
-simply a sequence of concatenations of column vectors, with a :func:`vecr` step
-if necessary to get started.
-
 Examples
 ----------------
 
@@ -177,6 +131,52 @@ In this example, ``xh`` is an 36x1 vector and ``xhfft`` is a 64x1 vector. This i
 2x4x2x4. Hence, the input vector contains 36 elements, while the output
 vector would contain 64 elements. You may have noticed that we use a
 *dim* with padded values at the end of the example to check our answer.
+
+Remarks
+-------
+
+The multi-dimensional data are laid out in a recursive or hierarchical
+fashion in the vector *x*. That is to say, the elements of any given
+dimension are stored in sequence left to right within the vector, with
+each element containing a sequence of elements of the next smaller
+dimension. In abstract terms, a 4-dimensional 2x2x2x2 hypercubic *x* would
+consist of two cubes in sequence, each cube containing two matrices in
+sequence, each matrix containing two rows in sequence, and each row
+containing two columns in sequence. Visually, *x* would look something
+like this:
+
+.. math::
+
+      X\_hyper = X\_cube1|X\_cube2\\
+      X\_cube1 = X\_mat1|X\_mat2\\
+      X\_mat1 = X\_row1|X\_row2\\
+
+Or, in an extended GAUSS notation, *x* would be:
+
+::
+
+   Xhyper = x[1,.,.,.] | x[2,.,.,.];
+   Xcube1 = x[1,1,.,.] | x[1,2,.,.];
+   Xmat1 = x[1,1,1,.] | x[1,1,2,.];
+   Xrow1 = x[1,1,1,1] | x[1,1,1,2];
+
+To be explicit, *x* would be laid out like this:
+
+::
+
+   x[1,1,1,1] x[1,1,1,2] x[1,1,2,1] x[1,1,2,2]
+   x[1,2,1,1] x[1,2,1,2] x[1,2,2,1] x[1,2,2,2]
+   x[2,1,1,1] x[2,1,1,2] x[2,1,2,1] x[2,1,2,2]
+   x[2,2,1,1] x[2,2,1,2] x[2,2,2,1] x[2,2,2,2]
+
+If you look at the last diagram for the layout of *x*, you'll notice that
+each line actually constitutes the elements of an ordinary matrix in
+normal row-major order. This is easy to achieve with :func:`vecr`. Further, each
+pair of lines or matrices constitutes one of the desired cubes,
+again with all the elements in the correct order. And finally, the two
+cubes combine to form the hypercube. So, the process of construction is
+simply a sequence of concatenations of column vectors, with a :func:`vecr` step
+if necessary to get started.
 
 Source
 ------

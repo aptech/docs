@@ -21,6 +21,73 @@ Format
 
     :rtype d: NxK matrix
 
+Examples
+----------------
+
+Example 1
++++++++++
+::
+
+   print strctoposix("2012/06/23", "%Y/%m/%d");
+
+produces the output:
+
+::
+
+   1340409600
+
+Example 2
++++++++++
+::
+
+   print strctoposix("1945-11-22 18:36:29", "%Y-%m-%d %H:%M:%S");
+
+produces the output:
+
+::
+
+   -760771411
+
+Example 3
++++++++++
+::
+
+   print strctoposix("January 29, 1973 at  4:19 PM", "%B %d, %Y at %l:%M %p");
+
+produces the output:
+
+::
+
+   97172340
+
+Example 4
++++++++++
+::
+
+   ds = "Oct 23, 2007" $| "Feb 16, 2008";
+   s = strctoposix(ds, "%b %d, %Y");
+
+produces *s* equal to:
+
+::
+
+   1193097600
+   1203120000
+
+Example 5
++++++++++
+::
+
+   ds = "10/23/07 20:45:42" $| "02/16/08 14:32:22";
+   s = strctoposix(ds, "%x %X");
+
+produces *s* equal to:
+
+::
+
+   1193172342
+   1203172342
+
 Remarks
 -------
 
@@ -128,73 +195,6 @@ The following format specifiers are supported:
 | %%              | The '%' sign.                                       |
 +-----------------+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-Example 1
-+++++++++
-::
-
-   print strctoposix("2012/06/23", "%Y/%m/%d");
-
-produces the output:
-
-::
-
-   1340409600
-
-Example 2
-+++++++++
-::
-
-   print strctoposix("1945-11-22 18:36:29", "%Y-%m-%d %H:%M:%S");
-
-produces the output:
-
-::
-
-   -760771411
-
-Example 3
-+++++++++
-::
-
-   print strctoposix("January 29, 1973 at  4:19 PM", "%B %d, %Y at %l:%M %p");
-
-produces the output:
-
-::
-
-   97172340
-
-Example 4
-+++++++++
-::
-
-   ds = "Oct 23, 2007" $| "Feb 16, 2008";
-   s = strctoposix(ds, "%b %d, %Y");
-
-produces *s* equal to:
-
-::
-
-   1193097600
-   1203120000
-
-Example 5
-+++++++++
-::
-
-   ds = "10/23/07 20:45:42" $| "02/16/08 14:32:22";
-   s = strctoposix(ds, "%x %X");
-
-produces *s* equal to:
-
-::
-
-   1193172342
-   1203172342
 
 .. seealso:: Functions :func:`posixtostrc`, :func:`dttostrc`, :func:`strctodt`, :func:`dttostr`, :func:`strtodt`, :func:`dttoutc`, :func:`utctodt`
 

@@ -24,16 +24,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-If *t* is positive, :func:`lagn` lags *x* back *t* time periods, so the first *t*
-observations of *y* are filled with missing values. If *t* is negative, :func:`lagn`
-leads *x* forward *t* time periods, so the last *t* observations of *y* are filled
-with missing values.
-
-For higher performance if you plan to trim of the first *nlags* rows, use :func:`lagTrim`.
-
 Examples
 ----------------
 
@@ -156,6 +146,16 @@ will assign *lag_mat* to equal:
          0        0   0.6927   0.6478   0.9160
          0        0        0   0.6478   0.9160
          0        0        0        0   0.9160
+
+Remarks
+-------
+
+If *t* is positive, :func:`lagn` lags *x* back *t* time periods, so the first *t*
+observations of *y* are filled with missing values. If *t* is negative, :func:`lagn`
+leads *x* forward *t* time periods, so the last *t* observations of *y* are filled
+with missing values.
+
+For higher performance if you plan to trim of the first *nlags* rows, use :func:`lagTrim`.
 
 Source
 ------

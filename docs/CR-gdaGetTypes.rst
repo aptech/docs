@@ -19,6 +19,13 @@ Format
 
     :rtype vartypes: Nx1 vector
 
+Examples
+----------------
+
+::
+
+    vartypes = gdaGetTypes("myfile.gda");
+
 Remarks
 -------
 
@@ -57,12 +64,5 @@ include:
 | 14 | File too large to be read on current platform.      |
 +----+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    vartypes = gdaGetTypes("myfile.gda");
 
 .. seealso:: Functions :func:`gdaGetNames`, :func:`gdaRead`

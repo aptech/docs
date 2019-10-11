@@ -17,13 +17,6 @@ Format
 
     :rtype y: string or NxK matrix or string array
 
-Remarks
--------
-
-If *x* is a numeric matrix, *y* will contain garbage. No error message will
-be generated since GAUSS does not distinguish between numeric and character data in matrices.
-
-
 Examples
 ----------------
 
@@ -44,6 +37,13 @@ This code produces:
 ::
 
     UPPERCASE
+
+Remarks
+-------
+
+If *x* is a numeric matrix, *y* will contain garbage. No error message will
+be generated since GAUSS does not distinguish between numeric and character data in matrices.
+
 
 .. seealso:: Functions :func:`lower`
 

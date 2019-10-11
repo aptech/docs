@@ -85,21 +85,6 @@ Format
 
     :rtype dout: struct
 
-Remarks
--------
-
-The variables referenced by *vnamevar* must all be Nx1.
-
-The names of the variables in the GDA will be used for the output by
-default. To use alternate names, set the *altnames* member of the
-:class:`dstatmtControl` structure.
-
-If pairwise deletion is used, the minima and maxima will be the true
-values for the valid data. The means and standard deviations will be
-computed using the correct number of valid observations for each
-variable.
-
-
 Examples
 ----------------
 
@@ -122,6 +107,21 @@ Examples
 
 This example computes descriptive statistics on the
 first, fourth, fifth and eighth variables in :file:`myfile.gda`.
+
+Remarks
+-------
+
+The variables referenced by *vnamevar* must all be Nx1.
+
+The names of the variables in the GDA will be used for the output by
+default. To use alternate names, set the *altnames* member of the
+:class:`dstatmtControl` structure.
+
+If pairwise deletion is used, the minima and maxima will be the true
+values for the valid data. The means and standard deviations will be
+computed using the correct number of valid observations for each
+variable.
+
 
 Source
 ------

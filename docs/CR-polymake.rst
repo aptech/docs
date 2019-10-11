@@ -20,11 +20,6 @@ Format
 
     :rtype c: (N+1)x1 vector
 
-Remarks
--------
-
-The coefficient of z\ :sup:`n` is set to unity (:math:`c[1]=1`).
-
 Examples
 ----------------
 
@@ -74,6 +69,11 @@ This represents the polynomial:
     x3 - 6x2 + 11x - 6
 
 .. DANGER:: fix equations
+
+Remarks
+-------
+
+The coefficient of z\ :sup:`n` is set to unity (:math:`c[1]=1`).
 
 Source
 ------

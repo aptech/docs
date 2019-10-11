@@ -19,15 +19,6 @@ Format
     :param y_max: maximum limit of the y-axis.
     :type y_max: scalar
 
-Remarks
--------
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 Examples
 ----------------
 
@@ -47,6 +38,15 @@ Examples
     y = rndu(100, 1);
     
     plotScatter(myPlot, x, y);
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`
 

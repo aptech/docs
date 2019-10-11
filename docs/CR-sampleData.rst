@@ -24,16 +24,6 @@ Format
 
     :rtype s: size x cols(x) matrix
 
-Remarks
--------
-
-Indices for taking a random sample can be created with GAUSS function
-rndi.
-
-The random number generator used in :func:`sampleData` to choose the samples is
-automatically seeded using the system clock when GAUSS first starts.
-However, that can be overridden using the `rndseed` statement.
-
 Examples
 ----------------
 
@@ -96,6 +86,16 @@ After running the code above, sample is equal to:
     6.0    2.8 
     4.8    4.1 
     3.0    3.3
+
+Remarks
+-------
+
+Indices for taking a random sample can be created with GAUSS function
+rndi.
+
+The random number generator used in :func:`sampleData` to choose the samples is
+automatically seeded using the system clock when GAUSS first starts.
+However, that can be overridden using the `rndseed` statement.
 
 .. seealso:: Functions :func:`rndi`, :func:`rndn`, :func:`rndseed`
 

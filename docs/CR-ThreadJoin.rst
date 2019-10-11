@@ -17,15 +17,6 @@ Format
 
     threadJoin;
 
-Remarks
--------
-
-Each thread in the set must adhere to the **writer-must-isolate** rule
-(see **Multi-Threaded Programming in GAUSS**, Chapter 1). Because the
-threads in a set execute simultaneously, there is no way of knowing in
-one thread the current "state" of a symbol in another, and thus no way
-of safely or meaningfully accessing it.
-
 Examples
 ----------------
 
@@ -49,6 +40,15 @@ Note how threads 1-4 isolate the various symbols they assign to--no other
 thread references the written symbols at all. Once the threads are joined,
 however, the symbols are again available for use, and can be both read and
 assigned to.
+
+Remarks
+-------
+
+Each thread in the set must adhere to the **writer-must-isolate** rule
+(see **Multi-Threaded Programming in GAUSS**, Chapter 1). Because the
+threads in a set execute simultaneously, there is no way of knowing in
+one thread the current "state" of a symbol in another, and thus no way
+of safely or meaningfully accessing it.
 
 .. seealso:: Functions `threadBegin`, `threadEnd`, `threadStat`
 

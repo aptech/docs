@@ -24,23 +24,6 @@ Format
 :o: (*Nx1 vector*) orders of an N-dimensional array
 :dim: (*scalar*) :math:`[1-M]`, index into the vector of indices *i*, corresponding to the dimension to walk through, positive to walk the index forward, or negative to walk backward.
 
-Remarks
--------
-
-If the argument *dim* is given, `loopnextindex` will walk through only the
-dimension indicated by *dim* in the specified direction. Otherwise, if *dim*
-is not given, each call to `loopnextindex` will increment *i* to index the
-next element or subarray of the corresponding array.
-
-`loopnextindex` will jump to the label indicated by *lab* if the index can
-walk further in the specified dimension and direction, otherwise it will
-fall out of the loop and continue through the program.
-
-When the index matches the vector of orders, the index will be reset to
-the beginning and program execution will resume at the statement
-following the `loopnextindex` statement.
-
-
 Examples
 ----------------
 At its essence, `loopnextindex` provides a simple way to iterate over the orders of a multi-dimensional array.
@@ -152,5 +135,22 @@ example increments the second value of the index vector *ind*
 during each call to `loopnextindex`. This loop will set
 the 6x7 subarrays of a that begin at :math:`[1,1,4,5,1,1]`,
 :math:`[1,2,4,5,1,1]`, and :math:`[1,3,4,5,1,1]`, and then drop out of the loop.
+
+Remarks
+-------
+
+If the argument *dim* is given, `loopnextindex` will walk through only the
+dimension indicated by *dim* in the specified direction. Otherwise, if *dim*
+is not given, each call to `loopnextindex` will increment *i* to index the
+next element or subarray of the corresponding array.
+
+`loopnextindex` will jump to the label indicated by *lab* if the index can
+walk further in the specified dimension and direction, otherwise it will
+fall out of the loop and continue through the program.
+
+When the index matches the vector of orders, the index will be reset to
+the beginning and program execution will resume at the statement
+following the `loopnextindex` statement.
+
 
 .. seealso:: Functions :func:`nextindex`, :func:`previousindex`, :func:`walkindex`

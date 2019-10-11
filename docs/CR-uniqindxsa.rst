@@ -18,12 +18,6 @@ Format
 
     :rtype ind: Mx1 vector
 
-Remarks
--------
-
-Among sets of duplicates it is unpredictable which elements will be indexed.
-
-
 Examples
 ----------------
 
@@ -43,6 +37,12 @@ The above code assigns the variables *ind* and *y* as follows:
     ind  = 4   y =  jane
            2       linda
            1        mary
+
+Remarks
+-------
+
+Among sets of duplicates it is unpredictable which elements will be indexed.
+
 
 Source
 ------

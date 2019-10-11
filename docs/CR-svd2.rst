@@ -29,20 +29,6 @@ Format
 
     :rtype v: PxP matrix
 
-Remarks
--------
-
-#. :func:`svd2` is not threadsafe. New code should use :func:`svdcusv` instead.
-#. Error handling is controlled with the low bit of the `trap` flag. If
-   the singular values cannot be computed, *\_svderr* will be set to a
-   non-zero value.
-
-   +------------+---------------------------------------------------------------+
-   | **trap 0** | set *\_svderr* to a non-zero value and terminate with message |
-   +------------+---------------------------------------------------------------+
-   | **trap 1** | set *\_svderr* to a non-zero value and continue execution     |
-   +------------+---------------------------------------------------------------+
-
 Examples
 ----------------
 
@@ -85,6 +71,20 @@ After the code above, *u*, *s* and *v* will be equal to:
     v =  0.70    -0.70    -0.10 
          0.71     0.70     0.05 
         -0.04     0.10    -0.99
+
+Remarks
+-------
+
+#. :func:`svd2` is not threadsafe. New code should use :func:`svdcusv` instead.
+#. Error handling is controlled with the low bit of the `trap` flag. If
+   the singular values cannot be computed, *\_svderr* will be set to a
+   non-zero value.
+
+   +------------+---------------------------------------------------------------+
+   | **trap 0** | set *\_svderr* to a non-zero value and terminate with message |
+   +------------+---------------------------------------------------------------+
+   | **trap 1** | set *\_svderr* to a non-zero value and continue execution     |
+   +------------+---------------------------------------------------------------+
 
 Source
 ------

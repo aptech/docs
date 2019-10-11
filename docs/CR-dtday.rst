@@ -24,12 +24,6 @@ Format
 
     :rtype dt: NxK matrix
 
-Remarks
--------
-
-This amounts to 00:00:00 or midnight on the given day. The arguments must be ExE conformable.
-
-
 Examples
 ----------------
 
@@ -46,6 +40,12 @@ After the above code:
 ::
   
     20070913000000
+
+
+Remarks
+-------
+
+This amounts to 00:00:00 or midnight on the given day. The arguments must be ExE conformable.
 
 
 Source

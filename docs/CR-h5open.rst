@@ -28,19 +28,6 @@ Format
 
     :rtype fh: scalar
 
-Remarks
--------
-
--  The file handle must be closed with either the :func:`close` function or
-   :func:`closeall` when you are finished using it.
--  To read or write data to a file opened with :func:`h5open`, use :func:`readr`, and
-   :func:`writer`.
--  To read and write data to an HDF5 dataset without opening a file
-   handle, use :func:`h5read` and :func:`h5write`.
--  The function :func:`dataopen` can open file handles for reading and writing
-   to HDF5 datasets and other file types.
-
-
 Examples
 ----------------
 
@@ -117,5 +104,18 @@ After the code above
     b =   4.4   5.5   6.6
          10.0  20.0  30.0
          40.0  50.0  60.0
+
+Remarks
+-------
+
+-  The file handle must be closed with either the :func:`close` function or
+   :func:`closeall` when you are finished using it.
+-  To read or write data to a file opened with :func:`h5open`, use :func:`readr`, and
+   :func:`writer`.
+-  To read and write data to an HDF5 dataset without opening a file
+   handle, use :func:`h5read` and :func:`h5write`.
+-  The function :func:`dataopen` can open file handles for reading and writing
+   to HDF5 datasets and other file types.
+
 
 .. seealso:: Functions :func:`h5create`, :func:`h5read`, :func:`h5write`, `open`, :func:`dataopen`, :func:`readr`, :func:`seekr`

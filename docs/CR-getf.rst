@@ -21,19 +21,6 @@ Format
 
     :rtype str_contents: string
 
-Remarks
--------
-
-If the file is loaded in ASCII mode, it will be tested to see if it
-contains any end of file characters. These are ``^Z`` (ASCII 26). The file
-will be truncated before the first ``^Z``, and there will be no ``^Z``'s in the
-string. This is the correct way to load most text files because the ``^Z``'s
-can cause problems when trying to print the string to a printer.
-
-If the file is loaded in binary mode, it will be loaded just like it is
-with no changes.
-
-
 Examples
 ----------------
 
@@ -103,5 +90,18 @@ You can take this further and create a procedure that will load a list of output
 
        endfor;
     endp;
+
+Remarks
+-------
+
+If the file is loaded in ASCII mode, it will be tested to see if it
+contains any end of file characters. These are ``^Z`` (ASCII 26). The file
+will be truncated before the first ``^Z``, and there will be no ``^Z``'s in the
+string. This is the correct way to load most text files because the ``^Z``'s
+can cause problems when trying to print the string to a printer.
+
+If the file is loaded in binary mode, it will be loaded just like it is
+with no changes.
+
 
 .. seealso:: Functions `load`, `save`, `let`, :func:`con`

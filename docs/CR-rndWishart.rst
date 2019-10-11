@@ -41,20 +41,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-The properties of the pseudo-random numbers in *X* are:
-
-.. DANGER:: fix equations
-
-.. math::
-
-   E(X) = df * cov
-
-   Var(Xij) = df * (cov2ij + covii*covjj)
-
-
 Examples
 ----------------
 
@@ -73,6 +59,20 @@ Examples
 
     X = 7.6019339 4.7744799 
         4.7744799 7.7341260
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in *X* are:
+
+.. DANGER:: fix equations
+
+.. math::
+
+   E(X) = df * cov
+
+   Var(Xij) = df * (cov2ij + covii*covjj)
+
 
 .. seealso:: Functions :func:`rndWishartInv`, :func:`rndMVn`, :func:`rndCreateState`
 

@@ -21,12 +21,6 @@ Format
 
     :rtype p1: struct
 
-Remarks
--------
-
-Matrices or portions of matrices (stored using a *mask*) are stored in the
-structure of type :class:`PV` as a vector in the *p* member.
-
 Examples
 ----------------
 
@@ -68,6 +62,12 @@ Examples
       10.000  2.000 11.000
        2.000 12.000  5.000
       13.000  5.000 14.000
+
+Remarks
+-------
+
+Matrices or portions of matrices (stored using a *mask*) are stored in the
+structure of type :class:`PV` as a vector in the *p* member.
 
 Source
 ------

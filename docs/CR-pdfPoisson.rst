@@ -19,15 +19,6 @@ Format
     :return p: the Poisson probability mass function evaluated at the elements in *x*.
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
--------
-
-For invalid inputs, :func:`pdfPoisson` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
-
-
 Examples
 ----------------
 
@@ -88,5 +79,14 @@ After the code above, *p* is equal to:
     0.02274
     0.02243
     0.02214
+
+Remarks
+-------
+
+For invalid inputs, :func:`pdfPoisson` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+
 
 .. seealso:: Functions :func:`cdfPoisson`, :func:`cdfPoissonInv`, :func:`rndPoisson`

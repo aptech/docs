@@ -34,16 +34,6 @@ Format
 
     :rtype ve: Mx1 vector
 
-Remarks
--------
-
-:func:`lapeighb` computes eigenvalues only which are found on the half open
-interval :math:`[vl, vu]`. To find eigenvalues within a specified range of
-indices see :func:`lapeighi`. For eigenvectors see :func:`lapeighvi`, or :func:`lapeighvb`.
-:func:`lapeighb` is based on the LAPACK drivers *DSYEVX* and *ZHEEVX*. Further
-documentation of these functions may be found in the LAPACK User's Guide.
-
-
 Examples
 ----------------
 
@@ -71,5 +61,15 @@ The code above returns:
 ::
 
     6.0000
+
+Remarks
+-------
+
+:func:`lapeighb` computes eigenvalues only which are found on the half open
+interval :math:`[vl, vu]`. To find eigenvalues within a specified range of
+indices see :func:`lapeighi`. For eigenvectors see :func:`lapeighvi`, or :func:`lapeighvb`.
+:func:`lapeighb` is based on the LAPACK drivers *DSYEVX* and *ZHEEVX*. Further
+documentation of these functions may be found in the LAPACK User's Guide.
+
 
 .. seealso:: Functions :func:`lapeighvi`, :func:`lapeighvb`

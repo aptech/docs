@@ -18,11 +18,6 @@ Format
 
     :rtype oldfmt: 1x3 vector
 
-Remarks
--------
-
-See :func:`printfm` for details on the format vector.
-
 Examples
 ----------------
 This example saves the old format, sets the format desired for
@@ -52,6 +47,11 @@ old format. This code:
      A   1.0000
      B   2.0000
      C   3.0000
+
+Remarks
+-------
+
+See :func:`printfm` for details on the format vector.
 
 Source
 ------

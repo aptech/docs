@@ -59,11 +59,6 @@ Format
 
     :rtype newstate: 4x1 vector
 
-Remarks
--------
-
-*r* and *c* will be truncated to integers if necessary.
-
 Examples
 ----------------
 
@@ -83,6 +78,11 @@ Examples
      
     mean = meanc(submean);
     print mean;
+
+Remarks
+-------
+
+*r* and *c* will be truncated to integers if necessary.
 
 Technical Notes
 ----------------

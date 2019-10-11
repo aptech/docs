@@ -18,19 +18,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-This is based on the recursive series function :func:`recserar`. :func:`recserar` could
-be called directly as follows:
-
-::
-
-    recserar(x, x[1, .], ones(1, cols(x)))
-
-to accomplish the same thing.
-
-
 Examples
 ----------------
 
@@ -49,6 +36,19 @@ Now if you view *y*, you will see:
         1.000 -3.000
     y = 3.000 -1.000
         6.000 -2.000
+
+Remarks
+-------
+
+This is based on the recursive series function :func:`recserar`. :func:`recserar` could
+be called directly as follows:
+
+::
+
+    recserar(x, x[1, .], ones(1, cols(x)))
+
+to accomplish the same thing.
+
 
 Source
 ------------

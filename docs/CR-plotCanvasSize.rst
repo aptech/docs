@@ -33,21 +33,6 @@ Format
     :param dpi: the number of dots per inch. This option applies only to physical measurements, such as centimeters and inches. It will be ignored if the "units" input is set to *pixels*.
     :type dpi: scalar
 
-Remarks
--------
-
-If the only input to :func:`plotCanvasSize` is the string "fill", then the graph
-canvas will be expanded to fill the available area.
-
-:func:`plotSetCanvas` controls the size of the entire graph canvas, not just a
-set of axes. Therefore when used with :func:`plotLayout` to create subplots,
-:func:`plotSetCanvas` will control the size of the bounding box allowed for all
-of the subplots together.
-
-After a call to :func:`plotSetCanvas`, all subsequent graphs will be drawn in a
-canvas of the size specified even if a new plot tab is created with
-:func:`plotOpenWindow`.
-
 Examples
 ----------------
 
@@ -66,6 +51,21 @@ Examples
     // Create x and draw graph in the 640 px by 480 px plot canvas
     x = seqa(1, 1, rows(ln_price));
     plotXY(x, ln_price);
+
+Remarks
+-------
+
+If the only input to :func:`plotCanvasSize` is the string "fill", then the graph
+canvas will be expanded to fill the available area.
+
+:func:`plotSetCanvas` controls the size of the entire graph canvas, not just a
+set of axes. Therefore when used with :func:`plotLayout` to create subplots,
+:func:`plotSetCanvas` will control the size of the bounding box allowed for all
+of the subplots together.
+
+After a call to :func:`plotSetCanvas`, all subsequent graphs will be drawn in a
+canvas of the size specified even if a new plot tab is created with
+:func:`plotOpenWindow`.
 
 .. seealso:: Functions :func:`plotOpenWindow`, :func:`plotSave`
 

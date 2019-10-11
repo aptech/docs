@@ -20,16 +20,6 @@ Format
 
     :rtype p: Nx1 vector
 
-Remarks
-------------
-
-- :func:`cdfMvn` evaluates the *MVN* integral with i-th row of :math:`x` (upper limits),
-  where :math:`1\leqslant i \leqslant N`
-- The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D`
-  denotes the diagonal matrix which has the square roots of the diagonal entries for covariance
-  matrix :math:`\Sigma` on its diagonal.
-- :func:`cdfMvne` is more accurate and faster. Note that :func:`cdfMvne` takes a row vector of upper limits whereas :func:`cdfMvn` takes a column vector of limits.
-
 Examples
 ----------------
 
@@ -125,5 +115,15 @@ which means that:
     P(x_1 \leq -1 \text{ and } x_2 \leq -1.1) = 0.0407\\
     P(x_1 \leq +0 \text{ and } x_2 \leq +0.1) = 0.3198\\
     P(x_1 \leq 1 \text{ and } x_2 \leq 1.1) = 0.7464
+
+Remarks
+------------
+
+- :func:`cdfMvn` evaluates the *MVN* integral with i-th row of :math:`x` (upper limits),
+  where :math:`1\leqslant i \leqslant N`
+- The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D`
+  denotes the diagonal matrix which has the square roots of the diagonal entries for covariance
+  matrix :math:`\Sigma` on its diagonal.
+- :func:`cdfMvne` is more accurate and faster. Note that :func:`cdfMvne` takes a row vector of upper limits whereas :func:`cdfMvn` takes a column vector of limits.
 
 .. seealso:: Functions :func:`cdfBvn`, :func:`cdfN`, :func:`lncdfmvn`

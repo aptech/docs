@@ -41,20 +41,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-The properties of the pseudo-random numbers in *x* are:
-
-.. DANGER:: fix equations
-
-.. math::
-
-   E(x) = 0
-
-   Var(x) = (df/(df - 2)) * sigma
-
-
 Examples
 ----------------
 
@@ -68,6 +54,20 @@ Examples
               0.3   1 };
     
     x = rndMVt(100, sigma, df);
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in *x* are:
+
+.. DANGER:: fix equations
+
+.. math::
+
+   E(x) = 0
+
+   Var(x) = (df/(df - 2)) * sigma
+
 
 .. seealso:: Functions :func:`rndMVn`, :func:`rndCreateState`
 

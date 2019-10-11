@@ -62,14 +62,6 @@ Global Input
 
     *scalar*, finite difference stepsize. Default = 1e-8.
 
-Remarks
--------
-
-The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
-simplified approach," *Journal of Financial Economics*, 7:229:264) as
-described in *Options, Futures, and other Derivatives* by John C. Hull is
-the basis of this procedure.
-
 Examples
 ----------------
 
@@ -95,6 +87,14 @@ produces:
     -14.399673
      65.170395
      56.676624
+
+Remarks
+-------
+
+The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
+simplified approach," *Journal of Financial Economics*, 7:229:264) as
+described in *Options, Futures, and other Derivatives* by John C. Hull is
+the basis of this procedure.
 
 Source
 --------------

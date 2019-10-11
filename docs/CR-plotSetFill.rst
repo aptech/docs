@@ -41,14 +41,6 @@ Format
     :param colors: Optional argument, color names or HTML hex value colors.
     :type colors: string array
 
-Remarks
--------
-
-When graphing without the use of a plotControl structure, these settings
-may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
-selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
-more information on the methods available for customizing your graphs.
-
 Examples
 ----------------
 
@@ -70,5 +62,13 @@ Examples
 
     // Draw bar graph
     plotBar(myPlot, x, y);
+
+Remarks
+-------
+
+When graphing without the use of a plotControl structure, these settings
+may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
+selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
+more information on the methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`

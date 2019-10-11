@@ -36,14 +36,6 @@ Format
 
     :rtype c: Mx1 vector
 
-Remarks
--------
-
-The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
-simplified approach," *Journal of Financial Economics*, 7:229:264) as
-described in *Options, Futures, and other Derivatives* by John C. Hull is
-the basis of this procedure.
-
 Examples
 ----------------
 
@@ -69,6 +61,14 @@ produces the output:
     17.246407
     14.973715
     12.745272
+
+Remarks
+-------
+
+The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
+simplified approach," *Journal of Financial Economics*, 7:229:264) as
+described in *Options, Futures, and other Derivatives* by John C. Hull is
+the basis of this procedure.
 
 Source
 -------

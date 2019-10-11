@@ -16,6 +16,13 @@ Format
 
     select logical_expression;
 
+Examples
+----------------
+
+::
+
+    select age > 40 AND sex $== 'MALE';
+
 Remarks
 -------
 
@@ -23,13 +30,6 @@ Selects only those rows for which *logical_expression* is ``TRUE``. Any
 variables referenced must already exist, either as elements of the
 source dataset, as `extern`'s, or as the result of a previous `make`,
 `vector`, or `code` statement.
-
-Examples
-----------------
-
-::
-
-    select age > 40 AND sex $== 'MALE';
 
 .. seealso:: `delete`
 

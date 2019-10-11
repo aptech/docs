@@ -33,14 +33,6 @@ Format
 
     :rtype y: Lx1 vector
 
-Remarks
--------
-
-Place smaller vector first for fastest operation.
-
-When there are a lot of duplicates, it is faster to remove them first
-with :func:`unique` before calling this function.
-
 Examples
 ----------------
 
@@ -107,6 +99,14 @@ The code above will produce the following output:
     jnj 
     wfc 
     xom
+
+Remarks
+-------
+
+Place smaller vector first for fastest operation.
+
+When there are a lot of duplicates, it is faster to remove them first
+with :func:`unique` before calling this function.
 
 Source
 ------

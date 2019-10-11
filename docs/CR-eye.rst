@@ -18,11 +18,6 @@ Format
 
     :rtype y: NxN identity matrix
 
-Remarks
--------
-
-If *n* is not an integer it will be truncated to an integer.
-
 Examples
 ----------------
 
@@ -37,5 +32,10 @@ The code above assigns *x* to be equal to:
     1.0000 0.0000 0.0000
     0.0000 1.0000 0.0000
     0.0000 0.0000 1.0000
+
+Remarks
+-------
+
+If *n* is not an integer it will be truncated to an integer.
 
 .. seealso:: Functions :func:`zeros`, :func:`ones`

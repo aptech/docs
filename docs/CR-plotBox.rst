@@ -19,16 +19,6 @@ Format
     :param y:  Each column represents the set of *y* values for an individual percentiles box symbol.
     :type y: NxM matrix
 
-Remarks
--------
-
-Note that numeric labels added to the X-axis are only labels for the
-corresponding boxes. They do not imply any order or denote a particular
-X-axis location.
-
-If missing values are encountered in the *y* data, they will be ignored
-during calculations and will not be plotted.
-
 Examples
 ----------------
 
@@ -68,6 +58,16 @@ Using numeric labels
     plotBox(labels, y_1~y_2);
 
 .. figure:: _static/images/gauss15_boxplot_1.png
+
+Remarks
+-------
+
+Note that numeric labels added to the X-axis are only labels for the
+corresponding boxes. They do not imply any order or denote a particular
+X-axis location.
+
+If missing values are encountered in the *y* data, they will be ignored
+during calculations and will not be plotted.
 
 .. seealso:: Functions :func:`plotHistP`, :func:`plotScatter`
 

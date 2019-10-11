@@ -20,12 +20,6 @@ Format
 
     :rtype si: scalar
 
-Remarks
--------
-
-This function and its opposite, :func:`arrayindex`, allow you to convert between
-an N-dimensional index and its corresponding location in a 1-dimensional object of the same size.
-
 Examples
 ----------------
 
@@ -59,6 +53,12 @@ the element corresponding to the index vector *ai* to 49. It then
 creates a vector, *v*, with the same data. The element in
 the array *a* that is indexed by *ai* corresponds
 to the element of the vector *v* that is indexed by *vi*.
+
+Remarks
+-------
+
+This function and its opposite, :func:`arrayindex`, allow you to convert between
+an N-dimensional index and its corresponding location in a 1-dimensional object of the same size.
 
 .. seealso:: Functions :func:`arrayindex`
 

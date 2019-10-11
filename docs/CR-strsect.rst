@@ -24,14 +24,6 @@ Format
 
     :rtype y: string
 
-Remarks
--------
-
-If there are not enough characters in a string for the defined substring
-to be extracted, then a short string or a null string will be returned.
-
-If *str* is a matrix containing character data, it must be scalar.
-
 Examples
 ----------------
 
@@ -45,6 +37,14 @@ The above code assigns the variable *y* to be:
 ::
 
     example
+
+Remarks
+-------
+
+If there are not enough characters in a string for the defined substring
+to be extracted, then a short string or a null string will be returned.
+
+If *str* is a matrix containing character data, it must be scalar.
 
 .. seealso:: Functions :func:`strlen`, :func:`strindx`, :func:`strrindx`, :func:`strreplace`
 

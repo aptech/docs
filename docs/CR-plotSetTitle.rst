@@ -25,15 +25,6 @@ Format
     :param fontColor: Optional input, named color or RGB value.
     :type fontColor: string
 
-Remarks
--------
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 Examples
 ----------------
 
@@ -85,5 +76,14 @@ will add :math:`σ2` to your title. While,
     plotSetTitle(&myPlot, label_string);
 
 will create :math:`Yt-1`
+
+Remarks
+-------
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetYLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`

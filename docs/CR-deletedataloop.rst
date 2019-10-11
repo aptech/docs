@@ -11,6 +11,13 @@ Format
 ----------------
 .. function:: delete logical_expression
 
+Examples
+----------------
+
+::
+
+    delete age < 40 or sex == 'FEMALE';
+
 Remarks
 -------
 
@@ -24,13 +31,6 @@ The relational and other operators (e.g. ``<``) are already interpreted in
 terms of their dot equivalents (``.<``), but it is up to the user to make
 sure that function calls within *logical_expression* result in a vector.
 
-
-Examples
-----------------
-
-::
-
-    delete age < 40 or sex == 'FEMALE';
 
 .. seealso:: Function `select`
 

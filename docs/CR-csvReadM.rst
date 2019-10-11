@@ -40,17 +40,6 @@ Format
 
     :rtype mat: matrix
 
-Remarks
-------------
-
-The standard input stream (stdin) can be read with :func:`csvReadM` by passing
-in `__STDIN` as the filename input. Note that `__STDIN` should not be
-passed as a string, surrounded by quotes. Correct usage is shown below:
-
-::
-
-   x = csvReadM(__STDIN);
-
 Examples
 ----------------
 
@@ -206,5 +195,16 @@ Linux
 ::
 
     x = csvReadM("/home/my_user/myfile.csv");
+
+Remarks
+------------
+
+The standard input stream (stdin) can be read with :func:`csvReadM` by passing
+in `__STDIN` as the filename input. Note that `__STDIN` should not be
+passed as a string, surrounded by quotes. Correct usage is shown below:
+
+::
+
+   x = csvReadM(__STDIN);
 
 .. seealso:: Functions :func:`csvReadSA`, :func:`xlsWrite`, :func:`xlsWriteM`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`

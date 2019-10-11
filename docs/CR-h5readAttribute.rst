@@ -23,16 +23,6 @@ Format
 
     :rtype attr_read: matrix, array or string array
 
-Remarks
--------
-
--  HDF5 does not support partial read or write of dataset attributes.
-   The entire contents of the attribute will be read.
--  GAUSS functions that accept HDF5 datasets as a data source, expect the
-   dataset to have an attribute named :code:`"headers"`, containing the variable
-   names of the dataset.
-
-
 Examples
 ----------------
 
@@ -95,5 +85,15 @@ Add data and calculate descriptive statistics
 
     Gasoline        0.0212    1.0130      1.0261   -2.9943    2.3527     100      0
     Heating Oil    -0.1120    0.9263      0.8580   -2.7726    3.0910     100      0
+
+Remarks
+-------
+
+-  HDF5 does not support partial read or write of dataset attributes.
+   The entire contents of the attribute will be read.
+-  GAUSS functions that accept HDF5 datasets as a data source, expect the
+   dataset to have an attribute named :code:`"headers"`, containing the variable
+   names of the dataset.
+
 
 .. seealso:: Functions :func:`h5create`, :func:`h5writeAttribute`, :func:`h5read`, :func:`h5write`

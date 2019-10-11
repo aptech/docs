@@ -21,6 +21,13 @@ Format
 
     :rtype ind: scalar
 
+Examples
+----------------
+
+::
+
+    ind = gdaGetIndex("myfile.gda", "observed");
+
 Remarks
 -------
 
@@ -44,12 +51,5 @@ following:
 | 14 | File too large to be read on current platform.      |
 +----+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    ind = gdaGetIndex("myfile.gda", "observed");
 
 .. seealso:: Functions :func:`gdaGetName`, :func:`gdaReadByIndex`

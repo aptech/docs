@@ -22,21 +22,6 @@ Format
 
     :rtype D: NxN matrix
 
-Remarks
--------
-
--  Matrix factorization is the most computationally intense part of
-   solving a system of linear equations. The factorization can be saved
-   and reused multiple times to prevent the need to repeat the matrix
-   factorization step. If you only need the LDLT factorization for this
-   purpose, the combination of :func:`ldlp` and :func:`ldlsol` may be a better choice.
--  The LDL matrix factorization without permutation is not numerically
-   stable for positive indefinite matrices. Therefore, this function
-   uses the permutation strategy from Bunch and Kaufman. The
-   permutations may result in an *L* matrix with elements above the
-   diagonal.
-
-
 Examples
 ----------------
 
@@ -105,5 +90,20 @@ After the code above, the permuted *L* and diagonal *D* equal:
     D =   0             0   5.6139        0        0
           0             0        0   0.2394        0
           0             0        0        0   0.6006
+
+Remarks
+-------
+
+-  Matrix factorization is the most computationally intense part of
+   solving a system of linear equations. The factorization can be saved
+   and reused multiple times to prevent the need to repeat the matrix
+   factorization step. If you only need the LDLT factorization for this
+   purpose, the combination of :func:`ldlp` and :func:`ldlsol` may be a better choice.
+-  The LDL matrix factorization without permutation is not numerically
+   stable for positive indefinite matrices. Therefore, this function
+   uses the permutation strategy from Bunch and Kaufman. The
+   permutations may result in an *L* matrix with elements above the
+   diagonal.
+
 
 .. seealso:: Functions :func:`ldlp`, :func:`ldlsol`, :func:`chol`, :func:`solpd`

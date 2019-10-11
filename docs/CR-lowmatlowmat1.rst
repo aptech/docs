@@ -21,11 +21,6 @@ Format
 
     :rtype L: NxN matrix
 
-Remarks
--------
-
-The :func:`lowmat` function along with :func:`upmat1` can be used to extract the LU factors from the return.
-
 Examples
 ----------------
 
@@ -45,6 +40,11 @@ The resulting matrices are
         1  0  0       1   0   0
     L = 2  3  0  L1 = 2   1   0
         1 -2  4       1  -2   1
+
+Remarks
+-------
+
+The :func:`lowmat` function along with :func:`upmat1` can be used to extract the LU factors from the return.
 
 Source
 ------

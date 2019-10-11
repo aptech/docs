@@ -177,23 +177,6 @@ Format
 
     :rtype fh: scalar
 
-Remarks
--------
-
-If the complex flag is included, the new dataset will be initialized to
-store complex number data. Complex data is stored a row at a time, with
-the real and imaginary halves interleaved, element by element.
-
-The -w32 flag is an optimization for Windows. It is ignored on all other
-platforms. **GAUSS 7.0** and later use Windows system file write commands
-that support 64-bit file sizes. These commands are slower on Windows XP
-than the 32-bit file write commands that were used in GAUSS 6.0 and
-earlier. If you include the -w32 flag, successive writes to the file
-indicated by fh will use 32-bit Windows write commands, which will be
-faster on Windows XP. Note, however, that the -w32 flag does not support
-64-bit file sizes.
-
-
 Examples
 ----------------
 
@@ -292,5 +275,22 @@ remember that two backslashes (''``\\``'') are required to
 enter one backslash inside of double quotes. This
 is because a backslash is the escape character used
 to embed special characters in strings.
+
+Remarks
+-------
+
+If the complex flag is included, the new dataset will be initialized to
+store complex number data. Complex data is stored a row at a time, with
+the real and imaginary halves interleaved, element by element.
+
+The -w32 flag is an optimization for Windows. It is ignored on all other
+platforms. **GAUSS 7.0** and later use Windows system file write commands
+that support 64-bit file sizes. These commands are slower on Windows XP
+than the 32-bit file write commands that were used in GAUSS 6.0 and
+earlier. If you include the -w32 flag, successive writes to the file
+indicated by fh will use 32-bit Windows write commands, which will be
+faster on Windows XP. Note, however, that the -w32 flag does not support
+64-bit file sizes.
+
 
 .. seealso:: Functions :func:`datacreate`, :func:`datacreatecomplex`, `open`, :func:`readr`, :func:`writer`, :func:`eof`, `close`, `output`, :func:`iscplxf`

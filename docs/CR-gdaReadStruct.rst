@@ -39,12 +39,6 @@ Format
 
     :rtype retcode: scalar
 
-Remarks
--------
-
-*instance* can be an array of structures.
-
-
 Examples
 ----------------
 
@@ -74,5 +68,11 @@ Examples
 
     // Read ms from GDA tp msr
     { msr, retcode2 } = gdaReadStruct("myfile.gda", "ms", "mystruct");
+
+Remarks
+-------
+
+*instance* can be an array of structures.
+
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaReadSparse`, :func:`gdaWrite`

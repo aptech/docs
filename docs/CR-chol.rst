@@ -18,27 +18,6 @@ Format
 
     :rtype u: NxN matrix
 
-Remarks
--------
-
-*u* is the "square root" matrix of *x*. That is, it is an upper triangular
-matrix such that :math:`x = u'u`.
-
-:func:`chol` does not check to see that the matrix is symmetric. :func:`chol` will look
-only at the upper half of the matrix including the principal diagonal.
-
-If the matrix *x* is symmetric but not positive definite, either an error
-message or an error code will be generated, depending on the lowest
-order bit of the trap flag:
-
-.. csv-table::
-    :widths: auto
-
-    "**trap 0**", "Print error message and terminate program."
-    "**trap 1**", "Print error message and terminate program."
-
-See :func:`scalerr` and `trap` for more details about error codes.
-
 Examples
 ----------------
 
@@ -62,5 +41,26 @@ Examples
     upu = 8.6983  83.4547  -6.1455 -12.5551
           3.7248  -6.1455  87.6666  -3.0284
           1.5449 -12.5551  -3.0284  90.8311
+
+Remarks
+-------
+
+*u* is the "square root" matrix of *x*. That is, it is an upper triangular
+matrix such that :math:`x = u'u`.
+
+:func:`chol` does not check to see that the matrix is symmetric. :func:`chol` will look
+only at the upper half of the matrix including the principal diagonal.
+
+If the matrix *x* is symmetric but not positive definite, either an error
+message or an error code will be generated, depending on the lowest
+order bit of the trap flag:
+
+.. csv-table::
+    :widths: auto
+
+    "**trap 0**", "Print error message and terminate program."
+    "**trap 1**", "Print error message and terminate program."
+
+See :func:`scalerr` and `trap` for more details about error codes.
 
 .. seealso:: Functions :func:`crout`, :func:`solpd`

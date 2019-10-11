@@ -40,23 +40,6 @@ Format
 
     :rtype retcode: scalar
 
-Remarks
--------
-
-This command appends the data contained in *x* to the variable *varname*
-in *filename*. Both *x* and the variable referenced by *varname* must be the
-same data type, and they must both contain the same number of columns.
-
-Because :func:`gdaAppend` increases the size of the variable, it moves the
-variable to just after the last variable in the data file to make room
-for the added data, leaving empty bytes in the variable's old location.
-It also moves the variable descriptor table, so it is not overwritten by
-the variable data. This does not change the index of the variable
-because variable indices are determined NOT by the order of the variable
-data in a GDA, but by the order of the variable descriptors. Call
-:func:`gdaPack` to pack the data in a GDA, so it contains no empty bytes.
-
-
 Examples
 ----------------
 
@@ -97,5 +80,22 @@ This prints :
     50.000000
 
 Appending the ``y`` matrix to ``x1`` adds :math:`25*50 = 1250` elements to ``x1``, making it a 125x50 matrix.
+
+Remarks
+-------
+
+This command appends the data contained in *x* to the variable *varname*
+in *filename*. Both *x* and the variable referenced by *varname* must be the
+same data type, and they must both contain the same number of columns.
+
+Because :func:`gdaAppend` increases the size of the variable, it moves the
+variable to just after the last variable in the data file to make room
+for the added data, leaving empty bytes in the variable's old location.
+It also moves the variable descriptor table, so it is not overwritten by
+the variable data. This does not change the index of the variable
+because variable indices are determined NOT by the order of the variable
+data in a GDA, but by the order of the variable descriptors. Call
+:func:`gdaPack` to pack the data in a GDA, so it contains no empty bytes.
+
 
 .. seealso:: Functions :func:`gdaWriteSome`, :func:`gdaUpdate`, :func:`gdaWrite`

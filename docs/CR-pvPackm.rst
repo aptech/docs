@@ -27,21 +27,6 @@ Format
 
     :rtype p1: struct
 
-Remarks
--------
-
-The *mask* argument allows storing a selected portion of a matrix into the
-packed vector. The ones in *mask* indicate an element to be stored in the
-packed matrix. When the matrix is unpacked (using :func:`pvUnpack`) the elements
-corresponding to the zeros are restored. Elements corresponding to the
-ones come from the packed vector which may have been changed.
-
-If the mask is all zeros, the matrix or array is packed with the
-specified elements in the second argument but no elements of the matrix
-or array are entered into the parameter vector. When unpacked the matrix
-or array in the second argument is returned without modification.
-
-
 Examples
 ----------------
 
@@ -76,6 +61,21 @@ Examples
 
      5.000 2.000
      3.000 6.000
+
+Remarks
+-------
+
+The *mask* argument allows storing a selected portion of a matrix into the
+packed vector. The ones in *mask* indicate an element to be stored in the
+packed matrix. When the matrix is unpacked (using :func:`pvUnpack`) the elements
+corresponding to the zeros are restored. Elements corresponding to the
+ones come from the packed vector which may have been changed.
+
+If the mask is all zeros, the matrix or array is packed with the
+specified elements in the second argument but no elements of the matrix
+or array are entered into the parameter vector. When unpacked the matrix
+or array in the second argument is returned without modification.
+
 
 Source
 ------

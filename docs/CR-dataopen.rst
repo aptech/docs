@@ -29,6 +29,62 @@ Format
 
     :rtype fh: scalar
 
+Examples
+----------------
+
+Read from a GAUSS dataset
++++++++++++++++++++++++++
+
+::
+
+    // Create a file name with full path
+    file_name = getGAUSSHome() $+ "examples/credit.dat";
+
+    // Open file handle to dataset and assign it to 'fh'
+    fh = dataopen(file_name, "read");
+
+    // Read 100 rows from the dataset into the variable 'y'
+    y = readr(fh, 100);
+
+    // Close file handle
+    ret = close(fh);
+
+
+Write to a GAUSS dataset
+++++++++++++++++++++++++
+
+::
+
+   // Create variable names for dataset
+   var_names = "alpha" $| "beta";
+
+   // Create dataset containing 2 variables with 5 observations all equal to 1
+   x = ones(5, 2);
+   call saved(x, "my_ones.dat", var_names);
+
+   // Open file handle to dataset and assign it to 'fh'
+   fh = dataopen("my_ones.dat", "update");
+
+   // Write to the first row
+   y = { 17 21 };
+   call writer(fh, y);
+
+   // Close file handle
+   ret = close(fh);
+
+   // Load all contents of dataset
+   new_x = loadd("my_ones.dat");
+
+After the code above, *new_x* should be equal to:
+
+::
+
+   17 21
+    1  1
+    1  1
+    1  1
+    1  1
+
 Remarks
 -------
 
@@ -85,62 +141,6 @@ dataset name must be provided, e.g.
 ::
 
     glm("h5://C:/gauss/examples/testdata.h5/mydata").
-
-Examples
-----------------
-
-Read from a GAUSS dataset
-+++++++++++++++++++++++++
-
-::
-
-    // Create a file name with full path
-    file_name = getGAUSSHome() $+ "examples/credit.dat";
-
-    // Open file handle to dataset and assign it to 'fh'
-    fh = dataopen(file_name, "read");
-
-    // Read 100 rows from the dataset into the variable 'y'
-    y = readr(fh, 100);
-
-    // Close file handle
-    ret = close(fh);
-
-
-Write to a GAUSS dataset
-++++++++++++++++++++++++
-
-::
-
-   // Create variable names for dataset
-   var_names = "alpha" $| "beta";
-
-   // Create dataset containing 2 variables with 5 observations all equal to 1
-   x = ones(5, 2);
-   call saved(x, "my_ones.dat", var_names);
-
-   // Open file handle to dataset and assign it to 'fh'
-   fh = dataopen("my_ones.dat", "update");
-
-   // Write to the first row
-   y = { 17 21 };
-   call writer(fh, y);
-
-   // Close file handle
-   ret = close(fh);
-
-   // Load all contents of dataset
-   new_x = loadd("my_ones.dat");
-
-After the code above, *new_x* should be equal to:
-
-::
-
-   17 21
-    1  1
-    1  1
-    1  1
-    1  1
 
 Source
 ------

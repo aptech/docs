@@ -21,6 +21,13 @@ Format
 
     :rtype ord: Mx1 vector
 
+Examples
+----------------
+
+::
+
+    ord = gdaGetOrders("myfile.gda", "x5");
+
 Remarks
 -------
 
@@ -50,12 +57,5 @@ following:
 +----+-----------------------------------------------------+
 | 14 | File too large to be read on current platform.      |
 +----+-----------------------------------------------------+
-
-Examples
-----------------
-
-::
-
-    ord = gdaGetOrders("myfile.gda", "x5");
 
 .. seealso:: Functions :func:`gdaGetName`, :func:`gdaGetIndex`

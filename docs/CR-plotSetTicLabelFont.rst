@@ -22,11 +22,6 @@ Format
     :param color: Optional argument, named color or RGB value.
     :type color: string
 
-Remarks
--------
-
-:func:`plotSetTicLabelFont` does not apply changes to surface plots.
-
 Examples
 ----------------
 
@@ -46,5 +41,10 @@ Examples
 
     // Create graph with tic label settings applied above
     plotScatter(myPlot, x, y);
+
+Remarks
+-------
+
+:func:`plotSetTicLabelFont` does not apply changes to surface plots.
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`

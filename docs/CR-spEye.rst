@@ -17,12 +17,6 @@ Format
 
     :rtype y: n x n sparse identity matrix
 
-Remarks
--------
-
-Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
-a sparse matrix before the call to :func:`spEye`.
-
 Examples
 ----------------
 
@@ -41,6 +35,12 @@ Examples
     1  0  1
     0  1  0
     0  0  1
+
+Remarks
+-------
+
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spEye`.
 
 .. seealso:: Functions :func:`spCreate`, :func:`spOnes`, :func:`denseToSp`
 

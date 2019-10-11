@@ -23,11 +23,6 @@ Format
 
     :rtype y: KxL dense matrix
 
-Remarks
--------
-
-If *rinds* or *cinds* are scalar zeros, all rows or columns will be returned.
-
 Examples
 ----------------
 
@@ -56,6 +51,11 @@ Now *d* is equal to:
     0  0  0
     5  0  0
     0  0  3
+
+Remarks
+-------
+
+If *rinds* or *cinds* are scalar zeros, all rows or columns will be returned.
 
 .. seealso:: Functions :func:`spSubmat`
 

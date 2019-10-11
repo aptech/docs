@@ -26,18 +26,6 @@ Format
 
     :rtype y: KxL sparse matrix
 
-Remarks
--------
-
-Only the elements of *s* specified by *rinds* and *cinds* will be multiplied by
-scal. All other elements will be unchanged in the result.
-
-To select all rows or all columns, input a scalar 0 for *rinds* or *cinds*.
-
-Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
-a sparse matrix before the call to :func:`spTScalar`.
-
-
 Examples
 ----------------
 
@@ -65,6 +53,18 @@ The result, in *d* is:
     0 40 0 0
     5 0  0 3
     0 10 2 0
+
+Remarks
+-------
+
+Only the elements of *s* specified by *rinds* and *cinds* will be multiplied by
+scal. All other elements will be unchanged in the result.
+
+To select all rows or all columns, input a scalar 0 for *rinds* or *cinds*.
+
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spTScalar`.
+
 
 .. seealso:: Functions :func:`spTrTDense`
 

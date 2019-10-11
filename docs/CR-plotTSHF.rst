@@ -41,27 +41,6 @@ Format
     :param y: Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
-Remarks
--------
-
-Formatting for the X-tick labels can be set with the function
-:func:`plotSetXTicLabel`. If a :class:`plotControl` structure is not passed in to
-:func:`plotTSHF`, or the format specifier is not set with :func:`plotSetXTicLabel` the
-default formatting based on the time label unit and is as follows:
-
-=============== =====================
-"years"         "YYYY"
-"quarters"      "YYYY-QQ"
-"months"        "YYYY-MO"
-"days"          "MO-DD"
-"hours"         "HH:MI"
-"minutes"       "HH:MI"
-"seconds"       "HH:MI:SS"
-"milliseconds"  "HH:MI:SS.zzz"
-=============== =====================
-
-By default missing values in the *y* variable will be represented as gaps in the line.
-
 Examples
 ----------------
 
@@ -199,5 +178,26 @@ Time Series Plot With Custom X-tics
 
     // Draw time series plot, using settings in 'myPlot'
     plotTSHF(myPlot, dts, "quarters", y);
+
+Remarks
+-------
+
+Formatting for the X-tick labels can be set with the function
+:func:`plotSetXTicLabel`. If a :class:`plotControl` structure is not passed in to
+:func:`plotTSHF`, or the format specifier is not set with :func:`plotSetXTicLabel` the
+default formatting based on the time label unit and is as follows:
+
+=============== =====================
+"years"         "YYYY"
+"quarters"      "YYYY-QQ"
+"months"        "YYYY-MO"
+"days"          "MO-DD"
+"hours"         "HH:MI"
+"minutes"       "HH:MI"
+"seconds"       "HH:MI:SS"
+"milliseconds"  "HH:MI:SS.zzz"
+=============== =====================
+
+By default missing values in the *y* variable will be represented as gaps in the line.
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotScatter`, :func:`plotTS`, :func:`plotTSLog`

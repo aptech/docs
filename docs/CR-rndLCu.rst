@@ -60,24 +60,6 @@ Format
 
     :rtype newstate: 4x1 vector
 
-Remarks
--------
-
-*r* and *c* will be truncated to integers if necessary.
-
-Each seed is generated from the preceding seed using the formula
-
-.. math::
-
-    new_seed = (((a * seed) % 232)+ c) % 232
-
-.. DANGER:: fix equations
-
-where ``%`` is the mod operator and where *a* is the multiplicative constant
-and *c* is the additive constant. A number between 0 and 1 is created by
-dividing new_seed by :math:`2\ :sup:`32``.
-
-
 Examples
 ----------------
 
@@ -97,6 +79,24 @@ Examples
      
     mean = meanc(submean);
     print 0.5-mean;
+
+Remarks
+-------
+
+*r* and *c* will be truncated to integers if necessary.
+
+Each seed is generated from the preceding seed using the formula
+
+.. math::
+
+    new_seed = (((a * seed) % 232)+ c) % 232
+
+.. DANGER:: fix equations
+
+where ``%`` is the mod operator and where *a* is the multiplicative constant
+and *c* is the additive constant. A number between 0 and 1 is created by
+dividing new_seed by :math:`2\ :sup:`32``.
+
 
 Technical Notes
 ---------------

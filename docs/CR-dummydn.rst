@@ -27,23 +27,6 @@ Format
 
     :rtype y: Nx(K-1) matrix
 
-Remarks
--------
-
-* This is just like the function :func:`dummy`, except that the pth column of the
-  matrix of dummies is dropped. This ensures that the columns of the
-  matrix of dummies do not sum to 1, and so these variables will not be
-  collinear with a vector of ones.
-
-* Missings are deleted before the dummy variables are created.
-
-* All categories are open on the left (i.e., do not contain their left
-  boundaries) and all but the highest are closed on the right (i.e., do
-  contain their right boundaries). The highest (rightmost) category is
-  unbounded on the right. Thus, only :math:`K-1` breakpoints are required to
-  specify *K* dummy variables.
-
-
 Examples
 ----------------
 
@@ -82,6 +65,23 @@ and then remove the *p*'th column which will result in:
     dm = 0 1 0 0   dm_dn = 0 0 0   x = 4
          0 0 1 0           0 1 0       7
          1 0 0 0           1 0 0       1
+
+Remarks
+-------
+
+* This is just like the function :func:`dummy`, except that the pth column of the
+  matrix of dummies is dropped. This ensures that the columns of the
+  matrix of dummies do not sum to 1, and so these variables will not be
+  collinear with a vector of ones.
+
+* Missings are deleted before the dummy variables are created.
+
+* All categories are open on the left (i.e., do not contain their left
+  boundaries) and all but the highest are closed on the right (i.e., do
+  contain their right boundaries). The highest (rightmost) category is
+  unbounded on the right. Thus, only :math:`K-1` breakpoints are required to
+  specify *K* dummy variables.
+
 
 Source
 ------

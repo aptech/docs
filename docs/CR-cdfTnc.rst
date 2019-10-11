@@ -25,13 +25,6 @@ Format
 
     :rtype p: max(N,L,P) by max(K,M,Q) matrix
 
-Remarks
-------------
-
-:: 
-
-    cdfTc(x, df) = 1 - cdfTnc(x, df, 0)
-
 Examples
 ----------------
 
@@ -78,5 +71,12 @@ After running above code,
 
 .. figure:: _static/images/cdfTnc_2.png
 
+
+Remarks
+------------
+
+:: 
+
+    cdfTc(x, df) = 1 - cdfTnc(x, df, 0)
 
 .. seealso:: Functions :func:`cdfFnc`, :func:`cdfChinc`

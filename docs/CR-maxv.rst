@@ -21,11 +21,6 @@ Format
 
     :rtype z: NxK matrix
 
-Remarks
--------
-
-:func:`maxv` works for sparse matrices as well as arrays.
-
 Examples
 ----------------
 
@@ -51,5 +46,10 @@ Examples
         8        3        8
         9        2        9
        10        1       10
+
+Remarks
+-------
+
+:func:`maxv` works for sparse matrices as well as arrays.
 
 .. seealso:: Functions :func:`minv`

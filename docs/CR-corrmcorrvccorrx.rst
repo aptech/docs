@@ -27,16 +27,6 @@ Format
 
     :rtype cx: PxP correlation matrix
 
-Remarks
-------------
-
-The correlation matrix is the standardized version of the unbiased
-estimator of the population variance-covariance matrix. It is computed
-using the moment matrix of deviations about the mean divided by the
-number of observations minus one :math:`N - 1`. For the observed
-correlation/covariance matrix which uses :math:`N` rather than :math:`N - 1`, see :func:`corrms`
-and :func:`corrxs`.
-
 Examples
 ----------------
 
@@ -98,6 +88,16 @@ After the above code,
     	 1.0000000       0.52196856       0.75039768
     	0.52196856        1.0000000       0.95548228
     	0.75039768       0.95548228        1.0000000
+
+Remarks
+------------
+
+The correlation matrix is the standardized version of the unbiased
+estimator of the population variance-covariance matrix. It is computed
+using the moment matrix of deviations about the mean divided by the
+number of observations minus one :math:`N - 1`. For the observed
+correlation/covariance matrix which uses :math:`N` rather than :math:`N - 1`, see :func:`corrms`
+and :func:`corrxs`.
 
 Source
 ------------

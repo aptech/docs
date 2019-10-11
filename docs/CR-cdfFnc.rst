@@ -27,14 +27,6 @@ Format
 
     :rtype p: max(N,L,P,R) by max(K,M,Q,S) matrix
 
-Remarks
--------
-
-For invalid inputs, :func:`cdfFnc` will return a scalar error code which, when
-its value is assessed by function :func:`scalerr`, corresponds to the invalid
-input. If the first input is out of range, :func:`scalerr` will return a 1; if
-the second is out of range, :func:`scalerr` will return a 2; etc.
-
 Examples
 ----------------
 
@@ -68,5 +60,13 @@ will return:
 ::
 
   0.7468
+
+Remarks
+-------
+
+For invalid inputs, :func:`cdfFnc` will return a scalar error code which, when
+its value is assessed by function :func:`scalerr`, corresponds to the invalid
+input. If the first input is out of range, :func:`scalerr` will return a 1; if
+the second is out of range, :func:`scalerr` will return a 2; etc.
 
 .. seealso:: :func:`cdfTnc`, :func:`cdfChinc`

@@ -24,14 +24,6 @@ Format
 
     :rtype days: scalar
 
-Remarks
--------
-
-This will work correctly across leap years and centuries. The
-assumptions are a Gregorian calendar with leap years on the years evenly
-divisible by 4 and not evenly divisible by 100, unless divisible by 400.
-
-
 Examples
 ----------------
 
@@ -51,6 +43,14 @@ After the code above, *d* is equal to:
 ::
 
     621
+
+Remarks
+-------
+
+This will work correctly across leap years and centuries. The
+assumptions are a Gregorian calendar with leap years on the years evenly
+divisible by 4 and not evenly divisible by 100, unless divisible by 400.
+
 
 Source
 ------

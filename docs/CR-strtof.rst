@@ -17,6 +17,23 @@ Format
 
     :rtype x: NxK matrix
 
+Examples
+----------------
+
+::
+
+    // Create a string array
+    string sa = { "1.1" "2.2" "3.3", 
+                  "4.4" "5.5" "6.6" };
+    num = strtof(sa);
+
+After the code above, *num* is a numeric matrix with the following values:
+
+::
+
+    1.100  2.200 3.300
+    4.400  5.500 6.600
+
 Remarks
 -------
 
@@ -40,23 +57,6 @@ interpreted as the same by :func:`strtof`.
 ::
 
    "(2.31 4.72)""2.31 4.73""2.31,4.73i"
-
-Examples
-----------------
-
-::
-
-    // Create a string array
-    string sa = { "1.1" "2.2" "3.3", 
-                  "4.4" "5.5" "6.6" };
-    num = strtof(sa);
-
-After the code above, *num* is a numeric matrix with the following values:
-
-::
-
-    1.100  2.200 3.300
-    4.400  5.500 6.600
 
 .. seealso:: Functions :func:`strtofcplx`, :func:`ftostrC`
 

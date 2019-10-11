@@ -27,6 +27,19 @@ Format
     :param b: the bottom margin in inches.
     :type b: scalar
 
+Examples
+----------------
+The statement:
+
+::
+
+    library pgraph;
+    axmargin(1, 1, .5, .855);
+
+will create a plot area of 7 inches horizontally by 5.5 inches
+vertically, and positioned 1 inch right and .855 up from the lower
+left corner of the graphic panel/page.
+
 Remarks
 -------
 
@@ -42,19 +55,6 @@ values will be scaled to window inches automatically.
 
 If both :func:`margin` and :func:`axmargin` are used for a graph, :func:`axmargin` will override
 any sizes specified by margin.
-
-Examples
-----------------
-The statement:
-
-::
-
-    library pgraph;
-    axmargin(1, 1, .5, .855);
-
-will create a plot area of 7 inches horizontally by 5.5 inches
-vertically, and positioned 1 inch right and .855 up from the lower
-left corner of the graphic panel/page.
 
 Source
 ------------

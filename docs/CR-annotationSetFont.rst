@@ -22,11 +22,6 @@ Format
     :param fontcolor: a color or HTML hexidecimal color code.
     :type fontcolor: string
 
-Remarks
--------
-
-:func:`annotationSetFont` does not currently support surface plots.
-
 Examples
 ----------------
 
@@ -75,5 +70,10 @@ Customized textbox
 
     // Add textbox to last draw graph
     plotAddTextbox(myTextbox, box_text, x_start, y_start);
+
+Remarks
+-------
+
+:func:`annotationSetFont` does not currently support surface plots.
 
 .. seealso:: Functions :func:`plotAddShape`, :func:`plotAddTextbox`, :func:`annotationGetDefaults`

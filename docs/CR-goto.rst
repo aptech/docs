@@ -15,6 +15,24 @@ Format
               .
               label:
 
+Examples
+----------------
+
+::
+
+    x = seqa(.1, .1, 5);
+    n = { 1 2 3 };
+    goto  fip;
+    print x;
+    end;
+
+    fip:
+    print n;
+
+::
+
+    1.0000000 2.0000000 3.0000000
+
 Remarks
 -------
 
@@ -33,23 +51,5 @@ and continues execution of the program from there.
 Parameters can be passed in a `goto` statement the same way as they can
 with a `gosub`.
 
-
-Examples
-----------------
-
-::
-
-    x = seqa(.1, .1, 5);
-    n = { 1 2 3 };
-    goto  fip;
-    print x;
-    end;
-
-    fip:
-    print n;
-
-::
-
-    1.0000000 2.0000000 3.0000000
 
 .. seealso:: Functions `gosub`, `if`

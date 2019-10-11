@@ -41,14 +41,6 @@ Global Input
 
     scalar, the number of digits to the right of the decimal point to display. The default is 3.
 
-Remarks
--------
-
-The variables are listed in an interactive mode. As many rows and
-columns as will fit on the screen are displayed. You can use the cursor
-keys to pan and scroll around in the listing.
-
-
 Examples
 ----------------
 
@@ -57,6 +49,14 @@ Examples
     datalist freq age sex pay;
 
 This command will display the variables ``age``, ``sex``, and ``pay`` from the dataset :file:`freq.dat`.
+
+Remarks
+-------
+
+The variables are listed in an interactive mode. As many rows and
+columns as will fit on the screen are displayed. You can use the cursor
+keys to pan and scroll around in the listing.
+
 
 Source
 ------

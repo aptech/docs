@@ -23,26 +23,6 @@ Format
 :str: (*literal or ^string (up to 8 letters)*) if a string, and not surrounded by quotes, is forced to uppercase.
       This is the string to be printed for missing values. The default is '.'.
 
-Remarks
--------
-
-The entire string will be printed out when converting to ASCII in `print` and `printfm` statements.
-
-When converting ASCII to binary in `loadm` and `let` statements, only the first character is significant. In other words,
-
-::
-
-   msym HAT;
-
-will cause 'H' to be converted to missing on input.
-
-This does not affect :func:`writer`, which outputs data in binary format.
-
-Note that `msym` is a keyword and not a variable being assigned to, so
-there is no equals sign between msym and the string that is being passed
-to it.
-
-
 Examples
 ----------------
 In the example below, you first create simulated data. The data represents the scores that a group of students
@@ -98,5 +78,25 @@ The code above will return:
      995
        T
        T
+
+Remarks
+-------
+
+The entire string will be printed out when converting to ASCII in `print` and `printfm` statements.
+
+When converting ASCII to binary in `loadm` and `let` statements, only the first character is significant. In other words,
+
+::
+
+   msym HAT;
+
+will cause 'H' to be converted to missing on input.
+
+This does not affect :func:`writer`, which outputs data in binary format.
+
+Note that `msym` is a keyword and not a variable being assigned to, so
+there is no equals sign between msym and the string that is being passed
+to it.
+
 
 .. seealso:: Functions :func:`print`, :func:`printfm`

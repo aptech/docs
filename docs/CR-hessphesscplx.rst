@@ -24,22 +24,6 @@ Format
 
     :rtype h: KxK matrix
 
-Remarks
--------
-
-This procedure requires :math:`K*(K+1)/2` function evaluations. Thus if *K* is
-large, it may take a long time to compute the Hessian matrix.
-
-No more than 3-4 digit accuracy should be expected from this function,
-though it is possible for greater accuracy to be achieved with some
-functions.
-
-It is important that the function be properly scaled, in order to obtain
-greatest possible accuracy. Specifically, scale it so that the first
-derivatives are approximately the same size. If these derivatives differ
-by more than a factor of 100 or so, the results can be meaningless.
-
-
 Examples
 ----------------
 
@@ -65,6 +49,22 @@ The resulting matrix of second partial derivatives of :math:`g(b)` evaluated at 
          22026.865  44053.686  66080.596
     h =  44053.686  88107.753 132161.059
          66080.596 132161.059 198240.695
+
+Remarks
+-------
+
+This procedure requires :math:`K*(K+1)/2` function evaluations. Thus if *K* is
+large, it may take a long time to compute the Hessian matrix.
+
+No more than 3-4 digit accuracy should be expected from this function,
+though it is possible for greater accuracy to be achieved with some
+functions.
+
+It is important that the function be properly scaled, in order to obtain
+greatest possible accuracy. Specifically, scale it so that the first
+derivatives are approximately the same size. If these derivatives differ
+by more than a factor of 100 or so, the results can be meaningless.
+
 
 Source
 ------

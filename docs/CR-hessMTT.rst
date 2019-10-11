@@ -24,12 +24,6 @@ Format
 
     :rtype h: KxK matrix
 
-Remarks
--------
-
-*par1* must be created using the :func:`pvPack` procedures
-
-
 Examples
 ----------------
 
@@ -62,6 +56,12 @@ Examples
 
     // Find Hessian
     h = hessMTT(&fct, p1, d0);
+
+Remarks
+-------
+
+*par1* must be created using the :func:`pvPack` procedures
+
 
 Source
 ------

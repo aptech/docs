@@ -20,6 +20,16 @@ Global Input
 
 :__maxvec: (*scalar*) maximum vector length allowed.
 
+Examples
+----------------
+
+::
+
+    y = maxvec;
+    print y;
+
+    20000.000
+
 Remarks
 -------
 
@@ -34,16 +44,6 @@ Using a value that is too large can cause excessive disk thrashing. The
 trick is to allow the algorithm making the disk reads to execute
 entirely in RAM.
 
-
-Examples
-----------------
-
-::
-
-    y = maxvec;
-    print y;
-
-    20000.000
 
 Source
 ------

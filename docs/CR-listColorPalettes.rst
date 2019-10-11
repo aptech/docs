@@ -26,15 +26,6 @@ Format
 
     :rtype palettes: string array
 
-Remarks
--------
-
-By default these are located in the :file:`colorpalettes` directory inside of
-the GAUSS installation directory. Additional color palette files can be
-added here that will be loaded by GAUSS for use inside a program.
-Palettes can be defined to be associated with a specific "category", and
-queried specifically using the corresponding argument.
-
 Examples
 ----------------
 
@@ -66,5 +57,14 @@ The following code will print a list of all available color palettes:
 ::
 
     print listColorPalettes("");
+
+Remarks
+-------
+
+By default these are located in the :file:`colorpalettes` directory inside of
+the GAUSS installation directory. Additional color palette files can be
+added here that will be loaded by GAUSS for use inside a program.
+Palettes can be defined to be associated with a specific "category", and
+queried specifically using the corresponding argument.
 
 .. seealso:: Functions :func:`getColorPalette`, :func:`getHSLPalette`, :func:`getHSLuvPalette`, :func:`blendColorPalette`

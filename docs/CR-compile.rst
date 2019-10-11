@@ -27,6 +27,23 @@ Format
 :fname: (*literal or ^string*) optional, the name of the file to be created. If not given, the 
     file will have the same filename and path as source. It will have a :file:`.gcg` extension.
 
+Examples
+----------------
+
+::
+
+    compile qxy.e;
+
+In this example, the `source path` would be searched for qxy.e, which
+would be compiled to a file called :file:`qxy.gcg` on the same subdirectory *qxy.e* was found.
+
+::
+
+    compile qxy.e xy;
+
+In this example, the `source path` would be searched for *qxy.e* which
+would be compiled to a file called :file:`xy.gcg` on the current subdirectory.
+
 Remarks
 -------
 
@@ -67,23 +84,6 @@ Remarks
 -  GAUSS compiled files are platform and bit-size specific. For example,
    a file compiled with GAUSS for Windows 64-bit will not run under
    GAUSS for Windows 32-bit or on Linux 64-bit
-
-Examples
-----------------
-
-::
-
-    compile qxy.e;
-
-In this example, the `source path` would be searched for qxy.e, which
-would be compiled to a file called :file:`qxy.gcg` on the same subdirectory *qxy.e* was found.
-
-::
-
-    compile qxy.e xy;
-
-In this example, the `source path` would be searched for *qxy.e* which
-would be compiled to a file called :file:`xy.gcg` on the current subdirectory.
 
 .. seealso:: Functions `run`, `use`, `saveall`
 

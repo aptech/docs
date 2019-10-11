@@ -18,11 +18,6 @@ Format
 
     :rtype m: Kx1 vector
 
-Remarks
--------
-
-:func:`median` will return a missing value for any column that contains a missing value.
-
 Examples
 ----------------
 
@@ -44,6 +39,11 @@ After the code above, *md* is equal to:
     5.0000
     5.0000
     6.0000
+
+Remarks
+-------
+
+:func:`median` will return a missing value for any column that contains a missing value.
 
 Source
 ------

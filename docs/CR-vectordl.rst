@@ -11,6 +11,13 @@ Format
 .. function:: vector # numvar = numeric_expression
               vector # numvar = character_expression
 
+Examples
+----------------
+
+::
+
+    vector const = 1;
+
 Remarks
 -------
 
@@ -28,12 +35,5 @@ Any variables referenced must already exist, either as elements of the
 source dataset, as extern's, or as the result of a previous make,
 vector, or code statement.
 
-
-Examples
-----------------
-
-::
-
-    vector const = 1;
 
 .. seealso:: Functions 

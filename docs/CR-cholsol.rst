@@ -21,24 +21,6 @@ Format
 
     :rtype x: NxK matrix
 
-Remarks
--------
-
-Since :math:`A^{-1} = I/A` and :code:`eye(N)` creates an identity matrix of size :math:`N`:
-
-::
-
-   cholsol(eye(N), C);
-
-is equivalent to:
-
-::
-
-   invpd(A);
-
-Thus, if you have the Cholesky factorization of :math:`A`, cholsol is the most
-efficient way to obtain the inverse of :math:`A`.
-
 Examples
 ----------------
 
@@ -70,5 +52,23 @@ After the above code, `r` will equal:
         -1.9440       -1.9440
     x = -1.5269  x2 = -1.5269
          3.2158        3.2158
+
+Remarks
+-------
+
+Since :math:`A^{-1} = I/A` and :code:`eye(N)` creates an identity matrix of size :math:`N`:
+
+::
+
+   cholsol(eye(N), C);
+
+is equivalent to:
+
+::
+
+   invpd(A);
+
+Thus, if you have the Cholesky factorization of :math:`A`, cholsol is the most
+efficient way to obtain the inverse of :math:`A`.
 
 .. seealso:: Functions :func:`chol`

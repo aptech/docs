@@ -38,14 +38,6 @@ Format
     :param barStacked: 1 for stacked or 0 for side-by-side bars.
     :type barStacked: Scalar
 
-Remarks
--------
-
-When graphing without the use of a plotControl structure, these settings
-may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
-selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
-more information on the methods available for customizing your graphs.
-
 Examples
 ----------------
 
@@ -78,6 +70,14 @@ Examples
     plotBar(myPlot, x, y);
 
 .. figure:: _static/images/plotsetbar.png
+
+Remarks
+-------
+
+When graphing without the use of a plotControl structure, these settings
+may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
+selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
+more information on the methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`
 

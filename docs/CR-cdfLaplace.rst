@@ -23,19 +23,6 @@ Format
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
--------
-
-The cumulative distribution function for the Laplace distribution is
-defined as
-
-.. math::
-
-    f(x, \mu, b) = \begin{cases} \frac{1}{2} exp(\frac{(x-\mu)}{b}), & x \lt \mu\\
-    1 - \frac{1}{2} exp(-\frac{(x - \mu)}{b}), & x \ge \mu
-    \end{cases}
-
-
 Examples
 ---------
 
@@ -57,5 +44,18 @@ After the above code, `p` will equal:
 ::
 
     0.7433
+
+Remarks
+-------
+
+The cumulative distribution function for the Laplace distribution is
+defined as
+
+.. math::
+
+    f(x, \mu, b) = \begin{cases} \frac{1}{2} exp(\frac{(x-\mu)}{b}), & x \lt \mu\\
+    1 - \frac{1}{2} exp(-\frac{(x - \mu)}{b}), & x \ge \mu
+    \end{cases}
+
 
 .. seealso:: :func:`cdfLaplaceInv`

@@ -25,11 +25,6 @@ Format
 
 .. DANGER:: verify equation.
 
-Remarks
--------
-
-If either *t* or *b* is zero, then no rows will be trimmed from that end of the matrix.
-
 Examples
 ----------------
 
@@ -57,6 +52,11 @@ then *y* will equal:
 
     0.271 0.014 0.060
     0.054 0.084 0.526
+
+Remarks
+-------
+
+If either *t* or *b* is zero, then no rows will be trimmed from that end of the matrix.
 
 .. seealso:: Functions :func:`submat`, :func:`rotater`, :func:`shiftr`
 

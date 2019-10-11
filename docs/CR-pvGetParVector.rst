@@ -18,13 +18,6 @@ Format
 
     :rtype p: Kx1 vector
 
-Remarks
--------
-
-Matrices or portions of matrices (stored using a mask) are stored in the
-structure of type :class:`PV` as a vector in the p member.
-
-
 Examples
 ----------------
 
@@ -68,6 +61,13 @@ statement above, produces:
 
      1.000
      2.000
+
+Remarks
+-------
+
+Matrices or portions of matrices (stored using a mask) are stored in the
+structure of type :class:`PV` as a vector in the p member.
+
 
 Source
 ------

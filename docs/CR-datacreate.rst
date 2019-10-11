@@ -45,6 +45,34 @@ Format
 
     :rtype fh: scalar
 
+Examples
+----------------
+
+::
+
+    // Name variables
+    string vnames = "V";
+
+    /*
+    ** Create file handle
+    ** with vnames and 100 variables
+    ** containing double precision
+    ** numeric data.
+    */
+    fh = datacreate("myfile.dat", vnames, 100, 8, 1);
+
+    // Generate random complex data
+    x = rndn(500,100);
+
+    // Write file using file handle
+    r = writer(fh, x);
+    ret = close(fh);
+
+This example creates a double precision data file called :file:`myfile.dat`,
+which is placed in the current directory. The file contains 100 columns
+with 500 observations (rows), and the columns are given the names ``'V001',
+'V002', ..., 'V100'``.
+
 Remarks
 -------
 
@@ -82,34 +110,6 @@ selecting a value for *dtyp*:
 +-----------+--------+-----------------------------------------------------------------+
 | double    | 15-16  | :math:`4.19\times10^{-307} \lt |X| \lt 1.67\times10^{+308}`     |
 +-----------+--------+-----------------------------------------------------------------+
-
-Examples
-----------------
-
-::
-
-    // Name variables
-    string vnames = "V";
-
-    /*
-    ** Create file handle
-    ** with vnames and 100 variables
-    ** containing double precision
-    ** numeric data.
-    */
-    fh = datacreate("myfile.dat", vnames, 100, 8, 1);
-
-    // Generate random complex data
-    x = rndn(500,100);
-
-    // Write file using file handle
-    r = writer(fh, x);
-    ret = close(fh);
-
-This example creates a double precision data file called :file:`myfile.dat`,
-which is placed in the current directory. The file contains 100 columns
-with 500 observations (rows), and the columns are given the names ``'V001',
-'V002', ..., 'V100'``.
 
 Source
 ------

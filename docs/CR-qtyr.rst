@@ -27,6 +27,23 @@ Format
 
     :rtype r: KxP matrix
 
+Examples
+----------------
+The QR algorithm is the numerically superior method for the solution of least squares problems:
+
+::
+
+    loadm x, y;
+    { qty, r } = qtyr(y,x);
+    q1ty = qty[1:rows(r),.];
+    q2ty = qty[rows(r)+1:rows(qty),.];
+    
+    // LS coefficients 
+    b = qrsol(q1ty,r);
+    
+    // Residual sums of squares 
+    s2 = sumc(q2ty^2);
+
 Remarks
 -------
 
@@ -77,23 +94,6 @@ however, it is better to apply :func:`qrsol` to
    Rb⁢= Q1′Y
 
 For rank deficient least squares problems, see :func:`qtyre` and :func:`qtyrep`.
-
-Examples
-----------------
-The QR algorithm is the numerically superior method for the solution of least squares problems:
-
-::
-
-    loadm x, y;
-    { qty, r } = qtyr(y,x);
-    q1ty = qty[1:rows(r),.];
-    q2ty = qty[rows(r)+1:rows(qty),.];
-    
-    // LS coefficients 
-    b = qrsol(q1ty,r);
-    
-    // Residual sums of squares 
-    s2 = sumc(q2ty^2);
 
 Source
 ------

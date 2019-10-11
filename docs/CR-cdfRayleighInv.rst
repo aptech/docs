@@ -21,13 +21,6 @@ Format
 
     :rtype x: NxK matrix, Nx1 vector or scalar
 
-Remarks
--------
-
-::
-
-   cdfRayleighInv(cdfRayleigh(x, shape), shape) = x
-
 Examples
 ----------------
 
@@ -53,4 +46,11 @@ After running above code,
     0.8326
     1.2239
     
+Remarks
+-------
+
+::
+
+   cdfRayleighInv(cdfRayleigh(x, shape), shape) = x
+
 .. seealso:: :func:`pdfRayleigh`, :func:`cdfRayleigh`

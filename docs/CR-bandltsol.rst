@@ -20,17 +20,6 @@ Format
 
     :rtype x: matrix
 
-Remarks
--------
-
-*A* is a lower triangular banded matrix in compact form. See :func:`band` for a
-description of the format of *A*.
-
-*b* can have more than one column. If so, :math:`Ax = b` is solved for each
-column. That is,
-
-.. math:: A*x[.,i] = b[.,i];
-
 Examples
 ----------------
 
@@ -64,5 +53,16 @@ After the code above:
     Alower = 2  8  0  0 Aband = 2  8 x = -0.063 b = 2.1 Alower*x = 2.1
              0  1  5  0         1  5      0.153     0.7            0.7
              0  0  2  3         2  3      0.498     1.8            1.8
+
+Remarks
+-------
+
+*A* is a lower triangular banded matrix in compact form. See :func:`band` for a
+description of the format of *A*.
+
+*b* can have more than one column. If so, :math:`Ax = b` is solved for each
+column. That is,
+
+.. math:: A*x[.,i] = b[.,i];
 
 .. seealso:: Functions :func:`band`, :func:`bandchol`, :func:`bandcholsol`, :func:`bandrv`, :func:`bandsolpd`

@@ -21,12 +21,6 @@ Format
 
     :rtype y: RxC matrix
 
-Remarks
--------
-
-Non-integer arguments will be truncated to an integer.
-
-
 Examples
 ----------------
 
@@ -41,5 +35,11 @@ The code above assigns *x* to be equal to:
     1.0000000        1.0000000
     1.0000000        1.0000000
     1.0000000        1.0000000
+
+Remarks
+-------
+
+Non-integer arguments will be truncated to an integer.
+
 
 .. seealso:: Functions :func:`zeros`, :func:`eye`

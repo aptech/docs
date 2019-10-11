@@ -26,14 +26,6 @@ Format
 
     :rtype hs: scalar
 
-Remarks
--------
-
-This will work correctly across leap years and centuries. The
-assumptions are a Gregorian calendar with leap years on the years evenly
-divisible by 4 and not evenly divisible by 100, unless divisible by 400.
-
-
 Examples
 ----------------
 
@@ -72,6 +64,14 @@ After the code above, *hs* is equal to:
     8640000
 
 which is equal to :math:`24 \text{ hrs/day } \times 60 \text{ min/hr } \times 60 \text{ secs/min } \times 100 \text{ hsecs/sec}`.
+
+Remarks
+-------
+
+This will work correctly across leap years and centuries. The
+assumptions are a Gregorian calendar with leap years on the years evenly
+divisible by 4 and not evenly divisible by 100, unless divisible by 400.
+
 
 Source
 ------

@@ -25,11 +25,6 @@ Format
 
     :rtype y: max(N,L,P) by max(K,M,Q) matrix
 
-Remarks
--------
-
-The *e* matrix is usually the result of an expression or set of expressions using dot conditional and boolean operators.
-
 Examples
 ----------------
 
@@ -119,6 +114,11 @@ Here is what *x* looks like after substitution:
     N 63 38
     R 55 32
     N 37 11
+
+Remarks
+-------
+
+The *e* matrix is usually the result of an expression or set of expressions using dot conditional and boolean operators.
 
 Source
 ------
