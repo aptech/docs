@@ -24,7 +24,7 @@ Format
             "17", "structure"
             "21", "array"
             "23", "structure pointer"
-            "23", "sparse matrix"
+            "38", "sparse matrix"
 
     :rtype t: scalar
 
