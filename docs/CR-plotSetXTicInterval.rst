@@ -4,7 +4,7 @@ plotSetXTicInterval
 
 Purpose
 ----------------
-Controls the interval between X-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D time series graphs.
+Controls the interval between X-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D graphs.
 
 Format
 ----------------
