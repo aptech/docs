@@ -10,8 +10,8 @@ Returns specified dynamic arguments with the option to set default values.
 Format
 ----------------
 .. function:: dyn_1 = dynargsGet(idx)
-              dyn_1 = dynargsGet(idx,dflt_1)
-              { dyn_1, dyn_2 [, dyn_3] } = dynargsGet(idx, dflt_1, dflt_2 [, dflt_3]);
+              dyn_1 = dynargsGet(idx, dflt_1)
+              { dyn_1, dyn_2[, dyn_3] } = dynargsGet(idx, dflt_1, dflt_2[, dflt_3])
 
     :param idx: A scalar input specifies the index of the dynamic argument to return. A 2x1 matrix input
                 specifies the start and end of the range of dynamic arguments to return. 
