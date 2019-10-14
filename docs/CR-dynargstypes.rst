@@ -26,6 +26,8 @@ Format
             "structure","17"
             "structure pointer","23"
 
+    :rtype n: matrix
+
 
 Examples
 ----------------
