@@ -31,7 +31,7 @@ Examples
 ----------------
 
 Load single string column from STATA dataset 
-+++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++
 
 The variable *make* in the example dataset :file:`auto2.dta` is a string variable containing the manufacturer
 and model of each car in the dataset. This example will load that variable into a GAUSS string array and print
