@@ -103,21 +103,21 @@ notation, trailing character) slash parameter as follows:
     :widths: auto
 
     * - */rdn*
-      - :code:`"%\*.\*lf"`
+      - :code:`"%*.*lf"`
     * - */ren*
-      - :code:`"%\*.\*lE"`
+      - :code:`"%*.*lE"`
     * - */ron*
-      - :code:`"%#\*.\*lG"`
+      - :code:`"%#*.*lG"`
     * - */rzn*
-      - :code:`"%\*.\*lG"`
+      - :code:`"%*.*lG"`
     * - */ldn*
-      - :code:`"%- \*.\*lf"`
+      - :code:`"%- *.*lf"`
     * - */len*
-      - :code:`"%- \*.\*lE"`
+      - :code:`"%- *.*lE"`
     * - */lon*
-      - :code:`"%-# \*.\*lG"`
+      - :code:`"%-# *.*lG"`
     * - */lzn*
-      - :code:`"%- \*.\*lG"`
+      - :code:`"%- *.*lG"`
 
 If *x* is complex, you can specify separate formats for the real and
 imaginary parts by putting two format specifications in the format
