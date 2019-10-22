@@ -24,7 +24,7 @@ Examples
 ::
 
     // Create uniform random integers between 0 and 10
-    x = round(10*rndu(10, 1);
+    x = round(10*rndu(10, 1));
 
     ind = sortind(x);
     y = x[ind];
