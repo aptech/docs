@@ -33,9 +33,9 @@ Sort rows of a matrix based upon first column
     x = { 4 7 3,
           1 3 2,
           3 4 8 };
-    
+
     // Sort 'x' based upon the first row
-    y = sortc(x,1);
+    y = sortc(x, 1);
 
 The above example code produces, *y* equal to:
 
@@ -57,7 +57,7 @@ Sort rows of a 5x1 string vector
               "beta" $|
               "alpha" $|
               "delta";
-    
+
     // Sort 'letters'
     letters_s = sortc(letters,1);
 
@@ -92,4 +92,3 @@ Remarks
       rev(sortc(x, c))
 
 .. seealso:: Functions :func:`rev`, :func:`sortind`, :func:`unique`
-
