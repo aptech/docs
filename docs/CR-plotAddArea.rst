@@ -24,14 +24,6 @@ Format
     :param base: Optional argument. The height for the base of the added area plot. The default value is zero. :func:`plotAddArea` does not yet support a vector input for base.
     :type base: scalar
 
-Remarks
--------
-
-:func:`plotAddArea` may only add curves to 2-D graphs.
-
-This function will not change any of the current graph's settings other
-than to resize the view as necessary to display the new curve.
-
 Examples
 ----------------
 
@@ -71,5 +63,13 @@ The code to create the graph below can be found in the file *plotaddci.e* in you
 Creating confidence intervals with plotAddArea
 
 .. figure:: _static/images/gauss15_plotci_541.png
+
+Remarks
+-------
+
+:func:`plotAddArea` may only add curves to 2-D graphs.
+
+This function will not change any of the current graph's settings other
+than to resize the view as necessary to display the new curve.
 
 .. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`

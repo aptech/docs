@@ -38,44 +38,6 @@ Windows, Linux and macOS
 
 The *vls* input is currently ignored on macOS and Linux. Missing values will be returned for all cells that are empty or contain errors.
 
-Remarks
--------
-
-#. The *vls* argument lets users control the export to Excel® empty cells
-   and special types, according to the following table:
-
-   ============= ============
-   Row Number    Excel® Cell
-   ============= ============
-   1             empty cell
-   2             ``#N/A``
-   3             ``#VALUE!``
-   4             ``#DIV/0!``
-   5             ``#NAME?``
-   6             ``#REF!``
-   7             ``#NUM!``
-   8             ``#NULL!``
-   9             ``#ERR``
-   ============= ============
-
-   Use the following to convert all occurrences of "Division by Zero" to
-   ``#DIV/0!``, and all null strings to empty cells:
-
-   ::
-
-      vls = reshape("",9,1);
-      vls[4] = "Division by Zero";
-
-#. If :func:`xlsWriteSA` fails, it will either terminate and print an error
-   message or return a scalar error code, which can be decoded with
-   :func:`scalerr`, depending on the state of the `trap` flag.
-
-   +------------+--------------------------------------------+
-   | ``trap 0`` | Print error message and terminate program. |
-   +------------+--------------------------------------------+
-   | ``trap 1`` | Return scalar error code 10.               |
-   +------------+--------------------------------------------+
-
 Examples
 ----------------
 
@@ -115,6 +77,44 @@ Specify Path and Sheet Number
     
     // Write the data from 'labels' to cells 'D7:D9' on sheet 2 of 'myfile.xlsx'
     ret = xlsWriteSA(labels, "C:/mydata/myfile.xlsx", "D7", 2);
+
+Remarks
+-------
+
+#. The *vls* argument lets users control the export to Excel® empty cells
+   and special types, according to the following table:
+
+   ============= ============
+   Row Number    Excel® Cell
+   ============= ============
+   1             empty cell
+   2             ``#N/A``
+   3             ``#VALUE!``
+   4             ``#DIV/0!``
+   5             ``#NAME?``
+   6             ``#REF!``
+   7             ``#NUM!``
+   8             ``#NULL!``
+   9             ``#ERR``
+   ============= ============
+
+   Use the following to convert all occurrences of "Division by Zero" to
+   ``#DIV/0!``, and all null strings to empty cells:
+
+   ::
+
+      vls = reshape("",9,1);
+      vls[4] = "Division by Zero";
+
+#. If :func:`xlsWriteSA` fails, it will either terminate and print an error
+   message or return a scalar error code, which can be decoded with
+   :func:`scalerr`, depending on the state of the `trap` flag.
+
+   +------------+--------------------------------------------+
+   | ``trap 0`` | Print error message and terminate program. |
+   +------------+--------------------------------------------+
+   | ``trap 1`` | Return scalar error code 10.               |
+   +------------+--------------------------------------------+
 
 .. seealso:: Functions :func:`xlsReadM`, :func:`xlsWrite`, :func:`xlsWriteM`, :func:`xlsReadSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
 

@@ -19,17 +19,17 @@ Format
 
     :rtype nvec: Nx1 character vector
 
-Remarks
--------
-
-:func:`setvars` is designed to be used interactively.
-
 Examples
 ----------------
 
 ::
 
     nvec = setvars("freq");
+
+Remarks
+-------
+
+:func:`setvars` is designed to be used interactively.
 
 Source
 ------

@@ -133,7 +133,7 @@ Load three specified variables from a SAS dataset, .sas7bdat.
 
     dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
 
-    // Create formula string specifying dependent and independent variables
+    // Create formula string specifying three variables to load
     formula  = "homicide + unemployment + hourly_earn";
 
     y = loadd(dataset, formula);

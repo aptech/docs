@@ -18,17 +18,6 @@ Format
 
     :rtype y: LxK matrix
 
-Remarks
--------
-
-This function is useful for handling missing values by "listwise
-deletion," particularly prior to using the ``/`` operator to compute least
-squares coefficients.
-
-If all rows of a matrix contain missing values,:func:` packr` returns a scalar
-missing value. This can be tested for quickly with the :func:`scalmiss` function.
-
-
 Examples
 ----------------
 
@@ -117,5 +106,16 @@ used to delete rows that contain missings and
 the rows are deleted for a particular iteration of
 the read loop. Then the sums are divided by the
 number of observations to obtain the means.
+
+Remarks
+-------
+
+This function is useful for handling missing values by "listwise
+deletion," particularly prior to using the ``/`` operator to compute least
+squares coefficients.
+
+If all rows of a matrix contain missing values,:func:` packr` returns a scalar
+missing value. This can be tested for quickly with the :func:`scalmiss` function.
+
 
 .. seealso:: Functions :func:`impute`, :func:`scalmiss`, :func:`miss`, :func:`missrv`

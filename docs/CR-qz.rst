@@ -46,46 +46,6 @@ Format
 
     :rtype Z: NxN matrix
 
-Remarks
--------
-
--  The pair of matrices *S* and *T* are in generalized complex Schur form if
-   *S* and *T* are upper triangular and the diagonal of *T* contains positive
-   real numbers.
-
--  The real generalized eigenvalues can be computed by dividing the
-   diagonal element of S by the corresponding diagonal element of *T*.
-
--  The generalized Schur vectors *Q* and *Z* are orthogonal matrices (:math:`Q'Q = I`
-   and :math:`Z'Z = I`) that reduce *A* and *B* to Schur form:
-
-   .. math::
-
-       S = Q'A*Z
-       T = Q'B*Z
-
-       A = Q*S*Z'
-       B = Q*T*Z'      
-
--  For the real generalized schur decomposition, call :func:`lapgschur`.
-
--  If only the generalized eigenvalues are needed, you can call :func:`lapgeig`, or :func:`lapgeigv`.
-
--  By default *imagtol* is set to 2.23e-16. If your program requires
-   *imagtol* to be a different value, you may change it using :func:`sysstate`
-   case 21, like this:
-
-   ::
-
-       // Set imagtol to 1e-15   
-       imagtol_org = sysstate(21, 1e-15);
-
-   Note that while the function :func:`qz` IS threadsafe, setting *imagtol* is NOT
-   threadsafe. Therefore, *imagtol* should not be changed inside of a
-   `threadStat` or `threadBegin` block.
-
--  This procedure calls the *LAPACK* routine ``ZGGES``.
-
 Examples
 ----------------
 
@@ -174,4 +134,44 @@ The code above should print out the sorted eigenvalues as we see below.
     	0.90326303 
     	0.90326303 
     	 20.703871
+
+Remarks
+-------
+
+-  The pair of matrices *S* and *T* are in generalized complex Schur form if
+   *S* and *T* are upper triangular and the diagonal of *T* contains positive
+   real numbers.
+
+-  The real generalized eigenvalues can be computed by dividing the
+   diagonal element of S by the corresponding diagonal element of *T*.
+
+-  The generalized Schur vectors *Q* and *Z* are orthogonal matrices (:math:`Q'Q = I`
+   and :math:`Z'Z = I`) that reduce *A* and *B* to Schur form:
+
+   .. math::
+
+       S = Q'A*Z
+       T = Q'B*Z
+
+       A = Q*S*Z'
+       B = Q*T*Z'      
+
+-  For the real generalized schur decomposition, call :func:`lapgschur`.
+
+-  If only the generalized eigenvalues are needed, you can call :func:`lapgeig`, or :func:`lapgeigv`.
+
+-  By default *imagtol* is set to 2.23e-16. If your program requires
+   *imagtol* to be a different value, you may change it using :func:`sysstate`
+   case 21, like this:
+
+   ::
+
+       // Set imagtol to 1e-15   
+       imagtol_org = sysstate(21, 1e-15);
+
+   Note that while the function :func:`qz` IS threadsafe, setting *imagtol* is NOT
+   threadsafe. Therefore, *imagtol* should not be changed inside of a
+   `threadStat` or `threadBegin` block.
+
+-  This procedure calls the *LAPACK* routine ``ZGGES``.
 

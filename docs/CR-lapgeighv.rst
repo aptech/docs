@@ -25,20 +25,6 @@ Format
 
     :rtype va: NxN matrix
 
-Remarks
--------
-
-*ve* and *va* are the eigenvalues and eigenvectors of the solution of the
-generalized symmetric eigenproblem of the form :math:`Ax = λ B`. Equivalently,
-*va* diagonalizes :math:`U'^{-1}AU^{-1}` in the following way
-
-.. math::
-
-   va*U'^{-1}AU^{-1}*va' = ve
-
-where :math:`B = U'U`. This procedure calls the LAPACK routines *DSYGV* and *ZHEGV*.
-
-
 Examples
 ----------------
 
@@ -76,5 +62,19 @@ Examples
      0.3575 -0.0996 0.9286
     -0.2594  0.9446 0.2012
     -0.8972 -0.3128 0.3118
+
+Remarks
+-------
+
+*ve* and *va* are the eigenvalues and eigenvectors of the solution of the
+generalized symmetric eigenproblem of the form :math:`Ax = λ B`. Equivalently,
+*va* diagonalizes :math:`U'^{-1}AU^{-1}` in the following way
+
+.. math::
+
+   va*U'^{-1}AU^{-1}*va' = ve
+
+where :math:`B = U'U`. This procedure calls the LAPACK routines *DSYGV* and *ZHEGV*.
+
 
 .. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`

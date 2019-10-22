@@ -23,6 +23,20 @@ Format
 
 :nos: optional input which indicates the maximum number of global symbols allowed.
 
+Examples
+----------------
+
+::
+
+    new; /* clear global symbols. */
+
+::
+
+    new 300; /* clear global symbols,set maximum
+             ** number of global symbols to 300,
+             ** and leave program space unchanged.
+             */
+
 Remarks
 -------
 
@@ -44,19 +58,5 @@ to remove the new at the beginning of the program. If this command is
 not the first statement in your program, it will cause the program to
 terminate.
 
-
-Examples
-----------------
-
-::
-
-    new; /* clear global symbols. */
-
-::
-
-    new 300; /* clear global symbols,set maximum
-             ** number of global symbols to 300,
-             ** and leave program space unchanged.
-             */
 
 .. seealso:: Functions :func:`clear`, `delete`, `output`

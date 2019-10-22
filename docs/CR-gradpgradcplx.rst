@@ -35,16 +35,6 @@ Format
 
     :rtype g: NxK matrix
 
-Remarks
--------
-
-:func:`gradp` will return a row for every row that is returned by *fct*. For
-instance, if *fct* returns a scalar result, then :func:`gradp` will return a 1xK row
-vector. This allows the same function to be used regardless of *N*, where
-*N* is the number of rows in the result returned by *fct*. Thus, for instance,
-:func:`gradp` can be used to compute the Jacobian matrix of a set of equations.
-
-
 Examples
 ----------------
 
@@ -67,6 +57,16 @@ After the code above, *y* is equal to:
 
 It is a 3x3 matrix because we are passing it 3 arguments and ``myfunc`` returns 3 results when we do
  that; the off-diagonals are zeros because the cross-derivatives of 3 arguments are 0.
+
+Remarks
+-------
+
+:func:`gradp` will return a row for every row that is returned by *fct*. For
+instance, if *fct* returns a scalar result, then :func:`gradp` will return a 1xK row
+vector. This allows the same function to be used regardless of *N*, where
+*N* is the number of rows in the result returned by *fct*. Thus, for instance,
+:func:`gradp` can be used to compute the Jacobian matrix of a set of equations.
+
 
 Source
 ------

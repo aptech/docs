@@ -19,33 +19,6 @@ Format
     :param location: Optional argument, which attributes the interpreter change applies to : "all", "legend", "title" or "axes". Default is "all".
     :type location: string
 
-Remarks
--------
-
-When the text interpreter is set to use LaTeX:
-
--  Since backslashes inside of a string represent the escaping of a
-   character, use double backslashes to represent a backslash.
--  The default mode is that of an in-line equation. To add a section of
-   strictly text, wrap the text only section in ``\\text{}``. For example:
-
-   ::
-
-      "\\text{The formula is } \\alpha + \\beta_1 X + \\epsilon"
-
--  Text outside of a ``\\text{}`` section will use the TeX font. Text inside
-   of a ``\\text{}`` section will use whatever font was specified for the
-   label.
-
-The 'plain' text interpreter will allow you to pass in characters that
-would be invalid HTML, such as the symbols '``<``' and '``>``'.
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
-
 Examples
 ----------------
 
@@ -157,5 +130,32 @@ You can also use LaTeX to add complex math expression, or non-Latin scripts to y
 The plot is
 
 .. figure:: _static/images/plotsettextinterpreter.png
+
+Remarks
+-------
+
+When the text interpreter is set to use LaTeX:
+
+-  Since backslashes inside of a string represent the escaping of a
+   character, use double backslashes to represent a backslash.
+-  The default mode is that of an in-line equation. To add a section of
+   strictly text, wrap the text only section in ``\\text{}``. For example:
+
+   ::
+
+      "\\text{The formula is } \\alpha + \\beta_1 X + \\epsilon"
+
+-  Text outside of a ``\\text{}`` section will use the TeX font. Text inside
+   of a ``\\text{}`` section will use whatever font was specified for the
+   label.
+
+The 'plain' text interpreter will allow you to pass in characters that
+would be invalid HTML, such as the symbols '``<``' and '``>``'.
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetYLabel`, :func:`plotSetXLabel`, :func:`plotSetTitle`, :func:`plotSetLegend`

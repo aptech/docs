@@ -20,12 +20,6 @@ Format
 
     :rtype retcode: scalar
 
-Remarks
--------
-
-The file on the disk will be given a :file:`.fsr` extension
-
-
 Examples
 ----------------
 
@@ -34,4 +28,10 @@ Examples
     struct DS p0;
     p0 = reshape(dsCreate(), 2, 3);
     retc = saveStruct(p2, "p2");
+
+Remarks
+-------
+
+The file on the disk will be given a :file:`.fsr` extension
+
 

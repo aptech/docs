@@ -23,13 +23,6 @@ Format
 
     :rtype f: NxK matrix
 
-Remarks
----------------
-
-The Beta function's relationship with the Gamma function is:
-
-.. math:: B(x,y) = \frac{\Gamma(x)×\Gamma(y)}{\Gamma(x+y)}
-
 Examples
 ----------------
 
@@ -50,4 +43,11 @@ Examples
 
     f = 0.0020202020
     
+Remarks
+---------------
+
+The Beta function's relationship with the Gamma function is:
+
+.. math:: B(x,y) = \frac{\Gamma(x)×\Gamma(y)}{\Gamma(x+y)}
+
 .. seealso:: :func:`cdfBeta`, :func:`gamma`, :func:`gammacplx`, :func:`zeta`

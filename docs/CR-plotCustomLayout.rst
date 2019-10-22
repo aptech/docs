@@ -25,13 +25,6 @@ Format
     :param height: the height of the custom plot expressed as a number between 0 and 1.
     :type height: scalar
 
-Remarks
--------
-
-After calling this function all subsequent graphs will be plotted inside
-of the specified custom layout until the layout is reset with
-:func:`plotLayout`, or the layout is cleared with :func:`plotClearLayout`.
-
 Examples
 ----------------
 
@@ -56,6 +49,13 @@ Examples
     // Prevent the next graph from being drawn in this custom 
     // region
     plotClearLayout();
+
+Remarks
+-------
+
+After calling this function all subsequent graphs will be plotted inside
+of the specified custom layout until the layout is reset with
+:func:`plotLayout`, or the layout is cleared with :func:`plotClearLayout`.
 
 .. seealso:: Functions :func:`plotSetBar`, :func:`plotBar`, :func:`plotHistP`, :func:`plotGetDefaults`
 

@@ -15,14 +15,6 @@ Format
 
     :rtype x: string
 
-Remarks
--------
-
-*x* is assigned the value of a character string typed in at the keyboard.
-The program will pause to accept keyboard input. The maximum length of
-the string that can be entered is 254 characters. The program will
-resume execution when the ``ENTER`` key is pressed.
-
 Examples
 ----------------
 
@@ -41,5 +33,13 @@ Now *x* will be equal to:
 ::
 
     x = "probability";
+
+Remarks
+-------
+
+*x* is assigned the value of a character string typed in at the keyboard.
+The program will pause to accept keyboard input. The maximum length of
+the string that can be entered is 254 characters. The program will
+resume execution when the ``ENTER`` key is pressed.
 
 .. seealso:: Functions :func:`con`

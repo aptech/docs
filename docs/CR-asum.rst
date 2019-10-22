@@ -20,12 +20,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-The output *y*, will have the same sizes of dimensions as *x*, except that
-the dimension indicated by *dim* will be collapsed to 1.
-
 Examples
 ----------------
 
@@ -83,5 +77,11 @@ Using the same array *x* as the above example, this example computes the sum acr
       58.000
       74.000
       90.000
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
 
 .. seealso:: Functions :func:`amean`

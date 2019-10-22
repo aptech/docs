@@ -27,12 +27,6 @@ Format
 
     :rtype p1: struct
 
-Remarks
--------
-
-:func:`pvPacksi` does not support the packing of arrays.
-
-
 Examples
 ----------------
 
@@ -69,6 +63,12 @@ These matrices can be extracted using the :func:`pvUnpack` command.
 
     1.000 0.000
     0.000 1.000
+
+Remarks
+-------
+
+:func:`pvPacksi` does not support the packing of arrays.
+
 
 .. seealso:: Functions :func:`pvPacks`, :func:`pvUnpack`
 

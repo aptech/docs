@@ -11,6 +11,13 @@ Format
 ----------------
 .. function:: drop variable_list
 
+Examples
+----------------
+
+::
+
+    drop age, pay, sex;
+
 Remarks
 -------
 
@@ -23,13 +30,6 @@ set, or as the result of a previous `make`, `vector`, or `code` statement.
 If neither :func:`keep` nor :func:`drop` is used, the output dataset will contain all
 variables from the source dataset, as well as any defined variables.
 The effects of multiple keep and drop statements are cumulative.
-
-Examples
-----------------
-
-::
-
-    drop age, pay, sex;
 
 .. seealso:: `select`
 

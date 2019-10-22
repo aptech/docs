@@ -91,26 +91,6 @@ Format
 
     :rtype dout: struct
 
-Remarks
--------
-
-Set *colind* to a scalar 0 to use all of the columns in *vnamevar*.
-
-*vnamevar* must either reference an Mx1 string array variable containing
-variable names, where M is the number of columns in the dataset
-variable, or be set to a scalar 0. If *vnamevar* references an Mx1 string
-array variable, then only the elements indicated by *colind* will be used.
-Otherwise, if *vnamevar* is set to a scalar 0, then the variable names :code:`"X1, X2, ..., XK"` for
-the output will be generated automatically, unless the
-alternate variable names are set explicitly in the *dc0.altnames* member of
-the :class:`dstatmtControl` structure.
-
-If pairwise deletion is used, the minima and maxima will be the true
-values for the valid data. The means and standard deviations will be
-computed using the correct number of valid observations for each
-variable.
-
-
 Examples
 ----------------
 In order to create a real, working example that you can use, you must first create a sample GAUSS Data Archive with the code below.
@@ -163,6 +143,26 @@ If you wanted to calculate the statistics on just the first, third and fifth col
     dout = gdaDStatMat(dc0, "myfile.gda", "A", colind, "COLS" );
 
 Notice in these lines above that ``COLS`` still contains all of the variable names i.e. ``X1, X2, X3, X4, X5``. ``COLS`` should always contain the full list of all variables in the matrix ``A``.
+
+Remarks
+-------
+
+Set *colind* to a scalar 0 to use all of the columns in *vnamevar*.
+
+*vnamevar* must either reference an Mx1 string array variable containing
+variable names, where M is the number of columns in the dataset
+variable, or be set to a scalar 0. If *vnamevar* references an Mx1 string
+array variable, then only the elements indicated by *colind* will be used.
+Otherwise, if *vnamevar* is set to a scalar 0, then the variable names :code:`"X1, X2, ..., XK"` for
+the output will be generated automatically, unless the
+alternate variable names are set explicitly in the *dc0.altnames* member of
+the :class:`dstatmtControl` structure.
+
+If pairwise deletion is used, the minima and maxima will be the true
+values for the valid data. The means and standard deviations will be
+computed using the correct number of valid observations for each
+variable.
+
 
 Source
 ------

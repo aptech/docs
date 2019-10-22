@@ -18,14 +18,6 @@ Format
 
     :rtype index: scalar
 
-Remarks
--------
-
-The first record is at position zero. If the position is invalid, the
-function returns `DB_BEFORE_FIRST_ROW` (-1) or `DB_AFTER_LAST_ROW` (-2), which are
-special negative values.
-
-
 Examples
 ----------------
 
@@ -40,3 +32,12 @@ Examples
         print "Current index = "
         dbQueryGetPosition(qid);
     endo;
+
+Remarks
+-------
+
+The first record is at position zero. If the position is invalid, the
+function returns `DB_BEFORE_FIRST_ROW` (-1) or `DB_AFTER_LAST_ROW` (-2), which are
+special negative values.
+
+

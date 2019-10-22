@@ -23,22 +23,6 @@ Format
 
     :rtype lnp: max(M,K) x max(N,L) matrix
 
-Remarks
--------
-
-The relative error is:
-
-.. csv-table::
-    :widths: auto
-
-
-    ":math:`\|x\| < 1`", "and", ":math:`dx < 1`", "±1e-14"
-    ":math:`1 < \|x\| < 37`", "and", ":math:`\|dx\| < 1/\|x\|`", "±1e-13"
-    ":math:`min(x,x+dx) > -37`", "and", ":math:`y > -690``", "±1e-11 or better"
-
-A relative error of ±1e-14 implies that the answer is accurate to better
-than ±1 in the 14th digit after the decimal point.
-
 Examples
 ----------------
 
@@ -86,6 +70,22 @@ Examples
 ::
 
     -1.5068446096529453e+01
+
+Remarks
+-------
+
+The relative error is:
+
+.. csv-table::
+    :widths: auto
+
+
+    ":math:`\|x\| < 1`", "and", ":math:`dx < 1`", "±1e-14"
+    ":math:`1 < \|x\| < 37`", "and", ":math:`\|dx\| < 1/\|x\|`", "±1e-13"
+    ":math:`min(x,x+dx) > -37`", "and", ":math:`y > -690``", "±1e-11 or better"
+
+A relative error of ±1e-14 implies that the answer is accurate to better
+than ±1 in the 14th digit after the decimal point.
 
 Source
 ------

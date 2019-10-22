@@ -20,16 +20,6 @@ Format
 
     :rtype y: Nx1 vector
 
-Remarks
--------
-
-Zero leading terms will be stripped from *c*. When that occurs the order
-of *y* will be the order of the polynomial after the leading zeros have
-been stripped.
-
-:math:`c[1]` need not be normalized to unity.
-
-
 Examples
 ----------------
 
@@ -63,6 +53,16 @@ The output reads:
           0.40754502 +       0.72864999i
           0.40754502 -       0.72864999i
           0.73534559
+
+Remarks
+-------
+
+Zero leading terms will be stripped from *c*. When that occurs the order
+of *y* will be the order of the polynomial after the leading zeros have
+been stripped.
+
+:math:`c[1]` need not be normalized to unity.
+
 
 Source
 ------

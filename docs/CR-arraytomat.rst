@@ -18,12 +18,6 @@ Format
 
     :rtype y: KxL or 1xL matrix or scalar
 
-Remarks
--------
-
-:func:`arraytomat` will take an array of 1 or 2 dimensions or an N-dimensional
-array, in which the N-2 slowest moving dimensions each have a size of 1.
-
 Examples
 ----------------
 
@@ -57,6 +51,12 @@ The code above sets *y* equal to:
      6.5    7.0    7.5    8.0
      8.5    9.0    9.5   10.0
     10.5   11.0   11.5   12.0
+
+Remarks
+-------
+
+:func:`arraytomat` will take an array of 1 or 2 dimensions or an N-dimensional
+array, in which the N-2 slowest moving dimensions each have a size of 1.
 
 .. seealso:: Functions :func:`mattoarray`
 

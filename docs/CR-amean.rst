@@ -21,12 +21,6 @@ Format
 
     :rtype y: [N-1]-dimensional array
 
-Remarks
--------
-
-The output *y*, will have the same sizes of dimensions as *x*, except that
-the dimension indicated by dim will be collapsed to 1.
-
 Examples
 ----------------
 
@@ -86,5 +80,11 @@ Using the same array *x* as the above example, this example computes the mean ac
     14.500000
     18.500000
     22.500000
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by dim will be collapsed to 1.
 
 .. seealso:: Functions :func:`asum`

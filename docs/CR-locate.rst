@@ -17,20 +17,6 @@ Format
 
     locate m, n;
 
-Remarks
--------
-
-`locate` locates the cursor in the current output window.
-
-*m* and *n* denote the row and column, respectively, at which the cursor is
-to be located.
-
-The origin (1,1) is the upper left corner.
-
-*m* and *n* may be any expressions that return scalars. Non-integers will be
-truncated to an integer.
-
-
 Examples
 ----------------
 
@@ -50,5 +36,19 @@ Examples
 
 In this example the window is cleared without affecting
 the cursor position.
+
+Remarks
+-------
+
+`locate` locates the cursor in the current output window.
+
+*m* and *n* denote the row and column, respectively, at which the cursor is
+to be located.
+
+The origin (1,1) is the upper left corner.
+
+*m* and *n* may be any expressions that return scalars. Non-integers will be
+truncated to an integer.
+
 
 .. seealso:: Functions :func:`csrlin`, :func:`csrcol`

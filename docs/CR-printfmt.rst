@@ -29,14 +29,6 @@ Format
 
     :rtype retcode: scalar
 
-Remarks
--------
-
-Default format for numeric data is: ``"*.*lg" 16 8``
-
-Default format for character data is: ``"*.*s" 8 8``
-
-
 Examples
 ----------------
 
@@ -81,6 +73,14 @@ The output from the three different print statements will be:
     weight           160
 
 Only the final print statement from :func:`printfmt` correctly prints both columns.
+
+Remarks
+-------
+
+Default format for numeric data is: ``"*.*lg" 16 8``
+
+Default format for character data is: ``"*.*s" 8 8``
+
 
 Source
 ------

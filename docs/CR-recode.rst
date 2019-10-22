@@ -23,17 +23,6 @@ Format
 
     :rtype y: Nx1 vector
 
-Remarks
--------
-
-There should be no more than a single 1 in any row of *e*.
-
-For any given row :math:`N` of *x* and *e*, if the Kth column of *e* is 1, the Kth
-element of *v* will replace the original element of *x*.
-
-If every column of e contains a 0, the original value of *x* will be unchanged.
-
-
 Examples
 ----------------
 
@@ -83,6 +72,17 @@ The above code assigns *e* and *y* as follows:
     y = 2.4000000
         63.000000
         1.2000000
+
+Remarks
+-------
+
+There should be no more than a single 1 in any row of *e*.
+
+For any given row :math:`N` of *x* and *e*, if the Kth column of *e* is 1, the Kth
+element of *v* will replace the original element of *x*.
+
+If every column of e contains a 0, the original value of *x* will be unchanged.
+
 
 Source
 ------

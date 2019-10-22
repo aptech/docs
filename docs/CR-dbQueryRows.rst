@@ -20,14 +20,6 @@ Format
 
     :rtype result_size: scalar
 
-Remarks
--------
-
-Note that if the query is not active or if the query is not a ``SELECT``
-statement, a -1 is returned. These properties can be checked with
-:func:`dbQueryIsActive` or :func:`dbQueryIsSelect`.
-
-
 Examples
 ----------------
 
@@ -38,3 +30,12 @@ Examples
         FROM STATES");
 
     count = dbQueryRows(qid); // count = 50
+
+Remarks
+-------
+
+Note that if the query is not active or if the query is not a ``SELECT``
+statement, a -1 is returned. These properties can be checked with
+:func:`dbQueryIsActive` or :func:`dbQueryIsSelect`.
+
+

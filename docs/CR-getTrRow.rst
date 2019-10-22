@@ -21,12 +21,6 @@ Format
 
     :rtype y: 1xK row vector
 
-Remarks
--------
-
-:func:`getRow` is designed to give an alternative access to rows in a matrix than indexing the matrix by brackets.
-
-
 Examples
 ----------------
 
@@ -58,5 +52,11 @@ After this code
           -0.54252340
           0.098013056
           -0.25289740
+
+Remarks
+-------
+
+:func:`getRow` is designed to give an alternative access to rows in a matrix than indexing the matrix by brackets.
+
 
 .. seealso:: Functions :func:`getRow`

@@ -45,6 +45,34 @@ Format
 
     :rtype fh: scalar
 
+Examples
+----------------
+
+::
+
+    // Name variables
+    string vnames = { "random1", "random2" };
+
+    /*
+    ** Create file handle
+    ** with vnames and 2 variables
+    ** containing double precision
+    ** numeric data.
+    */
+    fh = datacreatecomplex("myfilecplx.dat", vnames, 2, 8, 1);
+
+    // Generate random complex data
+    x = complex(rndn(1000, 2), rndn(1000, 2));
+
+    // Write file using file handle
+    r = writer(fh, x);
+    ret = close(fh);
+
+This example creates a complex double precision data file called :file:`myfilecplx.dat`,
+which is placed in the current directory. The file contains 2 columns
+with 1000 observations (rows), and the columns are given the names ``random1``
+and ``random2``.
+
 Remarks
 -------
 
@@ -88,34 +116,6 @@ selecting a value for *dtyp*:
 | double    | 15-16  | :math:`4.19\times10^{-307} \lt |X| \lt 1.67\times10^{+308}`     |
 +-----------+--------+-----------------------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    // Name variables
-    string vnames = { "random1", "random2" };
-
-    /*
-    ** Create file handle
-    ** with vnames and 2 variables
-    ** containing double precision
-    ** numeric data.
-    */
-    fh = datacreatecomplex("myfilecplx.dat", vnames, 2, 8, 1);
-
-    // Generate random complex data
-    x = complex(rndn(1000, 2), rndn(1000, 2));
-
-    // Write file using file handle
-    r = writer(fh, x);
-    ret = close(fh);
-
-This example creates a complex double precision data file called :file:`myfilecplx.dat`,
-which is placed in the current directory. The file contains 2 columns
-with 1000 observations (rows), and the columns are given the names ``random1``
-and ``random2``.
 
 Source
 ------

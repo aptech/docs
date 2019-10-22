@@ -22,11 +22,6 @@ Format
 
     :rtype index: Mx1 vector
 
-Remarks
--------
-
-Among sets of duplicates it is unpredictable which elements will be indexed.
-
 Examples
 ----------------
 
@@ -50,6 +45,11 @@ After running the above code, *ind* and *y* are equal to:
     ind =  4.0000000    y =  3.0000000
            3.0000000         4.0000000
            1.0000000         5.0000000
+
+Remarks
+-------
+
+Among sets of duplicates it is unpredictable which elements will be indexed.
 
 .. seealso:: Functions :func:`unique`, :func:`uniqindxsa`
 

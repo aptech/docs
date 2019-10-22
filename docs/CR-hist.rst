@@ -36,6 +36,15 @@ Format
 
     :rtype freq: Px1 vector
 
+Examples
+----------------
+
+::
+
+    library pgraph;
+    x = rndn(5000,1);
+    { b, m, f } = hist(x, 20);
+
 Remarks
 -------
 
@@ -60,15 +69,6 @@ categories are interpreted as follows:
      .
    freq[P] = b[P-1] < x < b[P]
 
-
-Examples
-----------------
-
-::
-
-    library pgraph;
-    x = rndn(5000,1);
-    { b, m, f } = hist(x, 20);
 
 Source
 ------

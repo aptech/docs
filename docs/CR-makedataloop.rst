@@ -19,6 +19,14 @@ Format
     make [#] numvar = numeric_expression;
     make $charvar = character_expression;
 
+Examples
+----------------
+
+::
+
+    make sqvpt = sqrt(velocity * pressure * temp);
+    make $ gender = lower(gender);
+
 Remarks
 -------
 
@@ -33,14 +41,6 @@ previous `make`, `vector`, or `code` statement. The variable name must be
 unique. A variable cannot be made more than once, or an error is
 generated.
 
-
-Examples
-----------------
-
-::
-
-    make sqvpt = sqrt(velocity * pressure * temp);
-    make $ gender = lower(gender);
 
 .. seealso:: Functions `vector`
 

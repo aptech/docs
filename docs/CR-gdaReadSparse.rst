@@ -21,6 +21,16 @@ Format
 
     :rtype sm: sparse matrix
 
+Examples
+----------------
+
+::
+
+    // Declare sparse matrix sm1
+    sparse matrix sm1;
+
+    sm1 = gdaReadSparse("myfile.gda", "sm");
+
 Remarks
 -------
 
@@ -44,15 +54,5 @@ the following:
 | 14 | File too large to be read on current platform.      |
 +----+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    // Declare sparse matrix sm1
-    sparse matrix sm1;
-
-    sm1 = gdaReadSparse("myfile.gda", "sm");
 
 .. seealso:: Functions :func:`gdaRead`, :func:`gdaReadStruct`, :func:`gdaWrite`

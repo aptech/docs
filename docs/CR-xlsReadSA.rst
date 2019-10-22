@@ -35,6 +35,39 @@ Windows, Linux and macOS
 
 The *vls* input is currently ignored on macOS and Linux. Missing values will be returned for all cells that are empty or contain errors.
 
+Examples
+----------------
+
+Basic Example with Specify Path and Sheet Number
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Read all contents from the file ":file:`yarn.xlsx`" located in GAUSS home working directory as a string array.
+
+::
+
+    // Create file name with full path
+    file = getGAUSSHome() $+ "examples/yarn.xlsx";
+    //"A1" means start from A1
+    // 1 = sheet number 				
+    // Call xlsReadSA function
+    s = xlsReadSA(file, "A1", 1);
+
+Read From a Range
++++++++++++++++++
+
+::
+
+    data = xlsReadSA(file, "A2:D28");
+
+Read your own data
+++++++++++++++++++
+
+Read all contents from the file :file:`myfile.xlsx` located in your current GAUSS working directory as a string array.
+
+::
+
+    s = xlsReadSA("myfile.xlsx");
+
 Remarks
 -------
 
@@ -102,39 +135,6 @@ Remarks
       vls[8] = "NULL";
 
       x = xlsReadSA("myfile.xlsx", "A1", 1, vls);
-
-Examples
-----------------
-
-Basic Example with Specify Path and Sheet Number
-++++++++++++++++++++++++++++++++++++++++++++++++
-
-Read all contents from the file ":file:`yarn.xlsx`" located in GAUSS home working directory as a string array.
-
-::
-
-    // Create file name with full path
-    file = getGAUSSHome() $+ "examples/yarn.xlsx";
-    //"A1" means start from A1
-    // 1 = sheet number 				
-    // Call xlsReadSA function
-    s = xlsReadSA(file, "A1", 1);
-
-Read From a Range
-+++++++++++++++++
-
-::
-
-    data = xlsReadSA(file, "A2:D28");
-
-Read your own data
-++++++++++++++++++
-
-Read all contents from the file :file:`myfile.xlsx` located in your current GAUSS working directory as a string array.
-
-::
-
-    s = xlsReadSA("myfile.xlsx");
 
 .. seealso:: Functions :func:`getHeaders`, :func:`xlsReadM`, :func:`xlsWrite`, :func:`xlsWriteM`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
 

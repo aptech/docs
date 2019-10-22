@@ -29,12 +29,6 @@ Format
 
     :rtype y: RxC sparse matrix
 
-Remarks
--------
-
-Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
-a sparse matrix before the call to :func:`spCreate`.
-
 Examples
 ----------------
 
@@ -65,6 +59,12 @@ Non-zero value   Index
 3.2              (8,9)
 4.5              (13,5)
 ================ =======
+
+Remarks
+-------
+
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spCreate`.
 
 .. seealso:: Functions :func:`packedToSp`, :func:`denseToSp`, :func:`spEye`
 

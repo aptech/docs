@@ -120,11 +120,6 @@ Format
 
     :rtype gOut: struct
 
-Remarks
--------
-
-The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
-
 Examples
 ----------------
 
@@ -231,5 +226,10 @@ The above code will print out the following report:
     Hansen Test Statistic of the Moment Restrictions
     Chi-Sq(   3) =        6.9753314
     P-value of J-stat:     0.072688216
+
+Remarks
+-------
+
+The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
 
 .. seealso:: Functions :func:`gmmControlCreate`, :func:`gmmFit`

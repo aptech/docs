@@ -23,15 +23,6 @@ Format
 
     :rtype s: NxK matrix, Nx1 vector or scalar
 
-Remarks
------------
-
-For invalid inputs, :func:`cdfBinomialInv` will return a scalar error code
-which, when its value is assessed by function :func:`scalerr`, corresponds to
-the invalid input. If the first input is out of range, :func:`scalerr` will
-return a 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
-
-
 Examples
 ----------------
 What is a reasonable range of wins for a basketball team playing 82 games in a season, with a 60% chance of winning any game?
@@ -61,5 +52,14 @@ After above code,
     	55
 
 This means that a team with a 60% chance of winning any one game would win between 43 and 55 games in 80% of seasons.
+
+Remarks
+-----------
+
+For invalid inputs, :func:`cdfBinomialInv` will return a scalar error code
+which, when its value is assessed by function :func:`scalerr`, corresponds to
+the invalid input. If the first input is out of range, :func:`scalerr` will
+return a 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+
 
 .. seealso:: Functions :func:`cdfBinomial`, :func:`pdfBinomial`, :func:`cdfNegBinomial`, :func:`cdfNegBinomialInv`

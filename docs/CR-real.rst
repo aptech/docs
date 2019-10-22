@@ -17,11 +17,6 @@ Format
 
     :rtype zr: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-If *x* is not complex, *zr* will be equal to *x*.
-
 Examples
 ----------------
 
@@ -39,6 +34,11 @@ After the code above, *x* and *zr* are equal to:
         1+0i  11+2i       1 11
     x = 0+7i   3+0i  zr = 0  3
         2+1i   1+0i       2  1
+
+Remarks
+-------
+
+If *x* is not complex, *zr* will be equal to *x*.
 
 .. seealso:: Functions :func:`complex`, :func:`imag`
 

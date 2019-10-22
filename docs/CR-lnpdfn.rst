@@ -18,19 +18,6 @@ Format
 
     :rtype z: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-This computes the log of the scalar Normal density function for each
-element of *x*. *z* could be computed by the following GAUSS code:
-
-::
-
-   z = -ln(sqrt(2*pi))-x .* x / 2;
-
-For multivariate log-probabilities, see :func:`lnpdfmvn`.
-
-
 Examples
 ----------------
 
@@ -46,3 +33,17 @@ Examples
     z = -0.9189385
         -1.4189385
         -2.9189385
+
+Remarks
+-------
+
+This computes the log of the scalar Normal density function for each
+element of *x*. *z* could be computed by the following GAUSS code:
+
+::
+
+   z = -ln(sqrt(2*pi))-x .* x / 2;
+
+For multivariate log-probabilities, see :func:`lnpdfmvn`.
+
+

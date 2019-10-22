@@ -54,12 +54,6 @@ Global Input
     The second column controls the bar color.
 
 
-Remarks
--------
-
-Use :func:`scale` or :func:`ytics` to fix the scaling for the bar heights.
-
-
 Examples
 ----------------
 
@@ -86,6 +80,12 @@ bar are stored in :math:`x[i,.]`.
 
     // Use t vector to label X axis.
     bar(t, x); 
+
+Remarks
+-------
+
+Use :func:`scale` or :func:`ytics` to fix the scaling for the bar heights.
+
 
 Source
 ------------

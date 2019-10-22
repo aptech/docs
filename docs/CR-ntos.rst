@@ -24,15 +24,6 @@ Format
 
     :rtype str: string or NxK string array
 
-Remarks
--------
-
-This function will convert numbers to either decimal representation or
-scientific notation, depending upon which is most compact. The behavior
-is equivalent to the '%g' format specifier to the 'C' language function
-``printf``. The precision of an individual number will be the smaller of the
-*prec* input and the maximum number of significant digits.
-
 Examples
 ----------------
 
@@ -95,5 +86,14 @@ returns
         1982             2.75
         1983           2.2027
         1984            2.551
+
+Remarks
+-------
+
+This function will convert numbers to either decimal representation or
+scientific notation, depending upon which is most compact. The behavior
+is equivalent to the '%g' format specifier to the 'C' language function
+``printf``. The precision of an individual number will be the smaller of the
+*prec* input and the maximum number of significant digits.
 
 .. seealso:: Functions :func:`ftos`, :func:`stof`

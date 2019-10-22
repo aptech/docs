@@ -22,12 +22,6 @@ Format
 
     :rtype y: NxN matrix
 
-Remarks
--------
-
-Since it does not do row pivoting, it is intended primarily for teaching
-purposes. See :func:`croutp` for a decomposition with pivoting.
-
 Examples
 ----------------
 
@@ -56,5 +50,11 @@ After the code above:
         1.0  2.0 -1.0       1.0  0.0  0.0       1.0  2.0 -1.0
     y = 2.0 -1.0  0.0   L = 2.0 -1.0  0.0   U = 0.0  1.0  0.0
         1.0 -4.0  2.0       1.0 -4.0  2.0       0.0  0.0  1.0
+
+Remarks
+-------
+
+Since it does not do row pivoting, it is intended primarily for teaching
+purposes. See :func:`croutp` for a decomposition with pivoting.
 
 .. seealso:: Functions :func:`croutp`, :func:`chol`, :func:`lowmat`, :func:`lowmat1`, :func:`lu`, :func:`upmat`, :func:`upmat1`

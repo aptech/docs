@@ -20,14 +20,6 @@ Format
 
     :rtype sy: vector
 
-Remarks
--------
-
-Place smaller vector first for fastest operation.
-
-When there are a lot of duplicates it is faster to remove them first
-with :func:`unique` before calling this function.
-
 Examples
 ----------------
 
@@ -45,6 +37,14 @@ Now *sy* is equal to:
     jane
     john
     linda
+
+Remarks
+-------
+
+Place smaller vector first for fastest operation.
+
+When there are a lot of duplicates it is faster to remove them first
+with :func:`unique` before calling this function.
 
 Source
 ------

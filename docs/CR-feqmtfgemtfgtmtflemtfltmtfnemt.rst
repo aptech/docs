@@ -30,28 +30,6 @@ Format
 
     :rtype ret: scalar
 
-Remarks
--------
-
-The return value is ``TRUE`` if every comparison is ``TRUE``.
-
-The statement:
-
-::
-
-   ret = feqmt(a, b, 1e-15);
-
-is equivalent to:
-
-::
-
-   ret = abs(a-b) <= 1e-15;
-
-For the sake of efficiency, these functions are not written to handle
-missing values. If *a* and *b* contain missing values, use :func:`missrv` to convert
-the missing values to something appropriate before calling a fuzzy
-comparison function.
-
 Examples
 ----------------
 
@@ -88,6 +66,28 @@ After the code above:
     ret_1 = 1
     ret_2 = 0
 
+
+Remarks
+-------
+
+The return value is ``TRUE`` if every comparison is ``TRUE``.
+
+The statement:
+
+::
+
+   ret = feqmt(a, b, 1e-15);
+
+is equivalent to:
+
+::
+
+   ret = abs(a-b) <= 1e-15;
+
+For the sake of efficiency, these functions are not written to handle
+missing values. If *a* and *b* contain missing values, use :func:`missrv` to convert
+the missing values to something appropriate before calling a fuzzy
+comparison function.
 
 Source
 ------

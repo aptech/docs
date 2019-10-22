@@ -18,22 +18,6 @@ Format
 
     :rtype y: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-:func:`log` is defined for :math:`x ≠ 0`.
-
-You can turn the generation of complex numbers for negative inputs on or
-off in the GAUSS configuration file, and with the :func:`sysstate` function,
-case 8. If you turn it off, :func:`log` will generate an error for negative
-inputs.
-
-If *x* is already complex, the complex number state doesn't matter; :func:`log`
-will compute a complex result.
-
-*x* can be any expression that returns a matrix.
-
-
 Examples
 ----------------
 
@@ -59,6 +43,22 @@ Then *y* will be equal to:
     0.602  0.954  0.301 
     0.699  0.477  0.845 
     0.301  0.778  1.000
+
+Remarks
+-------
+
+:func:`log` is defined for :math:`x ≠ 0`.
+
+You can turn the generation of complex numbers for negative inputs on or
+off in the GAUSS configuration file, and with the :func:`sysstate` function,
+case 8. If you turn it off, :func:`log` will generate an error for negative
+inputs.
+
+If *x* is already complex, the complex number state doesn't matter; :func:`log`
+will compute a complex result.
+
+*x* can be any expression that returns a matrix.
+
 
 .. seealso:: Functions :func:`ln`
 

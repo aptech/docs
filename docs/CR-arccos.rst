@@ -17,12 +17,6 @@ Format
 
     :rtype y: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-If *x* is complex or has any elements whose absolute value is greater than
-1, complex results are returned.
-
 Examples
 ----------------
 
@@ -56,6 +50,12 @@ The code above, produces the following output:
          1.571
          1.047
          0.000
+
+Remarks
+-------
+
+If *x* is complex or has any elements whose absolute value is greater than
+1, complex results are returned.
 
 Source
 ------------

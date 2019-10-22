@@ -24,11 +24,6 @@ Format
 
     :rtype dt: NxK matrix
 
-Remarks
--------
-
-The arguments must be ExE conformable.
-
 Examples
 ----------------
 
@@ -46,6 +41,11 @@ After the above code:
 
     112756
 
+
+Remarks
+-------
+
+The arguments must be ExE conformable.
 
 Source
 ------

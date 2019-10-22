@@ -25,6 +25,13 @@ Format
     pqgwin one;
     pqgwin many;
 
+Examples
+----------------
+
+::
+
+    pqgwin many;
+
 Remarks
 -------
 
@@ -43,13 +50,6 @@ a new viewer will be used for each graph.
 
 ``pqgwin manual`` and ``pqgwin auto`` are supported for backwards compatibility, ``manual = one``, ``auto = many``.
 
-
-Examples
-----------------
-
-::
-
-    pqgwin many;
 
 Source
 ------

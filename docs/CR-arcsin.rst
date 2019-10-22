@@ -17,12 +17,6 @@ Format
 
     :rtype y: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-If *x* is complex or has any elements whose absolute value is greater than
-1, complex results are returned.
-
 Examples
 ----------------
 
@@ -41,6 +35,12 @@ Assigns *y* to be equal to:
      0.00000000
      0.52359878
      1.5707963
+
+Remarks
+-------
+
+If *x* is complex or has any elements whose absolute value is greater than
+1, complex results are returned.
 
 Source
 ------------

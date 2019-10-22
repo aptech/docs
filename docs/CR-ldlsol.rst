@@ -21,16 +21,6 @@ Format
 
     :rtype x: Nx1 vector or NxK matrix
 
-Remarks
--------
-
-Matrix factorization is the most computationally intense part of solving
-a system of linear equations. The factorization can be saved and reused
-multiple times to prevent the need to repeat the matrix factorization
-step. :func:`ldlsol` uses the LAPACK function *dsytrs* to solve the system of
-linear equations.
-
-
 Examples
 ----------------
 
@@ -59,5 +49,15 @@ The above code will solve the system of linear equations :math:`Ax = b`, assigni
     x = -0.1529
         -0.2829
          0.1900
+
+Remarks
+-------
+
+Matrix factorization is the most computationally intense part of solving
+a system of linear equations. The factorization can be saved and reused
+multiple times to prevent the need to repeat the matrix factorization
+step. :func:`ldlsol` uses the LAPACK function *dsytrs* to solve the system of
+linear equations.
+
 
 .. seealso:: Functions :func:`ldlp`, :func:`lusol`, :func:`solpd`

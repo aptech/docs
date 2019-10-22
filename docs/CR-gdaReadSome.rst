@@ -27,6 +27,33 @@ Format
 
     :rtype y: matrix
 
+Examples
+----------------
+
+::
+
+    // Create random matrix x
+    x = rndn(100, 50);
+
+    // Create GDA named `myfile`
+    retcode1 = gdaCreate("myfile.gda", 1);
+
+    // Write x to `myfile` with name x1
+    retcode2 = gdaWrite("myfile.gda", x, "x1");
+
+    // Index into variable where read is to begin
+    index = { 35, 20 };
+
+    // Orders of object to output
+    orders = { 25, 5 };
+
+    // Read part of x1 from myfile
+    y = gdaReadSome("myfile.gda", "x1", index, orders);
+
+This example reads :math:`25 * 5 = 125` elements from *x1*, beginning
+with the :math:`[35, 20]` element. The 125 elements are returned as
+a 25x5 matrix, *y*.
+
 Remarks
 -------
 
@@ -77,32 +104,5 @@ following:
 +----+-----------------------------------------------------+
 | 18 | Argument wrong size.                                |
 +----+-----------------------------------------------------+
-
-Examples
-----------------
-
-::
-
-    // Create random matrix x
-    x = rndn(100, 50);
-
-    // Create GDA named `myfile`
-    retcode1 = gdaCreate("myfile.gda", 1);
-
-    // Write x to `myfile` with name x1
-    retcode2 = gdaWrite("myfile.gda", x, "x1");
-
-    // Index into variable where read is to begin
-    index = { 35, 20 };
-
-    // Orders of object to output
-    orders = { 25, 5 };
-
-    // Read part of x1 from myfile
-    y = gdaReadSome("myfile.gda", "x1", index, orders);
-
-This example reads :math:`25 * 5 = 125` elements from *x1*, beginning
-with the :math:`[35, 20]` element. The 125 elements are returned as
-a 25x5 matrix, *y*.
 
 .. seealso:: Functions :func:`gdaWriteSome`, :func:`gdaRead`

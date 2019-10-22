@@ -36,13 +36,6 @@ Format
 
     :rtype retcode: scalar
 
-Remarks
--------
-
-:func:`gdaWrite` adds the data in *x* to the end of the variable data in *filename*,
-and gives the variable the name contained in *varname*.
-
-
 Examples
 ----------------
 
@@ -56,5 +49,12 @@ Examples
 
   // Write `x`  to `myfile` as x1
   retcode2 = gdaWrite("myfile.gda", x, "x1");
+
+Remarks
+-------
+
+:func:`gdaWrite` adds the data in *x* to the end of the variable data in *filename*,
+and gives the variable the name contained in *varname*.
+
 
 .. seealso:: Functions :func:`gdaWrite32`, :func:`gdaCreate`

@@ -101,41 +101,6 @@ The following are set by :func:`gausset`:
         "0", "Variable names are not padded to give them equal length. For example, :code:`X1, X2, ..., X10, ...`"
         "1", "Variable names are padded with zeros to give them an equal number of characters. For example, :code:`X01, X02, ..., X10, ...` This is useful if you want the variable names to sort properly."
 
-Remarks
--------
-
-The equation procedure should return a column vector containing the
-result for each equation. For example, consider a two-equation system given by:
-
-.. math:: x_1^2 + x_2^2 - 2 = 0
-.. math:: e^{x_1-1} + x_2^3 - 2 = 0
-
-
-::
-
-   proc (1) = f(var);
-      local x1, x2, eqns;
-
-      // Set x1
-      x1 = var[1];
-
-      // Set x2
-      x2 = var[2];
-
-      // Pre-allocate output vector
-      eqns = zeros(2,1);
-
-      // Equation 1
-      eqns[1] = x1^2 + x2^2 - 2;
-
-      // Equation 2
-      eqns[2] = exp(x1-1) + x2^3 - 2;
-
-      retp(eqns);
-   endp;
-
-Note that the first equation in the system is contained in the first row of ``eqns`` and the second equation is in the second row of ``eqns``.
-
 Examples
 ----------------
 
@@ -200,6 +165,41 @@ Examples
     X2          12.00000        1.4085912     -6.6263102e-006
     X3          -1.00000        1.1111111      4.4175402e-006
     ---------------------------------------------------------
+
+Remarks
+-------
+
+The equation procedure should return a column vector containing the
+result for each equation. For example, consider a two-equation system given by:
+
+.. math:: x_1^2 + x_2^2 - 2 = 0
+.. math:: e^{x_1-1} + x_2^3 - 2 = 0
+
+
+::
+
+   proc (1) = f(var);
+      local x1, x2, eqns;
+
+      // Set x1
+      x1 = var[1];
+
+      // Set x2
+      x2 = var[2];
+
+      // Pre-allocate output vector
+      eqns = zeros(2,1);
+
+      // Equation 1
+      eqns[1] = x1^2 + x2^2 - 2;
+
+      // Equation 2
+      eqns[2] = exp(x1-1) + x2^3 - 2;
+
+      retp(eqns);
+   endp;
+
+Note that the first equation in the system is contained in the first row of ``eqns`` and the second equation is in the second row of ``eqns``.
 
 Source
 ------

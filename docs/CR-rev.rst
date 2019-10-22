@@ -17,13 +17,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-The first row of *y* will be where the last row of *x* was and the last row
-will be where the first was and so on. This can be used to put a sorted
-matrix in descending order.
-
 Examples
 ----------------
 
@@ -61,6 +54,13 @@ The code above produces the following output:
       -7    4    2 
        3   -1   -5 
       10  -14   -7
+
+Remarks
+-------
+
+The first row of *y* will be where the last row of *x* was and the last row
+will be where the first was and so on. This can be used to put a sorted
+matrix in descending order.
 
 .. seealso:: Functions :func:`sortc`
 

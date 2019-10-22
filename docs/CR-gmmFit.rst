@@ -112,59 +112,6 @@ Format
 
     :rtype gOut: struct
 
-Remarks
--------
-
-The user defined moment equation function should be set up to take at
-least 2 inputs. The first input should always be the parameter vector
-and the second input should always be the dependent data vector.
-Additional optional arguments may be included. These arguments must
-be passed into :func:`gmmFit` in the order they are passed to the moment
-equation.
-
-Including four inputs
-+++++++++++++++++++++
-
-::
-
-    m = meqn(b, y, x, z);
-
-    proc meqn(b, yt, xt, zt);
-
-        local ut,dt;
-
-        // OLS residuals
-        ut = yt - b[1] - b[2]*xt[., 1] - b[3]*xt[., 2];
-
-        // Moment conditions
-        dt = ut.*zt;
-
-        retp( dt );
-
-    endp;
-
-Including two inputs
-++++++++++++++++++++
-
-::
-
-    m = meqn(b, y);
-
-    proc meqn(b, yt);
-
-        local g1, g2;
-
-        g1= yt.^2 - b/(b-2);
-        g2 = yt.^4 - (3*b^2)/((b-2)*(b-4));
-
-        retp( g1~g2 );
-
-    endp;
-
-The :func:`gmmFit` function does not support dataset and formula string
-syntax. Formula string syntax may be used for standard IV or ols
-relationships in the :func:`gmmFitIV` procedure.
-
 Examples
 ----------------
 
@@ -221,5 +168,58 @@ Use data matrices
 
         retp(g1~g2);
     endp;
+
+Remarks
+-------
+
+The user defined moment equation function should be set up to take at
+least 2 inputs. The first input should always be the parameter vector
+and the second input should always be the dependent data vector.
+Additional optional arguments may be included. These arguments must
+be passed into :func:`gmmFit` in the order they are passed to the moment
+equation.
+
+Including four inputs
++++++++++++++++++++++
+
+::
+
+    m = meqn(b, y, x, z);
+
+    proc meqn(b, yt, xt, zt);
+
+        local ut,dt;
+
+        // OLS residuals
+        ut = yt - b[1] - b[2]*xt[., 1] - b[3]*xt[., 2];
+
+        // Moment conditions
+        dt = ut.*zt;
+
+        retp( dt );
+
+    endp;
+
+Including two inputs
+++++++++++++++++++++
+
+::
+
+    m = meqn(b, y);
+
+    proc meqn(b, yt);
+
+        local g1, g2;
+
+        g1= yt.^2 - b/(b-2);
+        g2 = yt.^4 - (3*b^2)/((b-2)*(b-4));
+
+        retp( g1~g2 );
+
+    endp;
+
+The :func:`gmmFit` function does not support dataset and formula string
+syntax. Formula string syntax may be used for standard IV or ols
+relationships in the :func:`gmmFitIV` procedure.
 
 .. seealso:: Functions :func:`gmmFitControlCreate`, :func:`gmmFitIV`

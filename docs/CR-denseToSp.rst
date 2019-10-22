@@ -22,15 +22,6 @@ Format
 
     :rtype x_sparse: MxN sparse matrix
 
-Remarks
--------
-
-A dense matrix is just a normal format matrix.
-
-Since sparse matrices are strongly typed in GAUSS, *x_sparse* must be defined as
-a sparse matrix before the call to :func:`denseToSp`.
-
-
 Examples
 ----------------
 
@@ -58,5 +49,14 @@ After the code above, *x_sparse* will be a matrix in sparse matrix format equiva
     0.00   4.00   0.00   0.00
     0.00   0.00   0.00   0.00
     0.00   0.00  -2.00   0.00
+
+Remarks
+-------
+
+A dense matrix is just a normal format matrix.
+
+Since sparse matrices are strongly typed in GAUSS, *x_sparse* must be defined as
+a sparse matrix before the call to :func:`denseToSp`.
+
 
 .. seealso:: Functions :func:`spCreate`, :func:`spDenseSubmat`, :func:`spToDense`

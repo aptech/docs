@@ -19,6 +19,22 @@ Format
 
     :rtype ret: scalar
 
+Examples
+----------------
+
+::
+
+    // Create and prepare query
+    qid = dbCreateQuery(db_id, "SELECT * FROM PEOPLE");
+
+    do while dbQuerySeekNext(qid);
+        row = dbQueryFetchOneSA(qid);
+        /*
+        ** Or dbQueryFetchOneM(qid) if data
+        ** is numeric
+        */
+    endo;
+
 Remarks
 -------
 
@@ -38,21 +54,5 @@ The following rules apply:
     change and 0 is returned."
     "Somewhere between first and last record", "An attempt is made to
     retrieve the next record."
-
-Examples
-----------------
-
-::
-
-    // Create and prepare query
-    qid = dbCreateQuery(db_id, "SELECT * FROM PEOPLE");
-
-    do while dbQuerySeekNext(qid);
-        row = dbQueryFetchOneSA(qid);
-        /*
-        ** Or dbQueryFetchOneM(qid) if data
-        ** is numeric
-        */
-    endo;
 
 .. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekPrevious`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`

@@ -23,22 +23,6 @@ Format
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
--------
-
-The cumulative distribution function for the logistic distribution is
-defined as:
-
-.. math::
-
-    f(x, \mu, \sigma) = \frac{1}{1 + exp(-z)}
-
-where
-
-.. math::
-
-    z = \frac{x - \mu}{\sigma}
-
 Examples
 --------
 
@@ -62,5 +46,21 @@ After the above code, `p` will equal:
     0.6225
     0.7311
     0.8176
+
+Remarks
+-------
+
+The cumulative distribution function for the logistic distribution is
+defined as:
+
+.. math::
+
+    f(x, \mu, \sigma) = \frac{1}{1 + exp(-z)}
+
+where
+
+.. math::
+
+    z = \frac{x - \mu}{\sigma}
 
 .. seealso:: :func:`pdfLogistic`

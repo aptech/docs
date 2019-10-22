@@ -18,18 +18,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-This is based on the recursive series :func:`recsercp`. :func:`recsercp` could be called
-directly as follows:
-
-::
-
-   recsercp(x, zeros(1, cols(x)));
-
-to accomplish the same thing.
-
 Examples
 ----------------
 
@@ -48,6 +36,18 @@ Now if you view *y*, you will see:
         1.000 -3.000
     y = 2.000 -6.000
         6.000  6.000
+
+Remarks
+-------
+
+This is based on the recursive series :func:`recsercp`. :func:`recsercp` could be called
+directly as follows:
+
+::
+
+   recsercp(x, zeros(1, cols(x)));
+
+to accomplish the same thing.
 
 Source
 ------------

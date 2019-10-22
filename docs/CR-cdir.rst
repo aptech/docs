@@ -18,16 +18,6 @@ Format
 
     :rtype dir: string
 
-Remarks
--------
-
-If the current directory is the root directory, the returned string will
-end with a backslash, otherwise it will not.
-
-A null string or scalar zero can be passed in as an argument to obtain
-the current drive and path name.
-
-
 Examples
 ----------------
 
@@ -62,3 +52,14 @@ After the code above, *dir* will equal:
 ::
 
     /Users/Research/gauss
+
+Remarks
+-------
+
+If the current directory is the root directory, the returned string will
+end with a backslash, otherwise it will not.
+
+A null string or scalar zero can be passed in as an argument to obtain
+the current drive and path name.
+
+

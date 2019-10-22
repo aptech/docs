@@ -17,14 +17,6 @@ Format
 
     :rtype v: (N*(N+1)/2)x1 vector
 
-Remarks
--------
-
-As you can see from the example below, :func:`vech` will not check to see if *x*
-is symmetric. It just packs the lower trangular portion of the matrix
-into a column vector in row-wise order.
-
-
 Examples
 ----------------
 
@@ -51,6 +43,14 @@ After the code above:
         31 32 33       31       31 32 33
                        32
                        33
+
+Remarks
+-------
+
+As you can see from the example below, :func:`vech` will not check to see if *x*
+is symmetric. It just packs the lower trangular portion of the matrix
+into a column vector in row-wise order.
+
 
 .. seealso:: Functions :func:`xpnd`
 

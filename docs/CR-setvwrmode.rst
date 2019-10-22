@@ -31,14 +31,6 @@ Format
 
     :rtype oldmode: string
 
-Remarks
--------
-
-If *mode* is a null string, the current mode will be returned with no changes made.
-
-If "one" is set, the viewer executable will be :func:`vwr.exe`.
-
-
 Examples
 ----------------
 
@@ -46,6 +38,14 @@ Examples
 
     oldmode = setvwrmode("one");
     call setvwrmode(oldmode);
+
+Remarks
+-------
+
+If *mode* is a null string, the current mode will be returned with no changes made.
+
+If "one" is set, the viewer executable will be :func:`vwr.exe`.
+
 
 Source
 ------

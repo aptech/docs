@@ -23,6 +23,32 @@ Format
 
     :rtype y: NxK matrix that equals x
 
+Examples
+----------------
+
+::
+
+    // Set seed for repeatable random numbers
+    rndseed 49728424;
+
+    x = rndu(3, 2);
+
+    // Logical expression
+    mask =(x .> .30) .and (x .< .60);
+    y = missex(x, mask);
+
+After the code above:
+
+::
+
+         0.525  0.419          1  1           .      .
+    x =  0.869  0.973   mask = 0  0   y = 0.869  0.973
+         0.021  0.357          0  1       0.021      .
+
+A 3x2 matrix of uniform random numbers is created.
+All values in the interval (0.30, 0.60) are converted
+to missing.
+
 Remarks
 -------
 
@@ -43,32 +69,6 @@ replaces elements with a ". + 0i" value.
 
 This function is like :func:`miss`, but is more general in that a range of
 values can be converted into missings.
-
-Examples
-----------------
-
-::
-
-    // Set seed for repeatable random numbers
-    rndseed 49728424;
-
-    x = rndu(3, 2);
-
-    // Logical expression
-    mask =(x .> .30) .and (x .< .60);
-    y = missex(x, mask);
-
-After the code above:
-
-::
-
-    0.525  0.419          1  1           .      .
-    x =  0.869  0.973   mask = 0  0   y = 0.869  0.973
-         0.021  0.357          0  1       0.021      .
-
-A 3x2 matrix of uniform random numbers is created.
-All values in the interval (0.30, 0.60) are converted
-to missing.
 
 Source
 ------

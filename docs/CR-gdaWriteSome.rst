@@ -44,6 +44,32 @@ Format
 
     :rtype retcode: scalar
 
+Examples
+----------------
+
+::
+
+    // Generate random variable x
+    x = rndn(100, 50);
+
+    // Create GDA `myFile`
+    retcode1 = gdaCreate("myfile.gda", 1);
+
+    // Write `x`  to `myfile` as x1
+    retcode2 = gdaWrite("myfile.gda", x, "x1");
+
+    // Generate random variable y
+    y = rndn(75, 5);
+
+    // Define index
+    index = { 52, 4 };
+
+    // Overwrites part of x1
+    retcode3 = gdaWriteSome("myfile.gda", y, "x1", index);
+
+This example replaces :math:`75 * 5= 375` elements in *x1*, beginning
+with the :math:`[52, 4]` element, with the elements in *y*.
+
 Remarks
 -------
 
@@ -90,31 +116,5 @@ between the end of the variable and the beginning of the next variable
 in the data file. Call :func:`gdaPack` to pack the data in a GDA, so it contains
 no empty bytes.
 
-
-Examples
-----------------
-
-::
-
-    // Generate random variable x
-    x = rndn(100, 50);
-
-    // Create GDA `myFile`
-    retcode1 = gdaCreate("myfile.gda", 1);
-
-    // Write `x`  to `myfile` as x1
-    retcode2 = gdaWrite("myfile.gda", x, "x1");
-
-    // Generate random variable y
-    y = rndn(75, 5);
-
-    // Define index
-    index = { 52, 4 };
-
-    // Overwrites part of x1
-    retcode3 = gdaWriteSome("myfile.gda", y, "x1", index);
-
-This example replaces :math:`75 * 5= 375` elements in *x1*, beginning
-with the :math:`[52, 4]` element, with the elements in *y*.
 
 .. seealso:: Functions :func:`gdaReadSome`, :func:`gdaUpdate`, :func:`gdaWrite`

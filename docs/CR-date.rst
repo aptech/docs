@@ -13,11 +13,6 @@ Format
 ----------------
 .. function:: y = date()
 
-Remarks
--------
-
-The hundredths of a second since midnight can be accessed using :func:`hsec`.
-
 Examples
 ----------------
 
@@ -31,6 +26,11 @@ Examples
           7.0 
          16.0 
     4571524.7
+
+Remarks
+-------
+
+The hundredths of a second since midnight can be accessed using :func:`hsec`.
 
 .. seealso:: Functions :func:`time`, :func:`timestr`, :func:`ethsec`, :func:`hsec`, :func:`etstr`
 

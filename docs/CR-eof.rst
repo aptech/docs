@@ -18,17 +18,6 @@ Format
 
     :rtype ret: scalar
 
-Remarks
--------
-
-This function is used with :func:`readr` and the :func:`fgets` commands to test for
-the end of a file.
-
-The :func:`seekr` function can be used to set the pointer to a specific row
-position in a dataset; the :func:`fseek` function can be used to set the
-pointer to a specific byte offset in a file opened with :func:`fopen`.
-
-
 Examples
 ----------------
 
@@ -60,5 +49,16 @@ After the above code, *sum* will equal:
 GAUSS will keep reading until :code:`eof(fh)` returns the
 value 1, which it will when the end of the dataset
 has been reached. 
+
+Remarks
+-------
+
+This function is used with :func:`readr` and the :func:`fgets` commands to test for
+the end of a file.
+
+The :func:`seekr` function can be used to set the pointer to a specific row
+position in a dataset; the :func:`fseek` function can be used to set the
+pointer to a specific byte offset in a file opened with :func:`fopen`.
+
 
 .. seealso:: Functions `open`, :func:`readr`, :func:`seekr`

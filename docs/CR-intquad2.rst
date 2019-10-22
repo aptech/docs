@@ -36,23 +36,6 @@ Global Input
 
     Default = 12.
 
-Remarks
--------
-
-The user-defined function *f* must return a vector of function values.
-:func:`intquad2` will pass to user-defined functions a vector or matrix for *x*
-and *y* and expect a vector or matrix to be returned. Use ``.*`` and ``./``
-instead of ``*`` and ``/``.
-
-:func:`intquad2` will expand scalars to the appropriate size. This means that
-functions can be defined to return a scalar constant. If users write
-their functions incorrectly (using ``*`` instead of ``.*,`` for example),
-:func:`intquad2` may not compute the expected integral, but the integral of a
-constant function.
-
-To integrate over a region which is bounded by functions, rather than
-just scalars, use :func:`intgrat2` or :func:`intgrat3`.
-
 Examples
 ----------------
 
@@ -139,6 +122,23 @@ After the code above, *ans* should equal:
 ::
 
     0.44737953
+
+Remarks
+-------
+
+The user-defined function *f* must return a vector of function values.
+:func:`intquad2` will pass to user-defined functions a vector or matrix for *x*
+and *y* and expect a vector or matrix to be returned. Use ``.*`` and ``./``
+instead of ``*`` and ``/``.
+
+:func:`intquad2` will expand scalars to the appropriate size. This means that
+functions can be defined to return a scalar constant. If users write
+their functions incorrectly (using ``*`` instead of ``.*,`` for example),
+:func:`intquad2` may not compute the expected integral, but the integral of a
+constant function.
+
+To integrate over a region which is bounded by functions, rather than
+just scalars, use :func:`intgrat2` or :func:`intgrat3`.
 
 Source
 ------

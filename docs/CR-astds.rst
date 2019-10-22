@@ -20,19 +20,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-The output *y*, will have the same sizes of dimensions as *x*, except that
-the dimension indicated by *dim* will be collapsed to 1.
-
-This function essentially computes:
-
-.. math:: \sigma = \sqrt{\frac{1}{n}×\Sigma_{i=1}^n(X_i − \mu)^2}
-
-Thus, the divisor is *N* rather than *N-1*, where *N* is the number of
-elements being summed. See :func:`astd` for the alternate definition.
-
 Examples
 ----------------
 
@@ -78,5 +65,18 @@ The code above produces the following output (due to the use of random data in t
        26.441   23.333
 
 In this example, 16 standard Normal random variables are generated. They are multiplied by 25 and :func:`areshape`'d into a 4x2x2 array, and the standard deviation is computed across the third dimension of the array.
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
+
+This function essentially computes:
+
+.. math:: \sigma = \sqrt{\frac{1}{n}×\Sigma_{i=1}^n(X_i − \mu)^2}
+
+Thus, the divisor is *N* rather than *N-1*, where *N* is the number of
+elements being summed. See :func:`astd` for the alternate definition.
 
 .. seealso:: Functions :func:`astd`, :func:`stdsc`

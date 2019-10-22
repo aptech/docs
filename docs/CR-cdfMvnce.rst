@@ -51,13 +51,6 @@ Format
 
     :rtype retcode: Nx1 vector
 
-Remarks
-------------
-
--  The :func:`cdfMvnce` evaluates the upper tail of *MVN* integral, where :math:`1\leqslant i \leqslant N` For the non-central *MVN*, we have where :math:`z` denotes :math:`K` -dimensional multivariate normal distribution, :math:`\delta` denotes the :math:`K \times 1` non-centrality vector with :math:`-\infty<\:\ \delta_k <\:\ \infty`.
-
--  The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the diagonal entries for covariance matrix :math:`\Sigma` on its diagonal.
-
 Examples
 ----------------
 
@@ -194,6 +187,13 @@ which means with non-central vector, the multivariate normal cdf are:
     P(x_1 \geq -1 \text{ and } x_2 \geq -1.1) = 0.0805\\
     P(x_1 \geq +0 \text{ and } x_2 \geq +0.1) = 0.0046\\
     P(x_1 \geq 1 \text{ and } x_2 \geq 1.1) = 0.0001
+
+Remarks
+------------
+
+-  The :func:`cdfMvnce` evaluates the upper tail of *MVN* integral, where :math:`1\leqslant i \leqslant N` For the non-central *MVN*, we have where :math:`z` denotes :math:`K` -dimensional multivariate normal distribution, :math:`\delta` denotes the :math:`K \times 1` non-centrality vector with :math:`-\infty<\:\ \delta_k <\:\ \infty`.
+
+-  The correlation matrix :math:`R` is defined by :math:`\Sigma = DRD`, where :math:`D` denotes the diagonal matrix which has the square roots of the diagonal entries for covariance matrix :math:`\Sigma` on its diagonal.
 
 References
 ------------

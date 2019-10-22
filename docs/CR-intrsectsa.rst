@@ -23,14 +23,6 @@ Format
 
     :rtype s_intr: Lx1 vector
 
-Remarks
--------
-
-#. Place smaller vector first for fastest operation.
-#. If there are a lot of duplicates it is faster to remove them with
-   :func:`unique` before calling :func:`intrsectsa`.
-
-
 Examples
 ----------------
 
@@ -52,6 +44,14 @@ The code above returns:
 
     Both studies reported the following variables:
                  age              bmi
+
+Remarks
+-------
+
+#. Place smaller vector first for fastest operation.
+#. If there are a lot of duplicates it is faster to remove them with
+   :func:`unique` before calling :func:`intrsectsa`.
+
 
 Source
 ------

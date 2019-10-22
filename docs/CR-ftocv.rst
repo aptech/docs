@@ -25,16 +25,6 @@ Format
 
     :rtype x_cv: NxK character matrix
 
-Remarks
--------
-
--  To convert numbers to strings, or string arrays, use :func:`ntos` instead.
--  Character vectors, as returned by :func:`ftocv`, can only hold 8 characters.
-   Therefore, the *field* and *prec* inputs may not be greater than 8.
--  If a number is narrower than *field*, it will be padded on the left with zeros.
--  If :math:`prec = 0`, the decimal point will be suppressed.
-
-
 Examples
 ----------------
 
@@ -111,5 +101,15 @@ force the type of the result to matrix because the
 string constant ``"beta"`` would be of type string. The
 left operand in an expression containing a ``$+`` operator
 controls the type of the result.
+
+Remarks
+-------
+
+-  To convert numbers to strings, or string arrays, use :func:`ntos` instead.
+-  Character vectors, as returned by :func:`ftocv`, can only hold 8 characters.
+   Therefore, the *field* and *prec* inputs may not be greater than 8.
+-  If a number is narrower than *field*, it will be padded on the left with zeros.
+-  If :math:`prec = 0`, the decimal point will be suppressed.
+
 
 .. seealso:: Functions :func:`ftos`, :func:`ntos`

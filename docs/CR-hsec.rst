@@ -15,13 +15,6 @@ Format
 
     :rtype y: scalar
 
-Remarks
--------
-
-The number of hundredths of a second since midnight can also be accessed
-as the :math:`[4,1]` element of the vector returned by the :func:`date` function.
-
-
 Examples
 ----------------
 
@@ -45,5 +38,12 @@ second since midnight, is stored in the variable *tStart*.
 Then the multiplication is carried out. Finally, *tStart*
 is subtracted from :func:`hsec` to give the time difference
 which is assigned to *tTotal*.
+
+Remarks
+-------
+
+The number of hundredths of a second since midnight can also be accessed
+as the :math:`[4,1]` element of the vector returned by the :func:`date` function.
+
 
 .. seealso:: Functions :func:`date`, :func:`time`, :func:`timestr`, :func:`ethsec`, :func:`etstr`

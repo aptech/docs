@@ -20,6 +20,31 @@ Format
 
     :rtype x: rxc matrix
 
+Examples
+----------------
+
+::
+
+    n = con(1, 1);
+    print rndn(n, n);
+
+If you enter 2 at the :func:`con` generated prompt:
+
+::
+
+    ? 2
+
+the code above will return a 2x2 random matrix, similar to:
+
+::
+
+    -1.2505596        1.6322417
+    -1.0894098       0.74763307
+
+In this example, the :func:`con` function is used to obtain
+the size of a square matrix of Normal random
+variables which is to be printed out.
+
 Remarks
 -------
 
@@ -96,30 +121,5 @@ have finished entering the matrix data. If you exit before all elements
 have been entered, unspecified elements will be zeroed out.
 
 Use a leading single quote for character input.
-
-Examples
-----------------
-
-::
-
-    n = con(1, 1);
-    print rndn(n, n);
-
-If you enter 2 at the :func:`con` generated prompt:
-
-::
-
-    ? 2
-
-the code above will return a 2x2 random matrix, similar to:
-
-::
-
-    -1.2505596        1.6322417
-    -1.0894098       0.74763307
-
-In this example, the :func:`con` function is used to obtain
-the size of a square matrix of Normal random
-variables which is to be printed out.
 
 .. seealso:: Functions :func:`cons`, `let`, `load`

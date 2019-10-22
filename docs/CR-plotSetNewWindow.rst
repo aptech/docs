@@ -17,17 +17,6 @@ Format
     :param new_window: 1 to create a new graph tab or 0 to re-use.
     :type new_window: scalar
 
-Remarks
--------
-
-To open a new graph window once, use plotOpenWindow. This function sets
-an attribute in a :class:`plotControl` structure. It does not affect an existing
-graph, or a new graph drawn using the default settings that are
-accessible in the main application window from the
-:menuselection:`Tools --> Graphics --> Preferences` menu. See **GAUSS Graphics**, Chapter 1,
-for more information on the methods available for customizing your
-graphs.
-
 Examples
 ----------------
 
@@ -49,6 +38,17 @@ Examples
     
     // Plot the data in a new graph tab window
     plotXY(myPlot, x, y);
+
+Remarks
+-------
+
+To open a new graph window once, use plotOpenWindow. This function sets
+an attribute in a :class:`plotControl` structure. It does not affect an existing
+graph, or a new graph drawn using the default settings that are
+accessible in the main application window from the
+:menuselection:`Tools --> Graphics --> Preferences` menu. See **GAUSS Graphics**, Chapter 1,
+for more information on the methods available for customizing your
+graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotOpenWindow`, :func:`plotSetTitle`, :func:`plotSetLineColor`
 

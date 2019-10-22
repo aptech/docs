@@ -18,6 +18,13 @@ Format
 
     :rtype varnames: Nx1 string array
 
+Examples
+----------------
+
+::
+
+    varnames = gdaGetNames("myfile.gda");
+
 Remarks
 -------
 
@@ -41,12 +48,5 @@ following:
 | 14 | File too large to be read on current platform.      |
 +----+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    varnames = gdaGetNames("myfile.gda");
 
 .. seealso:: Functions :func:`gdaGetTypes`, :func:`gdaGetName`

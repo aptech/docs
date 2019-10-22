@@ -21,14 +21,6 @@ Format
 
     :rtype r: KxK upper triangular matrix
 
-Remarks
--------
-
-*C* should be a Cholesky factorization.
-
-:code:`cholup(C, x)` is equivalent to :code:`chol(C'C + x'x)`, but cholup is numerically
-much more stable.
-
 Examples
 ----------------
 
@@ -53,5 +45,13 @@ After the above code, `r` will equal:
         20.162100    16.505444    9.8667614
     r = 0.0000000    11.166015    2.9776167
         0.0000000    0.0000000    11.654961
+
+Remarks
+-------
+
+*C* should be a Cholesky factorization.
+
+:code:`cholup(C, x)` is equivalent to :code:`chol(C'C + x'x)`, but cholup is numerically
+much more stable.
 
 .. seealso:: Functions :func:`choldn`

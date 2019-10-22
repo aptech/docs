@@ -22,27 +22,6 @@ Format
     :param y_start: the Y coordinate for the start of the bounding box for each respective text box.
     :type y_start: scalar or Nx1 vector
 
-Remarks
--------
-
-:func:`plotAddTextbox` will only add a textbox to an existing graph. It will not
-create a new graph if one does not already exist. 
-
-.. NOTE:: The top left corner of the bounding box will be located at the
-    point on the graph that you specify. If the border is turned off, the
-    text will not touch the exact coordinate that you input. In many cases
-    this makes is simpler to label a point that is already part of a scatter
-    or line series without covering it.
-
-Unlike the functions that add data to a plot, if a textbox created by
-:func:`plotAddTextbox` lies outside of the current bounds of the X and Y axes,
-the axes will not extend further to provide room for the textbox. This
-gives you the ability to add text to any part of the scene, or between
-different subplots.
-
-:func:`plotAddTextbox` does not currently support surface plots.
-
-
 Examples
 ----------------
 
@@ -118,6 +97,27 @@ to :func:`plotAddTextbox`.
         annotationSetLineColor(&mytextbox, "#555555");
         retp(mytextbox);
     endp;
+
+Remarks
+-------
+
+:func:`plotAddTextbox` will only add a textbox to an existing graph. It will not
+create a new graph if one does not already exist. 
+
+.. NOTE:: The top left corner of the bounding box will be located at the
+    point on the graph that you specify. If the border is turned off, the
+    text will not touch the exact coordinate that you input. In many cases
+    this makes is simpler to label a point that is already part of a scatter
+    or line series without covering it.
+
+Unlike the functions that add data to a plot, if a textbox created by
+:func:`plotAddTextbox` lies outside of the current bounds of the X and Y axes,
+the axes will not extend further to provide room for the textbox. This
+gives you the ability to add text to any part of the scene, or between
+different subplots.
+
+:func:`plotAddTextbox` does not currently support surface plots.
+
 
 .. seealso:: Functions :func:`plotAddShape`, :func:`annotationGetDefaults`
 

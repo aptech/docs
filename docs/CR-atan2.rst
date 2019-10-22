@@ -20,17 +20,6 @@ Format
 
     :rtype z: matrix
 
-Remarks
--------
-
-Given a point *x*, *y* in a Cartesian coordinate system, :func:`atan2` will give the
-correct angle with respect to the positive X axis. The answer will be in
-radians from :math:`-π` to :math:`+π`.
-
-To convert radians to degrees, multiply by :math:`180/π`.
-
-:func:`atan2` operates only on the real component of *x*, even if *x* is complex.
-
 Examples
 ----------------
 
@@ -56,5 +45,16 @@ After the code above:
     x = 0.000  zpol = 1.571  zdeg =  90.000
         1.571         0.567          32.482
         3.142         0.308          17.657
+
+Remarks
+-------
+
+Given a point *x*, *y* in a Cartesian coordinate system, :func:`atan2` will give the
+correct angle with respect to the positive X axis. The answer will be in
+radians from :math:`-π` to :math:`+π`.
+
+To convert radians to degrees, multiply by :math:`180/π`.
+
+:func:`atan2` operates only on the real component of *x*, even if *x* is complex.
 
 .. seealso:: Functions :func:`atan`, :func:`sin`, :func:`cos`, :func:`pi`, :func:`tan`, :func:`arcsin`, :func:`arccos`

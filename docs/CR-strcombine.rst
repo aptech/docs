@@ -33,12 +33,6 @@ Format
 
     :rtype y: Nx1 string vector
 
-Remarks
--------
-
-Note that :func:`strcombine` adds a delimiter after the final element. To
-combine strings with the delimiter added only between tokens, see :func:`strjoin`.
-
 Examples
 ----------------
 
@@ -58,6 +52,12 @@ After the above code, path is equal to:
 ::
 
     "C:/gauss/myProject/"
+
+Remarks
+-------
+
+Note that :func:`strcombine` adds a delimiter after the final element. To
+combine strings with the delimiter added only between tokens, see :func:`strjoin`.
 
 Source
 ------

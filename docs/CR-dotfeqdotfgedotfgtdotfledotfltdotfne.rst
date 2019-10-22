@@ -34,33 +34,6 @@ Global Input
 
     scalar, comparison tolerance. The default value is 1.0e-15.
 
-Remarks
--------
-
-The return value is 1 if ``TRUE`` and 0 if ``FALSE``.
-
-The statement:
-
-::
-
-   y = dotfeq(a, b);
-
-is equivalent to:
-
-::
-
-   // Is the absolute difference between the
-   // corresponding elements of 'a' and 'b' 
-   // less than or equal to '_fcmptol'?
-   y = abs(a - b) .<= _fcmptol;
-
-The calling program can reset `_fcmptol` before calling these procedures. For example:
-
-::
-
-   _fcmptol = 1e-12;
-
-
 Examples
 ----------------
 
@@ -93,6 +66,33 @@ Continuing with the data above:
 
     t = 1.00 0.00
         0.00 0.00
+
+Remarks
+-------
+
+The return value is 1 if ``TRUE`` and 0 if ``FALSE``.
+
+The statement:
+
+::
+
+   y = dotfeq(a, b);
+
+is equivalent to:
+
+::
+
+   // Is the absolute difference between the
+   // corresponding elements of 'a' and 'b' 
+   // less than or equal to '_fcmptol'?
+   y = abs(a - b) .<= _fcmptol;
+
+The calling program can reset `_fcmptol` before calling these procedures. For example:
+
+::
+
+   _fcmptol = 1e-12;
+
 
 Source
 ------

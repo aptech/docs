@@ -24,18 +24,6 @@ Format
 
     :rtype mask: vector
 
-Remarks
--------
-
-:func:`rowcontains` is similar to the dot operators '``.==``' and '``.$==``'. The
-differences are that :func:`rowcontains` allows for the comparison of more than
-one needle in each element of the *haystack* and :func:`rowcontains` reports one
-value for each row in *haystack*, rather than one value for each element
-in *haystack*.
-
-To return a mask of ones and zeros the same size as *haystack*, use
-:func:`ismiss`.
- 
 Examples
 ----------------
 
@@ -94,5 +82,17 @@ After the code above, *mask* will equal:
     0
     1
 
+Remarks
+-------
+
+:func:`rowcontains` is similar to the dot operators '``.==``' and '``.$==``'. The
+differences are that :func:`rowcontains` allows for the comparison of more than
+one needle in each element of the *haystack* and :func:`rowcontains` reports one
+value for each row in *haystack*, rather than one value for each element
+in *haystack*.
+
+To return a mask of ones and zeros the same size as *haystack*, use
+:func:`ismiss`.
+ 
 .. seealso:: Functions :func:`indexcat`, :func:`indnv`, :func:`ismember`, :func:`contains`
 

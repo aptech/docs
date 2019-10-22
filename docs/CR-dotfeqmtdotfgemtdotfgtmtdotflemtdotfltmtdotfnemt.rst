@@ -31,24 +31,6 @@ Format
 
     :rtype y: max(N,L) by max(K,M)
 
-Remarks
--------
-
-The return value is 1 if ``TRUE`` and 0 if ``FALSE``.
-
-The statement:
-
-::
-
-   y = dotfeqmt(a, b, 1e-13);
-
-is equivalent to:
-
-::
-
-   y = abs(a-b) .<= 1e-13;
-
-
 Examples
 ----------------
 
@@ -67,6 +49,24 @@ Examples
 
     t = 0 1   x-y = -2e-8   0
         1 1             0   0
+
+Remarks
+-------
+
+The return value is 1 if ``TRUE`` and 0 if ``FALSE``.
+
+The statement:
+
+::
+
+   y = dotfeqmt(a, b, 1e-13);
+
+is equivalent to:
+
+::
+
+   y = abs(a-b) .<= 1e-13;
+
 
 Source
 ------

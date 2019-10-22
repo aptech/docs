@@ -23,14 +23,6 @@ Format
 
     :rtype s: KxL sparse matrix
 
-Remarks
--------
-
-If *rinds* or *cinds* are scalar zeros, all rows or columns will be returned.
-
-Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
-a sparse matrix before the call to :func:`spSubmat`.
-
 Examples
 ----------------
 
@@ -60,6 +52,14 @@ Now d is equal to:
       0.00   0.00   0.00  10.00 
       0.00   0.00   0.00   0.00 
       5.00   0.00   0.00   0.00
+
+Remarks
+-------
+
+If *rinds* or *cinds* are scalar zeros, all rows or columns will be returned.
+
+Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
+a sparse matrix before the call to :func:`spSubmat`.
 
 .. seealso:: Functions :func:`spDenseSubmat`
 

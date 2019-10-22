@@ -20,20 +20,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-The output *y*, will have the same sizes of dimensions as *x*, except that
-the dimension indicated by *dim* will be collapsed to 1.
-
-For each column, this function essentially computes sample standard
-deviation, *s*:
-
-.. math:: s = \sqrt{\frac{1}{n−1⁢}×\Sigma_{i=1}^n(X_i − \bar{X})^2}
-
-Thus, the divisor is *N-1* rather than *N*, where *N* is the number of
-elements being summed. See :func:`astds` for the alternate definition.
-
 Examples
 ----------------
 
@@ -55,5 +41,19 @@ The code above should produce a 3x2 matrix with all elements close to 25 similar
     25.070091        24.994774
     24.988263        24.990370
     24.956467        24.987882
+
+Remarks
+-------
+
+The output *y*, will have the same sizes of dimensions as *x*, except that
+the dimension indicated by *dim* will be collapsed to 1.
+
+For each column, this function essentially computes sample standard
+deviation, *s*:
+
+.. math:: s = \sqrt{\frac{1}{n−1⁢}×\Sigma_{i=1}^n(X_i − \bar{X})^2}
+
+Thus, the divisor is *N-1* rather than *N*, where *N* is the number of
+elements being summed. See :func:`astds` for the alternate definition.
 
 .. seealso:: Functions :func:`astds`, :func:`stdc`

@@ -18,6 +18,20 @@ Format
 
     :rtype y: NxK matrix
 
+Examples
+----------------
+
+::
+
+    x = { 100, 500, 1000 };
+    y = lnfact(x);
+
+::
+
+        363.73938 
+    y = 2611.3305 
+        5912.1282
+
 Remarks
 -------
 
@@ -41,20 +55,6 @@ functions are related by:
 
    lngamma(x) = lnfact(x - 1);
 
-
-Examples
-----------------
-
-::
-
-    x = { 100, 500, 1000 };
-    y = lnfact(x);
-
-::
-
-        363.73938 
-    y = 2611.3305 
-        5912.1282
 
 Technical Notes
 ---------------

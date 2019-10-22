@@ -30,33 +30,6 @@ Format
 
     :rtype y: KxN matrix
 
-Remarks
--------
-
-For the functions that permit you to specify the order, the returned
-matrix contains a sequence of modified or exponentially scaled modified
-Bessel values of different orders. For the ith row of *y*:
-
-.. math::
-
-   y[i,.] = I_{\alpha}(x[i]) I_{\alpha+1}(x[i])...I_{\alpha+n-1}(x[i])
-
-The remaining functions generate modified Bessels of only the specified
-order.
-
-The exponentially scaled modified Bessels are related to the unscaled
-modifed Bessels in the following way:
-
-::
-
-  mbesselei0(x) = exp(-x) * mbesseli0(x)
-
-The use of the scaled versions of the modified Bessel can improve the
-numerical properties of some calculations by keeping the intermediate
-numbers small in size.
-
-.. DANGER:: review equations on this page
-
 Examples
 ----------------
 This example produces estimates for the "circular" response regression
@@ -128,6 +101,33 @@ as suggested by Fisher, N.I. ... 1993, 158.
     print "estimates standard errors";
     print;
     print b~sqrt(diag(cov));
+
+Remarks
+-------
+
+For the functions that permit you to specify the order, the returned
+matrix contains a sequence of modified or exponentially scaled modified
+Bessel values of different orders. For the ith row of *y*:
+
+.. math::
+
+   y[i,.] = I_{\alpha}(x[i]) I_{\alpha+1}(x[i])...I_{\alpha+n-1}(x[i])
+
+The remaining functions generate modified Bessels of only the specified
+order.
+
+The exponentially scaled modified Bessels are related to the unscaled
+modifed Bessels in the following way:
+
+::
+
+  mbesselei0(x) = exp(-x) * mbesseli0(x)
+
+The use of the scaled versions of the modified Bessel can improve the
+numerical properties of some calculations by keeping the intermediate
+numbers small in size.
+
+.. DANGER:: review equations on this page
 
 Source
 ------

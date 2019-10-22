@@ -21,14 +21,6 @@ Format
 
     :rtype vc: KxK variance-covariance matrix
 
-Remarks
--------
-
-The variance covariance matrix is that of the sample data matrix. It is
-computed as the moment matrix of deviations about the mean divided by
-the number of observations minus one, :math:`N - 1`. For a population covariance
-matrix which uses :math:`N` rather than :math:`N - 1` see varCovM or :func:`varCovX`.
-
 Examples
 ----------------
 
@@ -81,6 +73,14 @@ After the code above, *var_xm* will be equal to:
        1.0963733   0.0040911  -0.0024921
        0.0040911   1.0627867   0.0494544
       -0.0024921   0.0494544   0.8747116
+
+Remarks
+-------
+
+The variance covariance matrix is that of the sample data matrix. It is
+computed as the moment matrix of deviations about the mean divided by
+the number of observations minus one, :math:`N - 1`. For a population covariance
+matrix which uses :math:`N` rather than :math:`N - 1` see varCovM or :func:`varCovX`.
 
 Source
 ------

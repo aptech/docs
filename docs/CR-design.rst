@@ -22,13 +22,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-Note that *x* does not have to contain integers: it will be rounded to
-nearest integer if necessary.
-
-
 Examples
 ----------------
 
@@ -126,6 +119,13 @@ This final section returns:
      5     -3     12      8
 
 This last print statement shows us that we have indeed changed the order of the rows. In *x* the row order is 1, 2, 3, 4. However, in *x2*, the row order is 3, 1, 4, 2 (i.e. the third row is now first, the first row is now second, etc.)
+
+Remarks
+-------
+
+Note that *x* does not have to contain integers: it will be rounded to
+nearest integer if necessary.
+
 
 Source
 ------

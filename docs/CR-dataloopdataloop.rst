@@ -17,16 +17,6 @@ Format
 
     :rtype outfile: string variable or literal
 
-Remarks
--------
-
-The statements between the ``dataloop... endata`` commands are assumed to be
-metacode to be translated at compile time. The data from *infile* is
-manipulated by the specified statements, and stored to the dataset
-*outfile*. Case is not significant within the ``dataloop... endata`` section,
-except for within quoted strings. Comments can be used as in any GAUSS code.
-
-
 Examples
 ----------------
 
@@ -43,3 +33,14 @@ Examples
 
 Here, ``src`` is a string variable requiring the caret (``^``) operator,
 while ``dest`` is a string literal.
+
+Remarks
+-------
+
+The statements between the ``dataloop... endata`` commands are assumed to be
+metacode to be translated at compile time. The data from *infile* is
+manipulated by the specified statements, and stored to the dataset
+*outfile*. Case is not significant within the ``dataloop... endata`` section,
+except for within quoted strings. Comments can be used as in any GAUSS code.
+
+

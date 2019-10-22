@@ -24,18 +24,6 @@ Format
 
     :rtype y: MxK matrix or N-dimensional array
 
-Remarks
--------
-
-If *x* is a vector, *inds* should be an Lx1 vector. If *x* is a matrix, *inds*
-should be an Lx2 matrix. Otherwise if *x* is an N-dimensional array, *inds*
-should be an LxN matrix.
-
-:func:`putvals` allows you to insert multiple values into a matrix or
-N-dimensional array at one time. This could also be accomplished using
-indexing inside a `for` loop.
-
-
 Examples
 ----------------
 
@@ -59,4 +47,16 @@ After the code above:
     y = 0.789  3.000 -1.500  4.000  v = 3.00
         0.664 -0.797  1.271  0.190      4.00
         0.630  0.788  5.000 -0.542      5.00
+
+Remarks
+-------
+
+If *x* is a vector, *inds* should be an Lx1 vector. If *x* is a matrix, *inds*
+should be an Lx2 matrix. Otherwise if *x* is an N-dimensional array, *inds*
+should be an LxN matrix.
+
+:func:`putvals` allows you to insert multiple values into a matrix or
+N-dimensional array at one time. This could also be accomplished using
+indexing inside a `for` loop.
+
 

@@ -18,14 +18,6 @@ Format
 
     :rtype s: string
 
-Remarks
--------
-
-
-This function is useful for embedding control codes in strings and for
-creating variable length strings when formatting printouts, reports,
-etc.
-
 Examples
 ----------------
 
@@ -92,5 +84,13 @@ for keyboard input which the code uses to make decisions.
        print "You have chosen:" "c";
        // execute code for this choice
     endif;
+
+Remarks
+-------
+
+
+This function is useful for embedding control codes in strings and for
+creating variable length strings when formatting printouts, reports,
+etc.
 
 .. seealso:: Functions :func:`vals`, :func:`ftos`, :func:`stof`

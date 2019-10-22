@@ -27,6 +27,31 @@ Format
 
     :rtype y: NxK matrix
 
+Examples
+----------------
+
+::
+
+    c1 = c[1,.];
+    n = rows(c) - 1;
+    y = recsercp(x, trimr(c ./ c1,1,0));
+    p = c1 .* y[n,.];
+
+If *x* is a scalar and *c* is an (N+1)x1
+vector, the result *p* will contain the value of the
+polynomial whose coefficients are given in *c*. That is:
+
+::
+
+    p = c[1,.].*x^n + c[2,.].*x^(n-1) + ... + c[n+1,.];
+
+Note that both *x* and *c* could contain more
+than 1 column, and then this code would evaluate the entire set of
+polynomials at the same time. Note also that if *x* = 2,
+and if *c* contains the digits of the binary representation
+of a number, then *p* will be the decimal representation
+of that number.
+
 Remarks
 -------
 
@@ -52,31 +77,6 @@ have :math:`K` columns (they must both have the same number of columns).
 :func:`recsercp` allows either *x* or *z* to have only 1 row.
 
 ``recsercp(x, 0)`` will produce the cumulative products of the elements in *x*.
-
-Examples
-----------------
-
-::
-
-    c1 = c[1,.];
-    n = rows(c) - 1;
-    y = recsercp(x, trimr(c ./ c1,1,0));
-    p = c1 .* y[n,.];
-
-If *x* is a scalar and *c* is an (N+1)x1
-vector, the result *p* will contain the value of the
-polynomial whose coefficients are given in *c*. That is:
-
-::
-
-    p = c[1,.].*x^n + c[2,.].*x^(n-1) + ... + c[n+1,.];
-
-Note that both *x* and *c* could contain more
-than 1 column, and then this code would evaluate the entire set of
-polynomials at the same time. Note also that if *x* = 2,
-and if *c* contains the digits of the binary representation
-of a number, then *p* will be the decimal representation
-of that number.
 
 .. seealso:: Functions :func:`recserar`, :func:`recserrc`, :func:`recserVAR`
 

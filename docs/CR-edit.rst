@@ -14,6 +14,13 @@ Format
     :param filename: the name of the file to be opened.
     :type filename: literal
 
+Examples
+----------------
+
+::
+
+    edit test1.e;
+
 Remarks
 -------
 
@@ -22,13 +29,6 @@ specify the location in the filename. The default location is the current direct
 
 To edit the last run file, use ``F7`` or the Action List toolbar.
 
-
-Examples
-----------------
-
-::
-
-    edit test1.e;
 
 .. seealso:: Functions `run`
 

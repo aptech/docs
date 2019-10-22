@@ -25,24 +25,6 @@ Format
 
     :rtype ret: scalar
 
-Remarks
--------
-
-**CSV**
-
--  The line endings for CSV files on Windows will be '``\r\n``' and '``\n``' on Linux and macOS.
--  Fifteen digits of precision will be written.
--  :func:`csvWriteM` can be used to write CSV data with options to specify the
-   separator to be something other than a comma, to control the line
-   endings, or the precision to write the data.
-
-**DAT**
-
--  If *dataset* is null or 0, the dataset name will be :file:`temp.dat`.
--  If *vnames* is a null or 0, the variable names will begin with "X" and be numbered 1-K.
--  If *vnames* is a string or has fewer elements than *x* has columns, it will be expanded as explained under `create`.
--  The output data type is double precision.
-
 Examples
 ----------------
 
@@ -100,6 +82,24 @@ The return value of :func:`saved` can be used to check whether the dataset save 
        errorlog "saved failed to write: "$+dataset;
        end;
     endif;
+
+Remarks
+-------
+
+**CSV**
+
+-  The line endings for CSV files on Windows will be '``\r\n``' and '``\n``' on Linux and macOS.
+-  Fifteen digits of precision will be written.
+-  :func:`csvWriteM` can be used to write CSV data with options to specify the
+   separator to be something other than a comma, to control the line
+   endings, or the precision to write the data.
+
+**DAT**
+
+-  If *dataset* is null or 0, the dataset name will be :file:`temp.dat`.
+-  If *vnames* is a null or 0, the variable names will begin with "X" and be numbered 1-K.
+-  If *vnames* is a string or has fewer elements than *x* has columns, it will be expanded as explained under `create`.
+-  The output data type is double precision.
 
 Source
 ------

@@ -37,15 +37,6 @@ Format
 
     :rtype n_rows: scalar
 
-Remarks
--------
-
-Random sampling is done with replacement. Thus, an observation may be in
-the resulting sample more than once. If *percent* is 100, the resulting
-sample will not be identical to the original sample, though it will be
-the same size.
-
-
 Examples
 ----------------
 
@@ -58,6 +49,15 @@ Examples
     // and write them to a new dataset in the
     // GAUSS working directory, named 'sample.dat' 
     n_rows = exctsmpl(fname, "sample.dat", 30);
+
+
+Remarks
+-------
+
+Random sampling is done with replacement. Thus, an observation may be in
+the resulting sample more than once. If *percent* is 100, the resulting
+sample will not be identical to the original sample, though it will be
+the same size.
 
 
 Source

@@ -18,28 +18,6 @@ Format
 
     :rtype y: Kx1 matrix
 
-Remarks
--------
-
-If *x* is complex, :func:`maxindc` uses the complex modulus (``abs(x)``) to determine
-the largest elements.
-
-To find the index of the maximum element in each row of a matrix,
-transpose the matrix before applying :func:`maxindc`.
-
-To find the indices of the largest element in a matrix *x*, use:
-
-::
-
-   colInd = maxindc(maxc(x));
-   rowInd = maxindc(x[., colInd]);
-
-If there are two or more "largest" elements in a column (i.e., two or
-more elements equal to each other and greater than all other elements),
-then :func:`maxindc` returns the index of the first one found, which will be the
-smallest index.
-
-
 Examples
 ----------------
 
@@ -71,5 +49,27 @@ then
     mx = 9    mxInd = 2
          6            4
          8            3
+
+Remarks
+-------
+
+If *x* is complex, :func:`maxindc` uses the complex modulus (``abs(x)``) to determine
+the largest elements.
+
+To find the index of the maximum element in each row of a matrix,
+transpose the matrix before applying :func:`maxindc`.
+
+To find the indices of the largest element in a matrix *x*, use:
+
+::
+
+   colInd = maxindc(maxc(x));
+   rowInd = maxindc(x[., colInd]);
+
+If there are two or more "largest" elements in a column (i.e., two or
+more elements equal to each other and greater than all other elements),
+then :func:`maxindc` returns the index of the first one found, which will be the
+smallest index.
+
 
 .. seealso:: Functions :func:`maxc`, :func:`minindc`, :func:`minc`

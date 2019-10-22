@@ -61,19 +61,6 @@ Format
 
     :rtype SLprob: scalar
 
-Remarks
--------
-
-:func:`ConScore` computes the local score statistic for the hypothesis :math:`H(Θ) = 0`
-vs. :math:`H(Θ) ≥ 0`, where :math:`Θ` is the vector of estimated parameters, and :math:`H()` is
-a constraint function of the parameters.
-
-First, the model with :math:`H(Θ) = 0` is estimated, and the Hessian and
-optionally the cross-product of the derivatives is computed. Also, the
-gradient vector is computed.
-
-Next, the constraint arguments are set to :math:`H(Θ) ≥ 0`.
-
 Examples
 ----------------
 This example is from Silvapulle and Sen, Constrained Statistical Inference, page 181-3. It computes the
@@ -152,3 +139,17 @@ will assign the variables *SL* and *SLprob* as follows:
 
     SL = 3.8605086  
     SLprob = 0.10410000
+
+Remarks
+-------
+
+:func:`ConScore` computes the local score statistic for the hypothesis :math:`H(Θ) = 0`
+vs. :math:`H(Θ) ≥ 0`, where :math:`Θ` is the vector of estimated parameters, and :math:`H()` is
+a constraint function of the parameters.
+
+First, the model with :math:`H(Θ) = 0` is estimated, and the Hessian and
+optionally the cross-product of the derivatives is computed. Also, the
+gradient vector is computed.
+
+Next, the constraint arguments are set to :math:`H(Θ) ≥ 0`.
+

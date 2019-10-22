@@ -21,20 +21,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-* Missings are deleted before the dummy variables are created.
-
-* All categories are open on the left (i.e., do not contain their left
-  boundaries) and are closed on the right (i.e., do contain their right
-  boundaries). Thus, :math:`K` breakpoints are required to specify :math:`K` dummy
-  variables.
-
-* The function :func:`dummy` is similar to :func:`dummybr`, but in that function the
-  highest category is unbounded on the right.
-
-
 Examples
 ----------------
 
@@ -68,6 +54,20 @@ which look like:
     dm = 0 1 0   x = 4
          0 0 1       7
          1 0 0       1
+
+Remarks
+-------
+
+* Missings are deleted before the dummy variables are created.
+
+* All categories are open on the left (i.e., do not contain their left
+  boundaries) and are closed on the right (i.e., do contain their right
+  boundaries). Thus, :math:`K` breakpoints are required to specify :math:`K` dummy
+  variables.
+
+* The function :func:`dummy` is similar to :func:`dummybr`, but in that function the
+  highest category is unbounded on the right.
+
 
 Source
 ------

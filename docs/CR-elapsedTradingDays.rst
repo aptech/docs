@@ -22,13 +22,6 @@ Format
 
     :rtype n_days: Scalar
 
-Remarks
--------
-
-A trading day is a weekday that is not a holiday as defined by the New
-York Stock Exchange from 1888 through 2020. Holidays are defined in
-:file:`holidays.asc`. You may edit that file to modify or add holidays.
-
 Examples
 ----------------
 
@@ -45,6 +38,13 @@ Examples
 ::
 
     n_days = 12
+
+Remarks
+-------
+
+A trading day is a weekday that is not a holiday as defined by the New
+York Stock Exchange from 1888 through 2020. Holidays are defined in
+:file:`holidays.asc`. You may edit that file to modify or add holidays.
 
 Source
 ------

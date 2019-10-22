@@ -20,15 +20,6 @@ Format
 
     :rtype ret: scalar or NxK matrix
 
-Remarks
--------
-
-:func:`deleteFile` calls the C library ``unlink`` function for each file. If ``unlink``
-fails it sets the C library ``errno`` value. :func:`deleteFile` returns the value of
-``errno`` if ``unlink`` fails, otherwise it returns zero. If you want detailed
-information about the reason for failure, consult the C library ``unlink``
-documentation for your platform for details.
-
 Examples
 ----------------
 
@@ -63,4 +54,13 @@ This returns
     2.0000000
 
 The ``errno`` value of 2 indicates that the file :file:`x.dat` no longer exists when we try to delete the file the second time.
+
+Remarks
+-------
+
+:func:`deleteFile` calls the C library ``unlink`` function for each file. If ``unlink``
+fails it sets the C library ``errno`` value. :func:`deleteFile` returns the value of
+``errno`` if ``unlink`` fails, otherwise it returns zero. If you want detailed
+information about the reason for failure, consult the C library ``unlink``
+documentation for your platform for details.
 

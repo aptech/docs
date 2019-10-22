@@ -22,6 +22,25 @@ Format
 
     :rtype Z: KxK matrix
 
+Examples
+----------------
+
+::
+
+    A = { 0.5 0.2 0.33,
+          1.4 0.5 0.6,
+          0.7 1.2 0.9 };
+
+    { H, Z } = hess(A);
+
+After the code above:
+
+::
+
+    H =  0.500   -0.326    0.206     Z = 1.000    0.000    0.000
+        -1.565    1.300   -0.400         0.000   -0.894   -0.447
+         0.000   -1.000    0.100         0.000   -0.447    0.894
+
 Remarks
 -------
 
@@ -48,24 +67,5 @@ and since *Z* is orthogonal,
 *A* is reduced to upper Hessenberg form using orthogonal similiarity
 transformations. This preserves the Frobenious norm of the matrix and
 the condition numbers of the eigenvalues.
-
-Examples
-----------------
-
-::
-
-    A = { 0.5 0.2 0.33,
-          1.4 0.5 0.6,
-          0.7 1.2 0.9 };
-
-    { H, Z } = hess(A);
-
-After the code above:
-
-::
-
-    H =  0.500   -0.326    0.206     Z = 1.000    0.000    0.000
-        -1.565    1.300   -0.400         0.000   -0.894   -0.447
-         0.000   -1.000    0.100         0.000   -0.447    0.894
 
 .. seealso:: Functions :func:`eig`, :func:`qz`, :func:`schur`

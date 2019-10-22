@@ -20,6 +20,13 @@ Format
 
     :rtype y: matrix or array or string or string array
 
+Examples
+----------------
+
+::
+
+    y = dataload("myfile.fmt");
+
 Remarks
 -------
 
@@ -33,12 +40,5 @@ are as follows:
     ".fst", "string or string array file"
 
 See `Foreign Language Interface, Chapter 1`, for details on these file types.
-
-Examples
-----------------
-
-::
-
-    y = dataload("myfile.fmt");
 
 .. seealso:: Functions `load`, :func:`datasave`

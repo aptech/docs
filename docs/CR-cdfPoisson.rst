@@ -20,14 +20,6 @@ Format
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
--------
-
-For invalid inputs, :func:`cdfPoisson` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
-
 Examples
 ----------------
 Suppose that a hospital emergency department sees and average of 200 patients during the Friday
@@ -48,5 +40,13 @@ After running above code,
 ::
 
     p = 0.99971538 or 99.715%
+
+Remarks
+-------
+
+For invalid inputs, :func:`cdfPoisson` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 .. seealso:: Functions :func:`cdfPoissonInv`, :func:`pdfPoisson`, :func:`cdfBinomial`, :func:`cdfNegBinomial`

@@ -36,16 +36,6 @@ Format
 
     :rtype retcode: scalar
 
-Remarks
--------
-
-This command creates a GAUSS Data Archive containing only a header. To
-add data to the GDA, call :func:`gdaWrite`.
-
-It is recommended that you include a :file:`.gda` extension in :func:`filename`.
-However, :func:`gdaCreate` will not force an extension.
-
-
 Examples
 ----------------
 
@@ -56,5 +46,15 @@ Examples
   ** and overwrite existing `myfile`
   */
   ret = gdaCreate("myfile.gda", 1);
+
+Remarks
+-------
+
+This command creates a GAUSS Data Archive containing only a header. To
+add data to the GDA, call :func:`gdaWrite`.
+
+It is recommended that you include a :file:`.gda` extension in :func:`filename`.
+However, :func:`gdaCreate` will not force an extension.
+
 
 .. seealso:: Functions :func:`gdaWrite`

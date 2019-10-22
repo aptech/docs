@@ -21,12 +21,6 @@ Format
 
     :rtype pi: Mx1 vector of indices
 
-Remarks
--------
-
-:func:`previousindex` will return a scalar error code if the index cannot be decremented.
-
-
 Examples
 ----------------
 
@@ -47,5 +41,11 @@ After the code above, ind is equal to:
           5
 
 In this example, :func:`previousindex` decremented *ind* to index the previous 6x7 subarray in array *a*.
+
+Remarks
+-------
+
+:func:`previousindex` will return a scalar error code if the index cannot be decremented.
+
 
 .. seealso:: Functions :func:`nextindex`, :func:`loopnextindex`, :func:`walkindex`

@@ -20,6 +20,27 @@ Format
 
     :rtype sa: Nx n_cols string array
 
+Examples
+----------------
+
+::
+
+    string sv = {
+       "alpha beta gamma",
+       "delta, epsilon, zeta, eta",
+       "theta iota kappa"
+    };
+     
+     sa = strsplitPad(sv, 4);
+
+After the code above, *sa* will be equal to:
+
+::
+
+    "alpha"    "beta" "gamma"    ""
+    "delta" "epsilon"  "zeta" "eta"
+    "theta"    "iota" "kappa"    ""
+
 Remarks
 -------
 
@@ -44,27 +65,6 @@ Tokens containing delimiters must be enclosed in single or double quotes
 or parentheses. Tokens enclosed in single or double quotes will NOT
 retain the quotes upon translation. Tokens enclosed in parentheses WILL
 retain the parentheses after translation. Parentheses cannot be nested.
-
-Examples
-----------------
-
-::
-
-    string sv = {
-       "alpha beta gamma",
-       "delta, epsilon, zeta, eta",
-       "theta iota kappa"
-    };
-     
-     sa = strsplitPad(sv, 4);
-
-After the code above, *sa* will be equal to:
-
-::
-
-    "alpha"    "beta" "gamma"    ""
-    "delta" "epsilon"  "zeta" "eta"
-    "theta"    "iota" "kappa"    ""
 
 .. seealso:: Functions :func:`strsplit`
 

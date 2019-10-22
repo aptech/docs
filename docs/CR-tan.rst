@@ -18,14 +18,6 @@ Format
 
     :rtype y: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-For real matrices, *x* should contain angles measured in radians.
-
-To convert degrees to radians, multiply the degrees by :math:`π/180`.
-
-
 Examples
 ----------------
 
@@ -49,6 +41,14 @@ The above code produces:
         0.8422883
         1.0296386
         1.2601582
+
+Remarks
+-------
+
+For real matrices, *x* should contain angles measured in radians.
+
+To convert degrees to radians, multiply the degrees by :math:`π/180`.
+
 
 .. seealso:: Functions :func:`atan`, :func:`pi`
 

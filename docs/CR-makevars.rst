@@ -20,29 +20,6 @@ Format
     :param xnames: names to be associated with the columns of the matrix *x*
     :type xnames: string or Kx1 character vector
 
-Remarks
--------
-
-If *xnames* = 0, the prefix ``X`` will be used to create names. Therefore, if
-there are 9 columns in *x*, the names will be ``X1-X9``, if there are 10, they
-will be ``X01-X10``, and so on.
-
-If *xnames* or *vnames* is a string, the individual names must be separated
-by spaces or commas:
-
-::
-
-   vnames = "age pay sex";
-
-Since these new vectors are created at execution time, the compiler will
-not know they exist until after :func:`makevars` has executed once. This means
-that you cannot access them by name unless you previously clear them or
-otherwise add them to the symbol table. (See :func:`setvars` for a quick
-interactive solution to this.)
-
-This function is the opposite of :func:`mergevar`.
-
-
 Examples
 ----------------
 
@@ -97,6 +74,29 @@ columns of *x*.
 
 This is the same as the example above, except that strings are used
 for the variable names.
+
+Remarks
+-------
+
+If *xnames* = 0, the prefix ``X`` will be used to create names. Therefore, if
+there are 9 columns in *x*, the names will be ``X1-X9``, if there are 10, they
+will be ``X01-X10``, and so on.
+
+If *xnames* or *vnames* is a string, the individual names must be separated
+by spaces or commas:
+
+::
+
+   vnames = "age pay sex";
+
+Since these new vectors are created at execution time, the compiler will
+not know they exist until after :func:`makevars` has executed once. This means
+that you cannot access them by name unless you previously clear them or
+otherwise add them to the symbol table. (See :func:`setvars` for a quick
+interactive solution to this.)
+
+This function is the opposite of :func:`mergevar`.
+
 
 Globals
 ------------

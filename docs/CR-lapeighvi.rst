@@ -35,17 +35,6 @@ Format
 
     :rtype va: Nx(iu-il+1) matrix
 
-Remarks
--------
-
-:func:`lapeighvi` computes :math:`iu-il+1` eigenvalues and eigenvectors given a range of
-indices, i.e., the ith to jth eigenvalues, ranking them from smallest to
-largest. To find eigenvalues and eigenvectors within a specified range
-see :func:`lapeighvb`. :func:`lapeighvi` is based on the LAPACK drivers *DSYEVX* and
-*ZHEEVX*. Further documentation of these functions may be found in the
-LAPACK User's Guide.
-
-
 Examples
 ----------------
 
@@ -78,5 +67,16 @@ Examples
     -0.5774   0.3197
     -0.5774   0.4908
      0.5774   0.8105
+
+Remarks
+-------
+
+:func:`lapeighvi` computes :math:`iu-il+1` eigenvalues and eigenvectors given a range of
+indices, i.e., the ith to jth eigenvalues, ranking them from smallest to
+largest. To find eigenvalues and eigenvectors within a specified range
+see :func:`lapeighvb`. :func:`lapeighvi` is based on the LAPACK drivers *DSYEVX* and
+*ZHEEVX*. Further documentation of these functions may be found in the
+LAPACK User's Guide.
+
 
 .. seealso:: Functions :func:`lapeighvb`, :func:`lapeighb`

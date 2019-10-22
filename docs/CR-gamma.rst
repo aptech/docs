@@ -18,6 +18,19 @@ Format
 
     :rtype g: NxK matrix or N-dimensional array
 
+Examples
+----------------
+
+::
+
+    g = gamma(2.5);
+
+After the code above:
+
+::
+
+    g = 1.329340
+
 Remarks
 -------
 
@@ -33,18 +46,5 @@ of *x* greater than 169 will cause an overflow.
 The natural log of :func:`gamma` is often what is required and it can be
 computed without the overflow problems of :func:`gamma` using :func:`lnfact`.
 
-
-Examples
-----------------
-
-::
-
-    g = gamma(2.5);
-
-After the code above:
-
-::
-
-    g = 1.329340
 
 .. seealso:: Functions :func:`cdfchic`, :func:`cdfbeta`, :func:`cdffc`, :func:`cdfnc`, :func:`cdftc`, :func:`erf`, :func:`erfc`, :func:`lnfact`

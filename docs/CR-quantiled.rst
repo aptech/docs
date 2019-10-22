@@ -31,19 +31,6 @@ Format
 
     :rtype y: LxK matrix
 
-Remarks
--------
-
-- :func:`quantiled` will not succeed if ``N*minc(e)`` is less than 1, or ``N*maxc(e)`` is greater than :math:`N - 1`. In other words, to produce a quantile for a level of .001, the input matrix must have more than 1000 rows.
-
-- The supported dataset types are CSV,	XLS, XLSX, HDF5, FMT, DAT.
-
-- For HDF5 file, the dataset must include file schema and both file name and dataset name must be provided, e.g. 
-  
-  ::
-  
-      quantiled("h5://C:/gauss17/examples/testdata.h5/mydata", 0.5, 0).
-
 Examples
 ----------------
 
@@ -142,6 +129,19 @@ After the above code:
     95 percentiles
     175.00000        72.000000 
     270.00000        84.000000
+
+Remarks
+-------
+
+- :func:`quantiled` will not succeed if ``N*minc(e)`` is less than 1, or ``N*maxc(e)`` is greater than :math:`N - 1`. In other words, to produce a quantile for a level of .001, the input matrix must have more than 1000 rows.
+
+- The supported dataset types are CSV,	XLS, XLSX, HDF5, FMT, DAT.
+
+- For HDF5 file, the dataset must include file schema and both file name and dataset name must be provided, e.g. 
+  
+  ::
+  
+      quantiled("h5://C:/gauss17/examples/testdata.h5/mydata", 0.5, 0).
 
 Source
 ------

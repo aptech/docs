@@ -25,15 +25,6 @@ Format
 
     :rtype transc: NxN matrix
 
-Remarks
--------
-
-Other than checking that the inputs are strictly real matrices, no other
-checks are made. If the input matrix sch is already upper triangular, it
-is not changed. Small off-diagonal elements are considered to be zero.
-See the source code for the test used.
-
-
 Examples
 ----------------
 
@@ -42,6 +33,15 @@ Examples
     { schc, transc } = schtoc(schur(a));
 
 This example calculates the complex Schur form for a real matrix *a*.
+
+Remarks
+-------
+
+Other than checking that the inputs are strictly real matrices, no other
+checks are made. If the input matrix sch is already upper triangular, it
+is not changed. Small off-diagonal elements are considered to be zero.
+See the source code for the test used.
+
 
 Source
 ------

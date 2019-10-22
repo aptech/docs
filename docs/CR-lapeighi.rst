@@ -32,17 +32,6 @@ Format
 
     :rtype ve: (iu-il+1)x1 vector
 
-Remarks
--------
-
-:func:`lapeighi` computes :math:`iu-il+1` eigenvalues only given a range of indices,
-i.e., the ith to jth eigenvalues, ranking them from smallest to largest.
-To find eigenvalues within a specified range see :func:`lapeighxb`. For
-eigenvectors see :func:`lapeighvi`, or :func:`lapeighvb`. :func:`lapeighi` is based on the
-LAPACK drivers *DSYEVX* and *ZHEEVX*. Further documentation of these
-functions may be found in the LAPACK User's Guide.
-
-
 Examples
 ----------------
 
@@ -97,5 +86,16 @@ The output from this code is:
      3.3944
      6.0000
     10.6056
+
+Remarks
+-------
+
+:func:`lapeighi` computes :math:`iu-il+1` eigenvalues only given a range of indices,
+i.e., the ith to jth eigenvalues, ranking them from smallest to largest.
+To find eigenvalues within a specified range see :func:`lapeighxb`. For
+eigenvectors see :func:`lapeighvi`, or :func:`lapeighvb`. :func:`lapeighi` is based on the
+LAPACK drivers *DSYEVX* and *ZHEEVX*. Further documentation of these
+functions may be found in the LAPACK User's Guide.
+
 
 .. seealso:: Functions :func:`lapeighb`, :func:`lapeighvi`, :func:`lapeighvb`

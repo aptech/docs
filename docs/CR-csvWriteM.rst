@@ -32,19 +32,6 @@ Format
 
     :rtype ret: scalar
 
-Remarks
-------------
-
-The standard output and standard error streams (stdout, stderr) can be
-written to with :func:`csvWriteM` by passing in the variable `__STDOUT`, or
-`__STDERR` as the filename input. Note that `__STDOUT`, or `__STDERR`
-should not be passed in as a string. The following example shows correct
-usage:
-
-::
-
-   x = csvWriteM(__STDOUT);
-
 Examples
 ----------------
 
@@ -152,5 +139,18 @@ Linux
 ::
 
     ret = csvWriteM(x, "/home/my_user/myfile.csv");
+
+Remarks
+------------
+
+The standard output and standard error streams (stdout, stderr) can be
+written to with :func:`csvWriteM` by passing in the variable `__STDOUT`, or
+`__STDERR` as the filename input. Note that `__STDOUT`, or `__STDERR`
+should not be passed in as a string. The following example shows correct
+usage:
+
+::
+
+   x = csvWriteM(__STDOUT);
 
 .. seealso:: Functions :func:`csvReadSA`, :func:`xlsWrite`, :func:`xlsWriteM`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`

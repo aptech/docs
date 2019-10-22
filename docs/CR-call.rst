@@ -20,16 +20,6 @@ Format
     call function_name();
     call function_name(argument_list);
 
-Remarks
--------
-
-This is useful when you need to execute a function or procedure and do
-not need the value that it returns. It can also be used for calling
-procedures that have been defined to return nothing.
-
-*function_name* can be any intrinsic GAUSS function, a procedure (`proc`),
-or any valid expression.
-
 Examples
 ----------------
 
@@ -49,5 +39,15 @@ determinant of a positive definite matrix. The
 result of :func:`chol` is discarded and *detl* is used to
 retrieve the determinant that was computed during
 the call to :func:`chol`.
+
+Remarks
+-------
+
+This is useful when you need to execute a function or procedure and do
+not need the value that it returns. It can also be used for calling
+procedures that have been defined to return nothing.
+
+*function_name* can be any intrinsic GAUSS function, a procedure (`proc`),
+or any valid expression.
 
 .. seealso:: keyword `proc`

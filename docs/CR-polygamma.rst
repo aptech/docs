@@ -22,19 +22,6 @@ Format
     :return f: *f* may be complex.
     :rtype f: NxK matrix
 
-Remarks
--------
-
-The :func:`polygamma` function of order *n* is defined by the equation:
-
-.. math:: $\psi^{(n)}(z) = \\frac{d^n}{dz^n}\psi(z) = \\frac{d^{n+1}}{dz^{n+1}}ln\Gamma(z)$
-
-.. DANGER:: fix equation if needed
-
-This program uses the partial fraction expansion of the derivative of
-the log of the Lanczos series approximation for the Gamma function.
-Accurate to about 12 digits.
-
 Examples
 ----------------
 
@@ -93,6 +80,19 @@ will return the value:
 ::
 
     -4.984e-06 + 8.217e-07i
+
+Remarks
+-------
+
+The :func:`polygamma` function of order *n* is defined by the equation:
+
+.. math:: $\psi^{(n)}(z) = \\frac{d^n}{dz^n}\psi(z) = \\frac{d^{n+1}}{dz^{n+1}}ln\Gamma(z)$
+
+.. DANGER:: fix equation if needed
+
+This program uses the partial fraction expansion of the derivative of
+the log of the Lanczos series approximation for the Gamma function.
+Accurate to about 12 digits.
 
 References
 ------------

@@ -17,6 +17,20 @@ Format
 
     :rtype dt: Nx1 vector
 
+Examples
+----------------
+
+::
+
+    dtv = { 2012 9 16 11 7 22 1 84 };
+    dt = dtvtodt(dtv);
+
+The code above assigns *dt* as follows:
+
+::
+
+    20120916110722
+
 Remarks
 -------
 
@@ -42,20 +56,6 @@ Each row of dtv, in DTV vector format, contains:
 |    [N,8]        | Days since Jan 1 of current year, 0-365             |
 +-----------------+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    dtv = { 2012 9 16 11 7 22 1 84 };
-    dt = dtvtodt(dtv);
-
-The code above assigns *dt* as follows:
-
-::
-
-    20120916110722
 
 Source
 ------

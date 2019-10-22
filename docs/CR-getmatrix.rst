@@ -23,14 +23,6 @@ Format
 
     :rtype y: KxL or 1xL matrix or scalar
 
-Remarks
--------
-
-Inputting an Nx1 locator vector will return a scalar, an (N-1)x1 locator
-vector will return a 1xL matrix, and an (N-2)x1 locator vector will
-return a KxL matrix.
-
-
 Examples
 ----------------
 
@@ -77,5 +69,13 @@ and *mat* is equal to:
            7.0000000        8.0000000
            9.0000000        10.000000
            11.000000        12.000000
+
+Remarks
+-------
+
+Inputting an Nx1 locator vector will return a scalar, an (N-1)x1 locator
+vector will return a 1xL matrix, and an (N-2)x1 locator vector will
+return a KxL matrix.
+
 
 .. seealso:: Functions :func:`getarray`, :func:`getmatrix4D`

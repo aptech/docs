@@ -27,16 +27,6 @@ Format
 
     :rtype y: scalar
 
-Remarks
--------
-
-:func:`getscalar3D` returns the scalar that is located in the :math:`[i1, i2, i3]`
-position of array *a*.
-
-A call to :func:`getscalar3D` is faster than using the more general :func:`getmatrix`
-function to get a scalar from a 3-dimensional array.
-
-
 Examples
 ----------------
 
@@ -56,5 +46,15 @@ A 2x3x4 dimensional array can be thought of as two 3x4 dimensional matrices. The
 ::
 
     y = 10
+
+Remarks
+-------
+
+:func:`getscalar3D` returns the scalar that is located in the :math:`[i1, i2, i3]`
+position of array *a*.
+
+A call to :func:`getscalar3D` is faster than using the more general :func:`getmatrix`
+function to get a scalar from a 3-dimensional array.
+
 
 .. seealso:: Functions :func:`getmatrix`, :func:`getscalar4D`, :func:`getarray`

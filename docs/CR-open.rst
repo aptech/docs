@@ -92,28 +92,6 @@ Format
     `open` command is executed. If the file was not successfully opened,
     the file handle will be set to -1.
 
-Remarks
--------
-
-The file must exist before it can be opened with the `open` command. To
-create a new file, see `create` or `save`.
-
-A file can be opened simultaneously under more than one handle. See the
-second example following.
-
-If the value that is in the file handle when the `open` command begins to
-execute matches that of an already open file, the process will be
-aborted and a ``File already open`` message will be given. This gives you
-some protection against opening a second file with the same handle as a
-currently open file. If this happens, you would no longer be able to
-access the first file.
-
-It is important to set unused file handles to zero because both `open` and
-`create` check the value that is in a file handle to see if it matches
-that of an open file before they proceed with the process of opening a
-file. This should be done with `close` or `closeall`.
-
-
 Examples
 ----------------
 
@@ -241,5 +219,27 @@ integers (*r*) in the range 1 to *rf* are generated. :func:`seekr` is used
 to locate to the appropriate row in the matrix, and the row is read
 with :func:`readr` and placed in the matrix *rndsmpx*. This is continued
 until the complete sample has been obtained.
+
+Remarks
+-------
+
+The file must exist before it can be opened with the `open` command. To
+create a new file, see `create` or `save`.
+
+A file can be opened simultaneously under more than one handle. See the
+second example following.
+
+If the value that is in the file handle when the `open` command begins to
+execute matches that of an already open file, the process will be
+aborted and a ``File already open`` message will be given. This gives you
+some protection against opening a second file with the same handle as a
+currently open file. If this happens, you would no longer be able to
+access the first file.
+
+It is important to set unused file handles to zero because both `open` and
+`create` check the value that is in a file handle to see if it matches
+that of an open file before they proceed with the process of opening a
+file. This should be done with `close` or `closeall`.
+
 
 .. seealso:: Functions :func:`dataopen`, `create`, `close`, :func:`closeall`, :func:`readr`, :func:`writer`, :func:`seekr`, :func:`eof`

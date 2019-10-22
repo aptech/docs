@@ -32,12 +32,6 @@ Format
 
     :rtype c: Qx1 result
 
-Remarks
--------
-
-If *x* and *b* are vectors of polynomial coefficients, this is the same as
-multiplying the two polynomials.
-
 Examples
 ----------------
 
@@ -89,5 +83,11 @@ After the code the following is printed to the screen:
 
     2.0000
     7.0000
+
+Remarks
+-------
+
+If *x* and *b* are vectors of polynomial coefficients, this is the same as
+multiplying the two polynomials.
 
 .. seealso:: :func:`polymult`

@@ -18,12 +18,6 @@ Format
 
     :rtype y: Nx1 matrix
 
-Remarks
--------
-
-If the string is null, the function will fail and an error message will be given.
-
-
 Examples
 ----------------
 
@@ -65,6 +59,12 @@ otherwise, it will follow the second branch and print:
 ::
 
     Exiting program now
+
+Remarks
+-------
+
+If the string is null, the function will fail and an error message will be given.
+
 
 .. seealso:: Functions :func:`chrs`, :func:`ftos`, :func:`stof`
 

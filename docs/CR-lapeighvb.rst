@@ -36,15 +36,6 @@ Format
 
     :rtype va: NxM matrix
 
-Remarks
--------
-
-:func:`lapeighvb` computes eigenvalues and eigenvectors which are found on the
-half open interval :math:`[vl, vu]`. :func:`lapeighvb` is based on the LAPACK drivers
-*DSYEVX* and *ZHEEVX*. Further documentation of these functions may be found
-in the LAPACK User's Guide.
-
-
 Examples
 ----------------
 
@@ -104,3 +95,13 @@ If you increase the value of *vu* to 12.
      -0.5774   0.3197
      -0.5774   0.4908
       0.5774   0.8105
+
+Remarks
+-------
+
+:func:`lapeighvb` computes eigenvalues and eigenvectors which are found on the
+half open interval :math:`[vl, vu]`. :func:`lapeighvb` is based on the LAPACK drivers
+*DSYEVX* and *ZHEEVX*. Further documentation of these functions may be found
+in the LAPACK User's Guide.
+
+

@@ -31,16 +31,6 @@ Format
     :param y: Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
-Remarks
--------
-
-You may only add time series graphs to other time series graphs. For
-more information on time series graphs, see **Time Series Plots in
-GAUSS**, Section 1.1.
-
-By default missing values in the *y* variable will be represented as gaps
-in the line.
-
 Examples
 ----------------
 
@@ -58,5 +48,15 @@ Examples
     // Add the data from 'y2' as quarterly data
     // starting in Q2 of 1980
     plotAddTS(198004, 4, y2);
+
+Remarks
+-------
+
+You may only add time series graphs to other time series graphs. For
+more information on time series graphs, see **Time Series Plots in
+GAUSS**, Section 1.1.
+
+By default missing values in the *y* variable will be represented as gaps
+in the line.
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotTS`

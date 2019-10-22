@@ -38,12 +38,6 @@ Format
 
     :rtype newstate: 500x1 vector
 
-Remarks
--------
-
-*r* and *c* will be truncated to integers if necessary.
-
-
 Examples
 ----------------
 This example generates two thousand vectors of standard normal 
@@ -67,6 +61,12 @@ the next generation of random numbers.
      
     mean = meanc(submean);
     print mean;
+
+Remarks
+-------
+
+*r* and *c* will be truncated to integers if necessary.
+
 
 Technical Notes
 ---------------

@@ -44,26 +44,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-The properties of the pseudo-random numbers in *x* are:
-
-.. DANGER:: fix equations
-
-.. math::
-
-   E(x) = shape*scale
-
-   Var(x) = shape*scale2
-
-   x > 0
-
-   shape > 0
-
-   scale > 0
-
-
 Examples
 ----------------
 
@@ -101,6 +81,26 @@ reciprocal of the *rate* parameter as the fourth argument to :func:`rndGamma`.
     rate = 2;
     
     x = rndGamma(5, 1, shape, 1/rate);
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in *x* are:
+
+.. DANGER:: fix equations
+
+.. math::
+
+   E(x) = shape*scale
+
+   Var(x) = shape*scale2
+
+   x > 0
+
+   shape > 0
+
+   scale > 0
+
 
 Technical Notes
 ---------------

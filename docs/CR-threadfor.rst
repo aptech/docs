@@ -29,38 +29,6 @@ Format
 :stop: (*scalar*) the final value of the counter.
 :step: (*scalar*) the increment value.
 
-Remarks
--------
-
-#. The iterations of a `threadfor` loop may execute in any order.
-#. Indexed assignments to global variables that use the loop counter
-   behave the same as in a standard `for` loop.
-#. Non-indexed assignments will create a temporary variable that
-   persists only through the remainder of the current loop iteration.
-   For example:
-
-   ::
-
-       a = 34.7;
-       threadfor i(1, 2, 1);
-           a = rndu(1,1);
-           print a;
-       threadEndfor;
-       
-       print a;
-
-   will produce output similar to the following:
-   
-   :: 
-
-       0.90560157 
-       0.52594285 
-       34.700000 
-
-#. `threadfor` loops may not be nested
-#. Debugging inside of `threadfor` loops is currently not supported.
-
-
 Examples
 ----------------
 
@@ -118,6 +86,38 @@ Simple bootstrap of the mean of one variable
         //'sample_means' will persist after loop
         sample_means[i] = meanc(sample);
     threadEndFor;
+
+Remarks
+-------
+
+#. The iterations of a `threadfor` loop may execute in any order.
+#. Indexed assignments to global variables that use the loop counter
+   behave the same as in a standard `for` loop.
+#. Non-indexed assignments will create a temporary variable that
+   persists only through the remainder of the current loop iteration.
+   For example:
+
+   ::
+
+       a = 34.7;
+       threadfor i(1, 2, 1);
+           a = rndu(1,1);
+           print a;
+       threadEndfor;
+       
+       print a;
+
+   will produce output similar to the following:
+   
+   :: 
+
+       0.90560157 
+       0.52594285 
+       34.700000 
+
+#. `threadfor` loops may not be nested
+#. Debugging inside of `threadfor` loops is currently not supported.
+
 
 .. seealso:: `Performance considerations` 
 

@@ -60,14 +60,6 @@ Global Input
     "\_fin_thetaType","scalar, if 1, one day look ahead, else, infinitesmal. Default = 0."
     "\_fin_epsilon","scalar, finite difference stepsize. Default = 1e-8."
 
-Remarks
--------
-
-The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
-simplified approach," *Journal of Financial Economics*, 7:229:264) as
-described in *Options, Futures, and other Derivatives* by John C. Hull is
-the basis of this procedure.
-
 Examples
 ----------------
 
@@ -91,6 +83,14 @@ produces
       0.99863719
        65.800721
       -31.075062
+
+Remarks
+-------
+
+The binomial method of Cox, Ross, and Rubinstein ("Option pricing: a
+simplified approach," *Journal of Financial Economics*, 7:229:264) as
+described in *Options, Futures, and other Derivatives* by John C. Hull is
+the basis of this procedure.
 
 Source
 -----------

@@ -18,17 +18,6 @@ Format
 
     :rtype y: Kx1 matrix
 
-Remarks
--------
-
-To find the products of the elements in each row of a matrix, transpose
-before applying prodc. If *x* is complex, use the bookkeeping transpose
-(``.'``).
-
-To find the products of all of the elements in a matrix, use the :func:`vecr`
-function before applying :func:`prodc`.
-
-
 Examples
 ----------------
 
@@ -47,5 +36,16 @@ The code above assigns *y* to be equal to:
          28
     y =  80
         162
+
+Remarks
+-------
+
+To find the products of the elements in each row of a matrix, transpose
+before applying prodc. If *x* is complex, use the bookkeeping transpose
+(``.'``).
+
+To find the products of all of the elements in a matrix, use the :func:`vecr`
+function before applying :func:`prodc`.
+
 
 .. seealso:: Functions :func:`sumc`, :func:`meanc`, :func:`stdc`

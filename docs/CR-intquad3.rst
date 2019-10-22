@@ -39,23 +39,6 @@ Global Input
 
     Default = 12.
 
-Remarks
--------
-
-The user-defined function *f* must return a vector of function values.
-:func:`intquad3` will pass to the user-defined function a vector or matrix for
-*x*, *y* and *z* and expect a vector or matrix to be returned. Use ``.*`` and ``./``
-instead of ``*`` and ``/``.
-
-:func:`intquad3` will expand scalars to the appropriate size. This means that
-functions can be defined to return a scalar constant. If users write
-their functions incorrectly (using ``*`` instead of ``.*,`` for example),
-:func:`intquad3` may not compute the expected integral, but the integral of a
-constant function.
-
-To integrate over a region which is bounded by functions, rather than
-just scalars, use :func:`intgrat2` or :func:`intgrat3`.
-
 Examples
 ----------------
 
@@ -137,6 +120,23 @@ This will integrate the function :math:`f(x) = x*y*z` over 3 sets of limits, sin
     0.96059195
      2.6692443
      5.2994691
+
+Remarks
+-------
+
+The user-defined function *f* must return a vector of function values.
+:func:`intquad3` will pass to the user-defined function a vector or matrix for
+*x*, *y* and *z* and expect a vector or matrix to be returned. Use ``.*`` and ``./``
+instead of ``*`` and ``/``.
+
+:func:`intquad3` will expand scalars to the appropriate size. This means that
+functions can be defined to return a scalar constant. If users write
+their functions incorrectly (using ``*`` instead of ``.*,`` for example),
+:func:`intquad3` may not compute the expected integral, but the integral of a
+constant function.
+
+To integrate over a region which is bounded by functions, rather than
+just scalars, use :func:`intgrat2` or :func:`intgrat3`.
 
 Source
 ------

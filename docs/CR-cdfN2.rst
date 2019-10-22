@@ -20,21 +20,6 @@ Format
 
     :rtype p: matrix, max(M,K) by max(N,L)
 
-Remarks
--------
-
-The relative error is:
-
-.. csv-table::
-    :widths: auto
-
-    ":math:`\left| x \right| \leq 1` and :math:`dx \leq 1`", ":math:`\pm 1e-14`"
-    ":math:`1 < \left| x \right| < 37` and :math:`\left| dx \right| < \frac{1}{\left| x \right|}`", ":math:`\pm 1e-13`"
-    ":math:`min(x, x + dx) > -37` and :math:`y > 1e-300`", ":math:`\pm 1e-11` or better"
-
-A relative error of :math:`\pm 1e-14` implies that the answer is accurate to better
-than :math:`±1` in the 14th digit.
-
 Examples
 ----------------
 
@@ -107,5 +92,20 @@ After the above code:
   0.1915   0.1747   0.0918   0.0441   0.1499
   0.1505   0.4192   0.3086   0.0106   0.1505
   0.0013   0.1573   0.1822   0.3364   0.4423
+
+Remarks
+-------
+
+The relative error is:
+
+.. csv-table::
+    :widths: auto
+
+    ":math:`\left| x \right| \leq 1` and :math:`dx \leq 1`", ":math:`\pm 1e-14`"
+    ":math:`1 < \left| x \right| < 37` and :math:`\left| dx \right| < \frac{1}{\left| x \right|}`", ":math:`\pm 1e-13`"
+    ":math:`min(x, x + dx) > -37` and :math:`y > 1e-300`", ":math:`\pm 1e-11` or better"
+
+A relative error of :math:`\pm 1e-14` implies that the answer is accurate to better
+than :math:`±1` in the 14th digit.
 
 .. seealso:: Functions :func:`lncdfn2`

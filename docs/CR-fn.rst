@@ -18,12 +18,6 @@ Format
     fn ret = code_for_function;
 
 
-Remarks
--------
-
-Functions created using `fn` can be called in the same way as other procedures.
-
-
 Examples
 ----------------
 
@@ -37,3 +31,10 @@ After the code above:
 ::
 
     a = 50.2625
+
+Remarks
+-------
+
+Functions created using `fn` can be called in the same way as other procedures.
+
+

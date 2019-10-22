@@ -17,15 +17,6 @@ Format
 
     :rtype y: any
 
-Remarks
--------
-
-This function searches the local symbol list for the symbol whose name
-is in *s* and returns the contents of the variable if it exists. If the
-symbol does not exist, the function will terminate with an Undefined
-symbol error message.
-
-
 Examples
 ----------------
 
@@ -68,6 +59,15 @@ The code above will produce the following output:
     rnd1 is equal to: 
      0.5240627925408163  1.4904799236486497 
     -1.1716182730350617 -0.0519353312479753
+
+Remarks
+-------
+
+This function searches the local symbol list for the symbol whose name
+is in *s* and returns the contents of the variable if it exists. If the
+symbol does not exist, the function will terminate with an Undefined
+symbol error message.
+
 
 .. seealso:: Functions :func:`varputl`
 

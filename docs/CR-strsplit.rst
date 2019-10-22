@@ -20,81 +20,6 @@ Format
 
     :rtype sa: 1xK or NxK string array
 
-Remarks
--------
-
-Case 1: No supplied separator
-+++++++++++++++++++++++++++++
-
-If :func:`strsplit` is called with only one input (i.e. a separator is not
-passed in as the second argument), each of the following characters are
-considered delimiters:
-
-+-----------------+----------+
-| space           | ASCII 32 |
-+-----------------+----------+
-| tab             | ASCII 9  |
-+-----------------+----------+
-| comma           | ASCII 44 |
-+-----------------+----------+
-| newline         | ASCII 10 |
-+-----------------+----------+
-| carriage return | ASCII 13 |
-+-----------------+----------+
-
-The input string will be split at each occurence of ANY of the
-separators listed in the table above. For example:
-
-::
-
-    sa = "alpha 1,beta 2,gamma 3";
-    strsplit(s); 
-
-will return a 1x6 string array with the following contents:
-
-::
-
-    "alpha"    "1"       "beta"    "2"    "gamma"    "3"        
-
-Tokens containing delimiters must be enclosed in single or double quotes
-or parentheses. Tokens enclosed in single or double quotes will NOT
-retain the quotes upon translation. Tokens enclosed in parentheses WILL
-retain the parentheses after translation. Parentheses cannot be nested.
-
-Case 2: Supplied separator
-++++++++++++++++++++++++++
-
-If a separator is passed to :func:`strsplit`, the input string will be split
-into individual tokens at each instance of the specified separator. Only
-the supplied separator will be used to separate the tokens. Separators
-may only be 1 character. Any remaining white-space will be preserved.
-For example:
-
-::
-
-    strsplit("alpha 1,beta 2,gamma 3", ","); 
-
-will return a 1x3 string array with the following contents:
-
-::
-
-    "alpha 1"    "beta 2"   "gamma 3"   
-
-Rows with fewer tokens will be padded on the right. For example:
-
-::
-
-    string s  = { "1982-04-19", "1994-06" };
-    strsplit(s, "-");
-
-will return:
-
-::
-
-    "1982"    "04"       "19"
-    "1994"    "06"         ""   
-
-
 Examples
 ----------------
 
@@ -184,6 +109,81 @@ The output from the above code is:
 
     ss2[1] = h5 
     ss2[2] = example.h5
+
+Remarks
+-------
+
+Case 1: No supplied separator
++++++++++++++++++++++++++++++
+
+If :func:`strsplit` is called with only one input (i.e. a separator is not
+passed in as the second argument), each of the following characters are
+considered delimiters:
+
++-----------------+----------+
+| space           | ASCII 32 |
++-----------------+----------+
+| tab             | ASCII 9  |
++-----------------+----------+
+| comma           | ASCII 44 |
++-----------------+----------+
+| newline         | ASCII 10 |
++-----------------+----------+
+| carriage return | ASCII 13 |
++-----------------+----------+
+
+The input string will be split at each occurence of ANY of the
+separators listed in the table above. For example:
+
+::
+
+    sa = "alpha 1,beta 2,gamma 3";
+    strsplit(s); 
+
+will return a 1x6 string array with the following contents:
+
+::
+
+    "alpha"    "1"       "beta"    "2"    "gamma"    "3"        
+
+Tokens containing delimiters must be enclosed in single or double quotes
+or parentheses. Tokens enclosed in single or double quotes will NOT
+retain the quotes upon translation. Tokens enclosed in parentheses WILL
+retain the parentheses after translation. Parentheses cannot be nested.
+
+Case 2: Supplied separator
+++++++++++++++++++++++++++
+
+If a separator is passed to :func:`strsplit`, the input string will be split
+into individual tokens at each instance of the specified separator. Only
+the supplied separator will be used to separate the tokens. Separators
+may only be 1 character. Any remaining white-space will be preserved.
+For example:
+
+::
+
+    strsplit("alpha 1,beta 2,gamma 3", ","); 
+
+will return a 1x3 string array with the following contents:
+
+::
+
+    "alpha 1"    "beta 2"   "gamma 3"   
+
+Rows with fewer tokens will be padded on the right. For example:
+
+::
+
+    string s  = { "1982-04-19", "1994-06" };
+    strsplit(s, "-");
+
+will return:
+
+::
+
+    "1982"    "04"       "19"
+    "1994"    "06"         ""   
+
 
 .. seealso:: Functions :func:`strsplitPad`
 

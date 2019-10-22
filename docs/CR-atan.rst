@@ -18,19 +18,6 @@ Format
 
     :rtype y: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-*y* will be the same size as *x*, containing the arctangents of the
-corresponding elements of *x*.
-
-For real *x*, the arctangent of *x* is the angle whose tangent is *x*. The
-result is a value in radians in the range :math:`-π/2` to :math:`+π/2`. To convert
-radians to degrees, multiply by :math:`180/π`.
-
-For complex *x*, the arctangent is defined everywhere except *i* and *-i*. If
-*x* is complex, *y* will be complex.
-
 Examples
 ----------------
 
@@ -55,5 +42,18 @@ After the code above:
     x = 0.000  y =  0.000
         1.571       1.004
         3.142       1.263
+
+Remarks
+-------
+
+*y* will be the same size as *x*, containing the arctangents of the
+corresponding elements of *x*.
+
+For real *x*, the arctangent of *x* is the angle whose tangent is *x*. The
+result is a value in radians in the range :math:`-π/2` to :math:`+π/2`. To convert
+radians to degrees, multiply by :math:`180/π`.
+
+For complex *x*, the arctangent is defined everywhere except *i* and *-i*. If
+*x* is complex, *y* will be complex.
 
 .. seealso:: Functions :func:`atan2`, :func:`sin`, :func:`cos`, :func:`pi`, :func:`tan`

@@ -30,16 +30,6 @@ Format
 
     :rtype y: scalar
 
-Remarks
--------
-
-:func:`getscalar4D` returns the scalar that is located in the :math:`[i1, i2, i3, i4]`
-position of array *a*.
-
-A call to :func:`getscalar4D` is faster than using the more general :func:`getmatrix`
-function to get a scalar from a 4-dimensional array.
-
-
 Examples
 ----------------
 
@@ -58,5 +48,15 @@ Examples
     y = getscalar4D(a, 1, 3, 2, 5);
 
 The code above assigns *y* equal to 50.
+
+Remarks
+-------
+
+:func:`getscalar4D` returns the scalar that is located in the :math:`[i1, i2, i3, i4]`
+position of array *a*.
+
+A call to :func:`getscalar4D` is faster than using the more general :func:`getmatrix`
+function to get a scalar from a 4-dimensional array.
+
 
 .. seealso:: Functions :func:`getmatrix`, :func:`getscalar3D`, :func:`getarray`

@@ -17,18 +17,6 @@ Format
 
     :rtype y: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-If *x* is negative, complex results are returned by default. You can turn
-the generation of complex numbers for negative inputs on or off in the
-GAUSS configuration file, and with the :func:`sysstate` function, case 8. If you
-turn it off, :func:`sqrt` will generate an error for negative inputs.
-
-If *x* is already complex, the complex number state does not matter; :func:`sqrt`
-will compute a complex result.
-
-
 Examples
 ----------------
 
@@ -45,4 +33,16 @@ The output, in variable *y* is equal to:
     1.41421356 
     1.73205081 
     2.00000000
+
+Remarks
+-------
+
+If *x* is negative, complex results are returned by default. You can turn
+the generation of complex numbers for negative inputs on or off in the
+GAUSS configuration file, and with the :func:`sysstate` function, case 8. If you
+turn it off, :func:`sqrt` will generate an error for negative inputs.
+
+If *x* is already complex, the complex number state does not matter; :func:`sqrt`
+will compute a complex result.
+
 

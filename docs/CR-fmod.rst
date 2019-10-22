@@ -21,15 +21,6 @@ Format
 
     :rtype r: max(N,L) by max(K,M) matrix
 
-Remarks
--------
-
-Returns the floating-point remainder *r* of :math:`x/y` such that :math:`x = iy + r`,
-where *i* is an integer, *r* has the same sign as *x* and :math:`\|r\| < \|y\|`.
-
-Compare this with ``%``, the modulo division operator. (See `Operators`, Chapter 1.)
-
-
 Examples
 ----------------
 
@@ -89,3 +80,13 @@ produces:
         1928
         1932
         1936
+
+Remarks
+-------
+
+Returns the floating-point remainder *r* of :math:`x/y` such that :math:`x = iy + r`,
+where *i* is an integer, *r* has the same sign as *x* and :math:`\|r\| < \|y\|`.
+
+Compare this with ``%``, the modulo division operator. (See `Operators`, Chapter 1.)
+
+

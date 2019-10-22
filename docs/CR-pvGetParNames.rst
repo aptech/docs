@@ -18,16 +18,6 @@ Format
 
     :rtype s: Kx1 string array
 
-Remarks
--------
-
-If the vector in the structure of type :class:`PV` was generated with matrix
-names, the parameter names will be concatenations of the matrix name
-with row and column numbers of the parameters in the matrix. Otherwise
-the names will have a generic prefix with concatenated row and column
-numbers.
-
-
 Examples
 ----------------
 
@@ -62,6 +52,16 @@ Since mask has ones in the :math:`[1,1]` and :math:`[2,2]` locations, the code a
 
      P[1,1]
      P[2,2]
+
+Remarks
+-------
+
+If the vector in the structure of type :class:`PV` was generated with matrix
+names, the parameter names will be concatenations of the matrix name
+with row and column numbers of the parameters in the matrix. Otherwise
+the names will have a generic prefix with concatenated row and column
+numbers.
+
 
 Source
 ------

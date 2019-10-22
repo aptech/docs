@@ -19,12 +19,6 @@ Format
 
     :rtype num_rows: scalar
 
-Remarks
--------
-
-Note that for ``SELECT`` statements, the value is undefined; use :func:`dbQueryRows` instead.
-
-
 Examples
 ----------------
 
@@ -41,5 +35,11 @@ Examples
 ::
 
     1 row(s) were affected
+
+Remarks
+-------
+
+Note that for ``SELECT`` statements, the value is undefined; use :func:`dbQueryRows` instead.
+
 
 .. seealso:: Functions :func:`dbQueryRows`, :func:`dbHasFeature`

@@ -20,14 +20,6 @@ Format
 
     :rtype y: M-dimensional array
 
-Remarks
--------
-
-If there are more elements in *x* than in *y*, the remaining elements are
-discarded. If there are not enough elements in *x* to fill *y*, then when
-:func:`areshape` runs out of elements, it goes back to the first element of *x*
-and starts getting additional elements from there.
-
 Examples
 ----------------
 
@@ -59,5 +51,13 @@ be set to the sequence of integers from 1 to 30 contained in the first 30 elemen
     y = areshape(x, orders);
 
 *y* will be a 3x2x4 array. Since *y* contains 24 elements, and *x* contains 60, the elements of *y* will be set to the sequence of integers from 1 to 24 contained in the first 24 elements of *x*.
+
+Remarks
+-------
+
+If there are more elements in *x* than in *y*, the remaining elements are
+discarded. If there are not enough elements in *x* to fill *y*, then when
+:func:`areshape` runs out of elements, it goes back to the first element of *x*
+and starts getting additional elements from there.
 
 .. seealso:: Functions :func:`aconcat`, :func:`squeeze`

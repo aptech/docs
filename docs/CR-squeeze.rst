@@ -17,16 +17,6 @@ Format
 
     :rtype atrim: Multidimensional array or matrix
 
-Remarks
--------
-
-If the squeezed array contains two or fewer dimensions, the return will
-be of type matrix. If the squeezed array contains only one dimension,
-the orientation of the final two dimensions of the input will be
-preserved. For example, an input with dimensions 1x1x4, will return a
-1x4 row vector. Where a 1x1x4x1 input will return a column vector.
-
-
 Examples
 ----------------
 
@@ -55,6 +45,16 @@ After the above code:
     
     x_2 =        -0.94527  -0.07985  0.88879  -1.0082
                  -0.45845   0.77882 -0.36897  0.78537
+
+Remarks
+-------
+
+If the squeezed array contains two or fewer dimensions, the return will
+be of type matrix. If the squeezed array contains only one dimension,
+the orientation of the final two dimensions of the input will be
+preserved. For example, an input with dimensions 1x1x4, will return a
+1x4 row vector. Where a 1x1x4x1 input will return a column vector.
+
 
 .. seealso:: Functions :func:`areshape`, :func:`atranspose`
 

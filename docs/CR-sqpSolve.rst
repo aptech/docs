@@ -210,14 +210,6 @@ Global Input
     scalar, if nonzero, results are printed. Default = 0.
 
 
-Remarks
--------
-
-Pressing :kbd:`C` on the keyboard will terminate iterations, and pressing :kbd:`P` will toggle iteration output.
-
-:func:`sqpSolve` is recursive, that is, it can call itself with another function and set of global variables,
-
-
 Examples
 ----------------
 
@@ -247,6 +239,14 @@ Examples
     _sqp_EqProc = &eqp;
      
     { x,f,lagr,ret } = sqpSolve(&fct,start);
+
+Remarks
+-------
+
+Pressing :kbd:`C` on the keyboard will terminate iterations, and pressing :kbd:`P` will toggle iteration output.
+
+:func:`sqpSolve` is recursive, that is, it can call itself with another function and set of global variables,
+
 
 Source
 ------

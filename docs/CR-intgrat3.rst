@@ -43,21 +43,6 @@ Global Input
 +-----------------+-----------------------------------------------------+
 
 
-Remarks
--------
-
-User-defined functions *f*, and those used in *gl* and *hl* must either:
-
-#. Return a scalar constant
-
-         - or -
-
-#. Return a vector of function values. :func:`intgrat3` will pass to
-   user-defined functions a vector or matrix for *x* and *y* and expect a
-   vector or matrix to be returned. Use ``.*`` and ``./`` operators instead of
-   just ``*`` and ``/``.
-
-
 Examples
 ----------------
 
@@ -116,6 +101,21 @@ Examples
 This will integrate the function :math:`f(x, y, z)` over the sphere of
 radius 5. The result will be approximately twice the volume of a
 sphere of radius 5.
+
+Remarks
+-------
+
+User-defined functions *f*, and those used in *gl* and *hl* must either:
+
+#. Return a scalar constant
+
+         - or -
+
+#. Return a vector of function values. :func:`intgrat3` will pass to
+   user-defined functions a vector or matrix for *x* and *y* and expect a
+   vector or matrix to be returned. Use ``.*`` and ``./`` operators instead of
+   just ``*`` and ``/``.
+
 
 Source
 ------

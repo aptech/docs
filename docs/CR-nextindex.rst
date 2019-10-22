@@ -21,11 +21,6 @@ Format
 
     :rtype nind: Mx1 vector
 
-Remarks
--------
-
-:func:`nextindex` will return a scalar error code if the index cannot be incremented.
-
 Examples
 ----------------
 
@@ -63,5 +58,10 @@ will assign *nind2* to be equal to:
     2
     4
     2
+
+Remarks
+-------
+
+:func:`nextindex` will return a scalar error code if the index cannot be incremented.
 
 .. seealso:: Functions :func:`previousindex`, :func:`loopnextindex`, :func:`walkindex`

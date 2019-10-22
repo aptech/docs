@@ -27,16 +27,6 @@ Format
 
     :rtype C: matrix
 
-Remarks
--------
-
-By default, :func:`outerJoin` performs a left outer-join, retaining only the key
-columns from the first input matrix.
-
-The first columns of the output matrix *C* will be the columns of *A* in the
-same order as in *A*. The remaining columns of *C* will be the columns of *B*
-with the key columns removed.
-
 Examples
 ----------------
 
@@ -94,6 +84,16 @@ After the code above, *C* equals:
     3 1.2 15 0.6 9 0.1
     5 4.4 19 1.1 .   .
     2 6.9 11 0.9 .   .
+
+Remarks
+-------
+
+By default, :func:`outerJoin` performs a left outer-join, retaining only the key
+columns from the first input matrix.
+
+The first columns of the output matrix *C* will be the columns of *A* in the
+same order as in *A*. The remaining columns of *C* will be the columns of *B*
+with the key columns removed.
 
 .. seealso:: Functions :func:`innerJoin`
 

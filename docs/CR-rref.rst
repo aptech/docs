@@ -17,6 +17,26 @@ Format
 
     :rtype y: MxN matrix
 
+Examples
+----------------
+
+::
+
+    // Since (row 2) = 2*(row 1), we do not expect this
+    // matrix to have full rank
+    x[3,3] = 1 2 3
+             2 4 6
+             3 5 2;
+    y = rref(x);
+    
+    // compute rank of x
+    r = sumc(sumc(abs(rref(x)')) .> 1e-15);
+    print "The rank of x = " r;
+
+::
+
+    The rank of x = 2.000
+
 Remarks
 -------
 
@@ -45,26 +65,6 @@ The following code can be used to compute the rank of a matrix:
 where *y* is the output from :func:`rref`, and *tol* is the tolerance used. This
 finds the number of rows with any nonzero elements, which gives the rank
 of the matrix, disregarding numeric problems.
-
-Examples
-----------------
-
-::
-
-    // Since (row 2) = 2*(row 1), we do not expect this
-    // matrix to have full rank
-    x[3,3] = 1 2 3
-             2 4 6
-             3 5 2;
-    y = rref(x);
-    
-    // compute rank of x
-    r = sumc(sumc(abs(rref(x)')) .> 1e-15);
-    print "The rank of x = " r;
-
-::
-
-    The rank of x = 2.000
 
 Source
 ------

@@ -22,18 +22,6 @@ Format
     :return p: contains the standard Normal probability density function of *x*.
     :rtype p: NxK matrix or N-dimensional array
 
-Remarks
--------
-
-This does not compute the joint Normal density function. Instead, the
-scalar Normal density function is computed element-by-element. *y* could
-be computed by the following GAUSS code:
-
-::
-
-   y =(1/sqrt(2*pi))*exp(-(x.*x)/2);
-
-
 Examples
 ----------------
 
@@ -68,5 +56,17 @@ After the code above, *p* should equal:
 ::
 
     0.15056872
+
+Remarks
+-------
+
+This does not compute the joint Normal density function. Instead, the
+scalar Normal density function is computed element-by-element. *y* could
+be computed by the following GAUSS code:
+
+::
+
+   y =(1/sqrt(2*pi))*exp(-(x.*x)/2);
+
 
 .. seealso:: Functions :func:`pdfTruncNorm`

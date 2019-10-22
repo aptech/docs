@@ -26,16 +26,6 @@ Format
 
     :rtype y: Lx1 vector
 
-Remarks
--------
-
-#. If not matches are found, :func:`intrsect` will return a scalar error code
-   that can be tested for with :func:`scalmiss`.
-#. Place smaller vector first for fastest operation.
-#. If there are a lot of duplicates within a vector, it is faster to
-   remove them with the function :func:`unique` before calling :func:`intrsect`.
-
-
 Examples
 ----------------
 
@@ -129,6 +119,16 @@ The code above, will print the following output:
 
     cocoa
       oil
+
+Remarks
+-------
+
+#. If not matches are found, :func:`intrsect` will return a scalar error code
+   that can be tested for with :func:`scalmiss`.
+#. Place smaller vector first for fastest operation.
+#. If there are a lot of duplicates within a vector, it is faster to
+   remove them with the function :func:`unique` before calling :func:`intrsect`.
+
 
 Source
 ------

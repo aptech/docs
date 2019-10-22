@@ -24,13 +24,6 @@ Format
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
-Remarks
-------------
-
-The Weibull cumulative distribution function is defined as:
-
-.. math::  f(x; k, \lambda) = 1 - e^{-(x/\lambda)k}
-
 Examples
 ----------------
 Calculate the cdf for the Weibull distribution with different shape parameters.
@@ -52,5 +45,12 @@ Calculate the cdf for the Weibull distribution with different shape parameters.
 After running above code,
 
 .. figure:: _static/images/cdfWeibull_1.png
+
+Remarks
+------------
+
+The Weibull cumulative distribution function is defined as:
+
+.. math::  f(x; k, \lambda) = 1 - e^{-(x/\lambda)k}
 
 .. seealso:: Functions :func:`pdfWeibull`, :func:`cdfWeibullInv`

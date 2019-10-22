@@ -16,11 +16,6 @@ Format
 
     continue;
 
-Remarks
-------------
-
-This command works just as in **C**.
-
 Examples
 ----------------
 
@@ -89,3 +84,9 @@ After the loops above, *x* looks like:
      0.00000000       0.53988699       0.00000000       0.00000000
      0.00000000       0.00000000       0.91500922       0.00000000
      0.00000000       0.00000000       0.00000000       -1.6014053
+
+Remarks
+------------
+
+This command works just as in **C**.
+

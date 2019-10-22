@@ -21,22 +21,6 @@ Format
 
     :rtype numl: scalar
 
-Remarks
--------
-
--  To write to the standard output stream or the standard error stream,
-   pass in `\__STDOUT` or `\__STDERR` as the file handle argument.
-
-   ::
-
-      str = "sample string";
-      num = fputst(__STDOUT, str);
-
--  :func:`fputst` works identically to :func:`fputs`, except that a newline is appended
-   to each string that is written to the file. If the file was opened in
-   text mode (see :func:`fopen`), these newlines are also converted to carriage
-   return-linefeed sequences on output.
-
 Examples
 --------
 
@@ -107,6 +91,22 @@ following contents:
    5,6,7,8
 
 Note that :func:`saved` provides a simpler way to write CSV data.
+
+Remarks
+-------
+
+-  To write to the standard output stream or the standard error stream,
+   pass in `\__STDOUT` or `\__STDERR` as the file handle argument.
+
+   ::
+
+      str = "sample string";
+      num = fputst(__STDOUT, str);
+
+-  :func:`fputst` works identically to :func:`fputs`, except that a newline is appended
+   to each string that is written to the file. If the file was opened in
+   text mode (see :func:`fopen`), these newlines are also converted to carriage
+   return-linefeed sequences on output.
 
 Portability
 -----------

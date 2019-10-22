@@ -65,17 +65,6 @@ Global Input
 :_qn_PrintResults: (*scalar*), if 1, results are printed.
 
 
-Remarks
--------
-
-If you are running in terminal mode, GAUSS will not see any input until
-you press :kbd:`ENTER`. Pressing :kbd:`C` on the keyboard will terminate iterations,
-and pressing :kbd:`P` will toggle iteration output.
-
-To reset global variables for this function to their default values,
-call :func:`QNewtonSet`.
-
-
 Examples
 ----------------
 This example computes maximum likelihood coefficients and standard
@@ -121,6 +110,17 @@ errors for a Tobit model:
      -0.20805753  0.094551107
      -0.099749592 0.080006676
       0.65223067  0.099827309
+
+Remarks
+-------
+
+If you are running in terminal mode, GAUSS will not see any input until
+you press :kbd:`ENTER`. Pressing :kbd:`C` on the keyboard will terminate iterations,
+and pressing :kbd:`P` will toggle iteration output.
+
+To reset global variables for this function to their default values,
+call :func:`QNewtonSet`.
+
 
 Source
 ------

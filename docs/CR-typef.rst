@@ -18,20 +18,6 @@ Format
 
     :rtype y: scalar
 
-Remarks
--------
-
-If *fp* is a valid GAUSS file handle, then *y* will be set to the type of the data in the file as follows:
-
-+--------+----------------------------+
-|      2 | 2-byte signed integer      |
-+--------+----------------------------+
-|      4 | 4-byte IEEE floating point |
-+--------+----------------------------+
-|      8 | 8-byte IEEE floating point |
-+--------+----------------------------+
-
-
 Examples
 ----------------
 
@@ -61,6 +47,20 @@ In this example, a file :file:`dat2.dat` is created which has
 the same variables and variable type as the input
 file, :file:`dat1.dat`. :func:`typef` is used to return the type of
 the input file data for the `create` statement.
+
+Remarks
+-------
+
+If *fp* is a valid GAUSS file handle, then *y* will be set to the type of the data in the file as follows:
+
++--------+----------------------------+
+|      2 | 2-byte signed integer      |
++--------+----------------------------+
+|      4 | 4-byte IEEE floating point |
++--------+----------------------------+
+|      8 | 8-byte IEEE floating point |
++--------+----------------------------+
+
 
 .. seealso:: Functions :func:`colsf`, :func:`rowsf`
 

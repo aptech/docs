@@ -31,6 +31,27 @@ Format
         to your programs. If you use :func:`dllcall` to call one of your functions after executing a
         :code:`dlibrary -d` your program will terminate with an error.
 
+Examples
+----------------
+
+Loading a shared library and unloading previously loaded shared libraries
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    dlibrary mylib;
+
+The above command passes the base name of the shared library to load. GAUSS will expand this base name to a platform specific shared library name. The expanded name on Windows is :file:`mylib.dll`. On Linux it is :file:`libmylib.so` and on Mac, :file:`libmylib.dylib`. Since we did not pass the ``-a`` flag, GAUSS, will unload any shared libraries that were previously loaded with the `dlibrary` command.
+
+Loading a shared library and keeping previously loaded shared libraries
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    dlibrary -a mylib;
+
+Since we passed the ``-a`` flag, GAUSS will not unload any libraries when it loads ``mylib``.
+
 Remarks
 -------
 
@@ -63,26 +84,5 @@ Remarks
 
 For more information, see **Foreign Language Interface**, Chapter 1.
 
-
-Examples
-----------------
-
-Loading a shared library and unloading previously loaded shared libraries
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-::
-
-    dlibrary mylib;
-
-The above command passes the base name of the shared library to load. GAUSS will expand this base name to a platform specific shared library name. The expanded name on Windows is :file:`mylib.dll`. On Linux it is :file:`libmylib.so` and on Mac, :file:`libmylib.dylib`. Since we did not pass the ``-a`` flag, GAUSS, will unload any shared libraries that were previously loaded with the `dlibrary` command.
-
-Loading a shared library and keeping previously loaded shared libraries
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-::
-
-    dlibrary -a mylib;
-
-Since we passed the ``-a`` flag, GAUSS will not unload any libraries when it loads ``mylib``.
 
 .. seealso:: Functions :func:`dllcall`, :func:`sysstate`

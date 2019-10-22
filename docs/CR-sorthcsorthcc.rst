@@ -22,6 +22,26 @@ Format
 
     :rtype y: NxK matrix or string array
 
+Examples
+----------------
+
+::
+
+    let x[3,3]= 4 7 3
+                1 3 2
+                3 4 8;
+    
+    // Sort x based upon the values in the third column
+    y = sorthc(x,3);
+
+This produces *y* equal to:
+
+::
+
+    1 3 2
+    4 7 3
+    3 4 8
+
 Remarks
 -------
 
@@ -45,26 +65,6 @@ If you need to obtain the matrix sorted in descending order, you can use:
 
    rev(sorthc(x, c))
 
-
-Examples
-----------------
-
-::
-
-    let x[3,3]= 4 7 3
-                1 3 2
-                3 4 8;
-    
-    // Sort x based upon the values in the third column
-    y = sorthc(x,3);
-
-This produces *y* equal to:
-
-::
-
-    1 3 2
-    4 7 3
-    3 4 8
 
 .. seealso:: Functions :func:`sortc`, :func:`rev`
 

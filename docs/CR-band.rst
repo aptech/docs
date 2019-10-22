@@ -20,19 +20,6 @@ Format
 
     :rtype a: matrix
 
-Remarks
--------
-
-*y* can actually be a rectangular PxQ matrix. *K* is then defined as
-min(P,Q). It will be assumed that *a* is symmetric about the principal
-diagonal for y[1:K,1:K].
-
-The subdiagonals of *y* are stored right to left in *a*, with the principal
-diagonal in the rightmost or (N+1)th column of *a*. The upper left corner
-of *a* is unused; it is set to 0.
-
-This compact form of a banded matrix is what :func:`bandchol` expects.
-
 Examples
 ----------------
 
@@ -60,6 +47,19 @@ After the code above:
     b0 = 8  b1 = 2  8  b2 = 0  2  8
          5       1  5       0  1  5
          3       2  3       0  2  3
+
+Remarks
+-------
+
+*y* can actually be a rectangular PxQ matrix. *K* is then defined as
+min(P,Q). It will be assumed that *a* is symmetric about the principal
+diagonal for y[1:K,1:K].
+
+The subdiagonals of *y* are stored right to left in *a*, with the principal
+diagonal in the rightmost or (N+1)th column of *a*. The upper left corner
+of *a* is unused; it is set to 0.
+
+This compact form of a banded matrix is what :func:`bandchol` expects.
 
 .. seealso:: Functions :func:`bandchol`, :func:`bandcholsol`, :func:`bandltsol`, :func:`bandrv`, :func:`bandsolpd`
 

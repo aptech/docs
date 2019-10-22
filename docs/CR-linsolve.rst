@@ -21,19 +21,6 @@ Format
 
     :rtype x: NxK matrix
 
-Remarks
--------
-
-:func:`linsolve` solves for *x* by computing :math:`inv(A) \times b`. If *A* is square and *b*
-contains more than 1 column, it is much faster to use :func:`linsolve` than the
-``/`` operator. However, while faster, there is some sacrifice in accuracy.
-
-A test shows :func:`linsolve` to be acccurate to within approximately 1.2e-11,
-while the slash operator ``/`` is accurate to within approximately 4e-13.
-However, the accuracy sacrifice can be much greater for poorly
-conditioned matrices.
-
-
 Examples
 ----------------
 
@@ -54,5 +41,18 @@ Examples
     0.04586330
     0.13399281
     0.42446043
+
+Remarks
+-------
+
+:func:`linsolve` solves for *x* by computing :math:`inv(A) \times b`. If *A* is square and *b*
+contains more than 1 column, it is much faster to use :func:`linsolve` than the
+``/`` operator. However, while faster, there is some sacrifice in accuracy.
+
+A test shows :func:`linsolve` to be acccurate to within approximately 1.2e-11,
+while the slash operator ``/`` is accurate to within approximately 4e-13.
+However, the accuracy sacrifice can be much greater for poorly
+conditioned matrices.
+
 
 .. seealso:: Functions :func:`qrsol`, :func:`qrtsol`, :func:`solpd`, :func:`cholsol`

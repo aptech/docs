@@ -19,14 +19,6 @@ Format
 
     :rtype x: NxM matrix
 
-Remarks
--------
-
-The matrices specified in *vnames* must be globals and they must all have the same number of rows.
-
-This function is the opposite of :func:`makevars`.
-
-
 Examples
 ----------------
 
@@ -54,6 +46,14 @@ is equivalent to:
     // Combine the matrices using the horizontal concatenation
     // operator
     agInc = age~income;
+
+Remarks
+-------
+
+The matrices specified in *vnames* must be globals and they must all have the same number of rows.
+
+This function is the opposite of :func:`makevars`.
+
 
 Source
 ------

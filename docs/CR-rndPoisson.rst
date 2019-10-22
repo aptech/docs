@@ -41,6 +41,16 @@ Format
 
     :rtype newstate: Opaque vector
 
+Examples
+----------------
+The example below simulates 100 observations of a Poisson process with a mean of 17.
+
+::
+
+    lambda = 17;
+    
+    x = rndPoisson(100, 1, lambda);
+
 Remarks
 -------
 
@@ -55,16 +65,6 @@ The properties of the pseudo-random numbers in *x* are:
    Var(x) = lambda
 
 *r* and *c* will be truncated to integers if necessary.
-
-Examples
-----------------
-The example below simulates 100 observations of a Poisson process with a mean of 17.
-
-::
-
-    lambda = 17;
-    
-    x = rndPoisson(100, 1, lambda);
 
 Technical Notes
 ----------------

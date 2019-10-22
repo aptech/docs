@@ -22,6 +22,25 @@ Format
 
     :rtype ve: NxN matrix or KxNxN array
 
+Examples
+----------------
+
+::
+
+    x = {  0.5  1.2  0.3,
+           0.6  0.9  0.2,
+           0.8  1.5  0.0 };
+
+    { va, ve } = eigv(x);
+
+After the above code:
+
+::
+
+              1.8626           0.5044  -0.7122  -0.6152
+    va =     -0.1871     ve =  0.4317   0.3520   0.1361
+             -0.2754           0.5643   0.2234   1.0458
+
 Remarks
 -------
 
@@ -59,24 +78,5 @@ eigenvalues will appear consecutively with the eigenvalue having the
 positive imaginary part first. The columns of *ve* contain the eigenvectors
 of *x* in the same order as the eigenvalues. The eigenvectors are not
 normalized.
-
-Examples
-----------------
-
-::
-
-    x = {  0.5  1.2  0.3,
-           0.6  0.9  0.2,
-           0.8  1.5  0.0 };
-
-    { va, ve } = eigv(x);
-
-After the above code:
-
-::
-
-              1.8626           0.5044  -0.7122  -0.6152
-    va =     -0.1871     ve =  0.4317   0.3520   0.1361
-             -0.2754           0.5643   0.2234   1.0458
 
 .. seealso:: Functions :func:`eig`, :func:`eigh`, :func:`eighv`

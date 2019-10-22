@@ -17,11 +17,6 @@ Format
 ----------------
 .. function:: draw
 
-Remarks
--------
-
-:func:`draw` is especially useful when used in conjunction with transparent windows.
-
 Examples
 ----------------
 
@@ -62,6 +57,11 @@ Examples
        draw;
 
     endwind;
+
+Remarks
+-------
+
+:func:`draw` is especially useful when used in conjunction with transparent windows.
 
 Source
 ------

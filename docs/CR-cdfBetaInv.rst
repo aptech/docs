@@ -23,13 +23,6 @@ Format
 
     :rtype x: NxK matrix, Nx1 vector or scalar
 
-Remarks
-----------------
-For invalid inputs, :func:`cdfBetaInv` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
-
 Examples
 ----------------
 
@@ -55,5 +48,12 @@ After running the above code,
     0.1886
     0.3781
     0.5763
+
+Remarks
+----------------
+For invalid inputs, :func:`cdfBetaInv` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 .. seealso:: Functions :func:`cdfBeta`, :func:`cdfBinomial`, :func:`cdfNegBinomial`

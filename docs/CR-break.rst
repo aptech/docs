@@ -15,11 +15,6 @@ Format
 
     break;
 
-Remarks
--------
-
-This command works just like in **C**.
-
 Examples
 ----------------
 
@@ -61,5 +56,10 @@ the use of random data, your matrix will have different non-zero elements above 
     0.000  1.000  1.609  1.474
     0.000  0.000  1.000 -0.768
     0.000  0.000  0.000  1.000
+
+Remarks
+-------
+
+This command works just like in **C**.
 
 .. seealso:: Functions `continue`, `do while`, `do until`, `for`

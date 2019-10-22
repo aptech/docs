@@ -20,6 +20,37 @@ Format
 
     :rtype y: scalar
 
+Examples
+----------------
+
+::
+
+    create fp = data with x,10,8;
+    
+    if fp == -1;
+       errorlog "Can't create output file";
+       end;
+    endif;
+    
+    c = 0;
+    do until c >= 10000;
+       y = rndn(100,10);
+       k = writer(fp,y);
+    
+       if k /= rows(y);
+         errorlog "Disk Full";
+         fp = close(fp);
+         end;
+       endif;
+    
+       c = c+k;
+    endo;
+    
+    fp = close(fp);
+
+In this example, a 10000x10 dataset of Normal random numbers is written to a dataset called :file:`data.dat`. 
+The variable names are ``X01 - X10``.
+
 Remarks
 -------
 
@@ -56,37 +87,6 @@ Trying to write complex data to a dataset that was originally created
 to store real data will cause a program to abort with an error message.
 (See `create` for details on creating a complex dataset.)
 
-
-Examples
-----------------
-
-::
-
-    create fp = data with x,10,8;
-    
-    if fp == -1;
-       errorlog "Can't create output file";
-       end;
-    endif;
-    
-    c = 0;
-    do until c >= 10000;
-       y = rndn(100,10);
-       k = writer(fp,y);
-    
-       if k /= rows(y);
-         errorlog "Disk Full";
-         fp = close(fp);
-         end;
-       endif;
-    
-       c = c+k;
-    endo;
-    
-    fp = close(fp);
-
-In this example, a 10000x10 dataset of Normal random numbers is written to a dataset called :file:`data.dat`. 
-The variable names are ``X01 - X10``.
 
 .. seealso:: Functions `open`, `close`, `create`, :func:`readr`, :func:`saved`, :func:`seekr`
 

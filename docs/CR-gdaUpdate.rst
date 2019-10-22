@@ -36,6 +36,26 @@ Format
 
     :rtype retcode: scalar
 
+Examples
+----------------
+
+::
+
+    // Generate random variable x
+    x = rndn(100, 50);
+
+    // Create GDA `myFile`
+    retcode1 = gdaCreate("myfile.gda", 1);
+
+    // Write `x`  to `myfile` as x1
+    retcode2 = gdaWrite("myfile.gda", x, "x1");
+
+    // Generate random variable y
+    y = rndn(75, 5);
+
+    // Update x1 with y
+    retcode3 = gdaUpdate("myfile.gda", y, "x1");
+
 Remarks
 -------
 
@@ -62,25 +82,5 @@ result in a file with a large number of empty bytes. To pack the data in
 a GDA, so it contains no empty bytes, call :func:`gdaPack`. Or to update a
 variable without leaving empty bytes in the file, call :func:`gdaUpdateAndPack`.
 
-
-Examples
-----------------
-
-::
-
-    // Generate random variable x
-    x = rndn(100, 50);
-
-    // Create GDA `myFile`
-    retcode1 = gdaCreate("myfile.gda", 1);
-
-    // Write `x`  to `myfile` as x1
-    retcode2 = gdaWrite("myfile.gda", x, "x1");
-
-    // Generate random variable y
-    y = rndn(75, 5);
-
-    // Update x1 with y
-    retcode3 = gdaUpdate("myfile.gda", y, "x1");
 
 .. seealso:: Functions :func:`gdaUpdateAndPack`, :func:`gdaPack`, :func:`gdaWrite`

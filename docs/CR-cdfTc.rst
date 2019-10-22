@@ -20,21 +20,6 @@ Format
 
     :rtype p: matrix, max(N,L) by max(K,M)
 
-Remarks
--------
-
-A -1 is returned for those elements with invalid inputs.
-
-This equals:
-
-.. math:: 1 − F(x,df)
-
-where *F* is the t cdf with *df* degrees of freedom. Thus, to get the t cdf,
-subtract :code:`cdfTc(x, df)` from 1. The complement of the cdf is computed
-because this is what is most commonly needed in statistical
-applications, and because it can be computed with fewer problems of
-roundoff error.
-
 Examples
 ----------------
 
@@ -57,6 +42,21 @@ After running above code,
     0.42713516
     0.39188165
     0.35796758
+
+Remarks
+-------
+
+A -1 is returned for those elements with invalid inputs.
+
+This equals:
+
+.. math:: 1 − F(x,df)
+
+where *F* is the t cdf with *df* degrees of freedom. Thus, to get the t cdf,
+subtract :code:`cdfTc(x, df)` from 1. The complement of the cdf is computed
+because this is what is most commonly needed in statistical
+applications, and because it can be computed with fewer problems of
+roundoff error.
 
 Technical Notes
 ---------------

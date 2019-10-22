@@ -18,6 +18,20 @@ Format
 
     :rtype s: string
 
+Examples
+----------------
+
+::
+
+    v = { "Now is t" "he time " "for all " "good men" };
+    s = cvtos(v);
+
+Now the variable *s* is a string with the following contents.
+
+::
+
+    s = "Now is the time for all good men"
+
 Remarks
 -------
 
@@ -33,19 +47,5 @@ the middle of *s*.
 If the last element of *v* does not have a terminating 0 byte, :func:`cvtos`
 supplies one for *s*.
 
-
-Examples
-----------------
-
-::
-
-    v = { "Now is t" "he time " "for all " "good men" };
-    s = cvtos(v);
-
-Now the variable *s* is a string with the following contents.
-
-::
-
-    s = "Now is the time for all good men"
 
 .. seealso:: Functions :func:`stocv`, :func:`vget`, :func:`vlist`, :func:`vput`, :func:`vread`

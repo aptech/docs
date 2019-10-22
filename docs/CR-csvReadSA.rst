@@ -32,17 +32,6 @@ Format
 
     :rtype s: string array
 
-Remarks
--------
-
-The standard input stream (stdin) can be read with :func:`csvReadSA` by passing
-in `__STDIN` as the filename input. Note that `__STDIN` should not be
-passed as a string, surrounded by quotes. Correct usage is shown below:
-
-::
-
-   x = csvReadSA(__STDIN);
-
 Examples
 ----------------
 
@@ -116,5 +105,16 @@ Linux
 ::
 
     s = csvReadSA("/home/my_user/myfile.csv");
+
+Remarks
+-------
+
+The standard input stream (stdin) can be read with :func:`csvReadSA` by passing
+in `__STDIN` as the filename input. Note that `__STDIN` should not be
+passed as a string, surrounded by quotes. Correct usage is shown below:
+
+::
+
+   x = csvReadSA(__STDIN);
 
 .. seealso:: Functions :func:`csvReadM`, :func:`getHeaders`, :func:`xlsReadM`, :func:`xlsReadSA`, :func:`xlsWrite`

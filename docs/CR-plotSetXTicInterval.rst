@@ -4,7 +4,7 @@ plotSetXTicInterval
 
 Purpose
 ----------------
-Controls the interval between X-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D time series graphs.
+Controls the interval between X-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D graphs.
 
 Format
 ----------------
@@ -18,18 +18,6 @@ Format
 
     :param firstLabeled: Optional input, the value of the first X-value on which to place a tick label.
     :type firstLabeled: scalar
-
-Remarks
--------
-
-:func:`plotSetXTicInterval` is supported for use with XY, Scatter, Contour and
-time series plots. It is ignored by other plot types.
-
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
-methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -145,6 +133,18 @@ Let's keep the tick labels on the same locations, however, create 1 tick label e
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
 .. figure:: _static/images/psxti4.png
+
+Remarks
+-------
+
+:func:`plotSetXTicInterval` is supported for use with XY, Scatter, Contour and
+time series plots. It is ignored by other plot types.
+
+This function sets an attribute in a :class:`plotControl` structure. It does not
+affect an existing graph, or a new graph drawn using the default
+settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
+menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`dttostr`, :func:`strtodt`, :func:`plotSetXLabel`, :func:`plotSetXTicLabel`, :func:`plotSetTicLabelFont`
 

@@ -37,15 +37,6 @@ Format
 
     :rtype ve: Nx nev dense matrix
 
-Remarks
--------
-
-The ideal setting for input *ncv* is problem dependent and cannot be
-easily predicted ahead of time. Increasing *ncv* will increase the amount
-of memory used during computation. For a large, sparse matrix, *ncv*
-should be small compared to the order of input matrix *a*. :func:`spEigv` is not
-thread-safe.
-
 Examples
 ----------------
 
@@ -91,6 +82,15 @@ matrix times the first eigenvector (2).
       1.2915693                   1.2915693
       7.6381149                   7.6381149
       1.7276361                   1.7276361
+
+Remarks
+-------
+
+The ideal setting for input *ncv* is problem dependent and cannot be
+easily predicted ahead of time. Increasing *ncv* will increase the amount
+of memory used during computation. For a large, sparse matrix, *ncv*
+should be small compared to the order of input matrix *a*. :func:`spEigv` is not
+thread-safe.
 
 Technical Notes
 ----------------

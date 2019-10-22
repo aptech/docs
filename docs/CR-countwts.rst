@@ -36,15 +36,6 @@ Format
 
     :rtype c: Px1 vector
 
-Remarks
--------
-
-If any elements of *x* are greater than the last element of *v*, they will
-not be counted.
-
-Missing values are not counted unless there is a missing in *v*. A missing
-value in *v* MUST be the first element in *v*.
-
 Examples
 ----------------
 
@@ -69,3 +60,13 @@ Examples
     c = 0.3330000
         2.0000000
         0.1000000
+
+Remarks
+-------
+
+If any elements of *x* are greater than the last element of *v*, they will
+not be counted.
+
+Missing values are not counted unless there is a missing in *v*. A missing
+value in *v* MUST be the first element in *v*.
+

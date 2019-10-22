@@ -31,28 +31,6 @@ Format
     :type keytyp: scalar
 
 
-Remarks
--------
-
-This will combine the variables in the two files to create a single
-large file. The following assumptions hold:
-
-#. Both files have a single (key) variable in common and it is the first
-   variable.
-
-#. All of the values of the key variable are unique.
-
-#. Each file is already sorted on the key variable.
-
-The output file will contain the key variable in its first column.
-
-It is not necessary for the two files to have the same number of rows.
-For each row for which the key variables match, a row will be created in
-the output file. *outfile* will contain the columns from *infile1* followed
-by the columns from *infile2* minus the key column from the second file.
-
-If the inputs are null ("" or 0), the procedure will ask for them.
-
 Examples
 ------------
 
@@ -98,6 +76,28 @@ Merge datasets using id
 
   // Load merged dataset
   data = loadd("mymerged.dat");
+
+Remarks
+-------
+
+This will combine the variables in the two files to create a single
+large file. The following assumptions hold:
+
+#. Both files have a single (key) variable in common and it is the first
+   variable.
+
+#. All of the values of the key variable are unique.
+
+#. Each file is already sorted on the key variable.
+
+The output file will contain the key variable in its first column.
+
+It is not necessary for the two files to have the same number of rows.
+For each row for which the key variables match, a row will be created in
+the output file. *outfile* will contain the columns from *infile1* followed
+by the columns from *infile2* minus the key column from the second file.
+
+If the inputs are null ("" or 0), the procedure will ask for them.
 
 Source
 ------

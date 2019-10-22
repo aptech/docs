@@ -20,6 +20,15 @@ Format
 
     :rtype n: scalar
 
+Examples
+----------------
+
+::
+
+    n = nextn(456);
+
+The code above will assign *n* to be equal to 480.
+
 Remarks
 -------
 
@@ -46,15 +55,6 @@ Use the following table to determine what to call for a given function and matri
     ":func:`fftn`", ":func:`nextn`", ":func:`nextn`", ":func:`nextn`"
     ":func:`rfftn`", ":func:`nextnevn`", ":func:`nextn`", ":func:`nextnevn`"
     ":func:`rfftnp`", ":func:`nextnevn`", ":func:`nextn`", ":func:`nextnevn`"
-
-Examples
-----------------
-
-::
-
-    n = nextn(456);
-
-The code above will assign *n* to be equal to 480.
 
 Source
 ------

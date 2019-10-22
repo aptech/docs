@@ -23,18 +23,6 @@ Format
 
     :rtype y: Nx1 vector
 
-Remarks
-------------
-
-* The "dot" conditional and boolean operators can be used to create *logical*.
-* For every row in *logical*, if a 1 is in the first column, the first
-  element of *new_vals* is used. If a 1 is in the second column, the second
-  element of *new_vals* is used, and so on. 
-* If there are only zeros in the
-  row, the last element of *new_vals* is used. This is the default value.
-* If there is more than a single 1 in any row of *logical*, the function will
-  terminate with an error message.
-
 Examples
 ----------------
 
@@ -133,5 +121,17 @@ After the code above:
         110              0 1               2
         155              0 0               3
 
+
+Remarks
+------------
+
+* The "dot" conditional and boolean operators can be used to create *logical*.
+* For every row in *logical*, if a 1 is in the first column, the first
+  element of *new_vals* is used. If a 1 is in the second column, the second
+  element of *new_vals* is used, and so on. 
+* If there are only zeros in the
+  row, the last element of *new_vals* is used. This is the default value.
+* If there is more than a single 1 in any row of *logical*, the function will
+  terminate with an error message.
 
 .. seealso:: Functions :func:`recode`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`substute`, :func:`rescale`, :func:`dummy`

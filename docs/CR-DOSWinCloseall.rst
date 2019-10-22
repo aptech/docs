@@ -13,13 +13,6 @@ Format
 ----------------
 .. function:: DOSWinCloseall
 
-Remarks
--------
-
-Calling :func:`DOSWinCloseall` closes the DOS window immediately, without asking
-for confirmation. If a program is running, its I/O reverts to the
-Command window.
-
 Examples
 ----------------
 
@@ -32,3 +25,11 @@ Examples
     endif;
     
     DOSWinCloseall;
+
+Remarks
+-------
+
+Calling :func:`DOSWinCloseall` closes the DOS window immediately, without asking
+for confirmation. If a program is running, its I/O reverts to the
+Command window.
+

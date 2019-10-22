@@ -27,14 +27,6 @@ Format
 
     :rtype C: matrix
 
-Remarks
--------
-
-The first columns of the output matrix *C* will be the columns of *A* in the
-same order as in *A*. The remaining columns of *C* will be the columns *of* B
-with the key columns removed.
-
-
 Examples
 ----------------
 
@@ -97,5 +89,13 @@ After the code above, *C* equals:
 
     1 3.1 12 0.5 2 1.1
     3 1.2 15 0.6 9 0.1
+
+Remarks
+-------
+
+The first columns of the output matrix *C* will be the columns of *A* in the
+same order as in *A*. The remaining columns of *C* will be the columns *of* B
+with the key columns removed.
+
 
 .. seealso:: Functions :func:`outerJoin`

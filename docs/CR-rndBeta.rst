@@ -44,25 +44,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-The properties of the pseudo-random numbers in *x* are:
-
-.. DANGER:: fix equations
-
-.. math::
-
-   E(x) = a/(a+b)
-
-   Var(x) = a*b/((a+b+1)*(a+b)2)
-
-   0 < x < 1
-   a > 0
-   b > 0
-
-*r* and *c* will be truncated to integers if necessary.
-
 Examples
 ----------------
 
@@ -90,6 +71,25 @@ Example 2
     //If a 'seed' or 'state' vector is passed in,
     //then a state vector will be returned
     { x, newstate } = rndBeta(100, 5, 3, 2, seed);
+
+Remarks
+-------
+
+The properties of the pseudo-random numbers in *x* are:
+
+.. DANGER:: fix equations
+
+.. math::
+
+   E(x) = a/(a+b)
+
+   Var(x) = a*b/((a+b+1)*(a+b)2)
+
+   0 < x < 1
+   a > 0
+   b > 0
+
+*r* and *c* will be truncated to integers if necessary.
 
 Technical Notes
 ---------------

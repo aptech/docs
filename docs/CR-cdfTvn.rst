@@ -36,6 +36,33 @@ Format
 
     :rtype p: Nx1 vector
 
+Examples
+----------------
+
+::
+
+    // Variables
+    x1 = 0.6;
+    x2 = 0.23;
+    x3 = 0.46;
+
+    //Correlations
+    rho12 = 0.2;
+    rho23 = 0.65;
+    rho13 = 0.78;
+
+    /*
+    ** Compute the CDF
+    */
+    p = cdfTvn(x1, x2, x3, rho12, rho23, rho13);
+    print "p =" p;
+
+After the above code, `x` will equal:
+
+::
+
+    p =  0.4373
+
 Remarks
 -------
 
@@ -64,33 +91,6 @@ deviation. For example:
 
 The absolute error for :func:`cdfTvn` is approximately ±2.5e-8 for the entire
 range of arguments.
-
-Examples
-----------------
-
-::
-
-    // Variables
-    x1 = 0.6;
-    x2 = 0.23;
-    x3 = 0.46;
-
-    //Correlations
-    rho12 = 0.2;
-    rho23 = 0.65;
-    rho13 = 0.78;
-
-    /*
-    ** Compute the CDF
-    */
-    p = cdfTvn(x1, x2, x3, rho12, rho23, rho13);
-    print "p =" p;
-
-After the above code, `x` will equal:
-
-::
-
-    p =  0.4373
 
 References
 ----------

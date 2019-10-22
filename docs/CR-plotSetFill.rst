@@ -8,7 +8,7 @@ Sets the fill style, transparency and color for area plots, histograms and bar g
 
 Format
 ----------------
-.. function:: plotSetFill(&myPlot, fillType[, transparency_pct[, colors]])
+.. function:: plotSetFill(&myPlot, fillType[, opacity_pct[, colors]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -35,19 +35,11 @@ Format
 
     :type fillType: Nx1 vector
 
-    :param transparency_pct: Optional argument, between 0 and 1. The percent opacity of the fill.
-    :type transparency_pct: scalar
+    :param opacity_pct: Optional argument, between 0 and 1. The percent opacity of the fill.
+    :type opacity_pct: scalar
 
     :param colors: Optional argument, color names or HTML hex value colors.
     :type colors: string array
-
-Remarks
--------
-
-When graphing without the use of a plotControl structure, these settings
-may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
-selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
-more information on the methods available for customizing your graphs.
 
 Examples
 ----------------
@@ -70,5 +62,13 @@ Examples
 
     // Draw bar graph
     plotBar(myPlot, x, y);
+
+Remarks
+-------
+
+When graphing without the use of a plotControl structure, these settings
+may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
+selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
+more information on the methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`

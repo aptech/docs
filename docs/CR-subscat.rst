@@ -38,18 +38,6 @@ Format
 
     :rtype y: Nx1 vector
 
-Remarks
--------
-
-:func:`reclassifyCuts` offers functionality similar to :func:`subscat`, but:
-
--  Also assigns values to data past the final breakpoint.
--  Offers the option of whether the breakpoints are open or closed on
-   the right(e.g., < or ≤).
--  Assigns the input to two categories in the case of a single
-   breakpoint, (e.g., :math:`level\_1 < break < level\_2`). Whereas, :func:`subscat` tests
-   for equality in the case of a single breakpoint.
-
 Examples
 ----------------
 
@@ -132,6 +120,18 @@ After the code above, *x* is equal to:
     0
 
 Replacing instances of one particular value with another value can also be accomplished with :func:`reclassify` and :func:`substute`
+
+Remarks
+-------
+
+:func:`reclassifyCuts` offers functionality similar to :func:`subscat`, but:
+
+-  Also assigns values to data past the final breakpoint.
+-  Offers the option of whether the breakpoints are open or closed on
+   the right(e.g., < or ≤).
+-  Assigns the input to two categories in the case of a single
+   breakpoint, (e.g., :math:`level\_1 < break < level\_2`). Whereas, :func:`subscat` tests
+   for equality in the case of a single breakpoint.
 
 .. seealso:: Functions :func:`reclassify`, :func:`reclassifyCuts`, :func:`substute`
 

@@ -18,6 +18,17 @@ Format
 
     :rtype y: NxK matrix or N-dimensional array
 
+Examples
+----------------
+
+::
+
+    y = ln(16);
+
+::
+
+    y = 2.7725887
+
 Remarks
 -------
 
@@ -35,16 +46,5 @@ will compute a complex result.
 
 *x* can be any expression that returns a matrix.
 
-
-Examples
-----------------
-
-::
-
-    y = ln(16);
-
-::
-
-    y = 2.7725887
 
 .. seealso:: Functions :func:`log`

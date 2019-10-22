@@ -21,24 +21,6 @@ Format
 
     :rtype z: KxK matrix or N-dimensional array where the last two dimensions are KxK
 
-Remarks
----------------------
-
-Returns a balanced matrix *b* and another matrix *z*
-with scale factors in powers of two on its diagonal. *b* is balanced in the
-sense that the absolute sums of the magnitudes of elements in corresponding
-rows and columns are nearly equal.
-
-:func:`balance` is most often used to scale matrices to improve the numerical
-stability of the calculation of their eigenvalues. It is also useful in
-the solution of matrix equations.
-
-In particular,
-
-.. math:: \mathit{b = \, z^{- 1}xz}
-
-:func:`balance` uses the `BALANC` function from `EISPACK`
-
 Examples
 ----------------
 
@@ -61,3 +43,22 @@ The above code will assign *b* and *z* as shown below.
     z = 4.0  0.0  0.0
         0.0  2.0  0.0
         0.0  0.0  0.5
+
+Remarks
+---------------------
+
+Returns a balanced matrix *b* and another matrix *z*
+with scale factors in powers of two on its diagonal. *b* is balanced in the
+sense that the absolute sums of the magnitudes of elements in corresponding
+rows and columns are nearly equal.
+
+:func:`balance` is most often used to scale matrices to improve the numerical
+stability of the calculation of their eigenvalues. It is also useful in
+the solution of matrix equations.
+
+In particular,
+
+.. math:: \mathit{b = \, z^{- 1}xz}
+
+:func:`balance` uses the `BALANC` function from `EISPACK`
+

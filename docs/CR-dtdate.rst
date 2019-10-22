@@ -33,12 +33,6 @@ Format
 
     :rtype dt: NxK matrix
 
-Remarks
--------
-
-The arguments must be ExE conformable.
-
-
 Examples
 ----------------
 
@@ -58,6 +52,12 @@ After the above code:
 ::
   
     20121221112756
+
+
+Remarks
+-------
+
+The arguments must be ExE conformable.
 
 
 Source

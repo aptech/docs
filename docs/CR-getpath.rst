@@ -18,12 +18,6 @@ Format
 
     :rtype fname: string
 
-Remarks
--------
-
-This function handles relative path references.
-
-
 Examples
 ----------------
 
@@ -38,6 +32,12 @@ Examples
     C:\gauss\temp.e
 
 assuming that ``C:\gauss`` is the current directory.
+
+Remarks
+-------
+
+This function handles relative path references.
+
 
 Source
 ------

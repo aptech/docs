@@ -21,12 +21,6 @@ Format
 
     :rtype B: NxN square matrix
 
-Remarks
--------
-
-If :math:`n = 0`, then the function will return an identity matrix.
-
-
 Examples
 ----------------
 
@@ -53,6 +47,12 @@ After the code above:
     B=
     37.000000        54.000000 
     81.000000        118.00000
+
+Remarks
+-------
+
+If :math:`n = 0`, then the function will return an identity matrix.
+
 
 .. seealso:: Functions :func:`crossprd`
 

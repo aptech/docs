@@ -20,6 +20,16 @@ Global Input
 
 :__maxbytes: (*scalar*) maximum memory to be used.
 
+Examples
+----------------
+
+::
+
+    y = maxbytes;
+    print y;
+
+        100000000.000
+
 Remarks
 -------
 
@@ -34,16 +44,6 @@ to :func:`readr`.
 meaningful number for your operating system and if you wish to reference
 it, set *__maxbytes* = 0 and then call :func:`maxbytes`.
 
-
-Examples
-----------------
-
-::
-
-    y = maxbytes;
-    print y;
-
-        100000000.000
 
 Source
 ------

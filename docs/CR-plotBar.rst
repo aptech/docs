@@ -19,6 +19,18 @@ Format
     :param height: bar heights. *K* overlapping or side-by-side sets of *N* bars will be graphed.
     :type height: NxK numeric vector
 
+Examples
+----------------
+
+::
+
+    // Create data and labels
+    labels = "January" $| "June";
+    temp = { 68, 105 };
+    
+    // Draw bar graph
+    plotBar(labels, temp);
+
 Remarks
 -------
 
@@ -33,18 +45,6 @@ in the Preferences. To access the Graphics Preferences, select
 :menuselection:`Tools --> Preferences` from the GAUSS main menu. Select **Graphics** on
 the left side of the preferences and then select **Bar** from the list
 of graph types.
-
-Examples
-----------------
-
-::
-
-    // Create data and labels
-    labels = "January" $| "June";
-    temp = { 68, 105 };
-    
-    // Draw bar graph
-    plotBar(labels, temp);
 
 .. seealso:: Functions :func:`plotXY`, :func:`plotLogX`, :func:`plotHist`
 

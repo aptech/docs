@@ -35,14 +35,6 @@ Global Input
     Default = 12.
 
 
-Remarks
--------
-
-The user-defined function *f* must return a vector of function values.
-:func:`intquad1` will pass to the user-defined function a vector or matrix for *x*
-and expect a vector or matrix to be returned. Use the ``.*`` and ``./`` instead
-of ``*`` and ``/``.
-
 Examples
 ----------------
 
@@ -101,6 +93,14 @@ After the code above, *y* should equal:
 ::
 
     0.31863247
+
+Remarks
+-------
+
+The user-defined function *f* must return a vector of function values.
+:func:`intquad1` will pass to the user-defined function a vector or matrix for *x*
+and expect a vector or matrix to be returned. Use the ``.*`` and ``./`` instead
+of ``*`` and ``/``.
 
 Source
 ------

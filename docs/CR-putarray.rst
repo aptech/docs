@@ -24,20 +24,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-If *loc* is an Nx1 vector, then *src* must be a scalar. If *loc* is an [N-1]x1
-vector, then *src* must be a 1-dimensional array or a 1xL vector, where *L*
-is the size of the fastest moving dimension of the array. If *loc* is an
-[N-2]x1 vector, then *src* must be a KxL matrix, or a KxL 2-dimensional
-array, where *K* is the size of the second fastest moving dimension.
-
-Otherwise, if *loc* is an Mx1 vector, then *src* must be an [N-M]-dimensional
-array, whose dimensions are the same size as the corresponding
-dimensions of array *a*.
-
-
 Examples
 ----------------
 
@@ -56,5 +42,19 @@ Examples
 
 This example sets the contiguous 4x5x6 subarray of *a* beginning at [2,1,1,1,1] to
 the array *src*, in which each element is set to the specified value 5.
+
+Remarks
+-------
+
+If *loc* is an Nx1 vector, then *src* must be a scalar. If *loc* is an [N-1]x1
+vector, then *src* must be a 1-dimensional array or a 1xL vector, where *L*
+is the size of the fastest moving dimension of the array. If *loc* is an
+[N-2]x1 vector, then *src* must be a KxL matrix, or a KxL 2-dimensional
+array, where *K* is the size of the second fastest moving dimension.
+
+Otherwise, if *loc* is an Mx1 vector, then *src* must be an [N-M]-dimensional
+array, whose dimensions are the same size as the corresponding
+dimensions of array *a*.
+
 
 .. seealso:: Functions `setarray`

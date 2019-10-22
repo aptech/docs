@@ -25,18 +25,6 @@ Global Input
 
     scalar, if the singular values cannot be computed, *\_svderr* will be nonzero.
 
-Remarks
--------
-
-#. :func:`svd` is not threadsafe. New code should use :func:`svds` instead.
-#. Error handling is controlled with the low bit of the `trap` flag.
-
-   +------------+---------------------------------------------------------------+
-   | **trap 0** | set *\_svderr* to a non-zero value and terminate with message |
-   +------------+---------------------------------------------------------------+
-   | **trap 1** | set *\_svderr* to a non-zero value and continue execution     |
-   +------------+---------------------------------------------------------------+
-
 Examples
 ----------------
 
@@ -64,6 +52,18 @@ After the code above, *s* will be equal to:
     49.58 
     14.96 
      2.24
+
+Remarks
+-------
+
+#. :func:`svd` is not threadsafe. New code should use :func:`svds` instead.
+#. Error handling is controlled with the low bit of the `trap` flag.
+
+   +------------+---------------------------------------------------------------+
+   | **trap 0** | set *\_svderr* to a non-zero value and terminate with message |
+   +------------+---------------------------------------------------------------+
+   | **trap 1** | set *\_svderr* to a non-zero value and continue execution     |
+   +------------+---------------------------------------------------------------+
 
 Source
 ------

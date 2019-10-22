@@ -21,39 +21,6 @@ Format
 
     :rtype y: scalar
 
-Remarks
--------
-
-* You can test to see if a variable is a scalar error code with the function :func:`scalmiss`. For example:
-  ::
-
-      // Create scalar error code
-      x = error(4);
-
-      // Check to see if 'x' is a scalar error code
-      if scalmiss(x);
-          // If it is a scalar error code, print
-          // the error code
-          print scalerr(x);
-      endif;
-
-* The user may assign any number in the range 0-65535 to denote particular
-  error conditions. This number may be tested for as an error code by
-  :func:`scalerr`.
-
-* The :func:`scalerr` function will return the value of the error code and so is
-  the reverse of error. These user-generated error codes work in the same
-  way as the intrinsic GAUSS error codes which are generated automatically
-  when :code:`trap 1` is on and certain GAUSS functions detect a numerical
-  error such as a singular matrix.
-
-::
-
-    error(0);
-
-is equal to the missing value code.
-
-
 Examples
 ----------------
 
@@ -113,6 +80,39 @@ The code above will print out:
 ::
 
     Error code returned with value: 12
+
+Remarks
+-------
+
+* You can test to see if a variable is a scalar error code with the function :func:`scalmiss`. For example:
+  ::
+
+      // Create scalar error code
+      x = error(4);
+
+      // Check to see if 'x' is a scalar error code
+      if scalmiss(x);
+          // If it is a scalar error code, print
+          // the error code
+          print scalerr(x);
+      endif;
+
+* The user may assign any number in the range 0-65535 to denote particular
+  error conditions. This number may be tested for as an error code by
+  :func:`scalerr`.
+
+* The :func:`scalerr` function will return the value of the error code and so is
+  the reverse of error. These user-generated error codes work in the same
+  way as the intrinsic GAUSS error codes which are generated automatically
+  when :code:`trap 1` is on and certain GAUSS functions detect a numerical
+  error such as a singular matrix.
+
+::
+
+    error(0);
+
+is equal to the missing value code.
+
 
 .. seealso:: Functions :func:`scalerr`, `trap`, `trapchk`
 

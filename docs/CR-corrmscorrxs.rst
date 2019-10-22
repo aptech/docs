@@ -22,14 +22,6 @@ Format
 
     :rtype cx: PxP correlation matrix
 
-Remarks
-------------
-
-The correlation matrix is the standardized version of the
-correlation/covariance matrix computed from the input data, that is, it
-divides the sample size, :math:`N`, rather than :math:`N - 1`. For an unbiased estimate
-correlation/covariance matrix which uses :math:`N - 1`, use :func:`corrm` or :func:`corrx`.
-
 Examples
 ----------------
 
@@ -80,6 +72,14 @@ After the above code,
     	 1.0000000       0.52196856       0.75039768
     	0.52196856        1.0000000       0.95548228
     	0.75039768       0.95548228        1.0000000
+
+Remarks
+------------
+
+The correlation matrix is the standardized version of the
+correlation/covariance matrix computed from the input data, that is, it
+divides the sample size, :math:`N`, rather than :math:`N - 1`. For an unbiased estimate
+correlation/covariance matrix which uses :math:`N - 1`, use :func:`corrm` or :func:`corrx`.
 
 Source
 ------------

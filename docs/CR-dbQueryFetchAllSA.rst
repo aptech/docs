@@ -22,15 +22,6 @@ Format
 
     :rtype result: string array
 
-Remarks
--------
-
-For numerical only results, use :func:`dbQueryFetchAllM` to return a matrix.
-
-This function retrieves all rows at once. You can process rows in an
-iterative manner by using :func:`dbQuerySeekNext` with either :func:`dbQueryFetchOneM` or
-:func:`dbQueryFetchOneSA`.
-
 Examples
 ----------------
 
@@ -54,5 +45,14 @@ Examples
     if not scalmiss(names);
         print "People in the USA = " names;
     endif;
+
+Remarks
+-------
+
+For numerical only results, use :func:`dbQueryFetchAllM` to return a matrix.
+
+This function retrieves all rows at once. You can process rows in an
+iterative manner by using :func:`dbQuerySeekNext` with either :func:`dbQueryFetchOneM` or
+:func:`dbQueryFetchOneSA`.
 
 .. seealso:: Functions :func:`dbQueryFetchAllM`, :func:`dbQueryFetchNextSA`, :func:`dbQueryFetchNextM`

@@ -26,14 +26,6 @@ Format
 
     :rtype x: NxK matrix, Nx1 vector or scalar
 
-Remarks
--------
-
-For invalid inputs, :func:`cdfFncInv` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
-
 Examples
 ----------------
 
@@ -70,5 +62,13 @@ After running the above code,
    1.6350
    2.4132
    3.9044
+
+Remarks
+-------
+
+For invalid inputs, :func:`cdfFncInv` will return a scalar error code which,
+when its value is assessed by function :func:`scalerr`, corresponds to the
+invalid input. If the first input is out of range, :func:`scalerr` will return a
+1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
 .. seealso:: :func:`cdfFnc`, :func:`cdfChinc`, :func:`cdfChic`, :func:`cdfTnc`

@@ -17,19 +17,6 @@ Format
 
     :rtype y: Kx1 vector
 
-Remarks
--------
-
-This function essentially computes:
-
-::
-
-   sqrt(1/(N)*sumc((x-meanc(x)')2))
-
-Thus, the divisor is :math:`N` rather than :math:`N-1`, where :math:`N` is the number of
-elements being summed. See :func:`stdc` for the alternate definition.
-
-
 Examples
 ----------------
 
@@ -48,6 +35,19 @@ The return, in variable *std* is equal to:
     1.00095980 
     0.99488832 
     1.00201375
+
+Remarks
+-------
+
+This function essentially computes:
+
+::
+
+   sqrt(1/(N)*sumc((x-meanc(x)')2))
+
+Thus, the divisor is :math:`N` rather than :math:`N-1`, where :math:`N` is the number of
+elements being summed. See :func:`stdc` for the alternate definition.
+
 
 .. seealso:: Functions :func:`stdc`, :func:`astds`, :func:`meanc`
 

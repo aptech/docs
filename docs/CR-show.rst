@@ -37,6 +37,22 @@ Format
 :symbol: the name of the symbol to be shown. If the last character is 
     an asterisk (``*``), all symbols beginning with the supplied characters will be shown.
 
+Examples
+----------------
+
+::
+
+    show -fpg eig*;
+
+This command will show all functions and procedures that have global
+references and begin with *eig*.
+
+::
+
+    show -m;
+
+This command will show all matrices.
+
 Remarks
 -------
 
@@ -114,22 +130,6 @@ the `new` command.
 
 The maximum number of global and local symbols is controlled by the
 *maxglobals* and *maxlocals* configuration variables in :file:`gauss.cfg`.
-
-Examples
-----------------
-
-::
-
-    show -fpg eig*;
-
-This command will show all functions and procedures that have global
-references and begin with *eig*.
-
-::
-
-    show -m;
-
-This command will show all matrices.
 
 .. seealso:: Functions `new`, `delete`
 

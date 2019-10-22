@@ -21,6 +21,13 @@ Format
 
     :rtype varname: string
 
+Examples
+----------------
+
+::
+
+    varname = gdaGetName("myfile.gda", 5);
+
 Remarks
 -------
 
@@ -40,12 +47,5 @@ following:
 | 8 | Variable not found.                                 |
 +---+-----------------------------------------------------+
 
-
-Examples
-----------------
-
-::
-
-    varname = gdaGetName("myfile.gda", 5);
 
 .. seealso:: Functions :func:`gdaGetIndex`, :func:`gdaRead`, :func:`gdaGetNames`

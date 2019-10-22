@@ -37,12 +37,6 @@ Format
 
     :rtype ret: scalar
 
-Remarks
--------
-
-The rows of the dataset in *fname* contain sequences of the integers from
-1 to *N* in combinations taken *K* at a time.
-
 Examples
 ----------------
 
@@ -113,5 +107,11 @@ The first row of the output, ``Jim Harry``, is the first and second element of *
 because the first row of *y* is equal to ``1 2``. The fourth row of the 
 output is ``Harry Susan``, because the fourth row of *y* is ``2 3`` and ``Harry`` is the second element of *vnames*
 while ``Susan`` is the third element.
+
+Remarks
+-------
+
+The rows of the dataset in *fname* contain sequences of the integers from
+1 to *N* in combinations taken *K* at a time.
 
 .. seealso:: Functions :func:`combinate`, :func:`numCombinations`

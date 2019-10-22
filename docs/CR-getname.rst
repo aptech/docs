@@ -18,12 +18,6 @@ Format
 
     :rtype var_names: Nx1 vector
 
-Remarks
--------
-
-The output, *var_names*, will have as many rows as there are variables in the dataset.
-
-
 Examples
 ----------------
 
@@ -50,6 +44,12 @@ produces:
     PAY
     sex
     WT
+
+
+Remarks
+-------
+
+The output, *var_names*, will have as many rows as there are variables in the dataset.
 
 
 .. seealso:: Functions :func:`getnamef`, :func:`indcv`

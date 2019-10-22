@@ -19,14 +19,6 @@ Format
 
     :rtype ret: scalar
 
-Remarks
--------
-
-Note that the result must be in the active state or it will do nothing
-and return. This can be verified by calling the :func:`dbQueryIsSelect`
-function.
-
-
 Examples
 ----------------
 
@@ -46,3 +38,12 @@ Examples
     do while dbQuerySeekNext(qid);
         // iterate over results AGAIN
     endo;
+
+Remarks
+-------
+
+Note that the result must be in the active state or it will do nothing
+and return. This can be verified by calling the :func:`dbQueryIsSelect`
+function.
+
+

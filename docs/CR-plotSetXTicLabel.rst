@@ -23,6 +23,72 @@ Format
     :param angle: Optional argument, the angle in degrees at which to display the X-axis tic labels.
     :type angle: scalar
 
+Examples
+----------------
+
+Time series
++++++++++++
+
+::
+
+    // Declare and initialize plotControl structure
+    struct plotControl myPlot;
+    myPlot = plotGetDefaults("xy");
+
+    y = rndn(5, 1);
+
+    plotSetXTicLabel(&myPlot, "YYYY-MO");
+
+    // Start the series in January 1982
+    dtstart = 198201;
+
+    // Specify the data to be monthly
+    frequency = 12;
+
+    // Draw the time series plot
+    plotTS(myPlot, dtstart, frequency, y);
+
+The code above produces a graph with X-tic labels like the image below:
+
+.. figure:: _static/images/gauss15_psxtl_1.png
+
+    X-tic labels
+
+Changing to format string to ``"MO/YYYY"`` will change the labels to appear like this:
+
+::
+
+    01/1982
+
+Changing to format string to ``"YYYY-QQ"`` will change the the labels to appear like this:
+
+::
+
+    1982-Q1
+
+Other than time series
+++++++++++++++++++++++
+
+::
+
+    // Declare and initialize plotControl structure
+    struct plotControl myPlot;
+    myPlot = plotGetDefaults("xy");
+
+    x = seqa(0.015, 0.015, 10);
+    y = cos(x.^2);
+
+    plotSetXTicLabel(&myPlot, "%.3f");
+
+    // Draw the graph, using our format specifier
+    plotXY(myPlot, x, y);
+
+The code above produces a graph with X-tic labels like the image below:
+
+.. figure:: _static/images/gauss15_psxtl_1.png
+
+    XY formatted label
+
 Remarks
 -------
 
@@ -104,71 +170,5 @@ affect an existing graph, or a new graph drawn using the default
 settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
 menu. See **GAUSS Graphics**, Chapter 1, for more information on the
 methods available for customizing your graphs.
-
-Examples
-----------------
-
-Time series
-+++++++++++
-
-::
-
-    // Declare and initialize plotControl structure
-    struct plotControl myPlot;
-    myPlot = plotGetDefaults("xy");
-
-    y = rndn(5, 1);
-
-    plotSetXTicLabel(&myPlot, "YYYY-MO");
-
-    // Start the series in January 1982
-    dtstart = 198201;
-
-    // Specify the data to be monthly
-    frequency = 12;
-
-    // Draw the time series plot
-    plotTS(myPlot, dtstart, frequency, y);
-
-The code above produces a graph with X-tic labels like the image below:
-
-.. figure:: _static/images/gauss15_psxtl_1.png
-
-    X-tic labels
-
-Changing to format string to ``"MO/YYYY"`` will change the labels to appear like this:
-
-::
-
-    01/1982
-
-Changing to format string to ``"YYYY-QQ"`` will change the the labels to appear like this:
-
-::
-
-    1982-Q1
-
-Other than time series
-++++++++++++++++++++++
-
-::
-
-    // Declare and initialize plotControl structure
-    struct plotControl myPlot;
-    myPlot = plotGetDefaults("xy");
-
-    x = seqa(0.015, 0.015, 10);
-    y = cos(x.^2);
-
-    plotSetXTicLabel(&myPlot, "%.3f");
-
-    // Draw the graph, using our format specifier
-    plotXY(myPlot, x, y);
-
-The code above produces a graph with X-tic labels like the image below:
-
-.. figure:: _static/images/gauss15_psxtl_1.png
-
-    XY formatted label
 
 .. seealso:: Functions :func:`dttostr`, :func:`strtodt`, :func:`plotSetXLabel`, :func:`plotSetXTicInterval`, :func:`plotSetTicLabelFont`

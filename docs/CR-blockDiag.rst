@@ -18,10 +18,6 @@ Format
 
     :rtype d: matrix
 
-Remarks
-----------------
-The input matrices may be square or rectangular. The matrices do not need to have the same dimensions.
-
 Examples
 ----------------
 
@@ -47,3 +43,8 @@ After the above code, *d* should equal:
     d =   0   0 0.8   0   0   0
           0   0   0 0.2 1.0 0.7
           0   0   0 1.3 0.6 1.4
+
+Remarks
+----------------
+The input matrices may be square or rectangular. The matrices do not need to have the same dimensions.
+

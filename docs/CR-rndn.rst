@@ -38,12 +38,6 @@ Format
 
     :rtype newstate: Opaque vector
 
-Remarks
--------
-
-*r* and *c* will be truncated to integers if necessary.
-
-
 Examples
 ----------------
 
@@ -102,6 +96,12 @@ the next generation of random numbers.
      
     mean = meanc(submean);
     print mean;
+
+Remarks
+-------
+
+*r* and *c* will be truncated to integers if necessary.
+
 
 Technical Notes
 ----------------

@@ -18,12 +18,6 @@ Format
 
     :rtype y: NxK matrix
 
-Remarks
--------
-
-This rounds every element in the matrix *x* to an integer. The elements
-are rounded up toward :math:`+∞`.
-
 Examples
 ----------------
 
@@ -38,5 +32,11 @@ After the code above, the matrices *x* and *y* should hold values similar to bel
 
     x = 8.73383  -0.783488  y = 9.0000000  0.0000000
         13.1106   7.155113      14.000000  8.0000000
+
+Remarks
+-------
+
+This rounds every element in the matrix *x* to an integer. The elements
+are rounded up toward :math:`+∞`.
 
 .. seealso:: Functions :func:`floor`, :func:`trunc`

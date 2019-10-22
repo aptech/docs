@@ -21,13 +21,6 @@ Format
 
     :rtype ve: Nx1 vector
 
-Remarks
--------
-
-*ve* is the vector of eigenvalues of the solution of the generalized
-symmetric eigenproblem of the form :math:`Ax = λBx`.
-
-
 Examples
 ----------------
 
@@ -59,5 +52,12 @@ The code above returns:
     0.9494
 
 This procedure calls the LAPACK routines *DSYGV* and *ZHEGV*.
+
+Remarks
+-------
+
+*ve* is the vector of eigenvalues of the solution of the generalized
+symmetric eigenproblem of the form :math:`Ax = λBx`.
+
 
 .. seealso:: Functions :func:`lapgeig`, :func:`lapgeighv`

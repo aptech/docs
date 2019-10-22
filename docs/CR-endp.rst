@@ -11,16 +11,6 @@ Format
 ----------------
 .. function:: endp
 
-Remarks
--------
-
-The `endp` statement marks the end of a procedure definition that began with a `proc` statement or
-`keyword` statement. (For details on writing and using procedures, see
-`Procedures and Keywords`, Chapter 1.)
-
-.. DANGER:: fix reference to user guide
-
-
 Examples
 ----------------
 
@@ -42,5 +32,15 @@ After executing the above code:
         0.1546
     b = 1.5028
        -0.1284
+
+Remarks
+-------
+
+The `endp` statement marks the end of a procedure definition that began with a `proc` statement or
+`keyword` statement. (For details on writing and using procedures, see
+`Procedures and Keywords`, Chapter 1.)
+
+.. DANGER:: fix reference to user guide
+
 
 .. seealso:: Functions `proc`, `keyword`, `retp`

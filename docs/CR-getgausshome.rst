@@ -15,16 +15,6 @@ Format
 
     :rtype g_home: string
 
-Remarks
--------
-
-:func:`getGAUSSHome` can be used to load and save files in directories that are
-relative to the GAUSS installation directory without knowing its exact
-location ahead of time. This can help to make programs that will run on
-multiple computers, using different paths without any changes to the
-code.
-
-
 Examples
 ----------------
 
@@ -52,5 +42,15 @@ loading a file from the GAUSS examples directory
 
     // Load the dataset
     fuel_economy = loadd(f_name);
+
+Remarks
+-------
+
+:func:`getGAUSSHome` can be used to load and save files in directories that are
+relative to the GAUSS installation directory without knowing its exact
+location ahead of time. This can help to make programs that will run on
+multiple computers, using different paths without any changes to the
+code.
+
 
 .. seealso:: Functions `__FILE_DIR`

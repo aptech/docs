@@ -19,14 +19,6 @@ Format
 
     :rtype ret: scalar
 
-Remarks
--------
-
-Note that the result must be in the active state and :func:`dbQueryIsSelect`
-must return 1 before calling this function or it will do nothing and
-return 0.
-
-
 Examples
 ----------------
 
@@ -48,5 +40,13 @@ Examples
        // Print last state: Wyoming
        print dbQueryFetchOneSA(qid);
     endif;
+
+Remarks
+-------
+
+Note that the result must be in the active state and :func:`dbQueryIsSelect`
+must return 1 before calling this function or it will do nothing and
+return 0.
+
 
 .. seealso:: Functions :func:`dbQuerySeekNext`, :func:`dbQuerySeekPrevious`, :func:`dbQuerySeekFirst`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`

@@ -21,12 +21,6 @@ Format
     :param val: the value to be bound.
     :type val: matrix or string 
 
-Remarks
--------
-
-Values cannot be bound to multiple locations in the query.
-
-
 Examples
 ----------------
 
@@ -49,3 +43,10 @@ Examples
 
     // Prepare the SQL query for execution
     dbQueryExecPrepared(qid);
+
+Remarks
+-------
+
+Values cannot be bound to multiple locations in the query.
+
+

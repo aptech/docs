@@ -21,12 +21,6 @@ Format
 
     :rtype y: N-dimensional array
 
-Remarks
--------
-
-The vector of dimension indices must be a unique vector of integers,
-between 1 and N, where 1 corresponds to the first element of the vector of orders.
-
 Examples
 ----------------
 
@@ -105,5 +99,11 @@ Using the same array *x* as the example above, this example transposes all three
       10.000   22.000
       11.000   23.000
       12.000   24.000
+
+Remarks
+-------
+
+The vector of dimension indices must be a unique vector of integers,
+between 1 and N, where 1 corresponds to the first element of the vector of orders.
 
 .. seealso:: Functions :func:`areshape`, :func:`squeeze`
