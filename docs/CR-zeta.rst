@@ -17,8 +17,29 @@ Format
 
     :rtype f: NxK matrix
 
+Example
+--------
+
+::
+
+    f = zeta(2);
+
+After the above code, *f* will equal:
+
+::
+
+    1.6449341
+
+which is equivalent to :math:`\frac{\pi^2}{6}`.
+
 Remarks
 -------
+
+The Riemann zeta function is represented by the equation:
+
+.. math::
+
+    \zeta(s) = \frac{1}{\Gamma(s)} \int_0^\infty \frac{x^{s-1}}{e^x-1} dx
 
 Euler MacLaurin series.
 
