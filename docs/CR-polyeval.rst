@@ -38,7 +38,7 @@ Scalar example 1
     // Evaluate 2^4 + 2^3 + 2^1 + 2^0
     x = 2;
     coefs = { 1, 1, 0, 1, 1 };
-    y = polyeval(x,coefs);
+    y = polyeval(x, coefs);
 
 The result is 27. Note that this is the decimal value of the binary number 11011.
 
@@ -50,7 +50,7 @@ Scalar example 2
     // Evaluate 7*2^3 + 2^1 + 2^0
     x = 2;
     coefs = { 7, 0, 1, 1 };
-    y = polyeval(x,coefs);
+    y = polyeval(x, coefs);
 
 The result is 59.
 
@@ -81,13 +81,13 @@ Matrix example 2
     A = { 1.2 3.1,
           1.7 0.8 };
     coefs = 1|zeros(4,1);
-    y = polyeval(A,coefs);
+    y = polyeval(A, coefs);
 
 You can raise a matrix to the n'th power with the command:
 
 ::
 
-    A_n = polyeval(A, 1|zeros(n,1));
+    A_n = polyeval(A, 1|zeros(n, 1));
 
 (e.g: *A\*A\*A\*A\*...\*A*).
 
@@ -95,7 +95,7 @@ Remarks
 -------
 
 In both the scalar and the matrix case, Horner's rule is used to do the
-evaluation. In the scalar case, the function recsercp is called (this
+evaluation. In the scalar case, the function func:`recsercp` is called (this
 implements an elaboration of Horner's rule).
 
 Source

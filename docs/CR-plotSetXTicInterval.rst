@@ -16,7 +16,7 @@ Format
     :param ticInterval: the distance between X-axis tick labels.
     :type ticInterval: scalar
 
-    :param firstLabeled: Optional input, the value of the first X-value on which to place a tick label.
+    :param firstLabeled: Optional input, the value of the first X value on which to place a tick label.
     :type firstLabeled: scalar
 
 Examples
@@ -30,16 +30,16 @@ XY plot
     // Create the sequence 0.25, 0.5, 0.75...3
     x = seqa(0.25, 0.25, 12);
     y = sin(x);
-    
+
     // Declare plotControl structure
     // and fill with default settings for XY plots
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
-    
+
     // Place the first X-tick label at 0.5
     // and place additional ticks every 0.25 after
     plotSetXTicInterval(&myPlot, 0.25, 0.5);
-    
+
     // Draw plot with applied X-tick settings
     plotXY(myPlot, x, y);
 
@@ -53,20 +53,20 @@ Scalar starting date
     // Declare and initialize plotControl structure
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
-    
+
     // Place one tick label every 4 x-values
     ticInterval = 4;
     plotSetXTicInterval(&myPlot, ticInterval);
-    
+
     // Start the time series in April of 2008
     dtstart = 200804;
-    
+
     // Specify quarterly data
     frequency = 4;
-    
+
     // Create the multiplicative sequence 1, 2, 4, 8...
     y = seqm(1, 2, 10);
-    
+
     // Create a time series plot of the data.
     plotTS(myPlot, dtstart, frequency, y);
 
@@ -89,30 +89,28 @@ Daily data with full time vector
 
     // Fully pathed file name
     fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
-    
-    fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
-    
+
     // Load all observations from variables,
     // 'Date' and 'Adj Close'
     data = loadd(fname, "Date + Adj Close");
-    
+
     // Separate the 'date' vector and 'adjusted close'
     // into different vectors
-    date_vec = data[.,1];
-    closing_price = data[.,2];
-    
+    date_vec = data[., 1];
+    closing_price = data[., 2];
+
     // Declare 'myPlot' to be a plotControl structure
     // and fill with default settings for XY plots
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
-    
+
     // Draw the first X-tick label at July 2017
     // Draw a new X-tick label every 3 label_units,
-    // which is 'months' in this case 
+    // which is 'months' in this case
     plotSetXTicInterval(&myPlot, 3, 201707);
-    
+
     label_unit = "months";
-    
+
     // Create a time series plot of the data.
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
@@ -126,9 +124,9 @@ Let's keep the tick labels on the same locations, however, create 1 tick label e
     // Draw a new X-tick label every 1 label_unit,
     // which is 'quarters' in this case
     plotSetXTicInterval(&myPlot, 1, 201707);
-    
+
     label_unit = "quarters";
-    
+
     // Create a time series plot of the data.
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
@@ -147,4 +145,3 @@ menu. See **GAUSS Graphics**, Chapter 1, for more information on the
 methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`dttostr`, :func:`strtodt`, :func:`plotSetXLabel`, :func:`plotSetXTicLabel`, :func:`plotSetTicLabelFont`
-

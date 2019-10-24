@@ -5,7 +5,7 @@ logx
 Purpose
 ----------------
 
-Graphs X vs. Y using log coordinates for the X axis.
+Graphs X vs. Y using log coordinates for the x-axis.
 
 .. NOTE:: This function is for use with the deprecated PQG graphics. Use :func:`plotLogX` instead.
 

@@ -78,8 +78,8 @@ bar are stored in :math:`x[i,.]`.
     _pbartyp = { 1 10 };
     _pnum = 2;
 
-    // Use t vector to label X axis.
-    bar(t, x); 
+    // Use t vector to label x-axis.
+    bar(t, x);
 
 Remarks
 -------

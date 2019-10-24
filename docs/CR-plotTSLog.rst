@@ -43,17 +43,20 @@ Format
 
     :type date_vec: Nx1 vector
 
-    :param label_unit: containing the frequency with which to display the X axis tick labels.
+    :param label_unit: containing the frequency with which to display the x-axis tick labels.
 
         .. NOTE:: This input is only used with a full length *date_vec* vector. Valid options include:
 
-            - "seconds"
-            - "minutes"
-            - "hours"
-            - "days"
-            - "months"
-            - "quarters"
-            - "years"
+          .. csv-table::
+            :widths: auto
+
+              "seconds"
+              "minutes"
+              "hours"
+              "days"
+              "months"
+              "quarters"
+              "years"
 
     :type label_unit: string
 
@@ -107,8 +110,8 @@ T-bill plot with full date vector
     x = loadd(file, "obs_date + tbill_3m");
 
     // Separate date vector and tbill data
-    date_vec = x[ ., 1 ];
-    y = x[ ., 2 ];
+    date_vec = x[., 1];
+    y = x[., 2];
 
     // Specify that tick labels should be
     // on years, even though the data is monthly
@@ -132,16 +135,15 @@ Daily data with full date vector
     // Select the first 150 observations
     // from the date vector and the adjusted close
     nobs = 150;
-    date_vec = data[ 1:nobs, 1 ];
-    closing_price = data[ 1:nobs, 2 ];
-
+    date_vec = data[1:nobs, 1];
+    closing_price = data[1:nobs, 2];
 
     // Draw plot of this daily data, specifying
     // that the X-tick labels should be set in
     // terms of months
     plotTSLog(date_vec, "months", closing_price);
 
-Time Series Plot With Custom X-tics
+Time Series Plot With Custom X-ticks
 +++++++++++++++++++++++++++++++++++
 
 ::
@@ -185,7 +187,7 @@ also represents the second quarter of April 2005.
 Remarks
 -------
 
-Formatting for the X-tick labels can be set with the function
+Formatting for the x-tick labels can be set with the function
 :func:`plotSetXTicLabel`. If a :class:`plotControl` structure is not passed in to
 :func:`plotTSLog`, or the format specifier is not set with :func:`plotSetXTicLabel` the
 default formatting: for annual data is ``"YYYY"``, for quarterly data

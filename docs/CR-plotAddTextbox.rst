@@ -32,10 +32,10 @@ Basic textbox
 
     // Create text for textbox
     box_text = "Periods of recession are highlighted";
-    
+
     x_start = 4;
     y_start = 3;
-    
+
     // Add textbox to the (4,3) location on the last draw graph
     plotAddTextbox(box_text, x_start, y_start);
 
@@ -50,26 +50,26 @@ Customized textbox
     x = rndn(100, 1);
     y = b_0 + b_1 .* x + rndn(100, 1);
     plotScatter(x, y);
-    
+
     // Declare instance of plotAnnotation structure
     // and fill in with default values
     struct plotAnnotation myTextbox;
     myTextbox = annotationGetDefaults();
-    
+
     // Set textbox background to 'light gray' with 20% opacity
     annotationSetBkd(&myTextbox, "light gray", 0.2);
-    
+
     // Turn off line surrounding textbox by setting thickness to 0px
     annotationSetLineThickness(&myTextbox, 0);
-    
+
     // Create text for textbox, using HTML
     box_text = "α = 2; β<sub>1</sub> = 1.7";
-    
+
     // The top-left corner of the text box
     // will be located at the coordinates (0, -1)
     x_start = 0;
     y_start = -1;
-    
+
     // Add textbox to last draw graph
     plotAddTextbox(myTextbox, box_text, x_start, y_start);
 
@@ -86,10 +86,10 @@ to :func:`plotAddTextbox`.
     // Add the procedure below to your user library
     // and you will only need one line for all the settings
     plotAddTextbox(grayTextSettings(), "My customized text box", 0.15, 0.2);
-    
+
     proc (1) = grayTextSettings();
         struct plotAnnotation mytextbox;
-    
+
         mytextbox = annotationGetDefaults();
         annotationSetBkd(&mytextbox, "#DDDDDD", 0.3);
         annotationSetFont(&mytextbox, "times", 18, "#555555");
@@ -102,7 +102,7 @@ Remarks
 -------
 
 :func:`plotAddTextbox` will only add a textbox to an existing graph. It will not
-create a new graph if one does not already exist. 
+create a new graph if one does not already exist.
 
 .. NOTE:: The top left corner of the bounding box will be located at the
     point on the graph that you specify. If the border is turned off, the
@@ -120,4 +120,3 @@ different subplots.
 
 
 .. seealso:: Functions :func:`plotAddShape`, :func:`annotationGetDefaults`
-

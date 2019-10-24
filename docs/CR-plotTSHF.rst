@@ -21,11 +21,11 @@ Format
         However, the dates in *date_vec* **may be**:
 
         - Irregularly spaced
-        - Any freqency which can be represented by DT Scalar format, such as by year, quarter, month, week, day, hour, minute, second or millisecond.
+        - Any frequency which can be represented by DT Scalar format, such as by year, quarter, month, week, day, hour, minute, second or millisecond.
 
     :type date_vec: Nx1 vector
 
-    :param label_unit: containing the frequency with which to display the X axis tick labels. Valid options include:
+    :param label_unit: containing the frequency with which to display the x-axis tick labels. Valid options include:
 
         - "milliseconds"
         - "seconds"
@@ -85,7 +85,7 @@ Plot Forex tick data with custom X-tick labels
 
     // Load bid and ask quotes
     y = loadd(file, "bid + ask");
-    y = y[ 1:rows(dt_psx), . ];
+    y = y[1:rows(dt_psx), .];
 
     // Declare plotControl structure
     // and fill with default settings
@@ -113,7 +113,7 @@ T-bill plot with full date vector
     x = loadd(file, "obs_date + tbill_3m");
 
     // Separate date vector and tbill data
-    date_vec = dttoutc(x[ ., 1 ]);
+    date_vec = dttoutc(x[., 1]);
     y = x[ ., 2 ];
 
     // Specify that tick labels should be
@@ -140,8 +140,8 @@ Daily data with full date vector
     // Select the first 150 observations
     // from the date vector and the adjusted close
     nobs = 150;
-    date_vec = dttoutc(data[ 1:nobs, 1 ]);
-    closing_price = data[ 1:nobs, 2 ];
+    date_vec = dttoutc(data[1:nobs, 1]);
+    closing_price = data[1:nobs, 2];
 
 
     // Draw plot of this daily data, specifying
@@ -149,7 +149,7 @@ Daily data with full date vector
     // terms of months
     plotTSHF(date_vec, "months", closing_price);
 
-Time Series Plot With Custom X-tics
+Time Series Plot With Custom X-ticks
 +++++++++++++++++++++++++++++++++++
 
 .. figure:: _static/images/plotts_mac_tbill_400px.png
@@ -170,10 +170,10 @@ Time Series Plot With Custom X-tics
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
 
-    // Place first 'X' tick mark at 1984 month 1 and draw one every 6 months
+    // Place first x-tick mark at 1984 month 1 and draw one every 6 months
     plotSetXTicInterval(&myPlot, 6, 1984);
 
-    // Display only 4 digit year on 'X' tick labels
+    // Display only 4 digit year on x-tick labels
     plotSetXTicLabel(&myPlot, "YYYY-QQ");
 
     // Draw time series plot, using settings in 'myPlot'
@@ -182,7 +182,7 @@ Time Series Plot With Custom X-tics
 Remarks
 -------
 
-Formatting for the X-tick labels can be set with the function
+Formatting for the x-tick labels can be set with the function
 :func:`plotSetXTicLabel`. If a :class:`plotControl` structure is not passed in to
 :func:`plotTSHF`, or the format specifier is not set with :func:`plotSetXTicLabel` the
 default formatting based on the time label unit and is as follows:

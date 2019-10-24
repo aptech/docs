@@ -23,7 +23,7 @@ Format
 Remarks
 -------
 
-The coefficient of :math:`x\ n` is set to unity (:math:`c[1]=1`).
+The coefficient of :math:`x^n` is set to unity (:math:`c[1]=1`).
 
 Source
 ------

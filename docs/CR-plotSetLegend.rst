@@ -22,18 +22,18 @@ Format
 
         The location string may contain up to three tokens, or words.
 
-        #.  Vertical location: top (default), vcenter or bottom. (Note: for backwards compatibilty middle may still be used for vcenter. However, new programs should use vcenter).
+        #.  Vertical location: ``"top"`` (default), ``"vcenter"`` or ``"bottom"``. (Note: for backwards compatibilty ``"middle"`` may still be used for ``"vcenter"``. However, new programs should use ``"vcenter"``).
 
-        #.  Horizontal location: left, hcenter or right (default). (Note: for backwards compatibility center may still be used for hcenter. However, new programs should use hcenter.
+        #.  Horizontal location: ``"left"``, ``"hcenter"`` or ``"right"`` (default). (Note: for backwards compatibility ``"center"`` may still be used for ``"hcenter"``. However, new programs should use ``"hcenter"``).
 
-        #.  Inside/Outside location: inside (default), below or outside.
+        #.  Inside/Outside location: ``"inside"`` (default), ``"below"`` or ``"outside"``.
 
     :type location: string
 
     :param orientation: Optional argument, 0 for a horizontal legend or 1 for a vertical legend.
     :type orientation: scalar
 
-    :param turn_off: "off" will disable the legend.
+    :param turn_off: ``"off"`` will disable the legend.
     :type turn_off: string
 
 Technical Notes

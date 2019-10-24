@@ -46,11 +46,11 @@ Examples
     A = rndn(4, 5);
 
     // Create a right hand side
-    b = rndn(4,1);
+    b = rndn(4, 1);
 
     if rank(A) < cols(A);
        print "A does not have full rank, using pinvmt to solve";
-       Api = pinvmt(A, tol);
+        { Api, err } = pinvmt(A, tol);
        x = Api*b;
     else;
        print "A has full rank, solve with '/' operator";

@@ -8,15 +8,15 @@ Add a surface plot to an existing plot.
 
 Format
 ----------------
-.. function:: plotAddSurface([myPlot, ]x, y, z)plotAddSurface(x, y, z)
+.. function:: plotAddSurface([myPlot, ]x, y, z)
 
     :param myPlot: Optional argument. A :class:`plotControl` structure.
     :type myPlot: struct
 
-    :param x: the X axis data.
+    :param x: the x-axis data.
     :type x: 1xK vector
 
-    :param y: the Y axis data.
+    :param y: the y-axis data.
     :type y: Nx1 vector
 
     :param z: the matrix of height data to be plotted.
@@ -44,7 +44,7 @@ Basic case with default settings
     plotSurface(x, x', z);
 
     // Second Surface
-    z2 = reshape(seqa(-8,1,n),n,n);
+    z2 = reshape(seqa(-8, 1, n), n, n);
 
     // Plot the second surface
     plotAddSurface(x, x', z2');
@@ -101,14 +101,12 @@ The plot is
 Remarks
 -------
 
-If a plotControl structure is passed in to plotAddSurface, the only
+If a :class:`plotControl` structure is passed in to :func:`plotAddSurface`, the only
 settings that will be checked are:
 
 -  The extent of the x, y and z axes (which may be expanded by the
-   plotControl structure).
+   :class:`plotControl` structure).
 -  The instructions for turning the wireframe on or off for the surface
    being added.
 
 .. seealso:: Functions :func:`plotSurface`
-
-plot surface

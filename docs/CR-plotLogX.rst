@@ -4,7 +4,7 @@ plotLogX
 
 Purpose
 ----------------
-Graphs X vs. Y using log coordinates for the X axis.
+Graphs X vs. Y using log coordinates for the x-axis.
 
 Format
 ----------------
@@ -20,4 +20,3 @@ Format
     :type y: Nx1 or NxM matrix
 
 .. seealso:: Functions :func:`plotXY`, :func:`plotLogY`, :func:`plotLogLog`
-

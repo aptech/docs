@@ -4,7 +4,7 @@ ytics
 
 Purpose
 ----------------
-Sets and fixes scaling, axes numbering and tick marks for the Y axis.
+Sets and fixes scaling, axes numbering and tick marks for the y-axis.
 
 .. NOTE:: This function is for the deprecated PQG graphics.
 
@@ -47,4 +47,3 @@ Source
 pscale.src
 
 .. seealso:: Functions :func:`scale`, :func:`xtics`, :func:`ztics`
-

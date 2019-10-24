@@ -55,7 +55,7 @@ Add an arrow between points
 ::
 
     // Draw random scatter plot
-    x = rndu(10,1);
+    x = rndu(10, 1);
     y = rndu(10, 1);
     plotScatter(x, y);
 

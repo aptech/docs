@@ -5,7 +5,7 @@ plotXYFill
 Purpose
 ----------------
 
-Creates an area plot between sets of 2-D vectors .
+Creates an area plot between sets of 2-D vectors.
 
 Format
 ----------------
@@ -42,7 +42,7 @@ One set of vectors
                  1.6,
                  1.4,
                  1.7 };
-    
+
     // Draw an area plot between the vectors
     plotXYFill(x, y_bottom, y_top);
 
@@ -64,7 +64,7 @@ Two sets of vectors
                  1.6 0.5,
                  1.4 0.2,
                  1.7 0.5 };
-    
+
 
     // Draw an area plot between the pairs of vectors
     plotXYFill(x, y_bottom, y_top);
@@ -73,4 +73,3 @@ Two sets of vectors
    :scale: 50 %
 
 .. seealso:: Functions :func:`plotArea`, :func:`plotSetFill`, :func:`plotXY`
-

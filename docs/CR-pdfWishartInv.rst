@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: p = pdfWishartInv(IW, S, df)
 
-    :param IW: T, the values used to compute the inverse Wishart distribution.
+    :param IW: :math:`T`, the values used to compute the inverse Wishart distribution.
     :type IW: p x p positive definite matrix
 
     :param S: :math:`\Psi`, the positive definite scale matrix parameter
@@ -62,4 +62,3 @@ inverse Wishart distribution, which is defined as
 
 
 .. seealso:: :func:`rndWishart`, :func:`rndWishartInv`
-

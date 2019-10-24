@@ -4,7 +4,7 @@ plotSetXTicLabel
 
 Purpose
 ----------------
-Controls the formatting and angle of X-axis tic labels for 2-D graphs.
+Controls the formatting and angle of X-axis tick labels for 2-D graphs.
 
 Format
 ----------------
@@ -13,14 +13,14 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param fmt: the desired formatting for the X-axis tic labels.
+    :param fmt: the desired formatting for the X-axis tick labels.
 
         - Time series graphs use the same formatting type as function :func:`dttostr`.
-        - Other graph types use a sprintf style formatting string. See Remarks below for more details.
+        - Other graph types use a :func:`sprintf` style formatting string. See Remarks below for more details.
 
     :type fmt: string
 
-    :param angle: Optional argument, the angle in degrees at which to display the X-axis tic labels.
+    :param angle: Optional argument, the angle in degrees at which to display the X-axis tick labels.
     :type angle: scalar
 
 Examples
@@ -48,11 +48,11 @@ Time series
     // Draw the time series plot
     plotTS(myPlot, dtstart, frequency, y);
 
-The code above produces a graph with X-tic labels like the image below:
+The code above produces a graph with X-tick labels like the image below:
 
 .. figure:: _static/images/gauss15_psxtl_1.png
 
-    X-tic labels
+    X-tick labels
 
 Changing to format string to ``"MO/YYYY"`` will change the labels to appear like this:
 
@@ -60,7 +60,7 @@ Changing to format string to ``"MO/YYYY"`` will change the labels to appear like
 
     01/1982
 
-Changing to format string to ``"YYYY-QQ"`` will change the the labels to appear like this:
+Changing to format string to ``"YYYY-QQ"`` will change the labels to appear like this:
 
 ::
 
@@ -83,7 +83,7 @@ Other than time series
     // Draw the graph, using our format specifier
     plotXY(myPlot, x, y);
 
-The code above produces a graph with X-tic labels like the image below:
+The code above produces a graph with X-tick labels like the image below:
 
 .. figure:: _static/images/gauss15_psxtl_1.png
 
@@ -117,14 +117,14 @@ Time series format specifier
    |    SS           | Second of minute, 00-59                             |
    +-----------------+-----------------------------------------------------+
 
--  Extra text may be added to a time series X tick label, by enclosing
+-  Extra text may be added to a time series X-tick label, by enclosing
    it in single-ticks. For example,
 
    ::
 
       plotSetXTicLabel(myPlot, "HH:MI 'PM'");
 
-   would add the text ``PM`` to the end of the X tick label, like this:
+   would add the text ``PM`` to the end of the X-tick label, like this:
    12:30 PM, or 02:15 PM. Note that the single-tick marks are not
    included as part of the label.
 
@@ -134,7 +134,7 @@ Time series format specifier
 Format specifier for other graph types
 ++++++++++++++++++++++++++++++++++++++
 
-Graph types other than time series use a sprintf style format string.
+Graph types other than time series use a :func:`sprintf` style format string.
 The parameters of the format string are:
 
 -  precision - a literal scalar numeral, the number of digits after the
@@ -155,7 +155,7 @@ The format of the format string is:
    "%.<precision><format type>"
 
 Below are some examples of different format strings and how they would
-represent pi
+represent :math:`\pi`
 
 ======= ===========
 "%.2f"  3.14

@@ -32,35 +32,47 @@ Creating confidence intervals
 
 ::
 
-    // Create the 'x' and 'y' for the normal
-    // probability density function
-    x = seqa(-3.5, 0.1, 71);
-    y = pdfn(x);
+  // Create the 'x' and 'y' for the normal
+  // probability density function
+  x = seqa(-3.5, 0.1, 71);
+  y = pdfn(x);
 
-    // Create the 'x' and 'y' points
-    // for the left tail
-    edge = cdfni(0.05);
-    x_ci = selif(x, (x .< edge));
-    y_ci = y[1:rows(x_ci)];
+  // Create the 'x' and 'y' points
+  // for the left tail
+  edge = cdfni(0.05);
+  x_ci = selif(x, (x .< edge));
+  y_ci = y[1:rows(x_ci)];
 
-    // Draw filled in left tail
-    plotArea(x_ci, y_ci);
+  // Set colors
+  struct plotControl myPlot;
+  myPlot = plotGetDefaults("xy");
 
-    // Create the 'x' and 'y' points
-    // for the right tail
-    edge = cdfni(0.95);
-    x_ci = selif(x, (x .> edge));
-    y_ci = y[rows(y)-rows(x_ci)+1:rows(y)];
+  clr = getColorPalette("accent", 3);
 
-    // Add right tail to graph
-    plotAddArea(x_ci, y_ci);
+  plotSetLineColor(&myPlot, clr[3]);
 
-    // Add pdfn line
-    plotAddXY(x, y);
+
+  plotSetFill(&myPlot, 1, 1, clr[3]);
+
+  // Draw filled in left tail
+  plotArea(myPlot, x_ci, y_ci);
+
+  // Create the 'x' and 'y' points
+  // for the right tail
+  edge = cdfni(0.95);
+  x_ci = selif(x, (x .> edge));
+  y_ci = y[rows(y)-rows(x_ci)+1:rows(y)];
+
+  // Add right tail to graph
+  plotAddArea(myPlot, x_ci, y_ci);
+
+  // Add pdfn line
+  plotSetLineSymbol(&myPlot, -1);
+  plotAddXY(myPlot, x, y);
 
 The code to create the graph below can be found in the file *plotaddci.e* in your GAUSS examples directory.
 
-Creating confidence intervals with plotAddArea
+Creating confidence intervals with :func:`plotAddArea`
 
 .. figure:: _static/images/gauss15_plotci_541.png
 
@@ -72,4 +84,4 @@ Remarks
 This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
-.. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`
+.. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`, :func:`plotXYFill`

@@ -9,7 +9,7 @@ Plot the autocorrelations function (ACF).
 
 Format
 ----------------
-.. function:: plotACF([myPlot, ]x, k, d) 
+.. function:: plotACF([myPlot, ]x, k, d)
 
     :param myPlot: Optional argument, a :class:`plotControl` structure for acf
     :type myPlot: struct
@@ -30,25 +30,25 @@ Examples
 
     // Clear out variables in GAUSS workspace
     new;
-    
+
     // Create file name with full path
     file = getGAUSSHome() $+ "examples/beef_prices.csv";
-    
+
     // Import dataset starting with row 2 and column 2
-    x = csvReadM(file,2,2);
-    
+    x = csvReadM(file, 2, 2);
+
     // Max lags
     k = 20;
-    
+
     // Order of differencing
     d = 1;
-    
+
     // ACF plot
     struct plotControl mp;
     mp = plotGetDefaults("bar");
-    
+
     plotSetTitle(&mp, "beef_prices", "Arial", 20);
-    
+
     plotACF( mp, x, k, d);
 
 The plot is:
@@ -71,4 +71,3 @@ the left side of the preferences and then select **Bar** from the list
 of graph types.
 
 .. seealso:: Functions :func:`plotPACF`, :func:`ACF`, :func:`PACF`
-

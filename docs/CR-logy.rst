@@ -5,7 +5,7 @@ logy
 Purpose
 ----------------
 
-Graphs X vs. Y using log coordinates for the Y axis.
+Graphs X vs. Y using log coordinates for the y-axis.
 
 .. NOTE:: This function is for use with the deprecated PQG graphics. Use :func:`plotLogY` instead.
 

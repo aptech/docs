@@ -67,7 +67,7 @@ A sample partial autocorrelation function example.
      -0.17063786
      0.089875096
 
-Plot the PACF results with :func:`plotBar`. Passing in 0 as the first input tells GAUSS to create a sequential series from 1 to the number of elements in *rk* as the x-tic labels.
+Plot the PACF results with :func:`plotBar`. Passing in 0 as the first input tells GAUSS to create a sequential series from 1 to the number of elements in *rk* as the x-tick labels.
 
 ::
 

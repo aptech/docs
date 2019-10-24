@@ -20,6 +20,24 @@ Format
     :param y: Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
+Examples
+----------------
+
+::
+
+        // Create some data to plot
+        y = rndn(100, 1);
+        x = seqa(1, 1, 100);
+
+        // Plot first y vector of data
+        plotXY(x, y);
+
+        y2 = rndu(28, 1);
+
+        // Plot second vector of data
+        x2 = seqa(100-28, 1, 28);
+        plotAddXY(x2, y2);
+
 Remarks
 -------
 

@@ -22,7 +22,6 @@ Examples
 ::
 
     // Declare plotControl structure
-
     struct plotControl myPlot;
 
     // Initialize plotControl structure with defaults for an

@@ -4,7 +4,7 @@ pinv
 
 Purpose
 ----------------
-Computes the Moore-Penrose pseudo-inverse of a matrix, using the singular value decomposition. This pseudo-inverse is one particular type of generalized inverse. 
+Computes the Moore-Penrose pseudo-inverse of a matrix, using the singular value decomposition. This pseudo-inverse is one particular type of generalized inverse.
 
 Format
 ----------------
@@ -13,11 +13,11 @@ Format
     :param x: data
     :type x: NxM matrix
 
-    :return y: that satisfies the 4 Moore-Penrose conditions:
+    :return y: satisfies the 4 Moore-Penrose conditions:
 
         .. csv-table::
             :widths: auto
-    
+
             ":math:`xyx = x`"
             ":math:`yxy = y`"
             ":math:`xy` is symmetric"
@@ -28,7 +28,7 @@ Format
 Global Input
 ------------
 
-:_svdtol: (*scalar*), any singular values less than *_svdtol* are treated as zero 
+:_svdtol: (*scalar*), any singular values less than *_svdtol* are treated as zero
     in determining the rank of the input matrix. The default value for *_svdtol* is 1.0e-13.
 
 Global Output
@@ -44,10 +44,10 @@ Examples
 
     // Create an underdetermined system of equations 'A'
     A = rndn(4, 5);
-    
+
     // Create a right hand side
-    b = rndn(4,1);
-    
+    b = rndn(4, 1);
+
     if rank(A) < cols(A);
        print "A does not have full rank, using pinv to solve";
        Api = pinv(A);
@@ -64,4 +64,3 @@ Source
 ------
 
 svd.src
-

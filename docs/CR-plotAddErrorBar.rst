@@ -23,10 +23,10 @@ Format
     :param err: Each column contains the error values for each Y column.
     :type err: scalar or Nx1 or NxM matrix
 
-    :param lwr: Each column contains the lower bar heights for assymetrical error bars.
+    :param lwr: Each column contains the lower bar heights for asymmetrical error bars.
     :type lwr: Nx1 or NxM matrix
 
-    :param uppr: Each column contains the upper bar heights for assymetrical error bars.
+    :param uppr: Each column contains the upper bar heights for asymmetrical error bars.
     :type uppr: Nx1 or NxM matrix
 
 Examples
@@ -43,10 +43,10 @@ Basic addition of error bars to scatter plot
     x = seqa(1, 1, 12);
 
     // Create some random normal data, y ~ N(0, 1)
-    y = rndn(12,1);
+    y = rndn(12, 1);
 
     // 12x1 vector of all 1's
-    sd = ones(12,1);
+    sd = ones(12, 1);
 
     // Draw basic scatter plot, using default settings
     plotScatter(x, y);
@@ -82,7 +82,7 @@ Assymetrical error bars to plot median and range
     err_high = maxc(y) - med;
     err_low = (med - minc(y));
 
-    // Add assymetrical error bars to span
+    // Add asymmetrical error bars to span
     // the range of each column
     plotAddErrorBar(x, med, err_low, err_high);
 
@@ -90,18 +90,18 @@ The plot is
 
 .. figure:: _static/images/plotadderrorbar2.png
 
-Add error bars to XY plot, using plotControl structure
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Add error bars to XY plot, using :class:`plotControl` structure
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
     new;
 
     // Create x values
-    x = seqa(0,1,11);
+    x = seqa(0, 1, 11);
 
     // Create y values
-    y = 10*rndn(11,1);
+    y = 10*rndn(11, 1);
 
     // Define plotControl Structure
     struct plotControl myPlot;
@@ -114,13 +114,13 @@ Add error bars to XY plot, using plotControl structure
     plotXY(myPlot, x, y);
 
     // Set error bar values
-    err = ones(11,1)*2;
+    err = ones(11, 1)*2;
 
     // Set error bar color to be different than XY line
     plotSetLineColor(&myPlot, "black");
 
     // Add error bars
-    plotAddErrorBar(myPlot, x,y,err);
+    plotAddErrorBar(myPlot, x, y, err);
 
 The plot is
 
@@ -138,8 +138,8 @@ Add error bars to bar plot
     file = getGAUSSHome() $+ "/examples/credit.dat";
     data = loadd(file, "Age + Limit");
 
-    age = data[.,1];
-    limit = data[.,2];
+    age = data[., 1];
+    limit = data[., 2];
 
     num_ranges = 4;
     age_ranges = {  20 40,
@@ -149,12 +149,12 @@ Add error bars to bar plot
 
     // Pre-allocate vector to hold means
     // and standard deviation of the samples
-    mu = zeros(num_ranges,1);
-    s = zeros(num_ranges,1);
+    mu = zeros(num_ranges, 1);
+    s = zeros(num_ranges, 1);
 
     for i(1, num_ranges, 1);
         // Get the index for different age level
-        level_idx = indexcat(age, age_ranges[i,.]');
+        level_idx = indexcat(age, age_ranges[i, .]');
 
         // mean of limit for different age level
         mu[i] = meanc(limit[level_idx]);

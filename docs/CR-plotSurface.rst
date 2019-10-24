@@ -14,10 +14,10 @@ Format
     :param myPlot: Optional argument, a :class:`plotControl` structure.
     :type myPlot: struct
 
-    :param x: the X axis data.
+    :param x: the x-axis data.
     :type x: 1xK vector
 
-    :param y: the Y axis data.
+    :param y: the y-axis data.
     :type y: Nx1 vector
 
     :param z: the matrix of height data to be plotted.

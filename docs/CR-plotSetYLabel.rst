@@ -47,7 +47,7 @@ Example 1: Basic usage
     plotSetYLabel(&myPlot, "Time (sec)", "verdana", 10, "black");
 
     // Create data
-    x = rndn(1e5,1);
+    x = rndn(1e5, 1);
 
     // Plot a histogram of the x data spread over 50 bins
     plotHist(myPlot, x, 50);
@@ -58,7 +58,7 @@ Example 2: Setting both Y-axes
 ::
 
     // Create with different Y-ranges
-    x = seqa(1,1,5);
+    x = seqa(1, 1, 5);
     y = { 98  1.5,
           92  0.9,
           97  1.3,
@@ -90,7 +90,7 @@ You may add Greek letters, mathematical symbols, subscript and superscript to yo
     label_string = "<html>&beta;</html>";
     plotSetYLabel(&myPlot, label_string);
 
-The code above will add the letter :math:`\beta` to the y-axis label. The HTML 'sup' tag will create superscript and the 'sub' tag will create subscript. For example:
+The code above will add the letter :math:`\beta` to the y-axis label. The HTML ``'sup'`` tag will create superscript and the ``'sub'`` tag will create subscript. For example:
 
 ::
 

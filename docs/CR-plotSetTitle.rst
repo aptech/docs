@@ -56,17 +56,17 @@ To add HTML to a label, you need to wrap the text to be interpreted as HTML in H
 
 ::
 
-    label_string = "<html>β</html>";
+    label_string = "<html>&beta;</html>";
     plotSetTitle(&myPlot, label_string);
 
-The code above will add the letter :math:`β` to the graph title. The HTML 'sup' tag will create superscript and the 'sub' tag will create subscript. For example:
+The code above will add the letter :math:`\beta` to the graph title. The HTML ``sup`` tag will create superscript and the ``sub`` tag will create subscript. For example:
 
 ::
 
-    label_string = "<html>σ<sup>2</sup></html>";
+    label_string = "<html>&sigma;<sup>2</sup></html>";
     plotSetTitle(&myPlot, label_string);
 
-will add :math:`σ2` to your title. While,
+will add :math:`\sigma^2` to your title. While,
 
 .. DANGER:: Fix equations
 
@@ -75,7 +75,7 @@ will add :math:`σ2` to your title. While,
     label_string = "<html>Y<sub>t-1</sub></html>";
     plotSetTitle(&myPlot, label_string);
 
-will create :math:`Yt-1`
+will create :math:`Y_{t-1}`
 
 Remarks
 -------

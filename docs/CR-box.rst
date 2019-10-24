@@ -6,7 +6,7 @@ Purpose
 ----------------
 Graphs data using the box graph percentile method.
 
-.. NOTE:: This function uses the deprecated PQG graphics. Use :func:`plotBox` instead. 
+.. NOTE:: This function uses the deprecated PQG graphics. Use :func:`plotBox` instead.
 
 Library
 -------
@@ -17,7 +17,7 @@ Format
 .. function:: box(grp, y)
 
     :param grp:  This contains the group numbers corresponding to each column of *y* data.
-        If scalar 0, a sequence from 1 to ``cols(y)`` will be generated automatically for the X axis.
+        If scalar 0, a sequence from 1 to ``cols(y)`` will be generated automatically for the x-axis.
     :type grp: 1xM vector
 
     :param y: Each column represents the set of *y* values for an individual percentiles box symbol.
@@ -39,10 +39,10 @@ Global Input
           - box color. If this is set to 0, the colors may be individually controlled using the global variable `\_pcolor`.
         * - [3]
           - Min/max style for the box symbol. One of the following
-    
+
               :1: Minimum and maximum taken from the actual limits of the data. Elements 4 and 5 are ignored.
               :2: Statistical standard with the minimum and maximum calculated according to interquartile range as follows:
-    
+
                   - intqrange = 75th - 25th
                   - min = 25th - 1.5 intqrange
                   - max = 75th + 1.5 intqrange
@@ -78,4 +78,3 @@ If missing values are encountered in the *y* data, they will be ignored
 Source
 ------
 pbox.src
-

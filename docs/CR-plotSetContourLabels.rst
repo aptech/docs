@@ -38,8 +38,8 @@ Examples
     new;
 
     // Create data
-    x = seqa(-4,.125,161)';
-    y = seqa(-8,.125,161);
+    x = seqa(-4, .125, 161)';
+    y = seqa(-8, .125, 161);
     z = sin(x) .* cos(y) * .5;
     z = z .* sin(x/3) .* cos(y/3);
     z = z .* sin(x/5) + sin(y/2.5)/3 + sin(x/2.5)/3;

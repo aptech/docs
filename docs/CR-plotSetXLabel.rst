@@ -61,7 +61,7 @@ You may add Greek letters, mathematical symbols, subscript and superscript to yo
     label_string = "<html>&beta;</html>";
     plotSetXLabel(&myPlot, label_string);
 
-The code above will add the letter :math:`β` to the x-axis label. The HTML 'sup' tag will create superscript and the 'sub' tag will create subscript. For example:
+The code above will add the letter :math:`\beta` to the x-axis label. The HTML ``'sup'`` tag will create superscript and the ``'sub'`` tag will create subscript. For example:
 
 ::
 

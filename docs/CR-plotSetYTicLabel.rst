@@ -13,7 +13,7 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param fmt: the desired formatting for the Y-axis tick labels. If a 2x1 string array is passed in, the first element of *fmt* will control the left Y-axis and the second element will control the right Y-axis. sprintf style formatting strings are supported. See Remarks below for more information.
+    :param fmt: the desired formatting for the Y-axis tick labels. If a 2x1 string array is passed in, the first element of *fmt* will control the left Y-axis and the second element will control the right Y-axis. :func:`sprintf` style formatting strings are supported. See Remarks below for more information.
     :type fmt: string or 2x1 string array
 
     :param angle: Optional argument, the angle in degrees at which to display the Y-axis tick labels.
@@ -132,7 +132,7 @@ This will give axes labels which look similar to below:
 Remarks
 -------
 
-The parameters of a sprintf style format string are:
+The parameters of a :func:`sprintf` style format string are:
 
 -  precision - a literal scalar numeral, the number of digits after the decimal point
 -  format type - one of the following letters:
@@ -151,7 +151,7 @@ The format of the format string is:
    "%.<precision><format type>"
 
 Below are some examples of different format strings and how they would
-represent pi
+represent :math:`\pi`
 
 ======= ==================
 "%.2f"  3.14

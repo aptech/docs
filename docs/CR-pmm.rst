@@ -9,7 +9,7 @@ Replaces missing values with imputed values using predictive mean matching.
 
 Format
 ----------------
-.. function:: y_imputed = pmm(y, x[, iCtl]])
+.. function:: y_imputed = __pmm(y, x[, iCtl]])
 
     :param y: data vector with missing values.
     :type y: Nx1 vector

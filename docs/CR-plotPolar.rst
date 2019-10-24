@@ -20,5 +20,27 @@ Format
     :param theta: Each column represents the angle values for a particular line.
     :type theta: Nx1 or NxM matrix
 
-.. seealso:: Functions :func:`plotXY`, :func:`plotLogX`, :func:`plotLayout`, :func:`plotSetXLabel`
 
+Examples
+----------------
+
+::
+
+        // Declare plotControl structure
+        struct plotControl myPlot;
+
+        // Initialize plotControl structure
+        myPlot = plotGetDefaults("polar");
+
+        // Set new background color to light grey
+        plotSetBkdColor(&myPlot, "light grey");
+
+        // Create data
+        x = seqa(0.1, 0.1, 200);
+        y = x;
+
+        // Create a polar plot of the data with the new background
+        // color
+        plotPolar(myPlot, x, y);
+
+.. seealso:: Functions :func:`plotXY`, :func:`plotLogX`, :func:`plotLayout`, :func:`plotSetXLabel`

@@ -6,19 +6,19 @@ Purpose
 ----------------
 
 Fixes the scaling for subsequent graphs. The axes endpoints and increments are computed as a best guess based on
-the data passed to it. 
+the data passed to it.
 
 .. NOTE:: This function is for use with the deprecated PQG graphics.
- 
+
 
 Format
 ----------------
 .. function:: scale3d(x, y, z)
 
-    :param x: the X axis data.
+    :param x: the x-axis data.
     :type x: matrix
 
-    :param y: the Y axis data.
+    :param y: the y-axis data.
     :type y: matrix
 
     :param z: the Z axis data.
@@ -59,4 +59,3 @@ Source
 pscale.src
 
 .. seealso:: Functions :func:`scale`, :func:`xtics`, :func:`ytics`, :func:`ztics`
-

@@ -17,7 +17,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "0", "Solid, beveled edge"
             "1", "Solid"
             "2", "Dense 1"
@@ -45,27 +45,27 @@ Examples
 
     // Declare plotControl structure
     struct plotControl myPlot;
-    
+
     // Initialize plotControl structure
     myPlot = plotGetDefaults("bar");
-    
+
     // Set the first set of bars to have a solid-fill, the
-    // second set to have a fill of horizontal lines, the third 
+    // second set to have a fill of horizontal lines, the third
     // to have a diagonal cross fill and set the bars to be
     // side-by-side.
     textures = { 0, 8, 13 };
     plotSetBar(&myPlot, textures, 0);
-    
+
     // Create data
     x = seqa(1, 1, 5);
     y = {
     1.5       2    1.8,
       2     2.1      3,
-      3     2.5    3.6, 
+      3     2.5    3.6,
     0.5     0.8      1,
       1     1.2    0.8
     	};
-    
+
     // Draw bar graph
     plotBar(myPlot, x, y);
 
@@ -74,10 +74,9 @@ Examples
 Remarks
 -------
 
-When graphing without the use of a plotControl structure, these settings
+When graphing without the use of a :class:`plotControl` structure, these settings
 may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
 selecting the Bar radio button. See **GAUSS Graphics**, Chapter 1, for
 more information on the methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`
-

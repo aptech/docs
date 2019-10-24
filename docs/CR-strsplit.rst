@@ -11,12 +11,12 @@ Format
 .. function:: sa = strsplit(str[, sep])
 
     :param str: data to be split
-    :type str: string or Nx1 string array 
+    :type str: string or Nx1 string array
 
     :param sep: Optional argument, containing the character used to separate the input string into individual tokens.
-    :type sep: string 
+    :type sep: string
 
-    :return sa: 
+    :return sa:
 
     :rtype sa: 1xK or NxK string array
 
@@ -60,28 +60,28 @@ String array with supplied separator
     string dow_str = { "apple:technology",
                        "goldman sachs:finance",
                        "home depot:retail" };
-    			
-    // Split 'dow_str' into a 3x2 string array 
+
+    // Split 'dow_str' into a 3x2 string array
     dow_sa = strsplit(dow_str, ":");
 
 The above code sets *dow_sa* to be equal to:
 
 ::
 
-    "apple"           "technology"		
+    "apple"           "technology"
     "goldman sachs"   "finance"
     "home depot"      "retail"
 
 String array without supplied separator
 +++++++++++++++++++++++++++++++++++++++
 
-Elements that contain spaces may be grouped with single tics, like this:
+Elements that contain spaces may be grouped with single ticks, like this:
 
 ::
 
     ss = "classification 'scientific taxonomy'";
     ss2 = strsplit(ss);
-    
+
     print "ss2[1] = " ss2[1];
     print "ss2[2] = " ss2[2];
 
@@ -99,7 +99,7 @@ String array with multi-character delimiter
 
     ss = "h5://example.h5";
     ss2 = strsplit(ss, "://");
-    
+
     print "ss2[1] = " ss2[1];
     print "ss2[2] = " ss2[2];
 
@@ -107,7 +107,7 @@ The output from the above code is:
 
 ::
 
-    ss2[1] = h5 
+    ss2[1] = h5
     ss2[2] = example.h5
 
 Remarks
@@ -138,13 +138,13 @@ separators listed in the table above. For example:
 ::
 
     sa = "alpha 1,beta 2,gamma 3";
-    strsplit(s); 
+    strsplit(s);
 
 will return a 1x6 string array with the following contents:
 
 ::
 
-    "alpha"    "1"       "beta"    "2"    "gamma"    "3"        
+    "alpha"    "1"       "beta"    "2"    "gamma"    "3"
 
 Tokens containing delimiters must be enclosed in single or double quotes
 or parentheses. Tokens enclosed in single or double quotes will NOT
@@ -162,13 +162,13 @@ For example:
 
 ::
 
-    strsplit("alpha 1,beta 2,gamma 3", ","); 
+    strsplit("alpha 1,beta 2,gamma 3", ",");
 
 will return a 1x3 string array with the following contents:
 
 ::
 
-    "alpha 1"    "beta 2"   "gamma 3"   
+    "alpha 1"    "beta 2"   "gamma 3"
 
 Rows with fewer tokens will be padded on the right. For example:
 
@@ -182,8 +182,7 @@ will return:
 ::
 
     "1982"    "04"       "19"
-    "1994"    "06"         ""   
+    "1994"    "06"         ""
 
 
 .. seealso:: Functions :func:`strsplitPad`
-

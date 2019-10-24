@@ -21,9 +21,9 @@ Format
         one column, each column will be stacked on top of the previous column.
     :type y: Nx1 or NxM matrix
 
-    :param base: Optional argument, the height for the base of the area plot. The default value is zero. 
+    :param base: Optional argument, the height for the base of the area plot. The default value is zero.
         :func:`plotArea` does not yet support a vector input for base.
-    :type base: scalar 
+    :type base: scalar
 
 Examples
 ----------------
@@ -35,9 +35,8 @@ Examples
           0.8  1.2  1.8,
             1  0.7    2,
           1.2    1  1.2 };
-    
+
     // Draw a cumulative area plot of the columns of 'y'
     plotArea(x, y);
 
 .. seealso:: Functions :func:`plotLogX`, :func:`plotLogLog`, :func:`plotScatter`
-

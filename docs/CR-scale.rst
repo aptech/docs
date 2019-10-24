@@ -5,11 +5,11 @@ scale
 Purpose
 ----------------
 
-Fixes the scaling for subsequent graphs. The axes endpoints and increments are 
+Fixes the scaling for subsequent graphs. The axes endpoints and increments are
 computed as a best guess based on the data passed to it.
 
 .. NOTE:: This function is for use with the deprecated PQG graphics.
- 
+
 Library
 -------
 
@@ -19,10 +19,10 @@ Format
 ----------------
 .. function:: scale(x, y)
 
-    :param x: the X axis data.
+    :param x: the x-axis data.
     :type x: matrix
 
-    :param y: the Y axis data.
+    :param y: the y-axis data.
     :type y: matrix
 
 Remarks
@@ -53,4 +53,3 @@ Source
 pscale.src
 
 .. seealso:: Functions :func:`xtics`, :func:`ytics`, :func:`ztics`, :func:`scale3d`
-

@@ -11,8 +11,7 @@ Purpose
 
 Format
 ----------------
-.. function:: plotPACF([myPlot, ]x, k, d)
-			              plotPACF(x, k, d)
+.. function:: plotPACF( [myPlot, ]x, k, d)
 
 		:param myPlot: Optional argument, a :class:`plotControl` structure
 		:type myPlot: struct
@@ -38,7 +37,7 @@ Examples
     file = getGAUSSHome() $+ "examples/beef_prices.csv";
 
     // Import dataset starting with row 2 and column 2
-    x = csvReadM(file,2,2);
+    x = csvReadM(file, 2, 2);
 
     // Max lags
     k = 20;
@@ -52,7 +51,7 @@ Examples
 
     plotSetTitle(&mp, "beef_prices", "Arial", 20);
 
-    plotPACF( mp, x, k, d);
+    plotPACF(mp, x, k, d);
 
 The plot is
 
@@ -62,10 +61,10 @@ Remarks
 To control the color and texture of the bars as well as whether they are
 stacked or side by side:
 
-If you are passing a plotControl structure to your graph, you may use
-the function plotGetDefaults and plotSetBar.
+If you are passing a :class:`plotControl` structure to your graph, you may use
+the function :func:`plotGetDefaults` and :func:`plotSetBar`.
 
-If you are not passing a plotControl structure, these properties are set
+If you are not passing a :class:`plotControl` structure, these properties are set
 in the Preferences. To access the Graphics Preferences, select
 :menuselection:`Tools --> Preferences` from the GAUSS main menu. Select ''Graphics'' on
 the left side of the preferences and then select ''Bar'' from the list

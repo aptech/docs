@@ -4,9 +4,9 @@ xlabel
 
 Purpose
 ----------------
-Sets a label for the X axis.
+Sets a label for the x-axis.
 
-.. NOTE:: This function is for use with the deprecated PQG graphics, use plotSetXLabel for equivalent functionality.
+.. NOTE:: This function is for use with the deprecated PQG graphics, use :func:`plotSetXLabel` for equivalent functionality.
 
 Library
 -------
@@ -17,7 +17,7 @@ Format
 ----------------
 .. function:: xlabel(str)
 
-    :param str: the label for the X axis.
+    :param str: the label for the x-axis.
     :type str: string
 
 Source
@@ -26,4 +26,3 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`title`, :func:`ylabel`, :func:`zlabel`
-

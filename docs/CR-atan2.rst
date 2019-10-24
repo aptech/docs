@@ -50,8 +50,8 @@ Remarks
 -------
 
 Given a point *x*, *y* in a Cartesian coordinate system, :func:`atan2` will give the
-correct angle with respect to the positive X axis. The answer will be in
-radians from :math:`-π` to :math:`+π`.
+correct angle with respect to the positive x-axis. The answer will be in
+radians from :math:`-\pi` to :math:`+\pi`.
 
 To convert radians to degrees, multiply by :math:`180/π`.
 
