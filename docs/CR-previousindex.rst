@@ -39,17 +39,17 @@ Examples
     ind = { 2, 3, 1 };
 
     // Get previous index
-    ind = previousindex(ind, orders);
+    pi = previousindex(ind, orders);
 
-After the code above, ``ind`` is equal to:
+After the code above, ``pi`` is equal to:
 
 ::
 
           2
-    ind = 2
+    pi =  2
           5
 
-In this example, :func:`previousindex` decremented ``ind`` to index the previous 6x7 subarray in array *a*.
+In this example, :func:`previousindex` decremented ``pi`` to index the previous 6x7 subarray in array *a*.
 
 Remarks
 -------

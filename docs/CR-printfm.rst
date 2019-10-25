@@ -29,7 +29,7 @@ Format
 
 Examples
 ----------------
-Here is an example of printfm being used to print a
+Here is an example of :func:`printfm` being used to print a
 mixed numeric and character matrix:
 
 ::
@@ -124,4 +124,4 @@ before the first "``*``" in the format string:
 "0\*.\*lf"  right-justified decimal.
 =========== =========================
 
-.. seealso:: Functions :func:`print`, :func:`printdos`
+.. seealso:: Functions :func:`print`, :func:`printdos`, :func:`sprintf`

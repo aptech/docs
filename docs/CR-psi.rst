@@ -18,6 +18,17 @@ Format
 
     :rtype f: NxK matrix
 
+Examples
+------------------
+
+::
+
+   psi(1)
+
+The solution printed is
+
+  -0.577215
+  
 Remarks
 -------
 

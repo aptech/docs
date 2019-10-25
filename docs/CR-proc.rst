@@ -16,7 +16,7 @@ Format
 
 ::
 
-    proc nrets = name(arglist);
+    proc (nrets) = name(arglist);
     proc name(arglist);
 
 **Parameters**
@@ -45,7 +45,7 @@ An example of a procedure definition is:
 ::
 
    proc dog(x, y, z); /* procedure declaration */
-   local a,b;        /* local variable declarations */
+   local a, b;        /* local variable declarations */
       a = x .* x;
       b = y .* y;
       a = a ./ x;
@@ -63,26 +63,26 @@ Returns 1 item:
 
 ::
 
-   y = dog(i,j,k);
+   y = dog(i, j, k);
 
 Returns multiple items:
 
 ::
 
-   { x,y,z } = cat(i,j,k);
+   { x, y, z } = cat(i, j, k);
 
 Returns no items:
 
 ::
 
-   fish(i,j,k);
+   fish(i, j, k);
 
 If the procedure does not return any items or you want to discard the
 returned items:
 
 ::
 
-   call dog(i,j,k);
+   call dog(i, j, k);
 
 Procedure definitions may not be nested.
 

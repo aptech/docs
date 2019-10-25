@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: y = prodc(x)
 
-    :param x: dat
+    :param x: data
     :type x: NxK matrix
 
     :return y: contains the products of all elements in each column of *x*.
@@ -41,7 +41,7 @@ Remarks
 -------
 
 To find the products of the elements in each row of a matrix, transpose
-before applying prodc. If *x* is complex, use the bookkeeping transpose
+before applying :func:`prodc`. If *x* is complex, use the bookkeeping transpose
 (``.'``).
 
 To find the products of all of the elements in a matrix, use the :func:`vecr`
