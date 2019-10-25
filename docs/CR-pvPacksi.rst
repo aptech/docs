@@ -32,22 +32,25 @@ Examples
 
 ::
 
-    #include pv.sdf
-     
+    // Declare structure
     struct PV p1;
     p1 = pvCreate;
-     
+
+    // X matrix to be packed
     x = { 1 2, 2 1 };
-     
-    p1 = pvPacksi(p1,x, "A",1);
-    p1 = pvPacksi(p1, eye(2), "I",2);
+
+    //  Back x matrix into PV structure
+    p1 = pvPacksi(p1, x, "A", 1);
+
+    // Unpack identity matrix
+    p1 = pvPacksi(p1, eye(2), "I", 2);
 
 These matrices can be extracted using the :func:`pvUnpack` command.
 
 ::
 
     print
-    pvUnpack(p1,1);
+    pvUnpack(p1, 1);
 
 ::
 
@@ -57,7 +60,7 @@ These matrices can be extracted using the :func:`pvUnpack` command.
 ::
 
     print
-    pvUnpack(p1,2);
+    pvUnpack(p1, 2);
 
 ::
 
@@ -71,4 +74,3 @@ Remarks
 
 
 .. seealso:: Functions :func:`pvPacks`, :func:`pvUnpack`
-

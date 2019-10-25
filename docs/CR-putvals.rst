@@ -29,13 +29,20 @@ Examples
 
 ::
 
+    // Data matrix
     x = { -0.8750  0.3616  0.6032 -0.3974,
            0.7644 -1.8509 -0.2703 -0.8190,
            0.7886  1.2678 -1.4998 -0.5876,
            0.6639 -0.7972  1.2713  0.1896,
            0.6303  0.7879 -0.7451 -0.5419 };
+
+    // Indices
     inds = { 1 1, 2 4, 3 2, 3 4, 5 3 };
-    v = seqa(1,1,5);
+
+    // Values to insert
+    vals = seqa(1, 1, 5);
+
+    // Insert values
     y = putvals(x, inds, v);
 
 After the code above:
@@ -58,5 +65,3 @@ should be an LxN matrix.
 :func:`putvals` allows you to insert multiple values into a matrix or
 N-dimensional array at one time. This could also be accomplished using
 indexing inside a `for` loop.
-
-

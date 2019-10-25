@@ -23,27 +23,25 @@ Examples
 
 ::
 
-    // Define PV structure
-    #include pv.sdf
     // Declare 'p1' as an instance of a 'PV' structure
     struct PV p1;
-    
+
     // Initialize 'p1' with default values
     p1 = pvCreate;
-    
+
     // Data to pack into the 'PV' struct
     x = { 1 2,
           3 4 };
-    
+
     // 1's indicate an element to pack into the structure
     // 0's indicate elements to NOT pack into the structure
     mask = { 1 0,
              0 1 };
-    
-    // Pack values of 'x' selected by 'mask' into 'pi' and name 
+
+    // Pack values of 'x' selected by 'mask' into 'pi' and name
     // this resulting vector, 'P'
-    p1 = pvPackm(p1,x,"P",mask);
-     
+    p1 = pvPackm(p1, x, "P", mask);
+
     print pvGetParNames(p1);
 
 Since mask has ones in the :math:`[1,1]` and :math:`[2,2]` locations, the code above, produces:
@@ -58,7 +56,7 @@ Remarks
 
 If the vector in the structure of type :class:`PV` was generated with matrix
 names, the parameter names will be concatenations of the matrix name
-with row and column numbers of the parameters in the matrix. Otherwise
+with row and column numbers of the parameters in the matrix. Otherwise,
 the names will have a generic prefix with concatenated row and column
 numbers.
 
@@ -67,4 +65,3 @@ Source
 ------
 
 pv.src
-

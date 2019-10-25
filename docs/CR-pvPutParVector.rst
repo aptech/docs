@@ -26,23 +26,24 @@ Examples
 
 ::
 
-    #include pv.sdf
-     
+    // Create PV structure
     struct PV p1;
     p1 = pvCreate;
-     
+
+    // Set up X matrix
     x = { 1 2 4,
           2 3 5,
           4 5 6};
-     
+
+    // Set up mask
     mask = { 1 0 1,
              0 1 0,
              1 0 1 };
-     
+
     // Packed as square matrix
-    p1 = pvPackm(p1,x,"A",mask);
-     
-    print pvUnpack(p1,"A");
+    p1 = pvPackm(p1, x, "A", mask);
+
+    print pvUnpack(p1, "A");
 
 ::
 
@@ -53,9 +54,9 @@ Examples
 ::
 
     p3 = { 10, 11, 12, 13, 14 };
-    p1 = pvPutParVector(p1,p3);
-     
-    print pvUnpack(p1,"A");
+    p1 = pvPutParVector(p1, p3);
+
+    print pvUnpack(p1, "A");
 
 ::
 
@@ -73,4 +74,3 @@ Source
 ------
 
 pv.src
-

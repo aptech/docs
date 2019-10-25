@@ -34,23 +34,23 @@ Examples
 
     // Declare 'p1' to be a 'PV' struct
     struct PV p1;
-    
+
     // Apply 'PV' struct defaults
     p1 = pvCreate();
-     
+
     // Declare symmetric matrix
     x = { 1 2 4,
           2 3 5,
           4 5 6};
-    
-    // Create mask declaring the diagonal and 
+
+    // Create mask declaring the diagonal and
     // the (1,3) element to be parameters to estimate
     mask = { 1 0 1,
              0 1 0,
              1 0 1 };
-     
+
     p1 = pvPacksm(p1, x, "A", mask);
-     
+
     print pvUnpack(p1, "A");
 
 :func:`pvUnpack`, will return the entire symmetrix matrix from *p1*.
@@ -66,7 +66,7 @@ Examples
 ::
 
     p2 = pvGetParVector(p1);
-     
+
     print p2;
 
 ::
@@ -81,14 +81,14 @@ Examples
 ::
 
     p3 = { 10, 11, 12, 13 };
-    p1 = pvPutParVector(p1,p3);
-     
+    p1 = pvPutParVector(p1, p3);
+
     print pvUnpack(p1, "A");
 
 ::
 
       10.000  2.000 12.000
-       2.000 11.000  5.000       
+       2.000 11.000  5.000
       12.000  5.000 13.000
 
 Remarks
@@ -115,4 +115,3 @@ Source
 ------
 
 pv.src
-

@@ -32,19 +32,19 @@ Examples
 
 ::
 
-    #include pv.sdf
+    // Create PV structure
     struct PV p1;
     p1 = pvCreate;
-     
+
     x = { 1 2,
           3 4 };
-     
+
     mask = { 1 0,
              0 1 };
-     
+
     p1 = pvPackm(p1, x, "X", mask);
-     
-    print pvUnpack(p1, 1);
+
+    print pvUnpack(p1, "X");
 
 ::
 
@@ -54,7 +54,7 @@ Examples
 ::
 
     p1 = pvPutParVector(p1, 5|6);
-     
+
     print pvUnpack(p1, "X");
 
 ::
@@ -71,7 +71,7 @@ packed matrix. When the matrix is unpacked (using :func:`pvUnpack`) the elements
 corresponding to the zeros are restored. Elements corresponding to the
 ones come from the packed vector which may have been changed.
 
-If the mask is all zeros, the matrix or array is packed with the
+If *mask* is all zeros, the matrix or array is packed with the
 specified elements in the second argument but no elements of the matrix
 or array are entered into the parameter vector. When unpacked the matrix
 or array in the second argument is returned without modification.
@@ -81,4 +81,3 @@ Source
 ------
 
 pv.src
-

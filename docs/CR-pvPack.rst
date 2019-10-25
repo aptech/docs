@@ -36,13 +36,13 @@ Basic usage
     start_vals = { 0,
                    1,
                    1 };
-    
+
     // Declare 'p1' as an instance of a 'PV' structure
     struct PV p1;
-    
+
     // Initialize 'p1' with default settings
     p1 = pvCreate();
-    
+
     // Add a variable named 'b' in 'p1' containing the data from 'start_vals'
     p1 = pvPack(p1, start_vals, "b");
 
@@ -50,7 +50,7 @@ The data can be extracted using the :func:`pvUnpack` command:
 
 ::
 
-    b_out = pvUnpack(p1,"b");
+    b_out = pvUnpack(p1, "b");
     print b_out;
 
 The code above, should return the following output:
@@ -67,4 +67,3 @@ Source
 pv.src
 
 .. seealso:: Functions :func:`pvPackm`, :func:`pvPacks`, :func:`pvUnpack`
-

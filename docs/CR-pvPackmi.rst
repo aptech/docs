@@ -35,20 +35,22 @@ Examples
 
 ::
 
-    #include pv.sdf
-     
+    // Declare PV structure
     struct PV p1;
     p1 = pvCreate;
-     
+
+    // X matrix to be packed
     x = { 1 2,
           3 4 };
-     
+
+    // Mask
     mask = { 1 0,
              0 1 };
-     
-    p1 = pvPackmi(p1,x,"X",mask,1);
-     
-    print pvUnpack(p1,1);
+
+    // Pack x into "X" in PV struct
+    p1 = pvPackmi(p1, x, "X", mask, 1);
+
+    print pvUnpack(p1, 1);
 
 ::
 
@@ -57,9 +59,8 @@ Examples
 
 ::
 
-    p1 = pvPutParVector(p1,5|6);
-     
-    print pvUnpack(p1,1);
+    p1 = pvPutParVector(p1, 5|6);
+    print pvUnpack(p1, 1);
 
 ::
 
@@ -82,4 +83,3 @@ or array in the second argument is returned without modification.
 
 
 .. seealso:: Functions :func:`pvPackm`, :func:`pvUnpack`
-

@@ -29,15 +29,13 @@ Examples
 
 ::
 
-    #include pv.sdf
-     
     struct PV p1;
     p1 = pvCreate;
-     
+
     x = { 1 2,
           2 1 };
-     
-    p1 = pvPacks(p1,x, "A");
+
+    p1 = pvPacks(p1, x, "A");
     p1 = pvPacks(p1, eye(2), "I");
 
 These matrices can be extracted using the :func:`pvUnpack` command:
@@ -72,4 +70,3 @@ Source
 pv.src
 
 .. seealso:: Functions :func:`pvPacksm`, :func:`pvUnpack`
-

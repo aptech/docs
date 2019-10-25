@@ -12,7 +12,7 @@ Format
 .. function:: p1 = pvPacksmi(p1, x, nm, mask, i)
 
     :param p1: an instance of structure of type :class:`PV`
-    :type p1: struct 
+    :type p1: struct
 
     :param x: data
     :type x: MxM symmetric matrix
@@ -35,22 +35,23 @@ Examples
 
 ::
 
-    #include pv.sdf
-     
+    // Create PV structure
     struct PV p1;
     p1 = pvCreate;
-     
+
+    // Set up x matrix
     x = { 1 2 4,
           2 3 5,
           4 5 6};
-     
+
+    // Set
     mask = { 1 0 1,
              0 1 0,
              1 0 1 };
-     
-    p1 = pvPacksmi(p1,x, "A",mask,1);
-     
-    print pvUnpack(p1,1);
+
+    p1 = pvPacksmi(p1, x, "A", mask, 1);
+
+    print pvUnpack(p1, 1);
 
 ::
 
@@ -61,7 +62,7 @@ Examples
 ::
 
     p2 = pvGetParVector(p1);
-     
+
     print p2;
 
 ::
@@ -74,9 +75,9 @@ Examples
 ::
 
     p3 = { 10, 11, 12, 13 };
-    p1 = pvPutParVector(p1,p3);
-     
-    print pvUnpack(p1,1);
+    p1 = pvPutParVector(p1, p3);
+
+    print pvUnpack(p1, 1);
 
 ::
 
@@ -98,11 +99,10 @@ Elements corresponding to the ones come from the parameter vector.
 Only the lower left portion of the mask matrix is used, and only the
 lower left portion of the *x* matrix is stored in the packed vector.
 
-If the mask is all zeros, the matrix is packed with the specified
+If *mask* is all zeros, the matrix is packed with the specified
 elements in the second argument but no elements of the matrix are
 entered into the parameter vector. When unpacked the matrix in the
-second argment is returned without modification.
+second argument is returned without modification.
 
 
-.. seealso:: Functions :func:`pvPacksm`, :func:`pvUnpack`
-
+.. seealso:: Functions :func:`pvPacksm`, :func:`pvUnpack`, :func:`pvPacksi`
