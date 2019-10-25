@@ -26,13 +26,22 @@ Examples
 
 ::
 
-    orders = {3,4,5,6,7};
-    a = areshape(1, orders);
-    orders = getorders(a);
-    ind = { 2,3,1 };
-    ind = previousindex(ind,orders);
+    // Set orders
+    orders = { 3, 4, 5, 6, 7 };
 
-After the code above, ind is equal to:
+    // Initialize array
+    a = areshape(1, orders);
+
+    // Get orders of the array
+    orders = getorders(a);
+
+    // Set starting index
+    ind = { 2, 3, 1 };
+
+    // Get previous index
+    ind = previousindex(ind, orders);
+
+After the code above, ``ind`` is equal to:
 
 ::
 
@@ -40,7 +49,7 @@ After the code above, ind is equal to:
     ind = 2
           5
 
-In this example, :func:`previousindex` decremented *ind* to index the previous 6x7 subarray in array *a*.
+In this example, :func:`previousindex` decremented ``ind`` to index the previous 6x7 subarray in array *a*.
 
 Remarks
 -------

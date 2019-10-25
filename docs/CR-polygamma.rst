@@ -34,7 +34,7 @@ Example 1: Basic usage
     f = digamma(1);
     f2 = polygamma(1, 0);
 
-After the code above, both *f* and *f2* should be equal to :math:`-g`, where *g* represents the Euler-Mascheroni constant:
+After the code above, both *f* and *f2* should be equal to *-g*, where *g* represents the Euler-Mascheroni constant:
 
 ::
 
@@ -73,7 +73,7 @@ Example 4
 ::
 
     z = { -11.5 - 0.577007813568142i };
-    polygamma(z,10);
+    polygamma(z, 10);
 
 will return the value:
 
@@ -86,9 +86,7 @@ Remarks
 
 The :func:`polygamma` function of order *n* is defined by the equation:
 
-.. math:: $\psi^{(n)}(z) = \\frac{d^n}{dz^n}\psi(z) = \\frac{d^{n+1}}{dz^{n+1}}ln\Gamma(z)$
-
-.. DANGER:: fix equation if needed
+.. math:: \psi^{(n)}(z) = \frac{d^n}{dz^n}\psi(z) = \frac{d^{n+1}}{dz^{n+1}}ln\Gamma(z)
 
 This program uses the partial fraction expansion of the derivative of
 the log of the Lanczos series approximation for the Gamma function.
@@ -112,5 +110,3 @@ References
 #. Abramowitz & Stegun, section eq 6.4.6
 
 #. Original code by Paul Godfrey
-
-gamma polygamma trigamma

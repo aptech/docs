@@ -21,15 +21,15 @@ Format
 
 **Parameters**
 
-:list_of_expressions: (*any*) GAUSS expressions that produce matrices, arrays, stings, or string arrays 
+:list_of_expressions: (*any*) GAUSS expressions that produce matrices, arrays, stings, or string arrays
     and/or names of variables to print, separated by spaces.
 
 :/typ: (*literal*) symbol type flag.
 
     ====================== =====================================================
-    */mat*, */sa*, */str*  Indicate which symbol types you are setting the output format for: 
+    */mat*, */sa*, */str*  Indicate which symbol types you are setting the output format for:
                            matrices and arrays (*/mat*), string arrays (*/sa*), and/or strings
-                           (*/str*). You can specify more than one ``/`` *typ* flag; the format 
+                           (*/str*). You can specify more than one ``/`` *typ* flag; the format
                            will be set for all types indicated. If no ``/`` *typ* flag is listed,
                            `print` assumes */mat*.
     ====================== =====================================================
@@ -37,11 +37,11 @@ Format
 :/fmted: (*literal*) enable formatting flag.
 
     ============== ===================================================
-    */on*, */off*  Enable/disable formatting. When formatting is disabled, the contents of a 
-                   variable are dumped to the screen in a "raw" format. */off* is currently 
-                   supported only for strings. "Raw" format for strings means that the entire 
-                   string is printed, starting at the current cursor position. When formatting is 
-                   enabled for strings, they are handled the same as string arrays. This shouldn't 
+    */on*, */off*  Enable/disable formatting. When formatting is disabled, the contents of a
+                   variable are dumped to the screen in a "raw" format. */off* is currently
+                   supported only for strings. "Raw" format for strings means that the entire
+                   string is printed, starting at the current cursor position. When formatting is
+                   enabled for strings, they are handled the same as string arrays. This shouldn't
                    be too surprising, since a string is actually a 1x1 string array.
     ============== ===================================================
 
@@ -66,57 +66,57 @@ Format
     **Right-Justified**
 
     ====== =======================================================
-    */rd*  Signed decimal number in the form [[-]]####.####, where #### is 
-           one or more decimal digits. The number of digits before the decimal 
-           point depends on the magnitude of the number, and the number of digits 
-           after the decimal point depends on the precision. If the precision is 0, 
+    */rd*  Signed decimal number in the form [[-]]####.####, where #### is
+           one or more decimal digits. The number of digits before the decimal
+           point depends on the magnitude of the number, and the number of digits
+           after the decimal point depends on the precision. If the precision is 0,
            no decimal point will be printed.
-    */re*  Signed number in the form [[-]]#.##E±###, where # is one decimal digit, 
-           ## is one or more decimal digits depending on the precision, and ### is three 
-           decimal digits. If precision is 0, the form will be [[-]]#E±### with no decimal 
+    */re*  Signed number in the form [[-]]#.##E±###, where # is one decimal digit,
+           ## is one or more decimal digits depending on the precision, and ### is three
+           decimal digits. If precision is 0, the form will be [[-]]#E±### with no decimal
            point printed.
-    */ro*  This will give a format like */rd* or */re* depending on which is most compact 
-           for the number being printed. A format like */re* will be used only if the exponent 
-           value is less than -4 or greater than the precision. If a */re* format is used, 
-           a decimal point will always appear. The precision signifies the number 
+    */ro*  This will give a format like */rd* or */re* depending on which is most compact
+           for the number being printed. A format like */re* will be used only if the exponent
+           value is less than -4 or greater than the precision. If a */re* format is used,
+           a decimal point will always appear. The precision signifies the number
            of significant digits displayed.
-    */rz*  This will give a format like */rd* or */re* depending on which is most compact 
-           for the number being printed. A format like */re* will be used only if the 
-           exponent value is less than -4 or greater than the precision. If a */re* 
-           format is used, trailing zeros will be supressed and a decimal point will appear 
-           only if one or more digits follow it. The precision signifies the number of significant 
+    */rz*  This will give a format like */rd* or */re* depending on which is most compact
+           for the number being printed. A format like */re* will be used only if the
+           exponent value is less than -4 or greater than the precision. If a */re*
+           format is used, trailing zeros will be supressed and a decimal point will appear
+           only if one or more digits follow it. The precision signifies the number of significant
            digits displayed.
     ====== =======================================================
 
     **Left-Justified**
 
     ====== =======================================================
-    */ld*  Signed decimal number in the form [[-]] ####.####, where #### is one or 
-           more decimal digits. The number of digits before the decimal point depends 
-           on the magnitude of the number, and the number of digits after the decimal 
-           point depends on the precision. If the precision is 0, no decimal point will 
-           be printed. If the number is positive, a space character will replace the 
+    */ld*  Signed decimal number in the form [[-]] ####.####, where #### is one or
+           more decimal digits. The number of digits before the decimal point depends
+           on the magnitude of the number, and the number of digits after the decimal
+           point depends on the precision. If the precision is 0, no decimal point will
+           be printed. If the number is positive, a space character will replace the
            leading minus sign.
-    */le*  Signed number in the form [[-]]#.##E±###, where # is one decimal digit, ## is 
-           one or more decimal digits depending on the precision, and ### is three decimal 
-           digits. If precision is 0, the form will be [[-]]#E±### with no decimal point 
+    */le*  Signed number in the form [[-]]#.##E±###, where # is one decimal digit, ## is
+           one or more decimal digits depending on the precision, and ### is three decimal
+           digits. If precision is 0, the form will be [[-]]#E±### with no decimal point
            printed. If the number is positive, a space character will replace the leading minus sign.
-    */lo*  This will give a format like */ld* or */le* depending on which is most compact for the 
-           number being printed. A format like /le will be used only if the exponent value is 
-           less than -4 or greater than the precision. If a */le* format is used, a decimal point 
-           will always appear. If the number is positive, a space character will replace the 
+    */lo*  This will give a format like */ld* or */le* depending on which is most compact for the
+           number being printed. A format like /le will be used only if the exponent value is
+           less than -4 or greater than the precision. If a */le* format is used, a decimal point
+           will always appear. If the number is positive, a space character will replace the
            leading minus sign. The precision specifies the number of significant digits displayed.
-    */lz*  This will give a format like */ld* or */le* depending on which is most compact for the 
+    */lz*  This will give a format like */ld* or */le* depending on which is most compact for the
            number being printed. A format like */le* will be used only if the exponent value is less
-           than -4 or greater than the precision. If a */le* format is used, trailing zeros will be 
-           supressed and a decimal point will appear only if one or more digits follow it. 
-           If the number is positive, a space character will replace the leading minus sign. 
+           than -4 or greater than the precision. If a */le* format is used, trailing zeros will be
+           supressed and a decimal point will appear only if one or more digits follow it.
+           If the number is positive, a space character will replace the leading minus sign.
            The precision specifies the number of significant digits displayed.
     ====== =======================================================
 
     **Trailing Character**
 
-    The following characters can be added to the */jnt* parameters above to control the trailing character if any:                       
+    The following characters can be added to the */jnt* parameters above to control the trailing character if any:
 
     ::
 
@@ -124,7 +124,7 @@ Format
 
     .. list-table::
         :widths: auto
-        
+
         * - *s*
           - The number will be followed immediately by a space character. This is the default.
         * - *c*
@@ -133,11 +133,11 @@ Format
           - The number will be followed immediately by a tab character.
         * - *n*
           - No trailing character.
-            
+
             The default when GAUSS is first started is:
-            
+
             ::
-            
+
                 format /m1 /ro 16,8;
 
         * - *;;*
@@ -157,7 +157,7 @@ Print a matrix
 
 ::
 
-    1.0000000        2.0000000 
+    1.0000000        2.0000000
     3.0000000        4.0000000
 
 Print an expression
@@ -174,11 +174,11 @@ returns:
 
     5.0000000
 
-.. NOTE:: Notice the parentheses in the code above. Remember that `print` statements in GAUSS take 
-    a space separated list of items to print. The parentheses tell GAUSS to first evaluate 
-    the expression and then print the result. Without the parentheses (i.e. ``print x + 2;``), 
-    the statement would tell GAUSS to print a list of three items (first ``print x``, then 
-    ``print +``, and finally ``print 2``. Since the second item in that list is an operator 
+.. NOTE:: Notice the parentheses in the code above. Remember that `print` statements in GAUSS take
+    a space separated list of items to print. The parentheses tell GAUSS to first evaluate
+    the expression and then print the result. Without the parentheses (i.e. ``print x + 2;``),
+    the statement would tell GAUSS to print a list of three items (first ``print x``, then
+    ``print +``, and finally ``print 2``. Since the second item in that list is an operator
     (the ``+`` sign), an error will occur.
 
 Example 3
@@ -186,7 +186,7 @@ Example 3
 
 ::
 
-    x = rndn(3,3);
+    x = rndn(3, 3);
     format /rd 16,8;
     print x;
 
@@ -219,7 +219,7 @@ Append commas
 
 ::
 
-    x = rndn(3,3);
+    x = rndn(3, 3);
     format /rd 16,8;
     print x;
 
@@ -238,7 +238,7 @@ Add row numbers
 
      print /rd /m3 x;
 
-returns: 
+returns:
 
 ::
 
@@ -254,8 +254,8 @@ returns:
 Printing character data
 +++++++++++++++++++++++
 
-Character data is text inside a GAUSS matrix. To print elements of a matrix as characters, you need to 
-prepend the dollar sign (``$``) to the name of the variable you want to print. In most cases, 
+Character data is text inside a GAUSS matrix. To print elements of a matrix as characters, you need to
+prepend the dollar sign (``$``) to the name of the variable you want to print. In most cases,
 string arrays are recommended over character matrices..
 
 ::
@@ -348,4 +348,3 @@ A `print` statement by itself will cause a blank line to be printed:
 
 
 .. seealso:: Functions :func:`printfm`, :func:`printdos`
-

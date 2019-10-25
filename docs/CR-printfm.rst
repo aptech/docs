@@ -44,7 +44,7 @@ mixed numeric and character matrix:
     "*.*lf," 10 3               /* second column format */
     "*.*le " 12 4;              /* third column format */
 
-    d = printfm(x,mask,fmt);
+    d = printfm(x, mask, fmt);
 
 ::
 

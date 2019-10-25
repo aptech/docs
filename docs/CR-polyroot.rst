@@ -12,7 +12,7 @@ Format
 
     :param c: coefficients of an Nth order polynomial:
 
-        .. math:: p(z) = c[1]*^n + c[2]*z^{n-1} + ... + c[n]*z + c[n+1]
+        .. math:: p(z) = c[1]*z^n + c[2]*z^{n-1} + ... + c[n]*z + c[n+1]
 
     :type c: (N+1)x1 vector
 

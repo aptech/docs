@@ -22,7 +22,7 @@ Format
 
     :return y: result of interpolation or extrapolation.
 
-    :rtype y: TODO
+    :rtype y: scalar
 
 Global Input
 ------------
@@ -49,7 +49,7 @@ problem.
 Technical Notes
 ----------------
 
-Press, W.P., B.P. Flannery, S.A. Teukolsky, and W.T. Vettering. 
+Press, W.P., B.P. Flannery, S.A. Teukolsky, and W.T. Vettering.
 Numerical Recipes: The Art of Scientific Computing. NY: Cambridge Press, 1986.
 
 Source
@@ -57,3 +57,4 @@ Source
 
 polyint.src
 
+.. seealso:: Functions :func:`polymake`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`

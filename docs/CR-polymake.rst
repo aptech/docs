@@ -66,18 +66,16 @@ This represents the polynomial:
 
 .. math::
 
-    x3 - 6x2 + 11x - 6
-
-.. DANGER:: fix equations
+    x^3 - 6x^2 + 11^x - 6
 
 Remarks
 -------
 
-The coefficient of z\ :sup:`n` is set to unity (:math:`c[1]=1`).
+The coefficient of :math:`z^n` is set to unity (:math:`c[1]=1`).
 
 Source
 ------
 
 poly.src
 
-.. seealso:: Functions :func:`polychar`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`
+.. seealso:: Functions :func:`polychar`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`, :func:`polymroot`

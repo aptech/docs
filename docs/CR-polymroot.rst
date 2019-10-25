@@ -24,7 +24,7 @@ Solve
 
 .. math::
 
-    det(A2*t2 + A1*t + A0) = 0
+    det(A2*t^2 + A1*t + A0) = 0
 
 where
 
@@ -54,10 +54,10 @@ Remarks
 -------
 
 *c* is constructed of N+1 KxK coefficient matrices stacked vertically with
-the coefficient matrix of the :math:`t\ n` at the top, :math:`t\ (n-1)` next, down to
-the :math:`t\ 0` matrix at the bottom.
+the coefficient matrix of the :math:`t^n` at the top, :math:`t^{n-1}` next, down to
+the :math:`t^0` matrix at the bottom.
 
 Note that this procedure solves the scalar problem as well, that is, the
-one that POLYROOT solves.
+one that :func:`polyroot` solves.
 
-
+.. seealso:: Functions :func:`polychar`, :func:`polymult`, :func:`polyroot`, :func:`polyeval`

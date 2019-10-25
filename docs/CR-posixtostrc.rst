@@ -147,10 +147,10 @@ The following format specifiers are supported:
 | %j              | The day of the year as a decimal number (001-366).  |
 +-----------------+-----------------------------------------------------+
 | %k              | The hour (24-hour clock) as a decimal number        |
-|                 | (0-23); single digits are preeded by a blank.       |
+|                 | (0-23); single digits are preceded by a blank.      |
 +-----------------+-----------------------------------------------------+
 | %l              | The hour (12-hour clock) as a decimal number        |
-|                 | (1-12); single digits are preeded by a blank.       |
+|                 | (1-12); single digits are preceded by a blank.      |
 +-----------------+-----------------------------------------------------+
 | %M              | The minute as a decimal number (00-59).             |
 +-----------------+-----------------------------------------------------+

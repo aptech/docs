@@ -27,13 +27,13 @@ This example multiplies the polynomials:
 
 .. math::
 
-    (2x + 1)(2x2 + 1)
+    (2x + 1)(2x^2 + 1)
 
 and returns the answer:
 
 .. math::
 
-    4x3 + 2x2 + 2x + 1
+    4x^3 + 2x^2 + 2x + 1
 
 ::
 
@@ -42,7 +42,8 @@ and returns the answer:
 
     // Assign c2 to represent 2x2 + 1
     c2 = { 2, 0, 1 };
-    c = polymult(c1,c2);
+
+    c = polymult(c1, c2);
 
 After the code above:
 
@@ -63,7 +64,7 @@ the polynomial
 
 .. math::
 
-   5x3 + 6x + 3
+   5x^3 + 6x + 3
 
 would be:
 
