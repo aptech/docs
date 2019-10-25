@@ -28,7 +28,7 @@ Examples
 
 ::
 
-    y = reshape(x,2,6);
+    y = reshape(x, 2, 6);
 
 ::
 
@@ -71,4 +71,3 @@ first element of *x* and starts getting additional elements from there.
 
 
 .. seealso:: Functions :func:`submat`, :func:`vec`
-

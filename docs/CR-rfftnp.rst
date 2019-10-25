@@ -41,19 +41,28 @@ implements the Temperton algorithm for any power of 2, 3, and 5, and one
 factor of 7. Thus, :func:`rfftnp` can handle any matrix whose dimensions can be
 expressed as:
 
-.. DANGER:: fix equations
+.. math::
+
+   2^p \times 3^q \times 5^r \times 7^s
+
+For rows of the matrix :
 
 .. math::
 
-   2p x 3q x 5r x 7s
+   p, q, r \geq 0
 
-   p, q, r ≥ 0     -- for rows of matrix
+For columns of the matrix or length of a vector:
 
-   p > 0. q, r ≥ 0 -- for columns of matrix
+.. math::
 
-   p > 0. q, r ≥ 0 -- for length of a vector
+   p > 0\\
+   q, r \geq 0
 
-   s = 0 or 1      -- for all dimensions
+For all dimensions:
+
+.. math::
+
+   s = 0 \text{ or } 1
 
 If a dimension of *x* does not meet these requirements, it will be padded
 with zeros to the next allowable size before the FFT is computed.
@@ -77,7 +86,6 @@ for determining allowable dimensions for matrices and vectors. (You can
 use these to see the dimensions to which :func:`rfftnp` would pad a matrix or
 vector.)
 
-:func:`rfftnp` scales the computed FFT by :math:`1/(L*M)`.
+:func:`rfftnp` scales the computed FFT by :math:`\frac{1}{(L*M)}`.
 
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftn`, :func:`rfftp`
-

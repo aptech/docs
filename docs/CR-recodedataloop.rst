@@ -15,7 +15,7 @@ Format
 
 ::
 
-    recode var with 
+    recode var with
     //   or
     recode # var with
     //   or
@@ -63,8 +63,8 @@ Examples
 Remarks
 -------
 
-If '``$``' is specified, the variable will be considered a character
-variable. If '``#``' is specified, the variable will be considered numeric.
+If ``$`` is specified, the variable will be considered a character
+variable. If ``#`` is specified, the variable will be considered numeric.
 If neither is specified, the type of the variable will be left
 unchanged.
 
@@ -80,4 +80,3 @@ source dataset, as `extern`'s, or as the result of a previous `make`,
 
 
 .. seealso:: Functions `code`
-

@@ -25,4 +25,3 @@ Remarks
 It is up to the user to guarantee that the input will return a real result. If in doubt, use :func:`ffti`.
 
 .. seealso:: Functions :func:`rfft`, :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`
-

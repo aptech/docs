@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix or K-length vector
 
-    :return y: 
+    :return y:
 
     :rtype y: LxM real matrix or M-length vector
 
@@ -31,14 +31,12 @@ implements the Temperton algorithm for any integer power of 2, 3, and 5,
 and one factor of 7. Thus, :func:`rfftip` can handle any matrix whose dimensions
 can be expressed as:
 
-.. DANGER:: fix equations
-
 .. math::
 
-   2p x 3q x 5r x 7s
+   2^p \times 3^q \times 5^r \times 7^s
 
-   p, q, r ≥ 0
-   s = 0 or 1
+   p, q, r \geq 0\\
+   s = 0 \text{ or } 1
 
 If a dimension of *x* does not meet this requirement, it will be padded
 with zeros to the next allowable size before the inverse FFT is
@@ -62,4 +60,3 @@ Do not pass :func:`rfftip` the output from :func:`rfft` or :func:`rfftn` - it wi
 incorrect results. Use :func:`rffti` with those routines.
 
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftn`, :func:`rfftnp`, :func:`rfftp`
-

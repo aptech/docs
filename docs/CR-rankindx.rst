@@ -28,7 +28,7 @@ Examples
 ::
 
     x = { 12, 4, 15, 7, 8 };
-    r = rankindx(x,1);
+    r = rankindx(x, 1);
 
 After the code above, *r* is equal to:
 
@@ -45,5 +45,3 @@ Remarks
 
 :func:`rankindx` assigns different ranks to elements that have equal values
 (ties). Missing values are assigned the lowest ranks.
-
-

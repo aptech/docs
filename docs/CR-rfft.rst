@@ -21,7 +21,7 @@ Format
 Remarks
 -------
 
-Computes the RFFT of *x*, scaled by :math:`1/(L*M)`.
+Computes the RFFT of *x*, scaled by :math:`\frac{1}{(L*M)}`.
 
 This uses a Temperton Fast Fourier algorithm.
 
@@ -29,4 +29,3 @@ If :math:`N` or :math:`K` is not a power of 2, *x* will be padded out with zeros
 computing the transform.
 
 .. seealso:: Functions :func:`rffti`, :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`
-

@@ -28,17 +28,17 @@ Examples
 
     open dt = dat1.dat;
     m = 0;
-     
+
     do until eof(dt);
-       x = readr(dt,400);
-       m = m + moment(x,0);
+       x = readr(dt, 400);
+       m = m + moment(x, 0);
     endo;
-     
+
     dt = close(dt);
 
 This code reads data from a dataset 400 rows at a time. The moment
 matrix for each set of rows is computed and added to the sum of the
-previous moment matrices. The result is the moment matrix for the 
+previous moment matrices. The result is the moment matrix for the
 entire dataset. ``eof(dt)`` returns 1 when the end of the
 dataset is encountered.
 
@@ -58,4 +58,3 @@ To move the pointer to a specific place in the file use :func:`seekr`.
 
 
 .. seealso:: Functions `open`, `create`, :func:`writer`, :func:`seekr`, :func:`eof`
-
