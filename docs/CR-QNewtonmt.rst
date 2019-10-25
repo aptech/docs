@@ -21,18 +21,18 @@ Format
         pointed to by *&fct*. *par* is constructed using the :func:`pvPack` functions.
     :type par: struct
 
-    :param ...: Optional extra arguments. These arguments are passed untouched to the user-provided 
+    :param ...: Optional extra arguments. These arguments are passed untouched to the user-provided
         objective function, by :func:`QNewtonmt`.
     :type ...: any
 
-    :param c: An instance of a :class:`QNewtonmtControl` structure. Normally an instance is initialized 
+    :param c: An instance of a :class:`QNewtonmtControl` structure. Normally an instance is initialized
         by calling :func:`QNewtonmtControlCreate` and members of this instance can be set to other values by the user.
 
         For an instance named *c*, the members are:
 
         .. csv-table::
             :widths: auto
-    
+
             "c.CovType", "scalar, if 1, ML covariance matrix, else if 2, QML covariance matrix is computed. Default is 0, no covariance matrix."
             "c.GradProc", "scalar, pointer to a procedure that computes the gradient of the function with respect to the parameters. Default = ., i.e., no gradient procedure has been provided."
             "c.MaxIters", "scalar, maximum number of iterations. Default = 1e+5."
@@ -51,7 +51,7 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - out.par
               - instance of a :class:`PV` structure containing the parameter estimates will be placed in the member matrix *out.par*.
             * - out.fct
@@ -86,12 +86,15 @@ Examples
     // The following arguments contain data, other than the parameters,
     // which is needed by the function
     proc (1) = Micherlitz(struct PV par1, y, x);
-       local p0,e,s2;
+       local p0, e, s2;
+
        p0 = pvUnpack(par1, "parameters");
+
        e = y - p0[1] - p0[2]*exp(-p0[3] * x);
-       retp(-lnpdfmvn(e,e'e/rows(e)));
+
+       retp(-lnpdfmvn(e, e'e/rows(e)));
     endp;
-    
+
     // Create extra data needed by objective function
     y = { 3.183,
           3.059,
@@ -106,29 +109,29 @@ Examples
           1.770,
           1.762,
           1.550 };
-     
-    x = seqa(1,1,13);
-     
+
+    x = seqa(1, 1, 13);
+
     // Declare 'par' to be a PV structure
     struct PV par;
-    
+
     // Set PV defaults in 'par'
     par = pvCreate();
-    
+
     // Add a variable named 'parameters' to par with a 3x1
     // vector of starting values
     par = pvPack(par, 1|1|0, "parameters");
-     
+
     // Declare 'out' to be a QNewtonmtOut structure
     // to hold data returned by QNewtonmt
     struct QNewtonmtout out;
-    
+
     // Minimize the 'Micherlitz' function
-    out = QNewtonmt(&Micherlitz,par,y,x);
-    
+    out = QNewtonmt(&Micherlitz, par, y, x);
+
     // Get returned parameters from the output structure
     parms = pvGetParVector(out.par);
-    
+
     // Print returned parameters
     print parms;
 
@@ -136,8 +139,8 @@ The code above should return the following output:
 
 ::
 
-    0.96312060 
-    2.5189989 
+    0.96312060
+    2.5189989
     0.10305485
 
 Remarks
@@ -163,10 +166,13 @@ a nonlinear curve to data:
 ::
 
    proc (1) = Micherlitz(struct PV par1, y, x);
-      local p0,e,s2;
+      local p0, e, s2;
+
       p0 = pvUnpack(par1, "parameters");
+
       e = y - p0[1] - p0[2]*exp(-p0[3] * x);
-      retp(-lnpdfmvn(e,e'e/rows(e)));
+
+      retp(-lnpdfmvn(e, e'e/rows(e)));
    endp;
 
 In this example the dependent and independent variables are passed to
@@ -188,4 +194,3 @@ Source
 qnewtonmt.src
 
 .. seealso:: Functions :func:`QNewtonmtControlCreate`, :func:`QNewtonmtOutCreate`
-

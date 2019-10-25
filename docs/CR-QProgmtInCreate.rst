@@ -20,4 +20,3 @@ Source
 qprogmt.src
 
 .. seealso:: Functions :func:`QProgmt`
-

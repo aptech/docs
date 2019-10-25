@@ -23,7 +23,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "if :math:`pvt[i] > 0`, :math:`x[i]` is an initial column."
             "if :math:`pvt[i] = 0`, :math:`x[i]` is a free column."
             "if :math:`pvt[i] < 0`, :math:`x[i]` is a final column."
@@ -47,19 +47,28 @@ Format
 Remarks
 -------
 
-Given :math:`X[.,E]`, where :math:`E` is a permutation vector that permutes the columns
-of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[.,E]` is zero below
+Given :math:`X[., E]`, where :math:`E` is a permutation vector that permutes the columns
+of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[., E]` is zero below
 its diagonal, i.e.,
 
-::
+.. math::
+
+    Q′R[ ., E ] = \begin{bmatrix}
+        R \\
+        0
+        \end{bmatrix}
 
 where :math:`R` is upper triangular. If we partition
 
-::
+.. math::
 
-where :math:`Q\ 1` has :math:`P` columns, then
+   Q⁢ = [Q_1 Q_2⁢]
 
-::
+where :math:`Q_1` has :math:`P` columns, then
+
+.. math::
+
+    X[., E] = Q_1R
 
 is the QR decomposition of :math:`X[.,E]`.
 
@@ -75,4 +84,3 @@ Source
 qtyr.src
 
 .. seealso:: Functions :func:`qrep`, :func:`qtyre`
-

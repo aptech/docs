@@ -17,7 +17,7 @@ Format
     :param R: upper triangular matrix
     :type R: PxP matrix
 
-    :return x: 
+    :return x: solution of :math:`R'x = b` where *R* is an upper triangular matrix
 
     :rtype x: PxL matrix
 
@@ -37,4 +37,3 @@ Source
 qrsol.src
 
 .. seealso:: Functions :func:`qqr`, :func:`qr`, :func:`qtyr`, :func:`qrsol`
-

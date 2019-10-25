@@ -59,7 +59,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "*0*", "termination"
             "*1*", "iterations exceeded"
             "*2*", "accuracy is insufficient to maintain decreasing function values"
@@ -81,8 +81,8 @@ Remarks
 
 .. math::
 
-    min ½x'Qx - x'R
-            
+    min \frac{1}{2} x'Qx - x'R
+
 .. DANGER:: fix equations
 
 subject to constraints,
@@ -91,16 +91,15 @@ subject to constraints,
 
     Ax = B
     Cx ≤ D
-               
+
 
 and bounds,
 
 .. math::
 
-    xlow ≤ x ≤ xup
+    x_{low} ≤ x ≤ x_{up}
 
 Source
 ------
 
 qprog.src
-

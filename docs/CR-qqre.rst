@@ -4,9 +4,7 @@ qqre
 
 Purpose
 ----------------
-Computes the orthogonal-triangular (QR) decomposition of a matrix *x*, such that: :math:` X[.,E] = Q1R`
-
-.. DANGER:: Fix all equations. all equations below are blank as they were corrupted during merge.
+Computes the orthogonal-triangular (QR) decomposition of a matrix *x*, such that: :math:`X[ .,E ] = Q_1R`
 
 Format
 ----------------
@@ -15,39 +13,47 @@ Format
     :param x: data
     :type x: NxP matrix
 
-    :return q1: :math:`K = min(N,P)`.
+    :return q1: unitary matrix, :math:`K = min(N, P)`.
 
-    :rtype q1: NxK unitary matrix
+    :rtype q1: NxK matrix
 
-    :return r: 
+    :return r: upper triangular matrix
 
-    :rtype r: KxP upper triangular matrix
+    :rtype r: KxP matrix
 
-    :return e: 
+    :return e: permutation vector
 
-    :rtype e: Px1 permutation vector
+    :rtype e: Px1 vector
 
 Remarks
 -------
 
-Given :math:`X[.,E]`, where :math:`E` is a permutation vector that permutes the columns
-of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[.,E]` is zero below
+Given :math:`X[., E]`, where :math:`E` is a permutation vector that permutes the columns
+of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[., E]` is zero below
 its diagonal, i.e.,
 
 .. math::
 
+    Q′R[ ., E ] = \begin{bmatrix}
+        R \\
+        0
+        \end{bmatrix}
 
 where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-where :math:`Q\ 1` has :math:`P` columns, then
+   Q⁢ = [Q_1 Q_2⁢]
+
+where :math:`Q_1` has :math:`P` columns, then
 
 .. math::
 
-is the QR decomposition of :math:`X[.,E]`.
+  X[ ., E ] = Q_1R
 
-If you want only the :math:`R` matrix, see :func:`qre`. Not computing :math:`Q\ 1` can produce
+is the QR decomposition of :math:`X[., E]`.
+
+If you want only the :math:`R` matrix, see :func:`qre`. Not computing :math:`Q_1` can produce
 significant improvements in computing time and memory usage.
 
 If :math:`X` has rank :math:`P`, then the columns of :math:`X` will not be permuted. If :math:`X` has
@@ -56,36 +62,53 @@ front of :math:`X` by :math:`E`. Partition the permuted :math:`X` in the followi
 
 .. math::
 
-where :math:`X` is NxM and :math:`X\ 2` is Nx(P-M). Further partition :math:`R` in the following
+    X[ ., E ] = [X_1 X_2⁢]
+
+where :math:`X` is NxM and :math:`X_2` is :math:`N \times (P-M)`. Further partition :math:`R` in the following
 way:
 
 .. math::
 
-where :math:`R\ 11` is MxM and :math:`R\ 12` is Mx(P-M). Then
+    R = \begin{bmatrix}
+      R_{11} & R_{12} \\
+      0 & 0
+      \end{bmatrix}
+
+where :math:`R_{11}` is MxM and :math:`R_{12}` is Mx(P-M). Then
 
 .. math::
+
+    A = R_{11}^{-1}R_{12}
 
 and
 
 .. math::
 
-that is, :math:`A` is an Mx(P-N) matrix defining the linear combinations of :math:`X\ 2` with respect to :math:`X\ 1`.
+    X_2 = X_1A
+
+that is, :math:`A` is an :math:`M \times (P-N)` matrix defining the linear combinations of :math:`X_2` with respect to :math:`X_1`.
 
 If :math:`N < P`, the factorization assumes the form:
 
 .. math::
 
-where :math:`R\ 1` is a PxP upper triangular matrix and :math:`R\ 2` is Px(N-P). Thus :math:`Q`
-is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R\ 1` and :math:`R\ 2`. This
+  Q'X = \begin{bmatrix}
+    R_1 & R_2
+    \end{bmatrix}
+
+where :math:`R_1` is a PxP upper triangular matrix and :math:`R_2` is Px(N-P). Thus :math:`Q`
+is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R_1` and :math:`R_2`. This
 type of factorization is useful for the solution of underdetermined systems. For the solution of
 
 .. math::
+
+    X[ ., E ]b = y
 
 it can be shown that
 
 ::
 
-    b = qrsol(Q'Y, R1)|zeros(N-P,1);
+    b = qrsol(Q'Y, R1)|zeros(N-P, 1);
 
 The explicit formation here of :math:`Q`, which can be a very large matrix, can
 be avoided by using the function :func:`qtyre`.
@@ -97,5 +120,4 @@ Source
 
 qqr.src
 
-.. seealso:: Functions :func:`qtyre`, :func:`olsqr`
-
+.. seealso:: Functions :func:`qtyre`, :func:`olsqr`, :func:`qqre`

@@ -28,7 +28,7 @@ Format
         6  "cef"  Complex eigenvalues first. (Complex portion greater than imagtol see remarks section)
         == ====== ===============================
 
-    :type sort_type: scalar or string 
+    :type sort_type: scalar or string
 
     :return S: Schur form of *A*
 
@@ -56,23 +56,23 @@ Basic usage
 
     // For repeatable random numbers
     rndseed 23434;
-    
+
     // Matrix dimensions
     order = 4;
-    
+
     // Create 2 square, real matricies
     A = rndn(order, order);
     B = rndn(order, order);
-    
+
     // Perform 'QZ' decomposition
-    { S, T, Q, Z } =  qz(A,B);
-    
+    { S, T, Q, Z } =  qz(A, B);
+
     // Calculate generalized eigenvalues
     eig_vals = diag(S) ./ diag(T);
-    
+
     print "Generalized eigenvalues = ";
     print eig_vals;
-    
+
     print "Absolute value of the generalized eigenvalues = ";
     print abs(eig_vals);
 
@@ -80,24 +80,24 @@ The above code should return the following output:
 
 ::
 
-    Generalized eigenvalues = 
-    
-    	   20.703871 -    1.9686543e-16i 
-          0.16170711 -    1.6939178e-17i 
-    	 -0.83402664 -       0.34681937i 
-    	 -0.83402664 +       0.34681937i 
-    
-    Absolute value of the generalized eigenvalues = 
-    
-    	 20.703871 
-    	0.16170711 
-    	0.90326303 
+    Generalized eigenvalues =
+
+    	   20.703871 -    1.9686543e-16i
+          0.16170711 -    1.6939178e-17i
+    	 -0.83402664 -       0.34681937i
+    	 -0.83402664 +       0.34681937i
+
+    Absolute value of the generalized eigenvalues =
+
+    	 20.703871
+    	0.16170711
+    	0.90326303
     	0.90326303
 
 Ordering eigenvalues
 ++++++++++++++++++++
 
-You can order the eigenvalues, by passing in the optional third input, *sort_type*. The code below 
+You can order the eigenvalues, by passing in the optional third input, *sort_type*. The code below
 uses the same *A* and *B* variables made in the example above.
 
 ::
@@ -107,13 +107,13 @@ uses the same *A* and *B* variables made in the example above.
     // those with absolute value less than 1
     // on the upper left
     { S, T, Q, Z } =  qz(A, B, "udi");
-    
+
     // Calculate generalized eigenvalues
     eig_vals = diag(S) ./ diag(T);
-    
+
     print "Generalized eigenvalues = ";
     print (eig_vals);
-    
+
     print "Absolute value of the generalized eigenvalues = ";
     print abs(eig_vals);
 
@@ -121,18 +121,18 @@ The code above should print out the sorted eigenvalues as we see below.
 
 ::
 
-    Generalized eigenvalues = 
-    
-    	 0.16170711 -    1.6819697e-17i 
-    	-0.83402664 -       0.34681937i 
-    	-0.83402664 +       0.34681937i 
-    	  20.703871 -    2.1311282e-14i 
-    
-    Absolute value of the generalized eigenvalues = 
-    
-    	0.16170711 
-    	0.90326303 
-    	0.90326303 
+    Generalized eigenvalues =
+
+    	 0.16170711 -    1.6819697e-17i
+    	-0.83402664 -       0.34681937i
+    	-0.83402664 +       0.34681937i
+    	  20.703871 -    2.1311282e-14i
+
+    Absolute value of the generalized eigenvalues =
+
+    	0.16170711
+    	0.90326303
+    	0.90326303
     	 20.703871
 
 Remarks
@@ -154,7 +154,7 @@ Remarks
        T = Q'B*Z
 
        A = Q*S*Z'
-       B = Q*T*Z'      
+       B = Q*T*Z'
 
 -  For the real generalized schur decomposition, call :func:`lapgschur`.
 
@@ -166,7 +166,7 @@ Remarks
 
    ::
 
-       // Set imagtol to 1e-15   
+       // Set imagtol to 1e-15
        imagtol_org = sysstate(21, 1e-15);
 
    Note that while the function :func:`qz` IS threadsafe, setting *imagtol* is NOT
@@ -174,4 +174,3 @@ Remarks
    `threadStat` or `threadBegin` block.
 
 -  This procedure calls the *LAPACK* routine ``ZGGES``.
-

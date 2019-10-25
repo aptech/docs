@@ -40,7 +40,7 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - qCtl.bandwidth
               - scalar, the multiplicative factor of the bandwidth. Default = 1.
             * - qCtl.varnames
@@ -69,7 +69,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "qOut.beta", "Kx1 matrix, quantile parameter estimates."
             "qOut.u_plus", "NxM matrix, positive part of residuals."
             "qOut.u_minus", "NxM matrix, negative part of residuals."
@@ -85,18 +85,18 @@ Examples
 
     new;
     cls;
-    
-    // Set random number generator seed for 
+
+    // Set random number generator seed for
     // repeatable random numbers
     rndseed 4893;
-    
+
     N = 1000;
     x = 10*rndu(N, 1) - 5;
     y = 5 + 2*X + rndn(rows(x), 1)*10;
-    
+
     // Set up tau for regression
     tau = 0.05|0.50|0.75|0.95;
-    
+
     // Call quantileFit
     struct qfitOut qOut;
     qOut = quantileFit(Y, X, tau);
@@ -107,4 +107,3 @@ Source
 quantilefit.src
 
 .. seealso:: Functions :func:`glm`, :func:`olsmt`, :func:`quantileFitLoc`
-

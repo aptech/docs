@@ -40,26 +40,26 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - qCtl.bandwidth
               - scalar, the multiplicative factor of the bandwidth. Default = 1.
             * - qCtl.reg_type
               - scalar, the regression type. Default = 1.
-    
+
                 :1: Linear regression.
                 :2: Quadratic regression.
-    
+
             * - qCtl.varnames
               - string array, variable names. Default = ``{"X1", "X2", ..., "XK"}``.
             * - qCtl.verbose
               - scalar, print results Default = 1.
-    
+
                 :1: Printing on.
                 :0: No printing.
-    
+
             * - qCtl.const
               - scalar, include constant in regression. Default = 1.
-    
+
                 :1: a constant term will be added.
                 :0: no constant term will be added.
 
@@ -76,15 +76,15 @@ Examples
 
     new;
     cls;
-    
-    // Set random number generator seed for 
+
+    // Set random number generator seed for
     // repeatable random numbers
     rndseed 4893;
-    
+
     N = 1000;
-    X = rndu(N,1);
-    Y = sin(9*X) + (rndu(N,1) - 0.5);
-    
+    X = rndu(N, 1);
+    Y = sin(9*X) + (rndu(N, 1) - 0.5);
+
     // Call quantileFitLoc
     q = quantileFitLoc(Y, X);
 
@@ -94,4 +94,3 @@ Source
 quantilefit.src
 
 .. seealso:: Functions :func:`glm`, :func:`olsmt`, :func:`quantileFit`
-

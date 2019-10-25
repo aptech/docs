@@ -17,7 +17,7 @@ Format
     :param R: upper triangular matrix
     :type R: PxP matrix
 
-    :return x: 
+    :return x: solution of :math:`Rx = b` where :math:`R` is an upper triangular matrix.
 
     :rtype x: PxL matrix
 
@@ -25,7 +25,7 @@ Remarks
 -------
 
 :func:`qrsol` applies a backsolve to :math:`Rx = b` to solve for *x*. Generally *R* will be
-the *R* matrix from a QR factorization. :func:`qrsol` may be used, however, in any situation 
+the *R* matrix from a QR factorization. :func:`qrsol` may be used, however, in any situation
 where *R* is upper triangular.
 
 Source
@@ -34,4 +34,3 @@ Source
 qrsol.src
 
 .. seealso:: Functions :func:`qqr`, :func:`qr`, :func:`qtyr`, :func:`qrtsol`
-

@@ -29,7 +29,6 @@ Format
 
     :rtype e: Px1 vector
 
-.. DANGER:: fix equations
 
 Remarks
 -------
@@ -40,28 +39,39 @@ its diagonal, i.e.,
 
 .. math::
 
+    Q′R[ ., E ] = \begin{bmatrix}
+        R \\
+        0
+        \end{bmatrix}
+
 where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-where :math:`Q\ 1` has :math:`P` columns, then
+      Q = [Q_1 Q_2]
+
+where :math:`Q_1` has :math:`P` columns, then
 
 .. math::
 
-is the QR decomposition of :math:`X[.,E]`.
+    X[ ., E ] = Q_1R
 
-For most problems :math:`Q` or :math:`Q\ 1` is not what is required. Since :math:`Q` can be a
+is the QR decomposition of :math:`X[., E]`.
+
+For most problems :math:`Q` or :math:`Q_1` is not what is required. Since :math:`Q` can be a
 very large matrix, :func:`qyre` has been provided for the calculation of :math:`QY`,
 where :math:`Y` is some NxL matrix, which will be a much smaller matrix.
 
-If either :math:`Q'Y` or :math:`Q\ 1'Y` are required, see :func:`qtyre`.
+If either :math:`Q'Y` or :math:`Q_1'Y` are required, see :func:`qtyre`.
 
 If :math:`N < P`, the factorization assumes the form:
 
 .. math::
 
-where :math:`R\ 1` is a PxP upper triangular matrix and :math:`R\ 2` is Px(N-P). Thus :math:`Q`
-is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R\ 1` and :math:`R\ 2`.
+    Q′R[ ., E ] = [R_1 R_2]
+
+where :math:`R_1` is a PxP upper triangular matrix and :math:`R_2` is :math:`P \times (N-P)``. Thus :math:`Q`
+is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R_1` and :math:`R_2`.
 
 Source
 ------
@@ -69,4 +79,3 @@ Source
 qyr.src
 
 .. seealso:: Functions :func:`qqr`, :func:`qre`, :func:`qyr`
-

@@ -14,7 +14,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "qIn.start", "Kx1 vector, start values."
             "qIn.q", "KxK matrix, symmetric model matrix."
             "qIn.r", "Kx1 vector, model constant vector."
@@ -31,7 +31,7 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - qOut.x
               - Kx1 vector, coefficients at the minimum of the function.
             * - qOut.lagrange
@@ -62,21 +62,20 @@ Remarks
 
 .. math::
 
-   min⁡12x′Qx⁢− x′R
+   min⁡ \frac{1}{2}x′Qx⁢− x′R
 
 subject to constraints,
 
 .. math::
 
-   Ax⁢= BCx≤D
+   Ax⁢ = BC\\
+   x \leq D
 
 and bounds,
 
 .. math::
 
-   xlow≤x≤xup
-
-.. DANGER:: check equations
+   x_{low} \leq x \leq x_{up}
 
 Source
 ------
@@ -84,4 +83,3 @@ Source
 qprogmt.src
 
 .. seealso:: Functions :func:`QProgmtInCreate`
-
