@@ -94,6 +94,7 @@ Format
     :param p: controls the precision.
     :type p: Scalar expression
 
+
 Examples
 ----------------
 For the examples below we will use a matrix elements of different magnitudes to more clearly show the differences between the different formatting options. This code will create that matrix:
