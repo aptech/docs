@@ -58,7 +58,9 @@ inverse Wishart distribution, which is defined as
 
 .. math::
 
-    f(T) = \frac{ |\Psi|^{\nu/2} }{ |T|^{ \frac{ \nu + p + 1}{2} }⁢ 2^{\frac{\nu p}{2}}⁢\Gamma_p(\frac{\nu}{2}) } exp\big⁡(−\frac{1}{2}tr(\Gamma T^{−1})\big)
+    f(T;\Psi,\nu) = \frac{|\Psi^{\frac{\nu}{2}}|}{2^{\nu p/2}\Gamma_p(\frac{\nu}{2})}|T|^{-(\nu+p+1)/2} e^{-\frac{1}{2}tr(\Psi T^{-1})}
+
+
 
 
 .. seealso:: :func:`rndWishart`, :func:`rndWishartInv`
