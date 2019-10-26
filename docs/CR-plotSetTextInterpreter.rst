@@ -25,6 +25,9 @@ Examples
 Plain interpreter
 +++++++++++++++++
 
+The HTML text interpreter treats certain characters, such as greater-than and less-than signs, as mark-up rather than literal text to display. The Plain
+text interpretor will allow you to use these symbols directly in your plot text labels.
+
 ::
 
     new;
@@ -51,7 +54,7 @@ Plain interpreter
 HTML interpreter
 ++++++++++++++++
 
-You may add Greek letters, mathematical symbols, subscript and superscript to your title, axes and legend using HTML. To add HTML to a label, you can use plotSetTextInterpreter to set "html" for the text to be interpreted as HTML.
+You may add Greek letters, mathematical symbols, subscript and superscript to your title, axes and legend using HTML. To add HTML to a label, you can use :func:`plotSetTextInterpreter` to set "html" for the text to be interpreted as HTML.
 
 ::
 
@@ -74,8 +77,6 @@ The code above will add the letter :math:`\beta` to the graph title. The HTML 's
 
 will add :math:`\sigma^2` to your title. While,
 
-.. DANGER:: fix equation
-
 ::
 
     label_string = "Y<sub>t-1</sub>";
@@ -93,43 +94,49 @@ You can also use LaTeX to add complex math expression, or non-Latin scripts to y
 ::
 
     new;
-
+    
     // Declare plotControl structure
+    // and fill with default XY settings
     struct plotControl myPlot;
-
-    // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
-
-    // Set up text interpreter
+    
+    // Set LaTeX text interpreter for all text on plot
     plotSetTextInterpreter(&myPlot, "latex", "all");
-
+    
+    font_name = "Times New Roman";
+    
     // Set up X-axis label
-    label_string = "x";
-    plotSetXLabel(&myPlot, label_string, "Times New Roman", 20);
-
-    // Set up legend in LateX format
+    plotSetXLabel(&myPlot, "x", font_name, 20);
+    
+    // Set LaTeX legend string
     string legend_string = {
-    "y_1 = \\cos{(x)}",
+    "y_1 = \\cos{(x - 1.5)}",
     "y_2 = \\sin{(\\frac{x}{2})} = \\pm \\sqrt{\\frac{1-\\cos{(x)}}{2}}",
     "y_3 = \\cos{(\\frac{x}{2})} = \\pm \\sqrt{\\frac{1+\\cos{(x)}}{2}}"};
-
-    plotSetLegend(&myPlot, legend_string, "bottom",1);
-    plotSetLegendFont(&myPlot, "Times New Roman", 20);
-
+    
+    plotSetLegend(&myPlot, legend_string, "bottom left inside", 1);
+    plotSetLegendBkd(&myPlot, 0);
+    plotSetLegendFont(&myPlot, font_name, 12);
+    
     // Set up title
     title_string = "\\text{Trigonometric Functions}";
-    plotSetTitle(&myPlot, title_string, "Times New Roman", 24);
-
+    plotSetTitle(&myPlot, title_string, font_name, 18);
+    
     // Create data
     n = 50;
     x = seqa(0,(2*pi)/(n-1), n);
+    
+    // Specify size of plot canvas
+    plotCanvasSize("px", 600 | 300);
+    
+    // Draw plot
+    plotXY(myPlot, x, cos(x-1.5)~sin(x/2)~cos(x/2));
 
-    // Plot
-    plotXY(myPlot, x, cos(x)~sin(x/2)~cos(x/2));
 
 The plot is
 
-.. figure:: _static/images/plotsettextinterpreter.png
+.. figure:: _static/images/plotsettextinterpreter.jpg
+    :scale: 50 %
 
 Remarks
 -------
