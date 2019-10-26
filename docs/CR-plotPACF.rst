@@ -13,8 +13,8 @@ Format
 ----------------
 .. function:: plotPACF( [myPlot, ]x, k, d)
 
-		:param myPlot: Optional argument, a :class:`plotControl` structure
-		:type myPlot: struct
+    :param myPlot: Optional argument, a :class:`plotControl` structure
+    :type myPlot: struct
 
     :param x: data.
     :type x: Nx1 vector
@@ -55,19 +55,21 @@ Examples
 
 The plot is
 
+.. figure:: _static/images/plot-pacf-1.png
+   :scale: 50 %
+
 Remarks
 -------
 
-To control the color and texture of the bars as well as whether they are
-stacked or side by side:
+To control the color and texture of the bars:
 
-If you are passing a :class:`plotControl` structure to your graph, you may use
-the function :func:`plotGetDefaults` and :func:`plotSetBar`.
+* If you are passing a :class:`plotControl` structure to :func:`plotPACF`, you may use
+  the function :func:`plotGetDefaults` and :func:`plotSetBar`.
 
-If you are not passing a :class:`plotControl` structure, these properties are set
-in the Preferences. To access the Graphics Preferences, select
-:menuselection:`Tools --> Preferences` from the GAUSS main menu. Select ''Graphics'' on
-the left side of the preferences and then select ''Bar'' from the list
-of graph types.
+* If you are not passing a :class:`plotControl` structure, these properties are set
+  in the Preferences. To access the Graphics Preferences, select
+  :menuselection:`Tools --> Preferences` from the GAUSS main menu. Select ''Graphics'' on
+  the left side of the preferences and then select ''Bar'' from the list
+  of graph types.
 
 .. seealso:: Functions :func:`plotACF`, :func:`ACF`, :func:`PACF`
