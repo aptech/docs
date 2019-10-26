@@ -51,7 +51,8 @@ Basic case with default settings
 
 The plot is
 
-::
+.. figure:: _static/images/plot-add-surf-1.jpg
+    :scale: 50 %
 
 
 
@@ -97,6 +98,9 @@ With a plotControl structure and color map
     plotAddSurface(x_plane, y_plane, z_plane);
 
 The plot is
+
+.. figure:: _static/images/plot-add-surf-2.jpg
+    :scale: 50 %
 
 Remarks
 -------
