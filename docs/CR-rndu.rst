@@ -21,16 +21,16 @@ Format
     :param state: Optional argument.
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **opaque vector case**
-        
-            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+        *state* = the state vector returned from a previous call to one of the ``rnd`` random number functions.
 
     :type state: scalar or opaque vector
 
-    :return y: of uniform random numbers, :math:`0 <= y < 1`.
+    :return y: uniform random numbers, :math:`0 <= y < 1`.
 
     :rtype y: RxC matrix
 
@@ -61,41 +61,41 @@ Example 2
 ::
 
     // Largest number in integer range
-    size = 1000; 
-    
+    size = 1000;
+
     // Number of integers to calculate
     num_indices = 30;
-    
+
     idx = ceil(size .* rndu(num_indices, 1));
 
 Example 3
 +++++++++
 
-This example generates two thousand vectors of uniform random 
-numbers, each with one million elements. The state of the random 
-number generator after each iteration is used as an input to the 
+This example generates two thousand vectors of uniform random
+numbers, each with one million elements. The state of the random
+number generator after each iteration is used as an input to the
 next generation of random numbers.
 
 ::
 
     // starting seed
     state = 13;
-    
+
     // Number of submeans to calculate
     n_iters = 2000;
-    
+
     // Number of random numbers to generate
     // on each iteration
     k = 1000000;
-    
+
     // Pre-allocate 'submean' vector
     submean = zeros(n_iters, 1);
-     
+
     for i(1, n_iters, 1);
        { y,state } = rndu(k,1,state);
        submean[i] = meanc(y);
     endfor;
-     
+
     mean = meanc(submean);
     print 0.5-mean;
 
@@ -108,9 +108,8 @@ Remarks
 Technical Notes
 ---------------
 
-The default generator for rndu is the SFMT Mersenne-Twister 19937. You
-can specifiy a different underlying random number generator with the
+The default generator for :func:`rndu` is the SFMT Mersenne-Twister 19937. You
+can specify a different underlying random number generator with the
 function :func:`rndCreateState`.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
-

@@ -73,8 +73,8 @@ i.e., products of several factors (to various powers), rather than
 powers of a single factor. For example, even though it is bigger, a
 33600x1 vector can compute as much as 20 percent faster than a 32768x1
 vector, because 33600 is a highly composite number,
-:math:`2\ :sup:`6`\ x3x5\ :sup:`2`\ x7`, whereas 32768 is a simple power of 2,
-:math:`2\ :sup:`15``. For this reason, you may want to hand-pad matrices to
+:math:`2^6 \times 3 \times 5^2 \times 7`, whereas 32768 is a simple power of 2,
+:math:`2^{15}`. For this reason, you may want to hand-pad matrices to
 optimum dimensions before passing them to :func:`rfftnp`. The **Run-Time
 Library** includes two routines, :func:`optn` and :func:`optnevn`, for determining
 optimum dimensions. Use :func:`optn` to determine optimum rows for matrices, and
@@ -86,6 +86,6 @@ for determining allowable dimensions for matrices and vectors. (You can
 use these to see the dimensions to which :func:`rfftnp` would pad a matrix or
 vector.)
 
-:func:`rfftnp` scales the computed FFT by :math:`\frac{1}{(L*M)}`.
+:func:`rfftnp` scales the computed FFT by :math:`\frac{1}{L*M}`.
 
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftn`, :func:`rfftp`

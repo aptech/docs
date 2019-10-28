@@ -35,7 +35,10 @@ The properties of the pseudo-random numbers in *x* are:
 
 .. math::
 
-   E(x) = alphaVar(x) = alphax > 0alpha > 0
+   E(x) = \alpha\\
+   Var(x) = \alpha\\
+    x > 0\\
+    \alpha > 0
 
 Source
 ------
@@ -43,4 +46,3 @@ Source
 random.src
 
 .. seealso:: Functions :func:`rndGamma`
-

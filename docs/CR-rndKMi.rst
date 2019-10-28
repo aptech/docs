@@ -19,19 +19,19 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param state: 
+    :param state:
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **500x1 vector case**
-        
+
             *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
 
     :type state: scalar or 500x1 vector
 
-    :return y: of random integers between :math:`0` and :math:`2_32 - 1`, inclusive.
+    :return y: Random integers between :math:`0` and :math:`2^{32} - 1`, inclusive.
 
     :rtype y: RxC matrix
 
@@ -41,9 +41,9 @@ Format
 
 Examples
 ----------------
-This example generates two thousand vectors of random integers, 
-each with one million elements. The state of the random number 
-generator after each iteration is used as an input to the next 
+This example generates two thousand vectors of random integers,
+each with one million elements. The state of the random number
+generator after each iteration is used as an input to the next
 generation of random numbers.
 
 ::
@@ -54,14 +54,14 @@ generation of random numbers.
     c = 0;
     min = 2^32+1;
     max = -1;
-     
+
     do while c < n;
-       { y,state } = rndKMi(k,1,state);
+       { y,state } = rndKMi(k, 1, state);
        min = minc(min | minc(y));
        max = maxc(max | maxc(y));
        c = c + k;
     endo;
-     
+
     print "min " min;
     print "max " max;
 
@@ -79,4 +79,3 @@ developed by George Marsaglia. KISS initializes the sequence used in the
 recur-with-carry Monster random number generator.
 
 .. seealso:: Functions :func:`rndKMn`, :func:`rndKMu`
-

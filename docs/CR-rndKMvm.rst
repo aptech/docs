@@ -17,20 +17,20 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param m: r x c matrix or rx1 vector, or 1xc vector, or scalar, means for vm distribution.
-    :type m: mtarix or vector or scalar
+    :param m: means for von Mises distribution, scalar or ExE conformable matrix with *r* and *c*.
+    :type m: matrix, vector or scalar
 
-    :param k: r x c matrix or rx1 vector, or 1xc vector, or scalar, shape argument for vm distribution.
-    :type k: matrix or vector or scalar
+    :param k: shape argument for von Mises distribution, scalar or ExE conformable matrix with *r* and *c*.
+    :type k: matrix, vector or scalar
 
-    :param state: 
+    :param state:
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **500x1 vector case**
-        
+
             *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
 
     :type state: scalar or 500x1 vector
@@ -56,4 +56,3 @@ Source
 ------
 
 randkm.src
-

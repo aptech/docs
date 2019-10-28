@@ -22,7 +22,7 @@ Examples
 
 ::
 
-    x = ones(3,5);
+    x = ones(3, 3);
     y = rows(x);
     print x;
 
@@ -49,4 +49,3 @@ If *x* is an empty matrix, ``rows(x)`` and ``cols(x)`` return 0.
 
 
 .. seealso:: Functions :func:`cols`, :func:`getorders`, :func:`show`
-

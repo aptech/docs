@@ -5,7 +5,7 @@ rndcon, rndmult, rndseed
 Purpose
 ----------------
 
-Resets the parameters of the linear congruential random number 
+Resets the parameters of the linear congruential random number
 generator that is the basis for :func:`rndu`, :func:`rndi` and :func:`rndn`.
 
 .. _rndcon:
@@ -53,14 +53,14 @@ First, the current "seed" is used to generate a new seed:
 
 .. math::
 
-   new_seed = (((a * seed) % 232)+ c) % 232
+   new\_seed = (((a * seed) \% 2^{32})+ c) \% 2^{32}
 
 (where ``%`` is the mod operator). Then a number between 0 and 1 is created
-by dividing the new seed by :math:`2\ :sup:`32``:
+by dividing the new seed by :math:`2^{32}`:
 
 .. math::
 
-   x =  new_seed / 232
+   x =  \frac{new\_seed}{2^{32}}
 
 `rndcon` resets *c*.
 
@@ -81,4 +81,3 @@ The parameters set by these commands remain in effect until new commands
 are encountered, or until GAUSS is restarted.
 
 .. seealso:: Functions :func:`rndu`, :func:`rndn`, :func:`rndi`, :func:`rndLCi`, :func:`rndKMi`
-

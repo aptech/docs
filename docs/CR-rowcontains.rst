@@ -33,18 +33,18 @@ Find observations matching one or more criteria
 
 ::
 
-    //A string array with categorical variables
-    string catvars = { "married" "unemployed"      "king",
+    // A string array with categorical variables
+    string haystack = { "married" "unemployed"      "king",
                         "single" "unemployed" "snohomish",
                         "single"   "employed"      "king",
                        "married"   "employed"      "king",
-                        "single"   "employed"    "pierce" }; 
-    
-    criteria = "single" $| "unemployed";
-    
-    //Find any observations in which the participant
-    //is either single or unemployed 
-    mask = rowcontains(catvars, criteria);
+                        "single"   "employed"    "pierce" };
+
+    needles = "single" $| "unemployed";
+
+    // Find any observations in which the participant
+    // is either single or unemployed
+    mask = rowcontains(haystack, needles);
 
 After the above code, *mask* will equal:
 
@@ -65,12 +65,12 @@ Find rows with specified invalid values
             999 139 2,
              45 145 2,
              51   . 3 };
-    
-    //Search for 999 or a GAUSS missing value '.'
+
+    // Search for 999 or a GAUSS missing value '.'
     bad_vals = 999 | miss(0,0);
-    
-    //Search 'names' for instances of any of 
-    //the strings in 'missing' 
+
+    // Search 'names' for instances of any of
+    // the strings in 'missing'
     mask = rowcontains(data, bad_vals);
 
 After the code above, *mask* will equal:
@@ -85,7 +85,7 @@ After the code above, *mask* will equal:
 Remarks
 -------
 
-:func:`rowcontains` is similar to the dot operators '``.==``' and '``.$==``'. The
+:func:`rowcontains` is similar to the dot operators ``.==`` and ``.$==``. The
 differences are that :func:`rowcontains` allows for the comparison of more than
 one needle in each element of the *haystack* and :func:`rowcontains` reports one
 value for each row in *haystack*, rather than one value for each element
@@ -95,4 +95,3 @@ To return a mask of ones and zeros the same size as *haystack*, use
 :func:`ismiss`.
  
 .. seealso:: Functions :func:`indexcat`, :func:`indnv`, :func:`ismember`, :func:`contains`
-

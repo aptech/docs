@@ -18,18 +18,18 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param prob: scalar or matrix ExE conformatble with *r* and *c* columns
+    :param prob: probability parameter, scalar or matrix ExE conformable with *r* and *c* columns
     :type prob: scalar or matrix
 
     :param state: Optional argument.
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **opaque vector case**
-        
-            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+        *state* = the state vector returned from a previous call to one of the ``rnd`` random number functions.
 
     :type state: scalar or opaque vector
 
@@ -46,16 +46,13 @@ Remarks
 
 The properties of the pseudo-random numbers in *y* are:
 
-.. DANGER:: fix equations
-
 .. math::
 
 
-   E(y) = (1 - prob)/prob;
+   E(y) = \frac{1 - prob}{prob}
 
-   Var(y) = (1 - prob)/prob2
+   Var(y) = \frac{1 - prob}{prob^2}
 
 *r* and *c* will be truncated to integers if necessary.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
-

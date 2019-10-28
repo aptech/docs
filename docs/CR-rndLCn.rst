@@ -6,7 +6,7 @@ Purpose
 ----------------
 Returns a matrix of standard normal (pseudo) random variables and the state of the random number generator.
 
-.. NOTE:: This function is deprecated--use :func:`rndn`--but remains for backward compatibility. 
+.. NOTE:: This function is deprecated--use :func:`rndn`--but remains for backward compatibility.
 
 Format
 ----------------
@@ -18,27 +18,27 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param state: 
+    :param state:
 
         **scalar case**
-        
+
             *state* = starting seed value only. System default values are used for the additive and multiplicative constants.
-            
+
             The defaults are 1013904223, and 1664525, respectively. These may be changed with `rndcon` and `rndmult`.
-            
+
             If *state* = -1, GAUSS computes the starting seed based on the system clock.
 
         **3x1 vector case**
 
             .. csv-table::
                 :widths: auto
-        
+
                 "[1]", "the starting seed, uses the system clock if -1"
                 "[2]", "the multiplicative constant"
                 "[3]", "the additive constant"
 
         **4x1 vector case**
-        
+
             *state* = the state vector returned from a previous call to one of the ``rndLC`` random number generators.
 
     :type state: scalar or vector
@@ -47,11 +47,11 @@ Format
 
     :rtype y: RxC matrix
 
-    :return newstate: 
-    
+    :return newstate:
+
         .. csv-table::
             :widths: auto
-    
+
             "[1]", "the updated seed"
             "[2]", "the multiplicative constant"
             "[3]", "the additive constant"
@@ -69,13 +69,13 @@ Examples
     k = 1000000;
     c = 0;
     submean = {};
-     
+
     do while c < n;
-       { y,state } = rndLCn(k,1,state);
+       { y, state } = rndLCn(k, 1, state);
        submean = submean | meanc(y);
        c = c + k;
     endo;
-     
+
     mean = meanc(submean);
     print mean;
 
@@ -98,4 +98,3 @@ each normal random number generated.
 See :func:`rndLCu` for a description of the uniform random number generator algorithm.
 
 .. seealso:: Functions :func:`rndLCu`, :func:`rndLCi`, :func:`rndcon`, :func:`rndmult`
-

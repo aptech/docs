@@ -18,20 +18,20 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param range: Optional argument. 2x1 matrix, the requested range of the random integers. The first element is the 
-        range minimum and the second element is the range maximum. If range is not supplied, 
-        the default range is :math:`0 ≤ y < 2_32`.
-    :type range: matrix 
+    :param range: Optional argument. 2x1 matrix, the requested range of the random integers. The first element is the
+        range minimum and the second element is the range maximum. If range is not supplied,
+        the default range is :math:`0 ≤ y < 2^{32}`.
+    :type range: matrix
 
     :param state: Optional argument.
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **opaque vector case**
-        
-            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+        *state* = the state vector returned from a previous call to one of the ``rnd`` random number functions.
 
     :type state: scalar or opaque vector
 
@@ -75,13 +75,13 @@ Sample with replacement from a dataset
     // in the GAUSS examples directory
     file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
     fueleconomy = loadd(file_name);
-    
+
     // Create a 100x1 vector of random
     // integers between 1 and 100
     range_start = 1;
     range_end = rows(fueleconomy);
     idx = rndi(100, 1, range_start | range_end);
-    
+
     // Draw a 100 observation sample from 'fueleconomy'
     fuel_sample = fueleconomy[idx, .];
 
@@ -106,4 +106,3 @@ first starts. However, that can be overridden using the `rndseed`
 statement, or passing in a seed or state as the last input to :func:`rndi`.
 
 .. seealso:: Functions :func:`rndu`, :func:`rndn`, :func:`rndseed`, :func:`rndCreateState`
-

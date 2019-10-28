@@ -49,12 +49,12 @@ Example 3
 
 ::
 
-    x = rndn(3,3);
+    x = rndn(3, 3);
     run -r myprog.prg;
     y = inv(x);
     e = x*y;
 
-In this case, GAUSS will execute the lines after the run command. If the 
+In this case, GAUSS will execute the lines after the run command. If the
 the ``-r`` is omitted, the lines following the run command will not be executed within a program.
 
 Remarks
@@ -88,17 +88,17 @@ be attempted if the file is not found.
 
 If a path is not specified, the current directory will be searched
 first, then each directory listed in *src_path*. The first instance found
-is run. *src_path* is defined in gauss.cfg.
+is run. *src_path* is defined in :file:`gauss.cfg`.
 
 ::
 
     // No additional search will be made if the file is not found.
-    run /gauss/myprog.prg; 
+    run /gauss/myprog.prg;
 
 ::
 
     // The directories listed in src_path will be searched for myprog.prg if the file is not found in the current directory.
-    run myprog.prg; 
+    run myprog.prg;
 
 Programs can also be run by typing the filename on the OS command line
 when starting GAUSS.

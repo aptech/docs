@@ -24,12 +24,12 @@ Format
     :param state: Optional argument.
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **opaque vector case**
-        
-            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+        *state* = the state vector returned from a previous call to one of the ``rnd`` random number functions.
 
     :type state: scalar or opaque vector
 
@@ -49,17 +49,17 @@ Examples
     // Bernoulli random numbers can be used to model qualitative
     // binary data (i.e., yes/no, true/false), such as marital
     // status.
-    
+
     // Set the random seed for repeatable numbers.
     rndseed 723940439;
-    
+
     // The percentage of married people in the population we
     // would like to model.
     prob = 0.7;
-    
+
     // Create 10,000 Bernoulli random numbers
     r = rndBernoulli(10000, 1, prob);
-    
+
     // The mean of 'r' should approximately equal 'prob'
     mu = meanc(r);
     print mu;
@@ -73,8 +73,6 @@ Remarks
 
 The properties of the pseudo-random numbers in *x* are:
 
-.. DANGER:: fix equations
-
 .. math::
 
    E(X) = prob
@@ -83,4 +81,3 @@ The properties of the pseudo-random numbers in *x* are:
 
 
 .. seealso:: Functions :func:`rndMVn`, :func:`rndCreateState`
-

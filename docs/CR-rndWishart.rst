@@ -24,16 +24,16 @@ Format
     :param state: Optional argument.
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **opaque vector case**
-        
-            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+        *state* = the state vector returned from a previous call to one of the ``rnd`` random number functions.
 
     :type state: scalar or opaque vector
 
-    :return r: wishart random matrices.
+    :return r: Wishart random matrices.
 
     :rtype r: numMats * rows(cov) x N matrix
 
@@ -49,15 +49,15 @@ Examples
     // covariance matrix
     cov = {  1   0.5,
            0.5     1 };
-    
+
     // degrees of freedom
     df = 7;
-    
+
     X = rndWishart(1, cov, df);
 
 ::
 
-    X = 7.6019339 4.7744799 
+    X = 7.6019339 4.7744799
         4.7744799 7.7341260
 
 Remarks
@@ -69,10 +69,9 @@ The properties of the pseudo-random numbers in *X* are:
 
 .. math::
 
-   E(X) = df * cov
+   E(X) = df * cov\\
 
-   Var(Xij) = df * (cov2ij + covii*covjj)
+   Var(X_{ij}) = df * (cov_{ij}^2 + cov_{ii}*cov_{jj})
 
 
 .. seealso:: Functions :func:`rndWishartInv`, :func:`rndMVn`, :func:`rndCreateState`
-

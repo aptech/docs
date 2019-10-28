@@ -5,7 +5,7 @@ rndKMn
 Purpose
 ----------------
 
-Returns a matrix of standard normal (pseudo) random variables and 
+Returns a matrix of standard normal (pseudo) random variables and
 the state of the random number generator.
 
 Format
@@ -18,19 +18,19 @@ Format
     :param c: column dimension.
     :type c: scalar
 
-    :param state: 
+    :param state:
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **500x1 vector case**
-        
+
             *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
 
     :type state: scalar or 500x1 vector
 
-    :return y: of standard normal random numbers.
+    :return y: Standard normal random numbers.
 
     :rtype y: RxC matrix
 
@@ -40,8 +40,8 @@ Format
 
 Examples
 ----------------
-This example generates two thousand vectors of standard normal 
-random numbers, each with one million elements. The state of the 
+This example generates two thousand vectors of standard normal
+random numbers, each with one million elements. The state of the
 random number generator after each iteration is used as an input to
 the next generation of random numbers.
 
@@ -52,13 +52,13 @@ the next generation of random numbers.
     k = 1000000;
     c = 0;
     submean = {};
-     
+
     do while c < n;
        { y,state } = rndKMn(k,1,state);
        submean = submean | meanc(y);
        c = c + k;
     endo;
-     
+
     mean = meanc(submean);
     print mean;
 
@@ -83,4 +83,3 @@ pp. 893-896. It employs the error correction from Tirler et al. (2004),
 *Computational and Data Analysis*, Vol. 47, 433-40.
 
 .. seealso:: Functions :func:`rndKMu`, :func:`rndKMi`
-

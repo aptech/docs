@@ -17,20 +17,20 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param k: r x c matrix or rx1 vector, or 1xc vector, or scalar, "event" argument for negative binomial distribution.
+    :param k: "event" argument for negative binomial distribution, scalar or ExE conformable matrix with *r* and *c*.
     :type k: matrix or vector or scalar
 
-    :param p: r x c matrix or rx1 vector, or 1xc vector, or scalar, "probability" argument for negative binomial distribution.
+    :param p: "probability" argument for negative binomial distribution, scalar or ExE conformable matrix with *r* and *c*.
     :type p: matrix or vector or scalar
 
-    :param state: 
+    :param state:
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **500x1 vector case**
-        
+
             *state* = the state vector returned from a previous call to one of the ``rndKM`` random number functions.
 
     :type state: scalar or 500x1 vector
@@ -48,13 +48,13 @@ Remarks
 
 The properties of the pseudo-random numbers in *x* are:
 
-.. DANGER:: fix equations
-
 .. math::
 
-   E(x) = (k * p)/(1 - p)
+   E(x) = \frac{k * p}{1 - p}
 
-   Var(x) = (k * p)/(1 - p)2x = 0, 1,....k > 00 < p < 1
+   Var(x) = \frac{k * p}{(1 - p)^2}\\
+   x = 0, 1,....k > 0\\
+   0 < p < 1\\
 
 *r* and *c* will be truncated to integers if necessary.
 
@@ -66,4 +66,3 @@ Source
 ------
 
 randkm.src
-

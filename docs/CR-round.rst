@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :return y: containing the rounded elements of *x*.
+    :return y: contains the rounded elements of *x*.
 
     :rtype y: NxK matrix or N-dimensional array
 
@@ -34,4 +34,3 @@ Examples
         5.00 -159.00
 
 .. seealso:: Functions :func:`trunc`, :func:`floor`, :func:`ceil`
-

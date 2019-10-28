@@ -11,38 +11,60 @@ Format
 ----------------
 .. function:: y = rotater(x, r)
 
-    :param x: NxK matrix to be rotated
-    :type x: matrix
+    :param x: data to be rotated
+    :type x: NxK matrix
 
-    :param r: Nx1 or 1x1 matrix specifying the amount of rotation
-    :type r: matrix
+    :param r: Specifies the amount of rotation
+    :type r: Nx1 matrix or scalar
 
-    :return y: 
+    :return y: Rotated matrix
 
-    :rtype y: NxK rotated matrix
+    :rtype y: NxK matrix
 
 Examples
 ----------------
 
 ::
 
-    y = rotater(x,r);
+    // Create data matrix
+    x = { 1 2 3,
+        4 5 6 };
+
+    // Rotation matrix
+    r = { 1, -1 };
+
+    // Rotate matrix x
+    y = rotater(x, r);
 
 ::
 
-           1  2  3           1            3  1  2
-    If x =          and r =     Then y =
-           4  5  6          -1            5  6  4
+           1  2  3                3  1  2
+      x =                   y =
+           4  5  6                5  6  4
 
 ::
 
-           1  2  3           0            1  2  3
-    
-           4  5  6           1            6  4  5
-    If x =          and r =     Then y =
-           7  8  9           2            8  9  7
-    
-          10 11 12           3           10 11 12
+
+      // Create data matrix
+      x = { 1 2 3,
+          4 5 6,
+          7 8 9,
+          10 11 12 };
+
+      // Rotation matrix
+      r = { 0, 1, 2, 3 };
+
+      // Rotate matrix x
+      y = rotater(x, r);
+
+::
+           1  2  3                        1  2  3
+
+           4  5  6                        6  4  5
+      x =                          y =
+           7  8  9                        8  9  7
+
+          10 11 12                       10 11 12
 
 Remarks
 -------
@@ -58,4 +80,3 @@ in *x*, then the rotation value will be calculated using ``(r % cols(x))``.
 
 
 .. seealso:: Functions :func:`shiftr`
-

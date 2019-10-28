@@ -22,20 +22,20 @@ Format
     :type df: scalar
 
     :param s_ncp: Optional argument, non-centrality parameter.
-    
-        .. NOTE:: This is the square root of the noncentrality parameter that sometimes goes under the symbol lambda.
+
+        .. NOTE:: This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.
 
     :type s_ncp: scalar
 
     :param state: Optional argument.
 
         **scalar case**
-        
+
             *state* = starting seed value only. If -1, GAUSS computes the starting seed based on the system clock.
 
         **opaque vector case**
-        
-            *state* = the state vector returned from a previous call to one of the rnd random number functions.
+
+        *state* = the state vector returned from a previous call to one of the ``rnd`` random number functions.
 
     :type state: scalar or opaque vector
 
@@ -52,13 +52,11 @@ Remarks
 
 The properties of the pseudo-random numbers in *x* are:
 
-.. DANGER:: fix equations
-
 .. math::
 
-   E(x) = k + λ
+   E(x) = k + \lambda\\
 
-   σ2(x) = 2*k + 4*λ
+   \sigma^2(x) = 2*k + 4*\lambda
 
 where:
 
@@ -66,13 +64,12 @@ where:
 
    k = df
 
-   λ = s_ncp^2
+   \lambda = s\_ncp^2
 
 Technical Notes
 --------------------
 
-The default generator for :func:`rndChiSquare` is the SFMT Mersenne-Twister 19937. 
-You can specifiy a different underlying random number generator with the function :func:`rndCreateState`.
+The default generator for :func:`rndChiSquare` is the SFMT Mersenne-Twister 19937.
+You can specify a different underlying random number generator with the function :func:`rndCreateState`.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`
-
