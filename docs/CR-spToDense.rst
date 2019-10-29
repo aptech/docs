@@ -13,7 +13,7 @@ Format
     :param x: data
     :type x: MxN sparse matrix
 
-    :return y: 
+    :return y: dense matrix converted from sparse matrix *x*.
 
     :rtype y: MxN dense matrix
 
@@ -23,10 +23,10 @@ Examples
 ::
 
     sparse matrix y;
-    
+
     // Create a 4x4 sparse identity matrix
     y = spEye(4);
-    
+
     // Create a dense matrix with the same values as 'y'
     d = spToDense(y);
 
@@ -45,4 +45,3 @@ Remarks
 A dense matrix is just a normal format matrix.
 
 .. seealso:: Functions :func:`spDenseSubmat`, :func:`denseToSp`
-

@@ -13,9 +13,9 @@ Format
     :param x: data
     :type x: MxN sparse matrix
 
-    :return a: 
+    :return a: scaled sparse matrix.
 
-    :rtype a: MxN scaled sparse matrix
+    :rtype a: MxN sparse matrix
 
     :return r: row scale factors.
 
@@ -30,33 +30,32 @@ Examples
 
 ::
 
-    x = { 25  -12    0, 
+    x = { 25  -12    0,
            3    0  -11,
            8 -100    0 };
-    
+
     declare sparse matrix sm, smsc;
     sm = denseToSp(x, 0);
-     
+
     { smsc, r, c } = spScale(sm);
 
 The results:
 
 ::
 
-            2.50  -0.12   0.00 
-    smsc =  0.30   0.00  -0.11 
-            0.80  -1.00   0.00 
-    
-            1.00 
-    c =     0.10 
-            0.10 
-        
-            0.10 
-    r =     0.10 
+            2.50  -0.12   0.00
+    smsc =  0.30   0.00  -0.11
+            0.80  -1.00   0.00
+
+            1.00
+    c =     0.10
+            0.10
+
+            0.10
+    r =     0.10
             0.10
 
 Remarks
 -------
 
 :func:`spScale` scales the elements of the matrix by powers of 10 so that they are all within :math:`(-10,10)`.
-

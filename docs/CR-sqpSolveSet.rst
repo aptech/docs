@@ -5,7 +5,7 @@ sqpSolveSet
 Purpose
 ----------------
 
-Resets global variables used by sqpSolve to default values.
+Resets global variables used by :func:`sqpSolve` to default values.
 
 Format
 ----------------
@@ -17,4 +17,3 @@ Source
 ------
 
 sqpsolve.src
-

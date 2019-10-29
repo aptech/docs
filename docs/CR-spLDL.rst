@@ -13,11 +13,11 @@ Format
     :param a: NxN symmetric sparse matrix.
     :type a: sparse matrix
 
-    :return l: 
+    :return l: The lower-triangular sparse matrix :math:`LDL` decomposition of *A*.
 
     :rtype l: NxN lower-triangular sparse matrix
 
-    :return d: 
+    :return d:  The diagonal sparse matrix :math:`LDL` decomposition of *A*.
 
     :rtype d: NxN diagonal sparse matrix
 
@@ -27,13 +27,15 @@ Examples
 ::
 
     declare sparse matrix a, l, d;
+
     nz = { 142 13 56 57 0,
             13  0  0  0 0,
             56  0 94 47 0,
             57  0 47 35 0,
              0  0  0  0 0 };
-             
-     a = densetosp(nz,0);
+
+     a = densetosp(nz, 0);
+
      { l, d } = spLDL(a);
 
 Remarks
@@ -51,4 +53,3 @@ TAUCS Version 2.2 Copyright ©2003, by Sivan Toledo, Tel-Aviv University,
 stoledo@tau.ac.il. All Rights Reserved.
 
 .. seealso:: Functions :func:`spLU`
-

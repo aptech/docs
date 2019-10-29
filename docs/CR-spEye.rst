@@ -13,9 +13,9 @@ Format
     :param n: order of identity matrix.
     :type n: scalar
 
-    :return y: 
+    :return y: sparse identity matrix.
 
-    :rtype y: n x n sparse identity matrix
+    :rtype y: n x n sparse matrix
 
 Examples
 ----------------
@@ -24,7 +24,7 @@ Examples
 
     // Declare 'y' a sparse matrix
     sparse matrix y;
-    
+
     // Create 3x3 sparse identity matrix
     y = spEye(3);
 
@@ -43,4 +43,3 @@ Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
 a sparse matrix before the call to :func:`spEye`.
 
 .. seealso:: Functions :func:`spCreate`, :func:`spOnes`, :func:`denseToSp`
-

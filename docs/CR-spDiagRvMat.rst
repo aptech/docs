@@ -109,13 +109,13 @@ that form the starting point for the insertion of the corresponding
 submatrix in *a*. If *inds* is a scalar 0, the starting point for the
 insertion of each submatrix will be one row and one column past the
 ending point of the previous insertion. The first insertion will begin
-at the :math:`[1,1]` element.
+at the :math:`[1, 1]` element.
 
 Each row of size must contain the number of rows and columns in the
 corresponding submatrix in *a*. This allows you to insert submatrices of
 different sizes :math:`L_i \times P_i` by inserting them into the
-planes of an array that is :math:`KxMAX(L)xMAX(P)` and padding the submatrices
-with zeros to :math:`MAX(L)xMAX(P)`. For each plane in *a*, :func:`spDiagRvMat` extracts
-the submatrix ``a[i,1:size[i,1], 1:size[i,2]]`` and inserts that into *x* at
+planes of an array that is :math:`K \times MAX(L) \times MAX(P)` and padding the submatrices
+with zeros to :math:`MAX(L) \times MAX(P)`. For each plane in *a*, :func:`spDiagRvMat` extracts
+the submatrix ``a[i, 1:size[i, 1], 1:size[i, 2]]`` and inserts that into *x* at
 the location indicated by the corresponding row of *inds*. If *size* is a
 scalar 0, then each LxP plane of *a* is inserted into *x* as is.

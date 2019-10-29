@@ -28,7 +28,7 @@ Examples
           0 0 0  0,
           5 0 0  0,
           0 0 0  3 };
-          
+
      y = denseToSp(x, 0);
      n = spNumNZE(y);
      print "The number of nonzeros is" n;
@@ -38,4 +38,3 @@ Examples
     4.00
 
 .. seealso:: Functions :func:`spGetNZE`
-

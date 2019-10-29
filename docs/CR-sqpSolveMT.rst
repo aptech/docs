@@ -11,24 +11,24 @@ Format
 ----------------
 .. function:: out = sqpSolveMT(&fct, par1[, ...], [ctl])
 
-    :param &fct: pointer to a procedure that computes the function to be minimized. The first input 
+    :param &fct: pointer to a procedure that computes the function to be minimized. The first input
         to this procedure must be an instance of structure of type :class:`PV`.
     :type &fct: function pointer
 
-    :param par1: an instance of structure of type :class:`PV`. The *par1* instance is passed to the user-provided procedure pointed to by *&fct*. 
-        *par1* is constructed using the "pack" functions.
+    :param par1: an instance of structure of type :class:`PV`. The *par1* instance is passed to the user-provided procedure pointed to by *&fct*.
+        *par1* is constructed using the :class:`PVpack` functions.
     :type par1: struct
 
     :param ...: Optional extra arguments. These arguments are passed untouched to the user-provided objective function, by :func:`sqpSolveMT`.
     :type ...: any
 
-    :param ctl: Optional input. instance of an :class:`sqpSolveMTControl` structure. Normally an instance 
-        is initialized by calling :func:`sqpSolveMTControlCreate` and members of this instance can be 
+    :param ctl: Optional input. instance of an :class:`sqpSolveMTControl` structure. Normally an instance
+        is initialized by calling :func:`sqpSolveMTControlCreate` and members of this instance can be
         set to other values by the user. For an instance named *ctl*, the members are:
 
         .. csv-table::
             :widths: auto
-    
+
             "ctl.A", "MxK matrix, linear equality constraint coefficients: *ctl.A \* p = ctl.B* where *p* is a vector of the parameters."
             "ctl.B", "Mx1 vector, linear equality constraint constants: *ctl.A \* p = ctl.B* where *p* is a vector of the parameters."
             "ctl.C", "MxK matrix, linear inequality constraint coefficients: *ctl.C * p >= ctl.D* where *p* is a vector of the parameters."
@@ -41,7 +41,7 @@ Format
             "ctl.gradProc", "scalar, pointer to a procedure that computes the gradient of the function with respect to the parameters. Default = ``.``, i.e., no gradient procedure has been provided."
             "ctl.hessProc", "scalar, pointer to a procedure that computes the Hessian, i.e., the matrix of second order partial derivatives of the function with respect to the parameters. Default = ``.``, i.e., no Hessian procedure has been provided."
             "ctl.maxIters", "scalar, maximum number of iterations. Default = 1e+5."
-            "ctl.dirTol", "scalar, convergence tolerance for gradient of estimated coefficients. Default = 1e-5. When this criterion has been satisfied SQPSolve exits the iterations."
+            "ctl.dirTol", "scalar, convergence tolerance for gradient of estimated coefficients. Default = 1e-5. When this criterion has been satisfied :func:`sqpSolveMT` exits the iterations."
             "ctl.feasibleTest", "scalar, if nonzero, parameters are tested for feasibility before computing function in line search. If function is defined outside inequality boundaries, then this test can be turned off. Default = 1."
             "ctl.randRadius", "scalar, If zero, no random search is attempted. If nonzero, it is the radius of random search which is invoked whenever the usual line search fails. Default = .01."
             "ctl.output", "scalar, if nonzero, results are printed. Default = 0."
@@ -53,25 +53,25 @@ Format
 
         .. list-table::
             :widths: auto
-    
+
             * - outx.par
               - an instance of structure of type :class:`PV` containing the parameter estimates will be placed in the member matrix out.par."
             * - out.fct
               - scalar, function evaluated at *x*.
             * - out.lagr
-              - an instance of a :class:`SQPLagrange` structure containing the Lagrangeans for the constraints. The members are:
+              - an instance of a :class:`SQPLagrange` structure containing the Lagrangians for the constraints. The members are:
 
-                  :out.lagr.lineq: Mx1 vector, Lagrangeans of linear equality constraints.
-                  :out.lagr.nlineq: Nx1 vector, Lagrangeans of nonlinear equality constraints.
-                  :out.lagr.linineq: Px1 vector,Lagrangeans of linear inequality constraints.
-                  :out.lagr.nlinineq: Qx1 vector,Lagrangeans of nonlinear inequality constraints.
-                  :out.lagr.bounds: Kx2 matrix, Lagrangeans of bounds.
+                  :out.lagr.lineq: Mx1 vector, Lagrangians of linear equality constraints.
+                  :out.lagr.nlineq: Nx1 vector, Lagrangians of nonlinear equality constraints.
+                  :out.lagr.linineq: Px1 vector,Lagrangians of linear inequality constraints.
+                  :out.lagr.nlinineq: Qx1 vector,Lagrangians of nonlinear inequality constraints.
+                  :out.lagr.bounds: Kx2 matrix, Lagrangians of bounds.
 
-        Whenever a constraint is active, its associated Lagrangean will be nonzero. For any constraint that is inactive throughout the iterations as well as at convergence, the corresponding Lagrangean matrix will be set to a scalar missing value.
+        Whenever a constraint is active, its associated Lagrangian will be nonzero. For any constraint that is inactive throughout the iterations as well as at convergence, the corresponding Lagrangian matrix will be set to a scalar missing value.
 
         .. list-table::
             :widths: auto
-    
+
             * - out.retcode
               - return code:
 
@@ -101,7 +101,7 @@ first input argument is an instance of a structure of type :class:`PV`. On input
 to the call to :func:`sqpSolveMT`, this :class:`PV` structure contains starting values
 for the parameters.
 
-Both of the structures of type :class:`PV` are set up using the :class:`PV` "pack"
+Both of the structures of type :class:`PV` are set up using the :class:`PVpack`
 procedures, :func:`pvPack`, :func:`pvPackm`, :func:`pvPacks`, and :func:`pvPacksm`. These procedures
 allow for setting up a parameter vector in a variety of ways.
 
@@ -111,9 +111,11 @@ a nonlinear curve to data:
 ::
 
    proc (1) = micherlitz(struct PV par1, y, x);
-      local p0,e,s2,x,y;
+      local p0, e, s2, x, y;
+
       p0 = pvUnpack(par1, "parameters");
       e = y - p0[1] - p0[2]*exp(-p0[3] * x);
+
       retp(e'*e);
    endp;
 
@@ -129,7 +131,9 @@ provide the following procedure:
 
    proc (1) = ineqConst(struct PV par1, y, x);
       local p0;
+
       p0 = pvUnpack(p0, "parameters");
+
       retp( (p0[2]+p0[1])^2 - 1);
    endp;
 
@@ -153,18 +157,18 @@ and where an optional gradient procedure has been provided:
          1.770,
          1.762,
          1.550 };
-    
-   x = seqa(1,1,13);
-    
+
+   x = seqa(1, 1, 13);
+
    // Declare control structure
    struct sqpSolveMTControl c0;
-    
+
    // Initialize structure to default values
    c0 = sqpSolveMTControlCreate();
-    
-   // Constrain parameters to be positive  
-   c0.bounds = 0~100; 
-    
+
+   // Constrain parameters to be positive
+   c0.bounds = 0~100;
+
    // Declare 'par1' to be a PV structure
    struct PV par1;
 
@@ -172,23 +176,25 @@ and where an optional gradient procedure has been provided:
    par1 = pvCreate();
 
    // Add 3x1 vector named 'parameters' to 'p1'
-   par1 = pvPack(par1,.92|2.62|.114, "parameters");
+   par1 = pvPack(par1, .92|2.62|.114, "parameters");
 
    // Declare 'out' to be an sqpsolvemt control structure
    // to hold the results from sqpsolvemt
    struct sqpSolveMTout out;
 
    // Estimate the model parameters
-   out = sqpSolveMT(&Micherlitz,par1,y,x,c0);
-    
+   out = sqpSolveMT(&Micherlitz, par1, y, x, c0);
+
    // Print returned parameter estimates
    print "parameter estimates ";
    print pvUnPack(out.par, "parameters");
-    
+
    proc Micherlitz(struct PV par1, y, x);
-      local p0,e,s2;
+      local p0, e, s2;
+
       p0 = pvUnpack(par1, "parameters");
       e = y - p0[1] - p0[2]*exp(-p0[3] * x);
+
      retp(e'*e);
    endp;
 
@@ -198,4 +204,3 @@ Source
 sqpsolvemt.src
 
 .. seealso:: Functions :func:`sqpSolveMTControlCreate`, :func:`sqpSolveMTlagrangeCreate`
-

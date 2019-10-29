@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: sa = spreadSheetReadSA(file[, range[, sheet]])
 
-    :param file: name of :file:`.xls` file.
+    :param file: name of :file:`.xls`, or :file:`.xlsx` file.
     :type file: string
 
-    :param range: range to read or write; e.g., "A1:B20". Default =  "A1".
+    :param range: range to read or write; e.g., ``"A1:B20"``. Default =  ``"A1"``.
     :type range: string
 
     :param sheet: sheet number. Default = 1.
@@ -90,4 +90,3 @@ Remarks
       trap 0;
 
 .. seealso:: Functions :func:`scalerr`, :func:`error`, :func:`spreadSheetReadM`, :func:`spreadSheetWrite`
-

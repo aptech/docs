@@ -4,7 +4,7 @@ stdc
 
 Purpose
 ----------------
-Computes the standard deviation of the elements in each column of a matrix.
+Computes the sample standard deviation of the elements in each column of a matrix.
 
 Format
 ----------------
@@ -26,12 +26,11 @@ Examples
 
     // Set the rng seed so that the random numbers produced will
     // be repeatable
-                    
     rndseed 94243524;
-    
+
     // Create a vector of random normal numbers
-    y = rndn(8100,1);
-    
+    y = rndn(8100, 1);
+
     // Compute the standard deviation of the column vector 'y'
     std = stdc(y);
 
@@ -48,7 +47,7 @@ This function essentially computes sample standard deviation, *s*:
 
 .. math::
 
-   s=1n−1⁢×∑i=1n(Xi−X¯)2
+   s = \frac{1}{n−1}⁢×\sum_{i=1}^n(X_i−\bar{X})^2
 
 Thus, the divisor is :math:`N-1` rather than :math:`N`, where :math:`N` is the number of
 elements being summed.
@@ -58,7 +57,6 @@ To convert to the population's standard deviation, multiply by
 
 .. math::
 
-   σ=s×n−1n
+   \sigma = s*\frac{n−1}{n}
 
 .. seealso:: Functions :func:`meanc`
-

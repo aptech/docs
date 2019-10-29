@@ -22,7 +22,7 @@ Format
     :param cinds: column indices of ones.
     :type cinds: Nx1 vector
 
-    :return y: of ones.
+    :return y: ones matrix.
 
     :rtype y: RxC sparse matrix
 
@@ -33,12 +33,12 @@ Examples
 
     // declare sparse matrix
     sparse matrix y;
-    
+
     // Set row indices and column indices
     rinds = { 1, 3, 5 };
     cinds = { 2, 1, 3 };
-    
-    // Create a 5x4 sparse matrix with ones at the intersection 
+
+    // Create a 5x4 sparse matrix with ones at the intersection
     // of the 'rind' and 'cind'
     y = spOnes(5, 4, rinds, cinds);
 
@@ -59,4 +59,3 @@ Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
 a sparse matrix before the call to :func:`spOnes`.
 
 .. seealso:: Functions :func:`spCreate`, :func:`spEye`, :func:`spZeros`, :func:`denseToSp`
-

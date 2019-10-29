@@ -10,26 +10,39 @@ Format
 ----------------
 .. function:: y = spTrTDense(s, d)
 
-    :param s: data
+    :param s: sparse data matrix.
     :type s: NxM sparse matrix
 
-    :param d: data
+    :param d: dense data matrix.
     :type d: NxL dense matrix
 
-    :return y: the result of :math:`s'\*d`.
+    :return y: the result of :math:`s'*d`.
 
     :rtype y: MxL dense matrix
 
-Remarks
+Examples
 -------
 
+::
+
+  sparse matrix s;
+
+  // Create a 4x4 sparse identity matrix
+  s = spEye(4);
+
+  // Create dense matrix
+  d = rndn(4, 4);
+
+  y =  spTrTDense(s, d);
+
+Remarks
+----------
 This may also be accomplished by the following code:
 
 ::
 
-   y = s'*d;
+    y = s'*d;
 
 However, :func:`spTrTDense` will be more efficient.
 
 .. seealso:: Functions :func:`spTScalar`
-

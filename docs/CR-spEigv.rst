@@ -17,16 +17,16 @@ Format
     :param nev: number of eigenvalues to compute.
     :type nev: scalar
 
-    :param which: may be one of the following: "LM" largest magnitude, "LR" largest real, "LI" largest imaginary, "SR" smallest real, or "SI" smallest imaginary. Default input 0, sets *which* to "LM."
+    :param which: may be one of the following: ``"LM"`` largest magnitude, ``"LR"`` largest real, ``"LI"`` largest imaginary, ``"SR"`` smallest real, or "SI" smallest imaginary. Default input 0, sets *which* to ``"LM"``.
     :type which: string
 
-    :param tol: tolerance for eigenvalues. Default input 0, sets  tol to 1e-15.
+    :param tol: tolerance for eigenvalues. Default input 0, sets *tol* to 1e-15.
     :type tol: scalar
 
-    :param maxit: maximum number of iterations. Default input 0, sets  maxit to  nevx(columns of  a)x100.
+    :param maxit: maximum number of iterations. Default input 0, sets *maxit* to  :math:`nev * (\text{columns of  a}) * 100`.
     :type maxit: scalar
 
-    :param ncv: size of Arnoldi factorization. The minimum setting is the greater of :math:`nev+2` and 20. See Remarks on how to set *ncv*. Default input 0, sets *ncv* to 2x :math:`nev+1`.
+    :param ncv: size of Arnoldi factorization. The minimum setting is the greater of :math:`nev+2` and 20. See Remarks on how to set *ncv*. Default input 0, sets *ncv* to  :math:`2 * (nev+1)`.
     :type ncv: scalar
 
     :return va: containing the computed eigenvalues of input matrix *a*.
@@ -35,17 +35,24 @@ Format
 
     :return ve: containing the corresponding eigenvectors of input matrix *a*.
 
-    :rtype ve: Nx nev dense matrix
+    :rtype ve: Nxnev dense matrix
 
 Examples
 ----------------
 
 ::
 
+    // Set random seed
     rndseed 3456;
+
+    // Declare sparse matrix a
     sparse matrix a;
-     x = 10*rndn(5,5);
-     a = densetosp(x,4);
+
+    // Create random matrix x
+    x = 10*rndn(5, 5);
+
+    // Convert x to dense matrix
+    a = densetosp(x, 4);
 
 ::
 
@@ -57,22 +64,24 @@ Examples
 
 ::
 
-    { va, ve } = spEigv(a,2,0,0,0,0); 
-    /* equivalent to call { va, ve } = spEigv(a,2,"LM",1e-15,2*5*100,5); */
+    /*
+    ** This call is equivalent to calling
+    ** { va, ve } = spEigv(a, 2,"LM", 1e-15, 2*5*100, 5);
+    */
+    { va, ve } = spEigv(a, 2, 0, 0, 0, 0);
 
 ::
 
     va = 21.089832
         -3.4769986 + 20.141970i
-    
+
     ve = -0.92097057   0.29490584 - 0.38519280i
          -0.10091920  -0.18070330 - 0.38405816i
          0.061241324   0.24121182 - 0.56419722i
           0.36217049  0.017643612 + 0.26254313i
          0.081917964  -0.31466284 - 0.19936942i
 
-Below we show that the first eigenvalue times the corresponding eigenvector (1) equals the input 
-matrix times the first eigenvector (2).
+Below we show that the first eigenvalue times the corresponding eigenvector (1) equals the input matrix times the first eigenvector (2).
 
 ::
 
@@ -95,5 +104,4 @@ thread-safe.
 Technical Notes
 ----------------
 
-spEigv implements functions from the ARPACK library.
-
+:func:`spEigv` implements functions from the ARPACK library.

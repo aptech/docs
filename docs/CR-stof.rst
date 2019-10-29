@@ -35,13 +35,13 @@ Convert a string "." to a missing value
 ::
 
     x = stof(".");
-    
-    //If 'x' is a 1x1 missing value
+
+    // If 'x' is a 1x1 missing value
     if scalmiss(x);
         print "'x' is a missing value";
     endif;
 
-After the above code, *x* will be a 1x1 missing value (``.``) and the code will print the message 
+After the above code, *x* will be a 1x1 missing value (``.``) and the code will print the message
 "'x' is a missing value".
 
 Convert a string containing space separated numbers to a vector.
@@ -70,4 +70,3 @@ Remarks
    complex numbers in the same manner as `let`.
 
 .. seealso:: Functions :func:`ftos`, :func:`ftocv`, :func:`chrs`, :func:`strtof`
-
