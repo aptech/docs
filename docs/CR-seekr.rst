@@ -31,9 +31,8 @@ If *r* = 0, the pointer will be moved to the end of the file, just past the end 
 
 ::
 
-   seekr(fh,0) == rowsf(fh) + 1;
+   seekr(fh, 0) == rowsf(fh) + 1;
 
 .. DANGER:: Do NOT try to seek beyond the end of a file.
 
 .. seealso:: Functions `open`, :func:`readr`, :func:`rowsf`
-

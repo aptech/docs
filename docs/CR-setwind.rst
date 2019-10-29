@@ -5,10 +5,10 @@ setwind
 Purpose
 ----------------
 
-Sets the current graphic panel to a previously created graphic 
+Sets the current graphic panel to a previously created graphic
 panel number.
 
-.. NOTE:: This function is for use with the deprecated PQG graphics. Use plotLayout instead.
+.. NOTE:: This function is for use with the deprecated PQG graphics. Use :func:`plotLayout` instead.
 
 Library
 -------
@@ -38,4 +38,3 @@ Source
 pwindow.src
 
 .. seealso:: Functions :func:`begwind`, :func:`endwind`, :func:`getwind`, :func:`nextwind`, :func:`makewind`, :func:`window`
-

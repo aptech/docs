@@ -23,10 +23,10 @@ Format
     :param keytyp: type of key variable.
 
         ==== ===========================
-        1    numeric key, ascending order."
-        2    character key, ascending order."
-        -1   numeric key, descending order."
-        -2   character key, descending order."
+        1    numeric key, ascending order.
+        2    character key, ascending order.
+        -1   numeric key, descending order.
+        -2   character key, descending order.
         ==== ===========================
 
     :type keytyp: scalar
@@ -45,4 +45,3 @@ Source
 sortd.src
 
 .. seealso:: Functions :func:`sortmc`, :func:`sortc`, :func:`sorthc`
-

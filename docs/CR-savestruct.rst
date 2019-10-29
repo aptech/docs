@@ -25,13 +25,14 @@ Examples
 
 ::
 
+    // Create DS structure
     struct DS p0;
     p0 = reshape(dsCreate(), 2, 3);
-    retc = saveStruct(p2, "p2");
+
+    // Save the p0 DS structure as p2
+    retc = saveStruct(p0, "p2");
 
 Remarks
 -------
 
 The file on the disk will be given a :file:`.fsr` extension
-
-

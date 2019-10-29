@@ -11,30 +11,36 @@ Format
 .. function:: y = shiftr(x, s, f)
 
     :param x: data to be shifted
-    :type x: NxK matrix 
+    :type x: NxK matrix
 
-    :param s: specifying the amount of shift
-    :type s: scalar or Nx1 vector 
+    :param s: specifies the amount of shift
+    :type s: scalar or Nx1 vector
 
-    :param f: specifying the value to fill in
+    :param f: specifies the value to fill in
     :type f: scalar or Nx1 vector
 
-    :return y: 
-
-    :rtype y: NxK shifted matrix
+    :return y: shifted matrix
+    :rtype y: NxK matrix
 
 Examples
 ----------------
 
 ::
 
+    // Data matrix
     x = { 1 2,
           3 4 };
+
+    // Amount of shift
     s = { 1,
          -1 };
+
+    // Value to fill in
     f = { 99,
          999 };
-    y = shiftr(x,s,f);
+
+    // Shift the matrix
+    y = shiftr(x, s, f);
 
 Now *y* is equal to:
 
@@ -45,14 +51,21 @@ Now *y* is equal to:
 
 ::
 
+    // Data 
     x = { 1 2 3,
           4 5 6,
           7 8 9 };
+
+    // Amount to shift
     s = { 0,
           1,
           2 };
+
+    // Value to fill in
     f = 0;
-    y2 = shiftr(x,s,f);
+
+    // Shift the matrix
+    y2 = shiftr(x, s, f);
 
 Now *y2* is equal to:
 
@@ -72,4 +85,3 @@ left. The elements that are pushed off the end of the row are lost, and
 the fill value will be used for the new elements on the other end.
 
 .. seealso:: Functions :func:`rotater`
-

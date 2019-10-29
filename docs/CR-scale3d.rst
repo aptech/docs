@@ -21,7 +21,7 @@ Format
     :param y: the y-axis data.
     :type y: matrix
 
-    :param z: the Z axis data.
+    :param z: the z-axis data.
     :type z: matrix
 
 Library
@@ -36,7 +36,7 @@ Remarks
 *x*, *y* and *z* must each have at least 2 elements. Only the minimum and
 maximum values are necessary.
 
-This routine fixes the scaling for all subsequent graphs until graphset
+This routine fixes the scaling for all subsequent graphs until :func:`graphset`
 is called. This also clears `xtics`, `ytics` and `ztics` whenever it is
 called.
 

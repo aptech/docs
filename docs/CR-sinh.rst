@@ -13,7 +13,7 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :return y: containing the hyperbolic sines of the elements of *x*.
+    :return y: contains the hyperbolic sines of the elements of *x*.
 
     :rtype y: NxK matrix
 
@@ -41,4 +41,3 @@ Source
 ------
 
 trig.src
-

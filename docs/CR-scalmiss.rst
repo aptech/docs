@@ -24,13 +24,17 @@ Examples
 
     clear s;
     do until eof(fp);
-       y = readr(fp,nr);
+
+       y = readr(fp, r);
        y = packr(y);
+
        if scalmiss(y);
           continue;
        endif;
-       s = s+sumc(y);
+
+       s = s +s umc(y);
     endo;
+
 
 In this example the :func:`packr` function will return a scalar missing if
 every row of its argument contains missing values, otherwise it will
@@ -52,7 +56,5 @@ since it will not test each element of the matrix but will simply return
 a 0.
 
 An element of *x* is considered to be a missing if and only if it contains
-a missing value in the real part. Thus, scalmiss would
+a missing value in the real part. Thus, :func:`scalmiss` would
 return a 1 for complex :math:`x = . + 1i`, and a 0 for :math:`x = 1 + .i`.
-
-

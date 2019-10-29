@@ -4,7 +4,7 @@ seqa, seqm
 
 Purpose
 ----------------
-seqa creates an additive sequence. seqm creates a multiplicative
+:func:`seqa` creates an additive sequence. :func:`seqm` creates a multiplicative
 sequence.
 
 Format
@@ -30,7 +30,7 @@ Examples
 
 ::
 
-    a = seqa(2,2,10)';
+    a = seqa(2, 2, 10)';
     print a;
 
 ::
@@ -39,7 +39,7 @@ Examples
 
 ::
 
-    m = seqm(2,2,10)';
+    m = seqm(2, 2, 10)';
     print m;
 
 ::
@@ -58,9 +58,9 @@ For instance,
 
 ::
 
-    seqa(1,1,10);
+    seqa(1, 1, 10);
 
-will create a column vector containing the numbers 1, 2, ...10.
+will create a column vector containing the numbers ``1, 2, ..., 10``.
 
 For :func:`seqm`, *y* will contain a first element equal to *start*, the second
 equal to :math:`start * inc`, and the last equal to :math:`start * inc^n-1`.
@@ -71,9 +71,8 @@ For instance,
 
 ::
 
-   seqm(10,10,10);
+   seqm(10, 10, 10);
 
-will create a column vector containing the numbers 10, 100,...:math:`10^10`.
+will create a column vector containing the numbers ``10, 100,..., `10^10```.
 
 .. seealso:: Functions :func:`recserar`, :func:`recsercp`
-

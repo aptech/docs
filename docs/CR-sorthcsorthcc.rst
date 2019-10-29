@@ -15,7 +15,7 @@ Format
     :param x: data
     :type x: NxK matrix or string array
 
-    :param c: specifying one column of x to sort on
+    :param c: specifies one column of x to sort on
     :type c: scalar
 
     :return y: equal to *x* and sorted on the column *c*.
@@ -27,12 +27,12 @@ Examples
 
 ::
 
-    let x[3,3]= 4 7 3
+    let x[3, 3] = 4 7 3
                 1 3 2
                 3 4 8;
-    
+
     // Sort x based upon the values in the third column
-    y = sorthc(x,3);
+    y = sorthc(x, 3);
 
 This produces *y* equal to:
 
@@ -55,7 +55,7 @@ that the column to sort on contains character data.
 
 If *x* is a matrix, it may contain both character and numeric data, but
 the sort column must be all of one type. Missing values will sort as if
-their value is below :math:`-∞`.
+their value is below :math:`-\infty`.
 
 The sort is in ascending order. This function uses the heap sort algorithm.
 
@@ -67,4 +67,3 @@ If you need to obtain the matrix sorted in descending order, you can use:
 
 
 .. seealso:: Functions :func:`sortc`, :func:`rev`
-

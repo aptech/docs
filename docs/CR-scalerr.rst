@@ -27,16 +27,16 @@ Examples
     trap 1;
     cm = invpd(x);
     trap 0;
-    
+
     if scalerr(cm);
        cm = inv(x);
     endif;
 
-In this example invpd will return a :func:`scalar` error code if the matrix
+In this example :func:`invpd` will return a :func:`scalar` error code if the matrix
 *x* is not positive definite. If :func:`scalerr` returns with a nonzero
 value, the program will use the :func:`inv` function, which is slower, to
 compute the inverse. Since the `trap` state has been turned off, if
-:func:`inv` fails, the program will terminate with a Matrix singular
+:func:`inv` fails, the program will terminate with a ``Matrix singular``
 error message.
 
 Remarks
@@ -76,7 +76,7 @@ Following are some of the functions that are affected by the `trap` state:
     :widths: auto
     :header-rows: 2
 
-    * - 
+    * -
       - trap 1
       - trap 0
     * - function
@@ -95,7 +95,7 @@ Following are some of the functions that are affected by the `trap` state:
       - 40
       - Matrix not positive definite
         (second argument not square)
-    * - 
+    * -
       - 41
       - Matrix singular
         (second argument not square)
@@ -104,4 +104,3 @@ Following are some of the functions that are affected by the `trap` state:
       - Matrix not positive definite
 
 .. seealso:: Functions :func:`error`, `trap`, `trapchk`
-

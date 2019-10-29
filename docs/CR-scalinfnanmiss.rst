@@ -25,7 +25,7 @@ Examples
 
     // Create an infinity
     x = 1/0;
-    
+
     if scalInfNanMiss(x);
        print "x = " x;
     else;
@@ -33,4 +33,3 @@ Examples
     endif;
 
 .. seealso:: Functions :func:`isinfnanmiss`, :func:`ismiss`, :func:`scalmiss`
-

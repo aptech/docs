@@ -5,7 +5,7 @@ seqaPosix
 Purpose
 ----------------
 Creates a sequence of dates in POSIX date/time format.
-		
+
 Format
 ----------------
 .. function:: dt_vec = seqaPosix(dt_start, inc, unit, n)
@@ -17,14 +17,14 @@ Format
     :type inc: scalar
 
     :param unit: indicating the units for the increments in *inc*.
-        
+
         Valid unit options:
 
-        - "years"
-        - "months"
-        - "days"
-        - "hours"
-        - "seconds"
+        - ``"years"``
+        - ``"months"``
+        - ``"days"``
+        - ``"hours"``
+        - ``"seconds"``
 
     :type unit: string
 
@@ -42,7 +42,7 @@ Examples
 
     // Jan 20, 1980
     dt_start = strcToPosix("01/20/1980", "%m/%d/%Y");
-    
+
     // Create a sequence of 10 dates separated by 4 years
     dt_vec = seqaPosix(dt_start, 4, "years", 10);
 
@@ -65,7 +65,7 @@ The above code will set *dt_vec* equal to:
 
     // March 17, 2003 at 05:30:00
     dt_start = strcToPosix("March 17, 2003 05:30:00", "%B %d, %Y %H:%M:%S");
-    
+
     // Create a sequence of 6 dates separated by 30 minutes
     dt_vec = seqaPosix(dt_start, 30, "minutes", 6);
 
@@ -81,4 +81,3 @@ The above code will set *dt_vec* equal to:
     1047888000
 
 .. seealso:: Functions :func:`timeDeltaDT`, :func:`timeDiffDT`, :func:`seqaDT`, :func:`timeDiffPosix`
-

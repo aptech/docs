@@ -13,7 +13,7 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :return y: containing the sine of *x*.
+    :return y: contains the sine of *x*.
 
     :rtype y: NxK matrix or N-dimensional array
 
@@ -38,7 +38,6 @@ Remarks
 
 For real data, *x* should contain angles measured in radians.
 
-To convert degrees to radians, multiply the degrees by :math:`π/180`.
+To convert degrees to radians, multiply the degrees by :math:`\pi/180`.
 
 .. seealso:: Functions :func:`atan`, :func:`cos`, :func:`sinh`, :func:`pi`
-

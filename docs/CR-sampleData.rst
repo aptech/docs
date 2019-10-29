@@ -34,7 +34,7 @@ Basic example without replacement
 
     // Set seed for repeatable random draws
     rndseed  23423;
-    
+
     // Create a 7x1 vector
     x  = { 1,
            2,
@@ -43,7 +43,7 @@ Basic example without replacement
            5,
            6,
            7 };
-    
+
     // Take a sample of 3 elements without replacement
     s  = sampleData(x, 3);
 
@@ -62,7 +62,7 @@ Basic example with replacement
 
     // Set seed for repeatable random draws
     rndseed  23423;
-    
+
     // Create a 7x2 vector
     x  = { 1.2 1.8,
            2.7 2.1,
@@ -71,9 +71,9 @@ Basic example with replacement
            5.1 5.4,
            6.0 2.8,
            7.2 3.9 };
-    
+
     replace = 1;
-    
+
     // Take a sample of 5 rows of 'x' with replacement
     sample = sampleData(x, 5, replace);
 
@@ -81,21 +81,20 @@ After running the code above, sample is equal to:
 
 ::
 
-    5.1    5.4 
-    3.0    3.3 
-    6.0    2.8 
-    4.8    4.1 
+    5.1    5.4
+    3.0    3.3
+    6.0    2.8
+    4.8    4.1
     3.0    3.3
 
 Remarks
 -------
 
 Indices for taking a random sample can be created with GAUSS function
-rndi.
+:func:`rndi`.
 
 The random number generator used in :func:`sampleData` to choose the samples is
 automatically seeded using the system clock when GAUSS first starts.
 However, that can be overridden using the `rndseed` statement.
 
 .. seealso:: Functions :func:`rndi`, :func:`rndn`, :func:`rndseed`
-

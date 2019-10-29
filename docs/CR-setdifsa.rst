@@ -27,8 +27,8 @@ Examples
 
     string sv1 = { "mary", "jane", "linda", "john" };
     string sv2 = { "mary", "sally" };
-     
-    sy = setdifsa(sv1,sv2);
+
+    sy = setdifsa(sv1, sv2);
 
 Now *sy* is equal to:
 
@@ -52,4 +52,3 @@ Source
 setdif.src
 
 .. seealso:: Functions :func:`setdif`
-

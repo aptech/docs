@@ -16,13 +16,13 @@ Format
     :param b: Nx1 dense vector.
     :type b: vector
 
-    :param epsilon: Method tolerance: If epsilon is set to 0, the default tolerance is set to 1e-6.
+    :param epsilon: Method tolerance: If *epsilon* is set to 0, the default tolerance is set to 1e-6.
     :type epsilon: scalar
 
-    :param maxit: Maximum number of iterations. If maxit is set to 0, the default setting is 300 iterations.
+    :param maxit: Maximum number of iterations. If *maxit* is set to 0, the default setting is 300 iterations.
     :type maxit: scalar
 
-    :return x: 
+    :return x: dense vector, the solution to the system of linear equations :math:`Ax = b`.
 
     :rtype x: Nx1 dense vector
 
@@ -36,39 +36,40 @@ Examples
              0.000      0.000  3646.798  2736.338 -2674.440,
              0.000      0.000  2736.338  7041.526 -3758.528,
              0.000      0.000 -2674.440 -3758.528  7457.899 };
+
      sparse matrix a;
-     
-    // Set 'a' to be a sparse matrix with the same contents as 
-    // the dense matrix 'nz' 
-    a = densetosp(nz,0);
-    
+
+    // Set 'a' to be a sparse matrix with the same contents as
+    // the dense matrix 'nz'
+    a = densetosp(nz, 0);
+
     // Create our right-hand-side
     b = { 10.349,
            -3.117,
             4.240,
             0.013,
             2.115 };
-     
-    // Setting the third and fourth arguments to 0 employs the 
+
+    // Setting the third and fourth arguments to 0 employs the
     // default tolerance maxit settings
-    x = spConjGradSol(a,b,0,0);
-     
+    x = spConjGradSol(a, b, 0, 0);
+
     newb = a*x;
 
 The results from the above code are:
 
 ::
 
-          -0.01504075 
-           0.00363683 
-    x  =   0.00203504 
-          -0.00033936 
+          -0.01504075
+           0.00363683
+    x  =   0.00203504
+          -0.00033936
            0.00084234
-    
-          10.34900000 
-          -3.11700000 
-    newb = 4.24000000 
-           0.01300000 
+
+          10.34900000
+          -3.11700000
+    newb = 4.24000000
+           0.01300000
            2.11500000
 
 Remarks
@@ -89,4 +90,3 @@ perform the solve. For a nonsymmetric, but well conditioned matrix *A*,
 use :func:`spBiconjGradSol`.
 
 .. seealso:: Functions :func:`spBiconjGradSol`
-

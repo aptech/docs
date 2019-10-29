@@ -14,7 +14,7 @@ Format
     :param x: data to save
     :type x: NxK matrix
 
-    :param dataset: name of dataset. The type of file to create is inferred from the file extension. 
+    :param dataset: name of dataset. The type of file to create is inferred from the file extension.
         Valid file extensions include CSV, DAT, XLS, XLSX.
     :type dataset: string
 
@@ -34,11 +34,11 @@ Save data to a GAUSS .dat file
 ::
 
     // Create some data to save
-    x = rndn(100,3);
-    
+    x = rndn(100, 3);
+
     // Create a 3x1 string array containing the variable names
     vnames = "GDP" $| "Imports" $| "Exports";
-    
+
     // Create the GAUSS dataset, 'mydata.dat'
     call saved(x, "mydata.dat", vnames);
 
@@ -71,14 +71,14 @@ The return value of :func:`saved` can be used to check whether the dataset save 
 
 ::
 
-    x = rndn(100,2);
+    x = rndn(100, 2);
     dataset = "mydata.dat";
-    
+
     // Create a 2x1 string array containing the variable names
     vnames = "Price" $| "Quantity";
-     
+
     // Check to see if save is successful. If not, report an error and end the program
-    if not saved(x,dataset,vnames);
+    if not saved(x, dataset, vnames);
        errorlog "saved failed to write: "$+dataset;
        end;
     endif;
@@ -88,7 +88,7 @@ Remarks
 
 **CSV**
 
--  The line endings for CSV files on Windows will be '``\r\n``' and '``\n``' on Linux and macOS.
+-  The line endings for CSV files on Windows will be ``\r\n`` and ``\n`` on Linux and macOS.
 -  Fifteen digits of precision will be written.
 -  :func:`csvWriteM` can be used to write CSV data with options to specify the
    separator to be something other than a comma, to control the line
@@ -97,7 +97,7 @@ Remarks
 **DAT**
 
 -  If *dataset* is null or 0, the dataset name will be :file:`temp.dat`.
--  If *vnames* is a null or 0, the variable names will begin with "X" and be numbered 1-K.
+-  If *vnames* is a null or 0, the variable names will begin with ``"X"`` and be numbered 1-K.
 -  If *vnames* is a string or has fewer elements than *x* has columns, it will be expanded as explained under `create`.
 -  The output data type is double precision.
 
@@ -107,4 +107,3 @@ Source
 saveload.src
 
 .. seealso:: Functions :func:`loadd`, :func:`writer`, `create`
-

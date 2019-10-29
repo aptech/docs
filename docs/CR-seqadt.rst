@@ -5,27 +5,27 @@ seqaDT
 Purpose
 ----------------
 Creates a sequence of dates in DT scalar format.
-		
+
 
 Format
 ----------------
 .. function:: dt_vec = seqaDT(dt_start, inc, unit, n)
 
-    :param dt_start: containing a date/time in DT scalar format.
+    :param dt_start: contains a date/time in DT scalar format.
     :type dt_start: scalar
 
     :param inc: the number of units for each of the *n* increments.
     :type inc: scalar
 
-    :param unit: indicating the units for the increments in *inc*.
-        
+    :param unit: indicates the units for the increments in *inc*.
+
         Valid unit options:
-        
-        - "years"
-        - "months"
-        - "days"
-        - "hours"
-        - "seconds"
+
+        - ``"years"``
+        - ``"months"``
+        - ``"days"``
+        - ``"hours"``
+        - ``"seconds"``
 
     :type unit: string
 
@@ -43,7 +43,7 @@ Examples
 
     // Jan 20, 1980
     dt_start = 19800120;
-    
+
     // Create a sequence of 10 dates separated by 4 years
     dt_vec = seqaDT(dt_start, 4, "years", 10);
 
@@ -66,7 +66,7 @@ The above code will set *dt_vec* equal to:
 
     // March 17, 2003 at 05:30:00
     dt_start = 20030317053000;
-    
+
     // Create a sequence of 6 dates separated by 30 minutes
     dt_vec = seqaDT(dt_start, 30, "minutes", 6);
 
@@ -82,4 +82,3 @@ The above code will set *dt_vec* equal to:
     20030317080000
 
 .. seealso:: Functions :func:`timeDeltaDT`, :func:`timeDiffDT`, :func:`seqaPosix`, :func:`timeDiffPosix`
-

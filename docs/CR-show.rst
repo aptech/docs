@@ -34,7 +34,7 @@ Format
         "g", "show only symbols with global references"
         "l", "show only symbols with all local references"
 
-:symbol: the name of the symbol to be shown. If the last character is 
+:symbol: the name of the symbol to be shown. If the last character is
     an asterisk (``*``), all symbols beginning with the supplied characters will be shown.
 
 Examples
@@ -84,30 +84,30 @@ show does not display the column titles shown here:
     0 active locals, 2000 maximum
     1 active structure
 
-The 'Memory used' column gives the amount of memory used by each item.
+The ``Memory used`` column gives the amount of memory used by each item.
 
-The 'Name' column gives the name of each symbol.
+The ``Name`` column gives the name of each symbol.
 
-The 'Cplx' column contains a 'C' if the symbol is a complex matrix.
+The ``Cplx`` column contains a ``C`` if the symbol is a complex matrix.
 
-The 'Type' column specifies the type of the symbol. It can be ARRAY,
+The ``Type`` column specifies the type of the symbol. It can be ARRAY,
 FUNCTION, KEYWORD, MATRIX, PROCEDURE, STRING, STRING ARRAY, or STRUCT.
 
-If the symbol is a procedure, keyword or function, the 'References'
+If the symbol is a procedure, keyword or function, the ``References``
 column will show if it makes any global references. If it makes only
 local references, the procedure or function can be saved to disk in an
-:file:`.fcg` file with the `save` command. If the function or procedure makes any
+:file:`.fcg` file with the ``save`` command. If the function or procedure makes any
 global references, it cannot be saved in an :file:`.fcg` file.
 
-If the symbol is a structure, the 'References' column will contain the
+If the symbol is a structure, the ``References`` column will contain the
 structure type. A structure pointer is indicated by a ``*`` following the
 structure type.
 
-The 'Info' column depends on the type of the symbol. If the symbol is a
+The ``Info`` column depends on the type of the symbol. If the symbol is a
 procedure or a function, it gives the number of values that the function
 or procedure returns and the number of arguments that need to be passed
 to it when it is called. If the symbol is a matrix, sparse matrix,
-string array or array of structures, then the 'Info' column gives the
+string array or array of structures, then the ``Info`` column gives the
 number of rows and columns. If the symbol is a string, then it gives the
 number of characters in the string. If the symbol is an N-dimensional
 array, then it gives the orders of each dimension. As follows:
@@ -116,12 +116,12 @@ array, then it gives the orders of each dimension. As follows:
 Rets=Args             if procedure, keyword, or function
 Row,Col               if matrix, sparse matrix, string array, or structure
 Length                if string
-OrdN,...,Ord2,Ord1    if array, where :math:`N` is the slowest moving dimension of the array, and Ord is the order (or size) of a dimension 
+OrdN,...,Ord2,Ord1    if array, where :math:`N` is the slowest moving dimension of the array, and Ord is the order (or size) of a dimension
 ===================== ===========================================
 
-If the symbol is an array of structures, the 'Info' column will display
+If the symbol is an array of structures, the ``Info`` column will display
 the size of the array. A scalar structure instance is treated as a 1x1
-array of structures. If the symbol is a structure pointer, the 'Info'
+array of structures. If the symbol is a structure pointer, the ``Info``
 column will be blank.
 
 The program space is the area of space reserved for all nonprocedure,
@@ -132,4 +132,3 @@ The maximum number of global and local symbols is controlled by the
 *maxglobals* and *maxlocals* configuration variables in :file:`gauss.cfg`.
 
 .. seealso:: Functions `new`, `delete`
-

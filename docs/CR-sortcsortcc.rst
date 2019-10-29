@@ -15,7 +15,7 @@ Format
     :param x: data
     :type x: NxK matrix or string array.
 
-    :param c: specifying one column of *x* to sort on
+    :param c: specifies the column of *x* to sort on
     :type c: scalar
 
     :return y: equal to *x* and sorted on the column *c*.
@@ -59,7 +59,7 @@ Sort rows of a 5x1 string vector
               "delta";
 
     // Sort 'letters'
-    letters_s = sortc(letters,1);
+    letters_s = sortc(letters, 1);
 
 The above example code produces, *letters_s* equal to:
 
@@ -82,7 +82,7 @@ Remarks
    that the column to sort on contains character data.
 -  The matrix may contain both character and numeric data, but the sort
    column must be all of one type.
--  Missing values will sort as if their value is below :math:`-∞`.
+-  Missing values will sort as if their value is below :math:`-\infty`.
 -  The sort will be in ascending order.
 -  This function uses the Quicksort algorithm.
 -  If you need to obtain the matrix sorted in descending order, you can use:

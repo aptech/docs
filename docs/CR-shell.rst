@@ -44,7 +44,7 @@ When ``cmp`` finishes, control is returned to GAUSS.
 
     shell;
 
-This executes an interactive shell. The OS prompt will appear and OS commands 
+This executes an interactive shell. The OS prompt will appear and OS commands
 or other programs can be executed. To return to GAUSS, type ``exit``.
 
 Remarks
@@ -60,4 +60,3 @@ If you specify a command in a string variable, precede it with the ``^``
 (caret) as shown in the examples below.
 
 .. seealso:: Functions :func:`exec`
-

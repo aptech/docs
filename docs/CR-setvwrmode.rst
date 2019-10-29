@@ -44,7 +44,7 @@ Remarks
 
 If *mode* is a null string, the current mode will be returned with no changes made.
 
-If "one" is set, the viewer executable will be :func:`vwr.exe`.
+If "one" is set, the viewer executable will be :file:`vwr.exe`.
 
 
 Source
@@ -53,4 +53,3 @@ Source
 pgraph.src
 
 .. seealso:: Functions :func:`pqgwin`
-

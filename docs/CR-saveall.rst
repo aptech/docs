@@ -50,4 +50,3 @@ the following statement at the top of each:
    use pgraph;
 
 .. seealso:: Functions `compile`, `run`, `use`
-
