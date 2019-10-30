@@ -9,7 +9,7 @@ Sorts a matrix of numeric or character data, or a string array.
 
 Format
 ----------------
-.. function:: y = srothc(x, c)
+.. function:: y = sorthc(x, c)
               y = sorthcc(x, c)
 
     :param x: data
