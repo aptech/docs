@@ -24,11 +24,15 @@ Format
 Examples
 ----------------
 
+Example 1: Create a single cell index
++++++++++++++++++++++++++++++++++++++++
+
 ::
 
     // Scalar inputs
     r = 3;
     c = 6;
+
     range = xlsMakeRange(r, c);
     print range;
 
@@ -38,11 +42,15 @@ produces:
 
     F3
 
+Example 2: Create a cell range string 
++++++++++++++++++++++++++++++++++++++++
+
 ::
 
     // 2x1 vector inputs
     r = { 2, 37 };
     c = { 3, 19 };
+
     range = xlsMakeRange(r, c);
     print range;
 
@@ -76,7 +84,8 @@ scalerr, depending on the state of the `trap` flag.
 +-----------------+-----------------------------------------------------+
 | ``trap 0``      | Print error message and terminate program.          |
 +-----------------+-----------------------------------------------------+
-| ``trap 1``      | Return scalar error code 10.                        |
+| ``trap 1``      | Return scalar error code which can be checked for   |
+|                 | with :func:`scalmiss`.                              |
 +-----------------+-----------------------------------------------------+
 
 
