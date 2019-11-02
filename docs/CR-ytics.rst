@@ -6,7 +6,7 @@ Purpose
 ----------------
 Sets and fixes scaling, axes numbering and tick marks for the y-axis.
 
-.. NOTE:: This function is for the deprecated PQG graphics.
+.. NOTE:: This function is for the deprecated PQG graphics, use :func:`plotSetYTicInterval` for similar functionality.
 
 Library
 -------

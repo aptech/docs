@@ -6,7 +6,7 @@ Purpose
 ----------------
 Sets a label for the y-axis.
 
-.. NOTE:: This function is for the deprecated PQG graphics.
+.. NOTE:: This function is for the deprecated PQG graphics, use :func:`plotSetYLabel` for equivalent functionality.
 
 Library
 -------
