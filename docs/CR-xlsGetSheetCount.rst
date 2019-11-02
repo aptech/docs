@@ -5,7 +5,7 @@ xlsGetSheetCount
 Purpose
 ----------------
 
-Gets the number of sheets in an Excel® spreadsheet.
+Returns the number of sheets in an Excel® spreadsheet.
 
 Format
 ----------------
@@ -26,20 +26,19 @@ Windows, Linux and macOS
 Examples
 ----------------
 
-Example 1
-+++++++++
+Example 1: Basic usage
+++++++++++++++++++++++++
 
-If you had an Excel file named ':file:`yarn.xlsx`' in the GAUSS home directory, then you could 
-determine the number of sheets in the file with the following code:
+Determine the number of sheets in the example data file, :file:`yarn.xlsx`, with the following code:
 
 ::
 
     // File name with full path 
-    fname= getGAUSShome() $+ "examples/yarn.xlsx";
+    fname = getGAUSShome() $+ "examples/yarn.xlsx";
     nsheets = xlsGetSheetCount(fname);
 
-Example 2
-+++++++++
+Example 2: Error handling with trap
++++++++++++++++++++++++++++++++++++++
 
 If you do not want your program to terminate in the case of an error in this function, 
 you can set the `trap` state as in the example below.
@@ -48,12 +47,15 @@ you can set the `trap` state as in the example below.
 
     // Turn on trap
     trap 1;
+
+    fname = "non-existant-file.xlsx";
     
     nsheets = xlsGetSheetCount(fname);
     
     // Check to see if xlsGetSheetCount returned an error code
     if scalmiss(nsheets);
-    // Code to execute in error case here
+        // Code to execute in error case here
+        print "xlsGetSheetCount failed";
     endif;
 
 Remarks
@@ -66,7 +68,8 @@ scalerr, depending on the lowest order bit of the trap flag.
 +-----------------+-----------------------------------------------------+
 | ``trap 0``      | Print error message and terminate program.          |
 +-----------------+-----------------------------------------------------+
-| ``trap 1``      | Return scalar error code 10.                        |
+| ``trap 1``      | Return scalar error code which can be checked       |
+|                 | for with :func:`scalmiss`.                          |
 +-----------------+-----------------------------------------------------+
 
 
