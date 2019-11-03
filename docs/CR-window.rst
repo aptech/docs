@@ -6,7 +6,7 @@ Purpose
 ----------------
 Partitions the window into tiled regions (graphic panels) of equal size. 
 
-.. NOTE:: This function is for the deprecated PQG graphics.
+.. NOTE:: This function is for the deprecated PQG graphics. Use :func:`plotLayout` for similar functionality.
 
 Library
 -------
