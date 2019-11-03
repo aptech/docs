@@ -18,9 +18,8 @@ Format
 
         .. math::
 
-            M = (-1 + sqrt(1 + 8 * K)) / 2
+            M = \frac{\sqrt{1 + 8 \times K} - 1}{2}
 
-        .. DANGER:: fix equations
 
     :rtype x: MxM matrix
 
@@ -53,7 +52,7 @@ After the code above, the variables *x* and *y* are equal to:
 Remarks
 -------
 
-If *v* does not contain the right number of elements, (that is, if :math:`sqrt(1 + 8 \* K)` is not 
+If *v* does not contain the right number of elements, (that is, if :math:`\sqrt{1 + 8 \times K}` is not 
 integral), then an error message is generated.
 
 This function is particularly useful for hard-coding symmetric matrices,

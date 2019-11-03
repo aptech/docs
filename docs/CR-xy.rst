@@ -6,7 +6,7 @@ Purpose
 ----------------
 Graphs X vs. Y using Cartesian coordinates.
 
-.. NOTE:: This function is for the deprecated PQG graphics.
+.. NOTE:: This function is for the deprecated PQG graphics. Use :func:`plotXY` instead.
 
 Library
 -------

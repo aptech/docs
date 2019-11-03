@@ -13,13 +13,13 @@ Format
     :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
-    :param range: range to read, e.g. "A2:B20", or the starting point of the read, e.g. "A2". Default = "A1.
+    :param range: Optional input, range to read, e.g. "A2:B20", or the starting point of the read, e.g. "A2". Default = "A1.
     :type range: string
 
-    :param sheet: sheet number to read from. Default = 1.
+    :param sheet: Optional input, sheet number to read from. Default = 1.
     :type sheet: scalar
 
-    :param vls: specifies the conversion of Excel® empty cells
+    :param vls: Optional input, specifies the conversion of Excel® empty cells
         and special types into GAUSS (see Remarks). A null string results in
         all empty cells and special types being converted to GAUSS missing values.
     :type vls: null string or 9x1 matrix
@@ -99,38 +99,52 @@ Reading dates
     // Read the first element below the header from the first column
     date_1 = xlsReadM(file, "A2:A2");
 
-If the Excel file has marked a cell as a date, GAUSS will read it in DT scalar format. After the code above, date_1 will be equal to:
+If the Excel file has marked a cell as a date, GAUSS will read it in DT scalar format. After the code above, *date_1* will be equal to:
 
 ::
 
     19820101000000
 
-Dates in DT scalar format can be passed in directly to plotTS to create time series plots, and also handled by other GAUSS date handling functions. For example, we can convert date_1 to a string with the function dttostr (date to string) like this:
+Dates in DT scalar format can be passed in directly to :func:`plotTS` to create time series plots, and also handled by other GAUSS date handling functions. For example, we can convert *date_1* to a string with the function :func:`dttostr` (date to string) like this:
 
 ::
 
     date_str = dttostr(date_1, "MO-DD-YYYY");
 
-After which, date_str will be equal to:
+After which, *date_str* will be equal to:
 
 ::
 
     "01-01-1982"
 
 Specify Sheet Number
-++++++++++++++++++++
++++++++++++++++++++++++
 
 ::
 
-    // Using the 'file' variable created in the previous example
+    // Create file name with full path
+    file = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+
     // Pass in '1' as the third input, to specify the first sheet
-    x = xlsReadM(file, "A2:A10", 1);
+    x = xlsReadM(file, "C2:C5", 1);
+
+After the above code, *x* will equal:
+
+::
+
+    83 
+    74 
+    77 
+    81
+
 
 Remarks
 -------
 
-#. If range is a null string, then by default the read will begin at
+#. If *range* is a null string, then by default the read will begin at
    cell "A1".
+
+#. Use :func:`loadd` to load all rows, except for the header row, from specific columns of an Excel file.
 
 #. If :func:`xlsReadM` fails, it will either terminate and print an error
    message or return a scalar error code, which can be decoded with
@@ -161,6 +175,7 @@ Remarks
       // Check to see if 'x' is a scalar error code
       if scalmiss(x);
          // Code to handle error case here
+         print "Excel file not found";
       endif;
 
       // Turn error trapping off

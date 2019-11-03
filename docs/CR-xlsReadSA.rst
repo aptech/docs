@@ -13,13 +13,13 @@ Format
     :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
-    :param range: range to read, e.g. "A2:B20" or the starting point of the read, e.g. "A2". Default = "A1".
+    :param range: Optional input, range to read, e.g. "A2:B20" or the starting point of the read, e.g. "A2". Default = "A1".
     :type range: string
 
-    :param sheet: sheet number. Default = 1.
+    :param sheet: Optional input, sheet number. Default = 1.
     :type sheet: scalar
 
-    :param vls: specifies the conversion of Excel® empty cells and special types into 
+    :param vls: Optional input, specifies the conversion of Excel® empty cells and special types into 
         GAUSS (see Remarks). A null string results in all empty cells and special types 
         being converted to null strings. Default = null string.
     :type vls: null string or 9x1 string array
@@ -38,31 +38,53 @@ The *vls* input is currently ignored on macOS and Linux. Missing values will be 
 Examples
 ----------------
 
-Basic Example with Specify Path and Sheet Number
-++++++++++++++++++++++++++++++++++++++++++++++++
+Basic Example with Starting Cell and Sheet Number
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Read all contents from the file ":file:`yarn.xlsx`" located in GAUSS home working directory as a string array.
+Read all contents from the file :file:`yarn.xlsx` located in the GAUSS examples directory as a string array.
 
 ::
 
     // Create file name with full path
     file = getGAUSSHome() $+ "examples/yarn.xlsx";
+
     //"A1" means start from A1
     // 1 = sheet number 				
-    // Call xlsReadSA function
     s = xlsReadSA(file, "A1", 1);
+
+After the above code, the first 5 rows of *s* will equal:
+
+::
+
+     yarn_length        amplitude             load           cycles 
+             low              low              low              674 
+             low              low              med              370 
+             low              low             high              292 
+             low              med              low              338
 
 Read From a Range
 +++++++++++++++++
 
 ::
 
-    data = xlsReadSA(file, "A2:D28");
+    // Create file name with full path
+    file = getGAUSSHome() $+ "examples/yarn.xlsx";
+
+    s = xlsReadSA(file, "B3:C4");
+
+After the above code, *s* will equal:
+
+::
+
+    low      med 
+    low     high
+
 
 Read your own data
 ++++++++++++++++++
 
-Read all contents from the file :file:`myfile.xlsx` located in your current GAUSS working directory as a string array.
+If you have a file named :file:`myfile.xlsx` located in your current GAUSS working directory, the 
+code below will read all of its contents into a string array. 
 
 ::
 
@@ -71,7 +93,12 @@ Read all contents from the file :file:`myfile.xlsx` located in your current GAUS
 Remarks
 -------
 
-#. If range is a null string, then by default the read will begin at cell "A1".
+#. If *range* is a null string, then by default the read will begin at cell "A1".
+
+#. If a full path to the Excel file is not provided, :func:`xlsReadSA` will look for the file
+   in your current working directory.
+
+#. Use :func:`loaddSA` to load all rows, except for the header row, from specific columns of an Excel file.
 
 #. If :func:`xlsReadSA` fails, it will either terminate and print an error
    message or return a scalar error code, which can be decoded with
@@ -131,7 +158,7 @@ Remarks
 
       // Set the 1st and 8th element of 'vls' to the string 'NULL' so that
       // Excel #NULL! and empty cells will be imported as the string 'NULL'
-      vls[1] = "NULL;
+      vls[1] = "NULL";
       vls[8] = "NULL";
 
       x = xlsReadSA("myfile.xlsx", "A1", 1, vls);

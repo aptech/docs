@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: ret = xlsWrite(data[, file[, range[, sheet[, vls]]]])
 
-    :param data: data
-    :type data: matrix or string, or string array.
+    :param data: data to write.
+    :type data: matrix, string, or string array.
 
     :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
@@ -34,9 +34,9 @@ Format
 Portability
 ------------
 
-Windows, Linux and macOS
+Windows, Linux and macOS.
 
-The *vls* input is currently ignored on macOS and Linux. Missing values will be returned for all cells that are empty or contain errors.
+The *vls* input is currently ignored on macOS and Linux.
 
 Examples
 ----------------
@@ -54,8 +54,8 @@ Basic Example
     // from cell 'A1' to 'B3'
     ret = xlsWrite(x, "myfile.xlsx");
 
-':file:`myfile.xlsx`'is saved in your current working directory. You can find your current working directory 
-in the main tool bar (in the top of GAUSS).
+:file:`myfile.xlsx` will be saved in your current working directory. You can find your current working directory 
+in the main tool bar (in the top of GAUSS), or with the :func:`getGAUSSHome` command.
 
 Write To a Range
 ++++++++++++++++
@@ -82,6 +82,8 @@ Specify Path and Sheet Number
 Remarks
 -------
 
+#. To write a dataset with numeric variables and header names to an Excel file,
+   use :func:`saved`.
 #. If :func:`xlsWrite` fails, it will either terminate and print an error
    message or return a scalar error code, which can be detected with
    :func:`scalmiss`, depending on the state of the `trap` flag.

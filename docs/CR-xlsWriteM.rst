@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: ret = xlsWriteM(data[, file[, range[, sheet[, vls]]]])
 
-    :param data: data
+    :param data: data to write.
     :type data: matrix
 
     :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
-    :param range: the starting point of the write, e.g. "a2". Default = "a1"
+    :param range: the starting point of the write, e.g. "A2". Default = "A1"
     :type range: string
 
     :param sheet: sheet number. Default = 1.
@@ -34,9 +34,9 @@ Format
 Portability
 ------------
 
-Windows, Linux and macOS
+Windows, Linux and macOS.
 
-The *vls* input is currently ignored on macOS and Linux. Missing values will be returned for all cells that are empty or contain errors.
+The *vls* input is currently ignored on macOS and Linux.
 
 Examples
 ----------------
@@ -54,8 +54,8 @@ Basic Example
     // from cell 'A1' to 'B3'
     ret = xlsWriteM(x, "myfile.xlsx");
 
-':file:`myfile.xlsx`'is saved in your current working directory. You can find your current working directory 
-in the main tool bar (in the top of GAUSS).
+:file:`myfile.xlsx` is saved in your current working directory. You can find your current working directory 
+in the main tool bar (in the top of GAUSS) or by using the :func:`getGAUSSHome` command.
 
 Write To a Range
 ++++++++++++++++
@@ -79,6 +79,8 @@ Specify Path and Sheet Number
 Remarks
 -------
 
+#. To write a dataset with numeric variables and header names to an Excel file,
+   use :func:`saved`.
 #. The *vls* argument lets users control the export to Excel® empty cells
    and special types, according to the following table:
 
@@ -111,7 +113,8 @@ Remarks
    +------------+--------------------------------------------+
    | ``trap 0`` | Print error message and terminate program. |
    +------------+--------------------------------------------+
-   | ``trap 1`` | Return scalar error code 10.               |
+   | ``trap 1`` | Return scalar error code which can be      |
+   |            | checked for with :func:`scalmiss`.         |
    +------------+--------------------------------------------+
 
 .. seealso:: Functions :func:`xlsReadSA`, :func:`xlsReadM`, :func:`xlsWrite`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
