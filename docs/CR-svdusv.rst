@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: { u, s, v } = svdusv(x)
 
-    :param x: NxP matrix or K-dimensional array where the last two dimensions are NxP, whose singular values are to be computed.
-    :type x: matrix or array
+    :param x:  data whose singular values are to be computed, where the last two dimensions are NxP.
+    :type x: NxP matrix or K-dimensional array
 
     :return u: where the last two dimensions are :math:`NxN`, the left singular vectors
         of x.
@@ -34,12 +34,12 @@ Examples
 
     // Create 6x3 matrix
     x = { -9.35    15.67   -41.75,
-         -13.55    40.97    15.55, 
-          -0.95   -17.03    40.15, 
-           8.15    -9.73    13.15, 
-           2.35   -36.73   -43.55, 
+         -13.55    40.97    15.55,
+          -0.95   -17.03    40.15,
+           8.15    -9.73    13.15,
+           2.35   -36.73   -43.55,
           13.35     6.87    16.45  };
-    
+
     // Perform matrix decomposition
     { u, s, v } = svdusv(x);
 
@@ -53,16 +53,16 @@ After the code above, the outputs will have the following values;
         -0.12     0.25     0.24     0.91     0.08    -0.18
          0.67     0.35    -0.13    -0.02     0.64     0.05
         -0.23     0.04     0.75    -0.17     0.33     0.50
-    
-    s = 79.03     0.00     0.00 
-         0.00    60.19     0.00 
-         0.00     0.00    17.16 
-         0.00     0.00     0.00 
-         0.00     0.00     0.00 
+
+    s = 79.03     0.00     0.00
+         0.00    60.19     0.00
+         0.00     0.00    17.16
          0.00     0.00     0.00
-    
-    v = -0.02     0.26     0.97 
-        -0.32    -0.91     0.24 
+         0.00     0.00     0.00
+         0.00     0.00     0.00
+
+    v = -0.02     0.26     0.97
+        -0.32    -0.91     0.24
         -0.95     0.31    -0.10
 
 Remarks
@@ -98,7 +98,7 @@ Remarks
       { u, s, v } = svdusv(x);
 
       // Check for failure or success
-      if scalmiss(s[1,1]);
+      if scalmiss(s[1, 1]);
          // Code for failure case
       endif;
 
@@ -111,7 +111,6 @@ Remarks
    ::
 
       // Check for success or failure of each submatrix
-      if ismiss(s[.,1,1]);
+      if ismiss(s[., 1, 1]);
 
 .. seealso:: Functions :func:`svd1`, :func:`svdcusv`, :func:`svds`
-

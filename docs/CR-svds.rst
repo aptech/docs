@@ -13,8 +13,7 @@ Format
     :param x: NxP matrix or K-dimensional array where the last two dimensions are NxP, whose singular values are to be computed.
     :type x: matrix or array
 
-    :return s: where the last two dimensions are :math:`min(N,P)x1`, the
-        singular values of *x* arranged in descending order.
+    :return s: singular values of *x* arranged in descending order, the last two dimensions are :math:`min(N,P)x1`.
 
     :rtype s: min(N,P)x1 vector or K-dimensional array
 
@@ -24,7 +23,7 @@ Examples
 ::
 
     // Create a 10x3 matrix
-    x = {  -0.60     3.50     0.47, 
+    x = {  -0.60     3.50     0.47,
             8.40    16.50     0.27,
            11.40     6.50     0.17,
             7.40    -0.50    -2.43,
@@ -34,7 +33,7 @@ Examples
            18.40    12.50    -1.43,
           -11.60   -19.50     0.77,
             6.40    11.50     0.07 };
-    
+
     // Calculate the singular values
     s = svds(x);
 
@@ -42,8 +41,8 @@ After the code above, *s* will be equal to:
 
 ::
 
-    49.58 
-    14.96 
+    49.58
+    14.96
      2.24
 
 Remarks
@@ -82,10 +81,9 @@ Remarks
    ::
 
       // Check for success or failure of each submatrix
-      if ismiss(s[.,1,1]);
+      if ismiss(s[., 1, 1]);
 
 #. Call either :func:`svdcusv` or :func:`svdusv`, to also calculate the right and left
    singular vectors
 
 .. seealso:: Functions :func:`svd`, :func:`svdcusv`, :func:`svdusv`
-

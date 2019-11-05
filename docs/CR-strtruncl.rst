@@ -15,9 +15,9 @@ Format
     :type sa: NxM or Nx1, 1xM, or 1x1 string array.
 
     :param ntrunc: the number of characters to strip.
-    :type ntrunc: NxM or Nx1, 1xM, or 1x1 matrix 
+    :type ntrunc: NxM or Nx1, 1xM, or 1x1 matrix
 
-    :return y: result.
+    :return y: contains contents of *sa* with left side of all elements truncated to length specified by *ntrunc*.
 
     :rtype y: string array
 
@@ -27,4 +27,3 @@ Source
 strfns.src
 
 .. seealso:: Functions :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncpad`, :func:`strtruncr`
-

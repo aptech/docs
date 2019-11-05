@@ -14,7 +14,7 @@ Format
     :param sa: numeric data
     :type sa: NxK string array
 
-    :return x: 
+    :return x: complex numeric matrix created from contents in *sa*;
 
     :rtype x: NxK complex matrix
 
@@ -26,4 +26,3 @@ for real matrices. :func:`strtofcplx` requires the presence of the real part.
 The imaginary part can be absent.
 
 .. seealso:: Functions :func:`strtof`, :func:`ftostrC`
-

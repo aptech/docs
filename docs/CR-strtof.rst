@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: x = strtof(sa)
 
-    :param sa: numeric data
+    :param sa: numeric data.
     :type sa: NxK string array
 
-    :return x: 
+    :return x: converted string array.
 
     :rtype x: NxK matrix
 
@@ -23,11 +23,11 @@ Examples
 ::
 
     // Create a string array
-    string sa = { "1.1" "2.2" "3.3", 
+    string sa = { "1.1" "2.2" "3.3",
                   "4.4" "5.5" "6.6" };
     num = strtof(sa);
 
-After the code above, *num* is a numeric matrix with the following values:
+After the code above, ``num`` is a numeric matrix with the following values:
 
 ::
 
@@ -59,4 +59,3 @@ interpreted as the same by :func:`strtof`.
    "(2.31 4.72)""2.31 4.73""2.31,4.73i"
 
 .. seealso:: Functions :func:`strtofcplx`, :func:`ftostrC`
-

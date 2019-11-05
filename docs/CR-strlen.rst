@@ -13,7 +13,7 @@ Format
     :param x: data
     :type x: string or NxK matrix of character data, or NxK string array.
 
-    :return y: containing the exact length of the string *x*, 
+    :return y: contains the exact length of the string *x*,
         or NxK matrix or string array containing the lengths of the elements in *x*.
 
     :rtype y: scalar
@@ -33,7 +33,7 @@ After running the code above:
 ::
 
     len1 = 9
-    
+
     len2 = 14
 
 Remarks
@@ -51,4 +51,3 @@ the elements of those matrices.
 
 
 .. seealso:: Functions :func:`strsect`, :func:`strindx`, :func:`strrindx`
-

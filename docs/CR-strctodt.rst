@@ -15,7 +15,7 @@ Format
     :type x: NxK string array
 
     :param fmt: containing *strftime* date/time format characters.
-    :type fmt: string or or ExE conformable string array 
+    :type fmt: string or or ExE conformable string array
 
     :return d: containing dates in DT Scalar format (i.e. 200803170930).
 
@@ -71,7 +71,7 @@ produces *s* equal to:
 
 ::
 
-   20071023000000 
+   20071023000000
    20080216000000
 
 Example 5
@@ -85,7 +85,7 @@ produces *s* equal to:
 
 ::
 
-   20071023204542 
+   20071023204542
    20080216143222
 
 Remarks
@@ -131,10 +131,10 @@ The following format specifiers are supported:
 | %j              | The day of the year as a decimal number (001-366).  |
 +-----------------+-----------------------------------------------------+
 | %k              | The hour (24-hour clock) as a decimal number        |
-|                 | (0-23); single digits are preeded by a blank.       |
+|                 | (0-23); single digits are preceded by a blank.      |
 +-----------------+-----------------------------------------------------+
 | %l              | The hour (12-hour clock) as a decimal number        |
-|                 | (1-12); single digits are preeded by a blank.       |
+|                 | (1-12); single digits are preceded by a blank.      |
 +-----------------+-----------------------------------------------------+
 | %M              | The minute as a decimal number (00-59).             |
 +-----------------+-----------------------------------------------------+
@@ -197,4 +197,3 @@ The following format specifiers are supported:
 
 
 .. seealso:: Functions :func:`posixtostrc`, :func:`dttostrc`, :func:`strtodt`, :func:`dttoutc`, :func:`utctodt`
-

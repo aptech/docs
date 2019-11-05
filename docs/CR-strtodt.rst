@@ -16,7 +16,7 @@ Format
     :param fmt: date/time format characters
     :type fmt: string
 
-    :return x: of dates in DT scalar format.
+    :return x: dates in DT scalar format.
 
     :rtype x: NxK matrix
 
@@ -99,4 +99,3 @@ The following formats are supported:
 
 
 .. seealso:: Functions :func:`dttostr`, :func:`dttoutc`, :func:`utctodt`
-

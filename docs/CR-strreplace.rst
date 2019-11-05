@@ -32,13 +32,18 @@ Basic search and replace
 
 ::
 
+    // String to be searched in
     str = "My doctor recommends more chocolates, because chocolates are healthy.";
-    
+
+    // String to be searched for
     search = "chocolate";
+
+    // String to be replaced with
     replace = "vegetable";
-        
+
+    // Build new string
     new_str = strreplace(str, search, replace);
-    
+
 After the code above, *new_str* will be set to:
 
 ::
@@ -50,14 +55,19 @@ Regularize addresses in string array
 
 ::
 
+    // String array to be searched
     str = "100 Main Ave" $|
           "112 Charles Avenue" $|
           "49 W State St" $|
           "24 Third Avenue";
-    
+
+    // String to search for
     search = "Avenue";
+
+    // String to replace with
     replace = "Ave";
-        
+
+    // Build new string
     new_str = strreplace(str, search, replace);
 
 After the code above, *new_str* will be set to:
@@ -70,4 +80,3 @@ After the code above, *new_str* will be set to:
        "24 Third Ave"
 
 .. seealso:: Functions :func:`strrindx`, :func:`strsect`
-

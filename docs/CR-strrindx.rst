@@ -21,7 +21,7 @@ Format
         *where* will be searched from this point backward for *what*.
     :type start: scalar
 
-    :return y: containing the index of the last occurrence of *what*, within *where*, 
+    :return y: contains the index of the last occurrence of *what*, within *where*,
         which is less than or equal to *start*. If no occurrence is found, it will be 0.
 
     :rtype y: scalar
@@ -37,9 +37,9 @@ a complete path specification:
 
    path = "/gauss/src/ols.src";
    ps = "/";
-   pos = strrindx(path,ps,-1);
+   pos = strrindx(path, ps, -1);
    if pos;
-      name = strsect(path,pos+1,strlen(path)-pos);
+      name = strsect(path, pos+1, strlen(path)-pos);
    else;
       name = "";
    endif;
@@ -53,4 +53,3 @@ The above code makes the following assignments:
    name = ols.src
 
 .. seealso:: Functions :func:`strindx`, :func:`strlen`, :func:`strsect`, :func:`strput`
-

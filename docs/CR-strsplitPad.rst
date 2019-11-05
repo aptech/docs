@@ -16,9 +16,9 @@ Format
     :param n_cols: number of columns of output string array.
     :type n_cols: scalar
 
-    :return sa: 
+    :return sa: original string vectors, split into individual tokens.
 
-    :rtype sa: Nx n_cols string array
+    :rtype sa: Nxn_cols string array
 
 Examples
 ----------------
@@ -30,10 +30,10 @@ Examples
        "delta, epsilon, zeta, eta",
        "theta iota kappa"
     };
-     
+
      sa = strsplitPad(sv, 4);
 
-After the code above, *sa* will be equal to:
+After the code above, ``sa`` will be equal to:
 
 ::
 
@@ -67,4 +67,3 @@ retain the quotes upon translation. Tokens enclosed in parentheses WILL
 retain the parentheses after translation. Parentheses cannot be nested.
 
 .. seealso:: Functions :func:`strsplit`
-

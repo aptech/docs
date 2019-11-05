@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: sa = strsplit(str[, sep])
 
-    :param str: data to be split
+    :param str: data to be split.
     :type str: string or Nx1 string array
 
     :param sep: Optional argument, containing the character used to separate the input string into individual tokens.
     :type sep: string
 
-    :return sa:
+    :return sa: original string split into individual tokens.
 
     :rtype sa: 1xK or NxK string array
 
@@ -45,7 +45,7 @@ Comma-separated list of variables
     vars = "CPI,PPI,Employment,Oil:Brent blend,Oil:WTI";
     vars = strsplit(vars, ",");
 
-After the code above, *vars* will be a 1x5 string array with the following contents:
+After the code above, ``vars`` will be a 1x5 string array with the following contents:
 
 ::
 
@@ -64,7 +64,7 @@ String array with supplied separator
     // Split 'dow_str' into a 3x2 string array
     dow_sa = strsplit(dow_str, ":");
 
-The above code sets *dow_sa* to be equal to:
+The above code sets ``dow_sa`` to be equal to:
 
 ::
 
@@ -85,7 +85,7 @@ Elements that contain spaces may be grouped with single ticks, like this:
     print "ss2[1] = " ss2[1];
     print "ss2[2] = " ss2[2];
 
-In this program, 'scientific taxonomy' is kept as one token, and thus the output from the above code is:
+In this program, ``'scientific taxonomy'`` is kept as one token, and thus the output from the above code is:
 
 ::
 
@@ -132,7 +132,7 @@ considered delimiters:
 | carriage return | ASCII 13 |
 +-----------------+----------+
 
-The input string will be split at each occurence of ANY of the
+The input string will be split at each occurrence of ANY of the
 separators listed in the table above. For example:
 
 ::

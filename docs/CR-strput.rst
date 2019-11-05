@@ -28,10 +28,17 @@ Examples
 
 ::
 
+    // String receiving substring
     str = "max";
+
+    // String to add
     sub = "imum";
+
+    // Location to add new string
     loc = 4;
-    y = strput(sub,str,loc);
+
+    // Build new string
+    y = strput(sub, str, loc);
     print y;
 
 ::
@@ -42,4 +49,3 @@ Source
 ------
 
 strput.src
-
