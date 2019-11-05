@@ -20,7 +20,7 @@ Format
     :param flag: 1 if numeric data, 0 if character.
     :type flag: scalar
 
-    :return y: containing all unique values that are in *v1* and *v2*, sorted in ascending order.
+    :return y: contains all unique values that are in *v1* and *v2*, sorted in ascending order.
 
     :rtype y: Lx1 vector
 
@@ -30,13 +30,13 @@ Examples
 ::
 
     // Create two column vectors with character data
-                    
+
     v1 = { mary, jane, linda, john };
     v2 = { mary, sally };
-    
-    x = union(v1,v2,0);
-    
-    // The '$' in front of 'x' tells GAUSS to print 'x' as 
+
+    x = union(v1, v2, 0);
+
+    // The '$' in front of 'x' tells GAUSS to print 'x' as
     // character data
     print $x;
 
@@ -54,5 +54,3 @@ Remarks
 -------
 
 The combined elements of *v1* and *v2* must fit into a single vector.
-
-

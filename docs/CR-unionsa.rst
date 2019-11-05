@@ -17,7 +17,7 @@ Format
     :param sv2: data
     :type sv2: Mx1 or 1xM string vector
 
-    :return y: containing all unique values that are in *sv1* and *sv2*, sorted in ascending order.
+    :return y: contains all unique values that are in *sv1* and *sv2*, sorted in ascending order.
 
     :rtype y: Lx1 vector
 
@@ -26,9 +26,12 @@ Examples
 
 ::
 
+    // Strings for union
     string sv1 = { "mary", "jane", "linda", "john" };
     string sv2 = { "mary", "sally" };
-    y = unionsa(sv1,sv2);
+
+    // Find union of sv1 and sv2
+    y = unionsa(sv1, sv2);
     print y;
 
 The above code produces the following output:
@@ -47,4 +50,3 @@ Source
 unionsa.src
 
 .. seealso:: Functions :func:`union`
-

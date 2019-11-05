@@ -27,12 +27,12 @@ Examples
     // Create a 8x1 string array
     string comTrades = { "corn", "gold", "soybeans", "silver", "coffee",
                          "oil", "silver", "soybeans" };
-    
+
     // Return an alphabetized string array containing the
     // unique elements from 'comTrades'
     commodity = uniquesa(comTrades);
 
-After the code above, the variables *comTrades* and *commodity* will be equal to:
+After the code above, the variables ``comTrades`` and ``commodity`` will be equal to:
 
 ::
 
@@ -57,4 +57,3 @@ Source
 uniquesa.src
 
 .. seealso:: Functions :func:`unique`, :func:`uniqindxsa`, :func:`uniqindx`
-

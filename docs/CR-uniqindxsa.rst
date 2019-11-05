@@ -23,12 +23,17 @@ Examples
 
 ::
 
+    //  String vector
     string sv = {"mary", "linda", "linda", "jane",
                  "jane", "cindy", "betty"};
+
+    // Find indices of sorted string vector
     ind = uniqindxsa(sv);
+
+    // Sort string vector
     y = sv[ind];
 
-The above code assigns the variables *ind* and *y* as follows:
+The above code assigns the variables ``ind`` and ``y`` as follows:
 
 ::
 
@@ -50,4 +55,3 @@ Source
 uniquesa.src
 
 .. seealso:: Functions :func:`unique`, :func:`uniquesa`, :func:`uniqindx`
-

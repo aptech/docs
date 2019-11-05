@@ -25,7 +25,6 @@ Remarks
 -------
 
 :func:`utrisol` applies a back solve to :math:`Ux = b` to solve for :math:`x`. If :math:`b` has more
-than one column, each column is solved for separately, i.e., :func:`utrisol` applies a back solve to :math:`U \* x[.,i] = b[.,i]`.
+than one column, each column is solved for separately, i.e., :func:`utrisol` applies a back solve to :math:`U * x[., i] = b[., i]`.
 
 .. DANGER:: check equations
-
