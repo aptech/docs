@@ -86,6 +86,8 @@ The following formats are supported:
 +------+-------------------------+
 | YR   | Last two digits of year |
 +------+-------------------------+
+| QQ   | Quarters, Q1            |
++------+-------------------------+
 | MO   | Number of month, 01-12  |
 +------+-------------------------+
 | DD   | Day of month, 01-31     |
