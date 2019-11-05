@@ -9,7 +9,7 @@ Scales the columns of a matrix
 Format
 ----------------
 .. function:: { x_s, location, scale_factor } = rescale(x, method)
-              { x_s, location, scale_factor } = rescale(x, location, scale_factor)
+              x_s = rescale(x, location, scale_factor)
 
     :param x: data to be rescaled
     :type x: NxK matrix or NxK array
@@ -68,7 +68,6 @@ Format
 
     :rtype scale_factor: 1xK vector
 
-.. DANGER:: fix equations
 
 Examples
 ----------------
@@ -100,14 +99,14 @@ After the code above:
 ::
 
     x_s =
-    	-0.53463295
-    	 0.81977052
-    	-0.93857785
-    	 -1.5326145
-    	 0.15444952
-    	  1.6038989
+        -0.53463295
+         0.81977052
+        -0.93857785
+         -1.5326145
+         0.15444952
+          1.6038989
        -0.035642197
-    	 0.46334856
+         0.46334856
 
     location =        14.750000
     scale_factor =    4.2084948
@@ -130,23 +129,23 @@ Specifying a scaling method for multiple columns
     // Standardize 'x' and return the location and scaling factors
     { x_s, location, scale_factor } = rescale(x, "standardize");
 
-    print"x_s = " x_s;
-    print"location = " location;
-    print"scale_factor = " scale_factor;
+    print "x_s = " x_s;
+    print "location = " location;
+    print "scale_factor = " scale_factor;
 
 After the code above:
 
 ::
 
     x_s =
-    	-0.53463295       0.28751716
-    	 0.81977052      -0.73869039
-    	-0.93857785       0.99144060
-    	 -1.5326145       0.78443315
-    	 0.15444952      -0.47968581
-    	  1.6038989      -0.10148025
+        -0.53463295       0.28751716
+         0.81977052      -0.73869039
+        -0.93857785       0.99144060
+         -1.5326145       0.78443315
+         0.15444952      -0.47968581
+          1.6038989      -0.10148025
        -0.035642197       -1.8306302
-    	 0.46334856        1.0870957
+         0.46334856        1.0870957
 
     location =        14.750000        1029.8875
     scale_factor =    4.2084948        203.85740
@@ -154,31 +153,30 @@ After the code above:
 Applying previously created location and scaling factors
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Continuing with the variables used in example 2, we can apply the returned location and
+Continuing with the variables used in the previous example, we can apply the returned location and
 scaling factors to standardize additional observations of our two variables.
 
 ::
 
     // Additional observations
-    x_new = {
-    	 9.3  964.1,
-    	10.9 1173.7,
-    	11.1 1232.0,
-    	 9.1 1051.2,
-    	14.6 1124.1,
-    	18.4  815.3,
-    	20.2 1292.6,
-    	18.5  833.1 };
+    x_new = { 9.3  964.1,
+             10.9 1173.7,
+             11.1 1232.0,
+              9.1 1051.2,
+             14.6 1124.1,
+             18.4  815.3,
+             20.2 1292.6,
+             18.5  833.1 };
 
     // Standardize 'x' using the location and scaling factors
-    print"location = " location;
-    print"scale_factor = " scale_factor;
+    print "location = " location;
+    print "scale_factor = " scale_factor;
 
-    // returned in example 2
+    // returned in the previous example
     x_new_s = rescale(x_new, location, scale_factor);
 
-    print"x_new_s = " x_new_s;
-    print"x_new = " x_new;
+    print "x_new_s = " x_new_s;
+    print "x_new = " x_new;
 
 After the code above:
 
@@ -188,23 +186,23 @@ After the code above:
     scale_factor =    4.2084948        203.85740
 
     x_new_s =
-    	 -1.2949998      -0.32271333
-    	-0.91481638       0.70545637
-    	-0.86729345       0.99144060
-    	 -1.3425227       0.10454612
+         -1.2949998      -0.32271333
+        -0.91481638       0.70545637
+        -0.86729345       0.99144060
+         -1.3425227       0.10454612
        -0.035642197       0.46214904
-    	 0.86729345       -1.0526353
-    	  1.2949998        1.2887072
-    	 0.89105492      -0.96531940
+         0.86729345       -1.0526353
+          1.2949998        1.2887072
+         0.89105492      -0.96531940
 
     x_new =
-    	  9.3000000        964.10000
-    	  10.900000        1173.7000
-    	  11.100000        1232.0000
-    	  9.1000000        1051.2000
-    	  14.600000        1124.1000
-    	  18.400000        815.30000
-    	  20.200000        1292.6000
-    	  18.500000        833.10000
+          9.3000000        964.10000
+          10.900000        1173.7000
+          11.100000        1232.0000
+          9.1000000        1051.2000
+          14.600000        1124.1000
+          18.400000        815.30000
+          20.200000        1292.6000
+          18.500000        833.10000
 
 .. seealso:: Functions `code`, :func:`recode`, :func:`reclassifyCuts`, :func:`reclassify`, :func:`rescale`, :func:`substute`
