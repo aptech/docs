@@ -12,7 +12,7 @@ Format
 .. function:: y = varput(x, n)
 
     :param x: data which is to be assigned to the target variable.
-    :type x: matrix or array or string or string array 
+    :type x: matrix or array or string or string array
 
     :param n: the name of the global symbol which will be the target variable
     :type n: string
@@ -26,10 +26,10 @@ Examples
 
 ::
 
-    source = rndn(2,2);
+    source = rndn(2, 2);
     targname = "target";
-    
-    if not varput(source,targname);
+
+    if not varput(source, targname);
        print "Symbol table full";
        end;
     endif;
@@ -46,4 +46,3 @@ This function is useful for returning values generated in local
 variables within a procedure to the global symbol table.
 
 .. seealso:: Functions :func:`varget`, :func:`typecv`
-

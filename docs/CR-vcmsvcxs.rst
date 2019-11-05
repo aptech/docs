@@ -4,10 +4,10 @@ vcms, vcxs
 
 Purpose
 ----------------
-Computes the observed variance-covariance matrix. 
+Computes the observed variance-covariance matrix.
 
-.. NOTE:: :func:`vcms` and :func:`vcxs` have been replaced with functions :func:`varCovX` and :func:`varCovM` 
-    whose descriptions use more standard statistical nomenclature. :func:`vcxs` and :func:`vcms` will continue 
+.. NOTE:: :func:`vcms` and :func:`vcxs` have been replaced with functions :func:`varCovX` and :func:`varCovM`
+    whose descriptions use more standard statistical nomenclature. :func:`vcxs` and :func:`vcms` will continue
     to be available for backwards compatibility.
 
 Format
@@ -21,9 +21,9 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :return vc: 
+    :return vc: the observed-covariance matrix of *m* or *x*.
 
-    :rtype vc: KxK variance-covariance matrix
+    :rtype vc: KxK matrix
 
 Remarks
 -------
@@ -39,4 +39,3 @@ Source
 corrs.src
 
 .. seealso:: Functions :func:`momentd`, :func:`corrms`
-

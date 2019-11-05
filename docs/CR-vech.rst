@@ -22,14 +22,14 @@ Examples
 
 ::
 
-    // Add a 3x1 column vector containing 10, 20, 30 to a 1x3 
+    // Add a 3x1 column vector containing 10, 20, 30 to a 1x3
     // row vector containing 1, 2, 3, to create a 3x3 matrix
-    x = seqa(10,10,3) + seqa(1,1,3)';
-    
-    // Turn the lower triangular portion of 'x' into a column 
+    x = seqa(10, 10, 3) + seqa(1, 1, 3)';
+
+    // Turn the lower triangular portion of 'x' into a column
     // vector in 'v'
     v = vech(x);
-    
+
     // Expand the vector 'v' into a symmetric matrix in 'sx'
     sx = xpnd(v);
 
@@ -48,9 +48,8 @@ Remarks
 -------
 
 As you can see from the example below, :func:`vech` will not check to see if *x*
-is symmetric. It just packs the lower trangular portion of the matrix
+is symmetric. It just packs the lower triangular portion of the matrix
 into a column vector in row-wise order.
 
 
 .. seealso:: Functions :func:`xpnd`
-

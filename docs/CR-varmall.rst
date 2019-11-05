@@ -34,7 +34,7 @@ Format
         5             :math:`P = 0` and :math:`Q = 0`
         7             floating point work space too small
         8             integer work space too small
-        9             vc is not positive definite
+        9             *vc* is not positive definite
         10            AR parameters too close to stationarity boundary
         11            model not stationary
         12            model not invertible
@@ -50,4 +50,3 @@ Remarks
 Universidad Complutense de Madrid. It was published as Algorithm AS311
 in Applied Statistics. Also described in "Exact Maximum Likelihood
 Estimation of Stationary Vector ARMA Models," JASA, 90:282-264.
-

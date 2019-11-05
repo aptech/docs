@@ -25,9 +25,9 @@ Examples
     alpha = 1;
     beta = 2;
     letter = "alpha";
-    
+
     // Check to see if a variable named alpha exists
-    if typecv(letter) == miss(0,0);
+    if typecv(letter) == miss(0, 0);
        print letter " does NOT exist";
     else;
        // Assign the value of the variable named alpha to 'tmp'
@@ -49,5 +49,3 @@ is in *s* and returns the contents of the variable if it exists. If the
 symbol does not exist, the function will terminate with an Undefined
 symbol error message. If you want to check to see if a variable exists
 before using this function, use :func:`typecv`.
-
-

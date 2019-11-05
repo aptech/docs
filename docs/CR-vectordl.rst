@@ -21,8 +21,8 @@ Examples
 Remarks
 -------
 
-A numeric_expression is any valid expression returning a numeric value.
-A character_expression is any valid expression returning a character
+A *numeric_expression* is any valid expression returning a numeric value.
+A *character_expression* is any valid expression returning a character
 value. If neither '$' nor '#' is specified, '#' is assumed.
 
 vector is used in place of make when the expression returns a scalar
@@ -36,4 +36,4 @@ source dataset, as extern's, or as the result of a previous make,
 vector, or code statement.
 
 
-.. seealso:: Functions 
+.. seealso:: Functions

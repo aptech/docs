@@ -6,8 +6,8 @@ Purpose
 ----------------
 Computes an unbiased estimate a variance-covariance matrix.
 
-.. NOTE:: :func:`vcm` and :func:`vcx` have been replaced with functions :func:`varCovXS` and :func:`varCovMS` 
-    whose descriptions use more standard statistical nomenclature. :func:`vcx` and :func:`vcm` will continue 
+.. NOTE:: :func:`vcm` and :func:`vcx` have been replaced with functions :func:`varCovXS` and :func:`varCovMS`
+    whose descriptions use more standard statistical nomenclature. :func:`vcx` and :func:`vcm` will continue
     to be available for backwards compatibility.
 
 Format
@@ -21,7 +21,7 @@ Format
     :param x: data
     :type x: NxK matrix
 
-    :return vc: 
+    :return vc: unbiased estimate of the variance-covariance matrix.
 
     :rtype vc: KxK variance-covariance matrix
 
@@ -40,4 +40,3 @@ Source
 corr.src
 
 .. seealso:: Functions :func:`momentd`
-
