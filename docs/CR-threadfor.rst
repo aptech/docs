@@ -17,9 +17,9 @@ Format
 ::
 
     threadfor i (start, stop, step);
-      . 
-      . 
-      . 
+      .
+      .
+      .
     threadendfor;
 
 **Parameters**
@@ -37,7 +37,7 @@ Example 1
 
 ::
 
-    //A basic 'threadfor' loop
+    // A basic 'threadfor' loop
     threadfor i (1, 4, 1);
         print i;
     threadendfor;
@@ -58,29 +58,29 @@ Simple bootstrap of the mean of one variable
 
     // Create fully pathed name of dataset
     dataset = getGAUSSHome() $+ "examples/fueleconomy.dat";
-    
+
     // Load all contents of dataset
     x = loadd(dataset);
-    
+
     // Extract 2nd column
-    engine_disp = x[.,2];
-    
+    engine_disp = x[., 2];
+
     iters = 500;
     nobs = rows(engine_disp);
-    
+
     // Pre-allocate vector to hold sample means
     sample_means = zeros(iters, 1);
-    
+
     threadFor i(1, iters, 1);
         // Create tmp variable 'idx',
         // containing random integers from 1-nobs
         //'idx' exists ONLY during the loop
         idx = ceil(nobs * rndu(nobs, 1));
-        
+
         // Extract random sample into tmp variable,
         //'sample'. Only exists during loop
         sample = engine_disp[idx];
-        
+
         // Calculate mean of sample
         // and assign using loop counter
         //'sample_means' will persist after loop
@@ -104,20 +104,19 @@ Remarks
            a = rndu(1,1);
            print a;
        threadEndfor;
-       
+
        print a;
 
    will produce output similar to the following:
-   
-   :: 
 
-       0.90560157 
-       0.52594285 
-       34.700000 
+   ::
+
+       0.90560157
+       0.52594285
+       34.700000
 
 #. `threadfor` loops may not be nested
 #. Debugging inside of `threadfor` loops is currently not supported.
 
 
-.. seealso:: `Performance considerations` 
-
+.. seealso:: `Performance considerations`

@@ -31,10 +31,10 @@ Examples
 ::
 
     // Create a 5x3 matrix of random uniform numbers
-    x = rndu(5,3);
-    
+    x = rndu(5, 3);
+
     // Remove the top 2 rows of x and the bottom row
-    y = trimr(x,2,1);
+    y = trimr(x, 2, 1);
 
 If *x* is equal to:
 
@@ -59,4 +59,3 @@ Remarks
 If either *t* or *b* is zero, then no rows will be trimmed from that end of the matrix.
 
 .. seealso:: Functions :func:`submat`, :func:`rotater`, :func:`shiftr`
-

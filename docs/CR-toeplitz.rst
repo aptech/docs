@@ -13,7 +13,7 @@ Format
     :param x: data
     :type x: Kx1 vector
 
-    :return t: 
+    :return t:
 
     :rtype t: KxK Toeplitz matrix
 
@@ -23,8 +23,8 @@ Examples
 ::
 
     // Create the sequence 1, 2, 3, 4, 5 and assign it to 'x'
-    x = seqa(1,1,5);
-    
+    x = seqa(1, 1, 5);
+
     // Create a diagonal-constant or Toeplitz matrix
     y = toeplitz(x);
 
@@ -42,4 +42,3 @@ Source
 ------
 
 toeplitz.src
-

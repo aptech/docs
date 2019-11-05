@@ -22,7 +22,7 @@ Examples
 
 ::
 
-    x = 100*rndn(2,2);
+    x = 100*rndn(2, 2);
     y = trunc(x);
 
 If *x* equals:
@@ -40,4 +40,3 @@ then, *y* will equal:
      109.000 127.000
 
 .. seealso:: Functions :func:`ceil`, :func:`floor`, :func:`round`
-

@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :return y: 
+    :return y: the tangent of the elements in *x*.
 
     :rtype y: NxK matrix or N-dimensional array
 
@@ -25,7 +25,7 @@ Examples
 
     // Create an additive sequence 0.1, 0.2, 0.3...0.9
     x = seqa(0.1, 0.1, 9);
-    
+
     y = tan(x);
 
 The above code produces:
@@ -51,4 +51,3 @@ To convert degrees to radians, multiply the degrees by :math:`π/180`.
 
 
 .. seealso:: Functions :func:`atan`, :func:`pi`
-

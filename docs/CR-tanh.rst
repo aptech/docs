@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix or N-dimensional array
 
-    :return y: containing the hyperbolic tangents of the elements of *x*.
+    :return y: contains the hyperbolic tangents of the elements of *x*.
 
     :rtype y: NxK matrix or N-dimensional array
 
@@ -45,4 +45,3 @@ Source
 ------
 
 trig.src
-

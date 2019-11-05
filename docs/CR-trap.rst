@@ -34,13 +34,13 @@ First we will create some code that will return an error, stopping the program. 
     x = { 1 1 1,
           1 1 1,
           1 1 1 };
-    
+
     // Attempt to calculate inverse, but error
-    //'matrix singular' stops program
+    // 'matrix singular' stops program
     x_inv = inv(x);
 
-In some cases, we would like our program to be able to detect certain errors and recover from them. 
-The next section of code will be the same as above, with the exception of setting the `trap` flag. 
+In some cases, we would like our program to be able to detect certain errors and recover from them.
+The next section of code will be the same as above, with the exception of setting the `trap` flag.
 We will see that it will not cause an error.
 
 ::
@@ -49,18 +49,18 @@ We will see that it will not cause an error.
     x = { 1 1 1,
           1 1 1,
           1 1 1 };
-    
-    // Set the trap flag, to supress the error
+
+    // Set the trap flag, to suppress the error
     trap 1;
-    
+
     // Attempt to calculate inverse
     x_inv = inv(x);
 
-If you run the above code, you will notice that an error was not returned. With the `trap` set to 1, 
-instead of stopping the program with an error message, GAUSS will set the variable *x_inv* equal to 
-a scalar error code. A scalar error code is a missing value that contains an integer which can be 
-used to identify the error. For more information on error codes, see :func:`scalerr` and :func:`error`. 
-In this example, however, our main concern is with determining whether or not the return value is 
+If you run the above code, you will notice that an error was not returned. With the `trap` set to 1,
+instead of stopping the program with an error message, GAUSS will set the variable ``x_inv`` equal to
+a scalar error code. A scalar error code is a missing value that contains an integer which can be
+used to identify the error. For more information on error codes, see :func:`scalerr` and :func:`error`.
+In this example, however, our main concern is with determining whether or not the return value is
 a scalar error code. We can do this with the GAUSS function, :func:`scalmiss`.
 
 ::
@@ -69,13 +69,13 @@ a scalar error code. We can do this with the GAUSS function, :func:`scalmiss`.
     x = { 1 1 1,
           1 1 1,
           1 1 1 };
-    
-    // Set the trap flag, to supress the error
+
+    // Set the trap flag, to suppress the error
     trap 1;
-    
+
     // Attempt to calculate inverse
     x_inv = inv(x);
-    
+
     // Check to see if 'x_inv', contains a scalar error code
     if scalmiss(x_inv);
         print  "matrix was singular";
@@ -95,11 +95,11 @@ This example will built from the concepts in the example above to do something m
          1 1 0.6 };
 
    // Create a dependent variable
-   y = { -0.36, 
-         -1.55, 
+   y = { -0.36,
+         -1.55,
          -0.02 };
 
-   // Set the trap flag, to supress the error
+   // Set the trap flag, to suppress the error
    trap 1;
 
    // Attempt to compute the inverse of the moment matrix
@@ -114,7 +114,7 @@ This example will built from the concepts in the example above to do something m
    // Solve the linear equations
    b_hat = mmi * x'y;
 
-After the above code, *b_hat* is equal to:
+After the above code, ``b_hat`` is equal to:
 
 ::
 
@@ -151,4 +151,3 @@ To set only one bit and leave the others unchanged, use two arguments:
 +---------------+--------------------+
 
 .. seealso:: Functions :func:`scalerr`, `trapchk`, :func:`error`
-

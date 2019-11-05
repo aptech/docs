@@ -17,7 +17,7 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "6", "matrix"
             "13", "string"
             "15", "string array"
@@ -36,33 +36,33 @@ Example 1
 
 ::
 
-    //Create a matrix
+    // Create a matrix
     x = { 1 2,
           3 4 };
-    
-    //Find type of 'x'
+
+    // Find type of 'x'
     x_type = type(x);
 
-After the above code, *x_type* will equal: 6, indicating that *x* is a matrix.
+After the above code, ``x_type`` will equal: 6, indicating that ``x`` is a matrix.
 
 Example 2
 +++++++++
 
 ::
 
-    //Create a string
+    // Create a string
     x = "myfile.dat";
-    
-    //Find type of 'x'
+
+    // Find type of 'x'
     x_type = type(x);
 
-After the above code, *x_type* will equal: 13, indicating that *x* is a string.
+After the above code, ``x_type`` will equal: 13, indicating that ``x`` is a string.
 
 Remarks
 -------
 
 :func:`type` is often used to verify that inputs to a user defined procedure are
-valued. For example, if an input is a file name, then it must be a bstring:
+valued. For example, if an input is a file name, then it must be a string:
 
 ::
 
@@ -81,4 +81,3 @@ user-defined procedures, keywords and functions as well. :func:`type` works for
 global or local symbols; :func:`typecv` works only for global symbols.
 
 .. seealso:: Functions :func:`typecv`, :func:`typef`
-
