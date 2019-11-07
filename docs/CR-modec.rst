@@ -77,7 +77,9 @@ Remarks
 ------------
 
 * If two more more numbers are tied for the most appearances, then :func:`modec` will select the smallest of them. 
-* To find the mode of the entire matrix, use the :func:`vecr` command to turn the function into a column vector before calling `modec`.
+* :func:`modec` will not count missing values. However, if a column contains only missing values, a missing value will be returned, indicating
+  that no valid numbers were found.
+* To find the mode of the entire matrix, use the :func:`vecr` command to turn the matrix into a column vector before calling `modec`.
 
     ::
 
