@@ -28,7 +28,7 @@ Format
             * - "max"
             * - "sd" (sample standard deviation)
             * - "sum" 
-            * - "variance"
+            * - "variance" (sample variance)
 
     :type method: string
 
@@ -111,7 +111,7 @@ The above code will make the following assignments:
     agg_sd  = 1001    30.10     3.13
               1002    29.90     5.38
 
-    agg_var = 1001   755.14     8.14
-              1002   745.14    24.11
+    agg_var = 1001   906.17     9.77
+              1002   894.17    28.93
 
 .. seealso:: Functions :func:`meanc`, :func:`modec`, :func:`selif`

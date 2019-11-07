@@ -9,8 +9,8 @@ Computes a least squares regression.
 
 Format
 ----------------
-.. function:: oout = olsmt(dataset, formula[, oc0])
-              oout = olsmt(dataset, depvar, indvars[, oc0])
+.. function:: out = olsmt(dataset, formula[, ctl])
+              out = olsmt(dataset, depvar, indvars[, ctl])
 
     :param dataset: name of dataset or null string.
         If *dataset* is a null string, the procedure assumes that the actual data has been passed in the next two arguments.
@@ -19,7 +19,7 @@ Format
     :param formula: formula string of the model.
         E.g ``"y ~ X1 + X2"``, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
 
-        E.g ``"y ~ ."``, '.' means including all variables except dependent variable ``y``;
+        E.g ``"y ~ ."``, ``.`` means including all variables except dependent variable ``y``;
 
         E.g ``"y ~ -1 + X1 + X2"``, ``-1`` means no intercept model.
 
@@ -63,20 +63,20 @@ Format
 
     :type indvars: Kx1 vector or NxK matrix
 
-    :param oc0: Optional input. instance of an :class:`olsmtControl` structure containing the following members:
+    :param ctl: Optional input. instance of an :class:`olsmtControl` structure containing the following members:
 
         .. DANGER:: Fix equations
 
         .. list-table::
             :widths: auto
 
-            * - oc0.altnam
-              - character vector, default 0.
+            * - ctl.altnam
+              - string array, default ``""``.
 
-                This can be a :math:`(K+1) \times 1` or :math:`(K+2) \times 1` character vector of alternate variable names for the output.
-                If *oc0.con* is 1, this must be :math:`(K+2) \times 1`. The name of the dependent variable is the last element.
+                This can be a :math:`(K+1) \times 1` or :math:`(K+2) \times 1` string array of alternate variable names for the output.
+                If *ctl.con* is 1, and *ctl.altnam* has :math:`(K+2)` elements, then the first element will control the name displayed for the constant term. The name of the dependent variable is the last element.
 
-            * - oc0.con
+            * - ctl.con
               - scalar, default 1.
 
                 :1: a constant term will be added, :math:`D = K+1`.
@@ -84,82 +84,82 @@ Format
 
                 A constant term will always be used in constructing the moment matrix *m*.
 
-            * - oc0.cov
+            * - ctl.cov
               - string, set covariance type. Default = "iid".
 
                 :"iid": Error terms assumed to be identical independently distributed.
                 :"robust": Huber/White/sandwich estimator.
                 :"cluster": Clustered sandwich estimator. Must specify cluster variable identifier.
 
-            * - oc0.clusterID
+            * - ctl.clusterID
               - Matrix, vector of categorical group variable used for computing cluster robust standard errors.
-            * - oc0.clusterVar
+            * - ctl.clusterVar
               - String, name of cluster group variable. Only valid if dataset and formula is specified.
-            * - oc0.miss
+            * - ctl.miss
               - scalar, default 0.
 
                 :0: there are no missing values (fastest).
                 :1: listwise deletion, drop any cases in which missings occur.
                 :2: pairwise deletion, this is equivalent to setting missings to 0 when calculating *m*. The number of cases computed is equal to the total number of cases in the dataset.
 
-            * - oc0.row
+            * - ctl.row
               - scalar, the number of rows to read per iteration of the read loop. Default 0.
 
                 If 0, the number of rows will be calculated internally. If you get an *Insufficient memory* error message while
-                executing :func:`olsmt`, you can supply a value for *oc0.row* that works on your system.
+                executing :func:`olsmt`, you can supply a value for *ctl.row* that works on your system.
 
                 The answers may vary slightly due to rounding error differences when a different number of rows is read per iteration.
-                You can use *oc0.row* to control this if you want to get exactly the same rounding effects between several runs.
-            * - oc0.vpad
+                You can use *ctl.row* to control this if you want to get exactly the same rounding effects between several runs.
+            * - ctl.vpad
               - scalar, default 1.
 
                 If 0, internally created variable names are not padded to the same length (e.g. ``X1, X2,..., X10``). If 1, they are padded with zeros to the same length (e.g., ``X01, X02,..., X10``).
-            * - oc0.output
+            * - ctl.output
               - scalar, default 1.
 
                 :1: print the statistics.
                 :0: do not print statistics.
 
-            * - oc0.res
+            * - ctl.res
               - scalar, default 0.
 
                 :1: compute residuals (*oOut.resid*) and Durbin-Watson statistic (*oOut.dwstat*.)
                 :0: *oOut.resid* = 0, *oOut.dwstat* = 0.
 
-            * - oc0.rnam
+            * - ctl.rnam
               - string, default "_olsmtres".
 
 
-                If the data is taken from a dataset, a new dataset will be created for the residuals, using the name in *oc0.rnam*.
-            * - oc0.maxvec
+                If the data is taken from a dataset, a new dataset will be created for the residuals, using the name in *ctl.rnam*.
+            * - ctl.maxvec
               - scalar, default 20000.
 
                 The largest number of elements allowed in any one matrix.
-            * - oc0.fcmptol
+            * - ctl.fcmptol
               - scalar, default 1e-12.
 
                 Tolerance used to fuzz the comparison operations to allow for round off error.
-            * - oc0.alg
+            * - ctl.alg
               - string, default "cholup".
 
-                Selects the algorithm used for computing the parameter estimates. The default Cholesky update method is more computationally efficient. However, accuracy can suffer for poorly conditioned data. For higher accuracy set *oc0.alg* to either  qr or  svd.
+                Selects the algorithm used for computing the parameter estimates. The default Cholesky update method is more computationally efficient. However, accuracy can suffer for poorly conditioned data. For higher accuracy set *ctl.alg* to either  qr or  svd.
 
                 :"qr": Solves for the parameter estimates using a  qr decomposition.
                 :"svd": Solves for the parameter estimates using a singular value decomposition.
-            * - oc0.weights
+            * - ctl.weights
               - Kx1 Vector, if defined, specifies weights to be used in the weighted least squares. If not defined, ordinary least squares will be computed.
-            * - oc0.weightsVar
+            * - ctl.weightsVar
               - String, name of the variable used for weighting. Only valid if dataset and formula is specified. Will override any weights in *oCtl.weights*.
-    :type oc0: struct
+    :type ctl: struct
 
-    :return oout: instance of :class:`olsmtOut` struct containing the following members:
+    :return out: instance of :class:`olsmtOut` struct containing the following members:
 
         .. list-table::
             :widths: auto
 
-            * - oout.vnam
+            * - out.vnam
               - :math:`(K+2) \times 1` or :math:`(K+1) \times 1` character vector, the variable names used in the regression. If a constant term is used, this vector will be :math:`(K+2) \times 1`, and the first name will be ``CONSTANT``. The last name will be the name of the dependent variable.
-            * - oout.m
+            * - out.m
               - MxM matrix, where :math:`M = K+2`, the moment matrix constructed by calculating ``X'X`` where *X* is a matrix containing all useable observations and having columns in the order:
 
                 .. csv-table::
@@ -170,7 +170,7 @@ Format
 
                 A constant term is always used in computing *m*.
 
-            * - oout.b
+            * - out.b
               - Dx1 vector, the least squares estimates of parameters.
 
                 Error handling is controlled by the low order bit of the `trap` flag.
@@ -190,31 +190,31 @@ Format
 
                 The system can become underdetermined if you use listwise deletion and have missing values. In that case, it is possible to skip so many cases that there are fewer usable rows than columns in the dataset.
 
-            * - oout.stb
+            * - out.stb
               - Kx1 vector, the standardized coefficients.
-            * - oout.vc
+            * - out.vc
               - DxD matrix, the variance-covariance matrix of estimates.
-            * - oout.stderr
+            * - out.stderr
               - Dx1 vector, the standard errors of the estimated parameters.
-            * - oout.sigma
+            * - out.sigma
               - scalar, standard deviation of residual.
-            * - oout.cx
+            * - out.cx
               - :math:`(K+1) \times (K+1)` matrix, correlation matrix of variables with the dependent variable as the last column.
-            * - oout.rsq
+            * - out.rsq
               - scalar, R square, coefficient of determination.
-            * - oout.resid
-              - residuals, :math:`oout.resid = y -  x * oout.b`.
+            * - out.resid
+              - residuals, :math:`out.resid = y -  x * out.b`.
 
-                If *oc0.olsres* = 1, the residuals will be computed.
+                If *ctl.olsres* = 1, the residuals will be computed.
 
-                If the data is taken from a dataset, a new dataset will be created for the residuals, using the name in *oc0.rnam*.
-                The residuals will be saved in this dataset as an Nx1 column. The *oout.resid* return value will be a string
+                If the data is taken from a dataset, a new dataset will be created for the residuals, using the name in *ctl.rnam*.
+                The residuals will be saved in this dataset as an Nx1 column. The *out.resid* return value will be a string
                 containing the name of the new dataset containing the residuals. If the data is passed in as a matrix,
-                the *oout.resid* return value will be the Nx1 vector of residuals.
-            * - oout.dwstat
+                the *out.resid* return value will be the Nx1 vector of residuals.
+            * - out.dwstat
               - scalar, Durbin-Watson statistic.
 
-    :rtype oout: struct
+    :rtype out: struct
 
 Examples
 ----------------
@@ -281,6 +281,8 @@ Use a dataset, a list of variable names plus a control and output structure.
 
 ::
 
+    new;
+
     // Declare 'ols_ctl' to be an olsmtControl structure
     // and fill with default settings
     struct olsmtControl ols_ctl;
@@ -307,7 +309,7 @@ Use a dataset, a list of variable names plus a control and output structure.
     // control structure and store the results in 'ols_out'
     ols_out = olsmt(data, depvar, indvars, ols_ctl);
 
-In this example, the dataset "credit.dat" is used to compute a
+In this example, the dataset :file:`credit.dat` is used to compute a
 regression. The dependent variable is *Limit*. The independent
 variables are: *Balance*, *Income*, and *Age*. The residuals and Durbin-Watson statistic will be computed.
 
@@ -353,22 +355,22 @@ Basic usage with weights
 
 ::
 
+  new;
+
   // Define data
   parent = { 0.21, 0.2, 0.19, 0.18, 0.17, 0.16, 0.15 };
   progeny = { 0.1726, 0.1707, 0.1637, 0.164, 0.1613, 0.1617, 0.1598 };
-  sd = {0.01988, 0.01938, 0.01896, 0.02037, 0.01654, 0.01594, 0.01763 };
+  sd = { 0.01988, 0.01938, 0.01896, 0.02037, 0.01654, 0.01594, 0.01763 };
 
   // Calculate weights
-  weights = 1./SD.^2;
+  weights = 1 ./ SD.^2;
 
   // Set up olsControl structure
-  struct olsmtControl oCtl;
-  oCtl = olsmtControlCreate();
-  oCtl.weights = weights;
+  struct olsmtControl ctl;
+  ctl = olsmtControlCreate();
+  ctl.weights = weights;
 
-  // olsmt output structure
-  struct olsmtOut out_ols;
-  out_ols = olsmt("", progeny, parent, oCtl);
+  call olsmt("", progeny, parent, ctl);
 
 The above code will produce the following output:
 
@@ -391,12 +393,12 @@ The above code will produce the following output:
 Remarks
 -------
 
-- For poorly conditioned data the default setting for *oC0.olsalg*, using
+- For poorly conditioned data the default setting for *ctl.olsalg*, using
   the Cholesky update, may produce only four or five digits of accuracy
   for the parameter estimates and standard error. For greater accuracy,
   use either the qr or singular value decomposition algorithm by
-  setting *oC0.olsalg* to ``qr`` or ``svd``. If you are unsure of the condition of
-  your data, set *oC0.olsalg* to ``qr``.
+  setting *ctl.olsalg* to ``qr`` or ``svd``. If you are unsure of the condition of
+  your data, set *ctl.olsalg* to ``qr``.
 - No output file is modified, opened, or closed by this procedure. If
   you want output to be placed in a file, you need to open an output
   file before calling :func:`olsmt`.
@@ -406,7 +408,7 @@ Remarks
 
   ::
 
-      ols("h5://C:/gauss/examples/testdata.h5/mydata", formula).
+      olsmt("h5://C:/gauss/examples/testdata.h5/mydata", formula)
 
 Source
 ------

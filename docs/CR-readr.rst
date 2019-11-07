@@ -5,7 +5,7 @@ readr
 Purpose
 ----------------
 Reads a specified number of rows of data from a GAUSS dataset
-(:file:`.dat`) file or a GAUSS matrix (:file:`.fmt`) file.
+(:file:`.dat`) file, a GAUSS matrix (:file:`.fmt`) file, or an HDF5 (:file:`.h5`) file.
 
 Format
 ----------------
@@ -24,22 +24,57 @@ Format
 Examples
 ----------------
 
+Basic example
++++++++++++++++
+
 ::
 
-    open dt = dat1.dat;
-    m = 0;
+    // Get file name with full path
+    fname = getGAUSSHome() $+ "examples/cancer.dat";
 
-    do until eof(dt);
-       x = readr(dt, 400);
-       m = m + moment(x, 0);
+    // Open file handle for reading only
+    fh = dataOpen(fname, "read");
+
+    // Read the first 2 rows from the dataset
+    x = readr(fh, 2);
+
+    // Close file handle
+    call close(fh);
+
+After the above code, *x* will equal:
+
+::
+
+    1    1    1    9  157 
+    1    2    1    5   77 
+   
+Iteratively read an entire dataset
++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Get file name with full path
+    fname = getGAUSSHome() $+ "examples/cancer.dat";
+
+    // Open file handle for reading only
+    fh = dataOpen(fname, "read");
+
+    sum = 0;
+
+    // Continue the loop until the
+    // end of file is found
+    do until eof(fh);
+       // Read 20 rows per iteration
+       x = readr(fh, 20);
+       sum = sum + sumc(x);
     endo;
 
-    dt = close(dt);
+    call close(fh);
 
-This code reads data from a dataset 400 rows at a time. The moment
-matrix for each set of rows is computed and added to the sum of the
-previous moment matrices. The result is the moment matrix for the
-entire dataset. ``eof(dt)`` returns 1 when the end of the
+This code reads 20 rows from a dataset at a time. The sum of the columns
+is computed and added to the previous sum. 
+
+The result is the sum of the columns for the entire dataset. ``eof(fh)`` returns 1 when the end of the
 dataset is encountered.
 
 Remarks
