@@ -25,8 +25,7 @@ Format
     :param sigma_bar: standard deviation parameter.
     :type sigma_bar: scalar
 
-    :return p: the probability density
-        of the cumulative distribution over the interval from *a* to *b*.
+    :return p: the probability density over the interval from *a* to *b*.
 
     :rtype p: NxK matrix, N-dimensional array or scalar
 
