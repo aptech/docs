@@ -4,18 +4,18 @@ spChol
 
 Purpose
 ----------------
-Computes the :math:`LL'` decomposition of a sparse matrix *A*.
+Computes the :math:`LL^{T}` decomposition of a sparse matrix *A*.
 
 Format
 ----------------
-.. function:: l = spChol(a)
+.. function:: L = spChol(a)
 
     :param a: symmetric, positive definite sparse matrix.
     :type a: NxN sparse matrix
 
-    :return l: lower-triangular sparse matrix
+    :return L: lower-triangular sparse matrix
 
-    :rtype l: NxN sparse matrix
+    :rtype L: NxN sparse matrix
 
 Examples
 ----------------
