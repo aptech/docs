@@ -5,7 +5,7 @@ timeDeltaPosix
 Purpose
 ----------------
 Adds (or subtracts) time to a POSIX date-time.
-		
+
 Format
 ----------------
 .. function:: t_inc = timeDeltaPosix(dt_start, inc, unit)
