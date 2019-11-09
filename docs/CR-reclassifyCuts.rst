@@ -32,7 +32,7 @@ Basic sequence
 ::
 
     // Create column vector to place in categories
-    x = {  0,
+    x = {   0,
           0.1,
           0.2,
           0.3,
@@ -45,12 +45,12 @@ Basic sequence
     cut_pts = { 0.2,
                 0.5 };
 
-    // Class 0: 	  x <= 0.2
+    // Class 0:       x <= 0.2
     // Class 1: 0.2 < x <= 0.5
     // Class 2: 0.5 < x
     r_open = reclassifyCuts(x, cut_pts);
 
-    // Class 0: 	  x < 0.2
+    // Class 0:       x < 0.2
     // Class 1: 0.2 < x < 0.5
     // Class 2: 0.5 < x
     r_closed = reclassifyCuts(x, cut_pts, 1);
@@ -134,33 +134,30 @@ After the code above:
 
 ::
 
-    bp =
-    87.00
-    154.0
-    127.0
-    112.0
-    159.0
-    90.00
-    151.0
-    109.0
-    125.0
-    107.0
-
-    bp_category =
-    0.0000
-    2.000
-    1.000
-    0.0000
-    2.000
-    0.0000
-    2.000
-    0.0000
-    1.000
-    0.0000
-
-    cut_pts =
-    120.0
-    140.0
+          87
+         154
+         127
+         112
+    bp = 159
+          90
+         151
+         109
+         125
+         107
+    
+                   0
+                   2
+                   1
+                   0
+    bp_category =  2
+                   0
+                   2
+                   0
+                   1
+                   0
+    
+    cut_pts = 120
+              140
 
 We can take the categorical data output from :func:`reclassifyCuts` and use the :func:`reclassify` function to change the numeric categories to string categories like this:
 
@@ -179,17 +176,16 @@ After the code above:
 
 ::
 
-    bp_category =
-    normal
-    hypertension
-    prehypertension
-    normal
-    hypertension
-    normal
-    hypertension
-    normal
-    prehypertension
-    normal
+                  normal
+                  hypertension
+                  prehypertension
+                  normal
+    bp_category = hypertension
+                  normal
+                  hypertension
+                  normal
+                  prehypertension
+                  normal
 
 Source
 ------

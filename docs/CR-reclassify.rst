@@ -48,9 +48,9 @@ Change instances of 1, 2 and 3 to 'low', 'medium' and 'high'.
     to = "low" $| "medium" $| "high";
 
     x_new = reclassify(x, from, to);
-    print	x_new ;
+    print x_new;
 
-After the code above, ``x_new`` is equal to:
+After the code above, *x_new* is equal to:
 
 ::
 
@@ -66,24 +66,24 @@ Change instances of tea types: 'black', 'green', 'oolong' to 9.95, 11.95 and 10.
 
 ::
 
-    string orders  = {   "green",
-                         "green",
-                        "oolong",
-                         "green",
-                         "green",
-                         "green",
-                         "black" };
+    string orders  = { "green",
+                       "green",
+                       "oolong",
+                       "green",
+                       "green",
+                       "green",
+                       "black" };
 
-    string tea_types   = {   "black",
-                             "green",
-                            "oolong" };
+    string tea_types   = { "black",
+                           "green",
+                           "oolong" };
 
     price = { 9.95, 11.95, 10.50 };
 
     order_prices = reclassify(orders, tea_types, price);
     print order_prices;
 
-After the code above, ``order_prices`` is equal to:
+After the code above, *order_prices* is equal to:
 
 ::
 
@@ -93,11 +93,6 @@ After the code above, ``order_prices`` is equal to:
     11.95
     11.95
     11.95
-    9.95
-
-Source
-------
-
-datatran.src
+     9.95
 
 .. seealso:: Functions `code`, :func:`recode`, :func:`reclassifyCuts`, :func:`substute`, :func:`rescale`, :func:`dummy`, :func:`contains`

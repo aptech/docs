@@ -58,6 +58,7 @@ Examples
       y = rotater(x, r);
 
 ::
+
            1  2  3                        1  2  3
 
            4  5  6                        6  4  5

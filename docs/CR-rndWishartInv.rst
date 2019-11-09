@@ -26,12 +26,12 @@ Examples
 ::
 
     rndseed 223; 
-    cov = {1 .5,
-           .5 1};				
+    cov = { 1 .5,
+           .5  1 };
     df = 10;
     
     // A random matrix from inverse Wishart distribution
-    y = rndWishartInv(cov, df);	
+    y = rndWishartInv(cov, df);
     
     print y;
 

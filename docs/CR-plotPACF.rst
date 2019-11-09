@@ -5,7 +5,7 @@ plotPACF
 Purpose
 ----------------
 
-			Plot the partial autocorrelations function(PACF).
+Plot the partial autocorrelations function (PACF).
 
 
 
