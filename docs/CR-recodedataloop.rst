@@ -51,14 +51,14 @@ Examples
 ::
 
     recode $ sex with
-          "MALE" for sex =\,= 1,
-          "FEMALE" for sex =\,= 0;
+          "MALE" for sex == 1,
+          "FEMALE" for sex == 0;
 
 ::
 
     recode # sex with
-          1 for sex $=\,= "MALE",
-          0 for sex $=\,= "FEMALE";
+          1 for sex $== "MALE",
+          0 for sex $== "FEMALE";
 
 Remarks
 -------

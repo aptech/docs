@@ -66,7 +66,7 @@ After the code above, *r* will equal:
         0.17112172
        -0.18788202
 
-creating a state from a numbered stream
+Creating a state from a numbered stream
 +++++++++++++++++++++++++++++++++++++++
 
 Most random number generators have one single stream in which you can think of the

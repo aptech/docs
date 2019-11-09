@@ -37,7 +37,7 @@ to perform filtering on the waveform. In both these cases only the
 positive frequencies are required. (See also :func:`rfft` and :func:`rfftn` for routines
 that return the negative frequencies as well.)
 
-:func:`rfftp` scales the computed FFT by :math:`\frac{1}/{L*M}`.
+:func:`rfftp` scales the computed FFT by :math:`\frac{1}{L*M}`.
 
 :func:`rfftp` uses the Temperton FFT algorithm.
 

@@ -51,8 +51,8 @@ The properties of the pseudo-random numbers in *x* are:
 
 .. math::
 
-   E(x) = \text{undefined}
-   Var(x) = \text{undefined}
+   E(x) = \text{undefined} \\
+   Var(x) = \text{undefined} \\
    Median(x) = \text{location}
 
 *r* and *c* will be truncated to integers if necessary.

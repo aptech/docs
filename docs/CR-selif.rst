@@ -25,17 +25,29 @@ Examples
 
 ::
 
-    y = selif(x, x[., 2] .gt 100);
+   x = { 112 252,
+          99 119,
+         109  81,
+         184 111,
+         209  94 };
 
-This example selects all rows of *x* in which the second column is greater than 100.
+    y = selif(x, x[., 2] .> 100);
+
+This example selects all rows of *x* in which the second column is greater than 100. This will set *y* equal to:
 
 ::
 
-    let x[3, 3] = 0 10 20
-                30 40 50
-                60 70 80;
+    112    252 
+     99    119 
+    184    111
 
-    e = (x[., 1] .gt 0) .and (x[., 3] .lt 100);
+::
+
+    x = { 0 10 20,
+         30 40 50,
+         60 70 80 };
+
+    e = (x[., 1] .gt 0) .and (x[., 3] .< 100);
     y = selif(x, e);
 
 The resulting matrix *y* is:
