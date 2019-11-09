@@ -35,7 +35,7 @@ Example with string
 If your current working directory is ``C:\gauss\time-series`` and you enter:
 
 ::
- 
+
     dir = "examples";
 
     // The ^ operator tells GAUSS to use

@@ -38,6 +38,7 @@ Example 1
 +++++++++
 
 ::
+
     // Upper limits of integration for variable 1
     h = 1;
 

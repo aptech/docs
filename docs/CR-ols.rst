@@ -302,7 +302,6 @@ After the above code,
 
 ::
 
-
     Valid cases:                   400      Dependent variable:               Limit
     Missing cases:                   0      Deletion method:                   None
     Total SS:           2125784986.000      Degrees of freedom:                 396

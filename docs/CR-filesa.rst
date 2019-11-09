@@ -27,7 +27,7 @@ Example 1: List all example files
 Print out the list of all files located in the GAUSS examples directory which end with the file extension :file:`.e`.
 
 ::
-    
+
     fspec = getGAUSSHome() $+ "examples/*.e";
     print filesa(fspec);
 

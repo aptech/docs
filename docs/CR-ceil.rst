@@ -22,6 +22,7 @@ Examples
 ----------------
 
 ::
+
     // Values to be rounded
     x = 10*rndn(2, 2);
     y = ceil(x);

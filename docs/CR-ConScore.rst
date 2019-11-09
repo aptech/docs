@@ -74,7 +74,6 @@ an ARCH model with the arch parameters constrained to be zero.
 
 ::
 
-
     // dataMatrix
     struct DS d0;
     d0 = reshape(dsCreate,2,1);

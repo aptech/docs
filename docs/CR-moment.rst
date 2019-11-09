@@ -36,7 +36,7 @@ Examples
 ----------------
 
 ::
-  
+
     rndseed 129070;
 
     // Create data

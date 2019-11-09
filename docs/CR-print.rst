@@ -15,7 +15,6 @@ Format
 
 ::
 
-
     print list_of_expressions;
     print [[/typ]] [[/fmted]] [[/mf]] [[/jnt]] list_of_expressions[[;]];
 

@@ -48,7 +48,6 @@ After the above code, `r` will equal:
 
 ::
 
-
         -1.9440       -1.9440
     x = -1.5269  x2 = -1.5269
          3.2158        3.2158

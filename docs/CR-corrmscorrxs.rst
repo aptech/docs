@@ -53,6 +53,7 @@ After the above code, *x1* and *x2* look like:
 Continuing from above code,
 
 ::
+
     // Correlation of x1 with x1
     print "corrxs(x1) :" corrxs(x1) ;
 

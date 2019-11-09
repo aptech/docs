@@ -42,7 +42,7 @@ Full example using an HTML color code
 +++++++++++++++++++++++++++++++++++++
 
 ::
-  
+
     // Create and plot some simple data
     x = seqa(1, 1, 10);
     y = rndu(10, 1);

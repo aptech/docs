@@ -50,7 +50,7 @@ This should return:
 Now remove the matrix *x* from the workspace
 
 ::
-          
+
     delete -m x;
 
 At the ``Delete?[Yes No Previous Quit]`` prompt, enter ``y``.

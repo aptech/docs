@@ -71,7 +71,6 @@ Basic example with one required input
 
 ::
 
-
     new;
 
     struct plotControl myPlot;

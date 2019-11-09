@@ -38,7 +38,7 @@ Examples
 After the above code:
 
 ::
-  
+
     20070913000000
 
 

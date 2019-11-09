@@ -256,7 +256,7 @@ Example 7
 Specify variable names.
 
 ::
-    
+
     // Note the use of the matrix concatenation operator, '|'
     // instead of the string concatenation operator, `$|`,
     // makes this a 2x1 character vector

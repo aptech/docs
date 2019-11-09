@@ -75,7 +75,7 @@ After running above code,
 Remarks
 ------------
 
-:: 
+::
 
     cdfTc(x, df) = 1 - cdfTnc(x, df, 0)
 
