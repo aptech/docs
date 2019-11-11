@@ -66,4 +66,9 @@ VAR(1) with constant
     // Simulate AR(2) model with constant
     y = recserVAR(eps + const, y0, pi_);
 
+Remarks
+---------
+
+:func:`recserVAR` currently only supports VAR(1) models.
+
 .. seealso:: Functions :func:`recserar`, :func:`recserrc`, :func:`recsercp`
