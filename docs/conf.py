@@ -51,7 +51,7 @@ extensions = [
 mathjax_config = {
     'extensions': ['tex2jax.js'],
     'jax': ['input/TeX', 'output/HTML-CSS'],
-    'HTML-CSS': { fonts: ['TeX'] }
+    'HTML-CSS': { 'fonts': ['TeX'] }
 }
 
 # Add any paths that contain templates here, relative to this directory.
