@@ -48,11 +48,11 @@ extensions = [
     'sphinx.ext.viewcode',
 ]
 
-mathjax_config = {
-    'extensions': ['tex2jax.js'],
-    'jax': ['input/TeX', 'output/HTML-CSS'],
-    'HTML-CSS': { 'fonts': ['TeX'] }
-}
+#mathjax_config = {
+#    'extensions': ['tex2jax.js'],
+#    'jax': ['input/TeX', 'output/HTML-CSS'],
+#    'HTML-CSS': { 'fonts': ['TeX'] }
+#}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
