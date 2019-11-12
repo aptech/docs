@@ -21,10 +21,11 @@ Format
 **Parameters:**
 
     :var: (*string*) name of the variable to lag
-    :p:   (*scalar constant*) number of periods to lag.
+    :p:   (*scalar*) number of periods to lag.
 
-    :return nv: name of the new lagged variable.
-    :rtype nv: string
+**Returns**
+
+    :nv: (*string*) name of the new lagged variable.
 
 Remarks
 -------

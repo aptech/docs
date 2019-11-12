@@ -17,8 +17,10 @@ Format
     trap val;
     trap val, mask;
 
-:val: (*scalar*) new trap value.
-:mask: (*scalar*) optional mask to allow leaving some bits of the trap flag unchanged.
+**Parameters**
+
+    :val: (*scalar*) new trap value.
+    :mask: (*scalar*) optional mask to allow leaving some bits of the trap flag unchanged.
 
 Examples
 ----------------

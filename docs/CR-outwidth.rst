@@ -19,7 +19,7 @@ Format
 
 **Parameters:**
 
-:n: (*scalar*) width of auxiliary output.
+    :n: (*scalar*) width of auxiliary output.
 
 Examples
 ----------------

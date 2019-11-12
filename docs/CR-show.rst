@@ -21,21 +21,21 @@ Format
 
 **Parameters**
 
-:flags: flags to specify the symbol type that is shown
-
-    .. csv-table::
-        :widths: auto
-
-        "k", "keywords"
-        "p", "procedures"
-        "f", "`fn` functions"
-        "m", "matrices"
-        "s", "strings"
-        "g", "show only symbols with global references"
-        "l", "show only symbols with all local references"
-
-:symbol: the name of the symbol to be shown. If the last character is
-    an asterisk (``*``), all symbols beginning with the supplied characters will be shown.
+    :flags: flags to specify the symbol type that is shown
+    
+        .. csv-table::
+            :widths: auto
+    
+            "k", "keywords"
+            "p", "procedures"
+            "f", "`fn` functions"
+            "m", "matrices"
+            "s", "strings"
+            "g", "show only symbols with global references"
+            "l", "show only symbols with all local references"
+    
+    :symbol: the name of the symbol to be shown. If the last character is
+        an asterisk (``*``), all symbols beginning with the supplied characters will be shown.
 
 Examples
 ----------------

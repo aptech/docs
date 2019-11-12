@@ -21,7 +21,7 @@ Format
 
 **Parameters:**
 
-:nos: optional input which indicates the maximum number of global symbols allowed.
+    :nos: optional input which indicates the maximum number of global symbols allowed.
 
 Examples
 ----------------

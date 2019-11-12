@@ -22,23 +22,23 @@ Format
 
 **Parameters:**
 
-:filename: (*literal or ^string*)
-
-    The ``file=filename`` subcommand selects the file or device to which output is to be sent.
-
-    If the name of the file is to be taken from a string variable, the name of the string must
-    be preceded by the ``^`` (caret) operator..
-
-    The default file name is :file:`output.out`.
-
-:on, off, reset: (*literal*) mode flag:
-
-    .. csv-table::
-        :widths: auto
-
-        "on", "opens the auxiliary output file or device and causes the results of all print statements to be sent to that file or device. If the file already exists, it will be opened for appending. If the file does not already exist, it will be created."
-        "off", "closes the auxiliary output file and turns off the auxiliary output."
-        "reset", "similar to the *on* subcommand, except that it always creates a new file. If the file already exists, it will be destroyed and a new file by that name will be created. If it does not exist, it will be created."
+    :filename: (*literal or ^string*)
+    
+        The ``file=filename`` subcommand selects the file or device to which output is to be sent.
+    
+        If the name of the file is to be taken from a string variable, the name of the string must
+        be preceded by the ``^`` (caret) operator..
+    
+        The default file name is :file:`output.out`.
+    
+    :on, off, reset: (*literal*) mode flag:
+    
+        .. csv-table::
+            :widths: auto
+    
+            "on", "opens the auxiliary output file or device and causes the results of all print statements to be sent to that file or device. If the file already exists, it will be opened for appending. If the file does not already exist, it will be created."
+            "off", "closes the auxiliary output file and turns off the auxiliary output."
+            "reset", "similar to the *on* subcommand, except that it always creates a new file. If the file already exists, it will be destroyed and a new file by that name will be created. If it does not exist, it will be created."
 
 Examples
 ----------------

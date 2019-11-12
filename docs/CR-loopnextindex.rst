@@ -19,10 +19,10 @@ Format
 
 **Parameters:**
 
-:lab: (*literal*) label to jump to if `loopnextindex` succeeds.
-:i: (*Mx1 vector*) indices into an array where :math:`M <= N`.
-:o: (*Nx1 vector*) orders of an N-dimensional array
-:dim: (*scalar*) :math:`[1-M]`, index into the vector of indices *i*, corresponding to the dimension to walk through, positive to walk the index forward, or negative to walk backward.
+    :lab: (*literal*) label to jump to if `loopnextindex` succeeds.
+    :i: (*Mx1 vector*) indices into an array where :math:`M <= N`.
+    :o: (*Nx1 vector*) orders of an N-dimensional array
+    :dim: (*scalar*) :math:`[1-M]`, index into the vector of indices *i*, corresponding to the dimension to walk through, positive to walk the index forward, or negative to walk backward.
 
 Examples
 ----------------

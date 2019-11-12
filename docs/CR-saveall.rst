@@ -18,7 +18,7 @@ Format
 
 **Parameters**
 
-:fname: (*literal or ^string*) the path and filename of the compiled file to be created.
+    :fname: (*literal or ^string*) the path and filename of the compiled file to be created.
 
 Remarks
 -------

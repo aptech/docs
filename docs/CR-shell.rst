@@ -18,8 +18,7 @@ Format
 
 **Parameters**
 
-:stmt: (*literal or ^string*) the command to be executed.
-
+    :stmt: (*literal or ^string*) the command to be executed.
 
 Examples
 ----------------
