@@ -21,10 +21,10 @@ Format
 
 **Parameters:**
 
-:i: the name of the counter variable.
-:start: (*scalar*) - the initial value of the counter.
-:stop: (*scalar*) - the final value of the counter.
-:step: (*scalar*)  - the increment value.
+    :i: the name of the counter variable.
+    :start: (*scalar*) - the initial value of the counter.
+    :stop: (*scalar*) - the final value of the counter.
+    :step: (*scalar*)  - the increment value.
 
 
 Remarks
