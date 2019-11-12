@@ -1,14 +1,14 @@
 
-format
-==============================================
+format(keyword)
+===============
 
 Purpose
 ----------------
 
 Controls the format of matrices and numbers printed out with print statements.
 
-.. _format:
-.. index:: format
+.. _format(keyword):
+.. index:: format(keyword)
 
 Format
 ----------------
