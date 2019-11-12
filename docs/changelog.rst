@@ -4,6 +4,44 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 This version is backwards compatible with the previous major version,
+19, other than the exceptions noted below.
+
+20.0.0
+------
+
+#. New integrated package manager to download, install and uninstall Aptech provided, or private GAUSS packages.
+#. New function, :func:`aggregate` to group data by a column containing group ids, using one of several methods such as mean, median, mode, standard deviaion, sum, and variance.
+#. New function :func:`sprintf` formats combinations of string and numeric matrices.
+#. New function :func:`loaddSA` loads variables from datasets as GAUSS string arrays.
+#. New function :func:`dynargsGet` retrieves optional arguments passed into a procedure, or default values.
+#. New function :func:`dynargsCount` counts the number of optional arguments passed into a procedure.
+#. New function :func:`dynargsTypes` returns a vector indicating the types (i.e. matrix, string, structure) of the optional arguments passed into a procedure.
+#. New function :func:`modec` computes the mode of the columns of a matrix.
+#. Added option to use custom weights for OLS estimation with :func:`olsmt`.
+#. New function :func:`plotXYFill` creates filled area plots between XY lines.
+#. New function :func:`plotBarH` creates horizontal bar plots.
+#. New function :func:`plotSetYTicInterval` controls Y-axis tick label positioning.
+#. Added ability for :func:`plotAddBar` to add bars to specified locations.
+#. :func:`plotSetLegend` now allows setting the legend location by axis coordinates as well as text location.
+#. New function :func:`plotSetLegendBorder` controls the style properties of the legend border.
+#. All plot colors now support alpha channel, providing the option to add transparency to any graph item.
+#. Added new methods to :func:`impute` function: predictive mean matching, local residual draws and linear prediction. 
+#. Command reference documentation style updates and new examples.
+#. Speed increase for certain cases of *X'X* with small to medium matrices.
+#. Reading and writing :file:`.XLSM` files is now supported for the case where the COM/Excel interface is not used.
+#. Increased compatibility for newer style :file:`.XLSX` files for the case where the COM/Excel interface is not used.
+#. Bug fixes: several minor bug fixes for reading :file:`.XLSX` files in the case where the COM/Excel interface is not used.
+#. Added count of number of open files to **Edit Page** to open file dropdown selection widget.
+#. Bug fix: :func:`substute` reported error unnecessarily for specific case with mixed numeric and string input.
+#. Bug fix: :func:`xlsReadSA` reported error with string array *vls* input.
+#. Bug fix: :func:`reclassify` possible crash when the *from* variable was much smaller than *to*.
+#. Changed state variable in example dataset :file:`hsng.dat` to a string variable with state abbreviations.
+#. New example file :file:`wls.e` demonstrates weighted OLS estimation.
+#. New example file :file:`impute.e` demonstrates several missing value imputation methods.
+#. Adding setting ``dataloop_case = on`` to :file:`gauss.cfg`. This setting will instruct the dataloop translator to ignore case in dataloop statements.
+
+The following is a list of changes from the previous version of GAUSS.
+This version is backwards compatible with the previous major version,
 18, other than the exceptions noted below.
 
 19.2.2
