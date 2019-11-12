@@ -23,7 +23,6 @@ Format
 
     :rtype y: RxK matrix
 
-.. DANGER:: verify equation.
 
 Examples
 ----------------
