@@ -5,8 +5,8 @@ rndcon, rndmult, rndseed
 Purpose
 ----------------
 
-Resets the parameters of the linear congruential random number
-generator that is the basis for :func:`rndu`, :func:`rndi` and :func:`rndn`.
+Resets the parameters of the deprecated linear congruential random number
+generator that is the basis for :func:`_rndu`, :func:`_rndn` and :func:`_rndng10`.
 
 .. _rndcon:
 .. _rndmult:
@@ -42,14 +42,15 @@ Parameter default values and ranges:
 Remarks
 -------
 
-A linear congruential uniform random number generator is used by :func:`rndu`,
-and is also called by :func:`rndn`. These statements allow the parameters of
-this generator to be changed.
+Even though the current versions of :func:`rndn`, :func:`rndu`, :func:`rndBeta`, etc do not use the old linear congruential RNG, you may use ``rndseed`` to set the seed for the purpose of creating repeatable pseudo-random sequences.
+
+In years passed, a linear congruential uniform random number generator was used by :func:`rndu`,
+and :func:`rndn`. For backward compatibility, this generator may be accessed by the functions :func:`_rndu`, :func:`_rndn` and :func:`rndng10`. 
+
+These statements allow the parameters of this generator to be changed.
 
 The procedure used to generate the uniform random numbers is as follows.
 First, the current "seed" is used to generate a new seed:
-
-.. DANGER:: fix equations
 
 .. math::
 
