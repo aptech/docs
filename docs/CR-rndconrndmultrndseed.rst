@@ -25,17 +25,17 @@ Format
 
 **Parameters**
 
-:c: (*scalar*) constant for the random number generator.
-
-:a: (*scalar*) multiplier for the random number generator.
-
-:seed: (*scalar*) initial seed for the random number generator.
-
-Parameter default values and ranges:
-
-::
-
-    seed    time(0)       0 < seed < 232a       1664525       0 < a < 232c       1013904223    0 < a < 232
+    :c: (*scalar*) constant for the random number generator.
+    
+    :a: (*scalar*) multiplier for the random number generator.
+    
+    :seed: (*scalar*) initial seed for the random number generator.
+    
+    Parameter default values and ranges:
+    
+    ::
+    
+        seed    time(0)       0 < seed < 232a       1664525       0 < a < 232c       1013904223    0 < a < 232
 
 .. DANGER:: how do we want to format the above block?
 

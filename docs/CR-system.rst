@@ -19,8 +19,8 @@ Format
 
 **Parameters**
 
-:c: (*scalar*) an optional exit code that can be recovered by the program that 
-    invoked GAUSS. The default is 0. Valid arguments are 0-255.
+    :c: (*scalar*) an optional exit code that can be recovered by the program that 
+        invoked GAUSS. The default is 0. Valid arguments are 0-255.
 
 Remarks
 -------

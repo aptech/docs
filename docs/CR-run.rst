@@ -20,11 +20,11 @@ Format
 
 **Parameters**
 
-:filename: (*literal or ^string*) name of file to run.
-
-    ========= ==================================
-    ``-r``    flag, returns control to the calling program.
-    ========= ==================================
+    :filename: (*literal or ^string*) name of file to run.
+    
+        ========= ==================================
+        ``-r``    flag, returns control to the calling program.
+        ========= ==================================
 
 Examples
 ----------------

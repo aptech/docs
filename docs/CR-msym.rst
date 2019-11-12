@@ -20,8 +20,8 @@ Format
 
 **Parameters:**
 
-:str: (*literal or ^string (up to 8 letters)*) if a string, and not surrounded by quotes, is forced to uppercase.
-      This is the string to be printed for missing values. The default is '.'.
+    :str: (*literal or ^string (up to 8 letters)*) if a string, and not surrounded by quotes, is forced to uppercase.
+          This is the string to be printed for missing values. The default is '.'.
 
 Examples
 ----------------

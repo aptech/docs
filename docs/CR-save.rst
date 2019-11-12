@@ -21,26 +21,26 @@ Format
 
 **Parameters**
 
-:vflag: (*literal*) version flag
-
-    ========= =========================================
-    ``-v89``  not supported
-    ``-v92``  supported on UNIX, Windows
-    ``-v96``  supported on all platforms. See also `Foreign Language Interface`,
-              Chapter 1, for details on the various versions. The default format
-              can be specified in :file:`gauss.cfg` by setting the *dat_fmt_version* configuration
-              variable. If *dat_fmt_version* is not set, the default is *v96*.
-    ========= =========================================
-
-:path: (*literal or ^string*) a default path to use for this and subsequent `save`'s.
-
-:x: (*literal*) a symbol name, the name of the file the symbol will be saved in is the same as this with the proper extension added for the type of the symbol.
-
-:lpath: (*literal or ^string*) a local path and filename to be used for a particular symbol. This path will override
-    the path previously set and the filename will override the name of the symbol
-    being saved. The extension cannot be overridden.
-
-:y: (*literal*) the symbol to be saved to *lpath*
+    :vflag: (*literal*) version flag
+    
+        ========= =========================================
+        ``-v89``  not supported
+        ``-v92``  supported on UNIX, Windows
+        ``-v96``  supported on all platforms. See also `Foreign Language Interface`,
+                  Chapter 1, for details on the various versions. The default format
+                  can be specified in :file:`gauss.cfg` by setting the *dat_fmt_version* configuration
+                  variable. If *dat_fmt_version* is not set, the default is *v96*.
+        ========= =========================================
+    
+    :path: (*literal or ^string*) a default path to use for this and subsequent `save`'s.
+    
+    :x: (*literal*) a symbol name, the name of the file the symbol will be saved in is the same as this with the proper extension added for the type of the symbol.
+    
+    :lpath: (*literal or ^string*) a local path and filename to be used for a particular symbol. This path will override
+        the path previously set and the filename will override the name of the symbol
+        being saved. The extension cannot be overridden.
+    
+    :y: (*literal*) the symbol to be saved to *lpath*
 
 Examples
 ----------------

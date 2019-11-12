@@ -19,8 +19,8 @@ Format
 
 **Parameters**
 
-:new: (*scalar*) new value for trace flag.
-:mask: (*scalar*) optional mask to allow leaving some bits of the trace flag unchanged.
+    :new: (*scalar*) new value for trace flag.
+    :mask: (*scalar*) optional mask to allow leaving some bits of the trace flag unchanged.
 
 Examples
 ----------------

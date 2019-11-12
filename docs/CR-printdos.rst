@@ -19,7 +19,7 @@ Format
 
 **Parameters**
 
-:s: (*string*) to be printed to the standard output
+    :s: (*string*) to be printed to the standard output
 
 Examples
 ----------------

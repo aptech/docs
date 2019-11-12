@@ -18,11 +18,11 @@ Format
 
 **Parameters**
 
-:param a: (*N-dimensional array*) destination
-
-:loc: (*vector*)  Mx1 vector of indices into the array to locate the subarray of interest where :math:`M` is a value from 1 to :math:`N`.
-
-:src: (*[N-M]-dimensional array, matrix, or scalar*) data
+    :param a: (*N-dimensional array*) destination
+    
+    :loc: (*vector*)  Mx1 vector of indices into the array to locate the subarray of interest where :math:`M` is a value from 1 to :math:`N`.
+    
+    :src: (*[N-M]-dimensional array, matrix, or scalar*) data
 
 Examples
 ----------------

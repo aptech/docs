@@ -21,76 +21,76 @@ Format
 
 **Parameters:**
 
-:filename: (*literal or ^string*) name of the file on the disk. The name can include
-    a path if the directory to be used is not the current directory. This
-    filename will automatically be given the extension .dat. If an
-    extension is specified, the :file:`.dat` will be overridden. If the file
-    is an :file:`.fmt` matrix file, the extension must be explicitly given. If
-    the name of the file is to be taken from a string variable, the name
-    of the string must be preceded by the ``^`` (caret) operator.
-
-:mode: (*literal*) the modes supported with the optional for subcommand are:
-
-    .. csv-table::
-        :widths: auto
-
-        "read", "This is the default file opening mode and will be the one used if none is specified. Files opened in this mode cannot bewritten to. The pointer is set to the beginning of the file and the :func:`writer` function is disabled for files opened in this way. This is the only mode available for matrix files (:file:`.fmt`), which are always written in one piece with the `save` command."
-        "append", "Files opened in this mode cannot be read. The pointer will be set to the end of the file so that a subsequent write to the file with the :func:`writer` function will add data to the end of the file without overwriting any of the existing data in the file. The :func:`readr` function is disabled for files opened in this way. This mode is used to add additional rows to the end of a file."
-        "update", "Files opened in this mode can be read from and written to. The pointer will be set to the beginning of the file. This mode is used to make changes in a file."
-
-:offs: (*scalar*) offset added to "index variables"
-
-    The optional *varindxi* subcommand tells GAUSS to
-    create a set of global scalars that contain the index (column
-    position) of the variables in a GAUSS data file. These "index
-    variables" will have the same names as the corresponding variables
-    in the data file but with ``i`` added as a prefix. They can be used
-    inside index brackets, and with functions like submat to access
-    specific columns of a matrix without having to remember the column
-    position.
-
-    The optional *offs* argument is an offset that will be added to the index
-    variables. This is useful if data from
-    multiple files are concatenated horizontally in one matrix. It can be
-    any scalar expression. The default is 0.
-
-    The index variables are useful for creating submatrices of specific
-    variables without requiring that the positions of the variables be
-    known. For instance, if there are two variables, *xvar* and *yvar* in
-    the dataset, the index variables will have the names *ixvar*,
-    *iyvar*. If *xvar* is the first column in the data file, and *yvar*
-    is the second, and if no offset, *offs*, has been specified, then
-    *ixvar* and *iyvar* will equal ``1`` and ``2`` respectively. If an offset of
-    3 had been specified, then these variables would be assigned the
-    values ``4`` and ``5`` respectively.
-
-    The *varindxi* option cannot be used with :file:`.fmt` matrix
-    files because no column names are stored with them.
-
-    If *varindxi* is used, GAUSS will ignore the Undefined symbol
-    error for global symbols that start with ``i``. This makes it much
-    more convenient to use index variables because they don't have to be
-    cleared before they are accessed in the program. Clearing is
-    otherwise necessary because the index variables do not exist until
-    execution time when the data file is actually opened and the names
-    are read in from the header of the file. At compile time a statement like:
-    ``y = x[., ixvar];`` will be illegal if the compiler has never heard
-    of *ixvar*. If *varindxi* is used, this error will be ignored for
-    symbols beginning with ``i``. Any symbols that are accessed before
-    they have been initialized with a real value will be trapped at
-    execution time with a Variable not initialized error.
-
-
+    :filename: (*literal or ^string*) name of the file on the disk. The name can include
+        a path if the directory to be used is not the current directory. This
+        filename will automatically be given the extension .dat. If an
+        extension is specified, the :file:`.dat` will be overridden. If the file
+        is an :file:`.fmt` matrix file, the extension must be explicitly given. If
+        the name of the file is to be taken from a string variable, the name
+        of the string must be preceded by the ``^`` (caret) operator.
+    
+    :mode: (*literal*) the modes supported with the optional for subcommand are:
+    
+        .. csv-table::
+            :widths: auto
+    
+            "read", "This is the default file opening mode and will be the one used if none is specified. Files opened in this mode cannot bewritten to. The pointer is set to the beginning of the file and the :func:`writer` function is disabled for files opened in this way. This is the only mode available for matrix files (:file:`.fmt`), which are always written in one piece with the `save` command."
+            "append", "Files opened in this mode cannot be read. The pointer will be set to the end of the file so that a subsequent write to the file with the :func:`writer` function will add data to the end of the file without overwriting any of the existing data in the file. The :func:`readr` function is disabled for files opened in this way. This mode is used to add additional rows to the end of a file."
+            "update", "Files opened in this mode can be read from and written to. The pointer will be set to the beginning of the file. This mode is used to make changes in a file."
+    
+    :offs: (*scalar*) offset added to "index variables"
+    
+        The optional *varindxi* subcommand tells GAUSS to
+        create a set of global scalars that contain the index (column
+        position) of the variables in a GAUSS data file. These "index
+        variables" will have the same names as the corresponding variables
+        in the data file but with ``i`` added as a prefix. They can be used
+        inside index brackets, and with functions like submat to access
+        specific columns of a matrix without having to remember the column
+        position.
+    
+        The optional *offs* argument is an offset that will be added to the index
+        variables. This is useful if data from
+        multiple files are concatenated horizontally in one matrix. It can be
+        any scalar expression. The default is 0.
+    
+        The index variables are useful for creating submatrices of specific
+        variables without requiring that the positions of the variables be
+        known. For instance, if there are two variables, *xvar* and *yvar* in
+        the dataset, the index variables will have the names *ixvar*,
+        *iyvar*. If *xvar* is the first column in the data file, and *yvar*
+        is the second, and if no offset, *offs*, has been specified, then
+        *ixvar* and *iyvar* will equal ``1`` and ``2`` respectively. If an offset of
+        3 had been specified, then these variables would be assigned the
+        values ``4`` and ``5`` respectively.
+    
+        The *varindxi* option cannot be used with :file:`.fmt` matrix
+        files because no column names are stored with them.
+    
+        If *varindxi* is used, GAUSS will ignore the Undefined symbol
+        error for global symbols that start with ``i``. This makes it much
+        more convenient to use index variables because they don't have to be
+        cleared before they are accessed in the program. Clearing is
+        otherwise necessary because the index variables do not exist until
+        execution time when the data file is actually opened and the names
+        are read in from the header of the file. At compile time a statement like:
+        ``y = x[., ixvar];`` will be illegal if the compiler has never heard
+        of *ixvar*. If *varindxi* is used, this error will be ignored for
+        symbols beginning with ``i``. Any symbols that are accessed before
+        they have been initialized with a real value will be trapped at
+        execution time with a Variable not initialized error.
+    
+    
 **Returns:**
-
-:fh: (*scalar*), file handle.
-
-    *fh* is the file handle which will be used by most
-    commands to refer to the file within GAUSS. This file handle is
-    actually a scalar containing an integer value that uniquely
-    identifies each file. This value is assigned by GAUSS when the
-    `open` command is executed. If the file was not successfully opened,
-    the file handle will be set to -1.
+    
+    :fh: (*scalar*), file handle.
+    
+        *fh* is the file handle which will be used by most
+        commands to refer to the file within GAUSS. This file handle is
+        actually a scalar containing an integer value that uniquely
+        identifies each file. This value is assigned by GAUSS when the
+        `open` command is executed. If the file was not successfully opened,
+        the file handle will be set to -1.
 
 Examples
 ----------------

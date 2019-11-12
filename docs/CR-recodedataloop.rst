@@ -7,7 +7,7 @@ Purpose
 
 Changes the value of a variable with different values based on a set of logical expressions.
 
-.. _recodedataloop
+.. _recodedataloop:
 .. index:: recode(dataloop)
 
 Format
@@ -30,11 +30,11 @@ Format
 
 **Parameters**
 
-:var: (*literal*) the new variable name.
-
-:val: (*scalar*) value to be used if corresponding expression is TRUE.
-
-:expression: (*scalar*) logical scalar-returning expression that returns nonzero TRUE or zero FALSE
+    :var: (*literal*) the new variable name.
+    
+    :val: (*scalar*) value to be used if corresponding expression is ``TRUE``.
+    
+    :expression: (*scalar*) logical scalar-returning expression that returns nonzero ``TRUE`` or zero ``FALSE``
 
 Examples
 ----------------
@@ -69,9 +69,9 @@ If neither is specified, the type of the variable will be left
 unchanged.
 
 The logical expressions must be mutually exclusive, that is only one may
-return TRUE for a given row (observation).
+return ``TRUE`` for a given row (observation).
 
-If none of the expressions is TRUE for a given row (observation), its
+If none of the expressions is ``TRUE`` for a given row (observation), its
 value will remain unchanged.
 
 Any variables referenced must already exist, either as elements of the
@@ -80,3 +80,4 @@ source dataset, as `extern`'s, or as the result of a previous `make`,
 
 
 .. seealso:: Functions `code`
+

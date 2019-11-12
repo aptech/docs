@@ -19,7 +19,7 @@ Format
 
 **Parameters**
 
-:fname: (*literal or ^string*), the name of a compiled file created using the `compile` or the `saveall` command.
+    :fname: (*literal or ^string*), the name of a compiled file created using the `compile` or the `saveall` command.
 
 Remarks
 -------

@@ -21,43 +21,43 @@ Format
 
 **Parameters:**
 
-:library: (*literal*) name of library.
-:file: (*literal*) optional. name of source file to be updated or added.
-:flags: (*literal*) optional. preceded by ``-``, controls operation of library update. To control handling of path information on source filenames:
-
-    .. csv-table::
-        :widths: auto
-
-        "``-addpath``", "add paths to entries without paths and expand relative paths."
-        "``-gausspath``", "reset all paths using a normal file search."
-        "``-leavepath``", "(default) leave all path information untouched."
-        "``-nopath``", "drop all path information."
-
-    To specify a library update or a complete library build:
-
-    .. csv-table::
-        :widths: auto
-
-        "``-update``", "(default) update the symbol information for the specified file only."
-        "``-build``", "update the symbol information for every library entry by compiling the actual source file."
-        "``-delete``", "delete a file from the library."
-        "``-list``", "list files in a library."
-
-    To control the symbol type information placed in the library file:
-
-    .. csv-table::
-        :widths: auto
-
-        "``-strong``", "(default) use strongly typed symbol entries."
-        "``-weak``", "save no type information. This should only be used to build a library compatible with a previous version of GAUSS."
-
-    To control location of temporary files for a complete library build:
-
-    .. csv-table::
-        :widths: auto
-
-        "``-tmp``", "(default) use the directory pointed to by the *tmp_path* configuration variable. If *tmp_path* is not defined, `lib` will look for a *tmp* environment variable."
-        "``-disk``", "use the same directory listed in the *lib_path* configuration variable."
+    :library: (*literal*) name of library.
+    :file: (*literal*) optional. name of source file to be updated or added.
+    :flags: (*literal*) optional. preceded by ``-``, controls operation of library update. To control handling of path information on source filenames:
+    
+        .. csv-table::
+            :widths: auto
+    
+            "``-addpath``", "add paths to entries without paths and expand relative paths."
+            "``-gausspath``", "reset all paths using a normal file search."
+            "``-leavepath``", "(default) leave all path information untouched."
+            "``-nopath``", "drop all path information."
+    
+        To specify a library update or a complete library build:
+    
+        .. csv-table::
+            :widths: auto
+    
+            "``-update``", "(default) update the symbol information for the specified file only."
+            "``-build``", "update the symbol information for every library entry by compiling the actual source file."
+            "``-delete``", "delete a file from the library."
+            "``-list``", "list files in a library."
+    
+        To control the symbol type information placed in the library file:
+    
+        .. csv-table::
+            :widths: auto
+    
+            "``-strong``", "(default) use strongly typed symbol entries."
+            "``-weak``", "save no type information. This should only be used to build a library compatible with a previous version of GAUSS."
+    
+        To control location of temporary files for a complete library build:
+    
+        .. csv-table::
+            :widths: auto
+    
+            "``-tmp``", "(default) use the directory pointed to by the *tmp_path* configuration variable. If *tmp_path* is not defined, `lib` will look for a *tmp* environment variable."
+            "``-disk``", "use the same directory listed in the *lib_path* configuration variable."
 
 Examples
 ----------------
