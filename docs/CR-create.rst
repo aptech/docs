@@ -20,11 +20,10 @@ Format
             "-v92", "obsoleted, use-v96."
             "-v96", "supported on all platforms."
 
-        For details on the various versions, see Foreign Language Interface, Chapter  1.
-        The default format can be specified in gauss.cfg by
-        setting the dat_fmt_version configuration variable. The default, v96, should be used.
+        For details on the various versions, see `Foreign Language Interface Chapter. <FLI-ForeignLanguageInterface.html>`_
+        The default format can be specified in :file:`gauss.cfg` by
+        setting the *dat_fmt_version* configuration variable. The default, v96, should be used.
 
-        .. DANGER:: FIX LINK TO FLI CHAP 1
 
     :type vflag: literal
 
@@ -32,8 +31,8 @@ Format
         The name can include a path if the
         directory to be used is not the current
         directory. This file will automatically be
-        given the extension .dat. If an extension is
-        specified, the .dat will be overridden. If
+        given the extension :file:`.dat`. If an extension is
+        specified, the :file:`.dat` will be overridden. If
         the name of the file is to be taken from a
         string variable, the name of the string must be
         preceded by the ``^`` (caret) operator.
@@ -108,11 +107,9 @@ Format
             "-v92", "obsoleted, use-v96."
             "-v96", "supported on all platforms."
 
-        For details on the various versions, see Foreign Language Interface, Chapter  1.
+        For details on the various versions, see  `Foreign Language Interface Chapter. <FLI-ForeignLanguageInterface.html>`_
         The default format can be specified in :file:`gauss.cfg` by
         setting the *dat_fmt_version* configuration variable. The default, v96, should be used.
-
-        .. DANGER:: FIX LINK TO FLI CHAP 1
 
     :type vflag: literal
 
@@ -120,8 +117,8 @@ Format
         The name can include a path if the
         directory to be used is not the current
         directory. This file will automatically be
-        given the extension .dat. If an extension is
-        specified, the .dat will be overridden. If
+        given the extension :file:`.dat`. If an extension is
+        specified, the :file:`.dat` will be overridden. If
         the name of the file is to be taken from a
         string variable, the name of the string must be
         preceded by the ``^`` (caret) operator.
@@ -143,7 +140,7 @@ Format
         variables in the dataset to be created.
 
         When *numvar* is used, *n* is a constant which specifies the number of variables (columns) in
-        the data file and  str is a string literal specifying the prefix to be given to all the variables. Thus:
+        the data file and  *str* is a string literal specifying the prefix to be given to all the variables. Thus:
 
         ::
 
@@ -164,7 +161,7 @@ Format
         of variable names, separated by spaces or commas. For instance: :code:`outvar x1, x2, zed;` specifies
         that there are to be 3 variables per row of the dataset, and that they are to be named ``X1, X2, ZED``,
         in that :code:`order.outtyp` specifies the precision. It can be a constant: 2, 4, or 8, or it can be
-        a literal: ``I, F, or D``. For an explanation of the available data types, see dtyp in ``create... with...``
+        a literal: ``I, F, or D``. For an explanation of the available data types, see *dtyp* in ``create... with...``
         previously. The *outtyp* statement does not have to be included. If it is not, then all data will
         be stored in 4 bytes as single precision floating point numbers.
 

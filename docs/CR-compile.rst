@@ -5,9 +5,7 @@ compile
 Purpose
 ----------------
 
-Compiles a source file to a compiled code file. See also Compiler, Chapter 1.
-
-.. TODO:: FIX LINK FOR CHAP1
+Compiles a source file to a compiled code file. See also `the Compiler chapter. <COM-Compiler.html>`_ 
 
 .. _compile:
 .. index:: copmile
