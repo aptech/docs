@@ -6,7 +6,6 @@ Purpose
 ----------------
 Computes the orthogonal-triangular (QR) decomposition of a matrix *x*, such that: :math:`X[., E] = Q_1R`
 
-.. DANGER:: fix equations. corrupted equations below have been left empty.
 
 Format
 ----------------

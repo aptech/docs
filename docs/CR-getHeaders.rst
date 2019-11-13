@@ -121,9 +121,7 @@ After the above code, *headers* will contain:
     accident_death
     assault
 
-The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
-
-.. DANGER:: Link up references
+The supported dataset types are `CSV <FIO.1-DelimitedTextFiles.html>`_, `Excel (XLS, XLSX) <FIO.3-Spreadsheets.html>`_, `HDF5 <FIO.4-HDF5Files.html>`_ , `GAUSS Matrix (FMT) <FIO.6-GAUSSMatrixFiles.html>`_ , `GAUSS Dataset (DAT) <FIO.5-GAUSSDatasets.html>`_, `Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`_.
 
 Remarks
 -------
