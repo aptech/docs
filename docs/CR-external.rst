@@ -53,7 +53,7 @@ compiled.
 Remarks
 -------
 
-See `Procedures and Keywords`, Chapter 1.
+See `Procedures and Keywords <PK-ProceduresandKeywords.html>`_.
 
 You may have several procedures in different files that reference the
 same global variable. By placing an `external` statement at the top of

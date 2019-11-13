@@ -111,8 +111,7 @@ pop'ped per pop statement.
 Remarks
 -------
 
-For multi-line recursive user-defined functions, see **Procedures and
-Keywords**, Chapter 1.
+For multi-line recursive user-defined functions, see `Procedures and Keywords <PK-ProceduresandKeywords.html>`_.
 
 When a `gosub` statement is encountered, the program will branch to the
 label and begin executing from there. When a :func:`return` statement is
@@ -132,8 +131,7 @@ into a subroutine without using a `gosub`. This will result in a Return
 without `gosub` error message.
 
 The variables used in subroutines are not local to the subroutine and
-can be accessed from other places in your program. (See **Procedures and
-Keywords**, Chapter 1.)
+can be accessed from other places in your program. (See `Procedures and Keywords <PK-ProceduresandKeywords.html>`_.)
 
 
 .. seealso:: Functions `goto`, `proc`, `pop`, :func:`return`
