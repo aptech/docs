@@ -68,8 +68,6 @@ The code above will add the letter :math:`\beta` to the graph title. The HTML ``
 
 will add :math:`\sigma^2` to your title. While,
 
-.. DANGER:: Fix equations
-
 ::
 
     label_string = "<html>Y<sub>t-1</sub></html>";

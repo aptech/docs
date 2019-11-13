@@ -65,8 +65,6 @@ Format
 
     :param ctl: Optional input. instance of an :class:`olsmtControl` structure containing the following members:
 
-        .. DANGER:: Fix equations
-
         .. list-table::
             :widths: auto
 
@@ -87,9 +85,9 @@ Format
             * - ctl.cov
               - string, set covariance type. Default = "iid".
 
-                :"iid": Error terms assumed to be identical independently distributed.
-                :"robust": Huber/White/sandwich estimator.
-                :"cluster": Clustered sandwich estimator. Must specify cluster variable identifier.
+                :``"iid"``: Error terms assumed to be identical independently distributed.
+                :``"robust"``: Huber/White/sandwich estimator.
+                :``"cluster"``: Clustered sandwich estimator. Must specify cluster variable identifier.
 
             * - ctl.clusterID
               - Matrix, vector of categorical group variable used for computing cluster robust standard errors.
@@ -144,8 +142,8 @@ Format
 
                 Selects the algorithm used for computing the parameter estimates. The default Cholesky update method is more computationally efficient. However, accuracy can suffer for poorly conditioned data. For higher accuracy set *ctl.alg* to either  qr or  svd.
 
-                :"qr": Solves for the parameter estimates using a  qr decomposition.
-                :"svd": Solves for the parameter estimates using a singular value decomposition.
+                :``"qr"``: Solves for the parameter estimates using a  qr decomposition.
+                :``"svd"``: Solves for the parameter estimates using a singular value decomposition.
             * - ctl.weights
               - Kx1 Vector, if defined, specifies weights to be used in the weighted least squares. If not defined, ordinary least squares will be computed.
             * - ctl.weightsVar

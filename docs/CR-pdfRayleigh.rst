@@ -26,10 +26,8 @@ Remarks
 The probability density function of the Rayleigh distribution is defined
 as
 
-.. DANGER:: fix equation
-
 .. math::
 
-   fx=xb2exp⁡(−x22b2)
+   f(x) = \frac{x}{b^2}exp⁡(\frac{−x^2}{2b^2})
 
 .. seealso:: Functions :func:`cdfRayleighinv`

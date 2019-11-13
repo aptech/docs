@@ -57,7 +57,7 @@ After the code above:
 Technical Notes
 ---------------
 
-If the degree of *c1* is *D1* (e.g., if :math:`D1=3`, then the polynomial
+If the degree of *c1* is *D1* (e.g., if D1=3, then the polynomial
 corresponding to *c1* is cubic), then there must be D1+1 elements in *c1*
 (e.g., 4 elements for a cubic). Thus, for instance the coefficients for
 the polynomial
@@ -79,8 +79,6 @@ would be:
    c1 = { 5, 0, 6, 3 };
 
 (Note that zeros must be explicitly given if there are powers of *x* missing.)
-
-.. DANGER:: fix equations
 
 Source
 ------

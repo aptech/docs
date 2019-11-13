@@ -29,11 +29,9 @@ Remarks
 The probability density function for the logistic distribution is
 defined as
 
-.. DANGER:: fix equation
-
 .. math::
 
    f(x) = \frac{exp⁡(z)}{b(1 + exp⁡(z))^2}\\
-   z = -⁡ \frac{x-a}{b}
+   z = -⁡ \bigg(\frac{x-a}{b}\bigg)
 
 .. seealso:: Functions :func:`cdflogistic`
