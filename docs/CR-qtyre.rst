@@ -48,7 +48,9 @@ where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-   Q⁢ = [Q_1\ Q_2⁢]
+   Q⁢ = \begin{bmatrix}
+   Q_1 & Q_2
+   \end{bmatrix}
 
 where :math:`Q_1` has :math:`P` columns, then
 
@@ -64,7 +66,9 @@ front of :math:`X` by :math:`E`. Partition the permuted :math:`X` in the followi
 
 .. math::
 
-   X[.⁢, E] = [X1⁢  X2⁢]
+  X[ ., E ] = \begin{bmatrix}
+  X_1 & X_2
+  \end{bmatrix}
 
 where :math:`X_1` is NxM and :math:`X_2` is :math:`N \times (P-M)`. Further partition :math:`R` in the following way:
 
@@ -97,13 +101,13 @@ a much smaller matrix. :math:`Q_1'Y` will be a submatrix of :math:`Q'Y`. In part
 
 .. math::
 
-    Q_1'Y = qty[1:P, .]
+    Q_1'Y = \text{qty}[1:P, .]
 
 and :math:`Q_2'Y` is the remaining submatrix:
 
 .. math::
 
-    Q_2'Y = qty[P+1:N, .]
+    Q_2'Y = \text{qty}[P+1:N, .]
 
 Suppose that :math:`X` is an NxK dataset of independent variables and :math:`Y` is an
 Nx1 vector of dependent variables. Suppose further that :math:`X` contains
@@ -131,7 +135,9 @@ If :math:`N < P`, the factorization assumes the form:
 
 .. math::
 
-    Q_1'X[.⁢, E] = [R_1 R_2]
+    Q_1'X[.⁢, E] = \begin{bmatrix}
+    R_1 & R_2
+    \end{bmatrix}
 
 where :math:`R_1` is a PxP upper triangular matrix and :math:`R_2` is :math:`P \times (N-P)`. Thus :math:`Q`
 is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R_1` and :math:`R_2`. This
