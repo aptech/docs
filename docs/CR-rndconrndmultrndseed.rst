@@ -37,7 +37,6 @@ Format
     
         seed    time(0)       0 < seed < 232a       1664525       0 < a < 232c       1013904223    0 < a < 232
 
-.. DANGER:: how do we want to format the above block?
 
 Remarks
 -------

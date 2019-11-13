@@ -17,7 +17,6 @@ Format
 
     :rtype y: Kx1 vector
 
-.. DANGER:: fix equations
 
 Examples
 ----------------

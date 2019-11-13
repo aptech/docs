@@ -56,8 +56,6 @@ Format
 
     :rtype retcode: scalar
 
-.. DANGER:: check equations
-
 Global Input
 ------------
 
@@ -80,7 +78,7 @@ Global Input
 
     ::
 
-        \_sqp\_EqProc = &eqproc;
+        _sqp_EqProc = &eqproc;
 
     tells :func:`sqpSolve` that nonlinear equality constraints
     are to be placed on the parameters and where the
@@ -122,7 +120,7 @@ Global Input
 
     ::
 
-        \_sqp\_EqProc = &ineqproc;
+        _sqp_EqProc = &ineqproc;
 
     tells :func:`sqpSolve` that nonlinear equality constraints are to be placed on the parameters and
     where the procedure computing them is to be found. The procedure must have one input argument,

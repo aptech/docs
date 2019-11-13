@@ -65,7 +65,6 @@ will create a column vector containing the numbers ``1, 2, ..., 10``.
 For :func:`seqm`, *y* will contain a first element equal to *start*, the second
 equal to :math:`start * inc`, and the last equal to :math:`start * inc^n-1`.
 
-.. DANGER:: fix equations
 
 For instance,
 

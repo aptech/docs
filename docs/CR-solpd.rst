@@ -53,8 +53,6 @@ Examples
 Remarks
 -------
 
-.. DANGER:: check equations
-
 *b* can have more than one column. If so, the system of equations is
 solved for each column, i.e., :math:`A*x[., i] = b[., i]`.
 
