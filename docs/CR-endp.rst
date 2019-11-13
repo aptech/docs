@@ -37,10 +37,8 @@ Remarks
 -------
 
 The `endp` statement marks the end of a procedure definition that began with a `proc` statement or
-`keyword` statement. (For details on writing and using procedures, see
-`Procedures and Keywords`, Chapter 1.)
-
-.. DANGER:: fix reference to user guide
+`keyword` statement. (For details on writing and using procedures, see the
+`Procedures and Keywords Chapter <PK-ProceduresandKeywords.html>`_.)
 
 
 .. seealso:: Functions `proc`, `keyword`, `retp`

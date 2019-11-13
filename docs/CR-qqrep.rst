@@ -6,6 +6,7 @@ Purpose
 ----------------
 Computes the orthogonal-triangular (QR) decomposition of a matrix *x*, such that: :math:`X[., E] = Q_1R`
 
+
 Format
 ----------------
 .. function:: { q1, r, e } = qqrep(x, pvt)
