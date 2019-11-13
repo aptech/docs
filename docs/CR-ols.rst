@@ -149,8 +149,6 @@ Format
 
     :rtype dwstat: scalar
 
-.. DANGER:: Fix equations
-
 Global Input
 ------------
 
@@ -332,7 +330,7 @@ Pass in a dataset name and a `Formula string`
     // variables, '-1' means remove the intercept in the model
     formula = "Limit ~ - 1 + Balance + Income + Age ";
 
-    // Call the OLS function    
+    // Call the OLS function
     call ols(fname, formula);
 
 After the above code,
