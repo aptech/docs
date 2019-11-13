@@ -46,11 +46,9 @@ Format
     :param categoryIdx: Optional argument, :math:`k_d \leq k`. :math:`k_d` is the categorical variable index of *X* matrix.
         *categoryIdx* specifies the categorical variable columns to be used in the analysis.
         e.g. If *categoryIdx* = 0, then it means the independent variable does not contain any categorical variables;
-        if *categoryIdx* = :math:`{ 1 4 }`, then it means that column 1 and column 4 in the *X* matrix are categorical variables.
+        if :math:`\text{categoryIdx} = \{ 1\ 4 \}`, then it means that column 1 and column 4 in the *X* matrix are categorical variables.
 
         .. NOTE:: The function :func:`glm` uses the smallest number as the reference category in each categorical variable.
-
-        .. DANGER:: Fix equations here.
 
     :type categoryIdx: 1 × k_d matrix
 
@@ -108,8 +106,6 @@ Format
               - scalar, maximum iterations. The default *ctl.maxIters* is 25.
             * - *ctl.eps*
               - scalar, convergence precision. The default is 1e-8.
-
-        .. DANGER:: Fix equations above
 
     :type ctl: an instance of a :class:`glmControl` structure
 
@@ -206,7 +202,7 @@ This example will compute a least squares regression of *y* on *x*. The results 
     x4                       0.067915          0.11099           0.6119         0.542062
 
 Logistic regression using a formula string to reference data in a CSV file containing categorical variables.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -245,7 +241,7 @@ The code above will produce the following output. Note that :math:`rank = 1` is 
     // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
 
 Running a no intercept model from a STATA DTA file.
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -486,7 +482,7 @@ After running above code, the output is:
     // Note: Dispersion parameter for POISSON distribution taken to be 1
 
 Using a :class:`glmOut` structure to save result for a Gamma regression with categorical variables.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -558,7 +554,7 @@ After running the code above, the output is :
                     1          -0.7701         0.087666          -8.7844         < 0.0001
 
 Using a "\*.dat" file directly in :func:`glm` for a Inverse Gaussian distribution.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
