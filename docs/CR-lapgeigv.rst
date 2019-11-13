@@ -38,24 +38,22 @@ Remarks
 
 *va1* and *va2* are the vectors of the numerators and denominators
 respectively of the eigenvalues of the solution of the generalized
-symmetric eigenproblem of the form :math:`Aw = λ Bw` where *A* and *B* are real or
+symmetric eigenproblem of the form :math:`Aw = \lambda Bw` where *A* and *B* are real or
 complex general matrices and :math:`w = va1./va2`. The generalized eigenvalues
 are not computed directly because some elements of *va2* may be zero,
 i.e., the eigenvalues may be infinite.
-
-.. DANGER:: Fix equations on this page
 
 The left and right eigenvectors diagonalize :math:`U'^{-1}AU^{-1}` where :math:`B = U'U`, that is,
 
 .. math::
 
-   lve*U'^{-1}AU^{-1}*lve' = w
+   \text{lve}*U'^{-1}AU^{-1}*\text{lve}' = w
 
 and
 
 .. math::
 
-   rve'*U'^{-1}AU^{-1}*rve = w
+   \text{rve}'*U'^{-1}AU^{-1}*\text{rve} = w
 
 This procedure calls the LAPACK routines *DGGEV* and *ZGGEV*.
 
