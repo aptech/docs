@@ -104,6 +104,7 @@ Example 3
 The plot is
 
 .. figure:: _static/images/plotsetzlevels.png
+    :scale: 50%
 
 Remarks
 -------
@@ -118,8 +119,7 @@ Remarks
 -  This function sets an attribute in a :class:`plotControl` structure. It does
    not affect an existing graph, or a new graph drawn using the default
    settings that are accessible from the
-   :menuselection:`Tools --> Preferences --> Graphics` menu. See **GAUSS Graphics**,
-   Chapter 1, for more information on the methods available for
+   :menuselection:`Tools --> Preferences --> Graphics` menu. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_ for more information on the methods available for
    customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetColorMap`, :func:`plotSetContourLabels`

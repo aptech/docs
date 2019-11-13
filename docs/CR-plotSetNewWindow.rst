@@ -46,7 +46,7 @@ To open a new graph window once, use :func:`plotOpenWindow`. This function sets
 an attribute in a :class:`plotControl` structure. It does not affect an existing
 graph, or a new graph drawn using the default settings that are
 accessible in the main application window from the
-:menuselection:`Tools --> Graphics --> Preferences` menu. See **GAUSS Graphics**, Chapter 1,
+:menuselection:`Tools --> Graphics --> Preferences` menu. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_
 for more information on the methods available for customizing your
 graphs.
 

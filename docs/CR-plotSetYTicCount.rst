@@ -29,6 +29,7 @@ Examples
     plotXY(x, y);
 
 .. figure:: _static/images/gauss15_psytc1.png
+    :scale: 50%
 
     5 tick marks
 
@@ -48,6 +49,7 @@ major tick for 0.2 on the y-axis. We can make that change like this:
     plotXY(myPlot, x, y);
 
 .. figure:: _static/images/gauss15_psytc11.png
+    :scale: 50%
 
     11 tick marks
 
@@ -65,7 +67,7 @@ appearance.
 This function sets an attribute in a :class:`plotControl` structure. It does not
 affect an existing graph, or a new graph drawn using the default
 settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See **GAUSS Graphics**, Chapter 1, for more information on the
+menu. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_ for more information on the
 methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotSetXTicInterval`, :func:`plotSetXLabel`
