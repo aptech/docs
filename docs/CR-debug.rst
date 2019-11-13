@@ -23,5 +23,5 @@ Format
 Remarks
 -------
 
-See Debugging, Section 1.1.
+See the `Debugging chapter <CL.4-Debugging.html>`_ for more details.
 

@@ -50,9 +50,6 @@ saved with :func:`datasave`:
     "string", ".fst"
     "string array", ".fst"
 
-See **Foreign Language Interface**, Chapter 1, for details on these file
-types.
-
 Use :func:`dataload`, or :func:`loadd` to load a data file created with :func:`datasave`.
 
 .. seealso:: Functions `save`, :func:`dataload`

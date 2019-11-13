@@ -51,4 +51,4 @@ command file to be used, :file:`comd1.cmd`, is passed to
 ATOG on its command line. The exit code *ret* returned
 by :func:`exec` is tested to see if ATOG was successful;
 if not, the program will be terminated after printing
-an error message. See `ATOG`, Section 1.
+an error message. See `ATOG <AT-ATOG.html>`_ .

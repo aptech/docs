@@ -39,6 +39,4 @@ are as follows:
     ".fmt", "matrix or array file"
     ".fst", "string or string array file"
 
-See `Foreign Language Interface, Chapter 1`, for details on these file types.
-
 .. seealso:: Functions `load`, :func:`datasave`
