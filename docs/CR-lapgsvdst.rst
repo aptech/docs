@@ -55,7 +55,7 @@ Remarks
    V'BQ = D_2Z
 
 where *U*, *V*, and *Q* are orthogonal matrices (see :func:`lapgsvdcst` and
-:func:`lapgsvdst`). Letting K+L = the rank of :math:`A\|B` then *R* is a (K+L)x(K+L) upper
+:func:`lapgsvdst`). Letting K+L = the rank of :math:`A|B` then *R* is a (K+L)x(K+L) upper
 triangular matrix, *D1* and *D2* are Mx(K+L) and Px(K+L) matrices with
 entries on the diagonal, :math:`Z = [0R]`, and if :math:`M-K-L \geq 0`
 
@@ -98,7 +98,7 @@ or if :math:`M-K-L \lt 0`
 ::
 
    X = Q [ I 0   ]
-         [ 0 R-1 ]
+         [ 0 R^-1 ]
 
 then
 
@@ -106,11 +106,13 @@ then
 
    A = U'^{-1}E_1X
 
+.. math::
+
    B = V'^{-1}E_2X^{-1}
 
 where
 
-.. math::
+::
 
    E1 = [ 0  D1 ]
 
@@ -122,8 +124,6 @@ produces the singular value decomposition of :math:`AB^{-1}`:
 .. math::
 
    AB^{-1} = UD_1D_2^{-1}V'
-
-.. DANGER:: verify equations on this page
 
 This procedure calls the LAPACK routines *DGGSVD* and *ZGGSVD*.
 

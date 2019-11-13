@@ -48,15 +48,15 @@ Remarks
 
 .. math::
 
-    U'*A*Q = D1*Z
+    U'*A*Q = D_1*Z
 
 .. math::
 
-    V'\*B\*Q = D2\*Z
+    V'*B*Q = D_2*Z
 
 where *U*, *V*, and *Q* are orthogonal matrices (see :func:`lapgsvdcst` and
-:func:`lapgsvdst`). Letting K + L = the rank of :math:`A\|B` then *R* is a :math:`(K+L)x(K+L)` upper
-triangular matrix, *D1* and *D2* are Mx(K+L) and Px(K+L) matrices with entries on the diagonal, :math:`Z = [0 R]`, and if :math:`M-K-L \geq 0`
+:func:`lapgsvdst`). Letting K + L = the rank of :math:`A|B` then *R* is a :math:`(K+L)x(K+L)` upper
+triangular matrix, *D1* and *D2* are Mx(K+L) and Px(K+L) matrices with entries on the diagonal, :math:`Z = [ 0\; R ]`, and if :math:`M-K-L \geq 0`
 
 ::
 
@@ -96,12 +96,12 @@ or if :math:`M-K-L \lt 0`
 
 ::
 
-   X = Q [ I 0  ]
-         [ 0 R-1 ]
+    X = Q [ I 0  ]
+          [ 0 R^-1 ]
 
 then
 
-::
+.. math::
 
    A = U'^{-1}E_1X
 
@@ -117,8 +117,6 @@ where
 
 (3) The generalized singular value decomposition of *A* and *B* implicitly
 produces the singular value decomposition of :math:`AB^{-1}`:
-
-.. DANGER:: verify equations on this page
 
 .. math::
 
