@@ -44,8 +44,6 @@ Remarks
 
 The properties of the pseudo-random numbers in *x* are:
 
-.. DANGER:: fix equations
-
 .. math::
 
    E(x) =  \lambda\\

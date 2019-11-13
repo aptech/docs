@@ -5,9 +5,7 @@ rndKMi
 Purpose
 ----------------
 
-Returns a matrix of random integers, :math:`0 ≤ y < 2_32`, and the state of the random number generator.
-
-.. DANGER:: fix equations
+Returns a matrix of random integers, :math:`0 ≤ y < 2^{32}-1`, and the state of the random number generator.
 
 Format
 ----------------

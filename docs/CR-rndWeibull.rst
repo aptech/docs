@@ -32,7 +32,7 @@ Format
 
         **opaque vector case**
 
-        *state* = the state vector returned from a previous call to one of the ``rnd`` random number functions.
+            :*state* = the state vector returned from a previous call to one of the ``rnd`` random number functions.
 
     :type state: scalar or opaque vector
 
@@ -48,8 +48,6 @@ Remarks
 -------
 
 The properties of the pseudo-random numbers in *x* are:
-
-.. DANGER:: fix equations
 
 .. math::
 
