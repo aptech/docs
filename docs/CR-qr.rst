@@ -43,7 +43,7 @@ where :math:`Q_1` has :math:`P` columns, then
 
 .. math::
 
-   X⁢= Q_1⁢R
+   X⁢ = Q_1⁢R
 
 is the QR decomposition of :math:`X`. If :math:`X` has linearly independent columns, :math:`R`
 is also the Cholesky factorization of the moment matrix of :math:`X`, i.e., of :math:`X'X`.
