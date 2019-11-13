@@ -41,10 +41,10 @@ University Press, 1993.), where the dependent variable varies between
 
     y = \mu + G(X\beta)
 
-where :math:`\beta` is a vector of regression coefficients, *x* a matrix of
+where :math:`\beta` is a vector of regression coefficients, *X* a matrix of
 independent variables with a column of 1's included for a constant, and
 *y* a vector of "circular" dependent variables, and where :math:`G()` is a
-function mapping :math:`X\beta` onto the :math:`[ -π, π ]` interval.
+function mapping :math:`X\beta` onto the :math:`[ -\pi, \pi ]` interval.
 
 The log-likelihood for this model is from Fisher, N.I. ... 1993, 159:
 
@@ -60,7 +60,7 @@ below, the exponential of this parameter is estimated instead. Also,
 the exponentially scaled modified Bessel is used to improve numerical
 properties of the calculations.
 
-The arctan function is used in :math:`G()` to map :math:`X\beta` to the :math:`[ -π, π ]` interval
+The :func:`atan` function is used in :math:`G()` to map :math:`X\beta` to the :math:`[ -\pi, \pi ]` interval
 as suggested by Fisher, N.I. ... 1993, 158.
 
 ::
@@ -107,11 +107,11 @@ Remarks
 
 For the functions that permit you to specify the order, the returned
 matrix contains a sequence of modified or exponentially scaled modified
-Bessel values of different orders. For the ith row of *y*:
+Bessel values of different orders. For the *ith* row of *y*:
 
 .. math::
 
-   y[i,.] = I_{\alpha}(x[i]) I_{\alpha+1}(x[i])...I_{\alpha+n-1}(x[i])
+   y[i,.] = I_{\alpha}(x[i])\; I_{\alpha+1}(x[i])\;...\;I_{\alpha+n-1}(x[i])
 
 The remaining functions generate modified Bessels of only the specified
 order.
@@ -126,8 +126,6 @@ modifed Bessels in the following way:
 The use of the scaled versions of the modified Bessel can improve the
 numerical properties of some calculations by keeping the intermediate
 numbers small in size.
-
-.. DANGER:: review equations on this page
 
 Source
 ------

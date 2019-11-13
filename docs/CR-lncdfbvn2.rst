@@ -131,12 +131,9 @@ Scalar input arguments are okay; they will be expanded to Nx1 vectors.
 :func:`lncdfbvn2` will abort if the computed integral is negative.
 
 :func:`lncdfbvn2` computes an error estimate for each set of inputs-the real
-integral is :math:`exp(y) \leq err`. The size of the error depends on the input
+integral is :math:`exp(y) \pm err`. The size of the error depends on the input
 arguments. If ``trap 2`` is set, a warning message is displayed when :math:`err \geq= exp(y)/100`.
 
 For an estimate of the actual error, see :func:`cdfBvn2e`.
-
-.. DANGER:: verify equations
-
 
 .. seealso:: Functions :func:`cdfbvn2`, :func:`cdfbvn2e`
