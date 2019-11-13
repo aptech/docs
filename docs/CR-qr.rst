@@ -37,7 +37,10 @@ where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-   Q⁢ = [Q_1 Q_2⁢]
+   Q⁢ = \begin{bmatrix}
+        Q_1 &
+        Q_2
+        \end{bmatrix}
 
 where :math:`Q_1` has :math:`P` columns, then
 
@@ -63,7 +66,10 @@ If :math:`N < P`, the factorization assumes the form:
 
 .. math::
 
-    Q'X = [R_1 R_2]
+    Q'X = \begin{bmatrix}
+         R_1 &
+         R_2
+         \end{bmatrix}
 
 where :math:`R_1` is a PxP upper triangular matrix and :math:`R_2` is :math:`P \times (N-P)`. Thus :math:`Q`
 is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R_1` and :math:`R_2`. This

@@ -42,7 +42,10 @@ where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-   Q⁢ = [Q_1 Q_2⁢]
+   Q⁢ = \begin{bmatrix}
+        Q_1 &
+        Q_2
+        \end{bmatrix}
 
 where :math:`Q_1` has :math:`P` columns, then
 

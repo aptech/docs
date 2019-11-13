@@ -4,7 +4,7 @@ qqre
 
 Purpose
 ----------------
-Computes the orthogonal-triangular (QR) decomposition of a matrix *x*, such that: :math:`X[ .,E ] = Q_1R`
+Computes the orthogonal-triangular (QR) decomposition of a matrix *x*, such that: :math:`X[\; .,\; E\; ] = Q_1R`
 
 Format
 ----------------
@@ -28,13 +28,13 @@ Format
 Remarks
 -------
 
-Given :math:`X[., E]`, where :math:`E` is a permutation vector that permutes the columns
-of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[., E]` is zero below
+Given :math:`X[\;.,\; E\;]`, where :math:`E` is a permutation vector that permutes the columns
+of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[\; .,\; E\; ]` is zero below
 its diagonal, i.e.,
 
 .. math::
 
-    Q′R[ ., E ] = \begin{bmatrix}
+    Q′R[\; .,\; E\; ] = \begin{bmatrix}
         R \\
         0
         \end{bmatrix}
@@ -43,15 +43,18 @@ where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-   Q⁢ = [Q_1 Q_2⁢]
+   Q⁢ = \begin{bmatrix}
+        Q_1 &
+        Q_2
+        \end{bmatrix}
 
 where :math:`Q_1` has :math:`P` columns, then
 
 .. math::
 
-  X[ ., E ] = Q_1R
+  X[\; .,\; E\; ] = Q_1R
 
-is the QR decomposition of :math:`X[., E]`.
+is the QR decomposition of :math:`X[\; .,\; E\; ]`.
 
 If you want only the :math:`R` matrix, see :func:`qre`. Not computing :math:`Q_1` can produce
 significant improvements in computing time and memory usage.
@@ -62,7 +65,7 @@ front of :math:`X` by :math:`E`. Partition the permuted :math:`X` in the followi
 
 .. math::
 
-    X[ ., E ] = \begin{bmatrix}
+    X[\; .,\; E\; ] = \begin{bmatrix}
       X_1 & X_2
       \end{bmatrix}
 
@@ -104,7 +107,7 @@ type of factorization is useful for the solution of underdetermined systems. For
 
 .. math::
 
-    X[ ., E ]b = Y
+    X[\; .,\; E\; ]b = Y
 
 it can be shown that
 

@@ -6,8 +6,6 @@ Purpose
 ----------------
 Computes the orthogonal-triangular (QR) decomposition of a matrix *x*, such that: :math:`X[., E] = Q_1R`
 
-.. DANGER:: fix equations. corrupted equations below have been left empty.
-
 Format
 ----------------
 .. function:: { q1, r, e } = qqrep(x, pvt)
@@ -57,7 +55,10 @@ where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-   Q⁢ = [Q_1 Q_2⁢]
+   Q⁢ = \begin{bmatrix}
+        Q_1 &
+        Q_2
+        \end{bmatrix}
 
 where :math:`Q_1` has :math:`P` columns, then
 

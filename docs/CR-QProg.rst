@@ -81,15 +81,13 @@ Remarks
 
 .. math::
 
-    min \frac{1}{2} x'Qx - x'R
-
-.. DANGER:: fix equations
+    min\; \frac{1}{2} x'Qx - x'R
 
 subject to constraints,
 
 .. math::
 
-    Ax = B
+    Ax = B\\
     Cx ≤ D
 
 

@@ -17,12 +17,12 @@ Format
 
         .. csv-table::
             :widths: auto
-    
+
             "if :math:`pvt[i] > 0`, :math:`X[i]` is an initial column."
             "if :math:`pvt[i] = 0`, :math:`X[i]` is a free column."
             "if :math:`pvt[i] < 0`, :math:`X[i]` is a final column."
-    
-        The initial columns are placed at the beginning of the matrix and the final columns are placed at 
+
+        The initial columns are placed at the beginning of the matrix and the final columns are placed at
         the end. Only the free columns will be moved during the decomposition.
 
     :type pvt: Px1 vector
@@ -31,7 +31,7 @@ Format
 
     :rtype r: KxP upper triangular matrix
 
-    :return e: 
+    :return e:
 
     :rtype e: Px1 permutation vector
 
@@ -55,7 +55,10 @@ where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-   Q⁢ = [Q_1\ Q_2⁢]
+   Q⁢ = \begin{bmatrix}
+        Q_1 &
+        Q_2
+        \end{bmatrix}
 
 where :math:`Q_1` has :math:`P` columns, then
 
@@ -83,4 +86,3 @@ Source
 qr.src
 
 .. seealso:: Functions :func:`qr`, :func:`qre`, :func:`qqrep`
-

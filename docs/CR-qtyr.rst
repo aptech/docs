@@ -7,8 +7,6 @@ Purpose
 
 Computes the orthogonal-triangular (QR) decomposition of a matrix :math:`X` and returns :math:`Q'Y` and :math:`R`.
 
-.. DANGER:: fix all equations
-
 Format
 ----------------
 .. function:: { qty, r } = qtyr(y, X)
@@ -61,7 +59,10 @@ where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-   Q⁢ = [Q_1 Q_2⁢]
+  Q⁢ = \begin{bmatrix}
+     Q_1 &
+     Q_2
+     \end{bmatrix}
 
 where :math:`Q_1` has :math:`P` columns, then
 
@@ -79,13 +80,13 @@ matrix. :math:`Q_1'Y` will be a submatrix of :math:`Q'Y`. In particular,
 
 .. math::
 
-   G = Q_1'Y = qty[1:P, .]
+   G = Q_1'Y = \text{qty}[1:P, .]
 
 and :math:`Q_2'Y` is the remaining submatrix:
 
 .. math::
 
-   H⁢ = Q_2'Y = qty[P+1:N, .]
+   H⁢ = Q_2'Y = \text{qty}[P+1:N, .]
 
 Suppose that :math:`X` is an NxK dataset of independent variables, and :math:`Y` is an
 Nx1 vector of dependent variables. Then it can be shown that
