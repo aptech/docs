@@ -62,7 +62,9 @@ front of :math:`X` by :math:`E`. Partition the permuted :math:`X` in the followi
 
 .. math::
 
-    X[ ., E ] = [X_1 X_2⁢]
+    X[ ., E ] = \begin{bmatrix}
+      X_1 & X_2
+      \end{bmatrix}
 
 where :math:`X` is NxM and :math:`X_2` is :math:`N \times (P-M)`. Further partition :math:`R` in the following
 way:
@@ -102,7 +104,7 @@ type of factorization is useful for the solution of underdetermined systems. For
 
 .. math::
 
-    X[ ., E ]b = y
+    X[ ., E ]b = Y
 
 it can be shown that
 
