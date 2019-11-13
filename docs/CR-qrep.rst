@@ -4,9 +4,7 @@ qrep
 
 Purpose
 ----------------
-Computes the orthogonal-triangular (QR) decomposition of a matrix :math:`X`, such that: :math:`X[.,E] = Q1R`
-
-.. DANGER:: fix equations
+Computes the orthogonal-triangular (QR) decomposition of a matrix :math:`X`, such that: :math:`X[.,E] = Q_1R`
 
 Format
 ----------------
@@ -48,21 +46,30 @@ of :math:`X`, there is an orthogonal matrix :math:`Q` such that :math:`Q'X[.,E]`
 
 .. math::
 
+    Q′X[ ., E ] = \begin{bmatrix}
+        R \\
+        0
+        \end{bmatrix}
+
 where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-where :math:`Q\ 1` has :math:`P` columns, then
+   Q⁢ = [Q_1\ Q_2⁢]
+
+where :math:`Q_1` has :math:`P` columns, then
 
 .. math::
 
+    X[., E] = Q_1R
+
 is the QR decomposition of :math:`X[.,E]`.
 
-:func:`qrep` does not return the :math:`Q\ 1` matrix because in most cases it is not
-required and can be very large. If you need the :math:`Q\ 1` matrix, see the
+:func:`qrep` does not return the :math:`Q_1` matrix because in most cases it is not
+required and can be very large. If you need the :math:`Q_1` matrix, see the
 function :func:`qqrep`. If you need the entire :math:`Q` matrix, call :func:`qyrep` with :math:`Y` set
-to a conformable identity matrix. For most problems :math:`Q'Y`, :math:`Q\ 1'Y`, or :math:`QY`,
-:math:`Q\ 1\ Y`, for some :math:`Y`, are required. For these cases see :func:`qtyrep` and :func:`qyrep`.
+to a conformable identity matrix. For most problems :math:`Q'Y`, :math:`Q_1'Y`, or :math:`QY`,
+:math:`Q_1Y`, for some :math:`Y`, are required. For these cases see :func:`qtyrep` and :func:`qyrep`.
 
 :func:`qrep` allows you to control the pivoting. For example, suppose that :math:`X` is
 a dataset with a column of ones in the first column. If there are

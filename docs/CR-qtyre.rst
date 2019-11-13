@@ -7,7 +7,6 @@ Purpose
 
 Computes the orthogonal-triangular (QR) decomposition of a matrix X and returns :math:`Q'Y` and :math:`R`.
 
-.. DANGER:: fix all equations
 
 Format
 ----------------
@@ -40,7 +39,7 @@ its diagonal, i.e.,
 
 .. math::
 
-    Q′R[ ., E ] = \begin{bmatrix}
+    Q′X[ ., E ] = \begin{bmatrix}
         R \\
         0
         \end{bmatrix}
@@ -49,7 +48,7 @@ where :math:`R` is upper triangular. If we partition
 
 .. math::
 
-   Q⁢ = [Q_1 Q_2⁢]
+   Q⁢ = [Q_1\ Q_2⁢]
 
 where :math:`Q_1` has :math:`P` columns, then
 
