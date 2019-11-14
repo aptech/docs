@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GAUSS'
-copyright = '2019, Aptech Systems, Inc'
+copyright = '2020, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
-version = '19'
+version = '20'
 # The full version, including alpha/beta/rc tags
-release = '19'
+release = '20'
 
 
 # -- General configuration ---------------------------------------------------
@@ -48,11 +48,11 @@ extensions = [
     'sphinx.ext.viewcode',
 ]
 
-#mathjax_config = {
-#    'extensions': ['tex2jax.js'],
-#    'jax': ['input/TeX', 'output/HTML-CSS'],
-#    'HTML-CSS': { 'fonts': ['TeX'] }
-#}
+mathjax_config = {
+    'extensions': ['tex2jax.js'],
+    'jax': ['input/TeX', 'output/HTML-CSS'],
+    'HTML-CSS': { 'fonts': ['TeX'] }
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
