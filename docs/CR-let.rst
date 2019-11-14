@@ -182,7 +182,7 @@ use a set of empty curly braces:
     x = {};
 
 Empty matrices are chiefly used as the starting point for building up a
-matrix, for example in a `do` loop. See **Matrices**, Section 1.0.1, for
+matrix, for example in a `do` loop. See `Matrices <LF.6.2-Matrices.html>`_ for
 more information on empty matrices.
 
 Character elements are allowed in a `let` statement:
@@ -202,7 +202,7 @@ each element must be quoted.
 
 ::
 
-   let x = "age""pay""sex";
+   let x = "age" "pay" "sex";
 
 ::
 

@@ -30,7 +30,7 @@ Remarks
 -------
 
 A keyword definition begins with the `keyword` statement and ends with the
-`endp` statement. See **Procedures and Keywords**, Chapter 1.
+`endp` statement. See `Procedures and Keywords <PK-ProceduresandKeywords.html>`_.
 
 Keywords always have 1 string argument and 0 returns. GAUSS will take
 everything past name, excluding leading spaces, and pass it as a string

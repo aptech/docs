@@ -45,7 +45,7 @@ The symbol *f* in the statement above will be treated as a procedure
 whenever it is accessed in the current procedure. What is actually
 passed in is a pointer to a procedure.
 
-See **Procedures and Keywords**, Chapter 1.
+See `Procedures and Keywords <PK-ProceduresandKeywords.html>`_.
 
 
 .. seealso:: Functions `proc`

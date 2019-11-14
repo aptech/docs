@@ -36,4 +36,4 @@ but with reduced degrees of freedom.
 
 The tolerance used to determine if a pivot element is zero is taken from
 the :func:`crout` singularity tolerance. The corresponding row and column are
-zeroed out. See **Singularity Tolerance**, Chapter 1.
+zeroed out. See `Singularity Tolerance <STA-SingularityTolerance.html>`_.

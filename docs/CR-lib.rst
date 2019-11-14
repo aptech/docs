@@ -107,7 +107,7 @@ Remarks
 
 The library management functionality offered by the `lib` command can also
 be accomplished interactively with windows and buttons, using the
-Library Tool in the user interface. See **The Library Tool**, Chapter 1,
+Library Tool in the user interface. See `The Library Tool Chapter <LT-LibraryTool.html>`_,
 for more information on using the Library Tool.
 
 The flags can be shortened to one or two letters, as long as they remain
