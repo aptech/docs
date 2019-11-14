@@ -27,7 +27,7 @@ This version is backwards compatible with the previous major version,
 #. All plot colors now support alpha channel, providing the option to add transparency to any graph item.
 #. Added new methods to :func:`impute` function: predictive mean matching, local residual draws and linear prediction.
 #. Command reference documentation style updates and new examples.
-#. Speed increase for certain cases of *X'X* with small to medium matrices.
+#. Speed increase for certain cases of ``*X'X*`` with small to medium matrices.
 #. Reading and writing :file:`.XLSM` files is now supported for the case where the COM/Excel interface is not used.
 #. Increased compatibility for newer style :file:`.XLSX` files for the case where the COM/Excel interface is not used.
 #. Bug fixes: several minor bug fixes for reading :file:`.XLSX` files in the case where the COM/Excel interface is not used.
