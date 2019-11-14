@@ -21,7 +21,7 @@ Format
 Remarks
 -------
 
-For more details, see **Procedures and Keywords**, Chapter 1.
+For more details, see `Procedures and Keywords <PK-ProceduresandKeywords.html>`_.
 
 In a `retp` statement 0-1023 items may be returned. The items may be
 expressions. Items are separated by commas.

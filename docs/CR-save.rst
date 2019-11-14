@@ -26,8 +26,8 @@ Format
         ========= =========================================
         ``-v89``  not supported
         ``-v92``  supported on UNIX, Windows
-        ``-v96``  supported on all platforms. See also `Foreign Language Interface`,
-                  Chapter 1, for details on the various versions. The default format
+        ``-v96``  supported on all platforms. See also `Foreign Language Interface <FLI-ForeignLanguageInterface.html>`_,
+                  for details on the various versions. The default format
                   can be specified in :file:`gauss.cfg` by setting the *dat_fmt_version* configuration
                   variable. If *dat_fmt_version* is not set, the default is *v96*.
         ========= =========================================

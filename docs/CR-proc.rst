@@ -86,7 +86,6 @@ returned items:
 
 Procedure definitions may not be nested.
 
-For more details on writing procedures, see **Procedures and Keywords**,
-Chapter 1.
+For more details on writing procedures, see `Procedures and Keywords <PK-ProceduresandKeywords.html>`_,
 
 .. seealso:: Functions `keyword`, `call`, `endp`, `local`, `retp`

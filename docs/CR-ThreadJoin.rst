@@ -45,7 +45,7 @@ Remarks
 -------
 
 Each thread in the set must adhere to the **writer-must-isolate** rule
-(see **Multi-Threaded Programming in GAUSS**, Chapter 1). Because the
+(see `Multi-Threaded Programming in GAUSS <MT-MultiThreadedProgramming.html>`_) Because the
 threads in a set execute simultaneously, there is no way of knowing in
 one thread the current "state" of a symbol in another, and thus no way
 of safely or meaningfully accessing it.

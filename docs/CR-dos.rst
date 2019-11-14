@@ -23,7 +23,7 @@ Examples
     dos ^cmdstr;
 
 This will run the ATOG utility, using :file:`mycfile.cmd`
-as the ATOG command file. For more information, see `ATOG, Chapter 1`.
+as the ATOG command file. For more information, see `ATOG <AT-ATOG.html>`_.
 
 ::
 

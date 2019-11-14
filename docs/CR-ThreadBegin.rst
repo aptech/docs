@@ -27,7 +27,7 @@ Examples
        n = calcA(m);
     threadEnd;
 
-Notice that the writer-must-isolate rule (see Multi-Threaded Programming in GAUSS, Chapter 1)
+Notice that the writer-must-isolate rule (see `Multi-Threaded Programming in GAUSS <MT-MultiThreadedProgramming.html>`_)
 does not apply within the bounds of the `threadBegin`/`threadEnd` pair, as there is no risk of
 simultaneous access to a symbol. The rule only applies between the threads in a given set (and their children).
 

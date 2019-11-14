@@ -82,7 +82,7 @@ Remarks
 
       dlibrary -d
 
-For more information, see **Foreign Language Interface**, Chapter 1.
+For more information, see `Foreign Language Interface <FLI-ForeignLanguageInterface.html>`_.
 
 
 .. seealso:: Functions :func:`dllcall`, :func:`sysstate`

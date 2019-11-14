@@ -68,6 +68,6 @@ from *func*, simply set up one or more of its arguments as return matrices
 (basically, by making them the size of what you intend to return), and
 inside *func* assign the results to them before returning.
 
-For more information, see **Foreign Language Interface**, Chapter 1.
+For more information, see `Foreign Language Interface <FLI-ForeignLanguageInterface.html>`_.
 
 .. seealso:: `dlibrary`, :func:`sysstate`

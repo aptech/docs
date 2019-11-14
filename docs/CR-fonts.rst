@@ -34,7 +34,7 @@ If *str* is a null string, or :func:`fonts` is not called, Simplex is loaded by
 default.
 
 For more information on how to select fonts within a text string, see
-`Publication Quality Graphics`, Chapter 1.
+`Publication Quality Graphics <PQG-PublicationQualityGraphics.html>`_.
 
 
 

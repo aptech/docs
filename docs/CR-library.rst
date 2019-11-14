@@ -35,11 +35,11 @@ will produce output similar to:
 
 ::
 
-    Library path: C:\gauss17\gaussplot\lib
-                  C:\gauss17\lib
+    Library path: C:\gauss20\gaussplot\lib
+                  C:\gauss20\lib
 
-    Libraries:    C:\gauss17\lib\user.lcg
-                  C:\gauss17\lib\gauss.lcg
+    Libraries:    C:\gauss20\lib\user.lcg
+                  C:\gauss20\lib\gauss.lcg
 
 Example 2
 +++++++++
@@ -54,13 +54,13 @@ After executing the code above, entering the `library` command without any argum
 
 ::
 
-    Library path: C:\gauss17\gaussplot\lib
-                  C:\gauss17\lib
+    Library path: C:\gauss20\gaussplot\lib
+                  C:\gauss20\lib
 
-    Libraries:    C:\gauss17\lib\user.lcg
-                  C:\gauss17\lib\pgraph.lcg
-                  C:\gauss17\lib\cmlmt.lcg
-                  C:\gauss17\lib\gauss.lcg
+    Libraries:    C:\gauss20\lib\user.lcg
+                  C:\gauss20\lib\pgraph.lcg
+                  C:\gauss20\lib\cmlmt.lcg
+                  C:\gauss20\lib\gauss.lcg
 
 The output from the `library` command above is printed in the order in which GAUSS will search. For this particular example, GAUSS will first search the user library, then the ``pgraph`` library, followed by the ``cmlmt`` library and finally the ``gauss`` library.
 
@@ -80,7 +80,7 @@ would open ``tsmt``, while closing ``pgraph`` and ``cmlmt``.
 Remarks
 -------
 
-For more information about the library system, see **Libraries**, Chapter 1 .
+For more information about the library system, see `Libraries <LIB-Libraries.html>`_.
 
 The required extension for library files is :file:`.lcg`.
 
