@@ -20,7 +20,7 @@ Format
 
     :param location: Optional argument, the location to place the legend.
 
-        The location string may contain up to three tokens, or words.
+        If a string, the location string may contain up to three tokens, or words.
 
         #.  Vertical location: ``"top"`` (default), ``"vcenter"`` or ``"bottom"``. (Note: for backwards compatibilty ``"middle"`` may still be used for ``"vcenter"``. However, new programs should use ``"vcenter"``).
 
@@ -28,7 +28,9 @@ Format
 
         #.  Inside/Outside location: ``"inside"`` (default), ``"below"`` or ``"outside"``.
 
-    :type location: string
+        If a vector, *location* represents the coordinates on the graph where the top, left corner of the legend will be placed.
+
+    :type location: string or 2x1 vector
 
     :param orientation: Optional argument, 0 for a horizontal legend or 1 for a vertical legend.
     :type orientation: scalar
