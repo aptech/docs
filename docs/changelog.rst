@@ -42,7 +42,7 @@ This version is backwards compatible with the previous major version,
 
 The following is a list of changes from the previous version of GAUSS.
 This version is backwards compatible with the previous major version,
-18, other than the exceptions noted below.
+19, other than the exceptions noted below.
 
 19.2.2
 ------
