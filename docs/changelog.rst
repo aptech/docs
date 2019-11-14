@@ -54,10 +54,10 @@ This version is backwards compatible with the previous major version,
 19.2.1
 ------
 
-#. Add explicit query-deleting for database calls (eg dbExecQuery) with
+#. Add explicit query-deleting for database calls (eg :func:`dbExecQuery`) with
    :func:`dbQueryDelete` method.
 #. Database: Add auto-cleanup of queries and open databases on 'new'
-   statement and after GAUSS_FreeWorkspace
+   statement and after ``GAUSS_FreeWorkspace``
 #. Bug fix: Fix performance issues with bulk inserts for database
    operations
 #. Bug fix: A dangling str-concat operation ($+) could result in a crash
