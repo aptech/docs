@@ -5,7 +5,7 @@ gmmControlCreate
 Purpose
 ----------------
 
-Creates default gmmFitControl structure.
+Creates default :class:`gmmFitControl` structure.
 
 Format
 ----------------
