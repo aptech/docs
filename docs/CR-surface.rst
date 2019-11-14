@@ -78,12 +78,12 @@ Global Input
                 0.2 15 };
                /* z >= 0.2 white */
 
-            Since a Z level is required for each selected color, the user must be
-            responsible to compute the minimum value of the *z* matrix as the first Z
-            range element. This may be most easily accomplished by setting the
-            *\_pzclr* matrix as shown above (the first element being an arbitrary
-            value), then resetting the first element to the minimum *z* value as
-            follows:
+           Since a Z level is required for each selected color, the user must be
+           responsible to compute the minimum value of the *z* matrix as the first Z
+           range element. This may be most easily accomplished by setting the
+           *\_pzclr* matrix as shown above (the first element being an arbitrary
+           value), then resetting the first element to the minimum *z* value as
+           follows:
 
             ::
 
@@ -92,7 +92,7 @@ Global Input
                            0.2 15 };
                 _pzclr[1,1] = minc(minc(z));
 
-See **PQG Graphics Colors**, for the list of available colors.
+See `PQG Graphics Colors <PQG.5-Colors.html>`_, for the list of available colors.
 
 Remarks
 -------

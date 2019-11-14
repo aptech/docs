@@ -29,8 +29,7 @@ This function selects the specified graphic panel to be the current
 graphic panel. This is the graphic panel in which the next graph will be
 drawn.
 
-See the discussion on using graphic panels in **Graphic Panels**,
-Section 1.1.
+See the discussion on using graphic panels in `Graphic Panels <PQG.3-GraphicPanels.html>`_.
 
 Source
 ------
