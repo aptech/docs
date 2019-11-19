@@ -40,10 +40,6 @@ This version is backwards compatible with the previous major version,
 #. New example file :file:`impute.e` demonstrates several missing value imputation methods.
 #. Adding setting ``dataloop_case = on`` to :file:`gauss.cfg`. This setting will instruct the dataloop translator to ignore case in dataloop statements.
 
-The following is a list of changes from the previous version of GAUSS.
-This version is backwards compatible with the previous major version,
-19, other than the exceptions noted below.
-
 19.2.2
 ------
 
