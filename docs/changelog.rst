@@ -9,7 +9,8 @@ This version is backwards compatible with the previous major version,
 20.0.1
 ------
 
-#. Bug fix: plotAddHist could crash if the previous graph did not have a category axis.
+#. Added new example files :file:`aggregate_housing.e`, :file:`sprintf_cancer_1.e`, :file:`sprintf_cancer_2.e`.
+#. Bug fix: :func:`plotAddHist` could crash if the previous graph did not have a category axis.
 
 20.0.0
 ------
