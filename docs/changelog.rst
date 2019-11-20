@@ -6,6 +6,11 @@ The following is a list of changes from the previous version of GAUSS.
 This version is backwards compatible with the previous major version,
 19, other than the exceptions noted below.
 
+20.0.1
+------
+
+#. Bug fix: plotAddHist could crash if the previous graph did not have a category axis.
+
 20.0.0
 ------
 
