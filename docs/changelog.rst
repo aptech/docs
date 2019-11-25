@@ -6,10 +6,20 @@ The following is a list of changes from the previous version of GAUSS.
 This version is backwards compatible with the previous major version,
 19, other than the exceptions noted below.
 
+20.0.2
+------
+
+#. File import dialog now uses ``%g`` formatting by default.
+#. Add new example file "aggregate_housing.e" for :func:`aggregate` function. 
+#. Bug fix: Certain editor codecs were not loading correctly on startup when selected in preferences.
+#. macOS: Build against Qt 5.12.6.
+#. macOS: Upgrade Sparkle to 1.22.
+#. Linux: Add new-version check functionality to Linux.
+
 20.0.1
 ------
 
-#. Bug fix: plotAddHist could crash if the previous graph did not have a category axis.
+#. Bug fix: :func:`plotAddHist` could crash if the previous graph did not have a category axis.
 
 20.0.0
 ------
@@ -44,13 +54,12 @@ This version is backwards compatible with the previous major version,
 #. New example file :file:`wls.e` demonstrates weighted least squares estimation.
 #. New example file :file:`impute.e` demonstrates several missing value imputation methods.
 #. Adding setting ``dataloop_case = on`` to :file:`gauss.cfg`. This setting will instruct the dataloop translator to ignore case in dataloop statements.
+#. Upgrade Reprise License Manager (RLM) to 13.0 for all platforms
 
 19.2.2
 ------
 
 #. Upgrade Reprise License Manager (RLM) to 13.0 for macOS
-
-
 
 19.2.1
 ------
