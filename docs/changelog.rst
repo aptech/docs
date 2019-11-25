@@ -10,7 +10,6 @@ This version is backwards compatible with the previous major version,
 ------
 
 #. File import dialog now uses ``%g`` formatting by default.
-#. Add new example file "aggregate_housing.e" for :func:`aggregate` function. 
 #. Bug fix: Certain editor codecs were not loading correctly on startup when selected in preferences.
 #. macOS: Build against Qt 5.12.6.
 #. macOS: Upgrade Sparkle to 1.22.
@@ -18,7 +17,7 @@ This version is backwards compatible with the previous major version,
 
 20.0.1
 ------
-
+#. Added new example files :file:`aggregate_housing.e`, :file:`sprintf_cancer_1.e`, :file:`sprintf_cancer_2.e`.
 #. Bug fix: :func:`plotAddHist` could crash if the previous graph did not have a category axis.
 
 20.0.0
