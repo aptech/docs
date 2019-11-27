@@ -188,7 +188,7 @@ This version is backwards compatible with the previous major version,
 
 #. New online license activation allows for convenient license
    activation from a product key.
-#. New function :func:`quantileFitLoc` performs local linear and quadrat  ic
+#. New function :func:`quantileFitLoc` performs local linear and quadratic
    quantile regressions.
 #. New function :func:`quantileFit` performs quantile regression.
 #. New function :func:`qfitControlCreate` creates default ``qfitControl`` structure.
