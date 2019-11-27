@@ -188,14 +188,14 @@ This version is backwards compatible with the previous major version,
 
 #. New online license activation allows for convenient license
    activation from a product key.
-#. New function :func:`quantileFitLoc` performs local linear and quadratric
+#. New function :func:`quantileFitLoc` performs local linear and quadrat  ic
    quantile regressions.
 #. New function :func:`quantileFit` performs quantile regression.
 #. New function :func:`qfitControlCreate` creates default ``qfitControl`` structure.
 #. Added option for clustered standard errors and robust standard errors
    to :func:`olsmt` and :func:`quantileFit`.
 #. New function :func:`clusterSE` for computing clustered standard errors.
-#. New function :func:`robustSE` for computing hesteroscedastic-robust standard
+#. New function :func:`robustSE` for computing heteroscedastic-robust standard
    errors.
 #. New 'date' keyword for formula strings simplifies reading dates from
    CSV files.
