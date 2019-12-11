@@ -145,9 +145,9 @@ Format
                 :``"qr"``: Solves for the parameter estimates using a  qr decomposition.
                 :``"svd"``: Solves for the parameter estimates using a singular value decomposition.
             * - ctl.weights
-              - Kx1 Vector, if defined, specifies weights to be used in the weighted least squares. If not defined, ordinary least squares will be computed.
+              - Nx1 Vector, if defined, specifies weights to be used in the weighted least squares. If not defined, ordinary least squares will be computed.
             * - ctl.weightsVar
-              - String, name of the variable used for weighting. Only valid if dataset and formula is specified. Will override any weights in *oCtl.weights*.
+              - String, name of the variable used for weighting. Only valid if dataset and formula is specified. Will override any weights in *ctl.weights*.
     :type ctl: struct
 
     :return out: instance of :class:`olsmtOut` struct containing the following members:
