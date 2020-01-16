@@ -54,7 +54,7 @@ Format
         .. list-table::
             :widths: auto
 
-            * - outx.par
+            * - out.par
               - an instance of structure of type :class:`PV` containing the parameter estimates will be placed in the member matrix out.par."
             * - out.fct
               - scalar, function evaluated at *x*.
