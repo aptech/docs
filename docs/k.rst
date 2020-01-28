@@ -5,8 +5,8 @@ K
     :maxdepth: 1
     :caption: Functions:
 
-    CR-keepdataloop
-    CR-keyav
-    CR-key
-    CR-keyword
-    CR-keyw
+    keepdataloop
+    keyav
+    key
+    keyword
+    keyw

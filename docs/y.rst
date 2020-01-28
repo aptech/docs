@@ -5,5 +5,5 @@ Y
     :maxdepth: 1
     :caption: Functions:
 
-    CR-ylabel
-    CR-ytics
+    ylabel
+    ytics

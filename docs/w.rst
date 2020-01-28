@@ -5,7 +5,7 @@ W
     :maxdepth: 1
     :caption: Functions:
 
-    CR-waitwaitc
-    CR-walkindex
-    CR-window
-    CR-writer
+    waitwaitc
+    walkindex
+    window
+    writer

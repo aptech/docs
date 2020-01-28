@@ -5,7 +5,7 @@ Z
     :maxdepth: 1
     :caption: Functions:
 
-    CR-zeros
-    CR-zeta
-    CR-zlabel
-    CR-ztics
+    zeros
+    zeta
+    zlabel
+    ztics
