@@ -19,8 +19,8 @@ B
     besselk
     bessely
     beta
-    blendColorPalette
-    blockDiag
+    blendcolorpalette
+    blockdiag
     boxcox
     box
     break

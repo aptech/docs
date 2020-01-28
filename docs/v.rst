@@ -6,8 +6,8 @@ V
     :caption: Functions:
 
     vals
-    varCovMSvarCovXS
-    varCovMvarCovX
+    varcovmsvarcovxs
+    varcovmvarcovx
     vargetl
     varget
     varmall

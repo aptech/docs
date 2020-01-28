@@ -37,4 +37,4 @@ F
     ftell
     ftocv
     ftos
-    ftostrC
+    ftostrc

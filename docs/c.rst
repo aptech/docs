@@ -6,60 +6,60 @@ C
     :caption: Functions:
 
     call
-    cdfBetaInv
-    cdfBeta
-    cdfBinomialInv
-    cdfBinomial
-    cdfBvn2e
-    cdfBvn2
-    cdfBvn
-    cdfCauchyInv
-    cdfCauchy
-    cdfChic
-    cdfChii
-    cdfChincInv
-    cdfChinc
-    cdfEmpirical
-    cdfExpInv
-    cdfExp
-    cdfFc
-    cdfFncInv
-    cdfFnc
-    cdfGam
-    cdfGenPareto
-    cdfHyperGeo
-    cdfLaplaceInv
-    cdfLaplace
-    cdfLogisticInv
-    cdfLogistic
-    cdfLogNorm
-    cdfMvn2e
-    cdfMvnce
-    cdfMvne
-    cdfMvn
-    cdfMvt2e
-    cdfMvtce
-    cdfMvte
-    cdfN2
-    cdfNcdfNc
-    cdfNegBinomialInv
-    cdfNegBinomial
-    cdfNi
-    cdfPoissonInv
-    cdfPoisson
-    cdfRayleighInv
-    cdfRayleigh
-    cdfTci
-    cdfTc
-    cdfTnc
-    cdfTruncNorm
-    cdfTvn
-    cdfWeibullInv
-    cdfWeibull
+    cdfbetainv
+    cdfbeta
+    cdfbinomialinv
+    cdfbinomial
+    cdfbvn2e
+    cdfbvn2
+    cdfbvn
+    cdfcauchyinv
+    cdfcauchy
+    cdfchic
+    cdfchii
+    cdfchincinv
+    cdfchinc
+    cdfempirical
+    cdfexpinv
+    cdfexp
+    cdffc
+    cdffncinv
+    cdffnc
+    cdfgam
+    cdfgenpareto
+    cdfhypergeo
+    cdflaplaceinv
+    cdflaplace
+    cdflogisticinv
+    cdflogistic
+    cdflognorm
+    cdfmvn2e
+    cdfmvnce
+    cdfmvne
+    cdfmvn
+    cdfmvt2e
+    cdfmvtce
+    cdfmvte
+    cdfn2
+    cdfncdfnc
+    cdfnegbinomialinv
+    cdfnegbinomial
+    cdfni
+    cdfpoissoninv
+    cdfpoisson
+    cdfrayleighinv
+    cdfrayleigh
+    cdftci
+    cdftc
+    cdftnc
+    cdftruncnorm
+    cdftvn
+    cdfweibullinv
+    cdfweibull
     cdir
     ceil
     chdir
-    chiBarSquare
+    chibarsquare
     choldn
     chol
     cholsol
@@ -101,9 +101,9 @@ C
     croutp
     crout
     csrcolcsrlin
-    csvReadM
-    csvReadSA
-    csvWriteM
+    csvreadm
+    csvreadsa
+    csvwritem
     cumprodc
     cumsumc
     curve

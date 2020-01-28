@@ -17,16 +17,16 @@ I
     indices
     indnv
     indsav
-    innerJoin
+    innerjoin
     integrate1d
-    integrateControlCreate
+    integratecontrolcreate
     intgrat2
     intgrat3
     inthp1
     inthp2
     inthp3
     inthp4
-    inthpControlCreate
+    inthpcontrolcreate
     intquad1
     intquad2
     intquad3

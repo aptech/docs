@@ -6,15 +6,15 @@ X
     :caption: Functions:
 
     xlabel
-    xlsGetSheetCount
-    xlsGetSheetSize
-    xlsGetSheetTypes
-    xlsMakeRange
-    xlsReadM
-    xlsReadSA
-    xlsWriteM
-    xlsWrite
-    xlsWriteSA
+    xlsgetsheetcount
+    xlsgetsheetsize
+    xlsgetsheettypes
+    xlsmakerange
+    xlsreadm
+    xlsreadsa
+    xlswritem
+    xlswrite
+    xlswritesa
     xpnd
     xtics
     xy

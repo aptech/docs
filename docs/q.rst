@@ -5,7 +5,7 @@ Q
     :maxdepth: 1
     :caption: Functions:
 
-    qfitControlCreate
+    qfitcontrolcreate
     qqrep
     qqre
     qqr

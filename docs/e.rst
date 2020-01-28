@@ -11,20 +11,20 @@ E
     eighv
     eig
     eigv
-    elapsedTradingDays
+    elapsedtradingdays
     endp
     end
     endwind
     envget
     eof
-    eqSolvemtControlCreate
-    eqSolvemtOutCreate
-    eqSolvemt
-    eqSolve
-    eqSolveSet
+    eqsolvemtcontrolcreate
+    eqsolvemtoutcreate
+    eqsolvemt
+    eqsolve
+    eqsolveset
     erfcplxerfccplx
     erferfc
-    erfInverfCInv
+    erfinverfcinv
     errorlogat
     errorlog
     error

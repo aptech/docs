@@ -13,4 +13,4 @@ N
     ntos
     null1
     null
-    numCombinations
+    numcombinations

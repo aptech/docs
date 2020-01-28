@@ -5,7 +5,7 @@ O
     :maxdepth: 1
     :caption: Functions:
 
-    olsmtControlCreate
+    olsmtcontrolcreate
     olsmt
     olsqr2
     olsqrmt
@@ -15,7 +15,7 @@ O
     open
     optnoptnevn
     orth
-    outerJoin
+    outerjoin
     output
     outtypdataloop
     outwidth

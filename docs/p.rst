@@ -6,100 +6,100 @@ P
     :caption: Functions:
 
     pacf
-    packedToSp
+    packedtosp
     packr
     parse
     pause
-    pdfBinomial
-    pdfCauchy
+    pdfbinomial
+    pdfcauchy
     pdfexp
-    pdfGenPareto
-    pdfHyperGeo
-    pdfLaplace
-    pdfLogistic
-    pdfLogNorm
+    pdfgenpareto
+    pdfhypergeo
+    pdflaplace
+    pdflogistic
+    pdflognorm
     pdfn
-    pdfPoisson
-    pdfRayleigh
-    pdfTruncNorm
-    pdfWeibull
-    pdfWishartInv
+    pdfpoisson
+    pdfrayleigh
+    pdftruncnorm
+    pdfweibull
+    pdfwishartinv
     pinvmt
     pinv
     pi
-    plotACF
-    plotAddArea
-    plotAddArrow
-    plotAddBar
-    plotAddBox
-    plotAddErrorBar
-    plotAddHistF
-    plotAddHistP
-    plotAddHist
-    plotAddPolar
-    plotAddScatter
-    plotAddShape
-    plotAddSurface
-    plotAddTextbox
-    plotAddTS
-    plotAddXY
-    plotArea
-    plotBar
-    plotBox
-    plotCanvasSize
-    plotCDFEmpirical
-    plotClearLayout
-    plotContour
-    plotCustomLayout
-    plotGetDefaults
-    plotHistF
-    plotHistP
-    plotHist
-    plotLayout
-    plotLogLog
-    plotLogX
-    plotLogY
-    plotOpenWindow
-    plotPACF
-    plotPolar
-    plotSave
-    plotScatter
-    plotSetAxesPen
-    plotSetBar
-    plotSetBkdColor
-    plotSetColorMap
-    plotSetContourLabels
-    plotSetFill
-    plotSetGrid
-    plotSetLegendBkd
-    plotSetLegendFont
-    plotSetLegend
-    plotSetLineColor
-    plotSetLineStyle
-    plotSetLineSymbol
-    plotSetLineThickness
-    plotSetNewWindow
-    plotSetTextInterpreter
-    plotSetTicLabelFont
-    plotSetTitle
-    plotSetWhichYAxis
-    plotSetXLabel
-    plotSetXRange
-    plotSetXTicCount
-    plotSetXTicInterval
-    plotSetXTicLabel
-    plotSetYLabel
-    plotSetYRange
-    plotSetYTicCount
-    plotSetYTicLabel
-    plotSetZLabel
-    plotSetZLevels
-    plotSetZRange
-    plotSurface
-    plotTSHF
-    plotTSLog
-    plotTS
-    plotXY
+    plotacf
+    plotaddarea
+    plotaddarrow
+    plotaddbar
+    plotaddbox
+    plotadderrorbar
+    plotaddhistf
+    plotaddhistp
+    plotaddhist
+    plotaddpolar
+    plotaddscatter
+    plotaddshape
+    plotaddsurface
+    plotaddtextbox
+    plotaddts
+    plotaddxy
+    plotarea
+    plotbar
+    plotbox
+    plotcanvassize
+    plotcdfempirical
+    plotclearlayout
+    plotcontour
+    plotcustomlayout
+    plotgetdefaults
+    plothistf
+    plothistp
+    plothist
+    plotlayout
+    plotloglog
+    plotlogx
+    plotlogy
+    plotopenwindow
+    plotpacf
+    plotpolar
+    plotsave
+    plotscatter
+    plotsetaxespen
+    plotsetbar
+    plotsetbkdcolor
+    plotsetcolormap
+    plotsetcontourlabels
+    plotsetfill
+    plotsetgrid
+    plotsetlegendbkd
+    plotsetlegendfont
+    plotsetlegend
+    plotsetlinecolor
+    plotsetlinestyle
+    plotsetlinesymbol
+    plotsetlinethickness
+    plotsetnewwindow
+    plotsettextinterpreter
+    plotsetticlabelfont
+    plotsettitle
+    plotsetwhichyaxis
+    plotsetxlabel
+    plotsetxrange
+    plotsetxticcount
+    plotsetxticinterval
+    plotsetxticlabel
+    plotsetylabel
+    plotsetyrange
+    plotsetyticcount
+    plotsetyticlabel
+    plotsetzlabel
+    plotsetzlevels
+    plotsetzrange
+    plotsurface
+    plottshf
+    plottslog
+    plotts
+    plotxy
     polar
     polychar
     polyeval
@@ -112,7 +112,7 @@ P
     polyroot
     pop
     posixtostrc
-    powerM
+    powerm
     pqgwin
     previousindex
     princomp
@@ -126,20 +126,20 @@ P
     putarray
     putf
     putvals
-    pvCreate
-    pvGetIndex
-    pvGetParNames
-    pvGetParVector
-    pvLength
-    pvList
-    pvPacki
-    pvPackmi
-    pvPackm
-    pvPack
-    pvPacksi
-    pvPacksmi
-    pvPacksm
-    pvPacks
-    pvPutParVector
-    pvTest
-    pvUnpack
+    pvcreate
+    pvgetindex
+    pvgetparnames
+    pvgetparvector
+    pvlength
+    pvlist
+    pvpacki
+    pvpackmi
+    pvpackm
+    pvpack
+    pvpacksi
+    pvpacksmi
+    pvpacksm
+    pvpacks
+    pvputparvector
+    pvtest
+    pvunpack

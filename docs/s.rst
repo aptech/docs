@@ -5,8 +5,8 @@ S
     :maxdepth: 1
     :caption: Functions:
 
-    sampleData
-    satostrC
+    sampledata
+    satostrc
     saveall
     saved
     save
@@ -28,7 +28,7 @@ S
     seqaposix
     seqaseqm
     setarray
-    setBlockSize
+    setblocksize
     setdif
     setdifsa
     setvars
@@ -48,32 +48,32 @@ S
     sortindsortindc
     sortmc
     sortrsortrc
-    spBiconjGradSol
-    spChol
-    spConjGradSol
-    spCreate
-    spDenseSubmat
-    spDiagRvMat
-    spEigv
-    spEye
-    spGetNZE
-    spLDL
+    spbiconjgradsol
+    spchol
+    spconjgradsol
+    spcreate
+    spdensesubmat
+    spdiagrvmat
+    speigv
+    speye
+    spgetnze
+    spldl
     spline
-    spLU
-    spNumNZE
-    spOnes
-    spScale
-    spSubmat
-    spToDense
-    spTrTDense
-    spTScalar
-    spZeros
-    sqpSolveMTControlCreate
-    sqpSolveMTlagrangeCreate
-    sqpSolveMToutCreate
-    sqpSolveMT
-    sqpSolve
-    sqpSolveSet
+    splu
+    spnumnze
+    spones
+    spscale
+    spsubmat
+    sptodense
+    sptrtdense
+    sptscalar
+    spzeros
+    sqpsolvemtcontrolcreate
+    sqpsolvemtlagrangecreate
+    sqpsolvemtoutcreate
+    sqpsolvemt
+    sqpsolve
+    sqpsolveset
     sqrt
     squeeze
     stdc
@@ -91,7 +91,7 @@ S
     strreplace
     strrindx
     strsect
-    strsplitPad
+    strsplitpad
     strsplit
     strtodt
     strtofcplx

@@ -5,7 +5,7 @@ M
     :maxdepth: 1
     :caption: Functions:
 
-    machEpsilon
+    machepsilon
     makedataloop
     makevars
     makewind
@@ -30,7 +30,7 @@ M
     missmissrv
     momentd
     moment
-    movingaveExpwgt
+    movingaveexpwgt
     movingave
-    movingaveWgt
+    movingavewgt
     msym

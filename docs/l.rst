@@ -32,7 +32,7 @@ L
     lib
     linesonlinesoff
     linsolve
-    listColorPalettes
+    listcolorpalettes
     listwisedataloop
     lncdfbvn2
     lncdfbvn
@@ -54,7 +54,7 @@ L
     loadwind
     local
     locate
-    loessmtControlCreate
+    loessmtcontrolcreate
     loessmt
     loess
     loglog

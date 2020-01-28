@@ -13,13 +13,13 @@ A
     amean
     amin
     amult
-    annotationGetDefaults
-    annotationSetBkd
-    annotationSetFont
-    annotationSetLineColor
-    annotationSetLineStyle
-    annotationSetLineThickness
-    annualTradingDays
+    annotationgetdefaults
+    annotationsetbkd
+    annotationsetfont
+    annotationsetlinecolor
+    annotationsetlinestyle
+    annotationsetlinethickness
+    annualtradingdays
     arccos
     arcsin
     areshape

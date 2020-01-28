@@ -9,7 +9,7 @@ R
     rank
     readr
     real
-    reclassifyCuts
+    reclassifycuts
     reclassify
     recodedataloop
     recode
@@ -30,52 +30,52 @@ R
     rfftn
     rfftp
     rfft
-    rndBernoulli
-    rndBeta
-    rndBinomial
-    rndCauchy
-    rndChiSquare
+    rndbernoulli
+    rndbeta
+    rndbinomial
+    rndcauchy
+    rndchisquare
     rndconrndmultrndseed
-    rndCreateState
-    rndExp
-    rndGamma
+    rndcreatestate
+    rndexp
+    rndgamma
     rndgam
-    rndGeo
-    rndGumbel
-    rndHyperGeo
+    rndgeo
+    rndgumbel
+    rndhypergeo
     rndi
-    rndKMbeta
-    rndKMgam
-    rndKMi
-    rndKMnb
-    rndKMn
-    rndKMp
-    rndKMu
-    rndKMvm
-    rndLaplace
-    rndLCbeta
-    rndLCgam
-    rndLCi
-    rndLCnb
-    rndLCn
-    rndLCp
-    rndLCu
-    rndLCvm
-    rndLogNorm
-    rndMVn
-    rndMVt
+    rndkmbeta
+    rndkmgam
+    rndkmi
+    rndkmnb
+    rndkmn
+    rndkmp
+    rndkmu
+    rndkmvm
+    rndlaplace
+    rndlcbeta
+    rndlcgam
+    rndlci
+    rndlcnb
+    rndlcn
+    rndlcp
+    rndlcu
+    rndlcvm
+    rndlognorm
+    rndmvn
+    rndmvt
     rndnb
-    rndNegBinomial
+    rndnegbinomial
     rndn
-    rndPoisson
+    rndpoisson
     rndp
-    rndRayleigh
-    rndStateSkip
+    rndrayleigh
+    rndstateskip
     rndu
     rndvm
-    rndWeibull
-    rndWishartInv
-    rndWishart
+    rndweibull
+    rndwishartinv
+    rndwishart
     robustse
     rotater
     round

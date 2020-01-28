@@ -7,23 +7,23 @@ H
 
     h5create
     h5open
-    h5readAttribute
+    h5readattribute
     h5read
-    h5writeAttribute
+    h5writeattribute
     h5write
     hasimag
     headermt
     header
-    hessMTg
-    hessMTgw
-    hessMTm
-    hessMTmw
-    hessMT
-    hessMTTg
-    hessMTTgw
-    hessMTTm
-    hessMTT
-    hessMTw
+    hessmtg
+    hessmtgw
+    hessmtm
+    hessmtmw
+    hessmt
+    hessmttg
+    hessmttgw
+    hessmttm
+    hessmtt
+    hessmtw
     hessphesscplx
     hess
     histf

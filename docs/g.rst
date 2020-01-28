@@ -9,68 +9,68 @@ G
     gammaii
     gamma
     gausset
-    gdaAppend
-    gdaCreate
-    gdaDStatMat
-    gdaDStat
-    gdaGetIndex
-    gdaGetName
-    gdaGetNames
-    gdaGetOrders
-    gdaGetType
-    gdaGetTypes
-    gdaGetVarInfo
-    gdaIsCplx
-    gdaLoad
-    gdaPack
-    gdaReadByIndex
-    gdaRead
-    gdaReadSome
-    gdaReadSparse
-    gdaReadStruct
-    gdaReportVarInfo
-    gdaSave
-    gdaUpdateAndPack
-    gdaUpdate
-    gdaVars
-    gdaWrite32
-    gdaWrite
-    gdaWriteSome
+    gdaappend
+    gdacreate
+    gdadstatmat
+    gdadstat
+    gdagetindex
+    gdagetname
+    gdagetnames
+    gdagetorders
+    gdagettype
+    gdagettypes
+    gdagetvarinfo
+    gdaiscplx
+    gdaload
+    gdapack
+    gdareadbyindex
+    gdaread
+    gdareadsome
+    gdareadsparse
+    gdareadstruct
+    gdareportvarinfo
+    gdasave
+    gdaupdateandpack
+    gdaupdate
+    gdavars
+    gdawrite32
+    gdawrite
+    gdawritesome
     getarray
-    getColorPalette
+    getcolorpalette
     getdims
     getf
     getgausshome
-    getHeaders
-    getHSLPalette
-    getHSLuvPalette
-    getmatrix4D
+    getheaders
+    gethslpalette
+    gethsluvpalette
+    getmatrix4d
     getmatrix
     getnamef
     getname
-    getNextTradingDay
-    getNextWeekDay
+    getnexttradingday
+    getnextweekday
     getnrmt
     getnr
     getorders
     getpath
-    getPreviousTradingDay
-    getPreviousWeekDay
-    getRow
-    getscalar3D
-    getscalar4D
-    getTrRow
+    getprevioustradingday
+    getpreviousweekday
+    getrow
+    getscalar3d
+    getscalar4d
+    gettrrow
     getwind
     glm
-    gmmFitControlCreate
-    gmmFitIV
-    gmmFit
+    gmmfitcontrolcreate
+    gmmfitiv
+    gmmfit
     gosub
     goto
-    gradMTm
-    gradMT
-    gradMTTm
-    gradMTT
+    gradmtm
+    gradmt
+    gradmttm
+    gradmtt
     gradpgradcplx
     graphprt
     graphset

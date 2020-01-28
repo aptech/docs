@@ -18,83 +18,83 @@ D
     datestrymd
     dayinyr
     dayofweek
-    dbAddDatabase
-    dbClose
-    dbCommit
-    dbCreateQuery
-    dbExecQuery
-    dbGetConnectOptions
-    dbGetDatabaseName
-    dbGetDriverName
-    dbGetDrivers
-    dbGetHostName
-    dbGetLastErrorNum
-    dbGetLastErrorText
-    dbGetNumericalPrecPolicy
-    dbGetPassword
-    dbGetPort
-    dbGetPrimaryIndex
-    dbGetTableHeaders
-    dbGetTables
-    dbGetUserName
-    dbHasFeature
-    dbIsDriverAvailable
-    dbIsOpenError
-    dbIsOpen
-    dbIsValid
-    dbNumericalPrecPolicy
-    dbOpen
-    dbQueryBindValue
-    dbQueryClear
-    dbQueryCols
-    dbQueryExecPrepared
-    dbQueryFetchAllM
-    dbQueryFetchAllSA
-    dbQueryFetchOneM
-    dbQueryFetchOneSA
-    dbQueryFinish
-    dbQueryGetBoundValue
-    dbQueryGetBoundValues
-    dbQueryGetField
-    dbQueryGetLastErrorNum
-    dbQueryGetLastErrorText
-    dbQueryGetLastInsertID
-    dbQueryGetLastQuery
-    dbQueryGetNumRowsAffected
-    dbQueryGetPosition
-    dbQueryIsActive
-    dbQueryIsForwardOnly
-    dbQueryIsNull
-    dbQueryIsSelect
-    dbQueryIsValid
-    dbQueryPrepare
-    dbQueryRows
-    dbQuerySeekFirst
-    dbQuerySeekLast
-    dbQuerySeekNext
-    dbQuerySeekPrevious
-    dbQuerySeek
-    dbQuerySetForwardOnly
-    dbRemoveDatabase
-    dbRollback
-    dbSetConnectOptions
-    dbSetDatabaseName
-    dbSetHostName
-    dbSetNumericalPrecPolicy
-    dbSetPassword
-    dbSetPort
-    dbSetUserName
-    dbTransaction
+    dbadddatabase
+    dbclose
+    dbcommit
+    dbcreatequery
+    dbexecquery
+    dbgetconnectoptions
+    dbgetdatabasename
+    dbgetdrivername
+    dbgetdrivers
+    dbgethostname
+    dbgetlasterrornum
+    dbgetlasterrortext
+    dbgetnumericalprecpolicy
+    dbgetpassword
+    dbgetport
+    dbgetprimaryindex
+    dbgettableheaders
+    dbgettables
+    dbgetusername
+    dbhasfeature
+    dbisdriveravailable
+    dbisopenerror
+    dbisopen
+    dbisvalid
+    dbnumericalprecpolicy
+    dbopen
+    dbquerybindvalue
+    dbqueryclear
+    dbquerycols
+    dbqueryexecprepared
+    dbqueryfetchallm
+    dbqueryfetchallsa
+    dbqueryfetchonem
+    dbqueryfetchonesa
+    dbqueryfinish
+    dbquerygetboundvalue
+    dbquerygetboundvalues
+    dbquerygetfield
+    dbquerygetlasterrornum
+    dbquerygetlasterrortext
+    dbquerygetlastinsertid
+    dbquerygetlastquery
+    dbquerygetnumrowsaffected
+    dbquerygetposition
+    dbqueryisactive
+    dbqueryisforwardonly
+    dbqueryisnull
+    dbqueryisselect
+    dbqueryisvalid
+    dbqueryprepare
+    dbqueryrows
+    dbqueryseekfirst
+    dbqueryseeklast
+    dbqueryseeknext
+    dbqueryseekprevious
+    dbqueryseek
+    dbquerysetforwardonly
+    dbremovedatabase
+    dbrollback
+    dbsetconnectoptions
+    dbsetdatabasename
+    dbsethostname
+    dbsetnumericalprecpolicy
+    dbsetpassword
+    dbsetport
+    dbsetusername
+    dbtransaction
     debug
     declare
-    delCols
+    delcols
     deletedataloop
     delete
     delif
     delrows
-    denseToSpRE
-    denseToSp
-    denToZero
+    densetospre
+    densetosp
+    dentozero
     design
     detl
     det
@@ -113,8 +113,8 @@ D
     dowhiledountil
     draw
     dropdataloop
-    dsCreate
-    dstatmtControlCreate
+    dscreate
+    dstatmtcontrolcreate
     dstatmt
     dstat
     dtdate
