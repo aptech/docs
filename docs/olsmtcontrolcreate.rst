@@ -26,7 +26,7 @@ before it can be used.
     struct olsmtControl ctl;
 
     // Initialize structure 'ctl'
-    ctl = olsmtControlCreate;
+    ctl = olsmtControlCreate();
 
 The members of the :class:`olsmtControl` structure and their default values are described in the
 manual entry for :func:`olsmt`.
