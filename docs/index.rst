@@ -11,12 +11,11 @@ Welcome to GAUSS's documentation!
    :caption: Contents:
 
    command-reference
+   machine-learning
 
 
 Indices and tables
 ==================
 
-* :ref:`genindex`
-.. * :ref:`modindex`
 * :ref:`search`
 
