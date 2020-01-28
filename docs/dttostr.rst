@@ -14,7 +14,7 @@ Format
     :param x: Contains dates in DT scalar format
     :type x: NxK matrix
 
-    :param fmt:  Contains date/time format characters.
+    :param fmt: Contains date/time format characters.
     :type fmt: String or  ExE conformable string array
 
     :return sa: Date in character string format.

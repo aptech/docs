@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: str_int = itos(x)
 
-    :param x:  data
+    :param x: data
     :type x: scalar or NxK matrix
 
     :return str_int: or string array containing the string representation of the elements of x.

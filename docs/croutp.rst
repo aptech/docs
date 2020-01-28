@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: lup = croutp(x)
 
-    :param x:  square nonsingular matrix.
+    :param x: square nonsingular matrix.
     :type x: NxN matrix
 
     :return lup: containing the lower (:math:`L`) and upper

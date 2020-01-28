@@ -13,7 +13,7 @@ Format
 ----------------
 .. function:: fonts(str)
 
-    :param str:  The following fonts are available:
+    :param str: The following fonts are available:
 
         .. csv-table::
             :widths: auto

@@ -14,7 +14,7 @@ Format
     :param myPlot: Optional argument, a :class:`plotControl` structure
     :type myPlot: struct
 
-    :param x:  The X values for a particular line.
+    :param x: The X values for a particular line.
     :type x: Nx1 matrix
 
     :param y_bottom: Each column contains the Y values for the bottom of a filled area. If *y_bottom* contains more than

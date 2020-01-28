@@ -13,10 +13,10 @@ Format
     :param p: Probabilities at which to compute the inverse of noncentral chi-squared cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
-    :param df:  The degrees of freedom. :math:`df > 0`.
+    :param df: The degrees of freedom. :math:`df > 0`.
     :type df: ExE conformable with *p*
 
-    :param nonc:  The noncentrality parameter. Note: This is the squared root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.  :math:`nonc > 0`.
+    :param nonc: The noncentrality parameter. Note: This is the squared root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.  :math:`nonc > 0`.
     :type nonc: ExE conformable with *p*
 
     :return x: each value of *x* is the value such that the noncentral chi-squared cdf with *df* degrees of freedom and *nonc* noncentrality evaluated at *x* is equal to the corresponding value of *p*.

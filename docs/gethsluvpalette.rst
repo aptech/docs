@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: clrs = getHSLuvPalette(ncolors[, h[, s[, l]]])
 
-    :param ncolors:  The number of colors to create for the palette
+    :param ncolors: The number of colors to create for the palette
     :type ncolors: scalar
 
     :param h: Optional. first hue. Default value is 0.01

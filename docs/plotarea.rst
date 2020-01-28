@@ -14,7 +14,7 @@ Format
     :param myPlot: Optional argument, a :class:`plotControl` structure
     :type myPlot: struct
 
-    :param x:  The X values for a particular line.
+    :param x: The X values for a particular line.
     :type x: Nx1 matrix
 
     :param y: Each column contains the Y values for a particular line. If *y* contains more than

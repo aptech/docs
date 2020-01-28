@@ -16,7 +16,7 @@ Format
     :param grp: contains the group numbers corresponding to each column of *y* data. If scalar 0, a sequence from 1 to ``cols(y)`` will be generated automatically for the x-axis.
     :type grp: 1xM vector
 
-    :param y:  Each column represents the set of *y* values for an individual percentiles box symbol.
+    :param y: Each column represents the set of *y* values for an individual percentiles box symbol.
     :type y: NxM matrix
 
 Remarks

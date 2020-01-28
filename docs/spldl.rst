@@ -17,7 +17,7 @@ Format
 
     :rtype l: NxN lower-triangular sparse matrix
 
-    :return d:  The diagonal sparse matrix :math:`LDL` decomposition of *A*.
+    :return d: The diagonal sparse matrix :math:`LDL` decomposition of *A*.
 
     :rtype d: NxN diagonal sparse matrix
 

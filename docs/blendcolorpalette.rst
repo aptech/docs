@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: color_blend = blendColorPalette(colors, n_colors)
 
-    :param colors:  List of existing colors.
+    :param colors: List of existing colors.
     :type colors: Nx1 string array
 
-    :param n_colors:  The number of colors to create for the new palette.
+    :param n_colors: The number of colors to create for the new palette.
     :type n_colors: scalar
 
     :return color_blend: containing color palette.

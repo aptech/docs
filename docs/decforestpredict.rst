@@ -21,10 +21,10 @@ Format
                  "dfm.opaqueModel","Matrix, contains model details for internal use only."
     :type dfm: struct
 
-    :param x_test:  The independent variables.
-    :type x_test:  NxP matrix
+    :param x_test: The independent variables.
+    :type x_test: NxP matrix
 
-    :return predictions:   The predictions.
+    :return predictions: The predictions.
     :rtype predictions: Nx1 numeric or string vector
 
 Examples

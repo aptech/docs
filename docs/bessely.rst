@@ -17,7 +17,7 @@ Format
     :param x: where the last two dimensions are LxM, ExE conformable with n.
     :type x: LxM matrix or P-dimensional array
 
-    :return y:  where the last two dimensions are max(N,L) by max(K,M).
+    :return y: where the last two dimensions are max(N,L) by max(K,M).
 
     :rtype y: max(N,L) by max(K,M) matrix or P-dimensional array
 

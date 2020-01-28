@@ -60,7 +60,7 @@ Format
 
     :type label_unit: string
 
-    :param y:  Each column contains the Y values for a particular line.
+    :param y: Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
 Examples

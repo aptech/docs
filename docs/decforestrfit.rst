@@ -7,16 +7,15 @@ Fit a decision forest regression model.
 
 Format
 --------------------
-.. function::  dfm = decForestRFit(y_train, x_train)
-               dfm = decForestRFit(y_train, x_train, dfc)
+.. function::  dfm = decForestRFit(y_train, x_train[, dfc])
 
     :param y_train: The dependent variable.
     :type y_train: Nx1 vector
 
-    :param x_train:  The independent variables.
-    :type x_train:  NxP matrix.
+    :param x_train: The independent variables.
+    :type x_train: NxP matrix.
 
-    :param dfc:  Optional input, an instance of the :class:`dfControl` structure. For an instance named, *dfc* the members are:
+    :param dfc: Optional input, an instance of the :class:`dfControl` structure. For an instance named, *dfc* the members are:
 
         .. csv-table::
             :widths: auto
@@ -39,7 +38,7 @@ Format
 
     :type dfc: struct
 
-    :return dfm:       An instance of the dfModel structure. An instance named *dfm* will have the following members:
+    :return dfm: An instance of the dfModel structure. An instance named *dfm* will have the following members:
 
         .. csv-table::
             :widths: auto

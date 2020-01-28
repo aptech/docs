@@ -12,7 +12,7 @@ Format
 .. function:: x = erfInv(y)
               x = erfCInv(y)
 
-    :param y:  Gaussian error function values. :math:`-1 < y < 1`.
+    :param y: Gaussian error function values. :math:`-1 < y < 1`.
     :type y: scalar or NxK matrix
 
     :return x: The inverse of the Gaussian error function.

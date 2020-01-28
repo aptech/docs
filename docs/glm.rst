@@ -13,7 +13,7 @@ Format
               out = glm(y, x, family[, ctl])
               out = glm(dataset_name, formula, family[, ctl])
 
-    :param y:  the dependent, or response, variable. *n* is the number of the observations used in the analysis.
+    :param y: the dependent, or response, variable. *n* is the number of the observations used in the analysis.
     :type y: Nx1 vector
 
     :param x: the independent, or explanatory, variables. *k* is the number of the independent variables.

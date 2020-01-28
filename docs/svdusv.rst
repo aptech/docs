@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: { u, s, v } = svdusv(x)
 
-    :param x:  data whose singular values are to be computed, where the last two dimensions are NxP.
+    :param x: data whose singular values are to be computed, where the last two dimensions are NxP.
     :type x: NxP matrix or K-dimensional array
 
     :return u: where the last two dimensions are :math:`NxN`, the left singular vectors

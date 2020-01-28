@@ -15,12 +15,12 @@ Format
         the (scalar) polynomial(s), or it can represent a single NxN matrix.
     :type x: 1xK vector or NxN matrix.
 
-    :param c:  coefficients of polynomials to evaluate. If *x* is 1xK, then *c* must be (P+1)xK.
+    :param c: coefficients of polynomials to evaluate. If *x* is 1xK, then *c* must be (P+1)xK.
         If *x* is NxN, *c* must be (P+1)x1. That is, if *x* is a matrix, it can only be evaluated
         at a single set of coefficients.
     :type c: (P+1)xK or (P+1)x1 matrix
 
-    :return y:  Kx1 vector (if *c* is (P+1)xK) or NxN matrix (if *c* is (P+1)x1 and *x* is NxN):
+    :return y: Kx1 vector (if *c* is (P+1)xK) or NxN matrix (if *c* is (P+1)x1 and *x* is NxN):
 
         .. math:: y =( c[1, .]*x^p + c[2, .]*x^{(p-1)} + ... + c[p+1, .] )';
 

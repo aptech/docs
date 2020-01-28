@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: clrs = getColorPalette(name[, ncolors])
 
-    :param name:  The name of the color palette. The full set of built-in color palettes `can be seen here <colorPalettesAppendix.html>`_. The list of palettes can be queried with :func:`listColorPalettes`.
+    :param name: The name of the color palette. The full set of built-in color palettes `can be seen here <colorPalettesAppendix.html>`_. The list of palettes can be queried with :func:`listColorPalettes`.
     :type name: string
 
         Valid options include:
@@ -31,7 +31,7 @@ Format
 
         * denotes colorblind friendly palette
 
-    :param ncolors:  Optional. The desired number of colors for a specific palette. Default value is 6. If *ncolors* is fewer than the minimum number of colors offered by a palette, then the minimum will be returned with a warning. The same behavior occurs when *ncolors* is greater than the maximum number of colors a palette supports.
+    :param ncolors: Optional. The desired number of colors for a specific palette. Default value is 6. If *ncolors* is fewer than the minimum number of colors offered by a palette, then the minimum will be returned with a warning. The same behavior occurs when *ncolors* is greater than the maximum number of colors a palette supports.
     :type ncolors: scalar
 
     :return clrs: hex values for each color in the palette.

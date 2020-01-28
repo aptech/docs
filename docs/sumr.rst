@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: y = sumr(x)
 
-    :param x:  data matrix where the last two dimensions are NxK
+    :param x: data matrix where the last two dimensions are NxK
     :type x: NxK matrix or L-dimensional array
 
     :return y: contains the sum of each row. The last two dimensions are Nx1.

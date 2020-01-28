@@ -7,8 +7,7 @@ Partitions data into k clusters, using the kmeans algorithm.
 
 Format
 ----------------------
-.. function:: mdl = kmeansFit(X, clusters)
-              mdl = kmeansFit(X, clusters, ctl)
+.. function:: mdl = kmeansFit(X, clusters[, ctl])
 
     :param X: The training data.
     :type X: NxP matrix
@@ -31,7 +30,7 @@ Format
                     "ctl.tolerance","Scalar, the convergence tolerance for the kmeans algorithm."
                     "ctl.maxIters","Scalar, the maximum number of iterations to allow each of the *nStarts* to run before forcing convergence."
 
-    :return mdl:  An instance of a :class:`kmeansModel` structure.
+    :return mdl: An instance of a :class:`kmeansModel` structure.
 
         .. csv-table::
             :widths: auto

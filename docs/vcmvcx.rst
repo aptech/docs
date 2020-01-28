@@ -15,7 +15,7 @@ Format
 .. function:: vc = vcm(m)
               vc = vcx(x)
 
-    :param m:  A constant term MUST have been the first variable when the moment matrix was computed.
+    :param m: A constant term MUST have been the first variable when the moment matrix was computed.
     :type m: KxK moment (:math:`x'x`) matrix
 
     :param x: data

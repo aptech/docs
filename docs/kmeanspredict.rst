@@ -13,8 +13,10 @@ Format
           
     :param mdl: Instance of a :class:`kmeansModel` structure.
     :type mdl: struct
+
     :param centroids: Cluster centers.
     :type centroids: kxP matrix
+
     :param X: The data to partition.
     :type X: NxP matrix
 

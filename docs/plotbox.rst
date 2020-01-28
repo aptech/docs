@@ -16,7 +16,7 @@ Format
     :param group_id: This contains the group numbers or string labels corresponding to each column of *y* data. If scalar 0, a sequence from 1 to ``cols(y)`` will be generated automatically for the x-axis.
     :type group_id: Mx1 vector or Mx1 string array
 
-    :param y:  Each column represents the set of *y* values for an individual percentiles box symbol.
+    :param y: Each column represents the set of *y* values for an individual percentiles box symbol.
     :type y: NxM matrix
 
 Examples

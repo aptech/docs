@@ -17,7 +17,7 @@ Format
     :param sql_statement: Contains a valid SQL statement
     :type sql_statement: string
 
-    :param placeholders:  Contains bind value(s)
+    :param placeholders: Contains bind value(s)
     :type placeholders: string or string array
 
     :return qid: query id to be used for result retrieval.
