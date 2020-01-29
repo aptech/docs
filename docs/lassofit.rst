@@ -48,7 +48,7 @@ Examples
 -----------
 
 Example 1: Basic Estimation and Prediction
-============================================
++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -110,4 +110,4 @@ Each variable (column of *X*) is centered to have a mean of 0 and scaled to have
 
 
     
-.. sealso:: `ridgeFit`
+.. seealso:: :func:`ridgeFit`
