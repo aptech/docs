@@ -28,7 +28,7 @@ Format
         the new shared libraries follow the already active ones. Without the ``-a`` flag, any previously linked libraries are dumped.
 
     :param -d: dump flag. ALL shared libraries are unlinked and the functions they contain are no longer available
-        to your programs. If you use :func:`dllcall` to call one of your functions after executing a
+        to your programs. If you use `dllcall` to call one of your functions after executing a
         :code:`dlibrary -d` your program will terminate with an error.
 
 Examples
@@ -57,7 +57,7 @@ Remarks
 
 -  If no flags are used, the shared libraries listed are linked into
    GAUSS and any previously linked libraries are dumped. When you call
-   :func:`dllcall`, the shared libraries will be searched in the order listed
+   `dllcall`, the shared libraries will be searched in the order listed
    for the specified function. The first instance of the function found
    will be called.
 
@@ -85,4 +85,4 @@ Remarks
 For more information, see `Foreign Language Interface <FLI-ForeignLanguageInterface.html>`_.
 
 
-.. seealso:: Functions :func:`dllcall`, :func:`sysstate`
+.. seealso:: Functions `dllcall`, :func:`sysstate`

@@ -46,4 +46,4 @@ Matrix names are retained in the symbol table after they are cleared.
 Matrices can be cleared even though they have not previously been
 defined. :func:`clear` can be used to initialize matrices to scalar 0.
 
-.. seealso:: Functions :func:`clearg`, `new`, :func:`show`, `delete`
+.. seealso:: Functions `clearg`, `new`, `show`, `delete`

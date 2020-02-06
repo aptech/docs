@@ -131,5 +131,5 @@ Remarks
 * :func:`walkindex` will return a scalar error code if the index cannot walk
   further in the specified dimension and direction.
 
-.. seealso:: Functions :func:`nextindex`, :func:`previousindex`, :func:`loopnextindex`
+.. seealso:: Functions :func:`nextindex`, :func:`previousindex`, `loopnextindex`
 

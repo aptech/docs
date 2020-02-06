@@ -11,23 +11,23 @@ Format
 ----------------
 .. function:: dllcall [-r] [-v] func(arg1...argN)
 
-    :param func: the name of a function contained in a shared library (linked into GAUSS with dlibrary). If *func* is not specified or cannot be located in a shared library, :func:`dllcall` will fail.
+    :param func: the name of a function contained in a shared library (linked into GAUSS with dlibrary). If *func* is not specified or cannot be located in a shared library, `dllcall` will fail.
 
     :param arg#: optional. arguments to be passed to *func*. These must be simple variable references; they cannot be expressions.
 
-    :param -r: optional flag. If ``-r`` is specified, :func:`dllcall` examines the value returned by
+    :param -r: optional flag. If ``-r`` is specified, `dllcall` examines the value returned by
         *func*, and fails if it is nonzero.
 
-    :param -v: optional flag. Normally, :func:`dllcall` passes parameters to *func* in a list. If
-        -v is specified, :func:`dllcall` passes them in a vector. See below for more details.
+    :param -v: optional flag. Normally, `dllcall` passes parameters to *func* in a list. If
+        -v is specified, `dllcall` passes them in a vector. See below for more details.
 
 
 Remarks
 -------
 
-:func:`dllcall` works in conjunction with `dlibrary`.
+`dllcall` works in conjunction with `dlibrary`.
 `dlibrary` is used to link shared libraries into GAUSS
-:func:`dllcall` is used to access the functions contained in those shared libraries. :func:`dllcall` searches the shared libraries
+`dllcall` is used to access the functions contained in those shared libraries. `dllcall` searches the shared libraries
 (see `dlibrary` for an explanation of the search order) for a function named *func*, and calls the first instance it finds.
 The default shared libraries are searched last.
 
@@ -52,11 +52,11 @@ In C syntax, *func* should take one of the following forms:
 | 3. | :code:`int func(double *arg[]);`                 |
 +----+--------------------------------------------------+
 
-:func:`dllcall` can pass a list of up to 100 arguments to *func*; if it requires
+`dllcall` can pass a list of up to 100 arguments to *func*; if it requires
 more arguments than that, you MUST write it to take a vector of
-arguments, and you MUST specify the ``-v`` flag when calling it. :func:`dllcall` can
+arguments, and you MUST specify the ``-v`` flag when calling it. `dllcall` can
 pass up to 1000 arguments in vector format. In addition, in vector
-format :func:`dllcall` appends a null pointer to the vector, so you can write
+format `dllcall` appends a null pointer to the vector, so you can write
 *func* to take a variable number of arguments and just test for the null
 pointer.
 

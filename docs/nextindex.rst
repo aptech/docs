@@ -64,4 +64,4 @@ Remarks
 
 :func:`nextindex` will return a scalar error code if the index cannot be incremented.
 
-.. seealso:: Functions :func:`previousindex`, :func:`loopnextindex`, :func:`walkindex`
+.. seealso:: Functions :func:`previousindex`, `loopnextindex`, :func:`walkindex`

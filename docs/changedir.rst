@@ -35,4 +35,4 @@ Then :func:`changeDir` will return:
 
 and set your working directory to that folder as well. The folder must exist before using this function.
 
-.. seealso:: Functions :func:`chdir`, :func:`cdir`
+.. seealso:: Functions `chdir`, :func:`cdir`

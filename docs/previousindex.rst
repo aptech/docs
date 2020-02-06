@@ -57,4 +57,4 @@ Remarks
 :func:`previousindex` will return a scalar error code if the index cannot be decremented.
 
 
-.. seealso:: Functions :func:`nextindex`, :func:`loopnextindex`, :func:`walkindex`
+.. seealso:: Functions :func:`nextindex`, `loopnextindex`, :func:`walkindex`

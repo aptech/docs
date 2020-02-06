@@ -216,7 +216,7 @@ Remarks
 
 -  Slash parameters, if present, must precede the field and precision parameters.
 
--  A :func:`format` statement stays in effect until it is overridden by a new
+-  A `format` statement stays in effect until it is overridden by a new
    format statement. The slash parameters may be used in a print
    statement to override the current default.
 
@@ -280,4 +280,4 @@ Remarks
    string data type.
 
 
-.. seealso:: Functions :func:`formatcv`, :func:`formatnv`, :func:`print`, `output`
+.. seealso:: Functions :func:`formatcv`, :func:`formatnv`, `print`, `output`

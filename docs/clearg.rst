@@ -7,18 +7,14 @@ Purpose
 
 Clears global symbols by setting them equal to scalar zero.
 
+.. _clearg:
+.. index:: clearg
+
 Format
 ----------------
-.. function:: clearg a, b, c
+:: 
 
-    :return a: global matrix containing 0.
-    :rtype a: scalar
-
-    :return b: global matrix containing 0.
-    :rtype b: scalar
-
-    :return c: global matrix containing 0.
-    :rtype c: scalar
+    clearg a, b, c;
 
 Remarks
 -------
@@ -35,9 +31,10 @@ is equivalent to
 
    x = 0;
 
-where *x* is understood to be a global symbol. :func:`clearg` can be used to
+where *x* is understood to be a global symbol. `clearg` can be used to
 initialize symbols not previously referenced. This command can be used
 inside of procedures to clear global matrices. It will ignore any locals
 by the same name.
 
-.. seealso:: `clear`, `delete`, `new`, :func:`show`, `local`
+.. seealso:: `clear`, `delete`, `new`, `show`, `local`
+

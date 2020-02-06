@@ -58,7 +58,7 @@ character elements, use a format string of "\*.\*s" if
 you want it right-justified, or "-\*.\*s" if you want
 it left-justified. If the column is mixed character
 and numeric elements, then use the correct numeric
-format and `printfm` will substitute a default format
+format and :func:`printfm` will substitute a default format
 string for those elements in the column that are
 character.
 
@@ -124,4 +124,4 @@ before the first "``*``" in the format string:
 "0\*.\*lf"  right-justified decimal.
 =========== =========================
 
-.. seealso:: Functions :func:`print`, :func:`printdos`, :func:`sprintf`
+.. seealso:: Functions `print`, `printdos`, :func:`sprintf`

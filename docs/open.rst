@@ -242,4 +242,4 @@ that of an open file before they proceed with the process of opening a
 file. This should be done with `close` or `closeall`.
 
 
-.. seealso:: Functions :func:`dataopen`, `create`, `close`, :func:`closeall`, :func:`readr`, :func:`writer`, :func:`seekr`, :func:`eof`
+.. seealso:: Functions :func:`dataopen`, `create`, `close`, `closeall`, :func:`readr`, :func:`writer`, :func:`seekr`, :func:`eof`

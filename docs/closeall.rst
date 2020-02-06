@@ -7,10 +7,15 @@ Purpose
 
 Closes all currently open GAUSS files.
 
+.. _closeall:
+.. index:: closeall
+
 Format
 ----------------
-.. function:: closeall
-              closeall list_of_handles
+::
+
+    closeall;
+    closeall list_of_handles;
 
 Examples
 ----------------
@@ -82,13 +87,13 @@ Remarks
 
 *list_of_handles* is a comma-delimited list of file handles.
 
-:func:`closeall` with no specified list of handles will close all files. The
-file handles will not be affected. The main advantage of using :func:`closeall`
+`closeall` with no specified list of handles will close all files. The
+file handles will not be affected. The main advantage of using `closeall`
 is ease of use; the file handles do not have to be specified, and one
 statement will close all files.
 
-When a list of handles follows :func:`closeall`, all files are closed and the
-file handles listed are set to scalar 0. This is safer than :func:`closeall`
+When a list of handles follows `closeall`, all files are closed and the
+file handles listed are set to scalar 0. This is safer than `closeall`
 without a list of handles because the handles are cleared.
 
 It is important to set unused file handles to zero because both `open` and

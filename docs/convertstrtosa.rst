@@ -27,7 +27,7 @@ Examples
     z = convertstrtosa(str);
 
 You can check the types of your variables by viewing them on the GAUSS data page, or by using the
-:func:`show` command. If the code above was executed at startup, running the *show* command would return:
+`show` command. If the code above was executed at startup, running the *show* command would return:
 
 ::
 

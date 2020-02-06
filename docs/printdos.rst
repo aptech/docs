@@ -40,5 +40,5 @@ This function was used in the past to send escape sequences to the
 ansi.sys device driver on DOS. It still works on some terminals.
 
 
-.. seealso:: Functions :func:`print`, :func:`printfm`, `screen`
+.. seealso:: Functions `print`, :func:`printfm`, `screen`
 
