@@ -460,7 +460,7 @@ This version is backwards compatible with the previous major version,
    creating modern, professional and attractive color palettes for
    graphics.
 #. Updated default color palettes for 2-D graph types.
-#. New define ``\__FILE_DIR`` returns the directory in which the file is
+#. New define `__FILE_DIR` returns the directory in which the file is
    located.
 #. New functions :func:`cdfTruncNorm` and :func:`pdfTruncNorm` to compute the cumulative
    distribution function and the probability density of the truncated
