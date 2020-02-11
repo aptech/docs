@@ -346,4 +346,4 @@ A `print` statement by itself will cause a blank line to be printed:
    print;
 
 
-.. seealso:: Functions :func:`printfm`, :func:`printdos`
+.. seealso:: Functions :func:`printfm`, `printdos`

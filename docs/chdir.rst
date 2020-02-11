@@ -26,7 +26,7 @@ If your current working directory is ``C:\gauss\time-series`` and you enter:
 
     chdir examples;
 
-Then :func:`chdir` will change your current working directory to ``C:\gauss\time-series\examples``.
+Then `chdir` will change your current working directory to ``C:\gauss\time-series\examples``.
 
 
 Example with string
@@ -42,7 +42,7 @@ If your current working directory is ``C:\gauss\time-series`` and you enter:
     // the contents of the string
     chdir ^dir;
 
-Then :func:`chdir` will change your current working directory to ``C:\gauss\time-series\examples``.
+Then `chdir` will change your current working directory to ``C:\gauss\time-series\examples``.
 
 
 Remarks
@@ -50,7 +50,7 @@ Remarks
 
 This is for interactive use. Use :func:`ChangeDir` in a program.
 
-If the directory change fails, :func:`chdir` prints an error message.
+If the directory change fails, `chdir` prints an error message.
 
 .. seealso:: :func:`changedir`, :func:`cdir`
 

@@ -134,4 +134,4 @@ The danger in not closing files is that anything written to the files
 may be lost. The disk directory will not reflect changes in the size of
 a file until the file is closed and system buffers may not be flushed.
 
-.. seealso:: Functions :func:`closeall`
+.. seealso:: Functions `closeall`

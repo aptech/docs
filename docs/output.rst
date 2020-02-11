@@ -144,8 +144,8 @@ without reopening the auxiliary output file.
 If a program sends data to a disk file, it will execute much faster if
 the window is off.
 
-The :func:`outwidth` command will set the line width of the output file. The
+The `outwidth` command will set the line width of the output file. The
 default is 80.
 
 
-.. seealso:: Functions :func:`outwidth`, `screen`, `end`, `new`
+.. seealso:: Functions `outwidth`, `screen`, `end`, `new`

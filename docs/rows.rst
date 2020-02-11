@@ -48,4 +48,4 @@ Use :func:`getorders` to return both the number of rows and columns in one call.
 If *x* is an empty matrix, ``rows(x)`` and ``cols(x)`` return 0.
 
 
-.. seealso:: Functions :func:`cols`, :func:`getorders`, :func:`show`
+.. seealso:: Functions :func:`cols`, :func:`getorders`, `show`

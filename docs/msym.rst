@@ -82,7 +82,7 @@ The code above will return:
 Remarks
 -------
 
-The entire string will be printed out when converting to ASCII in `print` and `printfm` statements.
+The entire string will be printed out when converting to ASCII in `print` and :func:`printfm` statements.
 
 When converting ASCII to binary in `loadm` and `let` statements, only the first character is significant. In other words,
 
@@ -99,4 +99,4 @@ there is no equals sign between msym and the string that is being passed
 to it.
 
 
-.. seealso:: Functions :func:`print`, :func:`printfm`
+.. seealso:: Functions `print`, :func:`printfm`

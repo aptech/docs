@@ -47,4 +47,4 @@ additional lines will be inserted.
 The default is setting is 256.
 
 
-.. seealso:: Functions `output`, :func:`print`
+.. seealso:: Functions `output`, `print`

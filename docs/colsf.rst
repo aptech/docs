@@ -45,4 +45,4 @@ Remarks
 
 In order to call *colsf* on a file, the file must be open.
 
-.. seealso:: Functions :func:`rowsf`, :func:`cols`, :func:`show`
+.. seealso:: Functions :func:`rowsf`, :func:`cols`, `show`

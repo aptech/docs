@@ -6,6 +6,13 @@ The following is a list of changes from the previous version of GAUSS.
 This version is backwards compatible with the previous major version,
 19, other than the exceptions noted below.
 
+20.0.3
+------
+
+#. Bug Fix: The :file:`olsmt` procedure was not correctly implementing specified weights when data inputs included missing values.
+#. Added error log for case of non-compatible covariance specifications with weighted OLS.
+#. Added error log for case of improperly specified weights.
+
 20.0.2
 ------
 
@@ -453,7 +460,7 @@ This version is backwards compatible with the previous major version,
    creating modern, professional and attractive color palettes for
    graphics.
 #. Updated default color palettes for 2-D graph types.
-#. New define ``\__FILE_DIR`` returns the directory in which the file is
+#. New define `__FILE_DIR` returns the directory in which the file is
    located.
 #. New functions :func:`cdfTruncNorm` and :func:`pdfTruncNorm` to compute the cumulative
    distribution function and the probability density of the truncated

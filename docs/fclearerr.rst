@@ -26,7 +26,7 @@ the file. Typically, once this flag is set, you can no longer do I/O on
 the file, even if the error is a recoverable one. :func:`fclearerr` clears the
 file's error flag, so you can attempt to continue using it.
 
-If you pass :func:`fclearerr` the handle of a file opened with :func:`open` (i.e., a
+If you pass :func:`fclearerr` the handle of a file opened with `open` (i.e., a
 dataset or matrix file), your program will terminate with a fatal
 error.
 

@@ -110,7 +110,7 @@ to access the first file.
 :func:`dataopen` and :func:`datacreate` check the value that is in a file handle to see
 if it matches that of an open file before they proceed with the process
 of opening a file. You may set unused file handles to zero with the
-`close` or :func:`closeall` commands.
+`close` or `closeall` commands.
 
 5. If filename does not have an extension, :func:`dataopen` appends a .dat
 extension before searching for the file. If the file is an :file:`.fmt` matrix

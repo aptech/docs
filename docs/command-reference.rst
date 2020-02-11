@@ -5,6 +5,7 @@ Command Reference
     :maxdepth: 1
     :caption: Functions:
 
+    _
     a
     b
     c

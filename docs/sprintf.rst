@@ -269,4 +269,4 @@ The above code will result in the following assignments:
 
 
 
-.. seealso:: Functions :func:`ftocv`, :func:`stof`, :func:`format`
+.. seealso:: Functions :func:`ftocv`, :func:`stof`, `format`

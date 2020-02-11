@@ -82,7 +82,7 @@ C
     complex
     cond
     conj
-    con
+    con_
     cons
     contains
     continue

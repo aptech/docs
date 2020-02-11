@@ -158,4 +158,4 @@ The results:
 
     om = "The maximum resistance is 929.86 ohms."
 
-.. seealso:: Functions :func:`ftocv`, :func:`stof`, :func:`format`
+.. seealso:: Functions :func:`ftocv`, :func:`stof`, `format`
