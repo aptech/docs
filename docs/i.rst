@@ -40,6 +40,7 @@ I
     iscplxf
     iscplx
     isden
+    isempty
     isinfnanmiss
     ismember
     ismiss

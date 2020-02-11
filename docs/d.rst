@@ -131,3 +131,6 @@ D
     dummybr
     dummydn
     dummy
+    dynargscount
+    dynargsget
+    dynargstypes
