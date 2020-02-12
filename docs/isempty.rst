@@ -54,7 +54,7 @@ Example 3
     // Create an empty matrix
     x = {};
 
-    // If there are any missing values in 'x'
+    // Check to see if 'x' is an empty matrix
     if isempty(x);
         print "x is an empty matrix";
     else;
