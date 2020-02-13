@@ -23,22 +23,22 @@ Examples
 ::
 
     proc rndNormEx( r, c, loc, std, ptVar);
-    local rnd1, rnd2, rnd3;
-    	
-    // Create random normal numbers with mean 0 and standard 
-    // deviation 1
-    rnd1 = rndn(r, c);
-    
-    // Change the mean to 'loc'
-    rnd2 = rnd1 + loc;
-    	
-    // Change the standard deviation to 'std'
-    rnd3 = std * rnd2;
-    
-    // Set the contents of tmp to be equal to the contents of 
-    // the local variable with the same name as the string 
-    // passed in as 'ptVar'
-    tmp = vargetl(ptVar);
+        local rnd1, rnd2, rnd3;
+        	
+        // Create random normal numbers with mean 0 and standard 
+        // deviation 1
+        rnd1 = rndn(r, c);
+        
+        // Change the mean to 'loc'
+        rnd2 = rnd1 + loc;
+        	
+        // Change the standard deviation to 'std'
+        rnd3 = std * rnd2;
+        
+        // Set the contents of tmp to be equal to the contents of 
+        // the local variable with the same name as the string 
+        // passed in as 'ptVar'
+        tmp = vargetl(ptVar);
     	
        print ptVar " is equal to: " tmp;
     	
