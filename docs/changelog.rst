@@ -6,6 +6,11 @@ The following is a list of changes from the previous version of GAUSS.
 This version is backwards compatible with the previous major version,
 19, other than the exceptions noted below.
 
+20.0.4
+------
+
+#. Bug Fix: :func:`varget` was not performing a deep copy for structs.
+
 20.0.3
 ------
 
