@@ -10,8 +10,9 @@ This version is backwards compatible with the previous major version,
 ------
 
 #. Bug Fix: The :file:`olsmt` procedure was not correctly implementing specified weights when data inputs included missing values.
-#. Added error log for case of non-compatible covariance specifications with weighted OLS.
+#. Added error log for case of non-compatible covariance specifications with weighted least squares.
 #. Added error log for case of improperly specified weights.
+#. Added error log for case of non-compatible pairwise deletion option with weighted least squares.
 #. Bug Fix: :func:`varget` was not performing a deep copy for structs.
 
 20.0.2
