@@ -37,7 +37,7 @@ Format
             "ctl.weights", "vector, weights for objective function returning a vector. Default = 1."
             "ctl.ineqProc", "scalar, pointer to a procedure that computes the nonlinear inequality constraints. When such a procedure has been provided, it has one input argument, a structure of type :class:`SQPdata`, and one output argument, a vector of computed inequality constraints. For more details see Remarks below. Default = ``.``, i.e., no inequality procedure."
             "ctl.bounds", "1x2 or Kx2 matrix, bounds on parameters. If 1x2 all parameters have same bounds. Default = ``-1e256 1e256 .``"
-            "ctl.covType", "scalar, if 2, QML covariance matrix, else if 0, no covariance matrix is computed, else ML covariance matrix is computed."
+            "ctl.covType", "scalar, if 0, no covariance matrix is computed, if 1 the ML covariance matrix is computed, if 2, QML covariance matrix, if 3 the cross-product of the Jacobian is used."
             "ctl.gradProc", "scalar, pointer to a procedure that computes the gradient of the function with respect to the parameters. Default = ``.``, i.e., no gradient procedure has been provided."
             "ctl.hessProc", "scalar, pointer to a procedure that computes the Hessian, i.e., the matrix of second order partial derivatives of the function with respect to the parameters. Default = ``.``, i.e., no Hessian procedure has been provided."
             "ctl.maxIters", "scalar, maximum number of iterations. Default = 1e+5."
