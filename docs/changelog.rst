@@ -13,6 +13,7 @@ This version is backwards compatible with the previous major version,
 #. Added error log for case of non-compatible covariance specifications with weighted OLS.
 #. Added error log for case of improperly specified weights.
 #. Bug Fix: :func:`varget` was not performing a deep copy for structs.
+#. Improve performance for enumeration and tooltips on symbol page for very large strings.
 
 20.0.2
 ------
