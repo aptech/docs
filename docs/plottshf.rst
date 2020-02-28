@@ -127,6 +127,7 @@ Daily data with full date vector
 ++++++++++++++++++++++++++++++++
 
 .. figure:: _static/images/plotts_mac_xle_daily_500px.png
+   :scale: 50 %
 
 ::
 
@@ -153,6 +154,7 @@ Time Series Plot With Custom X-ticks
 +++++++++++++++++++++++++++++++++++
 
 .. figure:: _static/images/plotts_mac_tbill_400px.png
+   :scale: 50 %
 
 ::
 
@@ -160,7 +162,7 @@ Time Series Plot With Custom X-ticks
     file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
 
     // Load dates (header is row 20) and convert to seconds since Jan 1, 1970
-    dts = dttoutc(xlsReadM(file, "A21:A49"));
+    dts = dttoposix(xlsReadM(file, "A21:A49"));
 
     // Load 28 observations
     y = xlsReadM(file, "B21:B49");
@@ -170,8 +172,9 @@ Time Series Plot With Custom X-ticks
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
 
-    // Place first x-tick mark at 1984 month 1 and draw one every 6 months
-    plotSetXTicInterval(&myPlot, 6, 1984);
+    // Place first x-tick mark at 1984 month 1 and draw one every 2 quarters
+    // Note that we pass in the first_labeled date in posix format
+    plotSetXTicInterval(&myPlot, 2, dttoposix(1984));
 
     // Display only 4 digit year on x-tick labels
     plotSetXTicLabel(&myPlot, "YYYY-QQ");

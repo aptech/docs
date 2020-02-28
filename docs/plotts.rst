@@ -122,6 +122,7 @@ Daily data with full date vector
 ++++++++++++++++++++++++++++++++
 
 .. figure:: _static/images/plotts_mac_xle_daily_500px.png
+   :scale: 50 %
 
 ::
 
@@ -147,6 +148,7 @@ Time Series Plot With Custom X-ticks
 +++++++++++++++++++++++++++++++++++
 
 .. figure:: _static/images/plotts_mac_tbill_400px.png
+   :scale: 50 %
 
 ::
 
