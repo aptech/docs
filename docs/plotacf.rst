@@ -49,7 +49,7 @@ Examples
 
     plotSetTitle(&mp, "beef_prices", "Arial", 20);
 
-    plotACF( mp, x, k, d);
+    plotACF(mp, x, k, d);
 
 The plot is:
 
