@@ -15,6 +15,8 @@ Machine Learning
     knnfit
     knnclassify
     lassofit
+    pcafit
+    pcatransform
     ridgefit
     traintestsplit
 
