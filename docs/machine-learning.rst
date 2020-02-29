@@ -17,6 +17,7 @@ Machine Learning
     lassofit
     pcafit
     pcatransform
+    pcatransforminv
     ridgefit
     traintestsplit
 
