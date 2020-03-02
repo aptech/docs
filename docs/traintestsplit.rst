@@ -56,7 +56,7 @@ After the above code:
              1             8    4 
              4             1    8 
 
-  y_test  =  2  X_test  =  9    6 
+   y_test =  2   X_test =  9    6 
              5             6    1 
 
 
@@ -66,5 +66,5 @@ Remarks
 
 The observations from *X* and *y* are first randomly shuffled such that the corresponding rows of *X* and *y* are kept together. For repeatable shuffling, use the `rndseed` keyword before calling :func:`trainTestSplit`.
 
-.. seealso:: Functions  :func:`cvSplit`, :func:`rndi`, :func:`sampleData`
+.. seealso:: Functions  :func:`cvSplit`, :func:`rndi`, :func:`sampleData`, :func:`splitData`
 

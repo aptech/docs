@@ -19,5 +19,6 @@ Machine Learning
     pcatransform
     pcatransforminv
     ridgefit
+    splitdata
     traintestsplit
 
