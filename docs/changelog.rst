@@ -9,12 +9,14 @@ This version is backwards compatible with the previous major version,
 20.0.3
 ------
 
-#. Bug Fix: The :file:`olsmt` procedure was not correctly implementing specified weights when data inputs included missing values.
+#. Bug Fix: The :func:`olsmt` procedure was not correctly implementing specified weights when data inputs included missing values.
 #. Added error log for case of non-compatible covariance specifications with weighted least squares.
 #. Added error log for case of improperly specified weights.
 #. Added error log for case of non-compatible pairwise deletion option with weighted least squares.
 #. Bug Fix: :func:`varget` was not performing a deep copy for structs.
 #. Improve performance for enumeration and tooltips on symbol page for very large strings.
+#. Bug Fix: :func:`plotAddBar` and :func:`plotAddBarH` could sometimes segfault without a correctly initialized axis.
+#. Bug Fix: :func:`plotAddBarH` was not behaving the same as :func:`plotAddBar` with existing labels and custom indices.
 
 20.0.2
 ------
