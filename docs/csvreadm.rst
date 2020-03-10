@@ -8,12 +8,12 @@ Reads data from CSV file into a GAUSS matrix.
 
 Format
 ----------------
-.. function:: mat = csvReadM(file[, row_range[, col_range[, delimiter]]])
+.. function:: mat = csvReadM(file[, row_range[, col_range[, delimiter[, quote_char]]]])
 
     :param file: name of CSV file.
     :type file: string
 
-    :param row_range: Optional input: The first element of *row_range* will specify the
+    :param row_range: Optional input. The first element of *row_range* will specify the
         first row of the file to read. If there is a second element in *row_range*,
         it will specify the last row to read from the file. If there is no second
         element in *row_range*, GAUSS will read to the end of the file. If *row_range*
@@ -35,6 +35,9 @@ Format
         - comma ``","`` (Default)
 
     :type delimiter: string
+
+    :param quote_char: Optional input. The character used to indicate a quoted field.
+    :type quote_char: string
 
     :return mat: data read from the CSV file.
 
