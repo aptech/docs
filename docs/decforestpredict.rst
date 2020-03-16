@@ -67,18 +67,18 @@ The code above will print the following output:
 
 ::
 
-              Confusion matrix
-              -------------------
+                 Confusion matrix
+                 ----------------
 
-              54                1 
-               2              153 
+         Class +       54       2 
+         Class -        1     153 
 
-        Accuracy         0.985714 
-       Precision         0.964286 
-          Recall         0.981818 
-         F-score         0.972973 
-     Specificity         0.987097 
-             AUC         0.984457 
+        Accuracy           0.9857 
+       Precision           0.9643 
+          Recall           0.9818 
+         F-score            0.973 
+     Specificity           0.9871 
+             AUC           0.9845
 
 
 .. seealso:: :func:`decForestRFit`, :func:`decForestCFit`

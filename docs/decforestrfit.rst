@@ -56,52 +56,59 @@ Examples
 
     new;
     library gml;
+     
+    /*
+    ** Load and transform data
+    */
+     
+    // Load hitters dataset
+    dataset = getGAUSSHome $+ "pkgs/gml/examples/hitters.xlsx";
+     
+    // Load salary and perform natural log transform
+    y = loadd(dataset, "ln(salary)");
+     
+    // Load all variables except 'salary'
+    X = loadd(dataset, ". - salary");
+     
+    /*
+    ** Split into test and training sets
+    */
+     
+    // Set seed for repeatable sampling
+    rndseed 234234;
+     
+    // Split data into training and test sets
+    { y_train, y_test, X_train, X_test } = trainTestSplit(y, X, 0.7);
+     
+    /*
+    ** Estimate decision forest model
+    */
+     
+    // Declare 'dfc' to be a dfControl structure
+    // and fill with default settings.
+    struct dfControl dfc;
+    dfc = dfControlCreate();
+     
+    // Turn on variable importance
+    dfc.variableImportanceMethod = 1;
+     
+    // Turn on OOB error
+    dfc.oobError = 1;
+     
+    // Structure to hold model results
+    struct dfModel mdl;
+     
+    // Fit training data using decision forest
+    mdl = decForestRFit(y_train, X_train, dfc);
+     
+    // OOB Error
+    print "Out-of-bag error:" mdl.oobError;
     
-    rndseed 23423;
-    
-    // Create file name with full path
-    fname = getGAUSSHome() $+ "pkgs/gml/examples/breastcancer.csv";
-    
-    // Load all variables from dataset, except for 'ID'
-    X = loadd(fname, ". -ID");
-    
-    // Separate dependent and independent variables
-    y = X[.,cols(X)];
-    X = delcols(X, cols(X));
-    
-    // Split data into 70% training and 30% test set
-    { X_train, X_test, y_train, y_test } = trainTestSplit(X, y, 0.7);
-    
-    // Declare 'df_mdl' to be an 'dfModel' structure
-    // to hold the trained model
-    struct dfModel df_mdl;
-    
-    // Train the decision forest classifier with default settings
-    df_mdl = decForestCFit(y_train, X_train);
-    
-    // Make predictions on the test set, from our trained model
-    y_hat = decForestPredict(df_mdl, X_test);
-    
-    // Print out model quality evaluation statistics
-    call binaryClassMetrics(y_test, y_hat);
-
 The code above will print the following output:
 
 ::
 
-              Confusion matrix
-              -------------------
-
-              54                1 
-               2              153 
-
-        Accuracy         0.985714 
-       Precision         0.964286 
-          Recall         0.981818 
-         F-score         0.972973 
-     Specificity         0.987097 
-             AUC         0.984457 
-
+    random forest test MSE:      0.23044959
 
 
 Remarks
