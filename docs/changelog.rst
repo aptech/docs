@@ -13,6 +13,7 @@ This version is backwards compatible with the previous major version,
 #. Added error log for case of non-compatible covariance specifications with weighted least squares.
 #. Added error log for case of improperly specified weights.
 #. Added error log for case of non-compatible pairwise deletion option with weighted least squares.
+#. Add custom quotation character support to :func:`csvReadM` and :func:`csvReadSA`.
 #. Bug Fix: :func:`varget` was not performing a deep copy for structs.
 #. Improve performance for enumeration and tooltips on symbol page for very large strings.
 #. Bug Fix: :func:`plotAddBar` and :func:`plotAddBarH` could sometimes segfault without a correctly initialized axis.
