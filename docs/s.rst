@@ -62,6 +62,7 @@ S
     splu
     spnumnze
     spones
+    sprintf
     spscale
     spsubmat
     sptodense
