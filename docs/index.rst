@@ -1,7 +1,7 @@
-.. GAUSS documentation master file, created by
-   sphinx-quickstart on Wed Jan 30 17:30:22 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. title:: Explore
+
+.. meta::
+   :description: Looking for additional resources about GAUSS? Learn more about our built-in and Machine Learning functions. Find GAUSS 20 documentation here. 
 
 Welcome to GAUSS's documentation!
 =================================
@@ -12,7 +12,6 @@ Welcome to GAUSS's documentation!
 
    command-reference
    machine-learning
-
 
 Indices and tables
 ==================
