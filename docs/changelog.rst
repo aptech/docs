@@ -9,6 +9,7 @@ This version is backwards compatible with the previous major version,
 20.0.4
 ------
 
+#. Bug Fix: A regression caused :func:`plotSurface` to segfault on Windows.
 #. Bug Fix: Using cql_stubs.dll with a GAUSS Engine program did not have the correct symbol definitions to be used for deployment.
 
 20.0.3
