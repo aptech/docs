@@ -12,6 +12,8 @@ This version is backwards compatible with the previous major version,
 #. Bug Fix: :func:`sprintf` was omitting trailing 0's for ``%f`` case.
 #. Bug Fix: A regression caused :func:`plotSurface` to segfault on Windows.
 #. Bug Fix: Using cql_stubs.dll with a GAUSS Engine program did not have the correct symbol definitions to be used for deployment.
+#. Bug Fix: Some graphics legend items were not appearing in very specific cases.
+#. Bug Fix: :func:`plotLogX` and :func:`plotLogY` were incorrectly setting both axes to log scale.
 
 20.0.3
 ------
