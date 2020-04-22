@@ -15,6 +15,7 @@ This version is backwards compatible with the previous major version,
 #. Bug Fix: Some graphics legend items were not appearing in very specific cases.
 #. Bug Fix: :func:`plotLogX` and :func:`plotLogY` were incorrectly setting both axes to log scale.
 #. Bug Fix: :func:`gmmFit` was not computing Hansen J-stat.
+#. Bug Fix: Some Project View folders did not have 'Set to Working Directory' available.
 
 20.0.3
 ------
