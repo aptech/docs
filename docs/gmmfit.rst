@@ -57,6 +57,8 @@ Format
                   :"bartlett": Bartlett kernel.
                   :"parzen": Parzen kernel.
                   :"quad": Quadraticspectral kernel.
+            * - *gCtl.gmmlags*
+                    - Scalar, Scalar, user specified lag truncation for HAC weight matrix and variance computations. 
             * - *gCtl.wInitMat*
               - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*.
             * - *gCtl.wInit*
