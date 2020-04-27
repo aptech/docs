@@ -16,6 +16,8 @@ This version is backwards compatible with the previous major version,
 #. Bug Fix: :func:`plotLogX` and :func:`plotLogY` were incorrectly setting both axes to log scale.
 #. Bug Fix: :func:`gmmFit` was not computing Hansen J-stat.
 #. Bug Fix: Some Project View folders did not have 'Set to Working Directory' available.
+#. Added optional user-specifiec truncation lags to gmmFitIV and gmmFit
+#. Bug Fix: Updated HAC weight matrix computation method in :func:`gmmFit` and :func:`gmmFitIV`
 
 20.0.3
 ------
