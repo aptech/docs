@@ -80,6 +80,8 @@ Format
                   :"quad": Quadraticspectral kernel.
 
                 Default = :code:`"bartlett"`
+            * - *gCtl.gmmlags*
+              - Scalar, Scalar, user specified lag truncation for HAC weight matrix and variance computations. 
             * - *gCtl.wInitMat*
               - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*.
             * - *gCtl.wInit*
