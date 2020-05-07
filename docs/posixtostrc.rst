@@ -205,6 +205,8 @@ The following format specifiers are supported:
 | %y              | The year without century as a decimal number        |
 |                 | (00-99).                                            |
 +-----------------+-----------------------------------------------------+
+| %q              | The quarter of the year. (1-4)                      |
++-----------------+-----------------------------------------------------+
 | %Z              | The time zone name, or by the empty string if this  |
 |                 | is not determinable.                                |
 +-----------------+-----------------------------------------------------+
