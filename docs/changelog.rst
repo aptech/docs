@@ -10,6 +10,7 @@ This version is backwards compatible with the previous major version,
 ------
 
 #. :func:`strctoposix` and :func:`posixtostrc` now support specifying the quarter (``%q``).
+#. Add ability to toggle 'Safe Write' in preferences. This fixes an issue some users may experience when trying to save files in Dropbox/OneDrive/Google Drive, or other similar shared folders.
 
 20.0.4
 ------
