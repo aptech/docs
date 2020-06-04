@@ -59,7 +59,6 @@ S
     spgetnze
     spldl
     spline
-    splitdata
     splu
     spnumnze
     spones
