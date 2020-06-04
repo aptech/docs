@@ -31,6 +31,7 @@ P
     plotaddarea
     plotaddarrow
     plotaddbar
+    plotaddbarh
     plotaddbox
     plotadderrorbar
     plotaddhistf
@@ -45,6 +46,7 @@ P
     plotaddxy
     plotarea
     plotbar
+    plotbarh
     plotbox
     plotcanvassize
     plotcdfempirical
@@ -71,9 +73,10 @@ P
     plotsetcontourlabels
     plotsetfill
     plotsetgrid
-    plotsetlegendbkd
-    plotsetlegendfont
     plotsetlegend
+    plotsetlegendbkd
+    plotsetlegendborder
+    plotsetlegendfont
     plotsetlinecolor
     plotsetlinestyle
     plotsetlinesymbol
@@ -91,6 +94,7 @@ P
     plotsetylabel
     plotsetyrange
     plotsetyticcount
+    plotsetyticinterval
     plotsetyticlabel
     plotsetzlabel
     plotsetzlevels
@@ -100,6 +104,7 @@ P
     plottslog
     plotts
     plotxy
+    plotxyfill
     polar
     polychar
     polyeval

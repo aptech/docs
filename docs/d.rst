@@ -90,6 +90,7 @@ D
     delcols
     deletedataloop
     delete
+    deletefile
     delif
     delrows
     densetospre
@@ -107,6 +108,8 @@ D
     dllcall
     dos
     doswin
+    doswincloseall
+    doswinopen
     dotfeqdotfgedotfgtdotfledotfltdotfne
     dotfeqmtdotfgemtdotfgtmtdotflemtdotfltmtdotfnemt
     dot

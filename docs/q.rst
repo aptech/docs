@@ -6,6 +6,14 @@ Q
     :caption: Functions:
 
     qfitcontrolcreate
+    qnewton
+    qnewtonmtcontrolcreate
+    qnewtonmt
+    qnewtonmtoutcreate
+    qnewtonset
+    qprog
+    qprogmt
+    qprogmtincreate
     qqrep
     qqre
     qqr

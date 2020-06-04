@@ -59,9 +59,13 @@ S
     spgetnze
     spldl
     spline
+    splitdata
     splu
     spnumnze
     spones
+    spreadsheetreadm
+    spreadsheetreadsa
+    spreadsheetwrite
     sprintf
     spscale
     spsubmat
