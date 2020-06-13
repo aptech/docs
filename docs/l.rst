@@ -49,6 +49,7 @@ L
     ln
     loadarray
     loadd
+    loaddsa
     loadloadfloadkloadmloadploads
     loadstruct
     loadwind

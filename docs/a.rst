@@ -9,8 +9,21 @@ A
     acf
     aconcat
     aeye
+    aggregate
     amax
     amean
+    americanbinomcall_greeks
+    americanbinomcall
+    americanbinomcall_impvol
+    americanbinomput_greeks
+    americanbinomput
+    americanbinomput_impvol
+    americanbscall_greeks
+    americanbscall
+    americanbscall_impvol
+    americanbsput_greeks
+    americanbsput
+    americanbsput_impvol
     amin
     amult
     annotationgetdefaults
@@ -36,3 +49,4 @@ A
     atan
     atranspose
     axmargin
+

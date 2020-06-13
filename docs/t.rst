@@ -9,7 +9,10 @@ T
     tanh
     tan
     tempname
+    threadbegin
     threadfor
+    threadjoin
+    threadstat
     timedeltadt
     timedeltaposix
     timediffdt

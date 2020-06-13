@@ -28,6 +28,7 @@ M
     minv
     missex
     missmissrv
+    modec
     momentd
     moment
     movingaveexpwgt

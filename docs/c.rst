@@ -58,6 +58,7 @@ C
     cdfweibull
     cdir
     ceil
+    changedir
     chdir
     chibarsquare
     choldn
@@ -84,6 +85,7 @@ C
     conj
     con_
     cons
+    conscore
     contains
     continue
     contour
@@ -107,5 +109,6 @@ C
     cumprodc
     cumsumc
     curve
+    cvsplit
     cvtosa
     cvtos

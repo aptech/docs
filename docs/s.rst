@@ -62,6 +62,9 @@ S
     splu
     spnumnze
     spones
+    spreadsheetreadm
+    spreadsheetreadsa
+    spreadsheetwrite
     sprintf
     spscale
     spsubmat
