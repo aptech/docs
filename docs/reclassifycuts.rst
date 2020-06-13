@@ -51,8 +51,8 @@ Basic sequence
     r_open = reclassifyCuts(x, cut_pts);
 
     // Class 0:       x < 0.2
-    // Class 1: 0.2 < x < 0.5
-    // Class 2: 0.5 < x
+    // Class 1: 0.2 <= x < 0.5
+    // Class 2: 0.5 <= x
     r_closed = reclassifyCuts(x, cut_pts, 1);
 
     print "x = " x;
@@ -144,7 +144,7 @@ After the code above:
          109
          125
          107
-    
+
                    0
                    2
                    1
@@ -155,7 +155,7 @@ After the code above:
                    0
                    1
                    0
-    
+
     cut_pts = 120
               140
 
