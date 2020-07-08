@@ -678,7 +678,7 @@ This version is backwards compatible with the previous major version,
    when one of the matrices is a column vector.
 #. Improved performance of :func:`cdffc` when the ``d1`` parameter is equal to
    one, by 10-1000x.
-#. Improved performance of :func:`crossprd` `for the case with fewer than 500
+#. Improved performance of :func:`crossprd` for the case with fewer than 500
    vectors.
 #. Added support for complex inputs to :func:`hess` and significant speed up for
    real matrix inputs larger than approximately 30x30.

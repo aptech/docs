@@ -21,7 +21,7 @@ Format
             "matrix","6"
             "array,"21"
             "sparse matrix","38"
-            "string,"13"
+            "string","13"
             "string array","15"
             "structure","17"
             "structure pointer","23"
@@ -33,7 +33,7 @@ Examples
 ----------------
 
 Basic example with no required inputs
-++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -67,7 +67,7 @@ The above code will produce the following output:
     13
 
 Basic example with one required input
-++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -111,6 +111,5 @@ Remarks
 * Use :func:`dynargsGet` to access the dynamic arguments and assign them to local variables.
 * Use :func:`dynargsCount`, or ``rows(dynargsTypes())`` to find out how many dynamic arguments were passed in.
   
-
-
 .. seealso:: Functions :func:`dynargsGet`, :func:`dynargsCount`
+

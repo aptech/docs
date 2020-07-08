@@ -15,9 +15,12 @@ Format
 
     :param idx: A scalar input specifies the index of the dynamic argument to return. A 2x1 matrix input
                 specifies the start and end of the range of dynamic arguments to return. 
+
     :type idx: Scalar or 2x1 matrix
+
     :param dflt_1: Default values to be returned if the dynamic argument is not found. There must be one default
                    value passed in for each dynamic argument requested by the *idx* input, or not default values.
+
     :type dflt_1: Scalar, matrix, string, or any legal GAUSS variable type
 
     :return dyn_1: Either the corresponding dynamic argument or default value.
@@ -28,7 +31,7 @@ Examples
 ----------------
 
 Basic example with no required inputs
-++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -74,7 +77,7 @@ The above code will call the ``dynargsTest`` procedure three times with differen
     ---------
 
 Example with one required input and one optional input 
-+++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this example, the procedure requires one input, *length*. The second input, *width*, is an optional dynamic argument. If *width* is passed in,
 then it is used to compute the area of the rectangle.
@@ -114,7 +117,7 @@ After the code above:
 
 
 Example with one required input, one dynamic argument and no default value
-+++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This example performs the same as the previous example, but does not pass in a default value to :func:`dynargsGet`.
 
@@ -160,6 +163,5 @@ Remarks
 * :func:`dynargsCount` will return the number of dynamic arguments passed in to the function.
 * You can find out the types of the dynamic arguments by calling :func:`dynargsTypes`.
   
-
-
 .. seealso:: Functions :func:`dynargsCount`, :func:`dynargsTypes`
+

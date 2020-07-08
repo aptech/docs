@@ -61,9 +61,9 @@ computed.
 Error handling is controlled with the low bit of the `trap` flag.
 
 +---------------------+-----------------------------------------------------+
-| :code:`trap 0`      | set *lambda[1]* and terminate with message              |
+| :code:`trap 0`      | set *lambda[1]* and terminate with message          |
 +---------------------+-----------------------------------------------------+
-| :code:`trap 1`      | set *lambda[1]* and continue execution                  |
+| :code:`trap 1`      | set *lambda[1]* and continue execution              |
 +---------------------+-----------------------------------------------------+
 
 Invalid inputs, such as an :math:`\infty`, missing value or Nan will cause an
@@ -80,3 +80,4 @@ of *x* in the same order as the eigenvalues. The eigenvectors are not
 normalized.
 
 .. seealso:: Functions :func:`eig`, :func:`eigh`, :func:`eighv`
+

@@ -42,7 +42,6 @@ D
     dbisopenerror
     dbisopen
     dbisvalid
-    dbnumericalprecpolicy
     dbopen
     dbquerybindvalue
     dbqueryclear

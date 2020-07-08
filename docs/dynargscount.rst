@@ -18,7 +18,7 @@ Examples
 ----------------
 
 Basic example with no required inputs
-++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -56,7 +56,7 @@ The above code will call the ``dynargsTest`` procedure three times with differen
     ---------
 
 Basic example with one required input
-++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -101,6 +101,5 @@ Remarks
 * Use :func:`dynargsGet` to access the dynamic arguments and assign them to local variables.
 * You can find out the types of the dynamic arguments by calling :func:`dynargsTypes`.
   
-
-
 .. seealso:: Functions :func:`dynargsGet`, :func:`dynargsTypes`
+

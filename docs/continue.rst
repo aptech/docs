@@ -41,7 +41,7 @@ The above code will print the sequence from 1 to 5, skipping 3, because of the `
     5.00
 
 Set off-diagonal elements to zero
-++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++
 
 ::
 

@@ -46,6 +46,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
+    'sphinx_panels'
 ]
 
 mathjax_config = {
@@ -108,6 +109,8 @@ html_context = {
         '_static/theme_override.css',  # override wide tables in RTD theme
     ],
 }
+
+html_css_files = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
 
 html_logo = '_static/images/gauss_logo.png'
 
@@ -218,7 +221,7 @@ def setup(sphinx):
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'util')))
 
     from GAUSSLexer import GAUSSLexer
-    sphinx.add_lexer("gauss", GAUSSLexer())
+    sphinx.add_lexer("gauss", GAUSSLexer)
 
     import GAUSSDomain
     GAUSSDomain.setup(sphinx)
