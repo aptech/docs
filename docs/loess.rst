@@ -23,11 +23,11 @@ Format
 
     :return ys: ordinate values given abscissae values in *xs*.
 
-    :rtype ys: *_loess_numEval*x1 vector
+    :rtype ys: *_loess_numEval*\x1 vector
 
     :return xs: equally spaced abscissae values.
 
-    :rtype xs: *_loess_numEval*x1 vector
+    :rtype xs: *_loess_numEval*\x1 vector
 
 
 Global Input
@@ -69,3 +69,4 @@ Source
 ------
 
 loess.src
+

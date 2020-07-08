@@ -1,6 +1,6 @@
 
 strtruncpad
-==============================================
+=============
 
 Purpose
 ----------------
@@ -20,8 +20,9 @@ Format
     :type maxlen: 1xK or 1x1 matrix
 
     :return y: contains contents of *sa* with all elements of truncated to the number of
-    characters in *maxlen*.
+        characters in *maxlen*.
 
     :rtype y: NxK string array
 
 .. seealso:: Functions :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`
+

@@ -16,12 +16,13 @@ Format
     :param d: dense data matrix.
     :type d: NxL dense matrix
 
-    :return y: the result of :math:`s'*d`.
+    :return y: the result of :math:`s\*d`.
 
     :rtype y: MxL dense matrix
 
+
 Examples
--------
+---------
 
 ::
 
@@ -46,3 +47,4 @@ This may also be accomplished by the following code:
 However, :func:`spTrTDense` will be more efficient.
 
 .. seealso:: Functions :func:`spTScalar`
+

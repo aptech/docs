@@ -33,7 +33,7 @@ Examples
 ----------------
 
 Example 1: Basic usage
-+++++++++
+++++++++++++++++++++++
 
 ::
 
@@ -53,7 +53,7 @@ Example 1: Basic usage
     plotHist(myPlot, x, 50);
 
 Example 2: Setting both Y-axes
-+++++++++
+++++++++++++++++++++++++++++++
 
 ::
 
@@ -81,7 +81,7 @@ Example 2: Setting both Y-axes
     plotXY(myPlot, x, y);
 
 Example 3: HTML
-+++++++++
++++++++++++++++
 
 You may add Greek letters, mathematical symbols, subscript and superscript to your axis labels using HTML. To add HTML to a label, you need to wrap the text to be interpreted as HTML in HTML tags.
 
@@ -107,7 +107,7 @@ will add :math:`\sigma^2` to your y-axis label. While,
 will create :math:`Y_{t-1}`
 
 Example 4: Latex
-+++++++++
+++++++++++++++++
 
 You can use Latex to add equations to axis labels. Note that double-backslashes must be used as shown below.
 
@@ -128,7 +128,8 @@ Remarks
 This function sets an attribute in a :class:`plotControl` structure. It does not
 affect an existing graph, or a new graph drawn using the default
 settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_ for more information on the
+menu. See the `GAUSS Graphics chapter`_ for more information on the
 methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetXLabel`, :func:`plotSetXTicInterval`, :func:`plotSetXTicLabel`, :func:`plotSetZLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`
+

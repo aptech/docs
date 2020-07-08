@@ -10,6 +10,7 @@ T
     tan
     tempname
     threadbegin
+    threadend
     threadfor
     threadjoin
     threadstat
@@ -38,3 +39,4 @@ T
     typecv
     typef
     type
+

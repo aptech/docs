@@ -39,15 +39,15 @@ If a path is not specified, the current directory will be searched
 first, then each directory listed in ``src_path``. ``src_path`` is defined in
 :file:`gauss.cfg`.
 
-+-----------------------------------+-----------------------------------+
-| #include/gauss/myprog.prc         | No additional search will be made |
-|                                   | if the file is not found.         |
-+-----------------------------------+-----------------------------------+
-| #includemyprog.prc                | The directories listed in         |
-|                                   | ``src_path`` will be searched for |
++-----------------------------------+---------------------------------------+
+| #include/gauss/myprog.prc         | No additional search will be made     |
+|                                   | if the file is not found.             |
++-----------------------------------+---------------------------------------+
+| #includemyprog.prc                | The directories listed in             |
+|                                   | ``src_path`` will be searched for     |
 |                                   | :file:`myprog.prc` if the file is not |
-|                                   | found in the current directory.   |
-+-----------------------------------+-----------------------------------+
+|                                   | found in the current directory.       |
++-----------------------------------+---------------------------------------+
 
 Compile time errors will return the line number and the name of the file
 in which they occur. For execution time errors, if a program is compiled
@@ -59,3 +59,4 @@ numbers when debugging.
 
 
 .. seealso:: Functions `run`, :func:`lineson`
+

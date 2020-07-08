@@ -50,6 +50,7 @@ Format
                 :*2*: machine accuracy is insufficient to maintain decreasing function values
                 :*3*: model matrices not conformable
                 :*< 0*: active constraints inconsistent
+               
 
 
     :rtype qOut: struct

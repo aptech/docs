@@ -24,8 +24,6 @@ Format
 Examples
 ----------------
 
-::
-
 Example 1
 +++++++++++
 
@@ -87,3 +85,4 @@ If *fmt* has *K* elements, each column of *sa* can be formatted separately. If
 
 
 .. seealso:: Functions :func:`strtof`, :func:`strtofcplx`
+

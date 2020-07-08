@@ -50,7 +50,7 @@ will return:
         4.1000000
 
 Multiple Columns
-+++++++++
+++++++++++++++++
 
 ::
 
@@ -72,7 +72,7 @@ will return:
 
 ::
 
-        .                .
+            .                .
     1.2000000        4.3000000
     3.4000000       0.97000000
     2.5000000        1.4000000
@@ -93,3 +93,4 @@ Source
 lag.src
 
 .. seealso:: Functions :func:`lagn`, :func:`ismiss`, :func:`packr`
+

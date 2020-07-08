@@ -41,8 +41,6 @@ Walk down the columns of a matrix
     // Get the next index 
     idx = walkindex(idx, orders, 1); 
 
-::
-
 After the above code, *idx* will equal:
 
 ::

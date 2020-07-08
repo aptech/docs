@@ -151,7 +151,7 @@ Daily data with full date vector
     plotTSHF(date_vec, "months", closing_price);
 
 Time Series Plot With Custom X-ticks
-+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
 
 .. figure:: _static/images/plotts_mac_tbill_400px.png
    :scale: 50 %
@@ -204,3 +204,4 @@ default formatting based on the time label unit and is as follows:
 By default missing values in the *y* variable will be represented as gaps in the line.
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotScatter`, :func:`plotTS`, :func:`plotTSLog`
+

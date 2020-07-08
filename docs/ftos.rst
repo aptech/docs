@@ -30,71 +30,6 @@ Format
 
     :rtype x_str: string
 
-Remarks
--------
-
-The format string corresponds to the :code:`format /jnt` (justification,
-notation, trailing character) slash parameter as follows:
-
-.. list-table::
-    :widths: auto
-
-    * - */rdn*
-      - :code:`"%*.*lf"`
-    * - */ren*
-      - :code:`"%*.*lE"`
-    * - */ron*
-      - :code:`"%#*.*lG"`
-    * - */rzn*
-      - :code:`"%*.*lG"`
-    * - */ldn*
-      - :code:`"%- *.*lf"`
-    * - */len*
-      - :code:`"%- *.*lE"`
-    * - */lon*
-      - :code:`"%-# *.*lG"`
-    * - */lzn*
-      - :code:`"%- *.*lG"`
-
-If *x* is complex, you can specify separate formats for the real and
-imaginary parts by putting two format specifications in the format
-string. You can also specify separate fields and precisions. You can
-position the sign of the imaginary part by placing a ``+`` between the two
-format specifications. If you use two formats, no ``i`` is appended to the
-imaginary part. This is so you can use an alternate format if you
-prefer, for example, prefacing the imaginary part with a ``j``.
-
-The format string can be a maximum of 80 characters.
-
-If you want special characters to be printed after *x*, include them as
-the last characters of the format string.
-
-
-For example:
-
-.. list-table::
-    :widths: auto
-
-    * - :code:`"%*.*lf,"`
-      - right-justified decimal followed by a comma.
-    * - :code:`"%-*.*s "`
-      - left-justified string followed by a space.
-    * - :code:`"%*.*lf"`
-      - right-justified decimal followed by nothing.
-
-      You can embed the format specification in the middle of other text:
-
-        ::
-
-            "Time: %*.*lf seconds."
-
-        If you want the beginning of the field padded with zeros, then put a ``0`` before the first ``*`` in the format string:
-
-    * - :code:`"%0*.*lf"`
-      - right-justified decimal.
-
-        If :math:`prec = 0`, the decimal point will be suppressed.
-
 Examples
 ----------------
 You can create custom formats for complex numbers with :func:`ftos`. For example,
@@ -158,4 +93,71 @@ The results:
 
     om = "The maximum resistance is 929.86 ohms."
 
+Remarks
+-------
+
+The format string corresponds to the :code:`format /jnt` (justification,
+notation, trailing character) slash parameter as follows:
+
+.. list-table::
+    :widths: auto
+
+    * - */rdn*
+      - :code:`"%*.*lf"`
+    * - */ren*
+      - :code:`"%*.*lE"`
+    * - */ron*
+      - :code:`"%#*.*lG"`
+    * - */rzn*
+      - :code:`"%*.*lG"`
+    * - */ldn*
+      - :code:`"%- *.*lf"`
+    * - */len*
+      - :code:`"%- *.*lE"`
+    * - */lon*
+      - :code:`"%-# *.*lG"`
+    * - */lzn*
+      - :code:`"%- *.*lG"`
+
+If *x* is complex, you can specify separate formats for the real and
+imaginary parts by putting two format specifications in the format
+string. You can also specify separate fields and precisions. You can
+position the sign of the imaginary part by placing a ``+`` between the two
+format specifications. If you use two formats, no ``i`` is appended to the
+imaginary part. This is so you can use an alternate format if you
+prefer, for example, prefacing the imaginary part with a ``j``.
+
+The format string can be a maximum of 80 characters.
+
+If you want special characters to be printed after *x*, include them as
+the last characters of the format string.
+
+
+For example:
+
+.. list-table::
+    :widths: auto
+
+    * - :code:`"%*.*lf,"`
+      - right-justified decimal followed by a comma.
+    * - :code:`"%-*.*s "`
+      - left-justified string followed by a space.
+    * - :code:`"%*.*lf"`
+      - right-justified decimal followed by nothing.
+
+        You can embed the format specification in the middle of other text:
+
+        ::
+
+            "Time: %*.*lf seconds."
+
+        If you want the beginning of the field padded with zeros, then put a ``0`` before the first ``*`` in the format string:
+
+    * - :code:`"%0*.*lf"`
+      - right-justified decimal.
+
+        If :math:`prec = 0`, the decimal point will be suppressed.
+
+
 .. seealso:: Functions :func:`ftocv`, :func:`stof`, `format`
+

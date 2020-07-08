@@ -145,7 +145,7 @@ Daily data with full date vector
     plotTS(date_vec, "months", closing_price);
 
 Time Series Plot With Custom X-ticks
-+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
 
 .. figure:: _static/images/plotts_mac_tbill_400px.png
    :scale: 50 %
@@ -200,3 +200,4 @@ for monthly data is ``"YYYY-MO"``.
 .. NOTE:: By default missing values in the *y* variable will be represented as gaps in the line.
 
 .. seealso:: Functions :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotScatter`, :func:`plotTSHF`, :func:`plotTSLog`
+

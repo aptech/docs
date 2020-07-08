@@ -93,5 +93,6 @@ In the above program:
 This will get the old `loadarray` path, set it to :file:`/data`, load :file:`a.fmt` and
 :file:`b.fmt`, and reset the `loadarray` path to its original setting.
 
-.. seealso:: Functions `load`, `save`, `let`, :func:`sysstate`s
+.. seealso:: Functions `load`, `save`, `let`, :func:`sysstate`
+
 

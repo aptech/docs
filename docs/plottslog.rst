@@ -144,7 +144,7 @@ Daily data with full date vector
     plotTSLog(date_vec, "months", closing_price);
 
 Time Series Plot With Custom X-ticks
-+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -196,3 +196,4 @@ default formatting: for annual data is ``"YYYY"``, for quarterly data
 By default missing values in the *y* variable will be represented as gaps in the line.
 
 .. seealso:: Functions :func:`plotTS`, :func:`plotTSHF`, :func:`plotSetXTicLabel`, :func:`plotSetXTicInterval`, :func:`plotScatter`
+

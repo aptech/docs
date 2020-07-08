@@ -22,7 +22,7 @@ Format
     :rtype s: Nx1 string array
 
 Format specifier basics
--------
+------------------------
 
 :func:`sprintf` format strings use format specifiers to describe the desired formatting.
 
@@ -138,7 +138,7 @@ Supported Types
 
 
 Examples
-----------------
+---------
 
 Basic single number examples 
 +++++++++++++++++++++++++++++
@@ -267,6 +267,5 @@ The above code will result in the following assignments:
          "  8.43e-02  1.11e+01"
 
 
-
-
 .. seealso:: Functions :func:`ftocv`, :func:`stof`, `format`
+
