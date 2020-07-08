@@ -19,7 +19,7 @@ Format
             :widths: auto
 
             "matrix","6"
-            "array,"21"
+            "array","21"
             "sparse matrix","38"
             "string","13"
             "string array","15"
