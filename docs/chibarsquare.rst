@@ -5,7 +5,7 @@ chiBarSquare
 Purpose
 ----------------
 
-Compute compute the probability for a chi-bar square statistic from an hypothesis involving parameters under constraints.
+Compute the probability for a chi-bar square statistic from an hypothesis involving parameters under constraints.
 
 Format
 ----------------
