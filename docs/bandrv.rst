@@ -31,7 +31,7 @@ Examples
     a = band(x, 1);
 
     // Expand the banded version of 'x' back to a full matrix
-    y = bandrv(xBand);
+    y = bandrv(a);
 
 After the code above:
 

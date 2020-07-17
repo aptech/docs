@@ -176,3 +176,5 @@ Remarks
        B = q*sb*z'
 
 -  If only the generalized eigenvalues are needed, you can call :func:`lapgeig`, or :func:`lapgeigv`.
+
+

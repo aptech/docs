@@ -18,7 +18,6 @@ E
     envget
     eof
     eqsolvemtcontrolcreate
-    eqsolvemtoutcreate
     eqsolvemt
     eqsolve
     eqsolveset
