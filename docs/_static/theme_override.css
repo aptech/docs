@@ -34,3 +34,5 @@ div.section#format div.highlight-gauss { border-top-width: 3px; border-top-color
 dt code.descname { color: #00557f; }
 .rst-versions { display: none; }
 
+.icon-large span.fa { font-size: 3rem; }
+

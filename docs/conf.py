@@ -46,7 +46,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx_panels'
+    'sphinx_panels',
 ]
 
 mathjax_config = {
@@ -107,10 +107,10 @@ html_static_path = ['_static']
 html_context = {
     'css_files': [
         '_static/theme_override.css',  # override wide tables in RTD theme
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
+        '_static/panels-bootstrap.min.css',  # override wide tables in RTD theme
     ],
 }
-
-html_css_files = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
 
 html_logo = '_static/images/gauss_logo.png'
 
@@ -190,7 +190,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'GAUSS', 'GAUSS Documentation',
-     author, 'GAUSS', 'One line description of project.',
+     author, 'GAUSS', 'The GAUSS matrix programming language.',
      'Miscellaneous'),
 ]
 

@@ -16,7 +16,8 @@ from six import iteritems
 from GAUSSHTMLTranslator import desc_returnlist, desc_return
 
 from sphinx import addnodes, locale
-from sphinx.deprecation import DeprecatedDict, RemovedInSphinx30Warning
+from sphinx.domains.python import pairindextypes
+#from sphinx.deprecation import DeprecatedDict, RemovedInSphinx30Warning
 from sphinx.directives import ObjectDescription
 from sphinx.domains import Domain, ObjType, Index
 from sphinx.locale import _, __
@@ -49,22 +50,22 @@ py_sig_re = re.compile(
           ''', re.VERBOSE)
 
 
-pairindextypes = {
-    'module':    _('module'),
-    'keyword':   _('keyword'),
-    'operator':  _('operator'),
-    'object':    _('object'),
-    'exception': _('exception'),
-    'statement': _('statement'),
-    'builtin':   _('built-in function'),
-}  # Dict[unicode, unicode]
-
-locale.pairindextypes = DeprecatedDict(
-    pairindextypes,
-    'sphinx.locale.pairindextypes is deprecated. '
-    'Please use sphinx.domains.python.pairindextypes instead.',
-    RemovedInSphinx30Warning
-)
+#pairindextypes = {
+#    'module':    _('module'),
+#    'keyword':   _('keyword'),
+#    'operator':  _('operator'),
+#    'object':    _('object'),
+#    'exception': _('exception'),
+#    'statement': _('statement'),
+#    'builtin':   _('built-in function'),
+#}  # Dict[unicode, unicode]
+#
+#locale.pairindextypes = DeprecatedDict(
+#    pairindextypes,
+#    'sphinx.locale.pairindextypes is deprecated. '
+#    'Please use sphinx.domains.python.pairindextypes instead.',
+#    RemovedInSphinx30Warning
+#)
 
 
 def _pseudo_parse_generic(signode, arglist, desc_listtype, desc_type):
