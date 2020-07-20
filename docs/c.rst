@@ -109,6 +109,5 @@ C
     cumprodc
     cumsumc
     curve
-    cvsplit
     cvtosa
     cvtos
