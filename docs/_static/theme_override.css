@@ -36,5 +36,8 @@ dt code.descname { color: #00557f; }
 
 .icon-large span.fa { font-size: 3rem; }
 
-.btn-outline-primary:hover { background-color: #455560; border-color: #455560; }
+.btn-outline-primary:hover { color: #fff; background-color: #455560 !important; border-color: #455560 !important; }
+.btn-outline-primary { border-color: #455560 !important; }
+a.btn-outline-primary:hover { color: #fff !important; }
+a.btn-outline-primary, a.btn-outline-primary:visited { color: #455560; }
 
