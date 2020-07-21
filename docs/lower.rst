@@ -14,9 +14,9 @@ Format
     :param x: data to be converted to lowercase
     :type x: string or NxK matrix
 
-    :return y: or NxK matrix which contains the lowercase equivalent of the data in *x*.
+    :return y: which contains the lowercase equivalent of the data in *x*.
 
-    :rtype y: string
+    :rtype y: string or NxK matrix
 
 Examples
 ----------------
