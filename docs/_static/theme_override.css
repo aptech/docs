@@ -36,3 +36,5 @@ dt code.descname { color: #00557f; }
 
 .icon-large span.fa { font-size: 3rem; }
 
+.btn-outline-primary:hover { background-color: #455560; border-color: #455560; }
+
