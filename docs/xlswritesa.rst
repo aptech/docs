@@ -8,7 +8,7 @@ Writes a GAUSS string or string array to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: ret = xlsWriteSA(data [, file[, range[, sheet[, vls]]]])
+.. function:: ret = xlsWriteSA(data , file[, range[, sheet[, vls]]]])
 
     :param data: data to write.
     :type data: string or string array
@@ -16,14 +16,14 @@ Format
     :param file: name of :file:`.xls`, or :file:`xlsx` file.
     :type file: string
 
-    :param range: the starting point of the write, e.g. "a2". Default = "a1".
+    :param range: Optional input, the starting point of the write, e.g. "a2". Default = "a1".
     :type range: string
 
-    :param sheet: sheet number. Default = 1.
+    :param sheet: Optional input, sheet number. Default = 1.
     :type sheet: scalar
 
-    :param vls: specifies the conversion of GAUSS characters into Excel® empty cells
-        and special types (see Remarks). A null string results in all null strings being 
+    :param vls: Optional input, specifies the conversion of GAUSS characters into Excel® empty cells
+        and special types (see Remarks). A null string results in all null strings being
         converted to empty cells. Default = null string.
     :type vls: null string or 9x1 string array
 
@@ -48,12 +48,12 @@ Basic Example
 
     // Create a 1x3 string array of variable names
     var_names = "Date" $~  "Price" $~ "Volume";
-    
+
     // Write contents of 'var_names' to 'myfile.xlsx'
     // from cell 'A1' to 'C1'
     ret = xlsWriteSA(var_names, "myfile.xlsx");
 
-:file:`myfile.xlsx` is saved in your current working directory. You can find your current working directory 
+:file:`myfile.xlsx` is saved in your current working directory. You can find your current working directory
 in the main tool bar (in the top of GAUSS).
 
 Write To a Range
@@ -63,7 +63,7 @@ Write To a Range
 
     // Create a 1x4 string array of variable names
     head = "Real GDP" $~  "Unemployment" $~ "CPI" $~ "PPI";
-    
+
     // Write the variable names to the cells 'C1:F1'
     ret = xlsWriteSA(head, "myfile.xlsx", "C1");
 
@@ -74,7 +74,7 @@ Specify Path and Sheet Number
 
     // Create a 3x1 string array
     labels = "Normotensive" $|  "Hypertensive" $| "Hypotensive";
-    
+
     // Write the data from 'labels' to cells 'D7:D9' on sheet 2 of 'myfile.xlsx'
     ret = xlsWriteSA(labels, "C:/mydata/myfile.xlsx", "D7", 2);
 
@@ -120,4 +120,3 @@ Remarks
    +------------+--------------------------------------------+
 
 .. seealso:: Functions :func:`xlsReadM`, :func:`xlsWrite`, :func:`xlsWriteM`, :func:`xlsReadSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
-

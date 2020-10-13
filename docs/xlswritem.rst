@@ -8,7 +8,7 @@ Writes a GAUSS matrix to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: ret = xlsWriteM(data[, file[, range[, sheet[, vls]]]])
+.. function:: ret = xlsWriteM(data, file[, range[, sheet[, vls]]]])
 
     :param data: data to write.
     :type data: matrix
@@ -16,14 +16,14 @@ Format
     :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
-    :param range: the starting point of the write, e.g. "A2". Default = "A1"
+    :param range: Optional input, the starting point of the write, e.g. "A2". Default = "A1"
     :type range: string
 
-    :param sheet: sheet number. Default = 1.
+    :param sheet: Optional input, sheet number. Default = 1.
     :type sheet: scalar
 
-    :param vls: specifies the conversion of GAUSS values into Excel® empty cells
-        and special types (see Remarks). A null string results in all GAUSS missing 
+    :param vls: Optional input, specifies the conversion of GAUSS values into Excel® empty cells
+        and special types (see Remarks). A null string results in all GAUSS missing
         values being converted to empty cells. Default = null string.
     :type vls: null string or 9x1 matrix
 
@@ -49,12 +49,12 @@ Basic Example
     x = { 0 1,
           1 2,
           3 5 };
-    
+
     // Write contents of 'x' to 'myfile.xlsx'
     // from cell 'A1' to 'B3'
     ret = xlsWriteM(x, "myfile.xlsx");
 
-:file:`myfile.xlsx` is saved in your current working directory. You can find your current working directory 
+:file:`myfile.xlsx` is saved in your current working directory. You can find your current working directory
 in the main tool bar (in the top of GAUSS) or by using the :func:`getGAUSSHome` command.
 
 Write To a Range
@@ -72,7 +72,7 @@ Specify Path and Sheet Number
 
     // Create a 10x3 matrix of Bernoulli random variables
     x = rndBernoulli(10, 3, 0.6);
-    
+
     // Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
     ret = xlsWriteM(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
@@ -118,4 +118,3 @@ Remarks
    +------------+--------------------------------------------+
 
 .. seealso:: Functions :func:`xlsReadSA`, :func:`xlsReadM`, :func:`xlsWrite`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
-

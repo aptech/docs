@@ -8,7 +8,7 @@ Writes a GAUSS matrix, string, or string array to an Excel® spreadsheet.
 
 Format
 ----------------
-.. function:: ret = xlsWrite(data[, file[, range[, sheet[, vls]]]])
+.. function:: ret = xlsWrite(data, file[, range[, sheet[, vls]]]])
 
     :param data: data to write.
     :type data: matrix, string, or string array.
@@ -16,14 +16,14 @@ Format
     :param file: name of :file:`.xls` or :file:`.xlsx` file.
     :type file: string
 
-    :param range: the starting point of the write, e.g. "A2". Default = "A1".
+    :param range: Optional input, the starting point of the write, e.g. "A2". Default = "A1".
     :type range: string
 
-    :param sheet: sheet number. Default = 1.
+    :param sheet:  Optional input, sheet number. Default = 1.
     :type sheet: scalar
 
-    :param vls: specifies the conversion of GAUSS values or characters into Excel® empty cells
-        and special types (see Remarks). A null string results in all GAUSS missing values and 
+    :param vls:  Optional input, specifies the conversion of GAUSS values or characters into Excel® empty cells
+        and special types (see Remarks). A null string results in all GAUSS missing values and
         null strings being converted to empty cells. Default = null string.
     :type vls: null string or 9x1 matrix or string array
 
@@ -49,12 +49,12 @@ Basic Example
     x = { 0 1,
           1 2,
           3 5 };
-    
+
     // Write contents of 'x' to 'myfile.xlsx'
     // from cell 'A1' to 'B3'
     ret = xlsWrite(x, "myfile.xlsx");
 
-:file:`myfile.xlsx` will be saved in your current working directory. You can find your current working directory 
+:file:`myfile.xlsx` will be saved in your current working directory. You can find your current working directory
 in the main tool bar (in the top of GAUSS), or with the :func:`getGAUSSHome` command.
 
 Write To a Range
@@ -64,7 +64,7 @@ Write To a Range
 
     // Create a 1x4 string array of variable names
     head = "Real GDP" $~  "Unemployment" $~ "CPI" $~ "PPI";
-    
+
     // Write the variable names to the cells 'C1:F1'
     ret = xlsWrite(head, "myfile.xlsx", "C1");
 
@@ -75,7 +75,7 @@ Specify Path and Sheet Number
 
     // Create a 10x3 matrix of Bernoulli random variables
     x = rndBernoulli(10, 3, 0.6);
-    
+
     // Write the data from 'x' to cells 'B4:D13' on sheet 2 of 'myfile.xlsx'
     ret = xlsWrite(x, "C:\\mydata\\myfile.xlsx", "B4", 2);
 
@@ -143,4 +143,3 @@ Remarks
       vls[4] = 9999.99;
 
 .. seealso:: Functions :func:`xlsReadSA`, :func:`xlsReadM`, :func:`xlsWriteM`, :func:`xlsWriteSA`, :func:`xlsGetSheetCount`, :func:`xlsGetSheetSize`, :func:`xlsGetSheetTypes`, :func:`xlsMakeRange`
-
