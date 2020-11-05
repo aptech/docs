@@ -6,4 +6,5 @@ Data Management
     :caption: Functions:
 
     data-management/interactive-import
+    data-management/programmatic-import
 
