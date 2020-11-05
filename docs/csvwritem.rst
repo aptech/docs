@@ -143,11 +143,13 @@ Linux
 Remarks
 ------------
 
-The standard output and standard error streams (stdout, stderr) can be
-written to with :func:`csvWriteM` by passing in the variable `__STDOUT`, or
-`__STDERR` as the filename input. Note that `__STDOUT`, or `__STDERR`
-should not be passed in as a string. The following example shows correct
-usage:
+- Use :func:`saved` to create a CSV dataset.
+
+- The standard output and standard error streams (stdout, stderr) can be
+  written to with :func:`csvWriteM` by passing in the variable `__STDOUT`, or
+  `__STDERR` as the filename input. Note that `__STDOUT`, or `__STDERR`
+  should not be passed in as a string. The following example shows correct
+  usage:
 
 ::
 
