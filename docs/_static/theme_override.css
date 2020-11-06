@@ -33,6 +33,9 @@ a { color:#455560; }
 div.section#format div.highlight-gauss { border-top-width: 3px; border-top-color: #455560; }
 dt code.descname { color: #00557f; }
 .rst-versions { display: none; }
+.rst-content .toctree-wrapper p.caption, h1, h2, h3, h4, h5, h6, legend {
+  font-family: Lato;
+}
 
 .icon-large span.fa { font-size: 3rem; }
 

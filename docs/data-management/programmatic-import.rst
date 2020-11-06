@@ -1,84 +1,192 @@
-Programmatic Import
+Programmatic Data Import
 ==================================
++-------------------+--------------+-----------------+-----------------+--------------------------+
+|                   |:func:`loadd` |:func:`csvReadM` |:func:`xlsReadM` |:func:`load`              |
++-------------------|              +                 +                 +                          +
+|                   |              |:func:`csvReadSA`|:func:`xlsReadSA`|                          |
++===================+==============+=================+=================+==========================+
+|**File types**     |              |                 |                 |                          |
++-------------------+--------------+-----------------+-----------------+--------------------------+
+|GAUSS (DAT, FMT)   |       X      |                 |                 |           X              |
++-------------------+--------------+-----------------+-----------------+--------------------------+
+|SAS, SPSS, Stata   |       X      |                 |                 |                          |
++-------------------+--------------+-----------------+-----------------+--------------------------+
+|CSV and delimted   |       X      |        X        |                 |     (Deprecated)         |
+|text               |              |                 |                 |                          |
++-------------------+--------------+-----------------+-----------------+--------------------------+
+|Excel (XLS, XLSX)  |       X      |                 |        X        |                          |
++-------------------+--------------+-----------------+-----------------+--------------------------+
 
-Loading tabular data
--------------------------------------------------
-
-[TABLE here comparing programmatic loading functions (?)]
-
-In most cases, you should use :func:`loadd` to load tabular data from: 
+In most cases, you should use :func:`loadd` to load data from: 
 
 * Excel (XLS, XLSX)
 * CSV or other delimted text files.
 * Stata (DTA), SAS (SAS7BDAT), SPSS or GAUSS Datasets (DAT).
 * GAUSS Matrix files (FMT), or HDF5 datasets. 
 
-**Basic usage**
+
+Load all variables from a dataset
+-------------------------------------------------
 
 Loading all variables from a dataset by passing in the file name.
 
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/detroit.detroit.sas7bdat";
+    dataset = getGAUSSHome() $+ "examples/housing.csv";
 
     // Load all variables from the file
-    detroit = loadd(dataset);
+    housing = loadd(dataset);
 
-The :func:`loadd` procedure also accepts two optional arguments:
-* A formula string which specifies which can be used to specify which variables to load, variable types, and variable transformations. 
-* A  loadFileControl structure which allows you to control various import options such as:
 
-The header row
-The row range
-Missing values handling 
-Loading intercepts
-Delimiters and quotations for .csv files
-Loading various sheets for .xls and .xlxs files
+.. note:: By default, :func:`loadd` assumes that the first row of CSV and Excel files contains variable names.
 
-Example: Load all contents of a .dat file without transformations
-Example: Load a subset of variables
-Example: Load a specific sheet of an Excel file
-
-What is a GAUSS formula string?
+GAUSS formula string basics
 -------------------------------------------------
-GAUSS formula strings allow you to represent a model or collection of variables in a compact and intuitive manner, using the variable names in the dataset.
-They are used both to load data and to specify models for many GAUSS procedures:
 
-TABLE OF GAUSS PROCEDURE WHICH USE FORMULA STRINGS
+GAUSS formula strings allow you to represent a model or collection of variables in a compact and intuitive manner, using the variable names in the dataset.
 
 Formula strings can be used to: 
+
 * Specify which variables to load.
-* Load interaction terms.
+* Create interaction terms.
 * Perform transformations on variables before loading.
 * Specify variable types including dates, categorical variables, and strings.
 * Include or exclude intercepts from models.
 
-How do I load a subset of variables from my file into GAUSS?
----------------------------------------------------------------
 
-To load a subset of variables from a file in a GAUSS program use the formula string argument with the :func:`loadd` procedure. 
 A formula string can be used to tell GAUSS whether to load specific variables, to exclude specific variables, to load an intercept. 
 
-	[TABLE here of formula string operator and description]
++-----------------+---------------------------------------------------------------+
+|Operator         |Purpose                                                        |
++=================+===============================================================+
+|.                |Represents all variables.                                      |
++-----------------+---------------------------------------------------------------+
+|\+               |Adds a variable.                                               |
++-----------------+---------------------------------------------------------------+
+|\-               |Removes a variable.                                            |
++-----------------+---------------------------------------------------------------+
+|1                |Represents an intercept term.                                  |
++-----------------+---------------------------------------------------------------+
+|\*               |Adds an interaction term and includes both original variables. |
++-----------------+---------------------------------------------------------------+
+|\:               |Adds an interaction between two variables, but does not        | 
+|                 |include either of the  original variables.                     |
++-----------------+---------------------------------------------------------------+
 
-Example: Load two variables by name
-Example: Load all variables except one
+Formula strings also allow data transformations during loading.
 
-How do I load a variable as a categorical variable in a GAUSS program file?
++-----------------+---------------------------------------------------------------+
+|Keyword          |Purpose                                                        |
++=================+===============================================================+
+|cat              |Load a variable as categorical column in a dataframe.          |
++-----------------+---------------------------------------------------------------+
+|date             |Load a variable as date column in a dataframe.                 |
++-----------------+---------------------------------------------------------------+
+|str              |Load a variable as string column in a dataframe.               |
++-----------------+---------------------------------------------------------------+
+|$                |Indicates that a variable is stored in the file as a string    |
+|                 |and that the variable should be passed to the keyword or       |
+|                 |procedure as a string column.                                  |
++-----------------+---------------------------------------------------------------+
+
+Load a subset of variables
+-------------------------------------------------
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+
+    // Load two specific variables from the file
+    detroit = loadd(dataset, "unemployment + hourly_earn");
+
+
+Load all variables except one
+-------------------------------------------------
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+
+    // Load all variables except for date
+    xle = loadd(dataset, ". -date");
+
+
+Load categorical variables
 -----------------------------------------------------------------------------
 
-Note that SAS and STATA data files store variables as categorical variables. GAUSS automatically identifies these variables as categorical. 
+Some datasets such as, SAS, Stata, and SPSS store variable type information. GAUSS will automatically identify categorical variables from these files. 
 
-Excel, csv, etc.. files do not store categorical data and can only pass string or numeric data to GAUSS. In this case, use the `cat` keyword with :func:`loadd` to specify that a string variable should represent categorical data. 
+::
 
-Can I transform my variable during loading?
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/auto2.dta";
+    
+    // GAUSS will load price as numeric
+    // and rep78 as categorical, because this
+    // information is contained in the dataset 
+    auto = loadd(dataset, "price + rep78");
+
+
+Excel, CSV, and other text files do not store variable type descriptions and can only pass string or numeric data to GAUSS. In this case, use the `cat` keyword with :func:`loadd` to specify that a string variable should represent categorical data. 
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
+    
+    // Load amplitude as a categorical variable and cycles as numeric
+    yarn = loadd(dataset, "cat(amplitude) + cycles");
+
+Load and transform variables in one step
 -----------------------------------------------------------------------------
 
 Data transformations can be implemented during loading by including the appropriate GAUSS procedure in the formula string. 
 
-Example: Natural log
-Example: The first difference of the natural log
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/housing.csv";
+
+    // Load price variable and perform natural log transform
+    ln_price = loadd(dataset, "ln(price)");
+
+You can also use your own procedures in formula strings as shown below:
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/housing.csv";
+
+    // Load price variable and perform first difference of natural log
+    ln_price_d = loadd(dataset, "lndiff(price)");
+
+    proc (1) = lndiff(x);
+        local ln_x;
+        
+        ln_x = ln(x);
+
+        retp(ln_x - lagn(ln_x,1));
+    endp;
+
+.. note:: Procedures used in formula strings must take a single column vector as input and return a column vector of the same length.
+
+If your procedure needs the variable loaded as a string, you can prepend the variable name with a dollar sign ``$`` to tell GAUSS to load the variable as a string array and pass it to your procedure.
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+
+    // Load school variable as a string and pass to is_nc procedure
+    nba = loadd(dataset, "is_nc($school) + height + weight");
+
+    proc (1) = is_nc(name);
+        retp(name .$== "North Carolina");
+    endp;
+
 
 How do I load dates programmatically?
 -----------------------------------------------------------------------------
@@ -114,8 +222,36 @@ How do I load an interaction term using a formula string?
 Use the `:` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
 Use the `*` operator in a formula string to load a each variable on the left and right of the `*`, as well as an interaction term between the two. 
 
-The loadFileControl structure
+Formula strings can be used to specify models for many GAUSS procedures:
+
++-----------------+----------------------------------------------------------+
+|Function         |Purpose                                                   |
++=================+==========================================================+
+|:func:`dstatmt`  |Descriptive statistics.                                   |
++-----------------+----------------------------------------------------------+
+|:func:`loadd`    |Load tabular data.                                        |
++-----------------+----------------------------------------------------------+
+|:func:`olsmt`    |Ordinary least squares estimation.                        |
++-----------------+----------------------------------------------------------+
+|:func:`glm`      |Generalized linear model estimation.                      |
++-----------------+----------------------------------------------------------+
+|:func:`gmmFitIV` |Generalized method of moments with instrumental variables.|
++-----------------+----------------------------------------------------------+
+
+
+Advanced loading options
 -----------------------------------------------------------------------------
+
+* A  loadFileControl structure which allows you to control various import options such as:
+
+    * The header row
+    * The row range
+    * Missing values handling 
+    * Loading intercepts
+    * Delimiters and quotations for .csv files
+    * Loading various sheets for .xls and .xlxs files
+
+Example: Load all contents of a .dat file without transformations
 
 What is the loadFileControl structure?
 -----------------------------------------------------------------------------
