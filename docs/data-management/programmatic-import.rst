@@ -188,25 +188,48 @@ If your procedure needs the variable loaded as a string, you can prepend the var
     endp;
 
 
-How do I load dates programmatically?
+Load dates programmatically
 -----------------------------------------------------------------------------
 
 Use the `date` keyword in a formula string to indicate that :func:`loadd` should load a variable as a date. 
 
-There are several important components to using the `date` keyword:
+::
 
-If the variable is a string, a `$` must be included before the  variable name. 
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/eurusd_tick.csv";
 
-GAUSS will automatically detect standard date formats (LINK TO LIST HERE).
+    // Load variables and specify that the variable named
+    // date, should be loaded as a date vector
+    eur_usd = loadd("date(date) + bid + ask");
 
-If using a non-standard date format, a BSD strftime specifier must be included as a second input.
+
+GAUSS will automatically detect many standard date formats (LINK TO LIST HERE).
 
 Can I load non-standard date formats?
 -----------------------------------------------------------------------------
 
-A BSD strftime specifier can be used with the `date` keyword in order to specify a non-standard date format. 
+GAUSS allows you to specify any arbitrary date format. To accomplish this you use a a BSD strftime specifier as used with :func:`strctoposix`. A BSD strftime specifier can be used with the `date` keyword in order to specify a non-standard date format. 
 
 [CHART OF STRFTIME SPECIFIERS]
+
+For example if you have a file named `date_test.csv` with these contents:
+
+::
+
+    "date","price"
+    "January, 1982",12.83
+    "February, 2004",19.21
+
+We can see that the date variable contains the full month name followed by a comma and then a four digit year. The strftime specifier for the full month name is ``%B`` and the specifier for the four digit year is ``%Y``. Therefore we can describe this date format with the string ``"%B, %Y"``.
+
+This format specifier will be passed as a second input to the `date` keyword in the formula string as shown below. 
+
+::
+
+    // Load date with custom date format, using a strftime specifier
+    data = loadd("date_test.csv", "date(date, '%B, %Y') + price);
+
+Note that the format specifier is enclosed in single ticks.
 
 Example One
 Example Two
