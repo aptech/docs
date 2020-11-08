@@ -205,14 +205,14 @@ Use the `date` keyword in a formula string to indicate that :func:`loadd` should
 
 GAUSS will automatically detect many standard date formats (LINK TO LIST HERE).
 
-Can I load non-standard date formats?
+How to load non-standard date formats?
 -----------------------------------------------------------------------------
 
-GAUSS allows you to specify any arbitrary date format. To accomplish this you use a a BSD strftime specifier as used with :func:`strctoposix`. A BSD strftime specifier can be used with the `date` keyword in order to specify a non-standard date format. 
+GAUSS allows you to specify any arbitrary date format. To accomplish this create a format string using BSD strftime specifiers to replace the date elements.
 
-[CHART OF STRFTIME SPECIFIERS]
+.. note:: The full list of strftime format specifiers can be found in the documentation for :func:`strctoposix`.
 
-For example if you have a file named `date_test.csv` with these contents:
+The strftime specifier tells GAUSS how to interpret the date elements of the text. For example consider a file containing the contents below:
 
 ::
 
@@ -220,9 +220,22 @@ For example if you have a file named `date_test.csv` with these contents:
     "January, 1982",12.83
     "February, 2004",19.21
 
-We can see that the date variable contains the full month name followed by a comma and then a four digit year. The strftime specifier for the full month name is ``%B`` and the specifier for the four digit year is ``%Y``. Therefore we can describe this date format with the string ``"%B, %Y"``.
 
-This format specifier will be passed as a second input to the `date` keyword in the formula string as shown below. 
+The table below shows how we use the first date observation, ``"January, 2004"`` to create the format string ``"%B, %Y"``.
+
++-----------------+---------------------------+---------+----------------------+
+|Original Contents|Description                |Type     |Format string contents|
++=================+===========================+=========+======================+
+|January          |The full name of the month.|Date     |`%B`                  |
++-----------------+---------------------------+---------+----------------------+
+|,                |A comma.                   |Literal  |,                     |
++-----------------+---------------------------+---------+----------------------+
+|(space)          |A space.                   |Literal  |(space)               |
++-----------------+---------------------------+---------+----------------------+
+|1982             |A four digit year.         |Date     |`%Y`                  |
++-----------------+---------------------------+---------+----------------------+
+
+Now pass the formula string as the second input to the `date` keyword. Assuming our file is called `date_test.csv`, the code would look like this: 
 
 ::
 
@@ -230,9 +243,6 @@ This format specifier will be passed as a second input to the `date` keyword in 
     data = loadd("date_test.csv", "date(date, '%B, %Y') + price);
 
 Note that the format specifier is enclosed in single ticks.
-
-Example One
-Example Two
 
 How do I load a variable as a string in a GAUSS program file?
 -----------------------------------------------------------------------------
