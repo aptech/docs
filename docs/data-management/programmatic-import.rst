@@ -274,6 +274,7 @@ Use the `:` operator in a formula string to load a pure interaction term between
     // 'new' and 'baths'. Do not load either 'new' or 'baths'.
     housing = loadd(dataset, "new:baths");
 
+
 Use the `*` operator in a formula string to load a each variable on the left and right of the `*`, as well as an interaction term between the two. 
 
 ::
@@ -285,86 +286,133 @@ Use the `*` operator in a formula string to load a each variable on the left and
     // 'new' and 'baths'. Also load the variables 'new' and 'baths'.
     housing = loadd(dataset, "new*baths");
 
-Formula strings can be used to specify models for many GAUSS procedures:
 
-+-----------------+----------------------------------------------------------+
-|Function         |Purpose                                                   |
-+=================+==========================================================+
-|:func:`dstatmt`  |Descriptive statistics.                                   |
-+-----------------+----------------------------------------------------------+
-|:func:`loadd`    |Load tabular data.                                        |
-+-----------------+----------------------------------------------------------+
-|:func:`olsmt`    |Ordinary least squares estimation.                        |
-+-----------------+----------------------------------------------------------+
-|:func:`glm`      |Generalized linear model estimation.                      |
-+-----------------+----------------------------------------------------------+
-|:func:`gmmFitIV` |Generalized method of moments with instrumental variables.|
-+-----------------+----------------------------------------------------------+
-
-
-Advanced loading options
+Advanced data loading options
 -----------------------------------------------------------------------------
 
-* A  loadFileControl structure which allows you to control various import options such as:
+:func:`loadd` allows you to control various data import options such as:
 
-    * The header row
-    * The row range
-    * Missing values handling 
-    * Loading intercepts
-    * Delimiters and quotations for .csv files
-    * Loading various sheets for .xls and .xlxs files
+* The header row.
+* The row range.
+* Missing values handling.
+* Loading intercepts.
+* Delimiters and quotations for CSV files.
+* Specifying the sheet of an XLS or XLSX file.
 
-Example: Load all contents of a .dat file without transformations
 
-What is the loadFileControl structure?
------------------------------------------------------------------------------
+by passing in the `loadFileControl` structure.
 
-The `loadFileControl` structure is an optional argument used to control additional :func:`loadd` import options. 
-The `ld_ctl` structure should be inclu
-The loadFileControl structure allows you to control:
-The header row
-The row range
-Missing values handling 
-Loading intercepts
-Delimiters and quotations for .csv files
-Loading various sheets for .xls and .xlxs files
-To use the `loadFileControl` structure:
-Declare the structure.
-Fill the defaults using `LoadFileControlCreate`.
-Set members.
+Baisc usage of the `loadFileControl` structure
++++++++++++++++++++++++++++++++++++++++++++++++++
 
-How can I programmatically control what rows are imported using the `loadFileControlStruct`?
----------------------------------------------
+As with all GAUSS control structures, there are four steps to using the `loadFileControl` structure.
 
-Prior to calling the :func:`loadd` procedure, use the `ld_ctl.row_range.first` and  last `ld_ctl.row_range.last` to specify the row range for importing. 
+1. Declare an instance of the structure.
+2. Fill the structure with default values.
+3. Modify the settings that you want to change.
+4. Pass the structure to :func:`loadd`.
 
-Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
-How can I programmatically control what Excel sheet is imported using the `loadFileControlStruct`?
+Modify the row range loaded by :func:`loadd`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Prior to calling the :func:`loadd` procedure, set `ld_ctl.xls.sheet` to the desired sheet index number. 
+The `ld_ctl.row_range.first` and `ld_ctl.row_range.last` members of the `loadFileControl` structure specify the row range for importing. 
 
-Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
+::
 
-How can I programmatically specify the location of a header row in a datafile?
----------------------------------------------
-GAUSS automatically locates the most likely header row. To programmatically change the location of the header row set `ld_ctl.header_row` equal to the desired header row, prior to calling the :func:`loadd` procedure.
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/housing.csv";
 
-Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
+    // 1. Declare ld_ctl to be an instance of a 'loadFileControl' structure
+    struct loadFileControl lc_ctl;
 
-How can I specify values to import as missings?
----------------------------------------------
+    // 2. Fill 'ld_ctl' with default settings
+    ld_ctl = loadFileControlCreate();
+
+    // 3. Change the row range to load rows 9-21 
+    ld_ctl.row_range.first = 9;
+    ld_ctl.row_range.last = 21;
+
+    // Pass the loadFileControl structure as the final input
+    // Note the use of the '.' operator to note that all variables should be loaded
+    housing = loadd(dataset, ".", ld_ctl);
+
+
+Specify the row containing the variable names in a text or Excel file 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+By default, :func:`loadd` assumes that the first line of an Excel or delimted text file contains the variable names. The `header_row` member of the `loadFileControl` structure allows you to control which row is interpreted as variable names.
+
+For example consider a file containing:
+
+::
+
+    // 'headroom' was reported in inches
+    "mpg","headroom"
+    21,144
+    35,90
+    12,160
+
+Assuming this file is named `auto_headers.csv` and is in our current working directory, We can load this file, correctly specifying that the variable names are in the second row with this code:
+
+::
+    
+    // Declare structure and fill with default settings
+    struct loadFileControl ld_ctl;
+    ld_ctl = loadFileControlCreate()
+
+    // Specify the row containing the variable names
+    ld_ctl.header_row = 2;
+
+    // Load the data, using the settings in 'ld_ctl'
+    auto = loadd("auto_headers.csv", ".", ld_ctl)
+
+
+Specify string values to import as missings
++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Prior to calling the :func:`loadd` procedure, use the `ld_ctl.missing_vals_str` member of the `loadFileControlStruct` to specify values that should be treated as missing upon import. 
 
 GAUSS identifies both “.” and “” as missing values by default. 
 
-For example, if we wish to specify that “NaN”, “-999”, and “Blank” as missing:
+For example, if we have the following data file:
 
-`ld_ctl.missing_vals_str` = “NaN”$|”-999”$|”Blank”;
+::
+
+    id,price,transaction
+    11032,12.34,"purchase"
+    11210,99.21,"exchange"
+    11087,34.21,"NA"
+    11249,129.20,"purchase"
+    10277,19.43,"unknown"
+
+and we want to specify both ``"NA"`` and ``"unknown"`` as missing values, we would use the following code:
+
+::
+
+    // Declare structure and fill with default settings
+    struct loadFileControl ld_ctl;
+    ld_ctl = loadFileControlCreate()
+
+    // Specify that "NA" and "unknown" should be imported as missing values
+    ld_ctl.missing_vals_str = { "NA" "unknown" }
+
+    // Load variables, specifying that 'transaction' should be a categorical
+    // variable and any string observations matching either "NA" or
+    // unknown should be interpreted as missing values.
+    transactions = loadd("missing_value.csv", "id + price + cat(transaction)", ld_ctl)
+
+
+Specify a CSV file delimiter programmatically
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+By default, :func:`loadd` expects files with a `.csv` file extension to use a comma as the delimiter. The
+``delimiter`` member of the `loadFileControl` structure.
+
 Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
-How can I change a .csv file delimiter programmatically?
-Prior to calling the :func:`loadd` procedure, set the .csv file delimiter using the `ld_ctl.delimiter` member. 
-Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
-How can I change the .csv file quotation character?
+
+Specify the CSV file quotation character
++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Prior to calling the :func:`loadd` procedure, set the .csv file delimiter using the `ld_ctl.quotechar` member. 
 Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
 
