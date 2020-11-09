@@ -239,21 +239,51 @@ Now pass the formula string as the second input to the `date` keyword. Assuming 
 
 ::
 
-    // Load date with custom date format, using a strftime specifier
+    // Load 'date' with custom date format, using a strftime specifier
     data = loadd("date_test.csv", "date(date, '%B, %Y') + price);
 
 Note that the format specifier is enclosed in single ticks.
 
-How do I load a variable as a string in a GAUSS program file?
+How to load a variable as a string
 -----------------------------------------------------------------------------
 
-Use the `str` keyword in a GAUSS formula string to indicate that a variable is a string variable. 
+The `str` keyword in a GAUSS formula string indicates that a variable should be loaded as a string variable in a dataframe. 
 
-How do I load an interaction term using a formula string?
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+
+    // Load player as a string variable. Load
+    // 'height' and 'weight' as numeric.
+    nba = loadd(dataset, "str(player) + height + weight");
+
+If you want to load a variable into a GAUSS string array, use :func:`loaddsa`.
+
+How to load an interaction term using a formula string?
 -----------------------------------------------------------------------------
 
 Use the `:` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/housing.csv";
+
+    // Load and create a variable that is the interaction (element-by-element product)
+    // 'new' and 'baths'. Do not load either 'new' or 'baths'.
+    housing = loadd(dataset, "new:baths");
+
 Use the `*` operator in a formula string to load a each variable on the left and right of the `*`, as well as an interaction term between the two. 
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/housing.csv";
+
+    // Load and create a variable that is the interaction (element-by-element product)
+    // 'new' and 'baths'. Also load the variables 'new' and 'baths'.
+    housing = loadd(dataset, "new*baths");
 
 Formula strings can be used to specify models for many GAUSS procedures:
 
@@ -338,23 +368,24 @@ How can I change the .csv file quotation character?
 Prior to calling the :func:`loadd` procedure, set the .csv file delimiter using the `ld_ctl.quotechar` member. 
 Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
 
-The xls Tools
-				[TABLE OF XLS LOADING PROCEDURES]
+The Excel Data Tools
+--------------------------
 
-How can I check the number of sheets in an Excel spreadsheet?
+How to check the number of sheets in an Excel spreadsheet?
 ---------------------------------------------
 
-Use the `xlsGetSheetCount` procedure to count the number of sheets contained in the filename. 
+Use the :func:`xlsGetSheetCount` procedure to count the number of sheets contained in the filename. 
 
-How can I check the size of an Excel spreadsheet?
+How to check the size of an Excel spreadsheet?
 ---------------------------------------------
 
-Use the `xlsGetSheetSize` procedure to count the size of sheetname in filename. 
+Use the :func:`xlsGetSheetSize` procedure to count the size of sheetname in filename. 
 
-How can I check the type of Excel cells?
+How to check the type of Excel cells?
 ---------------------------------------------
 
-Use the `xlsGetSheetType` procedure to check the cell format types of a specific row in an Excel spreadsheet. 
+Use the :func:`xlsGetSheetTypes` procedure to check the cell format types of a specific row in an Excel spreadsheet. 
+
 Database
 Data that does not fit in memory
 
