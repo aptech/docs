@@ -23,10 +23,11 @@ as well as performing all aspects of data import, such as:
 Open the Data Import window
 --------------------------------------------
 
-.. figure:: ../_static/images/data-import-project-folder.jpg
-
-
 You can open the **Data Import** window in three ways:
+
+.. figure:: ../_static/images/data-import-project-folder.jpg
+    :scale: 50%
+
 
 * Select data **File > Import Data** from the main GAUSS menu bar. 
 * From the **Project Folders** window:
@@ -89,97 +90,170 @@ Navigation and Data Preview
 How to bring a variable in my dataset into view to preview?
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Select the variable you wish to bring into view and the View  [image of icon here] option will appear. 
-Click [image of icon here] View and the preview window will shift to bring that variable into view. This is particularly useful for wide datasets with many variables. 
+.. figure:: ../_static/images/data-import-view.jpg
+    :scale: 50%
 
-How to find specific variables on the variable list
+1. Click the button with the downward pointing triangle to the right of the variable you wish to bring into view. 
+2. Select **View** from the menu.
+
+The preview window will shift to bring the selected variable into view. This is particularly useful for wide datasets with many variables. 
+
+
+
+Find specific variables in the Variables list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Type the filter keywords in the Filter box on the Variables tab to search for variables containing certain keywords. 
+.. figure:: ../_static/images/data-import-filter-variables.jpg
+    :scale: 50%
 
-How to select multiple of variables?
+Type in the filter box below the **Variables** list to filter the variables by name or type. The **Variables** list will be dynamically updated with matches after each new character.
+
+.. note:: You can filter the variables by type. For example, entering `category` in the filter text box will show all variables that are listed as categorical.
+
+Select multiple variables
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-You can select multiple variables within the Variables tab by clicking on a variable name while pressing the `Control` key.
+.. figure:: ../_static/images/data-import-select-multiple.jpg
+    :scale: 50%
 
-[image of multiple variables selected on variables list]
+Click on the variable names while pressing the `Control` or `Command` key to select multiple variables that are not next to eachother. Once selected, you can add, remove or change their types all at once.
 
-How to select a group of variables?
+
+Select a group of variables
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click on the name of the first variable in the group. 
-Press `Control+Shift` and click on the name of the last variable in the group. 
+.. figure:: ../_static/images/data-import-select-group.jpg
+    :scale: 50%
+
+Click on the name of the first variable in the group. Press `Shift` and click on the name of the last variable in the group. 
+
 You may now perform actions on this entire group such as changing the variable types, selecting the variables for import.
 
-				[Image of group of variables selected on variables list]
 
 Importing subsets of data
 ---------------------------------
 
-How do I select subsets of variables to import?
+Select subsets of variables to import
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The **Variables** tab in the **Data Import** window allows you to select which variables in a data set are imported. 
-By default, all variables are selected for import.
+Clear the checkbox to the left of the variable name on the **Variables** tab for any variables you do not want to load. 
 
-Clear the variable checkbox if you do not want to import that variable. 
 
-How to control which rows are imported?
+Control which rows are imported
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-You can specify both the starting and ending row in the **Row Range** text box located in the  **File** pane of the **Import Options** tab. 
-Note that GAUSS picks the starting row based on the location of header rows. 
+The starting and ending row can be specified in the **Row Range** text box located in the  **File** pane of the **Import Options** tab. 
+
+.. note:: By default, GAUSS assumes the starting row is the first row immediately after the header row. 
 
 Data Filtering
 ---------------------------------
 
-How to filter values to be imported?
+Filter observations to be imported
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-[Image of filter tab] 
+.. figure:: ../_static/images/data-import-variable-filter-select.jpg
+    :scale: 50%
 
-Use the **Variable** name drop-down list on the **Filter** tab to select a variable to use for filtering.
+1. Use the **Variable** name drop-down list on the **Filter** tab to select a variable to use for filtering.
+2. Select the desired filtering operation from the **Operation drop-down** list. 
+3. Enter the value for the filtering condition in the **Value** text box. 
+4. Click the ``+`` button to add the filter.
 
-Select the desired filtering operation from the Operation drop-down lists. This list changes depending on the type of the variable selected.  [INSERT TABLE OF TYPES AND FILTERING OPTIONS]
++--------------------+------------------+
+|Data type           |Filter options    |
++====================+==================+
+|Numeric and Date    |                  | 
++--------------------+------------------+
+|                    |=                 |
++--------------------+------------------+
+|                    |!=                |
++--------------------+------------------+
+|                    |<                 |
++--------------------+------------------+
+|                    |<=                |
++--------------------+------------------+
+|                    |>                 |
++--------------------+------------------+
+|                    |>=                |
++--------------------+------------------+
+|                    |Is Missing        |
++--------------------+------------------+
+|                    |Is Not Missing    |
++--------------------+------------------+
+|String and Category |                  |
++--------------------+------------------+
+|                    |Equals            |
++--------------------+------------------+
+|                    |Not Equals        |
++--------------------+------------------+
+|                    |Contains          |
++--------------------+------------------+
+|                    |Does not Contain  |
++--------------------+------------------+
+|                    |Is Empty          |
++--------------------+------------------+
+|                    |Is Not Empty      |
++--------------------+------------------+
+|                    |Is Missing        |
++--------------------+------------------+
+|                    |Is Not Missing    |
++--------------------+------------------+
 
-Enter the filtering condition value in the text box.
-
-Click [IMAGE of Add Condition Button]. Add 
-
-Can I remove a filtering condition?
+Disable a filtering condition
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Click  [IMAGE of Remove Condition Button] Remove to remove a filtering condition.
+.. figure:: ../_static/images/data-import-uncheck-filter.jpg
+    :scale: 50%
 
-How to hide filtered observations from view?
+Uncheck the checkbox to the left of the enacted filter to disable it.
+
+Hide filtered observations from view
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Check the Hide Filtered Rows/Columns options on the Filter tab. 
+Check the **Hide Filtered Rows/Columns** option on the **Filter** tab to remove filtered observations from the preview. 
 
 Dates
 ------------------------------------------------------------------
 
-How do I import dates into GAUSS?
+Interactively import dates into GAUSS
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-GAUSS uses an internal smart date detector to data which represents dates and times. 
+The GAUSS **Data Import** window uses an internal smart date detector to automatically recognize data which represents dates and times. 
 
-If a date variable is not determined by GAUSS as a date, you can select Date from the Type drop-down list on the Variable tab. 
-When a variable type is changed to Date, a Specify Date Format dialog automatically opens.
+If a date variable is not determined by GAUSS as a date, you can select **Date** from the **Type** drop-down list on the **Variable** tab. 
+When a variable type is changed to **Date**, a **Specify Date Format** dialog automatically opens.
 
-How to specify my date format?
+Specify a date format
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-[Image of the Specify Date Format dialog]
+If GAUSS does not automatically detect your date format, you will be asked to manually specify a date format using the **Specify Date Format** dialog. 
 
-If GAUSS does not automatically detect your date format, you will be asked to manually specify a date format using the Specify Date Format dialog. 
-The dialog Specify Date Format dialog provides a list of BSD strftime format specifiers, along with a sample and description. 
-Type the desired specifier in the Date Format box or may select specifiers from the BSD specifier list. 
+.. figure:: ../_static/images/data-import-date-specify-dialog.jpg
+    :scale: 50%
 
-As you build your date format, a sample date will be dynamically created. 
+Build a format string in the **Date format** box, using the BSD strftime specifiers, that represents your data. 
 
-To more quickly locate the desired specifier, you can use the Pattern Filter drop-down list to filter specifiers by categories such as day specifiers, month specifiers, or hour specifiers. 
-Our blog “Reading dates and times in GAUSS” provides additional information on this topic. 
+
+If your data looked like this ``03/12/2017``, the correct format string would be ``%m/%d/%Y``. The table below explains this.
+
++-----------------+---------------------------+---------+----------------------+
+|Original Contents|Description                |Type     |Format string contents|
++=================+===========================+=========+======================+
+|03               |A two digit month.         |Date     |`%m`                  |
++-----------------+---------------------------+---------+----------------------+
+|/                |A forward slash.           |Literal  |/                     |
++-----------------+---------------------------+---------+----------------------+
+|12               |A two digit day.           |Date     |`%d`                  |
++-----------------+---------------------------+---------+----------------------+
+|/                |A forward slash.           |Literal  |/                     |
++-----------------+---------------------------+---------+----------------------+
+|2017             |A four digit year.         |Date     |`%Y`                  |
++-----------------+---------------------------+---------+----------------------+
+
+
+
+The **Format Options** section of this dialog contains the BSD strftime specifiers for reference. Use the **Filter** dropdown to filter the reference options shown.
 
 String type
 ------------------------------------------------------------------
