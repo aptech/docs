@@ -408,7 +408,30 @@ Specify a CSV file delimiter programmatically
 By default, :func:`loadd` expects files with a `.csv` file extension to use a comma as the delimiter. The
 ``delimiter`` member of the `loadFileControl` structure.
 
-Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
+For example, a space delimited file like this:
+
+::
+
+    length width
+    25 31
+    14 22
+    19 44
+
+named `space_separated.csv` can be loaded like this:
+
+::
+
+    // Declare structure and fill with default settings
+    struct loadFileControl ld_ctl;
+    ld_ctl = loadFileControlCreate()
+
+    // Specify space as the file delimiter
+    ld_ctl.csv.delimiter = " "; 
+
+    // Load all variables from a space separated text file
+    x = loadd("space_separated.csv", ".", ld_ctl);
+
+
 
 Specify the CSV file quotation character
 +++++++++++++++++++++++++++++++++++++++++++++++++
