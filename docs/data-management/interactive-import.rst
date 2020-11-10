@@ -258,49 +258,50 @@ The **Format Options** section of this dialog contains the BSD strftime specifie
 String type
 ------------------------------------------------------------------
 
-How to change my variable to a string type?
+Change a variable to a string type
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To specify a variable as a string, select String from the Type drop-down list on the Variables tab of the **Data Import** window. 
+To specify a variable as a string, select **String** from the **Type** drop-down list on the **Variables** tab of the **Data Import** window. 
+
 When a variable is specified as a string type, it attaches string labels to underlying numeric variables. 
 This allows you to view string labels when printing your matrix.
 
 Category type
 ------------------------------------------------------------------
 
-How to specify my variable to be a category?
+Specify a variable to be a category
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To specify that a variable is a categorical variable, select Category from the Type drop-down list on the Variables tab of the **Data Import** window. 
+To specify that a variable is a categorical variable, select **Category** from the **Type** drop-down list on the **Variables** tab of the **Data Import** window. 
 
-How to change the category mapping?
+Change the category mapping
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-When you change a variable to a category, a [image of the hamburger menu] Menu will appear next to the variable. This will open a Modify Column Mapping dialog. 
+When you change a variable to a category, or select **Properties** from the drop-down to the right of the variable name, the **Modify Column Mapping** dialog will open. 
 
-Enter the desired label in the Renamed Label textbox next to the category label you want to change.
-Click [image of OK button in Modify Column Mapping] to apply the new category labels. 
+.. figure:: ../_static/images/data-import-modify-column-mapping.jpg
+    :scale: 50%
 
-How to specific categories to be the base case?
+**Rename** a label by double-clicking in the appropriate row of the **Renamed Label** column and enter the new label.
+
+**Reorder** a label by selecting the label and using the up and down arrows at the top of the dialog.
+
+Specify the category to be the base case
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Open [image of the hamburger menu] the Menu next to the categorical variable of interest. This will open the Modify Column Mapping dialog.
-The Key column indicates the ordering of the categories. The category with the Key equal to zero is used as the base case in all GAUSS estimation procedures. 
-To change the base case select the Label of the category you want to be the new base case. 
+The first label in the **Column Mapping**, mentioned in the previous section, will be the base case.
 
-Click [image of the double arrow button in the modify column mapping dialog] to move the selected category to the base case. 
 
-How to count the number of categories in my categorical data?
+Count the number of categories in a categorical variable
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Open [image of the hamburger menu] the Menu next to the categorical variable of interest. This will open the Modify Column Mapping dialog.
-The count of categories will be located in the upper right hand corner of the Modify Column Mapping dialog. 
-[Image of the Category Count in the Modify Column Mapping]
+
+The category **Count** will be shown at the top right of the **Column Mapping** dialog shown above.
 
 Numeric type	
 ------------------------------------------------------------------
 
-How to convert my data to a numeric variable?
+Convert a variable to a numeric variable
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To specify a variable as a numeric variable, select String from the Type drop-down list on the Variables tab of the **Data Import** window. 
+To specify a variable as a numeric variable, select **Numeric** from the **Type** drop-down list on the **Variables** tab of the **Data Import** window. 
 
