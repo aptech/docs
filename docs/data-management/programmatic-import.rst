@@ -408,6 +408,22 @@ Specify a CSV file delimiter programmatically
 By default, :func:`loadd` expects files with a `.csv` file extension to use a comma as the delimiter. The
 ``delimiter`` member of the `loadFileControl` structure.
 
++---------------------------+
+|Common Data File Delimiters|
++--------------+------------+
+|Name          |Symbol      |
++==============+============+
+|Comma         |","         |
++--------------+------------+
+|Space         |" "         |
++--------------+------------+
+|Tab           |"\t"        |
++--------------+------------+
+|Pipe          |"|"         |
++--------------+------------+
+|Semi-colon    |";"         |
++--------------+------------+
+
 For example, a space delimited file like this:
 
 ::
@@ -423,7 +439,7 @@ named `space_separated.csv` can be loaded like this:
 
     // Declare structure and fill with default settings
     struct loadFileControl ld_ctl;
-    ld_ctl = loadFileControlCreate()
+    ld_ctl = loadFileControlCreate();
 
     // Specify space as the file delimiter
     ld_ctl.csv.delimiter = " "; 
@@ -436,24 +452,77 @@ named `space_separated.csv` can be loaded like this:
 Specify the CSV file quotation character
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
-Prior to calling the :func:`loadd` procedure, set the .csv file delimiter using the `ld_ctl.quotechar` member. 
-Include the `ld_ctl` control structure as the final argument to the :func:`loadd` procedure call. 
+The quote character tells GAUSS which text should be treated as a single element. For example,
+if we have a space separated file with spaces in the variable names like this:
+
+
+::
+
+    'length cm' 'width cm'
+    25 31
+    14 22
+    19 44
+
+without the single tick marks, it would look like we have four variable names, but only two variables. The tick marks
+tell GAUSS that the space before `cm` is part of the variable name.
+
+However, by default, GAUSS assumes that double quotes, `"`, are the quote mark. We can use the ``.csv.quotechar`` member of the `loadFileControl` structure to set the quote mark to a single tick as shown below:
+
+
+::
+
+    // Declare structure and fill with default settings
+    struct loadFileControl ld_ctl;
+    ld_ctl = loadFileControlCreate();
+
+    // Specify space as the file delimiter
+    ld_ctl.csv.delimiter = " "; 
+
+    // Specify the quote character to be a single tick
+    ld_ctl.csv.quotechar = "'"; 
+
+    // Load all variables from a space separated text file
+    x = loadd("space_separated.csv", ".", ld_ctl);
+
 
 The Excel Data Tools
 --------------------------
 
-How to check the number of sheets in an Excel spreadsheet?
----------------------------------------------
+Load a specific range from an Excel file
++++++++++++++++++++++++++++++++++++++++++++
+
+You can load a specified range of an Excel file into a GAUSS numeric matrix or string array with :func:`xlsReadM` and :func:`xlsReadSA` respectively.
+
+::
+
+    fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+
+    // Load data from a specific range of an Excel file into a numeric matrix
+    x = xlsReadM(fname, "B2:C19");
+
+
+::
+
+    fname = getGAUSSHome() $+ "examples/yarn.xlsx";
+
+    // Load data from a specific range of an Excel file into a string array 
+    x = xlsReadSA(fname, "A2:B9");
+
+More details can be found in the Command Reference pages for :func:`xlsReadM` and :func:`xlsReadSA`.
+
+
+Check the number of sheets in an Excel spreadsheet?
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Use the :func:`xlsGetSheetCount` procedure to count the number of sheets contained in the filename. 
 
-How to check the size of an Excel spreadsheet?
----------------------------------------------
+Check the size of an Excel spreadsheet
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Use the :func:`xlsGetSheetSize` procedure to count the size of sheetname in filename. 
 
-How to check the type of Excel cells?
----------------------------------------------
+Check the type of Excel cells
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Use the :func:`xlsGetSheetTypes` procedure to check the cell format types of a specific row in an Excel spreadsheet. 
 
