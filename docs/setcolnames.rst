@@ -30,14 +30,14 @@ Examples
 ::
 
   // Generate random data matrix
-  x = rndn(150, 3)
+  x = rndn(150, 3);
 
   // Assign variable names to all three columns
   // and create new matrix x_meta
-  x_meta = setcolnames(x, "Planes"$|"Trains"$|"Automobiles")
+  x_meta = setcolnames(x, "Planes"$|"Trains"$|"Automobiles");
 
   // Change variables name for first column of x_meta
-  x_meta = setcolnames(x_meta, "Airplanes", "Planes")
+  x_meta = setcolnames(x_meta, "Airplanes", "Planes");
 
 
 
