@@ -15,10 +15,10 @@ Format
     :type x: NxK matrix
 
     :param index: categorical or string variables in *x* to get labels from.
-    :type index: Vector or string array
+    :type index: Mx1 Vector or string array
 
     :return x_labels_sa: labels assigned to the categorical or string variables in *x* specified by *index*.
-    :rtype x_labels_sa: string array
+    :rtype x_labels_sa: NxM string array
 
 Examples
 ----------------
