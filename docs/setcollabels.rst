@@ -11,20 +11,20 @@ Format
 ----------------
 .. function:: x_meta = setColLabels(x, labels, values, index)
 
-    :param x: data with metadata.
+    :param x: data.
     :type x: NxK matrix
 
     :param labels: Categorical labels to assign to each values in `values`.
     :type x: String array
 
     :param values: Values to assign the categorical labels to.
-    :type values: Vector
+    :type values: vector
 
     :param index: Index of variable to assign labels to.
-    :type index: Scalar or string
+    :type index: scalar or string
 
     :return x_meta: Vector with metadata assigning categorical labels to values specified in values.
-    :rtype labels: Vector
+    :rtype labels: vector
 
 
 Examples

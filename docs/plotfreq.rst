@@ -18,7 +18,7 @@ Format
     :type x: Nx1 vector
 
     :param index: Index of categorical variable.
-    :type index: Scalar or string
+    :type index: scalar or string
 
 
 Examples

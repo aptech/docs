@@ -12,16 +12,16 @@ Format
 .. function:: { labels, keyvalues } = getColLabels(x, index)
 
     :param x: data with metadata.
-    :type x: NxK matrix,
+    :type x: NxK matrix
 
     :param index: Categorical variable in *x* to get labels.
-    :type index: Scalar or string
+    :type index: scalar or string
 
     :return labels: Categorical labels assigned to variables specified by *index*.
-    :rtype labels: String array
+    :rtype labels: string array
 
     :return keyvalues: Key values corresponding to categorical labels assigned to variables in *x* specified by *index*..
-    :rtype keyvalues: Vector
+    :rtype keyvalues: vector
 
 Examples
 ----------------
