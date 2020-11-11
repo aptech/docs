@@ -48,16 +48,17 @@ Examples
 ::
 
       // Load dataset
-      data = loadd("lowess1.dta", "h1 + depth");
+      fname - getGAUSSHome $+ "examples/lowess1.dta";
+      data = loadd(fname, "h1 + depth");
 
       // Control structure
       struct loessmtControl lc0;
       lc0 = loessmtControlCreate;
 
-      // Define independent variable
+      // Define dependent variable
       depvar = data[., 1];
 
-      // Defined dependent variable
+      // Define independent variable
       indvars = data[., 2];
 
       { yhat, ys, xs } = loessmt(lc0, depvar, indvars);
