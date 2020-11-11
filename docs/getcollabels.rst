@@ -5,7 +5,7 @@ getcollabels
 Purpose
 ----------------
 
-Returns the column labels, and corresponding key values, for a categorical variable.
+Returns the unique set of column labels, and corresponding key values, for a categorical variable.
 
 Format
 ----------------

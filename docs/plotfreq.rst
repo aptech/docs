@@ -9,7 +9,7 @@ Generate frequency plot of categorical data.
 
 Format
 ----------------
-.. function:: plotAddArea([myPlot, ] x, index)
+.. function:: plotFreq([myPlot, ] x, index)
 
     :param myPlot: Optional argument, a :class:`plotControl` structure.
     :type myPlot: struct
@@ -23,9 +23,6 @@ Format
 
 Examples
 ----------------
-
-Creating confidence intervals
-+++++++++++++++++++++++++++++
 
 ::
 
