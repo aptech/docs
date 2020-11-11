@@ -5,7 +5,7 @@ setcollabels
 Purpose
 ----------------
 
-Set categorical labels variable.
+Set categorical variable labels.
 
 Format
 ----------------
@@ -14,17 +14,17 @@ Format
     :param x: data.
     :type x: NxK matrix
 
-    :param labels: Categorical labels to assign to each values in `values`.
-    :type x: String array
+    :param labels: Categorical labels to assign to each value in *values*.
+    :type labels: Mx1 string array
 
-    :param values: Values to assign the categorical labels to.
-    :type values: vector
+    :param values: Values corresponding to the labels specified in *labels*.
+    :type values: Mx1 vector
 
     :param index: Index of variable to assign labels to.
     :type index: scalar or string
 
-    :return x_meta: Vector with metadata assigning categorical labels to values specified in values.
-    :rtype labels: vector
+    :return x_meta: Vector with metadata assigning the categorical labels in *labels* to values specified in *values*.
+    :rtype labels: Nx1 vector
 
 
 Examples
