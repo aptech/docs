@@ -7,4 +7,5 @@ Data Management
 
     data-management/interactive-import
     data-management/programmatic-import
+    data-management/programmatic-export
 
