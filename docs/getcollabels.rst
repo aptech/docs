@@ -14,13 +14,13 @@ Format
     :param x: data with metadata.
     :type x: NxK matrix,
 
-    :param index: Categorical variable to get labels.
+    :param index: Categorical variable in *x* to get labels.
     :type index: Scalar or string
 
-    :return labels: Categorical labels.
+    :return labels: Categorical labels assigned to variables specified by *index*.
     :rtype labels: String array
 
-    :return keyvalues: Key values corresponding to categorical labels.
+    :return keyvalues: Key values corresponding to categorical labels assigned to variables in *x* specified by *index*..
     :rtype keyvalues: Vector
 
 Examples

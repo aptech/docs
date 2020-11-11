@@ -14,10 +14,10 @@ Format
     :param x: data with metadata.
     :type x: NxK matrix,
 
-    :param index: Columns to get variable names of.
+    :param index: Specifies columns in *x* to get variable names of.
     :type index: Scalar or string
 
-    :return variable_names: Variables names in matrix `x` for the columns specified by `index`.
+    :return variable_names: Variables names in matrix *x* for the columns specified by *index*.
     :rtype variable_names: String array
 
 
