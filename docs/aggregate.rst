@@ -9,7 +9,7 @@ Aggregates the data in the columns of a matrix based upon a column containing gr
 
 Format
 ----------------
-.. function:: x_agg = aggregate(x [, method])
+.. function:: x_agg = aggregate(x, method)
 
     :param x: data, where the first column contains the ids for the groups on which to aggregate.
     :type x: NxK matrix
@@ -27,7 +27,7 @@ Format
             * - "min"
             * - "max"
             * - "sd" (sample standard deviation)
-            * - "sum" 
+            * - "sum"
             * - "variance" (sample variance)
 
     :type method: string
