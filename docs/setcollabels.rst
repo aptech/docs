@@ -14,17 +14,17 @@ Format
     :param x: data.
     :type x: NxK matrix
 
-    :param labels: Categorical labels to assign to each value in *values*.
+    :param labels: Categorical labels to assign to each value of *x[., index]* specified in *values*.
     :type labels: Mx1 string array
 
     :param values: Values corresponding to the labels specified in *labels*.
     :type values: Mx1 vector
 
-    :param index: Index of variable to assign labels to.
+    :param index: Index of variable to assign the labels specified in *labels*.
     :type index: scalar or string
 
-    :return x_cat: Vector with metadata assigning the categorical labels in *labels* to values specified in *values*.
-    :rtype x_cat: Nx1 vector
+    :return x_cat: Contains metadata assigning the categorical labels in *labels* to values specified in *values* for the variable specified by *index*.
+    :rtype x_cat: NxK matrix
 
 
 Examples
@@ -33,16 +33,16 @@ Examples
 ::
 
   // Generate random categorical variable
-  x = rndi(100, 1, 1|5);
+  x = rndi(100, 1, 1|5)~rndn(100, 3);
 
   // Define labels
   labels = "poor"$|"fair"$|"average"$|"good"$|"excellent";
 
   // Set labels
-  // Note that this assigns metadata to cat_var
-  x_cat = setcollabels(x, labels, unique(x_cat), 1);
+  // Note that this assigns metadata to x
+  x_cat = setcollabels(x, labels, unique(x[., 1]), 1);
 
-  // Get column labels for cat_var
+  // Get column labels for x_cat
   { labels, keyvalues } = getColLabels(x_cat, 1);
 
   // Print results

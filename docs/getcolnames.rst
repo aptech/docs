@@ -9,16 +9,16 @@ Returns the column variable names.
 
 Format
 ----------------
-.. function:: variable_names = getColNames(x, index)
+.. function:: varnames = getColNames(x, index)
 
     :param x: data with metadata.
-    :type x: NxK matrix,
+    :type x: NxK matrix
 
     :param index: Specifies columns in *x* to get variable names of.
-    :type index: scalar or string
+    :type index: Kx1 vector
 
-    :return variable_names: Variables names in matrix *x* for the columns specified by *index*.
-    :rtype variable_names: string array
+    :return varnames: Variable names in matrix *x* for the columns specified by *index*.
+    :rtype varnames: Kx1 string array
 
 
 Examples
@@ -30,7 +30,8 @@ Examples
   fname = getGAUSSHome $+ "examples\\yarn.xlsx";
   yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
 
-  // Get column labels for yarn_length
+  // Get column labels for first and second
+  // column in yarn
   getColNames(yarn, 1|2);
 
 The code above prints the following:

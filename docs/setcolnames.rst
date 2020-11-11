@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: x_meta = setColNames(x, varnames, index)
 
-    :param x: data with metadata.
+    :param x: data.
     :type x: NxK matrix,
 
     :param varnames: Names to apply to columns specified in *index*.
