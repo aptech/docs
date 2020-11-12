@@ -276,7 +276,7 @@ The procedure offers six potential methods for imputation:
 * "lrd" - replace missing values using local residual draws. 
 * "predict" - replace missing values using linear regression prediction. 
 
-See the Command Reference for :func:`imppute` for more details and examples.
+See the Command Reference for :func:`impute` for more details and examples.
 
 Organization
 --------------
@@ -323,15 +323,106 @@ Use :func:`sortc` to sort a matrix or dataframe in ascending order based on a ce
 Changing the order of columns
 ++++++++++++++++++++++++++++++++++
 
-Use the `order` procedure to reorder columns in a matrix. 
+Use the :func:`order` procedure to reorder columns in a matrix or dataframe. 
 
-The `order` procedure requires two inputs - the data that is to be reordered and a columnlist representing the columns to be relocated to the beginning of the dataset in the order in which the columns are specified.
+
+::
+
+    // Create example matrix
+    X = { 9 6 2 6,
+          9 8 2 1,
+          3 0 2 9,
+          1 0 3 0 };
+
+    // Put the 2nd and 4th columns first 
+    X_2 = order(X, 2|4);
+
+After the above code, *X_2* will equal:
+
+::
+
+    6 6 9 2
+    8 1 9 2
+    0 9 3 2
+    0 0 1 3
+    
+
+::
+
+    // Load some variables from a dataset
+    dataset = getGAUSSHome() $+ "examples/yellowstone.csv";
+    yellowstone = loadd(dataset, "LowtTemp + HighTemp + Visits + TotalPrecip + date($Date)");
+
+    // Reorder the dataframe so 'date' and 'visits'
+    // are the first two variables
+    yellowstone_2 = order(yellowstone, "Date" $| "Visits");
+
+After the above code, the first four rows of *yellowstone* will be:
+
+::
+
+        LowtTemp    HighTemp      Visits  TotalPrecip             Date 
+           -17.0        37.0       30621         1.09       2016/01/01 
+           -17.0        42.0       28091        0.770       2015/01/01 
+           -19.0        41.0       26778         1.28       2014/01/01 
+           -22.0        43.0       24699        0.610       2013/01/01 
+
+ while the first four rws of *yellowstone_2* look like this:
+
+::
+
+            Date     Visits    LowtTemp    HighTemp   TotalPrecip 
+      2016/01/01      30621       -17.0        37.0          1.09 
+      2015/01/01      28091       -17.0        42.0         0.770 
+      2014/01/01      26778       -19.0        41.0          1.28 
+      2013/01/01      24699       -22.0        43.0         0.610 
 
 Deleting columns 
 +++++++++++++++++++++
 
-You can delete columns from a matrix using the `delcols` procedure.
-The `delcols` procedure requires two inputs, the data and the columns, either as indices or variable names, to delete from the data. 
+You can delete columns from a matrix using the `delcols` procedure. The columns to remove can be specified as numeric indices for matrices and dataframes:
+
+::
+
+    a = { 1 3 5 7,
+          7 0 9 4,
+          4 2 6 2 };
+
+    // Remove the 1st and 3rd column from 'a'
+    print delcols(a, 1|3);
+
+::
+
+
+    3 7
+    0 4
+    2 2
+
+You can also use column names to delete columns from a dataframe.
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+
+    // Load  4 variables from the dataset
+    detroit = loadd(dataset, "unemployment + weekly_earn + hourly_earn + assault");
+
+    // Remove 2 variables from 'detroit' by name
+    detroit = delcols(detroit, "weekly_earn" $| "hourly_earn");
+
+    // Print the first 4 rows of detroit
+    print detroit[1:4,.];
+
+
+::
+
+       unemployment       assault 
+               11.0        306.18 
+                7.0        315.16 
+                5.2        277.53 
+                4.3        234.07
+    
 
 Deleting rows from a matrix
 ++++++++++++++++++++++++++++++++
@@ -347,6 +438,7 @@ Two GAUSS functions are available for deleting rows from a matrix:
           5 6,
           7 8 };
 
+    // Remove the 2nd and 4th row of 'a'
     print delrows(a, 2|4);
 
 ::
@@ -363,6 +455,8 @@ Two GAUSS functions are available for deleting rows from a matrix:
           5 6,
           7 8 };
 
+    // Trim the top row and the bottom
+    // 2 rows from 'a'
     print trimr(a, 1|2);
 
 ::
@@ -396,8 +490,8 @@ Conditionally deleting data from a matrix
 How do I conditionally select data from a matrix?
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-You can conditionally select data from a matrix using the `selif` procedure.
-Enter the data to be as the first input to `selif` and the condition to be used for selecting data as  the second input. 
+You can conditionally select data from a matrix using the :func:`selif` procedure.
+Enter the data to be as the first input to :func:`selif` and the condition to be used for selecting data as  the second input. 
 
 ::
 
@@ -417,10 +511,62 @@ Enter the data to be as the first input to `selif` and the condition to be used 
     5 6
 
 Data Types, Labels, and Names
+---------------------------------
+
 Determining current type of variables
-Use the `getColTypes` procedure to lookup the type of a matrix or variable. 
-The `getColTypes` procedure requires one input, the matrix name. It also accepts an optional input specifying the indices or variable names to be checked. 
++++++++++++++++++++++++++++++++++++++++++
+
+Use the :func:`getColTypes` procedure to lookup the type of the variables in a dataframe. :func:`getColTypes` returns a dataframe. The table below shows the type labels and their corresponding integer values.
+
++-------+---------+
+|Value  |Label    |
++=======+=========+
+|0      |String   |
++-------+---------+
+|1      |Numeric  | 
++-------+---------+
+|2      |Category |
++-------+---------+
+|3      |Date     |
++-------+---------+
+
+::
+
+    // Load 4 variables of different types from a dataset
+    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    nba_ht_wt = loadd(dataset, "str(Player) + cat(Pos) + Age + date($BDate, '%m/%d/%Y')"); 
+
+    // Check the types of each variable in 'nba_ht_wt'
+    print getColTypes(nba_ht_wt);
+
+The above code will print:
+
+::
+
+   String
+   Category
+   Numeric
+   Date
+
+:func:`getColTypes` also accepts a second optional input that allows you to check only specified column types. Continuing with the data from our previous example:
+
+
+::
+
+    // Check the types of the 2nd and 4th variables in 'nba_ht_wt'
+    print getColTypes(nba_ht_wt, 2|4);
+
+will return:
+
+::
+
+    Category
+    Date
+
+
 Setting a variable type
+++++++++++++++++++++++++++++
+
 Use the `setColTypes` procedure to set the type of a matrix or variable.
 The `setColTypes` procedure requires two inputs, the matrix name and the  types. It also accepts an optional input specifying the indices or variable names to be checked. 
 Determining current variable names
