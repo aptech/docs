@@ -9,7 +9,7 @@ Set columns in a matrix to have metadata types.
 
 Format
 ----------------
-.. function:: x_meta = setcolmetadata(x, types, index)
+.. function:: x_meta = setcoltypes(x, types, index)
 
     :param x: data.
     :type x: NxK matrix
