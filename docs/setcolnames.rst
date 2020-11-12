@@ -15,13 +15,13 @@ Format
     :type x: NxK matrix,
 
     :param varnames: Names to apply to columns specified in *index*.
-    :type varnames: Vector
+    :type varnames: Mx1 vector
 
     :param index: Specifies columns to be assigned names in *varnames*.
-    :type index: Vector
+    :type index: Mx1 vector
 
     :return x_meta: Data with column names in *varnames* assigned to the columns in *index*.
-    :rtype x_meta: Matrix
+    :rtype x_meta: NxK matrix
 
 
 Examples
