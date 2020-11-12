@@ -9,7 +9,7 @@ Set column variable names.
 
 Format
 ----------------
-.. function:: x_meta = setColNames(x, varnames, index)
+.. function:: x_meta = setColNames(x, varnames [, index])
 
     :param x: data.
     :type x: NxK matrix,
@@ -36,7 +36,7 @@ Examples
   // and create new matrix x_meta
   x_meta = setColNames(x, "Planes"$|"Trains"$|"Automobiles");
 
-  // Change variables name for first column of x_meta
+  // Change variable name of first column of x_meta
   x_meta = setColNames(x_meta, "Airplanes", "Planes");
 
 
