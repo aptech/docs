@@ -40,7 +40,7 @@ Examples
 
   // Set labels
   // Note that this assigns metadata to x
-  x_cat = setcollabels(x, labels, unique(x[., 1]), 1);
+  x_cat = setColLabels(x, labels, unique(x[., 1]), 1);
 
   // Get column labels for x_cat
   { labels, keyvalues } = getColLabels(x_cat, 1);

@@ -1,5 +1,5 @@
 
-setColDateFormat
+setColDateFormats
 ==============================================
 
 Purpose
@@ -9,7 +9,7 @@ Specifies how GAUSS should display dates using the BSD strftime format specifier
 
 Format
 ----------------
-.. function:: x_date = setColDateFormat(x, fmt, index)
+.. function:: x_date = setColDateFormats(x, fmt, index)
 
     :param x: data.
     :type x: NxK matrix
@@ -32,13 +32,14 @@ Examples
   // Load exchange rate data
   // First column is ticker times
   // but is in POSIX time
-  usd_cad_2018 = loadd("D:/svn/apps/rtl/examples/usd_cad_2018.dat");
+  fname = getGAUSShome $+ "examples/usd_cad_2018.dat";
+  usd_cad_2018 = loadd(fname);
 
   // Specify format to represent
   // Year-day-month Hour:Minute:Second
   fmt = "%Y-%m-%d %H:%M:%S";
-  x_meta = setcoldateformat(usd_cad_2018, fmt, "TIMESTAMP");
+  x_meta = setColDateFormats(usd_cad_2018, fmt, "TIMESTAMP");
 
 
 
-.. seealso:: Functions :func:`setColtypes`
+.. seealso:: Functions :func:`setColtypes`, :func:`getColDateFormats`

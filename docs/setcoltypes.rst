@@ -9,7 +9,7 @@ Set columns in a matrix to have metadata types.
 
 Format
 ----------------
-.. function:: x_meta = setcoltypes(x, types, index)
+.. function:: x_meta = setColTypes(x, types, index)
 
     :param x: data.
     :type x: NxK matrix
@@ -32,11 +32,12 @@ Examples
   // Load exchange rate data
   // First column is ticker times
   // but is in POSIX time
-  usd_cad_2018 = loadd("D:/svn/apps/rtl/examples/usd_cad_2018.dat");
+  fname = getGAUSShome $+ "examples/usd_cad_2018.dat";
+  usd_cad_2018 = loadd(fname);
 
   // Specify first column to be a date
-  x_meta = setcoltypes(usd_cad_2018, "date", 1);
+  x_meta = setColTypes(usd_cad_2018, "date", 1);
 
 
 
-.. seealso:: Functions :func:`setColNames`, :func:`setColLabels`, :func:`setcolmetadata`, :func:`setColDateFormats`
+.. seealso:: Functions :func:`setColNames`, :func:`setColLabels`, :func:`setColMetadata`, :func:`setColDateFormats`

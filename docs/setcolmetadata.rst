@@ -9,7 +9,7 @@ Set columns in a matrix to have variable names and types.
 
 Format
 ----------------
-.. function:: x_meta = setcolmetadata(x, varnames, types)
+.. function:: x_meta = setColMetadata(x, varnames, types)
 
     :param x: data.
     :type x: NxK matrix
@@ -40,7 +40,7 @@ Examples
 
   // Assign variable names to all three columns
   // and create new matrix x_meta
-  x_meta = setcolmetadata(x, varnames, types);
+  x_meta = setColMetadata(x, varnames, types);
 
 
 

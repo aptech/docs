@@ -31,7 +31,7 @@ Examples
                     "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
   // Get player names
-  player_schools = getcollabelvalues(nba_ht_wt, "Player"$|"School");
+  player_schools = getColLabelValues(nba_ht_wt, "Player"$|"School");
 
 
 .. seealso:: Functions :func:`getColLabels`
