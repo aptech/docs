@@ -15,9 +15,9 @@ Format
     :type x: NxK matrix
 
     :param fmt: contains strftime date/time format characters.
-    :type format: Mx1 string array
+    :type fmt: Mx1 string array
 
-    :param index: index of variable containing dates.
+    :param index: index of variables containing dates.
     :type index: Mx1 scalar or string
 
     :return x_date: contains metadata assigning the date display format specified by *fmt* to the variables in *x* specified by *index*.
