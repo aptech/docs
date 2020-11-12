@@ -5,11 +5,11 @@ getColDateFormats
 Purpose
 ----------------
 
-Gets  BSD strftime format specifiers for the columns in *x* specified by *index* .
+Gets BSD strftime format specifiers for the columns in *x* specified by *index* .
 
 Format
 ----------------
-.. function:: fmt_date = getColDateFormats(x, index)
+.. function:: fmt_date = getColDateFormats(x [, index])
 
     :param x: data.
     :type x: NxK matrix

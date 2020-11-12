@@ -9,7 +9,7 @@ Returns the column variable names.
 
 Format
 ----------------
-.. function:: varnames = getColNames(x, index)
+.. function:: varnames = getColNames(x [, index])
 
     :param x: data with metadata.
     :type x: NxK matrix

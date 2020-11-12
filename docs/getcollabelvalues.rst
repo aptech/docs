@@ -9,7 +9,7 @@ Returns a string array of labels assigned to a categorical or string variable.
 
 Format
 ----------------
-.. function:: x_labels_sa = getColLabelValues(x, index)
+.. function:: x_labels_sa = getColLabelValues(x [, index])
 
     :param x: data with metadata.
     :type x: NxK matrix
