@@ -14,13 +14,13 @@ Format
     :param x: data.
     :type x: NxK matrix
 
-    :param varnames: Names to apply to columns in .
+    :param varnames: Names to apply to column in *x*.
     :type varnames: Kx1 vector
 
-    :param types: Specifies columns to be assigned names in *varnames*. Valid options include: ``"str"``, ``"date"``, ``"num"``, and ``"cat"``.
+    :param types: Specifies types to be assigned to names in *varnames*. Valid options include: ``"str"``, ``"date"``, ``"num"``, and ``"cat"``.
     :type types: Kx1 vector
 
-    :return x_meta: Data with column names in *varnames* and *types* assigned to the columns.
+    :return x_meta: Data with column names in *varnames* and types in *types* assigned to the columns.
     :rtype x_meta: NxK matrix
 
 
