@@ -14,8 +14,8 @@ Format
     :param x: data.
     :type x: NxK matrix
 
-    :param column: column(s) containing dates.
-    :type column: Mx1 scalar or string
+    :param columns: columns containing dates.
+    :type columns: Mx1 scalar or string
 
     :return fmt_data: contains the strftime date/time format characters corresponding to the columns of *x* specified by *columns*.
     :rtype fmt_data: Mx1 string array
