@@ -1,0 +1,47 @@
+
+setCatBaseCase
+==============================================
+
+Purpose
+----------------
+
+Assign the label *basecase* to be the base case for the categorical variable specified by *column* .
+
+Format
+----------------
+.. function:: x_meta = setCatBaseCase(x, basecase [, column])
+
+    :param x: data.
+    :type x: NxK matrix
+
+    :param basecase: category to be set to basecase.
+    :type basecase: Mx1 string array
+
+    :param column: indices or variable names of categorical variables.
+    :type column: Mx1 scalar or string
+
+    :return x_meta: contains data with categorical base cases set to the categories specified in *basecase* for the variables in *column* .
+    :rtype x_meta: NxK matrix
+
+
+Examples
+----------------
+
+::
+
+  // Load yarn data file
+  yarn = loadd("C:\\gauss21\\examples\\yarn.xlsx",
+                "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
+
+  // Get categorical labels for
+  // yarn_length and amplitude
+  getColLabels(yarn, "yarn_length");
+
+  // Change base case
+  // to high for both
+  // yarn_length and amplitude
+  yarn = setcatbasecase(yarn, "low", "yarn_length");
+
+
+
+.. seealso:: Functions :func:`setColtypes`, :func:`getColLabels`, :func:`setColLabels`
