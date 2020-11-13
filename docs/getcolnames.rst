@@ -14,7 +14,7 @@ Format
     :param x: data with metadata.
     :type x: NxK matrix
 
-    :param columns: Specifies columns in *x* to get variable names of.
+    :param columns: Optional argument, specifies columns in *x* to get variable names of. Default = all columns.
     :type columns: Kx1 vector
 
     :return varnames: Variable names in matrix *x* for the columns specified by *columns*.

@@ -14,7 +14,7 @@ Format
     :param x: data with metadata.
     :type x: NxK matrix
 
-    :param columns: categorical or string variables in *x* to get labels from.
+    :param columns: Optional argument, categorical or string variables in *x* to get labels from. Default = all columns.
     :type columns: Mx1 Vector or string array
 
     :return x_labels_sa: labels assigned to the categorical or string variables in *x* specified by *columns*.

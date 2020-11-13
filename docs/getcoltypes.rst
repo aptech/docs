@@ -32,7 +32,7 @@ Examples
   nba_ht_wt = loadd("C:\\gauss21\\examples\\nba_ht_wt.xls",
                    "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
-  // Check column type of Player
+  // Check column type of Age, Position, and Height
   col_types = getColTypes(nba_new, "Age"$|"Pos"$|"Height");
 
 

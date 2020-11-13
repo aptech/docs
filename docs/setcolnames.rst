@@ -17,7 +17,7 @@ Format
     :param varnames: Names to apply to columns specified in *index*.
     :type varnames: Mx1 vector
 
-    :param columns: Specifies columns to be assigned names in *varnames*.
+    :param columns: Optional argument, specifies columns to be assigned names in *varnames*. Default = all columns.
     :type columns: Mx1 vector
 
     :return x_meta: Data with column names in *varnames* assigned to the columns in *columns*.

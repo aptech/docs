@@ -5,7 +5,7 @@ setCatBaseCase
 Purpose
 ----------------
 
-Assign the label *basecase* to be the base case for the categorical variable specified by *column* .
+Assign the label *basecase* to be the base case for the categorical variable specified by *columns* .
 
 Format
 ----------------
@@ -14,10 +14,10 @@ Format
     :param x: data.
     :type x: NxK matrix
 
-    :param basecase: category to be set to basecase.
+    :param basecase: category to be set to base case.
     :type basecase: Mx1 string array
 
-    :param columnlist: indices or variable names of categorical variables.
+    :param columns: Optional argument, indicates columns of categorical variables to set base case for. Default = all columns.
     :type columns: Mx1 scalar or string
 
     :return x_meta: contains data with categorical base cases set to the categories specified in *basecase* for the variables in *columns* .

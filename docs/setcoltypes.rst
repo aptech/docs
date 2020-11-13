@@ -17,7 +17,7 @@ Format
     :param types: Specifies types to be assigned to columns specified in *columns*. Valid options include: ``"string"``, ``"date"``, ``"numeric"``, and ``"category"``.
     :type types: Mx1 vector
 
-    :param columns: Specifies columns to be assigned types in *types*.
+    :param columns: Optional argument, specifies columns to be assigned types in *types*. Default = all columns.
     :type columns: Mx1 vector
 
     :return x_meta: Data with the types specified in *types* assigned to the columns specified in *columns*.
