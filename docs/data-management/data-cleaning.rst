@@ -367,7 +367,7 @@ Use :func:`sortc` to sort a matrix or dataframe in ascending order based on a ce
     7 0 9
     1 3 5
 
-.. note:  :func:`sortmc` and :func:`sortc` sort data in ascending order. To sort data in descending order, wrap the call to the sorting procedure using the procedure `rev` .
+.. note:  :func:`sortmc` and :func:`sortc` sort data in ascending order. To sort data in descending order, wrap the call to the sorting procedure using the procedure :func:`rev` .
 
 Changing the order of columns
 ++++++++++++++++++++++++++++++++++
@@ -429,7 +429,7 @@ After the above code, the first four rows of *yellowstone* will be:
 Deleting columns 
 +++++++++++++++++++++
 
-You can delete columns from a matrix using the `delcols` procedure. The columns to remove can be specified as numeric indices for matrices and dataframes:
+You can delete columns from a matrix using the :func:`delcols` procedure. The columns to remove can be specified as numeric indices for matrices and dataframes:
 
 ::
 
