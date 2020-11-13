@@ -3,7 +3,9 @@ Interactive Data Cleaning
 
 Interactive data cleaning can be performed in the **Data Import** window before import, or in a GAUSS **Symbol Editor** after it is loaded.
 
-The **Data Management** pane
+This section will show how to clean data using the **Data Management** pane of a **Symbol Editor**. Most actions will be the same in the **Data Import** window. See `Interactive Data Import <./interactive-import.html>`_  
+
+The Data Management pane
 -----------------------------------------------------------
 
 .. figure:: ../_static/images/data-management-pane.jpg
@@ -38,13 +40,6 @@ Missing values
 
 Missing values are represented by a dot for data loaded into GAUSS.
 
-Elements that will be imported as missing values will be indicated by gray shading in the **Data Import** window.
-
-.. figure:: ../_static/images/data-cleaning-missing-gray-cell.jpg
-    :scale: 50%
-
-
-
 
 Remove observations with missing values interactively
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -58,12 +53,7 @@ Remove observations with missing values interactively
 
 All observations where the selected variable contains a  missing value will be grayed out in the **Data Preview** window, indicating which observations will be imported.
 
-Specify values to import as missing values
-+++++++++++++++++++++++++++++++++++++++++++++
-
-[Image of Missing data text boxes on Imports tab]
-
-Enter a comma separated list of variables which should be imported as missing into the corresponding text box in the  **Imports** tab of the **Data Import** window. 
+You can click **Apply** or continue to create more filters.
 
 Data organization
 --------------------
@@ -77,40 +67,75 @@ Changing variable names
 
 1. Double-click the dataframe you want to modify in the **Symbols** pane of the **Data** page.  
 2. Click the **Manage** button at the top right of the open **Symbol Editor**. 
-3. Click downward pointing triangle button to the right of the name of the variable name you want to change.. 
+3. Click downward pointing triangle button to the right of the name of the variable name you want to change. 
 4. Enter the new name in the **Name** text box.
 
-Click  [IMAGE of Apply button in data management pane] Apply. 
-
-How do I sort my data based on a variable?
-+++++++++++++++++++++++++++++++++++++++++++++
-
-How do I sort my data based on multiple variables?
-+++++++++++++++++++++++++++++++++++++++++++++
-
-How do I sort my data in descending order?
-+++++++++++++++++++++++++++++++++++++++++++++
-
-How do I change the order of columns in my data? 
-+++++++++++++++++++++++++++++++++++++++++++++
+These changes will not be made until you click **Apply**.
 
 Deleting columns from a matrix
 +++++++++++++++++++++++++++++++++++++++++++++
 
-Select the matrix you want to delete columns from the Symbols pane in the Data Editor window.  
-Click  [IMAGE of Organization button in data editor] Manage to open the Data Management pane. 
-Uncheck the variables you want to remove from the data in the Variables tab. 
-Click  [IMAGE of Apply button in data management pane] Apply. 
+Clear the check box next to the name of the variables you want to remove from the data.
 
-Data subsets 
+These changes will not be made until you click **Apply**.
+
+
+Filtering observations of a dataframe
 +++++++++++++++++++++++++++++++++++++++++++++
 
-Select the matrix you want to extract data from the Symbols pane in the Data Editor window.  
-Click  [IMAGE of Organization button in data editor] Manage to open the Data Management pane. 
-Use the Variable Name drop-down list on the Filter tab to select a variable to use for filtering.  
-Select the operation to use for filtering from the Operation drop-down lists. 
-In the Value box, enter or select the condition for filtering. 
-Click  [IMAGE of Apply button in data management pane] Apply. 
+The **Data Management** pane provides the following options for filtering dataframes. 
+
++--------------------+------------------+--------------------+------------------+
+|Data type           |Filter options    |Data type           |Filter options    |
++====================+==================+====================+==================+
+|Numeric and Date    |                  |String and Category |                  | 
++--------------------+------------------+--------------------+------------------+
+|                    |=                 |                    |Equals            |
++--------------------+------------------+--------------------+------------------+
+|                    |!=                |                    |Not Equals        |
++--------------------+------------------+--------------------+------------------+
+|                    |<                 |                    |Contains          |
++--------------------+------------------+--------------------+------------------+
+|                    |<=                |                    |Does not Contain  |
++--------------------+------------------+--------------------+------------------+
+|                    |>                 |                    |Is Empty          |
++--------------------+------------------+--------------------+------------------+
+|                    |>=                |                    |Is not Empty      |
++--------------------+------------------+--------------------+------------------+
+|                    |Is Missing        |                    |Is Missing        |
++--------------------+------------------+--------------------+------------------+
+|                    |Is Not Missing    |                    |Is Not Missing    |
++--------------------+------------------+--------------------+------------------+
+
+1. Select the variable to filter on.
+2. Select the operation.
+3. Depending on the operation, either enter a value or select one from the dropdown.
+4. Click the `+` button to add the filter.
+5. Either **Apply** your changes or add another filter.
+
+Filter based on partial string match
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-cleaning-filter-contains-buick.jpg
+
+Filter based numeric value
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-cleaning-filter-inequality-mpg.jpg
+
+
+Apply changes
+------------------------
+
+
+The **Apply** button at the bottom of the **Data Management** pane allows you to apply the variable modifications and filters created.
+
+.. figure:: ../_static/images/interactive-data-cleaning-apply.jpg
+    :scale: 50%
+
+To modify the current dataframe, either click **Apply** or click the dropdown and select **Overwrite Existing**.
+
+To create a new dataframe containing your changes, click the dropdown next to the **Apply** button and select **Create New**. A text box will appear allowing you to enter the name of the new dataframe.
 
 Data types and formats
 ---------------------------------------------
@@ -149,8 +174,8 @@ Open [image of the hamburger menu] the Menu next to the categorical variable of 
 The count of categories will be located in the upper right hand corner of the Modify Column Mapping dialog. 
 [Image of the Category Count in the Modify Column Mapping]
 
-Programmatic Cleaning
-=========================
+Programmatic Data Cleaning
+==============================
 
 Missing value handling
 ------------------------------
@@ -467,7 +492,7 @@ Two GAUSS functions are available for deleting rows from a matrix:
 Conditionally deleting data from a matrix
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-:func:`delif` conditionally delete data from a matrix based upon a logical vector..
+:func:`delif` conditionally delete data from a matrix based upon a logical vector.
 
 ::
 
