@@ -513,7 +513,7 @@ Enter the data to be as the first input to :func:`selif` and the condition to be
 Data Types, Labels, and Names
 ---------------------------------
 
-Determining current type of variables
+Determining variable or column types
 +++++++++++++++++++++++++++++++++++++++++
 
 Use the :func:`getColTypes` procedure to lookup the type of the variables in a dataframe. :func:`getColTypes` returns a dataframe. The table below shows the type labels and their corresponding integer values.
@@ -567,36 +567,385 @@ will return:
 Setting a variable type
 ++++++++++++++++++++++++++++
 
-Use the `setColTypes` procedure to set the type of a matrix or variable.
-The `setColTypes` procedure requires two inputs, the matrix name and the  types. It also accepts an optional input specifying the indices or variable names to be checked. 
-Determining current variable names
-The `getColNames` provides the variable names assigned to columns in a matrix.
-The procedure requires one input indicating the matrix. In addition, it accepts an optional input specifying the indices of the columns of interest.
-The `getColNames` procedure returns a string array of variable names. 
-Setting variable names
-Use the `setColNames` to change or add variable names to a matrix. 
-The `setColNames` procedure requires two inputs, the matrix name and the new names to be assigned. It also accepts an optional input specifying the indices or names to be changed. 
-If the data does not currently have variable names, names will be created for all columns, with default names being assigned to any columns for which user-specified names were not provided. 
-Determining current categorical variable labels
-The `getColLabels` procedure provides the variable names assigned to columns in a matrix.
-The procedure requires one input indicating the matrix. In addition, it accepts an optional input specifying the indices of the columns of interest.
-The `getColLabels` procedure returns a string array of variable names. 
-The procedure is valid only for categorical variables. 
-Setting categorical variable labels
-Use the`setColLabels` to change the labels of categorical variables. 
-The `setColLabels` procedure changes the current type of the column to a categorical variable. 
-The procedure requires four inputs, the matrix of interest, the labels, the corresponding key values, and the columns to be assigned labels.  
-If any column does not currently have labels, any unique category values for which labels were not provided will be given blank labels. 
-Changing categorical variable basecase 
-Use the `setcatbasecase` procedure to change the base case for a categorical variable.
-The `setcatbasecase` procedure requires two inputs, the data and the new base case. 
-If data is a matrix an index or variable name must be included as the third input.
-Recoding categorical variable labels
-The `recodecatlabels` procedure can be used to recode the labels for a categorical variable. 
-The `recodecatlabels` procedure requires three inputs, the data, a list of old labels, and the new labels.
-If data is a matrix an index or variable name must be included as the third input.
-Reordering categorical variable labels
-The `reordercatLabels` procedure can be used to reorder the labels for a categorical variable.
-The `reordercatLabels` procedure requires two inputs, the data and the new label order. 
-If data is a matrix an index or variable name must be included as the third input.
+:func:`setColTypes` sets the variable type of one or more columns of a  matrix or dataframe.
 
+::
+
+    // Create a column of numbers which represent
+    // seconds since Jan 1, 1970 (Posix time)
+    d = {    0,
+         86400,
+        172800, 
+        259200 }; 
+
+    // Set the variable type of 'd' to be a date
+    d = setcoltypes(d, META_TYPE_DATE); 
+
+
+After the above code, *d* will be a date and if we print it we will see:
+
+::
+
+                  X1 
+    1970-01-01 00:00 
+    1970-01-02 00:00 
+    1970-01-03 00:00 
+    1970-01-04 00:00 
+
+It also accepts an optional input specifying the indices or variable names to be checked. 
+
+::
+
+    // Load 3 variables of different types from a dataset
+    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    nba = loadd(dataset, "str(player) + cat(pos) + age");
+
+After loading the above data, the first four rows of *nba* will be:
+
+::
+
+              player       pos       age 
+      Vitor Faverani         C        25
+       Avery Bradley         G        22
+        Keith Bogans         G        33
+     Jared Sullinger         F        21
+
+
+We can change the type of the second column from a categorical to a numeric variable like this:
+
+::
+
+    // Set the second column to be numeric
+    nba = setColTypes(nba, META_TYPE_NUMBER, 2);
+
+After this code, the first four rows of *nba* will be:
+
+::
+
+              player       pos       age 
+      Vitor Faverani         0        25
+       Avery Bradley         2        22
+        Keith Bogans         2        33
+     Jared Sullinger         1        21
+
+The elements of the *pos* now contain only the numeric values. The string labels, ``"C"``, ``"F"`` and ``"G"`` have been removed.
+
+Determining current variable names
+++++++++++++++++++++++++++++++++++++++++
+
+:func:`getColNames` returns the variable names assigned to columns in a matrix.
+
+::
+
+    // Load all variables from a CSV file
+    dataset = getGAUSSHome() $+ "examples/housing.csv";
+    housing = loadd(dataset);
+
+    // Print the variable names from 'housing'
+    print getcolnames(housing);
+
+The above code will print out the string array:
+
+
+::
+
+           taxes 
+            beds 
+           baths 
+             new 
+           price 
+            size 
+
+
+In addition, it accepts an optional input specifying the indices of the columns of interest. For example, continuing with our previous example:
+
+::
+
+    // Print the names of the 3rd and 5th variable name
+    print getcolnames(housing, 3|5);
+
+
+will return:
+
+::
+
+    baths
+    price
+
+
+Setting variable names
++++++++++++++++++++++++++++
+
+:func:`setColNames` changes or adds variables names to a matrix or dataframe.
+
+::
+
+    // Create example matrix
+    X = { 1 2,
+          3 4,
+          5 6 };
+
+    // Assign variable names to the columns of 'X'
+    X = setcolnames(X, "alpha" $| "beta");
+
+    print X;
+
+The above code will print:
+
+::
+
+    alpha    beta
+        1       2
+        3       4
+        5       6
+
+
+It also accepts an optional input specifying the indices or names to be changed. For example, continuing with the example above:
+
+::
+
+    // Set the second variable name from 'X' to 'gamma'
+    X = setcolnames(X, "gamma", 2);
+
+    print X;
+
+The above code will print:
+
+::
+
+    alpha   gamma
+        1       2
+        3       4
+        5       6
+
+
+
+If the data does not currently have variable names, names will be created for all columns, with default names being assigned to any columns for which user-specified names were not provided. 
+
+Determining current categorical variable labels
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:func:`getColLabels` returns the string category labels and corresponding integer values for a categorical or string column of a dataframe.
+
+::
+
+    // Create a file name with full path
+    dataset = getGAUSSHome() $+ "examples/auto2.dta";
+
+    // Load all variables from the dataset
+    auto = loadd(dataset); 
+
+    // Return the string category labels and
+    // corresponding numeric values
+    { labels, values } = getColLabels(auto, "rep78");
+
+
+After running the code above:
+
+::
+
+    labels =  Poor  Values = 1
+              Fair           2
+           Average           3
+              Good           4
+          Excellent          5
+
+   
+Setting categorical variable labels
+++++++++++++++++++++++++++++++++++++++++
+
+:func:`setColLabels` allows you to add or modify the labels of categorical variables. 
+
+The :func:`setColLabels` procedure changes the current type of the column to a categorical variable. 
+
+Convert a column from a matrix to a categorical variable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Create example matrix
+    X = { 1.4 0,
+          1.9 2,
+          2.3 1,
+          0.9 2 };
+
+    
+     
+    labels = "low" $| "medium" $| "high";
+    values = { 0, 1, 2 };
+
+    // Make the second column of 'X' a
+    // categorical variable with the
+    // provided labels and values
+    X = setColLabels(X, labels, values, 2);
+    
+    print X;
+
+The above code will return:
+
+::
+
+     X1      X2
+    1.4     low 
+    1.9    high
+    2.3  medium
+    0.9    high
+
+.. note:: If a label is not provided for all key values, the unlabeled key values will be given blank labels. 
+
+Change the order of categories in a dataframe
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
+    yarn = loadd(dataset, "cat(amplitude) + cycles");
+
+    { labels_1, values_1 } = getColLabels(yarn, "amplitude");
+
+After the above code:
+
+::
+
+    labels = high   values = 0
+              low            1
+              med            2
+
+Since Excel files do not provide labels or order for string columns, GAUSS assigns the category value based on alphabetical order. We can reorder the categories like this:
+
+
+::
+
+    yarn = setColLabels(yarn, "low" $| "med" $| "high", 0|1|2);
+
+    { labels_2, values_2 } = getColLabels(yarn, "amplitude");
+
+After the above code:
+
+::
+
+    labels =  low   values = 0
+              med            1
+             high            2
+
+
+Changing categorical variable basecase 
++++++++++++++++++++++++++++++++++++++++++++
+
+:func:`setcatbasecase` provides a convenient way to set the base case for a categorical variable.
+
+::
+
+    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    nba = loadd(dataset, "cat(pos) + height + weight");
+
+
+    { labels, values } = getColLabels(nba, "pos");
+
+After the above code:
+
+::
+
+    labels = C   values = 0
+             F            1
+             G            2
+
+You can change ``"G"`` to the base case like this:
+
+::
+
+    nba = setCatBaseCase(nba, "G", "pos"); 
+
+    
+    { labels, values } = getColLabels(nba, "pos");
+
+As we can see below, the new base case, ``"G"``, has been moved to the top and all the other variables have been shifted down.
+
+::
+
+    labels = G   values = 0
+             C            1
+             F            2
+
+
+Recoding categorical variable labels
+++++++++++++++++++++++++++++++++++++++++
+
+:func:`recodecatlabels` changes the labels for a categorical variable. 
+
+
+::
+
+    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    nba = loadd(dataset, "cat(pos) + height + weight");
+
+
+    { labels, values } = getColLabels(nba, "pos");
+
+Here are the initial category labels and order.
+
+::
+
+    labels = C   values = 0
+             F            1
+             G            2
+
+We can change the category labels like this:
+
+::
+
+    old_labels = "C" $| "F" $| "G"; 
+    new_labels = "Center" $| "Forward" $| "Guard";
+    nba = recodeCatLabels(nba, old_labels, new_labels, "pos"); 
+
+    { labels, values } = getColLabels(nba, "pos");
+
+::
+
+    
+    labels =  Center   values = 0
+             Forward            1
+               Guard            2
+
+As we can see above the label names have changed, but the underlying values and order are the same.
+
+Reordering categorical variable labels
+++++++++++++++++++++++++++++++++++++++++
+
+The :func:`reorderCatLabels` procedure can be used to reorder the labels for a categorical variable.
+
+Change the order of categories in a dataframe
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
+    yarn = loadd(dataset, "cat(amplitude) + cycles");
+
+    { labels, values } = getColLabels(yarn, "amplitude");
+
+After the above code:
+
+::
+
+    labels = high   values = 0
+              low            1
+              med            2
+
+Since Excel files do not provide labels or order for string columns, GAUSS assigns the category value based on alphabetical order. We can reorder the categories like this:
+
+
+::
+
+    yarn = reorderCatLabels(yarn, "low" $| "med" $| "high", "amplitude");
+
+    { labels, values } = getColLabels(yarn, "amplitude");
+
+After the above code:
+
+::
+
+    labels =  low   values = 0
+              med            1
+             high            2
+    
