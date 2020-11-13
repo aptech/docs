@@ -9,7 +9,7 @@ Assign the label *basecase* to be the base case for the categorical variable spe
 
 Format
 ----------------
-.. function:: x_meta = setCatBaseCase(x, basecase [, column])
+.. function:: x_meta = setCatBaseCase(x, basecase [, columns])
 
     :param x: data.
     :type x: NxK matrix
@@ -17,10 +17,10 @@ Format
     :param basecase: category to be set to basecase.
     :type basecase: Mx1 string array
 
-    :param column: indices or variable names of categorical variables.
-    :type column: Mx1 scalar or string
+    :param columnlist: indices or variable names of categorical variables.
+    :type columns: Mx1 scalar or string
 
-    :return x_meta: contains data with categorical base cases set to the categories specified in *basecase* for the variables in *column* .
+    :return x_meta: contains data with categorical base cases set to the categories specified in *basecase* for the variables in *columns* .
     :rtype x_meta: NxK matrix
 
 
