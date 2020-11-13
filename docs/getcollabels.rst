@@ -9,18 +9,18 @@ Returns the unique set of column labels, and corresponding key values, for a cat
 
 Format
 ----------------
-.. function:: { labels, keyvalues } = getColLabels(x, index)
+.. function:: { labels, keyvalues } = getColLabels(x, column)
 
     :param x: data with metadata.
     :type x: NxK matrix
 
-    :param index: Categorical variable in *x* to get labels from.
-    :type index: scalar or string
+    :param column: Categorical variable in *x* to get labels from.
+    :type column: scalar or string
 
-    :return labels: Categorical labels assigned to variables specified by *index*.
+    :return labels: Categorical labels assigned to variables specified by *column*.
     :rtype labels: string array
 
-    :return keyvalues: Key values corresponding to categorical labels assigned to the variables in *x* specified by *index*.
+    :return keyvalues: Key values corresponding to categorical labels assigned to the variables in *x* specified by *column*.
     :rtype keyvalues: vector
 
 Examples

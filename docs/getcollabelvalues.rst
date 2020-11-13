@@ -9,15 +9,15 @@ Returns a string array of labels assigned to a categorical or string variable.
 
 Format
 ----------------
-.. function:: x_labels_sa = getColLabelValues(x [, index])
+.. function:: x_labels_sa = getColLabelValues(x [, column])
 
     :param x: data with metadata.
     :type x: NxK matrix
 
-    :param index: categorical or string variables in *x* to get labels from.
-    :type index: Mx1 Vector or string array
+    :param column: categorical or string variables in *x* to get labels from.
+    :type column: Mx1 Vector or string array
 
-    :return x_labels_sa: labels assigned to the categorical or string variables in *x* specified by *index*.
+    :return x_labels_sa: labels assigned to the categorical or string variables in *x* specified by *column*.
     :rtype x_labels_sa: NxM string array
 
 Examples

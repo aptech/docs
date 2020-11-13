@@ -5,11 +5,11 @@ setColDateFormats
 Purpose
 ----------------
 
-Specifies how GAUSS should display dates using the BSD strftime format specifiers. Note that this will also convert the type of the columns specified by *index* to *Date*.
+Specifies how GAUSS should display dates using the BSD strftime format specifiers. Note that this will also convert the type of the columns specified by *column* to *Date*.
 
 Format
 ----------------
-.. function:: x_date = setColDateFormats(x, fmt, index)
+.. function:: x_date = setColDateFormats(x, fmt, column)
 
     :param x: data.
     :type x: NxK matrix
@@ -17,10 +17,10 @@ Format
     :param fmt: contains strftime date/time format characters.
     :type fmt: Mx1 string array
 
-    :param index: index of variables containing dates.
-    :type index: Mx1 scalar or string
+    :param column: variables containing dates.
+    :type column: Mx1 scalar or string
 
-    :return x_date: contains metadata assigning the date display format specified by *fmt* to the variables in *x* specified by *index*.
+    :return x_date: contains metadata assigning the date display format specified by *fmt* to the variables in *x* specified by *column*.
     :rtype x_date: NxK matrix
 
 
