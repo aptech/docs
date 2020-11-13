@@ -142,37 +142,61 @@ Data types and formats
 
 Changing variable type
 +++++++++++++++++++++++++++++++++++++++++++++
-Select the matrix containing the variable(s) of interest from the Symbols pane in the Data Editor window.  
-To change a variable type select the desired type form the Type drop-down list on the Variables tab. 
-If further type-specific properties are required, a properties dialog will automatically.
-Type-specific properties
-Specifying date formats
-[Image of the Specify Date Format dialog]
 
-When changing the type of a variable to a date, you will be asked to manually specify a date format using the Specify Date Format dialog. 
-The Specify Date Format dialog provides a list of BSD strftime format specifiers, along with a sample and description. 
-Type the desired specifier in the Date Format box or select specifiers from the BSD specifier list. 
-As you build your date format, a sample date will be created. 
-To help locate the desired specifier, you can use the Pattern Filter drop-down list to filter specifiers by categories such as day specifiers, month specifiers, or hour specifiers. 
-Our blog “Reading dates and times in GAUSS” provides additional information on this topic. 
+To change a variable type select the desired type from the **Type** drop-down list on the **Variables** tab. 
+
+.. figure:: ../_static/images/interactive-data-cleaning-change-type.jpg
+    :scale: 50%
+
+If further type-specific properties are required, a properties dialog will automatically open.
 
 Changing categorical mappings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Select the matrix containing the variable(s) of interest from the Symbols pane in the Data Editor window.  
-When you change a variable to a category, a [image of the hamburger menu] Menu will appear next to the variable. This will open a Modify Column Mapping dialog. 
-Enter the desired label in the Renamed Label textbox next to the category label you want to change.
-Click [image of OK button in Modify Column Mapping] to apply the new category labels. 
-Specifying a category to be the base case
-Select the matrix containing the variable(s) of interest from the Symbols pane in the Data Editor window.  
-Open [image of the hamburger menu] the Menu next to the categorical variable of interest. This will open the Modify Column Mapping dialog.
-The Key column indicates the ordering of the categories. The category with the Key equal to zero is used as the base case in all GAUSS estimation procedures. 
-To change the base case select the Label of the category you want to be the new base case. 
-Click [image of the double arrow button Typein the modify column mapping dialog] to move the selected category to the base case. 
-Checking the number of categories
-Select the matrix containing the variable(s) of interest from the Symbols pane in the Data Editor window.  
-Open [image of the hamburger menu] the Menu next to the categorical variable of interest. This will open the Modify Column Mapping dialog.
-The count of categories will be located in the upper right hand corner of the Modify Column Mapping dialog. 
-[Image of the Category Count in the Modify Column Mapping]
+Click the dropdown button to the right of the variable name and select **Properties** to open the **Modify Column Mapping** dialog. 
+
+.. figure:: ../_static/images/interactive-data-cleaning-variable-properties.jpg
+    :scale: 50%
+
+**Change a category label** by double-clicking in the **Renamed Label** textbox next to the category label you want to change, then enter the new label name.
+
+.. figure:: ../_static/images/interactive-data-cleaning-modify-column-mapping.jpg
+    :scale: 50%
+
+**Specify a category to be the base case** by selecting the **Label** of the category you want to be the new base case then click the double up-pointing arrow button to move the selected category to the base case. 
+
+The **Category Count** will be listed in the top right of the **Modify Column Mapping** dialog.
+
+Specifying date formats
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If GAUSS does not automatically detect your date format, you will be asked to manually specify a date format using the **Specify Date Format** dialog. 
+
+.. figure:: ../_static/images/data-import-date-specify-dialog.jpg
+    :scale: 50%
+
+Build a format string in the **Date format** box, using the BSD strftime specifiers, that represents your data. 
+
+
+If your data looked like this ``03/12/2017``, the correct format string would be ``%m/%d/%Y``. The table below explains this.
+
++-----------------+---------------------------+---------+----------------------+
+|Original Contents|Description                |Type     |Format string contents|
++=================+===========================+=========+======================+
+|03               |A two digit month.         |Date     |`%m`                  |
++-----------------+---------------------------+---------+----------------------+
+|/                |A forward slash.           |Literal  |/                     |
++-----------------+---------------------------+---------+----------------------+
+|12               |A two digit day.           |Date     |`%d`                  |
++-----------------+---------------------------+---------+----------------------+
+|/                |A forward slash.           |Literal  |/                     |
++-----------------+---------------------------+---------+----------------------+
+|2017             |A four digit year.         |Date     |`%Y`                  |
++-----------------+---------------------------+---------+----------------------+
+
+
+The **Format Options** section of this dialog contains the BSD strftime specifiers for reference. Use the **Filter** dropdown to filter the reference options shown.
+
 
 Programmatic Data Cleaning
 ==============================
