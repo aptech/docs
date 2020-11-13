@@ -14,7 +14,7 @@ Format
     :param x: data.
     :type x: NxK matrix
 
-    :param types: Specifies types to be assigned to columns specified in *index*. Valid options include: ``"string"``, ``"date"``, ``"numeric"``, and ``"category"``.
+    :param types: Specifies types to be assigned to columns specified in *column*. Valid options include: ``"string"``, ``"date"``, ``"numeric"``, and ``"category"``.
     :type types: Mx1 vector
 
     :param column: Specifies columns to be assigned types in *types*.

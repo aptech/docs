@@ -17,7 +17,7 @@ Format
     :param varnames: Names to apply to column in *x*.
     :type varnames: Kx1 vector
 
-    :param types: Specifies types to be assigned to names in *varnames*. Valid options include: ``"str"``, ``"date"``, ``"num"``, and ``"cat"``.
+    :param types: Specifies types to be assigned to names in *varnames*. Valid options include: ``"string"``, ``"date"``, ``"numeric"``, and ``"category"``.
     :type types: Kx1 vector
 
     :return x_meta: Data with column names in *varnames* and types in *types* assigned to the columns.
@@ -33,7 +33,7 @@ Examples
   x = rndn(150, 3);
 
   // Specify types
-  types = "num"|"num"|"num";
+  types = "numeric"|"numeric"|"numeric";
 
   // Specify variable names
   varnames = "Planes"$|"Trains"$|"Automobiles";
