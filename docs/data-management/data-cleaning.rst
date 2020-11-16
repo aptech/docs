@@ -3,7 +3,9 @@ Interactive Data Cleaning
 
 Interactive data cleaning can be performed in the **Data Import** window before import, or in a GAUSS **Symbol Editor** after it is loaded.
 
-The **Data Management** pane
+This section will show how to clean data using the **Data Management** pane of a **Symbol Editor**. Most actions will be the same in the **Data Import** window. See `Interactive Data Import <./interactive-import.html>`_  
+
+The Data Management pane
 -----------------------------------------------------------
 
 .. figure:: ../_static/images/data-management-pane.jpg
@@ -38,13 +40,6 @@ Missing values
 
 Missing values are represented by a dot for data loaded into GAUSS.
 
-Elements that will be imported as missing values will be indicated by gray shading in the **Data Import** window.
-
-.. figure:: ../_static/images/data-cleaning-missing-gray-cell.jpg
-    :scale: 50%
-
-
-
 
 Remove observations with missing values interactively
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -58,12 +53,7 @@ Remove observations with missing values interactively
 
 All observations where the selected variable contains a  missing value will be grayed out in the **Data Preview** window, indicating which observations will be imported.
 
-Specify values to import as missing values
-+++++++++++++++++++++++++++++++++++++++++++++
-
-[Image of Missing data text boxes on Imports tab]
-
-Enter a comma separated list of variables which should be imported as missing into the corresponding text box in the  **Imports** tab of the **Data Import** window. 
+You can click **Apply** or continue to create more filters.
 
 Data organization
 --------------------
@@ -77,80 +67,139 @@ Changing variable names
 
 1. Double-click the dataframe you want to modify in the **Symbols** pane of the **Data** page.  
 2. Click the **Manage** button at the top right of the open **Symbol Editor**. 
-3. Click downward pointing triangle button to the right of the name of the variable name you want to change.. 
+3. Click downward pointing triangle button to the right of the name of the variable name you want to change. 
 4. Enter the new name in the **Name** text box.
 
-Click  [IMAGE of Apply button in data management pane] Apply. 
-
-How do I sort my data based on a variable?
-+++++++++++++++++++++++++++++++++++++++++++++
-
-How do I sort my data based on multiple variables?
-+++++++++++++++++++++++++++++++++++++++++++++
-
-How do I sort my data in descending order?
-+++++++++++++++++++++++++++++++++++++++++++++
-
-How do I change the order of columns in my data? 
-+++++++++++++++++++++++++++++++++++++++++++++
+These changes will not be made until you click **Apply**.
 
 Deleting columns from a matrix
 +++++++++++++++++++++++++++++++++++++++++++++
 
-Select the matrix you want to delete columns from the Symbols pane in the Data Editor window.  
-Click  [IMAGE of Organization button in data editor] Manage to open the Data Management pane. 
-Uncheck the variables you want to remove from the data in the Variables tab. 
-Click  [IMAGE of Apply button in data management pane] Apply. 
+Clear the check box next to the name of the variables you want to remove from the data.
 
-Data subsets 
+These changes will not be made until you click **Apply**.
+
+
+Filtering observations of a dataframe
 +++++++++++++++++++++++++++++++++++++++++++++
 
-Select the matrix you want to extract data from the Symbols pane in the Data Editor window.  
-Click  [IMAGE of Organization button in data editor] Manage to open the Data Management pane. 
-Use the Variable Name drop-down list on the Filter tab to select a variable to use for filtering.  
-Select the operation to use for filtering from the Operation drop-down lists. 
-In the Value box, enter or select the condition for filtering. 
-Click  [IMAGE of Apply button in data management pane] Apply. 
+The **Data Management** pane provides the following options for filtering dataframes. 
+
++--------------------+------------------+--------------------+------------------+
+|Data type           |Filter options    |Data type           |Filter options    |
++====================+==================+====================+==================+
+|Numeric and Date    |                  |String and Category |                  | 
++--------------------+------------------+--------------------+------------------+
+|                    |=                 |                    |Equals            |
++--------------------+------------------+--------------------+------------------+
+|                    |!=                |                    |Not Equals        |
++--------------------+------------------+--------------------+------------------+
+|                    |<                 |                    |Contains          |
++--------------------+------------------+--------------------+------------------+
+|                    |<=                |                    |Does not Contain  |
++--------------------+------------------+--------------------+------------------+
+|                    |>                 |                    |Is Empty          |
++--------------------+------------------+--------------------+------------------+
+|                    |>=                |                    |Is not Empty      |
++--------------------+------------------+--------------------+------------------+
+|                    |Is Missing        |                    |Is Missing        |
++--------------------+------------------+--------------------+------------------+
+|                    |Is Not Missing    |                    |Is Not Missing    |
++--------------------+------------------+--------------------+------------------+
+
+1. Select the variable to filter on.
+2. Select the operation.
+3. Depending on the operation, either enter a value or select one from the dropdown.
+4. Click the `+` button to add the filter.
+5. Either **Apply** your changes or add another filter.
+
+Filter based on partial string match
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-cleaning-filter-contains-buick.jpg
+
+Filter based numeric value
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-cleaning-filter-inequality-mpg.jpg
+
+
+Apply changes
+------------------------
+
+
+The **Apply** button at the bottom of the **Data Management** pane allows you to apply the variable modifications and filters created.
+
+.. figure:: ../_static/images/interactive-data-cleaning-apply.jpg
+    :scale: 50%
+
+To modify the current dataframe, either click **Apply** or click the dropdown and select **Overwrite Existing**.
+
+To create a new dataframe containing your changes, click the dropdown next to the **Apply** button and select **Create New**. A text box will appear allowing you to enter the name of the new dataframe.
 
 Data types and formats
 ---------------------------------------------
 
 Changing variable type
 +++++++++++++++++++++++++++++++++++++++++++++
-Select the matrix containing the variable(s) of interest from the Symbols pane in the Data Editor window.  
-To change a variable type select the desired type form the Type drop-down list on the Variables tab. 
-If further type-specific properties are required, a properties dialog will automatically.
-Type-specific properties
-Specifying date formats
-[Image of the Specify Date Format dialog]
 
-When changing the type of a variable to a date, you will be asked to manually specify a date format using the Specify Date Format dialog. 
-The Specify Date Format dialog provides a list of BSD strftime format specifiers, along with a sample and description. 
-Type the desired specifier in the Date Format box or select specifiers from the BSD specifier list. 
-As you build your date format, a sample date will be created. 
-To help locate the desired specifier, you can use the Pattern Filter drop-down list to filter specifiers by categories such as day specifiers, month specifiers, or hour specifiers. 
-Our blog “Reading dates and times in GAUSS” provides additional information on this topic. 
+To change a variable type select the desired type from the **Type** drop-down list on the **Variables** tab. 
+
+.. figure:: ../_static/images/interactive-data-cleaning-change-type.jpg
+    :scale: 50%
+
+If further type-specific properties are required, a properties dialog will automatically open.
 
 Changing categorical mappings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Select the matrix containing the variable(s) of interest from the Symbols pane in the Data Editor window.  
-When you change a variable to a category, a [image of the hamburger menu] Menu will appear next to the variable. This will open a Modify Column Mapping dialog. 
-Enter the desired label in the Renamed Label textbox next to the category label you want to change.
-Click [image of OK button in Modify Column Mapping] to apply the new category labels. 
-Specifying a category to be the base case
-Select the matrix containing the variable(s) of interest from the Symbols pane in the Data Editor window.  
-Open [image of the hamburger menu] the Menu next to the categorical variable of interest. This will open the Modify Column Mapping dialog.
-The Key column indicates the ordering of the categories. The category with the Key equal to zero is used as the base case in all GAUSS estimation procedures. 
-To change the base case select the Label of the category you want to be the new base case. 
-Click [image of the double arrow button Typein the modify column mapping dialog] to move the selected category to the base case. 
-Checking the number of categories
-Select the matrix containing the variable(s) of interest from the Symbols pane in the Data Editor window.  
-Open [image of the hamburger menu] the Menu next to the categorical variable of interest. This will open the Modify Column Mapping dialog.
-The count of categories will be located in the upper right hand corner of the Modify Column Mapping dialog. 
-[Image of the Category Count in the Modify Column Mapping]
+Click the dropdown button to the right of the variable name and select **Properties** to open the **Modify Column Mapping** dialog. 
 
-Programmatic Cleaning
-=========================
+.. figure:: ../_static/images/interactive-data-cleaning-variable-properties.jpg
+    :scale: 50%
+
+**Change a category label** by double-clicking in the **Renamed Label** textbox next to the category label you want to change, then enter the new label name.
+
+.. figure:: ../_static/images/interactive-data-cleaning-modify-column-mapping.jpg
+    :scale: 50%
+
+**Specify a category to be the base case** by selecting the **Label** of the category you want to be the new base case then click the double up-pointing arrow button to move the selected category to the base case. 
+
+The **Category Count** will be listed in the top right of the **Modify Column Mapping** dialog.
+
+Specifying date formats
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If GAUSS does not automatically detect your date format, you will be asked to manually specify a date format using the **Specify Date Format** dialog. 
+
+.. figure:: ../_static/images/data-import-date-specify-dialog.jpg
+    :scale: 50%
+
+Build a format string in the **Date format** box, using the BSD strftime specifiers, that represents your data. 
+
+
+If your data looked like this ``03/12/2017``, the correct format string would be ``%m/%d/%Y``. The table below explains this.
+
++-----------------+---------------------------+---------+----------------------+
+|Original Contents|Description                |Type     |Format string contents|
++=================+===========================+=========+======================+
+|03               |A two digit month.         |Date     |`%m`                  |
++-----------------+---------------------------+---------+----------------------+
+|/                |A forward slash.           |Literal  |/                     |
++-----------------+---------------------------+---------+----------------------+
+|12               |A two digit day.           |Date     |`%d`                  |
++-----------------+---------------------------+---------+----------------------+
+|/                |A forward slash.           |Literal  |/                     |
++-----------------+---------------------------+---------+----------------------+
+|2017             |A four digit year.         |Date     |`%Y`                  |
++-----------------+---------------------------+---------+----------------------+
+
+
+The **Format Options** section of this dialog contains the BSD strftime specifiers for reference. Use the **Filter** dropdown to filter the reference options shown.
+
+
+Programmatic Data Cleaning
+==============================
 
 Missing value handling
 ------------------------------
@@ -318,7 +367,7 @@ Use :func:`sortc` to sort a matrix or dataframe in ascending order based on a ce
     7 0 9
     1 3 5
 
-.. note:  :func:`sortmc` and :func:`sortc` sort data in ascending order. To sort data in descending order, wrap the call to the sorting procedure using the procedure `rev` .
+.. note:  :func:`sortmc` and :func:`sortc` sort data in ascending order. To sort data in descending order, wrap the call to the sorting procedure using the procedure :func:`rev` .
 
 Changing the order of columns
 ++++++++++++++++++++++++++++++++++
@@ -380,7 +429,7 @@ After the above code, the first four rows of *yellowstone* will be:
 Deleting columns 
 +++++++++++++++++++++
 
-You can delete columns from a matrix using the `delcols` procedure. The columns to remove can be specified as numeric indices for matrices and dataframes:
+You can delete columns from a matrix using the :func:`delcols` procedure. The columns to remove can be specified as numeric indices for matrices and dataframes:
 
 ::
 
@@ -467,7 +516,7 @@ Two GAUSS functions are available for deleting rows from a matrix:
 Conditionally deleting data from a matrix
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-:func:`delif` conditionally delete data from a matrix based upon a logical vector..
+:func:`delif` conditionally delete data from a matrix based upon a logical vector.
 
 ::
 

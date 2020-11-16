@@ -58,7 +58,7 @@ The **Data Import** window auto-generates code to perform all the import and fil
 Managing import options
 ---------------------------------------------------------
 
-.. figure:: ../_static/images/data-import-import-options-csv.png
+.. figure:: ../_static/images/data-import-import-options.jpg
     :scale: 50%
 
 
@@ -69,6 +69,13 @@ Import
 
 * **Keep Metadata**: If checked, the data will be imported as a dataframe with variable names and column type information (category, date, numeric, string). Otherwise the data will be imported as a matrix or string array.
 * **Import As**: This dropdown allows you to import the data as a string array instead of a matrix or dataframe.
+
+Values as Missings
++++++++++++++++++++++++
+
+* **Numeric Values**: A comma separated list of values that should be converted to missing values on import.
+* **String Values**: A comma separated list of strings that should be interpreted as missing values on import.
+
 
 File
 +++++++++++
@@ -145,6 +152,13 @@ Control which rows are imported
 The starting and ending row can be specified in the **Row Range** text box located in the  **File** pane of the **Import Options** tab. 
 
 .. note:: By default, GAUSS assumes the starting row is the first row immediately after the header row. 
+
+Specify values to import as missing values
+---------------------------------------------
+
+The **Values as Missings** section of the **Import Options** tab in the **Data Import** window allows you to enter
+a comma separated list of string or numeric values which should be imported as missing values. 
+
 
 Data Filtering
 ---------------------------------

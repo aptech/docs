@@ -79,7 +79,7 @@ The :func:`xlsWrite` Command Reference page explains how to specify the sheet nu
 
 Advanced exporting to CSV Files
 ----------------------------------------------
-Use the `csvWriteM` procedure to write a GAUSS matrix to a `.csv` file. 
+Use the :func:`csvWriteM` procedure to write a GAUSS matrix to a `.csv` file. 
 
 Example: Save a matrix to an CSV file
 ++++++++++++++++++++++++++++++++++++++++++
