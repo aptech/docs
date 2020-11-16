@@ -53,7 +53,7 @@ Smoothing of random walk data
   	y[i]= y[i-1] + delta[i];
   endfor;
 
-  // Find moving averag
+  // Find moving average
   twentyMA = movingave(y, 20);
 
 Remarks
