@@ -19,6 +19,7 @@ Data Smoothing
 Finding moving averages
 ----------------------------------------------
 Three procedures are available for computing moving averages.
+
 * The :func:`movingave` procedure computes the moving average given a specified order of moving average.
 * The :func:`movingaveWgt` procedure computes the weighted moving average given a specified order and weights.
 * The :func:`movingaveExpWgtave` procedure computes  exponentially weighted moving average of a series given a specified order of moving average and a smoothing coefficient.
@@ -69,11 +70,8 @@ Example: Lowess smoother
 ::
 
   // Load dataset
-  data = loadd("lowess1.dta", "h1 + depth");
-
-  // Control structure
-  struct loessmtControl lc0;
-  lc0 = loessmtControlCreate;
+  fname = getGAUSSHome() $+ "examples/lowess1.dta";
+  data = loadd(fname, "h1 + depth");
 
   // Define independent variable
   depvar = data[., 1];
@@ -81,4 +79,4 @@ Example: Lowess smoother
   // Defined dependent variable
   indvars = data[., 2];
 
-  { yhat, ys, xs } = loessmt(lc0, depvar, indvars);
+  { yhat, ys, xs } = loessmt(depvar, indvars);

@@ -1,43 +1,88 @@
 Data Sampling
 =============================
 
-Sampling with replacement from a matrix
-------------------------------------------
-Use :func:`sampleData` procedure to obtain a sample from a data matrix or dataframe. The final argument is an indicator for replacement, and should be set to 1 to indicate sampling with replacement.
+Sampling with replacement from a matrix or dataframe
+--------------------------------------------------------
+There are two ways to sample with replacement from a matrix or dataframe. 
+
+:func:`sampleData` directly returns a sample from a matrix or dataframe. The final argument is an indicator for replacement, and should be set to 1 to indicate sampling with replacement.
+
 
 Example: Sampling with replacement from a matrix
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
-  // Set seed for repeatable random draws
-  rndseed  23423;
+    // Set seed for repeatable random draws
+    rndseed  23423;
 
-  // Create a 7x2 vector
-  x  = { 1.2 1.8,
-       2.7 2.1,
-       3.0 3.3,
-       4.8 4.1,
-       5.1 5.4,
-       6.0 2.8,
-       7.2 3.9 };
+    // Create a 7x2 vector
+    x  = { 1.2 1.8,
+           2.7 2.1,
+           3.0 3.3,
+           4.8 4.1,
+           5.1 5.4,
+           6.0 2.8,
+           7.2 3.9 };
 
-       replace = 1;
+    replace = 1;
 
-  // Take a sample of 5 rows of 'x' with replacement
-  sample = sampleData(x, 5, replace);
+    // Take a sample of 5 rows of 'x' with replacement
+    sample = sampleData(x, 5, replace);
 
-After the code above, s is equal to:
+After the code above, *s* is equal to:
 
-~~~
-5.1    5.4
-3.0    3.3
-6.0    2.8
-4.8    4.1
-3.0    3.3
-~~~
+::
+
+    5.1    5.4
+    3.0    3.3
+    6.0    2.8
+    4.8    4.1
+    3.0    3.3
 
 Repeated observations of 3.0 and 3.3 occur because the sampling takes place with replacement.
+
+:func:`rndi` returns random integers from a uniform distribution with the option to specify a range. These can be used as indices for sampling enabling you to easily draw corresponding rows from two or more variables. For example:
+
+Example: Sampling with replacement from multiple matrices
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Set seed for repeatable random draws
+    rndseed  73725;
+
+    y = { 9.1,
+          2.3,
+          6.7,
+          4.4,
+          5.1 }; 
+
+    X = { 8.3 8.2,
+          8.8 7.9,
+          2.4 1.9,
+          3.9 4.2,
+          8.2 9.1 }; 
+
+
+    // Create a random sample of
+    // integers from 1 to 5
+    idx = rndi(5, 1, 1|5);
+
+    // Use 'idx' to draw corresponding rows from 'y' and 'X'
+    y_s = y[idx];
+    X_s = X[idx,.];
+
+After the code above:
+
+::
+
+    idx = 5    y_s = 5.1    X_s = 8.2    9.1 
+          4          4.4          3.9    4.2 
+          2          2.3          8.8    7.9 
+          3          6.7          2.4    1.9 
+          5          5.1          8.2    9.1  
+    
 
 Sampling without replacement from a matrix
 --------------------------------------------
@@ -53,12 +98,12 @@ Example: Sampling without replacement
 
   // Create a 7x1 vector
   x  = { 1,
-       2,
-       3,
-       4,
-       5,
-       6,
-       7 };
+         2,
+         3,
+         4,
+         5,
+         6,
+         7 };
 
   // Take a sample of 3 elements without replacement
   s  = sampleData(x, 3);
@@ -67,9 +112,9 @@ Example: Sampling without replacement
 
 Drawing a random sample from a dataset
 ------------------------------------------
-The :func:`exctSmple` procedure draws a sample with replacement from an existing data file and saves the result as a new data file. Neither the data file drawn from nor the new sample created are saved in the GAUSS workspace.
+The :func:`exctSmpl` procedure draws a sample with replacement from an existing data file and saves the result as a new data file. Neither the data file drawn from nor the new sample created are saved in the GAUSS workspace.
 
-The :func:`exctSmple` procedure has returns the number of rows in the new data file OR an error code.
+The :func:`exctSmpl` procedure has returns the number of rows in the new data file OR an error code.
 
 Example: Sample from credit.dat data file
 +++++++++++++++++++++++++++++++++++++++++++

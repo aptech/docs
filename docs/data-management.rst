@@ -9,4 +9,6 @@ Data Management
     data-management/programmatic-import
     data-management/programmatic-export
     data-management/data-cleaning
+    data-management/data-sampling
+    data-management/data-smoothing
 
