@@ -210,16 +210,16 @@ Two GAUSS functions are available for computing correlations of a sample:
 
 +----------------------+------------------------------------------+
 | Function             | Description                              |
-+======================+=====================+====================+
++======================+==========================================+
 | :func:`corrms`       | Computes the sample correlation using a  |
 |                      | moment matrix as the input.              |
-+----------------------+---------------------+--------------------+
++----------------------+------------------------------------------+
 | :func:`corrxs`       | Computes the sample correlation using a  |
 |                      |data matrix as the input.                 |
-+----------------------+---------------------+--------------------+
++----------------------+------------------------------------------+
 
-Example: Finding correlation across country GDP
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example: Finding correlation of height and weight in NBA players
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -239,7 +239,126 @@ This prints the correlations to screen:
 ::
 
   1.0000000       0.82071923
-  0.82071923        1.0000000
+  0.82071923      1.0000000
 
 
-.. note:: . The :func:`corrms` and `corrxs` functions compute the standardized version of the correlation matrix. To compute an unbiased estimate which divides by *N-1*, rather than *N*, use :func:`corrm` or :func:`corrx`.
+.. note:: . The :func:`corrms` and :func:`corrxs` functions compute the standardized version of the correlation matrix. To compute an unbiased estimate which divides by *N-1*, rather than *N*, use :func:`corrm` or :func:`corrx`.
+
+Finding variance-covariance
+----------------------------------
+Two GAUSS functions are available for computing correlations of a sample:
+
++-------------------------+------------------------------------------+
+| Function                | Description                              |
++=========================+==========================================+
+| :func:`varCovMS`        | Computes the variance-covariance matrix  |
+|                         | using a moment matrix as the input.      |
++-------------------------+------------------------------------------+
+| :func:`varCovXS`        | Computes the variance-covariance matrix  |
+|                         | using a data matrix as the input.        |
++-------------------------+------------------------------------------+
+
+Example: Finding variance/covariance of height and weight in NBA players
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  /*
+  ** Import data
+  */
+  fname = getGAUSSHome $+ "examples\\nba_ht_wt.xls";
+  nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate, '%m/%d/%Y %T.%L')");
+
+
+  // Calculate correlation of
+  // height and weight
+  corrxs(nba_ht_wt[., "Height" "Weight"]);
+
+  // Calculate variance-covariance
+  // of height and weight
+  varCovxs(nba_ht_wt[., "Height" "Weight"]);
+
+This prints the following variance/covariance matrix:
+::
+
+  11.930245        75.527346
+  75.527346        709.85534
+
+.. note:: . The :func:`covVarMS` and :func:`covVarXS` functions compute the sample variance/covariance. It is computed as the moment matrix of deviations about the mean divided by the number of observations minus one, **N−1**. For a population covariance matrix which uses **N** rather than N−1 see :func:`varCovM()` or :func:`varCovX()`.
+
+Exploratory data visualizations
+---------------------------------
+**Plotting histograms**
+
+Histograms of data can be plotted using one of three functions:
+*  The :func:`plotHist` function which computes and graphs a frequency histogram.
+*  The :func:`plotHistP` function which computes and graphs a percent frequency histogram.
+*  The :func:`plotHistF` function which graphs a histogram given vector of frequency counts.
+
+.. note:: . These functions do not currently utilize the categorical labels and :func:`plotFreq` is recommended for categorical variables with labels.
+
+Example: Frequency and percentage histograms
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Create data
+  r = rndGamma( 1e4, 1, 3, 2 );
+
+  // Declare plotControl structure
+  struct plotControl myPlot;
+
+  // Set plotControl structure to
+  // default values
+  myPlot = plotGetDefaults( "bar" );
+
+  // Set Title
+  fontname = "Helvetica Neue";
+  plotSetTitle( &myPlot, "Example Percentage Histogram", fontname, 18 );
+
+  // Set Y label
+  plotSetYLabel( &myPlot, "Percentage",  fontname, 14);
+
+  // Use first pane
+  // in layout
+
+  plotLayout(1, 2, 1);
+  // plot a percentage histogram
+  // with the data from 'r' spread
+  // into 50 bins.
+  plotHistP( myPlot, r, 50 );
+
+  // Set solid fill and completely opaque (i.e. zero transparency)
+  plotSetFill( &myPlot, 1, 1);
+
+  // Set Title
+  plotSetTitle( &myPlot, "Example Frequency Histogram" );
+
+  // Set Y label
+  plotSetYLabel( &myPlot, "Frequency" );
+
+  // Use second pane
+  // in layout
+  plotLayout(1, 2, 2);
+
+  // Plot a standard histogram
+  // with the data from 'r' spread
+  // into 80 bins.
+  plotHist( myPlot, r, 80 );
+
+**Plotting scatter plots **
+
+The :func:`plotScatter` function creates a quick scatter plot using just an *x* and *y* input. To add custom plotting use the `plotControlStructure`.
+
+Example: Plotting the relationship between height and weight in NBA players
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Create file name with full path
+  fname = getGAUSSHome $+ "examples\\nba_ht_wt.xls";
+  nba_ht_wt = loadd(fname,
+      "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
+
+ // Plot height and weight
+ plotScatter(nba_ht_wt[., Height], nba_ht_wt[., weight]);
