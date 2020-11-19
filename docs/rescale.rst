@@ -88,7 +88,7 @@ Specifying a scaling method
             16.7 };
 
     // Standardize 'x' and return the location and scaling factors
-    { x_s, location, scale_factor} = rescale(x, "standardize");
+    { x_s, location, scale_factor } = rescale(x, "standardize");
 
     print "x_s = " x_s;
     print "location = " location;
