@@ -77,10 +77,8 @@ After the above code,
 Remarks
 ------------
 
-The correlation matrix is the standardized version of the
-correlation/covariance matrix computed from the input data, that is, it
-divides the sample size, :math:`N`, rather than :math:`N - 1`. For an unbiased estimate
-correlation/covariance matrix which uses :math:`N - 1`, use :func:`corrm` or :func:`corrx`.
+The :func:`corrms` and :func:`corrxs` computes the sample correlation matrix. For the population
+correlation matrix, use :func:`corrm` or :func:`corrx`.
 
 Source
 ------------

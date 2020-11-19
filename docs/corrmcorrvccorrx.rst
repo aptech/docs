@@ -92,12 +92,8 @@ After the above code,
 Remarks
 ------------
 
-The correlation matrix is the standardized version of the unbiased
-estimator of the population variance-covariance matrix. It is computed
-using the moment matrix of deviations about the mean divided by the
-number of observations minus one :math:`N - 1`. For the observed
-correlation/covariance matrix which uses :math:`N` rather than :math:`N - 1`, see :func:`corrms`
-and :func:`corrxs`.
+The :func:`corrm` and :func:`corrx` computes the population correlation matrix. For the sample
+correlation matrix, use :func:`corrm` or :func:`corrx`.
 
 Source
 ------------
