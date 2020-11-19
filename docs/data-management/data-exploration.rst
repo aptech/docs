@@ -215,7 +215,7 @@ Two GAUSS functions are available for computing correlations of a sample:
 |                      | moment matrix as the input.              |
 +----------------------+------------------------------------------+
 | :func:`corrxs`       | Computes the sample correlation using a  |
-|                      |data matrix as the input.                 |
+|                      | data matrix as the input.                |
 +----------------------+------------------------------------------+
 
 Example: Finding correlation of height and weight in NBA players
@@ -242,7 +242,7 @@ This prints the correlations to screen:
   0.82071923      1.0000000
 
 
-.. note:: . The :func:`corrms` and :func:`corrxs` functions compute the standardized version of the correlation matrix. To compute an unbiased estimate which divides by *N-1*, rather than *N*, use :func:`corrm` or :func:`corrx`.
+.. note:: The :func:`corrms` and :func:`corrxs` functions compute the sample correlation matrix. To compute the population correlation matrix use :func:`corrm` or :func:`corrx`.
 
 Finding variance-covariance
 ----------------------------------
@@ -284,7 +284,7 @@ This prints the following variance/covariance matrix:
   11.930245        75.527346
   75.527346        709.85534
 
-.. note:: . The :func:`covVarMS` and :func:`covVarXS` functions compute the sample variance/covariance. It is computed as the moment matrix of deviations about the mean divided by the number of observations minus one, **N−1**. For a population covariance matrix which uses **N** rather than N−1 see :func:`varCovM()` or :func:`varCovX()`.
+.. note:: The :func:`covVarMS` and :func:`covVarXS` functions compute the sample variance/covariance. It is computed as the moment matrix of deviations about the mean divided by the number of observations minus one, **N−1**. For a population covariance matrix which uses **N** rather than N−1 see :func:`varCovM()` or :func:`varCovX()`.
 
 Exploratory data visualizations
 ---------------------------------
@@ -295,7 +295,7 @@ Histograms of data can be plotted using one of three functions:
 *  The :func:`plotHistP` function which computes and graphs a percent frequency histogram.
 *  The :func:`plotHistF` function which graphs a histogram given vector of frequency counts.
 
-.. note:: . These functions do not currently utilize the categorical labels and :func:`plotFreq` is recommended for categorical variables with labels.
+.. note:: These functions do not currently utilize the categorical labels and :func:`plotFreq` is recommended for categorical variables with labels.
 
 Example: Frequency and percentage histograms
 ++++++++++++++++++++++++++++++++++++++++++++++
