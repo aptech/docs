@@ -95,26 +95,24 @@ Example: Rescaling using known location and scaling factors
 ::
 
   // Additional observations
-  x_new = { 9.3  964.1,
-           10.9 1173.7,
-           11.1 1232.0,
-            9.1 1051.2,
-           14.6 1124.1,
-           18.4  815.3,
-           20.2 1292.6,
-           18.5  833.1 };
+  x2    = { 9.3,
+         10.9,
+         11.1,
+          9.1,
+         14.6,
+         18.4,
+         20.2,
+         18.5 };
 
   // Rescale matrix above using
   // location and scale matrix
   // from above
-  x_s2 = rescale(x_new, location_s, scale_factor_s);
+  x_s2 = rescale(x2, location_s, scale_factor_s);
 
-After the code above:
+After the code above *x_s2* is equal to:
 
 ::
 
-    Standardized rescaling:
-    x_s2 =
       -1.2949998
      -0.91481638
      -0.86729345
@@ -159,36 +157,50 @@ Example: Rescaling multiple columns
        1.6038989      -0.10148025
     -0.035642197       -1.8306302
       0.46334856        1.0870957
-  location =        14.750000        1029.8875
+
+  location =           14.750000        1029.8875
   scale_factor =        4.2084948        203.85740
 
 Recoding and reclassifying
 --------------------------------
-GAUSS provides a variety of tools for recoding and reclassifying data.
+GAUSS provides a variety of tools for recoding and reclassifying data. These functions can be divided into functions for numeric data and functions for categorical data.
 
-+------------------------+--------------------------------------------------------------------------------+
-| Function               |                                                                                |
-+========================+================================================================================+
-| :func:`reclassify`     | Replaces specified values of a matrix, array or string array.                  |
-+------------------------+--------------------------------------------------------------------------------+
-| :func:`reclassifycuts` | Replaces values of a matrix or array within specified ranges.                  |
-+------------------------+--------------------------------------------------------------------------------+
-| :func:`code`           | Allows a new variable to be created (coded) with different values              |
-|                        | depending upon which one of a set of logical expressions is true.              |
-+------------------------+--------------------------------------------------------------------------------+
-| :func:`recode`         | Changes the values of an existing vector from a vector of                      |
-|                        | new values.                                                                    |
-+------------------------+--------------------------------------------------------------------------------+
-| :func:`substute`       | Substitutes new values for old values in a matrix, depending on the            |
-|                        | outcome of a logical expression.                                               |
-+------------------------+--------------------------------------------------------------------------------+
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| Functions              | Description                                                                | Recoding specifier                       |
++========================+============================================================================+==========================================+
+| :func:`reclassify`     | Replaces specified values of a matrix, array or string array.              |  User-specified values.                  |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`reclassifycuts` | Replaces values of a matrix or array within specified ranges.              |  User-specified values.                  |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`code`           | Creates a new matrix based on recoding of an existing numeric vector.      |  Based on logical expression.            |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`recode`         | Recodes the values of an existing vector of numeric data.                  |  Based on logical expression.            |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`substute`       | Substitutes new values for old values in a matrix, depending on the        |  Based on logical expression.            |
+|                        | outcome of a logical expression.                                           |                                          |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
 
-**Coding new variables**
++-------------------------+--------------------------------------------------------------------------------+
+| Categorical Functions   |                                                                                |
++=========================+================================================================================+
+| :func:`reorderCatLabels`| Changes relative order of categorical variable. This changes the key values    |
+|                         | associated with the categorical labels.                                        |
++-------------------------+--------------------------------------------------------------------------------+
+| :func:`recodeCatLabels` | Replaces the labels of categorical variables with new labels.                  |
++-------------------------+--------------------------------------------------------------------------------+
 
-The :func:`code` procedure creates new variables from existing variables using conditional expressions.
+**Recoding and reclassifying non-categorical data**
 
-Example:  Coding blood pressure data to create a new class variable
----------------------------------------------------------------------
+Both the :func:`code` and :func:`recode` procedures can be used to recode data using conditional expressions.
+
+The :func:`code` procedure:
+
+* Creates a new matrix which splits existing data into classes.
+* Uses N logical expressions to determine N+1 classes.
+* Works for vectors only.
+
+Example:  Coding blood pressure data to create a new (binary) class variable
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -215,17 +227,89 @@ Example:  Coding blood pressure data to create a new class variable
   */
   x_class = code(logical, new_val);
 
+The code above generates a new vector *x_class* which splits the original data into two
+classes based on whether x is less than 120.
+
+::
+
+  x = 91   logical =  1   x_class = 1
+     121              0             2
+      99              1             1
+     135              0             2
+     110              1             1
+     155              0             2
+
+Example:  Coding blood pressure data to create a new multi-class variable
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Blood pressure data
+  x = { 91,
+       121,
+        99,
+       135,
+       110,
+       155 };
+
+  // Values for the classes
+  new_val = { 1,
+              2,
+              3 };
+
+  /*
+  ** Create a vector containing a 1 for every element
+  ** which is less than 100, or a 0 otherwise
+  */
+  logical_1 = x .<= 100;
+
+  /*
+  ** Create a vector containing a 1 for every element
+  ** which is between 100 and 120, or a 0 otherwise
+  */
+  logical_2 = x .> 100 .and x .<=  120;
+
+  /*
+  ** Form a 2 column logical vector using
+  ** horizontal concatenation
+  */
+  logical = logical_1 ~ logical_2;
+
+  /*
+  ** Create a new vector which contains the class
+  ** assignment for each element in 'x'
+  */
+  x_class = code(logical, new_val);
+
+Now *x_class* splits the original data into three classes based on whether x is less than or equal to 100, falls between 100 and 120, or is greater 120.
+
+::
+
+  x =  91    logical = 1 0     x_class = 1
+      121              0 0               3
+       99              1 0               1
+      135              0 0               3
+      110              0 1               2
+      155              0 0               3
+
+.. note:: The :func:`setColLabels` function can be used to specify *x_class* as a categorical variable and to assign labels to the classes.
+
 **Recoding values of an existing vector**
 
-While the :func:`code` procedure creates a new variable, the :func:`recode` procedure can be used to replace specific values of an existing vector with new values.
+The :func:`recode` procedure :
+
+* Replaces specific values of an existing vector with new values.
+* Uses a logical expression to determine where and how to replace values.
+* Works on vectors only.
+
 Some notes to remember about :func:`recode`:
 
 *  There should be no more than a single 1 in any row of logical expression matrix.
 *  For any given row of a data matrix and logical expression matrix, if the Kth column of the logical expression is 1, the Kth element of v will replace the original element of the data matrix.
 *  If every column of logical expression matrix contains a 0, the original value of the data matrix will be unchanged.
 
-Example: Recoding a vector of values based on ranges
------------------------------------------------------
+Example: Recoding numeric values based on ranges
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -252,7 +336,7 @@ Example: Recoding a vector of values based on ranges
 
   // Horizontally concatenate the column vectors into a 5x4
   // matrix
-  e = e1~e2~e3~e4;
+  logical = e1~e2~e3~e4;
 
   v = { 1.2,
         2.4,
@@ -261,23 +345,450 @@ Example: Recoding a vector of values based on ranges
 
   // Replace elements of 'x' with elements from 'v' based upon
   // the 0's and 1's in 'e'
-  y = recode(x, e, v);
+  x_new = recode(x, logical, v);
 
-The above code assigns e and y as follows:
+Note that in this example *x_new* is as follows:
 
 ::
 
-      0   0   0   0
-      0   0   1   0
-  e = 0   1   0   0
-      0   0   0   0
-      1   0   0   0
+            0   0   0   0
+            0   0   1   0
+  logical = 0   1   0   0
+            0   0   0   0
+            1   0   0   0
 
   // Since the third column of the second row of 'e' is equal
   // to 1, the second row of 'y' is set equal to the third
   // element of 'v', etc.
-      20.000000
-      3.1000000
-  y = 2.4000000
-      63.000000
-      1.2000000
+          20.000000
+          3.1000000
+  x_new = 2.4000000
+          63.000000
+          1.2000000
+
+**Reclassifying data**
+
+The :func:`reclassify` and :func:`reclassifyCuts` procedures can be used to reclassify existing values to new values.
+
+The :func:`reclassify` procedure:
+
+* Replaces values in a *from* input with values specified in a *to* input.
+* Works for matrices, arrays, and string arrays.
+* Can be used to reclassify matrices to string arrays and vice versa.
+
+.. note:: The :func:`reclassify` function can reclassify matrices to string arrays but does not create a dataframe. To create a dataframe with a string labels from an existing matrix see :func:`setColMetaData`.
+
+Example: Change instances of 1, 2 and 3 to ‘low’, ‘medium’ and ‘high’.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Vector to be changed
+  x = { 2,
+        3,
+        2,
+        1,
+        2,
+        3 };
+
+  from = { 1,
+           2,
+           3 };
+
+  // Create a 3x1 string array using
+  // string vertical concatenation operator
+  to = "low" $| "medium" $| "high";
+
+  x_new = reclassify(x, from, to);
+  print x_new;
+
+After the code above, *x_new* is equal to:
+
+::
+
+  medium
+  high
+  medium
+  low
+  medium
+  high
+
+In this case, if the number of specified strings in *to* is less than the number of unique values in *x*, the unmapped values will be converted directly into strings.
+
+::
+
+  // Vector to be changed
+  x = { 2,
+        3,
+        2,
+        1,
+        2,
+        3 };
+
+  from = { 1,
+           2};
+
+  // Create a 3x1 string array using
+  // string vertical concatenation operator
+  to = "low" $| "medium";
+
+  x_new = reclassify(x, from, to);
+  print x_new;
+
+Now *x_new* is
+
+::
+
+          medium
+               3
+          medium
+             low
+          medium
+               3
+
+Example: Change instances of tea types: ‘black’, ‘green’, ‘oolong’ to 9.95, 11.95 and 10.50, respectively.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  string orders  = { "green",
+                 "green",
+                 "oolong",
+                 "green",
+                 "green",
+                 "green",
+                 "black" };
+
+  string tea_types   = { "black",
+                       "green",
+                       "oolong" };
+
+  price = { 9.95, 11.95, 10.50 };
+
+  order_prices = reclassify(orders, tea_types, price);
+  print order_prices;
+
+The vector *order_prices* is equal to:
+
+::
+
+  11.95
+  11.95
+  10.50
+  11.95
+  11.95
+  11.95
+  9.95
+
+In this case, if the number of specified values in *to* is less than the number of unique strings in *x*, unmapped strings will be reclassified as missings:
+
+::
+
+  string orders  = { "green",
+                   "green",
+                   "oolong",
+                   "green",
+                   "green",
+                   "green",
+                   "black" };
+
+  string tea_types   = { "black",
+                         "green" };
+
+  price = { 9.95, 11.95 };
+
+  order_prices = reclassify(orders, tea_types, price);
+  print order_prices;
+
+Now *order_prices* is:
+
+::
+
+  11.950000
+  11.950000
+          .
+  11.950000
+  11.950000
+  11.950000
+  9.9500000
+
+The :func:`reclassifyCuts` procedure:
+
+  * Splits the data in *x* into classes based on specified cutoff values.
+  * Works for matrices and arrays.
+  * Cutoff points can be used to define the right endpoint of an interval or the starting points of the next interval. The default is to use the cutoff points as starting points of the next interval.
+
+Example: Basic sequence
++++++++++++++++++++++++++++++++
+
+::
+
+  // Create column vector to place in categories
+  x = {   0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7 };
+
+  // Cut points for data in 'x'
+  cut_pts = { 0.2,
+              0.5 };
+
+  // Class 0:       x <= 0.2
+  // Class 1: 0.2 < x <= 0.5
+  // Class 2: 0.5 < x
+  r_open = reclassifyCuts(x, cut_pts);
+
+  // Class 0:       x < 0.2
+  // Class 1: 0.2 <= x < 0.5
+  // Class 2: 0.5 <= x
+  r_closed = reclassifyCuts(x, cut_pts, 1);
+
+  print "x = " x;
+  print;
+  print "r_open = " r_open;
+  print;
+  print "r_closed = " r_closed;
+  print;
+  print "cut_pts = " cut_pts;
+
+This results in:
+
+::
+
+  x =
+  0.00
+  0.10
+  0.20
+  0.30
+  0.40
+  0.50
+  0.60
+  0.70
+
+  r_open =
+  0.00
+  0.00
+  0.00
+  1.0
+  1.0
+  1.0
+  2.0
+  2.0
+
+  r_closed =
+  0.00
+  0.00
+  1.0
+  1.0
+  1.0
+  2.0
+  2.0
+  2.0
+
+  cut_pts =
+  0.20
+  0.50
+
+Example: Classifying blood pressure data
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Create a column of blood pressure data
+  bp = {  87,
+         154,
+         127,
+         112,
+         159,
+          90,
+         151,
+         109,
+         125,
+         107 };
+
+  // Assign cut points
+  cut_pts = { 120, 140 };
+
+  // Create categorical variable
+  bp_category = reclassifyCuts(bp, cut_pts);
+
+  print "bp = " bp;
+  print;
+  print "bp_category = " bp_category;
+  print;
+  print "cut_pts = " cut_pts;
+
+This splits the data in *bp* into three categories: those that fall below 120, those that greater than or equal to 120 but less than 140, and those that are greater than or equal to 140:
+
+::
+
+       87
+       154
+       127
+       112
+  bp = 159
+       90
+       151
+       109
+       125
+       107
+
+                 0
+                 2
+                 1
+                 0
+  bp_category =  2
+                 0
+                 2
+                 0
+                 1
+                 0
+
+  cut_pts = 120
+            140
+
+Substituting values
+----------------------------
+
+The :func:`substute` function replaces values in a matrix based on the outcome of a logical expression.
+
+Example: Setting very small values to zero
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Create example vector
+  x = { 3.8e-21,
+        1.0,
+        3.5,
+    2.7e-18,
+        0.5,
+        3.0,
+    1.1e-16,
+        0.5,
+        2.2,
+        4.0 };
+
+  // Substitute all values less than 2.2e-16 with a zero
+  x_new = substute(x, x .< 2.25e-16, 0);
+
+This results in *x_new* equal to:
+
+::
+
+  0.00000000
+  1.0000000
+  3.5000000
+  0.00000000
+  0.50000000
+  3.0000000
+  0.00000000
+  0.50000000
+  2.2000000
+  4.0000000
+
+**Recoding categorical data**
+
+The :func:`recodeCatLabels` can be use to change the labels on categorical variables in a dataframe.
+
+Example: Recoding categories in yarn dataset
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Load data
+  fname = getGAUSSHome $+ "examples\\yarn.xlsx";
+  yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
+
+  // Get column labels for yarn_length
+  { labels, keyvalues } = getColLabels(yarn, "yarn_length");
+
+  // Print results
+  sprintf("%11s", "Key"$~"Labels");
+  sprintf("%10.0f %10s", keyvalues, labels);
+
+  // Recode yarn_length variable from
+  // 'low', 'medium', and 'high'
+  //  to 'sm', 'md', 'lg'
+  yarn_recoded = recodecatlabels(yarn, "low"$|"med"$|"high", "sm"$|"md"$|"lg", "yarn_length");
+
+  // Get column labels for yarn_length
+  { labels, keyvalues } = getColLabels(yarn_recoded, "yarn_length");
+
+  // Print results
+  print "Yarn recoded labels";
+
+  sprintf("%11s", "Key"$~"Labels");
+  sprintf("%10.0f %10s", keyvalues, labels);
+
+
+This prints the following:
+
+::
+
+  Yarn labels
+  Key     Labels
+
+       0       high
+       1        low
+       2        med
+
+  Yarn recoded labels
+      Key     Labels
+
+       0         lg
+       1         sm
+       2         md
+
+**Reordering categorical data**
+
+The :func:`reorderCatLabels` can be use to change the key values associated with categorical labels.
+
+::
+
+  // Load data
+  fname = getGAUSSHome $+ "examples\\yarn.xlsx";
+  yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
+
+  // Get column labels for yarn_length
+  { labels, keyvalues } = getColLabels(yarn, "yarn_length");
+
+  // Print results
+  print "Yarn labels";
+
+  sprintf("%11s", "Key"$~"Labels");
+  sprintf("%10.0f %10s", keyvalues, labels);
+
+  // Order labels
+  yarn_reordered = reordercatlabels(yarn, "med"$|"high"$|"low", "yarn_length");
+
+  // Get column labels for yarn_length
+  { labels, keyvalues } = getColLabels(yarn_reordered, "yarn_length");
+
+  // Print results
+  print "Reordered yarn labels";
+
+  sprintf("%11s", "Key"$~"Labels");
+  sprintf("%10.0f %10s", keyvalues, labels);
+
+This prints the following:
+
+::
+
+  Yarn labels
+        Key     Labels
+
+         0       high
+         1        low
+         2        med
+          
+  Reordered yarn labels
+        Key     Labels
+
+         0        med
+         1       high
+         2        low
