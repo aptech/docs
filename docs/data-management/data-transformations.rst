@@ -14,7 +14,7 @@ The :func:`rescale` function provides 8 different scaling options and returns th
 +--------------------+----------------------------+----------------------------------------------+
 | “maxabs”           | 0                          |  Maximum absolute value                      |
 +--------------------+----------------------------+----------------------------------------------+
-| “midrange”         | :math: `\frac{Max+Min}{2}` | :math: `\frac{Range}{2}`                     |
+| “midrange”         | :math:`\frac{Max+Min}{2}`  | :math:`\frac{Range}{2}`                      |
 +--------------------+----------------------------+----------------------------------------------+
 | “range”            | Minimum                    |  Range                                       |
 +--------------------+----------------------------+----------------------------------------------+
@@ -785,7 +785,7 @@ This prints the following:
          0       high
          1        low
          2        med
-          
+
   Reordered yarn labels
         Key     Labels
 
