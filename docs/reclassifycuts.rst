@@ -8,20 +8,20 @@ Replaces values of a matrix or array within specified ranges
 
 Format
 ----------------
-.. function:: x_new = reclassifyCuts(x, cut_pts, close_right)
+.. function:: x_new = reclassifyCuts(x, cut_pts [, close_right])
 
     :param x: array to be recoded (changed)
-    :type x: NxK matrix or string array or NxKxP array
+    :type x: NxK matrix or NxKxP array
 
     :param cut_pts: bounds of the specified ranges
     :type cut_pts: Kx1 vector
 
-    :param close_right: optional argument, 1 if the *cut_pts* should be the right end-point of the interval, or 0 if the values in *cut_pts* should start the next interval
+    :param close_right: optional argument, 1 if the *cut_pts* should be the right end-point of the interval, or 0 if the values in *cut_pts* should start the next interval. Default = 0.
     :type close_right: Scalar
 
     :return x_new: Contains the recoded values of *x*, will have the same dimensions as the input *x*.
 
-    :rtype x_new: NxK matrix or string array or NxKxP array
+    :rtype x_new: NxK matrix or NxKxP array
 
 Examples
 ----------------
