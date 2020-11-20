@@ -37,6 +37,36 @@ Format
 
     :rtype w: (K*g)x(N*g) matrix
 
+Example
+--------
+
+::
+
+  // Example data
+  x = seqa(1, 1, 5);
+  y = seqa(1, 1, 6);
+
+  z = { 3 3 2 4 5 4,
+        3 3 2 3 4 5,
+        4 3 2 2 4 4,
+        4 4 3 3 5 6,
+        5 6 4 4 6 7 };
+
+  plotsurface(x', y, z');
+
+  // Set tension factor
+  Sigma = 1;
+
+  // Set grid factor
+  GridFactor = 3;
+
+  // Smooth data using spline
+  { xx,yy,zz } = spline(x, y, z, Sigma, GridFactor);
+
+  // Plot new data
+  plotOpenWindow;
+  plotsurface(xx', yy, zz');
+
 Remarks
 -------
 
@@ -58,3 +88,4 @@ Source
 
 spline.src
 
+.. seealso:: Functions :func:`curve`

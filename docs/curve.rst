@@ -40,6 +40,34 @@ Format
 
     :rtype v: (KxG)x1
 
+Example:
+----------
+::
+
+  new;
+
+  // Generate data
+  x = seqa(0, .25, 24);
+  y = 5*x + 4 + 10*rndn(rows(x), 1);
+
+  // Observation weights
+  d = 1;
+
+  // Smoothing parameter
+  s = 2;
+
+  // Tension factor
+  sigma = 1;
+
+  // Grid factor;
+  G = 2;
+
+  { u, v } = curve(x, y, d, s, sigma, G);
+
+  // Quick plot of results
+  plotScatter(x, y);
+  plotAddXY(u, v);
+
 Remarks
 -------
 
@@ -61,3 +89,5 @@ Source
 ------
 
 spline.src
+
+.. seealso:: Functions :func:`spline`
