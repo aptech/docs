@@ -9,16 +9,16 @@ Generate frequency plot of categorical data.
 
 Format
 ----------------
-.. function:: plotFreq([myPlot, ] x, index)
+.. function:: plotFreq([myPlot, ] x, column)
 
     :param myPlot: Optional argument, a :class:`plotControl` structure.
     :type myPlot: struct
 
-    :param x: data matrix.
-    :type x: Nx1 vector
+    :param x: data.
+    :type x: NxK matrix
 
-    :param index: Index of categorical variable.
-    :type index: scalar or string
+    :param column: Categorical variable to be plotted.
+    :type column: scalar or string
 
 
 Examples
