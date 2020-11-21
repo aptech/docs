@@ -257,28 +257,20 @@ Example:  Coding blood pressure data to create a new multi-class variable
               2,
               3 };
 
-  /*
-  ** Create a vector containing a 1 for every element
-  ** which is less than 100, or a 0 otherwise
-  */
+  // Create a vector containing a 1 for every element
+  // which is less than 100, or a 0 otherwise
   logical_1 = x .<= 100;
 
-  /*
-  ** Create a vector containing a 1 for every element
-  ** which is between 100 and 120, or a 0 otherwise
-  */
+  // Create a vector containing a 1 for every element
+  // which is between 100 and 120, or a 0 otherwise
   logical_2 = x .> 100 .and x .<=  120;
 
-  /*
-  ** Form a 2 column logical vector using
-  ** horizontal concatenation
-  */
+  // Form a 2 column logical vector using
+  // horizontal concatenation
   logical = logical_1 ~ logical_2;
 
-  /*
-  ** Create a new vector which contains the class
-  ** assignment for each element in 'x'
-  */
+  // Create a new vector which contains the class
+  // assignment for each element in 'x'
   x_class = code(logical, new_val);
 
 Now *x_class* splits the original data into three classes based on whether x is less than or equal to 100, falls between 100 and 120, or is greater 120.
@@ -792,3 +784,144 @@ This prints the following:
          0        med
          1       high
          2        low
+
+Dummy variables
+-------------------------
+Categorical variables in dataframes will automatically be treated as dummy variables in GAUSS estimation routines. This means no extra steps are necessary to include categorical variables in regression.
+
+Example: Include a categorical variable in OLS
++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Load data
+  fname = getGAUSSHome $+ "examples//auto2.dta";
+
+  // Include the `rep78`
+  // categorical variable in
+  // ols estimation
+  call olsmt(fname, "price~ mpg + rep78");
+
+The categorical variable *rep78* will automatically be included in the OLS regression as a dummy variable with the base case excluded from the regression. In addition, the category labels will be displayed in the printed output table
+
+::
+
+
+Example: Including a categorical variable in GLS estimation
+------------------------------------------------------------
+
+
+
+Outside of estimation, dummy variables can be created using a number of procedures:
+
++------------------------+----------------------------------------------------------------------------+
+| Functions              | Description                                                                |
++========================+============================================================================+
+| :func:`design`         | Creates dummy variables from discrete data that is split into classes.     |
++------------------------+----------------------------------------------------------------------------+
+| :func:`dummybr`        | Creates dummy variables from continuous data based on break points.        |
+|                        | The highest (rightmost) category is bounded on the right.                  |
++------------------------+----------------------------------------------------------------------------+
+| :func:`dummydn`        | Creates dummy variables from continuous data based on break points.        |
+|                        | The highest (rightmost) category is unbounded on the right, and a          |
+|                        | specified column of dummies is dropped.                                    |
++------------------------+----------------------------------------------------------------------------+
+| :func:`dummy`          | Creates dummy variables from continuous data based on break points.        |
+|                        | The highest (rightmost) category is unbounded on the right.                |
++------------------------+----------------------------------------------------------------------------+
+
+
+Example: Create dummy variables based on BP classes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This example builds on an earlier example, in which BP data was split into 3 classes using :func:`reclassify`.
+
+::
+
+  // Classified BP data
+  bp_class = { 1,
+             3,
+             1,
+             3,
+             2,
+             3 };
+
+  // Create matrix of dummy
+  // variables using design
+  dv_bp_classes = design(bp_class);
+
+After this code *dv_bp_classes* is equal to:
+
+::
+
+  dv_bp_classes;
+
+       1.0000000         0.00000000       0.00000000
+       0.00000000        0.00000000       1.0000000
+       1.0000000         0.00000000       0.00000000
+       0.00000000        0.00000000       1.0000000
+       0.00000000        1.0000000        0.00000000
+       0.00000000        0.00000000       1.0000000
+
+Example: Create dummy variables from continuous BP data
+---------------------------------------------------------
+The :func:`dummybr` variable can be used to generate dummy variables from the ranges of
+original BP data.
+
+::
+
+  // Create a column of blood pressure data
+  bp = { 91,
+       121,
+        99,
+       135,
+       110,
+       155 };
+
+  // Create breakpoints
+  v = { 100, 120 };
+
+  // Create dummy variables
+  dv_bp = dummy(bp, v);
+
+Note that *dv_bp* is the same as *dv_bp_classes* from the first example:
+
+::
+
+  1.0000000         0.00000000       0.00000000
+  0.00000000        0.00000000       1.0000000
+  1.0000000         0.00000000       0.00000000
+  0.00000000        0.00000000       1.0000000
+  0.00000000        1.0000000        0.00000000
+  0.00000000        0.00000000       1.0000000
+
+Example: Create dummy variables from continuous BP data and drop first column
+------------------------------------------------------------------------------
+The :func:`dummydn` variable can be used to generate dummy variables from the ranges of
+original BP data.
+
+::
+
+  // Create a column of blood pressure data
+  bp = { 91,
+       121,
+        99,
+       135,
+       110,
+       155 };
+
+  // Create breakpoints
+  v = { 100, 120 };
+
+  // Create dummy variables
+  dv_bp_drop = dummydn(bp, v, 1);
+
+Now the *dv_bp_drop* matrix is the same as the second and third columns of *dv_bp* and *dv_bp_classes*: 
+
+::
+
+  0.00000000        0.00000000
+  0.00000000        1.0000000
+  0.00000000        0.00000000
+  0.00000000        1.0000000
+  1.0000000         0.00000000
+  0.00000000        1.0000000
