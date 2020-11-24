@@ -192,7 +192,7 @@ This example will compute a least squares regression of *y* on *x*. The results 
     Log likelihood:            -141.6     BIC:                                     310.8
     Dispersion:                 1.046     Iterations:                                  2
 
-    					  Standard                              Prob
+                                              Standard                              Prob
     Variable                 Estimate            Error          t-value             >|t|
     ----------------     ------------     ------------     ------------     ------------
     CONSTANT                 0.067084          0.10233          0.65556         0.513692
@@ -228,13 +228,13 @@ The code above will produce the following output. Note that :math:`rank = 1` is 
     Log likelihood:            -229.3     BIC:                                     494.5
     Dispersion:                     1     Iterations:                                  4
 
-    					   Standard                              Prob
+                                              Standard                              Prob
     Variable                 Estimate            Error          z-value             >|z|
     ----------------      ------------     ------------     ------------     ------------
     CONSTANT                     -3.99             1.14          -3.5001      0.000465027
     rank            2         -0.67544          0.31649          -2.1342        0.0328288
-    		            3          -1.3402          0.34531          -3.8812      0.000103942
-    		            4          -1.5515          0.41783          -3.7131      0.000204711
+                    3          -1.3402          0.34531          -3.8812      0.000103942
+                    4          -1.5515          0.41783          -3.7131      0.000204711
     gre                      0.0022644         0.001094           2.0699        0.0384651
     gpa                        0.80404          0.33182           2.4231        0.0153879
 
@@ -361,7 +361,7 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     Log likelihood:             -2971     BIC:                                      5971
     Dispersion:            1.669e+005     Iterations:                                  2
 
-     					                                Standard                              Prob
+                                              Standard                              Prob
     Variable                 Estimate            Error          t-value             >|t|
     ----------------     ------------     ------------     ------------     ------------
     CONSTANT                   246.19           46.535           5.2903         < 0.0001
@@ -406,7 +406,7 @@ After running above code, the model estimates and diagnostic information will be
     Log likelihood:            -229.2     BIC:                                     494.4
     Dispersion:                     1     Iterations:                                  4
 
-    					  Standard                              Prob
+                                              Standard                              Prob
     Variable                 Estimate            Error          z-value             >|z|
     ----------------     ------------     ------------     ------------     ------------
     CONSTANT                  -2.3868          0.67395          -3.5416      0.000397733
@@ -471,7 +471,7 @@ After running above code, the output is:
     Log likelihood:            -182.8     BIC:                                     386.7
     Dispersion:                     1     Iterations:                                  6
 
-    					   Standard                              Prob
+                                               Standard                              Prob
     Variable                  Estimate            Error          z-value             >|z|
     ----------------      ------------     ------------     ------------     ------------
     CONSTANT                   -5.2471          0.65845          -7.9689         < 0.0001
@@ -542,7 +542,7 @@ After running the code above, the output is :
     Log likelihood:            -160.3     BIC:                                     346.9
     Dispersion:               0.03458     Iterations:                                  5
 
-    					   Standard                              Prob
+                                               Standard                              Prob
     Variable                  Estimate            Error          t-value             >|t|
     ----------------      ------------     ------------     ------------     ------------
     CONSTANT                    6.4841          0.09469           68.477         < 0.0001
@@ -584,7 +584,7 @@ After running the code above, the output is:
     Dispersion:              0.005016     Iterations:                                  6
 
 
-    					  Standard                              Prob
+                                              Standard                              Prob
     Variable                 Estimate            Error          t-value             >|t|
     ----------------     ------------     ------------     ------------     ------------
     CONSTANT               -0.0034177       0.00074729          -4.5735       0.00256355
@@ -631,7 +631,7 @@ After running the code above, the output is :
     Dispersion:              0.004517     Iterations:                                  2
 
 
-    					  Standard                              Prob
+                                              Standard                              Prob
     Variable                 Estimate            Error          t-value             >|t|
     ----------------     ------------     ------------     ------------     ------------
     CONSTANT                  -4.6683          0.29683          -15.727         < 0.0001
