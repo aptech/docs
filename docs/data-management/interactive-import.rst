@@ -18,7 +18,7 @@ as well as performing all aspects of data import, such as:
 * Previewing data.
 
 .. figure:: ../_static/images/data-import-window-1.jpg
-
+    :scale: 50%
 
 Open the Data Import window
 --------------------------------------------
