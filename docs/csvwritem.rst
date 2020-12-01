@@ -111,8 +111,8 @@ Specify Windows style CRLF line endings
           1.445  4.247,
           2.913  1.020 };
 
-    //'\c\r' indicates carriage return followed by a line feed
-    line_feed= "\c\r";
+    //'\r\n' indicates carriage return followed by a line feed
+    line_feed= "\r\n";
 
     // Append the data to the file 'myfile.csv'
     ret = csvWriteM(x, "myfile.csv", ",", 2, 0, line_feed);
