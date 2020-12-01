@@ -524,6 +524,8 @@ Use the :func:`xlsGetSheetCount` procedure to count the number of sheets contain
   // Count sheets
   nsheets = xlsGetSheetCount(fname);
 
+Full details and more examples can be found in the Command Reference page for :func:`xlsGetSheetCount`.
+
 Check the size of an Excel spreadsheet
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -536,6 +538,8 @@ Use the :func:`xlsGetSheetSize` procedure to count the size of a specific sheet,
 
   // Leave out optional sheet number
   { r, c } = xlsGetSheetSize(fname);
+
+Full details and more examples can be found in the Command Reference page for :func:`xlsGetSheetSize`.
 
 Check the type of Excel cells
 +++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -555,3 +559,5 @@ Use the :func:`xlsGetSheetTypes` procedure to check the cell format types of a s
 
   // Get cell types
   cell_types = xlsGetSheetTypes(fname, sheet, row);
+
+Full details and more examples can be found in the Command Reference page for :func:`xlsGetSheetTypes`.
