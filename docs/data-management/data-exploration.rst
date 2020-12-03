@@ -84,7 +84,7 @@ Individual descriptive statistics
 +--------------------------+---------------------+--------------------+
 | Quantiles                | :func:`quantile`    |                    |
 +--------------------------+---------------------+--------------------+
-|Sample standard deviation | :func:`stdc`        | :func:`astd`       |
+| Sample standard deviation| :func:`stdc`        | :func:`astd`       |
 +--------------------------+---------------------+--------------------+
 | Pop. Standard deviation  | :func:`stdsc`       | :func:`astds`      |
 +--------------------------+---------------------+--------------------+
@@ -120,9 +120,10 @@ The results are printed directly to screen:
 
 Panel data descriptive statistics
 -----------------------------------
-The :func:`aggregate` finds descriptive statistics by group in panel data.
+The :func:`aggregate` procedure finds descriptive statistics for each group in panel data.
 
 In order to be used with :func:`aggregate`, the panel data matrix should:
+
 - Have group identifiers in the first column.
 - Be in stacked panel data format.
 
@@ -143,7 +144,7 @@ Example: Find median square footage and price by number of bedrooms
 ::
 
   // Create file name with full path
-  fname = __FILE_DIR $+ "housing.csv";
+  fname = getGAUSSHome $+ "examples/housing.csv";
 
   // Load three variables from dataset
   X = loadd(fname, "beds + price + size");
@@ -157,7 +158,7 @@ The matrix `x_a` contains:
 
 ::
 
-  bedrooms            price            sq ft
+  bedrooms          price            sq ft
        2             94.3             1060
        3            132.6           1473.5
        4              179             2000
@@ -186,6 +187,9 @@ For example, to find the frequency of each category for a categorical variable, 
   counts(auto2[., "rep78"], keyvalues);
 
 **Frequency plots**
+
+.. figure:: ../_static/images/frequency-plot.jpg
+    :scale: 50%
 
 The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional `plotControlStructure` can be used for custom formatting.
 
@@ -232,14 +236,15 @@ Example: Finding correlation of height and weight in NBA players
 
   // Calculate correlation of
   // height and weight
-  corrxs(nba_ht_wt[., "Height" "Weight"]);
+  corr_nba = corrxs(nba_ht_wt[., "Height" "Weight"]);
 
 This prints the correlations to screen:
 
 ::
 
-  1.0000000       0.82071923
-  0.82071923      1.0000000
+      Height           Weight
+   1.0000000       0.82071923
+  0.82071923        1.0000000
 
 
 .. note:: The :func:`corrms` and :func:`corrxs` functions compute the sample correlation matrix. To compute the population correlation matrix use :func:`corrm` or :func:`corrx`.
@@ -272,7 +277,7 @@ Example: Finding variance/covariance of height and weight in NBA players
 
   // Calculate correlation of
   // height and weight
-  corrxs(nba_ht_wt[., "Height" "Weight"]);
+  corr_nba = corrxs(nba_ht_wt[., "Height" "Weight"]);
 
   // Calculate variance-covariance
   // of height and weight
@@ -291,6 +296,7 @@ Exploratory data visualizations
 **Plotting histograms**
 
 Histograms of data can be plotted using one of three functions:
+
 *  The :func:`plotHist` function which computes and graphs a frequency histogram.
 *  The :func:`plotHistP` function which computes and graphs a percent frequency histogram.
 *  The :func:`plotHistF` function which graphs a histogram given vector of frequency counts.
@@ -346,7 +352,9 @@ Example: Frequency and percentage histograms
   // into 80 bins.
   plotHist( myPlot, r, 80 );
 
+
 **Plotting scatter plots **
+
 
 The :func:`plotScatter` function creates a quick scatter plot using just an *x* and *y* input. To add custom plotting use the `plotControlStructure`.
 

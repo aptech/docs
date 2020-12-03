@@ -3,7 +3,7 @@ Interactive Data Cleaning
 
 Interactive data cleaning can be performed in the **Data Import** window before import, or in a GAUSS **Symbol Editor** after it is loaded.
 
-This section will show how to clean data using the **Data Management** pane of a **Symbol Editor**. Most actions will be the same in the **Data Import** window. See `Interactive Data Import <./interactive-import.html>`_  
+This section will show how to clean data using the **Data Management** pane of a **Symbol Editor**. Most actions will be the same in the **Data Import** window. See `Interactive Data Import <./interactive-import.html>`_
 
 The Data Management pane
 -----------------------------------------------------------
@@ -14,12 +14,13 @@ The Data Management pane
 The **Data Management** pane contains:
 
 * The **Filter** tab that allows you to select observations based on a variety of criteria.
-* The **Variables** tab allows you to:
+* The **Variables** tab that allows you to:
 
-    * Select or remove variables. 
+    * Select or remove variables.
     * Rename variables.
-    * Change variable types. 
+    * Change variable types.
     * Manage category labels and order.
+    * Change date display formats.
 
 
 
@@ -28,17 +29,18 @@ Open the Data Management page
 
 .. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
 
+
 To open the **Data Management** pane for an in-memory dataframe:
 
 
-1. Double-click the name of the dataframe in the **Symbols** window on the **Edit** page. 
+1. Double-click the name of the dataframe in the **Symbols** window on the **Data** page.
 2. Click the **Manage** button with the cog icon on the top right of the open **Symbol Editor** window.
 
 
 Missing values
 --------------------
 
-Missing values are represented by a dot for data loaded into GAUSS.
+Missing values are represented by a ``.`` for data loaded into GAUSS.
 
 
 Remove observations with missing values interactively
@@ -65,9 +67,9 @@ Changing variable names
 .. figure:: ../_static/images/data-organization-rename-variable.jpg
     :scale: 50%
 
-1. Double-click the dataframe you want to modify in the **Symbols** pane of the **Data** page.  
-2. Click the **Manage** button at the top right of the open **Symbol Editor**. 
-3. Click downward pointing triangle button to the right of the name of the variable name you want to change. 
+1. Double-click the dataframe you want to modify in the **Symbols** pane of the **Data** page.
+2. Click the **Manage** button at the top right of the open **Symbol Editor**.
+3. Click downward pointing triangle button to the right of the name of the variable name you want to change and select **Rename**.
 4. Enter the new name in the **Name** text box.
 
 These changes will not be made until you click **Apply**.
@@ -83,12 +85,12 @@ These changes will not be made until you click **Apply**.
 Filtering observations of a dataframe
 +++++++++++++++++++++++++++++++++++++++++++++
 
-The **Data Management** pane provides the following options for filtering dataframes. 
+The **Data Management** pane provides the following options for filtering dataframes.
 
 +--------------------+------------------+--------------------+------------------+
 |Data type           |Filter options    |Data type           |Filter options    |
 +====================+==================+====================+==================+
-|Numeric and Date    |                  |String and Category |                  | 
+|Numeric and Date    |                  |String and Category |                  |
 +--------------------+------------------+--------------------+------------------+
 |                    |=                 |                    |Equals            |
 +--------------------+------------------+--------------------+------------------+
@@ -107,16 +109,18 @@ The **Data Management** pane provides the following options for filtering datafr
 |                    |Is Not Missing    |                    |Is Not Missing    |
 +--------------------+------------------+--------------------+------------------+
 
-1. Select the variable to filter on.
-2. Select the operation.
-3. Depending on the operation, either enter a value or select one from the dropdown.
+To implement any of these filtering options:
+
+1. Select the variable to filter on from the **Variable** name drop-down list on the **Filter** tab.
+2. Select the desired operation from the **Operation** drop-down list.
+3. Depending on the operation, either enter or select a value in the **Value** combo box.
 4. Click the `+` button to add the filter.
 5. Either **Apply** your changes or add another filter.
 
 Filter based on partial string match
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. figure:: ../_static/images/data-cleaning-filter-contains-buick.jpg
+
 
 Filter based numeric value
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -133,9 +137,9 @@ The **Apply** button at the bottom of the **Data Management** pane allows you to
 .. figure:: ../_static/images/interactive-data-cleaning-apply.jpg
     :scale: 50%
 
-To modify the current dataframe, either click **Apply** or click the dropdown and select **Overwrite Existing**.
+To modify the current dataframe, either click **Apply** or click the drop-down and select **Overwrite Existing**.
 
-To create a new dataframe containing your changes, click the dropdown next to the **Apply** button and select **Create New**. A text box will appear allowing you to enter the name of the new dataframe.
+To create a new dataframe containing your changes, click the drop-down next to the **Apply** button and select **Create New**. A text box will appear allowing you to enter the name of the new dataframe.
 
 Data types and formats
 ---------------------------------------------
@@ -143,7 +147,7 @@ Data types and formats
 Changing variable type
 +++++++++++++++++++++++++++++++++++++++++++++
 
-To change a variable type select the desired type from the **Type** drop-down list on the **Variables** tab. 
+To change a variable type select the desired type from the **Type** drop-down list on the **Variables** tab.
 
 .. figure:: ../_static/images/interactive-data-cleaning-change-type.jpg
     :scale: 50%
@@ -153,7 +157,7 @@ If further type-specific properties are required, a properties dialog will autom
 Changing categorical mappings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Click the dropdown button to the right of the variable name and select **Properties** to open the **Modify Column Mapping** dialog. 
+Click the drop-down button to the right of the variable name and select **Properties** to open the **Modify Column Mapping** dialog.
 
 .. figure:: ../_static/images/interactive-data-cleaning-variable-properties.jpg
     :scale: 50%
@@ -163,19 +167,19 @@ Click the dropdown button to the right of the variable name and select **Propert
 .. figure:: ../_static/images/interactive-data-cleaning-modify-column-mapping.jpg
     :scale: 50%
 
-**Specify a category to be the base case** by selecting the **Label** of the category you want to be the new base case then click the double up-pointing arrow button to move the selected category to the base case. 
+**Specify a category to be the base case** by selecting the **Label** of the category you want to be the new base case then click the double up-pointing arrow button to move the selected category to the base case.
 
 The **Category Count** will be listed in the top right of the **Modify Column Mapping** dialog.
 
 Specifying date formats
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If GAUSS does not automatically detect your date format, you will be asked to manually specify a date format using the **Specify Date Format** dialog. 
+If GAUSS does not automatically detect your date format, you will be asked to manually specify a date format using the **Specify Date Format** dialog.
 
 .. figure:: ../_static/images/data-import-date-specify-dialog.jpg
     :scale: 50%
 
-Build a format string in the **Date format** box, using the BSD strftime specifiers, that represents your data. 
+Build a format string in the **Date format** box, using the BSD strftime specifiers, that represents your data.
 
 
 If your data looked like this ``03/12/2017``, the correct format string would be ``%m/%d/%Y``. The table below explains this.
@@ -195,7 +199,7 @@ If your data looked like this ``03/12/2017``, the correct format string would be
 +-----------------+---------------------------+---------+----------------------+
 
 
-The **Format Options** section of this dialog contains the BSD strftime specifiers for reference. Use the **Filter** dropdown to filter the reference options shown.
+The **Format Options** section of this dialog contains the BSD strftime specifiers for reference. Use the **Filter** drop-down to filter the reference options shown.
 
 
 Programmatic Data Cleaning
@@ -207,10 +211,10 @@ Missing value handling
 Counting missing variables
 +++++++++++++++++++++++++++++++
 
-The procedure :func:`dstatmt` provides a count of missing values by variable name as part of the descriptive statistics report. 
-It requires only a single input indicating the source of data. 
+The procedure :func:`dstatmt` counts missing values by variable name as part of the descriptive statistics report.
+It requires only a single input indicating the source of data.
 
-The input may be either a dataset file name or the name of a data matrix currently in the workspace. 
+The input may be either a dataset file name or the name of a data matrix currently in the workspace.
 
 ::
 
@@ -218,33 +222,33 @@ The input may be either a dataset file name or the name of a data matrix current
     dataset = getGAUSSHome() $+ "examples/freqdata.dat";
 
     // Compute descriptive statistics and print report
-    call dstatmt("freqdata.dat")
+    call dstatmt("freqdata.dat");
 
 ::
 
     -----------------------------------------------------------------------------------
     Variable      Mean     Std Dev    Variance    Minimum     Maximum    Valid  Missing
     -----------------------------------------------------------------------------------
-    
-    AGE          5.678       2.993       8.959          1          10       398       2 
-    PAY          1.968      0.8019      0.6431          1           3       400       0 
+
+    AGE          5.678       2.993       8.959          1          10       398       2
+    PAY          1.968      0.8019      0.6431          1           3       400       0
 
 
 Checking for missing values
 ++++++++++++++++++++++++++++++
 
-The :func:`ismiss` function checks for missing values in a matrix. It will return a value of 1 if any missing values are present in a matrix. 
+The :func:`ismiss` function checks for missing values in a matrix. It will return a value of 1 if any missing values are present in a matrix.
 
 ::
-    
-    // Create one vector with a 
+
+    // Create one vector with a
     // missing value and one without
     a = { 1, 2, 3 };
     b = { 4, ., 5 };
 
     // Check whether the vectors contain missing values
     ret_a = ismiss(a);
-    ret_b = isiass(b);
+    ret_b = ismiss(b);
 
 After the code above, *ret_a* will equal 0, but *ret_b* will equal 1.
 
@@ -262,7 +266,7 @@ There are two options for removing missing values from a matrix:
           . 4,
           5 6 };
 
-    // Remove all rows with a missing value 
+    // Remove all rows with a missing value
     print packr(a);
 
 will return:
@@ -280,9 +284,9 @@ whereas:
           5 6 };
      m = { . };
 
-    // Remove all rows with a missing value 
+    // Remove all rows with a missing value
     // in the second column
-    print delif(a, a[.,2] .== m );
+    print delif(a, a[., 2] .== m );
 
 will only delete rows with a missing value in the second column.
 
@@ -292,12 +296,15 @@ will only delete rows with a missing value in the second column.
     5 6
 
 
-Replacing missing values 
+Replacing missing values
 ++++++++++++++++++++++++++++
 
 GAUSS has two functions that can be used to replace missing values:
 
-:func:`missrv` replaces all missing values in a matrix with a user-specified value(s). Unique replacement values can be specified for each column.
+*  The :func:`missrv` function.
+*  The :func:`impute` function.
+
+The :func:`missrv` function replaces all missing values in a matrix with a user-specified value(s). Unique replacement values can be specified for each column.
 
 ::
 
@@ -311,26 +318,26 @@ GAUSS has two functions that can be used to replace missing values:
 ::
 
        1 -999
-    -999    4 
+    -999    4
        5    6
 
-The :func:`impute` procedure replaces missing values in the columns of a matrix by a specified imputation method.
+The :func:`impute` procedure replaces missing values in the columns of a matrix using a specified imputation method.
 
 The procedure offers six potential methods for imputation:
 
-* "mean" - replaces missing values with the mean of the column. 
-* "median" - replaces missing values with the median of the column.
-* "mode" - replace missing values with the mode of the column. 
-* "pmm" - replaces missing values using predictive mean matching. 
-* "lrd" - replace missing values using local residual draws. 
-* "predict" - replace missing values using linear regression prediction. 
+* ``"mean"`` - replaces missing values with the mean of the column.
+* ``"median"`` - replaces missing values with the median of the column.
+* ``"mode"`` - replace missing values with the mode of the column.
+* ``"pmm"`` - replaces missing values using predictive mean matching.
+* ``"lrd"`` - replace missing values using local residual draws.
+* ``"predict"`` - replace missing values using linear regression prediction.
 
 See the Command Reference for :func:`impute` for more details and examples.
 
 Organization
 --------------
 
-Sorting data 
+Sorting data
 +++++++++++++++
 
 Use :func:`sortc` to sort a matrix or dataframe in ascending order based on a certain column.
@@ -350,7 +357,7 @@ Use :func:`sortc` to sort a matrix or dataframe in ascending order based on a ce
     4 2 6
     1 3 5
 
-:func:`sortmc` sorts matrices and dataframes based on multiple columns. 
+Matrices and dataframes can be sorted on multiple columns using the :func:`sortmc` procedure.
 
 ::
 
@@ -367,12 +374,12 @@ Use :func:`sortc` to sort a matrix or dataframe in ascending order based on a ce
     7 0 9
     1 3 5
 
-.. note:  :func:`sortmc` and :func:`sortc` sort data in ascending order. To sort data in descending order, wrap the call to the sorting procedure using the procedure :func:`rev` .
+.. note::  The :func:`sortmc` and :func:`sortc` sort data in ascending order. To sort data in descending order, wrap the call to the sorting procedure using the procedure :func:`rev` .
 
 Changing the order of columns
 ++++++++++++++++++++++++++++++++++
 
-Use the :func:`order` procedure to reorder columns in a matrix or dataframe. 
+Use the :func:`order` procedure to reorder columns in a matrix or dataframe.
 
 
 ::
@@ -383,7 +390,7 @@ Use the :func:`order` procedure to reorder columns in a matrix or dataframe.
           3 0 2 9,
           1 0 3 0 };
 
-    // Put the 2nd and 4th columns first 
+    // Put the 2nd and 4th columns first
     X_2 = order(X, 2|4);
 
 After the above code, *X_2* will equal:
@@ -394,7 +401,7 @@ After the above code, *X_2* will equal:
     8 1 9 2
     0 9 3 2
     0 0 1 3
-    
+
 
 ::
 
@@ -410,23 +417,23 @@ After the above code, the first four rows of *yellowstone* will be:
 
 ::
 
-        LowtTemp    HighTemp      Visits  TotalPrecip             Date 
-           -17.0        37.0       30621         1.09       2016/01/01 
-           -17.0        42.0       28091        0.770       2015/01/01 
-           -19.0        41.0       26778         1.28       2014/01/01 
-           -22.0        43.0       24699        0.610       2013/01/01 
+        LowtTemp    HighTemp      Visits  TotalPrecip             Date
+           -17.0        37.0       30621         1.09       2016/01/01
+           -17.0        42.0       28091        0.770       2015/01/01
+           -19.0        41.0       26778         1.28       2014/01/01
+           -22.0        43.0       24699        0.610       2013/01/01
 
- while the first four rws of *yellowstone_2* look like this:
+while the first four rows of *yellowstone_2* look like this:
 
 ::
 
-            Date     Visits    LowtTemp    HighTemp   TotalPrecip 
-      2016/01/01      30621       -17.0        37.0          1.09 
-      2015/01/01      28091       -17.0        42.0         0.770 
-      2014/01/01      26778       -19.0        41.0          1.28 
-      2013/01/01      24699       -22.0        43.0         0.610 
+            Date     Visits    LowtTemp    HighTemp   TotalPrecip
+      2016/01/01      30621       -17.0        37.0          1.09
+      2015/01/01      28091       -17.0        42.0         0.770
+      2014/01/01      26778       -19.0        41.0          1.28
+      2013/01/01      24699       -22.0        43.0         0.610
 
-Deleting columns 
+Deleting columns
 +++++++++++++++++++++
 
 You can delete columns from a matrix using the :func:`delcols` procedure. The columns to remove can be specified as numeric indices for matrices and dataframes:
@@ -460,18 +467,18 @@ You can also use column names to delete columns from a dataframe.
     // Remove 2 variables from 'detroit' by name
     detroit = delcols(detroit, "weekly_earn" $| "hourly_earn");
 
-    // Print the first 4 rows of detroit
-    print detroit[1:4,.];
+    // Print the first 4 rows of 'detroit'
+    print detroit[1:4, .];
 
 
 ::
 
-       unemployment       assault 
-               11.0        306.18 
-                7.0        315.16 
-                5.2        277.53 
+       unemployment       assault
+               11.0        306.18
+                7.0        315.16
+                5.2        277.53
                 4.3        234.07
-    
+
 
 Deleting rows from a matrix
 ++++++++++++++++++++++++++++++++
@@ -506,7 +513,7 @@ Two GAUSS functions are available for deleting rows from a matrix:
 
     // Trim the top row and the bottom
     // 2 rows from 'a'
-    print trimr(a, 1|2);
+    print trimr(a, 1, 2);
 
 ::
 
@@ -527,20 +534,20 @@ Conditionally deleting data from a matrix
 
     // Remove rows where the element in the
     // first column of 'a' is equal to 3
-    print delif(a, a[.,1] .== 3);
+    print delif(a, a[., 1] .== 3);
 
 ::
 
     1 2
     5 6
-    7 8 
+    7 8
 
 
 How do I conditionally select data from a matrix?
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 You can conditionally select data from a matrix using the :func:`selif` procedure.
-Enter the data to be as the first input to :func:`selif` and the condition to be used for selecting data as  the second input. 
+Enter the data to be as the first input to :func:`selif` and the condition to be used for selecting data as  the second input.
 
 ::
 
@@ -551,7 +558,7 @@ Enter the data to be as the first input to :func:`selif` and the condition to be
 
     // Keep rows where the element in the second
     // column of 'a' is less than or equal to 6
-    print selif(a, a[.,2] .<= 6);
+    print selif(a, a[., 2] .<= 6);
 
 ::
 
@@ -572,7 +579,7 @@ Use the :func:`getColTypes` procedure to lookup the type of the variables in a d
 +=======+=========+
 |0      |String   |
 +-------+---------+
-|1      |Numeric  | 
+|1      |Numeric  |
 +-------+---------+
 |2      |Category |
 +-------+---------+
@@ -583,7 +590,7 @@ Use the :func:`getColTypes` procedure to lookup the type of the variables in a d
 
     // Load 4 variables of different types from a dataset
     dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
-    nba_ht_wt = loadd(dataset, "str(Player) + cat(Pos) + Age + date($BDate, '%m/%d/%Y')"); 
+    nba_ht_wt = loadd(dataset, "str(Player) + cat(Pos) + Age + date($BDate, '%m/%d/%Y')");
 
     // Check the types of each variable in 'nba_ht_wt'
     print getColTypes(nba_ht_wt);
@@ -591,11 +598,11 @@ Use the :func:`getColTypes` procedure to lookup the type of the variables in a d
 The above code will print:
 
 ::
-
-   String
+      type
+     String
    Category
-   Numeric
-   Date
+    Numeric
+       Date
 
 :func:`getColTypes` also accepts a second optional input that allows you to check only specified column types. Continuing with the data from our previous example:
 
@@ -608,9 +615,9 @@ The above code will print:
 will return:
 
 ::
-
+        type
     Category
-    Date
+        Date
 
 
 Setting a variable type
@@ -624,24 +631,24 @@ Setting a variable type
     // seconds since Jan 1, 1970 (Posix time)
     d = {    0,
          86400,
-        172800, 
-        259200 }; 
+        172800,
+        259200 };
 
     // Set the variable type of 'd' to be a date
-    d = setcoltypes(d, META_TYPE_DATE); 
+    d = setcoltypes(d, "Date");
 
 
 After the above code, *d* will be a date and if we print it we will see:
 
 ::
 
-                  X1 
-    1970-01-01 00:00 
-    1970-01-02 00:00 
-    1970-01-03 00:00 
-    1970-01-04 00:00 
+                  X1
+    1970-01-01 00:00
+    1970-01-02 00:00
+    1970-01-03 00:00
+    1970-01-04 00:00
 
-It also accepts an optional input specifying the indices or variable names to be checked. 
+It also accepts an optional input specifying the indices or variable names to be checked.
 
 ::
 
@@ -653,7 +660,7 @@ After loading the above data, the first four rows of *nba* will be:
 
 ::
 
-              player       pos       age 
+              player       pos       age
       Vitor Faverani         C        25
        Avery Bradley         G        22
         Keith Bogans         G        33
@@ -665,13 +672,13 @@ We can change the type of the second column from a categorical to a numeric vari
 ::
 
     // Set the second column to be numeric
-    nba = setColTypes(nba, META_TYPE_NUMBER, 2);
+    nba = setColTypes(nba, "Number", Pos);
 
 After this code, the first four rows of *nba* will be:
 
 ::
 
-              player       pos       age 
+              player       pos       age
       Vitor Faverani         0        25
        Avery Bradley         2        22
         Keith Bogans         2        33
@@ -682,7 +689,7 @@ The elements of the *pos* now contain only the numeric values. The string labels
 Determining current variable names
 ++++++++++++++++++++++++++++++++++++++++
 
-:func:`getColNames` returns the variable names assigned to columns in a matrix.
+The :func:`getColNames` procedure returns the variable names assigned to columns in a matrix.
 
 ::
 
@@ -698,12 +705,12 @@ The above code will print out the string array:
 
 ::
 
-           taxes 
-            beds 
-           baths 
-             new 
-           price 
-            size 
+           taxes
+            beds
+           baths
+             new
+           price
+            size
 
 
 In addition, it accepts an optional input specifying the indices of the columns of interest. For example, continuing with our previous example:
@@ -725,7 +732,7 @@ will return:
 Setting variable names
 +++++++++++++++++++++++++++
 
-:func:`setColNames` changes or adds variables names to a matrix or dataframe.
+The :func:`setColNames` procedure changes or adds variables names to a matrix or dataframe.
 
 ::
 
@@ -769,7 +776,7 @@ The above code will print:
 
 
 
-If the data does not currently have variable names, names will be created for all columns, with default names being assigned to any columns for which user-specified names were not provided. 
+If the data does not currently have variable names, names will be created for all columns, with default names being assigned to any columns for which user-specified names were not provided.
 
 Determining current categorical variable labels
 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -782,7 +789,7 @@ Determining current categorical variable labels
     dataset = getGAUSSHome() $+ "examples/auto2.dta";
 
     // Load all variables from the dataset
-    auto = loadd(dataset); 
+    auto = loadd(dataset);
 
     // Return the string category labels and
     // corresponding numeric values
@@ -799,13 +806,12 @@ After running the code above:
               Good           4
           Excellent          5
 
-   
+
 Setting categorical variable labels
 ++++++++++++++++++++++++++++++++++++++++
 
-:func:`setColLabels` allows you to add or modify the labels of categorical variables. 
-
-The :func:`setColLabels` procedure changes the current type of the column to a categorical variable. 
+The :func:`setColLabels` procedure allows you to add or modify the labels of categorical variables.
+It changes the current type of the column to a categorical variable.
 
 Convert a column from a matrix to a categorical variable
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -818,8 +824,6 @@ Convert a column from a matrix to a categorical variable
           2.3 1,
           0.9 2 };
 
-    
-     
     labels = "low" $| "medium" $| "high";
     values = { 0, 1, 2 };
 
@@ -827,7 +831,7 @@ Convert a column from a matrix to a categorical variable
     // categorical variable with the
     // provided labels and values
     X = setColLabels(X, labels, values, 2);
-    
+
     print X;
 
 The above code will return:
@@ -835,60 +839,69 @@ The above code will return:
 ::
 
      X1      X2
-    1.4     low 
+    1.4     low
     1.9    high
     2.3  medium
     0.9    high
 
-.. note:: If a label is not provided for all key values, the unlabeled key values will be given blank labels. 
+.. note:: If a label is not provided for all key values, the unlabeled key values will be given blank labels.
 
 Change the order of categories in a dataframe
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
+    // Load dataset
     dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
     yarn = loadd(dataset, "cat(amplitude) + cycles");
 
+    // Get labels and values for amplitude variable
+    // in yarn dataframe
     { labels_1, values_1 } = getColLabels(yarn, "amplitude");
 
 After the above code:
 
 ::
 
-    labels = high   values = 0
-              low            1
-              med            2
+    labels_1 = high   values_1 = 0
+                low              1
+                med              2
 
 Since Excel files do not provide labels or order for string columns, GAUSS assigns the category value based on alphabetical order. We can reorder the categories like this:
 
 
 ::
 
+    // Assign values to labels for the categorical variable
+    // in `yarn`
     yarn = setColLabels(yarn, "low" $| "med" $| "high", 0|1|2);
 
+    // Get column labels and key values for `amplitude`
     { labels_2, values_2 } = getColLabels(yarn, "amplitude");
 
 After the above code:
 
 ::
 
-    labels =  low   values = 0
-              med            1
-             high            2
+    labels_2 =  low   values_2 = 0
+                med              1
+               high              2
 
 
-Changing categorical variable basecase 
+.. note:: Since there is only one categorical variable in the `yarn` dataframe, :func:`setColLabels` does not require a specified variable name.
+
+Changing categorical variable base case
 +++++++++++++++++++++++++++++++++++++++++++
 
-:func:`setcatbasecase` provides a convenient way to set the base case for a categorical variable.
+The :func:`setcatbasecase` function provides a convenient way to set the base case for a categorical variable.
 
 ::
 
+    // Load the NBA dataset
     dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
     nba = loadd(dataset, "cat(pos) + height + weight");
 
-
+    // Get column names
     { labels, values } = getColLabels(nba, "pos");
 
 After the above code:
@@ -903,9 +916,10 @@ You can change ``"G"`` to the base case like this:
 
 ::
 
-    nba = setCatBaseCase(nba, "G", "pos"); 
+    // Change the `G` category to the basecase
+    nba = setCatBaseCase(nba, "G", "pos");
 
-    
+    // Get new labels
     { labels, values } = getColLabels(nba, "pos");
 
 As we can see below, the new base case, ``"G"``, has been moved to the top and all the other variables have been shifted down.
@@ -920,15 +934,16 @@ As we can see below, the new base case, ``"G"``, has been moved to the top and a
 Recoding categorical variable labels
 ++++++++++++++++++++++++++++++++++++++++
 
-:func:`recodecatlabels` changes the labels for a categorical variable. 
+The :func:`recodecatlabels` procedure changes the labels for a categorical variable.
 
 
 ::
 
+    // Load NBA data
     dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
     nba = loadd(dataset, "cat(pos) + height + weight");
 
-
+    // Get column labels
     { labels, values } = getColLabels(nba, "pos");
 
 Here are the initial category labels and order.
@@ -943,15 +958,21 @@ We can change the category labels like this:
 
 ::
 
-    old_labels = "C" $| "F" $| "G"; 
-    new_labels = "Center" $| "Forward" $| "Guard";
-    nba = recodeCatLabels(nba, old_labels, new_labels, "pos"); 
+    // Specify current labels
+    old_labels = "C" $| "F" $| "G";
 
+    // Specify new labels to set
+    new_labels = "Center" $| "Forward" $| "Guard";
+
+    // Recode the old labels to the new labels
+    nba = recodeCatLabels(nba, old_labels, new_labels, "pos");
+
+    // Get column labels
     { labels, values } = getColLabels(nba, "pos");
 
 ::
 
-    
+
     labels =  Center   values = 0
              Forward            1
                Guard            2
@@ -968,9 +989,11 @@ Change the order of categories in a dataframe
 
 ::
 
+    // Load the yarn dataset
     dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
     yarn = loadd(dataset, "cat(amplitude) + cycles");
 
+    // Get column labels
     { labels, values } = getColLabels(yarn, "amplitude");
 
 After the above code:
@@ -986,6 +1009,7 @@ Since Excel files do not provide labels or order for string columns, GAUSS assig
 
 ::
 
+    // Reorder the categorical labels for the `amplitude` variable
     yarn = reorderCatLabels(yarn, "low" $| "med" $| "high", "amplitude");
 
     { labels, values } = getColLabels(yarn, "amplitude");
@@ -997,4 +1021,3 @@ After the above code:
     labels =  low   values = 0
               med            1
              high            2
-    

@@ -1,4 +1,4 @@
-Data Smoothing 
+Data Smoothing
 =============================
 +------------------------+-----------------------------------------------------------------------------+
 |      Function          |  Description                                                                |
@@ -29,35 +29,15 @@ Example: Smoothing a random walk series
 
 ::
 
-  // Create random data, setting initial seed
-  // value to be the hundredths of a second
-  // since midnight
-  numPoints = 1000;
-  seed = hsec;
-  { delta, state } = rndn(numPoints, 1, seed);
+  // Load data
+  fname = getGAUSSHome $+ "examples\\tbill_3mo.xlsx";
+  y = loadd(fname, "date($obs_date, '%m/%d/%Y %T.%L') + tbill_3m");
 
-  // Set mean of data to be > 0
-  // to give data long term positive bias
-  delta = delta + 0.01;
+  // Find 3 month moving average
+  twentyMA = movingave(y[., "tbill_3m"], 3);
 
-  // Increase magnitude of delta to
-  // create desired level of volatiliy
-  delta = 2*delta;
-
-  // Instantiate y : index price data
-  y = 1000*ones(numPoints,1);
-
-  // Loop through y and add the cumulative
-  // sums of delta to create random walk
-  for i(2, numPoints, 1);
-        y[i]= y[i-1] + delta[i];
-  endfor;
-
-  // Find moving average
-  twentyMA = movingave(y, 20);
-
-  // Find moving average
-  twentyExpWgtMA = movingaveExpwgt(y, 20, 0.8);
+  // Find 3 month exponenetial moving average
+  twentyExpWgtMA = movingaveExpwgt(y[., "tbill_3m"], 3, 0.8);
 
 
 Locally weighted linear regression smoothing
@@ -74,9 +54,9 @@ Example: Lowess smoother
   data = loadd(fname, "h1 + depth");
 
   // Define independent variable
-  depvar = data[., 1];
+  depvar = data[., "h1"];
 
   // Defined dependent variable
-  indvars = data[., 2];
+  indvars = data[., "depth"];
 
   { yhat, ys, xs } = loessmt(depvar, indvars);
