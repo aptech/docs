@@ -19,8 +19,8 @@ Format
     :param x: the independent, or explanatory, variables. *k* is the number of the independent variables.
     :type x: NxK matrix
 
-    :param dataset_name: the name of dataset. E.g. :code:`"credit.dat"` or :code:`"example.fmt"`.
-    :type dataset_name: string
+    :param dataset_name: the name of dataset or dataframe. E.g. :code:`"credit.dat"`, :code:`"example.fmt"`, or `binary`.
+    :type dataset_name: string or dataframe
 
     :param formula: formula string of the model.
         E.g :code:`"y ~ X1 + X2"`, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
@@ -44,8 +44,11 @@ Format
 
 
     :param categoryIdx: Optional argument, :math:`k_d \leq k`. :math:`k_d` is the categorical variable index of *X* matrix.
-        *categoryIdx* specifies the categorical variable columns to be used in the analysis.
-        e.g. If *categoryIdx* = 0, then it means the independent variable does not contain any categorical variables;
+        *categoryIdx* specifies the categorical variable columns to be used in the analysis. GAUSS will automatically include
+        dataframe categories as categorical variables. If *categoryIdx* is specified with a dataframe, the columns specified by
+        *categoryIdx* will supercede the categories in the dataframe.
+
+        e.g. If *categoryIdx* = 0, then it means the independent variable does not contain any categorical variables or categories are specified in the dataframe;
         if :math:`\text{categoryIdx} = \{ 1\ 4 \}`, then it means that column 1 and column 4 in the *X* matrix are categorical variables.
 
         .. NOTE:: The function :func:`glm` uses the smallest number as the reference category in each categorical variable.
@@ -80,8 +83,10 @@ Format
             * - *ctl.varNames*
               - :math:`(k+1) \times 1` string array or character matrix, the names of the variables. The first element must be the name of the dependent variable.
             * - *ctl.categoryIdx*
-              - :math:`1 × k_d` matrix, :math:`k_d \leq k`. *ctl.categoryIdx* specifies the categorical variable columns to be used in the analysis.
-                e.g. If *ctl.categoryIdx* = 0, then it means no categorical variable;
+              - :math:`1 × k_d` matrix, :math:`k_d \leq k`. *ctl.categoryIdx* specifies the categorical variable columns to be used in the analysis.  GAUSS will automatically include
+              dataframe categories as categorical variables. If *categoryIdx* is specified with a dataframe, the columns specified by
+              *categoryIdx* will supercede the categories in the dataframe.
+                e.g. If *ctl.categoryIdx* = 0, then it means no categorical variable or categories should be determined by dataframe types;
                 if *ctl.categoryIdx* = :code:`{ 1 4 }`, then it means that column 1 and column 4 in *x* matrix are categorical variables.
 
                 .. NOTE:: :func:`glm` function uses the smallest number as the reference category in each categorical variable.
@@ -338,8 +343,7 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     y = data[., 11];
 
     // Get the names of the variables in the dataset
-    vnames = getHeaders(dataset);
-    label = vnames[ 11 1 7 9, 1 ];
+    label = getColNames(data, 11|1|7|9);
 
     // Specify that the 2nd and 3rd columns in 'x' are categorical variables
     categoryIdx = { 2 3 };
@@ -347,7 +351,7 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     // Call glm function with three necessary inputs and two optional inputs
     call glm(y, x, "normal", label, categoryIdx);
 
-*vnames* is a string array containing all of the variable names from :file:`credit.dat` returned from the :func:`getHeaders` function. *label* contains only the variable names used in the regression. The first element must be the label of the dependent variable, followed by the labels for the independent variables corresponding to the order in the *x* matrix.
+*label* is a string array containing all of the variable names from :file:`credit.dat` returned from the :func:`getColNames` function. The first element must be the label of the dependent variable, followed by the labels for the independent variables corresponding to the order in the *x* matrix.
 :code:`"Gender"` and :code:`"Married"` are categorical variables. The :func:`glm` chooses the smallest number(1) as the base category in each categorical variable. The following shows the output:
 
 ::
@@ -369,7 +373,50 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     Married        2          -21.279           41.963         -0.50708         0.612383
     Income                     6.0626          0.58077           10.439         < 0.0001
 
+Ordinary linear regression with categorical variables in a dataframe.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+::
+
+  new;
+  cls;
+
+  // Import data as dataframe
+  // with `Gender` and `Married` as
+  // categorical variables
+  fname = getGAUSSHome() $+ "examples/credit.dat";
+  credit = loadd(fname, "Income + cat(Gender) + cat(Married) + Balance");
+
+  // Relabel categories for `Gender`
+  credit = setcollabels(move(credit), "Male"$|"Female", 0|1, "Gender");
+
+  // Relabel categories for `Married`
+  credit = setcollabels(move(credit), "Single"$|"Married", 0|1, "Married");
+
+  // Call glm
+  call glm(credit, "Balance~Gender + Married + Income", "normal");
+
+The categorical variables code:`"Gender"` and code:`"Married"` are now automatically detected by GAUSS, based on their dataframe types. In addition, the variable names are automatically detected.
+
+::
+
+  Generalized Linear Model
+
+  Valid cases:                  400     Dependent Variable:                    Balance
+  Degrees of freedom:           396     Distribution:                           normal
+  Deviance:               6.611e+07     Link function:                        identity
+  Pearson Chi-square:     6.611e+07     AIC:                                      5951
+  Log likelihood:             -2971     BIC:                                      5971
+  Dispersion:             1.669e+05     Iterations:                                  2
+
+
+                                            Standard                              Prob
+  Variable                 Estimate            Error          t-value             >|t|
+  ----------------     ------------     ------------     ------------     ------------
+  CONSTANT                   246.19           46.535           5.2903         < 0.0001
+  Gender: Female             24.577           40.889          0.60108         0.548134
+  Married: Married          -21.279           41.963         -0.50708         0.612383
+  Income                     6.0626          0.58077           10.439         < 0.0001
 
 Using a control structure
 +++++++++++++++++++++++++
