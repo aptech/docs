@@ -801,13 +801,13 @@ Example: Include a categorical variable in OLS
   // Include the `rep78`
   // categorical variable in
   // ols estimation
-  call olsmt(fname, "price~ mpg + rep78");
+  call olsmt(fname, "price ~ mpg + rep78");
 
-The categorical variable *rep78* will automatically be included in the OLS regression as a dummy variable with the base case excluded from the regression. In addition, the category labels will be displayed in the printed output table
+The categorical variable *rep78* will automatically be included in the OLS regression as a dummy variable with the base case excluded from the regression. In addition, the category labels will be displayed in the printed output table.
 
 ::
 
-  Standard                 Prob   Standardized  Cor with
+  Standard                                                  Prob   Standardized  Cor with
   Variable             Estimate      Error      t-value     >|t|     Estimate    Dep Var
   ---------------------------------------------------------------------------------------
 
@@ -822,6 +822,31 @@ The categories of rep78, *Fair, Average, Good, Excellent* are included as dummy 
 
 Example: Including a categorical variable in GLM estimation
 ------------------------------------------------------------
+
+::
+
+  // Load data
+  fname = getGAUSSHome $+ "examples//auto2.dta";
+
+  // Loadd data and remove missing values
+  data = packr(loadd(fname, "price + mpg + rep78"));
+
+  // Include the `rep78`
+  // categorical variable in
+  // linear regression using glm
+  call glm(data, "price ~ mpg + rep78", "normal");
+
+::
+
+  Standard                                                                        Prob
+  Variable                 Estimate            Error          t-value             >|t|
+  ----------------     ------------     ------------     ------------     ------------
+  CONSTANT                    10450             2251           4.6423         < 0.0001
+  mpg                       -280.26           61.577          -4.5514         < 0.0001
+  rep78: Fair                877.63           2063.3          0.42536         0.672025
+  rep78: Average             1425.7           1905.4           0.7482         0.457121
+  rep78: Good                1693.8           1942.7          0.87191         0.386566
+  rep78: Excellent             3132             2041           1.5345         0.129915
 
 Outside of estimation, dummy variables can be created using a number of procedures:
 
