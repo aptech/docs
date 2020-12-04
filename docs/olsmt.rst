@@ -12,7 +12,7 @@ Format
 .. function:: out = olsmt(dataset, formula[, ctl])
               out = olsmt(dataset, depvar, indvars[, ctl])
 
-    :param dataset: name of dataset or null string.
+    :param dataset: name of dataset, dataframe in memory, or null string.
         If *dataset* is a null string, the procedure assumes that the actual data has been passed in the next two arguments.
     :type dataset: string
 
@@ -34,7 +34,7 @@ Format
         scalar      index of dependent variable. If scalar 0, the last column of the dataset will be used.
         =========== ==============
 
-        If *dataset* is a null string or 0:
+        If *dataset* is a null string, name of dataframe, or 0:
 
         =========== ==============
            type         value
@@ -53,7 +53,7 @@ Format
                               for the one used for the dependent variable.
         ===================== ==============
 
-        If *dataset* is a null string or 0:
+        If *dataset* is a null string, dataframe, or 0:
 
         =========== ==============
            type         value
@@ -273,6 +273,33 @@ regression. The dependent variable is *homicide*. The independent variables are:
     CONSTANT       -35.982790    9.437246   -3.812849     0.003       ---         ---
     unemployment    -0.004998    0.918817   -0.005440     0.996   -0.000720    0.210142
     hourly_earn     15.487191    2.242660    6.905722     0.000    0.913572    0.913406
+
+Basic usage with a dataframe and categorical variable
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Load data
+    fname = getGAUSSHome $+ "examples/auto2.dta";
+
+    // Include the `rep78`categorical variable in
+    call olsmt(fname, "price ~ mpg + rep78");
+
+In this example, the dependent variable *price* is regressed on *mpg* and *rep78*. The categorical variable *rep78* will automatically be included in the OLS regression as a dummy variable with the base case excluded from the regression. The coefficients for the categoies, *Fair, Average, Good, Excellent* are included in the printed output table. The *Poor* category is excluded from the regression, as it is the base case.
+
+::
+
+
+    Standard                                                  Prob   Standardized  Cor with
+    Variable             Estimate      Error      t-value     >|t|     Estimate    Dep Var
+    ---------------------------------------------------------------------------------------
+
+    CONSTANT                10450     2251.04     4.64229     0.000       ---         ---
+    mpg                  -280.261     61.5767    -4.55142     0.000   -0.564519   -0.455949
+    rep78: Fair           877.635     2063.28    0.425358     0.672   0.0971824  -0.0223477
+    rep78: Average        1425.66     1905.44    0.748204     0.457     0.24444   0.0859051
+    rep78: Good           1693.84     1942.67    0.871914     0.387    0.257252   -0.015317
+    rep78: Excellent      3131.98     2041.05      1.5345     0.130    0.396546   -0.035102
 
 Use a dataset, a list of variable names plus a control and output structure.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
