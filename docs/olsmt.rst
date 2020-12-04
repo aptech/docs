@@ -14,7 +14,7 @@ Format
 
     :param dataset: name of dataset, dataframe in memory, or null string.
         If *dataset* is a null string, the procedure assumes that the actual data has been passed in the next two arguments.
-    :type dataset: string
+    :type dataset: string or dataframe
 
     :param formula: formula string of the model.
         E.g ``"y ~ X1 + X2"``, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
