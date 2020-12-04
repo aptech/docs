@@ -3,7 +3,7 @@ Data Transformations
 
 Normalizing and scaling data
 ------------------------------
-The :func:`rescale` function provides 8 different scaling options and returns the rescaled along with the location and scale factors.
+The :func:`rescale` function provides 8 different scaling options and returns the rescaled data along with the location and scale factors.
 
 +--------------------+----------------------------+----------------------------------------------+
 | Method             | Location                   | Scale Factor                                 |
@@ -14,7 +14,7 @@ The :func:`rescale` function provides 8 different scaling options and returns th
 +--------------------+----------------------------+----------------------------------------------+
 | “maxabs”           | 0                          |  Maximum absolute value                      |
 +--------------------+----------------------------+----------------------------------------------+
-| “midrange”         | :math:`\frac{Max+Min}{2}`  | :math:`\frac{Range}{2}`                      |
+| “midrange”         | (Max+Min)/2                | Range/2                                      |
 +--------------------+----------------------------+----------------------------------------------+
 | “range”            | Minimum                    |  Range                                       |
 +--------------------+----------------------------+----------------------------------------------+
@@ -25,8 +25,8 @@ The :func:`rescale` function provides 8 different scaling options and returns th
 | “ustd”             | 0                          |  Standard deviation around origin            |
 +--------------------+----------------------------+----------------------------------------------+
 
-Example: Specifying a scaling method
-+++++++++++++++++++++++++++++++++++++
+Example: Rescaling with a specified scaling method
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -56,7 +56,6 @@ Example: Specifying a scaling method
   print "location_m = " location_m;
   print "scale_factor_m = " scale_factor_m;
 
-
 After the code above:
 
 ::
@@ -71,8 +70,9 @@ After the code above:
        1.6038989
     -0.035642197
       0.46334856
-  location_s =        14.750000
-  scale_factor_s =        4.2084948
+
+  location_s =           14.75
+  scale_factor_s =        4.21
 
   Median rescaling:
   x_m =
@@ -84,8 +84,9 @@ After the code above:
        2.2807018
      -0.14035088
       0.59649123
-  location_m =        15.000000
-  scale_factor_m =        2.8500000
+
+  location_m =           15.00
+  scale_factor_m =        2.85
 
 The :func:`rescale` function can also be used with a known location and scale factor to rescale data.
 
@@ -158,7 +159,7 @@ Example: Rescaling multiple columns
     -0.035642197       -1.8306302
       0.46334856        1.0870957
 
-  location =           14.750000        1029.8875
+  location =            14.750000        1029.8875
   scale_factor =        4.2084948        203.85740
 
 Recoding and reclassifying
@@ -166,7 +167,7 @@ Recoding and reclassifying
 GAUSS provides a variety of tools for recoding and reclassifying data. These functions can be divided into functions for numeric data and functions for categorical data.
 
 +------------------------+----------------------------------------------------------------------------+------------------------------------------+
-| Functions              | Description                                                                | Recoding specifier                       |
+| Numeric Functions      | Description                                                                | Recoding specifier                       |
 +========================+============================================================================+==========================================+
 | :func:`reclassify`     | Replaces specified values of a matrix, array or string array.              |  User-specified values.                  |
 +------------------------+----------------------------------------------------------------------------+------------------------------------------+
@@ -292,12 +293,12 @@ The :func:`recode` procedure :
 
 * Replaces specific values of an existing vector with new values.
 * Uses a logical expression to determine where and how to replace values.
-* Works on vectors only.
+* Is valid for vectors.
 
 Some notes to remember about :func:`recode`:
 
 *  There should be no more than a single 1 in any row of logical expression matrix.
-*  For any given row of a data matrix and logical expression matrix, if the Kth column of the logical expression is 1, the Kth element of v will replace the original element of the data matrix.
+*  For any given row of a data matrix and logical expression matrix, if a column of the logical expression is 1, the corresponding replacement values with replace the original element of the data matrix.
 *  If every column of logical expression matrix contains a 0, the original value of the data matrix will be unchanged.
 
 Example: Recoding numeric values based on ranges
@@ -795,7 +796,7 @@ Example: Include a categorical variable in OLS
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples//auto2.dta";
+  fname = getGAUSSHome $+ "examples/auto2.dta";
 
   // Include the `rep78`
   // categorical variable in
@@ -806,11 +807,21 @@ The categorical variable *rep78* will automatically be included in the OLS regre
 
 ::
 
+  Standard                 Prob   Standardized  Cor with
+  Variable             Estimate      Error      t-value     >|t|     Estimate    Dep Var
+  ---------------------------------------------------------------------------------------
 
-Example: Including a categorical variable in GLS estimation
+  CONSTANT                10450     2251.04     4.64229     0.000       ---         ---
+  mpg                  -280.261     61.5767    -4.55142     0.000   -0.564519   -0.455949
+  rep78: Fair           877.635     2063.28    0.425358     0.672   0.0971824  -0.0223477
+  rep78: Average        1425.66     1905.44    0.748204     0.457     0.24444   0.0859051
+  rep78: Good           1693.84     1942.67    0.871914     0.387    0.257252   -0.015317
+  rep78: Excellent      3131.98     2041.05      1.5345     0.130    0.396546   -0.035102
+
+The categories of rep78, *Fair, Average, Good, Excellent* are included as dummy variables in the regression. The *Poor* category is excluded from the regression, as it is the base case.
+
+Example: Including a categorical variable in GLM estimation
 ------------------------------------------------------------
-
-
 
 Outside of estimation, dummy variables can be created using a number of procedures:
 
@@ -855,12 +866,12 @@ After this code *dv_bp_classes* is equal to:
 
   dv_bp_classes;
 
-       1.0000000         0.00000000       0.00000000
-       0.00000000        0.00000000       1.0000000
-       1.0000000         0.00000000       0.00000000
-       0.00000000        0.00000000       1.0000000
-       0.00000000        1.0000000        0.00000000
-       0.00000000        0.00000000       1.0000000
+       1      0      0
+       0      0      1
+       1      0      0
+       0      0      1
+       0      1      0
+       0      0      1
 
 Example: Create dummy variables from continuous BP data
 ---------------------------------------------------------
@@ -887,12 +898,12 @@ Note that *dv_bp* is the same as *dv_bp_classes* from the first example:
 
 ::
 
-  1.0000000         0.00000000       0.00000000
-  0.00000000        0.00000000       1.0000000
-  1.0000000         0.00000000       0.00000000
-  0.00000000        0.00000000       1.0000000
-  0.00000000        1.0000000        0.00000000
-  0.00000000        0.00000000       1.0000000
+  1      0      0
+  0      0      1
+  1      0      0
+  0      0      1
+  0      1      0
+  0      0      1
 
 Example: Create dummy variables from continuous BP data and drop first column
 ------------------------------------------------------------------------------
@@ -915,13 +926,13 @@ original BP data.
   // Create dummy variables
   dv_bp_drop = dummydn(bp, v, 1);
 
-Now the *dv_bp_drop* matrix is the same as the second and third columns of *dv_bp* and *dv_bp_classes*: 
+Now the *dv_bp_drop* matrix is the same as the second and third columns of *dv_bp* and *dv_bp_classes*:
 
 ::
 
-  0.00000000        0.00000000
-  0.00000000        1.0000000
-  0.00000000        0.00000000
-  0.00000000        1.0000000
-  1.0000000         0.00000000
-  0.00000000        1.0000000
+  0      0
+  0      1
+  0      0
+  0      1
+  1      0
+  0      1

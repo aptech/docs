@@ -48,7 +48,7 @@ Example: Summary statistics for select variables
 ::
 
   // Create file name with full path
-  fname = getGAUSSHome $+ "examples\\nba_ht_wt.xls";
+  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
   nba_ht_wt = loadd(fname,
       "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
@@ -103,7 +103,7 @@ Example: Finding mean by column
 ::
 
   // Load stock price data
-  fname = getGAUSShome $+ "examples\\xle_daily.xlsx";
+  fname = getGAUSShome $+ "examples/xle_daily.xlsx";
   xle_daily = loadd(fname,
                    "date($Date, '%m/%d/%Y %T.%L') + Adj Close + Volume");
 
@@ -168,15 +168,38 @@ The matrix `x_a` contains:
 Frequency tables and plots
 -----------------------------
 **Frequency counts**
+The :func:`frequency` procedure computes a frequency count of all categories of a categorical variable.
 
-The :func:`counts` procedure counts the numbers of elements of a vector that fall into specified ranges and can be used to create frequency tables.
+::
+
+  // Load data
+  fname = getGAUSSHome $+ "examples/auto2.dta";
+  auto2 = loadd(fname);
+
+  // Frequency table
+  print "Frequency count for 'rep78':";
+  freq_out = frequency(auto2, "rep78");
+
+The above code prints:
+
+::
+
+     Frequency count for 'rep78':
+           Label            Count
+            Poor                2
+            Fair                8
+         Average               30
+            Good               18
+       Excellent               11
+
+As an alternative to :func:`frequency`, the :func:`counts` procedure counts the numbers of elements of a vector that fall into specified ranges and can be used to create frequency tables.
 
 For example, to find the frequency of each category for a categorical variable, use :func:`counts` with the unique category keys as cutoffs.
 
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples\\auto2.dta";
+  fname = getGAUSSHome $+ "examples/auto2.dta";
   auto2 = loadd(fname, "str(make) + cat(rep78) + cat(foreign)");
 
   // Frequency table of rep78
@@ -185,6 +208,16 @@ For example, to find the frequency of each category for a categorical variable, 
   // Get column labels
   { label, keyvalues } = getcollabels(auto2, "rep78");
   counts(auto2[., "rep78"], keyvalues);
+
+::
+
+  Frequency table of rep78:
+
+       2.0000000
+       8.0000000
+       30.000000
+       18.000000
+       11.000000
 
 **Frequency plots**
 
@@ -199,7 +232,7 @@ Example: Plotting category frequency
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples//auto2.dta";
+  fname = getGAUSSHome $+ "examples/auto2.dta";
   auto2 = loadd(fname);
 
   // Frequency plot
@@ -230,7 +263,7 @@ Example: Finding correlation of height and weight in NBA players
   /*
   ** Import data
   */
-  fname = getGAUSSHome $+ "examples\\nba_ht_wt.xls";
+  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
   nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate, '%m/%d/%Y %T.%L')");
 
 
@@ -271,7 +304,7 @@ Example: Finding variance/covariance of height and weight in NBA players
   /*
   ** Import data
   */
-  fname = getGAUSSHome $+ "examples\\nba_ht_wt.xls";
+  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
   nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate, '%m/%d/%Y %T.%L')");
 
 
@@ -364,7 +397,7 @@ Example: Plotting the relationship between height and weight in NBA players
 ::
 
   // Create file name with full path
-  fname = getGAUSSHome $+ "examples\\nba_ht_wt.xls";
+  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
   nba_ht_wt = loadd(fname,
       "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
