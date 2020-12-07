@@ -12,10 +12,10 @@ Format
 .. function:: x_labels_sa = getColLabelValues(x [, columns])
 
     :param x: data with metadata.
-    :type x: NxK matrix
+    :type x: NxK dataframe
 
     :param columns: Optional argument, categorical or string variables in *x* to get labels from. Default = all columns.
-    :type columns: Mx1 Vector or string array
+    :type columns: Mx1 vector or string array
 
     :return x_labels_sa: labels assigned to the categorical or string variables in *x* specified by *columns*.
     :rtype x_labels_sa: NxM string array

@@ -1,24 +1,24 @@
 
-setcolmetadata
+order
 ==============================================
 
 Purpose
 ----------------
 
-Reorder a matrix based on user specified ordering. Relocates *column* to the beginning of the dataset in the order in which the variables are specified.
+Reorder a matrix based on user-specified ordering. Relocates *columns* to the beginning of the dataset in the order in which the variables are specified.
 
 Format
 ----------------
 .. function:: x_new = order(x, column)
 
     :param x: data. Must have metadata.
-    :type x: NxK matrix
+    :type x: NxK dataframe
 
-    :param column: variables to be moved to first J columns in the matrix.
-    :type column: Jx1 vector or string array
+    :param columns: variables to be moved to first *J* columns in the dataframe.
+    :type columns: Jx1 vector or string array
 
-    :return x_meta: reordered data with the first J columns containing the columns in *column*, in the order they are input.
-    :rtype x_meta: NxK matrix
+    :return x_meta: reordered data with the first J columns containing the columns in *columns*, in the order they are input.
+    :rtype x_meta: NxK dataframe
 
 
 Examples

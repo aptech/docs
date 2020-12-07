@@ -24,7 +24,7 @@ Format
     :type columns: scalar or string
 
     :return x_cat: Contains metadata assigning the categorical labels in *labels* to values specified in *values* for the variable specified by *columns*.
-    :rtype x_cat: NxK matrix
+    :rtype x_cat: NxK dataframe
 
 
 Examples

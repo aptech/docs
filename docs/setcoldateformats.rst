@@ -21,7 +21,7 @@ Format
     :type columns: Mx1 scalar or string
 
     :return x_date: contains metadata assigning the date display format specified by *fmt* to the variables in *x* specified by *columns*.
-    :rtype x_date: NxK matrix
+    :rtype x_date: NxK dataframe
 
 
 Examples

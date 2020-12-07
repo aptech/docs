@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: x_new = reorderCatLabels(x, labels [, column])
 
-    :param x: data.
-    :type x: NxK matrix
+    :param x: data with metadata.
+    :type x: NxK dataframe
 
     :param labels: Category labels list in their desired order.
     :type labels: Mx1 string array

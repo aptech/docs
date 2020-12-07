@@ -21,7 +21,7 @@ Format
     :type columns: Mx1 vector
 
     :return x_meta: Data with the types specified in *types* assigned to the columns specified in *columns*.
-    :rtype x_meta: NxK matrix
+    :rtype x_meta: NxK dataframe
 
 
 Examples

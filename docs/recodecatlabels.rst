@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: x_new = recodeCatLabels(x, old_labels, new_labels [, column])
 
-    :param x: data.
-    :type x: NxK matrix
+    :param x: data with metadata.
+    :type x: NxK dataframe
 
     :param old_labels: Categorical labels to be changed.
     :type old_labels: Mx1 string array
@@ -59,4 +59,4 @@ Examples
   sprintf("%11s", "Key"$~"Labels");
   sprintf("%10.0f %10s", keyvalues, labels);
 
-.. seealso:: Functions :func:`getColLabels`, :func:`setColLabels`, :func:`reclassify` 
+.. seealso:: Functions :func:`getColLabels`, :func:`setColLabels`, :func:`reclassify`

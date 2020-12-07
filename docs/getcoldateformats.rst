@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: fmt_date = getColDateFormats(x [, columns])
 
-    :param x: data.
-    :type x: NxK matrix
+    :param x: data with metadata.
+    :type x: NxK dataframe
 
     :param columns: Optional argument, columns containing dates. Default = all columns.
     :type columns: Mx1 scalar or string
