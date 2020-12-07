@@ -12,7 +12,7 @@ Format
 .. function:: varnames = getColNames(x [, columns])
 
     :param x: data with metadata.
-    :type x: NxK matrix
+    :type x: NxK dataframe.
 
     :param columns: Optional argument, specifies columns in *x* to get variable names of. Default = all columns.
     :type columns: Kx1 vector

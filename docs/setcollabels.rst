@@ -12,15 +12,15 @@ Format
 .. function:: x_meta = setColLabels(x, labels, values, columns)
 
     :param x: data.
-    :type x: NxK matrix
+    :type x: NxK matrix or dataframe
 
     :param labels: Categorical labels to assign to each value of *x[., columns]* specified in *values*.
     :type labels: Mx1 string array
 
-    :param values: Values corresponding to the labels specified in *labels*.
+    :param values: Values to assign labels to.
     :type values: Mx1 vector
 
-    :param columns: variables to assign the labels specified in *labels*.
+    :param columns: Variables to assign the labels to.
     :type columns: scalar or string
 
     :return x_cat: Contains metadata assigning the categorical labels in *labels* to values specified in *values* for the variable specified by *columns*.

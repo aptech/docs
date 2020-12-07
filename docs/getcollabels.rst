@@ -5,14 +5,14 @@ getcollabels
 Purpose
 ----------------
 
-Returns the unique set of column labels, and corresponding key values, for a categorical variable.
+Returns the unique set of column labels and corresponding key values for a categorical variable.
 
 Format
 ----------------
 .. function:: { labels, keyvalues } = getColLabels(x, columns)
 
     :param x: data with metadata.
-    :type x: NxK matrix
+    :type x: NxK dataframe
 
     :param columns: Categorical variable in *x* to get labels from.
     :type columns: scalar or string

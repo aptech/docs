@@ -39,5 +39,4 @@ Examples
   x_meta = setColTypes(usd_cad_2018, "date", 1);
 
 
-
 .. seealso:: Functions :func:`setColNames`, :func:`setColLabels`, :func:`setColMetadata`, :func:`setColDateFormats`

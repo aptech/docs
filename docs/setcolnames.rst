@@ -12,7 +12,7 @@ Format
 .. function:: x_meta = setColNames(x, varnames [, columns])
 
     :param x: data.
-    :type x: NxK matrix,
+    :type x: NxK matrix or dataframe 
 
     :param varnames: Names to apply to columns specified in *index*.
     :type varnames: Mx1 vector
@@ -39,4 +39,4 @@ Examples
   // Change variable name of first column of x_meta
   x_meta = setColNames(x_meta, "Airplanes", "Planes");
 
-.. seealso:: Functions :func:`getColNames`
+.. seealso:: Functions :func:`getColNames`, :func:`setColMetadata`

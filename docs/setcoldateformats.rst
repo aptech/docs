@@ -12,7 +12,7 @@ Format
 .. function:: x_date = setColDateFormats(x, fmt, columns)
 
     :param x: data.
-    :type x: NxK matrix
+    :type x: NxK matrix or dateframe
 
     :param fmt: contains strftime date/time format characters.
     :type fmt: Mx1 string array

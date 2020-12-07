@@ -24,7 +24,7 @@ Format
     :type column: scalar or string
 
     :return x_new: Data in *x* with categorical labels in *old_labels* replaced by those specified in *new_labels* for the variable specified by *column*.
-    :rtype x_new: NxK matrix
+    :rtype x_new: NxK dataframe
 
 
 Examples
@@ -54,7 +54,7 @@ Examples
   { labels, keyvalues } = getColLabels(yarn_recoded, "yarn_length");
 
   // Print results
-  print "Yarn recoded labels";
+  print "Recoded yarn labels";
 
   sprintf("%11s", "Key"$~"Labels");
   sprintf("%10.0f %10s", keyvalues, labels);

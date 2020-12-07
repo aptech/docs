@@ -21,7 +21,7 @@ Format
     :type types: Kx1 vector
 
     :return x_meta: Data with column names in *varnames* and types in *types* assigned to the columns.
-    :rtype x_meta: NxK matrix
+    :rtype x_meta: NxK dataframe
 
 
 Examples

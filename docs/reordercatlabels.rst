@@ -1,5 +1,5 @@
 
-recodeCatLabels
+reorderCatLabels
 ==============================================
 
 Purpose
@@ -21,7 +21,7 @@ Format
     :type column: scalar or string
 
     :return x_new: Data in *x* with categorical labels for the variable specified by *column* in the order specified by *labels*.
-    :rtype x_new: NxK matrix
+    :rtype x_new: NxK dataframe
 
 
 Examples

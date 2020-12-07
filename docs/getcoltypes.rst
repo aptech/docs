@@ -5,7 +5,7 @@ getColTypes
 Purpose
 ----------------
 
-Returns the metadata type of matrix *x* by columns.
+Returns the metadata type of dataframe *x* by columns.
 
 Format
 ----------------

@@ -11,11 +11,11 @@ Format
 ----------------
 .. function:: frequency(x, column)
 
-    :param x: data matrix.
-    :type x: NxK matrix
+    :param x: Data.
+    :type x: NxK dataframe
 
     :param column: Variable to be counted.
-    :type column: scalar or string
+    :type column: Scalar or string
 
 
 Examples
