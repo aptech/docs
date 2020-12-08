@@ -1,5 +1,5 @@
 
-setCatBaseCase
+setBaseCat
 ==============================================
 
 Purpose
@@ -9,7 +9,7 @@ Assign the label *basecase* to be the base case for the categorical variable spe
 
 Format
 ----------------
-.. function:: x_meta = setCatBaseCase(x, basecase [, columns])
+.. function:: x_meta = setBaseCat(x, basecase [, columns])
 
     :param x: data.
     :type x: NxK matrix
@@ -40,7 +40,7 @@ Examples
   // Change base case
   // to high for both
   // yarn_length and amplitude
-  yarn = setcatbasecase(yarn, "low", "yarn_length");
+  yarn = setBaseCat(yarn, "low", "yarn_length");
 
 
 
