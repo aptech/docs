@@ -9,15 +9,15 @@ Set columns in a matrix to have metadata types.
 
 Format
 ----------------
-.. function:: x_meta = setColTypes(x, types [, columns])
+.. function:: x_meta = setColTypes(X, types [, columns])
 
-    :param x: data.
-    :type x: NxK matrix
+    :param X: data.
+    :type X: NxK matrix
 
     :param types: Specifies types to be assigned to columns specified in *columns*. Valid options include: ``"string"``, ``"date"``, ``"numeric"``, and ``"category"``.
     :type types: Mx1 vector
 
-    :param columns: Optional argument, specifies columns to be assigned types in *types*. Default = all columns.
+    :param columns: Optional argument, indices of columns in *X* to assign types to. Default = all columns.
     :type columns: Mx1 vector
 
     :return x_meta: Data with the types specified in *types* assigned to the columns specified in *columns*.

@@ -9,15 +9,15 @@ Specifies how GAUSS should display dates using the BSD strftime format specifier
 
 Format
 ----------------
-.. function:: x_date = setColDateFormats(x, fmt, columns)
+.. function:: x_date = setColDateFormats(X, fmt, columns)
 
-    :param x: data.
-    :type x: NxK matrix or dateframe
+    :param X: data.
+    :type X: NxK matrix or dateframe
 
     :param fmt: contains strftime date/time format characters.
     :type fmt: Mx1 string array
 
-    :param columns: variables containing dates.
+    :param columns: The names or indices of the date columns in *X* to set format of.
     :type columns: Mx1 scalar or string
 
     :return x_date: contains metadata assigning the date display format specified by *fmt* to the variables in *x* specified by *columns*.

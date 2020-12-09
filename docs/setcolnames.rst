@@ -9,15 +9,15 @@ Set column variable names.
 
 Format
 ----------------
-.. function:: x_meta = setColNames(x, varnames [, columns])
+.. function:: x_meta = setColNames(X, varnames [, columns])
 
-    :param x: data.
-    :type x: NxK matrix or dataframe 
+    :param X: data.
+    :type X: NxK matrix or dataframe
 
     :param varnames: Names to apply to columns specified in *index*.
     :type varnames: Mx1 vector
 
-    :param columns: Optional argument, specifies columns to be assigned names in *varnames*. Default = all columns.
+    :param columns: Optional argument, indices of columns in *X* to be assigned names. Default = all columns.
     :type columns: Mx1 vector
 
     :return x_meta: Data with column names in *varnames* assigned to the columns in *columns*.

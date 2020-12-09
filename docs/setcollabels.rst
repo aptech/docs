@@ -9,12 +9,12 @@ Set categorical variable labels.
 
 Format
 ----------------
-.. function:: x_meta = setColLabels(x, labels, values, columns)
+.. function:: x_meta = setColLabels(X, labels, values, columns)
 
-    :param x: data.
-    :type x: NxK matrix or dataframe
+    :param X: data.
+    :type X: NxK matrix or dataframe
 
-    :param labels: Categorical labels to assign to each value of *x[., columns]* specified in *values*.
+    :param labels: Names or indices of the categorical variables in *X* to set labels for.
     :type labels: Mx1 string array
 
     :param values: Values to assign labels to.

@@ -9,12 +9,12 @@ Set columns in a matrix to have variable names and types.
 
 Format
 ----------------
-.. function:: x_meta = setColMetadata(x, varnames, types)
+.. function:: x_meta = setColMetadata(X, varnames, types)
 
-    :param x: data.
-    :type x: NxK matrix
+    :param X: data.
+    :type X: NxK matrix
 
-    :param varnames: Names to apply to column in *x*.
+    :param varnames: Names to apply to column in *X*.
     :type varnames: Kx1 vector
 
     :param types: Specifies types to be assigned to names in *varnames*. Valid options include: ``"string"``, ``"date"``, ``"numeric"``, and ``"category"``.
