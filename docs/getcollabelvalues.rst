@@ -14,7 +14,7 @@ Format
     :param X: data with metadata.
     :type X: NxK dataframe
 
-    :param columns: Optional argument, the names or indicies of the categorical or string variables in *X* to get labels from. Default = all columns.
+    :param columns: Optional argument, The names or indices of the categorical or string columns to query. Default = all columns.
     :type columns: Mx1 vector or string array
 
     :return x_labels_sa: labels assigned to the categorical or string variables in *X* specified by *columns*.
@@ -25,7 +25,7 @@ Examples
 
 ::
 
-  // Load 3 variables from an NBA data file into a dataframe 
+  // Load 3 variables from an NBA data file into a dataframe
   fname = getGAUSShome $+ "examples/nba_ht_wt.xls";
   nba_ht_wt = loadd(fname, "str(Player) + Age + str(School)");
 
