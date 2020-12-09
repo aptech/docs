@@ -3,6 +3,26 @@ Change Log
 ==========
 
 The following is a list of changes from the previous version of GAUSS.
+
+21.0.0
+------
+
+#. :func:`loadd` now returns a dataframe.
+#. :func:`loadd` now accepts an optional input with support for additional data loading options.
+#. Formula string keyword `cat` now supports an optional input to set the base case.
+#. Formula string keyword `date` now supports an optional input to specify the incoming date format.
+#. Logical operators (`.<`, `.>`, `.<=`, `.>=`, `.==`, `.!=`) support simple comparisons with date strings and categorical variable labels.
+#. :func:`glm` and :func:`olsmt` support dataframes and automatically turn categorical variables in to dummy variables.
+#. :func:`dstatmt` supports dataframes and counts missing values by default.
+#. :func:`saved` will write, string, categorical and date variables. The variable names argument is now optional.
+#. New function :func:`order` reorders columns of a dataframe by name.
+#. New function :func:`frequency` computes a frequency table for a categorical variable. 
+#. Bug fix: Memory leak in :func:`lagtrim`.
+#. Bug fix: Memory leak in specific situation with :func:`EuropeanBSCall`.
+#. The Project Folders window now automatically shows contents of the Current Working Directory.
+#. The Project Folders window now shows new files without need to refresh.
+
+The following is a list of changes from the previous version of GAUSS.
 This version is backwards compatible with the previous major version,
 19, other than the exceptions noted below.
 
