@@ -14,7 +14,7 @@ Format
     :param X: data with metadata.
     :type X: NxK dataframe
 
-    :param columns: Optional argument, The names or indices of the columns to query. Default = all columns.
+    :param columns: Optional argument, names or indices of the columns in *X* to get type of. Default = all columns.
     :type columns: Jx1 vector or string array
 
     :return col_types: Type of *X* for the J columns specified by *columns*.
@@ -39,8 +39,8 @@ After the above code, *col_types* will be a 3x1 dataframe with the following con
 
 ::
 
-          number
-        category
+          number 
+        category 
           number
 
 

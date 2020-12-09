@@ -14,7 +14,7 @@ Format
     :param X: data with metadata.
     :type X: NxK dataframe.
 
-    :param columns: Optional argument, The names or indices of the columns to query. Default = all columns. Default = all columns.
+    :param columns: Optional argument, the indices of the columns in *X* to get variable names of. Default = all columns.
     :type columns: Kx1 vector
 
     :return varnames: Variable names in matrix *X* for the columns specified by *columns*.

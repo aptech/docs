@@ -5,7 +5,7 @@ getcollabels
 Purpose
 ----------------
 
-Returns the unique set of column labels and corresponding key values for a categorical or string variables.
+Returns the unique set of column labels and corresponding key values for a categorical variable.
 
 Format
 ----------------
@@ -14,13 +14,13 @@ Format
     :param X: data with metadata.
     :type X: NxK dataframe
 
-    :param columns: The names or indices of the categorical or string columns to query.
+    :param columns: Name or index of the categorical variable in *X* to get labels from.
     :type columns: scalar or string
 
-    :return labels: Labels assigned to variables specified by *columns*.
+    :return labels: Categorical labels assigned to variables specified by *columns*.
     :rtype labels: string array
 
-    :return keyvalues: Key values corresponding to labels assigned to the variables in *X* specified by *columns*.
+    :return keyvalues: Key values corresponding to categorical labels assigned to the variables in *X* specified by *columns*.
     :rtype keyvalues: vector
 
 Examples
