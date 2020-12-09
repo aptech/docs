@@ -39,7 +39,7 @@ Find indices using variable names
 ::
 
     // Create filename
-    fname = getGAUSSHome $+ "examples//auto.dat";
+    fname = getGAUSSHome $+ "examples/auto.dat";
 
     // Open a file handle to a dataset
     fh = dataOpen(fname, "read");
@@ -81,7 +81,7 @@ Find variable names using index numbers
   ::
 
     // Create filename
-    fname = getGAUSSHome $+ "examples//auto.dat";
+    fname = getGAUSSHome $+ "examples/auto.dat";
 
     // Open a file handle to a dataset
     fh = dataOpen(fname, "read");
@@ -126,7 +126,7 @@ Find all variable names and indices
 ::
 
   // Create filename
-  fname = getGAUSSHome $+ "examples//auto.dat";
+  fname = getGAUSSHome $+ "examples/auto.dat";
 
   // Open a file handle to a dataset
   fh = dataOpen(fname, "read");

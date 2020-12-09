@@ -41,7 +41,7 @@ Find indices using variable names
 ::
 
         // Create filename
-        fname = getGAUSSHome $+ "examples//auto.dat";
+        fname = getGAUSSHome $+ "examples/auto.dat";
 
         // Get variable names
         namein = "mpg" $| "weight";
@@ -78,7 +78,7 @@ Find variable names using index numbers
 ::
 
         // Create filename
-        fname = getGAUSSHome $+ "examples//auto.dat";
+        fname = getGAUSSHome $+ "examples/auto.dat";
 
         /*
         ** If indxin is not equal to zero
@@ -118,7 +118,7 @@ Find all variable names and indices
 ::
 
       // Create filename
-      fname = getGAUSSHome $+ "examples//auto.dat";
+      fname = getGAUSSHome $+ "examples/auto.dat";
 
       /*
       ** namein should be

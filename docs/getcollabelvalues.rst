@@ -27,10 +27,11 @@ Examples
 
   // Load NBA data file
   // with metadata
-  nba_ht_wt = loadd("C:\\gauss21\\examples\\nba_ht_wt.xls",
+  fname = getGAUSShome $+ "examples/nba_ht_wt";
+  nba_ht_wt = loadd(fname,
                     "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
-  // Get player names
+  // Get player names and schools
   player_schools = getColLabelValues(nba_ht_wt, "Player"$|"School");
 
 

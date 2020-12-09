@@ -694,7 +694,7 @@ Example: Recoding categories in yarn dataset
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples\\yarn.xlsx";
+  fname = getGAUSSHome $+ "examples/yarn.xlsx";
   yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
 
   // Get column labels for yarn_length
@@ -744,7 +744,7 @@ The :func:`reorderCatLabels` can be use to change the key values associated with
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples\\yarn.xlsx";
+  fname = getGAUSSHome $+ "examples/yarn.xlsx";
   yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
 
   // Get column labels for yarn_length
@@ -826,7 +826,7 @@ Example: Including a categorical variable in GLM estimation
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples//auto2.dta";
+  fname = getGAUSSHome $+ "examples/auto2.dta";
 
   // Loadd data and remove missing values
   data = packr(loadd(fname, "price + mpg + rep78"));

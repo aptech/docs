@@ -45,7 +45,8 @@ Examples
   ** and variables names
   ** to order the
   */
-  nba_ht_wt = loadd("C:\\gauss21\\examples\\nba_ht_wt.xls", "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
+  fname = getGAUSSHome() $+ "example/nba_ht_wt.xls";
+  nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
   // Reorder column to show age,
   // position, and height

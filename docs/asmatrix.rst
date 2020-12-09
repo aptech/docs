@@ -24,10 +24,10 @@ Examples
 ::
 
   // Load data
-  fname = getGAUSSHome() $+ "examples\\yarn.xlsx";
+  fname = getGAUSSHome() $+ "examples/yarn.xlsx";
   yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
 
-  // Check for metadata
+  // Strip metadata
   yarn_mat = asMatrix(yarn);
 
 .. seealso:: Functions :func:`setcolmetadata`

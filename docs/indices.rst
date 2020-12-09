@@ -38,7 +38,7 @@ Find indices for selection of variables
   vars = { mpg, weight };
 
   // Create filename
-  filename = getGAUSSHome $+ "examples//auto.dat";
+  filename = getGAUSSHome $+ "examples/auto.dat";
 
   // Get indices and names of variables
   {varnames, ind } = indices(filename, vars);
@@ -72,7 +72,7 @@ Find indices for all variables
     vars =0;
 
     // Create filename
-    filename = getGAUSSHome $+ "examples//auto.dat";
+    filename = getGAUSSHome $+ "examples/auto.dat";
 
     // Get indices and names of variables
     {varnames, ind } = indices(filename, vars);
