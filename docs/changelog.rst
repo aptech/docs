@@ -7,20 +7,48 @@ The following is a list of changes from the previous version of GAUSS.
 21.0.0
 ------
 
-#. :func:`loadd` now returns a dataframe.
+#. GAUSS now supports dataframes with date, categorical, string and numeric columns.
+#. :func:`loadd` now returns a dataframe. This is a behavior change that can be reverted by the `#defines` in `policy.dec`.
 #. :func:`loadd` now accepts an optional input with support for additional data loading options.
+#. :func:`loadFileControlCreate` fills a `loadFileControl` structure with the defaults for the new data loading options.
 #. Formula string keyword `cat` now supports an optional input to set the base case.
 #. Formula string keyword `date` now supports an optional input to specify the incoming date format.
 #. Logical operators (`.<`, `.>`, `.<=`, `.>=`, `.==`, `.!=`) support simple comparisons with date strings and categorical variable labels.
 #. :func:`glm` and :func:`olsmt` support dataframes and automatically turn categorical variables in to dummy variables.
 #. :func:`dstatmt` supports dataframes and counts missing values by default.
 #. :func:`saved` will write, string, categorical and date variables. The variable names argument is now optional.
+#. New functions :func:`setcolnames` and :func:`getcolnames` set and return columns names of a matrix, or dataframe.
+#. New function :func:`setcoltypes` and :func:`getcoltypes` set and return the variable types of the columns of a matrix, or dataframe.
+#. New function :func:`setcolmetadata` sets column names and variable types for a matrix or dataframe.
+#. New function :func:`recodecatlabels` changes the labels displayed for a categorical variable in a dataframe.
+#. New function :func:`reordercatlabels` changes the order of the labels displayed for a categorical variable in a dataframe.
+#. New function :func:`setbasecat` sets the base category of a cateorical variable.
+#. New function :func:`setcollabels` and :func:`getcollabels` set and return the integer key values and string labels of categorical variable in a dataframe.
+#. New function :func:`getcollabelvalues` returns the string labels for every observation of a categorical variable as a string array.
+#. New function :func:`setcoldateformats` sets the display format of a date variable, :func:`getcoldateformats` returns the display format.
+#. New function :func:`hasmetadata` returns a 1 if the input is a dataframe.
+#. New function :func:`asmatrix` turns a dataframe into the equivalent matrix.
 #. New function :func:`order` reorders columns of a dataframe by name.
 #. New function :func:`frequency` computes a frequency table for a categorical variable. 
-#. Bug fix: Memory leak in :func:`lagtrim`.
-#. Bug fix: Memory leak in specific situation with :func:`EuropeanBSCall`.
+#. The Data Import Window now supports variable selection, interactive filtering and automatic code generation.
+#. The suffix for duplicate headers in the import dialog now start at _2 instead of _1.
+#. Symbol Editors support the same variable selection and filtering options added to the Data Import Window.
+#. Formatting in the Symbol Editor is now on a per column basis.
+#. Character vectors now show up to 8 characters in the Symbol Editor (the length is NOT limited for string arrays or dataframe string and category columns).
+#. CSV sniffing in the Data Import window will now only occur for the first 200 rows instead of the entire file to improve performance.
 #. The Project Folders window now automatically shows contents of the Current Working Directory.
 #. The Project Folders window now shows new files without need to refresh.
+#. The default setting for the run button is now to run the active file. This can be changed in Preferences to be the same as previous versions.
+#. Find Usages for local variables now reports only instances of the local variable.
+#. `CTRL+F1` will now find the declaration of local variables in a procedure.
+#. New Preference option to specify the default directory for ``File > Open``.
+#. Assignments to arrays of structures in `threadFor` loops is now allowed.
+#. Bug fix: Memory leak in :func:`lagtrim`.
+#. Bug fix: Memory leak in specific situation with :func:`EuropeanBSCall`.
+#. Bug fix: ``threadFor`` would not allow certain cases with multiple references to a slice variable to compile.
+#. 'Control Vars' node on Data Page is now collapsed by default.
+#. New example files for dataframe get and set functions as well as :func:`frequency` and :func:`plotFreq`.
+#. GLM example files updated to use dataframes.
 
 The following is a list of changes from the previous version of GAUSS.
 This version is backwards compatible with the previous major version,
