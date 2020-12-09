@@ -21,7 +21,7 @@ Format
     :type columns: Mx1 scalar or string
 
     :return x_meta: contains data with categorical base cases set to the categories specified in *basecase* for the variables in *columns* .
-    :rtype x_meta: NxK matrix
+    :rtype x_meta: NxK dataframe
 
 
 Examples
