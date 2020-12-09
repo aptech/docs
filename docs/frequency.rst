@@ -27,7 +27,7 @@ Examples
   fname = getGAUSSHome $+ "examples/auto2.dta";
   auto2 = loadd(fname);
 
-  // Frequency plot
+  // Create frequency table for the 'rep78' variable in 'auto2'
   frequency(auto2, "rep78");
 
 
