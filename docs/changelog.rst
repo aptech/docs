@@ -11,19 +11,19 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`loadd` now returns a dataframe. This is a behavior change that can be reverted by the `#defines` in `policy.dec`.
 #. :func:`loadd` now accepts an optional input with support for additional data loading options.
 #. :func:`loadFileControlCreate` fills a `loadFileControl` structure with the defaults for the new data loading options.
-#. Formula string keyword `cat` now supports an optional input to set the base case.
-#. Formula string keyword `date` now supports an optional input to specify the incoming date format.
-#. Logical operators (`.<`, `.>`, `.<=`, `.>=`, `.==`, `.!=`) support simple comparisons with date strings and categorical variable labels.
+#. Formula string keyword ``cat`` now supports an optional input to set the base case.
+#. Formula string keyword ``date`` now supports an optional input to specify the incoming date format.
+#. Logical operators (`.<`, `.>`, `.<=`, `.>=`, `.==`, `.!=`) support comparisons with date strings and categorical variable labels.
 #. :func:`glm` and :func:`olsmt` support dataframes and automatically turn categorical variables in to dummy variables.
 #. :func:`dstatmt` supports dataframes and counts missing values by default.
 #. :func:`saved` will write, string, categorical and date variables. The variable names argument is now optional.
 #. New functions :func:`setcolnames` and :func:`getcolnames` set and return columns names of a matrix, or dataframe.
-#. New function :func:`setcoltypes` and :func:`getcoltypes` set and return the variable types of the columns of a matrix, or dataframe.
+#. New functions :func:`setcoltypes` and :func:`getcoltypes` set and return the variable types of the columns of a matrix, or dataframe.
 #. New function :func:`setcolmetadata` sets column names and variable types for a matrix or dataframe.
 #. New function :func:`recodecatlabels` changes the labels displayed for a categorical variable in a dataframe.
 #. New function :func:`reordercatlabels` changes the order of the labels displayed for a categorical variable in a dataframe.
-#. New function :func:`setbasecat` sets the base category of a cateorical variable.
-#. New function :func:`setcollabels` and :func:`getcollabels` set and return the integer key values and string labels of categorical variable in a dataframe.
+#. New function :func:`setbasecat` sets the base category of a categorical variable.
+#. New functions :func:`setcollabels` and :func:`getcollabels` set and return the integer key values and string labels of categorical variables in a dataframe.
 #. New function :func:`getcollabelvalues` returns the string labels for every observation of a categorical variable as a string array.
 #. New function :func:`setcoldateformats` sets the display format of a date variable, :func:`getcoldateformats` returns the display format.
 #. New function :func:`hasmetadata` returns a 1 if the input is a dataframe.
@@ -47,12 +47,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug fix: Memory leak in specific situation with :func:`EuropeanBSCall`.
 #. Bug fix: ``threadFor`` would not allow certain cases with multiple references to a slice variable to compile.
 #. 'Control Vars' node on Data Page is now collapsed by default.
-#. New example files for dataframe get and set functions as well as :func:`frequency` and :func:`plotFreq`.
+#. New example files for dataframe 'get' and 'set' functions as well as :func:`frequency` and :func:`plotFreq`.
 #. GLM example files updated to use dataframes.
-
-The following is a list of changes from the previous version of GAUSS.
-This version is backwards compatible with the previous major version,
-19, other than the exceptions noted below.
 
 20.0.5
 ------
