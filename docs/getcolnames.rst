@@ -9,15 +9,15 @@ Returns the column variable names.
 
 Format
 ----------------
-.. function:: varnames = getColNames(x [, columns])
+.. function:: varnames = getColNames(X [, columns])
 
-    :param x: data with metadata.
-    :type x: NxK dataframe.
+    :param X: data with metadata.
+    :type X: NxK dataframe.
 
-    :param columns: Optional argument, specifies columns in *x* to get variable names of. Default = all columns.
+    :param columns: Optional argument, the indices of the columns in *X* to get variable names of. Default = all columns.
     :type columns: Kx1 vector
 
-    :return varnames: Variable names in matrix *x* for the columns specified by *columns*.
+    :return varnames: Variable names in matrix *X* for the columns specified by *columns*.
     :rtype varnames: Kx1 string array
 
 

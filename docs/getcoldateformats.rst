@@ -9,15 +9,15 @@ Gets BSD strftime format specifiers for specified columns of a dataframe.
 
 Format
 ----------------
-.. function:: fmt_date = getColDateFormats(x [, columns])
+.. function:: fmt_date = getColDateFormats(X [, columns])
 
-    :param x: data with metadata.
-    :type x: NxK dataframe
+    :param X: data with metadata.
+    :type X: NxK dataframe
 
     :param columns: Optional argument, The names or indices of the date columns to query. Default = all columns.
     :type columns: Mx1 scalar or string
 
-    :return fmt_data: contains the strftime date/time format characters corresponding to the columns of *x* specified by *columns*.
+    :return fmt_data: contains the strftime date/time format characters corresponding to the columns of *X* specified by *columns*.
     :rtype fmt_data: Mx1 string array
 
 
