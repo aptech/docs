@@ -53,6 +53,7 @@ P
     plotclearlayout
     plotcontour
     plotcustomlayout
+    plotFreq
     plotgetdefaults
     plothistf
     plothistp

@@ -11,6 +11,7 @@ R
     real
     reclassifycuts
     reclassify
+    recodecatlabels
     recodedataloop
     recode
     recserar
@@ -18,6 +19,7 @@ R
     recserrc
     recservar
     renamefile
+    reordercatlabels 
     rerun
     rescale
     reshape

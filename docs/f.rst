@@ -32,6 +32,7 @@ F
     for
     fputs
     fputst
+    frequency 
     fseek
     fsterror
     ftell

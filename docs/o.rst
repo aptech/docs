@@ -14,6 +14,7 @@ O
     ones
     open
     optnoptnevn
+    order
     orth
     outerjoin
     output

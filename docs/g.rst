@@ -37,7 +37,12 @@ G
     gdawrite
     gdawritesome
     getarray
+    getcoldateformats
+    getcollabels
+    getcollabelvalues
+    getcolnames
     getcolorpalette
+    getcoltypes
     getdims
     getf
     getgausshome

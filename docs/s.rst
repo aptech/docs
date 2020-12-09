@@ -28,7 +28,13 @@ S
     seqaposix
     seqaseqm
     setarray
+    setbasecat
     setblocksize
+    setcoldateformats
+    setcollabels
+    setcolmetadata
+    setcolnames
+    setcoltypes 
     setdif
     setdifsa
     setvars
