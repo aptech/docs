@@ -42,6 +42,7 @@ A
     arraytomat
     asciiload
     asclabel
+    asmatrix
     astd
     astds
     asum
@@ -49,4 +50,3 @@ A
     atan
     atranspose
     axmargin
-
