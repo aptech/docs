@@ -9,7 +9,7 @@ Set categorical variable labels.
 
 Format
 ----------------
-.. function:: x_meta = setColLabels(X, labels, values, columns)
+.. function:: x_cat = setColLabels(X, labels, values, columns)
 
     :param X: data.
     :type X: NxK matrix or dataframe
@@ -32,33 +32,41 @@ Examples
 
 ::
 
-  // Generate random categorical variable
-  x = rndi(100, 1, 1|5)~rndn(100, 3);
+  x = { 3,
+        2,
+        0,
+        4,
+        2,
+        1 };
 
   // Define labels
   labels = "poor"$|"fair"$|"average"$|"good"$|"excellent";
 
-  // Set labels
-  // Note that this assigns metadata to x
-  x_cat = setColLabels(x, labels, unique(x[., 1]), 1);
+  /*
+  ** Set labels
+  */
 
-  // Get column labels for x_cat
-  { labels, keyvalues } = getColLabels(x_cat, 1);
+  key_vals = { 0, 1, 2, 3, 4 };
 
-  // Print results
-  sprintf("%11s", "Key"$~"Labels");
-  sprintf("%10.0f %10s", keyvalues, labels);
+  // Note that this makes 'x_cat' a dataframe
+  // with a single categorical column
+  x_cat = setColLabels(x, labels, key_vals, 1);
 
-The code above prints the following table:
+  print x_cat;
+
+
+The code above prints the following:
 
 ::
 
-    Key     Labels
+              X1 
+            good 
+         average 
+            poor 
+       excellent 
+         average 
+            fair
 
-     1       poor
-     2       fair
-     3    average
-     4       good
-     5  excellent
 
-.. seealso:: Functions :func:`getColLabels`
+
+.. seealso:: Functions :func:`getColLabels`, :func:`recodeCatLabels`, :func:`reorderCatLabels`

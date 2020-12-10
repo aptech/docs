@@ -29,14 +29,44 @@ Examples
 
 ::
 
-  // Generate random data matrix
-  x = rndn(150, 3);
+  x = { 1  15  15,
+        5  19   8,
+       16  14   4,
+        7  19   6 };
 
-  // Assign variable names to all three columns
-  // and create new matrix x_meta
+  // Create new dataframe x_meta with the specified variable names
   x_meta = setColNames(x, "Planes"$|"Trains"$|"Automobiles");
+
+  print x_meta;
+
+
+The above code will print out:
+
+:: 
+
+     Planes  Trains  Automobiles
+          1      15           15
+          5      19            8
+         16      14            4
+          7      19            6
+
+
+Below we change the name of an existing variable.
+
+::
 
   // Change variable name of first column of x_meta
   x_meta = setColNames(x_meta, "Airplanes", "Planes");
+
+
+:: 
+
+     AirPlanes  Trains  Automobiles
+             1      15           15
+             5      19            8
+            16      14            4
+             7      19            6
+
+
 
 .. seealso:: Functions :func:`getColNames`, :func:`setColMetadata`

@@ -29,17 +29,42 @@ Examples
 
 ::
 
-  // Load exchange rate data
-  // First column is ticker times
-  // but is in POSIX time
-  fname = getGAUSShome $+ "examples/usd_cad_2018.dat";
-  usd_cad_2018 = loadd(fname);
 
-  // Specify format to represent
-  // Year-day-month Hour:Minute:Second
-  fmt = "%Y-%m-%d %H:%M:%S";
-  x_meta = setColDateFormats(usd_cad_2018, fmt, "TIMESTAMP");
+    // Load data
+    fname = getGAUSSHome $+ "examples/xle_daily.xlsx";
+    xle = loadd(fname, "date(Date) + Volume");
+    
+    // Print the first 2 observations
+    print "Dates in original format:";
+    print xle[1:2,.];
+    
+    // Set date format to month/day/Year
+    xle_2 = setcoldateformats(xle, "%m/%d/%Y", "Date");
+    
+    // Print the first 2 observations
+    print "";
+    print "Dates in new format:";
+    print xle_2[1:2,.];
 
 
+The above code will print out:
+
+::
+
+    Dates in original format:
+                Date          Volume
+          2017-06-13        15807900
+          2017-06-14        30280200
+    
+    Dates in new format:
+                Date          Volume
+          06/13/2017        15807900
+          06/14/2017        30280200
+
+
+Remarks
+------------
+
+You can find a list of the available date format specifiers in the Command Reference entry for :func:`posixtostrc`.
 
 .. seealso:: Functions :func:`setColtypes`, :func:`getColDateFormats`

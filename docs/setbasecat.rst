@@ -29,20 +29,50 @@ Examples
 
 ::
 
-  // Load yarn data file
-  fname = getGAUSSHome() $+ "examples/yarn.xlsx";
-  yarn = loadd(fname,
-                "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
+    // Load yarn data file
+    fname = getGAUSSHome() $+ "examples/yarn.xlsx";
+    yarn = loadd(fname, "cat(yarn_length) + cycles");
+    
+    // Get categorical labels for 'yarn_length'
+    print "Original categorical labels:";
+    getColLabels(yarn, "yarn_length");
+    
+    // Change base case to 'low'
+    yarn = setBaseCat(yarn, "low", "yarn_length");
+    
+    print "";
+    print "Updated categorical labels:";
+    getColLabels(yarn, "yarn_length");
 
-  // Get categorical labels for
-  // yarn_length and amplitude
-  getColLabels(yarn, "yarn_length");
 
-  // Change base case
-  // to high for both
-  // yarn_length and amplitude
-  yarn = setBaseCat(yarn, "low", "yarn_length");
+The above code will print out:
 
+::
+
+    Original categorical labels:
+
+            high 
+             low 
+             med 
+
+       0.0000000 
+       1.0000000 
+       2.0000000 
+
+    Updated categorical labels:
+
+             low 
+            high 
+             med 
+
+       0.0000000 
+       1.0000000 
+       2.0000000 
+
+Remarks
+-------------
+
+Use :func:`reordercatlabels` to change the order of all category labels.
 
 
 .. seealso:: Functions :func:`setColtypes`, :func:`getColLabels`, :func:`setColLabels`

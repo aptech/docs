@@ -9,7 +9,7 @@ Reorder a matrix based on user-specified ordering. Relocates *columns* to the be
 
 Format
 ----------------
-.. function:: x_new = order(X, column)
+.. function:: X_new = order(X, column)
 
     :param X: data. Must have metadata.
     :type X: NxK dataframe
@@ -17,8 +17,8 @@ Format
     :param columns: Names or indices of variables in *X* to be moved to first *J* columns in the dataframe.
     :type columns: Jx1 vector or string array
 
-    :return x_meta: reordered data with the first J columns containing the columns in *columns*, in the order they are input.
-    :rtype x_meta: NxK dataframe
+    :return X_new: reordered data with the first *J* columns containing the columns in *columns*, in the order they are input.
+    :rtype X_new: NxK dataframe
 
 
 Examples
@@ -37,7 +37,7 @@ Examples
 
   // Load NBA dataset
   fname = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
-  nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
+  nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Age + date(BDate) + Height");
 
   // Reorder column to show 'Age', 'Pos', and 'Height'
   // in column 1, 2, 3
@@ -47,13 +47,12 @@ After the code above, the first five rows of *nba_new* looks like:
 
 ::
 
-           Age              Pos           Height           Player           Weight           School            BDate
-     25.000000                C        83.000000   Vitor Faverani        260.00000             None 05/05/1988 00:00
-     22.000000                G        74.000000    Avery Bradley        180.00000            Texas 11/26/1990 00:00
-     33.000000                G        77.000000     Keith Bogans        215.00000         Kentucky 05/12/1980 00:00
-     21.000000                F        81.000000  Jared Sullinger        260.00000       Ohio State 03/04/1992 00:00
-     27.000000                F        81.000000       Jeff Green        235.00000       Georgetown 08/28/1986 00:00
-
+             Age    Pos           Height           Player            BDate 
+       25.000000      C        83.000000   Vitor Faverani       1988-05-05 
+       22.000000      G        74.000000    Avery Bradley       1990-11-26 
+       33.000000      G        77.000000     Keith Bogans       1980-05-12 
+       21.000000      F        81.000000  Jared Sullinger       1992-03-04 
+       27.000000      F        81.000000       Jeff Green       1986-08-28
 
 
 .. seealso:: Functions :func:`delcols`

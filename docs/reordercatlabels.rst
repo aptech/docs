@@ -29,31 +29,36 @@ Examples
 
 ::
 
-  // Load data
-  fname = getGAUSSHome $+ "examples/yarn.xlsx";
-  yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
+    // Load data
+    fname = getGAUSSHome $+ "examples/yarn.xlsx";
+    yarn = loadd(fname, "cat(yarn_length) + cycles");
+    
+    // Get column labels for yarn_length
+    { labels, keyvalues } = getColLabels(yarn, "yarn_length");
+    
+    // Print results
+    print "Original yarn_length labels";
+    print ntos(keyvalues)$~labels;
+    
+    
+    // Reorder yarn_length variable from
+    // 'low', 'med', and 'high'
+    //  to 'high', 'med', 'low'
+    yarn_recoded = reorderCatLabels(yarn, "high"$|"med"$|"low", "yarn_length");
+    
+    // Get column labels for yarn_length
+    { labels, keyvalues } = getColLabels(yarn_recoded, "yarn_length");
+    
+    // Print results
+    print "";
+    print "Reordered yarn_length labels";
+    print ntos(keyvalues)$~labels;
 
-  // Get column labels for yarn_length
-  { labels, keyvalues } = getColLabels(yarn, "yarn_length");
 
-  // Print results
-  print "Yarn labels";
+Remarks
+----------
 
-  sprintf("%11s", "Key"$~"Labels");
-  sprintf("%10.0f %10s", keyvalues, labels);
+Use :func:`recodeCatLabels` to change the names of the category labels.
 
-  // Reorder yarn_length variable from
-  // 'low', 'med', and 'high'
-  //  to 'high', 'med', 'low'
-  yarn_recoded = reorderCatLabels(yarn, "high"$|"med"$|"low", "yarn_length");
-
-  // Get column labels for yarn_length
-  { labels, keyvalues } = getColLabels(yarn_recoded, "yarn_length");
-
-  // Print results
-  print "Reordered yarn_length labels";
-
-  sprintf("%11s", "Key"$~"Labels");
-  sprintf("%10.0f %10s", keyvalues, labels);
 
 .. seealso:: Functions :func:`getColLabels`, :func:`setColLabels`, :func:`recodeCatLabels`, :func:`reclassify`

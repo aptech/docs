@@ -9,22 +9,22 @@ Change categorical variable labels.
 
 Format
 ----------------
-.. function:: x_new = recodeCatLabels(x, old_labels, new_labels [, column])
+.. function:: X_new = recodeCatLabels(X, old_labels, new_labels [, column])
 
-    :param x: data with metadata.
-    :type x: NxK dataframe
+    :param X: data with metadata.
+    :type X: NxK dataframe
 
     :param old_labels: Categorical labels to be changed.
     :type old_labels: Mx1 string array
 
     :param new_labels: New labels use to replace the existing labels in *old_labels*.
-    :type new_labels: Mx1 vector
+    :type new_labels: Mx1 string array
 
-    :param column: Optional argument, variables be recoded.
+    :param column: Optional argument, the name or index of the variable be recoded.
     :type column: scalar or string
 
-    :return x_new: Data in *x* with categorical labels in *old_labels* replaced by those specified in *new_labels* for the variable specified by *column*.
-    :rtype x_new: NxK dataframe
+    :return X_new: Data in *X* with categorical labels in *old_labels* replaced by those specified in *new_labels* for the variable specified by *column*.
+    :rtype X_new: NxK dataframe
 
 
 Examples
@@ -32,31 +32,46 @@ Examples
 
 ::
 
-  // Load data
-  fname = getGAUSSHome $+ "examples/yarn.xlsx";
-  yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
+    // Load data
+    fname = getGAUSSHome $+ "examples/yarn.xlsx";
+    yarn = loadd(fname, "cat(yarn_length) + cycles");
+    
+    // Get column labels for yarn_length
+    { labels, keyvalues } = getColLabels(yarn, "yarn_length");
+    
+    // Print results
+    print "Original yarn_length labels:";
+    print ntos(keyvalues)$~labels;
+    
+    // Recode yarn_length variable from
+    // 'low', 'medium', and 'high'
+    //  to 'sm', 'md', 'lg'
+    yarn_recoded = recodecatlabels(yarn, "low"$|"med"$|"high", "sm"$|"md"$|"lg", "yarn_length");
+    
+    // Get column labels for yarn_length
+    { labels, keyvalues } = getColLabels(yarn_recoded, "yarn_length");
+    
+    // Print results
+    print "";
+    print "Recoded yarn labels";
+    print ntos(keyvalues)$~labels
 
-  // Get column labels for yarn_length
-  { labels, keyvalues } = getColLabels(yarn, "yarn_length");
 
-  // Print results
-  print "Yarn labels";
+the above code will print out the following:
 
-  sprintf("%11s", "Key"$~"Labels");
-  sprintf("%10.0f %10s", keyvalues, labels);
+::
 
-  // Recode yarn_length variable from
-  // 'low', 'medium', and 'high'
-  //  to 'sm', 'md', 'lg'
-  yarn_recoded = recodecatlabels(yarn, "low"$|"med"$|"high", "sm"$|"md"$|"lg", "yarn_length");
+     Original yarn_length labels:
 
-  // Get column labels for yarn_length
-  { labels, keyvalues } = getColLabels(yarn_recoded, "yarn_length");
+               0             high 
+               1              low 
+               2              med 
 
-  // Print results
-  print "Recoded yarn labels";
+     Recoded yarn labels:
 
-  sprintf("%11s", "Key"$~"Labels");
-  sprintf("%10.0f %10s", keyvalues, labels);
+               0               lg 
+               1               sm 
+               2               md 
+
 
 .. seealso:: Functions :func:`getColLabels`, :func:`setColLabels`, :func:`reclassify`

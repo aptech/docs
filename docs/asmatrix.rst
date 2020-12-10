@@ -62,4 +62,4 @@ Remarks
 * Numeric variables will be unchanged.
 * Variable names will be removed.
 
-.. seealso:: Functions :func:`setcolmetadata`
+.. seealso:: Functions :func:`setcolnames`, :func:`setcoltypes`

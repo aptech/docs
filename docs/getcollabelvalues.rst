@@ -17,7 +17,7 @@ Format
     :param columns: Optional argument, the names or indicies of the categorical or string variables in *X* to get labels from. Default = all columns.
     :type columns: Mx1 vector or string array
 
-    :return x_labels_sa: labels assigned to the categorical or string variables in *X* specified by *columns*.
+    :return x_labels_sa: labels assigned to each row of the categorical or string variables in *X* specified by *columns*.
     :rtype x_labels_sa: NxM string array
 
 Examples

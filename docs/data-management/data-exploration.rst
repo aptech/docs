@@ -392,7 +392,7 @@ Example: Frequency and percentage histograms
 The :func:`plotScatter` function creates a quick scatter plot using just an *x* and *y* input. To add custom plotting use the `plotControlStructure`.
 
 Example: Plotting the relationship between height and weight in NBA players
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
