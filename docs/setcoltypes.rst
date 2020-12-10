@@ -5,7 +5,7 @@ setcoltypes
 Purpose
 ----------------
 
-Set columns in a matrix to have metadata types.
+Set the types of columns in a matrix or dataframe.
 
 Format
 ----------------
@@ -42,6 +42,10 @@ When a numeric column is set to type ``category``, or ``string``  with :func:`se
 
 * Each value will be converted to an integer to create the keys. The labels will be the string version of the number.
 
+When a categorical or string variable is converted to a numeric column;
+
+* The updated column will contain the numeric keys associated with the string or category labels.
+
 
 Examples
 ----------------
@@ -69,8 +73,30 @@ Since the date vector is interpreted as seconds since Jan 1, 1970, the code abov
       1970-01-02
 
 
+Example 2: Category to number
++++++++++++++++++++++++++++++++++++++
 
-Example 2: Integer column to category 
+::
+
+    // Load 'cycles' and load 'amplitude' as a categorical variable
+    fname = getGAUSSHome() $+ "examples/yarn.xlsx";
+    yarn = loadd(fname, "cat(amplitude) + cycles");
+
+    // Set the first column to be a numeric column
+    yarn_n = setcoltypes(yarn, "number", 1);
+
+
+After the above code, the first few rows look like this:
+
+::
+
+    yarn = amplitude   cycles   yarn_n = amplitude   cycles 
+                 low      674                    1      674
+                 low      370                    1      370
+                 low      292                    1      292
+                 med      338                    2      338
+
+Example 3: Integer column to category 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
@@ -98,13 +124,13 @@ We can get the categorical labels and key values like this:
 
 ::
 
-    { labels, key_vals } = getcollabels(x, 1);
+    { labels, keys } = getcollabels(x, 1);
 
 They will equal:
 
 ::
 
-    labels = "0"   key_vals = 0
+    labels = "0"   keys = 0
              "1"              1
              "2"              2
 

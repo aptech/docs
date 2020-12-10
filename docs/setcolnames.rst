@@ -61,7 +61,7 @@ Below we change the name of an existing variable.
 
 :: 
 
-     AirPlanes  Trains  Automobiles
+     Airplanes  Trains  Automobiles
              1      15           15
              5      19            8
             16      14            4

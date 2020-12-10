@@ -24,6 +24,11 @@ Format
     :rtype x_meta: NxK dataframe
 
 
+Remarks
+-------------
+
+Use :func:`reordercatlabels` to change the order of all category labels.
+
 Examples
 ----------------
 
@@ -69,10 +74,6 @@ The above code will print out:
        1.0000000 
        2.0000000 
 
-Remarks
--------------
-
-Use :func:`reordercatlabels` to change the order of all category labels.
 
 
 .. seealso:: Functions :func:`setColtypes`, :func:`getColLabels`, :func:`setColLabels`
