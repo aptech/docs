@@ -9,7 +9,7 @@ Returns the unique set of column labels and corresponding key values for a categ
 
 Format
 ----------------
-.. function:: { labels, keyvalues } = getColLabels(X, columns)
+.. function:: { labels, keys } = getColLabels(X, columns)
 
     :param X: data with metadata.
     :type X: NxK dataframe
@@ -20,8 +20,8 @@ Format
     :return labels: Categorical labels assigned to variables specified by *columns*.
     :rtype labels: string array
 
-    :return keyvalues: Key values corresponding to categorical labels assigned to the variables in *X* specified by *columns*.
-    :rtype keyvalues: vector
+    :return keys: Integer key values corresponding to categorical labels assigned to the variables in *X* specified by *columns*.
+    :rtype keys: vector
 
 Examples
 ----------------
@@ -33,11 +33,11 @@ Examples
   yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
 
   // Get column labels for yarn_length
-  { labels, keyvalues } = getColLabels(yarn, "yarn_length");
+  { labels, keys } = getColLabels(yarn, "yarn_length");
 
   // Print results
-  sprintf("%11s", "Key"$~"Labels");
-  sprintf("%10.0f %10s", keyvalues, labels);
+  sprintf("%10s %10s", "Key", "Labels");
+  sprintf("%10d %10s", keys, labels);
 
 The code above prints the following table:
 
@@ -45,8 +45,8 @@ The code above prints the following table:
 
       Key     Labels
 
-       0       high
-       1        low
-       2        med
+        0       high
+        1        low
+        2        med
 
 .. seealso:: Functions :func:`setColLabels`

@@ -17,8 +17,8 @@ Format
     :param columns: Optional argument, The names or indices of the date columns to query. Default = all columns.
     :type columns: Mx1 scalar or string
 
-    :return fmt_data: contains the strftime date/time format characters corresponding to the columns of *X* specified by *columns*.
-    :rtype fmt_data: Mx1 string array
+    :return fmt_date: contains the strftime date/time format characters corresponding to the columns of *X* specified by *columns*.
+    :rtype fmt_date: Mx1 string array
 
 
 Examples
@@ -49,6 +49,8 @@ The dates in the file are in POSIX time, seconds since Jan 1, 1970.
 
   // Get data format of "TIMESTAMP" variable
   fmt_timestamp = getColDateFormats(usd_cad_df, "TIMESTAMP");
+
+.. note:: Column indices can also be used in place of the variable name like this, `getColDateFormats(usd_cad_df, 1)`
 
 After the above code, the first few rows of *usd_cad_df* will look like this:
 

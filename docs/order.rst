@@ -9,7 +9,7 @@ Reorder a matrix based on user-specified ordering. Relocates *columns* to the be
 
 Format
 ----------------
-.. function:: X_new = order(X, column)
+.. function:: X_new = order(X, columns)
 
     :param X: data. Must have metadata.
     :type X: NxK dataframe

@@ -27,6 +27,14 @@ Format
     :rtype X_new: NxK dataframe
 
 
+
+Remarks
+-----------------
+
+* To change the order of category labels, use :func:`reordercatlabels`.
+* To set the base case, use :func:`setbasecat`. 
+
+
 Examples
 ----------------
 
@@ -37,11 +45,11 @@ Examples
     yarn = loadd(fname, "cat(yarn_length) + cycles");
     
     // Get column labels for yarn_length
-    { labels, keyvalues } = getColLabels(yarn, "yarn_length");
+    { labels, keys } = getColLabels(yarn, "yarn_length");
     
     // Print results
     print "Original yarn_length labels:";
-    print ntos(keyvalues)$~labels;
+    print ntos(keys)$~labels;
     
     // Recode yarn_length variable from
     // 'low', 'medium', and 'high'
@@ -49,12 +57,12 @@ Examples
     yarn_recoded = recodecatlabels(yarn, "low"$|"med"$|"high", "sm"$|"md"$|"lg", "yarn_length");
     
     // Get column labels for yarn_length
-    { labels, keyvalues } = getColLabels(yarn_recoded, "yarn_length");
+    { labels, keys } = getColLabels(yarn_recoded, "yarn_length");
     
     // Print results
     print "";
     print "Recoded yarn labels";
-    print ntos(keyvalues)$~labels
+    print ntos(keys)$~labels
 
 
 the above code will print out the following:
