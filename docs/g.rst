@@ -39,7 +39,6 @@ G
     getarray
     getcoldateformats
     getcollabels
-    getcollabelvalues
     getcolnames
     getcolorpalette
     getcoltypes
