@@ -4,6 +4,12 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.1
+------
+
+#. Editor documents now have yellow underline markup for locals and/or arguments that are unused, as well as an icon in the margin.
+#. Bug fix: :func:`corrxs` was not correctly copying metadata upon return.
+
 21.0.0
 ------
 
