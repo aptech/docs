@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.2
+------
+
+#. Bug Fix: :func:`sprintf` had incorrect output in the ``%g`` case with 0's after a decimal and prior to the first significant digit.
+
 21.0.1
 ------
 
@@ -55,6 +60,14 @@ The following is a list of changes from the previous version of GAUSS.
 #. **Control Var** node on **Data Page** is now collapsed by default.
 #. New example files for dataframe 'get' and 'set' functions as well as :func:`frequency` and :func:`plotFreq`.
 #. GLM example files updated to use dataframes.
+
+20.0.7
+------
+#. Bug Fix: :func:`sprintf` had incorrect output in the ``%g`` case with 0's after a decimal and prior to the first significant digit. (Backported)
+
+20.0.6
+------
+#. macOS: Add environment variable ``QT_MAC_WANTS_LAYER`` to LSEnvironment key to fix hang on startup with Big Sur.
 
 20.0.5
 ------
