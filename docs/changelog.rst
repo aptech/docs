@@ -4,6 +4,12 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.3
+------
+
+#. Bug Fix: :func:`dbGetTables` would crash GAUSS.
+#. Bug Fix: :func:`eye` would crash in specific circumstances if a value less than 1 was passed in.
+
 21.0.2
 ------
 
