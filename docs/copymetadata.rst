@@ -45,6 +45,7 @@ Examples
 The code above copies the metadata from the categorical variable *rep78* to the matrix *X*. After the code the first five rows of *x* look like:
 
 ::
+  
                   Average
                   Poor
     X[1:5, .] =   Poor
