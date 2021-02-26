@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.4
+------
+
+#. Bug Fix: Fixed edge-case performance issue.
+
 21.0.3
 ------
 
