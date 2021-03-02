@@ -44,6 +44,7 @@ P
     plotaddtextbox
     plotaddts
     plotaddxy
+    plotaddxyfill
     plotarea
     plotbar
     plotbarh

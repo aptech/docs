@@ -25,6 +25,7 @@ Format
         one column, each column will be the top for a different area.
     :type y_top: Nx1 or NxM matrix
 
+
 Examples
 ----------------
 
@@ -61,6 +62,5 @@ One set of vectors
     plotAddXYFill(myPlot, x, y - 1, y + 1);
 
 
-
-
 .. seealso:: Functions :func:`plotArea`, :func:`plotSetFill`, :func:`plotXY`
+
