@@ -4,6 +4,12 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.5
+------
+
+#. Add new :func:`plotAddXYFill` function.
+#. Update OpenSSL libraries on Linux to 1.1.1j.
+
 21.0.4
 ------
 
