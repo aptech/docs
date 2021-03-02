@@ -103,4 +103,5 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
    data-management
    machine-learning
    changelog
+   tspdlib/docs/index
 

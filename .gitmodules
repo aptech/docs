@@ -1,0 +1,3 @@
+[submodule "docs/tspdlib"]
+	path = docs/tspdlib
+	url = https://github.com/aptech/tspdlib.git

@@ -16,6 +16,7 @@ from six import iteritems
 from GAUSSHTMLTranslator import desc_returnlist, desc_return
 
 from sphinx import addnodes, locale
+from sphinx.addnodes import desc_signature
 from sphinx.domains.python import pairindextypes
 #from sphinx.deprecation import DeprecatedDict, RemovedInSphinx30Warning
 from sphinx.directives import ObjectDescription
@@ -216,6 +217,7 @@ class PyObject(ObjectDescription):
     """
     option_spec = {
         'noindex': directives.flag,
+        'noindexentry': directives.flag,
         'module': directives.unchanged,
         'annotation': directives.unchanged,
     }
@@ -364,10 +366,11 @@ class PyObject(ObjectDescription):
                     line=self.lineno)
             objects[fullname] = (self.env.docname, self.objtype)
 
-        indextext = self.get_index_text(modname, name_cls)
-        if indextext:
-            self.indexnode['entries'].append(('single', indextext,
-                                              fullname, '', None))
+        if 'noindexentry' not in self.options:
+            indextext = self.get_index_text(modname, name_cls)
+            if indextext:
+                self.indexnode['entries'].append(('single', indextext,
+                                                  fullname, '', None))
 
     def before_content(self):
         # type: () -> None
@@ -565,6 +568,44 @@ class PyDecoratorMixin(object):
     def needs_arglist(self):
         # type: () -> bool
         return False
+
+
+class PyFunction(PyObject):
+    """Description of a function."""
+
+    option_spec = PyObject.option_spec.copy()
+    #option_spec.update({
+    #    'async': directives.flag,
+    #})
+
+    def get_signature_prefix(self, sig: str) -> str:
+        #if 'async' in self.options:
+        #    return 'async '
+        #else:
+        #    return ''
+        return ''
+
+    def needs_arglist(self) -> bool:
+        return True
+
+    def add_target_and_index(self, name_cls, sig: str,
+                             signode: desc_signature) -> None:
+        super().add_target_and_index(name_cls, sig, signode)
+        if 'noindexentry' not in self.options:
+            modname = self.options.get('module', self.env.ref_context.get('py:module'))
+            node_id = signode['ids'][0]
+
+            name, cls = name_cls
+            if modname:
+                text = _('%s() (in module %s)') % (name, modname)
+                self.indexnode['entries'].append(('single', text, node_id, '', None))
+            else:
+                text = '%s; %s()' % (pairindextypes['builtin'], name)
+                self.indexnode['entries'].append(('pair', text, node_id, '', None))
+
+    def get_index_text(self, modname: str, name_cls) -> str:
+        # add index in own add_target_and_index() instead.
+        return None
 
 
 class PyDecoratorFunction(PyDecoratorMixin, PyModulelevel):
@@ -765,7 +806,7 @@ class GAUSSDomain(Domain):
     }  # type: Dict[unicode, ObjType]
 
     directives = {
-        'function':        PyModulelevel,
+        'function':        PyFunction,
         'data':            PyModulelevel,
         'class':           PyClasslike,
         'exception':       PyClasslike,

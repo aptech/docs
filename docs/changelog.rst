@@ -4,6 +4,34 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.5
+------
+
+#. Add new :func:`plotAddXYFill` function.
+#. Update OpenSSL libraries on Linux to 1.1.1j.
+
+21.0.4
+------
+
+#. Bug Fix: Fixed edge-case performance issue.
+
+21.0.3
+------
+
+#. Bug Fix: :func:`dbGetTables` would crash GAUSS.
+#. Bug Fix: :func:`eye` would crash in specific circumstances if a value less than 1 was passed in.
+
+21.0.2
+------
+
+#. Bug Fix: :func:`sprintf` had incorrect output in the ``%g`` case with 0's after a decimal and prior to the first significant digit.
+
+21.0.1
+------
+
+#. Editor documents now have yellow underline markup for locals and/or arguments that are unused, as well as an icon in the margin.
+#. Bug fix: :func:`corrxs` was not correctly copying metadata upon return.
+
 21.0.0
 ------
 
@@ -49,6 +77,14 @@ The following is a list of changes from the previous version of GAUSS.
 #. **Control Var** node on **Data Page** is now collapsed by default.
 #. New example files for dataframe 'get' and 'set' functions as well as :func:`frequency` and :func:`plotFreq`.
 #. GLM example files updated to use dataframes.
+
+20.0.7
+------
+#. Bug Fix: :func:`sprintf` had incorrect output in the ``%g`` case with 0's after a decimal and prior to the first significant digit. (Backported)
+
+20.0.6
+------
+#. macOS: Add environment variable ``QT_MAC_WANTS_LAYER`` to LSEnvironment key to fix hang on startup with Big Sur.
 
 20.0.5
 ------
