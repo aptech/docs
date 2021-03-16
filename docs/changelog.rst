@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.6
+------
+
+#. Bug Fix: :func:`strlen` now correctly works with dataframe category/date columns.
+
 21.0.5
 ------
 
