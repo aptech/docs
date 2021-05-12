@@ -8,6 +8,7 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. Added policy to control behavior for dataframe indexing operations that return a scalar. Resulting scalar can now remain a dataframe.
+#. Windows: Added MySQL/MariaDB SQL driver.
 #. Bug Fix: :func:`strlen` now correctly works with dataframe category/date columns.
 #. Bug Fix: Memory leak in :func:`seqaposix` and :func:`seqadt` for certain cases.
 #. Bug Fix: Memory leak in :func:`eye` for certain cases.
