@@ -8,10 +8,15 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. Added policy to control behavior for dataframe indexing operations that return a scalar. Resulting scalar can now remain a dataframe.
+#. Added dataframe category/string support to :func:`indexcat`, :func:`rowcontains`, :func:`ismember`.
 #. Windows: Added MySQL/MariaDB SQL driver.
+#. Bug Fix: Printing a dataframe now correctly prints a newline before the headers.
+#. Bug Fix: Indexing a data frame with a string array could cause a crash in certain cases.
+#. Bug Fix: Specific edge cases could cause incorrect metadata to be applied in indexing operations. Numerical results were not affected.
 #. Bug Fix: :func:`strlen` now correctly works with dataframe category/date columns.
 #. Bug Fix: Memory leak in :func:`seqaposix` and :func:`seqadt` for certain cases.
 #. Bug Fix: Memory leak in :func:`eye` for certain cases.
+#. Bug Fix: Dataframe comparisons against a string array operand could crash.
 
 21.0.5
 ------
