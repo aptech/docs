@@ -598,6 +598,7 @@ Use the :func:`getColTypes` procedure to lookup the type of the variables in a d
 The above code will print:
 
 ::
+
       type
      String
    Category
@@ -615,6 +616,7 @@ The above code will print:
 will return:
 
 ::
+
         type
     Category
         Date
