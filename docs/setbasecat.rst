@@ -37,14 +37,14 @@ Examples
     // Load yarn data file
     fname = getGAUSSHome() $+ "examples/yarn.xlsx";
     yarn = loadd(fname, "cat(yarn_length) + cycles");
-    
+
     // Get categorical labels for 'yarn_length'
     print "Original categorical labels:";
     getColLabels(yarn, "yarn_length");
-    
+
     // Change base case to 'low'
     yarn = setBaseCat(yarn, "low", "yarn_length");
-    
+
     print "";
     print "Updated categorical labels:";
     getColLabels(yarn, "yarn_length");
@@ -56,24 +56,24 @@ The above code will print out:
 
     Original categorical labels:
 
-            high 
-             low 
-             med 
+            high
+             low
+             med
 
-       0.0000000 
-       1.0000000 
-       2.0000000 
+       0.0000000
+       1.0000000
+       2.0000000
 
     Updated categorical labels:
 
-             low 
-            high 
+             low
+            high
              med 
 
-       0.0000000 
-       1.0000000 
-       2.0000000 
+       0.0000000
+       1.0000000
+       2.0000000
 
 
 
-.. seealso:: Functions :func:`setColtypes`, :func:`getColLabels`, :func:`setColLabels`
+.. seealso:: Functions :func:`setColTypes`, :func:`getColLabels`, :func:`setColLabels`

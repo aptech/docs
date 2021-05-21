@@ -67,4 +67,4 @@ and *fmt_time_stamp* will be equal to:
 
     %Y-%m-%d %H:%M:%S
 
-.. seealso:: Functions :func:`setColtypes`, :func:`setColDateFormats`
+.. seealso:: Functions :func:`setColTypes`, :func:`setColDateFormats`

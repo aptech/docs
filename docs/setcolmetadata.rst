@@ -27,12 +27,12 @@ Format
 Note
 ---------
 
-The following variables are equal to their corresponding values in the description of *types* above: 
+The following variables are equal to their corresponding values in the description of *types* above:
 
 * META_TYPE_STRING
 * META_TYPE_NUMBER
 * META_TYPE_CATEGORY
-* META_TYPE_DATE 
+* META_TYPE_DATE
 
 They may be used as shown in the example below.
 
@@ -64,10 +64,10 @@ The above code will print:
 
 ::
 
-       Departure    Age 
-      1970-01-12     23 
+       Departure    Age
+      1970-01-12     23
       1970-04-26     19
 
 
 
-.. seealso:: Functions :func:`setColNames`, :func:`setColLabels`, :func:`setColtypes`, :func:`setColDateFormats`
+.. seealso:: Functions :func:`setColNames`, :func:`setColLabels`, :func:`setColTypes`, :func:`setColDateFormats`
