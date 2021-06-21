@@ -75,7 +75,6 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
         :text: Explore
         :classes: btn-outline-primary btn-block stretched-link
 
-
     ---
 
     Tutorials
@@ -95,6 +94,27 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
         :text: Leave
         :classes: btn-outline-primary btn-block stretched-link
 
+    ---
+
+    Textbook Examples
+    ^^^^^^^^^^^^^^^^^
+
+    .. container:: icon-large
+
+      :fa:`book`
+
+    .. container:: text-left
+
+      View textbook examples that you can run in GAUSS
+
+    +++
+
+    .. link-button:: textbook-examples/index
+        :type: ref
+        :text: Explore
+        :classes: btn-outline-primary btn-block stretched-link
+
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -104,4 +124,5 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
    machine-learning
    changelog
    tspdlib/docs/index
+   textbook-examples/index
 

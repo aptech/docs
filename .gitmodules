@@ -1,3 +1,6 @@
 [submodule "docs/tspdlib"]
 	path = docs/tspdlib
 	url = https://github.com/aptech/tspdlib.git
+[submodule "docs/textbook-examples"]
+	path = docs/textbook-examples
+	url = https://github.com/aptech/gauss-textbook-examples
