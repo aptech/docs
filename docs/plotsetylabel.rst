@@ -75,7 +75,7 @@ Example 2: Setting both Y-axes
     plotSetWhichYAxis(&myPlot, "left" $| "right");
 
     // Set the left and right Y-axis labels
-    plotSetYLabel(&myPlot, "Number of subjects", "Percent classified");
+    plotSetYLabel(&myPlot, "Number of subjects"$|"Percent classified");
 
     // Plot the data
     plotXY(myPlot, x, y);
@@ -132,4 +132,3 @@ menu. See the `GAUSS Graphics chapter`_ for more information on the
 methods available for customizing your graphs.
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetXLabel`, :func:`plotSetXTicInterval`, :func:`plotSetXTicLabel`, :func:`plotSetZLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`
-
