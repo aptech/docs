@@ -4,6 +4,16 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.7
+------
+
+#. Bug Fix: :func:`strctodt` and :func:`strctoposix` would set the finalized date to 1 day prior if the day was not specified in the string.
+#. Bug Fix: Deleting a dataframe from the data page while also having the dataframe open in the symbol editor would cause a crash.
+#. Bug Fix: Non UTF-8 encoded dataframe category string values could sometimes display incorrectly in the symbol editor.
+#. Bug Fix: Autcomplete could trigger in comments or strings if the cursor was at the very end of the file.
+#. Bug Fix: The autocomplete popup could show up in the Program Input/Output window (PGM) at inconvenient times, such as input during a :func:`cons` call.
+#. Bug Fix: When a specific operator prefixes a symbol, hovering while debugging or trying to watch the symbol with Ctrl+E would retain a leading period character.
+
 21.0.6
 ------
 
