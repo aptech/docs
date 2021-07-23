@@ -857,6 +857,20 @@ class GAUSSDomain(Domain):
             if data[0] in docnames:
                 self.data['modules'][modname] = data
 
+    def _search_objects(self, name, objects, objtypes=None):
+        newname = None
+        newobj = None
+
+        for k in objects:
+            if name.casefold() == k.casefold():
+                if not objtypes or objects[k][1] in objtypes:
+                    newname = k
+                    newobj = objects[k]
+
+                break
+
+        return (newname, newobj, )
+
     def find_obj(self, env, modname, classname, name, type, searchmode=0):
         # type: (BuildEnvironment, unicode, unicode, unicode, unicode, int) -> List[Tuple[unicode, Any]]  # NOQA
         """Find a Python object for "name", perhaps using the given module
@@ -873,6 +887,7 @@ class GAUSSDomain(Domain):
         matches = []  # type: List[Tuple[unicode, Any]]
 
         newname = None
+        newobj = None
         if searchmode == 1:
             if type is None:
                 objtypes = list(self.object_types)
@@ -880,45 +895,50 @@ class GAUSSDomain(Domain):
                 objtypes = self.objtypes_for_role(type)
             if objtypes is not None:
                 if modname and classname:
-                    fullname = modname + '.' + classname + '.' + name
-                    if fullname in objects and objects[fullname][1] in objtypes:
-                        newname = fullname
+                    newname, newobj = self._search_objects(modname + '.' + classname + '.' + name, objects, objtypes)
+
+                if not newname and modname:
+                    newname, newobj = self._search_objects(modname + '.' + name, objects, objtypes)
+
                 if not newname:
-                    if modname and modname + '.' + name in objects and \
-                       objects[modname + '.' + name][1] in objtypes:
-                        newname = modname + '.' + name
-                    elif name in objects and objects[name][1] in objtypes:
-                        newname = name
-                    else:
-                        # "fuzzy" searching mode
-                        searchname = '.' + name
-                        matches = [(oname, objects[oname]) for oname in objects
-                                   if oname.endswith(searchname) and
-                                   objects[oname][1] in objtypes]
+                    newname, newobj = self._search_objects(name, objects, objtypes)
+
+                if not newname:
+                    # "fuzzy" searching mode
+                    searchname = ('.' + name).casefold()
+                    matches = [(oname, objects[oname]) for oname in objects
+                               if oname.casefold().endswith(searchname) and
+                               objects[oname][1] in objtypes]
         else:
             # NOTE: searching for exact match, object type is not considered
-            if name in objects:
-                newname = name
-            elif type == 'mod':
+
+            newname, newobj = self._search_objects(name, objects)
+
+            #if name in objects:
+            #    newname = name
+            if not newname and type == 'mod':
                 # only exact matches allowed for modules
                 return []
-            elif classname and classname + '.' + name in objects:
-                newname = classname + '.' + name
-            elif modname and modname + '.' + name in objects:
-                newname = modname + '.' + name
-            elif modname and classname and \
-                    modname + '.' + classname + '.' + name in objects:
-                newname = modname + '.' + classname + '.' + name
-            # special case: builtin exceptions have module "exceptions" set
-            elif type == 'exc' and '.' not in name and \
-                    'exceptions.' + name in objects:
-                newname = 'exceptions.' + name
-            # special case: object methods
-            elif type in ('func', 'meth') and '.' not in name and \
-                    'object.' + name in objects:
-                newname = 'object.' + name
+
+            if not newname and classname:
+                newname, newobj = self._search_objects(classname + '.' + name, objects)
+            
+            if not newname and modname:
+                newname, newobj = self._search_objects(modname + '.' + name, objects)
+
+            if not newname and modname and classname:
+                newname, newobj = self._search_objects(modname + '.' + classname + '.' + name, objects)
+
+            if not newname and type == 'exc' and '.' not in name:
+                # special case: builtin exceptions have module "exceptions" set
+                newname, newobj = self._search_objects('exceptions.' + name, objects)
+
+            if not newname and type in ('func', 'meth') and '.' not in name:
+                # special case: object methods
+                newname, newobj = self._search_objects('object.' + name, objects)
+
         if newname is not None:
-            matches.append((newname, objects[newname]))
+            matches.append((newname, newobj))
         return matches
 
     def resolve_xref(self, env, fromdocname, builder,
