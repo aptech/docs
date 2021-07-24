@@ -13,6 +13,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: Autcomplete could trigger in comments or strings if the cursor was at the very end of the file.
 #. Bug Fix: The autocomplete popup could show up in the Program Input/Output window (PGM) at inconvenient times, such as input during a :func:`cons` call.
 #. Bug Fix: When a specific operator prefixes a symbol, hovering while debugging or trying to watch the symbol with Ctrl+E would retain a leading period character.
+#. Bug Fix: :func:`timediffdt` and :func:`timediffposix` were incorrectly returning output as a dataframe.
+#. Bug Fix: :func:`aggregate` now correctly returns result as a dataframe.
+#. Bug Fix: An empty date format string was allowed in :func:`setcoldateformats`. Now uses default date format in that case.
 
 21.0.6
 ------
