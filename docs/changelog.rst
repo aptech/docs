@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+21.0.8
+------
+
+#. Bug Fix: :func:`plotContour` would render incorrectly if a custom X/Y range was specified.
+
 21.0.7
 ------
 
