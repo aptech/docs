@@ -4,6 +4,18 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+22.0.0
+------
+
+#. Graphics: Added support for outliers to :func:`plotBox`.
+#. Graphics: Added support for controlling the outlier jitter width to :func:`plotBox`.
+#. Graphics: Attributes for each axis can be assigned separately. The existing :func:`plotSetAxesPen` convenience procedure will still assign attributes to all axes simultaneously.
+#. Graphics: The font can now be specified for :func:`plotContour` labels.
+#. Graphics: Axis tics can now be displayed on the inside of the chart (as opposed to outside only) or hidden completely with the :func:`plotSetTicsPosition` function.
+#. Graphics: Axes are now at a higher Z-order than series, so lines will not render on top of the axes lines.
+#. Graphics: Added new function :func:`plotSetOutlineEnabled` to allow a box outline around the entire chart. Outline attributes are controlled via axis properties using :func:`plotSetAxesPen` or individually with :func:`plotSetXAxisLinePen`, :func:`plotSetYAxisLinePen`:func:`plotSetXAxisLinePen`
+
+
 21.0.8
 ------
 
