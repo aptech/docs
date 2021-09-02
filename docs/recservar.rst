@@ -8,7 +8,7 @@ Computes a vector autoregressive recursive (VAR) series.
 
 Format
 ----------------
-.. function:: y = recserVAR(x, y0, pi\_)
+.. function:: y = recserVAR(x, y0, pi_)
 
     :param x: data matrix where :math:`N` is the number of observations and :math:`K` is the number of vectors in the series
     :type x: NxK matrix
