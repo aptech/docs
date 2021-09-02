@@ -14,6 +14,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Graphics: Axis tics can now be displayed on the inside of the chart (as opposed to outside only) or hidden completely with the :func:`plotSetTicsPosition` function.
 #. Graphics: Axes are now at a higher Z-order than series, so lines will not render on top of the axes lines.
 #. Graphics: Added new function :func:`plotSetOutlineEnabled` to allow a box outline around the entire chart. Outline attributes are controlled via axis properties using :func:`plotSetAxesPen` or individually with :func:`plotSetXAxisLinePen`, :func:`plotSetYAxisLinePen`:func:`plotSetXAxisLinePen`
+#. Performance: :func:`movingave` up to 4-6x faster.
 
 
 21.0.8
