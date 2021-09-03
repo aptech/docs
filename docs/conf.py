@@ -110,6 +110,7 @@ html_context = {
     'css_files': [
         '_static/theme_override.css',  # override wide tables in RTD theme
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
+        'https://fonts.googleapis.com/css?family=Lato',
 #        '_static/panels-bootstrap.min.css',
     ],
 }
