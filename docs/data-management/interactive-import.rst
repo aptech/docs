@@ -115,7 +115,7 @@ Find specific variables in the Variables list
 
 Type in the filter box below the **Variables** list to filter the variables by name or type. The **Variables** list will be dynamically updated with matches after each new character.
 
-.. note:: You can filter the variables by type. For example, entering `category` in the filter text box will show all variables that are listed as categorical.
+.. note:: You can filter the variables by type. For example, entering ``category`` in the filter text box will show all variables that are listed as categorical.
 
 Select multiple variables
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -123,7 +123,7 @@ Select multiple variables
 .. figure:: ../_static/images/data-import-select-multiple.jpg
     :scale: 50%
 
-Click on the variable names while pressing the `Control` or `Command` key to select multiple variables that are not next to each other. Once selected, you can add, remove, or change their types all at once.
+Click on the variable names while pressing the **Control** or **Command** key to select multiple variables that are not next to each other. Once selected, you can add, remove, or change their types all at once.
 
 
 Select a group of variables
@@ -132,7 +132,7 @@ Select a group of variables
 .. figure:: ../_static/images/data-import-select-group.jpg
     :scale: 50%
 
-Click on the name of the first variable in the group. Press `Shift` and click on the name of the last variable in the group.
+Click on the name of the first variable in the group. Press **Shift** and click on the name of the last variable in the group.
 
 You may now perform actions on this entire group such as changing the variable types or selecting the variables for import.
 
