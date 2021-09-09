@@ -13,7 +13,7 @@ Data Smoothing
 +------------------------+-----------------------------------------------------------------------------+
 | :func:`curve`          | Computes a one-dimensional smoothing curve.                                 |
 +------------------------+-----------------------------------------------------------------------------+
-| :func:`smooth`         | Computes a two-dimensional interpolatory spline.                            |
+| :func:`spline`         | Computes a two-dimensional interpolatory spline.                            |
 +------------------------+-----------------------------------------------------------------------------+
 
 Finding moving averages
@@ -22,7 +22,7 @@ Three procedures are available for computing moving averages.
 
 * The :func:`movingave` procedure computes the moving average given a specified order of moving average.
 * The :func:`movingaveWgt` procedure computes the weighted moving average given a specified order and weights.
-* The :func:`movingaveExpWgtave` procedure computes  exponentially weighted moving average of a series given a specified order of moving average and a smoothing coefficient.
+* The :func:`movingaveExpWgt` procedure computes exponentially weighted moving average of a series given a specified order of moving average and a smoothing coefficient.
 
 Example: Smoothing a random walk series
 ++++++++++++++++++++++++++++++++++++++++++
