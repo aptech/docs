@@ -16,14 +16,7 @@ Format
 
     :param newStyle: new line styles. Options include:
 
-        .. csv-table::
-            :widths: auto
-    
-            "1", "Solid line."
-            "2", "Dash line."
-            "3", "Dot line."
-            "4", "Dash-Dot line."
-            "5", "Dash-Dot-Dot line."
+        .. include:: include/plotpenstyletable.rst
 
     :type newStyle: matrix
 
@@ -53,11 +46,7 @@ Examples
 Remarks
 -------
 
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_ for more information on the
-methods available for customizing your graphs.
+.. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetTitle`, :func:`plotSetLineSymbol`
 

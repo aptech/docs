@@ -61,9 +61,6 @@ ticks of 1. If we chose 9 ticks, the spacing between ticks would be 0.889.
 In that case, GAUSS would instead draw 8 ticks for a more even
 appearance.
 
-For more control over the x-axis of time series plots, use
-:func:`plotSetXTicInterval` instead.
-
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotSetXTicInterval`, :func:`plotSetXLabel`

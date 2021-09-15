@@ -1,15 +1,15 @@
 
-plotSetGrid
+plotSetYGrid
 ==============================================
 
 Purpose
 ----------------
-Controls the settings for the background grid of a plot.
+Controls the settings for the background grid of a plot on the Y-Axis.
 
 Format
 ----------------
-.. function:: plotSetGrid(&myPlot, tickStyle[, color])
-              plotSetGrid(&myPlot, onOff)
+.. function:: plotSetYGrid(&myPlot, tickStyle[, color])
+              plotSetYGrid(&myPlot, onOff)
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -35,13 +35,13 @@ Examples
     myPlot = plotGetDefaults("scatter");
 
     // Set grid to be black and on the major ticks only
-    plotSetGrid(&myPlot, "major", "black");
+    plotSetYGrid(&myPlot, "major", "black");
 
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
 
     // Turn off the grid
-    plotSetGrid(&myPlot, "off");
+    plotSetYGrid(&myPlot, "off");
 
-.. seealso:: Functions :func:`plotCustomLayout`, :func:`plotSetTitle`, :func:`plotSetXGrid`, :func:`plotSetYGrid`
+.. seealso:: Functions :func:`plotSetGrid`, :func:`plotSetYGridPen`, :func:`plotSetXGrid`
 

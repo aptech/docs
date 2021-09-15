@@ -7,16 +7,23 @@ The following is a list of changes from the previous version of GAUSS.
 22.0.0
 ------
 
+#. Added new preprocessor ``#includedir`` to add current file directory to source path. If executed from the Program Input/Output Window (PGM), uses current working directory.
+#. ``#include`` and ``#includedir`` statements can now be processed with ``F4`` in the GUI.
+#. Added new function :func:`resetsourcepaths` to restore source path to initial value from gauss.cfg.
+#. Duplicate header prevention was added for dataframes. This can be toggled via policy in gauss.cfg with the ``policy_check_df_header_dupes`` key.
+#. Added new function :func:`asdataframe` to allow automatic conversion of scalar/matrix/string/string array to a dataframe.
+#. :func:`setcolnames` now has header duplicate checking and auto-renaming if the ``policy_check_df_header_dupes`` policy is enabled in gauss.cfg.
 #. Graphics: Added support for outliers to :func:`plotBox`.
 #. Graphics: Added new function :func:`plotSetJitterRange` to control the jitter range for :func:`plotScatter` and :func:`plotBox` outliers.
 #. Graphics: Attributes for each axis can be assigned separately. The existing :func:`plotSetAxesPen` convenience procedure will still assign attributes to all axes simultaneously.
 #. Graphics: The font can now be specified for :func:`plotContour` labels.
 #. Graphics: Axis tics can now be displayed on the inside of the chart (as opposed to outside only) or hidden completely with the :func:`plotSetTicsPosition` function.
 #. Graphics: Axes are now at a higher Z-order than series, so lines will not render on top of the axes lines.
-#. Graphics: Added new function :func:`plotSetOutlineEnabled` to allow a box outline around the entire chart. Outline attributes are controlled via axis properties using :func:`plotSetAxesPen` or individually with :func:`plotSetXAxisLinePen`, :func:`plotSetYAxisLinePen`:func:`plotSetXAxisLinePen`
+#. Graphics: Added new function :func:`plotSetOutlineEnabled` to allow a box outline around the entire chart. Outline attributes are controlled via axis properties using :func:`plotSetAxesPen` or individually with :func:`plotSetXPen` and :func:`plotSetYPen`.
 #. Graphics: Added convenience functions for horizontal/vertical bars (eg recession bars): :func:`plotAddHBar` and :func:`plotAddVBar`.
 #. Graphics: Added convenience functions for horizontal/vertical lines: :func:`plotAddHLine` and :func:`plotAddVLine`.
 #. Performance: :func:`movingave` up to 4-6x faster.
+#. Bug Fix: :func:`setcollabels` incorrectly allowed the indices argument to be omitted.
 
 21.0.8
 ------

@@ -105,8 +105,8 @@ nav.navbar {
 .bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) .optional {
  display:inline-block;
  padding:0 4px;
- color:#000;
- font-weight:700;
+ color:rgba(var(--pst-color-paragraph),1);
+ font-weight:300;
 }
 
 :root {

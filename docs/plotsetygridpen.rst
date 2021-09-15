@@ -14,13 +14,13 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param tickStyle: specifies whether grid marks should be drawn on major tick marks. Options: [``"major"``, ``"minor"``, ``"both"``].
+    :param tickStyle: specifies whether grid marks should be drawn on major tick marks. Options: ``"major"``
     :type tickStyle: string
 
     :param color: Optional argument, name or rgb value of the new color.
     :type color: string
 
-    :param onOff: turns the grid on or off. Options: [``"on"``, ``"off"``]. If used, this must be the only argument passed to the function besides the :class:`plotControl` structure pointer.
+    :param onOff: turns the grid on or off. Options: ``"on"`` or ``"off"``. If used, this must be the only argument passed to the function besides the :class:`plotControl` structure pointer.
     :type onOff: string
 
 Examples
@@ -43,5 +43,4 @@ Examples
     // Turn off the grid
     plotSetGrid(&myPlot, "off");
 
-.. seealso:: Functions :func:`plotCustomLayout`, :func:`plotSetTitle`, :func:`plotSetXGrid`, :func:`plotSetYGrid`
-
+.. seealso:: Functions :func:`plotCustomLayout`, :func:`plotSetTitle`

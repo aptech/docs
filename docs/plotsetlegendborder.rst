@@ -51,11 +51,8 @@ Remarks
 * You can hide the legend border by either setting it to the background color or using :func:`plotSetLegendBkd` to make
   the legend background transparent.
 * :func:`plotSetLegendBorder` is supported for use with all plot types except for PQG graphics and :func:`plotSurface`.
-* This function sets an attribute in a :class:`plotControl` structure. It does not
-  affect an existing graph, or a new graph drawn using the default
-  settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-  menu. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_ for more information on the
-  methods available for customizing your graphs.
+
+.. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotSetLegend`, :func:`plotSetLegendBkd`, :func:`plotSetLegendFont`
 

@@ -159,10 +159,7 @@ When the text interpreter is set to use LaTeX:
 The ``plain`` text interpreter will allow you to pass in characters that
 would be invalid HTML, such as the symbols '``<``' and '``>``'.
 
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See `GAUSS Graphics <GG-GAUSSGraphics.html>`_, for more information on the
-methods available for customizing your graphs.
+.. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetYLabel`, :func:`plotSetXLabel`, :func:`plotSetTitle`, :func:`plotSetLegend`
+

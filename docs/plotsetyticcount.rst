@@ -64,10 +64,7 @@ between ticks of 0.2. If we chose 10 ticks, the spacing between ticks would
 be 0.222. In that case, GAUSS would instead draw 10 ticks for a more even
 appearance.
 
-This function sets an attribute in a :class:`plotControl` structure. It does not
-affect an existing graph, or a new graph drawn using the default
-settings that are accessible from the :menuselection:`Tools --> Preferences --> Graphics`
-menu. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_ for more information on the
-methods available for customizing your graphs.
+.. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotSetXTicInterval`, :func:`plotSetXLabel`
+

@@ -1,14 +1,14 @@
 
-plotSetAxesPen
+plotSetZPen
 ==============================================
 
 Purpose
 ----------------
-Sets the color for the axes line.
+Sets the color for the Z-Axis line.
 
 Format
 ----------------
-.. function:: plotSetAxesPen(&myPlot, thickness[, clr[, style]])
+.. function:: plotSetZPen(&myPlot, thickness[, clr[, style]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -37,7 +37,7 @@ Examples
     myPlot = plotGetDefaults("xy");
 
     // Set axis to be 2 pixeles wide and black
-    plotSetAxesPen(&myPlot, 2, "black");
+    plotSetZPen(&myPlot, 2, "black");
 
     // Create data
     x = seqa(0.1, 0.1, 50);
@@ -51,5 +51,5 @@ Remarks
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineStyle`, :func:`plotSetXPen`, :func:`plotSetYPen`
+.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineStyle`, :func:`plotSetAxesPen`, :func:`plotSetXPen`, :func:`plotSetXPen`
 
