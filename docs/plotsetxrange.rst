@@ -13,14 +13,17 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param x_min: minimum limit of the x-axis.
-    :type x_min: Scalar
+    :param x_min: minimum limit of the x-axis. 
+    :type x_min: Scalar, or 2x1 matrix
 
     :param x_max: maximum limit of the x-axis.
-    :type x_max: Scalar
+    :type x_max: Scalar, or 2x1 matrix
 
 Examples
 ----------------
+
+Basic usage
++++++++++++++++
 
 ::
 
@@ -34,10 +37,11 @@ Examples
     plotSetXRange(&myPlot, -5, 5);
 
     // Create and plot data using our x-range
-    x_1 = rndn(100, 1);
-    x_2 = rndn(100, 1);
+    x = rndn(100, 1);
+    y = rndn(100, 1);
 
-    plotScatter(myPlot, x_1, x_2);
+    plotScatter(myPlot, x, y);
+
 
 Remarks
 -------
