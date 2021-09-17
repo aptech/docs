@@ -1,23 +1,21 @@
 
-plotSetAxesPen
+plotSetZShow
 ==============================================
 
 Purpose
 ----------------
-Sets the color for the axes line.
+Hides or enables the display of the z-axis.
 
 Format
 ----------------
-.. function:: plotSetAxesPen(&myPlot, thickness[, clr])
+.. function:: plotSetZShow(&myPlot, is_on)
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param thickness: the thickness of the axis line in pixels.
-    :type thickness: Scalar
+    :param is_on: A 0 to hide the z-axis, or a 1 to show it. 
+    :type is_on: Scalar
 
-    :param clr: Optional argument, name or rgb value of the new color for the axes.
-    :type clr: string
 
 Examples
 ----------------
@@ -25,25 +23,25 @@ Examples
 ::
 
     // Declare plotControl structure
+    // and fill with default settings
     struct plotControl myPlot;
+    myPlot = plotGetDefaults("surface");
 
-    // Initialize plotControl structure
-    myPlot = plotGetDefaults("xy");
-
-    // Set axis to be 2 pixeles wide and black
-    plotSetAxesPen(&myPlot, 2, "black");
+    // Turn off the z-axis
+    plotSetZShow(&myPlot, 0);
 
     // Create data
-    x = seqa(0.1, 0.1, 50);
-    y = sin(x)~cos(x);
+    y = seqa(0.1, 0.1, 50);
+    x = y';
+    z = sin(x)+sin(y);
 
-    // Plot the data with the new line colors
-    plotXY(myPlot, x, y);
+    // Plot the data
+    plotSurface(myPlot, x, y, z);
 
 Remarks
 -------
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`
+.. seealso:: Functions :func:`plotSetXRange`, :func:`plotSetXShow`
 
