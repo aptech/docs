@@ -95,5 +95,5 @@ Remarks
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`
+.. seealso:: Functions :func:`plotSetXShow`, :func:`plotSetYRange`
 
