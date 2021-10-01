@@ -25,24 +25,113 @@ Format
 Examples
 ----------------
 
+Example 1: Overlapping outliers in a box plot
++++++++++++++++++++++++++++++++++++++++++++++++
+
+If there are a large number of outliers in a box plot, the scatter points may overlap, making it impossible to see how many outliers there are. Our box plot below illustrates this. 
+
 ::
 
-    // Declare plotControl structure               
-    struct plotControl myPlot;
+    // Get file name with full path
+    fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+
+    // Load one variable from the Excel file 
+    v = loadd(fname, "volume");
     
-    // Initialize plotControl structure
-    myPlot = plotGetDefaults("scatter");
+    // Declare plotControl structure
+    // and fill with default settings
+    struct plotControl plt;
+    plt = plotGetDefaults("box");
     
-    // Set all lines to have a jitter range of 0.25
-    jitterRange = 0.25;
-    plotSetJitterRange(&myPlot, jitterRange);
+    // Set outlier points to randomly
+    // range 10% of the width of the box
+    // in either direction
+    plotSetJitterRange(&plt, 0.1);
+
+    // Set outlier symbol to ellipses
+    // with a width of 5 pixels
+    plotSetLineSymbol(&plt, 0, 5);
+
+    // Set the line thickness for the
+    // box and outlier outline to 1 pixel
+    plotSetLineThickness(&plt, 1);
     
-    // Create data
-    x = seqa(0.1, 1, 50);
-    y = sin(x)~cos(x);
+    plotSetYLabel(&plt, "Millions");
     
-    // Plot the data with the new jitter range settings.
-    plotScatter(myPlot, x, y);
+    plotBox(plt, "Volume", v);
+
+.. figure:: _static/images/plotsetjitter-cr-scatter-1.jpg
+   :scale: 50 %
+
+
+Example 2: Overlapping scatter plot
+++++++++++++++++++++++++++++++++++++++
+
+Sometimes scatter points can overlap for data with integer values. This makes it impossible to see the frequency of the data at each point. Our plot of housing data below shows this. 
+
+::
+
+    // Create file name with full path
+    fname = getGAUSSHome() $+ "examples/housing.csv";
+    
+    // Load specified variables from the CSV file
+    houses = loadd(fname, "beds + baths");
+    
+    // Declare plotControl structure
+    // and fill with default settings
+    struct plotControl plt;
+    plt = plotGetDefaults("scatter");
+    
+    plotSetXTicInterval(&plt, 1);
+    plotSetYTicInterval(&plt, 1);
+    plotSetXRange(&plt, 1, 6);
+    plotSetYRange(&plt, 0, 5);
+    
+    // Set X and Y axis labels
+    plotSetXLabel(&plt, "beds", "helvetica neue", 14);
+    plotSetYLabel(&plt, "baths");
+    
+    // Draw plot with applied settings
+    plotScatter(plt, houses[.,"beds"], houses[.,"baths"]);
+
+
+.. figure:: _static/images/plotsetjitter-cr-scatter-1.jpg
+   :scale: 50 %
+
+We can resolve this problem by adding a small ammount or jitter, or random perturbation to the scatter points. In the example below, the scatter points are randomly shifted up to 0.2 to the right and left. This gives us a better sense of the distribution of the data.
+
+
+::
+
+    // Create file name with full path
+    fname = getGAUSSHome() $+ "examples/housing.csv";
+    
+    // Load specified variables from the CSV file
+    houses = loadd(fname, "beds + baths");
+    
+    // Declare plotControl structure
+    // and fill with default settings
+    struct plotControl plt;
+    plt = plotGetDefaults("scatter");
+    
+    plotSetXTicInterval(&plt, 1);
+    plotSetYTicInterval(&plt, 1);
+    plotSetXRange(&plt, 1, 6);
+    plotSetYRange(&plt, 0, 5);
+    
+    // Set X and Y axis labels
+    plotSetXLabel(&plt, "beds", "helvetica neue", 14);
+    plotSetYLabel(&plt, "baths");
+
+    // Add jitter along the x-axis
+    plotSetJitterRange(&plt, 0.2);
+    
+    // Draw plot with applied settings
+    plotScatter(plt, houses[.,"beds"], houses[.,"baths"]);
+
+
+.. figure:: _static/images/plotsetjitter-cr-scatter-2.jpg
+   :scale: 50 %
 
 Remarks
 -------
