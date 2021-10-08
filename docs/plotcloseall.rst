@@ -18,7 +18,6 @@ Examples
     // Create data
     x = rndn(1000, 1);
     x2 = rndn(1000, 1);
-    x3 = rndn(1000, 1);
 
     // Plot first vector as a percentage histogram with 30 bins
     plotHistP(x, 30);
@@ -27,8 +26,7 @@ Examples
     // will not overwrite the histogram just created
     plotOpenWindow();
 
-    // Plot second vector, drawing over the previously created
-    // graph.
+    // Plot second vector, drawing in a new graph tab
     plotHistP(x2, 30);
 
     // Close both graphics windows
