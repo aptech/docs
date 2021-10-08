@@ -43,6 +43,8 @@ P
     plotaddsurface
     plotaddtextbox
     plotaddts
+    plotaddvbar
+    plotaddvline
     plotaddxy
     plotaddxyfill
     plotarea
@@ -52,6 +54,7 @@ P
     plotcanvassize
     plotcdfempirical
     plotclearlayout
+    plotcloseall
     plotcontour
     plotcustomlayout
     plotFreq
@@ -80,6 +83,7 @@ P
     plotsetlegendborder
     plotsetlegendfont
     plotsetlinecolor
+    plotsetlinepen
     plotsetlinestyle
     plotsetlinesymbol
     plotsetlinethickness

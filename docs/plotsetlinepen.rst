@@ -13,17 +13,17 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param thickness: the thickness of the line in pixels.
-    :type thickness: Scalar
+    :param thickness: the thickness of the line(s) in pixels.
+    :type thickness: Scalar or Nx1 matrix
 
-    :param clr: Optional argument, name or rgb value of the new color for the axes.
-    :type clr: string
+    :param clr: Optional argument, name or rgb value of the new color(s) for the line(s).
+    :type clr: string or Nx1 string array
 
-    :param style: the style of the pen. Options include:
+    :param style: the style(s) of the pen for the line(s). Options include:
 
         .. include:: include/plotpenstyletable.rst
 
-    :type style: Scalar
+    :type style: Scalar or Nx1 matrix
 
 Examples
 ----------------
@@ -39,8 +39,9 @@ Basic example
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set axis to be 2 pixeles wide and black
-    plotSetLinePen(&myPlot, 2, "black");
+    // Set lines to be 2 pixels wide. Set
+    // the first line to be black and the second to be gray
+    plotSetLinePen(&myPlot, 2, "black" $| "gray");
 
     // Create data
     x = seqa(0.1, 0.1, 50);
@@ -54,6 +55,9 @@ Example setting all options
 +++++++++++++++++++++++++++++
 
 .. figure:: _static/images/plotsetlinepen-cr-2.jpg
+    :scale: 50%
+
+::
 
     // Declare plotControl structure
     // and fill with default settings
@@ -69,7 +73,7 @@ Example setting all options
     */
     clrs = getColorPalette("accent");
     styles = { 1, 2, 3 };
-    plotSetLinePen(&myPlot, 3, clrs, styles);
+    plotSetLinePen(&myPlot, 2, clrs, styles);
     
     // Create 3 series of data
     x = seqa(0.1, 0.1, 50);
