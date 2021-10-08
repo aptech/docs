@@ -5,7 +5,7 @@ plotSetJitterRange
 Purpose
 ----------------
 
-Sets the allowable jitter range for :func:`plotBox` or :func:`plotScatter` plots.
+Adds a small random perturbation (jitter) to :func:`plotBox` outliers, or :func:`plotScatter` plots so that overlapping observations can be better seen.
 
 Format
 ----------------
@@ -16,9 +16,10 @@ Format
 
     :param range: the jitter range. 
 
-        For box plots, the allowable range is between [0.0 - 1.0], representing the percentage of the box width that jitter is allowed to occur. The default value is 1.0 (jitter spans the entire box width). 
+        For **box plots**, the allowable range is between [0.0 - 1.0], representing the percentage of the box width that jitter is allowed to occur. The default value is 0.0 (no jitter). 
 
-        For scatter plots, this is a fixed value representing how far from the initial `x` value in either direction that points will be plotted. The default value is 0.0 (no jitter).
+
+        For **scatter plots**, this is a fixed value representing how far from the initial `x` value in either direction that points will be plotted. The default value is 0.0 (no jitter).
 
     :type range: 1xN matrix
 
@@ -29,6 +30,9 @@ Example 1: Overlapping outliers in a box plot
 +++++++++++++++++++++++++++++++++++++++++++++++
 
 If there are a large number of outliers in a box plot, the scatter points may overlap, making it impossible to see how many outliers there are. Our box plot below illustrates this. 
+
+.. figure:: _static/images/plotbox-jitter-cr-1.jpg
+   :scale: 50 %
 
 ::
 
@@ -44,9 +48,9 @@ If there are a large number of outliers in a box plot, the scatter points may ov
     plt = plotGetDefaults("box");
     
     // Set outlier points to randomly
-    // range 10% of the width of the box
+    // range 70% of the width of the box
     // in either direction
-    plotSetJitterRange(&plt, 0.1);
+    plotSetJitterRange(&plt, 0.7);
 
     // Set outlier symbol to ellipses
     // with a width of 5 pixels
@@ -56,12 +60,10 @@ If there are a large number of outliers in a box plot, the scatter points may ov
     // box and outlier outline to 1 pixel
     plotSetLineThickness(&plt, 1);
     
-    plotSetYLabel(&plt, "Millions");
+    plotSetYLabel(&plt, "Millions of shares");
     
-    plotBox(plt, "Volume", v);
+    plotBox(plt, "Volume", v ./ 1e6);
 
-.. figure:: _static/images/plotsetjitter-cr-scatter-1.jpg
-   :scale: 50 %
 
 
 Example 2: Overlapping scatter plot
