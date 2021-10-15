@@ -1,73 +1,70 @@
 
-plotAddArrow
+plotAddHLine
 ==============================================
 
 Purpose
 ----------------
-Adds an arrow to an existing graph.
+Adds a horizontal line to an existing plot.
 
 Format
 ----------------
-.. function:: plotAddArrow([myAnnotation, ]x_start, y_start, x_end, y_end, head_size)
+.. function:: plotAddHLine([myPlot, ]y)
 
-    :param myAnnotation: Optional argument. An instance of a :class:`plotAnnotation` structure.
-    :type myAnnotation: struct
+    :param myPlot: Optional argument. An instance of a :class:`plotControl` structure.
+    :type myPlot: struct
 
-    :param x_start: the X coordinate for the start of each respective arrow.
-    :type x_start: scalar or Nx1 vector
+    :param y: the Y coordinate(s) specifying where the horizontal lines should be added.
+    :type y: scalar or Nx1 vector
 
-    :param y_start: the Y coordinate for the start of each respective arrow.
-    :type y_start: scalar or Nx1 vector
-
-    :param x_end: the X coordinate for the end of each respective arrow.
-    :type x_end: scalar or Nx1 vector
-
-    :param y_end: the Y coordinate for the end of each respective arrow.
-    :type y_end: scalar or Nx1 vector
-
-    :param head_size: the size of the arrowhead(s) in pixels. The first element of *head_size* is the size for
-        head at the end of the arrow. The second element is the size of the head at the start of the arrow.
-    :type head_size: 2x1 vector
 
 Examples
 ----------------
 
-Basic usage
-+++++++++++
+This example creates a scatter plot of two variables and adds horizontal lines representing the 95% confidence interval and the median for the Y variable.
+
+.. figure:: _static/images/plotaddhline-cr-1.jpg
+   :scale: 50 %
 
 ::
 
-    x_start = 0.2;
-    y_start = 0.25;
-    x_end = 0.4;
-    y_end = 0.5;
+    // Create file name with full path
+    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    
+    // Load variables from the Excel file
+    nba = loadd(dataset, "Height + Weight");
+    
+    // Declare plotControl structure and 
+    // fill with default settings
+    struct plotControl plt;
+    plt = plotGetDefaults("scatter");
+    
+    plotSetTitle(&plt, "NBA Player Size", "Arial", 14);
+    
+    plotSetXLabel(&plt, "Weight (lbs)", "Arial", 12);
+    plotSetYLabel(&plt, "Height (inches)");
+    
+    // No legend item for initial scatter plot.
+    // Set legend text for horizontal line we add later
+    legend_text = "" $| "Median Height";
+    plotSetLegend(&plt, legend_text, "top left inside");
+    
+    // Turn off legend border
+    plotSetLegendBorder(&plt, "white", 0);
+    
+    // Draw scatter plot
+    plotScatter(plt, nba[.,"Weight"], nba[.,"Height"]);
+    
+    // Compute median height and add to plot
+    med_ht = median(nba[.,"Height"]);
+    plotAddHLine(med_ht);
 
-    // Set arrowhead at the end to 15 px
-    // No arrowhead at the beginning of the arrow
-    head_size = { 15, 0 };
-
-    // Add an arrow to graph
-    plotAddArrow(x_start, y_start, x_end, y_end, head_size);
-
-Add an arrow between points
-+++++++++++++++++++++++++++
-
-::
-
-    // Draw random scatter plot
-    x = rndu(10, 1);
-    y = rndu(10, 1);
-    plotScatter(x, y);
-
-    // Add arrow from the first point to the ninth point
-    plotAddArrow(x[1], y[1], x[9], y[9], 12);
 
 Remarks
 -------
 
-Please note that :func:`plotAddArrow` will add arrows to existing graphs, it
-will not create a new graph if one does not exist. :func:`plotAddArrow` is not
+Please note that :func:`plotAddHLine` will add arrows to existing graphs, it
+will not create a new graph if one does not exist. :func:`plotAddHLine` is not
 yet supported for surface plots.
 
 
-.. seealso:: Functions :func:`plotAddTextbox`, :func:`annotationGetDefaults`, :func:`annotationSetLineColor`
+.. seealso:: Functions :func:`plotAddVLine`, :func:`plotAddHBar`
