@@ -43,20 +43,43 @@ This example creates a scatter plot of two variables and adds horizontal lines r
     plotSetXLabel(&plt, "Weight (lbs)", "Arial", 12);
     plotSetYLabel(&plt, "Height (inches)");
     
-    // No legend item for initial scatter plot.
-    // Set legend text for horizontal line we add later
-    legend_text = "" $| "Median Height";
-    plotSetLegend(&plt, legend_text, "top left inside");
+    /*
+    ** Set up legend
+    */
+    legend_labels = "" $|                        /* No legend item for scatter points */
+                    "95% Confidence Interval" $| /* Label for first set of h-line */
+                    "Median Height";             /* Label for final h-line */
+    
+    // Place top-left corner of legend box at x=220, y=72
+    // Final input, 0, makes legend lined up horizontally
+    plotSetLegend(&plt, legend_labels, 220|72, 0);
     
     // Turn off legend border
     plotSetLegendBorder(&plt, "white", 0);
     
+    /*
+    ** Set up line color for scatter symbols
+    ** and horizontal lines we will add
+    */
+    clr = plotGetLineColor(plt);
+    clr = clr[1] $| "gray" $| "black";
+    styles = { 1 /* solid */,
+               3 /* dot   */,
+               1 /* solid */ };
+    plotSetLinePen(&plt, 2, clr, styles);
+    
     // Draw scatter plot
     plotScatter(plt, nba[.,"Weight"], nba[.,"Height"]);
     
-    // Compute median height and add to plot
-    med_ht = median(nba[.,"Height"]);
-    plotAddHLine(med_ht);
+    
+    // Compute quantiles and add to graph
+    qtls = quantile(nba[.,"Height"], 0.025|0.5|0.975);
+    
+    // Add gray lines with dot styling
+    plotAddHLine(qtls[1 3]);
+
+    // Add black solid line
+    plotAddHLine(qtls[2]);
 
 
 Remarks
