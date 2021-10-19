@@ -29,32 +29,32 @@ This example creates a scatter plot of two variables and adds vertical lines rep
 
     // Create file name with full path
     fname = getgausshome()$+"examples/auto2.dta";
-    
+
     // Load specified variables
     auto = loadd(fname, "weight + mpg");
-    
+
     // Declare plotControl structure and
     // fill with default settings for scatter
     struct plotControl plt;
     plt = plotGetDefaults("scatter");
-    
+
     plotSetXLabel(&plt, "Weight (lbs)");
     plotSetYLabel(&plt, "Miles Per Gallon");
-    
+
     // Draw scatter plot
     plotScatter(plt, auto[.,"weight"], auto[.,"mpg"]);
-    
+
     /*
     ** Add vertical line at the median weight
     */
-    
+
     // Compute percentiles of 'weight' variable
     pct = quantile(auto[.,"weight"], 0.025 | 0.975);
-    
+
     // Set line to be gray, 1 pixel wide
     // and to have 'dot'=3 style
     plotSetLinePen(&plt, 1, "gray", 3);
-    
+
     // Draw line
     plotAddVLine(plt, pct);
 
@@ -62,7 +62,7 @@ This example creates a scatter plot of two variables and adds vertical lines rep
 Remarks
 -------
 
-Please note that :func:`plotAddVLine` will add arrows to existing graphs, it
+Please note that :func:`plotAddVLine` will add lines to existing graphs, it
 will not create a new graph if one does not exist. :func:`plotAddVLine` is not
 yet supported for surface plots.
 

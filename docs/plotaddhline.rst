@@ -65,8 +65,8 @@ Add an arrow between points
 Remarks
 -------
 
-Please note that :func:`plotAddArrow` will add arrows to existing graphs, it
-will not create a new graph if one does not exist. :func:`plotAddArrow` is not
+Please note that :func:`plotAddhline` will add lines to existing graphs, it
+will not create a new graph if one does not exist. :func:`plotAddhline` is not
 yet supported for surface plots.
 
 
