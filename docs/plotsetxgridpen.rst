@@ -8,20 +8,20 @@ Controls the settings for the background grid of a plot.
 
 Format
 ----------------
-.. function:: plotSetGrid(&myPlot, tickStyle[, color])
+.. function:: plotSetXGridPen(&myPlot, thickness [, color, line_style])
               plotSetGrid(&myPlot, onOff)
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param tickStyle: specifies whether grid marks should be drawn on major tick marks. Options: ``"major"``
-    :type tickStyle: string
+    :param thickness: specifies the thickness of the major X grid line.
+    :type thickness: Scalar
 
-    :param color: Optional argument, name or rgb value of the new color.
+    :param color: Optional argument, name or rgb value of the major X grid line color. Default color: Light Grey (#e2e2e2).
     :type color: string
 
-    :param onOff: turns the grid on or off. Options: ``"on"`` or ``"off"``. If used, this must be the only argument passed to the function besides the :class:`plotControl` structure pointer.
-    :type onOff: string
+    :param line_style: Optional argument, turns the grid on or off.
+    :type line_style: Scalar
 
 Examples
 ----------------
@@ -34,8 +34,11 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
 
-    // Set grid to be black and on the major ticks only
-    plotSetGrid(&myPlot, "major", "black");
+    // Set grid to on the major X-axis ticks only
+    plotSetXGrid(&myPlot, "major");
+
+    // Set grid line to be 2 px and black
+    plotSetXGridPen(&myPlot, 2, "Black");
 
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
