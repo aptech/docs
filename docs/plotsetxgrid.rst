@@ -46,6 +46,6 @@ Examples
 Remarks
 -------
 
-   Please note that :func:`plotSetXPen` is not supported for bar, box, or histogram plots.
+Please note that :func:`plotSetXGrid` is not supported for bar, box, or histogram plots.
 
 .. seealso:: Functions :func:`plotSetGrid`, :func:`plotSetXGridPen`, :func:`plotSetYGrid`
