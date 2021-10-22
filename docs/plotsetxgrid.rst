@@ -14,7 +14,7 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param tickStyle: specifies whether grid marks should be drawn on major tick marks. Options: [``"major"``, ``"minor"``, ``"both"``].
+    :param tickStyle: specifies whether grid marks should be drawn on major X-axis tick marks. Options: [``"major"``, ``"minor"``, ``"both"``].
     :type tickStyle: string
 
     :param color: Optional argument, name or rgb value of the new color.
@@ -43,5 +43,9 @@ Examples
     // Turn off the grid
     plotSetXGrid(&myPlot, "off");
 
-.. seealso:: Functions :func:`plotSetGrid`, :func:`plotSetXGridPen`, :func:`plotSetYGrid`
+Remarks
+-------
 
+   Please note that :func:`plotSetXPen` is not supported for bar, box, or histogram plots.
+
+.. seealso:: Functions :func:`plotSetGrid`, :func:`plotSetXGridPen`, :func:`plotSetYGrid`
