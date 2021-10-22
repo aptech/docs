@@ -43,5 +43,10 @@ Examples
     // Turn off the grid
     plotSetGrid(&myPlot, "off");
 
-.. seealso:: Functions :func:`plotCustomLayout`, :func:`plotSetTitle`, :func:`plotSetXGrid`, :func:`plotSetYGrid`
+Remarks
+-------
 
+Please note that :func:`plotSetXGrid` is not supported for bar, box, or histogram plots.
+
+
+.. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetXGrid`, :func:`plotSetAxesGridPen`
