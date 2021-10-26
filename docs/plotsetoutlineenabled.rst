@@ -14,12 +14,12 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param enabled: A 0 to hide the outline, or a 1 to show it. 
+    :param enabled: A 0 to hide the outline, or a 1 to show it.
     :type enabled: scalar
 
 Examples
 ----------------
-.. figure:: _static/images/plotsetoutlineenabled.jpg
+.. figure:: _static/images/plotsetoutlineenabled-cr.jpg
    :scale: 50 %
 
 ::
