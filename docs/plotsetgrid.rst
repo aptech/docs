@@ -46,7 +46,8 @@ Examples
 Remarks
 -------
 
-Please note that :func:`plotSetXGrid` is not supported for bar, box, or histogram plots.
+Please note that :func:`plotSetGrid` is not supported for bar, box, or histogram plots.
 
+.. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetXGrid`, :func:`plotSetAxesGridPen`
