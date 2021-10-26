@@ -22,6 +22,8 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotxy-cr.png
+   :scale: 50 %
 
 ::
 
