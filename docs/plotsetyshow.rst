@@ -13,12 +13,14 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param is_on: A 0 to hide the y-axis, or a 1 to show it. 
+    :param is_on: A 0 to hide the y-axis, or a 1 to show it.
     :type is_on: Scalar, or 2x1 matrix
 
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetyshow-cr.jpg
+   :scale: 50 %
 
 ::
 
@@ -44,9 +46,8 @@ Remarks
 -  :func:`plotSetYShow` will not force an axis to be shown unless a series of data is attached to it. By default data will be attached to the left y-axis.
    Use :func:`plotSetWhichYAxis` to control which y-axis a series of data is attached to.
 -  If ``is_on`` is a scalar, it will apply to the left and left y-axes. If it is a 2x1 matrix, the first element will control
-   the left y-axis and the second will control the right y-axis. 
+   the left y-axis and the second will control the right y-axis.
 
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotSetXShow`, :func:`plotSetYRange`
-
