@@ -27,6 +27,8 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetxpen-cr.jpg
+   :scale: 50 %
 
 ::
 
@@ -36,8 +38,8 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set axis to be 2 pixeles wide and black
-    plotSetXPen(&myPlot, 2, "black");
+    // Set axis to be 3 pixels wide and black
+    plotSetXPen(&myPlot, 3, "black");
 
     // Create data
     x = seqa(0.1, 0.1, 50);
@@ -52,4 +54,3 @@ Remarks
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineStyle`, :func:`plotSetAxesPen`, :func:`plotSetYPen`
-
