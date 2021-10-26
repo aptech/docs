@@ -4,7 +4,7 @@ plotSetXPen
 
 Purpose
 ----------------
-Sets the color for the X-Axis line.
+Sets the thickness, color, and style for the X-Axis line.
 
 Format
 ----------------
