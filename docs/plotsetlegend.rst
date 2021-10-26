@@ -50,6 +50,8 @@ Technical Notes
        location = "inside top right";
 
 -  Use :func:`plotSetLegendFont` to control the legend font family, size and color.
+-  Use :func:`plotSetLegendBkd` to control the legend background color and opacity.
+-  Use :func:`plotSetLegendBorder` to control the legend border color and thickness.
 -  See :func:`plotSetTextInterpreter`, for instructions on using LaTeX, or HTML in the legend labels.
 
 Examples
@@ -76,4 +78,4 @@ Examples
     // Plot the data with the legend settings
     plotScatter(myplot, x, y);
 
-.. seealso:: Functions :func:`plotSetLegendFont`, :func:`plotSetTextInterpreter`
+.. seealso:: Functions :func:`plotSetLegendFont`, :func:`plotSetTextInterpreter`, :func:`plotSetLegendBkd`, :func:`plotSetLegendBorder`,
