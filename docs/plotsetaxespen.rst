@@ -27,22 +27,24 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetaxespen-cr.png
+   :scale: 50 %
 
 ::
 
    // Declare plotControl structure
    struct plotControl myPlot;
-   
+
    // Initialize plotControl structure
    myPlot = plotGetDefaults("xy");
-   
-   // Set drawn axes lines to be 2 pixels wide and black
-   plotSetAxesPen(&myPlot, 2, "black");
-   
+
+   // Set drawn axes lines to be 3 pixels wide and black
+   plotSetAxesPen(&myPlot, 3, "black");
+
    // Create data
    x = seqa(0.1, 0.1, 50);
    y = sin(x)~cos(x);
-   
+
    // Plot the data with the new line colors
    plotXY(myPlot, x, y);
 
@@ -56,4 +58,3 @@ Remarks
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLinePen`, :func:`plotSetXPen`, :func:`plotSetYPen`
-
