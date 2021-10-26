@@ -45,7 +45,6 @@ Examples
 
 Remarks
 -------
-
 Please note that :func:`plotSetGrid` is not supported for bar, box, or histogram plots.
 
 .. include:: include/plotattrremark.rst

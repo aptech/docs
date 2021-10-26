@@ -43,5 +43,9 @@ Examples
     // Turn off the grid
     plotSetYGrid(&myPlot, "off");
 
-.. seealso:: Functions :func:`plotSetGrid`, :func:`plotSetYGridPen`, :func:`plotSetXGrid`
+Remarks
+-------
 
+.. include:: include/plotattrremark.rst
+
+.. seealso:: Functions :func:`plotSetGrid`, :func:`plotSetYGridPen`, :func:`plotSetXGrid`
