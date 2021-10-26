@@ -4,7 +4,7 @@ plotSetYPen
 
 Purpose
 ----------------
-Sets the color for the Y-Axis line.
+Sets the thickness, color, and style for the Y-Axis line.
 
 Format
 ----------------
@@ -27,6 +27,8 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetypen-cr.jpg
+   :scale: 50 %
 
 ::
 
@@ -36,7 +38,7 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set axis to be 2 pixeles wide and black
+    // Set axis to be 3 pixels wide and black
     plotSetYPen(&myPlot, 2, "black");
 
     // Create data
@@ -52,4 +54,3 @@ Remarks
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineStyle`, :func:`plotSetAxesPen`, :func:`plotSetXPen`
-
