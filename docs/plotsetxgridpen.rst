@@ -48,8 +48,8 @@ Examples
 
 Remarks
 -------
+Please note that :func:`plotSetXGridPen` is not supported for bar, box, or histogram plots.
 
-    Please note that :func:`plotSetXGridPen` is not
-    supported for bar, box, or historgram plots.
+.. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotSetXGrid`, :func:`plotSetYGridPen`, :func: `plotSetAxesGridPen`

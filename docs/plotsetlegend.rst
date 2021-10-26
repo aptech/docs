@@ -78,4 +78,9 @@ Examples
     // Plot the data with the legend settings
     plotScatter(myplot, x, y);
 
+Remarks
+-------
+
+.. include:: include/plotattrremark.rst
+
 .. seealso:: Functions :func:`plotSetLegendFont`, :func:`plotSetTextInterpreter`, :func:`plotSetLegendBkd`, :func:`plotSetLegendBorder`,
