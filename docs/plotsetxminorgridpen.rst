@@ -54,7 +54,7 @@ Examples
 
 Remarks
 ---------
-    - The y-axis minor grid must turned on using :func:`plotSetXGrid` or :func:`plotSetGrid` for the minor axis to show.
+    - The x-axis minor grid must turned on using :func:`plotSetXGrid` or :func:`plotSetGrid` for the minor axis to show.
     - The x-axis minor grid tick count must be set using :func:`plotSetXMinorTicCount` for the minor axis to show.
     - The x-axis minor grid is unsupported for bar, box, and histogram plots at this time.
 
