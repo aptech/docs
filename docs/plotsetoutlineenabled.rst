@@ -19,7 +19,7 @@ Format
 
 Examples
 ----------------
-.. figure:: _static/images/plotsetoutlineenabled-cr.jpg
+.. figure:: _static/images/plotsetoutlineenabled-cr.png
    :scale: 50 %
 
 ::
