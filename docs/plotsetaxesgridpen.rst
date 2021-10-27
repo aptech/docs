@@ -13,10 +13,10 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param thickness: the thickness of the axis line in pixels.
+    :param thickness: the thickness of the axes major grid lines in pixels.
     :type thickness: Scalar
 
-    :param clr: Optional argument, name or rgb value of the new color for the axes.
+    :param clr: Optional argument, name or rgb value of the new color for the axes major grid lines.
     :type clr: string
 
     :param style: the style of the pen. Options include:

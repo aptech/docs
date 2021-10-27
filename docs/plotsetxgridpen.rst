@@ -4,7 +4,7 @@ plotSetXGridPen
 
 Purpose
 ----------------
-Controls the thickness, color, and style for the x-axis grid lines.
+Controls the thickness, color, and style for the x-axis major grid lines.
 
 Format
 ----------------
@@ -13,10 +13,10 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param thickness: the thickness of the axis line in pixels.
+    :param thickness: the thickness of the x-axis major grid lines in pixels.
     :type thickness: Scalar
 
-    :param clr: Optional argument, name or rgb value of the new color for the axes.
+    :param clr: Optional argument, name or rgb value of the new color for the x-axis major grid lines.
     :type clr: string
 
     :param style: the style of the pen. Options include:
@@ -38,7 +38,7 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
 
-    // Set grid to on the major x-axis ticks only
+    // Set grid to on the x-axis major ticks only
     plotSetXGrid(&myPlot, "major");
 
     // Set grid line to be 0.5 px, black, and dashed
