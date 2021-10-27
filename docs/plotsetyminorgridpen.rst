@@ -28,7 +28,7 @@ Format
 
     Examples
     ----------------
-    .. figure:: _static/images/plotsetxminorgridpen-cr.png
+    .. figure:: _static/images/plotsetyminorgridpen-cr.png
        :scale: 50 %
 
     ::
@@ -39,15 +39,15 @@ Format
         // Initialize plotControl structure
         myPlot = plotGetDefaults("scatter");
 
-        // Set X-axis major and minor grid lines on
-        plotSetXGrid(&myPlot, "both");
+        // Set Y-axis major and minor grid lines on
+        plotSetYGrid(&myPlot, "both");
 
-        // Set X-axis minor grid lines tic count
-        plotSetXMinorTicCount(&myPlot, 4);
+        // Set Y-axis minor grid lines tic count
+        plotSetYMinorTicCount(&myPlot, 4);
 
-        // Set X-axis minor grid lines to be 0.5 pixels thick,
+        // Set Y-axis minor grid lines to be 0.5 pixels thick,
         // grey, and dashed
-        plotSetXMinorGridPen(&myPlot, 0.5, "grey", 2);
+        plotSetYMinorGridPen(&myPlot, 0.5, "grey", 2);
 
         // Create a scatter plot of random data
         plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
@@ -57,8 +57,7 @@ Format
 
     Remarks
     ---------
-    - The X-axis minor grid tick count must be set using :func:`plotSetXMinorTicCount` for the axis to show.
-    - The X-axis minor grid is unsupported for bar, box, and histogram plots at this time.
+    - The Y-axis minor grid tick count must be set using :func:`plotSetYMinorTicCount` for the axis to show.
 
     .. include:: include/plotattrremark.rst
 
