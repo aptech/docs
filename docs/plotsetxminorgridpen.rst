@@ -4,7 +4,7 @@ plotSetXMinorGridPen
 
 Purpose
 ----------------
-Controls the thickness, color, and style for the minor X-axis grid lines.
+Controls the thickness, color, and style for the minor x-axis grid lines.
 
 Format
 ----------------
@@ -38,13 +38,13 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
 
-    // Set X-axis major and minor grid lines on
+    // Set x-axis major and minor grid lines on
     plotSetXGrid(&myPlot, "both");
 
-    // Set X-axis minor grid lines tic count
+    // Set x-axis minor grid lines tic count
     plotSetXMinorTicCount(&myPlot, 4);
 
-    // Set X-axis minor grid lines to be 0.5 pixels thick,
+    // Set x-axis minor grid lines to be 0.5 pixels thick,
     // grey, and dashed
     plotSetXMinorGridPen(&myPlot, 0.5, "grey", 2);
 
@@ -56,8 +56,8 @@ Examples
 
 Remarks
 ---------
-- The X-axis minor grid tick count must be set using :func:`plotSetXMinorTicCount` for the axis to show.
-- The X-axis minor grid is unsupported for bar, box, and histogram plots at this time.
+- The x-axis minor grid tick count must be set using :func:`plotSetXMinorTicCount` for the axis to show.
+- The x-axis minor grid is unsupported for bar, box, and histogram plots at this time.
 
 .. include:: include/plotattrremark.rst
 

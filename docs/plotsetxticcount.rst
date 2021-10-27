@@ -4,7 +4,7 @@ plotSetXTicCount
 
 Purpose
 ----------------
-Controls the number of major ticks on the X-axis of a 2-D plot.
+Controls the number of major ticks on the x-axis of a 2-D plot.
 
 Format
 ----------------
@@ -13,7 +13,7 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param num_tics: the number of major ticks to place on the X-axis.
+    :param num_tics: the number of major ticks to place on the x-axis.
     :type num_tics: Scalar
 
 Examples

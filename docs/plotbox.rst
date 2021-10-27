@@ -62,9 +62,9 @@ Using numeric labels
 Remarks
 -------
 
-Note that numeric labels added to the X-axis are only labels for the
+Note that numeric labels added to the x-axis are only labels for the
 corresponding boxes. They do not imply any order or denote a particular
-X-axis location.
+x-axis location.
 
 If missing values are encountered in the *y* data, they will be ignored
 during calculations and will not be plotted.

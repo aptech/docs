@@ -5,7 +5,7 @@ plotSetXLabel
 Purpose
 ----------------
 
-Controls the settings for the X-axis label on a graph.
+Controls the settings for the x-axis label on a graph.
 
 Format
 ----------------
@@ -40,7 +40,7 @@ Example 1: Basic usage
     // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
 
-    // Set the X-axis label, label font, label font size, and
+    // Set the x-axis label, label font, label font size, and
     // label color
     plotSetXLabel(&myPlot, "Time (sec)", "verdana", 10, "black");
 

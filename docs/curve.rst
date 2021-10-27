@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: { u, v } = curve(x, y, d, s, sigma, G)
 
-    :param x: x-abscissae (X-axis values).
+    :param x: x-abscissae (x-axis values).
     :type x: Kx1 vector
 
     :param y: y-ordinates (y-axis values).

@@ -4,7 +4,7 @@ plotSetXTicLabel
 
 Purpose
 ----------------
-Controls the formatting and angle of X-axis tick labels for 2-D graphs.
+Controls the formatting and angle of x-axis tick labels for 2-D graphs.
 
 Format
 ----------------
@@ -13,14 +13,14 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param fmt: the desired formatting for the X-axis tick labels.
+    :param fmt: the desired formatting for the x-axis tick labels.
 
         - Time series graphs use the same formatting type as function :func:`dttostr`.
         - Other graph types use a :func:`sprintf` style formatting string. See Remarks below for more details.
 
     :type fmt: string
 
-    :param angle: Optional argument, the angle in degrees at which to display the X-axis tick labels.
+    :param angle: Optional argument, the angle in degrees at which to display the x-axis tick labels.
     :type angle: scalar
 
 Examples

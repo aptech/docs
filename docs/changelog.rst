@@ -331,7 +331,7 @@ The following is a list of changes from the previous version of GAUSS.
    data.
 #. New example program ``plottshf_yellowstone.e`` shows how to: plot monthly
    data with :func:`plotTSHF`, set labels and format the tick labels for the
-   left and right Y-axes, control the location and frequency of X-axis
+   left and right Y-axes, control the location and frequency of x-axis
    tick labels, select observations from a matrix based on data and
    specify the graph size programmatically.
 #. New example programs ``plotbox_auto.e``, and ``quantilefit3.e``.
@@ -722,7 +722,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added support for new graphics with the GAUSS Engine.
 #. Added tooltips on hover for elements that are partially out of view
    on the Data Page.
-#. Bug fix for cutting off final portion of the last X-axis tick label
+#. Bug fix for cutting off final portion of the last x-axis tick label
    in rare circumstances with time series plots.
 #. Bug fix for memory bug in specific case related to unique and string
    array concatenation.

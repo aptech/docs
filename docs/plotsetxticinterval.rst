@@ -4,7 +4,7 @@ plotSetXTicInterval
 
 Purpose
 ----------------
-Controls the interval between X-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D graphs.
+Controls the interval between x-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D graphs.
 
 Format
 ----------------
@@ -13,7 +13,7 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param ticInterval: the distance between X-axis tick labels.
+    :param ticInterval: the distance between x-axis tick labels.
     :type ticInterval: scalar
 
     :param firstLabeled: Optional input, the value of the first X value on which to place a tick label.

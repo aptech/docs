@@ -4,7 +4,7 @@ plotSetXGridPen
 
 Purpose
 ----------------
-Controls the thickness, color, and style for the X-axis grid lines.
+Controls the thickness, color, and style for the x-axis grid lines.
 
 Format
 ----------------
@@ -38,7 +38,7 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
 
-    // Set grid to on the major X-axis ticks only
+    // Set grid to on the major x-axis ticks only
     plotSetXGrid(&myPlot, "major");
 
     // Set grid line to be 0.5 px, black, and dashed

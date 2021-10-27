@@ -41,7 +41,7 @@ text interpretor will allow you to use these symbols directly in your plot text 
     // Set the interpreter of axes
     plotSetTextInterpreter(&myPlot, "plain", "axes");
 
-    // Set the X-axis label, using the > character which would
+    // Set the x-axis label, using the > character which would
     // would fail with the default HTML interpreter.
     plotSetXLabel(&myPlot, "Weight > 50 Kg");
 
@@ -63,7 +63,7 @@ You may add Greek letters, mathematical symbols, subscript and superscript to yo
 
     label_string = "&beta;";
 
-    // Set the X-axis label
+    // Set the x-axis label
     plotSetXLabel(&myPlot, label_string);
 
 The code above will add the letter :math:`\beta` to the graph title. The HTML 'sup' tag will create superscript and the 'sub' tag will create subscript. For example:
@@ -72,7 +72,7 @@ The code above will add the letter :math:`\beta` to the graph title. The HTML 's
 
     label_string = "&sigma;<sup>2</sup>";
 
-    // Set the X-axis label
+    // Set the x-axis label
     plotSetXLabel(&myPlot, label_string);
 
 will add :math:`\sigma^2` to your title. While,
@@ -81,7 +81,7 @@ will add :math:`\sigma^2` to your title. While,
 
     label_string = "Y<sub>t-1</sub>";
 
-    // Set the X-axis label
+    // Set the x-axis label
     plotSetXLabel(&myPlot, label_string);
 
 will create :math:`Y_{t-1}`.
@@ -105,7 +105,7 @@ You can also use LaTeX to add complex math expression, or non-Latin scripts to y
     
     font_name = "Times New Roman";
     
-    // Set up X-axis label
+    // Set up x-axis label
     plotSetXLabel(&myPlot, "x", font_name, 20);
     
     // Set LaTeX legend string

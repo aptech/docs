@@ -40,8 +40,8 @@ Basic example with string labels
 Basic example with numeric labels
 ++++++++++++++++++++++++++++++++++
 
-You may also pass in a numeric vector for the X-axis labels. This example will produce the
-a graph which looks the same as the graph above, except for the X-axis labels.
+You may also pass in a numeric vector for the x-axis labels. This example will produce the
+a graph which looks the same as the graph above, except for the x-axis labels.
 
 ::
 

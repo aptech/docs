@@ -38,7 +38,7 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
 
-    // Set grid to on the major X-axis ticks only
+    // Set grid to on the major x-axis ticks only
     plotSetYGrid(&myPlot, "major");
 
     // Set grid line to be 0.5 px, black, and dashed
