@@ -37,6 +37,7 @@ P
     plotaddhistf
     plotaddhistp
     plotaddhist
+    plotaddhline
     plotaddpolar
     plotaddscatter
     plotaddshape
@@ -71,13 +72,18 @@ P
     plotpolar
     plotsave
     plotscatter
+    plotsetaxesgrid
+    plotsetaxesgridpen
+    plotsetaxesminorgridpen
     plotsetaxespen
+    plotsetaxesticsposition
     plotsetbar
     plotsetbkdcolor
     plotsetcolormap
     plotsetcontourlabels
     plotsetfill
     plotsetgrid
+    plotsetjitterrange
     plotsetlegend
     plotsetlegendbkd
     plotsetlegendborder
@@ -88,23 +94,42 @@ P
     plotsetlinesymbol
     plotsetlinethickness
     plotsetnewwindow
+    plotsetoutlineenabled
     plotsettextinterpreter
     plotsetticlabelfont
     plotsettitle
     plotsetwhichyaxis
+    plotsetxgrid
+    plotsetxgridpen
     plotsetxlabel
+    plotsetxminorgridpen
+    plotsetxminorticcount
+    plotsetxpen
     plotsetxrange
+    plotsetxshow
     plotsetxticcount
     plotsetxticinterval
     plotsetxticlabel
+    plotsetxticlabelfont
+    plotsetxticsposition
+    plotsetygrid
+    plotsetygridpen
     plotsetylabel
+    plotsetyminorgridpen
+    plotsetyminorticcount
+    plotsetypen
     plotsetyrange
+    plotsetyshow
     plotsetyticcount
     plotsetyticinterval
     plotsetyticlabel
+    plotsetyticlabelfont
+    plotsetyticsposition
     plotsetzlabel
     plotsetzlevels
+    plotsetzpen
     plotsetzrange
+    plotsetzshow
     plotsurface
     plottshf
     plottslog
