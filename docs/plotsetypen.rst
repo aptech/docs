@@ -39,7 +39,7 @@ Examples
     myPlot = plotGetDefaults("xy");
 
     // Set axis to be 3 pixels wide and black
-    plotSetYPen(&myPlot, 2, "black");
+    plotSetYPen(&myPlot, 3, "black");
 
     // Create data
     x = seqa(0.1, 0.1, 50);
