@@ -25,7 +25,9 @@ Format
 
 Examples
 ----------------
-
+.. figure:: _static/images/plotsetxgrid-cr.jpg
+   :scale: 50 %
+   
 ::
 
     // Declare plotControl structure
