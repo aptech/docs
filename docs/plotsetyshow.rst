@@ -19,7 +19,7 @@ Format
 
 Examples
 ----------------
-.. figure:: _static/images/plotsetyshow-cr.jpg
+.. figure:: _static/images/plotsetyshow-cr.png
    :scale: 50 %
 
 ::

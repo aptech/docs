@@ -27,7 +27,7 @@ Format
 
 Examples
 ----------------
-.. figure:: _static/images/plotsetypen-cr.jpg
+.. figure:: _static/images/plotsetypen-cr.png
    :scale: 50 %
 
 ::
