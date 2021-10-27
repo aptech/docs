@@ -4,7 +4,7 @@ plotSetXGridPen
 
 Purpose
 ----------------
-Controls the thickness, color, and style for both the X-axis grid lines.
+Controls the thickness, color, and style for the X-axis grid lines.
 
 Format
 ----------------
