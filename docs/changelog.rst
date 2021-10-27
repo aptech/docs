@@ -199,7 +199,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added option to use custom weights for weighted least squares estimation with :func:`olsmt`.
 #. New function :func:`plotXYFill` creates filled area plots between XY lines.
 #. New function :func:`plotBarH` creates horizontal bar plots.
-#. New function :func:`plotSetYTicInterval` controls Y-axis tick label positioning.
+#. New function :func:`plotSetYTicInterval` controls y-axis tick label positioning.
 #. Added ability for :func:`plotAddBar` to add bars to specified locations.
 #. :func:`plotSetLegend` now allows setting the legend location by axis coordinates as well as text location.
 #. New function :func:`plotSetLegendBorder` controls the style properties of the legend border.
@@ -321,7 +321,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Speed up of approximately 33% to :func:`quantileFit`.
 #. Improved formatting of output tables for :func:`dstat`, :func:`dstatmt` and :func:`olsmt`.
 #. Added ability for plotSetYTicLabel to control the tick label
-   formatting of the right Y-axis.
+   formatting of the right y-axis.
 #. Bug fix: possible crash in certain cases when passing scalar input to
    :func:`invpd`.
 #. Bug fix: output table printing returned error when variable names
@@ -381,11 +381,11 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function :func:`plotTSHF` and :func:`plotAddTSHF` creates time series plots for
    high frequency and irregularly spaced data.
 #. New functions :func:`plotTSLog` and :func:`plotAddTSLog` create time series plots
-   with the Y-axis in log space.
+   with the y-axis in log space.
 #. New function :func:`plotSetGroupingBehavior` to control whether box plots are
    drawn as separate boxes or part of a group--which controls color
    behavior and spacing.
-#. New function :func:`plotSetYTicLabel` controls the format and angle of Y-axis
+#. New function :func:`plotSetYTicLabel` controls the format and angle of y-axis
    tick labels.
 #. New function :func:`plotSetLegendBkd` controls the opacity and color of the
    legend background.

@@ -14,7 +14,7 @@ Format
     :param x: x-abscissae (X-axis values).
     :type x: Kx1 vector
 
-    :param y: y-ordinates (Y-axis values).
+    :param y: y-ordinates (y-axis values).
     :type y: Kx1 vector
 
     :param d: observation weights.

@@ -5,7 +5,7 @@ plotSetYLabel
 Purpose
 ----------------
 
-Controls the settings for the Y-axis label on a graph.
+Controls the settings for the y-axis label on a graph.
 
 Format
 ----------------
@@ -14,8 +14,8 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param label: the new label or labels. If you are using more than one Y-axis, the first element of the 2x1 label string array
-        will set the label for the left Y-axis and the second element will set the label for the right Y-axis.
+    :param label: the new label or labels. If you are using more than one y-axis, the first element of the 2x1 label string array
+        will set the label for the left y-axis and the second element will set the label for the right y-axis.
         This may contain HTML for the creation of Greek letters, mathematical symbols and text formatting.
     :type label: String or 2x1 string array
     :type label: string
@@ -43,7 +43,7 @@ Example 1: Basic usage
     // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
 
-    // Set the Y-axis label, label font, font size and color
+    // Set the y-axis label, label font, font size and color
     plotSetYLabel(&myPlot, "Time (sec)", "verdana", 10, "black");
 
     // Create data
@@ -71,10 +71,10 @@ Example 2: Setting both Y-axes
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set the first curve to use the left Y-axis and the second curve to use the right
+    // Set the first curve to use the left y-axis and the second curve to use the right
     plotSetWhichYAxis(&myPlot, "left" $| "right");
 
-    // Set the left and right Y-axis labels
+    // Set the left and right y-axis labels
     plotSetYLabel(&myPlot, "Number of subjects"$|"Percent classified");
 
     // Plot the data

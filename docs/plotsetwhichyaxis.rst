@@ -4,7 +4,7 @@ plotSetWhichYAxis
 
 Purpose
 ----------------
-Assigns curves to the right or left Y-axis.
+Assigns curves to the right or left y-axis.
 
 Format
 ----------------
@@ -36,8 +36,8 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set the first curve, 'y1' to the left Y-axis
-    // Set the second curve 'y2' to the right Y-axis
+    // Set the first curve, 'y1' to the left y-axis
+    // Set the second curve 'y2' to the right y-axis
     string which = { "left", "right" };
     plotSetWhichYAxis(&myPlot, which);
 

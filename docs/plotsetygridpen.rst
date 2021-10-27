@@ -4,7 +4,7 @@ plotSetYGridPen
 
 Purpose
 ----------------
-Controls the thickness, color, and style for the Y-axis grid lines.
+Controls the thickness, color, and style for the y-axis grid lines.
 
 Format
 ----------------

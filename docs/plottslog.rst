@@ -5,7 +5,7 @@ plotTSLog
 Purpose
 ----------------
 
-Creates a graph of time series data with the Y-axis on a log scale.
+Creates a graph of time series data with the y-axis on a log scale.
 
 Format
 ----------------

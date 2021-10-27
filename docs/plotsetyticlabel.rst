@@ -4,7 +4,7 @@ plotSetYticLabel
 
 Purpose
 ----------------
-Controls the formatting and angle of Y-axis tick labels for 2-D graphs.
+Controls the formatting and angle of y-axis tick labels for 2-D graphs.
 
 Format
 ----------------
@@ -13,10 +13,10 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param fmt: the desired formatting for the Y-axis tick labels. If a 2x1 string array is passed in, the first element of *fmt* will control the left Y-axis and the second element will control the right Y-axis. :func:`sprintf` style formatting strings are supported. See Remarks below for more information.
+    :param fmt: the desired formatting for the y-axis tick labels. If a 2x1 string array is passed in, the first element of *fmt* will control the left y-axis and the second element will control the right y-axis. :func:`sprintf` style formatting strings are supported. See Remarks below for more information.
     :type fmt: string or 2x1 string array
 
-    :param angle: Optional argument, the angle in degrees at which to display the Y-axis tick labels.
+    :param angle: Optional argument, the angle in degrees at which to display the y-axis tick labels.
     :type angle: Scalar
 
 Examples
@@ -74,7 +74,7 @@ Changing to format string to ``"%.3e"`` will change the labels to appear like th
     1.050e+00
     1.025e+00
 
-Left and right Y-axis formatting.
+Left and right y-axis formatting.
 +++++++++++++++++++++++++++++++++
 
 ::
@@ -99,13 +99,13 @@ Left and right Y-axis formatting.
     struct plotControl myPlot;
     myPlot = plotGetDefaults("xy");
 
-    // Use the left Y-axis for the first line
-    // and the right Y-axis for the second line
+    // Use the left y-axis for the first line
+    // and the right y-axis for the second line
     plotSetWhichYAxis(&myPlot, "left" $| "right");
 
     /*
     ** Set the format for the tick labels
-    ** of each Y-axis
+    ** of each y-axis
     **
     ** "%d°" - Print the numbers as integers, followed by
     **             the degree symbol (° is HTML).
@@ -114,8 +114,8 @@ Left and right Y-axis formatting.
     **            a percent sign.
     */
 
-    fmt =  "%d°" $| /* format for left Y-axis */
-          "%.1f%%";     /* format for right Y-axis */
+    fmt =  "%d°" $| /* format for left y-axis */
+          "%.1f%%";     /* format for right y-axis */
 
     plotSetYTicLabel(&myPlot, fmt);
 
@@ -126,7 +126,7 @@ This will give axes labels which look similar to below:
 
 ::
 
-    Left Y-axis 32°    Right Y-axis 90.0%
+    Left y-axis 32°    Right y-axis 90.0%
                 28°                 80.0%
 
 Remarks

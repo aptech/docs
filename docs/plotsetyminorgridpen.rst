@@ -4,7 +4,7 @@ plotSetYMinorGridPen
 
 Purpose
 ----------------
-Controls the thickness, color, and style for the minor Y-axis grid lines.
+Controls the thickness, color, and style for the minor y-axis grid lines.
 
 
 Format
@@ -39,13 +39,13 @@ Format
         // Initialize plotControl structure
         myPlot = plotGetDefaults("scatter");
 
-        // Set Y-axis major and minor grid lines on
+        // Set y-axis major and minor grid lines on
         plotSetYGrid(&myPlot, "both");
 
-        // Set Y-axis minor grid lines tic count
+        // Set y-axis minor grid lines tic count
         plotSetYMinorTicCount(&myPlot, 4);
 
-        // Set Y-axis minor grid lines to be 0.5 pixels thick,
+        // Set y-axis minor grid lines to be 0.5 pixels thick,
         // grey, and dashed
         plotSetYMinorGridPen(&myPlot, 0.5, "grey", 2);
 
@@ -57,7 +57,7 @@ Format
 
     Remarks
     ---------
-    - The Y-axis minor grid tick count must be set using :func:`plotSetYMinorTicCount` for the axis to show.
+    - The y-axis minor grid tick count must be set using :func:`plotSetYMinorTicCount` for the axis to show.
 
     .. include:: include/plotattrremark.rst
 

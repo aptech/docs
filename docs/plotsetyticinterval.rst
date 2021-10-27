@@ -4,7 +4,7 @@ plotSetYTicInterval
 
 Purpose
 ----------------
-Controls the interval between Y-axis tick labels and also allows the user to specify the first tick to be labeled.
+Controls the interval between y-axis tick labels and also allows the user to specify the first tick to be labeled.
 
 Format
 ----------------
@@ -13,7 +13,7 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param ticInterval: the distance between Y-axis tick labels.
+    :param ticInterval: the distance between y-axis tick labels.
     :type ticInterval: scalar
 
     :param firstLabeled: Optional input, the value of the first Y-value on which to place a tick label.
