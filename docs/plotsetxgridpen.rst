@@ -1,30 +1,34 @@
 
-plotSetGrid
+plotSetXGridPen
 ==============================================
 
 Purpose
 ----------------
-Controls the settings for the background grid of a plot.
+Controls the thickness, color, and style for both the X-axis grid lines.
 
 Format
 ----------------
-.. function:: plotSetXGridPen(&myPlot, thickness [, color, line_style])
-              plotSetGrid(&myPlot, onOff)
+.. function:: plotSetXGridPen(&myPlot, thickness[, clr[, style]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param thickness: specifies the thickness of the major X grid line.
+    :param thickness: the thickness of the axis line in pixels.
     :type thickness: Scalar
 
-    :param color: Optional argument, name or rgb value of the major X grid line color. Default color: Light Grey (#e2e2e2).
-    :type color: string
+    :param clr: Optional argument, name or rgb value of the new color for the axes.
+    :type clr: string
 
-    :param line_style: Optional argument, turns the grid on or off.
-    :type line_style: Scalar
+    :param style: the style of the pen. Options include:
+
+        .. include:: include/plotpenstyletable.rst
+
+    :type style: Scalar
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetxgridpen-cr.png
+   :scale: 50 %
 
 ::
 
@@ -37,8 +41,8 @@ Examples
     // Set grid to on the major X-axis ticks only
     plotSetXGrid(&myPlot, "major");
 
-    // Set grid line to be 2 px and black
-    plotSetXGridPen(&myPlot, 2, "Black");
+    // Set grid line to be 0.5 px, black, and dashed
+    plotSetXGridPen(&myPlot, 0.5, "Black", 2);
 
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
