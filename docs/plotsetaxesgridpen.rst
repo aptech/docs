@@ -50,7 +50,7 @@ Examples
 
 Remarks
 -------
-- The X and Y axis grid line properties can be set separately with :func:`plotSetXGridPen` and :func:`plotSetYGridPen`.
+- The x-axis and y-axis grid line properties can be set separately with :func:`plotSetXGridPen` and :func:`plotSetYGridPen`.
 
 .. include:: include/plotattrremark.rst
 
