@@ -1,27 +1,29 @@
 
-plotSetGrid
+plotSetXMinorGridPen
 ==============================================
 
 Purpose
 ----------------
-Controls the settings for the background grid of a plot.
+Controls the thickness, color, and style for the minor X-axis grid lines.
 
 Format
 ----------------
-.. function:: plotSetGrid(&myPlot, tickStyle[, color])
-              plotSetGrid(&myPlot, onOff)
+.. function:: plotSetXMinorGridPen(&myPlot, thickness[, clr[, style]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param tickStyle: specifies whether grid marks should be drawn on major tick marks. Options: ``"major"``
-    :type tickStyle: string
+    :param thickness: the thickness of the axis line in pixels.
+    :type thickness: Scalar
 
-    :param color: Optional argument, name or rgb value of the new color.
-    :type color: string
+    :param clr: Optional argument, name or rgb value of the new color for the axes.
+    :type clr: string
 
-    :param onOff: turns the grid on or off. Options: ``"on"`` or ``"off"``. If used, this must be the only argument passed to the function besides the :class:`plotControl` structure pointer.
-    :type onOff: string
+    :param style: the style of the pen. Options include:
+
+        .. include:: include/plotpenstyletable.rst
+
+    :type style: Scalar
 
 Examples
 ----------------
@@ -34,8 +36,15 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
 
-    // Set grid to be black and on the major ticks only
-    plotSetGrid(&myPlot, "major", "black");
+    // Set X-axis major and minor grid lines on
+    plotSetXGrid(&myPlot, "both");
+
+    // Set X-axis minor grid lines tic count
+    plotSetXMinorTicCount(&myPlot, 4);
+
+    // Set X-axis minor grid lines to be 0.5 pixels thick,
+    // grey, and dashed
+    plotSetXMinorTicCount(&myPlot, 0.5, "grey", 2);
 
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
@@ -45,8 +54,8 @@ Examples
 
 Remarks
 ---------
-
+- The X-axis minor grid tick count must be set using :func:`plotSetXMinorTicCount` for the axis to show.
+- The X-axis minor grid is unsupported for bar, box, and histogram plots at this time.
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotCustomLayout`, :func:`plotSetTitle`
-
+.. seealso:: Functions :func:`plotSetXGridPen`, :func:`plotSetXMinorTicCount`, :func:`plotSetYMinorGridPen`, :func:`plotSetAxesMinorGridPen`
