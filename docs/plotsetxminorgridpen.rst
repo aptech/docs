@@ -4,7 +4,7 @@ plotSetXMinorGridPen
 
 Purpose
 ----------------
-Controls the thickness, color, and style for the minor x-axis grid lines.
+Controls the thickness, color, and style for the x-axis minor grid lines.
 
 Format
 ----------------
@@ -13,10 +13,10 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param thickness: the thickness of the axis line in pixels.
+    :param thickness: the thickness of the x-axis minor grid lines in pixels.
     :type thickness: Scalar
 
-    :param clr: Optional argument, name or rgb value of the new color for the axes.
+    :param clr: Optional argument, name or rgb value of the new color for the x-axis minor grid lines.
     :type clr: string
 
     :param style: the style of the pen. Options include:
@@ -51,13 +51,12 @@ Examples
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
 
-    // Turn off the grid
-    plotSetGrid(&myPlot, "off");
 
 Remarks
 ---------
-- The x-axis minor grid tick count must be set using :func:`plotSetXMinorTicCount` for the axis to show.
-- The x-axis minor grid is unsupported for bar, box, and histogram plots at this time.
+    - The y-axis minor grid must turned on using :func:`plotSetXGrid` for the axis to show.
+    - The x-axis minor grid tick count must be set using :func:`plotSetXMinorTicCount` for the axis to show.
+    - The x-axis minor grid is unsupported for bar, box, and histogram plots at this time.
 
 .. include:: include/plotattrremark.rst
 
