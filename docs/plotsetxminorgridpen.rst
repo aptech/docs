@@ -27,6 +27,8 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetxminorgridpen-cr.png
+   :scale: 50 %
 
 ::
 
@@ -44,7 +46,7 @@ Examples
 
     // Set X-axis minor grid lines to be 0.5 pixels thick,
     // grey, and dashed
-    plotSetXMinorTicCount(&myPlot, 0.5, "grey", 2);
+    plotSetXMinorGridPen(&myPlot, 0.5, "grey", 2);
 
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
