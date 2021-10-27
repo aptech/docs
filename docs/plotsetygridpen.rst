@@ -1,30 +1,34 @@
 
-plotSetGrid
+plotSetYGridPen
 ==============================================
 
 Purpose
 ----------------
-Controls the settings for the background grid of a plot.
+Controls the thickness, color, and style for the Y-axis grid lines.
 
 Format
 ----------------
-.. function:: plotSetGrid(&myPlot, tickStyle[, color])
-              plotSetGrid(&myPlot, onOff)
+.. function:: plotSetYGridPen(&myPlot, thickness[, clr[, style]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param tickStyle: specifies whether grid marks should be drawn on major tick marks. Options: ``"major"``
-    :type tickStyle: string
+    :param thickness: the thickness of the axis line in pixels.
+    :type thickness: Scalar
 
-    :param color: Optional argument, name or rgb value of the new color.
-    :type color: string
+    :param clr: Optional argument, name or rgb value of the new color for the axes.
+    :type clr: string
 
-    :param onOff: turns the grid on or off. Options: ``"on"`` or ``"off"``. If used, this must be the only argument passed to the function besides the :class:`plotControl` structure pointer.
-    :type onOff: string
+    :param style: the style of the pen. Options include:
+
+        .. include:: include/plotpenstyletable.rst
+
+    :type style: Scalar
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetygridpen-cr.png
+   :scale: 50 %
 
 ::
 
@@ -34,8 +38,11 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
 
-    // Set grid to be black and on the major ticks only
-    plotSetGrid(&myPlot, "major", "black");
+    // Set grid to on the major X-axis ticks only
+    plotSetYGrid(&myPlot, "major");
+
+    // Set grid line to be 0.5 px, black, and dashed
+    plotSetYGridPen(&myPlot, 0.5, "Black", 2);
 
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
