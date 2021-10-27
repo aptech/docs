@@ -20,7 +20,7 @@ Examples
 ----------------
 .. figure:: _static/images/plotsetxminorticcount-cr.png
    :scale: 50 %
-   
+
 ::
 
   // Declare plotControl structure
@@ -32,7 +32,7 @@ Examples
   // Set x-axis major and minor grid lines on
   plotSetXGrid(&myPlot, "both");
 
-  // Set x-axis minor grid lines tic count
+  // Set x-axis minor grid lines tick count
   plotSetXMinorTicCount(&myPlot, 4);
 
   // Create a scatter plot of random data
