@@ -27,7 +27,7 @@ Format
 
 Examples
 ----------------
-.. figure:: _static/images/plotsetxminorgridpen-cr.png
+.. figure:: _static/images/plotsetxminorgridpen-cr.jpg
    :scale: 50 %
 
 ::
