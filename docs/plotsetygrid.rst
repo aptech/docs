@@ -25,6 +25,8 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetygrid-cr.jpg
+   :scale: 50 %
 
 ::
 
