@@ -55,8 +55,8 @@ Format
 
     Remarks
     ---------
-    - The y-axis minor grid must turned on using :func:`plotSetYGrid` for the axis to show.
-    - The y-axis minor grid tick count must be set using :func:`plotSetYMinorTicCount` for the axis to show.
+    - The y-axis minor grid must turned on using :func:`plotSetYGrid` or :func:`plotSetGrid` for the minor axis to show.
+    - The y-axis minor grid tick count must be set using :func:`plotSetYMinorTicCount` for the minor axis to show.
 
     .. include:: include/plotattrremark.rst
 
