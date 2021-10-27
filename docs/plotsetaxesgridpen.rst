@@ -1,14 +1,14 @@
 
-plotSetAxesPen
+plotSetAxesGridPen
 ==============================================
 
 Purpose
 ----------------
-Sets the color for the axes line.
+Controls the thickness, color, and style for both the X-axis and Y-axis grid lines.
 
 Format
 ----------------
-.. function:: plotSetAxesPen(&myPlot, thickness[, clr])
+.. function:: plotSetAxesPen(&myPlot, thickness[, clr[, style]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -19,8 +19,16 @@ Format
     :param clr: Optional argument, name or rgb value of the new color for the axes.
     :type clr: string
 
+    :param style: the style of the pen. Options include:
+
+        .. include:: include/plotpenstyletable.rst
+
+    :type style: Scalar
+
 Examples
 ----------------
+.. figure:: _static/images/plotsetaxesgridpen-cr.png
+   :scale: 50 %
 
 ::
 
@@ -30,8 +38,8 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set axis to be 2 pixeles wide and black
-    plotSetAxesPen(&myPlot, 2, "black");
+    // Set axis grid lines to be 0.5 pixel wide, black, and dashed
+    plotSetAxesGridPen(&myPlot, 0.5, "black", 2);
 
     // Create data
     x = seqa(0.1, 0.1, 50);
@@ -42,7 +50,8 @@ Examples
 
 Remarks
 -------
+- The X and Y axis grid line properties can be set separately with :func:`plotSetXGridPen` and :func:`plotSetYGridPen`.
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`
+.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`, :func:`plotSetXGridPen`,  :func:`plotSetYGridPen`
