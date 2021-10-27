@@ -58,6 +58,7 @@ Remarks
 ---------
 - The X-axis minor grid tick count must be set using :func:`plotSetXMinorTicCount` for the axis to show.
 - The X-axis minor grid is unsupported for bar, box, and histogram plots at this time.
+
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotSetXGridPen`, :func:`plotSetXMinorTicCount`, :func:`plotSetYMinorGridPen`, :func:`plotSetAxesMinorGridPen`
