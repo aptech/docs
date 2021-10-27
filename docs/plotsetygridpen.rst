@@ -47,7 +47,5 @@ Examples
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
 
-    // Turn off the grid
-    plotSetGrid(&myPlot, "off");
 
-.. seealso:: Functions :func:`plotCustomLayout`, :func:`plotSetTitle`
+.. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetAxesGridPen`, :func:`plotSetXGridPen`
