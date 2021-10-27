@@ -47,8 +47,6 @@ Examples
     // Create a scatter plot of random data
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
 
-    // Turn off the grid
-    plotSetGrid(&myPlot, "off");
 
 Remarks
 -------
@@ -56,4 +54,4 @@ Please note that :func:`plotSetXGridPen` is not supported for bar, box, or histo
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotSetXGrid`, :func:`plotSetYGridPen`, :func: `plotSetAxesGridPen`
+.. seealso:: Functions :func:`plotSetXGrid`, :func:`plotSetYGridPen`, :func:`plotSetAxesGridPen`
