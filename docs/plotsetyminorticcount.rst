@@ -1,67 +1,47 @@
 
-plotSetXTicCount
+plotSetYMinorTicCount
 ==============================================
 
 Purpose
 ----------------
-Controls the number of major ticks on the X-axis of a 2-D plot.
+Controls the number of minor ticks to place between major ticks on the y-axis of a 2-D plot.
 
 Format
 ----------------
-.. function:: plotSetXTicCount(&myPlot, num_tics)
+.. function:: plotSetYMinorTicCount(&myPlot, num_tics)
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param num_tics: the number of major ticks to place on the X-axis.
+    :param num_tics: the number of minor ticks to place between major ticks on the y-axis.
     :type num_tics: Scalar
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetyminorticcount-cr.png
+   :scale: 50 %
 
 ::
 
-    // Create some data to plot
-    x = seqa(-3, 0.1, 61);
-    y = x.^3 + rndn(rows(x), 1);
+  // Declare plotControl structure
+  struct plotControl myPlot;
 
-    // Plot the data
-    plotXY(x, y);
+  // Initialize plotControl structure
+  myPlot = plotGetDefaults("scatter");
 
-.. figure:: _static/images/gauss15_psxtc_1.png
+  // Set x-axis major and minor grid lines on
+  plotSetYGrid(&myPlot, "both");
 
-    5 tick marks
+  // Set y-axis minor grid lines tick count
+  plotSetYMinorTicCount(&myPlot, 4);
 
-will produce a graph that looks similar to the one above, with 5 major tick marks on the x-axis. If we use 8 tick marks, there will be one
-major tick for every integer on the x-axis. We can make that change like this:
-
-::
-
-    // Declare and initialize plotControl structure
-    struct plotControl myPlot;
-    myPlot = plotGetDefaults("xy");
-
-    // Set the x-axis to have 8 tick marks
-    plotSetXTicCount(&myPlot, 8);
-
-    // Plot the data, using the plotControl structure
-    plotXY(myPlot, x, y);
-
-.. figure:: _static/images/gauss15_psxtc_8.png
-
+  // Create a scatter plot of random data
+  plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
 
 Remarks
 -------
+- The y-axis minor grid must turned on using :func:`plotSetYGrid` or :func:`plotSetGrid` for the minor axis to show.
 
-Note that :func:`plotSetXTicInterval` does not provide complete control over the
-x-axis ticks. If the number of x-ticks requested would cause an odd x-tick
-interval, GAUSS will create a number of ticks that will provide more even
-spacing. For instance, in the example above, 8 ticks gave a space between
-ticks of 1. If we chose 9 ticks, the spacing between ticks would be 0.889.
-In that case, GAUSS would instead draw 8 ticks for a more even
-appearance.
+    .. include:: include/plotattrremark.rst
 
-.. include:: include/plotattrremark.rst
-
-.. seealso:: Functions :func:`plotSetXTicInterval`, :func:`plotSetXLabel`
-
+    .. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetYGridPen`, :func:`plotSetYMinorGridPen`, :func:`plotSetXMinorTicCount`
