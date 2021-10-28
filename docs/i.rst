@@ -44,4 +44,5 @@ I
     isinfnanmiss
     ismember
     ismiss
+    isunique
     itos
