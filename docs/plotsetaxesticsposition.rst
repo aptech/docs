@@ -1,26 +1,25 @@
 
-plotSetAxesPen
+plotSetAxesTicsPosition
 ==============================================
 
 Purpose
 ----------------
-Sets the color for the axes line.
+Controls if the axes tick are inside or outside the axes line.
 
 Format
 ----------------
-.. function:: plotSetAxesPen(&myPlot, thickness[, clr])
+.. function:: plotSetAxesTicsPosition(&myPlot, position)
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param thickness: the thickness of the axis line in pixels.
-    :type thickness: Scalar
-
-    :param clr: Optional argument, name or rgb value of the new color for the axes.
-    :type clr: string
+    :param position: Position of the ticks. Options: [``"outside"``, ``"inside"``, ``"hidden"``].
+    :type position: string
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetaxesticsposition-cr.jpg
+   :scale: 50 %
 
 ::
 
@@ -30,8 +29,8 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set axis to be 2 pixeles wide and black
-    plotSetAxesPen(&myPlot, 2, "black");
+    // Set ticks to be inside the plot
+    plotSetAxesTicsPosition(&myPlot, "inside");
 
     // Create data
     x = seqa(0.1, 0.1, 50);
@@ -45,5 +44,4 @@ Remarks
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineSymbol`
-
+.. seealso:: Functions :func:`plotSetXTicsPosition`, :func:`plotSetYTicsPosition`
