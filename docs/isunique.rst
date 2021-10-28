@@ -5,16 +5,16 @@ isunique
 Purpose
 ----------------
 
-Returns a 1 if the dataframe contains all unique observations, otherwise returns a 0.
+Returns a 1 if the data contains all unique observations, otherwise returns a 0.
 
 Format
 ----------------
 .. function:: ret = isunique(x [, varlist])
 
     :param x: data
-    :type x: dataframe
+    :type x: matrix or dataframe
 
-    :param varlist: Optional, varlist. Default is across all variables.
+    :param varlist: Optional, list of variables to include in the check. Default is across all variables.
     :type varlist: string array
 
     :return ret: 1 if ``x`` contains unique observations across the specific ``varlist``, otherwise 0.
