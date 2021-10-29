@@ -18,6 +18,8 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetbkdcolor-cr.jpg
+   :scale: 50 %
 
 ::
 
@@ -44,4 +46,3 @@ Remarks
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineColor`, :func:`plotSetLineSymbol`
-

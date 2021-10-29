@@ -43,6 +43,8 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetfill-cr.png
+   :scale: 50 %
 
 ::
 
