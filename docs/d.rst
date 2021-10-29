@@ -115,6 +115,7 @@ D
     dowhiledountil
     draw
     dropdataloop
+    dropduplicates
     dscreate
     dstatmtcontrolcreate
     dstatmt
