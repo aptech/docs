@@ -1,5 +1,5 @@
 
-asDF
+asdf
 ==============================================
 
 Purpose
@@ -9,7 +9,7 @@ Adds metadata to a matrix or string array and returns a dataframe.
 
 Format
 ----------------
-.. function:: x_meta = asDF(x[, varname_1[, varname_2[ , ...]]])
+.. function:: x_meta = asdf(x[, varname_1[, varname_2[ , ...]]])
 
     :param x: data.
     :type x: NxK matrix or string array
@@ -36,7 +36,7 @@ Example 1
 
   // Convert to a dataframe
   // and name the variable `Animals`
-  linear_data = asDF(y_t~x_t~e_t, "Y", "X", "Error");
+  linear_data = asdf(y_t~x_t~e_t, "Y", "X", "Error");
 
 
 After the above code, ``linear_data`` is a dataframe with three numeric variables named ``Y``, ``X``, and ``Error``:
@@ -54,7 +54,7 @@ Example 2
 
   // Convert to a dataframe
   // and name the variable `Animals`
-  x_df = asDF(x_sa, "Animals");
+  x_df = asdf(x_sa, "Animals");
 
 
 After the above code, ``x_df`` is a dataframe with one categorical variable named ``Animals``:
