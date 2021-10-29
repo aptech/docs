@@ -34,7 +34,7 @@ After the above code, the first five rows of *yarn* are equal to:
 
 ::
 
-     yarn_length     amplitude        load     cycles 
+     yarn_length     amplitude        load     cycles
              low           low         low        674
              low           low         med        370
              low           low        high        292
@@ -44,7 +44,7 @@ After the above code, the first five rows of *yarn* are equal to:
 while the first five rows of *yarn_mat* are equal to:
 
 ::
-    
+
                1             1           1        674
                1             1           2        370
                1             1           0        292
@@ -62,4 +62,4 @@ Remarks
 * Numeric variables will be unchanged.
 * Variable names will be removed.
 
-.. seealso:: Functions :func:`setcolnames`, :func:`setcoltypes`
+.. seealso:: Functions :func:`asdf`, :func:`setcolnames`, :func:`setcoltypes`
