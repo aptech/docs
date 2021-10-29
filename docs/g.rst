@@ -43,6 +43,7 @@ G
     getcolorpalette
     getcoltypes
     getdims
+    getduplicates
     getf
     getgausshome
     getheaders
