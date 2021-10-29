@@ -42,6 +42,7 @@ A
     arraytomat
     asciiload
     asclabel
+    asdf
     asmatrix
     astd
     astds
