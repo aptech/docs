@@ -4,7 +4,7 @@ plotSetAxesMinorGridPen
 
 Purpose
 ----------------
-Sets the color for the axes line.
+Sets the color, thickness and style for the axes minor grid lines.
 
 Format
 ----------------
