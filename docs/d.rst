@@ -100,6 +100,8 @@ D
     det
     dffti
     dfft
+    dfname
+    dftypes
     diag
     diagrv
     digamma
