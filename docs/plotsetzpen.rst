@@ -4,7 +4,7 @@ plotSetZPen
 
 Purpose
 ----------------
-Sets the color for the Z-Axis line.
+Sets the thickness, color, and style for the Z-Axis line.
 
 Format
 ----------------
@@ -36,15 +36,16 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set axis to be 2 pixeles wide and black
-    plotSetZPen(&myPlot, 2, "black");
+    // Set axis to be 3 pixels wide and black
+    plotSetZPen(&myPlot, 3, "black");
 
     // Create data
-    x = seqa(0.1, 0.1, 50);
-    y = sin(x)~cos(x);
+    y = seqa(0.1, 0.1, 50);
+    x = y';
+    z = sin(x)+sin(y);
 
-    // Plot the data with the new line colors
-    plotXY(myPlot, x, y);
+    // Plot the data
+    plotSurface(myPlot, x, y, z);
 
 Remarks
 -------
@@ -52,4 +53,3 @@ Remarks
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineStyle`, :func:`plotSetAxesPen`, :func:`plotSetXPen`, :func:`plotSetXPen`
-

@@ -10,6 +10,7 @@ N
     nextnnextnevn
     nextwind
     norm
+    normalizecollabels
     ntos
     null1
     null
