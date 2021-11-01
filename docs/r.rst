@@ -19,8 +19,9 @@ R
     recserrc
     recservar
     renamefile
-    reordercatlabels 
+    reordercatlabels
     rerun
+    resetsourcepaths
     rescale
     reshape
     retp
