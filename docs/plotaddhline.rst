@@ -85,7 +85,7 @@ This example creates a scatter plot of two variables and adds horizontal lines r
 Remarks
 -------
 
-Please note that :func:`plotAddHLine` will add arrows to existing graphs, it
+Please note that :func:`plotAddHLine` will add lines to existing graphs, it
 will not create a new graph if one does not exist. :func:`plotAddHLine` is not
 yet supported for surface plots.
 

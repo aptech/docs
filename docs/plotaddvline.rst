@@ -4,7 +4,7 @@ plotAddVLine
 
 Purpose
 ----------------
-Adds a vertical line to an existing plot.
+Adds one or more vertical lines to an existing plot.
 
 Format
 ----------------
@@ -45,7 +45,7 @@ This example creates a scatter plot of two variables and adds vertical lines rep
     plotScatter(plt, auto[.,"weight"], auto[.,"mpg"]);
 
     /*
-    ** Add vertical line at the median weight
+    ** Add vertical line at the 95% confidence interval for weight
     */
 
     // Compute percentiles of 'weight' variable
@@ -61,6 +61,10 @@ This example creates a scatter plot of two variables and adds vertical lines rep
 
 Remarks
 -------
+
+- Each set of lines added with a call to :func:`plotAddVline` will create will have the same line color, thickness and style. 
+- If a legend label is added, all lines will share one legend entry.
+- See the entry for :func:`plotAddHLine` to see an example with more than one line style and legend entry.
 
 Please note that :func:`plotAddVLine` will add lines to existing graphs, it
 will not create a new graph if one does not exist. :func:`plotAddVLine` is not
