@@ -62,8 +62,8 @@ This example creates a scatter plot of two variables and adds vertical lines rep
 Remarks
 -------
 
-- Each set of lines added with a call to :func:`plotAddVline` will create will have the same line color, thickness and style. 
-- If a legend label is added, all lines will share one legend entry.
+- Each set of lines added with a call to :func:`plotAddVline` will have the same line color, thickness and style. 
+- If a legend label is added, all lines from a single call to will share one legend entry.
 - See the entry for :func:`plotAddHLine` to see an example with more than one line style and legend entry.
 
 Please note that :func:`plotAddVLine` will add lines to existing graphs, it

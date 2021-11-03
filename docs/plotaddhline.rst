@@ -33,7 +33,7 @@ This example creates a scatter plot of two variables and adds horizontal lines r
     // Load variables from the Excel file
     nba = loadd(dataset, "Height + Weight");
     
-    // Declare plotControl structure and 
+    // Declare plotControl structure and
     // fill with default settings
     struct plotControl plt;
     plt = plotGetDefaults("scatter");
@@ -43,47 +43,53 @@ This example creates a scatter plot of two variables and adds horizontal lines r
     plotSetXLabel(&plt, "Weight (lbs)", "Arial", 12);
     plotSetYLabel(&plt, "Height (inches)");
     
-    /*
-    ** Set up legend
-    */
-    legend_labels = "" $|                        /* No legend item for scatter points */
-                    "95% Confidence Interval" $| /* Label for first set of h-line */
-                    "Median Height";             /* Label for final h-line */
-    
-    // Place top-left corner of legend box at x=220, y=72
-    // Final input, 0, makes legend lined up horizontally
-    plotSetLegend(&plt, legend_labels, 220|72, 0);
-    
-    // Turn off legend border
-    plotSetLegendBorder(&plt, "white", 0);
-    
-    /*
-    ** Set up line color for scatter symbols
-    ** and horizontal lines we will add
-    */
-    clr = plotGetLineColor(plt);
-    clr = clr[1] $| "gray" $| "black";
-    styles = { 1 /* solid */,
-               3 /* dot   */,
-               1 /* solid */ };
-    plotSetLinePen(&plt, 2, clr, styles);
     
     // Draw scatter plot
     plotScatter(plt, nba[.,"Weight"], nba[.,"Height"]);
     
     
-    // Compute quantiles and add to graph
+    // Compute quantiles to add to graph
     qtls = quantile(nba[.,"Height"], 0.025|0.5|0.975);
     
+    /*
+    ** Set up line style for the
+    ** horizontal lines we will add
+    */
+    clr = "gray" $| "black";
+    styles = { 3 /* dot   */,
+               1 /* solid */ };
+    plotSetLinePen(&plt, 2, clr, styles);
+    
+    /*
+    ** Set up legend
+    */
+    legend_labels = "95% Confidence Interval" $| /* Label for first set of h-line */
+                    "Median Height";             /* Label for final h-line */
+    
+    // Place top-left corner of legend box at x=220, y=72
+    // The final input, 0, makes legend lined up horizontally
+    plotSetLegend(&plt, legend_labels, 220|72, 0);
+    
+    // Turn off legend border
+    plotSetLegendBorder(&plt, "white", 0);
+    
     // Add gray lines with dot styling
-    plotAddHLine(qtls[1 3]);
-
+    plotAddHLine(plt, qtls[1 3]);
+    
     // Add black solid line
     plotAddHLine(qtls[2]);
 
 
+Notice that the line style and legend options are set after the call to :func:`plotScatter`. These settings are applied when the plotControl structure is passed in to the first call to :func:`plotAddHLine`.
+
+The second call to :func:`plotAddHLine` does not pass in a :class:`plotControl` structure. Therefore, the second line color, line style and legend label settings are used for this line.
+
+
 Remarks
 -------
+
+- As shown in the above example, each set of lines added with a call to :func:`plotAddVline` will have the same line color, thickness and style. 
+- If a legend label is added, all lines from a single call will share one legend entry.
 
 Please note that :func:`plotAddHLine` will add lines to existing graphs, it
 will not create a new graph if one does not exist. :func:`plotAddHLine` is not
