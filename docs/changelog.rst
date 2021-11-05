@@ -14,7 +14,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Duplicate header prevention was added for dataframes. This can be toggled via policy in gauss.cfg with the ``policy_check_df_header_dupes`` key.
 #. Added new function :func:`asdf` to allow automatic conversion of scalar/matrix/string/string array to a dataframe. Headers can now be specified as N additional arguments, where N is equal to the column count of the input symbol.
 #. Added new function :func:`currentprocname` was added to return the name of the current proc. It also accepts 1 argument to return the name of the calling procedure(s) from previous stack frame(s) if desired.
-#. Added new function :func:`isunique` to return a scalar denoting whether each row is unique.
+#. Added new function :func:`isunique` to return a scalar denoting whether all rows in a matrix or dataframe are unique.
 #. Added new function :func:`isrowunique` to return a vector denoting whether each row is unique.
 #. Added new function :func:`dropduplicates` to return the input matrix/dataframe with all duplicate rows removed.
 #. Added new function :func:`getduplicates` to return the input matrix/dataframe with only duplicate rows present. The original row number is prepended as the first column to the output of this function.
@@ -25,11 +25,13 @@ The following is a list of changes from the previous version of GAUSS.
 #. Formula strings now support more than one dependent variable. (fields specified before a ``~`` in a formula string).
 #. ``%e``, ``%E``, ``%f``, ``%F``, ``%g``, ``%G`` flags were reimplemented for more consistent results with :func:`sprintf`.
 #. :func:`dttostr` will now return a string instead of a 1x1 string array.
-#. Graphics: :func:`plotScatter` automatically handles dataframe input to generate the appropriate legend and axis labels.
+#. Graphics: :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` now support formula strings and automatically handle dataframe input to generate the appropriate axis labels.
+#. Graphics: New formula string keyword, :class:`by` splits data to be plotted by  :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` by a specified categorical or string variable and automatically handle dataframe input to generate the appropriate legend items.
 #. Graphics: Added support for legends to have their own title with :func:`plotSetLegendTitle`.
 #. Graphics: Added new functions for vertical/horizontal lines to span the entire axis: :func:`plotAddVLine`, :func:`plotAddHLine`.
 #. Graphics: Added new functions for vertical/horizontal bars to span the entire axis: :func:`plotAddVBar`, :func:`plotAddHBar`.
 #. Graphics: :func:`plotAddVBar` and :func:`plotAddHBar` support FRED-style input data. (eg { 1950, 1 }, { 1951, 1 }, { 1952, 0 }, ...).
+#. Graphics: Added support for dates in simple string format to :func:`plotSetXRange`.
 #. Graphics: Added support for outliers to :func:`plotBox`.
 #. Graphics: Added new function :func:`plotSetJitterRange` to control the jitter range for :func:`plotScatter` and :func:`plotBox` outliers.
 #. Graphics: Attributes for each axis can be assigned separately. The existing :func:`plotSetAxesPen` convenience procedure will still assign attributes to all axes simultaneously.
