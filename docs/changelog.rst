@@ -46,6 +46,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Graphics: :func:`plotAddXY` and :func:`plotAddScatter` now support category labels as input for X values.
 #. Graphics: Contour is now a new default graph profile instead of being shared with Surface.
 #. Performance: :func:`movingave` up to 4-6x faster.
+#. For convenience you can now assign a scalar value to multiple elements of a matrix or dataframe (eg x[1 3 5,2] = 7.3;).
 #. Dataframes: All dataframe functions (:func:`dfname`, :func:`dftypes`, :func:`asdate`, etc) can now automatically convert a non-dataframe input to a dataframe. String arrays are automatically converted to a category column.
 #. Dataframes: Behavior: Overwriting an entire column during an assign will overwrite the LHS metadata if the RHS is also a dataframe.
 #. Dataframes: Multiple new functions now support dataframes as input arguments: :func:`strtrim`, :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`, :func:`strtruncpad`, :func:`upper`, :func:`lower`, :func:`strindx`, :func:`strreplace`, :func:`strsect`, :func:`strcat`, :func:`indsav`, :func:`indnv`, :func:`contains`, :func:`strsplit`, :func:`strjoin`, :func:`strcombine`, :func:`aggregate`
