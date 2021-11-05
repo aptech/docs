@@ -58,13 +58,11 @@ Examples
 
     // Create data
     x = seqa(1, 1, 5);
-    y = {
-    1.5       2    1.8,
-      2     2.1      3,
-      3     2.5    3.6,
-    0.5     0.8      1,
-      1     1.2    0.8
-    	};
+    y = { 1.5       2    1.8,
+            2     2.1      3,
+            3     2.5    3.6,
+          0.5     0.8      1,
+            1     1.2    0.8 };
 
     // Draw bar graph
     plotBar(myPlot, x, y);
@@ -75,8 +73,6 @@ Remarks
 -------
 
 When graphing without the use of a :class:`plotControl` structure, these settings
-may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
-selecting the Bar radio button. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_ for
-more information on the methods available for customizing your graphs.
+may be chosen by selecting  :menuselection:`Tools --> Preferences --> Graphics --> Profiles` from the main menu.
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`
