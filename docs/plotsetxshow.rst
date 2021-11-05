@@ -43,7 +43,7 @@ Examples
 Remarks
 -------
 
--  :func:`plotSetXShow` will not force an axis to be shown unless a series of data is attached to it. By default data will be attached to the bottom x-axis.
+-  :func:`plotSetXShow` will not force an axis to be shown unless a series of data is attached to it. By default, data will be attached to the bottom x-axis.
    Use :func:`plotSetWhichXAxis` to control which x-axis a series of data is attached to.
 -  If ``is_on`` is a scalar, it will apply to the top and bottom x-axis. If it is a 2x1 matrix, the first element will control
    the bottom x-axis and the second will control the top x-axis.

@@ -5,7 +5,7 @@ plotSetOutlineEnabled
 Purpose
 ----------------
 
-Turns on outline around the plot.
+Turns on an outline around the plot.
 
 Format
 ----------------
