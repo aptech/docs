@@ -30,7 +30,7 @@ Examples
 Add Bar Spanning the Bottom Quartile of X Variable
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. figure:: _static/images/plotaddbar-cr-2.jpg
+.. figure:: _static/images/plotaddvbar-cr-2.jpg
    :scale: 50 %
 
 ::
@@ -79,7 +79,7 @@ Add Recession Bars to a Time Series Plot
 
 This example draws recession bars based on a matrix where the first column is a date and the second column is a binary indicator vector. Where the binary indicator vector is 1, a bar is drawn. The data comes from the FRED USREC dataset.  
 
-.. figure:: _static/images/plotaddbar-cr-1.jpg
+.. figure:: _static/images/plotaddvbar-cr-1.jpg
    :scale: 50 %
 
 ::
@@ -129,13 +129,9 @@ This example draws recession bars based on a matrix where the first column is a 
 Remarks
 -------
 
-:func:`plotAddVBar` will add shapes to existing graphs. It will not create a
+:func:`plotAddVBar` will add vertical spanning bars to existing graphs. It will not create a
 new graph, however, if one does not already exist.
-
-.. NOTE:: The top left corner of the bounding box for the shape will be placed at
-    the coordinates that you specify. The bounding box is rectangular and
-    will, therefore, not touch the edge of an ellipse at that point.
 
 :func:`plotAddVBar` is not yet supported for surface plots.
 
-.. seealso:: Functions :func:`plotAddTextbox`, :func:`annotationGetDefaults`
+.. seealso:: Functions :func:`plotAddHBar`, :func:`plotAddVLine`
