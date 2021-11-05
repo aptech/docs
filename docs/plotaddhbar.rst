@@ -20,7 +20,7 @@ Format
     :param y_end: the Y coordinate for the end of the bounding box for each respective shape.
     :type y_end: scalar or Nx1 vector
 
-    :param y_loc: the first column should contain Y coordinates. The second column should be a binary vector with a 1 for locations which the bar should be drawn, otherwise a 0.
+    :param y_loc: the first column should contain Y coordinates. The second column should be a binary vector with a 1 for locations where the bar should be drawn, otherwise a 0.
     :type y_loc: Nx2 vector
 
 
