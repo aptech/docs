@@ -39,12 +39,15 @@ The following is a list of changes from the previous version of GAUSS.
 #. Graphics: Axis tics can now be displayed on the inside of the chart (as opposed to outside only) or hidden completely with the :func:`plotSetTicsPosition` function.
 #. Graphics: Axes are now at a higher Z-order than series, so lines will not render on top of the axes lines.
 #. Graphics: Added new function :func:`plotSetOutlineEnabled` to allow a box outline around the entire chart. Outline attributes are controlled via axis properties using :func:`plotSetAxesPen` or individually with :func:`plotSetXPen` and :func:`plotSetYPen`.
+#. :func:`plotSetAxesPen` has a new optional input to set the axes line style.
 #. Graphics: Added convenience functions for horizontal/vertical bars (eg recession bars): :func:`plotAddHBar` and :func:`plotAddVBar`.
 #. Graphics: Added convenience functions for horizontal/vertical lines: :func:`plotAddHLine` and :func:`plotAddVLine`.
 #. Graphics: Graph profile settings in the preferences dialog have been fully refactored to only show properties related to the selected graph category. This should reduce confusion regarding which properties are respected when plotting a graph of the specified type.
 #. Graphics: Added support for specifying the bar width (:func:`plotSetBarWidth`) and box width (:func:`plotSetBoxWidth`).
 #. Graphics: :func:`plotAddXY` and :func:`plotAddScatter` now support category labels as input for X values.
 #. Graphics: Contour is now a new default graph profile instead of being shared with Surface.
+#. Graphics: New convenience function :func:`plotSetLinePen` to set the line width, color and style in one call.
+#. Graphics: New function :func:`plotCloseAll` closes all open graphs.
 #. Performance: :func:`movingave` up to 4-6x faster.
 #. For convenience you can now assign a scalar value to multiple elements of a matrix or dataframe (eg x[1 3 5,2] = 7.3;).
 #. Dataframes: All dataframe functions (:func:`dfname`, :func:`dftypes`, :func:`asdate`, etc) can now automatically convert a non-dataframe input to a dataframe. String arrays are automatically converted to a category column.
