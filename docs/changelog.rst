@@ -64,6 +64,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. Dataframes: Specifying custom col labels for string/category columns now uses a :func:`seqa` representation for the values if they are left as their default. (Optimization)
 #. Dataframes: Bug Fix: Unsorted indices passed to dataframe functions could cause changes to be incorrectly applied.
 #. Dataframes: Bug Fix: Specific cases where a program errored out could potentially remove metadata from a symbol in the workspace.
+#. :func:`aggregate` now accepts an optional input specifying the column index or name of the variable to aggregate on.
+#. Behavior Change: :func:`aggregate` will now check for and ignore missing values by default. An optional input flag has been added to not check for missing values as in the previous version.
 #. Bug Fix: :func:`setcollabels` incorrectly allowed the indices argument to be omitted. This has been fixed, but improved to allow omission of the indices argument if the input argument only has one column. The values used will be [0...N-1] where N is the number of labels.
 #. Bug Fix: :func:`move` now makes a copy if the input symbol can't release ownership.
 #. Bug Fix: :func:`plotAddBarH` would calculate the X offset incorrectly if the input X values were index values instead of labels.
