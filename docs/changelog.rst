@@ -62,6 +62,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Dataframes: :func:`outerjoin` (left outer join) has been rewritten completely as an intrinsic with full support for dataframes with a significant performance increase.
 #. Dataframes: Generated code in the file import dialog now takes advantage of new dataframe behavior to allow more concise code.
 #. Dataframes: Specifying custom col labels for string/category columns now uses a :func:`seqa` representation for the values if they are left as their default. (Optimization)
+#. Dataframes: :func:`sortc` now allows you to specify columns by name and supports sorting categorical and string categories by their string label. 
 #. Dataframes: Bug Fix: Unsorted indices passed to dataframe functions could cause changes to be incorrectly applied.
 #. Dataframes: Bug Fix: Specific cases where a program errored out could potentially remove metadata from a symbol in the workspace.
 #. :func:`aggregate` now accepts an optional input specifying the column index or name of the variable to aggregate on.
