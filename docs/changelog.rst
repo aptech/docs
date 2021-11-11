@@ -20,7 +20,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added new function :func:`getduplicates` to return the input matrix/dataframe with only duplicate rows present. The original row number is prepended as the first column to the output of this function.
 #. :func:`setcolnames` now has header duplicate checking and auto-renaming if the ``policy_check_df_header_dupes`` policy is enabled in gauss.cfg. This policy is enabled by default.
 #. :func:`dfname` was added as an alias for :func:`setcolnames`.
-#. :func:`dftypes` was added as an alias for :func:`setcoltypes`.
+#. :func:`dftype` was added as an alias for :func:`setcoltypes`.
 #. :func:`asdate` was added as an alias for :func:`setcoldateformats`.
 #. Formula strings now support more than one dependent variable. (fields specified before a ``~`` in a formula string).
 #. ``%e``, ``%E``, ``%f``, ``%F``, ``%g``, ``%G`` flags were reimplemented for more consistent results with :func:`sprintf`.
@@ -50,7 +50,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Graphics: New function :func:`plotCloseAll` closes all open graphs.
 #. Performance: :func:`movingave` up to 4-6x faster.
 #. For convenience you can now assign a scalar value to multiple elements of a matrix or dataframe (eg x[1 3 5,2] = 7.3;).
-#. Dataframes: All dataframe functions (:func:`dfname`, :func:`dftypes`, :func:`asdate`, etc) can now automatically convert a non-dataframe input to a dataframe. String arrays are automatically converted to a category column.
+#. Dataframes: All dataframe functions (:func:`dfname`, :func:`dftype`, :func:`asdate`, etc) can now automatically convert a non-dataframe input to a dataframe. String arrays are automatically converted to a category column.
 #. Dataframes: Behavior: Overwriting an entire column during an assign will overwrite the LHS metadata if the RHS is also a dataframe.
 #. Dataframes: Behavior: Concatenating a dataframe to a string is now supported.
 #. Dataframes: Multiple new functions now support dataframes as input arguments: :func:`strtrim`, :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`, :func:`strtruncpad`, :func:`upper`, :func:`lower`, :func:`strindx`, :func:`strreplace`, :func:`strsect`, :func:`indsav`, :func:`indnv`, :func:`contains`, :func:`strsplit`, :func:`strjoin`, :func:`strcombine`, :func:`aggregate`

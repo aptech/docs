@@ -1,5 +1,5 @@
 
-dftypes
+dftype
 ==============================================
 
 Purpose
@@ -30,7 +30,7 @@ Remarks
 Date Variables
 ++++++++++++++++
 
-When a numeric column is set to type ``date`` with :func:`dftypes`:
+When a numeric column is set to type ``date`` with :func:`dftype`:
 
 * The data from the column is interpreted as POSIX time (seconds since Jan 1, 1970).
 * The default date format will be used. This can be changed with :func:`setcoldateformats`.
@@ -38,7 +38,7 @@ When a numeric column is set to type ``date`` with :func:`dftypes`:
 Categorical and String  Variables
 ++++++++++++++++++++++++++++++++++++
 
-When a numeric column is set to type ``category``, or ``string``  with :func:`dftypes`:
+When a numeric column is set to type ``category``, or ``string``  with :func:`dftype`:
 
 * Each value will be converted to an integer to create the keys. The labels will be the string version of the number.
 
@@ -61,7 +61,7 @@ Example 1: POSIX time numeric column to date column
     x = 0 | secs_per_day;
 
     // Set the numeric vector to be a date
-    x = dftypes(x, "date", 1);
+    x = dftype(x, "date", 1);
     print x;
 
 Since the date vector is interpreted as seconds since Jan 1, 1970, the code above will print:
@@ -83,7 +83,7 @@ Example 2: Category to number
     yarn = loadd(fname, "cat(amplitude) + cycles");
 
     // Set the first column to be a numeric column
-    yarn_n = dftypes(yarn, "number", 1);
+    yarn_n = dftype(yarn, "number", 1);
 
 
 After the above code, the first few rows look like this:
@@ -108,7 +108,7 @@ Example 3: Integer column to category
 
     // Make 'x' a dataframe and set its
     // only column to be a category
-    x = dftypes(x, "category", 1);
+    x = dftype(x, "category", 1);
 
 After the above code, *x* will be a datframe as shown below:
 

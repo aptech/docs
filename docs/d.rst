@@ -101,7 +101,7 @@ D
     dffti
     dfft
     dfname
-    dftypes
+    dftype
     diag
     diagrv
     digamma
