@@ -59,8 +59,6 @@ Remarks
 -------
 
 When graphing without the use of a :class:`plotControl` structure, these settings
-may be chosen through the :menuselection:`Tools --> Preferences --> Graphics` menu, after
-selecting the Bar radio button. See the `GAUSS Graphics chapter <GG-GAUSSGraphics.html>`_ for
-more information on the methods available for customizing your graphs.
+may be chosen through the :menuselection:`Tools --> Preferences --> Graphics --> Profiles` menu.
 
 .. seealso:: Functions :func:`plotBar`, :func:`plotGetDefaults`, :func:`plotHist`, :func:`plotSetBar`

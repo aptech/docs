@@ -43,8 +43,8 @@ To automatically open each new graph in a new graph window, use
 may be found by selecting :menuselection:`Tools --> Preferences` and then clicking on
 **Graphics** on the left side of the preferences window.
 
-If you select the radio button next to **New Window** at the top of the
-graphics preferences window, each new graph will be automatically drawn
+If you select **Open a new tab** next to **When a graph is added** at the top of the
+graphics preferences window on the **General** tab, each new graph will be automatically drawn
 in a new graphics window.
 
-.. seealso:: Functions :func:`plotSave`, :func:`plotCustomLayout`, :func:`plotSetLegend`, :func:`plotSetNewWindow`, :func:`plotCanvasSize`
+.. seealso:: Functions :func:`plotSave`, :func:`plotCustomLayout`, :func:`plotCloseWindow`, :func:`plotSetNewWindow`, :func:`plotCanvasSize`

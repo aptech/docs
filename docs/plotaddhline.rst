@@ -63,7 +63,7 @@ This example creates a scatter plot of two variables and adds horizontal lines r
     /*
     ** Set up legend
     */
-    legend_labels = "95% Confidence Interval" $| /* Label for first set of h-line */
+    legend_labels = "95% Confidence Interval" $| /* Label for first set of h-lines */
                     "Median Height";             /* Label for final h-line */
     
     // Place top-left corner of legend box at x=220, y=72
@@ -88,7 +88,7 @@ The second call to :func:`plotAddHLine` does not pass in a :class:`plotControl` 
 Remarks
 -------
 
-- As shown in the above example, each set of lines added with a call to :func:`plotAddVline` will have the same line color, thickness and style. 
+- As shown in the above example, each set of lines added with a call to :func:`plotAddHline` will have the same line color, thickness and style. 
 - If a legend label is added, all lines from a single call will share one legend entry.
 
 Please note that :func:`plotAddHLine` will add lines to existing graphs, it
