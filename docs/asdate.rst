@@ -5,19 +5,19 @@ asDate
 Purpose
 ----------------
 
-Specifies how GAUSS should display dates using the BSD strftime format specifiers. Note that this will also convert the type of the columns specified by *column* to *Date*.
+Converts columns of matrices, string arrays or dataframes to dates, with the option to specify the display format.
 
 Format
 ----------------
-.. function:: x_date = asDate(X, fmt, columns)
+.. function:: x_date = asDate(X [, fmt, columns])
 
     :param X: data.
     :type X: NxK matrix or dateframe
 
-    :param fmt: contains strftime date/time format characters.
+    :param fmt: Optional input, contains strftime date/time format characters.
     :type fmt: Mx1 string array
 
-    :param columns: The names or indices of the date columns in *X* to set format of.
+    :param columns: Optional input, the names or indices of the date columns in *X* to set format of.
     :type columns: Mx1 scalar or string
 
     :return x_date: contains metadata assigning the date display format specified by *fmt* to the variables in *x* specified by *columns*.
@@ -26,6 +26,75 @@ Format
 
 Examples
 ----------------
+
+Example 1: Convert strings to dates with the default format
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:func:`asDate` will automatically interpret date strings formatted like this, 2018-02-14 06:31:27. Only the four digit year is required. Any portion of the remaining information may be present as long as all preceding information is also present.
+
+The display format will be set to reflect the input string. For example:
+
+For example:
+
+::
+
+    print asDate("2018-02-14");    
+
+::
+
+           X1
+   2018-02-14
+
+
+::
+
+    // Create two dates with the same date,
+    // but different display formats
+    dt_1 = asDate("2018-02");    
+    dt_2 = asDate("2018-02-01");    
+
+    print "dt_1 = " dt_1;
+    print "dt_2 = " dt_2;
+    print "dt_1 == dt_1"; (dt_1 == dt_2);
+
+
+will print the following.
+
+::
+
+    dt_1 = 
+                  X1 
+             2018-02 
+    
+    dt_2 = 
+                  X1 
+          2018-02-01 
+    
+    dt_1 == dt_1
+           1.0000000
+
+
+::
+
+    // Create a 2x1 string with dates
+    // of different precision
+    dt_str = "2003-06-17" $| "2003-06-18 09:21:30";
+    
+    // Convert to a dataframe
+    dt_df = asDate(dt_str);
+    print dt_df;
+
+The above code will print out:
+
+::
+
+                  X1 
+    2003-06-17 00:00 
+    2003-06-18 09:21
+
+
+Example 2: Change the format of a date variable
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 

@@ -9,7 +9,7 @@ Set the types of columns in a matrix or dataframe.
 
 Format
 ----------------
-.. function:: x_meta = dfTypes(X, types [, columns])
+.. function:: x_meta = dfType(X, types [, columns])
 
     :param X: data.
     :type X: NxK matrix
@@ -33,7 +33,7 @@ Date Variables
 When a numeric column is set to type ``date`` with :func:`dftype`:
 
 * The data from the column is interpreted as POSIX time (seconds since Jan 1, 1970).
-* The default date format will be used. This can be changed with :func:`setcoldateformats`.
+* The default date format will be used. This can be changed with :func:`asdate`.
 
 Categorical and String  Variables
 ++++++++++++++++++++++++++++++++++++
@@ -131,8 +131,8 @@ They will equal:
 ::
 
     labels = "0"   keys = 0
-             "1"              1
-             "2"              2
+             "1"          1
+             "2"          2
 
 We can set new labels with :func:`recodecatlabels` like this:
 
@@ -153,4 +153,4 @@ Now *x* will be the following dataframe:
            gamma
 
 
-.. seealso:: Functions :func:`dfNames`, :func:`setColLabels`, :func:`asdf`, :func:`asDate`
+.. seealso:: Functions :func:`dfName`, :func:`setColLabels`, :func:`asdf`, :func:`asDate`
