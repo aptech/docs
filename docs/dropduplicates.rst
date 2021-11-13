@@ -33,7 +33,7 @@ Examples
   // Load the dataframe
   tips2 = loadd(fname, "id + total_bill + tip + cat(day) + cat(time)");
 
-  // Locate duplicate observations
+  // Locate and remove the duplicate observations
   tips_no_dups = dropduplicates(tips2);
 
 .. seealso:: Functions :func:`getduplicates`, :func:`isunique`

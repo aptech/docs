@@ -47,7 +47,7 @@ After the above code the printed output is
 
 ::
 
-  "ID variable contains duplicates.";
+  ID variable contains duplicates.
 
 
 Example 2

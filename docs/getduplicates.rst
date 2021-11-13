@@ -33,17 +33,17 @@ Examples
   // Load the dataframe
   tips2 = loadd(fname, "id + total_bill + tip + cat(day) + cat(time)");
 
-  // Locate duplicate observations
-  getduplicates(tips2);
+  // Locate and print duplicate observations
+  print getduplicates(tips2);
 
 After the above code the printed output is
 
 ::
 
-   Row Num               id       total_bill              tip              day             time
- 20.000000        20.000000        20.650000        3.3500000              Sat           Dinner
- 21.000000        20.000000        20.650000        3.3500000              Sat           Dinner
- 246.00000        245.00000        18.780000        3.0000000             Thur           Dinner
- 247.00000        245.00000        18.780000        3.0000000             Thur           Dinner
+    Row Num         id   total_bill       tip       day        time
+     20.000      20.00        20.65      3.35       Sat      Dinner
+     21.000      20.00        20.65      3.35       Sat      Dinner
+     246.00      245.0        18.78      3.00      Thur      Dinner
+     247.00      245.0        18.78      3.00      Thur      Dinner
 
 .. seealso:: Functions :func:`dropduplicates`, :func:`isunique`

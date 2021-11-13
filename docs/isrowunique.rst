@@ -25,25 +25,43 @@ Examples
 
 ::
 
-  // Create data
-  x = { 1 1 1,
-        1 2 1,
-        1 1 1,
-        1 2 2,
-        2 1 1,
-        1 2 2 };
+    // Create data
+    x = { 1 1 1,
+          1 2 1,
+          1 1 1,
+          1 2 2,
+          2 1 1,
+          1 2 2 };
 
-  // Check if permutations in rows
-  // are unique
-  isrowunique(asdf(x))
+    // Check if permutations in rows
+    // are unique
+    ur = isrowunique(x);
+    print ur;
 
 ::
 
-  1.0000000
-  1.0000000
-  0.0000000
-  1.0000000
-  1.0000000
-  0.0000000
+    1.0000000
+    1.0000000
+    0.0000000
+    1.0000000
+    1.0000000
+    0.0000000
+
+
+We can print the unique observations like this:
+
+::
+
+    print selif(x, ur);
+
+
+::
+
+    1.00  1.00 1.00
+    1.00  2.00 1.00
+    1.00  2.00 2.00
+    2.00  1.00 1.00
+
+    
 
 .. seealso:: Functions :func:`isunique`, :func:`dropduplicates`, :func:`getduplicates`
