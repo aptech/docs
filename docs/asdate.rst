@@ -34,7 +34,6 @@ Example 1: Convert strings to dates with the default format
 
 The display format will be set to reflect the input string. For example:
 
-For example:
 
 ::
 
@@ -93,7 +92,72 @@ The above code will print out:
     2003-06-18 09:21
 
 
-Example 2: Change the format of a date variable
+
+Example 2: Convert date strings with arbitrary formats
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The second, optional, input allows you to specify any arbitrary format using the format specifiers listed in the command reference page for :func:`posixtostrc`.
+
+::
+
+    // Convert string to date
+    dt = asDate("28/03/2012", "%d/%m/%Y");
+    print dt;
+
+will return:
+
+::
+
+              X1 
+      28/03/2012
+
+
+As we can see above, when the string is converted to a date, GAUSS keeps the display format the same as the string from which it was created. 
+
+You can change the display format with another call to :func:`asDate`. You can use any combination of the previously mentioned format specifiers. Or if you do not pass in a new format specifier, the date display format will be set to the default display format.
+
+::
+    
+    
+    // Convert string to date
+    dt = asDate("July 01, 2006", "%B %d, %Y");
+    print dt;
+
+The above code will return:
+
+::
+
+               X1 
+    July 01, 2006
+
+::
+
+    // Convert to quarter display format
+    dt =  asDate(dt, "%Y-Q%q")
+    print dt;
+
+will return:
+
+              X1 
+         2006-Q3 
+
+
+::
+
+    // Convert to default display format
+    dt = asDate(dt);
+    print dt;
+
+will return:
+
+::
+
+              X1
+      2006-07-01
+
+
+
+Example 3: Change the format of a date variable
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
@@ -135,4 +199,4 @@ Remarks
 
 You can find a list of the available date format specifiers in the Command Reference entry for :func:`posixtostrc`.
 
-.. seealso:: Functions :func:`dfTypes`, :func:`getColDateFormats`, :func:`asdf`
+.. seealso:: Functions :func:`dfType`, :func:`getColDateFormats`, :func:`asdf`
