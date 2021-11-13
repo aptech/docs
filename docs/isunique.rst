@@ -36,7 +36,7 @@ Example 1
   // Load the dataframe
   tips2 = loadd(fname, "id + total_bill + tip + cat(sex) + cat(smoker) + cat(day) + cat(time) + size");
 
-  // Check if id variable is unique
+  // Check if all observations of the id variable are unique
   if isunique(tips2, "id");
     print "ID variable is unique.";
   else;

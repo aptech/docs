@@ -18,8 +18,9 @@ Format
 Remarks
 -------
 
--  `__FILE_DIR` is only available for use inside a program file. It
-   cannot be used at the GAUSS command prompt.
+-  If `__FILE_DIR` is run inside a program file with either ``F4`` or by selecting **Run Selected Text** from the context menu, it will work the same as if run in a file.
+-  `__FILE_DIR` can be run at the command prompt. However, since it is not inside a file it will return the current working directory.
+-  `__FILE_DIR` makes sharing code with other people or other computers easier. See the next point for more details.
 -  A common use of `__FILE_DIR` is to locate a data file which is in the
    same directory as the code file, but may not be the current working
    directory. For example, the GAUSS example file :file:`gmmfitiv_auto.e` is

@@ -35,8 +35,8 @@ Example 1
   y_t = 1.3 + 2*x_t + e_t;
 
   // Convert to a dataframe
-  // and name the variable `Animals`
-  linear_data = asdf(y_t~x_t~e_t, "Y", "X", "Error");
+  // and add variable names
+  linear_data = asdf(y_t ~ x_t ~ e_t, "Y", "X", "Error");
 
 
 After the above code, ``linear_data`` is a dataframe with three numeric variables named ``Y``, ``X``, and ``Error``:
