@@ -72,9 +72,9 @@ P
     plotpolar
     plotsave
     plotscatter
-    plotsetaxesgrid
-    plotsetaxesgridpen
-    plotsetaxesminorgridpen
+    plotsetgrid
+    plotsetaxespen
+    plotsetminorgridpen
     plotsetaxespen
     plotsetaxesticsposition
     plotsetbar

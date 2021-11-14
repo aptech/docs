@@ -1,14 +1,14 @@
 
-plotSetAxesGridPen
+plotSetGridPen
 ==============================================
 
 Purpose
 ----------------
-Controls the thickness, color, and style for both the x-axis and y-axis grid lines.
+Controls the thickness, color, and style for the grid lines.
 
 Format
 ----------------
-.. function:: plotSetAxesPen(&myPlot, thickness[, clr[, style]])
+.. function:: plotSetGridPen(&myPlot, thickness[, clr[, style]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -39,7 +39,7 @@ Examples
     myPlot = plotGetDefaults("xy");
 
     // Set axis grid lines to be 0.5 pixel wide, black, and dashed
-    plotSetAxesGridPen(&myPlot, 0.5, "black", 2);
+    plotSetGridPen(&myPlot, 0.5, "black", 2);
 
     // Create data
     x = seqa(0.1, 0.1, 50);

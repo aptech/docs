@@ -48,4 +48,4 @@ Examples
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
 
 
-.. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetAxesGridPen`, :func:`plotSetXGridPen`
+.. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetGridPen`, :func:`plotSetXGridPen`

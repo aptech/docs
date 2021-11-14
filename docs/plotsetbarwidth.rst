@@ -58,6 +58,8 @@ Examples
 Remarks
 -------
 
+This function controls the width between groups of bars. In the case of one bar per group, this will control the distance between the bars. If more than one bar is drawn per label, then the bars assigned to a specific label will touch each other, but :func:`plotSetBarWidth` will control the distance between the outside of each group and the other groups of bars.
+
 When graphing without the use of a :class:`plotControl` structure, these settings
 may be chosen through the :menuselection:`Tools --> Preferences --> Graphics --> Profiles` menu.
 

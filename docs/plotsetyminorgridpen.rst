@@ -60,4 +60,4 @@ Format
 
     .. include:: include/plotattrremark.rst
 
-    .. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetYMinorTicCount`, :func:`plotSetXMinorGridPen`, :func:`plotSetAxesMinorGridPen`
+    .. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetYMinorTicCount`, :func:`plotSetXMinorGridPen`, :func:`plotSetMinorGridPen`

@@ -49,4 +49,4 @@ Please note that :func:`plotSetGrid` is not supported for bar, box, or histogram
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetXGrid`, :func:`plotSetAxesGridPen`
+.. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetXGrid`, :func:`plotSetGridPen`

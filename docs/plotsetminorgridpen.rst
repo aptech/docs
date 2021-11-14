@@ -1,5 +1,5 @@
 
-plotSetAxesMinorGridPen
+plotSetMinorGridPen
 ==============================================
 
 Purpose
@@ -8,7 +8,7 @@ Sets the color, thickness and style for the axes minor grid lines.
 
 Format
 ----------------
-.. function:: plotSetAxesMinorGridPen(&myPlot, thickness[, clr[, style]])
+.. function:: plotSetMinorGridPen(&myPlot, thickness[, clr[, style]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -47,10 +47,10 @@ Examples
   plotSetYMinorTicCount(&myPlot, 5);
 
   // Set major axes grid lines to be 1 pixel wide and black
-  plotSetAxesGridPen(&myPlot, 1, "black");
+  plotSetGridPen(&myPlot, 1, "black");
 
   // Set minor axes to be 0.5 pixels wide, grey, and dashed
-  plotSetAxesMinorGridPen(&myPlot, 0.5, "grey", 2);
+  plotSetMinorGridPen(&myPlot, 0.5, "grey", 2);
 
   // Create data
   x = seqa(0.1, 0.1, 50);
