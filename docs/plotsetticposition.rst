@@ -1,14 +1,14 @@
 
-plotSetYTicsPosition
+plotSetTicPosition
 ==============================================
 
 Purpose
 ----------------
-Controls if the y-axis tick is inside or outside the y-axis line.
+Controls if the axes tick are inside or outside the axes line.
 
 Format
 ----------------
-.. function:: plotSetYTicsPosition(&myPlot, position)
+.. function:: plotSetTicPosition(&myPlot, position)
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -18,7 +18,7 @@ Format
 
 Examples
 ----------------
-.. figure:: _static/images/plotsetyticsposition-cr.jpg
+.. figure:: _static/images/plotsetaxesticsposition-cr.jpg
    :scale: 50 %
 
 ::
@@ -30,7 +30,7 @@ Examples
     myPlot = plotGetDefaults("xy");
 
     // Set ticks to be inside the plot
-    plotSetYTicsPosition(&myPlot, "inside");
+    plotSetTicPosition(&myPlot, "inside");
 
     // Create data
     x = seqa(0.1, 0.1, 50);
@@ -44,4 +44,4 @@ Remarks
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotSetXTicsPosition`, :func:`plotSetAxesTicsPosition`
+.. seealso:: Functions :func:`plotSetXTicPosition`, :func:`plotSetYTicPosition`

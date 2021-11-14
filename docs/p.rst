@@ -76,7 +76,7 @@ P
     plotsetaxespen
     plotsetminorgridpen
     plotsetaxespen
-    plotsetaxesticsposition
+    plotsetticposition
     plotsetbar
     plotsetbkdcolor
     plotsetcolormap
@@ -111,7 +111,7 @@ P
     plotsetxticinterval
     plotsetxticlabel
     plotsetxticlabelfont
-    plotsetxticsposition
+    plotsetxticposition
     plotsetygrid
     plotsetygridpen
     plotsetylabel
@@ -124,7 +124,7 @@ P
     plotsetyticinterval
     plotsetyticlabel
     plotsetyticlabelfont
-    plotsetyticsposition
+    plotsetyticposition
     plotsetzlabel
     plotsetzlevels
     plotsetzpen
