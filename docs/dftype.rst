@@ -40,7 +40,7 @@ Categorical and String  Variables
 
 When a numeric column is set to type ``category``, or ``string``  with :func:`dftype`:
 
-* Each value will be converted to an integer to create the keys. The labels will be the string version of the number.
+* The labels will be the string version of the number. The keys will be integers from 0 to ``n-1``, where ``n`` is the number of unique values in the original data. The keys will be assigned to the labels such that the original order is maintained.
 
 When a categorical or string variable is converted to a numeric column;
 
@@ -101,24 +101,24 @@ Example 3: Integer column to category
 
 ::
 
-    x = { 1,
-          0,
+    x = { 4,
           1,
-          2 };
+          4,
+          6 };
 
     // Make 'x' a dataframe and set its
     // only column to be a category
-    x = dftype(x, "category", 1);
+    x = dftype(x, "category");
 
 After the above code, *x* will be a datframe as shown below:
 
 ::
 
     X1
+     4
      1
-     0
-     1
-     2
+     4
+     6
 
 We can get the categorical labels and key values like this:
 
@@ -130,9 +130,9 @@ They will equal:
 
 ::
 
-    labels = "0"   keys = 0
-             "1"          1
-             "2"          2
+    labels = "1"   keys = 0
+             "4"          1
+             "6"          2
 
 We can set new labels with :func:`recodecatlabels` like this:
 
