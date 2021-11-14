@@ -34,34 +34,93 @@ Format
 Examples
 ----------------
 
-Basic XY plot
-++++++++++++++
-.. figure:: _static/images/plotxy-cr.png
-   :scale: 50 %
-
-::
-
-  // Random y data
-  y = rndn(100, 1);
-
-  // Sequential x data
-  x = seqa(1, 1, rows(y));
-
-  // Plot using XY plot
-  plotXY(x, y);
-
 Basic formula string
 ++++++++++++++++++++++++++++
-  .. figure:: _static/images/plotxy-cr.png
+
+  .. figure:: _static/images/plotxy-plasma-fs-1-400x300px.jpg
      :scale: 50 %
 
   ::
 
-    // Load data
-    clotting_time = loadd(getGAUSSHome $+ "examples/clotting_time.dat");
+    // Create string with full path to file name
+    fname = getGAUSSHome $+ "examples/clotting_time.dat";
+
+    // Load all variables from the dataset
+    clotting_time = loadd(fname);
 
     // Plot using XY plot
-    plotXY(clotting_time, "plasma ~ lot1")
+    plotXY(clotting_time, "lot1 ~ plasma");
+
+
+Create previous plot with indexing and plot customization
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+You can create the same plot from the example above without using a formula string as shown below.
+
+::
+
+    // Create string with full path to file name
+    fname = getGAUSSHome $+ "examples/clotting_time.dat";
+    
+    // Load all variables from the dataset
+    clotting_time = loadd(fname);
+    
+    struct plotControl plt;
+    plt = plotGetDefaults("xy");
+    
+    // Set x and y label text
+    plotSetXLabel(&plt, "plasma", "arial", 12);
+    plotSetYLabel(&plt, "lot1");
+    
+    // Draw plot
+    plotXY(plt, clotting_time[.,"plasma"], clotting_time[.,"lot1"]);
+
+
+
+
+Formula string with multiple y variables
++++++++++++++++++++++++++++++++++++++++++++++
+
+
+  .. figure:: _static/images/plotxy-plasma-fs-2-400x300px.jpg
+     :scale: 50 %
+
+  ::
+
+    // Create string with full path to file name
+    fname = getGAUSSHome $+ "examples/clotting_time.dat";
+
+    // Load all variables from the dataset
+    clotting_time = loadd(fname);
+
+    // Plot using XY plot
+    plotXY(clotting_time, "lot1 + lot2 ~ plasma");
+
+
+Create previous plot with indexing and plot customization
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+You can create the same plot from the example above without using a formula string as shown below.
+
+::
+
+    // Create string with full path to file name
+    fname = getGAUSSHome $+ "examples/clotting_time.dat";
+    
+    // Load all variables from the dataset
+    clotting_time = loadd(fname);
+    
+    struct plotControl plt;
+    plt = plotGetDefaults("xy");
+    
+    // Set x label text
+    plotSetXLabel(&plt, "plasma", "arial", 12);
+
+    plotSetLegend(&plt, "lot1" $| "lot2");
+    
+    // Draw plot
+    plotXY(plt, clotting_time[.,"plasma"], clotting_time[.,"lot1" "lot2"]);
+
 
 Remarks
 -------
