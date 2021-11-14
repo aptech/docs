@@ -77,8 +77,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: :func:`plotOpenWindow` now retains focus in the widget prior to the call (eg the PGM).
 #. Bug Fix: If a tab character was the delimiter in the file import dialog, the generated code would include a literal tab character as a string. This has been fixed to escape the tab character in the string (eg ``ctl.delimiter = "\t"``).
 #. Bug Fix: :func:`seqadt` and :func:`seqaposix` now correctly allow dataframes to pass through without losing their metadata.
-#. Bug Fix: :func:`plotSetTSHF` would not allow a fixed axis range to be specified.
-#. Bug Fix: :func:`plotSetTSHF` would sometimes omit axis labels in the case of too few calculated labels. At least 1 will be rendered now.
+#. Bug Fix: :func:`plotTSHF` would not allow a fixed axis range to be specified.
+#. Bug Fix: :func:`plotTSHF` would sometimes omit axis labels in the case of too few calculated labels. At least 1 will be rendered now.
 #. Bug Fix: Axis properties for :func:`plotPolar` was applying the settings in a reversed manner. X-Axis settings now represent the azimuth with Y-Axis settings representing the radial axis. The input order for :func:`plotPolar` has not changed.
 #. Bug Fix: Formula strings that contained a ``:`` or ``*`` character in the argument field (eg ``date($my_date, '%Y-%m %H:%M')``) were being treated as multiplier operations.
 #. Bug Fix: Add date cell editing support in the symbol editor.
