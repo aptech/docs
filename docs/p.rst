@@ -74,7 +74,6 @@ P
     plotscatter
     plotsetgrid
     plotsetaxespen
-    plotsetminorgridpen
     plotsetaxespen
     plotsetticposition
     plotsetbar
@@ -102,7 +101,6 @@ P
     plotsetxgrid
     plotsetxgridpen
     plotsetxlabel
-    plotsetxminorgridpen
     plotsetxminorticcount
     plotsetxpen
     plotsetxrange
@@ -115,7 +113,6 @@ P
     plotsetygrid
     plotsetygridpen
     plotsetylabel
-    plotsetyminorgridpen
     plotsetyminorticcount
     plotsetypen
     plotsetyrange
