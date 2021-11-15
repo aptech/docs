@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GAUSS'
-copyright = '2021, Aptech Systems, Inc'
+copyright = '2022, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
@@ -55,6 +55,9 @@ mathjax_config = {
     'HTML-CSS': { 'fonts': ['TeX'] }
 }
 
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['_templates']
+
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
@@ -87,13 +90,8 @@ highlight_language = 'gauss'
 # a list of builtin themes.
 #
 #html_theme = 'alabaster'
-#html_theme = 'sphinx_rtd_theme'
-#html_theme_path = ["_themes"]
-html_theme = 'pydata_sphinx_theme'
-
-# Add any paths that contain templates here, relative to this directory.
-#templates_path = ['_templates', '_themes/pydata_sphinx_theme/static']
-#templates_path = []
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -110,8 +108,7 @@ html_context = {
     'css_files': [
         '_static/theme_override.css',  # override wide tables in RTD theme
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
-        'https://fonts.googleapis.com/css?family=Lato',
-#        '_static/panels-bootstrap.min.css',
+        '_static/panels-bootstrap.min.css',  # override wide tables in RTD theme
     ],
 }
 
