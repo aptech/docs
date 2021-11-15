@@ -31,7 +31,7 @@ Example 1
   new;
 
   // Create file name with full path
-  fname = __FILE_DIR $+ "tips2.csv";
+  fname = getGAUSSHome() $+ "examples/tips2.csv";
 
   // Load the dataframe
   tips2 = loadd(fname, "id + total_bill + tip + cat(sex) + cat(smoker) + cat(day) + cat(time) + size");
