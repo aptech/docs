@@ -8,15 +8,18 @@ Controls the thickness, color, and style for the grid lines.
 
 Format
 ----------------
-.. function:: plotSetGridPen(&myPlot, thickness[, clr[, style]])
+.. function:: plotSetGridPen(&myPlot, which_grid, thickness[, clr[, style]])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param thickness: the thickness of the axes major grid lines in pixels.
+    :param which_grid: The grid to modify, ``"major"``, ``"minor"``, or ``"both"``.
+    :type which_grid: string
+
+    :param thickness: the thickness of the specified grid lines in pixels.
     :type thickness: Scalar
 
-    :param clr: Optional argument, name or rgb value of the new color for the axes major grid lines.
+    :param clr: Optional argument, name or rgb value of the new color for the specified grid lines.
     :type clr: string
 
     :param style: the style of the pen. Options include:
@@ -38,8 +41,8 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("xy");
 
-    // Set axis grid lines to be 0.5 pixel wide, black, and dashed
-    plotSetGridPen(&myPlot, 0.5, "black", 2);
+    // Set the major grid lines to be 0.5 pixel wide, black, and dashed
+    plotSetGridPen(&myPlot, "major", 0.5, "black", 2);
 
     // Create data
     x = seqa(0.1, 0.1, 50);

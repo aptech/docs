@@ -73,6 +73,7 @@ P
     plotsave
     plotscatter
     plotsetgrid
+    plotsetgridpen
     plotsetaxespen
     plotsetaxespen
     plotsetticposition
