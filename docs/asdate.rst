@@ -12,7 +12,19 @@ Format
 .. function:: x_date = asDate(X [, fmt, columns])
 
     :param X: data.
-    :type X: NxK matrix or dateframe
+    :type X: NxK matrix, string array or dataframe
+
+        If ``X`` is a string array, the following formats are accepted:
+
+        ::
+
+            YYYY-MM-DD HH:MI:SS
+            YYYY-MM-DD HH:MI
+            YYYY-MM-DD HH
+            YYYY-MM-DD
+            YYYY-MM
+            YYYY
+    
 
     :param fmt: Optional input, contains strftime date/time format characters.
     :type fmt: Mx1 string array
