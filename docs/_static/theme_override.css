@@ -42,5 +42,10 @@ dt code.descname { color: #00557f; }
 a.btn-outline-primary:hover { color: #fff !important; background-color: #455560 !important; border-color: #455560 !important; }
 .btn-outline-primary, .btn-outline-primary:visited { color: #455560 !important; border-color: #455560 !important; }
 
+.btn:hover {
+	background: #455560 !important;
+	color: #fff;
+}
+
 html.writer-html5 .rst-content table.docutils th { border: none !important; }
 
