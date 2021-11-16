@@ -1,7 +1,6 @@
 from docutils import nodes
 from sphinx import addnodes
 from sphinx.writers.html import HTMLTranslator
-from bootstrap_html_translator import BootstrapHTML5Translator
 
 
 class desc_returnlist(nodes.Part, nodes.Inline, nodes.FixedTextElement):
@@ -13,8 +12,7 @@ class desc_return(nodes.Part, nodes.Inline, nodes.FixedTextElement):
     """Node for a single return."""
 
 
-#class GAUSSHTMLTranslator(HTMLTranslator):
-class GAUSSHTMLTranslator(BootstrapHTML5Translator):
+class GAUSSHTMLTranslator(HTMLTranslator):
     """
     Our custom GAUSS HTML translator.
     """
