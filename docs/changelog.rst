@@ -22,10 +22,10 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`dfname` was added as an alias for :func:`setcolnames`.
 #. :func:`dftype` was added as an alias for :func:`setcoltypes`.
 #. :func:`asdate` was added as an alias for :func:`setcoldateformats`.
-#. Formula strings now support more than one dependent variable. (fields specified before a ``~`` in a formula string).
 #. ``%e``, ``%E``, ``%f``, ``%F``, ``%g``, ``%G`` flags were reimplemented for more consistent results with :func:`sprintf`.
 #. :func:`dttostr` will now return a string instead of a 1x1 string array.
-#. Graphics: :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` now support formula strings and automatically handle dataframe input to generate the appropriate axis labels.
+#. Formula strings now support more than one dependent variable. (fields specified before a ``~`` in a formula string).
+#. Graphics: :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` now support formula strings and automatically handle dataframe input to generate the appropriate axis and legend labels.
 #. Graphics: New formula string keyword, :class:`by` splits data to be plotted by  :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` by a specified categorical or string variable and automatically handle dataframe input to generate the appropriate legend items.
 #. Graphics: Added support for legends to have their own title with :func:`plotSetLegendTitle`.
 #. Graphics: Added new functions for vertical/horizontal lines to span the entire axis: :func:`plotAddVLine`, :func:`plotAddHLine`.
@@ -33,26 +33,28 @@ The following is a list of changes from the previous version of GAUSS.
 #. Graphics: :func:`plotAddVBar` and :func:`plotAddHBar` support FRED-style input data. (eg { 1950, 1 }, { 1951, 1 }, { 1952, 0 }, ...).
 #. Graphics: Added support for dates in simple string format to :func:`plotSetXRange`.
 #. Graphics: Added support for outliers to :func:`plotBox`.
+#. Graphics: :func:`plotBox` can now accept a vector of groups as the first data input. The ``y`` variable will be split by the categories in the group vector and plotted as separate boxes.
 #. Graphics: Added new function :func:`plotSetJitterRange` to control the jitter range for :func:`plotScatter` and :func:`plotBox` outliers.
 #. Graphics: Attributes for each axis can be assigned separately. The existing :func:`plotSetAxesPen` convenience procedure will still assign attributes to all axes simultaneously.
 #. Graphics: The font can now be specified for :func:`plotContour` labels.
 #. Graphics: Axis tics can now be displayed on the inside of the chart (as opposed to outside only) or hidden completely with the :func:`plotSetTicPosition` function.
-#. Graphics: Axes are now at a higher Z-order than series, so lines will not render on top of the axes lines.
 #. Graphics: Added new function :func:`plotSetOutlineEnabled` to allow a box outline around the entire chart. Outline attributes are controlled via axis properties using :func:`plotSetAxesPen` or individually with :func:`plotSetXPen` and :func:`plotSetYPen`.
+#. Graphics: Axes are now at a higher Z-order than series, so lines will not render on top of the axes lines.
 #. :func:`plotSetAxesPen` has a new optional input to set the axes line style.
-#. Graphics: Added convenience functions for horizontal/vertical bars (eg recession bars): :func:`plotAddHBar` and :func:`plotAddVBar`.
-#. Graphics: Added convenience functions for horizontal/vertical lines: :func:`plotAddHLine` and :func:`plotAddVLine`.
+#. Graphics: New functions :func:`plotSetXGridPen` and :func:`plotSetYGridPen` allow the major and minor ``x`` and ``y`` axis grid lines to be enabled and styled separately.
+#. Graphics: New function :func:`plotSetGridPen` allows the major and minor ``x`` and ``y`` axis grid lines to be enabled and styled.
 #. Graphics: Graph profile settings in the preferences dialog have been fully refactored to only show properties related to the selected graph category. This should reduce confusion regarding which properties are respected when plotting a graph of the specified type.
 #. Graphics: Added support for specifying the bar width (:func:`plotSetBarWidth`) and box width (:func:`plotSetBoxWidth`).
-#. Graphics: :func:`plotAddXY` and :func:`plotAddScatter` now support category labels as input for X values.
+#. Graphics: :func:`plotAddXY` and :func:`plotAddScatter` now support category labels as input for X values, so data can be added to locations specified by a text label, rather than a numeric value.
 #. Graphics: Contour is now a new default graph profile instead of being shared with Surface.
 #. Graphics: New convenience function :func:`plotSetLinePen` to set the line width, color and style in one call.
 #. Graphics: New function :func:`plotCloseAll` closes all open graphs.
+#. Graphics: Behavior change: the default line thickness for bar plots has been set to zero to be consistent with commonly desired styling for added spanning bars.
 #. Performance: :func:`movingave` up to 4-6x faster.
 #. For convenience you can now assign a scalar value to multiple elements of a matrix or dataframe (eg x[1 3 5,2] = 7.3;).
 #. Dataframes: All dataframe functions (:func:`dfname`, :func:`dftype`, :func:`asdate`, etc) can now automatically convert a non-dataframe input to a dataframe. String arrays are automatically converted to a category column.
 #. Dataframes: Behavior: Overwriting an entire column during an assign will overwrite the LHS metadata if the RHS is also a dataframe.
-#. Dataframes: Behavior: Concatenating a dataframe to a string is now supported.
+#. Dataframes: Behavior: Combining dataframes with string arrays using the string combine operator, ``$+`` is now supported.
 #. Dataframes: Multiple new functions now support dataframes as input arguments: :func:`strtrim`, :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`, :func:`strtruncpad`, :func:`upper`, :func:`lower`, :func:`strindx`, :func:`strreplace`, :func:`strsect`, :func:`indsav`, :func:`indnv`, :func:`contains`, :func:`strsplit`, :func:`strjoin`, :func:`strcombine`, :func:`aggregate`
 #. Dataframes: A low-level function :func:`normalizecollabels` was added to automatically refactor string/category columns to remove duplicates and consolidate keys.
 #. Dataframes: Added string/string array assignment support to existing string/category columns. 
