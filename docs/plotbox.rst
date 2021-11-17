@@ -72,6 +72,18 @@ Using numeric labels
 
 .. figure:: _static/images/gauss15_boxplot_1.png
 
+Use formula string
+++++++++++++++++++
+
+::
+
+    // Import data
+    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    auto2 = loadd(fname);
+
+    // Draw the two boxes
+    plotBox(auto2, "mpg~foreign");
+
 Remarks
 -------
 
