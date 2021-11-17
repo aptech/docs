@@ -34,6 +34,7 @@ P
     plotaddbarh
     plotaddbox
     plotadderrorbar
+    plotaddhbar
     plotaddhistf
     plotaddhistp
     plotaddhist
