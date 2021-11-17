@@ -105,7 +105,6 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: In the import dialog, the input box for the new column name was not noticeably greyed out on macOS when the widget was disabled.
 #. Bug Fix: The symbol editor will no longer automatically open the 'Manage' panel for dataframes.
 #. Bug Fix: :func:`dfname` was incorrectly allowing empty names as input.
-#. Bug Fix: Transformation characters in formula strings, such as ``*`` and ``:`` were incorrectly interfering with custom date format arguments.
 #. Bug Fix: A missing/NaN in a string/category column will now display the correct value when printed, instead of an empty string.
 
 21.0.8
