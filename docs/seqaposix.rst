@@ -10,8 +10,18 @@ Format
 ----------------
 .. function:: dt_vec = seqaPosix(dt_start, inc, unit, n)
 
-    :param dt_start: containing the starting date in POSIX date/time format (seconds since Jan 1, 1970).
-    :type dt_start: scalar
+    :param dt_start: contains the starting date as a string or in POSIX date/time format (seconds since Jan 1, 1970).
+
+      If string, valid formats include:
+
+      - ``"YYYY-MM-DD HH:MI:SS"``
+      - ``"YYYY-MM-DD HH:MI"``
+      - ``"YYYY-MM-DD HH"``
+      - ``"YYYY-MM-DD"``
+      - ``"YYYY-MM"``
+      - ``"YYYY"``
+
+    :type dt_start: string or scalar
 
     :param inc: the number of units for each of the *n* increments.
     :type inc: scalar
@@ -31,8 +41,7 @@ Format
     :param n: the number of elements to create.
     :type n: scalar
 
-    :return dt_vec: starting at *dt_start* and increasing by *inc* units.
-
+    :return dt_vec: starting at *dt_start* and increasing by *inc* units. The *dt_vec* will be in same date format as *dt_start*.
     :rtype dt_vec: nx1 vector
 
 Examples
@@ -40,44 +49,68 @@ Examples
 
 ::
 
-    // Jan 20, 1980
-    dt_start = strcToPosix("01/20/1980", "%m/%d/%Y");
-
     // Create a sequence of 10 dates separated by 4 years
-    dt_vec = seqaPosix(dt_start, 4, "years", 10);
+    dt_vec = seqaPosix("1980-01-20", 4, "years", 10);
 
 The above code will set *dt_vec* equal to:
 
 ::
 
-     317174400
-     443404800
-     569635200
-     695865600
-     822096000
-     948326400
-    1074556800
-    1200787200
-    1327017600
-    1453248000
+   1980-01-20
+   1984-01-20
+   1988-01-20
+   1992-01-20
+   1996-01-20
+   2000-01-20
+   2004-01-20
+   2008-01-20
+   2012-01-20
+   2016-01-20
 
 ::
-
-    // March 17, 2003 at 05:30:00
-    dt_start = strcToPosix("March 17, 2003 05:30:00", "%B %d, %Y %H:%M:%S");
 
     // Create a sequence of 6 dates separated by 30 minutes
-    dt_vec = seqaPosix(dt_start, 30, "minutes", 6);
+    dt_vec = seqaPosix("March 17, 2003 05:30:00", 30, "minutes", 6);
 
 The above code will set *dt_vec* equal to:
 
 ::
 
-    1047879000
-    1047880800
-    1047882600
-    1047884400
-    1047886200
-    1047888000
+  2003-03-17 05:30:00
+  2003-03-17 06:00:00
+  2003-03-17 06:30:00
+  2003-03-17 07:00:00
+  2003-03-17 07:30:00
+  2003-03-17 08:00:00
+
+::
+
+  // Jan 20, 1980
+  dt_start = strcToPosix("01/20/1980", "%m/%d/%Y");
+
+  // Create a sequence of 10 dates separated by 4 years
+  dt_vec = seqaPosix(dt_start, 4, "years", 10);
+
+In the above example, *dt_start* is:
+
+::
+
+  01/20/1980
+
+This will set *dt_vec* equal to:
+
+::
+
+  01/20/1980
+  01/20/1984
+  01/20/1988
+  01/20/1992
+  01/20/1996
+  01/20/2000
+  01/20/2004
+  01/20/2008
+  01/20/2012
+  01/20/2016
+
 
 .. seealso:: Functions :func:`timeDeltaDT`, :func:`timeDiffDT`, :func:`seqaDT`, :func:`timeDiffPosix`
