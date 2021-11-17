@@ -3,4 +3,8 @@
 	url = https://github.com/aptech/tspdlib.git
 [submodule "docs/textbook-examples"]
 	path = docs/textbook-examples
-	url = https://github.com/aptech/gauss-textbook-examples
+    url = https://github.com/aptech/gauss-textbook-examples
+[submodule "docs/_themes/sphinx_rtd_theme"]
+	path = docs/_themes/sphinx_rtd_theme
+	url = https://github.com/readthedocs/sphinx_rtd_theme
+
