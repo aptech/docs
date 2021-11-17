@@ -4,7 +4,7 @@ timediffposix
 
 Purpose
 ----------------
-Computes the difference between two dates in POSIX date/time format.
+Computes the difference between two dates.
 
 Format
 ----------------
