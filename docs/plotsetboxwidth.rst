@@ -1,53 +1,46 @@
 
-plotSetJitterRange
+plotSetBoxWidth
 ==============================================
 
 Purpose
 ----------------
+Sets the width of the boxes in box plots.
 
-Sets the allowable jitter range for :func:`plotBox` or :func:`plotScatter` plots.
+
 
 Format
 ----------------
-.. function:: plotSetJitterRange(&myPlot, range)
+.. function:: plotSetBarWidth(&myPlot, boxWidth)
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param range: the jitter range. 
-
-        For box plots, the allowable range is between [0.0 - 1.0], representing the percentage of the box width that jitter is allowed to occur. The default value is 1.0 (jitter spans the entire box width). 
-
-        For scatter plots, this is a fixed value representing how far from the initial `x` value in either direction that points will be plotted. The default value is 0.0 (no jitter).
-
-    :type range: 1xN matrix
+    :param boxWidth: Width of the bars in plot set between 0 and 1. If set to 1, the bars will touch each other. Default bar width is 0.25.
+    :type boxWidth: Scalar
 
 Examples
 ----------------
-
 ::
 
-    // Declare plotControl structure               
-    struct plotControl myPlot;
-    
-    // Initialize plotControl structure
-    myPlot = plotGetDefaults("scatter");
-    
-    // Set all lines to have a jitter range of 0.25
-    jitterRange = 0.25;
-    plotSetJitterRange(&myPlot, jitterRange);
-    
-    // Create data
-    x = seqa(0.1, 1, 50);
-    y = sin(x)~cos(x);
-    
-    // Plot the data with the new jitter range settings.
-    plotScatter(myPlot, x, y);
+  /*
+  ** Perform import
+  */
+  auto2 = loadd("C:/gauss22/examples/auto2.dta");
+
+  // Declare plotControl structure
+  // and fill in default values for box plot
+  struct plotControl myPlot;
+  myPlot = plotGetDefaults("box");
+
+  // Set box width
+  plotSetBoxWidth(&myPlot, 0.5);
+
+  // Draw the two boxes
+  plotBox(myPlot, auto2, "mpg~foreign");
 
 Remarks
 -------
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetBoxWidth`
-
+.. seealso:: Functions :func:`plotBox`, :func:`plotGetDefaults`, :func:`plotSetBarWidth`
