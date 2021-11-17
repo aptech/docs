@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: dt_vec = seqaPosix(dt_start, inc, unit, n)
 
-    :param dt_start: contains the starting date as a string or in POSIX date/time format (seconds since Jan 1, 1970).
+    :param dt_start: contains the starting date as a string, date, or in POSIX date/time format (seconds since Jan 1, 1970).
 
       If string, valid formats include:
 
@@ -42,7 +42,7 @@ Format
     :type n: scalar
 
     :return dt_vec: starting at *dt_start* and increasing by *inc* units. The *dt_vec* will be in same date format as *dt_start*.
-    :rtype dt_vec: nx1 vector
+    :rtype dt_vec: nx1 dataframe
 
 Examples
 ----------------
