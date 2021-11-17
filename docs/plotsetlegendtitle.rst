@@ -19,6 +19,8 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetlegendtitle-cr.jpg
+   :scale: 50 %
 
 ::
 
