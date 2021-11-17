@@ -4,7 +4,7 @@ seqaPosix
 
 Purpose
 ----------------
-Creates a sequence of dates in POSIX date/time format.
+Creates a sequence of dates.
 
 Format
 ----------------
