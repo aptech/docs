@@ -20,9 +20,9 @@ Format
 
 Examples
 ----------------
-.. figure:: _static/images/plotsetboxwidth-cr.png
+.. figure:: _static/images/plotsetboxwidth-cr.jpg
    :scale: 50 %
-   
+
 ::
 
   // Import data
