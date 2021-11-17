@@ -9,6 +9,8 @@ Graphs data using the box graph percentile method.
 Format
 ----------------
 .. function:: plotBox([myPlot, ]group_id, y)
+              plotBox([myPlot, ]df_groups, df_y)
+              plotBox([myPlot, ]df, formula)
 
     :param myPlot: Optional argument, a :class:`plotControl` structure
     :type myPlot: struct
@@ -18,6 +20,17 @@ Format
 
     :param y: Each column represents the set of *y* values for an individual percentiles box symbol.
     :type y: NxM matrix
+
+    :param df: name of the dataframe in memory.
+    :type df: dataframe
+
+    :param formula: formula string of the model to be plotted.
+        E.g ``"y ~ X1"``, ``y`` is the name of dependent variable to be plotted on the y-axis ``X1`` is the names of the variable to be plotted on the x-axis;
+
+        E.g ``"y ~ X1 + by(X2)"``, ``by(X2)`` specifies that the data should be separated into different lines based on the groups defined by ``X2``.
+
+    :type formula: string
+
 
 Examples
 ----------------
