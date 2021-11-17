@@ -20,11 +20,12 @@ Format
 
 Examples
 ----------------
+.. figure:: _static/images/plotsetboxwidth-cr.png
+   :scale: 50 %
+   
 ::
 
-  /*
-  ** Perform import
-  */
+  // Import data
   auto2 = loadd("C:/gauss22/examples/auto2.dta");
 
   // Declare plotControl structure
