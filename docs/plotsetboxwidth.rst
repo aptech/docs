@@ -10,12 +10,12 @@ Sets the width of the boxes in box plots.
 
 Format
 ----------------
-.. function:: plotSetBarWidth(&myPlot, boxWidth)
+.. function:: plotSetBoxWidth(&myPlot, boxWidth)
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param boxWidth: Width of the bars in plot set between 0 and 1. If set to 1, the bars will touch each other. Default bar width is 0.25.
+    :param boxWidth: Width of the boxes in plot set between 0 and 1. If set to 1, the boxes will touch each other. Default box width is 0.5.
     :type boxWidth: Scalar
 
 Examples
@@ -26,18 +26,19 @@ Examples
 ::
 
   // Import data
-  auto2 = loadd("C:/gauss22/examples/auto2.dta");
+  auto2 = loadd(getGAUSSHome() $+ "examples/auto2.dta");
 
   // Declare plotControl structure
   // and fill in default values for box plot
   struct plotControl myPlot;
   myPlot = plotGetDefaults("box");
 
-  // Set box width
+  // Set box width to 50% of available width
   plotSetBoxWidth(&myPlot, 0.5);
 
   // Draw the two boxes
-  plotBox(myPlot, auto2, "mpg~foreign");
+  plotBox(myPlot, auto2, "mpg ~ foreign");
+
 
 Remarks
 -------
