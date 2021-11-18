@@ -47,3 +47,4 @@ After the code above `is_df=0` because *x* is a numeric matrix and does not cont
 
 
 .. seealso:: Functions :func:`setcolmetadata`
+

@@ -76,4 +76,5 @@ The above code will print out:
 
 
 
-.. seealso:: Functions :func:`setColTypes`, :func:`getColLabels`, :func:`setColLabels`
+.. seealso:: Functions :func:`dftype`, :func:`getColLabels`, :func:`setColLabels`
+

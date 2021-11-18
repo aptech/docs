@@ -62,4 +62,4 @@ Remarks
 * Numeric variables will be unchanged.
 * Variable names will be removed.
 
-.. seealso:: Functions :func:`asdf`, :func:`setcolnames`, :func:`setcoltypes`
+.. seealso:: Functions :func:`asdf`, :func:`dfname`, :func:`dftype`
