@@ -26,6 +26,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`dttostr` will now return a string instead of a 1x1 string array.
 #. Formula strings now support more than one dependent variable. (fields specified before a ``~`` in a formula string).
 #. Added ``%v`` support to :func:`asdate`. This is shorthand for ``%e-%b-%Y``.
+#. Added support for the automatic monthly, quarterly, and yearly date-conversions in Stata files (e.g. .dta files).
 #. :func:`sprintf` now supports the following base conversion patterns: ``%b`` (binary), ``%o`` (octal), ``%x`` and ``%X`` (hex).
 #. :func:`aggregate` now accepts an optional input specifying the column index or name of the variable to aggregate on.
 #. Graphics: :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` now support formula strings and automatically handle dataframe input to generate the appropriate axis and legend labels.
@@ -73,13 +74,13 @@ The following is a list of changes from the previous version of GAUSS.
 #. Dataframes: A low-level function :func:`normalizecollabels` was added to automatically refactor string/category columns to remove duplicates and consolidate keys.
 #. Dataframes: Added string/string array assignment support to existing string/category columns. 
 #. Dataframes: Date pattern matching has been relaxed. If a string fully matches a date format pattern completely, the calculated date up until that point is now returned instead of requiring the entire format to be satisfied. Most functions that take a date format pattern now default to allowing full/partial usage of the pattern ``"%Y-%m-%d %H:%M:%S.%L"``.
-#. Dataframes: `strctoposix` now returns a dataframe.
+#. Dataframes: :func:`strctoposix` now returns a dataframe.
 #. Dataframes: Symbols viewed in the symbol editor will now show up as a 'Dataframe' in the type field instead of 'Matrix'.
 #. Dataframes: Improved behavior when checking for like-column types in a partial row assignment from one dataframe to another.
 #. Dataframes: :func:`outerjoin` (left outer join) has been rewritten completely as an intrinsic with full support for dataframes with a significant performance increase.
 #. Dataframes: Generated code in the file import dialog now takes advantage of new dataframe behavior to allow more concise code.
 #. Dataframes: Specifying custom col labels for string/category columns now uses a :func:`seqa` representation for the values if they are left as their default. (Optimization)
-#. Dataframes: :func:`sortc` now allows you to specify columns by name and supports sorting categorical and string categories by their string label. 
+#. Dataframes: :func:`sortc` now allows you to specify columns by name.
 #. Dataframes: Empty date formats now default to the default date format of ``%Y-%m-%d``.
 #. Dataframes: Any function converting a symbol to a string/category will now sort the labels before generating the keys.
 #. Dataframes: Bug Fix: Unsorted indices passed to dataframe functions could cause changes to be incorrectly applied.
@@ -104,7 +105,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: In the import dialog, generated code was not updating when a custom category label or date format was specified. This bug was visual only, as the correct code was generated when the *Import* button was pressed.
 #. Bug Fix: In the import dialog, the input box for the new column name was not noticeably greyed out on macOS when the widget was disabled.
 #. Bug Fix: The symbol editor will no longer automatically open the 'Manage' panel for dataframes.
-#. Bug Fix: :func:`dfname` was incorrectly allowing empty names as input.
+#. Bug Fix: :func:`setcolnames` was incorrectly allowing empty names as input.
 #. Bug Fix: A missing/NaN in a string/category column will now display the correct value when printed, instead of an empty string.
 
 21.0.8
