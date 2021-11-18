@@ -85,7 +85,8 @@ The above code will set *dt_vec* equal to:
 
 ::
 
-  // Jan 20, 1980
+  // Convert string date in a different format to
+  // a GAUSS date.
   dt_start = strcToPosix("01/20/1980", "%m/%d/%Y");
 
   // Create a sequence of 10 dates separated by 4 years
