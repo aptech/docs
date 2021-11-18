@@ -70,4 +70,5 @@ The above code will print:
 
 
 
-.. seealso:: Functions :func:`setColNames`, :func:`setColLabels`, :func:`setColTypes`, :func:`setColDateFormats`
+.. seealso:: Functions :func:`dfname`, :func:`setColLabels`, :func:`dftype`, :func:`asdate`
+

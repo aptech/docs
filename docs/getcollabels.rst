@@ -50,3 +50,4 @@ The code above prints the following table:
         2        med
 
 .. seealso:: Functions :func:`setColLabels`
+

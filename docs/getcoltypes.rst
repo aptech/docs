@@ -44,4 +44,5 @@ After the above code, *col_types* will be a 3x1 dataframe with the following con
           number
 
 
-.. seealso:: Functions :func:`setColTypes`, :func:`setColLabels`, :func:`getColLabels`
+.. seealso:: Functions :func:`dftype`, :func:`setColLabels`, :func:`getColLabels`
+

@@ -41,4 +41,5 @@ The code above prints the following:
   yarn_length
   amplitude
 
-.. seealso:: Functions :func:`setColNames`
+.. seealso:: Functions :func:`dfname`
+

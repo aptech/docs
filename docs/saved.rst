@@ -143,7 +143,7 @@ The return value of :func:`saved` can be used to check whether the dataset save 
 Remarks
 -------
 
--  You can add variable names to a matrix with :func:`setcolnames`.
+-  You can add variable names to a matrix with :func:`dfname`.
 
 **CSV**
 
