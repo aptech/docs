@@ -42,10 +42,10 @@ you may use any of the following commands:
 
     /*
     ** This code assumes that 'myfile.asc' is
-    ** located in the C:\gauss17 directory
+    ** located in the C:\gauss22 directory
     ** Note the double backslashes for path separators
     */
-    fpath = "C:/gauss17/myfile.asc";
+    fpath = "C:/gauss22/myfile.asc";
     y = asciiload(fpath);
 
 ::

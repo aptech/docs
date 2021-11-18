@@ -143,7 +143,7 @@ Remarks
 
 ::
 
-       loaddSA("h5://C:/gauss20/examples/testdata.h5/mydata").
+       loaddSA("h5://C:/gauss22/examples/testdata.h5/mydata").
 
 Source
 ------

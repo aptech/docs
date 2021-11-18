@@ -146,7 +146,7 @@ After the above code,
 
 ::
 
-    The dataset use is C:\gauss18\examples\detroit.sas7bdat
+    The dataset use is C:\gauss22\examples\detroit.sas7bdat
     The number of variables equals:        3.0000000
     The number of observations equals:        13.000000
 
@@ -195,7 +195,7 @@ Remarks
 
 ::
 
-       loadd("h5://C:/gauss17/examples/testdata.h5/mydata").
+       loadd("h5://C:/gauss22/examples/testdata.h5/mydata").
 
 Source
 ------
