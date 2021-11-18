@@ -35,8 +35,40 @@ Format
 Examples
 ----------------
 
-Use string labels
-+++++++++++++++++
+Dataframe with formula string
+++++++++++++++++++++++++++++++++
+
+::
+
+    // Import data
+    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    auto2 = loadd(fname);
+
+    // Draw a box with 'mpg' data for each of
+    // the two categories in 'foreign' 
+    plotBox(auto2, "mpg ~ foreign");
+
+.. figure:: _static/images/plotbox-fs-cr.jpg
+      :scale: 50 %
+
+
+Dataframe with formula string
+++++++++++++++++++++++++++++++++
+
+::
+
+    // Import data
+    fname = getGAUSSHome() $+ "examples/tips2.dta";
+    tips = loadd(fname);
+
+    // Draw a box with 'tip' data for each day,
+    // split by whether 'smoker' equals yes or no.
+    plotBox(tips, "tip ~ day + by(smoker)");
+
+
+
+Matrix data with string labels
++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -54,8 +86,8 @@ Use string labels
 
 .. figure:: _static/images/gauss15_boxplot_2.png
 
-Using numeric labels
-++++++++++++++++++++
+Matrix data with numeric labels
+++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -72,20 +104,7 @@ Using numeric labels
 
 .. figure:: _static/images/gauss15_boxplot_1.png
 
-Use formula string
-++++++++++++++++++
 
-::
-
-    // Import data
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
-    auto2 = loadd(fname);
-
-    // Draw the two boxes
-    plotBox(auto2, "mpg~foreign");
-
-.. figure:: _static/images/plotbox-fs-cr.jpg
-      :scale: 50 %
 
 Remarks
 -------

@@ -28,10 +28,10 @@ Examples
   new;
 
   // Create file name with full path
-  fname = getGAUSSHome() $+ "examples/tips2.csv";
+  fname = getGAUSSHome() $+ "examples/tips2.dta";
 
   // Load the dataframe
-  tips2 = loadd(fname, "id + total_bill + tip + cat(day) + cat(time)");
+  tips2 = loadd(fname);
 
   // Locate and remove the duplicate observations
   tips_no_dups = dropduplicates(tips2);
