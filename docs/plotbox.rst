@@ -84,6 +84,9 @@ Use formula string
     // Draw the two boxes
     plotBox(auto2, "mpg~foreign");
 
+.. figure:: _static/images/plotbox-fs-cr.jpg
+      :scale: 50 %
+
 Remarks
 -------
 

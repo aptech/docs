@@ -7,7 +7,7 @@ Purpose
 
 Controls the format of matrices and numbers printed out with print statements.
 
-.. _format(keyword):
+.. _format:
 .. index:: format(keyword)
 
 Format
