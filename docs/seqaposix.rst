@@ -70,7 +70,7 @@ The above code will set *dt_vec* equal to:
 ::
 
     // Create a sequence of 6 dates separated by 30 minutes
-    dt_vec = seqaPosix("March 17, 2003 05:30:00", 30, "minutes", 6);
+    dt_vec = seqaPosix("2003-03-17 05:30:00", 30, "minutes", 6);
 
 The above code will set *dt_vec* equal to:
 
