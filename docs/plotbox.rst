@@ -9,7 +9,7 @@ Graphs data using the box graph percentile method.
 Format
 ----------------
 .. function:: plotBox([myPlot, ]group_id, y)
-              plotBox([myPlot, ]df_groups, df_y)
+              plotBox([myPlot, ]df_groups, y)
               plotBox([myPlot, ]df, formula)
 
     :param myPlot: Optional argument, a :class:`plotControl` structure
@@ -20,6 +20,9 @@ Format
 
     :param y: Each column represents the set of *y* values for an individual percentiles box symbol.
     :type y: NxM matrix
+
+    :param df_groups: A categorical dataframe vector. The *y* variable will be split by the categories in *df_groups* to create the boxes to graph.
+    :type df_groups: Nx1 categorical dataframe variable
 
     :param df: name of the dataframe in memory.
     :type df: dataframe
