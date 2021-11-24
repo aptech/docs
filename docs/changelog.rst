@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+22.0.1
+------
+
+#. Bug Fix: When installing a package, the package manager was not updating the source paths ahead of time. This could cause issues building packages that utilized ``#include`` statements.
+
 22.0.0
 ------
 
