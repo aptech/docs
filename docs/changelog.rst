@@ -7,7 +7,8 @@ The following is a list of changes from the previous version of GAUSS.
 22.0.1
 ------
 
-#. Bug Fix: When installing a package, the package manager was not updating the source paths ahead of time. This could cause issues building packages that utilized ``#include`` statements.
+#. Bug Fix: Specifying the GAUSSHOME value with non platform-specific separators would cause globbing to fail when reading gauss.cfg, (eg ``$GAUSSHOME/pkgs/*/src`` on Windows)
+#. Bug Fix: Filtering a date column in the File Import dialog or symbol editor was referencing the wrong column type when generating code. The resulting filtering operation was correct, but has been rectified to generate more friendly code.
 
 22.0.0
 ------
