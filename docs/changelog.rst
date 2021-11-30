@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+22.0.2
+------
+
+#. Bug Fix: Context menu actions in the symbol editor were erroneously remapped to copy.
+
 22.0.1
 ------
 
