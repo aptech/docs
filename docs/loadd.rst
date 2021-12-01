@@ -44,7 +44,7 @@ Load all contents of a GAUSS dataset
     // Print the first three rows of 'y'
     print y[1:3, .];
 
-After the above code, the following ouptut should be printed to the program input/output window.
+After the above code, the following ouptut should be printed to the **Command** window.
 
 ::
 

@@ -26,7 +26,7 @@ Examples
     r = csrlin();
     c = csrcol();
 
-    // Clear the program input/output window
+    // Clear the command window
     cls;
 
     /*

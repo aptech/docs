@@ -13,7 +13,7 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param is_on: A 0 to hide the z-axis, or a 1 to show it. 
+    :param is_on: A 0 to hide the z-axis, or a 1 to show it.
     :type is_on: Scalar
 
 
@@ -44,4 +44,3 @@ Remarks
 .. include:: include/plotattrremark.rst
 
 .. seealso:: Functions :func:`plotSetXRange`, :func:`plotSetXShow`
-

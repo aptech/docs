@@ -12,7 +12,7 @@ The :func:`dstatmt` procedure generates a summary table of descriptive statistic
 * Valid cases
 * Missing cases
 
-It works directly with matrices and dataframes and will print a complete summary table to the **Program Input/Output** window.
+It works directly with matrices and dataframes and will print a complete summary table to the **Comand** window.
 
 Example: Summary statistics from a datafile
 +++++++++++++++++++++++++++++++++++++++++++++
