@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 22.0.2
 ------
 
+#. Optimized changing the format in the symbol editor for extremely large symbols.
 #. Bug Fix: Context menu actions in the symbol editor were erroneously remapped to copy.
 
 22.0.1
