@@ -5,7 +5,7 @@ setcolnames
 Purpose
 ----------------
 
-Set column variable names.
+Set column variable names. This is an alias for :func:`dfname`.
 
 Format
 ----------------

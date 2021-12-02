@@ -9,10 +9,10 @@ Aggregates the data in the columns of a matrix based upon a column containing gr
 
 Format
 ----------------
-.. function:: x_agg = aggregate(x, method)
+.. function:: x_agg = aggregate(x, method [, column [, fast]])
 
-    :param x: data, where the first column contains the ids for the groups on which to aggregate.
-    :type x: NxK matrix
+    :param x: data, if *column* is not specified, the first column must contain the ids for the groups on which to aggregate.
+    :type x: NxK matrix or dataframe
 
     :param method: Specifies which aggregation method to use.
 
@@ -32,8 +32,13 @@ Format
 
     :type method: string
 
-    :return x_agg: the input aggregated by the group id, using the specified method.
+    :param column: Optional, specifies which variable contains the groups on which to aggregate.
+    :type column: string
 
+    :param fast: Optional, specifies fast computation that does not check for missing values. Set to 1 to use fast method.
+    :type fast: scalar
+
+    :return x_agg: the input aggregated by the group id, using the specified method.
     :rtype x_agg: NGROUPSxK matrix
 
 Examples
@@ -113,5 +118,31 @@ The above code will make the following assignments:
 
     agg_var = 1001   906.17     9.77
               1002   894.17    28.93
+
+Example 3
+++++++++++++
+
+This example specifies the column name to be used for aggregation.
+
+::
+
+  // Load data
+  auto2 = loadd(getGAUSSHome $+ "examples/auto2.dta");
+
+  // Aggregate data using
+  // foreign column as group
+  aggregate(auto2[., "price" "mpg" "foreign"], "mean", "foreign");
+
+::
+
+The above code will make the following table
+
+::
+
+  foreign     price      mpg
+  Domestic  6072.423   19.827
+  Foreign   6384.682   24.773
+
+
 
 .. seealso:: Functions :func:`meanc`, :func:`modec`, :func:`selif`

@@ -4,10 +4,22 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+22.0.2
+------
+
+#. Optimized changing the format in the symbol editor for extremely large symbols.
+#. Bug Fix: Context menu actions in the symbol editor were erroneously remapped to copy.
+
+22.0.1
+------
+
+#. Bug Fix: Specifying the GAUSSHOME value with non platform-specific separators would cause globbing to fail when reading gauss.cfg, (eg ``$GAUSSHOME/pkgs/*/src`` on Windows)
+#. Bug Fix: Filtering a date column in the File Import dialog or symbol editor was referencing the wrong column type when generating code. The resulting filtering operation was correct, but has been rectified to generate more friendly code.
+
 22.0.0
 ------
 
-#. Added new preprocessor ``#includedir`` to add current file directory to source path. If executed from the Program Input/Output Window (PGM), uses current working directory.
+#. Added new preprocessor ``#includedir`` to add current file directory to source path. If executed from the Command Window (PGM), uses current working directory.
 #. ``#include`` and ``#includedir`` statements can now be processed with ``F4`` in the GUI.
 #. :func:`__FILE_DIR` now works with ``F4`` in the GUI.
 #. Added new function :func:`resetsourcepaths` to restore source path to initial value from gauss.cfg.
@@ -72,7 +84,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Dataframes: Behavior: Combining dataframes with string arrays using the string combine operator, ``$+`` is now supported.
 #. Dataframes: Multiple new functions now support dataframes as input arguments: :func:`strtrim`, :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`, :func:`strtruncpad`, :func:`upper`, :func:`lower`, :func:`strindx`, :func:`strreplace`, :func:`strsect`, :func:`indsav`, :func:`indnv`, :func:`contains`, :func:`strsplit`, :func:`strjoin`, :func:`strcombine`, :func:`aggregate`
 #. Dataframes: A low-level function :func:`normalizecollabels` was added to automatically refactor string/category columns to remove duplicates and consolidate keys.
-#. Dataframes: Added string/string array assignment support to existing string/category columns. 
+#. Dataframes: Added string/string array assignment support to existing string/category columns.
 #. Dataframes: Date pattern matching has been relaxed. If a string fully matches a date format pattern completely, the calculated date up until that point is now returned instead of requiring the entire format to be satisfied. Most functions that take a date format pattern now default to allowing full/partial usage of the pattern ``"%Y-%m-%d %H:%M:%S.%L"``.
 #. Dataframes: :func:`strctoposix` now returns a dataframe.
 #. Dataframes: Symbols viewed in the symbol editor will now show up as a 'Dataframe' in the type field instead of 'Matrix'.
@@ -193,7 +205,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function :func:`hasmetadata` returns a 1 if the input is a dataframe.
 #. New function :func:`asmatrix` turns a dataframe into the equivalent matrix.
 #. New function :func:`order` reorders columns of a dataframe by name.
-#. New function :func:`frequency` computes a frequency table for a categorical variable. 
+#. New function :func:`frequency` computes a frequency table for a categorical variable.
 #. The **Data Import Window** now supports variable selection, interactive filtering and automatic code generation.
 #. The suffix for duplicate headers in the import dialog now start at _2 instead of _1.
 #. **Symbol Editors** support the same variable selection and filtering options added to the **Data Import Window**.

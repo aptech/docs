@@ -19,7 +19,7 @@ Format
      If *dataset* contains the name of a dataset, *vars* will be interpreted as either:
 
          * A Kx1 character vector containing the names of variables.
-         * A Kx1 numeric vector containing indices of variables. 
+         * A Kx1 numeric vector containing indices of variables.
          * A `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
 
          These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
@@ -106,7 +106,7 @@ Computing statistics on a GAUSS dataset
     */
     call  dstatmt(file_name);
 
-The above example will print the following report to the program input/output window:
+The above example will print the following report to the **Command** window:
 
 ::
 
@@ -131,7 +131,7 @@ the second variable.
     // Compute statistics for only the second variable in the dataset
     call  dstatmt(file_name, vars);
 
-The following report is printed to the program input/output window.
+The following report is printed to the **Command** window.
 
 ::
 
@@ -157,7 +157,7 @@ Computing statistics on a csv dataset with formula string
     */
     call  dstatmt(file_name, vars);
 
-The above example will print the following report to the program input/output window:
+The above example will print the following report to the **Command** window:
 
 ::
 

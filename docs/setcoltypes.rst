@@ -5,7 +5,7 @@ setcoltypes
 Purpose
 ----------------
 
-Set the types of columns in a matrix or dataframe.
+Set the types of columns in a matrix or dataframe. This is an alias for :func:`dftype`.
 
 Format
 ----------------
@@ -33,12 +33,12 @@ Date Variables
 When a numeric column is set to type ``date`` with :func:`setcoltypes`: 
 
 * The data from the column is interpreted as POSIX time (seconds since Jan 1, 1970).
-* The default date format will be used. This can be changed with :func:`setcoldateformats`.
+* The default date format will be used. This can be changed with :func:`asdate`.
 
 Categorical and String  Variables
 ++++++++++++++++++++++++++++++++++++
 
-When a numeric column is set to type ``category``, or ``string``  with :func:`setcoltypes`: 
+When a numeric column is set to type ``category``, or ``string`` with :func:`setcoltypes`: 
 
 * Each value will be converted to an integer to create the keys. The labels will be the string version of the number.
 
@@ -153,4 +153,4 @@ Now *x* will be the following dataframe:
            gamma
 
 
-.. seealso:: Functions :func:`setColNames`, :func:`setColLabels`, :func:`setColMetadata`, :func:`setColDateFormats`
+.. seealso:: Functions :func:`dfname`, :func:`setColLabels`, :func:`setColMetadata`, :func:`asdate`

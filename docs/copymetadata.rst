@@ -53,4 +53,4 @@ The code above copies the metadata from the categorical variable *rep78* to the 
                   Fair
 
 
-.. seealso:: Functions :func:`setColNames`, :func:`setColLabels`, :func:`setColtypes`, :func:`setColDateFormats`
+.. seealso:: Functions :func:`dfname`, :func:`setColLabels`, :func:`dftype`, :func:`asdate`

@@ -47,6 +47,7 @@ Scalar starting date
 ++++++++++++++++++++
 
 .. figure:: _static/images/psxti1.png
+    :scale: 50%
 
 ::
 
@@ -81,6 +82,7 @@ If you would like to change the tick labels so that they start on the first full
 This new plot should now have tick labels only on the first quarters of each year:
 
 .. figure:: _static/images/psxti2.png
+    :scale: 50%
 
 Daily data with full time vector
 ++++++++++++++++++++++++++++++++
@@ -115,6 +117,7 @@ Daily data with full time vector
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
 .. figure:: _static/images/psxti3.png
+    :scale: 50%
 
 Let's keep the tick labels on the same locations, however, create 1 tick label every quarter, instead of every 3 months. The following code will accomplish this.
 
@@ -131,6 +134,7 @@ Let's keep the tick labels on the same locations, however, create 1 tick label e
     plotTS(myPlot, date_vec, label_unit, closing_price);
 
 .. figure:: _static/images/psxti4.png
+    :scale: 50%
 
 Remarks
 -------

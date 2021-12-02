@@ -35,11 +35,11 @@ will produce output similar to:
 
 ::
 
-    Library path: C:\gauss20\gaussplot\lib
-                  C:\gauss20\lib
+    Library path: C:\gauss22\gaussplot\lib
+                  C:\gauss22\lib
 
-    Libraries:    C:\gauss20\lib\user.lcg
-                  C:\gauss20\lib\gauss.lcg
+    Libraries:    C:\gauss22\lib\user.lcg
+                  C:\gauss22\lib\gauss.lcg
 
 Example 2
 +++++++++
@@ -54,13 +54,13 @@ After executing the code above, entering the `library` command without any argum
 
 ::
 
-    Library path: C:\gauss20\gaussplot\lib
-                  C:\gauss20\lib
+    Library path: C:\gauss22\gaussplot\lib
+                  C:\gauss22\lib
 
-    Libraries:    C:\gauss20\lib\user.lcg
-                  C:\gauss20\lib\pgraph.lcg
-                  C:\gauss20\lib\cmlmt.lcg
-                  C:\gauss20\lib\gauss.lcg
+    Libraries:    C:\gauss22\lib\user.lcg
+                  C:\gauss22\lib\pgraph.lcg
+                  C:\gauss22\lib\cmlmt.lcg
+                  C:\gauss22\lib\gauss.lcg
 
 The output from the `library` command above is printed in the order in which GAUSS will search. For this particular example, GAUSS will first search the user library, then the ``pgraph`` library, followed by the ``cmlmt`` library and finally the ``gauss`` library.
 

@@ -11,9 +11,9 @@ Format
 .. function:: out = eqSolvemt(&fct, par, ..., c)
 
     :param &fct: pointer to a procedure that computes the
-        function to be minimized. This procedure must have an instance of a :class:`PV` structure 
+        function to be minimized. This procedure must have an instance of a :class:`PV` structure
         containing the parameters as the first input. Extra data needed by this function may
-        be passed in after the :class:`PV` structure, but before the control structure. 
+        be passed in after the :class:`PV` structure, but before the control structure.
         This procedure must have one output argument, a column vector
         containing the result of each equation.
     :type &fct: scalar function pointer
@@ -123,7 +123,7 @@ For example, consider a two-equation system given by:
        retp(z);
     endp;
 
-After the code above, a short report will be printed to the program input/output window. Part of the output is displayed below:
+After the code above, a short report will be printed to the **Command** window. Part of the output is displayed below:
 
 ::
 

@@ -70,7 +70,7 @@ The above code will set *dt_vec* equal to:
 ::
 
     // Create a sequence of 6 dates separated by 30 minutes
-    dt_vec = seqaPosix("March 17, 2003 05:30:00", 30, "minutes", 6);
+    dt_vec = seqaPosix("2003-03-17 05:30:00", 30, "minutes", 6);
 
 The above code will set *dt_vec* equal to:
 
@@ -85,7 +85,8 @@ The above code will set *dt_vec* equal to:
 
 ::
 
-  // Jan 20, 1980
+  // Convert string date in a different format to
+  // a GAUSS date.
   dt_start = strcToPosix("01/20/1980", "%m/%d/%Y");
 
   // Create a sequence of 10 dates separated by 4 years

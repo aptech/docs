@@ -12,7 +12,7 @@ The :func:`dstatmt` procedure generates a summary table of descriptive statistic
 * Valid cases
 * Missing cases
 
-It works directly with matrices and dataframes and will print a complete summary table to the **Program Input/Output** window.
+It works directly with matrices and dataframes and will print a complete summary table to the **Comand** window.
 
 Example: Summary statistics from a datafile
 +++++++++++++++++++++++++++++++++++++++++++++
@@ -120,11 +120,11 @@ The results are printed directly to screen:
 
 Panel data descriptive statistics
 -----------------------------------
-The :func:`aggregate` procedure finds descriptive statistics for each group in panel data.
+The :func:`aggregate` procedure finds descriptive statistics for each group in panel data. It allows an optional input to specify the name of the categorical variable to be used for grouping.
 
-In order to be used with :func:`aggregate`, the panel data matrix should:
+In order to be used with :func:`aggregate` :
 
-- Have group identifiers in the first column.
+- Have group identifiers in the first column if the name of the categorical variable for grouping is not specified.
 - Be in stacked panel data format.
 
 The function supports the following statistics:
@@ -138,8 +138,9 @@ The function supports the following statistics:
 * Sum
 * Sample variance
 
-Example: Find median square footage and price by number of bedrooms
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example One: Find median square footage and price by number of bedrooms
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+In this example, the group variable is included in the first column. No categorical variable is specified for grouping.
 
 ::
 
@@ -164,6 +165,26 @@ The matrix `x_a` contains:
        4              179             2000
        5           352.65             3095
 
+Example Two: Find the mean mpg and price for foreign vehicles
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+In this example, a categorical variable name is specified for grouping.
+
+::
+
+  // Load data
+  auto2 = loadd(getGAUSSHome $+ "examples/auto2.dta");
+
+  // Aggregate data using
+  // foreign column as group
+  aggregate(auto2[., "price" "mpg" "foreign"], "mean", "foreign");
+
+The aggregated results are printed to the **Command** window:
+
+::
+
+  foreign     price      mpg
+  Domestic  6072.423   19.827
+  Foreign   6384.682   24.773
 
 Frequency tables and plots
 -----------------------------

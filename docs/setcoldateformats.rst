@@ -67,4 +67,4 @@ Remarks
 
 You can find a list of the available date format specifiers in the Command Reference entry for :func:`posixtostrc`.
 
-.. seealso:: Functions :func:`setColTypes`, :func:`getColDateFormats`
+.. seealso:: Functions :func:`dftype`, :func:`getColDateFormats`

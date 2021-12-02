@@ -625,7 +625,7 @@ will return:
 Setting a variable type
 ++++++++++++++++++++++++++++
 
-:func:`setColTypes` sets the variable type of one or more columns of a  matrix or dataframe.
+:func:`dfType` sets the variable type of one or more columns of a matrix or dataframe.
 
 ::
 
@@ -637,18 +637,18 @@ Setting a variable type
         259200 };
 
     // Set the variable type of 'd' to be a date
-    d = setcoltypes(d, "Date");
+    d = dfType(d, "Date");
 
 
 After the above code, *d* will be a date and if we print it we will see:
 
 ::
 
-                  X1
-    1970-01-01 00:00
-    1970-01-02 00:00
-    1970-01-03 00:00
-    1970-01-04 00:00
+            X1
+    1970-01-01
+    1970-01-02
+    1970-01-03
+    1970-01-04
 
 It also accepts an optional input specifying the indices or variable names to be checked.
 
@@ -674,7 +674,7 @@ We can change the type of the second column from a categorical to a numeric vari
 ::
 
     // Set the second column to be numeric
-    nba = setColTypes(nba, "Number", Pos);
+    nba = dfType(nba, "Number", "pos"");
 
 After this code, the first four rows of *nba* will be:
 
