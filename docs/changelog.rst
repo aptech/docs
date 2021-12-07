@@ -10,6 +10,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Optimized changing the format in the symbol editor for extremely large symbols.
 #. Add :func:`warninglog` and :func:`warninglogat` keywords to produce warning, similar to :func:`errorlog` and :func:`errorlogat`.
 #. Bug Fix: Context menu actions in the symbol editor were erroneously remapped to copy.
+#. Bug Fix: When changing to a numeric or string/category type in the symbol editor, the generated code woulod have an incorrect column if 'Create New Column' was checked.
 
 22.0.1
 ------
