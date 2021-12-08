@@ -7,5 +7,8 @@ W
 
     waitwaitc
     walkindex
+    warninglog
+    warninglogat
     window
     writer
+
