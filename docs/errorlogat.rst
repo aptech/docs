@@ -47,7 +47,7 @@ The above example will print the message:
 
     X contains is a nan, missing value or infinity
 
-to the error output window and error log file. It will also report the line number on which the `errorlogat` statement was called.
+to the error output window and error log file. It will also report the line number on which the :func:`errorlogat` statement was called.
 
 .. seealso:: Functions :func:`errorlog`
 
