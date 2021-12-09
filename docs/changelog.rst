@@ -7,6 +7,8 @@ The following is a list of changes from the previous version of GAUSS.
 22.0.2
 ------
 
+#. Graphics: Added support for date variables to :func:`plotScatter` and :func:`plotXY`.
+#. Graphics: Added support for specifying date intervals to :func:`plotSetXTicInterval`.
 #. Optimized changing the format in the symbol editor for extremely large symbols.
 #. Bug Fix: Context menu actions in the symbol editor were erroneously remapped to copy.
 
