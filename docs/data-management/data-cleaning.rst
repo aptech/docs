@@ -874,9 +874,9 @@ Since Excel files do not provide labels or order for string columns, GAUSS assig
 
 ::
 
-    // Assign values to labels for the categorical variable
-    // in `yarn`
-    yarn = setColLabels(yarn, "low" $| "med" $| "high", 0|1|2);
+    // Change the order of the category labels for the
+    // variable 'amplitude' in 'yarn'
+    yarn = reordercatlabels(yarn, "low" $| "med" $| "high", "amplitude");
 
     // Get column labels and key values for `amplitude`
     { labels_2, values_2 } = getColLabels(yarn, "amplitude");
