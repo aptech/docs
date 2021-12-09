@@ -9,12 +9,28 @@ Controls the interval between x-axis tick labels and also allows the user to spe
 Format
 ----------------
 .. function:: plotSetXTicInterval(&myPlot, ticInterval[, firstLabeled])
+              plotSetXTicInterval(&myPlot, ticInterval[, time_unit, firstLabeled])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
     :param ticInterval: the distance between x-axis tick labels.
     :type ticInterval: scalar
+
+    :param time_unit: Optional input used for time series plots. The time units to describe the ``ticInterval`` input:
+
+        - "milliseconds"
+        - "seconds"
+        - "minutes"
+        - "hours"
+        - "days"
+        - "months"
+        - "quarters"
+        - "years"
+
+    :type time_unit: string
+
+    :param y: Each column contains the Y values for a particular line.
 
     :param firstLabeled: Optional input, the value of the first X value on which to place a tick label.
     :type firstLabeled: scalar
@@ -89,17 +105,14 @@ Daily data with full time vector
 
 ::
 
-    // Fully pathed file name
+    // Create a time series plot of the data.
+    plotXY(myPlot, date_vec, closing_price);
     fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
 
     // Load all observations from variables,
     // 'Date' and 'Adj Close'
-    data = loadd(fname, "Date + Adj Close");
+    data = loadd(fname, "date(Date) + Adj Close");
 
-    // Separate the 'date' vector and 'adjusted close'
-    // into different vectors
-    date_vec = data[., 1];
-    closing_price = data[., 2];
 
     // Declare 'myPlot' to be a plotControl structure
     // and fill with default settings for XY plots
@@ -107,14 +120,13 @@ Daily data with full time vector
     myPlot = plotGetDefaults("xy");
 
     // Draw the first X-tick label at July 2017
-    // Draw a new X-tick label every 3 label_units,
-    // which is 'months' in this case
-    plotSetXTicInterval(&myPlot, 3, 201707);
+    // Draw a new X-tick label every 3 months
+    plotSetXTicInterval(&myPlot, 3, "months", "2017-07");
 
-    label_unit = "months";
 
-    // Create a time series plot of the data.
-    plotTS(myPlot, date_vec, label_unit, closing_price);
+    // Create a time series plot of the data
+    // using a formula string
+    plotXY(myPlot, data, "Adj Close ~ Date");
 
 .. figure:: _static/images/psxti3.png
     :scale: 50%
