@@ -105,8 +105,7 @@ Daily data with full time vector
 
 ::
 
-    // Create a time series plot of the data.
-    plotXY(myPlot, date_vec, closing_price);
+    // Get file name with full path
     fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
 
     // Load all observations from variables,
