@@ -30,8 +30,6 @@ Format
 
     :type time_unit: string
 
-    :param y: Each column contains the Y values for a particular line.
-
     :param firstLabeled: Optional input, the value of the first X value on which to place a tick label.
     :type firstLabeled: scalar
 
@@ -127,25 +125,27 @@ Daily data with full time vector
     // using a formula string
     plotXY(myPlot, data, "Adj Close ~ Date");
 
+
 .. figure:: _static/images/psxti3.png
     :scale: 50%
+
 
 Let's keep the tick labels on the same locations, however, create 1 tick label every quarter, instead of every 3 months. The following code will accomplish this.
 
 ::
 
     // Draw the first X-tick label at July 2017
-    // Draw a new X-tick label every 1 label_unit,
+    // Draw a new X-tick label every 1 'timeUnit',
     // which is 'quarters' in this case
-    plotSetXTicInterval(&myPlot, 1, 201707);
-
-    label_unit = "quarters";
-
+    plotSetXTicInterval(&myPlot, 1, "quarters", "2017-07");
+    
     // Create a time series plot of the data.
-    plotTS(myPlot, date_vec, label_unit, closing_price);
+    plotXY(myPlot, data, "Adj Close ~ Date");
+
 
 .. figure:: _static/images/psxti4.png
     :scale: 50%
+
 
 Remarks
 -------

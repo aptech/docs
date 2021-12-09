@@ -14,7 +14,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: Context menu actions in the symbol editor were erroneously remapped to copy.
 #. Bug Fix: When changing to a numeric or string/category type in the symbol editor, the generated code would have an incorrect column if 'Create New Column' was checked.
 #. Bug Fix: Passing a dataframe date column as a position argument to a plot with a datetime axis was not keeping the position as a date.
-#. Bug Fix: :func:`plotSetGrid` had a regression which dropped support for specifying 0 (off) or 1 (on). This has been restored.
+#. Bug Fix: :func:`plotSetGrid` had a regression which dropped support for the deprecated method of specifying 0 (off) or 1 (on) with an integer. This has been restored for backward compatibility.
 
 22.0.1
 ------
