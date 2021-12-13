@@ -520,10 +520,10 @@ Two GAUSS functions are available for deleting rows from a matrix:
     3 4
 
 
-Conditionally deleting data from a matrix
+Conditionally deleting rows of data
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-:func:`delif` conditionally delete data from a matrix based upon a logical vector.
+:func:`delif` conditionally deletes rows from a matrix, dataframe or string array  based upon a logical vector.
 
 ::
 
@@ -543,11 +543,11 @@ Conditionally deleting data from a matrix
     7 8
 
 
-How do I conditionally select data from a matrix?
-++++++++++++++++++++++++++++++++++++++++++++++
+How do I conditionally select data from a matrix or dataframe?
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-You can conditionally select data from a matrix using the :func:`selif` procedure.
-Enter the data to be as the first input to :func:`selif` and the condition to be used for selecting data as  the second input.
+You can conditionally select data from a matrix, dataframe, or string array  using the :func:`selif` procedure.
+Enter the data as the first input to :func:`selif` and the condition to be used for selecting data as the second input.
 
 ::
 
@@ -599,7 +599,7 @@ The above code will print:
 
 ::
 
-      type
+       type
      String
    Category
     Numeric
@@ -674,7 +674,7 @@ We can change the type of the second column from a categorical to a numeric vari
 ::
 
     // Set the second column to be numeric
-    nba = dfType(nba, "Number", "pos"");
+    nba = dfType(nba, "Number", "pos");
 
 After this code, the first four rows of *nba* will be:
 
@@ -686,7 +686,7 @@ After this code, the first four rows of *nba* will be:
         Keith Bogans         2        33
      Jared Sullinger         1        21
 
-The elements of the *pos* now contain only the numeric values. The string labels, ``"C"``, ``"F"`` and ``"G"`` have been removed.
+The elements of the *pos* now contain only the numeric values that correspond to the string category labels. The string labels, ``"C"``, ``"F"`` and ``"G"`` have been removed.
 
 Determining current variable names
 ++++++++++++++++++++++++++++++++++++++++
