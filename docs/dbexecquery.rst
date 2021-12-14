@@ -5,7 +5,7 @@ dbExecQuery
 Purpose
 ----------------
 
-Executes an SQL statement and creates a query.
+Executes a SQL statement and creates a query.
 
 Format
 ----------------
@@ -78,4 +78,5 @@ Example 3
     // Results as a string array
     results = dbQueryFetchAllSA(qid);
 
-.. seealso:: Functions :func:`dbCreateQuery`
+.. seealso:: Functions :func:`dbCreateQuery`, :func:`dbExecQueries`
+

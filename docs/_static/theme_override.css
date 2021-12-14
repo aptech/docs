@@ -40,6 +40,7 @@ dt code.descname { color: #00557f; }
 .icon-large span.fa { font-size: 3rem; }
 
 a.btn-outline-primary:hover { color: #fff !important; background-color: #455560 !important; border-color: #455560 !important; }
+
 .btn-outline-primary, .btn-outline-primary:visited { color: #455560 !important; border-color: #455560 !important; background: #fff !important; }
 
 html.writer-html5 .rst-content table.docutils th { border: none !important; }

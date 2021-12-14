@@ -40,7 +40,7 @@ Basic formula string
   .. figure:: _static/images/plotxy-plasma-fs-1-400x300px.jpg
      :scale: 50 %
 
-  ::
+::
 
     // Create string with full path to file name
     fname = getGAUSSHome $+ "examples/clotting_time.dat";
@@ -127,5 +127,7 @@ Remarks
 
 By default missing values in *y* will be represented as gaps
 in the line.
+
+See :func:`plotSetXTicInterval` for an example of a time series plot using :func:`plotXY`.
 
 .. seealso:: Functions :func:`plotLogX`, :func:`plotLogLog`, :func:`plotScatter`
