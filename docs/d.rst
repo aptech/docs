@@ -22,6 +22,7 @@ D
     dbclose
     dbcommit
     dbcreatequery
+    dbexecqueries
     dbexecquery
     dbgetconnectoptions
     dbgetdatabasename

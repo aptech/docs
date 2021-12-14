@@ -5,7 +5,7 @@ cls
 Purpose
 ----------------
 
-Clears the program input/output window.
+Clears the **Command** window.
 
 Format
 ----------------
@@ -20,4 +20,3 @@ at the beginning of a program that prints a report to the screen so that
 you have fewer lines of data to look at.
 
 .. seealso:: `locate`
-

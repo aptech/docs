@@ -9,6 +9,8 @@ Graphs data using the box graph percentile method.
 Format
 ----------------
 .. function:: plotBox([myPlot, ]group_id, y)
+              plotBox([myPlot, ]df_groups, y)
+              plotBox([myPlot, ]df, formula)
 
     :param myPlot: Optional argument, a :class:`plotControl` structure
     :type myPlot: struct
@@ -19,11 +21,57 @@ Format
     :param y: Each column represents the set of *y* values for an individual percentiles box symbol.
     :type y: NxM matrix
 
+    :param df_groups: A categorical dataframe vector. The *y* variable will be split by the categories in *df_groups* to create the boxes to graph.
+    :type df_groups: Nx1 categorical dataframe variable
+
+    :param df: name of the dataframe in memory.
+    :type df: dataframe
+
+    :param formula: formula string of the model to be plotted.
+        E.g ``"y ~ X1"``, ``y`` is the name of dependent variable to be plotted on the y-axis ``X1`` is the names of the variable to be plotted on the x-axis;
+
+        E.g ``"y ~ X1 + by(X2)"``, ``by(X2)`` specifies that the data should be separated into different lines based on the groups defined by ``X2``.
+
+    :type formula: string
+
+
 Examples
 ----------------
 
-Use string labels
-+++++++++++++++++
+Dataframe with formula string
+++++++++++++++++++++++++++++++++
+
+::
+
+    // Import data
+    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    auto2 = loadd(fname);
+
+    // Draw a box with 'mpg' data for each of
+    // the two categories in 'foreign' 
+    plotBox(auto2, "mpg ~ foreign");
+
+.. figure:: _static/images/plotbox-fs-cr.jpg
+      :scale: 50 %
+
+
+Dataframe with formula string
+++++++++++++++++++++++++++++++++
+
+::
+
+    // Import data
+    fname = getGAUSSHome() $+ "examples/tips2.dta";
+    tips = loadd(fname);
+
+    // Draw a box with 'tip' data for each day,
+    // split by whether 'smoker' equals yes or no.
+    plotBox(tips, "tip ~ day + by(smoker)");
+
+
+
+Matrix data with string labels
++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -41,8 +89,8 @@ Use string labels
 
 .. figure:: _static/images/gauss15_boxplot_2.png
 
-Using numeric labels
-++++++++++++++++++++
+Matrix data with numeric labels
+++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -58,6 +106,8 @@ Using numeric labels
     plotBox(labels, y_1~y_2);
 
 .. figure:: _static/images/gauss15_boxplot_1.png
+
+
 
 Remarks
 -------

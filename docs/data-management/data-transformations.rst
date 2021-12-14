@@ -369,7 +369,7 @@ The :func:`reclassify` procedure:
 * Works for matrices, arrays, and string arrays.
 * Can be used to reclassify matrices to string arrays and vice versa.
 
-.. note:: The :func:`reclassify` function can reclassify matrices to string arrays but does not create a dataframe. To create a dataframe with a string labels from an existing matrix see :func:`setColMetaData`.
+.. note:: The :func:`reclassify` function can reclassify matrices to string arrays but does not create a dataframe. To create a dataframe with a string labels from an existing matrix see :func:`asDF`.
 
 Example: Change instances of 1, 2 and 3 to ‘low’, ‘medium’ and ‘high’.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

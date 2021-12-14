@@ -4,7 +4,7 @@ plotAddHBar
 
 Purpose
 ----------------
-Adds one or more vertical bars spanning the full extent of the y-axis to an existing graph.
+Adds one or more horizontal bars spanning the full extent of the y-axis to an existing graph.
 
 Format
 ----------------
@@ -37,23 +37,23 @@ Add Horizontal Spanning Bar
 
     // Create string with fully pathed file name
     fname = getGAUSSHome() $+ "examples/credit.dat";
-    
+
     // Load variables to plot from dataset
     credit = loadd(fname, "Rating + Balance");
-    
+
     // Draw scatter plot
     plotScatter(credit, "Rating ~ Balance");
-    
+
     // Declare plotControl structure and
     // fill with default bar settings
     struct plotControl plt;
     plt = plotGetDefaults("bar");
-    
+
     // Solid fill with 20% opacity
     plotSetFill(&plt, 1, 0.2);
-    
+
     plotSetLegend(&plt, "Target rating: 580-740", "top left inside");
-    
+
     // Add horizontal bar from y=580 to y=740
     plotAddHBar(plt, 580, 740);
 

@@ -66,4 +66,4 @@ Remarks
 --------------
 
 
-.. seealso:: Functions :func:`asMatrix`, :func:`asDate`, :func:`setcolnames`, :func:`setcoltypes`
+.. seealso:: Functions :func:`asMatrix`, :func:`asDate`, :func:`dfname`, :func:`dftype`

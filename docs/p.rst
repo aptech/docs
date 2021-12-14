@@ -34,6 +34,7 @@ P
     plotaddbarh
     plotaddbox
     plotadderrorbar
+    plotaddhbar
     plotaddhistf
     plotaddhistp
     plotaddhist
@@ -78,7 +79,9 @@ P
     plotsetaxespen
     plotsetticposition
     plotsetbar
+    plotsetbarwidth
     plotsetbkdcolor
+    plotsetboxwidth
     plotsetcolormap
     plotsetcontourlabels
     plotsetfill
@@ -88,6 +91,7 @@ P
     plotsetlegendbkd
     plotsetlegendborder
     plotsetlegendfont
+    plotsetlegendtitle
     plotsetlinecolor
     plotsetlinepen
     plotsetlinestyle

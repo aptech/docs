@@ -33,9 +33,9 @@ In this example, a file in the current working directory with the name ``"myfile
 ::
 
     // On Windows
-    ret = renamefile("c:\\gauss17\\myfile.gss",
-      "c:\\gauss17\\mynewfile.gss");
+    ret = renamefile("c:\\gauss22\\myfile.gss",
+      "c:\\gauss22\\mynewfile.gss");
 
     // On Linux/Mac
-    ret = renamefile("/home/user/gauss17/myfile.gss",
-      "/home/user/gauss17/mynewfile.gss");
+    ret = renamefile("/home/user/gauss22/myfile.gss",
+      "/home/user/gauss22/mynewfile.gss");

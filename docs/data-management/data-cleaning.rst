@@ -520,10 +520,10 @@ Two GAUSS functions are available for deleting rows from a matrix:
     3 4
 
 
-Conditionally deleting data from a matrix
+Conditionally deleting rows of data
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-:func:`delif` conditionally delete data from a matrix based upon a logical vector.
+:func:`delif` conditionally deletes rows from a matrix, dataframe or string array  based upon a logical vector.
 
 ::
 
@@ -543,11 +543,11 @@ Conditionally deleting data from a matrix
     7 8
 
 
-How do I conditionally select data from a matrix?
-++++++++++++++++++++++++++++++++++++++++++++++
+How do I conditionally select data from a matrix or dataframe?
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-You can conditionally select data from a matrix using the :func:`selif` procedure.
-Enter the data to be as the first input to :func:`selif` and the condition to be used for selecting data as  the second input.
+You can conditionally select data from a matrix, dataframe, or string array  using the :func:`selif` procedure.
+Enter the data as the first input to :func:`selif` and the condition to be used for selecting data as the second input.
 
 ::
 
@@ -599,7 +599,7 @@ The above code will print:
 
 ::
 
-      type
+       type
      String
    Category
     Numeric
@@ -625,7 +625,7 @@ will return:
 Setting a variable type
 ++++++++++++++++++++++++++++
 
-:func:`setColTypes` sets the variable type of one or more columns of a  matrix or dataframe.
+:func:`dfType` sets the variable type of one or more columns of a matrix or dataframe.
 
 ::
 
@@ -637,18 +637,18 @@ Setting a variable type
         259200 };
 
     // Set the variable type of 'd' to be a date
-    d = setcoltypes(d, "Date");
+    d = dfType(d, "Date");
 
 
 After the above code, *d* will be a date and if we print it we will see:
 
 ::
 
-                  X1
-    1970-01-01 00:00
-    1970-01-02 00:00
-    1970-01-03 00:00
-    1970-01-04 00:00
+            X1
+    1970-01-01
+    1970-01-02
+    1970-01-03
+    1970-01-04
 
 It also accepts an optional input specifying the indices or variable names to be checked.
 
@@ -674,7 +674,7 @@ We can change the type of the second column from a categorical to a numeric vari
 ::
 
     // Set the second column to be numeric
-    nba = setColTypes(nba, "Number", Pos);
+    nba = dfType(nba, "Number", "pos");
 
 After this code, the first four rows of *nba* will be:
 
@@ -686,7 +686,7 @@ After this code, the first four rows of *nba* will be:
         Keith Bogans         2        33
      Jared Sullinger         1        21
 
-The elements of the *pos* now contain only the numeric values. The string labels, ``"C"``, ``"F"`` and ``"G"`` have been removed.
+The elements of the *pos* now contain only the numeric values that correspond to the string category labels. The string labels, ``"C"``, ``"F"`` and ``"G"`` have been removed.
 
 Determining current variable names
 ++++++++++++++++++++++++++++++++++++++++
@@ -874,9 +874,9 @@ Since Excel files do not provide labels or order for string columns, GAUSS assig
 
 ::
 
-    // Assign values to labels for the categorical variable
-    // in `yarn`
-    yarn = setColLabels(yarn, "low" $| "med" $| "high", 0|1|2);
+    // Change the order of the category labels for the
+    // variable 'amplitude' in 'yarn'
+    yarn = reordercatlabels(yarn, "low" $| "med" $| "high", "amplitude");
 
     // Get column labels and key values for `amplitude`
     { labels_2, values_2 } = getColLabels(yarn, "amplitude");

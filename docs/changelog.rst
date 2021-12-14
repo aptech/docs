@@ -4,10 +4,28 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+22.0.2
+------
+
+#. Graphics: Added support for date variables to :func:`plotScatter` and :func:`plotXY`.
+#. Graphics: Added support for specifying date intervals to :func:`plotSetXTicInterval`.
+#. Optimized changing the format in the symbol editor for extremely large symbols.
+#. Add :func:`warninglog` and :func:`warninglogat` keywords to produce warning, similar to :func:`errorlog` and :func:`errorlogat`.
+#. Bug Fix: Context menu actions in the symbol editor were erroneously remapped to copy.
+#. Bug Fix: When changing to a numeric or string/category type in the symbol editor, the generated code would have an incorrect column if 'Create New Column' was checked.
+#. Bug Fix: Passing a dataframe date column as a position argument to a plot with a datetime axis was not keeping the position as a date.
+#. Bug Fix: :func:`plotSetGrid` had a regression which dropped support for the deprecated method of specifying 0 (off) or 1 (on) with an integer. This has been restored for backward compatibility.
+
+22.0.1
+------
+
+#. Bug Fix: Specifying the GAUSSHOME value with non platform-specific separators would cause globbing to fail when reading gauss.cfg, (eg ``$GAUSSHOME/pkgs/*/src`` on Windows)
+#. Bug Fix: Filtering a date column in the File Import dialog or symbol editor was referencing the wrong column type when generating code. The resulting filtering operation was correct, but has been rectified to generate more friendly code.
+
 22.0.0
 ------
 
-#. Added new preprocessor ``#includedir`` to add current file directory to source path. If executed from the Program Input/Output Window (PGM), uses current working directory.
+#. Added new preprocessor ``#includedir`` to add current file directory to source path. If executed from the Command Window (PGM), uses current working directory.
 #. ``#include`` and ``#includedir`` statements can now be processed with ``F4`` in the GUI.
 #. :func:`__FILE_DIR` now works with ``F4`` in the GUI.
 #. Added new function :func:`resetsourcepaths` to restore source path to initial value from gauss.cfg.
@@ -22,10 +40,14 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`dfname` was added as an alias for :func:`setcolnames`.
 #. :func:`dftype` was added as an alias for :func:`setcoltypes`.
 #. :func:`asdate` was added as an alias for :func:`setcoldateformats`.
-#. Formula strings now support more than one dependent variable. (fields specified before a ``~`` in a formula string).
 #. ``%e``, ``%E``, ``%f``, ``%F``, ``%g``, ``%G`` flags were reimplemented for more consistent results with :func:`sprintf`.
 #. :func:`dttostr` will now return a string instead of a 1x1 string array.
-#. Graphics: :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` now support formula strings and automatically handle dataframe input to generate the appropriate axis labels.
+#. Formula strings now support more than one dependent variable. (fields specified before a ``~`` in a formula string).
+#. Added ``%v`` support to :func:`asdate`. This is shorthand for ``%e-%b-%Y``.
+#. Added support for the automatic monthly, quarterly, and yearly date-conversions in Stata files (e.g. .dta files).
+#. :func:`sprintf` now supports the following base conversion patterns: ``%b`` (binary), ``%o`` (octal), ``%x`` and ``%X`` (hex).
+#. :func:`aggregate` now accepts an optional input specifying the column index or name of the variable to aggregate on.
+#. Graphics: :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` now support formula strings and automatically handle dataframe input to generate the appropriate axis and legend labels.
 #. Graphics: New formula string keyword, :class:`by` splits data to be plotted by  :func:`plotScatter`, :func:`plotXY` and :func:`plotBox` by a specified categorical or string variable and automatically handle dataframe input to generate the appropriate legend items.
 #. Graphics: Added support for legends to have their own title with :func:`plotSetLegendTitle`.
 #. Graphics: Added new functions for vertical/horizontal lines to span the entire axis: :func:`plotAddVLine`, :func:`plotAddHLine`.
@@ -33,55 +55,76 @@ The following is a list of changes from the previous version of GAUSS.
 #. Graphics: :func:`plotAddVBar` and :func:`plotAddHBar` support FRED-style input data. (eg { 1950, 1 }, { 1951, 1 }, { 1952, 0 }, ...).
 #. Graphics: Added support for dates in simple string format to :func:`plotSetXRange`.
 #. Graphics: Added support for outliers to :func:`plotBox`.
+#. Graphics: :func:`plotBox` can now accept a vector of groups as the first data input. The ``y`` variable will be split by the categories in the group vector and plotted as separate boxes.
 #. Graphics: Added new function :func:`plotSetJitterRange` to control the jitter range for :func:`plotScatter` and :func:`plotBox` outliers.
 #. Graphics: Attributes for each axis can be assigned separately. The existing :func:`plotSetAxesPen` convenience procedure will still assign attributes to all axes simultaneously.
 #. Graphics: The font can now be specified for :func:`plotContour` labels.
 #. Graphics: Axis tics can now be displayed on the inside of the chart (as opposed to outside only) or hidden completely with the :func:`plotSetTicPosition` function.
-#. Graphics: Axes are now at a higher Z-order than series, so lines will not render on top of the axes lines.
 #. Graphics: Added new function :func:`plotSetOutlineEnabled` to allow a box outline around the entire chart. Outline attributes are controlled via axis properties using :func:`plotSetAxesPen` or individually with :func:`plotSetXPen` and :func:`plotSetYPen`.
+#. Graphics: Axes are now at a higher Z-order than series, so lines will not render on top of the axes lines.
 #. :func:`plotSetAxesPen` has a new optional input to set the axes line style.
-#. Graphics: Added convenience functions for horizontal/vertical bars (eg recession bars): :func:`plotAddHBar` and :func:`plotAddVBar`.
-#. Graphics: Added convenience functions for horizontal/vertical lines: :func:`plotAddHLine` and :func:`plotAddVLine`.
+#. Graphics: New functions :func:`plotSetXGridPen` and :func:`plotSetYGridPen` allow the major and minor ``x`` and ``y`` axis grid lines to be enabled and styled separately.
+#. Graphics: New function :func:`plotSetGridPen` allows the major and minor ``x`` and ``y`` axis grid lines to be enabled and styled.
 #. Graphics: Graph profile settings in the preferences dialog have been fully refactored to only show properties related to the selected graph category. This should reduce confusion regarding which properties are respected when plotting a graph of the specified type.
 #. Graphics: Added support for specifying the bar width (:func:`plotSetBarWidth`) and box width (:func:`plotSetBoxWidth`).
-#. Graphics: :func:`plotAddXY` and :func:`plotAddScatter` now support category labels as input for X values.
+#. Graphics: :func:`plotAddXY` and :func:`plotAddScatter` now support category labels as input for X values, so data can be added to locations specified by a text label, rather than a numeric value.
 #. Graphics: Contour is now a new default graph profile instead of being shared with Surface.
 #. Graphics: New convenience function :func:`plotSetLinePen` to set the line width, color and style in one call.
 #. Graphics: New function :func:`plotCloseAll` closes all open graphs.
+#. Graphics: Performance: support was improved for plotting large numbers of points for XY and scatter series.
+#. Graphics: Behavior change: the default line thickness for bar plots has been set to zero to be consistent with commonly desired styling for added spanning bars.
+#. Graphics: Behavior change: the legend position can be updated with settings from a plotAdd call if no legend items already exist on the graph.
+#. Graphics: Bug Fix: Outside middle legend will now always have a vertical orientation.
+#. Graphics: Bug Fix: :func:`plotOpenWindow` now retains focus in the widget prior to the call (eg the PGM).
+#. Graphics: Bug Fix: :func:`plotAddBarH` would calculate the X offset incorrectly if the input X values were index values instead of labels.
+#. Graphics: Bug Fix: Axis properties for :func:`plotPolar` was applying the settings in a reversed manner. X-Axis settings now represent the azimuth with Y-Axis settings representing the radial axis. The input order for :func:`plotPolar` has not changed.
+#. Graphics: Bug Fix: :func:`plotTSHF` would not allow a fixed axis range to be specified.
+#. Graphics: Bug Fix: :func:`plotTSHF` would sometimes omit axis labels in the case of too few calculated labels. At least 1 will be rendered now.
 #. Performance: :func:`movingave` up to 4-6x faster.
-#. For convenience you can now assign a scalar value to multiple elements of a matrix or dataframe (eg x[1 3 5,2] = 7.3;).
+#. Performance: :func:`unique` was optimized and should be faster.
+#. For convenience you can now assign a scalar value to multiple elements of a matrix or dataframe (eg ``x[1 3 5,2] = 7.3;``).
 #. Dataframes: All dataframe functions (:func:`dfname`, :func:`dftype`, :func:`asdate`, etc) can now automatically convert a non-dataframe input to a dataframe. String arrays are automatically converted to a category column.
+#. Dataframes: :func:`asdate` now allows omission of the format argument, and will default to ``%Y-%m-%d %H:%M:%S.%L``. All or part of this format can be specified in the input argument.
+#. Dataframes: passing a format of ``%s`` to :func:`asdate` will automatically coerce it to a friendly format.
 #. Dataframes: Behavior: Overwriting an entire column during an assign will overwrite the LHS metadata if the RHS is also a dataframe.
-#. Dataframes: Behavior: Concatenating a dataframe to a string is now supported.
+#. Dataframes: Behavior: Combining dataframes with string arrays using the string combine operator, ``$+`` is now supported.
 #. Dataframes: Multiple new functions now support dataframes as input arguments: :func:`strtrim`, :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`, :func:`strtruncpad`, :func:`upper`, :func:`lower`, :func:`strindx`, :func:`strreplace`, :func:`strsect`, :func:`indsav`, :func:`indnv`, :func:`contains`, :func:`strsplit`, :func:`strjoin`, :func:`strcombine`, :func:`aggregate`
 #. Dataframes: A low-level function :func:`normalizecollabels` was added to automatically refactor string/category columns to remove duplicates and consolidate keys.
-#. Dataframes: Added string/string array assignment support to existing string/category columns. 
+#. Dataframes: Added string/string array assignment support to existing string/category columns.
 #. Dataframes: Date pattern matching has been relaxed. If a string fully matches a date format pattern completely, the calculated date up until that point is now returned instead of requiring the entire format to be satisfied. Most functions that take a date format pattern now default to allowing full/partial usage of the pattern ``"%Y-%m-%d %H:%M:%S.%L"``.
-#. Dataframes: `strctoposix` now returns a dataframe.
+#. Dataframes: :func:`strctoposix` now returns a dataframe.
 #. Dataframes: Symbols viewed in the symbol editor will now show up as a 'Dataframe' in the type field instead of 'Matrix'.
 #. Dataframes: Improved behavior when checking for like-column types in a partial row assignment from one dataframe to another.
 #. Dataframes: :func:`outerjoin` (left outer join) has been rewritten completely as an intrinsic with full support for dataframes with a significant performance increase.
 #. Dataframes: Generated code in the file import dialog now takes advantage of new dataframe behavior to allow more concise code.
 #. Dataframes: Specifying custom col labels for string/category columns now uses a :func:`seqa` representation for the values if they are left as their default. (Optimization)
-#. Dataframes: :func:`sortc` now allows you to specify columns by name and supports sorting categorical and string categories by their string label. 
+#. Dataframes: :func:`sortc` now allows you to specify columns by name.
+#. Dataframes: Empty date formats now default to the default date format of ``%Y-%m-%d``.
+#. Dataframes: Any function converting a symbol to a string/category will now sort the labels before generating the keys.
 #. Dataframes: Bug Fix: Unsorted indices passed to dataframe functions could cause changes to be incorrectly applied.
 #. Dataframes: Bug Fix: Specific cases where a program errored out could potentially remove metadata from a symbol in the workspace.
-#. :func:`aggregate` now accepts an optional input specifying the column index or name of the variable to aggregate on.
+#. Dataframes: Bug Fix: Metadata was not being applied correctly in specific struct-index assignment cases.
+#. Dataframes: Bug Fix: String/Category columns can now be used with the ``%s`` pattern in :func:`sprintf`.
+#. Dataframes: Bug Fix: All dataframe and string combinations are now supported for ``$+`` operations.
 #. Behavior Change: :func:`aggregate` will now check for and ignore missing values by default. An optional input flag has been added to not check for missing values as in the previous version.
+#. Behavior Change: Code generation for dataframe operations in the symbol editor have been optimized to be as concise as possible.
+#. Behavior Change: Columns in the symbol editor will attempt to automatically resize to yield a more user-friendly display.
+#. Behavior Change: Multiple equality filters of the same type in the dataframe 'Filter' tab are now grouped together to use :func:`rowcontains` for optimized code generation and performance.
+#. Behavior Change: Policy ``policy_scalar_df_indexing`` is now enabled by default. This policy was added in 21.0.6 to control behavior for dataframe indexing operations that return a scalar. Resulting scalar will now remain a dataframe by default.
 #. Bug Fix: :func:`setcollabels` incorrectly allowed the indices argument to be omitted. This has been fixed, but improved to allow omission of the indices argument if the input argument only has one column. The values used will be [0...N-1] where N is the number of labels.
 #. Bug Fix: :func:`move` now makes a copy if the input symbol can't release ownership.
-#. Bug Fix: :func:`plotAddBarH` would calculate the X offset incorrectly if the input X values were index values instead of labels.
 #. Bug Fix: Use system palette when restoring regular font color in textbox of editor/PGM find widgets.
 #. Bug Fix: Custom missing values set with :func:`msym` was incorrectly printing the missing value backwards in :func:`sprintf`.
 #. Bug Fix: :func:`selif` could return a partial dataframe if the return value was a scalar missing.
-#. Bug Fix: :func:`plotOpenWindow` now retains focus in the widget prior to the call (eg the PGM).
 #. Bug Fix: If a tab character was the delimiter in the file import dialog, the generated code would include a literal tab character as a string. This has been fixed to escape the tab character in the string (eg ``ctl.delimiter = "\t"``).
 #. Bug Fix: :func:`seqadt` and :func:`seqaposix` now correctly allow dataframes to pass through without losing their metadata.
-#. Bug Fix: :func:`plotTSHF` would not allow a fixed axis range to be specified.
-#. Bug Fix: :func:`plotTSHF` would sometimes omit axis labels in the case of too few calculated labels. At least 1 will be rendered now.
-#. Bug Fix: Axis properties for :func:`plotPolar` was applying the settings in a reversed manner. X-Axis settings now represent the azimuth with Y-Axis settings representing the radial axis. The input order for :func:`plotPolar` has not changed.
 #. Bug Fix: Formula strings that contained a ``:`` or ``*`` character in the argument field (eg ``date($my_date, '%Y-%m %H:%M')``) were being treated as multiplier operations.
 #. Bug Fix: Add date cell editing support in the symbol editor.
+#. Bug Fix: In the import dialog, generated code was not updating when a custom category label or date format was specified. This bug was visual only, as the correct code was generated when the *Import* button was pressed.
+#. Bug Fix: In the import dialog, the input box for the new column name was not noticeably greyed out on macOS when the widget was disabled.
+#. Bug Fix: The symbol editor will no longer automatically open the 'Manage' panel for dataframes.
+#. Bug Fix: :func:`setcolnames` was incorrectly allowing empty names as input.
+#. Bug Fix: A missing/NaN in a string/category column will now display the correct value when printed, instead of an empty string.
 
 21.0.8
 ------
@@ -168,7 +211,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function :func:`hasmetadata` returns a 1 if the input is a dataframe.
 #. New function :func:`asmatrix` turns a dataframe into the equivalent matrix.
 #. New function :func:`order` reorders columns of a dataframe by name.
-#. New function :func:`frequency` computes a frequency table for a categorical variable. 
+#. New function :func:`frequency` computes a frequency table for a categorical variable.
 #. The **Data Import Window** now supports variable selection, interactive filtering and automatic code generation.
 #. The suffix for duplicate headers in the import dialog now start at _2 instead of _1.
 #. **Symbol Editors** support the same variable selection and filtering options added to the **Data Import Window**.

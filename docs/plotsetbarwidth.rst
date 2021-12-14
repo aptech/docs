@@ -4,7 +4,7 @@ plotSetBarWidth
 
 Purpose
 ----------------
-Sets the width of the bars in bar graphs and boxes in box plots.
+Sets the width of the bars in bar graphs.
 
 Format
 ----------------

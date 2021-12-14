@@ -46,7 +46,6 @@ Examples
     print "Original yarn_length labels";
     print ntos(keys)$~labels;
     
-    
     // Reorder yarn_length variable from
     // 'low', 'med', and 'high'
     //  to 'high', 'med', 'low'
@@ -81,3 +80,4 @@ The above code will print out:
 
 
 .. seealso:: Functions :func:`getColLabels`, :func:`setColLabels`, :func:`recodeCatLabels`, :func:`reclassify`
+

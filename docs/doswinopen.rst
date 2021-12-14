@@ -7,7 +7,7 @@ Purpose
 
 Opens the DOS compatibility window and gives it the specified title and attributes.
 
-.. WARNING:: This function is no longer supported. This documentation is provided as a reference for understanding legacy code. In many cases, you may simply comment out calls to :func:`DOSWinOpen` and the program will run successfully in the program input/output window.
+.. WARNING:: This function is no longer supported. This documentation is provided as a reference for understanding legacy code. In many cases, you may simply comment out calls to :func:`DOSWinOpen` and the program will run successfully in the **Command** window.
 
 Format
 ----------------
@@ -88,5 +88,3 @@ interactively close the DOS window while a program is running. If GAUSS
 is idle, the window will be closed immediately. Likewise, if a program
 calls :func:`DOSWinCloseall`, the window is closed, but the program does not get
 terminated.
-
-
