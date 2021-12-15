@@ -59,7 +59,7 @@ P
     plotcloseall
     plotcontour
     plotcustomlayout
-    plotFreq
+    plotfreq
     plotgetdefaults
     plothistf
     plothistp
@@ -102,6 +102,7 @@ P
     plotsettextinterpreter
     plotsetticlabelfont
     plotsettitle
+    plotsetwhichxaxis
     plotsetwhichyaxis
     plotsetxgrid
     plotsetxgridpen
