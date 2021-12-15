@@ -4,3 +4,6 @@
 [submodule "docs/textbook-examples"]
 	path = docs/textbook-examples
 	url = https://github.com/aptech/gauss-textbook-examples
+[submodule "docs/_themes/pydata_sphinx_theme"]
+	path = docs/_themes/pydata_sphinx_theme
+	url = https://github.com/aptech/pydata-sphinx-theme.git

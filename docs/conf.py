@@ -88,7 +88,7 @@ highlight_language = 'gauss'
 #
 #html_theme = 'alabaster'
 #html_theme = 'sphinx_rtd_theme'
-#html_theme_path = ["_themes"]
+html_theme_path = ["_themes/pydata_sphinx_theme"]
 html_theme = 'pydata_sphinx_theme'
 
 # Add any paths that contain templates here, relative to this directory.
