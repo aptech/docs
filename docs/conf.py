@@ -115,7 +115,7 @@ html_context = {
     ],
 }
 
-html_logo = '_static/images/logo.png'
+html_logo = '_static/images/aptech-logo.png'
 
 html_theme_options = {
     'prev_next_buttons_location': 'both',
