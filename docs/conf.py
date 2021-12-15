@@ -115,12 +115,12 @@ html_context = {
     ],
 }
 
-html_logo = '_static/images/gauss_logo.png'
+html_logo = '_static/images/logo.png'
 
 html_theme_options = {
     'prev_next_buttons_location': 'both',
     'style_external_links': True,
-    'style_nav_header_background': '#455560',
+    'style_nav_header_background': '#fff',
     'logo_only': True,
     'canonical_url': 'https://docs.aptech.com/gauss/'
 }
@@ -193,7 +193,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'GAUSS', 'GAUSS Documentation',
-     author, 'GAUSS', 'The GAUSS matrix programming language.',
+     author, 'GAUSS', 'The GAUSS Platform',
      'Miscellaneous'),
 ]
 
