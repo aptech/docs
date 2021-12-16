@@ -1,7 +1,7 @@
 from docutils import nodes
 from sphinx import addnodes
 from sphinx.writers.html import HTMLTranslator
-from bootstrap_html_translator import BootstrapHTML5Translator
+from pydata_sphinx_theme.bootstrap_html_translator import BootstrapHTML5Translator
 
 
 class desc_returnlist(nodes.Part, nodes.Inline, nodes.FixedTextElement):

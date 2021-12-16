@@ -88,7 +88,7 @@ highlight_language = 'gauss'
 #
 #html_theme = 'alabaster'
 #html_theme = 'sphinx_rtd_theme'
-html_theme_path = ["_themes/pydata_sphinx_theme"]
+html_theme_path = ["_themes"]
 html_theme = 'pydata_sphinx_theme'
 
 # Add any paths that contain templates here, relative to this directory.
@@ -108,7 +108,7 @@ html_static_path = ['_static']
 
 html_context = {
     'css_files': [
-        '_static/theme_override.css',  # override wide tables in RTD theme
+        '_static/theme_override.css',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
         'https://fonts.googleapis.com/css?family=Lato',
 #        '_static/panels-bootstrap.min.css',
@@ -117,13 +117,13 @@ html_context = {
 
 html_logo = '_static/images/aptech-logo.png'
 
-html_theme_options = {
-    'prev_next_buttons_location': 'both',
-    'style_external_links': True,
-    'style_nav_header_background': '#fff',
-    'logo_only': True,
-    'canonical_url': 'https://docs.aptech.com/gauss/'
-}
+#html_theme_options = {
+#    'prev_next_buttons_location': 'both',
+#    'style_external_links': True,
+#    'style_nav_header_background': '#fff',
+#    'logo_only': True,
+#    'canonical_url': 'https://docs.aptech.com/gauss/'
+#}
 
 html_baseurl = 'https://docs.aptech.com/gauss/'
 
@@ -238,3 +238,4 @@ def setup(sphinx):
         sphinx.set_translator(builder,
                               GAUSSHTMLTranslator,
                               override=True)
+

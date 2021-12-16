@@ -52,7 +52,10 @@ nav.navbar {
 }
 
 a.nav-link {
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.navbar-light .navbar-nav li a.nav-link {
     color: #000;
 }
 
