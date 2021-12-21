@@ -33,7 +33,7 @@ This example selects all rows where the category label of the *amplitude* variab
     // Get file name with full path
     dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
     
-    // Load 'cycles' as a numeric variable and load
+    // Load 'cycles' as numeric variable and load
     // 'amplitude' as a categorical variable
     yarn = loadd(dataset, "cycles + cat(amplitude)");
     
@@ -82,7 +82,7 @@ Dataframe example with dates
     dataset = getGAUSSHome() $+ "examples/xle_daily.xlsx";
     
     // Load 'Date' as a date variable and load
-    // 'Adj Close' and 'Volume' as a numerical variables
+    // 'Adj Close' and 'Volume' as numerical variables
     xle = loadd(dataset, "date(Date) + Adj Close + Volume");
     
     // Print descriptive statistics from the original data
@@ -108,7 +108,7 @@ Note the range of the *Date* variable in the descriptive statistics below is fro
     mask = xle[.,"Date"] .>= "2017-07-01" .and xle[.,"Date"] .< "2017-08-01";
     xle_july_2017 = selif(xle, mask);
     
-    // Print descriptie statistics of the filtered data
+    // Print descriptive statistics of the filtered data
     call dstatmt(xle_july_2017);
 
 
