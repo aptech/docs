@@ -4,6 +4,12 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+22.0.3
+------
+
+#. Bug Fix: :func:`ftocv` now correctly strips metadata if a dataframe is provided.
+#. Bug Fix: :func:`stocv` and :func:`satocv` now support dataframe inputs.
+
 22.0.2
 ------
 
