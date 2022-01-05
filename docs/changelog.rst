@@ -7,8 +7,11 @@ The following is a list of changes from the previous version of GAUSS.
 22.0.3
 ------
 
-#. :func:`stocv` and :func:`satocv` now support dataframe inputs.
+#. :func:`stocv` now supports dataframe inputs.
+#. :func:`satocv` now supports dataframe inputs.
+#. :func:`strtof` now supports dataframe inputs.
 #. Bug Fix: :func:`ftocv` now correctly strips metadata if a dataframe is provided.
+#. Bug Fix: :func:`loadd` now correctly works with CSV and XLS files with ``header_row = 0`` for the control struct member.
 
 22.0.2
 ------
