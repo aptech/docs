@@ -19,7 +19,6 @@ B
     besselk
     bessely
     beta
-    binaryclassquality
     blendcolorpalette
     blockdiag
     boxcox

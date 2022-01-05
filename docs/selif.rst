@@ -4,24 +4,134 @@ selif
 
 Purpose
 ----------------
-Selects rows from a matrix. Those selected are the rows for which there is a 1 in the corresponding row of *e*.
+Selects rows from a matrix, dataframe or string array, based upon a vector of 1's and 0's.
 
 Format
 ----------------
 .. function:: y = selif(x, e)
 
     :param x: data
-    :type x: NxK matrix or string array
+    :type x: NxK matrix, dataframe or string array
 
     :param e: Nx1 vector of 1's and 0's
     :type e: vector
 
     :return y: consists of the rows of *x* for which there is a 1 in the corresponding row of *e*.
 
-    :rtype y: MxK matrix or string array
+    :rtype y: MxK matrix, dataframe or string array
 
 Examples
 ----------------
+
+Categorical dataframe examples
++++++++++++++++++++++++++++++++
+
+This example selects all rows where the category label of the *amplitude* variable is equal to "med".
+
+::
+
+    // Get file name with full path
+    dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
+    
+    // Load 'cycles' as numeric variable and load
+    // 'amplitude' as a categorical variable
+    yarn = loadd(dataset, "cycles + cat(amplitude)");
+    
+    // Print all variables from the first 5 rows
+    print yarn[1:5,.];
+
+The above code will print the first five rows of the data before filtering with :func:`selif`.
+
+::
+
+          cycles        amplitude 
+       674.00000              low
+       370.00000              low
+       292.00000              low
+       338.00000              med
+       266.00000              med
+
+::
+    
+    
+    // Select all rows of 'yarn' where the 'amplitude'
+    // variable is equal to "med"
+    yarn_med = selif(yarn, yarn[.,"amplitude"] .== "med");
+    
+    // Print all variables from the first 5 rows
+    print yarn_med[1:5,.];
+
+The first five rows of the filtered data look like this:
+
+::
+
+          cycles        amplitude
+       338.00000              med
+       266.00000              med
+       210.00000              med
+       1022.0000              med
+       620.00000              med
+
+
+Dataframe example with dates
++++++++++++++++++++++++++++++++
+
+::
+
+    // Get file name with full path
+    dataset = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+    
+    // Load 'Date' as a date variable and load
+    // 'Adj Close' and 'Volume' as numerical variables
+    xle = loadd(dataset, "date(Date) + Adj Close + Volume");
+    
+    // Print descriptive statistics from the original data
+    call dstatmt(xle);
+
+Note the range of the *Date* variable in the descriptive statistics below is from 2017 to 2018.
+
+::
+
+    --------------------------------------------------------------------------------------
+    Variable         Mean     Std Dev    Variance     Minimum     Maximum   Valid  Missing
+    --------------------------------------------------------------------------------------
+    
+    Date            -----       -----       -----  2017-06-13  2018-06-13     253       0
+    Adj Close       68.44        4.79       22.94       60.36       78.91     253       0
+    Volume      1.431e+07   5.091e+06   2.592e+13   4.991e+06   3.517e+07     253       0
+
+::
+
+    // Select all rows of 'xle' where the 'Date' variable
+    // is greater than or equal to July 1st, 2017 and less than
+    // August 1st, 2017
+    mask = xle[.,"Date"] .>= "2017-07-01" .and xle[.,"Date"] .< "2017-08-01";
+    xle_july_2017 = selif(xle, mask);
+    
+    // Print descriptive statistics of the filtered data
+    call dstatmt(xle_july_2017);
+
+
+After the call to :func:`selif`, the range of our new data is confined to July of 2017.
+
+
+::
+
+    ------------------------------------------------------------------------------------
+    Variable        Mean    Std Dev    Variance     Minimum     Maximum   Valid  Missing
+    ------------------------------------------------------------------------------------
+    
+    Date           -----      -----       -----  2017-07-03  2017-07-31      20        0 
+    Adj Close       63.6     0.7824      0.6122       62.32       64.86      20        0 
+    Volume     1.554e+07   4.02e+06   1.616e+13   1.006e+07    2.48e+07      20        0
+
+
+
+
+Numerical matrix examples
++++++++++++++++++++++++++++
+
+This example selects all rows of *x* in which the second column is greater than 100. This will set *y* equal to:
 
 ::
 
@@ -47,7 +157,7 @@ This example selects all rows of *x* in which the second column is greater than 
          30 40 50,
          60 70 80 };
 
-    e = (x[., 1] .gt 0) .and (x[., 3] .< 100);
+    e = (x[., 1] .> 0) .and (x[., 3] .< 100);
     y = selif(x, e);
 
 The resulting matrix *y* is:
