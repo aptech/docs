@@ -130,3 +130,82 @@ img.logo {
     --pst-color-primary: 64, 64, 64 !important;
     --pst-color-active-navigation: 64, 64, 64 !important;
 }
+
+/* breadcrumbs */
+.bd-breadcrumbs-container {
+    background-color: #36434c;
+    min-width: 100%;
+    margin: 0;
+    text-align: center;
+    padding:0.75em;
+}
+
+.bd-breadcrumbs a::after {
+    content: '';
+    background: url(https://www.aptech.com/wp-content/themes/jpc/images/breadcrumbs.png) no-repeat;
+    width: 4px;
+    height: 7px;
+    margin: 0 1em;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.bd-breadcrumbs {
+ *zoom:1;
+ margin: 0;
+ font-size: 18px;
+}
+.bd-breadcrumbs:after,
+.bd-breadcrumbs:before {
+ display:table;
+ content:""
+}
+.bd-breadcrumbs:after {
+ clear:both
+}
+.bd-breadcrumbs li {
+ display:inline-block;
+ color: #fff;
+}
+.bd-breadcrumbs li.bd-breadcrumbs-aside {
+ float:right
+}
+.bd-breadcrumbs li a {
+ display:inline-block;
+ padding:5px;
+ color: #f57b20;
+ text-decoration: none;
+}
+.bd-breadcrumbs li a:first-child {
+ padding-left:0
+}
+.rst-content .bd-breadcrumbs li tt,
+.bd-breadcrumbs li .rst-content tt,
+.bd-breadcrumbs li code {
+ padding:5px;
+ border:none;
+ background:0 0
+}
+.rst-content .bd-breadcrumbs li tt.literal,
+.bd-breadcrumbs li .rst-content tt.literal,
+.bd-breadcrumbs li code.literal {
+ color:#404040
+}
+.bd-breadcrumbs-extra {
+ margin-bottom:0;
+ color:#b3b3b3;
+ font-size:80%;
+ display:inline-block
+}
+@media screen and (max-width:480px) {
+ .bd-breadcrumbs-extra,
+ .bd-breadcrumbs li.bd-breadcrumbs-aside {
+  display:none
+ }
+}
+@media print {
+ .bd-breadcrumbs li.bd-breadcrumbs-aside {
+  display:none
+ }
+}
