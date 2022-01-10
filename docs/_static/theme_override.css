@@ -65,7 +65,9 @@ div#navbar-start {
 }
 */
 
-.bd-toc-item .caption-text {
+nav.bd-links p.caption {
+    text-transform: none;
+    font-weight: initial;
     padding: .25rem 1.5rem;
     color: #a4a6a7;
 }
