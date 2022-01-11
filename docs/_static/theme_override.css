@@ -28,20 +28,198 @@ a { color:#455560; }
 .wy-nav .wy-menu-vertical header { color:#455560; }
 .wy-nav-top { background:#455560; }
 .wy-nav-top img { background-color:#455560; }
-.rst-content a tt,.rst-content a tt,.rst-content a code { color:#455560; }
-.rst-content dl:not(.docutils) dt { color: #455560 !important; background-color: rgb(248, 248, 248) !important; border: 1px solid #e1e4e5 !important; border-top-color: #455560 !important; border-top-width: 3px !important; padding: 12px !important; }
+.bd-content a tt,.bd-content a tt,.bd-content a code { color:#455560; }
+.bd-content dl:not(.field-list) > dt { color: #455560 !important; background-color: rgb(248, 248, 248) !important; border: 1px solid #e1e4e5 !important; border-top-color: #455560 !important; border-top-width: 3px !important; padding: 12px !important; }
 div.section#format div.highlight-gauss { border-top-width: 3px; border-top-color: #455560; }
 dt code.descname { color: #00557f; }
 .rst-versions { display: none; }
-.rst-content .toctree-wrapper p.caption, h1, h2, h3, h4, h5, h6, legend {
+.bd-content .toctree-wrapper p.caption, h1, h2, h3, h4, h5, h6, legend {
   font-family: Lato;
 }
 
 .icon-large span.fa { font-size: 3rem; }
 
 a.btn-outline-primary:hover { color: #fff !important; background-color: #455560 !important; border-color: #455560 !important; }
+.btn-outline-primary, .btn-outline-primary:visited { color: #455560 !important; border-color: #455560 !important; }
 
-.btn-outline-primary, .btn-outline-primary:visited { color: #455560 !important; border-color: #455560 !important; background: #fff !important; }
+.bd-content .field-list th { border: none !important; }
 
-html.writer-html5 .rst-content table.docutils th { border: none !important; }
+table { display: table !important; border: 1px solid #e1e4e5; width: auto !important; }
 
+nav.navbar {
+    background: #fff !important;
+    padding: 10px;
+}
+
+.bd-navbar a.nav-link {
+    font-size: 1.33333em;
+}
+
+.bd-breadcrumbs > li {
+    font-size: 1.1rem;
+}
+
+.navbar-light .navbar-nav li a.nav-link {
+    color: #000;
+}
+
+/*
+div#navbar-start {
+	margin: 0 auto;
+}
+*/
+
+nav.bd-links p.caption, nav.bd-links .caption-text {
+    text-transform: none;
+    font-weight: initial;
+    padding: .25rem 1.5rem;
+    color: #a4a6a7;
+    font-size: inherit;
+}
+
+img.logo {
+    height: initial;
+}
+
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) {
+ margin-bottom:24px;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt {
+ display:table;
+ margin:6px 0;
+ font-size:90%;
+ line-height:normal;
+ background:#e7f2fa;
+ color:#2980b9;
+ border-top:3px solid #6ab0de;
+ padding:6px;
+ position:relative;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt:before {
+ color:#6ab0de;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt .headerlink {
+ color:#404040;
+ font-size:100%!important;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl:not(.field-list)>dt {
+ margin-bottom:6px;
+ border:none;
+ border-left:3px solid #ccc;
+ background:#f0f0f0;
+ color:#555;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl:not(.field-list)>dt .headerlink {
+ color:#404040;
+ font-size:100%!important;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt:first-child {
+ margin-top:0;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) code,
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) tt {
+ font-weight:700;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) code.descclassname,
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) code.descname,
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) tt.descclassname,
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) tt.descname {
+ background-color:transparent;
+ border:none;
+ padding:0;
+ font-size:100%!important;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) code.descname,
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) tt.descname {
+ font-weight:700;
+}
+.bd-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) .optional {
+ display:inline-block;
+ padding:0 4px;
+ color:rgba(var(--pst-color-paragraph),1);
+ font-weight:300;
+}
+
+:root {
+    --pst-color-primary: 64, 64, 64 !important;
+    --pst-color-active-navigation: 64, 64, 64 !important;
+}
+
+/* breadcrumbs */
+.bd-breadcrumbs-container {
+    background-color: #36434c;
+    min-width: 100%;
+    margin: 0;
+    /*text-align: center;*/
+    padding:0.75em;
+}
+
+.bd-breadcrumbs a::after {
+    content: '';
+    background: url(https://www.aptech.com/wp-content/themes/jpc/images/breadcrumbs.png) no-repeat;
+    width: 4px;
+    height: 7px;
+    margin: 0 1em;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.bd-breadcrumbs {
+ *zoom:1;
+ margin: 0;
+ padding-left: 0px;
+}
+.bd-breadcrumbs:after,
+.bd-breadcrumbs:before {
+ display:table;
+ content:""
+}
+.bd-breadcrumbs:after {
+ clear:both
+}
+.bd-breadcrumbs li {
+ display:inline-block;
+ color: #fff;
+}
+.bd-breadcrumbs li.bd-breadcrumbs-aside {
+ float:right
+}
+.bd-breadcrumbs li a {
+ display:inline-block;
+ padding:5px;
+ color: #f57b20;
+ text-decoration: none;
+}
+.bd-breadcrumbs li a:first-child {
+ padding-left:0
+}
+.rst-content .bd-breadcrumbs li tt,
+.bd-breadcrumbs li .rst-content tt,
+.bd-breadcrumbs li code {
+ padding:5px;
+ border:none;
+ background:0 0
+}
+.rst-content .bd-breadcrumbs li tt.literal,
+.bd-breadcrumbs li .rst-content tt.literal,
+.bd-breadcrumbs li code.literal {
+ color:#404040
+}
+.bd-breadcrumbs-extra {
+ margin-bottom:0;
+ color:#b3b3b3;
+ font-size:80%;
+ display:inline-block
+}
+@media screen and (max-width:480px) {
+ .bd-breadcrumbs-extra,
+ .bd-breadcrumbs li.bd-breadcrumbs-aside {
+  display:none
+ }
+}
+@media print {
+ .bd-breadcrumbs li.bd-breadcrumbs-aside {
+  display:none
+ }
+}

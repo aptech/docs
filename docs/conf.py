@@ -55,9 +55,6 @@ mathjax_config = {
     'HTML-CSS': { 'fonts': ['TeX'] }
 }
 
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
-
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
@@ -90,8 +87,13 @@ highlight_language = 'gauss'
 # a list of builtin themes.
 #
 #html_theme = 'alabaster'
-html_theme = 'sphinx_rtd_theme'   # 6909b4a
-html_theme_path = ["_themes", ]
+#html_theme = 'sphinx_rtd_theme'
+#html_theme_path = ["_themes"]
+html_theme = 'pydata_sphinx_theme'
+
+# Add any paths that contain templates here, relative to this directory.
+#templates_path = ['_templates', '_themes/pydata_sphinx_theme/static']
+#templates_path = []
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -106,21 +108,21 @@ html_static_path = ['_static']
 
 html_context = {
     'css_files': [
-        '_static/theme_override.css',  # override wide tables in RTD theme
+        '_static/theme_override.css',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
-        '_static/panels-bootstrap.min.css',  # override wide tables in RTD theme
+        'https://fonts.googleapis.com/css?family=Lato',
     ],
 }
 
-html_logo = '_static/images/gauss_logo.png'
+html_logo = '_static/images/aptech-logo.png'
 
-html_theme_options = {
-    'prev_next_buttons_location': 'both',
-    'style_external_links': True,
-    'style_nav_header_background': '#455560',
-    'logo_only': True,
-    'canonical_url': 'https://docs.aptech.com/gauss/'
-}
+#html_theme_options = {
+#    'prev_next_buttons_location': 'both',
+#    'style_external_links': True,
+#    'style_nav_header_background': '#fff',
+#    'logo_only': True,
+#    'canonical_url': 'https://docs.aptech.com/gauss/'
+#}
 
 html_baseurl = 'https://docs.aptech.com/gauss/'
 
@@ -190,7 +192,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'GAUSS', 'GAUSS Documentation',
-     author, 'GAUSS', 'The GAUSS matrix programming language.',
+     author, 'GAUSS', 'The GAUSS Platform',
      'Miscellaneous'),
 ]
 
@@ -235,3 +237,4 @@ def setup(sphinx):
         sphinx.set_translator(builder,
                               GAUSSHTMLTranslator,
                               override=True)
+
