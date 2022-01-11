@@ -72,7 +72,7 @@ div#navbar-start {
 nav.bd-links p.caption, nav.bd-links .caption-text {
     text-transform: none;
     font-weight: initial;
-    padding: .25rem 1.5rem;
+    /*padding: .25rem 1.5rem;*/
     color: #a4a6a7;
     font-size: inherit;
 }
