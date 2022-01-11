@@ -51,8 +51,12 @@ nav.navbar {
     padding: 10px;
 }
 
-.bd-breadcrumbs a.nav-link, .bd-navbar a.nav-link {
-    font-size: 20px;
+.bd-navbar a.nav-link {
+    font-size: 1.33333em;
+}
+
+.bd-breadcrumbs > li {
+    font-size: 1.1rem;
 }
 
 .navbar-light .navbar-nav li a.nav-link {
@@ -65,11 +69,12 @@ div#navbar-start {
 }
 */
 
-nav.bd-links p.caption {
+nav.bd-links p.caption, nav.bd-links .caption-text {
     text-transform: none;
     font-weight: initial;
     padding: .25rem 1.5rem;
     color: #a4a6a7;
+    font-size: inherit;
 }
 
 img.logo {
@@ -163,7 +168,6 @@ img.logo {
 .bd-breadcrumbs {
  *zoom:1;
  margin: 0;
- font-size: 18px;
  padding-left: 0px;
 }
 .bd-breadcrumbs:after,
