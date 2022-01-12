@@ -3,7 +3,13 @@ Command Reference
 
 .. toctree::
     :maxdepth: 1
-    :caption: Functions:
+    :caption: Commands by Category:
+
+    cc/data-import-and-export
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Index:
 
     _
     a
