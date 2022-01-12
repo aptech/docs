@@ -52,7 +52,7 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
     .. link-button:: data-management
         :type: ref
-        :text: Leave
+        :text: Explore
         :classes: btn-outline-primary btn-block stretched-link
 
     ---
