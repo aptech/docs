@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+22.0.4
+------
+
+#. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
+
 22.0.3
 ------
 
