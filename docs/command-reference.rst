@@ -6,6 +6,7 @@ Command Reference
     :caption: Commands by Category:
 
     cc/data-import-and-export
+    cc/descriptive-statistics
 
 .. toctree::
     :maxdepth: 1

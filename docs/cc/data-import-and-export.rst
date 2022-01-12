@@ -25,7 +25,6 @@ CSV and delimited text files
 Spreadsheets (Excel files)
 ------------------------------
 
-
 ======================       ====================================================================================
 :doc:`xlsGetSheetCount`      Returns the number of sheets in an Excel® spreadsheet.
 :doc:`xlsGetSheetSize`       Returns the size (rows and columns) of a specified sheet in an Excel® spreadsheet.
@@ -210,3 +209,24 @@ Query Data Retrieval
 :doc:`dbQueryGetField`            Returns the value of a specified field in the current record.
 ===========================       ====================================================================================
 
+
+General text file manipulation
+-----------------------------------
+
+To read and write data from CSV and delimted text files, see the earlier section.
+
+====================       ====================================================================================
+:doc:`fcheckerr`           Gets the error status of a file.
+:doc:`fclearerr`           Gets the error status of a file, then clears it.
+:doc:`fflush`              Flushes a file's output buffer.
+:doc:`fgets`               Reads a line of text from a file.
+:doc:`fgetsa`              Reads lines of text from a file into a string array.
+:doc:`fgetsat`             Reads lines of text from a file into a string array without retaining newlines.
+:doc:`fgetst`              Reads a line of text from a file without retaining the newline.
+:doc:`fopen`               Opens a file.
+:doc:`fputs`               Writes strings to a file.
+:doc:`fputst`              Writes strings followed by a newline to a file.
+:doc:`fseek`               Positions the file pointer in a file.
+:doc:`fstrerror`           Returns an error message explaining the cause of the most recent file I/O error.
+:doc:`ftell`               Gets the position of the file pointer in a file.
+====================       ====================================================================================
