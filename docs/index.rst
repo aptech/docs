@@ -37,6 +37,25 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
     ---
 
+    Data Management
+    ^^^^^^^^^^^^^^^
+
+    .. container:: icon-large
+
+      :fa:`database`
+
+    .. container:: text-left
+
+      Learn how to import, export, clean, and transform your data.
+
+    +++
+
+    .. link-button:: data-management
+        :text: Leave
+        :classes: btn-outline-primary btn-block stretched-link
+
+    ---
+
     Machine Learning
     ^^^^^^^^^^^^^^^^
 
@@ -82,7 +101,7 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
     .. container:: icon-large
 
-      :fa:`external-link`
+      :fa:`external-link-alt`
 
     .. container:: text-left
 
