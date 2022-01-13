@@ -8,6 +8,7 @@ Command Reference
     cc/data-import-and-export
     cc/data-cleaning
     cc/descriptive-statistics
+    cc/mathematical-functions
 
 .. toctree::
     :maxdepth: 1
