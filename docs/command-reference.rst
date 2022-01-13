@@ -10,6 +10,9 @@ Command Reference
     cc/descriptive-statistics
     cc/estimation-functions
     cc/mathematical-functions
+    cc/statistical-functions
+    cc/string-handling
+
 
 .. toctree::
     :maxdepth: 1

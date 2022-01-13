@@ -87,10 +87,10 @@ Linear Algebra
 :doc:`balance`                 Balances a matrix.
 :doc:`band`                    Extracts bands from a symmetric banded matrix.
 :doc:`bandchol`                Computes the Cholesky decomposition of a positive definite banded matrix.
-:doc:`bandcholsol`             Solves the system of equations :math:`Ax = b` for x, given the lower triangle of the Cholesky decomposition of a positive definite banded matrix A.
-:doc:`bandltsol`               Solves the system of equations :math:`Ax = b` for x, where A is a lower triangular banded matrix
+:doc:`bandcholsol`             Solves the system of equations :math:`Ax = b` for :math:`x`, given the lower triangle of the Cholesky decomposition of a positive definite banded matrix :math:`A`.
+:doc:`bandltsol`               Solves the system of equations :math:`Ax = b` for :math:`x`, where :math:`A` is a lower triangular banded matrix
 :doc:`bandrv`                  Creates a symmetric banded matrix, given its compact form.
-:doc:`bandsolpd`               Solves the system of equations :math:`Ax = b` for x, where A is a positive definite banded matrix.
+:doc:`bandsolpd`               Solves the system of equations :math:`Ax = b` for :math:`x`, where :math:`A` is a positive definite banded matrix.
 :doc:`blockDiag`               Creates a block-diagonal matrix from one or more input matrices
 :doc:`chol`                    Computes Cholesky decomposition, :math:`X=U'U`.
 :doc:`choldn`                  Performs Cholesky downdate on an upper triangular matrix.
@@ -132,15 +132,15 @@ Linear Algebra
 :doc:`orth`                    Computes orthonormal basis for column space x.
 :doc:`pinv`                    Generalized pseudo-inverse: Moore-Penrose.
 :doc:`pinvmt`                  Generalized pseudo-inverse: Moore-Penrose.
-:doc:`powerM`                  Computes the power n of a matrix A, as the mathematical equivalent of the matrix product of n copies of A.
-:doc:`qqr`                     QR decomposition: returns Q1 and R.
-:doc:`qqre`                    QR decomposition: returns Q1, R and a permutation vector, E.
-:doc:`qqrep`                   QR decomposition with pivot control: returns Q1, R, and E.
-:doc:`qr`                      QR decomposition: returns R.
-:doc:`qre`                     QR decomposition: returns R and E.
-:doc:`qrep`                    QR decomposition with pivot control: returns R and E.
-:doc:`qrsol`                   Solves a system of equations R'x = b given an upper triangular matrix, typically the R matrix from a QR decomposition.
-:doc:`qrtsol`                  Solves a system of equations R'x = b given an upper triangular matrix, typically the R matrix from a QR decomposition.
+:doc:`powerM`                  Computes the power :math:`n` of a matrix :math:`A`, as the mathematical equivalent of the matrix product of :math:`n` copies of :math:`A`.
+:doc:`qqr`                     :math:`QR` decomposition: returns :math:`Q_1` and :math:`R`.
+:doc:`qqre`                    :math:`QR` decomposition: returns :math:`Q_1`, :math:`R` and a permutation vector, :math:`E`.
+:doc:`qqrep`                   :math:`QR` decomposition with pivot control: returns :math:`Q_1`, :math:`R`, and :math:`E`.
+:doc:`qr`                      :math:`QR` decomposition: returns :math:`R`.
+:doc:`qre`                     :math:`QR` decomposition: returns :math:`R` and :math:`E`.
+:doc:`qrep`                    :math:`QR` decomposition with pivot control: returns :math:`R` and :math:`E`.
+:doc:`qrsol`                   Solves a system of equations :math:`R'x = b` given an upper triangular matrix, typically the :math:`R` matrix from a :math:`QR` decomposition.
+:doc:`qrtsol`                  Solves a system of equations :math:`Rx = b` given a lower triangular matrix, typically a transposed :math:`R` matrix from a :math:`QR` decomposition.
 :doc:`qtyr`                    QR decomposition: returns Q'Y and R.
 :doc:`qtyre`                   QR decomposition: returns Q'Y, R and E.
 :doc:`qtyrep`                  QR decomposition with pivot control: returns Q'Y, R and E.
@@ -204,39 +204,6 @@ Fourier Transforms
 :doc:`rfftn`                   Computes real 1- or 2-D FFT using prime factor algorithm.
 :doc:`rfftnp`                  Computes real 1- or 2-D FFT using prime factor algorithm, returns packed format FFT.
 :doc:`rfftp`                   Computes real 1- or 2-D FFT, returns packed format FFT.
-=====================          ===========================================
-
-Random Numbers
-----------------
-
-=====================          ===========================================
-:doc:`rndBernoulli`            Computes random numbers with Bernoulli distribution.
-:doc:`rndBeta`                 Computes random numbers with beta distribution.
-:doc:`rndBinomial`             Computes binomial pseudo-random numbers with the choice of underlying random number generator.
-:doc:`rndCauchy`               Computes Cauchy distributed random numbers with a choice of underlying random number generator.
-:doc:`rndChiSquare`            Creates pseudo-random numbers with a chi-squared distribution, with an optional non-centrality parameter and a choice of underlying random number generator.
-:doc:`rndCreateState`          Creates a new random number stream for a specified generator type from a seed value.
-:doc:`rndExp`                  Computes exponentially distributed random numbers with a choice of underlying random number generator.
-:doc:`rndGamma`                Computes gamma pseudo-random numbers with a choice of underlying random number generator.
-:doc:`rndGeo`                  Computes geometric pseudo-random numbers with a choice of underlying random number generator.
-:doc:`rndGumbel`               Computes Gumbel distributed random numbers with a choice of underlying random number generator.
-:doc:`rndHyperGeo`             Computes pseudo-random numbers following a hypergeometric distribution with a choice of underlying random number generator.
-:doc:`rndi`                    Returns random integers in a specified range.
-:doc:`rndKMvm`                 Computes von Mises pseudo-random numbers.
-:doc:`rndLaplace`              Computes Laplacian pseudo-random numbers with the choice of underlying random number generator.
-:doc:`rndLogNorm`              Computes lognormal pseudo-random numbers with the choice of underlying random number generator.
-:doc:`rndMVn`                  Computes multivariate normal random numbers given a covariance matrix.
-:doc:`rndMVt`                  Computes multivariate Student-t random numbers given a covariance matrix.
-:doc:`rndn`                    Computes normally distributed pseudo-random numbers with a choice of underlying random number generator.
-:doc:`rndNegBinomial`          Computes negative binomial pseudo-random numbers with a choice of underlying random number generator.
-:doc:`rndPoisson`              Computes Poisson pseudo-random numbers with a choice of underlying random number generator.
-:doc:`rndRayleigh`             Computes rayleigh pseudo-random numbers with the choice of underlying random number generator.
-:doc:`rndseed`                 Changes seed of the random number generator.
-:doc:`rndStateSkip`            To advance a state vector by a specified number of values.
-:doc:`rndu`                    Computes uniform random numbers with a choice of underlying random number generator.
-:doc:`rndWeibull`              Computes Weibull pseudo-random numbers with the choice of underlying random number generator.
-:doc:`rndWishart`              Computes Wishart pseudo-random matrices with the choice of underlying random number generator.
-:doc:`rndWishartInv`           Computes inverse Wishart pseudo-random matrices with the choice of underlying random number generator.
 =====================          ===========================================
 
 Fuzzy Conditional Functions
@@ -341,10 +308,10 @@ Optimization and Solution
 :doc:`eqSolve`              Solves a system of nonlinear equations.
 :doc:`eqSolvemt`            Solves a system of nonlinear equations.
 :doc:`eqSolveSet`           Sets global input used by eqSolve to default values.
-:doc:`ldlsol`               Solves LDLTx = b using a matrix factorized by :doc:`ldlp`.
-:doc:`linsolve`             Solves Ax = b using the inverse function.
-:doc:`ltrisol`              Computes the solution of Lx = b where L is a lower triangular matrix.
-:doc:`lusol`                Computes the solution of LUx = b where L is a lower triangular matrix and U is an upper triangular matrix.
+:doc:`ldlsol`               Solves :math:`LDLTx = b` using a matrix factorized by :doc:`ldlp`.
+:doc:`linsolve`             Solves :math:`Ax = b` using the inverse function.
+:doc:`ltrisol`              Computes the solution of :math:`Lx = b` where :math:`L` is a lower triangular matrix.
+:doc:`lusol`                Computes the solution of :math:`LUx = b` where :math:`L` is a lower triangular matrix and :math:`U` is an upper triangular matrix.
 :doc:`QNewton`              Optimizes a function using the BFGS descent algorithm.
 :doc:`QNewtonmt`            Minimizes an arbitrary function.
 :doc:`QProg`                Solves the quadratic programming problem.
@@ -352,89 +319,10 @@ Optimization and Solution
 :doc:`sqpSolve`             Solves the nonlinear programming problem using a sequential quadratic programming method.
 :doc:`sqpSolveMT`           Solves the nonlinear programming problem using a sequential quadratic programming method.
 :doc:`sqpSolveSet`          Resets global variables used by sqpSolve to default values.
-:doc:`utrisol`              Computes the solution of Ux = b where U is an upper triangular matrix.
+:doc:`utrisol`              Computes the solution of :math:`Ux = b` where :math:`U` is an upper triangular matrix.
 =====================       ===========================================
 
-Statistical Distributions
------------------------------------
 
-=====================       ===========================================
-:doc:`cdfBeta`              Computes integral of beta function.
-:doc:`cdfBetaInv`           Computes the quantile or inverse of the beta cumulative distribution function.
-:doc:`cdfBinomial`          Computes the binomial cumulative distribution function.
-:doc:`cdfBinomialInv`       Computes the binomial quantile or inverse cumulative distribution function.
-:doc:`cdfBvn`               Computes lower tail of bivariate Normal cdf.
-:doc:`cdfBvn2`              Returns cdfbvn of a bounded rectangle.
-:doc:`cdfBvn2e`             Returns cdfbvn of a bounded rectangle.
-:doc:`cdfCauchy`            Computes the cumulative distribution function for the Cauchy distribution.
-:doc:`cdfCauchyinv`         Computes the Cauchy inverse cumulative distribution function.
-:doc:`cdfChic`              Computes complement of cdf of χ2.
-:doc:`cdfChii`              Computes χ2 abscissae values given probability and degrees of freedom.
-:doc:`cdfChinc`             Computes integral of noncentral χ2.
-:doc:`cdfEmpirical`         Computes the cumulative distribution function for the empirical distribution.
-:doc:`cdfExp`               Computes the cumulative distribution function for the exponential distribution.
-:doc:`cdfExpInv`            Computes the exponential inverse cumulative distribution function.
-:doc:`cdfFc`                Computes complement of cdf of F.
-:doc:`cdfFnc`               Computes integral of noncentral F.
-:doc:`cdfFncInv`            Computes the quantile or inverse of noncentral F cumulative distribution function.
-:doc:`cdfGam`               Computes integral of incomplete Γ function.
-:doc:`cdfGenPareto`         Computes the cumulative distribution function for the Generalized Pareto distribution.
-:doc:`cdfHyperGeo`          Computes the cumulative distribution function of the hypergeometric distribution.
-:doc:`cdfLaplace`           Computes the cumulative distribution function for the Laplace distribution.
-:doc:`cdfLaplaceInv`        Computes the Laplace inverse cumulative distribution function.
-:doc:`cdfLogNorm`           Computes the cumulative distribution function of the log-normal distribution.
-:doc:`cdfMvn`               Computes multivariate Normal cdf.
-:doc:`cdfMvnce`             Computes the complement of the multivariate Normal cumulative distribution function with error management
-:doc:`cdfMvne`              Computes multivariate Normal cumulative distribution function with error management
-:doc:`cdfMvn2e`             Computes the multivariate Normal cumulative distribution function with error management over the range [a,b]
-:doc:`cdfMvtce`             Computes complement of multivariate Student's t cumulative distribution function with error management
-:doc:`cdfMvte`              Computes multivariate Student's t cumulative distribution function with error management
-:doc:`cdfMvt2e`             Computes multivariate Student's t cumulative distribution function with error management over [a,b]
-:doc:`cdfN`                 Computes integral of Normal distribution: lower tail, or cdf.
-:doc:`cdfN2`                Computes interval of Normal cdf.
-:doc:`cdfNc`                Computes complement of cdf of Normal distribution (upper tail).
-:doc:`cdfNegBinomial`       Computes the cumulative distribution function for the negative binomial distribution.
-:doc:`cdfNegBinomialInv`    Computes the quantile or inverse negative binomial cumulative distribution function.
-:doc:`cdfNi`                Computes the inverse of the cdf of the Normal distribution.
-:doc:`cdfPoisson`           Computes the Poisson cumulative distribution function.
-:doc:`cdfPoissonInv`        Computes the quantile or inverse Poisson cumulative distribution function.
-:doc:`cdfRayleigh`          Computes the Rayleigh cumulative distribution function.
-:doc:`cdfRayleighInv`       Computes the Rayleigh inverse cumulative distribution function.
-:doc:`cdfTc`                Computes complement of cdf of t-distribution.
-:doc:`cdfTci`               Computes the inverse of the complement of the Student's t cdf.
-:doc:`cdfTnc`               Computes integral of noncentral t-distribution.
-:doc:`cdfTvn`               Computes lower tail of trivariate Normal cdf.
-:doc:`cdfTruncNorm`         Computes the cumulative distribution function of the normal distibution over the interval from a to b.
-:doc:`cdfWeibull`           Computes the cumulative distribution function for the Weibull distribution.
-:doc:`cdfWeibullInv`        Computes the Weibull inverse cumulative distribution function.
-:doc:`erf`                  Computes Gaussian error function.
-:doc:`erfc`                 Computes complement of Gaussian error function.
-:doc:`erfccplx`             Computes complement of Gaussian error function for complex inputs.
-:doc:`erfcplx`              Computes Gaussian error function for complex inputs.
-:doc:`lncdfbvn`             Computes natural log of bivariate Normal cdf.
-:doc:`lncdfbvn2`            Returns log of cdfbvn of a bounded rectangle.
-:doc:`lncdfmvn`             Computes natural log of multivariate Normal cdf.
-:doc:`lncdfn`               Computes natural log of Normal cdf.
-:doc:`lncdfn2`              Computes natural log of interval of Normal cdf.
-:doc:`lncdfnc`              Computes natural log of complement of Normal cdf.
-:doc:`lnpdfmvn`             Computes multivariate Normal log-probabilities.
-:doc:`lnpdfmvt`             Computes multivariate Student's t log-probabilities.
-:doc:`lnpdfn`               Computes Normal log-probabilities.
-:doc:`lnpdft`               Computes Student's t log-probabilities.
-:doc:`pdfBinomial`          Computes the probability mass function for the binomial distribution.
-:doc:`pdfCauchy`            Computes the probability density function for the Cauchy distribution.
-:doc:`pdfexp`               Computes the probability density function for the exponential distribution.
-:doc:`pdfGenPareto`         Computes the probability density function for the Generalized Pareto distribution.
-:doc:`pdfHyperGeo`          Computes the probability mass function for the hypergeometric distribution.
-:doc:`pdfLaplace`           Computes the probability density function for the Laplace distribution.
-:doc:`pdflogistic`          Computes the probability density function for the logistic distribution.
-:doc:`pdfLogNorm`           Computes the probability density function of the log-normal distribution.
-:doc:`pdfn`                 Computes standard Normal probability density function.
-:doc:`pdfPoisson`           Computes the probability mass function for the Poisson distribution.
-:doc:`pdfRayleigh`          Computes the probability density function of the Rayleigh distribution.
-:doc:`pdfTruncNorm`         Computes the cumulative distribution function of the normal distibution over the interval from a to b.
-:doc:`pdfWeibull`           Computes the probability density function of a Weibull random variable.
-:doc:`pdfWishartInv`        Computes the probability density function of a inverse Wishart distribution.
 =====================       ===========================================
 
 Series and Sequence Functions
@@ -448,14 +336,14 @@ Series and Sequence Functions
 :doc:`seqa`                 Creates an additive sequence.
 :doc:`seqadt`               Creates a sequence of dates in DT scalar format.
 :doc:`seqm`                 Creates a multiplicative sequence.
-:doc:`seqaposix`            Creates a sequence of dates in posix date format.
+:doc:`seqaposix`            Creates a sequence of dates in posix date format, returned as a dataframe date variable.
 =====================       ===========================================
 
 Precision Control
 ---------------------
  
 =====================       ===========================================
-:doc:`base`10               Converts number to x.xxx and a power of 10.
+:doc:`base10`               Converts number to x.xxx and a power of 10.
 :doc:`ceil`                 Rounds up towards :math:`+\infty`.
 :doc:`floor`                Rounds down towards :math:`-\infty`.
 :doc:`machEpsilon`          Returns the smallest number such that :math:`1 + eps > 1`.
