@@ -12,7 +12,7 @@ Scientific functions
 :doc:`atan`                 Computes inverse tangent.
 :doc:`atan2`                Computes angle given a point x,y.
 :doc:`besselj`              Computes Bessel function, first kind.
-:doc:`besselk`              Computes the modified Bessel function of the second kind, K_n(x).
+:doc:`besselk`              Computes the modified Bessel function of the second kind, :math:`K_n(x)`.
 :doc:`bessely`              Computes Bessel function, second kind.
 :doc:`beta`                 Computes the complete Beta function, also called the Euler integral.
 :doc:`boxcox`               Computes the Box-Cox function.
@@ -30,7 +30,7 @@ Scientific functions
 :doc:`lngamma`              Computes the natural log of the gamma function.
 :doc:`log`                  Computes the log (base 10) of each element.
 :doc:`mbesseli`             Computes modified and exponentially scaled modified Bessels of the first kind of the nth order.
-:doc:`pi`                   Returns π.
+:doc:`pi`                   Returns :math:`\pi`.
 :doc:`polygamma`            Computes the polygamma function of order n.
 :doc:`psi`                  Computes the psi (or digamma) function.
 :doc:`sin`                  Computes sine.
@@ -49,12 +49,24 @@ Differentiation and Integration
 --------------------------------------------
 
 =====================          ===========================================
-:doc:`gradMT`                  Computes numerical gradient.
+:doc:`gradp`                   Computes first derivative of a function; gradcplx allows for complex arguments.
+:doc:`hessp`                   Computes second derivative of a function; hesscplx allows for complex arguments.
+:doc:`integrate1d`             Integrates a user-defined function over a user-defined range, using adaptive quadrature.
+:doc:`intgrat2`                Integrates a 2-dimensional function over an user-defined region.
+:doc:`intgrat3`                Integrates a 3-dimensional function over an user-defined region.
+:doc:`intquad1`                Integrates a 1-dimensional function.
+:doc:`intquad2`                Integrates a 2-dimensional function over an user-defined rectangular region.
+:doc:`intquad3`                Integrates a 3-dimensional function over an user-defined rectangular region.
+:doc:`intsimp`                 Integrates by Simpson's method.
+=====================          ===========================================
+
+The following are differentiation functions with advanced options.
+
+=====================          ===========================================
 :doc:`gradMTm`                 Computes numerical gradient with mask.
 :doc:`gradMTT`                 Computes numerical gradient using available threads.
 :doc:`gradMTTm`                Computes numerical gradient with mask using available threads.
-:doc:`gradp`, :doc:`gradcplx`  Computes first derivative of a function; gradcplx allows for complex arguments.
-:doc:`hessMT`                  Computes numerical Hessian.
+:doc:`gradcplx`                Computes first derivative of a function with complex arguments.
 :doc:`hessMTg`                 Computes numerical Hessian using gradient procedure.
 :doc:`hessMTgw`                Computes numerical Hessian using gradient procedure with weights.
 :doc:`hessMTm`                 Computes numerical Hessian with mask.
@@ -64,14 +76,7 @@ Differentiation and Integration
 :doc:`hessMTTgw`               Computes numerical Hessian using gradient procedure with weights and using available threads.
 :doc:`hessMTTm`                Computes numerical Hessian with mask and available threads.
 :doc:`hessMTw`                 Computes numerical Hessian with weights.
-:doc:`hessp`, :doc:`hesscplx`  Computes second derivative of a function; hesscplx allows for complex arguments.
-:doc:`integrate1d`             Integrates a user-defined function over a user-defined range, using adaptive quadrature.
-:doc:`intgrat2`                Integrates a 2-dimensional function over an user-defined region.
-:doc:`intgrat3`                Integrates a 3-dimensional function over an user-defined region.
-:doc:`intquad1`                Integrates a 1-dimensional function.
-:doc:`intquad2`                Integrates a 2-dimensional function over an user-defined rectangular region.
-:doc:`intquad3`                Integrates a 3-dimensional function over an user-defined rectangular region.
-:doc:`intsimp`                 Integrates by Simpson's method.
+:doc:`hesscplx`                Computes second derivative of a function with complex arguments.
 =====================          ===========================================
 
 
@@ -82,17 +87,17 @@ Linear Algebra
 :doc:`balance`                 Balances a matrix.
 :doc:`band`                    Extracts bands from a symmetric banded matrix.
 :doc:`bandchol`                Computes the Cholesky decomposition of a positive definite banded matrix.
-:doc:`bandcholsol`             Solves the system of equations Ax = b for x, given the lower triangle of the Cholesky decomposition of a positive definite banded matrix A.
-:doc:`bandltsol`               Solves the system of equations Ax = b for x, where A is a lower triangular banded matrix
+:doc:`bandcholsol`             Solves the system of equations :math:`Ax = b` for x, given the lower triangle of the Cholesky decomposition of a positive definite banded matrix A.
+:doc:`bandltsol`               Solves the system of equations :math:`Ax = b` for x, where A is a lower triangular banded matrix
 :doc:`bandrv`                  Creates a symmetric banded matrix, given its compact form.
-:doc:`bandsolpd`               Solves the system of equations Ax = b for x, where A is a positive definite banded matrix.
+:doc:`bandsolpd`               Solves the system of equations :math:`Ax = b` for x, where A is a positive definite banded matrix.
 :doc:`blockDiag`               Creates a block-diagonal matrix from one or more input matrices
-:doc:`chol`                    Computes Cholesky decomposition, X=Y`Y.
+:doc:`chol`                    Computes Cholesky decomposition, :math:`X=U'U`.
 :doc:`choldn`                  Performs Cholesky downdate on an upper triangular matrix.
 :doc:`cholsol`                 Solves a system of equations given the Cholesky factorization of a matrix.
 :doc:`cholup`                  Performs Cholesky update on an upper triangular matrix.
 :doc:`cond`                    Computes condition number of a matrix.
-:doc:`crout`                   Computes Crout decomposition, X = LU (real matrices only).
+:doc:`crout`                   Computes Crout decomposition, :math:`X = LU` (real matrices only).
 :doc:`croutp`                  Computes Crout decomposition with row pivoting (real matrices only).
 :doc:`det`                     Computes determinant of square matrix.
 :doc:`detl`                    Computes determinant of decomposed matrix.
@@ -118,16 +123,16 @@ Linear Algebra
 :doc:`lapsvdusv`               Computes the singular value decomposition a real or complex rectangular matrix.
 :doc:`ldl`                     Computes the L and D factors of the LDL factorization of a real symmetric matrix.
 :doc:`ldlp`                    Computes LDL decomposition with row pivoting of a symmetric matrix.
-:doc:`ldlsol`                  Computes Solves the system of equations LDLTx = b using a matrix factorized by ldlp.
+:doc:`ldlsol`                  Computes Solves the system of equations :math:`LDLTx = b` using a matrix factorized by :doc:`ldlp`.
 :doc:`lu`                      Computes LU decomposition with row pivoting (real and complex matrices).
-:doc:`lusol`                   Computes Solves the system of equations LUx = b.
+:doc:`lusol`                   Computes Solves the system of equations :math:`LUx = b`.
 :doc:`norm`                    Computes one of several specified matrix norms, or a vector p-norm.
 :doc:`null`                    Computes orthonormal basis for right null space.
 :doc:`null1`                   Computes orthonormal basis for right null space.
 :doc:`orth`                    Computes orthonormal basis for column space x.
 :doc:`pinv`                    Generalized pseudo-inverse: Moore-Penrose.
 :doc:`pinvmt`                  Generalized pseudo-inverse: Moore-Penrose.
-:doc:`powerM`                  Computes the power n of a matrix A, as the matrix product of n copies of A.
+:doc:`powerM`                  Computes the power n of a matrix A, as the mathematical equivalent of the matrix product of n copies of A.
 :doc:`qqr`                     QR decomposition: returns Q1 and R.
 :doc:`qqre`                    QR decomposition: returns Q1, R and a permutation vector, E.
 :doc:`qqrep`                   QR decomposition with pivot control: returns Q1, R, and E.
@@ -149,12 +154,12 @@ Linear Algebra
 :doc:`schur`                   Computes real or complex Schur decomposition of a matrix.
 :doc:`solpd`                   Solves a system of positive definite linear equations.
 :doc:`svd`                     Computes the singular values of a matrix.
-:doc:`svd1`                    Computes singular value decomposition, X = USV'.
+:doc:`svd1`                    Computes singular value decomposition, :math:`X = USV'`.
 :doc:`svd2`                    Computes svd1 with compact U.
-:doc:`svdcusv`                 Computes the singular value decomposition of a matrix so that: x = u * s * v' (compact u).
+:doc:`svdcusv`                 Computes the singular value decomposition of a matrix so that: :math:`X = U S V'` (compact u).
 :doc:`svds`                    Computes the singular values of a matrix.
-:doc:`svdusv`                  Computes the singular value decomposition of a matrix so that: x = u * s * v'.
-:doc:`sylvester`               Computes the solution to the Sylvester matrix equation, AX + XB = C.
+:doc:`svdusv`                  Computes the singular value decomposition of a matrix so that: :math:`X = U S V'`.
+:doc:`sylvester`               Computes the solution to the Sylvester matrix equation, :math:`AX + XB = C`.
 =====================          ===========================================
 
 Eigenvalues
@@ -237,32 +242,33 @@ Random Numbers
 Fuzzy Conditional Functions
 -----------------------------------
 
-=====================       ===========================================
-:doc:`dotfeq`                              Fuzzy .==
-:doc:`dotfeqmt`                              Fuzzy .==
-:doc:`dotfge`                              Fuzzy .>=
-:doc:`dotfgemt`                              Fuzzy .>
-:doc:`dotfgt`                              Fuzzy .>
-:doc:`dotfgtmt`                              Fuzzy .>
-:doc:`dotfle`                              Fuzzy .<=
-:doc:`dotflemt`                              Fuzzy .<=
-:doc:`dotflt`                              Fuzzy .<
-:doc:`dotfltmt`                              Fuzzy .<
-:doc:`dotfne`                              Fuzzy ./=
-:doc:`dotfnemt`                              Fuzzy ./=
-:doc:`feq`                              Fuzzy ==
-:doc:`feqmt`                              Fuzzy ==
-:doc:`fge`                              Fuzzy >=
-:doc:`fgemt`                              Fuzzy >=
-:doc:`fgt`                              Fuzzy >
-:doc:`fgtmt`                              Fuzzy >
-:doc:`fle`                              Fuzzy <=
-:doc:`flemt`                              Fuzzy <=
-:doc:`flt`                              Fuzzy <
-:doc:`fltmt`                              Fuzzy <
-:doc:`fne`                              Fuzzy /=
-:doc:`fnemt`                              Fuzzy /=
-=====================       ===========================================
+=====================                    ===========================================
+:doc:`dotfeq`                            Fuzzy .==
+:doc:`dotfeqmt`                          Fuzzy .==
+:doc:`dotfge`                            Fuzzy .>=
+:doc:`dotfgemt`                          Fuzzy .>
+:doc:`dotfgt`                            Fuzzy .>
+:doc:`dotfgtmt`                          Fuzzy .>
+:doc:`dotfle`                            Fuzzy .<=
+:doc:`dotflemt`                          Fuzzy .<=
+:doc:`dotflt`                            Fuzzy .<
+:doc:`dotfltmt`                          Fuzzy .<
+:doc:`dotfne`                            Fuzzy ./=
+:doc:`dotfnemt`                          Fuzzy ./=
+:doc:`feq`                               Fuzzy ==
+:doc:`feqmt`                             Fuzzy ==
+:doc:`fge`                               Fuzzy >=
+:doc:`fgemt`                             Fuzzy >=
+:doc:`fgt`                               Fuzzy >
+:doc:`fgtmt`                             Fuzzy >
+:doc:`fle`                               Fuzzy <=
+:doc:`flemt`                             Fuzzy <=
+:doc:`flt`                               Fuzzy <
+:doc:`fltmt`                             Fuzzy <
+:doc:`fne`                               Fuzzy /=
+:doc:`fnemt`                             Fuzzy /=
+=====================                    ===========================================
+
 The mt commands use an fcmptol argument to control the tolerance used for comparison.
 The non-mt commands use the global variable _fcmptol to control the tolerance used for comparison. By default, this is 1e-15. The default can be changed by editing the file fcompare.dec.
 
@@ -297,7 +303,7 @@ Statistical Functions
 :doc:`loessmt`              Computes coefficients of locally weighted regression.
 :doc:`meanc`                Computes mean value of each column of a matrix.
 :doc:`median`               Computes medians of the columns of a matrix.
-:doc:`moment`               Computes moment matrix (x'x) with special handling of missing values.
+:doc:`moment`               Computes moment matrix (:math:`x'x`) with special handling of missing values.
 :doc:`momentd`              Computes moment matrix from a data set.
 :doc:`movingave`            Computes moving average of a series.
 :doc:`movingaveExpwgt`      Computes exponentially weighted moving average of a series.
@@ -315,7 +321,7 @@ Statistical Functions
 :doc:`quantileFit`          Perform linear quantile regression.
 :doc:`quantileFitLoc`       Perform local linear or quadratic quantile regression.
 :doc:`rndvm`                Computes von Mises pseudo-random numbers.
-:doc:`robustse`             Computes the Huber-White heteroscedastic robust standard errors. The procedure uses the "sandwich" variance-covariance estimator with a small sample correction of (n)/(n-1).
+:doc:`robustse`             Computes the Huber-White heteroscedastic robust standard errors. The procedure uses the "sandwich" variance-covariance estimator with a small sample correction of :math:`(n)/(n-1)`.
 :doc:`stdc`                 Computes standard deviation of the columns of a matrix.
 :doc:`toeplitz`             Computes Toeplitz matrix from column vector.
 :doc:`varCovM`              Computes the population variance-covariance matrix from a moment matrix.
@@ -335,7 +341,7 @@ Optimization and Solution
 :doc:`eqSolve`              Solves a system of nonlinear equations.
 :doc:`eqSolvemt`            Solves a system of nonlinear equations.
 :doc:`eqSolveSet`           Sets global input used by eqSolve to default values.
-:doc:`ldlsol`               Solves LDLTx = b using a matrix factorized by ldlp.
+:doc:`ldlsol`               Solves LDLTx = b using a matrix factorized by :doc:`ldlp`.
 :doc:`linsolve`             Solves Ax = b using the inverse function.
 :doc:`ltrisol`              Computes the solution of Lx = b where L is a lower triangular matrix.
 :doc:`lusol`                Computes the solution of LUx = b where L is a lower triangular matrix and U is an upper triangular matrix.
@@ -450,9 +456,9 @@ Precision Control
  
 =====================       ===========================================
 :doc:`base`10               Converts number to x.xxx and a power of 10.
-:doc:`ceil`                 Rounds up towards +∞.
-:doc:`floor`                Rounds down towards -∞.
-:doc:`machEpsilon`          Returns the smallest number such that 1+ eps>1.
+:doc:`ceil`                 Rounds up towards :math:`+\infty`.
+:doc:`floor`                Rounds down towards :math:`-\infty`.
+:doc:`machEpsilon`          Returns the smallest number such that :math:`1 + eps > 1`.
 :doc:`round`                Rounds to the nearest integer.
 :doc:`trunc`                Converts numbers to integers by truncating the fractional portion.
 =====================       ===========================================
