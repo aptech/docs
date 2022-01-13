@@ -2,58 +2,58 @@
 Statistical Distributions
 ================================
 
-Cumulative distribution functions
---------------------------------------------
+Cumulative distributions
+------------------------------
 
 ============================       ===========================================
-:doc:`../cdfBeta`                  Computes integral of beta function.
-:doc:`../cdfBetaInv`               Computes the quantile or inverse of the beta cumulative distribution function.
-:doc:`../cdfBinomial`              Computes the binomial cumulative distribution function.
-:doc:`../cdfBinomialInv`           Computes the binomial quantile or inverse cumulative distribution function.
-:doc:`../cdfBvn`                   Computes lower tail of bivariate Normal cdf.
+:doc:`../cdfbeta`                  Computes integral of beta function.
+:doc:`../cdfbetainv`               Computes the quantile or inverse of the beta cumulative distribution function.
+:doc:`../cdfbinomial`              Computes the binomial cumulative distribution function.
+:doc:`../cdfbinomialinv`           Computes the binomial quantile or inverse cumulative distribution function.
+:doc:`../cdfbvn`                   Computes lower tail of bivariate Normal cdf.
 :doc:`../cdfBvn2`                  Returns cdfbvn of a bounded rectangle.
 :doc:`../cdfBvn2e`                 Returns cdfbvn of a bounded rectangle.
-:doc:`../cdfCauchy`                Computes the cumulative distribution function for the Cauchy distribution.
-:doc:`../cdfCauchyinv`             Computes the Cauchy inverse cumulative distribution function.
-:doc:`../cdfChic`                  Computes complement of cdf of :math:`chi^2`.
-:doc:`../cdfChii`                  Computes :math:`chi^2` abscissae values given probability and degrees of freedom.
-:doc:`../cdfChinc`                 Computes integral of noncentral :math:`chi^2`.
-:doc:`../cdfEmpirical`             Computes the cumulative distribution function for the empirical distribution.
-:doc:`../cdfExp`                   Computes the cumulative distribution function for the exponential distribution.
-:doc:`../cdfExpInv`                Computes the exponential inverse cumulative distribution function.
-:doc:`../cdfFc`                    Computes complement of cdf of F.
-:doc:`../cdfFnc`                   Computes integral of noncentral F.
-:doc:`../cdfFncInv`                Computes the quantile or inverse of noncentral F cumulative distribution function.
-:doc:`../cdfGam`                   Computes integral of incomplete Γ function.
-:doc:`../cdfGenPareto`             Computes the cumulative distribution function for the Generalized Pareto distribution.
-:doc:`../cdfHyperGeo`              Computes the cumulative distribution function of the hypergeometric distribution.
-:doc:`../cdfLaplace`               Computes the cumulative distribution function for the Laplace distribution.
-:doc:`../cdfLaplaceInv`            Computes the Laplace inverse cumulative distribution function.
-:doc:`../cdfLogNorm`               Computes the cumulative distribution function of the log-normal distribution.
-:doc:`../cdfMvn`                   Computes multivariate Normal cdf.
-:doc:`../cdfMvnce`                 Computes the complement of the multivariate Normal cumulative distribution function with error management
-:doc:`../cdfMvne`                  Computes multivariate Normal cumulative distribution function with error management
+:doc:`../cdfcauchy`                Computes the cumulative distribution function for the Cauchy distribution.
+:doc:`../cdfcauchyinv`             Computes the Cauchy inverse cumulative distribution function.
+:doc:`../cdfchic`                  Computes complement of cdf of :math:`chi^2`.
+:doc:`../cdfchii`                  Computes :math:`chi^2` abscissae values given probability and degrees of freedom.
+:doc:`../cdfchinc`                 Computes integral of noncentral :math:`chi^2`.
+:doc:`../cdfempirical`             Computes the cumulative distribution function for the empirical distribution.
+:doc:`../cdfexp`                   Computes the cumulative distribution function for the exponential distribution.
+:doc:`../cdfexpinv`                Computes the exponential inverse cumulative distribution function.
+:doc:`../cdffc`                    Computes complement of cdf of F.
+:doc:`../cdffnc`                   Computes integral of noncentral F.
+:doc:`../cdffncinv`                Computes the quantile or inverse of noncentral F cumulative distribution function.
+:doc:`../cdfgam`                   Computes integral of incomplete Γ function.
+:doc:`../cdfgenpareto`             Computes the cumulative distribution function for the Generalized Pareto distribution.
+:doc:`../cdfhypergeo`              Computes the cumulative distribution function of the hypergeometric distribution.
+:doc:`../cdflaplace`               Computes the cumulative distribution function for the Laplace distribution.
+:doc:`../cdflaplaceinv`            Computes the Laplace inverse cumulative distribution function.
+:doc:`../cdflognorm`               Computes the cumulative distribution function of the log-normal distribution.
+:doc:`../cdfmvn`                   Computes multivariate Normal cdf.
+:doc:`../cdfmvnce`                 Computes the complement of the multivariate Normal cumulative distribution function with error management
+:doc:`../cdfmvne`                  Computes multivariate Normal cumulative distribution function with error management
 :doc:`../cdfMvn2e`                 Computes the multivariate Normal cumulative distribution function with error management over the range :math:`[a,b]`
-:doc:`../cdfMvtce`                 Computes complement of multivariate Student's t cumulative distribution function with error management
-:doc:`../cdfMvte`                  Computes multivariate Student's t cumulative distribution function with error management
+:doc:`../cdfmvtce`                 Computes complement of multivariate Student's t cumulative distribution function with error management
+:doc:`../cdfmvte`                  Computes multivariate Student's t cumulative distribution function with error management
 :doc:`../cdfMvt2e`                 Computes multivariate Student's t cumulative distribution function with error management over :math:`[a,b]`
-:doc:`../cdfN`                     Computes integral of Normal distribution: lower tail, or cdf.
+:doc:`../cdfn`                     Computes integral of Normal distribution: lower tail, or cdf.
 :doc:`../cdfN2`                    Computes interval of Normal cdf.
-:doc:`../cdfNc`                    Computes complement of cdf of Normal distribution (upper tail).
-:doc:`../cdfNegBinomial`           Computes the cumulative distribution function for the negative binomial distribution.
-:doc:`../cdfNegBinomialInv`        Computes the quantile or inverse negative binomial cumulative distribution function.
-:doc:`../cdfNi`                    Computes the inverse of the cdf of the Normal distribution.
-:doc:`../cdfPoisson`               Computes the Poisson cumulative distribution function.
-:doc:`../cdfPoissonInv`            Computes the quantile or inverse Poisson cumulative distribution function.
-:doc:`../cdfRayleigh`              Computes the Rayleigh cumulative distribution function.
-:doc:`../cdfRayleighInv`           Computes the Rayleigh inverse cumulative distribution function.
-:doc:`../cdfTc`                    Computes complement of cdf of t-distribution.
-:doc:`../cdfTci`                   Computes the inverse of the complement of the Student's t cdf.
-:doc:`../cdfTnc`                   Computes integral of noncentral t-distribution.
-:doc:`../cdfTvn`                   Computes lower tail of trivariate Normal cdf.
-:doc:`../cdfTruncNorm`             Computes the cumulative distribution function of the normal distibution over the interval from ``a`` to ``b``.
-:doc:`../cdfWeibull`               Computes the cumulative distribution function for the Weibull distribution.
-:doc:`../cdfWeibullInv`            Computes the Weibull inverse cumulative distribution function.
+:doc:`../cdfnc`                    Computes complement of cdf of Normal distribution (upper tail).
+:doc:`../cdfnegbinomial`           Computes the cumulative distribution function for the negative binomial distribution.
+:doc:`../cdfnegbinomialinv`        Computes the quantile or inverse negative binomial cumulative distribution function.
+:doc:`../cdfni`                    Computes the inverse of the cdf of the Normal distribution.
+:doc:`../cdfpoisson`               Computes the Poisson cumulative distribution function.
+:doc:`../cdfpoissoninv`            Computes the quantile or inverse Poisson cumulative distribution function.
+:doc:`../cdfrayleigh`              Computes the Rayleigh cumulative distribution function.
+:doc:`../cdfrayleighinv`           Computes the Rayleigh inverse cumulative distribution function.
+:doc:`../cdftc`                    Computes complement of cdf of t-distribution.
+:doc:`../cdftci`                   Computes the inverse of the complement of the Student's t cdf.
+:doc:`../cdftnc`                   Computes integral of noncentral t-distribution.
+:doc:`../cdftvn`                   Computes lower tail of trivariate Normal cdf.
+:doc:`../cdftruncnorm`             Computes the cumulative distribution function of the normal distibution over the interval from ``a`` to ``b``.
+:doc:`../cdfweibull`               Computes the cumulative distribution function for the Weibull distribution.
+:doc:`../cdfweibullinv`            Computes the Weibull inverse cumulative distribution function.
 :doc:`../erf`                      Computes Gaussian error function.
 :doc:`../erfc`                     Computes complement of Gaussian error function.
 :doc:`../erfccplx`                 Computes complement of Gaussian error function for complex inputs.
@@ -67,60 +67,60 @@ Cumulative distribution functions
 ============================       ===========================================
 
 
-Probability density and mass functions
-----------------------------------------------------
+Probability density and mass
+------------------------------
 
 ==========================       ===========================================
 :doc:`../lnpdfmvn`                 Computes multivariate Normal log-probabilities.
 :doc:`../lnpdfmvt`                 Computes multivariate Student's t log-probabilities.
 :doc:`../lnpdfn`                   Computes Normal log-probabilities.
 :doc:`../lnpdft`                   Computes Student's t log-probabilities.
-:doc:`../pdfBinomial`              Computes the probability mass function for the binomial distribution.
-:doc:`../pdfCauchy`                Computes the probability density function for the Cauchy distribution.
+:doc:`../pdfbinomial`              Computes the probability mass function for the binomial distribution.
+:doc:`../pdfcauchy`                Computes the probability density function for the Cauchy distribution.
 :doc:`../pdfexp`                   Computes the probability density function for the exponential distribution.
-:doc:`../pdfGenPareto`             Computes the probability density function for the Generalized Pareto distribution.
-:doc:`../pdfHyperGeo`              Computes the probability mass function for the hypergeometric distribution.
-:doc:`../pdfLaplace`               Computes the probability density function for the Laplace distribution.
+:doc:`../pdfgenpareto`             Computes the probability density function for the Generalized Pareto distribution.
+:doc:`../pdfhypergeo`              Computes the probability mass function for the hypergeometric distribution.
+:doc:`../pdflaplace`               Computes the probability density function for the Laplace distribution.
 :doc:`../pdflogistic`              Computes the probability density function for the logistic distribution.
-:doc:`../pdfLogNorm`               Computes the probability density function of the log-normal distribution.
+:doc:`../pdflognorm`               Computes the probability density function of the log-normal distribution.
 :doc:`../pdfn`                     Computes standard Normal probability density function.
-:doc:`../pdfPoisson`               Computes the probability mass function for the Poisson distribution.
-:doc:`../pdfRayleigh`              Computes the probability density function of the Rayleigh distribution.
-:doc:`../pdfTruncNorm`             Computes the cumulative distribution function of the normal distibution over the interval from ``a`` to ``b``.
-:doc:`../pdfWeibull`               Computes the probability density function of a Weibull random variable.
-:doc:`../pdfWishartInv`            Computes the probability density function of a inverse Wishart distribution.
+:doc:`../pdfpoisson`               Computes the probability mass function for the Poisson distribution.
+:doc:`../pdfrayleigh`              Computes the probability density function of the Rayleigh distribution.
+:doc:`../pdftruncnorm`             Computes the cumulative distribution function of the normal distibution over the interval from ``a`` to ``b``.
+:doc:`../pdfweibull`               Computes the probability density function of a Weibull random variable.
+:doc:`../pdfwishartinv`            Computes the probability density function of a inverse Wishart distribution.
 ==========================       ===========================================
 
 Random Numbers
 ----------------
 
 ==========================          ===========================================
-:doc:`../rndBernoulli`              Computes random numbers with Bernoulli distribution.
-:doc:`../rndBeta`                   Computes random numbers with beta distribution.
-:doc:`../rndBinomial`               Computes binomial pseudo-random numbers with the choice of underlying random number generator.
-:doc:`../rndCauchy`                 Computes Cauchy distributed random numbers with a choice of underlying random number generator.
-:doc:`../rndChiSquare`              Creates pseudo-random numbers with a chi-squared distribution, with an optional non-centrality parameter and a choice of underlying random number generator.
-:doc:`../rndCreateState`            Creates a new random number stream for a specified generator type from a seed value.
-:doc:`../rndExp`                    Computes exponentially distributed random numbers with a choice of underlying random number generator.
-:doc:`../rndGamma`                  Computes gamma pseudo-random numbers with a choice of underlying random number generator.
-:doc:`../rndGeo`                    Computes geometric pseudo-random numbers with a choice of underlying random number generator.
-:doc:`../rndGumbel`                 Computes Gumbel distributed random numbers with a choice of underlying random number generator.
-:doc:`../rndHyperGeo`               Computes pseudo-random numbers following a hypergeometric distribution with a choice of underlying random number generator.
+:doc:`../rndbernoulli`              Computes random numbers with Bernoulli distribution.
+:doc:`../rndbeta`                   Computes random numbers with beta distribution.
+:doc:`../rndbinomial`               Computes binomial pseudo-random numbers with the choice of underlying random number generator.
+:doc:`../rndcauchy`                 Computes Cauchy distributed random numbers with a choice of underlying random number generator.
+:doc:`../rndchisquare`              Creates pseudo-random numbers with a chi-squared distribution, with an optional non-centrality parameter and a choice of underlying random number generator.
+:doc:`../rndcreatestate`            Creates a new random number stream for a specified generator type from a seed value.
+:doc:`../rndexp`                    Computes exponentially distributed random numbers with a choice of underlying random number generator.
+:doc:`../rndgamma`                  Computes gamma pseudo-random numbers with a choice of underlying random number generator.
+:doc:`../rndgeo`                    Computes geometric pseudo-random numbers with a choice of underlying random number generator.
+:doc:`../rndgumbel`                 Computes Gumbel distributed random numbers with a choice of underlying random number generator.
+:doc:`../rndhypergeo`               Computes pseudo-random numbers following a hypergeometric distribution with a choice of underlying random number generator.
 :doc:`../rndi`                      Returns random integers in a specified range.
-:doc:`../rndKMvm`                   Computes von Mises pseudo-random numbers.
-:doc:`../rndLaplace`                Computes Laplacian pseudo-random numbers with the choice of underlying random number generator.
-:doc:`../rndLogNorm`                Computes lognormal pseudo-random numbers with the choice of underlying random number generator.
-:doc:`../rndMVn`                    Computes multivariate normal random numbers given a covariance matrix.
-:doc:`../rndMVt`                    Computes multivariate Student-t random numbers given a covariance matrix.
+:doc:`../rndkmvm`                   Computes von Mises pseudo-random numbers.
+:doc:`../rndlaplace`                Computes Laplacian pseudo-random numbers with the choice of underlying random number generator.
+:doc:`../rndlognorm`                Computes lognormal pseudo-random numbers with the choice of underlying random number generator.
+:doc:`../rndmvn`                    Computes multivariate normal random numbers given a covariance matrix.
+:doc:`../rndmvt`                    Computes multivariate Student-t random numbers given a covariance matrix.
 :doc:`../rndn`                      Computes normally distributed pseudo-random numbers with a choice of underlying random number generator.
-:doc:`../rndNegBinomial`            Computes negative binomial pseudo-random numbers with a choice of underlying random number generator.
-:doc:`../rndPoisson`                Computes Poisson pseudo-random numbers with a choice of underlying random number generator.
-:doc:`../rndRayleigh`               Computes rayleigh pseudo-random numbers with the choice of underlying random number generator.
+:doc:`../rndnegbinomial`            Computes negative binomial pseudo-random numbers with a choice of underlying random number generator.
+:doc:`../rndpoisson`                Computes Poisson pseudo-random numbers with a choice of underlying random number generator.
+:doc:`../rndrayleigh`               Computes rayleigh pseudo-random numbers with the choice of underlying random number generator.
 :doc:`../rndseed`                   Changes seed of the random number generator.
-:doc:`../rndStateSkip`              Used to skip ahead in a random number sequence.
+:doc:`../rndstateskip`              Used to skip ahead in a random number sequence.
 :doc:`../rndu`                      Computes uniform random numbers with a choice of underlying random number generator.
-:doc:`../rndWeibull`                Computes Weibull pseudo-random numbers with the choice of underlying random number generator.
-:doc:`../rndWishart`                Computes Wishart pseudo-random matrices with the choice of underlying random number generator.
-:doc:`../rndWishartInv`             Computes inverse Wishart pseudo-random matrices with the choice of underlying random number generator.
+:doc:`../rndweibull`                Computes Weibull pseudo-random numbers with the choice of underlying random number generator.
+:doc:`../rndwishart`                Computes Wishart pseudo-random matrices with the choice of underlying random number generator.
+:doc:`../rndwishartinv`             Computes inverse Wishart pseudo-random matrices with the choice of underlying random number generator.
 ==========================          ===========================================
 

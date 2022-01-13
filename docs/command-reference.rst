@@ -8,9 +8,10 @@ Command Reference
     cc/data-import-and-export
     cc/data-cleaning
     cc/descriptive-statistics
-    cc/estimation-functions
+    cc/estimation-methods
+    cc/optimization-and-solution
     cc/mathematical-functions
-    cc/statistical-functions
+    cc/statistical-distributions
     cc/string-handling
 
 
