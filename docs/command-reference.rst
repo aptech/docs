@@ -13,6 +13,7 @@ Command Reference
     cc/mathematical-functions
     cc/statistical-distributions
     cc/string-handling
+    cc/graphics
 
 
 .. toctree::

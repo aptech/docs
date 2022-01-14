@@ -5,7 +5,7 @@ String handling
 String manipulation and cleaning
 --------------------------------------------
 
-==================             ==============================================================================
+=====================             ==============================================================================
 :doc:`../lower`                   Converts a string to lowercase.
 :doc:`../strcombine`              Converts an NxM string array to an Nx1 string vector by combining each element in a column separated by a user-defined delimiter string.
 :doc:`../strindx`                 Finds starting location of one string in another string.
@@ -27,19 +27,19 @@ String manipulation and cleaning
 :doc:`../strtruncr`               Truncates the right side of all elements of a string array by a user-specified number of characters.
 :doc:`../token`                   Extracts the leading token from a string.
 :doc:`../upper`                   Changes a string to uppercase.
-==================             ==============================================================================
+=====================             ==============================================================================
 
 String and numeric conversions
 --------------------------------------------
 
-================               ==============================================================================
+==================               ==============================================================================
 :doc:`../ftos`                    Converts a floating point scalar to a string.
 :doc:`../ftostrc`                 Converts a matrix to a string array using a C language format specification.
 :doc:`../itos`                    Converts numeric integers to their string representation.
 :doc:`../ntos`                    Converts a numeric matrix, or dataframe variable to a string array.
 :doc:`../stof`                    Converts a string to floating point numbers.
 :doc:`../strtof`                  Converts a string array to a numeric matrix.
-================               ==============================================================================
+==================               ==============================================================================
 
 
 ================               ==============================================================================

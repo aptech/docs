@@ -154,7 +154,7 @@ Linear Algebra
 :doc:`../svd`                     Computes the singular values of a matrix.
 :doc:`../svd1`                    Computes singular value decomposition, :math:`X = USV'`.
 :doc:`../svd2`                    Computes the singular value decomposition :math:`X = USV'` with compact :math:`U`.
-:doc:`../svdcusv`                 Computes the singular value decomposition of a matrix so that: :math:`X = U S V'` (compact u).
+:doc:`../svdcusv`                 Computes the singular value decomposition of a matrix so that: :math:`X = U S V'` (compact :math:`U`).
 :doc:`../svds`                    Computes the singular values of a matrix.
 :doc:`../svdusv`                  Computes the singular value decomposition of a matrix so that: :math:`X = U S V'`.
 :doc:`../sylvester`               Computes the solution to the Sylvester matrix equation, :math:`AX + XB = C`.
