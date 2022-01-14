@@ -48,9 +48,9 @@ Scientific functions
 Differentiation and Integration
 --------------------------------------------
 
-=====================          ===========================================
-:doc:`../gradp`                   Computes first derivative of a function; gradcplx allows for complex arguments.
-:doc:`../hessp`                   Computes second derivative of a function; hesscplx allows for complex arguments.
+=========================        ===========================================
+:doc:`../gradpgradcplx`           Computes first derivative of a function.
+:doc:`../hessp`                   Computes second derivative of a function.
 :doc:`../integrate1d`             Integrates a user-defined function over a user-defined range, using adaptive quadrature.
 :doc:`../intgrat2`                Integrates a 2-dimensional function over an user-defined region.
 :doc:`../intgrat3`                Integrates a 3-dimensional function over an user-defined region.
@@ -58,7 +58,7 @@ Differentiation and Integration
 :doc:`../intquad2`                Integrates a 2-dimensional function over an user-defined rectangular region.
 :doc:`../intquad3`                Integrates a 3-dimensional function over an user-defined rectangular region.
 :doc:`../intsimp`                 Integrates by Simpson's method.
-=====================          ===========================================
+=========================        ===========================================
 
 The following are differentiation functions with advanced options.
 
@@ -322,6 +322,7 @@ Precision Control
 =====================       ===========================================
 :doc:`../base10`               Converts number to x.xxx and a power of 10.
 :doc:`../ceil`                 Rounds up towards :math:`+\infty`.
+:doc:`../fix`                  Rounds towards 0.
 :doc:`../floor`                Rounds down towards :math:`-\infty`.
 :doc:`../machepsilon`          Returns the smallest number such that :math:`1 + eps > 1`.
 :doc:`../round`                Rounds to the nearest integer.

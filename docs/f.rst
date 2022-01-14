@@ -21,6 +21,7 @@ F
     fgetst
     fileinfo
     filesa
+    fix
     floor
     fmod
     fn
