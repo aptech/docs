@@ -24,7 +24,7 @@ Duplicate observations
 Missing values
 -----------------
 
-========================   ===========================================
+=======================    ===============================================================
 :doc:`../impute`           Replaces missing values in the columns of a matrix by a specified imputation method.
 :doc:`../isinfnanmiss`     Returns true if the argument contains an infinity, NaN, or missing value.
 :doc:`../ismiss`           Returns 1 if matrix has any missing values, 0 otherwise.
@@ -34,7 +34,7 @@ Missing values
 :doc:`../msym`             Controls the symbol printed to represent missing values.
 :doc:`../packr`            Deletes the rows of a matrix that contain any missing values.
 :doc:`../scalmiss`         Returns 1 if the input is a scalar missing value.
-=======================    ===========================================
+=======================    ===============================================================
 
 
 String and categorical variables

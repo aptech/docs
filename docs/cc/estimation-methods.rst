@@ -10,11 +10,11 @@ These functions perform paramter estimation, diagnostics and print reports.
 
 =========================          ====================================================
 :doc:`../glm`                      Solves the generalized linear model problems.
-:doc:`../gmmFit`                   Estimate parameters using generalized method of moments.
-:doc:`../gmmFitIV`                 Estimate instrumental variables model using the generalized method of moments.
+:doc:`../gmmfit`                   Estimate parameters using generalized method of moments.
+:doc:`../gmmfitiv`                 Estimate instrumental variables model using the generalized method of moments.
 :doc:`../olsmt`                    Computes a least squares regression.
-:doc:`../quantileFit`              Perform linear quantile regression.
-:doc:`../quantileFitLoc`           Perform local linear or quadratic quantile regression.
+:doc:`../quantilefit`              Perform linear quantile regression.
+:doc:`../quantilefitloc`           Perform local linear or quadratic quantile regression.
 =========================          ====================================================
 
 
@@ -22,8 +22,8 @@ Standard error methods
 -----------------------
 
 ====================          ====================================================
-:doc:`../clusterSE`           Computes the White cluster-robust standard errors.
-:doc:`../robustSE`            Computes the Huber-White heteroscedastic robust standard errors. The procedure uses the “sandwich” variance-covariance estimator with a small sample correction of :math:`(n)/(n−1)`.
+:doc:`../clusterse`           Computes the White cluster-robust standard errors.
+:doc:`../robustse`            Computes the Huber-White heteroscedastic robust standard errors. The procedure uses the “sandwich” variance-covariance estimator with a small sample correction of :math:`(n)/(n−1)`.
 ====================          ====================================================
 
 Lower level estimation

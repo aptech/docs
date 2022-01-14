@@ -34,7 +34,7 @@ F
     fputst
     frequency 
     fseek
-    fsterror
+    fstrerror
     ftell
     ftocv
     ftos

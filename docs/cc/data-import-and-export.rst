@@ -6,7 +6,7 @@ General data loading
 -------------------------
 
 ======================       ====================================================================================
-:doc:`../getHeaders`            Returns the variable names from a dataset as a string array.
+:doc:`../getheaders`            Returns the variable names from a dataset as a string array.
 :doc:`../loadd`                 Loads data into a GAUSS dataframe. The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
 :doc:`../saved`                 Writes a matrix or dataframe in memory to a dataset in a specified format.
 ======================       ====================================================================================
@@ -16,9 +16,9 @@ CSV and delimited text files
 ------------------------------
 
 ======================       ====================================================================================
-:doc:`../csvReadM`              Reads numeric data from a CSV file into a GAUSS matrix.
-:doc:`../csvReadSA`             Reads data from a CSV file into a GAUSS string array.
-:doc:`../csvWriteM`             Write the contents of a GAUSS matrix to a CSV file.
+:doc:`../csvreadm`              Reads numeric data from a CSV file into a GAUSS matrix.
+:doc:`../csvreadsa`             Reads data from a CSV file into a GAUSS string array.
+:doc:`../csvwritem`             Write the contents of a GAUSS matrix to a CSV file.
 ======================       ====================================================================================
 
 
@@ -26,13 +26,13 @@ Spreadsheets (Excel files)
 ------------------------------
 
 ===========================       ====================================================================================
-:doc:`../xlsGetSheetCount`        Returns the number of sheets in an Excel® spreadsheet.
-:doc:`../xlsGetSheetSize`         Returns the size (rows and columns) of a specified sheet in an Excel® spreadsheet.
-:doc:`../xlsGetSheetTypes`        Gets the cell format types of a row in an Excel® spreadsheet.
-:doc:`../xlsMakeRange`            Builds an Excel® range string from a row/column pair.
-:doc:`../xlsReadM`                Reads from an Excel® spreadsheet into a GAUSS matrix.
-:doc:`../xlsReadSA`               Reads from an Excel® spreadsheet into a GAUSS string array.
-:doc:`../xlsWrite`                Writes a GAUSS matrix, string, or string array to an Excel® spreadsheet.
+:doc:`../xlsgetsheetcount`        Returns the number of sheets in an Excel® spreadsheet.
+:doc:`../xlsgetsheetsize`         Returns the size (rows and columns) of a specified sheet in an Excel® spreadsheet.
+:doc:`../xlsgetsheettypes`        Gets the cell format types of a row in an Excel® spreadsheet.
+:doc:`../xlsmakerange`            Builds an Excel® range string from a row/column pair.
+:doc:`../xlsreadm`                Reads from an Excel® spreadsheet into a GAUSS matrix.
+:doc:`../xlsreadsa`               Reads from an Excel® spreadsheet into a GAUSS string array.
+:doc:`../xlswrite`                Writes a GAUSS matrix, string, or string array to an Excel® spreadsheet.
 ===========================       ====================================================================================
 
 HDF 5 files
@@ -42,7 +42,7 @@ HDF 5 files
 :doc:`../h5create`               Create a HDF5 dataset (.h5).
 :doc:`../h5open` 	         Open a HDF5 file.
 :doc:`../h5read`                 Reads data from a HDF5 file (.h5) into a GAUSS matrix.
-:doc:`../h5readAttribute`        Read attributes from a HDF5 file into GAUSS.
+:doc:`../h5readattribute`        Read attributes from a HDF5 file into GAUSS.
 :doc:`../h5write`                Writes a GAUSS matrix to a HDF5 file.
 ==========================       ====================================================================================
 
@@ -83,130 +83,130 @@ Database Setup
 +++++++++++++++++++++++++++
 
 ==============================       ====================================================================================
-:doc:`../dbAddDatabase`              Adds a database to the list of database connections using the driver type or a connection URL.
-:doc:`../dbGetDrivers`               Returns a list of available database drivers.
-:doc:`../dbIsDriverAvailable`        Returns 1 if a specified database driver is available.
-:doc:`../dbRemoveDatabase`           Removes a database connection from the list of open database connections. Frees all related resources.
+:doc:`../dbadddatabase`              Adds a database to the list of database connections using the driver type or a connection URL.
+:doc:`../dbgetdrivers`               Returns a list of available database drivers.
+:doc:`../dbisdriveravailable`        Returns 1 if a specified database driver is available.
+:doc:`../dbremovedatabase`           Removes a database connection from the list of open database connections. Frees all related resources.
 ==============================       ====================================================================================
 
 Database Properties
 +++++++++++++++++++++++++++
 
 ===================================       ====================================================================================
-:doc:`../dbGetConnectOptions`              Returns the connection options string used for a database connection.
-:doc:`../dbGetDatabaseName`                Returns the name of the database.
-:doc:`../dbGetDriverName`                  Returns the name of the connection's database driver.
-:doc:`../dbGetHostName`                    Returns the database connection's host name.
-:doc:`../dbGetPassword`                    Returns a connection's password.
-:doc:`../dbGetNumericalPrecPolicy`         Returns the default numerical precision policy for a specified database connection.
-:doc:`../dbGetPort`                        Returns the database connection's port number if it has been set.
-:doc:`../dbIsOpen`                         Reports whether a specified database connection is open.
-:doc:`../dbIsValid`                        Reports whether a specified database connection has a valid driver.
-:doc:`../dbSetConnectOptions`              Sets database-specific options.
-:doc:`../dbSetDatabaseName`                Sets the connection's database name to name.
-:doc:`../dbSetHostName`                    Sets the specified database connection's host name.
-:doc:`../dbSetNumericalPrecPolicy`         Sets the default numerical precision policy used by queries created on this database connection.
-:doc:`../dbSetPassword`                    Sets the database connection's password.
-:doc:`../dbSetPort`                        Sets the specified database connection's port number.
+:doc:`../dbgetconnectoptions`              Returns the connection options string used for a database connection.
+:doc:`../dbgetdatabasename`                Returns the name of the database.
+:doc:`../dbgetdrivername`                  Returns the name of the connection's database driver.
+:doc:`../dbgethostname`                    Returns the database connection's host name.
+:doc:`../dbgetpassword`                    Returns a connection's password.
+:doc:`../dbgetnumericalprecpolicy`         Returns the default numerical precision policy for a specified database connection.
+:doc:`../dbgetport`                        Returns the database connection's port number if it has been set.
+:doc:`../dbisopen`                         Reports whether a specified database connection is open.
+:doc:`../dbisvalid`                        Reports whether a specified database connection has a valid driver.
+:doc:`../dbsetconnectoptions`              Sets database-specific options.
+:doc:`../dbsetdatabasename`                Sets the connection's database name to name.
+:doc:`../dbsethostname`                    Sets the specified database connection's host name.
+:doc:`../dbsetnumericalprecpolicy`         Sets the default numerical precision policy used by queries created on this database connection.
+:doc:`../dbsetpassword`                    Sets the database connection's password.
+:doc:`../dbsetport`                        Sets the specified database connection's port number.
 ===================================       ====================================================================================
 
 Database Information
 +++++++++++++++++++++++++++
 
 =============================       ====================================================================================
-:doc:`../dbGetPrimaryIndex`          Returns the primary index for the specified table.
-:doc:`../dbGetTableHeaders`          Returns a string array populated with the names of all the fields in a specified table (or view).
-:doc:`../dbGetTables`                Returns the database's tables, system tables and views.
-:doc:`../dbHasFeature`               Returns a 1 if the database supports the specified feature.
+:doc:`../dbgetprimaryindex`          Returns the primary index for the specified table.
+:doc:`../dbgettableheaders`          Returns a string array populated with the names of all the fields in a specified table (or view).
+:doc:`../dbgettables`                Returns the database's tables, system tables and views.
+:doc:`../dbhasfeature`               Returns a 1 if the database supports the specified feature.
 =============================       ====================================================================================
 
 Database Errors
 +++++++++++++++++++++++++++
 
 ===================================       ====================================================================================
-:doc:`../dbGetLastErrorNum`                Returns numerical information about the last error that occurred on the database.
-:doc:`../dbGetLastErrorText`               Returns text information about the last error that occurred on the database.
-:doc:`../dbIsOpenError`                    Reports whether an error occurred while attempting to open the database connection.
-:doc:`../dbQueryGetLastErrorNum`           Returns numerical error information about the last error that occurred (if any) with the last executed query.
-:doc:`../dbQueryGetLastErrorText`          Returns text error information about the last error that occurred (if any) with the last executed query.
+:doc:`../dbgetlasterrornum`                Returns numerical information about the last error that occurred on the database.
+:doc:`../dbgetlasterrortext`               Returns text information about the last error that occurred on the database.
+:doc:`../dbisopenerror`                    Reports whether an error occurred while attempting to open the database connection.
+:doc:`../dbquerygetlasterrornum`           Returns numerical error information about the last error that occurred (if any) with the last executed query.
+:doc:`../dbquerygetlasterrortext`          Returns text error information about the last error that occurred (if any) with the last executed query.
 ===================================       ====================================================================================
 
 Database Connect
 +++++++++++++++++++++++++++
 
 ===========================       ====================================================================================
-:doc:`../dbClose`                    Closes a database connection and destroys any remaining queries.
-:doc:`../dbOpen`                     Opens a specified database connection using the current connection values.
+:doc:`../dbclose`                    Closes a database connection and destroys any remaining queries.
+:doc:`../dbopen`                     Opens a specified database connection using the current connection values.
 ===========================       ====================================================================================
 
 Database Transaction
 +++++++++++++++++++++++++++
 
 ===========================       ====================================================================================
-:doc:`../dbCommit`                   Commits a transaction to the database if the driver supports transactions and a dbTransaction() has been started.
-:doc:`../dbCreateQuery`              Process an SQL statement and prepare a query.
-:doc:`../dbExecQuery`                Executes an SQL statement and creates a query.
-:doc:`../dbRollback`                 Rolls back a transaction on the database.
-:doc:`../dbTransaction`              Begins a transaction on the database.
+:doc:`../dbcommit`                   Commits a transaction to the database if the driver supports transactions and a dbTransaction() has been started.
+:doc:`../dbcreatequery`              Process an SQL statement and prepare a query.
+:doc:`../dbexecquery`                Executes an SQL statement and creates a query.
+:doc:`../dbrollback`                 Rolls back a transaction on the database.
+:doc:`../dbtransaction`              Begins a transaction on the database.
 ===========================       ====================================================================================
 
 Query Building
 +++++++++++++++++++++++++++
 
 ===============================       ====================================================================================
-:doc:`../dbQueryBindValue`            Set the placeholder placeholder to be bound to value val in the prepared statement.
-:doc:`../dbQueryGetBoundValue`        Returns the value for a placeholder in a query.
-:doc:`../dbQueryGetBoundValues`       Returns an Nx2 string array containing the placeholders and their corresponding values in a query.
-:doc:`../dbQueryExecPrepared`         Executes a previously created and prepared query.
-:doc:`../dbQueryPrepare`              Prepares a SQL query for execution.
+:doc:`../dbquerybindvalue`            Set the placeholder placeholder to be bound to value val in the prepared statement.
+:doc:`../dbquerygetboundvalue`        Returns the value for a placeholder in a query.
+:doc:`../dbquerygetboundvalues`       Returns an Nx2 string array containing the placeholders and their corresponding values in a query.
+:doc:`../dbqueryexecprepared`         Executes a previously created and prepared query.
+:doc:`../dbqueryprepare`              Prepares a SQL query for execution.
 ===============================       ====================================================================================
 
 Query Manipulation
 +++++++++++++++++++++++++++
 
 ===========================       ====================================================================================
-:doc:`../dbQueryClear`               Clears the result set and releases any resources held by the query. Sets the query state to inactive.
-:doc:`../dbQueryFinish`              Instructs the database driver that no more data will be fetched from this query until it is re-executed.
+:doc:`../dbqueryclear`               Clears the result set and releases any resources held by the query. Sets the query state to inactive.
+:doc:`../dbqueryfinish`              Instructs the database driver that no more data will be fetched from this query until it is re-executed.
 ===========================       ====================================================================================
 
 Query Information
 +++++++++++++++++++++++++++
 
 ===================================       ====================================================================================
-:doc:`../dbQueryCols`                      Returns the number of fields in the record.
-:doc:`../dbQueryGetLastInsertID`           Returns the object ID of the most recent inserted row if supported by the database.
-:doc:`../dbQueryGetLastQuery`              Returns the text of the current query being used.
-:doc:`../dbQueryGetNumRowsAffected`        Reports the number of rows affected by the result's SQL statement.
-:doc:`../dbQueryIsActive`                  Returns 1 if the query is active.
-:doc:`../dbQueryIsForwardOnly`             Reports whether you can only scroll forward through a result set.
-:doc:`../dbQueryIsNull`                    Reports whether the current field pointed at by an active query positioned on a valid record is NULL.
-:doc:`../dbQueryIsSelect`                  Reports whether the specified query is a SELECT statement.
-:doc:`../dbQueryIsValid`                   Reports whether the specified query is positioned on a valid record.
-:doc:`../dbQueryRows`                      Returns the size of the result (number of rows returned), or -1 if the size cannot be determined or if the database does not support reporting information about query sizes.
-:doc:`../dbQuerySetForwardOnly`            Sets forward only mode to forward. If forward is true, only :doc:`../dbQuerySeekNext` and :doc:`../dbQuerySeek` with positive values, are allowed for navigating the results.
+:doc:`../dbquerycols`                      Returns the number of fields in the record.
+:doc:`../dbquerygetlastinsertid`           Returns the object ID of the most recent inserted row if supported by the database.
+:doc:`../dbquerygetlastquery`              Returns the text of the current query being used.
+:doc:`../dbquerygetnumrowsaffected`        Reports the number of rows affected by the result's SQL statement.
+:doc:`../dbqueryisactive`                  Returns 1 if the query is active.
+:doc:`../dbqueryisforwardonly`             Reports whether you can only scroll forward through a result set.
+:doc:`../dbqueryisnull`                    Reports whether the current field pointed at by an active query positioned on a valid record is NULL.
+:doc:`../dbqueryisselect`                  Reports whether the specified query is a SELECT statement.
+:doc:`../dbqueryisvalid`                   Reports whether the specified query is positioned on a valid record.
+:doc:`../dbqueryrows`                      Returns the size of the result (number of rows returned), or -1 if the size cannot be determined or if the database does not support reporting information about query sizes.
+:doc:`../dbquerysetforwardonly`            Sets forward only mode to forward. If forward is true, only :doc:`../dbQuerySeekNext` and :doc:`../dbQuerySeek` with positive values, are allowed for navigating the results.
 ===================================       ====================================================================================
 
 Query Iteration
 +++++++++++++++++++++++++++
 
 ==============================       ====================================================================================
-:doc:`../dbQueryGetPosition`         Returns the current internal position of the query.
-:doc:`../dbQuerySeek`                Retrieves the record at a specified position, if available, and positions the query on the retrieved record.
-:doc:`../dbQuerySeekFirst`           Retrieves the first record in the result, if available, and positions the query on the retrieved record.
-:doc:`../dbQuerySeekLast`            Retrieves the last record in the result, if available, and positions the query on the retrieved record.
-:doc:`../dbQuerySeekNext`            Retrieves the next record in the result, if available, and positions the query on the retrieved record.
-:doc:`../dbQuerySeekPrevious`        Retrieves the previous record in the result, if available, and positions the query on the retrieved record.
+:doc:`../dbquerygetposition`         Returns the current internal position of the query.
+:doc:`../dbqueryseek`                Retrieves the record at a specified position, if available, and positions the query on the retrieved record.
+:doc:`../dbqueryseekfirst`           Retrieves the first record in the result, if available, and positions the query on the retrieved record.
+:doc:`../dbqueryseeklast`            Retrieves the last record in the result, if available, and positions the query on the retrieved record.
+:doc:`../dbqueryseeknext`            Retrieves the next record in the result, if available, and positions the query on the retrieved record.
+:doc:`../dbqueryseekprevious`        Retrieves the previous record in the result, if available, and positions the query on the retrieved record.
 ==============================       ====================================================================================
 
 Query Data Retrieval
 +++++++++++++++++++++++++++
 
 =============================       ====================================================================================
-:doc:`../dbQueryFetchAllM`           Returns the result set for the current query as a matrix.
-:doc:`../dbQueryFetchAllSA`          Returns the result set for the current query as a string array.
-:doc:`../dbQueryFetchOneM`           Returns a single row as an Nx1 matrix where N is the column count of the SELECT statement.
-:doc:`../dbQueryFetchOneSA`          Returns a single row as a string vector containing the field information for the current query.
-:doc:`../dbQueryGetField`            Returns the value of a specified field in the current record.
+:doc:`../dbqueryfetchallm`           Returns the result set for the current query as a matrix.
+:doc:`../dbqueryfetchallsa`          Returns the result set for the current query as a string array.
+:doc:`../dbqueryfetchonem`           Returns a single row as an Nx1 matrix where N is the column count of the SELECT statement.
+:doc:`../dbqueryfetchonesa`          Returns a single row as a string vector containing the field information for the current query.
+:doc:`../dbquerygetfield`            Returns the value of a specified field in the current record.
 =============================       ====================================================================================
 
 
