@@ -9,11 +9,12 @@ Command Reference
     cc/data-cleaning
     cc/descriptive-statistics
     cc/estimation-methods
+    cc/graphics
     cc/optimization-and-solution
     cc/mathematical-functions
     cc/statistical-distributions
     cc/string-handling
-    cc/graphics
+    cc/parallelization
 
 
 .. toctree::

@@ -27,6 +27,7 @@ Graph types
 :doc:`../plottshf`                        Plots high-frequency and irregularly spaced time series data.
 :doc:`../plottslog`                       Creates a graph of time series data with the y-axis on a log scale.
 :doc:`../plotxy`                          Creates a 2-dimensional line plot.
+:doc:`../plotxyfill`                      Creates an area plot between sets of lines.
 ===================================    ============================================================================
 
 
@@ -112,7 +113,9 @@ Title, legend  and text labels
 ===================================    ============================================================================
 :doc:`../plotsetlegend`                   Adds a legend to a graph.
 :doc:`../plotsetlegendbkd`                Sets the opacity and color for the background of a graph legend.
+:doc:`../plotsetlegendborder`             Controls the color and thickness of the legend border.
 :doc:`../plotsetlegendfont`               Set the legend font for a graph.
+:doc:`../plotsetlegendtitle`              Controls the legend title.
 :doc:`../plotsettextinterpreter`          Controls the text interpreter (LaTeX, HTML) settings for a graph.
 :doc:`../plotsetticlabelfont`             Controls the font name, size and color for the X and Y axis tick labels.
 :doc:`../plotsettitle`                    Controls the settings for the title for a graph.
@@ -127,26 +130,29 @@ Axes, grid and ticks
 ===================================    ============================================================================
 :doc:`../plotsetaxespen`                  Sets the color for the axes line.
 :doc:`../plotsetgridpen`                  Controls the thickness, color, and style for the grid lines.
+:doc:`../plotsetticposition`              Controls if the x and y-axis tick is inside or outside the axis lines.
 :doc:`../plotsetoutlineenabled`           Turns on an outline around the plot.
 :doc:`../plotsetticlabelfont`             Controls the font name, size and color for the X and Y axis tick labels.
 :doc:`../plotsetwhichxaxis`               Assigns curves to the top or bottom x-axis.
 :doc:`../plotsetwhichyaxis`               Assigns curves to the right or left y-axis.
 :doc:`../plotsetxgridpen`                 Controls the thickness, color, and style for the grid lines from the x-axis.
-:doc:`../plotsexpen`                      Controls the thickness, color, and style for the x-axis line.
+:doc:`../plotsetxpen`                     Controls the thickness, color, and style for the x-axis line.
 :doc:`../plotsetxminorticcount`           Controls the number of minor ticks to place between major ticks on the x-axis of a 2-D plot.
 :doc:`../plotsetxrange`                   Sets the range for the x-axis.
 :doc:`../plotsetxticinterval`             Controls the interval between x-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D time series graphs.
 :doc:`../plotsetxticlabel`                Controls the formatting and angle of x-axis tick labels for 2-D time series graphs.
+:doc:`../plotsetxticposition`             Controls if the x-axis tick is inside or outside the x-axis line.
 :doc:`../plotsetygridpen`                 Controls the thickness, color, and style for the grid lines from the y-axis.
 :doc:`../plotsetyminorticcount`           Controls the number of minor ticks to place between major ticks on the y-axis of a 2-D plot.
 :doc:`../plotsetypen`                     Controls the thickness, color, and style for the y-axis line.
 :doc:`../plotsetyrange`                   Sets the range for the y-axis.
 :doc:`../plotsetyticinterval`             Controls the interval between y-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D time series graphs.
 :doc:`../plotsetyticlabel`                Controls the formatting and angle of y-axis tick labels for 2-D graphs.
+:doc:`../plotsetyticposition`             Controls if the y-axis tick is inside or outside the y-axis line.
 ===================================    ============================================================================
 
-Color and fill
-+++++++++++++++++++++++
+Line color, style and fill
+++++++++++++++++++++++++++++++++
 
 ===================================    ============================================================================
 :doc:`../plotsetbkdcolor`                 Sets background color of a graph.
@@ -158,10 +164,29 @@ Color and fill
 :doc:`../plotsetzlevels`                  Controls the heights at which lines are drawn on a contour plot.
 ===================================    ============================================================================
 
+Box and Bar settings
++++++++++++++++++++++++++
+
+===================================    ============================================================================
+:doc:`../plotsetjitterrange`           Adds a small random perturbation (jitter) to :doc:`../plotbox` outliers, or :doc:`../plotscatter` plots so that overlapping observations can be better seen.
+:doc:`../plotsetbarwidth`              Sets the width of the bars in bar plots.
+:doc:`../plotsetboxwidth`              Sets the width of the boxes in box plots.
+===================================    ============================================================================
+
+
+Contour settings
++++++++++++++++++++++
+
+===================================    ============================================================================
+:doc:`../plotsetcontourlabels`         Sets the format and precision of contour height labels.
+:doc:`../plotsetzlabels`               Controls the heights at which lines are drawn on a contour plot.
+===================================    ============================================================================
+
 Annotations
 ----------------
 
 ===================================    ============================================================================
+:doc:`../plotaddarrow`                 Adds an arrow to an existing graph.
 :doc:`../plotaddshape`                 Adds an arrow, line, ellipse or rectangle to an existing graph.
 :doc:`../plotaddtextbox`               Adds a textbox to an existing graph.
 ===================================    ============================================================================
@@ -169,11 +194,11 @@ Annotations
 Annotation settings
 -----------------------
 
-===================================    ============================================================================
+=====================================    ============================================================================
 :doc:`../annotationgetdefaults`           Fills in an instance of a plotAnnotation structure with default values.
 :doc:`../annotationsetbkd`                Sets the background color and transparency level for a textbox, rectangle or ellipse.
 :doc:`../annotationsetfont`               Sets the font properties of a plotAnnotation structure for controlling text boxes added to a graph.
 :doc:`../annotationsetlinecolor`          Sets the line color for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
 :doc:`../annotationsetlinestyle`          Sets the line style for textbox, rectangle or ellipse borders as well as the style for lines and arrows.
 :doc:`../annotationsetlinethickness`      Sets the line thickness for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
-===================================    ============================================================================
+=====================================    ============================================================================
