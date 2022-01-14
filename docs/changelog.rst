@@ -8,6 +8,8 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
+#. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
+#. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.
 
 22.0.3
 ------
