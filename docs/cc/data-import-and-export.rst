@@ -5,6 +5,10 @@ Data Import and Export
 General data loading
 -------------------------
 
+.. note:: :doc:`../loadd` and :doc:`../saved` are recommended for most cases when working with the following file types:
+    * GAUSS, SAS, Stata and SPSS datasets.
+    * CSV and Excel files with variable names in the first row.
+
 ======================       ====================================================================================
 :doc:`../getheaders`            Returns the variable names from a dataset as a string array.
 :doc:`../loadd`                 Loads data into a GAUSS dataframe. The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
@@ -229,4 +233,6 @@ To read and write data from CSV and delimted text files, see the earlier section
 :doc:`../fseek`               Positions the file pointer in a file.
 :doc:`../fstrerror`           Returns an error message explaining the cause of the most recent file I/O error.
 :doc:`../ftell`               Gets the position of the file pointer in a file.
+:doc:`../getf`                Loads an ASCII or binary file into a string.
+:doc:`../putf`                Writes the contents of a string to a file.
 ====================       ====================================================================================

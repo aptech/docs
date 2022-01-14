@@ -15,16 +15,16 @@ Cumulative distributions
 :doc:`../cdfBvn2e`                 Returns cdfbvn of a bounded rectangle.
 :doc:`../cdfcauchy`                Computes the cumulative distribution function for the Cauchy distribution.
 :doc:`../cdfcauchyinv`             Computes the Cauchy inverse cumulative distribution function.
-:doc:`../cdfchic`                  Computes complement of cdf of :math:`chi^2`.
-:doc:`../cdfchii`                  Computes :math:`chi^2` abscissae values given probability and degrees of freedom.
-:doc:`../cdfchinc`                 Computes integral of noncentral :math:`chi^2`.
+:doc:`../cdfchic`                  Computes complement of cdf of :math:`\chi^2`.
+:doc:`../cdfchii`                  Computes :math:`\chi^2` abscissae values given probability and degrees of freedom.
+:doc:`../cdfchinc`                 Computes integral of noncentral :math:`\chi^2`.
 :doc:`../cdfempirical`             Computes the cumulative distribution function for the empirical distribution.
 :doc:`../cdfexp`                   Computes the cumulative distribution function for the exponential distribution.
 :doc:`../cdfexpinv`                Computes the exponential inverse cumulative distribution function.
 :doc:`../cdffc`                    Computes complement of cdf of F.
 :doc:`../cdffnc`                   Computes integral of noncentral F.
 :doc:`../cdffncinv`                Computes the quantile or inverse of noncentral F cumulative distribution function.
-:doc:`../cdfgam`                   Computes integral of incomplete Γ function.
+:doc:`../cdfgam`                   Computes integral of incomplete gamma function.
 :doc:`../cdfgenpareto`             Computes the cumulative distribution function for the Generalized Pareto distribution.
 :doc:`../cdfhypergeo`              Computes the cumulative distribution function of the hypergeometric distribution.
 :doc:`../cdflaplace`               Computes the cumulative distribution function for the Laplace distribution.

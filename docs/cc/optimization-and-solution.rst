@@ -14,4 +14,4 @@ Optimization and Solution
 =====================       ===========================================
 
 
-.. seealso:: :doc:`estimation-methods`, :func:`mathematical-functions`
+.. seealso:: :doc:`estimation-methods`, :doc:`mathematical-functions`

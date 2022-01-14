@@ -10,7 +10,7 @@ Scientific functions
 :doc:`../arccos`               Computes inverse cosine.
 :doc:`../arcsin`               Computes inverse sine.
 :doc:`../atan`                 Computes inverse tangent.
-:doc:`../atan2`                Computes angle given a point x,y.
+:doc:`../atan2`                Computes angle given a point :math:`x`,:math:`y`.
 :doc:`../besselj`              Computes Bessel function, first kind.
 :doc:`../besselk`              Computes the modified Bessel function of the second kind, :math:`K_n(x)`.
 :doc:`../bessely`              Computes Bessel function, second kind.
@@ -20,8 +20,8 @@ Scientific functions
 :doc:`../cosh`                 Computes hyperbolic cosine.
 :doc:`../curve`                Computes a one-dimensional smoothing curve.
 :doc:`../digamma`              Computes the digamma function.
-:doc:`../exp`                  Computes the exponential function of x.
-:doc:`../fmod`                 Computes the floating-point remainder of x/y.
+:doc:`../exp`                  Computes the exponential function of :math:`x`.
+:doc:`../fmod`                 Computes the floating-point remainder of :math:`x/y`.
 :doc:`../gamma`                Computes gamma function value.
 :doc:`../gammacplx`            Computes gamma function for complex inputs.
 :doc:`../gammaii`              Compute the inverse incomplete gamma function.
@@ -31,7 +31,7 @@ Scientific functions
 :doc:`../log`                  Computes the log (base 10) of each element.
 :doc:`../mbesseli`             Computes modified and exponentially scaled modified Bessels of the first kind of the nth order.
 :doc:`../pi`                   Returns :math:`\pi`.
-:doc:`../polygamma`            Computes the polygamma function of order n.
+:doc:`../polygamma`            Computes the polygamma function of order :math:`n`.
 :doc:`../psi`                  Computes the psi (or digamma) function.
 :doc:`../sin`                  Computes sine.
 :doc:`../sinh`                 Computes the hyperbolic sine.
@@ -50,7 +50,7 @@ Differentiation and Integration
 
 =========================        ===========================================
 :doc:`../gradpgradcplx`           Computes first derivative of a function.
-:doc:`../hessp`                   Computes second derivative of a function.
+:doc:`../hessphesscplx`           Computes second derivative of a function.
 :doc:`../integrate1d`             Integrates a user-defined function over a user-defined range, using adaptive quadrature.
 :doc:`../intgrat2`                Integrates a 2-dimensional function over an user-defined region.
 :doc:`../intgrat3`                Integrates a 3-dimensional function over an user-defined region.
@@ -66,7 +66,6 @@ The following are differentiation functions with advanced options.
 :doc:`../gradmtm`                 Computes numerical gradient with mask.
 :doc:`../gradmtt`                 Computes numerical gradient using available threads.
 :doc:`../gradmttm`                Computes numerical gradient with mask using available threads.
-:doc:`../gradcplx`                Computes first derivative of a function with complex arguments.
 :doc:`../hessmtg`                 Computes numerical Hessian using gradient procedure.
 :doc:`../hessmtgw`                Computes numerical Hessian using gradient procedure with weights.
 :doc:`../hessmtm`                 Computes numerical Hessian with mask.
@@ -76,7 +75,6 @@ The following are differentiation functions with advanced options.
 :doc:`../hessmttgw`               Computes numerical Hessian using gradient procedure with weights and using available threads.
 :doc:`../hessmttm`                Computes numerical Hessian with mask and available threads.
 :doc:`../hessmtw`                 Computes numerical Hessian with weights.
-:doc:`../hesscplx`                Computes second derivative of a function with complex arguments.
 =====================          ===========================================
 
 
@@ -118,18 +116,18 @@ Linear Algebra
 :doc:`../lapgsvdcst`              Computes the generalized singular value decomposition of a pair of real or complex general matrices.
 :doc:`../lapgsvds`                Computes the generalized singular value decomposition of a pair of real or complex general matrices.
 :doc:`../lapgsvdst`               Computes the generalized singular value decomposition of a pair of real or complex general matrices.
-:doc:`../lapsvdcusv`              Computes the singular value decomposition a real or complex rectangular matrix, returns compact u and v.
+:doc:`../lapsvdcusv`              Computes the singular value decomposition a real or complex rectangular matrix, returns compact :math:`u` and :math:`v`.
 :doc:`../lapsvds`                 Computes the singular values of a real or complex rectangular matrix.
 :doc:`../lapsvdusv`               Computes the singular value decomposition a real or complex rectangular matrix.
-:doc:`../ldl`                     Computes the L and D factors of the LDL factorization of a real symmetric matrix.
-:doc:`../ldlp`                    Computes LDL decomposition with row pivoting of a symmetric matrix.
-:doc:`../ldlsol`                  Computes Solves the system of equations :math:`LDLTx = b` using a matrix factorized by :doc:`ldlp`.
-:doc:`../lu`                      Computes LU decomposition with row pivoting (real and complex matrices).
+:doc:`../ldl`                     Computes the :math:`L` and :math:`D` factors of the LDL factorization of a real symmetric matrix.
+:doc:`../ldlp`                    Computes :math:`LDL` decomposition with row pivoting of a symmetric matrix.
+:doc:`../ldlsol`                  Computes Solves the system of equations :math:`LDLTx = b` using a matrix factorized by :doc:`../ldlp`.
+:doc:`../lu`                      Computes :math:`LU` decomposition with row pivoting (real and complex matrices).
 :doc:`../lusol`                   Computes Solves the system of equations :math:`LUx = b`.
 :doc:`../norm`                    Computes one of several specified matrix norms, or a vector p-norm.
 :doc:`../null`                    Computes orthonormal basis for right null space.
 :doc:`../null1`                   Computes orthonormal basis for right null space.
-:doc:`../orth`                    Computes orthonormal basis for column space x.
+:doc:`../orth`                    Computes orthonormal basis for column space :math:`x`.
 :doc:`../pinv`                    Generalized pseudo-inverse: Moore-Penrose.
 :doc:`../pinvmt`                  Generalized pseudo-inverse: Moore-Penrose.
 :doc:`../powerm`                  Computes the power :math:`n` of a matrix :math:`A`, as the mathematical equivalent of the matrix product of :math:`n` copies of :math:`A`.
@@ -141,13 +139,13 @@ Linear Algebra
 :doc:`../qrep`                    :math:`QR` decomposition with pivot control: returns :math:`R` and :math:`E`.
 :doc:`../qrsol`                   Solves a system of equations :math:`R'x = b` given an upper triangular matrix, typically the :math:`R` matrix from a :math:`QR` decomposition.
 :doc:`../qrtsol`                  Solves a system of equations :math:`Rx = b` given a lower triangular matrix, typically a transposed :math:`R` matrix from a :math:`QR` decomposition.
-:doc:`../qtyr`                    QR decomposition: returns Q'Y and R.
-:doc:`../qtyre`                   QR decomposition: returns Q'Y, R and E.
-:doc:`../qtyrep`                  QR decomposition with pivot control: returns Q'Y, R and E.
-:doc:`../qyr`                     QR decomposition: returns QY and R.
-:doc:`../qyre`                    QR decomposition: returns QY, R and E.
-:doc:`../qyrep`                   QR decomposition with pivot control: returns QY, R and E.
-:doc:`../qz`                      Compute the complex QZ, or generalized Schur, form of a pair of real or complex general matrices with an option to sort the eigenvalues.
+:doc:`../qtyr`                    :math:`QR` decomposition: returns :math:`Q'Y` and :math:`R`.
+:doc:`../qtyre`                   :math:`QR` decomposition: returns :math:`Q'Y`, :math:`R` and :math:`E`.
+:doc:`../qtyrep`                  :math:`QR` decomposition with pivot control: returns :math:`Q'Y`, :math:`R` and :math:`E`.
+:doc:`../qyr`                     :math:`QR` decomposition: returns :math:`QY` and :math:`R`.
+:doc:`../qyre`                    :math:`QR` decomposition: returns :math:`QY`, :math:`R` and :math:`E`.
+:doc:`../qyrep`                   :math:`QR` decomposition with pivot control: returns :math:`QY`, :math:`R` and :math:`E`.
+:doc:`../qz`                      Compute the complex :math:`QZ`, or generalized Schur, form of a pair of real or complex general matrices with an option to sort the eigenvalues.
 :doc:`../rank`                    Computes rank of a matrix.
 :doc:`../rref`                    Computes reduced row echelon form of a matrix.
 :doc:`../schtoc`                  Reduces any 2x2 blocks on the diagonal of the real Schur form of a matrix returned from schur. The transformation matrix is also updated.
@@ -155,7 +153,7 @@ Linear Algebra
 :doc:`../solpd`                   Solves a system of positive definite linear equations.
 :doc:`../svd`                     Computes the singular values of a matrix.
 :doc:`../svd1`                    Computes singular value decomposition, :math:`X = USV'`.
-:doc:`../svd2`                    Computes svd1 with compact U.
+:doc:`../svd2`                    Computes the singular value decomposition :math:`X = USV'` with compact :math:`U`.
 :doc:`../svdcusv`                 Computes the singular value decomposition of a matrix so that: :math:`X = U S V'` (compact u).
 :doc:`../svds`                    Computes the singular values of a matrix.
 :doc:`../svdusv`                  Computes the singular value decomposition of a matrix so that: :math:`X = U S V'`.
@@ -185,7 +183,7 @@ Polynomial Operations
 :doc:`../polyroot`                Computes roots of polynomial from coefficients.
 =====================          ===========================================
 
-See also :doc:`../recserrc`, :doc:`recsercp`, and :doc:`conv`.
+See also :doc:`../recserrc`, :doc:`../recsercp`, and :doc:`../conv`.
 
 Fourier Transforms
 -----------------------
@@ -209,32 +207,12 @@ Fourier Transforms
 Fuzzy Conditional Functions
 -----------------------------------
 
-=====================                    ===========================================
-:doc:`../dotfeq`                            Fuzzy .==
-:doc:`../dotfeqmt`                          Fuzzy .==
-:doc:`../dotfge`                            Fuzzy .>=
-:doc:`../dotfgemt`                          Fuzzy .>
-:doc:`../dotfgt`                            Fuzzy .>
-:doc:`../dotfgtmt`                          Fuzzy .>
-:doc:`../dotfle`                            Fuzzy .<=
-:doc:`../dotflemt`                          Fuzzy .<=
-:doc:`../dotflt`                            Fuzzy .<
-:doc:`../dotfltmt`                          Fuzzy .<
-:doc:`../dotfne`                            Fuzzy ./=
-:doc:`../dotfnemt`                          Fuzzy ./=
-:doc:`../feq`                               Fuzzy ==
-:doc:`../feqmt`                             Fuzzy ==
-:doc:`../fge`                               Fuzzy >=
-:doc:`../fgemt`                             Fuzzy >=
-:doc:`../fgt`                               Fuzzy >
-:doc:`../fgtmt`                             Fuzzy >
-:doc:`../fle`                               Fuzzy <=
-:doc:`../flemt`                             Fuzzy <=
-:doc:`../flt`                               Fuzzy <
-:doc:`../fltmt`                             Fuzzy <
-:doc:`../fne`                               Fuzzy /=
-:doc:`../fnemt`                             Fuzzy /=
-=====================                    ===========================================
+==============================================================                    ===========================================
+:doc:`../dotfeqdotfgedotfgtdotfledotfltdotfne`                                    Fuzzy .==, .>=, .>, .<=, .<, .!=
+:doc:`../dotfeqmtdotfgemtdotfgtmtdotflemtdotfltmtdotfnemt`                        Fuzzy .==, .>=, .>, .<=, .<, .!=
+:doc:`../feqfgefgtflefltfne`                                                      Fuzzy ==, >=, >, <=, <, !=
+:doc:`../feqmtfgemtfgtmtflemtfltmtfnemt`                                          Fuzzy ==, >=, >, <=, <, !=
+==============================================================                    ===========================================
 
 The mt commands use an fcmptol argument to control the tolerance used for comparison.
 The non-mt commands use the global variable _fcmptol to control the tolerance used for comparison. By default, this is 1e-15. The default can be changed by editing the file fcompare.dec.
@@ -278,9 +256,9 @@ Statistical Functions
 :doc:`../numcombinations`      Computes number of combinations of n things taken k at a time.
 :doc:`../ols`                  Computes least squares regression of data set or matrix.
 :doc:`../olsmt`                Computes least squares regression of data set or matrix.
-:doc:`../olsqr`                Computes OLS coefficients using QR decomposition.
-:doc:`../olsqr2`               Computes OLS coefficients, residuals, and predicted values using QR decomposition.
-:doc:`../olsqrmt`              Computes OLS coefficients using QR decomposition.
+:doc:`../olsqr`                Computes OLS coefficients using :math:`QR` decomposition.
+:doc:`../olsqr2`               Computes OLS coefficients, residuals, and predicted values using :math:`QR` decomposition.
+:doc:`../olsqrmt`              Computes OLS coefficients using :math:`QR` decomposition.
 :doc:`../pacf`                 Computes sample partial autocorrelations.
 :doc:`../princomp`             Computes principal components of a data matrix.
 :doc:`../quantile`             Computes quantiles from data in a matrix, given specified probabilities.
@@ -297,7 +275,7 @@ Statistical Functions
 :doc:`../varcovxs`             Computes a sample variance-covariance matrix from a data matrix.
 :doc:`../varmall`              Computes the log-likelihood of a Vector ARMA model.
 :doc:`../varmares`             Computes the residuals of a Vector ARMA model.
-:doc:`../vcmvcx`               Computes a variance-covariance matrix from a matrix ``x`` or a moment matrix.
+:doc:`../vcmvcx`               Computes a variance-covariance matrix from a matrix :math:`x` or a moment matrix, :math:`x'x`.
 =====================       ===========================================
 
 
@@ -310,9 +288,8 @@ Series and Sequence Functions
 :doc:`../recsercp`             Computes recursive series involving products.
 :doc:`../recserrc`             Computes recursive series involving division.
 :doc:`../recservar`            Computes a vector autoregressive recursive.
-:doc:`../seqa`                 Creates an additive sequence.
+:doc:`../seqaseqm`             Creates an additive or multiplicative sequence, respectively.
 :doc:`../seqadt`               Creates a sequence of dates in DT scalar format.
-:doc:`../seqm`                 Creates a multiplicative sequence.
 :doc:`../seqaposix`            Creates a sequence of dates in posix date format, returned as a dataframe date variable.
 =====================       ===========================================
 
