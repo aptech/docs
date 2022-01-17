@@ -39,7 +39,7 @@ L
     lncdfn2
     lncdfnc
     lncdfn
-    lncfmvn
+    lncdfmvn
     lnfact
     lngammacplx
     lnpdfmvn

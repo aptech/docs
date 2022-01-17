@@ -5,8 +5,7 @@ Parallel looping
 ---------------------
 
 =================================          ===========================================
-:doc:`../threadfor`                        Begins a parallel ``for`` loop.
-:doc:`../threadendfor`                     Ends a parallel ``for`` loop.
+:doc:`../threadfor`                        Begins and ends a  parallel ``for`` loop.
 =================================          ===========================================
 
 Parallel sections

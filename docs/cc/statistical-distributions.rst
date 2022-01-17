@@ -11,8 +11,8 @@ Cumulative distributions
 :doc:`../cdfbinomial`              Computes the binomial cumulative distribution function.
 :doc:`../cdfbinomialinv`           Computes the binomial quantile or inverse cumulative distribution function.
 :doc:`../cdfbvn`                   Computes lower tail of bivariate Normal cdf.
-:doc:`../cdfBvn2`                  Returns cdfbvn of a bounded rectangle.
-:doc:`../cdfBvn2e`                 Returns cdfbvn of a bounded rectangle.
+:doc:`../cdfbvn2`                  Returns cdfbvn of a bounded rectangle.
+:doc:`../cdfbvn2e`                 Returns cdfbvn of a bounded rectangle and error estimates.
 :doc:`../cdfcauchy`                Computes the cumulative distribution function for the Cauchy distribution.
 :doc:`../cdfcauchyinv`             Computes the Cauchy inverse cumulative distribution function.
 :doc:`../cdfchic`                  Computes complement of cdf of :math:`\chi^2`.
@@ -33,13 +33,12 @@ Cumulative distributions
 :doc:`../cdfmvn`                   Computes multivariate Normal cdf.
 :doc:`../cdfmvnce`                 Computes the complement of the multivariate Normal cumulative distribution function with error management
 :doc:`../cdfmvne`                  Computes multivariate Normal cumulative distribution function with error management
-:doc:`../cdfMvn2e`                 Computes the multivariate Normal cumulative distribution function with error management over the range :math:`[a,b]`
+:doc:`../cdfmvn2e`                 Computes the multivariate Normal cumulative distribution function with error management over the range :math:`[a,b]`
 :doc:`../cdfmvtce`                 Computes complement of multivariate Student's t cumulative distribution function with error management
 :doc:`../cdfmvte`                  Computes multivariate Student's t cumulative distribution function with error management
-:doc:`../cdfMvt2e`                 Computes multivariate Student's t cumulative distribution function with error management over :math:`[a,b]`
-:doc:`../cdfn`                     Computes integral of Normal distribution: lower tail, or cdf.
-:doc:`../cdfN2`                    Computes interval of Normal cdf.
-:doc:`../cdfnc`                    Computes complement of cdf of Normal distribution (upper tail).
+:doc:`../cdfmvt2e`                 Computes multivariate Student's t cumulative distribution function with error management over :math:`[a,b]`
+:doc:`../cdfn`                     Computes integral (or complement) of Normal distribution: lower tail, or cdf.
+:doc:`../cdfn2`                    Computes interval of Normal cdf.
 :doc:`../cdfnegbinomial`           Computes the cumulative distribution function for the negative binomial distribution.
 :doc:`../cdfnegbinomialinv`        Computes the quantile or inverse negative binomial cumulative distribution function.
 :doc:`../cdfni`                    Computes the inverse of the cdf of the Normal distribution.
@@ -54,10 +53,8 @@ Cumulative distributions
 :doc:`../cdftruncnorm`             Computes the cumulative distribution function of the normal distibution over the interval from ``a`` to ``b``.
 :doc:`../cdfweibull`               Computes the cumulative distribution function for the Weibull distribution.
 :doc:`../cdfweibullinv`            Computes the Weibull inverse cumulative distribution function.
-:doc:`../erf`                      Computes Gaussian error function.
-:doc:`../erfc`                     Computes complement of Gaussian error function.
-:doc:`../erfccplx`                 Computes complement of Gaussian error function for complex inputs.
-:doc:`../erfcplx`                  Computes Gaussian error function for complex inputs.
+:doc:`../erferfc`                  Computes the Gaussian error function, or its complement.
+:doc:`../erfcplxerfccplx`          Computes the Gaussian error function for complex inputs or its complement.
 :doc:`../lncdfbvn`                 Computes natural log of bivariate Normal cdf.
 :doc:`../lncdfbvn2`                Returns log of cdfbvn of a bounded rectangle.
 :doc:`../lncdfmvn`                 Computes natural log of multivariate Normal cdf.
