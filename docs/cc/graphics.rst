@@ -16,9 +16,9 @@ Graph types
 :doc:`../plothist`                        Calculates and creates a frequency histogram plot.
 :doc:`../plothistf`                       Creates a histogram plot from a vector of frequencies.
 :doc:`../plothistp`                       Calculates and creates a percentage frequency histogram plot.
-:doc:`../plotloglog`                      Creates a 2-dimensional line plot with logarithmic scaling of the both the X and Y axes.
-:doc:`../plotlogx`                        Creates a 2-dimensional line plot with logarithmic scaling of the X axis.
-:doc:`../plotlogy`                        Creates a 2-dimensional line plot with logarithmic scaling of the Y axis.
+:doc:`../plotloglog`                      Creates a 2-dimensional line plot with logarithmic scaling of the both the x and y axes.
+:doc:`../plotlogx`                        Creates a 2-dimensional line plot with logarithmic scaling of the x-axis.
+:doc:`../plotlogy`                        Creates a 2-dimensional line plot with logarithmic scaling of the y-axis.
 :doc:`../plotpacf`                        Plots the partial autocorrelations function (PACF).
 :doc:`../plotpolar`                       Creates a polar plot.
 :doc:`../plotscatter`                     Creates a 2-dimensional scatter plot.
@@ -108,7 +108,7 @@ Graph settings
 :doc:`../plotgetdefaults`                 Gets default settings for graph types.
 ===================================    ============================================================================
 
-Title, legend  and text labels
+Title, legend and axis labels
 +++++++++++++++++++++++++++++++++
 ===================================    ============================================================================
 :doc:`../plotsetlegend`                   Adds a legend to a graph.
@@ -117,35 +117,40 @@ Title, legend  and text labels
 :doc:`../plotsetlegendfont`               Set the legend font for a graph.
 :doc:`../plotsetlegendtitle`              Controls the legend title.
 :doc:`../plotsettextinterpreter`          Controls the text interpreter (LaTeX, HTML) settings for a graph.
-:doc:`../plotsetticlabelfont`             Controls the font name, size and color for the X and Y axis tick labels.
 :doc:`../plotsettitle`                    Controls the settings for the title for a graph.
 :doc:`../plotsetxlabel`                   Controls the settings for the x-axis label on a graph.
 :doc:`../plotsetylabel`                   Controls the settings for the y-axis label on a graph.
 :doc:`../plotsetzlabel`                   Controls the settings for the z-axis label on a graph.
 ===================================    ============================================================================
 
-Axes, grid and ticks
+Axes and grid
 +++++++++++++++++++++++++++
 
 ===================================    ============================================================================
 :doc:`../plotsetaxespen`                  Sets the color for the axes line.
 :doc:`../plotsetgridpen`                  Controls the thickness, color, and style for the grid lines.
-:doc:`../plotsetticposition`              Controls if the x and y-axis tick is inside or outside the axis lines.
 :doc:`../plotsetoutlineenabled`           Turns on an outline around the plot.
-:doc:`../plotsetticlabelfont`             Controls the font name, size and color for the X and Y axis tick labels.
 :doc:`../plotsetwhichxaxis`               Assigns curves to the top or bottom x-axis.
 :doc:`../plotsetwhichyaxis`               Assigns curves to the right or left y-axis.
 :doc:`../plotsetxgridpen`                 Controls the thickness, color, and style for the grid lines from the x-axis.
 :doc:`../plotsetxpen`                     Controls the thickness, color, and style for the x-axis line.
-:doc:`../plotsetxminorticcount`           Controls the number of minor ticks to place between major ticks on the x-axis of a 2-D plot.
 :doc:`../plotsetxrange`                   Sets the range for the x-axis.
+:doc:`../plotsetygridpen`                 Controls the thickness, color, and style for the grid lines from the y-axis.
+:doc:`../plotsetypen`                     Controls the thickness, color, and style for the y-axis line.
+:doc:`../plotsetyrange`                   Sets the range for the y-axis.
+===================================    ============================================================================
+
+Axes ticks
++++++++++++++++++++++++++++
+
+===================================    ============================================================================
+:doc:`../plotsetticlabelfont`             Controls the font name, size and color for the x and y-axis tick labels.
+:doc:`../plotsetticposition`              Controls if the x and y-axis tick is inside or outside the axis lines.
+:doc:`../plotsetxminorticcount`           Controls the number of minor ticks to place between major ticks on the x-axis of a 2-D plot.
 :doc:`../plotsetxticinterval`             Controls the interval between x-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D time series graphs.
 :doc:`../plotsetxticlabel`                Controls the formatting and angle of x-axis tick labels for 2-D time series graphs.
 :doc:`../plotsetxticposition`             Controls if the x-axis tick is inside or outside the x-axis line.
-:doc:`../plotsetygridpen`                 Controls the thickness, color, and style for the grid lines from the y-axis.
 :doc:`../plotsetyminorticcount`           Controls the number of minor ticks to place between major ticks on the y-axis of a 2-D plot.
-:doc:`../plotsetypen`                     Controls the thickness, color, and style for the y-axis line.
-:doc:`../plotsetyrange`                   Sets the range for the y-axis.
 :doc:`../plotsetyticinterval`             Controls the interval between y-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D time series graphs.
 :doc:`../plotsetyticlabel`                Controls the formatting and angle of y-axis tick labels for 2-D graphs.
 :doc:`../plotsetyticposition`             Controls if the y-axis tick is inside or outside the y-axis line.
@@ -157,11 +162,9 @@ Line color, style and fill
 ===================================    ============================================================================
 :doc:`../plotsetbkdcolor`                 Sets background color of a graph.
 :doc:`../plotsetcolormap`                 Sets the color maps for a surface or contour plot.
-:doc:`../plotsetcontourlabels`            Sets the contour labels for a contour plot.
-:doc:`../plotsetfill`                     Settings for the background grid of a plot.
+:doc:`../plotsetfill`                     Sets the fill style, transparency and color for area plots, histograms and bar graphs.
 :doc:`../plotsetlinepen`                  Sets line color, thickness and style.
 :doc:`../plotsetlinesymbol`               Sets line symbols displayed on the plotted points of a graph.
-:doc:`../plotsetzlevels`                  Controls the heights at which lines are drawn on a contour plot.
 ===================================    ============================================================================
 
 Box and Bar settings

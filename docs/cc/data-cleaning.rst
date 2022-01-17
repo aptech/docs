@@ -28,8 +28,7 @@ Missing values
 :doc:`../impute`           Replaces missing values in the columns of a matrix by a specified imputation method.
 :doc:`../isinfnanmiss`     Returns true if the argument contains an infinity, NaN, or missing value.
 :doc:`../ismiss`           Returns 1 if matrix has any missing values, 0 otherwise.
-:doc:`../miss`             Converts specified elements in a matrix to GAUSS’s missing value code.
-:doc:`../missrv`           Replaces specified values with a missing value.
+:doc:`../missmissrv`       Converts (or replaces) specified elements in a matrix to GAUSS’s missing value code.
 :doc:`../missex`           Converts numeric values to the missing value code according to the values given in a logical expression.
 :doc:`../msym`             Controls the symbol printed to represent missing values.
 :doc:`../packr`            Deletes the rows of a matrix that contain any missing values.
