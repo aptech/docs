@@ -5,9 +5,9 @@ Data Import and Export
 General data loading
 -------------------------
 
-.. note:: :doc:`../loadd` and :doc:`../saved` are recommended for most cases when working with the following file types:
-    * GAUSS, SAS, Stata and SPSS datasets.
-    * CSV and Excel files with variable names in the first row.
+.. note:: :doc:`../loadd` and :doc:`../saved` are recommended for most cases when working with the following file types:<br /><br />
+           <ul><li>GAUSS, SAS, Stata and SPSS datasets.</li>
+           <li>CSV and Excel files with variable names in the first row.</li></ul>
 
 ======================       ====================================================================================
 :doc:`../getheaders`            Returns the variable names from a dataset as a string array.

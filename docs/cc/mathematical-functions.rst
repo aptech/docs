@@ -115,9 +115,6 @@ Linear Algebra
 :doc:`../lapgsvdcst`              Computes the generalized singular value decomposition of a pair of real or complex general matrices.
 :doc:`../lapgsvds`                Computes the generalized singular value decomposition of a pair of real or complex general matrices.
 :doc:`../lapgsvdst`               Computes the generalized singular value decomposition of a pair of real or complex general matrices.
-:doc:`../lapsvdcusv`              Computes the singular value decomposition a real or complex rectangular matrix, returns compact :math:`u` and :math:`v`.
-:doc:`../lapsvds`                 Computes the singular values of a real or complex rectangular matrix.
-:doc:`../lapsvdusv`               Computes the singular value decomposition a real or complex rectangular matrix.
 :doc:`../ldl`                     Computes the :math:`L` and :math:`D` factors of the LDL factorization of a real symmetric matrix.
 :doc:`../ldlp`                    Computes :math:`LDL` decomposition with row pivoting of a symmetric matrix.
 :doc:`../ldlsol`                  Computes Solves the system of equations :math:`LDLTx = b` using a matrix factorized by :doc:`../ldlp`.

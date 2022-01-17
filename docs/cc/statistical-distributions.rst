@@ -37,7 +37,7 @@ Cumulative distributions
 :doc:`../cdfmvtce`                 Computes complement of multivariate Student's t cumulative distribution function with error management
 :doc:`../cdfmvte`                  Computes multivariate Student's t cumulative distribution function with error management
 :doc:`../cdfmvt2e`                 Computes multivariate Student's t cumulative distribution function with error management over :math:`[a,b]`
-:doc:`../cdfn`                     Computes integral (or complement) of Normal distribution: lower tail, or cdf.
+:doc:`../cdfncdfnc`                Computes integral (or complement) of Normal distribution: lower tail, or cdf.
 :doc:`../cdfn2`                    Computes interval of Normal cdf.
 :doc:`../cdfnegbinomial`           Computes the cumulative distribution function for the negative binomial distribution.
 :doc:`../cdfnegbinomialinv`        Computes the quantile or inverse negative binomial cumulative distribution function.
