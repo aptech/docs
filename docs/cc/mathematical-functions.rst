@@ -30,7 +30,7 @@ Scientific functions
 :doc:`../lngamma`              Computes the natural log of the gamma function.
 :doc:`../log`                  Computes the log (base 10) of each element.
 :doc:`../mbesseli`             Computes modified and exponentially scaled modified Bessels of the first kind of the nth order.
-:doc:`../pi`                   Returns :math:`\pi`.
+:doc:`../pi`                   Returns the constant, :math:`\pi`.
 :doc:`../polygamma`            Computes the polygamma function of order :math:`n`.
 :doc:`../psi`                  Computes the psi (or digamma) function.
 :doc:`../sin`                  Computes sine.
@@ -101,8 +101,7 @@ Linear Algebra
 :doc:`../detl`                    Computes determinant of decomposed matrix.
 :doc:`../dot`                     Returns a scalar dot product of the columns of two matrices.
 :doc:`../hess`                    Computes upper Hessenberg form of a matrix (real matrices only).
-:doc:`../inv`                     Inverts a matrix.
-:doc:`../invpd`                   Inverts a positive definite matrix.
+:doc:`../invinvpd`                Inverts a square or positive-definite matrices, respectively.
 :doc:`../invswp`                  Computes a generalized sweep inverse.
 :doc:`../lapeighb`                Computes eigenvalues only of a real symmetric or complex Hermitian matrix selected by bounds.
 :doc:`../lapeighi`                Computes eigenvalues only of a real symmetric or complex Hermitian matrix selected by index.
@@ -220,63 +219,62 @@ The non-mt commands use the global variable _fcmptol to control the tolerance us
 Statistical Functions
 -------------------------
 
-=====================       ===========================================
-:doc:`../acf`                  Computes sample autocorrelations.
-:doc:`../astd`                 Computes the standard deviation of the elements across one dimension of an N-dimensional array.
-:doc:`../astds`                Computes the 'sample' standard deviation of the elements across one dimension of an N-dimensional array.
-:doc:`../chibarsquare`         Computes probability of chi-bar-square statistic.
-:doc:`../clusterse`            Computes the White cluster-robust standard errors.
-:doc:`../combinate`            Computes combinations of n things taken k at a time.
-:doc:`../combinated`           Writes combinations of n things taken k at a time to a GAUSS data set.
-:doc:`../conscore`             Computes constrained score statistic and its probability.
-:doc:`../conv`                 Computes convolution of two vectors.
-:doc:`../corrm`                Computes correlation matrix of a moment matrix.
-:doc:`../corrms`               Computes sample correlation matrix of a moment matrix.
-:doc:`../corrvc`               Computes correlation matrix from a variance- covariance matrix.
-:doc:`../corrx`                Computes correlation matrix.
-:doc:`../corrxs`               Computes sample correlation matrix.
-:doc:`../crossprd`             Computes cross product.
-:doc:`../design`               Creates a design matrix of 0's and 1's.
-:doc:`../dstatmt`              Computes descriptive statistics of a data set or matrix.
-:doc:`../dot`                  Computes a scalar dot product of the columns of two matrices.
-:doc:`../gdadstat`             Computes descriptive statistics on multiple Nx1 variables in a GDA.
-:doc:`../gdadstatmat`          Computes descriptive statistics on a selection of columns in a variable in a GDA.
-:doc:`../glm`                  Computes generalized linear regression of a matrix.
-:doc:`../gmmfit`               Computes generalized method of moments estimates from user specified moment function.
-:doc:`../gmmfitiv`             Estimate instrumental variables model using the generalized method of moments.
-:doc:`../loess`                Computes coefficients of locally weighted regression.
-:doc:`../loessmt`              Computes coefficients of locally weighted regression.
-:doc:`../meanc`                Computes mean value of each column of a matrix.
-:doc:`../median`               Computes medians of the columns of a matrix.
-:doc:`../moment`               Computes moment matrix (:math:`x'x`) with special handling of missing values.
-:doc:`../momentd`              Computes moment matrix from a data set.
-:doc:`../movingave`            Computes moving average of a series.
-:doc:`../movingaveexpwgt`      Computes exponentially weighted moving average of a series.
-:doc:`../movingavewgt`         Computes weighted moving average of a series.
-:doc:`../numcombinations`      Computes number of combinations of n things taken k at a time.
-:doc:`../ols`                  Computes least squares regression of data set or matrix.
-:doc:`../olsmt`                Computes least squares regression of data set or matrix.
-:doc:`../olsqr`                Computes OLS coefficients using :math:`QR` decomposition.
-:doc:`../olsqr2`               Computes OLS coefficients, residuals, and predicted values using :math:`QR` decomposition.
-:doc:`../olsqrmt`              Computes OLS coefficients using :math:`QR` decomposition.
-:doc:`../pacf`                 Computes sample partial autocorrelations.
-:doc:`../princomp`             Computes principal components of a data matrix.
-:doc:`../quantile`             Computes quantiles from data in a matrix, given specified probabilities.
-:doc:`../quantiled`            Computes quantiles from data in a data set, given specified probabilities.
-:doc:`../quantilefit`          Perform linear quantile regression.
-:doc:`../quantilefitloc`       Perform local linear or quadratic quantile regression.
-:doc:`../rndvm`                Computes von Mises pseudo-random numbers.
-:doc:`../robustse`             Computes the Huber-White heteroscedastic robust standard errors. The procedure uses the "sandwich" variance-covariance estimator with a small sample correction of :math:`(n)/(n-1)`.
-:doc:`../stdc`                 Computes standard deviation of the columns of a matrix.
-:doc:`../toeplitz`             Computes Toeplitz matrix from column vector.
-:doc:`../varcovm`              Computes the population variance-covariance matrix from a moment matrix.
-:doc:`../varcovms`             Computes a sample variance-covariance matrix from a moment matrix.
-:doc:`../varcovx`              Computes the population variance-covariance matrix from a data matrix.
-:doc:`../varcovxs`             Computes a sample variance-covariance matrix from a data matrix.
-:doc:`../varmall`              Computes the log-likelihood of a Vector ARMA model.
-:doc:`../varmares`             Computes the residuals of a Vector ARMA model.
-:doc:`../vcmvcx`               Computes a variance-covariance matrix from a matrix :math:`x` or a moment matrix, :math:`x'x`.
-=====================       ===========================================
+===========================       ===========================================
+:doc:`../acf`                      Computes sample autocorrelations.
+:doc:`../astd`                     Computes the standard deviation of the elements across one dimension of an N-dimensional array.
+:doc:`../astds`                    Computes the 'sample' standard deviation of the elements across one dimension of an N-dimensional array.
+:doc:`../chibarsquare`             Computes probability of chi-bar-square statistic.
+:doc:`../clusterse`                Computes the White cluster-robust standard errors.
+:doc:`../combinate`                Computes combinations of :math:`n` things taken :math:`k` at a time.
+:doc:`../combinated`               Writes combinations of :math:`n` things taken :math:`k` at a time to a GAUSS data set.
+:doc:`../conscore`                 Computes constrained score statistic and its probability.
+:doc:`../conv`                     Computes convolution of two vectors.
+:doc:`../corrm`                    Computes correlation matrix of a moment matrix.
+:doc:`../corrms`                   Computes sample correlation matrix of a moment matrix.
+:doc:`../corrvc`                   Computes correlation matrix from a variance- covariance matrix.
+:doc:`../corrx`                    Computes correlation matrix.
+:doc:`../corrxs`                   Computes sample correlation matrix.
+:doc:`../crossprd`                 Computes cross product.
+:doc:`../design`                   Creates a design matrix of 0's and 1's.
+:doc:`../dstatmt`                  Computes descriptive statistics of a data set or matrix.
+:doc:`../dot`                      Computes a scalar dot product of the columns of two matrices.
+:doc:`../gdadstat`                 Computes descriptive statistics on multiple Nx1 variables in a GDA.
+:doc:`../gdadstatmat`              Computes descriptive statistics on a selection of columns in a variable in a GDA.
+:doc:`../glm`                      Computes generalized linear regression of a matrix.
+:doc:`../gmmfit`                   Computes generalized method of moments estimates from user specified moment function.
+:doc:`../gmmfitiv`                 Estimate instrumental variables model using the generalized method of moments.
+:doc:`../loess`                    Computes coefficients of locally weighted regression.
+:doc:`../loessmt`                  Computes coefficients of locally weighted regression.
+:doc:`../meanc`                    Computes mean value of each column of a matrix.
+:doc:`../median`                   Computes medians of the columns of a matrix.
+:doc:`../moment`                   Computes moment matrix (:math:`x'x`) with special handling of missing values.
+:doc:`../momentd`                  Computes moment matrix from a data set.
+:doc:`../movingave`                Computes moving average of a series.
+:doc:`../movingaveexpwgt`          Computes exponentially weighted moving average of a series.
+:doc:`../movingavewgt`             Computes weighted moving average of a series.
+:doc:`../numcombinations`          Computes number of combinations of :math:`n` things taken :math:`k` at a time.
+:doc:`../ols`                      Computes least squares regression of data set or matrix.
+:doc:`../olsmt`                    Computes least squares regression of data set or matrix.
+:doc:`../olsqr`                    Computes OLS coefficients using :math:`QR` decomposition.
+:doc:`../olsqr2`                   Computes OLS coefficients, residuals, and predicted values using :math:`QR` decomposition.
+:doc:`../olsqrmt`                  Computes OLS coefficients using :math:`QR` decomposition.
+:doc:`../pacf`                     Computes sample partial autocorrelations.
+:doc:`../princomp`                 Computes principal components of a data matrix.
+:doc:`../quantile`                 Computes quantiles from data in a matrix, given specified probabilities.
+:doc:`../quantiled`                Computes quantiles from data in a data set, given specified probabilities.
+:doc:`../quantilefit`              Perform linear quantile regression.
+:doc:`../quantilefitloc`           Perform local linear or quadratic quantile regression.
+:doc:`../robustse`                 Computes the Huber-White heteroscedastic robust standard errors. The procedure uses the "sandwich" variance-covariance estimator with a small sample correction of :math:`(n)/(n-1)`.
+:doc:`../stdc`                     Computes standard deviation of the columns of a matrix.
+:doc:`../toeplitz`                 Computes Toeplitz matrix from column vector.
+:doc:`../varcovm`                  Computes the population variance-covariance matrix from a moment matrix.
+:doc:`../varcovms`                 Computes a sample variance-covariance matrix from a moment matrix.
+:doc:`../varcovx`                  Computes the population variance-covariance matrix from a data matrix.
+:doc:`../varcovxs`                 Computes a sample variance-covariance matrix from a data matrix.
+:doc:`../varmall`                  Computes the log-likelihood of a Vector ARMA model.
+:doc:`../varmares`                 Computes the residuals of a Vector ARMA model.
+:doc:`../vcmvcx`                   Computes a variance-covariance matrix from a matrix :math:`x` or a moment matrix, :math:`x'x`.
+===========================       ===========================================
 
 
 

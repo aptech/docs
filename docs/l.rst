@@ -41,6 +41,7 @@ L
     lncdfn
     lncdfmvn
     lnfact
+    lngamma
     lngammacplx
     lnpdfmvn
     lnpdfmvt
