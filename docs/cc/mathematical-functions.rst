@@ -229,11 +229,7 @@ Statistical Functions
 :doc:`../combinated`               Writes combinations of :math:`n` things taken :math:`k` at a time to a GAUSS data set.
 :doc:`../conscore`                 Computes constrained score statistic and its probability.
 :doc:`../conv`                     Computes convolution of two vectors.
-:doc:`../corrm`                    Computes correlation matrix of a moment matrix.
-:doc:`../corrms`                   Computes sample correlation matrix of a moment matrix.
-:doc:`../corrvc`                   Computes correlation matrix from a variance- covariance matrix.
-:doc:`../corrx`                    Computes correlation matrix.
-:doc:`../corrxs`                   Computes sample correlation matrix.
+:doc:`../corrmcorrvccorrx`         Computes an unbiased estimate of a correlation matrix from a moment matrix, variance-covariance matrix or general matrix.
 :doc:`../crossprd`                 Computes cross product.
 :doc:`../design`                   Creates a design matrix of 0's and 1's.
 :doc:`../dstatmt`                  Computes descriptive statistics of a data set or matrix.
@@ -267,13 +263,9 @@ Statistical Functions
 :doc:`../robustse`                 Computes the Huber-White heteroscedastic robust standard errors. The procedure uses the "sandwich" variance-covariance estimator with a small sample correction of :math:`(n)/(n-1)`.
 :doc:`../stdc`                     Computes standard deviation of the columns of a matrix.
 :doc:`../toeplitz`                 Computes Toeplitz matrix from column vector.
-:doc:`../varcovm`                  Computes the population variance-covariance matrix from a moment matrix.
-:doc:`../varcovms`                 Computes a sample variance-covariance matrix from a moment matrix.
-:doc:`../varcovx`                  Computes the population variance-covariance matrix from a data matrix.
-:doc:`../varcovxs`                 Computes a sample variance-covariance matrix from a data matrix.
 :doc:`../varmall`                  Computes the log-likelihood of a Vector ARMA model.
 :doc:`../varmares`                 Computes the residuals of a Vector ARMA model.
-:doc:`../vcmvcx`                   Computes a variance-covariance matrix from a matrix :math:`x` or a moment matrix, :math:`x'x`.
+:doc:`../vcmvcx`                   Computes an unbiased estimate of a variance-covariance matrix from a matrix :math:`x` or a moment matrix, :math:`x'x`.
 ===========================       ===========================================
 
 

@@ -14,8 +14,7 @@ Descriptive statistics
 :doc:`../modec`              Computes mode of each column of a matrix.
 :doc:`../quantile`           Computes quantiles from each column in a matrix, given specified probabilities.
 :doc:`../stdc`               Computes the sample standard deviation of the elements in each column of a matrix.
-:doc:`../vcm`                Computes an unbiased estimate a variance-covariance matrix from a moment matrix (:math:`x'x`).
-:doc:`../vcx`                Computes an unbiased estimate a variance-covariance matrix.
+:doc:`../vcmvcx`             Computes an unbiased estimate of a variance-covariance matrix from a matrix :math:`x` or a moment matrix, :math:`x'x`.
 ====================         ===========================================
 
 

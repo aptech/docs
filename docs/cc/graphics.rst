@@ -179,7 +179,7 @@ Contour settings
 
 ===================================    ============================================================================
 :doc:`../plotsetcontourlabels`         Sets the format and precision of contour height labels.
-:doc:`../plotsetzlabels`               Controls the heights at which lines are drawn on a contour plot.
+:doc:`../plotsetzlevels`               Controls the heights at which lines are drawn on a contour plot.
 ===================================    ============================================================================
 
 Annotations
