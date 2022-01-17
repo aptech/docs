@@ -29,9 +29,11 @@ Standard error methods
 Lower level estimation
 -------------------------
 
+.. note:: Use the slash operator :math:`b_hat = y / X` to compute least-squares estimates.
+
 ==================           ====================================================
 :doc:`../ldlsol`             Computes the solution to a system of linear equations given a factorized matrix returned by the function :doc:`../ldlp` and one or more right hand sides.
-:doc:`../lusol`              Computes the solution of :math:`LUx=b` where L and U are matrix factors returned by :doc:`../lu`.
+:doc:`../lusol`              Computes the solution of :math:`LUx=b` where :math:`L` and :math:`U` are matrix factors returned by :doc:`../lu`.
 :doc:`../olsqr`              Computes OLS coefficients using :math:`QR` decomposition.
 :doc:`../olsqr2`             Computes OLS coefficients, residuals, and predicted values using the :math:`QR` decomposition.
 :doc:`../solpd`              Solves a set of positive definite linear equations.
