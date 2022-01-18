@@ -29,7 +29,7 @@ You can open the **Data Import** window in three ways:
     :scale: 50%
 
 
-* Select data **File > Import Data** from the main GAUSS menu bar.
+* Select **File > Import Data** from the main GAUSS menu bar.
 * From the **Project Folders** window:
 
     * Double-click on the name of the data file.
