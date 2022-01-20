@@ -2,6 +2,25 @@
 Data types
 ==================
 
+Dataframes
+--------------
+
+====================
+asdf
+asdate
+dfname
+dftype
+hasmetadata
+====================
+
+===================
+getcollabels
+getcoldateformats
+setcollabels
+setbasecat
+===================
+
+
 
 Matrices
 ----------------
@@ -32,24 +51,22 @@ Size and range
 Other
 ++++++++++++++++++++++
 
-==================         ==================================================================
-:doc:`../diag`             Extracts the diagonal of a matrix.
-:doc:`../diagrv`           Puts a column vector into the diagonal of a matrix.
-:doc:`../lowmat`           Returns the main diagonal and lower triangle.
-:doc:`../lowmat1`          Returns a main diagonal of 1's and the lower triangle.
-:doc:`../upmat`            Returns the main diagonal and lower triangle.
-:doc:`../upmat1`           Returns a main diagonal of 1's and the lower triangle.
-==================         ==================================================================
+=======================         ==================================================================
+:doc:`../diag`                  Extracts the diagonal of a matrix.
+:doc:`../diagrv`                Puts a column vector into the diagonal of a matrix.
+:doc:`../lowmatlowmat1`         Returns the lower triangle of a matrix with the main diagonal or a diagonal of ones.
+:doc:`../upmatupmat1`           Returns the upper triangle of a matrix with the main diagonal or a diagonal of ones.
+=======================         ==================================================================
 
 Complex numbers
 +++++++++++++++++++++
 
 ==================         ==================================================================
-:doc:`../complex'              Creates a complex matrix from two real matrices.
-:doc:`../hasimag'              Tests whether the imaginary part of a complex matrix is negligible.
-:doc:`../imag'                 Returns the imaginary part of a complex matrix.
-:doc:`../iscplx'               Tests whether a matrix is complex.
-:doc:`../real'                 Returns the real part of a complex matrix.
+:doc:`../complex`              Creates a complex matrix from two real matrices.
+:doc:`../hasimag`              Tests whether the imaginary part of a complex matrix is negligible.
+:doc:`../imag`                 Returns the imaginary part of a complex matrix.
+:doc:`../iscplx`               Tests whether a matrix is complex.
+:doc:`../real`                 Returns the real part of a complex matrix.
 ==================         ==================================================================
 
 
@@ -59,7 +76,7 @@ N-Dimensional arrays
 Array creation
 +++++++++++++++++++++
 
-==================         ==================================================================
+=====================      ==================================================================
 :doc:`../aconcat`          Concatenates conformable matrices and arrays in a user-specified dimension.
 :doc:`../aeye`             Creates an N-dimensional array in which the planes described by the two trailing dimensions of the array are equal to the identity.
 :doc:`../areshape`         Reshapes a scalar, matrix, or array into an array of user-specified size.
@@ -67,17 +84,17 @@ Array creation
 :doc:`../arrayinit`        Creates an N-dimensional array with a specified fill value.
 :doc:`../mattoarray`       Converts a matrix to a type array.
 :doc:`../squeeze`          Remove any singleton dimensions from a multi-dimensional array.
-==================         ==================================================================
+=====================      ==================================================================
 
 Size and range
 +++++++++++++++++
 
-==================         ==================================================================
+====================       ==================================================================
 :doc:`../amax`             Moves across one dimension of an N-dimensional array and finds the largest element.
 :doc:`../amin`             Moves across one dimension of an N-dimensional array and finds the smallest element.
 :doc:`../getdims`          Gets the number of dimensions in an array.
 :doc:`../getorders`        Gets the vector of orders corresponding to an array.
-==================         ==================================================================
+====================       ==================================================================
 
 
 Selection and indexing
@@ -87,9 +104,9 @@ Selection and indexing
 :doc:`../arrayindex`           Converts a scalar vector index to a vector of indices for an N-dimensional array.
 :doc:`../getarray`             Gets a contiguous subarray from an N-dimensional array.
 :doc:`../getmatrix`            Gets a contiguous matrix from an N-dimensional array.
-:doc:`../getmatrix4D`          Gets a contiguous matrix from a 4-dimensional array.
-:doc:`../getscalar3D`          Gets a scalar from a 3-dimensional array.
-:doc:`../getscalar4D`          Gets a scalar from a 4-dimensional array.
+:doc:`../getmatrix4d`          Gets a contiguous matrix from a 4-dimensional array.
+:doc:`../getscalar3d`          Gets a scalar from a 3-dimensional array.
+:doc:`../getscalar4d`          Gets a scalar from a 4-dimensional array.
 :doc:`../loopnextindex`        Increments an index vector to the next logical index and jumps to the specified label if the index did not wrap to the beginning.
 :doc:`../nextindex`            Returns the index of the next element or subarray in an array.
 :doc:`../previousindex`        Returns the index of the previous element or subarray in an array.

@@ -7,7 +7,7 @@ Program control
 
 
 =====================    ======================================================
-:doc:`../changdir`       Changes the working directory within a program.
+:doc:`../changedir`      Changes the working directory within a program.
 :doc:`../end`            Terminates a program and closes all files.
 :doc:`../pause`          Pauses for the specified time.
 :doc:`../sleep`          Sleeps for the specified time.
@@ -24,8 +24,8 @@ Flow control
 :doc:`../break`                   Jumps out the bottom of a do or for loop.
 :doc:`../continue`                Jumps to the top of a do or for loop.
 :doc:`../dowhiledountil`          Executes a series of statements in a loop based on a conditional statement.
-for...:doc:`../endfor`            Loops with integer counter.
-:doc:`../ifelseelseifendif`       Conditional branching.
+:doc:`../for`                     Loops with integer counter.
+:doc:`../if`                      Conditional branching.
 :doc:`../waitwaitc`               Waits until any key is pressed.
 =============================    ======================================================
 
@@ -39,8 +39,7 @@ Error handling and debugging
 :doc:`../error`                   Creates user-defined error code.
 :doc:`../errorlog`                Sends an error message to screen and log file.
 :doc:`../errorlogat`              Sends an error message with the line number of the error report to the screen and log file.
-:doc:`../#linesoff`               Omits line number and file name records from program.
-:doc:`../#lineson`                Includes line number and file name records in program.
+:doc:`../linesonlinesoff`         Includes or omits line number and file name records from program.
 :doc:`../scalerr`                 Tests for a scalar error code.
 :doc:`../trace`                   Traces program execution for debugging.
 :doc:`../trap`                    Controls trapping of program errors.
@@ -70,13 +69,11 @@ User input
 ------------
 
 =============================    ======================================================
-:doc:`../con`                     Requests console input, creates matrix.
+:doc:`../con_`                    Requests console input, creates matrix.
 :doc:`../cons`                    Requests console input, creates string.
 :doc:`../key`                     Gets the next key from the keyboard buffer. If buffer is empty, returns a 0.
 :doc:`../keyav`                   Checks if keystroke is available.
 :doc:`../keyw`                    Gets the next key from the keyboard buffer. If buffer is empty, waits for a key.
-:doc:`../wait`                    Waits for a keystroke.
-:doc:`../waitc`                   Flushes buffer, then waits for a keystroke.
 =============================    ======================================================
 
 Output
