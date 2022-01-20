@@ -5,20 +5,27 @@ Data types
 Dataframes
 --------------
 
-====================
-asdf
-asdate
-dfname
-dftype
-hasmetadata
-====================
+======================     ==========================================================================
+:doc:`../asdf`             Converts a matrix or string array to a dataframe, and optionally sets the column names.
+:doc:`../asdate`           Converts vectors in Posix time or string dates to a GAUSS date variable and optionally sets the date display format.
+:doc:`../asmatrix`         Converts a dataframe to a matrix.
+:doc:`../dfname`           Sets the variable names of the columns of a dataframe.
+:doc:`../dftype`           Sets the types (numeric, categorical, date or string) of a dataframe.
+:doc:`../hasmetadata`      Checks to see if a symbol is a dataframe.
+======================     ==========================================================================
 
-===================
-getcollabels
-getcoldateformats
-setcollabels
-setbasecat
-===================
+============================     ==========================================================================
+:doc:`../getcollabels`           Returns the unique set of column labels and corresponding key values for a categorical variable.
+:doc:`../getcoldateformats`      Gets BSD strftime format specifiers for specified columns of a dataframe.
+:doc:`../getcolnames`            Returns the names of the columns (or variables) in a GAUSS dataframe.
+:doc:`../getcoltypes`            Returns the types for the columns (or variables) in a GAUSS dataframe.
+:doc:`../recodecatlabels`        Change categorical variable labels.
+:doc:`../reordercatlabels`       Change the order of categorical variable labels.
+:doc:`../setbasecat`             Sets a category in a categorical variable to be the base case.
+:doc:`../setcoldateformats`      Specifies how GAUSS should display dates using the BSD strftime format specifiers. Note that this will also convert the type of the columns specified by column to Date.
+:doc:`../setcollabels`           Set categorical variable labels.
+:doc:`../setcolmetadata`         Sets the variable names and types for the columns of a dataframe.
+============================     ==========================================================================
 
 
 

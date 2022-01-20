@@ -29,7 +29,7 @@ Sequences
 -----------------------------
 
 ============================     ======================================================================
-:doc:`../seqaDT`                  Creates a sequence of dates in DT scalar format.
+:doc:`../seqadt`                  Creates a sequence of dates in DT scalar format.
 :doc:`../seqaposix`               Creates a sequence of dates in Posix date/time format.
 ============================     ======================================================================
 
@@ -39,10 +39,10 @@ Differences and arithmetic
 ============================     ======================================================================
 :doc:`../etdays`                  Difference between two times, as a 4x1 date vector returned by :func:`../date`, in days.
 :doc:`../ethsec`                  Difference between two times, as a 4x1 date vector returned by :func:`../date`, in hundredths of a second.
-:doc:`../timeDeltaDT`             Adds (or subtracts) time to a DT scalar.
-:doc:`../timeDeltaPosix`          Adds (or subtracts) time to a posix date-time.
-:doc:`../timeDiffDT`              Computes the difference between two dates in DT scalar format.
-:doc:`../timeDiffPosix`           Computes the difference between two dates in Posix date/time format.
+:doc:`../timedeltadt`             Adds (or subtracts) time to a DT scalar.
+:doc:`../timedeltaposix`          Adds (or subtracts) time to a posix date-time.
+:doc:`../timediffdt`              Computes the difference between two dates in DT scalar format.
+:doc:`../timediffposix`           Computes the difference between two dates in Posix date/time format.
 ============================     ======================================================================
 
 

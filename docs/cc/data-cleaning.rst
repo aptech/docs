@@ -85,10 +85,10 @@ Sorting and set functions
 :doc:`../sortcsortcc`         Sorts a numeric matrix, character matrix or string array.
 :doc:`../sortindsortindc`     Returns the sorted index of x.
 :doc:`../sortmc`              Sorts a matrix on multiple columns.
-:doc:`../sortrsortc`          Sorts the columns of a matrix of numeric or character data, with respect to a specified row.
+:doc:`../sortrsortrc`         Sorts the columns of a matrix of numeric or character data, with respect to a specified row.
 :doc:`../union`               Returns the union of two vectors.
 :doc:`../unique`              Sorts and removes duplicate elements from a vector.
-:doc:`../uniquindx`           Computes the sorted index of x, leaving out duplicate elements.
+:doc:`../uniqindx`            Computes the sorted index of x, leaving out duplicate elements.
 ==========================    ===============================================================
 
 
@@ -134,9 +134,8 @@ Transform
 :doc:`../shiftr`               Shifts rows of a matrix, filling in holes with a specified value.
 :doc:`../subscat`              Changes the values in a vector depending on the category a particular element falls in.
 :doc:`../substute`             Substitutes new values for old values in a matrix, depending on the outcome of a logical expression.
-:doc:`../vec`                  Stacks columns of a matrix to form a single column.
+:doc:`../vecvecr`              Stacks columns or rows of a matrix to form a single column.
 :doc:`../vech`                 Reshapes the lower triangular portion of a symmetric matrix into a column vector.
-:doc:`../vecr`                 Stacks rows of a matrix to form a single column.
 :doc:`../xpnd`                 Expands a column vector into a symmetric matrix.
 =========================      ==================================================================
 
