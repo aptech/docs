@@ -1,7 +1,7 @@
 Time and Date
 =======================
 
-.. note:: GAUSS date variables store dates in Posix format, so all "posix" functions work with GAUSS date variables.
+.. note:: Date variables in a GAUSS dataframe store dates in Posix format, so all "posix" functions work with GAUSS date variables.
 
 Conversion and formatting
 --------------------------------
@@ -11,7 +11,6 @@ Conversion and formatting
 :doc:`../dttoposix`               Converts DT scalar format to POSIX date/time format.
 :doc:`../dttostr`                 Converts a matrix containing dates in DT scalar format to a string array.
 :doc:`../dttostrc`                Converts a date in DT Scalar format into a string array.
-:doc:`../dttoposix`               Converts DT scalar format to Posix scalar format.
 :doc:`../dttoutc`                 Converts DT scalar format to UTC scalar format.
 :doc:`../dtvnormal`               Normalizes a date and time (DTV) vector.
 :doc:`../dtvtodt`                 Converts DTV vector format to DT scalar format.
@@ -37,8 +36,8 @@ Differences and arithmetic
 -----------------------------
 
 ============================     ======================================================================
-:doc:`../etdays`                  Difference between two times, as a 4x1 date vector returned by :func:`../date`, in days.
-:doc:`../ethsec`                  Difference between two times, as a 4x1 date vector returned by :func:`../date`, in hundredths of a second.
+:doc:`../etdays`                  Difference between two times, as a 4x1 date vector returned by :doc:`../date`, in days.
+:doc:`../ethsec`                  Difference between two times, as a 4x1 date vector returned by :doc:`../date`, in hundredths of a second.
 :doc:`../timedeltadt`             Adds (or subtracts) time to a DT scalar.
 :doc:`../timedeltaposix`          Adds (or subtracts) time to a posix date-time.
 :doc:`../timediffdt`              Computes the difference between two dates in DT scalar format.
@@ -49,11 +48,11 @@ Differences and arithmetic
 
 ============================     ======================================================================
 :doc:`../date`                    Returns current system date in a 4x1 vector.
-:doc:`../datestr`                 Formats a 4x1 date vector, as returned by :func:`../date`, as ``mm/dd/yy``.
-:doc:`../datestring`              Formats a 4x1 date vector, as returned by :func:`../date`, as ``mm/dd/yyyy``.
-:doc:`../datestrymd`              Formats a 4x1 date vector, as returned by :func:`../date`, as ``yyyymmdd``.
-:doc:`../dayinyr`                 Returns the day of year as an integer from a 3x1 or 4x1 vector as returned by :func:`../date`.
-:doc:`../dayofweek`               Returns the day of week as an integer from from a 3x1 or 4x1 vector as returned by :func:`../date`.
+:doc:`../datestr`                 Formats a 4x1 date vector, as returned by :doc:`../date`, as ``mm/dd/yy``.
+:doc:`../datestring`              Formats a 4x1 date vector, as returned by :doc:`../date`, as ``mm/dd/yyyy``.
+:doc:`../datestrymd`              Formats a 4x1 date vector, as returned by :doc:`../date`, as ``yyyymmdd``.
+:doc:`../dayinyr`                 Returns the day of year as an integer from a 3x1 or 4x1 vector as returned by :doc:`../date`.
+:doc:`../dayofweek`               Returns the day of week as an integer from from a 3x1 or 4x1 vector as returned by :doc:`../date`.
 :doc:`../hsec`                    Returns elapsed time since midnight in hundredths of a second.
 ============================     ======================================================================
 
@@ -64,7 +63,7 @@ Differences and arithmetic
 :doc:`../dttodtv`                 Converts DT scalar format to DTV vector format.
 :doc:`../time`                    Returns current system time.
 :doc:`../timedt`                  Returns system date and time in DT scalar format.
-:doc:`../timestr`                 Formats time as ''hh:mm:ss''.
+:doc:`../timestr`                 Formats time as ``hh:mm:ss``
 :doc:`../timeutc`                 Returns the number of seconds since January 1, 1970 Greenwich Mean Time.
 :doc:`../todaydt`                 Returns system date in DT scalar format. The time returned is always midnight (00:00:00), the beginning of the returned day.
 ============================     ======================================================================
