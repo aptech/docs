@@ -48,7 +48,7 @@ This time, the code will:
 
 
 1. Add the folder, ``C:\Users\Research\Progs\src`` to the front of the GAUSS source path.
-2. GAUSS will look for the ``myfile.src`` file in:
+2. GAUSS will look for the ``myfile.src`` file in
     a. The current working directory.
     b. The first folder in the source path, which will now be ``C:\Users\Research\Progs\src``.
 
@@ -58,7 +58,8 @@ Remarks
 
 * Use :func:`resetsourcepaths` to reset your GAUSS source paths to what they were when you started GAUSS.
 * If ``#includedir`` is used from the command window, GAUSS will add the current working directory (or a path relative to the current working directory) to the source path.
-* You can view your current source path with the command:
+* You can view your current source path with the command
+
     ::
 
         // Print the current source path
