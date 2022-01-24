@@ -31,7 +31,7 @@ For this example, let's assume that the following contents were added to a file 
 The above code will:
 
 1. Add the folder, ``C:\Users\Research\Progs`` to the front of the GAUSS source path.
-2. GAUSS will look for the ``myfile.src`` file in\:
+2. GAUSS will look for the ``myfile.src`` file in
     a. The current working directory.
     b. The first folder in the source path, which will now be ``C:\Users\Research\Progs``.
 
@@ -48,9 +48,9 @@ This time, the code will:
 
 
 1. Add the folder, ``C:\Users\Research\Progs\src`` to the front of the GAUSS source path.
-2. GAUSS will look for the ``myfile.src`` file in\:
-    a. The current working directory.
-    b. The first folder in the source path, which will now be ``C:\Users\Research\Progs\src``.
+2. GAUSS will look for the ``myfile.src`` file in
+    i. The current working directory.
+    ii. The first folder in the source path, which will now be ``C:\Users\Research\Progs\src``.
 
 
 Remarks
