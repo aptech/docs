@@ -21,6 +21,7 @@ F
     fgetst
     fileinfo
     filesa
+    fix
     floor
     fmod
     fn
@@ -34,7 +35,7 @@ F
     fputst
     frequency 
     fseek
-    fsterror
+    fstrerror
     ftell
     ftocv
     ftos

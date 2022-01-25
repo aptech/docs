@@ -3,7 +3,23 @@ Command Reference
 
 .. toctree::
     :maxdepth: 1
-    :caption: Functions:
+    :caption: Commands by Category:
+
+    cc/data-import-and-export
+    cc/data-cleaning
+    cc/descriptive-statistics
+    cc/estimation-methods
+    cc/graphics
+    cc/optimization-and-solution
+    cc/mathematical-functions
+    cc/statistical-distributions
+    cc/string-handling
+    cc/parallelization
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Index:
 
     _
     a

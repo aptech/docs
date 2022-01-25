@@ -37,6 +37,26 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
     ---
 
+    Data Management
+    ^^^^^^^^^^^^^^^
+
+    .. container:: icon-large
+
+      :fa:`database`
+
+    .. container:: text-left
+
+      Learn how to import, export, clean, and transform your data.
+
+    +++
+
+    .. link-button:: data-management
+        :type: ref
+        :text: Explore
+        :classes: btn-outline-primary btn-block stretched-link
+
+    ---
+
     Machine Learning
     ^^^^^^^^^^^^^^^^
 
@@ -77,25 +97,6 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
     ---
 
-    Tutorials
-    ^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`external-link`
-
-    .. container:: text-left
-
-      View tutorials on the main aptech.com website.
-
-    +++
-
-    .. link-button:: https://www.aptech.com/resources/tutorials
-        :text: Leave
-        :classes: btn-outline-primary btn-block stretched-link
-
-    ---
-
     Textbook Examples
     ^^^^^^^^^^^^^^^^^
 
@@ -112,6 +113,25 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
     .. link-button:: textbook-examples/index
         :type: ref
         :text: Explore
+        :classes: btn-outline-primary btn-block stretched-link
+
+    ---
+
+    Tutorials
+    ^^^^^^^^^
+
+    .. container:: icon-large
+
+      :fa:`external-link-alt`
+
+    .. container:: text-left
+
+      View tutorials on the main aptech.com website.
+
+    +++
+
+    .. link-button:: https://www.aptech.com/resources/tutorials
+        :text: Leave
         :classes: btn-outline-primary btn-block stretched-link
 
 
