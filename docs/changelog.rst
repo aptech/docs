@@ -4,13 +4,14 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
-22.0.4
+22.1.0
 ------
 
 #. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedome adjustment used in the computation.
 #. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
 #. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.
 #. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
+#. Bug Fix: Indexing a dataframe in a specific manner resulting in a scalar could sometimes omit the metadata.
 
 22.0.3
 ------
