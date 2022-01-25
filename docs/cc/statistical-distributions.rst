@@ -1,6 +1,6 @@
 
-Statistical Distributions
-================================
+Statistical distributions and sampling
+============================================
 
 Cumulative distributions
 ------------------------------
@@ -119,5 +119,12 @@ Random Numbers
 :doc:`../rndweibull`                Computes Weibull pseudo-random numbers with the choice of underlying random number generator.
 :doc:`../rndwishart`                Computes Wishart pseudo-random matrices with the choice of underlying random number generator.
 :doc:`../rndwishartinv`             Computes inverse Wishart pseudo-random matrices with the choice of underlying random number generator.
+==========================          ===========================================
+
+Sampling
+---------------
+
+==========================          ===========================================
+:doc:`../sampledata`                Returns a sample of the rows of a dataframe or matrix, chosen with or without replacement
 ==========================          ===========================================
 
