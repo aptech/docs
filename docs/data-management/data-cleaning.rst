@@ -1,4 +1,4 @@
-Data cleaning
+Data Cleaning
 ==================
 
 Interactive Data Cleaning
@@ -898,7 +898,7 @@ After the above code:
 Changing categorical variable base case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :func:`setcatbasecase` function provides a convenient way to set the base case for a categorical variable.
+The :func:`setbasecat` function provides a convenient way to set the base case for a categorical variable.
 
 ::
 
@@ -922,7 +922,7 @@ You can change ``"G"`` to the base case like this:
 ::
 
     // Change the `G` category to the basecase
-    nba = setCatBaseCase(nba, "G", "pos");
+    nba = setBaseCat(nba, "G", "pos");
 
     // Get new labels
     { labels, values } = getColLabels(nba, "pos");
