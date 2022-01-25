@@ -36,7 +36,9 @@ The above code will:
 Relative path example
 +++++++++++++++++++++++
 
-Let's say that we have decided to move all of our ``.src`` files to a sub-folder named ``src`` located inside of ``C:\Users\Research\Progs``. If we change our code to:
+As with our previous example, let's assume that the code block below is in a file named ``main.gss`` in the folder ``C:\Users\Research\Progs``.
+
+This time, however,  we have decided to move all of our ``.src`` files to a sub-folder named ``src`` located inside of ``C:\Users\Research\Progs``. Therefore we change our code to:
 
 
 ::
