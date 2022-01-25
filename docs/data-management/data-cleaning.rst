@@ -222,7 +222,7 @@ The input may be either a dataset file name or the name of a data matrix current
     dataset = getGAUSSHome() $+ "examples/freqdata.dat";
 
     // Compute descriptive statistics and print report
-    call dstatmt("freqdata.dat");
+    call dstatmt(dataset);
 
 ::
 
