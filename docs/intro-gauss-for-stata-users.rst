@@ -214,13 +214,13 @@ The GAUSS **Data Import** window is a completely interactive environment for loa
 
 The **Data Import** window offers a data import experience most similar to STATA’s menu driven data import. Like STATA, the GAUSS **Data Import** window auto-generates code that can be reused.
 
-.. figure:: /static/images/data-import-code-generation.png
+.. figure:: _static/images/data-import-code-generation.png
     :scale: 50%
 
 
 You can open the **Data Import** window in three ways:
 
-.. figure:: ../_static/images/data-import-project-folder.jpg
+.. figure:: _static/images/data-import-project-folder.jpg
     :scale: 50%
 
 
@@ -237,7 +237,7 @@ Viewing Data
 Data can be viewed in GAUSS a number of ways:
 
 * Using the **GAUSS Data Editor**.
-.. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
+.. figure:: /_static/images/data-cleaning-open-symbol-editor-filter.jpg
     :scale: 50%
 * Opening a floating **Symbols Editor** window using `Ctrl+E`.
 * Printing data to the **Command Window**.
