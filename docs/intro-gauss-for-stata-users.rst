@@ -325,6 +325,7 @@ Matrix operations
 GAUSS is a matrix based language and matrix operations play a fundamental role in GAUSS computations.
 
 **Common Matrix Operators**
+
 +--------------------+-----------------------+-------------------------+
 |Description         | GAUSS                 | STATA                   |
 +====================+=======================+=========================+
@@ -341,6 +342,7 @@ GAUSS is a matrix based language and matrix operations play a fundamental role i
 When dealing with matrices, it is also important to distinguish matrix operations from element-by-element operations. In STATA, element-by-element operations are specified with a colon ``:``. In GAUSS, element-by-element operations are specified by a dot ``.``.
 
 **Element-by-element (ExE) Operators**
+
 +---------------------------------+-----------------------+-------------------------+
 |Description                      | GAUSS                 | STATA                   |
 +=================================+=======================+=========================+
