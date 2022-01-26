@@ -102,8 +102,12 @@ In STATA, the ``input`` statement is used to build a datasets from specified val
 In GAUSS, a dataframe can be manually entered from values and variable names using the :func:`asDF` procedure:
 
 ::
-
+  // Create a 2 x 3 matrix
   mat = { 1 2, 3 4, 5 6};
+
+  // Convert matrix to a dataframe
+  // and name the first column "X"
+  // and the second column "Y"
   df = asDF(mat, “X”, “Y”);
 
 Reading external dataset
@@ -136,6 +140,8 @@ In GAUSS, all data files are loaded using the :func:`loadd` procedure. For examp
 
 ::
 
+  // Load all variables from the file auto2.dta
+  // using their default types
   auto2 = loadd("C:/gauss22/examples/auto2.dta");
 
 This load all the variable in the dataset and auto-detects their type.
@@ -149,6 +155,9 @@ For example, let’s consider  loading `nba_ht_wt.xls` in GAUSS we use
 
 ::
 
+    // Load the file tips2.csv-table
+    // using a formula string to select variables
+    // and specify variable types
     nba_ht_wt = loadd("C:/gauss22/examples/nba_ht_wt.xls",
                       "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate)");
 
@@ -156,6 +165,9 @@ Similarly, the `tips2.csv` data file:
 
 ::
 
+    // Load the file tips2.csv-table
+    // using a formula string to select variables
+    // and specify variable types
     tips2 = loadd("C:/gauss22/examples/tips2.csv",
                   "id + total_bill + tip + cat(sex) + cat(smoker) + cat(day) + cat(time) + size");
 
@@ -316,7 +328,13 @@ In GAUSS, these operations are performed using operators, with no additional com
 
 ::
 
+  // Subtract 2 from all observations of the
+  // variable total_bill in the tips2 dataframe
   tips2[., “total_bill”] = tips2[., “total_bill”] - 2;
+
+  // Dived all observations of the
+  // variable total_bill in the tips2 dataframe
+  // by 2
 	tips2[., “new_bill”] = tips2[., “new_bill”]/2;
 
 
@@ -378,6 +396,8 @@ Programmatically this is done using the selif procedure
 
 ::
 
+  // Select observations from the tips2 dataframe with
+  // where the total_bill variable is greater than 10
   tips2 = selif(tips2, tips2[., "total_bill"] .> 10);
 
 More information about filtering data can be found in:
@@ -429,4 +449,76 @@ We can accomplish the same sorting as the STATA line above using
 
 ::
 
+  // Sort the tips2 dataframe
+  // based on sex and total_bill
+  // variables
   tips2 = sortmc(tips2, "sex"$|"total_bill");
+
+Date Functionality
+--------------------
+GAUSS dataframes include a date data type which makes it convenient to read, format, and use dates in analysis.
+
+Date variables can be loaded interactively using the **Data Import** window or programmatically using :func:`loadd` and the ``date`` keyword.
+
+Creating usable dates from raw data
+++++++++++++++++++++++++++++++++++++++
+In STATA, dates are most often imported as strings from raw data. They must then be converted to usable date types using the ``date()`` function and a readable format is set using format
+
+For example, when the `yellowstone.csv` dataset is imported into STATA, the variable date is a string variable
+The `date` variable must be converted to a date type
+
+.. code-block:: stata
+
+	generate date_var = date(date, “YMD”);
+
+and the viewing format should be set
+
+.. code-block:: stata
+
+	format date_var %d.
+
+In GAUSS, dates can be directly read in as date variables using the :func:`loadd` procedure and the ``date`` keyword. The :func:`loadd` procedure automatically detects a number of date formats and doesn’t require a format specification unless a custom format is being used in the raw data
+
+::
+
+  // Load the variable Visits, LowtTep, HighTemp and Date
+  // from the file `yellowstone.csv`
+  yellowstone = loadd("C:/gauss22/examples/yellowstone.csv", "Visits + LowtTemp + HighTemp + date($Date)");
+
+[IMAGE OF LOADED DATA AND DATE VARIABLE]
+
+Creating dates from existing strings
+++++++++++++++++++++++++++++++++++++++
+The GAUSS :func:`asDate` procedure works similarly to the STATA ``date()`` function and can be used to convert strings to dataframe dates. For example, suppose we want to convert the string ``“2002/10/01”`` to a date.
+
+In STATA, we use
+
+.. code-block:: stata
+
+  generate date_var = date(“2002/10/01”, “YMD”)
+
+when we do this is STATA the data is displayed in the date numeric format and we have to use the format command to change the display format
+
+.. code-block:: stata
+
+	format date_var %d
+
+In GAUSS, this is done using the :func:`asDate` procedure and a specified ``fmt`` string:
+
+::
+
+  // Convert string date “2002/10/01” to
+  // date variable
+	date_var = asDate(“2002/10/01”, “%Y/%m/%d”);
+
+Changing the display format
+++++++++++++++++++++++++++++++++++++++
+Once a date variable has been imported or created, the display format can be specified either interactively using the GAUSS **Data Management Tool**
+
+or programmatically using :func:`asDate`
+
+::
+
+  // Convert `Date` variable from string variable
+  // to date variable
+  yellowstone =  asdate(yellowstone, "%b-%d-%Y", "Date");
