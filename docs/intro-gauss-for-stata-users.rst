@@ -23,7 +23,7 @@ In STATA, most people are familiar with working with a single dataset in memory.
 
 What is a GAUSS dataframe?
 ++++++++++++++++++++++++++++++
-.. figure:: /static/images/data-import-window-1.jpg
+.. figure:: _static/images/data-import-window-1.jpg
     :scale: 50%
 
 The GAUSS dataframe is used to store two-dimensional data and allows you to store:
@@ -140,7 +140,7 @@ In GAUSS, all data files are loaded using the :func:`loadd` procedure. For examp
 
 This load all the variable in the dataset and auto-detects their type.
 
-.. figure:: /static/images/data-import-window-1.jpg
+.. figure:: _static/images/data-import-window-1.jpg
     :scale: 50%
 
 Sometimes, you may need to specify the type and/or variables that you wish to load. This is done using a `formula string <https://www.aptech.com/resources/tutorials/formula-string-syntax/>`_:
@@ -222,10 +222,6 @@ The **Data Import** window offers a data import experience most similar to STATA
 
 You can open the **Data Import** window in three ways:
 
-.. figure:: _static/images/data-import-project-folder.jpg
-    :scale: 50%
-
-
 * Select **File > Import Data** from the main GAUSS menu bar.
 * From the **Project Folders** window:
 
@@ -239,7 +235,7 @@ Viewing Data
 Data can be viewed in GAUSS a number of ways:
 
 * Using the **GAUSS Data Editor**.
-.. figure:: /_static/images/data-cleaning-open-symbol-editor-filter.jpg
+.. figure:: _static/images/data-cleaning-open-symbol-editor-filter.jpg
     :scale: 50%
 * Opening a floating **Symbols Editor** window using `Ctrl+E`.
 * Printing data to the **Command Window**.
