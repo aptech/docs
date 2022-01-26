@@ -27,7 +27,6 @@ What is a GAUSS dataframe?
     :scale: 50%
 
 The GAUSS dataframe is used to store two-dimensional data and allows you to store:
-
   * Data in rows and columns, similar to the GAUSS matrix.
   * Metadata about the data type and type-related properties.
   * Different variables together, including categorical data, strings, and dates.
