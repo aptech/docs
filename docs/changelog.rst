@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 22.1.0
 ------
 
+#. New functions :func:`head` and :func:`tail` allow convenient previewing of the first or last rows of data.
 #. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedome adjustment used in the computation.
 #. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
 #. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.

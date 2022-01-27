@@ -80,9 +80,11 @@ Output
 -----------
 
 =============================    ======================================================
+:doc:`../head`                   Returns the first ``n`` rows of a matrix, dataframe or string array.
 :doc:`../output`                 Directs printed output to a file.
 :doc:`../print`                  Prints matrices, arrays, strings and string arrays to the screen and/or auxiliary output.
 :doc:`../sprintf`                Converts numeric vectors, string vectors and their combinations into formatted strings.
+:doc:`../tail`                   Returns the last ``n`` rows of a matrix, dataframe or string array.
 =============================    ======================================================
 
 

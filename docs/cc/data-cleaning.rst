@@ -22,9 +22,11 @@ Selection
 :doc:`../delrows`              Removes observations (rows) from a dataframe by index.
 :doc:`../diag`                 Extracts the diagonal of a matrix.
 :doc:`../getmatrix`            Gets a contiguous matrix from an N-dimensional array.
+:doc:`../head`                 Returns the first ``n`` rows of a matrix, dataframe or string array.
 :doc:`../selif`                Keeps rows of data based on a logical expression.
 :doc:`../submat`               Extracts a submatrix from a matrix.
 :doc:`../subvec`               Extracts an Nx1 vector of elements from an NxK matrix.
+:doc:`../tail`                 Returns the last ``n`` rows of a matrix, dataframe or string array.
 :doc:`../trimr`                Trims rows from the top or bottom.
 =====================       ===========================================
 
