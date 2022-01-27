@@ -13,6 +13,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.
 #. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
 #. Bug Fix: Indexing a dataframe in a specific manner resulting in a scalar could sometimes omit the metadata.
+#. Bug Fix: Metadata cache would sometimes not be kept when the LRU cache was full.
 
 22.0.3
 ------
