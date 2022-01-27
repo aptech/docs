@@ -163,7 +163,7 @@ Line color, style and fill
 ===================================    ============================================================================
 :doc:`../plotsetbkdcolor`                 Sets background color of a graph.
 :doc:`../plotsetcolormap`                 Sets the color maps for a surface or contour plot.
-:doc:`../plotsetfill`                     Sets the fill style, transparency and color for area plots, histograms and bar graphs.
+:doc:`../plotsetfill`                     Sets the fill style, transparency and color for scatter symbols, area plots, histograms and bar graphs.
 :doc:`../plotsetlinepen`                  Sets line color, thickness and style.
 :doc:`../plotsetlinesymbol`               Sets line symbols displayed on the plotted points of a graph.
 ===================================    ============================================================================

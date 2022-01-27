@@ -29,7 +29,7 @@ Standard error methods
 Lower level estimation
 -------------------------
 
-.. note:: Use the slash operator :math:`b = y / X` to compute least-squares estimates.
+.. note:: For most cases, the slash operator ``b_hat = y / X`` or :func:`olsqr` are the preferred methods to compute least-squares estimates.
 
 ==================           ====================================================
 :doc:`../ldlsol`             Computes the solution to a system of linear equations given a factorized matrix returned by the function :doc:`../ldlp` and one or more right hand sides.

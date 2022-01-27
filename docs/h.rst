@@ -13,6 +13,7 @@ H
     h5write
     hasimag
     hasmetadata
+    head
     headermt
     header
     hessmtg

@@ -4,7 +4,7 @@ plotSetFill
 
 Purpose
 ----------------
-Sets the fill style, transparency and color for area plots, histograms and bar graphs.
+Sets the fill style, transparency and color for scatter symbols, area plots, histograms and bar graphs.
 
 Format
 ----------------

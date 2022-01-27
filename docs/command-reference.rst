@@ -5,6 +5,7 @@ Command Reference
     :maxdepth: 1
     :caption: Commands by Category:
 
+    cc/data-types
     cc/data-import-and-export
     cc/data-cleaning
     cc/descriptive-statistics
@@ -13,8 +14,11 @@ Command Reference
     cc/optimization-and-solution
     cc/mathematical-functions
     cc/statistical-distributions
+    cc/time-and-date
     cc/string-handling
+    cc/programming
     cc/parallelization
+    cc/workspace-file-folder-os
 
 
 .. toctree::

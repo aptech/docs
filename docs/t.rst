@@ -6,6 +6,7 @@ T
     :caption: Functions:
 
     tab
+    tail
     tanh
     tan
     tempname
