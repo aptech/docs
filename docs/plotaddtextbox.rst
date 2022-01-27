@@ -107,7 +107,7 @@ create a new graph if one does not already exist.
 .. NOTE:: The top left corner of the bounding box will be located at the
     point on the graph that you specify. If the border is turned off, the
     text will not touch the exact coordinate that you input. In many cases
-    this makes is simpler to label a point that is already part of a scatter
+    this makes it simpler to label a point that is already part of a scatter
     or line series without covering it.
 
 Unlike the functions that add data to a plot, if a textbox created by
