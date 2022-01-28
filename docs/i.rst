@@ -9,6 +9,7 @@ I
     imag
     impute
     include
+    includedir
     indcv
     indexcat
     indices2

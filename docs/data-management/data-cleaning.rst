@@ -1,12 +1,15 @@
+Data Cleaning
+==================
+
 Interactive Data Cleaning
-=========================
+-----------------------------
 
 Interactive data cleaning can be performed in the **Data Import** window before import, or in a GAUSS **Symbol Editor** after it is loaded.
 
 This section will show how to clean data using the **Data Management** pane of a **Symbol Editor**. Most actions will be the same in the **Data Import** window. See `Interactive Data Import <./interactive-import.html>`_
 
 The Data Management pane
------------------------------------------------------------
++++++++++++++++++++++++++++
 
 .. figure:: ../_static/images/data-management-pane.jpg
     :scale: 50%
@@ -25,7 +28,7 @@ The **Data Management** pane contains:
 
 
 Open the Data Management page
------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
 
@@ -38,13 +41,13 @@ To open the **Data Management** pane for an in-memory dataframe:
 
 
 Missing values
---------------------
+++++++++++++++++++++
 
 Missing values are represented by a ``.`` for data loaded into GAUSS.
 
 
 Remove observations with missing values interactively
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: ../_static/images/data-cleaning-filter-missings.jpg
     :scale: 50%
@@ -58,10 +61,10 @@ All observations where the selected variable contains a  missing value will be g
 You can click **Apply** or continue to create more filters.
 
 Data organization
---------------------
+++++++++++++++++++++
 
 Changing variable names
-+++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 .. figure:: ../_static/images/data-organization-rename-variable.jpg
@@ -75,7 +78,7 @@ Changing variable names
 These changes will not be made until you click **Apply**.
 
 Deleting columns from a matrix
-+++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Clear the check box next to the name of the variables you want to remove from the data.
 
@@ -83,7 +86,7 @@ These changes will not be made until you click **Apply**.
 
 
 Filtering observations of a dataframe
-+++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The **Data Management** pane provides the following options for filtering dataframes.
 
@@ -129,7 +132,7 @@ Filter based numeric value
 
 
 Apply changes
-------------------------
+++++++++++++++++++++++++
 
 
 The **Apply** button at the bottom of the **Data Management** pane allows you to apply the variable modifications and filters created.
@@ -142,10 +145,10 @@ To modify the current dataframe, either click **Apply** or click the drop-down a
 To create a new dataframe containing your changes, click the drop-down next to the **Apply** button and select **Create New**. A text box will appear allowing you to enter the name of the new dataframe.
 
 Data types and formats
----------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++
 
 Changing variable type
-+++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To change a variable type select the desired type from the **Type** drop-down list on the **Variables** tab.
 
@@ -203,13 +206,13 @@ The **Format Options** section of this dialog contains the BSD strftime specifie
 
 
 Programmatic Data Cleaning
-==============================
-
-Missing value handling
 ------------------------------
 
+Missing value handling
+++++++++++++++++++++++++++++++
+
 Counting missing variables
-+++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The procedure :func:`dstatmt` counts missing values by variable name as part of the descriptive statistics report.
 It requires only a single input indicating the source of data.
@@ -235,7 +238,7 @@ The input may be either a dataset file name or the name of a data matrix current
 
 
 Checking for missing values
-++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`ismiss` function checks for missing values in a matrix. It will return a value of 1 if any missing values are present in a matrix.
 
@@ -253,7 +256,7 @@ The :func:`ismiss` function checks for missing values in a matrix. It will retur
 After the code above, *ret_a* will equal 0, but *ret_b* will equal 1.
 
 Removing missing values
-++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are two options for removing missing values from a matrix:
 
@@ -297,7 +300,7 @@ will only delete rows with a missing value in the second column.
 
 
 Replacing missing values
-++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 GAUSS has two functions that can be used to replace missing values:
 
@@ -335,10 +338,10 @@ The procedure offers six potential methods for imputation:
 See the Command Reference for :func:`impute` for more details and examples.
 
 Organization
---------------
+++++++++++++++
 
 Sorting data
-+++++++++++++++
+^^^^^^^^^^^^^^^
 
 Use :func:`sortc` to sort a matrix or dataframe in ascending order based on a certain column.
 
@@ -377,7 +380,7 @@ Matrices and dataframes can be sorted on multiple columns using the :func:`sortm
 .. note::  The :func:`sortmc` and :func:`sortc` sort data in ascending order. To sort data in descending order, wrap the call to the sorting procedure using the procedure :func:`rev` .
 
 Changing the order of columns
-++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use the :func:`order` procedure to reorder columns in a matrix or dataframe.
 
@@ -434,7 +437,7 @@ while the first four rows of *yellowstone_2* look like this:
       2013/01/01      24699       -22.0        43.0         0.610
 
 Deleting columns
-+++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^
 
 You can delete columns from a matrix using the :func:`delcols` procedure. The columns to remove can be specified as numeric indices for matrices and dataframes:
 
@@ -481,7 +484,7 @@ You can also use column names to delete columns from a dataframe.
 
 
 Deleting rows from a matrix
-++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Two GAUSS functions are available for deleting rows from a matrix:
 
@@ -521,7 +524,7 @@ Two GAUSS functions are available for deleting rows from a matrix:
 
 
 Conditionally deleting rows of data
-++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :func:`delif` conditionally deletes rows from a matrix, dataframe or string array  based upon a logical vector.
 
@@ -544,7 +547,7 @@ Conditionally deleting rows of data
 
 
 How do I conditionally select data from a matrix or dataframe?
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can conditionally select data from a matrix, dataframe, or string array  using the :func:`selif` procedure.
 Enter the data as the first input to :func:`selif` and the condition to be used for selecting data as the second input.
@@ -567,10 +570,10 @@ Enter the data as the first input to :func:`selif` and the condition to be used 
     5 6
 
 Data Types, Labels, and Names
----------------------------------
++++++++++++++++++++++++++++++++++
 
 Determining variable or column types
-+++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use the :func:`getColTypes` procedure to lookup the type of the variables in a dataframe. :func:`getColTypes` returns a dataframe. The table below shows the type labels and their corresponding integer values.
 
@@ -623,7 +626,7 @@ will return:
 
 
 Setting a variable type
-++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :func:`dfType` sets the variable type of one or more columns of a matrix or dataframe.
 
@@ -689,7 +692,7 @@ After this code, the first four rows of *nba* will be:
 The elements of the *pos* now contain only the numeric values that correspond to the string category labels. The string labels, ``"C"``, ``"F"`` and ``"G"`` have been removed.
 
 Determining current variable names
-++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`getColNames` procedure returns the variable names assigned to columns in a matrix.
 
@@ -732,7 +735,7 @@ will return:
 
 
 Setting variable names
-+++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`setColNames` procedure changes or adds variables names to a matrix or dataframe.
 
@@ -781,7 +784,7 @@ The above code will print:
 If the data does not currently have variable names, names will be created for all columns, with default names being assigned to any columns for which user-specified names were not provided.
 
 Determining current categorical variable labels
-++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :func:`getColLabels` returns the string category labels and corresponding integer values for a categorical or string column of a dataframe.
 
@@ -810,7 +813,7 @@ After running the code above:
 
 
 Setting categorical variable labels
-++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`setColLabels` procedure allows you to add or modify the labels of categorical variables.
 It changes the current type of the column to a categorical variable.
@@ -893,9 +896,9 @@ After the above code:
 .. note:: Since there is only one categorical variable in the `yarn` dataframe, :func:`setColLabels` does not require a specified variable name.
 
 Changing categorical variable base case
-+++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :func:`setcatbasecase` function provides a convenient way to set the base case for a categorical variable.
+The :func:`setbasecat` function provides a convenient way to set the base case for a categorical variable.
 
 ::
 
@@ -919,7 +922,7 @@ You can change ``"G"`` to the base case like this:
 ::
 
     // Change the `G` category to the basecase
-    nba = setCatBaseCase(nba, "G", "pos");
+    nba = setBaseCat(nba, "G", "pos");
 
     // Get new labels
     { labels, values } = getColLabels(nba, "pos");
@@ -934,7 +937,7 @@ As we can see below, the new base case, ``"G"``, has been moved to the top and a
 
 
 Recoding categorical variable labels
-++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`recodecatlabels` procedure changes the labels for a categorical variable.
 
@@ -982,7 +985,7 @@ We can change the category labels like this:
 As we can see above the label names have changed, but the underlying values and order are the same.
 
 Reordering categorical variable labels
-++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`reorderCatLabels` procedure can be used to reorder the labels for a categorical variable.
 
