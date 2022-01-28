@@ -102,7 +102,7 @@ In STATA, the ``input`` statement is used to build a datasets from specified val
 In GAUSS, a dataframe can be manually entered from values and variable names using the :func:`asDF` procedure:
 
 ::
-  // Create a 2 x 3 matrix
+  // Create a 3 x 2 matrix
   mat = { 1 2, 3 4, 5 6};
 
   // Convert matrix to a dataframe
@@ -116,11 +116,12 @@ GAUSS can directly read and load data from most data formats including:
 
   * CSV
   * Excel (XLS, XLSX)
-  * HDF
+  * HDF 5
   * GAUSS matrices (FMT)
   * GAUSS datasets (DAT)
   * Stata datasets (DTA)
   * SAS datasets (SAS7BDAT, SAS7BCAT)
+  * SPSS datasets (SAV)
 
 In STATA, the `import` command is used to import non-STATA datasets. Additional information must be provided to specify what type of file is being imported.
 
@@ -186,7 +187,7 @@ Formula strings accept a number of operators and keywords which allow you to:
 +--------------------+---------------------------------------------+
 |      `-`           |Removes a variable.                          |
 +--------------------+---------------------------------------------+
-|      `1`           |Represents and intercept term.               |
+|      `1`           |Represents an intercept term.                |
 +--------------------+---------------------------------------------+
 |      `*`           |Adds an interaction term and includes both   |
 |                    |original variables.                          |
@@ -204,11 +205,6 @@ Formula strings accept a number of operators and keywords which allow you to:
 |      `date`        |Load a variable as a date column.            |
 +--------------------+---------------------------------------------+
 |      `str`         |Load a variable as a string column.          |
-+--------------------+---------------------------------------------+
-|      `$`           |Represents and intercept term.               |
-+--------------------+---------------------------------------------+
-|      `*`           |Adds an interaction term and includes both   |
-|                    |original variables.                          |
 +--------------------+---------------------------------------------+
 |      `$`           |Indicate that a variable is stored in the    |
 |                    |file as a string as should be passed to the  |
@@ -332,10 +328,9 @@ In GAUSS, these operations are performed using operators, with no additional com
   // variable total_bill in the tips2 dataframe
   tips2[., “total_bill”] = tips2[., “total_bill”] - 2;
 
-  // Dived all observations of the
-  // variable total_bill in the tips2 dataframe
-  // by 2
-	tips2[., “new_bill”] = tips2[., “new_bill”]/2;
+  // Dived all observations of the variable
+  // total_bill in the tips2 dataframe by 2
+  tips2[., “new_bill”] = tips2[., “new_bill”] / 2;
 
 
 Matrix operations
@@ -469,13 +464,13 @@ The `date` variable must be converted to a date type
 
 .. code-block:: stata
 
-	generate date_var = date(date, “YMD”);
+    generate date_var = date(date, “YMD”);
 
 and the viewing format should be set
 
 .. code-block:: stata
 
-	format date_var %d.
+    format date_var %d.
 
 In GAUSS, dates can be directly read in as date variables using the :func:`loadd` procedure and the ``date`` keyword. The :func:`loadd` procedure automatically detects a number of date formats and doesn’t require a format specification unless a custom format is being used in the raw data
 
@@ -501,7 +496,7 @@ when we do this is STATA the data is displayed in the date numeric format and we
 
 .. code-block:: stata
 
-	format date_var %d
+    format date_var %d
 
 In GAUSS, this is done using the :func:`asDate` procedure and a specified ``fmt`` string:
 
@@ -509,7 +504,7 @@ In GAUSS, this is done using the :func:`asDate` procedure and a specified ``fmt`
 
   // Convert string date “2002/10/01” to
   // date variable
-	date_var = asDate(“2002/10/01”, “%Y/%m/%d”);
+  date_var = asDate(“2002/10/01”, “%Y/%m/%d”);
 
 Changing the display format
 ++++++++++++++++++++++++++++++++++++++
