@@ -931,7 +931,7 @@ We can do the same in GAUSS using :func:`outerJoin`:
   age = {22, 18, 34, 45};
 
   // Create occupation string
-  let string Occupation = { "Teacher", "Surgeon", "Developer", "Nurse" };
+  string Occupation = { "Teacher", "Surgeon", "Developer", "Nurse" };
 
   // Create first df
   df1 = asDF(ID, "ID") ~ asDF(age, "Age");
