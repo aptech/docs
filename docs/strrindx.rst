@@ -9,25 +9,61 @@ Searches from the end of the string to the beginning.
 
 Format
 ----------------
-.. function:: y = strrindx(where, what, start)
+.. function:: idx = strrindx(where, what [, start])
 
-    :param where: the data to be searched.
+    :param where: the string, string array or dataframe to be searched.
     :type where: string or scalar
 
     :param what: the substring to be searched for in *where*.
     :type what: string or scalar
 
     :param start: the starting point of the search in *where* for an occurrence of *what*.
-        *where* will be searched from this point backward for *what*.
+        *where* will be searched from this point backward for *what*. Default is the end of the string
     :type start: scalar
 
-    :return y: contains the index of the last occurrence of *what*, within *where*,
+    :return idx: contains the index of the last occurrence of *what*, within *where*,
         which is less than or equal to *start*. If no occurrence is found, it will be 0.
 
-    :rtype y: scalar
+    :rtype idx: scalar
 
-Remarks
--------
+Examples
+-----------
+
+::
+
+    // Create a 3x1 string array
+    state = "alaska" $|
+            "alabama" $|
+            "arkansas";
+
+    // Find the first instance of the
+    // letter 'a' starting from
+    // the end of the string
+    strrindx(state, "a");
+
+Since the search starts from the back, the above code will print out:
+
+::
+
+       6.0000000
+       7.0000000
+       7.0000000
+
+::
+
+    // Find the first instance of the
+    // letter 'a' starting from the
+    // 5th character of the string
+    strrindx(state, "a", 5);
+
+This time, the search will start from the 5th character and continue searching towards the first character, resulting in:
+
+::
+
+       3.0000000
+       5.0000000
+       4.0000000
+
 
 A negative value for *start* causes the search to begin at the end of the
 string. An example of the use of :func:`strrindx` is extracting a file name from

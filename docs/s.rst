@@ -99,6 +99,7 @@ S
     strlen
     strput
     strreplace
+    strindx
     strrindx
     strsect
     strsplitpad
