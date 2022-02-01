@@ -23,7 +23,7 @@ In Stata, people are most familiar with working with a single dataset in memory.
 
 What is a GAUSS dataframe?
 ++++++++++++++++++++++++++++++
-.. figure:: _static/images/data-import-window-1.jpg
+.. figure:: ../_static/images/data-import-window-1.jpg
     :scale: 50%
 
 A GAUSS dataframe is used to store two-dimensional data and allows you to store:
@@ -64,6 +64,8 @@ or
     auto[., 4]
 
 to reference the variable.
+
+.. note:: The ``.`` indicates to GAUSS that all rows are being indexed. This will be discussed in more detail in the indexing section.
 
 +--------------------+---------------------------------------------+------------------------------------+
 | Variable           | Description                                 | Examples                           |
@@ -156,7 +158,7 @@ In GAUSS, all data files are usually loaded using the :func:`loadd` procedure. F
 
 This loads all the variables in the dataset and auto-detects their type.
 
-.. figure:: _static/images/data-import-window-1.jpg
+.. figure:: ../_static/images/data-import-window-1.jpg
     :scale: 50%
 
 Sometimes, you may need to specify the type and/or variables that you wish to load. This is done using a `formula string <https://www.aptech.com/resources/tutorials/formula-string-syntax/>`_:
@@ -233,7 +235,7 @@ The GAUSS **Data Import** window is a completely interactive environment for loa
 
 The **Data Import** window offers a data import experience similar to Stata’s menu driven data import. Like Stata, the GAUSS **Data Import** window auto-generates code that can be reused.
 
-.. figure:: _static/images/data-import-code-generation.png
+.. figure:: ../_static/images/data-import-code-generation.png
     :scale: 50%
 
 
@@ -252,7 +254,7 @@ Viewing Data
 Data can be viewed in GAUSS a number of ways:
 
 * Using the **GAUSS Data Editor**.
-.. figure:: _static/images/data-cleaning-open-symbol-editor-filter.jpg
+.. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
     :scale: 50%
 * Opening a floating **Symbols Editor** window using `Ctrl+E`.
 * Printing data to the **Command Window**.
@@ -339,12 +341,12 @@ In GAUSS, these operations are performed using operators, with no additional com
 
   // Divide all observations of the variable
   // 'total_bill' in the 'tips2' dataframe by 2
-  tips2[., “new_bill”] = tips2[., “new_bill”] / 2;
+  tips2[., "total_bill"] = tips2[., "total_bill"] / 2;
 
   // Divide all observations of the variable
   // 'total_bill' in the 'tips2' dataframe by 2
   // and generate 'new_bill'
-  tips2 = tips2 ~ dfname(tips2[.,"total_bill"] / 2, "new_bill");
+  tips2 = tips2 ~ dfname(tips2[.,"total_bill"]/2, "new_bill");
 
 Matrix operations
 +++++++++++++++++++
@@ -398,6 +400,7 @@ In Stata, data is filtered using an ``if`` clause when using other commands. For
   keep if total_bill > 10
 
 In GAUSS this can be done interactively with the **Data Management Tool**:
+
 .. figure:: ../_static/images/filtering-tips.jpg
     :scale: 50%
 
@@ -519,7 +522,7 @@ In GAUSS, this is done using the :func:`asDate` procedure:
 
   // Convert string date '2002-10-01' to
   // date variable
-  date_var = asDate(“2002-10-01”);
+  date_var = asDate("2002-10-01");
 
 The :func:`asDate` procedure automatically recognizes dates in the format ``"YYYY-MM-DD HH:MM:SS"``. However, if the date is in a different format, a ``fmt`` string can be used:
 
@@ -648,11 +651,11 @@ The printed result is:
 ::
 
   sex
-  F
-  M
-  M
-  M
-  F
+    F
+    M
+    M
+    M
+    F
 
 Extracting words
 ++++++++++++++++++
@@ -689,11 +692,9 @@ This creates the ``name_split`` dataframe:
 
 ::
 
-    name_split
-
   first_name        last_name
-    John             Smith
-    Jane             Cook
+       John             Smith
+       Jane             Cook
 
 If the original name data has first, middle, and last names, all separate by spaces, then :func:`strsplit` will split the strings into three columns:
 
@@ -711,8 +712,8 @@ Now the ``name_split`` variable contains three variable:
 ::
 
   first_name      middle_name        last_name
-      John           Robert            Smith
-      Jane        Elizabeth             Cook
+        John           Robert            Smith
+        Jane        Elizabeth             Cook
 
 Finally, suppose our names are separated by commas instead of spaces:
 
@@ -756,7 +757,7 @@ This compares to the ``strupper()`` and ``strlower()`` functions in Stata, which
 
 Missing values
 ++++++++++++++++
-Missing values are represented by the same dot, ``.``, notation in both Stata and GAUSS.
+Missing values are represented by the same dot notation, ``.``, in both Stata and GAUSS.
 
 This notation can be used for filtering data Stata:
 
@@ -773,7 +774,7 @@ In GAUSS filtering for missing values is done using the ``error(0)`` code:
 ::
 
   // Keep missing values
-  data = selif(data, data[., "x"] .= error(0));
+  data = selif(data, data[., "x"] .== error(0));
 
   // Keep non-missing values
   data = selif(data, data[., "x"] .!= error(0));
@@ -880,6 +881,7 @@ The :func:`missrv`  function replaces all missing values in a matrix with a user
 
 ::
 
+  // Create matrix
   a = { 1 .,
       . 4,
       5 6 };
@@ -938,21 +940,21 @@ As a first example, let’s consider two dataframes. The first contains ``ID`` a
 
 ::
 
-  ID       Age
-  John     22
-  Mary     18
-  Susan     34
-  Connie      45
+     ID      Age
+   John       22
+   Mary       18
+  Susan       34
+ Connie       45
 
 The second contains ``ID`` and ``Occupation``:
 
 ::
 
-  ID			  Occupation
-  John 			Teacher
-  Mary 			Surgeon
-  Susan			Developer
-  Tyler	    Nurse
+     ID      Occupation
+   John         Teacher
+   Mary         Surgeon
+   Susan      Developer
+   Tyler          Nurse
 
 In Stata, we merge these using ``merge()``:
 
@@ -1012,7 +1014,7 @@ We can do the same in GAUSS using :func:`outerJoin`:
   string Occupation = { "Teacher", "Surgeon", "Developer", "Nurse" };
 
   // Create first df
-  df1 = asDF(ID, "ID") ~ asDF(age, "Age");
+  df1 = asDF(ID1, "ID") ~ asDF(age, "Age");
 
   // Create second df
   df2 = asDF(ID2, "ID") ~ asDF(Occupation, "Occupation");
@@ -1024,7 +1026,7 @@ The ``df3`` dataframe contains:
 
 ::
 
-  ID        Occupation              Age
+    ID       Occupation              Age
   John          Teacher        22.000000
   Mary          Surgeon        18.000000
   Susan       Developer        34.000000
@@ -1044,8 +1046,8 @@ Now ``df3`` includes:
 
 ::
 
-  ID       Occupation              Age
+    ID       Occupation              Age
   John          Teacher        22.000000
   Mary          Surgeon        18.000000
-  Susan        Developer       34.000000
-  Tyler            Nurse               .
+ Susan        Developer        34.000000
+ Tyler            Nurse                .
