@@ -28,8 +28,8 @@ What is a GAUSS dataframe?
 
 A GAUSS dataframe is used to store two-dimensional data and allows you to store:
 
-  * Data in rows and columns.
-  * Information about the data type and type-related properties.
+  * Data in rows and columns, similar to the GAUSS matrix.
+  * Metadata about the data type and type-related properties.
   * Different variables together, including categorical data, strings, and dates.
 
 Many internal functions are designed to work intelligently with dataframes to use variable names and types for estimation and reporting.
@@ -51,7 +51,7 @@ In Stata, variables are referenced directly by name.
 
 In GAUSS, variables can be referenced by indexing with variable name or by column number. However, we must tell GAUSS which dataframe to look for the variable in.
 
-For example, if the variable ``mpg`` is stored in the fourth column of the dataframe ``auto`` we could use either
+For example, if the variable `mpg` is stored in the fourth column of the dataframe `auto` we could use either
 
 ::
 
@@ -334,17 +334,13 @@ In GAUSS, these operations are performed using operators, with no additional com
 ::
 
   // Subtract 2 from all observations of the
-  // variable ''total_bill' in the 'tips2' dataframe
+  // variable total_bill in the tips2 dataframe
   tips2[., "total_bill"] = tips2[., "total_bill"] - 2;
 
-  // Divide all observations of the variable
-  // 'total_bill' in the 'tips2' dataframe by 2
+  // Dived all observations of the variable
+  // total_bill in the tips2 dataframe by 2
   tips2[., “new_bill”] = tips2[., “new_bill”] / 2;
 
-  // Divide all observations of the variable
-  // 'total_bill' in the 'tips2' dataframe by 2
-  // and generate 'new_bill'
-  tips2 = tips2 ~ dfname(tips2[.,"total_bill"] / 2, "new_bill");
 
 Matrix operations
 +++++++++++++++++++
@@ -391,15 +387,14 @@ For a more in depth look at how matrix operation works in GAUSS you may want to 
 
 Filtering
 +++++++++++++++++++
-In Stata, data is filtered using an ``if`` clause when using other commands. For example, to keep all observations where ``total_bill`` is greater than 10 we use:
+In Stata, data is filtered using an ``if`` clause when using other commands. For example, to list all observations where `total_bill` is greater than 10 we use:
 
 .. code-block:: Stata
 
-  keep if total_bill > 10
+  list if total_bill > 10
 
 In GAUSS this can be done interactively with the **Data Management Tool**:
-.. figure:: ../_static/images/filtering-tips.jpg
-    :scale: 50%
+[IMAGE NEEDED HERE]
 
 Programmatically this is done using the :func:`selif` procedure:
 
@@ -411,7 +406,7 @@ Programmatically this is done using the :func:`selif` procedure:
 
 More information about filtering data can be found in:
 
-* The `Interactive Data Cleaning section <https://docs.aptech.com/gauss/data-management/data-cleaning.html#filtering-observations-of-a-dataframe>`_ of the Data Management Guide.
+* The `Interactive Data Cleaning section <https://docs.aptech.com/gauss/data-management/data-cleaning.html#filtering-observations-of-a-dataframe>`_` of the Data Management Guide.
 * `Preparing and Cleaning FRED data in GAUSS <https://www.aptech.com/blog/preparing-and-cleaning-data-fred-data-in-gauss/#filtering-dates>`_
 * `Getting to Know Your Data with GAUSS 22 <https://www.aptech.com/blog/getting-to-know-your-data-with-gauss-22/>`_
 
@@ -435,13 +430,13 @@ The corresponding GAUSS code is:
 
 ::
 
-  // Keep only 'total_bill' 'tip' and 'sex'
+  // Keep only `total_bill", "tip" and "sex"
   tips2 = tips2[., "total_bill" "tip" "sex"];
 
   // Drop sex variable
   tips2 = delcols(tips2, "sex");
 
-  // Rename variable 'total_bill' to 'total_bill_2'
+  // Rename variable "total_bill" to "total_bill_2"
   tips2 = dfname(tips2, "total_bill_2", "total_bill");
 
 Sorting
@@ -458,8 +453,8 @@ We can accomplish the same sorting as the Stata line above using:
 
 ::
 
-  // Sort the 'tips2' dataframe
-  // based on 'sex' and 'total_bill'
+  // Sort the tips2 dataframe
+  // based on sex and total_bill
   // variables
   tips2 = sortmc(tips2, "sex"$|"total_bill");
 
@@ -473,8 +468,8 @@ Creating usable dates from raw data
 ++++++++++++++++++++++++++++++++++++++
 In Stata, dates are most often imported as strings from raw data. They must then be converted to usable date types using the ``date()`` function and a readable format is set using ``format``.
 
-For example, when the ``yellowstone.csv`` dataset is imported into Stata, the variable date is a string variable
-The ``date`` variable must be converted to a date type:
+For example, when the `yellowstone.csv` dataset is imported into Stata, the variable date is a string variable
+The `date` variable must be converted to a date type:
 
 .. code-block:: Stata
 
@@ -491,21 +486,20 @@ In GAUSS, dates can be directly read in as date variables using the :func:`loadd
 ::
 
   // Load the variable Visits, LowtTep, HighTemp and Date
-  // from the file 'yellowstone.csv'
-  yellowstone = loadd(getGAUSSHome $+ "examples/yellowstone.csv", "Visits + LowtTemp + HighTemp + date($Date)");
+  // from the file `yellowstone.csv`
+  yellowstone = loadd("C:/gauss22/examples/yellowstone.csv", "Visits + LowtTemp + HighTemp + date($Date)");
 
-.. figure:: ../_static/images/yellowstone-dates.jpg
-      :scale: 50%
+[IMAGE OF LOADED DATA AND DATE VARIABLE]
 
 Creating dates from existing strings
 ++++++++++++++++++++++++++++++++++++++
 The GAUSS :func:`asDate` procedure works similarly to the Stata ``date()`` function and can be used to convert strings to dataframe dates.
 
-For example, suppose we want to convert the string ``"2002-10-01"``` to a date in Stata:
+For example, suppose we want to convert the string `"2002/10/01"` to a date in Stata:
 
 .. code-block:: Stata
 
-  generate date_var = date("2002-10-01", "YMD")
+  generate date_var = date("2002/10/01", "YMD")
 
 When we do this in Stata the data is displayed in the date numeric format and we have to use the ``format`` command to change the display format:
 
@@ -513,35 +507,24 @@ When we do this in Stata the data is displayed in the date numeric format and we
 
     format date_var %d
 
-In GAUSS, this is done using the :func:`asDate` procedure:
+In GAUSS, this is done using the :func:`asDate` procedure and a specified ``fmt`` string:
 
 ::
 
-  // Convert string date '2002-10-01' to
+  // Convert string date "2002/10/01" to
   // date variable
-  date_var = asDate(“2002-10-01”);
-
-The :func:`asDate` procedure automatically recognizes dates in the format ``"YYYY-MM-DD HH:MM:SS"``. However, if the date is in a different format, a ``fmt`` string can be used:
-
-::
-
-  // Convert string date '10/01/2002'
-  // to a date variable
-  date_var = asDate("10/01/2002", "%d/%m/%Y");
-
+  date_var = asDate(“2002/10/01”, “%Y/%m/%d”);
 
 Changing the display format
 ++++++++++++++++++++++++++++++++++++++
 Once a date variable has been imported or created, the display format can be specified either interactively using the GAUSS **Data Management Tool**:
-
-.. figure:: ../_static/images/select-date-format.jpg
-    :scale: 50%
+[NEED IMAGE HERE]
 
 or programmatically using :func:`asDate`:
 
 ::
 
-  // Convert 'Date' variable from string variable
+  // Convert `Date` variable from string variable
   // to date variable
   yellowstone =  asdate(yellowstone, "%b-%d-%Y", "Date");
 
@@ -562,9 +545,9 @@ GAUSS also uses a :func:`strlen()` procedure to find string lengths:
 ::
 
   // Find length of all observations
-  // of the variable 'time' in the
-  // 'tips2' dataframe
-  strlen_time = strlen(tips2[., "time"]);
+  // of the variable `time` in the
+  // tips2 dataframe
+	strlen_time = strlen(tips2[., "time"]);
 
 Finding the position of a substring
 +++++++++++++++++++++++++++++++++++++++
@@ -577,53 +560,35 @@ Finding the position of strings can be useful for data searching and cleaning. I
 
 In GAUSS, this is done using the :func:`strindx()` or :func:`strrindx()` procedures. The :func:`strindx()` procedure searches from the beginning of the string and the :func:`strrindx()` procedure searches from the end of the string.
 
-The functions require two inputs:
+The functions require three inputs:
 
 *  *where* (string or scalar) – the data to be searched.
 *  *what* (string or scalar) – the substring to be searched for in *where*.
+*  *start* (scalar) – the starting point of the search in *where* for an occurrence of *what*.
 
-For example consider the 'sex' variable in the 'tips2' dataframe. The first ten observations are:
-
-::
-
-  tips2[1:10, "sex"];
-
-             sex
-          Female
-            Male
-            Male
-            Male
-          Female
-            Male
-            Male
-            Male
-            Male
-            Male
+For example:
 
 ::
 
-  // Find the location of the substring 'ale'
-  // in the variable 'sex' in the 'tips2' dataframe
-  str_pos = strindx(tips2[., "sex"], "ale");
+  // Find the location of the substring `ale`
+  // in the variable `sex` in the tips2 dataframe
+  str_pos = strindx(tips2[., "sex"], "ale", 1);
 
   // Display the first 10 observations of
-  // all variables in 'str_pos'
+  // all variables in `str_pos`
   str_pos[1:10, .];
 
-The printed result is:
 
-::
-
-  4.0000000
-  2.0000000
-  2.0000000
-  2.0000000
-  4.0000000
-  2.0000000
-  2.0000000
-  2.0000000
-  2.0000000
-  2.0000000
+  	4.00000
+    4.00000
+   	4.00000
+   	4.00000
+   	4.00000
+   	4.00000
+   	4.00000
+   	4.00000
+    4.00000
+   	4.00000
 
 Extracting a substring by position
 ++++++++++++++++++++++++++++++++++++
@@ -638,14 +603,10 @@ The same thing can be done in GAUSS using the :func:`strsect()`:
 ::
 
   // Extract first letter from
-  // the variable 'sex' in the
-  // 'tips2' dataframe
+  // the variable `sex` in the
+  // tips2 dataframe
   short_sex = strsect(tips2[., "sex"], 1, 1);
   short_sex[1:5, .];
-
-The printed result is:
-
-::
 
   sex
   F
@@ -682,37 +643,23 @@ For example:
   string name = {"John Smith", "Jane Cook"};
 
   // Split into two strings
-  // and name variables 'first_name' and 'last_name'
+  // and name variables `first_name` and `last_name`
   name_split = asDF(strsplit(name), "first_name", "last_name");
 
-This creates the ``name_split`` dataframe:
-
-::
-
-    name_split
-
-  first_name        last_name
-    John             Smith
-    Jane             Cook
+[IMAGE HERE OF NAME SPLIT VARIABLES IN DATA EDITOR]
 
 If the original name data has first, middle, and last names, all separate by spaces, then :func:`strsplit` will split the strings into three columns:
 
 ::
 
   // Generate string array of names
-  string full_name = {"John Robert Smith", "Jane Elizabeth Cook"};
+  string full_name = {"John Robert Smith", "Jane Elizabeth Cook"}
 
   // Split into three strings
-  // and name variables 'first_name', 'middle_name', and 'last_name'
+  // and name variables `first_name`, "middle_name", and `last_name`
   name_split = asDF(strsplit(full_name), "first_name", "middle_name", "last_name");
 
-Now the ``name_split`` variable contains three variable:
-
-::
-
-  first_name      middle_name        last_name
-      John           Robert            Smith
-      Jane        Elizabeth             Cook
+[IMAGE HERE OF NEW NAME SPLIT]
 
 Finally, suppose our names are separated by commas instead of spaces:
 
@@ -721,17 +668,9 @@ Finally, suppose our names are separated by commas instead of spaces:
   // Generate string array of names
   string name = {"Smith,John", "Cook,Jane"};
 
-  // Split into two strings using ',' as a separator
-  // and name variables 'last_name' and 'first_name'
-  name_split = asDF(strsplit(name, ","), "last_name", "first_name");
-
-Now our ``name_split`` variable is:
-
-::
-
-  last_name       first_name
-    Smith             John
-     Cook             Jane
+  // Split into two strings using "," as a separator
+  // and name variables `first_name` and `last_name`
+  name_split = asDF(strsplit(name, ","), "first_name", "last_name");
 
 Changing case
 ++++++++++++++++++++
@@ -741,18 +680,18 @@ For example:
 
 ::
 
-  // Change time variable in 'tips2' to all uppercase
-  tips2[., "time"] = upper(tips2[., "time"]);
+  // Change time variable in tips2 to all uppercase
+  tips2[., "time"] = upper[tips2[., "time"];
 
-  // Change sex variable in 'tips2' to all lowercase
-  tips2[., "sex"] = lower(tips2[., "sex"]);
+  // Change sex variable in tips2 to all lowercase
+  tips2[., "sex"] = lower[tips2[., "sex"];
 
 This compares to the ``strupper()`` and ``strlower()`` functions in Stata, which change all letters in a string to uppercase and lowercase, respectively.
 
 .. code-block:: Stata
 
-  generate upper_time = strupper(time)
-  generate lower_sex = strlower(sex)
+	generate upper_time = strupper(time)
+	generate lower_sex = strlower(sex)
 
 Missing values
 ++++++++++++++++
@@ -785,46 +724,31 @@ In Stata, missing value of individual variables can be counted using the ``count
 
 .. code-block:: Stata
 
-  count if rep78 == .
+  count if time == .
 
-In GAUSS, missing values can be counted using the :func:`counts` function and ``error(0)``:
-
-::
-
-  counts(auto2[., "rep78"], error(30));
-
-This finds how many missing values there are of the 'rep78', found in the 'auto2' dataframe:
+In GAUSS, missing values are counted as part of the descriptive statistics using :func:`dstatmt`:
 
 ::
 
-  5.0000000
-
-Alternatively, missing values are counted as part of the descriptive statistics using :func:`dstatmt`:
-
-::
-
-    // Get descriptive statistics
-    call dstatmt(auto2);
+  	// Get descriptive statistics
+    call dstatmt(tips2);
 
 This returns
 
 ::
 
-  ---------------------------------------------------------------------------------------------
-  Variable             Mean     Std Dev      Variance     Minimum     Maximum     Valid Missing
-  ---------------------------------------------------------------------------------------------
-  make                -----       -----         -----       -----       -----        74    0
-  price                6165        2949       8.7e+06        3291   1.591e+04        74    0
-  mpg                  21.3       5.786         33.47          12          41        74    0
-  rep78               -----       -----         -----        Poor   Excellent        69    5
-  headroom            2.993       0.846        0.7157         1.5           5        74    0
-  trunk               13.76       4.277          18.3           5          23        74    0
-  weight               3019       777.2      6.04e+05        1760        4840        74    0
-  length              187.9       22.27         495.8         142         233        74    0
-  turn                39.65       4.399         19.35          31          51        74    0
-  displacement        197.3       91.84          8434          79         425        74    0
-  gear_ratio          3.015      0.4563        0.2082        2.19        3.89        74    0
-  foreign             -----       -----         -----    Domestic     Foreign        74    0
+  -------------------------------------------------------------------------------------------
+  Variable           Mean     Std Dev      Variance     Minimum     Maximum     Valid Missing
+  -------------------------------------------------------------------------------------------
+
+  id                123.1       71.31          5085           1         245       247    0
+  total_bill        19.78       8.849         78.31        3.07       50.81       247    0
+  tip               2.995       1.378         1.898           1          10       247    0
+  sex               -----       -----         -----      Female        Male       247    0
+  smoker            -----       -----         -----          No         Yes       247    0
+  day               -----       -----         -----         Fri        Thur       247    0
+  time              -----       -----         -----      Dinner       Lunch       247    0
+  size              2.567      0.9471        0.8969           1           6       247    0
 
 Removing missing values
 ++++++++++++++++++++++++
@@ -891,25 +815,25 @@ returns
 
 ::
 
-       1 -999
-    -999    4
-       5    6
+	    1 -999
+       -999    4
+   	  5    6
 
 This is similar to using the replace variable in Stata
 
 .. code-block:: Stata
 
-  replace a = -999 if a >= .
+	replace a = -999 if a >= .
 
-The :func:`impute()`` procedure replaces missing values in the columns of a matrix using a specified imputation method.
+The ::func:`impute()`` procedure replaces missing values in the columns of a matrix using a specified imputation method.
 The procedure offers six potential methods for imputation:
 
 * ``"mean"`` - replaces missing values with the mean of the column.
 * ``"median"`` - replaces missing values with the median of the column.
 * ``"mode"`` - replace missing values with the mode of the column.
 * ``"pmm"`` - replaces missing values using predictive mean matching.
-* ``"lrd"`` - replaces missing values using local residual draws.
-* ``"predict"`` - replaces missing values using linear regression prediction.
+* ``"lrd"`` - replace missing values using local residual draws.
+* ``"predict"`` - replace missing values using linear regression prediction.
 
 More details about dealing with missing values are available in:
 
@@ -923,7 +847,7 @@ In Stata merging:
 * Is performed using the ``merge`` command.
 * Is done using a dataset in memory and a data file on disk.
 * Keeps all data from the data in memory and the `using` data.
-* Creates a ``_merge`` variable indicating if the data point from the original data, the ``using`` data, or the intersection of the two.
+* Creates a ``_merge`` variable indicating if the data point from the original data, the `using` data, or the intersection of the two.
 * Allows for one-to-one, one-to-many, many-to-one, and many-to-many joining operations.
 
 In GAUSS merging:
@@ -934,13 +858,13 @@ In GAUSS merging:
 * The :func:`outerJoin` function keeps observations either from both data sources or the left-hand data source.
 * Allows for one-to-one, one-to-many, many-to-one, and many-to-many joining operations.
 
-As a first example, let’s consider two dataframes. The first contains ``ID`` and ``Age``:
+As a first example, let’s consider two dataframes. The first contains `ID` and `Age`:
 
 ::
 
-  ID       Age
-  John     22
-  Mary     18
+	ID       Age
+	John     22
+	Mary     18
   Susan     34
   Connie      45
 
@@ -994,8 +918,7 @@ In Stata, we merge these using ``merge()``:
 
   merge 1:1 ID using df1
 
-.. figure:: ../_static/images/stata-merge.jpg
-      :scale: 50%
+  [IMAGE HERE]
 
 We can do the same in GAUSS using :func:`outerJoin`:
 
@@ -1020,7 +943,7 @@ We can do the same in GAUSS using :func:`outerJoin`:
   // Merge dataframes
   df3 = outerJoin(df2, "ID", df1, "ID", "full");
 
-The ``df3`` dataframe contains:
+The `df3` dataframe contains:
 
 ::
 
@@ -1031,9 +954,9 @@ The ``df3`` dataframe contains:
   Tyler           Nurse                .
   Connie              .        45.000000
 
-The ``df3`` dataframe contains all observations from both the ``df1`` and ``df2`` dataframes, even if they aren't matched, because we included the ``"full"`` option.
+The `df3` dataframe contains all observations from both the `df1` and `df2` dataframes, even if they aren't matched, because we included the ``"full"`` option.
 
-If we just wanted to keep the matches to the keys from the ``df2`` dataframe we would exclude the ``"full"`` option:
+If we just wanted to keep the matches to the keys from the `df2` dataframe we would exclude the ``"full"`` option:
 
 ::
 
