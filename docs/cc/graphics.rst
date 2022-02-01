@@ -135,10 +135,10 @@ Axes and grid
 :doc:`../plotsetwhichyaxis`               Assigns curves to the right or left y-axis.
 :doc:`../plotsetxgridpen`                 Controls the thickness, color, and style for the grid lines from the x-axis.
 :doc:`../plotsetxpen`                     Controls the thickness, color, and style for the x-axis line.
-:doc:`../plotsetxrange`                   Sets the range for the x-axis.
+:doc:`../plotsetxrange`                   Sets the range for the x-axis, and optionally the distance between major ticks and the first tick to label.
 :doc:`../plotsetygridpen`                 Controls the thickness, color, and style for the grid lines from the y-axis.
 :doc:`../plotsetypen`                     Controls the thickness, color, and style for the y-axis line.
-:doc:`../plotsetyrange`                   Sets the range for the y-axis.
+:doc:`../plotsetyrange`                   Sets the range for the y-axis, and optionally the distance between major ticks and the first tick to label.
 ===================================    ============================================================================
 
 Axes ticks
