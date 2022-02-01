@@ -8,6 +8,8 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. New functions :func:`head` and :func:`tail` allow convenient previewing of the first or last rows of data.
+#. New function :func:`annotationsetlinepen` allows for more convenient setting of annotation line width, color and style.
+#. Final inputs to :func:`annotationsetfont` are now optional inputs.
 #. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedome adjustment used in the computation.
 #. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
 #. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.

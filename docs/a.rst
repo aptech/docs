@@ -30,6 +30,7 @@ A
     annotationsetbkd
     annotationsetfont
     annotationsetlinecolor
+    annotationsetlinepen
     annotationsetlinestyle
     annotationsetlinethickness
     annualtradingdays

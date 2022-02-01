@@ -19,7 +19,7 @@ Format
     :param clr: Optional argument, name or RGB value of the new color(s) for the line(s).
     :type clr: string or Nx1 string array
 
-    :param style: Optional argument, he style(s) of the pen for the line(s). Options include:
+    :param style: Optional argument, the style(s) of the pen for the line(s). Options include:
 
         .. include:: include/plotpenstyletable.rst
 
