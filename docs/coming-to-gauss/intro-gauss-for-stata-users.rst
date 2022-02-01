@@ -694,7 +694,7 @@ This creates the ``name_split`` dataframe:
 
   first_name        last_name
        John             Smith
-       Jane             Cook
+       Jane              Cook
 
 If the original name data has first, middle, and last names, all separate by spaces, then :func:`strsplit` will split the strings into three columns:
 
