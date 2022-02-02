@@ -173,8 +173,7 @@ For example, let’s consider loading the ``nba_ht_wt.xls`` file in GAUSS
   // Load the file 'nba_ht_wt.xls'
   // using a formula string to select variables
   // and specify variable types
-  nba_ht_wt = loadd(fname,
-                    "str(Player) + cat(Pos) + Height + Weight + str(School)");
+  nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + str(School)");
 
 Similarly, the ``tips2.csv`` data file:
 
@@ -186,8 +185,9 @@ Similarly, the ``tips2.csv`` data file:
     // Load the file 'tips2.csv'
     // using a formula string to select variables
     // and specify variable types
-    tips2 = loadd(fname,
-                  "id + total_bill + tip + cat(sex) + cat(time)");
+    tips2 = loadd(fname, "id + total_bill + tip + cat(sex) + cat(time)");
+
+.. note:: The :func:`getGAUSSHome` is a convenience function that returns the full path to the GAUSS home directory.
 
 Formula strings accept a number of operators and keywords which allow you to:
 
@@ -689,7 +689,7 @@ For example:
 ::
 
   // Generate string array of names
-  string name = {"John Smith", "Jane Cook"};
+  string name = { "John Smith", "Jane Cook" };
 
   // Split into two strings
   // and name variables 'first_name' and 'last_name'
@@ -708,7 +708,7 @@ If the original name data has first, middle, and last names, all separated by sp
 ::
 
   // Generate string array of names
-  string full_name = {"John Robert Smith", "Jane Elizabeth Cook"};
+  string full_name = { "John Robert Smith", "Jane Elizabeth Cook" };
 
   // Split into three strings
   // and name variables 'first_name', 'middle_name', and 'last_name'
@@ -727,7 +727,7 @@ Finally, suppose our names are separated by commas instead of spaces:
 ::
 
   // Generate string array of names
-  string name = {"Smith,John", "Cook,Jane"};
+  string name = { "Smith,John", "Cook,Jane" };
 
   // Split into two strings using ',' as a separator
   // and name variables 'last_name' and 'first_name'
