@@ -24,7 +24,7 @@ In Stata, people are most familiar with working with a single dataset in memory.
 What is a GAUSS dataframe?
 ++++++++++++++++++++++++++++++
 .. figure:: ../_static/images/data-import-window-1.jpg
-    :scale: 50%
+    :width: 80%
 
 A GAUSS dataframe is used to store two-dimensional data and allows you to store:
 
@@ -159,7 +159,7 @@ In GAUSS, all data files are usually loaded using the :func:`loadd` procedure. F
 This loads all the variables in the dataset and auto-detects their type.
 
 .. figure:: ../_static/images/data-import-window-1.jpg
-    :scale: 50%
+    :width: 80%
 
 Sometimes, you may need to specify the type and/or variables that you wish to load. This is done using a `formula string <https://www.aptech.com/resources/tutorials/formula-string-syntax/>`_:
 
@@ -236,7 +236,7 @@ The GAUSS **Data Import** window is a completely interactive environment for loa
 The **Data Import** window offers a data import experience similar to Stata’s menu driven data import. Like Stata, the GAUSS **Data Import** window auto-generates code that can be reused.
 
 .. figure:: ../_static/images/data-import-code-generation.png
-    :scale: 50%
+    :width: 80%
 
 
 You can open the **Data Import** window in three ways:
@@ -255,7 +255,7 @@ Data can be viewed in GAUSS a number of ways:
 
 * Using the **GAUSS Data Editor**.
 .. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
-    :scale: 50%
+    :width: 80%
 * Opening a floating **Symbols Editor** window using `Ctrl+E`.
 * Printing data to the **Command Window**.
 
@@ -402,7 +402,7 @@ In Stata, data is filtered using an ``if`` clause when using other commands. For
 In GAUSS this can be done interactively with the **Data Management Tool**:
 
 .. figure:: ../_static/images/filtering-tips.jpg
-    :scale: 50%
+    :width: 80%
 
 Programmatically this is done using the :func:`selif` procedure:
 
@@ -498,7 +498,7 @@ In GAUSS, dates can be directly read in as date variables using the :func:`loadd
   yellowstone = loadd(getGAUSSHome $+ "examples/yellowstone.csv", "Visits + LowtTemp + HighTemp + date($Date)");
 
 .. figure:: ../_static/images/yellowstone-dates.jpg
-      :scale: 50%
+      :width: 80%
 
 Creating dates from existing strings
 ++++++++++++++++++++++++++++++++++++++
@@ -538,7 +538,7 @@ Changing the display format
 Once a date variable has been imported or created, the display format can be specified either interactively using the GAUSS **Data Management Tool**:
 
 .. figure:: ../_static/images/select-date-format.jpg
-    :scale: 50%
+    :width: 60%
 
 or programmatically using :func:`asDate`:
 
@@ -997,7 +997,7 @@ In Stata, we merge these using ``merge()``:
   merge 1:1 ID using df1
 
 .. figure:: ../_static/images/stata-merge.jpg
-      :scale: 50%
+      :width: 80%
 
 We can do the same in GAUSS using :func:`outerJoin`:
 
