@@ -995,7 +995,7 @@ In Stata, we merge these using ``merge()``:
   Tyler
   end
 
-  input occupation
+  input str10 occupation
   Teacher
   Surgeon
   Developer
@@ -1003,9 +1003,6 @@ In Stata, we merge these using ``merge()``:
   end
 
   merge 1:1 ID using df1
-
-.. figure:: ../_static/images/stata-merge.jpg
-      :width: 80%
 
 We can do the same in GAUSS using :func:`outerJoin`:
 
