@@ -51,17 +51,17 @@ In Stata, variables are referenced directly by name.
 
 In GAUSS, variables can be referenced by indexing with variable name or by column number. However, we must tell GAUSS which dataframe to look for the variable in.
 
-For example, if the variable ``mpg`` is stored in the fourth column of the dataframe ``auto`` we could use either
+For example, if the variable ``mpg`` is stored in the fourth column of the dataframe ``auto2`` we could use either
 
 ::
 
-    auto[., "mpg"]
+    auto2[., "mpg"];
 
 or
 
 ::
 
-    auto[., 4]
+    auto2[., 4];
 
 to reference the variable.
 
@@ -92,7 +92,7 @@ Rows of data are indexed by row number. For example, if we want to access the da
 
 ::
 
-  auto[4, .]
+  auto2[4, .];
 
 Data Input/Output
 --------------------
@@ -114,14 +114,14 @@ In GAUSS, a dataframe can be created from manually entered matrix and variable n
 ::
 
   // Create a 3 x 2 matrix
-  mat = { 1 2, 3 4, 5 6};
+  mat = { 1 2, 3 4, 5 6 };
 
   // Convert matrix to a dataframe
   // and name the first column "X"
   // and the second column "Y"
   df = asDF(mat, "X", "Y");
 
-Reading external dataset
+Reading external datasets
 +++++++++++++++++++++++++++++++++++++
 GAUSS can directly read and load data from most data formats, including:
 
@@ -213,7 +213,7 @@ Formula strings accept a number of operators and keywords which allow you to:
 +====================+=============================================+
 |      `cat`         |Load a variable as a categorical column.     |
 +--------------------+---------------------------------------------+
-|      `date`        |Load a variable as a date column.            |
+|      ``date``      |Load a variable as a date column.            |
 +--------------------+---------------------------------------------+
 |      `str`         |Load a variable as a string column.          |
 +--------------------+---------------------------------------------+
@@ -259,11 +259,11 @@ Data can be viewed in GAUSS a number of ways:
 * Opening a floating **Symbols Editor** window using `Ctrl+E`.
 * Printing data to the **Command Window**.
 
-For a quick preview, portions of a dataframe can be printed directly to screen using indexing. For example, the first five rows the `auto` dataframe can be printed to screen by entering
+For a quick preview, portions of a dataframe can be printed directly to screen using indexing. For example, the first five rows the `auto2` dataframe can be printed to screen by entering
 
 ::
 
-  auto[1:5, .];
+  auto2[1:5, .];
 
 This is equivalent to using the ``list`` command in Stata
 
@@ -271,11 +271,11 @@ This is equivalent to using the ``list`` command in Stata
 
   list 1/5
 
-If we only wanted to view the first five rows of the variable `mpg` from the `auto` dataframe, we would use
+If we only wanted to view the first five rows of the variable `mpg` from the `auto2` dataframe, we would use
 
 ::
 
-  auto[1:5, "mpg"];
+  auto2[1:5, "mpg"];
 
 which is equivalent to
 
@@ -286,8 +286,9 @@ which is equivalent to
 Data Operations
 --------------------
 
-Indexing matrices
-++++++++++++++++++++++
+Indexing matrices and dataframes
+++++++++++++++++++++++++++++++++++++
+
 GAUSS uses square brackets ``[]`` for indexing matrices. The indices are listed row first, then column, with a comma separating the two. For example, to index the element in the 3rd row and 7th column of the matrix `x`, we use:
 
 ::
@@ -300,23 +301,23 @@ To select a range of columns or rows with numeric indices, GAUSS uses the `:` op
 
   x[3:6, 7];
 
-GAUSS also allows you to use variable names in a dataframe for indexing. As an example, if we want to access the 3rd observation of the variable `mpg` in the `auto` dataframe, we use:
+GAUSS also allows you to use variable names in a dataframe for indexing. As an example, if we want to access the 3rd observation of the variable `mpg` in the `auto2` dataframe, we use:
 
 ::
 
-  auto[3, "mpg"];
+  auto2[3, "mpg"];
 
 You can also select multiple variables using a space separated list:
 
 ::
 
-  auto[3, "mpg" "make"];
+  auto2[3, "mpg" "make"];
 
-Finally, GAUSS allows you index an entire column or row using the `.` operator. For example, to see all observations of the variable `mpg` in the `auto` dataframe, we use:
+Finally, GAUSS allows you index an entire column or row using the `.` operator. For example, to see all observations of the variable `mpg` in the `auto2` dataframe, we use:
 
 ::
 
-  auto[., "mpg"];
+  auto2[., "mpg"];
 
 Operations on variables
 +++++++++++++++++++++++++
@@ -327,16 +328,17 @@ In Stata, ``generate`` and ``replace`` are required to either transform existing
   replace total_bill = total_bill - 2
   generate new_bill  = total_bill / 2
 
-In GAUSS, these operations are performed using operators, with no additional command required. For example, GAUSS uses:
+In GAUSS, these operations are performed using operators. For example, GAUSS uses:
 
 * The  ``-`` operator to subtract values.
 * The ``/`` operator to divide values.
 * The ``=`` to assign the new values to a storage location.
+* The ``~`` to add new columns to a matrix or dataframe.
 
 ::
 
   // Subtract 2 from all observations of the
-  // variable ''total_bill' in the 'tips2' dataframe
+  // variable 'total_bill' in the 'tips2' dataframe
   tips2[., "total_bill"] = tips2[., "total_bill"] - 2;
 
   // Divide all observations of the variable
@@ -389,7 +391,7 @@ For a more in depth look at how matrix operation works in GAUSS you may want to 
 
 * `GAUSS Basics 3: Intro to Matrices <https://www.aptech.com/blog/gauss-basics-3-introduction-to-matrices/>`_
 * `GAUSS Basics 4: Matrix Operations <https://www.aptech.com/blog/gauss-basics-4-matrix-operations/>`_
-* `GAUSS Basics 5: Element by Element Conformability <https://www.aptech.com/blog/gauss-basics-5-element-by-element-conformability/>`_
+* `GAUSS Basics 5: Element-by-Element Conformability <https://www.aptech.com/blog/gauss-basics-5-element-by-element-conformability/>`_
 
 Filtering
 +++++++++++++++++++
@@ -476,12 +478,12 @@ Creating usable dates from raw data
 ++++++++++++++++++++++++++++++++++++++
 In Stata, dates are most often imported as strings from raw data. They must then be converted to usable date types using the ``date()`` function and a readable format is set using ``format``.
 
-For example, when the ``yellowstone.csv`` dataset is imported into Stata, the variable date is a string variable
+For example, when the ``yellowstone.csv`` dataset is imported into Stata, the variable ``date`` is a string variable
 The ``date`` variable must be converted to a date type:
 
 .. code-block:: Stata
 
-    generate date_var = date(date, “YMD”);
+    generate date_var = date(date, "YMD");
 
 and the viewing format should be set
 
@@ -504,7 +506,7 @@ Creating dates from existing strings
 ++++++++++++++++++++++++++++++++++++++
 The GAUSS :func:`asDate` procedure works similarly to the Stata ``date()`` function and can be used to convert strings to dataframe dates.
 
-For example, suppose we want to convert the string ``"2002-10-01"``` to a date in Stata:
+For example, suppose we want to convert the string ``"2002-10-01"`` to a date in Stata:
 
 .. code-block:: Stata
 
@@ -524,7 +526,7 @@ In GAUSS, this is done using the :func:`asDate` procedure:
   // date variable
   date_var = asDate("2002-10-01");
 
-The :func:`asDate` procedure automatically recognizes dates in the format ``"YYYY-MM-DD HH:MM:SS"``. However, if the date is in a different format, a ``fmt`` string can be used:
+The :func:`asDate` procedure automatically recognizes dates in the format ``"YYYY-MM-DD HH:MM:SS"``. However, if the date is in a different format, a format string can be used:
 
 ::
 
@@ -585,7 +587,7 @@ The functions require two inputs:
 *  *where* (string or scalar) – the data to be searched.
 *  *what* (string or scalar) – the substring to be searched for in *where*.
 
-For example consider the 'sex' variable in the 'tips2' dataframe. The first ten observations are:
+For example consider the ``sex`` variable in the ``tips2`` dataframe. The first ten observations are:
 
 ::
 
@@ -696,7 +698,7 @@ This creates the ``name_split`` dataframe:
        John             Smith
        Jane              Cook
 
-If the original name data has first, middle, and last names, all separate by spaces, then :func:`strsplit` will split the strings into three columns:
+If the original name data has first, middle, and last names, all separated by spaces, then :func:`strsplit` will split the strings into three columns:
 
 ::
 
@@ -707,7 +709,7 @@ If the original name data has first, middle, and last names, all separate by spa
   // and name variables 'first_name', 'middle_name', and 'last_name'
   name_split = asDF(strsplit(full_name), "first_name", "middle_name", "last_name");
 
-Now the ``name_split`` variable contains three variable:
+Now the ``name_split`` variable contains three variables:
 
 ::
 
@@ -731,12 +733,12 @@ Now our ``name_split`` variable is:
 ::
 
   last_name       first_name
-    Smith             John
-     Cook             Jane
+      Smith             John
+       Cook             Jane
 
 Changing case
 ++++++++++++++++++++
-GAUSS uses the upper and lower proc to change all letters in strings to uppercase and lowercase, respectively.
+GAUSS uses the :func:`../upper` and :func:`lower` procedures to change all letters in strings to uppercase and lowercase, respectively.
 
 For example:
 
@@ -769,12 +771,13 @@ This notation can be used for filtering data Stata:
   * Keep non-missing values
   list if value_x != .
 
-In GAUSS filtering for missing values is done using the ``error(0)`` code:
+In GAUSS missing values can be created with a statement or using the  :func:`../error` function:
 
 ::
 
   // Keep missing values
-  data = selif(data, data[., "x"] .== error(0));
+  mss = { . };
+  data = selif(data, data[., "x"] .== mss));
 
   // Keep non-missing values
   data = selif(data, data[., "x"] .!= error(0));
@@ -792,9 +795,9 @@ In GAUSS, missing values can be counted using the :func:`counts` function and ``
 
 ::
 
-  counts(auto2[., "rep78"], error(30));
+  counts(auto2[., "rep78"], error(0));
 
-This finds how many missing values there are of the 'rep78', found in the 'auto2' dataframe:
+This finds how many missing values there are of the ``rep78``, found in the ``auto2`` dataframe:
 
 ::
 
@@ -838,8 +841,8 @@ GAUSS provides two options for removing missing values from a matrix:
 
   // Create matrix
   a = { 1 .,
-      . 4,
-      5 6 };
+        . 4,
+        5 6 };
 
   // Remove all rows with a missing value
   print packr(a);
@@ -856,12 +859,12 @@ Conversely
 
   // Create matrix
   a = { 1 .,
-      . 4,
-      5 6 };
+        . 4,
+        5 6 };
 
   // Remove all rows with a missing value
   // in the second column
-  print delif(a, a[., 2] .== error(0) );
+  print delif(a, a[., 2] .== error(0));
 
 will only delete rows with a missing value in the second column
 
