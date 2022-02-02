@@ -86,7 +86,7 @@ to reference the variable.
 
 Observations
 ^^^^^^^^^^^^^^^^
-Each row of a GAUSS dataframe contains simultaneous observations of variables. In time series data or panel data, this may correspond to dates of observations. In cross-sectional data, this may correspond to some other identifier such as identification number, observation number, or name.
+Each row of a GAUSS dataframe contains simultaneous observations of variables. In `time series data <https://www.aptech.com/blog/introduction-to-the-fundamentals-of-time-series-data-and-analysis/>`_ or `panel data <https://www.aptech.com/blog/introduction-to-the-fundamentals-of-panel-data/>`_ , this may correspond to dates of observations. In cross-sectional data, this may correspond to some other identifier such as identification number, observation number, or name.
 
 Rows of data are indexed by row number. For example, if we want to access the data stored in the fourth row we use
 
@@ -187,7 +187,7 @@ Similarly, the ``tips2.csv`` data file:
     // and specify variable types
     tips2 = loadd(fname, "id + total_bill + tip + cat(sex) + cat(time)");
 
-.. note:: The :func:`getGAUSSHome` is a convenience function that returns the full path to the GAUSS home directory.
+.. note:: The :func:`getGAUSSHome` function is a convenience function that returns the full path to the GAUSS home directory.
 
 Formula strings accept a number of operators and keywords which allow you to:
 
@@ -276,7 +276,7 @@ This is equivalent to using the ``list`` command in Stata
 
   list 1/5
 
-If we only wanted to view the first five rows of the variable `mpg` from the `auto2` dataframe, we would use
+If we only wanted to view the first five rows of the variable ``mpg`` from the ``auto2`` dataframe, we would use
 
 ::
 
@@ -294,7 +294,7 @@ Data Operations
 Indexing matrices and dataframes
 ++++++++++++++++++++++++++++++++++++
 
-GAUSS uses square brackets ``[]`` for indexing matrices. The indices are listed row first, then column, with a comma separating the two. For example, to index the element in the 3rd row and 7th column of the matrix `x`, we use:
+GAUSS uses square brackets ``[]`` for indexing matrices. The indices are listed row first, then column, with a comma separating the two. For example, to index the element in the 3rd row and 7th column of the matrix ``x``, we use:
 
 ::
 
@@ -306,7 +306,7 @@ To select a range of columns or rows with numeric indices, GAUSS uses the `:` op
 
   x[3:6, 7];
 
-GAUSS also allows you to use variable names in a dataframe for indexing. As an example, if we want to access the 3rd observation of the variable `mpg` in the `auto2` dataframe, we use:
+GAUSS also allows you to use variable names in a dataframe for indexing. As an example, if we want to access the 3rd observation of the variable ``mpg`` in the ``auto2`` dataframe, we use:
 
 ::
 
@@ -318,7 +318,7 @@ You can also select multiple variables using a space separated list:
 
   auto2[3, "mpg" "make"];
 
-Finally, GAUSS allows you index an entire column or row using the `.` operator. For example, to see all observations of the variable `mpg` in the `auto2` dataframe, we use:
+Finally, GAUSS allows you index an entire column or row using the ``.`` operator. For example, to see all observations of the variable ``mpg`` in the ``auto2`` dataframe, we use:
 
 ::
 
@@ -743,7 +743,7 @@ Now our ``name_split`` variable is:
 
 Changing case
 ++++++++++++++++++++
-GAUSS uses the :func:`../upper` and :func:`lower` procedures to change all letters in strings to uppercase and lowercase, respectively.
+GAUSS uses the :func:`upper` and :func:`lower` procedures to change all letters in strings to uppercase and lowercase, respectively.
 
 For example:
 
@@ -776,7 +776,7 @@ This notation can be used for filtering data Stata:
   * Keep non-missing values
   list if value_x != .
 
-In GAUSS missing values can be created with a statement or using the  :func:`../error` function:
+In GAUSS missing values can be created with a statement or using the  :func:`error` function:
 
 ::
 
