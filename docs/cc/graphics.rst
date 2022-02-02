@@ -166,6 +166,7 @@ Line color, style and fill
 :doc:`../plotsetfill`                     Sets the fill style, transparency and color for scatter symbols, area plots, histograms and bar graphs.
 :doc:`../plotsetlinepen`                  Sets line color, thickness and style.
 :doc:`../plotsetlinesymbol`               Sets line symbols displayed on the plotted points of a graph.
+:doc:`../plotsetmissgap`                  Controls whether missing data creates a gap in line plots, or is ignored.
 ===================================    ============================================================================
 
 Box and Bar settings
