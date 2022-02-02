@@ -114,7 +114,9 @@ In GAUSS, a dataframe can be created from manually entered matrix and variable n
 ::
 
   // Create a 3 x 2 matrix
-  mat = { 1 2, 3 4, 5 6 };
+  mat = { 1 2,
+          3 4,
+          5 6 };
 
   // Convert matrix to a dataframe
   // and name the first column "X"
