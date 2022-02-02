@@ -906,7 +906,7 @@ This is similar to using the replace variable in Stata
 
   replace a = -999 if a >= .
 
-The :func:`impute()`` procedure replaces missing values in the columns of a matrix using a specified imputation method.
+The :func:`impute()` procedure replaces missing values in the columns of a matrix using a specified imputation method.
 The procedure offers six potential methods for imputation:
 
 * ``"mean"`` - replaces missing values with the mean of the column.
@@ -1007,11 +1007,11 @@ We can do the same in GAUSS using :func:`outerJoin`:
 ::
 
   // Create ID strings
-  string ID1 = {"John", "Mary", "Susan", "Connie"};
-  string ID2 = {"John", "Mary", "Susan", "Tyler"};
+  string ID1 = { "John", "Mary", "Susan", "Connie" };
+  string ID2 = { "John", "Mary", "Susan", "Tyler" };
 
   // Create age vector
-  age = {22, 18, 34, 45};
+  age = { 22, 18, 34, 45 };
 
   // Create occupation string
   string Occupation = { "Teacher", "Surgeon", "Developer", "Nurse" };
@@ -1029,12 +1029,12 @@ The ``df3`` dataframe contains:
 
 ::
 
-    ID       Occupation              Age
-  John          Teacher        22.000000
-  Mary          Surgeon        18.000000
-  Susan       Developer        34.000000
-  Tyler           Nurse                .
-  Connie              .        45.000000
+      ID       Occupation              Age
+    John          Teacher        22.000000
+    Mary          Surgeon        18.000000
+   Susan        Developer        34.000000
+   Tyler            Nurse                .
+  Connie                .        45.000000
 
 The ``df3`` dataframe contains all observations from both the ``df1`` and ``df2`` dataframes, even if they aren't matched, because we included the ``"full"`` option.
 
