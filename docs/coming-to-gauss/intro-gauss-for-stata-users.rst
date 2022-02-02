@@ -167,22 +167,27 @@ For example, let’s consider loading the ``nba_ht_wt.xls`` file in GAUSS
 
 ::
 
-    // Load the file 'nba_ht_wt.xls'
-    // using a formula string to select variables
-    // and specify variable types
-    nba_ht_wt = loadd(getGAUSSHome $+ "examples/nba_ht_wt.xls",
-                      "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate)");
+  // Create filename
+  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
+
+  // Load the file 'nba_ht_wt.xls'
+  // using a formula string to select variables
+  // and specify variable types
+  nba_ht_wt = loadd(fname,
+                    "str(Player) + cat(Pos) + Height + Weight + str(School)");
 
 Similarly, the ``tips2.csv`` data file:
 
 ::
 
+    // Create filename
+    fname = getGAUSSHome $+ "examples/tips2.csv";
+
     // Load the file 'tips2.csv'
     // using a formula string to select variables
     // and specify variable types
-    tips2 = loadd(getGAUSSHome $+ "examples/tips2.csv",
-                  "id + total_bill + tip + cat(sex) + cat(smoker) + cat(day) + cat(time) + size");
-
+    tips2 = loadd(fname,
+                  "id + total_bill + tip + cat(sex) + cat(time)");
 
 Formula strings accept a number of operators and keywords which allow you to:
 
@@ -192,18 +197,18 @@ Formula strings accept a number of operators and keywords which allow you to:
 +--------------------+---------------------------------------------+
 |Operator            | Purpose                                     |
 +====================+=============================================+
-|      `.`           |Represents all variables.                    |
+|      ``.``         |Represents all variables.                    |
 +--------------------+---------------------------------------------+
-|      `+`           |Adds a variable.                             |
+|      ``+``         |Adds a variable.                             |
 +--------------------+---------------------------------------------+
-|      `-`           |Removes a variable.                          |
+|      ``-``         |Removes a variable.                          |
 +--------------------+---------------------------------------------+
-|      `1`           |Represents an intercept term.                |
+|      ``1``         |Represents an intercept term.                |
 +--------------------+---------------------------------------------+
-|      `*`           |Adds an interaction term and includes both   |
+|      ``*``         |Adds an interaction term and includes both   |
 |                    |original variables.                          |
 +--------------------+---------------------------------------------+
-|      `:`           |Adds an interaction term between two         |
+|      ``:``         |Adds an interaction term between two         |
 |                    |variables but does not include either        |
 |                    |of the original variables.                   |
 +--------------------+---------------------------------------------+
@@ -211,13 +216,13 @@ Formula strings accept a number of operators and keywords which allow you to:
 +--------------------+---------------------------------------------+
 |Keyword             | Purpose                                     |
 +====================+=============================================+
-|      `cat`         |Load a variable as a categorical column.     |
+|      ``cat``       |Load a variable as a categorical column.     |
 +--------------------+---------------------------------------------+
 |      ``date``      |Load a variable as a date column.            |
 +--------------------+---------------------------------------------+
-|      `str`         |Load a variable as a string column.          |
+|      ``str``       |Load a variable as a string column.          |
 +--------------------+---------------------------------------------+
-|      `$`           |Indicate that a variable is stored in the    |
+|      ``$``         |Indicate that a variable is stored in the    |
 |                    |file as a string as should be passed to the  |
 |                    |keyword or procedure as a string column.     |
 +--------------------+---------------------------------------------+
@@ -359,14 +364,14 @@ GAUSS is a matrix based language and matrix operations play a fundamental role i
 +--------------------+-----------------------+-------------------------+
 |Description         | GAUSS                 | Stata                   |
 +====================+=======================+=========================+
-|Matrix multiply     | `z = x * y;`          |   `matrix z = x*y`      |
+|Matrix multiply     | ``z = x * y;``        | ``matrix z = x*y``      |
 +--------------------+-----------------------+-------------------------+
-|Solve system of     | `b = y / x;`          |   `matrix b = y*inv(x)` |
+|Solve system of     | ``b = y / x;``        | ``matrix b = y*inv(x)`` |
 |linear equations    |                       |                         |
 +--------------------+-----------------------+-------------------------+
-|Kronecker product   | `z = x .*. y;`        |   `matrix z = x#y`      |
+|Kronecker product   | ``z = x .*. y;``      | ``matrix z = x#y``      |
 +--------------------+-----------------------+-------------------------+
-|Matrix transpose    |  `z = x';`            |   `matrix z = x’`       |
+|Matrix transpose    |  ``z = x';``          | ``matrix z = x’``       |
 +--------------------+-----------------------+-------------------------+
 
 When dealing with matrices, it is important to distinguish matrix operations from element-by-element operations. In Stata, element-by-element operations are specified with a colon ``:``. In GAUSS, element-by-element operations are specified by a dot ``.``.
@@ -376,15 +381,15 @@ When dealing with matrices, it is important to distinguish matrix operations fro
 +---------------------------------+-----------------------+-------------------------+
 |Description                      | GAUSS                 | Stata                   |
 +=================================+=======================+=========================+
-|Element-by-element multiply      | `z = x .* y;`         | `matrix z = x:*y`       |
+|Element-by-element multiply      | ``z = x .* y;``       | ``matrix z = x:*y``     |
 +---------------------------------+-----------------------+-------------------------+
-|Element-by-element divide        | `z = y ./ x;`         | `matrix z = y:/x`       |
+|Element-by-element divide        | ``z = y ./ x;``       | ``matrix z = y:/x``     |
 +---------------------------------+-----------------------+-------------------------+
-|Element-by-element exponentiation| `z = x .^ y;`         | `matrix z = x:^y`       |
+|Element-by-element exponentiation| ``z = x .^ y;``       | ``matrix z = x:^y``     |
 +---------------------------------+-----------------------+-------------------------+
-|Element-by-element addition      | `z = x + y;`          | `matrix z = x + y`      |
+|Element-by-element addition      | ``z = x + y;``        | ``matrix z = x + y``    |
 +---------------------------------+-----------------------+-------------------------+
-|Element-by-element subtraction   | `z = x - y;`          | `matrix z = x - y`      |
+|Element-by-element subtraction   | ``z = x - y;``        | ``matrix z = x - y``    |
 +---------------------------------+-----------------------+-------------------------+
 
 For a more in depth look at how matrix operation works in GAUSS you may want to review our blogs:
@@ -956,8 +961,8 @@ The second contains ``ID`` and ``Occupation``:
      ID      Occupation
    John         Teacher
    Mary         Surgeon
-   Susan      Developer
-   Tyler          Nurse
+  Susan       Developer
+  Tyler           Nurse
 
 In Stata, we merge these using ``merge()``:
 
