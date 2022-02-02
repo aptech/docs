@@ -886,8 +886,8 @@ The :func:`missrv`  function replaces all missing values in a matrix with a user
 
   // Create matrix
   a = { 1 .,
-      . 4,
-      5 6 };
+        . 4,
+        5 6 };
 
   // Replace all missing values with -999
   print missrv(a, -999);
