@@ -245,7 +245,6 @@ The **Data Import** window offers a data import experience similar to Stata’s 
 .. figure:: ../_static/images/data-import-code-generation.png
     :width: 80%
 
-
 You can open the **Data Import** window in three ways:
 
 * Select **File > Import Data** from the main GAUSS menu bar.
@@ -544,7 +543,14 @@ The :func:`asDate` procedure automatically recognizes dates in the format ``"YYY
 
 Changing the display format
 ++++++++++++++++++++++++++++++++++++++
-Once a date variable has been imported or created, the display format can be specified either interactively using the GAUSS **Data Management Tool**:
+Once a date variable has been imported or created, the display format can be specified either interactively using the GAUSS **Data Management Tool**.
+
+The **Specify Date Format** dialog is accessed by selecting **Properties** from the variable's dropdown:
+
+.. figure:: ../_static/_images/interactive-data-cleaning-variable-properties.jpg
+    :width: 60%
+
+If the variable is a date variable, the **Specify Date Format** will open:
 
 .. figure:: ../_static/images/select-date-format.jpg
     :width: 60%
