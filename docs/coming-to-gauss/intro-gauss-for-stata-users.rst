@@ -545,19 +545,19 @@ The :func:`asDate` procedure automatically recognizes dates in the format ``"YYY
 
 Changing the display format
 ++++++++++++++++++++++++++++++++++++++
-Once a date variable has been imported or created, the display format can be specified either interactively using the GAUSS **Data Management Tool**.
+Once a date variable has been imported or created, the display format can be specified interactively using the GAUSS **Data Management Tool**.
 
 The **Specify Date Format** dialog is accessed by selecting **Properties** from the variable's dropdown:
 
-.. figure:: ../_static/_images/interactive-data-cleaning-variable-properties.jpg
+.. figure:: ../_static/images/interactive-data-cleaning-variable-properties.jpg
     :width: 60%
 
-If the variable is a date variable, the **Specify Date Format** will open:
+If the variable is a date variable, the **Specify Date Format** window will open:
 
 .. figure:: ../_static/images/select-date-format.jpg
     :width: 60%
 
-or programmatically using :func:`asDate`:
+Dates can be managed programmatically using :func:`asDate`:
 
 ::
 
@@ -710,8 +710,8 @@ This creates the ``name_split`` dataframe:
 ::
 
   first_name        last_name
-       John             Smith
-       Jane              Cook
+        John            Smith
+        Jane             Cook
 
 If the original name data has first, middle, and last names, all separated by spaces, then :func:`strsplit` will split the strings into three columns:
 
@@ -732,16 +732,16 @@ Now the ``name_split`` variable contains three variables:
         John           Robert            Smith
         Jane        Elizabeth             Cook
 
-Finally, suppose our names are separated by commas instead of spaces:
+Finally, suppose our names are separated by a comma and a space, instead of a space:
 
 ::
 
   // Generate string array of names
   string name = { "Smith,John", "Cook,Jane" };
 
-  // Split into two strings using ',' as a separator
+  // Split into two strings using ', ' as a separator
   // and name variables 'last_name' and 'first_name'
-  name_split = asDF(strsplit(name, ","), "last_name", "first_name");
+  name_split = asDF(strsplit(name, ", "), "last_name", "first_name");
 
 Now our ``name_split`` variable is:
 
@@ -800,7 +800,7 @@ In GAUSS missing values can be created with a statement or using the  :func:`err
 
 Counting missing values
 ++++++++++++++++++++++++++
-In Stata, missing value of individual variables can be counted using the ``count`` command. This command works with a logical statement specifying what condition is to be counted:
+In Stata, missing values in individual variables can be counted using the ``count`` command. This command works with a logical statement specifying what condition is to be counted:
 
 .. code-block:: Stata
 
@@ -812,7 +812,7 @@ In GAUSS, missing values can be counted using the :func:`counts` function and ``
 
   counts(auto2[., "rep78"], error(0));
 
-This finds how many missing values there are of the ``rep78``, found in the ``auto2`` dataframe:
+This finds how many missing values there are in the ``rep78`` variable, found in the ``auto2`` dataframe:
 
 ::
 
