@@ -469,9 +469,8 @@ We can accomplish the same sorting as the Stata line above using:
 
 ::
 
-  // Sort the 'tips2' dataframe
-  // based on 'sex' and 'total_bill'
-  // variables
+  // Sort the 'tips2' dataframe based
+  // on 'sex' and 'total_bill' variables
   tips2 = sortmc(tips2, "sex"$|"total_bill");
 
 Date Functionality
@@ -501,9 +500,12 @@ In GAUSS, dates can be directly read in as date variables using the :func:`loadd
 
 ::
 
+  // Create filename
+  fname = getGAUSSHome $+ "examples/yellowstone.csv";
+
   // Load the variable Visits, LowtTep, HighTemp and Date
   // from the file 'yellowstone.csv'
-  yellowstone = loadd(getGAUSSHome $+ "examples/yellowstone.csv", "Visits + LowtTemp + HighTemp + date($Date)");
+  yellowstone = loadd(fname, "Visits + LowtTemp + HighTemp + date($Date)");
 
 .. figure:: ../_static/images/yellowstone-dates.jpg
       :width: 80%
@@ -528,8 +530,8 @@ In GAUSS, this is done using the :func:`asDate` procedure:
 
 ::
 
-  // Convert string date '2002-10-01' to
-  // date variable
+  // Convert string date '2002-10-01'
+  // to a date variable
   date_var = asDate("2002-10-01");
 
 The :func:`asDate` procedure automatically recognizes dates in the format ``"YYYY-MM-DD HH:MM:SS"``. However, if the date is in a different format, a format string can be used:
@@ -580,8 +582,8 @@ GAUSS also uses a :func:`strlen()` procedure to find string lengths:
 ::
 
   // Find length of all observations
-  // of the variable 'time' in the
-  // 'tips2' dataframe
+  // of the variable 'time' in
+  // the 'tips2' dataframe
   strlen_time = strlen(tips2[., "time"]);
 
 Finding the position of a substring
