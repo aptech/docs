@@ -109,7 +109,7 @@ In Stata, the ``input`` statement is used to build datasets from specified value
   5 6
   end
 
-In GAUSS, a dataframe can be created from manually entered matrix and variable names using the :func:`asDF` procedure:
+In GAUSS, a dataframe can be created from a manually entered matrix and variable names using the :func:`asDF` procedure:
 
 ::
 
@@ -354,7 +354,7 @@ In GAUSS, these operations are performed using operators. For example, GAUSS use
   // Divide all observations of the variable
   // 'total_bill' in the 'tips2' dataframe by 2
   // and generate 'new_bill'
-  tips2 = tips2 ~ dfname(tips2[.,"total_bill"]/2, "new_bill");
+  tips2 = tips2 ~ dfname(tips2[.,"total_bill"] / 2, "new_bill");
 
 Matrix operations
 +++++++++++++++++++
