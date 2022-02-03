@@ -84,7 +84,7 @@ Sorting and set functions
 ==========================    ===============================================================
 :doc:`../intrsect`            Returns the intersection of two vectors.
 :doc:`../setdif`              Returns the unique elements in one vector that are not present in a second vector.
-:doc:`../sortcsortcc`         Sorts a numeric matrix, character matrix or string array.
+:doc:`../sortc`               Sorts a numeric matrix, character matrix or string array.
 :doc:`../sortindsortindc`     Returns the sorted index of x.
 :doc:`../sortmc`              Sorts a matrix on multiple columns.
 :doc:`../sortrsortrc`         Sorts the columns of a matrix of numeric or character data, with respect to a specified row.

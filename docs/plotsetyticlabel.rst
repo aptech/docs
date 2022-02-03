@@ -4,7 +4,7 @@ plotSetYticLabel
 
 Purpose
 ----------------
-Controls the formatting and angle of y-axis tick labels for 2-D graphs.
+Controls the formatting and angle of y-axis tick labels.
 
 Format
 ----------------

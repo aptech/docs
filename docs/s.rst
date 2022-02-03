@@ -48,7 +48,8 @@ S
     sin
     sleep
     solpd
-    sortcsortcc
+    sortc
+    sortcc
     sortd
     sorthcsorthcc
     sortindsortindc
