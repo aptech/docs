@@ -14,7 +14,7 @@ Format
     :param x: data
     :type x: NxK matrix, dataframe or string array.
 
-    :param c: Optional input, specifies the column of *x* to sort on. Default=1.
+    :param c: Optional input, specifies the column(s) of *x* to sort on. Default=1.
     :type c: scalar, column vector or string array.
 
     :return y: equal to *x* and sorted on the column(s) represented by *c*.
@@ -33,10 +33,10 @@ Sort rows of a matrix based upon first column
           1 3 2,
           3 4 8 };
 
-    // Sort 'x' based upon the first row
+    // Sort 'x' based upon the first column
     y = sortc(x);
 
-The above example code produces, *y* equal to:
+The above example code produces *y* equal to:
 
 ::
 
@@ -171,46 +171,46 @@ By default categorical variables are sorted by their underlying key value. We wi
 
     // Get file name with full path
     fname = getGAUSSHome() $+ "examples/tips2.dta";
-    
+
     // Load 2 variables from dataset
     tips = loadd(fname, "sex + size");
-    
+
     // Take a repeatable random sample
-    rndseed 423142;
+    rndseed 72917;
     tips = sampleData(tips, 10);
-    
+
     print tips;
 
 ::
 
-             sex             size 
-          Female        2.0000000 
-          Female        2.0000000 
-            Male        4.0000000 
-            Male        4.0000000 
-            Male        3.0000000 
-            Male        4.0000000 
-            Male        2.0000000 
-            Male        4.0000000 
-            Male        2.0000000 
-            Male        2.0000000 
+             sex             size
+            Male        2.0000000
+            Male        2.0000000
+          Female        2.0000000
+          Female        3.0000000
+            Male        2.0000000
+            Male        2.0000000
+          Female        1.0000000
+          Female        2.0000000
+            Male        2.0000000
+          Female        3.0000000
 
 Before we sort this data, let's get the categorical keys and compare them to the printed labels.
 
 ::
-    
+
     { label, k } = getcollabels(tips, "sex");
 
 
-Running the above code will show us the labels and their corresponding keys.  
+Running the above code will show us the labels and their corresponding keys.
 
 ::
 
     label = Female    k = 0.0000
               Male        1.0000
 
-    
-    
+
+
 Therefore when we sort the data on the ``sex`` variable:
 
 ::
@@ -222,18 +222,17 @@ we see that ``Female`` is first and ``Male`` is second. This is because the key 
 
 ::
 
-             sex             size 
-          Female        2.0000000 
-          Female        2.0000000 
-            Male        4.0000000 
-            Male        4.0000000 
-            Male        3.0000000 
-            Male        4.0000000 
-            Male        2.0000000 
-            Male        4.0000000 
-            Male        2.0000000 
+             sex             size
+          Female        2.0000000
+          Female        3.0000000
+          Female        1.0000000
+          Female        2.0000000
+          Female        3.0000000
             Male        2.0000000
-
+            Male        2.0000000
+            Male        2.0000000
+            Male        2.0000000
+            Male        2.0000000
 
 Sort rows of a 5x1 string vector
 ++++++++++++++++++++++++++++++++
@@ -278,4 +277,4 @@ Remarks
 
       rev(sortc(x, c))
 
-.. seealso:: Functions :func:`getcollabels, :func:`reordercatlabels`, :func:`rev`, :func:`sortind`, :func:`unique`
+.. seealso:: Functions :func:`getcollabels`, :func:`reordercatlabels`, :func:`rev`, :func:`sortind`, :func:`unique`
