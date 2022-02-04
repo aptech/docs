@@ -149,11 +149,11 @@ Axes ticks
 :doc:`../plotsetticposition`              Controls if the x and y-axis tick is inside or outside the axis lines.
 :doc:`../plotsetxminorticcount`           Controls the number of minor ticks to place between major ticks on the x-axis of a 2-D plot.
 :doc:`../plotsetxticinterval`             Controls the interval between x-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D graphs.
-:doc:`../plotsetxticlabel`                Controls the formatting and angle of x-axis tick labels for 2-D graphs.
+:doc:`../plotsetxticlabel`                Controls the formatting and angle of x-axis tick labels.
 :doc:`../plotsetxticposition`             Controls if the x-axis tick is inside or outside the x-axis line.
 :doc:`../plotsetyminorticcount`           Controls the number of minor ticks to place between major ticks on the y-axis of a 2-D plot.
 :doc:`../plotsetyticinterval`             Controls the interval between y-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D graphs.
-:doc:`../plotsetyticlabel`                Controls the formatting and angle of y-axis tick labels for 2-D graphs.
+:doc:`../plotsetyticlabel`                Controls the formatting and angle of y-axis tick labels.
 :doc:`../plotsetyticposition`             Controls if the y-axis tick is inside or outside the y-axis line.
 ===================================    ============================================================================
 
