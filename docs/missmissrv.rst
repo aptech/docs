@@ -5,13 +5,14 @@ miss, missrv
 Purpose
 ----------------
 
-:func:`miss` converts specified elements in a matrix to GAUSS's missing
+:func:`miss` creates a scalar missing value or converts specified elements in a matrix to GAUSS's missing
 value code. :func:`missrv` is the reverse of this, and converts missing values into specified values.
 
 Format
 ----------------
 .. function:: y = missrv(x, v)
               y = miss(x, v)
+              y = miss()
 
     :param x: data
     :type x: NxK matrix
@@ -25,6 +26,22 @@ Format
 
 Examples
 ----------------
+
+Create a scalar missing value
++++++++++++++++++++++++++++++++
+
+::
+
+    // Create a scalar missing value
+    m = miss();
+    print m;
+
+After the above code, ``m`` will be a scalar missing value and the code will print the following:
+
+::
+
+    .
+
 
 Replace missing values
 ++++++++++++++++++++++
