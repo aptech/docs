@@ -7,9 +7,14 @@ The following is a list of changes from the previous version of GAUSS.
 22.1.0
 ------
 
+#. New convenience feature: The column input to :func:`reshape` is now optional and if a -1 is passed in for the row or column input, :func:`reshape` will infer the other dimension. 
+#. New convenience feature: :func:`miss` with no inputs will return a scalar missing value.
 #. New functions :func:`head` and :func:`tail` allow convenient previewing of the first or last rows of data.
 #. New function :func:`annotationsetlinepen` allows for more convenient setting of annotation line width, color and style.
+#. New function :func:`plotsetmissgap` controls whether a gap in line plots is shown for missing observations.
 #. Final inputs to :func:`annotationsetfont` are now optional inputs.
+#. Added support for anchor position (topleft, bottomleft, center, topright, bottomright) to :func:`plotaddtextbox`.
+#. Added additional optional inputs to :func:`plotsetxrange` and :func:`plotsetyrange` to set the tick inverval and the location of the first tick label.
 #. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedome adjustment used in the computation.
 #. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
 #. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.
