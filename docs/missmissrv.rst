@@ -10,9 +10,9 @@ value code. :func:`missrv` is the reverse of this, and converts missing values i
 
 Format
 ----------------
-.. function:: y = missrv(x, v)
+.. function:: y = miss()
               y = miss(x, v)
-              y = miss()
+              y = missrv(x, v)
 
     :param x: data
     :type x: NxK matrix
@@ -44,7 +44,7 @@ After the above code, ``m`` will be a scalar missing value and the code will pri
 
 
 Replace missing values
-++++++++++++++++++++++
+++++++++++++++++++++++++
 
 ::
 
