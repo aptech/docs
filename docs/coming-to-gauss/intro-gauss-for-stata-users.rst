@@ -289,6 +289,52 @@ which is equivalent to
 
   list mpg 1/5
 
+In GAUSS, you can also preview the beginning or end of your data using the :func:`head` or :func:`tail` functions, respectively.
+
+For example, to view the first five rows of ``make``, ``price``, and ``mpg`` in the dataframe ``auto2``:
+
+::
+
+  head(auto2[., "make" "price" "mpg"]);
+
+This prints
+
+::
+
+            make            price              mpg
+     AMC Concord        4099.0000        22.000000
+       AMC Pacer        4749.0000        17.000000
+      AMC Spirit        3799.0000        22.000000
+   Buick Century        4816.0000        20.000000
+   Buick Electra        7827.0000        15.000000
+
+We can include an optional input to indicate how many rows to include. A positive number specifies how many rows to print. For example, to print the first ten rows:
+
+::
+
+  head(auto2[., "make" "price" "mpg"], 10);
+
+This prints the first ten rows:
+
+::
+
+          make          price              mpg
+     AMC Pacer      4749.0000        17.000000
+ Buick Century      4816.0000        20.000000
+ Buick Electra      7827.0000        15.000000
+ Buick LeSabre      5788.0000        18.000000
+    Buick Opel      4453.0000        26.000000
+   Buick Regal      5189.0000        20.000000
+ Buick Riviera      10372.000        16.000000
+ Buick Skylark      4082.0000        19.000000
+
+A negative number indicates how many rows to skip before beginning printing. For example, to print everything after the first 10 rows of data:
+
+::
+
+  head(auto2[., "make" "price" "mpg"], -10);
+
+
 Data Operations
 --------------------
 
@@ -438,11 +484,39 @@ Stata allows you to select, drop, or rename columns using command line keywords:
 
   rename total_bill total_bill_2
 
-In GAUSS, the same can be done using the **Data Management Pane**
-[NEED GIF HERE]
+In GAUSS, the same can be done using the **Data Management** pane.
 
+.. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
 
-The corresponding GAUSS code is:
+To open the **Data Management** pane:
+
+1. Double-click the name of the dataframe in the **Symbols** window on the **Data** page.
+2. Click the **Manage** button with the cog icon on the top right of the open **Symbol Editor** window.
+
+Select columns from a dataframe
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Columns can be selected or removed from the dataframe using the **Variables** list.
+
+*  If a variable has a check box next to the name of the variables it is included in the dataframe.
+*  To clear the variable from the dataframe clear the check box next to the variable name.
+
+These changes will not be made until you click **Apply**.
+
+Changing variable names
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Variable names can also be changes from the **Variables** list.
+
+.. figure:: ../_static/images/data-organization-rename-variable.jpg
+    :scale: 50%
+
+1. Double-click the dataframe you want to modify in the **Symbols** pane of the **Data** page.
+2. Click the **Manage** button at the top right of the open **Symbol Editor**.
+3. Click downward pointing triangle button to the right of the name of the variable name you want to change and select **Rename**.
+4. Enter the new name in the **Name** text box.
+
+These changes will not be made until you click **Apply**.
+
+GAUSS also offers programmatic options for selecting data and changing variable names:
 
 ::
 
