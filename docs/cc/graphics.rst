@@ -135,10 +135,10 @@ Axes and grid
 :doc:`../plotsetwhichyaxis`               Assigns curves to the right or left y-axis.
 :doc:`../plotsetxgridpen`                 Controls the thickness, color, and style for the grid lines from the x-axis.
 :doc:`../plotsetxpen`                     Controls the thickness, color, and style for the x-axis line.
-:doc:`../plotsetxrange`                   Sets the range for the x-axis.
+:doc:`../plotsetxrange`                   Sets the range for the x-axis, and optionally the distance between major ticks and the first tick to label.
 :doc:`../plotsetygridpen`                 Controls the thickness, color, and style for the grid lines from the y-axis.
 :doc:`../plotsetypen`                     Controls the thickness, color, and style for the y-axis line.
-:doc:`../plotsetyrange`                   Sets the range for the y-axis.
+:doc:`../plotsetyrange`                   Sets the range for the y-axis, and optionally the distance between major ticks and the first tick to label.
 ===================================    ============================================================================
 
 Axes ticks
@@ -149,11 +149,11 @@ Axes ticks
 :doc:`../plotsetticposition`              Controls if the x and y-axis tick is inside or outside the axis lines.
 :doc:`../plotsetxminorticcount`           Controls the number of minor ticks to place between major ticks on the x-axis of a 2-D plot.
 :doc:`../plotsetxticinterval`             Controls the interval between x-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D graphs.
-:doc:`../plotsetxticlabel`                Controls the formatting and angle of x-axis tick labels for 2-D graphs.
+:doc:`../plotsetxticlabel`                Controls the formatting and angle of x-axis tick labels.
 :doc:`../plotsetxticposition`             Controls if the x-axis tick is inside or outside the x-axis line.
 :doc:`../plotsetyminorticcount`           Controls the number of minor ticks to place between major ticks on the y-axis of a 2-D plot.
 :doc:`../plotsetyticinterval`             Controls the interval between y-axis tick labels and also allows the user to specify the first tick to be labeled for 2-D graphs.
-:doc:`../plotsetyticlabel`                Controls the formatting and angle of y-axis tick labels for 2-D graphs.
+:doc:`../plotsetyticlabel`                Controls the formatting and angle of y-axis tick labels.
 :doc:`../plotsetyticposition`             Controls if the y-axis tick is inside or outside the y-axis line.
 ===================================    ============================================================================
 
@@ -166,6 +166,7 @@ Line color, style and fill
 :doc:`../plotsetfill`                     Sets the fill style, transparency and color for scatter symbols, area plots, histograms and bar graphs.
 :doc:`../plotsetlinepen`                  Sets line color, thickness and style.
 :doc:`../plotsetlinesymbol`               Sets line symbols displayed on the plotted points of a graph.
+:doc:`../plotsetmissgap`                  Controls whether missing data creates a gap in line plots, or is ignored.
 ===================================    ============================================================================
 
 Box and Bar settings
@@ -203,6 +204,7 @@ Annotation settings
 :doc:`../annotationsetbkd`                Sets the background color and transparency level for a textbox, rectangle or ellipse.
 :doc:`../annotationsetfont`               Sets the font properties of a plotAnnotation structure for controlling text boxes added to a graph.
 :doc:`../annotationsetlinecolor`          Sets the line color for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
+:doc:`../annotationsetlinepen`            Sets the line width, color and style  for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
 :doc:`../annotationsetlinestyle`          Sets the line style for textbox, rectangle or ellipse borders as well as the style for lines and arrows.
 :doc:`../annotationsetlinethickness`      Sets the line thickness for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
 =====================================    ============================================================================

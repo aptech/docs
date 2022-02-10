@@ -8,7 +8,7 @@ Sets the font properties of a plotAnnotation structure for controlling text boxe
 
 Format
 ----------------
-.. function:: annotationSetFont(&myAnnotation, fontname, fontsize, fontcolor)
+.. function:: annotationSetFont(&myAnnotation, fontname [, fontsize, fontcolor])
 
     :param &myAnnotation: A :class:`plotAnnotation` structure pointer.
     :type &myAnnotation: struct
@@ -16,10 +16,10 @@ Format
     :param fontname: the name of the font.
     :type fontname: string
 
-    :param fontsize: the size of the font in points.
+    :param fontsize: Optional input, the size of the font in points.
     :type fontsize: scalar
 
-    :param fontcolor: a color or HTML hexidecimal color code.
+    :param fontcolor: Optional input, a color or HTML hexidecimal color code.
     :type fontcolor: string
 
 Examples
@@ -73,6 +73,8 @@ Customized textbox
 
 Remarks
 -------
+
+If :func:`annotationSetFont` is used without the final two inputs, those settings will be left at their previous values.
 
 :func:`annotationSetFont` does not currently support surface plots.
 

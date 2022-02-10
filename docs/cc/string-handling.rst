@@ -13,6 +13,7 @@ String manipulation and cleaning
 :doc:`../strlen`                  Returns length of a string.
 :doc:`../strput`                  Lays a substring over a string.
 :doc:`../strreplace`              Replace all matches of a substring with a replacement string.
+:doc:`../strindx`                 Finds starting location of one string in another string, searching from the start to the end of the string.
 :doc:`../strrindx`                Finds starting location of one string in another string, searching from the end to the start of the string.
 :doc:`../strsect`                 Extracts a substring of a string.
 :doc:`../strsplit`                Splits an Nx1 string vector into an NxK string array of the individual tokens.
