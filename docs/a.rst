@@ -33,6 +33,7 @@ A
     annotationsetlinepen
     annotationsetlinestyle
     annotationsetlinethickness
+    annotationsettextalign
     annualtradingdays
     arccos
     arcsin
