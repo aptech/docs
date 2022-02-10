@@ -99,6 +99,7 @@ D
     design
     detl
     det
+    dfappend
     dffti
     dfft
     dfname

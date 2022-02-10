@@ -11,6 +11,7 @@ General
 =========================     ==========================================================================
 :doc:`../asdf`                Converts a matrix or string array to a dataframe, and optionally sets the column names.
 :doc:`../asmatrix`            Converts a dataframe to a matrix.
+:doc:`../dfappend`            Vertically conacatenates (or stacks) two dataframes.
 :doc:`../dfname`              Sets the variable names of the columns of a dataframe.
 :doc:`../dftype`              Sets the types (numeric, categorical, date or string) of a dataframe.
 :doc:`../getcolnames`         Returns the names of the columns (or variables) in a GAUSS dataframe.

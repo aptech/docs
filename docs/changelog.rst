@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 22.1.0
 ------
 
+#. New function :func:`dfappend` vertically stacks dataframes and merges the meta data from string and categorical columns.
 #. :func:`sortc` and can now accept multiple columns to sort on. :func:`sortmc` can now accept string variable names.
 #. New convenience feature: The column input to :func:`reshape` is now optional and if a -1 is passed in for the row or column input, :func:`reshape` will infer the other dimension. 
 #. New convenience feature: :func:`miss` with no inputs will return a scalar missing value.
