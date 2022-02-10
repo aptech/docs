@@ -39,8 +39,9 @@ L
     lncdfn2
     lncdfnc
     lncdfn
-    lncfmvn
+    lncdfmvn
     lnfact
+    lngamma
     lngammacplx
     lnpdfmvn
     lnpdfmvt

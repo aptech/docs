@@ -8,7 +8,8 @@ Sets the range for the x-axis.
 
 Format
 ----------------
-.. function:: plotSetXRange(&myPlot, x_min, x_max)
+.. function:: plotSetXRange(&myPlot, x_min, x_max [, tic_interval, first_labeled])
+              plotSetXRange(&myPlot, x_min, x_max [, tic_interval, time_unit, first_labeled])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -18,6 +19,25 @@ Format
 
     :param x_max: maximum limit of the x-axis.
     :type x_max: Scalar, or 2x1 matrix
+
+    :param tic_interval: Optional input, the distance between x-axis tick labels.
+    :type tic_interval: scalar
+
+    :param time_unit: Optional input used for time series plots. The time units to describe the ``tic_interval`` input:
+
+        - "milliseconds"
+        - "seconds"
+        - "minutes"
+        - "hours"
+        - "days"
+        - "months"
+        - "quarters"
+        - "years"
+
+    :type time_unit: string
+
+    :param first_labeled: Optional input, the value of the first X value on which to place a tick label.
+    :type first_labeled: scalar
 
 Examples
 ----------------
@@ -48,8 +68,11 @@ Set separate ranges for the top and bottom x-axes
 
 
 .. figure:: _static/images/plotset-xrange-2-axes.jpg
+    :width: 50 %
 
-We will create the plot shown above, comparing S&P 500 earnings data from two decades by plotting one of the series against the bottom x-axis and the other against the top x-axis. The call to :func:`plotSetWhichXAxis` below specifies that the first column plotted will be assigned to the bottom x-axis, while the second column plotted will be plotted against the top x-axis.
+We will create the plot shown above, comparing S&P 500 earnings data from two decades by plotting one of the series against the bottom x-axis and the other against the top x-axis. 
+
+The call to :func:`plotSetWhichXAxis` below specifies that the first column plotted will be assigned to the bottom x-axis, while the second column plotted will be plotted against the top x-axis.
 
 
 ::

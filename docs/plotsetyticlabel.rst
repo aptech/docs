@@ -4,7 +4,7 @@ plotSetYticLabel
 
 Purpose
 ----------------
-Controls the formatting and angle of y-axis tick labels for 2-D graphs.
+Controls the formatting and angle of y-axis tick labels.
 
 Format
 ----------------
@@ -46,6 +46,7 @@ Basic usage
 The code above produces a graph with Y-tick labels like the image below:
 
 .. figure:: _static/images/psyti_scatter_1.png
+    :scale: 50 %
 
     Y-tick labels
 

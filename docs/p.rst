@@ -77,7 +77,6 @@ P
     plotsetgridpen
     plotsetaxespen
     plotsetaxespen
-    plotsetticposition
     plotsetbar
     plotsetbarwidth
     plotsetbkdcolor
@@ -97,10 +96,12 @@ P
     plotsetlinestyle
     plotsetlinesymbol
     plotsetlinethickness
+    plotsetmissgap
     plotsetnewwindow
     plotsetoutlineenabled
     plotsettextinterpreter
     plotsetticlabelfont
+    plotsetticposition
     plotsettitle
     plotsetwhichxaxis
     plotsetwhichyaxis

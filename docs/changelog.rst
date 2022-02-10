@@ -3,11 +3,35 @@ Change Log
 ==========
 
 The following is a list of changes from the previous version of GAUSS.
-
-22.0.4
 ------
 
+22.1.0
+------
+
+#. :func:`copymetadata` now allows repeating columns from the source dataframe as well as specifying a subset of columns to apply to the destination dataframe.
+#. New function :func:`dfappend` vertically stacks dataframes and merges the meta data from string and categorical columns.
+#. :func:`sortc` and can now accept multiple columns to sort on. :func:`sortmc` can now accept string variable names.
+#. New convenience feature: The column input to :func:`reshape` is now optional and if a -1 is passed in for the row or column input, :func:`reshape` will infer the other dimension. 
+#. New convenience feature: :func:`miss` with no inputs will return a scalar missing value.
+#. New functions :func:`head` and :func:`tail` allow convenient previewing of the first or last rows of data.
+#. New function :func:`annotationsettextalign` allows specifying alignment of text inside textboxes programmatically.
+#. New function :func:`annotationsetlinepen` allows for more convenient setting of annotation line width, color and style.
+#. New function :func:`plotsetmissgap` controls whether a gap in line plots is shown for missing observations.
+#. Final inputs to :func:`annotationsetfont` are now optional inputs.
+#. Added support for anchor position (topleft, bottomleft, center, topright, bottomright) to :func:`plotaddtextbox`.
+#. Added additional optional inputs to :func:`plotsetxrange` and :func:`plotsetyrange` to set the tick inverval and the location of the first tick label.
+#. :func:`plotsetxrange` and :func:`plotsetyrange` can now set the top / bottom x-axes and left / right y-axes separately.
+#. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedome adjustment used in the computation.
+#. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
+#. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.
 #. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
+#. Bug Fix: :func:`plotsetxticinterval` and :func:`plotsetyticinterval` would set the top x-axis or right y-axis respectively when a scalar (rather than 2x1) input was passed in.
+#. Bug Fix: Indexing a dataframe in a specific manner resulting in a scalar could sometimes omit the metadata.
+#. Bug Fix: Metadata cache would sometimes not be kept when the LRU cache was full.
+#. Bug Fix: Reading complex (i.e. with imaginary numbers) datasets with :func:`readr` in certain cases could return the error "read past end of file".
+#. Bug Fix: :func:`__FILE_DIR` is now fixed when used in the Command window on Windows.
+#. Bug Fix: Regression: Filtering dataframe date columns in the symbol editor now works correctly again.
+#. New example file ``plotunemp.e`` illustrates plotting time series variables from a dataframe using :func:`plotXY` and formula strings.
 
 22.0.3
 ------

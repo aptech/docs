@@ -36,7 +36,7 @@ Remarks
 -------
 
 For integer *x*, this is (approximately) ``ln(x!)``. However, the computation
-is done using a formula, and the function is defined for noninteger *x*.
+is done using a formula, and the function is defined for non integer *x*.
 
 In most formulae in which the factorial operator appears, it is possible
 to avoid computing the factorial directly, and to use :func:`lnfact` instead.
@@ -68,5 +68,5 @@ Source
 
 lnfact.src
 
-.. seealso:: Functions :func:`gamma`
+.. seealso:: Functions :func:`gamma`, :func:`lngamma`
 

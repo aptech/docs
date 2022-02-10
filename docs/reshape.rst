@@ -4,19 +4,19 @@ reshape
 
 Purpose
 ----------------
-Reshapes a matrix.
+Reshapes a dataframe, matrix or string array.
 
 Format
 ----------------
-.. function:: y = reshape(x, r, c)
+.. function:: y = reshape(x, r [, c])
 
     :param x: data
     :type x: NxK matrix
 
-    :param r: new row dimension.
+    :param r: new row dimension. If -1 is passed in, the row dimension will be inferred based on the size of the input data and the column dimension.
     :type r: scalar
 
-    :param c: new column dimension.
+    :param c: Optional input, new column dimension. If ``c`` is not passed in a default value of 1 will be used. If -1 is passed in, the column dimension will be inferred based on the size of the input data and the row dimension. 
     :type c: scalar
 
     :return y: created from the elements of *x*.
@@ -25,6 +25,73 @@ Format
 
 Examples
 ----------------
+
+Repeating a scalar element
++++++++++++++++++++++++++++++
+
+::
+
+    // Create a 3x1 vector of 5's
+    x = reshape(5, 3);
+
+
+After the above code, ``x`` will equal:
+
+::
+
+    5
+    5
+    5
+
+::
+
+    // Create a 1x4 row vector of 5's
+    x = reshape(5, 1, 4);
+
+After the above code, ``x`` will equal:
+
+::
+
+    5   5   5   5
+
+
+Examples with a -1 row or column input
+++++++++++++++++++++++++++++++++++++++++++
+
+
+::
+
+    // Create a 3x4 matrix
+    x = { 1  2  3  4,
+          5  6  7  8,
+          9 10 11 12 };
+
+    y = reshape(x, 2, -1);
+
+After the above code, ``y`` will equal:
+
+::
+
+    1   2   3    4    5    6
+    7   8   9   10   11   12
+
+
+Continuing with the ``x`` from above:
+
+::
+
+    y = reshape(x, -1, 3);
+
+::
+ 
+     1    2    3
+     4    5    6
+     7    8    9   
+    10   11   12
+
+
+Other basic examples
+++++++++++++++++++++++
 
 ::
 
@@ -61,7 +128,7 @@ Examples
 Remarks
 -------
 
-Matrices are stored in row major order.
+Matrices (as well as dataframes and string arrays) are stored in row major order.
 
 The first *c* elements are put into the first row of *y*, the second in the
 second row, and so on. If there are more elements in *x* than in *y*, the

@@ -8,7 +8,7 @@ Adds a textbox to an existing graph.
 
 Format
 ----------------
-.. function:: plotAddTextbox([myAnnotation, ]text, x_start, y_start)
+.. function:: plotAddTextbox([myAnnotation, ]text, x_start, y_start[, anchor_position])
 
     :param myAnnotation: Optional input, a :class:`plotAnnotation` structure.
     :type myAnnotation: struct
@@ -21,6 +21,12 @@ Format
 
     :param y_start: the Y coordinate for the start of the bounding box for each respective text box.
     :type y_start: scalar or Nx1 vector
+
+    :param anchor_position: Optional argument, the position to anchor the textbox. Default is ``"topleft"``.
+
+        Valid options are ``"topleft"`` (default), ``"topright"``, ``"center"``, ``"bottomleft"``, ``"bottomright``"
+
+    :type anchor_position: string
 
 Examples
 ----------------
@@ -107,7 +113,7 @@ create a new graph if one does not already exist.
 .. NOTE:: The top left corner of the bounding box will be located at the
     point on the graph that you specify. If the border is turned off, the
     text will not touch the exact coordinate that you input. In many cases
-    this makes is simpler to label a point that is already part of a scatter
+    this makes it simpler to label a point that is already part of a scatter
     or line series without covering it.
 
 Unlike the functions that add data to a plot, if a textbox created by
@@ -120,3 +126,4 @@ different subplots.
 
 
 .. seealso:: Functions :func:`plotAddShape`, :func:`annotationGetDefaults`
+

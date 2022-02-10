@@ -38,6 +38,7 @@ R
     rndbinomial
     rndcauchy
     rndchisquare
+    rndseed
     rndconrndmultrndseed
     rndcreatestate
     rndexp

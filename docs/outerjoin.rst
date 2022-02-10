@@ -9,7 +9,7 @@ Performs a left outer join on two matrices based upon user-specified key columns
 
 Format
 ----------------
-.. function:: C = outerJoin(A, ca, B, cb)
+.. function:: C = outerJoin(A, ca, B, cb[, type])
 
     :param A: data to join
     :type A: matrix or dataframe
@@ -18,10 +18,19 @@ Format
     :type ca: scalar, vector or string
 
     :param B: matrix to join with *A*
-    :type B: matrix
+    :type B: matrix or dataframe
 
     :param cb: key column indices or names from *B*
     :type cb: scalar, vector or string
+
+    :param type: Optional argument, the type of join to perform. Default = ``"left"``. Options are:
+
+        ======= ==============================================================
+        "left"  Left outer join. Result is *A* merged with matched data from *B*. Unmatched rows contains missing values for columns of *B*.
+        "full"  Full outer join. Result is *A* merged with *B*. Unmatched rows from either side contain missing values for columns of the opposing symbol.
+        ======= ==============================================================
+
+    :type type: string
 
     :return C: result of join of *A* and *B*
 
@@ -40,7 +49,8 @@ Basic example
           3 3.3 };
         
     B = { 1  9,
-          3 27 };
+          3 27,
+          8 15 };
     
     // Perform left outer-join, using the first
     // columns of 'A' and 'B' as key columns
@@ -50,9 +60,24 @@ After the code above, *C* equals:
 
 ::
 
-    1.0 1.1 9.0 
-    2.0 2.2   .
-    3.0 3.3  27
+       1.0000000        1.1000000        9.0000000
+       2.0000000        2.2000000                .
+       3.0000000        3.3000000        27.000000
+
+Continuing from the above example, if we perform a full outer join:
+
+::
+
+    D = outerJoin(A, 1, B, 1, "full");
+
+then unmatched data from *B* is also included, and *D* equals:
+
+::
+
+       1.0000000        1.1000000        9.0000000
+       2.0000000        2.2000000                .
+       3.0000000        3.3000000        27.000000
+       8.0000000                .        15.000000
 
 Join on two columns
 +++++++++++++++++++

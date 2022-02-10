@@ -48,7 +48,8 @@ S
     sin
     sleep
     solpd
-    sortcsortcc
+    sortc
+    sortcc
     sortd
     sorthcsorthcc
     sortindsortindc
@@ -99,6 +100,7 @@ S
     strlen
     strput
     strreplace
+    strindx
     strrindx
     strsect
     strsplitpad
