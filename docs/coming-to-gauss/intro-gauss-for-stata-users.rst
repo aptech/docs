@@ -537,7 +537,7 @@ In Stata the ``sort`` command is used for sorting data:
 
   sort sex total_bill
 
-In GAUSS, this is done using :func:`sortc` for a single key variable and :func:`sortmc` for multiple key variables.
+In GAUSS, this is done using :func:`sortc`.
 
 We can accomplish the same sorting as the Stata line above using:
 
@@ -545,7 +545,7 @@ We can accomplish the same sorting as the Stata line above using:
 
   // Sort the 'tips2' dataframe based
   // on 'sex' and 'total_bill' variables
-  tips2 = sortmc(tips2, "sex"$|"total_bill");
+  tips2 = sortc(tips2, "sex" $| "total_bill");
 
 Date Functionality
 --------------------
