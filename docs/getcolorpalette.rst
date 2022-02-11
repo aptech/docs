@@ -1,5 +1,5 @@
 
-getColorPalettes
+getColorPalette
 ==============================================
 
 Purpose
