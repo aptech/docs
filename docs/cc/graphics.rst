@@ -207,4 +207,5 @@ Annotation settings
 :doc:`../annotationsetlinepen`            Sets the line width, color and style  for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
 :doc:`../annotationsetlinestyle`          Sets the line style for textbox, rectangle or ellipse borders as well as the style for lines and arrows.
 :doc:`../annotationsetlinethickness`      Sets the line thickness for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
+:doc:`../annotationsettextalign`          Sets the alignment for the text inside of textbox annotations.
 =====================================    ============================================================================
