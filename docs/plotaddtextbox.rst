@@ -22,9 +22,12 @@ Format
     :param y_start: the Y coordinate for the start of the bounding box for each respective text box.
     :type y_start: scalar or Nx1 vector
 
-    :param anchor_position: Optional argument, the position to anchor the textbox. Default is ``"topleft"``.
+    :param anchor_position: Optional argument, the position to anchor the textbox. Default is ``"top left"``.
 
-        Valid options are ``"topleft"`` (default), ``"topright"``, ``"center"``, ``"bottomleft"``, ``"bottomright``"
+        The anchor position string may contain up to two tokens, or words.
+
+        #.  Vertical location: ``"top"`` (default), ``"vcenter"`` or ``"bottom"``.
+        #.  Horizontal location: ``"left"``, ``"hcenter"`` or ``"right"`` (default). 
 
     :type anchor_position: string
 
