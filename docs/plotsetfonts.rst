@@ -15,21 +15,21 @@ Format
 
     :param location: Optional argument, which attributes the interpreter change applies to. Supported options: 
 
-    .. csv-table::
-        :widths: auto
+        .. csv-table::
+            :widths: auto
     
-        "all"
-        "legend"
-        "legend title"
-        "title"
-        "axes"
-        "xaxis"
-        "yaxis"
-        "zaxis"
-        "ticks"
-        "xticks"
-        "yticks"
-        "zticks"
+            "all"
+            "legend"
+            "legend title"
+            "title"
+            "axes"
+            "xaxis"
+            "yaxis"
+            "zaxis"
+            "ticks"
+            "xticks"
+            "yticks"
+            "zticks"
 
 
     :type location: Nx1 string array

@@ -15,6 +15,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New functions :func:`head` and :func:`tail` allow convenient previewing of the first or last rows of data.
 #. New function :func:`annotationsettextalign` allows specifying alignment of text inside textboxes programmatically.
 #. New function :func:`annotationsetlinepen` allows for more convenient setting of annotation line width, color and style.
+#. New function :func:`plotsetfonts` allows convenient control of font family, size and color for all, or a subset of the text elements in a graph.
 #. New function :func:`plotsetmissgap` controls whether a gap in line plots is shown for missing observations.
 #. Final inputs to :func:`annotationsetfont` are now optional inputs.
 #. Added support for anchor position (topleft, bottomleft, center, topright, bottomright) to :func:`plotaddtextbox`.
