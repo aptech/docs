@@ -107,6 +107,7 @@ Graph settings
 
 ===================================    ============================================================================
 :doc:`../plotgetdefaults`                 Gets the default settings for a specified graph type.
+:doc:`../plotsetfonts`                    Sets the font family, size and color for all or a subset of the text elements in a graph.
 ===================================    ============================================================================
 
 Title, legend and axis labels
