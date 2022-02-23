@@ -27,6 +27,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
 #. Added significant performance increase to :func:`indnv` for most cases. If the input is already sorted, :func:`indnv` now accepts an optional argument to specify this for reduced overhead.
 #. All "base" graph profiles in preferences (e.g. "Bar", "XY", "Scatter", etc) are now immutable and must be cloned to be modified. This allows us to push updates and fixes to the default profiles.
+#. Nested `for` loops with a duplicate counter identifier will now show a more accurate error message when the compile fails.
 #. Bug Fix: :func:`plotsetxticinterval` and :func:`plotsetyticinterval` would set the top x-axis or right y-axis respectively when a scalar (rather than 2x1) input was passed in.
 #. Bug Fix: Indexing a dataframe in a specific manner resulting in a scalar could sometimes omit the metadata.
 #. Bug Fix: Metadata cache would sometimes not be kept when the LRU cache was full.
@@ -34,6 +35,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: :func:`__FILE_DIR` is now fixed when used in the Command window on Windows.
 #. Bug Fix: Regression: Filtering dataframe date columns in the symbol editor now works correctly again.
 #. Bug Fix: Bar plots were incorrectly adjusting their size based on the line thickness, even when the line style was set to none.
+#. Bug Fix: :func:`strsplit` could cause a crash in specific cases.
 #. New example file ``plotunemp.e`` illustrates plotting time series variables from a dataframe using :func:`plotXY` and formula strings.
 
 22.0.3
