@@ -9,7 +9,7 @@ Copies metadata from dataframe to dataset.
 
 Format
 ----------------
-.. function:: x_meta = copyMetadata(X, src, [, columns])
+.. function:: x_meta = copyMetadata(X, src, [, src_columns, X_columns])
 
     :param X: data.
     :type X:  NxK matrix
@@ -17,8 +17,11 @@ Format
     :param src: Source of metadata.
     :type src:  MxJ matrix
 
-    :param columns: The names or indices of columns to copy metadata from. Default = all.
-    :type columns:  Lx1 vector or string array
+    :param src_columns: The names or indices of columns to copy metadata from. Default = all.
+    :type src_columns:  Lx1 vector or string array
+
+    :param X_columns: The names or indices of columns to copy metadata to in X. Default = all.
+    :type X_columns:  Lx1 vector or string array
 
     :return x_meta: Data in *X* with metadata from the specified *columns* in *src* attached.
     :rtype x_meta:  NxK dataframe
@@ -54,3 +57,4 @@ The code above copies the metadata from the categorical variable *rep78* to the 
 
 
 .. seealso:: Functions :func:`dfname`, :func:`setColLabels`, :func:`dftype`, :func:`asdate`
+

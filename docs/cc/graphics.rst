@@ -107,6 +107,7 @@ Graph settings
 
 ===================================    ============================================================================
 :doc:`../plotgetdefaults`                 Gets the default settings for a specified graph type.
+:doc:`../plotsetfonts`                    Sets the font family, size and color for all or a subset of the text elements in a graph.
 ===================================    ============================================================================
 
 Title, legend and axis labels
@@ -207,4 +208,5 @@ Annotation settings
 :doc:`../annotationsetlinepen`            Sets the line width, color and style  for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
 :doc:`../annotationsetlinestyle`          Sets the line style for textbox, rectangle or ellipse borders as well as the style for lines and arrows.
 :doc:`../annotationsetlinethickness`      Sets the line thickness for textbox, rectangle or ellipse borders as well as the color for lines and arrows.
+:doc:`../annotationsettextalign`          Sets the alignment for the text inside of textbox annotations.
 =====================================    ============================================================================

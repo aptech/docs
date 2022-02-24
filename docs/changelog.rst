@@ -16,21 +16,27 @@ The following is a list of changes from the previous version of GAUSS.
 #. New functions :func:`head` and :func:`tail` allow convenient previewing of the first or last rows of data.
 #. New function :func:`annotationsettextalign` allows specifying alignment of text inside textboxes programmatically.
 #. New function :func:`annotationsetlinepen` allows for more convenient setting of annotation line width, color and style.
+#. New function :func:`plotsetfonts` allows convenient control of font family, size and color for all, or a subset of the text elements in a graph.
 #. New function :func:`plotsetmissgap` controls whether a gap in line plots is shown for missing observations.
 #. Final inputs to :func:`annotationsetfont` are now optional inputs.
-#. Added support for anchor position (topleft, bottomleft, center, topright, bottomright) to :func:`plotaddtextbox`.
+#. Added support for specifying textbox position relative to the origin in :func:`plotaddtextbox`.
 #. Added additional optional inputs to :func:`plotsetxrange` and :func:`plotsetyrange` to set the tick inverval and the location of the first tick label.
 #. :func:`plotsetxrange` and :func:`plotsetyrange` can now set the top / bottom x-axes and left / right y-axes separately.
 #. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedome adjustment used in the computation.
 #. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
 #. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.
 #. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
+#. Added significant performance increase to :func:`indnv` for most cases. If the input is already sorted, :func:`indnv` now accepts an optional argument to specify this for reduced overhead.
+#. All "base" graph profiles in preferences (e.g. "Bar", "XY", "Scatter", etc) are now immutable and must be cloned to be modified. This allows us to push updates and fixes to the default profiles.
+#. Nested `for` loops with a duplicate counter identifier will now show a more accurate error message when the compile fails.
 #. Bug Fix: :func:`plotsetxticinterval` and :func:`plotsetyticinterval` would set the top x-axis or right y-axis respectively when a scalar (rather than 2x1) input was passed in.
 #. Bug Fix: Indexing a dataframe in a specific manner resulting in a scalar could sometimes omit the metadata.
 #. Bug Fix: Metadata cache would sometimes not be kept when the LRU cache was full.
 #. Bug Fix: Reading complex (i.e. with imaginary numbers) datasets with :func:`readr` in certain cases could return the error "read past end of file".
 #. Bug Fix: :func:`__FILE_DIR` is now fixed when used in the Command window on Windows.
 #. Bug Fix: Regression: Filtering dataframe date columns in the symbol editor now works correctly again.
+#. Bug Fix: Bar plots were incorrectly adjusting their size based on the line thickness, even when the line style was set to none.
+#. Bug Fix: :func:`strsplit` could cause a crash in specific cases.
 #. New example file ``plotunemp.e`` illustrates plotting time series variables from a dataframe using :func:`plotXY` and formula strings.
 
 22.0.3
