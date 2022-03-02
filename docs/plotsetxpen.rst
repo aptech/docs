@@ -54,4 +54,4 @@ Remarks
 .. include:: include/plotattrremark.rst
 .. include:: include/plotsetactivexremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineStyle`, :func:`plotSetAxesPen`, :func:`plotSetYPen`
+.. seealso:: Functions :func:`plotSetActiveX`, :func:`plotSetAxesPen`, :func:`plotSetLinePen`, :func:`plotSetYPen`

@@ -45,8 +45,9 @@ Examples
 
 Remarks
 -------
-Please note that :func:`plotSetGrid` is not supported for bar, box, or histogram plots.
+
+* In most cases, :func:`plotsetgridpen` is preferrred over :func:`plotsetgrid`.
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetXGrid`, :func:`plotSetGridPen`
+.. seealso:: Functions :func:`plotSetYGridPen`, :func:`plotSetXGridPen`, :func:`plotSetGridPen`

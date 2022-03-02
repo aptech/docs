@@ -54,5 +54,5 @@ Remarks
 .. include:: include/plotattrremark.rst
 .. include:: include/plotsetactiveyremark.rst
 
-.. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetGridPen`, :func:`plotSetXGridPen`
+.. seealso:: Functions :func:`plotSetActiveY`, :func:`plotSetGridPen`, :func:`plotSetXGridPen`
 
