@@ -26,6 +26,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`plotsetxrange` and :func:`plotsetyrange` can now set the top / bottom x-axes and left / right y-axes separately.
 #. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedome adjustment used in the computation.
 #. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
+#. Improved the automatic tick spacing for time series plots through :func:`plotxy` and :func:`plottshf`.
 #. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.
 #. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
 #. Added significant performance increase to :func:`indnv` for most cases. If the input is already sorted, :func:`indnv` now accepts an optional argument to specify this for reduced overhead.

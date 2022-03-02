@@ -76,7 +76,6 @@ P
     plotsetactivex
     plotsetactivey
     plotsetaxespen
-    plotsetaxespen
     plotsetbar
     plotsetbarwidth
     plotsetbkdcolor
