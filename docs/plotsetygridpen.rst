@@ -48,4 +48,11 @@ Examples
     plotScatter(myPlot, seqa(1, 1, 10 ), rndn(10, 1));
 
 
+Remarks
+--------
+
+.. include:: include/plotattrremark.rst
+.. include:: include/plotsetactiveyremark.rst
+
 .. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetGridPen`, :func:`plotSetXGridPen`
+

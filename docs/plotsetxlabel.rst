@@ -98,6 +98,7 @@ Remarks
 -------
 
 .. include:: include/plotattrremark.rst
+.. include:: include/plotsetactivexremark.rst
 
 .. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetXTicInterval`, :func:`plotSetXTicLabel`, :func:`plotSetYLabel`, :func:`plotSetZLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`
 

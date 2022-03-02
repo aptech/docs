@@ -56,7 +56,7 @@ major tick for 0.2 on the y-axis. We can make that change like this:
 Remarks
 -------
 
-Note that :func:`plotSeTYticCount` does not provide complete control over the
+Note that :func:`plotSetYTicCount` does not provide complete control over the
 y-axis ticks. If the number of y-ticks requested would cause an odd tick
 interval, GAUSS will create a number of ticks that will provide more even
 spacing. For instance, in the example above, 11 ticks gave a space
@@ -65,6 +65,7 @@ be 0.222. In that case, GAUSS would instead draw 10 ticks for a more even
 appearance.
 
 .. include:: include/plotattrremark.rst
+.. include:: include/plotsetactiveyremark.rst
 
 .. seealso:: Functions :func:`plotSetXTicInterval`, :func:`plotSetXLabel`
 
