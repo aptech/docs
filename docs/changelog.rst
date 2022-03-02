@@ -20,6 +20,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. New functions :func:`plotsetactivex` and :func:`plotsetactivey` control which x and y-axes (bottom/top, left/right)  subsequent plotSet functions apply to.
 #. Final inputs to :func:`annotationsetfont` are now optional inputs.
 #. Added support for specifying textbox position relative to the origin in :func:`plotaddtextbox`.
+#. Added support for specifying a single x or y-axis to :func:`plotsettextinterpreter`. 
+#. Added support for space separated string specifiers to :func:`plotsettextinterpreter` for convenience. 
 #. Added additional optional inputs to :func:`plotsetxrange` and :func:`plotsetyrange` to set the tick inverval and the location of the first tick label.
 #. :func:`plotsetxrange` and :func:`plotsetyrange` can now set the top / bottom x-axes and left / right y-axes separately.
 #. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedome adjustment used in the computation.
