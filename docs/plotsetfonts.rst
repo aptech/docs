@@ -13,23 +13,25 @@ Format
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
 
-    :param location: Optional argument, which attributes the interpreter change applies to. Supported options: 
+    :param location: Optional argument, which attributes the interpreter change applies to.
 
-        .. csv-table::
+        **Valid options:**
+
+        .. list-table::
             :widths: auto
     
-            "all"
-            "legend"
-            "legend title"
-            "title"
-            "axes"
-            "xaxis"
-            "yaxis"
-            "zaxis"
-            "ticks"
-            "xticks"
-            "yticks"
-            "zticks"
+            * - "all"
+            * - "legend"
+            * - "legend_title"
+            * - "title"
+            * - "axes"
+            * - "xaxis"
+            * - "yaxis"
+            * - "zaxis"
+            * - "ticks" (numbers or tick labels)
+            * - "xticks"
+            * - "yticks"
+            * - "zticks"
 
 
     :type location: Nx1 string array
@@ -46,8 +48,10 @@ Format
 Examples
 ----------------
 
-Set the font family for all text
-+++++++++++++++++++++++++++++++++++
+Set the font family and size for all text
+++++++++++++++++++++++++++++++++++++++++++
+
+This example will first set the font family and size for all text. It will then add a y-axis label using this font and finally add a title which uses the font family that was set, but alters the size.
 
 ::
 
@@ -59,8 +63,15 @@ Set the font family for all text
     // Initialize plotControl structure
     myPlot = plotGetDefaults("hist");
 
-    // Set all text in the font to use "times" font
-    plotSetFonts(&myPlot, "all", "times");
+    // Set all text in the font to use "times" 12 pt font
+    plotSetFonts(&myPlot, "all", "times", 12);
+
+    // Add y-axis label using font specified above
+    plotSetYLabel(&myPlot, "Count");
+
+    // Since we pass in an empty string "" for
+    // the title font, it will be left alone
+    plotSetTitle(&myPlot, "Histgram of Random Normal Data", "", 14);
 
     // Create data
     x = rndn(1e5, 1);
@@ -69,7 +80,7 @@ Set the font family for all text
     plotHist(myPlot, x, 20);
 
 
-Set the font family size and color for the x-axis and legend
+Set the font family, size and color for the x-axis and legend
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::

@@ -17,6 +17,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function :func:`annotationsetlinepen` allows for more convenient setting of annotation line width, color and style.
 #. New function :func:`plotsetfonts` allows convenient control of font family, size and color for all, or a subset of the text elements in a graph.
 #. New function :func:`plotsetmissgap` controls whether a gap in line plots is shown for missing observations.
+#. New functions :func:`plotsetactivex` and :func:`plotsetactivey` control which x and y-axes (bottom/top, left/right)  subsequent plotSet functions apply to.
 #. Final inputs to :func:`annotationsetfont` are now optional inputs.
 #. Added support for specifying textbox position relative to the origin in :func:`plotaddtextbox`.
 #. Added additional optional inputs to :func:`plotsetxrange` and :func:`plotsetyrange` to set the tick inverval and the location of the first tick label.
