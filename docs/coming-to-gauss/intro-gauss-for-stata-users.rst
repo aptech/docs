@@ -847,7 +847,7 @@ This compares to the ``strupper()`` and ``strlower()`` functions in Stata, which
   generate lower_sex = strlower(sex)
 
 Missing values
-++++++++++++++++
+-------------------
 Missing values are represented by the same dot notation, ``.``, in both Stata and GAUSS.
 
 This notation can be used for filtering data Stata:
