@@ -53,5 +53,6 @@ Remarks
 Please note that :func:`plotSetXGridPen` is not supported for bar, box, or histogram plots.
 
 .. include:: include/plotattrremark.rst
+.. include:: include/plotsetactivexremark.rst
 
-.. seealso:: Functions :func:`plotSetXGrid`, :func:`plotSetYGridPen`, :func:`plotSetGridPen`
+.. seealso:: Functions :func:`plotSetActiveX`, :func:`plotSetYGridPen`, :func:`plotSetGridPen`

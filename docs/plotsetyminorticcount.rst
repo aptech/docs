@@ -40,8 +40,8 @@ Examples
 
 Remarks
 -------
-- The y-axis minor grid must turned on using :func:`plotSetYGrid` or :func:`plotSetGrid` for the minor axis to show.
+- The y-axis minor grid must turned on using :func:`plotSetYGridPen` or :func:`plotSetGridPen` for the minor axis to show.
 
     .. include:: include/plotattrremark.rst
 
-    .. seealso:: Functions :func:`plotSetYGrid`, :func:`plotSetYGridPen`, :func:`plotSetYMinorGridPen`, :func:`plotSetXMinorTicCount`
+    .. seealso:: Functions :func:`plotSetActiveY`, :func:`plotSetYGridPen`, :func:`plotSetYMinorGridPen`, :func:`plotSetXMinorTicCount`

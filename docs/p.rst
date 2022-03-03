@@ -73,7 +73,8 @@ P
     plotpolar
     plotsave
     plotscatter
-    plotsetaxespen
+    plotsetactivex
+    plotsetactivey
     plotsetaxespen
     plotsetbar
     plotsetbarwidth

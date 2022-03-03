@@ -52,5 +52,6 @@ Remarks
 -------
 
 .. include:: include/plotattrremark.rst
+.. include:: include/plotsetactiveyremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetLineStyle`, :func:`plotSetAxesPen`, :func:`plotSetXPen`
+.. seealso:: Functions :func:`plotSetActiveY`, :func:`plotSetLinePen`, :func:`plotSetAxesPen`, :func:`plotSetXPen`

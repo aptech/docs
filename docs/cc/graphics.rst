@@ -129,6 +129,8 @@ Axes and grid
 +++++++++++++++++++++++++++
 
 ===================================    ============================================================================
+:doc:`../plotsetactivex`                  Determines whether subsequent ``plotSet`` calls apply to the top or bottom x-axis.
+:doc:`../plotsetactivey`                  Determines whether subsequent ``plotSet`` calls apply to the left or right y-axis.
 :doc:`../plotsetaxespen`                  Sets the color, width and style for the axes lines.
 :doc:`../plotsetgridpen`                  Controls the thickness, color, and style for the grid lines.
 :doc:`../plotsetoutlineenabled`           Turns on an outline around the plot.

@@ -56,4 +56,4 @@ After calling this function all subsequent graphs will be plotted inside
 of the specified layout until the layout is reset with :func:`plotLayout`, or
 the layout is cleared with :func:`plotClearLayout`.
 
-.. seealso:: Functions :func:`plotBar`, :func:`plotClearLayout`, :func:`plotCustomLayout`, :func:`plotHist`
+.. seealso:: Functions :func:`plotCanvasSize`, :func:`plotClearLayout`, :func:`plotCustomLayout`

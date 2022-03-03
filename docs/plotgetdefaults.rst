@@ -45,4 +45,4 @@ The :func:`plotGetDefaults` function will use the default settings for the
 specified graph type. These may be accessed from the main menu bar:
 :menuselection:`Tools --> Preferences --> Graphics`.
 
-.. seealso:: Functions :func:`plotSetBkdColor`, :func:`plotSetLineColor`, :func:`plotSetLineSymbol`
+.. seealso:: Functions :func:`plotSetBkdColor`, :func:`plotSetLinePen`, :func:`plotSetFonts`
