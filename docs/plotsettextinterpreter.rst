@@ -16,7 +16,25 @@ Format
     :param interpreter: ``"html"``, ``"plain"``, ``"latex"``.
     :type interpreter: string
 
-    :param location: Optional argument, which attributes the interpreter change applies to : "all", "legend", "title" or "axes". Default is "all".
+    :param location: Optional argument, which attributes the interpreter change applies to :
+
+        **Valid options:**
+
+        .. list-table::
+            :widths: auto
+    
+            * - "all" (default)
+            * - "legend"
+            * - "legend_title"
+            * - "title"
+            * - "axes"
+            * - "xaxis"
+            * - "xtop"
+            * - "xbottom"
+            * - "yaxis"
+            * - "yleft"
+            * - "yright"
+
     :type location: string
 
 Examples

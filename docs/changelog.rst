@@ -19,7 +19,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function :func:`plotsetmissgap` controls whether a gap in line plots is shown for missing observations.
 #. New functions :func:`plotsetactivex` and :func:`plotsetactivey` control which x and y axes (bottom/top, left/right)  subsequent plotSet functions apply to.
 #. The legend text item will no longer cyle, meaning it will only be used for the series it was set for.
-#. Added support for specifying textbox position relative to the origin in :func:`plotaddtextbox`.
+#. Added support for specifying textbox position relative to the coordinate location in :func:`plotaddtextbox`.
 #. Added support for specifying a single x or y-axis to :func:`plotsettextinterpreter`. 
 #. Added support for space separated string specifiers to :func:`plotsettextinterpreter` for convenience. 
 #. Added additional optional inputs to :func:`plotsetxrange` and :func:`plotsetyrange` to set the tick inverval and the location of the first tick label.
