@@ -26,11 +26,19 @@ Format
             * - "title"
             * - "axes"
             * - "xaxis"
+            * - "xtop"
+            * - "xbottom"
             * - "yaxis"
+            * - "yleft"
+            * - "yright"
             * - "zaxis"
             * - "ticks" (numbers or tick labels)
             * - "xticks"
+            * - "xtopticks"
+            * - "xbottomticks"
             * - "yticks"
+            * - "yleftticks"
+            * - "yrightticks"
             * - "zticks"
 
 

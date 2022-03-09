@@ -5,13 +5,13 @@ head
 Purpose
 --------------------
 
-Returns the first n rows of a matrix, dataframe or string array.
+Returns the first ``n`` rows of a matrix, dataframe or string array.
 
 Format
 -----------------
 
-.. function:: h = head(X);
-              h = head(X,n);
+.. function:: h = head(X)
+              h = head(X, n)
 
        :param X:  the data to preview.
        :type X:   Matrix, dataframe or string array
