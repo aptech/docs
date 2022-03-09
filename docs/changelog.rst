@@ -28,7 +28,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Improved the automatic tick spacing for time series plots through :func:`plotxy` and :func:`plottshf`.
 #. :func:`plotsetxticcount` and :func:`plotsetyticcount` when set to 0, now provide a convenient way to turn off ticks and tick labels.
 #. All "base" graph profiles in preferences (e.g. "Bar", "XY", "Scatter", etc) are now immutable and must be cloned to be modified. This allows us to push updates and fixes to the default profiles.
-#. Added additional optional input to functions :func:`vcmvcx`, allowing control over the degrees-of-freedom adjustment used in the computation.
+#. Added additional optional input to functions :func:`vcm` and :func:`vcx`, allowing control over the degrees-of-freedom adjustment used in the computation.
 #. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
 #. Added significant performance increase to :func:`indnv` for most cases. If the input is already sorted, :func:`indnv` now accepts an optional argument to specify this for reduced overhead.
 #. The main logic of :func:`innerjoin` is now an intrinsic instead of a procedure.
