@@ -4,7 +4,7 @@ plotSetYRange
 
 Purpose
 ----------------
-Sets the range for the y-axis.
+Sets the range for the left and/or right y-axes.
 
 Format
 ----------------
@@ -15,10 +15,10 @@ Format
     :type &myPlot: struct pointer
 
     :param y_min: minimum limit of the y-axis.
-    :type y_min: scalar
+    :type y_min: scalar, or 2x1 vector
 
     :param y_max: maximum limit of the y-axis.
-    :type y_max: scalar
+    :type y_max: scalar, or 2x1 vector
 
     :param tic_interval: Optional input, the distance between y-axis tick labels.
     :type tic_interval: scalar
@@ -29,6 +29,9 @@ Format
 Examples
 ----------------
 
+Basic example
++++++++++++++++++
+
 ::
 
     // Declare plotControl structure
@@ -37,7 +40,7 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
     
-    // Set y-axis to to range from 0 to 2
+    // Set left y-axis to to range from 0 to 2
     plotSetYRange(&myPlot, 0, 2);
     
     // Create and plot data using our y-range
@@ -45,6 +48,27 @@ Examples
     y = rndu(100, 1);
     
     plotScatter(myPlot, x, y);
+
+
+Set the range for the left and right y-axes
++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    x = seqa(-3, 0.1, 61);
+    y = x.^2 ~ sin(x);
+    
+    struct plotControl plt;
+    plt = plotGetDefaults("xy");
+    
+    plotSetWhichYAxis(&plt, "left" $| "right");
+    
+    // Set the left y-axis range to between -5 and +15,
+    // and the right y-axis to between -2 and +2
+    plotSetYRange(&plt, -5|-2, 15|2);
+    
+    plotXY(plt, x, y);
+
 
 Remarks
 -------

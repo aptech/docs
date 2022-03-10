@@ -51,4 +51,4 @@ Remarks
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetXTicInterval`, :func:`plotSetXTicLabel`, :func:`plotSetYLabel`, :func:`plotSetZLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`
+.. seealso:: Functions :func:`plotsetactivex`, :func:`plotSetXTicInterval`, :func:`plotSetXTicLabel`, :func:`plotSetYLabel`, :func:`plotSetZLabel`, :func:`plotSetLinePen`

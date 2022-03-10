@@ -46,5 +46,5 @@ To open a new graph window once, use :func:`plotOpenWindow`.
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotOpenWindow`, :func:`plotSetTitle`, :func:`plotSetLineColor`
+.. seealso:: Functions :func:`plotOpenWindow`, :func:`plotSetTitle`, :func:`plotSetLinePen`
 

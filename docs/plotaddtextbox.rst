@@ -8,7 +8,7 @@ Adds a textbox to an existing graph.
 
 Format
 ----------------
-.. function:: plotAddTextbox([myAnnotation, ]text, x_start, y_start[, anchor_position])
+.. function:: plotAddTextbox([myAnnotation, ]text, x_start, y_start[, position])
 
     :param myAnnotation: Optional input, a :class:`plotAnnotation` structure.
     :type myAnnotation: struct
@@ -22,11 +22,16 @@ Format
     :param y_start: the Y coordinate for the start of the bounding box for each respective text box.
     :type y_start: scalar or Nx1 vector
 
-    :param anchor_position: Optional argument, the position to anchor the textbox. Default is ``"topleft"``.
+    :param position: Optional argument, the position of the textbox relative to the origin. Default is ``"bottom right"``.
 
-        Valid options are ``"topleft"`` (default), ``"topright"``, ``"center"``, ``"bottomleft"``, ``"bottomright``"
+        The origin position string may contain up to two tokens, or words.
 
-    :type anchor_position: string
+        #.  Vertical location: ``"top"``, ``"vcenter"`` or ``"bottom"`` (default).
+        #.  Horizontal location: ``"left"``, ``"hcenter"`` or ``"right"`` (default).
+        #. ``"center"`` is equivalent to specifying ``"vcenter hcenter"``.
+
+    :type position: string
+
 
 Examples
 ----------------

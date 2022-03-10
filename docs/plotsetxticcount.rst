@@ -65,6 +65,7 @@ For more control over the x-axis of time series plots, use
 :func:`plotSetXTicInterval` instead.
 
 .. include:: include/plotattrremark.rst
+.. include:: include/plotsetactivexremark.rst
 
 .. seealso:: Functions :func:`plotSetXTicInterval`, :func:`plotSetXLabel`
 

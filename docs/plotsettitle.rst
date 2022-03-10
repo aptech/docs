@@ -80,5 +80,5 @@ Remarks
 
 .. include:: include/plotattrremark.rst
 
-.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetYLabel`, :func:`plotSetLineColor`, :func:`plotSetGrid`
+.. seealso:: Functions :func:`plotGetDefaults`, :func:`plotSetYLabel`, :func:`plotSetLinePen`, :func:`plotSetFonts`
 

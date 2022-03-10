@@ -73,9 +73,8 @@ P
     plotpolar
     plotsave
     plotscatter
-    plotsetgrid
-    plotsetgridpen
-    plotsetaxespen
+    plotsetactivex
+    plotsetactivey
     plotsetaxespen
     plotsetbar
     plotsetbarwidth
@@ -84,7 +83,9 @@ P
     plotsetcolormap
     plotsetcontourlabels
     plotsetfill
+    plotsetfonts
     plotsetgrid
+    plotsetgridpen
     plotsetjitterrange
     plotsetlegend
     plotsetlegendbkd
@@ -115,7 +116,6 @@ P
     plotsetxticcount
     plotsetxticinterval
     plotsetxticlabel
-    plotsetxticlabelfont
     plotsetxticposition
     plotsetygrid
     plotsetygridpen
@@ -127,7 +127,6 @@ P
     plotsetyticcount
     plotsetyticinterval
     plotsetyticlabel
-    plotsetyticlabelfont
     plotsetyticposition
     plotsetzlabel
     plotsetzlevels
