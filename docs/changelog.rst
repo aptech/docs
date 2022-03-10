@@ -24,11 +24,13 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added support for specifying a single x or y-axis to :func:`plotsettextinterpreter`. 
 #. Added support for space separated string specifiers to :func:`plotsettextinterpreter` for convenience. 
 #. Added additional optional inputs to :func:`plotsetxrange` and :func:`plotsetyrange` to set the tick inverval and the location of the first tick label.
+#. The x-top axis now supports time series data.
 #. :func:`plotsetxrange` and :func:`plotsetyrange` can now set the top / bottom x-axes and left / right y-axes separately.
 #. Legend properties, such as font and background settings as well as location can now be set in a plotAdd call if the legend has not yet been drawn.
 #. Improved the automatic tick spacing for time series plots through :func:`plotxy` and :func:`plottshf`.
 #. :func:`plotsetxticcount` and :func:`plotsetyticcount` when set to 0, now provide a convenient way to turn off ticks and tick labels.
-#. All "base" graph profiles in preferences (e.g. "Bar", "XY", "Scatter", etc) are now immutable and must be cloned to be modified. This allows us to push updates and fixes to the default profiles.
+#. If line style is set to 0 (off) and then line width and/or color are set, the style will be set to 1 (solid). This allows for enabling lines such as the grid that are disabled by default by specifying only line width or color.
+#. All "base" graph profiles in preferences (e.g. "Bar", "XY", "Scatter", etc) will be overwritten when GAUSS is updated. This allows us to push updates and fixes to the default profiles. Permanent changes and settings should be saved to a cloned profile.
 #. Added additional optional input to functions :func:`vcm` and :func:`vcx`, allowing control over the degrees-of-freedom adjustment used in the computation.
 #. Added additional argument to :func:`outerjoin` to allow a full outer join instead of only left outer join (the default).
 #. Added significant performance increase to :func:`indnv` for most cases. If the input is already sorted, :func:`indnv` now accepts an optional argument to specify this for reduced overhead.
@@ -36,16 +38,18 @@ The following is a list of changes from the previous version of GAUSS.
 #. Add missing export in gsgraphics_stub shared library for the GAUSS Engine.
 #. Nested `for` loops with a duplicate counter identifier will now show a more accurate error message when the compile fails.
 #. :func:`copymetadata` now allows repeating columns from the source dataframe as well as specifying a subset of columns to apply to the destination dataframe.
+#. Improved layout of graph profile preferences for better viewing compatibility on smaller resolutions.
 #. Bug Fix: :func:`plotsetxticinterval` and :func:`plotsetyticinterval` would set the top x-axis or right y-axis respectively when a scalar (rather than 2x1) input was passed in.
 #. Bug Fix: Indexing a dataframe in a specific manner resulting in a scalar could sometimes omit the metadata.
 #. Bug Fix: Metadata cache would sometimes not be kept when the LRU cache was full.
 #. Bug Fix: Reading complex (i.e. with imaginary numbers) datasets with :func:`readr` in certain cases could return the error "read past end of file".
 #. Bug Fix: :func:`__FILE_DIR` is now fixed when used in the Command window on Windows.
+#. Bug Fix: Manually created libraries were not immediately visible in certain cases. Extra library paths in the GUI are now refreshed on library creation to fix this.
 #. Bug Fix: Regression: Filtering dataframe date columns in the symbol editor now works correctly again.
 #. Bug Fix: Bar plots were incorrectly adjusting their size based on the line thickness, even when the line style was set to none.
 #. Bug Fix: :func:`strsplit` could cause a crash in specific cases.
 #. New example files ``plotunemp.e`` illustrates plotting time series variables from a dataframe using :func:`plotXY` and formula strings, ``plot_customlayout_1.e`` shows placing a histogram count of the data above the x-axis and across from the y-axis..
-#. Updated example files to use new functionality: ``plotadd1.e``, ``plotaddci.e``, ``plot_bootmean.e``, ``plotadderrorbar2.e`` ``plotar2.e``, ``plotbar.e``, ``plotbox_auto.e``, and more.
+#. Updated example files to use new functionality: ``plotadd1.e``, ``plotaddci.e``, ``plot_bootmean.e``, ``plotadderrorbar2.e``, ``plotar2.e``, ``plotbar.e``, ``plotbox_auto.e``, and more.
 
 22.0.3
 ------
