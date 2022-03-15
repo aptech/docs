@@ -9,7 +9,7 @@ Aggregates the data in the columns of a matrix based upon a column containing gr
 
 Format
 ----------------
-.. function:: x_agg = aggregate(x, method [, column [, fast]])
+.. function:: x_agg = aggregate(x, method [, column , fast])
 
     :param x: data, if *column* is not specified, the first column must contain the ids for the groups on which to aggregate.
     :type x: NxK matrix or dataframe
