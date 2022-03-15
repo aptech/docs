@@ -37,44 +37,43 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
     ---
 
-    Data Management
-    ^^^^^^^^^^^^^^^
+    Learning Resources
+    ^^^^^^^^^^^^^^^^^^^^
 
     .. container:: icon-large
 
-      :fa:`database`
+      :fa:`graduation-cap`
 
     .. container:: text-left
 
-      Learn how to import, export, clean, and transform your data.
+      Enhance your GAUSS usage with these valuable learning resources.
 
     +++
 
-    .. link-button:: data-management
+    .. link-button:: learning-resources
         :type: ref
         :text: Explore
         :classes: btn-outline-primary btn-block stretched-link
 
     ---
 
-    Machine Learning
-    ^^^^^^^^^^^^^^^^
+    Apps
+    ^^^^^
 
     .. container:: icon-large
 
-      :fa:`chart-line`
+      :fa:`rocket`
 
     .. container:: text-left
 
-      Learn about available Machine Learning functions.
+      Save time with our pre-built applications.
 
     +++
 
-    .. link-button:: machine-learning
+    .. link-button:: applications
         :type: ref
         :text: Explore
         :classes: btn-outline-primary btn-block stretched-link
-
     ---
 
     Changelog
@@ -91,26 +90,6 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
     +++
 
     .. link-button:: changelog
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
-
-    ---
-
-    Textbook Examples
-    ^^^^^^^^^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`book`
-
-    .. container:: text-left
-
-      View textbook examples that you can run in GAUSS
-
-    +++
-
-    .. link-button:: textbook-examples/index
         :type: ref
         :text: Explore
         :classes: btn-outline-primary btn-block stretched-link
@@ -140,9 +119,7 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
    :hidden:
 
    command-reference
-   data-management
-   machine-learning
+   learning-resources
+   applications
    changelog
-   tspdlib/docs/index
-   textbook-examples/index
 
