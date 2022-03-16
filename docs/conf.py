@@ -108,11 +108,19 @@ html_static_path = ['_static']
 
 html_context = {
     'css_files': [
-        '_static/theme_override.css',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
         'https://fonts.googleapis.com/css?family=Lato',
-    ],
+        '_static/theme_override.css',
+    ]
 }
+
+#html_css_files = [
+#]
+
+html_js_files = [
+    'https://www.googletagmanager.com/gtag/js?id=G-WLDRLMK7MW',
+    'ga.js'
+]
 
 html_logo = '_static/images/aptech-logo.png'
 

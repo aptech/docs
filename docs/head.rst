@@ -72,4 +72,5 @@ will print out:
       23.000000        22.000000
       14.000000        43.000000
 
-.. sealso:: Functions: :func:`rows`, :func:`tail`
+.. seealso:: Functions: :func:`rows`, :func:`tail`
+

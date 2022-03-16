@@ -10,8 +10,7 @@ Returns the last ``n`` rows of a matrix, dataframe or string array.
 Format
 -----------------
 
-.. function:: h = tail(X)
-              h = tail(X, n)
+.. function:: h = tail(X [, n])
 
        :param X:  the data to preview.
        :type X:   Matrix, dataframe or string array
@@ -75,4 +74,5 @@ will print out:
       81.000000        17.000000 
 
 
-.. sealso:: Functions: :func:`rows`, :func:`head`
+.. seealso:: Functions: :func:`rows`, :func:`head`
+
