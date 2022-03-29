@@ -5,7 +5,7 @@ for
 Purpose
 ----------------
 
-Begins a `for` loop.
+Begins a ``for`` loop.
 
 .. _for:
 .. index:: for
@@ -43,7 +43,7 @@ to terminate the loop and you want the final value of the counter, you
 need to assign it to a variable before the `break` statement (see the
 third example, following).
 
-.. NOTE:: The `for` loop is optimized for speed and much faster than a `do` loop. However, it is best to vectorize code to avoid loops if possible.
+.. NOTE:: The ``for`` loop is optimized for speed and much faster than a `do` loop. However, it is best to vectorize code to avoid loops if possible.
 
 Examples
 ----------------

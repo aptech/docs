@@ -12,19 +12,19 @@ Format
 .. function:: x_date = asDate(X [, fmt, columns])
 
     :param X: data.
-    :type X: NxK matrix, string array or dataframe
 
-        If ``X`` is a string array, the following formats are accepted:
+      If ``X`` is a string array, the following formats are accepted:
 
-        ::
+      ::
 
-            YYYY-MM-DD HH:MI:SS
-            YYYY-MM-DD HH:MI
-            YYYY-MM-DD HH
-            YYYY-MM-DD
-            YYYY-MM
-            YYYY
+          YYYY-MM-DD HH:MI:SS
+          YYYY-MM-DD HH:MI
+          YYYY-MM-DD HH
+          YYYY-MM-DD
+          YYYY-MM
+          YYYY
     
+    :type X: NxK matrix, string array or dataframe
 
     :param fmt: Optional input, contains strftime date/time format characters.
     :type fmt: Mx1 string array
@@ -120,8 +120,8 @@ will return:
 
 ::
 
-              X1 
-      28/03/2012
+            X1 
+    28/03/2012
 
 
 As we can see above, when the string is converted to a date, GAUSS keeps the display format the same as the string from which it was created. 
@@ -150,9 +150,10 @@ The above code will return:
 
 will return:
 
-              X1 
-         2006-Q3 
+::
 
+         X1
+    2006-Q3 
 
 ::
 

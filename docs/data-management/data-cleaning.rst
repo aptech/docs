@@ -18,13 +18,11 @@ The **Data Management** pane contains:
 
 * The **Filter** tab that allows you to select observations based on a variety of criteria.
 * The **Variables** tab that allows you to:
-
     * Select or remove variables.
     * Rename variables.
     * Change variable types.
     * Manage category labels and order.
     * Change date display formats.
-
 
 
 Open the Data Management page
@@ -117,7 +115,7 @@ To implement any of these filtering options:
 1. Select the variable to filter on from the **Variable** name drop-down list on the **Filter** tab.
 2. Select the desired operation from the **Operation** drop-down list.
 3. Depending on the operation, either enter or select a value in the **Value** combo box.
-4. Click the `+` button to add the filter.
+4. Click the ``+`` button to add the filter.
 5. Either **Apply** your changes or add another filter.
 
 Filter based on partial string match
@@ -190,15 +188,15 @@ If your data looked like this ``03/12/2017``, the correct format string would be
 +-----------------+---------------------------+---------+----------------------+
 |Original Contents|Description                |Type     |Format string contents|
 +=================+===========================+=========+======================+
-|03               |A two digit month.         |Date     |`%m`                  |
+|03               |A two digit month.         |Date     |``%m``                |
 +-----------------+---------------------------+---------+----------------------+
 |/                |A forward slash.           |Literal  |/                     |
 +-----------------+---------------------------+---------+----------------------+
-|12               |A two digit day.           |Date     |`%d`                  |
+|12               |A two digit day.           |Date     |``%d``                |
 +-----------------+---------------------------+---------+----------------------+
 |/                |A forward slash.           |Literal  |/                     |
 +-----------------+---------------------------+---------+----------------------+
-|2017             |A four digit year.         |Date     |`%Y`                  |
+|2017             |A four digit year.         |Date     |``%Y``                |
 +-----------------+---------------------------+---------+----------------------+
 
 
@@ -893,7 +891,7 @@ After the above code:
                high              2
 
 
-.. note:: Since there is only one categorical variable in the `yarn` dataframe, :func:`setColLabels` does not require a specified variable name.
+.. note:: Since there is only one categorical variable in the ``yarn`` dataframe, :func:`setColLabels` does not require a specified variable name.
 
 Changing categorical variable base case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -977,7 +975,6 @@ We can change the category labels like this:
 
 ::
 
-
     labels =  Center   values = 0
              Forward            1
                Guard            2
@@ -1026,3 +1023,4 @@ After the above code:
     labels =  low   values = 0
               med            1
              high            2
+

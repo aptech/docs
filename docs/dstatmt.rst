@@ -16,19 +16,19 @@ Format
 
     :param vars: the variables.
 
-     If *dataset* contains the name of a dataset, *vars* will be interpreted as either:
-
-         * A Kx1 character vector containing the names of variables.
-         * A Kx1 numeric vector containing indices of variables.
-         * A `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
-
-         These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
-
-     If *dataset* is null or 0, *vars* will be interpreted as a NxK matrix, the data on which to compute the descriptive statistics.
+      If *dataset* contains the name of a dataset, *vars* will be interpreted as either:
+ 
+      * A Kx1 character vector containing the names of variables.
+      * A Kx1 numeric vector containing indices of variables.
+      * A `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
+ 
+      These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
+ 
+      If *dataset* is null or 0, *vars* will be interpreted as a NxK matrix, the data on which to compute the descriptive statistics.
 
     :type vars: string or string array
 
-    :param ctl: instance of a ``dstatmtControl`` structure containing the following members:
+    :param ctl: instance of a :class:`dstatmtControl` structure containing the following members:
 
         .. list-table::
             :widths: auto
@@ -42,17 +42,17 @@ Format
             * - *ctl.miss*
               - scalar, default 0.
 
-                  :0: there are no missing values (fastest).
-                  :1: listwise deletion, drop a row if any missings occur in it.
-                  :2: pairwise deletion.
+                :0: there are no missing values (fastest).
+                :1: listwise deletion, drop a row if any missings occur in it.
+                :2: pairwise deletion.
 
             * - *ctl.row*
               - scalar, the number of rows to read per iteration of the read loop.If 0, (default) the number of rows will be calculated using *ctl.maxbytes* and *maxvec*.
             * - *ctl.output*
               - scalar, controls output, default 1.
 
-                  :1: print output table.
-                  :0: do not print output.
+                :1: print output table.
+                :0: do not print output.
 
 
     :type ctl: Optional input
@@ -82,10 +82,10 @@ Format
             * - *dout.errcode*
               - scalar, error code, 0 if successful; otherwise, one of the following:
 
-                  :2: Can't open file.
-                  :7: Too many missings - no data left after packing.
-                  :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
-                  :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
+                :2: Can't open file.
+                :7: Too many missings - no data left after packing.
+                :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
+                :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
 
     :rtype dout: struct
 
@@ -294,10 +294,10 @@ Remarks
    However, all new code should use one of the formats listed at the top
    of this document.
 
-3. The supported dataset types are `CSV`, `XLS`, `XLSX`, `HDF5`, `FMT`, `DAT`, `DTA`
+3. The supported dataset types are ``CSV``, ``XLS``, ``XLSX``, ``HDF5``, ``FMT``, ``DAT``, ``DTA``
 
 
-4. For `HDF5` files, the dataset must include a `file schema` and both file name and dataset name must be provided, e.g.
+4. For ``HDF5`` files, the dataset must include a ``file schema`` and both file name and dataset name must be provided, e.g.
    :code:`dstatmt("h5://testdata.h5/mydata")`.
 
 Source
@@ -306,3 +306,4 @@ Source
 dstatmt.src
 
 .. seealso:: Functions :func:`dstatmtControlCreate`, `formula string`
+
