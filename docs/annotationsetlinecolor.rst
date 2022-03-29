@@ -13,7 +13,7 @@ Format
     :param &myAnnotation: A pointer to an instance of a :class:`plotAnnotation` structure.
     :type &myAnnotation: struct
 
-    :param color: named color or HTML hexadecimal color code. Note that HTML color codes must start with a `#`.
+    :param color: named color or HTML hexadecimal color code. Note that HTML color codes must start with a ``#``.
     :type color: string
 
 Examples

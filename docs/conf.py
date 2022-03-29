@@ -46,7 +46,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx_panels',
+    'sphinx_design',
 ]
 
 mathjax_config = {
@@ -111,6 +111,7 @@ html_context = {
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
         'https://fonts.googleapis.com/css?family=Lato',
         '_static/theme_override.css',
+        '_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css',
     ]
 }
 

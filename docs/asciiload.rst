@@ -20,7 +20,7 @@ Format
 Examples
 ----------------
 
-To load the file `myfile.asc`, containing the following data:
+To load the file ``myfile.asc``, containing the following data:
 
 ::
 
@@ -89,3 +89,4 @@ right in the file as the first and second elements and reshape the
 remainder of the vector to the desired form using those values.
 
 .. seealso:: Functions :func:`csvReadM`, `load`, :func:`dataload`
+

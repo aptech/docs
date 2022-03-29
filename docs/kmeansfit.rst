@@ -17,18 +17,26 @@ Format
 
     :param ctl: Optional input, an instance of a :class:`kmeansControl` structure.
 
-        .. csv-table::
+        .. list-table::
             :widths: auto
 
-                    "ctl.initMethod","Scalar specifying the algorithm used to create the initial centroids. Options include:
+            * - ctl.initMethod
+              - Scalar specifying the algorithm used to create the initial centroids. Options include:
 
-                                      * 0 -  kmeans++ (default).
-                                      * 1 -  parallel k-means++
-                                      * 2 -  k randomly selected observations."
-                    "ctl.nStarts","Scalar, the number of times to run the kmeans algorithm with new starting centroids. Note: this input will be ignored if the *clusters* input is a starting centroid."
-                    "ctl.seed","Seed for the random number generator which creates the initial centroids. Note: this input will be ignored if the *clusters* input is a starting centroid."
-                    "ctl.tolerance","Scalar, the convergence tolerance for the kmeans algorithm."
-                    "ctl.maxIters","Scalar, the maximum number of iterations to allow each of the *nStarts* to run before forcing convergence."
+                === ===========================================
+                0   kmeans++ (default).
+                1   parallel k-means++
+                2   :math:`k` randomly-selected observations.
+                === ===========================================
+
+            * - ctl.nStarts
+              - Scalar, the number of times to run the kmeans algorithm with new starting centroids. Note: this input will be ignored if the *clusters* input is a starting centroid.
+            * - ctl.seed
+              - Seed for the random number generator which creates the initial centroids. Note: this input will be ignored if the *clusters* input is a starting centroid.
+            * - ctl.tolerance
+              - Scalar, the convergence tolerance for the kmeans algorithm.
+            * - ctl.maxIters
+              - Scalar, the maximum number of iterations to allow each of the *nStarts* to run before forcing convergence.
 
     :return mdl: An instance of a :class:`kmeansModel` structure.
 

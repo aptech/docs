@@ -11,108 +11,101 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
 .. role:: text-left
 
-.. panels::
-    :header: + text-center 
-    :body: + text-center
+.. grid:: 2
 
-    ---
+    .. grid-item-card:: 
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: command-reference
+        :link-type: doc
 
-    API
-    ^^^^^^
+        API
+        ^^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`code`
+    
+        .. container:: text-left
+    
+          View the comprehensive list of built-in commands and detailed help for each in GAUSS.
+    
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: learning-resources
+        :link-type: doc
 
-    .. container:: icon-large
+        Learning Resources
+        ^^^^^^^^^^^^^^^^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`graduation-cap`
+    
+        .. container:: text-left
+    
+          Enhance your GAUSS usage with these valuable learning resources.
+    
+.. grid:: 2
 
-      :fa:`code`
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: applications
+        :link-type: doc
 
-    .. container:: text-left
+        Apps
+        ^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`rocket`
+    
+        .. container:: text-left
+    
+          Save time with our pre-built applications.
+    
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: changelog
+        :link-type: doc
 
-      View the comprehensive list of built-in commands and detailed help for each in GAUSS.
+        Changelog
+        ^^^^^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`list`
+    
+        .. container:: text-left
+    
+          View the list of updates for each version of GAUSS.
 
-    +++
+.. grid:: 2
 
-    .. link-button:: command-reference
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: https://www.aptech.com/resources/tutorials
 
-    ---
-
-    Learning Resources
-    ^^^^^^^^^^^^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`graduation-cap`
-
-    .. container:: text-left
-
-      Enhance your GAUSS usage with these valuable learning resources.
-
-    +++
-
-    .. link-button:: learning-resources
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
-
-    ---
-
-    Apps
-    ^^^^^
-
-    .. container:: icon-large
-
-      :fa:`rocket`
-
-    .. container:: text-left
-
-      Save time with our pre-built applications.
-
-    +++
-
-    .. link-button:: applications
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
-    ---
-
-    Changelog
-    ^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`list`
-
-    .. container:: text-left
-
-      View the list of updates for each version of GAUSS.
-
-    +++
-
-    .. link-button:: changelog
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
-
-    ---
-
-    Tutorials
-    ^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`external-link-alt`
-
-    .. container:: text-left
-
-      View tutorials on the main aptech.com website.
-
-    +++
-
-    .. link-button:: https://www.aptech.com/resources/tutorials
-        :text: Leave
-        :classes: btn-outline-primary btn-block stretched-link
-
+        Tutorials
+        ^^^^^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`external-link-alt`
+    
+        .. container:: text-left
+    
+          View tutorials on the main aptech.com website.
+    
 
 .. toctree::
    :maxdepth: 1
