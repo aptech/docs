@@ -242,7 +242,7 @@ For example, to find the frequency of each category for a categorical variable, 
 
 **Frequency plots**
 
-.. figure:: ../_static/images/frequency-plot.jpg
+.. figure:: ../_static/images/plotfreq.jpg
     :scale: 50%
 
 The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional `plotControlStructure` can be used for custom formatting.
