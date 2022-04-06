@@ -20,6 +20,8 @@ Our goal is not to show the most compact code, but rather to show you how to mak
 Step 1: Load, preview, filter and merge data
 -------------------------------------------------
 
+Load and preview datasets
+++++++++++++++++++++++++++++++
 
 ::
 
@@ -90,6 +92,9 @@ Step 1: Load, preview, filter and merge data
     Maturity    -----     -----       -----        15_yr        30_yr     2740      0 
 
 
+Filter and merge data
++++++++++++++++++++++++++
+
 Before we can plot our data, we need to:
   * Remove the 15 year mortgage observations.
   * Merge the weekly mortgage data with the monthly unemployment data.
@@ -158,6 +163,9 @@ We will start by setting the size we want our graph to be in pixels and then set
     plt = plotGetDefaults("xy");
 
 
+Title
++++++++
+
 Now we will apply our first custom settings for this graph. We use HTML below to set the title font to be bold. However, you can also use Latex to style text in your GAUSS graphs. See `plotSetTextInterpreter` for more details.
 
 ::
@@ -167,12 +175,11 @@ Now we will apply our first custom settings for this graph. We use HTML below to
     plotSetTitle(&plt, "<b>Mortgage and Unemployment Rates</b>", "Arial", 18, "#464646");
 
 
+X-axis settings
++++++++++++++++++++
 
 ::
     
-    /*
-    ** X-axis settings
-    */
     axes_clr = "#6E7079";
     
     // Set wdith (1 pixel) and color of x-axis line
@@ -186,12 +193,11 @@ Now we will apply our first custom settings for this graph. We use HTML below to
     plotSetXLabel(&plt, " ");
     
 
+Y-axis settings
++++++++++++++++++++
+
 ::
 
-    /*
-    ** Y-axis settings
-    */
-    
     // Turn off y-axis line by setting
     // width to 0 pixels
     plotSetYPen(&plt, 0);
@@ -206,11 +212,11 @@ Now we will apply our first custom settings for this graph. We use HTML below to
     plotSetYRange(&plt, 0, 15, 3);
 
 
+Tick label settings
++++++++++++++++++++++++
+
 ::
     
-    /*
-    ** Tick label settings
-    */ 
     
     plotSetTicLabelFont(&plt, "Arial", 12, axes_clr);
     
@@ -220,12 +226,12 @@ Now we will apply our first custom settings for this graph. We use HTML below to
     plotSetYTicLabel(&plt, "%g %%");
 
 
+Legend settings
+++++++++++++++++++
+
 ::
     
     
-    /*
-    ** Legend settings
-    */ 
     plotSetLegend(&plt, "30 yr Mortgage" $| "Unemployment", "top left inside");
     plotSetLegendFont(&plt, "Arial", 12, "#333");
     
@@ -240,11 +246,11 @@ Now we will apply our first custom settings for this graph. We use HTML below to
     plotXY(plt, data, "Rate + UNRATE ~ DATE");
 
 
+Add recession bars
+++++++++++++++++++++
+
 ::
     
-    /*
-    ** Add recession bars
-    */
     
     // Fill 'plt' with default bar plot settings
     plt = plotGetDefaults("bar");
