@@ -2,8 +2,20 @@
 Time Series Plot of US Unempolyment and 30 Year Mortgage Rates
 =====================================================================
 
-.. figure:: ../_static/images/unemp-mtg3.jpg
+.. figure:: ../_static/images/unemp-mtg30.jpg
    :scale: 50 %
+
+Introduction
+++++++++++++++++
+
+Our goal here is to show you how to take some real world time series data and perform:
+
+* Basic data cleaning and merging steps.
+* Lots of plot customization.
+
+...and create a nice looking graph.
+
+Our goal is not to show the most compact code, but rather to show you how to make lots of customizations. Though if you really like the style, we will show you how to automate most of these steps for future use.
 
 Step 1: Load, preview, filter and merge data
 -------------------------------------------------
