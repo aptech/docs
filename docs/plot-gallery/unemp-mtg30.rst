@@ -1,15 +1,16 @@
 
-Time Series Plot of US Unempolyment and 30 Year Mortgage Rates
+Time Series Plot with Recession Bars and Horizontal Grid
 =====================================================================
 
 .. figure:: ../_static/images/unemp-mtg30.jpg
-   :scale: 50 %
+   :width: 50 %
 
+**Minimum version**: GAUSS 22.1.0
 
 Load and preview data
 ++++++++++++++++++++++++++++++
 
-You can download the dataset for this graph here.
+Here is a link to `download the dataset <https://raw.githubusercontent.com/aptech/gauss-plot-library/master/data/unemp_mtg30.csv>`_.
 
 ::
 
