@@ -1,9 +1,10 @@
 
-Time Series Plot with Recession Bars and Horizontal Grid
+Time Series Plot of Unemployment and 30 Year Mortgage Rates
 =====================================================================
 
 .. figure:: ../_static/images/unemp-mtg30.jpg
-   :width: 50 %
+   :width: 80 %
+   :alt: Graph of US unemployment and 30 year mortgage rates from 2000 to 2023.
 
 **Minimum version**: GAUSS 22.1.0
 
@@ -32,11 +33,12 @@ Here is a link to `download the dataset <https://raw.githubusercontent.com/aptec
     2000-01-21       8.26          . 
     2000-01-28       8.25          .
 
+Function reference: :func:`loadd`, :func:`head`, :func:`format`
+
 
 Set graph size and get default settings
 +++++++++++++++++++++++++++++++++++++++++
 
-Function reference: :func:`plotcanvassize`, :func:`plotgetdefaults`
 
 ::
 
@@ -48,13 +50,13 @@ Function reference: :func:`plotcanvassize`, :func:`plotgetdefaults`
     struct plotControl plt;
     plt = plotGetDefaults("xy");
 
+Function reference: :func:`plotcanvassize`, :func:`plotgetdefaults`
 
 Title
 +++++++
 
 We use HTML below to set the title font to be bold. However, you can also use Latex to style text in your GAUSS graphs. See :func:`plotSetTextInterpreter` for more details.
 
-Function reference: :func:`plotsettitle`
 
 ::
     
@@ -62,11 +64,11 @@ Function reference: :func:`plotsettitle`
     // using HTML tags for bold text
     plotSetTitle(&plt, "<b>Mortgage and Unemployment Rates</b>", "Arial", 18, "#464646");
 
+Function reference: :func:`plotsettitle`
 
 X-axis settings
 +++++++++++++++++++
 
-Function reference: :func:`plotsetxpen`, :func:`plotsetxrange`, :func:`plotsetxlabel`
 
 ::
     
@@ -82,11 +84,11 @@ Function reference: :func:`plotsetxpen`, :func:`plotsetxrange`, :func:`plotsetxl
     // Turn off x-axis label
     plotSetXLabel(&plt, " ");
     
+Function reference: :func:`plotsetxpen`, :func:`plotsetxrange`, :func:`plotsetxlabel`
 
 Y-axis settings
 +++++++++++++++++++
 
-Function reference: :func:`plotsetypen`, :func:`plotsetygridpen`, :func:`plotsetyrange`
 
 ::
 
@@ -103,11 +105,11 @@ Function reference: :func:`plotsetypen`, :func:`plotsetygridpen`, :func:`plotset
     // with tick labels every 3
     plotSetYRange(&plt, 0, 15, 3);
 
+Function reference: :func:`plotsetypen`, :func:`plotsetygridpen`, :func:`plotsetyrange`
 
 Tick label settings
 +++++++++++++++++++++++
 
-Function reference: :func:`plotsetticlabelfont`, :func:`plotsetyticlabel`
 
 ::
     
@@ -119,11 +121,11 @@ Function reference: :func:`plotsetticlabelfont`, :func:`plotsetyticlabel`
     // and percent sign at the end
     plotSetYTicLabel(&plt, "%g %%");
 
+Function reference: :func:`plotsetticlabelfont`, :func:`plotsetyticlabel`
 
 Legend settings
 ++++++++++++++++++
 
-Function reference: :func:`plotsetlegend`, :func:`plotsetlegendfont`, :func:`plotsetlegendbkd`
 
 ::
     
@@ -136,12 +138,13 @@ Function reference: :func:`plotsetlegend`, :func:`plotsetlegendfont`, :func:`plo
     plotSetLegendBkd(&plt, 1);
     
 
+Function reference: :func:`plotsetlegend`, :func:`plotsetlegendfont`, :func:`plotsetlegendbkd`
+
 Mising value settings
 +++++++++++++++++++++++++
 
 By default, missing values create gaps in line plots. Since our monthly unemployment data has many missing values, we need to skip over the missing values and connect each valid unemployment observation.
 
-Function reference: :func:`plotsetmissgap`
 
 ::
 
@@ -149,23 +152,24 @@ Function reference: :func:`plotsetmissgap`
     plotSetMissGap(&plt, "off");
 
 
+Function reference: :func:`plotsetmissgap`
+
 Draw plot
 +++++++++++++
 
 The tilde, ``~``, separates the y variables, ``mtg30`` and ``unrate``, from ``date`` which will be on the x-axis.
 
-Function reference: :func:`plotxy`
 
 ::
     
     // Draw plot
     plotXY(plt, data, "mtg30 + unrate ~ date");
 
+Function reference: :func:`plotxy`
 
 Add recession bars
 ++++++++++++++++++++
 
-Function reference: :func:`plotsetfill`, :func:`plotsetlinestyle`, :func:`loadd`, :func:`plotaddvbar`
 
 ::
     
@@ -185,3 +189,9 @@ Function reference: :func:`plotsetfill`, :func:`plotsetlinestyle`, :func:`loadd`
     // Draw vertical bars over recession dates
     plotAddVBar(plt, usrec);
     
+Function reference: :func:`plotsetfill`, :func:`plotsetlinestyle`, :func:`loadd`, :func:`plotaddvbar`
+
+Further reading
+++++++++++++++++++++
+
+* `Visualizing COVID-19 Panel Data with GAUSS <https://www.aptech.com/blog/visualizing-covid-19-panel-data-with-gauss-22/>`_

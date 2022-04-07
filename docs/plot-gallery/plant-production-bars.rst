@@ -1,8 +1,9 @@
-Plant Production Bar plot
+Plant Production Bar Plot
 =====================================================================
 
 .. figure:: ../_static/images/plot-plant-production-bars.jpg
-   :width: 50 %
+   :width: 80 %
+   :alt: Bar plot of production from three plants by day of week.
 
 **Minimum version**: GAUSS 22.1.0
 
@@ -16,8 +17,7 @@ Here is a link to `download the dataset <https://raw.githubusercontent.com/aptec
     // Load all variables from the CSV file
     data = loadd("plant-production.csv", "str(Day) + Plant A + Plant B + Plant C");
 
-    // Print first 5 rows
-    head(data);
+    print data;
 
 ::
 
@@ -27,6 +27,8 @@ Here is a link to `download the dataset <https://raw.githubusercontent.com/aptec
      Wednesday       0.85       1.00       1.03 
       Thursday       1.27       1.00       0.99 
         Friday       0.91       1.00       0.98
+
+Function reference: :func:`loadd`
 
 
 Set graph size and get default settings
@@ -149,8 +151,10 @@ Further reading
 ++++++++++++++++++++++
 
 **Color palettes**:
+
 * `blendColorPalette <https://docs.aptech.com/gauss/blendcolorpalette.html>`_
 * `getHSLPalette <https://docs.aptech.com/gauss/gethslpalette.html>`_
 
 **Blog posts**:
+
 * `Five Hacks for Creating Custom GAUSS Graphics <https://www.aptech.com/blog/five-hacks-for-creating-custom-gauss-graphics/>`_
