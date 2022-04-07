@@ -1,4 +1,4 @@
-Bar plot with string labels and added horizontal line
+Plant Production Bar plot
 =====================================================================
 
 .. figure:: ../_static/images/plot-plant-production-bars.jpg
@@ -32,8 +32,6 @@ Here is a link to `download the dataset <https://raw.githubusercontent.com/aptec
 Set graph size and get default settings
 +++++++++++++++++++++++++++++++++++++++++
 
-Function reference: :func:`plotcanvassize`, :func:`plotgetdefaults`
-
 ::
 
     // Declare plotControl structure
@@ -46,10 +44,11 @@ Function reference: :func:`plotcanvassize`, :func:`plotgetdefaults`
     plotCanvasSize("px", 960 | 540);
 
 
+Function reference: :func:`plotcanvassize`, :func:`plotgetdefaults`
+
+
 Set bar appearance
 ++++++++++++++++++++++++++++++
-
-Function reference: :func:`getcolorpalette`, :func:`listcolorpalettes`, :func:`plotsetfill`, :func:`plotsetlinepen`, :func:`plotsetbarwidth`
 
 ::
     
@@ -68,20 +67,21 @@ Function reference: :func:`getcolorpalette`, :func:`listcolorpalettes`, :func:`p
     plotSetBarWidth(&plt, 0.8);
 
 
+Function reference: :func:`getcolorpalette`, :func:`listcolorpalettes`, :func:`plotsetfill`, :func:`plotsetlinepen`, :func:`plotsetbarwidth`
+
 Fonts for all text elements
 +++++++++++++++++++++++++++++++++
 
-Function reference: :func:`plotsetfonts`
 
 ::
     
     plotSetFonts(&plt, "all", "arial", 14, "#454545");
 
+Function reference: :func:`plotsetfonts`
 
 Title
 +++++++++
 
-Function reference: :func:`plotsettitle`
 
 ::
     
@@ -91,10 +91,10 @@ Function reference: :func:`plotsettitle`
     plotSetTitle( &plt, "Weekly Production Report", "", 18);
 
 
+Function reference: :func:`plotsettitle`
+
 Y-axis label
 +++++++++++++++
-
-Function reference: :func:`plotsetylabel`
 
 ::    
 
@@ -102,32 +102,31 @@ Function reference: :func:`plotsetylabel`
     // set earlier by 'plotSetFonts'
     plotSetYLabel(&plt, "Percent of Quota");
     
+Function reference: :func:`plotsetylabel`
     
 Legend
 ++++++++
 
-Function reference: :func:`plotsetlegend`
 
 ::
     
     // Set legend text and location. Use font settings applied earlier.
     plotSetLegend(&plt, "Plant A"$|"Plant B"$|"Plant C", "bottom hcenter outside");
 
+Function reference: :func:`plotsetlegend`
+
 Draw bar plot
 ++++++++++++++++
-
-Function reference: :func:`plotbar`
 
 ::
     
     // Plot data using plotControl structure
     plotBar( plt, data[.,"Day"], data[.,"Plant A" "Plant B" "Plant C"]);
 
+Function reference: :func:`plotbar`
 
 Add horizontal line
 +++++++++++++++++++++
-
-Function reference: :func:`plotgetdefaults`, :func:`plotsetlinepen`, :func:`plotaddhline`
 
 ::
     
@@ -143,3 +142,15 @@ Function reference: :func:`plotgetdefaults`, :func:`plotsetlinepen`, :func:`plot
     // Add a horizontal line at Y=1 
     plotAddHLine(plt, 1);
 
+
+Function reference: :func:`plotgetdefaults`, :func:`plotsetlinepen`, :func:`plotaddhline`
+
+Further reading
+++++++++++++++++++++++
+
+**Color palettes**:
+* `blendColorPalette <https://docs.aptech.com/gauss/blendcolorpalette.html>`_
+* `getHSLPalette <https://docs.aptech.com/gauss/gethslpalette.html>`_
+
+**Blog posts**:
+* `Five Hacks for Creating Custom GAUSS Graphics <https://www.aptech.com/blog/five-hacks-for-creating-custom-gauss-graphics/>`_
