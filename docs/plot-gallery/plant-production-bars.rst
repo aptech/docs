@@ -5,6 +5,7 @@ Plant Production Bar Plot
    :width: 80 %
    :alt: Bar plot of production from three plants by day of week.
 
+:bdg-primary:`bar` :bdg-primary-line:`color palettes` :bdg-primary-line:`spanning lines` :bdg-primary-line:`string labels`
 **Minimum version**: GAUSS 22.1.0
 
 Load and preview data
