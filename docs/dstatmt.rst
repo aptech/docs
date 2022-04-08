@@ -9,14 +9,14 @@ Compute descriptive statistics.
 
 Format
 ----------------
-.. function:: dout = dstatmt(dataset[, vars[, ctl]])
+.. function:: dout = dstatmt(data [, vars[, ctl]])
 
-    :param dataset: name of dataset. If *dataset* is null or 0, *vars* will be assumed to be a matrix containing the data.
-    :type dataset: string
+    :param data: A dataframe or the name of dataset. If *data* is an empty string or 0, *vars* will be assumed to be a matrix containing the data.
+    :type data: string or dataframe
 
     :param vars: the variables.
 
-      If *dataset* contains the name of a dataset, *vars* will be interpreted as either:
+      If *data* contains a dataframe or the name of a dataset, *vars* will be interpreted as either:
  
       * A Kx1 character vector containing the names of variables.
       * A Kx1 numeric vector containing indices of variables.
@@ -24,7 +24,7 @@ Format
  
       These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
  
-      If *dataset* is null or 0, *vars* will be interpreted as a NxK matrix, the data on which to compute the descriptive statistics.
+      If *data* is an empty string or 0, *vars* will be interpreted as an NxK matrix, the data on which to compute the descriptive statistics.
 
     :type vars: string or string array
 
