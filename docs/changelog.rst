@@ -4,6 +4,12 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+22.2.0
+------
+
+#. Bug Fix: :func:`dbGetTables` returned an error instead of a scalar missing on an empty result set.
+#. Bug Fix: ``F4`` shortcut was not interpreting :func:`__FILE_DIR` correctly when executed with selected text.
+
 22.1.0
 ------
 
