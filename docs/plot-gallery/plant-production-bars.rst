@@ -6,6 +6,7 @@ Plant Production Bar Plot
    :alt: Bar plot of production from three plants by day of week.
 
 :bdg-primary:`bar` :bdg-primary-line:`color palettes` :bdg-primary-line:`spanning lines` :bdg-primary-line:`string labels`
+
 **Minimum version**: GAUSS 22.1.0
 
 Load and preview data
@@ -124,7 +125,7 @@ Draw bar plot
 ::
     
     // Plot data using plotControl structure
-    plotBar( plt, data[.,"Day"], data[.,"Plant A" "Plant B" "Plant C"]);
+    plotBar(plt, data[.,"Day"], data[.,"Plant A" "Plant B" "Plant C"]);
 
 Function reference: :func:`plotbar`
 
