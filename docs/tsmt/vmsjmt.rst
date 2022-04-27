@@ -129,15 +129,15 @@ Source
 
    varmamt.src
 
-.. |image1| image:: GeneratedImages/Equations/Equation741.svg
+.. |image1| image:: _static/images/Equation741.svg
    :class: mcReset
-.. |image2| image:: GeneratedImages/Equations/Equation742.svg
+.. |image2| image:: _static/images/Equation742.svg
    :class: mcReset
-.. |image3| image:: GeneratedImages/Equations/Equation741.svg
+.. |image3| image:: _static/images/Equation741.svg
    :class: mcReset
-.. |image4| image:: GeneratedImages/Equations/Equation742.svg
+.. |image4| image:: _static/images/Equation742.svg
    :class: mcReset
-.. |image5| image:: GeneratedImages/Equations/Equation741.svg
+.. |image5| image:: _static/images/Equation741.svg
    :class: mcReset
-.. |image6| image:: GeneratedImages/Equations/Equation742.svg
+.. |image6| image:: _static/images/Equation742.svg
    :class: mcReset

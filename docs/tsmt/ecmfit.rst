@@ -645,33 +645,33 @@ Source
 
    varmamt.src
 
-.. |image1| image:: GeneratedImages/Equations/Equation693.svg
+.. |image1| image:: _static/images/Equation693.svg
    :class: _inline_math_MCEquation1 mcReset
-.. |image2| image:: GeneratedImages/Equations/Equation693.svg
+.. |image2| image:: _static/images/Equation693.svg
    :class: _inline_math_MCEquation1 mcReset
-.. |image3| image:: GeneratedImages/Equations/Equation693.svg
+.. |image3| image:: _static/images/Equation693.svg
    :class: _inline_math_MCEquation1 mcReset
-.. |image4| image:: GeneratedImages/Equations/Equation694.svg
+.. |image4| image:: _static/images/Equation694.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image5| image:: GeneratedImages/Equations/Equation695.svg
+.. |image5| image:: _static/images/Equation695.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image6| image:: GeneratedImages/Equations/Equation696.svg
+.. |image6| image:: _static/images/Equation696.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image7| image:: GeneratedImages/Equations/Equation697.svg
+.. |image7| image:: _static/images/Equation697.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image8| image:: GeneratedImages/Equations/Equation694.svg
+.. |image8| image:: _static/images/Equation694.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image9| image:: GeneratedImages/Equations/Equation695.svg
+.. |image9| image:: _static/images/Equation695.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image10| image:: GeneratedImages/Equations/Equation696.svg
+.. |image10| image:: _static/images/Equation696.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image11| image:: GeneratedImages/Equations/Equation697.svg
+.. |image11| image:: _static/images/Equation697.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image12| image:: GeneratedImages/Equations/Equation694.svg
+.. |image12| image:: _static/images/Equation694.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image13| image:: GeneratedImages/Equations/Equation695.svg
+.. |image13| image:: _static/images/Equation695.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image14| image:: GeneratedImages/Equations/Equation696.svg
+.. |image14| image:: _static/images/Equation696.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image15| image:: GeneratedImages/Equations/Equation697.svg
+.. |image15| image:: _static/images/Equation697.svg
    :class: _inline_math_MCEquation_0 mcReset

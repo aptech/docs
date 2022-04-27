@@ -81,7 +81,7 @@ Source
 
    tsFill.src
 
-.. |image1| image:: GeneratedImages/Equations/Equation708.svg
+.. |image1| image:: _static/images/Equation708.svg
    :class: mcReset
-.. |image2| image:: GeneratedImages/Equations/Equation709.svg
+.. |image2| image:: _static/images/Equation709.svg
    :class: mcReset

@@ -17,10 +17,18 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
 
     Provides tools to model, analyze, and predict data using fundamental machine learning techniques.
 
+.. card:: TSMT (Time Series MT)
+    :link: tsmt/index
+    :link-type: doc
+    :shadow: none
+
+    Time Series MT Application by Aptech.
+
 .. toctree::
     :maxdepth: 1
     :hidden:
 
     tspdlib/docs/tspdlib-landing
     gml-landing
+    tsmt/index
 

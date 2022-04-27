@@ -67,7 +67,7 @@ Remarks
    parameter standard errors. The adjusted parameter covariance matrix
    is |image4| where.
 
-   .. image:: GeneratedImages/Equations/Equation706.svg
+   .. image:: _static/images/Equation706.svg
       :class: _inline_math_MCEquation_0 mcReset
 
 Source
@@ -78,11 +78,11 @@ Source
 
    varmamt.src
 
-.. |image1| image:: GeneratedImages/Equations/Equation704.svg
+.. |image1| image:: _static/images/Equation704.svg
    :class: mcReset
-.. |image2| image:: GeneratedImages/Equations/Equation704.svg
+.. |image2| image:: _static/images/Equation704.svg
    :class: mcReset
-.. |image3| image:: GeneratedImages/Equations/Equation704.svg
+.. |image3| image:: _static/images/Equation704.svg
    :class: mcReset
-.. |image4| image:: GeneratedImages/Equations/Equation705.svg
+.. |image4| image:: _static/images/Equation705.svg
    :class: _inline_math_MCEquation_0 mcReset

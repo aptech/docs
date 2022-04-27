@@ -218,15 +218,15 @@ Source
 
    autoregmt.src
 
-.. |image1| image:: GeneratedImages/Equations/Equation687.svg
+.. |image1| image:: _static/images/Equation687.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image2| image:: GeneratedImages/Equations/Equation687.svg
+.. |image2| image:: _static/images/Equation687.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image3| image:: GeneratedImages/Equations/Equation687.svg
+.. |image3| image:: _static/images/Equation687.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image4| image:: GeneratedImages/Equations/Equation688.svg
+.. |image4| image:: _static/images/Equation688.svg
    :class: mcReset
-.. |image5| image:: GeneratedImages/Equations/Equation688.svg
+.. |image5| image:: _static/images/Equation688.svg
    :class: mcReset
-.. |image6| image:: GeneratedImages/Equations/Equation688.svg
+.. |image6| image:: _static/images/Equation688.svg
    :class: mcReset

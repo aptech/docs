@@ -79,18 +79,18 @@ Remarks
    considered, an *AR(1)* model without a drift, an *AR(1)* with a
    drift, and an *AR(1)* model with a drift and linear trend:
 
-   .. image:: GeneratedImages/Equations/Equation716.svg
+   .. image:: _static/images/Equation716.svg
       :class: mcReset
 
-   .. image:: GeneratedImages/Equations/Equation717.svg
+   .. image:: _static/images/Equation717.svg
       :class: mcReset
 
-   .. image:: GeneratedImages/Equations/Equation718.svg
+   .. image:: _static/images/Equation718.svg
       :class: mcReset
 
    The unit root null hypothesis is
 
-   .. image:: GeneratedImages/Equations/Equation719.svg
+   .. image:: _static/images/Equation719.svg
       :class: mcReset
 
    Hamilton (1994, pp. 506-511) tests this hypothesis using two
@@ -109,19 +109,19 @@ Remarks
 
    Hamilton's\ |image17| statistic is:
 
-   .. image:: GeneratedImages/Equations/Equation731.svg
+   .. image:: _static/images/Equation731.svg
       :class: mcReset
 
    |image18|\ is an estimate of the asymptotic variance of the sample
    mean of |image19|. In the vmppmt procedure |image20| is estimated
    using the Newey-West (1987) estimator:
 
-   .. image:: GeneratedImages/Equations/Equation735.svg
+   .. image:: _static/images/Equation735.svg
       :class: mcReset
 
    where
 
-   .. image:: GeneratedImages/Equations/Equation736.svg
+   .. image:: _static/images/Equation736.svg
       :class: mcReset
 
    are the sample autocovariances of |image21|.
@@ -130,7 +130,7 @@ Remarks
    calculating the Newey-West correction (*q* in the above equation). If
    nwtrunc = 0, GAUSS will use a truncation lag given by Newey and West,
 
-   .. image:: GeneratedImages/Equations/Equation738.svg
+   .. image:: _static/images/Equation738.svg
       :class: mcReset
 
    Under the null hypothesis, the |image22| statistics has the same
@@ -188,47 +188,47 @@ Source
 
    varmamt.src
 
-.. |image1| image:: GeneratedImages/Equations/Equation714.svg
+.. |image1| image:: _static/images/Equation714.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image2| image:: GeneratedImages/Equations/Equation714.svg
+.. |image2| image:: _static/images/Equation714.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image3| image:: GeneratedImages/Equations/Equation714.svg
+.. |image3| image:: _static/images/Equation714.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image4| image:: GeneratedImages/Equations/Equation715.svg
+.. |image4| image:: _static/images/Equation715.svg
    :class: mcReset
-.. |image5| image:: GeneratedImages/Equations/Equation715.svg
+.. |image5| image:: _static/images/Equation715.svg
    :class: mcReset
-.. |image6| image:: GeneratedImages/Equations/Equation715.svg
+.. |image6| image:: _static/images/Equation715.svg
    :class: mcReset
-.. |image7| image:: GeneratedImages/Equations/Equation720.svg
+.. |image7| image:: _static/images/Equation720.svg
    :class: mcReset
-.. |image8| image:: GeneratedImages/Equations/Equation721.svg
+.. |image8| image:: _static/images/Equation721.svg
    :class: mcReset
-.. |image9| image:: GeneratedImages/Equations/Equation722.svg
+.. |image9| image:: _static/images/Equation722.svg
    :class: mcReset
-.. |image10| image:: GeneratedImages/Equations/Equation723.svg
+.. |image10| image:: _static/images/Equation723.svg
    :class: mcReset
-.. |image11| image:: GeneratedImages/Equations/Equation724.svg
+.. |image11| image:: _static/images/Equation724.svg
    :class: mcReset
-.. |image12| image:: GeneratedImages/Equations/Equation725.svg
+.. |image12| image:: _static/images/Equation725.svg
    :class: mcReset
-.. |image13| image:: GeneratedImages/Equations/Equation726.svg
+.. |image13| image:: _static/images/Equation726.svg
    :class: mcReset
-.. |image14| image:: GeneratedImages/Equations/Equation727.svg
+.. |image14| image:: _static/images/Equation727.svg
    :class: mcReset
-.. |image15| image:: GeneratedImages/Equations/Equation728.svg
+.. |image15| image:: _static/images/Equation728.svg
    :class: mcReset
-.. |image16| image:: GeneratedImages/Equations/Equation729.svg
+.. |image16| image:: _static/images/Equation729.svg
    :class: mcReset
-.. |image17| image:: GeneratedImages/Equations/Equation730.svg
+.. |image17| image:: _static/images/Equation730.svg
    :class: mcReset
-.. |image18| image:: GeneratedImages/Equations/Equation732.svg
+.. |image18| image:: _static/images/Equation732.svg
    :class: mcReset
-.. |image19| image:: GeneratedImages/Equations/Equation733.svg
+.. |image19| image:: _static/images/Equation733.svg
    :class: mcReset
-.. |image20| image:: GeneratedImages/Equations/Equation734.svg
+.. |image20| image:: _static/images/Equation734.svg
    :class: mcReset
-.. |image21| image:: GeneratedImages/Equations/Equation737.svg
+.. |image21| image:: _static/images/Equation737.svg
    :class: mcReset
-.. |image22| image:: GeneratedImages/Equations/Equation739.svg
+.. |image22| image:: _static/images/Equation739.svg
    :class: mcReset

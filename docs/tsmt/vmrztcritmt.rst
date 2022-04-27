@@ -93,5 +93,5 @@ Source
 
    varmamt.src
 
-.. |image1| image:: GeneratedImages/Equations/Equation743.svg
+.. |image1| image:: _static/images/Equation743.svg
    :class: mcReset

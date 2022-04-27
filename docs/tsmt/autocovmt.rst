@@ -179,21 +179,21 @@ Source
 
    autoregmt.src
 
-.. |image1| image:: GeneratedImages/Equations/Equation689.svg
+.. |image1| image:: _static/images/Equation689.svg
    :class: mcReset
-.. |image2| image:: GeneratedImages/Equations/Equation689.svg
+.. |image2| image:: _static/images/Equation689.svg
    :class: mcReset
-.. |image3| image:: GeneratedImages/Equations/Equation689.svg
+.. |image3| image:: _static/images/Equation689.svg
    :class: mcReset
-.. |image4| image:: GeneratedImages/Equations/Equation690.svg
+.. |image4| image:: _static/images/Equation690.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image5| image:: GeneratedImages/Equations/Equation691.svg
+.. |image5| image:: _static/images/Equation691.svg
    :class: mcReset
-.. |image6| image:: GeneratedImages/Equations/Equation690.svg
+.. |image6| image:: _static/images/Equation690.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image7| image:: GeneratedImages/Equations/Equation691.svg
+.. |image7| image:: _static/images/Equation691.svg
    :class: mcReset
-.. |image8| image:: GeneratedImages/Equations/Equation690.svg
+.. |image8| image:: _static/images/Equation690.svg
    :class: _inline_math_MCEquation_0 mcReset
-.. |image9| image:: GeneratedImages/Equations/Equation691.svg
+.. |image9| image:: _static/images/Equation691.svg
    :class: mcReset
