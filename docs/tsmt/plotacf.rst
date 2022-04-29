@@ -7,27 +7,15 @@ plotACF
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Graph the autocorrelation function for a time series.
+Graph the autocorrelation function for a time series.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   plotACF( myPlot, y );
+plotACF( myPlot, y );
 
    plotACF( myPlot, y, lags );
 
@@ -41,11 +29,7 @@ Format
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   +--------+------------------------------------------------------------+
++--------+------------------------------------------------------------+
    | myPlot | A plotControl structure                                    |
    +--------+------------------------------------------------------------+
    | y      | Matrix, Nx1 time series data to be tested.                 |
@@ -59,50 +43,42 @@ Input
 
 Example
 -------
+::
 
-.. container::
-   :name: Example
+new;
+cls;
+library tsmt;
 
-   ::
+//Simulate data
+b = { 0.5, -0.3 };
+p = 2;
+q = 0;
+const = 5;
+trend = 0.05;
+n = 500;
+k = 1;
+std = 1;
+seed = 10191;
 
-      new;
-      cls;
-      library tsmt;
+yt = simarmamt( b, p, q, const, trend, n, k, std, seed );
 
-      //Simulate data
-      b = { 0.5, -0.3 };
-      p = 2;
-      q = 0;
-      const = 5;
-      trend = 0.05;
-      n = 500;
-      k = 1;
-      std = 1;
-      seed = 10191;
+//plotControl structure
+struct plotControl myPlot;
+myPlot = plotGetDefaults( "bar" );
 
-      yt = simarmamt( b, p, q, const, trend, n, k, std, seed );
+//Turn off legend
+plotSetLegend( &myPlot, "off" );
 
-      //plotControl structure
-      struct plotControl myPlot;
-      myPlot = plotGetDefaults( "bar" );
+//Add title
+plotSetTitle( &myPlot, "Autocorrelation Function" );
 
-      //Turn off legend
-      plotSetLegend( &myPlot, "off" );
-
-      //Add title
-      plotSetTitle( &myPlot, "Autocorrelation Function" );
-
-      //Add axis labels
-      plotSetYLabel( &myPlot, "ACF" );
-      plotSetXLabel( &myPlot, "Lag" );
-        
-      //Use defaults
-      plotACF( yt, 10, 0 );
+//Add axis labels
+plotSetYLabel( &myPlot, "ACF" );
+plotSetXLabel( &myPlot, "Lag" );
+  
+//Use defaults
+plotACF( yt, 10, 0 );
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   tsmtplot.src
+tsmtplot.src

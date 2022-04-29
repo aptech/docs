@@ -7,27 +7,15 @@ garchGJRFit
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Estimates asymmetric GJR-GARCH model.
+Estimates asymmetric GJR-GARCH model.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   out1 = garchGJRFit(y, p);
+out1 = garchGJRFit(y, p);
    out1 = garchGJRFit(y, p, c0);
    out1 = garchGJRFit(y, p, q);
    out1 = garchGJRFit(y, p, q, c0);
@@ -38,11 +26,7 @@ Format
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   +---------+----------------------------+----------------------------+
++---------+----------------------------+----------------------------+
    | y       | Matrix, dependent          |                            |
    |         | variables.                 |                            |
    +---------+----------------------------+----------------------------+
@@ -112,11 +96,7 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   +------+-------------------+-------------------+-------------------+
++------+-------------------+-------------------+-------------------+
    | out1 | garchEstimation   |                   |                   |
    |      | structure.        |                   |                   |
    +------+-------------------+-------------------+-------------------+
@@ -171,51 +151,43 @@ Output
    +------+-------------------+-------------------+-------------------+
    |      |                   | 8                 | function complex. |
    +------+-------------------+-------------------+-------------------+
-   |      | out1.moment       | K×K matrix,       |                   |
+   |      | out1.moment       | KxK matrix,       |                   |
    |      |                   | moment matrix of  |                   |
    |      |                   | parameter         |                   |
    |      |                   | estimates.        |                   |
    +------+-------------------+-------------------+-------------------+
-   |      | out1.climits      | K×2 matrix,       |                   |
+   |      | out1.climits      | Kx2 matrix,       |                   |
    |      |                   | confidence        |                   |
    |      |                   | limits.           |                   |
    +------+-------------------+-------------------+-------------------+
 
 Example
 -------
+::
 
-.. container::
-   :name: Example
+new;
+cls,;
+library tsmt;
 
-   ::
+y = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/gjrgarch.dat");
 
-      new;
-      cls,;
-      library tsmt;
-
-      y = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/gjrgarch.dat");
-
-      struct garchControl c0;
-      c0 = garchControlCreate;
-      c0.cmlmtControlproc = &prc;
-      c0.covtype = 2;
+struct garchControl c0;
+c0 = garchControlCreate;
+c0.cmlmtControlproc = &prc;
+c0.covtype = 2;
 
 
-      proc prc(struct cmlmtControl c0);
-          c0.printiters = 10;
-          c0.switch = 0;
-          c0.algorithm = 1;
-      retp(c0);
-      endp;    
+proc prc(struct cmlmtControl c0);
+    c0.printiters = 10;
+    c0.switch = 0;
+    c0.algorithm = 1;
+retp(c0);
+endp;    
 
-      struct garchEstimation f0;
-      f0 = garchgjrFit(y, 1, 1, c0);
-        
+struct garchEstimation f0;
+f0 = garchgjrFit(y, 1, 1, c0);
+  
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   tsgarch.src
+tsgarch.src

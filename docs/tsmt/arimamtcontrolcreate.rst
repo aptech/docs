@@ -1,76 +1,44 @@
-=======
 arimamt
 =======
 
-10.0.4arimamtControlCreate
-==========================
-
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Sets the members of an instance of an arimamtControl structure to
-   default values.
-
-Library
--------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+Sets the members of an instance of an arimamtControl structure to
+default values.
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   amc = arimamtControlCreate();
+amc = arimamtControlCreate();
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   None
+None
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   +-----+---------------------------------------------------------------+
-   | amc | An instance of an arimamtControl structure with its members   |
-   |     | set to default values.                                        |
-   +-----+---------------------------------------------------------------+
++-----+---------------------------------------------------------------+
+| amc | An instance of an arimamtControl structure with its members   |
+|     | set to default values.                                        |
++-----+---------------------------------------------------------------+
 
 Example
 -------
+::
 
-.. container::
-   :name: Example
+   new;
+   cls;
+   library tsmt;
 
-   ::
+   //Declare control structures
+   struct arimamtControl amc;
 
-      new;
-      cls;
-      library tsmt;
+   //Create default settings for arima model              
+   amc = arimamtControlCreate();
 
-      //Declare control structures
-      struct arimamtControl amc;
-
-      //Create default settings for arima model              
-      amc = arimamtControlCreate();
+Library
+-------
+tsmt
 
 Source
 ------
-
-.. container::
-   :name: Source
-
-   arimamt.src
+arimamt.src

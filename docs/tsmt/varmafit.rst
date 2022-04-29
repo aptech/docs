@@ -143,7 +143,7 @@ Format
            - Lx(p*L) matrix, the partial autocorrelation function, computed only if a univariate model is estimated. The first *L* columns are the lag *1* ACF; the last *L* columns are the lag *p* ACF. 
          * - vmo.par
            - An instance of a PV structure containing the parameter estimates, which can be retrieved using pvUnpack.
-           
+                 
              For example,
              
              :: 
@@ -180,7 +180,7 @@ Format
            - TxL matrix, residuals. 
          * - vmo.retcode
            - 2x1 vector, return code.
-           
+                 
              First element:
 
              :0: normal convergence. 

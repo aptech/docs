@@ -7,38 +7,22 @@ clusterSE
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Procedure to compute the Huber-White heteroscedastic cluster robust
+Procedure to compute the Huber-White heteroscedastic cluster robust
    standard errors. The procedure uses the "sandwich"
    variance-covariance estimator with a small sample correction of
    |image1|
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   vce_cluster = clusterSE(x, resid, grp, constant);
+vce_cluster = clusterSE(x, resid, grp, constant);
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   +----------+----------------------------------------------------------+
++----------+----------------------------------------------------------+
    | x        | (N*T)xk numerical matrix, stacked panel of k independent |
    |          | variables for N groups each with T observations.         |
    +----------+----------------------------------------------------------+
@@ -57,66 +41,54 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   +------------+--------------------------------------------------------+
++------------+--------------------------------------------------------+
    | vce_robust | kxk matrix, Huber-White heteroscedastic robust         |
    |            | variance-covariance matrix.                            |
    +------------+--------------------------------------------------------+
 
 Example
 -------
+::
 
-.. container::
-   :name: Example
+new;
+cls;
+library tsmt;
+      
+//Load psid data
+data = loadd(getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat");
+      
+//Get variable names
+f = getname(getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat");
+print $f;
+  
+//Assign group variable
+grp = data[., 13];
 
-   ::
+// x = age ~ agefbrth ~ usemeth
+x = data[.,1]~data[., 22]~data[., 2]~data[., 10];
 
-      new;
-      cls;
-      library tsmt;
-                  
-      //Load psid data
-      data = loadd(getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat");
-                  
-      //Get variable names
-      f = getname(getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat");
-      print $f;
-        
-      //Assign group variable
-      grp = data[., 13];
+//Control structure
+struct olsmtControl oc0;
+oc0 = olsmtControlCreate;
 
-      // x = age ~ agefbrth ~ usemeth
-      x = data[.,1]~data[., 22]~data[., 2]~data[., 10];
+//Turn on to estimate residuals 
+oc0.res = 1;
 
-      //Control structure
-      struct olsmtControl oc0;
-      oc0 = olsmtControlCreate;
+//Declare output structure
+struct olsmtOut oOut;
 
-      //Turn on to estimate residuals 
-      oc0.res = 1;
+//Run initial ols
+oOut = olsmt(oc0, getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat", "lwage ~ exp + exp2 + wks + ed");
 
-      //Declare output structure
-      struct olsmtOut oOut;
+//Get residuals from _olsmtres dataset
+resid = loadd("_olsmtres");
 
-      //Run initial ols
-      oOut = olsmt(oc0, getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat", "lwage ~ exp + exp2 + wks + ed");
-
-      //Get residuals from _olsmtres dataset
-      resid = loadd("_olsmtres");
-
-      //Find robust standard errors regression includes constant
-      vce_robust = clusterSE(x, resid, grp, 1);
+//Find robust standard errors regression includes constant
+vce_robust = clusterSE(x, resid, grp, 1);
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   robust.src
+robust.src
 
 .. |image1| image:: _static/images/Equation692.svg
    :class: mcReset

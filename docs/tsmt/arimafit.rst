@@ -32,52 +32,52 @@ Format
 
    :param amc: Optional input. An instance of an :class:`arimamtControl` structure. The following members of amc are referenced within this routine: 
 
-      .. list-table:: 
-         :widths: auto
+    .. list-table:: 
+       :widths: auto
 
-         * - amc.const
-           - If fixed regressors: NxM matrix, N must be the same as *y* after it has been differenced.
-              
-             Else: Scalar, if 1, a constant is estimated; 0 otherwise. Default = 1. 
-
-         * - amc.itol
-           - Matrix, 3x1 , controls the convergence criterion.
-             
-             :[1]: Maximum number of iterations.
-             
-                   Default = 100. 
-
-             :[2]: Minimum percentage change in the sum of squared errors.
-             
-                   Default = 1e-8. 
-
-             :[3]: Minimum percentage change in the parameter values.
-             
-                   Default = 1e-6. 
-
-         * - amc.output
-           - Scalar, controls printing of output.
-            
-             Default = 1.
+       * - amc.const
+         - If fixed regressors: NxM matrix, N must be the same as *y* after it has been differenced.
       
-             :0: Nothing will be printed by arimaFit. 
-             :1: Final results are printed. 
-             :2: Final results, iterations results, residual a utocorrelations, Box-Ljung statistic, and covariance and correlation matrices are printed. 
+           Else: Scalar, if 1, a constant is estimated; 0 otherwise. Default = 1. 
 
-         * - amc.ranktol 
-           - Scalar, the tolerance used in determining if any of the singular values are effectively zero when computing the rank of a matrix.
-            
-             Default = 1e-13. 
+       * - amc.itol
+         - Matrix, 3x1 , controls the convergence criterion.
+     
+           :[1]: Maximum number of iterations.
+           
+                 Default = 100. 
 
-         * - amc.start
-           - vector of starting values in order of AR, MA, and Constant; or a scalar, 0, which instructs arimaFit to compute starting values;
-            
-             Default = 0. 
+           :[2]: Minimum percentage change in the sum of squared errors.
+           
+                 Default = 1e-8. 
 
-         * - amc.varn
-           - Character, 1x(M+1) vector of parameter names. This is used for models with fixed regressors. The first element contains the name of the independent variable; the second through :math:`Mth` elements contain the variable names for the fixed regressors. If ``amc.varn = 0``, the fixed regressors labeled as :math:`X_0, X_1, ..., X_M`.
-            
-             Default = 0. 
+           :[3]: Minimum percentage change in the parameter values.
+           
+                 Default = 1e-6. 
+
+       * - amc.output
+         - Scalar, controls printing of output.
+
+           Default = 1.
+
+           :0: Nothing will be printed by arimaFit. 
+           :1: Final results are printed. 
+           :2: Final results, iterations results, residual a utocorrelations, Box-Ljung statistic, and covariance and correlation matrices are printed. 
+
+       * - amc.ranktol 
+         - Scalar, the tolerance used in determining if any of the singular values are effectively zero when computing the rank of a matrix.
+
+           Default = 1e-13. 
+
+       * - amc.start
+         - vector of starting values in order of AR, MA, and Constant; or a scalar, 0, which instructs arimaFit to compute starting values;
+
+           Default = 0. 
+
+       * - amc.varn
+         - Character, 1x(M+1) vector of parameter names. This is used for models with fixed regressors. The first element contains the name of the independent variable; the second through :math:`Mth` elements contain the variable names for the fixed regressors. If ``amc.varn = 0``, the fixed regressors labeled as :math:`X_0, X_1, ..., X_M`.
+
+           Default = 0. 
 
    :type amc: struct
 
@@ -103,7 +103,7 @@ Format
 
          * - amo.vcb
            - KxK matrix, the covariance matrix of estimated model coefficients.
-    
+          
    :rtype amo: struct
 
 Examples

@@ -61,49 +61,6 @@ Format
    :rtype TAROut: struct
 
 
-Output
-------
-+--------+-----------------------------+-----------------------------+
-| TAROut | TAROut structure containing |                             |
-|        | the following return        |                             |
-|        | elements:                   |                             |
-+--------+-----------------------------+-----------------------------+
-|        | tests                       | vector of test statistics   |
-|        |                             | (in order): SupLM, ExpLM,   |
-|        |                             | AveLM, SupLMs, ExpLMs,      |
-|        |                             | AveLMs.                     |
-+--------+-----------------------------+-----------------------------+
-|        | pvalues                     | vector, estimated           |
-|        |                             | asymptotic p-values or test |
-|        |                             | statistics.                 |
-+--------+-----------------------------+-----------------------------+
-|        | coefficients                | matrix, first column        |
-|        |                             | contains estimated          |
-|        |                             | coefficients and second     |
-|        |                             | column contains standard    |
-|        |                             | errors.                     |
-+--------+-----------------------------+-----------------------------+
-|        | regimeErrorVariance         | vector, 2x1, error variance |
-|        |                             | for Regime 1 and Regime 2,  |
-|        |                             | respectively.               |
-+--------+-----------------------------+-----------------------------+
-|        | thresholdLag                | scalar, threshold variable  |
-|        |                             | lag.                        |
-+--------+-----------------------------+-----------------------------+
-|        | thresholdValue              | scalar, threshold estimate. |
-+--------+-----------------------------+-----------------------------+
-|        | errorVariance               | scalar, threshold model     |
-|        |                             | error variance.             |
-+--------+-----------------------------+-----------------------------+
-
-References
-----------
-#. Hansen, B.E. (1996). Inference when a nuisance parameter is nost
-      identified under the null hypothesis, Econometrica, 64(2),
-      413-430.
-#. Franses, P.H. and Dijk, D. (2000) Non-linear Time Series Models in
-      Empirical Finance. Cambridge University Press, New York.
-
 Example
 -------
 
@@ -144,6 +101,12 @@ Example
    //Run function
    struct TAROut tarfnl;
    tarfnl = tarTest( y, tar0 );
+
+
+References
+----------
+#. Hansen, B.E. (1996). Inference when a nuisance parameter is nost identified under the null hypothesis, Econometrica, 64(2), 413-430.
+#. Franses, P.H. and Dijk, D. (2000) Non-linear Time Series Models in Empirical Finance. Cambridge University Press, New York.
 
 Library
 -------

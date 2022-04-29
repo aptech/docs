@@ -7,74 +7,50 @@ covmmtmt
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Prints covariance matrix of parameters with labels.
+Prints covariance matrix of parameters with labels.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   a = covmmt(vout);
+a = covmmt(vout);
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   ==== =============================================
+==== =============================================
    vout A post-estimation instance of the varmamtOut.
    ==== =============================================
 
 Example
 -------
+::
 
-.. container::
-   :name: Example
+new;
+cls;
+library tsmt;
+//Create file name with full path
+fname = getGAUSSHome $+ "pkgs/tsmt/examples/mink.csv";
 
-   ::
+//Load two variables from the dataset into matrix 'y'
+y = loadd(fname, "LogMink + LogMusk");
 
-      new;
-      cls;
-      library tsmt;
-      //Create file name with full path
-      fname = getGAUSSHome $+ "pkgs/tsmt/examples/mink.csv";
+//Difference the data
+y = vmdiffmt(y, 1);
 
-      //Load two variables from the dataset into matrix 'y'
-      y = loadd(fname, "LogMink + LogMusk");
+//Declare 'vout' to be a varmamtOut structure
+struct varmamtOut vout;
 
-      //Difference the data
-      y = vmdiffmt(y, 1);
+//Estimate the parameters of the VAR(3) model
+vout = varmaFit(y, 3); 
 
-      //Declare 'vout' to be a varmamtOut structure
-      struct varmamtOut vout;
+//Print covariance matrix
+print "";
+print "";
 
-      //Estimate the parameters of the VAR(3) model
-      vout = varmaFit(y, 3); 
-
-      //Print covariance matrix
-      print "";
-      print "";
-
-      print covmmt(vout);
+print covmmt(vout);
 
 Source
 ------
-
-.. container::
-   :name: Source
-
-   autoregmt.src
+autoregmt.src

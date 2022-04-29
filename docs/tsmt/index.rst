@@ -33,6 +33,7 @@ Further Reading
     arimass
     autoregfit
     garchfit
+    ecmfit
     kalmanfilter
     sbreak
     switchfit
@@ -46,9 +47,9 @@ Further Reading
     breitung
     cdtest
     dfgls
-    garchmFit
-    garchxFit
-    igarchFit
+    garchmfit
+    garchxfit
+    igarchfit
     kpss
     lsdvfit
     tspanel
@@ -60,4 +61,3 @@ Further Reading
     vmsdetrend
     vmsdiffmt
     zandrews
-

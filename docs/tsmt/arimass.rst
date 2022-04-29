@@ -37,17 +37,17 @@ Format
          * - amo.aic
            - Scalar, value of the Akaike information criterion. 
          * - amo.b
-           - K×1 vector, estimated model coefficients. 
+           - Kx1 vector, estimated model coefficients. 
          * - amo.e
-           - N×1 vector, residual from fitted model. 
+           - Nx1 vector, residual from fitted model. 
          * - amo.ll
            - Scalar, the value of the log likelihood function. 
          * - amo.sbc
            - Scalar, value of the Schwartz Bayesian criterion. 
          * - amo.lrs
-           - L×1 vector, the Likelihood Ratio Statistic. 
+           - Lx1 vector, the Likelihood Ratio Statistic. 
          * - amo.vcb
-           - K×K matrix, the covariance matrix of estimated model coefficients. 
+           - KxK matrix, the covariance matrix of estimated model coefficients. 
          * - amo.mse
            - Scalar, mean sum of squares for errors. 
          * - amo.sse
@@ -56,7 +56,7 @@ Format
            - Scalar, the sum of squares for Y data. 
          * - amo.rstl
            - an instance of the kalmanResult structure.
-           
+     
    :rtype vOut: struct
 
 Example

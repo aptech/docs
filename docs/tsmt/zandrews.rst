@@ -7,40 +7,24 @@ zandrews
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   The Zivot and Andrews (1992) unit root test uses a t-test statistic
+The Zivot and Andrews (1992) unit root test uses a t-test statistic
    for testing the null hypothesis of stationarity. The procedure tests
    the null hypothesis of zero innovation variance in the residual
    against the alternative of non-zero residual innovation variance.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   { t_test, break_pt } = zandrews( yt, max_lags, trim_end, break_type,
+{ t_test, break_pt } = zandrews( yt, max_lags, trim_end, break_type,
    which_output );
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   +--------------+------------------------------------------------------+
-   | yt           | T×1 vector of time series data.                      |
++--------------+------------------------------------------------------+
+   | yt           | Tx1 vector of time series data.                      |
    +--------------+------------------------------------------------------+
    | max_lags     | scalar, specifies the maximum lag order to be used   |
    |              | in calculating the test statistic. A good default is |
@@ -60,11 +44,7 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   +----------+----------------------------------------------------------+
++----------+----------------------------------------------------------+
    | t_test   | scalar, reports Zivot-Andrews test statistic.            |
    +----------+----------------------------------------------------------+
    | break_pt | scalar, observation where structural break is most       |
@@ -72,45 +52,41 @@ Output
    +----------+----------------------------------------------------------+
 
  
+::
 
-.. container::
-   :name: Example
+new;
+cls;
+library tsmt;
 
-   ::
+//AR(1) time series, yt, generated using 
+//the simarmamt data generating function (included in the TSMT library):
+//Coefficient
+b = 0.5;
 
-      new;
-      cls;
-      library tsmt;
+//Number of AR lags
+p = 1;
 
-      //AR(1) time series, yt, generated using 
-      //the simarmamt data generating function (included in the TSMT library):
-      //Coefficient
-      b = 0.5;
+//Number of MA lags
+q = 0;
 
-      //Number of AR lags
-      p = 1;
+//Constant
+const = 0.9;
 
-      //Number of MA lags
-      q = 0;
+//Turn trend off
+trend = 0;
 
-      //Constant
-      const = 0.9;
+//Number of observations
+n = 500;
 
-      //Turn trend off
-      trend = 0;
+//Number of series
+k = 1;
 
-      //Number of observations
-      n = 500;
+//Standard deviation
+std = 1;
 
-      //Number of series
-      k = 1;
+//Random seed
+seed = 10191;
 
-      //Standard deviation
-      std = 1;
+yt = simarmamt(b, p, q, const, trend, n, k, std, seed);
 
-      //Random seed
-      seed = 10191;
-
-      yt = simarmamt(b, p, q, const, trend, n, k, std, seed);
-
-      { t_test, break_pt } = zandrews(yt[.,1], 4, 0.10, -1, 1);
+{ t_test, break_pt } = zandrews(yt[.,1], 4, 0.10, -1, 1);

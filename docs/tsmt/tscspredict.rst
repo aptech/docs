@@ -7,48 +7,28 @@ tscsPredict
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Estimates forecasts using estimation results obtained from tscsFit.
+Estimates forecasts using estimation results obtained from tscsFit.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   f = tscsPredict( tso, y, x, grp );
+f = tscsPredict( tso, y, x, grp );
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   === ====================================
+=== ====================================
    tso Instance of the tscsmtOut structure.  
-   y   N×1 vector, dependent data.           
-   x   N×1 vector, independent data          
+   y   Nx1 vector, dependent data.           
+   x   Nx1 vector, independent data          
    grp Matrix, NTx1 of group identifiers.    
    === ====================================
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   +-----+----------------------------+----------------------------+---+
++-----+----------------------------+----------------------------+---+
    | tso | Instance of the tscsmtOut  |                            |   |
    |     | structure with the         |                            |   |
    |     | following members filled:  |                            |   |
@@ -70,16 +50,8 @@ Output
 
 Remarks
 -------
-
-.. container::
-   :name: Remarks
-
-   tscsPredict is run as part of the tscsFit procedure.
+tscsPredict is run as part of the tscsFit procedure.
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   tscsmt.src
+tscsmt.src

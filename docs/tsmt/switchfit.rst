@@ -47,7 +47,7 @@ Format
            - scalar, pointer to user-provided function for setting equality constraints on transition probability matrix. 
          * - swc.start
            - instance of a PV structure containing start values.
-             
+       
              .. list-table::
                 :widths: auto
 
@@ -83,7 +83,7 @@ Format
                   - scalar, iteration information printed every swc.ctl.printIters-th iteration. 
 
              See documentation for :class:`sqpsolvemtControl` for further information regarding members of this structure.
- 
+       
          * - swc.header
            - string, specifies the format for the output header. swc.header can contain zero or more of the following characters: 
 
@@ -121,7 +121,7 @@ Format
 
          * - out.par
            - instance of a PV structure containing the estimates:
-             
+       
              .. list-table::
                 :widths: auto
 
@@ -154,7 +154,7 @@ Format
            - scalar, log-likelihood at maximum. 
          * - out.retcode
            - return code:
-             
+       
              :0: normal convergence. 
              :1: forced exit. 
              :2: maximum number of iterations exceeded. 
@@ -164,7 +164,7 @@ Format
              :6: line search failed. 
              :7: error with constraints. 
              :8: function complex.
-         
+               
          * - out.lagr
            - instance of :class:`sqpSolvemtLagrange` structure
 

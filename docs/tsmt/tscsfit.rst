@@ -73,9 +73,8 @@ Format
              :1: The random effects (error components model) is not estimated.
 
          * - tsc.rowfac
-           - scalar, "row factor." If tscsFit fails due to insufficient memory while attempting to read a GAUSS dataset, tsc.rowfac may be set 
-             to some value between 0 and 1 to read a *proportion* of the original number of rows of the GAUSS dataset. For example, setting 
-             
+           - scalar, "row factor." If tscsFit fails due to insufficient memory while attempting to read a GAUSS dataset, tsc.rowfac may be set to some value between 0 and 1 to read a *proportion* of the original number of rows of the GAUSS dataset. For example, setting 
+       
              :: 
                 
                 tsc.rowfac = 0.8;
@@ -89,7 +88,6 @@ Format
            - scalar. If 1, print standardized estimates of regression parameters. Default = 1. 
          * - tsc.title
            - string, a title to be printed at the top of the output header (see tsc.header). By default, no title is printed (tsc.title = ""). 
-
 
    :type tsc: struct
 

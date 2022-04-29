@@ -7,36 +7,20 @@ tsFill
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Transforms stacked unbalanced time series data into a 'balanced' wide
+Transforms stacked unbalanced time series data into a 'balanced' wide
    form matrix of panel data with missing values.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   y_filled = tsFill( y, timecol, idcol );
+y_filled = tsFill( y, timecol, idcol );
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   ======= =====================================================
+======= =====================================================
    y       Matrix, |image1|, stacked panel series data.
    timecol Scalar, number of column containing time data.
    idcol   Scalar, number of column containing group identifier.
@@ -44,42 +28,30 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   ========= =================================================
+========= =================================================
    y_stacked Matrix, |image2|, wide form matrix of panel data.
    ========= =================================================
 
 Example
 -------
+::
 
-.. container::
-   :name: Example
+new; 
+ 
+cls;
+  
+library tsmt;
+ 
+      
+//Load data
+data = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/ab_data.dat");
 
-   ::
-
-      new; 
-       
-      cls;
-        
-      library tsmt;
-       
-                  
-      //Load data
-      data = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/ab_data.dat");
-
-      //Fill data for unbalanced data
-      stacked_data = tsFill( data, 3, 14 );
+//Fill data for unbalanced data
+stacked_data = tsFill( data, 3, 14 );
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   tsFill.src
+tsFill.src
 
 .. |image1| image:: _static/images/Equation708.svg
    :class: mcReset

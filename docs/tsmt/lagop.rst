@@ -7,37 +7,21 @@ lagop
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Lag polynomial operator function (filter). It produces the moving
+Lag polynomial operator function (filter). It produces the moving
    average series formed by the lag polynomial operator.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   y = lagop( x, b, x0, t0, t1 )
+y = lagop( x, b, x0, t0, t1 )
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   +----+----------------------------------------------------------------+
-   | x  | N×k matrix, each of whose columns will be transformed by the   |
++----+----------------------------------------------------------------+
+   | x  | Nxk matrix, each of whose columns will be transformed by the   |
    |    | lag polynomial operator. Data in x are considered to be data   |
    |    | for time periods 1 to T.                                       |
    +----+----------------------------------------------------------------+
@@ -61,11 +45,7 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   +---+-----------------------------------------------------------------+
++---+-----------------------------------------------------------------+
    | y | lxk matrix, where l = t1 - t0 if t1 and t0 are not 0, otherwise |
    |   | l = T - q0, where T = rows(x) and q0 is either 1 or q+1, as     |
    |   | described above in the discussion of t0.                        |
@@ -73,11 +53,7 @@ Output
 
 Remarks
 -------
-
-.. container::
-   :name: Remarks
-
-   This proc calls conv. The basic call is:  conv(1 \| -b, x, t0, t1); 
+This proc calls conv. The basic call is:  conv(1 \| -b, x, t0, t1); 
    Most of the code in this proc computes the correct x, t0, and t1 to
    be passed to conv. Since there is a certain amount of overhead
    involved in this, in some cases it could speed up computation
@@ -85,8 +61,4 @@ Remarks
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   autregmt.src
+autregmt.src

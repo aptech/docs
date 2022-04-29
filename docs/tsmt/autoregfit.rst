@@ -122,7 +122,7 @@ Data matrices
    data = loadd(getGAUSSHome() $+ "pkgs/tsmt/examples/autoregmt.dat");
    y = data[.,1];
    x = data[.,2 3];
-           
+     
    //Lag of independent variables
    lag_vars = 0;
 

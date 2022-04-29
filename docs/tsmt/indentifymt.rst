@@ -7,36 +7,20 @@ identifymt
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Computes and prints multivariate autocorrelation functions and
+Computes and prints multivariate autocorrelation functions and
    portmanteau test statistics.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   { acfm, pacfm, qs } = identifymt(p, q, res );
+{ acfm, pacfm, qs } = identifymt(p, q, res );
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   === ====================================
+=== ====================================
    p   Scalar, autoregressive order.
    q   Scalar, moving average order.
    res Matrix, T x L, regression residuals.
@@ -44,11 +28,7 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   +-------+-------------------------------------------------------------+
++-------+-------------------------------------------------------------+
    | acfm  | Matrix, Lx(p*L) matrix, the autocorrelation function. The   |
    |       | first L columns are the lag 1 ACF. The last L columns are   |
    |       | the lag p ACF.                                              |
@@ -66,8 +46,4 @@ Output
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   varmamt.src
+varmamt.src
