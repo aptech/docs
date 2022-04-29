@@ -15,7 +15,7 @@ Format
    :param yt: time series data.
    :type yt: Tx1 vector
 
-   :param max_lags: specifies the maximum lag order to be used in calculating the test statistic. A good default is to calculate max_lags as T^0.25.
+   :param max_lags: specifies the maximum lag order to be used in calculating the test statistic. A good default is to calculate max_lags as :math:`T^{0.25}`.
    :type max_lags: scalar
 
    :param trim_end: fraction of data range to skip at either end. A good default is 0.15. Range is 0 to 0.25.

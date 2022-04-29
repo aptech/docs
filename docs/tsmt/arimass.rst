@@ -3,7 +3,6 @@ arimaSS
 
 Purpose
 -------
-
 Estimates ARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
 
 Format
