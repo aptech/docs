@@ -1,56 +1,52 @@
-=========
 vmsdiffmt
 =========
-
-10.0.75vmsdiffmt
-================
 
 Purpose
 -------
 Seasonally Differences matrices.
 
-Library
--------
-tsmt
-
 Format
 ------
-y = vmsdiffmt(x, d, s);
+.. function:: y = vmsdiffmt(x, d, s)
 
-Input
------
-= =============================================================
-   x matrix, TxK, data to be differenced.
-   d scalar, the number of periods over which differencing occurs.
-   s scalar, seasonal parameter, .
-   = =============================================================
+   :param x: TxK, data to be differenced.
+   :type x: matrix
 
-Output
-------
-= ================================================
-   y (T-d)xK matrix, the seasonally differenced data.
-   = ================================================
+   :param d: the number of periods over which differencing occurs.
+   :type d: scalar
+
+   :param s: seasonal parameter, .
+   :type s: scalar
+
+   :return y: the seasonally differenced data.
+   :rtype y: (T-d)xK matrix
 
 Example
 -------
+
 ::
 
-new;
-cls;
-library tsmt;
+   new;
+   cls;
+   library tsmt;
 
-//Load airline data
-airline = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/airline.dat");
-y = ln(airline);
+   //Load airline data
+   airline = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/airline.dat");
+   y = ln(airline);
 
-//Set parameters for differencing data
-s = 12;
+   //Set parameters for differencing data
+   s = 12;
 
-//Order of differencing
-d = 1;
+   //Order of differencing
+   d = 1;
 
-//Take seasonal differences
-y_sd = vmsdiffmt(y, s, d);
+   //Take seasonal differences
+   y_sd = vmsdiffmt(y, s, d);
+
+
+Library
+-------
+tsmt
 
 Source
 ------
