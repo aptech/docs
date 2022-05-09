@@ -5,8 +5,6 @@ Purpose
 -------
 Computes exact maximum likelihood parameter estimates for a VARMA model.
 
-
-
 Format
 ------
 .. function:: vmo = varmaFit(y, p[, d, q, vmc])

@@ -22,7 +22,7 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     :link-type: doc
     :shadow: none
 
-    Time Series MT Application by Aptech.
+    Provides tools for comprehensive treatment of time series models, including model diagnostics, MLE and state-space estimation, and forecasts. Time Series MT also includes tools for managing panel series data and estimating and diagnosing panel series models, including random effects and fixed effects.
 
 .. toctree::
     :maxdepth: 1
