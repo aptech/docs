@@ -7,36 +7,20 @@ getlrv
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Estimate long-run variance following user-selected kernel.
+Estimate long-run variance following user-selected kernel.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   {LRV, bw} = getlrv(y, kernel, lagMethod, model);
+{LRV, bw} = getlrv(y, kernel, lagMethod, model);
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   +------------+--------------------------------------------------------+
-   | y          | N×1 vector, data.                                      |
++------------+--------------------------------------------------------+
+   | y          | Nx1 vector, data.                                      |
    +------------+--------------------------------------------------------+
    | kernel     | String, kernels used to estimate long-run variance:    |
    |            | "Bartlett", "Parzen", or "Quad".                       |
@@ -50,46 +34,34 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
-   === ===========================
+=== ===========================
    LRV Matrix, long run variance.
    bw  Scalar, selected bandwidth.
    === ===========================
+::
 
-.. container::
-   :name: Example
+new;
+cls;
+library tsmt;
 
-   ::
+//Generate random data
+yt = rndn(200, 1);
 
-      new;
-      cls;
-      library tsmt;
+//Newey-West bandwidth selection
+lagMethod = "nw";
 
-      //Generate random data
-      yt = rndn(200, 1);
+//Parzen kernel for estimating variance
+kernel = "parzen";
 
-      //Newey-West bandwidth selection
-      lagMethod = "nw";
+//Constant and no trend
+Model = 0;
 
-      //Parzen kernel for estimating variance
-      kernel = "parzen";
+//Call function
+{ LRV, bw } = getLRV(yt, kernel, lagMethod, model);
 
-      //Constant and no trend
-      Model = 0;
-
-      //Call function
-      { LRV, bw } = getLRV(yt, kernel, lagMethod, model);
-
-      //Print results
-      print "Long-run variance : ";; LRV;
+//Print results
+print "Long-run variance : ";; LRV;
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   getlrv.src
+getlrv.src

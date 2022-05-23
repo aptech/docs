@@ -1,99 +1,64 @@
-========
 vmdiffmt
 ========
 
-10.0.70vmdiffmt
-===============
-
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Differences matrices.
-
-Library
--------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+Differences matrices.
 
 Format
 ------
+.. function:: y = vmdiffmt(x, d)
 
-.. container::
-   :name: Format
+   :param x: data.
+   :type x: TxK matrix
 
-   y = vmdiffmt( x, d );
+   :param d: the number of periods over which differencing occurs.
+   :type d: scalar
 
-Input
------
-
-.. container::
-   :name: Input
-
-   = =============================================================
-   x T×K matrix.
-   d scalar, the number of periods over which differencing occurs.
-   = =============================================================
-
-Output
-------
-
-.. container::
-   :name: Output
-
-   = =====================================
-   y (T-d)×K matrix, the differenced data.
-   = =====================================
+   :return y: the differenced data.
+   :rtype y: (T-d)xK matrix
 
 Example
 -------
 
-.. container::
-   :name: Example
+::
 
-   ::
+   new;
+   cls;
+   library tsmt;
 
-      new;
-      cls;
-      library tsmt;
+   //Step One: data
+   //Step One: data
+   yt = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/panel_g.csv" );
 
-      //Step One: data
-      //Step One: data
-      yt = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/panel_g.csv" );
+   //U.K.
+   y_uk = yt[., 7]; 
 
-      //U.K.
-      y_uk = yt[., 7]; 
+   //Demean data - use p=0
+   y_uk_diff = vmdiffdmt( y_uk, 1 );
 
-      //Demean data - use p=0
-      y_uk_diff = vmdiffdmt( y_uk, 1 );
+   //Plots
+   struct plotControl myPlot;
+   myPlot = plotGetDefaults( "xy" );
 
-      //Plots
-      struct plotControl myPlot;
-      myPlot = plotGetDefaults( "xy" );
+   //Title of first graph
+    plotSetTitle( &myPlot, "Original", "Arial", 16 );
 
-      //Title of first graph
-       plotSetTitle( &myPlot, "Original", "Arial", 16 );
+   //Set layout
+    plotLayout( 2, 1, 1 );
+    plotTS( myPlot, 19800101, 4, y_uk );
 
-      //Set layout
-       plotLayout( 2, 1, 1 );
-       plotTS( myPlot, 19800101, 4, y_uk );
+   //Title of first graph
+    plotSetTitle( &myPlot, "First Difference", "Arial", 16 );
 
-      //Title of first graph
-       plotSetTitle( &myPlot, "First Difference", "Arial", 16 );
+   //Set layout
+    plotLayout( 2, 1, 2 );
+    plotTS( myPlot, 19800101, 4, y_uk_diff );
 
-      //Set layout
-       plotLayout( 2, 1, 2 );
-       plotTS( myPlot, 19800101, 4, y_uk_diff );
+Library
+-------
+tsmt
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   vmutilsmt.src
+vmutilsmt.src

@@ -1,85 +1,53 @@
-=========
 vmsdiffmt
 =========
 
-10.0.75vmsdiffmt
-================
-
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Seasonally Differences matrices.
-
-Library
--------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+Seasonally Differences matrices.
 
 Format
 ------
+.. function:: y = vmsdiffmt(x, d, s)
 
-.. container::
-   :name: Format
+   :param x: TxK, data to be differenced.
+   :type x: matrix
 
-   y = vmsdiffmt(x, d, s);
+   :param d: the number of periods over which differencing occurs.
+   :type d: scalar
 
-Input
------
+   :param s: seasonal parameter, .
+   :type s: scalar
 
-.. container::
-   :name: Input
-
-   = =============================================================
-   x matrix, T×K, data to be differenced.
-   d scalar, the number of periods over which differencing occurs.
-   s scalar, seasonal parameter, .
-   = =============================================================
-
-Output
-------
-
-.. container::
-   :name: Output
-
-   = ================================================
-   y (T-d)×K matrix, the seasonally differenced data.
-   = ================================================
+   :return y: the seasonally differenced data.
+   :rtype y: (T-d)xK matrix
 
 Example
 -------
 
-.. container::
-   :name: Example
+::
 
-   ::
+   new;
+   cls;
+   library tsmt;
 
-      new;
-      cls;
-      library tsmt;
+   //Load airline data
+   airline = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/airline.dat");
+   y = ln(airline);
 
-      //Load airline data
-      airline = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/airline.dat");
-      y = ln(airline);
+   //Set parameters for differencing data
+   s = 12;
 
-      //Set parameters for differencing data
-      s = 12;
+   //Order of differencing
+   d = 1;
 
-      //Order of differencing
-      d = 1;
+   //Take seasonal differences
+   y_sd = vmsdiffmt(y, s, d);
 
-      //Take seasonal differences
-      y_sd = vmsdiffmt(y, s, d);
+
+Library
+-------
+tsmt
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   vmutilsmt.src
+vmutilsmt.src

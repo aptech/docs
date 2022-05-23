@@ -7,37 +7,21 @@ vmsjmt
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Computes Johansen's (1988) ML Trace and Maximum Eigenvalue
+Computes Johansen's (1988) ML Trace and Maximum Eigenvalue
    statistics.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   { ev, evec, lr1, lr2 } = vmsjmt(x, p, k, nodet);
+{ ev, evec, lr1, lr2 } = vmsjmt(x, p, k, nodet);
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   +-------+-------------------------------------------------------------+
-   | x     | T×L matrix.                                                 |
++-------+-------------------------------------------------------------+
+   | x     | TxL matrix.                                                 |
    +-------+-------------------------------------------------------------+
    | p     | scalar, order of the time-polynomial in the fitted          |
    |       | regression. Set *p* = -1 for no deterministic part, *p* = 0 |
@@ -53,91 +37,79 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
++------+--------------------------------------------------------------+
+   | ev   | Lx1 vector of eigenvalues.                                   |
    +------+--------------------------------------------------------------+
-   | ev   | L×1 vector of eigenvalues.                                   |
-   +------+--------------------------------------------------------------+
-   | evec | L×L matrix of eigenvectors. The first *r* columns are the    |
+   | evec | LxL matrix of eigenvectors. The first *r* columns are the    |
    |      | unnormalized cointegrating vectors.                          |
    +------+--------------------------------------------------------------+
-   | lr1  | L×1 vector of Johansen's likelihood ratio Trace statistics   |
+   | lr1  | Lx1 vector of Johansen's likelihood ratio Trace statistics   |
    |      | for the null hypotheses of H0; at most *r* cointegrating     |
    |      | vectors versus H1: not |image5|.                             |
    +------+--------------------------------------------------------------+
-   | lr2  | L×1 vector of Johansen's Maximum Eigenvalue Statistics for   |
+   | lr2  | Lx1 vector of Johansen's Maximum Eigenvalue Statistics for   |
    |      | the null hypotheses of H0: *r* cointegrating vectors versus  |
    |      | H1: *r*\ +1 cointegrating vectors, |image6|.                 |
    +------+--------------------------------------------------------------+
 
  
+::
 
-.. container::
-   :name: Example
+new;
+cls;
+library tsmt;
 
-   ::
+//Load data
+//Create file name with full path
+fname = getGAUSSHome() $+ "pkgs/tsmt/examples/mink.csv";
 
-      new;
-      cls;
-      library tsmt;
+//Load two variables from dataset
+y = loadd(fname, "LogMink + LogMusk");
 
-      //Load data
-      //Create file name with full path
-      fname = getGAUSSHome() $+ "pkgs/tsmt/examples/mink.csv";
+//Difference the data
+y = vmdiffmt(y, 1);
 
-      //Load two variables from dataset
-      y = loadd(fname, "LogMink + LogMusk");
+//Specify a VAR(2) model
+p = 2;
 
-      //Difference the data
-      y = vmdiffmt(y, 1);
+//Number of lagged differences to include in test 
+k = 2;
 
-      //Specify a VAR(2) model
-      p = 2;
+//Do not suppress constant term
+nodet = 0;
 
-      //Number of lagged differences to include in test 
-      k = 2;
+{ ev, evec, lr1, lr2 } = vmsjmt(y, p, k, nodet);
 
-      //Do not suppress constant term
-      nodet = 0;
+print "Eigenvalues :"; 
+ev;
+print;
 
-      { ev, evec, lr1, lr2 } = vmsjmt(y, p, k, nodet);
+print "Eigenvectors :";
+evec;
+print;
 
-      print "Eigenvalues :"; 
-      ev;
-      print;
+print "Johansen's likelihood ratio trace statistics for r = 0 to L-1 cointegrating vectors :";
+lr1;
+print;
 
-      print "Eigenvectors :";
-      evec;
-      print;
-
-      print "Johansen's likelihood ratio trace statistics for r = 0 to L-1 cointegrating vectors :";
-      lr1;
-      print;
-
-      print "Johansen's  maximum eigenvalue statistic for the null hypothesis of r = 0 to m-1 cointegrating vectors :";
-      lr2;
-      print;
-              
+print "Johansen's  maximum eigenvalue statistic for the null hypothesis of r = 0 to m-1 cointegrating vectors :";
+lr2;
+print;
+  
 
 Source
 ------
+varmamt.src
 
-.. container:: gfunc
-   :name: Source
-
-   varmamt.src
-
-.. |image1| image:: GeneratedImages/Equations/Equation741.svg
+.. |image1| image:: _static/images/Equation741.svg
    :class: mcReset
-.. |image2| image:: GeneratedImages/Equations/Equation742.svg
+.. |image2| image:: _static/images/Equation742.svg
    :class: mcReset
-.. |image3| image:: GeneratedImages/Equations/Equation741.svg
+.. |image3| image:: _static/images/Equation741.svg
    :class: mcReset
-.. |image4| image:: GeneratedImages/Equations/Equation742.svg
+.. |image4| image:: _static/images/Equation742.svg
    :class: mcReset
-.. |image5| image:: GeneratedImages/Equations/Equation741.svg
+.. |image5| image:: _static/images/Equation741.svg
    :class: mcReset
-.. |image6| image:: GeneratedImages/Equations/Equation742.svg
+.. |image6| image:: _static/images/Equation742.svg
    :class: mcReset

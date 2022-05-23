@@ -7,37 +7,21 @@ macfmt
 
 Purpose
 -------
-
-.. container::
-   :name: Purpose
-
-   Finds an autocorrelation function matrix for multiple dependent
+Finds an autocorrelation function matrix for multiple dependent
    variables.
 
 Library
 -------
-
-.. container:: gfunc
-   :name: Library
-
-   tsmt
+tsmt
 
 Format
 ------
-
-.. container::
-   :name: Format
-
-   x = macfmt( y, lag );
+x = macfmt( y, lag );
 
 Input
 -----
-
-.. container::
-   :name: Input
-
-   +-----+---------------------------------------------------------------+
-   | y   | T×L matrix of data.                                           |
++-----+---------------------------------------------------------------+
+   | y   | TxL matrix of data.                                           |
    +-----+---------------------------------------------------------------+
    | lag | scalar, the lag for which an autocorrelation matrix is        |
    |     | desired. Specify 0 to obtain the initial correlation.         |
@@ -45,67 +29,55 @@ Input
 
 Output
 ------
-
-.. container::
-   :name: Output
-
+= ========================================================
+   x LxL matrix of autocorrelations, *res* and *res*\ (-lag).
    = ========================================================
-   x L×L matrix of autocorrelations, *res* and *res*\ (-lag).
-   = ========================================================
+::
 
-.. container::
-   :name: Example
+new;
+cls;
+library tsmt;
 
-   ::
+// Load and process data
 
-      new;
-      cls;
-      library tsmt;
+//Create file name with full path
+fname = getGAUSSHome() $+ "pkgs/tsmt/examples/mink.csv";
 
-      // Load and process data
+//Load all rows of the second and third columns of
+//a space separated file
+y = loadd(fname, "LogMink + LogMusk" );
 
-      //Create file name with full path
-      fname = getGAUSSHome() $+ "pkgs/tsmt/examples/mink.csv";
+//Difference the data
+y = vmdiffmt( y, 1 );
 
-      //Load all rows of the second and third columns of
-      //a space separated file
-      y = loadd(fname, "LogMink + LogMusk" );
+//Estimate Varima Model
 
-      //Difference the data
-      y = vmdiffmt( y, 1 );
+//Declare 'vctl' to be a varmamtControl structure
+struct varmamtControl vctl;
 
-      //Estimate Varima Model
+//Fill 'vctl' with default values
+vctl = varmamtControlCreate( );
 
-      //Declare 'vctl' to be a varmamtControl structure
-      struct varmamtControl vctl;
+//Turn off output
+vctl.output = 0;
 
-      //Fill 'vctl' with default values
-      vctl = varmamtControlCreate( );
+//Declare 'vout' to be a varmamtOut structure
+//to hold the return values from 'vout'
+struct varmamtOut vout;
 
-      //Turn off output
-      vctl.output = 0;
+//Estimate the parameters of the VAR(3) model
+//and print diagnostic information
+vout = varmaFit(y, 3, 0, 0, vctl ); 
 
-      //Declare 'vout' to be a varmamtOut structure
-      //to hold the return values from 'vout'
-      struct varmamtOut vout;
+//Get residuala
+res = vout.residuals;
 
-      //Estimate the parameters of the VAR(3) model
-      //and print diagnostic information
-      vout = varmaFit(y, 3, 0, 0, vctl ); 
+//Estimate autocorrelation function matrix
+macf = macfmt( res, y );
 
-      //Get residuala
-      res = vout.residuals;
-
-      //Estimate autocorrelation function matrix
-      macf = macfmt( res, y );
-
-      print "Multivariate autocorrelation function matrix : ";
-      macf;
+print "Multivariate autocorrelation function matrix : ";
+macf;
 
 Source
 ------
-
-.. container:: gfunc
-   :name: Source
-
-   varmamt.src
+varmamt.src
