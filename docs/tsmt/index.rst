@@ -68,13 +68,10 @@ Miscellaneous
 ++++++++++++++
 
 ========================== =====================================================================================================================
-:func:`arimass`            Estimates ARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
-:func:`autoregfit`         Estimates coefficients of a regression model with autoregressive errors of any specified order.
-:func:`vmdetrendmt`        Detrends data.
-:func:`tsdiff`             Differences matrices with or without seasonality.
-:func:`vmdiffmt`           Differences matrices.
 :func:`aggdata`            Aggregates time series data from higher to lower frequency.
+:func:`arimass`            Estimates ARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
 :func:`arimapredict`       Estimates forecasts using estimation results obtained from :func:`arimaFit`.
+:func:`autoregfit`         Estimates coefficients of a regression model with autoregressive errors of any specified order.
 :func:`breitung`           Panel series unit root testing.
 :func:`cdtest`             Runs cross-sectional dependence, CD, tests for panel data.
 :func:`dfgls`              Test for unit root in univariate time series.
@@ -82,7 +79,10 @@ Miscellaneous
 :func:`rolling`            Performs rolling OLS regressions for a provided vector of dependent data and matrix of independent regressors.
 :func:`selectlags`         Select lags based on method of statistical inference.
 :func:`startest`           Estimates a p\ :sup:`th` order threshold autoregression and tests the hypothesis of a linear autoregression, using the statistics described in "Inference when a nuisance parameter is not identified under the null hypothesis." (Hansen, 1996).
+:func:`tsdiff`             Differences matrices with or without seasonality.
 :func:`varmapredict`       Calculates forecasts from a VARMAX model.
+:func:`vmdetrendmt`        Detrends data.
+:func:`vmdiffmt`           Differences matrices.
 :func:`vmsdetrend`         Seasonally detrends data.
 :func:`vmsdiffmt`          Seasonally differences matrices.
 :func:`zandrews`           The Zivot and Andrews (1992) unit root test uses a t-test statistic for testing the null hypothesis of stationarity.
