@@ -41,7 +41,7 @@ Example
    d = 1;
 
    //Take seasonal differences
-   y_sd = vmsdiffmt(y, s, d);
+   y_sd = vmsdiffmt(y, d, s);
 
 
 Library
