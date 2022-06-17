@@ -3,8 +3,8 @@ Time Series MT (TSMT)
 
 Description
 ----------------
-Provides tools for comprehensive treatment of time series models, including model diagnostics, MLE and state-space estimation, 
-and forecasts. Time Series MT also includes tools for managing panel series data and estimating and diagnosing panel series models, 
+Provides tools for comprehensive treatment of time series models, including model diagnostics, MLE and state-space estimation,
+and forecasts. Time Series MT also includes tools for managing panel series data and estimating and diagnosing panel series models,
 including random effects and fixed effects.
 
 
@@ -70,8 +70,9 @@ Miscellaneous
 ========================== =====================================================================================================================
 :func:`arimass`            Estimates ARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
 :func:`autoregfit`         Estimates coefficients of a regression model with autoregressive errors of any specified order.
-:func:`vmdetrendmt`        Seasonally detrends data.
-:func:`vmdiffmt`           Seasonally Differences matrices.
+:func:`vmdetrendmt`        Detrends data.
+:func:`tsdiff`             Differences matrices with or without seasonality.
+:func:`vmdiffmt`           Differences matrices.
 :func:`aggdata`            Aggregates time series data from higher to lower frequency.
 :func:`arimapredict`       Estimates forecasts using estimation results obtained from :func:`arimaFit`.
 :func:`breitung`           Panel series unit root testing.
@@ -83,7 +84,7 @@ Miscellaneous
 :func:`startest`           Estimates a p\ :sup:`th` order threshold autoregression and tests the hypothesis of a linear autoregression, using the statistics described in "Inference when a nuisance parameter is not identified under the null hypothesis." (Hansen, 1996).
 :func:`varmapredict`       Calculates forecasts from a VARMAX model.
 :func:`vmsdetrend`         Seasonally detrends data.
-:func:`vmsdiffmt`          Seasonally Differences matrices.
+:func:`vmsdiffmt`          Seasonally differences matrices.
 :func:`zandrews`           The Zivot and Andrews (1992) unit root test uses a t-test statistic for testing the null hypothesis of stationarity.
 ========================== =====================================================================================================================
 
