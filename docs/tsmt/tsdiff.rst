@@ -7,19 +7,19 @@ Differences matrices with or without seasonality.
 
 Format
 ------
-.. function:: y = vmdiffmt(x, d[, s])
+.. function:: y = tsdiff(x, d [, s])
 
-   :param x: data.
+   :param x: Data.
    :type x: TxK matrix
 
    :param d: Order of differencing, the number of periods over which differencing occurs.
    :type d: scalar
 
-   :param s: Optional argument, seasonal parameter, .
+   :param s: Optional argument, seasonal parameter.
    :type s: scalar
 
-   :return y: the differenced data.
-   :rtype y: (T-d)xK matrix
+   :return y: Differenced data.
+   :rtype y: Matrix
 
 Example
 -------
@@ -46,11 +46,11 @@ Example
    s = 4;
 
    // First difference of data
-   y_uk_diff = tsdiff( y_uk, 1 );
+   y_uk_diff = tsdiff( y_uk, d );
 
    // First difference of data
-   // adjust for
-   y_uk_diff = tsdiff( y_uk, 1 );
+   // adjusted for seasonality
+   y_uk_sdiff = tsdiff( y_uk, d, s );
 
 Library
 -------
