@@ -49,7 +49,7 @@ Example
    y_uk_diff = tsdiff( y_uk, d );
 
    // First difference of data
-   // adjust for seasonlity
+   // adjusted for seasonality
    y_uk_sdiff = tsdiff( y_uk, d, s );
 
 Library
