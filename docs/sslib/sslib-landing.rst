@@ -1,4 +1,4 @@
-SSLIB
+GAUSS State-Space Modeling (SSLIB)
 ==============================================
 
 Description
