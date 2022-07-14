@@ -8,18 +8,10 @@ default values.
 
 Format
 ------
-amc = arimamtControlCreate();
+.. function:: amc = arimamtControlCreate();
 
-Input
------
-None
-
-Output
-------
-+-----+---------------------------------------------------------------+
-| amc | An instance of an arimamtControl structure with its members   |
-|     | set to default values.                                        |
-+-----+---------------------------------------------------------------+
+  :return c: instance of :class:`arimatmtControl` struct with members set to default values.
+  :rtype c: struct
 
 Example
 -------
@@ -32,7 +24,7 @@ Example
    //Declare control structures
    struct arimamtControl amc;
 
-   //Create default settings for arima model              
+   //Create default settings for arima model
    amc = arimamtControlCreate();
 
 Library

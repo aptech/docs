@@ -7,7 +7,7 @@ Finds the adjusted R-Squared statistic following the estimation of a linear regr
 
 Format
 ------
-.. function::  {r_sq, adj_rsq} = adjRsq(yt, res, num_vars)
+.. function::  { r_sq, adj_rsq } = adjRsq(yt, res, num_vars)
 
   :param yt: data.
   :type yt: TxM matrix
@@ -89,6 +89,10 @@ This produces the following output:
   The standard R squared is 0.972289
 
   The adjusted R squared is 0.970502
+
+Library
+-------
+tsmt
 
 Source
 ------
