@@ -3,7 +3,7 @@ GAUSS State-Space Modeling (SSLIB)
 
 Description
 ----------------
-This package provides tools for estimating and evaluating time invariant state space models. In addition to providing the tools for custom state space models, it provides pre-built functions for state space modeling of:
+This package provides tools for estimating and evaluating time-invariant state-space models. In addition to providing the tools for custom state space models, it provides pre-built functions for state-space modeling of:
 
 * ARIMA packages
 * SARIMA packages
@@ -68,9 +68,10 @@ Further Reading
     :hidden:
     :caption: State space modeling
 
-    arimadd
-    sscontrolcreate
-    ssFit
+    arimass
+    sarimass
+		sscontrolcreate
+    ssfit
     ssgetaic
     ssgetaicc
     ssgetbic
