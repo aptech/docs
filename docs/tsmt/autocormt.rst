@@ -9,7 +9,6 @@ Format
 ------
 .. function:: a = autocor(x, k_f, k_l);
 
-
   :param x: Autocorrelations will be computed for each column separately. *x* is assumed to have 0 mean.
   :type x: NxK matrix
 
@@ -39,10 +38,10 @@ Example 1: Calculate ACF for a vector
 
   // Import time series data
   // Get file name with full path
-  file = getGAUSSHome() $+ "pkgs/tsmt/examples/beef_prices.csv";
+  fname = getGAUSSHome() $+ "examples/beef_prices.csv";
 
   // Import beef price data
-  beef = loadd(fname);
+  beef = loadd(fname, "beef_price");
 
   // Demean beef price data first
   bfdm = beef - meanc(beef);
