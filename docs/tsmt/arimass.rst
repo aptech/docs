@@ -63,23 +63,55 @@ Example
 
 ::
 
-   new;
-   cls;
-   library tsmt;
+  new;
+  library tsmt;
 
-   // Load data
-   fname = getGAUSSHome() $+ "pkgs/tsmt/examples/wpi1.dat"
-   data = loadd(fname);
+  // Create file name with full path
+  fname = getGAUSSHome() $+ "pkgs/tsmt/examples/wpi1.dat";
 
-   y = data[., 1];
-   p=1;
-   d=1;
-   q=1;
-   trend=0;
-   const=1;
+  // Load variable 'wpi' from 'wpi1.dat'
+  y = loadd(fname, "wpi");
 
-   struct varmamtOut vOut;
-   vOut = arimaSS(y, p, d, q, trend, const);
+  // Model settings
+  p = 1;
+  d = 1;
+  q = 1;
+  trend = 0;
+  const = 1;
+
+  // Declare 'amo' to be an arimamtOut structure
+  // to hold the estimation results and then
+  // estimate the model
+  struct arimamtOut amo;
+  amo = arimaSS(y, p, d, q, trend, const);
+
+The example above prints the following results
+
+::
+
+  ARIMA(1,1,1) Results
+                       2022-07-14 16:08:37
+
+
+  Number of Observations:                 123.0000
+  Degrees of Freedom:                          119
+  Mean of Y:                               62.7742
+  Standard Deviation of Y :                30.2436
+  Sum of Squares of Y:                    112504.7755
+
+
+                           COEFFICIENTS
+
+  Coefficient Estimates
+  ------------------------------------------------------------------------------------------
+
+       Variables      Coefficient               se            tstat             pval
+    phi : y[t-1]            0.868           0.0639             13.6          4.8e-42
+  theta : e[t-1]           -0.406            0.123            -3.29         0.000985
+          Sigma2            0.524           0.0462             11.3         7.69e-30
+        Constant              0.8            0.296             2.71          0.00682
+  ------------------------------------------------------------------------------------------
+  *p-val<0.1 **p-val<0.05 ***p-val<0.001  
 
 Library
 -------
