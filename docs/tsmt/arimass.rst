@@ -28,34 +28,34 @@ Format
    :param const: an indicator variable to include a constant in the model. Set to 1 to include trend, 0 otherwise.
    :type const: Scalar
 
-   :return vOut: An instance of an :class:`arimamtOut` structure containing the following members: 
+   :return vOut: An instance of an :class:`arimamtOut` structure containing the following members:
 
       .. list-table::
          :widths: auto
-         
+
          * - amo.aic
-           - Scalar, value of the Akaike information criterion. 
+           - Scalar, value of the Akaike information criterion.
          * - amo.b
-           - Kx1 vector, estimated model coefficients. 
+           - Kx1 vector, estimated model coefficients.
          * - amo.e
-           - Nx1 vector, residual from fitted model. 
+           - Nx1 vector, residual from fitted model.
          * - amo.ll
-           - Scalar, the value of the log likelihood function. 
+           - Scalar, the value of the log likelihood function.
          * - amo.sbc
-           - Scalar, value of the Schwartz Bayesian criterion. 
+           - Scalar, value of the Schwartz Bayesian criterion.
          * - amo.lrs
-           - Lx1 vector, the Likelihood Ratio Statistic. 
+           - Lx1 vector, the Likelihood Ratio Statistic.
          * - amo.vcb
-           - KxK matrix, the covariance matrix of estimated model coefficients. 
+           - KxK matrix, the covariance matrix of estimated model coefficients.
          * - amo.mse
-           - Scalar, mean sum of squares for errors. 
+           - Scalar, mean sum of squares for errors.
          * - amo.sse
-           - Scalar, the sum of squares for errors. 
+           - Scalar, the sum of squares for errors.
          * - amo.ssy
-           - Scalar, the sum of squares for Y data. 
+           - Scalar, the sum of squares for Y data.
          * - amo.rstl
            - an instance of the kalmanResult structure.
-     
+
    :rtype vOut: struct
 
 Example
@@ -67,11 +67,11 @@ Example
    cls;
    library tsmt;
 
-   //Load data
+   // Load data
    fname = getGAUSSHome() $+ "pkgs/tsmt/examples/wpi1.dat"
    data = loadd(fname);
 
-   y = data[.,1];
+   y = data[., 1];
    p=1;
    d=1;
    q=1;
@@ -88,3 +88,5 @@ tsmt
 Source
 ------
 sarima_ss.src
+
+.. seealso:: Functions :func:`arimaFit`, :func:`sarimaSS`
