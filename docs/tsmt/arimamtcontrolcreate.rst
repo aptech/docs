@@ -34,3 +34,5 @@ tsmt
 Source
 ------
 arimamt.src
+
+.. seealso:: Functions :func:`arimaFit`
