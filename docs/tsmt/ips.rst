@@ -91,3 +91,5 @@ tsmt
 Source
 ------
 ips.src
+
+.. seealso:: Functions :func:`breitung`
