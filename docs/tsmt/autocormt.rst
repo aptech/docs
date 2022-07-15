@@ -1,4 +1,4 @@
-autocormt
+autocor
 =========
 
 Purpose

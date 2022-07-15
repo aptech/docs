@@ -1,4 +1,4 @@
-autocovmt
+autocov
 =========
 
 Purpose
@@ -131,3 +131,5 @@ tsmt
 Source
 ------
 autoregmt.src
+
+.. seealso:: Functions :func:`autocor`
