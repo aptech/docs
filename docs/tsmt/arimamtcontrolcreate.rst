@@ -1,5 +1,5 @@
-arimamt
-=======
+arimamtControlCreate
+=====================
 
 Purpose
 -------
@@ -10,8 +10,8 @@ Format
 ------
 .. function:: amc = arimamtControlCreate();
 
-  :return c: instance of :class:`arimatmtControl` struct with members set to default values.
-  :rtype c: struct
+  :return amc: instance of :class:`arimatmtControl` struct with members set to default values.
+  :rtype amc: struct
 
 Example
 -------
