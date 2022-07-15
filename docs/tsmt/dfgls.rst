@@ -55,3 +55,5 @@ tsmt
 Source
 ------
 dfgls.src
+
+.. seealso:: Functions :func:`kpss`, :func:`zandrews`, :func:`vmadfmt`
