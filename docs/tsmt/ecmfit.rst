@@ -235,6 +235,7 @@ Example
    struct varmamtOut vout;
    vout = ecmFit(y , 1, vmc);
 
+
 Remarks
 -------
 Errors are assumed to be distributed :math:`N(0, Q)`.
@@ -246,3 +247,5 @@ tsmt
 Source
 ------
 varmamt.src
+
+.. seealso:: Functions :func:`varmaFit`
