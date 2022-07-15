@@ -10,7 +10,7 @@ Format
 .. function:: { t_stat, z_crit } = dfgls(y[, max_lags, trend])
 
    :param y: data.
-   :type y: Nx1 vector
+   :type y: Tx1 vector
 
    :param max_lags: Optional input, maximum number of lags to be tested. Default = 0.
    :type max_lags: scalar
