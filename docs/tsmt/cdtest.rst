@@ -97,3 +97,5 @@ tsmt
 Source
 ------
 cdtestbalanced.src
+
+.. seealso:: Functions :func:`cdTestUnbalanced`
