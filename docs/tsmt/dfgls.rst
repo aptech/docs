@@ -38,15 +38,23 @@ Example
    yt = trimr(yt, 1, 0);
 
    // Now run full test
-   {adf_stat, crit_mat}=dfgls(yt[., 2], 0, 1);
+   { adf_stat, crit_mat } = dfgls(yt[., 2], 0, 1);
 
    print "The GAUSS DFGLS stats:";
    adf_stat;
 
-   print "DFGLS stat reported by Enders:-3.154";
    print "The ERS critical values:";
    crit_mat;
 
+The results printed are:
+
+::
+
+  The GAUSS DFGLS stats:
+  -2.97
+
+  The ERS critical values:
+  -3.46 -3.18 -2.93 -2.64
 
 Library
 -------
