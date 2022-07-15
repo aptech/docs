@@ -21,10 +21,10 @@ Example
    cls;
    library tsmt;
 
-   //Declare control structures
+   // Declare control structures
    struct arimamtControl amc;
 
-   //Create default settings for arima model
+   // Create default settings for arima model
    amc = arimamtControlCreate();
 
 Library

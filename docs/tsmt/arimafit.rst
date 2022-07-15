@@ -140,23 +140,23 @@ Integrated AR(1)
    cls;
    library tsmt;
 
-   //Simulate data
+   // Simulate data
    seed = 423458;
    y = simarmamt(.3, 1, 0, 2, 0, 250, 1, .5, seed);
 
-   //Integrated series
+   // Integrated series
    z = cumsumc(y);
 
-   //Declare arima out structures
+   // Declare arima out structures
    struct arimamtOut amo;
 
-   //Set AR order
+   // Set AR order
    p = 1;
 
-   //Set order of differencing
+   // Set order of differencing
    d = 1;
 
-   //Estimate model
+   // Estimate model
    amo = arimaFit(z, p, d);
 
 AR(2) Using dataset and formula string

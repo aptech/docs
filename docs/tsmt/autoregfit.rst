@@ -181,16 +181,16 @@ Dataset and formula string
    cls;
    library tsmt;
 
-   //Lag of independent variables
+   // Lag of independent variables
    lag_vars = 0;
 
-   //Autoregressive order
+   // Autoregressive order
    order = 3;
 
-   //Initialized automtOut structure
+   // Initialized automtOut structure
    struct automtOut aro;
 
-   //Call autoregFit function
+   // Call autoregFit function
    aro = autoregFit(getGAUSSHome() $+ "pkgs/tsmt/examples/autoregmt.dat", "Y ~ X1 + X2", lag_vars, order);
 
 The results printed to screen are:
