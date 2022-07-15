@@ -59,6 +59,37 @@ Example
    // Run Frees test [model = 3]
    z3 = cdTest(y, 3, grp);
 
+The results printed to screen are
+
+::
+
+ *** Pesaran's Test of Cross-Sectional Independence, Balanced Panels  ***
+
+ Pesaran's CD Test Statistic =       0.77992932
+ p_value =       0.21771624
+
+ *** Friedman's Test of Cross-Sectional Independence, Balanced Panels  ***
+
+ Friedman's Test Statistic =      21.77124183
+ p_value =       0.15073260
+
+
+ *** Frees' Test of Cross Sectional Independence for Balanced Panels  ***
+
+ The Frees' Test Statistics =
+  FRE =       0.08560793 	 Ave. of R^2 =       0.06428350
+
+ Critical Values from Frees' Q-Distribution
+ Alpha level =			    0.1	      0.05	 0.01
+ Critical Values or Quantiles =   0.15205    0.19963    0.29284
+
+
+ *** An Alternative Decision Rule ***
+ The Null Hypothesis is Rejected when Ave. of R^2 > inv(T-1) + Qq/N	 =   0.06860
+ Notes:
+ Qq = quantile of the Q-Distribution
+ N = number of groups
+
 Library
 -------
 tsmt
