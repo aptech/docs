@@ -28,7 +28,7 @@ Output
 ==== ==================================================================
    y_st (T*K)x1 Matrix of stacked cross sectional data, i.e.
   ::
-  
+
      y_st = yt[ . , 1] | yt[ . , 2] | yt[ . , 3] | ... | yt[ . , K].
    ==== ==================================================================
 
@@ -40,7 +40,7 @@ new;
 cls;
 library tsmt;
 
-//Loading data
+// Loading data
 fname = getGAUSSHome() $+ "pkgs/tsmt/examples/dynam.fmt";
 dat = loadd(fname);
 

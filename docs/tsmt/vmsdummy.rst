@@ -46,17 +46,17 @@ new;
 cls;
 library tsmt;
 
-//Generate random data
+// Generate random data
 y = rndn((25*12),1);
 
-//Monthly frequency
+// Monthly frequency
 freq = 12;
 
-//Seasonal dummy component every three months
+// Seasonal dummy component every three months
 seas = 3;
 
-//Detrend data 
-{y_d, beta} = vmsdummy(y, freq, seas);
+// Detrend data 
+{ y_d, beta } = vmsdummy(y, freq, seas);
 
 Source
 ------

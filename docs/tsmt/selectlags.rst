@@ -15,7 +15,7 @@ Format
    :param x: NxK, exogenous regressor. Set equal to 0 if there are no exogenous variables.
    :type x: Matrix
 
-   :param maxlag: maximum lags. 
+   :param maxlag: maximum lags.
    :type maxlag: Scalar
 
    :param method: lag selection method:
@@ -24,15 +24,15 @@ Format
          :widths: auto
 
          * - AIC
-           - Akaike information criterion. 
+           - Akaike information criterion.
          * - BIC
-           - Bayesian information criterion. 
+           - Bayesian information criterion.
          * - HQC
-           - Hannan-Quinn criterion. 
+           - Hannan-Quinn criterion.
          * - FPE
-           - Final prediction error. 
+           - Final prediction error.
          * - ALL
-           - All methods computed. 
+           - All methods computed.
 
    :type method: String
 
@@ -50,10 +50,10 @@ Example
    cls;
    library tsmt;
 
-   //Use the simarmamt procedure to generate ar data
-   //This generates 1000 observations of and
-   //AR(4) series with a constant
-   //and standard deviation equal to 1.
+   // Use the simarmamt procedure to generate ar data
+   // This generates 1000 observations of and
+   // AR(4) series with a constant
+   // and standard deviation equal to 1.
    b = { 0.1, .3, -.4, 0.2 };
    q = 0;
    p = 4;
@@ -65,21 +65,21 @@ Example
    seed = 19786;
 
    y = simarmamt( b, p, q, const, tr, n, k, std, seed );
-    
-   //Set parameters for the simarmamt procedure
-   //Exogenous variables -- Add intercept
+
+   // Set parameters for the simarmamt procedure
+   // Exogenous variables -- Add intercept
    x = ones( rows(y), 1 );
 
-   //Max number of lags to test for
+   // Max number of lags to test for
    p = 8;
 
-   //Method to test
+   // Method to test
    method = "AIC";
    printOut =1 ;
 
    { stat , p_mat } = selectLags( y, x, p, method, printOut );
 
-   //Method to test
+   // Method to test
    method = "ALL";
 
    { stat_all , p_mat_all } = selectLags( y, x, p, method, printOut );

@@ -59,28 +59,28 @@ new;
 cls;
 library tsmt;
 
-//Load data
-//Create file name with full path
+// Load data
+// Create file name with full path
 fname = getGAUSSHome() $+ "pkgs/tsmt/examples/mink.csv";
 
-//Load two variables from dataset
+// Load two variables from dataset
 y = loadd(fname, "LogMink + LogMusk");
 
-//Difference the data
+// Difference the data
 y = vmdiffmt(y, 1);
 
-//Specify a VAR(2) model
+// Specify a VAR(2) model
 p = 2;
 
-//Number of lagged differences to include in test 
+// Number of lagged differences to include in test
 k = 2;
 
-//Do not suppress constant term
+// Do not suppress constant term
 nodet = 0;
 
 { ev, evec, lr1, lr2 } = vmsjmt(y, p, k, nodet);
 
-print "Eigenvalues :"; 
+print "Eigenvalues :";
 ev;
 print;
 
@@ -95,7 +95,7 @@ print;
 print "Johansen's  maximum eigenvalue statistic for the null hypothesis of r = 0 to m-1 cointegrating vectors :";
 lr2;
 print;
-  
+
 
 Source
 ------

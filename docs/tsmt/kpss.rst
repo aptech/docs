@@ -9,7 +9,7 @@ Format
 ------
 .. function:: { tstat, crit } = kpss(y, max_lags[, trend, qsk, auto, print_out])
 
-   :param y: data. 
+   :param y: data.
    :type y: Nx1 vector
 
    :param max_lags: Optional input, if max_lags <= 0, maximum lag set using Schwert criterion; if -1, Schwert criterion = 12; if 0, Schwert criterion = 4; else if max_lags > 0, maximum lag = max_lags. Default = 0.
@@ -32,7 +32,7 @@ Format
 
    :return crit: Elliot, Rothenberg and Stock (1996) critical values for the GLS detrended unit root test at the 1%, 2.5%, 5%, and 10% significance level.
    :rtype crit: matrix
-   
+
 Example
 -------
 ::
@@ -48,24 +48,24 @@ Example
    lrgnp = log(npdb[., 4]);
    yt =packr(lrgnp);
 
-   //Test using basic KPSS testing: Trend stationary 
-   //Step One: Set-up testing parameters
-   //Maximum lags to include
+   // Test using basic KPSS testing: Trend stationary
+   // Step One: Set-up testing parameters
+   // Maximum lags to include
    max_lags = 5;
 
-   //Include trend
+   // Include trend
    trend = 1;
 
-   //Use quadratic spectral kernel
+   // Use quadratic spectral kernel
    qsk = 1;
 
-   //Automatic maxlag computation
+   // Automatic maxlag computation
    auto = 1;
 
-   //Print results to screen
+   // Print results to screen
    print_out = 1;
 
-   //Step Two: Running KPSS test
+   // Step Two: Running KPSS test
    { mat, crit } = kpss(yt, max_lags, trend, qsk, auto, print_out);
 
    print "The tstats for all possible lags:";
@@ -74,17 +74,17 @@ Example
    print "Critical values:";
    crit;
 
-   //Test using basic KPSS testing: Level stationary 
-   //Step One: Set-up testing parameters
-   //Use defaults for:
+   // Test using basic KPSS testing: Level stationary
+   // Step One: Set-up testing parameters
+   // Use defaults for:
    // trend = no-trend
    // qsk = Bno quadratic spectral kernel used
    // printOut = printing output to screen.
 
-   //Set maxlags, implies no automatic lag calculation
+   // Set maxlags, implies no automatic lag calculation
    max_lags = 8;
 
-   //Running the KPSS test
+   / /Running the KPSS test
    { mat, crit } = kpss(yt, max_lags);
 
    print "The tstats for all possible lags:";

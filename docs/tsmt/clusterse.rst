@@ -53,37 +53,37 @@ Example
 new;
 cls;
 library tsmt;
-      
-//Load psid data
+
+// Load psid data
 data = loadd(getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat");
-      
-//Get variable names
+
+// Get variable names
 f = getname(getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat");
 print $f;
-  
-//Assign group variable
+
+// Assign group variable
 grp = data[., 13];
 
 // x = age ~ agefbrth ~ usemeth
 x = data[.,1]~data[., 22]~data[., 2]~data[., 10];
 
-//Control structure
+// Control structure
 struct olsmtControl oc0;
 oc0 = olsmtControlCreate;
 
-//Turn on to estimate residuals 
+// Turn on to estimate residuals
 oc0.res = 1;
 
-//Declare output structure
+// Declare output structure
 struct olsmtOut oOut;
 
-//Run initial ols
+// Run initial ols
 oOut = olsmt(oc0, getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat", "lwage ~ exp + exp2 + wks + ed");
 
-//Get residuals from _olsmtres dataset
+// Get residuals from _olsmtres dataset
 resid = loadd("_olsmtres");
 
-//Find robust standard errors regression includes constant
+// Find robust standard errors regression includes constant
 vce_robust = clusterSE(x, resid, grp, 1);
 
 Source

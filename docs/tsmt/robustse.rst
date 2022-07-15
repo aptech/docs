@@ -47,35 +47,35 @@ Example
 ::
 
 new;cls;library tsmt;
-      
-//Load psid data
+
+// Load psid data
 fname =  getGAUSSHome() $+ "pkgs/tsmt/examples/psid.dat";
 data = loadd( fname );
-      
-//Get variable names
+
+// Get variable names
 f = getname ( fname );
 print $f;
-  
-//Assign group variable
+
+// Assign group variable
 grp = data[., 13];
 
 // x = age ~ agefbrth ~ usemeth
 x = data[., 1]~data[., 22]~data[., 2]~data[., 10];
 
-//Control structurestruct olsmtControl oc0;
+// Control structurestruct olsmtControl oc0;
 oc0 = olsmtControlCreate;
 
-//Turn on to estimate residuals 
+// Turn on to estimate residuals
 oc0.res = 1;
 
-//Declare output structurestruct olsmtOut oOut;
+// Declare output structurestruct olsmtOut oOut;
 
-//Run initial ols
+// Run initial ols
 oOut = olsmt( oc0, fname , "lwage ~ exp + exp2 + wks + ed" );
 
-//Find robust standard errors regression includes constant
+// Find robust standard errors regression includes constant
 vce_robust = robustSE( x, oOut.resid, 1 );
-    
+
 
 Source
 ------

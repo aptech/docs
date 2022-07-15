@@ -56,7 +56,7 @@ new;
 cls;
 library tsmt;
 
-//Set parameters for data simulation
+// Set parameters for data simulation
 b = 0.75;
 p = 1;
 q = 0;
@@ -67,27 +67,27 @@ k = 15;
 std = 1;
 seed = 10191;
 
-//Simulate data
+// Simulate data
 yt = simarmamt( b, p, q, const, trend, n, k, std, seed );
 
 
-//This sets the parameters for the estimation
-//No trend included
+// This sets the parameters for the estimation
+// No trend included
 trend = 0;
 
-//Include constant
+// Include constant
 const = 1;
 
-//Demean data
+// Demean data
 demean = 1;
 
-//Default lags
+// Default lags
 lags = {};
 
-//Barlet kernel for lag determination
+// Bartlett kernel for lag determination
 kernel = "Bartlett";
 
-//AIC lag selection
+// AIC lag selection
 lag_method = "AIC";
 
 which_output = 1;

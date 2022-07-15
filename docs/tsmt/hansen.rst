@@ -58,24 +58,24 @@ library tsmt;
 
 /********************************************/
 //This generates 400 observations of an
-//linear time series with a break in the constant 
-//at observations 120 
+//linear time series with a break in the constant
+//at observations 120
 
-b1 = { 1.2, -2, 0.75};
-b2 = { 5, -2, 0.75};
+b1 = { 1.2, -2, 0.75 };
+b2 = { 5, -2, 0.75 };
 
 n1 = 120;
 n_tot = 400;
 xt = ones(n_tot, 1)~rndn(n_tot, 2);
 et = rndn(n_tot, 1);
 
-//Create series with break 
+// Create series with break
 y1 = xt[1:n1, .]*b1 + et[1:n1, .];
 y2 = xt[n1+1:n_tot, .]*b2 + et[n1+1:n_tot, .];
 yt_break = y1|y2;
 
 /********************************************/
-//Run example including printOut of results
+// Run example including printOut of results
 { ny, crit } = hansen(yt_break, xt);
 
 Source

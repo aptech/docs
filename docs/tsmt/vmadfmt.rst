@@ -49,22 +49,22 @@ new;
 cls;
 library tsmt;
 
-//Step One: data
+// Step One: data
 yt = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/panel_g.csv" );
 log_yt = log(yt[., 2:9]);
 
-//Test first column of data
-y_test = log_yt[., 1]; 
+// Test first column of data
+y_test = log_yt[., 1];
 
-//Step two: Set model parameters
-//Set deterministic trend
+// Step two: Set model parameters
+// Set deterministic trend
 p = -1;
 
 //Set lags to follow Enders, Table 4.8
 lags = 5;
 
-//Step three: Run adf tests
-{alpha, tstat, adf_t_crit} = vmadfmt(y_test, p, lags);
+// Step three: Run adf tests
+{ alpha, tstat, adf_t_crit } = vmadfmt(y_test, p, lags);
 
 print "Estimated alpha coefficient";
 print alpha;

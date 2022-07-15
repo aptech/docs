@@ -36,10 +36,10 @@ new;
 cls;
 library tsmt;
 
-//Declare sbControl structure
+// Declare sbControl structure
 struct sbControl sbc0;
 
-//Initialize instance of structure
+// Initialize instance of structure
 sbc0 = sbControlCreate( );
 
 Source

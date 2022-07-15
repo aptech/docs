@@ -49,7 +49,7 @@ new;
 cls;
 library tsmt;
 
-//Simulate data
+// Simulate data
 b = { 0.5, -0.3 };
 p = 2;
 q = 0;
@@ -62,21 +62,21 @@ seed = 10191;
 
 yt = simarmamt( b, p, q, const, trend, n, k, std, seed );
 
-//plotControl structure
+// plotControl structure
 struct plotControl myPlot;
 myPlot = plotGetDefaults( "bar" );
 
-//Turn off legend
+// Turn off legend
 plotSetLegend( &myPlot, "off" );
 
-//Add title
+// Add title
 plotSetTitle( &myPlot, "Autocorrelation Function" );
 
-//Add axis labels
+// Add axis labels
 plotSetYLabel( &myPlot, "ACF" );
 plotSetXLabel( &myPlot, "Lag" );
-  
-//Use defaults
+
+// Use defaults
 plotACF( yt, 10, 0 );
 
 Source

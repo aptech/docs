@@ -43,38 +43,38 @@ Example
    cls;
    library tsmt;
 
-   //AR(1) time series, yt, generated using 
-   //the simarmamt data generating function (included in the TSMT library):
-   //Coefficient
+   // AR(1) time series, yt, generated using
+   // the simarmamt data generating function (included in the TSMT library):
+   // Coefficient
    b = 0.5;
 
-   //Number of AR lags
+   // Number of AR lags
    p = 1;
 
-   //Number of MA lags
+   // Number of MA lags
    q = 0;
 
-   //Constant
+   // Constant
    const = 0.9;
 
-   //Turn trend off
+   // Turn trend off
    trend = 0;
 
-   //Number of observations
+   // Number of observations
    n = 500;
 
-   //Number of series
+   // Number of series
    k = 1;
 
-   //Standard deviation
+   // Standard deviation
    std = 1;
 
-   //Random seed
+   // Random seed
    seed = 10191;
 
    yt = simarmamt(b, p, q, const, trend, n, k, std, seed);
 
-   { t_test, break_pt } = zandrews(yt[.,1], 4, 0.10, -1, 1);
+   { t_test, break_pt } = zandrews(yt[., 1], 4, 0.10, -1, 1);
 
 Library
 -------
