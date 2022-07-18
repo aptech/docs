@@ -8,10 +8,8 @@ Estimates univariate GARCH model.
 Format
 ------
 
-.. function:: out1 = garchFit(y, p[, c0])
-              out1 = garchFit(y, p, q[, c0])
-              out1 = garchFit(dataset, formula, p[, c0])
-              out1 = garchFit(dataset, formula, p, q[, c0])
+.. function:: out1 = garchFit(y, p [, q, c0])
+              out1 = garchFit(dataset, formula, p [, q, c0])
 
    :param y: dependent variables.
    :type y: Matrix
@@ -129,4 +127,4 @@ Source
 ------
 tsgarch.src
 
-.. seealso:: Functions :func:`garchMFit`
+.. seealso:: Functions :func:`garchMFit`, :func:`garchGJRFit`
