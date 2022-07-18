@@ -27,6 +27,9 @@ Conditional mean models
 
 ========================== =====================================================================================================================
 :func:`arimafit`           Estimates coefficients of a univariate time series model with autoregressive-moving average errors. Model may include fixed regressors.
+:func:`arimass`            Estimates ARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
+:func:`arimapredict`       Estimates forecasts using estimation results obtained from :func:`arimaFit`.
+:func:`autoregfit`         Estimates coefficients of a regression model with autoregressive errors of any specified order.
 :func:`sarimass`           Estimates SARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
 ========================== =====================================================================================================================
 
@@ -70,9 +73,6 @@ Miscellaneous
 
 ========================== =====================================================================================================================
 :func:`aggdata`            Aggregates time series data from higher to lower frequency.
-:func:`arimass`            Estimates ARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
-:func:`arimapredict`       Estimates forecasts using estimation results obtained from :func:`arimaFit`.
-:func:`autoregfit`         Estimates coefficients of a regression model with autoregressive errors of any specified order.
 :func:`breitung`           Panel series unit root testing.
 :func:`cdtest`             Runs cross-sectional dependence, CD, tests for panel data.
 :func:`dfgls`              Test for unit root in univariate time series.
