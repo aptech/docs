@@ -12,19 +12,19 @@ Format
 ------
 .. function:: bstat = breitung(y, trend, constant, demean, lags)
 
-   :param y: data, M > 5. 
+   :param y: data, M > 5.
    :type y: TxM matrix
 
-   :param trend: 0 = no trend, 1 = trend. 
+   :param trend: 0 = no trend, 1 = trend.
    :type trend: scalar
 
-   :param constant: if nonzero constant included in model. 
+   :param constant: if nonzero constant included in model.
    :type constant: scalar
 
    :param demean: 0 to specify no demeaning or 1 to subtract cross-sectional means.
    :type demean: scalar
 
-   :param lags: number of lags. 
+   :param lags: number of lags.
    :type lags: scalar
 
    :return bstat: test statistic
@@ -37,32 +37,38 @@ Example
    new;
    library tsmt;
 
-   //Load data
+   // Load data
    fname = getGAUSSHome() $+ "pkgs/tsmt/examples/index.dat";
    y00 = loadd(fname);
 
-   //Assign y
+   // Assign y
    y0 = y00[., 2:9];
 
-   //Percent Change in Y
+   // Percent Change in Y
    y = 100*ln(y0[2:rows(y0), .]./y0[1:rows(y0)-1, .]);
 
-   //Indicator to run test with trend variable
+   // Indicator to run test with trend variable
    trend = 1;
 
-   //Indicator to run test with constant
+   // Indicator to run test with constant
    const = 1;
 
-   //Turn off data demeaning
+   // Turn off data demeaning
    demean = 0;
 
-   //Set number of lags to 3
+   // Set number of lags to 3
    lags = 3;
 
-   //Compute test statistics
+   // Compute test statistics
    tstat = breitung(y, trend, const, demean, lags);
    print "The Breitung test statistic = ";; tstat;
 
+The results printed are:
+
+::
+
+  The Breitung test statistic = -19.95876
+  
 Remarks
 -------
 The Breitung panel series unit root test utilizes the sample mean of
@@ -88,3 +94,5 @@ tsmt
 Source
 ------
 breitung.src
+
+.. seealso:: Functions :func:`ips`

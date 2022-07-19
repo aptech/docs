@@ -9,28 +9,28 @@ Format
 ------
 .. function:: vOut = sarimaSS(y, p, d, q, P_s, D_s, Q_s, s, trend, const)
 
-   :param y: data. 
+   :param y: data.
    :type y: Nx1 vector
 
-   :param p: the autoregressive order. 
+   :param p: the autoregressive order.
    :type p: Scalar
 
-   :param d: the order of differencing. 
+   :param d: the order of differencing.
    :type d: Scalar
 
-   :param q: the moving average order. 
+   :param q: the moving average order.
    :type q: Scalar
 
-   :param P_s: the seasonal autoregressive order. 
+   :param P_s: the seasonal autoregressive order.
    :type P_s: Scalar
 
-   :param D_S: the seasonal order of differencing. 
+   :param D_S: the seasonal order of differencing.
    :type D_S: Scalar
 
-   :param Q_s: the seasonal moving average order. 
+   :param Q_s: the seasonal moving average order.
    :type Q_s: Scalar
 
-   :param s: the seasonal frequency term. 
+   :param s: the seasonal frequency term.
    :type s: Scalar
 
    :param trend: an indicator variable to include a trend in the model. Set to 1 to include trend, 0 otherwise.
@@ -45,25 +45,25 @@ Format
          :widths: auto
 
          * - amo.aic
-           - Scalar, value of the Akaike information criterion. 
+           - Scalar, value of the Akaike information criterion.
          * - amo.b
-           - Kx1 vector, estimated model coefficients. 
+           - Kx1 vector, estimated model coefficients.
          * - amo.e
-           - Nx1 vector, residual from fitted model. 
+           - Nx1 vector, residual from fitted model.
          * - amo.ll
-           - Scalar, the value of the log likelihood function. 
+           - Scalar, the value of the log likelihood function.
          * - amo.sbc
-           - Scalar, value of the Schwartz Bayesian criterion. 
+           - Scalar, value of the Schwartz Bayesian criterion.
          * - amo.lrs
-           - Lx1 vector, the Likelihood Ratio Statistic. 
+           - Lx1 vector, the Likelihood Ratio Statistic.
          * - amo.vcb
-           - KxK matrix, the covariance matrix of estimated model coefficients. 
+           - KxK matrix, the covariance matrix of estimated model coefficients.
          * - amo.mse
-           - Scalar, mean sum of squares for errors. 
+           - Scalar, mean sum of squares for errors.
          * - amo.sse
-           - Scalar, the sum of squares for errors. 
+           - Scalar, the sum of squares for errors.
          * - amo.ssy
-           - Scalar, the sum of squares for Y data. 
+           - Scalar, the sum of squares for Y data.
          * - amo.rstl
            - an instance of the kalmanResult structure.
 
@@ -80,7 +80,7 @@ Example
 
    airline = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/airline.dat");
 
-   //Transform data
+   // Transform data
    y = ln(airline);
 
    p = 0;
@@ -90,7 +90,7 @@ Example
    P_s = 0;
    D_s = 1;
    Q_s = 1;
-   s=12; 
+   s=12;
 
    trend = 0;
    const = 0;

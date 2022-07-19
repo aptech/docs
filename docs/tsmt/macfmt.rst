@@ -43,36 +43,36 @@ library tsmt;
 //Create file name with full path
 fname = getGAUSSHome() $+ "pkgs/tsmt/examples/mink.csv";
 
-//Load all rows of the second and third columns of
-//a space separated file
+// Load all rows of the second and third columns of
+// a space separated file
 y = loadd(fname, "LogMink + LogMusk" );
 
-//Difference the data
+// Difference the data
 y = vmdiffmt( y, 1 );
 
-//Estimate Varima Model
+// Estimate Varima Model
 
-//Declare 'vctl' to be a varmamtControl structure
+// Declare 'vctl' to be a varmamtControl structure
 struct varmamtControl vctl;
 
-//Fill 'vctl' with default values
+// Fill 'vctl' with default values
 vctl = varmamtControlCreate( );
 
-//Turn off output
+// Turn off output
 vctl.output = 0;
 
-//Declare 'vout' to be a varmamtOut structure
-//to hold the return values from 'vout'
+// Declare 'vout' to be a varmamtOut structure
+// to hold the return values from 'vout'
 struct varmamtOut vout;
 
-//Estimate the parameters of the VAR(3) model
-//and print diagnostic information
-vout = varmaFit(y, 3, 0, 0, vctl ); 
+// Estimate the parameters of the VAR(3) model
+// and print diagnostic information
+vout = varmaFit(y, 3, 0, 0, vctl );
 
-//Get residuala
+// Get residuala
 res = vout.residuals;
 
-//Estimate autocorrelation function matrix
+// Estimate autocorrelation function matrix
 macf = macfmt( res, y );
 
 print "Multivariate autocorrelation function matrix : ";

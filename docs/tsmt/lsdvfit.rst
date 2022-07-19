@@ -10,7 +10,7 @@ Format
 .. function:: lout1 = lsdvFit(y, x, series_length, n_lags[, lsc])
               lout1 = lsdvFit(dataset, formula, series_length, n_lags[, lsc])
 
-   :param y: data. 
+   :param y: data.
    :type y: Nx1 vector
 
    :param x: independent data.
@@ -34,11 +34,11 @@ Format
          :widths: auto
 
          * - lsc.Constrain
-           - scalar, if nonzero constraints will be applied to the autoregression coefficients. Default = 1. 
+           - scalar, if nonzero constraints will be applied to the autoregression coefficients. Default = 1.
          * - lsc.scale
-           - scalar, if nonzero, data are scaled. 
+           - scalar, if nonzero, data are scaled.
          * - lsc.output
-           - scalar, determines the output to be printed. 
+           - scalar, determines the output to be printed.
          * - lsc.title
            - string, title to be printed at top of header.
 
@@ -50,41 +50,41 @@ Format
          :widths: auto
 
          * - autoCoefficients
-           - Jx1 vector, uncorrected autoregression coefficients. 
+           - Jx1 vector, uncorrected autoregression coefficients.
          * - regCoefficients
-           - Kx1 vector, uncorrected regression coefficients. 
+           - Kx1 vector, uncorrected regression coefficients.
          * - autoCoefficientsCorr
-           - Jx1 vector, bias corrected autoregression coefficients. 
+           - Jx1 vector, bias corrected autoregression coefficients.
          * - regCoefficientsCorr
-           - Kx1 vector, bias corrected regression coefficients. 
+           - Kx1 vector, bias corrected regression coefficients.
          * - autoStderrs
-           - Jx1 vector, autoregression coefficient standard errors. 
+           - Jx1 vector, autoregression coefficient standard errors.
          * - regStderrs
-           - Kx1 vector, regression coefficient standard errors. 
+           - Kx1 vector, regression coefficient standard errors.
          * - covPar
-           - KxK matrix, covariance matrix of parameters 
+           - KxK matrix, covariance matrix of parameters
          * - SSresidual
-           - scalar, residual sums of squares. 
+           - scalar, residual sums of squares.
          * - SStotal
-           - scalar, total sums of squares. 
+           - scalar, total sums of squares.
          * - SSexplained
-           - scalar, explained sums of squares. 
+           - scalar, explained sums of squares.
          * - SSpooledResidual
-           - scalar, pooled residual sums of squares. 
+           - scalar, pooled residual sums of squares.
          * - biasCorr
-           - K+Jx1 vector, bias corrections. 
+           - K+Jx1 vector, bias corrections.
          * - lagrange
-           - Jx2 matrix, Lagrangeans for constraints. 
+           - Jx2 matrix, Lagrangeans for constraints.
          * - numCases
-           - scalar, number of cases. 
+           - scalar, number of cases.
          * - numMissing
-           - scalar, number of observations with missing data. 
+           - scalar, number of observations with missing data.
          * - numDF
-           - scalar, number of degrees of freedom. 
+           - scalar, number of degrees of freedom.
          * - numObservations
-           - scalar, number of observations. 
+           - scalar, number of observations.
          * - numParameters
-           - scalar, number of parameters. 
+           - scalar, number of parameters.
          * - numPeriods
            - scalar, number of periods in time series.
 
@@ -99,21 +99,21 @@ Dataset and formula
 
    new;
    library tsmt;
-     
-   //Declare lsdvmt control structure
+
+   // Declare lsdvmt control structure
    struct lsdvmtControl c0;
-   c0 = lsdvmtControlCreate();             
+   c0 = lsdvmtControlCreate();
 
-   //Turn screen output on 
-   c0.output = 1;              
+   // Turn screen output on
+   c0.output = 1;
 
-   //Scale data before running 
+   // Scale data before running
    c0.scale = 0;
 
-    //Declare output structure                                                        
+    // Declare output structure
    struct lsdvmtOut out;
 
-   //Call lsdvmt function 
+   // Call lsdvmt function 
    out = lsdvFit(getGAUSSHome() $+ "pkgs/tsmt/examples/lsdv.dat", "Y~X1+X2+X3", 50, 2, c0);
 
 Data matrices
@@ -132,21 +132,21 @@ Data matrices
 
    //Independent variable
    x = data[., 2:4];
-     
+
    //Declare lsdvmt control structure
    struct lsdvmtControl c0;
-   c0 = lsdvmtControlCreate();             
+   c0 = lsdvmtControlCreate();
 
-   //Turn screen output on 
-   c0.output = 1;              
+   //Turn screen output on
+   c0.output = 1;
 
-   //Scale data before running 
+   //Scale data before running
    c0.scale = 0;
 
-    //Declare output structure                                                        
+    //Declare output structure
    struct lsdvmtOut out;
 
-   //Call lsdvmt function 
+   //Call lsdvmt function
    out = lsdvFit(y, x, 50, 2, c0);
 
 Remarks

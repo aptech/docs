@@ -1,5 +1,6 @@
 Time Series MT (TSMT)
 =======================
+A time series package for GAUSS.
 
 Description
 ----------------
@@ -26,6 +27,9 @@ Conditional mean models
 
 ========================== =====================================================================================================================
 :func:`arimafit`           Estimates coefficients of a univariate time series model with autoregressive-moving average errors. Model may include fixed regressors.
+:func:`arimass`            Estimates ARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
+:func:`arimapredict`       Estimates forecasts using estimation results obtained from :func:`arimaFit`.
+:func:`autoregfit`         Estimates coefficients of a regression model with autoregressive errors of any specified order.
 :func:`sarimass`           Estimates SARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
 ========================== =====================================================================================================================
 
@@ -69,9 +73,6 @@ Miscellaneous
 
 ========================== =====================================================================================================================
 :func:`aggdata`            Aggregates time series data from higher to lower frequency.
-:func:`arimass`            Estimates ARIMA models using a state space representation, the Kalman filter, and maximum likelihood.
-:func:`arimapredict`       Estimates forecasts using estimation results obtained from :func:`arimaFit`.
-:func:`autoregfit`         Estimates coefficients of a regression model with autoregressive errors of any specified order.
 :func:`breitung`           Panel series unit root testing.
 :func:`cdtest`             Runs cross-sectional dependence, CD, tests for panel data.
 :func:`dfgls`              Test for unit root in univariate time series.
@@ -81,10 +82,10 @@ Miscellaneous
 :func:`startest`           Estimates a p\ :sup:`th` order threshold autoregression and tests the hypothesis of a linear autoregression, using the statistics described in "Inference when a nuisance parameter is not identified under the null hypothesis." (Hansen, 1996).
 :func:`tsdiff`             Differences matrices with or without seasonality.
 :func:`varmapredict`       Calculates forecasts from a VARMAX model.
-:func:`vmdetrendmt`        Detrends data.
+:func:`vmdetrendmt`        Detrends data. (DEPRECATED)
 :func:`vmdiffmt`           Differences matrices.
 :func:`vmsdetrend`         Seasonally detrends data.
-:func:`vmsdiffmt`          Seasonally differences matrices.
+:func:`vmsdiffmt`          Seasonally differences matrices. (DEPRECATED)
 :func:`zandrews`           The Zivot and Andrews (1992) unit root test uses a t-test statistic for testing the null hypothesis of stationarity.
 ========================== =====================================================================================================================
 
@@ -105,34 +106,39 @@ Further Reading
     :hidden:
     :caption: Time Series Functions
 
-    arimafit
-    sarimass
-    garchfit
-    garchmfit
-    igarchfit
-    varmafit
-    ecmfit
-    tscsfit
-    lsdvfit
-    kalmanfilter
-    switchfit
-    sbreak
-    tartest
-    arimass
-    autoregfit
-    vmdetrendmt
-    vmdiffmt
+    adjrsq
     aggdata
+    arimafit
+    arimamtcontrolcreate
     arimapredict
-    arimaFit
+    arimass
+    autocormt
+    autocovmt
+    automtcontrolcreate
+    autoregfit
     breitung
     cdtest
+    covmmt
+    cusum
     dfgls
+    ecmfit
+    garchfit
+    igarchfit
+    ips
+    kalmanfilter
     kpss
+    lagreport
+    lsdvfit
     rolling
+    sbreak
     selectlags
     startest
+    switchfit
+    tartest
+    tscsfit
+    tsdiff
+    varmafit
     varmapredict
+    vmdetrendmt
     vmsdetrend
-    vmsdiffmt
     zandrews

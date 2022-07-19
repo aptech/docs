@@ -44,22 +44,22 @@ new;
 cls;
 library tsmt;
 
-//Generate random data
+// Generate random data
 yt = rndn(200, 1);
 
-//Newey-West bandwidth selection
+// Newey-West bandwidth selection
 lagMethod = "nw";
 
-//Parzen kernel for estimating variance
+// Parzen kernel for estimating variance
 kernel = "parzen";
 
-//Constant and no trend
+// Constant and no trend
 Model = 0;
 
-//Call function
+// Call function
 { LRV, bw } = getLRV(yt, kernel, lagMethod, model);
 
-//Print results
+// Print results
 print "Long-run variance : ";; LRV;
 
 Source

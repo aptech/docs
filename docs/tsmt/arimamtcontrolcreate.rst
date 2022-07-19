@@ -1,5 +1,5 @@
-arimamt
-=======
+arimamtControlCreate
+=====================
 
 Purpose
 -------
@@ -8,18 +8,10 @@ default values.
 
 Format
 ------
-amc = arimamtControlCreate();
+.. function:: amc = arimamtControlCreate();
 
-Input
------
-None
-
-Output
-------
-+-----+---------------------------------------------------------------+
-| amc | An instance of an arimamtControl structure with its members   |
-|     | set to default values.                                        |
-+-----+---------------------------------------------------------------+
+  :return amc: instance of :class:`arimatmtControl` struct with members set to default values.
+  :rtype amc: struct
 
 Example
 -------
@@ -29,10 +21,10 @@ Example
    cls;
    library tsmt;
 
-   //Declare control structures
+   // Declare control structures
    struct arimamtControl amc;
 
-   //Create default settings for arima model              
+   // Create default settings for arima model
    amc = arimamtControlCreate();
 
 Library
@@ -42,3 +34,5 @@ tsmt
 Source
 ------
 arimamt.src
+
+.. seealso:: Functions :func:`arimaFit`

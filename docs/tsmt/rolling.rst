@@ -9,10 +9,10 @@ Format
 ------
 .. function:: {coef, res, w} = rolling(yt, xt, window, add, graph)
 
-   :param yt: panel series data. 
+   :param yt: panel series data.
    :type yt: Tx1 numerical vector
 
-   :param xt: estimation regressors. 
+   :param xt: estimation regressors.
    :type xt: TxK numerical matrix
 
    :param window: Optional input, a positive integer specifying a fixed window size of K< window <T. A window size of less than zero results in an expanding window. Default = 0.
@@ -45,9 +45,9 @@ Example
    rndseed 23563425;
 
    /********************************************/
-   //This generates 400 observations of an
-   //linear time series with a break in the constant 
-   //at observations 120 
+   // This generates 400 observations of an
+   // linear time series with a break in the constant
+   // at observations 120
 
    b1 = { 1.2, -2, 0.75 };
    b2 = { 5, -2, 0.75 };
@@ -57,33 +57,33 @@ Example
    xt = ones( n_tot, 1 )~rndn( n_tot, 2 );
    et = rndn( n_tot, 1 );
 
-   //Create series with break
+   // Create series with break
    y1 = xt[1:n1, .]*b1 + et[1:n1, .];
    y2 = xt[n1+1:n_tot, .]*b2 + et[n1+1:n_tot, .];
    yt_break = y1|y2;
 
    /********************************************/
-   //Set parameters to run a rolling window regression
-   //Positive window sets fixed window
+   // Set parameters to run a rolling window regression
+   // Positive window sets fixed window
    wind = 15;
 
    //Fixed window regression
    { beta, res, w } = rolling( yt_break, xt, wind );
 
    /********************************************/
-   //Next set parameters to run an forward expanding window regression
-   //Set-up expanding window size
-   //Negative window results in expanding window size
+   // Next set parameters to run an forward expanding window regression
+   // Set-up expanding window size
+   // Negative window results in expanding window size
    wind = -15;
 
-   //Add specifies increment to increase window size by
-   //and is irrelevant for rolling window regression
+   // Add specifies increment to increase window size by
+   // and is irrelevant for rolling window regression
    add = 15;
 
-   //Draw plot from second call to 'rolling' in new window
+   // Draw plot from second call to 'rolling' in new window
    plotOpenWindow( );
 
-   //Expanding window estimation
+   // Expanding window estimation
    { beta_fwd, res_fwd, w_fwd } = rolling( yt_break, xt, wind, add );
 
 Remarks

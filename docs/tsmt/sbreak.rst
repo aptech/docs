@@ -9,7 +9,7 @@ Format
 ------
 .. function:: out = sbreak(yt, xt, zt, sbc0)
 
-   :param yt: dependent data. 
+   :param yt: dependent data.
    :type yt: Matrix
 
    :param xt: time invariant independent variables.
@@ -24,23 +24,23 @@ Format
          :widths: auto
 
          * - q
-           - Scalar, number of regressors subject to change. 
+           - Scalar, number of regressors subject to change.
          * - p
-           - Scalar, number of time invariant regressors in x. 
+           - Scalar, number of time invariant regressors in x.
          * - m
-           - Scalar, maximum number of structural changes. 
+           - Scalar, maximum number of structural changes.
          * - trim
-           - Scalar, trimming value (as a decimal). 
+           - Scalar, trimming value (as a decimal).
          * - h
-           - Scalar, minimal length of segment (h > p + q) 
+           - Scalar, minimal length of segment (h > p + q)
          * - initialBeta
-           - Matrix, if initialBeta == {} call function to set initial values 
+           - Matrix, if initialBeta == {} call function to set initial values
          * - maxIters
-           - maximum number of iterations 
+           - maximum number of iterations
          * - printOutput
-           - Indicator to print iteration outputs 
+           - Indicator to print iteration outputs
          * - eps
-           - Scalar, convergence criterion 
+           - Scalar, convergence criterion
 
    :type sbc0: struct
 
@@ -50,9 +50,9 @@ Format
          :widths: auto
 
          * - breakDate
-           - Matrix, MxM of date breaks estimated for possible number of breaks less than or equal to m. 
+           - Matrix, MxM of date breaks estimated for possible number of breaks less than or equal to m.
          * - breakSSR
-           - MxM, vector of ssr associated with all number of breaks less than or equal to m. 
+           - MxM, vector of ssr associated with all number of breaks less than or equal to m.
 
    :rtype out: struct
 
@@ -66,33 +66,33 @@ Examples
    cls;
    library tsmt;
 
-   //DATA INPUT
-   //Load y data 
+   // DATA INPUT
+   // Load y data
    y = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/real_intrate.dat", "." );
 
-   //Specify regressors 
-   //Time varying coefficients in z
+   // Specify regressors
+   // Time varying coe ficients in z
    z = ones( rows(y), 1 );
 
-   //No time invariant regressors
+   // No time invariant regressors
    x = 0;
 
-   //Declare sbControl structure
+   // Declare sbControl structure
    struct sbControl sbc0;
 
-   //Initialize instance of structure
+   // Initialize instance of structure
    sbc0 = sbControlCreate( );
 
-   //Set individual model parameters
-   sbc0.q = 1;                         
-   sbc0.m = 5;                        
-   sbc0.trim = 0.15;  
-   sbc0.h = 0;   
+   // Set individual model parameters
+   sbc0.q = 1;
+   sbc0.m = 5;
+   sbc0.trim = 0.15;
+   sbc0.h = 0;
    sbc0.printOutput = 1;
    sbc0.initialBeta = 0.5;
    sbc0.maxIters = 40;
 
-   //Turn on graphing capability
+   // Turn on graphing capability
    sbc0.graphOn = 1;
    sbc0.dtstart = dtdate( 1961, 01, 01, 0, 00, 00 );
    sbc0.frequency = 4;

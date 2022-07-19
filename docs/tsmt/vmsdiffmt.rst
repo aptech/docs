@@ -30,17 +30,17 @@ Example
    cls;
    library tsmt;
 
-   //Load airline data
+   // Load airline data
    airline = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/airline.dat");
    y = ln(airline);
 
-   //Set parameters for differencing data
+   // Set parameters for differencing data
    s = 12;
 
-   //Order of differencing
+   // Order of differencing
    d = 1;
 
-   //Take seasonal differences
+   // Take seasonal differences
    y_sd = vmsdiffmt(y, d, s);
 
 

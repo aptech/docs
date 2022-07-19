@@ -36,21 +36,21 @@ Example
    cls;
    library tsmt;
 
-   //Real GNP data 
-   //Seasonally adjusted and transformed in annualized quarterly growth rates
+   // Real GNP data
+   // Seasonally adjusted and transformed in annualized quarterly growth rates
    gnp = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/gnp_4790.fmt");
    yg = ln( gnp[., 1] );
    y = (yg[2:rows(yg)]-yg[1:rows(yg)-1])*400;
 
-   //Maximum number of lags considered
+   // Maximum number of lags considered
    p = 5;
 
-   //Lags to omit from the test
+   // Lags to omit from the test
    omit = { 3, 4 };
 
-   {s3, p3} = starTest( y, p, omit );
+   { s3, p3 } = starTest( y, p, omit );
 
-   //Print results
+   // Print results
    print "LM statistic :";; s3;
    print;
    print "P-value :";; p3;

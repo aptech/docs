@@ -33,23 +33,23 @@ Example
    cls;
    library tsmt;
 
-   //Load data
-   //Create file name with full path
+   // Load data
+   // Create file name with full path
    fname = getGAUSSHome() $+ "pkgs/tsmt/examples/mink.csv";
 
-   //Load two variables from dataset
+   // Load two variables from dataset
    y = loadd(fname, "LogMink + LogMusk");
 
-   //Difference the data
+   // Difference the data
    y = vmdiffmt(y, 1);
 
-   //Declare 'vout' to be a varmamtOut structure
+   // Declare 'vout' to be a varmamtOut structure
    struct varmamtOut vout;
 
-   //Estimate the parameters of the VAR(2) model
+   // Estimate the parameters of the VAR(2) model
    vout = varmaFit(y, 2);
 
-   //Predict model
+   // Predict model
    f = varmaPredict(vout, y, 0, 25);
 
 Remarks

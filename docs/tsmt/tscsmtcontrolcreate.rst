@@ -37,7 +37,7 @@ new;
 cls;
 library tsmt;
 
-//Declare control structure
+// Declare control structure
 struct tscsmtControl tsc;
 tsc = tscsmtControlCreate();
 

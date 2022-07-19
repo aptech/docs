@@ -45,19 +45,19 @@ new;
 cls;
 library tsmt;
 
-//ARMA parameter coefficients
+// ARMA parameter coefficients
 b = { 0.6, -0.3, -0.5 };
 
-//AR lags
+// AR lags
 p = 2;
 
-//MA lags
+// MA lags
 q = 1;
 
-//Find theoretical autocovariances
+// Find theoretical autocovariances
 g = tautocovmt( b, p, q );
 
-//Print solution
+// Print solution
 print "Theoretical autocovariances :";;
 g';
 
