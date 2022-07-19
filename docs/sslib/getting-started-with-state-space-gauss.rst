@@ -1,12 +1,11 @@
 Getting Started with State-Space Modeling in GAUSS
 ===================================================
-This page provides a basic overview of how to implement custom state-space models in GAUSS. It covers everything you need to know to get working with the GAUSS state-space library including:
+This page provides an overview of how to implement custom state-space models in GAUSS. It covers everything needed to get working with the GAUSS state-space library including:
 
 * Installation and library dependencies.
 * Data loading.
 * The basics of state-space models.
 * Specifying state-space models in GAUSS.
-* Fine tuning.
 * Post-estimation impulse response functions and forecasting.
 
 Installation
@@ -20,20 +19,6 @@ The state-space library requires:
 1.  A working copy of **GAUSS 22+**.
 2.  The `Constrained Maximum Likelihood MT library <https://store.aptech.com/gauss-applications-category/constrained-maximum-likelihood-mt.html>`_ for GAUSS.
 3.  The `Time Series MT library <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_ for GAUSS.
-
-
-In addition, before using the functions created by :class:`sslib` you will need to load the newly created :class:`sslib` library, along with the :class:`cmlmt` and :class:`tsmt`. This can be done in a number of ways:
-
-  *  Navigate to the library tool view window and click the small wrench located next to the :class:`sslib` library. Select `Load Library`.
-  *  Enter `library sslib` in the program input/output window.
-  *  Put the line `library sslib;` at the beginning of your program files.
-
-It is good practice to begin your state-space program files with the following statements:
-
-::
-
-  new;
-  library sslib, tsmt, cmlmt;
 
 Data Loading
 --------------------
@@ -108,7 +93,7 @@ and
 
 Notice that the current GAUSS :class:`sslib` only supports time-invariant state-space models such that all state-space representation matrices are constant.
 
-state-space representation is a flexible platform for modeling and supports a variety of `time series models <https://www.aptech.com/blog/getting-started-with-time-series-in-gauss/>`_ including ARIMA, SARIMA, VAR, unobserved components, and dynamic factor models.
+This state-space representation is a flexible platform for modeling and supports a variety of `time series models <https://www.aptech.com/blog/getting-started-with-time-series-in-gauss/>`_ including ARIMA, SARIMA, VAR, unobserved components, and dynamic factor models.
 
 Example: AR(2)
 +++++++++++++++++++++
@@ -148,7 +133,7 @@ In this representation the system matrices are:
 | :math:`Q`          | :math:`\sigma^2`                                                 |
 +--------------------+------------------------------------------------------------------+
 
-In this model our unknown parameters are :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`
+The unknown parameters are :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`.
 
 Estimation of State-Space Models
 ---------------------------------------------------
@@ -171,39 +156,46 @@ You will never need to interact with these two tools directly when using the GAU
 2. `Beginner's Guide To Maximum Likelihood Estimation <https://www.aptech.com/blog/beginners-guide-to-maximum-likelihood-estimation-in-gauss/>`_
 3. `Maximum Likelihood Estimation in GAUSS <https://www.aptech.com/blog/maximum-likelihood-estimation-in-gauss/>`_
 
-State-space Models in GAUSS
+State-Space Models in GAUSS
 ---------------------------------------------------
-The :class:`sslib` library contains a suite of tools that allows you to specify, estimate, diagnose, and perform post-estimation forecasts. The primary procedure for estimating custom state-space models is the :func:`ssFit` procedure.
+The :class:`sslib` library contains a suite of tools that allows you to specify, estimate, diagnose, and perform post-estimation forecasts.
 
-Prior to calling :func:`ssFit` there are several simple steps that must be taken:
+Prior to estimating the model with :func:`ssFit`, there are several simple steps that must be taken:
 
-1. Load the required libraries.
+1. Load data and required libraries.
 2. Set up parameter vector and start values.
 3. Set up control structures.
 4. Initialize system matrices.
 5. Specify variable constraints.
 6. Set up procedure for updating system matrices.
 
-Step One: Loading the required libraries
+Step One: Load data and libraries
 +++++++++++++++++++++++++++++++++++++++++++
-The first step to estimating state-space models in GAUSS is to load the proper libraries:
+The first step to estimating state-space models in GAUSS is to load the data and proper libraries:
 
 ::
 
   new;
   library sslib, tsmt, cmlmt;
 
+  /*
+  ** Step one: Load data
+  */
+  fname = getGAUSShome $+ "pkgs/tsmt/examples/enders_sim2.dat";
+  y = loadd(fname);
+  y = y[., "ar2"];
+
 Step Two: Set up parameter vector and start values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 If you are estimating a custom state-space model, a vector of parameter starting values is required. The parameter vector should be a column vector which contains a starting value for each unknown parameter.
 
-In the :math:`AR(2)` example there are three unknown parameters :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`.
+In the :math:`AR(2)` model there are three unknown parameters :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`.
 
 ::
 
   /*
   ** Set up parameter vector
-  **           and start values
+  ** and start values
   */
 
   // Create a dataframe
@@ -246,7 +238,7 @@ The model dimensions are defined by three variables:
 |                    | Default = k_states.                                              |
 +--------------------+------------------------------------------------------------------+
 
-For the AR(2) model we have one endogenous variable and two state variables:
+The :math:`AR(2)` model has one endogenous variable and two state variables:
 
 ::
 
@@ -259,17 +251,17 @@ For the AR(2) model we have one endogenous variable and two state variables:
   // Number of states
   k_states = 2;
 
-
 Initialize control structure and system matrices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 After specifying the model dimensions, the :class:`ssControl` structure and the system matrices should be initialized using the :func:`ssControlCreate` procedure.
 
 ::
 
-  // Declare and instance of control structure
+  // Declare an instance of
+  // sscontrol structure
   struct ssControl ssctl;
 
-  // Fill the controls structure with defaults
+  // Fill the control structure with defaults
   // and sets up the system matrices.
   ssCtl = ssControlCreate(k_states, k_endog);
 
@@ -296,9 +288,9 @@ The :func:`ssControlCreate` procedure initiates the state-space system matrices 
 
 Step Four: Set up fixed system matrices
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
-The fixed system matrices should be specified using GAUSS after initializing the system matrices. In this step, any elements of the system matrices that do not contain parameters to be estimated should be specified using `GAUSS matrix notation <https://www.aptech.com/blog/gauss-basics-3-introduction-to-matrices/>`_.
+After initializing the :class:`ssControl` structure any elements of the system matrices that are fixed and do not contain parameters to be estimated should be specified using `GAUSS matrix notation <https://www.aptech.com/blog/gauss-basics-3-introduction-to-matrices/>`_.
 
-For example, in the AR(2) example above, the design matrix, :math:`Z`, is given by
+For example, in the :math:`AR(2)` example above, the design matrix, :math:`Z`, is given by
 
 .. math :: \begin{bmatrix} 1 & 0 \end{bmatrix}
 
@@ -330,7 +322,18 @@ These matrices have no relationship to the model parameters and should be specif
 In the example above, two different approaches are taken to setting the fixed elements in the system matrices.
 
   * The first is to set the entire transition (:math:`Z`) matrix.
-  * The second is to just change the 1,1 element of the selection matrix (:math:`R`) (which is initialized to be :math:`\begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}`).
+  * The second is to just change the 1,1 element of the selection matrix (:math:`R`).
+
+After setting the fixed elements, the transition and selection matrices are:
+
+::
+
+  ssctl.ssm.Z
+       1.0000000        0.0000000
+
+  ssCtl.ssm.R
+       1.0000000        0.0000000
+       0.0000000        0.0000000
 
 Step Five: Set up parameter constraints
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -368,7 +371,7 @@ In the :math:`AR(2)` model:
   // the parameter vector to be positive
   ssCtl.positive_vars = 3;
 
-Step Six: Set procedure for updating the SS model structure with parameters
+Step Six: Set procedure for updating the `ssModel` structure with parameters
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The final step before calling the :func:`ssFit` procedure is to specify the relationship between the state-space system matrices and the model parameters using a :class:`updateSSModel` `procedure <https://www.aptech.com/blog/basics-of-gauss-procedures/>`_.
 
@@ -404,7 +407,7 @@ The :class:`updateSSModel` function should always:
 
   endp;
 
-All together, the :class:`updateSSModel` for the AR(2) model is:
+All together, the :class:`updateSSModel` for the :math:`AR(2)` model is:
 
 ::
 
