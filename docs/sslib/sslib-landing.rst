@@ -37,8 +37,8 @@ Pre-built models
 +++++++++++++++++++++++++++
 
 ========================== =================================================================================================================================================================
-:func:`arimaSS`            Estimates parameters of a state-space model ARIMA(p, d, q) model using Kalman filtering and maximum likelihood estimation.
-:func:`sarimaSS`           Estimates parameters of a state-space model SARIMA(p, d, q)(p_s, d_s, q_s) model using Kalman filtering and maximum likelihood estimation.
+:func:`arimaSS`            Estimates parameters of a state-space model ARIMA(p, d, q) model using Kalman filtering and maximum likelihood estimation. (Time Series MT)
+:func:`sarimaSS`           Estimates parameters of a state-space model SARIMA(p, d, q)(p_s, d_s, q_s) model using Kalman filtering and maximum likelihood estimation. (Time Series MT)
 ========================== =================================================================================================================================================================
 
 
