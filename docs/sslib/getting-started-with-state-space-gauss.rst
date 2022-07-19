@@ -195,7 +195,9 @@ The first step to estimating state-space models in GAUSS is to load the proper l
 
 Step Two: Set up parameter vector and start values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
-If you are estimating a custom state-space model, a vector of parameter starting values is required. The parameter vector should be a column vector which contains a starting value for each unknown parameter. For example, in the :math:`AR(2)` example there are three unknown parameters :math:`\phi_1`, :math:`phi_2`, and :math:`sigma^2`.
+If you are estimating a custom state-space model, a vector of parameter starting values is required. The parameter vector should be a column vector which contains a starting value for each unknown parameter.
+
+In the :math:`AR(2)` example there are three unknown parameters :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`.
 
 ::
 
@@ -220,13 +222,13 @@ The :class:`ssControl` structure is used to:
 1. Specify the state-space system matrices.
 2. Implement stationarity and non-negativity constraints on parameters.
 3. Control modeling features.
-3. Specify advanced maximum likelihood controls.
+4. Specify advanced maximum likelihood controls.
 
 Before using the :class:`ssControl` structure:
 
-* The model dimensions must be specified.
-* The controls structure must be initialized.
-* The default values must be filled.
+1.The model dimensions must be specified.
+2.The control structure must be initialized.
+3.The default values must be filled.
 
 Specifying the model dimensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -296,7 +298,7 @@ Step Four: Set up fixed system matrices
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The fixed system matrices should be specified using GAUSS after initializing the system matrices. In this step, any elements of the system matrices that do not contain parameters to be estimated should be specified using `GAUSS matrix notation <https://www.aptech.com/blog/gauss-basics-3-introduction-to-matrices/>`_.
 
-For example, in the AR(2) example above, the transition matrix, :math:`Z`, is given by
+For example, in the AR(2) example above, the design matrix, :math:`Z`, is given by
 
 .. math :: \begin{bmatrix} 1 & 0 \end{bmatrix}
 
@@ -317,18 +319,60 @@ These matrices have no relationship to the model parameters and should be specif
   **
   */
 
-  // Set fixed parameters of model
+  // Set design matrix by
+  // specifying full matrix
   ssctl.ssm.Z = { 1 0 };
+
+  // Set selection matrix by
+  // specifying the 1,1 element
   ssctl.ssm.R[1, 1] = 1;
+
+In the example above, two different approaches are taken to setting the fixed elements in the system matrices.
+
+  * The first is to set the entire transition (:math:`Z`) matrix.
+  * The second is to just change the 1,1 element of the selection matrix (:math:`R`) (which is initialized to be :math:`\begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix}`).
 
 Step Five: Set up parameter constraints
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The :class:`sslib` library includes tools for implementing two types of parameter constraints:
+
+* Non-negativity constraint using the :class:`positive_vars` member of the :class:`ssControl` structure.
+* Stationarity constraint using the :class:`stationary_vars` member of the :class:`ssControl` structure.
+
+In the :math:`AR(2)` model:
+
+* :math:`\phi_1` and :math:`\phi_2` should be stationary.
+* :math:`\sigma^2` should be non-negative.
+
+::
+
+  /*
+  ** Constrained variables
+  */
+
+  /*
+  ** This stationary_vars member
+  ** indicates which variables should be
+  ** constrained to stationarity.
+  */
+  // Set the first and second parameters in
+  // the parameter vector to be stationary
+  ssCtl.stationary_vars = 1|2;
+
+  /*
+  ** This positive_vars member
+  ** indicates which variables should be
+  ** constrained to positive.
+  */
+  // Set the third parameters in
+  // the parameter vector to be positive
+  ssCtl.positive_vars = 3;
 
 Step Six: Set procedure for updating the SS model structure with parameters
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The final step before calling the :func:`ssFit` procedure is to specify the relationship between the state-space system matrices and the model parameters using a :class:`updateSSModel` `procedure <https://www.aptech.com/blog/basics-of-gauss-procedures/>`_.
 
-The :class:`updateSSModel` function should always include twp input parameters:
+The :class:`updateSSModel` function should always include two input parameters:
 
 +--------------------+------------------------------------------------+
 | Object             | Specification                                  |
@@ -338,7 +382,7 @@ The :class:`updateSSModel` function should always include twp input parameters:
 | :code:`param`      | The parameter vector.                          |
 +--------------------+------------------------------------------------+
 
-The :class:`updateSSModel` should always:
+The :class:`updateSSModel` function should always:
 
 1. Begin with a procedure declaration
 
@@ -376,3 +420,79 @@ All together, the :class:`updateSSModel` for the AR(2) model is:
     ssmod->Q[1, 1] = param[3];
 
   endp;
+
+Estimating the model
++++++++++++++++++++++++++
+Once the model is specified and the constraints are set, the parameters are estimated using the :func:`ssFit` procedure. This procedure requires four inputs:
+
++--------------------+------------------------------------------------------------------+
+|Variable            | Description                                                      |
++====================+==================================================================+
+| `&updateSSModel`   | A pointer to the user-defined, state-space                       |
+|                    | system update function.                                          |
++--------------------+------------------------------------------------------------------+
+| `param_vec_st`     | Parameter vector with starting values.                           |
++--------------------+------------------------------------------------------------------+
+| `y`       `        | Data.                                                            |
++--------------------+------------------------------------------------------------------+
+| `ssCtl`            | An instance of the `ssControl` structure. Should be              |
+|                    | initialized using the `ssControlCreate` procedure.               |
++--------------------+------------------------------------------------------------------+
+
+::
+
+  /*
+  ** Step six: Call the ssFit procedure.
+  **            This will:
+  **              1. Estimate model parameters.
+  **              2. Estimate inference statistics (se, t-stats).
+  **              3. Perform model residual diagnostics.
+  **              4. Compute model diagnostics and summary statistics.
+  */
+  struct ssOut sOut;
+  sOut = ssFit(&updateSSModel, param_vec_st, y, ssctl);
+
+
+The :func:`ssFit` procedure estimates the model parameters and their inference statistics:
+
+::
+
+  Return Code:                                                             0
+  Log-likelihood:                                                     -37.38
+  Number of Cases:                                                        99
+  AIC:                                                                 80.75
+  AICC:                                                                   81
+  BIC:                                                                 88.57
+  HQIC:                                                                79.34
+  Covariance Method:                                    ML covariance matrix
+  ==========================================================================
+
+  Parameters   Estimates   Std. Err.      T-stat       Prob.    Gradient
+  --------------------------------------------------------------------------
+        phi1      0.6845      0.0890      7.6913      0.0000     -0.0000
+        phi2     -0.4639      0.0904     -5.1333      0.0000      0.0000
+      sigma2      0.0884      0.0126      6.9972      0.0000      0.0000
+
+ Wald 95% Confidence Limits
+ --------------------------------------------------------------------------
+ Parameters   Estimates Lower Limit Upper Limit    Gradient
+ --------------------------------------------------------------------------
+      phi1      0.6845     -0.6826     -0.3753     -0.0000
+      phi2     -0.4639      0.2657      0.7817      0.0000
+    sigma2      0.0884      0.2552      0.3395      0.0000
+
+It also prints model and residual diagnostics:
+
+::
+
+  Model and residual diagnostics:
+  ==========================================================================
+  Ljung-Box (Q):                                                       0.024
+  Prob(Q):                                                             0.877
+  Heteroskedasticity (H):                                               1.04
+  Prob(H):                                                             0.908
+  Jarque-Bera (JB):                                                     6.34
+  Prob(JB):                                                           0.0421
+  Skew:                                                                0.021
+  Kurtosis:                                                             1.76
+  ==========================================================================
