@@ -182,8 +182,7 @@ The first step to estimating state-space models in GAUSS is to load the data and
   ** Step one: Load data
   */
   fname = getGAUSShome $+ "pkgs/tsmt/examples/enders_sim2.dat";
-  y = loadd(fname);
-  y = y[., "ar2"];
+  y = loadd(fname, "ar2");
 
 Step Two: Set up parameter vector and start values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -258,7 +257,7 @@ After specifying the model dimensions, the :class:`ssControl` structure and the 
 ::
 
   // Declare an instance of
-  // sscontrol structure
+  // ssControl structure
   struct ssControl ssctl;
 
   // Fill the control structure with defaults
@@ -385,29 +384,10 @@ The :class:`updateSSModel` function should always include two input parameters:
 | :code:`param`      | The parameter vector.                          |
 +--------------------+------------------------------------------------+
 
-The :class:`updateSSModel` function should always:
+The :class:`updateSSModel` is a user-defined function whose body describes how the parameters fit into the system matrices. The function uses a pointer to the :class:`*ssmod` structure and the :code:`->` method for assigning values to members within the structures.
 
-1. Begin with a procedure declaration
 
-::
-
-  proc (0) = updateSSModel(struct ssModel *ssmod, param);
-
-2. Contain a procedure body which relations system matrices to model parameters.
-
-::
-
-  // Set up kalman filter matrices
-  ssmod->T =  param[1 2]'|(1~0);
-  ssmod->Q[1, 1] = param[3];
-
-3. End with a procedure end statement.
-
-::
-
-  endp;
-
-All together, the :class:`updateSSModel` for the :math:`AR(2)` model is:
+For example, the :class:`updateSSModel` for the :math:`AR(2)` model is:
 
 ::
 
@@ -418,8 +398,10 @@ All together, the :class:`updateSSModel` for the :math:`AR(2)` model is:
   */
   proc (0) = updateSSModel(struct ssModel *ssmod, param);
 
-    // Set up kalman filter matrices
+    // Specify transition matrix
     ssmod->T =  param[1 2]'|(1~0);
+
+    // Specify state covariance
     ssmod->Q[1, 1] = param[3];
 
   endp;
@@ -436,7 +418,7 @@ Once the model is specified and the constraints are set, the parameters are esti
 +--------------------+------------------------------------------------------------------+
 | `param_vec_st`     | Parameter vector with starting values.                           |
 +--------------------+------------------------------------------------------------------+
-| `y`       `        | Data.                                                            |
+| `y`                | Data.                                                            |
 +--------------------+------------------------------------------------------------------+
 | `ssCtl`            | An instance of the `ssControl` structure. Should be              |
 |                    | initialized using the `ssControlCreate` procedure.               |
