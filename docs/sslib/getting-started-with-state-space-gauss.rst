@@ -76,7 +76,7 @@ and
 +--------------------+-------------------------+----------------------+
 | :math:`Z`          | Design matrix.          | :math:`p \times m`   |
 +--------------------+-------------------------+----------------------+
-| :math:`H`          | Observation disturbance.| :math:`p \times 1`   |
+| :math:`H`          | Observation disturbance | :math:`p \times 1`   |
 |                    | covariance matrix.      |                      |
 +--------------------+-------------------------+----------------------+
 | :math:`c`          | State intercept.        | :math:`m \times 1`   |
@@ -85,7 +85,7 @@ and
 +--------------------+-------------------------+----------------------+
 | :math:`R`          | Selection matrix.       | :math:`m \times r`   |
 +--------------------+-------------------------+----------------------+
-| :math:`\eta_t`     | State disturbance       | :math:`r \times 1`   |
+| :math:`\eta_t`     | State disturbance.       | :math:`r \times 1`   |
 +--------------------+-------------------------+----------------------+
 | :math:`Q`          | State disturbance       | :math:`r \times r`   |
 |                    | covariance matrix.      |                      |
@@ -99,14 +99,14 @@ Example: AR(2)
 +++++++++++++++++++++
 Consider the :math:`AR(2)` model
 
-.. math :: y_t = \alpha + \phi_1 y_{t-1} + \phi_2 y_{t-2} + e_t
+.. math :: y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + e_t
 .. math :: e_t \sim N(0, \sigma^2)
 
 There are a number of ways to transform this model to state-space representation. Consider, for example, letting :math:`\alpha_t = (y_t, y_{t-1})'`.
 
 **Transition Equation:**
 
-.. math :: \alpha_t	= \begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0\end{bmatrix} \alpha_t  + \begin{bmatrix} 1\\ 0 \end{bmatrix} \eta_t
+.. math :: \alpha_t	= \begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0\end{bmatrix} \alpha_{t-1}  + \begin{bmatrix} 1\\ 0 \end{bmatrix} \eta_t
 
 **Measurement Equation:**
 
