@@ -31,6 +31,7 @@ Estimating custom models
 :func:`ssFit`              Estimates parameters of a state-space model using Kalman filtering and maximum likelihood estimation.
 :func:`ssIRF`              Computes the impulse response functions based on the final estimated parameters.
 :func:`ssPredict`          Computes in sample predictions or out-of-sample forecasts based on the final estimated parameters.
+:func:`ssKalmanSmooth`		 Performs the Rauch-Tung-Striebel backward recursion smoother for state variables and state covariances.
 ========================== ===========================================================================================================
 
 Pre-built models
@@ -79,6 +80,7 @@ Further Reading
     ssheteroskedasticitytest
     ssirf
     ssjarquebera
+		sskalmansmooth 
     sskurtosis
     ssljungbox
     sspredict

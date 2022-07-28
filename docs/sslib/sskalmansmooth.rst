@@ -5,7 +5,7 @@ ssKalmanSmooth
 Purpose
 ----------------
 
-Performs the Rauch-Tung-Striebel backward recursion smoother.
+Performs the Rauch-Tung-Striebel backward recursion smoother for state variables and state covariances.
 
 Format
 ----------------
@@ -64,7 +64,7 @@ Examples
 The first five observations of the filtered state variable compared to the smoothed state variable are:
 
 ::
-  
+
     rslt.filtered_state[1:5]
      1119.830917
      1140.845842
