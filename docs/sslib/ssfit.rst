@@ -285,7 +285,7 @@ For example, we might have the following update function specifying how the para
 
 ::
 
-   proc (0) = updateSSModel(struct ssModel *ssMod, param);
+   proc (0) = updateSSModel(struct ssModel *ssmod, param);
 
     // Set up kalman filter matrices
     ssmod->T =  param[1 2]'|(1~0);
