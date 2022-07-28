@@ -60,7 +60,7 @@ Format
 
     :type ctl: struct
 
-    :return out: an instance of an :class:`ssout` structure. For an instance named *sOut*, the members are:
+    :return out: an instance of an :class:`ssOut` structure. For an instance named *sOut*, the members are:
 
       .. list-table::
         :widths: auto
