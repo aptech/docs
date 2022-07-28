@@ -12,7 +12,7 @@ Installation
 --------------
 The GAUSS State Space library can be installed and updated directly in GAUSS using the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_. It requires a working copy of GAUSS 22+.
 
-	For more information on installing the GAUSS Package Manager please see our video blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
+  For more information on installing the GAUSS Package Manager please see our video blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
 
 Dependencies
 --------------
@@ -71,7 +71,7 @@ Further Reading
 
     arimass
     sarimass
-		sscontrolcreate
+    sscontrolcreate
     ssfit
     ssgetaic
     ssgetaicc
@@ -80,7 +80,7 @@ Further Reading
     ssheteroskedasticitytest
     ssirf
     ssjarquebera
-		sskalmansmooth 
+    sskalmansmooth 
     sskurtosis
     ssljungbox
     sspredict
