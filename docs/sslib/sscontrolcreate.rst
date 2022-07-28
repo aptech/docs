@@ -9,7 +9,7 @@ Creates default ssControl structure.
 
 Format
 ----------------
-.. function:: ssctl = ssControlCreate(k_states, k_endog [, k_posdef])
+.. function:: ssCtl = ssControlCreate(k_states, k_endog [, k_posdef])
 
     :param k_states: Number of states.
     :type k_states:  Scalar
@@ -20,7 +20,7 @@ Format
     :param k_posdef: Optional argument, the dimension of the state innovation with a positive definite covariance matrix.
     :type k_posdef: scalar
 
-    :return ssctl: Instance of :class:`ssControl` struct with members set to default values.
+    :return ssCtl: Instance of :class:`ssControl` struct with members set to default values.
 
          .. list-table::
             :widths: auto
@@ -58,7 +58,7 @@ Format
                     * - ssm.p_0
                       - k_states x k_states, initial prior state covariance.
 
-    :rtype ssctl: struct
+    :rtype ssCtl: struct
 
 Examples
 ----------------
@@ -67,8 +67,8 @@ before it can be used.
 
 ::
 
-    // Declare 'ssctl' as an ssControl structure
-    struct ssControl ssctl;
+    // Declare 'ssCtl' as an ssControl structure
+    struct ssControl ssCtl;
 
     /*
     ** Model dimensions
@@ -79,8 +79,8 @@ before it can be used.
     // Number of states
     k_states = 2;
 
-    // Initialize structure 'ssctl'
-    ssctl = ssControlCreate(k_states, k_endog);
+    // Initialize structure 'ssCtl'
+    ssCtl = ssControlCreate(k_states, k_endog);
 
 Source
 ------

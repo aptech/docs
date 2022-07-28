@@ -258,7 +258,7 @@ After specifying the model dimensions, the :class:`ssControl` structure and the 
 
   // Declare an instance of
   // ssControl structure
-  struct ssControl ssctl;
+  struct ssControl ssCtl;
 
   // Fill the control structure with defaults
   // and sets up the system matrices.
@@ -312,11 +312,11 @@ These matrices have no relationship to the model parameters and should be specif
 
   // Set design matrix by
   // specifying full matrix
-  ssctl.ssm.Z = { 1 0 };
+  ssCtl.ssm.Z = { 1 0 };
 
   // Set selection matrix by
   // specifying the 1,1 element
-  ssctl.ssm.R[1, 1] = 1;
+  ssCtl.ssm.R[1, 1] = 1;
 
 In the example above, two different approaches are taken to setting the fixed elements in the system matrices.
 
@@ -327,7 +327,7 @@ After setting the fixed elements, the transition and selection matrices are:
 
 ::
 
-  ssctl.ssm.Z
+  ssCtl.ssm.Z
        1.0000000        0.0000000
 
   ssCtl.ssm.R
@@ -435,7 +435,7 @@ Once the model is specified and the constraints are set, the parameters are esti
   **              4. Compute model diagnostics and summary statistics.
   */
   struct ssOut sOut;
-  sOut = ssFit(&updateSSModel, param_vec_st, y, ssctl);
+  sOut = ssFit(&updateSSModel, param_vec_st, y, ssCtl);
 
 
 The :func:`ssFit` procedure estimates the model parameters and their inference statistics:

@@ -193,12 +193,12 @@ Examples
     k_posdef = 1;
 
     // Declare control structure
-    struct ssControl ssctl;
+    struct ssControl ssCtl;
     ssCtl = ssControlCreate(k_states, k_endog);
 
     // Set fixed parameters of model
-    ssctl.ssm.Z = { 1 0 };
-    ssctl.ssm.R[1, 1] = 1;
+    ssCtl.ssm.Z = { 1 0 };
+    ssCtl.ssm.R[1, 1] = 1;
 
     // Parameter names
     ssCtl.param_names = "phi1"$|"phi2"$|"sigma2";
@@ -209,7 +209,7 @@ Examples
 
     // Call ssFit function
     struct ssOut sOut;
-    sOut = ssFit(&updateSSModel, param_vec_st, y, ssctl);
+    sOut = ssFit(&updateSSModel, param_vec_st, y, ssCtl);
 
     // Set up procedure for updating SS model
     // structure

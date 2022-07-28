@@ -54,12 +54,12 @@ Examples
   k_states = 2;
 
   // Declare ssControl structure
-  struct ssControl ssctl;
+  struct ssControl ssCtl;
   ssCtl = ssControlCreate(k_states, k_endog);
 
   // Set fixed parameters of model
-  ssctl.ssm.Z = { 1 0 };
-  ssctl.ssm.R[1, 1] = 1;
+  ssCtl.ssm.Z = { 1 0 };
+  ssCtl.ssm.R[1, 1] = 1;
 
   // Constraint variables
   ssCtl.stationary_vars = 1|2;
@@ -67,7 +67,7 @@ Examples
 
   // Call ssFit function
   struct ssOut sOut;
-  sOut = ssFit(&updateSSModel, param_vec_st, y, ssctl);
+  sOut = ssFit(&updateSSModel, param_vec_st, y, ssCtl);
 
   // Compute forecasts
   forecasts= ssPredict(sOut, y);
