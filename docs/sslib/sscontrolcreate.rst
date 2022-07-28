@@ -15,25 +15,25 @@ Format
     :type k_states:  Scalar
 
     :param k_endog: Number of endogenous variables.
-    :type k_endog: scalar
+    :type k_endog: Scalar
 
     :param k_posdef: Optional argument, the dimension of the state innovation with a positive definite covariance matrix.
-    :type k_posdef: scalar
+    :type k_posdef: Scalar
 
-    :return ssCtl: Instance of :class:`ssControl` struct with members set to default values.
+    :return ssCtl: Instance of :class:`ssControl` struct with members set to default values. For an instance named *ssCtl*, the members are:
 
          .. list-table::
             :widths: auto
 
-            * - sctl.param_names
+            * - ssCtl.param_names
               - String array, parameter names.
-            * - sctl.stationary_vars
+            * - ssCtl.stationary_vars
               - Vector, specifies the index of the variables which should be constrained stationary.
-            * - sctl.positive_vars
+            * - ssCtl.positive_vars
               - Vector, specifies the index of the variables which should be constrained positive.
-            * - sctl.ctl
+            * - ssCtl.ctl
               - Instance of a :class:`cmlmtControl` structure, used for fine-tuning maximum likelihood estimation. Further information provided in the `cmlmt` documentation.
-            * - sctl.ssm
+            * - ssCtl.ssm
               - Instance of a :class:`ssModel` structure, contains the state space system matrices used in the :func:`kalmanFilter`. Contains the following members:
 
                 .. list-table::
@@ -58,7 +58,7 @@ Format
                     * - ssm.p_0
                       - k_states x k_states, initial prior state covariance.
 
-    :rtype ssCtl: struct
+    :rtype ssCtl: Struct
 
 Examples
 ----------------

@@ -5,7 +5,7 @@ ssgetBIC
 Purpose
 ----------------
 
-Computes the Schwarz’ Bayesian information criterion from loglikelihood.
+Computes the Schwarz’s Bayesian information criterion from loglikelihood.
 
 Format
 ----------------

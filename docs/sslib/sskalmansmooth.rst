@@ -12,7 +12,7 @@ Format
 .. function:: { a_smooth, p_smooth } = ssKalmanSmooth(ssm, y)
               { a_smooth, p_smooth } = ssKalmanSmooth(ssm, kfRslt)
 
-    :param ssm: A filled instance of a ssModel structure.
+    :param ssm: A filled instance of a :class:`ssModel` structure.
     :type ssm: Structure
 
     :param y: Optional, data. If a data matrix is passed, a first stage Kalman filtering will be performed.

@@ -37,7 +37,7 @@ Examples
   // Number of observations
   numObs = 150;
 
-  // Compute AIC
+  // Compute HQIC
   hqic = ssgetHQIC(ll, df_model, numObs);
 
 The code above results in the following:

@@ -9,10 +9,10 @@ Estimates parameters of a state-space model using Kalman filtering and maximum l
 
 Format
 ----------------
-.. function:: out = ssFit(&updateSSModel, par, y [, ctl])
+.. function:: sOut = ssFit(&updateSSModel, par, y [, ssCtl])
 
     :param &updateSSModel: pointer to a procedure that specifies how to update the state space system matrices. See remarks for further information.
-    :type &updateSSModel: function pointer
+    :type &updateSSModel: Function pointer
 
     :param par: Contains starting values for parameters to be estimated. This parameter vector is used in the `updateSSModel` procedure to update the state space system matrices.
     :type par: Vector
@@ -20,20 +20,20 @@ Format
     :param y: Observed data.
     :type y: Vector
 
-    :param ctl: Optional input, instance of an :class:`ssControl` structure. Normally an instance is initialized by calling :func:`ssControlCreate` and members of this instance can be set to other values by the user. For an instance named *sctl*, the members are:
+    :param ssCtl: Optional input, instance of an :class:`ssControl` structure. Normally an instance is initialized by calling :func:`ssControlCreate` and members of this instance can be set to other values by the user. For an instance named *ssCtl*, the members are:
 
      .. list-table::
         :widths: auto
 
-        * - sctl.param_names
+        * - ssCtl.param_names
           - String array, parameter names.
-        * - sctl.stationary_vars
+        * - ssCtl.stationary_vars
           - Vector, specifies the index of the variables which should be constrained stationary.
-        * - sctl.positive_vars
+        * - ssCtl.positive_vars
           - Vector, specifies the index of the variables which should be constrained positive.
-        * - sctl.ctl
+        * - ssCtl.ctl
           - Instance of a :class:`cmlmtControl` structure, used for fine-tuning maximum likelihood estimation. Further information provided in the `cmlmt` documentation.
-        * - sctl.ssm
+        * - ssCtl.ssm
           - Instance of a :class:`ssModel` structure, contains the state space system matrices used in the :func:`kalmanFilter`. Contains the following members:
 
             .. list-table::
@@ -58,9 +58,9 @@ Format
                 * - ssm.p_0
                   - k_states x k_states, initial prior state covariance.
 
-    :type ctl: struct
+    :type ssCtl: Struct
 
-    :return out: an instance of an :class:`ssOut` structure. For an instance named *sOut*, the members are:
+    :return sOut: an instance of an :class:`ssOut` structure. For an instance named *sOut*, the members are:
 
       .. list-table::
         :widths: auto
@@ -165,7 +165,7 @@ Format
         * - sOut.forecasts
           - Scalar, forecasts.
 
-    :rtype out: struct
+    :rtype sOut: Struct
 
 Examples
 ----------------
@@ -177,8 +177,7 @@ Examples
 
     // Load data
     fname = getGAUSShome $+ "pkgs/tsmt/examples/enders_sim2.dat";
-    y = loadd(fname);
-    y = y[., "ar2"];
+    y = loadd(fname, "ar2");
 
     // Set up parameter vector and start values
     param_vec_st = asDF(zeros(3, 1), "param");
@@ -300,4 +299,4 @@ Source
 
 ssmain.src
 
-.. seealso:: Functions :func:`ssControlCreate`, :func:`ssIRF`, :func:`ssPredicta`
+.. seealso:: Functions :func:`ssControlCreate`, :func:`ssIRF`, :func:`ssPredict`

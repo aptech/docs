@@ -39,8 +39,7 @@ Examples
   */
   // Filename
   fname = getGAUSShome $+ "pkgs/tsmt/examples/enders_sim2.dat";
-  y = loadd(fname);
-  y = y[., "ar2"];
+  y = loadd(fname, "ar2");
 
   // Set up parameter vector and start values
   param_vec_st = asDF(zeros(3, 1), "param");
