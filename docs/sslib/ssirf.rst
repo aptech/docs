@@ -35,7 +35,7 @@ Examples
 ::
 
   new;
-  library cmlmt, tsmt, ssdev;
+  library cmlmt, tsmt, sslib;
 
   /*
   ** Outline the state space process

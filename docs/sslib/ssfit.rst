@@ -173,7 +173,7 @@ Examples
 ::
 
     new;
-    library cmlmt, tsmt, ssdev;
+    library cmlmt, tsmt, sslib;
 
     // Load data
     fname = getGAUSShome $+ "pkgs/tsmt/examples/enders_sim2.dat";

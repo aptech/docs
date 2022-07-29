@@ -33,7 +33,7 @@ Examples
 ::
 
   new;
-  library tsmt, ssdev, cmlmt;
+  library tsmt, sslib, cmlmt;
 
   y = loadd(getGAUSSHome $+ "pkgs/tsmt/examples/nile.dat");
 
