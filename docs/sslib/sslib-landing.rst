@@ -23,13 +23,13 @@ This library requires the installation of the following GAUSS libraries:
 
 Usage
 -------------
-Estimating custom state-space models using the `sslib` library generally requires:
+Estimating custom state-space models using the `sslib` library requires:
 
 * Loading data
 * Setting up the state-space representation
 * Calling the estimation function `ssFit`
 
-A complete guide to getting started with the state-space estimation in GAUSS is available `here <./getting-started-with-state-space-gauss.rst>`_. 
+A complete guide to getting started with the state-space estimation in GAUSS is available `here <./getting-started-with-state-space-gauss.rst>`_.
 
 Commands
 ------------------------------
