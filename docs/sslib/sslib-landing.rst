@@ -27,9 +27,9 @@ Estimating custom state-space models using the `sslib` library requires:
 
 * Loading data
 * Setting up the state-space representation
-* Calling the estimation function `ssFit`
+* Calling the estimation function :func:`ssFit`
 
-A complete guide to getting started with the state-space estimation in GAUSS is available `here <./getting-started-with-state-space-gauss.rst>`_.
+See our `complete guide <getting-started.rst>`_ to getting started with state-space estimation in GAUSS for a full example.
 
 Commands
 ------------------------------
