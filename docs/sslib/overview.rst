@@ -29,7 +29,7 @@ Estimating custom state-space models using the `sslib` library requires:
 * Setting up the state-space representation
 * Calling the estimation function :func:`ssFit`
 
-See our `complete guide <getting-started.rst>`_ to getting started with state-space estimation in GAUSS for a full example.
+See our `complete guide <getting-started.html>`_ to getting started with state-space estimation in GAUSS for a full example.
 
 Commands
 ------------------------------
@@ -70,16 +70,11 @@ Model evaluation
 
 
 
-Further Reading
------------------
-
-
 .. toctree::
     :maxdepth: 1
     :hidden:
     :caption: State-space modeling
 
-    getting-started
     ssarima
     sscontrolcreate
     ssfit
