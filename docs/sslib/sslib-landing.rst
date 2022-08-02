@@ -21,6 +21,16 @@ This library requires the installation of the following GAUSS libraries:
 * `Time Series MT <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_
 * `Constrained Maximum Likelihood MT <https://store.aptech.com/gauss-applications-category/constrained-maximum-likelihood-mt.html>`_
 
+Usage
+-------------
+Estimating custom state-space models using the `sslib` library generally requires:
+
+* Loading data
+* Setting up the state-space representation
+* Calling the estimation function `ssFit`
+
+A complete guide to getting started with the state-space estimation in GAUSS is available `here <./getting-started-with-state-space-gauss.rst>`_. 
+
 Commands
 ------------------------------
 
@@ -38,8 +48,8 @@ Pre-built models
 +++++++++++++++++++++++++++
 
 ========================== =================================================================================================================================================================
-:func:`arimaSS`            Estimates parameters of a state-space model ARIMA(p, d, q) model using Kalman filtering and maximum likelihood estimation. (Time Series MT)
-:func:`sarimaSS`           Estimates parameters of a state-space model SARIMA(p, d, q)(p_s, d_s, q_s) model using Kalman filtering and maximum likelihood estimation. (Time Series MT)
+:func:`ssARIMA`            Estimates parameters of a state-space model ARIMA(p, d, q) model using Kalman filtering and maximum likelihood estimation.
+:func:`ssSARIMA`           Estimates parameters of a state-space model SARIMA(p, d, q)(p_s, d_s, q_s) model using Kalman filtering and maximum likelihood estimation.
 ========================== =================================================================================================================================================================
 
 
@@ -67,10 +77,9 @@ Further Reading
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: State space modeling
+    :caption: State-space modeling
 
-    arimass
-    sarimass
+    ssarima
     sscontrolcreate
     ssfit
     ssgetaic
@@ -80,8 +89,9 @@ Further Reading
     ssheteroskedasticitytest
     ssirf
     ssjarquebera
-    sskalmansmooth 
+    sskalmansmooth
     sskurtosis
     ssljungbox
     sspredict
+    sssarima
     ssskewness
