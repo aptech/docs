@@ -75,6 +75,7 @@ Model evaluation
     :hidden:
     :caption: State-space modeling
 
+    getting-started
     ssarima
     sscontrolcreate
     ssfit

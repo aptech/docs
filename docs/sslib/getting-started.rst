@@ -12,13 +12,13 @@ Installation
 -----------------------------------------------------------
 The GAUSS state-space library can be installed and updated using the `GAUSS package manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_.
 
-  More information about installing the GAUSS package manager is available in our blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
+More information about installing the GAUSS package manager is available in our blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
 
 The state-space library requires:
 
-1.  A working copy of **GAUSS 22+**.
-2.  The `Constrained Maximum Likelihood MT library <https://store.aptech.com/gauss-applications-category/constrained-maximum-likelihood-mt.html>`_ for GAUSS.
-3.  The `Time Series MT library <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_ for GAUSS.
+#. A working copy of **GAUSS 22+**.
+#. The `Constrained Maximum Likelihood MT library <https://store.aptech.com/gauss-applications-category/constrained-maximum-likelihood-mt.html>`_ for GAUSS.
+#. The `Time Series MT library <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_ for GAUSS.
 
 Data Loading
 --------------------
@@ -55,13 +55,13 @@ State-Space Model Specification
 ---------------------------------------------------
 The GAUSS :class:`sslib` library uses the state-space representation of a linear model written as
 
-.. math :: y_t = d + Z\alpha_t + \epsilon_t
-.. math :: \alpha_{t+1} = c + T\alpha_t + R\eta_t
+.. math:: y_t = d + Z\alpha_t + \epsilon_t
+.. math:: \alpha_{t+1} = c + T\alpha_t + R\eta_t
 
 where
 
-.. math :: \epsilon_t  \sim N(0, H)
-.. math :: \eta_t  \sim N(0, Q)
+.. math:: \epsilon_t  \sim N(0, H)
+.. math:: \eta_t  \sim N(0, Q)
 
 and
 
@@ -99,18 +99,18 @@ Example: AR(2)
 +++++++++++++++++++++
 Consider the :math:`AR(2)` model
 
-.. math :: y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + e_t
-.. math :: e_t \sim N(0, \sigma^2)
+.. math:: y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + e_t
+.. math:: e_t \sim N(0, \sigma^2)
 
 There are a number of ways to transform this model to state-space representation. Consider, for example, letting :math:`\alpha_t = (y_t, y_{t-1})'`.
 
 **Transition Equation:**
 
-.. math :: \alpha_t	= \begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0\end{bmatrix} \alpha_{t-1}  + \begin{bmatrix} 1\\ 0 \end{bmatrix} \eta_t
+.. math:: \alpha_t = \begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0\end{bmatrix} \alpha_{t-1}  + \begin{bmatrix} 1\\ 0 \end{bmatrix} \eta_t
 
 **Measurement Equation:**
 
-.. math :: y_t = \begin{bmatrix} 1 & 0 \end{bmatrix} \alpha_t
+.. math:: y_t = \begin{bmatrix} 1 & 0 \end{bmatrix} \alpha_t
 
 
 In this representation the system matrices are:
@@ -152,9 +152,9 @@ The GAUSS :class:`sslib` relies on two tools for estimating state-space models, 
 
 You will never need to interact with these two tools directly when using the GAUSS state-space framework. However, for more information about either of these please see the following:
 
-1. `Filtering data with the Kalman Filter <https://www.aptech.com/resources/tutorials/tsmt/filtering-data-with-the-kalman-filter/>`_
-2. `Beginner's Guide To Maximum Likelihood Estimation <https://www.aptech.com/blog/beginners-guide-to-maximum-likelihood-estimation-in-gauss/>`_
-3. `Maximum Likelihood Estimation in GAUSS <https://www.aptech.com/blog/maximum-likelihood-estimation-in-gauss/>`_
+#. `Filtering data with the Kalman Filter <https://www.aptech.com/resources/tutorials/tsmt/filtering-data-with-the-kalman-filter/>`_
+#. `Beginner's Guide To Maximum Likelihood Estimation <https://www.aptech.com/blog/beginners-guide-to-maximum-likelihood-estimation-in-gauss/>`_
+#. `Maximum Likelihood Estimation in GAUSS <https://www.aptech.com/blog/maximum-likelihood-estimation-in-gauss/>`_
 
 State-Space Models in GAUSS
 ---------------------------------------------------
@@ -162,12 +162,12 @@ The :class:`sslib` library contains a suite of tools that allows you to specify,
 
 Prior to estimating the model with :func:`ssFit`, there are several simple steps that must be taken:
 
-1. Load data and required libraries.
-2. Set up parameter vector and start values.
-3. Set up control structures.
-4. Initialize system matrices.
-5. Specify variable constraints.
-6. Set up procedure for updating system matrices.
+#. Load data and required libraries.
+#. Set up parameter vector and start values.
+#. Set up control structures.
+#. Initialize system matrices.
+#. Specify variable constraints.
+#. Set up procedure for updating system matrices.
 
 Step One: Load data and libraries
 +++++++++++++++++++++++++++++++++++++++++++
@@ -210,16 +210,16 @@ Step Three: Set up the control structure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The :class:`ssControl` structure is used to:
 
-1. Specify the state-space system matrices.
-2. Implement stationarity and non-negativity constraints on parameters.
-3. Control modeling features.
-4. Specify advanced maximum likelihood controls.
+#. Specify the state-space system matrices.
+#. Implement stationarity and non-negativity constraints on parameters.
+#. Control modeling features.
+#. Specify advanced maximum likelihood controls.
 
 Before using the :class:`ssControl` structure:
 
-1.The model dimensions must be specified.
-2.The control structure must be initialized.
-3.The default values must be filled.
+#. The model dimensions must be specified.
+#. The control structure must be initialized.
+#. The default values must be filled.
 
 Specifying the model dimensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -291,11 +291,11 @@ After initializing the :class:`ssControl` structure any elements of the system m
 
 For example, in the :math:`AR(2)` example above, the design matrix, :math:`Z`, is given by
 
-.. math :: \begin{bmatrix} 1 & 0 \end{bmatrix}
+.. math:: \begin{bmatrix} 1 & 0 \end{bmatrix}
 
 and the selection matrix, :math:`R`, is given by
 
-.. math :: \begin{bmatrix} 1 \\ 0 \end{bmatrix}
+.. math:: \begin{bmatrix} 1 \\ 0 \end{bmatrix}
 
 These matrices have no relationship to the model parameters and should be specified before calling the :func:`ssFit` procedure:
 
@@ -320,8 +320,8 @@ These matrices have no relationship to the model parameters and should be specif
 
 In the example above, two different approaches are taken to setting the fixed elements in the system matrices.
 
-  * The first is to set the entire transition (:math:`Z`) matrix.
-  * The second is to just change the 1,1 element of the selection matrix (:math:`R`).
+* The first is to set the entire transition (:math:`Z`) matrix.
+* The second is to just change the 1,1 element of the selection matrix (:math:`R`).
 
 After setting the fixed elements, the transition and selection matrices are:
 
