@@ -12,7 +12,7 @@ Installation
 --------------
 The GAUSS State Space library can be installed and updated directly in GAUSS using the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_. It requires a working copy of GAUSS 22+.
 
-  For more information on installing the GAUSS Package Manager please see our video blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
+For more information on installing the GAUSS Package Manager please see our video blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
 
 Dependencies
 --------------
@@ -41,7 +41,7 @@ Estimating custom models
 :func:`ssFit`              Estimates parameters of a state-space model using Kalman filtering and maximum likelihood estimation.
 :func:`ssIRF`              Computes the impulse response functions based on the final estimated parameters.
 :func:`ssPredict`          Computes in sample predictions or out-of-sample forecasts based on the final estimated parameters.
-:func:`ssKalmanSmooth`		 Performs the Rauch-Tung-Striebel backward recursion smoother for state variables and state covariances.
+:func:`ssKalmanSmooth`     Performs the Rauch-Tung-Striebel backward recursion smoother for state variables and state covariances.
 ========================== ===========================================================================================================
 
 Pre-built models
@@ -79,6 +79,7 @@ Further Reading
     :hidden:
     :caption: State-space modeling
 
+    getting-started
     ssarima
     sscontrolcreate
     ssfit
@@ -95,3 +96,4 @@ Further Reading
     sspredict
     sssarima
     ssskewness
+
