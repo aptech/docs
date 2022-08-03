@@ -36,17 +36,17 @@ Example
 -------
 ::
 
-new; 
- 
+new;
+
 cls;
-  
+
 library tsmt;
- 
-      
-//Load data
+
+
+// Load data
 data = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/ab_data.dat");
 
-//Fill data for unbalanced data
+// Fill data for unbalanced data
 stacked_data = tsFill( data, 3, 14 );
 
 Source

@@ -41,16 +41,16 @@ new;
 cls;
 library tsmt;
 
-//Number of variables in the system
+// Number of variables in the system
 num_vars = 3;
 
-//Order of time-polynomial included in fitted regression
+// Order of time-polynomial included in fitted regression
 p = 2;
 
-//Find critical values
+// Find critical values
 c_values = vmc_sjamt( num_vars, p );
 
-//Print solution
+// Print solution
 print "Critical Values :";;
 c_values';
 

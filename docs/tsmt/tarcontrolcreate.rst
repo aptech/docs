@@ -37,10 +37,10 @@ new;
 cls;
 library tsmt;
 
-//Declare the structure 
+// Declare the structure
 struct TARControl TAR0;
 
-//Initialize the structure 
+// Initialize the structure 
 TAR0 = TARControlCreate( );
 
 Source

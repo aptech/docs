@@ -38,20 +38,20 @@ new;
 cls;
 library tsmt;
 
-//Data
+// Data
 yt = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/panel_g.csv" );
 log_yt = log(yt[., 2:9]);
 
-//Test first column of data
-y_test = log_yt[., 1]; 
+// Test first column of data
+y_test = log_yt[., 1];
 
-//Number of observations
+// Number of observations
 numObs = rows(y_test);
 
-//Set lags to follow Enders, Table 4.8
+// Set lags to follow Enders, Table 4.8
 p = 5;
 
-//Find critical values
+// Find critical values
 crit = vmztcritmt( numObs, p );
 
 print "The tau critical values for the Augmented Dickey-Fuller stat : ";

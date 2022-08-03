@@ -45,18 +45,18 @@ new;
 cls;
 library tsmt;
 
-//Load cobb douglas production function data set
+// Load cobb douglas production function data set
 y = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/production_cobb.dat");
 
-//Run test using model one for data with no mean
-{z , zInf} = htTest(y , 1 );
+// Run test using model one for data with no mean
+{ z , zInf } = htTest(y , 1 );
 
-//Run HT test for model two for data with fixed effects
-{z, zInf} = htTest(y , 2);
+// Run HT test for model two for data with fixed effects
+{ z, zInf } = htTest(y , 2);
 
-//Run HT test for model three for data with fixed effects
-//and time trend
-{z, zInf} = htTest(y , 3);
+// Run HT test for model three for data with fixed effects
+// and time trend
+{ z, zInf } = htTest(y , 3);
 
 Source
 ------

@@ -9,7 +9,7 @@ Format
 ------
 .. function:: TARout = tarTest(yt, tar0)
 
-   :param yt: data. 
+   :param yt: data.
    :type yt: Nx1 vector
 
    :param tar0: :class:`TARControl` structure containing the following elements:
@@ -18,23 +18,23 @@ Format
          :widths: auto
 
          * - p
-           - scalar, Autoregressive order of the STAR model. 
+           - scalar, Autoregressive order of the STAR model.
          * - omit
-           - scalar, Nx1 vector number of lags (below p) to omit from the matrix. 
+           - scalar, Nx1 vector number of lags (below p) to omit from the matrix.
          * - lowerQuantile
-           - scalar, the lower quantile. 
+           - scalar, the lower quantile.
          * - upperQuantile
-           - scalar, the upper quantile. 
+           - scalar, the upper quantile.
          * - rep
-           - scalar, the number of simulation replications. 
+           - scalar, the number of simulation replications.
          * - printOutput
-           - scalar, 0 or 1, 1 prints output to the screen. 
+           - scalar, 0 or 1, 1 prints output to the screen.
          * - graph
-           - scalar, 0 or 1, 1 turns on plotting. 
+           - scalar, 0 or 1, 1 turns on plotting.
          * - dstart
-           - scalar, start date of the time series in DT scalar format as used by plotTS. 
+           - scalar, start date of the time series in DT scalar format as used by plotTS.
          * - freq
-           - scalar, Data frequency, 12 for monthly, 4 for quarterly or 1 for annual. 
+           - scalar, Data frequency, 12 for monthly, 4 for quarterly or 1 for annual.
 
    :type tar0: struct
 
@@ -44,19 +44,19 @@ Format
          :widths: auto
 
          * - tests
-           - vector of test statistics (in order): SupLM, ExpLM, AveLM, SupLMs, ExpLMs, AveLMs. 
+           - vector of test statistics (in order): SupLM, ExpLM, AveLM, SupLMs, ExpLMs, AveLMs.
          * - pvalues
-           - vector, estimated asymptotic p-values or test statistics. 
+           - vector, estimated asymptotic p-values or test statistics.
          * - coefficients
-           - matrix, first column contains estimated coefficients and second column contains standard errors. 
+           - matrix, first column contains estimated coefficients and second column contains standard errors.
          * - regimeErrorVariance
-           - vector, 2x1, error variance for Regime 1 and Regime 2, respectively. 
+           - vector, 2x1, error variance for Regime 1 and Regime 2, respectively.
          * - thresholdLag
-           - scalar, threshold variable lag. 
+           - scalar, threshold variable lag.
          * - thresholdValue
-           - scalar, threshold estimate. 
+           - scalar, threshold estimate.
          * - errorVariance
-           - scalar, threshold model error variance. 
+           - scalar, threshold model error variance.
 
    :rtype TAROut: struct
 
@@ -70,35 +70,35 @@ Example
    cls;
    library tsmt;
 
-   //Real GNP data 
-   //Seasonally adjusted and transformed in annualized quarterly growth rates
-   //1947-1990
+   // Real GNP data
+   // Seasonally adjusted and transformed in annualized quarterly growth rates
+   // 1947-1990
    gnp = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/gnp_4790.fmt");
    yg = ln(gnp[., 1]);
    y = (yg[2:rows(yg)]-yg[1:rows(yg)-1])*400;
 
-   //Declare the structure 
+   // Declare the structure
    struct TARControl tar0;
 
 
-   //Initialize the structure 
+   // Initialize the structure
    tar0 = TARControlCreate();
 
-   //Maximum number of lags considered
+   // Maximum number of lags considered
    tar0.p = 5;
 
-   //Lags to omit from the test
+   // Lags to omit from the test
    omit = { 3, 4 };
    tar0.omit = omit;
 
-   //Number of replications for Monte Carlo 
+   // Number of replications for Monte Carlo
    tar0.rep = 5000;
 
-   //Data start date and frequency
+   // Data start date and frequency
    tar0.dstart = 1947;
    tar0.freq = 4;
 
-   //Run function
+   // Run function
    struct TAROut tarfnl;
    tarfnl = tarTest( y, tar0 );
 

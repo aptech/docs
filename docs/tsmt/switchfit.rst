@@ -34,43 +34,43 @@ Format
          :widths: auto
 
          * - swc.constVariance
-           - scalar, if nonzero, error variances are constant across states, otherwise if zero, not. 
+           - scalar, if nonzero, error variances are constant across states, otherwise if zero, not.
          * - swc.relevantStates
-           - scalar, if nonzero, lagged states are relevant for time series variable, otherwise if zero, only the current state is relevant. 
+           - scalar, if nonzero, lagged states are relevant for time series variable, otherwise if zero, only the current state is relevant.
          * - swc.aBayes
-           - scalar, if nonzero, "a" parameter controlling the Bayesian prior as described in James D. Hamilton, 1991, "A quasi-Bayesian approach to estimating parameters for mixtures of Normal distributions," Journal of Business and Economic Statistics, 9:27-39. 
+           - scalar, if nonzero, "a" parameter controlling the Bayesian prior as described in James D. Hamilton, 1991, "A quasi-Bayesian approach to estimating parameters for mixtures of Normal distributions," Journal of Business and Economic Statistics, 9:27-39.
          * - swc.bBayes
-           - scalar, if nonzero, "b" parameter controlling the Bayesian prior. 
+           - scalar, if nonzero, "b" parameter controlling the Bayesian prior.
          * - swc.cBayes
-           - scalar, if nonzero, "c" parameter controlling the Bayesian prior. 
+           - scalar, if nonzero, "c" parameter controlling the Bayesian prior.
          * - swc.userTransEqp
-           - scalar, pointer to user-provided function for setting equality constraints on transition probability matrix. 
+           - scalar, pointer to user-provided function for setting equality constraints on transition probability matrix.
          * - swc.start
            - instance of a PV structure containing start values.
-       
+
              .. list-table::
                 :widths: auto
 
                 * - beta0
-                  - 1, num_states by 1 vector, constants. 
+                  - 1, num_states by 1 vector, constants.
                 * - beta
-                  - 2, num_states by K, coefficients on K independent variables if any. 
+                  - 2, num_states by K, coefficients on K independent variables if any.
                 * - phi
-                  - 3, num_lags by 1 vector, autoregression coefficients. 
+                  - 3, num_lags by 1 vector, autoregression coefficients.
                 * - sigma
-                  - 4, scalar or num_states by 1 vector, error variances. If swc.constVarianceis zero, it is a scalar, otherwise it is a vector. 
+                  - 4, scalar or num_states by 1 vector, error variances. If swc.constVarianceis zero, it is a scalar, otherwise it is a vector.
                 * - p
                   - 5, num_states by num_states matrix, transition probabilities.
 
              For example:
-             
-             :: 
+
+             ::
 
                 swc.start = pvPacki(swc.start, 3|3, "beta0", 1);
                 swc.start = pvPacki(swc.start, .1|.01, "Phi", 3);
                 swc.start = pvPacki(swc.start, 1, "Sigma", 4);
                 swc.start = pvPacki(swc.start, (.8~.1)|(.2~.9), "P", 5);
-         
+
          * - swc.control
            - instance of an :class:`sqpsolvemtControl` structure.
 
@@ -78,39 +78,39 @@ Format
                 :widths: auto
 
                 * - swc.ctl.covType
-                  - scalar, if 2, QML standard errors are computed, if 0, none; otherwise Wald-type. 
+                  - scalar, if 2, QML standard errors are computed, if 0, none; otherwise Wald-type.
                 * - swc.ctl.printIters
-                  - scalar, iteration information printed every swc.ctl.printIters-th iteration. 
+                  - scalar, iteration information printed every swc.ctl.printIters-th iteration.
 
              See documentation for :class:`sqpsolvemtControl` for further information regarding members of this structure.
-       
+
          * - swc.header
-           - string, specifies the format for the output header. swc.header can contain zero or more of the following characters: 
+           - string, specifies the format for the output header. swc.header can contain zero or more of the following characters:
 
              .. list-table::
                 :widths: auto
 
                 * - t
-                 - title is to be printed. 
+                 - title is to be printed.
                 * - l
-                  - lines are to bracket the title. 
+                  - lines are to bracket the title.
                 * - d
-                  - a date and time is to be printed. 
+                  - a date and time is to be printed.
                 * - v
-                  - version number of program is to be printed. 
+                  - version number of program is to be printed.
                 * - f
                   - file name being analyzed is to be printed.
 
              Example:
 
-             :: 
+             ::
 
                swc.header = "tld";
 
              If :code:`swc.header = ""`, no header is printed. Default = ``"tldvf"``.
 
          * - swc.output
-           - scalar, if nonzero, results are printed to screen. Default = 1 . 
+           - scalar, if nonzero, results are printed to screen. Default = 1 .
 
    :type swc: struct
 
@@ -121,50 +121,50 @@ Format
 
          * - out.par
            - instance of a PV structure containing the estimates:
-       
+
              .. list-table::
                 :widths: auto
 
                 * - beta0
-                  - 1, num_states by 1 vector, constants. 
+                  - 1, num_states by 1 vector, constants.
                 * - beta
-                  - 2, num_states by K, coefficients on K independent variables if any. 
+                  - 2, num_states by K, coefficients on K independent variables if any.
                 * - phi
-                  - 3, num_lags by 1 vector, autoregression coefficients. 
+                  - 3, num_lags by 1 vector, autoregression coefficients.
                 * - sigma
-                  - 4, scalar or num_states by 1 vector, error variances. If swc. constVarianceis zero, it is a scalar, otherwise it is a vector. 
+                  - 4, scalar or num_states by 1 vector, error variances. If swc. constVarianceis zero, it is a scalar, otherwise it is a vector.
                 * - p
                   - 5, num_states by num_states matrix, transition probabilities.
 
              For example:
-             
-             :: 
+
+             ::
 
                 consts = pvUnpack(out.par, "beta0");
-             
+
              or
 
              ::
 
                 consts = pvUnpack(out.par, 1);
-         
+
          * - out.covPar
-           - MxM matrix, covariance matrix of parameters. 
+           - MxM matrix, covariance matrix of parameters.
          * - out.logl
-           - scalar, log-likelihood at maximum. 
+           - scalar, log-likelihood at maximum.
          * - out.retcode
            - return code:
-       
-             :0: normal convergence. 
-             :1: forced exit. 
-             :2: maximum number of iterations exceeded. 
-             :3: function calculation failed. 
-             :4: gradient calculation failed. 
-             :5: Hessian calculation failed. 
-             :6: line search failed. 
-             :7: error with constraints. 
+
+             :0: normal convergence.
+             :1: forced exit.
+             :2: maximum number of iterations exceeded.
+             :3: function calculation failed.
+             :4: gradient calculation failed.
+             :5: Hessian calculation failed.
+             :6: line search failed.
+             :7: error with constraints.
              :8: function complex.
-               
+
          * - out.lagr
            - instance of :class:`sqpSolvemtLagrange` structure
 
@@ -172,18 +172,18 @@ Format
                 :widths: auto
 
                 * - out.lagr.lineq
-                  - Mx1 vector, Lagrangeans of linear equality constraints. 
+                  - Mx1 vector, Lagrangeans of linear equality constraints.
                 * - out.lagr.nlineq
-                  - Nx1 vector, Lagrangeans of nonlinear equality constraints. 
+                  - Nx1 vector, Lagrangeans of nonlinear equality constraints.
                 * - out.lagr.linineq
-                  - Px1 vector, Lagrangeans of linear inequality constraints. 
+                  - Px1 vector, Lagrangeans of linear inequality constraints.
                 * - out.lagr.nlinineq
-                  - Qx1 vector, Lagrangeans of nonlinear inequality constraints. 
+                  - Qx1 vector, Lagrangeans of nonlinear inequality constraints.
                 * - out.lagr.bounds
-                  - Kx2 matrix, Lagrangeans of bounds. 
-             
-             Whenever a constraint is active, its associated Lagrangean will be nonzero. For any constraint that is inactive throughout 
-             the iterations as well as at convergence, the corresponding Lagrangean matrix will be set to a scalar missing value. 
+                  - Kx2 matrix, Lagrangeans of bounds.
+
+             Whenever a constraint is active, its associated Lagrangean will be nonzero. For any constraint that is inactive throughout
+             the iterations as well as at convergence, the corresponding Lagrangean matrix will be set to a scalar missing value.
 
    :rtype out: struct
 
@@ -197,11 +197,11 @@ Economic Review, Sept. 1990.
 
 ::
 
-   y0 = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/exdata.dat"); 
+   y0 = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/exdata.dat");
 
    y = y0[.,1];
 
-   //Estimation parameters
+   // Estimation parameters
 
    struct switchFitControl c0;
    c0 = switchFitControlCreate();
@@ -213,7 +213,7 @@ Economic Review, Sept. 1990.
    c0.cBayes = .1;
 
    /*
-   ** The log-likelihood is somewhat flat and thus 
+   ** The log-likelihood is somewhat flat and thus
    ** the problem requires a good starting point.
    */
 

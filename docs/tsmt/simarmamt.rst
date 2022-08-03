@@ -72,34 +72,34 @@ new;
 cls;
 library tsmt;
 
-//Simulate arima data
+// Simulate arima data
 seed = 423458;
 
-//Coefficients
+// Coefficients
 b = { .6, -.3, -.5 };
 
-//AR terms
+// AR terms
 p = 2;
 
-//MA terms
+// MA terms
 q = 1;
 
-//Constant
+// Constant
 const = 2;
 
-//Trend
+// Trend
 trend = 0;
 
-//Number of observations
+// Number of observations
 n = 100;
 
-//Number of replications
+// Number of replications
 k = 1;
 
-//Stanadard deviation of error process
+// Stanadard deviation of error process
 std = 0.5;
 
-//Generate data
+// Generate data
 y = simarmamt( b, p, q, const, trend, n, k, std, seed );
 
 Source

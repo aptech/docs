@@ -126,20 +126,20 @@ new;
 cls;
 library tsmt;
 
-//Load data 
+// Load data
 airline = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/airline.dat");
 
-//Transform data
+// Transform data
 y = airline;
 
-//Use trend in test
+// Use trend in test
 p = 1;
 
-//Number lags
+// Number lags
 lags = 4;
 
-//Run test
-{ppb, ppt, pptcrit} = vmppmt(y, p, lags);
+// Run test
+{ ppb, ppt, pptcrit } = vmppmt(y, p, lags);
 
 print "Estimated autoregressive parameter : ";; ppb;
 print;

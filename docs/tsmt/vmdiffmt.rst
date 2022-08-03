@@ -27,33 +27,32 @@ Example
    cls;
    library tsmt;
 
-   //Step One: data
-   //Step One: data
-   yt = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/panel_g.csv" );
+   // Step One: data
+   yt = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/panel_g.csv", "date($Date) + ." );
 
-   //U.K.
-   y_uk = yt[., 7]; 
+   // U.K.
+   y_uk = yt[., "UK"];
 
-   //Demean data - use p=0
-   y_uk_diff = vmdiffdmt( y_uk, 1 );
+   // First difference of data
+   y_uk_diff = vmdiffmt( y_uk, 1 );
 
-   //Plots
+   // Plots
    struct plotControl myPlot;
    myPlot = plotGetDefaults( "xy" );
 
-   //Title of first graph
-    plotSetTitle( &myPlot, "Original", "Arial", 16 );
+   // Title of first graph
+   plotSetTitle( &myPlot, "Original", "Arial", 16 );
 
-   //Set layout
-    plotLayout( 2, 1, 1 );
-    plotTS( myPlot, 19800101, 4, y_uk );
+   // Set layout
+   plotLayout( 2, 1, 1 );
+   plotTS( myPlot, 19800101, 4, y_uk );
 
-   //Title of first graph
-    plotSetTitle( &myPlot, "First Difference", "Arial", 16 );
+   // Title of first graph
+   plotSetTitle( &myPlot, "First Difference", "Arial", 16 );
 
-   //Set layout
-    plotLayout( 2, 1, 2 );
-    plotTS( myPlot, 19800101, 4, y_uk_diff );
+   // Set layout
+   plotLayout( 2, 1, 2 );
+   plotTS( myPlot, 19800101, 4, y_uk_diff );
 
 Library
 -------

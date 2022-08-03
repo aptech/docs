@@ -45,19 +45,19 @@ Format
          :widths: auto
 
          * - kout.filtered_state
-           - Matrix, pxT, filtered states. 
+           - Matrix, pxT, filtered states.
          * - kout.filtered_state_cov
-           - Array, Txpxp, filtered state covariances. 
+           - Array, Txpxp, filtered state covariances.
          * - kout.predicted_state
-           - Matrix, px(T+1), predicted states. 
+           - Matrix, px(T+1), predicted states.
          * - kout.predicted_state_cov
-           - Array, Txpxp, predicted state covariances. 
+           - Array, Txpxp, predicted state covariances.
          * - kout.forecast
-           - Matrix, pxT, forecasts. 
+           - Matrix, pxT, forecasts.
          * - kout.forecast_error
-           - Matrix, pxT, forecast error. 
+           - Matrix, pxT, forecast error.
          * - kout.forecast_error_cov
-           - Array, Txpxp, forecast error covariances. 
+           - Array, Txpxp, forecast error covariances.
          * - kout.loglikelihood
            - Matrix, px(T+1), computed loglikelihood.
 
@@ -73,14 +73,14 @@ Example
    cls;
    library tsmt;
 
-   //Load data
+   // Load data
    y = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/nile.dat");
 
-   //Set up state space matrices
+   // Set up state space matrices
    sigma_e = 15099;
    sigma_n = 1469.1;
 
-   //Linear level model
+   // Linear level model
    Z = 1;
    H = sigma_e;
    T = 1;
@@ -89,11 +89,11 @@ Example
    d = 0;
    c = 0;
 
-   //Initial state variables
+   // Initial state variables
    a_0 = 0;
    p_0 = 10e7;
 
-   struct kalmanResult rslt; 
+   struct kalmanResult rslt;
    rslt = kalmanFilter(y', Z, d, H, T, c, R, Q, a_0, p_0);
 
 Remarks
