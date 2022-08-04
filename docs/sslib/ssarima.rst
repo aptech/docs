@@ -140,14 +140,14 @@ Example
 
 ::
 
-  new;
-  library tsmt, cmlmt, sslib;
+ new;
+ library tsmt, cmlmt, sslib;
 
-  // Create file name with full path
-  fname = __FILE_DIR $+ "wpi1.dat";
+ // Create file name with full path
+ fname = __FILE_DIR $+ "wpi1.dat";
 
-  // Load variable 'wpi' from 'wpi1.dat'
-  y = loadd(fname, "wpi");
+ // Load variable 'wpi' from 'wpi1.dat'
+ y = loadd(fname, "wpi");
 
  // Model settings
  p = 1;
