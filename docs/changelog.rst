@@ -7,8 +7,21 @@ The following is a list of changes from the previous version of GAUSS.
 22.2.0
 ------
 
+#. Added support for GAUSS subscription-based licenses. 
+#. Added support for multiple activation keys in the license activation dialog. (GUI)
+#. Added support for passing extra arguments to the objective function in :func:`sqpsolve`.
+#. Added support for passing extra arguments to the objective function in :func:`qnewton`.
 #. Bug Fix: :func:`dbGetTables` returned an error instead of a scalar missing on an empty result set.
-#. Bug Fix: ``F4`` shortcut was not interpreting :func:`__FILE_DIR` correctly when executed with selected text.
+#. Bug Fix: ``F4`` shortcut was not interpreting :func:`__FILE_DIR` correctly.
+#. Bug Fix: Fixed Forward/Back key shortcuts for navigating file history on macOS.
+#. Bug Fix: Custom missing values in the file import dialog could cause GAUSS to crash.
+#. Bug Fix: Allowed changing case of dataframe header names in the symbol editor (GUI).
+#. Bug Fix: Legend positioning could be slightly off in certain circumstances.
+#. Bug Fix: The legend font color could overwrite the marker border color when a plotAdd occurred.
+#. Bug Fix: Use current encoding when doing token matching in the editor.
+#. Bug Fix: macOS update was not removing existing vwrmp.app before replacement.
+#. Bug Fix: Multi-element assignment with a 1x1 matrix on the right-hand side would cause an error.
+#. Bug Fix: Indexing a scalar from a dataframe vector in a non-atomic fashion was not returning a dataframe.
 
 22.1.0
 ------
