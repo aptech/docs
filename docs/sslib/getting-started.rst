@@ -1,4 +1,4 @@
-Getting Started with State-Space Modeling in GAUSS
+Getting Started
 ===================================================
 This page provides an overview of how to implement custom state-space models in GAUSS. It covers everything needed to get working with the GAUSS state-space library including:
 
