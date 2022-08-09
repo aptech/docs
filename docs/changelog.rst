@@ -9,10 +9,10 @@ The following is a list of changes from the previous version of GAUSS.
 
 #. Added support for GAUSS subscription-based licenses. 
 #. Added support for multiple activation keys in the license activation dialog. (GUI)
-#. Added support for passing extra arguments to the objective function in :func:`sqpsolve`.
-#. Added support for passing extra arguments to the objective function in :func:`qnewton`.
+#. Added support for passing extra arguments to the objective function in :func:`sqpSolve`.
+#. Added support for passing extra arguments to the objective function in :func:`QNewton`.
 #. Bug Fix: :func:`dbGetTables` returned an error instead of a scalar missing on an empty result set.
-#. Bug Fix: ``F4`` shortcut was not interpreting :func:`__FILE_DIR` correctly.
+#. Bug Fix: :kbd:`F4` shortcut was not interpreting :func:`__FILE_DIR` correctly.
 #. Bug Fix: Fixed Forward/Back key shortcuts for navigating file history on macOS.
 #. Bug Fix: Custom missing values in the file import dialog could cause GAUSS to crash.
 #. Bug Fix: Allowed changing case of dataframe header names in the symbol editor (GUI).
