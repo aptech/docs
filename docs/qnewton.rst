@@ -8,15 +8,18 @@ Optimizes a function using the BFGS descent algorithm.
 
 Format
 ----------------
-.. function:: { x, f, g, ret } = QNewton(&fct, start)
+.. function:: { x, f, g, ret } = QNewton(&fct, start[, ...])
 
-    :param &fct: pointer to a procedure that computes the function to be minimized. This procedure must have one input
+    :param &fct: pointer to a procedure that computes the function to be minimized. This procedure must have at one input
         argument, a vector of parameter values, and one output argument, the value of the function evaluated
-        at the input vector of parameter values.
+        at the input vector of parameter values. Additional optional arguments may be passed in to the objective function *fct* using dots (``...``).
     :type &fct: function pointer
 
     :param start: start values.
     :type start: Kx1 vector
+
+    :param ...: Optional. A variable number of extra arguments to pass to the user function. These arguments will be passed to the user function *fct* untouched.
+    :type ...: any
 
     :return x: coefficients at the minimum of the function.
 

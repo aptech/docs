@@ -167,39 +167,39 @@ The example above prints the following results
 ::
 
   Return Code:                                                             0
-  Log-likelihood:                                                      244.5
+  Log-likelihood:                                                 -4.603e+04
   Number of Cases:                                                       130
-  AIC:                                                                  -483
-  AICC:                                                               -482.8
-  BIC:                                                                -474.4
-  HQIC:                                                               -484.3
+  AIC:                                                             9.207e+04
+  AICC:                                                            9.207e+04
+  BIC:                                                             9.208e+04
+  HQIC:                                                            9.207e+04
   Covariance Method:                                    ML covariance matrix
  ==========================================================================
 
         Parameters         Estimates         Std. Err.            T-stat             Prob.          Gradient
  -------------------------------------------------------------------------------------------------------------
-    theta : e[t-1]           -0.4073            0.0898           -4.5369            0.0000                 .
-   theta : e[t-12]            0.0000            0.0690            0.0000            0.0000                 .
-            Sigma2            0.0374            0.0023           16.1861            0.0000                 .
+    theta : e[t-1]           -0.4073            0.0753           -5.4103            0.0000                 .
+   theta : e[t-12]           -0.5506            0.0891           -6.1764            0.0000                 .
+            Sigma2            0.0014            0.0002            9.2080            0.0000                 .
 
- Correlation matrix of the parameters
+  Correlation matrix of the parameters
  --------------------------------------------------------------------------
 
-      1.0000     -0.0806      0.0001
-     -0.0806      1.0000     -0.0000
-      0.0001     -0.0000      1.0000
+      1.0000     -0.2894     -0.0638
+     -0.2894      1.0000     -0.0066
+     -0.0638     -0.0066      1.0000
 
- Model and residual diagnostics:
+  Model and residual diagnostics:
  ==========================================================================
 
- Ljung-Box (Q):                                                      0.0381
- Prob(Q):                                                             0.845
- Heteroskedasticity (H):                                              0.544
- Prob(H):                                                             0.049
- Jarque-Bera (JB):                                                     2.02
- Prob(JB):                                                            0.363
- Skew:                                                               0.0671
- Kurtosis:                                                             3.59
+  Ljung-Box (Q):                                                      0.0381
+  Prob(Q):                                                             0.845
+  Heteroskedasticity (H):                                              0.544
+  Prob(H):                                                             0.049
+  Jarque-Bera (JB):                                                     2.02
+  Prob(JB):                                                            0.363
+  Skew:                                                               0.0671
+  Kurtosis:                                                             3.59
  ==========================================================================
 
 Source
