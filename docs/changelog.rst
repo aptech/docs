@@ -22,6 +22,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: macOS update was not removing existing vwrmp.app before replacement.
 #. Bug Fix: Multi-element assignment with a 1x1 matrix on the right-hand side would cause an error.
 #. Bug Fix: Indexing a scalar from a dataframe vector in a non-atomic fashion was not returning a dataframe.
+#. Bug Fix: Selecting a new date format in the symbol editor would show existing dates that were missing values as the incorrect date until the change was applied.
+#. Bug Fix: Fixed support for negative category keys when reading Stata files. 
 
 22.1.0
 ------
