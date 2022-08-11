@@ -291,7 +291,7 @@ Running a no intercept model from a SAS sas7bdat file.
     cls;
 
     // File name with full path
-    fname = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+    fname = getGAUSSHome() $+ "examples/detroit.dta";
 
     // Declare 'fit' to be a glmOut structure
     struct glmOut fit;

@@ -246,7 +246,7 @@ Basic usage with a dataset and a formula string
 ::
 
     // Create string with the name and full file path of the dataset
-    dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+    dataset = getGAUSSHome() $+ "examples/detroit.dta";
 
     // Create formula string specifying dependent and independent variables
     formula  = "homicide ~ unemployment + hourly_earn";
@@ -254,7 +254,7 @@ Basic usage with a dataset and a formula string
     // Perform estimation
     call olsmt(dataset, formula);
 
-In this example, the dataset ``detroit.sas7bdat`` is used to compute a
+In this example, the dataset ``detroit.dta`` is used to compute a
 regression. The dependent variable is *homicide*. The independent variables are: *unemployment* and *hourly_earn*. The output is:
 
 ::
