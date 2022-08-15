@@ -31,11 +31,11 @@ Format
 Global Input
 ------------
 
-.. data:: \_plev
+.. data:: _plev
 
     Kx1 vector, user-defined contour levels for contour. Default 0.
     
-.. data:: \_pzclr
+.. data:: _pzclr
 
     Nx1 or Nx2 vector. This controls the Z level colors. 
     See :func:`surface` for a complete description of how to set this global.

@@ -52,11 +52,11 @@ Format
 Global Input
 ------------
 
-.. data::  \_fin_thetaType
+.. data:: _fin_thetaType
 
     scalar, if 1, one day look ahead, else, infinitesmal. Default = 0.
 
-.. data::  \_fin_epsilon
+.. data:: _fin_epsilon
 
     scalar, finite difference stepsize. Default = 1e-8.
 

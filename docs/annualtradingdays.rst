@@ -27,9 +27,9 @@ York Stock Exchange from 1888 through 2020. Holidays are defined in
 Globals
 -------
 
-.. data::  \_fin_annualTradingDays
+.. data:: _fin_annualTradingDays
 
-.. data::  \_fin_holidays
+.. data:: _fin_holidays
 
 Source
 ------
