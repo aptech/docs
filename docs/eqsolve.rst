@@ -40,57 +40,57 @@ Global Input
 
 The following are set by eqSolveSet:
 
-.. data:: \_eqs_JacobianProc
+.. data:: _eqs_JacobianProc
 
     pointer to a procedure which computes the analytical Jacobian. By default, :func:`eqSolve` will
     compute the Jacobian numerically.
 
-.. data:: \_eqs_MaxIters
+.. data:: _eqs_MaxIters
 
     scalar, the maximum number of iterations. Default = 100.
 
-.. data:: \_eqs_StepTol
+.. data:: _eqs_StepTol
 
     scalar, the step tolerance. Default = :math:`\_\_macheps^{\frac{2}{3}}`.
 
-.. data:: \_eqs_TypicalF
+.. data:: _eqs_TypicalF
 
     Kx1 vector of the typical :math:`F(x)` values at a point not near a root, used for scaling. This becomes
     important when the magnitudes of the components of :math:`F(x)` are expected to be very different. By default,
     function values are not scaled.
 
-.. data:: \_eqs_TypicalX
+.. data:: _eqs_TypicalX
 
     Kx1 vector of the typical magnitude of *x*, used for scaling. This becomes important when the magnitudes
     of the components of *x* are expected to be very different. By default, variable values are not scaled.
 
-.. data:: \_eqs_IterInfo
+.. data:: _eqs_IterInfo
 
     scalar, if nonzero, iteration information is printed. Default = 0.
 
 The following are set by :func:`gausset`:
 
-.. data:: \__Tol
+.. data:: __Tol
 
     scalar, the tolerance of the scalar function :math:`f = 0.5*\left|\left|F(x)\right|\right|^2`
     required to terminate the algorithm. Default = 1e-5.
 
-.. data:: \__altnam
+.. data:: __altnam
 
     Kx1 character vector of alternate names to be used by the printed
     output. By default, the names :code:`X1, X2, X3...` or :code:`X01, X02, X03...`
     (depending on how `\__vpad` is set) will be used.
 
-.. data:: \__output
+.. data:: __output
 
     scalar. If non-zero, final results are printed.
 
-.. data:: \__title
+.. data:: __title
 
     string, a custom title to be printed at the top of the iterations
     report. By default, only a generic title will be printed.
 
-.. data:: \__vpad
+.. data:: __vpad
 
     scalar. If `\__altnam` is not set, variable names are automatically
     created. Two types of names can be created:

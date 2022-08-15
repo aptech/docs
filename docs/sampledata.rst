@@ -97,4 +97,4 @@ The random number generator used in :func:`sampleData` to choose the samples is
 automatically seeded using the system clock when GAUSS first starts.
 However, that can be overridden using the `rndseed` statement.
 
-.. seealso:: Functions :func:`rndi`, :func:`rndn`, :func:`rndseed`
+.. seealso:: Functions :func:`rndi`, :func:`rndn`, `rndseed`

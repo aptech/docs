@@ -8,15 +8,18 @@ Solves the nonlinear programming problem using a sequential quadratic programmin
 
 Format
 ----------------
-.. function:: { x, f, lagr, retcode } = sqpSolve(&fct, start)
+.. function:: { x, f, lagr, retcode } = sqpSolve(&fct, start[, ...])
 
     :param &fct: pointer to a procedure that computes the function to be minimized. This procedure must have one input
         argument, a vector of parameter values, and one output argument, the value of the function evaluated
-        at the input vector of parameter values.
+        at the input vector of parameter values. Additional optional arguments may be passed in to the objective function *fct* using dots (``...``).
     :type &fct: function pointer
 
     :param start: start values
     :type start: Kx1 vector
+
+    :param ...: Optional. A variable number of extra arguments to pass to the user function. These arguments will be passed to the user function untouched.
+    :type ...: any
 
     :return x: of parameters at minimum.
 
@@ -59,11 +62,11 @@ Format
 Global Input
 ------------
 
-.. data:: \_sqp_A
+.. data:: _sqp_A
 
     MxK matrix, linear equality constraint coefficients.
 
-.. data:: \_sqp_B
+.. data:: _sqp_B
 
     Mx1 vector, linear equality constraint constants. These globals are used to specify
     linear equality constraints of the following type:
@@ -72,7 +75,7 @@ Global Input
 
     where *x* is the Kx1 unknown parameter vector.
 
-.. data:: \_sqp_EqProc
+.. data:: _sqp_EqProc
 
     scalar, pointer to a procedure that computes the nonlinear equality constraints. For example, the statement:
 
@@ -101,11 +104,11 @@ Global Input
             retp(p[1]*p[2]-p[3]);
         endp;
 
-.. data:: \_sqp_C
+.. data:: _sqp_C
 
     MxK matrix, linear inequality constraint coefficients.
 
-.. data:: \_sqp_D
+.. data:: _sqp_D
 
     Mx1 vector, linear inequality constraint constants. These globals are used to
     specify linear inequality constraints of the following type:
@@ -114,7 +117,7 @@ Global Input
 
     where *x* is the Kx1 unknown parameter vector.
 
-.. data:: \_sqp\_IneqProc
+.. data:: _sqp_IneqProc
 
     scalar, pointer to a procedure that computes the nonlinear inequality constraints. For example the statement:
 
@@ -137,7 +140,7 @@ Global Input
             retp(p[1]*[2]-p[3]);
         endp;
 
-.. data:: \_sqp_Bounds
+.. data:: _sqp_Bounds
 
     Kx2 matrix, bounds on parameters. The first column contains the lower bounds, and the second
     column the upper bounds. If the bounds for all the coefficients are the same, a 1x2 matrix may
@@ -147,7 +150,7 @@ Global Input
 
         [1] -1e256     [2] 1e256
 
-.. data:: \_sqp_GradProc
+.. data:: _sqp_GradProc
 
     scalar, pointer to a procedure that computes the gradient of the function with respect to the parameters. For example, the statement:
 
@@ -162,7 +165,7 @@ Global Input
 
     Default = 0, i.e., no gradient procedure has been provided.
 
-.. data:: \_sqp_HessProc
+.. data:: _sqp_HessProc
 
     scalar, pointer to a procedure that computes the Hessian, i.e., the matrix of second order
     partial derivatives of the function with respect to the parameters. For example, the instruction:
@@ -176,34 +179,34 @@ Global Input
     a Px1 vector of parameter values and an NxK data matrix. The procedure returns a single output
     argument, the PxP symmetric matrix of second order derivatives of the function evaluated at the parameter values.
 
-.. data:: \_sqp_MaxIters
+.. data:: _sqp_MaxIters
 
     scalar, maximum number of iterations. Default = 1e+5. Termination can be forced by pressing :kbd:`C` on the keyboard.
 
-.. data:: \_sqp_DirTol
+.. data:: _sqp_DirTol
 
     scalar, convergence tolerance for gradient of estimated coefficients. Default = 1e-5.
     When this criterion has been satisfied, :func:`sqpSolve` will exit the iterations.
 
-.. data:: \_sqp_ParNames
+.. data:: _sqp_ParNames
 
     Kx1 character vector, parameter names.
 
-.. data:: \_sqp_PrintIter
+.. data:: _sqp_PrintIter
 
     scalar, if nonzero, prints iteration information. Default = 0. Can be toggled during iterations by pressing :kbd:`P` on the keyboard.
 
-.. data:: \_sqp_FeasibleT
+.. data:: _sqp_FeasibleT
 
     scalar, if nonzero, parameters are tested for est feasibility before computing function in line search.
     If function is defined outside inequality boundaries, then this test can be turned off.
 
-.. data:: \_sqp_RandRadius
+.. data:: _sqp_RandRadius
 
     scalar, if zero, no random search is attempted. If nonzero it is the radius of random search
     which is invoked whenever the usual line search fails. Default = .01.
 
-.. data:: \__output
+.. data:: __output
 
     scalar, if nonzero, results are printed. Default = 0.
 

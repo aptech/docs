@@ -11,138 +11,108 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
 .. role:: text-left
 
-.. panels::
-    :header: + text-center 
-    :body: + text-center
+.. grid:: 2
 
-    ---
+    .. grid-item-card:: 
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: command-reference
+        :link-type: doc
 
-    API
-    ^^^^^^
+        API
+        ^^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`code`
+    
+        .. container:: text-left
+    
+          View the comprehensive list of built-in commands and detailed help for each in GAUSS.
+    
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: learning-resources
+        :link-type: doc
 
-    .. container:: icon-large
+        Learning Resources
+        ^^^^^^^^^^^^^^^^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`graduation-cap`
+    
+        .. container:: text-left
+    
+          Enhance your GAUSS usage with these valuable learning resources.
+    
+.. grid:: 2
 
-      :fa:`code`
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: applications
+        :link-type: doc
 
-    .. container:: text-left
+        Apps
+        ^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`rocket`
+    
+        .. container:: text-left
+    
+          Save time with our pre-built applications.
+    
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: changelog
+        :link-type: doc
 
-      View the comprehensive list of built-in commands and detailed help for each in GAUSS.
+        Changelog
+        ^^^^^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`list`
+    
+        .. container:: text-left
+    
+          View the list of updates for each version of GAUSS.
 
-    +++
+.. grid:: 2
 
-    .. link-button:: command-reference
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center 
+        :class-body: text-center
+        :link: https://www.aptech.com/resources/tutorials
 
-    ---
-
-    Data Management
-    ^^^^^^^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`database`
-
-    .. container:: text-left
-
-      Learn how to import, export, clean, and transform your data.
-
-    +++
-
-    .. link-button:: data-management
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
-
-    ---
-
-    Machine Learning
-    ^^^^^^^^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`chart-line`
-
-    .. container:: text-left
-
-      Learn about available Machine Learning functions.
-
-    +++
-
-    .. link-button:: machine-learning
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
-
-    ---
-
-    Changelog
-    ^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`list`
-
-    .. container:: text-left
-
-      View the list of updates for each version of GAUSS.
-
-    +++
-
-    .. link-button:: changelog
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
-
-    ---
-
-    Textbook Examples
-    ^^^^^^^^^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`book`
-
-    .. container:: text-left
-
-      View textbook examples that you can run in GAUSS
-
-    +++
-
-    .. link-button:: textbook-examples/index
-        :type: ref
-        :text: Explore
-        :classes: btn-outline-primary btn-block stretched-link
-
-    ---
-
-    Tutorials
-    ^^^^^^^^^
-
-    .. container:: icon-large
-
-      :fa:`external-link-alt`
-
-    .. container:: text-left
-
-      View tutorials on the main aptech.com website.
-
-    +++
-
-    .. link-button:: https://www.aptech.com/resources/tutorials
-        :text: Leave
-        :classes: btn-outline-primary btn-block stretched-link
-
+        Tutorials
+        ^^^^^^^^^
+    
+        .. container:: icon-large
+    
+          :fa:`external-link-alt`
+    
+        .. container:: text-left
+    
+          View tutorials on the main aptech.com website.
+    
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
    command-reference
-   data-management
-   machine-learning
+   learning-resources
+   applications
    changelog
-   tspdlib/docs/index
-   textbook-examples/index
 

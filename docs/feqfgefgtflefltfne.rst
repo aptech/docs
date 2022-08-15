@@ -29,7 +29,7 @@ Format
 Global Input
 ------------
 
-.. data::  \_fcmptol
+.. data:: _fcmptol
 
     scalar, comparison tolerance. The default value is 1.0e-15.
 

@@ -92,6 +92,7 @@ C
     convertsatostr
     convertstrtosa
     conv
+    copymetadata
     corrmcorrvccorrx
     corrmscorrxs
     cosh

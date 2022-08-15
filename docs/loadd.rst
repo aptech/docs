@@ -131,7 +131,7 @@ Load three specified variables from a SAS dataset, .sas7bdat.
     new;
     cls;
 
-    dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+    dataset = getGAUSSHome() $+ "examples/detroit.dta";
 
     // Create formula string specifying three variables to load
     formula  = "homicide + unemployment + hourly_earn";
@@ -146,7 +146,7 @@ After the above code,
 
 ::
 
-    The dataset use is C:\gauss22\examples\detroit.sas7bdat
+    The dataset use is C:\gauss22\examples\detroit.dta
     The number of variables equals:        3.0000000
     The number of observations equals:        13.000000
 

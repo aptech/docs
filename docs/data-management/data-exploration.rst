@@ -242,7 +242,7 @@ For example, to find the frequency of each category for a categorical variable, 
 
 **Frequency plots**
 
-.. figure:: ../_static/images/frequency-plot.jpg
+.. figure:: ../_static/images/plotfreq.jpg
     :scale: 50%
 
 The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional `plotControlStructure` can be used for custom formatting.
@@ -338,6 +338,7 @@ Example: Finding variance/covariance of height and weight in NBA players
   varCovxs(nba_ht_wt[., "Height" "Weight"]);
 
 This prints the following variance/covariance matrix:
+
 ::
 
   11.930245        75.527346
@@ -347,6 +348,7 @@ This prints the following variance/covariance matrix:
 
 Exploratory data visualizations
 ---------------------------------
+
 **Plotting histograms**
 
 Histograms of data can be plotted using one of three functions:
@@ -407,10 +409,9 @@ Example: Frequency and percentage histograms
   plotHist( myPlot, r, 80 );
 
 
-**Plotting scatter plots **
+**Plotting scatter plots**
 
-
-The :func:`plotScatter` function creates a quick scatter plot using just an *x* and *y* input. To add custom plotting use the `plotControlStructure`.
+The :func:`plotScatter` function creates a quick scatter plot using just an *x* and *y* input. To add custom plotting use the :class:`plotControl` structure.
 
 Example: Plotting the relationship between height and weight in NBA players
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -422,5 +423,6 @@ Example: Plotting the relationship between height and weight in NBA players
   nba_ht_wt = loadd(fname,
       "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
- // Plot height and weight
- plotScatter(nba_ht_wt[., Height], nba_ht_wt[., weight]);
+   // Plot height and weight
+   plotScatter(nba_ht_wt[., Height], nba_ht_wt[., weight]);
+

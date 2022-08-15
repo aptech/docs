@@ -26,7 +26,7 @@ Format
 Global Input
 ----------------
 
-.. data:: \_pbarwid
+.. data:: _pbarwid
 
     *scalar*, width and type of bars in bar graphs and histograms. The valid
     range is 0-1. If this is 0, the bars will be a single pixel wide. If
@@ -35,7 +35,7 @@ Global Input
     If this value is positive, the bars will overlap. If negative, the bars
     will be plotted side-by-side. The default is 0.5.
 
-.. data:: \_pbartyp
+.. data:: _pbartyp
 
     *Kx2 matrix*. The first column controls the bar shading:
 

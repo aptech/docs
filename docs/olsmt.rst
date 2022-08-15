@@ -9,12 +9,12 @@ Computes a least squares regression.
 
 Format
 ----------------
-.. function:: out = olsmt(dataset, formula[, ctl])
-              out = olsmt(dataset, depvar, indvars[, ctl])
+.. function:: out = olsmt(data, formula[, ctl])
+              out = olsmt(data, depvar, indvars[, ctl])
 
-    :param dataset: name of dataset, dataframe in memory, or null string.
-        If *dataset* is a null string, the procedure assumes that the actual data has been passed in the next two arguments.
-    :type dataset: string or dataframe
+    :param data: name of dataset, dataframe in memory, or an empty string.
+        If *data* is an empty string,``""``, the procedure assumes that the actual data has been passed in the next two arguments.
+    :type data: string or dataframe
 
     :param formula: formula string of the model.
         E.g ``"y ~ X1 + X2"``, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
@@ -25,7 +25,7 @@ Format
 
     :type formula: string
 
-    :param depvar: If *dataset* contains a string, then *depvar* can be a:
+    :param depvar: If *data* contains a string, then *depvar* can be a:
 
         =========== ==============
            type         value
@@ -34,7 +34,7 @@ Format
         scalar      index of dependent variable. If scalar 0, the last column of the dataset will be used.
         =========== ==============
 
-        If *dataset* is a null string, name of dataframe, or 0:
+        If *data* is an empty string, name of dataframe, or 0:
 
         =========== ==============
            type         value
@@ -42,18 +42,18 @@ Format
         Nx1 vector  the dependent variable.
         =========== ==============
 
-    :param indvars: If *dataset* contains a string:
+    :param indvars: If *data* contains a string:
 
         ===================== ==============
            type                   value
         ===================== ==============
         Kx1 character vector  names of independent variables
-        Kx1 numeric vector    indices of independent variables. These can be any size subset of the variables in the dataset
-                              and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used except
+        Kx1 numeric vector    indices of independent variables. These can be any size subset of the variables in the data
+                              and can be in any order. If a scalar 0 is passed, all columns of the data will be used except
                               for the one used for the dependent variable.
         ===================== ==============
 
-        If *dataset* is a null string, dataframe, or 0:
+        If *data* is an empty string, dataframe, or 0:
 
         =========== ==============
            type         value
@@ -246,7 +246,7 @@ Basic usage with a dataset and a formula string
 ::
 
     // Create string with the name and full file path of the dataset
-    dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+    dataset = getGAUSSHome() $+ "examples/detroit.dta";
 
     // Create formula string specifying dependent and independent variables
     formula  = "homicide ~ unemployment + hourly_earn";
@@ -254,7 +254,7 @@ Basic usage with a dataset and a formula string
     // Perform estimation
     call olsmt(dataset, formula);
 
-In this example, the dataset "detroit.sas7bdat" is used to compute a
+In this example, the dataset ``detroit.dta`` is used to compute a
 regression. The dependent variable is *homicide*. The independent variables are: *unemployment* and *hourly_earn*. The output is:
 
 ::

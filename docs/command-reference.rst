@@ -20,7 +20,6 @@ Command Reference
     cc/parallelization
     cc/workspace-file-folder-os
 
-
 .. toctree::
     :maxdepth: 1
     :caption: Index:

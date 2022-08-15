@@ -36,8 +36,8 @@ Examples
     b = 3*ones(3, 4);
     y = aconcat(a, b, 3);
 
-*y* will be a 3x3x4 array, where [1,1,1]
-through [2,3,4] are zeros and [3,1,1] through [3,2,4] are threes.
+*y* will be a 3x3x4 array, where :math:`[1,1,1]`
+through :math:`[2,3,4]` are zeros and :math:`[3,1,1]` through :math:`[3,2,4]` are threes.
 
 ::
 
@@ -50,9 +50,9 @@ through [2,3,4] are zeros and [3,1,1] through [3,2,4] are threes.
     b = zeros(4, 5);
     y = aconcat(a, b, 3);
 
-*y* will be a 2x4x5 array, where [1,1,1] through [1,4,5]
-are sequential integers beginning with 1, and [2,1,1] through
-[2,4,5] are zeros.
+*y* will be a 2x4x5 array, where :math:`[1,1,1]` through :math:`[1,4,5]`
+are sequential integers beginning with 1, and :math:`[2,1,1]` through
+:math:`[2,4,5]` are zeros.
 
 ::
 
@@ -68,9 +68,9 @@ are sequential integers beginning with 1, and [2,1,1] through
     b = areshape(b,2|3|4);
     y = aconcat(a, b, 5);
 
-y will be a 2x1x2x3x4 array,
-where [1,1,1,1,1] through [1,1,2,3,4] are zeros, and [2,1,1,1,1]
-through [2,1,2,3,4] are sequential integers beginning with 1.
+*y* will be a 2x1x2x3x4 array,
+where :math:`[1,1,1,1,1]` through :math:`[1,1,2,3,4]` are zeros, and :math:`[2,1,1,1,1]`
+through :math:`[2,1,2,3,4]` are sequential integers beginning with 1.
 
 ::
 
@@ -80,7 +80,7 @@ through [2,1,2,3,4] are sequential integers beginning with 1.
     y = aconcat(a, b, 1);
     print "y = " y;
 
-y will be a 2x3x5 array:
+*y* will be a 2x3x5 array:
 
 ::
 

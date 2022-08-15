@@ -30,7 +30,7 @@ Format
 Global Input
 ------------
 
-.. data:: \_psurf
+.. data:: _psurf
 
     2x1 vector, controls 3-D surface characteristics.
 
@@ -38,11 +38,11 @@ Global Input
     :[2]: color for base (default 7). The base is an outline of the X-Y plane with
         a line connecting each corner to the surface. If 0, no base is drawn.
 
-.. data:: \_pticout
+.. data:: _pticout
 
     scalar, if 0 (default), tick marks point inward, if 1, tick marks point outward.
 
-.. data:: \_pzclr
+.. data:: _pzclr
 
     Z level color control.
 

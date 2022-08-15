@@ -6,6 +6,7 @@ Purpose
 ----------------
 Breaks out of a `do` or `for` loop.
 
+.. _break:
 .. index:: break
 
 Format

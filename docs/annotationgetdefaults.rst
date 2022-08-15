@@ -28,7 +28,7 @@ Examples
 Remarks
 -------
 
-:class:`plotAnnotation` structures are used with the `annotationSet` functions to
+:class:`plotAnnotation` structures are used with the ``annotationSet`` functions to
 programmatically control the attributes of the annotations that you add
 to graphs.
 

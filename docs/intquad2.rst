@@ -30,7 +30,7 @@ Format
 Global Input
 ------------
 
-.. data:: \_intord
+.. data:: _intord
 
     scalar, the order of the integration. The larger \_intord, the more precise the final result will be. \_intord may be set to 2, 3, 4, 6, 8, 12, 16, 20, 24, 32, 40.
 
