@@ -75,8 +75,8 @@ The parameter vector has three unknowns so our vector of starting parameters sho
 ::
 
   /*
-  ** Step two: Set up parameter vector
-  **           and start values
+  ** Set up parameter vector
+  ** and start values
   */
   param_vec_st = asDF(zeros(3, 1), "param");
 
@@ -121,11 +121,6 @@ For the model in this example, we specify the following system matrices:
 The first step to specifying this model is to initialize the system using the `ssControl` structure and the model dimensions. This model has 1 endogenous variable and 1 state variable:
 
 ::
-
-  /*
-  ** Step three: Set up control structure
-  **             and model matrices.
-  */
 
   /*
   ** Declare shape
@@ -223,7 +218,7 @@ Finally, we are ready to estimate the model using the :func:`ssFit` procedure.
 ::
 
   /*
-  ** Step six: Call the ssFit procedure.
+  ** Call the ssFit procedure.
   **            This will:
   **              1. Estimate model parameters.
   **              2. Estimate inference statistics (se, t-stats).
