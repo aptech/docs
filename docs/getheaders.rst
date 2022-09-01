@@ -96,7 +96,7 @@ SAS dataset
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+    fname = getGAUSSHome() $+ "examples/detroit.dta";
 
     // Read headers from the dataset
     headers = getHeaders(fname);

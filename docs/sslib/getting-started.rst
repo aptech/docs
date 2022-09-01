@@ -1,4 +1,4 @@
-Getting Started with State-Space Modeling in GAUSS
+Getting Started
 ===================================================
 This page provides an overview of how to implement custom state-space models in GAUSS. It covers everything needed to get working with the GAUSS state-space library including:
 
@@ -12,13 +12,13 @@ Installation
 -----------------------------------------------------------
 The GAUSS state-space library can be installed and updated using the `GAUSS package manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_.
 
-	More information about installing the GAUSS package manager is available in our blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
+More information about installing the GAUSS package manager is available in our blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
 
 The state-space library requires:
 
-1.  A working copy of **GAUSS 22+**.
-2.  The `Constrained Maximum Likelihood MT library <https://store.aptech.com/gauss-applications-category/constrained-maximum-likelihood-mt.html>`_ for GAUSS.
-3.  The `Time Series MT library <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_ for GAUSS.
+#. A working copy of **GAUSS 22+**.
+#. The `Constrained Maximum Likelihood MT library <https://store.aptech.com/gauss-applications-category/constrained-maximum-likelihood-mt.html>`_ for GAUSS.
+#. The `Time Series MT library <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_ for GAUSS.
 
 Data Loading
 --------------------
@@ -55,13 +55,13 @@ State-Space Model Specification
 ---------------------------------------------------
 The GAUSS :class:`sslib` library uses the state-space representation of a linear model written as
 
-.. math :: y_t = d + Z\alpha_t + \epsilon_t
-.. math :: \alpha_{t+1} = c + T\alpha_t + R\eta_t
+.. math:: y_t = d + Z\alpha_t + \epsilon_t
+.. math:: \alpha_{t+1} = c + T\alpha_t + R\eta_t
 
 where
 
-.. math :: \epsilon_t  \sim N(0, H)
-.. math :: \eta_t  \sim N(0, Q)
+.. math:: \epsilon_t  \sim N(0, H)
+.. math:: \eta_t  \sim N(0, Q)
 
 and
 
@@ -76,7 +76,7 @@ and
 +--------------------+-------------------------+----------------------+
 | :math:`Z`          | Design matrix.          | :math:`p \times m`   |
 +--------------------+-------------------------+----------------------+
-| :math:`H`          | Observation disturbance.| :math:`p \times 1`   |
+| :math:`H`          | Observation disturbance | :math:`p \times 1`   |
 |                    | covariance matrix.      |                      |
 +--------------------+-------------------------+----------------------+
 | :math:`c`          | State intercept.        | :math:`m \times 1`   |
@@ -85,7 +85,7 @@ and
 +--------------------+-------------------------+----------------------+
 | :math:`R`          | Selection matrix.       | :math:`m \times r`   |
 +--------------------+-------------------------+----------------------+
-| :math:`\eta_t`     | State disturbance       | :math:`r \times 1`   |
+| :math:`\eta_t`     | State disturbance.      | :math:`r \times 1`   |
 +--------------------+-------------------------+----------------------+
 | :math:`Q`          | State disturbance       | :math:`r \times r`   |
 |                    | covariance matrix.      |                      |
@@ -99,18 +99,18 @@ Example: AR(2)
 +++++++++++++++++++++
 Consider the :math:`AR(2)` model
 
-.. math :: y_t = \alpha + \phi_1 y_{t-1} + \phi_2 y_{t-2} + e_t
-.. math :: e_t \sim N(0, \sigma^2)
+.. math:: y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + e_t
+.. math:: e_t \sim N(0, \sigma^2)
 
 There are a number of ways to transform this model to state-space representation. Consider, for example, letting :math:`\alpha_t = (y_t, y_{t-1})'`.
 
 **Transition Equation:**
 
-.. math :: \alpha_t	= \begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0\end{bmatrix} \alpha_t  + \begin{bmatrix} 1\\ 0 \end{bmatrix} \eta_t
+.. math:: \alpha_t = \begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0\end{bmatrix} \alpha_{t-1}  + \begin{bmatrix} 1\\ 0 \end{bmatrix} \eta_t
 
 **Measurement Equation:**
 
-.. math :: y_t = \begin{bmatrix} 1 & 0 \end{bmatrix} \alpha_t
+.. math:: y_t = \begin{bmatrix} 1 & 0 \end{bmatrix} \alpha_t
 
 
 In this representation the system matrices are:
@@ -152,9 +152,9 @@ The GAUSS :class:`sslib` relies on two tools for estimating state-space models, 
 
 You will never need to interact with these two tools directly when using the GAUSS state-space framework. However, for more information about either of these please see the following:
 
-1. `Filtering data with the Kalman Filter <https://www.aptech.com/resources/tutorials/tsmt/filtering-data-with-the-kalman-filter/>`_
-2. `Beginner's Guide To Maximum Likelihood Estimation <https://www.aptech.com/blog/beginners-guide-to-maximum-likelihood-estimation-in-gauss/>`_
-3. `Maximum Likelihood Estimation in GAUSS <https://www.aptech.com/blog/maximum-likelihood-estimation-in-gauss/>`_
+#. `Filtering data with the Kalman Filter <https://www.aptech.com/resources/tutorials/tsmt/filtering-data-with-the-kalman-filter/>`_
+#. `Beginner's Guide To Maximum Likelihood Estimation <https://www.aptech.com/blog/beginners-guide-to-maximum-likelihood-estimation-in-gauss/>`_
+#. `Maximum Likelihood Estimation in GAUSS <https://www.aptech.com/blog/maximum-likelihood-estimation-in-gauss/>`_
 
 State-Space Models in GAUSS
 ---------------------------------------------------
@@ -162,12 +162,12 @@ The :class:`sslib` library contains a suite of tools that allows you to specify,
 
 Prior to estimating the model with :func:`ssFit`, there are several simple steps that must be taken:
 
-1. Load data and required libraries.
-2. Set up parameter vector and start values.
-3. Set up control structures.
-4. Initialize system matrices.
-5. Specify variable constraints.
-6. Set up procedure for updating system matrices.
+#. Load data and required libraries.
+#. Set up parameter vector and start values.
+#. Set up control structures.
+#. Initialize system matrices.
+#. Specify variable constraints.
+#. Set up procedure for updating system matrices.
 
 Step One: Load data and libraries
 +++++++++++++++++++++++++++++++++++++++++++
@@ -182,8 +182,7 @@ The first step to estimating state-space models in GAUSS is to load the data and
   ** Step one: Load data
   */
   fname = getGAUSShome $+ "pkgs/tsmt/examples/enders_sim2.dat";
-  y = loadd(fname);
-  y = y[., "ar2"];
+  y = loadd(fname, "ar2");
 
 Step Two: Set up parameter vector and start values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -211,16 +210,16 @@ Step Three: Set up the control structure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The :class:`ssControl` structure is used to:
 
-1. Specify the state-space system matrices.
-2. Implement stationarity and non-negativity constraints on parameters.
-3. Control modeling features.
-4. Specify advanced maximum likelihood controls.
+#. Specify the state-space system matrices.
+#. Implement stationarity and non-negativity constraints on parameters.
+#. Control modeling features.
+#. Specify advanced maximum likelihood controls.
 
 Before using the :class:`ssControl` structure:
 
-1.The model dimensions must be specified.
-2.The control structure must be initialized.
-3.The default values must be filled.
+#. The model dimensions must be specified.
+#. The control structure must be initialized.
+#. The default values must be filled.
 
 Specifying the model dimensions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -258,8 +257,8 @@ After specifying the model dimensions, the :class:`ssControl` structure and the 
 ::
 
   // Declare an instance of
-  // sscontrol structure
-  struct ssControl ssctl;
+  // ssControl structure
+  struct ssControl ssCtl;
 
   // Fill the control structure with defaults
   // and sets up the system matrices.
@@ -292,11 +291,11 @@ After initializing the :class:`ssControl` structure any elements of the system m
 
 For example, in the :math:`AR(2)` example above, the design matrix, :math:`Z`, is given by
 
-.. math :: \begin{bmatrix} 1 & 0 \end{bmatrix}
+.. math:: \begin{bmatrix} 1 & 0 \end{bmatrix}
 
 and the selection matrix, :math:`R`, is given by
 
-.. math :: \begin{bmatrix} 1 \\ 0 \end{bmatrix}
+.. math:: \begin{bmatrix} 1 \\ 0 \end{bmatrix}
 
 These matrices have no relationship to the model parameters and should be specified before calling the :func:`ssFit` procedure:
 
@@ -313,22 +312,22 @@ These matrices have no relationship to the model parameters and should be specif
 
   // Set design matrix by
   // specifying full matrix
-  ssctl.ssm.Z = { 1 0 };
+  ssCtl.ssm.Z = { 1 0 };
 
   // Set selection matrix by
   // specifying the 1,1 element
-  ssctl.ssm.R[1, 1] = 1;
+  ssCtl.ssm.R[1, 1] = 1;
 
 In the example above, two different approaches are taken to setting the fixed elements in the system matrices.
 
-  * The first is to set the entire transition (:math:`Z`) matrix.
-  * The second is to just change the 1,1 element of the selection matrix (:math:`R`).
+* The first is to set the entire transition (:math:`Z`) matrix.
+* The second is to just change the 1,1 element of the selection matrix (:math:`R`).
 
 After setting the fixed elements, the transition and selection matrices are:
 
 ::
 
-  ssctl.ssm.Z
+  ssCtl.ssm.Z
        1.0000000        0.0000000
 
   ssCtl.ssm.R
@@ -385,29 +384,10 @@ The :class:`updateSSModel` function should always include two input parameters:
 | :code:`param`      | The parameter vector.                          |
 +--------------------+------------------------------------------------+
 
-The :class:`updateSSModel` function should always:
+The :class:`updateSSModel` is a user-defined function whose body describes how the parameters fit into the system matrices. The function uses a pointer to the :class:`*ssmod` structure and the :code:`->` method for assigning values to members within the structures.
 
-1. Begin with a procedure declaration
 
-::
-
-  proc (0) = updateSSModel(struct ssModel *ssmod, param);
-
-2. Contain a procedure body which relations system matrices to model parameters.
-
-::
-
-  // Set up kalman filter matrices
-  ssmod->T =  param[1 2]'|(1~0);
-  ssmod->Q[1, 1] = param[3];
-
-3. End with a procedure end statement.
-
-::
-
-  endp;
-
-All together, the :class:`updateSSModel` for the :math:`AR(2)` model is:
+For example, the :class:`updateSSModel` for the :math:`AR(2)` model is:
 
 ::
 
@@ -418,8 +398,10 @@ All together, the :class:`updateSSModel` for the :math:`AR(2)` model is:
   */
   proc (0) = updateSSModel(struct ssModel *ssmod, param);
 
-    // Set up kalman filter matrices
+    // Specify transition matrix
     ssmod->T =  param[1 2]'|(1~0);
+
+    // Specify state covariance
     ssmod->Q[1, 1] = param[3];
 
   endp;
@@ -436,7 +418,7 @@ Once the model is specified and the constraints are set, the parameters are esti
 +--------------------+------------------------------------------------------------------+
 | `param_vec_st`     | Parameter vector with starting values.                           |
 +--------------------+------------------------------------------------------------------+
-| `y`       `        | Data.                                                            |
+| `y`                | Data.                                                            |
 +--------------------+------------------------------------------------------------------+
 | `ssCtl`            | An instance of the `ssControl` structure. Should be              |
 |                    | initialized using the `ssControlCreate` procedure.               |
@@ -453,7 +435,7 @@ Once the model is specified and the constraints are set, the parameters are esti
   **              4. Compute model diagnostics and summary statistics.
   */
   struct ssOut sOut;
-  sOut = ssFit(&updateSSModel, param_vec_st, y, ssctl);
+  sOut = ssFit(&updateSSModel, param_vec_st, y, ssCtl);
 
 
 The :func:`ssFit` procedure estimates the model parameters and their inference statistics:

@@ -25,7 +25,7 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     Provides tools for comprehensive treatment of time series models, including model diagnostics, MLE and state-space estimation, and forecasts. Time Series MT also includes tools for managing panel series data and estimating and diagnosing panel series models, including random effects and fixed effects.
 
 .. card:: SSLIB (State-Space Modeling)
-    :link: sslib/sslib-landing
+    :link: sslib/overview
     :link-type: doc
     :shadow: none
 
@@ -38,5 +38,5 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     tspdlib/docs/tspdlib-landing
     gml-landing
     tsmt/index
-    sslib/sslib-landing
+    sslib/overview
 

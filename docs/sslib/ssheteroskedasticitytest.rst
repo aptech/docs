@@ -9,7 +9,7 @@ Tests the null hypothesis of no heteroskedasticity by comparing the sum-of-squar
 
 Format
 ----------------
-.. function:: { test_statistic, p_value } = ssHeteroskedasticityTest(resid [,alternative])
+.. function:: { test_statistic, p_value } = ssHeteroskedasticityTest(resid [, alternative])
 
     :param resid: Model residuals.
     :type resid: Vector

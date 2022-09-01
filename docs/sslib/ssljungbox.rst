@@ -15,10 +15,10 @@ Format
     :type resid: Vector
 
     :return Q_stat: Ljung-Box test statistic for the heteroskedasticity.
-    :return Q_stat: Scalar
+    :rtype Q_stat: Scalar
 
     :return p_value: P-value for the test statistic for the Ljung-Box test statistic.
-    :return p_value: Scalar
+    :rtype p_value: Scalar
 
 Examples
 ----------------

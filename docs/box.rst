@@ -26,7 +26,7 @@ Format
 Global Input
 ------------
 
-.. data:: \_pboxctl
+.. data:: _pboxctl
 
     5x1 vector, controls box style, width, and color.
 
@@ -53,7 +53,7 @@ Global Input
         * - [5]
           - Maximum percentile value (0-100) if \_pboxctl[3] = 3.
 
-.. data:: \_plctrl
+.. data:: _plctrl
 
     1xM vector or scalar as follows:
 
@@ -67,7 +67,7 @@ Global Input
 
     These capabilities are in addition to the usual line control capabilities of \_plctrl.
 
-.. data:: \_pcolor
+.. data:: _pcolor
 
     1xM vector or scalar for symbol colors. If scalar, all symbols will be one color.
 
