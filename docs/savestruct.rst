@@ -11,7 +11,7 @@ Format
 .. function:: retcode = saveStruct(instance, file_name)
 
     :param instance: instances of a structure.
-    :type instance: MxN matrix
+    :type instance: structure
 
     :param file_name: name of file on disk to contain matrix of structures.
     :type file_name: string

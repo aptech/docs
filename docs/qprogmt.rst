@@ -70,7 +70,7 @@ subject to constraints,
 .. math::
 
    Ax⁢ = BC\\
-   x \leq D
+   Cx \geq D
 
 and bounds,
 
