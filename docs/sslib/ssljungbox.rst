@@ -5,7 +5,7 @@ ssLjungBox
 Purpose
 ----------------
 
-Computes the Ljung-Box test for autocorrelation.
+Computes the Ljung-Box test of the null hypothesis that the residuals are independently distributed..
 
 Format
 ----------------
@@ -39,6 +39,7 @@ The code above results in the following:
   Q_stat = 2.0876
   p_val = 0.1485
 
+In this case, the p-values suggests that we fail to reject the null hypothesis that the residuals are independently distributed.
 
 Source
 ------

@@ -88,7 +88,7 @@ subject to constraints,
 .. math::
 
     Ax = B\\
-    Cx ≤ D
+    Cx \geq D
 
 
 and bounds,

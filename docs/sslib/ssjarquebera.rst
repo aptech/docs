@@ -5,7 +5,7 @@ ssJarqueBera
 Purpose
 ----------------
 
-Performs the Jarque-Bera goodness-of-fit test on model residuals.
+Performs the Jarque-Bera goodness-of-fit test on model residuals. Tests the null hypothesis that the residuals are normally distributed.
 
 Format
 ----------------
@@ -44,6 +44,8 @@ The code above results in the following:
 
   jb_stat = 2.8019
   jb_pval = 0.2464
+
+The p-value of 0.2464 indicates a failure to reject the null hypothesis that the residuals are distributed normally.
 
 Source
 ------

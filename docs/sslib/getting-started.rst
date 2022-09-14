@@ -85,7 +85,7 @@ and
 +--------------------+-------------------------+----------------------+
 | :math:`R`          | Selection matrix.       | :math:`m \times r`   |
 +--------------------+-------------------------+----------------------+
-| :math:`\eta_t`     | State disturbance.       | :math:`r \times 1`  |
+| :math:`\eta_t`     | State disturbance.      | :math:`r \times 1`   |
 +--------------------+-------------------------+----------------------+
 | :math:`Q`          | State disturbance       | :math:`r \times r`   |
 |                    | covariance matrix.      |                      |

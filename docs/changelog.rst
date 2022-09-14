@@ -5,6 +5,12 @@ Change Log
 The following is a list of changes from the previous version of GAUSS.
 ------
 
+22.2.1
+------
+
+#. Bug Fix: Extra spacing could show up between axis labels and numbers in certain cases.
+#. Bug Fix: A one-time crash could occur after retrieving an updated license after a subscription renewal.
+
 22.2.0
 ------
 
