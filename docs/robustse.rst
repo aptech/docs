@@ -27,7 +27,7 @@ Format
     :param const: Optional input, indicator variable for including a constant. 1 for including a constant, 0 for no constant. Default = 1.
     :type const: scalar
 
-    :param verbose: Optional input, indicator variable for including a constant. 1 to print results, 0 for no printing. Default = 1.
+    :param verbose: Optional input, 1 to print results, 0 for no printing. Default = 1.
     :type verbose: scalar
 
     :param var_names: Optional input, variable names. Default = ``X1, X2, ..., XK``.
