@@ -10,11 +10,15 @@ To compute kernel density estimate and plot.
 Format
 ----------------
 .. function:: out = kernelDensity(dataset [, kernel, bw, c0])
+              out = kernelDensity(datafile, formula [, kernel, bw, c0])
 
     :param dataset: Name of datafile or dataframe.
     :type dataset: String or matrix
 
-    :param kernel: Type of kernel.
+    :param formula: Optional argument, formula string for loading variables from datafile. Default is to load all variables.
+    :type dataset: String
+
+    :param kernel: Optional argument, type of kernel. Default = 1.
 
               =========== ==============
               1           Normal.
