@@ -184,3 +184,5 @@ Modifying plot with plotControl pointer
   // control structure
   struct kernelDensityResults krslt4;
   krslt4 = kernelDensity(data[., "volatile acidity"], kernel, bw, kctl);
+
+  
