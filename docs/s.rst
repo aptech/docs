@@ -34,7 +34,7 @@ S
     setcollabels
     setcolmetadata
     setcolnames
-    setcoltypes 
+    setcoltypes
     setdif
     setdifsa
     setvars
@@ -46,6 +46,7 @@ S
     singleindex
     sinh
     sin
+    skewness
     sleep
     solpd
     sortc

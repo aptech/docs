@@ -5,3 +5,4 @@ J
     :maxdepth: 1
     :caption: Functions:
 
+    jarquebera
