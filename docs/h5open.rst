@@ -18,7 +18,7 @@ Format
 
     :param mode: the mode with which to open the file. Valid options include:
 
-        - :code:`"open"`: open file for read, positioned at the first row.
+        - :code:`"read"`: open file for read, positioned at the first row.
         - :code:`"update"`: open file for write, positioned at the first row.
         - :code:`"append"`: open file for write, positioned at the end of the file.a
 
