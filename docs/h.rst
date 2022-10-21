@@ -11,6 +11,7 @@ H
     h5read
     h5writeattribute
     h5write
+    hacSE
     hasimag
     hasmetadata
     head
