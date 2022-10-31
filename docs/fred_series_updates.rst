@@ -58,7 +58,13 @@ Examples
 
    head(fred_series_updates());
 
-   Program execute failed
+   
+       frequency  frequency_short               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
+         Monthly                M      FEDMINFRMWG 2022-10-31 14:01 The federal mini       2022-10-01       1967-01-01        30.000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Federal Minimum  Dollars per Hour       $ per Hour 
+         Monthly                M      FEDMINNFRWG 2022-10-31 14:01 The federal mini       2022-10-01       1938-10-01        52.000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Federal Minimum  Dollars per Hour       $ per Hour 
+           Daily                D          RRPTTLD 2022-10-31 13:01 This series is c       2022-10-31       2003-02-07        16.000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Reverse Repurcha Billions of US D     Bil. of US $ 
+           Daily                D          RRPTSYD 2022-10-31 13:01 This series is c       2022-10-31       2003-02-07        29.000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Reverse Repurcha Billions of US D     Bil. of US $ 
+           Daily                D        RRPONTTLD 2022-10-31 13:01 This series is c       2022-10-31       2003-02-07        59.000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Overnight Revers Billions of US D     Bil. of US $ 
 
 
 Remarks

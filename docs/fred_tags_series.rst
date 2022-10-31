@@ -59,9 +59,15 @@ Examples
 
 ::
 
-   head(fred_tags_series());
+   head(fred_tags_series("slovenia;food;oecd"));
 
-   Program execute failed
+   
+       frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
+          Annual                A        2.0000000  CPGDFD02SIA657N 2018-03-09 15:10 OECD descriptor        2017-01-01       1996-01-01        0.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Consumer Price I Growth Rate Prev Growth Rate Prev 
+          Annual                A        2.0000000  CPGDFD02SIA659N 2018-03-09 15:22 OECD descriptor        2017-01-01       1996-01-01        1.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Consumer Price I Growth Rate Same Growth Rate Same 
+         Monthly                M        2.0000000  CPGDFD02SIM657N 2018-06-19 14:12 OECD descriptor        2018-05-01       1996-01-01        1.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Consumer Price I Growth Rate Prev Growth Rate Prev 
+         Monthly                M        2.0000000  CPGDFD02SIM659N 2018-06-19 14:12 OECD descriptor        2018-05-01       1996-01-01        2.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Consumer Price I Growth Rate Same Growth Rate Same 
+       Quarterly                Q        2.0000000  CPGDFD02SIQ657N 2018-04-17 10:11 OECD descriptor        2018-01-01       1996-01-01        0.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Consumer Price I Growth Rate Prev Growth Rate Prev 
 
 
 Remarks

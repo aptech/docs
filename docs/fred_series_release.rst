@@ -36,7 +36,7 @@ Examples
 
    
               id             link             name    press_release     realtime_end   realtime_start 
-       21.000000 http://www.feder H.6 Money Stock                 1       2022-10-28       2022-10-28 
+       21.000000 http://www.feder H.6 Money Stock                 1       2022-10-31       2022-10-31 
 
 
 Remarks

@@ -76,11 +76,11 @@ Examples
 
    
        frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
-         Monthly                M        33.000000          AITGCBN 2022-10-26 07:31 This advance est       2022-09-01       2022-09-01        5.0000000       2022-10-28       2022-10-28 Not Seasonally A              NSA Advance U.S. Int Millions of Doll        Mil. of $ 
-         Monthly                M        33.000000          AITGCBS 2022-10-26 07:31 This advance est       2022-09-01       2022-09-01        33.000000       2022-10-28       2022-10-28 Seasonally Adjus               SA Advance U.S. Int Millions of Doll        Mil. of $ 
-       Quarterly                Q        17.000000           BOPBCA 2014-06-18 08:41 This series has        2014-01-01       1960-01-01        13.000000       2022-10-28       2022-10-28 Seasonally Adjus               SA Balance on Curre Billions of Doll        Bil. of $ 
-          Annual                A        17.000000          BOPBCAA 2014-06-18 08:41 This series has        2013-01-01       1960-01-01        6.0000000       2022-10-28       2022-10-28 Not Seasonally A              NSA Balance on Curre Billions of Doll        Bil. of $ 
-       Quarterly                Q        17.000000          BOPBCAN 2014-06-18 08:41 This series has        2014-01-01       1960-01-01        1.0000000       2022-10-28       2022-10-28 Not Seasonally A              NSA Balance on Curre Billions of Doll        Bil. of $ 
+         Monthly                M        31.000000          AITGCBN 2022-10-26 07:31 This advance est       2022-09-01       2022-09-01        3.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Advance U.S. Int Millions of Doll        Mil. of $ 
+         Monthly                M        31.000000          AITGCBS 2022-10-26 07:31 This advance est       2022-09-01       2022-09-01        31.000000       2022-10-31       2022-10-31 Seasonally Adjus               SA Advance U.S. Int Millions of Doll        Mil. of $ 
+       Quarterly                Q        11.000000           BOPBCA 2014-06-18 08:41 This series has        2014-01-01       1960-01-01        9.0000000       2022-10-31       2022-10-31 Seasonally Adjus               SA Balance on Curre Billions of Doll        Bil. of $ 
+          Annual                A        11.000000          BOPBCAA 2014-06-18 08:41 This series has        2013-01-01       1960-01-01        3.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Balance on Curre Billions of Doll        Bil. of $ 
+       Quarterly                Q        11.000000          BOPBCAN 2014-06-18 08:41 This series has        2014-01-01       1960-01-01        1.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Balance on Curre Billions of Doll        Bil. of $ 
 
 
 Remarks

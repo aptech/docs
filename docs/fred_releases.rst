@@ -50,11 +50,11 @@ Examples
 
    
               id             link             name            notes    press_release     realtime_end   realtime_start 
-       9.0000000 http://www.censu Advance Monthly  The U.S. Census         1.0000000       2022-10-28       2022-10-28 
-       10.000000 http://www.bls.g Consumer Price I                .        1.0000000       2022-10-28       2022-10-28 
-       11.000000 http://www.bls.g Employment Cost                 .        1.0000000       2022-10-28       2022-10-28 
-       13.000000 http://www.feder G.17 Industrial                 .        1.0000000       2022-10-28       2022-10-28 
-       14.000000 http://www.feder G.19 Consumer Cr                .        1.0000000       2022-10-28       2022-10-28 
+       9.0000000 http://www.censu Advance Monthly  The U.S. Census         1.0000000       2022-10-30       2022-10-30 
+       10.000000 http://www.bls.g Consumer Price I                .        1.0000000       2022-10-30       2022-10-30 
+       11.000000 http://www.bls.g Employment Cost                 .        1.0000000       2022-10-30       2022-10-30 
+       13.000000 http://www.feder G.17 Industrial                 .        1.0000000       2022-10-30       2022-10-30 
+       14.000000 http://www.feder G.19 Consumer Cr                .        1.0000000       2022-10-30       2022-10-30 
 
 
 Remarks

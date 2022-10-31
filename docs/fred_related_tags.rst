@@ -80,9 +80,15 @@ Examples
 
 ::
 
-   head(fred_related_tags());
+   head(fred_related_tags("monetary aggregates;weekly"));
 
-   Program execute failed
+   
+         created         group_id             name            notes       popularity     series_count 
+2012-02-27 10:18             geot           nation                .        99.000000        18.000000 
+2012-02-27 10:18              geo              usa                .        100.00000        18.000000 
+2012-02-27 10:18              gen     discontinued                .        65.000000        14.000000 
+2012-02-27 10:18              src              frb                .        79.000000        14.000000 
+2012-08-16 15:21              rls               h6                .        50.000000        14.000000 
 
 
 Remarks

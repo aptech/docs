@@ -88,7 +88,7 @@ Examples
    
          created         group_id             name            notes       popularity     series_count 
 2012-02-27 10:18              gen       commercial                .        59.000000        6.0000000 
-2012-03-19 10:40              gen commercial paper                .        43.000000        6.0000000 
+2012-03-19 10:40              gen commercial paper                .        42.000000        6.0000000 
 2012-02-27 10:18              src              frb                .        79.000000        6.0000000 
 2012-02-27 10:18             geot           nation                .        99.000000        6.0000000 
 2018-12-17 23:33               cc public domain: c                .        99.000000        6.0000000 

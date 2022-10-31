@@ -84,10 +84,10 @@ Examples
 
    
          created         group_id             name            notes       popularity     series_count 
+2012-02-27 10:18              src              bea                .        78.000000        50.000000 
 2012-02-27 10:18             geot           nation                .        99.000000        50.000000 
 2018-12-17 23:33               cc public domain: c                .        99.000000        50.000000 
 2012-02-27 10:18              geo              usa                .        100.00000        50.000000 
-2012-02-27 10:18              src              bea                .        78.000000        48.000000 
 2012-02-27 10:18              gen          balance                .        48.000000        46.000000 
 
 

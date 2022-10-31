@@ -83,9 +83,15 @@ Examples
 
 ::
 
-   head(fred_series_search_related_tags());
+   head(fred_series_search_related_tags("mortgage rate", "30-year;frb"));
 
-   Program execute failed
+   
+         created         group_id             name            notes       popularity     series_count 
+2012-02-27 10:18              gen     conventional                .        26.000000        2.0000000 
+2012-02-27 10:18              gen     discontinued                .        65.000000        2.0000000 
+2012-08-16 15:21              rls              h15                .        58.000000        2.0000000 
+2012-02-27 10:18              gen         interest                .        73.000000        2.0000000 
+2012-05-29 10:14              gen    interest rate                .        72.000000        2.0000000 
 
 
 Remarks

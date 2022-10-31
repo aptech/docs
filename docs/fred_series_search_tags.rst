@@ -77,9 +77,15 @@ Examples
 
 ::
 
-   head(fred_series_search_tags());
+   head(fred_series_search_tags("monetary service index"));
 
-   Program execute failed
+   
+         created         group_id             name            notes       popularity     series_count 
+2018-12-17 23:33               cc public domain: c                .        99.000000        870.00000 
+2012-02-27 10:18             seas              nsa                .        100.00000        860.00000 
+2012-02-27 10:18             freq           annual                .        88.000000        848.00000 
+2012-02-27 10:18             geot           nation                .        99.000000        708.00000 
+2012-02-27 10:18              geo              usa                .        100.00000        658.00000 
 
 
 Remarks

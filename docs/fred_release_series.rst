@@ -76,11 +76,11 @@ Examples
 
    
        frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
-         Monthly                M        1.0000000      BOMTVLM133S 2017-11-03 08:12 Further informat       2017-09-01       1992-01-01        1.0000000       2022-10-28       2022-10-28 Seasonally Adjus               SA U.S. Imports of  Million of Dolla        Mil. of $ 
-         Monthly                M        1.0000000      BOMVGMM133S 2014-10-20 09:27 BEA has introduc       2013-12-01       1992-01-01        1.0000000       2022-10-28       2022-10-28 Seasonally Adjus               SA U.S. Imports of  Millions of Doll        Mil. of $ 
-         Monthly                M        1.0000000      BOMVJMM133S 2014-10-20 09:26 BEA has introduc       2013-12-01       1992-01-01        1.0000000       2022-10-28       2022-10-28 Seasonally Adjus               SA U.S. Imports of  Millions of Doll        Mil. of $ 
-         Monthly                M        1.0000000      BOMVMPM133S 2017-11-03 08:12 Further informat       2017-09-01       1992-01-01        1.0000000       2022-10-28       2022-10-28 Seasonally Adjus               SA U.S. Imports of  Million of Dolla        Mil. of $ 
-         Monthly                M        1.0000000      BOMVOMM133S 2014-10-20 09:25 BEA has introduc       2013-12-01       1992-01-01        1.0000000       2022-10-28       2022-10-28 Seasonally Adjus               SA U.S. Imports of  Million of Dolla        Mil. of $ 
+         Monthly                M        3.0000000      BOMTVLM133S 2017-11-03 08:12 Further informat       2017-09-01       1992-01-01        3.0000000       2022-10-31       2022-10-31 Seasonally Adjus               SA U.S. Imports of  Million of Dolla        Mil. of $ 
+         Monthly                M        1.0000000      BOMVGMM133S 2014-10-20 09:27 BEA has introduc       2013-12-01       1992-01-01        1.0000000       2022-10-31       2022-10-31 Seasonally Adjus               SA U.S. Imports of  Millions of Doll        Mil. of $ 
+         Monthly                M        3.0000000      BOMVJMM133S 2014-10-20 09:26 BEA has introduc       2013-12-01       1992-01-01        3.0000000       2022-10-31       2022-10-31 Seasonally Adjus               SA U.S. Imports of  Millions of Doll        Mil. of $ 
+         Monthly                M        1.0000000      BOMVMPM133S 2017-11-03 08:12 Further informat       2017-09-01       1992-01-01        1.0000000       2022-10-31       2022-10-31 Seasonally Adjus               SA U.S. Imports of  Million of Dolla        Mil. of $ 
+         Monthly                M        1.0000000      BOMVOMM133S 2014-10-20 09:25 BEA has introduc       2013-12-01       1992-01-01        1.0000000       2022-10-31       2022-10-31 Seasonally Adjus               SA U.S. Imports of  Million of Dolla        Mil. of $ 
 
 
 Remarks

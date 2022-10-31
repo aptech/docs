@@ -111,9 +111,15 @@ Examples
 
 ::
 
-   head(fred_series_search());
+   head(fred_series_search("monetary service index"));
 
-   Program execute failed
+   
+       frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
+         Monthly                M        22.000000            MSIM2 2014-01-17 07:16 The MSI measure        2013-12-01       1967-01-01        22.000000       2022-10-31       2022-10-31 Seasonally Adjus               SA Monetary Service Billions of Doll        Bil. of $ 
+         Monthly                M        18.000000          MSIMZMP 2014-01-17 07:16 The MSI measure        2013-12-01       1967-01-01        18.000000       2022-10-31       2022-10-31 Seasonally Adjus               SA Monetary Service Billions of Doll        Bil. of $ 
+         Monthly                M        14.000000            OCM2P 2014-01-17 07:16 Preferred benchm       2013-12-01       1967-01-01        14.000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Real User Cost I          Percent                % 
+         Monthly                M        13.000000          MSIALLP 2014-01-17 07:16 The MSI measure        2013-12-01       1967-01-01        13.000000       2022-10-31       2022-10-31 Seasonally Adjus               SA Monetary Service Billions of Doll        Bil. of $ 
+         Monthly                M        10.000000           MSIM2A 2014-01-17 07:16 The MSI measure        2013-12-01       1967-01-01        10.000000       2022-10-31       2022-10-31 Seasonally Adjus               SA Monetary Service Billions of Doll        Bil. of $ 
 
 
 Remarks

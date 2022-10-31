@@ -36,7 +36,7 @@ Examples
 
    
               id             link             name    press_release     realtime_end   realtime_start 
-       53.000000 https://www.bea. Gross Domestic P                1       2022-10-28       2022-10-28 
+       53.000000 https://www.bea. Gross Domestic P                1       2022-10-31       2022-10-31 
 
 
 Remarks

@@ -61,11 +61,11 @@ Examples
 
    
             date       release_id     release_name 
-      2022-10-28        353.00000 Alternative Meas 
-      2022-10-28        441.00000 Coinbase Cryptoc 
-      2022-10-28        86.000000 Commercial Paper 
-      2022-10-28        72.000000 Daily Treasury I 
-      2022-10-28        279.00000 Economic Policy  
+      2022-10-31        488.00000 Brave-Butters-Ke 
+      2022-10-31        86.000000 Commercial Paper 
+      2022-10-31        72.000000 Daily Treasury I 
+      2022-10-31        279.00000 Economic Policy  
+      2022-10-31        378.00000 Federal Funds Da 
 
 
 Remarks

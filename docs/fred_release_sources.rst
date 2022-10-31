@@ -36,8 +36,8 @@ Examples
 
    
               id             link             name     realtime_end   realtime_start 
-       19.000000 http://www.censu U.S. Census Bure       2022-10-28       2022-10-28 
-       18.000000 http://www.bea.g U.S. Bureau of E       2022-10-28       2022-10-28 
+       19.000000 http://www.censu U.S. Census Bure       2022-10-31       2022-10-31 
+       18.000000 http://www.bea.g U.S. Bureau of E       2022-10-31       2022-10-31 
 
 
 Remarks
