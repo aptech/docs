@@ -10,11 +10,11 @@ Format
 ----------------
 .. function:: x = fred_releases([, ...])
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -26,15 +26,13 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'name', 'press_release', 'realtime_start', 'realtime_end'.
-         optional, default: release_id
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'release_id', 'name', 'press_release', 'realtime_start', 'realtime_end'. optional, default: release_id
 
-    :type order_by: One of the following strings: 'release_id'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. 'desc'.
-         optional, default: asc
+    :param sort_order: Sort results in ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc'
+    :type sort_order: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -46,9 +44,9 @@ Examples
 
 ::
 
-   head(fred_releases());
+    head(fred_releases());
 
-   
+    
               id             link             name            notes    press_release     realtime_end   realtime_start 
        9.0000000 http://www.censu Advance Monthly  The U.S. Census         1.0000000       2022-10-30       2022-10-30 
        10.000000 http://www.bls.g Consumer Price I                .        1.0000000       2022-10-30       2022-10-30 

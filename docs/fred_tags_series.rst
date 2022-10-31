@@ -13,21 +13,22 @@ Format
 .. function:: x = fred_tags_series(tag_names[, ...])
 
     :param tag_names: A semicolon delimited list of tag names that series match all of. required, no default value.
-         Example value: 'slovenia;food'.  Filter results to series having both tags 'slovenia' and 'food'.See the related request fred/tags.
+
+         Example value: 'slovenia;food'. Filter results to series having both tags 'slovenia' and 'food'.See the related request :func:`fred_tags`.
 
     :type tag_names: String
 
     :param exclude_tag_names: A semicolon delimited list of tag names that series match none of. optional, no default value.
-         Example value: 'alchohol;quarterly'. 
-            Filter results to series having neither tag 'alchohol' nor tag 'quarterly'.
+
+         Example value: 'alchohol;quarterly'. Filter results to series having neither tag 'alchohol' nor tag 'quarterly'.
 
     :type exclude_tag_names: String
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -39,15 +40,13 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'title', 'units', 'frequency', 'seasonal_adjustment', 'realtime_start', 'realtime_end', 'last_updated', 'observation_start', 'observation_end', 'popularity', 'group_popularity'.
-         optional, default: series_id
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'series_id', 'title', 'units', 'frequency', 'seasonal_adjustment', 'realtime_start', 'realtime_end', 'last_updated', 'observation_start', 'observation_end', 'popularity', 'group_popularity'. optional, default: series_id
 
-    :type order_by: One of the following strings: 'series_id'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. 'desc'.
-         optional, default: asc
+    :param sort_order: Sort results in ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc'
+    :type sort_order: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -59,9 +58,9 @@ Examples
 
 ::
 
-   head(fred_tags_series("slovenia;food;oecd"));
+    head(fred_tags_series("slovenia;food;oecd"));
 
-   
+    
        frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
           Annual                A        2.0000000  CPGDFD02SIA657N 2018-03-09 15:10 OECD descriptor        2017-01-01       1996-01-01        0.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Consumer Price I Growth Rate Prev Growth Rate Prev 
           Annual                A        2.0000000  CPGDFD02SIA659N 2018-03-09 15:22 OECD descriptor        2017-01-01       1996-01-01        1.0000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Consumer Price I Growth Rate Same Growth Rate Same 

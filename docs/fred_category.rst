@@ -23,9 +23,9 @@ Examples
 
 ::
 
-   head(fred_category(125));
+    head(fred_category(125));
 
-   
+    
               id             name        parent_id 
        125.00000    Trade Balance               13 
 

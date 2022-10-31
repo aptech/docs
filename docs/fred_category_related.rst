@@ -4,7 +4,7 @@ fred_category_related
 
 Purpose
 ----------------
-Get the related categories for a category.  A related category is a one-way relation between 2 categories that is not part of a parent-child category hierarchy. 
+Get the related categories for a category. A related category is a one-way relation between 2 categories that is not part of a parent-child category hierarchy. 
 Most categories do not have related categories.
 
 Format
@@ -15,11 +15,11 @@ Format
 
     :type category_id: integer
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -33,9 +33,9 @@ Examples
 
 ::
 
-   head(fred_category_related(32073));
+    head(fred_category_related(32073));
 
-   
+    
               id             name        parent_id 
        149.00000         Arkansas        27281.000 
        150.00000         Illinois        27281.000 

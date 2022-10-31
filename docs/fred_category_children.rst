@@ -14,11 +14,11 @@ Format
 
     :type category_id: integer
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -32,9 +32,9 @@ Examples
 
 ::
 
-   head(fred_category_children(13));
+    head(fred_category_children(13));
 
-   
+    
               id             name        parent_id 
        16.000000          Exports        13.000000 
        17.000000          Imports        13.000000 

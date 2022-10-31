@@ -12,11 +12,11 @@ Format
 ----------------
 .. function:: x = fred_release_dates([, ...])
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: 1776-07-04 (earliest available)
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: 1776-07-04 (earliest available)
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: 9999-12-31 (latest available)
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: 9999-12-31 (latest available)
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -28,19 +28,14 @@ Format
 
     :type offset: non-negative integer
 
-    :param sort_order: Sort results is ascending or descending release date order. 'desc'.
-         optional, default: asc
+    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc'
+    :type sort_order: One of the following strings: 'asc', 'desc'
 
-    :param include_release_dates_with_no_data: Determines whether release dates with no data available are returned. 
-          The defalut value 'false' excludes release dates that do not have data.  
-          In particular, this excludes future release dates which may be available in the 
-          FRED release calendar or the ALFRED release calendar.
-         'false'.
-         optional, default: false
+    :param include_release_dates_with_no_data: Determines whether release dates with no data available are returned. The default value 'false' excludes release dates that do not have data.
+        In particular, this excludes future release dates which may be available in the FRED release calendar or the ALFRED release calendar. optional, default: false
 
-    :type include_release_dates_with_no_data: One of the following strings: 'true'
+    :type include_release_dates_with_no_data: One of the following strings: 'true', 'false'
 
     :return x: Results.
     :rtype x: Dataframe
@@ -52,9 +47,9 @@ Examples
 
 ::
 
-   head(fred_release_dates(82));
+    head(fred_release_dates(82));
 
-   
+    
             date       release_id 
       1997-02-10        82.000000 
       1998-02-10        82.000000 

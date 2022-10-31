@@ -12,11 +12,11 @@ Format
 ----------------
 .. function:: x = fred_releases_dates([, ...])
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: First day of the current year
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: First day of the current year
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: 9999-12-31 (latest available)
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: 9999-12-31 (latest available)
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -28,24 +28,17 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'release_id', 'release_name'.
-         optional, default: release_date
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'release_date', 'release_id', 'release_name'. optional, default: release_date
 
-    :type order_by: One of the following strings: 'release_date'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending release date order. 'desc'.
-         optional, default: desc
+    :param sort_order: Sort results in ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc'
+    :type sort_order: String
 
-    :param include_release_dates_with_no_data: Determines whether release dates with no data available are returned. 
-          The defalut value 'false' excludes release dates that do not have data.  
-          In particular, this excludes future release dates which may be available in the 
-          FRED release calendar or the ALFRED release calendar.
-         'false'.
-         optional, default: false
+    :param include_release_dates_with_no_data: One of the following strings: 'true', 'false'. Determines whether release dates with no data available are returned. The defalut value 'false' excludes release dates that do not have data. In particular, this excludes future release dates which may be available in the FRED release calendar or the ALFRED release calendar. optional, default: false
 
-    :type include_release_dates_with_no_data: One of the following strings: 'true'
+    :type include_release_dates_with_no_data: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -57,9 +50,9 @@ Examples
 
 ::
 
-   head(fred_releases_dates());
+    head(fred_releases_dates());
 
-   
+    
             date       release_id     release_name 
       2022-10-31        488.00000 Brave-Butters-Ke 
       2022-10-31        86.000000 Commercial Paper 

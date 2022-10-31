@@ -14,11 +14,11 @@ Format
 
     :type series_id: string
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -32,9 +32,9 @@ Examples
 
 ::
 
-   head(fred_series_release("IRA"));
+    head(fred_series_release("IRA"));
 
-   
+    
               id             link             name    press_release     realtime_end   realtime_start 
        21.000000 http://www.feder H.6 Money Stock                 1       2022-10-31       2022-10-31 
 

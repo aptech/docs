@@ -14,11 +14,11 @@ Format
 
     :type series_id: string
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -32,9 +32,9 @@ Examples
 
 ::
 
-   head(fred_series("GNPCA"));
+    head(fred_series("GNPCA"));
 
-   
+    
        frequency  frequency_short               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
           Annual                A            GNPCA 2022-09-29 07:45 BEA Account Code       2021-01-01       1929-01-01        16.000000       2022-10-31       2022-10-31 Not Seasonally A              NSA Real Gross Natio Billions of Chai Bil. of Chn. 201 
 

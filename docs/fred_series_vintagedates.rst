@@ -17,11 +17,11 @@ Format
 
     :type series_id: string
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: 1776-07-04 (earliest available)
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: 1776-07-04 (earliest available)
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: 9999-12-31 (latest available)
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: 9999-12-31 (latest available)
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -33,10 +33,9 @@ Format
 
     :type offset: non-negative integer
 
-    :param sort_order: Sort results is ascending or descending vintage_date order. 'desc'.
-         optional, default: asc
+    :param sort_order: Sort results in ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc'
+    :type sort_order: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -48,15 +47,15 @@ Examples
 
 ::
 
-   head(fred_series_vintagedates("GNPCA"));
+    head(fred_series_vintagedates("GNPCA"));
 
-   
- vintage_dates_1 
-      1958-12-21 
-      1959-02-19 
-      1959-07-19 
-      1960-02-16 
-      1960-07-22 
+    
+     vintage_dates_1 
+          1958-12-21 
+          1959-02-19 
+          1959-07-19 
+          1960-02-16 
+          1960-07-22 
 
 
 Remarks

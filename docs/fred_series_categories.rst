@@ -14,11 +14,11 @@ Format
 
     :type series_id: string
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -32,9 +32,9 @@ Examples
 
 ::
 
-   head(fred_series_categories("EXJPUS"));
+    head(fred_series_categories("EXJPUS"));
 
-   
+    
               id             name        parent_id 
        95.000000    Monthly Rates        15.000000 
        275.00000            Japan        158.00000 

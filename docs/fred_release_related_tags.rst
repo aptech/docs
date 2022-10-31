@@ -17,17 +17,17 @@ Format
 
     :type release_id: integer
 
-    :param tag_names: A semicolon delimited list of tag names that series match all of.  See the related request fred/release/tags. required, no default value.
+    :param tag_names: A semicolon delimited list of tag names that series match all of. See the related request :func:`fred_release_tags`. required, no default value.
          Example value: 'defense;investment'. 
             Find the related tags for series having both tags 'defense' and 'investment'.
 
     :type tag_names: String
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -39,15 +39,15 @@ Format
 
     :param tag_group_id: A tag group id to filter tags by type. optional, no filtering by tag group by default.
          
-            One of the following: 'freq', 'gen', 'geo', 'geot', 'rls', 'seas', 'src'.
-            
-             freq = Frequency  
-             gen = General or Concept   
-             geo = Geography   
-             geot = Geography Type  
-             rls = Release
-             seas = Seasonal Adjustment  
-             src = Source
+        One of the following: 'freq', 'gen', 'geo', 'geot', 'rls', 'seas', 'src'.
+       
+        - freq = Frequency  
+        - gen = General or Concept   
+        - geo = Geography   
+        - geot = Geography Type  
+        - rls = Release
+        - seas = Seasonal Adjustment  
+        - src = Source
 
     :type tag_group_id: String
 
@@ -63,15 +63,13 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'popularity', 'created', 'name', 'group_id'.
-         optional, default: series_count
+    :param order_by: Order results by values of the specified attribute. 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
 
     :type order_by: One of the following strings: 'series_count'
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. 'desc'.
-         optional, default: asc
+    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc'
+    :type sort_order: One of the following strings: 'asc', 'desc'
 
     :return x: Results.
     :rtype x: Dataframe
@@ -83,15 +81,15 @@ Examples
 
 ::
 
-   head(fred_release_related_tags(86, "sa;foreign"));
-
-   
-         created         group_id             name            notes       popularity     series_count 
-2012-02-27 10:18              gen       commercial                .        59.000000        6.0000000 
-2012-03-19 10:40              gen commercial paper                .        42.000000        6.0000000 
-2012-02-27 10:18              src              frb                .        79.000000        6.0000000 
-2012-02-27 10:18             geot           nation                .        99.000000        6.0000000 
-2018-12-17 23:33               cc public domain: c                .        99.000000        6.0000000 
+    head(fred_release_related_tags(86, "sa;foreign"));
+    
+    
+              created         group_id             name            notes       popularity     series_count 
+     2012-02-27 10:18              gen       commercial                .        59.000000        6.0000000 
+     2012-03-19 10:40              gen commercial paper                .        42.000000        6.0000000 
+     2012-02-27 10:18              src              frb                .        79.000000        6.0000000 
+     2012-02-27 10:18             geot           nation                .        99.000000        6.0000000 
+     2018-12-17 23:33               cc public domain: c                .        99.000000        6.0000000 
 
 
 Remarks

@@ -14,11 +14,11 @@ Format
 
     :type release_id: integer
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -30,35 +30,31 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'title', 'units', 'frequency', 'seasonal_adjustment', 'realtime_start', 'realtime_end', 'last_updated', 'observation_start', 'observation_end', 'popularity','group_popularity'.
-         optional, default: series_id
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'series_id', 'title', 'units', 'frequency', 'seasonal_adjustment', 'realtime_start', 'realtime_end', 'last_updated', 'observation_start', 'observation_end', 'popularity','group_popularity'. optional, default: series_id
 
-    :type order_by: One of the following strings: 'series_id'
+    :type order_by: String 
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. 'desc'.
-         optional, default: asc
+    :param sort_order: Sort results in ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc'
+    :type sort_order: String
 
-    :param filter_variable: The attribute to filter results by. 'units', 'seasonal_adjustment'.
-         optional, no filter by default
+    :param filter_variable: The attribute to filter results by. One of the following strings: 'frequency', 'units', 'seasonal_adjustment'. optional, no filter by default
 
-    :type filter_variable: One of the following strings: 'frequency'
+    :type filter_variable: String
 
     :param filter_value: The value of the filter_variable attribute to filter results by. optional, no filter by default
 
     :type filter_value: String
 
     :param tag_names: A semicolon delimited list of tag names that series match all of. optional, no filtering by tags by default
-         Example value: 'japan;imports'.  Filter results to series having both tags 'japan' and 'imports'.See the related request fred/tags.
+
+         Example value: 'japan;imports'. Filter results to series having both tags 'japan' and 'imports'. See the related request :func:`fred_tags`.
 
     :type tag_names: String
 
     :param exclude_tag_names: A semicolon delimited list of tag names that series match none of. optional, no filtering by tags by default.
-         Example value: 'imports;services'. 
-            Filter results to series having neither tag 'imports' nor tag 'services'.
-          
-            Parameter exclude_tag_names requires that parameter tag_names also be set to limit the number of matching series.
+
+         Example value: 'imports;services'. Filter results to series having neither tag 'imports' nor tag 'services'. Parameter exclude_tag_names requires that parameter tag_names also be set to limit the number of matching series.
 
     :type exclude_tag_names: String
 
@@ -72,9 +68,9 @@ Examples
 
 ::
 
-   head(fred_release_series(51));
+    head(fred_release_series(51));
 
-   
+    
        frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
          Monthly                M        3.0000000      BOMTVLM133S 2017-11-03 08:12 Further informat       2017-09-01       1992-01-01        3.0000000       2022-10-31       2022-10-31 Seasonally Adjus               SA U.S. Imports of  Million of Dolla        Mil. of $ 
          Monthly                M        1.0000000      BOMVGMM133S 2014-10-20 09:27 BEA has introduc       2013-12-01       1992-01-01        1.0000000       2022-10-31       2022-10-31 Seasonally Adjus               SA U.S. Imports of  Millions of Doll        Mil. of $ 

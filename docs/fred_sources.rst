@@ -10,11 +10,11 @@ Format
 ----------------
 .. function:: x = fred_sources([, ...])
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -26,15 +26,13 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'name', 'realtime_start', 'realtime_end'.
-         optional, default: source_id
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'source_id', 'name', 'realtime_start', 'realtime_end'. optional, default: source_id
 
-    :type order_by: One of the following strings: 'source_id'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. 'desc'.
-         optional, default: asc
+    :param sort_order: Sort results in ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc'
+    :type sort_order: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -46,9 +44,9 @@ Examples
 
 ::
 
-   head(fred_sources());
+    head(fred_sources());
 
-   
+    
               id             link             name     realtime_end   realtime_start 
        1.0000000 http://www.feder Board of Governo       2022-10-31       2022-10-31 
        3.0000000 https://www.phil Federal Reserve        2022-10-31       2022-10-31 

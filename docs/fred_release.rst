@@ -14,11 +14,11 @@ Format
 
     :type release_id: integer
 
-    :param realtime_start: The start of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_start: YYYY-MM-DD formatted string
 
-    :param realtime_end: The end of the real-time period.  For more information, see Real-Time Periods. optional, default: today's date
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
 
     :type realtime_end: YYYY-MM-DD formatted string
 
@@ -32,9 +32,9 @@ Examples
 
 ::
 
-   head(fred_release(53));
+    head(fred_release(53));
 
-   
+    
               id             link             name    press_release     realtime_end   realtime_start 
        53.000000 https://www.bea. Gross Domestic P                1       2022-10-31       2022-10-31 
 
