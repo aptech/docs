@@ -10,7 +10,7 @@ Get release dates for all releases of economic data.
 
 Format
 ----------------
-.. function:: x = fred_releases_dates([, ...])
+.. function:: x = fred_releases_dates([...])
 
     :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: First day of the current year
 
@@ -36,7 +36,7 @@ Format
 
     :type sort_order: String
 
-    :param include_release_dates_with_no_data: One of the following strings: 'true', 'false'. Determines whether release dates with no data available are returned. The defalut value 'false' excludes release dates that do not have data. In particular, this excludes future release dates which may be available in the FRED release calendar or the ALFRED release calendar. optional, default: false
+    :param include_release_dates_with_no_data: Determines whether release dates with no data available are returned. The defalut value 'false' excludes release dates that do not have data. In particular, this excludes future release dates which may be available in the FRED release calendar or the ALFRED release calendar. One of the following strings: 'true', 'false'. optional, default: false
 
     :type include_release_dates_with_no_data: String
 
@@ -64,8 +64,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_releases`, :func:`fred_release`, :func:`fred_release_dates`, :func:`fred_release_series`, :func:`fred_release_sources`, :func:`fred_release_tags`, :func:`fred_release_related_tags`
 

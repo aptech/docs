@@ -56,8 +56,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_series`, :func:`fred_series_categories`, :func:`fred_series_observations`, :func:`fred_series_release`, :func:`fred_series_search`, :func:`fred_series_search_tags`, :func:`fred_series_search_related_tags`, :func:`fred_series_updates`, :func:`fred_series_vintagedates`
 

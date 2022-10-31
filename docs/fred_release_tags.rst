@@ -6,13 +6,9 @@ Purpose
 ----------------
 
 Get the FRED tags for a release.
-
 Optionally, filter results by tag name, tag group, or search.
-
 Series are assigned tags and releases.
-
 Indirectly through series, it is possible to get the tags for a release.
-
 See the related request :func:`fred_release_related_tags`.
 
 
@@ -96,8 +92,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_releases`, :func:`fred_releases_dates`, :func:`fred_release`, :func:`fred_release_dates`, :func:`fred_release_series`, :func:`fred_release_sources`, :func:`fred_release_related_tags`
 

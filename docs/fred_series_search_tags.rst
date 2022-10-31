@@ -5,7 +5,7 @@ fred_series_search_tags
 Purpose
 ----------------
 
-Get the FRED tags for a series search. Optionally, filter results by tag name, tag group, or tag search. See the related request :func:`fred_series_search`/related_tags.
+Get the FRED tags for a series search. Optionally, filter results by tag name, tag group, or tag search. See the related request :func:`fred_series_search_related_tags`.
 
 
 Format

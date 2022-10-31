@@ -50,7 +50,9 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. One of the following strings: 'search_rank', 'series_id', 'title', 'units', 'frequency', 'seasonal_adjustment', 'realtime_start', 'realtime_end', 'last_updated', 'observation_start', 'observation_end', 'popularity', 'group_popularity'. optional, default: 
+    :param order_by: Order results by values of the specified attribute.
+    
+       One of the following strings: 'search_rank', 'series_id', 'title', 'units', 'frequency', 'seasonal_adjustment', 'realtime_start', 'realtime_end', 'last_updated', 'observation_start', 'observation_end', 'popularity', 'group_popularity'. optional, default: 
     
        - If the value of search_type is 'full_text' then the default value of order_by is 'search_rank'.  
        - If the value of search_type is 'series_id' then the default value of order_by is 'series_id'.
@@ -71,13 +73,13 @@ Format
 
     :param tag_names: A semicolon delimited list of tag names that series match all of. optional, no filtering by tags by default
 
-         Example value: 'usa;m2'.  Filter results to series having both tags 'usa' and 'm2'.See the related request :func:`fred_tags`.
+         Example value: 'usa;m2'.  Filter results to series having both tags 'usa' and 'm2'. See the related request :func:`fred_tags`.
 
     :type tag_names: String
 
     :param exclude_tag_names: A semicolon delimited list of tag names that series match none of. optional, no filtering by tags by default.
 
-         Example value: 'discontinued;m1'. Filter results to series having neither tag 'discontinued' nor tag 'm1'. Parameter exclude_tag_names requires that parameter tag_names also be set to limit the number of matching series.
+         Example value: 'discontinued;m1'. Filter results to series having neither tag 'discontinued' nor tag 'm1'. Parameter *exclude_tag_names* requires that parameter tag_names also be set to limit the number of matching series.
 
     :type exclude_tag_names: String
 
@@ -105,8 +107,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_series`, :func:`fred_series_categories`, :func:`fred_series_observations`, :func:`fred_series_release`, :func:`fred_series_search_tags`, :func:`fred_series_search_related_tags`, :func:`fred_series_tags`, :func:`fred_series_updates`, :func:`fred_series_vintagedates`
 

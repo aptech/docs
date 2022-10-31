@@ -10,7 +10,7 @@ Get release dates for a release of economic data.
 
 Format
 ----------------
-.. function:: x = fred_release_dates([, ...])
+.. function:: x = fred_release_dates([...])
 
     :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: 1776-07-04 (earliest available)
 
@@ -28,14 +28,14 @@ Format
 
     :type offset: non-negative integer
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. optional, default: asc
+    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc', 'desc'
+    :type sort_order: String
 
-    :param include_release_dates_with_no_data: Determines whether release dates with no data available are returned. The default value 'false' excludes release dates that do not have data.
+    :param include_release_dates_with_no_data: Determines whether release dates with no data available are returned. One of the following strings: 'true', 'false'. The default value 'false' excludes release dates that do not have data.
         In particular, this excludes future release dates which may be available in the FRED release calendar or the ALFRED release calendar. optional, default: false
 
-    :type include_release_dates_with_no_data: One of the following strings: 'true', 'false'
+    :type include_release_dates_with_no_data: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -61,8 +61,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_releases`, :func:`fred_releases_dates`, :func:`fred_release`, :func:`fred_release_series`, :func:`fred_release_sources`, :func:`fred_release_tags`, :func:`fred_release_related_tags`
 

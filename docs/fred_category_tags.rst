@@ -6,17 +6,11 @@ Purpose
 ----------------
 
 Get the FRED tags for a category.
-
 Optionally, filter results by tag name, tag group, or search. 
-
 Series are assigned tags and categories.
-
 Indirectly through series, it is possible to get the tags for a category.
-
 No tags exist for a category that does not have series.  
-
 See the related request :func:`fred_category_related_tags`.
-
 
 Format
 ----------------
@@ -36,7 +30,7 @@ Format
 
     :param tag_names: A semicolon delimited list of tag names to only include in the response. See the related request :func:`fred_category_related_tags`. optional, no filtering by tag names by default
          
-         Example value: 'trade;goods'.  This value filters results to only include tags 'trade' and 'goods'.
+         Example value: 'trade;goods'. This value filters results to only include tags 'trade' and 'goods'.
 
     :type tag_names: String
 
@@ -66,13 +60,13 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'series_count', 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
 
-    :type order_by: One of the following strings: 'series_count'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. optional, default: asc
+    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc', 'desc'
+    :type sort_order: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -98,8 +92,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_category`, :func:`fred_category_children`, :func:`fred_category_related`, :func:`fred_category_series`, :func:`fred_category_related_tags`
 

@@ -5,9 +5,7 @@ fred_related_tags
 Purpose
 ----------------
 
-Get the related FRED tags for one or more FRED tags.
-
-Optionally, filter results by tag group or search.
+Get the related FRED tags for one or more FRED tags. Optionally, filter results by tag group or search.
 
 
 Format
@@ -33,9 +31,7 @@ Format
 
     :param exclude_tag_names: A semicolon delimited list of tag names that series match none of. optional, no default value.
 
-         Example value: 'discontinued;currency'. 
-
-         - Find the related tags for series having neither tag 'discontinued' nor tag 'currency'.
+         Example value: 'discontinued;currency'. Find the related tags for series having neither tag 'discontinued' nor tag 'currency'.
 
     :type exclude_tag_names: String
 
@@ -65,13 +61,13 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'series_count', 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
 
-    :type order_by: One of the following strings: 'series_count'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. optional, default: asc
+    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc', 'desc'
+    :type sort_order: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -97,8 +93,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_tags`, :func:`fred_tags_series`
 

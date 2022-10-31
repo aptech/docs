@@ -17,8 +17,8 @@ Format
     :type category_id: integer
 
     :param tag_names: A semicolon delimited list of tag names that series match all of. See the related request :func:`fred_category_tags`. required, no default value.
-         Example value: 'services;quarterly'. 
-            Find the related tags for series having both tags 'services' and 'quarterly'.
+
+         Example value: 'services;quarterly'. Find the related tags for series having both tags 'services' and 'quarterly'.
 
     :type tag_names: String
 
@@ -32,9 +32,7 @@ Format
 
     :param exclude_tag_names: A semicolon delimited list of tag names that series match none of. optional, no default value.
          
-         Example value: 'goods;sa'.
-         
-         Find the related tags for series having neither tag 'goods' nor tag 'sa'.
+         Example value: 'goods;sa'. Find the related tags for series having neither tag 'goods' nor tag 'sa'.
 
     :type exclude_tag_names: String
 
@@ -64,13 +62,13 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'series_count', 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
 
-    :type order_by: One of the following strings: 'series_count'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. optional, default: asc
+    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc', 'desc'
+    :type sort_order: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -85,12 +83,12 @@ Examples
     head(fred_category_related_tags(125, "services;quarterly"));
 
     
-         created         group_id             name            notes       popularity     series_count 
-2012-02-27 10:18              gen          balance                .        48.000000        12.000000 
-2012-02-27 10:18              src              bea                .        78.000000        12.000000 
-2012-02-27 10:18             geot           nation                .        99.000000        12.000000 
-2018-12-17 23:33               cc public domain: c                .        99.000000        12.000000 
-2012-02-27 10:18              geo              usa                .        100.00000        12.000000 
+              created         group_id             name            notes       popularity     series_count 
+     2012-02-27 10:18              gen          balance                .        48.000000        12.000000 
+     2012-02-27 10:18              src              bea                .        78.000000        12.000000 
+     2012-02-27 10:18             geot           nation                .        99.000000        12.000000 
+     2018-12-17 23:33               cc public domain: c                .        99.000000        12.000000 
+     2012-02-27 10:18              geo              usa                .        100.00000        12.000000 
 
 
 Remarks

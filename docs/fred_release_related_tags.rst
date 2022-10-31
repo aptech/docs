@@ -18,8 +18,8 @@ Format
     :type release_id: integer
 
     :param tag_names: A semicolon delimited list of tag names that series match all of. See the related request :func:`fred_release_tags`. required, no default value.
-         Example value: 'defense;investment'. 
-            Find the related tags for series having both tags 'defense' and 'investment'.
+
+         Example value: 'defense;investment'. Find the related tags for series having both tags 'defense' and 'investment'.
 
     :type tag_names: String
 
@@ -32,8 +32,8 @@ Format
     :type realtime_end: YYYY-MM-DD formatted string
 
     :param exclude_tag_names: A semicolon delimited list of tag names that series match none of. optional, no default value.
-         Example value: 'monthly;financial'. 
-            Find the related tags for series having neither tag 'monthly' nor tag 'financial'.
+
+         Example value: 'monthly;financial'. Find the related tags for series having neither tag 'monthly' nor tag 'financial'.
 
     :type exclude_tag_names: String
 
@@ -63,13 +63,13 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'series_count', 'popularity', 'created', 'name', 'group_id'. optional, default: series_count
 
-    :type order_by: One of the following strings: 'series_count'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. optional, default: asc
+    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc', 'desc'
+    :type sort_order: String
 
     :return x: Results.
     :rtype x: Dataframe
@@ -82,7 +82,7 @@ Examples
 ::
 
     head(fred_release_related_tags(86, "sa;foreign"));
-    
+
     
               created         group_id             name            notes       popularity     series_count 
      2012-02-27 10:18              gen       commercial                .        59.000000        6.0000000 
@@ -95,8 +95,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_releases`, :func:`fred_releases_dates`, :func:`fred_release`, :func:`fred_release_dates`, :func:`fred_release_series`, :func:`fred_release_sources`, :func:`fred_release_tags`
 

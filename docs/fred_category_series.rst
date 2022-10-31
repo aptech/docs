@@ -30,17 +30,17 @@ Format
 
     :type offset: non-negative integer
 
-    :param order_by: Order results by values of the specified attribute. 'title', 'units', 'frequency', 'seasonal_adjustment', 'realtime_start', 'realtime_end', 'last_updated', 'observation_start', 'observation_end', 'popularity', 'group_popularity'. optional, default: series_id
+    :param order_by: Order results by values of the specified attribute. One of the following strings: 'series_id', 'title', 'units', 'frequency', 'seasonal_adjustment', 'realtime_start', 'realtime_end', 'last_updated', 'observation_start', 'observation_end', 'popularity', 'group_popularity'. optional, default: series_id
 
-    :type order_by: One of the following strings: 'series_id'
+    :type order_by: String
 
-    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. optional, default: asc
+    :param sort_order: Sort results is ascending or descending order for attribute values specified by order_by. One of the following strings: 'asc', 'desc'. optional, default: asc
 
-    :type sort_order: One of the following strings: 'asc', 'desc'
+    :type sort_order: String
 
-    :param filter_variable: The attribute to filter results by. 'units', 'seasonal_adjustment'. optional, no filter by default
+    :param filter_variable: The attribute to filter results by. On of the following strings: 'frequency', 'units', 'seasonal_adjustment'. optional, no filter by default
 
-    :type filter_variable: On of the following strings: 'frequency'
+    :type filter_variable: String
 
     :param filter_value: The value of the filter_variable attribute to filter results by. optional, no filter by default
 
@@ -54,8 +54,7 @@ Format
 
     :param exclude_tag_names: A semicolon delimited list of tag names that series match none of. optional, no filtering by tags by default.
 
-         Example value: 'discontinued;annual'. Filter results to series having neither tag 'discontinued' nor tag 'annual'.
-          
+         Example value: 'discontinued;annual'. Filter results to series having neither tag 'discontinued' nor tag 'annual'.          
          Parameter *exclude_tag_names* requires that parameter tag_names also be set to limit the number of matching series.
 
     :type exclude_tag_names: String
@@ -84,8 +83,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_category`, :func:`fred_category_children`, :func:`fred_category_related`, :func:`fred_category_tags`, :func:`fred_category_related_tags`
 

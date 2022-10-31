@@ -8,7 +8,7 @@ Get all sources of economic data.
 
 Format
 ----------------
-.. function:: x = fred_sources([, ...])
+.. function:: x = fred_sources([...])
 
     :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
@@ -58,8 +58,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_source`, :func:`fred_source_releases`
 
