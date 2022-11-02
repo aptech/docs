@@ -39,5 +39,5 @@ Remarks
 
 .. include:: remarks_dbnomics.rst
 
-.. seealso:: 
+.. seealso:: :func:`dbnomics_series`, `:func:`dbnomics_series_dataset_filter`
 

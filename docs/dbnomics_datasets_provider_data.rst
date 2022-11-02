@@ -37,5 +37,5 @@ Remarks
 
 .. include:: remarks_dbnomics.rst
 
-.. seealso:: 
+.. seealso:: :func:`dbnomics_datasets_provider`
 
