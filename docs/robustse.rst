@@ -50,9 +50,9 @@ Examples
     data = loadd(fname);
 
     // Transform data
-    mpg = data[.,3];
-    weight = data[.,7];
-    foreign = data[.,12];
+    mpg = data[., 3];
+    weight = data[., 7];
+    foreign = data[., 12];
 
     // Set independent and dependent variables
     y = ((1/mpg) ./ weight) * 100 * 1000;

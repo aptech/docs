@@ -60,15 +60,6 @@ Examples
     fname = getGAUSSHome $+ "examples/regsmpl.dta";
     data = loadd(fname);
 
-    // Transform data
-    mpg = data[., 3];
-    weight = data[., 7];
-    foreign = data[., 12];
-
-    // Set independent and dependent variables
-    y = ((1/mpg) ./ weight) * 100 * 1000;
-    x = foreign;
-
     // Control structure
     struct olsmtControl o_ctl;
     o_ctl = olsmtControlCreate();
