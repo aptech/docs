@@ -27,13 +27,13 @@ Format
               4           Triangular
               5           Rectangular.
               6           Truncated normal.
-              7           Parzen
-              8           Cosine
-              9           Triweight
-              10          Tricube
-              11          Logistic
-              12          Sigmoid
-              13          Silverman
+              7           Parzen.
+              8           Cosine.
+              9           Triweight.
+              10          Tricube.
+              11          Logistic.
+              12          Sigmoid.
+              13          Silverman.
               =========== ==============
 
               If kernel is scalar, the kernel is the same
@@ -46,26 +46,23 @@ Format
 
     :param c0: Instance of :class:`kernelDensityControl` structure containing the following members:
 
-         .. list-table::
-             :widths: auto
+        .. list-table::
+            :widths: auto
 
-             * - c0.varNames
-                   - string array, variable name(s). Default is dataframe headers if included, `"X1"`, `"X2"`, ... otherwise.
+            * - c0.varNames
+              - string array, variable name(s). Default is dataframe headers if included, `"X1"`, `"X2"`, ... otherwise.
 
-             * - c0.NumPoints
-                   - scalar, number of points to be computed for plots.
+            * - c0.NumPoints
+              - scalar, number of points to be computed for plots.
 
-             * - c0.EndPoints
-                   - Kx2 matrix, lower (in first column) and upper (in second column) endpoints of density.  Default is minimum and maximum, respectively, of the parameter values.  If 1x2 matrix, endpoints will be the same
-                   for all parameters.
+            * - c0.EndPoints
+              - Kx2 matrix, lower (in first column) and upper (in second column) endpoints of density.  Default is minimum and maximum, respectively, of the parameter values.  If 1x2 matrix, endpoints will be the same for all parameters.
 
             * - c0.Truncate
-                   - Kx2 matrix, lower (in first column) and upper (in second column) truncation limits for truncated normal kernel. If 1x2 matrix, truncations limits will be the same for all plots.  Default is minimum and maximum,
-                   respectively.
+              - Kx2 matrix, lower (in first column) and upper (in second column) truncation limits for truncated normal kernel. If 1x2 matrix, truncations limits will be the same for all plots.  Default is minimum and maximum, respectively.
 
             * - c0.plotFunctionPtr
-                    - Scalar, a pointed to a user-defined function used to specify format modifications to the default plot format.
-
+              - Scalar, a pointed to a user-defined function used to specify format modifications to the default plot format.
 
     :type c0: Structure
 
@@ -184,5 +181,3 @@ Modifying plot with plotControl pointer
   // control structure
   struct kernelDensityResults krslt4;
   krslt4 = kernelDensity(data[., "volatile acidity"], kernel, bw, kctl);
-
-  
