@@ -38,8 +38,7 @@ Format
     :type ss: Scalar
 
     :return vce_hac: Newey-West HAC-robust variance-covariance matrix.
-
-    :rtype vce_hacr: KxK matrix
+    :rtype vce_hac: KxK matrix
 
 Examples
 ----------------
@@ -51,15 +50,6 @@ Examples
     // Load data using auto dataset
     fname = getGAUSSHome $+ "examples/regsmpl.dta";
     data = loadd(fname);
-
-    // Transform data
-    mpg = data[., 3];
-    weight = data[., 7];
-    foreign = data[., 12];
-
-    // Set independent and dependent variables
-    y = ((1/mpg) ./ weight) * 100 * 1000;
-    x = foreign;
 
     // Control structure
     struct olsmtControl o_ctl;
@@ -95,29 +85,26 @@ This estimates the OLS regression and finds the i.i.d. standard errors:
     age:age     -0.001085    0.000058  -18.862899     0.000   -0.916788    0.265497
     tenure       0.039088    0.000774   50.479037     0.000    0.306895    0.370584
 
-Calling :func:`clusterSE` estimates the cluster-robust standard errors:
+Calling :func:`hacrSE` estimates the HAC-robust standard errors:
 
 ::
 
     // Find cluster-robust standard errors regression includes const
-    vce_cluster = clusterse(fname, "age + age:age + tenure", "idcode", o_out.resid );
+    vce_hac = hacse(fname, "age + age:age + tenure", o_out.resid );
 
-The results:
+The resulting standard errors are:
 
 ::
 
-    Total observations:                                        28101
-    Number of variables:                                           4
-
-              VARIABLE     Clustered SE
+              VARIABLE     HAC SE
       -------------------------------------
 
-                 const         0.064192
-                   age        0.0045711
-               age:age       7.7846e-05
-                tenure        0.0014425
+                 const         0.066368
+                   age        0.0047206
+               age:age       8.0260e-05
+                tenure        0.0013722
       -------------------------------------
 
-.. seealso:: Functions :func:`olsmt`, :func:`robustSE`
+.. seealso:: Functions :func:`olsmt`, :func:`robustSE`, :func:`clusterSE`
 
 |
