@@ -15,7 +15,7 @@ Format
     :type x: NxK matrix or dataframe
 
     :param dataset: name of dataset. The type of file to create is inferred from the file extension.
-        Valid file extensions include CSV, DAT, XLS, XLSX.
+        Valid file extensions include CSV, GDAT, DAT, XLS, XLSX.
     :type dataset: string
 
     :param vnames: Optional input, names for the columns of the dataset. If ``vnames`` is not passed in:
@@ -27,6 +27,9 @@ Format
     :return ret: 1 if successful, otherwise 0.
 
     :rtype ret: scalar
+
+
+.. NOTE:: GDAT files are the new standard GAUSS dataset format. They allow you to save dataframes with string, category and date columns.
 
 Examples
 ----------------
