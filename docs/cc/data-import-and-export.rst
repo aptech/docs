@@ -44,11 +44,11 @@ HDF 5 files
 -------------------
 
 ==========================       ====================================================================================
-:doc:`../h5create`               Create a HDF5 dataset (.h5).
-:doc:`../h5open` 	         Open a HDF5 file.
-:doc:`../h5read`                 Reads data from a HDF5 file (.h5) into a GAUSS matrix.
-:doc:`../h5readattribute`        Read attributes from a HDF5 file into GAUSS.
-:doc:`../h5write`                Writes a GAUSS matrix to a HDF5 file.
+:doc:`../h5create`                Create a HDF5 dataset (.h5).
+:doc:`../h5open` 	                Open a HDF5 file.
+:doc:`../h5read`                  Reads data from a HDF5 file (.h5) into a GAUSS matrix.
+:doc:`../h5readattribute`         Read attributes from a HDF5 file into GAUSS.
+:doc:`../h5write`                 Writes a GAUSS matrix to a HDF5 file.
 ==========================       ====================================================================================
 
 GAUSS Data Sets
@@ -57,26 +57,26 @@ GAUSS Data Sets
 These are the main functions to use for loading and saving GAUSS datasets.
 
 ======================       ====================================================================================
-:doc:`../loadd`              Loads a data set into a GAUSS dataframe.
-:doc:`../saved`              Saves matrices or dataframes to a variety of dataset types.
+:doc:`../loadd`                  Loads a data set into a GAUSS dataframe.
+:doc:`../saved`                  Saves matrices or dataframes to a variety of dataset types.
 ======================       ====================================================================================
 
 
-The following functions use file handles which enable reading and writing partial chunks of a dataset. 
+The following functions use file handles which enable reading and writing partial chunks of a dataset.
 
 ======================       ====================================================================================
-:doc:`../close`                 Closes an open data set (.dat file).
-:doc:`../closeall`              Closes all open data sets.
-:doc:`../datacreate`            Creates a file handle to a new, empty GAUSS data set.
-:doc:`../dataopen`              Opens a file handle to a GAUSS data set.
-:doc:`../eof`                   Tests for end of file.
-:doc:`../getnr`                 Computes number of rows to read per iteration for a program that reads data from a disk file in a loop.
-:doc:`../getnrmt`               Computes number of rows to read per iteration for a program that reads data from a disk file in a loop.
-:doc:`../readr`                 Reads rows from open data set.
-:doc:`../seekr`                 Moves pointer to specified location in open data set.
-:doc:`../tempname`              Creates a temporary file with a unique name.
-:doc:`../typef`                 Returns the element size (2, 4 or 8 bytes) of data in open data set.
-:doc:`../writer`                Writes matrix to a GAUSS dataset using open file handle.
+:doc:`../close`                  Closes an open data set (.dat file).
+:doc:`../closeall`               Closes all open data sets.
+:doc:`../datacreate`             Creates a file handle to a new, empty GAUSS data set.
+:doc:`../dataopen`               Opens a file handle to a GAUSS data set.
+:doc:`../eof`                    Tests for end of file.
+:doc:`../getnr`                  Computes number of rows to read per iteration for a program that reads data from a disk file in a loop.
+:doc:`../getnrmt`                Computes number of rows to read per iteration for a program that reads data from a disk file in a loop.
+:doc:`../readr`                  Reads rows from open data set.
+:doc:`../seekr`                  Moves pointer to specified location in open data set.
+:doc:`../tempname`               Creates a temporary file with a unique name.
+:doc:`../typef`                  Returns the element size (2, 4 or 8 bytes) of data in open data set.
+:doc:`../writer`                 Writes matrix to a GAUSS dataset using open file handle.
 ======================       ====================================================================================
 
 
@@ -218,7 +218,7 @@ Query Data Retrieval
 General text file manipulation
 -----------------------------------
 
-To read and write data from CSV and delimted text files, see the earlier section.
+To read and write data from CSV and delimited text files, see the earlier section.
 
 ====================       ====================================================================================
 :doc:`../fcheckerr`           Gets the error status of a file.
