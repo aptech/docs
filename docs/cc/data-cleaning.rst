@@ -17,17 +17,17 @@ Selection
 --------------------------------------------
 
 =====================       ===========================================
-:doc:`../delcols`              Removes variables from a dataframe specified by index or name.
-:doc:`../delif`                Removes rows of data based on a logical expression.
-:doc:`../delrows`              Removes observations (rows) from a dataframe by index.
-:doc:`../diag`                 Extracts the diagonal of a matrix.
-:doc:`../getmatrix`            Gets a contiguous matrix from an N-dimensional array.
-:doc:`../head`                 Returns the first ``n`` rows of a matrix, dataframe or string array.
-:doc:`../selif`                Keeps rows of data based on a logical expression.
-:doc:`../submat`               Extracts a submatrix from a matrix.
-:doc:`../subvec`               Extracts an Nx1 vector of elements from an NxK matrix.
-:doc:`../tail`                 Returns the last ``n`` rows of a matrix, dataframe or string array.
-:doc:`../trimr`                Trims rows from the top or bottom.
+:doc:`../delcols`           Removes variables from a dataframe specified by index or name.
+:doc:`../delif`             Removes rows of data based on a logical expression.
+:doc:`../delrows`           Removes observations (rows) from a dataframe by index.
+:doc:`../diag`              Extracts the diagonal of a matrix.
+:doc:`../getmatrix`         Gets a contiguous matrix from an N-dimensional array.
+:doc:`../head`              Returns the first ``n`` rows of a matrix, dataframe or string array.
+:doc:`../selif`             Keeps rows of data based on a logical expression.
+:doc:`../submat`            Extracts a submatrix from a matrix.
+:doc:`../subvec`            Extracts an Nx1 vector of elements from an NxK matrix.
+:doc:`../tail`              Returns the last ``n`` rows of a matrix, dataframe or string array.
+:doc:`../trimr`             Trims rows from the top or bottom.
 =====================       ===========================================
 
 Merging
@@ -65,16 +65,17 @@ Searching
 --------------
 
 =======================    ===============================================================
-:doc:`../contains`                Indicates whether one matrix, multidimensional array or string array contains any elements from another symbol.
-:doc:`../counts`                  Returns number of elements of a vector falling in specified ranges.
-:doc:`../countwts`                Returns weighted count of elements of a vector falling in specified ranges.
-:doc:`../indexcat`                Returns indices of elements falling within a specified range.
-:doc:`../indnv`                   Checks one numeric vector against another and returns the indices of the elements of the first vector in the second vector.
-:doc:`../isempty`                 Checks whether a symbol is an empty matrix.
-:doc:`../ismember`                Checks whether each element of a matrix or string array matches any element from a separate symbol.
-:doc:`../maxindc`                 Returns row number of largest element in each column of a matrix.
-:doc:`../minindc`                 Returns row number of smallest element in each column of a matrix.
-:doc:`../rowcontains`             Checks whether any element in the row of a matrix or string array matches any element from a separate symbol.
+:doc:`../between`          Indicates whether elements in a matrix fall between a specified lower and upper bound. 
+:doc:`../contains`         Indicates whether one matrix, multidimensional array or string array contains any elements from another symbol.
+:doc:`../counts`           Returns number of elements of a vector falling in specified ranges.
+:doc:`../countwts`         Returns weighted count of elements of a vector falling in specified ranges.
+:doc:`../indexcat`         Returns indices of elements falling within a specified range.
+:doc:`../indnv`            Checks one numeric vector against another and returns the indices of the elements of the first vector in the second vector.
+:doc:`../isempty`          Checks whether a symbol is an empty matrix.
+:doc:`../ismember`         Checks whether each element of a matrix or string array matches any element from a separate symbol.
+:doc:`../maxindc`          Returns row number of largest element in each column of a matrix.
+:doc:`../minindc`          Returns row number of smallest element in each column of a matrix.
+:doc:`../rowcontains`      Checks whether any element in the row of a matrix or string array matches any element from a separate symbol.
 =======================    ===============================================================
 
 
@@ -148,4 +149,3 @@ Scaling and normalization
 ==================         ==================================================================
 :doc:`../rescale`          Scales the columns of a matrix using a specified centering and scaling method.
 ==================         ==================================================================
-

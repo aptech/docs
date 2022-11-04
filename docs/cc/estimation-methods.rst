@@ -6,12 +6,13 @@ Estimation methods
 Standard estimation methods
 -------------------------------
 
-These functions perform paramter estimation, diagnostics and print reports.
+These functions perform parameter estimation, diagnostics and print reports.
 
 =========================          ====================================================
 :doc:`../glm`                      Solves the generalized linear model problems.
 :doc:`../gmmfit`                   Estimate parameters using generalized method of moments.
 :doc:`../gmmfitiv`                 Estimate instrumental variables model using the generalized method of moments.
+:doc:`../kerneldensity `           Computes the kernel density estimate of a sample and plots the distribution.
 :doc:`../olsmt`                    Computes a least squares regression.
 :doc:`../quantilefit`              Perform linear quantile regression.
 :doc:`../quantilefitloc`           Perform local linear or quadratic quantile regression.
@@ -23,6 +24,7 @@ Standard error methods
 
 ====================          ====================================================
 :doc:`../clusterse`           Computes the White cluster-robust standard errors.
+:doc:`../hacse`               Computes the Newey-West HAC robust standard errors. The procedure uses the “sandwich” variance-covariance estimator with a small sample correction of :math:`(n)/(n−1)`.
 :doc:`../robustse`            Computes the Huber-White heteroscedastic robust standard errors. The procedure uses the “sandwich” variance-covariance estimator with a small sample correction of :math:`(n)/(n−1)`.
 ====================          ====================================================
 
