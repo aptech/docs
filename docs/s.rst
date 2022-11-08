@@ -41,6 +41,7 @@ S
     setvwrmode
     setwind
     shell
+    shiftc
     shiftr
     show
     singleindex
