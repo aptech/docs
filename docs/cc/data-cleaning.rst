@@ -134,6 +134,7 @@ Transform
 :doc:`../rev`                  Reverses the order of rows of a matrix.
 :doc:`../reshape`              Reshapes a dataframe, matrix or string array to new dimensions.
 :doc:`../rotater`              Rotates the rows of a matrix, wrapping elements as necessary.
+:doc:`../shiftc`               Shifts, lags or leads, columns of a matrix, filling in holes with a specified value.
 :doc:`../shiftr`               Shifts rows of a matrix, filling in holes with a specified value.
 :doc:`../subscat`              Changes the values in a vector depending on the category a particular element falls in.
 :doc:`../substute`             Substitutes new values for old values in a matrix, depending on the outcome of a logical expression.
