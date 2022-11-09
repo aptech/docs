@@ -9,8 +9,9 @@ Purpose
 
 Format
 ----------------
-.. function:: vce_robust = robustSE(x, resid[, const[, verbose[, var_names]]])
-              vce_robust = robustSE(dataset, formula, resid[, const[, verbose[, var_names]]])
+.. function:: vce_robust = robustSE(x, resid [, const, verbose, var_names])
+              vce_robust = robustSE(dataset, formula, resid [, const, verbose, var_names])
+              vce_robust = robustSE(dataframe, formula, resid [, const, verbose, var_names])
 
     :param x: independent regression variables, should not include a constant.
     :type x: NxK matrix
@@ -27,7 +28,7 @@ Format
     :param const: Optional input, indicator variable for including a constant. 1 for including a constant, 0 for no constant. Default = 1.
     :type const: scalar
 
-    :param verbose: Optional input, indicator variable for including a constant. 1 to print results, 0 for no printing. Default = 1.
+    :param verbose: Optional input, 1 to print results, 0 for no printing. Default = 1.
     :type verbose: scalar
 
     :param var_names: Optional input, variable names. Default = ``X1, X2, ..., XK``.
@@ -49,9 +50,9 @@ Examples
     data = loadd(fname);
 
     // Transform data
-    mpg = data[.,3];
-    weight = data[.,7];
-    foreign = data[.,12];
+    mpg = data[., 3];
+    weight = data[., 7];
+    foreign = data[., 12];
 
     // Set independent and dependent variables
     y = ((1/mpg) ./ weight) * 100 * 1000;
@@ -110,4 +111,4 @@ The results:
                     X1         0.067924
       -------------------------------------
 
-.. seealso:: Functions :func:`olsmt`, :func:`clusterSE`
+.. seealso:: Functions :func:`olsmt`, :func:`clusterSE`, :func:`hacSE`

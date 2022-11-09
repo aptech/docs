@@ -19,6 +19,7 @@ B
     besselk
     bessely
     beta
+    between
     blendcolorpalette
     blockdiag
     boxcox

@@ -6,7 +6,9 @@ K
     :caption: Functions:
 
     keepdataloop
+    kerneldensity
     keyav
     key
     keyword
     keyw
+    kurtosis

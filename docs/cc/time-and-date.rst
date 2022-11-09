@@ -60,7 +60,7 @@ DTV Date Time Vectors
 :doc:`../datestring`              Formats a 4x1 date vector, as returned by :doc:`../date`, as ``mm/dd/yyyy``.
 :doc:`../datestrymd`              Formats a 4x1 date vector, as returned by :doc:`../date`, as ``yyyymmdd``.
 :doc:`../dayinyr`                 Returns the day of year as an integer from a 3x1 or 4x1 vector as returned by :doc:`../date`.
-:doc:`../dayofweek`               Returns the day of week as an integer from from a 3x1 or 4x1 vector as returned by :doc:`../date`.
+:doc:`../dayofweek`               Returns the day of week as an integer from a 3x1 or 4x1 vector as returned by :doc:`../date`.
 :doc:`../dttodtv`                 Converts DT scalar format to DTV vector format.
 :doc:`../dtvnormal`               Normalizes a date and time (DTV) vector.
 :doc:`../dtvtodt`                 Converts DTV vector format to DT scalar format.

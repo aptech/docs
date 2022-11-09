@@ -10,6 +10,7 @@ Format
 ----------------
 .. function:: qOut = quantileFit(y, x[, tau[, w]], [qCtl])
               qOut = quantileFit(dataset, formula[, tau[, w]], [qCtl])
+              qOut = quantileFit(dataframe, formula[, tau[, w]], [qCtl])
 
     :param y: dependent variable.
     :type y: Nx1 vector
@@ -58,10 +59,32 @@ Format
                 :1: a constant term will be added.
                 :0: no constant term will be added.
 
-            * - qCtl.bootstrap
-              - scalar, number of iterations for bootstrap standard errors and confidence intervals. Default = 0, for no bootstrap.
-            * - qCtl.alpha
-              - scalar, alpha values for bootstrap confidence intervals. Ignored if *qctl.bootstrap* is set to 0.
+            * - qCtl.vce_method
+              - scalar, method to use for calculating the asymptotic covariance matrix. Default = 1.
+
+                :1: IID errors.
+                :2: heteroskedasticity robust standard errors.
+
+            * - qCtl.bw_method
+              - scalar, method to use for calculating the bandwidth for the asymptotic covariance matrix computation. Default = 1.
+
+                :1: Hall-Sheather bandwidth.
+                :2: Bofinger bandwidth.
+                :3: Chamberlain bandwidth.
+
+            * - qCtl.vce_kernel
+              - scalar,kernel to use for calculating the asymptotic covariance matrix computation. Default = 1.
+
+                :1: Normal(Gaussian).
+                :2: Epanechnikov.
+                :3: Biweight.
+                :4: Parzen.
+                :5: Cosine.
+
+           * - qCtl.bootstrap
+             - scalar, number of iterations for bootstrap standard errors and confidence intervals. Default = 0, for no bootstrap.
+           * - qCtl.alpha
+              - scalar, alpha values for bootstrap confidence intervals.
 
     :type qCtl: struct
 
@@ -70,11 +93,22 @@ Format
         .. csv-table::
             :widths: auto
 
-            "qOut.beta", "Kx1 matrix, quantile parameter estimates."
+            "qOut.beta", "KxM matrix, quantile parameter estimates, with estimates for each tau stored in a separate column."
             "qOut.u_plus", "NxM matrix, positive part of residuals."
             "qOut.u_minus", "NxM matrix, negative part of residuals."
+            "qOut.vce", "array, with a KxK matrix estimated asymptotic covariance matrix stored on separate plane for each tau specified."
+            "qOut.vce_ci", "array, with a 2xK matrix containing lower and upper confidence intervals based on asymptotic covariance estimates stored on separate planes for each tau specified."
+            "qOut.vce_se", "matrix, with estimated asymptotic standard errors, stored in separate columns for each tau specified."
             "qOut.ci", "array, with a 2xK matrix containing bootstrapped lower and upper confidence intervals stored on separate planes for each tau specified."
             "qOut.se", "matrix, with bootstrapped standard errors, stored in separate columns for each tau specified."
+            "qOut.t", "KxM matrix, with estimate t-values based on asymptotic standard errors. Estimates for each tau are stored in separate columns."
+            "qOut.pvt", "KxM matrix, with p-values for estimated t-values. Estimates for each tau are stored in separate columns."
+            "qOut.number_obs", "Scalar, number of observations used in estimation."
+            "qOut.number_missing", "Scalar, number of missing values eliminated from original data."
+            "qOut.df_residuals", "Scalar, residual degrees of freedom."
+            "qOut.df_model", "Scalar, model degrees of freedom."
+            "qOut.h", "Vector, bandwidth used in asymptotic variance estimation. Values for each tau are stored in separate columns."
+            "qOut.sparsity", "Vector, sparsity used in asymptotic variance estimation. Values for each tau are stored in separate columns."
 
     :rtype qOut: struct
 
@@ -95,11 +129,31 @@ Examples
     y = 5 + 2*X + rndn(rows(x), 1)*10;
 
     // Set up tau for regression
-    tau = 0.05|0.50|0.75|0.95;
+    tau = 0.05;
 
     // Call quantileFit
     struct qfitOut qOut;
     qOut = quantileFit(Y, X, tau);
+
+This produces the following output
+
+::
+
+  =====================================================================================
+  Valid cases:                   1000                Dependent variable:              Y
+  Missing cases:                    0                   Deletion method:           None
+  Number variables:                 1                           DF model              1
+  DF residuals                    998
+  =====================================================================================
+
+                     Name    Coeff.  Standard   t-value    P >|t|        lb        ub
+                                        Error
+ -------------------------------------------------------------------------------------
+ Tau = 0.05
+
+                 CONSTANT  -11.6768    0.5542  -21.0713    0.0000  -12.7629  -10.5907
+                       X1    1.6790    0.1885    8.9059    0.0000    1.3095    2.0485
+
 
 Source
 ------

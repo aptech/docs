@@ -8,8 +8,9 @@ Purpose
 
 Format
 ----------------
-.. function:: vce_cluster = clusterSE(x, grp, resid[, const[, verbose[, var_names]]])
-              vce_cluster = clusterSE(dataset, formula, grp_var, resid[, const[, verbose[, var_names]]])
+.. function:: vce_cluster = clusterSE(x, grp, resid[, const[, verbose, var_names])
+              vce_cluster = clusterSE(dataset, formula, grp_var, resid[, const, verbose, var_names])
+              vce_cluster = clusterSE(dataframe, formula, grp_var, resid[, const, verbose, var_names])
 
     :param x: independent regression variables, should not include a const.
     :type x: NxK matrix
@@ -42,8 +43,10 @@ Format
     :param var_names: Optional input, variable names. Default = X1, X2, ..., XK.
     :type var_names: string array
 
-    :return vce_cluster: White cluster-robust variance-covariance matrix.
+    :param ss: Optional input, indicator variable for using the small sample correction. 1 to compute the small sample correction, 0 for no correction. Default = 1.
+    :type ss: Scalar
 
+    :return vce_cluster: White cluster-robust variance-covariance matrix.
     :rtype vce_cluster: KxK matrix
 
 Examples
@@ -56,15 +59,6 @@ Examples
     // Load data using auto dataset
     fname = getGAUSSHome $+ "examples/regsmpl.dta";
     data = loadd(fname);
-
-    // Transform data
-    mpg = data[., 3];
-    weight = data[., 7];
-    foreign = data[., 12];
-
-    // Set independent and dependent variables
-    y = ((1/mpg) ./ weight) * 100 * 1000;
-    x = foreign;
 
     // Control structure
     struct olsmtControl o_ctl;
@@ -123,6 +117,6 @@ The results:
                 tenure        0.0014425
       -------------------------------------
 
-.. seealso:: Functions :func:`olsmt`, :func:`robustSE`
+.. seealso:: Functions :func:`olsmt`, :func:`robustSE`, :func:`hacSE`
 
 |

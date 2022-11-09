@@ -43,6 +43,15 @@ D
     dbisopenerror
     dbisopen
     dbisvalid
+    dbnomics_datasets_provider
+    dbnomics_datasets_provider_data
+    dbnomics_last_updates
+    dbnomics_list_providers
+    dbnomics_provider
+    dbnomics_search
+    dbnomics_series
+    dbnomics_series_dataset
+    dbnomics_series_dataset_filter
     dbopen
     dbquerybindvalue
     dbqueryclear

@@ -34,18 +34,20 @@ S
     setcollabels
     setcolmetadata
     setcolnames
-    setcoltypes 
+    setcoltypes
     setdif
     setdifsa
     setvars
     setvwrmode
     setwind
     shell
+    shiftc
     shiftr
     show
     singleindex
     sinh
     sin
+    skewness
     sleep
     solpd
     sortc
