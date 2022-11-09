@@ -39,6 +39,73 @@ Format
 Examples
 ----------------
 
+Example 1: Select dates in a range
++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Create file name with full path and load data
+    fname = getGAUSSHome("examples/beef_prices.csv");
+    beef = loadd(fname);
+
+    beef = beef[1:5,.];
+    print beef;
+
+::
+
+            date    beef_price 
+          199201        116.64
+          199202        114.49
+          199203        111.11
+          199204        108.17
+          199205        107.76
+
+::
+
+    mask = between(beef[.,"date"], "1992-02", "1992-04");
+
+By default, both endpoints are counted as a match.
+
+::
+
+    mask = 0
+           1
+           1
+           1
+           0
+
+You can, however, specify if you would like the endpoints treated differently.
+
+    // Set the final optional input, 'inclusive' to include only the right endpoint
+    mask_inc_right = between(beef[.,"date"], "1992-02", "1992-04", "right");
+
+::
+
+    mask_inc_right = 0
+                     0
+                     1
+                     1
+                     0
+
+:func:`between` can be used with :func:`selif` to filter data.
+
+::
+
+    // Select rows of the data "if" the mask value is non-zero
+    beef_trim = selif(beef, mask);
+    print beef_trim;
+
+::
+
+            date    beef_price 
+          199202        114.49
+          199203        111.11
+          199204        108.17
+
+    
+Example 2: Multiple column use
++++++++++++++++++++++++++++++++++
+
 ::
 
     x  = { 100 200 300,
