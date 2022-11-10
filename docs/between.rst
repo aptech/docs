@@ -76,6 +76,8 @@ By default, both endpoints are counted as a match.
 
 You can, however, specify if you would like the endpoints treated differently.
 
+::
+
     // Set the final optional input, 'inclusive' to include only the right endpoint
     mask_inc_right = between(beef[.,"date"], "1992-02", "1992-04", "right");
 
