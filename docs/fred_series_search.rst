@@ -21,7 +21,7 @@ Format
           - 'full_text' searches series attributes title, units, frequency, and tags by parsing words into stems.  
             This makes it possible for searches like 'Industry' to match series containing related words such as 'Industries'.
             Of course, you can search for multiple words like 'money' and 'stock'.
-            Remember to url encode spaces (e.g. 'money%20stock').
+            Text will be url encoded automatically.
 
           - 'series_id' performs a substring search on series IDs.  
             Searching for 'ex' will find series containing 'ex' anywhere in a series ID.  
@@ -95,6 +95,7 @@ Examples
 
     fred_series_search("monetary service index");
 
+::
     
        frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
          Monthly                M        22.000000            MSIM2 2014-01-17 07:16 The MSI measure        2013-12-01       1967-01-01        22.000000       2022-10-31       2022-10-31 Seasonally Adjus               SA Monetary Service Billions of Doll        Bil. of $ 
