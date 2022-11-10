@@ -21,9 +21,10 @@ Examples
 
 ::
 
-    head(dbnomics_provider("AMECO"));
+    dbnomics_provider("AMECO");
 
-    
+::
+
                 children             code         doc_href             name 
         [{"children":[{"                1 https://ec.europ Population and E 
         [{"children":[{"                2 https://ec.europ      Consumption 

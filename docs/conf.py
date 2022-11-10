@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GAUSS'
-copyright = '2022, Aptech Systems, Inc'
+copyright = '2023, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
-version = '22'
+version = '23'
 # The full version, including alpha/beta/rc tags
-release = '22'
+release = '23'
 
 
 # -- General configuration ---------------------------------------------------

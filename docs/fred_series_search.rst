@@ -93,7 +93,7 @@ Examples
 
 ::
 
-    head(fred_series_search("monetary service index"));
+    fred_series_search("monetary service index");
 
     
        frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
@@ -107,8 +107,8 @@ Examples
 Remarks
 -----------
 
-.. include:: include/remarks_fredapikey.rst
-.. include:: include/remarks_realtime.rst
+.. include:: remarks_fredapikey.rst
+.. include:: remarks_realtime.rst
 
-.. seealso:: :func:`fred_series`, :func:`fred_series_categories`, :func:`fred_series_observations`, :func:`fred_series_release`, :func:`fred_series_search_tags`, :func:`fred_series_search_related_tags`, :func:`fred_series_tags`, :func:`fred_series_updates`, :func:`fred_series_vintagedates`
+.. seealso:: :func:`fred_load`, :func:`fred_set`
 

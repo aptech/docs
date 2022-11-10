@@ -22,9 +22,10 @@ Examples
 
 ::
 
-    head(dbnomics_list_providers());
+    dbnomics_list_providers();
 
-    
+::
+
             code       indexed_at             name           region             slug     terms_of_use          website 
            ACOSS 2022-10-31T04:01 Agence centrale            FRANCE            acoss https://www.acos https://www.acos 
             AFDB 2022-04-04T15:05 African Developm           Africa             afdb https://www.afdb https://www.afdb 
