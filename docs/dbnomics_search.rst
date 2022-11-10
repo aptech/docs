@@ -24,7 +24,9 @@ Examples
 
 ::
 
-    head(dbnomics_search("GDP France"));
+    dbnomics_search("GDP France");
+
+::
 
                 code         dir_hash       indexed_at             name nb_matching_seri        nb_series    provider_code    provider_name       updated_at 
          gov_10a_exp fab720436a1f72a3 2022-04-22T11:17 General governme        12800.000           129902         Eurostat         Eurostat 2022-04-22T00:00 

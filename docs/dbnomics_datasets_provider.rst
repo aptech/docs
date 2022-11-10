@@ -24,9 +24,10 @@ Examples
 
 ::
 
-    head(dbnomics_datasets_provider("AMECO"));
+    dbnomics_datasets_provider("AMECO");
 
-    
+::
+
         code dimensions_codes dimensions_label dimensions_value         dir_hash       indexed_at             name        nb_series    provider_code    provider_name 
         AAGT ["freq","unit"," {"freq":"Frequen {"freq":{"a":"An bc8933e82d44de92 2022-05-18T07:54 Average share of        50.000000            AMECO Annual macro-eco 
        ADGGI ["freq","unit"," {"freq":"Frequen {"freq":{"a":"An 374687ca6ff83aeb 2022-06-01T01:24 Snow ball effect        40.000000            AMECO Annual macro-eco 
