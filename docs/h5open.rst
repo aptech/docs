@@ -20,7 +20,7 @@ Format
 
         - :code:`"read"`: open file for read, positioned at the first row.
         - :code:`"update"`: open file for write, positioned at the first row.
-        - :code:`"append"`: open file for write, positioned at the end of the file.a
+        - :code:`"append"`: open file for write, positioned at the end of the file.
 
     :type mode: string
 
