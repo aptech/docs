@@ -4,7 +4,7 @@ fred_load
 
 Purpose
 ----------------
-Get the observations or data values for an economic data series.
+Get the observations or data values for one or more economic data series.
 
 Format
 ----------------
@@ -185,6 +185,25 @@ the first 5 rows of the dataframe are:
       1932-01-01       -24.000000       -11.700000       -8.8000000 
       1933-01-01       -2.6000000      -0.70000000      -0.40000000 
       1934-01-01        14.400000        9.1000000        8.2000000 
+
+
+Fetch series with inline arguments
+++++++++++++++++++++++++++++++++++
+
+::
+
+    x = fred_load("GNPCA", "realtime_start", "1980-01-01", "realtime_end", "1989-12-31")
+
+the first 5 rows of the dataframe are:
+
+::
+
+            date            GNPCA 
+      1929-01-01        314.70000 
+      1929-01-01        315.70000 
+      1929-01-01        709.60000 
+      1930-01-01        285.20000 
+      1930-01-01        285.60000 
 
 
 Remarks
