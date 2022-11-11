@@ -11,7 +11,7 @@ Use of this function is optional as all arguments can be specified inline with a
 
 Format
 ----------------
-.. function:: x = dbnomics_set(key1, value1[[[, keyN, valueN], ..., existing_map])
+.. function:: x = dbnomics_set(key1, value1[[[, keyN, valueN], ...], existing_map])
 
     :param key: The parameter name to set.
     :type key: string
@@ -29,24 +29,18 @@ Format
 Examples
 ----------------
 
-Setting parameters consecutively
-++++++++++++++++++++++++++++++++
+::
+
+    args = dbnomics_set("limit", 2);
+    x = dbnomics_search("GDP", args);
+
+*x* will be equal
 
 ::
 
-    args = dbnomics_set("metadata", 0);
-
-    dbnomics_search("GDP", args)
-
-
-Setting parameters simultaneously
-+++++++++++++++++++++++++++++++++
-
-::
-
-    args = dbnomics_set("limit", 10, "offset", 0);
-
-    dbnomics_search("GDP", args)
+                code      description         dir_hash       indexed_at             name nb_matching_seri        nb_series    provider_code    provider_name 
+    CHELEM-TRADE-IND CHELEM-TRADE-IND                . 2022-09-02T09:35 CHELEM - Interna        683775.00        797349.00            CEPII Centre d'études 
+         gov_10a_exp                . 2022-10-30T23:36                .                .        369772.00        1299223.0            CEPII                . 
 
 
 .. seealso:: :func:`dbnomics_series`
