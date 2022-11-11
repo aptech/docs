@@ -33,36 +33,9 @@ F
     for
     fputs
     fputst
-    fred_category
-    fred_category_children
-    fred_category_related
-    fred_category_related_tags
-    fred_category_series
-    fred_category_tags
-    fred_related_tags
-    fred_release
-    fred_release_dates
-    fred_release_related_tags
-    fred_release_series
-    fred_release_sources
-    fred_release_tags
-    fred_releases
-    fred_releases_dates
-    fred_series
-    fred_series_categories
-    fred_series_observations
-    fred_series_release
     fred_series_search
-    fred_series_search_related_tags
-    fred_series_search_tags
-    fred_series_tags
-    fred_series_updates
-    fred_series_vintagedates
-    fred_source
-    fred_source_releases
-    fred_sources
-    fred_tags
-    fred_tags_series
+    fred_set
+    fred_load
     frequency 
     fseek
     fstrerror

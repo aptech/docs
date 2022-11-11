@@ -37,7 +37,7 @@ Examples
 
 ::
 
-    head(dbnomics_series_dataset("AMECO", "ZUTN"))
+    dbnomics_series_dataset("AMECO", "ZUTN");
 
 ::
 

@@ -18,6 +18,7 @@ Command Reference
     cc/string-handling
     cc/programming
     cc/parallelization
+    cc/web
     cc/workspace-file-folder-os
 
 .. toctree::

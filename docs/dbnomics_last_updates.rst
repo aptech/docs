@@ -24,9 +24,10 @@ Examples
 
 ::
 
-    head(dbnomics_last_updates());
+    dbnomics_last_updates();
 
-    
+::
+
             code         dir_hash       indexed_at             name        nb_series    provider_code    provider_name 
      SNA_TABLE8A a0426da302835dd6 2022-10-31T16:43 8A. Capital form        102805.00             OECD Organisation for 
               EO e21d1933b7515f10 2022-10-31T16:43 Economic Outlook        12961.000             OECD Organisation for 

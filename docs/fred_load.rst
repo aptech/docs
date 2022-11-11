@@ -1,18 +1,18 @@
 
-fred_series_observations
+fred_load
 ==============================================
 
 Purpose
 ----------------
-Get the observations or data values for an economic data series.
+Get the observations or data values for one or more economic data series.
 
 Format
 ----------------
-.. function:: x = fred_series_observations(series_id[, ...])
+.. function:: x = fred_load(formula[, ...])
 
-    :param series_id: The id for a series. required
+    :param formula: Formula string made up of one or more series ids to fetch. Can be a single series id. See :func:`loadd` for reference on applying transformations. required
 
-    :type series_id: string
+    :type formula: string
 
     :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
 
@@ -150,17 +150,60 @@ Format
 Examples
 ----------------
 
+Fetch a single series
++++++++++++++++++++++
+
 ::
 
-    head(fred_series_observations("GNPCA"));
+    x = fred_load("DGDSRL1A225NBEA");
 
-    
-            date     realtime_end   realtime_start            value 
-      1929-01-01       2022-10-31       2022-10-31         1120.718 
-      1930-01-01       2022-10-31       2022-10-31         1025.678 
-      1931-01-01       2022-10-31       2022-10-31          958.927 
-      1932-01-01       2022-10-31       2022-10-31          834.769 
-      1933-01-01       2022-10-31       2022-10-31          823.628 
+the first 5 rows of the dataframe are:
+
+::
+
+            date  DGDSRL1A225NBEA 
+      1930-01-01       -7.9000000 
+      1931-01-01       -3.6000000 
+      1932-01-01       -11.700000 
+      1933-01-01      -0.70000000 
+      1934-01-01        9.1000000 
+
+Fetch multiple series
++++++++++++++++++++++
+
+::
+
+    x = fred_load("DGDSRL1A225NBEA + DDURRL1A225NBEA + DNDGRL1A225NBEA");
+
+the first 5 rows of the dataframe are:
+
+::
+
+            date  DDURRL1A225NBEA  DGDSRL1A225NBEA  DNDGRL1A225NBEA 
+      1930-01-01       -17.200000       -7.9000000       -5.2000000 
+      1931-01-01       -13.600000       -3.6000000       -1.1000000 
+      1932-01-01       -24.000000       -11.700000       -8.8000000 
+      1933-01-01       -2.6000000      -0.70000000      -0.40000000 
+      1934-01-01        14.400000        9.1000000        8.2000000 
+
+
+Fetch series with inline arguments
+++++++++++++++++++++++++++++++++++
+
+::
+
+    x = fred_load("GNPCA", "realtime_start", "1980-01-01", "realtime_end", "1989-12-31")
+
+the first 5 rows of the dataframe are:
+
+::
+
+            date            GNPCA 
+      1929-01-01        314.70000 
+      1929-01-01        315.70000 
+      1929-01-01        709.60000 
+      1930-01-01        285.20000 
+      1930-01-01        285.60000 
 
 
 Remarks
@@ -169,5 +212,5 @@ Remarks
 .. include:: include/remarks_fredapikey.rst
 .. include:: include/remarks_realtime.rst
 
-.. seealso:: :func:`fred_series`, :func:`fred_series_categories`, :func:`fred_series_release`, :func:`fred_series_search`, :func:`fred_series_search_tags`, :func:`fred_series_search_related_tags`, :func:`fred_series_tags`, :func:`fred_series_updates`, :func:`fred_series_vintagedates`
+.. seealso:: :func:`fred_load`, :func:`fred_series_search`, :func:`fred_set`
 

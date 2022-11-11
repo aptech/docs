@@ -8,9 +8,9 @@ Perform linear quantile regression.
 
 Format
 ----------------
-.. function:: qOut = quantileFit(y, x[, tau[, w]], [qCtl])
-              qOut = quantileFit(dataset, formula[, tau[, w]], [qCtl])
-              qOut = quantileFit(dataframe, formula[, tau[, w]], [qCtl])
+.. function:: qOut = quantileFit(y, x [, tau, w, qCtl])
+              qOut = quantileFit(dataset, formula [, tau, w, qCtl])
+              qOut = quantileFit(dataframe, formula [, tau, w, qCtl])
 
     :param y: dependent variable.
     :type y: Nx1 vector

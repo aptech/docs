@@ -48,7 +48,7 @@ Examples
 
 ::
 
-    head(dbnomics_series_dataset_filter("AMECO", "ZUTN", "AUS.1.0.0.0.ZUTN"));
+    dbnomics_series_dataset_filter("AMECO", "ZUTN", "AUS.1.0.0.0.ZUTN");
 
 ::
 

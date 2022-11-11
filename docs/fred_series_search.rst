@@ -21,7 +21,7 @@ Format
           - 'full_text' searches series attributes title, units, frequency, and tags by parsing words into stems.  
             This makes it possible for searches like 'Industry' to match series containing related words such as 'Industries'.
             Of course, you can search for multiple words like 'money' and 'stock'.
-            Remember to url encode spaces (e.g. 'money%20stock').
+            Text will be url encoded automatically.
 
           - 'series_id' performs a substring search on series IDs.  
             Searching for 'ex' will find series containing 'ex' anywhere in a series ID.  
@@ -93,8 +93,9 @@ Examples
 
 ::
 
-    head(fred_series_search("monetary service index"));
+    fred_series_search("monetary service index");
 
+::
     
        frequency  frequency_short group_popularity               id     last_updated            notes  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title            units      units_short 
          Monthly                M        22.000000            MSIM2 2014-01-17 07:16 The MSI measure        2013-12-01       1967-01-01        22.000000       2022-10-31       2022-10-31 Seasonally Adjus               SA Monetary Service Billions of Doll        Bil. of $ 
@@ -107,8 +108,8 @@ Examples
 Remarks
 -----------
 
-.. include:: include/remarks_fredapikey.rst
-.. include:: include/remarks_realtime.rst
+.. include:: remarks_fredapikey.rst
+.. include:: remarks_realtime.rst
 
-.. seealso:: :func:`fred_series`, :func:`fred_series_categories`, :func:`fred_series_observations`, :func:`fred_series_release`, :func:`fred_series_search_tags`, :func:`fred_series_search_related_tags`, :func:`fred_series_tags`, :func:`fred_series_updates`, :func:`fred_series_vintagedates`
+.. seealso:: :func:`fred_load`, :func:`fred_set`
 
