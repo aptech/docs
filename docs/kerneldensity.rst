@@ -10,6 +10,7 @@ To compute kernel density estimate and plot.
 Format
 ----------------
 .. function:: out = kernelDensity(dataset [, kernel, bw, c0])
+              out = kernelDensity(dataset, formula [, kernel, bw, c0])
               out = kernelDensity(datafile, formula [, kernel, bw, c0])
 
     :param dataset: Name of datafile or dataframe.
@@ -115,7 +116,7 @@ Basic usage with filename
 
   // Call kernelDensity function
   // with default normal density
-  call kernelDensity(fname, "volatility acidity");
+  call kernelDensity(fname, "volatile acidity");
 
 Basic usage with multiple kernels
 ++++++++++++++++++++++++++++++++++
