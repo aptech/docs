@@ -12,7 +12,7 @@ Format
 .. function:: g = skewness(x [, bias] )
 
     :param x: Nxk, sample data.
-    :type x: Vector
+    :type x: Matrix
 
     :param bias: Optional argument. Indicator for bias correction. If anything other than 0, bias correction is used. Default = 0.
     :type bias: Scalar
