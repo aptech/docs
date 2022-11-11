@@ -42,7 +42,7 @@ Format
 
     :type kernel: Scalar
 
-    :param bw: Optional argument, smoothing coefficient (bandwidth). If scalar, smoothing coefficient will be the same for each plot. If zero, optimal smoothing coefficient will be computed. If matrix, smoothing coefficient will be different for each observation. Default = 0;
+    :param bw: Optional argument, smoothing coefficient (bandwidth). If scalar, smoothing coefficient will be the same for each plot. If zero, optimal smoothing coefficient will be computed. If matrix, smoothing coefficient will be different for each observation. Default = 0.
     :type bw: Matrix
 
     :param c0: Instance of :class:`kernelDensityControl` structure containing the following members:
@@ -51,10 +51,10 @@ Format
             :widths: auto
 
             * - c0.varNames
-              - string array, variable name(s). Default is dataframe headers if included, `"X1"`, `"X2"`, ... otherwise.
+              - String array, variable name(s). Default is dataframe headers if included, `"X1"`, `"X2"`, ... otherwise.
 
             * - c0.NumPoints
-              - scalar, number of points to be computed for plots.
+              - Scalar, number of points to be computed for plots.
 
             * - c0.EndPoints
               - Kx2 matrix, lower (in first column) and upper (in second column) endpoints of density.  Default is minimum and maximum, respectively, of the parameter values.  If 1x2 matrix, endpoints will be the same for all parameters.
@@ -63,7 +63,7 @@ Format
               - Kx2 matrix, lower (in first column) and upper (in second column) truncation limits for truncated normal kernel. If 1x2 matrix, truncations limits will be the same for all plots.  Default is minimum and maximum, respectively.
 
             * - c0.plotFunctionPtr
-              - Scalar, a pointed to a user-defined function used to specify format modifications to the default plot format.
+              - Scalar, a pointer to a user-defined function used to specify format modifications to the default plot format.
 
     :type c0: Structure
 
@@ -77,7 +77,7 @@ Format
                   "out.py", "Matrix, ordinates."
                   "out.sm", "Kx1, or Nxk, or Nx1 smoothing coefficients."
 
-    :rtype out: structure
+    :rtype out: Structure
 
 Examples
 ----------------
