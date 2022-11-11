@@ -11,7 +11,7 @@ Use of this function is optional as all arguments can be specified inline with a
 
 Format
 ----------------
-.. function:: x = fred_series(key1, value1[[[, keyN, valueN], ..., existing_map])
+.. function:: x = fred_set(key1, value1[[[, keyN, valueN], ...], existing_map])
 
     :param key: The parameter name to set.
     :type key: string
