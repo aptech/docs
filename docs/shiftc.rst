@@ -14,7 +14,7 @@ Format
     :type x: NxK matrix or dataframe
 
     :param s: specifies the magnitude of the shift
-    :type s: scalar or Nx1 vector
+    :type s: scalar or 1xN vector
 
     :param f: specifies the value to fill in
     :type f: scalar or 1xN vector
@@ -25,8 +25,8 @@ Format
 Examples
 ----------------
 
-Example 1: Basic lag
-+++++++++++++++++++++++
+Example 1: Single with univariate time series lag
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -54,24 +54,33 @@ After the above code:
            199204     108.17 
            199205     107.76 
 
+Example 2: Multiple lags with a single vector
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ::
 
-    // Data matrix
-    x = { 1 2,
-          3 4 };
+    // Create file name with full path
+    data_name = getGAUSSHome("examples/mortgage_long_form.csv");
+    
+    // Load all variables from file
+    mtg = loadd(data_name);
+    
+    // Preview first 7 rows of data
+    head(mtg,7);
+    
+    // Select first 7 rows of 'Rate'
+    rate = mtg[1:7,"Rate"];
+    
+    // Lags must be a row vector
+    lags = { 0 1 2 4 };
+    
+    // Fill with missing values
+    fill = {.};
+    
+    // Compute lags
+    rate_lags = shiftc(rate, lags, fill);
 
-    // Amount of shift
-    s = { 1,
-         -1 };
-
-    // Value to fill in
-    f = { 99,
-         999 };
-
-    // Shift the matrix
-    y = shiftc(x, s, f);
-
-Now *y* is equal to:
+Now *rate_lags* is equal to:
 
 ::
 
@@ -86,9 +95,7 @@ Now *y* is equal to:
           7 8 9 };
 
     // Amount to shift
-    s = { 0,
-          1,
-          2 };
+    s = { 0 1 2 };
 
     // Value to fill in
     f = 0;
