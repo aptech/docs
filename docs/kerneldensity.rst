@@ -11,9 +11,8 @@ Format
 ----------------
 .. function:: out = kernelDensity(dataset [, kernel, bw, c0])
               out = kernelDensity(dataset, formula [, kernel, bw, c0])
-              out = kernelDensity(datafile, formula [, kernel, bw, c0])
 
-    :param dataset: Name of datafile or dataframe.
+    :param dataset: Name of datafile, dataframe, or data matrix.
     :type dataset: String or matrix
 
     :param formula: Optional argument, formula string for loading variables from datafile. Default is to load all variables.
