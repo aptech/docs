@@ -27,7 +27,7 @@ Format
         This function supports the following options:
 
         .. list-table::
-            :widths: 20 80
+            :widths: auto
 
             * - search_type
               - String. Determines the type of search to perform. One of the following strings: 'full_text', 'series_id'. optional, default: full_text.

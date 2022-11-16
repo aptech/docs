@@ -15,7 +15,8 @@ Format
     :type formula: string
 
     :param options: Options to pass to the API. See below. These can be set directly when calling the function
-        in the form of consecutive (key, value) pairs. All arguments can be specified in any order. For example:
+        in the form of consecutive (key, value) pairs or via a dataframe constructed with :func:`fred_set`.
+        All arguments can be specified in any order. For example:
 
         ::
 
@@ -24,7 +25,7 @@ Format
         This function supports the following options:
 
         .. list-table::
-            :widths: 20 80
+            :widths: auto
 
             * - realtime_start
               - YYYY-MM-DD formatted string. The start of the real-time period. For more information, see Remarks. optional, default: today's date
