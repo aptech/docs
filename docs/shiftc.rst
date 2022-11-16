@@ -32,7 +32,7 @@ Example 1: Single with univariate time series lag
 
     // Create file name with full path
     fname = getGAUSSHome() $+ "examples/beef_prices.csv";
-    
+
     // Load all observations of all variables
     beef = loadd(fname);
 
@@ -47,12 +47,13 @@ After the above code:
 
 ::
 
-    beef =   date beef_price 
-           199201     116.64 
-           199202     114.49 
-           199203     111.11 
-           199204     108.17 
-           199205     107.76 
+      beef_lag =   date       beef_price
+                      .                .
+                      .                .
+                 199201        116.64000
+                 199202        114.49000
+                 199203        111.11000
+
 
 Example 2: Multiple lags with a single vector
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -61,22 +62,38 @@ Example 2: Multiple lags with a single vector
 
     // Create file name with full path
     data_name = getGAUSSHome("examples/mortgage_long_form.csv");
-    
+
     // Load all variables from file
     mtg = loadd(data_name);
-    
+
     // Preview first 7 rows of data
     head(mtg,7);
-    
+
+
+The first rows *mtg*:
+
+::
+
+     DATE             Rate         Maturity
+     2000-01-07        8.1500000            30_yr
+     2000-01-14        8.1800000            30_yr
+     2000-01-21        8.2600000            30_yr
+     2000-01-28        8.2500000            30_yr
+     2000-02-04        8.2500000            30_yr
+     2000-02-11        8.3600000            30_yr
+     2000-02-18        8.3800000            30_yr
+
+::
+
     // Select first 7 rows of 'Rate'
     rate = mtg[1:7,"Rate"];
-    
+
     // Lags must be a row vector
     lags = { 0 1 2 4 };
-    
+
     // Fill with missing values
     fill = {.};
-    
+
     // Compute lags
     rate_lags = shiftc(rate, lags, fill);
 
@@ -84,12 +101,22 @@ Now *rate_lags* is equal to:
 
 ::
 
-    99   1
-    4  999
+     Rate
+     8.1500000                .                .                .
+     8.1800000        8.1500000                .                .
+     8.2600000        8.1800000        8.1500000                .
+     8.2500000        8.2600000        8.1800000                .
+     8.2500000        8.2500000        8.2600000        8.1500000
+     8.3600000        8.2500000        8.2500000        8.1800000
+     8.3800000        8.3600000        8.2500000        8.2600000
+
+
+Example 3: Replacing with value
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
-    // Data 
+    // Data
     x = { 1 2 3,
           4 5 6,
           7 8 9 };
@@ -107,9 +134,9 @@ Now *y2* is equal to:
 
 ::
 
-    1  2  3
-    0  4  5
-    0  0  7
+     1.0000000        0.0000000        0.0000000
+     4.0000000        2.0000000        0.0000000
+     7.0000000        5.0000000        3.0000000
 
 Remarks
 -------
