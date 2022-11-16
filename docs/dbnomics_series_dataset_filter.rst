@@ -66,7 +66,7 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_dbnomics.rst
+.. include:: include/remarks_dbnomics.rst
 
 .. seealso:: :func:`dbnomics_series`, :func:`dbnomics_series_dataset`
 
