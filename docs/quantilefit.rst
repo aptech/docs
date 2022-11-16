@@ -8,9 +8,9 @@ Perform linear quantile regression.
 
 Format
 ----------------
-.. function:: qOut = quantileFit(y, x[, tau[, w]], [qCtl])
-              qOut = quantileFit(dataset, formula[, tau[, w]], [qCtl])
-              qOut = quantileFit(dataframe, formula[, tau[, w]], [qCtl])
+.. function:: qOut = quantileFit(y, x [, tau, w, qCtl])
+              qOut = quantileFit(dataset, formula [, tau, w, qCtl])
+              qOut = quantileFit(dataframe, formula [, tau, w, qCtl])
 
     :param y: dependent variable.
     :type y: Nx1 vector
@@ -96,13 +96,13 @@ Format
             "qOut.beta", "KxM matrix, quantile parameter estimates, with estimates for each tau stored in a separate column."
             "qOut.u_plus", "NxM matrix, positive part of residuals."
             "qOut.u_minus", "NxM matrix, negative part of residuals."
-            "qOut.vce", "array, with a KxK matrix estimated asymptotic covariance matrix stored on separate plane for each tau specified."
-            "qOut.vce_ci", "array, with a 2xK matrix containing lower and upper confidence intervals based on asymptotic covariance estimates stored on separate planes for each tau specified."
+            "qOut.vce", "array, with a KxK matrix estimated asymptotic covariance matrix stored on a separate plane for each tau specified."
+            "qOut.vce_ci", "array, with a Kx2 matrix containing lower and upper confidence intervals based on asymptotic covariance estimates stored on separate planes for each tau specified."
             "qOut.vce_se", "matrix, with estimated asymptotic standard errors, stored in separate columns for each tau specified."
-            "qOut.ci", "array, with a 2xK matrix containing bootstrapped lower and upper confidence intervals stored on separate planes for each tau specified."
-            "qOut.se", "matrix, with bootstrapped standard errors, stored in separate columns for each tau specified."
-            "qOut.t", "KxM matrix, with estimate t-values based on asymptotic standard errors. Estimates for each tau are stored in separate columns."
-            "qOut.pvt", "KxM matrix, with p-values for estimated t-values. Estimates for each tau are stored in separate columns."
+            "qOut.ci", "array, with a Kx2 matrix containing bootstrapped lower and upper confidence intervals stored on separate planes for each tau specified."
+            "qOut.se", "matrix, with bootstrapped standard errors, stored in a separate column for each tau specified."
+            "qOut.t", "KxM matrix, with estimate t-values based on asymptotic standard errors. Estimates for each tau are stored in a separate column."
+            "qOut.pvt", "KxM matrix, with p-values for estimated t-values. Estimates for each tau are stored in a separate column."
             "qOut.number_obs", "Scalar, number of observations used in estimation."
             "qOut.number_missing", "Scalar, number of missing values eliminated from original data."
             "qOut.df_residuals", "Scalar, residual degrees of freedom."

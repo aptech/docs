@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: g = skewness(x [, bias] )
 
-    :param x: Nx1, sample data.
-    :type x: Vector
+    :param x: Nxk, sample data.
+    :type x: Matrix
 
     :param bias: Optional argument. Indicator for bias correction. If anything other than 0, bias correction is used. Default = 0.
     :type bias: Scalar
@@ -22,6 +22,9 @@ Format
 
 Examples
 ----------------
+
+Example One: Vector input
++++++++++++++++++++++++++++++++
 
 ::
 
@@ -38,5 +41,21 @@ The code above results in the following:
 
   g = 0.3049
 
+Example Two: Matrix input
++++++++++++++++++++++++++++++++
 
+  ::
+
+    // Generate random vector of residuals
+    rndseed 929212;
+    resid = rndn(150, 2);
+
+    // Compute sample skewness
+    g = skewness(resid);
+
+  The code above results in the following:
+
+  ::
+
+    g = 0.26494746   -0.14941577
 .. seealso:: Functions :func:`kurtosis`, :func:`JarqueBera`

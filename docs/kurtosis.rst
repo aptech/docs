@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: k = kurtosis(x [, excess] )
 
-    :param x: Nx1, sample data.
-    :type x: Vector
+    :param x: Nxk, sample data.
+    :type x: Matrix
 
     :param excess: Optional argument. Indicator for computing excess kurtosis. If anything other than 0, excess kurtosis is computed. Default = 0.
     :type excess: Scalar
@@ -22,6 +22,9 @@ Format
 
 Examples
 ----------------
+
+Example One: Vector input
++++++++++++++++++++++++++++++++
 
 ::
 
@@ -38,5 +41,22 @@ The code above results in the following:
 
   k = 2.7234
 
+Example Two: Matrix input
++++++++++++++++++++++++++++++++
+
+  ::
+
+    // Generate random vector of residuals
+    rndseed 929212;
+    resid = rndn(150, 2);
+
+    // Compute sample skewness
+    k = kurtosis(resid);
+
+  The code above results in the following:
+
+  ::
+
+    k = 2.6612276        3.0123801
 
 .. seealso:: Functions :func:`skewness`, :func:`JarqueBera`

@@ -10,9 +10,9 @@ To compute kernel density estimate and plot.
 Format
 ----------------
 .. function:: out = kernelDensity(dataset [, kernel, bw, c0])
-              out = kernelDensity(datafile, formula [, kernel, bw, c0])
+              out = kernelDensity(dataset, formula [, kernel, bw, c0])
 
-    :param dataset: Name of datafile or dataframe.
+    :param dataset: Name of datafile, dataframe, or data matrix.
     :type dataset: String or matrix
 
     :param formula: Optional argument, formula string for loading variables from datafile. Default is to load all variables.
@@ -41,7 +41,7 @@ Format
 
     :type kernel: Scalar
 
-    :param bw: Optional argument, smoothing coefficient (bandwidth). If scalar, smoothing coefficient will be the same for each plot. If zero, optimal smoothing coefficient will be computed. If matrix, smoothing coefficient will be different for each observation. Default = 0;
+    :param bw: Optional argument, smoothing coefficient (bandwidth). If scalar, smoothing coefficient will be the same for each plot. If zero, optimal smoothing coefficient will be computed. If matrix, smoothing coefficient will be different for each observation. Default = 0.
     :type bw: Matrix
 
     :param c0: Instance of :class:`kernelDensityControl` structure containing the following members:
@@ -50,10 +50,10 @@ Format
             :widths: auto
 
             * - c0.varNames
-              - string array, variable name(s). Default is dataframe headers if included, `"X1"`, `"X2"`, ... otherwise.
+              - String array, variable name(s). Default is dataframe headers if included, `"X1"`, `"X2"`, ... otherwise.
 
             * - c0.NumPoints
-              - scalar, number of points to be computed for plots.
+              - Scalar, number of points to be computed for plots.
 
             * - c0.EndPoints
               - Kx2 matrix, lower (in first column) and upper (in second column) endpoints of density.  Default is minimum and maximum, respectively, of the parameter values.  If 1x2 matrix, endpoints will be the same for all parameters.
@@ -62,7 +62,7 @@ Format
               - Kx2 matrix, lower (in first column) and upper (in second column) truncation limits for truncated normal kernel. If 1x2 matrix, truncations limits will be the same for all plots.  Default is minimum and maximum, respectively.
 
             * - c0.plotFunctionPtr
-              - Scalar, a pointed to a user-defined function used to specify format modifications to the default plot format.
+              - Scalar, a pointer to a user-defined function used to specify format modifications to the default plot format.
 
     :type c0: Structure
 
@@ -76,7 +76,7 @@ Format
                   "out.py", "Matrix, ordinates."
                   "out.sm", "Kx1, or Nxk, or Nx1 smoothing coefficients."
 
-    :rtype out: structure
+    :rtype out: Structure
 
 Examples
 ----------------
@@ -100,6 +100,9 @@ Basic usage with dataframe
   struct kernelDensityResults krslt1;
   krslt1 = kernelDensity(data[., "volatile acidity"]);
 
+.. figure:: _static/images/kdensity1.jpeg
+   :scale: 50 %
+
 Basic usage with filename
 +++++++++++++++++++++++++++++++
 
@@ -115,7 +118,7 @@ Basic usage with filename
 
   // Call kernelDensity function
   // with default normal density
-  call kernelDensity(fname, "volatility acidity");
+  call kernelDensity(fname, "volatile acidity");
 
 Basic usage with multiple kernels
 ++++++++++++++++++++++++++++++++++
@@ -131,6 +134,8 @@ Basic usage with multiple kernels
   struct kernelDensityResults krslt2;
   krslt2 = kernelDensity(data[., "volatile acidity"], 1|2|3);
 
+.. figure:: _static/images/kerneldensity2.jpeg
+   :scale: 50 %
 
 Basic usage with multiple series
 +++++++++++++++++++++++++++++++++
@@ -144,6 +149,13 @@ Basic usage with multiple series
 
   struct kernelDensityResults krslt3;
   krslt3 = kernelDensity(data, 1);
+
+
+.. figure:: _static/images/kerneldensity3a.jpeg
+   :scale: 50 %
+
+.. figure:: _static/images/kerneldensity3b.jpeg
+   :scale: 50 %
 
 Modifying plot with plotControl pointer
 ++++++++++++++++++++++++++++++++++++++++
@@ -181,3 +193,6 @@ Modifying plot with plotControl pointer
   // control structure
   struct kernelDensityResults krslt4;
   krslt4 = kernelDensity(data[., "volatile acidity"], kernel, bw, kctl);
+
+.. figure:: _static/images/kerneldensitydensity4.jpeg
+   :scale: 50 %
