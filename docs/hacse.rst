@@ -89,7 +89,7 @@ Calling :func:`hacrSE` estimates the HAC-robust standard errors:
 
 ::
 
-    // Find cluster-robust standard errors regression includes const
+    // Find HAC-robust standard errors regression includes const
     vce_hac = hacse(fname, "age + age:age + tenure", o_out.resid );
 
 The resulting standard errors are:
