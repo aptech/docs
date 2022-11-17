@@ -1,7 +1,7 @@
 API Key
 ++++++++++
 
-This function **requires a valid API key**. `Read here <https://fred.stlouisfed.org/docs/api/api_key.html>`_ to find out more on how to obtain one.
+This function **requires a valid API key**. Please visit https://fred.stlouisfed.org/docs/api/api_key.html to find out more on how to obtain one.
 
 Set your API key using any of the following methods in GAUSS:
 
@@ -22,3 +22,4 @@ Disclaimer
 ++++++++++++
 
 .. note:: This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis.
+

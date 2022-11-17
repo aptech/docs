@@ -86,4 +86,4 @@ Multiple series as a vector
 Remarks
 -----------
 
-.. include:: remarks_dbnomics.rst
+.. include:: include/remarks_dbnomics.rst

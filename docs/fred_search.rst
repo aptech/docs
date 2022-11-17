@@ -1,5 +1,5 @@
 
-fred_series_search
+fred_search
 ==============================================
 
 Purpose
@@ -10,7 +10,7 @@ Get economic data series that match search text.
 
 Format
 ----------------
-.. function:: x = fred_series_search(search_text[, ...])
+.. function:: x = fred_search(search_text[, ...])
 
     :param search_text: The words to match against economic data series. required.
 
@@ -22,7 +22,7 @@ Format
 
         ::
 
-            fred_series_search("unemployment", "limit", 10, "sort_order", "desc")
+            fred_search("unemployment", "limit", 10, "sort_order", "desc")
 
         This function supports the following options:
 
@@ -94,7 +94,7 @@ Examples
 
 ::
 
-    fred_series_search("monetary service index");
+    fred_search("monetary service index");
 
 ::
     
@@ -109,8 +109,8 @@ Examples
 Remarks
 -----------
 
-.. include:: remarks_fredapikey.rst
-.. include:: remarks_realtime.rst
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
 
 .. seealso:: :func:`fred_load`, :func:`fred_set`
 
