@@ -20,6 +20,11 @@ Format
 
         ::
 
+            /* Retrieve the 'GNPCA' series with the following arguments:
+            **   realtime_start = 2010-01-01
+            **   realtime_end   = 2010-12-31
+            */   frequency      = m
+
             fred_load("GNPCA", "realtime_start", "2010-01-01", "realtime_end", "2010-12-31", "frequency", "m");
 
         This function supports the following options:
@@ -63,7 +68,7 @@ Format
                 - cca = Continuously Compounded Annual Rate of Change
                 - log = Natural LogFor unit transformation formulas, see:
                 
-                https://alfred.stlouisfed.org/help#growth_formulas
+                Read more at https://alfred.stlouisfed.org/help#growth_formulas
 
             * - frequency
               - string. An optional parameter that indicates a lower frequency to aggregate values to.
@@ -98,12 +103,12 @@ Format
                   - bwem = Biweekly, Ending Monday
                 
                 - Note that an error will be returned if a frequency is specified that is higher than the native frequency of the series.
-                  For instance if a series has the native frequency 'Monthly' (as returned by the :func:`fred_series` request), 
-                  it is not possible to aggregate the series to the higher 'Daily' frequency using the frequency parameter value 'd'. 
+                  For instance if a series has the native frequency 'Monthly', it is not possible to aggregate the series to the higher 'Daily' 
+                  frequency using the frequency parameter value 'd'. 
                 
                 - No frequency aggregation will occur if the frequency specified by the frequency parameter matches the native frequency of the series.  
-                  For instance if the value of the frequency parameter is 'm' and the native frequency of the series is 'Monthly' (as returned by the :func:`fred_series` request), 
-                  observations will be returned, but they will not be aggregated to a lower frequency. 
+                  For instance if the value of the frequency parameter is 'm' and the native frequency of the series is 'Monthly', observations will be
+                  returned, but they will not be aggregated to a lower frequency. 
                 
                 - For most cases, it will be sufficient to specify a lower frequency without a period description (e.g. 'd', 'w', 'bw', 'm', 'q', 'sa', 'a') as opposed to frequencies with period descriptions 
                   (e.g. 'wef', 'weth', 'wew', 'wetu', 'wem', 'wesu', 'wesa', 'bwew', 'bwem') which only exist for the weekly and biweekly frequencies.  
@@ -213,5 +218,5 @@ Remarks
 .. include:: include/remarks_fredapikey.rst
 .. include:: include/remarks_realtime.rst
 
-.. seealso:: :func:`fred_load`, :func:`fred_series_search`, :func:`fred_set`
+.. seealso:: :func:`fred_load`, :func:`fred_search`, :func:`fred_set`
 
