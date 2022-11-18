@@ -74,7 +74,7 @@ The first rows *mtg*:
 
 ::
 
-     DATE             Rate         Maturity
+           DATE             Rate         Maturity
      2000-01-07        8.1500000            30_yr
      2000-01-14        8.1800000            30_yr
      2000-01-21        8.2600000            30_yr
