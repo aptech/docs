@@ -33,7 +33,7 @@ F
     for
     fputs
     fputst
-    fred_series_search
+    fred_search
     fred_set
     fred_load
     frequency 

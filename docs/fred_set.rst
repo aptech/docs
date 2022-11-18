@@ -89,4 +89,4 @@ the first 5 rows of *x* will be:
       1930-01-01        285.20000 
       1930-01-01        285.60000
 
-.. seealso:: :func:`fred_load`, :func:`fred_series_search`
+.. seealso:: :func:`fred_load`, :func:`fred_search`
