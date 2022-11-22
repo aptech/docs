@@ -7,7 +7,8 @@ Programmatic Data Import
 +===================+==============+=================+=================+==========================+
 |**File types**     |              |                 |                 |                          |
 +-------------------+--------------+-----------------+-----------------+--------------------------+
-|GAUSS (DAT, FMT)   |       X      |                 |                 |           X              |
+|GAUSS              |       X      |                 |                 |           X              |
+|(GDAT, DAT, FMT)   |              |                 |                 | (Except GDAT)            |
 +-------------------+--------------+-----------------+-----------------+--------------------------+
 |SAS, SPSS, Stata   |       X      |                 |                 |                          |
 +-------------------+--------------+-----------------+-----------------+--------------------------+
@@ -21,7 +22,7 @@ In most cases, you should use :func:`loadd` to load data from:
 
 * Excel (XLS, XLSX)
 * CSV or other delimited text files.
-* Stata (DTA), SAS (SAS7BDAT), SPSS or GAUSS Datasets (DAT).
+* Stata (DTA), SAS (SAS7BDAT), SPSS or GAUSS Datasets (GDAT or DAT).
 * GAUSS Matrix files (FMT), or HDF5 datasets.
 
 
@@ -117,7 +118,7 @@ Load all variables except one
 Load categorical variables
 -----------------------------------------------------------------------------
 
-Some datasets such as, SAS, Stata, and SPSS store variable type information. GAUSS will automatically identify categorical variables from these files.
+Some datasets such as, GDAT, SAS, Stata (.dta), and SPSS store variable type information. GAUSS will automatically identify categorical variables from these files.
 
 ::
 
@@ -191,7 +192,7 @@ If your procedure needs the variable loaded as a string, you can prepend the var
 Load dates programmatically
 -----------------------------------------------------------------------------
 
-Use the `date` keyword in a formula string to indicate that :func:`loadd` should load a variable as a date.
+GAUSS will automatically detect a date variables if they are in one of the `recognizable, pre-existing formats <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_.
 
 ::
 
@@ -200,8 +201,18 @@ Use the `date` keyword in a formula string to indicate that :func:`loadd` should
 
     // Load variables and specify that the variable named
     // date, should be loaded as a date vector
-    eur_usd = loadd(dataset, "date(date) + bid + ask");
+    eur_usd = loadd(dataset);
 
+The first five rows of our *eur_usd* dataframe looks like:
+
+::
+
+                 date              bid              ask
+     20081031 1251450        1.2739000        1.2736000
+     20081031 1251470        1.2740000        1.2737000
+     20081031 1251550        1.2741000        1.2738000
+     20081031 1251580        1.2738000        1.2735000
+     20081031 1251590        1.2739000        1.2736000
 
 GAUSS will automatically detect many standard date formats:
 
@@ -275,7 +286,7 @@ GAUSS will automatically detect many standard date formats:
 How to load non-standard date formats?
 -----------------------------------------------------------------------------
 
-GAUSS allows you to specify any arbitrary date format. To accomplish this create a format string using BSD strftime specifiers to replace the date elements.
+If a date variable is not in a recognizable format, the `date` keyword should be used in a formula string to indicate that :func:`loadd` should load a variable as a date. In this case, GAUSS allows you to specify any arbitrary date format using BSD strftime specifiers to denote the date elements.
 
 .. note:: The full list of strftime format specifiers can be found in the documentation for :func:`strctoposix`.
 
