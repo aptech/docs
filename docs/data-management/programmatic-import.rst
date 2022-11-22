@@ -7,7 +7,8 @@ Programmatic Data Import
 +===================+==============+=================+=================+==========================+
 |**File types**     |              |                 |                 |                          |
 +-------------------+--------------+-----------------+-----------------+--------------------------+
-|GAUSS (DAT, FMT)   |       X      |                 |                 |           X              |
+|GAUSS              |       X      |                 |                 |           X              |
+|(GDAT, DAT, FMT)   |              |                 |                 | (Except GDAT)            |
 +-------------------+--------------+-----------------+-----------------+--------------------------+
 |SAS, SPSS, Stata   |       X      |                 |                 |                          |
 +-------------------+--------------+-----------------+-----------------+--------------------------+
@@ -21,7 +22,7 @@ In most cases, you should use :func:`loadd` to load data from:
 
 * Excel (XLS, XLSX)
 * CSV or other delimited text files.
-* Stata (DTA), SAS (SAS7BDAT), SPSS or GAUSS Datasets (DAT).
+* Stata (DTA), SAS (SAS7BDAT), SPSS or GAUSS Datasets (GDAT or DAT).
 * GAUSS Matrix files (FMT), or HDF5 datasets.
 
 
@@ -117,7 +118,7 @@ Load all variables except one
 Load categorical variables
 -----------------------------------------------------------------------------
 
-Some datasets such as, SAS, Stata, and SPSS store variable type information. GAUSS will automatically identify categorical variables from these files.
+Some datasets such as, GDAT, SAS, Stata (.dta), and SPSS store variable type information. GAUSS will automatically identify categorical variables from these files.
 
 ::
 
@@ -191,7 +192,7 @@ If your procedure needs the variable loaded as a string, you can prepend the var
 Load dates programmatically
 -----------------------------------------------------------------------------
 
-Use the `date` keyword in a formula string to indicate that :func:`loadd` should load a variable as a date.
+GAUSS will automatically detect a date variables if they are in one of the `recognizable, pre-existing formats <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_.
 
 ::
 
@@ -200,8 +201,18 @@ Use the `date` keyword in a formula string to indicate that :func:`loadd` should
 
     // Load variables and specify that the variable named
     // date, should be loaded as a date vector
-    eur_usd = loadd(dataset, "date(date) + bid + ask");
+    eur_usd = loadd(dataset);
 
+The first five rows of our *eur_usd* dataframe looks like:
+
+::
+
+                 date              bid              ask
+     20081031 1251450        1.2739000        1.2736000
+     20081031 1251470        1.2740000        1.2737000
+     20081031 1251550        1.2741000        1.2738000
+     20081031 1251580        1.2738000        1.2735000
+     20081031 1251590        1.2739000        1.2736000
 
 GAUSS will automatically detect many standard date formats:
 
@@ -275,7 +286,7 @@ GAUSS will automatically detect many standard date formats:
 How to load non-standard date formats?
 -----------------------------------------------------------------------------
 
-GAUSS allows you to specify any arbitrary date format. To accomplish this create a format string using BSD strftime specifiers to replace the date elements.
+If a date variable is not in a recognizable format, the `date` keyword should be used in a formula string to indicate that :func:`loadd` should load a variable as a date. In this case, GAUSS allows you to specify any arbitrary date format using BSD strftime specifiers to denote the date elements.
 
 .. note:: The full list of strftime format specifiers can be found in the documentation for :func:`strctoposix`.
 
@@ -314,16 +325,55 @@ Note that the format specifier is enclosed in single ticks.
 How to load a variable as a string?
 -----------------------------------------------------------------------------
 
-The `str` keyword in a GAUSS formula string indicates that a variable should be loaded as a string variable in a dataframe.
+In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the `str` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
+
+Consider the `nba_ht_wt.xls` dataset.
+
+::
+
+  // Create file name with full path
+  dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+
+  // Load player as a string variable. Load
+  // 'height' and 'weight' as numeric.
+  nba = loadd(dataset);
+
+Without any formula strings, two of the variables, *Player* and *School* will be loaded as strings:
+
+::
+
+  >> asdf(getcolnames(nba), "Variable")~getcoltypes(nba)
+
+        Variable             type
+          Player           string
+             Pos         category
+          Height           number
+          Weight           number
+             Age           number
+          School           string
+           BDate             date
+
+Now, let's load the variables *Player*, *Pos*, and *Age*. This time we will specify that we want *Pos* to be loaded as a string rather than a category:
 
 ::
 
     // Create file name with full path
     dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
 
-    // Load player as a string variable. Load
-    // 'height' and 'weight' as numeric.
-    nba = loadd(dataset, "str(player) + height + weight");
+    // Load Player, Pos, and Age
+    // Specify Pos as string variable
+    nba = loadd(dataset, "player + str(Pos) + age");
+
+The *Player* variable will automatically load as a string variable, the *age* variable will automatically load as a numeric, and *Pos* loads as a categorical variable:
+
+::
+
+  >> asdf(getcolnames(nba_subset), "Variable")~getcoltypes(nba_subset)
+
+        Variable             type
+          player           string
+             Pos           string
+             age           number
 
 .. note:: This loads a variable as a string type in a dataframe. If you want to load a variable into a GAUSS string array, use :func:`loaddsa`.
 

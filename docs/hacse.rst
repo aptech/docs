@@ -96,7 +96,7 @@ The resulting standard errors are:
 
 ::
 
-              VARIABLE     HAC SE
+              VARIABLE           HAC SE
       -------------------------------------
 
                  const         0.066368

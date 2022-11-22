@@ -77,7 +77,8 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['dbnomics_datasets*.rst', 'dbnomics_series_*.rst', 'dbnomics_last_updates.rst', 'dbnomics_list_providers.rst', 'dbnomics_provider.rst', 
+                    'fred_category*.rst', 'fred_release*.rst', 'fred_series*.rst', 'fred_tags*.rst', 'fred_source*.rst', 'fred_related*.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
