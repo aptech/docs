@@ -353,7 +353,7 @@ Without any formula strings, two of the variables, *Player* and *School* will be
           School           string
            BDate             date
 
-Now, let's load the variables *player*, *Pos*, and *age*. This time we will specify that we want *Pos* to be loaded as a string rather than a category:
+Now, let's load the variables *Player*, *Pos*, and *Age*. This time we will specify that we want *Pos* to be loaded as a string rather than a category:
 
 ::
 
