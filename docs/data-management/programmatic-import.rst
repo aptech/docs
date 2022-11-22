@@ -325,16 +325,55 @@ Note that the format specifier is enclosed in single ticks.
 How to load a variable as a string?
 -----------------------------------------------------------------------------
 
-The `str` keyword in a GAUSS formula string indicates that a variable should be loaded as a string variable in a dataframe.
+In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the `str` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
+
+Consider the `nba_ht_wt.xls` dataset.
+
+::
+
+  // Create file name with full path
+  dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+
+  // Load player as a string variable. Load
+  // 'height' and 'weight' as numeric.
+  nba = loadd(dataset);
+
+Without any formula strings, two of the variables, *Player* and *School* will be loaded as strings:
+
+::
+
+  >> asdf(getcolnames(nba), "Variable")~getcoltypes(nba)
+
+        Variable             type
+          Player           string
+             Pos         category
+          Height           number
+          Weight           number
+             Age           number
+          School           string
+           BDate             date
+
+Now, let's load the variables *player*, *Pos*, and *age*. This time we will specify that we want *Pos* to be loaded as a string rather than a category:
 
 ::
 
     // Create file name with full path
     dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
 
-    // Load player as a string variable. Load
-    // 'height' and 'weight' as numeric.
-    nba = loadd(dataset, "str(player) + height + weight");
+    // Load Player, Pos, and Age
+    // Specify Pos as string variable
+    nba = loadd(dataset, "player + str(Pos) + age");
+
+The *Player* variable will automatically load as a string variable, the *age* variable will automatically load as a numeric, and *Pos* loads as a categorical variable:
+
+::
+
+  >> asdf(getcolnames(nba_subset), "Variable")~getcoltypes(nba_subset)
+
+        Variable             type
+          player           string
+             Pos           string
+             age           number
 
 .. note:: This loads a variable as a string type in a dataframe. If you want to load a variable into a GAUSS string array, use :func:`loaddsa`.
 
