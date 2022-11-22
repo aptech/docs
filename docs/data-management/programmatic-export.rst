@@ -6,7 +6,8 @@ Programmatic Export
 +====================+==============+=================+=================+==========================+
 |**File types**      |              |                 |                 |                          |
 +--------------------+--------------+-----------------+-----------------+--------------------------+
-|GAUSS Dataset (DAT) |       X      |                 |                 |                          |
+|GAUSS Dataset       |       X      |                 |                 |                          |
+| (GDAT, DAT)        |              |                 |                 |                          |
 +--------------------+--------------+-----------------+-----------------+--------------------------+
 |CSV                 |       X      |        X        |                 |                          |
 +--------------------+--------------+-----------------+-----------------+--------------------------+
@@ -20,8 +21,11 @@ Programmatic Export
 
 Exporting datasets
 ----------------------------------------------
+The :func:`saved` procedure exports matrices and dataframes in the GAUSS workspace to datasets in GDAT, CSV, DAT, XLS, or XLSX format.
 
-The :func:`saved` procedure exports matrices and dataframes in the GAUSS workspace to datasets in CSV, DAT, XLS, or XLSX format.
+The GDAT file type should be used to save all data attributes within a GAUSS dataframe. It is the only file format that can be used to save and load GAUSS dataframes without losing any data characteristics such as variable names, types, and formats.
+
+When using :func:`saved` to save non-GDAT file types:
 
 * **Variable names** from dataframes will be written to the file. For matrices, variable names can be provided, or default variable names (X1, X2,...XP) will be created.
 * **Labels** from string and category columns in a dataset will be written as string labels in Excel and CSV files.
