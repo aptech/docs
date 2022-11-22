@@ -22,6 +22,11 @@ Format
 
         ::
 
+            /* Do a search on 'unemployment' with the following arguments:
+            **   limit      = 10
+            **   sort_order = desc
+            */
+
             fred_search("unemployment", "limit", 10, "sort_order", "desc")
 
         This function supports the following options:

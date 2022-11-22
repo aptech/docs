@@ -700,7 +700,7 @@ Remarks
 #. The weights for each observation are equal.
 #. The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
 
-For HDF5 files, the dataset must include file schema and both file name and dataset name must be provided, e.g. :code:`glm("h5://C:/gauss22/examples/testdata.h5/mydata", formula, family)`
+For HDF5 files, the dataset must include file schema and both file name and dataset name must be provided, e.g. :code:`glm("h5://C:/gauss23/examples/testdata.h5/mydata", formula, family)`
 
 Source
 ------

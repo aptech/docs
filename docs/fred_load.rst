@@ -23,7 +23,8 @@ Format
             /* Retrieve the 'GNPCA' series with the following arguments:
             **   realtime_start = 2010-01-01
             **   realtime_end   = 2010-12-31
-            */   frequency      = m
+            **   frequency      = m
+            */
 
             fred_load("GNPCA", "realtime_start", "2010-01-01", "realtime_end", "2010-12-31", "frequency", "m");
 
