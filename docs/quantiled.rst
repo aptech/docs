@@ -150,7 +150,7 @@ Remarks
 
   ::
 
-      quantiled("h5://C:/gauss22/examples/testdata.h5/mydata", 0.5, 0).
+      quantiled("h5://C:/gauss23/examples/testdata.h5/mydata", 0.5, 0).
 
 Source
 ------
