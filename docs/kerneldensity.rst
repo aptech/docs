@@ -100,7 +100,7 @@ Basic usage with dataframe
   struct kernelDensityResults krslt1;
   krslt1 = kernelDensity(data[., "volatile acidity"]);
 
-.. figure:: _static/images/kdensity1.jpeg
+.. figure:: _static/images/kerneldensity1.jpg
    :scale: 50 %
 
 Basic usage with filename
@@ -134,7 +134,7 @@ Basic usage with multiple kernels
   struct kernelDensityResults krslt2;
   krslt2 = kernelDensity(data[., "volatile acidity"], 1|2|3);
 
-.. figure:: _static/images/kerneldensity2.jpeg
+.. figure:: _static/images/kerneldensity3.jpg
    :scale: 50 %
 
 Basic usage with multiple series
@@ -151,10 +151,10 @@ Basic usage with multiple series
   krslt3 = kernelDensity(data, 1);
 
 
-.. figure:: _static/images/kerneldensity3a.jpeg
+.. figure:: _static/images/kerneldensity4a.jpg
    :scale: 50 %
 
-.. figure:: _static/images/kerneldensity3b.jpeg
+.. figure:: _static/images/kerneldensity4b.jpg
    :scale: 50 %
 
 Modifying plot with plotControl pointer
@@ -194,5 +194,5 @@ Modifying plot with plotControl pointer
   struct kernelDensityResults krslt4;
   krslt4 = kernelDensity(data[., "volatile acidity"], kernel, bw, kctl);
 
-.. figure:: _static/images/kerneldensity4.jpeg
+.. figure:: _static/images/kerneldensity5.jpg
    :scale: 50 %
