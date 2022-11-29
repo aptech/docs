@@ -5,6 +5,40 @@ Change Log
 The following is a list of changes from the previous version of GAUSS.
 ------
 
+23.0.0
+------
+
+#. A new :file:`*.gdat` file type has been introduced with full support for GAUSS dataframes. See :func:`loadd` and :func:`saved`.
+#. Added new functions to download and search Federal Reserve Economic Data (FRED) directly into a dataframe. See :func:`fred_load` and :func:`fred_search`.
+#. Added new function to download DBnomics data directly into a dataframe. See :func:`dbnomics_series`.
+#. Added new function :func:`between` returns a vector with a 1 if the element is in the range or otherwise a zero.
+#. Added new function :func:`shiftc` shifts data down the columns of a matrix.
+#. :func:`getgausshome` now accepts a relative path as an optional argument and returns the absolute path.
+#. :func:`loadd` can now read known file types directly from a URL.
+#. :func:`loadd` will now automatically detect column types. This can be controlled in :file:`gauss.cfg` with the ``policy_formula_auto_infer`` option.
+#. :func:`getGAUSSHome` can now accept relative paths as an input so they do not have to be appended to the end with the string addition operator.
+#. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
+#. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
+#. Up to 10x speed improvememnt and 50% decrease in memory usage for :func:`lagn`.
+#. Improved performance of date format pattern matching with :func:`loadd`.
+#. Improved performance of :func:`indsav` with dataframes.
+#. Improved performance for reading large XLS/XLSX files with :func:`loadd` and when previewing files in the file import dialog.
+#. Improved performance when viewing large symbols in the symbol editor. Specifically symbols with many columns.
+#. Opening ReadStat file types (SAS, Stata, SPSS) now has a progress indicator while loading in the file import dialog.
+#. Behavior Change: Unmapped dataframe string/category column values will be represented as string literals instead of a missing for purposes of printing. Note that the string literal will not match a mapped value in an oppossing dataframe in the context of an :func:`outerjoin`.
+#. Behavior Change: Negative keys are now allowed for dataframe string/category column types.
+#. Behavior Change: The OMP default child count was changed from 2 to 1. This improved performance significantly in cases with :func:`threadfor` loops that performed multi-threaded BLAS/LAPACK functions, such as matrix multiply.
+#. Bug Fix: A file buffer containing ``open f = /`` would cause a crash in the syntax parser.
+#. Bug Fix: An empty newline at the end of a CSV could show up as row of missings.
+#. Bug Fix: Certain edge cases with relative paths could cause ``#include`` to fail.
+#. Bug Fix: Certain edge cases in :func:`selif`, :func:`delif`, :func:`copymetadata` and :func:`setcoldateformats` caused a memory leak.
+#. Bug Fix: :func:`move` could fail in specific cases.
+#. Bug Fix: :func:`asdf` now allows dataframes to be passed as input for string arguments.
+#. Bug Fix: Indexing a dataframe with fixed rows and specifying ``.`` for the columns when the column count is 1 would not return a dataframe.
+#. Bug Fix: :func:`xlsGetSheetSize` would return :math:`[1, 1]` for sheets that were a row or column vector.
+#. Bug Fix: :func:`strctoposix` is now case-insensitive for character literals in the pattern/input.
+#. macOS now bundles in OpenSSL with the installer, and all three platforms are now using OpenSSL 1.1.1p.
+
 22.2.1
 ------
 

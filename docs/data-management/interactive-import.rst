@@ -7,7 +7,7 @@ The GAUSS **Data Import** window is an interactive environment for loading data 
 
 * CSV and other text delimited files.
 * Excel files (XLS, XLSX).
-* GAUSS datasets (DAT) and matrix files (FMT).
+* GAUSS datasets (DAT, GDAT) and matrix files (FMT).
 * SAS, Stata and SPSS datasets.
 
 as well as performing all aspects of data import, such as:
