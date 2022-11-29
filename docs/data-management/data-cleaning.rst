@@ -891,7 +891,7 @@ After the above code:
                high              2
 
 
-.. note:: Since there is only one categorical variable in the ``yarn`` dataframe, :func:`setColLabels` does not require a specified variable name.
+.. note:: Since there is only one categorical variable in the *yarn* dataframe, :func:`setColLabels` does not require a specified variable name.
 
 Changing categorical variable base case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1023,4 +1023,3 @@ After the above code:
     labels =  low   values = 0
               med            1
              high            2
-

@@ -40,7 +40,7 @@ To load all variables from a dataset using :func:`loadd`, only the file name is 
     housing = loadd(dataset);
 
 
-.. note:: By default, :func:`loadd` assumes that the first row of CSV and Excel files contains variable names. This can be changed using the `loadFileControl` structure.
+.. note:: By default, :func:`loadd` assumes that the first row of CSV and Excel files contains variable names. This can be changed using the ``loadFileControl`` structure.
 
 GAUSS formula string basics
 -------------------------------------------------
@@ -133,7 +133,7 @@ Some datasets such as, GDAT, SAS, Stata (.dta), and SPSS store variable type inf
 
 Excel, CSV, and other text files do not store variable type descriptions and can only pass string or numeric data to GAUSS. In these cases, GAUSS uses intelligent type detection to auto-detect variable types, including categorical data.
 
-If a categorical variable is not automatically detected by GAUSS, use the `cat` keyword with :func:`loadd` to specify that a string variable should represent categorical data.
+If a categorical variable is not automatically detected by GAUSS, use the ``cat`` keyword with :func:`loadd` to specify that a string variable should represent categorical data.
 
 ::
 
@@ -288,7 +288,7 @@ GAUSS will automatically detect many standard date formats:
 How to load non-standard date formats?
 -----------------------------------------------------------------------------
 
-If a date variable is not in a recognizable format, the `date` keyword should be used in a formula string to indicate that :func:`loadd` should load a variable as a date. In this case, GAUSS allows you to specify any arbitrary date format using BSD strftime specifiers to denote the date elements.
+If a date variable is not in a recognizable format, the ``date`` keyword should be used in a formula string to indicate that :func:`loadd` should load a variable as a date. In this case, GAUSS allows you to specify any arbitrary date format using BSD strftime specifiers to denote the date elements.
 
 .. note:: The full list of strftime format specifiers can be found in the documentation for :func:`strctoposix`.
 
@@ -315,7 +315,7 @@ The table below shows how we use the first date observation, ``"January, 2004"``
 |1982             |A four digit year.         |Date     |`%Y`                  |
 +-----------------+---------------------------+---------+----------------------+
 
-Now pass the formula string as the second input to the `date` keyword. Assuming our file is called `date_test.csv`, the code would look like this:
+Now pass the format string as the second input to the ``date`` keyword. Assuming our file is called *date_test.csv*, the code would look like this:
 
 ::
 
@@ -327,9 +327,9 @@ Note that the format specifier is enclosed in single ticks.
 How to load a variable as a string?
 -----------------------------------------------------------------------------
 
-In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the `str` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
+In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the ``str`` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
 
-Consider the `nba_ht_wt.xls` dataset.
+Consider the *nba_ht_wt.xls* dataset.
 
 ::
 
@@ -340,7 +340,7 @@ Consider the `nba_ht_wt.xls` dataset.
   // 'height' and 'weight' as numeric.
   nba = loadd(dataset);
 
-Without any formula strings, two of the variables, *Player* and *School* will be loaded as strings:
+Without any formula strings, two of the variables, *player* and *School* will be loaded as strings:
 
 ::
 
@@ -355,7 +355,7 @@ Without any formula strings, two of the variables, *Player* and *School* will be
           School           string
            BDate             date
 
-Now, let's load the variables *Player*, *Pos*, and *Age*. This time we will specify that we want *Pos* to be loaded as a string rather than a category:
+Now, let's load the variables *player*, *Pos*, and *age*. This time we will specify that we want *Pos* to be loaded as a string rather than a category:
 
 ::
 
@@ -366,7 +366,7 @@ Now, let's load the variables *Player*, *Pos*, and *Age*. This time we will spec
     // Specify Pos as string variable
     nba = loadd(dataset, "player + str(Pos) + age");
 
-The *Player* variable will automatically load as a string variable, the *age* variable will automatically load as a numeric, and *Pos* loads as a categorical variable:
+The *player* variable will automatically load as a string variable, the *age* variable will automatically load as a numeric, and *Pos* loads as a categorical variable:
 
 ::
 
@@ -382,7 +382,7 @@ The *Player* variable will automatically load as a string variable, the *age* va
 How to load an interaction term using a formula string?
 -----------------------------------------------------------------------------
 
-Use the `:` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
+Use the ``:``` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
 
 ::
 
@@ -394,7 +394,7 @@ Use the `:` operator in a formula string to load a pure interaction term between
     housing = loadd(dataset, "new:baths");
 
 
-Use the `*` operator in a formula string to load a each variable on the left and right of the `*`, as well as an interaction term between the two.
+Use the ``*`` operator in a formula string to load a each variable on the left and right of the ``*``, as well as an interaction term between the two.
 
 ::
 
@@ -419,12 +419,12 @@ Advanced data loading options
 * Specifying the sheet of an XLS or XLSX file.
 
 
-by passing in the `loadFileControl` structure.
+by passing in the ``loadFileControl`` structure.
 
-Basic usage of the `loadFileControl` structure
+Basic usage of the ``loadFileControl`` structure
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
-As with all GAUSS control structures, there are four steps to using the `loadFileControl` structure.
+As with all GAUSS control structures, there are four steps to using the ``loadFileControl`` structure.
 
 1. Declare an instance of the structure.
 2. Fill the structure with default values.
@@ -434,7 +434,7 @@ As with all GAUSS control structures, there are four steps to using the `loadFil
 Modify the row range loaded by :func:`loadd`
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The `ld_ctl.row_range.first` and `ld_ctl.row_range.last` members of the `loadFileControl` structure specify the row range for importing.
+The *ld_ctl.row_range.first* and *ld_ctl.row_range.last* members of the ``loadFileControl`` structure specify the row range for importing.
 
 ::
 
@@ -459,7 +459,7 @@ The `ld_ctl.row_range.first` and `ld_ctl.row_range.last` members of the `loadFil
 Specify the row containing the variable names in a text or Excel file
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-By default, :func:`loadd` assumes that the first line of an Excel or delimited text file contains the variable names. The *header_row* member of the `loadFileControl` structure allows you to control which row is interpreted as variable names.
+By default, :func:`loadd` assumes that the first line of an Excel or delimited text file contains the variable names. The *header_row* member of the ``loadFileControl`` structure allows you to control which row is interpreted as variable names.
 
 For example consider a file containing:
 
@@ -471,7 +471,7 @@ For example consider a file containing:
     35,90
     12,160
 
-Assuming this file is named `auto_headers.csv` and is in our current working directory, we can load this file, correctly specifying that the variable names are in the second row using a `loadFileControl` structure:
+Assuming this file is named *auto_headers.csv* and is in our current working directory, we can load this file, correctly specifying that the variable names are in the second row using a ``loadFileControl`` structure:
 
 ::
 
@@ -489,9 +489,9 @@ Assuming this file is named `auto_headers.csv` and is in our current working dir
 Specify string values to import as missing values
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Prior to calling the :func:`loadd` procedure, use the `ld_ctl.missing_vals_str` member of the `loadFileControl` structure to specify values that should be treated as missing upon import.
+Prior to calling the :func:`loadd` procedure, use the *ld_ctl.missing_vals_str* member of the ``loadFileControl`` structure to specify values that should be treated as missing upon import.
 
-GAUSS identifies both “.” and “” as missing values by default.
+GAUSS identifies both ``“.”`` and ``“”`` as missing values by default.
 
 For example, if we have the following data file:
 
@@ -524,8 +524,8 @@ and we want to specify both ``"NA"`` and ``"unknown"`` as missing values, we wou
 Specify a CSV file delimiter programmatically
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
-By default, :func:`loadd` expects files with a `.csv` file extension to use a comma as the delimiter. To change the file delimiter use the
-*delimiter* member of the `loadFileControl` structure.
+By default, :func:`loadd` expects files with a ``.csv`` file extension to use a comma as the delimiter. To change the file delimiter use the
+*delimiter* member of the ``loadFileControl`` structure.
 
 +---------------------------+
 |Common Data File Delimiters|
@@ -552,7 +552,7 @@ For example, a space delimited file like this:
     14 22
     19 44
 
-named `space_separated.csv` can be loaded like this:
+named *space_separated.csv* can be loaded like this:
 
 ::
 
@@ -583,9 +583,9 @@ if we have a space separated file with spaces in the variable names like this:
     19 44
 
 without the single tick marks, it would look like we have four variable names, but only two variables. The tick marks
-tell GAUSS that the space before `cm` is part of the variable name.
+tell GAUSS that the space before ``cm`` is part of the variable name.
 
-However, by default, GAUSS assumes that double quotes, `"`, are the quote mark. We can use the *.csv.quotechar* member of the `loadFileControl` structure to set the quote mark to a single tick as shown below:
+However, by default, GAUSS assumes that double quotes, ``"``, are the quote mark. We can use the *.csv.quotechar* member of the ``loadFileControl`` structure to set the quote mark to a single tick as shown below:
 
 
 ::
@@ -680,3 +680,90 @@ Use the :func:`xlsGetSheetTypes` procedure to check the cell format types of a s
   cell_types = xlsGetSheetTypes(fname, sheet, row);
 
 Full details and more examples can be found in the Command Reference page for :func:`xlsGetSheetTypes`.
+
+Merging dataframes
+--------------------------
+In GAUSS merging:
+
+* Is done using the :func:`outerJoin` or :func:`innerJoin` procedures.
+* Is done completely with data in memory.
+* The :func:`innerJoin` function only keeps matching observations.
+* The :func:`outerJoin` function keeps observations either from both data sources or the left-hand data source.
+* Allows for one-to-one, one-to-many, many-to-one, and many-to-many joining operations.
+
+Consider two dataframes. The first contains *ID* and *Age*:
+
+::
+
+     ID      Age
+   John       22
+   Mary       18
+  Susan       34
+ Connie       45
+
+The second contains *ID* and *Occupation*:
+
+::
+
+     ID      Occupation
+   John         Teacher
+   Mary         Surgeon
+  Susan       Developer
+  Tyler           Nurse
+
+First, create the dataframes:
+
+::
+
+  // Create ID strings
+  string ID1 = { "John", "Mary", "Susan", "Connie" };
+  string ID2 = { "John", "Mary", "Susan", "Tyler" };
+
+  // Create age vector
+  age = { 22, 18, 34, 45 };
+
+  // Create occupation string
+  string Occupation = { "Teacher", "Surgeon", "Developer", "Nurse" };
+
+  // Create first df
+  df1 = asDF(ID1, "ID") ~ asDF(age, "Age");
+
+  // Create second df
+  df2 = asDF(ID2, "ID") ~ asDF(Occupation, "Occupation");
+
+Next, merge *df2* with *df1* using *ID* as a key:
+
+::
+
+  // Merge dataframes
+  df3 = outerJoin(df2, "ID", df1, "ID", "full");
+
+The *df3* dataframe contains:
+
+::
+
+      ID       Occupation              Age
+    John          Teacher        22.000000
+    Mary          Surgeon        18.000000
+   Susan        Developer        34.000000
+   Tyler            Nurse                .
+  Connie                .        45.000000
+
+The *df3* dataframe contains all observations from both the *df1* and *df2* dataframes, even if they aren't matched, because of the ``"full"`` option.
+
+To keep the matches to the keys from the *df2* dataframe, exclude the ``"full"`` option:
+
+::
+
+  // Merge dataframes
+  df3 = outerJoin(df2, "ID", df1, "ID");
+
+Now *df3* includes:
+
+::
+
+    ID       Occupation              Age
+  John          Teacher        22.000000
+  Mary          Surgeon        18.000000
+ Susan        Developer        34.000000
+ Tyler            Nurse                .

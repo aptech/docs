@@ -155,7 +155,7 @@ In this example, the group variable is included in the first column. No categori
   // first column, which is the number of bedrooms.
   x_a = aggregate(X, "median");
 
-The matrix `x_a` contains:
+The matrix *x_a* contains:
 
 ::
 
@@ -245,7 +245,7 @@ For example, to find the frequency of each category for a categorical variable, 
 .. figure:: ../_static/images/plotfreq.jpg
     :scale: 50%
 
-The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional `plotControlStructure` can be used for custom formatting.
+The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional ``plotControlStructure`` can be used for custom formatting.
 
 Example: Plotting category frequency
 +++++++++++++++++++++++++++++++++++++
@@ -344,7 +344,7 @@ This prints the following variance/covariance matrix:
   11.930245        75.527346
   75.527346        709.85534
 
-.. note:: The :func:`covVarMS` and :func:`covVarXS` functions compute the sample variance/covariance. It is computed as the moment matrix of deviations about the mean divided by the number of observations minus one, **N−1**. For a population covariance matrix which uses **N** rather than N−1 see :func:`varCovM()` or :func:`varCovX()`.
+.. note:: The :func:`covVarMS` and :func:`covVarXS` functions compute the sample variance/covariance. It is computed as the moment matrix of deviations about the mean divided by the number of observations minus one, *N−1*. For a population covariance matrix which uses *N* rather than *N−1* see :func:`varCovM()` or :func:`varCovX()`.
 
 Exploratory data visualizations
 ---------------------------------
@@ -425,4 +425,3 @@ Example: Plotting the relationship between height and weight in NBA players
 
    // Plot height and weight
    plotScatter(nba_ht_wt[., Height], nba_ht_wt[., weight]);
-
