@@ -199,7 +199,7 @@ GAUSS will automatically detect a date variables if they are in one of the `reco
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome( "examples/eurusd_tick.csv");
+    dataset = getGAUSSHome("examples/eurusd_tick.csv");
 
     // Load variables and specify that the variable named
     // date, should be loaded as a date vector
@@ -622,7 +622,7 @@ You can load a specified range of an Excel file into a GAUSS numeric matrix or s
 
 ::
 
-    fname = getGAUSSHome( "examples/yarn.xlsx");
+    fname = getGAUSSHome("examples/yarn.xlsx");
 
     // Load data from a specific range of an Excel file into a string array
     x_sa = xlsReadSA(fname, "A2:B9");

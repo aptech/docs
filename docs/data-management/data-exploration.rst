@@ -48,7 +48,7 @@ Example: Summary statistics for select variables
 ::
 
   // Create file name with full path
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
   nba_ht_wt = loadd(fname,
       "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
@@ -103,7 +103,7 @@ Example: Finding mean by column
 ::
 
   // Load stock price data
-  fname = getGAUSShome $+ "examples/xle_daily.xlsx";
+  fname = getGAUSShome("examples/xle_daily.xlsx");
   xle_daily = loadd(fname,
                    "date($Date, '%m/%d/%Y %T.%L') + Adj Close + Volume");
 
@@ -145,7 +145,7 @@ In this example, the group variable is included in the first column. No categori
 ::
 
   // Create file name with full path
-  fname = getGAUSSHome $+ "examples/housing.csv";
+  fname = getGAUSSHome("examples/housing.csv");
 
   // Load three variables from dataset
   X = loadd(fname, "beds + price + size");
@@ -172,7 +172,7 @@ In this example, a categorical variable name is specified for grouping.
 ::
 
   // Load data
-  auto2 = loadd(getGAUSSHome $+ "examples/auto2.dta");
+  auto2 = loadd(getGAUSSHome("examples/auto2.dta"));
 
   // Aggregate data using
   // foreign column as group
@@ -194,7 +194,7 @@ The :func:`frequency` procedure computes a frequency count of all categories of 
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname);
 
   // Frequency table
@@ -220,7 +220,7 @@ For example, to find the frequency of each category for a categorical variable, 
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHom("examples/auto2.dta");
   auto2 = loadd(fname, "str(make) + cat(rep78) + cat(foreign)");
 
   // Frequency table of rep78
@@ -253,7 +253,7 @@ Example: Plotting category frequency
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname);
 
   // Frequency plot
@@ -284,7 +284,7 @@ Example: Finding correlation of height and weight in NBA players
   /*
   ** Import data
   */
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
   nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate, '%m/%d/%Y %T.%L')");
 
 

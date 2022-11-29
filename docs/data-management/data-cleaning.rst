@@ -697,7 +697,7 @@ The :func:`getColNames` procedure returns the variable names assigned to columns
 ::
 
     // Load all variables from a CSV file
-    dataset = getGAUSSHome( "examples/housing.csv");
+    dataset = getGAUSSHome("examples/housing.csv");
     housing = loadd(dataset);
 
     // Print the variable names from 'housing'
