@@ -16,6 +16,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added new functions to download DBnomics data directly into a dataframe. See :func:`dbnomics_series`.
 #. Added support for :func:`loadd` to read known file types directly from a URL.
 #. Added support for :func:`loadd` to automatically detect column types. This can be controlled in :file:`gauss.cfg` with the ``policy_formula_auto_infer`` option.
+#. :func:`getGAUSSHome` can now accept relative paths as an input so they do not have to be appended to the end with the string addition operator.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
 #. The OMP default child count was changed from 2 to 1. This improved performance significantly in cases with :func:`threadfor` loops that performed multi-threaded BLAS/LAPACK functions, such as matrix multiply.
