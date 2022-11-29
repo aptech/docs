@@ -94,7 +94,7 @@ Example: Generating indices to sample from a matrix
 
       // Load data from the 'fueleconomy' dataset
       // in the GAUSS examples directory
-      file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+      file_name = getGAUSSHome("examples/fueleconomy.dat");
       fueleconomy = loadd(file_name);
 
       // Create a 100x1 vector of random
@@ -144,7 +144,7 @@ Example: Sample from data file
 ::
 
   // Create file name with full path
-  fname = getGAUSSHome()$+ "examples/credit.dat";
+  fname = getGAUSSHome("examples/credit.dat");
 
   // Randomly sample 30% of the rows from 'credit.dat'
   // and write them to a new dataset in the
@@ -154,5 +154,5 @@ Example: Sample from data file
 After the code above,
 
 ::
-  
+
   n_rows = 120

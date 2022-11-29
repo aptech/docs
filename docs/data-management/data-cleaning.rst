@@ -220,7 +220,7 @@ The input may be either a dataset file name or the name of a data matrix current
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/freqdata.dat";
+    dataset = getGAUSSHome("examples/freqdata.dat");
 
     // Compute descriptive statistics and print report
     call dstatmt(dataset);
@@ -407,7 +407,7 @@ After the above code, *X_2* will equal:
 ::
 
     // Load some variables from a dataset
-    dataset = getGAUSSHome() $+ "examples/yellowstone.csv";
+    dataset = getGAUSSHome("examples/yellowstone.csv");
     yellowstone = loadd(dataset, "LowtTemp + HighTemp + Visits + TotalPrecip + date($Date)");
 
     // Reorder the dataframe so 'date' and 'visits'
@@ -460,7 +460,7 @@ You can also use column names to delete columns from a dataframe.
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+    dataset = getGAUSSHome("examples/detroit.sas7bdat");
 
     // Load  4 variables from the dataset
     detroit = loadd(dataset, "unemployment + weekly_earn + hourly_earn + assault");
@@ -590,7 +590,7 @@ Use the :func:`getColTypes` procedure to lookup the type of the variables in a d
 ::
 
     // Load 4 variables of different types from a dataset
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
     nba_ht_wt = loadd(dataset, "str(Player) + cat(Pos) + Age + date($BDate, '%m/%d/%Y')");
 
     // Check the types of each variable in 'nba_ht_wt'
@@ -656,7 +656,7 @@ It also accepts an optional input specifying the indices or variable names to be
 ::
 
     // Load 3 variables of different types from a dataset
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
     nba = loadd(dataset, "str(player) + cat(pos) + age");
 
 After loading the above data, the first four rows of *nba* will be:
@@ -697,7 +697,7 @@ The :func:`getColNames` procedure returns the variable names assigned to columns
 ::
 
     // Load all variables from a CSV file
-    dataset = getGAUSSHome() $+ "examples/housing.csv";
+    dataset = getGAUSSHome( "examples/housing.csv");
     housing = loadd(dataset);
 
     // Print the variable names from 'housing'
@@ -789,7 +789,7 @@ Determining current categorical variable labels
 ::
 
     // Create a file name with full path
-    dataset = getGAUSSHome() $+ "examples/auto2.dta";
+    dataset = getGAUSSHome("examples/auto2.dta");
 
     // Load all variables from the dataset
     auto = loadd(dataset);
@@ -855,7 +855,7 @@ Change the order of categories in a dataframe
 ::
 
     // Load dataset
-    dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
+    dataset = getGAUSSHome("examples/yarn.xlsx";
     yarn = loadd(dataset, "cat(amplitude) + cycles");
 
     // Get labels and values for amplitude variable
@@ -901,7 +901,7 @@ The :func:`setbasecat` function provides a convenient way to set the base case f
 ::
 
     // Load the NBA dataset
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
     nba = loadd(dataset, "cat(pos) + height + weight");
 
     // Get column names
@@ -943,7 +943,7 @@ The :func:`recodecatlabels` procedure changes the labels for a categorical varia
 ::
 
     // Load NBA data
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
     nba = loadd(dataset, "cat(pos) + height + weight");
 
     // Get column labels
@@ -992,7 +992,7 @@ Change the order of categories in a dataframe
 ::
 
     // Load the yarn dataset
-    dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
+    dataset = getGAUSSHome("examples/yarn.xlsx");
     yarn = loadd(dataset, "cat(amplitude) + cycles");
 
     // Get column labels

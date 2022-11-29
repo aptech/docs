@@ -920,7 +920,7 @@ Example: Computing multiple lags without missing values
 ::
 
   // Create file name with full path
-  fname = getGAUSSHome() $+ "examples/beef_prices.csv";
+  fname = getGAUSSHome("examples/beef_prices.csv");
 
   // Load all observations of all variables
   beef = loadd(fname);
@@ -973,7 +973,7 @@ Example: Shifting columns of a data matrix
 ::
 
   // Create file name with full path
- fname = getGAUSSHome() $+ "examples/beef_prices.csv";
+ fname = getGAUSSHome("examples/beef_prices.csv");
 
  // Load all observations of all variables
  beef = loadd(fname);

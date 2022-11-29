@@ -50,7 +50,7 @@ Example: Lowess smoother
 ::
 
   // Load dataset
-  fname = getGAUSSHome() $+ "examples/lowess1.dta";
+  fname = getGAUSSHome("examples/lowess1.dta");
   data = loadd(fname, "h1 + depth");
 
   // Define independent variable

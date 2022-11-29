@@ -20,7 +20,7 @@ Example: Summary statistics from a datafile
 ::
 
   // Create file name with full path
-  file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+  file_name = getGAUSSHome("examples/fueleconomy.dat");
 
   /*
   ** Compute statistics for all variables in the dataset
@@ -325,8 +325,11 @@ Example: Finding variance/covariance of height and weight in NBA players
   /*
   ** Import data
   */
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
-  nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate, '%m/%d/%Y %T.%L')");
+  // Create file name with full path
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
+
+  // Load file
+  nba_ht_wt = loadd(fname);
 
 
   // Calculate correlation of
@@ -408,20 +411,23 @@ Example: Frequency and percentage histograms
   // into 80 bins.
   plotHist( myPlot, r, 80 );
 
-
 **Plotting scatter plots**
 
-The :func:`plotScatter` function creates a quick scatter plot using just an *x* and *y* input. To add custom plotting use the :class:`plotControl` structure.
+The :func:`plotScatter` function creates a quick scatter plot using either:
+
+* A *x* and *y* input.
+* A dataframe name and formula string specify *x* and *y*.
+
+Using a dataframe with a formula string, will result in automatic labeling of the *x* and *y* axis. To add additional custom formatting, use the :class:`plotControl` structure.
 
 Example: Plotting the relationship between height and weight in NBA players
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
-  // Create file name with full path
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
-  nba_ht_wt = loadd(fname,
-      "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
+   // Create file name with full path
+   fname = getGAUSSHome("examples/nba_ht_wt.xls");
+   nba_ht_wt = loadd(fname);
 
    // Plot height and weight
-   plotScatter(nba_ht_wt[., Height], nba_ht_wt[., weight]);
+   plotScatter(nba_ht_wt, "Weight~Height");

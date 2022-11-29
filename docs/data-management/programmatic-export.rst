@@ -37,7 +37,7 @@ Example: Load Stata dataset and save to a CSV file
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
 
     // Load 'rep78' as a categorical variable and 'mpg' as a numeric variable
     auto = loadd(fname, "cat(rep78) + mpg");
@@ -61,7 +61,7 @@ Example: Load Stata dataset and save to a .gdat file
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
 
     // Load 'rep78' as a categorical variable and 'mpg' as a numeric variable
     auto = loadd(fname, "cat(rep78) + mpg");

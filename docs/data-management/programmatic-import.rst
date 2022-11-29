@@ -34,7 +34,7 @@ To load all variables from a dataset using :func:`loadd`, only the file name is 
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/housing.csv";
+    dataset = getGAUSSHome("examples/housing.csv");
 
     // Load all variables from the file
     housing = loadd(dataset);
@@ -97,7 +97,7 @@ Load a subset of variables
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+    dataset = getGAUSSHome("examples/detroit.sas7bdat");
 
     // Load two specific variables from the file
     detroit = loadd(dataset, "unemployment + hourly_earn");
@@ -109,7 +109,7 @@ Load all variables except one
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+    dataset = getGAUSSHome("examples/xle_daily.xlsx");
 
     // Load all variables except for date
     xle = loadd(dataset, ". -date");
@@ -123,7 +123,7 @@ Some datasets such as, GDAT, SAS, Stata (.dta), and SPSS store variable type inf
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/auto2.dta";
+    dataset = getGAUSSHome("examples/auto2.dta");
 
     // GAUSS will load price as numeric
     // and rep78 as categorical, because this
@@ -138,7 +138,7 @@ If a categorical variable is not automatically detected by GAUSS, use the ``cat`
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
+    dataset = getGAUSSHome( "examples/yarn.xlsx");
 
     // Load amplitude as a categorical variable and cycles as numeric
     yarn = loadd(dataset, "cat(amplitude) + cycles");
@@ -151,7 +151,7 @@ Data transformations can be implemented during loading by including the appropri
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/housing.csv";
+    dataset = getGAUSSHome("examples/housing.csv");
 
     // Load price variable and perform natural log transform
     ln_price = loadd(dataset, "ln(price)");
@@ -161,7 +161,7 @@ You can also use your own procedures in formula strings as shown below:
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/housing.csv";
+    dataset = getGAUSSHome("examples/housing.csv");
 
     // Load price variable and perform first difference of natural log
     ln_price_d = loadd(dataset, "lndiff(price)");
@@ -181,7 +181,7 @@ If your procedure needs the variable loaded as a string, you can prepend the var
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
 
     // Load school variable as a string and pass to is_nc procedure
     nba = loadd(dataset, "is_nc($school) + height + weight");
@@ -199,7 +199,7 @@ GAUSS will automatically detect a date variables if they are in one of the `reco
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/eurusd_tick.csv";
+    dataset = getGAUSSHome( "examples/eurusd_tick.csv");
 
     // Load variables and specify that the variable named
     // date, should be loaded as a date vector
@@ -334,7 +334,7 @@ Consider the *nba_ht_wt.xls* dataset.
 ::
 
   // Create file name with full path
-  dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+  dataset = getGAUSSHome("examples/nba_ht_wt.xls");
 
   // Load player as a string variable. Load
   // 'height' and 'weight' as numeric.
@@ -360,7 +360,7 @@ Now, let's load the variables *player*, *Pos*, and *age*. This time we will spec
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
 
     // Load Player, Pos, and Age
     // Specify Pos as string variable
@@ -387,7 +387,7 @@ Use the ``:``` operator in a formula string to load a pure interaction term betw
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/housing.csv";
+    dataset = getGAUSSHome("examples/housing.csv");
 
     // Load and create a variable that is the interaction (element-by-element product)
     // 'new' and 'baths'. Do not load either 'new' or 'baths'.
@@ -399,7 +399,7 @@ Use the ``*`` operator in a formula string to load a each variable on the left a
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/housing.csv";
+    dataset = getGAUSSHome("examples/housing.csv");
 
     // Load and create a variable that is the interaction (element-by-element product)
     // 'new' and 'baths'. Also load the variables 'new' and 'baths'.
@@ -439,7 +439,7 @@ The *ld_ctl.row_range.first* and *ld_ctl.row_range.last* members of the ``loadFi
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/housing.csv";
+    dataset = getGAUSSHome("examples/housing.csv");
 
     // 1. Declare ld_ctl to be an instance of a 'loadFileControl' structure
     struct loadFileControl ld_ctl;
@@ -614,7 +614,7 @@ You can load a specified range of an Excel file into a GAUSS numeric matrix or s
 
 ::
 
-    fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+    fname = getGAUSSHome("examples/xle_daily.xlsx");
 
     // Load data from a specific range of an Excel file into a numeric matrix
     x = xlsReadM(fname, "B2:C19");
@@ -622,7 +622,7 @@ You can load a specified range of an Excel file into a GAUSS numeric matrix or s
 
 ::
 
-    fname = getGAUSSHome() $+ "examples/yarn.xlsx";
+    fname = getGAUSSHome( "examples/yarn.xlsx");
 
     // Load data from a specific range of an Excel file into a string array
     x_sa = xlsReadSA(fname, "A2:B9");
@@ -638,7 +638,7 @@ Use the :func:`xlsGetSheetCount` procedure to count the number of sheets contain
 ::
 
   // File name with full path
-  fname = getGAUSShome() $+ "examples/yarn.xlsx";
+  fname = getGAUSShome("examples/yarn.xlsx");
 
   // Count sheets
   nsheets = xlsGetSheetCount(fname);
@@ -653,7 +653,7 @@ Use the :func:`xlsGetSheetSize` procedure to count the size of a specific sheet,
 ::
 
   // File name with full path
-  fname = getGAUSShome() $+ "examples/yarn.xlsx";
+  fname = getGAUSShome("examples/yarn.xlsx");
 
   // Leave out optional sheet number
   { r, c } = xlsGetSheetSize(fname);
@@ -668,7 +668,7 @@ Use the :func:`xlsGetSheetTypes` procedure to check the cell format types of a s
 ::
 
   // File name with full path
-  fname = getGAUSShome() $+ "examples/xle_daily.xlsx";
+  fname = getGAUSShome("examples/xle_daily.xlsx");
 
   // Specify sheet number
   sheet = 1;
