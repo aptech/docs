@@ -55,6 +55,21 @@ After the above code, there will be a file named `auto.csv` in your current work
     ,22
     Average,20
 
+Example: Load Stata dataset and save to a .gdat file
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Create file name with full path
+    fname = getGAUSSHome() $+ "examples/auto2.dta";
+
+    // Load 'rep78' as a categorical variable and 'mpg' as a numeric variable
+    auto = loadd(fname, "cat(rep78) + mpg");
+
+    // Save the data to a CSV dataset
+    call saved(auto, "auto.gdat");
+
+Opening the file `auto.gdat` in the *Data Import* window
 Full details and more examples can be found in the Command Reference page for :func:`saved`.
 
 

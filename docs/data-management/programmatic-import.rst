@@ -131,7 +131,9 @@ Some datasets such as, GDAT, SAS, Stata (.dta), and SPSS store variable type inf
     auto = loadd(dataset, "price + rep78");
 
 
-Excel, CSV, and other text files do not store variable type descriptions and can only pass string or numeric data to GAUSS. In this case, use the `cat` keyword with :func:`loadd` to specify that a string variable should represent categorical data.
+Excel, CSV, and other text files do not store variable type descriptions and can only pass string or numeric data to GAUSS. In these cases, GAUSS uses intelligent type detection to auto-detect variable types, including categorical data.
+
+If a categorical variable is not automatically detected by GAUSS, use the `cat` keyword with :func:`loadd` to specify that a string variable should represent categorical data.
 
 ::
 
