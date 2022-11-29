@@ -16,6 +16,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added new functions to download DBnomics data directly into a dataframe. See :func:`dbnomics_series`.
 #. Added support for :func:`loadd` to read known file types directly from a URL.
 #. Added support for :func:`loadd` to automatically detect column types. This can be controlled in :file:`gauss.cfg` with the ``policy_formula_auto_infer`` option.
+#. New function :func:`between` returns a vector with a 1 if the element is in the range or otherwise a zero.
+#. New function :func:`shiftc` shifts data down the columns of a matrix.
+#. Up to 10x speed improvememnt and 50% decrease in memory usage for :func:`lagn`.
 #. :func:`getGAUSSHome` can now accept relative paths as an input so they do not have to be appended to the end with the string addition operator.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
