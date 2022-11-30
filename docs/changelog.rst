@@ -12,6 +12,17 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added new function to download DBnomics data directly into a dataframe. See :func:`dbnomics_series`.
 #. Added new function :func:`between` returns a vector with a 1 if the element is in the range or otherwise a zero.
 #. Added new function :func:`shiftc` shifts data down the columns of a matrix.
+#. Added new function :func:`kerneldensity` for computing and plotting kernel estimates. Added kernels include Normal, Epanechnikov, Biweight, Triangular, Rectangular, Truncate normal, Parzen, Cosine, Triweight, Tricube, Logistic, Sigmoid, and Silverman.
+#. Added new function :func:`kurtosis` to compute sample kurtosis. 
+#. Added new function :func:`skew` to compute sample skew. 
+#. Added new function :func:`jarqueBera` to compute Jarque-Bera test for goodness of fit and normality. 
+#. :func:`quantileFit` now implements kernel estimate of asymptotic covariance. Kernel options include Normal (Gaussian), Epanechnikov, Biweight, Parzen, and Cosine. 
+#. :func:`quantileFit` now implements bandwidth selection methods. Method options include Hall-Sheather, Bofinger, and Chamberlain. 
+#. :func:`quantileFit` now computes pseudo R-squared.
+#. :func:`quantileFit` output printing improved and expanded to include model characteristics in model header. 
+#. :func:`quantileFit` now compatible with dataframe and formula string syntax.
+#. :func:`clusterSE` and :func:`robustSE` now compatible with dataframe and formula string notation. 
+#. :func:`clusterSE` and :func:`robustSE` now include optional argument for turning off small sample correction.
 #. :func:`getgausshome` now accepts a relative path as an optional argument and returns the absolute path.
 #. :func:`loadd` can now read known file types directly from a URL.
 #. :func:`loadd` will now automatically detect column types. This can be controlled in :file:`gauss.cfg` with the ``policy_formula_auto_infer`` option.
@@ -37,6 +48,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: :func:`xlsGetSheetSize` would return :math:`[1, 1]` for sheets that were a row or column vector.
 #. Bug Fix: :func:`strctoposix` is now case-insensitive for character literals in the pattern/input.
 #. macOS now bundles in OpenSSL with the installer, and all three platforms are now using OpenSSL 1.1.1p.
+#. New examples: olsmt_nw.e, kerneldensity_wine.e, quantilefitdf.e 
 
 22.2.1
 ------
