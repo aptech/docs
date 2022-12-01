@@ -9,6 +9,7 @@ W
     walkindex
     warninglog
     warninglogat
+    where
     window
     writer
 

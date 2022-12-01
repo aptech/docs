@@ -11,6 +11,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added new functions to download and search Federal Reserve Economic Data (FRED) directly into a dataframe. See :func:`fred_load` and :func:`fred_search`.
 #. Added new function to download DBnomics data directly into a dataframe. See :func:`dbnomics_series`.
 #. Added new function :func:`between` returns a vector with a 1 if the element is in the range or otherwise a zero.
+#. Added new function :func:`where` that returns elements from ``a`` or ``b``, depending on ``condition``.
 #. Added new function :func:`shiftc` shifts data down the columns of a matrix.
 #. Added new function :func:`kerneldensity` for computing and plotting kernel estimates. Added kernels include Normal, Epanechnikov, Biweight, Triangular, Rectangular, Truncate normal, Parzen, Cosine, Triweight, Tricube, Logistic, Sigmoid, and Silverman.
 #. Added new function :func:`kurtosis` to compute sample kurtosis. 
@@ -26,6 +27,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`getgausshome` now accepts a relative path as an optional argument and returns the absolute path.
 #. :func:`loadd` can now read known file types directly from a URL.
 #. :func:`loadd` will now automatically detect column types. This can be controlled in :file:`gauss.cfg` with the ``policy_formula_auto_infer`` option.
+#. :func:`saved` now supports :file:`*.fmt` files.
 #. :func:`getGAUSSHome` can now accept relative paths as an input so they do not have to be appended to the end with the string addition operator.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.

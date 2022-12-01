@@ -35,6 +35,7 @@ Merging
 =====================       ===========================================
 :doc:`../innerjoin`         Performs a left, or full, outer join on two matrices based upon user-specified key columns.
 :doc:`../outerjoin`         Joins two matrices, or dataframes based upon user-specified key columns, with non-matching rows removed.
+:doc:`../where`             Returns elements from ``a`` or ``b``, depending on ``condition``.
 =====================       ===========================================
 
 Duplicate observations
