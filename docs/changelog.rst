@@ -32,6 +32,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
 #. Up to 10x speed improvememnt and 50% decrease in memory usage for :func:`lagn`.
+#. :func:`lagn` now retains variable names and column types from the input.
 #. Improved performance of date format pattern matching with :func:`loadd`.
 #. Improved performance of :func:`indsav` with dataframes.
 #. Improved performance for reading large XLS/XLSX files with :func:`loadd` and when previewing files in the file import dialog.
