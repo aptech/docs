@@ -12,10 +12,23 @@ The following is a list of changes from the previous version of GAUSS.
 #. Added new functions to download and search Federal Reserve Economic Data (FRED) directly into a dataframe. See :func:`fred_load` and :func:`fred_search`.
 #. Added new function to download DBnomics data directly into a dataframe. See :func:`dbnomics_series`.
 #. Added new function :func:`between` returns a vector with a 1 if the element is in the range or otherwise a zero.
+#. Added new function :func:`where` that returns elements from ``a`` or ``b``, depending on ``condition``.
 #. Added new function :func:`shiftc` shifts data down the columns of a matrix.
+#. Added new function :func:`kerneldensity` for computing and plotting kernel estimates. Added kernels include Normal, Epanechnikov, Biweight, Triangular, Rectangular, Truncate normal, Parzen, Cosine, Triweight, Tricube, Logistic, Sigmoid, and Silverman.
+#. Added new function :func:`kurtosis` to compute sample kurtosis.
+#. Added new function :func:`skew` to compute sample skew.
+#. Added new function :func:`jarqueBera` to compute Jarque-Bera test for goodness of fit and normality.
+#. :func:`quantileFit` now implements kernel estimate of asymptotic covariance. Kernel options include Normal (Gaussian), Epanechnikov, Biweight, Parzen, and Cosine.
+#. :func:`quantileFit` now implements bandwidth selection methods. Method options include Hall-Sheather, Bofinger, and Chamberlain.
+#. :func:`quantileFit` now computes pseudo R-squared.
+#. :func:`quantileFit` output printing improved and expanded to include model characteristics in model header.
+#. :func:`quantileFit` now compatible with dataframe and formula string syntax.
+#. :func:`clusterSE` and :func:`robustSE` now compatible with dataframe and formula string notation.
+#. :func:`clusterSE` and :func:`robustSE` now include optional argument for turning off small sample correction.
 #. :func:`getgausshome` now accepts a relative path as an optional argument and returns the absolute path.
 #. :func:`loadd` can now read known file types directly from a URL.
 #. :func:`loadd` will now automatically detect column types. This can be controlled in :file:`gauss.cfg` with the ``policy_formula_auto_infer`` option.
+#. :func:`saved` now supports :file:`*.fmt` files.
 #. :func:`getGAUSSHome` can now accept relative paths as an input so they do not have to be appended to the end with the string addition operator.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
@@ -24,6 +37,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Improved performance of :func:`indsav` with dataframes.
 #. Improved performance for reading large XLS/XLSX files with :func:`loadd` and when previewing files in the file import dialog.
 #. Improved performance when viewing large symbols in the symbol editor. Specifically symbols with many columns.
+#. Improved performance of all GAUSS ExE operators with temporary matrices (e.g. ``df[., "age"] .> 30``).
 #. Opening ReadStat file types (SAS, Stata, SPSS) now has a progress indicator while loading in the file import dialog.
 #. Behavior Change: Unmapped dataframe string/category column values will be represented as string literals instead of a missing for purposes of printing. Note that the string literal will not match a mapped value in an oppossing dataframe in the context of an :func:`outerjoin`.
 #. Behavior Change: Negative keys are now allowed for dataframe string/category column types.
@@ -37,7 +51,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: Indexing a dataframe with fixed rows and specifying ``.`` for the columns when the column count is 1 would not return a dataframe.
 #. Bug Fix: :func:`xlsGetSheetSize` would return :math:`[1, 1]` for sheets that were a row or column vector.
 #. Bug Fix: :func:`strctoposix` is now case-insensitive for character literals in the pattern/input.
+#. Bug Fix: Formula strings containing newlines would not work correctly.
 #. macOS now bundles in OpenSSL with the installer, and all three platforms are now using OpenSSL 1.1.1p.
+#. New examples: olsmt_nw.e, kerneldensity_wine.e, quantilefitdf.e 
 
 22.2.1
 ------

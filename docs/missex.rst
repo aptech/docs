@@ -26,24 +26,50 @@ Format
 Examples
 ----------------
 
+Replace negative prices with a missing value
++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ::
 
-    // Set seed for repeatable random numbers
-    rndseed 49728424;
+    prices = { 1.25,
+               0.75,
+               2.25,
+              -1.50,
+               2.05 };
 
-    x = rndu(3, 2);
+    // replace elements below zero
+    // with a missing value
+    prices = missex(prices, prices .< 0);
+
+::
+
+    1.25 
+    0.75 
+    2.25 
+       . 
+    2.05
+
+
+Replace 
+
+::
+
+    x = { 0.525 0.419,
+          0.869 0.973,
+          0.021 0.357 };
 
     // Logical expression
-    mask =(x .> .30) .and (x .< .60);
+    mask = (x .> .30) .and (x .< .60);
     y = missex(x, mask);
 
 After the code above:
 
 ::
 
-         0.525  0.419          1  1           .      .
-    x =  0.869  0.973   mask = 0  0   y = 0.869  0.973
-         0.021  0.357          0  1       0.021      .
+              1  1           .      .
+       mask = 0  0   y = 0.869  0.973
+              0  1       0.021      .
+
 
 A 3x2 matrix of uniform random numbers is created.
 All values in the interval (0.30, 0.60) are converted
@@ -75,4 +101,4 @@ Source
 
 datatran.src
 
-.. seealso:: Functions :func:`miss`, :func:`missrv`
+.. seealso:: Functions :func:`miss`, :func:`missrv`, :func:`where`

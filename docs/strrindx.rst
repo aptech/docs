@@ -9,19 +9,19 @@ Searches from the end of the string to the beginning.
 
 Format
 ----------------
-.. function:: idx = strrindx(where, what [, start])
+.. function:: idx = strrindx(haystack, needle [, start])
 
-    :param where: the string, string array or dataframe to be searched.
-    :type where: string or scalar
+    :param haystack: the string, string array or dataframe to be searched.
+    :type haystack: string or scalar
 
-    :param what: the substring to be searched for in *where*.
-    :type what: string or scalar
+    :param needle: the substring to be searched for in *haystack*.
+    :type needle: string or scalar
 
-    :param start: the starting point of the search in *where* for an occurrence of *what*.
-        *where* will be searched from this point backward for *what*. Default is the end of the string
+    :param start: the starting point of the search in *haystack* for an occurrence of *needle*.
+        *haystack* will be searched from this point backward for *needle*. Default is the end of the string
     :type start: scalar
 
-    :return idx: contains the index of the last occurrence of *what*, within *where*,
+    :return idx: contains the index of the last occurrence of *needle*, within *haystack*,
         which is less than or equal to *start*. If no occurrence is found, it will be 0.
 
     :rtype idx: scalar
