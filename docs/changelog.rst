@@ -38,6 +38,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Improved performance for reading large XLS/XLSX files with :func:`loadd` and when previewing files in the file import dialog.
 #. Improved performance when viewing large symbols in the symbol editor. Specifically symbols with many columns.
 #. Improved performance of all GAUSS ExE operators with temporary matrices (e.g. ``df[., "age"] .> 30``).
+#. Improved performance of :func:`reclassify`, especially with a single `from` and `to` element.
 #. Opening ReadStat file types (SAS, Stata, SPSS) now has a progress indicator while loading in the file import dialog.
 #. Behavior Change: Unmapped dataframe string/category column values will be represented as string literals instead of a missing for purposes of printing. Note that the string literal will not match a mapped value in an oppossing dataframe in the context of an :func:`outerjoin`.
 #. Behavior Change: Negative keys are now allowed for dataframe string/category column types.
