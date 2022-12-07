@@ -75,4 +75,4 @@ Remarks
 * To return the elements with the greatest (or least) magnitude among two matrices, use :func:`maxv` (or :func:`minv`).
 * To replace elements according to a binary matrix or vector, use :func:`missex`.
 
-.. seealso:: Functions :func:`indexcat`, :func:`minv`, :func:`maxv', :func:`missex`, :func:`reclassify`, :func:`reclassifycuts`
+.. seealso:: Functions :func:`indexcat`, :func:`minv`, :func:`maxv`, :func:`missex`, :func:`reclassify`, :func:`reclassifycuts`
