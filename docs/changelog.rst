@@ -24,7 +24,6 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`quantileFit` now compatible with dataframe and formula string syntax.
 #. :func:`clusterSE` and :func:`robustSE` now compatible with dataframe and formula string notation.
 #. :func:`clusterSE` and :func:`robustSE` now include optional argument for turning off small sample correction.
-#. :func:`getgausshome` now accepts a relative path as an optional argument and returns the absolute path.
 #. :func:`loadd` can now read known file types directly from a URL.
 #. :func:`loadd` will now automatically detect column types. This can be controlled in :file:`gauss.cfg` with the ``policy_formula_auto_infer`` option.
 #. :func:`saved` now supports :file:`*.fmt` files.
