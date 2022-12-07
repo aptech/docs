@@ -44,5 +44,6 @@ Remarks
 functions which can process datasets in chunks, such as :func:`olsmt` and :func:`dstatmt`.
 
 :func:`setBlockSize` is not threadsafe. To control the size of data blocks
-loaded in code which is threaded with `threadBegin`/`threadStat` or
-`threadFor`, you must call :func:`setBlockSize` before the threads are created.
+loaded in code which is threaded with `threadbegin`/`threadstat` or
+`threadfor`, you must call :func:`setBlockSize` before the threads are created.
+
