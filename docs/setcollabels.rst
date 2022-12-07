@@ -9,7 +9,7 @@ Set categorical variable labels.
 
 Format
 ----------------
-.. function:: x_cat = setColLabels(X, labels, values, columns)
+.. function:: x_cat = setColLabels(X, labels [, values [, columns]])
 
     :param X: data.
     :type X: NxK matrix or dataframe
@@ -17,10 +17,10 @@ Format
     :param labels: Names or indices of the categorical variables in *X* to set labels for.
     :type labels: Mx1 string array
 
-    :param values: Values to assign labels to.
+    :param values: Optional. Values to assign labels to. Default is 0 to rows(labels) - 1.
     :type values: Mx1 vector
 
-    :param columns: Variables to assign the labels to.
+    :param columns: Optional only if ``X`` has 1 column. Variables to assign the labels to.
     :type columns: scalar or string
 
     :return x_cat: Contains metadata assigning the categorical labels in *labels* to values specified in *values* for the variable specified by *columns*.
@@ -67,6 +67,10 @@ The code above prints the following:
          average 
             fair
 
+Remarks
+---------
+
+* The key -2147483648 is reserved, and usage could result in undefined behavior.
 
 
 .. seealso:: Functions :func:`getColLabels`, :func:`recodeCatLabels`, :func:`reorderCatLabels`

@@ -24,7 +24,6 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`quantileFit` now compatible with dataframe and formula string syntax.
 #. :func:`clusterSE` and :func:`robustSE` now compatible with dataframe and formula string notation.
 #. :func:`clusterSE` and :func:`robustSE` now include optional argument for turning off small sample correction.
-#. :func:`getgausshome` now accepts a relative path as an optional argument and returns the absolute path.
 #. :func:`loadd` can now read known file types directly from a URL.
 #. :func:`loadd` will now automatically detect column types. This can be controlled in :file:`gauss.cfg` with the ``policy_formula_auto_infer`` option.
 #. :func:`saved` now supports :file:`*.fmt` files.
@@ -32,11 +31,13 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
 #. Up to 10x speed improvememnt and 50% decrease in memory usage for :func:`lagn`.
+#. :func:`lagn` now retains variable names and column types from the input.
 #. Improved performance of date format pattern matching with :func:`loadd`.
 #. Improved performance of :func:`indsav` with dataframes.
 #. Improved performance for reading large XLS/XLSX files with :func:`loadd` and when previewing files in the file import dialog.
 #. Improved performance when viewing large symbols in the symbol editor. Specifically symbols with many columns.
 #. Improved performance of all GAUSS ExE operators with temporary matrices (e.g. ``df[., "age"] .> 30``).
+#. Improved performance of :func:`reclassify`, especially with a single `from` and `to` element.
 #. Opening ReadStat file types (SAS, Stata, SPSS) now has a progress indicator while loading in the file import dialog.
 #. Behavior Change: Unmapped dataframe string/category column values will be represented as string literals instead of a missing for purposes of printing. Note that the string literal will not match a mapped value in an oppossing dataframe in the context of an :func:`outerjoin`.
 #. Behavior Change: Negative keys are now allowed for dataframe string/category column types.
