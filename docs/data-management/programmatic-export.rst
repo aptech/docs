@@ -6,7 +6,8 @@ Programmatic Export
 +====================+==============+=================+=================+==========================+
 |**File types**      |              |                 |                 |                          |
 +--------------------+--------------+-----------------+-----------------+--------------------------+
-|GAUSS Dataset (DAT) |       X      |                 |                 |                          |
+|GAUSS Dataset       |       X      |                 |                 |                          |
+| (GDAT, DAT)        |              |                 |                 |                          |
 +--------------------+--------------+-----------------+-----------------+--------------------------+
 |CSV                 |       X      |        X        |                 |                          |
 +--------------------+--------------+-----------------+-----------------+--------------------------+
@@ -20,8 +21,11 @@ Programmatic Export
 
 Exporting datasets
 ----------------------------------------------
+The :func:`saved` procedure exports matrices and dataframes in the GAUSS workspace to datasets in GDAT, CSV, DAT, XLS, or XLSX format.
 
-The :func:`saved` procedure exports matrices and dataframes in the GAUSS workspace to datasets in CSV, DAT, XLS, or XLSX format.
+The GDAT file type should be used to save all data attributes within a GAUSS dataframe. It is the only file format that can be used to save and load GAUSS dataframes without losing any data characteristics such as variable names, types, and formats.
+
+When using :func:`saved` to save non-GDAT file types:
 
 * **Variable names** from dataframes will be written to the file. For matrices, variable names can be provided, or default variable names (X1, X2,...XP) will be created.
 * **Labels** from string and category columns in a dataset will be written as string labels in Excel and CSV files.
@@ -33,7 +37,7 @@ Example: Load Stata dataset and save to a CSV file
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
 
     // Load 'rep78' as a categorical variable and 'mpg' as a numeric variable
     auto = loadd(fname, "cat(rep78) + mpg");
@@ -41,7 +45,7 @@ Example: Load Stata dataset and save to a CSV file
     // Save the data to a CSV dataset
     call saved(auto, "auto.csv");
 
-After the above code, there will be a file named `auto.csv` in your current working directory. The first five rows of the file will look like this:
+After the above code, there will be a file named *auto.csv* in your current working directory. The first five rows of the file will look like this:
 
 ::
 
@@ -51,13 +55,33 @@ After the above code, there will be a file named `auto.csv` in your current work
     ,22
     Average,20
 
+Example: Load Stata dataset and save to a .gdat file
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Create file name with full path
+    fname = getGAUSSHome("examples/auto2.dta");
+
+    // Load 'rep78' as a categorical variable and 'mpg' as a numeric variable
+    auto = loadd(fname, "cat(rep78) + mpg");
+
+    // Save the data to a CSV dataset
+    call saved(auto, "auto.gdat");
+
+Opening the file `auto.gdat` in the *Data Import* window provides a preview of the created file, *auto.gdat*:
+
+.. figure:: _static/images/autogdat.jpg
+   :scale: 50 %
+
+
 Full details and more examples can be found in the Command Reference page for :func:`saved`.
 
 
 Advanced exporting to Excel spreadsheets
 ----------------------------------------------
 
-`xlsWrite` can write a GAUSS matrix, string, or string array to a specified range of an Excel spreadsheet.
+:func:`xlsWrite` can write a GAUSS matrix, string, or string array to a specified range of an Excel spreadsheet.
 
 Example: Save a matrix to an Excel file
 ++++++++++++++++++++++++++++++++++++++++++
@@ -72,14 +96,14 @@ Example: Save a matrix to an Excel file
     // Write the contents of 'X' to an Excel file
     call xlsWrite(X, "example.xlsx", "B2");
 
-The above code will write the data in the matrix ``X`` to the cell range ``"B2:C4"`` of the first sheet of an Excel file named `example.xlsx` in your current working directory.
+The above code will write the data in the matrix ``X`` to the cell range ``"B2:C4"`` of the first sheet of an Excel file named *example.xlsx* in your current working directory.
 
 The :func:`xlsWrite` Command Reference page explains how to specify the sheet number and contains more examples.
 
 
 Advanced exporting to CSV files
 ----------------------------------------------
-Use the :func:`csvWriteM` procedure to write a GAUSS matrix to a `.csv` file.
+Use the :func:`csvWriteM` procedure to write a GAUSS matrix to a ``.csv`` file.
 
 Example: Save a matrix to an CSV file
 ++++++++++++++++++++++++++++++++++++++++++
@@ -94,7 +118,7 @@ Example: Save a matrix to an CSV file
     // Write the contents of 'X' to a CSV file
     call csvWriteM(X, "example.csv");
 
-The above code will write the data in the matrix ``X`` to a CSV file named `example.csv` in your current working directory.
+The above code will write the data in the matrix *X* to a CSV file named *example.csv* in your current working directory.
 
 In addition to the data and filename, :func:`csvWriteM` also allows you to specify:
 
@@ -172,9 +196,9 @@ Variable names, or headers, can be stored in an HDF5 **Attribute**.
 Saving matrices, strings, and string arrays
 ----------------------------------------------
 
-Using the `save` keyword to save GAUSS matrices (`.fmt`) and strings/ string arrays (`.fst`) can be very convenient and is very fast. However, it does not support variable names or non-numeric columns.
+Using the ``save`` keyword to save GAUSS matrices (``.fmt``) and strings/ string arrays (``.fst``) can be very convenient and is very fast. However, it does not support variable names or non-numeric columns.
 
-By default, `save` will save the data to your current working directory.
+By default, ``save`` will save the data to your current working directory.
 
 
 ::
@@ -188,7 +212,7 @@ By default, `save` will save the data to your current working directory.
     save X;
 
 
-You change the path that `save` uses by adding the `path` option. For example, if you have a folder named `data` inside your current directory:
+You change the path that ``save`` uses by adding the ``path`` option. For example, if you have a folder named ``data`` inside your current directory:
 
 ::
 

@@ -8,21 +8,21 @@ The :func:`rescale` function provides 8 different scaling options and returns th
 +--------------------+----------------------------+----------------------------------------------+
 | Method             | Location                   | Scale Factor                                 |
 +====================+============================+==============================================+
-| “euclidean”        | 0                          |  Euclidean length                            |
+| ``“euclidean”``    | 0                          |  Euclidean length                            |
 +--------------------+----------------------------+----------------------------------------------+
-| "mad"              | median                     |  Absolute deviation from median              |
+| ``"mad"``          | median                     |  Absolute deviation from median              |
 +--------------------+----------------------------+----------------------------------------------+
-| “maxabs”           | 0                          |  Maximum absolute value                      |
+| ``“maxabs"``       | 0                          |  Maximum absolute value                      |
 +--------------------+----------------------------+----------------------------------------------+
-| “midrange”         | (Max+Min)/2                | Range/2                                      |
+| ``“midrange”``     | (Max+Min)/2                | Range/2                                      |
 +--------------------+----------------------------+----------------------------------------------+
-| “range”            | Minimum                    |  Range                                       |
+| ``“range”``        | Minimum                    |  Range                                       |
 +--------------------+----------------------------+----------------------------------------------+
-| “standardize”      | Mean                       |  Standard deviation                          |
+| ``“standardize”``  | Mean                       |  Standard deviation                          |
 +--------------------+----------------------------+----------------------------------------------+
-| “sum”              | 0                          |  Sum                                         |
+| ``“sum”``          | 0                          |  Sum                                         |
 +--------------------+----------------------------+----------------------------------------------+
-| “ustd”             | 0                          |  Standard deviation around origin            |
+| ``“ustd”``         | 0                          |  Standard deviation around origin            |
 +--------------------+----------------------------+----------------------------------------------+
 
 Example: Rescaling with a specified scaling method
@@ -197,7 +197,7 @@ Both the :func:`code` and :func:`recode` procedures can be used to recode data u
 The :func:`code` procedure:
 
 * Creates a new matrix which splits existing data into classes.
-* Uses N logical expressions to determine N+1 classes.
+* Uses *N* logical expressions to determine *N+1* classes.
 * Works for vectors only.
 
 Example:  Coding blood pressure data to create a new (binary) class variable
@@ -274,7 +274,7 @@ Example:  Coding blood pressure data to create a new multi-class variable
   // assignment for each element in 'x'
   x_class = code(logical, new_val);
 
-Now *x_class* splits the original data into three classes based on whether x is less than or equal to 100, falls between 100 and 120, or is greater 120.
+Now *x_class* splits the original data into three classes based on whether *x* is less than or equal to 100, falls between 100 and 120, or is greater 120.
 
 ::
 
@@ -694,7 +694,7 @@ Example: Recoding categories in yarn dataset
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/yarn.xlsx";
+  fname = getGAUSSHome("examples/yarn.xlsx");
   yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
 
   // Get column labels for yarn_length
@@ -744,7 +744,7 @@ The :func:`reorderCatLabels` can be use to change the key values associated with
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/yarn.xlsx";
+  fname = getGAUSSHome("examples/yarn.xlsx");
   yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
 
   // Get column labels for yarn_length
@@ -786,6 +786,237 @@ This prints the following:
          1       high
          2        low
 
+Time Series Transformations
+--------------------------------------------
+While data lags, leads, differences and recursive terms can always be computed using matrix operations, GAUSS also includes built-in tools for these transformations.
+
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| Function               | Description                                                                | Format                                   |
++========================+============================================================================+==========================================+
+| :func:`lag1`           | Lags a matrix by one time period for time series analysis.                 |  ``y = lag1(x)``                         |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`lagn`           | Lags or leads a matrix a specified number of time periods. Use negative    |   ``y = lagn(x, t)``                     |
+|                        | input *t* to indicate leads.                                               |                                          |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`lagTrim`        | Lags or leads a matrix a specified number of time periods and removes      |  ``y = lagTrim(y, t)``                   |
+|                        | the incomplete rows. Use negative input *t* to indicate leads.             |                                          |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`shiftc`         | Shifts the columns of a matrix, or dataframe.                              |  ``y = shiftc(x, s, fill)``              |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`recserar`       | Computes a vector of autoregressive recursive series.                      |  ``y = recserar(x, y0, rho)``            |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+| :func:`recserVAR`      | Computes a vector autoregressive recursive (VAR) series.                   |  ``y = recserVAR(x, y0, pi_)``           |
++------------------------+----------------------------------------------------------------------------+------------------------------------------+
+
+Lagging data with the `lagn` or `lag1` procedures
++++++++++++++++++++++++++++++++++++++++++++++++++++
+The :func:`lagn` and :func:`lag1` procedures are used to lag data without removing or replacing the missing values. These procedures accepts *M x T* data matrices, *x*, and the :func:`lagn` and procedure accepts an *ExE* conformable vector of lags.
+
+The ExE conformability requirement means that :func:`lagn` can be used to compute:
+
+* The same lag of every column of a data matrix.
+* Specific lags for each column of a data matrix.
+* Multiple lags of a single vector of data.
+
+Because missing values are not removed by the :func:`lagn` and :func:`lag1` procedures, the returns from these procedures will always have the same number of rows as the input, *x*.
+
+Example: Computing a single lag of a matrix with `lagn`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In this example the *PPI* matrix contains two variables:
+
+*  A date column named, *date*
+*  Observed PPI data column named, *PPIACO*
+
+To compute the same number of lags of each column of the data, a scalar lag input, *t* can be used:
+
+::
+
+  // Load PPIACO series
+  // from FRED database
+  PPI = fred_load("PPIACO");
+
+  // Lag the PPI data
+  // using lagn
+  PPI_lag_1 = lagn(PPI, 1);
+
+  // Preview PPI_lag_1 data
+  head(PPI_lag_1);
+
+Our preview shows that the first element of the *PPI_lag* vector is a missing value:
+
+::
+
+           date           PPIACO
+              .                .
+     1913-01-01        12.100000
+     1913-02-01        12.000000
+     1913-03-01        12.000000
+     1913-04-01        12.000000
+
+Example: Computing a different lags of each column of a matrix with ``lagn``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To compute different lags of each column of data at the same time, a vector input of lags specifying a separate lag for each column of data can be used. Note that the lag vector must have the same number of elements as the number of columns in the matrix being lagged:
+
+::
+
+  // Load multiple series
+  // from FRED
+  data = fred_load("PPIACO + T10Y2Y");
+
+  // Lags vectors
+  lags = 1|2;
+
+  // Compute Lags
+  data_lag_12 = lagn(data["PPIACO" "T10Y2Y"], lags);
+
+  // Preview the lagged data
+  head(data_lag_12)
+
+This computes the first lag of the *PPIACO* variable and the second lag of the *T10Y2Y* series:
+
+::
+
+
+Example: Computing a different lags of vector of data using ``lagn``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+  // Load PPIACO series
+  // from FRED database
+  PPI = fred_load("PPIACO");
+
+  // Specify lags vector
+  lags = 1|2|3;
+
+  // Lag just the observations
+  // of the PPI data
+  // using lagn
+  PPI_lag_123 = lagn(PPI[., "PPIACO"], lags);
+
+  // Preview PPI_lag_1 data
+  head(PPI_lag_123);
+
+This computes the first, second, and third lag of the *PPIACO* variable. Note that in this case, new variables names, *PPIACO_2* and *PPIACO_3* variables are created for first and second columns.
+
+::
+
+    PPIACO         PPIACO_2          PPIACO_3
+          .               .                 .
+  12.100000               .                 .
+  12.000000        12.100000                .
+  12.000000        12.000000        12.100000
+  12.000000        12.000000        12.000000
+
+Lagging data with the `lagTrim` procedure
+++++++++++++++++++++++++++++++++++++++++++
+The :func:`lagTrim` procedure removes resulting missing values from lagging the data. Like the :func:`lagn` procedure, the :func:`lagTrim` procedure accepts a *M x T* data matrices, *x*, and an *ExE* conformable vector of lags.
+
+The return from the :func:`lagTrim` procedure will have a number of rows equal to the number of rows of the input *x* minus the maximum number of lags specified in *t*.
+
+Example: Computing multiple lags without missing values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+  // Create file name with full path
+  fname = getGAUSSHome("examples/beef_prices.csv");
+
+  // Load all observations of all variables
+  beef = loadd(fname);
+
+  // Create lag vector
+  lags = 1|2|3;
+
+  // Compute lags using lagTrim
+  beef_lagTrim = lagTrim(beef[., 2], lags);
+
+  // Preview lagged data
+  head(beef_lagTrim);
+
+  // Compare number of rows
+  print "Rows in original data:";
+  rows(beef);
+
+  print "Rows in lagged data:";
+  rows(beef_lagTrim);
+
+The *beef_lagTrim* matrix has 282 rows, 3 less than the input data *beef*:
+
+::
+
+  111.11000        114.49000        116.64000
+  108.17000        111.11000        114.49000
+  107.76000        108.17000        111.11000
+  105.90000        107.76000        108.17000
+  106.43000        105.90000        107.76000
+
+  Rows in original data:
+  285.00000
+
+  Rows in lagged data:
+  282.00000
+
+Shifting data with the ```shiftc`` procedure
++++++++++++++++++++++++++++++++++++++++++++++++
+The :func:`shiftc` procedure shifts columns of a data matrix and requires three inputs:
+
+* A N x K matrix of data.
+* A scalar or 1 x N input specifying the magnitude of the shift.
+* A scalar or 1 x N input specifying the value to fill in the shifted rows.
+
+The return from the :func:`shiftc` procedure will have a number of rows equal to the number of rows of the data input. The :func:`shiftc` procedure can be used to fill the shifted rows with values other than missing values.
+
+Example: Shifting columns of a data matrix
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+  // Create file name with full path
+ fname = getGAUSSHome("examples/beef_prices.csv");
+
+ // Load all observations of all variables
+ beef = loadd(fname);
+
+ // Trim data to make smaller example set
+ beef = beef[1:5,.];
+
+ // Shift all columns of beef forward 2 rows
+ // filling the extra rows with a missing value
+ beef_lag = shiftc(beef, 2, miss());
+
+After the above code:
+
+::
+
+  beef_lag =   date       beef_price
+                  .                .
+                  .                .
+             199201        116.64000
+             199202        114.49000
+             199203        111.11000
+
+Using the *beef* dataframe from the first example:
+
+::
+
+  // Shift all columns of beef forward 2 rows
+  // filling the extra rows with a missing value
+  beef_lag_0 = shiftc(beef, 2, 0);
+
+After the above code:
+
+::
+
+  beef_lag_0 =   date       beef_price
+                    0                0
+                    0                0
+               199201        116.64000
+               199202        114.49000
+               199203        111.11000
+
+
+
 Dummy variables
 -------------------------
 Categorical variables in dataframes will automatically be treated as dummy variables in GAUSS estimation routines. This means no extra steps are necessary to include categorical variables in regression.
@@ -796,7 +1027,7 @@ Example: Include a categorical variable in OLS
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
 
   // Include the `rep78`
   // categorical variable in
@@ -818,7 +1049,7 @@ The categorical variable *rep78* will automatically be included in the OLS regre
   rep78: Good           1693.84     1942.67    0.871914     0.387    0.257252   -0.015317
   rep78: Excellent      3131.98     2041.05      1.5345     0.130    0.396546   -0.035102
 
-The categories of rep78, *Fair, Average, Good, Excellent* are included as dummy variables in the regression. The *Poor* category is excluded from the regression, as it is the base case.
+The categories of *rep78*, ``"Fair"``, ``"Average"``, ``"Good"``, and ``"Excellent"``, are included as dummy variables in the regression. The ``"Poor"`` category is excluded from the regression, as it is the base case.
 
 Example: Including a categorical variable in GLM estimation
 ------------------------------------------------------------
@@ -826,7 +1057,7 @@ Example: Including a categorical variable in GLM estimation
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
 
   // Loadd data and remove missing values
   data = packr(loadd(fname, "price + mpg + rep78"));

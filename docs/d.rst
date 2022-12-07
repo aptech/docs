@@ -43,6 +43,8 @@ D
     dbisopenerror
     dbisopen
     dbisvalid
+    dbnomics_series
+    dbnomics_set
     dbopen
     dbquerybindvalue
     dbqueryclear

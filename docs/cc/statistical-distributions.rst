@@ -83,7 +83,7 @@ Probability density and mass
 :doc:`../pdfn`                     Computes standard Normal probability density function.
 :doc:`../pdfpoisson`               Computes the probability mass function for the Poisson distribution.
 :doc:`../pdfrayleigh`              Computes the probability density function of the Rayleigh distribution.
-:doc:`../pdftruncnorm`             Computes the cumulative distribution function of the normal distibution over the interval from ``a`` to ``b``.
+:doc:`../pdftruncnorm`             Computes the cumulative distribution function of the normal distribution over the interval from ``a`` to ``b``.
 :doc:`../pdfweibull`               Computes the probability density function of a Weibull random variable.
 :doc:`../pdfwishartinv`            Computes the probability density function of a inverse Wishart distribution.
 ==========================       ===========================================
@@ -112,7 +112,7 @@ Random Numbers
 :doc:`../rndn`                      Computes normally distributed pseudo-random numbers with a choice of underlying random number generator.
 :doc:`../rndnegbinomial`            Computes negative binomial pseudo-random numbers with a choice of underlying random number generator.
 :doc:`../rndpoisson`                Computes Poisson pseudo-random numbers with a choice of underlying random number generator.
-:doc:`../rndrayleigh`               Computes rayleigh pseudo-random numbers with the choice of underlying random number generator.
+:doc:`../rndrayleigh`               Computes Rayleigh pseudo-random numbers with the choice of underlying random number generator.
 :doc:`../rndseed`                   Changes seed of the random number generator.
 :doc:`../rndstateskip`              Used to skip ahead in a random number sequence.
 :doc:`../rndu`                      Computes uniform random numbers with a choice of underlying random number generator.
@@ -127,4 +127,3 @@ Sampling
 ==========================          ===========================================
 :doc:`../sampledata`                Returns a sample of the rows of a dataframe or matrix, chosen with or without replacement
 ==========================          ===========================================
-

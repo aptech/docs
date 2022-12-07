@@ -4,26 +4,32 @@ loadd
 
 Purpose
 ----------------
-Loads data from a dataset. The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
+Loads data from a dataset. The supported dataset types are CSV, Excel (xlsx, xlsx), HDF5, 
+GAUSS Matrix (fmt), GAUSS Dataset (dat), Stata (dta), and SAS (sas7bdat, sas7bcat). Existing dataframes are also supported.
 
 Format
 ----------------
 .. function:: y = loadd(dataset[, varnames])
 
-    :param dataset: name of dataset.
-    :type dataset: string
+    :param dataset: filepath to the dataset on disk, URL, or existing dataframe.
+    
+        If the a URL is provided (with http or https schema), the dataset will be downloaded first.
+        Since libcurl is used for all web operations, various proxy settings can be set using the
+        relevant libcurl environment variables (see https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html).
 
-    :param varnames: `Formula string` indicating which variable names to load from the dataset
+    :type dataset: string or existing dataframe
+
+    :param varnames: Formula string indicating which variable names to load from the dataset
 
         E.g ``"."``, include all variables;
 
         E.g ``"Income + Limit "``, include ``"Income"`` and ``"Limit"``;
 
-        E.g ``". - Cards"``, ``-`` means exclude ``"Cards"``.
+        E.g ``". - Cards"``, include all variables except for ``"Cards"``.
 
     :type varnames: string
 
-    :return y: of data.
+    :return y: data.
 
     :rtype y: NxK matrix
 
@@ -146,7 +152,7 @@ After the above code,
 
 ::
 
-    The dataset use is C:\gauss22\examples\detroit.dta
+    The dataset use is C:\gauss23\examples\detroit.dta
     The number of variables equals:        3.0000000
     The number of observations equals:        13.000000
 
@@ -195,7 +201,7 @@ Remarks
 
 ::
 
-       loadd("h5://C:/gauss22/examples/testdata.h5/mydata").
+       loadd("h5://C:/gauss23/examples/testdata.h5/mydata").
 
 Source
 ------
@@ -210,4 +216,4 @@ Globals
 See also
 ------------
 
-.. seealso:: `Formula String`, :func:`dataopen`, :func:`getHeaders`, :func:`read`, `save`
+.. seealso:: :func:`dataopen`, :func:`getHeaders`, `save`

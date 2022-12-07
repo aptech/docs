@@ -33,6 +33,9 @@ F
     for
     fputs
     fputst
+    fred_search
+    fred_set
+    fred_load
     frequency 
     fseek
     fstrerror

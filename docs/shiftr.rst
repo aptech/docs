@@ -84,4 +84,4 @@ the right. A negative shift value causes the elements to be moved to the
 left. The elements that are pushed off the end of the row are lost, and
 the fill value will be used for the new elements on the other end.
 
-.. seealso:: Functions :func:`rotater`
+.. seealso:: Functions :func:`rotater`, :func:`shiftc`

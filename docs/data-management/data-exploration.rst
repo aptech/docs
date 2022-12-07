@@ -20,7 +20,7 @@ Example: Summary statistics from a datafile
 ::
 
   // Create file name with full path
-  file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+  file_name = getGAUSSHome("examples/fueleconomy.dat");
 
   /*
   ** Compute statistics for all variables in the dataset
@@ -48,7 +48,7 @@ Example: Summary statistics for select variables
 ::
 
   // Create file name with full path
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
   nba_ht_wt = loadd(fname,
       "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
 
@@ -103,7 +103,7 @@ Example: Finding mean by column
 ::
 
   // Load stock price data
-  fname = getGAUSShome $+ "examples/xle_daily.xlsx";
+  fname = getGAUSShome("examples/xle_daily.xlsx");
   xle_daily = loadd(fname,
                    "date($Date, '%m/%d/%Y %T.%L') + Adj Close + Volume");
 
@@ -145,7 +145,7 @@ In this example, the group variable is included in the first column. No categori
 ::
 
   // Create file name with full path
-  fname = getGAUSSHome $+ "examples/housing.csv";
+  fname = getGAUSSHome("examples/housing.csv");
 
   // Load three variables from dataset
   X = loadd(fname, "beds + price + size");
@@ -155,7 +155,7 @@ In this example, the group variable is included in the first column. No categori
   // first column, which is the number of bedrooms.
   x_a = aggregate(X, "median");
 
-The matrix `x_a` contains:
+The matrix *x_a* contains:
 
 ::
 
@@ -172,7 +172,7 @@ In this example, a categorical variable name is specified for grouping.
 ::
 
   // Load data
-  auto2 = loadd(getGAUSSHome $+ "examples/auto2.dta");
+  auto2 = loadd(getGAUSSHome("examples/auto2.dta"));
 
   // Aggregate data using
   // foreign column as group
@@ -194,7 +194,7 @@ The :func:`frequency` procedure computes a frequency count of all categories of 
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname);
 
   // Frequency table
@@ -220,7 +220,7 @@ For example, to find the frequency of each category for a categorical variable, 
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHom("examples/auto2.dta");
   auto2 = loadd(fname, "str(make) + cat(rep78) + cat(foreign)");
 
   // Frequency table of rep78
@@ -245,7 +245,7 @@ For example, to find the frequency of each category for a categorical variable, 
 .. figure:: ../_static/images/plotfreq.jpg
     :scale: 50%
 
-The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional `plotControlStructure` can be used for custom formatting.
+The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional ``plotControlStructure`` can be used for custom formatting.
 
 Example: Plotting category frequency
 +++++++++++++++++++++++++++++++++++++
@@ -253,7 +253,7 @@ Example: Plotting category frequency
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname);
 
   // Frequency plot
@@ -284,7 +284,7 @@ Example: Finding correlation of height and weight in NBA players
   /*
   ** Import data
   */
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
   nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate, '%m/%d/%Y %T.%L')");
 
 
@@ -325,8 +325,11 @@ Example: Finding variance/covariance of height and weight in NBA players
   /*
   ** Import data
   */
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
-  nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + date($BDate, '%m/%d/%Y %T.%L')");
+  // Create file name with full path
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
+
+  // Load file
+  nba_ht_wt = loadd(fname);
 
 
   // Calculate correlation of
@@ -344,7 +347,7 @@ This prints the following variance/covariance matrix:
   11.930245        75.527346
   75.527346        709.85534
 
-.. note:: The :func:`covVarMS` and :func:`covVarXS` functions compute the sample variance/covariance. It is computed as the moment matrix of deviations about the mean divided by the number of observations minus one, **N−1**. For a population covariance matrix which uses **N** rather than N−1 see :func:`varCovM()` or :func:`varCovX()`.
+.. note:: The :func:`covVarMS` and :func:`covVarXS` functions compute the sample variance/covariance. It is computed as the moment matrix of deviations about the mean divided by the number of observations minus one, *N−1*. For a population covariance matrix which uses *N* rather than *N−1* see :func:`varCovM()` or :func:`varCovX()`.
 
 Exploratory data visualizations
 ---------------------------------
@@ -408,21 +411,23 @@ Example: Frequency and percentage histograms
   // into 80 bins.
   plotHist( myPlot, r, 80 );
 
-
 **Plotting scatter plots**
 
-The :func:`plotScatter` function creates a quick scatter plot using just an *x* and *y* input. To add custom plotting use the :class:`plotControl` structure.
+The :func:`plotScatter` function creates a quick scatter plot using either:
+
+* A *x* and *y* input.
+* A dataframe name and formula string specify *x* and *y*.
+
+Using a dataframe with a formula string, will result in automatic labeling of the *x* and *y* axis. To add additional custom formatting, use the :class:`plotControl` structure.
 
 Example: Plotting the relationship between height and weight in NBA players
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
-  // Create file name with full path
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
-  nba_ht_wt = loadd(fname,
-      "str(Player) + cat(Pos) + Height + Weight + Age + str(School) + str(BDate)");
+   // Create file name with full path
+   fname = getGAUSSHome("examples/nba_ht_wt.xls");
+   nba_ht_wt = loadd(fname);
 
    // Plot height and weight
-   plotScatter(nba_ht_wt[., Height], nba_ht_wt[., weight]);
-
+   plotScatter(nba_ht_wt, "Weight~Height");

@@ -11,6 +11,9 @@ Format
 ----------------
 .. function:: g_home = getGAUSSHome()
 
+    :param relative_path: Optional input containing extra path information, you would like to add to the end of the GAUSS Home path. 
+    :type relative_path: string
+
     :return g_home: full path to GAUSS home directory.
 
     :rtype g_home: string
@@ -18,7 +21,7 @@ Format
 Examples
 ----------------
 
-locate the GAUSS home directory
+Locate the GAUSS home directory
 +++++++++++++++++++++++++++++++
 
 If you installed GAUSS in the directory, ``C:\gauss``:
@@ -32,8 +35,20 @@ If you installed GAUSS in the directory, ``C:\gauss``:
 
     C:\gauss
 
-loading a file from the GAUSS examples directory
+Loading a file from the GAUSS examples directory
 ++++++++++++++++++++++++++++++++++++++++++++++++
+
+GAUSS 23 and newer versions allow you to pass in the relative path to the file you wish to load as shown below.
+
+::
+
+    // Create full path to dataset
+    f_name = getGAUSSHome("examples/fueleconomy.dat");
+
+    // Load the dataset
+    fuel_economy = loadd(f_name);
+
+Previous versions did not accept the path as an input and required the use of the string combine operator ``$+`` to create the full path.
 
 ::
 

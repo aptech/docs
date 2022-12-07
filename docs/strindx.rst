@@ -8,19 +8,19 @@ Finds the index of one string within another string.
 
 Format
 ----------------
-.. function:: idx = strindx(where, what [, start])
+.. function:: idx = strindx(haystack, needle [, start])
 
-    :param where: the data to be searched.
-    :type where: string or scalar
+    :param haystack: the data to be searched.
+    :type haystack: string or scalar
 
-    :param what: the substring to be searched for in *where*.
-    :type what: string or scalar
+    :param needle: the substring to be searched for in *haystack*.
+    :type needle: string or scalar
 
-    :param start: Optional argument, the starting point of the search in *where* for an occurrence of *what*.
+    :param start: Optional argument, the starting point of the search in *haystack* for an occurrence of *needle*.
         The index of the first character in a string is 1. Default=1.
     :type start: scalar
 
-    :return idx: contains the index of the first occurrence of *what*, within *where*,
+    :return idx: contains the index of the first occurrence of *needle*, within *haystack*,
         which is greater than or equal to *start*. If no occurrence is found, it will be 0.
 
     :rtype idx: scalar
@@ -120,13 +120,13 @@ An example of the use of this function is the location of a name within a string
 ::
 
    // String to search in
-   where = "nameagepaysex";
+   haystack = "nameagepaysex";
 
    // String to search for
-   what = "pay";
+   needle = "pay";
 
-   // Find starting index of 'what'
-   idx = strindx(where, what, 1);
+   // Find starting index of 'needle'
+   idx = strindx(haystack, needle, 1);
 
 The above code will set *idx* equal to:
 

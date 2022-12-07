@@ -5,16 +5,16 @@ lagTrim
 Purpose
 ----------------
 
-Lags (or leads) a vector a specified number of time periods and removes the incomplete rows.
+Lags (or leads) a vector, matrix or dataframe a specified number of time periods and removes the incomplete rows.
 
 Format
 ----------------
 .. function:: y = lagTrim(y, t)
 
     :param y: data
-    :type y: Nx1 vector
+    :type y: Nx1 vector, NxK matrix or dataframe
 
-    :param t: number of time periods.
+    :param t: number of time periods. NOTE: If `y` has multiple columns, `t` must be a scalar.
     :type t: scalar or Px1 vector
 
     :return y: *y* lagged *t* periods.
@@ -24,8 +24,8 @@ Format
 Examples
 ----------------
 
-Single lag
-++++++++++
+Single lag vector
++++++++++++++++++++++
 
 ::
 
@@ -49,8 +49,8 @@ will assign *y_lag* to equal:
            2.9
            3.2
 
-Multiple lags
-+++++++++++++
+Multiple lags with a vector
+++++++++++++++++++++++++++++++
 
 If the number of time periods to lag is a Px1 column vector, then the output matrix with be an NxP matrix where each column contains one of the lags. For example, changing the *nlags* variable from the example above to be a 3x1 column vector like this:
 
@@ -100,8 +100,41 @@ will assign *lag_mat* to equal:
          3.2      2.5      1.4
          2.5      2.8      2.7
 
+
+Single lag with multi-column dataframe
+++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Get the first 10 observations of 'price' and 'rep78'
+    // from the auto dataset
+    auto = loadd(getGAUSSHome() $+ "examples/auto2.dta");
+    auto = auto[1:10,"price" "rep78"];
+
+    // Specify number of lags
+    nlags = 2;
+
+    // Lag both variables in 'auto', 
+    // nlags number of lags
+    // and trim missing values
+    auto_lag = lagTrim(auto, nlags);
+
+will assign *auto_lag* to equal:
+
+::
+
+           price            rep78 
+       4099.0000          Average 
+       4749.0000          Average 
+       3799.0000                . 
+       4816.0000          Average 
+       7827.0000             Good 
+       5788.0000          Average 
+       4453.0000                . 
+       5189.0000          Average
+
 Remarks
--------
+----------
 
 - If *t* is positive, :func:`lagTrim` lags *y* back *t* time periods, so the first ``maxc(t)`` observations of *y* are removed.
 

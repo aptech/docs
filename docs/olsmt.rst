@@ -88,6 +88,7 @@ Format
                 :``"iid"``: Error terms assumed to be identical independently distributed.
                 :``"robust"``: Huber/White/sandwich estimator.
                 :``"cluster"``: Clustered sandwich estimator. Must specify cluster variable identifier.
+                :``"hac"``: HAC robust sandwich estimator.
 
             * - ctl.clusterID
               - Matrix, vector of categorical group variable used for computing cluster robust standard errors.

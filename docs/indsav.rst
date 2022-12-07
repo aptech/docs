@@ -9,15 +9,15 @@ Checks one string array against another and returns the indices of the first str
 
 Format
 ----------------
-.. function:: indx = indsav(what, where)
+.. function:: indx = indsav(needle, haystack)
 
-    :param what: contains the values to be found in vector *where*
-    :type what: Nx1 string array
+    :param needle: contains the values to be found in vector *haystack*
+    :type needle: Nx1 string array
 
-    :param where: searched for the corresponding elements of *what*
-    :type where: Mx1 string array
+    :param haystack: searched for the corresponding elements of *needle*
+    :type haystack: Mx1 string array
 
-    :return indx: the values of *what* in *where*.
+    :return indx: the values of *needle* in *haystack*.
 
     :rtype indx: Nx1 vector of indices
 
@@ -27,13 +27,13 @@ Examples
 ::
 
   // What elements to look for
-  what = "Maggie" $| "Bart" $| "Lisa";
+  needle = "Maggie" $| "Bart" $| "Lisa";
 
   // Vector to look in
-  where = "Homer" $| "Moe" $| "Bart" $| "Sideshow" $| "Lisa" $| "Milhouse" $| "Maggie";
+  haystack = "Homer" $| "Moe" $| "Bart" $| "Sideshow" $| "Lisa" $| "Milhouse" $| "Maggie";
 
-  // Find locations of what in where
-  z = indsav(what, where);
+  // Find locations of needle in haystack
+  z = indsav(needle, haystack);
 
 ::
 
@@ -48,5 +48,5 @@ Remarks
 If no matches are found, those elements in the returned vector are set
 to the GAUSS missing value code.
 
-If there are duplicate elements in where, the index of the first match
+If there are duplicate elements in *haystack*, the index of the first match
 will be returned.

@@ -1,0 +1,49 @@
+
+fred_release
+==============================================
+
+Purpose
+----------------
+Get a release of economic data.
+
+Format
+----------------
+.. function:: x = fred_release(release_id[, ...])
+
+    :param release_id: The id for a release. required
+
+    :type release_id: integer
+
+    :param realtime_start: The start of the real-time period. For more information, see Remarks. optional, default: today's date
+
+    :type realtime_start: YYYY-MM-DD formatted string
+
+    :param realtime_end: The end of the real-time period. For more information, see Remarks. optional, default: today's date
+
+    :type realtime_end: YYYY-MM-DD formatted string
+
+    :return x: Results.
+    :rtype x: Dataframe
+
+.. note:: Supports additional arguments: ['realtime_start', 'realtime_end']
+
+Examples
+----------------
+
+::
+
+    head(fred_release(53));
+
+    
+              id             link             name    press_release     realtime_end   realtime_start 
+       53.000000 https://www.bea. Gross Domestic P                1       2022-10-31       2022-10-31 
+
+
+Remarks
+-----------
+
+.. include:: include/remarks_fredapikey.rst
+.. include:: include/remarks_realtime.rst
+
+.. seealso:: :func:`fred_releases`, :func:`fred_releases_dates`, :func:`fred_release_dates`, :func:`fred_release_series`, :func:`fred_release_sources`, :func:`fred_release_tags`, :func:`fred_release_related_tags`
+

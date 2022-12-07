@@ -10,7 +10,7 @@ Graph types
 :doc:`../plotbar`                         Creates a bar plot.
 :doc:`../plotbarh`                        Creates a horizontal bar plot.
 :doc:`../plotbox`                         Creates a box plot.
-:doc:`../plotcdfempirical`                Creats a cumulative distribution function (cdf) of the empirical distribution plot.
+:doc:`../plotcdfempirical`                Creates a cumulative distribution function (cdf) of the empirical distribution plot.
 :doc:`../plotcontour`                     Creates a contour plot.
 :doc:`../plotfreq`                        Calculates and plots the frequencies of categorical variables.
 :doc:`../plothist`                        Calculates and creates a frequency histogram plot.
@@ -91,7 +91,7 @@ Graph windows
 
 ===================================    ============================================================================
 :doc:`../plotcloseall`                    Closes all open graph tabs.
-:doc:`../plotopenwindow`                  Opens a new, empty graph whicow to be used by the next drawn graph.
+:doc:`../plotopenwindow`                  Opens a new, empty graph window to be used by the next drawn graph.
 :doc:`../plotsetnewwindow`                Sets whether or not graph should be drawn in the same window or a new window.
 ===================================    ============================================================================
 
@@ -118,7 +118,7 @@ Title, legend and axis labels
 :doc:`../plotsetlegendborder`             Controls the color and thickness of the legend border.
 :doc:`../plotsetlegendfont`               Set the font, font size and font color for the text in the legend.
 :doc:`../plotsetlegendtitle`              Sets the text for the legend title.
-:doc:`../plotsettextinterpreter`          Controls the text interpreter (LaTeX, HTML) settings for one or more text labels. 
+:doc:`../plotsettextinterpreter`          Controls the text interpreter (LaTeX, HTML) settings for one or more text labels.
 :doc:`../plotsettitle`                    Controls the settings for the title for a graph.
 :doc:`../plotsetxlabel`                   Controls the settings for the x-axis label on a graph.
 :doc:`../plotsetylabel`                   Controls the settings for the y-axis label on a graph.

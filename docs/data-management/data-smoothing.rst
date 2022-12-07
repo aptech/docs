@@ -30,7 +30,7 @@ Example: Smoothing a random walk series
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/tbill_3mo.xlsx";
+  fname = getGAUSSHome("examples/tbill_3mo.xlsx");
   y = loadd(fname, "date($obs_date, '%m/%d/%Y %T.%L') + tbill_3m");
 
   // Find 3 month moving average
@@ -50,7 +50,7 @@ Example: Lowess smoother
 ::
 
   // Load dataset
-  fname = getGAUSSHome() $+ "examples/lowess1.dta";
+  fname = getGAUSSHome("examples/lowess1.dta");
   data = loadd(fname, "h1 + depth");
 
   // Define independent variable
