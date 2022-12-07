@@ -44,19 +44,19 @@ The code above results in the following:
 Example Two: Matrix input
 +++++++++++++++++++++++++++++++
 
-  ::
+::
 
-    // Generate random vector of residuals
-    rndseed 929212;
-    resid = rndn(150, 2);
+  // Generate random vector of residuals
+  rndseed 929212;
+  resid = rndn(150, 2);
 
-    // Compute sample skewness
-    k = kurtosis(resid);
+  // Compute sample skewness
+  k = kurtosis(resid);
 
-  The code above results in the following:
+The code above results in the following:
 
-  ::
+::
 
-    k = 2.6612276        3.0123801
+  k = 2.6612276        3.0123801
 
 .. seealso:: Functions :func:`skewness`, :func:`JarqueBera`

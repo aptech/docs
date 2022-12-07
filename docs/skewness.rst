@@ -44,18 +44,19 @@ The code above results in the following:
 Example Two: Matrix input
 +++++++++++++++++++++++++++++++
 
-  ::
+::
 
-    // Generate random vector of residuals
-    rndseed 929212;
-    resid = rndn(150, 2);
+  // Generate random vector of residuals
+  rndseed 929212;
+  resid = rndn(150, 2);
 
-    // Compute sample skewness
-    g = skewness(resid);
+  // Compute sample skewness
+  g = skewness(resid);
 
-  The code above results in the following:
+The code above results in the following:
 
-  ::
+::
 
-    g = 0.26494746   -0.14941577
+  g = 0.26494746   -0.14941577
+  
 .. seealso:: Functions :func:`kurtosis`, :func:`JarqueBera`
