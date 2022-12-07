@@ -33,7 +33,7 @@ Remarks
 
 * To change the order of category labels, use :func:`reordercatlabels`.
 * To set the base case, use :func:`setbasecat`. 
-
+* The key -2147483648 is reserved, and usage could result in undefined behavior.
 
 Examples
 ----------------
