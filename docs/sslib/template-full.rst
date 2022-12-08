@@ -21,15 +21,15 @@ Format
     :param y: Observed data.
     :type y: Vector
 
-    :param ctl: Optional input. instance of an :class:`structNameControl` structure. Normally an instance is initialized by calling :func:`structNameControlCreate` and members of this instance can be set to other values by the user. For an instance named *ctl*, the members are:
+    :param ctl: Optional input. instance of an :class:`ssControl` structure. Normally an instance is initialized by calling :func:`ssControlCreate` and members of this instance can be set to other values by the user. For an instance named *ctl*, the members are:
 
-        .. include:: include/structnamecontrolmembers.rst
+        .. include:: include/sscontrolmembers.rst
 
     :type ctl: struct
 
     :return out: an instance of an :class:`structNameout` structure. For an instance named *out*, the members are:
 
-        .. include:: include/structnameoutmembers.rst
+        .. include:: include/ssoutmembers.rst
 
     :rtype out: struct
 

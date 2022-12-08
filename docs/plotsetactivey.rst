@@ -18,7 +18,7 @@ Format
         .. csv-table::
             :widths: auto
     
-            "left" (default)
+            "left (default)"
             "right"
             "both"
 
@@ -29,7 +29,7 @@ Examples
 ----------------
 
 Set attributes for right y-axis only
-+++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
 
 ::
 

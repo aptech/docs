@@ -84,7 +84,7 @@ Format
            * - qCtl.bootstrap
              - scalar, number of iterations for bootstrap standard errors and confidence intervals. Default = 0, for no bootstrap.
            * - qCtl.alpha
-              - scalar, alpha values for bootstrap confidence intervals.
+             - scalar, alpha values for bootstrap confidence intervals.
 
     :type qCtl: struct
 

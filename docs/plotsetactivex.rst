@@ -18,7 +18,7 @@ Format
         .. csv-table::
             :widths: auto
     
-            "bottom" (default)
+            "bottom (default)"
             "top"
             "both"
 
