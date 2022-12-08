@@ -61,8 +61,6 @@ Produces the following output:
 Remarks
 -------
 
-.. TODO:: Verify equations
-
 Let { :math:`x_{(1)},...,x_{(n)}\,` } denote the order statistics, and let
 :math:`{\overset{\hat{}}{Q}}_{i}\left( p \right)\, = \,\left( 1 - \gamma \right)x_{(j)} + \gamma x_{(j + 1)}`
 denotes the sample quantiles, where
