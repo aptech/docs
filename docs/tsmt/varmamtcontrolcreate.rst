@@ -25,21 +25,22 @@ None
 Output
 ------
 +-----+---------------------------------------------------------------+
-   | amc | An instance of a varmamtControl structure with its members    |
-   |     | set to default values.                                        |
-   +-----+---------------------------------------------------------------+
+| amc | An instance of a varmamtControl structure with its members    |
+|     | set to default values.                                        |
++-----+---------------------------------------------------------------+
 
 Example
 -------
+
 ::
 
-new;
-cls;
-library tsmt;
+   new;
+   cls;
+   library tsmt;
 
-// Declare control structure
-struct varmamtControl vsc;
-vsc = varmamtControlCreate( );
+   // Declare control structure
+   struct varmamtControl vsc;
+   vsc = varmamtControlCreate();
 
 Source
 ------

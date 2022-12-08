@@ -21,33 +21,34 @@ y_filled = tsFill( y, timecol, idcol );
 Input
 -----
 ======= =====================================================
-   y       Matrix, |image1|, stacked panel series data.
-   timecol Scalar, number of column containing time data.
-   idcol   Scalar, number of column containing group identifier.
-   ======= =====================================================
+y       Matrix, |image1|, stacked panel series data.
+timecol Scalar, number of column containing time data.
+idcol   Scalar, number of column containing group identifier.
+======= =====================================================
 
 Output
 ------
 ========= =================================================
-   y_stacked Matrix, |image2|, wide form matrix of panel data.
-   ========= =================================================
+y_stacked Matrix, |image2|, wide form matrix of panel data.
+========= =================================================
 
 Example
 -------
+
 ::
 
-new;
+   new;
 
-cls;
+   cls;
 
-library tsmt;
+   library tsmt;
 
 
-// Load data
-data = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/ab_data.dat");
+   // Load data
+   data = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/ab_data.dat");
 
-// Fill data for unbalanced data
-stacked_data = tsFill( data, 3, 14 );
+   // Fill data for unbalanced data
+   stacked_data = tsFill( data, 3, 14 );
 
 Source
 ------

@@ -21,16 +21,16 @@ g = tautocovmt( b, p, q );
 Input
 -----
 = ===================================
-   b Kx1 vector, parameter coefficients.
-   p scalar, the autoregressive order.
-   q scalar, the moving average order.
-   = ===================================
+b Kx1 vector, parameter coefficients.
+p scalar, the autoregressive order.
+q scalar, the moving average order.
+= ===================================
 
 Output
 ------
 = =======================================================
-   g [Max( p , q )+1]x1 vector, theoretical autocovariances.
-   = =======================================================
+g [Max( p , q )+1]x1 vector, theoretical autocovariances.
+= =======================================================
 
 Remarks
 -------
@@ -41,25 +41,25 @@ Example
 -------
 ::
 
-new;
-cls;
-library tsmt;
+   new;
+   cls;
+   library tsmt;
 
-// ARMA parameter coefficients
-b = { 0.6, -0.3, -0.5 };
+   // ARMA parameter coefficients
+   b = { 0.6, -0.3, -0.5 };
 
-// AR lags
-p = 2;
+   // AR lags
+   p = 2;
 
-// MA lags
-q = 1;
+   // MA lags
+   q = 1;
 
-// Find theoretical autocovariances
-g = tautocovmt( b, p, q );
+   // Find theoretical autocovariances
+   g = tautocovmt( b, p, q );
 
-// Print solution
-print "Theoretical autocovariances :";;
-g';
+   // Print solution
+   print "Theoretical autocovariances :";;
+   g';
 
 Source
 ------
