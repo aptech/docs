@@ -91,7 +91,7 @@ Format
                 :widths: auto
 
                 * - t
-                 - title is to be printed.
+                  - title is to be printed.
                 * - l
                   - lines are to bracket the title.
                 * - d
