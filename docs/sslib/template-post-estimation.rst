@@ -26,23 +26,22 @@ Format
 Examples
 ----------------
 
-    ::
+::
 
-       // Set up procedure for updating SS model
-       // structure
-       proc (0) = updateSSModel(struct ssModel *ssmod, param);
+   // Set up procedure for updating SS model
+   // structure
+   proc (0) = updateSSModel(struct ssModel *ssmod, param);
 
-        // Set up kalman filter matrices
-        ssmod->T =  param[1 2]'|(1~0);
-        ssmod->Q[1, 1] = param[3];
+    // Set up kalman filter matrices
+    ssmod->T =  param[1 2]'|(1~0);
+    ssmod->Q[1, 1] = param[3];
 
-       endp;
+   endp;
 
 Remarks
 -------
 
 .. include:: include/postestimationremarks.rst
-
 
 Source
 ------

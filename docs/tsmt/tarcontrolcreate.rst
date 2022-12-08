@@ -25,9 +25,9 @@ None
 Output
 ------
 +------+--------------------------------------------------------------+
-   | tar0 | An instance of a TARControlCreate structure with all members |
-   |      | set to default values.                                       |
-   +------+--------------------------------------------------------------+
+| tar0 | An instance of a TARControlCreate structure with all members |
+|      | set to default values.                                       |
++------+--------------------------------------------------------------+
 
 Example
 -------
