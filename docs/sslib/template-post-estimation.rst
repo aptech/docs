@@ -41,7 +41,7 @@ Examples
 Remarks
 -------
 
-.. include:: include/posestimationremarks.rst
+.. include:: include/postestimationremarks.rst
 
 
 Source
