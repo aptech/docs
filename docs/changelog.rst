@@ -53,7 +53,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: :func:`xlsGetSheetSize` would return :math:`[1, 1]` for sheets that were a row or column vector.
 #. Bug Fix: :func:`strctoposix` is now case-insensitive for character literals in the pattern/input.
 #. Bug Fix: Formula strings containing newlines would not work correctly.
-#. macOS now bundles in OpenSSL with the installer, and all three platforms are now using OpenSSL 1.1.1p.
+#. macOS now bundles in OpenSSL with the installer, and all three platforms are now using OpenSSL 1.1.1q.
 #. New examples: olsmt_nw.e, kerneldensity_wine.e, quantilefitdf.e 
 
 22.2.1
