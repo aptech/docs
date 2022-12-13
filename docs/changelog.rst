@@ -4,6 +4,14 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+23.0.1
+------
+
+#. Behavior Change: Date patterns have had their acceptable years modified to 1800 <=> 2200 to reduce the occurrence of false positives. (e.g. detecting a date column with :func:`loadd`)
+#. Bug Fix: Automatic type detection could cause loading failure in cases where the column looks like a date but is a pre-defined category column.
+#. Bug Fix: In specific cases where a message exceeded a certain size with `errorlog`, a crash could occur on Windows.
+#. Bug Fix: The ``fred_api_key`` value was not being read from the :file:`gauss.cfg` file.
+
 23.0.0
 ------
 
