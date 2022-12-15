@@ -8,19 +8,18 @@ Extracts a substring of a string.
 
 Format
 ----------------
-.. function:: y = strsect(str, start, len)
+.. function:: y = strsect(str, start[, len])
 
     :param str: data from which the string segment is to be obtained.
-    :type str: string or scalar
+    :type str: string, scalar, string array, or dataframe where all column types are a string or category.
 
-    :param start: the index of the substring in *str*. The index of the first character is 1.
+    :param start: the index of the substring in *str*. The index of the first character is 1. A negative start value will use a start position that many characters from the end of the string.
     :type start: scalar
 
-    :param len: the length of the substring.
+    :param len: Optional. The length of the substring. If not provided, will select text to the end of the string.
     :type len: scalar
 
-    :return y: the extracted substring, or a null string if
-        *start* is greater than the length of *str*.
+    :return y: the extracted substring, or a null string if *start* is greater than the length of *str* or less than 0.
 
     :rtype y: string
 
@@ -50,3 +49,4 @@ to be extracted, then a short string or a null string will be returned.
 If *str* is a matrix containing character data, it must be scalar.
 
 .. seealso:: Functions :func:`strlen`, :func:`strindx`, :func:`strrindx`, :func:`strreplace`
+
