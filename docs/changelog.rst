@@ -12,6 +12,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: Automatic type detection could cause loading failure in cases where the column looks like a date but is a pre-defined category column.
 #. Bug Fix: In specific cases where a message exceeded a certain size with `errorlog`, a crash could occur on Windows.
 #. Bug Fix: The ``fred_api_key`` value was not being read from the :file:`gauss.cfg` file.
+#. Bug Fix: Calling :func:`strtof` on a dataframe category/string column with a NaN could cause a crash.
 
 23.0.0
 ------
