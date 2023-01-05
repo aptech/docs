@@ -62,9 +62,7 @@ This is equivalent to the previous example, with the exception that the file ope
 
     output reset;
 
-This statement will create a new output file using
- the current filename. If the file already exists,
- any data in it will be lost.
+This statement will create a new output file using the current filename. If the file already exists, any data in it will be lost.
 
 ::
 
