@@ -5,6 +5,14 @@ Change Log
 The following is a list of changes from the previous version of GAUSS.
 ------
 
+23.0.2
+------
+
+#. Bug Fix: The column sniffing behavior of the import dialog did not match the logic of :func:`laodd`, which could lead to unexpected column types.
+#. Bug Fix: Overriding the guessed column type in the import dialog will now correctly use the ``pass`` keyword in the formula string, indicating the column should be passed through unaltered.
+#. Bug Fix: The Help Page 'Index' widget will now correctly load certain built-in functions that may have redundant pages elsewhere (e.g. the User Guide).
+#. Bug Fix: Selecting a compiled file (extension :file:`.gcg`) will now execute the file instead of attempting to open it as a source file.
+
 23.0.1
 ------
 
