@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 23.0.2
 ------
 
+#. Behavior Change: The `kernelDensity` procedure accepts column vector bandwidth to set different bandwidths for each column of the dataset. 
 #. Bug Fix: The column sniffing behavior of the import dialog did not match the logic of :func:`laodd`, which could lead to unexpected column types.
 #. Bug Fix: Overriding the guessed column type in the import dialog will now correctly use the ``pass`` keyword in the formula string, indicating the column should be passed through unaltered.
 #. Bug Fix: The Help Page 'Index' widget will now correctly load certain built-in functions that may have redundant pages elsewhere (e.g. the User Guide).
@@ -72,7 +73,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: :func:`strctoposix` is now case-insensitive for character literals in the pattern/input.
 #. Bug Fix: Formula strings containing newlines would not work correctly.
 #. macOS now bundles in OpenSSL with the installer, and all three platforms are now using OpenSSL 1.1.1q.
-#. New examples: olsmt_nw.e, kerneldensity_wine.e, quantilefitdf.e 
+#. New examples: olsmt_nw.e, kerneldensity_wine.e, quantilefitdf.e
 
 22.2.1
 ------
@@ -83,7 +84,7 @@ The following is a list of changes from the previous version of GAUSS.
 22.2.0
 ------
 
-#. Added support for GAUSS subscription-based licenses. 
+#. Added support for GAUSS subscription-based licenses.
 #. Added support for multiple activation keys in the license activation dialog. (GUI)
 #. Added support for passing extra arguments to the objective function in :func:`sqpSolve`.
 #. Added support for passing extra arguments to the objective function in :func:`QNewton`.
@@ -99,14 +100,14 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: Multi-element assignment with a 1x1 matrix on the right-hand side would cause an error.
 #. Bug Fix: Indexing a scalar from a dataframe vector in a non-atomic fashion was not returning a dataframe.
 #. Bug Fix: Selecting a new date format in the symbol editor would show existing dates that were missing values as the incorrect date until the change was applied.
-#. Bug Fix: Fixed support for negative category keys when reading Stata files. 
+#. Bug Fix: Fixed support for negative category keys when reading Stata files.
 
 22.1.0
 ------
 
 #. New function :func:`dfappend` vertically stacks dataframes and merges the meta data from string and categorical columns.
 #. :func:`sortc` can now accept multiple columns to sort on. :func:`sortmc` can now accept string variable names.
-#. New convenience feature: The column input to :func:`reshape` is now optional and if a -1 is passed in for the row or column input, :func:`reshape` will infer the other dimension. 
+#. New convenience feature: The column input to :func:`reshape` is now optional and if a -1 is passed in for the row or column input, :func:`reshape` will infer the other dimension.
 #. New convenience feature: :func:`miss` with no inputs will return a scalar missing value.
 #. New functions :func:`head` and :func:`tail` allow convenient previewing of the first or last rows of data.
 #. New function :func:`annotationsettextalign` allows specifying alignment of text inside textboxes programmatically.
@@ -117,8 +118,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. New functions :func:`plotsetactivex` and :func:`plotsetactivey` control which x and y axes (bottom/top, left/right)  subsequent plotSet functions apply to.
 #. The legend text item will no longer cyle, meaning it will only be used for the series it was set for.
 #. Added support for specifying textbox position relative to the coordinate location in :func:`plotaddtextbox`.
-#. Added support for specifying a single x or y-axis to :func:`plotsettextinterpreter`. 
-#. Added support for space separated string specifiers to :func:`plotsettextinterpreter` for convenience. 
+#. Added support for specifying a single x or y-axis to :func:`plotsettextinterpreter`.
+#. Added support for space separated string specifiers to :func:`plotsettextinterpreter` for convenience.
 #. Added additional optional inputs to :func:`plotsetxrange` and :func:`plotsetyrange` to set the tick inverval and the location of the first tick label.
 #. The x-top axis now supports time series data.
 #. :func:`plotsetxrange` and :func:`plotsetyrange` can now set the top / bottom x-axes and left / right y-axes separately.
