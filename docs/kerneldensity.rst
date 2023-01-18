@@ -41,8 +41,8 @@ Format
 
     :type kernel: Scalar
 
-    :param bw: Optional argument, smoothing coefficient (bandwidth). If scalar, smoothing coefficient will be the same for each plot. If zero, optimal smoothing coefficient will be computed. If matrix, smoothing coefficient will be different for each observation. Default = 0.
-    :type bw: Matrix
+    :param bw: Optional argument, smoothing coefficient (bandwidth). Should be ExE compatible with the dataset. If `bw` is scalar, the smoothing coefficient will be the same for every data observation. If `bw` is zero, optimal smoothing coefficient will be computed. If `bw`` is a matrix, the smoothing coefficient will be different for each observation. Default = 0.
+    :type bw: Scalar, Vector, or Matrix
 
     :param c0: Instance of :class:`kernelDensityControl` structure containing the following members:
 
