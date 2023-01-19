@@ -8,10 +8,11 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. Behavior Change: The `kernelDensity` procedure accepts column vector bandwidth to set different bandwidths for each column of the dataset. 
-#. Bug Fix: The column sniffing behavior of the import dialog did not match the logic of :func:`laodd`, which could lead to unexpected column types.
+#. Bug Fix: The column sniffing behavior of the import dialog did not match the logic of :func:`loadd`, which could lead to unexpected column types.
 #. Bug Fix: Overriding the guessed column type in the import dialog will now correctly use the ``pass`` keyword in the formula string, indicating the column should be passed through unaltered.
 #. Bug Fix: The Help Page 'Index' widget will now correctly load certain built-in functions that may have redundant pages elsewhere (e.g. the User Guide).
 #. Bug Fix: Selecting a compiled file (extension :file:`.gcg`) in the project view widget will now execute the file instead of attempting to open it as a source file.
+#. Bug Fix: (Windows) Reading Excel data from COM using :func:`xlsReadSA` will now store the data sequentially in the underlying datastore. This was causing corrupted string arrays in certain use-cases, such as overwriting a string value in the symbol. This bug is not present if ``#define USECOMEXCEL 1`` is commented out in xls.src.
 
 23.0.1
 ------
