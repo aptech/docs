@@ -37,6 +37,8 @@ Basic example
 
 ::
 
+    library gml;
+
     // Set seed for repeatable sampling
     rndseed 23324;
     
@@ -83,7 +85,7 @@ Sometimes, for example with time series data, you may not want to shuffle before
           9   5,
           1   8 };
           
-    // Shuffle data and create training set with 2/3 of
+    // Create training set in the original order with 2/3 of
     // the observations and 1/3 for the test set
     { y_train, y_test, X_train, X_test } = trainTestSplit(y, X, 0.67, "False");
 
