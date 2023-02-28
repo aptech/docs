@@ -72,15 +72,15 @@ The code above will print the following output:
                  Confusion matrix
                  ----------------
 
-         Class +       54       2
-         Class -        1     153
+      Class +         40      34
+      Class -         62      69
 
-        Accuracy           0.9857
-       Precision           0.9643
-          Recall           0.9818
-         F-score            0.973
-     Specificity           0.9871
-             AUC           0.9845
+       Accuracy           0.5317
+      Precision           0.5405
+         Recall           0.3922
+        F-score           0.4545
+    Specificity           0.6699
+            AUC            0.531
 
 
 .. seealso:: :func:`decForestRFit`, :func:`decForestCFit`

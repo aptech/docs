@@ -66,8 +66,6 @@ Examples
     // Make predictions on the test set, from our trained model
     y_hat = ridgeCPredict(mdl, X_test);
 
-    // Print out model quality evaluation statistics
-    call binaryClassMetrics(y_test, y_hat);
 
 The code above will print the following output:
 
@@ -84,7 +82,7 @@ The code above will print the following output:
        Recall           0.3922
       F-score           0.4545
   Specificity           0.6699
-          AUC            0.531 
+          AUC            0.531
 
 
 .. seealso:: Functions  :func:`ridgeCPredict`, :func:`ridgeFit`
