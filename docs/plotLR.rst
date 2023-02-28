@@ -25,4 +25,5 @@ Examples
 
 
 
+
 .. seealso:: Functions :func:`lrPredict`, :func:`lassoFit`, :func:`ridgeFit`
