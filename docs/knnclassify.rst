@@ -11,11 +11,12 @@ Format
 
     :param mdl: A :class:`knnModel` structure returned from a call to :func:`knnFit`.
     :type mdl: struct
-    :param X: The training data.
+
+    :param X_train: The training features.
     :type X: NxP matrix, or string array.
 
-    :return y_hat:    The predicted classes.
-    :rtype y_hat:     Nx1 vector, or string array. 
+    :return y_hat: The predicted classes.
+    :rtype y_hat:  Nx1 vector, or string array.
 
 Examples
 -------------
@@ -24,50 +25,65 @@ Examples
 
     new;
     library gml;
-    
-    // Get file name with full path
-    fname = getGAUSSHome() $+ "pkgs/gml/examples/iris.csv";
-    
-    // Load numeric predictors
-    X = loadd(fname, ". -Species");
-    
-    // Load string labels
-    species = loaddSA(fname, "Species");
-    
+
     // Set seed for repeatable train/test sampling
     rndseed 423432;
-    
+
+    // Get file name with full path
+    fname = getGAUSSHome("pkgs/gml/examples/iris.csv");
+
+    // Get predictors
+    X = loadd(fname, ". -Species");
+
+    // Load labels
+    species = loadd(fname, "Species");
+
     // Split data into (70%) train and (30%) test sets
     { y_train, y_test, X_train, X_test } = trainTestSplit(species, X, 0.7);
-    
+
     /*
     ** Train the model
     */
-    
+    // Specify number of neighbors
     k = 3;
-    
+
     struct knnModel mdl;
     mdl = knnFit(y_train, X_train, k);
-    
+
     /*
     ** Predictions on the test set
     */
-    
-    y_hat = knnClassify(mdl, X_test);
-    
-    print "First three predictions = " y_hat[1:3];
-    print "";
-    print "prediction accuracy = " meanc(y_hat .$== y_test);
+    y_hat = knnClassify(mdl, X_test, y_test);
+
 
 The above code will print the following output:
 
 ::
 
-    First three predictions = 
-                    virginica 
-                   versicolor 
-                       setosa
+  ===========================================================================
+  Model:                          KNN     Target Variable:            Species
+  Number observations:            105     Number features:                  4
+  Num. Neighbors:                   3     Number of Classes:                3
+  ===========================================================================
 
-    prediction accuracy = 0.956
+  KNN Classification Prediction Frequencies:
+  =============================================
+       Label      Count   Total %    Cum. %
+      setosa         14     31.11     31.11
+  versicolor         19     42.22     73.33
+   virginica         12     26.67       100
+       Total         45       100
+  =============================================
 
-.. seealso:: :func:`knnFit`
+  Observed Test Data Frequencies:
+  =============================================
+       Label      Count   Total %    Cum. %
+      setosa         14     31.11     31.11
+  versicolor         19     42.22     73.33
+   virginica         12     26.67       100
+       Total         45       100
+  =============================================
+
+  Prediction accuracy:      0.95555556
+
+.. seealso:: :func:`knnFit`, func:`plotClasses`
