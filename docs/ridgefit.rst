@@ -3,7 +3,7 @@ ridgeFit
 
 Purpose
 ----------------
-Fit a linear model with an L1 penalty.
+Fit a linear model with an L2 penalty.
 
 Format
 ------------
@@ -15,7 +15,7 @@ Format
     :param X: The model features, or independent variables.
     :type X: NxP matrix
 
-    :param lambda: The L1 penalty parameter(s).
+    :param lambda: The L2 penalty parameter(s).
     :type lambda: Scalar, or Kx1 vector
 
     :return mdl: An instance of a :class:`ridgeModel` structure. An instance named *mdl* will have the following members:
@@ -39,32 +39,33 @@ Example 1: Basic Estimation and Prediction
 ::
 
     new;
-    
+
     library gml;
-    
+
     // Specify dataset with full path
     dataset = getGAUSSHome() $+ "pkgs/gml/examples/qsar_fish_toxicity.csv";
-    
+
     // Load dependent and independent variable
     y = loadd(dataset, "LC50");
     X = loadd(dataset, ". -LC50");
-    
+
     // Split data into training sets
     y_test = y[1:636];
     X_test = X[1:636,.];
     y_train = y[637:rows(y)];
     X_train = X[637:rows(X),.];
-    
+
     // Declare 'mdl' to be an instance of a
     // ridgeModel structure to hold the estimation results
     struct ridgeModel mdl;
-    
+
+    // Set lambda vector
     lambda = seqm(90, 0.8, 60);
 
     // Estimate the model with default settings
     mdl = ridgeFit(y_train, X_train, lambda);
 
-After the above code, *mdl.beta_hat* will be a :math:`6 \times 60` matrix, where each column contains the estimates for a different lambda value. The graph below shows the path of the parameter values as the value of lambda changes. 
+After the above code, *mdl.beta_hat* will be a :math:`6 \times 60` matrix, where each column contains the estimates for a different lambda value. The graph below shows the path of the parameter values as the value of lambda changes.
 
 .. figure:: _static/images/ridge-fit-example-1-beta-path.jpg
     :scale: 50%
@@ -80,7 +81,7 @@ After the above code, *y_hat* will be a matrix with the same number of observati
 
 ::
 
-    // Compute MSE for each prediction 
+    // Compute MSE for each prediction
     mse_test = meanc((y_test - y_hat).^2);
 
 Below is a plot of the change in MSE with the changes in lambda.
@@ -95,5 +96,5 @@ Each variable (column of *X*) is centered to have a mean of 0 and scaled to have
 
 
 
-    
+
 .. seealso:: :func:`lassoFit`
