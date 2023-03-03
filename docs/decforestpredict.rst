@@ -24,7 +24,7 @@ Format
     :param x_test: The test model features, or independent variables.
     :type x_test: NxP matrix
 
-    :param y_test: Optional, the test target, or dependent variable. If include model diagnostics will be computed.
+    :param y_test: Optional, the test target, or dependent variable. If included model diagnostics will be computed.
     :type y_test: Nx1 vector
 
     :return predictions: The predictions.

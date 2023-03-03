@@ -80,6 +80,7 @@ Examples
     df_mdl = decForestCFit(y_train, X_train);
 
     // Make predictions on the test set, from our trained model
+    // Note that the y_test is optional
     y_hat = decForestPredict(df_mdl, X_test, y_test);
 
 The code above will print the following output:
