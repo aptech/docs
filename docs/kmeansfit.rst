@@ -9,8 +9,8 @@ Format
 ----------------------
 .. function:: mdl = kmeansFit(X, clusters[, ctl])
 
-    :param X: The training data.
-    :type X: NxP matrix
+    :param X_train: The training features.
+    :type X_train: NxP matrix
 
     :param clusters: The number of clusters, or a matrix containing the initial centroids.
     :type clusters: Scalar
@@ -57,40 +57,56 @@ Examples
 
     new;
     library gml;
-    
-    
-    // Get dataset with full name
-    fname = getGAUSSHome() $+ "pkgs/gml/examples/iris.csv";
-    
-    // Load data
-    X = loadd(fname, ". -species");
-    
+
+
     // For repeatable sample
     rndseed 234234;
-    
+
+    // Get dataset with full name
+    fname = getGAUSSHome("pkgs/gml/examples/iris.csv");
+
+    // Load data
+    X = loadd(fname, ". -species");
+
     // Split data into x_train and x_test
     { x_train, x_test } = splitData(X, 0.70);
-    
+
     // Number of clusters
     n_clusters = 3;
-    
+
     // Declare kmeansModel struct
     struct kmeansModel mdl;
-    
+
     // Fit kmeans model
     mdl = kmeansFit(x_train , n_clusters);
-
-    // Print the k centroids
-    print mdl.centroids;
-    
 
 The above code will print the following:
 
 ::
 
-    5.824 2.710 4.350 1.421
-    5.009 3.406 1.475 0.250
-    6.887 3.061 5.732 2.061
+  =================================================================
+  Model:                      K-Means         Number clusters:    3
+  Number observations:            105         Number features:    4
+  Init method:              K-means++           Number starts:    3
+  Tolerance:                   0.0001
+  =================================================================
+
+  K-means fit performance statistics:
+
+  ============================================================
+  Total sum of squares:                                477.576
+  Between group sum of squares:                      419.05229
+  Within group sum of squares:                        58.52371
+  The ratio of BSS/TSS:                             0.87745676
+  ============================================================
+  Centroids:
+  ====================================================================
+    SepalLength       SepalWidth      PetalLength       PetalWidth
+
+        5.82381          2.70952             4.35          1.42143
+        5.00937          3.40625            1.475             0.25
+         6.8871          3.06129          5.73226          2.06129
+  ====================================================================
 
 
 References
@@ -100,4 +116,4 @@ Parallel Kmeans++ initialization.
 B. Bahmani, B. Moseley, A. Vattani, R. Kumar, S. Vassilvitskii. Scalable K-means++.
 Proceedings of the VLDB Endowment, 2012.
 
-.. seealso:: :func:`kmeansFit`, :func:`kmeansControlCreate`
+.. seealso:: :func:`kmeansPredict`, :func:`kmeansControlCreate`

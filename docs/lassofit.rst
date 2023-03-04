@@ -69,8 +69,7 @@ Example 1: Basic Estimation and Prediction
     // Estimate the model with default settings
     mdl = lassoFit(y_train, X_train);
 
-After the above code, *mdl.beta_hat* will be a :math:`6 \times 75` matrix, where each column contains the estimates for a different lambda value. The graph below shows the path of the parameter values as the value of lambda changes.
-
+After the above code, *mdl.beta_hat* will be a :math:`6 \times 75` matrix, where each column contains the estimates for a different lambda value.
 Continuing with our example, we can make test predictions like this:
 
 ::
@@ -83,7 +82,7 @@ Continuing with our example, we can make test predictions like this:
 
 After the above code, *y_hat* will be a matrix with the same number of observations as *y_test*. However, it will have one column for each value of lambda used in the estimation.
 
-To plot the paths of the coefficients and the MSE, we can use the func:`plotLR` function
+To plot the paths of the coefficients and the MSE, we can use the :func:`plotLR` function
 
 ::
 
