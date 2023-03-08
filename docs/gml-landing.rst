@@ -48,9 +48,14 @@ Commands
    knnfit
    knnclassify
    lassofit
+   lrpredict
    pcafit
    pcatransform
    pcatransforminv
+   plotClasses
+   plotlr
+   ridgecfit
+   ridgecpredict
    ridgefit
    splitdata
    traintestsplit
