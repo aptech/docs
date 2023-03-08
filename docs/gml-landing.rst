@@ -29,8 +29,8 @@ Commands
 :func:`pcaTransformInv`       Transforms a matrix back to the original feature space of the X which was input to :func:`pcaFit`.
 :func:`plotClasses`           Plots predicted classes in color coded scatter plot.
 :func:`plotLR`                Plots parameter path and mse path over regularization path after :func:`lassoFit` or :func:`ridgeFit`.
-:func:`ridgeFit`              Fit a linear model with an L1 penalty.
-:func:`ridgeCFit`             Fit a binary classification model with an L1 penalty.
+:func:`ridgeFit`              Fit a linear model with an L2 penalty.
+:func:`ridgeCFit`             Fit a binary classification model with an L2 penalty.
 :func:`ridgeCPredict`         Predict binary classifications from :func:`ridgeCFit` model.
 :func:`splitData`             Returns test and training splits for a single matrix of variables.
 :func:`trainTestSplit`        Returns test and training splits for a given set of dependent and independent variables.
