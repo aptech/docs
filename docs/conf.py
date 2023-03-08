@@ -121,7 +121,8 @@ html_context = {
 
 html_js_files = [
     'https://www.googletagmanager.com/gtag/js?id=G-WLDRLMK7MW',
-    'ga.js'
+    'ga.js',
+    'https://js.hs-scripts.com/4366389.js'
 ]
 
 html_logo = '_static/images/aptech-logo.png'
