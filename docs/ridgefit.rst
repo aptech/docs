@@ -78,9 +78,18 @@ Continuing with our example, we can make test predictions like this:
 
 After the above code, *y_hat* will be a matrix with the same number of observations as *y_test*. However, it will have one column for each value of lambda used in the estimation.
 
-Below is a plot of the change in MSE with the changes in lambda.
+To plot the paths of the coefficients and the MSE, we can use the :func:`plotLR` function
 
-.. figure:: _static/images/ridge-fit-example-1-mse-path.jpg
+::
+
+    /*
+    ** Plot results
+    */
+    plotLR(mdl, test_mse);
+
+This results in the following plot:
+
+.. figure:: _static/images/ridgefit.png
     :scale: 50%
 
 Remarks
