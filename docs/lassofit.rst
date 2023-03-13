@@ -91,9 +91,9 @@ To plot the paths of the coefficients and the MSE, we can use the :func:`plotLR`
   */
   plotLR(mdl, test_mse);
 
-This results in the following plots:
+This results in the following plot:
 
-.. figure:: _static/images/lasso-fit-example-1-mse-path.jpg
+.. figure:: _static/images/lassofit.png
     :scale: 50%
 
 Remarks
