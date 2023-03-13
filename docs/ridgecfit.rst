@@ -3,11 +3,11 @@ decForestCFit
 
 Purpose
 --------------------
-Fit a decision forest classification model.
+Fit a binary classification model using with an L2 penalty.
 
 Format
 --------------------
-.. function::  dfm = decForestCFit(y_train, X_train, lambda)
+.. function::  mdl = ridgCFit(y_train, X_train, lambda)
 
     :param y_train: The dependent variable.
     :type y_train: Nx1 vector
@@ -47,8 +47,8 @@ Examples
     X = packr(loadd(fname, ". -ID"));
 
     // Separate dependent and independent variables
-    y = X[., cols(X)];
-    X = delcols(X, cols(X));
+    y = X[., "class"];
+    X = delcols(X, "class");
 
     // Split data into 70% training and 30% test set
     { X_train, X_test, y_train, y_test } = trainTestSplit(X, y, 0.7);

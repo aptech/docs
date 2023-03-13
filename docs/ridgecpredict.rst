@@ -1,14 +1,14 @@
-decForestPredict
+ridgeCPredict
 ====================
 
 Purpose
 ----------------------
-Predicts responses using the output from :func:`decForestCFit` or :func:`decForestRFit` and matrix of independent variables.
+Predicts responses using the output from :func:`ridgeCFit`and matrix of independent variables.
 
 Format
 -------------------
 
-.. function:: predictions = ridgeCPredict(mdl, x_test)
+.. function:: predictions = ridgeCPredict(mdl, x_test, [, y_test])
 
     :return mdl: An instance of a :class:`ridgeModel` structure. An instance named *mdl* will have the following members:
 
@@ -24,6 +24,9 @@ Format
 
     :param x_test: The independent variables.
     :type x_test: NxP matrix
+
+    :param y_test: Optional, the test target, or dependent variable. If included model diagnostics will be computed.
+    :type y_test: Nx1 vector
 
     :return predictions: The predictions.
     :rtype predictions: Nx1 numeric or string vector
@@ -45,8 +48,8 @@ Examples
     X = loadd(fname, ". -ID");
 
     // Separate dependent and independent variables
-    y = X[.,cols(X)];
-    X = delcols(X, cols(X));
+    y = X[., "class""];
+    X = delcols(X, "class");
 
     // Split data into 70% training and 30% test set
     { X_train, X_test, y_train, y_test } = trainTestSplit(X, y, 0.7);
@@ -83,4 +86,4 @@ The code above will print the following output:
             AUC            0.531
 
 
-.. seealso:: :func:`decForestRFit`, :func:`decForestCFit`
+.. seealso:: :func:`ridgeCFit`, :func:`ridgeFit`

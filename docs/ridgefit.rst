@@ -39,21 +39,17 @@ Example 1: Basic Estimation and Prediction
 ::
 
     new;
-
     library gml;
 
+    /*
+    ** Load data
+    */
     // Specify dataset with full path
-    dataset = getGAUSSHome() $+ "pkgs/gml/examples/qsar_fish_toxicity.csv";
+    fname = getGAUSSHome("pkgs/gml/examples/qsar_fish_toxicity.csv");
 
-    // Load dependent and independent variable
-    y = loadd(dataset, "LC50");
-    X = loadd(dataset, ". -LC50");
-
-    // Split data into training sets
-    y_test = y[1:636];
-    X_test = X[1:636,.];
-    y_train = y[637:rows(y)];
-    X_train = X[637:rows(X),.];
+    // Split data into training sets without shuffling
+    shuffle = "False";
+    { y_train, y_test, x_train, x_test } = trainTestSplit(fname, "LC50 ~ . ", 0.7, shuffle);
 
     // Declare 'mdl' to be an instance of a
     // ridgeModel structure to hold the estimation results
@@ -74,19 +70,26 @@ Continuing with our example, we can make test predictions like this:
 
 ::
 
-    // Make predictions on the test set
-    y_hat = X_test * mdl.beta_hat + mdl.alpha_hat;
+    /*
+    ** Prediction for test data
+    */
+    { y_hat, test_mse } = lrPredict(mdl, x_test, y_test);
 
-After the above code, *y_hat* will be a matrix with the same number of observations as *y_test*. However, it will have one column for each value of lambda used in the estimation. We can compute the mean-squared error (MSE) for each of our predictions with the following code:
+
+After the above code, *y_hat* will be a matrix with the same number of observations as *y_test*. However, it will have one column for each value of lambda used in the estimation.
+
+To plot the paths of the coefficients and the MSE, we can use the :func:`plotLR` function
 
 ::
 
-    // Compute MSE for each prediction
-    mse_test = meanc((y_test - y_hat).^2);
+    /*
+    ** Plot results
+    */
+    plotLR(mdl, test_mse);
 
-Below is a plot of the change in MSE with the changes in lambda.
+This results in the following plot:
 
-.. figure:: _static/images/ridge-fit-example-1-mse-path.jpg
+.. figure:: _static/images/ridgefit.png
     :scale: 50%
 
 Remarks
@@ -97,4 +100,4 @@ Each variable (column of *X*) is centered to have a mean of 0 and scaled to have
 
 
 
-.. seealso:: :func:`lassoFit`
+.. seealso:: :func:`lassoFit`, :func:`lrpredict`, :func:`plotlr`
