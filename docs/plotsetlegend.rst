@@ -26,7 +26,7 @@ Format
 
         #.  Horizontal location: ``"left"``, ``"hcenter"`` or ``"right"`` (default). (Note: for backwards compatibility ``"center"`` may still be used for ``"hcenter"``. However, new programs should use ``"hcenter"``).
 
-        #.  Inside/Outside location: ``"inside"`` (default), ``"below"`` or ``"outside"``.
+        #.  Inside/Outside location: ``"inside"`` (default), ``"bottom"`` or ``"outside"``.
 
         If a vector, *location* represents the coordinates on the graph where the top, left corner of the legend will be placed.
 

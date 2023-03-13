@@ -87,20 +87,30 @@ The code above will print the following output:
 
 ::
 
-                 Confusion matrix
-                 ----------------
+  ======================================================================
+  Model:              Decision Forest         Target variable:     class
+  Number Observations:            489         Number features:         9
+  Number of trees:                100           Obs. per Tree:       100%
+  Min. Obs. Per Node:               1     Impurity Threshhold:         0
+  ======================================================================
 
-         Class +       54       2
-         Class -        1     153
+  ========================================================================
+  Prediction Model:      DF Classification     Target variable:     class
+  Number Predictions:                  210     Number features:         9
+  ========================================================================
 
-        Accuracy           0.9857
-       Precision           0.9643
-          Recall           0.9818
-         F-score            0.973
-     Specificity           0.9871
-             AUC           0.9845
+              Confusion matrix
+              ----------------
 
+      Class +       54       2
+      Class -        1     153
 
+     Accuracy           0.9857
+    Precision           0.9643
+       Recall           0.9818
+      F-score            0.973
+  Specificity           0.9871
+          AUC           0.9845            
 
 Remarks
 --------------------
