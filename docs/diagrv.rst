@@ -50,5 +50,7 @@ Remarks
 
 :func:`diag` reverses the procedure and pulls the diagonal out of a matrix.
 
+Use :func:`bandrv` to create a diagonal matrix from a vector.
+
 
 .. seealso:: Functions :func:`diag`
