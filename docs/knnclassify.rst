@@ -86,4 +86,4 @@ The above code will print the following output:
 
   Prediction accuracy:      0.95555556
 
-.. seealso:: :func:`knnFit`, func:`plotClasses`
+.. seealso:: :func:`knnFit`, :func:`plotClasses`

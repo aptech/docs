@@ -3,7 +3,7 @@ ridgeCPredict
 
 Purpose
 ----------------------
-Predicts responses using the output from :func:`ridgeCFit`and matrix of independent variables.
+Predicts responses using the output from :func:`ridgeCFit` and matrix of independent variables.
 
 Format
 -------------------
@@ -47,25 +47,28 @@ Examples
     // Load all variables from dataset, except for 'ID'
     X = loadd(fname, ". -ID");
 
+    // Remove rows with a missing value
+    X = packr(X);
+
     // Separate dependent and independent variables
-    y = X[., "class""];
+    y = X[., "class"];
     X = delcols(X, "class");
 
     // Split data into 70% training and 30% test set
     { X_train, X_test, y_train, y_test } = trainTestSplit(X, y, 0.7);
 
-    // Declare 'df_mdl' to be an 'dfModel' structure
+    // Declare 'mdl' to be an 'ridgeModel' structure
     // to hold the trained model
     struct ridgeModel mdl;
 
     // Set lambda vector
     lambda = seqm(90, 0.8, 60);
 
-    // Train the decision forest classifier with default settings
+    // Train the ridge classifier with default settings
     mdl = ridgeCFit(y_train, X_train, lambda);
 
     // Make predictions on the test set, from our trained model
-    y_hat = ridgeCPredict(mdl, y_test, x_test);
+    y_hat = ridgeCPredict(mdl, X_test, y_test);
 
 
 The code above will print the following output:
