@@ -20,6 +20,26 @@ Format
 Examples
 ----------------
 
+Create a diagonal matrix
++++++++++++++++++++++++++++
+
+::
+
+    v = { 1, 9, 6 };
+
+    v_mat = bandrv(v);
+
+After the above code, ``v_mat`` will equal:
+
+::
+
+    1  0  0
+    0  9  0
+    0  0  6
+
+Create a symmetric banded matrix
+++++++++++++++++++++++++++++++++++
+
 ::
 
     x = { 1 2 0 0,
