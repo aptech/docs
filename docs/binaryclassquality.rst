@@ -1,18 +1,18 @@
 binaryClassMetrics
 ==============================================
 
-Purpose 
+Purpose
 -----------
 
 Computes statistics to assess the quality of binary predictions and prints out a report.
 
-Format 
+Format
 -----------
 .. function:: out = binaryClassMetrics(y_true, y_predict)
 
     :param y_true:  Nx1 vector of 0's and 1's, or strings that represent the true class labels.
     :param y_predict:  Nx1 vector of 0's and 1's, or strings that represent the predicted class labels.
-        
+
 
     :return out:  An instance of a :class:`binaryClassQuality` structure. For an instance named *out*, the members are:
 
@@ -21,11 +21,11 @@ Format
 
             "out.confusionMatrix", "2x2 matrix, containing the computed confusion matrix."
             "out.accuracy", "Scalar, range 0-1, the accuracy of the predicted labels."
-            "out.precision", "Scalar, (tp / (tp + fp))."
-            "out.recall", "Scalar, (tp / (tp + fn))."
-            "out.fScore", "Scalar, ((b^2 + 1) * tp) / ((b^2 + 1) * tp + b^2 * fn + fp) (b = 1) ."
-            "out.specificity", "Scalar, (tp / (fp + tn))."
-            "out.auc", "Scalar, 0.5 * ((tp / (tp + fn) + (tp / (fp + tn)).  Note: This is NOT the area under the roc curve, which requires requires predicted probabilities for its computation, rather than predicted class labels."
+            "out.precision", "Scalar, :math:`\frac{tp}{tp + fp}`."
+            "out.recall", "Scalar, :math:`\frac{tp}{tp + fn}`"
+            "out.fScore", "Scalar, :math:`\frac{(b^2 + 1) * tp}{(b^2 + 1) * tp + b^2 * fn + fp)}` (b = 1) ."
+            "out.specificity", "Scalar, :math:`\frac{tp}{fp + tn}`)."
+            "out.balancedAccuracy", "Scalar, :math:`0.5 * (\frac{tp}{tp + fn} + \frac{tn}{tn + fp}`).  Note: This is NOT the area under the roc curve, which requires predicted probabilities for its computation, rather than predicted class labels."
 
     :rtype out: struct
 
@@ -37,7 +37,7 @@ Example 1: Basic use with binary labels
 ++++++++++++++++++++++++++++++++++++++++
 
 ::
-   
+
     new;
     library gml;
 
@@ -53,14 +53,14 @@ After the above code, the following report will be printed:
                  Confusion matrix
                  ----------------
 
-         Class +        3       1 
-         Class -        0       4 
+         Class +        3       1
+         Class -        0       4
 
-        Accuracy            0.875 
-       Precision             0.75 
-          Recall                1 
-         F-score           0.8571 
-     Specificity              0.8 
+        Accuracy            0.875
+       Precision             0.75
+          Recall                1
+         F-score           0.8571
+     Specificity              0.8
              AUC              0.9
 
 The interpretation of the confusion matrix is shown below:
@@ -70,7 +70,7 @@ The interpretation of the confusion matrix is shown below:
                   Confusion matrix
                   ------------------------
 
-         Class +  (True  Pos)  (False Neg) 
+         Class +  (True  Pos)  (False Neg)
          Class -  (False Pos)  (True  Neg)
 
 
@@ -98,10 +98,10 @@ which will print the following output in addition to the standard report:
 
 ::
 
-    Accuracy =       0.87500000 
-    F-score  =       0.85714287 
-   
-   
+    Accuracy =       0.87500000
+    F-score  =       0.85714287
+
+
 
 
 
@@ -125,13 +125,12 @@ After the above code, the following report will be printed:
                  Confusion matrix
                  ----------------
 
-             cat        4       0 
-             dog        1       3 
+             cat        4       0
+             dog        1       3
 
-        Accuracy            0.875 
-       Precision                1 
-          Recall              0.8 
-         F-score           0.8889 
-     Specificity                1 
+        Accuracy            0.875
+       Precision                1
+          Recall              0.8
+         F-score           0.8889
+     Specificity                1
              AUC              0.9
-
