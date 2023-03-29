@@ -52,18 +52,18 @@ After the above code, the following report will be printed:
 
 ::
 
-                 Confusion matrix
-                 ----------------
+                    Confusion matrix
+                    ----------------
 
-         Class +        3       1
-         Class -        0       4
+            Class +        3       1
+            Class -        0       4
 
-        Accuracy            0.875
-       Precision             0.75
-          Recall                1
-         F-score           0.8571
-     Specificity              0.8
-             AUC              0.9
+           Accuracy            0.875
+          Precision             0.75
+             Recall                1
+            F-score           0.8571
+        Specificity              0.8
+  Balanced Accuracy              0.9
 
 The interpretation of the confusion matrix is shown below:
 
@@ -121,18 +121,18 @@ After the above code, the following report will be printed:
 
 ::
 
-                 Confusion matrix
-                 ----------------
+                      Confusion matrix
+                      ----------------
 
-             cat        4       0
-             dog        1       3
+                  cat        4       0
+                  dog        1       3
 
-        Accuracy            0.875
-       Precision                1
-          Recall              0.8
-         F-score           0.8889
-     Specificity                1
-             AUC              0.9
+             Accuracy            0.875
+            Precision                1
+               Recall              0.8
+              F-score           0.8889
+          Specificity                1
+    Balanced Accuracy              0.9
 
 Example 3: Dataframe inputs
 ++++++++++++++++++++++++++++++++++++++++++++++
@@ -156,15 +156,15 @@ Example 3: Dataframe inputs
 
 ::
 
-              Confusion matrix
-              ----------------
+                        Confusion matrix
+                        ----------------
 
-         cat        4       0
-         dog        1       3
+                    cat        4       0
+                    dog        1       3
 
-    Accuracy            0.875
-   Precision                1
-      Recall              0.8
-     F-score           0.8889
- Specificity                1
-         AUC              0.9
+               Accuracy            0.875
+              Precision                1
+                 Recall              0.8
+                F-score           0.8889
+            Specificity                1
+      Balanced Accuracy              0.9
