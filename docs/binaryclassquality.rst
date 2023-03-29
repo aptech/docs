@@ -10,9 +10,11 @@ Format
 -----------
 .. function:: out = binaryClassMetrics(y_true, y_predict)
 
-    :param y_true:  Nx1 vector of 0's and 1's, or strings that represent the true class labels.
-    :param y_predict:  Nx1 vector of 0's and 1's, or strings that represent the predicted class labels.
+    :param y_true: That represents the true class labels.
+    :type y_true:  Nx1 vector, dataframe, or string array.
 
+    :param y_predict:  That represents the predicted class labels.
+    :type y_true: Nx1 vector, dataframe, or string array.
 
     :return out:  An instance of a :class:`binaryClassQuality` structure. For an instance named *out*, the members are:
 
@@ -74,7 +76,7 @@ The interpretation of the confusion matrix is shown below:
          Class -  (False Pos)  (True  Neg)
 
 
-If you want to store the statistics computed by :func:`binaryClassMetrics`, you can assign them to a :class:`binaryClassQuality` structure like this:
+You can store the statistics computed by :func:`binaryClassMetrics`, using a :class:`binaryClassQuality` structure like this:
 
 
 ::
@@ -100,9 +102,6 @@ which will print the following output in addition to the standard report:
 
     Accuracy =       0.87500000
     F-score  =       0.85714287
-
-
-
 
 
 Example 2: String class labels
@@ -134,3 +133,38 @@ After the above code, the following report will be printed:
          F-score           0.8889
      Specificity                1
              AUC              0.9
+
+Example 3: Dataframe inputs
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+      new;
+      library gml;
+
+      // Strings
+      string true_label = { "cat", "cat", "dog", "cat", "dog", "dog", "dog", "cat" };
+      string pred_label = { "cat", "cat", "dog", "cat", "dog", "cat", "dog", "cat" };
+
+      // Create dataframes
+      df_true = asDF(true_label, "Observed");
+      df_pred = asDF(pred_label, "Prediction");
+
+      call binaryClassMetrics(true_label, pred_label);
+
+      After the above code, the following report will be printed:
+
+::
+
+              Confusion matrix
+              ----------------
+
+         cat        4       0
+         dog        1       3
+
+    Accuracy            0.875
+   Precision                1
+      Recall              0.8
+     F-score           0.8889
+ Specificity                1
+         AUC              0.9
