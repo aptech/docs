@@ -58,25 +58,17 @@ Examples
     library gml;
 
     // Set seed for repeatable sampling
-    rndseed 234234;
+    rndseed 23423;
 
     /*
-    ** Load and transform data
+    ** Load data and prepare data
     */
     // Load hitters dataset
     dataset = getGAUSSHome("pkgs/gml/examples/hitters.xlsx");
 
-    // Load salary and perform natural log transform
-    y = loadd(dataset, "ln(salary)");
-
-    // Load all variables except 'salary'
-    X = loadd(dataset, ". - salary");
-
-    /*
-    ** Split into test and training sets
-    */
-    // Split data into training and test sets
-    { y_train, y_test, X_train, X_test } = trainTestSplit(y, X, 0.7);
+    // Load data from dataset and split
+    // into (70%) training and (30%) test sets
+    { y_train, y_test, X_train, X_test } = trainTestSplit(dataset, "ln(salary)~ AtBat + Hits + HmRun + Runs + RBI + Walks + Years + PutOuts + Assists + Errors", 0.7);
 
     /*
     ** Estimate decision forest model
@@ -103,33 +95,27 @@ The code above will print the following output:
 
 ::
 
-  ================================================================================
-  Model:              Decision Forest      Dependent variable:     ln_salary_
-  Number Observations:            184        Number variables:             16
-  Number of trees:                100           Obs. per Tree:            100%
-  Min. Obs. Per Node:               1     Impurity Threshhold:              0
-  Out-of-bag error:            0.2289
-  ================================================================================
+  ======================================================================
+  Model:              Decision Forest         Target variable:ln_salary_
+  Number Observations:            184         Number features:        10
+  Number of trees:                100           Obs. per Tree:      100%
+  Min. Obs. Per Node:               1     Impurity Threshhold:         0
+  Out-of-bag error:            0.3157
+  ======================================================================
 
   =========================
   Variable Importance Table
   =========================
-  AtBat      0.0967
-  Hits       0.1003
-  HmRun      0.0567
-  Runs       0.0561
-  RBI        0.0812
-  Walks      0.0690
-  Years      0.0767
-  CAtBat     0.2297
-  CHits      0.2172
-  CHmRun     0.0972
-  CRuns      0.2060
-  CRBI       0.1497
-  CWalks     0.0875
-  PutOuts    0.0711
-  Assists    0.0416
-  Errors     0.0461
+  Years              0.6623
+  Walks              0.2358
+  Hits               0.1945
+  RBI                0.1895
+  AtBat              0.1867
+  Runs               0.1714
+  HmRun              0.1574
+  PutOuts            0.1543
+  Assists            0.1444
+  Errors             0.1437
 
 Remarks
 --------------------
