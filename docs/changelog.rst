@@ -4,6 +4,18 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+23.0.3
+------
+
+#. Bug Fix: The generated code in the symbol editor could be incorrect in the event a header was both renamed and toggled in a manner that would remove it.
+#. Bug Fix: The generated code in the file import dialog could be incorrect when a certain number of headers were toggled and additional modifications were present.
+#. Bug Fix: :func:`rescale` was not always retaining column metadata.
+#. Bug Fix: Matrix multiply operations will now always drop column metadata.
+#. Bug Fix: Custom fonts were being ignored when used in LaTeX labels for ``\\{text}`` tags when plotting.
+#. Bug Fix: Specifying ``"vcenter"`` in :func:`plotSetLegend` was also causing horizontal alignment to occur.
+#. Bug Fix: :func:`plotSave` now allows a 1x1 string array for the filename argument instead of requiring a string.
+#. Bug Fix: Additional validation was added to :func:`trimr`.
+
 23.0.2
 ------
 

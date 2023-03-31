@@ -66,8 +66,8 @@ Examples
     data = loadd(fname, ". -ID");
 
     // Separate dependent and independent variables
-    y = data[., cols(data)];
-    X = delcols(data, cols(data));
+    y = data[., "class"];
+    X = delcols(data, "class");
 
     // Split data into 70% training and 30% test set
     { y_train, y_test, x_train, x_test } = trainTestSplit(y, X, 0.7);
@@ -90,7 +90,7 @@ The code above will print the following output:
   ======================================================================
   Model:              Decision Forest         Target variable:     class
   Number Observations:            489         Number features:         9
-  Number of trees:                100           Obs. per Tree:       100%
+  Number of trees:                100           Obs. per Tree:      100%
   Min. Obs. Per Node:               1     Impurity Threshhold:         0
   ======================================================================
 
@@ -110,7 +110,7 @@ The code above will print the following output:
        Recall           0.9818
       F-score            0.973
   Specificity           0.9871
-          AUC           0.9845            
+          AUC           0.9845
 
 Remarks
 --------------------

@@ -47,8 +47,8 @@ Examples
     data = loadd(fname, ". -ID");
 
     // Separate dependent and independent variables
-    y = data[., cols(X)];
-    X = delcols(X, cols(X));
+    y = data[., "class"];
+    X = delcols(X, "class");
 
     // Split data into 70% training and 30% test set
     { y_train, y_test, x_train, x_test } = trainTestSplit(y, x, 0.7);
