@@ -16,6 +16,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: Specifying ``"vcenter"`` in :func:`plotSetLegend` was also causing horizontal alignment to occur.
 #. Bug Fix: :func:`plotSave` now allows a 1x1 string array for the filename argument instead of requiring a string.
 #. Bug Fix: Additional validation was added to :func:`trimr`.
+#. Bug Fix: :func:`asdf` now allows the *headers* argument to be a string array instead of requiring each header as a separate string argument. 
 
 23.0.2
 ------
