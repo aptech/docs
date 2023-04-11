@@ -47,6 +47,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx_design',
+    'sphinx_tabs.tabs',
 ]
 
 mathjax_config = {
@@ -113,6 +114,7 @@ html_context = {
         'https://fonts.googleapis.com/css?family=Lato',
         '_static/theme_override.css',
         '_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css',
+        '_static/tabs.css',
     ]
 }
 
