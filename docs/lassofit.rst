@@ -93,7 +93,7 @@ To plot the paths of the coefficients and the MSE, we can use the :func:`plotLR`
 
 This results in the following plot:
 
-.. figure:: _static/images/lassofit.png
+.. figure:: _static/images/lassofit.jpg
     :scale: 50%
 
 Remarks
