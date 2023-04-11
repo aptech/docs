@@ -37,7 +37,7 @@ Format
             "out.recall", "Scalar, :math:`\frac{tp}{tp + fn}`"
             "out.fScore", "Scalar, :math:`\frac{(b^2 + 1) * tp}{(b^2 + 1) * tp + b^2 * fn + fp)}` (b = 1) ."
             "out.specificity", "Scalar, :math:`\frac{tp}{fp + tn}`)."
-            "out.balancedAccuracy", "Scalar, :math:`0.5 * (\frac{tp}{tp + fn} + \frac{tn}{tn + fp}`).
+            "out.balancedAccuracy", "Scalar, :math:`0.5 * (\frac{tp}{tp + fn} + \frac{tn}{tn + fp}`)."
 
     :rtype out: struct
 
