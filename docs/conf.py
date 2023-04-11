@@ -47,6 +47,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx_panels',
+    'sphinx_tabs.tabs',
 ]
 
 mathjax_config = {
@@ -110,6 +111,7 @@ html_context = {
         '_static/theme_override.css',  # override wide tables in RTD theme
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
         '_static/panels-bootstrap.min.css',  # override wide tables in RTD theme
+        '_static/tabs.css', # for sphinx_tabs extension
     ],
 }
 

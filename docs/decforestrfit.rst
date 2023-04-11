@@ -21,13 +21,13 @@ Format
             :widths: auto
 
             "dfc.numTrees", "Scalar, number of trees (must be integer). Default = 100"
-            "dfc.obsPerTree", "Scalar, observations per a tree. Default = 1.0."
-            "dfc.featurePerNode", "Scalar, number of features considered at a node. Default = nvars/3."
-            "dfc.maxTreeDepth", "Scalar, maximum tree depth. Default = unlimited."
-            "dfc.minObsNode", "Scalar, minimum observations per node.  Default = 1."
-            "dfc.impurityThreshold", "Scalar, impurity threshold. Default = 0."
+            "dfc.obsPerTree", "Scalar, the percentage of observations selected for each tree (sampling with replacement). Valid range: 0.0 < ``obsPerTree`` <= 1.0. Default = 1.0."
+            "dfc.featuresPerNode", "Scalar, number of features considered at each node. Default = nvars/3."
+            "dfc.maxTreeDepth", "Scalar integer value, maximum tree depth. Default = 0 = unlimited."
+            "dfc.minObsNode", "Scalar integer value, minimum observations per leaf node.  Default = 1."
+            "dfc.impurityThreshold", "Scalar, if the impurity value at a particular node is below this value, it will no longer be split. Default = 0.0."
             "dfc.oobError", "Scalar, 1 to compute OOB error, 0 otherwise. Default = 0."
-            "dfc.variableImpurityMethod", "Scalar, method of calculating variable importance.
+            "dfc.variableImportanceMethod", "Scalar, method of calculating variable importance.
 
                                            * 0 = none,
                                            * 1 = mean decrease in impurity
