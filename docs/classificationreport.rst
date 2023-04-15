@@ -14,7 +14,7 @@ Format
     :type y_true:  Nx1 vector, or dataframe.
 
     :param y_predict:  That represents the predicted class labels.
-    :type y_true: Nx1 vector, or dataframe.
+    :type y_predict: Nx1 vector, or dataframe.
 
 
 Example
@@ -89,6 +89,8 @@ After the above code, the following report will be printed:
 
 Example 3: KNN classification model assessment
 ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
 
     new;
     library gml;
