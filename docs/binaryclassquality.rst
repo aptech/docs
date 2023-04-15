@@ -176,7 +176,7 @@ Example 3: Dataframe inputs
       df_true = asDF(true_label, "Observed");
       df_pred = asDF(pred_label, "Prediction");
 
-      call binaryClassMetrics(true_label, pred_label, "cat");
+      call binaryClassMetrics(df_true, df_pred, "cat");
 
 After the above code, the following report will be printed:
 
