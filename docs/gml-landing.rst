@@ -14,7 +14,7 @@ Commands
 
 ============================== ========================================================================================================================================
 :func:`binaryClassMetrics`      Computes statistics to assess the quality of binary predictions and prints out a report.
-:func:`classificationReport`   Computes statistics to assess the quality of classification predictions and prints out a report.
+:func:`classificationMetrics`   Computes statistics to assess the quality of classification predictions and prints out a report.
 :func:`cvSplit`                 Returns the test and training set for the ith of k cross validation splits for a given set of dependent and independent variables.
 :func:`decForestCFit`           Fit a decision forest classification model.
 :func:`decForestPredict`        Predicts responses using the output from :func:`decForestCFit` or :func:`decForestRFit` and matrix of independent variables.

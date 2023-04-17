@@ -1,4 +1,4 @@
-classificationReport
+classificationMetrics
 ==============================================
 
 Purpose
@@ -8,7 +8,7 @@ Computes statistics to assess the quality of classification predictions and prin
 
 Format
 -----------
-.. function:: classificationReport(y_true, y_predict)
+.. function:: classificationMetrics(y_true, y_predict)
 
     :param y_true: That represents the true class labels.
     :type y_true:  Nx1 vector, or dataframe.
@@ -31,7 +31,7 @@ Example 1: Basic use with binary labels
     y_true = { 0, 0, 1, 0, 1, 1, 1, 0 };
     y_pred = { 0, 0, 1, 0, 1, 0, 1, 0 };
 
-    call classificationReport(y_true, y_pred);
+    call classificationMetrics(y_true, y_pred);
 
 After the above code, the following report will be printed:
 
@@ -67,7 +67,7 @@ Example 2: Dataframe inputs
       df_true = asDF(true_label, "Observed");
       df_pred = asDF(pred_label, "Prediction");
 
-      call classificationReport(df_true, df_pred);
+      call classificationMetrics(df_true, df_pred);
 
 After the above code, the following report will be printed:
 
@@ -126,7 +126,7 @@ Example 3: KNN classification model assessment
     y_hat = knnClassify(mdl, X_test);
     
     // Print diagnostic report
-    classificationReport(y_test, y_hat); 
+    call classificationMetrics(y_test, y_hat); 
 
 After the code above and the knn training printouts,  we see the following report:
 
