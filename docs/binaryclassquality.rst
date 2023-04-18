@@ -124,43 +124,7 @@ which will print the following output in addition to the standard report:
     F-score  =       0.85714287
 
 
-Example 2: String class labels
-++++++++++++++++++++++++++++++++++++++++++++++
-
-::
-
-    new;
-    library gml;
-
-    string true_label = { "cat", "cat", "dog", "cat", "dog", "dog", "dog", "cat" };
-    string pred_label = { "cat", "cat", "dog", "cat", "dog", "cat", "dog", "cat" };
-
-    call binaryClassMetrics(true_label, pred_label, "dog");
-
-After the above code, the following report will be printed:
-
-::
-
-    ==================================
-                      Confusion matrix
-    ==================================
-                       Predicted class
-                       ---------------
-                             +       -
-           True class
-           ----------
-              dog (+)        3       1
-              cat (-)        0       4
-  
-             Accuracy            0.875
-            Precision                1
-               Recall             0.75
-              F-score           0.8571
-          Specificity                1
-    Balanced Accuracy            0.875
-
-
-Example 3: Dataframe inputs
+Example 2: Dataframe inputs
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
@@ -199,4 +163,41 @@ After the above code, the following report will be printed:
               F-score           0.8889
           Specificity             0.75
     Balanced Accuracy            0.875
+
+
+Example 3: String class labels
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    new;
+    library gml;
+
+    string true_label = { "cat", "cat", "dog", "cat", "dog", "dog", "dog", "cat" };
+    string pred_label = { "cat", "cat", "dog", "cat", "dog", "cat", "dog", "cat" };
+
+    call binaryClassMetrics(true_label, pred_label, "dog");
+
+After the above code, the following report will be printed:
+
+::
+
+    ==================================
+                      Confusion matrix
+    ==================================
+                       Predicted class
+                       ---------------
+                             +       -
+           True class
+           ----------
+              dog (+)        3       1
+              cat (-)        0       4
+  
+             Accuracy            0.875
+            Precision                1
+               Recall             0.75
+              F-score           0.8571
+          Specificity                1
+    Balanced Accuracy            0.875
+
 
