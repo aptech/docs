@@ -8,7 +8,7 @@ Predicts responses using the output from :func:`decForestCFit` or :func:`decFore
 Format
 -------------------
 
-.. function:: predictions = decForestPredict(dfm, x_test [, y_test])
+.. function:: predictions = decForestPredict(dfm, x_test)
 
     :param dfm: An instance of the :class:`dfModel` structure filled by :func:`decForestRFit` or :func:`decForestCFit` and containing the following relevant members:
 
@@ -23,9 +23,6 @@ Format
 
     :param x_test: The test model features, or independent variables.
     :type x_test: NxP matrix
-
-    :param y_test: Optional, the test target, or dependent variable. If included model diagnostics will be computed.
-    :type y_test: Nx1 vector
 
     :return predictions: The predictions.
     :rtype predictions: Nx1 numeric or string vector
@@ -48,7 +45,7 @@ Examples
 
     // Separate dependent and independent variables
     y = data[., "class"];
-    X = delcols(X, "class");
+    X = delcols(data, "class");
 
     // Split data into 70% training and 30% test set
     { y_train, y_test, x_train, x_test } = trainTestSplit(y, x, 0.7);
@@ -61,25 +58,41 @@ Examples
     df_mdl = decForestCFit(y_train, X_train);
 
     // Make predictions on the test set, from our trained model
-    y_hat = decForestPredict(df_mdl, X_test, y_test);
+    y_hat = decForestPredict(df_mdl, X_test);
+
+    // Print diagnostic report
+    call classificationMetrics(y_test, y_hat);
 
 
 The code above will print the following output:
 
 ::
 
-                 Confusion matrix
-                 ----------------
+    ======================================================================
+    Model:              Decision Forest         Target variable:     class
+    Number Observations:            489         Number features:         9
+    Number of trees:                100           Obs. per Tree:      100%
+    Min. Obs. Per Node:               1     Impurity Threshhold:         0
+    ======================================================================
+   
+   
+    ======================================================================
+    Prediction Model:     DF Classification     Target variable:     class
+    Number Predictions:                 210     Number features:         9
+    ======================================================================
+   
+    ===================================================
+                                 Classification metrics
+    ===================================================
+           Class   Precision  Recall  F1-score  Support
+   
+               0        0.99    0.99      0.99      154
+               1        0.98    0.96      0.97       56
+   
+       Macro avg        0.98    0.98      0.98      210
+    Weighted avg        0.99    0.99      0.99      210
 
-         Class +       54       2
-         Class -        1     153
-
-        Accuracy           0.9857
-       Precision           0.9643
-          Recall           0.9818
-         F-score            0.973
-     Specificity           0.9871
-             AUC           0.9845
+    Accuracy                          0.99      210
 
 
 .. seealso:: :func:`decForestRFit`, :func:`decForestCFit`
