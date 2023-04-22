@@ -8,7 +8,7 @@ Computes statistics to assess the quality of classification predictions and prin
 
 Format
 -----------
-.. function:: classificationMetrics(y_true, y_predict)
+.. function:: out = classificationMetrics(y_true, y_predict)
 
     :param y_true: That represents the true class labels.
     :type y_true:  Nx1 vector, or dataframe.
@@ -16,6 +16,31 @@ Format
     :param y_predict:  That represents the predicted class labels.
     :type y_predict: Nx1 vector, or dataframe.
 
+    :return out:  An instance of a :class:`classQuality` structure. For an instance named *out*, the members are:
+
+        .. csv-table::
+            :widths: auto
+
+            "out.confusionMatrix", ":math:`kxk` matrix, containing the computed confusion matrix."
+            "out.precision", ":math:`kx1` dataframe, where each row contains precision for corresponding class :math:`\frac{tp}{tp + fp}`."
+            "out.recall", ":math:`kx1` dataframe, where each row contains recall for the corresponding class, :math:`\frac{tp}{tp + fn}`"
+            "out.fScore", ":math:`kx1` dataframe, where each row contains the F1-score for the corresponding class, :math:`\frac{(b^2 + 1) * tp}{(b^2 + 1) * tp + b^2 * fn + fp)}` (b = 1) ."
+            "out.support", ":math:`kx1` dataframe, where each row contains the number of observations for the corresponding class."
+            "out.macroPrecision", "Scalar, the unweighted average of the precision for each class."
+            "out.macroRecall", "Scalar, the unweighted average of the recall for each class."
+            "out.macroFScore", "Scalar, the unweighted average of the F1-score for each class."
+            "out.macroSupport", "Scalar, the total number of observations."
+            "out.accuracy", "Scalar, range 0-1, the accuracy of the predicted labels for all classes."
+            "out.classLabels", ":math:`kx1` string array, containing the labels for each class."
+            "out.classes", ":math:`kx1` dataframe, containing the numeric keys and label names if given for each class."
+
+    :rtype out: struct
+
+
+Example
+-----------
+
+Example 1: Basic use with binary labels
 
 Example
 -----------
@@ -125,8 +150,12 @@ Example 3: KNN classification model assessment
     */
     y_hat = knnClassify(mdl, X_test);
     
+    // Declare 'q' to be a classQuality structure
+    // to hold the statistics
+    struct classQuality q;
+
     // Print diagnostic report
-    call classificationMetrics(y_test, y_hat); 
+    q = classificationMetrics(y_test, y_hat); 
 
 After the code above and the knn training printouts,  we see the following report:
 
@@ -145,4 +174,29 @@ After the code above and the knn training printouts,  we see the following repor
     Weighted avg        0.98    0.98      0.98       45 
     
         Accuracy                          0.98       45
+
+
+We can access any of the structure members from the ``classQuality`` structure using the dot operator:
+
+::
+
+    print "Macro precision for each class =";
+    print q.macroPrecision;
+
+::
+
+    Macro precision for each class =
+          0.97916667
+
+
+::
+
+    print (q.classes ~ q.precision);
+
+::
+
+           Class        Precision 
+          setosa        1.0000000 
+      versicolor       0.93750000 
+       virginica        1.0000000
 
