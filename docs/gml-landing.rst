@@ -25,6 +25,7 @@ Commands
 :func:`knnClassify`             Creates nearest neighbor predictions.
 :func:`lassoFit`                Fit a linear model with an L1 penalty.
 :func:`lrPredict`               Predict response using output from :func:`lassoFit` or :func:`ridgeFit` and matrix of independent variables.
+:func:`meanSquaredError`        Returns the mean squared error between two input vectors, or sets of vectors.
 :func:`pcaFit`                  Performs principal component dimension reduction.
 :func:`pcaTransform`            Reduces the dimension of a matrix using principal component vectors previously returned by :func:`pcaFit`.
 :func:`pcaTransformInv`         Transforms a matrix back to the original feature space of the X which was input to :func:`pcaFit`.
@@ -53,6 +54,7 @@ Commands
    knnclassify
    lassofit
    lrpredict
+   meansquarederror
    pcafit
    pcatransform
    pcatransforminv
