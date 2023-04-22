@@ -42,6 +42,7 @@ Commands
    :hidden:
 
    binaryclassquality
+   classificationmetrics
    cvsplit
    decforestcfit
    decforestpredict
