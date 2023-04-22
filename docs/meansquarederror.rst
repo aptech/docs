@@ -45,17 +45,11 @@ MSE for multiple Lasso predictions
     new;
     library gml;
    
-    /*
-    ** Load data and prepare data
-    */
-    // Get file name with full path to
-    // the location of this file
+    // Get file name with full path
     fname = getGAUSSHome("pkgs/gml/examples/pcancer.csv");
    
-    // Load dependent variables
+    // Load variables
     X = loadd(fname, ". -lpsa");
-   
-    // Load independent variable
     lpsa = loadd(fname, "lpsa");
    
     // Split into 80% test and train sets
@@ -68,13 +62,14 @@ MSE for multiple Lasso predictions
     struct lassoControl ctl;
     ctl.lambdas  = { 0.9, 0.6, 0.3 };
    
-    // Declare model structure to
-    // store results
+    // Declare model structure to store results
     struct lassoModel mdl;
     mdl = lassoFit(lpsa_train, X_train, ctl);
    
+    // Make predictions on test set
     lpsa_pred = lrPredict(mdl, X_test);
    
+    // Compute MSE for test predictions
     test_mse = meanSquaredError(lpsa_test, lpsa_pred);
    
     print "lambda values: "; mdl.lambda;
@@ -96,5 +91,5 @@ MSE for multiple Lasso predictions
       0.70390474
 
 
-.. seealso:: Functions  :func:`classMetrics`
+.. seealso:: Functions  :func:`classificationMetrics`
 
