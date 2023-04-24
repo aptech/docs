@@ -7,7 +7,7 @@ Fit a binary classification model using with an L2 penalty.
 
 Format
 --------------------
-.. function::  mdl = ridgCFit(y_train, X_train, lambda)
+.. function::  mdl = ridgeCFit(y_train, X_train, lambda)
 
     :param y_train: The dependent variable.
     :type y_train: Nx1 vector
