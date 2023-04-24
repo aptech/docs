@@ -31,7 +31,7 @@ Examples
 
       // Split data into training sets without shuffling
       shuffle = "False";
-      { y_train, y_test, x_train, x_test } = trainTestSplit(dataset, "LC50 ~ . ", 0.7, shuffle);
+      { y_train, y_test, X_train, X_test } = trainTestSplit(dataset, "LC50 ~ . ", 0.7, shuffle);
 
       // Declare 'mdl' to be an instance of a
       // lassoModel structure to hold the estimation results
@@ -43,7 +43,9 @@ Examples
       /*
       ** Prediction for test data
       */
-      { y_hat, test_mse } = lrPredict(mdl, x_test, y_test);
+      y_hat = lrPredict(mdl, X_test);
+
+      test_mse = meanSquaredError(y_test, y_hat);
 
       /*
       ** Plot results
