@@ -79,7 +79,7 @@ Format
 
     The above code will print the following output:
 
-    ::
+::
 
     ===========================================================================
     Model:                          KNN     Target Variable:            Species

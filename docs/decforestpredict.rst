@@ -92,7 +92,7 @@ The code above will print the following output:
        Macro avg        0.98    0.98      0.98      210
     Weighted avg        0.99    0.99      0.99      210
 
-    Accuracy                          0.99      210
+        Accuracy                          0.99      210
 
 
 .. seealso:: :func:`decForestRFit`, :func:`decForestCFit`
