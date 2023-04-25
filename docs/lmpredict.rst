@@ -1,4 +1,4 @@
-lrPredict
+lmPredict
 ====================
 
 Purpose
@@ -7,7 +7,7 @@ Predict outcomes for test data from a linear regression model.
 
 Format
 ----------------------
-.. function:: predictions = lrPredict(mdl, X_test)
+.. function:: predictions = lmPredict(mdl, X_test)
 
 
     :param mdl: Instance of a :class:`lassoModel` or :class:`ridgeModel` structure.
@@ -48,7 +48,7 @@ Examples
     /*
     ** Prediction for test data
     */
-    y_hat = lrPredict(mdl, X_test);
+    y_hat = lmPredict(mdl, X_test);
 
     // Compute and print MSE
     test_mse = meanSquaredError(y_test, y_hat);

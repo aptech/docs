@@ -73,7 +73,7 @@ Continuing with our example, we can make test predictions like this:
     /*
     ** Prediction for test data
     */
-    y_hat = lrPredict(mdl, X_test);
+    y_hat = lmPredict(mdl, X_test);
 
 
 After the above code, *y_hat* will be a matrix with the same number of observations as *y_test*. However, it will have one column for each value of lambda used in the estimation.
@@ -102,4 +102,4 @@ Each variable (column of *X*) is centered to have a mean of 0 and scaled to have
 
 
 
-.. seealso:: :func:`lassoFit`, :func:`lrpredict`, :func:`plotlr`
+.. seealso:: :func:`lassoFit`, :func:`lmpredict`, :func:`plotlr`

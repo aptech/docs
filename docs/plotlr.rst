@@ -43,7 +43,7 @@ Examples
       /*
       ** Prediction for test data
       */
-      y_hat = lrPredict(mdl, X_test);
+      y_hat = lmPredict(mdl, X_test);
 
       test_mse = meanSquaredError(y_test, y_hat);
 
@@ -58,4 +58,4 @@ This results in the following plot:
     :scale: 50%
 
 
-.. seealso:: Functions :func:`lrPredict`, :func:`lassoFit`, :func:`ridgeFit`
+.. seealso:: Functions :func:`lmPredict`, :func:`lassoFit`, :func:`ridgeFit`

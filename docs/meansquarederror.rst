@@ -67,7 +67,7 @@ MSE for multiple Lasso predictions
     mdl = lassoFit(lpsa_train, X_train, ctl);
    
     // Make predictions on test set
-    lpsa_pred = lrPredict(mdl, X_test);
+    lpsa_pred = lmPredict(mdl, X_test);
    
     // Compute MSE for test predictions
     test_mse = meanSquaredError(lpsa_test, lpsa_pred);
