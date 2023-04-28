@@ -20,7 +20,7 @@ Format
         .. csv-table::
             :widths: auto
 
-            "dfc.numTrees", "Scalar, number of trees (must be integer). Default = 100"
+            "dfc.numTrees", "Scalar, number of trees (must be integer). Default = 100."
             "dfc.pctObsPerTree", "Scalar, the percentage of observations selected for each tree (sampling with replacement). Valid range: 0.0 < ``pctObsPerTree`` <= 1.0. Default = 1.0."
             "dfc.featuresPerSplit", "Scalar, number of features considered as possible splits at each node. Default = nvars/3."
             "dfc.maxTreeDepth", "Scalar integer value, maximum tree depth. Default = 0 = unlimited."
@@ -30,9 +30,9 @@ Format
             "dfc.oobError", "Scalar, 1 to compute OOB error, 0 otherwise. Default = 0."
             "dfc.variableImportanceMethod", "Scalar, method of calculating variable importance.
 
-                                           * 0 = none.
+                                           * 0 = none,
                                            * 1 = mean decrease in impurity (Gini importance),
- .                                         * 2 = mean decrease in accuracy (MDA).
+                                           * 2 = mean decrease in accuracy (MDA),
                                            * 3 = scaled MDA.
 
                                            Default = 0."

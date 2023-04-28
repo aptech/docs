@@ -31,7 +31,7 @@ Format
             "dfc.variableImportanceMethod", "Scalar, method of calculating variable importance.
 
                                            * 0 = none,
-                                           * 1 = mean decrease in impurity (Gini importance)
+                                           * 1 = mean decrease in impurity (Gini importance),
                                            * 2 = mean decrease in accuracy (MDA),
                                            * 3 = scaled MDA.
 
