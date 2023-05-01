@@ -16,7 +16,7 @@ Format
     :type X: NxP matrix, or string array.
 
     :return y_hat: The predicted classes.
-    :rtype y_hat:  Nx1 vector, or string array.
+    :rtype y_hat:  Nx1 vector, or dataframe.
 
 Examples
 -------------
@@ -73,17 +73,6 @@ The above code will print the following output:
     ===========================================================================
    
     KNN Classification Prediction Frequencies:
-    =============================================
-   
-         Label      Count   Total %    Cum. %
-        setosa         14     31.11     31.11
-    versicolor         19     42.22     73.33
-     virginica         12     26.67       100
-         Total         45       100          
-   
-    =============================================
-   
-    Observed Test Data Frequencies:
     =============================================
    
          Label      Count   Total %    Cum. %
