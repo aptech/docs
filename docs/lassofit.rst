@@ -41,6 +41,7 @@ Format
             "mdl.mse_train","(*nlambdas x 1 vector*) The mean squared error for each set of parameters, computed on the training set."
             "mdl.lambda","(*nlambdas x 1 vector*) The *lambda* values used in the estimation."
             "mdl.df","(*nlambdas x 1 vector*) The degrees of freedom for each estimated model."
+            "mdl.AICc","(*nlambdas x 1 vector*) The corrected AIC (AICC) for the fitted model."
 
     :rtype mdl: struct
 
