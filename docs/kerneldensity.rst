@@ -177,7 +177,10 @@ Modifying plot with custom plotControl setting function
   // Basic example of kernel density plot customization
   proc (1) = myPlotCustomizations(struct plotControl myPlot);
 
-    //Make all lines 2px thick
+    // Set size for graph canvas
+    plotCanvasSize("px", 800|600);
+
+    // Turn on and style major grid lines 
     plotSetGridPen(&myPlot, "major", 1, "dimgray", 2);
 
     //Return modified plotControl structure
