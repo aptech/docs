@@ -6,6 +6,7 @@ The following is a list of changes from the previous version of GAUSS.
 
 23.0.4
 ------
+
 #. Bug Fix: :func:`loadd` could fail to load a csv file if some particular sections ended with multiple missing values.
 #. Bug Fix: :func:`loadd` would fail to load ``.gdat`` files if a formula string transformed a numeric variable to categorical or string.
 #. Bug Fix: :func:`saved` would report an error if saving a dataset with only numeric variables.
