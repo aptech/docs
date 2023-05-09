@@ -21,16 +21,17 @@ Format
             :widths: auto
 
             "dfc.numTrees", "Scalar, number of trees (must be integer). Default = 100."
-            "dfc.obsPerTree", "Scalar, the percentage of observations selected for each tree (sampling with replacement). Valid range: 0.0 < ``obsPerTree`` <= 1.0. Default = 1.0."
-            "dfc.featuresPerNode", "Scalar integer value, number of features considered at each node. Default = sqrt(nvars)."
+            "dfc.pctObsPerTree", "Scalar, the percentage of observations selected for each tree (sampling with replacement). Valid range: 0.0 < ``pctObsPerTree`` <= 1.0. Default = 1.0."
+            "dfc.featuresPerSplit", "Scalar integer value, number of features considered as a possible split at each node. Default = sqrt(nvars)."
             "dfc.maxTreeDepth", "Scalar integer value, maximum tree depth. Default = 0 = unlimited."
-            "dfc.minObsNode", "Scalar integer value, minimum observations per leaf node.  Default = 1."
+            "dfc.maxLeafNodes", "Scalar integer value, maximum number of leaves in each tree. Setting this to a positive integer value will cause the tree to be built by making the best possible splits first, instead of growing the trees in a depth first fashion.  Default = 0 = unlimited."
+            "dfc.minObsLeaf", "Scalar integer value, minimum observations per leaf node.  Default = 1."
             "dfc.impurityThreshold", "Scalar, if the impurity value at a particular node is below this value, it will no longer be split. Default = 0.0."
             "dfc.oobError", "Scalar, 1 to compute OOB error, 0 otherwise. Default = 0."
             "dfc.variableImportanceMethod", "Scalar, method of calculating variable importance.
 
                                            * 0 = none,
-                                           * 1 = mean decrease in impurity
+                                           * 1 = mean decrease in impurity (Gini importance),
                                            * 2 = mean decrease in accuracy (MDA),
                                            * 3 = scaled MDA.
 
@@ -80,37 +81,41 @@ Examples
     df_mdl = decForestCFit(y_train, X_train);
 
     // Make predictions on the test set, from our trained model
-    // Note that the y_test is optional
-    y_hat = decForestPredict(df_mdl, X_test, y_test);
+    y_hat = decForestPredict(df_mdl, X_test);
+
+    // Print classification quality report
+    call classificationMetrics(y_hat, y_test);
 
 The code above will print the following output:
 
 ::
 
-  ======================================================================
-  Model:              Decision Forest         Target variable:     class
-  Number Observations:            489         Number features:         9
-  Number of trees:                100           Obs. per Tree:      100%
-  Min. Obs. Per Node:               1     Impurity Threshhold:         0
-  ======================================================================
+    ======================================================================
+    Model:              Decision Forest         Target variable:     class
+    Number Observations:            489         Number features:         9
+    Number of trees:                100           Obs. per Tree:      100%
+    Min. Obs. Per Node:               1     Impurity Threshhold:         0
+    ======================================================================
+   
+   
+    ========================================================================
+    Prediction Model:      DF Classification     Target variable:     class
+    Number Predictions:                  210     Number features:         9
+    ========================================================================
+   
+    ===================================================
+                                 Classification metrics
+    ===================================================
+           Class   Precision  Recall  F1-score  Support
+   
+               0        0.99    0.99      0.99      155
+               1        0.96    0.98      0.97       55
+   
+       Macro avg        0.98    0.98      0.98      210
+    Weighted avg        0.99    0.99      0.99      210
+   
+        Accuracy                          0.99      210
 
-  ========================================================================
-  Prediction Model:      DF Classification     Target variable:     class
-  Number Predictions:                  210     Number features:         9
-  ========================================================================
-
-              Confusion matrix
-              ----------------
-
-      Class +       54       2
-      Class -        1     153
-
-     Accuracy           0.9857
-    Precision           0.9643
-       Recall           0.9818
-      F-score            0.973
-  Specificity           0.9871
-          AUC           0.9845
 
 Remarks
 --------------------

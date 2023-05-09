@@ -20,17 +20,18 @@ Format
         .. csv-table::
             :widths: auto
 
-            "dfc.numTrees", "Scalar, number of trees (must be integer). Default = 100"
-            "dfc.obsPerTree", "Scalar, the percentage of observations selected for each tree (sampling with replacement). Valid range: 0.0 < ``obsPerTree`` <= 1.0. Default = 1.0."
-            "dfc.featuresPerNode", "Scalar, number of features considered at each node. Default = nvars/3."
+            "dfc.numTrees", "Scalar, number of trees (must be integer). Default = 100."
+            "dfc.pctObsPerTree", "Scalar, the percentage of observations selected for each tree (sampling with replacement). Valid range: 0.0 < ``pctObsPerTree`` <= 1.0. Default = 1.0."
+            "dfc.featuresPerSplit", "Scalar, number of features considered as possible splits at each node. Default = nvars/3."
             "dfc.maxTreeDepth", "Scalar integer value, maximum tree depth. Default = 0 = unlimited."
-            "dfc.minObsNode", "Scalar integer value, minimum observations per leaf node.  Default = 1."
+            "dfc.maxLeafNodes", "Scalar integer value, maximum number of leaves in each tree. Setting this to a positive integer value will cause the tree to be built by making the best possible splits first, instead of growing the trees in a depth first fashion.  Default = 0 = unlimited."
+            "dfc.minObsLeaf", "Scalar integer value, minimum observations per leaf node.  Default = 5."
             "dfc.impurityThreshold", "Scalar, if the impurity value at a particular node is below this value, it will no longer be split. Default = 0.0."
             "dfc.oobError", "Scalar, 1 to compute OOB error, 0 otherwise. Default = 0."
             "dfc.variableImportanceMethod", "Scalar, method of calculating variable importance.
 
                                            * 0 = none,
-                                           * 1 = mean decrease in impurity
+                                           * 1 = mean decrease in impurity (Gini importance),
                                            * 2 = mean decrease in accuracy (MDA),
                                            * 3 = scaled MDA.
 

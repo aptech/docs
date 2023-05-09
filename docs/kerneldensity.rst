@@ -157,8 +157,8 @@ Basic usage with multiple series
 .. figure:: _static/images/kerneldensity4b.jpg
    :scale: 50 %
 
-Modifying plot with plotControl pointer
-++++++++++++++++++++++++++++++++++++++++
+Modifying plot with custom plotControl setting function 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -170,12 +170,17 @@ Modifying plot with plotControl pointer
   struct kernelDensityControl kctl;
   kctl = kernelDensityControlCreate();
 
+  // The ampersand (&) in front of the function
+  // name makes it a pointer to the function
   kctl.plotFunctionPtr = &myPlotCustomizations;
 
-  // Basic example of cmlmtKerneldensity plot customization
+  // Basic example of kernel density plot customization
   proc (1) = myPlotCustomizations(struct plotControl myPlot);
 
-    //Make all lines 2px thick
+    // Set size for graph canvas
+    plotCanvasSize("px", 800|600);
+
+    // Turn on and style major grid lines 
     plotSetGridPen(&myPlot, "major", 1, "dimgray", 2);
 
     //Return modified plotControl structure
@@ -196,3 +201,10 @@ Modifying plot with plotControl pointer
 
 .. figure:: _static/images/kerneldensity5.jpg
    :scale: 50 %
+
+
+Remarks
+-------------
+#. The x axis label will be set to the name of the column of the dataframe passed to :func:`kerneldensity`. Use :func:`setcolnames` to modify the name of the variable
+
+

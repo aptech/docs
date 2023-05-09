@@ -49,7 +49,7 @@ Example 1: Basic Estimation and Prediction
 
     // Split data into training sets without shuffling
     shuffle = "False";
-    { y_train, y_test, x_train, x_test } = trainTestSplit(fname, "LC50 ~ . ", 0.7, shuffle);
+    { y_train, y_test, X_train, X_test } = trainTestSplit(fname, "LC50 ~ . ", 0.7, shuffle);
 
     // Declare 'mdl' to be an instance of a
     // ridgeModel structure to hold the estimation results
@@ -73,7 +73,7 @@ Continuing with our example, we can make test predictions like this:
     /*
     ** Prediction for test data
     */
-    { y_hat, test_mse } = lrPredict(mdl, x_test, y_test);
+    y_hat = lmPredict(mdl, X_test);
 
 
 After the above code, *y_hat* will be a matrix with the same number of observations as *y_test*. However, it will have one column for each value of lambda used in the estimation.
@@ -82,6 +82,8 @@ To plot the paths of the coefficients and the MSE, we can use the :func:`plotLR`
 
 ::
 
+    test_mse = meanSquaredError(y_test, y_hat);
+
     /*
     ** Plot results
     */
@@ -89,7 +91,7 @@ To plot the paths of the coefficients and the MSE, we can use the :func:`plotLR`
 
 This results in the following plot:
 
-.. figure:: _static/images/ridgefit.png
+.. figure:: _static/images/ridgefit.jpg
     :scale: 50%
 
 Remarks
@@ -100,4 +102,4 @@ Each variable (column of *X*) is centered to have a mean of 0 and scaled to have
 
 
 
-.. seealso:: :func:`lassoFit`, :func:`lrpredict`, :func:`plotlr`
+.. seealso:: :func:`lassoFit`, :func:`lmpredict`, :func:`plotlr`

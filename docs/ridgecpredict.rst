@@ -8,7 +8,7 @@ Predicts responses using the output from :func:`ridgeCFit` and matrix of indepen
 Format
 -------------------
 
-.. function:: predictions = ridgeCPredict(mdl, x_test, [, y_test])
+.. function:: predictions = ridgeCPredict(mdl, x_test)
 
     :return mdl: An instance of a :class:`ridgeModel` structure. An instance named *mdl* will have the following members:
 
@@ -24,9 +24,6 @@ Format
 
     :param x_test: The independent variables.
     :type x_test: NxP matrix
-
-    :param y_test: Optional, the test target, or dependent variable. If included model diagnostics will be computed.
-    :type y_test: Nx1 vector
 
     :return predictions: The predictions.
     :rtype predictions: Nx1 numeric or string vector
@@ -62,31 +59,75 @@ Examples
     struct ridgeModel mdl;
 
     // Set lambda vector
-    lambda = seqm(90, 0.8, 60);
+    lambda = seqm(90, 0.4, 5);
 
     // Train the ridge classifier with default settings
     mdl = ridgeCFit(y_train, X_train, lambda);
 
     // Make predictions on the test set, from our trained model
-    y_hat = ridgeCPredict(mdl, X_test, y_test);
+    y_hat = ridgeCPredict(mdl, X_test);
 
+    // Assess model quality
+    print "";
+    print "Classification metrics for lambda = "$+ntos(lambda[2]);
+    call classificationMetrics(y_test, y_hat[.,2]);
+   
+    print "";
+    print "Classification metrics for lambda = "$+ntos(lambda[4]);
+    call classificationMetrics(y_test, y_hat[.,4]);
 
 The code above will print the following output:
 
 ::
 
-                 Confusion matrix
-                 ----------------
+    ===========================================================================
+    Model:                        Ridge     Target Variable:              class
+    Number observations:            478     Number features:                  9
+    ===========================================================================
+    
+    ======================================================================
+                  Lambda   90.0000   36.0000   14.4000    5.7600    2.3040
+    ======================================================================
+    
+             clump_thick    0.0026    0.0059    0.0124    0.0225    0.0344
+             c_size_unif    0.0027    0.0061    0.0127    0.0219    0.0306
+            c_shape_unif    0.0028    0.0063    0.0131    0.0228    0.0323
+           marg_adhesion    0.0024    0.0055    0.0113    0.0192    0.0258
+         single_epi_size    0.0032    0.0073    0.0149    0.0252    0.0337
+             bare_nuclei    0.0023    0.0053    0.0112    0.0208    0.0332
+         bland_chromatin    0.0031    0.0071    0.0147    0.0257    0.0369
+        normal_nulcleoli    0.0024    0.0055    0.0113    0.0195    0.0275
+                 mitosis    0.0023    0.0052    0.0102    0.0159    0.0175
+                  CONST.   -0.3833   -0.4783   -0.6586   -0.9190   -1.1786
+    ======================================================================
+            Training MSE     0.818     0.714     0.542     0.349     0.221
+    
+    Classification metrics for lambda = 36
+    ===================================================
+                                 Classification metrics
+    ===================================================
+           Class   Precision  Recall  F1-score  Support
+    
+               0        0.65    1.00      0.79      131
+               1        1.00    0.04      0.08       74
+    
+       Macro avg        0.82    0.52      0.43      205
+    Weighted avg        0.78    0.65      0.53      205
+    
+        Accuracy                          0.65      205
+    
+    Classification metrics for lambda = 5.76
+    ===================================================
+                                 Classification metrics
+    ===================================================
+           Class   Precision  Recall  F1-score  Support
+    
+               0        0.92    0.98      0.95      131
+               1        0.97    0.85      0.91       74
+    
+       Macro avg        0.95    0.92      0.93      205
+    Weighted avg        0.94    0.94      0.94      205
+    
+        Accuracy                          0.94      205
 
-      Class +         40      34
-      Class -         62      69
-
-       Accuracy           0.5317
-      Precision           0.5405
-         Recall           0.3922
-        F-score           0.4545
-    Specificity           0.6699
-            AUC            0.531
-
-
-.. seealso:: :func:`ridgeCFit`, :func:`ridgeFit`
+.. seealso:: :func:`ridgecfit`, :func:`ridgeFit`

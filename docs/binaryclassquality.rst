@@ -124,7 +124,48 @@ which will print the following output in addition to the standard report:
     F-score  =       0.85714287
 
 
-Example 2: String class labels
+Example 2: Dataframe inputs
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+      new;
+      library gml;
+
+      // Strings
+      string true_label = { "cat", "cat", "dog", "cat", "dog", "dog", "dog", "cat" };
+      string pred_label = { "cat", "cat", "dog", "cat", "dog", "cat", "dog", "cat" };
+
+      // Create dataframes
+      df_true = asDF(true_label, "Observed");
+      df_pred = asDF(pred_label, "Prediction");
+
+      call binaryClassMetrics(df_true, df_pred, "cat");
+
+After the above code, the following report will be printed:
+
+::
+
+    ==================================
+                      Confusion matrix
+    ==================================
+                       Predicted class
+                       ---------------
+                             +       -
+           True class
+           ----------
+              cat (+)        4       0
+              dog (-)        1       3
+  
+             Accuracy            0.875
+            Precision              0.8
+               Recall                1
+              F-score           0.8889
+          Specificity             0.75
+    Balanced Accuracy            0.875
+
+
+Example 3: String class labels
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
@@ -159,44 +200,4 @@ After the above code, the following report will be printed:
           Specificity                1
     Balanced Accuracy            0.875
 
-
-Example 3: Dataframe inputs
-++++++++++++++++++++++++++++++++++++++++++++++
-
-::
-
-      new;
-      library gml;
-
-      // Strings
-      string true_label = { "cat", "cat", "dog", "cat", "dog", "dog", "dog", "cat" };
-      string pred_label = { "cat", "cat", "dog", "cat", "dog", "cat", "dog", "cat" };
-
-      // Create dataframes
-      df_true = asDF(true_label, "Observed");
-      df_pred = asDF(pred_label, "Prediction");
-
-      call binaryClassMetrics(true_label, pred_label, "cat");
-
-After the above code, the following report will be printed:
-
-::
-
-    ==================================
-                      Confusion matrix
-    ==================================
-                       Predicted class
-                       ---------------
-                             +       -
-           True class
-           ----------
-              cat (+)        4       0
-              dog (-)        1       3
-  
-             Accuracy            0.875
-            Precision              0.8
-               Recall                1
-              F-score           0.8889
-          Specificity             0.75
-    Balanced Accuracy            0.875
 

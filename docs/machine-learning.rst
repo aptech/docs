@@ -6,6 +6,7 @@ Machine Learning
     :caption: Functions:
 
     binaryclassquality
+    classificationmetrics
     cvsplit
     decforestcfit
     decforestpredict

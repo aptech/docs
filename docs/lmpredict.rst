@@ -1,29 +1,23 @@
-lrPredict
+lmPredict
 ====================
 
 Purpose
 ----------------------
-Predict outcomes and computes MSE for test data from a linear Regression model.
+Predict outcomes for test data from a linear regression model.
 
 Format
 ----------------------
-.. function:: { predictions, mse_test } = lrPredict(mdl, X_test [, y_test])
+.. function:: predictions = lmPredict(mdl, X_test)
 
 
     :param mdl: Instance of a :class:`lassoModel` or :class:`ridgeModel` structure.
     :type mdl: struct
 
-    :param x_test: The test model features, or independent variables.
-    :type x_test: NxP matrix
-
-    :param y_test: Optional, the test target, or dependent variable. If included model diagnostics will be computed.
-    :type y_test: Nx1 vector
+    :param X_test: The test model features, or independent variables.
+    :type X_test: NxP matrix
 
     :return predictions: Contains one set of predictions for each lambda used for fitting the model.
     :rtype predictions: NxK matrix
-
-    :return mse_test: The mse on the test set for each lambda used for fitting the model.
-    :rtype mse_test: Kx1 vector
 
 
 Examples
@@ -39,7 +33,7 @@ Examples
 
     // Split data into training sets without shuffling
     shuffle = "False";
-    { y_train, y_test, x_train, x_test } = trainTestSplit(dataset, "LC50 ~ . ", 0.7, shuffle);
+    { y_train, y_test, X_train, X_test } = trainTestSplit(dataset, "LC50 ~ . ", 0.7, shuffle);
 
     // Declare 'mdl' to be an instance of a
     // lassoModel structure to hold the estimation results
@@ -54,7 +48,12 @@ Examples
     /*
     ** Prediction for test data
     */
-    { y_hat, test_mse } = lrPredict(mdl, x_test, y_test);
+    y_hat = lmPredict(mdl, X_test);
+
+    // Compute and print MSE
+    test_mse = meanSquaredError(y_test, y_hat);
+
+    sprintf("%20s%10.3f", "test_mse", test_mse');
 
 The above code will print the following:
 
@@ -64,11 +63,11 @@ The above code will print the following:
     Model:                        Lasso     Target Variable:               LC50
     Number observations:            636     Number features:                  6
     ===========================================================================
-    
+   
     ======================================================================
-                  Lamdba      0.00      0.01      0.05      0.15      0.30
+                  Lambda      0.00      0.01      0.05      0.15      0.30
     ======================================================================
-    
+   
                     CIC0    0.2609    0.2354    0.1331    0.0000    0.0000
                   SM1_DZ    1.2362    1.2020    1.0650    0.7872    0.4546
                   GATS1i   -0.6843   -0.6442   -0.4838   -0.1878    0.0000
@@ -80,8 +79,7 @@ The above code will print the following:
                       DF         5         5         5         3         1
          # Non-zero Vars         6         6         6         4         2
             Training MSE     0.933     0.933     0.946     1.033     1.225
-    ======================================================================
-             Testing MSE     0.839     0.844     0.880     1.012     1.230
+                test_mse     0.839     0.844     0.880     1.012     1.230
 
 
-.. seealso:: :func:`lassoFit`, :func:`ridgeFit`, :func:`plotLR`
+.. seealso:: :func:`lassoFit`, :func:`ridgeFit`, :func:`plotLR`, :func:`sprintf`
