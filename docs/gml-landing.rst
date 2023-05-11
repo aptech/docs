@@ -26,6 +26,7 @@ Commands
 :func:`lassoFit`                Fit a linear model with an L1 penalty.
 :func:`lmPredict`               Predict response using output from :func:`lassoFit`, :func:`ridgeFit`, or :func:`ridgeCFit` and matrix of independent variables.
 :func:`meanSquaredError`        Returns the mean squared error between two input vectors, or sets of vectors.
+:func:`oneHot`                  Returns a matrix of one-hot (indicator) variables from a vector or dataframe column.
 :func:`pcaFit`                  Performs principal component dimension reduction.
 :func:`pcaTransform`            Reduces the dimension of a matrix using principal component vectors previously returned by :func:`pcaFit`.
 :func:`pcaTransformInv`         Transforms a matrix back to the original feature space of the X which was input to :func:`pcaFit`.
@@ -55,6 +56,7 @@ Commands
    lassofit
    lmpredict
    meansquarederror
+   oneHot
    pcafit
    pcatransform
    pcatransforminv
