@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+24.0.0
+------
+
+#. New methods forward-fill and backward-fill added to :func:`impute`.
+
 23.0.3
 ------
 

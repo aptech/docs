@@ -21,6 +21,10 @@ Format
         .. list-table::
             :widths: auto
 
+            * - "bfill"
+              - Replace missing values with the next valid observation.
+            * - "ffill"
+              - Replace missing values with the most recent previous valid observation.
             * - "mean"
               - Replace missing values with the mean of the column (default).
             * - "median"
@@ -83,6 +87,9 @@ Format
 Examples
 ----------------
 
+Basic examples
++++++++++++++++
+
 ::
 
     // Create 3x3 matrix with a missing value
@@ -118,6 +125,67 @@ The above code will make the following assignments:
     x_mean    =    4    7    5
                    7    8    9
                   10   11    5.67
+
+
+Time series forward-fill example
+++++++++++++++++++++++++++++++++
+
+::
+
+    // Create a date sequence
+    dates = seqaposix("2023-01-01", 1, "months", 12);
+  
+    // Create a random normal sequence with missing values
+    rndseed 43243;
+    values = rndn(rows(dates), 1);
+  
+    values[3 5 7] = miss();
+  
+    // Combine variables into a dataframe
+    df = asdf(dates ~ values, "date", "value");
+  
+    print df;
+
+::
+
+            date            value
+      2023-01-01      -0.20449596
+      2023-02-01        1.8492699
+      2023-03-01                .
+      2023-04-01       0.35370459
+      2023-05-01                .
+      2023-06-01       -1.4505849
+      2023-07-01                .
+      2023-08-01      -0.70050827
+      2023-09-01       -1.5805357
+      2023-10-01       0.21287644
+      2023-11-01      -0.94837545
+      2023-12-01       0.38238763
+
+::
+
+    // Fill missing observations of the 'value' column
+    // with the most recent valid observation
+    df[.,"value"] = impute(df[.,"value"], "ffill");
+   
+    print df;
+
+::
+
+            date            value
+      2023-01-01      -0.20449596
+      2023-02-01        1.8492699
+      2023-03-01        1.8492699
+      2023-04-01       0.35370459
+      2023-05-01       0.35370459
+      2023-06-01       -1.4505849
+      2023-07-01       -1.4505849
+      2023-08-01      -0.70050827
+      2023-09-01       -1.5805357
+      2023-10-01       0.21287644
+      2023-11-01      -0.94837545
+      2023-12-01       0.38238763
+
 
 Remarks
 -------
