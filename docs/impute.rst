@@ -22,9 +22,9 @@ Format
             :widths: auto
 
             * - "bfill"
-              - Replace missing values with the next valid observation.
+              - Replace missing values with the next valid observation (backward fill).
             * - "ffill"
-              - Replace missing values with the most recent previous valid observation.
+              - Replace missing values with the most recent previous valid observation (forward fill).
             * - "mean"
               - Replace missing values with the mean of the column (default).
             * - "median"
