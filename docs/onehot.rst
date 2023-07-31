@@ -69,5 +69,6 @@ Remarks
 --------------------
 
 #. Each column will be asigned a variable name that is the original variable name (or ``X`` if the variable passed in is not a dataframe) plus an underscore and the category. Examples are shown above.
+#. If numeric data is passed to :func:`onehot`, one-hot vectors will be created for each unique value in the column. The function will not assume that intermediate numbers should be filled in. For example, a vector with the unique values 1, 2 and 4 would create a return matrix with 3 one-hot vectors.
 
 .. seealso:: Functions  :func:`design`, :func:`getcollabels`, :func:`recodecatlabels`
