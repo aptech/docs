@@ -83,7 +83,7 @@ Examples
     call classificationMetrics(y_test, y_hat);
 
 
-    The above code will print the following output:
+The above code will print the following output:
 
 ::
 
@@ -129,4 +129,5 @@ Examples
    
         Accuracy                          0.96       45
 
-.. seealso:: :func:`knnClassify`, func:`plotClasses`
+
+.. seealso:: :func:`knnClassify`, :func:`plotClasses`

@@ -56,7 +56,7 @@ Commands
    lassofit
    lmpredict
    meansquarederror
-   oneHot
+   onehot
    pcafit
    pcatransform
    pcatransforminv

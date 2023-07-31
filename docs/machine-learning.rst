@@ -16,9 +16,13 @@ Machine Learning
     knnfit
     knnclassify
     lassofit
+    lmpredict
+    meansquarederror
+    onehot
     pcafit
     pcatransform
     pcatransforminv
+    ridgecfit
     ridgefit
     splitdata
     traintestsplit
