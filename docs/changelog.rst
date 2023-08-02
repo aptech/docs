@@ -8,6 +8,7 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. New methods forward-fill and backward-fill added to :func:`impute`.
+#. Speed increase for :func:`packr` for column vectors.
 
 23.0.3
 ------
