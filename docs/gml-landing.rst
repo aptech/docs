@@ -25,6 +25,7 @@ Commands
 :func:`knnClassify`             Creates nearest neighbor predictions.
 :func:`lassoFit`                Fit a linear model with an L1 penalty.
 :func:`lmPredict`               Predict response using output from :func:`lassoFit`, :func:`ridgeFit`, or :func:`ridgeCFit` and matrix of independent variables.
+:func:`logisticRegFit`          Fit a logistic regression model with an optional L1 and/or L2 penalty.   
 :func:`meanSquaredError`        Returns the mean squared error between two input vectors, or sets of vectors.
 :func:`oneHot`                  Returns a matrix of one-hot (indicator) variables from a vector or dataframe column.
 :func:`pcaFit`                  Performs principal component dimension reduction.
@@ -55,6 +56,7 @@ Commands
    knnclassify
    lassofit
    lmpredict
+   logisticregfit
    meansquarederror
    onehot
    pcafit
