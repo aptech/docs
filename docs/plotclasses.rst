@@ -1,5 +1,5 @@
 
-plotclasses
+plotClasses
 ==============================================
 
 Purpose
