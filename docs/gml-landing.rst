@@ -60,7 +60,7 @@ Commands
    pcafit
    pcatransform
    pcatransforminv
-   plotClasses
+   plotclasses
    plotlr
    ridgecfit
    ridgecpredict
