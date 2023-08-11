@@ -9,7 +9,7 @@ The following is a list of changes from the previous version of GAUSS.
 
 #. New function :func:`dfLonger` converts wide form panel data to long form panel data.
 #. New methods forward-fill and backward-fill added to :func:`impute`.
-#. Speed increase for :func:`packr` for column vectors.
+#. Speed increase for :func:`packr` with large column vectors.
 #. Bug Fix: Loading data with :func:`loadd` from a ``.gdat`` file with certain formula strings would fail with an "arguments not conformable error".
 
 23.0.3
