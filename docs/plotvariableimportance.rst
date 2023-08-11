@@ -9,7 +9,7 @@ Plots variable importance table after decision forest regression.
 
 Format
 ----------------
-.. function:: plotVariableImportance(dfm);
+.. function:: plotVariableImportance(dfm)
 
     :param dfm: A filled instance of the :class:`dfModel` structure. 
     :type dfm: Struct
