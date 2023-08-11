@@ -22,6 +22,9 @@ Machine Learning
     pcafit
     pcatransform
     pcatransforminv
+    plotclasses
+    plotlr
+    plotvariableimportance
     ridgecfit
     ridgefit
     splitdata
