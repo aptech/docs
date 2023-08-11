@@ -62,10 +62,5 @@ Examples
  */
  plotClasses(X_test[., 1:2], test_clusters);
 
-This results in the following plot:
-
- .. figure:: _static/images/plotscatter.png
-     :scale: 50%
-
 
 .. seealso:: Functions :func:`plotScatter`

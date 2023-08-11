@@ -53,7 +53,6 @@ Examples
   /*
   ** Set up plot of variable importance
   */
-  plotCanvasSize("px", 800|600);
   plotVariableImportance(out);
 
 .. seealso:: Functions :func:`decForestRFit`
