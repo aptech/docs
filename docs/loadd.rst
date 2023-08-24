@@ -9,7 +9,7 @@ GAUSS Matrix (fmt), GAUSS Dataset (dat), Stata (dta), and SAS (sas7bdat, sas7bca
 
 Format
 ----------------
-.. function:: y = loadd(dataset[, varnames])
+.. function:: y = loadd(dataset[, varnames, ld_ctl])
 
     :param dataset: filepath to the dataset on disk, URL, or existing dataframe.
     
@@ -29,6 +29,43 @@ Format
 
     :type varnames: string
 
+    :param ld_ctl: Optional input. instance of the :class:`loadFileControl` structure containing the following members:
+
+        .. list-table::
+            :widths: auto
+
+            * - ctl.header_row
+              - scalar, number of header row which contains variable names. Default = 1.
+
+            * - ctl.row_range.first
+              - scalar, first row to start loading data from. Default = row after header.
+
+            * - ctl.row_range.last
+              - scalar, last row to load data from. Default = last row of file.
+
+            * - ctl.missing_vals_str
+              - string array, specifies values that should be treated as missing upon import. Default = ``"."`` and ``" "``.
+            
+            * - ctl.clusterVar
+              - string, name of cluster group variable. Only valid if dataset and formula is specified.
+              
+            * - ctl.load_intercept
+              - scalar, indicator to load an intercept column with the data. Default = 0.
+
+            * - ctl.expand_categories
+              - scalar, indicator to expand categorical variables as dummy variables. Default = 0.
+
+            * - ctl.csv.delimiter
+              - string, specifies the delimiter used in .csv files. Default = ``","``.
+
+            * - ctl.csv.quotechar
+              - string, tells GAUSS which text should be treated as a quote mark. Default = ``""``.
+            
+            * - ctl.xls.sheet
+              - scalar, Excel sheet number to be loaded. Default = 1.
+
+    :type ctl: struct
+    
     :return y: data.
 
     :rtype y: NxK matrix
@@ -184,6 +221,81 @@ After the above code,
     January 01, 2014
     January 01, 2013
     January 01, 2012
+
+Use `loadfileControl` structure for advanced loading options.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome("examples/housing.csv");
+
+    // Pass the loadFileControl structure as the final input
+    // Note the use of the '.' operator to note that all variables should be loaded
+    housing_full = loadd(dataset, ".");
+    
+The first five rows of ``housing_full`` are:
+
+::
+
+           taxes             beds            baths              new            price             size 
+       3104.0000        4.0000000        2.0000000        0.0000000        279.90000        2048.0000 
+       1173.0000        2.0000000        1.0000000        0.0000000        146.50000        912.00000 
+       3076.0000        4.0000000        2.0000000        0.0000000        237.70000        1654.0000 
+       1608.0000        3.0000000        2.0000000        0.0000000        200.00000        2068.0000 
+       1454.0000        3.0000000        3.0000000        0.0000000        159.90000        1477.0000 
+       
+The last five rows of the ``housing_full`` are:
+
+::
+
+           taxes             beds            baths              new            price             size 
+       990.00000        2.0000000        2.0000000        0.0000000        176.00000        1060.0000 
+       3030.0000        3.0000000        2.0000000        0.0000000        196.50000        1730.0000 
+       1580.0000        3.0000000        2.0000000        0.0000000        132.20000        1370.0000 
+       1770.0000        3.0000000        2.0000000        0.0000000        88.400000        1560.0000 
+       1430.0000        3.0000000        2.0000000        0.0000000        127.20000        1340.0000 
+       
+Now we will only load rows 9 through 21:
+
+::
+
+    // 1. Declare ld_ctl to be an instance of a 'loadFileControl' structure
+    struct loadFileControl ld_ctl;
+
+    // 2. Fill 'ld_ctl' with default settings
+    ld_ctl = loadFileControlCreate();
+
+    // 3. Change the row range to load rows 9-21
+    ld_ctl.row_range.first = 9;
+    ld_ctl.row_range.last = 21;
+
+    // Pass the loadFileControl structure as the final input
+    // Note the use of the '.' operator to note that all variables should be loaded
+    housing_short = loadd(dataset, ".", ld_ctl);
+
+After the above code, last five rows of the ``housing_short`` are:
+
+::
+
+           taxes             beds            baths              new            price             size 
+       3002.0000        3.0000000        2.0000000        1.0000000        289.90000        2075.0000 
+       6627.0000        5.0000000        4.0000000        0.0000000        587.00000        3990.0000 
+       320.00000        3.0000000        2.0000000        0.0000000        70.000000        1160.0000 
+       630.00000        3.0000000        2.0000000        0.0000000        64.500000        1220.0000 
+       1780.0000        3.0000000        2.0000000        0.0000000        167.00000        1690.0000 
+
+The last five rows of ``housing_short`` are:
+
+::
+
+           taxes             beds            baths              new            price             size 
+       590.00000        2.0000000        1.0000000        0.0000000        70.000000        770.00000 
+       1050.0000        3.0000000        2.0000000        0.0000000        85.000000        1410.0000 
+       20.000000        3.0000000        1.0000000        0.0000000        22.500000        1060.0000 
+       870.00000        2.0000000        2.0000000        0.0000000        90.000000        1300.0000 
+       1320.0000        3.0000000        2.0000000        0.0000000        133.00000        1500.0000 
+
 
 Remarks
 -------
