@@ -9,7 +9,7 @@ Plots classes after classification.
 
 Format
 ----------------
-.. function:: plotClasses(data, label [, myplot]);
+.. function:: plotClasses(data, label [, myplot])
 
     :param data: First column is x-axis, the second is y-axis.
     :type data: Nx2 matrix
