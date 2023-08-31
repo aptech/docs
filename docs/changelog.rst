@@ -7,10 +7,13 @@ The following is a list of changes from the previous version of GAUSS.
 24.0.0
 ------
 
-#. New function :func:`dfLonger` converts wide form panel data to long form panel data.
+#. New functions :func:`dfLonger` and :func:`dfWider` convert between wide and long form panel data.
 #. New methods forward-fill and backward-fill added to :func:`impute`.
 #. Speed increase for :func:`packr` with large column vectors.
+#. Bug Fix: :func:`sprintf` could cause a crash in certain cases with very large floating point numbers.
+#. Bug Fix:  :func:`svdusv` could have a memory leak in certain situations.
 #. Bug Fix: Loading data with :func:`loadd` from a ``.gdat`` file with certain formula strings would fail with an "arguments not conformable error".
+#. Bug Fix:  Copy-and-paste with the error widget open could cause a crash on Windows 11.
 
 23.0.3
 ------
