@@ -9,7 +9,7 @@ Converts a GAUSS dataframe in wide panel format to long panel format.
 
 Format
 ----------------
-.. function:: df_long = dfLonger(df_wide, columns, names_to, values_to [, ctl])
+.. function:: df_long = dfLonger(df_wide, columns, names_to, values_to [, pctl])
 
     :param df_wide: A GAUSS dataframe in wide panel format.
     :type df_wide: Dataframe
@@ -142,7 +142,7 @@ and setting the `names_prefix` member to *Class_*.
     pctl.names_prefix = "Cars_";
 
     // Call dfLonger with optional control structure
-    df_long = dfLonger(df_wide, columns, names_to, values_to, ctl);
+    df_long = dfLonger(df_wide, columns, names_to, values_to, pctl);
 
 
 This time, our *Class* variable will not contain the redundant prefix as we see below:
@@ -162,7 +162,7 @@ Example 3: Advanced options
 +++++++++++++++++++++++++++++++
 
 In this example, we will use the *names_sep_split* member of the :class:`pivotControl` structure to break up the
-variable names. We will also use the *names_types* memember to set the types for the newly created long form variables.
+variable names. We will also use the *names_types* member to set the types for the newly created long form variables.
 
 ::
 
