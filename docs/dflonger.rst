@@ -23,7 +23,7 @@ Format
     :param values_to: The name of the new column containing the values.
     :type values_to: String
 
-    :param pctl        An optional :class:`pivotControl` structure with the following members:
+    :param pctl: An optional :class:`pivotControl` structure with the following members:
 
         .. list-table::
             :widths: auto
