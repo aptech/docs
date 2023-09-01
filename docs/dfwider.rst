@@ -9,7 +9,7 @@ Converts a GAUSS dataframe in long panel format to wide panel format.
 
 Format
 ----------------
-.. function:: df_wide = dfWider(df_long, names_from, values_from [, ctl])
+.. function:: df_wide = dfWider(df_long, names_from, values_from [, pctl])
 
     :param df_long: A GAUSS dataframe in long panel format.
     :type df_long: Dataframe
@@ -20,7 +20,7 @@ Format
     :param values_from: The values with which to fill the newly created columns.
     :type values_from: String array
 
-    :param pctl
+    :param pctl: An optional pivotControl structure with the following members:
 
         .. list-table::
             :widths: auto
@@ -29,12 +29,10 @@ Format
               - String, the characters, if any, that should be added to the front of the newly created variable names.  Default = "", no prefix.
             * - pctl.names_sep_combine
               - String, the characters, if any, that should be added between the tokens when creating the new variable names. Default = "_".
-            * - pctl.values_drop_missing
-              - Scalar, 0 or 1. If set to 1, all rows with missing values will be removed. Default = 0.
             * - pctl.id_cols
               - String array, containing the names of the variables that should be used to determine a unique observation. Default = "", meaning the combination of all variables other than those specified by ``names_from`` and ``values_from`` will be used.
 
-    :type pctl: An optional pivotControl structure with the following members:
+    :type pctl: 
 
     :return df_wide: The input data converted to wide form.
 
@@ -131,7 +129,7 @@ variable, every observation is considered unique. This results in output that is
             73511         Pacific               .            2587
 
 
-  We can use the pivotControl structure to tell dfWider to only use the  ``region`` variable to uniquely identify the observations. And just to show you how it works, we'll also add a prefix to our new year variable names.
+We can use the pivotControl structure to tell dfWider to only use the  ``region`` variable to uniquely identify the observations. And just to show you how it works, we'll also add a prefix to our new year variable names.
 
 ::
 
