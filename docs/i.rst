@@ -19,6 +19,7 @@ I
     indnv
     indsav
     innerjoin
+    insertcols
     integrate1d
     integratecontrolcreate
     intgrat2
@@ -46,5 +47,6 @@ I
     ismember
     ismiss
     isrowunique
+    isstring
     isunique
     itos

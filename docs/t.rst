@@ -32,6 +32,7 @@ T
     token
     topolar
     trace
+    tracem
     trapchk
     trap
     trigamma

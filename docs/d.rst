@@ -102,6 +102,8 @@ D
     detl
     det
     dfappend
+    dflonger
+    dfwider
     dffti
     dfft
     dfname
