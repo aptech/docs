@@ -17,7 +17,7 @@ Format
     :param columns:  The columns that should be used in the conversion.
     :type columns: String array
 
-    :param names_to: The variable name(s) for the new column(s) containing the wide variable names.
+    :param names_to: Specifies the variable name(s) for the new column(s) created to store the wide variable names.
     :type names_to: String array
 
     :param values_to: The name of the new column containing the values.

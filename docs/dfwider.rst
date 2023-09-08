@@ -28,7 +28,7 @@ Format
             * - pctl.names_prefix
               - String, the characters, if any, that should be added to the front of the newly created variable names.  Default = "", no prefix.
             * - pctl.names_sep_combine
-              - String, the characters, if any, that should be added between the tokens when creating the new variable names. Default = "_".
+              - String, the characters, if any, that should be added between the tokens when creating the new variable names. Default = "_". NOTE: This can ONLY be used if `names_from` contains multiple variable names.
             * - pctl.id_cols
               - String array, containing the names of the variables that should be used to determine a unique observation. Default = "", meaning the combination of all variables other than those specified by ``names_from`` and ``values_from`` will be used.
 
