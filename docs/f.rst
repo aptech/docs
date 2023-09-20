@@ -19,6 +19,7 @@ F
     fgetsat
     fgets
     fgetst
+    fgls
     fileinfo
     filesa
     fix
