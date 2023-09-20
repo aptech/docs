@@ -142,6 +142,7 @@ D
     dummybr
     dummydn
     dummy
+    dwstat
     dynargscount
     dynargsget
     dynargstypes
