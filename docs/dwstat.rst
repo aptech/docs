@@ -1,5 +1,5 @@
 
-DWStat
+dwstat
 ==============================================
 
 Purpose
@@ -21,6 +21,7 @@ Examples
 ----------------
 
 ::
+
     // Generate random residuals
     rndseed 8098;
     resid = rndn(150, 1);
