@@ -30,13 +30,13 @@ Format
     :param indvars: Independent variable(s).
     :type indvars: NxK matrix or dataframe
     
-    :param method: Optional input, model for innovations covariance estimate.
+    :param method: Optional input, model for innovations covariance estimate, :math:`\hat{\Omega}`.
 
         .. csv-table::
             :widths: auto
 
             ``"CLM"``, :math:`\omega_i = \frac{1}{df}\sum_{i=1}^T \epsilon_i^2`
-            ``"AR"``,  Autoregressive with lags equal to ARlags. (Default).
+            ``"AR"``,  :math:`AR(1)` model. (Default)
             ``"HC0"``, :math:`\omega_i = \epsilon_i^2`
             ``"HC1"``, :math:`\omega_i = \frac{T}{df} \epsilon_i^2`
             ``"HC2"``, :math:`\omega_i = \frac{\epsilon_i^2}{1 - h_i}` 
@@ -56,10 +56,10 @@ Format
                 :1: a constant term will be added.
                 :0: no constant term will be added.
 
-            * - ctl.ARlags
-              - scalar, number of lags to use for autoregressive computation of :math:`\hat{\omega}`. Default = 1.
+            * - ctl.iters
+              - Scalar, number of iterations, default is two-stage FGLS.              
             * - ctl.omega0
-              - Matrix or vector, user-defined :math:`\hat{\omega}`, specified as a positive vector, positive semidefinite matrix, or a positive definite matrix. If provided, `method` is ignored and no data-driven :math:`\hat{\omega}` is computed.              
+              - Matrix or vector, user-defined :math:`\hat{\Omega}`, specified as a positive vector, positive semidefinite matrix, or a positive definite matrix. If provided, `method` is ignored and no data-driven :math:`\hat{\omega}` is computed.              
             * - ctl.miss
               - scalar, default 0.
 
@@ -70,17 +70,22 @@ Format
               - scalar, default 0.
 
                 :0: do not scale residuals.
-                :1: Scale residuals to truncate values at the 1 first and ninety-ninth percentiles.
+                :1: Scale residuals to truncate values at the first and ninety-ninth percentiles.
 
             * - ctl.mleAR
               - scalar, default 1.
 
-                If 0, internally created variable names are not padded to the same length (e.g. ``X1, X2,..., X10``). If 1, they are padded with zeros to the same length (e.g., ``X01, X02,..., X10``).
+                :0: Use OLS estimate of autoregressive parameters in innovation covariance matrix estimation.
+                :1: Use MLE estimate of autoregressive parameters in innovation covariance matrix estimation. 
+ 
+                Valid only if using ``"AR"`` method for computing innovation covariance matrix. 
+                    
             * - ctl.printOutput
               - scalar, default 1.
 
-                :1: print the statistics.
                 :0: do not print statistics.
+                :1: print the statistics.
+                
 
     :type ctl: struct
 
@@ -166,7 +171,7 @@ regression. The dependent variable is *rcoe*. The independent variable is *rcpi*
 ::
 
     Valid cases:                    248              Dependent variable:            rcpi
-    Total SS:                     0.027              Degrees of freedom:             245
+    Total SS:                     0.027              Degrees of freedom:             246
     R-squared:                    0.110              Rbar-squared:                 0.103
     Residual SS:                  0.024              Std error of est:             0.010
     F(1,245)                     30.329              Probability of F:             0.000
