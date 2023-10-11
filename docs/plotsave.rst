@@ -24,10 +24,10 @@ Format
     :param unit: Optional input, type of units dimension is specified in. This value is ignored if the filename extension is :file:`.plot`. Valid options include:
 
         ==== =============
-        "cm" Centimeters (Default)
+        "cm" Centimeters
         "mm" Millimeters
         "in" Inches
-        "px" Pixels
+        "px" Pixels (Default)
         ==== =============
 
     :type unit: string
