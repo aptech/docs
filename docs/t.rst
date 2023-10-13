@@ -6,6 +6,7 @@ T
     :caption: Functions:
 
     tab
+    tabulate
     tail
     tanh
     tan
