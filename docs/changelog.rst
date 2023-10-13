@@ -17,6 +17,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix:  :func:`svdusv` could have a memory leak in certain situations.
 #. Bug Fix: Loading data with :func:`loadd` from a ``.gdat`` file with certain formula strings would fail with an "arguments not conformable error".
 #. Bug Fix:  Copy-and-paste with the error widget open could cause a crash on Windows 11.
+#. Bug Fix: :func:`plotsave` could hang if the *unit* argument was not passed in. The *unit* argument now has a default value of "px".
 
 23.0.3
 ------
