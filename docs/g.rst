@@ -37,6 +37,7 @@ G
     gdawrite
     gdawritesome
     getarray
+    getcategories
     getcoldateformats
     getcollabels
     getcollabelvalues
