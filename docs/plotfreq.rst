@@ -19,6 +19,9 @@ Format
 
     :param column: Categorical variable to be plotted.
     :type column: scalar or string
+    
+    :param sort: Optional, indicator to sort from most frequent to least frequent categories. Set to 1 to sort. Default = 0.
+    :type column: scalar
 
 
 Examples

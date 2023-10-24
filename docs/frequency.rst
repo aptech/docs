@@ -16,6 +16,9 @@ Format
 
     :param varlist: Names or indices of variables to be counted. If names, should be entered as a formula string e.g `"rep78 + foreign"`
     :type varlist: Vector or string
+    
+    :param sort: Optional, indicator to sort from most frequent to least frequent categories. Set to 1 to sort. Default = 0.
+    :type sort: scalar
 
 
 Examples
