@@ -8,10 +8,12 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. New functions :func:`dfLonger` and :func:`dfWider` convert between wide and long form panel data.
-#. New convenience function :func:`insertcols` allows you to insert one or more new columns into a matrix or dataframe at a specified location.
-#. New function :func:`tracem` computes the trace of a matrix.
+#. New ability to compute descriptive statistics on a dataframe for each subset based on a categorical variable with :func:`dstatmt` and  the :class:`by` keyword.
 #. New function :func:`fgls` computes feasible GLS estimation with seven options for estimating the innovation covariance matrix.
 #. New function :func:`DWstat` computes the Durbin-Watson statistic from residuals. 
+#. New function :func:`tracem` computes the trace of a matrix.
+#. New convenience function :func:`insertcols` allows you to insert one or more new columns into a matrix or dataframe at a specified location.
+#. New function :func:`isStructType` checks whether a GAUSS variable is a structure of a specific type.
 #. New convenience function :func:`getCategories` returns category labels of categorical variable. 
 #. New convenience function :func:`dropCategory` removes a category from a dataframe and from the dataframe metadata.
 #. New convenience function :func:`isstring` returns a 1 if the input is a string or string array, otherwise 0.
