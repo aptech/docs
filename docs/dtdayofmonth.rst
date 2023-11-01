@@ -1,5 +1,5 @@
 
-dtdayofmonth
+dtDayofMonth
 ==============================================
 
 Purpose

@@ -1,5 +1,5 @@
 
-dtdayofyear
+dtDayofYear
 ==============================================
 
 Purpose

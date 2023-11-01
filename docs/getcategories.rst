@@ -1,5 +1,5 @@
 
-getcategories
+getCategories
 ==============================================
 
 Purpose
