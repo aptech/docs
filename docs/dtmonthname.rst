@@ -14,7 +14,7 @@ Format
     :param X: data with metadata.
     :type X: NxK Dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get quarters from.
+    :param columns: Optional, names or indices of the date variable in *X* to get months from.
     :type columns: Jx1 Vector or string array
 
     :param abbreviate: Optional, indicator variable to abbreviate months. Set to 1 to abbreviate names. Default = 0.

@@ -14,7 +14,7 @@ Format
     :param X: data with metadata.
     :type X: NxK Dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get quarters from.
+    :param columns: Optional, names or indices of the date variable in *X* to get years from.
     :type columns: Jx1 Vector or string array
 
     :return year: the numeric year components of the dates contained in the Jx1 columns specified by *columns*.

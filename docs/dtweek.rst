@@ -5,7 +5,7 @@ dtweek
 Purpose
 ----------------
 
-Extracts the week component from a date/time variable as a decimal number (0-53). Monday
+Extracts the week component from a date/time variable as a decimal number (1-53). Monday
 is first day of the week.
 
 Format
@@ -15,7 +15,7 @@ Format
     :param X: data with metadata.
     :type X: NxK Dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get quarters from.
+    :param columns: Optional, names or indices of the date variable in *X* to get weeks from.
     :type columns: Jx1 Vector or string array
     
     :return weeks: the week components of the dates contained in the Jx1 columns specified by *columns*.
@@ -112,11 +112,11 @@ The code above prints the following table:
       1986/12/01 
       
           Weeks:
-               0
-               0 
-               0 
-               0 
-               0 
+               1
+               1 
+               1 
+               1 
+               1 
 
               48 
               48 
