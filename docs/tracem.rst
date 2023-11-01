@@ -33,7 +33,7 @@ After the code above:
 
 ::
 
-    t=5
+    t = 5
 
 ::
 
