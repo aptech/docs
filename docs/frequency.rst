@@ -14,7 +14,10 @@ Format
     :param x: Data.
     :type x: NxK dataframe
 
-    :param varlist: Names or indices of variables to be counted. If names, should be entered as a formula string e.g `"rep78 + foreign"`
+    :param varlist: Names or indices of variables to be counted. If names, should be entered as a formula string e.g ``"rep78 + foreign"``. For two-way tables, 
+    the variable left of the `"~"` will be reported on rows and variables listed to the right of the 
+    table will be reported on columns. E.g ``"df ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df1"`` and ``"df2"``.
+    
     :type varlist: Vector or string
     
     :param sort: Optional, indicator to sort from most frequent to least frequent categories. Set to 1 to sort. Default = 0.

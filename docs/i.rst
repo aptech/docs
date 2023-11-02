@@ -48,5 +48,6 @@ I
     ismiss
     isrowunique
     isstring
+    isstructtype
     isunique
     itos
