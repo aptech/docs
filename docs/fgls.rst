@@ -148,13 +148,35 @@ Basic usage with matrices
     // Perform fgls regression and print report to the screen
     call fgls(y, x);
 
+The output for data matrices includes default variable names:
+
+::
+
+    Valid cases:                     50              Dependent variable:               Y
+    Total SS:                    48.078              Degrees of freedom:             046
+    R-squared:                    0.019              Rbar-squared:                -0.045
+    Residual SS:                 47.145              Std error of est:             1.012
+    F(3,46)                       0.303              Probability of F:             0.874
+    Dubin-Watson                  2.087                                                 
+
+
+  ------------------------------------------------------------------------------------
+                            Standard                    Prob                        
+      Variable   Estimates       Error     t-value        >|t|  [95% Conf.   Interval]
+  ------------------------------------------------------------------------------------
+
+    Constant     -0.0699       0.146      -0.478       0.635      -0.356       0.217 
+          X1       0.103       0.139       0.744       0.461      -0.169       0.376 
+          X2       0.166       0.183       0.906       0.370      -0.193       0.524 
+          X3     -0.0228       0.129      -0.177       0.860      -0.275       0.229
+  
 Basic usage with a dataframe and a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
     // Create string with the name and full file path of the dataset
-    dataset = getGAUSSHome() $+ "examples/df_returns.gdat";
+    dataset = getGAUSSHome("examples/df_returns.gdat");
 
     // Load dataset into dataframe
     data_df = loadd(dataset);
@@ -198,7 +220,7 @@ Changing method of innovation covariance estimation and storing results
     struct fglsOut fgls_out;
 
     // Create string with the name and full file path of the dataset
-    dataset = getGAUSSHome() $+ "examples/credit.dat";
+    dataset = getGAUSSHome("examples/credit.dat");
     
     // Load dataframe
     data_df = loadd(dataset);

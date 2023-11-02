@@ -84,7 +84,7 @@ After the above code:
     X_expand = insertcols(X, idx, const);
 
 
-Example 4: Add an indicator variable to a dataframe
+Example 3: Add an indicator variable to a dataframe
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this example we will create an indicator variable to show whether the original data in one of our columns contained a missing value or not. Then we will impute this value and insert the new column using a variable name as the index.

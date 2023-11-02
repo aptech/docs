@@ -17,7 +17,7 @@ Format
     :type data: NxK dataframe
 
     :param formula: formula string.
-        E.g ``"df ~ df2 + df3"``, ``df1`` categories will be reported in rows, separate columns will be returned for each category in ``df1`` and ``df2``.
+        E.g ``"df ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df1"`` and ``"df2"``.
 
     :type formula: string
 
