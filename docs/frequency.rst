@@ -54,4 +54,27 @@ This code prints the following tables:
     Foreign        22     29.73       100
       Total        74       100
 
-.. seealso:: Functions :func:`plotFreq`, :func:`plotHist`, :func:`plotHistP`, :func:`plotHistF`
+To create a two-way table, a variable is added on the LHS of the formula string:
+
+::
+
+    // Load data
+    tips2 = loadd(getGAUSSHome("examples/tips2.dta"));
+  
+    // Get two-way table of 'sex' vs. 'smoker'
+    frequency(tips2, "sex ~ smoker");
+    
+::
+
+      ========================================
+         sex               smoker       
+      ========================================
+                        No       Yes     Total
+
+
+      Female            55        33        88 
+      Male              99        60       159 
+
+      Total            154        93       247
+      
+.. seealso:: Functions :func:`plotFreq`, :func:`plotHist`, :func:`plotHistP`, :func:`plotHistF`, :func:`tabulate`
