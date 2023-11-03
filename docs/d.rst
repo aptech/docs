@@ -136,8 +136,10 @@ D
     dtdayofweek
     dtdayofyear
     dthour
+    dtmonth
     dtmonthname
     dtminute
+    dtquarter
     dtsecond
     dttime
     dttodtv
@@ -149,6 +151,7 @@ D
     dtvtodt
     dtvtoutc
     dtweek
+    dtyear
     dummybr
     dummydn
     dummy
