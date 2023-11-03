@@ -9,7 +9,7 @@ Generate frequency table.
 
 Format
 ----------------
-.. function:: frequency(x, varlist)
+.. function:: frequency(x, varlist [, sort])
 
     :param x: Data.
     :type x: NxK dataframe

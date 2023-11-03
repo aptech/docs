@@ -9,7 +9,7 @@ Generate frequency plot of categorical data.
 
 Format
 ----------------
-.. function:: plotFreq([myPlot, ] x, column)
+.. function:: plotFreq([myPlot, ] x, column [, sort])
 
     :param myPlot: Optional argument, a :class:`plotControl` structure.
     :type myPlot: struct
