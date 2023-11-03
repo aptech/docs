@@ -47,8 +47,8 @@ The code above prints the following table of original labels:
       Labels
 
         high
-        low
-        med
+         low
+         med
 
 Now, use :func:`dropCategory` to drop the high category and reprint labels.
 
@@ -70,8 +70,8 @@ The code above prints the following table of updated labels:
 
       Labels
 
-        low
-        med
+         low
+         med
 
 
 .. seealso:: Functions :func:`getColLabels`, :func:`getCategories`
