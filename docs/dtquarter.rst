@@ -45,6 +45,7 @@ Examples
 The code above prints the following table:
 
 ::
+
         Date 
       2016/01/01 
       2015/01/01 

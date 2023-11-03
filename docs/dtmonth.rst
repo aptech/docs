@@ -39,7 +39,7 @@ Examples
   tail(data[., "Date"]);
   
   // Print corresponding months
-  "Months:"
+      "Months:"
   head(months);
   tail(months);
 
