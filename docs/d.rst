@@ -131,6 +131,14 @@ D
     dstat
     dtdate
     dtday
+    dtdayname
+    dtdayofmonth
+    dtdayofweek
+    dtdayofyear
+    dthour
+    dtmonthname
+    dtminute
+    dtsecond
     dttime
     dttodtv
     dttoposix
@@ -140,6 +148,7 @@ D
     dtvnormal
     dtvtodt
     dtvtoutc
+    dtweek
     dummybr
     dummydn
     dummy
