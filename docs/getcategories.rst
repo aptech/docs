@@ -44,8 +44,8 @@ The code above prints the following table:
       Labels
 
         high
-        low
-        med
+         low
+         med
 
 .. seealso:: Functions :func:`getColLabels`
 
