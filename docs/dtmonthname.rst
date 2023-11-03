@@ -34,7 +34,7 @@ Examples
   data = loadd(fname);
 
   // Get month names for date column
-  month_names = dtMonthNames(data, "Date");
+  month_names = dtMonthName(data, "Date");
   
   // Print first five and last five
   // observations of dates
@@ -82,7 +82,7 @@ The abbreviated names can be obtained using the optional *abbreviate* input.
 ::
 
   // Get month names for date column
-  month_names = dtMonthNames(data, "Date");
+  month_names = dtMonthName(data, "Date", 1);
   
   // Print first five and last five
   // observations of dates
