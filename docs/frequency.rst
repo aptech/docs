@@ -27,6 +27,63 @@ Format
 Examples
 ----------------
 
+Single one-way table
++++++++++++++++++++++
+
+The simplest use of :func:`frequency` is a single one-way table:
+
+::
+
+  // Load data
+  fname = getGAUSSHome $+ "examples/auto2.dta";
+  auto2 = loadd(fname);
+
+  // Create frequency table for the 'rep78' variable in 'auto2'
+  frequency(auto2, "rep78");
+
+This code prints the following tables:
+
+::
+
+      Label     Count   Total %    Cum. %
+       Poor         2     2.899     2.899
+       Fair         8     11.59     14.49
+    Average        30     43.48     57.97
+       Good        18     26.09     84.06
+  Excellent        11     15.94       100
+      Total        69       100
+
+Sorted one-way tables
+++++++++++++++++++++++
+
+The one-way table can be sorted from most frequent to least frequent category using the optional *sort* input:
+
+::
+
+  // Indicator for sorting
+  sort = 1;
+  
+  // Create frequency table for the 'rep78' variable in 'auto2'
+  frequency(auto2, "rep78", sort);
+
+This code prints the following tables:
+
+::
+
+       Label      Count   Total %    Cum. % 
+     Average         30     43.48     43.48 
+        Good         18     26.09     69.57 
+   Excellent         11     15.94     85.51 
+        Fair          8     11.59      97.1 
+        Poor          2     2.899       100 
+       Total         69       100      
+
+
+Multiple one-way tables
++++++++++++++++++++++++++
+
+Adding mutiple RHS variables to the formula string results in multiple one-way tables:
+
 ::
 
   // Load data
@@ -54,7 +111,10 @@ This code prints the following tables:
     Foreign        22     29.73       100
       Total        74       100
 
-To create a two-way table, a variable is added on the LHS of the formula string:
+Creating two-way tables
++++++++++++++++++++++++++
+
+To create a two-way table, a variable is added on the LHS of the formula string in front of the ``"~"``:
 
 ::
 

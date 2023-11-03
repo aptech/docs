@@ -27,6 +27,9 @@ Format
 Examples
 ----------------
 
+Example 1: Default settings
+++++++++++++++++++++++++++++
+
 ::
 
   // Load data
@@ -36,6 +39,39 @@ Examples
   // Frequency plot
   plotFreq(auto2, "rep78");
 
+.. figure:: _static/images/plotfreq1.jpg
+    :scale: 50 %
 
+Example 2: Sorted bars
+++++++++++++++++++++++++++++
 
+To create a sorted table, use the optional *sort* input:
+
+::
+
+  // Frequency plot
+  plotFreq(auto2, "rep78", 1);
+
+.. figure:: _static/images/plotfreq2.jpg
+    :scale: 50 %
+
+Example 3: Adding a title
+++++++++++++++++++++++++++++
+
+Any frequency plot can be customized using a ``plotControl`` structure:
+::
+
+  // Declare plotControl structure
+  struct plotControl myPlt;
+  myPlt = plotGetDefaults("bar");
+  
+  // Set title
+  plotSetTitle(&myPlt, "Frequency of `Rep78`");
+
+  // Frequency plot
+  plotFreq(myPlt, auto2, "rep78", 1);
+
+.. figure:: _static/images/plotfreq3.jpg
+    :scale: 50 %
+    
 .. seealso:: Functions :func:`plotHist`, :func:`plotHistP`, :func:`plotHistF`
