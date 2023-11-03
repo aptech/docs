@@ -48,19 +48,19 @@ Example 1
 
   // Load long form data
   fname = getGAUSSHome("examples/eagle_nests_long.csv");
-  df_long = loadd("eagle_nests_long.csv");
+  df_long = loadd(fname);
 
   print df_long;
 
 ::
 
                 region                 year            num_nests
-               Pacific               2007.0               1039.0
-               Pacific               2009.0               2587.0
-             Southwest               2007.0                 51.0
-             Southwest               2009.0                176.0
-       Rocky Mountains               2007.0                200.0
-       Rocky Mountains               2009.0                338.0
+               Pacific                 2007               1039.0
+               Pacific                 2009              2587.0
+             Southwest                 2007                51.0
+             Southwest                 2009                176.0
+       Rocky Mountains                 2007                200.0
+       Rocky Mountains                 2009               338.0
 
 ::
 
