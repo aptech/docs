@@ -26,10 +26,14 @@ Basic cases
 
 ::
 
+    // Test for string 
     ret_1 = isstring("This is a string");
     
+    // Form string *sa*
     sa = "This is a " $| "string array";
-    ret_2 = isstring();
+    
+    // Test if sa is string
+    ret_2 = isstring(sa);
 
 The code above assigns *ret_1* and *ret_2* to be equal to 1.
 
@@ -47,9 +51,11 @@ Dataframes
 As we would expect, the :func:`isstring` will return a 1 when passed the following string array.
 
 ::
-
+    
+    // Create string array
     sa = "hight" $| "medium" $| "high" $| "low";
 
+    // Test if sa is a string
     ret = isstring(sa);
 
 ::
@@ -80,10 +86,7 @@ However, if we convert it to a categorical or string dataframe :func:`isstring` 
 
     ret = isstring(df);
 
-After the above code *ret* will equal zero.
-
-
-
+After the above code *ret* will equal 0.
 
 
 Remarks
