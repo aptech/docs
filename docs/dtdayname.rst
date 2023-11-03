@@ -34,7 +34,7 @@ Examples
   data = loadd(fname);
 
   // Get day of the week names for date column
-  day_names = dtDayNames(data, "Date");
+  day_names = dtDayName(data, "Date");
   
   // Print first five and last five
   // observations of dates
@@ -83,7 +83,7 @@ The abbreviated names can be obtained using the optional *abbreviate* input.
 ::
 
   // Get day names for date column
-  day_names = dtDayNames(data, "Date");
+  day_names = dtDayName(data, "Date", 1);
   
   // Print first five and last five
   // observations of dates
