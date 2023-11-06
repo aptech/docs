@@ -9,6 +9,7 @@ The following is a list of changes from the previous version of GAUSS.
 
 #. New functions :func:`dfLonger` and :func:`dfWider` convert between wide and long form panel data.
 #. New ability to compute descriptive statistics on a dataframe for each subset based on a categorical variable with :func:`dstatmt` and  the :class:`by` keyword.
+#. New ability to estimate linear models separately for each subset based on a categorical variable with the :class:`by` keyword and :func:`glm` or  :func:`olsmt`.
 #. New function :func:`fgls` computes feasible GLS estimation with seven options for estimating the innovation covariance matrix.
 #. New function :func:`DWstat` computes the Durbin-Watson statistic from residuals. 
 #. New function :func:`tracem` computes the trace of a matrix.
@@ -34,6 +35,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New ability to turn density plots off for :func:`kernelDensity` procedure.
 #. New option to plot category counts in order from most frequently occurring to least frequently occurring for :func:`plotFreq` procedure. 
 #. New option to report category counts in order from most frequently occurring to least frequently occurring for :func:`frequency` procedure. 
+#. :func:`plotAddTS` no longer requires a ``frequency`` impute which simplifies usage.
 #. Speed increase for :func:`packr` with large column vectors.
 #. Bug Fix: :func:`sprintf` could cause a crash in certain cases with very large floating point numbers.
 #. Bug Fix:  :func:`svdusv` could have a memory leak in certain situations.
