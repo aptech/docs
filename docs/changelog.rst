@@ -13,6 +13,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function :func:`fgls` computes feasible GLS estimation with seven options for estimating the innovation covariance matrix.
 #. New function :func:`DWstat` computes the Durbin-Watson statistic from residuals. 
 #. New function :func:`tracem` computes the trace of a matrix.
+#. New function :func:`startsWith` returns a binary matrix with a 1 if the element starts with the specified string, otherwise 0.
 #. New convenience function :func:`insertcols` allows you to insert one or more new columns into a matrix or dataframe at a specified location.
 #. New function :func:`isStructType` checks whether a GAUSS variable is a structure of a specific type.
 #. New function :func:`dtSecond` extracts seconds component as numbers from date/time variables.
