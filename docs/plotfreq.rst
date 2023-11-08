@@ -59,6 +59,7 @@ Example 3: Adding a title
 ++++++++++++++++++++++++++++
 
 Any frequency plot can be customized using a ``plotControl`` structure:
+
 ::
 
   // Declare plotControl structure
