@@ -20,8 +20,10 @@ Format
  
       * A Kx1 character vector containing the names of variables.
       * A Kx1 numeric vector containing indices of variables.
-      * A `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
- 
+      * A `formula string`. 
+        e.g. :code:`"PAY + WT"` or :code:`". - sex"`
+        e.g :code:`"X1 + by(X2)", "by(X2)"` specifies that the data should be separated into different tables based on the groups defined by ``X2``.
+          
       These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
  
       If *data* is an empty string or 0, *vars* will be interpreted as an NxK matrix, the data on which to compute the descriptive statistics.
@@ -98,7 +100,7 @@ Computing statistics on a GAUSS dataset
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+    file_name = getGAUSSHome("examples/fueleconomy.dat");
 
     /*
     ** Compute statistics for all variables in the dataset
@@ -123,7 +125,7 @@ the second variable.
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+    file_name = getGAUSSHome("examples/fueleconomy.dat");
 
     // Only calculate statistics on the second variable
     vars = 2;
@@ -146,7 +148,7 @@ Computing statistics on a csv dataset with formula string
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/binary.csv";
+    file_name = getGAUSSHome("examples/binary.csv");
 
     // Set up a formula string with variables "gre" and "gpa"
     vars = "gre + gpa";
@@ -168,13 +170,34 @@ The above example will print the following report to the **Command** window:
     gre         587.7     115.5    1334e+04        220        800     400      0
     gpa          3.39    0.3806      0.1448       2.26          4     400      0
 
-Using control and out structures
-++++++++++++++++++++++++++++++++
+Computing statistics by groups
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The code below uses the ``"by"`` keyword to compute the descriptive statistics for *mpg* and *headroom* by the groups defined by *foreign*.
+    
+::
+
+    /*
+    ** Perform import
+    */
+    auto2 = loadd(getGAUSShome("examples/auto2.dta"));
+
+    // Specify formula to
+    // compute descriptive statistics on mpg
+    // based on domestic/foreign status
+    formula = "headroom + mpg + by(foreign)";
+
+    // Print statistics table
+    call dstatmt(auto2, formula);
+
+
+Using control and output structures
+++++++++++++++++++++++++++++++++++++
 
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/credit.dat";
+    file_name = getGAUSSHome("examples/credit.dat");
 
     // Declare control structure and fill in with defaults
     struct dstatmtControl dctl;
