@@ -86,6 +86,7 @@ Let's continue with the data from the previous example, but add a new variable, 
 
 ::
 
+    // Create new report_id variable
     report_id = { 
         61178,
         73511,
@@ -133,12 +134,18 @@ We can use the pivotControl structure to tell dfWider to only use the  ``region`
 
 ::
 
+  // Declare 'pctl' to be a pivotControl structure
+  // and fill with default settings
   struct pivotControl pctl;
   pctl = pivotControlCreate();
 
+  // Specify `region` as id col
   pctl.id_cols = "region";
+  
+  // Specify names prefix
   pctl.names_prefix = "year_";
-
+  
+  // Pivot data
   print dfWider(df_long, "year", "num_nests", pctl);
 
 ::
