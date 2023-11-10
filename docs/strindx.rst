@@ -11,7 +11,7 @@ Format
 .. function:: idx = strindx(haystack, needle [, start])
 
     :param haystack: the data to be searched.
-    :type haystack: string array, categorical or string dataframe
+    :type haystack: string array, or dataframe of type category or string
 
     :param needles: the substring to be searched for in *haystack*. Must be ExE conformable with *haystack* input. 
     :type needles: string array or string
