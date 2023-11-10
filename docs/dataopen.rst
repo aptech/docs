@@ -38,7 +38,7 @@ Read from a GAUSS dataset
 ::
 
     // Create a file name with full path
-    file_name = getGAUSSHome() $+ "examples/credit.dat";
+    file_name = getGAUSSHome("examples/credit.dat");
 
     // Open file handle to dataset and assign it to 'fh'
     fh = dataopen(file_name, "read");

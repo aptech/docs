@@ -57,7 +57,7 @@ Examples
     new;
 
     // Load data using auto dataset
-    fname = getGAUSSHome $+ "examples/regsmpl.dta";
+    fname = getGAUSSHome("examples/regsmpl.dta");
     data = loadd(fname);
 
     // Control structure

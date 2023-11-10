@@ -127,7 +127,7 @@ This example specifies the column name to be used for aggregation.
 ::
 
   // Load data
-  auto2 = loadd(getGAUSSHome $+ "examples/auto2.dta");
+  auto2 = loadd(getGAUSSHome("examples/auto2.dta"));
 
   // Aggregate data using
   // foreign column as group

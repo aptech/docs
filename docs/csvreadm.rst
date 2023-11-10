@@ -54,7 +54,7 @@ Read all contents from the file :file:`housing.csv` located in your GAUSS exampl
 ::
 
     // Get file name with full path
-    file = getGAUSSHome() $+ "examples/housing.csv";
+    file = getGAUSSHome("examples/housing.csv");
 
     // Read entire contents of 'housing.csv'
     housing = csvReadM(file);
@@ -84,7 +84,7 @@ In this example, we will skip the first row to avoid reading the header as numer
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/housing.csv";
+    file = getGAUSSHome("examples/housing.csv");
 
     /*
     ** Row range will be from line 2 to the end of the file
@@ -114,7 +114,7 @@ Read from a row range
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/housing.csv";
+    file = getGAUSSHome("examples/housing.csv");
 
     // Row range will be from line 3 to line 5
     row_range = { 3, 5 };
@@ -139,7 +139,7 @@ Read all rows of a range of columns
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/housing.csv";
+    file = getGAUSSHome("examples/housing.csv");
 
     // Row range from the first line to the end of the file
     row_range = 1;
@@ -156,7 +156,7 @@ Read all rows of one specific column
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/housing.csv";
+    file = getGAUSSHome("examples/housing.csv");
 
     // Row range from the first line to the end of the file
     row_range = 1;
