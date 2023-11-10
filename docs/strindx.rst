@@ -11,10 +11,10 @@ Format
 .. function:: idx = strindx(haystack, needle [, start])
 
     :param haystack: the data to be searched.
-    :type haystack: string array or vector
+    :type haystack: string array, categorical or string dataframe
 
-    :param needle: the substring to be searched for in *haystack*. Must be ExE conformable with *haystack* input. 
-    :type needle: string array or vector
+    :param needles: the substring to be searched for in *haystack*. Must be ExE conformable with *haystack* input. 
+    :type needles: string array or string
 
     :param start: Optional argument, the starting point of the element-by-element search in *haystack* for an occurrence of *needle*.
         The index of the first character in a string is 1. Default=1.
@@ -23,7 +23,7 @@ Format
     :return idx: contains the index of the first occurrence of *needle*, within *haystack*,
         which is greater than or equal to *start*. If no occurrence is found, it will be 0.
 
-    :rtype idx: vector
+    :rtype idx: Matrix 
 
 Examples
 -----------
@@ -54,7 +54,7 @@ The above code will print out:
             Good
 
 
-Now we will find the index of the start of "age".
+Now we will find the index of the start of ``"age"``.
 
 
 ::
@@ -72,6 +72,38 @@ Now we will find the index of the start of "age".
        0.0000000
        5.0000000
        0.0000000
+
+Dataframe example #2: Searching across multiple variables
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The :func:`strindx` procedure can also be used to search across multiple variables.
+
+::
+
+    // Create file name with full path
+    fname = getGAUSSHome("examples/auto2.dta");
+
+    // Load 'rep78' and 'make` variable
+    rep78 = loadd(fname, "rep78 + make");
+
+    // Print out the first 5 observations
+    head(rep78);
+
+::
+
+    // Find the index of "age" in 'rep78'
+    // and "AMC" in 'make'
+    idx = strindx(rep78, "age"$~"AMC");
+
+    // Print the first 5 observations of 'idx'
+    head(idx);
+
+::
+       
+    5.0000000        1.0000000 
+    5.0000000        1.0000000 
+    0.0000000        1.0000000 
+    5.0000000        0.0000000 
+    0.0000000        0.0000000
 
 String array example
 +++++++++++++++++++++++
