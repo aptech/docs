@@ -46,7 +46,7 @@ Read all contents from the file :file:`yarn.xlsx` located in the GAUSS examples 
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/yarn.xlsx";
+    file = getGAUSSHome("examples/yarn.xlsx");
 
     //"A1" means start from A1
     // 1 = sheet number 				
@@ -68,7 +68,7 @@ Read From a Range
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/yarn.xlsx";
+    file = getGAUSSHome("examples/yarn.xlsx");
 
     s = xlsReadSA(file, "B3:C4");
 

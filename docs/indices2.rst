@@ -48,7 +48,7 @@ Examples
 ::
 
     // Create filename
-    filename = getGAUSSHome $+ "examples/auto.dat";
+    filename = getGAUSSHome("examples/auto.dat");
 
     // Get variable names
     var1 = "mpg";

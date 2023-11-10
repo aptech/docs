@@ -25,7 +25,7 @@ Read each row from a dataset one at a time and compute the sum of each column.
 ::
 
     // Get file name with full path to dataset
-    fname = getGAUSSHome() $+ "examples/credit.dat";    
+    fname = getGAUSSHome("examples/credit.dat");    
 
     // Get file handle, to read from dataset
     fh = dataOpen(fname, "read");

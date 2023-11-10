@@ -40,7 +40,7 @@ Basic usage with a dataset and a formula string
 ::
 
   // Load data
-  fname = getGAUSSHome() $+ "examples/tips2.dta";
+  fname = getGAUSSHome("examples/tips2.dta");
   tips2 = loadd(fname);
 
   // One-way table
@@ -68,7 +68,7 @@ The same tables can be directly generate from the filename
 ::
 
    // Load data
-   fname = getGAUSSHome() $+ "examples/tips2.dta";
+   fname = getGAUSSHome("examples/tips2.dta");
 
    // One-way table
    call tabulate(fname, "sex ~ smoker");

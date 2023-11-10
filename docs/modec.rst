@@ -50,7 +50,7 @@ This example will load the variables, *Cards*, *Age* and *Education* from the da
 ::
 
     // Create the file name with full path 
-    fname = getGAUSSHome() $+ "examples/credit.dat";
+    fname = getGAUSSHome("examples/credit.dat");
     
     // Load three variables by name 
     X = loadd(fname, "Cards + Age + Education");

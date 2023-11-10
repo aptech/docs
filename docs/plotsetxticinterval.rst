@@ -104,7 +104,7 @@ Daily data with full time vector
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+    fname = getGAUSSHome("examples/xle_daily.xlsx");
 
     // Load all observations from variables,
     // 'Date' and 'Adj Close'

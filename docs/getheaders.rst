@@ -27,7 +27,7 @@ Excel Data
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/yarn.xlsx";
+    fname = getGAUSSHome("examples/yarn.xlsx");
 
     /*
     ** Read headers from the first row of the first
@@ -50,7 +50,7 @@ GAUSS dataset
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/fueleconomy.dat";
+    fname = getGAUSSHome("examples/fueleconomy.dat");
 
     // Read headers from the dataset
     headers = getHeaders(fname);
@@ -68,7 +68,7 @@ Stata dataset
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
 
     // Read headers from the dataset
     headers = getHeaders(fname);
@@ -96,7 +96,7 @@ SAS dataset
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/detroit.dta";
+    fname = getGAUSSHome("examples/detroit.dta");
 
     // Read headers from the dataset
     headers = getHeaders(fname);

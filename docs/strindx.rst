@@ -11,19 +11,19 @@ Format
 .. function:: idx = strindx(haystack, needle [, start])
 
     :param haystack: the data to be searched.
-    :type haystack: string or scalar
+    :type haystack: string array or vector
 
-    :param needle: the substring to be searched for in *haystack*.
-    :type needle: string or scalar
+    :param needle: the substring to be searched for in *haystack*. Must be ExE conformable with *haystack* input. 
+    :type needle: string array or vector
 
-    :param start: Optional argument, the starting point of the search in *haystack* for an occurrence of *needle*.
+    :param start: Optional argument, the starting point of the element-by-element search in *haystack* for an occurrence of *needle*.
         The index of the first character in a string is 1. Default=1.
     :type start: scalar
 
     :return idx: contains the index of the first occurrence of *needle*, within *haystack*,
         which is greater than or equal to *start*. If no occurrence is found, it will be 0.
 
-    :rtype idx: scalar
+    :rtype idx: vector
 
 Examples
 -----------
@@ -34,7 +34,7 @@ Dataframe example
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
 
     // Load 'rep78' variable
     rep78 = loadd(fname, "rep78");

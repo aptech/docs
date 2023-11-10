@@ -30,7 +30,7 @@ Examples
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/yarn.xlsx";
+  fname = getGAUSSHome("examples/yarn.xlsx");
   yarn = loadd(fname, "cat(yarn_length) + cat(amplitude) + cat(load) + cycles");
 
   // Get column labels for yarn_length

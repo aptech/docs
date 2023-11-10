@@ -79,7 +79,7 @@ Example 2: Category to number
 ::
 
     // Load 'cycles' and load 'amplitude' as a categorical variable
-    fname = getGAUSSHome() $+ "examples/yarn.xlsx";
+    fname = getGAUSSHome("examples/yarn.xlsx");
     yarn = loadd(fname, "cat(amplitude) + cycles");
 
     // Set the first column to be a numeric column

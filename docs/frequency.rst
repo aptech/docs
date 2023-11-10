@@ -35,7 +35,7 @@ The simplest use of :func:`frequency` is a single one-way table:
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname);
 
   // Create frequency table for the 'rep78' variable in 'auto2'
@@ -87,7 +87,7 @@ Adding mutiple RHS variables to the formula string results in multiple one-way t
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname);
 
   // Create frequency table for the 'rep78' and 'foreign' variable in 'auto2'

@@ -31,7 +31,7 @@ This example selects all rows where the category label of the *amplitude* variab
 ::
 
     // Get file name with full path
-    dataset = getGAUSSHome() $+ "examples/yarn.xlsx";
+    dataset = getGAUSSHome("examples/yarn.xlsx");
     
     // Load 'cycles' as numeric variable and load
     // 'amplitude' as a categorical variable
@@ -79,7 +79,7 @@ Dataframe example with dates
 ::
 
     // Get file name with full path
-    dataset = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+    dataset = getGAUSSHome("examples/xle_daily.xlsx");
     
     // Load 'Date' as a date variable and load
     // 'Adj Close' and 'Volume' as numerical variables

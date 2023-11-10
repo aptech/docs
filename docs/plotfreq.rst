@@ -33,7 +33,7 @@ Example 1: Default settings
 ::
 
   // Load data
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname);
 
   // Frequency plot

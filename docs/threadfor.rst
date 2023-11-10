@@ -57,7 +57,7 @@ Simple bootstrap of the mean of one variable
 ::
 
     // Create fully pathed name of dataset
-    dataset = getGAUSSHome() $+ "examples/fueleconomy.dat";
+    dataset = getGAUSSHome("examples/fueleconomy.dat");
 
     // Load all contents of dataset
     x = loadd(dataset);

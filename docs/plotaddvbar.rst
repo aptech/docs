@@ -36,7 +36,7 @@ Add Bar Spanning the Bottom Quartile of X Variable
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
     
     // Load variables from the Excel file
     nba = loadd(dataset, "Height + Weight");
@@ -89,7 +89,7 @@ This example draws recession bars based on a matrix where the first column is a 
     */
     
     // Create string with path to examples folder
-    path = getGAUSSHome() $+ "examples/";
+    path = getGAUSSHome("examples/");
     
     // Load variables from the CSV file
     beef = loadd(path $+ "beef_prices.csv", "date(date) + beef_price");

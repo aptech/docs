@@ -95,7 +95,7 @@ Basic usage with dataframe
   */
 
   // Load data
-  fname = getGAUSSHome $+ "examples/winevolatileacidity.csv";
+  fname = getGAUSSHome("examples/winevolatileacidity.csv");
   data = loadd(fname);
 
   // Call kernelDensity function
@@ -117,7 +117,7 @@ Basic usage with filename
   */
 
   // Load data
-  fname = getGAUSSHome $+ "examples/winevolatileacidity.csv";
+  fname = getGAUSSHome("examples/winevolatileacidity.csv");
 
   // Call kernelDensity function
   // with default normal density
