@@ -74,18 +74,18 @@ Plot Forex tick data with custom X-tick labels
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/eurusd_tick.csv";
+    file = getGAUSSHome("examples/eurusd_tick.csv");
 
-    // Load dates as a string array from the first column of the file
-    dt_s = csvReadSA(file, 2|21, 1|1);
-
-    // Convert the dates from string to POSIX dates
-    // String dates look like: "20081031 125145000"
-    dt_psx = strctoposix(dt_s, "%Y%m%d %H%M%S%L");
-
+    // Load dates into df from file
+    // Dates format looks like: "20081031 125145000"
+    dt_forex = loadd(file, "date");
+    
+    // Shorten span
+    dt_gr = dt_forex[1:20];
+    
     // Load bid and ask quotes
     y = loadd(file, "bid + ask");
-    y = y[1:rows(dt_psx), .];
+    y = y[1:rows(dt_gr), .];
 
     // Declare plotControl structure
     // and fill with default settings
@@ -95,11 +95,11 @@ Plot Forex tick data with custom X-tick labels
     // Create an X-tick label every 15 seconds
     // Set the first tick label at:
     // October 31st, 2008 at 45 seconds after midnight
-    first_label = strctoposix("2008 10 31 12:52", "%Y %m %d %H:%M");
+    first_label = asDate("2008 10 31 12:52", "%Y %m %d %H:%M");
     plotSetXTicInterval(&myPlot, 15, first_label);
 
     // Draw the time series plot
-    plotTSHF(myPlot, dt_psx, "seconds", y);
+    plotTSHF(myPlot, dt_gr, "seconds", y);
 
 T-bill plot with full date vector
 +++++++++++++++++++++++++++++++++
@@ -107,7 +107,7 @@ T-bill plot with full date vector
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
+    file = getGAUSSHome("examples/tbill_3mo.xlsx");
 
     // Load date vector and tbill data
     x = loadd(file, "obs_date + tbill_3m");
@@ -126,29 +126,22 @@ T-bill plot with full date vector
 Daily data with full date vector
 ++++++++++++++++++++++++++++++++
 
-.. figure:: _static/images/plotts_mac_xle_daily_500px.png
-   :scale: 50 %
-
 ::
 
     // Fully pathed file name
-    fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+    fname = getGAUSSHome("examples/xle_daily.xlsx");
 
     // Load all observations from variables,
     // 'Date' and 'Adj Close'
     data = loadd(fname, "Date + Adj Close");
 
-    // Select the first 150 observations
-    // from the date vector and the adjusted close
-    nobs = 150;
-    date_vec = dttoutc(data[1:nobs, 1]);
-    closing_price = data[1:nobs, 2];
-
+    // Filter to include observations before 2018
+    data = selif(data, data[., "Date"] .< "2018");
 
     // Draw plot of this daily data, specifying
     // that the X-tick labels should be set in
     // terms of months
-    plotTSHF(date_vec, "months", closing_price);
+    plotTSHF(data[., "Date"], "months", data[., "Adj Close"]);
 
 Time Series Plot With Custom X-ticks
 ++++++++++++++++++++++++++++++++++++
@@ -159,13 +152,14 @@ Time Series Plot With Custom X-ticks
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
+    file = getGAUSSHome("examples/tbill_3mo.xlsx");
 
-    // Load dates (header is row 20) and convert to seconds since Jan 1, 1970
-    dts = dttoposix(xlsReadM(file, "A21:A49"));
-
-    // Load 28 observations
-    y = xlsReadM(file, "B21:B49");
+    // Load data
+    data = loadd(file);
+    
+    // Filter to include data prior to 1986
+    // and after 1983 Q4
+    data = selif(data, data[., "obs_date"] .< "1986" .and data[., "obs_date"] .> "1983-07");
 
     // Declare 'myPlot' to be a plotControl structure
     // and fill it with 'xy' default settings
@@ -174,13 +168,13 @@ Time Series Plot With Custom X-ticks
 
     // Place first x-tick mark at 1984 month 1 and draw one every 2 quarters
     // Note that we pass in the first_labeled date in posix format
-    plotSetXTicInterval(&myPlot, 2, dttoposix(1984));
+    plotSetXTicInterval(&myPlot, 2, asDate("1984")));
 
     // Display only 4 digit year on x-tick labels
     plotSetXTicLabel(&myPlot, "YYYY-QQ");
 
     // Draw time series plot, using settings in 'myPlot'
-    plotTSHF(myPlot, dts, "quarters", y);
+    plotTSHF(myPlot, data[., "obs_date"], "quarters", data[., "tbill_3m"]);
 
 Remarks
 -------
