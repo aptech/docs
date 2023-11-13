@@ -33,6 +33,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New convenience function :func:`isstring` returns a 1 if the input is a string or string array, otherwise 0.
 #. New methods forward-fill and backward-fill added to :func:`impute`.
 #. Expanded functionality of :func:`frequency` to allow for two-way tables and improved printing. 
+#. Expanded functionality of :func:`strindx`. The second input can now have multiple rows and/or columns as long as it is element-by-element conformable with the first input.
 #. New ability to turn density plots off for :func:`kernelDensity` procedure.
 #. New option to plot category counts in order from most frequently occurring to least frequently occurring for :func:`plotFreq` procedure. 
 #. New option to report category counts in order from most frequently occurring to least frequently occurring for :func:`frequency` procedure. 
