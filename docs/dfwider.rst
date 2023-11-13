@@ -28,9 +28,9 @@ Format
             * - pctl.names_prefix
               - String, the characters, if any, that should be added to the front of the newly created variable names.  Default = "", no prefix.
             * - pctl.names_sep_combine
-              - String, the characters, if any, that should be added between the tokens when creating the new variable names. Default = "_". NOTE: This can ONLY be used if `names_from` contains multiple variable names.
+              - String, the characters, if any, that should be added between the tokens when creating the new variable names. Default = "_". NOTE: This can ONLY be used if *names_from* contains multiple variable names.
             * - pctl.id_cols
-              - String array, containing the names of the variables that should be used to determine a unique observation. Default = "", meaning the combination of all variables other than those specified by ``names_from`` and ``values_from`` will be used.
+              - String array, containing the names of the variables that should be used to determine a unique observation. Default = "", meaning the combination of all variables other than those specified by *names_from* and *values_from* will be used.
 
     :type pctl: 
 
@@ -64,9 +64,13 @@ Example 1
 
 ::
 
-  // Convert to wide form
+  // Specify columns to pull new column names from 
   names_from = "year";
+  
+  // Specify columns to pull new column values from
   values_from = "num_nests";
+  
+  // Convert to wide form
   df_wide = dfWider(df_long, names_from, values_from);
 
   print df_wide;
@@ -82,7 +86,7 @@ Example 1
 Example 2: Using id_cols and names_prefix
 ++++++++++++++++++++++++++++++++++++++++++
 
-Let's continue with the data from the previous example, but add a new variable, ``report_id``.
+Let's continue with the data from the previous example, but add a new variable, *report_id*.
 
 ::
 
@@ -111,8 +115,8 @@ Let's continue with the data from the previous example, but add a new variable, 
             71635 Rocky Mountains            2009             338
 
 
-By default, dfWider will use all variables that are not in either ``names_from`` or ``values_from``
-to uniquely identify the observations. This worked well in our previous example, but with the ``report_id``
+By default, dfWider will use all variables that are not in either *names_from* or *values_from*
+to uniquely identify the observations. This worked well in our previous example, but with the *report_id*
 variable, every observation is considered unique. This results in output that is not very useful.
 
 ::
@@ -130,7 +134,7 @@ variable, every observation is considered unique. This results in output that is
             73511         Pacific               .            2587
 
 
-We can use the pivotControl structure to tell dfWider to only use the  ``region`` variable to uniquely identify the observations. And just to show you how it works, we'll also add a prefix to our new year variable names.
+We can use the pivotControl structure to tell :func:`dfWider` to only use the  *region* variable to uniquely identify the observations. And just to show you how it works, we'll also add a prefix to our new year variable names.
 
 ::
 
