@@ -31,15 +31,15 @@ Format
             * - pctl.names_prefix
               - String, the characters, if any, that should be stripped from the front of the wide variable names before they are assigned to a long column.  Default = "", no prefix.
             * - pctl.names_sep_strip
-              - String, the character(s), if any, that mark where the ``names_to`` names should be broken up. Default = "", do not break up ``names_to``.
+              - String, the character(s), if any, that mark where the *names_to* names should be broken up. Default = "", do not break up *names_to*.
             * - pctl.names_pattern_strip
-              - String, a regular expression specifying groups in ``names_to`` names should be broken up. Default = "", do not break up ``names_to``.
+              - String, a regular expression specifying groups in *names_to* names should be broken up. Default = "", do not break up *names_to*.
             * - pctl.names_types
-              - String, containing either: i. a column vector of types for each of the ``names_to`` variables, or ii. an *n x 2* matrix where the first column is the name of the column and the second column contains the types for the variable in the first column. (i.e. ``pctl.names_types = { "Index" "number", "Year" "date" };``. Valid type options include: "date", "number", "category", and "string".
+              - String, containing either: i. a column vector of types for each of the *names_to* variables, or ii. an *n x 2* matrix where the first column is the name of the column and the second column contains the types for the variable in the first column. (i.e. ``pctl.names_types = { "Index" "number", "Year" "date" };``. Valid type options include: "date", "number", "category", and "string".
             * - pctl.values_drop_missing
               - Scalar, 0 or 1. If set to 1, all rows with missing values will be removed. Default = 0.
 
-    :type pctl: struct
+    :type pctl: Struct
 
     :return df_long: The input data converted to long form.
 
@@ -112,7 +112,7 @@ Example 2: Basic case with `names_prefix`
 
 You may notice that the elements in the *Class* variable from our previous example
 contain a redundant prefix, *Cars_*. We can remove that by using the :class:`pivotControl` structure
-and setting the `names_prefix` member to *Class_*.
+and setting the *names_prefix* member to *Class_*.
 
 ::
 
@@ -182,9 +182,9 @@ variable names. We will also use the *names_types* member to set the types for t
 ::
 
   // Get the list of variables to pivot
-  // all of them except for the first, 'Country'
+  // and remove the first column name, 'Country'
   columns =  getcolnames(df_wide);
-  columns = columns[2:rows(columns)];
+  columns = trimr(columns, 1, 0);
 
   print columns;
 
@@ -215,7 +215,10 @@ we specify a *names_to* for each of these tokens.
 
 ::
 
+  // Set variable names for the new columns
   names_to = "event" $| "year" $| "gender";
+  
+  // Set name of value column
   values_to = "score";
 
 
