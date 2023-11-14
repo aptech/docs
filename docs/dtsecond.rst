@@ -5,20 +5,20 @@ dtSecond
 Purpose
 ----------------
 
-Extracts the seconds component from a date/time variable as a number (0-60).
+Extracts the seconds component from a date/time variable as a number (0-59).
 
 Format
 ----------------
-.. function:: seconds = dtSecond(X [, columns])
+.. function:: seconds = dtSecond(X [, column])
 
-    :param X: data with metadata.
-    :type X: NxK dataframe
+    :param X: Data with metadata.
+    :type X: Txk dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get seconds from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get seconds from.
+    :type column: Scalar or string
 
-    :return seconds: the seconds components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype seconds: NxJ Vector
+    :return seconds: The seconds components of the dates contained in the column specified by *column*.
+    :rtype seconds: Tx1 vector
     
 
 Examples
@@ -32,7 +32,7 @@ Examples
   // Get seconds
   dtSecond(date_df);
 
-This extracts the hour using the default 12-hr clock:
+This extracts the seconds:
 
 ::
 

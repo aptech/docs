@@ -11,17 +11,17 @@ Format
 ----------------
 .. function:: day_names = dtDayName(X [, columns, abbreviate])
 
-    :param X: data with metadata.
-    :type X: NxK dataframe
+    :param X: Data with metadata.
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get day names from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get day names from.
+    :type column: Scalar or string array
 
     :param abbreviate: Optional, indicator variable to abbreviate months. Set to 1 to abbreviate names. Default = 0.
     :type abbreviate: Scalar
     
     :return day_names: the name of the day components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype day_names: NxJ String array
+    :rtype day_names: Tx1 string array
     
 
 Examples

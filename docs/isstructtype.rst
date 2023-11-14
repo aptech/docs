@@ -18,7 +18,7 @@ Format
     :type struct_type: String
     
     :return structure_matches: 1 if *struct_name* is type specified by *struct_type*.
-    :rtype structure_matches: scalar
+    :rtype structure_matches: Scalar
 
 Examples
 ----------------
@@ -32,11 +32,11 @@ Examples
     // Check if structure is olsmtControl
     isStructType(plt, "olsmtControl");
 
-Because `plt` is a plotControl structure this returns 0.
+Because *plt* is a :class:`plotControl` structure this returns 0.
 
 ::
 
     // Now check for plotControl structure
     isStructType(plt, "plotControl");
 
-This returns 1 because `plt` is a plotControl structure. 
+This returns 1 because *plt* is a :class:`plotControl` structure. 

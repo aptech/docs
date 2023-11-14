@@ -10,16 +10,16 @@ is first day of the week.
 
 Format
 ----------------
-.. function:: weeks = dtWeek(X [, columns])
+.. function:: weeks = dtWeek(X [, column])
 
-    :param X: data with metadata.
-    :type X: NxK Dataframe
+    :param X: Data with metadata.
+    :type X: Tx1 dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get weeks from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get weeks from.
+    :type column: Scalar or string
     
-    :return weeks: the week components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype weeks: NxJ Vector
+    :return weeks: The week components of the dates contained in the column specified by *column*.
+    :rtype weeks: Tx1 vector
     
 
 Examples

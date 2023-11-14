@@ -9,16 +9,16 @@ Extracts the day of the month component from a date/time variable as a decimal n
 
 Format
 ----------------
-.. function:: dom = dtDayofMonth(X [, columns])
+.. function:: dom = dtDayofMonth(X [, column])
 
-    :param X: data with metadata.
-    :type X: NxK Dataframe
+    :param X: Data with metadata.
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get days of the months from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get days of the months from.
+    :type column: Scalar or string
     
-    :return dom: the day of the month components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype dom: NxJ Vector
+    :return dom: The day of the month components of the dates contained in the column specified by *column*.
+    :rtype dom: Tx1 vector
     
 
 Examples

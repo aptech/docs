@@ -9,16 +9,16 @@ Extracts the quarter from a date/time variable (1-4).
 
 Format
 ----------------
-.. function:: qtrs = dtQuarter(X [, columns])
+.. function:: qtrs = dtQuarter(X [, column])
 
-    :param X: data with metadata.
-    :type X: NxK Dataframe
+    :param X: Data with metadata.
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get quarters from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get quarters from.
+    :type column: Scalar or string
 
-    :return qtrs: the numeric quarter (1-4) components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype qtrs: NxJ Vector
+    :return qtrs: The numeric quarter (1-4) components of the dates contained in the column specified by *columns*.
+    :rtype qtrs: Tx1 vector
     
 
 Examples

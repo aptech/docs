@@ -9,16 +9,16 @@ Extracts the month component from a date/time variable as a decimal number(1-12)
 
 Format
 ----------------
-.. function:: months = dtMonth(X [, columns])
+.. function:: months = dtMonth(X [, column])
 
-    :param X: data with metadata.
-    :type X: NxK Dataframe
+    :param X: Data with metadata.
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get months from.
-    :type columns: Jx1 Vector or string array
+    :param columns: Optional, name or index of the date variable in *X* to get months from.
+    :type columns: Scalar or string
 
-    :return months: the numeric month (1-12) components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype months: NxJ Vector
+    :return months: The numeric month (1-12) components of the dates contained in the column specified by *column*.
+    :rtype months: Tx1 vector
     
 
 Examples

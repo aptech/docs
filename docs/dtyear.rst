@@ -9,16 +9,16 @@ Extracts the year component from a date/time variable as a decimal number with c
 
 Format
 ----------------
-.. function:: year = dtYear(X [, columns])
+.. function:: year = dtYear(X [, column])
 
-    :param X: data with metadata.
-    :type X: NxK Dataframe
+    :param X: Data with metadata.
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get years from.
-    :type columns: Jx1 Vector or string array
+    :param columns: Optional, name or index of the date variable in *X* to get years from.
+    :type columns: Scalar or string
 
-    :return year: the numeric year components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype months: NxJ Vector
+    :return year: The numeric year components of the dates contained in the column specified by *column*.
+    :rtype months: Tx1 vector
     
 
 Examples

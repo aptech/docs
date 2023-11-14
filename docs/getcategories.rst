@@ -11,14 +11,14 @@ Format
 ----------------
 .. function:: labels = getCategories(X [, columns])
 
-    :param X: data with metadata.
+    :param X: Data with metadata.
     :type X: NxK dataframe
 
-    :param columns: Optional argument, Name or index of the categorical variable in *X* to get labels from. Must be specified if *X* contains more than one column. Default = 1.
-    :type columns: scalar or string
+    :param columns: Optional argument, name or index of the categorical variable in *X* to get labels from. Must be specified if *X* contains more than one column. Default = 1.
+    :type columns: Scalar or string
 
     :return labels: Categorical labels assigned to variables specified by *columns*.
-    :rtype labels: string array
+    :rtype labels: String array
 
 
 Examples

@@ -9,16 +9,16 @@ Extracts the minute component from a date/time variable as a number (0-59).
 
 Format
 ----------------
-.. function:: minutes = dtMinute(X [, columns])
+.. function:: minutes = dtMinute(X [, column])
 
     :param X: data with metadata.
-    :type X: NxK dataframe
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get minutes from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get minutes from.
+    :type column: Scalar or string
 
-    :return minutes: the minutes component of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype minutes: NxJ Vector
+    :return minutes: The minutes component of the dates contained in the column specified by *column*.
+    :rtype minutes: Tx1 vector
     
 
 Examples

@@ -9,16 +9,16 @@ Extracts the day of the year component from a date/time variable as a decimal nu
 
 Format
 ----------------
-.. function:: doy = dtDayofYear(X [, columns])
+.. function:: doy = dtDayofYear(X [, column])
 
-    :param X: data with metadata.
-    :type X: NxK Dataframe
+    :param X: Data with metadata.
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get days of the year from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get days of the year from.
+    :type column: Scalar or string
     
-    :return doy: the day of the year components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype doy: NxJ Vector
+    :return doy: The day of the year components of the dates contained in the column specified by *column*.
+    :rtype doy: Tx1 vector
     
 
 Examples

@@ -9,19 +9,19 @@ Extracts the hour component from a date/time variable as a number (1-12 or 1-24)
 
 Format
 ----------------
-.. function:: hour = dtHour(X [, columns, twenty_four])
+.. function:: hour = dtHour(X [, column, twenty_four])
 
-    :param X: data with metadata.
-    :type X: NxK dataframe
+    :param X: Data with metadata.
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get hours from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get hours from.
+    :type column: Scalar or string
 
     :param twenty_four: Optional, indicator variable to specify twenty-four clock (0-23). Set to 1 to use 24-hr clock names. Default = 0.
     :type twenty_four: Scalar
     
-    :return hour: the hour component of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype hour: NxJ Vector
+    :return hour: The hour component of the dates contained in the column specified by *column*.
+    :rtype hour: Tx1 Vector
     
 
 Examples

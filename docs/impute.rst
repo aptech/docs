@@ -9,7 +9,7 @@ Replaces missing values in the columns of a matrix by a specified imputation met
 
 Format
 ----------------
-.. function:: x_full = impute(x[, method [, indvars [, iCtl]]])
+.. function:: x_full = impute(x[, method, indvars, iCtl])
 
     :param x: Data matrix which has missing values to be imputed. If no missing values, original matrix will be returned.
     :type x: NxK matrix
@@ -38,7 +38,7 @@ Format
             * - "predict"
               - Replace missing values using linear regression prediction.
 
-    :type method: string
+    :type method: String
 
     :param indvars: Optional input, matrix of variables to be used to impute the missing values. Should not contain any missing values. Must be specified if using the "pmm", "lrd", or "predict" methods.
     :type indvars: NxK matrix
@@ -78,11 +78,10 @@ Format
           * - *iCtl.k*
             - Scalar, ridge parameter used evade singular matrices when computing Bayesian and Bootstrap posterior distributions. Default = 0.00001.
 
-    :type iCtl: struct
+    :type iCtl: Struct
 
-    :return x_full: the input matrix with the missing values from each column filled in by the specified imputation method.
-
-    :rtype x_full: matrix
+    :return x_full: The input matrix with the missing values from each column filled in by the specified imputation method.
+    :rtype x_full: Matrix
 
 Examples
 ----------------

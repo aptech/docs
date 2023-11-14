@@ -5,22 +5,22 @@ dropCategories
 Purpose
 ----------------
 
-Removes category from dataframe and category labels. Resets the keyvalues and labels for the variable, keeps the original keyvalue, label pairs from the full dataset. 
+Removes categories and from dataframe. Resets the keyvalues and labels for the variable. 
 
 Format
 ----------------
-.. function:: df = dropCategoriesX, category, [, column])
+.. function:: df = dropCategories(X, categories, [, column])
 
-    :param X: data with metadata.
+    :param X: Data with metadata.
     :type X: NxK dataframe
 
-    :param category: The categories to be removed. 
-    :type category: String or string array
+    :param categories: The categories to be removed. 
+    :type categories: String or string array
     
-    :param column: Optional argument, Name or index of the categorical variable in *X* to get labels from. Must be specified if *X* contains more than one column. Default = 1.
+    :param column: Optional argument, name or index of the categorical variable in *X* which contains categories to be removed. Must be specified if *X* contains more than one column. Default = 1.
     :type column: Scalar or string
 
-    :return df: Data with specified category removed.
+    :return df: Data with specified categories removed.
     :rtype df: NxK dataframe
 
 

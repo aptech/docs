@@ -11,12 +11,11 @@ Format
 ----------------
 .. function:: ret = isstring(x)
 
-    :param x: the symbol to be checked.
-    :type x: matrix, dataframe, string or string array
+    :param x: The symbol to be checked.
+    :type x: Matrix, dataframe, string or string array
 
     :return ret: A 1 if the input is a string or string array, otherwise 0.
-
-    :rtype ret: scalar
+    :rtype ret: Scalar
 
 Examples
 ----------------
@@ -29,7 +28,7 @@ Basic cases
     // Test for string 
     ret_1 = isstring("This is a string");
     
-    // Form string *sa*
+    // Form string 'sa'
     sa = "This is a " $| "string array";
     
     // Test if sa is string
@@ -53,7 +52,7 @@ As we would expect, the :func:`isstring` will return a 1 when passed the followi
 ::
     
     // Create string array
-    sa = "hight" $| "medium" $| "high" $| "low";
+    sa = "high" $| "medium" $| "high" $| "low";
 
     // Test if sa is a string
     ret = isstring(sa);

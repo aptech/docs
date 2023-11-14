@@ -9,19 +9,19 @@ Extracts the month component from a date/time variable as a string name.
 
 Format
 ----------------
-.. function:: month_names = dtMonthName(X [, columns, abbreviate])
+.. function:: month_names = dtMonthName(X [, column, abbreviate])
 
-    :param X: data with metadata.
-    :type X: NxK Dataframe
+    :param X: Data with metadata.
+    :type X: TxK dataframe
 
-    :param columns: Optional, names or indices of the date variable in *X* to get months from.
-    :type columns: Jx1 Vector or string array
+    :param column: Optional, name or index of the date variable in *X* to get months from.
+    :type column: Scalar or string
 
     :param abbreviate: Optional, indicator variable to abbreviate months. Set to 1 to abbreviate names. Default = 0.
     :type abbreviate: Scalar
     
-    :return month_names: the name of the month components of the dates contained in the Jx1 columns specified by *columns*.
-    :rtype month_names: NxJ String array
+    :return month_names: the name of the month components of the dates contained in the column specified by *column*.
+    :rtype month_names: Tx1 string array
     
 
 Examples
