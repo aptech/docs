@@ -13,7 +13,7 @@ Format
               out = fgls(depvar, indvars, method, [, ctl])
 
     :param data: name of dataframe.
-    :type data: dataframe
+    :type data: Dataframe
 
     :param formula: formula string of the model.
         E.g ``"y ~ X1 + X2"``, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
@@ -22,7 +22,7 @@ Format
 
         E.g ``"y ~ -1 + X1 + X2"``, ``-1`` means no intercept model.
 
-    :type formula: string
+    :type formula: String
 
     :param depvar: Dependent variable. 
     :type depvar: Nx1 dataframe or matrix
@@ -43,7 +43,7 @@ Format
             ``"HC3"``, :math:`\omega_i = \frac{\epsilon_i^2}{1 - h_i}^2`
             ``"HC4"``, :math:`\omega_i = \frac{\epsilon_i^2}{1 - h_i}^{d_i}`
        
-    :type method: string
+    :type method: String
 
     :param ctl: Optional input, instance of an :class:`fglsControl` structure containing the following members:
 
@@ -59,7 +59,7 @@ Format
             * - ctl.iters
               - Scalar, number of iterations, default is two-stage FGLS.              
             * - ctl.omega0
-              - Matrix or vector, user-defined :math:`\hat{\Omega}`, specified as a positive vector, positive semidefinite matrix, or a positive definite matrix. If provided, `method` is ignored and no data-driven :math:`\hat{\omega}` is computed.              
+              - Matrix or vector, user-defined :math:`\hat{\Omega}`, specified as a positive vector, positive semidefinite matrix, or a positive definite matrix. If provided, *method* is ignored and no data-driven :math:`\hat{\omega}` is computed.              
             * - ctl.miss
               - scalar, default 0.
 
@@ -87,7 +87,7 @@ Format
                 :1: print the statistics.
                 
 
-    :type ctl: struct
+    :type ctl: Struct
 
     :return out: instance of :class:`fglsOut` struct containing the following members:
 
@@ -107,7 +107,7 @@ Format
             * - out.pvt
               - Dx1 vector, the p-value the t-statistics of the estimated parameters.
             * - out.resid
-              - residuals, :math:`out.resid = y -  x * out.beta_fgls`.
+              - Residuals, :math:`out.resid = y -  x * out.beta_{fgls}`.
             * - out.df
               - Scalar, degrees of freedom.
             * - out.sse
@@ -115,19 +115,19 @@ Format
             * - out.sst
               - Scalar, total sum of squares.
             * - out.std_est
-              - scalar, standard deviation of residuals.
+              - Scalar, standard deviation of residuals.
             * - out.fstat
               - Scalar, model F-stat.        
             * - out.pvf
               - Scalar, p-value of model F-stat. 
             * - out.rsq
-              - scalar, R squared, coefficient of determination.
+              - Scalar, R squared, coefficient of determination.
             * - out.rbsq
-              - scalar, Rbar squared, coefficient of determination.
+              - Scalar, Rbar squared, coefficient of determination.
             * - out.dw
-              - scalar, Durbin-Watson statistic.
+              - Scalar, Durbin-Watson statistic.
 
-    :rtype out: struct
+    :rtype out: Struct
 
 Examples
 ----------------
@@ -152,18 +152,18 @@ The output for data matrices includes default variable names:
 
 ::
 
-    Valid cases:                     50              Dependent variable:               Y
-    Total SS:                    48.078              Degrees of freedom:             046
-    R-squared:                    0.019              Rbar-squared:                -0.045
-    Residual SS:                 47.145              Std error of est:             1.012
-    F(3,46)                       0.303              Probability of F:             0.874
-    Dubin-Watson                  2.087                                                 
+    Valid cases:                     50              Dependent variable:             Y
+    Total SS:                    48.078              Degrees of freedom:            46
+    R-squared:                    0.019              Rbar-squared:              -0.045
+    Residual SS:                 47.145              Std error of est:           1.012
+    F(3,46)                       0.303              Probability of F:           0.874
+    Durbin-Watson                 2.087                                                 
 
 
-  ------------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------------
                             Standard                    Prob                        
       Variable   Estimates       Error     t-value        >|t|  [95% Conf.   Interval]
-  ------------------------------------------------------------------------------------
+    ----------------------------------------------------------------------------------
 
     Constant     -0.0699       0.146      -0.478       0.635      -0.356       0.217 
           X1       0.103       0.139       0.744       0.461      -0.169       0.376 
@@ -197,7 +197,7 @@ regression. The dependent variable is *rcoe*. The independent variable is *rcpi*
     R-squared:                    0.110              Rbar-squared:                 0.103
     Residual SS:                  0.024              Std error of est:             0.010
     F(1,245)                     30.329              Probability of F:             0.000
-    Dubin-Watson                  0.757                                                 
+    Durbin-Watson                 0.757                                                 
 
 
     ------------------------------------------------------------------------------------
@@ -239,6 +239,26 @@ In this example, the dataset :file:`credit.dat` is used to compute a
 regression using a classic linear model innovation covariance matrix. The dependent variable is *Limit*. The independent
 variables are: *Balance*, *Income*, and *Age*. 
 
+::
+
+   Valid cases:                    400              Dependent variable:         Balance
+   Total SS:            2125784986.000              Degrees of freedom:             396
+   R-squared:                    0.939              Rbar-squared:                 0.939
+   Residual SS:          129727134.947              Std error of est:           572.358
+   F(3,396)                   2031.029              Probability of F:             0.000
+   Durbin-Watson                 1.953                                                 
+
+
+   ------------------------------------------------------------------------------------
+                            Standard                    Prob                        
+    Variable   Estimates       Error     t-value        >|t|  [95% Conf.   Interval]
+   ------------------------------------------------------------------------------------
+
+    Constant    1.52e+03         102        14.9       0.000    1.32e+03    1.72e+03 
+      Income        3.17      0.0706        44.9       0.000        3.03        3.31 
+         Age        32.6       0.936        34.8       0.000        30.7        34.4 
+       Limit        1.68        1.69        0.99       0.323       -1.64           5
+       
 Source
 ------
 
