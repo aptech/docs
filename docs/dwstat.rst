@@ -5,14 +5,14 @@ dwstat
 Purpose
 ----------------
 
-Computes the Durbin Watson statistic.
+Computes the Durbin-Watson statistic.
 
 Format
 ----------------
 .. function:: dw = DWstat(resid)
 
     :param resid: Residuals.
-    :type n: Tx1 vector
+    :type resid: Tx1 vector
 
     :return dw: Durbin-Watson statistic.
     :rtype dw: Scalar
