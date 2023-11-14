@@ -1,5 +1,5 @@
 
-dropCategory
+dropCategories
 ==============================================
 
 Purpose
@@ -9,7 +9,7 @@ Removes category from dataframe and category labels. Resets the keyvalues and la
 
 Format
 ----------------
-.. function:: df = dropCategory(X, category, [, columns])
+.. function:: df = dropCategoriesX, category, [, column])
 
     :param X: data with metadata.
     :type X: NxK dataframe
@@ -17,8 +17,8 @@ Format
     :param category: The categories to be removed. 
     :type category: String or string array
     
-    :param columns: Optional argument, Name or index of the categorical variable in *X* to get labels from. Must be specified if *X* contains more than one column. Default = 1.
-    :type columns: scalar or string
+    :param column: Optional argument, Name or index of the categorical variable in *X* to get labels from. Must be specified if *X* contains more than one column. Default = 1.
+    :type column: Scalar or string
 
     :return df: Data with specified category removed.
     :rtype df: NxK dataframe
@@ -50,12 +50,12 @@ The code above prints the following table of original labels:
          low
          med
 
-Now, use :func:`dropCategory` to drop the high category and reprint labels.
+Now, use :func:`dropCategories` to drop the `"high"` category and reprint labels.
 
 ::
 
   // Load data
-  yarn = dropCategory(yarn, "high", "yarn_length");
+  yarn = dropCategories(yarn, "high", "yarn_length");
   
   // Get column labels for yarn_length
   labels = getCategories(yarn, "yarn_length");
