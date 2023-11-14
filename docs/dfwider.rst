@@ -32,7 +32,7 @@ Format
             * - pctl.id_cols
               - String array, containing the names of the variables that should be used to determine a unique observation. Default = "", meaning the combination of all variables other than those specified by *names_from* and *values_from* will be used.
 
-    :type pctl: 
+    :type pctl: Struct
 
     :return df_wide: The input data converted to wide form.
 
