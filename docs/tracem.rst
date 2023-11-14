@@ -15,8 +15,7 @@ Format
     :type A: NxM matrix, or multidimensional array.
 
     :return t: the trace of the matrix.
-
-    :rtype t: scalar, or multidimensional array.
+    :rtype t: Scalar, or multidimensional array.
 
 Examples
 ----------------

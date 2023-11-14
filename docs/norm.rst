@@ -36,7 +36,7 @@ Format
         \_\_INFN  Scalar, equivalent to: ``minc(abs(x))``, or ``minc(abs(x'))``
         ========= ==================
 
-    :type norm_type: string or scalar
+    :type norm_type: String or scalar
 
     :return n: the requested norm of *A*.
 
