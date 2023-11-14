@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: B = powerM(A, n)
 
-    :param A: data
+    :param A: Data.
     :type A: NxN square matrix
 
-    :param n: the power or exponent.
+    :param n: The power or exponent.
     :type n: Scalar
 
-    :return B: the power of a matrix *A*
+    :return B: The power of a matrix *A*.
 
     :rtype B: NxN square matrix
 

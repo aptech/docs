@@ -12,10 +12,10 @@ Format
 .. function:: out = fgls(data, formula, method, [, ctl])
               out = fgls(depvar, indvars, method, [, ctl])
 
-    :param data: name of dataframe.
+    :param data: Name of dataframe.
     :type data: Dataframe
 
-    :param formula: formula string of the model.
+    :param formula: Formula string of the model.
         E.g ``"y ~ X1 + X2"``, ``y`` is the name of dependent variable, ``X1`` and ``X2`` are names of independent variables;
 
         E.g ``"y ~ ."``, ``.`` means including all variables except dependent variable ``y``;
@@ -51,7 +51,7 @@ Format
             :widths: auto
         
             * - ctl.intercept
-              - scalar, default 1.
+              - Scalar, default 1.
 
                 :1: a constant term will be added.
                 :0: no constant term will be added.
@@ -61,19 +61,19 @@ Format
             * - ctl.omega0
               - Matrix or vector, user-defined :math:`\hat{\Omega}`, specified as a positive vector, positive semidefinite matrix, or a positive definite matrix. If provided, *method* is ignored and no data-driven :math:`\hat{\omega}` is computed.              
             * - ctl.miss
-              - scalar, default 0.
+              - Scalar, default 0.
 
                 :0: Do not drop missing values. Will error if any missing values are detected.
                 :1: listwise deletion, drop any cases in which missings occur. Generates warning message if missing values detected.
   
             * - ctl.scaleResiduals
-              - scalar, default 0.
+              - Scalar, default 0.
 
                 :0: do not scale residuals.
                 :1: Scale residuals to truncate values at the first and ninety-ninth percentiles.
 
             * - ctl.mleAR
-              - scalar, default 1.
+              - Scalar, default 1.
 
                 :0: Use OLS estimate of autoregressive parameters in innovation covariance matrix estimation.
                 :1: Use MLE estimate of autoregressive parameters in innovation covariance matrix estimation. 
@@ -81,7 +81,7 @@ Format
                 Valid only if using ``"AR"`` method for computing innovation covariance matrix. 
                     
             * - ctl.printOutput
-              - scalar, default 1.
+              - Scalar, default 1.
 
                 :0: do not print statistics.
                 :1: print the statistics.

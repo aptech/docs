@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: X_expand = insertcols(X, idx, new_cols)
 
-    :param X:
+    :param X: Data.
     :type X: Matrix or dataframe
 
     :param idx: The index after which to insert the new columns. This may be an integer index or a string variable name.
@@ -20,10 +20,10 @@ Format
     :param new_cols: The new columns to insert into *X*.
     :type new_cols: Scalar, string or vector
 
-    :return X_expand: equal to input *X* with the new columns added after the position indicated by  
+    :return X_expand: Equal to input *X* with the new columns added after the position indicated by  
         input *idx*.
 
-    :rtype x_expand: matrix, dataframe
+    :rtype X_expand: Matrix or dataframe
 
 Examples
 ----------------
@@ -41,7 +41,7 @@ Example 1: Basic matrix usage
                  44 55,
                  66 77 };
 
-    // Insert new_cols ater column 2
+    // Insert 'new_cols' ater column 2
     X_expand = insertcols(X, 2, new_cols);
 
 After the above code:
@@ -61,10 +61,14 @@ Example 2: Add a constant term to a matrix
           5  6  7  8,
           9 10 11 12 };
 
+    // Create vector for constant
     const = ones(rows(X), 1);
 
-    // Insert const at the front of the matrix
+    // Insert after '0' column
     idx = 0;
+    
+    // Insert 'const' vector in front
+    // of matrix
     X_expand = insertcols(X, idx, const);
 
 After the above code:
@@ -79,8 +83,15 @@ After the above code:
 
 ::
 
+    // Insert after '0' column
     idx = 0;
+    
+    // Specify scalar 1 to insert
     const = 1; 
+    
+    // Insert cols expands scalar 'const' 
+    // to match size of X and insert at
+    // beginning of matrix
     X_expand = insertcols(X, idx, const);
 
 
@@ -110,7 +121,7 @@ In this example we will create an indicator variable to show whether the origina
 ::
     
     // Create an indicator variable to show whether
-    // rep78  has a missing value
+    // 'rep78'  observations are missing
     rep78_miss = auto[.,"rep78"] .== miss();
     
     // Add a variable name to our indicator variable

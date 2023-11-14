@@ -9,12 +9,12 @@ Compute descriptive statistics.
 
 Format
 ----------------
-.. function:: dout = dstatmt(data [, vars[, ctl]])
+.. function:: dout = dstatmt(data [, vars, ctl])
 
     :param data: A dataframe or the name of dataset. If *data* is an empty string or 0, *vars* will be assumed to be a matrix containing the data.
     :type data: string or dataframe
 
-    :param vars: the variables.
+    :param vars: Optional, the variables.
 
       If *data* contains a dataframe or the name of a dataset, *vars* will be interpreted as either:
  
@@ -24,13 +24,13 @@ Format
         e.g. :code:`"PAY + WT"` or :code:`". - sex"`
         e.g :code:`"X1 + by(X2)", "by(X2)"` specifies that the data should be separated into different tables based on the groups defined by ``X2``.
           
-      These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
+      These can be any size subset of the variables in the dataset and can be in any order. Dafault = all columns of the dataset.
  
       If *data* is an empty string or 0, *vars* will be interpreted as an NxK matrix, the data on which to compute the descriptive statistics.
 
-    :type vars: string or string array
+    :type vars: String or string array
 
-    :param ctl: instance of a :class:`dstatmtControl` structure containing the following members:
+    :param ctl: An optional :class:`dstatmtControl` structure containing the following members:
 
         .. list-table::
             :widths: auto
@@ -38,29 +38,28 @@ Format
             * - *ctl.altnames*
               - Kx1 string array of alternate variable names to be used if a matrix in memory is analyzed (i.e., dataset is a null string or 0). Default = "".
             * - *ctl.maxbytes*
-              - scalar, the maximum number of bytes to be read per iteration of the read loop. Default = 1e9.
+              - Scalar, the maximum number of bytes to be read per iteration of the read loop. Default = 1e9.
             * - *ctl.vartype*
-              - scalar, unused in dstatmt.
+              - Scalar, unused in dstatmt.
             * - *ctl.miss*
-              - scalar, default 0.
+              - Scalar, default 0.
 
                 :0: there are no missing values (fastest).
                 :1: listwise deletion, drop a row if any missings occur in it.
                 :2: pairwise deletion.
 
             * - *ctl.row*
-              - scalar, the number of rows to read per iteration of the read loop.If 0, (default) the number of rows will be calculated using *ctl.maxbytes* and *maxvec*.
+              - Scalar, the number of rows to read per iteration of the read loop.If 0, (default) the number of rows will be calculated using *ctl.maxbytes* and *maxvec*.
             * - *ctl.output*
-              - scalar, controls output, default 1.
+              - Scalar, controls output, default 1.
 
                 :1: print output table.
                 :0: do not print output.
 
 
-    :type ctl: Optional input
+    :type ctl: Struct
 
-    :return dout: instance of :class:`dstatmtOut` struct
-        structure containing the following members:
+    :return dout: Instance of :class:`dstatmtOut` structure containing the following members:
 
         .. list-table::
             :widths: auto
@@ -82,14 +81,14 @@ Format
             * - *dout.missing*
               - Kx1 vector, the number of missing cases.
             * - *dout.errcode*
-              - scalar, error code, 0 if successful; otherwise, one of the following:
+              - Scalar, error code, 0 if successful; otherwise, one of the following:
 
                 :2: Can't open file.
                 :7: Too many missings - no data left after packing.
                 :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
                 :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
 
-    :rtype dout: struct
+    :rtype dout: Struct
 
 Examples
 ----------------

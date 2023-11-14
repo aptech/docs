@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: n = norm(A[, norm_type])
 
-    :param A: data
+    :param A: Data.
     :type A: Nx1 vector or NxN matrix
 
-    :param norm_type: optional. specifying which norm to compute. 
+    :param norm_type: Optional, specifying which norm to compute. 
 
         ========= ==================
         Matrix norm options
@@ -38,7 +38,7 @@ Format
 
     :type norm_type: String or scalar
 
-    :return n: the requested norm of *A*.
+    :return n: The requested norm of *A*.
 
     :rtype n: Scalar
 

@@ -20,7 +20,7 @@ Format
     :param values_from: The values with which to fill the newly created columns.
     :type values_from: String array
 
-    :param pctl: An optional pivotControl structure with the following members:
+    :param pctl: An optional :class:`pivotControl` structure with the following members:
 
         .. list-table::
             :widths: auto
