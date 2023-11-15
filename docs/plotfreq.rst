@@ -12,16 +12,16 @@ Format
 .. function:: plotFreq([myPlot, ] x, column [, sort])
 
     :param myPlot: Optional argument, a :class:`plotControl` structure.
-    :type myPlot: struct
+    :type myPlot: Struct
 
     :param x: data.
     :type x: NxK matrix
 
     :param column: Categorical variable to be plotted.
-    :type column: scalar or string
+    :type column: Scalar or string
     
     :param sort: Optional, indicator to sort from most frequent to least frequent categories. Set to 1 to sort. Default = 0.
-    :type column: scalar
+    :type column: Scalar
 
 
 Examples

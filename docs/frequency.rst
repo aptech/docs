@@ -14,12 +14,10 @@ Format
     :param x: Data.
     :type x: NxK dataframe
 
-    :param varlist: Names or indices of variables to be counted. If names, should be entered as a formula string e.g ``"rep78 + foreign"``. For two-way tables, 
-    the variable left of the `"~"` will be reported on rows and variables listed to the right of the 
+    :param varlist: Names or indices of variables to be counted. If names, should be entered as a formula string e.g ``"rep78 + foreign"``. For two-way tables, the variable left of the `"~"` will be reported on rows and variables listed to the right of the 
     table will be reported on columns. E.g ``"df ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df1"`` and ``"df2"``.
-    
     :type varlist: Vector or string
-    
+        
     :param sort: Optional, indicator to sort from most frequent to least frequent categories. Set to 1 to sort. Default = 0.
     :type sort: scalar
 
@@ -41,7 +39,7 @@ The simplest use of :func:`frequency` is a single one-way table:
   // Create frequency table for the 'rep78' variable in 'auto2'
   frequency(auto2, "rep78");
 
-This code prints the following tables:
+This code prints the following table:
 
 ::
 
@@ -53,7 +51,7 @@ This code prints the following tables:
   Excellent        11     15.94       100
       Total        69       100
 
-Sorted one-way tables
+Sorted one-way table
 ++++++++++++++++++++++
 
 The one-way table can be sorted from most frequent to least frequent category using the optional *sort* input:
@@ -111,7 +109,7 @@ This code prints the following tables:
     Foreign        22     29.73       100
       Total        74       100
 
-Creating two-way tables
+Two-way tables
 +++++++++++++++++++++++++
 
 To create a two-way table, a variable is added on the LHS of the formula string in front of the ``"~"``:
