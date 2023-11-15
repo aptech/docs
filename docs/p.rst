@@ -45,6 +45,7 @@ P
     plotaddsurface
     plotaddtextbox
     plotaddts
+    plotaddtshf
     plotaddvbar
     plotaddvline
     plotaddxy
