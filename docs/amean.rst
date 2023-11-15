@@ -14,11 +14,10 @@ Format
     :param x:
     :type x: N-dimensional array.
 
-    :param dim: the dimension across which to compute the mean.
-    :type dim: scalar
+    :param dim: The dimension across which to compute the mean.
+    :type dim: Scalar
 
     :return y: 
-
     :rtype y: [N-1]-dimensional array
 
 Examples

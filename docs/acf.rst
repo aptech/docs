@@ -11,18 +11,17 @@ Format
 ----------------
 .. function:: rk = acf(y, k, d)
 
-    :param y: univariate time series.
+    :param y: Univariate time series.
     :type y: Nx1 vector
 
-    :param k: maximum number of autocorrelations to compute. 0 < *k* < *N*.
-    :type k: scalar
+    :param k: Maximum number of autocorrelations to compute. 0 < *k* < *N*.
+    :type k: Scalar
 
-    :param d: order of differencing.
+    :param d: Order of differencing.
         Set *d* equal to 0 to compute the autocorrelations from the original time series.
-    :type d: scalar
+    :type d: Scalar
 
-    :return rk: sample autocorrelations.
-
+    :return rk: Sample autocorrelations.
     :rtype rk: Kx1 vector
 
 Examples

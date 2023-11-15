@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: x_agg = aggregate(x, method [, column , fast])
 
-    :param x: data, if *column* is not specified, the first column must contain the ids for the groups on which to aggregate.
+    :param x: Data, if *column* is not specified, the first column must contain the ids for the groups on which to aggregate.
     :type x: NxK matrix or dataframe
 
     :param method: Specifies which aggregation method to use.
@@ -30,7 +30,7 @@ Format
             * - "sum"
             * - "variance" (sample variance)
 
-    :type method: string
+    :type method: String
 
     :param column: Optional, specifies which variable contains the groups on which to aggregate.
     :type column: string
@@ -38,7 +38,7 @@ Format
     :param fast: Optional, specifies fast computation that does not check for missing values. Set to 1 to use fast method.
     :type fast: scalar
 
-    :return x_agg: the input aggregated by the group id, using the specified method.
+    :return x_agg: The input aggregated by the group id, using the specified method.
     :rtype x_agg: NGROUPSxK matrix
 
 Examples
