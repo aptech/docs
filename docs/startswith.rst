@@ -11,10 +11,10 @@ Format
 ----------------
 .. function:: mask = startsWith(str, pat)
 
-    :param str: the data to be searched. 
+    :param str: The data to be searched. 
     :type str: Nx1 string array or dataframe of type category or string
 
-    :param pat: the pattern to search for in the beginning of *str*.
+    :param pat: The pattern to search for in the beginning of *str*.
     :type pat: String or dataframe of type category or string
 
     :return mask: A matrix of the same size as *str* with a 1 in any element that starts with the value of *pat*, otherwise 0.
@@ -22,7 +22,7 @@ Format
 
 Examples
 ----------------
-The following example searches for all observations of the variable *make* in the ``auto2.dta`` dataset that starts with either ``"Buick"`` or ``"MFC"``.
+The following example searches for all observations of the variable *make* in the ``auto2.dta`` dataset that starts with ``"Buick"`` .
 
 ::
   
@@ -32,11 +32,11 @@ The following example searches for all observations of the variable *make* in th
    // Specify pattern to search for
    pat = "Buick";
     
-   // Find all makes that include `Buick`
+   // Find all makes that include 'Buick'
    mask = startsWith(data[., "make"], pat);
    
    // Print *make*, *price*, and *mpg*
-   // for `Buicks` observations
+   // for 'Buick' observations
    head(selif(data[., "make" "price" "mpg"], mask));
 
 This prints the following:

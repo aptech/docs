@@ -113,8 +113,8 @@ T-bill plot with full date vector
     x = loadd(file, "obs_date + tbill_3m");
 
     // Separate date vector and tbill data
-    date_vec = dttoutc(x[., 1]);
-    y = x[ ., 2 ];
+    date_vec = x[., "obs_date"];
+    y = x[ ., "tbill_3m"];
 
     // Specify that tick labels should be
     // on years, even though the data is monthly
@@ -168,7 +168,7 @@ Time Series Plot With Custom X-ticks
 
     // Place first x-tick mark at 1984 month 1 and draw one every 2 quarters
     // Note that we pass in the first_labeled date in posix format
-    plotSetXTicInterval(&myPlot, 2, asDate("1984")));
+    plotSetXTicInterval(&myPlot, 2, asDate("1984"));
 
     // Display only 4 digit year on x-tick labels
     plotSetXTicLabel(&myPlot, "YYYY-QQ");

@@ -10,17 +10,17 @@ Format
 ----------------
 .. function:: idx = strindx(haystack, needle [, start])
 
-    :param haystack: the data to be searched.
-    :type haystack: string array, or dataframe of type category or string
+    :param haystack: The data to be searched.
+    :type haystack: String array, or dataframe of type category or string
 
-    :param needles: the substring to be searched for in *haystack*. Must be ExE conformable with *haystack* input. 
-    :type needles: string array or string
+    :param needles: The substring to be searched for in *haystack*. Must be ExE conformable with *haystack* input. 
+    :type needles: String array or string
 
     :param start: Optional argument, the starting point of the element-by-element search in *haystack* for an occurrence of *needle*.
         The index of the first character in a string is 1. Default=1.
-    :type start: scalar
+    :type start: Scalar
 
-    :return idx: contains the index of the first occurrence of *needle*, within *haystack*,
+    :return idx: Contains the index of the first occurrence of *needle*, within *haystack*,
         which is greater than or equal to *start*. If no occurrence is found, it will be 0.
 
     :rtype idx: Matrix 
@@ -84,11 +84,6 @@ The :func:`strindx` procedure can also be used to search across multiple variabl
 
     // Load 'rep78' and 'make` variable
     rep78 = loadd(fname, "rep78 + make");
-
-    // Print out the first 5 observations
-    head(rep78);
-
-::
 
     // Find the index of "age" in 'rep78'
     // and "AMC" in 'make'

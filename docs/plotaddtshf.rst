@@ -11,7 +11,7 @@ Format
 .. function:: plotAddTSHF([myPlot, ] date_vec, y)
 
     :param myPlot: Optional argument, a :class:`plotControl` structure.
-    :type myPlot: struct
+    :type myPlot: Struct
 
     :param date_vec: containing the dates for each observation in the *y* . The dates in *date_vec* are **required** to be:
 
