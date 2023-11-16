@@ -11,6 +11,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New ability to compute descriptive statistics on a dataframe for each subset based on a categorical variable with :func:`dstatmt` and  the :class:`by` keyword.
 #. New ability to estimate linear models separately for each subset based on a categorical variable with the :class:`by` keyword and :func:`glm` or  :func:`olsmt`.
 #. New function :func:`fgls` computes feasible GLS estimation with seven options for estimating the innovation covariance matrix.
+#. New function :func:`tabulate` generates and returns two-way tables of frequency.
 #. New function :func:`DWstat` computes the Durbin-Watson statistic from residuals. 
 #. New function :func:`tracem` computes the trace of a matrix.
 #. New function :func:`startsWith` returns a binary matrix with a 1 if the element starts with the specified string, otherwise 0.

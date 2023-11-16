@@ -14,7 +14,7 @@ Format
     :param X: Data with metadata.
     :type X: TxK dataframe
 
-    :param column: Optional, name or index of the date variable in *X* to get day names from.
+    :param column: Optional, name or index of the date variable in *X* to get day names from.  Default = first column.
     :type column: Scalar or string array
 
     :param abbreviate: Optional, indicator variable to abbreviate months. Set to 1 to abbreviate names. Default = 0.
@@ -36,12 +36,11 @@ Examples
   // Get day of the week names for date column
   day_names = dtDayName(data, "Date");
   
-  // Print first five and last five
-  // observations of dates
+  // Print first and last five dates
   head(data[., "Date"]);
   tail(data[., "Date"]);
   
-  // Print corresponding days of the week
+  // Print corresponding day names
   "Name of day:"
   head(day_names);
   tail(day_names);
@@ -85,12 +84,7 @@ The abbreviated names can be obtained using the optional *abbreviate* input.
   // Get day names for date column
   day_names = dtDayName(data, "Date", 1);
   
-  // Print first five and last five
-  // observations of dates
-  head(data[., "Date"]);
-  tail(data[., "Date"]);
-  
-  // Print corresponding days of the week
+  // Print corresponding day names
   "Name of day:"
   head(day_names);
   tail(day_names);
@@ -99,21 +93,8 @@ The code above prints the following table:
 
 ::
 
-            Date 
-      2016/01/01 
-      2015/01/01 
-      2014/01/01 
-      2013/01/01 
-      2012/01/01
-      
-            Date 
-      1990/12/01 
-      1989/12/01 
-      1988/12/01 
-      1987/12/01 
-      1986/12/01 
-      
-    Month Names:
+     Name of day:
+     
              Fri 
              Thu 
              Wed 

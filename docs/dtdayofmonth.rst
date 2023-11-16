@@ -17,7 +17,7 @@ Format
     :param column: Optional, name or index of the date variable in *X* to get days of the months from.
     :type column: Scalar or string
     
-    :return dom: The day of the month components of the dates contained in the column specified by *column*.
+    :return dom: The day of the month of the dates in the column specified by  *column*.
     :rtype dom: Tx1 vector
     
 
@@ -33,8 +33,7 @@ Examples
   // Get day of the month for date column
   dom = dtDayofMonth(data, "Date");
   
-  // Print first five and last five
-  // observations of dates
+  // Print first and last five dates
   head(data[., "Date"]);
   tail(data[., "Date"]);
   
@@ -61,7 +60,7 @@ The code above prints the following table:
       1987/12/01 
       1986/12/01 
       
-    Day of Year:
+    Day of Month:
 
                1 
                1 

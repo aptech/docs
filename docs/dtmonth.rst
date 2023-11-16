@@ -14,10 +14,10 @@ Format
     :param X: Data with metadata.
     :type X: TxK dataframe
 
-    :param columns: Optional, name or index of the date variable in *X* to get months from.
+    :param columns: Optional, name or index of the date variable in *X* to get months from.  Default = first column.
     :type columns: Scalar or string
 
-    :return months: The numeric month (1-12) components of the dates contained in the column specified by *column*.
+    :return months: The numeric month (1-12) of the dates in the column specified by *column*.
     :rtype months: Tx1 vector
     
 
@@ -33,8 +33,7 @@ Examples
   // Get months for date column
   months = dtMonth(data, "Date");
   
-  // Print first five and last five
-  // observations of dates
+  // Print first and last five dates
   head(data[., "Date"]);
   tail(data[., "Date"]);
   

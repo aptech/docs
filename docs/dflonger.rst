@@ -35,7 +35,7 @@ Format
             * - pctl.names_pattern_strip
               - String, a regular expression specifying groups in *names_to* names should be broken up. Default = "", do not break up *names_to*.
             * - pctl.names_types
-              - String, containing either: i. a column vector of types for each of the *names_to* variables, or ii. an *n x 2* matrix where the first column is the name of the column and the second column contains the types for the variable in the first column. (i.e. ``pctl.names_types = { "Index" "number", "Year" "date" };``. Valid type options include: "date", "number", "category", and "string".
+              - String, containing either: i. a column vector of types for each of the *names_to* variables, or ii. an *n x 2* matrix where the first column is the name of the column and the second column contains the types for the variable in the first column. (i.e. ``pctl.names_types = { "Index" "number", "Year" "date" };``). Valid type options include: "date", "number", "category", and "string".
             * - pctl.values_drop_missing
               - Scalar, 0 or 1. If set to 1, all rows with missing values will be removed. Default = 0.
 

@@ -14,10 +14,10 @@ Format
     :param X: Data with metadata.
     :type X: Txk dataframe
 
-    :param column: Optional, name or index of the date variable in *X* to get seconds from.
+    :param column: Optional, name or index of the date variable in *X* to get seconds from. Default = first column.
     :type column: Scalar or string
 
-    :return seconds: The seconds components of the dates contained in the column specified by *column*.
+    :return seconds: The seconds of the dates in the column specified by *column*.
     :rtype seconds: Tx1 vector
     
 

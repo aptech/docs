@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: minutes = dtMinute(X [, column])
 
-    :param X: data with metadata.
+    :param X: Data with metadata.
     :type X: TxK dataframe
 
-    :param column: Optional, name or index of the date variable in *X* to get minutes from.
+    :param column: Optional, name or index of the date variable in *X* to get minutes from. Default = first column.
     :type column: Scalar or string
 
-    :return minutes: The minutes component of the dates contained in the column specified by *column*.
+    :return minutes: The minutes of the dates in the column specified by *column*.
     :rtype minutes: Tx1 vector
     
 

@@ -14,10 +14,10 @@ Format
     :param X: Data with metadata.
     :type X: TxK dataframe
 
-    :param column: Optional, name or index of the date variable in *X* to get quarters from.
+    :param column: Optional, name or index of the date variable in *X* to get quarters from.  Default = first column.
     :type column: Scalar or string
 
-    :return qtrs: The numeric quarter (1-4) components of the dates contained in the column specified by *columns*.
+    :return qtrs: The numeric quarter (1-4) of the dates in the column specified by *columns*.
     :rtype qtrs: Tx1 vector
     
 

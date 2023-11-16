@@ -14,10 +14,10 @@ Format
     :param X: Data with metadata.
     :type X: TxK dataframe
 
-    :param column: Optional, name or index of the date variable in *X* to get days of the year from.
+    :param column: Optional, name or index of the date variable in *X* to get days of the year from.  Default = first column.
     :type column: Scalar or string
     
-    :return doy: The day of the year components of the dates contained in the column specified by *column*.
+    :return doy: The day of the year of the dates in the column specified by *column*.
     :rtype doy: Tx1 vector
     
 
@@ -33,12 +33,11 @@ Examples
   // Get day of the year for date column
   doy = dtDayofYear(data, "Date");
   
-  // Print first five and last five
-  // observations of dates
+  // Print first and last five dates
   head(data[., "Date"]);
   tail(data[., "Date"]);
   
-  // Print corresponding weeks
+  // Print corresponding years
   "Day of Year:"
   head(doy);
   tail(doy);

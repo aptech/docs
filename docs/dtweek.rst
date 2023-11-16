@@ -13,12 +13,12 @@ Format
 .. function:: weeks = dtWeek(X [, column])
 
     :param X: Data with metadata.
-    :type X: Tx1 dataframe
+    :type X: Txk dataframe
 
-    :param column: Optional, name or index of the date variable in *X* to get weeks from.
+    :param column: Optional, name or index of the date variable in *X* to get weeks from.  Default = first column.
     :type column: Scalar or string
     
-    :return weeks: The week components of the dates contained in the column specified by *column*.
+    :return weeks: The week of the dates in the column specified by *column*.
     :rtype weeks: Tx1 vector
     
 
@@ -34,8 +34,7 @@ Examples
   // Get weeks for date column
   weeks = dtWeek(data, "Date");
   
-  // Print first five and last five
-  // observations of dates
+  // Print first and last five dates
   head(data[., "Date"]);
   tail(data[., "Date"]);
   
