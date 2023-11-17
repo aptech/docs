@@ -122,7 +122,7 @@ D
     dot
     dowhiledountil
     draw
-    dropcategory
+    dropcategories
     dropdataloop
     dropduplicates
     dscreate
