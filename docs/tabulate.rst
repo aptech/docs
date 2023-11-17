@@ -30,7 +30,21 @@ Format
     :param df2: Contains variables whose categories will be reported in the cols of the frequency table. 
     :type df2: NxK dataframe
 
+    :param tbctl: An optional :class:`tabControl` structure with the following members:
 
+        .. list-table::
+            :widths: auto
+
+            * - tbctl.exclude
+              - String, the categories to be excluded from table counts. Totals will not include observations in excluded categories. 
+            * - tbctl.unusedLevels
+              - Scalar, indicates whether to include unused levels in table. Set to 0 to remove unused levels from the table. Default = 1.
+          
+    :type tbctl: Struct
+
+    :return df_long: The input data converted to long form.
+    :rtype df_long: Dataframe
+    
 Examples
 ----------------
 
