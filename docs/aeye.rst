@@ -12,10 +12,10 @@ Format
 ----------------
 .. function:: a = aeye(ord)
 
-    :param ord: the sizes of the dimensions of *a*.
+    :param ord: The sizes of the dimensions of *a*.
     :type ord: Nx1 vector of orders
 
-    :return a: containing 2-dimensional identity arrays.
+    :return a: Contains 2-dimensional identity arrays.
 
     :rtype a: N-dimensional array
 

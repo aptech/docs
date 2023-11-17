@@ -36,7 +36,7 @@ Add Horizontal Spanning Bar
 ::
 
     // Create string with fully pathed file name
-    fname = getGAUSSHome() $+ "examples/credit.dat";
+    fname = getGAUSSHome("examples/credit.dat");
 
     // Load variables to plot from dataset
     credit = loadd(fname, "Rating + Balance");

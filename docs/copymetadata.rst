@@ -36,7 +36,7 @@ Examples
   rndseed 80970;
 
   // Load data with metadata
-  fname = getGAUSSHome $+ "examples/auto2.dta";
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname, "cat(rep78) + str(make)");
 
   // Generate random data

@@ -9,26 +9,28 @@ Compute descriptive statistics.
 
 Format
 ----------------
-.. function:: dout = dstatmt(data [, vars[, ctl]])
+.. function:: dout = dstatmt(data [, vars, ctl])
 
     :param data: A dataframe or the name of dataset. If *data* is an empty string or 0, *vars* will be assumed to be a matrix containing the data.
     :type data: string or dataframe
 
-    :param vars: the variables.
+    :param vars: Optional, the variables.
 
       If *data* contains a dataframe or the name of a dataset, *vars* will be interpreted as either:
  
       * A Kx1 character vector containing the names of variables.
       * A Kx1 numeric vector containing indices of variables.
-      * A `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`
- 
-      These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
+      * A `formula string`. 
+        e.g. :code:`"PAY + WT"` or :code:`". - sex"`
+        e.g :code:`"X1 + by(X2)", "by(X2)"` specifies that the data should be separated into different tables based on the groups defined by ``X2``.
+          
+      These can be any size subset of the variables in the dataset and can be in any order. Dafault = all columns of the dataset.
  
       If *data* is an empty string or 0, *vars* will be interpreted as an NxK matrix, the data on which to compute the descriptive statistics.
 
-    :type vars: string or string array
+    :type vars: String or string array
 
-    :param ctl: instance of a :class:`dstatmtControl` structure containing the following members:
+    :param ctl: An optional :class:`dstatmtControl` structure containing the following members:
 
         .. list-table::
             :widths: auto
@@ -36,29 +38,28 @@ Format
             * - *ctl.altnames*
               - Kx1 string array of alternate variable names to be used if a matrix in memory is analyzed (i.e., dataset is a null string or 0). Default = "".
             * - *ctl.maxbytes*
-              - scalar, the maximum number of bytes to be read per iteration of the read loop. Default = 1e9.
+              - Scalar, the maximum number of bytes to be read per iteration of the read loop. Default = 1e9.
             * - *ctl.vartype*
-              - scalar, unused in dstatmt.
+              - Scalar, unused in dstatmt.
             * - *ctl.miss*
-              - scalar, default 0.
+              - Scalar, default 0.
 
                 :0: there are no missing values (fastest).
                 :1: listwise deletion, drop a row if any missings occur in it.
                 :2: pairwise deletion.
 
             * - *ctl.row*
-              - scalar, the number of rows to read per iteration of the read loop.If 0, (default) the number of rows will be calculated using *ctl.maxbytes* and *maxvec*.
+              - Scalar, the number of rows to read per iteration of the read loop.If 0, (default) the number of rows will be calculated using *ctl.maxbytes* and *maxvec*.
             * - *ctl.output*
-              - scalar, controls output, default 1.
+              - Scalar, controls output, default 1.
 
                 :1: print output table.
                 :0: do not print output.
 
 
-    :type ctl: Optional input
+    :type ctl: Struct
 
-    :return dout: instance of :class:`dstatmtOut` struct
-        structure containing the following members:
+    :return dout: Instance of :class:`dstatmtOut` structure containing the following members:
 
         .. list-table::
             :widths: auto
@@ -80,14 +81,14 @@ Format
             * - *dout.missing*
               - Kx1 vector, the number of missing cases.
             * - *dout.errcode*
-              - scalar, error code, 0 if successful; otherwise, one of the following:
+              - Scalar, error code, 0 if successful; otherwise, one of the following:
 
                 :2: Can't open file.
                 :7: Too many missings - no data left after packing.
                 :9: *altnames* member of :class:`dstatmtControl` structure wrong size.
                 :10: *vartype* member of :class:`dstatmtControl` structure wrong size.
 
-    :rtype dout: struct
+    :rtype dout: Struct
 
 Examples
 ----------------
@@ -98,7 +99,7 @@ Computing statistics on a GAUSS dataset
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+    file_name = getGAUSSHome("examples/fueleconomy.dat");
 
     /*
     ** Compute statistics for all variables in the dataset
@@ -123,7 +124,7 @@ the second variable.
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+    file_name = getGAUSSHome("examples/fueleconomy.dat");
 
     // Only calculate statistics on the second variable
     vars = 2;
@@ -146,7 +147,7 @@ Computing statistics on a csv dataset with formula string
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/binary.csv";
+    file_name = getGAUSSHome("examples/binary.csv");
 
     // Set up a formula string with variables "gre" and "gpa"
     vars = "gre + gpa";
@@ -168,13 +169,53 @@ The above example will print the following report to the **Command** window:
     gre         587.7     115.5    1334e+04        220        800     400      0
     gpa          3.39    0.3806      0.1448       2.26          4     400      0
 
-Using control and out structures
-++++++++++++++++++++++++++++++++
+Computing statistics by groups
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The code below uses the ``"by"`` keyword to compute the descriptive statistics for *mpg* and *headroom* by the groups defined by *foreign*.
+    
+::
+
+    /*
+    ** Perform import
+    */
+    auto2 = loadd(getGAUSShome("examples/auto2.dta"));
+
+    // Specify formula to
+    // compute descriptive statistics on mpg
+    // based on domestic/foreign status
+    formula = "headroom + mpg + by(foreign)";
+
+    // Print statistics table
+    call dstatmt(auto2, formula);
+
+::
+
+
+    =========================================================================================
+    foreign: Domestic
+    -----------------------------------------------------------------------------------------
+    Variable         Mean     Std Dev      Variance     Minimum     Maximum     Valid Missing
+    -----------------------------------------------------------------------------------------
+    
+    headroom        3.154      0.9158        0.8386         1.5           5        52    0 
+    mpg             19.83       4.743          22.5          12          34        52    0 
+    =========================================================================================
+    foreign: Foreign
+    -----------------------------------------------------------------------------------------
+    Variable         Mean     Std Dev      Variance     Minimum     Maximum     Valid Missing
+    -----------------------------------------------------------------------------------------
+    
+    headroom        2.614      0.4863        0.2365         1.5         3.5        22    0 
+    mpg             24.77       6.611         43.71          14          41        22    0 
+  
+Using control and output structures
+++++++++++++++++++++++++++++++++++++
 
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/credit.dat";
+    file_name = getGAUSSHome("examples/credit.dat");
 
     // Declare control structure and fill in with defaults
     struct dstatmtControl dctl;

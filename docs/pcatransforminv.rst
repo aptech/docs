@@ -27,7 +27,7 @@ Examples
     library gml;
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "pkgs/gml/examples/winequality.csv";
+    fname = getGAUSSHome("pkgs/gml/examples/winequality.csv");
 
     // Load data
     X = loadd(fname, ". -quality");

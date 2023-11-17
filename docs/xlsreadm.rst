@@ -44,7 +44,7 @@ Basic Example
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
+    file = getGAUSSHome("examples/tbill_3mo.xlsx");
     
     // Read in all data below header line
     x = xlsReadM(file, "A2");
@@ -70,7 +70,7 @@ Read From a Range
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/yarn.xlsx";
+    file = getGAUSSHome("examples/yarn.xlsx");
     
     // Read in data from rows 2-9 of column 'D'
     x = xlsReadM(file, "D2:D9");
@@ -94,7 +94,7 @@ Reading dates
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
+    file = getGAUSSHome("examples/tbill_3mo.xlsx");
     
     // Read the first element below the header from the first column
     date_1 = xlsReadM(file, "A2:A2");
@@ -123,7 +123,7 @@ Specify Sheet Number
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    file = getGAUSSHome("examples/nba_ht_wt.xls");
 
     // Pass in '1' as the third input, to specify the first sheet
     x = xlsReadM(file, "C2:C5", 1);

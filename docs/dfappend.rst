@@ -32,11 +32,11 @@ In the example below, we will load data from a Stata dataset and a CSV file and 
 ::
 
     // Create file name with full path and load data
-    fname = getGAUSSHome() $+ "examples/tips2.dta";
+    fname = getGAUSSHome("examples/tips2.dta");
     tips_dta = loadd(fname, "tip + day");
 
     // Create file name with full path and load data
-    fname = getGAUSSHome() $+ "examples/tips2.csv";
+    fname = getGAUSSHome("examples/tips2.csv");
     tips_csv = loadd(fname, "tip + cat(day)");
 
     // Take a small sample of rows

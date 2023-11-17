@@ -24,7 +24,7 @@ Examples
 ::
 
     // Create filename with full path
-    dataset = getGAUSSHome() $+ "examples/credit.dat";
+    dataset = getGAUSSHome("examples/credit.dat");
 
     // Open file handle for data reading only
     fh = dataOpen(dataset, "read");

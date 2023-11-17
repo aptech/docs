@@ -28,7 +28,7 @@ Examples
   new;
 
   // Create file name with full path
-  fname = getGAUSSHome() $+ "examples/tips2.dta";
+  fname = getGAUSSHome("examples/tips2.dta");
 
   // Load the dataframe
   tips2 = loadd(fname, "id + total_bill + tip + cat(day) + cat(time)");

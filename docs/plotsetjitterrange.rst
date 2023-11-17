@@ -37,7 +37,7 @@ If there are a large number of outliers in a box plot, the scatter points may ov
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+    fname = getGAUSSHome("examples/xle_daily.xlsx");
 
     // Load one variable from the Excel file 
     v = loadd(fname, "volume");
@@ -74,7 +74,7 @@ Sometimes scatter points can overlap for data with integer values. This makes it
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/housing.csv";
+    fname = getGAUSSHome("examples/housing.csv");
     
     // Load specified variables from the CSV file
     houses = loadd(fname, "beds + baths");
@@ -106,7 +106,7 @@ We can resolve this problem by adding a small ammount or jitter, or random pertu
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/housing.csv";
+    fname = getGAUSSHome("examples/housing.csv");
     
     // Load specified variables from the CSV file
     houses = loadd(fname, "beds + baths");

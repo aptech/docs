@@ -98,7 +98,7 @@ Example 4: Dataframe
 ::
 
     // Load three variables into a dataframe
-    fname = getGAUSSHome() $+ "examples/detroit.dta";
+    fname = getGAUSSHome("examples/detroit.dta");
     detroit = loadd(fname, "ft_police + unemployment + hourly_earn");
 
     // Print the first three observations

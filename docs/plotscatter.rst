@@ -48,7 +48,7 @@ We can create the above image with the code below.
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/crabs.dta";
+    fname = getGAUSSHome("examples/crabs.dta");
 
     // Load all variables from the dataset
     crabs = loadd(fname);
@@ -72,7 +72,7 @@ Example 2: Customized plot without formula string
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/crabs.dta";
+    fname = getGAUSSHome("examples/crabs.dta");
 
     // Load all variables from the dataset
     crabs = loadd(fname);

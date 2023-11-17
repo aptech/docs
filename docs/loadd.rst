@@ -174,7 +174,7 @@ Load three specified variables from a SAS dataset, .sas7bdat.
     new;
     cls;
 
-    dataset = getGAUSSHome() $+ "examples/detroit.dta";
+    dataset = getGAUSSHome("examples/detroit.dta");
 
     // Create formula string specifying three variables to load
     formula  = "homicide + unemployment + hourly_earn";
@@ -198,7 +198,7 @@ Load a string date from a .csv file and automatically convert it to a POSIX date
 
 ::
 
-    dataset = getGAUSSHome() $+ "examples/yellowstone.csv";
+    dataset = getGAUSSHome("examples/yellowstone.csv");
 
     // Create formula string specifying that the column 'Date'
     // from 'yellowstone.csv' is a string column (by using $) and

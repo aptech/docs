@@ -32,7 +32,7 @@ Examples
     new;
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/beef_prices.csv";
+    file = getGAUSSHome("examples/beef_prices.csv");
 
     // Import dataset starting with row 2 and column 2
     x = csvReadM(file, 2, 2);

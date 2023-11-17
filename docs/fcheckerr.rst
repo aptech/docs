@@ -25,7 +25,7 @@ Examples
 ::
 
     // Create a file name with full path
-    fname = getGAUSSHome() $+ "startup";
+    fname = getGAUSSHome("startup");
     
     // Open a file handle for
     // reading only from the file

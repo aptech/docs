@@ -176,7 +176,7 @@ Example 3: Change the format of a date variable
 ::
 
     // Load data
-    fname = getGAUSSHome $+ "examples/xle_daily.xlsx";
+    fname = getGAUSSHome("examples/xle_daily.xlsx");
     xle = loadd(fname, "date(Date) + Volume");
 
     // Print the first 2 observations

@@ -4,6 +4,49 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+24.0.0
+------
+
+#. New functions :func:`dfLonger` and :func:`dfWider` convert between wide and long form panel data.
+#. New ability to compute descriptive statistics on a dataframe for each subset based on a categorical variable with :func:`dstatmt` and  the :class:`by` keyword.
+#. New ability to estimate linear models separately for each subset based on a categorical variable with the :class:`by` keyword and :func:`glm` or  :func:`olsmt`.
+#. New function :func:`fgls` computes feasible GLS estimation with seven options for estimating the innovation covariance matrix.
+#. New function :func:`tabulate` generates and returns two-way tables of frequency.
+#. New function :func:`DWstat` computes the Durbin-Watson statistic from residuals. 
+#. New function :func:`tracem` computes the trace of a matrix.
+#. New function :func:`startsWith` returns a binary matrix with a 1 if the element starts with the specified string, otherwise 0.
+#. New convenience function :func:`insertcols` allows you to insert one or more new columns into a matrix or dataframe at a specified location.
+#. New function :func:`isStructType` checks whether a GAUSS variable is a structure of a specific type.
+#. New function :func:`dtSecond` extracts seconds component as numbers from date/time variables.
+#. New function :func:`dtMinute` extracts the minutes from date/time variables as a number (00-59).
+#. New function :func:`dtHour` extracts the hours from date/time variables as a number with option to use 12-hr or 24-hr clock.
+#. New function :func:`dtDayofWeek` extracts the day of the week from date/time variables as a number with option to use Monday (1-7) or Sunday (0-6) start of week.
+#. New function :func:`dtDayofMonth` extracts the day of the month from date/time variables as a number (1-31).
+#. New function :func:`dtDayofYear` extracts the day of the year from date/time variables as a number (1-366).
+#. New function :func:`dtDayName` extracts the name of the day of week from date/time variables as a string array with option to use full or abbreviated names.
+#. New function :func:`dtMonthName` extracts the name of the month from date/time variables as a string array with option to use full or abbreviated names.
+#. New function :func:`dtWeek` extracts the week of the year from date/time variables as a number, using Monday as start of the week (1-53).
+#. New function :func:`dtMonth` extracts the month from date/time variables as a number.
+#. New function :func:`dtQuarter` extracts the quarter from date/time variables as number (1-4).
+#. New function :func:`dtYear` extracts the year from date/time variables as a number with century included.
+#. New convenience function :func:`getCategories` returns category labels of categorical variable. 
+#. New convenience function :func:`dropCategory` removes a category from a dataframe and from the dataframe metadata.
+#. New convenience function :func:`isstring` returns a 1 if the input is a string or string array, otherwise 0.
+#. New methods forward-fill and backward-fill added to :func:`impute`.
+#. Expanded functionality of :func:`frequency` to allow for two-way tables and improved printing. 
+#. Expanded functionality of :func:`strindx`. The second input can now have multiple rows and/or columns as long as it is element-by-element conformable with the first input.
+#. New ability to turn density plots off for :func:`kernelDensity` procedure.
+#. New option to plot category counts in order from most frequently occurring to least frequently occurring for :func:`plotFreq` procedure. 
+#. New option to report category counts in order from most frequently occurring to least frequently occurring for :func:`frequency` procedure. 
+#. :func:`plotAddTS` no longer requires a ``frequency`` impute which simplifies usage.
+#. Speed increase for :func:`packr` with large column vectors.
+#. Bug Fix: :func:`sprintf` could cause a crash in certain cases with very large floating point numbers.
+#. Bug Fix:  :func:`svdusv` could have a memory leak in certain situations.
+#. Bug Fix: Loading data with :func:`loadd` from a ``.gdat`` file with certain formula strings would fail with an "arguments not conformable error".
+#. Bug Fix:  Copy-and-paste with the error widget open could cause a crash on Windows 11.
+#. Bug Fix: :func:`strindx` could crash if a dataframe with a missing value was passed in as the first input.
+#. Bug Fix: :func:`plotsave` could hang if the *unit* argument was not passed in. The *unit* argument now has a default value of "px".
+
 23.0.4
 ------
 

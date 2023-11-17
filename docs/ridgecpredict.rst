@@ -39,7 +39,7 @@ Examples
     rndseed 23423;
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "pkgs/gml/examples/breastcancer.csv";
+    fname = getGAUSSHome("pkgs/gml/examples/breastcancer.csv");
 
     // Load all variables from dataset, except for 'ID'
     X = loadd(fname, ". -ID");

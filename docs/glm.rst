@@ -297,7 +297,7 @@ Running a no intercept model from a SAS sas7bdat file.
     cls;
 
     // File name with full path
-    fname = getGAUSSHome() $+ "examples/detroit.dta";
+    fname = getGAUSSHome("examples/detroit.dta");
 
     // Declare 'fit' to be a glmOut structure
     struct glmOut fit;
@@ -337,7 +337,7 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     cls;
 
     // Create filename with full path
-    dataset = getGAUSSHome() $+ "examples/credit.dat";
+    dataset = getGAUSSHome("examples/credit.dat");
 
     // Import all data from the dataset
     data = loadd(dataset);
@@ -390,7 +390,7 @@ Ordinary linear regression with categorical variables in a dataframe.
   // Import data as dataframe
   // with `Gender` and `Married` as
   // categorical variables
-  fname = getGAUSSHome() $+ "examples/credit.dat";
+  fname = getGAUSSHome("examples/credit.dat");
   credit = loadd(fname, "Income + cat(Gender) + cat(Married) + Balance");
 
   // Relabel categories for `Gender`

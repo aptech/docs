@@ -44,7 +44,7 @@ Dataframe with formula string
 ::
 
     // Import data
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
     auto2 = loadd(fname);
 
     // Draw a box with 'mpg' data for each of
@@ -61,7 +61,7 @@ Dataframe with formula string
 ::
 
     // Import data
-    fname = getGAUSSHome() $+ "examples/tips2.dta";
+    fname = getGAUSSHome("examples/tips2.dta");
     tips = loadd(fname);
 
     // Draw a box with 'tip' data for each day,

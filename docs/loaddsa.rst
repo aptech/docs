@@ -40,7 +40,7 @@ the first five observations.
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
 
     // Load all rows from the variable 'make' 
     // in 'auto2.dta' into a string array
@@ -66,7 +66,7 @@ Load string and numeric variables from GAUSS dataset
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/hsng.dat";
+    fname = getGAUSSHome("examples/hsng.dat");
 
     // Load all rows from the variables 'state' and 'popgrow' 
     x = loaddSA(fname, "state + popgrow");
@@ -104,7 +104,7 @@ a procedure to expand basketball position abbreviations into the full position n
     endp;
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
 
     // Load three variables and use the 'expandPos' proc
     // to pre-process the 'pos' variable before returning it

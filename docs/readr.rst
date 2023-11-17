@@ -30,7 +30,7 @@ Basic example
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/cancer.dat";
+    fname = getGAUSSHome("examples/cancer.dat");
 
     // Open file handle for reading only
     fh = dataOpen(fname, "read");
@@ -54,7 +54,7 @@ Iteratively read an entire dataset
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/cancer.dat";
+    fname = getGAUSSHome("examples/cancer.dat");
 
     // Open file handle for reading only
     fh = dataOpen(fname, "read");

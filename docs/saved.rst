@@ -40,7 +40,7 @@ Save a dataframe to a CSV file
 ::
 
     // Load data from Stata dataset to GAUSS dataframe
-    fname = getGAUSSHome() $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
     auto = loadd(fname, "str(make) + price + cat(foreign)");
 
     // Print the first 5 observations of the dataframe

@@ -247,7 +247,7 @@ Basic usage with a dataset and a formula string
 ::
 
     // Create string with the name and full file path of the dataset
-    dataset = getGAUSSHome() $+ "examples/detroit.dta";
+    dataset = getGAUSSHome("examples/detroit.dta");
 
     // Create formula string specifying dependent and independent variables
     formula  = "homicide ~ unemployment + hourly_earn";
@@ -281,7 +281,7 @@ Basic usage with a dataframe and categorical variable
 ::
 
     // Load data
-    fname = getGAUSSHome $+ "examples/auto2.dta";
+    fname = getGAUSSHome("examples/auto2.dta");
 
     // Include the `rep78`categorical variable in
     call olsmt(fname, "price ~ mpg + rep78");
@@ -323,7 +323,7 @@ Use a dataset, a list of variable names plus a control and output structure.
     struct olsmtOut ols_out;
 
     // Create string with the name and full file path of the dataset
-    data = getGAUSSHome() $+ "examples/credit.dat";
+    data = getGAUSSHome("examples/credit.dat");
 
     // Create a string with the name of the dependent variable
     depvar = "Limit";
@@ -345,7 +345,7 @@ Use a dataset and variable indices
 ::
 
     // Set dataset name
-    dataset = getGAUSSHome() $+ "examples/credit.dat";
+    dataset = getGAUSSHome("examples/credit.dat");
 
     // Set the third variable in 'credit.dat', 'Rating'
     // to be the dependent variable

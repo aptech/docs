@@ -52,7 +52,7 @@ Example 1: Basic usage
 ::
 
       // Load dataset
-      fname = getGAUSSHome $+ "examples/lowess1.dta";
+      fname = getGAUSSHome("examples/lowess1.dta");
       data = loadd(fname, "h1 + depth");
 
       // Define dependent variable
@@ -80,7 +80,7 @@ Example 2: Set options
 ::
 
       // Load dataset
-      fname = getGAUSSHome $+ "examples/lowess1.dta";
+      fname = getGAUSSHome("examples/lowess1.dta");
       data = loadd(fname, "h1 + depth");
 
       // Control structure

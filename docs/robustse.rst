@@ -46,7 +46,7 @@ Examples
     new;
 
     // Load data from 'auto' dataset
-    fname = getGAUSSHome $+ "/examples/auto.dat";
+    fname = getGAUSSHome("/examples/auto.dat");
     data = loadd(fname);
 
     // Transform data

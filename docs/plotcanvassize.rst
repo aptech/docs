@@ -39,7 +39,7 @@ Examples
 ::
 
     // Get file name with full path
-    dataset = getGAUSSHome() $+ "examples/beef_prices.csv";
+    dataset = getGAUSSHome("examples/beef_prices.csv");
 
     // Load variable 'beef_price' from dataset
     // and perform ln transform on variable

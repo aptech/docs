@@ -140,7 +140,7 @@ Formula String
     struct gmmOut gmm_result;
 
     // Create fully pathed dataset file name string
-    auto_dset = getGAUSSHome() $+ "examples/auto";
+    auto_dset = getGAUSSHome("examples/auto");
 
     // Perform estimation, using a formula string specification
     gmm_result = gmmFitIV(auto_dset, "mpg ~ weight + length");

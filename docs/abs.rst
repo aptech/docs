@@ -14,7 +14,7 @@ Format
     :param x:
     :type x: NxK matrix or sparse matrix or N-dimensional array
 
-    :return y: containing absolute values of *x*.
+    :return y: Contains the absolute values of *x*.
 
     :rtype y: NxK matrix or sparse matrix or N-dimensional array
 

@@ -89,6 +89,7 @@ S
     sqpsolveset
     sqrt
     squeeze
+    startswith
     stdc
     stdsc
     stocv

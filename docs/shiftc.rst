@@ -31,7 +31,7 @@ Example 1: Single with univariate time series lag
 ::
 
     // Create file name with full path
-    fname = getGAUSSHome() $+ "examples/beef_prices.csv";
+    fname = getGAUSSHome("examples/beef_prices.csv");
 
     // Load all observations of all variables
     beef = loadd(fname);

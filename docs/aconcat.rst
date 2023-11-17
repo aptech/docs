@@ -12,16 +12,15 @@ Format
 .. function:: y = aconcat(a, b, dim)
 
     :param a:
-    :type a: matrix or N-dimensional array.
+    :type a: Matrix or N-dimensional array.
 
-    :param b: conformable with  *a*.
-    :type b: matrix or K-dimensional array
+    :param b: Conformable with  *a*.
+    :type b: Matrix or K-dimensional array
 
-    :param dim: dimension in which to concatenate.
-    :type dim: scalar
+    :param dim: Dimension in which to concatenate.
+    :type dim: Scalar
 
-    :return y: the result of the concatenation.
-
+    :return y: The result of the concatenation.
     :rtype y: N-dimensional array
 
 Examples

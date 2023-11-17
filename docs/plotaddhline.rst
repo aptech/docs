@@ -28,7 +28,7 @@ This example creates a scatter plot of two variables and adds horizontal lines r
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
     
     // Load variables from the Excel file
     nba = loadd(dataset, "Height + Weight");

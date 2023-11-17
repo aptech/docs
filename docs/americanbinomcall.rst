@@ -11,28 +11,28 @@ Format
 ----------------
 .. function:: c = AmericanBinomCall(S0, K, r, div, tau, sigma, N)
 
-    :param S0: current price.
-    :type S0: scalar
+    :param S0: Current price.
+    :type S0: Scalar
 
-    :param K: strike prices.
+    :param K: Strike prices.
     :type K: Mx1 vector
 
-    :param r: risk free rate.
-    :type r: scalar
+    :param r: Risk free rate.
+    :type r: Scalar
 
-    :param div: continuous dividend yield.
-    :type div: scalar
+    :param div: Continuous dividend yield.
+    :type div: Scalar
 
-    :param tau: elapsed time to exercise in annualized days of trading.
-    :type tau: scalar
+    :param tau: Elapsed time to exercise in annualized days of trading.
+    :type tau: Scalar
 
-    :param sigma: volatility.
-    :type sigma: scalar
+    :param sigma: Volatility.
+    :type sigma: Scalar
 
-    :param N: number of time segments. A higher number of segments will increase accuracy at the cost of computation time.
-    :type N: scalar
+    :param N: The number of time segments. A higher number of segments will increase accuracy at the cost of computation time.
+    :type N: Scalar
 
-    :return c: call premiums.
+    :return c: Call premiums.
 
     :rtype c: Mx1 vector
 
