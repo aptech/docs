@@ -60,12 +60,22 @@ Basic usage with a dataset and a formula string
   // One-way table
   call tabulate(tips2, "sex ~ smoker");
 
-::
-
 This reports the one-way frequency table:
 
 ::
 
+  ============================================================
+            sex                   smoker                 Total
+  ============================================================
+                            No            Yes
+
+
+         Female             55             33               88 
+           Male             99             60              159 
+
+          Total            154             93              247
+  ============================================================
+  
 Tabulate can also generate a two-way frequency table using the same data:
 
 ::
@@ -74,6 +84,28 @@ Tabulate can also generate a two-way frequency table using the same data:
     call tabulate(tips2, "sex ~ smoker + time");
 
 ::
+
+  ============================================================
+            sex                   smoker                 Total
+  ============================================================
+                            No            Yes
+
+
+         Female             55             33               88 
+           Male             99             60              159 
+
+          Total            154             93              247
+  ============================================================
+            sex                    time                  Total
+  ============================================================
+                         Lunch         Dinner
+
+
+         Female             35             53               88 
+           Male             33            126              159 
+
+          Total             68            179              247
+  ============================================================
 
 Basic usage with a filename and a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -87,5 +119,18 @@ The same tables can be directly generate from the filename
    // One-way table
    call tabulate(fname, "sex ~ smoker");
     
+::
+
+  ============================================================
+            sex                   smoker                 Total
+  ============================================================
+                            No            Yes
+
+
+         Female             55             33               88 
+           Male             99             60              159 
+
+          Total            154             93              247
+  ============================================================
 
 .. seealso:: Functions :func:`frequency`, :func:`plotFreq`
