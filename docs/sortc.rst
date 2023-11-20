@@ -55,7 +55,7 @@ First we will load the data and print it out.
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/tips2.dta";
+    fname = getGAUSSHome("examples/tips2.dta");
 
     // Load 3 variables from dataset
     tips = loadd(fname, "size + tip + sex");
@@ -170,7 +170,7 @@ By default categorical variables are sorted by their underlying key value. We wi
 ::
 
     // Get file name with full path
-    fname = getGAUSSHome() $+ "examples/tips2.dta";
+    fname = getGAUSSHome("examples/tips2.dta");
 
     // Load 2 variables from dataset
     tips = loadd(fname, "sex + size");

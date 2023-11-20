@@ -27,7 +27,7 @@ Examples
 ::
 
      // Specify file name with full path
-     fname = getGAUSSHome() $+ "examples/housing.csv";
+     fname = getGAUSSHome("examples/housing.csv");
     
      // Open file handle for reading
      fh = fopen(fname, "r");

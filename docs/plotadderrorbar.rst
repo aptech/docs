@@ -135,7 +135,7 @@ Add error bars to bar plot
 
     // Load 'Age' and 'Limit' variables
     // into a 2 column matrix
-    file = getGAUSSHome() $+ "/examples/credit.dat";
+    file = getGAUSSHome("/examples/credit.dat");
     data = loadd(file, "Age + Limit");
 
     age = data[., 1];

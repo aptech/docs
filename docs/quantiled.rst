@@ -40,7 +40,7 @@ Use dataset name
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+    file_name = getGAUSSHome("examples/fueleconomy.dat");
 
     // Set up quantile levels
     e = { .025, .5, .975 };
@@ -75,7 +75,7 @@ Use .csv file and variable index
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/binary.csv";
+    file_name = getGAUSSHome("examples/binary.csv");
 
     // Set up quantile levels
     e = { .025, .5, .975 };
@@ -110,7 +110,7 @@ Use .xls file and formula string
 ::
 
     // Create file name with full path
-    file_name = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+    file_name = getGAUSSHome("examples/nba_ht_wt.xls");
 
     // Set up quantile levels
     e = { .025, .5, .975 };

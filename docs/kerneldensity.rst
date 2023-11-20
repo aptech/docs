@@ -64,6 +64,9 @@ Format
             * - c0.plotFunctionPtr
               - Scalar, a pointer to a user-defined function used to specify format modifications to the default plot format.
 
+            * - c0.plotOff
+              - Scalar, an indicator to turn plotting off. Set to 1 to turn off plotting. Default = 0.
+
     :type c0: Structure
 
 
@@ -92,7 +95,7 @@ Basic usage with dataframe
   */
 
   // Load data
-  fname = getGAUSSHome $+ "examples/winevolatileacidity.csv";
+  fname = getGAUSSHome("examples/winevolatileacidity.csv");
   data = loadd(fname);
 
   // Call kernelDensity function
@@ -114,7 +117,7 @@ Basic usage with filename
   */
 
   // Load data
-  fname = getGAUSSHome $+ "examples/winevolatileacidity.csv";
+  fname = getGAUSSHome("examples/winevolatileacidity.csv");
 
   // Call kernelDensity function
   // with default normal density

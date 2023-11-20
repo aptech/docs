@@ -43,7 +43,7 @@ Basic formula string
 ::
 
     // Create string with full path to file name
-    fname = getGAUSSHome $+ "examples/clotting_time.dat";
+    fname = getGAUSSHome("examples/clotting_time.dat");
 
     // Load all variables from the dataset
     clotting_time = loadd(fname);
@@ -60,7 +60,7 @@ You can create the same plot from the example above without using a formula stri
 ::
 
     // Create string with full path to file name
-    fname = getGAUSSHome $+ "examples/clotting_time.dat";
+    fname = getGAUSSHome("examples/clotting_time.dat");
     
     // Load all variables from the dataset
     clotting_time = loadd(fname);
@@ -88,7 +88,7 @@ Formula string with multiple y variables
   ::
 
     // Create string with full path to file name
-    fname = getGAUSSHome $+ "examples/clotting_time.dat";
+    fname = getGAUSSHome("examples/clotting_time.dat");
 
     // Load all variables from the dataset
     clotting_time = loadd(fname);
@@ -105,7 +105,7 @@ You can create the same plot from the example above without using a formula stri
 ::
 
     // Create string with full path to file name
-    fname = getGAUSSHome $+ "examples/clotting_time.dat";
+    fname = getGAUSSHome("examples/clotting_time.dat");
     
     // Load all variables from the dataset
     clotting_time = loadd(fname);

@@ -82,7 +82,7 @@ T-bill plot with scalar start date
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
+    file = getGAUSSHome("examples/tbill_3mo.xlsx");
 
     // Load scalar starting date
     date_1 = xlsReadM(file, "A2:A2");
@@ -102,7 +102,7 @@ T-bill plot with full date vector
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
+    file = getGAUSSHome("examples/tbill_3mo.xlsx");
 
     // Load date vector and tbill data
     x = loadd(file, "obs_date + tbill_3m");
@@ -127,7 +127,7 @@ Daily data with full date vector
 ::
 
     // Fully pathed file name
-    fname = getGAUSSHome() $+ "examples/xle_daily.xlsx";
+    fname = getGAUSSHome("examples/xle_daily.xlsx");
 
     // Load all observations from variables,
     // 'Date' and 'Adj Close'
@@ -153,7 +153,7 @@ Time Series Plot With Custom X-ticks
 ::
 
     // Create file name with full path
-    file = getGAUSSHome() $+ "examples/tbill_3mo.xlsx";
+    file = getGAUSSHome("examples/tbill_3mo.xlsx");
 
     // Load date of observation 20 (header is row 1)
     date_1 = xlsReadM(file, "A21:A21");

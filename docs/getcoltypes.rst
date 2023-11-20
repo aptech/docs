@@ -29,7 +29,7 @@ Examples
   /*
   ** Import NBA data
   */
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
   nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + Age");
 
   // Check column type of 'Age', 'Position', and 'Height'

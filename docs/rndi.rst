@@ -73,7 +73,7 @@ Sample with replacement from a dataset
 
     // Load data from the 'fueleconomy' dataset
     // in the GAUSS examples directory
-    file_name = getGAUSSHome() $+ "examples/fueleconomy.dat";
+    file_name = getGAUSSHome("examples/fueleconomy.dat");
     fueleconomy = loadd(file_name);
 
     // Create a 100x1 vector of random

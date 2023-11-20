@@ -36,7 +36,7 @@ Examples
   x_new = order(x, columnlist);
 
   // Load NBA dataset
-  fname = getGAUSSHome() $+ "examples/nba_ht_wt.xls";
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
   nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Age + date(BDate) + Height");
 
   // Reorder column to show 'Age', 'Pos', and 'Height'

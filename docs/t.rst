@@ -6,6 +6,7 @@ T
     :caption: Functions:
 
     tab
+    tabulate
     tail
     tanh
     tan
@@ -32,6 +33,7 @@ T
     token
     topolar
     trace
+    tracem
     trapchk
     trap
     trigamma

@@ -102,6 +102,8 @@ D
     detl
     det
     dfappend
+    dflonger
+    dfwider
     dffti
     dfft
     dfname
@@ -120,6 +122,7 @@ D
     dot
     dowhiledountil
     draw
+    dropcategory
     dropdataloop
     dropduplicates
     dscreate
@@ -128,6 +131,16 @@ D
     dstat
     dtdate
     dtday
+    dtdayname
+    dtdayofmonth
+    dtdayofweek
+    dtdayofyear
+    dthour
+    dtmonth
+    dtmonthname
+    dtminute
+    dtquarter
+    dtsecond
     dttime
     dttodtv
     dttoposix
@@ -137,9 +150,12 @@ D
     dtvnormal
     dtvtodt
     dtvtoutc
+    dtweek
+    dtyear
     dummybr
     dummydn
     dummy
+    dwstat
     dynargscount
     dynargsget
     dynargstypes
