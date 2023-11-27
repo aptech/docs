@@ -162,6 +162,7 @@ P
     print
     proc
     prodc
+    prodr
     psi
     putarray
     putf

@@ -41,6 +41,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New option to report category counts in order from most frequently occurring to least frequently occurring for :func:`frequency` procedure. 
 #. :func:`plotAddTS` no longer requires a ``frequency`` impute which simplifies usage.
 #. Speed increase for :func:`packr` with large column vectors.
+#. Speed increase for :func:`combinate` with large values of *n*.
 #. Bug Fix: :func:`sprintf` could cause a crash in certain cases with very large floating point numbers.
 #. Bug Fix:  :func:`svdusv` could have a memory leak in certain situations.
 #. Bug Fix: Loading data with :func:`loadd` from a ``.gdat`` file with certain formula strings would fail with an "arguments not conformable error".

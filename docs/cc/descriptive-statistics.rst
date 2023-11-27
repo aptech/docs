@@ -31,6 +31,7 @@ Computation
 :doc:`../cumprodc`           Computes the cumulative products of the columns of a matrix.
 :doc:`../cumsumc`            Computes the cumulative sums of the columns of a matrix.
 :doc:`../prodc`              Computes the products of all elements in each column of a matrix.
+:doc:`../prodr`              Computes the products of all elements in each row of a matrix.
 :doc:`../sumc`               Computes the sum of each column of a matrix or the sum across the second-fastest moving dimension of an L-dimensional array.
 :doc:`../sumr`               Computes the sum of each row of a matrix or the sum of the fastest moving dimension of an L-dimensional array.
 ====================         ===========================================
