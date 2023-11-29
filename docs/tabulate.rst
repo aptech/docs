@@ -76,7 +76,7 @@ This reports the two-way frequency table:
             Total            154             93              247
     ============================================================
   
-Tabulate can also generate multiple two-way frequency table using the same data:
+Tabulate can also generate multiple two-way frequency tables using the same data:
 
 ::
 
