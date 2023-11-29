@@ -9,7 +9,7 @@ GAUSS Matrix (fmt), GAUSS Dataset (dat), Stata (dta), and SAS (sas7bdat, sas7bca
 
 Format
 ----------------
-.. function:: y = loadd(dataset[, varnames])
+.. function:: y = loadd(dataset[, varnames, ldCtl])
 
     :param dataset: filepath to the dataset on disk, URL, or existing dataframe.
     
@@ -17,9 +17,9 @@ Format
         Since libcurl is used for all web operations, various proxy settings can be set using the
         relevant libcurl environment variables (see https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html).
 
-    :type dataset: string or existing dataframe
+    :type dataset: String or existing dataframe
 
-    :param varnames: Formula string indicating which variable names to load from the dataset
+    :param varnames: Optional, formula string indicating which variable names to load from the dataset
 
         E.g ``"."``, include all variables;
 
@@ -27,8 +27,29 @@ Format
 
         E.g ``". - Cards"``, include all variables except for ``"Cards"``.
 
-    :type varnames: string
+    :type varnames: String
 
+    :param ldctl: Optional, instance of an :class:`LoadFileControl` structure containing the following members:
+
+        .. list-table::
+            :widths: auto
+
+            * - ldctl.header_row
+              - scalar, Specifies the row location of the variable name headers. Data loading row range will default to begin at first row after headers. Default = 1.
+            * - ldctl.row_range.first
+              - scalar, Specifies the first row to begin loading data from. Default = 2 (or first row after headers).
+            * - ldctl.row_range.last
+              - scalar, Specifies the last row to stop loading data from. Default = -1 (last row).
+            * - ldctl.xls.sheet
+              - scalar, Specifies the XLS sheet number to be loaded. Valid only for XLS, XLSX files. Default = 1.
+            * - ldctl.csv.delimiter
+              - string, Specifies the CSV delimiter. Valid only for CSV files. Default = ``","``.
+            * - ldctl.csv.quotechar
+              - string, Specifies the CSV quotation character. Valid only for CSV files. Default = Double quotes.
+            * - ldctl.missing_vals_str
+              - string, Specifies how missing variables should be represented for string types. Default = ``" "``.
+    :type ldctl: struct
+                  
     :return y: data.
 
     :rtype y: NxK matrix
@@ -47,16 +68,19 @@ Load all contents of a GAUSS dataset
     // Load all rows from all columns of the dataset
     y = loadd(file);
 
-    // Print the first three rows of 'y'
-    print y[1:3, .];
+    // Preview first 5 rows of the first 3 columns
+    head(y[., 1:3]);
 
 After the above code, the following ouptut should be printed to the **Command** window.
 
 ::
 
-    14.8910      3606.00      283.000      2.00000      34.0000
-    106.025      6645.00      483.000      3.00000      82.0000
-    104.593      7075.00      514.000      4.00000      71.0000
+          Income            Limit           Rating 
+       14.891000        3606.0000        283.00000 
+       106.02500        6645.0000        483.00000 
+       104.59300        7075.0000        514.00000 
+       148.92400        9504.0000        681.00000 
+       55.882000        4897.0000        357.00000
 
 Load specified variables from a dataset
 +++++++++++++++++++++++++++++++++++++++
@@ -82,7 +106,7 @@ After the above code,
 ::
 
     All variables:
-
+    
     14.891    3606.00    283.00    2.0000    34.000    11.000    1.0000    1.0000    2.0000    3.0000    333.000
     106.03    6645.00    483.00    3.0000    82.000    15.000    2.0000    2.0000    2.0000    2.0000    903.000
     104.59    7075.00    514.00    4.0000    71.000    11.000    1.0000    1.0000    1.0000    2.0000    580.000
@@ -156,35 +180,102 @@ After the above code,
     The number of variables equals:        3.0000000
     The number of observations equals:        13.000000
 
-Load a string date from a .csv file and automatically convert it to a POSIX date/time (seconds since Jan 1, 1970).
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Loading different variable types
++++++++++++++++++++++++++++++++++
+
+The :func:`loadd` procedure has built in capability to detect four variable types: strings, dates, categories, and numbers. For most cases, no additional information needs to be provided for GAUSS to determine the data types. First, consider loading dates:
+
 
 ::
 
+    // Specify dataset
     dataset = getGAUSSHome("examples/yellowstone.csv");
 
-    // Create formula string specifying that the column 'Date'
-    // from 'yellowstone.csv' is a string column (by using $) and
-    // that it should be loaded as a date with the 'date' keyword
-    formula  = "date($Date)";
+    // Load the data 
+    data = loadd(dataset);
 
-    // Load the date and convert to POSIX date/time format
-    dt_pos = loadd(dataset, formula);
-
-    // Convert the first 5 dates to a string 'Month day, Year'
-    // and print them
-    print posixToStrc(dt_pos[1:5], "%B %d, %Y");
+    // Preview dates and visits
+    head(data[., "Date" "Visits"]);
 
 After the above code,
 
 ::
+ 
+           Date           Visits 
+      2016/01/01        30621.000 
+      2015/01/01        28091.000 
+      2014/01/01        26778.000 
+      2013/01/01        24699.000 
+      2012/01/01        24766.000
 
-    January 01, 2016
-    January 01, 2015
-    January 01, 2014
-    January 01, 2013
-    January 01, 2012
+Note that no additional keywords were needed to load the dates. The types that are loaded can be confirmed using :func:`getColTypes`
 
+::
+
+    getColTypes(data, "Date"$|"Visits");
+
+::
+
+       type 
+       date 
+     number
+
+As a second example, consider loading categorical variables from the file *yarn.xlsx*. Again, no additional keywords are needed:
+
+:: 
+
+    // Specify dataset
+    dataset = getGAUSSHome("examples/yarn.xlsx");
+
+    // Load the data
+    data = loadd(dataset);
+
+    // Preview data
+    head(data);
+    
+    // Check variable types
+    getColTypes(data);
+
+::
+
+     yarn_length        amplitude             load           cycles 
+             low              low              low        674.00000 
+             low              low              med        370.00000 
+             low              low             high        292.00000 
+             low              med              low        338.00000 
+             low              med              med        266.00000
+
+            type 
+        category 
+        category 
+        category 
+          number
+
+If you are not certain of the default type that GAUSS will load, the GAUSS **Data Import** window will provide a preview.
+
+Advanced data loading options
++++++++++++++++++++++++++++++++++
+For advanced data loading options, a `loadFileControl` structure can be used. For example, consider modifying the row range that will be loaded:
+
+::
+    
+    // Create file name with full path
+   dataset = getGAUSSHome("examples/housing.csv");
+
+   // Declare ld_ctl to be an instance of a 'loadFileControl' structure
+   struct loadFileControl ld_ctl;
+
+   // Fill 'ld_ctl' with default settings
+   ld_ctl = loadFileControlCreate();
+
+   // Change the row range to load rows 9-21
+   ld_ctl.row_range.first = 9;
+   ld_ctl.row_range.last = 21;
+
+   // Pass the loadFileControl structure as the final input
+   // Note the use of the '.' operator to note that all variables should be loaded
+   housing = loadd(dataset, ".", ld_ctl);
+    
 Remarks
 -------
 
@@ -216,4 +307,4 @@ Globals
 See also
 ------------
 
-.. seealso:: :func:`dataopen`, :func:`getHeaders`, `save`
+.. seealso:: :func:`dataopen`, :func:`getHeaders`, :func:`saved`, `save`
