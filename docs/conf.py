@@ -24,9 +24,9 @@ copyright = '2023, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
-version = '23'
+version = '24'
 # The full version, including alpha/beta/rc tags
-release = '23'
+release = '24'
 
 
 # -- General configuration ---------------------------------------------------
