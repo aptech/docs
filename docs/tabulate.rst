@@ -57,23 +57,56 @@ Basic usage with a dataset and a formula string
   fname = getGAUSSHome("examples/tips2.dta");
   tips2 = loadd(fname);
 
-  // One-way table
+  // Two-way table
   call tabulate(tips2, "sex ~ smoker");
 
-::
-
-This reports the one-way frequency table:
+This reports the two-way frequency table:
 
 ::
 
-Tabulate can also generate a two-way frequency table using the same data:
+    ============================================================
+              sex                   smoker                 Total
+    ============================================================
+                              No            Yes
+
+
+           Female             55             33               88 
+             Male             99             60              159 
+
+            Total            154             93              247
+    ============================================================
+  
+Tabulate can also generate multiple two-way frequency tables using the same data:
 
 ::
 
-    // Two-way table
+    // Generate separate tables for sex vs smoker
+    // and sex vs time
     call tabulate(tips2, "sex ~ smoker + time");
 
 ::
+
+    ============================================================
+              sex                   smoker                 Total
+    ============================================================
+                              No            Yes
+
+
+           Female             55             33               88 
+             Male             99             60              159 
+
+            Total            154             93              247
+    ============================================================
+              sex                    time                  Total
+    ============================================================
+                           Lunch         Dinner
+
+
+           Female             35             53               88 
+             Male             33            126              159 
+
+            Total             68            179              247
+    ============================================================
 
 Basic usage with a filename and a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -84,8 +117,21 @@ The same tables can be directly generate from the filename
    // Load data
    fname = getGAUSSHome("examples/tips2.dta");
 
-   // One-way table
+   // Two-way table
    call tabulate(fname, "sex ~ smoker");
     
+::
+
+    ============================================================
+              sex                   smoker                 Total
+    ============================================================
+                              No            Yes
+
+
+           Female             55             33               88 
+             Male             99             60              159 
+
+            Total            154             93              247
+    ============================================================
 
 .. seealso:: Functions :func:`frequency`, :func:`plotFreq`

@@ -37,7 +37,7 @@ Examples
   head(data[., "Date"]);
   tail(data[., "Date"]);
   
-  // Print corresponding weeks
+  // Print corresponding months
   "Day of Month:"
   head(dom);
   tail(dom);

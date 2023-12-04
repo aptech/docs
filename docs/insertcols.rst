@@ -67,8 +67,7 @@ Example 2: Add a constant term to a matrix
     // Insert after '0' column
     idx = 0;
     
-    // Insert 'const' vector in front
-    // of matrix
+    // Insert 'const' vector 
     X_expand = insertcols(X, idx, const);
 
 After the above code:
@@ -89,7 +88,7 @@ After the above code:
     // Specify scalar 1 to insert
     const = 1; 
     
-    // Insert cols expands scalar 'const' 
+    // Expands scalar 'const' 
     // to match size of X and insert at
     // beginning of matrix
     X_expand = insertcols(X, idx, const);
@@ -127,7 +126,7 @@ In this example we will create an indicator variable to show whether the origina
     // Add a variable name to our indicator variable
     rep78_miss = asdf(rep78_miss, "rep78_miss");
     
-    // Replace the missing values of 'rep78' with 
+    // Replace the missing values of 'rep78' with the mode
     auto[.,"rep78"] = impute(auto[.,"rep78"], "mode");
     
     // Add the indicator variable after 'mpg'
