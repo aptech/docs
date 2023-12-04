@@ -194,9 +194,9 @@ regression. The dependent variable is *rcoe*. The independent variable is *rcpi*
 
     Valid cases:                    248              Dependent variable:            rcpi
     Total SS:                     0.027              Degrees of freedom:             246
-    R-squared:                    0.110              Rbar-squared:                 0.103
+    R-squared:                    0.110              Rbar-squared:                 0.107
     Residual SS:                  0.024              Std error of est:             0.010
-    F(1,245)                     30.329              Probability of F:             0.000
+    F(1,245)                     30.453              Probability of F:             0.000
     Durbin-Watson                 0.757                                                 
 
 
