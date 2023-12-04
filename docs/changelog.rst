@@ -30,7 +30,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function :func:`dtQuarter` extracts the quarter from date/time variables as number (1-4).
 #. New function :func:`dtYear` extracts the year from date/time variables as a number with century included.
 #. New convenience function :func:`getCategories` returns category labels of categorical variable. 
-#. New convenience function :func:`dropCategory` removes a category from a dataframe and from the dataframe metadata.
+#. New convenience function :func:`dropCategories` removes a category from a dataframe and from the dataframe metadata.
 #. New convenience function :func:`isstring` returns a 1 if the input is a string or string array, otherwise 0.
 #. New methods forward-fill and backward-fill added to :func:`impute`.
 #. Expanded functionality of :func:`frequency` to allow for two-way tables and improved printing. 
