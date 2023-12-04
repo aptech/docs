@@ -26,6 +26,18 @@ Date variables
 
 ============================     ==========================================================================
 :doc:`../asdate`                 Converts vectors in Posix time or string dates to a GAUSS date variable and optionally sets the date display format.
+:doc:`../dtdayname`              Extracts the day from a date/time variable as a string name.
+:doc:`../dtdayofmonth`           Extracts the day of the month from a date/time variable as a decimal number (1-31).
+:doc:`../dtdayofweek`            Extracts the day of the week from a date/time variable as a decimal number. 
+:doc:`../dtdayofyear`            Extracts the day of the year from a date/time variable as a decimal number (1-366). 
+:doc:`../dthour`                  Extracts the hour from a date/time variable as a number (1-12 or 1-24).
+:doc:`../dtminute`                Extracts the minute from a date/time variable as a number (0-59).
+:doc:`../dtmonth`                 Extracts the month from a date/time variable as a decimal number(1-12).
+:doc:`../dtmonthname`             Extracts the month from a date/time variable as a string name.
+:doc:`../dtquarter`               Extracts the quarter from a date/time variable (1-4).
+:doc:`../dtsecond`                Extracts the seconds from a date/time variable as a number (0-59).
+:doc:`../dtweek`                  Extracts the week from a date/time variable as a number (0-53).
+:doc:`../dtyear`                  Extracts the year from a date/time variable as a number.
 :doc:`../getcoldateformats`      Gets BSD strftime format specifiers for specified columns of a dataframe.
 :doc:`../setcoldateformats`      Specifies how GAUSS should display dates using the BSD strftime format specifiers. Note that this will also convert the type of the columns specified by column to Date.
 ============================     ==========================================================================
@@ -34,11 +46,14 @@ String and categorical variables
 +++++++++++++++++++++++++++++++++++++
 
 ============================     ==========================================================================
+:doc:`../dropcategories`         Removes categories and from dataframe. Resets the keyvalues and labels for the variable.
+:doc:`../getcategories`          Returns the unique set of column labels as a dataframe.
 :doc:`../getcollabels`           Returns the unique set of column labels and corresponding key values for a categorical variable.
 :doc:`../recodecatlabels`        Change categorical variable labels.
 :doc:`../reordercatlabels`       Change the order of categorical variable labels.
 :doc:`../setbasecat`             Sets a category in a categorical variable to be the base case.
-:doc:`../setcollabels`           Set categorical variable labels.
+:doc:`../setbasecat`             Sets a category in a categorical variable to be the base case.
+:doc:`../startswith`             Returns a 1 if a string starts with a specified pattern.
 ============================     ==========================================================================
 
 

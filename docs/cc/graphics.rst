@@ -47,7 +47,7 @@ Add data to existing graphs
 :doc:`../plotaddscatter`                  Adds a set of points to an existing 2-D graph.
 :doc:`../plotaddsurface`                  Adds a surface plot to an existing 3-D plot.
 :doc:`../plotaddts`                       Adds a curve of time series data to an existing time series plot.
-:doc:`../plottshf`                        Adds high-frequency and/or irregularly spaced time series data to an existing 2-D plot.
+:doc:`../plotaddtshf`                     Adds high-frequency and/or irregularly spaced time series data to an existing 2-D plot.
 :doc:`../plotaddxy`                       Adds an XY plot to an existing 2-D graph.
 :doc:`../plotaddxyfill`                   Adds an area plot between sets of lines to an existing 2-D plot.
 ===================================    ============================================================================

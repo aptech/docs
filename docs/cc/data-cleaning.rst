@@ -34,6 +34,7 @@ Merging
 -------------------
 =====================       ===========================================
 :doc:`../innerjoin`         Performs a left, or full, outer join on two matrices based upon user-specified key columns.
+:doc:`../insertcols`        Inserts one or more new columns into a matrix or dataframe at a specified location.
 :doc:`../outerjoin`         Joins two matrices, or dataframes based upon user-specified key columns, with non-matching rows removed.
 :doc:`../where`             Returns elements from ``a`` or ``b``, depending on ``condition``.
 =====================       ===========================================
@@ -121,6 +122,8 @@ Transform
 
 =========================      ==================================================================
 :doc:`../code`                 Allows a new variable to be created (coded) with different values depending upon which one of a set of logical expressions is true.
+:doc:`../dflonger`             Converts a GAUSS dataframe in wide panel format to long panel format.
+:doc:`../dfwider`              Converts a GAUSS dataframe in long panel format to wide panel format.
 :doc:`../diagrv`               Inserts a vector into the diagonal of a matrix.
 :doc:`../dummy`                Creates a set of dummy (0/1) variables by breaking up a variable into specified categories. The highest (rightmost) category is unbounded on the right.
 :doc:`../dummybr`              Creates a set of dummy (0/1) variables. The highest (rightmost) category is bounded on the right.
