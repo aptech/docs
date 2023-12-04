@@ -154,6 +154,7 @@ Linear Algebra
 :doc:`../svds`                    Computes the singular values of a matrix.
 :doc:`../svdusv`                  Computes the singular value decomposition of a matrix so that: :math:`X = U S V'`.
 :doc:`../sylvester`               Computes the solution to the Sylvester matrix equation, :math:`AX + XB = C`.
+:doc:`../tracem`                  Computes the trace of a matrix.
 =====================          ===========================================
 
 Eigenvalues
@@ -230,6 +231,7 @@ Statistical Functions
 :doc:`../crossprd`                 Computes cross product.
 :doc:`../design`                   Creates a design matrix of 0's and 1's.
 :doc:`../dstatmt`                  Computes descriptive statistics of a data set or matrix.
+:doc:`../dwstat`                   Computes the Durbin-Watson statistic.
 :doc:`../dot`                      Computes a scalar dot product of the columns of two matrices.
 :doc:`../gdadstat`                 Computes descriptive statistics on multiple Nx1 variables in a GDA.
 :doc:`../gdadstatmat`              Computes descriptive statistics on a selection of columns in a variable in a GDA.

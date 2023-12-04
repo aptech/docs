@@ -9,7 +9,8 @@ Standard estimation methods
 These functions perform parameter estimation, diagnostics and print reports.
 
 =========================          ====================================================
-:doc:`../glm`                      Solves the generalized linear model problems.
+:doc:`../fgls`                     Estimate parameters using feasible generalized least squares and provides model evaluation statistics.
+:doc:`../glm`                      Solves the generalized linear model problem.
 :doc:`../gmmfit`                   Estimate parameters using generalized method of moments.
 :doc:`../gmmfitiv`                 Estimate instrumental variables model using the generalized method of moments.
 :doc:`../kerneldensity `           Computes the kernel density estimate of a sample and plots the distribution.
