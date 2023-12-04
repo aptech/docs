@@ -18,7 +18,7 @@ Format
     :type columns: Scalar or string
 
     :return labels: Categorical labels assigned to variables specified by *columns*.
-    :rtype labels: String array
+    :rtype labels: Dataframe
 
 
 Examples
@@ -33,19 +33,51 @@ Examples
   // Get column labels for yarn_length
   labels = getCategories(yarn, "yarn_length");
 
-  // Print results
-  sprintf("%10s", "Labels");
-  sprintf("%10s", labels);
+  print labels;
 
-The code above prints the following table:
+
+As we can see below, the variable name for the returned dataframe is *"categories"*.
 
 ::
 
-      Labels
+    categories
+          high
+           low
+           med
 
-        high
-         low
-         med
+The returned dataframe contains both the string labels and the key values. Some functions need a string array as input. You can convert *labels* to a string array with :func:`ntos`:
 
-.. seealso:: Functions :func:`getColLabels`
+::
+
+    // Convert to a string array
+    str_labels = ntos(labels);
+
+    print str_labels;
+
+::
+
+          high
+           low
+           med
+
+
+If you want to see the key values, you can use the :func:`asmatrix` function:
+
+::
+
+    // Convert to a numeric matrix
+    // to see the key values
+    numeric_keys = asmatrix(labels);
+    
+    print numeric_keys;
+
+::
+
+    0
+    1
+    2
+
+
+
+.. seealso:: Functions :func:`dropcategories`, :func:`getColLabels`, :func:`setColLabels`
 
