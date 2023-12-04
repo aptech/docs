@@ -48,7 +48,7 @@ Format
 Examples
 ----------------
 
-Basic usage with a dataset and a formula string
+Basic usage with a dataframe and a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++
             
 ::
@@ -133,5 +133,101 @@ The same tables can be directly generate from the filename
 
             Total            154             93              247
     ============================================================
+
+Tabulate separate dataframe vectors and assign the return value
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+   // Load all variables from the dataset
+   tips = loadd(getGAUSShome("examples/tips2.dta"));
+   
+   // Create separate vectors for each variable
+   day = tips[.,"day"];
+   time_ = tips[.,"time"];
+   
+   // Compute the frequency table and assign the result to 't'
+   t = tabulate(day, time_);
+
+After running the above code, *t* will contain a dataframe with the frequencies. The totals will not be included:
+
+::
+
+   print t;
+
+::
+
+       day       time_Lunch      time_Dinner 
+      Thur        61.000000        2.0000000 
+       Fri        7.0000000        12.000000 
+       Sat        0.0000000        89.000000 
+       Sun        0.0000000        76.000000
+
+
+Handling unrepresented categories
++++++++++++++++++++++++++++++++++++++
+
+In this example, we will load some data and then take a sample that does not contain any observations of a particular category level.
+
+::
+
+    // Load two variables from the dataset
+    tips = loadd(getGAUSShome("examples/tips2.dta"), "smoker + day");
+    
+    // Take the first 50 observations as a sample
+    tips = tips[1:50,.];
+    
+    // Compute and print the frequency table
+    call tabulate(tips, "day ~ smoker");
+
+In this case, the following will be printed:
+
+::
+
+    ============================================================
+                day                   smoker               Total
+    ============================================================
+                                No            Yes
+    
+    
+               Thur              0              0              0 
+                Fri              0              0              0 
+                Sat             23              0             23 
+                Sun             27              0             27 
+    
+              Total             50              0             50
+    ============================================================
+
+In some situations, you may not want to report these unrepresented categories. In that case, you can use the ``unusedLevels`` member of the ``tabControl`` structure to supress those levels.
+
+::
+
+    struct tabControl tbctl;
+    tbctl = tabControlCreate();
+
+    // Supress unrepresented categories
+    tbctl.unusedLevels = 0;
+
+    // Compute and print the frequency table
+    call tabulate(tips, "day ~ smoker", tbctl);
+
+
+This time the report will omit the unrepresented levels.
+
+::
+
+    =============================================
+                day         smoker          Total
+    =============================================
+                                No
+    
+    
+                Sat             23             23 
+                Sun             27             27 
+    
+              Total             50             50
+    =============================================
+
+
 
 .. seealso:: Functions :func:`frequency`, :func:`plotFreq`
