@@ -251,6 +251,73 @@ The code above will produce the following output. Note that :math:`rank = 1` is 
 
     // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
 
+
+Logistic regression for each subset of a categorical variable
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In the example below, we will estimate a logistic regression model for the case where *time* equals *"Lunch"* and another where *time* equals *"Dinner"*, using the `by` keyword.
+
+::
+
+    // Load all variables from the dataset
+    tips = loadd(getGAUSShome() $+ "examples/tips2.dta");
+    
+    // Estimate a logistic regression model for:
+    //     time = Lunch
+    //     time = Dinner
+    call glm(tips, "smoker ~ total_bill + tip + sex + by(time)", "binomial");
+
+::
+
+    ====================================================================================
+    time: Lunch
+    ====================================================================================
+    
+    Generalized Linear Model
+    
+    Valid cases:                   68     Dependent Variable:                smoker: Yes 
+    Degrees of freedom:            64     Distribution:                         binomial 
+    Deviance:                   85.79     Link function:                           logit 
+    Pearson Chi-square:          67.8     AIC:                                     93.79
+    Log likelihood:            -42.89     BIC:                                     102.7
+    Dispersion:                     1     Iterations:                                  4
+    
+    
+                                              Standard                              Prob 
+    Variable                 Estimate            Error          z-value             >|z| 
+    ----------------     ------------     ------------     ------------     ------------ 
+    CONSTANT                  -1.0674          0.69733          -1.5307         0.125834 
+    total_bill              -0.023941         0.057074         -0.41947         0.674874 
+    tip                       0.20882          0.35988          0.58025         0.561748 
+    sex: Male                 0.46393          0.52191          0.88891         0.374049 
+    
+    Note: Dispersion parameter for BINOMIAL distribution taken to be 1 
+    
+    
+    ====================================================================================
+    time: Dinner
+    ====================================================================================
+    
+    Generalized Linear Model
+    
+    Valid cases:                  179     Dependent Variable:                smoker: Yes 
+    Degrees of freedom:           175     Distribution:                         binomial 
+    Deviance:                   235.2     Link function:                           logit 
+    Pearson Chi-square:         180.4     AIC:                                     243.2
+    Log likelihood:            -117.6     BIC:                                     255.9
+    Dispersion:                     1     Iterations:                                  4
+    
+    
+                                              Standard                              Prob 
+    Variable                 Estimate            Error          z-value             >|z| 
+    ----------------     ------------     ------------     ------------     ------------ 
+    CONSTANT                  -0.5111           0.4596           -1.112         0.266122 
+    total_bill               0.043252         0.022504            1.922        0.0546098 
+    tip                      -0.19582          0.14327          -1.3668         0.171698 
+    sex: Male                -0.33096           0.3395         -0.97485         0.329636 
+    
+    Note: Dispersion parameter for BINOMIAL distribution taken to be 1
+
 Running a no intercept model from a STATA DTA file.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
