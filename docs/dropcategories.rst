@@ -61,14 +61,14 @@ Using the :func:`frequency` function, we can see that the *yarn_length* column c
       med          9     33.33       100
     Total         27       100        
 
-Now, use :func:`dropCategories` to drop the `"high"` category and reprint labels.
+Now, use :func:`dropCategories` to drop the `"high"` category and reprint the labels.
 
 ::
 
-  // Load data
+  // Drop the "high" category
   yarn = dropCategories(yarn, "high", "yarn_length");
  
-  // Get column labels for yarn_length
+  // Get updated column labels
   labels = getCategories(yarn, "yarn_length");
 
   print labels;
@@ -82,11 +82,11 @@ The code above prints the following table of updated labels:
            med
 
 
-Additionally, this time when we print the frequency report, we can see that the observations where *yarn_length* was equal to *"high"* have been removed.
+Additionally, this time when we print the frequency report, we can see that the observations where *yarn_length* was equal to `"high"` have been removed.
 
 ::
 
-    print frequency(yarn, "yarn_length")
+    print frequency(yarn, "yarn_length");
 
 ::
 
