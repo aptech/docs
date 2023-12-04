@@ -282,25 +282,90 @@ Basic usage with a dataframe and categorical variable
 
     // Load data
     fname = getGAUSSHome("examples/auto2.dta");
+    auto2 = loadd(fname);
 
-    // Include the `rep78`categorical variable in
-    call olsmt(fname, "price ~ mpg + rep78");
+    // Include the `rep78` categorical variable
+    call olsmt(auto2, "price ~ mpg + rep78");
 
-In this example, the dependent variable *price* is regressed on *mpg* and *rep78*. The categorical variable *rep78* will automatically be included in the OLS regression as a dummy variable with the base case excluded from the regression. The coefficients for the categoies, *Fair, Average, Good, Excellent* are included in the printed output table. The *Poor* category is excluded from the regression, as it is the base case.
+In this example, the dependent variable *price* is regressed on *mpg* and *rep78*. The categorical variable *rep78* will automatically be included in the OLS regression as a dummy variable with the base case excluded from the regression. The coefficients for the categories, *Fair, Average, Good, Excellent* are included in the printed output table. The *Poor* category is excluded from the regression, as it is the base case.
 
 ::
 
-
-    Standard                                                  Prob   Standardized  Cor with
+    Valid cases:                    69      Dependent variable:               price
+    Missing cases:                   5      Deletion method:               Listwise
+    Total SS:            576796958.870      Degrees of freedom:                  63
+    R-squared:                   0.258      Rbar-squared:                     0.199
+    Residual SS:         427776355.434      Std error of est:              2605.782
+    F(5,63):                     4.389      Probability of F:                 0.002
+  
+                                     Standard                 Prob   Standardized  Cor with
     Variable             Estimate      Error      t-value     >|t|     Estimate    Dep Var
     ---------------------------------------------------------------------------------------
-
-    CONSTANT                10450     2251.04     4.64229     0.000       ---         ---
+  
+    CONSTANT                10450     2251.04     4.64229     0.000       ---         --- 
     mpg                  -280.261     61.5767    -4.55142     0.000   -0.564519   -0.455949
     rep78: Fair           877.635     2063.28    0.425358     0.672   0.0971824  -0.0223477
     rep78: Average        1425.66     1905.44    0.748204     0.457     0.24444   0.0859051
     rep78: Good           1693.84     1942.67    0.871914     0.387    0.257252   -0.015317
     rep78: Excellent      3131.98     2041.05      1.5345     0.130    0.396546   -0.035102
+
+
+Estimate a linear model for each subset of a categorical variable
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In this example, we will regress *mpg* and *weight* on *price* for the case where *foreign* equals *"Domestic"* and for the case where *foreign* equals *"Foreign*", using the `by` keyword.
+
+::
+
+    // Load specific variables
+    fname = getGAUSSHome("examples/auto2.dta");
+    auto2 = loadd(fname, "price + mpg + weight + foreign");
+
+    // Estimate a linear model for each value of `foreign`
+    call olsmt(auto2, "price ~ mpg + weight + by(foreign)");
+
+
+::
+
+    ===============================================================================
+    foreign: Domestic
+    ===============================================================================
+    Valid cases:                    52      Dependent variable:               price
+    Missing cases:                   0      Deletion method:                   None
+    Total SS:            489194800.692      Degrees of freedom:                  49
+    R-squared:                   0.483      Rbar-squared:                     0.462
+    Residual SS:         252934086.227      Std error of est:              2271.986
+    F(2,49):                    22.885      Probability of F:                 0.000
+   
+                             Standard                 Prob   Standardized  Cor with
+    Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
+    -------------------------------------------------------------------------------
+   
+    CONSTANT     -13285.4     5726.03    -2.32018     0.025       ---         ---  
+    mpg           237.691     139.033      1.7096     0.094     0.36403   -0.504263
+    weight        4.41504    0.948391     4.65529     0.000    0.991267    0.672397
+   
+   
+    ===============================================================================
+    foreign: Foreign
+    ===============================================================================
+    Valid cases:                    22      Dependent variable:               price
+    Missing cases:                   0      Deletion method:                   None
+    Total SS:            144363212.773      Degrees of freedom:                  19
+    R-squared:                   0.785      Rbar-squared:                     0.763
+    Residual SS:          30967505.235      Std error of est:              1276.663
+    F(2,19):                    34.787      Probability of F:                 0.000
+   
+                             Standard                 Prob   Standardized  Cor with
+    Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
+    -------------------------------------------------------------------------------
+   
+    CONSTANT     -5065.84     3202.51    -1.58183     0.130       ---         ---  
+    mpg          -19.7774     57.6812   -0.342874     0.735  -0.0498688   -0.631303
+    weight        5.15584    0.880689     5.85433     0.000    0.851476    0.885529
+
+
+
 
 Use a dataset, a list of variable names plus a control and output structure.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
