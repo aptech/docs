@@ -316,6 +316,7 @@ Since we will be splitting the variable names into 2 pieces (i.e. *Brand1* -> *B
 
 
 **.value**
+
 The first element is *".value"*. This tells :func:`dflonger` to take the first piece of the variable name (*Brand* or *Price*) and create a column with the all the values from all matching columns. 
 
 .. list-table::
@@ -335,6 +336,9 @@ The first element is *".value"*. This tells :func:`dflonger` to take the first p
       - 2.7
       - 3.9
 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&#8681;
+
 .. list-table::
     :widths: 50 50
     :header-rows: 1
@@ -353,11 +357,13 @@ The first element is *".value"*. This tells :func:`dflonger` to take the first p
 In other words, combine all the values from the variables *Brand1* and *Brand2* into a single variable named *Brand* and do the same for the *Price* columns.  
 
 **Index**
+
 The second element of *names_to* tells :func:`dflonger` to create a column named *Index* and fill it with the contents of the second piece of the variable names (i.e *1* or *2*). 
 
 Since *names_to* is specifying where to send the "values", *values_to* will be empty.
 
 **Regex to split the variable names**
+
 Now we can set our other options using the `pivotControl` structure.
 
 ::
@@ -380,12 +386,14 @@ Our second group is  ``([0-9])``. That will match any integer.
 
 
 **Change output variable types**
+
 By default the variables created from the pieces of the variable names will be categorical variables. Since the second peice of our variable, that we set to be called *Index* earlier when we set *names_to*, will be integers, we may not want it to be a categorical variable. So for this example, we will tell GAUSS to make it a numerical variable. 
 ::
     
     pctl.names_types = { "Index" "number" };  
 
 **Pivot the data**
+
 Now we can call :func:`dflonger` with the inputs we have created.
 
 ::
