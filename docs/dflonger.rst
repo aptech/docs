@@ -337,7 +337,11 @@ The first element is *".value"*. This tells :func:`dflonger` to take the first p
       - 3.9
 
 
+.. raw:: html
+
+<embed>
 &nbsp;&nbsp;&nbsp;&nbsp;&#8681;
+</embed>
 
 .. list-table::
     :widths: 50 50
