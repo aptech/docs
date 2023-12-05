@@ -38,7 +38,7 @@ Examples
   tail(data[., "Date"]);
   
   // Print corresponding years
-     "Years:"
+  "Years:"
   head(year);
   tail(year);
 
