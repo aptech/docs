@@ -56,20 +56,20 @@ Example 1
 
                 region                 year            num_nests
                Pacific                 2007               1039.0
-               Pacific                 2009              2587.0
-             Southwest                 2007                51.0
+               Pacific                 2009               2587.0
+             Southwest                 2007                 51.0
              Southwest                 2009                176.0
        Rocky Mountains                 2007                200.0
-       Rocky Mountains                 2009               338.0
+       Rocky Mountains                 2009                338.0
 
 ::
 
-  // Specify columns to pull new column names from 
+  // Specify columns to pull new column names from
   names_from = "year";
-  
+ 
   // Specify columns to pull new column values from
   values_from = "num_nests";
-  
+ 
   // Convert to wide form
   df_wide = dfWider(df_long, names_from, values_from);
 
@@ -91,13 +91,13 @@ Let's continue with the data from the previous example, but add a new variable, 
 ::
 
     // Create new report_id variable
-    report_id = { 
+    report_id = {
         61178,
         73511,
         26219,
         14948,
         67679,
-        71635 
+        71635
      };
 
     // Add report_id to the front of df_long
@@ -145,10 +145,10 @@ We can use the pivotControl structure to tell :func:`dfWider` to only use the  *
 
   // Specify `region` as id col
   pctl.id_cols = "region";
-  
+ 
   // Specify names prefix
   pctl.names_prefix = "year_";
-  
+ 
   // Pivot data
   print dfWider(df_long, "year", "num_nests", pctl);
 
