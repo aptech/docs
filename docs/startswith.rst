@@ -131,4 +131,4 @@ matching rows, we need to convert *mask* to a column vector with a 1 in the case
    Buick LeSabre          Average
 
 
-.. seealso:: Functions :func:`strindx`
+.. seealso:: Functions :func:`strindx`, :func:`strsect`, :func:`strtrim`
