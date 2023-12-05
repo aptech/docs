@@ -312,7 +312,11 @@ Our *names_to* input will be a little different this time, however.
     names_to = ".value" $| "Index";
     values_to = "";
 
-Since we will be splitting the variable names into 2 pieces (i.e. *Brand1* -> *Brand* *1*), we need to set one element of *names_to* for each of the pieces from the split variable name. The first element is *".value"*. This tells :func:`dflonger` to take the first piece of the variable name (*Brand* or *Price*) and create a column with the all the values from all matching columns. 
+Since we will be splitting the variable names into 2 pieces (i.e. *Brand1* -> *Brand* *1*), we need to set one element of *names_to* for each of the pieces from the split variable name. 
+
+
+**.value**
+The first element is *".value"*. This tells :func:`dflonger` to take the first piece of the variable name (*Brand* or *Price*) and create a column with the all the values from all matching columns. 
 
 .. list-table::
     :widths: 25 25 25 25
@@ -348,10 +352,12 @@ Since we will be splitting the variable names into 2 pieces (i.e. *Brand1* -> *B
 
 In other words, combine all the values from the variables *Brand1* and *Brand2* into a single variable named *Brand* and do the same for the *Price* columns.  
 
+**Index**
 The second element of *names_to* tells :func:`dflonger` to create a column named *Index* and fill it with the contents of the second piece of the variable names (i.e *1* or *2*). 
 
 Since *names_to* is specifying where to send the "values", *values_to* will be empty.
 
+**Regex to split the variable names**
 Now we can set our other options using the `pivotControl` structure.
 
 ::
@@ -373,11 +379,13 @@ Our second group is  ``([0-9])``. That will match any integer.
     pctl.names_pattern_split = "(Brand|Price)([0-9])";
 
 
+**Change output variable types**
 By default the variables created from the pieces of the variable names will be categorical variables. Since the second peice of our variable, that we set to be called *Index* earlier when we set *names_to*, will be integers, we may not want it to be a categorical variable. So for this example, we will tell GAUSS to make it a numerical variable. 
 ::
     
     pctl.names_types = { "Index" "number" };  
 
+**Pivot the data**
 Now we can call :func:`dflonger` with the inputs we have created.
 
 ::
