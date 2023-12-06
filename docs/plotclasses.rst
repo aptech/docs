@@ -1,5 +1,5 @@
 
-plotclasses
+plotClasses
 ==============================================
 
 Purpose
@@ -9,7 +9,7 @@ Plots classes after classification.
 
 Format
 ----------------
-.. function:: plotClasses(data, label [, myplot]);
+.. function:: plotClasses(data, label [, myplot])
 
     :param data: First column is x-axis, the second is y-axis.
     :type data: Nx2 matrix
@@ -61,11 +61,6 @@ Examples
  ** Plot Classes
  */
  plotClasses(X_test[., 1:2], test_clusters);
-
-This results in the following plot:
-
- .. figure:: _static/images/plotscatter.png
-     :scale: 50%
 
 
 .. seealso:: Functions :func:`plotScatter`

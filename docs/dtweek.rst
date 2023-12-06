@@ -75,5 +75,11 @@ The code above prints the following table:
               48 
               48 
 
+Remarks
+------------
+
+- Days before the first Monday of the year will be returned as week 0.
+
+
 .. seealso:: Functions :func:`dtDayofWeek`, :func:`dtDayofMonth`, :func:`dtDayofYear`, :func:`dtMonth`, :func:`dtYear`
 

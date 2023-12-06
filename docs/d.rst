@@ -136,9 +136,9 @@ D
     dtdayofweek
     dtdayofyear
     dthour
+    dtminute
     dtmonth
     dtmonthname
-    dtminute
     dtquarter
     dtsecond
     dttime

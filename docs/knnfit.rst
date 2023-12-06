@@ -30,54 +30,60 @@ Format
 
     :rtype mdl: struct
 
-    Examples
-    -------------
 
-    ::
+Remarks
+----------
 
-        new;
-        library gml;
+The KD-tree algorithm is an optimized approximate nearest neighbors algorithm. It provides high computational performance and high accuracy, but may not always return the exact nearest neighbors.
 
-        // Set seed for repeatable train/test sampling
-        rndseed 423432;
+Examples
+-------------
 
-        /*
-        ** Load data and prepare
-        */
-        // Get file name with full path
-        fname = getGAUSSHome("pkgs/gml/examples/iris.csv");
+::
 
-        // Get predictors
-        X = loadd(fname, ". -Species");
+    new;
+    library gml;
 
-        // Load labels
-        species = loadd(fname, "Species");
+    // Set seed for repeatable train/test sampling
+    rndseed 423432;
 
-        // Split data into (70%) train and (30%) test sets
-        { y_train, y_test, X_train, X_test } = trainTestSplit(species, X, 0.7);
+    /*
+    ** Load data and prepare
+    */
+    // Get file name with full path
+    fname = getGAUSSHome("pkgs/gml/examples/iris.csv");
 
-        /*
-        ** Train the model
-        */
-        // Specify number of neighbors
-        k = 3;
+    // Get predictors
+    X = loadd(fname, ". -Species");
 
-        struct knnModel mdl;
-        mdl = knnFit(y_train, X_train, k);
+    // Load labels
+    species = loadd(fname, "Species");
 
-        /*
-        ** Predictions on the test set
-        */
-        y_hat = knnClassify(mdl, X_test);
+    // Split data into (70%) train and (30%) test sets
+    { y_train, y_test, X_train, X_test } = trainTestSplit(species, X, 0.7);
+
+    /*
+    ** Train the model
+    */
+    // Specify number of neighbors
+    k = 3;
+
+    struct knnModel mdl;
+    mdl = knnFit(y_train, X_train, k);
+
+    /*
+    ** Predictions on the test set
+    */
+    y_hat = knnClassify(mdl, X_test);
 
 
-       /*
-       ** Model assessment
-       */
-       call classificationMetrics(y_test, y_hat);
+    /*
+    ** Model assessment
+    */
+    call classificationMetrics(y_test, y_hat);
 
 
-    The above code will print the following output:
+The above code will print the following output:
 
 ::
 
@@ -123,4 +129,5 @@ Format
    
         Accuracy                          0.96       45
 
-.. seealso:: :func:`knnClassify`, func:`plotClasses`
+
+.. seealso:: :func:`knnClassify`, :func:`plotClasses`

@@ -14,8 +14,8 @@ Format
     :param X: Data with metadata.
     :type X: TxK dataframe
 
-    :param columns: Optional, name or index of the date variable in *X* to get years from.  Default = first column.
-    :type columns: Scalar or string
+    :param column: Optional, name or index of the date variable in *X* to get years from.  Default = first column.
+    :type column: Scalar or string
 
     :return year: The numeric year of the dates in the column specified by *column*.
     :rtype months: Tx1 vector
@@ -38,7 +38,7 @@ Examples
   tail(data[., "Date"]);
   
   // Print corresponding years
-     "Years:"
+  "Years:"
   head(year);
   tail(year);
 

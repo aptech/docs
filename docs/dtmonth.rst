@@ -5,7 +5,7 @@ dtMonth
 Purpose
 ----------------
 
-Extracts the month component from a date/time variable as a decimal number(1-12).
+Extracts the month component from a date/time variable as a decimal number (1-12).
 
 Format
 ----------------
@@ -38,7 +38,7 @@ Examples
   tail(data[., "Date"]);
   
   // Print corresponding months
-      "Months:"
+  "Months:"
   head(months);
   tail(months);
 

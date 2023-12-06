@@ -29,7 +29,7 @@ Examples
 
 ::
 
-  // Load data
+  // Create a date
   date_df = asDate("2008-02-16 18:36:29", "%Y-%m-%d %H:%M:%S");
 
   // Get hours
@@ -45,7 +45,7 @@ To use the 24-hr clock:
 
 ::
 
-  // Load data
+  // Create a date
   date_df = asDate("2008-02-16 18:36:29", "%Y-%m-%d %H:%M:%S");
 
   // Get hour

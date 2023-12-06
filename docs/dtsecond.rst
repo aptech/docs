@@ -26,7 +26,7 @@ Examples
 
 ::
 
-  // Load data
+  // Create a date
   date_df = asDate("2008-02-16 18:36:29", "%Y-%m-%d %H:%M:%S");
 
   // Get seconds
@@ -37,6 +37,11 @@ This extracts the seconds:
 ::
 
   29
+
+
+Remarks
+----------
+This function only works with dataframes. It does not work with DT Scalars.
 
 .. seealso:: Functions :func:`dtHour`, :func:`dtMinute`
 

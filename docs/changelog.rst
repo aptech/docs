@@ -3,7 +3,6 @@ Change Log
 ==========
 
 The following is a list of changes from the previous version of GAUSS.
-------
 
 24.0.0
 ------
@@ -31,7 +30,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function :func:`dtQuarter` extracts the quarter from date/time variables as number (1-4).
 #. New function :func:`dtYear` extracts the year from date/time variables as a number with century included.
 #. New convenience function :func:`getCategories` returns category labels of categorical variable. 
-#. New convenience function :func:`dropCategory` removes a category from a dataframe and from the dataframe metadata.
+#. New convenience function :func:`dropCategories` removes a category from a dataframe and from the dataframe metadata.
 #. New convenience function :func:`isstring` returns a 1 if the input is a string or string array, otherwise 0.
 #. New methods forward-fill and backward-fill added to :func:`impute`.
 #. Expanded functionality of :func:`frequency` to allow for two-way tables and improved printing. 
@@ -40,7 +39,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New ability to turn density plots off for :func:`kernelDensity` procedure.
 #. New option to plot category counts in order from most frequently occurring to least frequently occurring for :func:`plotFreq` procedure. 
 #. New option to report category counts in order from most frequently occurring to least frequently occurring for :func:`frequency` procedure. 
-#. :func:`plotAddTS` no longer requires a ``frequency`` impute which simplifies usage.
+#. :func:`plotAddTSHF` no longer requires a ``frequency`` impute which simplifies usage.
 #. Speed increase for :func:`packr` with large column vectors.
 #. Speed increase for :func:`combinate` with large values of *n*.
 #. Bug Fix: :func:`sprintf` could cause a crash in certain cases with very large floating point numbers.
@@ -57,7 +56,6 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug Fix: :func:`loadd` would fail to load ``.gdat`` files if a formula string transformed a numeric variable to categorical or string.
 #. Bug Fix: :func:`saved` would report an error if saving a dataset with only numeric variables.
 #. Bug Fix: :func:`kerneldensity` would not respect x-label setting if a plot setting procedure pointer was passed in and was setting plot canvas size automatically.
-
 
 23.0.3
 ------

@@ -9,8 +9,8 @@ Computes a feasible generalized least squares (FGLS) regression.
 
 Format
 ----------------
-.. function:: out = fgls(data, formula, method, [, ctl])
-              out = fgls(depvar, indvars, method, [, ctl])
+.. function:: out = fgls(data, formula [, method, ctl])
+              out = fgls(depvar, indvars [, method, ctl])
 
     :param data: Name of dataframe.
     :type data: Dataframe
@@ -107,7 +107,7 @@ Format
             * - out.pvt
               - Dx1 vector, the p-value the t-statistics of the estimated parameters.
             * - out.resid
-              - Residuals, :math:`out.resid = y -  x * out.beta_{fgls}`.
+              - Residuals, :math:`out.resid = y -  x * out.beta\_{fgls}`.
             * - out.df
               - Scalar, degrees of freedom.
             * - out.sse
@@ -194,9 +194,9 @@ regression. The dependent variable is *rcoe*. The independent variable is *rcpi*
 
     Valid cases:                    248              Dependent variable:            rcpi
     Total SS:                     0.027              Degrees of freedom:             246
-    R-squared:                    0.110              Rbar-squared:                 0.103
+    R-squared:                    0.110              Rbar-squared:                 0.107
     Residual SS:                  0.024              Std error of est:             0.010
-    F(1,245)                     30.329              Probability of F:             0.000
+    F(1,245)                     30.453              Probability of F:             0.000
     Durbin-Watson                 0.757                                                 
 
 

@@ -21,6 +21,49 @@ Format
 
     :type filename: literal or ^string
 
+Example
+----------
+
+::
+
+    // Log your interactive commands in the file
+    // 'mycommands.log' located in your current working directory
+    // Note that the 'reset' option will delete the current version
+    // of the file 'mycommands.log' if it exists
+    comlog file=mycommands.log reset;
+
+    // Report the comlog status
+    comlog;
+
+Assuming your current working directory is `/Users/Sam/gauss`, you will see the following output:
+
+::
+
+    Command log file: /Users/Sam/gauss/mycommands.log is open
+
+::
+
+    // Execute some interactive commands.
+    // Note these must be run from the GAUSS command window.
+    // Code run in GAUSS program files will not be logged.
+    x = 5;
+    s = "This is a string";
+
+After running the above commands, the contents of your `/Users/Sam/gauss/mycommands.log` file will be:
+
+::
+
+    comlog;
+    x = 5;
+    s = "This is a string";
+
+After running the above code, your commands will continue to be logged in your `mycommands.log` file until you enter:
+
+::
+
+    comlog off;
+
+
 Remarks
 -------
 
@@ -42,6 +85,8 @@ Remarks
   subsequent :code:`comlog reset` will cause the existing contents of the log file
   to be destroyed and a new file created.
 
-* The command :code:`comlog by` itself will cause the name and status of the
+* The command :code:`comlog` by itself will cause the name and status of the
   current log file to be printed in the window.
+
+* Interactive commands to run a file, i.e. ``run ols.e;`` will not be logged by `comlog`.
 

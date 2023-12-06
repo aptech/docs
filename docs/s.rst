@@ -98,7 +98,6 @@ S
     strcombine
     strctodt
     strctoposix
-    strindx
     strjoin
     strlen
     strput

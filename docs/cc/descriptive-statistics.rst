@@ -20,6 +20,7 @@ Descriptive statistics
 :doc:`../quantile`           Computes quantiles from each column in a matrix, given specified probabilities.
 :doc:`../skew`               Computes the sample skew.
 :doc:`../stdc`               Computes the sample standard deviation of the elements in each column of a matrix.
+:doc:`../tabulate`           Computes and returns two-way tables of frequencies.
 :doc:`../vcmvcx`             Computes an unbiased estimate of a variance-covariance matrix from a matrix :math:`x` or a moment matrix, :math:`x'x`.
 ====================         ===========================================
 

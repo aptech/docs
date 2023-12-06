@@ -67,6 +67,7 @@ to reference the variable.
 
 .. note:: The ``.`` indicates to GAUSS that all rows are being indexed. This will be discussed in more detail in the indexing section.
 
+
 +--------------------+---------------------------------------------+------------------------------------+
 | Variable           | Description                                 | Examples                           |
 | Type               |                                             |                                    |
