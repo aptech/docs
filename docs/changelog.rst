@@ -4,6 +4,13 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+24.0.1
+------
+
+#. Added capability to exclude parts of the *columns* variable names from becoming part of a new variable when using the *names_pattern_split* structure member with :func:`dflonger`.
+#. Added support for a negative offset with :func:`upmat`.
+#. Bug fix for some specific cases with wide matrices and a large offset with :func:`upmat`.
+
 24.0.0
 ------
 
