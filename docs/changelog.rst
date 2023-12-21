@@ -4,6 +4,12 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+24.0.2
+------
+
+#. Bug fix: :func:`plotAddHbar` and :func:`plotAddVbar` would return an error in certain cases if the input was an *nx2* matrix and the bar was turned 'on' for the last element.
+
+
 24.0.1
 ------
 
