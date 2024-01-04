@@ -89,7 +89,7 @@ After the code above:
 ::
 
     y2 =    9 4
-    	      2 1
+            2 1
 
 Read HDF5 first two rows and first two columns
 ++++++++++++++++++++++++++++++++++++++++++++++
