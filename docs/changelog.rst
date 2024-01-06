@@ -8,6 +8,7 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. Bug fix: :func:`plotAddHbar` and :func:`plotAddVbar` would return an error in certain cases if the input was an *nx2* matrix and the bar was turned 'on' for the last element.
+#. Bug fix: :func:`plotScatter` and :func:`plotXY` could assign the y-axis label to be the name of the 'by' variable in the case that the y-label was not previously set and a formula string with the 'by' keyword was used.
 #. Bug fix: :func:`h5read` and :func:`h5open` now work with one-dimensional HDF5 datasets.
 
 
