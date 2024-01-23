@@ -8,6 +8,7 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. Bug fix: Package manager failed to work after updated Conda requirements on Windows.
+#. Bug fix: The error widget incorrectly handled backslashes in certain cases.
 
 24.0.2
 ------
