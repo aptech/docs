@@ -536,7 +536,7 @@ By default, :func:`loadd` expects files with a ``.csv`` file extension to use a 
 +--------------+------------+
 |Space         |" "         |
 +--------------+------------+
-|Tab           |"\t"        |
+|Tab           |"\\t"       |
 +--------------+------------+
 |Pipe          |"|"         |
 +--------------+------------+
