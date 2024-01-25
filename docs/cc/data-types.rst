@@ -18,6 +18,7 @@ General
 :doc:`../getcoltypes`         Returns the types for the columns (or variables) in a GAUSS dataframe.
 :doc:`../hasmetadata`         Checks to see if a symbol is a dataframe.
 :doc:`../setcolmetadata`      Sets the variable names and types for the columns of a dataframe.
+:doc:`../setcolnames`         Sets the variable names the columns of a dataframe.
 =========================     ==========================================================================
 
 
