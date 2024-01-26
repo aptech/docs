@@ -174,7 +174,8 @@ You can also use your own procedures in formula strings as shown below:
         retp(ln_x - lagn(ln_x,1));
     endp;
 
-.. note:: Procedures used in formula strings must take a single column vector as input and return a column vector of the same length.
+.. note:: 
+    Procedures used in formula strings must take a single column vector as input and return a column vector of the same length.
 
 
 If your procedure needs the variable loaded as a string, you can prepend the variable name with a dollar sign ``$`` to tell GAUSS to load the variable as a string array and pass it to your procedure.
@@ -291,7 +292,8 @@ How to load non-standard date formats?
 
 If a date variable is not in a recognizable format, the ``date`` keyword should be used in a formula string to indicate that :func:`loadd` should load a variable as a date. In this case, GAUSS allows you to specify any arbitrary date format using BSD strftime specifiers to denote the date elements.
 
-.. note:: The full list of strftime format specifiers can be found in the documentation for :func:`strctoposix`.
+.. note:: 
+    The full list of strftime format specifiers can be found in the documentation for :func:`strctoposix`.
 
 The strftime specifier tells GAUSS how to interpret the date elements of the text. For example consider a file containing the contents below:
 
