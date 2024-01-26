@@ -40,7 +40,7 @@ To load all variables from a dataset using :func:`loadd`, only the file name is 
     housing = loadd(dataset);
 
 
-.. note:: By default, :func:`loadd` assumes that the first row of CSV and Excel files contains variable names. This can be changed using the ``loadFileControl`` structure.
+.. note:: By default, :func:`loadd` will try and determine whether the first row of CSV and Excel files contains variable names. If it is not guessin correctly, this can be overridden using the ``loadFileControl`` structure.
 
 GAUSS formula string basics
 -------------------------------------------------
@@ -176,6 +176,7 @@ You can also use your own procedures in formula strings as shown below:
 
 .. note:: Procedures used in formula strings must take a single column vector as input and return a column vector of the same length.
 
+
 If your procedure needs the variable loaded as a string, you can prepend the variable name with a dollar sign ``$`` to tell GAUSS to load the variable as a string array and pass it to your procedure.
 
 ::
@@ -194,7 +195,7 @@ If your procedure needs the variable loaded as a string, you can prepend the var
 Load dates programmatically
 -----------------------------------------------------------------------------
 
-GAUSS will automatically detect a date variables if they are in one of the `recognizable, pre-existing formats <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_.
+GAUSS will automatically detect date variables if they are in one of the `recognizable, pre-existing formats <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_.
 
 ::
 
@@ -336,7 +337,9 @@ Consider the *nba_ht_wt.xls* dataset.
   // Create file name with full path
   dataset = getGAUSSHome("examples/nba_ht_wt.xls");
 
-  // Load player as a string variable. Load
+  // Load all variables based on GAUSS's smart
+  // type detection. 'pos' will be loaded as a categorical variable,
+  // 'player' as a string variable. Load
   // 'height' and 'weight' as numeric.
   nba = loadd(dataset);
 
@@ -382,7 +385,7 @@ The *player* variable will automatically load as a string variable, the *age* va
 How to load an interaction term using a formula string?
 -----------------------------------------------------------------------------
 
-Use the ``:``` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
+Use the ``:`` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
 
 ::
 
@@ -459,7 +462,7 @@ The *ld_ctl.row_range.first* and *ld_ctl.row_range.last* members of the ``loadFi
 Specify the row containing the variable names in a text or Excel file
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-By default, :func:`loadd` assumes that the first line of an Excel or delimited text file contains the variable names. The *header_row* member of the ``loadFileControl`` structure allows you to control which row is interpreted as variable names.
+By default, :func:`loadd` assumes that if variable names are included in an Excel or delimited text file, they will be in the first row. The *header_row* member of the ``loadFileControl`` structure allows you to control which row is interpreted as variable names.
 
 For example consider a file containing:
 
@@ -517,7 +520,7 @@ and we want to specify both ``"NA"`` and ``"unknown"`` as missing values, we wou
 
     // Load variables, specifying that 'transaction' should be a categorical
     // variable and any string observations matching either "NA" or
-    // unknown should be interpreted as missing values.
+    // "unknown" should be interpreted as missing values.
     transactions = loadd("missing_value.csv", "id + price + cat(transaction)", ld_ctl);
 
 
@@ -663,7 +666,7 @@ Full details and more examples can be found in the Command Reference page for :f
 Check the type of Excel cells
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Use the :func:`xlsGetSheetTypes` procedure to check the cell format types of a specific row in an Excel spreadsheet.
+Use the :func:`xlsGetCellTypes` procedure to check the cell format types of a specific row in an Excel spreadsheet.
 
 ::
 
@@ -677,9 +680,9 @@ Use the :func:`xlsGetSheetTypes` procedure to check the cell format types of a s
   row = 1;
 
   // Get cell types
-  cell_types = xlsGetSheetTypes(fname, sheet, row);
+  cell_types = xlsGetCellTypes(fname, sheet, row);
 
-Full details and more examples can be found in the Command Reference page for :func:`xlsGetSheetTypes`.
+Full details and more examples can be found in the Command Reference page for :func:`xlsGetCellTypes`.
 
 Merging dataframes
 --------------------------
