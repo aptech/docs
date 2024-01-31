@@ -102,10 +102,12 @@ Example: Finding mean by column
 
 ::
 
-  // Load stock price data
+  // Create file name with full path
   fname = getGAUSShome("examples/xle_daily.xlsx");
-  xle_daily = loadd(fname,
-                   "date($Date, '%m/%d/%Y %T.%L') + Adj Close + Volume");
+
+  // Load all three variables, 'Date', 'Adj Close'
+  // and 'Volume'.
+  xle_daily = loadd(fname);
 
   // Find mean of 'Adj Close' and 'Volume'
   meanc(xle_daily[., "Adj Close" "Volume"]);
