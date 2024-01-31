@@ -175,7 +175,10 @@ You can also use your own procedures in formula strings as shown below:
     endp;
 
 .. note:: 
+
     Procedures used in formula strings must take a single column vector as input and return a column vector of the same length.
+
+..
 
 
 If your procedure needs the variable loaded as a string, you can prepend the variable name with a dollar sign ``$`` to tell GAUSS to load the variable as a string array and pass it to your procedure.
