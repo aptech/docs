@@ -197,7 +197,7 @@ The aggregated results are printed to the **Command** window:
     
 Frequency tables and plots
 -----------------------------
-**Frequency counts**
+**One-way frequency counts**
 The :func:`frequency` procedure computes a frequency count of all categories of a categorical variable.
 
 ::
@@ -208,20 +208,44 @@ The :func:`frequency` procedure computes a frequency count of all categories of 
 
   // Frequency table
   print "Frequency count for 'rep78':";
-  freq_out = frequency(auto2, "rep78");
+  frequency(auto2, "rep78");
 
 The above code prints:
 
 ::
 
      Frequency count for 'rep78':
-           Label            Count
-            Poor                2
-            Fair                8
-         Average               30
-            Good               18
-       Excellent               11
+           Label      Count   Total %    Cum. % 
+            Poor          2     2.899     2.899 
+            Fair          8     11.59     14.49 
+         Average         30     43.48     57.97 
+            Good         18     26.09     84.06 
+       Excellent         11     15.94       100 
+           Total         69       100
 
+An optional indicator input can be used with the :func:`frequency` procedure to sort the frequency counts in descending order. 
+
+::
+
+  // Load data
+  fname = getGAUSSHome("examples/auto2.dta");
+  auto2 = loadd(fname);
+
+  // Frequency table
+  print "Sorted frequency count for 'rep78':";
+  frequency(auto2, "rep78", 1);
+         
+::
+        Sorted frequency count for 'rep78':
+            
+        Label      Count   Total %    Cum. % 
+      Average         30     43.48     43.48 
+         Good         18     26.09     69.57 
+    Excellent         11     15.94     85.51 
+         Fair          8     11.59      97.1 
+         Poor          2     2.899       100 
+        Total         69       100          
+            
 As an alternative to :func:`frequency`, the :func:`counts` procedure counts the numbers of elements of a vector that fall into specified ranges and can be used to create frequency tables.
 
 For example, to find the frequency of each category for a categorical variable, use :func:`counts` with the unique category keys as cutoffs.
@@ -229,7 +253,7 @@ For example, to find the frequency of each category for a categorical variable, 
 ::
 
   // Load data
-  fname = getGAUSSHom("examples/auto2.dta");
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname, "str(make) + cat(rep78) + cat(foreign)");
 
   // Frequency table of rep78
@@ -249,12 +273,14 @@ For example, to find the frequency of each category for a categorical variable, 
        18.000000
        11.000000
 
+
 **Frequency plots**
 
 .. figure:: ../_static/images/plotfreq.jpg
     :scale: 50%
 
-The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional ``plotControlStructure`` can be used for custom formatting.
+The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional ``plotControlStructure`` can be used for custom formatting. An optional indicator input can be used with the :func:`plotFreq` procedure to sort the bars in descending order. 
+ 
 
 Example: Plotting category frequency
 +++++++++++++++++++++++++++++++++++++
@@ -268,6 +294,17 @@ Example: Plotting category frequency
   // Frequency plot
   plotFreq(auto2, "rep78");
 
+.. figure:: ../_static/images/plotfreq2.jpg
+    :scale: 50%
+
+Example: Plotting category frequency
++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Sorted frequency plot
+  plotFreq(auto2, "rep78", 1);
+  
 Associations and correlations
 ----------------------------------
 
