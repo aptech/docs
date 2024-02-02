@@ -297,14 +297,32 @@ Example: Plotting category frequency
 .. figure:: ../_static/images/plotfreq2.jpg
     :scale: 50%
 
-Example: Plotting category frequency
-+++++++++++++++++++++++++++++++++++++
+Example: Plotting sorted category frequency
+++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
   // Sorted frequency plot
   plotFreq(auto2, "rep78", 1);
-  
+
+.. figure:: ../_static/images/plotfreq3.jpg
+    :scale: 50%
+    
+Example:  Adding a title to a frequency plot
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Declare plotControl structure
+  struct plotControl myPlt;
+  myPlt = plotGetDefaults("bar");
+
+  // Set title
+  plotSetTitle(&myPlt, "Frequency of `Rep78`");
+
+  // Frequency plot
+  plotFreq(myPlt, auto2, "rep78", 1);
+    
 Associations and correlations
 ----------------------------------
 
