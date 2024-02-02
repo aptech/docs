@@ -118,16 +118,18 @@ The results are printed directly to screen:
   14308087.
 
 
-Panel data descriptive statistics
+Computing group descriptive statistics
 -----------------------------------
 The :func:`aggregate` procedure finds descriptive statistics for each group in panel data. It allows an optional input to specify the name of the categorical variable to be used for grouping.
 
-In order to be used with :func:`aggregate` :
+In order to be used with :func:`aggregate` data should:
 
 - Have group identifiers in the first column if the name of the categorical variable for grouping is not specified.
-- Be in stacked panel data format.
+- Be in stacked panel data format (see :func:`dfLonger`).
 
-The function supports the following statistics:
+If the input data is contained in a dataframe, the :func:`aggregate` procedure will output a dataframe.
+    
+The function supports the following statistics for grouping:
 
 * Mean
 * Median
@@ -138,8 +140,10 @@ The function supports the following statistics:
 * Sum
 * Sample variance
 
-Example One: Find median square footage and price by number of bedrooms
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The :func:`aggregate` function also accepts an optional indicator input for fast computation. If fast computation is specified, the procedure will not check for missing values.  
+
+Example One: Group variable contained in first column
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 In this example, the group variable is included in the first column. No categorical variable is specified for grouping.
 
 ::
@@ -165,8 +169,8 @@ The matrix *x_a* contains:
        4              179             2000
        5           352.65             3095
 
-Example Two: Find the mean mpg and price for foreign vehicles
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example Two: Specifying the group variable as an input
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 In this example, a categorical variable name is specified for grouping.
 
 ::
@@ -186,6 +190,11 @@ The aggregated results are printed to the **Command** window:
   Domestic  6072.423   19.827
   Foreign   6384.682   24.773
 
+.. note :: The :func:`aggregate` function is similar to creating pivot tables, where:
+    - The group variable is equivalent to a pivot table row variable. 
+    - The remaining variables in *X* are equivalent to column variables.
+    - The *method* input is equivalent to the values setting in a pivot table. 
+    
 Frequency tables and plots
 -----------------------------
 **Frequency counts**
