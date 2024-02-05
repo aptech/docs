@@ -270,6 +270,23 @@ A second optional input allows you to specify which columns to use.
     mpg              21.3     5.786       33.47         12          41       74        0
     rep78           -----     -----       -----       Poor   Excellent       69        5
 
+
+You can count the number of missing values in a vector using :func:`counts`. 
+
+::
+
+    // Create a column vector with 2 missing values
+    x = { 1, ., 3, ., 5, 6 };
+
+    // Create a missing value
+    m = miss();
+
+    // Count the number of missing values in the vector
+    n = counts(x, m);
+
+
+After running the above code, *n* will be equal to 2.
+
 Checking for missing values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
