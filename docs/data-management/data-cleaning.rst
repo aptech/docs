@@ -215,25 +215,60 @@ Counting missing variables
 The procedure :func:`dstatmt` counts missing values by variable name as part of the descriptive statistics report.
 It requires only a single input indicating the source of data.
 
-The input may be either a dataset file name or the name of a data matrix currently in the workspace.
+The input may be either the file name of a dataset or the name of a matrix or dataframe currently in the workspace.
 
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome("examples/freqdata.dat");
+    dataset = getGAUSSHome("examples/auto2.dta");
 
     // Compute descriptive statistics and print report
+    // of a dataset stored on disk
     call dstatmt(dataset);
 
 ::
 
-    -----------------------------------------------------------------------------------
-    Variable      Mean     Std Dev    Variance    Minimum     Maximum    Valid  Missing
-    -----------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------
+    Variable         Mean   Std Dev    Variance    Minimum     Maximum    Valid   Missing
+    -------------------------------------------------------------------------------------
+    
+    make            -----     -----       -----      -----       -----       74        0
+    price            6165      2949     8.7e+06       3291   1.591e+04       74        0
+    mpg              21.3     5.786       33.47         12          41       74        0
+    rep78           -----     -----       -----       Poor   Excellent       69        5
+    headroom        2.993     0.846      0.7157        1.5           5       74        0
+    trunk           13.76     4.277        18.3          5          23       74        0
+    weight           3019     777.2    6.04e+05       1760        4840       74        0
+    length          187.9     22.27       495.8        142         233       74        0
+    turn            39.65     4.399       19.35         31          51       74        0
+    displacement    197.3     91.84        8434         79         425       74        0
+    gear_ratio      3.015    0.4563      0.2082       2.19        3.89       74        0
+    foreign         -----     -----       -----   Domestic     Foreign       74        0
 
-    AGE          5.678       2.993       8.959          1          10       398       2
-    PAY          1.968      0.8019      0.6431          1           3       400       0
 
+A second optional input allows you to specify which columns to use.
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome("examples/auto2.dta");
+    
+    // Load data from the file
+    auto = loadd(dataset);
+
+    // Compute descriptive statistics and print report
+    // of specific variables from a dataframe
+    call dstatmt(dataset, "price + mpg + rep78");
+
+::
+
+    -------------------------------------------------------------------------------------
+    Variable         Mean   Std Dev    Variance    Minimum     Maximum    Valid   Missing
+    -------------------------------------------------------------------------------------
+    
+    price            6165      2949     8.7e+06       3291   1.591e+04       74        0
+    mpg              21.3     5.786       33.47         12          41       74        0
+    rep78           -----     -----       -----       Poor   Excellent       69        5
 
 Checking for missing values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
