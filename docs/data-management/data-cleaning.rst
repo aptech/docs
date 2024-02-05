@@ -324,8 +324,10 @@ The :func:`missrv` function replaces all missing values in a matrix with a user-
 
 The :func:`impute` procedure replaces missing values in the columns of a matrix using a specified imputation method.
 
-The procedure offers six potential methods for imputation:
+The procedure offers eight potential methods for imputation:
 
+* ``"bfill"`` - replaces missing values with the next valid observation (backward fill).
+* ``"ffill"`` - replaces missing values with the most recent previous valid observation (forward fill).
 * ``"mean"`` - replaces missing values with the mean of the column.
 * ``"median"`` - replaces missing values with the median of the column.
 * ``"mode"`` - replace missing values with the mode of the column.
