@@ -120,16 +120,18 @@ The results are printed directly to screen:
   14308087.
 
 
-Panel data descriptive statistics
+Computing group descriptive statistics
 -----------------------------------
 The :func:`aggregate` procedure finds descriptive statistics for each group in panel data. It allows an optional input to specify the name of the categorical variable to be used for grouping.
 
-In order to be used with :func:`aggregate` :
+In order to be used with :func:`aggregate` data should:
 
 - Have group identifiers in the first column if the name of the categorical variable for grouping is not specified.
-- Be in stacked panel data format.
+- Be in stacked panel data format (see :func:`dfLonger`).
 
-The function supports the following statistics:
+If the input data is contained in a dataframe, the :func:`aggregate` procedure will output a dataframe.
+    
+The function supports the following statistics for grouping:
 
 * Mean
 * Median
@@ -140,8 +142,10 @@ The function supports the following statistics:
 * Sum
 * Sample variance
 
-Example One: Find median square footage and price by number of bedrooms
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The :func:`aggregate` function also accepts an optional indicator input for fast computation. If fast computation is specified, the procedure will not check for missing values.  
+
+Example One: Group variable contained in first column
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 In this example, the group variable is included in the first column. No categorical variable is specified for grouping.
 
 ::
@@ -167,8 +171,8 @@ The matrix *x_a* contains:
        4              179             2000
        5           352.65             3095
 
-Example Two: Find the mean mpg and price for foreign vehicles
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Example Two: Specifying the group variable as an input
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 In this example, a categorical variable name is specified for grouping.
 
 ::
@@ -188,9 +192,14 @@ The aggregated results are printed to the **Command** window:
   Domestic  6072.423   19.827
   Foreign   6384.682   24.773
 
+.. note :: The :func:`aggregate` function is similar to creating pivot tables, where:
+    - The group variable is equivalent to a pivot table row variable. 
+    - The remaining variables in *X* are equivalent to column variables.
+    - The *method* input is equivalent to the values setting in a pivot table. 
+    
 Frequency tables and plots
 -----------------------------
-**Frequency counts**
+**One-way frequency counts**
 The :func:`frequency` procedure computes a frequency count of all categories of a categorical variable.
 
 ::
@@ -201,20 +210,44 @@ The :func:`frequency` procedure computes a frequency count of all categories of 
 
   // Frequency table
   print "Frequency count for 'rep78':";
-  freq_out = frequency(auto2, "rep78");
+  frequency(auto2, "rep78");
 
 The above code prints:
 
 ::
 
      Frequency count for 'rep78':
-           Label            Count
-            Poor                2
-            Fair                8
-         Average               30
-            Good               18
-       Excellent               11
+           Label      Count   Total %    Cum. % 
+            Poor          2     2.899     2.899 
+            Fair          8     11.59     14.49 
+         Average         30     43.48     57.97 
+            Good         18     26.09     84.06 
+       Excellent         11     15.94       100 
+           Total         69       100
 
+An optional indicator input can be used with the :func:`frequency` procedure to sort the frequency counts in descending order. 
+
+::
+
+  // Load data
+  fname = getGAUSSHome("examples/auto2.dta");
+  auto2 = loadd(fname);
+
+  // Frequency table
+  print "Sorted frequency count for 'rep78':";
+  frequency(auto2, "rep78", 1);
+         
+::
+        Sorted frequency count for 'rep78':
+            
+        Label      Count   Total %    Cum. % 
+      Average         30     43.48     43.48 
+         Good         18     26.09     69.57 
+    Excellent         11     15.94     85.51 
+         Fair          8     11.59      97.1 
+         Poor          2     2.899       100 
+        Total         69       100          
+            
 As an alternative to :func:`frequency`, the :func:`counts` procedure counts the numbers of elements of a vector that fall into specified ranges and can be used to create frequency tables.
 
 For example, to find the frequency of each category for a categorical variable, use :func:`counts` with the unique category keys as cutoffs.
@@ -222,7 +255,7 @@ For example, to find the frequency of each category for a categorical variable, 
 ::
 
   // Load data
-  fname = getGAUSSHom("examples/auto2.dta");
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname, "str(make) + cat(rep78) + cat(foreign)");
 
   // Frequency table of rep78
@@ -242,12 +275,14 @@ For example, to find the frequency of each category for a categorical variable, 
        18.000000
        11.000000
 
+
 **Frequency plots**
 
 .. figure:: ../_static/images/plotfreq.jpg
     :scale: 50%
 
-The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional ``plotControlStructure`` can be used for custom formatting.
+The :func:`plotFreq` will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional ``plotControlStructure`` can be used for custom formatting. An optional indicator input can be used with the :func:`plotFreq` procedure to sort the bars in descending order. 
+ 
 
 Example: Plotting category frequency
 +++++++++++++++++++++++++++++++++++++
@@ -261,6 +296,35 @@ Example: Plotting category frequency
   // Frequency plot
   plotFreq(auto2, "rep78");
 
+.. figure:: ../_static/images/plotfreq2.jpg
+    :scale: 50%
+
+Example: Plotting sorted category frequency
+++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Sorted frequency plot
+  plotFreq(auto2, "rep78", 1);
+
+.. figure:: ../_static/images/plotfreq3.jpg
+    :scale: 50%
+    
+Example:  Adding a title to a frequency plot
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Declare plotControl structure
+  struct plotControl myPlt;
+  myPlt = plotGetDefaults("bar");
+
+  // Set title
+  plotSetTitle(&myPlt, "Frequency of `Rep78`");
+
+  // Frequency plot
+  plotFreq(myPlt, auto2, "rep78", 1);
+    
 Associations and correlations
 ----------------------------------
 
