@@ -191,9 +191,10 @@ The aggregated results are printed to the **Command** window:
   Foreign   6384.682   24.773
 
 .. note :: The :func:`aggregate` function is similar to creating pivot tables, where:  
-    *  The group variable is equivalent to a pivot table row variable.   
-    *  The remaining variables in *x* are equivalent to column variables.  
-    *  The *method* input is equivalent to the values setting in a pivot table.   
+
+* The group variable is equivalent to a pivot table row variable.   
+* The remaining variables in *x* are equivalent to column variables.  
+* The *method* input is equivalent to the values setting in a pivot table.   
     
 Frequency tables and plots
 -----------------------------
@@ -360,8 +361,9 @@ Two-way tables
 The :func:`tabulate` procedure generates two-way tables and returns the counts as a dataframe. 
 
 Basic tabulation with the :func:`tabulate` procedure requires:
-- A dataframe or filename input.
-- A formula string to specify which variables to include in the table. 
+
+* A dataframe or filename input.
+* A formula string to specify which variables to include in the table. 
 
 The formula string specifies the row variable on the left-hand side of the tilde and column variables on the right-hand side. 
 
