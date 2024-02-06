@@ -290,7 +290,7 @@ After running the above code, *n* will be equal to 2.
 Checking for missing values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :func:`ismiss` function checks for missing values in a matrix. It will return a value of 1 if any missing values are present in a matrix.
+You can check to see if a matrix or dataframe contains any missing values with :func:`ismiss`.
 
 ::
 
@@ -304,6 +304,95 @@ The :func:`ismiss` function checks for missing values in a matrix. It will retur
     ret_b = ismiss(b);
 
 After the code above, *ret_a* will equal 0, but *ret_b* will equal 1.
+
+To find which observations contain missing values, you can use :func:`rowcontains`, :func:`indexcat`, or the dot equality operator ``.==``. First we will load some data and then show these options.
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome("examples/auto2.dta");
+
+    // Load 3 variables
+    auto = loadd(dataset, "mpg + price + rep78");
+
+    // Select the first 8 rows
+    auto = head(auto, 8);
+
+After the above code, *auto* will equal:
+
+::
+
+       mpg      price      rep78
+        22       4099    Average
+        17       4749    Average
+        22       3799          .
+        20       4816    Average
+        15       7827       Good
+        18       5788    Average
+        26       4453          .
+        20       5189    Average
+
+:func:`indexcat` can tell us the row indices of a column that contain missing values.
+
+::
+
+    // Create a missing value
+    m = miss();
+
+    // Find the indices of the rows with missing values
+    idx = indexcat(auto[.,"rep78"], m); 
+
+*idx* will now equal:
+
+::
+
+    3
+    7
+
+
+:func:`rowcontains` will return a binary vector with a 1 for each row where any element contains a missing value. Continuing with our data from above:
+
+::
+
+    // Return a binary vector with a 1 for
+    // rows that contain a missing value
+    mask = rowContains(auto, miss());
+
+*mask* will equal:
+
+::
+
+    0
+    0
+    1
+    0
+    0
+    0
+    1
+    0
+
+The dot equality operator, ``.==`` will return a binary matrix with a 1 for any element that contains a missing value. Again we will use the data loaded earlier.
+
+::
+
+    // Return a binary matrix with a 1
+    // for any element that is a missing value
+    mask = auto .== miss();
+
+
+*mask* will equal:
+
+::
+
+    0    0    0
+    0    0    0
+    0    0    1
+    0    0    0
+    0    0    0
+    0    0    0
+    0    0    1
+    0    0    0
+
 
 Removing missing values
 ^^^^^^^^^^^^^^^^^^^^^^^^
