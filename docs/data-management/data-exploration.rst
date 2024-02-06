@@ -338,7 +338,8 @@ In this example, the optional argument is used to specify that the bars should b
 .. figure:: ../_static/images/plotfreq2.jpg
     :scale: 50%
        
-**Example: Adding a title to a frequency plot**   
+**Example: Adding a title to a frequency plot**  
+
 In the next example, a ``plotControlStructure`` is used to add a title to the sorted frequency plot. 
 
 ::
@@ -440,7 +441,8 @@ An optional ``tabControl`` structure input can be used for advanced options incl
 |                      | to 0 to remove unused levels from the table. Default = 1.        |
 +----------------------+------------------------------------------------------------------+    
 
-**Dropping unused categories from the table**   
+**Dropping unused categories from the table** 
+    
 Consider the following two-way frequency table:
 
 ::
@@ -504,6 +506,7 @@ The table no longer includes the unused categories from the table.
     =============================================
 
 **Excluding specified categories from the table**  
+
 Specific categories can be excluding from the table using the *exclude* member of the ``tabControl`` structure. This input is a string array input which must include the variable name and the associated category, separated by a ``":"``.
 
 ::
@@ -632,68 +635,68 @@ This prints the following variance/covariance matrix:
 
 Exploratory data visualizations
 ---------------------------------
-
-**Plotting histograms**
-
+GAUSS graphics are powerful enough to generate custom, publication quality plots but are equally useful for generating quick exploratory plots. Supported plots include:
+    
+    * XY plots.
+    * Surface plots.
+    * Time-series plots.
+    * Box plots.
+    * Histograms.
+    * Log-Log, Log-X, and Log-Y plots.
+    * Bar plots.
+    * Contour plots. 
+    * Area plots. 
+    
+This section offers an introduction to a selection of visualization tools for preliminary data exploration. It is not meant to act as a comprehensive GAUSS graphics guide.    
+    
+Plotting histograms
++++++++++++++++++++++
 Histograms of data can be plotted using one of three functions:
 
-*  The :func:`plotHist` function which computes and graphs a frequency histogram.
-*  The :func:`plotHistP` function which computes and graphs a percent frequency histogram.
+*  The :func:`plotHist` function which computes and graphs a frequency histogram for a given vector of data.
+*  The :func:`plotHistP` function which computes and graphs a percent frequency histogram for a given vector of data..
 *  The :func:`plotHistF` function which graphs a histogram given vector of frequency counts.
 
 .. note:: These functions do not currently utilize the categorical labels and :func:`plotFreq` is recommended for categorical variables with labels.
 
-Example: Frequency and percentage histograms
-++++++++++++++++++++++++++++++++++++++++++++++
+**Frequency histograms**  
+    
+The :func:`plotHist` function requires two inputs, a vector of data and the number of bins.
+    
+::
+  
+  /*
+  ** Import data
+  */
+  // Create file name with full path
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
 
+  // Load file
+  nba_ht_wt = loadd(fname);
+    
+  // Plot histogram of heights with 15 bins
+  plotHist(nba_ht_wt[., "Height"], 20);
+
+**Percent frequency histograms**  
+    
+The :func:`plotHistP` function also requires two inputs, a vector of data and the number of bins.
+  
 ::
 
-  // Create data
-  r = rndGamma( 1e4, 1, 3, 2 );
+  /*
+  ** Import data
+  */
+  // Create file name with full path
+  fname = getGAUSSHome("examples/nba_ht_wt.xls");
 
-  // Declare plotControl structure
-  struct plotControl myPlot;
+  // Load file
+  nba_ht_wt = loadd(fname);
+    
+  // Plot histogram of heights with 15 bins
+  plotHistP(nba_ht_wt[., "Height"], 20);
 
-  // Set plotControl structure to
-  // default values
-  myPlot = plotGetDefaults( "bar" );
-
-  // Set Title
-  fontname = "Helvetica Neue";
-  plotSetTitle( &myPlot, "Example Percentage Histogram", fontname, 18 );
-
-  // Set Y label
-  plotSetYLabel( &myPlot, "Percentage",  fontname, 14);
-
-  // Use first pane
-  // in layout
-
-  plotLayout(1, 2, 1);
-  // plot a percentage histogram
-  // with the data from 'r' spread
-  // into 50 bins.
-  plotHistP( myPlot, r, 50 );
-
-  // Set solid fill and completely opaque (i.e. zero transparency)
-  plotSetFill( &myPlot, 1, 1);
-
-  // Set Title
-  plotSetTitle( &myPlot, "Example Frequency Histogram" );
-
-  // Set Y label
-  plotSetYLabel( &myPlot, "Frequency" );
-
-  // Use second pane
-  // in layout
-  plotLayout(1, 2, 2);
-
-  // Plot a standard histogram
-  // with the data from 'r' spread
-  // into 80 bins.
-  plotHist( myPlot, r, 80 );
-
-**Plotting scatter plots**
-
+Plotting scatter plots
++++++++++++++++++++++++
 The :func:`plotScatter` function creates a quick scatter plot using either:
 
 * A *x* and *y* input.
@@ -701,8 +704,8 @@ The :func:`plotScatter` function creates a quick scatter plot using either:
 
 Using a dataframe with a formula string, will result in automatic labeling of the *x* and *y* axis. To add additional custom formatting, use the :class:`plotControl` structure.
 
-Example: Plotting the relationship between height and weight in NBA players
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+**Example: Scatter plots with formula strings**  
+
 
 ::
 
@@ -712,3 +715,50 @@ Example: Plotting the relationship between height and weight in NBA players
 
    // Plot height and weight
    plotScatter(nba_ht_wt, "Weight~Height");
+
+The scatter points can be color coded by categories using the ``"by"`` keyword in the formula string.
+
+::
+
+   // Create file name with full path
+   fname = getGAUSSHome("examples/nba_ht_wt.xls");
+   nba_ht_wt = loadd(fname);
+
+   // Plot height and weight
+   // color coded by 'position'
+   plotScatter(nba_ht_wt, "Weight~Height + by(Pos)");
+    
+Box plots
++++++++++
+The :func:`plotBox` procedure graphs data using the box graph percentile method. The procedure allows for three different sets of inputs:
+
+* A dataframe and a formula string. 
+* A list group numbers or string labels corresponding to each column data and a data matrix.
+* A categorical dataframe vector and a data matrix.
+
+**Example: Using a dataframe and formula string to generate a box plot**
+
+::
+
+    // Import data
+   fname = getGAUSSHome("examples/auto2.dta");
+   auto2 = loadd(fname);
+
+   // Draw a box with 'mpg' data for each of
+   // the two categories in 'foreign'
+   plotBox(auto2, "mpg ~ foreign");
+
+.. figure:: _static/images/plotbox-fs-cr.jpg
+      :scale: 50 %
+
+Like the scatter plot, box plots can be split by categories using the ``"by"`` keyword in the formula string.
+
+::
+
+    // Import data
+    fname = getGAUSSHome("examples/tips2.dta");
+    tips = loadd(fname);
+
+    // Draw a box with 'tip' data for each day,
+    // split by whether 'smoker' equals yes or no.
+    plotBox(tips, "tip ~ day + by(smoker)");
