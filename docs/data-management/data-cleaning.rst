@@ -832,6 +832,8 @@ After this code, the first four rows of *nba* will be:
 
 The elements of the *pos* now contain only the numeric values that correspond to the string category labels. The string labels, ``"C"``, ``"F"`` and ``"G"`` have been removed.
 
+.. note:: You can convert a matrix or string array to a dataframe with :func:`asdf`.
+
 Determining current variable names
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
