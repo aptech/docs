@@ -671,6 +671,9 @@ The :func:`plotHist` function requires two inputs, a vector of data and the numb
   // Plot histogram of heights with 15 bins
   plotHist(nba_ht_wt[., "Height"], 20);
 
+.. figure:: ../_static/images/nba-hist1.jpg
+      :scale: 50 %
+    
 **Percent frequency histograms**  
     
 The :func:`plotHistP` function also requires two inputs, a vector of data and the number of bins.
@@ -684,6 +687,9 @@ The :func:`plotHistP` function also requires two inputs, a vector of data and th
   // Plot histogram of heights with 15 bins
   plotHistP(nba_ht_wt[., "Height"], 20);
 
+.. figure:: ../_static/images/nba-hist2.jpg
+      :scale: 50 %
+      
 Scatter plots
 ++++++++++++++
 The :func:`plotScatter` function creates a quick scatter plot using either:
@@ -759,4 +765,54 @@ Like the scatter plot, box plots can be split by categories using the ``"by"`` k
     plotBox(tips, "tip ~ day + by(smoker)");
 
 .. figure:: ../_static/images/boxplot-by.jpg
+      :scale: 50 %
+
+Kernel Density Plots
++++++++++++++++++++++
+The :func:`kernelDensity` procedure computes and plots kernel densities, with support for 13 different kernels:
+
+* Normal (default). 
+* Epanechnikov.
+* Biweight.
+* Triangular.
+* Rectangular.
+* Truncated normal.
+* Parzen.
+* Cosine.
+* Triweight.
+* Tricube.
+* Logistic.
+* Sigmoid.
+* Silverman.
+
+::
+
+    // Load 'nba_ht_wt' data
+    fname = getGAUSSHome("examples/nba_ht_wt.xls");
+    nba_ht_wt = loadd(fname);
+    
+    // Plot kernel density using normal kernel
+    call kerneldensity(nba_ht_wt, "Height"]);
+
+.. figure:: ../_static/images/nba-kd1.jpg
+      :scale: 50 %
+      
+Multiple kernels can be compared in a single plot using the optional *kernel* input.
+
+:: 
+
+    // Load 'nba_ht_wt' data
+    fname = getGAUSSHome("examples/nba_ht_wt.xls");
+    nba_ht_wt = loadd(fname);
+    
+    // Specify kernels to compute
+    // 1           Normal
+    // 2           Epanechnikov
+    // 3           Biweight
+    kernels = { 1, 2, 3};
+    
+    // Plot kernel density using normal kernel
+    call kerneldensity(nba_ht_wt, "Height", kernels);
+
+.. figure:: ../_static/images/nba-kd2.jpg
       :scale: 50 %
