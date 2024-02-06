@@ -723,7 +723,7 @@ Using a dataframe with a formula string, will result in automatic labeling of th
    // Plot height and weight
    plotScatter(nba_ht_wt, "Weight ~ Height");
 
-.. figure:: ../_static/images/nba-scatter.jpg
+.. figure:: ../_static/images/nba-scatter1.jpg
       :scale: 50 %
       
 The scatter points can be color coded by categories using the ``"by"`` keyword in the formula string.
@@ -739,7 +739,7 @@ The scatter points can be color coded by categories using the ``"by"`` keyword i
    // color coded by 'position'
    plotScatter(nba_ht_wt, "Weight ~ Height + by(Pos)");
 
-.. figure:: ../_static/images/nba-scatter-by.jpg
+.. figure:: ../_static/images/nba-scatter2.jpg
       :scale: 50 %
       
 Box plots
@@ -754,7 +754,7 @@ The :func:`plotBox` procedure graphs data using the box graph percentile method.
 
 ::
 
-    // Load 'auto2' data
+   // Load 'auto2' data
    fname = getGAUSSHome("examples/auto2.dta");
    auto2 = loadd(fname);
 
@@ -762,7 +762,7 @@ The :func:`plotBox` procedure graphs data using the box graph percentile method.
    // the two categories in 'foreign'
    plotBox(auto2, "mpg ~ foreign");
 
-.. figure:: ../_static/images/plotbox-fs-cr.jpg
+.. figure:: ../_static/images/box-plot1.jpg
       :scale: 50 %
 
 Like the scatter plot, box plots can be split by categories using the ``"by"`` keyword in the formula string.
@@ -777,7 +777,7 @@ Like the scatter plot, box plots can be split by categories using the ``"by"`` k
     // split by whether 'smoker' equals yes or no.
     plotBox(tips, "tip ~ day + by(smoker)");
 
-.. figure:: ../_static/images/boxplot-by.jpg
+.. figure:: ../_static/images/box-plot2.jpg
       :scale: 50 %
 
 Kernel Density Plots
@@ -805,7 +805,7 @@ The :func:`kernelDensity` procedure computes and plots kernel densities, with su
     nba_ht_wt = loadd(fname);
     
     // Plot kernel density using normal kernel
-    call kerneldensity(nba_ht_wt, "Height"]);
+    call kerneldensity(nba_ht_wt, "Height");
 
 .. figure:: ../_static/images/nba-kd1.jpg
       :scale: 50 %
