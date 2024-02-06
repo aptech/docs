@@ -769,7 +769,7 @@ will return:
 Setting a variable type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:func:`dfType` sets the variable type of one or more columns of a matrix or dataframe.
+:func:`asdate` sets the variable type of one or more columns of a matrix or dataframe to be a date. It can also optionally set the date display format.
 
 ::
 
@@ -794,7 +794,7 @@ After the above code, *d* will be a date and if we print it we will see:
     1970-01-03
     1970-01-04
 
-It also accepts an optional input specifying the indices or variable names to be checked.
+:func:`dftype` is the more general function. It can set columns to any of the four types, numeric, string, category or date. It also accepts an optional input specifying the indices or variable names to be checked.
 
 ::
 
