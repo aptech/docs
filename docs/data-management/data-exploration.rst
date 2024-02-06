@@ -716,6 +716,9 @@ Using a dataframe with a formula string, will result in automatic labeling of th
    // Plot height and weight
    plotScatter(nba_ht_wt, "Weight~Height");
 
+.. figure:: _static/images/nba-scatter.jpg
+      :scale: 50 %
+      
 The scatter points can be color coded by categories using the ``"by"`` keyword in the formula string.
 
 ::
@@ -727,7 +730,10 @@ The scatter points can be color coded by categories using the ``"by"`` keyword i
    // Plot height and weight
    // color coded by 'position'
    plotScatter(nba_ht_wt, "Weight~Height + by(Pos)");
-    
+
+.. figure:: _static/images/nba-scatter-by.jpg
+      :scale: 50 %
+      
 Box plots
 +++++++++
 The :func:`plotBox` procedure graphs data using the box graph percentile method. The procedure allows for three different sets of inputs:
@@ -762,3 +768,6 @@ Like the scatter plot, box plots can be split by categories using the ``"by"`` k
     // Draw a box with 'tip' data for each day,
     // split by whether 'smoker' equals yes or no.
     plotBox(tips, "tip ~ day + by(smoker)");
+
+.. figure:: _static/images/boxplot-by.jpg
+      :scale: 50 %
