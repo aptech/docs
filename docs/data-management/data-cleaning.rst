@@ -332,7 +332,7 @@ After the above code, *auto* will equal:
         26       4453          .
         20       5189    Average
 
-:func:`indexcat` can tell us the row indices of a column that contain missing values.
+:func:`indexcat` can tell us the row indices of a column that contains missing values.
 
 ::
 
@@ -794,7 +794,7 @@ After the above code, *d* will be a date and if we print it we will see:
     1970-01-03
     1970-01-04
 
-:func:`dftype` is the more general function. It can set columns to any of the four types, numeric, string, category or date. It also accepts an optional input specifying the indices or variable names to be checked.
+:func:`dftype` is the more general function. It can set columns to any of the four types: numeric, string, category or date. It also accepts an optional input specifying the indices or variable names to be checked.
 
 ::
 
