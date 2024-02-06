@@ -258,7 +258,7 @@ A second optional input allows you to specify which columns to use.
 
     // Compute descriptive statistics and print report
     // of specific variables from a dataframe
-    call dstatmt(dataset, "price + mpg + rep78");
+    call dstatmt(auto, "price + mpg + rep78");
 
 ::
 
