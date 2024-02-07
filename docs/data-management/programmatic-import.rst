@@ -286,8 +286,8 @@ GAUSS will automatically detect many standard date formats:
 +-----------------+----------------------------------------+
 
 
-How to load non-standard date formats?
------------------------------------------------------------------------------
+Loading non-standard date formats
++++++++++++++++++++++++++++++++++++
 
 If a date variable is not in a recognizable format, the ``date`` keyword should be used in a formula string to indicate that :func:`loadd` should load a variable as a date. In this case, GAUSS allows you to specify any arbitrary date format using BSD strftime specifiers to denote the date elements.
 
@@ -322,11 +322,11 @@ Now pass the format string as the second input to the ``date`` keyword. Assuming
 ::
 
     // Load 'date' with custom date format, using a strftime specifier
-    data = loadd("date_test.csv", "date(date, '%B, %Y') + price);
+    data = loadd("date_test.csv", "date(date, '%B, %Y') + price");
 
 Note that the format specifier is enclosed in single ticks.
 
-How to load a variable as a string?
+Loading a variables as a strings
 -----------------------------------------------------------------------------
 
 In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the ``str`` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
@@ -383,7 +383,7 @@ The *player* variable will automatically load as a string variable, the *age* va
 
 .. note:: This loads a variable as a string type in a dataframe. If you want to load a variable into a GAUSS string array, use :func:`loaddsa`.
 
-How to load an interaction term using a formula string?
+Loading an interaction term using a formula string
 -----------------------------------------------------------------------------
 
 Use the ``:`` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
@@ -409,6 +409,175 @@ Use the ``*`` operator in a formula string to load a each variable on the left a
     // 'new' and 'baths'. Also load the variables 'new' and 'baths'.
     housing = loadd(dataset, "new*baths");
 
+
+Importing data from the internet
+-----------------------------------------------------------------------------
+Data can be directly imported from onlines sources to GAUSS:
+
+* Using :func:`loadd` to load directly from a URL.
+* Using the FRED database integration. 
+* Using DBNOMICS database integration.
+
+Loading data from a URL
+++++++++++++++++++++++++
+The :func:`loadd` procedure support data loading from a URL. 
+
+::
+    
+    // Specify the URL
+    url = "https://github.com/aptech/tspdlib/raw/master/examples/pd_gdef.gdat";
+    
+    // Load data
+    pd_gdef = loadd(url);
+    
+    // Preview data
+    head(pd_gdef[., "Year" "AUT" "DEU"]);
+
+::
+
+            Year              AUT              DEU 
+      1995-01-01       -1.0248736       -2.5337111 
+      1996-01-01      -0.64834945       -1.0192022 
+      1997-01-01     -0.079297470       -2.1558221 
+      1998-01-01       0.23284856       -2.5249485 
+      1999-01-01     -0.043695305       -2.9874769 
+
+
+Loading data from FRED
+++++++++++++++++++++++++++
+**Getting started**
+
+Importing data from FRED with the GAUSS FRED integration requires a FRED API key, which can be directly requested from the FRED API Request page. 
+Once an API key is obtained it can be set in GAUSS by:
+1. Setting the API key directly at the top of your program.
+::
+    
+    FRED_API_KEY = "your_api_key"
+2. Setting the environment variable FRED_API_KEY to your API key.
+3. Editing the gauss.cfg file and modifying the ``fred_api_key``.
+::
+
+    fred_api_key = your_api_key
+
+**Searching for FRED series**
+FRED series can be located using the :func:`fred_search` procedure.  The :func:`fred_search` procedure takes a string search input and returns potential FRED series ID.
+   
+::
+    
+    /*
+    ** This example requires that you first set
+    ** the FRED API key in GAUSS
+    */
+    
+    // Search FRED for dataset related to 
+    // 'produce price index'
+    fred_search("producer price index");
+
+::
+    
+    frequency  frequency_short group_popularity              id       last_updated  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title           units      units_short
+      Monthly                 M        80.000000           PPIACO 2022-11-15 07:52       2022-10-01       1913-01-01        80.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I   Index 1982=100   Index 1982=100
+      Monthly                 M        79.000000          WPU0911 2022-11-15 07:52       2022-10-01       1926-01-01        79.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I   Index 1982=100   Index 1982=100
+      Monthly                 M        79.000000            PCEPI 2022-10-28 08:40       2022-09-01       1959-01-01        78.000000       2022-11-23       2022-11-23 Seasonally Adjus               SA Personal Consump   Index 2012=100   Index 2012=100
+      Monthly                 M        78.000000  PCU325211325211 2022-11-15 07:55       2022-10-01       1976-06-01        78.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I Index Dec 1980=1 Index Dec 1980=1 
+
+**Importing data series from FRED**
+
+FRED data series are imported using the :func:`fred_load` procedure and the FRED series ID. 
+
+::
+    
+    // Download all observations of 'PPIACO' 
+    // into a GAUSS dataframe
+    PPI = fred_load("PPIACO");
+    
+    // Preview first five rows of 'PPI'
+    head(PPI);
+    
+::
+
+            date           PPIACO
+      1913-01-01        12.100000
+      1913-02-01        12.000000
+      1913-03-01        12.000000
+      1913-04-01        12.000000
+      1913-05-01        11.900000 
+    
+**Advanced FRED importing tools**
+
+GAUSS FRED functions use a parameter list for passing advanced settings. This list is constructed using the :func:`fred_set` function.
+
+The :func:`fred_set` function creates a running list of parameters you want to pass to the FRED functions. It is specified by first listing a parameter name, then the associated parameter value.
+
+::
+
+    // Create a FRED parameter list with
+    // 'frequency' set to 'q' (quarterly)
+    params_GDP = fred_set("frequency", "q");
+
+Additional parameters values can be added to an existing parameter list:
+
+::
+
+    // Set 'aggregation_method' to end-of-period
+    // in the previously created parameter list 'params_GDP'
+    params_GDP = fred_set("aggregation_method", "eop", params_GDP);
+
+The parameter list is then passed to the :func:`fred_load` function.
+
+**Example: Aggregating FRED data from monthly to quarterly
+The ``frequency`` parameter can be used to specify the frequency of data imported from FRED. The specified frequency can only be the same or lower than the frequency of the original series.
+
++--------------+------------+
+|Specifier     |Description |
++==============+============+
+|``"d"``       | Daily      |
++--------------+------------+
+|``"w"``       | Weekly     |
++--------------+------------+
+|``"bw"``      | Biweekly   |
++--------------+------------+
+|``"m"``       | Quarterly  |
++--------------+------------+
+|``"sa"``      | Semiannual |
++--------------+------------+
+|``"a"``       | Annual     |
++--------------+------------+
+
+The default aggregation method is to use averaging. However, the aggregation_method parameter can be used to specify an aggregation method. Aggregation options include:
+
++--------------+----------------+
+|Specifier     |Description     |
++==============+================+
+|``"avg"``     | Average        |
++--------------+----------------+
+|``"sum"``     | Sum            |
++--------------+----------------+
+|``"eop"``     | End of period  |
++--------------+----------------+
+
+::
+
+    // Set parameter list
+    // Include previously specified
+    // parameter list to append new specifications
+    params_cpi = fred_set("frequency", "q", "aggregation_method", "eop");
+ 
+    // Load quarterly CPI
+    cpi_q_eop  = fred_load("CPIAUCSL", params_cpi);
+ 
+    // Preview data
+    head(cpi_q_eop);
+
+::
+    
+            date         CPIAUCSL 
+      1947-01-01        22.000000 
+      1947-04-01        22.080000 
+      1947-07-01        22.840000 
+      1947-10-01        23.410000 
+      1948-01-01        23.500000 
+      
 
 Advanced data loading options
 -----------------------------------------------------------------------------
@@ -685,13 +854,16 @@ Use the :func:`xlsGetCellTypes` procedure to check the cell format types of a sp
 
 Full details and more examples can be found in the Command Reference page for :func:`xlsGetCellTypes`.
 
+Combining dataframes
+-------------------
+
 Merging dataframes
---------------------------
++++++++++++++++++++
 In GAUSS merging:
 
 * Is done using the :func:`outerJoin` or :func:`innerJoin` procedures.
 * Is done completely with data in memory.
-* The :func:`innerJoin` function only keeps matching observations.
+* The :func:`innerJoin` function only keeps matching observations from both the left and right table.
 * The :func:`outerJoin` function keeps observations either from both data sources or the left-hand data source.
 * Allows for one-to-one, one-to-many, many-to-one, and many-to-many joining operations.
 
@@ -771,3 +943,53 @@ Now *df3* includes:
   Mary          Surgeon        18.000000
  Susan        Developer        34.000000
  Tyler            Nurse                .
+
+Appending dataframes
++++++++++++++++++++++
+When appending dataframes that contain categorical variables, the :func:`dfappend` procedure should be used to ensure that the category labels and keys are matched in the resulting dataframe.
+
+Consider the example below, which loads data from a Stata dataset and a CSV file.
+
+::
+
+    // Create file name with full path and load data
+    fname = getGAUSSHome("examples/tips2.dta");
+    tips_dta = loadd(fname, "tip + day");
+
+    // Create file name with full path and load data
+    fname = getGAUSSHome("examples/tips2.csv");
+    tips_csv = loadd(fname, "tip + cat(day)");
+
+    // Take a small sample of rows
+    tips_dta = tips_dta[1:3,.];
+    tips_csv = tips_csv[220:223,.];
+
+::
+
+    tips_dta =        tip     day
+                1.0100000     Sun
+                1.6600000     Sun
+                3.5000000     Sun
+
+    tips_csv =       tip      day
+               1.4400000      Sat
+               3.0900000      Sat
+               2.2000000      Fri
+               3.4800000      Fri
+
+These two dataframes contain the same variables, *tip* and *day*. Note that the *tips_csv* dataframe *day* variable has two categories, ``Sat`` and ``Fri``. The *tips_dta* dataframe *day* variable has one category, ``Sun``. The :func:`dfappend` procedure should be used to vertically concatenate these dataframes and ensure that all categories are appropriately dealt with.
+
+::
+
+    // Create a new dataframe with both
+    tips_full = dfappend(tips_dta, tips_csv);
+
+::
+    tips_stacked =        tip     day
+                    1.0100000     Sun
+                    1.6600000     Sun
+                    3.5000000     Sun
+                    1.4400000     Sat
+                    3.0900000     Sat
+                    2.2000000     Fri
+                    3.4800000     Fri
