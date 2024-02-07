@@ -681,13 +681,16 @@ Use the :func:`xlsGetSheetTypes` procedure to check the cell format types of a s
 
 Full details and more examples can be found in the Command Reference page for :func:`xlsGetSheetTypes`.
 
+Combining dataframes
+-------------------
+
 Merging dataframes
---------------------------
++++++++++++++++++++
 In GAUSS merging:
 
 * Is done using the :func:`outerJoin` or :func:`innerJoin` procedures.
 * Is done completely with data in memory.
-* The :func:`innerJoin` function only keeps matching observations.
+* The :func:`innerJoin` function only keeps matching observations from both the left and right table.
 * The :func:`outerJoin` function keeps observations either from both data sources or the left-hand data source.
 * Allows for one-to-one, one-to-many, many-to-one, and many-to-many joining operations.
 
@@ -767,3 +770,53 @@ Now *df3* includes:
   Mary          Surgeon        18.000000
  Susan        Developer        34.000000
  Tyler            Nurse                .
+
+Appending dataframes
++++++++++++++++++++++
+When appending dataframes that contain categorical variables, the :func:`dfappend` procedure should be used to ensure that the category labels and keys are matched in the resulting dataframe.
+
+Consider the example below, which loads data from a Stata dataset and a CSV file.
+
+::
+
+    // Create file name with full path and load data
+    fname = getGAUSSHome("examples/tips2.dta");
+    tips_dta = loadd(fname, "tip + day");
+
+    // Create file name with full path and load data
+    fname = getGAUSSHome("examples/tips2.csv");
+    tips_csv = loadd(fname, "tip + cat(day)");
+
+    // Take a small sample of rows
+    tips_dta = tips_dta[1:3,.];
+    tips_csv = tips_csv[220:223,.];
+
+::
+
+    tips_dta =        tip     day
+                1.0100000     Sun
+                1.6600000     Sun
+                3.5000000     Sun
+
+    tips_csv =       tip      day
+               1.4400000      Sat
+               3.0900000      Sat
+               2.2000000      Fri
+               3.4800000      Fri
+
+These two dataframes contain the same variables, *tip* and *day*. Note that the *tips_csv* dataframe *day* variable has two categories, ``Sat`` and ``Fri``. The *tips_dta* dataframe *day* variable has one category, ``Sun``. The :func:`dfappend` procedure should be used to vertically concatenate these dataframes and ensure that all categories are appropriately dealt with.
+
+::
+
+    // Create a new dataframe with both
+    tips_full = dfappend(tips_dta, tips_csv);
+
+::
+    tips_stacked =        tip     day
+                    1.0100000     Sun
+                    1.6600000     Sun
+                    3.5000000     Sun
+                    1.4400000     Sat
+                    3.0900000     Sat
+                    2.2000000     Fri
+                    3.4800000     Fri
