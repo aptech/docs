@@ -981,6 +981,7 @@ These two dataframes contain the same variables, *tip* and *day*. Note that the 
     tips_full = dfappend(tips_dta, tips_csv);
 
 ::
+
     tips_stacked =        tip     day
                     1.0100000     Sun
                     1.6600000     Sun
