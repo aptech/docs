@@ -577,7 +577,83 @@ The default aggregation method is to use averaging. However, the *aggregation_me
       1947-10-01        23.410000 
       1948-01-01        23.500000 
       
+Loading data from DBNOMICS
++++++++++++++++++++++++++++
 
+**Searching for DBNOMICS series**   
+    
+The :func:`dbnomics_search` procedure takes a string search input and returns series details including:
+
+* Series code. 
+* Series description. 
+* Direct hash. 
+* The time indexed at. 
+* Series name.
+* Number of matching series. 
+* Series number. 
+* Provider code. 
+* Provider name.
+    
+::
+    
+    // Search DBNOMICS for series
+    // related to GDP and France
+    dbnomics_search("GDP France");
+
+::
+    
+                code         dir_hash       indexed_at             name nb_matching_seri        nb_series    provider_code    provider_name       updated_at
+         gov_10a_exp fab720436a1f72a3 2022-04-22T11:17 General governme        12800.000           129902         Eurostat         Eurostat 2022-04-22T00:00
+    CHELEM-TRADE-IND 7cfd7c7a78b84ede 2022-09-02T09:35 CHELEM - Interna        4937.0000           797304            CEPII Centre d'�tudes                .
+        nasa_10_f_cp aa9a1cb003e7d567 2022-10-15T10:03 Financial accoun        4330.0000           163206         Eurostat         Eurostat 2022-10-15T00:00
+        nasa_10_f_bs 5fe95bd760e282a4 2022-10-27T11:06 Financial balanc        3670.0000           344205         Eurostat         Eurostat 2022-10-27T00:00
+        nasa_10_f_tr b69e7b63f3d59d44 2022-10-27T11:06 Financial transa        3655.0000           329303         Eurostat         Eurostat 2022-10-27T00:00
+
+**Loading series from DBNOMICS**
+    
+The :func:`dbnomics_series` procedure loads data series from the DBNOMICS database using a list of series IDs. Each series ID is should be formatted as ``provider_code/dataset_code/series_code``. Series can belong to any provider and dataset.
+
+For example, consider the CPI series from the IMF.
+    
+::
+
+    Provider: International Monetary Fund (IMF)
+    Dataset: Consumer Price Index (CPI) (CPI)
+    Series: Annual – Austria – Transport (A.AT.PCPIT_IX)    
+
+The series ID is ``"IMF/CPI/A.AT.PCPIT_IX"`. It can be used with the :func:`dbnomics_series` procedure to load the series into a GAUSS dataframe:
+
+::
+    
+    // Load IMF CPI data series
+    cpi_imf = dbnomics_series("IMF/CPI/A.AT.PCPIT_IX");
+    
+    // Preview data
+    head(cpi_imf);
+    tail(cpi_imf);
+
+::
+    
+    Provider: International Monetary Fund (IMF)
+    Dataset: Consumer Price Index (CPI) (CPI)
+    Series: Annual – Austria – Transport (A.AT.PCPIT_IX)
+    Data last indexed on 2024-02-08T02:52:10.970Z
+
+    period_start_day    A.AT.PCPIT_IX 
+          1958-01-01                . 
+          1959-01-01                . 
+          1960-01-01                . 
+          1961-01-01                . 
+          1962-01-01                . 
+
+    period_start_day    A.AT.PCPIT_IX 
+          2019-01-01        101.72145 
+          2020-01-01        99.991667 
+          2021-01-01        106.62500 
+          2022-01-01        123.93333 
+          2023-01-01        126.04167 
+
+    
 Advanced data loading options
 -----------------------------------------------------------------------------
 
