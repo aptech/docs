@@ -326,7 +326,7 @@ Now pass the format string as the second input to the ``date`` keyword. Assuming
 
 Note that the format specifier is enclosed in single ticks.
 
-Loading a variables as a strings
+Loading variables as a string
 -----------------------------------------------------------------------------
 
 In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the ``str`` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
@@ -449,17 +449,21 @@ Loading data from FRED
 
 Importing data from FRED with the GAUSS FRED integration requires a FRED API key, which can be directly requested from the FRED API Request page. 
 Once an API key is obtained it can be set in GAUSS by:
+
 1. Setting the API key directly at the top of your program.
 ::
     
     FRED_API_KEY = "your_api_key"
+    
 2. Setting the environment variable FRED_API_KEY to your API key.
+
 3. Editing the gauss.cfg file and modifying the ``fred_api_key``.
 ::
 
     fred_api_key = your_api_key
 
-**Searching for FRED series**
+**Searching for FRED series**  
+    
 FRED series can be located using the :func:`fred_search` procedure.  The :func:`fred_search` procedure takes a string search input and returns potential FRED series ID.
    
 ::
@@ -519,13 +523,14 @@ Additional parameters values can be added to an existing parameter list:
 
 ::
 
-    // Set 'aggregation_method' to end-of-period
-    // in the previously created parameter list 'params_GDP'
+    // Set 'aggregation_method' to end-of-period using 
+    // the previously created parameter list 'params_GDP'
     params_GDP = fred_set("aggregation_method", "eop", params_GDP);
 
 The parameter list is then passed to the :func:`fred_load` function.
 
-**Example: Aggregating FRED data from monthly to quarterly
+**Example: Aggregating FRED data from monthly to quarterly**
+
 The ``frequency`` parameter can be used to specify the frequency of data imported from FRED. The specified frequency can only be the same or lower than the frequency of the original series.
 
 +--------------+------------+
@@ -544,7 +549,7 @@ The ``frequency`` parameter can be used to specify the frequency of data importe
 |``"a"``       | Annual     |
 +--------------+------------+
 
-The default aggregation method is to use averaging. However, the aggregation_method parameter can be used to specify an aggregation method. Aggregation options include:
+The default aggregation method is to use averaging. However, the *aggregation_method* parameter can be used to specify an aggregation method. Aggregation options include:
 
 +--------------+----------------+
 |Specifier     |Description     |
@@ -559,8 +564,6 @@ The default aggregation method is to use averaging. However, the aggregation_met
 ::
 
     // Set parameter list
-    // Include previously specified
-    // parameter list to append new specifications
     params_cpi = fred_set("frequency", "q", "aggregation_method", "eop");
  
     // Load quarterly CPI
@@ -578,7 +581,83 @@ The default aggregation method is to use averaging. However, the aggregation_met
       1947-10-01        23.410000 
       1948-01-01        23.500000 
       
+Loading data from DBNOMICS
++++++++++++++++++++++++++++
 
+**Searching for DBNOMICS series**   
+    
+The :func:`dbnomics_search` procedure takes a string search input and returns series details including:
+
+* Series code. 
+* Series description. 
+* Direct hash. 
+* The time indexed at. 
+* Series name.
+* Number of matching series. 
+* Series number. 
+* Provider code. 
+* Provider name.
+    
+::
+    
+    // Search DBNOMICS for series
+    // related to GDP and France
+    dbnomics_search("GDP France");
+
+::
+    
+                code         dir_hash       indexed_at             name nb_matching_seri        nb_series    provider_code    provider_name       updated_at
+         gov_10a_exp fab720436a1f72a3 2022-04-22T11:17 General governme        12800.000           129902         Eurostat         Eurostat 2022-04-22T00:00
+    CHELEM-TRADE-IND 7cfd7c7a78b84ede 2022-09-02T09:35 CHELEM - Interna        4937.0000           797304            CEPII Centre d'�tudes                .
+        nasa_10_f_cp aa9a1cb003e7d567 2022-10-15T10:03 Financial accoun        4330.0000           163206         Eurostat         Eurostat 2022-10-15T00:00
+        nasa_10_f_bs 5fe95bd760e282a4 2022-10-27T11:06 Financial balanc        3670.0000           344205         Eurostat         Eurostat 2022-10-27T00:00
+        nasa_10_f_tr b69e7b63f3d59d44 2022-10-27T11:06 Financial transa        3655.0000           329303         Eurostat         Eurostat 2022-10-27T00:00
+
+**Loading series from DBNOMICS**
+    
+The :func:`dbnomics_series` procedure loads data series from the DBNOMICS database using a list of series IDs. Each series ID is should be formatted as ``provider_code/dataset_code/series_code``. Series can belong to any provider and dataset.
+
+For example, consider the CPI series from the IMF.
+    
+::
+
+    Provider: International Monetary Fund (IMF)
+    Dataset: Consumer Price Index (CPI) (CPI)
+    Series: Annual – Austria – Transport (A.AT.PCPIT_IX)    
+
+The series ID is ``"IMF/CPI/A.AT.PCPIT_IX"`. It can be used with the :func:`dbnomics_series` procedure to load the series into a GAUSS dataframe:
+
+::
+    
+    // Load IMF CPI data series
+    cpi_imf = dbnomics_series("IMF/CPI/A.AT.PCPIT_IX");
+    
+    // Preview data
+    head(cpi_imf);
+    tail(cpi_imf);
+
+::
+    
+    Provider: International Monetary Fund (IMF)
+    Dataset: Consumer Price Index (CPI) (CPI)
+    Series: Annual – Austria – Transport (A.AT.PCPIT_IX)
+    Data last indexed on 2024-02-08T02:52:10.970Z
+
+    period_start_day    A.AT.PCPIT_IX 
+          1958-01-01                . 
+          1959-01-01                . 
+          1960-01-01                . 
+          1961-01-01                . 
+          1962-01-01                . 
+
+    period_start_day    A.AT.PCPIT_IX 
+          2019-01-01        101.72145 
+          2020-01-01        99.991667 
+          2021-01-01        106.62500 
+          2022-01-01        123.93333 
+          2023-01-01        126.04167 
+
+    
 Advanced data loading options
 -----------------------------------------------------------------------------
 
@@ -948,7 +1027,7 @@ Appending dataframes
 +++++++++++++++++++++
 When appending dataframes that contain categorical variables, the :func:`dfappend` procedure should be used to ensure that the category labels and keys are matched in the resulting dataframe.
 
-Consider the example below, which loads data from a Stata dataset and a CSV file.
+Consider the example below, which loads data from a STATA dataset and a CSV file.
 
 ::
 
@@ -958,7 +1037,7 @@ Consider the example below, which loads data from a Stata dataset and a CSV file
 
     // Create file name with full path and load data
     fname = getGAUSSHome("examples/tips2.csv");
-    tips_csv = loadd(fname, "tip + cat(day)");
+    tips_csv = loadd(fname, "tip + day");
 
     // Take a small sample of rows
     tips_dta = tips_dta[1:3,.];
@@ -977,7 +1056,12 @@ Consider the example below, which loads data from a Stata dataset and a CSV file
                2.2000000      Fri
                3.4800000      Fri
 
-These two dataframes contain the same variables, *tip* and *day*. Note that the *tips_csv* dataframe *day* variable has two categories, ``Sat`` and ``Fri``. The *tips_dta* dataframe *day* variable has one category, ``Sun``. The :func:`dfappend` procedure should be used to vertically concatenate these dataframes and ensure that all categories are appropriately dealt with.
+These two dataframes contain the same variables, *tip* and *day*. Note that:
+
+* The *tips_csv* dataframe *day* variable has two categories, ``Sat`` and ``Fri``. 
+* The *tips_dta* dataframe *day* variable has one category, ``Sun``. 
+
+The :func:`dfappend` procedure should be used to vertically concatenate these dataframes and ensure that all categories are appropriately dealt with.
 
 ::
 
@@ -985,6 +1069,7 @@ These two dataframes contain the same variables, *tip* and *day*. Note that the 
     tips_full = dfappend(tips_dta, tips_csv);
 
 ::
+
     tips_stacked =        tip     day
                     1.0100000     Sun
                     1.6600000     Sun
