@@ -145,6 +145,15 @@ To create a new dataframe containing your changes, click the drop-down next to t
 Data types and formats
 +++++++++++++++++++++++++++++++++++++++++++++
 
+The GAUSS dataframe supports four different data types:
+
+* String.
+* Numeric.
+* Category.
+* Date.
+
+The **Data Management** pane supports type changing, as well as property management for each type. 
+
 Changing variable type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -687,10 +696,10 @@ Conditionally deleting rows of data
     7 8
 
 
-How do I conditionally select data from a matrix or dataframe?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Conditionally selecting data 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can conditionally select data from a matrix, dataframe, or string array  using the :func:`selif` procedure.
+You can conditionally select data from a matrix, dataframe, or string array using the :func:`selif` procedure.
 Enter the data as the first input to :func:`selif` and the condition to be used for selecting data as the second input.
 
 ::
@@ -710,7 +719,7 @@ Enter the data as the first input to :func:`selif` and the condition to be used 
     3 4
     5 6
 
-Data Types, Labels, and Names
+Variable types and names
 +++++++++++++++++++++++++++++++++
 
 Determining variable or column types
@@ -926,8 +935,11 @@ The above code will print:
 
 If the data does not currently have variable names, names will be created for all columns, with default names being assigned to any columns for which user-specified names were not provided.
 
-Determining current categorical variable labels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cleaning string and category variables
++++++++++++++++++++++++++++++++++++++++++++
+    
+Determining current category labels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :func:`getColLabels` returns the string category labels and corresponding integer values for a categorical or string column of a dataframe.
 
@@ -954,15 +966,31 @@ After running the code above:
               Good           4
           Excellent          5
 
+Alternatively, it :func:`getCategories` procedure will return the just the category labels as a GAUSS datframe:
 
-Setting categorical variable labels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+::
+
+    // Get category labels as GAUSS dataframe
+    labels_df = getCategories(auto, "rep78");
+    
+    // Print labels
+    labels_df;
+    
+::
+
+      categories 
+            Poor 
+            Fair 
+         Average 
+            Good 
+       Excellent 
+    
+    
+Setting category labels
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`setColLabels` procedure allows you to add or modify the labels of categorical variables.
 It changes the current type of the column to a categorical variable.
-
-Convert a column from a matrix to a categorical variable
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -994,14 +1022,78 @@ The above code will return:
 
 .. note:: If a label is not provided for all key values, the unlabeled key values will be given blank labels.
 
+Changing category labels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :func:`recodecatlabels` procedure changes category labels. 
+
+
+::
+
+    // Load NBA data
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
+    nba = loadd(dataset);
+
+    // Get column labels
+    { labels, values } = getColLabels(nba, "Pos");
+
+Here are the initial category labels and order.
+
+::
+
+    labels = C   values = 0
+             F            1
+             G            2
+
+We can change the category labels like this:
+
+::
+
+    // Specify current labels
+    old_labels = "C" $| "F" $| "G";
+
+    // Specify new labels to set
+    new_labels = "Center" $| "Forward" $| "Guard";
+
+    // Recode the old labels to the new labels
+    nba = recodeCatLabels(nba, old_labels, new_labels, "Pos");
+
+    // Get column labels
+    { labels, values } = getColLabels(nba, "Pos");
+
+::
+
+    labels =  Center   values = 0
+             Forward            1
+               Guard            2
+
+As we can see above the label names have changed, but the underlying values and order are the same.
+
+The :func:`recodecatlabels` procedure can be used to change individual labels, rather than all labels. For example, to change just one label we could have used:
+    
+::
+  
+    
+    // Specify current labels
+    old_labels = "C";
+
+    // Specify new labels to set
+    new_labels = "Center";
+
+    // Recode the old labels to the new labels
+    nba = recodeCatLabels(nba, old_labels, new_labels, "Pos");
+
+    // Get column labels
+    { labels, values } = getColLabels(nba, "Pos");
+        
 Change the order of categories in a dataframe
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
     // Load dataset
-    dataset = getGAUSSHome("examples/yarn.xlsx";
-    yarn = loadd(dataset, "cat(amplitude) + cycles");
+    dataset = getGAUSSHome("examples/yarn.xlsx");
+    yarn = loadd(dataset);
 
     // Get labels and values for amplitude variable
     // in yarn dataframe
@@ -1036,8 +1128,6 @@ After the above code:
                high              2
 
 
-.. note:: Since there is only one categorical variable in the *yarn* dataframe, :func:`setColLabels` does not require a specified variable name.
-
 Changing categorical variable base case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1047,10 +1137,10 @@ The :func:`setbasecat` function provides a convenient way to set the base case f
 
     // Load the NBA dataset
     dataset = getGAUSSHome("examples/nba_ht_wt.xls");
-    nba = loadd(dataset, "cat(pos) + height + weight");
+    nba = loadd(dataset);
 
     // Get column names
-    { labels, values } = getColLabels(nba, "pos");
+    { labels, values } = getColLabels(nba, "Pos");
 
 After the above code:
 
@@ -1065,10 +1155,10 @@ You can change ``"G"`` to the base case like this:
 ::
 
     // Change the `G` category to the basecase
-    nba = setBaseCat(nba, "G", "pos");
+    nba = setBaseCat(nba, "G", "Pos");
 
     // Get new labels
-    { labels, values } = getColLabels(nba, "pos");
+    { labels, values } = getColLabels(nba, "Pos");
 
 As we can see below, the new base case, ``"G"``, has been moved to the top and all the other variables have been shifted down.
 
@@ -1078,93 +1168,3 @@ As we can see below, the new base case, ``"G"``, has been moved to the top and a
              C            1
              F            2
 
-
-Recoding categorical variable labels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The :func:`recodecatlabels` procedure changes the labels for a categorical variable.
-
-
-::
-
-    // Load NBA data
-    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
-    nba = loadd(dataset, "cat(pos) + height + weight");
-
-    // Get column labels
-    { labels, values } = getColLabels(nba, "pos");
-
-Here are the initial category labels and order.
-
-::
-
-    labels = C   values = 0
-             F            1
-             G            2
-
-We can change the category labels like this:
-
-::
-
-    // Specify current labels
-    old_labels = "C" $| "F" $| "G";
-
-    // Specify new labels to set
-    new_labels = "Center" $| "Forward" $| "Guard";
-
-    // Recode the old labels to the new labels
-    nba = recodeCatLabels(nba, old_labels, new_labels, "pos");
-
-    // Get column labels
-    { labels, values } = getColLabels(nba, "pos");
-
-::
-
-    labels =  Center   values = 0
-             Forward            1
-               Guard            2
-
-As we can see above the label names have changed, but the underlying values and order are the same.
-
-Reordering categorical variable labels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The :func:`reorderCatLabels` procedure can be used to reorder the labels for a categorical variable.
-
-Change the order of categories in a dataframe
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-    // Load the yarn dataset
-    dataset = getGAUSSHome("examples/yarn.xlsx");
-    yarn = loadd(dataset, "cat(amplitude) + cycles");
-
-    // Get column labels
-    { labels, values } = getColLabels(yarn, "amplitude");
-
-After the above code:
-
-::
-
-    labels = high   values = 0
-              low            1
-              med            2
-
-Since Excel files do not provide labels or order for string columns, GAUSS assigns the category value based on alphabetical order. We can reorder the categories like this:
-
-
-::
-
-    // Reorder the categorical labels for the `amplitude` variable
-    yarn = reorderCatLabels(yarn, "low" $| "med" $| "high", "amplitude");
-
-    { labels, values } = getColLabels(yarn, "amplitude");
-
-After the above code:
-
-::
-
-    labels =  low   values = 0
-              med            1
-             high            2
