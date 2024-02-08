@@ -324,7 +324,7 @@ Now pass the format string as the second input to the ``date`` keyword. Assuming
 
 Note that the format specifier is enclosed in single ticks.
 
-Loading a variables as a strings
+Loading variables as a string
 -----------------------------------------------------------------------------
 
 In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the ``str`` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
@@ -445,17 +445,21 @@ Loading data from FRED
 
 Importing data from FRED with the GAUSS FRED integration requires a FRED API key, which can be directly requested from the FRED API Request page. 
 Once an API key is obtained it can be set in GAUSS by:
+
 1. Setting the API key directly at the top of your program.
 ::
     
     FRED_API_KEY = "your_api_key"
+    
 2. Setting the environment variable FRED_API_KEY to your API key.
+
 3. Editing the gauss.cfg file and modifying the ``fred_api_key``.
 ::
 
     fred_api_key = your_api_key
 
-**Searching for FRED series**
+**Searching for FRED series**  
+    
 FRED series can be located using the :func:`fred_search` procedure.  The :func:`fred_search` procedure takes a string search input and returns potential FRED series ID.
    
 ::
@@ -515,13 +519,14 @@ Additional parameters values can be added to an existing parameter list:
 
 ::
 
-    // Set 'aggregation_method' to end-of-period
-    // in the previously created parameter list 'params_GDP'
+    // Set 'aggregation_method' to end-of-period using 
+    // the previously created parameter list 'params_GDP'
     params_GDP = fred_set("aggregation_method", "eop", params_GDP);
 
 The parameter list is then passed to the :func:`fred_load` function.
 
-**Example: Aggregating FRED data from monthly to quarterly
+**Example: Aggregating FRED data from monthly to quarterly**
+
 The ``frequency`` parameter can be used to specify the frequency of data imported from FRED. The specified frequency can only be the same or lower than the frequency of the original series.
 
 +--------------+------------+
@@ -540,7 +545,7 @@ The ``frequency`` parameter can be used to specify the frequency of data importe
 |``"a"``       | Annual     |
 +--------------+------------+
 
-The default aggregation method is to use averaging. However, the aggregation_method parameter can be used to specify an aggregation method. Aggregation options include:
+The default aggregation method is to use averaging. However, the *aggregation_method* parameter can be used to specify an aggregation method. Aggregation options include:
 
 +--------------+----------------+
 |Specifier     |Description     |
@@ -555,8 +560,6 @@ The default aggregation method is to use averaging. However, the aggregation_met
 ::
 
     // Set parameter list
-    // Include previously specified
-    // parameter list to append new specifications
     params_cpi = fred_set("frequency", "q", "aggregation_method", "eop");
  
     // Load quarterly CPI
@@ -944,7 +947,7 @@ Appending dataframes
 +++++++++++++++++++++
 When appending dataframes that contain categorical variables, the :func:`dfappend` procedure should be used to ensure that the category labels and keys are matched in the resulting dataframe.
 
-Consider the example below, which loads data from a Stata dataset and a CSV file.
+Consider the example below, which loads data from a STATA dataset and a CSV file.
 
 ::
 
@@ -973,7 +976,12 @@ Consider the example below, which loads data from a Stata dataset and a CSV file
                2.2000000      Fri
                3.4800000      Fri
 
-These two dataframes contain the same variables, *tip* and *day*. Note that the *tips_csv* dataframe *day* variable has two categories, ``Sat`` and ``Fri``. The *tips_dta* dataframe *day* variable has one category, ``Sun``. The :func:`dfappend` procedure should be used to vertically concatenate these dataframes and ensure that all categories are appropriately dealt with.
+These two dataframes contain the same variables, *tip* and *day*. Note that:
+
+* The *tips_csv* dataframe *day* variable has two categories, ``Sat`` and ``Fri``. 
+* The *tips_dta* dataframe *day* variable has one category, ``Sun``. 
+
+The :func:`dfappend` procedure should be used to vertically concatenate these dataframes and ensure that all categories are appropriately dealt with.
 
 ::
 
