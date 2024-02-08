@@ -957,7 +957,7 @@ Consider the example below, which loads data from a STATA dataset and a CSV file
 
     // Create file name with full path and load data
     fname = getGAUSSHome("examples/tips2.csv");
-    tips_csv = loadd(fname, "tip + cat(day)");
+    tips_csv = loadd(fname, "tip + day");
 
     // Take a small sample of rows
     tips_dta = tips_dta[1:3,.];
