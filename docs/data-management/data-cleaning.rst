@@ -1027,7 +1027,6 @@ Changing category labels
 
 The :func:`recodecatlabels` procedure changes category labels. 
 
-
 ::
 
     // Load NBA data
@@ -1086,8 +1085,52 @@ The :func:`recodecatlabels` procedure can be used to change individual labels, r
     // Get column labels
     { labels, values } = getColLabels(nba, "Pos");
         
+Dropping category labels
+^^^^^^^^^^^^^^^^^^^^^^^^
+The :func:`dropCategories` procedure drops all observations of a specified category label from a dataframe and updates the category mapping. Note that this functionality is different from deleting observations using other tools like :func:`delif`.
+    
+    For example, consider dropping observations using delif:
+    
+::
+         
+    // Load NBA data
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
+    nba = loadd(dataset);
+
+    // Delete observations with 'rep78'
+    // equal to "Poor"
+    nba_no_center = delif(nba, nba[., "Pos"] .== "C");
+    
+    // Get label
+    getCategories(nba_no_center, "Pos");
+
+::
+        
+      categories 
+               C 
+               F 
+               G 
+
+In this case, the ``C`` category label is still stored as one of the ``Pos`` labels. 
+
+To remove it when deleting labels :func:`dropCategories`` should be used.
+
+::
+
+    // Drop observations and remove label from metadata
+    nba_no_center_2 = dropCategories(nba, "C", "Pos");
+  
+    // Check 'rep78' categories
+    getCategories(nba_no_center_2, "Pos");
+
+::
+    
+      categories 
+               F 
+               G
+      
 Change the order of categories in a dataframe
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -1128,8 +1171,8 @@ After the above code:
                high              2
 
 
-Changing categorical variable base case
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changing category base case
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`setbasecat` function provides a convenient way to set the base case for a categorical variable.
 
