@@ -91,8 +91,8 @@ Formula strings also allow data transformations during loading.
 |                 |procedure as a string column.                                  |
 +-----------------+---------------------------------------------------------------+
 
-Load a subset of variables
--------------------------------------------------
+Load a subset of variables using a formula string
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -103,8 +103,8 @@ Load a subset of variables
     detroit = loadd(dataset, "unemployment + hourly_earn");
 
 
-Load all variables except one
--------------------------------------------------
+Load all variables except one using a formula string
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -115,8 +115,8 @@ Load all variables except one
     xle = loadd(dataset, ". -date");
 
 
-Load categorical variables
------------------------------------------------------------------------------
+Load categorical variables using a formula string
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Some datasets such as, GDAT, SAS, Stata (.dta), and SPSS store variable type information. GAUSS will automatically identify categorical variables from these files.
 
@@ -143,8 +143,8 @@ If a categorical variable is not automatically detected by GAUSS, use the ``cat`
     // Load amplitude as a categorical variable and cycles as numeric
     yarn = loadd(dataset, "cat(amplitude) + cycles");
 
-Load and transform variables in one step
------------------------------------------------------------------------------
+Load and transform variables using a formula string
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Data transformations can be implemented during loading by including the appropriate GAUSS procedure in the formula string.
 
@@ -191,8 +191,8 @@ If your procedure needs the variable loaded as a string, you can prepend the var
     endp;
 
 
-Load dates programmatically
------------------------------------------------------------------------------
+Load dates using a formula string
++++++++++++++++++++++++++++++++++++++++++++++
 
 GAUSS will automatically detect a date variables if they are in one of the `recognizable, pre-existing formats <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_.
 
@@ -286,7 +286,7 @@ GAUSS will automatically detect many standard date formats:
 
 
 Loading non-standard date formats
-+++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If a date variable is not in a recognizable format, the ``date`` keyword should be used in a formula string to indicate that :func:`loadd` should load a variable as a date. In this case, GAUSS allows you to specify any arbitrary date format using BSD strftime specifiers to denote the date elements.
 
@@ -324,8 +324,8 @@ Now pass the format string as the second input to the ``date`` keyword. Assuming
 
 Note that the format specifier is enclosed in single ticks.
 
-Loading variables as a string
------------------------------------------------------------------------------
+Loading variables as a string using a formula string
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the ``str`` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
 
@@ -380,7 +380,7 @@ The *player* variable will automatically load as a string variable, the *age* va
 .. note:: This loads a variable as a string type in a dataframe. If you want to load a variable into a GAUSS string array, use :func:`loaddsa`.
 
 Loading an interaction term using a formula string
------------------------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Use the ``:``` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
 
@@ -682,6 +682,7 @@ Full details and more examples can be found in the Command Reference page for :f
 
 Importing data from the internet
 -----------------------------------------------------------------------------
+
 Data can be directly imported from onlines sources to GAUSS:
 
 * Using :func:`loadd` to load directly from a URL.
@@ -690,7 +691,8 @@ Data can be directly imported from onlines sources to GAUSS:
 
 Loading data from a URL
 ++++++++++++++++++++++++
-The :func:`loadd` procedure support data loading from a URL. 
+
+The :func:`loadd` procedure supports data loading from a URL. 
 
 ::
     
@@ -715,7 +717,9 @@ The :func:`loadd` procedure support data loading from a URL.
 
 Loading data from FRED
 ++++++++++++++++++++++++++
-**Getting started**
+
+Getting started
+^^^^^^^^^^^^^^^^
 
 Importing data from FRED with the GAUSS FRED integration requires a FRED API key, which can be directly requested from the FRED API Request page. 
 Once an API key is obtained it can be set in GAUSS by:
@@ -733,7 +737,8 @@ Once an API key is obtained it can be set in GAUSS by:
 
     fred_api_key = your_api_key
 
-**Searching for FRED series**  
+Searching for FRED series
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
 FRED series can be located using the :func:`fred_search` procedure.  The :func:`fred_search` procedure takes a string search input and returns related series' IDs.
    
@@ -756,8 +761,9 @@ FRED series can be located using the :func:`fred_search` procedure.  The :func:`
       Monthly                 M        79.000000            PCEPI 2022-10-28 08:40       2022-09-01       1959-01-01        78.000000       2022-11-23       2022-11-23 Seasonally Adjus               SA Personal Consump   Index 2012=100   Index 2012=100
       Monthly                 M        78.000000  PCU325211325211 2022-11-15 07:55       2022-10-01       1976-06-01        78.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I Index Dec 1980=1 Index Dec 1980=1 
 
-**Importing data series from FRED**
-
+Importing data series from FRED
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     
 FRED data series are imported using the :func:`fred_load` procedure and the FRED series ID. 
 
 ::
@@ -778,7 +784,8 @@ FRED data series are imported using the :func:`fred_load` procedure and the FRED
       1913-04-01        12.000000
       1913-05-01        11.900000 
     
-**Advanced FRED importing tools**
+Advanced FRED importing tools
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 GAUSS FRED functions use a parameter list for passing advanced settings. This list is constructed using the :func:`fred_set` function.
 
@@ -855,7 +862,8 @@ The default aggregation method is to use averaging. However, the ``aggregation_m
 Loading data from DBNOMICS
 +++++++++++++++++++++++++++
 
-**Searching for DBNOMICS series**   
+Searching for DBNOMICS series  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
     
 The :func:`dbnomics_search` procedure takes a string search input and returns series details including:
 
@@ -884,8 +892,9 @@ The :func:`dbnomics_search` procedure takes a string search input and returns se
         nasa_10_f_bs 5fe95bd760e282a4 2022-10-27T11:06 Financial balanc        3670.0000           344205         Eurostat         Eurostat 2022-10-27T00:00
         nasa_10_f_tr b69e7b63f3d59d44 2022-10-27T11:06 Financial transa        3655.0000           329303         Eurostat         Eurostat 2022-10-27T00:00
 
-**Loading series from DBNOMICS**
-    
+Loading series from DBNOMICS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
+
 The :func:`dbnomics_series` procedure loads data series from the DBNOMICS database using a list of series IDs. Each series ID should be formatted as ``provider_code/dataset_code/series_code``. Series can belong to any provider and dataset.
 
 For example, consider the CPI series from the IMF.
@@ -929,10 +938,11 @@ The series ID is ``"IMF/CPI/A.AT.PCPIT_IX"``. It can be used with the :func:`dbn
           2023-01-01        126.04167 
 
 Combining dataframes
--------------------
+----------------------
 
 Merging dataframes
 +++++++++++++++++++
+
 In GAUSS merging:
 
 * Is done using the :func:`outerJoin` or :func:`innerJoin` procedures.
@@ -1020,6 +1030,7 @@ Now *df3* includes:
 
 Appending dataframes
 +++++++++++++++++++++
+
 When appending dataframes that contain categorical variables, the :func:`dfappend` procedure should be used to ensure that the category labels and keys are matched in the resulting dataframe.
 
 Consider the example below, which loads data from a STATA dataset and a CSV file.
