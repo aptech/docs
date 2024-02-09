@@ -935,10 +935,10 @@ The above code will print:
 
 If the data does not currently have variable names, names will be created for all columns, with default names being assigned to any columns for which user-specified names were not provided.
 
-Cleaning string and category variables
-+++++++++++++++++++++++++++++++++++++++++++
+Managing category labels
+++++++++++++++++++++++++
     
-Determining current category labels
+Extracting current category labels
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :func:`getColLabels` returns the string category labels and corresponding integer values for a categorical or string column of a dataframe.
