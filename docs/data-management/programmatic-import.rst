@@ -91,8 +91,8 @@ Formula strings also allow data transformations during loading.
 |                 |procedure as a string column.                                  |
 +-----------------+---------------------------------------------------------------+
 
-Load a subset of variables
--------------------------------------------------
+Load a subset of variables using a formula string
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -103,8 +103,8 @@ Load a subset of variables
     detroit = loadd(dataset, "unemployment + hourly_earn");
 
 
-Load all variables except one
--------------------------------------------------
+Load all variables except one using a formula string
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -115,8 +115,8 @@ Load all variables except one
     xle = loadd(dataset, ". -date");
 
 
-Load categorical variables
------------------------------------------------------------------------------
+Load categorical variables using a formula string
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Some datasets such as, GDAT, SAS, Stata (.dta), and SPSS store variable type information. GAUSS will automatically identify categorical variables from these files.
 
@@ -143,8 +143,8 @@ If a categorical variable is not automatically detected by GAUSS, use the ``cat`
     // Load amplitude as a categorical variable and cycles as numeric
     yarn = loadd(dataset, "cat(amplitude) + cycles");
 
-Load and transform variables in one step
------------------------------------------------------------------------------
+Load and transform variables using a formula string
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Data transformations can be implemented during loading by including the appropriate GAUSS procedure in the formula string.
 
@@ -192,8 +192,8 @@ You can also use your own procedures in formula strings as shown below:
     endp;
 
 
-Load dates programmatically
------------------------------------------------------------------------------
+Load dates using a formula string
++++++++++++++++++++++++++++++++++++++++++++++
 
 GAUSS will automatically detect date variables if they are in one of the `recognizable, pre-existing formats <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_.
 
@@ -287,7 +287,7 @@ GAUSS will automatically detect many standard date formats:
 
 
 Loading non-standard date formats
-+++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If a date variable is not in a recognizable format, the ``date`` keyword should be used in a formula string to indicate that :func:`loadd` should load a variable as a date. In this case, GAUSS allows you to specify any arbitrary date format using BSD strftime specifiers to denote the date elements.
 
@@ -326,8 +326,8 @@ Now pass the format string as the second input to the ``date`` keyword. Assuming
 
 Note that the format specifier is enclosed in single ticks.
 
-Loading variables as a string
------------------------------------------------------------------------------
+Loading variables as a string using a formula string
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In most cases, GAUSS will auto-detect when a variable is a string variable. However, in the case a string variable is not correctly identified by GAUSS, the ``str`` keyword should be used, within a GAUSS formula string. This will specify that a variable should be loaded as a string variable in a dataframe.
 
@@ -384,7 +384,7 @@ The *player* variable will automatically load as a string variable, the *age* va
 .. note:: This loads a variable as a string type in a dataframe. If you want to load a variable into a GAUSS string array, use :func:`loaddsa`.
 
 Loading an interaction term using a formula string
------------------------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Use the ``:`` operator in a formula string to load a pure interaction term between the variables on the left and right of the colon.
 
@@ -410,254 +410,6 @@ Use the ``*`` operator in a formula string to load a each variable on the left a
     housing = loadd(dataset, "new*baths");
 
 
-Importing data from the internet
------------------------------------------------------------------------------
-Data can be directly imported from onlines sources to GAUSS:
-
-* Using :func:`loadd` to load directly from a URL.
-* Using the FRED database integration. 
-* Using DBNOMICS database integration.
-
-Loading data from a URL
-++++++++++++++++++++++++
-The :func:`loadd` procedure support data loading from a URL. 
-
-::
-    
-    // Specify the URL
-    url = "https://github.com/aptech/tspdlib/raw/master/examples/pd_gdef.gdat";
-    
-    // Load data
-    pd_gdef = loadd(url);
-    
-    // Preview data
-    head(pd_gdef[., "Year" "AUT" "DEU"]);
-
-::
-
-            Year              AUT              DEU 
-      1995-01-01       -1.0248736       -2.5337111 
-      1996-01-01      -0.64834945       -1.0192022 
-      1997-01-01     -0.079297470       -2.1558221 
-      1998-01-01       0.23284856       -2.5249485 
-      1999-01-01     -0.043695305       -2.9874769 
-
-
-Loading data from FRED
-++++++++++++++++++++++++++
-**Getting started**
-
-Importing data from FRED with the GAUSS FRED integration requires a FRED API key, which can be directly requested from the FRED API Request page. 
-Once an API key is obtained it can be set in GAUSS by:
-
-1. Setting the API key directly at the top of your program.
-::
-    
-    FRED_API_KEY = "your_api_key"
-    
-2. Setting the environment variable FRED_API_KEY to your API key.
-
-3. Editing the gauss.cfg file and modifying the ``fred_api_key``.
-::
-
-    fred_api_key = your_api_key
-
-**Searching for FRED series**  
-    
-FRED series can be located using the :func:`fred_search` procedure.  The :func:`fred_search` procedure takes a string search input and returns potential FRED series ID.
-   
-::
-    
-    /*
-    ** This example requires that you first set
-    ** the FRED API key in GAUSS
-    */
-    
-    // Search FRED for dataset related to 
-    // 'produce price index'
-    fred_search("producer price index");
-
-::
-    
-    frequency  frequency_short group_popularity              id       last_updated  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title           units      units_short
-      Monthly                 M        80.000000           PPIACO 2022-11-15 07:52       2022-10-01       1913-01-01        80.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I   Index 1982=100   Index 1982=100
-      Monthly                 M        79.000000          WPU0911 2022-11-15 07:52       2022-10-01       1926-01-01        79.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I   Index 1982=100   Index 1982=100
-      Monthly                 M        79.000000            PCEPI 2022-10-28 08:40       2022-09-01       1959-01-01        78.000000       2022-11-23       2022-11-23 Seasonally Adjus               SA Personal Consump   Index 2012=100   Index 2012=100
-      Monthly                 M        78.000000  PCU325211325211 2022-11-15 07:55       2022-10-01       1976-06-01        78.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I Index Dec 1980=1 Index Dec 1980=1 
-
-**Importing data series from FRED**
-
-FRED data series are imported using the :func:`fred_load` procedure and the FRED series ID. 
-
-::
-    
-    // Download all observations of 'PPIACO' 
-    // into a GAUSS dataframe
-    PPI = fred_load("PPIACO");
-    
-    // Preview first five rows of 'PPI'
-    head(PPI);
-    
-::
-
-            date           PPIACO
-      1913-01-01        12.100000
-      1913-02-01        12.000000
-      1913-03-01        12.000000
-      1913-04-01        12.000000
-      1913-05-01        11.900000 
-    
-**Advanced FRED importing tools**
-
-GAUSS FRED functions use a parameter list for passing advanced settings. This list is constructed using the :func:`fred_set` function.
-
-The :func:`fred_set` function creates a running list of parameters you want to pass to the FRED functions. It is specified by first listing a parameter name, then the associated parameter value.
-
-::
-
-    // Create a FRED parameter list with
-    // 'frequency' set to 'q' (quarterly)
-    params_GDP = fred_set("frequency", "q");
-
-Additional parameters values can be added to an existing parameter list:
-
-::
-
-    // Set 'aggregation_method' to end-of-period using 
-    // the previously created parameter list 'params_GDP'
-    params_GDP = fred_set("aggregation_method", "eop", params_GDP);
-
-The parameter list is then passed to the :func:`fred_load` function.
-
-**Example: Aggregating FRED data from monthly to quarterly**
-
-The ``frequency`` parameter can be used to specify the frequency of data imported from FRED. The specified frequency can only be the same or lower than the frequency of the original series.
-
-+--------------+------------+
-|Specifier     |Description |
-+==============+============+
-|``"d"``       | Daily      |
-+--------------+------------+
-|``"w"``       | Weekly     |
-+--------------+------------+
-|``"bw"``      | Biweekly   |
-+--------------+------------+
-|``"m"``       | Quarterly  |
-+--------------+------------+
-|``"sa"``      | Semiannual |
-+--------------+------------+
-|``"a"``       | Annual     |
-+--------------+------------+
-
-The default aggregation method is to use averaging. However, the *aggregation_method* parameter can be used to specify an aggregation method. Aggregation options include:
-
-+--------------+----------------+
-|Specifier     |Description     |
-+==============+================+
-|``"avg"``     | Average        |
-+--------------+----------------+
-|``"sum"``     | Sum            |
-+--------------+----------------+
-|``"eop"``     | End of period  |
-+--------------+----------------+
-
-::
-
-    // Set parameter list
-    params_cpi = fred_set("frequency", "q", "aggregation_method", "eop");
- 
-    // Load quarterly CPI
-    cpi_q_eop  = fred_load("CPIAUCSL", params_cpi);
- 
-    // Preview data
-    head(cpi_q_eop);
-
-::
-    
-            date         CPIAUCSL 
-      1947-01-01        22.000000 
-      1947-04-01        22.080000 
-      1947-07-01        22.840000 
-      1947-10-01        23.410000 
-      1948-01-01        23.500000 
-      
-Loading data from DBNOMICS
-+++++++++++++++++++++++++++
-
-**Searching for DBNOMICS series**   
-    
-The :func:`dbnomics_search` procedure takes a string search input and returns series details including:
-
-* Series code. 
-* Series description. 
-* Direct hash. 
-* The time indexed at. 
-* Series name.
-* Number of matching series. 
-* Series number. 
-* Provider code. 
-* Provider name.
-    
-::
-    
-    // Search DBNOMICS for series
-    // related to GDP and France
-    dbnomics_search("GDP France");
-
-::
-    
-                code         dir_hash       indexed_at             name nb_matching_seri        nb_series    provider_code    provider_name       updated_at
-         gov_10a_exp fab720436a1f72a3 2022-04-22T11:17 General governme        12800.000           129902         Eurostat         Eurostat 2022-04-22T00:00
-    CHELEM-TRADE-IND 7cfd7c7a78b84ede 2022-09-02T09:35 CHELEM - Interna        4937.0000           797304            CEPII Centre d'�tudes                .
-        nasa_10_f_cp aa9a1cb003e7d567 2022-10-15T10:03 Financial accoun        4330.0000           163206         Eurostat         Eurostat 2022-10-15T00:00
-        nasa_10_f_bs 5fe95bd760e282a4 2022-10-27T11:06 Financial balanc        3670.0000           344205         Eurostat         Eurostat 2022-10-27T00:00
-        nasa_10_f_tr b69e7b63f3d59d44 2022-10-27T11:06 Financial transa        3655.0000           329303         Eurostat         Eurostat 2022-10-27T00:00
-
-**Loading series from DBNOMICS**
-    
-The :func:`dbnomics_series` procedure loads data series from the DBNOMICS database using a list of series IDs. Each series ID is should be formatted as ``provider_code/dataset_code/series_code``. Series can belong to any provider and dataset.
-
-For example, consider the CPI series from the IMF.
-    
-::
-
-    Provider: International Monetary Fund (IMF)
-    Dataset: Consumer Price Index (CPI) (CPI)
-    Series: Annual – Austria – Transport (A.AT.PCPIT_IX)    
-
-The series ID is ``"IMF/CPI/A.AT.PCPIT_IX"`. It can be used with the :func:`dbnomics_series` procedure to load the series into a GAUSS dataframe:
-
-::
-    
-    // Load IMF CPI data series
-    cpi_imf = dbnomics_series("IMF/CPI/A.AT.PCPIT_IX");
-    
-    // Preview data
-    head(cpi_imf);
-    tail(cpi_imf);
-
-::
-    
-    Provider: International Monetary Fund (IMF)
-    Dataset: Consumer Price Index (CPI) (CPI)
-    Series: Annual – Austria – Transport (A.AT.PCPIT_IX)
-    Data last indexed on 2024-02-08T02:52:10.970Z
-
-    period_start_day    A.AT.PCPIT_IX 
-          1958-01-01                . 
-          1959-01-01                . 
-          1960-01-01                . 
-          1961-01-01                . 
-          1962-01-01                . 
-
-    period_start_day    A.AT.PCPIT_IX 
-          2019-01-01        101.72145 
-          2020-01-01        99.991667 
-          2021-01-01        106.62500 
-          2022-01-01        123.93333 
-          2023-01-01        126.04167 
-
-    
 Advanced data loading options
 -----------------------------------------------------------------------------
 
@@ -819,7 +571,6 @@ named *space_separated.csv* can be loaded like this:
     x = loadd("space_separated.csv", ".", ld_ctl);
 
 
-
 Specify the CSV file quotation character
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -933,11 +684,269 @@ Use the :func:`xlsGetCellTypes` procedure to check the cell format types of a sp
 
 Full details and more examples can be found in the Command Reference page for :func:`xlsGetCellTypes`.
 
+Importing data from the internet
+-----------------------------------------------------------------------------
+
+Data can be directly imported from onlines sources to GAUSS:
+
+* Using :func:`loadd` to load directly from a URL.
+* Using the FRED database integration. 
+* Using DBNOMICS database integration.
+
+Loading data from a URL
+++++++++++++++++++++++++
+
+The :func:`loadd` procedure supports data loading from a URL. 
+
+::
+    
+    // Specify the URL
+    url = "https://github.com/aptech/tspdlib/raw/master/examples/pd_gdef.gdat";
+    
+    // Load data
+    pd_gdef = loadd(url);
+    
+    // Preview data
+    head(pd_gdef[., "Year" "AUT" "DEU"]);
+
+::
+
+            Year              AUT              DEU 
+      1995-01-01       -1.0248736       -2.5337111 
+      1996-01-01      -0.64834945       -1.0192022 
+      1997-01-01     -0.079297470       -2.1558221 
+      1998-01-01       0.23284856       -2.5249485 
+      1999-01-01     -0.043695305       -2.9874769 
+
+
+Loading data from FRED
+++++++++++++++++++++++++++
+
+Getting started
+^^^^^^^^^^^^^^^^
+
+Importing data from FRED with the GAUSS FRED integration requires a FRED API key, which can be directly requested from the FRED API Request page. 
+Once an API key is obtained it can be set in GAUSS by:
+
+1. Setting the API key directly at the top of your program.
+::
+    
+    FRED_API_KEY = "your_api_key"  
+
+   
+2. Setting the environment variable FRED_API_KEY to your API key.
+
+3. Editing the gauss.cfg file and modifying the ``fred_api_key``.
+::
+
+    fred_api_key = your_api_key
+
+Searching for FRED series
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
+FRED series can be located using the :func:`fred_search` procedure.  The :func:`fred_search` procedure takes a string search input and returns related series' IDs.
+   
+::
+    
+    /*
+    ** This example requires that you first set
+    ** the FRED API key in GAUSS
+    */
+    
+    // Search FRED for dataset related to 
+    // 'produce price index'
+    fred_search("producer price index");
+
+::
+    
+    frequency  frequency_short group_popularity              id       last_updated  observation_end observation_star       popularity     realtime_end   realtime_start seasonal_adjustm seasonal_adjustm            title           units      units_short
+      Monthly                 M        80.000000           PPIACO 2022-11-15 07:52       2022-10-01       1913-01-01        80.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I   Index 1982=100   Index 1982=100
+      Monthly                 M        79.000000          WPU0911 2022-11-15 07:52       2022-10-01       1926-01-01        79.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I   Index 1982=100   Index 1982=100
+      Monthly                 M        79.000000            PCEPI 2022-10-28 08:40       2022-09-01       1959-01-01        78.000000       2022-11-23       2022-11-23 Seasonally Adjus               SA Personal Consump   Index 2012=100   Index 2012=100
+      Monthly                 M        78.000000  PCU325211325211 2022-11-15 07:55       2022-10-01       1976-06-01        78.000000       2022-11-23       2022-11-23 Not Seasonally A              NSA Producer Price I Index Dec 1980=1 Index Dec 1980=1 
+
+Importing data series from FRED
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     
+FRED data series are imported using the :func:`fred_load` procedure and the FRED series ID. 
+
+::
+    
+    // Download all observations of 'PPIACO' 
+    // into a GAUSS dataframe
+    PPI = fred_load("PPIACO");
+    
+    // Preview first five rows of 'PPI'
+    head(PPI);
+    
+::
+
+            date           PPIACO
+      1913-01-01        12.100000
+      1913-02-01        12.000000
+      1913-03-01        12.000000
+      1913-04-01        12.000000
+      1913-05-01        11.900000 
+    
+Advanced FRED importing tools
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+GAUSS FRED functions use a parameter list for passing advanced settings. This list is constructed using the :func:`fred_set` function.
+
+The :func:`fred_set` function creates a running list of parameters you want to pass to the FRED functions. It is specified by first listing a parameter name, then the associated parameter value.
+
+::
+
+    // Create a FRED parameter list with
+    // 'frequency' set to 'q' (quarterly)
+    params_GDP = fred_set("frequency", "q");
+
+Additional parameters values can be added to an existing parameter list:
+
+::
+
+    // Set 'aggregation_method' to end-of-period using 
+    // the previously created parameter list 'params_GDP'
+    params_GDP = fred_set("aggregation_method", "eop", params_GDP);
+
+The parameter list is then passed to the :func:`fred_load` function.
+
+**Example: Aggregating FRED data from monthly to quarterly**
+
+The ``frequency`` parameter can be used to specify the frequency of data imported from FRED. The specified frequency can only be the same or lower than the frequency of the original series.
+
++--------------+------------+
+|Specifier     |Description |
++==============+============+
+|``"d"``       | Daily      |
++--------------+------------+
+|``"w"``       | Weekly     |
++--------------+------------+
+|``"bw"``      | Biweekly   |
++--------------+------------+
+|``"m"``       | Quarterly  |
++--------------+------------+
+|``"sa"``      | Semiannual |
++--------------+------------+
+|``"a"``       | Annual     |
++--------------+------------+
+
+The default aggregation method is to use averaging. However, the ``aggregation_method`` parameter can be used to specify an aggregation method. Aggregation options include:
+
++--------------+----------------+
+|Specifier     |Description     |
++==============+================+
+|``"avg"``     | Average        |
++--------------+----------------+
+|``"sum"``     | Sum            |
++--------------+----------------+
+|``"eop"``     | End of period  |
++--------------+----------------+
+
+::
+
+    // Set parameter list
+    params_cpi = fred_set("frequency", "q", "aggregation_method", "eop");
+ 
+    // Load quarterly CPI
+    cpi_q_eop  = fred_load("CPIAUCSL", params_cpi);
+ 
+    // Preview data
+    head(cpi_q_eop);
+
+::
+    
+            date         CPIAUCSL 
+      1947-01-01        22.000000 
+      1947-04-01        22.080000 
+      1947-07-01        22.840000 
+      1947-10-01        23.410000 
+      1948-01-01        23.500000 
+      
+Loading data from DBNOMICS
++++++++++++++++++++++++++++
+
+Searching for DBNOMICS series  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
+    
+The :func:`dbnomics_search` procedure takes a string search input and returns series details including:
+
+* Series code. 
+* Series description. 
+* Direct hash. 
+* The time indexed at. 
+* Series name.
+* Number of matching series. 
+* Series number. 
+* Provider code. 
+* Provider name.
+    
+::
+    
+    // Search DBNOMICS for series
+    // related to GDP and France
+    dbnomics_search("GDP France");
+
+::
+    
+                code         dir_hash       indexed_at             name nb_matching_seri        nb_series    provider_code    provider_name       updated_at
+         gov_10a_exp fab720436a1f72a3 2022-04-22T11:17 General governme        12800.000           129902         Eurostat         Eurostat 2022-04-22T00:00
+    CHELEM-TRADE-IND 7cfd7c7a78b84ede 2022-09-02T09:35 CHELEM - Interna        4937.0000           797304            CEPII Centre d'�tudes                .
+        nasa_10_f_cp aa9a1cb003e7d567 2022-10-15T10:03 Financial accoun        4330.0000           163206         Eurostat         Eurostat 2022-10-15T00:00
+        nasa_10_f_bs 5fe95bd760e282a4 2022-10-27T11:06 Financial balanc        3670.0000           344205         Eurostat         Eurostat 2022-10-27T00:00
+        nasa_10_f_tr b69e7b63f3d59d44 2022-10-27T11:06 Financial transa        3655.0000           329303         Eurostat         Eurostat 2022-10-27T00:00
+
+Loading series from DBNOMICS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
+
+The :func:`dbnomics_series` procedure loads data series from the DBNOMICS database using a list of series IDs. Each series ID should be formatted as ``provider_code/dataset_code/series_code``. Series can belong to any provider and dataset.
+
+For example, consider the CPI series from the IMF.
+    
+::
+
+    Provider: International Monetary Fund (IMF)
+    Dataset: Consumer Price Index (CPI) (CPI)
+    Series: Annual – Austria – Transport (A.AT.PCPIT_IX)    
+
+The series ID is ``"IMF/CPI/A.AT.PCPIT_IX"``. It can be used with the :func:`dbnomics_series` procedure to load the series into a GAUSS dataframe:
+
+::
+    
+    // Load IMF CPI data series
+    cpi_imf = dbnomics_series("IMF/CPI/A.AT.PCPIT_IX");
+    
+    // Preview data
+    head(cpi_imf);
+    tail(cpi_imf);
+
+::
+    
+    Provider: International Monetary Fund (IMF)
+    Dataset: Consumer Price Index (CPI) (CPI)
+    Series: Annual-Austria-Transport (A.AT.PCPIT_IX)
+    Data last indexed on 2024-02-08T02:52:10.970Z
+
+    period_start_day    A.AT.PCPIT_IX 
+          1958-01-01                . 
+          1959-01-01                . 
+          1960-01-01                . 
+          1961-01-01                . 
+          1962-01-01                . 
+
+    period_start_day    A.AT.PCPIT_IX 
+          2019-01-01        101.72145 
+          2020-01-01        99.991667 
+          2021-01-01        106.62500 
+          2022-01-01        123.93333 
+          2023-01-01        126.04167 
+
 Combining dataframes
--------------------
+----------------------
 
 Merging dataframes
 +++++++++++++++++++
+
 In GAUSS merging:
 
 * Is done using the :func:`outerJoin` or :func:`innerJoin` procedures.
@@ -1025,6 +1034,7 @@ Now *df3* includes:
 
 Appending dataframes
 +++++++++++++++++++++
+
 When appending dataframes that contain categorical variables, the :func:`dfappend` procedure should be used to ensure that the category labels and keys are matched in the resulting dataframe.
 
 Consider the example below, which loads data from a STATA dataset and a CSV file.
