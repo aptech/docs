@@ -1211,3 +1211,14 @@ As we can see below, the new base case, ``"G"``, has been moved to the top and a
              C            1
              F            2
 
+Cleaning strings and category labels
+++++++++++++++++++++++++++++++++++++
+GAUSS has a comprehensive suite of tools for managing and cleaning strings. 
+    
+Trimming whitespaces
+^^^^^^^^^^^^^^^^^^^^^
+Trimming excess whitespaces is done using one of three GAUSS procedures:
+    
+* The :func:`strtrimr` procedure strips whitespace characters from the right side.
+* The :func:`strtriml` procedure strips whitespace characters from the left side. 
+* The :func:`strtrim` procedure strips whitespace characters from the left and right side.
