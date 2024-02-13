@@ -1217,8 +1217,53 @@ GAUSS has a comprehensive suite of tools for managing and cleaning strings.
     
 Trimming whitespaces
 ^^^^^^^^^^^^^^^^^^^^^
-Trimming excess whitespaces is done using one of three GAUSS procedures:
+Excess whitespaces in strings and categorical variables can lead to unexpected results. To prevent this, trimming excess whitespaces should be done using one of three GAUSS procedures:
     
 * The :func:`strtrimr` procedure strips whitespace characters from the right side.
 * The :func:`strtriml` procedure strips whitespace characters from the left side. 
-* The :func:`strtrim` procedure strips whitespace characters from the left and right side.
+* The :func:`strtrim` procedure strips whitespace characters from both the left and right side.
+    
+**Example: Trimming all whitespaces**
+
+::
+    
+    // Create string array
+    string names_string = { " John", "Mary ", " Jane ", "Carl" };
+    
+    // Convert to string array
+    names_df = asDF(names_string, "First Name");
+    
+    // Check names
+    print names_df[3];
+    print names_df[4];
+    
+Printing the third and fourth elements of ``names_df`` highlights the whitespaces in the ``First Name`` variable.
+
+::
+
+          First Name 
+           Jane  
+
+          First Name
+                Carl
+                
+Compare this to printing the four element, which contains no whitespaces.
+
+::
+
+    // Trim whitespaces
+    names_df = strtrim(names_df);
+    
+    // Check names
+    print names_df[3];
+    print names_df[4];
+    
+::
+
+      First Name 
+            Jane 
+
+      First Name 
+            Carl
+
+.. note:: The :func:`print` function will automatically align the string array, so ``print header_sa`` will make it appear as if the leading and trailing spaces are gone. To see the spaces, we print individual elements. 
