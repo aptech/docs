@@ -1267,3 +1267,113 @@ Compare this to printing the four element, which contains no whitespaces.
             Carl
 
 .. note:: The :func:`print` function will automatically align the string array, so ``print header_sa`` will make it appear as if the leading and trailing spaces are gone. To see the spaces, we print individual elements. 
+
+Standardizing case
+++++++++++++++++++
+
+
+Symbol names in GAUSS are not case-sensitive.
+
+::
+    
+    // Assign values to 'x'
+    x = 5;
+    
+    // Print little x value
+    print "little x:" x;
+
+::
+
+    little x:       5.0000000
+
+::
+
+    // Assign values to 'X'
+    X = 10;
+    
+    print "little x:" x;
+
+::
+
+    little x:       10.000000
+    
+However, string and category variables, as well as variable names, are case sensitive. Because of this, inconsistent use of cases in strings and category labels can result in undesired results.    
+
+For example, consider survey data with self reported location abbreviations.
+
+::
+
+    // Generate states string array
+    string st_abbreviation = { "CO", "Co", "CA", "CA", "Ca", "Mo", "MO" };
+    
+    // Convert to dataframe
+    st_df = asDF(st_abbreviation, "State");
+    
+    // Print observations
+    st_df;
+    
+    // Print categories
+    getCategories(st_df);
+
+Because of differences in cases, GAUSS thinks there are 6 different categories. 
+    
+::
+    
+      categories 
+              CA 
+              CO 
+              Ca 
+              Co 
+              MO 
+              Mo 
+
+Consider if we use these categories and compute a frequency count.
+    
+::
+        
+     // Compute frequency count for 'State'
+     frequency(st_df, "State");
+
+::
+ 
+    Label      Count   Total %    Cum. % 
+       CA          2     28.57     28.57 
+       CO          1     14.29     42.86 
+       Ca          1     14.29     57.14 
+       Co          1     14.29     71.43 
+       MO          1     14.29     85.71 
+       Mo          1     14.29       100 
+    Total          7       100
+    
+
+To remedy this, :func:`upper` or :func:`lower` should be used to convert the state abbreviations to the same case. 
+
+::
+
+    // Convert to upper case
+    st_df = upper(st_df);
+    
+    // Print 'states'
+    st_df;
+    
+    // Compute frequency count
+    frequency(st_df, "State");
+      
+::
+               State 
+                  CO 
+                  CO 
+                  CA 
+                  CA 
+                  CA 
+                  MO 
+                  MO
+ 
+    Label      Count   Total %    Cum. % 
+       CA          3     42.86     42.86 
+       CO          2     28.57     71.43 
+       MO          2     28.57       100 
+    Total          7       100
+
+Note that :func:`upper` converts all observations of ``st_df`` to upper case and updates the label mappings.
+
