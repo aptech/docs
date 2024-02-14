@@ -1302,7 +1302,7 @@ However, string and category variables, as well as variable names, are case sens
 ::
 
     // Generate states string array
-    string st_abbreviation = { "CO", "Co", "CA", "CA", "Ca", "Mo", "MO" };
+    st_abbreviation = "CO" $| "Co" $| "CA" $| "CA" $| "Ca" $| "Mo" $| "MO";
     
     // Convert to dataframe
     st_df = asDF(st_abbreviation, "State");
@@ -1616,7 +1616,7 @@ The :func:`strsect` procedure extracts a substring of a string based on a specif
 
 ::
 
-    // Create location dataframe
+    // Create location string array
     location = "CA, Sacramento" $| "FL Tampa" $| "SC - Charleston" $| "NC - Raleigh";
     
     // Convert to dataframe
@@ -1654,5 +1654,74 @@ The :func:`strsect` procedure can be used to extract the state abbreviation
             NC
 
 .. note: The :func:`strsect` function can be used with :func:`strindx` to search for an extract substrings.  
+
+Splitting strings
+^^^^^^^^^^^^^^^^^^
+
+The :func:`strsplit` procedure can be used to split strings based on a specified separator. 
+    
+::
+    
+    // Create location string array
+    location = "FL, Tampa" $| "CO, Denver" $| "SC, Charleston" $| "NC, Raleigh";
+    
+    // Convert to dataframe
+    location_df = asDF(location, "Location");
+    
+    // Print preview
+    head(location_df);
+
+::
+    
+        Location 
+       FL, Tampa 
+      CO, Denver 
+  SC, Charleston 
+     NC, Raleigh 
+    
+Now our *Location* variable contains state abbreviations and cities, separated by ``","``. We can use :func:`strsplit` to split the location variable into two separate columns. 
+    
+::
+
+    // Split the location dataframe into to columns
+    // using ',' as a separator 
+    location_split = strsplit(location_df, ",");
+    
+    // Print location dataframe
+    location_split;
+
+::
+
+      X1               X2 
+      FL            Tampa 
+      CO           Denver 
+      SC       Charleston 
+      NC          Raleigh 
+    
+The *location_split* dataframe contains two columns, one that contains the state abbreviation and one that contains the city name. 
+There are additional steps that will help further clean this data:
+
+* Rename the columns 
+* Remove any whitespaces. 
+
+::
+
+    // Set column names
+    location_split = setColNames(location_split, "State"$|"City");
+    
+    // Remove excess whitespace
+    location_split = strtrim(location_split);
+    
+    // Print dataframe
+    location_split;
+    
+::
+
+     State             City 
+        FL            Tampa 
+        CO           Denver 
+        SC       Charleston 
+        NC          Raleigh
+    
 
     
