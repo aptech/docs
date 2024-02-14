@@ -403,7 +403,7 @@ The *player* variable will automatically load as a string variable, the *age* va
                 
 ::
                 
-        >> asdf(getcolnames(nba_subset), "Variable")~getcoltypes(nba_subset)
+        >> asdf(getcolnames(nba), "Variable")~getcoltypes(nba)
                 
         Variable             type
           player           string
