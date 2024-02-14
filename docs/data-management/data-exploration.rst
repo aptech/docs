@@ -97,8 +97,11 @@ Example: Finding mean by column
 
 ::
 
-  // Load stock price data
+  
+  // Create file name with full path
   fname = getGAUSShome("examples/xle_daily.xlsx");
+  
+  // Load stock price data
   xle_daily = loadd(fname);
 
   // Find mean of 'Adj Close' and 'Volume'
@@ -113,7 +116,7 @@ The results are printed directly to screen:
 
 
 Computing group descriptive statistics
------------------------------------
+---------------------------------------
 The :func:`aggregate` procedure finds descriptive statistics for each group in panel data. It allows an optional input to specify the name of the categorical variable to be used for grouping.
 
 In order to be used with :func:`aggregate` data should:
@@ -145,7 +148,7 @@ In this example, the group variable is included in the first column. No categori
   // Create file name with full path
   fname = getGAUSSHome("examples/housing.csv");
 
-  // Load three variables from dataset
+  // Load three variables from 'housing' dataset
   X = loadd(fname, "beds + price + size");
 
   // Compute the median of the sales price
@@ -157,7 +160,7 @@ The matrix *x_a* contains:
 
 ::
 
-  bedrooms          price            sq ft
+    beds            price             size
        2             94.3             1060
        3            132.6           1473.5
        4              179             2000
@@ -311,8 +314,9 @@ Frequency plots
 The :func:`plotFreq` procedure will compute and plot frequencies for a categorical variable. A quick plot can be generated using default formatting or an optional :class:`plotControlStructure` can be used for custom formatting. An optional indicator input can be used with the :func:`plotFreq` procedure to sort the bars in descending order. 
  
  
-**Example: Plotting category frequency**  
-  
+Plotting category frequency  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 ::
 
   // Load 'auto2' data
@@ -325,7 +329,9 @@ The :func:`plotFreq` procedure will compute and plot frequencies for a categoric
 .. figure:: ../_static/images/plotfreq.jpg
     :scale: 50%
 
-**Example: Plotting sorted frequencies**  
+Plotting sorted frequencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 In this example, the optional argument is used to specify that the bars should be sorted in order from most frequently to least frequently occurring.
 
 ::
@@ -341,7 +347,8 @@ In this example, the optional argument is used to specify that the bars should b
 .. figure:: ../_static/images/plotfreq2.jpg
     :scale: 50%
        
-**Example: Adding a title to a frequency plot**  
+Customizing frequency plots 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the next example, a :class:`plotControl` structure is used to add a title to the sorted frequency plot. 
 
@@ -368,6 +375,7 @@ In the next example, a :class:`plotControl` structure is used to add a title to 
     
 Two-way tables  
 +++++++++++++++++
+
 The :func:`tabulate` procedure generates two-way tables and returns the counts as a dataframe. 
 
 Basic tabulation with the :func:`tabulate` procedure requires:
@@ -450,7 +458,8 @@ An optional :class:`tabControl` structure input can be used for advanced options
 |                      | to 0 to remove unused levels from the table. Default = 1.        |
 +----------------------+------------------------------------------------------------------+    
 
-**Dropping unused categories from the table** 
+Dropping unused categories from the table
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
 Consider the following two-way frequency table:
 
@@ -522,7 +531,8 @@ The table no longer includes the unused categories from the table.
               Total             50             50
     =============================================
 
-**Excluding specified categories from the table**  
+Excluding specified categories from the table  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Specific categories can be excluding from the table using the *exclude* member of the :class:`tabControl` structure. This input is a string array input which must include the variable name and the associated category, separated by a ``":"``.
 
@@ -564,7 +574,8 @@ Specific categories can be excluding from the table using the *exclude* member o
 Associations and correlations
 ----------------------------------
 
-**Computing correlations**
+Computing correlations
++++++++++++++++++++++++
 
 Two GAUSS functions are available for computing correlations of a sample:
 
@@ -578,9 +589,9 @@ Two GAUSS functions are available for computing correlations of a sample:
 |                      | data matrix as the input.                |
 +----------------------+------------------------------------------+
 
-Example: Finding correlation of height and weight in NBA players
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+Example:Finding correlation of height and weight in NBA players
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
 ::
 
   // Load 'nba_ht_wt' data
@@ -603,8 +614,9 @@ This prints the correlations to screen:
 .. note:: The :func:`corrms` and :func:`corrxs` functions compute the sample correlation matrix. To compute the population correlation matrix use :func:`corrm` or :func:`corrx`.
 
 Finding variance-covariance
-----------------------------------
-Two GAUSS functions are available for computing correlations of a sample:
++++++++++++++++++++++++++++
+
+Two GAUSS functions are available for computing covariances of a sample:
 
 +-------------------------+------------------------------------------+
 | Function                | Description                              |
@@ -617,8 +629,8 @@ Two GAUSS functions are available for computing correlations of a sample:
 +-------------------------+------------------------------------------+
 
 Example: Finding variance/covariance of height and weight in NBA players
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
 ::
 
   // Load 'nba_ht_wt' data
@@ -669,7 +681,8 @@ Histograms of data can be plotted using one of three functions:
 
 .. note:: These functions do not currently utilize the categorical labels and :func:`plotFreq` is recommended for categorical variables with labels.
 
-**Frequency histograms**  
+Frequency histograms
+^^^^^^^^^^^^^^^^^^^^^
     
 The :func:`plotHist` function requires two inputs, a vector of data and the number of bins.
     
@@ -685,7 +698,8 @@ The :func:`plotHist` function requires two inputs, a vector of data and the numb
 .. figure:: ../_static/images/nba-hist1.jpg
       :scale: 50 %
     
-**Percent frequency histograms**  
+Percent frequency histograms  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
 The :func:`plotHistP` function also requires two inputs, a vector of data and the number of bins.
   
@@ -704,6 +718,7 @@ The :func:`plotHistP` function also requires two inputs, a vector of data and th
       
 Scatter plots
 ++++++++++++++
+
 The :func:`plotScatter` function creates a quick scatter plot using either:
 
 * A *x* and *y* input.
@@ -711,8 +726,8 @@ The :func:`plotScatter` function creates a quick scatter plot using either:
 
 Using a dataframe with a formula string, will result in automatic labeling of the *x* and *y* axis. To add additional custom formatting, use the :class:`plotControl` structure.
 
-**Example: Scatter plots with formula strings**  
-
+Example: Scatter plots with formula strings  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -744,13 +759,15 @@ The scatter points can be color coded by categories using the ``"by"`` keyword i
       
 Box plots
 +++++++++
+
 The :func:`plotBox` procedure graphs data using the box graph percentile method. The procedure allows for three different sets of inputs:
 
 * A dataframe and a formula string. 
 * A list group numbers or string labels corresponding to each column data and a data matrix.
 * A categorical dataframe vector and a data matrix.
 
-**Example: Using a dataframe and formula string to generate a box plot**
+Example: Using a dataframe and formula string to generate a box plot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -782,6 +799,7 @@ Like the scatter plot, box plots can be split by categories using the ``"by"`` k
 
 Kernel Density Plots
 +++++++++++++++++++++
+
 The :func:`kernelDensity` procedure computes and plots kernel densities, with support for 13 different kernels:
 
 * Normal (default). 
