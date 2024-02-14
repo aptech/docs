@@ -1379,7 +1379,91 @@ Note that :func:`upper` converts all observations of ``st_df`` to upper case and
 Searching and replacing strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Searching and replacing is a key part of cleaning strings and categorical data. The :func:`strreplace` procedure replaces all matches of a substring with a replacement string. 
+Searching and replacing is a key part of cleaning strings and categorical data. This can be done using a number of GAUSS functions:
+
++------------------+-------------------------------------+
+|Procedure         |Description                          |
++==================+=====================================+
+|:func:`strrindx`  |Finds the index of one string within | 
+|                  |another string. Searches from the end|
+|                  |to the beginning.                    |
++------------------+-------------------------------------+
+|:func:`strindx`   |Finds the index of one string within | 
+|                  |another string.                      |
++------------------+-------------------------------------+
+|:func:`strreplace`|Replaces all matches of a substring  | 
+|                  |with a replacement string.           |
++------------------+-------------------------------------+
+
+**Searching across multiple variables**
+
+The :func:`strindx` and :func:`strrindx` procedures perform element-by-element searches for substrings in string arrays. It returns the starting indices of the substring or a 0 if the substring is not found.  
+
+::
+ 
+    // Create file name with full path
+    fname = getGAUSSHome("examples/auto2.dta");
+
+    // Load 'rep78' and 'make` variable
+    auto = loadd(fname, "rep78 + make");
+
+    // Preview data
+    head(auto);
+
+The first five occurrences of the ``auto`` dataframe look like:
+
+::
+
+           rep78             make 
+         Average      AMC Concord 
+         Average        AMC Pacer 
+               .       AMC Spirit 
+         Average    Buick Century 
+            Good    Buick Electra
+
+Now we will search for different substrings in each separate variables.
+    
+::    
+
+    // Find the index of "age" in 'rep78'
+    // and "AMC" in 'make'
+    idx = strindx(auto, "age"$~"AMC");
+
+    // Print the first 5 observations of 'idx'
+    head(idx);
+
+The preview shows that:
+
+* In the ``rep78`` variable, the substring ``"age"`` starts at the fifth letter every time ``Average`` is observed. 
+* In the ``make`` variable, the substring ``"AMC"`` starts at the first letter of the first three observations. 
+      
+::
+
+    5.0000000        1.0000000
+    5.0000000        1.0000000
+    0.0000000        1.0000000
+    5.0000000        0.0000000
+    0.0000000        0.0000000
+
+There are many uses of this. For example, suppose we want to select only the observations that contain the substring ``"AMC"``:
+
+::
+
+    // Select observation if 'AMC` occurs anywhere 
+    // in the string
+    amc_data = selif(auto, idx[., 2]);
+    
+    // Preview data
+    head(amc_data);
+
+The preview of the ``amc_data`` only prints 3 observations because only three observations remain.
+
+::
+    
+           rep78             make 
+         Average      AMC Concord 
+         Average        AMC Pacer 
+               .       AMC Spirit 
 
 **Regularize a string array**
 
