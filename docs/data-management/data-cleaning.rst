@@ -1271,8 +1271,7 @@ Compare this to printing the four element, which contains no whitespaces.
 Standardizing case
 ++++++++++++++++++
 
-
-Symbol names in GAUSS are not case-sensitive.
+Symbol names in GAUSS are not case-sensitive. For example, consider the following example of variable naming.
 
 ::
     
@@ -1297,9 +1296,7 @@ Symbol names in GAUSS are not case-sensitive.
 
     little x:       10.000000
     
-However, string and category variables, as well as variable names, are case sensitive. Because of this, inconsistent use of cases in strings and category labels can result in undesired results.    
-
-For example, consider survey data with self reported location abbreviations.
+However, string and category variables, as well as variable names, are case sensitive. Because of this, inconsistent use of cases in strings and category labels can result in undesired results. For example, consider survey data with self reported location abbreviations.
 
 ::
 
