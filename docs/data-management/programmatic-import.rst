@@ -425,8 +425,19 @@ Use the ``:``` operator in a formula string to load a pure interaction term betw
        // Load and create a variable that is the interaction (element-by-element product)
        // 'new' and 'baths'. Do not load either 'new' or 'baths'.
        housing = loadd(dataset, "new:baths");
-            
-            
+       
+       // Preview data
+       head(housing);
+
+::
+
+       new_baths 
+       0.0000000 
+       0.0000000 
+       0.0000000 
+       0.0000000 
+       0.0000000
+       
 Use the ``*`` operator in a formula string to load a each variable on the left and right of the ``*``, as well as an interaction term between the two.
                 
 ::
@@ -437,7 +448,19 @@ Use the ``*`` operator in a formula string to load a each variable on the left a
         // Load and create a variable that is the interaction (element-by-element product)
         // 'new' and 'baths'. Also load the variables 'new' and 'baths'.
         housing = loadd(dataset, "new*baths");
-            
+        
+        // Preview data
+        head(housing);
+
+::
+
+             new            baths        new_baths 
+       0.0000000        2.0000000        0.0000000 
+       0.0000000        1.0000000        0.0000000 
+       0.0000000        2.0000000        0.0000000 
+       0.0000000        2.0000000        0.0000000 
+       0.0000000        3.0000000        0.0000000
+                 
             
 Advanced data loading options
 -----------------------------------------------------------------------------
