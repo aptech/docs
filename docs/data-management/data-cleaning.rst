@@ -1089,7 +1089,7 @@ Dropping category labels
 ^^^^^^^^^^^^^^^^^^^^^^^^
 The :func:`dropCategories` procedure drops all observations of a specified category label from a dataframe and updates the category mapping. Note that this functionality is different from deleting observations using other tools like :func:`delif`.
     
-    For example, consider dropping observations using delif:
+For example, consider dropping observations using delif:
     
 ::
          
@@ -1111,7 +1111,7 @@ The :func:`dropCategories` procedure drops all observations of a specified categ
                F 
                G 
 
-In this case, the ``C`` category label is still stored as one of the ``Pos`` labels. 
+In this case, the ``C`` category label is still stored as one of the *Pos* labels. 
 
 To remove it when deleting labels :func:`dropCategories`` should be used.
 
@@ -1193,7 +1193,7 @@ After the above code:
              F            1
              G            2
 
-You can change ``"G"`` to the base case like this:
+You can change ``G`` to the base case like this:
 
 ::
 
@@ -1203,7 +1203,7 @@ You can change ``"G"`` to the base case like this:
     // Get new labels
     { labels, values } = getColLabels(nba, "Pos");
 
-As we can see below, the new base case, ``"G"``, has been moved to the top and all the other variables have been shifted down.
+As we can see below, the new base case, ``G``, has been moved to the top and all the other variables have been shifted down.
 
 ::
 
@@ -1238,7 +1238,7 @@ Excess whitespaces in strings and categorical variables can lead to unexpected r
     print names_df[3];
     print names_df[4];
     
-Printing the third and fourth elements of ``names_df`` highlights the whitespaces in the ``First Name`` variable.
+Printing the third and fourth elements of *names_df*` highlights the whitespaces in the *First Name* variable.
 
 ::
 
@@ -1374,27 +1374,30 @@ To remedy this, :func:`upper` or :func:`lower` should be used to convert the sta
        MO          2     28.57       100 
     Total          7       100
 
-Note that :func:`upper` converts all observations of ``st_df`` to upper case and updates the label mappings.
+Note that :func:`upper` converts all observations of *st_df* to upper case and updates the label mappings.
 
 Searching and replacing strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Searching and replacing is a key part of cleaning strings and categorical data. This can be done using a number of GAUSS functions:
 
-+------------------+-------------------------------------+
-|Procedure         |Description                          |
-+==================+=====================================+
-|:func:`strrindx`  |Finds the index of one string within | 
-|                  |another string. Searches from the end|
-|                  |to the beginning.                    |
-+------------------+-------------------------------------+
-|:func:`strindx`   |Finds the index of one string within | 
-|                  |another string.                      |
-+------------------+-------------------------------------+
-|:func:`strreplace`|Replaces all matches of a substring  | 
-|                  |with a replacement string.           |
-+------------------+-------------------------------------+
-
++-------------------+-------------------------------------+
+|Procedure          |Description                          |
++===================+=====================================+
+|:func:`strrindx`   |Finds the index of one string within | 
+|                   |another string. Searches from the end|
+|                   |to the beginning.                    |
++-------------------+-------------------------------------+
+|:func:`strindx`    |Finds the index of one string within | 
+|                   |another string.                      |
++-------------------+-------------------------------------+
+|:func:`strreplace` |Replaces all matches of a substring  | 
+|                   |with a replacement string.           |
++-------------------+-------------------------------------+
+|:func:`startsWith` |Returns a 1 if a string starts with  |
+|                   |a specified pattern.                 |
++-------------------+-------------------------------------+
+    
 **Searching across multiple variables**
 
 The :func:`strindx` and :func:`strrindx` procedures perform element-by-element searches for substrings in string arrays. It returns the starting indices of the substring or a 0 if the substring is not found.  
@@ -1410,7 +1413,7 @@ The :func:`strindx` and :func:`strrindx` procedures perform element-by-element s
     // Preview data
     head(auto);
 
-The first five occurrences of the ``auto`` dataframe look like:
+The first five occurrences of the *auto* dataframe look like:
 
 ::
 
@@ -1434,8 +1437,8 @@ Now we will search for different substrings in each separate variables.
 
 The preview shows that:
 
-* In the ``rep78`` variable, the substring ``"age"`` starts at the fifth letter every time ``Average`` is observed. 
-* In the ``make`` variable, the substring ``"AMC"`` starts at the first letter of the first three observations. 
+* In the *rep78* variable, the substring ``"age"`` starts at the fifth letter every time ``Average`` is observed. 
+* In the *make* variable, the substring ``"AMC"`` starts at the first letter of the first three observations. 
       
 ::
 
@@ -1456,7 +1459,7 @@ There are many uses of this. For example, suppose we want to select only the obs
     // Preview data
     head(amc_data);
 
-The preview of the ``amc_data`` only prints 3 observations because only three observations remain.
+The preview of the *amc_data* only prints 3 observations because only three observations remain.
 
 ::
     
@@ -1464,6 +1467,41 @@ The preview of the ``amc_data`` only prints 3 observations because only three ob
          Average      AMC Concord 
          Average        AMC Pacer 
                .       AMC Spirit 
+
+**Searching for starting substrings**
+    
+In the previous example, we search for the substring ``"AMC"``. Altenatively, :func:`startsWith` could be used to search for starting patterns. 
+    
+::
+
+   // Load 3 variables from the dataset
+   fname = getGAUSSHome("examples/auto2.dta");
+   auto = loadd(fname, "make + price + mpg");
+
+   // Specify pattern to search for
+   pat = "Buick";
+
+   // Find all makes that include 'Buick'
+   mask = startsWith(auto[., "make"], pat);
+
+   // Select observations if the corresponding
+   // row of mask equals 1.
+   auto_buicks = selif(auto, mask);
+
+   print auto_buicks;
+
+The code above selects all observations that start with ``"Buick"``.
+
+::
+
+            make            price              mpg 
+   Buick Century        4816.0000        20.000000 
+   Buick Electra        7827.0000        15.000000 
+   Buick LeSabre        5788.0000        18.000000 
+      Buick Opel        4453.0000        26.000000 
+     Buick Regal        5189.0000        20.000000 
+   Buick Riviera        10372.000        16.000000 
+   Buick Skylark        4082.0000        19.000000
 
 **Regularize a string array**
 
@@ -1486,7 +1524,7 @@ In this example, :func:`strreplace` is used to clean a string array that contain
     // Build new string
     new_str = strreplace(str, search, replace);
 
-After the code above, ``new_str`` will be set to:
+After the code above, *new_str* will be set to:
 
 ::
 
@@ -1518,17 +1556,17 @@ After the above code our dataframe and categories are printed:
 
 ::
 
-          States 
-              CA 
-              FL 
-      California 
-      California 
-              FL 
+       States 
+           CA 
+           FL 
+   California 
+   California 
+           FL 
 
-      categories 
-              CA 
-      California 
-              FL 
+   categories 
+           CA 
+   California 
+           FL 
 
 For the sake of analysis, the category ``CA`` and ``California`` are the same. This can be corrected using the :func:`strreplace` procedure.
     
@@ -1550,12 +1588,12 @@ After this, all occurrences of ``California`` have been replaced with ``CA``.
 
 ::
     
-        States
-            CA
-            FL
-            CA
-            CA
-            FL
+     States
+         CA
+         FL
+         CA
+         CA
+         FL
 
 Checking the categories will confirm that the keyvalues and labels have been updated.
 
@@ -1564,11 +1602,57 @@ Checking the categories will confirm that the keyvalues and labels have been upd
     // Get updated categories
     getCategories(df_states);
 
-As we see below, the observations that previously had the label "California", have now been merged with the "CA" category.
+As we see below, the observations that previously had the label ``California``, have now been merged with the ``CA`` category.
 
 ::
     
      categories 
              CA 
              FL
+    
+Extracting substrings
+^^^^^^^^^^^^^^^^^^^^^^
+The :func:`strsect` procedure extracts a substring of a string based on a specified starting point and an optional length.
+
+::
+
+    // Create location dataframe
+    location = "CA, Sacramento" $| "FL Tampa" $| "SC - Charleston" $| "NC - Raleigh";
+    
+    // Convert to dataframe
+    location_df = asDF(location, "Location");
+    
+    // Print location 
+    location_df;
+
+The *location_df* variable is not consistently formatted, with the exception that the two letter state abbreviations always occurs first. 
+
+::
+
+        Location 
+  CA, Sacramento 
+        FL Tampa 
+ SC - Charleston 
+    NC - Raleigh 
+    
+The :func:`strsect` procedure can be used to extract the state abbreviation
+
+::
+
+    // Extract the state abbreviation
+    state = strsect(location_df, 1, 2);
+    
+    // Print state
+    state;
+    
+::
+
+      Location 
+            CA 
+            FL 
+            SC 
+            NC
+
+.. note: The :func:`strsect` function can be used with :func:`strindx` to search for an extract substrings.  
+
     
