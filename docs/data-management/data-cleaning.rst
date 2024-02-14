@@ -1217,6 +1217,7 @@ GAUSS has a comprehensive suite of tools for managing and cleaning strings.
     
 Trimming whitespaces
 ^^^^^^^^^^^^^^^^^^^^^
+    
 Excess whitespaces in strings and categorical variables can lead to unexpected results. To prevent this, trimming excess whitespaces should be done using one of three GAUSS procedures:
     
 * The :func:`strtrimr` procedure strips whitespace characters from the right side.
@@ -1269,7 +1270,7 @@ Compare this to printing the four element, which contains no whitespaces.
 .. note:: The :func:`print` function will automatically align the string array, so ``print header_sa`` will make it appear as if the leading and trailing spaces are gone. To see the spaces, we print individual elements. 
 
 Standardizing case
-++++++++++++++++++
+^^^^^^^^^^^^^^^^^^
 
 Symbol names in GAUSS are not case-sensitive. For example, consider the following example of variable naming.
 
@@ -1357,6 +1358,7 @@ To remedy this, :func:`upper` or :func:`lower` should be used to convert the sta
     frequency(st_df, "State");
       
 ::
+
                State 
                   CO 
                   CO 
@@ -1374,3 +1376,115 @@ To remedy this, :func:`upper` or :func:`lower` should be used to convert the sta
 
 Note that :func:`upper` converts all observations of ``st_df`` to upper case and updates the label mappings.
 
+Searching and replacing strings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Searching and replacing is a key part of cleaning strings and categorical data. The :func:`strreplace` procedure replaces all matches of a substring with a replacement string. 
+
+**Regularize a string array**
+
+In this example, :func:`strreplace` is used to clean a string array that contains addresses. 
+
+:: 
+
+    // String array to be searched
+    str = "100 Main Ave" $|
+          "112 Charles Avenue" $|
+          "49 W State St" $|
+          "24 Third Avenue";
+
+    // Search for string 'Avenue'
+    search = "Avenue";
+
+    // String to replace with
+    replace = "Ave";
+
+    // Build new string
+    new_str = strreplace(str, search, replace);
+
+After the code above, ``new_str`` will be set to:
+
+::
+
+       "100 Main Ave"
+       "112 Charles Ave"
+       "49 W State St"
+       "24 Third Ave"
+       
+**Cleaning categorical labels**
+
+The :func:`strreplace` procedure can be used to clean categorical labels and will simultaneously updated the mapping of labels and keyvalues. 
+
+::
+
+    // Create 5x1 string array
+    states = "CA" $| "FL" $| "California" $| "California" $| "FL";
+
+    // Convert the string array to a dataframe
+    // with the variable name 'States'
+    df_states = asdf(states, "States");
+
+    // Print the dataframe
+    print df_states;
+    
+    // Check category 
+    getCategories(df_states);
+
+After the above code our dataframe and categories are printed:
+
+::
+
+          States 
+              CA 
+              FL 
+      California 
+      California 
+              FL 
+
+      categories 
+              CA 
+      California 
+              FL 
+
+For the sake of analysis, the category ``CA`` and ``California`` are the same. This can be corrected using the :func:`strreplace` procedure.
+    
+::
+
+    // Search for the "California" label
+    search = "California";
+    
+    // Replace the "California" label with "CA"
+    replace = "CA";
+    
+    // Call 'strreplace'
+    df_states = strreplace(df_states, search, replace);
+  
+    // Print dataframe
+    print df_states;
+
+After this, all occurrences of ``California`` have been replaced with ``CA``. 
+
+::
+    
+        States
+            CA
+            FL
+            CA
+            CA
+            FL
+
+Checking the categories will confirm that the keyvalues and labels have been updated.
+
+::
+    
+    // Get updated categories
+    getCategories(df_states);
+
+As we see below, the observations that previously had the label "California", have now been merged with the "CA" category.
+
+::
+    
+     categories 
+             CA 
+             FL
+    
