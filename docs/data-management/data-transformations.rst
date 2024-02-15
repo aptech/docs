@@ -1024,7 +1024,7 @@ Panel data transformations
 ---------------------------
 The :func:`dfLonger` and :func:`dfWider` functions provide intuitive and comprehensive tools for converting between long-form and wide-form panel data. Both procedures work with g
 
-The ``dfLonger`` procedure 
+Reshaping to long-form data 
 +++++++++++++++++++++++++++
 The :func:`dfLonger` procedure transform wide-form GAUSS dataframes to long-form GAUSS dataframes. Setting up the :func:`dfLonger` procedure requires four basic steps:
 
@@ -1033,8 +1033,8 @@ The :func:`dfLonger` procedure transform wide-form GAUSS dataframes to long-form
 3. Name the new columns created in the long-form data for storing names.
 4. Name the new columns created in the long-form data for storing values. 
 
-Basic pivoting
-^^^^^^^^^^^^^^^
+Basic long-form pivoting
+^^^^^^^^^^^^^^^^^^^^^^^^
 Some wide-form datasets are easy to convert and can be done using the default settings. Consider the data in the *tiny_car_panel.csv* file. 
 
 ::
@@ -1089,8 +1089,8 @@ The *df_long* dataframe now contains the stacked panel data, with three variable
       1974-01-01       Cars_truck        1.0000000 
       1974-01-01         Cars_SUV        9.0000000
 
-Advanced pivoting
-^^^^^^^^^^^^^^^^^^
+Advanced long-form pivoting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The optional ``pivotControl`` structure allows you to control pivoting specifications using the following members:
 
 +------------------------+----------------------------------------------------------------------------+
@@ -1101,7 +1101,7 @@ The optional ``pivotControl`` structure allows you to control pivoting specifica
 |                        | long column.                                                               |
 +------------------------+----------------------------------------------------------------------------+
 | *names_sep_split*      | A string input which specifies which characters, if any, mark where the    |
-|                        | *names_to* names should be broken up.                                                             |
+|                        | *names_to* names should be broken up.                                      |                      
 +------------------------+----------------------------------------------------------------------------+
 | *names_pattern_split*  | A string input containing a regular expression specifying group(s) in      |
 |                        | *names_to* names which should be broken up.                                |
@@ -1135,7 +1135,7 @@ In terms of the four-step pivoting process:
 3. The names of the columns in the wide data contain information about the *event*, the *year*, and the *sex* of the athlete. 
 4. We will create a *scores* column to store the values in the long-form dataframe.
 
-Because of the more advanced structure of the names in the wide-form dataframe, a ``pivotControl`` structure should be used. 
+Because of the more advanced structure of the names in the wide-form dataframe, a ``pivotControl`` structure should be used.  
 
 ::
 
@@ -1182,7 +1182,151 @@ The *df_long* dataframe looks like:
             China            vault             2012                m        48.300000
             China            vault             2016                f        44.300000
             China            vault             2016                m        45.000000
-            
+
+Reshaping to wide-form data 
++++++++++++++++++++++++++++
+The :func:`dfWider` procedure transform long-form GAUSS dataframes to wide-form GAUSS dataframes. Setting up the :func:`dfWider` procedure requires four basic steps:
+1. Identifying the columns to pull the new wide-form column names from.  
+2. Identifying the columns to pull the new wide-form column values from.
+
+Basic wide-form pivoting
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Many long-form datasets can be converted to wide-form panels using the default :func:`dfWider` functionality.
+
+Consider the long-form data stored in the *eagle_nests_long.csv* data file:
+
+::
+
+    // Load long form data
+    fname = getGAUSSHome("examples/eagle_nests_long.csv");
+    df_long = loadd(fname);
+
+    print df_long;
+
+The *df_long* dataframe looks like:
+
+::
+
+             region                 year            num_nests
+            Pacific                 2007               1039.0
+            Pacific                 2009               2587.0
+          Southwest                 2007                 51.0
+          Southwest                 2009                176.0
+    Rocky Mountains                 2007                200.0
+    Rocky Mountains                 2009                338.0
+
+The values in the *num_nests* column and the names in the *year* column can be used to convert to a wide-form panel.
+
+::
+
+    // Specify columns to pull new column names from
+    names_from = "year";
+
+    // Specify columns to pull new column values from
+    values_from = "num_nests";
+
+    // Convert to wide form
+    df_wide = dfWider(df_long, names_from, values_from);
+
+    print df_wide;
+
+The *df_wide* dataframe looks like:
+
+::
+
+             region                 2007                 2009
+            Pacific               1039.0               2587.0
+    Rocky Mountains                200.0                338.0
+          Southwest                 51.0                176.0
+
+Advanced wide-form pivoting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The optional ``pivotControl`` structure includes an additional members that are useful in more complex cases of pivoting from wide-form to long-form. 
+
++------------------------+----------------------------------------------------------------------------+
+| Member                 | Purpose                                                                    |
++========================+============================================================================+
+| *names_prefix*         | A string input which specifies which characters, if any, should be stripped|
+|                        | from the front of the wide variable names before they are assigned to a    |
+|                        | long column.                                                               |
++------------------------+----------------------------------------------------------------------------+
+| *names_sep_combine*    | String, the characters, if any, that should be added between the tokens    |
+|                        | when creating the new variable names. Can only be used if the *names_from* |
+|                        | input contains multiple variable names                                     |
++------------------------+----------------------------------------------------------------------------+
+| *id_col*               | String array, containing the names of the variables that should be used to |    
+|                        | determine a unique observation.                                            | 
++------------------------+----------------------------------------------------------------------------+
+
+Consider the data used in the previous example, but add with an additional variable, *report_id*.
+
+::
+
+    // Create new report_id variable
+    report_id = {
+    61178,
+    73511,
+    26219,
+    14948,
+    67679,
+    71635
+    };
+
+    // Add report_id to the front of df_long
+    df_long = asdf(report_id, "report_id") ~ df_long;
+    print df_long;
+
+Now the *df_long* dataframe looks like:
+
+::
+
+    report_id          region            year       num_nests
+        61178         Pacific            2007            1039
+        73511         Pacific            2009            2587
+        26219       Southwest            2007              51
+        14948       Southwest            2009             176
+        67679 Rocky Mountains            2007             200
+        71635 Rocky Mountains            2009             338
+
+By default, dfWider will use all variables that are not in either names_from or values_from to uniquely identify the observations.
+
+::
+
+    // Convert to long-form panel using defaults
+    print dfWider(df_long, "year", "num_nests");
+
+::
+
+    report_id          region            2007            2009
+        14948       Southwest               .             176
+        26219       Southwest              51               .
+        61178         Pacific            1039               .
+        67679 Rocky Mountains             200               .
+        71635 Rocky Mountains               .             338
+        73511         Pacific               .            2587
+
+The pivotControl structure to tell :func:`dfWider`` to only use the region variable to uniquely identify the observations.
+
+::
+
+    // Declare 'pctl' to be a pivotControl structure
+    // and fill with default settings
+    struct pivotControl pctl;
+    pctl = pivotControlCreate();
+
+    // Specify `region` as id col
+    pctl.id_cols = "region";
+
+    // Pivot data
+    print dfWider(df_long, "year", "num_nests", pctl);
+
+::
+
+             region            2007            2009
+            Pacific            1039            2587
+    Rocky Mountains             200             338
+          Southwest              51             176
+
 Dummy variables
 -------------------------
 
