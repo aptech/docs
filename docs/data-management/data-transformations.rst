@@ -443,7 +443,7 @@ Now *x_new* is
                3
 
 Example: Change instances of tea types: ‘black’, ‘green’, ‘oolong’ to 9.95, 11.95 and 10.50, respectively.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -515,7 +515,7 @@ The :func:`reclassifyCuts` procedure:
   * Cutoff points can be used to define the right endpoint of an interval or the starting points of the next interval. The default is to use the cutoff points as starting points of the next interval.
 
 Example: Basic sequence
-+++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -590,7 +590,7 @@ This results in:
   0.50
 
 Example: Classifying blood pressure data
-++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -646,46 +646,6 @@ This splits the data in *bp* into three categories: those that fall below 120, t
 
   cut_pts = 120
             140
-
-Substituting values
-----------------------------
-
-The :func:`substute` function replaces values in a matrix based on the outcome of a logical expression.
-
-Example: Setting very small values to zero
-++++++++++++++++++++++++++++++++++++++++++++++
-
-::
-
-  // Create example vector
-  x = { 3.8e-21,
-        1.0,
-        3.5,
-    2.7e-18,
-        0.5,
-        3.0,
-    1.1e-16,
-        0.5,
-        2.2,
-        4.0 };
-
-  // Substitute all values less than 2.2e-16 with a zero
-  x_new = substute(x, x .< 2.25e-16, 0);
-
-This results in *x_new* equal to:
-
-::
-
-  0.00000000
-  1.0000000
-  3.5000000
-  0.00000000
-  0.50000000
-  3.0000000
-  0.00000000
-  0.50000000
-  2.2000000
-  4.0000000
 
 Recoding categorical data
 +++++++++++++++++++++++++++++
@@ -788,6 +748,47 @@ This prints the following:
          0        med
          1       high
          2        low
+
+Substituting values
+----------------------------
+
+The :func:`substute` function replaces values in a matrix based on the outcome of a logical expression.
+
+Example: Setting very small values to zero
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Create example vector
+  x = { 3.8e-21,
+        1.0,
+        3.5,
+    2.7e-18,
+        0.5,
+        3.0,
+    1.1e-16,
+        0.5,
+        2.2,
+        4.0 };
+
+  // Substitute all values less than 2.2e-16 with a zero
+  x_new = substute(x, x .< 2.25e-16, 0);
+
+This results in *x_new* equal to:
+
+::
+
+  0.00000000
+  1.0000000
+  3.5000000
+  0.00000000
+  0.50000000
+  3.0000000
+  0.00000000
+  0.50000000
+  2.2000000
+  4.0000000
+
 
 Time series transformations
 --------------------------------------------
