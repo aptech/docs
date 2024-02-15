@@ -32,7 +32,7 @@ Example: Sampling with replacement from a matrix
     // Take a sample of 5 rows of 'x' with replacement
     sample = sampleData(x, 5, replace);
 
-After the code above, *s* is equal to:
+After the code above, *sample* is equal to:
 
 ::
 
@@ -104,8 +104,8 @@ Example: Generating indices to sample from a matrix
       idx = rndi(100, 1, range_start | range_end);
 
       // Draw a 100 observation sample from 'fueleconomy'
-      fuel_sample = fueleconomy[idx, .];
-
+      fuel_sample = fueleconomy[idx, .];      
+      
 Sampling without replacement from a matrix
 --------------------------------------------
 The :func:`sampleData` procedure can also be used to sample from a matrix or dataframe without replaced.  In this case, the final argument should be set to 0 to indicate sampling without replacement.
