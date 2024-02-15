@@ -56,7 +56,7 @@ The code above prints the first five rows of the data to the screen.
 .. note:: By default, :func:`loadd` will try and determine whether the first row of CSV and Excel files contains variable names. If it is not guessin correctly, this can be overridden using the ``loadFileControl`` structure.
 
 GAUSS formula string basics
--------------------------------------------------
+----------------------------
 
 GAUSS formula strings allow you to represent a model or collection of variables in a compact and intuitive manner, using the variable names in the dataset.
 
