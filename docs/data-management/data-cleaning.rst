@@ -1238,7 +1238,7 @@ Excess whitespaces in strings and categorical variables can lead to unexpected r
     print names_df[3];
     print names_df[4];
     
-Printing the third and fourth elements of *names_df*` highlights the whitespaces in the *First Name* variable.
+Printing the third and fourth elements of *names_df* highlights the whitespaces in the *First Name* variable.
 
 ::
 
@@ -1400,7 +1400,7 @@ Searching and replacing is a key part of cleaning strings and categorical data. 
     
 **Searching across multiple variables**
 
-The :func:`strindx` and :func:`strrindx` procedures perform element-by-element searches for substrings in string arrays. It returns the starting indices of the substring or a 0 if the substring is not found.  
+The :func:`strindx` and :func:`strrindx` procedures perform element-by-element searches for substrings in string arrays. They return the starting indices of the substring or a 0 if the substring is not found.  
 
 ::
  
@@ -1552,7 +1552,7 @@ The :func:`strreplace` procedure can be used to clean categorical labels and wil
     // Check category 
     getCategories(df_states);
 
-After the above code our dataframe and categories are printed:
+The *df_states* dataframe is:
 
 ::
 
@@ -1563,12 +1563,16 @@ After the above code our dataframe and categories are printed:
    California 
            FL 
 
+And the associated categories are:
+
+::
+
    categories 
            CA 
    California 
            FL 
 
-For the sake of analysis, the category ``CA`` and ``California`` are the same. This can be corrected using the :func:`strreplace` procedure.
+Suppose that for the sake of our analysis, the category ``CA`` and ``California`` are treated the same. This can be corrected using the :func:`strreplace` procedure.
     
 ::
 
