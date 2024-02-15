@@ -25,8 +25,8 @@ The :func:`rescale` function provides 8 different scaling options and returns th
 | ``“ustd”``         | 0                          |  Standard deviation around origin            |
 +--------------------+----------------------------+----------------------------------------------+
 
-Example: Rescaling with a specified scaling method
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Rescaling with a specified scaling method
++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -90,8 +90,8 @@ After the code above:
 
 The :func:`rescale` function can also be used with a known location and scale factor to rescale data.
 
-Example: Rescaling using known location and scaling factors
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rescaling using known location and scaling factors
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -125,8 +125,8 @@ After the code above *x_s2* is equal to:
 
 The :func:`rescale` function can also be used to rescale multiple columns at time.
 
-Example: Rescaling multiple columns
-+++++++++++++++++++++++++++++++++++++++
+Rescaling multiple columns
+++++++++++++++++++++++++++++
 
 ::
 
@@ -164,6 +164,7 @@ Example: Rescaling multiple columns
 
 Recoding and reclassifying
 --------------------------------
+
 GAUSS provides a variety of tools for recoding and reclassifying data. These functions can be divided into functions for numeric data and functions for categorical data.
 
 +------------------------+----------------------------------------------------------------------------+------------------------------------------+
@@ -190,8 +191,8 @@ GAUSS provides a variety of tools for recoding and reclassifying data. These fun
 | :func:`recodeCatLabels` | Replaces the labels of categorical variables with new labels.                  |
 +-------------------------+--------------------------------------------------------------------------------+
 
-**Recoding and reclassifying non-categorical data**
-
+Recoding and reclassifying non-categorical data
++++++++++++++++++++++++++++++++++++++++++++++++++
 Both the :func:`code` and :func:`recode` procedures can be used to recode data using conditional expressions.
 
 The :func:`code` procedure:
@@ -201,7 +202,7 @@ The :func:`code` procedure:
 * Works for vectors only.
 
 Example:  Coding blood pressure data to create a new (binary) class variable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -241,7 +242,7 @@ classes based on whether x is less than 120.
      155              0             2
 
 Example:  Coding blood pressure data to create a new multi-class variable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -287,7 +288,8 @@ Now *x_class* splits the original data into three classes based on whether *x* i
 
 .. note:: The :func:`setColLabels` function can be used to specify *x_class* as a categorical variable and to assign labels to the classes.
 
-**Recoding values of an existing vector**
+Recoding values of an existing vector
++++++++++++++++++++++++++++++++++++++
 
 The :func:`recode` procedure :
 
@@ -302,7 +304,7 @@ Some notes to remember about :func:`recode`:
 *  If every column of logical expression matrix contains a 0, the original value of the data matrix will be unchanged.
 
 Example: Recoding numeric values based on ranges
-++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -359,7 +361,8 @@ Note that in this example *x_new* is as follows:
           63.000000
           1.2000000
 
-**Reclassifying data**
+Reclassifying data
++++++++++++++++++++
 
 The :func:`reclassify` and :func:`reclassifyCuts` procedures can be used to reclassify existing values to new values.
 
@@ -372,7 +375,7 @@ The :func:`reclassify` procedure:
 .. note:: The :func:`reclassify` function can reclassify matrices to string arrays but does not create a dataframe. To create a dataframe with a string labels from an existing matrix see :func:`asDF`.
 
 Example: Change instances of 1, 2 and 3 to ‘low’, ‘medium’ and ‘high’.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -587,7 +590,7 @@ This results in:
   0.50
 
 Example: Classifying blood pressure data
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -684,12 +687,12 @@ This results in *x_new* equal to:
   2.2000000
   4.0000000
 
-**Recoding categorical data**
-
+Recoding categorical data
++++++++++++++++++++++++++++++
 The :func:`recodeCatLabels` can be use to change the labels on categorical variables in a dataframe.
 
 Example: Recoding categories in yarn dataset
-++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -737,8 +740,8 @@ This prints the following:
        1         sm
        2         md
 
-**Reordering categorical data**
-
+Reordering categorical data
++++++++++++++++++++++++++++++
 The :func:`reorderCatLabels` can be use to change the key values associated with categorical labels.
 
 ::
@@ -820,8 +823,8 @@ The ExE conformability requirement means that :func:`lagn` can be used to comput
 
 Because missing values are not removed by the :func:`lagn` and :func:`lag1` procedures, the returns from these procedures will always have the same number of rows as the input, *x*.
 
-Example: Computing a single lag of a matrix with `lagn`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Computing a single lag of a matrix with `lagn`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In this example the *PPI* matrix contains two variables:
 
 *  A date column named, *date*
@@ -853,8 +856,8 @@ Our preview shows that the first element of the *PPI_lag* vector is a missing va
      1913-03-01        12.000000
      1913-04-01        12.000000
 
-Example: Computing a different lags of each column of a matrix with ``lagn``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Computing a different lags of each column of a matrix with ``lagn``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To compute different lags of each column of data at the same time, a vector input of lags specifying a separate lag for each column of data can be used. Note that the lag vector must have the same number of elements as the number of columns in the matrix being lagged:
 
 ::
@@ -877,8 +880,8 @@ This computes the first lag of the *PPIACO* variable and the second lag of the *
 ::
 
 
-Example: Computing a different lags of vector of data using ``lagn``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Computing a different lags of vector of data using ``lagn``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -914,8 +917,8 @@ The :func:`lagTrim` procedure removes resulting missing values from lagging the 
 
 The return from the :func:`lagTrim` procedure will have a number of rows equal to the number of rows of the input *x* minus the maximum number of lags specified in *t*.
 
-Example: Computing multiple lags without missing values
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Computing multiple lags without missing values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -967,8 +970,8 @@ The :func:`shiftc` procedure shifts columns of a data matrix and requires three 
 
 The return from the :func:`shiftc` procedure will have a number of rows equal to the number of rows of the data input. The :func:`shiftc` procedure can be used to fill the shifted rows with values other than missing values.
 
-Example: Shifting columns of a data matrix
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Shifting columns of a data matrix
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -1019,10 +1022,13 @@ After the above code:
 
 Dummy variables
 -------------------------
+
+Automatic treatment of categorical variables in estimation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Categorical variables in dataframes will automatically be treated as dummy variables in GAUSS estimation routines. This means no extra steps are necessary to include categorical variables in regression.
 
 Example: Include a categorical variable in OLS
-+++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -1051,8 +1057,8 @@ The categorical variable *rep78* will automatically be included in the OLS regre
 
 The categories of *rep78*, ``"Fair"``, ``"Average"``, ``"Good"``, and ``"Excellent"``, are included as dummy variables in the regression. The ``"Poor"`` category is excluded from the regression, as it is the base case.
 
-Example: Including a categorical variable in GLM estimation
-------------------------------------------------------------
+Example: Include a categorical variable in GLM estimation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -1079,6 +1085,10 @@ Example: Including a categorical variable in GLM estimation
   rep78: Good                1693.8           1942.7          0.87191         0.386566
   rep78: Excellent             3132             2041           1.5345         0.129915
 
+
+Generating dummy variables outside of estimation
++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Outside of estimation, dummy variables can be created using a number of procedures:
 
 +------------------------+----------------------------------------------------------------------------+
@@ -1099,7 +1109,7 @@ Outside of estimation, dummy variables can be created using a number of procedur
 
 
 Example: Create dummy variables based on BP classes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This example builds on an earlier example, in which BP data was split into 3 classes using :func:`reclassify`.
 
 ::
@@ -1130,7 +1140,7 @@ After this code *dv_bp_classes* is equal to:
        0      0      1
 
 Example: Create dummy variables from continuous BP data
----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The :func:`dummybr` variable can be used to generate dummy variables from the ranges of
 original BP data.
 
@@ -1162,7 +1172,7 @@ Note that *dv_bp* is the same as *dv_bp_classes* from the first example:
   0      0      1
 
 Example: Create dummy variables from continuous BP data and drop first column
-------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The :func:`dummydn` variable can be used to generate dummy variables from the ranges of
 original BP data.
 
