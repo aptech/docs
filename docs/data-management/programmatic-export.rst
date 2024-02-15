@@ -71,7 +71,7 @@ Example: Load Stata dataset and save to a .gdat file
 
 Opening the file `auto.gdat` in the *Data Import* window provides a preview of the created file, *auto.gdat*:
 
-.. figure:: _static/images/autogdat.jpg
+.. figure:: ../_static/images/autogdat.jpg
    :scale: 50 %
 
 
