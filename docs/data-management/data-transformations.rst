@@ -789,7 +789,7 @@ This prints the following:
          1       high
          2        low
 
-Time Series Transformations
+Time series transformations
 --------------------------------------------
 While data lags, leads, differences and recursive terms can always be computed using matrix operations, GAUSS also includes built-in tools for these transformations.
 
@@ -960,7 +960,7 @@ The *beef_lagTrim* matrix has 282 rows, 3 less than the input data *beef*:
   Rows in lagged data:
   282.00000
 
-Shifting data with the ```shiftc`` procedure
+Shifting data with the ``shiftc`` procedure
 +++++++++++++++++++++++++++++++++++++++++++++++
 The :func:`shiftc` procedure shifts columns of a data matrix and requires three inputs:
 
@@ -1020,6 +1020,169 @@ After the above code:
 
 
 
+Panel data transformations
+---------------------------
+The :func:`dfLonger` and :func:`dfWider` functions provide intuitive and comprehensive tools for converting between long-form and wide-form panel data. Both procedures work with g
+
+The ``dfLonger`` procedure 
++++++++++++++++++++++++++++
+The :func:`dfLonger` procedure transform wide-form GAUSS dataframes to long-form GAUSS dataframes. Setting up the :func:`dfLonger` procedure requires four basic steps:
+
+1. Identify the variables contained in the wide-form dataset. 
+2. Identify the columns to convert. 
+3. Name the new columns created in the long-form data for storing names.
+4. Name the new columns created in the long-form data for storing values. 
+
+Basic pivoting
+^^^^^^^^^^^^^^^
+Some wide-form datasets are easy to convert and can be done using the default settings. Consider the data in the *tiny_car_panel.csv* file. 
+
+::
+
+    // Load data
+    file_name = getGAUSSHome("examples/tiny_car_panel.csv");
+    df_wide = loadd(file_name);
+
+    print df_wide;
+
+This function is a wide-form panel dataset:
+
+::
+
+         Years     Cars_compact       Cars_truck         Cars_SUV
+    1973-01-01        5.0000000                .        3.0000000
+    1974-01-01        2.0000000        1.0000000        9.0000000
+
+This dataset contains counts of different car types across different years. In terms of our four step process:
+
+1. The variable contained in the wide-form dataset is car-types *count*.
+2. The columns to convert are *Cars_compact*, *Cars_trucks*, and *Cars_SUV*.
+3. We will create a *Car Class* column to store car type names. 
+4. We will create a *counts* column to store counts of car types. 
+
+::
+
+    // Get all column names and remove the first column name, 'Years'
+    columns = getcolnames(df_wide);
+    columns = trimr(columns, 1, 0);
+    
+    // Specify the new column to store names
+    names_to = "Class";
+    
+    // Specify the new column to store values
+    values_to = "Count";
+
+    // Convert data using 'dfLonger'
+    df_long = dfLonger(df_wide, columns, names_to, values_to);
+
+    print df_long;
+
+The *df_long* dataframe now contains the stacked panel data, with three variables, *Years*, *Class*, and *Count*.
+
+::
+
+           Years            Class            Count 
+      1973-01-01     Cars_compact        5.0000000 
+      1973-01-01       Cars_truck                . 
+      1973-01-01         Cars_SUV        3.0000000 
+      1974-01-01     Cars_compact        2.0000000 
+      1974-01-01       Cars_truck        1.0000000 
+      1974-01-01         Cars_SUV        9.0000000
+
+Advanced pivoting
+^^^^^^^^^^^^^^^^^^
+The optional ``pivotControl`` structure allows you to control pivoting specifications using the following members:
+
++------------------------+----------------------------------------------------------------------------+
+| Member                 | Purpose                                                                    |
++========================+============================================================================+
+| *names_prefix*         | A string input which specifies which characters, if any, should be stripped|
+|                        | from the front of the wide variable names before they are assigned to a    |
+|                        | long column.                                                               |
++------------------------+----------------------------------------------------------------------------+
+| *names_sep_split*      | A string input which specifies which characters, if any, mark where the    |
+|                        | *names_to* names should be broken up.                                                             |
++------------------------+----------------------------------------------------------------------------+
+| *names_pattern_split*  | A string input containing a regular expression specifying group(s) in      |
+|                        | *names_to* names which should be broken up.                                |
++------------------------+----------------------------------------------------------------------------+
+| *names_types*          | A string input specifying data types for the names_to variable.            |
++------------------------+----------------------------------------------------------------------------+
+| *values_drop_missing*  | Scalar, is set to 1 all rows with missing values will be removed.          |
++------------------------+----------------------------------------------------------------------------+
+
+Consider a more advanced case using the *olympic_vault_wide.csv* data file.
+
+::
+
+    // Load the data
+    df_wide = loadd(getGAUSSHome("examples/olympic_vault_wide.csv"));
+    print df_wide;
+
+This wide dataset looks like:
+
+::
+
+          Country     vault_2012_f     vault_2012_m     vault_2016_f     vault_2016_m
+    United States        48.100000        46.600000        46.900000        45.900000
+           Russia        46.400000        46.900000        45.700000        46.000000
+            China        44.300000        48.300000        44.300000        45.000000
+
+In terms of the four-step pivoting process:
+
+1. The variable contained in the wide-form dataframe is scores. 
+2. The columns to convert are all columns with the exception of the first column. 
+3. The names of the columns in the wide data contain information about the *event*, the *year*, and the *sex* of the athlete. 
+4. We will create a *scores* column to store the values in the long-form dataframe.
+
+Because of the more advanced structure of the names in the wide-form dataframe, a ``pivotControl`` structure should be used. 
+
+::
+
+    // Get the list of variables to pivot
+    // and remove the first column name, 'Country'
+    columns =  getcolnames(df_wide);
+    columns = trimr(columns, 1, 0);
+
+    // Declare 'pctl' to be a pivotControl structure
+    // and fill with default settings
+    struct pivotControl pctl;
+    pctl = pivotControlCreate();
+
+    // Split the variable names from 'columns', i.e. vault_2012_f, etc
+    // every time an underscore is encountered
+    pctl.names_sep_split = "_";
+
+    // Set variable names for the new columns
+    names_to = "event" $| "year" $| "gender";
+
+    // Set name of value column
+    values_to = "score";
+
+    // Convert 'year' to be a date variable.
+    pctl.names_types = { "year" "date" };
+
+    df_long = dfLonger(df_wide, columns, names_to, values_to, pctl);
+    print df_long;
+
+The *df_long* dataframe looks like:
+
+::
+
+          Country            event             year           gender            score
+    United States            vault             2012                f        48.100000
+    United States            vault             2012                m        46.600000
+    United States            vault             2016                f        46.900000
+    United States            vault             2016                m        45.900000
+           Russia            vault             2012                f        46.400000
+           Russia            vault             2012                m        46.900000
+           Russia            vault             2016                f        45.700000
+           Russia            vault             2016                m        46.000000
+            China            vault             2012                f        44.300000
+            China            vault             2012                m        48.300000
+            China            vault             2016                f        44.300000
+            China            vault             2016                m        45.000000
+            
 Dummy variables
 -------------------------
 
