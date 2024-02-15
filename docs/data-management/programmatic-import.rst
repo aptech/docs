@@ -39,6 +39,19 @@ To load all variables from a dataset using :func:`loadd`, only the file name is 
     // Load all variables from the file
     housing = loadd(dataset);
 
+    // Preview the loaded data
+    head(housing);
+
+The code above prints the first five rows of the data to the screen.
+
+::
+
+           taxes             beds            baths              new            price             size 
+       3104.0000        4.0000000        2.0000000        0.0000000        279.90000        2048.0000 
+       1173.0000        2.0000000        1.0000000        0.0000000        146.50000        912.00000 
+       3076.0000        4.0000000        2.0000000        0.0000000        237.70000        1654.0000 
+       1608.0000        3.0000000        2.0000000        0.0000000        200.00000        2068.0000 
+       1454.0000        3.0000000        3.0000000        0.0000000        159.90000        1477.0000 
 
 .. note:: By default, :func:`loadd` will try and determine whether the first row of CSV and Excel files contains variable names. If it is not guessin correctly, this can be overridden using the ``loadFileControl`` structure.
 
@@ -94,14 +107,29 @@ Formula strings also allow data transformations during loading.
 Load a subset of variables using a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+In this example, we use a formula string to load two variables, *unemployment* and *hourly_earn*, from the ``detroit.dta`` file. 
+
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome("examples/detroit.sas7bdat");
+    dataset = getGAUSSHome("examples/detroit.dta");
 
     // Load two specific variables from the file
     detroit = loadd(dataset, "unemployment + hourly_earn");
 
+    // Preview the data
+    head(detroit);
+
+The first five rows of the *detroit* dataframe look like:
+
+::
+
+    unemployment      hourly_earn 
+       11.000000        2.9800000 
+       7.0000000        3.0900000 
+       5.2000000        3.2300000 
+       4.3000000        3.3300000 
+       3.5000000        3.4600000
 
 Load all variables except one using a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -114,6 +142,19 @@ Load all variables except one using a formula string
     // Load all variables except for date
     xle = loadd(dataset, ". -date");
 
+    // Preview data 
+    head(xle);
+
+The first five rows of the *xle* dataframe look like:
+
+::
+
+       Adj Close           Volume 
+       65.158432        15807900. 
+       63.978832        30280200. 
+       63.495384        19258900. 
+       64.545837        24621000. 
+       64.136948        15678400.
 
 Load categorical variables using a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -130,6 +171,16 @@ Some datasets such as, GDAT, SAS, Stata (.dta), and SPSS store variable type inf
     // information is contained in the dataset
     auto = loadd(dataset, "price + rep78");
 
+    // Check types
+    ("Variable" $| getColNames(auto)) $~ getColTypes(auto);
+
+The automatically loaded variable types are:
+
+::
+
+            type 
+          number 
+        category
 
 Excel, CSV, and other text files do not store variable type descriptions and can only pass string or numeric data to GAUSS. In these cases, GAUSS uses intelligent type detection to auto-detect variable types, including categorical data.
 
@@ -142,6 +193,15 @@ If a categorical variable is not automatically detected by GAUSS, use the ``cat`
 
     // Load amplitude as a categorical variable and cycles as numeric
     yarn = loadd(dataset, "cat(amplitude) + cycles");
+
+    // Check types
+    getColTypes(yarn);
+
+::
+
+            type 
+        category 
+          number 
 
 Load and transform variables using a formula string
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -891,7 +951,7 @@ The :func:`dbnomics_search` procedure takes a string search input and returns se
     
                 code         dir_hash       indexed_at             name nb_matching_seri        nb_series    provider_code    provider_name       updated_at
          gov_10a_exp fab720436a1f72a3 2022-04-22T11:17 General governme        12800.000           129902         Eurostat         Eurostat 2022-04-22T00:00
-    CHELEM-TRADE-IND 7cfd7c7a78b84ede 2022-09-02T09:35 CHELEM - Interna        4937.0000           797304            CEPII Centre d'études                .
+    CHELEM-TRADE-IND 7cfd7c7a78b84ede 2022-09-02T09:35 CHELEM - Interna        4937.0000           797304            CEPII Centre d'ï¿½tudes                .
         nasa_10_f_cp aa9a1cb003e7d567 2022-10-15T10:03 Financial accoun        4330.0000           163206         Eurostat         Eurostat 2022-10-15T00:00
         nasa_10_f_bs 5fe95bd760e282a4 2022-10-27T11:06 Financial balanc        3670.0000           344205         Eurostat         Eurostat 2022-10-27T00:00
         nasa_10_f_tr b69e7b63f3d59d44 2022-10-27T11:06 Financial transa        3655.0000           329303         Eurostat         Eurostat 2022-10-27T00:00
