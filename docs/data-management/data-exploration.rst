@@ -173,7 +173,7 @@ In this example, a categorical variable name is specified for grouping.
 ::
 
   // Load 'auto2' data
-  fname = getGAUSSHome("examples/auto2.dta")
+  fname = getGAUSSHome("examples/auto2.dta");
   auto2 = loadd(fname);
 
   // Aggregate data using foreign column as group
@@ -513,7 +513,7 @@ The *unusedCategories* member of the :class:`tabControl` structure can be used t
     tbctl.unusedLevels = 0;
 
     // Compute and print the frequency table
-    call tabulate(tips, "day ~ smoker", tbctl);
+    call tabulate(tips_subset, "day ~ smoker", tbctl);
 
 The table no longer includes the unused categories from the table. 
 
@@ -600,7 +600,7 @@ Example:Finding correlation of height and weight in NBA players
 
 
   // Calculate correlation of height and weight
-  corr_nba = corrxs(nba_ht_wt[., "Height" "Weight"]);
+  corrxs(nba_ht_wt[., "Height" "Weight"]);
 
 This prints the correlations to screen:
 
@@ -637,10 +637,6 @@ Example: Finding variance/covariance of height and weight in NBA players
   fname = getGAUSSHome("examples/nba_ht_wt.xls");
   nba_ht_wt = loadd(fname);
 
-
-  // Calculate correlation of
-  // height and weight
-  corr_nba = corrxs(nba_ht_wt[., "Height" "Weight"]);
 
   // Calculate variance-covariance
   // of height and weight
