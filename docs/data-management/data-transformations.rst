@@ -1289,7 +1289,7 @@ Now the *df_long* dataframe looks like:
         67679 Rocky Mountains            2007             200
         71635 Rocky Mountains            2009             338
 
-By default, dfWider will use all variables that are not in either names_from or values_from to uniquely identify the observations.
+By default, :func:`dfWider` will use all variables that are not in either *names_from* or *values_from* to uniquely identify the observations.
 
 ::
 
@@ -1306,7 +1306,7 @@ By default, dfWider will use all variables that are not in either names_from or 
         71635 Rocky Mountains               .             338
         73511         Pacific               .            2587
 
-The pivotControl structure to tell :func:`dfWider`` to only use the region variable to uniquely identify the observations.
+The ``pivotControl`` structure can be used to tell :func:`dfWider`` to only use the *region* variable to uniquely identify the observations.
 
 ::
 

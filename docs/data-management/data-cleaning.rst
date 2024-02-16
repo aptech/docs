@@ -25,7 +25,7 @@ The **Data Management** pane contains:
     * Change date display formats.
 
 
-Open the Data Management page
+Open the Data Management pane
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
@@ -211,6 +211,12 @@ If your data looked like this ``03/12/2017``, the correct format string would be
 
 The **Format Options** section of this dialog contains the BSD strftime specifiers for reference. Use the **Filter** drop-down to filter the reference options shown.
 
+Further Reading
+++++++++++++++++
+
+1. `Preparing and Cleaning FRED data in GAUSS <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_
+2. `Quick and Easy Interactive Data Cleaning  <https://youtu.be/jhLP_iJeheA>`_ 
+3. `Easy Management of Categorical Variables <https://www.aptech.com/blog/easy-management-of-categorical-variables/>`_
 
 Programmatic Data Cleaning
 ------------------------------
@@ -1727,5 +1733,11 @@ There are additional steps that will help further clean this data:
         SC       Charleston 
         NC          Raleigh
     
+Further Reading
+++++++++++++++++
 
+1. `Preparing and Cleaning FRED data in GAUSS <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_
+2. `Managing String Data with GAUSS Dataframes  <https://www.aptech.com/blog/managing-string-data-with-gauss-dataframes/>`_ 
+3. `Getting Started With Survey Data In GAUSS <https://www.aptech.com/blog/getting-started-with-survey-data-in-gauss/>`_
+4. `Getting to Know Your Data With GAUSS 22 <https://www.aptech.com/blog/getting-to-know-your-data-with-gauss-22/>`_
     
