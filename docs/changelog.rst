@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 24.0.4
 ------
 
+#. Bug fix: :func:`dfwider` would fail with an error if the ``id_cols`` control structure member was used in an unnecessary, but correct manner.
 #. Bug fix: :func:`dstatmt` would fail with an error if used with the `by` keyword for a categorical variable that only contained a single category.
 #. Bug fix: :func:`dropcategories` would error out if more than one category to drop was passed in.
 #. Bug fix: In a specific case the `.$==` operator with a dataframe on the left and a string on the right that was shorter than the dataframe element, but identical for all characters it contained, would be reported as equal.
