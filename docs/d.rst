@@ -125,6 +125,7 @@ D
     dropcategories
     dropdataloop
     dropduplicates
+    dropunusedcategories
     dscreate
     dstatmtcontrolcreate
     dstatmt
