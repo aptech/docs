@@ -25,8 +25,8 @@ The :func:`rescale` function provides 8 different scaling options and returns th
 | ``“ustd”``         | 0                          |  Standard deviation around origin            |
 +--------------------+----------------------------+----------------------------------------------+
 
-Example: Rescaling with a specified scaling method
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Rescaling with a specified scaling method
++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -90,8 +90,8 @@ After the code above:
 
 The :func:`rescale` function can also be used with a known location and scale factor to rescale data.
 
-Example: Rescaling using known location and scaling factors
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rescaling using known location and scaling factors
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -125,8 +125,8 @@ After the code above *x_s2* is equal to:
 
 The :func:`rescale` function can also be used to rescale multiple columns at time.
 
-Example: Rescaling multiple columns
-+++++++++++++++++++++++++++++++++++++++
+Rescaling multiple columns
+++++++++++++++++++++++++++++
 
 ::
 
@@ -164,6 +164,7 @@ Example: Rescaling multiple columns
 
 Recoding and reclassifying
 --------------------------------
+
 GAUSS provides a variety of tools for recoding and reclassifying data. These functions can be divided into functions for numeric data and functions for categorical data.
 
 +------------------------+----------------------------------------------------------------------------+------------------------------------------+
@@ -190,8 +191,8 @@ GAUSS provides a variety of tools for recoding and reclassifying data. These fun
 | :func:`recodeCatLabels` | Replaces the labels of categorical variables with new labels.                  |
 +-------------------------+--------------------------------------------------------------------------------+
 
-**Recoding and reclassifying non-categorical data**
-
+Recoding and reclassifying non-categorical data
++++++++++++++++++++++++++++++++++++++++++++++++++
 Both the :func:`code` and :func:`recode` procedures can be used to recode data using conditional expressions.
 
 The :func:`code` procedure:
@@ -201,7 +202,7 @@ The :func:`code` procedure:
 * Works for vectors only.
 
 Example:  Coding blood pressure data to create a new (binary) class variable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -241,7 +242,7 @@ classes based on whether x is less than 120.
      155              0             2
 
 Example:  Coding blood pressure data to create a new multi-class variable
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -287,7 +288,8 @@ Now *x_class* splits the original data into three classes based on whether *x* i
 
 .. note:: The :func:`setColLabels` function can be used to specify *x_class* as a categorical variable and to assign labels to the classes.
 
-**Recoding values of an existing vector**
+Recoding values of an existing vector
++++++++++++++++++++++++++++++++++++++
 
 The :func:`recode` procedure :
 
@@ -302,7 +304,7 @@ Some notes to remember about :func:`recode`:
 *  If every column of logical expression matrix contains a 0, the original value of the data matrix will be unchanged.
 
 Example: Recoding numeric values based on ranges
-++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -359,7 +361,8 @@ Note that in this example *x_new* is as follows:
           63.000000
           1.2000000
 
-**Reclassifying data**
+Reclassifying data
++++++++++++++++++++
 
 The :func:`reclassify` and :func:`reclassifyCuts` procedures can be used to reclassify existing values to new values.
 
@@ -372,7 +375,7 @@ The :func:`reclassify` procedure:
 .. note:: The :func:`reclassify` function can reclassify matrices to string arrays but does not create a dataframe. To create a dataframe with a string labels from an existing matrix see :func:`asDF`.
 
 Example: Change instances of 1, 2 and 3 to ‘low’, ‘medium’ and ‘high’.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -440,7 +443,7 @@ Now *x_new* is
                3
 
 Example: Change instances of tea types: ‘black’, ‘green’, ‘oolong’ to 9.95, 11.95 and 10.50, respectively.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -512,7 +515,7 @@ The :func:`reclassifyCuts` procedure:
   * Cutoff points can be used to define the right endpoint of an interval or the starting points of the next interval. The default is to use the cutoff points as starting points of the next interval.
 
 Example: Basic sequence
-+++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -587,7 +590,7 @@ This results in:
   0.50
 
 Example: Classifying blood pressure data
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -644,52 +647,12 @@ This splits the data in *bp* into three categories: those that fall below 120, t
   cut_pts = 120
             140
 
-Substituting values
-----------------------------
-
-The :func:`substute` function replaces values in a matrix based on the outcome of a logical expression.
-
-Example: Setting very small values to zero
-++++++++++++++++++++++++++++++++++++++++++++++
-
-::
-
-  // Create example vector
-  x = { 3.8e-21,
-        1.0,
-        3.5,
-    2.7e-18,
-        0.5,
-        3.0,
-    1.1e-16,
-        0.5,
-        2.2,
-        4.0 };
-
-  // Substitute all values less than 2.2e-16 with a zero
-  x_new = substute(x, x .< 2.25e-16, 0);
-
-This results in *x_new* equal to:
-
-::
-
-  0.00000000
-  1.0000000
-  3.5000000
-  0.00000000
-  0.50000000
-  3.0000000
-  0.00000000
-  0.50000000
-  2.2000000
-  4.0000000
-
-**Recoding categorical data**
-
+Recoding categorical data
++++++++++++++++++++++++++++++
 The :func:`recodeCatLabels` can be use to change the labels on categorical variables in a dataframe.
 
 Example: Recoding categories in yarn dataset
-++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -737,8 +700,8 @@ This prints the following:
        1         sm
        2         md
 
-**Reordering categorical data**
-
+Reordering categorical data
++++++++++++++++++++++++++++++
 The :func:`reorderCatLabels` can be use to change the key values associated with categorical labels.
 
 ::
@@ -786,7 +749,48 @@ This prints the following:
          1       high
          2        low
 
-Time Series Transformations
+Substituting values
+----------------------------
+
+The :func:`substute` function replaces values in a matrix based on the outcome of a logical expression.
+
+Example: Setting very small values to zero
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+  // Create example vector
+  x = { 3.8e-21,
+        1.0,
+        3.5,
+    2.7e-18,
+        0.5,
+        3.0,
+    1.1e-16,
+        0.5,
+        2.2,
+        4.0 };
+
+  // Substitute all values less than 2.2e-16 with a zero
+  x_new = substute(x, x .< 2.25e-16, 0);
+
+This results in *x_new* equal to:
+
+::
+
+  0.00000000
+  1.0000000
+  3.5000000
+  0.00000000
+  0.50000000
+  3.0000000
+  0.00000000
+  0.50000000
+  2.2000000
+  4.0000000
+
+
+Time series transformations
 --------------------------------------------
 While data lags, leads, differences and recursive terms can always be computed using matrix operations, GAUSS also includes built-in tools for these transformations.
 
@@ -820,8 +824,8 @@ The ExE conformability requirement means that :func:`lagn` can be used to comput
 
 Because missing values are not removed by the :func:`lagn` and :func:`lag1` procedures, the returns from these procedures will always have the same number of rows as the input, *x*.
 
-Example: Computing a single lag of a matrix with `lagn`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Computing a single lag of a matrix with `lagn`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In this example the *PPI* matrix contains two variables:
 
 *  A date column named, *date*
@@ -853,8 +857,8 @@ Our preview shows that the first element of the *PPI_lag* vector is a missing va
      1913-03-01        12.000000
      1913-04-01        12.000000
 
-Example: Computing a different lags of each column of a matrix with ``lagn``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Computing a different lags of each column of a matrix with ``lagn``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To compute different lags of each column of data at the same time, a vector input of lags specifying a separate lag for each column of data can be used. Note that the lag vector must have the same number of elements as the number of columns in the matrix being lagged:
 
 ::
@@ -877,8 +881,8 @@ This computes the first lag of the *PPIACO* variable and the second lag of the *
 ::
 
 
-Example: Computing a different lags of vector of data using ``lagn``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Computing a different lags of vector of data using ``lagn``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -914,8 +918,8 @@ The :func:`lagTrim` procedure removes resulting missing values from lagging the 
 
 The return from the :func:`lagTrim` procedure will have a number of rows equal to the number of rows of the input *x* minus the maximum number of lags specified in *t*.
 
-Example: Computing multiple lags without missing values
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Computing multiple lags without missing values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -957,7 +961,7 @@ The *beef_lagTrim* matrix has 282 rows, 3 less than the input data *beef*:
   Rows in lagged data:
   282.00000
 
-Shifting data with the ```shiftc`` procedure
+Shifting data with the ``shiftc`` procedure
 +++++++++++++++++++++++++++++++++++++++++++++++
 The :func:`shiftc` procedure shifts columns of a data matrix and requires three inputs:
 
@@ -967,8 +971,8 @@ The :func:`shiftc` procedure shifts columns of a data matrix and requires three 
 
 The return from the :func:`shiftc` procedure will have a number of rows equal to the number of rows of the data input. The :func:`shiftc` procedure can be used to fill the shifted rows with values other than missing values.
 
-Example: Shifting columns of a data matrix
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Shifting columns of a data matrix
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -1017,12 +1021,322 @@ After the above code:
 
 
 
+Panel data transformations
+---------------------------
+The :func:`dfLonger` and :func:`dfWider` functions provide intuitive and comprehensive tools for converting between long-form and wide-form panel data. Both procedures work with g
+
+Reshaping to long-form data 
++++++++++++++++++++++++++++
+The :func:`dfLonger` procedure transform wide-form GAUSS dataframes to long-form GAUSS dataframes. Setting up the :func:`dfLonger` procedure requires four basic steps:
+
+1. Identify the variables contained in the wide-form dataset. 
+2. Identify the columns to convert. 
+3. Name the new columns created in the long-form data for storing names.
+4. Name the new columns created in the long-form data for storing values. 
+
+Basic long-form pivoting
+^^^^^^^^^^^^^^^^^^^^^^^^
+Some wide-form datasets are easy to convert and can be done using the default settings. Consider the data in the *tiny_car_panel.csv* file. 
+
+::
+
+    // Load data
+    file_name = getGAUSSHome("examples/tiny_car_panel.csv");
+    df_wide = loadd(file_name);
+
+    print df_wide;
+
+This function is a wide-form panel dataset:
+
+::
+
+         Years     Cars_compact       Cars_truck         Cars_SUV
+    1973-01-01        5.0000000                .        3.0000000
+    1974-01-01        2.0000000        1.0000000        9.0000000
+
+This dataset contains counts of different car types across different years. In terms of our four step process:
+
+1. The variable contained in the wide-form dataset is car-types *count*.
+2. The columns to convert are *Cars_compact*, *Cars_trucks*, and *Cars_SUV*.
+3. We will create a *Car Class* column to store car type names. 
+4. We will create a *counts* column to store counts of car types. 
+
+::
+
+    // Get all column names and remove the first column name, 'Years'
+    columns = getcolnames(df_wide);
+    columns = trimr(columns, 1, 0);
+    
+    // Specify the new column to store names
+    names_to = "Class";
+    
+    // Specify the new column to store values
+    values_to = "Count";
+
+    // Convert data using 'dfLonger'
+    df_long = dfLonger(df_wide, columns, names_to, values_to);
+
+    print df_long;
+
+The *df_long* dataframe now contains the stacked panel data, with three variables, *Years*, *Class*, and *Count*.
+
+::
+
+           Years            Class            Count 
+      1973-01-01     Cars_compact        5.0000000 
+      1973-01-01       Cars_truck                . 
+      1973-01-01         Cars_SUV        3.0000000 
+      1974-01-01     Cars_compact        2.0000000 
+      1974-01-01       Cars_truck        1.0000000 
+      1974-01-01         Cars_SUV        9.0000000
+
+Advanced long-form pivoting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The optional ``pivotControl`` structure allows you to control pivoting specifications using the following members:
+
++------------------------+----------------------------------------------------------------------------+
+| Member                 | Purpose                                                                    |
++========================+============================================================================+
+| *names_prefix*         | A string input which specifies which characters, if any, should be stripped|
+|                        | from the front of the wide variable names before they are assigned to a    |
+|                        | long column.                                                               |
++------------------------+----------------------------------------------------------------------------+
+| *names_sep_split*      | A string input which specifies which characters, if any, mark where the    |
+|                        | *names_to* names should be broken up.                                      |                      
++------------------------+----------------------------------------------------------------------------+
+| *names_pattern_split*  | A string input containing a regular expression specifying group(s) in      |
+|                        | *names_to* names which should be broken up.                                |
++------------------------+----------------------------------------------------------------------------+
+| *names_types*          | A string input specifying data types for the names_to variable.            |
++------------------------+----------------------------------------------------------------------------+
+| *values_drop_missing*  | Scalar, is set to 1 all rows with missing values will be removed.          |
++------------------------+----------------------------------------------------------------------------+
+
+Consider a more advanced case using the *olympic_vault_wide.csv* data file.
+
+::
+
+    // Load the data
+    df_wide = loadd(getGAUSSHome("examples/olympic_vault_wide.csv"));
+    print df_wide;
+
+This wide dataset looks like:
+
+::
+
+          Country     vault_2012_f     vault_2012_m     vault_2016_f     vault_2016_m
+    United States        48.100000        46.600000        46.900000        45.900000
+           Russia        46.400000        46.900000        45.700000        46.000000
+            China        44.300000        48.300000        44.300000        45.000000
+
+In terms of the four-step pivoting process:
+
+1. The variable contained in the wide-form dataframe is scores. 
+2. The columns to convert are all columns with the exception of the first column. 
+3. The names of the columns in the wide data contain information about the *event*, the *year*, and the *sex* of the athlete. 
+4. We will create a *scores* column to store the values in the long-form dataframe.
+
+Because of the more advanced structure of the names in the wide-form dataframe, a ``pivotControl`` structure should be used.  
+
+::
+
+    // Get the list of variables to pivot
+    // and remove the first column name, 'Country'
+    columns =  getcolnames(df_wide);
+    columns = trimr(columns, 1, 0);
+
+    // Declare 'pctl' to be a pivotControl structure
+    // and fill with default settings
+    struct pivotControl pctl;
+    pctl = pivotControlCreate();
+
+    // Split the variable names from 'columns', i.e. vault_2012_f, etc
+    // every time an underscore is encountered
+    pctl.names_sep_split = "_";
+
+    // Set variable names for the new columns
+    names_to = "event" $| "year" $| "gender";
+
+    // Set name of value column
+    values_to = "score";
+
+    // Convert 'year' to be a date variable.
+    pctl.names_types = { "year" "date" };
+
+    df_long = dfLonger(df_wide, columns, names_to, values_to, pctl);
+    print df_long;
+
+The *df_long* dataframe looks like:
+
+::
+
+          Country            event             year           gender            score
+    United States            vault             2012                f        48.100000
+    United States            vault             2012                m        46.600000
+    United States            vault             2016                f        46.900000
+    United States            vault             2016                m        45.900000
+           Russia            vault             2012                f        46.400000
+           Russia            vault             2012                m        46.900000
+           Russia            vault             2016                f        45.700000
+           Russia            vault             2016                m        46.000000
+            China            vault             2012                f        44.300000
+            China            vault             2012                m        48.300000
+            China            vault             2016                f        44.300000
+            China            vault             2016                m        45.000000
+
+Reshaping to wide-form data 
++++++++++++++++++++++++++++
+The :func:`dfWider` procedure transform long-form GAUSS dataframes to wide-form GAUSS dataframes. Setting up the :func:`dfWider` procedure requires four basic steps:
+1. Identifying the columns to pull the new wide-form column names from.  
+2. Identifying the columns to pull the new wide-form column values from.
+
+Basic wide-form pivoting
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Many long-form datasets can be converted to wide-form panels using the default :func:`dfWider` functionality.
+
+Consider the long-form data stored in the *eagle_nests_long.csv* data file:
+
+::
+
+    // Load long form data
+    fname = getGAUSSHome("examples/eagle_nests_long.csv");
+    df_long = loadd(fname);
+
+    print df_long;
+
+The *df_long* dataframe looks like:
+
+::
+
+             region                 year            num_nests
+            Pacific                 2007               1039.0
+            Pacific                 2009               2587.0
+          Southwest                 2007                 51.0
+          Southwest                 2009                176.0
+    Rocky Mountains                 2007                200.0
+    Rocky Mountains                 2009                338.0
+
+The values in the *num_nests* column and the names in the *year* column can be used to convert to a wide-form panel.
+
+::
+
+    // Specify columns to pull new column names from
+    names_from = "year";
+
+    // Specify columns to pull new column values from
+    values_from = "num_nests";
+
+    // Convert to wide form
+    df_wide = dfWider(df_long, names_from, values_from);
+
+    print df_wide;
+
+The *df_wide* dataframe looks like:
+
+::
+
+             region                 2007                 2009
+            Pacific               1039.0               2587.0
+    Rocky Mountains                200.0                338.0
+          Southwest                 51.0                176.0
+
+Advanced wide-form pivoting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The optional ``pivotControl`` structure includes an additional members that are useful in more complex cases of pivoting from wide-form to long-form. 
+
++------------------------+----------------------------------------------------------------------------+
+| Member                 | Purpose                                                                    |
++========================+============================================================================+
+| *names_prefix*         | A string input which specifies which characters, if any, should be stripped|
+|                        | from the front of the wide variable names before they are assigned to a    |
+|                        | long column.                                                               |
++------------------------+----------------------------------------------------------------------------+
+| *names_sep_combine*    | String, the characters, if any, that should be added between the tokens    |
+|                        | when creating the new variable names. Can only be used if the *names_from* |
+|                        | input contains multiple variable names                                     |
++------------------------+----------------------------------------------------------------------------+
+| *id_col*               | String array, containing the names of the variables that should be used to |    
+|                        | determine a unique observation.                                            | 
++------------------------+----------------------------------------------------------------------------+
+
+Consider the data used in the previous example, but add with an additional variable, *report_id*.
+
+::
+
+    // Create new report_id variable
+    report_id = {
+    61178,
+    73511,
+    26219,
+    14948,
+    67679,
+    71635
+    };
+
+    // Add report_id to the front of df_long
+    df_long = asdf(report_id, "report_id") ~ df_long;
+    print df_long;
+
+Now the *df_long* dataframe looks like:
+
+::
+
+    report_id          region            year       num_nests
+        61178         Pacific            2007            1039
+        73511         Pacific            2009            2587
+        26219       Southwest            2007              51
+        14948       Southwest            2009             176
+        67679 Rocky Mountains            2007             200
+        71635 Rocky Mountains            2009             338
+
+By default, :func:`dfWider` will use all variables that are not in either *names_from* or *values_from* to uniquely identify the observations.
+
+::
+
+    // Convert to long-form panel using defaults
+    print dfWider(df_long, "year", "num_nests");
+
+::
+
+    report_id          region            2007            2009
+        14948       Southwest               .             176
+        26219       Southwest              51               .
+        61178         Pacific            1039               .
+        67679 Rocky Mountains             200               .
+        71635 Rocky Mountains               .             338
+        73511         Pacific               .            2587
+
+The ``pivotControl`` structure can be used to tell :func:`dfWider`` to only use the *region* variable to uniquely identify the observations.
+
+::
+
+    // Declare 'pctl' to be a pivotControl structure
+    // and fill with default settings
+    struct pivotControl pctl;
+    pctl = pivotControlCreate();
+
+    // Specify `region` as id col
+    pctl.id_cols = "region";
+
+    // Pivot data
+    print dfWider(df_long, "year", "num_nests", pctl);
+
+::
+
+             region            2007            2009
+            Pacific            1039            2587
+    Rocky Mountains             200             338
+          Southwest              51             176
+
 Dummy variables
 -------------------------
+
+Automatic treatment of categorical variables in estimation
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Categorical variables in dataframes will automatically be treated as dummy variables in GAUSS estimation routines. This means no extra steps are necessary to include categorical variables in regression.
 
 Example: Include a categorical variable in OLS
-+++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -1051,8 +1365,8 @@ The categorical variable *rep78* will automatically be included in the OLS regre
 
 The categories of *rep78*, ``"Fair"``, ``"Average"``, ``"Good"``, and ``"Excellent"``, are included as dummy variables in the regression. The ``"Poor"`` category is excluded from the regression, as it is the base case.
 
-Example: Including a categorical variable in GLM estimation
-------------------------------------------------------------
+Example: Include a categorical variable in GLM estimation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -1079,6 +1393,10 @@ Example: Including a categorical variable in GLM estimation
   rep78: Good                1693.8           1942.7          0.87191         0.386566
   rep78: Excellent             3132             2041           1.5345         0.129915
 
+
+Generating dummy variables outside of estimation
++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Outside of estimation, dummy variables can be created using a number of procedures:
 
 +------------------------+----------------------------------------------------------------------------+
@@ -1099,7 +1417,7 @@ Outside of estimation, dummy variables can be created using a number of procedur
 
 
 Example: Create dummy variables based on BP classes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This example builds on an earlier example, in which BP data was split into 3 classes using :func:`reclassify`.
 
 ::
@@ -1130,7 +1448,7 @@ After this code *dv_bp_classes* is equal to:
        0      0      1
 
 Example: Create dummy variables from continuous BP data
----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The :func:`dummybr` variable can be used to generate dummy variables from the ranges of
 original BP data.
 
@@ -1162,7 +1480,7 @@ Note that *dv_bp* is the same as *dv_bp_classes* from the first example:
   0      0      1
 
 Example: Create dummy variables from continuous BP data and drop first column
-------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The :func:`dummydn` variable can be used to generate dummy variables from the ranges of
 original BP data.
 

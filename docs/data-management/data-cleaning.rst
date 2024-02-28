@@ -25,7 +25,7 @@ The **Data Management** pane contains:
     * Change date display formats.
 
 
-Open the Data Management page
+Open the Data Management pane
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
@@ -145,6 +145,15 @@ To create a new dataframe containing your changes, click the drop-down next to t
 Data types and formats
 +++++++++++++++++++++++++++++++++++++++++++++
 
+The GAUSS dataframe supports four different data types:
+
+* String.
+* Numeric.
+* Category.
+* Date.
+
+The **Data Management** pane supports type changing, as well as property management for each type. 
+
 Changing variable type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -202,6 +211,12 @@ If your data looked like this ``03/12/2017``, the correct format string would be
 
 The **Format Options** section of this dialog contains the BSD strftime specifiers for reference. Use the **Filter** drop-down to filter the reference options shown.
 
+Further Reading
+++++++++++++++++
+
+1. `Preparing and Cleaning FRED data in GAUSS <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_
+2. `Quick and Easy Interactive Data Cleaning  <https://youtu.be/jhLP_iJeheA>`_ 
+3. `Easy Management of Categorical Variables <https://www.aptech.com/blog/easy-management-of-categorical-variables/>`_
 
 Programmatic Data Cleaning
 ------------------------------
@@ -215,30 +230,82 @@ Counting missing variables
 The procedure :func:`dstatmt` counts missing values by variable name as part of the descriptive statistics report.
 It requires only a single input indicating the source of data.
 
-The input may be either a dataset file name or the name of a data matrix currently in the workspace.
+The input may be either the file name of a dataset or the name of a matrix or dataframe currently in the workspace.
 
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome("examples/freqdata.dat");
+    dataset = getGAUSSHome("examples/auto2.dta");
 
     // Compute descriptive statistics and print report
+    // of a dataset stored on disk
     call dstatmt(dataset);
 
 ::
 
-    -----------------------------------------------------------------------------------
-    Variable      Mean     Std Dev    Variance    Minimum     Maximum    Valid  Missing
-    -----------------------------------------------------------------------------------
+    -------------------------------------------------------------------------------------
+    Variable         Mean   Std Dev    Variance    Minimum     Maximum    Valid   Missing
+    -------------------------------------------------------------------------------------
+    
+    make            -----     -----       -----      -----       -----       74        0
+    price            6165      2949     8.7e+06       3291   1.591e+04       74        0
+    mpg              21.3     5.786       33.47         12          41       74        0
+    rep78           -----     -----       -----       Poor   Excellent       69        5
+    headroom        2.993     0.846      0.7157        1.5           5       74        0
+    trunk           13.76     4.277        18.3          5          23       74        0
+    weight           3019     777.2    6.04e+05       1760        4840       74        0
+    length          187.9     22.27       495.8        142         233       74        0
+    turn            39.65     4.399       19.35         31          51       74        0
+    displacement    197.3     91.84        8434         79         425       74        0
+    gear_ratio      3.015    0.4563      0.2082       2.19        3.89       74        0
+    foreign         -----     -----       -----   Domestic     Foreign       74        0
 
-    AGE          5.678       2.993       8.959          1          10       398       2
-    PAY          1.968      0.8019      0.6431          1           3       400       0
 
+A second optional input allows you to specify which columns to use.
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome("examples/auto2.dta");
+    
+    // Load data from the file
+    auto = loadd(dataset);
+
+    // Compute descriptive statistics and print report
+    // of specific variables from a dataframe
+    call dstatmt(auto, "price + mpg + rep78");
+
+::
+
+    -------------------------------------------------------------------------------------
+    Variable         Mean   Std Dev    Variance    Minimum     Maximum    Valid   Missing
+    -------------------------------------------------------------------------------------
+    
+    price            6165      2949     8.7e+06       3291   1.591e+04       74        0
+    mpg              21.3     5.786       33.47         12          41       74        0
+    rep78           -----     -----       -----       Poor   Excellent       69        5
+
+
+You can count the number of missing values in a vector using :func:`counts`. 
+
+::
+
+    // Create a column vector with 2 missing values
+    x = { 1, ., 3, ., 5, 6 };
+
+    // Create a missing value
+    m = miss();
+
+    // Count the number of missing values in the vector
+    n = counts(x, m);
+
+
+After running the above code, *n* will be equal to 2.
 
 Checking for missing values
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The :func:`ismiss` function checks for missing values in a matrix. It will return a value of 1 if any missing values are present in a matrix.
+You can check to see if a matrix or dataframe contains any missing values with :func:`ismiss`.
 
 ::
 
@@ -252,6 +319,95 @@ The :func:`ismiss` function checks for missing values in a matrix. It will retur
     ret_b = ismiss(b);
 
 After the code above, *ret_a* will equal 0, but *ret_b* will equal 1.
+
+To find which observations contain missing values, you can use :func:`rowcontains`, :func:`indexcat`, or the dot equality operator ``.==``. First we will load some data and then show these options.
+
+::
+
+    // Create file name with full path
+    dataset = getGAUSSHome("examples/auto2.dta");
+
+    // Load 3 variables
+    auto = loadd(dataset, "mpg + price + rep78");
+
+    // Select the first 8 rows
+    auto = head(auto, 8);
+
+After the above code, *auto* will equal:
+
+::
+
+       mpg      price      rep78
+        22       4099    Average
+        17       4749    Average
+        22       3799          .
+        20       4816    Average
+        15       7827       Good
+        18       5788    Average
+        26       4453          .
+        20       5189    Average
+
+:func:`indexcat` can tell us the row indices of a column that contains missing values.
+
+::
+
+    // Create a missing value
+    m = miss();
+
+    // Find the indices of the rows with missing values
+    idx = indexcat(auto[.,"rep78"], m); 
+
+*idx* will now equal:
+
+::
+
+    3
+    7
+
+
+:func:`rowcontains` will return a binary vector with a 1 for each row where any element contains a missing value. Continuing with our data from above:
+
+::
+
+    // Return a binary vector with a 1 for
+    // rows that contain a missing value
+    mask = rowContains(auto, miss());
+
+*mask* will equal:
+
+::
+
+    0
+    0
+    1
+    0
+    0
+    0
+    1
+    0
+
+The dot equality operator, ``.==`` will return a binary matrix with a 1 for any element that contains a missing value. Again we will use the data loaded earlier.
+
+::
+
+    // Return a binary matrix with a 1
+    // for any element that is a missing value
+    mask = auto .== miss();
+
+
+*mask* will equal:
+
+::
+
+    0    0    0
+    0    0    0
+    0    0    1
+    0    0    0
+    0    0    0
+    0    0    0
+    0    0    1
+    0    0    0
+
 
 Removing missing values
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -324,8 +480,10 @@ The :func:`missrv` function replaces all missing values in a matrix with a user-
 
 The :func:`impute` procedure replaces missing values in the columns of a matrix using a specified imputation method.
 
-The procedure offers six potential methods for imputation:
+The procedure offers eight potential methods for imputation:
 
+* ``"bfill"`` - replaces missing values with the next valid observation (backward fill).
+* ``"ffill"`` - replaces missing values with the most recent previous valid observation (forward fill).
 * ``"mean"`` - replaces missing values with the mean of the column.
 * ``"median"`` - replaces missing values with the median of the column.
 * ``"mode"`` - replace missing values with the mode of the column.
@@ -544,10 +702,10 @@ Conditionally deleting rows of data
     7 8
 
 
-How do I conditionally select data from a matrix or dataframe?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Conditionally selecting data 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can conditionally select data from a matrix, dataframe, or string array  using the :func:`selif` procedure.
+You can conditionally select data from a matrix, dataframe, or string array using the :func:`selif` procedure.
 Enter the data as the first input to :func:`selif` and the condition to be used for selecting data as the second input.
 
 ::
@@ -567,7 +725,7 @@ Enter the data as the first input to :func:`selif` and the condition to be used 
     3 4
     5 6
 
-Data Types, Labels, and Names
+Variable types and names
 +++++++++++++++++++++++++++++++++
 
 Determining variable or column types
@@ -626,7 +784,7 @@ will return:
 Setting a variable type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:func:`dfType` sets the variable type of one or more columns of a matrix or dataframe.
+:func:`asdate` sets the variable type of one or more columns of a matrix or dataframe to be a date. It can also optionally set the date display format.
 
 ::
 
@@ -651,7 +809,7 @@ After the above code, *d* will be a date and if we print it we will see:
     1970-01-03
     1970-01-04
 
-It also accepts an optional input specifying the indices or variable names to be checked.
+:func:`dftype` is the more general function. It can set columns to any of the four types: numeric, string, category or date. It also accepts an optional input specifying the indices or variable names to be checked.
 
 ::
 
@@ -688,6 +846,8 @@ After this code, the first four rows of *nba* will be:
      Jared Sullinger         1        21
 
 The elements of the *pos* now contain only the numeric values that correspond to the string category labels. The string labels, ``"C"``, ``"F"`` and ``"G"`` have been removed.
+
+.. note:: You can convert a matrix or string array to a dataframe with :func:`asdf`.
 
 Determining current variable names
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -781,8 +941,11 @@ The above code will print:
 
 If the data does not currently have variable names, names will be created for all columns, with default names being assigned to any columns for which user-specified names were not provided.
 
-Determining current categorical variable labels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Managing category labels
+++++++++++++++++++++++++
+    
+Extracting current category labels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :func:`getColLabels` returns the string category labels and corresponding integer values for a categorical or string column of a dataframe.
 
@@ -809,15 +972,31 @@ After running the code above:
               Good           4
           Excellent          5
 
+Alternatively, it :func:`getCategories` procedure will return the just the category labels as a GAUSS datframe:
 
-Setting categorical variable labels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+::
+
+    // Get category labels as GAUSS dataframe
+    labels_df = getCategories(auto, "rep78");
+    
+    // Print labels
+    labels_df;
+    
+::
+
+      categories 
+            Poor 
+            Fair 
+         Average 
+            Good 
+       Excellent 
+    
+    
+Setting category labels
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`setColLabels` procedure allows you to add or modify the labels of categorical variables.
 It changes the current type of the column to a categorical variable.
-
-Convert a column from a matrix to a categorical variable
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -849,14 +1028,121 @@ The above code will return:
 
 .. note:: If a label is not provided for all key values, the unlabeled key values will be given blank labels.
 
+Changing category labels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The :func:`recodecatlabels` procedure changes category labels. 
+
+::
+
+    // Load NBA data
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
+    nba = loadd(dataset);
+
+    // Get column labels
+    { labels, values } = getColLabels(nba, "Pos");
+
+Here are the initial category labels and order.
+
+::
+
+    labels = C   values = 0
+             F            1
+             G            2
+
+We can change the category labels like this:
+
+::
+
+    // Specify current labels
+    old_labels = "C" $| "F" $| "G";
+
+    // Specify new labels to set
+    new_labels = "Center" $| "Forward" $| "Guard";
+
+    // Recode the old labels to the new labels
+    nba = recodeCatLabels(nba, old_labels, new_labels, "Pos");
+
+    // Get column labels
+    { labels, values } = getColLabels(nba, "Pos");
+
+::
+
+    labels =  Center   values = 0
+             Forward            1
+               Guard            2
+
+As we can see above the label names have changed, but the underlying values and order are the same.
+
+The :func:`recodecatlabels` procedure can be used to change individual labels, rather than all labels. For example, to change just one label we could have used:
+    
+::
+  
+    
+    // Specify current labels
+    old_labels = "C";
+
+    // Specify new labels to set
+    new_labels = "Center";
+
+    // Recode the old labels to the new labels
+    nba = recodeCatLabels(nba, old_labels, new_labels, "Pos");
+
+    // Get column labels
+    { labels, values } = getColLabels(nba, "Pos");
+        
+Dropping category labels
+^^^^^^^^^^^^^^^^^^^^^^^^
+The :func:`dropCategories` procedure drops all observations of a specified category label from a dataframe and updates the category mapping. Note that this functionality is different from deleting observations using other tools like :func:`delif`.
+    
+For example, consider dropping observations using delif:
+    
+::
+         
+    // Load NBA data
+    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
+    nba = loadd(dataset);
+
+    // Delete observations with 'rep78'
+    // equal to "Poor"
+    nba_no_center = delif(nba, nba[., "Pos"] .== "C");
+    
+    // Get label
+    getCategories(nba_no_center, "Pos");
+
+::
+        
+      categories 
+               C 
+               F 
+               G 
+
+In this case, the ``C`` category label is still stored as one of the *Pos* labels. 
+
+To remove it when deleting labels :func:`dropCategories`` should be used.
+
+::
+
+    // Drop observations and remove label from metadata
+    nba_no_center_2 = dropCategories(nba, "C", "Pos");
+  
+    // Check 'rep78' categories
+    getCategories(nba_no_center_2, "Pos");
+
+::
+    
+      categories 
+               F 
+               G
+      
 Change the order of categories in a dataframe
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
     // Load dataset
-    dataset = getGAUSSHome("examples/yarn.xlsx";
-    yarn = loadd(dataset, "cat(amplitude) + cycles");
+    dataset = getGAUSSHome("examples/yarn.xlsx");
+    yarn = loadd(dataset);
 
     // Get labels and values for amplitude variable
     // in yarn dataframe
@@ -891,10 +1177,8 @@ After the above code:
                high              2
 
 
-.. note:: Since there is only one categorical variable in the *yarn* dataframe, :func:`setColLabels` does not require a specified variable name.
-
-Changing categorical variable base case
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changing category base case
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The :func:`setbasecat` function provides a convenient way to set the base case for a categorical variable.
 
@@ -902,10 +1186,10 @@ The :func:`setbasecat` function provides a convenient way to set the base case f
 
     // Load the NBA dataset
     dataset = getGAUSSHome("examples/nba_ht_wt.xls");
-    nba = loadd(dataset, "cat(pos) + height + weight");
+    nba = loadd(dataset);
 
     // Get column names
-    { labels, values } = getColLabels(nba, "pos");
+    { labels, values } = getColLabels(nba, "Pos");
 
 After the above code:
 
@@ -915,17 +1199,17 @@ After the above code:
              F            1
              G            2
 
-You can change ``"G"`` to the base case like this:
+You can change ``G`` to the base case like this:
 
 ::
 
     // Change the `G` category to the basecase
-    nba = setBaseCat(nba, "G", "pos");
+    nba = setBaseCat(nba, "G", "Pos");
 
     // Get new labels
-    { labels, values } = getColLabels(nba, "pos");
+    { labels, values } = getColLabels(nba, "Pos");
 
-As we can see below, the new base case, ``"G"``, has been moved to the top and all the other variables have been shifted down.
+As we can see below, the new base case, ``G``, has been moved to the top and all the other variables have been shifted down.
 
 ::
 
@@ -933,93 +1217,527 @@ As we can see below, the new base case, ``"G"``, has been moved to the top and a
              C            1
              F            2
 
+Cleaning strings and category labels
+++++++++++++++++++++++++++++++++++++
+GAUSS has a comprehensive suite of tools for managing and cleaning strings. 
+    
+Trimming whitespaces
+^^^^^^^^^^^^^^^^^^^^^
+    
+Excess whitespaces in strings and categorical variables can lead to unexpected results. To prevent this, trimming excess whitespaces should be done using one of three GAUSS procedures:
+    
+* The :func:`strtrimr` procedure strips whitespace characters from the right side.
+* The :func:`strtriml` procedure strips whitespace characters from the left side. 
+* The :func:`strtrim` procedure strips whitespace characters from both the left and right side.
+    
+**Example: Trimming all whitespaces**
 
-Recoding categorical variable labels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The :func:`recodecatlabels` procedure changes the labels for a categorical variable.
-
+::
+    
+    // Create string array
+    string names_string = { " John", "Mary ", " Jane ", "Carl" };
+    
+    // Convert to string array
+    names_df = asDF(names_string, "First Name");
+    
+    // Check names
+    print names_df[3];
+    print names_df[4];
+    
+Printing the third and fourth elements of *names_df* highlights the whitespaces in the *First Name* variable.
 
 ::
 
-    // Load NBA data
-    dataset = getGAUSSHome("examples/nba_ht_wt.xls");
-    nba = loadd(dataset, "cat(pos) + height + weight");
+          First Name 
+           Jane  
 
-    // Get column labels
-    { labels, values } = getColLabels(nba, "pos");
-
-Here are the initial category labels and order.
-
-::
-
-    labels = C   values = 0
-             F            1
-             G            2
-
-We can change the category labels like this:
+          First Name
+                Carl
+                
+Compare this to printing the four element, which contains no whitespaces.
 
 ::
 
-    // Specify current labels
-    old_labels = "C" $| "F" $| "G";
+    // Trim whitespaces
+    names_df = strtrim(names_df);
+    
+    // Check names
+    print names_df[3];
+    print names_df[4];
+    
+::
 
-    // Specify new labels to set
-    new_labels = "Center" $| "Forward" $| "Guard";
+      First Name 
+            Jane 
 
-    // Recode the old labels to the new labels
-    nba = recodeCatLabels(nba, old_labels, new_labels, "pos");
+      First Name 
+            Carl
 
-    // Get column labels
-    { labels, values } = getColLabels(nba, "pos");
+.. note:: The :func:`print` function will automatically align the string array, so ``print header_sa`` will make it appear as if the leading and trailing spaces are gone. To see the spaces, we print individual elements. 
+
+Standardizing case
+^^^^^^^^^^^^^^^^^^
+
+Symbol names in GAUSS are not case-sensitive. For example, consider the following example of variable naming.
+
+::
+    
+    // Assign values to 'x'
+    x = 5;
+    
+    // Print little x value
+    print "little x:" x;
 
 ::
 
-    labels =  Center   values = 0
-             Forward            1
-               Guard            2
-
-As we can see above the label names have changed, but the underlying values and order are the same.
-
-Reordering categorical variable labels
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The :func:`reorderCatLabels` procedure can be used to reorder the labels for a categorical variable.
-
-Change the order of categories in a dataframe
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    little x:       5.0000000
 
 ::
 
-    // Load the yarn dataset
-    dataset = getGAUSSHome("examples/yarn.xlsx");
-    yarn = loadd(dataset, "cat(amplitude) + cycles");
-
-    // Get column labels
-    { labels, values } = getColLabels(yarn, "amplitude");
-
-After the above code:
+    // Assign values to 'X'
+    X = 10;
+    
+    print "little x:" x;
 
 ::
 
-    labels = high   values = 0
-              low            1
-              med            2
-
-Since Excel files do not provide labels or order for string columns, GAUSS assigns the category value based on alphabetical order. We can reorder the categories like this:
-
+    little x:       10.000000
+    
+However, string and category variables, as well as variable names, are case sensitive. Because of this, inconsistent use of cases in strings and category labels can result in undesired results. For example, consider survey data with self reported location abbreviations.
 
 ::
 
-    // Reorder the categorical labels for the `amplitude` variable
-    yarn = reorderCatLabels(yarn, "low" $| "med" $| "high", "amplitude");
+    // Generate states string array
+    st_abbreviation = "CO" $| "Co" $| "CA" $| "CA" $| "Ca" $| "Mo" $| "MO";
+    
+    // Convert to dataframe
+    st_df = asDF(st_abbreviation, "State");
+    
+    // Print observations
+    st_df;
+    
+    // Print categories
+    getCategories(st_df);
 
-    { labels, values } = getColLabels(yarn, "amplitude");
+Because of differences in cases, GAUSS thinks there are 6 different categories. 
+    
+::
+    
+      categories 
+              CA 
+              CO 
+              Ca 
+              Co 
+              MO 
+              Mo 
 
-After the above code:
+Consider if we use these categories and compute a frequency count.
+    
+::
+        
+     // Compute frequency count for 'State'
+     frequency(st_df, "State");
+
+::
+ 
+    Label      Count   Total %    Cum. % 
+       CA          2     28.57     28.57 
+       CO          1     14.29     42.86 
+       Ca          1     14.29     57.14 
+       Co          1     14.29     71.43 
+       MO          1     14.29     85.71 
+       Mo          1     14.29       100 
+    Total          7       100
+    
+
+To remedy this, :func:`upper` or :func:`lower` should be used to convert the state abbreviations to the same case. 
 
 ::
 
-    labels =  low   values = 0
-              med            1
-             high            2
+    // Convert to upper case
+    st_df = upper(st_df);
+    
+    // Print 'states'
+    st_df;
+    
+    // Compute frequency count
+    frequency(st_df, "State");
+      
+::
+
+               State 
+                  CO 
+                  CO 
+                  CA 
+                  CA 
+                  CA 
+                  MO 
+                  MO
+ 
+    Label      Count   Total %    Cum. % 
+       CA          3     42.86     42.86 
+       CO          2     28.57     71.43 
+       MO          2     28.57       100 
+    Total          7       100
+
+Note that :func:`upper` converts all observations of *st_df* to upper case and updates the label mappings.
+
+Searching and replacing strings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Searching and replacing is a key part of cleaning strings and categorical data. This can be done using a number of GAUSS functions:
+
++-------------------+-------------------------------------+
+|Procedure          |Description                          |
++===================+=====================================+
+|:func:`strrindx`   |Finds the index of one string within | 
+|                   |another string. Searches from the end|
+|                   |to the beginning.                    |
++-------------------+-------------------------------------+
+|:func:`strindx`    |Finds the index of one string within | 
+|                   |another string.                      |
++-------------------+-------------------------------------+
+|:func:`strreplace` |Replaces all matches of a substring  | 
+|                   |with a replacement string.           |
++-------------------+-------------------------------------+
+|:func:`startsWith` |Returns a 1 if a string starts with  |
+|                   |a specified pattern.                 |
++-------------------+-------------------------------------+
+    
+**Searching across multiple variables**
+
+The :func:`strindx` and :func:`strrindx` procedures perform element-by-element searches for substrings in string arrays. They return the starting indices of the substring or a 0 if the substring is not found.  
+
+::
+ 
+    // Create file name with full path
+    fname = getGAUSSHome("examples/auto2.dta");
+
+    // Load 'rep78' and 'make` variable
+    auto = loadd(fname, "rep78 + make");
+
+    // Preview data
+    head(auto);
+
+The first five occurrences of the *auto* dataframe look like:
+
+::
+
+           rep78             make 
+         Average      AMC Concord 
+         Average        AMC Pacer 
+               .       AMC Spirit 
+         Average    Buick Century 
+            Good    Buick Electra
+
+Now we will search for different substrings in each separate variables.
+    
+::    
+
+    // Find the index of "age" in 'rep78'
+    // and "AMC" in 'make'
+    idx = strindx(auto, "age"$~"AMC");
+
+    // Print the first 5 observations of 'idx'
+    head(idx);
+
+The preview shows that:
+
+* In the *rep78* variable, the substring ``"age"`` starts at the fifth letter every time ``Average`` is observed. 
+* In the *make* variable, the substring ``"AMC"`` starts at the first letter of the first three observations. 
+      
+::
+
+    5.0000000        1.0000000
+    5.0000000        1.0000000
+    0.0000000        1.0000000
+    5.0000000        0.0000000
+    0.0000000        0.0000000
+
+There are many uses of this. For example, suppose we want to select only the observations that contain the substring ``"AMC"``:
+
+::
+
+    // Select observation if 'AMC` occurs anywhere 
+    // in the string
+    amc_data = selif(auto, idx[., 2]);
+    
+    // Preview data
+    head(amc_data);
+
+The preview of the *amc_data* only prints 3 observations because only three observations remain.
+
+::
+    
+           rep78             make 
+         Average      AMC Concord 
+         Average        AMC Pacer 
+               .       AMC Spirit 
+
+**Searching for starting substrings**
+    
+In the previous example, we search for the substring ``"AMC"``. Altenatively, :func:`startsWith` could be used to search for starting patterns. 
+    
+::
+
+   // Load 3 variables from the dataset
+   fname = getGAUSSHome("examples/auto2.dta");
+   auto = loadd(fname, "make + price + mpg");
+
+   // Specify pattern to search for
+   pat = "Buick";
+
+   // Find all makes that include 'Buick'
+   mask = startsWith(auto[., "make"], pat);
+
+   // Select observations if the corresponding
+   // row of mask equals 1.
+   auto_buicks = selif(auto, mask);
+
+   print auto_buicks;
+
+The code above selects all observations that start with ``"Buick"``.
+
+::
+
+            make            price              mpg 
+   Buick Century        4816.0000        20.000000 
+   Buick Electra        7827.0000        15.000000 
+   Buick LeSabre        5788.0000        18.000000 
+      Buick Opel        4453.0000        26.000000 
+     Buick Regal        5189.0000        20.000000 
+   Buick Riviera        10372.000        16.000000 
+   Buick Skylark        4082.0000        19.000000
+
+**Regularize a string array**
+
+In this example, :func:`strreplace` is used to clean a string array that contains addresses. 
+
+:: 
+
+    // String array to be searched
+    str = "100 Main Ave" $|
+          "112 Charles Avenue" $|
+          "49 W State St" $|
+          "24 Third Avenue";
+
+    // Search for string 'Avenue'
+    search = "Avenue";
+
+    // String to replace with
+    replace = "Ave";
+
+    // Build new string
+    new_str = strreplace(str, search, replace);
+
+After the code above, *new_str* will be set to:
+
+::
+
+       "100 Main Ave"
+       "112 Charles Ave"
+       "49 W State St"
+       "24 Third Ave"
+       
+**Cleaning categorical labels**
+
+The :func:`strreplace` procedure can be used to clean categorical labels and will simultaneously updated the mapping of labels and keyvalues. 
+
+::
+
+    // Create 5x1 string array
+    states = "CA" $| "FL" $| "California" $| "California" $| "FL";
+
+    // Convert the string array to a dataframe
+    // with the variable name 'States'
+    df_states = asdf(states, "States");
+
+    // Print the dataframe
+    print df_states;
+    
+    // Check category 
+    getCategories(df_states);
+
+The *df_states* dataframe is:
+
+::
+
+       States 
+           CA 
+           FL 
+   California 
+   California 
+           FL 
+
+And the associated categories are:
+
+::
+
+   categories 
+           CA 
+   California 
+           FL 
+
+Suppose that for the sake of our analysis, the category ``CA`` and ``California`` are treated the same. This can be corrected using the :func:`strreplace` procedure.
+    
+::
+
+    // Search for the "California" label
+    search = "California";
+    
+    // Replace the "California" label with "CA"
+    replace = "CA";
+    
+    // Call 'strreplace'
+    df_states = strreplace(df_states, search, replace);
+  
+    // Print dataframe
+    print df_states;
+
+After this, all occurrences of ``California`` have been replaced with ``CA``. 
+
+::
+    
+     States
+         CA
+         FL
+         CA
+         CA
+         FL
+
+Checking the categories will confirm that the keyvalues and labels have been updated.
+
+::
+    
+    // Get updated categories
+    getCategories(df_states);
+
+As we see below, the observations that previously had the label ``California``, have now been merged with the ``CA`` category.
+
+::
+    
+     categories 
+             CA 
+             FL
+    
+Extracting substrings
+^^^^^^^^^^^^^^^^^^^^^^
+The :func:`strsect` procedure extracts a substring of a string based on a specified starting point and an optional length.
+
+::
+
+    // Create location string array
+    location = "CA, Sacramento" $| "FL Tampa" $| "SC - Charleston" $| "NC - Raleigh";
+    
+    // Convert to dataframe
+    location_df = asDF(location, "Location");
+    
+    // Print location 
+    location_df;
+
+The *location_df* variable is not consistently formatted, with the exception that the two letter state abbreviations always occurs first. 
+
+::
+
+        Location 
+  CA, Sacramento 
+        FL Tampa 
+ SC - Charleston 
+    NC - Raleigh 
+    
+The :func:`strsect` procedure can be used to extract the state abbreviation
+
+::
+
+    // Extract the state abbreviation
+    state = strsect(location_df, 1, 2);
+    
+    // Print state
+    state;
+    
+::
+
+      Location 
+            CA 
+            FL 
+            SC 
+            NC
+
+.. note: The :func:`strsect` function can be used with :func:`strindx` to search for an extract substrings.  
+
+Splitting strings
+^^^^^^^^^^^^^^^^^^
+
+The :func:`strsplit` procedure can be used to split strings based on a specified separator. 
+    
+::
+    
+    // Create location string array
+    location = "FL, Tampa" $| "CO, Denver" $| "SC, Charleston" $| "NC, Raleigh";
+    
+    // Convert to dataframe
+    location_df = asDF(location, "Location");
+    
+    // Print preview
+    head(location_df);
+
+::
+    
+        Location 
+       FL, Tampa 
+      CO, Denver 
+  SC, Charleston 
+     NC, Raleigh 
+    
+Now our *Location* variable contains state abbreviations and cities, separated by ``","``. We can use :func:`strsplit` to split the location variable into two separate columns. 
+    
+::
+
+    // Split the location dataframe into to columns
+    // using ',' as a separator 
+    location_split = strsplit(location_df, ",");
+    
+    // Print location dataframe
+    location_split;
+
+::
+
+      X1               X2 
+      FL            Tampa 
+      CO           Denver 
+      SC       Charleston 
+      NC          Raleigh 
+    
+The *location_split* dataframe contains two columns, one that contains the state abbreviation and one that contains the city name. 
+There are additional steps that will help further clean this data:
+
+* Rename the columns 
+* Remove any whitespaces. 
+
+::
+
+    // Set column names
+    location_split = setColNames(location_split, "State"$|"City");
+    
+    // Remove excess whitespace
+    location_split = strtrim(location_split);
+    
+    // Print dataframe
+    location_split;
+    
+::
+
+     State             City 
+        FL            Tampa 
+        CO           Denver 
+        SC       Charleston 
+        NC          Raleigh
+    
+Further Reading
+++++++++++++++++
+
+1. `Preparing and Cleaning FRED data in GAUSS <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_
+2. `Managing String Data with GAUSS Dataframes  <https://www.aptech.com/blog/managing-string-data-with-gauss-dataframes/>`_ 
+3. `Getting Started With Survey Data In GAUSS <https://www.aptech.com/blog/getting-started-with-survey-data-in-gauss/>`_
+4. `Getting to Know Your Data With GAUSS 22 <https://www.aptech.com/blog/getting-to-know-your-data-with-gauss-22/>`_
+    

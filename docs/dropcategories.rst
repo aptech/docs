@@ -5,7 +5,7 @@ dropCategories
 Purpose
 ----------------
 
-Removes categories and from dataframe. Resets the keyvalues and labels for the variable.
+Removes categories from a dataframe variable. Resets the keyvalues and labels for the variable.
 
 Format
 ----------------
@@ -96,5 +96,5 @@ Additionally, this time when we print the frequency report, we can see that the 
     Total         18       100
 
 
-.. seealso:: Functions :func:`getColLabels`, :func:`getCategories`, :func:`reordercatlabels`
+.. seealso:: Functions :func:`dropunusedcategories`, :func:`getColLabels`, :func:`getCategories`, :func:`reordercatlabels`
 

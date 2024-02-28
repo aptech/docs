@@ -18,6 +18,7 @@ General
 :doc:`../getcoltypes`         Returns the types for the columns (or variables) in a GAUSS dataframe.
 :doc:`../hasmetadata`         Checks to see if a symbol is a dataframe.
 :doc:`../setcolmetadata`      Sets the variable names and types for the columns of a dataframe.
+:doc:`../setcolnames`         Sets the variable names the columns of a dataframe.
 =========================     ==========================================================================
 
 
@@ -45,16 +46,17 @@ Date variables
 String and categorical variables
 +++++++++++++++++++++++++++++++++++++
 
-============================     ==========================================================================
-:doc:`../dropcategories`         Removes categories and from dataframe. Resets the keyvalues and labels for the variable.
-:doc:`../getcategories`          Returns the unique set of column labels as a dataframe.
-:doc:`../getcollabels`           Returns the unique set of column labels and corresponding key values for a categorical variable.
-:doc:`../recodecatlabels`        Change categorical variable labels.
-:doc:`../reordercatlabels`       Change the order of categorical variable labels.
-:doc:`../setbasecat`             Sets a category in a categorical variable to be the base case.
-:doc:`../setbasecat`             Sets a category in a categorical variable to be the base case.
-:doc:`../startswith`             Returns a 1 if a string starts with a specified pattern.
-============================     ==========================================================================
+===============================     ==========================================================================
+:doc:`../dropcategories`            Removes categories from the variable and the meta data. Resets the keyvalues and labels for the variable.
+:doc:`../dropunusedcategories`      Removes categories from the meta data of a dataframe that are not present in the current variable.
+:doc:`../getcategories`             Returns the unique set of column labels as a dataframe.
+:doc:`../getcollabels`              Returns the unique set of column labels and corresponding key values for a categorical variable.
+:doc:`../recodecatlabels`           Change categorical variable labels.
+:doc:`../reordercatlabels`          Change the order of categorical variable labels.
+:doc:`../setbasecat`                Sets a category in a categorical variable to be the base case.
+:doc:`../setbasecat`                Sets a category in a categorical variable to be the base case.
+:doc:`../startswith`                Returns a 1 if a string starts with a specified pattern.
+===============================     ==========================================================================
 
 
 
