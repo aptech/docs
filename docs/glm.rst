@@ -218,13 +218,16 @@ Logistic regression using a formula string to reference data in a CSV file conta
 ::
 
     // Create string with fully pathed file name
-    fname = getGAUSShome() $+ "examples/binary.csv";
-
+    fname = getGAUSShome("examples/binary.csv");
+    
+    // Load data and specify rank and admit as
+    // categorical variables
+    data = loadd(fname, "cat(admit) + cat(rank) + gre + gpa");
+    
     /*
     ** Call glm function with formula string
-    ** using 'factor' keyword to create dummy variables
     */
-    call glm(fname, "admit ~ factor(rank) + gre + gpa", "binomial");
+    call glm(data, "admit ~ rank + gre + gpa", "binomial");
 
 The code above will produce the following output. Note that :math:`rank = 1` is used as the base case.
 
@@ -242,12 +245,12 @@ The code above will produce the following output. Note that :math:`rank = 1` is 
                                               Standard                              Prob
     Variable                 Estimate            Error          z-value             >|z|
     ----------------      ------------     ------------     ------------     ------------
-    CONSTANT                     -3.99             1.14          -3.5001      0.000465027
-    rank            2         -0.67544          0.31649          -2.1342        0.0328288
-                    3          -1.3402          0.34531          -3.8812      0.000103942
-                    4          -1.5515          0.41783          -3.7131      0.000204711
-    gre                      0.0022644         0.001094           2.0699        0.0384651
-    gpa                        0.80404          0.33182           2.4231        0.0153879
+    CONSTANT                     -3.99             1.14          -3.5001      0.000465027 
+    rank: 2                  -0.67544          0.31649          -2.1342        0.0328288 
+    rank: 3                   -1.3402          0.34531          -3.8812      0.000103942 
+    rank: 4                   -1.5515          0.41783          -3.7131      0.000204711 
+    gre                     0.0022644         0.001094           2.0699        0.0384651 
+    gpa                       0.80404          0.33182           2.4231        0.0153879 
 
     // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
 
@@ -260,7 +263,7 @@ In the example below, we will estimate a logistic regression model for the case 
 ::
 
     // Load all variables from the dataset
-    tips = loadd(getGAUSShome() $+ "examples/tips2.dta");
+    tips = loadd(getGAUSShome("examples/tips2.dta"));
     
     // Estimate a logistic regression model for:
     //     time = Lunch
@@ -327,13 +330,16 @@ Running a no intercept model from a STATA DTA file.
     cls;
 
     // File name with full path
-    fname = getGAUSShome() $+ "examples/auto2.dta";
+    fname = getGAUSShome("examples/auto2.dta");
 
+    // Load all variables in the auto2 dataset
+    data = loadd(fname);
+        
     // Declare 'fit' to be a glmOut structure
     struct glmOut fit;
 
     // Call 'glm' with no intercept model
-    fit = glm(fname, "mpg ~ -1 + weight + gear_ratio",  "normal");
+    fit = glm(data, "mpg ~ -1 + weight + gear_ratio",  "normal");
 
 After running the code above, the output is :
 
@@ -366,11 +372,14 @@ Running a no intercept model from a SAS sas7bdat file.
     // File name with full path
     fname = getGAUSSHome("examples/detroit.dta");
 
+    // Load dataset
+    data = loadd(fname);
+    
     // Declare 'fit' to be a glmOut structure
     struct glmOut fit;
 
     // Call 'glm' with no intercept model
-    fit = glm(fname, "homicide ~ unemployment + hourly_earn",  "normal");
+    fit = glm(data, "homicide ~ unemployment + hourly_earn",  "normal");
 
 After running the code above, the output is :
 
@@ -467,7 +476,7 @@ Ordinary linear regression with categorical variables in a dataframe.
   credit = setcollabels(move(credit), "Single"$|"Married", 0|1, "Married");
 
   // Call glm
-  call glm(credit, "Balance~Gender + Married + Income", "normal");
+  call glm(credit, "Balance ~ Gender + Married + Income", "normal");
 
 The categorical variables code:`"Gender"` and code:`"Married"` are now automatically detected by GAUSS, based on their dataframe types. In addition, the variable names are automatically detected.
 
@@ -501,8 +510,12 @@ Use a :class:`glmControl` structure to control the link function and a :class:`g
     new;
 
     // Create file name with full path
-    fname = getGAUSShome() $+ "examples/binary.csv";
-
+    fname = getGAUSShome("examples/binary.csv");
+    
+    // Load data and specify rank and admit as
+    // categorical variables
+    data = loadd(fname, "cat(admit) + cat(rank) + gre + gpa");
+    
     // Declare 'binary_ctl' as a glmControl structure
     struct glmControl binary_ctl;
 
@@ -511,7 +524,7 @@ Use a :class:`glmControl` structure to control the link function and a :class:`g
 
     // Save out the results in glmOut structure
     struct glmOut out1;
-    out1 = glm(fname, "admit ~ factor(rank) + gre + gpa", "binomial", binary_ctl);
+    out1 = glm(data, "admit ~ factor(rank) + gre + gpa", "binomial", binary_ctl);
 
 After running above code, the model estimates and diagnostic information will be stored in the *out1* structure and the following output report will be displayed.
 
@@ -529,12 +542,12 @@ After running above code, the model estimates and diagnostic information will be
                                               Standard                              Prob
     Variable                 Estimate            Error          z-value             >|z|
     ----------------     ------------     ------------     ------------     ------------
-    CONSTANT                  -2.3868          0.67395          -3.5416      0.000397733
-    rank           2          -0.4154          0.19498          -2.1305        0.0331297
-                   3         -0.81214          0.20836          -3.8978         < 0.0001
-                   4          -0.9359          0.24527          -3.8158      0.000135764
-    gre                     0.0013756       0.00065003           2.1162        0.0343292
-    gpa                       0.47773           0.1972           2.4226        0.0154097
+    CONSTANT                  -2.3868          0.67395          -3.5416      0.000397733 
+    rank: 2                   -0.4154          0.19498          -2.1305        0.0331297 
+    rank: 3                  -0.81214          0.20836          -3.8978         < 0.0001 
+    rank: 4                   -0.9359          0.24527          -3.8158      0.000135764 
+    gre                     0.0013756       0.00065003           2.1162        0.0343292 
+    gpa                       0.47773           0.1972           2.4226        0.0154097 
 
     // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
 
@@ -551,10 +564,10 @@ A Poisson regression model with categorical variables, using matrix inputs.
     data = loadd(fname);
 
     // Index dependent variable, 'num_award'
-    y = data[.,2];
+    y = data[., 2];
 
     // Index independent variable, 'prog' and 'math'
-    x = data[.,3 4];
+    x = data[., 3 4];
 
     /*
     ** Specify the variable names
@@ -610,7 +623,7 @@ Using a :class:`glmOut` structure to save result for a Gamma regression with cat
     cls;
 
     // File name with full path
-    file = getGAUSShome() $+ "examples/yarn.xlsx";
+    file = getGAUSShome("examples/yarn.xlsx");
 
     // Read 4th column as a numeric matrix
     y = xlsReadM(file, "D2:D28");
@@ -682,13 +695,16 @@ Using a "\*.dat" file directly in :func:`glm` for a Inverse Gaussian distributio
     cls;
 
     // File name with full path
-    fname = getGAUSShome() $+ "examples/clotting_time.dat";
+    fname = getGAUSShome("examples/clotting_time.dat");
 
+    // Load plasma and lot1 variables
+    data = loadd(fname, "plasma + lot1");
+    
     // Declare 'fit_inv' to be a glmOut structure
     struct glmOut fit_inv;
 
     // Call 'glm' and fill 'fit_inv' with results
-    fit_inv = glm(fname, "plasma ~ lot1",  "inverse gaussian");
+    fit_inv = glm(data, "plasma ~ lot1",  "inverse gaussian");
 
 After running the code above, the output is:
 
@@ -719,7 +735,7 @@ Running a linear regression model using data transformations with HDF5 file.
     cls;
 
     // Give a fully pathed HDF5 file name
-    file_name = getGAUSShome() $+ "examples/nba_data.h5";
+    file_name = getGAUSShome("examples/nba_data.h5");
 
     /*
     ** Add the file schema "h5://" to the front
@@ -728,6 +744,9 @@ Running a linear regression model using data transformations with HDF5 file.
     */
     dataset = "h5://" $+ file_name $+ "/nba_data";
 
+    // Load 'Weight', 'Height', and  'Age' data
+    data = loadd(dataset, "Weight + Height + Age");
+    
     /*
     ** Define the formula for the linear model,
     ** using 'ln' data transformation
@@ -735,7 +754,7 @@ Running a linear regression model using data transformations with HDF5 file.
     formula = "ln(Weight) ~ ln(Height) + Age";
 
     // Call 'glm'
-    call glm(dataset, formula,  "normal");
+    call glm(data, formula,  "normal");
 
 After running the code above, the output is :
 
