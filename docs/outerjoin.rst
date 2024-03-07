@@ -5,7 +5,7 @@ outerJoin
 Purpose
 ----------------
 Performs a left outer join on two matrices based upon user-specified key columns.
-		
+
 
 Format
 ----------------
