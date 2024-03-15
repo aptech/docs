@@ -11,7 +11,7 @@ COMT's ability to handle general nonlinear functions and nonlinear constraints a
 
 Installation
 --------------
-Please visit our `product page <https://store.aptech.com/gauss-applications-category/constrained-optimization-mt.html>`_ to contact us about obtaining COMT.
+Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing and installation information.
 
 If you already own COMT, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install COMT as well.
 
@@ -99,12 +99,11 @@ Control Options
 
 
 .. toctree::
-    :maxdepth: 1
-    :hidden:
-    :caption: Constrained Optimization Functions
+    :maxdepth: 2
 
-    comt
-    comtcontrolcreate
-    comtlagrangecreate
+    user-guide
+    command-reference
+    comt-examples
 
-    
+
+
