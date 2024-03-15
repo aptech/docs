@@ -31,8 +31,8 @@ Format
             * - c0.Truncate
               - Kx2 matrix or 1x2 matrix specifying lower and upper truncation limits for the TNORMAL kernel. Defaults to minimum and maximum values respectively.
 
-    :return: An instance of the maxlikmtKernelDensityResults structure.
-    :rtype: struct
+    :return out: An instance of the maxlikmtKernelDensityResults structure.
+    :rtype out: struct
 
         .. list-table::
             :widths: auto
