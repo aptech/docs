@@ -11,9 +11,9 @@ including random effects and fixed effects.
 
 Installation
 --------------
-Please visit our `product page <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_ to contact us about obtaining TSMT.
+Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing and installation information.
 
-If you already own TSMT, you can use the package manager in GAUSS to install TSMT as well.
+If you already own TSMT, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install TSMT.
 
 
 Commands
