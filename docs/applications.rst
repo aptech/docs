@@ -29,7 +29,7 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     :link-type: doc
     :shadow: none
 
-    Tools for estimating and evaluating time invariant state space models. 
+    Provides tools for constrainted optimization in GAUSS.  
 
 .. card:: SSLIB (State-Space Modeling)
     :link: sslib/overview
@@ -46,4 +46,5 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     gml-landing
     tsmt/index
     sslib/overview
+    comt/index
 

@@ -100,6 +100,8 @@ Control Options
 
 .. toctree::
     :maxdepth: 2
+    :hidden:
+    :caption: Constrained Optimization Documents
 
     user-guide
     command-reference
