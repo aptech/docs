@@ -1,10 +1,10 @@
-COMT Examples
+User Guide
 ==================
 
 .. toctree::
     :maxdepth: 1
-    :caption: COMT Examples
+    :caption: Sections:
 
-
+    
 
     

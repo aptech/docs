@@ -118,11 +118,11 @@ Control Options
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Constrained Optimization Documents
+    :caption: Maximum Likelihood Documents
 
     user-guide
     command-reference
-    comt-examples
+    mlmt-examples
 
 
 

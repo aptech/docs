@@ -31,6 +31,13 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
 
     Provides tools for constrainted optimization in GAUSS.  
 
+.. card:: MAXLIKMT (Maximum Likelihood MT)
+    :link: comt/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools for maximum likelihood estimation in GAUSS.  
+
 .. card:: SSLIB (State-Space Modeling)
     :link: sslib/overview
     :link-type: doc
@@ -45,6 +52,8 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     tspdlib/docs/tspdlib-landing
     gml-landing
     tsmt/index
-    sslib/overview
     comt/index
+    mlmt/index
+    sslib/overview
+    
 

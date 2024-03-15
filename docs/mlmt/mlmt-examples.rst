@@ -3,7 +3,7 @@ COMT Examples
 
 .. toctree::
     :maxdepth: 1
-    :caption: COMT Examples
+    :caption: MLMT Examples
 
 
 
