@@ -203,6 +203,7 @@ Format
                 - 34: Data set could not be opened
 
     :rtype: struct
+    
 Example
 -------
 Maximum Likelihood with Bounded Parameters and User-defined Gradient
