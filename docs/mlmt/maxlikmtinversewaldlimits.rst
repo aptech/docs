@@ -30,9 +30,7 @@ The following is a complete example demonstrating the use of :func:`maxlikmtInve
     // Load maxlikmt library
     library maxlikmt;
     
-    /*
-    ** Objective function
-    */
+    // Likelihood function 
     proc lpr(struct PV p, x, y, ind);
         local s2, b0, b, yh, u, res, g1, g2;
         
