@@ -35,16 +35,16 @@ Format
 
     :type c1: struct
 
-    :return out1: Instance of :class:`maxlikmtResults`` structure that is a duplicate of *out0* except that the member, *out1.profileLimits*, has been set to the confidence limits by inversion of the likelihood ratio statistic.
-    
+    :return out1: Instance of :class:`maxlikmtResults` structure that is a duplicate of *out0* except that the member, *out1.profileLimits*, has been set to the confidence limits by inversion of the likelihood ratio statistic.
+
     :rtype out1: struct
 
 Example
 -------
 
-.. code-block:: gauss
+::
 
-    library:func:`maxlikmt`;
+    library maxlikmt;
     
     // Define the log-likelihood function
     proc lpr(struct PV p, y, x, ind);
@@ -86,11 +86,11 @@ Example
     c0.Bounds = {-10 10, -10 10, -10 10, -10 10, .1 10};
     
     z = loadd("maxlikmttobit.dat");
-    y = z[.,1];
-    x = z[.,2:4];
+    y = z[., 1];
+    x = z[., 2:4];
     
     struct maxlikmtResults out1;
-    out1 =:func:`maxlikmt`(&lpr, p0, y, x, c0);
+    out1 = maxlikmt(&lpr, p0, y, x, c0);
     
     // Compute limits by inversion of likelihood ratio statistic
     out1 = maxlikmtProfileLimits(&lpr, out1, y, x, c0);
