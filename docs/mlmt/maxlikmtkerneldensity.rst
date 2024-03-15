@@ -44,6 +44,32 @@ Format
             * - out.sm
               - Smoothing coefficients used, returned as Kx1, NxK, or Nx1, based on input configuration.
 
+Example
+-------
+
+::
+
+    new;
+    library maxlikmt;
+
+    // Specify the dataset
+    dataset = __FILE_DIR $+ "maxlikmttobit.dat";
+
+    // Initialize the control structure with default settings
+    struct maxlikmtKernelDensityControl c0;
+    c0 = mlmtKernelDensityControlCreate();
+
+    // Customize the control structure
+    c0.varNames = "Y";
+    c0.Kernel = 1; // Use normal kernel
+    c0.NumPoints = 100;
+    c0.EndPoints = {-3 3};
+    c0.Smoothing = 0; // Let the function compute the smoothing coefficient
+
+    // Compute the kernel density estimate and plot
+    struct maxlikmtKernelDensityResults out;
+    out = maxlikmtKernelDensity(dataset, c0);
+
 Remarks
 -------
 
