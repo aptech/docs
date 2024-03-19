@@ -8,5 +8,6 @@ User Guide
     comt-ug-installation
     comt-ug-getting-started
     comt-ug-special-features
-    
+    comt-ug-objective
+    comt-ug-constraints
     
