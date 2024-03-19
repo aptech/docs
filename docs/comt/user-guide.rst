@@ -6,5 +6,7 @@ User Guide
     :caption: Sections:
 
     comt-ug-installation
-
+    comt-ug-getting-started
+    comt-ug-special-features
+    
     
