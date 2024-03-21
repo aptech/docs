@@ -9,6 +9,7 @@ User Guide
     comt-ug-getting-started
     comt-ug-special-features
     comt-ug-objective
+    comt-ug-algorithm
     comt-ug-constraints
     comt-ug-comt-procedures
     
