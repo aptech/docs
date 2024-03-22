@@ -33,7 +33,7 @@ Format
 
     :type c1: struct
 
-    :return out: An instance of a :class:`maxlikmtResults` structure. Contains the results of the optimization problem, including parameter estimates, function evaluations, and various statistical measures.
+    :return out: An instance of a :class:`maxlikmtResults` structure. Contains the results of the optimization problem, including parameter estimates, function evaluations, and various statistical measures. Contains the following members:
 
         .. include:: include/mlmtresultsstruct.rst
 
