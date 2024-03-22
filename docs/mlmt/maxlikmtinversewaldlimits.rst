@@ -96,7 +96,7 @@ The following is a complete example demonstrating the use of :func:`maxlikmtInve
     
 
     // Load tobit data
-    z = loadd("maxlikmttobit");
+    z = loadd(getGAUSSHome("pkgs/maxlikmt/examples/maxlikmttobit.dat"));
     
     // Separate x and y 
     y = z[., 1];

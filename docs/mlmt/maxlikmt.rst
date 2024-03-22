@@ -115,7 +115,7 @@ Maximum Likelihood with Bounded Parameters and User-defined Gradient
                 .1 10 };
                 
   // Load all variables from dataset           
-  z = loadd(__FILE_DIR $+ "maxlikmttobit.dat");
+  z = loadd(getGAUSSHome("pkgs/maxlikmt/examples/maxlikmttobit.dat"));
   y = z[.,1];
   x = z[.,2:4];
 

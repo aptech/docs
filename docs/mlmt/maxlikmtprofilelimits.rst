@@ -85,7 +85,7 @@ Example
     c0.title = "Tobit Example";
     c0.Bounds = {-10 10, -10 10, -10 10, -10 10, .1 10};
     
-    z = loadd("maxlikmttobit.dat");
+    z = loadd(getGAUSSHome("pkgs/maxlikmt/examples/maxlikmttobit.dat"));
     y = z[., 1];
     x = z[., 2:4];
     

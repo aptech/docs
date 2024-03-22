@@ -90,7 +90,7 @@ The following example demonstrates the computation of Bayesian confidence limits
     c0.Bounds = { -10 10, -10 10, -10 10, -10 10, .1 10 };
     
     // Load tobit data
-    z = loadd("maxlikmttobit");
+    z = loadd(getGAUSSHome("pkgs/maxlikmt/examples/maxlikmttobit");
     
     // Separate x and y 
     y = z[., 1];
