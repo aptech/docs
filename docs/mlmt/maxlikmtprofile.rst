@@ -103,6 +103,6 @@ This example demonstrates the application of :func:`maxlikmtProfile` to model th
 
 Remarks
 -------
-- func:`maxlikmtProfile` is utilized to explore the parameter space of maximum likelihood estimates more thoroughly, offering insights into the confidence intervals and sensitivity of the estimates.
+- :func:`maxlikmtProfile` is utilized to explore the parameter space of maximum likelihood estimates more thoroughly, offering insights into the confidence intervals and sensitivity of the estimates.
 - This function is especially useful in complex models where the standard error may not provide a complete picture of parameter uncertainty.
 - The control structure allows extensive customization of the profiling process, making it adaptable to a wide range of models and research questions.
