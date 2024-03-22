@@ -3,13 +3,20 @@ Applications
 
 Applications are downloadable libraries that extend the functionality of GAUSS with additional procedures and examples.
 
+.. card:: CMLMT (Constrained Maximum Likelihood MT)
+    :link: cmlmt/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools for constrainted maximum likelihood in GAUSS.  
+
 .. card:: COMT (Constrained Optimization MT)
     :link: comt/index
     :link-type: doc
     :shadow: none
 
     Provides tools for constrainted optimization in GAUSS.  
-
+    
 .. card:: GML (GAUSS Machine Learning)
     :link: gml-landing
     :link-type: doc
@@ -18,7 +25,7 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     Provides tools to model, analyze, and predict data using fundamental machine learning techniques.
 
 .. card:: MAXLIKMT (Maximum Likelihood MT)
-    :link: comt/index
+    :link: mlmt/index
     :link-type: doc
     :shadow: none
 
@@ -50,6 +57,7 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     :maxdepth: 1
     :hidden:
 
+    cmlmt/index
     comt/index
     gml-landing
     mlmt/index
