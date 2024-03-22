@@ -12,7 +12,7 @@ Format
     :param dataset: Name of the GAUSS dataset.
     :type dataset: string
 
-    :param c0: Instance of maxlikmtKernelDensityControl structure with detailed configuration.
+    :param c0: Instance of :class:`maxlikmtKernelDensityControl` structure with detailed configuration.
     :type c0: struct
 
         .. list-table::
@@ -31,7 +31,7 @@ Format
             * - c0.Truncate
               - Kx2 matrix or 1x2 matrix specifying lower and upper truncation limits for the TNORMAL kernel. Defaults to minimum and maximum values respectively.
 
-    :return out: An instance of the maxlikmtKernelDensityResults structure.
+    :return out: An instance of the :class:`maxlikmtKernelDensityResults` structure.
     :rtype out: struct
 
         .. list-table::
@@ -53,7 +53,7 @@ Example
     library maxlikmt;
 
     // Specify the dataset
-    dataset = __FILE_DIR $+ "maxlikmttobit.dat";
+    dataset = getGAUSSHome("pkgs/maxlikmt/examples/maxlikmttobit.dat");
 
     // Initialize the control structure with default settings
     struct maxlikmtKernelDensityControl c0;
