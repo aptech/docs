@@ -28,6 +28,21 @@
    * - c1.Bounds
      - 1x2 or Kx2 matrix, bounds on parameters. If 1x2, all parameters have the same bounds. Default = {-1e256, 1e256}.
   
+   * - c1.bayesAlpha
+     - Exponent of the Dirichlet random variates used in the weighted bootstrap. Default = 1.4.
+
+   * - c1.priorProc
+     - Pointer to a procedure for computing the prior. Assumes a uniform prior if not provided.
+
+   * - c1.numSamples
+     - Number of re-samples in the weighted likelihood bootstrap.
+
+   * - c1.BayesFname
+     - Filename for the simulated posterior parameters dataset. Defaults to a unique "BAYESxxxx" pattern.
+
+   * - c1.maxBootTime
+     - Maximum time allowed for resampling.
+  
    * - c1.algorithm
      - Scalar, descent algorithm. 0 - Modified BFGS (Default), 1 = BFGS, 2 = DFP, 3 = Newton, 4 = BHHH.
   
