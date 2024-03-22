@@ -7,7 +7,7 @@ Computes bootstrapped constrained maximum likelihood estimates.
 
 Format
 ------
-.. function:: out = maxlikmtBoot(&modelProc, par, ...)
+.. function:: out = maxlikmtBoot(&modelProc, par, ..., c1)
 
     :param &modelProc: Pointer to a procedure that computes the function to be minimized.
     :type &modelProc: pointer
