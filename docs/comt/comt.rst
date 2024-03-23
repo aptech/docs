@@ -26,94 +26,15 @@ Format
 
     :param c1: Optional input. Instance of a :class:`comtControl` structure containing the following members:
 
-        .. list-table::
-            :widths: auto
-
-            * - c1.A
-              - MxK matrix, linear equality constraint coefficients. ``c1.A * p = c1.B`` where ``p`` is a vector of the parameters.
-
-            * - c1.B
-              - Mx1 vector, linear equality constraint constants. ``c1.A * p = c1.B``.
-
-            * - c1.C
-              - MxK matrix, linear inequality constraint coefficients. ``c1.C * p >= c1.D`` where ``p`` is a vector of the parameters.
-
-            * - c1.D
-              - Mx1 vector, linear inequality constraint constants. ``c1.C * p >= c1.D``.
-
-            * - c1.eqProc
-              - Scalar, pointer to a procedure that computes the nonlinear equality constraints. Default = {.}, i.e., no equality procedure.
-
-            * - c1.ineqProc
-              - Scalar, pointer to a procedure that computes the nonlinear inequality constraints. Default = {.}, i.e., no inequality procedure.
-
-            * - c1.eqJacobian
-              - Scalar, pointer to a procedure that computes the Jacobian of the equality constraints. Default = {.}, i.e., no equality Jacobian procedure.
-
-            * - c1.ineqJacobian
-              - Scalar, pointer to a procedure that computes the Jacobian of the inequality constraints. Default = {.}, i.e., no inequality Jacobian procedure.
-
-            * - c1.bounds
-              - 1x2 or Kx2 matrix, bounds on parameters. Default = {-1e256, 1e256}.
-
-            * - c1.algorithm
-              - Scalar, descent algorithm. Default = 0 (Modified BFGS).
-
-            * - c1.useThreads
-              - Scalar, if nonzero threading is turned on, else off. Default = off.
-
-            * - c1.switch
-              - 4x1 or 4x2 vector, controls algorithm switching. Default = {1 3, .0001 .0001, 10 10, .0001 .0001}.
-
-            * - c1.lineSearch
-              - Scalar, sets line search method. Default = 1 (STEPBT).
-
-            * - c1.trustRadius
-              - Scalar, radius of the trust region. Default = 0.1.
-
-            Additional control parameters as described in the original text.
+        .. include:: include/comtcontrolstruct.rst
 
     :type c1: struct
 
     :return out1: An instance of a :class:`comtResults` structure. Contains the results of the nonlinear programming problem solution, including parameter estimates, function evaluations, and detailed information about constraints handling and optimization process. The :class:`comtResults` structure includes:
 
-        .. list-table::
-            :widths: auto
+        .. include:: include/optmtresultsstruct.rst
 
-            * - out1.par
-              - Instance of a PV structure containing the parameter estimates.
-
-            * - out1.fct
-              - Scalar, function evaluated at parameters in par.
-
-            * - out1.returnDescription
-              - String, description of return values.
-
-            * - out1.hessian
-              - KxK matrix, Hessian evaluated at parameters in par.
-
-            * - out1.xproduct
-              - KxK matrix, cross-product of NxK matrix of first derivatives evaluated at parameters in par.
-
-            * - out1.gradient
-              - Kx1 vector, gradient evaluated at the parameters in par.
-
-            * - out1.numIterations
-              - Scalar, number of iterations.
-
-            * - out1.elapsedTime
-              - Scalar, elapsed time of iterations.
-
-            * - out1.title
-              - String, title of run.
-
-            * - out1.lagr
-              - Instance of a comtLagrange structure containing the Lagrangeans for the constraints.
-
-            * - out1.retcode
-              - Return code indicating the outcome of the computation.
-
-    :rtype out1: struct
+    :type c1: struct
 
 Examples
 ----------------
