@@ -31,6 +31,13 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
 
     Provides tools for maximum likelihood estimation in GAUSS.
 
+.. card:: OPTMT (Optimization MT)
+    :link: optmt/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools for optimization in GAUSS.  
+   
 .. card:: SSLIB (State-Space Modeling)
     :link: sslib/overview
     :link-type: doc
@@ -61,6 +68,7 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     comt/index
     gml-landing
     mlmt/index
+    optmt/index
     sslib/overview
     tsmt/index
     tspdlib/docs/tspdlib-landing
