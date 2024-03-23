@@ -8,12 +8,7 @@ Solves the optimization problem with or without simple bounds.
 
 Format
 ----------------
-.. function:: out = maxlikmt(&logl, par)
-                  out = maxlikmt(&logl, par, ...)
-                  out = maxlikmt(&logl, par, ..., c1)
-                  out = maxlikmt(&logl, par, c1)
-                  out = maxlikmt(&logl, par, data)
-                  out = maxlikmt(&logl, par, data, c1)
+.. function:: out = maxlikmt(&logl, par [, ..., c1])
 
     :param &logl: A pointer to a procedure that returns either the log-likelihood for one observation or a vector of log-likelihoods for a matrix of observations.
     :type &logl: pointer
@@ -21,8 +16,8 @@ Format
     :param par: An instance of a PV structure. Constructed using the "pack" functions.
     :type par: PV structure instance
 
-    :param ...: Optional arguments that will be passed to the user provided log-likelihood function. They can be any GAUSS data type.
-    :type ...: Various
+    :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings required to compute the function. Can include GAUSS data types or a DS structure for dataset manipulation. Specific usage depends on the requirements of the `logl`.
+    :type ...: various
 
     :param data: Optional DS structure. This parameter allows the function to interact with GAUSS datasets directly.
     :type data: structure

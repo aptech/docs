@@ -7,12 +7,7 @@ Computes profile likelihood traces and profile t traces for models estimated usi
 
 Format
 ------
-.. function:: out = MaxlikmtProfile(&logl, par)
-                out = MaxlikmtProfile(&logl, par, ...)
-                out = MaxlikmtProfile(&logl, par, ..., c1)
-                out = MaxlikmtProfile(&logl, par, c1)
-                out = MaxlikmtProfile(&logl, par, data)
-                out = MaxlikmtProfile(&logl, par, data, c1)
+.. function:: out = MaxlikmtProfile(&logl, par [, ..., c1])
 
     :param &logl: Pointer to a procedure that returns the log-likelihood for one observation or a vector of log-likelihoods for a matrix of observations.
     :type &logl: pointer
@@ -20,11 +15,8 @@ Format
     :param par: Instance of a PV structure, constructed using the "pack" functions.
     :type par: struct
 
-    :param ...: Optional arguments to be passed to the user-provided log-likelihood function. Can be any GAUSS data type, including DS structures for dataset handling.
-    :type ...: Various
-
-    :param data: Optional DS structure for direct data handling within the log-likelihood function.
-    :type data: struct
+    :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings required to compute the function. Can include GAUSS data types or a DS structure for dataset manipulation. Specific usage depends on the requirements of the `logl`.
+    :type ...: various
 
     :param c1: Optional input. Instance of a :class:`maxlikmtControl` structure containing the following members:
 

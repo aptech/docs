@@ -8,16 +8,16 @@ Bayesian confidence limits using weighted maximum likelihood bootstrap.
 
 Format
 ----------------
-.. function:: out = maxlikmtbayes(&modelProc, par, ..., c1)
+.. function:: out = maxlikmtbayes(&logl, par [, ..., c1])
 
-    :param &modelProc: Pointer to a procedure that computes the function to be minimized.
-    :type &modelProc: pointer
+    :param &logl: A pointer to a procedure that returns either the log-likelihood for one observation or a vector of log-likelihoods for a matrix of observations.
+    :type &logl: pointer
 
     :param par: An instance of a PV structure, constructed using the "pack" functions.
     :type par: PV structure instance
 
-    :param ...: Optional arguments that will be passed to the user-provided log-likelihood function. Can include any GAUSS data type or a DS structure for dataset handling.
-    :type ...: Various
+    :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings required to compute the function. Can include GAUSS data types or a DS structure for dataset manipulation. Specific usage depends on the requirements of the `logl`.
+    :type ...: various
 
     :param c1: Optional input. Instance of a :class:`maxlikmtControl` structure containing the following members:
 
