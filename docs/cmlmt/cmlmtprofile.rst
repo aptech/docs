@@ -7,13 +7,8 @@ Computes profile likelihood traces and profile t traces for models estimated usi
 
 Format
 ------
-.. function:: out = cmlmtProfile(&logl, par)
-                out = cmlmtProfile(&logl, par, ...)
-                out = cmlmtProfile(&logl, par, ..., c1)
-                out = cmlmtProfile(&logl, par, c1)
-                out = cmlmtProfile(&logl, par, data)
-                out = cmlmtProfile(&logl, par, data, c1)
-
+.. function:: out = cmlmtProfile(&logl, par [, ..., c1])
+          
     :param &logl: Pointer to a procedure that returns the log-likelihood for one observation or a vector of log-likelihoods for a matrix of observations.
     :type &logl: pointer
 
@@ -22,9 +17,6 @@ Format
 
     :param ...: Optional arguments to be passed to the user-provided log-likelihood function. Can be any GAUSS data type, including DS structures for dataset handling.
     :type ...: Various
-
-    :param data: Optional DS structure for direct data handling within the log-likelihood function.
-    :type data: struct
 
     :param c1: Optional input. Instance of a :class:`cmlmtControl` structure containing the following members:
 

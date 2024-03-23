@@ -9,12 +9,7 @@ Computes confidence limits by inversion of the likelihood ratio statistic.
 Format
 ------
 
-.. function:: out1 = cmlmtProfileLimits(&logl, out0)
-                out1 = cmlmtProfileLimits(&logl, out0, ...)
-                out1 = cmlmtProfileLimits(&logl, out0, ..., c1)
-                out1 = cmlmtProfileLimits(&logl, out0, c1)
-                out1 = cmlmtProfileLimits(&logl, out0, data)
-                out1 = cmlmtProfileLimits(&logl, out0, data, c1)
+.. function:: out1 = cmlmtProfileLimits(&logl, out0 [, ..., c1])
 
     :param logl: Pointer to log-likelihood function used to generate results of an estimation by a call to :func:`cmlmt`.
     :type logl: pointer
@@ -24,9 +19,6 @@ Format
 
     :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings, required to compute the log-likelihood function.
     :type ...: Various
-
-    :param data: Optional DS structure containing data for log-likelihood.
-    :type data: struct
 
     :param c1: The set of optional input arguments must contain the instance of the :class:`cmlmtResults` structure used in the call to 
     :func:`cmlmt` that produced the results in *out0*.

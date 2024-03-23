@@ -8,7 +8,7 @@ Bayesian confidence limits using constrained weighted maximum likelihood bootstr
 
 Format
 ----------------
-.. function:: out = cmlmtbayes(&modelProc, par, data, c1)
+.. function:: out = cmlmtbayes(&modelProc, par [, ..., c1])
 
     :param &modelProc: Pointer to a procedure that computes the function to be minimized.
     :type &modelProc: pointer
@@ -16,8 +16,8 @@ Format
     :param par: An instance of a PV structure, constructed using the "pack" functions.
     :type par: PV structure instance
 
-    :param data: Data to be passed to the user-provided log-likelihood function. Can include GAUSS data types or a DS structure for dataset manipulation.
-    :type data: Various
+    :param ...: Data to be passed to the user-provided log-likelihood function. Can include GAUSS data types or a DS structure for dataset manipulation.
+    :type ...: Various
 
     :param c1: Optional input. Instance of a :class:`cmlmtControl` structure containing the following members:
 

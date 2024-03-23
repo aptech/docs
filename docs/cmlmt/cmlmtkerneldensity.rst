@@ -13,7 +13,7 @@ Format
     :type dataset: string
 
     :param c0: Instance of :class:`cmlmtKernelDensityControl` structure with detailed configuration.
-    :type c0: struct
+    
 
         .. list-table::
             :widths: auto
@@ -30,9 +30,9 @@ Format
               - Smoothing coefficients for the density estimation, applicable as a Kx1 vector, Nx1 vector, or NxK matrix. A scalar value applies the same coefficient across plots. Default: 0 (automatic calculation).
             * - c0.Truncate
               - Kx2 matrix or 1x2 matrix specifying lower and upper truncation limits for the TNORMAL kernel. Defaults to minimum and maximum values respectively.
+    :type c0: struct
 
     :return out: An instance of the :class:`cmlmtKernelDensityResults` structure.
-    :rtype out: struct
 
         .. list-table::
             :widths: auto
@@ -43,7 +43,9 @@ Format
               - c0.NumPointsx1 vector, ordinates for the density plot.
             * - out.sm
               - Smoothing coefficients used, returned as Kx1, NxK, or Nx1, based on input configuration.
-
+              - 
+    :rtype out: struct
+    
 Example
 -------
 
