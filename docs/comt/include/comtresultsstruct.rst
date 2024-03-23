@@ -1,54 +1,54 @@
 .. list-table::
    :widths: auto
 
-   * - out1.par
-     - Instance of a PV structure containing the parameter estimates will be placed in the member matrix out1.par.
+   * - out.par
+     - Instance of a PV structure containing the parameter estimates will be placed in the member matrix out.par.
 
-   * - out1.fct
+   * - out.fct
      - Scalar, function evaluated at parameters in par.
 
-   * - out1.returnDescription
+   * - out.returnDescription
      - String, description of return values.
 
-   * - out1.hessian
+   * - out.hessian
      - KxK matrix, Hessian evaluated at parameters in par.
 
-   * - out1.xproduct
+   * - out.xproduct
      - KxK matrix, cross-product of NxK matrix of first derivatives evaluated at parameters in par. Not available if log-likelihood function returns a scalar.
 
-   * - out1.gradient
+   * - out.gradient
      - Kx1 vector, gradient evaluated at the parameters in par.
 
-   * - out1.numIterations
+   * - out.numIterations
      - Scalar, number of iterations.
 
-   * - out1.elapsedTime
+   * - out.elapsedTime
      - Scalar, elapsed time of iterations.
 
-   * - out1.title
+   * - out.title
      - String, title of run.
 
-   * - out1.lagr
+   * - out.lagr
      - An instance of a comtLagrange structure containing the Lagrangeans for the constraints. For an instance named lagr, the members are:
        
-       - out1.lagr.lineq
+       - out.lagr.lineq
          - Mx1 vector, Lagrangeans of linear equality constraints.
-       - out1.lagr.nlineq
+       - out.lagr.nlineq
          - Nx1 vector, Lagrangeans of nonlinear equality constraints.
-       - out1.lagr.linIneq
+       - out.lagr.linIneq
          - Px1 vector, Lagrangeans of linear inequality constraints.
-       - out1.lagr.nlinineq
+       - out.lagr.nlinineq
          - Qx1 vector, Lagrangeans of nonlinear inequality constraints.
-       - out1.lagr.bounds
+       - out.lagr.bounds
          - Kx2 matrix, Lagrangeans of bounds.
-       - out1.Lagr.EqCov
+       - out.Lagr.EqCov
          - (M+N)x(M+N) matrix, covariance matrix of equality constraints.
-       - out1.Lagr.IneqCov
+       - out.Lagr.IneqCov
          - (P+Q)x(P+Q) matrix, covariance matrix of inequality constraints.
 
        Whenever a constraint is active, its associated Lagrangean will be nonzero. For any constraint that is inactive throughout the iterations as well as at convergence, the corresponding Lagrangean matrix will be set to a scalar missing value.
 
-   * - out1.retcode
+   * - out.retcode
      - Return code:
        
        - 0

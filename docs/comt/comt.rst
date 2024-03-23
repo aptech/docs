@@ -8,20 +8,15 @@ Solve the nonlinear programming problem.
 
 Format
 ----------------
-.. function:: out = comt(&logl, par)
-                  out = comt(&logl, par, ...)
-                  out = comt(&logl, par, ..., c1)
-                  out = comt(&logl, par, c1)
-                  out = comt(&logl, par, data)
-                  out = comt(&logl, par, data, c1)
+.. function:: out = comt(&logl, par [, ..., c1])
 
     :param &logl: Pointer to a procedure that computes the function to be minimized.
     :type &logl: pointer
 
-    :param par: An instance of a PV structure. The par instance is passed to the user-provided procedure pointed to by &fct. par is constructed using the "pack" functions.
+    :param par: An instance of a PV structure. The par instance is passed to the user-provided procedure pointed to by *&fct*. *par* is constructed using the "pack" functions.
     :type par: struct
 
-    :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings, required to compute the objective function. 
+    :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings, or a DS data structure as required to compute the objective function. 
     :type ...: Various
 
     :param c1: Optional input. Instance of a :class:`comtControl` structure containing the following members:
@@ -30,11 +25,11 @@ Format
 
     :type c1: struct
 
-    :return out1: An instance of a :class:`comtResults` structure. Contains the results of the nonlinear programming problem solution, including parameter estimates, function evaluations, and detailed information about constraints handling and optimization process. The :class:`comtResults` structure includes:
+    :return out: An instance of a :class:`comtResults` structure. Contains the results of the nonlinear programming problem solution, including parameter estimates, function evaluations, and detailed information about constraints handling and optimization process. The :class:`comtResults` structure includes:
 
-        .. include:: include/optmtresultsstruct.rst
+        .. include:: include/comtresultsstruct.rst
 
-    :type c1: struct
+    :rtype out: struct
 
 Examples
 ----------------
