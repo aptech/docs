@@ -1,6 +1,6 @@
 Maximum Likelihood MT (maxlikmt)
 ==================================
-A maximum likelihood package for GAUSS.
+A maximum likelihood package for **GAUSS**.
 
 Description
 ----------------
@@ -30,9 +30,9 @@ Descent methods
 +++++++++++++++++++++++++++++++
 
 * BFGS (Broyden, Fletcher, Goldfarb and Powell)
-* NHHH 
+* BHHH (Berndt, Hall, Hall, and Hausman)
 * DFP (Davidon, Fletcher and Powell)
-* Newton (Berndt, Hall, Hall, and Hausman)
+* Newton 
 
 Line search methods
 +++++++++++++++++++++++++++++++
@@ -59,15 +59,15 @@ Efficient
 
 * Threaded and thread-safe.
 * Option to avoid computations that are the same for the log-likelihood function and derivatives.
-* The tremendous speed of user-defined procedures in GAUSS speeds up your estimation.
+* The tremendous speed of user-defined procedures in **GAUSS** speeds up your estimation.
 
 Trusted
 +++++++++++
-For more than 30 years, leading researchers have trusted the efficient and numerically sound code in the GAUSS maximum likelihood estimation tools to keep them at the forefront of their fields.
+For more than 30 years, leading researchers have trusted the efficient and numerically sound code in the **GAUSS** maximum likelihood estimation tools to keep them at the forefront of their fields.
 
 Available Optimization Controls
 --------------------------------
-Optimization controls are set to default values that few users ever need to change.  However, maxlikmt is fully customizable and the flexible optimization options can be a great help when tackling more difficult problems.
+Optimization controls are set to default values that few users ever need to change.  However, **maxlikmt** is fully customizable and the flexible optimization options can be a great help when tackling more difficult problems.
 
 Control Options
 +++++++++++++++++++++++++++++++
@@ -92,9 +92,9 @@ Control Options
    * - Active parameters
      - Control which parameters are active (to be estimated) and which should be fixed to their start value.
    * - Gradient Method
-     - Either compute an analytical gradient, or have Maxlikmt compute a numerical gradient using the forward, central, or backwards difference method.
+     - Either compute an analytical gradient, or have **maxlikmt** compute a numerical gradient using the forward, central, or backwards difference method.
    * - Hessian Method
-     - Either compute an analytical Hessian, or have Maxlikmt compute a numerical Hessian using the forward, central, or backwards difference method.
+     - Either compute an analytical Hessian, or have **maxlikmt** compute a numerical Hessian using the forward, central, or backwards difference method.
    * - Gradient check
      - Compares the analytical gradient computed by the user-supplied function with the numerical gradient to check the analytical gradient for correctness.
    * - Random seed
