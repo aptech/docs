@@ -143,7 +143,7 @@ Feature Overview
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Constrained Optimization Documents
+    :caption: Constrained Maximum Likilihood Documents
 
     user-guide
     command-reference

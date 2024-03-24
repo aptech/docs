@@ -7,4 +7,8 @@ COMT Examples
 
 
 
-    
+    basic-opt-example
+    opt-gradient-example
+    opt-hessian-example 
+    opt-equality-constraints-example
+    opt-inequality-constraints-example

@@ -13,15 +13,15 @@ Define
 
 .. math::
     
-    \Sigma\(\theta\) = \frac{\partial^2L}{\partial\theta \partial \theta \prime}
-    \Psi\(\theta\) = \frac{\partialL}{\partial\theta}
+    \Sigma(\theta) = \frac{\partial^2L}{\partial\theta \partial \theta \prime}
+    \Psi(\theta) = \frac{\partial L}{\partial\theta}
 
 and the Jacobians 
 
 .. math:: 
     
-    \dot{G}\(\theta\) = \frac{\partial\G\(\theta\)}{\partial\theta}
-    \dot{H}\(\theta\) = \frac{\partial\H\(\theta\)}{\partial\theta}
+    \dot{G}(\theta) = \frac{\partial\G(\theta)}{\partial\theta}
+    \dot{H}(\theta) = \frac{\partial\H(\theta)}{\partial\theta}
     
 For the purposes of this exposition and without loss of generality, we may assume that the linear constraints and bounds have been incorporated into :math:`G`` and :math:`H`.
 
@@ -29,9 +29,9 @@ The direction :math:`\delta` is the solution to the quadratic program.
 
 .. math ::
 
-    \text{minimize} \frac{1}{2}\delta\prime\Sigma\(\theta_t\)\delta + \Psi\(\theta_t\)\delta
-    \text{subject} \dot{G}\(\theta_t\)\delta + G\(\theta_t\) = 0
-                   \dot{H}\(\theta_t\)\delta + H\(\theta_t\) \geq 0
+    \text{minimize} \frac{1}{2}\delta\prime\Sigma(\theta_t)\delta + \Psi(\theta_t)\delta
+    \text{subject} \dot{G}(\theta_t)\delta + G(\theta_t) = 0
+                   \dot{H}(\theta_t)\delta + H(\theta_t) \geq 0
 
 
 This solution requires that :math:`\Sigma` be positive semi-definite.
@@ -44,11 +44,11 @@ Line Search
 Define the merit function 
 
 .. math::
-    m\(\theta\) = L - \sigma_j \kappa_jg_j\(\theta\) - \sigma_l \lambda_lh_l\(\theta\) 
+    m(\theta) = L - \sigma_j \kappa_jg_j(\theta) - \sigma_l \lambda_lh_l(\theta) 
     
-where :math:`g` is the j-th row of :math:`G`, :math:`h_l` is the l-th row of :math:`H`, :math:`kappa`` is the vector of Lagrangean coefficients of the equality constraints, and :m,ath:`\lambda`` the vector of Lagrangean coefficients of the inequality constraints.
+where :math:`g` is the j-th row of :math:`G`, :math:`h_l` is the l-th row of :math:`H`, :math:`\kappa`` is the vector of Lagrangean coefficients of the equality constraints, and :math:`\lambda`` the vector of Lagrangean coefficients of the inequality constraints.
 
-The line search finds a value of :math:`\rho`` that minimizes or decreases :math:`m\(\theta_t + \rho\delta\)`.
+The line search finds a value of :math:`\rho`` that minimizes or decreases :math:`m(\theta_t + \rho\delta)`.
 
 The penalty coefficient, :math:`\mu`, increases at each iteration. The amount of increase in this coefficient is set by the *penalty* member of the instance of the :class:`comtControl` structure.
 
@@ -78,13 +78,11 @@ Line Search Methods
 
 Given a direction vector \delta, the updated estimate of the parameters is computed 
 
-.. math::
-    \theta_{t+1} = \theta_t + \rho\delta, 
+.. math:: \theta_{t+1} = \theta_t + \rho\delta, 
 
 where \rho is a constant, usually called the step length, that increases the descent of the function given the direction. **COMT** includes a variety of methods for computing :math:`\rho`. The value of the function to be minimized as a function of :math:`\rho` is 
 
-.. math::
-    m\(\theta_t + \rho\delta\)
+.. math:: m(\theta_t + \rho\delta)
 
 Given :math:`\theta` and :mat:`delta`, this is a function of a single variable :math:`\rho`. Line search methods attempt to find a value for :math:`\rho` that decreases :math:`m`. STEPBT is a polynomial fitting method, BRENT and HALF are iterative search methods. A fourth method called ONE forces a step length of 1. The default line search method is STEPBT. If this or any selected method fails, then BRENT is tried. If BRENT fails, then HALF is tried. If all of the line search methods fail, then a random search is tried, provided the *randRadius* member of the :class:`comtControl` instance is greater than zero. The default setting for *randRadius* is greater than zero.
 
@@ -94,28 +92,26 @@ When the *lineSearch* member of the instance of the :class:`comtControl` structu
 
 STEPBT
 +++++++++
-STEPBT is an implementation of a similarly named algorithm described in Dennis and Schnabel (1983). It first attempts to fit a quadratic function to :math:`m\(\theta_t + \rho\delta\)` and computes a :math:`rho` that minimizes the quadratic. If that fails, it attempts to fit a cubic function. The cubic function more accurately portrays the :math:`F`` which is not likely to be very quadratic but is, however, more costly to compute. STEPBT is the default line search method because it generally produces the best results for the least cost in computational resources.
+STEPBT is an implementation of a similarly named algorithm described in Dennis and Schnabel (1983). It first attempts to fit a quadratic function to :math:`m(\theta_t + \rho\delta)` and computes a :math:`rho` that minimizes the quadratic. If that fails, it attempts to fit a cubic function. The cubic function more accurately portrays the :math:`F`` which is not likely to be very quadratic but is, however, more costly to compute. STEPBT is the default line search method because it generally produces the best results for the least cost in computational resources.
 
 BRENT
 ++++++++
 This method is a variation on the golden section method due to Brent (1972). In this method, the function is evaluated at a sequence of test values for :math:`rho`. These test values are determined by extrapolation and interpolation using the constant:
 
-.. math::
-    \(\sqrt{5 - 1\)/2 = 0.6180 \ldots
+.. math:: (\sqrt{5 - 1)/2 = 0.6180 \ldots
 
 
 This constant is the inverse of the so-called "golden ratio":
 
-.. math::
-    \(\sqrt{5 + 1\)/2 = 1.6180 \ldots
+.. math:: (\sqrt{5 + 1)/2 = 1.6180 \ldots
 
 and is why the method is called a golden section method. This method is generally more efficient
 than STEPBT but requires significantly more function evaluations.
 
 HALF
 ++++++++++
-This method first computes :math:`m\(x + \delta\)`, i.e., sets :math:`\rho = 1`. If :math:`m\(x + \delta\) \leq m\(x\)` then the
-step length is set to 1. If not, then it tries :math:`m\(x + 0.5\delta\)`. The attempted step length is divided
+This method first computes :math:`m(x + \delta)`, i.e., sets :math:`\rho = 1`. If :math:`m(x + \delta) \leq m(x)` then the
+step length is set to 1. If not, then it tries :math:`m(x + 0.5\delta)`. The attempted step length is divided
 by one half each time the function fails to decrease and exits with the current value when it does decrease. This method usually requires the fewest function evaluations (it often only requires one), but it is the least efficient in that it is not very likely to find the step
 length that decreases :math:`m` the most.
 

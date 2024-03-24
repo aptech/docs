@@ -107,7 +107,7 @@ Nonlinear equality constraints are of the form:
 
 .. math::
 
-    H\(\Theta\) = 0
+    H(\Theta) = 0
 
 where :math:`H(\Theta)` is an arbitrary user-supplied function. Nonlinear equality constraints are specified by assigning the procedure pointer to the *eqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters--either as a :math:`P \times 1` matrix or a PV structure containing the parameters. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
 
@@ -153,12 +153,12 @@ Nonlinear inequality constraints are of the form:
 
 .. math::
 
-    G\(\Theta\) \geq 0
+    G(\Theta) \geq 0
 
-where :math:`G\(\Theta\)` is an arbitrary user-supplied function. Nonlinear inequality constraints are specified by assigning the procedure pointer to the *ineqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters. This can be in the form of a PV structure containing the parameters or a standard **GAUSS** :math:`P \times 1` matrix. Make sure to use the same form that is expected by your objective procedure. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
+where :math:`G(\Theta)` is an arbitrary user-supplied function. Nonlinear inequality constraints are specified by assigning the procedure pointer to the *ineqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters. This can be in the form of a PV structure containing the parameters or a standard **GAUSS** :math:`P \times 1` matrix. Make sure to use the same form that is expected by your objective procedure. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
 
 Examples
---------
+++++++++++
 
 Minimize the production cost of 1000 widgets with two variables Labor (L) and Capital (K) 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -186,7 +186,7 @@ The production equation is :math:`20 \sqrt{L} \sqrt{K} = 1000`:
     // Assign pointer to inequality procedure
     ctl.ineqProc = &ineqProc;
 
-Suppose you wish to constrain a covariance matrix to be positive definite*
+Suppose you wish to constrain a covariance matrix to be positive definite
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -227,16 +227,16 @@ To bound four parameters to the ranges:
     ctl = comtControlCreate();
 
     // Set separate bounds for each of four parameters
-    ctl.bounds = { {-10, 10},
-                   {-10, 0},
-                   {1, 10},
-                   {0, 1} };
+    ctl.bounds = { -10, 10,
+                   -10, 0,
+                     1, 10,
+                     0, 1 };
 
 Suppose all of the parameters are to be bounded between -50 and +50
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    ctl.bounds = { {-50, 50} };
+    ctl.bounds = {-50, 50};
 
 This specification ensures that all parameters within the model are constrained to operate within the defined bounds, thus adhering to any physical, financial, or other types of constraints that may apply to the parameters being estimated.
