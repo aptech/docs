@@ -11,5 +11,6 @@ User Guide
     comt-ug-objective
     comt-ug-algorithm
     comt-ug-constraints
-    comt-ug-comt-procedures
+    comt-ug-comt-procedure
+    comt-ug-objective-function
     
