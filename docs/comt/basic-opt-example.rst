@@ -55,7 +55,7 @@ The example:
     struct comtResults out;
 
     // Minimize objective function
-    out = comt(&qfct, x_strt, Q, b, ctl);
+    out = comt(&qfct, x_strt, Q, b);
 
     // Print output to the screen
     call comtPrt(out);
