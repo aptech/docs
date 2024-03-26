@@ -1,6 +1,6 @@
 Constrained Maximum Likelihood MT (CMLMT)
 =========================================
-A constrainted maximum likelihood package for GAUSS.
+A constrained maximum likelihood package for GAUSS.
 
 Description
 ----------------

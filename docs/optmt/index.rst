@@ -1,4 +1,4 @@
-Constrained Optimization MT (COMT)
+Optimization MT (COMT)
 ==================================
 An optimization package for **GAUSS**.
 
@@ -104,7 +104,7 @@ Control Options
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Constrained Optimization Documents
+    :caption: Optimization Documents
 
     user-guide
     command-reference

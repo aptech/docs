@@ -8,14 +8,14 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     :link-type: doc
     :shadow: none
 
-    Provides tools for constrainted maximum likelihood in GAUSS.  
+    Provides tools for constrained maximum likelihood in GAUSS.  
 
 .. card:: COMT (Constrained Optimization MT)
     :link: comt/index
     :link-type: doc
     :shadow: none
 
-    Provides tools for constrainted optimization in GAUSS.  
+    Provides tools for constrained optimization in GAUSS.  
     
 .. card:: GML (GAUSS Machine Learning)
     :link: gml-landing

@@ -1,6 +1,6 @@
 Constrained Optimization MT (COMT)
 ==================================
-A constrainted optimization package for GAUSS.
+A constrained optimization package for GAUSS.
 
 Description
 ----------------
