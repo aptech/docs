@@ -1,4 +1,4 @@
-COMT Examples
+CMLMT Examples
 ==================
 
 .. toctree::

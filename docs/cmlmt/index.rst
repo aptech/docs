@@ -1,19 +1,19 @@
 Constrained Maximum Likelihood MT (CMLMT)
 =========================================
-A constrained maximum likelihood package for GAUSS.
+A constrained maximum likelihood package for **GAUSS**.
 
 Description
 ----------------
-CMLMT provides methods for statistical inference of weighted or unweighted, bounded or unbounded maximum likelihood models with general constraints.
+**CMLMT** provides methods for statistical inference of weighted or unweighted, bounded or unbounded maximum likelihood models with general constraints.
 
-COMT's ability to handle general nonlinear functions and nonlinear constraints along with other features, such as the Trust Region Method, allow you to solve a wide range of sophisticated optimization problems. Built on the speed and number crunching ability of the GAUSS platform, COMT quickly computes solutions to large problems, making it ideal for large scale Monte Carlo or Bootstrap optimizations.
+**CMLMT's**  ability to handle general nonlinear functions and nonlinear constraints along with other features, such as the Trust Region Method, allow you to solve a wide range of sophisticated optimization problems. Built on the speed and number crunching ability of the GAUSS platform, **CMLMT**  quickly computes solutions to large problems, making it ideal for large scale Monte Carlo or Bootstrap optimizations.
 
 
 Installation
 --------------
 Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing and installation information.
 
-If you already own CMLMT, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install CMLMT.
+If you already own **CMLMT** , you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install CMLMT.
 
 Key Features
 ------------------------------
@@ -72,7 +72,7 @@ Efficient
 
 * Threaded and thread-safe.
 * Option to avoid computations that are the same for the log-likelihood function and derivatives.
-* The tremendous speed of user-defined procedures in GAUSS speeds up your estimation.
+* The tremendous speed of user-defined procedures in **GAUSS** speeds up your estimation.
 
 Trusted
 +++++++++++
