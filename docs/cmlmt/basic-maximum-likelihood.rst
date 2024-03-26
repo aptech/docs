@@ -1,7 +1,7 @@
 Basic Maximum Likelihood Estimation
 ====================================
 
-This **GAUSS** maximum likelihood example demonstrates the estimation of parameters of a tobit model.  
+This **GAUSS** maximum likelihood example demonstrates the use of **CMLMT** to estimate parameters of a tobit model.  
 
 Key features
 +++++++++++++++
@@ -9,7 +9,7 @@ Key features
 - Usages of data from the file *cmlmttobit.dat* (included with *cmlmt*).
 - User defined likelihood function, :clas:`lpr` with four inputs:
   - The required PV structure. 
-  - Additional *X* and *y* data matrices, which are passed to *cmlmt* as optional arguments. 
+  - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt` as optional arguments. 
   - The required *ind* input. 
 - Comparison of parameter vector versus *PV* structure to pass parameters. 
 
@@ -29,7 +29,7 @@ Case One: Use of parameter vector
     //    ii-iii. x and y - Extra data needed by the objective procedure
     //    ii.     ind     - The indicator vector 
     proc lpr(p, x, y, ind);
-        local s2, b0, b, yh, u, res, g1, g2;
+        local s2, b0, b, u, res;
 
         // Declare 'mm' to be a modelResults
         // struct local to this procedure
@@ -58,7 +58,7 @@ Case One: Use of parameter vector
     p0 = {1, 1, 1, 1, 1};
    
     // Load data
-    loadd(getGAUSSHome("pkgs/cmlmt/examples/cmlmttobit.dat"));
+    z = loadd(getGAUSSHome("pkgs/cmlmt/examples/cmlmttobit.dat"));
    
     // Separate X and y
     y = z[., 1];
@@ -129,7 +129,7 @@ Confidence intervals
 
     Wald Confidence Limits
 
-                              0.95 confidence limits
+                                0.95 confidence limits
     Parameters    Estimates     Lower Limit   Upper Limit   Gradient
     ----------------------------------------------------------------------
     x[1,1]           1.4253        1.3507        1.4999        0.0000
@@ -197,7 +197,7 @@ The code below performs the same estimation as that above but uses the PV struct
    p0 = pvPack(p0, 1, "variance");
 
    // Load data
-   loadd(getGAUSSHome("pkgs/cmlmt/examples/cmlmttobit.dat"));
+   z = loadd(getGAUSSHome("pkgs/cmlmt/examples/cmlmttobit.dat"));
    
    // Separate X and y
    y = z[., 1];
