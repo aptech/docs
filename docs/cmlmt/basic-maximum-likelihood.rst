@@ -8,7 +8,7 @@ Key features
 
 - Usages of data from the file *cmlmttobit.dat* (included with *cmlmt*).
 - User defined likelihood function, :clas:`lpr` with four inputs:
-  - The required PV structure. 
+  - The required parameters passed as i) a parameter vector, ii) a PV structure. 
   - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt` as optional arguments. 
   - The required *ind* input. 
 - Comparison of parameter vector versus *PV* structure to pass parameters. 
@@ -64,7 +64,7 @@ Case One: Use of parameter vector
     y = z[., 1];
     x = z[., 2:4];
 
-    // Declare 'out' to be a comtResults
+    // Declare 'out' to be a cmlmtResults
     // struct to hold optimization results 
     struct cmlmtResults out;
     out = cmlmtprt(cmlmt(&lpr, p0, x, y));
@@ -85,7 +85,7 @@ Estimation results
 ::
 
     ===============================================================================
-    CMLMT Version 3.0.0                                       3/25/2024  11:23 pm
+    CMLMT Version 3.0.0                                      
     ===============================================================================
 
     return code =    0
@@ -203,7 +203,7 @@ The code below performs the same estimation as that above but uses the PV struct
    y = z[., 1];
    x = z[., 2:4];
 
-   // Declare 'out' to be a comtResults
+   // Declare 'out' to be a cmlmtResults
    // struct to hold optimization results 
    struct cmlmtResults out;
    out = cmlmtprt(cmlmt(&lpr, p0, x, y));
@@ -216,7 +216,7 @@ For the sake of brevity, we won't separate the sections of the results.
 :: 
 
    ===============================================================================
-    CMLMT Version 3.0.0                                       3/25/2024  11:23 pm
+    CMLMT Version 3.0.0                                     
    ===============================================================================
 
    return code =    0

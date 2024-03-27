@@ -1,7 +1,7 @@
 Maximum Likelihood Estimation with Analytic Gradient Computations
 ==================================================================
 
-This **GAUSS** maximum likelihood example demonstrates the use of **CMLMT** to estimate parameters of a tobit model. This example moves beyond basic case and uses a user-defined function to  compute the analytical first derivatives. 
+This **GAUSS** maximum likelihood example demonstrates the use of **CMLMT** to estimate parameters of a tobit model with equality constraints. 
 
 Key example features
 ++++++++++++++++++++++
@@ -12,6 +12,16 @@ Key example features
   - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt`` as optional arguments. 
   - The required *ind* input. 
 - The inclusion of analytic gradient computations, as specified in the :class:`lpr` function.
+- The second case uses a user-defined function :class:`eqp` in combination with the *c0.eqProc* member of the :class:`cmlmtControl` structure to specify the equality constraints. 
+
+There are two equality constraints that are implemented in this example, one linear and one nonlinear:
+
+.. math:: `p[1] - p[2] = 0`
+.. math:: `p[2] * p[3] - 1 = 0`
+
+
+where  :math:`p[1],p[2], \ldots, p[5]` are the parameters to be estimated. 
+
 
 Code for estimation
 ----------------------
@@ -35,10 +45,10 @@ Code for estimation
         // struct local to this procedure
         struct modelResults mm;
 
-        // Parameters
-        b0 = p[1];
-        b = p[2:4];
-        s2 = p[5];
+        // Unpack parameters from PV structure
+        b0 = pvUnpack(p,"b0");
+        b = pvUnpack(p,"b");
+        s2 = pvUnpack(p,"variance");
 
         yh = b0 + x * b;
         res = y - yh;
@@ -65,8 +75,11 @@ Code for estimation
 
     endp;
 
-    // Set parameter starting values
-    p0 = {1, 1, 1, 1, 1};
+    // Pack parameters into PV structure
+    // note that first call to pvPack 
+    p0 = pvPack(p0, 1, "b0");
+    p0 = pvPack(p0, 1|1|1, "b");
+    p0 = pvPack(p0, 1, "variance");
    
     // Load data
     z = loadd(getGAUSSHome("pkgs/cmlmt/examples/cmlmttobit.dat"));
@@ -75,12 +88,43 @@ Code for estimation
     y = z[., 1];
     x = z[., 2:4];
 
+    // Declare 'c0' to be a cmlmtControl struct
+    // and fill with default settings
+    struct cmlmtControl c0;
+    c0 = cmlmtControlCreate();
+
+    c0.
+    // Procedure to compute equality constraints
+    // this must specify the constraint such that
+    // eqp(x) = 0
+    proc eqp(p, x, y);
+       local c, b0, b;
+
+       // Extract parameters
+       b0 = p[1];
+       b = p[2:4];
+
+       // This will be returned and
+       // it should be a vector of zeros
+       // with the same number of rows as constraints
+       c = zeros(2, 1);
+       
+       // First constraint
+       c[1] = b0 - b[1];
+
+       // Second constraint
+       c[2] = b[2] * b[3] - 1;
+
+       retp(c);
+    endp;
+
+    // Assign pointer for equality procedure
+    c0.eqProc = &eqp;
+
     // Declare 'out' to be a cmlmtResults
     // struct to hold optimization results 
     struct cmlmtResults out;
-    out = cmlmtprt(cmlmt(&lpr, p0, x, y));
-
-
+    out = cmlmtprt(cmlmt(&lpr, p0, x, y, c0));
 
 Results
 -----------
@@ -107,13 +151,13 @@ Estimation results
 
   Covariance of the parameters computed by the following method:
   ML covariance matrix
-    Parameters    Estimates     Std. err.  Est./s.e.  Prob.    Gradient
+  Parameters    Estimates     Std. err.  Est./s.e.  Prob.    Gradient
   ---------------------------------------------------------------------
-  x[1,1]          1.4253        0.0376      37.925   0.0000      0.0000
-  x[2,1]          0.4976        0.0394      12.642   0.0000      0.0000
-  x[3,1]          0.4992        0.0458      10.889   0.0000      0.0000
-  x[4,1]          0.4141        0.0394      10.506   0.0000      0.0000
-  x[5,1]          0.1231        0.0196       6.284   0.0000      0.0000     
+  x[1,1]        1.4253        0.0376      37.925   0.0000      0.0000
+  x[2,1]        0.4976        0.0394      12.642   0.0000      0.0000
+  x[3,1]        0.4992        0.0458      10.889   0.0000      0.0000
+  x[4,1]        0.4141        0.0394      10.506   0.0000      0.0000
+  x[5,1]        0.1231        0.0196       6.284   0.0000      0.0000
 
 The estimation results reports:
 
@@ -140,11 +184,12 @@ Confidence intervals
 
     Wald Confidence Limits
 
-                                  0.95 confidence limits
-      Parameters    Estimates     Lower Limit   Upper Limit   Gradient
+                                0.95 confidence limits
+    Parameters    Estimates     Lower Limit   Upper Limit   Gradient
     ----------------------------------------------------------------------
-    x[1,1]    1.4253        1.3507        1.4999        0.0000
-    x[2,1]    0.4976        0.4195        0.5757        0.0000
-    x[3,1]    0.4992        0.4082        0.5903        0.0000
-    x[4,1]    0.4141        0.3358        0.4923        0.0000
-    x[5,1]    0.1231        0.0842        0.1620        0.0000
+    x[1,1]        1.4253        1.3507        1.4999        0.0000
+    x[2,1]        0.4976        0.4195        0.5757        0.0000
+    x[3,1]        0.4992        0.4082        0.5903        0.0000
+    x[4,1]        0.4141        0.3358        0.4923        0.0000
+    x[5,1]        0.1231        0.0842        0.1620        0.0000
+

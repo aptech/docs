@@ -160,12 +160,23 @@ In this case, the same optimization is performed, using a procedure to define th
     endp;
 
     // Procedure to compute equality constraints
+    // this must specify the constraint such that
+    // eqp(x) = 0
     proc eqp(x);
         local result;
 
+        // This will be returned and
+        // it should be a vector of zeros
+        // with the same number of rows as constraints
         result = zeros(3, 1);
+        
+        // Constraint one 
         result[1] = x[1] + 3*x[2];
+        
+        // Constraint two 
         result[2] = x[3] + x[4] - 2 * x[5];
+        
+        // Constraint three 
         result[3] = x[2] - x[5];
         
         retp(result);
@@ -179,7 +190,7 @@ In this case, the same optimization is performed, using a procedure to define th
     // Turn off trust radius
     c0.trustRadius = error(0);
 
-    // Assign pointers for equality procedure
+    // Assign pointer for equality procedure
     c0.eqProc = &eqp;
 
     // Bound all parameters to be between -10 and +10
