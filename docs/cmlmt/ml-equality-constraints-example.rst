@@ -1,14 +1,14 @@
-Maximum Likelihood Estimation with Analytic Gradient Computations
+Maximum Likelihood Estimation with Nonlinear Equality Constraints
 ==================================================================
 
-This **GAUSS** maximum likelihood example demonstrates the use of **CMLMT** to estimate parameters of a tobit model with equality constraints. 
+This **GAUSS** maximum likelihood example demonstrates the use of **CMLMT** to estimate parameters of a tobit model with nonlinear equality constraints. 
 
 Key example features
 ++++++++++++++++++++++
 
 - Usages of data from the file *cmlmttobit.dat* (included with **cmlmt**).
 - User defined likelihood function, :class:`lpr` with four inputs:
-  - A parameter vector. 
+  - A PV structure storing parameters. 
   - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt`` as optional arguments. 
   - The required *ind* input. 
 - The inclusion of analytic gradient computations, as specified in the :class:`lpr` function.
@@ -20,7 +20,7 @@ There are two equality constraints that are implemented in this example, one lin
 .. math:: `p[2] * p[3] - 1 = 0`
 
 
-where  :math:`p[1],p[2], \ldots, p[5]` are the parameters to be estimated. 
+where  :math:`p[1], p[2], \ldots, p[5]` are the parameters to be estimated. 
 
 
 Code for estimation
@@ -35,10 +35,10 @@ Code for estimation
     library cmlmt;
 
     // Tobit likelihood function with 4 inputs
-    //    i.      p      - The parameter vector
+    //    i.      p      - The PV parameter structur
     //    ii-iii. x and y - Extra data needed by the objective procedure
     //    ii.     ind     - The indicator vector 
-    proc lpr(p, x, y, ind);
+    proc lpr(struct PV p, x, y, ind);
         local s2, b0, b, yh, u, res, g1, g2;
 
         // Declare 'mm' to be a modelResults
@@ -46,9 +46,9 @@ Code for estimation
         struct modelResults mm;
 
         // Unpack parameters from PV structure
-        b0 = pvUnpack(p,"b0");
-        b = pvUnpack(p,"b");
-        s2 = pvUnpack(p,"variance");
+        b0 = pvUnpack(p, "b0");
+        b = pvUnpack(p, "b");
+        s2 = pvUnpack(p, "variance");
 
         yh = b0 + x * b;
         res = y - yh;
@@ -77,7 +77,8 @@ Code for estimation
 
     // Pack parameters into PV structure
     // note that first call to pvPack 
-    p0 = pvPack(p0, 1, "b0");
+    struct PV p0;
+    p0 = pvPack(pvCreate, 1, "b0");
     p0 = pvPack(p0, 1|1|1, "b");
     p0 = pvPack(p0, 1, "variance");
    
@@ -93,7 +94,6 @@ Code for estimation
     struct cmlmtControl c0;
     c0 = cmlmtControlCreate();
 
-    c0.
     // Procedure to compute equality constraints
     // this must specify the constraint such that
     // eqp(x) = 0
@@ -101,8 +101,8 @@ Code for estimation
        local c, b0, b;
 
        // Extract parameters
-       b0 = p[1];
-       b = p[2:4];
+       b0 = pvUnpack(p, "b0");
+       b = pvUnpack(p, "b");
 
        // This will be returned and
        // it should be a vector of zeros
@@ -146,24 +146,29 @@ Estimation results
   return code =    0
   normal convergence
 
-  Log-likelihood        -43.9860
+  Log-likelihood        -129.935
   Number of cases     100
 
   Covariance of the parameters computed by the following method:
   ML covariance matrix
-  Parameters    Estimates     Std. err.  Est./s.e.  Prob.    Gradient
+    Parameters    Estimates     Std. err.  Est./s.e.  Prob.    Gradient
   ---------------------------------------------------------------------
-  x[1,1]        1.4253        0.0376      37.925   0.0000      0.0000
-  x[2,1]        0.4976        0.0394      12.642   0.0000      0.0000
-  x[3,1]        0.4992        0.0458      10.889   0.0000      0.0000
-  x[4,1]        0.4141        0.0394      10.506   0.0000      0.0000
-  x[5,1]        0.1231        0.0196       6.284   0.0000      0.0000
+  b0[1,1]          0.7560        0.0862       8.775   0.0000     27.6776
+  b[1,1]           0.7560        0.0862       8.775   0.0000    -27.6779
+  b[2,1]           1.1077        0.1279       8.658   0.0000    -34.1711
+  b[3,1]           0.9028        0.1043       8.658   0.0000    -41.9260
+  variance[1,1]    1.2446        0.1883       6.610   0.0000      0.0085
 
 The estimation results reports:
 
 - That the model has converged normally with a return code of 0. Any return code other than 0, indicates an issue with convergence. The :func:`cmlmt` documentation provides details on how to interpret non-zero return codes. 
 - The log-likelihood value and number of cases. 
 - Parameter estimates, standard errors, t-statistics and associated p-values, and gradients. 
+- The results are consistent with our constraints:
+  - b0 and b[1, 1] are equal (:math:`b0 - b[1, 1] = 0`).
+  - b[2, 1]*b[3, 1] - 1 = :math:`1.1077 * 0.9028 - 1 = 3.15e-05`.
+- The gradients are not equal to zero, which is indicative that the contraints are binding. 
+
 
 Parameter correlations
 +++++++++++++++++++++++
@@ -171,11 +176,11 @@ Parameter correlations
 ::
 
     Correlation matrix of the parameters
-               1      0.067006788      -0.24418626       0.05530654      -0.10868104 
-     0.067006788                1      -0.30495236     -0.061965451       0.05808199 
-     -0.24418626      -0.30495236                1       -0.3165649      0.067030893 
-      0.05530654     -0.061965451       -0.3165649                1       0.04466025 
-     -0.10868104       0.05808199      0.067030893       0.04466025                1 
+               1                1      -0.27931016       0.27931016    -0.0049885835 
+               1                1      -0.27931016       0.27931016    -0.0049885835 
+     -0.27931016      -0.27931016                1               -1       0.01958035 
+      0.27931016       0.27931016               -1                1      -0.01958035 
+   -0.0049885909    -0.0049885909      0.019580346     -0.019580346                1
 
 Confidence intervals
 +++++++++++++++++++++++
@@ -185,11 +190,14 @@ Confidence intervals
     Wald Confidence Limits
 
                                 0.95 confidence limits
-    Parameters    Estimates     Lower Limit   Upper Limit   Gradient
+    Parameters    Estimates     Lower Limit   Upper Limit    Gradient
     ----------------------------------------------------------------------
-    x[1,1]        1.4253        1.3507        1.4999        0.0000
-    x[2,1]        0.4976        0.4195        0.5757        0.0000
-    x[3,1]        0.4992        0.4082        0.5903        0.0000
-    x[4,1]        0.4141        0.3358        0.4923        0.0000
-    x[5,1]        0.1231        0.0842        0.1620        0.0000
+    b0[1,1]          0.7560        0.5849        0.9270       27.6776
+    b[1,1]           0.7560        0.5849        0.9270      -27.6779
+    b[2,1]           1.1077        0.8537        1.3617      -34.1711
+    b[3,1]           0.9028        0.6958        1.1098      -41.9260
+    variance[1,1]    1.2446        0.8708        1.6184        0.0085
+
+Number of iterations    10
+Minutes to convergence     0.00012
 
