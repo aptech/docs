@@ -35,7 +35,7 @@ Code for estimation
     library cmlmt;
 
     // Tobit likelihood function with 4 inputs
-    //    i.      p      - The PV parameter structur
+    //    i.      p      - The PV parameter structure
     //    ii-iii. x and y - Extra data needed by the objective procedure
     //    ii.     ind     - The indicator vector 
     proc lpr(struct PV p, x, y, ind);

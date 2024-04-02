@@ -8,3 +8,7 @@ CMLMT Examples
 
 
     basic-maximum-likelihood
+    ml-gradient-example
+    ml-equality-constraints-example
+    ml-inequality-constraints-example
+    ml-nleq 
