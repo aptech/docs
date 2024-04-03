@@ -12,7 +12,7 @@ Key example features
   - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt`` as optional arguments. 
   - The required *ind* input. 
 - The inclusion of analytic gradient computations, as specified in the :class:`lpr` function.
-- The second case uses a user-defined function :class:`eqp` in combination with the *c0.eqProc* member of the :class:`cmlmtControl` structure to specify the equality constraints. 
+- A user-defined function :class:`eqp` in combination with the *c0.eqProc* member of the :class:`cmlmtControl` structure to specify the equality constraints. 
 
 There are two equality constraints that are implemented in this example, one linear and one nonlinear:
 
