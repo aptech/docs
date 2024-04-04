@@ -120,7 +120,6 @@ Control Options
     :hidden:
     :caption: Maximum Likelihood Documents
 
-    user-guide
     command-reference
     mlmt-examples
 

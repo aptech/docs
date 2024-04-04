@@ -145,7 +145,6 @@ Feature Overview
     :hidden:
     :caption: Constrained Maximum Likilihood Documents
 
-    user-guide
     command-reference
     cmlmt-examples
 

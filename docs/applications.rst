@@ -1,8 +1,15 @@
 Applications
 ===================
 
-Applications are downloadable libraries that extend the functionality of GAUSS with additional procedures and examples.
+Applications are downloadable libraries that extend the functionality of **GAUSS** with additional procedures and examples.
 
+.. card:: BET (Bayesian Estimation Tools)
+    :link: bet/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools for Bayesian estimation in GAUSS.  
+    
 .. card:: CMLMT (Constrained Maximum Likelihood MT)
     :link: cmlmt/index
     :link-type: doc
@@ -64,6 +71,7 @@ Applications are downloadable libraries that extend the functionality of GAUSS w
     :maxdepth: 1
     :hidden:
 
+    bet/index
     cmlmt/index
     comt/index
     gml-landing
