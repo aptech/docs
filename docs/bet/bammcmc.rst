@@ -12,15 +12,21 @@ Format
    Conducts MCMC-Gibbs style sampling based on the provided data and control structures, returning an instance of the bayesOut structure.
 
     :param myData: An instance of the :class:`dgpControl` structure. For an instance of the :class:`dgpcontrol` structure named *myData*, the members are:
+            
             .. include:: include/dgpcontrol.rst
+    
     :type myData: struct
 
     :param MCCtl0: An instance of the :class:`bayesControl` structure. For an instance of the :class:`bayesControl` structure named *MCCtl0* the members are:
+           
             .. include:: include/bayescontrol.rst
+    
     :type MCCtl0: struct
 
     :return bamOut0: An instance of the :class:`bayesOut` structure. For an instance of the :class:`bayesOut` structure named *bamOut0*, the members are:
+     
             .. include:: include/bayesout.rst
+    
     :rtype: struct
 
 
