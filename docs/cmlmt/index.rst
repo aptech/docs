@@ -143,7 +143,7 @@ Feature Overview
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Constrained Maximum Likilihood Documents
+    :caption: Constrained Maximum Likelihood 
 
     command-reference
     cmlmt-examples

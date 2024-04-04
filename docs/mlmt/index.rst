@@ -10,14 +10,14 @@ Installation
 --------------
 Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing and installation information.
 
-If you already own maxlikMT, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install maxlikMT as well.
+If you already own **maxlikMT**, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install maxlikMT as well.
 
 Key Features
 ------------------------------
 
 Statistical Inference
 +++++++++++++++++++++++++++++++
-Maxlikmt provides methods for statistical inference of weighted or unweighted, bounded or unbounded maximum likelihood models.
+**maxlikmt** provides methods for statistical inference of weighted or unweighted, bounded or unbounded maximum likelihood models.
 
 * Inverted Hessian covariance matrix
 * Heteroskedastic-consistent covariance matrix
