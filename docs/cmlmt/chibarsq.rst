@@ -1,5 +1,5 @@
-:func:`chibarsq`
-========
+chibarsq
+=========
 
 Purpose
 -------

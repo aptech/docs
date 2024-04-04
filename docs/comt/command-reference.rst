@@ -7,6 +7,6 @@ Command Reference
 
     comt
     comtcontrolcreate
-    comotlagrangecreate
+    comtlagrangecreate
 
     
