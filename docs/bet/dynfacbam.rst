@@ -22,6 +22,6 @@ Format
     
         .. include:: include/dynout.rst
     
-    :rtype: struct
+    :rtype dOut: struct
 
 

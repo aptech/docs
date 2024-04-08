@@ -25,7 +25,7 @@ Format
      
             .. include:: include/bayesout.rst
     
-    :rtype: struct
+    :rtype bamOut0: struct
 
 
 Examples

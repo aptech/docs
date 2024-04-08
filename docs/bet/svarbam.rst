@@ -25,5 +25,5 @@ Format
      
       .. include:: include/svarout.rst
    
-   :rtype: struct
+   :rtype svarOut: struct
 
