@@ -5,7 +5,7 @@ Command Reference
     :maxdepth: 1
     :caption: Bayesian Estimation Tools 
 
-   arfac
-   bammcmc 
-   dynfacbam 
-   svarbam
+    arfac
+    bammcmc 
+    dynfacbam 
+    svarbam
