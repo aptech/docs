@@ -85,9 +85,6 @@ Optimization controls are set to default values that few users ever need to chan
 Control Options
 +++++++++++++++++++++++++++++++
 
-Feature Overview
-================
-
 .. list-table::
    :widths: auto
 
