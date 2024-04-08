@@ -8,19 +8,19 @@ Key example features
 
 - Usages of data from the file *cmlmttobit.dat* (included with **cmlmt**).
 - User defined likelihood function, :class:`lpr` with four inputs:
-  - A PV structure storing parameters. 
-  - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt`` as optional arguments. 
-  - The required *ind* input. 
+    - A PV structure storing parameters.   
+    - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt`` as optional arguments.   
+    - The required *ind* input.   
 - The inclusion of analytic gradient computations, as specified in the :class:`lpr` function.
 - A user-defined function :class:`eqp` in combination with the *c0.eqProc* member of the :class:`cmlmtControl` structure to specify the equality constraints. 
 
 There are two equality constraints that are implemented in this example, one linear and one nonlinear:
 
-.. math:: `p[1] - p[2] = 0`
-.. math:: `p[2] * p[3] - 1 = 0`
+.. math:: p[1] - p[2] = 0
+.. math:: p[2] * p[3] - 1 = 0
 
 
-where  :math:`p[1], p[2], \ldots, p[5]` are the parameters to be estimated. 
+where  :math:`p[1], p[2], \ldots, p[5]` are the model parameters to be estimated. 
 
 
 Code for estimation
@@ -50,6 +50,7 @@ Code for estimation
         b = pvUnpack(p, "b");
         s2 = pvUnpack(p, "variance");
 
+        // Function computations
         yh = b0 + x * b;
         res = y - yh;
         u = y[., 1] ./= 0;

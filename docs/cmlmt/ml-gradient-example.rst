@@ -1,16 +1,16 @@
-Maximum Likelihood Estimation with Analytic Gradient Computations
-==================================================================
+Maximum Likelihood Estimation with Analytic Gradients
+======================================================
 
-This **GAUSS** maximum likelihood example demonstrates the use of **CMLMT** to estimate parameters of a tobit model. This example moves beyond basic case and uses a user-defined function to  compute the analytical first derivatives. 
+This **GAUSS** maximum likelihood example demonstrates the use of **CMLMT** to estimate parameters of a tobit modelwith analytic first derivatives. 
 
 Key example features
 ++++++++++++++++++++++
 
 - Usages of data from the file *cmlmttobit.dat* (included with **cmlmt**).
-- User defined likelihood function, :class:`lpr` with four inputs:
-  - A parameter vector. 
-  - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt`` as optional arguments. 
-  - The required *ind* input. 
+- User defined likelihood function, :class:`lpr` with four inputs:  
+    - A parameter vector.   
+    - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt`` as optional arguments.   
+    - The required *ind* input.   
 - The inclusion of analytic gradient computations, as specified in the :class:`lpr` function.
 
 Code for estimation
@@ -40,6 +40,7 @@ Code for estimation
         b = p[2:4];
         s2 = p[5];
 
+        // Function computations
         yh = b0 + x * b;
         res = y - yh;
         u = y[., 1] ./= 0;

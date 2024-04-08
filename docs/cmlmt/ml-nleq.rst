@@ -5,13 +5,13 @@ The source code below estimates the coefficients of a general nonlinear system o
 
     .. math::  U = f(Y, X, B)
 
-where :math:`U`` is a :math:`N \times K` matrix of residuals and :math:`f()` is an arbitrary function of :math:`Y`, a :math:`N \times K` matrix of endogenous variables, :math:`X`, an :math:`N \times L` matrix of exogenous variables, and :math:`B`, an :math:`M \times 1` vector of coefficients.  Thus
+where :math:`U` is a :math:`N \times K` matrix of residuals and :math:`f()` is an arbitrary function of :math:`Y`, a :math:`N \times K` matrix of endogenous variables, :math:`X`, an :math:`N \times L` matrix of exogenous variables, and :math:`B`, an :math:`M \times 1` vector of coefficients.  Thus
 there are :math:`N` observations, and :math:`f()` represents :math:`K` simultaneous equations.
 
 This example also illustrates constraining the Jacobians.  For a model to be "dynamically stable" the absolute value of the
 eigenvalues of I - the Jacobian of the residuals  w.r.t. the endogenous variables must be on the unit interval.  The example below provides for such constraints.
 
-In this example, a procedure is provided for computing the Jacobian of the function with respect to the endogenous variables. This proc, :class:`_nseq_EndoJcb`, is provided, time of computation is reduced significantly.
+In this example, a procedure is provided for computing the Jacobian of the function with respect to the endogenous variables. When this proc, :class:`_nseq_EndoJcb`, is provided, time of computation is reduced significantly.
 
 Code for estimation
 ----------------------
@@ -22,7 +22,7 @@ After loading the library, the first step is to set up the system of nonlinear s
     .. math::  Y_2 = b_2 Y_1 + g_2 X_2 + d_2 + U_2
 
 where :math:`Y_1` and :math:`Y_2` are endogenous, :math:`X_1` and :math:`X_2` are exogenous, and :math:`U_1` and :math:`U_2` are residuals. 
-The objective is to estimate the parameter vector :math:`\theta = {b_1, c_1, g_1, d_1, b_2, g_2, d_2` using maximum likelihood.
+The objective is to estimate the parameter vector :math:`\theta = {b_1, c_1, g_1, d_1, b_2, g_2, d_2}` using maximum likelihood.
 
 :: 
 

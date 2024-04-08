@@ -7,11 +7,11 @@ Key features
 +++++++++++++++
 
 - Usages of data from the file *cmlmttobit.dat* (included with *cmlmt*).
-- User defined likelihood function, :clas:`lpr` with four inputs:
-  - The required parameters passed as i) a parameter vector, ii) a PV structure. 
-  - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt` as optional arguments. 
-  - The required *ind* input. 
-- Comparison of parameter vector versus *PV* structure to pass parameters. 
+- User defined likelihood function, :class:`lpr` with four inputs:  
+    - The required parameters passed as i) a parameter vector, ii) a PV structure.   
+    - Additional *X* and *y* data matrices, which are passed to :func:`cmlmt` as optional arguments.   
+    - The required *ind* input.   
+- Comparison of parameter vector versus *PV* structure to pass parameters.   
 
 Case One: Use of parameter vector
 ----------------------------------
@@ -29,7 +29,7 @@ Case One: Use of parameter vector
     //    ii-iii. x and y - Extra data needed by the objective procedure
     //    ii.     ind     - The indicator vector 
     proc lpr(p, x, y, ind);
-        local s2, b0, b, u, res;
+        local s2, b0, b, yh, res, u;
 
         // Declare 'mm' to be a modelResults
         // struct local to this procedure
@@ -40,6 +40,7 @@ Case One: Use of parameter vector
         b = p[2:4];
         s2 = p[5];
 
+        // Function computations 
         yh = b0 + x * b;
         res = y - yh;
         u = y[., 1] ./= 0;
@@ -148,7 +149,7 @@ While the parameter vector is generally a simpler method, the PV structure can b
 -  It can be used to fix certain parameters at their start values with :func:`pvPackM`. 
 -  It can be used to specify that parameters are a symmetric matrix with :func:`pvPackSM`. 
 
-The code below performs the same estimation as that above but uses the PV structure, in combination with the **pack** procedures to pass parameters. 
+The code below performs the same estimation as the first example but uses the PV structure, in combination with the **pack** procedures to pass parameters. 
 
 ::
 
@@ -167,10 +168,11 @@ The code below performs the same estimation as that above but uses the PV struct
        struct modelResults mm;
 
        // Unpack parameters from PV structure
-       b0 = pvUnpack(p,"b0");
-       b = pvUnpack(p,"b");
-       s2 = pvUnpack(p,"variance");
+       b0 = pvUnpack(p, "b0");
+       b = pvUnpack(p, "b");
+       s2 = pvUnpack(p, "variance");
 
+       // Function computations 
        yh = b0 + x * b;
        res = y - yh;
        u = y[., 1] ./= 0;
