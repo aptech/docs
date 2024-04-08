@@ -26,7 +26,7 @@
      - Scalar, pointer to a procedure that computes the Jacobian of the inequality constraints. It has two input arguments: an instance of a :class:`PV` parameter structure, and an instance of a :class:`DS` data structure; and one output argument, a matrix of derivatives of the inequality constraints with respect to the parameters. Default = {.}, i.e., no inequality Jacobian procedure.
   
    * - c1.Bounds
-     - 1x2 or Kx2 matrix, bounds on parameters. If 1x2, all parameters have the same bounds. Default = {-1e256, 1e256}.
+     - 1x2 or Kx2 matrix, bounds on parameters. If 1x2, all parameters have the same bounds. Default = ``{-1e256, 1e256}``.
   
    * - c1.bayesAlpha
      - Exponent of the Dirichlet random variates used in the weighted bootstrap. Default = 1.4.

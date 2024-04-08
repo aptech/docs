@@ -29,13 +29,13 @@
      - Kx2 matrix, Wald confidence limits.
    
    * - out.inverseWaldLimits
-     - Kx2 matrix, confidence limits by inversion of Wald statistics. Available only if :func:`cmlmtInverseWaldLimits`` has been called.
+     - Kx2 matrix, confidence limits by inversion of Wald statistics. Available only if :func:`cmlmtInverseWaldLimits` has been called.
    
    * - out.profileLimits
-     - Kx2 matrix, profile likelihood confidence limits, i.e., by inversion of likelihood ratio statistics. Only available if :func:`cmlmtProfileLimits`` has been called.
+     - Kx2 matrix, profile likelihood confidence limits, i.e., by inversion of likelihood ratio statistics. Only available if :func:`cmlmtProfileLimits` has been called.
    
    * - out.bayesLimits
-     - Kx2 matrix, weighted likelihood Bayesian confidence limits. Only available if :func:`cmlmtBayes`` has been called.
+     - Kx2 matrix, weighted likelihood Bayesian confidence limits. Only available if :func:`cmlmtBayes` has been called.
    
    * - out.bootLimits
      - Kx2 Matrix, bootstrap confidence limits. Available only if :func:`cmlmtBoot` has been called.
@@ -56,7 +56,7 @@
      - String, title of run.
    
    * - out.lagr
-     - An instance of a :class:`cmlmtLagrange` structure containing the Lagrangeans for the constraints. For an instance named lagr, the members are:
+     - An instance of a :class:`cmlmtLagrange` structure containing the Lagrangeans for the constraints. For an instance named *lagr*, the members are:
        
        - out.lagr.lineq
          - Mx1 vector, Lagrangeans of linear equality constraints,

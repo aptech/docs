@@ -45,6 +45,8 @@ This example demonstrates the application of :func:`cmlmtProfile` to model the B
     proc lnlk(struct PV p, struct DS d, ind);
         local dev, s2, m, r, b0, b;
         
+        // Declare 'mm' to be a modelResults
+        // struct local to this procedure, 'lnlk'
         struct modelResults mm;
         
         // Unpack parameters

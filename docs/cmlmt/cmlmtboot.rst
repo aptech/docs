@@ -13,7 +13,7 @@ Format
     :type &modelProc: pointer
 
     :param par: An instance of a PV structure, constructed using the "pack" functions.
-    :type par: PV structure instance
+    :type par: struct
 
     :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings required to compute the function. Can include GAUSS data types or a DS structure for dataset manipulation. Specific usage depends on the requirements of the `modelProc`.
     :type ...: various
@@ -69,7 +69,7 @@ Applications**, page 270.
             mm.function = lnpdfmvn(dev,s2);            
         endif;
 
-        / If the first element of the indicator
+        // If the first element of the indicator
         // vector is non-zero, compute gradient value
         // and assign it to the 'gradient' member
         // of the modelResults struct
@@ -114,10 +114,10 @@ Applications**, page 270.
     // Number of observations 
     c0.NumObs = rows(y);
 
-    //Declare 'out' to be a 'cmlmtResults' structure
-    //to hold the estimation results
+    // Declare 'out' to be a 'cmlmtResults' structure
+    // to hold the estimation results
     struct cmlmtResults out;
 
-    //Perform the estimation
+    // Perform the estimation
     out = cmlmtboot(&lnlk, p0, y, x, ctl);
  

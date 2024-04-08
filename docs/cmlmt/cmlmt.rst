@@ -67,7 +67,7 @@ Applications**, page 270.
             mm.function = lnpdfmvn(dev,s2);            
         endif;
 
-        / If the first element of the indicator
+        // If the first element of the indicator
         // vector is non-zero, compute gradient value
         // and assign it to the 'gradient' member
         // of the modelResults struct

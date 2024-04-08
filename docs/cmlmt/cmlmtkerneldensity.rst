@@ -43,7 +43,7 @@ Format
               - c0.NumPointsx1 vector, ordinates for the density plot.
             * - out.sm
               - Smoothing coefficients used, returned as Kx1, NxK, or Nx1, based on input configuration.
-              - 
+  
     :rtype out: struct
     
 Example
@@ -63,10 +63,18 @@ Example
 
     // Customize the control structure
     c0.varNames = "Y";
-    c0.Kernel = 1; // Use normal kernel
+    
+    // Use normal kernel
+    c0.Kernel = 1; 
+    
+    // Number of points
     c0.NumPoints = 100;
+
+    // Endpoints
     c0.EndPoints = {-3 3};
-    c0.Smoothing = 0; // Let the function compute the smoothing coefficient
+
+    // Let the function compute the smoothing coefficient
+    c0.Smoothing = 0; 
 
     // Compute the kernel density estimate and plot
     struct cmlmtKernelDensityResults out;

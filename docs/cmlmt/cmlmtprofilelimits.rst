@@ -20,8 +20,7 @@ Format
     :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings required to compute the function. Can include GAUSS data types or a DS structure for dataset manipulation. Specific usage depends on the requirements of the `modelProc`.
     :type ...: various
 
-    :param c1: The set of optional input arguments must contain the instance of the :class:`cmlmtResults` structure used in the call to 
-    :func:`cmlmt` that produced the results in *out0*.
+    :param c1: The set of optional input arguments must contain the instance of the :class:`cmlmtResults` structure used in the call to :func:`cmlmt` that produced the results in *out0*.
 
             .. include:: include/cmlmtcontrolstruct.rst
 
@@ -41,50 +40,70 @@ Example
     proc lpr(struct PV p, y, x, ind);
         local s2, b0, b, yh, u, res, g1, g2;
         
+        // Declare 'mm' to be a modelResults
+        // struct local to this procedure, 'lnlk'
         struct modelResults mm;
         
-        b0 = pvUnpack(p,"b0");
-        b = pvUnpack(p,"b");
-        s2 = pvUnpack(p,"variance");
+        // Unpack parameters
+        b0 = pvUnpack(p, "b0");
+        b = pvUnpack(p, "b");
+        s2 = pvUnpack(p, "variance");
         
+        // Function computations
         yh = b0 + x * b;
         res = y - yh;
         u = y[.,1] ./= 0;
         
+        // If the first element of the indicator
+        // vector is non-zero, compute function value
+        // and assign it to the 'function' member
+        // of the modelResults struct
         if ind[1];
             mm.function = u.*lnpdfmvn(res,s2) + (1-u).*(ln(cdfnc(yh/sqrt(s2))));
         endif;
         
+        // If the first element of the indicator
+        // vector is non-zero, compute gradient value
+        // and assign it to the 'gradient' member
+        // of the modelResults struct
         if ind[2];
             yh = yh/sqrt(s2);
-            g1 = ((res~x.*res)/s2)~((res.*res/s2)-1)/(2*s2);
-            g2 = (-(ones(rows(x),1)~x)/sqrt(s2))~(yh/(2*s2));
+            g1 = ((res~x.*res)/s2)~((res.*res/s2) - 1)/(2*s2);
+            g2 = (-(ones(rows(x), 1)~x)/sqrt(s2))~(yh/(2*s2));
             g2 = (pdfn(yh)./cdfnc(yh)).*g2;
-            mm.gradient = u.*g1 + (1-u).*g2;
+            mm.gradient = u.*g1 + (1 - u).*g2;
         endif;
         
         retp(mm);
     endp;
     
+    // Pack starting values into 
+    // PV structure
     struct PV p0;
     p0 = pvPack(pvCreate, 1, "b0");
     p0 = pvPack(p0, 1|1|1, "b");
     p0 = pvPack(p0, 1, "variance");
     
+    // Declare instance of cmlmtControl structure
     struct cmlmtControl c0;
     c0 = cmlmtcontrolcreate;
-    c0.title = "Tobit Example";
+    
+    // Set parameter bounds
     c0.Bounds = {-10 10, -10 10, -10 10, -10 10, .1 10};
     
+    // Load data from *cmltmttobit* file
     z = loadd(getGAUSSHome("pkgs/cmlmt/examples/cmlmttobit.dat"));
     y = z[., 1];
     x = z[., 2:4];
     
-    struct cmlmtResults out1;
-    out1 = cmlmt(&lpr, p0, y, x, c0);
+    // Declare 'out' to be a 'cmlmtResults' structure
+    // to hold the estimation results
+    struct cmlmtResults out;
+    out = cmlmt(&lpr, p0, y, x, c0);
     
     // Compute limits by inversion of likelihood ratio statistic
-    out1 = cmlmtProfileLimits(&lpr, out1, y, x, c0);
+    struct cmlmtResults out1;
+    out1 = cmlmtProfileLimits(&lpr, out, y, x, c0);
     
     // Print the results
     call cmlmtPrt(out1);
