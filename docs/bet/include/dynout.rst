@@ -12,5 +12,4 @@
    * - dOut.vdecom2
      - Array, 3 x numObs x numVars, stores variance decomposition from group factor, sub-group factors, and idiosyncratic error terms, in separate planes respectively.
    * - dOut.errTerms
-     - Array, numVars*numInd x numObs x numIters, stores draws of error terms, stored on separate planes for each variable per each sub-group, with each iteration stored on separate columns.
-
+     - Array, numVars x numInd x numObs x numIters, stores draws of error terms, stored on separate planes for each variable per each sub-group, with each iteration stored on separate columns.

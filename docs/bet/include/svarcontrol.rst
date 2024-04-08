@@ -21,4 +21,3 @@
      - Scalar, number of iterations in each simulation.
    * - svarCtl0.numSimulationTot
      - Scalar, total number of simulation iterations.
-

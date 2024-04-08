@@ -7,21 +7,21 @@
        
        - "Linear" - Univariate or multivariate linear model.
        - "Auto" - Univariate linear model with autoregressive error terms.
-       - "HB" - Hierarchical bayes estimation
-       - "Probit" - Binary choice probit model
-       - "Logit" - Binary choice logit model
+       - "HB" - Hierarchical bayes estimation.
+       - "Probit" - Binary choice probit model.
+       - "Logit" - Binary choice logit model.
    * - MCCtl0.savedIter
-     - Scalar, number of sampler iterations to be saved
+     - Scalar, number of sampler iterations to be saved.
    * - MCCtl0.saveSkip
-     - Scalar, number of sampler iterations to skip between saving iterations
+     - Scalar, number of sampler iterations to skip between saving iterations.
    * - MCCtl0.burnIter
-     - Scalar, number of sampler burn-in iterations
+     - Scalar, number of sampler burn-in iterations.
    * - MCCtl0.MLE
-     - Scalar, indicator parameter set to one to use MLE to find initial values
+     - Scalar, indicator parameter set to one to use MLE to find initial values.
    * - MCCtl0.printOut
-     - Scalar, indicator parameter set to one to print output details to screen
+     - Scalar, indicator parameter set to one to print output details to screen.
    * - MCCtl0.graphOut
-     - Scalar, indicator parameter set to one to produce post sampler graphs of posterior
+     - Scalar, indicator parameter set to one to produce post sampler graphs of posterior.
    * - MCCtl0.Intercept
      - Scalar, parameter indicating deterministic trends to include in the model:
        

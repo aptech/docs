@@ -19,5 +19,3 @@
      - Matrix, OLS estimate of sigma values.
    * - sOut.sigmaTilde
      - Matrix, previous iteration sigma estimate.
-
-
