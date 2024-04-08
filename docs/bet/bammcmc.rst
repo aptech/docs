@@ -9,8 +9,6 @@ Format
 ------
 .. function:: bamOut0 = bamMCMC(myData, MCCtl0)
 
-   Conducts MCMC-Gibbs style sampling based on the provided data and control structures, returning an instance of the bayesOut structure.
-
     :param myData: An instance of the :class:`dgpControl` structure. For an instance of the :class:`dgpcontrol` structure named *myData*, the members are:
             
             .. include:: include/dgpcontrol.rst
@@ -158,7 +156,7 @@ Step Two: Initialize Parameters for MCMC
     // No intercept  
     MCCtl0.InterceptX = 0;
 
-    // Turn of MLE for start values 
+    // Turn off MLE for start values 
     MCCtl0.MLE = 0;
 
     // Control printing and graphs 
@@ -184,24 +182,26 @@ Estimation with the **BET** library using :func:`bamMCMC` requires three steps:
 
 #. **Initialize the MCMC**
     The next step is to setup the parameters of the MCMC simulation using the :class:`bayesControl` structure. This includes the:
-    * Model
-    * Number of saved iterations
-    * Number of iterations to skip
-    * Number of burn-in iterations
-    * Total number of iterations
-    * Inclusion of intercept
-    * Plotting behavior
+  
+    * Model  
+    * Number of saved iterations  
+    * Number of iterations to skip  
+    * Number of burn-in iterations  
+    * Total number of iterations  
+    * Inclusion of intercept  
+    * Plotting behavior  
 
 #. **Perform bayesian analysis**
     The final step is to call the :func:`bamMCMC` procedure using :class:`dgpOut` data structure along with the :class:`bayesControl` structure. In this step, **GAUSS** performs Markov Chain Monte Carlo numerical simulation, combined with assumed statistical structures and priors, to numerically compute parameter
     posterior distributions.
 
     In addition to producing graphs of all MCMC iterations for all parameters and posterior distributions for all parameters, this procedure has one return structure the :class:`bayesOut` structure. The :class:`bayesOut` structure includes:
-    * Draws for all parameters at each iteration
-    * Posterior Mean for all parameters
-    * Posterior standard deviation for all parameters
-    * Predicted values
-    * Residuals
-    * Correlation matrix between Y and Yhat
-    * PDF values and corresponding PDF grid for all posterior distributions
-    * Log-likelihood value (when applicable)
+    
+    * Draws for all parameters at each iteration  
+    * Posterior Mean for all parameters  
+    * Posterior standard deviation for all parameters  
+    * Predicted values  
+    * Residuals  
+    * Correlation matrix between :math:`Y`` and :math:`\hat{Y}`  
+    * PDF values and corresponding PDF grid for all posterior distributions  
+    * Log-likelihood value (when applicable)  

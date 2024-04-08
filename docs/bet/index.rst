@@ -1,23 +1,23 @@
 Bayesian Estimation Tools (BET)
 =========================================
-A suite of tools for bayesian estimation and analysis of a pre-packaged models, including univariate and multivariate linear models, autoregressive models, structural VAR models, and dynamic factor models, in **GAUSS**.
+A suite of tools for bayesian estimation and analysis of a pre-packaged models in **GAUSS**.
 
 Description
 ----------------
-The **Bayesian Estimation Tools** package provides a suite of tools for estimation and analysis of a number of pre-packaged models. The internal Bayesian models provide quickly accessible, full-stage modeling including data generation, estimation, and post-estimation analysis. Modeling flexibility is provided through control structures for setting modeling parameters, such as burn-in periods, total iterations and others.
+The **Bayesian Estimation Tools** package provides a suite of tools for estimation and analysis of a number of pre-packaged models. The internal Bayesian models provide quickly accessible, full-stage modeling including data generation, estimation, and post-estimation analysis. Modeling flexibility is provided through control structures for setting modeling parameters.
 
 
 Installation
 --------------
-Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing and installation information.
+If you're interested in purchasing **BET** Please `contact us <https://www.aptech.com/contact-us>`_ to request pricing and installation information.
 
-If you already own **BET** , you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install **BET**.
+If you already own **BET** , you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ for quick download and installation..
 
 Key Features
 ------------------------------
 
-Data generation tools for building hypothetical data sets
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data generation tools 
++++++++++++++++++++++++
 
 * Univariate and multivariate linear models
 * Autoregressive error terms (AR)
@@ -34,8 +34,8 @@ Supported models for Markov Chain Monte Carlo (MCMC) Estimation
 * Dynamic two-factor model
 * Structural vector autoregressive (SVAR)
 
-Flexible, user defined MCMC estimation parameters including
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Flexible MCMC estimation controls
++++++++++++++++++++++++++++++++++++
 
 * Number of saved iterations
 * Skipped iterations
@@ -45,8 +45,8 @@ Flexible, user defined MCMC estimation parameters including
 * Optional graph and results output
 * Elective maximum likelihood estimation (MLE) initialization
 
-Thorough computations including
-+++++++++++++++++++++++++++++++
+Comprehensive results
+++++++++++++++++++++++
 
 * Draws for all parameters at each iteration
 * Posterior mean of parameters
