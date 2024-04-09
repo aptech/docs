@@ -13,7 +13,7 @@ Format
     :param &modelProc: Pointer to a procedure that computes the function to be minimized.
     :type &modelProc: function pointer
 
-    :param par: An instance of a PV structure. The par instance is passed to the user-provided procedure pointed to by *&fct*. *par* is constructed using the "pack" functions.
+    :param par: An instance of a PV structure. The par instance is passed to the user-provided procedure pointed to by *&modelProc*. *par* is constructed using the "pack" functions.
     :type par: struct
 
     :param ...: Optional input arguments. They can be any set of structures, matrices, arrays, strings required to compute the function. Can include GAUSS data types or a DS structure for dataset manipulation. Specific usage depends on the requirements of the `modelProc`.
