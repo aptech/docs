@@ -8,7 +8,7 @@ Structures
 
 In **COMT**, the same procedure that computes the objective function will also be used to compute analytical derivatives if they are being provided. This procedure will have an additional argument which tells the function whether to compute the log-likelihood or objective, the first derivatives, the second derivatives, or all three. This means that calculations in common will not have to be redone.
 
-:class:`modelResults` structure
+:class:`modelResults` Structure
 +++++++++++++++++++++++++++++++
 
 This objective procedure will return a :class:`modelResults` structure which has three member variables:
@@ -19,36 +19,36 @@ This objective procedure will return a :class:`modelResults` structure which has
 
 ::
 
-    //Example objective function
+    // Example objective function
     proc (1) = myobjective(parms, ind);
         struct modelResults mm;
 
-        //Perform any calculations common to
-        //objective function, gradient, and Hessian
+        // Perform any calculations common to
+        // objective function, gradient, and Hessian
 
-        //If the first element of 'ind' is
-        //non-zero, calculate objective function
+        // If the first element of 'ind' is
+        // non-zero, calculate objective function
         if ind[1];
-          mm.function = //Calculate objective function
+          mm.function = // Calculate objective function
         endif;
 
-        //If the second element of 'ind' is
-        //non-zero, calculate gradient
+        // If the second element of 'ind' is
+        // non-zero, calculate gradient
         if ind[2];
-          mm.gradient = //Calculate gradient
+          mm.gradient = // Calculate gradient
         endif;
 
-        //If the third element of 'ind' is
-        //non-zero, calculate Hessian
+        // If the third element of 'ind' is
+        // non-zero, calculate Hessian
         if ind[3];
-          mm.Hessian = //Calculate Hessian
+          mm.Hessian = // Calculate Hessian
         endif;
 
-        //Return modelResults structure
+        // Return modelResults structure
         retp(mm);
     endp;
 
-Of course, the derivatives are optional or even partially optional, i.e., you can compute a subset of the derivatives if you like, and the remaining will be computed numerically. When computing only a subset of the derivatives, set the uncomputed element of the gradient vector to a missing value. **COMT** will attempt to compute numerical derivatives for any element of the gradient vector that contains a missing value.
+In the objective function the function value return is required. However, the derivatives are optional or even partially optional, i.e., you can compute a subset of the derivatives if you like, and the remaining will be computed numerically. When computing only a subset of the derivatives, set the uncomputed element of the gradient vector to a missing value. **COMT** will attempt to compute numerical derivatives for any element of the gradient vector that contains a missing value.
 
 Parameter Vector (PV) Structure
 +++++++++++++++++++++++++++++++
@@ -57,8 +57,8 @@ Parameter Vector (PV) Structure
 
 ::
 
-    //Add symmetric matrix of starting
-    //values to 'PV' structure
+    // Add symmetric matrix of starting
+    // values to 'PV' structure
     omega_strt = {  1.0 0.8 -0.4,
                     0.8 1.0  0.6,
                    -0.4 0.6  1.0 };
@@ -67,11 +67,11 @@ Parameter Vector (PV) Structure
     proc (1) = myobjective(struct PV parms, ind);
     local omega;
 
-    //Retrieve updated symmetric matrix
-    //inside of objective function
+    // Retrieve updated symmetric matrix
+    // inside of objective function
     omega = pvUnpack(parms, "omega");
 
-    //Perform calculations and return
+    // Perform calculations and return
 
 No more do you have to struggle to get the parameter vector into matrices for calculating the function and its derivatives, trying to remember or figure out which parameter is where in the vector. If your log-likelihood uses matrices or arrays, you can store them directly into the PV structure and remove them as matrices or arrays with the parameters already plugged into them. The PV structure can even efficiently handle symmetric matrices where parameters below the diagonal are repeated above the diagonal.
 

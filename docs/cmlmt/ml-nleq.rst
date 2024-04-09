@@ -36,8 +36,8 @@ The objective is to estimate the parameter vector :math:`\theta = {b_1, c_1, g_1
 
         u = zeros(rows(z), 2);
 
-        u[.,1] = z[.,1] - b[1]*z[.,2] - b[2]*z[.,2].*z[.,3] - b[3]*z[.,3] - b[4];
-        u[.,2] = z[.,2] - b[5]*z[.,1] - b[6]*z[.,4] - b[7];
+        u[., 1] = z[., 1] - b[1]*z[., 2] - b[2]*z[., 2].*z[., 3] - b[3]*z[., 3] - b[4];
+        u[., 2] = z[., 2] - b[5]*z[., 1] - b[6]*z[., 4] - b[7];
         
         retp(u);
     endp;
@@ -85,7 +85,7 @@ Next, we'll provide the likelihood function and the computational Jacobian funct
 
         local dev, psi_, g0, oldt, ldet0, ipsi, jb;
 
-        dev = _nseq_Fct(b,z);
+        dev = _nseq_Fct(b, z);
 
         psi_ = dev'dev/rows(z);
         
@@ -134,10 +134,10 @@ Next, we'll provide the likelihood function and the computational Jacobian funct
                     ret[i] = ln(abs(det(_nseq_EndoJcb(b, xx))));
                 else;
                     jb = _nseq_EndoJcb(b,xx);
-                    ret[i] = maxc(abs(eig(eye(rows(jb))-jb)));
+                    ret[i] = maxc(abs(eig(eye(rows(jb)) - jb)));
                 endif;
             else;
-                jb = zeros(rows(endoIndices),rows(endoIndices));
+                jb = zeros(rows(endoIndices), rows(endoIndices));
                 f0 = _nseq_Fct(b, xx);
 
                 x0 = xx[i,endoIndices];
@@ -155,10 +155,10 @@ Next, we'll provide the likelihood function and the computational Jacobian funct
                     j = j + 1;
                 endo;
                 if ind == 1;
-                    ret[i] = ln(abs(det((jb-f0)./dh)));
+                    ret[i] = ln(abs(det((jb - f0)./dh)));
                 else;
                     jb = (jb-f0)./dh;
-                    ret[i] = maxc(abs(eig(eye(rows(jb))-jb)));
+                    ret[i] = maxc(abs(eig(eye(rows(jb)) - jb)));
                 endif;
 
             endif;
@@ -205,7 +205,7 @@ Now, we're ready to set up the :func:`cmlmt` optimization:
     **  Analysis, page 641ff, for details.
     */
     proc neqp(b, z, endoIndices, endoJcb);
-        retp(.99-_nseq_Jcb(b,z,endoIndices,endoJcb,2));
+        retp(.99-_nseq_Jcb(b, z, endoIndices, endoJcb, 2));
     endp;
 
     c0.ineqProc = &neqp;
@@ -217,7 +217,7 @@ Now, we're ready to set up the :func:`cmlmt` optimization:
     // Declare 'out' to be a cmlmtResults
     // struct to hold optimization results 
     struct cmlmtResults out;
-    out = cmlmt(&lpr,b0, z, endoIndices, endoJcb, c0);
+    out = cmlmt(&lpr, b0, z, endoIndices, endoJcb, c0);
 
     // Print results
     call cmlmtprt(out);
