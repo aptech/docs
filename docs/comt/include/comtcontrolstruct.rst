@@ -3,16 +3,16 @@
 
 
    * - c1.A
-     - MxK matrix, linear equality constraint coefficients: c1.A * p = c1.B where p is a vector of the parameters.
+     - MxK matrix, linear equality constraint coefficients: ``c1.A * p = c1.B`` where ``p`` is a vector of the parameters.
 
    * - c1.B
-     - Mx1 vector, linear equality constraint constants: c1.A * p = c1.B where p is a vector of the parameters.
+     - Mx1 vector, linear equality constraint constants: ``c1.A * p = c1.B`` where ``p`` is a vector of the parameters.
 
    * - c1.C
-     - MxK matrix, linear inequality constraint coefficients: c1.C * p >= c1.D where p is a vector of the parameters.
+     - MxK matrix, linear inequality constraint coefficients: ``c1.C * p >= c1.D`` where ``p`` is a vector of the parameters.
 
    * - c1.D
-     - Mx1 vector, linear inequality constraint constants: c1.C * p >= c1.D where p is a vector of the parameters.
+     - Mx1 vector, linear inequality constraint constants: ``c1.C * p >= c1.D`` where ``p`` is a vector of the parameters.
 
    * - c1.eqProc
      - Scalar, pointer to a procedure that computes the nonlinear equality constraints. It has two input arguments, an instance of a PV parameter structure, and an instance of a DS data structure, and one output argument, a vector of computed equality constraints. Default = {}, i.e., no equality procedure.
