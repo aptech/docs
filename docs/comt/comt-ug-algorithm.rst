@@ -1,7 +1,7 @@
 Algorithm
 =========
 
-COMT uses the Sequential Quadratic Programming method. In this method, the parameters are updated in a series of iterations beginning with starting values that you provide. Let x_k be the current parameter values. Then the succeeding values are 
+COMT uses the Sequential Quadratic Programming method. In this method, the parameters are updated in a series of iterations beginning with starting values that you provide. Let :mat:`\theta_k` be the current parameter values. Then the succeeding values are 
 
 .. math:: 
 
@@ -11,32 +11,26 @@ where :math:`\delta` is a :math:`K \times 1` direction vector and :math:`rho`` i
 
 Define 
 
-.. math::
-    
-    \Sigma(\theta) = \frac{\partial^2L}{\partial\theta \partial \theta \prime}
-    \Psi(\theta) = \frac{\partial L}{\partial\theta}
+.. math::  \Sigma(\theta) = \frac{\partial^2L}{\partial\theta \partial \theta \prime}
+.. math::  \Psi(\theta) = \frac{\partial L}{\partial\theta}
 
 and the Jacobians 
 
-.. math:: 
+.. math::  \dot{G}(\theta) = \frac{\partialG(\theta)}{\partial\theta}
+.. math::  \dot{H}(\theta) = \frac{\partialH(\theta)}{\partial\theta}
     
-    \dot{G}(\theta) = \frac{\partial\G(\theta)}{\partial\theta}
-    \dot{H}(\theta) = \frac{\partial\H(\theta)}{\partial\theta}
-    
-For the purposes of this exposition and without loss of generality, we may assume that the linear constraints and bounds have been incorporated into :math:`G`` and :math:`H`.
+For the purposes of this exposition and without loss of generality, we may assume that the linear constraints and bounds have been incorporated into :math:`G` and :math:`H`.
 
 The direction :math:`\delta` is the solution to the quadratic program. 
 
-.. math ::
-
-    \text{minimize} \frac{1}{2}\delta\prime\Sigma(\theta_t)\delta + \Psi(\theta_t)\delta
-    \text{subject} \dot{G}(\theta_t)\delta + G(\theta_t) = 0
-                   \dot{H}(\theta_t)\delta + H(\theta_t) \geq 0
+.. math::  \text{minimize  } \frac{1}{2}\delta\prime\Sigma(\theta_t)\delta + \Psi(\theta_t)\delta
+.. math::  \text{subject to } \dot{G}(\theta_t)\delta + G(\theta_t) = 0
+.. math::  \dot{H}(\theta_t)\delta + H(\theta_t) \geq 0
 
 
 This solution requires that :math:`\Sigma` be positive semi-definite.
 
-In practice, linear constraints are specified separately from the G and H because their Jacobians are known and easy to compute. And the bounds are more easily handled separately from the linear inequality constraints.
+In practice, linear constraints are specified separately from the :math:`G` and :math:`H` because their Jacobians are known and easy to compute. And the bounds are more easily handled separately from the linear inequality constraints.
 
 Line Search
 -----------
@@ -46,16 +40,16 @@ Define the merit function
 .. math::
     m(\theta) = L - \sigma_j \kappa_jg_j(\theta) - \sigma_l \lambda_lh_l(\theta) 
     
-where :math:`g` is the j-th row of :math:`G`, :math:`h_l` is the l-th row of :math:`H`, :math:`\kappa`` is the vector of Lagrangean coefficients of the equality constraints, and :math:`\lambda`` the vector of Lagrangean coefficients of the inequality constraints.
+where :math:`g` is the j-th row of :math:`G`, :math:`h_l` is the l-th row of :math:`H`, :math:`\kappa` is the vector of Lagrangean coefficients of the equality constraints, and :math:`\lambda`` the vector of Lagrangean coefficients of the inequality constraints.
 
-The line search finds a value of :math:`\rho`` that minimizes or decreases :math:`m(\theta_t + \rho\delta)`.
+The line search finds a value of :math:`\rho` that minimizes or decreases :math:`m(\theta_t + \rho\delta)`.
 
 The penalty coefficient, :math:`\mu`, increases at each iteration. The amount of increase in this coefficient is set by the *penalty* member of the instance of the :class:`comtControl` structure.
 
 Trust Radius
 ------------
 
-By default, a "trust radius" is set around all of the parameters being estimated. Constraints are set for each parameter that bounds the new direction, ensuring the iterations against extreme movements in the estimates. This provides for safer iterations but can add to the total number of iterations to convergence. To turn this off, set the *trustRadius* member of the instance of the :class:`comtControl`` structure to a scalar missing value.
+By default, a "trust radius" is set around all of the parameters being estimated. Constraints are set for each parameter that bounds the new direction, ensuring the iterations against extreme movements in the estimates. This provides for safer iterations but can add to the total number of iterations to convergence. To turn this off, set the *trustRadius* member of the instance of the :class:`comtControl` structure to a scalar missing value.
 
 The Secant Algorithms
 ---------------------
@@ -92,7 +86,7 @@ When the *lineSearch* member of the instance of the :class:`comtControl` structu
 
 STEPBT
 +++++++++
-STEPBT is an implementation of a similarly named algorithm described in Dennis and Schnabel (1983). It first attempts to fit a quadratic function to :math:`m(\theta_t + \rho\delta)` and computes a :math:`rho` that minimizes the quadratic. If that fails, it attempts to fit a cubic function. The cubic function more accurately portrays the :math:`F`` which is not likely to be very quadratic but is, however, more costly to compute. STEPBT is the default line search method because it generally produces the best results for the least cost in computational resources.
+STEPBT is an implementation of a similarly named algorithm described in Dennis and Schnabel (1983). It first attempts to fit a quadratic function to :math:`m(\theta_t + \rho\delta)` and computes a :math:`rho` that minimizes the quadratic. If that fails, it attempts to fit a cubic function. The cubic function more accurately portrays the :math:`F` which is not likely to be very quadratic but is, however, more costly to compute. STEPBT is the default line search method because it generally produces the best results for the least cost in computational resources.
 
 BRENT
 ++++++++
