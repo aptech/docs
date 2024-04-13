@@ -1,7 +1,6 @@
 Getting Started
 ===============
-The **Constrained Optimization MT** module contains a set of procedures for the solution
-of the optimization problem.
+The **Constrained Optimization MT** module contains a set of procedures for the solution of the optimization problem.
 
 **GAUSS** version 16+ is required to use these routines.
 
@@ -18,15 +17,12 @@ If you `contact technical support <https://www.aptech.com/support/submit-support
 README Files
 ----------------
 
-If there is a **README.comt** file, it contains any last-minute information on the
-**Constrained Optimization MT 2.0** procedures. Please read it before using them.
+If there is a **README.comt** file, it contains any last-minute information on the **Constrained Optimization MT 2.0** procedures. Please read it before using them.
 
 Setup
 --------
 
-In order to use the procedures in **Constrained Optimization MT** or **COMT** module, the
-**COMT** library must be active. This is done by including 'comt' in the library statement at
-the top of your program or command file:
+In order to use the procedures in **Constrained Optimization MT** or **COMT** module, the **COMT** library must be active. This is done by including 'comt' in the library statement at the top of your program or command file:
 
 ::
 

@@ -1,7 +1,7 @@
 Installation
 ============
 
-Constrained Optimization MT 2.0 requires **GAUSS** 16 or later. 
+**Optimization MT 2.0** requires **GAUSS** 16 or later. 
 
 **GAUSS 16-19**
 -------------------

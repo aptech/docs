@@ -1,7 +1,7 @@
 Algorithm
 =========
 
-COMT uses the Sequential Quadratic Programming method. In this method, the parameters are updated in a series of iterations beginning with starting values that you provide. Let :mat:`\theta_k` be the current parameter values. Then the succeeding values are 
+COMT uses the Sequential Quadratic Programming method. In this method, the parameters are updated in a series of iterations beginning with starting values that you provide. Let :math:`\theta_k` be the current parameter values. Then the succeeding values are 
 
 .. math:: 
 

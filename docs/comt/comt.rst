@@ -165,16 +165,22 @@ In this example two optional user-defined equations are specified, one to comput
 Remarks
 -------
 
-- There is one required user-provided procedure, the one computing the objective function and optionally the first and/or second derivatives, and four other optional procedures, one each for computing the equality constraints, the inequality constraints, the Jacobian of the equality constraints, and the Jacobian of the inequality constraints.
+- The :func:`comt` function requires one user-provided procedure. This procedure:
+    -  Must specify the computations of the objective function.
+    -  Optionally can specify the computations for the first and/or second derivatives.  
+    -  Requires a vector of parameters or an instance of a PV structure containing the parameters as the first input.
+    -  Any number of optional arguments including structures, matrices, arrays, strings, required to compute the objective function.
+    -  A last input named `ind`. 
+  
+ - There are four other optional procedures, one each for:
+    - Equality constraints.
+    - Inequality constraints.
+    - The Jacobian of the equality constraints.
+    - The Jacobian of the inequality constraints.
 
-- The main procedure, computing the objective function and optionally the first and/or second derivatives: 
-    - Requires a vector of parameters or an instance of a PV structure containing the parameters as the first input.
-    - Any number of optional arguments including structures, matrices, arrays, strings, required to compute the objective function.
-    - A last input named `ind`. 
+- The optional procedures take just two arguments: the parameters and any optional arguments that were passed to :func:`comt`.
 
-- The remaining optional procedures take just two arguments: the parameters and any optional arguments that were passed to :func:`comt`.
-
-- The instance of the PV structure is set up using the PV pack procedures, :func:`pvPack`, :func:`pvPackm`, :func:`pvPacks`, and :func:`pvPacksm`. These procedures allow for setting up a parameter vector in a variety of ways.
+- The instance of the PV structure is set up using the PV pack procedures, :func:`pvPack`, :func:`pvPackm`, :func:`pvPacks`, and :func:`pvPacksm`. 
 
 - The optional arguments passed to the user-provided objective function procedure are untouched. This allows you to pass into your function any information it needs.
 

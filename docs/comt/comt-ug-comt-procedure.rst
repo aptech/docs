@@ -29,9 +29,16 @@ For example, a PV structure is created in your command file:
 
 ::
 
+    // Declare 'p' to be a PV struct
     struct PV p;
-    p = pvCreate; // creates default structure
-    garch = { .1 .1 .1 };
+
+    // Set PV defaults (required)
+    p = pvCreate();
+    
+    // Create 3x1 vector
+    garch = { .1, .1, .1 };
+
+    // Add 3x1 vector, 'garch' to 'p' with name "garch"
     p = pvPack(p, garch, "garch");
 
 Fixed Parameters
@@ -62,6 +69,8 @@ You can also specify some parameters to be fixed to their start value by 'packin
                1, 0, 1 };
 
     p = pvPackM(p, b, "beta", b_mask);
+
+In this case, there are four free parameters to be estimated, :math:`b_{21}`, :math:`b_{23}`, :math:`b_{31}`, and :math:`b_{33}`.  The parameters :math:`b_{11}` and :math:`b_{22}` are fixed to 1.0 and :math:`b_{12}`, :math:`b_{13}`, and :math:`b_{32}` are fixed to 0.0.
 
 Optional Input Argument: Instance of a :class:`comtControl`' Structure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
