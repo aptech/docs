@@ -1,8 +1,7 @@
-The Objective Procedure
-=======================
+The Log-likelihood Function
+============================
 
-**COMT **requires that you write a procedure computing the objective function. The output from this procedure is a :class:`modelResults` structure containing the value of the objective function and optionally the first and second derivatives of the objective function with
-respect to the parameters. 
+**CMLMT** is a set of procedures for the estimation of the parameters of models via the maximum likelihood method with general constraints on the parameters, along with an additional set of procedures for statistical inference.
 
 There are three input arguments to this procedure:
 
@@ -112,7 +111,7 @@ The optional arguments are available for use in your objective function procedur
 Final Input Argument: Indicator Vector
 --------------------------------------
 
-The final argument is a vector with three elements set to zero or one, indicating whether or not the function, first derivatives, or second derivatives are to be computed. This vector is created inside of :func:`comt`` and passed to your objective procedure when it is called by :func:`comt`. You do not need to create or declare the indicator vector.
+The final argument is a vector with three elements set to zero or one, indicating whether or not the function, first derivatives, or second derivatives are to be computed. This vector is created inside of :func:`cmlmt`` and passed to your objective procedure when it is called by :func:`cmlmt`. You do not need to create or declare the indicator vector.
 
 .. list-table::
    :widths: auto
