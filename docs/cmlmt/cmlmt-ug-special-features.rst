@@ -175,4 +175,9 @@ An augmented Lagrangian penalty method with second-order correction described by
 
 This method requires that constraints be imposed on the parameters. This method is particularly useful in certain optimization scenarios and is fully supported within **CMLMT**.
 
+Hypothesis Testing for Constrained Models
+------------------------------------------
+Ordinary statistical inference is not correct for models with bounded parameters. This includes bootstrapping and profile likelihoods. The conscore function in the **GAUSS Run-Time Library** can be used that computes a test statistic and its probability for the hypotheses :math:`H_0 : \Psi = 0` against :math:`H_1: G(\Psi) \geq 0, \Psi \neq 0` where :math:`G(\Psi)` is a general function of the parameters and is a subset of the parameters. 
+
+A special procedure is included in **CMLMT** that computes a test statistic and its probability for the hypotheses :math:`H_0 : \Psi` against :math:`H_1 : G(\Psi) \geq 0, \Psi \neq 0` where :math:`G(\Psi)` is a general function of the parameters and :math:`\Psi` is a subset of the parameters.
 
