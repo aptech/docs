@@ -23,7 +23,7 @@ and bounds,
   
 :math:`G(\Theta)` and :math:`H(\Theta)` are functions provided by the user and must be differentiable at least once with respect to the parameters.
 
-The procedure **CMLMT** finds values for the parameters in :math:`\theta` such that :math:`L` is maximized. In fact **CMLMT** minimizes . It is important to note, however, that the user must specify the log-probability to be maximized. **CMLMT** transforms the function into the form to be
+The procedure :func:`cmlmt` finds values for the parameters in :math:`\theta` such that :math:`L` is maximized. In fact :func:`cmlmt` minimizes :math:`-L`. It is important to note, however, that the user must specify the log-probability to be maximized. **CMLMT** transforms the function into the form to be
 minimized.
 
 **CMLMT** has been designed to make the specification of the function and the handling of the data convenient. The user supplies a procedure that computes :math:`log P(Y_i; \theta)` i.e., the log-likelihood, given the parameters in :math:`\theta`, for either an individual observation or set of observations (i.e., it must return either the log-likelihood for an individual observation or a vector of log-likelihoods for a matrix of observations). **CMLMT** uses this procedure to construct the function to be minimized.
