@@ -72,7 +72,7 @@ You can also specify some parameters to be fixed to their start value by 'packin
 
 In this case, there are four free parameters to be estimated, :math:`b_{21}`, :math:`b_{23}`, :math:`b_{31}`, and :math:`b_{33}`.  The parameters :math:`b_{11}` and :math:`b_{22}` are fixed to 1.0 and :math:`b_{12}`, :math:`b_{13}`, and :math:`b_{32}` are fixed to 0.0.
 
-PV Structures with Symmetric Matrices
+Symmetric Matrices
 +++++++++++++++++++++++++++++++++++++++
 
 The :func:`pvPackS` procedure "packs" a symmetric matrix into the `PV` structure in which only the lower left portion of the matrix contains independent parameters while the upper left is duplicated from the lower left. The following packed matrix contains three nonredundant parameters. When this matrix is unpacked, it will contain the upper nonredundant portion of the matrix equal to the lower portion.

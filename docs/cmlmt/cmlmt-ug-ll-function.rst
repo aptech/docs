@@ -1,7 +1,7 @@
 The Log-likelihood Function
 ============================
 
-**CMLMT** is a set of procedures for the estimation of the parameters of models via the maximum likelihood method with general constraints on the parameters, along with an additional set of procedures for statistical inference.
+**CMLMT** requires that you write a procedure computing the log-likelihood function. The output from this procedure is a modelResults structure containing the value of the log-likelihood function and optionally the first and second derivatives of the log-likelihood function with respect to the parameters.
 
 There are three input arguments to this procedure:
 
