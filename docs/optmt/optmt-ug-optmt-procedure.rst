@@ -102,7 +102,7 @@ Suppose that you wish to specify a correlation matrix in which only the correlat
     p = pvPackSM(p, cor, "R", msk); 
 
 Optional Input Argument: Instance of a :class:`optmtControl`' Structure
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------------------------
 
 The :class:`optmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`optmt`. The members of the :class:`optmtControl`structure instance set the options for the optimization. For example, suppose you want **OPTMT** to stop after 100 iterations:
 
@@ -119,7 +119,7 @@ The :class:`optmtControl` structure is an optional input. If used, it must be th
 
 The :func:`optmtControlCreate` procedure sets all of the defaults. The default values for all the members of a :class:`optmtControl` instance can be found in that procedure located at the top of `optmtutil.src` in the **GAUSS** `src` subdirectory.
 
-7.3 Optional Extra Input Arguments
+Optional Extra Input Arguments
 ----------------------------------
 
 Any data that your objective procedure needs other than the model parameters can be passed in as `optional dynamic arguments <https://www.aptech.com/blog/the-basics-of-optional-arguments-in-gauss-procedures/>`_ to :func:`optmt`. These optional input arguments can be any **GAUSS** type such as, matrices, strings, arrays, structures, etc. You will pass these arguments to :func:`optmt`, between the parameter vector and the control structure. :func:`optmt` will pass them, untouched, to your objective procedure.

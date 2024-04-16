@@ -73,7 +73,7 @@ You can also specify some parameters to be fixed to their start value by 'packin
 In this case, there are four free parameters to be estimated, :math:`b_{21}`, :math:`b_{23}`, :math:`b_{31}`, and :math:`b_{33}`.  The parameters :math:`b_{11}` and :math:`b_{22}` are fixed to 1.0 and :math:`b_{12}`, :math:`b_{13}`, and :math:`b_{32}` are fixed to 0.0.
 
 Optional Input Argument: Instance of a :class:`comtControl`' Structure
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------------------------
 
 The :class:`comtControl` structure is an optional input. If used, it must be the final argument passed into :func:`comt`. The members of the :class:`comtControl`structure instance set the options for the optimization. For example, suppose you want **COMT** to stop after 100 iterations:
 
@@ -90,7 +90,34 @@ The :class:`comtControl` structure is an optional input. If used, it must be the
 
 The :func:`comtControlCreate` procedure sets all of the defaults. The default values for all the members of a :class:`comtControl` instance can be found in that procedure located at the top of `comtutil.src` in the GAUSS `src` subdirectory.
 
-7.3 Optional Extra Input Arguments
-----------------------------------
+Any data that your objective procedure needs other than the model parameters can be passed in as `optional dynamic arguments <https://www.aptech.com/blog/the-basics-of-optional-arguments-in-gauss-procedures/>`_ to :func:`comt`. These optional input arguments can be any **GAUSS** type such as matrices strings, arrays, structures, etc. You will pass these arguments to :func:`comt`, between the parameter vector and the control structure. :func:`comt` will pass them, untouched, to your log-likelihood procedure.
 
-Any data that your objective procedure needs other than the model parameters can be passed in as `optional dynamic arguments <https://www.aptech.com/blog/the-basics-of-optional-arguments-in-gauss-procedures/>`_ to :func:`comt`. These optional input arguments can be any **GAUSS** type such as matrices
+For a simple example, suppose that you have a least squares problem for which you need to supply the X matrix and y vector.
+
+::
+
+    // Log-likelihood procedure with extra data arguments 'y' and 'X'
+    proc (1) = myLoglikelihood(b_hat, y, X, ind);
+        local res;
+    
+        struct modelResults mm;
+    
+        if ind[1];
+            res = y - X * b_hat;
+            mm.function = res'res;
+        endif;
+        
+        retp(mm);
+    endp;
+
+    X = //code to load or create ‘X’
+    y = //code to load or create ‘y’
+
+    //Starting parameter values
+    b_start = { 1, 1, 1 };
+
+    // Call comt 
+    struct comtResults out;
+    out = comt(&myLoglikelihood, b_start, y, X); 
+
+Since this example does not pass in a control structure, the extra data arguments, y and X are the final inputs to :func:`comt`.

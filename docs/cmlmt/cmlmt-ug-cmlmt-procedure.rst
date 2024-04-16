@@ -102,9 +102,9 @@ Suppose that you wish to specify a correlation matrix in which only the correlat
 
 
 Optional Input Argument: Instance of a :class:`cmlmtControl`' Structure
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-------------------------------------------------------------------------
 
-The :class:`cmlmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`cmlmt`. The members of the :class:`cmlmtControl`structure instance set the options for the optimization. For example, suppose you want **CMLMT** to stop after 100 iterations:
+The :class:`cmlmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`cmlmt`. The members of the :class:`cmlmtControl`structure instance set the options for the optimization. For example, suppose you want :func:`cmlmt` to stop after 100 iterations:
 
 ::
 
@@ -119,7 +119,37 @@ The :class:`cmlmtControl` structure is an optional input. If used, it must be th
 
 The :func:`cmlmtControlCreate` procedure sets all of the defaults. The default values for all the members of a :class:`cmlmtControl` instance can be found in that procedure located at the top of `comtutil.src` in the GAUSS `src` subdirectory.
 
-7.3 Optional Extra Input Arguments
+Optional Extra Input Arguments
 ----------------------------------
 
-Any data that your objective procedure needs other than the model parameters can be passed in as `optional dynamic arguments <https://www.aptech.com/blog/the-basics-of-optional-arguments-in-gauss-procedures/>`_ to :func:`cmlmt`. These optional input arguments can be any **GAUSS** type such as matrices
+Any data that your objective procedure needs other than the model parameters can be passed in as `optional dynamic arguments <https://www.aptech.com/blog/the-basics-of-optional-arguments-in-gauss-procedures/>`_ to :func:`cmlmt`. These optional input arguments can be any **GAUSS** type such as matrices strings, arrays, structures, etc. You will pass these arguments to :func:`cmlmt`, between the parameter vector and the control structure. :func:`cmlmt` will pass them, untouched, to your log-likelihood procedure.
+
+For a simple example, suppose that you have a least squares problem for which you need to supply the X matrix and y vector.
+
+::
+
+    // Log-likelihood procedure with extra data arguments 'y' and 'X'
+    proc (1) = myLoglikelihood(b_hat, y, X, ind);
+        local res;
+    
+        struct modelResults mm;
+    
+        if ind[1];
+            res = y - X * b_hat;
+            mm.function = res'res;
+        endif;
+        
+        retp(mm);
+    endp;
+
+    X = //code to load or create ‘X’
+    y = //code to load or create ‘y’
+
+    //Starting parameter values
+    b_start = { 1, 1, 1 };
+
+    // Call cmlmt 
+    struct cmlmtResults out;
+    out = cmlmt(&myLoglikelihood, b_start, y, X); 
+
+Since this example does not pass in a control structure, the extra data arguments, y and X are the final inputs to :func:`cmlmt`.
