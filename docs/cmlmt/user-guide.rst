@@ -8,11 +8,13 @@ User Guide
     cmlmt-ug-installation
     cmlmt-ug-getting-started
     cmlmt-ug-special-features
-    cmlmt-ug-objective
+    cmlmt-ug-ll
     cmlmt-ug-algorithm
     cmlmt-ug-constraints
     cmlmt-ug-cmlmt-procedure
-    cmlmt-ug-objective-function
+    cmlmt-ug-ll-function
+    cmlmt-ug-managing-opt
+    
     
 
     

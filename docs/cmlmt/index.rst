@@ -142,6 +142,7 @@ Control Options
     :hidden:
     :caption: Constrained Maximum Likelihood 
 
+    user-guide
     command-reference
     cmlmt-examples
 

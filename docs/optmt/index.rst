@@ -106,6 +106,7 @@ Control Options
     :hidden:
     :caption: Optimization Documents
 
+    user-guide
     command-reference
     optmt-examples
 
