@@ -1,17 +1,17 @@
 
-mlmtControlCreate
+maxlikmtControlCreate
 ==============================================
 
 Purpose
 ----------------
 
-Creates default mlmtControl structure.
+Creates default :class:`maxlikmtControl` structure.
 
 Format
 ----------------
-.. function:: c = mlmtControlCreate()
+.. function:: c = maxlikmtControlCreate()
 
-    :return c: instance of :class:`mlmtControl` struct with members set to default values.
+    :return c: instance of :class:`maxlikmtControl` struct with members set to default values.
 
     :rtype c: struct
 
@@ -27,7 +27,7 @@ Since structures are strongly typed in GAUSS, each structure must be declared be
     // Initialize structure 'ctl'
     ctl = mlmtControlCreate();
 
-The members of the :class:`mlmtControl` structure and their default values are described in the
+The members of the :class:`maxlikmtControl` structure and their default values are described in the
 manual entry for :func:`mlmt`.
 
 Source
@@ -35,4 +35,4 @@ Source
 
 mlmt.src
 
-.. seealso:: Functions :func:`mlmt`
+.. seealso:: Functions :func:`maxlikmt`
