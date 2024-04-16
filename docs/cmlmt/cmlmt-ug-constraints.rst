@@ -25,7 +25,7 @@ Linear equality constraints are of the form:
 
 where :math:`A` is an :math:`m_1 \times k` matrix of known constants, :math:`B` an :math:`m_1 \times 1`vector of known constants, and :math:`\Theta` the vector of parameters.
 
-The specification of linear equality constraints is done by assigning the :math:`A` and :math:`B` matrices to members `A` and `B` of an instance of a :class:`comtControl` structure.
+The specification of linear equality constraints is done by assigning the :math:`A` and :math:`B` matrices to members `A` and `B` of an instance of a :class:`cmlmtControl` structure.
 
 Examples
 ++++++++
@@ -36,8 +36,8 @@ Set the constraint represented by the equation :math:`1.5x_1 + 2.1x_2 = 14`:
 
 ::
 
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     // Set constraint
     ctl.A = { 1.5, 2.1 };
@@ -49,8 +49,8 @@ Constrain the first of four parameters to be equal to the third represented by t
 
 ::
 
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     // Set constraint
     ctl.A = { 1, 0, -1, 0 };
@@ -67,7 +67,7 @@ Linear inequality constraints are of the form:
 
 where :math:`C` is an :math:`m_1 \times n` matrix of known constants, :math:`D` an :math:`m_1 \times 1` vector of known constants, and :math:`\Theta` the vector of parameters.
 
-The specification of linear inequality constraints is done by assigning the :math:`C` and :math:`D` matrices to members `C` and `D` of an instance of a :class:`comtControl` structure.
+The specification of linear inequality constraints is done by assigning the :math:`C` and :math:`D` matrices to members `C` and `D` of an instance of a :class:`cmlmtControl` structure.
 
 Examples
 +++++++++
@@ -78,8 +78,8 @@ Constrain the first of three parameters to be greater than or equal to 2.5 repre
 
 ::
 
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     // Add the linear inequality constraint:
     ctl.C = { 1, 0, 0 };
@@ -91,8 +91,8 @@ Constrain the first of four parameters to be greater than the third and, as well
 
 ::
 
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     // Add the linear inequality constraint
     ctl.C = { {1, 0, -1, 0},
@@ -109,7 +109,7 @@ Nonlinear equality constraints are of the form:
 
     H(\Theta) = 0
 
-where :math:`H(\Theta)` is an arbitrary user-supplied function. Nonlinear equality constraints are specified by assigning the procedure pointer to the *eqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters--either as a :math:`P \times 1` matrix or a PV structure containing the parameters. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
+where :math:`H(\Theta)` is an arbitrary user-supplied function. Nonlinear equality constraints are specified by assigning the procedure pointer to the *eqProc* member of an instance of a :class:`cmlmtControl` structure. This procedure has one required input argument: the model parameters--either as a :math:`P \times 1` matrix or a PV structure containing the parameters. Any optional dynamic arguments passed to :func:`cmlmt` will also be passed to this function.
 
 Examples
 ++++++++++
@@ -125,10 +125,10 @@ Apply the nonlinear equality constraint for the equation :math:`x_1 + x_2^2 = 0`
       retp(theta[1] + theta[2]^2);
     endp;
 
-    // Declare 'ctl' to be a comtControl struct
+    // Declare 'ctl' to be a cmlmtControl struct
     // and fill with default settings
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     // Assign pointer to equality constraint procedure
     ctl.eqProc = &myEqProc;
@@ -137,8 +137,8 @@ Suppose you wish to constrain a covariance matrix to be positive definite:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ::
 
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     proc eqp(b);
       retp(b'b - 1);
@@ -155,7 +155,7 @@ Nonlinear inequality constraints are of the form:
 
     G(\Theta) \geq 0
 
-where :math:`G(\Theta)` is an arbitrary user-supplied function. Nonlinear inequality constraints are specified by assigning the procedure pointer to the *ineqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters. This can be in the form of a PV structure containing the parameters or a standard **GAUSS** :math:`P \times 1` matrix. Make sure to use the same form that is expected by your objective procedure. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
+where :math:`G(\Theta)` is an arbitrary user-supplied function. Nonlinear inequality constraints are specified by assigning the procedure pointer to the *ineqProc* member of an instance of a :class:`cmlmtControl` structure. This procedure has one required input argument: the model parameters. This can be in the form of a PV structure containing the parameters or a standard **GAUSS** :math:`P \times 1` matrix. Make sure to use the same form that is expected by your objective procedure. Any optional dynamic arguments passed to :func:`cmlmt` will also be passed to this function.
 
 Examples
 ++++++++++
@@ -178,10 +178,10 @@ The production equation is :math:`20 \sqrt{L} \sqrt{K} = 1000`:
         retp(20 * sqrt(L) * sqrt(K) - 1000);
     endp;
 
-    // Declare 'ctl' to be a comtControl structure
+    // Declare 'ctl' to be a cmlmtControl structure
     // and fill with default settings
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     // Assign pointer to inequality procedure
     ctl.ineqProc = &ineqProc;
@@ -199,10 +199,10 @@ Suppose you wish to constrain a covariance matrix to be positive definite
         retp(minc(eigh(v)) - 1e-5);
     endp;
 
-    // Declare 'ctl' to be a comtControl structure
+    // Declare 'ctl' to be a cmlmtControl structure
     // and fill with default settings
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     // Assign pointer to inequality procedure
     ctl.ineqProc = &ineqp;
@@ -210,7 +210,7 @@ Suppose you wish to constrain a covariance matrix to be positive definite
 Bounds
 ------
 
-Bounds are a type of linear inequality constraint. For computational convenience, they may be specified separately from the other inequality constraints. To specify bounds, the lower and upper bounds respectively are entered in the first and second columns of a matrix that has the same number of rows as the parameter vector. This matrix is assigned to the *bounds* member of an instance of a :class:`comtControl` structure.
+Bounds are a type of linear inequality constraint. For computational convenience, they may be specified separately from the other inequality constraints. To specify bounds, the lower and upper bounds respectively are entered in the first and second columns of a matrix that has the same number of rows as the parameter vector. This matrix is assigned to the *bounds* member of an instance of a :class:`cmlmtControl` structure.
 
 If the bounds are the same for all of the parameters, only the first row is necessary.
 
@@ -221,10 +221,10 @@ To bound four parameters to the ranges:
 
 ::
 
-    // Declare 'ctl' to be a comtControl struct
+    // Declare 'ctl' to be a cmlmtControl struct
     // and fill with default settings
-    struct comtControl ctl;
-    ctl = comtControlCreate();
+    struct cmlmtControl ctl;
+    ctl = cmlmtControlCreate();
 
     // Set separate bounds for each of four parameters
     ctl.bounds = { -10, 10,
