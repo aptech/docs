@@ -68,6 +68,7 @@ Then enter the following at the **GAUSS** command line
 If successful, the following is printed to the screen
 
 ::
+    
     java -jar d:\gauss18\src\GaussAD.jar lpr.fct d_lpr.fct
 
 and the derivative procedure is written to file named d_lpr.fct:

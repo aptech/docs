@@ -111,7 +111,7 @@ The optional arguments are available for use in your objective function procedur
 Final Input Argument: Indicator Vector
 --------------------------------------
 
-The final argument is a vector with three elements set to zero or one, indicating whether or not the function, first derivatives, or second derivatives are to be computed. This vector is created inside of :func:`cmlmt`` and passed to your objective procedure when it is called by :func:`cmlmt`. You do not need to create or declare the indicator vector.
+The final argument is a vector with three elements set to zero or one, indicating whether or not the function, first derivatives, or second derivatives are to be computed. This vector is created inside of :func:`cmlmt` and passed to your objective procedure when it is called by :func:`cmlmt`. You do not need to create or declare the indicator vector.
 
 .. list-table::
    :widths: auto
