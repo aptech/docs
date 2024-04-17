@@ -6,14 +6,14 @@ respect to the parameters.
 
 There are three input arguments to this procedure:
 
-1. The model parameters either as a Px1 matrix, or an instance of a PV structure containing parameter values.
-2. Optional arguments; extra data matrices or arrays (other than the model parameters)
+#. The model parameters either as a Px1 matrix, or an instance of a PV structure containing parameter values.
+#. Optional arguments; extra data matrices or arrays (other than the model parameters)
 used by the objective procedure.
-3. Indicator vector.
+#. Indicator vector.
    
 There is one return argument:
 
-1. An instance of a :class:`modelResults` structure containing computational results.
+#. An instance of a :class:`modelResults` structure containing computational results.
    
 First Argument: The Model Parameters
 -------------------------------------
