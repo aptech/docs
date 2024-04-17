@@ -6,7 +6,7 @@ Command Reference
     :caption: Optimization Functions
 
     optmt
-    optmtcontrolCreate
+    opmtcontrolCreate
    
 
     
