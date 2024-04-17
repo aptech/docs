@@ -1,4 +1,4 @@
-COMT Examples
+OPTMT Examples
 ==================
 
 .. toctree::
