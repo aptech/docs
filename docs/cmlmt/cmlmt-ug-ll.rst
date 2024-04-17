@@ -7,7 +7,7 @@ The Log-likelihood Function
 
 .. math:: L = \sum^N_{i=1} log P(Y_i;\theta)^{\omega_i}
 
-where :math:`N` is the number of observations, :math:`omega_i` is a weight, :math:`P(Y_i, \theta) is the probability of :math:`Y_i` given :math:`\theta`, a vector of parameters, subject to the linear constraints
+where :math:`N` is the number of observations, :math:`omega_i` is a weight, :math:`P(Y_i, \theta)` is the probability of :math:`Y_i` given :math:`\theta`, a vector of parameters, subject to the linear constraints
 
 .. math:: A(\Theta) = B
 .. math:: C(\Theta) \geq D          

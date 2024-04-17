@@ -70,12 +70,12 @@ BRENT
 ++++++++
 This method is a variation on the golden section method due to Brent (1972). In this method, the function is evaluated at a sequence of test values for :math:`rho`. These test values are determined by extrapolation and interpolation using the constant:
 
-.. math:: (\sqrt{5 - 1)/2 = 0.6180 \ldots
+.. math:: (\sqrt{5 - 1})/2 = 0.6180 \ldots
 
 
 This constant is the inverse of the so-called "golden ratio":
 
-.. math:: (\sqrt{5 + 1)/2 = 1.6180 \ldots
+.. math:: (\sqrt{5 + 1})/2 = 1.6180 \ldots
 
 and is why the method is called a golden section method. This method is generally more efficient
 than STEPBT but requires significantly more function evaluations.

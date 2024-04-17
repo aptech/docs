@@ -11,13 +11,13 @@ where :math:`\delta` is a :math:`K \times 1` direction vector and :math:`rho`` i
 
 Define 
 
-.. math::  \Sigma(\theta) = \frac{\partial^2L}{\partial\theta \partial \theta \prime}
-.. math::  \Psi(\theta) = \frac{\partial L}{\partial\theta}
+.. math::  \Sigma(\theta) = \frac{\partial^2L}{\partial \theta \partial \theta \prime}
+.. math::  \Psi(\theta) = \frac{\partial L}{\partial \theta}
 
 and the Jacobians 
 
-.. math::  \dot{G}(\theta) = \frac{\partialG(\theta)}{\partial\theta}
-.. math::  \dot{H}(\theta) = \frac{\partialH(\theta)}{\partial\theta}
+.. math::  \dot{G}(\theta) = \frac{\partial G(\theta)}{\partial\theta}
+.. math::  \dot{H}(\theta) = \frac{\partial H(\theta)}{\partial\theta}
     
 For the purposes of this exposition and without loss of generality, we may assume that the linear constraints and bounds have been incorporated into :math:`G` and :math:`H`.
 
@@ -92,12 +92,12 @@ BRENT
 ++++++++
 This method is a variation on the golden section method due to Brent (1972). In this method, the function is evaluated at a sequence of test values for :math:`rho`. These test values are determined by extrapolation and interpolation using the constant:
 
-.. math:: (\sqrt{5 - 1)/2 = 0.6180 \ldots
+.. math:: (\sqrt{5 - 1})/2 = 0.6180 \ldots
 
 
 This constant is the inverse of the so-called "golden ratio":
 
-.. math:: (\sqrt{5 + 1)/2 = 1.6180 \ldots
+.. math:: (\sqrt{5 + 1})/2 = 1.6180 \ldots
 
 and is why the method is called a golden section method. This method is generally more efficient
 than STEPBT but requires significantly more function evaluations.
