@@ -5,7 +5,7 @@ The Log-likelihood Function
 
 There are three input arguments to this procedure:
 
-#. The model parameters either as a Px1 matrix, or an instance of a PV structure containing parameter values.  
+#. The model parameters either as a Px1 matrix, or an instance of a :class:`PV` structure containing parameter values.  
 #. Optional arguments; extra data matrices or arrays (other than the model parameters)
 used by the objective procedure.
 #. Indicator vector.
@@ -17,7 +17,7 @@ There is one return argument:
 First Argument: The Model Parameters
 -------------------------------------
 
-This argument contains either a Px1 matrix, or a PV structure, containing the parameter matrices and arrays that you need for computing the log-likelihood and (optionally) derivatives. If the parameters are packed in a PV struct, the :func:`pvUnpack` function retrieves them from the PV structure.
+This argument contains either a Px1 matrix, or a :class:`PV` structure, containing the parameter matrices and arrays that you need for computing the log-likelihood and (optionally) derivatives. If the parameters are packed in a :class:`PV` struct, the :func:`pvUnpack` function retrieves them from the :class:`PV` structure.
 
 Px1 Matrix case
 +++++++++++++++++
@@ -38,7 +38,7 @@ Below is part of a simple example in which the parameter vector contains two val
 PV struct case
 +++++++++++++++++
 
-Next is the same as the example above, but using a PV structure.
+Next is the same as the example above, but using a :class:`PV` structure.
 
 ::
 
@@ -51,7 +51,7 @@ Next is the same as the example above, but using a PV structure.
       .
     endp;
 
-If you are using a PV structure, you may have decided to speed the program up a bit by packing the matrices or arrays using the "i" pack functions, :func:`pvPacki`, :func:`pvPackmi`, :func:`pvPacksi`, etc., You can then unpack the matrices and arrays with the integers used in packing them:
+If you are using a :class:`PV` structure, you may have decided to speed the program up a bit by packing the matrices or arrays using the "i" pack functions, :func:`pvPacki`, :func:`pvPackmi`, :func:`pvPacksi`, etc., You can then unpack the matrices and arrays with the integers used in packing them:
 
 ::
 

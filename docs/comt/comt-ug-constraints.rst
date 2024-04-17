@@ -109,7 +109,7 @@ Nonlinear equality constraints are of the form:
 
     H(\theta) = 0
 
-where :math:`H(\theta)` is an arbitrary user-supplied function. Nonlinear equality constraints are specified by assigning the procedure pointer to the *eqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters--either as a :math:`P \times 1` matrix or a PV structure containing the parameters. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
+where :math:`H(\theta)` is an arbitrary user-supplied function. Nonlinear equality constraints are specified by assigning the procedure pointer to the *eqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters--either as a :math:`P \times 1` matrix or a :class:`PV` structure containing the parameters. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
 
 Examples
 ++++++++++
@@ -155,7 +155,7 @@ Nonlinear inequality constraints are of the form:
 
     G(\theta) \geq 0
 
-where :math:`G(\theta)` is an arbitrary user-supplied function. Nonlinear inequality constraints are specified by assigning the procedure pointer to the *ineqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters. This can be in the form of a PV structure containing the parameters or a standard **GAUSS** :math:`P \times 1` matrix. Make sure to use the same form that is expected by your objective procedure. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
+where :math:`G(\theta)` is an arbitrary user-supplied function. Nonlinear inequality constraints are specified by assigning the procedure pointer to the *ineqProc* member of an instance of a :class:`comtControl` structure. This procedure has one required input argument: the model parameters. This can be in the form of a :class:`PV` structure containing the parameters or a standard **GAUSS** :math:`P \times 1` matrix. Make sure to use the same form that is expected by your objective procedure. Any optional dynamic arguments passed to :func:`comt` will also be passed to this function.
 
 Examples
 ++++++++++

@@ -16,16 +16,16 @@ See Section 8 for details.
 Second Input Argument: Model Parameters
 -------------------------------------------
 
-**COMT** allows you to pass the model parameters as either a Px1 matrix where P is the number of parameters in the model, or inside a PV structure containing the model parameters.
+**COMT** allows you to pass the model parameters as either a Px1 matrix where P is the number of parameters in the model, or inside a :class:`PV` structure containing the model parameters.
 
 PV Parameter Instance
 +++++++++++++++++++++++
 
-The **GAUSS Run-Time Library** contains special functions that work with the PV structure. They are prefixed by "pv" and defined in pv.src. These functions store matrices and arrays with parameters in the structure and retrieve the original matrices and arrays along with various kinds of information about the parameters and parameter vector from it.
+The **GAUSS Run-Time Library** contains special functions that work with the :class:`PV` structure. They are prefixed by "pv" and defined in pv.src. These functions store matrices and arrays with parameters in the structure and retrieve the original matrices and arrays along with various kinds of information about the parameters and parameter vector from it.
 
-The advantage of the PV structure is that it permits you to retrieve the parameters in the form of matrices and/or arrays ready for use in calculating your log-likelihood. The matrices and arrays are defined in your command file when the start values are set up. It isn’t necessary that a matrix or array be completely free parameters to be estimated. There are pvPack functions that take mask arguments defining what is a parameter versus what is a fixed value. There are also functions for handling symmetric matrices where the parameters below the diagonal are duplicated above the diagonal.
+The advantage of the :class:`PV` structure is that it permits you to retrieve the parameters in the form of matrices and/or arrays ready for use in calculating your log-likelihood. The matrices and arrays are defined in your command file when the start values are set up. It isn’t necessary that a matrix or array be completely free parameters to be estimated. There are pvPack functions that take mask arguments defining what is a parameter versus what is a fixed value. There are also functions for handling symmetric matrices where the parameters below the diagonal are duplicated above the diagonal.
 
-For example, a PV structure is created in your command file:
+For example, a :class:`PV` structure is created in your command file:
 
 ::
 
@@ -46,7 +46,7 @@ Fixed Parameters
 
 A matrix or array in the model may contain a mixture of fixed values along with parameters to be estimated. In most cases, it is simplest to assign some parameters as fixed by using the *active* member of the :class:`comtControl` structure.
 
-You can also specify some parameters to be fixed to their start value by 'packing' them in the PV struct with :func:`pvPackM`, which has an additional argument called a "mask," strictly conformable to the input matrix or array, indicating which elements are fixed (the corresponding element in the mask is zero) or being estimated (the corresponding element in the mask is nonzero). For example:
+You can also specify some parameters to be fixed to their start value by 'packing' them in the :class:`PV` struct with :func:`pvPackM`, which has an additional argument called a "mask," strictly conformable to the input matrix or array, indicating which elements are fixed (the corresponding element in the mask is zero) or being estimated (the corresponding element in the mask is nonzero). For example:
 
 ::
 

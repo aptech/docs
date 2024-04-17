@@ -53,7 +53,7 @@ In the objective function the function value return is required. However, the de
 Parameter Vector (PV) Structure
 +++++++++++++++++++++++++++++++
 
-**CMLMT** allows you to use the PV structure from the standard **GAUSS Run-Time Library** to pass parameters to the objective function. The PV structure makes it easy to store your parameters as vectors, matrices, or n-dimensional arrays. For cases in which your parameter vector is simply a vector, **CMLMT** allows you to pass in your parameter vector directly without the use of the PV structure.
+**CMLMT** allows you to use the :class:`PV` structure from the standard **GAUSS Run-Time Library** to pass parameters to the objective function. The :class:`PV` structure makes it easy to store your parameters as vectors, matrices, or n-dimensional arrays. For cases in which your parameter vector is simply a vector, **CMLMT** allows you to pass in your parameter vector directly without the use of the :class:`PV` structure.
 
 ::
 
@@ -73,9 +73,9 @@ Parameter Vector (PV) Structure
 
     // Perform calculations and return
 
-No more do you have to struggle to get the parameter vector into matrices for calculating the function and its derivatives, trying to remember or figure out which parameter is where in the vector. If your log-likelihood uses matrices or arrays, you can store them directly into the PV structure and remove them as matrices or arrays with the parameters already plugged into them. The PV structure can even efficiently handle symmetric matrices where parameters below the diagonal are repeated above the diagonal.
+No more do you have to struggle to get the parameter vector into matrices for calculating the function and its derivatives, trying to remember or figure out which parameter is where in the vector. If your log-likelihood uses matrices or arrays, you can store them directly into the :class:`PV` structure and remove them as matrices or arrays with the parameters already plugged into them. The :class:`PV` structure can even efficiently handle symmetric matrices where parameters below the diagonal are repeated above the diagonal.
 
-The functions :func:`pvPackM` and :func:`pvPackMI` allow you to specify some elements inside your PV structure as fixed values and others as free parameters. It remembers the fixed values and only updates the values of the free parameters.
+The functions :func:`pvPackM` and :func:`pvPackMI` allow you to specify some elements inside your :class:`PV` structure as fixed values and others as free parameters. It remembers the fixed values and only updates the values of the free parameters.
 
 Optional Dynamic Arguments
 +++++++++++++++++++++++++++
@@ -109,7 +109,7 @@ Any inputs that your procedure needs other than the parameters of the model can 
     // Inputs to objective function for
     // CMLMT current version that requires
     // 2 extra matrices 'theta' and 'gamma'
-    // and using the PV structure for parameters
+    // and using the :class:`PV` structure for parameters
     // Place extra inputs between 'PV' struct and 'ind'
     proc (1) = myobjective(struct PV parms, theta, gamma, ind);
 
