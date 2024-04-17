@@ -3,23 +3,23 @@ The Objective Function
 
 **COMT** is a set of procedures for estimating the parameters of models via the SQP (Sequential Quadratic Programming) method with general constraints on the parameters.
 
-.. math:: \min F(\Theta)
+.. math:: \min F(\theta)
 
 Subject to the linear constraints
 
-.. math:: A(\Theta) = B
-.. math:: C(\Theta) \geq D          
+.. math:: A(\theta) = B
+.. math:: C(\theta) \geq D          
 
 the nonlinear constraints
  
-.. math:: G(\Theta) = 0
-.. math:: H(\Theta) \geq 0     
+.. math:: G(\theta) = 0
+.. math:: H(\theta) \geq 0     
 
 and bounds, 
   
-.. math:: \Theta_L \leq \Theta \leq \Theta_u
+.. math:: \theta_L \leq \theta \leq \theta_u
   
-:math:`G(\Theta)` and :math:`H(\Theta)` are functions provided by the user and must be differentiable at least once with respect to the parameters.
+:math:`G(\theta)` and :math:`H(\theta)` are functions provided by the user and must be differentiable at least once with respect to the parameters.
 
 The Descent Algorithms
 ----------------------

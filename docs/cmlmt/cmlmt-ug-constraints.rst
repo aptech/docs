@@ -21,9 +21,9 @@ Linear equality constraints are of the form:
 
 .. math::
 
-    A\Theta = B
+    A\theta = B
 
-where :math:`A` is an :math:`m_1 \times k` matrix of known constants, :math:`B` an :math:`m_1 \times 1`vector of known constants, and :math:`\Theta` the vector of parameters.
+where :math:`A` is an :math:`m_1 \times k` matrix of known constants, :math:`B` an :math:`m_1 \times 1` vector of known constants, and :math:`\theta` the vector of parameters.
 
 The specification of linear equality constraints is done by assigning the :math:`A` and :math:`B` matrices to members `A` and `B` of an instance of a :class:`cmlmtControl` structure.
 
@@ -63,9 +63,9 @@ Linear inequality constraints are of the form:
 
 .. math::
 
-    C\Theta \geq D
+    C\theta \geq D
 
-where :math:`C` is an :math:`m_1 \times n` matrix of known constants, :math:`D` an :math:`m_1 \times 1` vector of known constants, and :math:`\Theta` the vector of parameters.
+where :math:`C` is an :math:`m_1 \times n` matrix of known constants, :math:`D` an :math:`m_1 \times 1` vector of known constants, and :math:`\theta` the vector of parameters.
 
 The specification of linear inequality constraints is done by assigning the :math:`C` and :math:`D` matrices to members `C` and `D` of an instance of a :class:`cmlmtControl` structure.
 
@@ -107,9 +107,9 @@ Nonlinear equality constraints are of the form:
 
 .. math::
 
-    H(\Theta) = 0
+    H(\theta) = 0
 
-where :math:`H(\Theta)` is an arbitrary user-supplied function. Nonlinear equality constraints are specified by assigning the procedure pointer to the *eqProc* member of an instance of a :class:`cmlmtControl` structure. This procedure has one required input argument: the model parameters--either as a :math:`P \times 1` matrix or a PV structure containing the parameters. Any optional dynamic arguments passed to :func:`cmlmt` will also be passed to this function.
+where :math:`H(\theta)` is an arbitrary user-supplied function. Nonlinear equality constraints are specified by assigning the procedure pointer to the *eqProc* member of an instance of a :class:`cmlmtControl` structure. This procedure has one required input argument: the model parameters--either as a :math:`P \times 1` matrix or a PV structure containing the parameters. Any optional dynamic arguments passed to :func:`cmlmt` will also be passed to this function.
 
 Examples
 ++++++++++
@@ -153,9 +153,9 @@ Nonlinear inequality constraints are of the form:
 
 .. math::
 
-    G(\Theta) \geq 0
+    G(\theta) \geq 0
 
-where :math:`G(\Theta)` is an arbitrary user-supplied function. Nonlinear inequality constraints are specified by assigning the procedure pointer to the *ineqProc* member of an instance of a :class:`cmlmtControl` structure. This procedure has one required input argument: the model parameters. This can be in the form of a PV structure containing the parameters or a standard **GAUSS** :math:`P \times 1` matrix. Make sure to use the same form that is expected by your objective procedure. Any optional dynamic arguments passed to :func:`cmlmt` will also be passed to this function.
+where :math:`G(\theta)` is an arbitrary user-supplied function. Nonlinear inequality constraints are specified by assigning the procedure pointer to the *ineqProc* member of an instance of a :class:`cmlmtControl` structure. This procedure has one required input argument: the model parameters. This can be in the form of a PV structure containing the parameters or a standard **GAUSS** :math:`P \times 1` matrix. Make sure to use the same form that is expected by your objective procedure. Any optional dynamic arguments passed to :func:`cmlmt` will also be passed to this function.
 
 Examples
 ++++++++++
@@ -196,6 +196,7 @@ Suppose you wish to constrain a covariance matrix to be positive definite
 
         // Expand 'x' into symmetric matrix
         v = xpnd(x);
+        
         retp(minc(eigh(v)) - 1e-5);
     endp;
 

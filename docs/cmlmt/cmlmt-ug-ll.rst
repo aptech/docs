@@ -9,19 +9,19 @@ The Log-likelihood Function
 
 where :math:`N` is the number of observations, :math:`omega_i` is a weight, :math:`P(Y_i, \theta)` is the probability of :math:`Y_i` given :math:`\theta`, a vector of parameters, subject to the linear constraints
 
-.. math:: A(\Theta) = B
-.. math:: C(\Theta) \geq D          
+.. math:: A(\theta) = B
+.. math:: C(\theta) \geq D          
 
 the nonlinear constraints
  
-.. math:: G(\Theta) = 0
-.. math:: H(\Theta) \geq 0     
+.. math:: G(\theta) = 0
+.. math:: H(\theta) \geq 0     
 
 and bounds, 
   
-.. math:: \Theta_L \leq \Theta \leq \Theta_u
+.. math:: \theta_L \leq \theta \leq \theta_u
   
-:math:`G(\Theta)` and :math:`H(\Theta)` are functions provided by the user and must be differentiable at least once with respect to the parameters.
+:math:`G(\theta)` and :math:`H(\theta)` are functions provided by the user and must be differentiable at least once with respect to the parameters.
 
 The procedure :func:`cmlmt` finds values for the parameters in :math:`\theta` such that :math:`L` is maximized. In fact :func:`cmlmt` minimizes :math:`-L`. It is important to note, however, that the user must specify the log-probability to be maximized. **CMLMT** transforms the function into the form to be
 minimized.
