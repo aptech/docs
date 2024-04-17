@@ -1,4 +1,4 @@
-Optimization MT (COMT)
+Optimization MT (OPTMT)
 ==================================
 An optimization package for **GAUSS**.
 
