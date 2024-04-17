@@ -1,0 +1,128 @@
+Basic Optimization Example
+===========================
+
+This **GAUSS** optimization example demonstrates the minimization of a quadratic function as outlined in Luenberger's "Linear and Nonlinear Programming." However, parameter bounds are now implemented. 
+
+Code for optimization
+----------------------
+The example:
+
+- Creates a data matrix.
+- Defines an objective function that takes 4 inputs. 
+
+:: 
+
+    new;
+    cls;
+
+    // Make optmt library available
+    library optmt;
+
+    // Create data needed by objective procedure
+    omega = { 0.78 -0.02 -0.12 -0.14,
+       -0.02  0.86 -0.04  0.06,
+       -0.12 -0.04  0.72 -0.08,
+       -0.14  0.06 -0.08  0.74 };
+
+    b = { 0.76, 0.08, 1.12, 0.68 };
+
+    // Objective procedure with 4 inputs:
+    //    i.      x       - The parameter vector
+    //    ii-iii. Q and b - Extra data needed by the objective procedure
+    //    ii.     ind     - The indicator vector
+    proc  qfct(x, omega, b, ind);
+      
+      // Declare 'mm' to be a modelResults
+      // struct local to this procedure, 'qfct'
+      struct modelResults mm;
+     
+      // If the first element of the indicator
+      // vector is non-zero, compute function value
+      // and assign it to the 'function' member
+      // of the modelResults struct
+      if ind[1];
+          mm.function = 0.5*x'*omega*x - x'b;
+      endif;
+      
+      // Return modelResults struct
+      retp(mm);
+    endp;
+
+    // Starting parameter values
+    x_strt = ones(4, 1);
+
+    //  Declare 'c0' to be an 'optmtControl' struct
+    struct optmtControl c0;
+
+    //  Fill 'c0' with default values
+    c0 = optmtControlCreate();
+
+    //  Set lower and upper bounds
+    //  for each of the 4 parameters
+    c0.bounds = { 0 1,
+                  0 1,
+                  1 2,
+                  1 2 };
+    
+    // Declare 'out' to be a optmtResults struct
+    // to hold the results from the optimization
+    struct optmtResults out;
+
+    // Minimize objective function
+    out = optmt(&qfct, x_strt, omega, b, c0);
+
+    // Print output to the screen
+    call optmtPrt(out);
+
+There code prints results to the **Command Window**. 
+
+Results
+-----------
+Convergence details
+++++++++++++++++++++
+The first portion of the results provide details about convergence and performance. 
+
+::
+
+    Return code    =    0
+    Function value =   -2.07055
+    Convergence    :    normal convergence
+
+These results indicate that the optimization converged normally, with a return code of 0. Any return Code other than 0 would indicate some issue with the convergence. The exact meaning of the return code can be found in the :func:`optmt` documentation. 
+
+Parameter estimates
+++++++++++++++++++++
+The next section of the results reports the parameter estimates and the associated gradients.
+
+::
+
+    Parameters  Estimates   Gradient
+    ---------------------------------------------------------------------
+    x[1,1]      1.0000     -0.3892
+    x[2,1]      0.1126      0.0000
+    x[3,1]      1.8731      0.0000
+    x[4,1]      1.3015      0.0000
+
+In this example, the gradients for parameters 2-4 are zero, as is expected at or near an optimum, when bounds do not hold. However, for the first parameter, we observe a non-zero gradient. In addition, we can see that the parameter is at the top end of the bounds (:math:`x[1,1]=1`). 
+
+Computation time 
+++++++++++++++++++
+
+::
+
+    Number of iterations    9
+    Minutes to convergence     0.00010
+
+Lagrangeans
+++++++++++++++++++
+Because bounds are implemented, non-missing Lagrangeans values are reported. 
+
+::
+
+      0.0000000       0.38922863 
+      0.0000000        0.0000000 
+      0.0000000        0.0000000 
+      0.0000000        0.0000000 
+
+Note that the Langrangean associated with the binding constraint is non-zero. 
+
