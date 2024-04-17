@@ -101,10 +101,10 @@ Suppose that you wish to specify a correlation matrix in which only the correlat
     // Pack symmetric matrix 
     p = pvPackSM(p, cor, "R", msk); 
 
-Optional Input Argument: Instance of a :class:`optmtControl`' Structure
+Optional Input Argument: Instance of a :class:`optmtControl` Structure
 ------------------------------------------------------------------------
 
-The :class:`optmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`optmt`. The members of the :class:`optmtControl`structure instance set the options for the optimization. For example, suppose you want **OPTMT** to stop after 100 iterations:
+The :class:`optmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`optmt`. The members of the :class:`optmtControl` structure instance set the options for the optimization. For example, suppose you want **OPTMT** to stop after 100 iterations:
 
 ::
 

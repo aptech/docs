@@ -72,10 +72,10 @@ You can also specify some parameters to be fixed to their start value by 'packin
 
 In this case, there are four free parameters to be estimated, :math:`b_{21}`, :math:`b_{23}`, :math:`b_{31}`, and :math:`b_{33}`.  The parameters :math:`b_{11}` and :math:`b_{22}` are fixed to 1.0 and :math:`b_{12}`, :math:`b_{13}`, and :math:`b_{32}` are fixed to 0.0.
 
-Optional Input Argument: Instance of a :class:`comtControl`' Structure
+Optional Input Argument: Instance of a :class:`comtControl` Structure
 -----------------------------------------------------------------------
 
-The :class:`comtControl` structure is an optional input. If used, it must be the final argument passed into :func:`comt`. The members of the :class:`comtControl`structure instance set the options for the optimization. For example, suppose you want **COMT** to stop after 100 iterations:
+The :class:`comtControl` structure is an optional input. If used, it must be the final argument passed into :func:`comt`. The members of the :class:`comtControl` structure instance set the options for the optimization. For example, suppose you want **COMT** to stop after 100 iterations:
 
 ::
 

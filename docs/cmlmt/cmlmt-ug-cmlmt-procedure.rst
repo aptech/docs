@@ -14,7 +14,7 @@ The first input argument is the pointer to the procedure computing the log-likel
 Second Input Argument: Model Parameters
 -------------------------------------------
 
-**CMLMT** allows you to pass the model parameters as either a :math:`Px1` matrix where :math:`P`` is the number of parameters in the model, or inside a PV structure containing the model parameters.
+**CMLMT** allows you to pass the model parameters as either a :math:`Px1` matrix where :math:`P` is the number of parameters in the model, or inside a PV structure containing the model parameters.
 
 PV Parameter Instance
 +++++++++++++++++++++++
@@ -101,10 +101,10 @@ Suppose that you wish to specify a correlation matrix in which only the correlat
 
 
 
-Optional Input Argument: Instance of a :class:`cmlmtControl`' Structure
+Optional Input Argument: Instance of a :class:`cmlmtControl` Structure
 -------------------------------------------------------------------------
 
-The :class:`cmlmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`cmlmt`. The members of the :class:`cmlmtControl`structure instance set the options for the optimization. For example, suppose you want :func:`cmlmt` to stop after 100 iterations:
+The :class:`cmlmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`cmlmt`. The members of the :class:`cmlmtControl` structure instance set the options for the optimization. For example, suppose you want :func:`cmlmt` to stop after 100 iterations:
 
 ::
 

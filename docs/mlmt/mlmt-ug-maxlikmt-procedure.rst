@@ -101,10 +101,10 @@ Suppose that you wish to specify a correlation matrix in which only the correlat
 
 
 
-Optional Input Argument: Instance of a :class:`maxlikmtControl`' Structure
+Optional Input Argument: Instance of a :class:`maxlikmtControl` Structure
 -----------------------------------------------------------------------------
 
-The :class:`maxlikmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`maxlikmt`. The members of the :class:`maxlikmtControl`structure instance set the options for the optimization. For example, suppose you want :func:`maxlikmt` to stop after 100 iterations:
+The :class:`maxlikmtControl` structure is an optional input. If used, it must be the final argument passed into :func:`maxlikmt`. The members of the :class:`maxlikmtControl` structure instance set the options for the optimization. For example, suppose you want :func:`maxlikmt` to stop after 100 iterations:
 
 ::
 
