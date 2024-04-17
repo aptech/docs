@@ -80,7 +80,7 @@ Code for optimization
   // Print results of the optimization
   call comtPrt(out);
 
-There code prints results to the **Command Window**. 
+The code prints results to the **Command Window**. 
 
 Results
 -----------

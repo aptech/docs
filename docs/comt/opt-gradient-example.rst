@@ -1,7 +1,7 @@
 Optimization with Analytic Gradient Computations
 =================================================
 
-This **GAUSS** optimization example demonstrates the use of **COMT** to estimate parameters using the sum of the squared residuals. This example moves beyond basic optimization and uses a user-defined function to  compute the analytical first derivatives. 
+This **GAUSS** optimization example demonstrates the use of **COMT** to estimate parameters using the sum of the squared residuals. This example moves beyond basic optimization and uses a user-defined function to compute the analytical first derivatives. 
 
 Key example features
 ++++++++++++++++++++++
@@ -105,7 +105,7 @@ Code for optimization
   // and print output to the screen
   out = comtPrt(comt(&ssq, b_strt, y, x, ctl));
 
-There code prints results to the **Command Window**. 
+The code prints results to the **Command Window**. 
 
 Results
 -----------
