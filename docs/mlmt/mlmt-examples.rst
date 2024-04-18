@@ -1,4 +1,4 @@
-COMT Examples
+MaxlikMT Examples
 ==================
 
 .. toctree::
