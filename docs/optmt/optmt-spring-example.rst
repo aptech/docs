@@ -1,5 +1,5 @@
-Basic Optimization Example
-===========================
+Optimization of a Spring Example
+=================================
 
 This **GAUSS** optimization example demonstrates the optimization of the equilibrium of a spring system.  
 

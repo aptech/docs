@@ -1,5 +1,5 @@
-Basic Optimization Example
-===========================
+Optimization With Parameter Bounds
+===================================
 
 This **GAUSS** optimization example demonstrates the minimization of a quadratic function as outlined in Luenberger's "Linear and Nonlinear Programming." However, parameter bounds are now implemented. 
 

@@ -1,4 +1,4 @@
-Optimization with Analytic Gradients Computations
+Optimization with Analytic Gradient Computations
 =================================================
 This **GAUSS** optimization example demonstrates nonlinear least squares estimation. The data for this example is taken from G.P.Y Cleark,  "Approximate Confidence  Limits for a Parameter Function in Nonlinear Regression", JASA, 82:221-230, 1987.
 
