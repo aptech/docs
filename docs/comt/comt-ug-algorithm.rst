@@ -7,7 +7,7 @@ Algorithm
 
     \theta_{t+1} = \theta_k + \rho \delta, 
 
-where :math:`\delta` is a :math:`K \times 1` direction vector and :math:`rho`` is a scalar step length.
+where :math:`\delta` is a :math:`K \times 1` direction vector and :math:`\rho` is a scalar step length.
 
 Define 
 
