@@ -5,7 +5,7 @@ CMLMT Examples
     :maxdepth: 1
     :caption: Constrained Maximum Likelihood Examples
 
-    basic-maximum-likelihood
+    ml-basic-optimization
     ml-gradient-example
     ml-equality-constraints-example
     ml-inequality-constraints-example
