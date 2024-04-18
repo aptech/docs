@@ -95,8 +95,8 @@ Constrain the first of four parameters to be greater than the third and, as well
     ctl = cmlmtControlCreate();
 
     // Add the linear inequality constraint
-    ctl.C = { {1, 0, -1, 0},
-              {0, 1,  0, 1} };
+    ctl.C = { 1, 0, -1, 0,
+              0, 1,  0, 1 };
     ctl.D = { 0,
               10 };
 
