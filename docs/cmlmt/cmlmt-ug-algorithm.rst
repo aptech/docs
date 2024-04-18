@@ -18,8 +18,8 @@ Define
 
 and the Jacobians 
 
-.. math::  \dot{G}(\theta) = \frac{\partialG(\theta)}{\partial\theta}
-.. math::  \dot{H}(\theta) = \frac{\partialH(\theta)}{\partial\theta}
+.. math::  \dot{G}(\theta) = \frac{\partial G(\theta)}{\partial\theta}
+.. math::  \dot{H}(\theta) = \frac{\partial H(\theta)}{\partial\theta}
     
 For the purposes of this exposition and without loss of generality, we may assume that the linear constraints and bounds have been incorporated into :math:`G` and :math:`H`.
 
