@@ -60,7 +60,7 @@ where \rho is a constant, usually called the step length, that increases the des
 
 .. math:: m(\theta_t + \rho\delta)
 
-Given :math:`\theta` and :mat:`delta`, this is a function of a single variable :math:`\rho`. Line search methods attempt to find a value for :math:`\rho` that decreases :math:`m`. STEPBT is a polynomial fitting method, BRENT and HALF are iterative search methods. A fourth method called ONE forces a step length of 1. The default line search method is STEPBT. If this or any selected method fails, then BRENT is tried. If BRENT fails, then HALF is tried. If all of the line search methods fail, then a random search is tried, provided the *randRadius* member of the :class:`optmtControl` instance is greater than zero. The default setting for *randRadius* is greater than zero.
+Given :math:`\theta` and :mat:`\delta`, this is a function of a single variable :math:`\rho`. Line search methods attempt to find a value for :math:`\rho` that decreases :math:`m`. STEPBT is a polynomial fitting method, BRENT and HALF are iterative search methods. A fourth method called ONE forces a step length of 1. The default line search method is STEPBT. If this or any selected method fails, then BRENT is tried. If BRENT fails, then HALF is tried. If all of the line search methods fail, then a random search is tried, provided the *randRadius* member of the :class:`optmtControl` instance is greater than zero. The default setting for *randRadius* is greater than zero.
 
 STEPBT
 +++++++++
