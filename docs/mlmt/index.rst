@@ -12,6 +12,8 @@ Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing
 
 If you already own **maxlikMT**, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install maxlikMT as well.
 
+Requires GAUSS/GAUSS Light version 17 or higher.
+
 Key Features
 ------------------------------
 

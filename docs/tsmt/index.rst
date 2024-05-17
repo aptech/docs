@@ -15,6 +15,7 @@ Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing
 
 If you already own TSMT, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install TSMT.
 
+Requires GAUSS/GAUSS Engine v18 or higher.
 
 Commands
 ------------------------------

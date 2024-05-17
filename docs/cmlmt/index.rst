@@ -15,6 +15,8 @@ Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing
 
 If you already own **CMLMT** , you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install CMLMT.
 
+Requires GAUSS/GAUSS Engine/GAUSS Light v17 or higher.
+
 Key Features
 ------------------------------
 

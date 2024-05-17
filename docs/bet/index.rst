@@ -13,6 +13,8 @@ If you're interested in purchasing **BET** Please `contact us <https://www.aptec
 
 If you already own **BET** , you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ for quick download and installation..
 
+Requires GAUSS/GAUSS Engine/GAUSS Light v13.1 or higher.
+
 Key Features
 ------------------------------
 

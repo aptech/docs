@@ -12,6 +12,8 @@ Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing
 
 If you already own OPTMT, you can install the library directly from within **GAUSS** using the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ .
 
+Requires GAUSS/GAUSS Engine/GAUSS Light v16 or higher.
+
 Key Features
 ------------------------------
 

@@ -15,6 +15,8 @@ Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing
 
 If you already own COMT, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install COMT as well.
 
+Requires GAUSS/GAUSS Engine/GAUSS Light v16 or higher.
+
 Key Features
 ------------------------------
 
