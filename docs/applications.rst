@@ -52,12 +52,26 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
 
     Provides basic statistics for the variables in GAUSS data sets.
 
+.. card:: FP (Financial Analysis Application MT)
+    :link: fanpac/index
+    :link-type: doc
+    :shadow: none
+
+    Provides econometric tools commonly implemented for estimation and analysis of financial data.
+
 .. card:: GML (GAUSS Machine Learning)
     :link: gml-landing
     :link-type: doc
     :shadow: none
 
     Provides tools to model, analyze, and predict data using fundamental machine learning techniques.
+
+.. card:: LLMT (Loglinear Analysis MT)
+    :link: llmt/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools for the analysis of categorical data using loglinear analysis.
 
 .. card:: LPMT (Linear Programming MT)
     :link: lpmt/index
@@ -120,7 +134,9 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
     cf/index
     ds/index
     dc/index
+    fanpac/index
     gml-landing
+    llmt/index
     lpmt/index
     lrmt/index
     mlmt/index
