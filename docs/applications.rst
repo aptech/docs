@@ -59,6 +59,13 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
 
     Provides tools to model, analyze, and predict data using fundamental machine learning techniques.
 
+.. card:: LPMT (Linear Programming MT)
+    :link: lpmt/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools to solve small and large scale linear programming problems in GAUSS.
+
 .. card:: MAXLIKMT (Maximum Likelihood MT)
     :link: mlmt/index
     :link-type: doc
@@ -99,10 +106,15 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
     :maxdepth: 1
     :hidden:
 
+    ad/index
     bet/index
     cmlmt/index
     comt/index
+    cf/index
+    ds/index
+    dc/index
     gml-landing
+    lpmt/index
     mlmt/index
     optmt/index
     sslib/overview
