@@ -4,7 +4,7 @@ Provides basic statistics for the variables in GAUSS data sets.
 
 Description
 ----------------
-The procedures in Descriptive Statistics MT 1.0 provide basic statistics for the variables in GAUSS data sets. These statistics describe and test univariate and multivariate features of the data and provide information for further analysis. Descriptive Statistics MT 1.0 is thread-safe and takes advantage of structures.
+The procedures in **Descriptive Statistics MT 1.0** provide basic statistics for the variables in GAUSS data sets. These statistics describe and test univariate and multivariate features of the data and provide information for further analysis. Descriptive Statistics MT 1.0 is thread-safe and takes advantage of structures.
 
 Installation
 --------------

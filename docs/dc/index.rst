@@ -4,7 +4,7 @@ Provides an adaptable, efficient, and user-friendly environment for linear data 
 
 Description
 ----------------
-Discrete Choice Analysis Tools 2.1 provides an adaptable, efficient, and user-friendly environment for linear data classification. It's designed with a full suite of tools built to accommodate individual model specificity, including adjustable parameter bounds, linear or nonlinear constraints, default or user-specified starting values, and user specified Gradient and Hessian procedures. Newly incorporated data and parameter input procedures make model set-up and implementation intuitive.
+**Discrete Choice Analysis Tools 2.1** provides an adaptable, efficient, and user-friendly environment for linear data classification. It's designed with a full suite of tools built to accommodate individual model specificity, including adjustable parameter bounds, linear or nonlinear constraints, default or user-specified starting values, and user specified Gradient and Hessian procedures. Newly incorporated data and parameter input procedures make model set-up and implementation intuitive.
 
 Installation
 --------------

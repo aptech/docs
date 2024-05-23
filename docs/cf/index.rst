@@ -4,7 +4,7 @@ CurveFit (CF)
 
 Description
 ----------------
-Given data and a procedure for computing the function, CurveFit will find a best fit of the data to the function in the least squares sense.
+Given data and a procedure for computing the function, **CurveFit** will find a best fit of the data to the function in the least squares sense.
 
 Installation
 --------------

@@ -4,9 +4,9 @@ Tools to solve small and large scale linear programming problems.
 
 Description
 ----------------
-Linear Programming MT is designed to solve small and large scale linear programming problems. LPMT exploits sparse matrices and thread-safe execution to tackle even large scale constraint problems with ease. User specified starting values can be initialized to further streamline problems and reduce the number of iterations. ​
+**Linear Programming MT** is designed to solve small and large scale linear programming problems. **LPMT** exploits sparse matrices and thread-safe execution to tackle even large scale constraint problems with ease. User specified starting values can be initialized to further streamline problems and reduce the number of iterations. ​
 
-Linear Programming MT Module solves the standard linear programming problem with the following features:
+**Linear Programming MT** Module solves the standard linear programming problem with the following features:
 
 * **Thread-safe Execution:** Control variables are model matrices are contained in structures allowing thread-safe execution of programs.  
 * **Sparse matrices:** Linear Programming MT exploits sparse matrix technology permitting the analysis of problems with very large constraint matrices. The size of a problem that can be analyzed is dependent on the speed and amount of memory on the computer, but problems with two to three thousand constraints and more than six thousand variables have been tested on ordinary PC's.    
