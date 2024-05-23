@@ -3,6 +3,13 @@ Applications
 
 Applications are downloadable libraries that extend the functionality of **GAUSS** with additional procedures and examples.
 
+.. card:: AD (Algorithmic Derivatives)
+    :link: ad/index
+    :link-type: doc
+    :shadow: none
+
+    An application program for generating GAUSS procedures for computing algorithmic derivatives.  
+    
 .. card:: BET (Bayesian Estimation Tools)
     :link: bet/index
     :link-type: doc
@@ -24,6 +31,27 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
 
     Provides tools for constrained optimization in GAUSS.  
     
+.. card:: CF (CurveFit)
+    :link: cf/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools to find the best fit of the data to the function in the least squares sense.  
+   
+.. card:: Descriptive Statistics MT (DS)
+    :link: ds/index
+    :link-type: doc
+    :shadow: none
+
+    Provides basic statistics for the variables in GAUSS data sets.
+
+.. card:: Discrete Choice Analysis (DC)
+    :link: dc/index
+    :link-type: doc
+    :shadow: none
+
+    Provides basic statistics for the variables in GAUSS data sets.
+
 .. card:: GML (GAUSS Machine Learning)
     :link: gml-landing
     :link-type: doc
