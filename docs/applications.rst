@@ -66,6 +66,13 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
 
     Provides tools to solve small and large scale linear programming problems in GAUSS.
 
+.. card:: LRMT (Linear Regression MT)
+    :link: lrmt/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools for estimating single equations or a simultaneous system of equations in GAUSS.
+
 .. card:: MAXLIKMT (Maximum Likelihood MT)
     :link: mlmt/index
     :link-type: doc
@@ -115,6 +122,7 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
     dc/index
     gml-landing
     lpmt/index
+    lrmt/index
     mlmt/index
     optmt/index
     sslib/overview
