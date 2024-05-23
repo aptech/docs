@@ -38,14 +38,14 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
 
     Provides tools to find the best fit of the data to the function in the least squares sense.  
    
-.. card:: Descriptive Statistics MT (DS)
+.. card:: DSMT (Descriptive statistics MT)
     :link: ds/index
     :link-type: doc
     :shadow: none
 
     Provides basic statistics for the variables in GAUSS data sets.
 
-.. card:: Discrete Choice Analysis (DC)
+.. card:: DC (Discrete Choice)
     :link: dc/index
     :link-type: doc
     :shadow: none
