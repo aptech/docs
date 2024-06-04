@@ -151,6 +151,7 @@ Database Transaction
 :doc:`../dbcommit`                   Commits a transaction to the database if the driver supports transactions and a dbTransaction() has been started.
 :doc:`../dbcreatequery`              Process an SQL statement and prepare a query.
 :doc:`../dbexecquery`                Executes an SQL statement and creates a query.
+:doc:`../dbexecqueries`              Executes an SQL statement and creates a query for multiple rows of data in one function call.
 :doc:`../dbrollback`                 Rolls back a transaction on the database.
 :doc:`../dbtransaction`              Begins a transaction on the database.
 ===========================       ====================================================================================
