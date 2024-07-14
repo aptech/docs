@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GAUSS'
-copyright = '2023, Aptech Systems, Inc'
+copyright = '2024, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
@@ -50,7 +50,7 @@ extensions = [
     'sphinx_tabs.tabs',
 ]
 
-mathjax_config = {
+mathjax3_config = {
     'extensions': ['tex2jax.js'],
     'jax': ['input/TeX', 'output/HTML-CSS'],
     'HTML-CSS': { 'fonts': ['TeX'] }
@@ -115,6 +115,7 @@ html_context = {
         '_static/theme_override.css',
         '_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css',
         '_static/tabs.css',
+        '_static/pygments.css',
     ]
 }
 
@@ -137,7 +138,7 @@ html_logo = '_static/images/aptech-logo.png'
 #    'canonical_url': 'https://docs.aptech.com/gauss/'
 #}
 
-html_baseurl = 'https://docs.aptech.com/gauss/'
+html_baseurl = 'https://docs.aptech.com/next/gauss/'
 
 html_short_title = '{} {} documentation'.format(project, version)
 html_title = html_short_title + ' | Aptech'
@@ -226,7 +227,6 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
 
 # -- Extension configuration -------------------------------------------------
 
