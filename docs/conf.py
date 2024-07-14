@@ -115,7 +115,7 @@ html_context = {
         '_static/theme_override.css',
         '_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css',
         '_static/tabs.css',
-        '_static/pygments.css',
+        '_static/pygments-custom.css',
     ]
 }
 
