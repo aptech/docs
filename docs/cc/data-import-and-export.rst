@@ -10,20 +10,20 @@ General data loading
           * GAUSS, SAS, Stata and SPSS datasets.
           * CSV and Excel files with variable names in the first row.
 
-======================       ====================================================================================
+======================          ====================================================================================
 :doc:`../getheaders`            Returns the variable names from a dataset as a string array.
 :doc:`../loadd`                 Loads data into a GAUSS dataframe. The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
 :doc:`../saved`                 Writes a matrix or dataframe in memory to a dataset in a specified format.
-======================       ====================================================================================
+======================          ====================================================================================
 
 
 CSV and delimited text files
 ------------------------------
 
 ======================       ====================================================================================
-:doc:`../csvreadm`              Reads numeric data from a CSV file into a GAUSS matrix.
-:doc:`../csvreadsa`             Reads data from a CSV file into a GAUSS string array.
-:doc:`../csvwritem`             Write the contents of a GAUSS matrix to a CSV file.
+:doc:`../csvreadm`           Reads numeric data from a CSV file into a GAUSS matrix.
+:doc:`../csvreadsa`          Reads data from a CSV file into a GAUSS string array.
+:doc:`../csvwritem`          Write the contents of a GAUSS matrix to a CSV file.
 ======================       ====================================================================================
 
 
@@ -40,16 +40,18 @@ Spreadsheets (Excel files)
 :doc:`../xlswrite`                Writes a GAUSS matrix, string, or string array to an Excel® spreadsheet.
 ===========================       ====================================================================================
 
+
 HDF 5 files
 -------------------
 
 ==========================       ====================================================================================
-:doc:`../h5create`                Create a HDF5 dataset (.h5).
-:doc:`../h5open` 	                Open a HDF5 file.
-:doc:`../h5read`                  Reads data from a HDF5 file (.h5) into a GAUSS matrix.
-:doc:`../h5readattribute`         Read attributes from a HDF5 file into GAUSS.
-:doc:`../h5write`                 Writes a GAUSS matrix to a HDF5 file.
+:doc:`../h5create`               Create a HDF5 dataset (.h5).
+:doc:`../h5open` 	             Open a HDF5 file.
+:doc:`../h5read`                 Reads data from a HDF5 file (.h5) into a GAUSS matrix.
+:doc:`../h5readattribute`        Read attributes from a HDF5 file into GAUSS.
+:doc:`../h5write`                Writes a GAUSS matrix to a HDF5 file.
 ==========================       ====================================================================================
+
 
 GAUSS Data Sets
 -------------------
@@ -57,8 +59,8 @@ GAUSS Data Sets
 These are the main functions to use for loading and saving GAUSS datasets.
 
 ======================       ====================================================================================
-:doc:`../loadd`                  Loads a data set into a GAUSS dataframe.
-:doc:`../saved`                  Saves matrices or dataframes to a variety of dataset types.
+:doc:`../loadd`              Loads a data set into a GAUSS dataframe.
+:doc:`../saved`              Saves matrices or dataframes to a variety of dataset types.
 ======================       ====================================================================================
 
 
