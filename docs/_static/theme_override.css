@@ -22,6 +22,8 @@
     --pst-heading-color: var(--pst-color-primary);
 }
 
+.sd-hide-link-text { display: none; }
+
 .menuselection { font-weight: bold; }
 
 .rst-versions a { color:var(--pst-color-secondary); }
@@ -46,7 +48,7 @@ dt code.descname { color: var(--pst-color-inline-code); }
   font-family: Lato;
 }
 
-.icon-large span.fa { font-size: 3rem; }
+div.icon-large.docutils.container { font-size: 3rem; }
 
 /* Parameters header */
 dl.gauss.function > dd > dl.field-list.simple > dt { word-break: normal; }
