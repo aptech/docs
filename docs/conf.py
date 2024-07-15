@@ -95,7 +95,7 @@ html_theme = 'pydata_sphinx_theme'
 
 # Add any paths that contain templates here, relative to this directory.
 #templates_path = ['_templates', '_themes/pydata_sphinx_theme/static']
-#templates_path = []
+templates_path = ['_templates']
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -130,7 +130,8 @@ html_js_files = [
 html_logo = '_static/images/aptech-logo.png'
 
 html_theme_options = {
-    'navbar_end': ['navbar-icon-links']
+    'navbar_end': ['navbar-icon-links'],
+    'article_header_start': None
 }
 
 #html_theme_options = {
@@ -249,8 +250,17 @@ def setup(sphinx):
 
     from GAUSSHTMLTranslator import GAUSSHTMLTranslator
 
-    for builder in ['html', 'readthedocs', 'readthedocssinglehtmllocalmedia']:
-        sphinx.set_translator(builder,
-                              GAUSSHTMLTranslator,
-                              override=True)
+    builders = ['html', 'readthedocs', 'readthedocssinglehtmllocalmedia']
+
+    def on_builder_inited(app):
+        if app.builder.name in builders:
+            app.set_translator(app.builder.name, GAUSSHTMLTranslator, override=True)
+
+    # Connect the on_builder_inited function to the 'builder-inited' event
+    sphinx.connect('builder-inited', on_builder_inited)
+
+    #for builder in ['html', 'readthedocs', 'readthedocssinglehtmllocalmedia']:
+    #    sphinx.set_translator(builder,
+    #                          GAUSSHTMLTranslator,
+    #                          override=True)
 
