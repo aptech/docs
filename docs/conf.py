@@ -70,7 +70,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+#language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -114,14 +114,12 @@ html_context = {
         'https://fonts.googleapis.com/css?family=Lato',
         '_static/theme_override.css',
         '_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css',
-        '_static/sphinx_design.min.css',
         '_static/tabs.css',
         '_static/pygments-custom.css',
-    ]
+        '_static/sphinx_design.min.css',
+    ],
+    'default_mode': 'light'
 }
-
-#html_css_files = [
-#]
 
 html_js_files = [
     'https://www.googletagmanager.com/gtag/js?id=G-WLDRLMK7MW',
@@ -130,6 +128,10 @@ html_js_files = [
 ]
 
 html_logo = '_static/images/aptech-logo.png'
+
+html_theme_options = {
+    'navbar_end': ['navbar-icon-links']
+}
 
 #html_theme_options = {
 #    'prev_next_buttons_location': 'both',

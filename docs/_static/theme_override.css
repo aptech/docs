@@ -158,11 +158,11 @@ dl.function > dt {
 }
 
 /* breadcrumbs */
+/*
 .bd-breadcrumbs-container {
     background-color: #36434c;
     min-width: 100%;
     margin: 0;
-    /*text-align: center;*/
     padding:0.75em;
 }
 
@@ -235,3 +235,5 @@ dl.function > dt {
   display:none
  }
 }
+*/
+
