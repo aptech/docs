@@ -22,8 +22,6 @@
     --pst-heading-color: var(--pst-color-primary);
 }
 
-.sd-hide-link-text { display: none; }
-
 .menuselection { font-weight: bold; }
 
 .rst-versions a { color:var(--pst-color-secondary); }
