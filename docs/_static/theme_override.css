@@ -61,8 +61,6 @@ a.btn-outline-primary:hover { color: #fff !important; background-color: var(--ps
 
 .bd-content .field-list th { border: none !important; }
 
-table { display: table !important; border: 1px solid #e1e4e5; width: auto !important; }
-
 nav.navbar {
     background: #fff !important;
     padding: 10px;
