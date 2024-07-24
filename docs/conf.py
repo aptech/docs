@@ -142,7 +142,7 @@ html_theme_options = {
 #    'canonical_url': 'https://docs.aptech.com/gauss/'
 #}
 
-html_baseurl = 'https://docs.aptech.com/gauss/'
+html_baseurl = 'https://docs.aptech.com/next/gauss/'
 
 html_short_title = '{} {} documentation'.format(project, version)
 html_title = html_short_title + ' | Aptech'

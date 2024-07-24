@@ -12,11 +12,13 @@ Arithmetic operators
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
 | `-`      | :doc:`Subtraction <../subtraction>`                                  | ``a - b`` Subtracts ``b`` from ``a``.                                                                |
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| `*`      | :doc:`Matrix Multiplication <../matrix-multiplication>`              | ``a * b`` Multiplies ``a`` and ``b``.                                                                |
+| `*`      | :doc:`Matrix Multiplication <../matrix-multiplication>`              | ``a * b`` Multiplies ``a`` and ``b`` if ``a`` and ``b`` are matrices or vectors.                     |
+|          |                                                                      | If either operand is a scalar, element-by-element multiplication will be performed.                  |
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
 | `.*`     | :doc:`ExE Multiplication <../element-by-element-multiplication>`     | ``a .* b`` Multiplies elements of ``a`` and ``b``.                                                   |
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| `/`      | :doc:`Matrix Division <../matrix-division>`                          | ``a / b`` Computes the least squares solution if ``b`` is not square.                                |
+| `/`      | :doc:`Matrix Division <../matrix-division>`                          | ``a / b`` Computes the least squares solution if ``a`` and ``b`` are matrices or vectors.            |
+|          |                                                                      | If either operand is a scalar, element-by-element division will be performed.                        |
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
 | `./`     | :doc:`ExE Division <../element-by-element-division>`                 | ``a ./ b`` Divides each element of ``a`` by the corresponding element of ``b``.                      |
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
