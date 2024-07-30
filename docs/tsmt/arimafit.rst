@@ -12,8 +12,8 @@ Format
 .. function:: amo = arimaFit(y, p [, d, q, amc])
               amo = arimaFit(data, var, p [, d, q, amc])
 
-   :param y: data.
-   :type y: Nx1 vector
+   :param y: Data, if metadata is included date vectors will be automatically detected, as well as variable names. 
+   :type y: Nx1 vector or dataframe.
 
    :param data: name of data set or null string.
    :type data: string
@@ -43,27 +43,21 @@ Format
        * - amc.itol
          - Matrix, 3x1 , controls the convergence criterion.
 
-           :[1]: Maximum number of iterations.
-
-                 Default = 100.
-
-           :[2]: Minimum percentage change in the sum of squared errors.
-
-                 Default = 1e-8.
-
-           :[3]: Minimum percentage change in the parameter values.
-
-                 Default = 1e-6.
+           =========== ===========================================================================
+           1           Maximum number of iterations. Default = 100.
+           2           Minimum percentage change in the sum of squared errors. Default = 1e-8.
+           3           Minimum percentage change in the parameter values. Default = 1e-6.
+           =========== ===========================================================================
 
        * - amc.output
          - Scalar, controls printing of output.
 
-           Default = 1.
-
-           :0: Nothing will be printed by arimaFit.
-           :1: Final results are printed.
-           :2: Final results, iterations results, residual a utocorrelations, Box-Ljung statistic, and covariance and correlation matrices are printed.
-
+           =========== ========================================================================================================================================
+           0           Nothing will be printed by :func:`arimaFit`. 
+           2           Final results are printed. (Default)
+           3           Final results, iterations results, residual autocorrelations, Box-Ljung statistic, and covariance and correlation matrices are printed.
+           =========== ========================================================================================================================================
+   
        * - amc.ranktol
          - Scalar, the tolerance used in determining if any of the singular values are effectively zero when computing the rank of a matrix.
 
@@ -75,7 +69,7 @@ Format
            Default = 0.
 
        * - amc.varn
-         - Character, 1x(M+1) vector of parameter names. This is used for models with fixed regressors. The first element contains the name of the independent variable; the second through :math:`Mth` elements contain the variable names for the fixed regressors. If ``amc.varn = 0``, the fixed regressors labeled as :math:`X_0, X_1, ..., X_M`.
+         - Character, 1x(M+1) vector of parameter names. This is used for models with fixed regressors. The first element contains the name of the independent variable; the second through :math:`Mth` elements contain the variable names for the fixed regressors. If ``amc.varn = 0``, the fixed regressors labeled as :math:`X_0, X_1, ..., X_M`. Not necessary if data input is a dataframe. 
 
            Default = 0.
 
@@ -85,9 +79,6 @@ Format
 
       .. list-table::
          :widths: auto
-
-         * - amo.aic
-           - Scalar, value of the Akaike information criterion.
 
          * - amo.b
            - Kx1 vector, estimated model coefficients.
@@ -100,10 +91,23 @@ Format
 
          * - amo.sbc
            - Scalar, value of the Schwartz Bayesian criterion.
+  
+         * - amo.aic
+           - Scalar, value of the Akaike information criterion.
 
          * - amo.vcb
            - KxK matrix, the covariance matrix of estimated model coefficients.
+         
+         * - amo.tsmtDesc 
+           - An instance of the :class:`tsmtModelDesc` structure containing the following members:
+  
+              .. include:: include/tsmtmodeldesc.rst
 
+         * - amo.sumStats 
+           - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
+  
+              .. include:: include/tsmtsummarystats.rst
+ 
    :rtype amo: struct
 
 Examples
@@ -111,6 +115,8 @@ Examples
 
 AR(1)
 ++++++++++++++++++
+
+In this example, the default settings are used to estimate an AR(1) model of simulated data. 
 
 ::
 
@@ -131,8 +137,39 @@ AR(1)
    //Estimate model
    amo = arimaFit(y, p);
 
+The results are stored in the `amo` structure and the following is printed to the **Command Window** screen:
+
+:: 
+
+    ================================================================================
+    Model:                 ARIMA(1,0,0)          Dependent variable:              Y1
+    Time Span:                  Unknown          Valid cases:                    250
+    SSE:                         71.849          Degrees of freedom:             249
+    Log Likelihood:             764.556          RMSE:                         0.536
+    AIC:                        764.556          SEE:                          0.537
+    SBC:                      -1523.590          Durbin-Watson:                1.918
+    R-squared:                    0.103          Rbar-squared:                 0.100
+    ================================================================================
+    Coefficient                Estimate      Std. Err.        T-Ratio     Prob |>| t
+    ================================================================================
+
+    AR[1,1]                       0.323          0.060          5.363          0.000 
+    Constant                      1.301          0.538          2.420          0.016 
+    ================================================================================
+
+    Total Computation Time: 0.01 (seconds)
+
+    MA Roots and Moduli:
+    ------------------------------
+
+         Real :        3.09571 
+        Imag. :        0.00000 
+         Mod. :        3.09571 
+
 Integrated AR(1)
 ++++++++++++++++++++++++++++++
+
+For integrated data, the optional differencing input can be included. 
 
 ::
 
@@ -159,6 +196,33 @@ Integrated AR(1)
    // Estimate model
    amo = arimaFit(z, p, d);
 
+::
+
+  ================================================================================
+  Model:                 ARIMA(1,1,0)          Dependent variable:              Y1
+  Time Span:                  Unknown          Valid cases:                    249
+  SSE:                         71.829          Degrees of freedom:             248
+  Log Likelihood:             761.464          RMSE:                         0.537
+  AIC:                        761.464          SEE:                          0.538
+  SBC:                      -1517.410          Durbin-Watson:                1.917
+  R-squared:                    0.103          Rbar-squared:                 0.099
+  ================================================================================
+  Coefficient                Estimate      Std. Err.        T-Ratio     Prob |>| t
+  ================================================================================
+
+  AR[1,1]                       0.323          0.060          5.345          0.000 
+  Constant                      1.302          0.539          2.416          0.016 
+  ================================================================================
+
+  Total Computation Time: 0.01 (seconds)
+
+  MA Roots and Moduli:
+  ------------------------------
+
+         Real :        3.09431 
+        Imag. :        0.00000 
+         Mod. :        3.09431 
+
 AR(2) Using dataset and formula string
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -169,7 +233,7 @@ AR(2) Using dataset and formula string
    library tsmt;
 
    // Filename
-   fname = getGAUSSHome() $+ "pkgs/tsmt/examples/enders_sim2.dat";
+   fname = getGAUSSHome("pkgs/tsmt/examples/enders_sim2.dat");
 
    // Declare arima out structures
    struct arimamtOut amo;
@@ -183,29 +247,31 @@ AR(2) Using dataset and formula string
 The example above prints the following results:
 ::
 
-  Model:  ARIMA(2,0,0)
+  ================================================================================
+  Model:                 ARIMA(2,0,0)          Dependent variable:             ar2
+  Time Span:                  Unknown          Valid cases:                    100
+  SSE:                          8.632          Degrees of freedom:              98
+  Log Likelihood:             200.167          RMSE:                         0.294
+  AIC:                        200.167          SEE:                          0.297
+  SBC:                       -391.124          Durbin-Watson:                1.981
+  R-squared:                    0.400          Rbar-squared:                 0.387
+  ================================================================================
+  Coefficient                Estimate      Std. Err.        T-Ratio     Prob |>| t
+  ================================================================================
 
+  AR[1,1]                       0.691          0.088          7.889          0.000 
+  AR[2,1]                      -0.485          0.088         -5.520          0.000 
+  Constant                     -0.018          0.298         -0.061          0.951 
+  ================================================================================
 
-  Final Results:
+  Total Computation Time: 0.02 (seconds)
 
-  Log Likelihood:    200.167329         Number of Residuals: 100
-  AIC           :   -396.334658         Error Variance     : 0.088081041
-  SBC           :   -391.124317         Standard Error     : 0.296784502
+  MA Roots and Moduli:
+  ---------------------------------------------
 
-  DF: 98       SSE: 8.631942002
-
-  Coefficients     Std. Err.   T-Ratio    Approx. Prob.
-  AR[1,1] 0.69112    0.08760    7.88927    0.00000
-  AR[2,1]-0.48468    0.08780   -5.52026    0.00000
-
-  Constant:  -0.01830559
-  Total Computation Time: 0.00 (seconds)
-
-  AR Roots and Moduli:
-
-  Real :    0.71296   0.71296
-  Imag.:    1.24695  -1.24695
-  Mod. :    1.43638   1.43638
+         Real :        0.71296        0.71296 
+        Imag. :        1.24695       -1.24695 
+         Mod. :        1.43638        1.43638 
 
 Remarks
 -------
@@ -231,4 +297,4 @@ Source
 ------
 arimamt.src
 
-.. seealso:: Functions :func:`arimaFit`, :func:`arimaSS`
+.. seealso:: Functions :func:`autoregFit`, :func:`arimaSS`
