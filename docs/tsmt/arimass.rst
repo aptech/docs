@@ -55,7 +55,16 @@ Format
            - Scalar, the sum of squares for Y data.
          * - amo.rstl
            - an instance of the kalmanResult structure.
+         * - amo.tsmtDesc 
+           - An instance of the :class:`tsmtModelDesc` structure containing the following members:
+  
+              .. include:: include/tsmtmodeldesc.rst
 
+         * - amo.sumStats 
+           - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
+  
+              .. include:: include/tsmtsummarystats.rst
+ 
    :rtype vOut: struct
 
 Example
@@ -89,29 +98,23 @@ The example above prints the following results
 
 ::
 
-  ARIMA(1,1,1) Results
-                       2022-07-14 16:08:37
+  ================================================================================
+  Model:                 ARIMA(1,1,1)          Dependent variable:             wpi
+  Time Span:                  Unknown          Valid cases:                    124
+  SSE:                         68.406          Degrees of freedom:             119
+  Log Likelihood:             135.464          RMSE:                         0.746
+  AIC:                        262.928          SEE:                         17.102
+  SBC:                        290.177          Durbin-Watson:                1.768
+  R-squared:                    0.416          Rbar-squared:                 0.854
+  ================================================================================
+  Coefficient                Estimate      Std. Err.        T-Ratio     Prob |>| t
+  --------------------------------------------------------------------------------
 
-
-  Number of Observations:                 123.0000
-  Degrees of Freedom:                          119
-  Mean of Y:                               62.7742
-  Standard Deviation of Y :                30.2436
-  Sum of Squares of Y:                    112504.7755
-
-
-                           COEFFICIENTS
-
-  Coefficient Estimates
-  ------------------------------------------------------------------------------------------
-
-       Variables      Coefficient               se            tstat             pval
-    phi : y[t-1]            0.868           0.0639             13.6          4.8e-42
-  theta : e[t-1]           -0.406            0.123            -3.29         0.000985
-          Sigma2            0.524           0.0462             11.3         7.69e-30
-        Constant              0.8            0.296             2.71          0.00682
-  ------------------------------------------------------------------------------------------
-  *p-val<0.1 **p-val<0.05 ***p-val<0.001  
+  Constant                    0.80003            ---            ---            --- 
+  wpi L(1)                    0.86813        0.06389       13.58860        0.00017 
+  MA  L(1)                   -0.40594        0.12318       -3.29550        0.03006 
+  Sigma wpi                   0.52382        0.29577        1.77104        0.15126 
+  ================================================================================ 
 
 Library
 -------

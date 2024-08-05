@@ -33,7 +33,7 @@ Example 1: Calculate autocovariance for a vector
   library tsmt;
 
   // Get file name with full path
-  file = getGAUSSHome() $+ "examples/beef_prices.csv";
+  file = getGAUSSHome("examples/beef_prices.csv");
 
   // Import beef price data
   beef = loadd(fname, "beef_price");

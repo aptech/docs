@@ -35,31 +35,6 @@ Format
 
          * - arc.const
            - scalar. If 1, constant will be used in model; else not. Default = 1.
-         * - arc.header
-           - string, specifies the format for the output header. arc.header can contain zero or more of the following characters:
-
-             .. list-table::
-                :widths: auto
-
-                * - t
-                  - title is to be printed.
-                * - l
-                  - lines are to bracket the title.
-                * - d
-                  - a date and time is to be printed.
-                * - v
-                  - version number of program is to be printed.
-                * - f
-                  - file name of program is to be printed
-
-             Example:
-
-             ::
-
-               arc.header = "tld";
-
-             If :code:`arc.header = ""`, no header is printed. Default = ``"tldvf"``.
-
          * - arc.init
            - scalar. If 1, only initial estimates will be computed. Default = 0.
          * - arc.iter
@@ -102,7 +77,22 @@ Format
            - LxL matrix, covariance matrix of *phi*.
          * - aro.vsig
            - scalar, variance of aro.sigsq (variance of the variance of white noise error).
+         * - aro.tsmtDesc 
+           - An instance of the :class:`tsmtModelDesc` structure containing the following members:
+  
+              .. include:: include/tsmtmodeldesc.rst
 
+         * - aro.sumStats 
+           - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
+  
+              .. include:: include/tsmtsummarystats.rst
+         * - aro.ll
+           - Scalar, the model log-likelihood. 
+         * - aro.aic 
+           - Scalar, the model AIC.
+         * - aro.sbc 
+           - Scalar, the model SBC.
+            
    :rtype aro: struct
 
 
@@ -119,7 +109,7 @@ Data matrices
    library tsmt;
 
    //Load data
-   data = loadd(getGAUSSHome() $+ "pkgs/tsmt/examples/autoregmt.dat");
+   data = loadd(getGAUSSHome("pkgs/tsmt/examples/autoregmt.dat"));
    y = data[., 1];
    x = data[., 2 3];
 
@@ -139,38 +129,44 @@ The final results are:
 
 ::
 
-  DEPENDENT VARIABLE:  Y
-                Number of Observations:     200
-                             R-squared:     0.710
-            Standard Error of Estimate:     1.524
-  Variance of White Noise Error (sigsq):     0.913
-                     Variance of sigsq:     0.008
-                    -2*log(likelihood):   548.000
+  ML ESTIMATES        
+  ================================================================================
+  Model:                   AUTOREG(3)          Dependent variable:               Y
+  Time Span:                  Unknown          Valid cases:                    200
+  SSE:                        484.481          Degrees of freedom:             197
+  Log Likelihood:             554.456          RMSE:                         1.556
+  AIC:                      -1102.912          SEE:                          1.568
+  SBC:                      -1093.017          Durbin-Watson:                0.664
+  R-squared:                    0.231          Rbar-squared:                 0.219
+  ================================================================================
 
-                COEFFICIENTS OF INDEPENDENT VARIABLES (beta)
+  COEFFICIENTS OF INDEPENDENT VARIABLES (beta)                
+  Coefficient                Estimate      Std. Err.        T-Ratio     Prob |>| t
+  ================================================================================
 
-  Variable        Coef           Std. Error     t-Ratio       P-Value
-  -------------------------------------------------------------------
-  CONSTANT       -0.266678       0.516473      -0.516344       0.606
-  X1              0.503195       0.060327       8.341081       0.000
-  X2              0.592405       0.059390       9.974846       0.000
+  CONSTANT                     -0.267          0.516         -0.516          0.606 
+  X1                            0.503          0.060          8.341          0.000 
+  X2                            0.592          0.059          9.975          0.000 
+  ================================================================================
 
-                      AUTOREGRESSIVE PARAMETERS (Phi)
+  AUTOREGRESSIVE PARAMETERS (phi)                             
+  Lag                        Estimate      Std. Err.        T-Ratio     Prob |>| t
+  ================================================================================
 
-  Lag         Phi            Std. Error     T-Ratio        P-Value
-  ----------------------------------------------------------------
-  1           0.246131       0.065740       3.744029       0.000
-  2           0.263760       0.065397       4.033229       0.000
-  3           0.368323       0.065740       5.602763       0.000
+  Y L(1)                        0.246          0.066          3.744          0.000 
+  Y L(2)                        0.264          0.065          4.033          0.000 
+  Y L(3)                        0.368          0.066          5.603          0.000 
+  ================================================================================
 
-                   AUTOCORRELATIONS AND AUTOCOVARIANCES
+  AUTOCORRELATIONS AND AUTOCOVARIANCES    
+  Lag                 Autocovariances         Autocorrelations
+  ============================================================
 
-            Lag           Autocovariances      Autocorrelations
-            ----------------------------------------------------
-            0             2.322667             1.000000
-            1             1.563621             0.673201
-            2             1.573401             0.677411
-            3             1.655176             0.712619
+  L(0)                         2.323                    1.000 
+  L(1)                         1.564                    0.673 
+  L(2)                         1.573                    0.677 
+  L(3)                         1.655                    0.713 
+
 
 Dataset and formula string
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -191,44 +187,49 @@ Dataset and formula string
    struct automtOut aro;
 
    // Call autoregFit function
-   aro = autoregFit(getGAUSSHome() $+ "pkgs/tsmt/examples/autoregmt.dat", "Y ~ X1 + X2", lag_vars, order);
+   aro = autoregFit(getGAUSSHome("pkgs/tsmt/examples/autoregmt.dat"), "Y ~ X1 + X2", lag_vars, order);
 
 The results printed to screen are:
 
 ::
 
-  DEPENDENT VARIABLE:  Y
-                Number of Observations:     200
-                             R-squared:     0.710
-            Standard Error of Estimate:     1.524
-  Variance of White Noise Error (sigsq):     0.913
-                     Variance of sigsq:     0.008
-                    -2*log(likelihood):   548.000
+  ML ESTIMATES        
+  ================================================================================
+  Model:                   AUTOREG(3)          Dependent variable:               Y
+  Time Span:                  Unknown          Valid cases:                    200
+  SSE:                        484.481          Degrees of freedom:             197
+  Log Likelihood:             554.456          RMSE:                         1.556
+  AIC:                      -1102.912          SEE:                          1.568
+  SBC:                      -1093.017          Durbin-Watson:                0.664
+  R-squared:                    0.231          Rbar-squared:                 0.219
+  ================================================================================
 
-                COEFFICIENTS OF INDEPENDENT VARIABLES (beta)
+  COEFFICIENTS OF INDEPENDENT VARIABLES (beta)                
+  Coefficient                Estimate      Std. Err.        T-Ratio     Prob |>| t
+  ================================================================================
 
- Variable        Coef           Std. Error     t-Ratio       P-Value
- -------------------------------------------------------------------
- CONSTANT       -0.266678       0.516473      -0.516344       0.606
- X1              0.503195       0.060327       8.341081       0.000
- X2              0.592405       0.059390       9.974846       0.000
+  CONSTANT                     -0.267          0.516         -0.516          0.606 
+  X1                            0.503          0.060          8.341          0.000 
+  X2                            0.592          0.059          9.975          0.000 
+  ================================================================================
 
-                      AUTOREGRESSIVE PARAMETERS (Phi)
+  AUTOREGRESSIVE PARAMETERS (phi)                             
+  Lag                        Estimate      Std. Err.        T-Ratio     Prob |>| t
+  ================================================================================
 
- Lag         Phi            Std. Error     T-Ratio        P-Value
- ----------------------------------------------------------------
- 1           0.246131       0.065740       3.744029       0.000
- 2           0.263760       0.065397       4.033229       0.000
- 3           0.368323       0.065740       5.602763       0.000
+  Y L(1)                        0.246          0.066          3.744          0.000 
+  Y L(2)                        0.264          0.065          4.033          0.000 
+  Y L(3)                        0.368          0.066          5.603          0.000 
+  ================================================================================
 
-                   AUTOCORRELATIONS AND AUTOCOVARIANCES
+  AUTOCORRELATIONS AND AUTOCOVARIANCES    
+  Lag                 Autocovariances         Autocorrelations
+  ============================================================
 
-            Lag           Autocovariances      Autocorrelations
-            ----------------------------------------------------
-            0             2.322667             1.000000
-            1             1.563621             0.673201
-            2             1.573401             0.677411
-            3             1.655176             0.712619
+   L(0)                         2.323                    1.000 
+   L(1)                         1.564                    0.673 
+   L(2)                         1.573                    0.677 
+   L(3)                         1.655                    0.713 
 
 Remarks
 -------

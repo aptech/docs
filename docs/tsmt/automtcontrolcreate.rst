@@ -3,7 +3,7 @@ automtControlCreate
 
 Purpose
 -------
-Sets the members of an instance of an automtControl structure to default values.
+Sets the members of an instance of an :class:`automtControl` structure to default values.
 
 Format
 ------
@@ -35,4 +35,4 @@ Source
 ------
 autoregmt.src
 
-.. seealso:: Functions :func:`autoregFit`
+.. seealso:: Functions  :func:`autoregFit`

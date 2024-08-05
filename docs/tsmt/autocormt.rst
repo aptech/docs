@@ -38,7 +38,7 @@ Example 1: Calculate ACF for a vector
 
   // Import time series data
   // Get file name with full path
-  fname = getGAUSSHome() $+ "examples/beef_prices.csv";
+  fname = getGAUSSHome("examples/beef_prices.csv");
 
   // Import beef price data
   beef = loadd(fname, "beef_price");
