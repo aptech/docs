@@ -7,10 +7,9 @@ Estimates integrated GARCH model, i.e., a model containing a unit root.
 
 Format
 ------
-.. function:: out1 = igarchFit(y, p[, c0])
-              out1 = igarchFit(y, p[, q, c0])
-              out1 = igarchFit(dataset, formula, p[, c0])
-              out1 = igarchFit(dataset, formula, p[, q, c0])
+.. function:: gOut = igarchFit(y, p [, q, gCtl])
+              gOut = igarchFit(y, x, p [, q, gCtl])
+              gOut = igarchFit(dataset, formula, p [, q, gCtl])
 
    :param y: dependent variables.
    :type y: Matrix
@@ -30,7 +29,7 @@ Format
    :param q: Optional input, order of the ARCH parameters.
    :type q: scalar
 
-   :param c0: Optional input, garchControl structure.
+   :param gCtl: Optional input, :class:`garchControl` structure.
 
       .. list-table::
          :widths: auto
@@ -119,11 +118,30 @@ Example
    cls;
    library tsmt;
 
-   y = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/igarch.dat");
+   y = loadd(getGAUSSHome("pkgs/tsmt/examples/igarch.dat"));
 
-   struct garchEstimation f0;
-   f0 = igarchFit(y, 1, 1); 
+   struct garchEstimation gOut;
+   gOUt = igarchFit(y, 1, 1); 
 
+This prints the following output:
+
+::
+
+  ================================================================================
+  Model:                 I-GARCH(1,1)          Dependent variable:               Y
+  Time Span:                  Unknown          Valid cases:                    300
+  ================================================================================
+                               Coefficient            Upper CI            Lower CI
+
+            beta0[1,1]             0.02710            -0.04224             0.09644 
+            garch[1,1]             0.81404             0.71688             0.91120 
+             arch[1,1]             0.18596             0.06604             0.30587 
+            omega[1,1]             0.01468            -0.00739             0.03675 
+  ================================================================================
+
+                  AIC:                                                  -635.63652 
+                  LRS:                                                  -643.63652
+                  
 Library
 -------
 tsmt

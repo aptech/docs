@@ -101,12 +101,12 @@ Format
          * - amo.tsmtDesc 
            - An instance of the :class:`tsmtModelDesc` structure containing the following members:
   
-              .. include:: include/tsmtmodeldesc.rst
+             .. include:: include/tsmtmodeldesc.rst
 
          * - amo.sumStats 
            - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-              .. include:: include/tsmtsummarystats.rst
+             .. include:: include/tsmtsummarystats.rst
  
    :rtype amo: struct
 

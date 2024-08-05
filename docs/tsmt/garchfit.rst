@@ -8,8 +8,9 @@ Estimates univariate GARCH model.
 Format
 ------
 
-.. function:: out1 = garchFit(y, p [, q, c0])
-              out1 = garchFit(dataset, formula, p [, q, c0])
+.. function:: gOut = garchFit(y, p [, q, gctl])
+              gOut = garchFit(y, x, p [, q, gctl])
+              gOut = garchFit(dataset, formula, p [, q, gctl])
 
    :param y: dependent variables.
    :type y: Matrix
@@ -29,79 +30,17 @@ Format
    :param q: Optional input. order of the ARCH parameters.
    :type q: scalar
 
-   :param c0: Optional input. :class:`garchControl` structure.
+   :param gctl: Optional input. :class:`garchControl` structure.
 
-      .. list-table::
-         :widths: auto
+      .. include:: include/garchcontrol.rst
 
-         * - c0.density
-           - scalar, density of error term:
+   :type gctl: struct
 
-             :0: Normal
-             :1: Student's t
-             :3: skew generalized t.
+   :return gOut: :class:`garchEstimation` structure containing the following members:
 
-         * - c0.asymmetry
-           - scalar, if nonzero assymetry terms are added.
-         * - c0.inmean
-           - scalar, GARCH-in-mean, square root of conditional variance is included in the mean equation.
-         * - c0.stConstraintsType
-           - scalar, type of enforcement of stationarity requirements:
+      .. include:: include/garchestimation.rst
 
-             :1: roots of characteristic polynomial constrained outside unit circle
-             :2: arch, GARCH parameters constrained to sum to less than one and greater than zero
-             :3: none.
-
-         * - c0.cvConstraintsType
-           - scalar, type of enforcement of nonnegative conditional variances:
-
-             :0: direct constraints
-             :1: Nelson & Cao constraints
-
-         * - c0.covType
-           - scalar, type of covariance matrix of parameters:
-
-             :1: ML
-             :2: QML
-             :3: none
-
-   :type c0: Optional input
-
-   :return out1: garchEstimation structure containing the following members:
-
-      .. list-table::
-         :widths: auto
-
-         * - out1.aic
-           - scalar, Akiake criterion.
-         * - out1.bic
-           - scalar, Bayesian information criterion.
-         * - out1.lrs
-           - scalar, likelihood ratio statistic.
-         * - out1.numObs
-           - scalar, number of observations.
-         * - out1.df
-           - scalar, degrees of freedom.
-         * - out1.par
-           - instance of PV structure containing parameter estimates.
-         * - out1.retcode
-           - scalar, return code:
-
-             :1: normal convergence.
-             :2: forced exit.
-             :3: function calculation failed.
-             :4: gradient calculation failed.
-             :5: Hessian calculation failed.
-             :6: line search failed.
-             :7: error with constraints.
-             :8: function complex.
-
-         * - out1.moment
-           - KxK matrix, moment matrix of parameter estimates.
-         * - out1.climits
-           - Kx2 matrix, confidence limits.
-
-   :rtype out1: struct
+   :rtype gOut: struct
 
 
 Example
@@ -113,11 +52,30 @@ Example
    cls,;
    library tsmt;
 
-   y = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/garch.dat");
+   y = loadd(getGAUSSHome("pkgs/tsmt/examples/garch.dat"));
 
-   struct garchEstimation f0;
-   f0 = garchFit(y, 1, 1);
+   struct garchEstimation gOut;
+   gOut = garchFit(y, 1, 1);
 
+
+This prints the following output:
+
+:: 
+
+  ================================================================================
+  Model:                   GARCH(1,1)          Dependent variable:               Y
+  Time Span:                  Unknown          Valid cases:                    300
+  ================================================================================
+                               Coefficient            Upper CI            Lower CI
+
+            beta0[1,1]             0.01208            -0.00351             0.02768 
+            garch[1,1]             0.15215            -0.46226             0.76655 
+            arch[1,1]              0.18499             0.01761             0.35236 
+            omega[1,1]             0.01429             0.00182             0.02675 
+  ================================================================================
+
+                  AIC:                                                   315.54085 
+                  LRS:                                                   307.54085
 
 Library
 -------
