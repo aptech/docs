@@ -32,6 +32,7 @@ Format
 
 Example
 -------
+
 ::
 
    new;

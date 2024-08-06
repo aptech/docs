@@ -16,9 +16,6 @@ Format
   :param xt: estimation regressors.
   :type xt: Txk matrix
 
-  :param demean: Indicator variable for demeaning variable. 0 = no demeaning, 1 = demean data.
-  :type demean: scalar
-
   :param window: Number of lags to include in the test.
   :type window: scalar
 
@@ -37,76 +34,85 @@ Example
 
 ::
 
- new;
- cls;
- library tsmt;
+    new;
+    cls;
+    library tsmt;
 
- //Use the simarmamt procedure to generate ar data
- /********************************************/
- // This generates 300 observations of an
- // AR(1) series with a break in the constant
- // at observations 90
- // and standard deviation equal to 0.5.
+    //Use the simarmamt procedure to generate ar data
+    /********************************************/
+    // This generates 300 observations of an
+    // AR(1) series with a break in the constant
+    // at observations 90
+    // and standard deviation equal to 0.5.
 
- b = 0.6;
- q = 0;
- p = 1;
- const1 = 0.5;
- tr = 0;
- n1 = 90;
- n_tot = 300;
- k = 1;
- std = 0.5;
- seed = 19786;
+    b = 0.6;
+    q = 0;
+    p = 1;
+    const1 = 0.5;
+    tr = 0;
+    n1 = 90;
+    n_tot = 300;
+    k = 1;
+    std = 0.5;
+    seed = 19786;
 
- // First series with constant=0.3
- y1 = simarmamt(b, p ,q, const1, tr, n1, k, std, seed);
+    // First series with constant=0.3
+    y1 = simarmamt(b, p ,q, const1, tr, n1, k, std, seed);
 
- // Second series with constant=1.7
- const2=3;
- y2 = simarmamt(b, p, q, const2, tr, n_tot-n1, k, std, seed);
+    // Second series with constant=1.7
+    const2=3;
+    y2 = simarmamt(b, p, q, const2, tr, n_tot-n1, k, std, seed);
 
- // Full time series with break
- yt_break = y1|y2;
+    // Full time series with break
+    yt_break = y1|y2;
 
- // Full time series without break
- yt = simarmamt(b, p, q, const1, tr, n_tot, k, std, seed);
+    // Full time series without break
+    yt = simarmamt(b, p, q, const1, tr, n_tot, k, std, seed);
 
- // Test first series for breaks using chowfcst
- /********************************************/
- // Generate xt regressors
- // These should include a constant
- xt_const = ones(n_tot, 1);
+    /******************************************************
+    Test first series for breaks using chowfcst
+    *******************************************************/
+    // Generate xt regressors
+    // These should include a constant
+    xt_const = ones(n_tot, 1);
 
- // Lagged dependent variable
- yt_lag1 = lag1(yt_break);
- yt_lag2 = lag1(yt);
+    // Lagged dependent variable
+    yt_lag = lag1(yt);
 
- // Concat both into one data matrix
- xt1 = xt_const~yt_lag1;
- xt2 = xt_const~yt_lag2;
+    // Concat both into one data matrix
+    xt = xt_const~yt_lag;
 
- // Trim the first missing observation due to lagging
- xt1 = trimr(xt1, 1, 0);
- yt1 = trimr(yt_break, 1, 0);
- xt2 = trimr(xt2, 1, 0);
- yt2 = trimr(yt, 1, 0);
+    // Trim the first missing observation due to lagging
+    xt = trimr(xt, 1, 0);
+    yt1 = trimr(yt_break, 1, 0);
+    yt2 = trimr(yt, 1, 0);
 
- // Call chowfcst using data with break
- { chow_br, prob_br } = chowfcst(yt1, xt1, n1);
+    // Call chowfcst using data with break
+    { chow_br, prob_br } = chowfcst(yt1, xt, n1);
 
- format /rz 8,4;
- print "The Chow test statistic for series with break:"; chow_br;
- print "The p-value for series with break:" prob_br;
+    format /rz 8,4;
+    print "The Chow test statistic for series with break:";
+    chow_br;
+    print "The p-value for series with break:";
+    prob_br;
 
- // Call chowfcst using data without break
- { chow, prob } = chowfcst(yt2, xt2, 100);
-
- print "The Chow test statistic for series without break:"; chow;
- print "The p-value for series without break:" prob;
+    // Call chowfcst using data without break
+    { chow, prob } = chowfcst(yt2, xt, n1);
+    print "The Chow test statistic for series without break:";
+    chow;
+    print "The p-value for series without break:";
+    prob;
 
 ::
 
+    The Chow test statistic for series with break:
+    509.3 
+    The p-value for series with break:
+    2.135e-96 
+    The Chow test statistic for series without break:
+      1.023 
+    The p-value for series without break:
+      0.3609 
 
 Reference
 ---------

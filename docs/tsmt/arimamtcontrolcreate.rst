@@ -15,6 +15,7 @@ Format
 
 Example
 -------
+
 ::
 
    new;

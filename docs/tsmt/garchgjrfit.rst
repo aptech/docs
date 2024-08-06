@@ -93,7 +93,7 @@ This prints the following output:
   ================================================================================
   Model:               GJR-GARCH(1,1)          Dependent variable:               Y
   Time Span:              1980-01-20:          Valid cases:                   1000
-                        1982-10-15                                              
+                          1982-10-15                                              
   ================================================================================
                                Coefficient            Upper CI            Lower CI
 
@@ -111,4 +111,4 @@ Source
 ------
 tsgarch.src
 
-.. seealso:: Functions :func:`garchFit`, :func:`garchMFit`
+.. seealso:: Functions :func:`garchFit`, :func:`garchMFit`, :func:`igarchFit`

@@ -7,8 +7,8 @@ Calculate and return parameter estimates for an error correction model.
 
 Format
 ------
-.. function:: vmo = ecmFit(y, p[, vmc])
-              vmo = ecmFit(dataset, formula, p[, vmc])
+.. function:: vmo = ecmFit(y, p [, vmc])
+              vmo = ecmFit(dataset, formula, p [, vmc])
 
    :param y: data.
    :type y: Nx1 vector
@@ -44,7 +44,7 @@ Example
    library tsmt;
 
    // Load data
-   fname = getGAUSSHome() $+ "pkgs/tsmt/examples/ecmmt.csv";
+   fname = getGAUSSHome("pkgs/tsmt/examples/ecmmt.csv");
    y = csvReadM(fname, 1, 2);
 
    y = vmdiffmt(y, 1);

@@ -27,10 +27,10 @@ Format
    :param p: order of the GARCH parameters.
    :type p: scalar
 
-   :param q: Optional input. order of the ARCH parameters.
+   :param q: Optional input, order of the ARCH parameters.
    :type q: scalar
 
-   :param gctl: Optional input. :class:`garchControl` structure.
+   :param gctl: Optional input, :class:`garchControl` structure.
 
       .. include:: include/garchcontrol.rst
 
@@ -85,4 +85,4 @@ Source
 ------
 tsgarch.src
 
-.. seealso:: Functions :func:`garchMFit`, :func:`garchGJRFit`
+.. seealso:: Functions :func:`garchMFit`, :func:`garchGJRFit`, :func:`igarchFit`

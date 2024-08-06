@@ -17,15 +17,15 @@ Example
 
 ::
 
- new;
- cls;
- library tsmt;
+   new;
+   cls;
+   library tsmt;
 
- // Declare control structures
- struct automtControl arc;
+   // Declare control structures
+   struct automtControl arc;
 
- // Create default settings for arima model
- arc = automtControlCreate();
+   // Create default settings for arima model
+   arc = automtControlCreate();
 
 Library
 -------

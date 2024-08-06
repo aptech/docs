@@ -29,86 +29,18 @@ Format
    :param q: Optional input, order of the ARCH parameters.
    :type q: scalar
 
-   :param gCtl: Optional input, :class:`garchControl` structure.
+   :param gctl: Optional input, :class:`garchControl` structure.
 
-      .. list-table::
-         :widths: auto
+      .. include:: include/garchcontrol.rst
 
-         * - c0.density
-           - scalar, density of error term:
-           
-             0 - Normal
-             
-             1 - Student's t
-             
-             3 - skew generalized t. 
+   :type gCtl: struct
 
-         * - c0.asymmetry
-           - scalar, if nonzero assymetry terms are added. 
-         * - c0.inmean
-           - scalar, GARCH-in-mean, square root of conditional variance is included in the mean equation. 
-         * - c0.stConstraintsType
-           - scalar, type of enforcement of stationarity requirements:
-           
-             1 - roots of characteristic polynomial constrained outside unit circle
-             
-             2 - arch, GARCH parameters constrained to sum to less than one and greater than zero
-             
-             3 - none.
+   :return gOut: :class:`garchEstimation` structure.
 
-         * - c0.cvConstraintsType
-           - scalar, type of enforcement of nonnegative conditional variances:
-           
-             0 - direct constraints
-             
-             1 - Nelson & Cao constraints.
+      .. include:: include/garchestimation.rst
 
-         * - c0.covType
-           - scalar, type of covariance matrix of parameters:
-           
-             1 - ML
-             
-             2 - QML
-             
-             3 - none. 
-
-   :type c0: struct
-
-   :return out1: :class:`garchEstimation` structure.
-
-      .. list-table::
-         :widths: auto
-
-         * - out1.aic
-           - scalar, Akiake criterion.
-         * - out1.bic
-           - scalar, Bayesian information criterion. 
-         * - out1.lrs
-           - scalar, likelihood ratio statistic. 
-         * - out1.numObs
-           - scalar, number of observations. 
-         * - out1.df
-           - scalar, degrees of freedom. 
-         * - out1.par
-           - instance of PV structure containing parameter estimates. 
-         * - out1.retcode
-           - scalar, return code. out1.moment KxK matrix, moment m?atrix of parameter estimates.
-
-             :1: normal convergence. 
-             :2: forced exit. 
-             :3: function calculation failed. 
-             :4: gradient calculation failed. 
-             :5: Hessian calculation failed. 
-             :6: line search failed. 
-             :7: error with constraints. 
-             :8: function complex.
-
-         * - out1.moment
-           - KxK matrix, moment matrix of parameter estimates.
-         * - out1.climits
-           - Kx2 matrix, confidence limits. 
-     
    :rtype out1: struct
+
 
 Example
 -------
@@ -141,7 +73,7 @@ This prints the following output:
 
                   AIC:                                                  -635.63652 
                   LRS:                                                  -643.63652
-                  
+
 Library
 -------
 tsmt
