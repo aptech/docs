@@ -80,8 +80,8 @@ The results printed are:
   Z-stat                                               -19.959
 
   Critical Values:
-                            1%             5%            10%
-                        -2.326         -1.645         -1.282
+                              1%             5%            10%
+                          -2.326         -1.645         -1.282
   ============================================================
 
   Reject the null hypothesis of unit root at the 1% level.

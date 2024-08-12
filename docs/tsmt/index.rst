@@ -119,11 +119,16 @@ Further Reading
     autoregfit
     breitung
     cdtest
+    chowfcst
     covmmt
     cusum
     dfgls
     ecmfit
     garchfit
+    garchgjrfit
+    garchmfit
+    hansen 
+    httest 
     igarchfit
     ips
     kalmanfilter
@@ -131,9 +136,11 @@ Further Reading
     lagreport
     lsdvfit
     rolling
+    sarimass 
     sbreak
     selectlags
     startest
+    svarfit
     switchfit
     tartest
     tscsfit
@@ -141,5 +148,6 @@ Further Reading
     varmafit
     varmapredict
     vmdetrendmt
+    vmdiffmt
     vmsdetrend
     zandrews

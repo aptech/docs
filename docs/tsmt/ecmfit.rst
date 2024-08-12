@@ -40,7 +40,7 @@ Example
 ::
 
    new;
-   cls,;
+   cls;
    library tsmt;
 
    // Load data

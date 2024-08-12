@@ -297,4 +297,4 @@ Source
 ------
 arimamt.src
 
-.. seealso:: Functions :func:`autoregFit`, :func:`arimaSS`
+.. seealso:: Functions :func:`autoregFit`, :func:`arimaSS`, :func:`simarmamt`

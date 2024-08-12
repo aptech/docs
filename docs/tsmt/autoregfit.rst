@@ -43,8 +43,6 @@ Format
            - scalar, the maximum number of elements allowed in any one matrix. Default = 20000.
          * - arc.output
            - scalar, if nonzero, results are printed to screen. Default = 1.
-         * - arc.title
-           - string, a title to be printed at the top of the output header (see arc.header). By default, no title is printed (``arc.title=""``).
          * - arc.tol
            - scalar, convergence tolerance. Default = 1e-5.
 

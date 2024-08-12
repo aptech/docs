@@ -76,7 +76,7 @@ Example
   library tsmt;
 
   // Create file name with full path
-  fname = getGAUSSHome() $+ "pkgs/tsmt/examples/wpi1.dat";
+  fname = getGAUSSHome("pkgs/tsmt/examples/wpi1.dat");
 
   // Load variable 'wpi' from 'wpi1.dat'
   y = loadd(fname, "wpi");
