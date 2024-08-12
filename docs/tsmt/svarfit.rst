@@ -25,49 +25,53 @@ Format
         =========== ===========================================================================
 
     :param ctl: Optional, an instance of the :class:`svarControl` structure containing the following members.
+    
+
+        .. list-table::
+            :widths: auto
+
+            * - ctl.lutStats
+              - An indicator specifying to use the Lutkepohl (2005) versions of the information criteria be reported. Default = 1.
+            * - ctl.smallDF
+              - An indicator specifies that a small-sample degrees-of-freedom adjustment be used when estimating sigma, the error variance–covariance matrix. Specifically, 1/(T - m) is used instead of the large-sample divisor 1/T, where m is the average number of parameters in the functional form for yt over the K equations. Default = 1.
+            * - ctl.printVAR
+              - An indicator specifying whether to print the results to screen. Default = 1.
+            * - ctl.irf
+              - An instance of the :class:`irfControl` structure containing the following members.
+
+              .. include:: include/irfcontrol.rst
+
     :type ctl: struct
-
-    .. list-table::
-        :widths: auto
-
-        * - ctl.lutStats
-          - An indicator specifying to use the Lutkepohl (2005) versions of the information criteria be reported. Default = 1.
-        * - ctl.smallDF
-          - An indicator specifies that a small-sample degrees-of-freedom adjustment be used when estimating sigma, the error variance–covariance matrix. Specifically, 1/(T - m) is used instead of the large-sample divisor 1/T, where m is the average number of parameters in the functional form for yt over the K equations. Default = 0.
-        * - ctl.printVAR
-          - An indicator specifying whether to print the results to screen.
-        * - ctl.irf
-          - An instance of the :class:`irfControl` structure containing the following members.
-
-            .. include:: include/irfcontrol.rst
-
+    
     :return: An instance of an :class:`svarOut` structure containing the following members.
-    :rtype: struct
+    
 
-    .. list-table::
-        :widths: auto
+        .. list-table::
+            :widths: auto
 
-        * - rslt.b
-          - NxM matrix, of final estimates for the SVAR reduced form coefficients, computed by OLS.
-        * - rslt.ll
-          - Scalar, value of the maximized likelihood function.
-        * - rslt.e
-          - NxM matrix, residuals.
-        * - rslt.vcb
-          - KxK matrix, covariance matrix for the SVAR reduced form coefficients.
-        * - rslt.aic
-          - Scalar, Akaike Information Criterion (AIC).
-        * - rslt.sbc
-          - Scalar, Schwarz Bayesian Criterion (SBC).
-        * - rslt.tsmtDesc
-          - An instance of the :class:`tsmtModelDesc` structure containing the following members:
+            * - rslt.b
+              - NxM matrix, of final estimates for the SVAR reduced form coefficients, computed by OLS.
+            * - rslt.ll
+              - Scalar, value of the maximized likelihood function.
+            * - rslt.e
+              - NxM matrix, residuals.
+            * - rslt.vcb
+              - KxK matrix, covariance matrix for the SVAR reduced form coefficients.
+            * - rslt.aic
+              - Scalar, Akaike Information Criterion (AIC).
+            * - rslt.sbc
+              - Scalar, Schwarz Bayesian Criterion (SBC).
+            * - rslt.tsmtDesc
+              - An instance of the :class:`tsmtModelDesc` structure containing the following members:
 
-            .. include:: include/tsmtmodeldesc.rst
+              .. include:: include/tsmtmodeldesc.rst
 
-        * - rslt.sumStats 
-           - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
+            * - rslt.sumStats 
+              - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-             .. include:: include/tsmtsummarystats.rst
+              .. include:: include/tsmtsummarystats.rst
+
+        :rtype: struct
 
 Examples
 ---------
@@ -322,4 +326,3 @@ The procedure :func:`svarFit` is designed to provide flexibility in estimating S
 
 .. seealso:: Functions :func:`arimaFit`, :func:`plotIRF`, :func:`svarControlCreate`, :func:`plotFEVD`
 
-    

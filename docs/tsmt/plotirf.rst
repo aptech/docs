@@ -10,7 +10,7 @@ Format
 ------
 .. function:: plotIRF(sOut [, rirf])
 
-    :param sOut: An instance of the :class:`svarOut` structure containing the results from the :proc:`svarFit` estimation procedure.
+    :param sOut: An instance of the :class:`svarOut` structure containing the results from the :func:`svarFit` estimation procedure.
     :type sOut: struct
 
     :param rirf: Optional, an indicator variable, set to 1 to specify that restricted irfs should be plotted.
