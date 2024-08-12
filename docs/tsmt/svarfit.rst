@@ -16,7 +16,7 @@ Format
     :type maxlags: scalar
 
     :param const: Optional, specifying deterministic components of model. 
-    :type const: scalar
+    
    
         =========== ===========================================================================
            0           No constant or trend.
@@ -24,22 +24,26 @@ Format
            2           Constant and trend.
         =========== ===========================================================================
 
+    :type const: scalar
+    
     :param ctl: Optional, an instance of the :class:`svarControl` structure containing the following members.
     
+     .. list-table::
+        :widths: auto
 
-        .. list-table::
-            :widths: auto
+        * - ctl.lutStats
+          - An indicator specifying to use the Lutkepohl (2005) versions of the information criteria be reported. Default = 1.
+           
+        * - ctl.smallDF
+          - An indicator specifies that a small-sample degrees-of-freedom adjustment be used when estimating sigma, the error variance–covariance matrix. Specifically, 1/(T - m) is used instead of the large-sample divisor 1/T, where m is the average number of parameters in the functional form for yt over the K equations. Default = 1.
+           
+        * - ctl.printVAR
+          - An indicator specifying whether to print the results to screen. Default = 1.
+           
+        * - ctl.irf
+          - An instance of the :class:`irfControl` structure containing the following members.
 
-            * - ctl.lutStats
-              - An indicator specifying to use the Lutkepohl (2005) versions of the information criteria be reported. Default = 1.
-            * - ctl.smallDF
-              - An indicator specifies that a small-sample degrees-of-freedom adjustment be used when estimating sigma, the error variance–covariance matrix. Specifically, 1/(T - m) is used instead of the large-sample divisor 1/T, where m is the average number of parameters in the functional form for yt over the K equations. Default = 1.
-            * - ctl.printVAR
-              - An indicator specifying whether to print the results to screen. Default = 1.
-            * - ctl.irf
-              - An instance of the :class:`irfControl` structure containing the following members.
-
-              .. include:: include/irfcontrol.rst
+          .. include:: include/irfcontrol.rst
 
     :type ctl: struct
     
@@ -47,20 +51,26 @@ Format
     
 
         .. list-table::
-            :widths: auto
+           :widths: auto
 
             * - rslt.b
               - NxM matrix, of final estimates for the SVAR reduced form coefficients, computed by OLS.
+               
             * - rslt.ll
               - Scalar, value of the maximized likelihood function.
+               
             * - rslt.e
               - NxM matrix, residuals.
+               
             * - rslt.vcb
               - KxK matrix, covariance matrix for the SVAR reduced form coefficients.
+               
             * - rslt.aic
               - Scalar, Akaike Information Criterion (AIC).
+               
             * - rslt.sbc
               - Scalar, Schwarz Bayesian Criterion (SBC).
+               
             * - rslt.tsmtDesc
               - An instance of the :class:`tsmtModelDesc` structure containing the following members:
 
