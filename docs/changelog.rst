@@ -148,7 +148,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`getGAUSSHome` can now accept relative paths as an input so they do not have to be appended to the end with the string addition operator.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
-#. Up to 10x speed improvememnt and 50% decrease in memory usage for :func:`lagn`.
+#. Up to 10x speed improvement and 50% decrease in memory usage for :func:`lagn`.
 #. :func:`lagn` now retains variable names and column types from the input.
 #. Improved performance of date format pattern matching with :func:`loadd`.
 #. Improved performance of :func:`indsav` with dataframes.
