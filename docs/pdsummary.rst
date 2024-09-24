@@ -63,4 +63,4 @@ The returned data frame contains:
 
 See also:
 
-.. seealso:: :func:`pdSize`
+.. seealso:: :func:`pdsize`

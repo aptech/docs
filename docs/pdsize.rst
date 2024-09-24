@@ -54,4 +54,4 @@ The code above prints the following to screen:
 
 See also:
 
-.. seealso:: :func:`pdSummary`
+.. seealso:: :func:`pdsummary`
