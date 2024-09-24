@@ -10,13 +10,13 @@ Format
 .. function:: pdOut = pdSummary(x, groupvar [, varlist, missings])
 
     :param x: A matrix of panel data with N rows (observations) and K columns (variables).
-    :type x: NxK matrix
+    :type x: NxK matrix or dataframe
 
     :param groupvar: A column vector indicating group membership for panel observations.
-    :type groupvar: Nx1 matrix
+    :type groupvar: String
 
     :param varlist: Optional, A list of variables to include in the summary. Default is all variables.
-    :type varlist: 1xP matrix
+    :type varlist: 1xP string array
 
     :param missings: Optional, scalar, indicator that missings are present in data. Missing values must be 
     removed for procedure. Setting to 0 will speed up procedure but should be used only if certain that no missings are present. Default = 1.
@@ -30,7 +30,7 @@ Format
         - Within-group statistics: mean, standard deviation, minimum, and maximum.
         - Additional information: number of groups, average number of observations per group (T_ave), balance indicator (_isbalanced), valid and missing observation counts.
 
-    :rtype pdOut: Data frame
+    :rtype pdOut: Dataframe
 
 Examples
 ----------------
