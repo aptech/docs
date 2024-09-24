@@ -24,6 +24,8 @@ P
     pdftruncnorm
     pdfweibull
     pdfwishartinv
+    pdsize 
+    pdsummary 
     pinvmt
     pinv
     pi
