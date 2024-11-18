@@ -216,3 +216,5 @@ The true usefulness of the :func:`waldTest` procedure is the ability to more tha
     ===================================
 
     In this case, we cannot reject the null hypothesis. 
+
+.. seealso:: :func:`qFitSlopeTest`
