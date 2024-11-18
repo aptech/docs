@@ -6,6 +6,6 @@ MaxlikMT Examples
     :caption: MLMT Examples
 
     mlmt-basic-optimization
-    mlmt-gradient-examples
+    mlmt-gradient-example
 
     
