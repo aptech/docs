@@ -10,7 +10,7 @@ Format
 .. function:: { waldTest, p_value } = waldTest(out [, R, q, tau, joint])
               { waldTest, p_value } = waldTest(sigma, params [, R, q, df_residuals, varnames])  
 
-    :param out: Post-estimation filled output structure. Valid structure types include: :class:`olsmtOut`, :class:`gmmOut`, :class:`glmOut`, and :class:`qfitOut`.
+    :param out: Post-estimation filled output structure. Valid structure types include: :class:`olsmtOut`,  :class:`gmmOut`, :class:`glmOut`, and :class:`qfitOut`.
     :type out: Struct
 
     :param sigma: Parameter variance-covariance estimation.
@@ -19,45 +19,43 @@ Format
     :param params: Parameter estimates.
     :type params: Vector
     
-    :param R: Optional, LHS of the null hypothesis. Should be specified in terms of model variables, with a separate row for each hypothesis. The function accepts linear combinations of the model variables.
+    :param R: Optional, LHS of the null hypothesis. Should be specified in terms of the model variables, with a separate row for each hypothesis. The function accepts linear combinations of the model variables.  If using matrix inputs and no variable names are specified, variables labeled by default ``"X1", "X2", "X3", ...``. 
 
-    If using matrix inputs and no variable names are specified, variables labeled by default ``"X1", "X2", "X3", ...``. 
+        e.g to test the hypothesis ``"X1 - X4 = 0"`` jointly with the hypothesis that ``"2*X3 - X2 = 0"``. The R matrix input will be:
 
-    e.g to test the hypothesis ``"X1 - X4 = 0"`` jointly with the hypothesis that ``"2*X3 - X2 = 0"``. The R matrix input will be:
+        ::      
 
-    ::      
+            // Specify R matrix
+            R_sa = "X1 - X4"$|"2*X3 - X2";
 
-        // Specify R matrix
-        R_sa = "X1 - X4"$|"2*X3 - X2";
-
-    To include all individual variables use "all". Default is to test the joint hypothesis of all variables. 
+        To include all individual variables use "all". Default is to test the joint hypothesis of all variables. 
     :type R: String Array
 
     :param q: Optional, RHS of the null hypothesis. Must be numeric vector. Default is to set RHS of all hypothesis to zero.
     
-    e.g to test the hypothesis ``"X1 - X4 = 2"`` jointly with the hypothesis that ``"2*X3 - X2 = 0"`` The R matrix input will be:
+        e.g to test the hypothesis ``"X1 - X4 = 2"`` jointly with the hypothesis that ``"2*X3 - X2 = 0"`` The q matrix input will be:
 
-    ::             
+        ::             
         
-        // Specify R matrix
-        R_sa = "X1 - X4"$|"2*X3 - X2";
+            // Specify R matrix
+            R_sa = "X1 - X4"$|"2*X3 - X2";
 
-        // Specify q matrix
-        q = 2|0;
+            // Specify q matrix
+            q = 2|0;
 
     :type q: Vector
 
-    :param tau: Optional, tau level corresponding to the testing hypothesis. Default is to jointly tests across all tau values. To include all tau levels use "all". Only valid for the :class:`qfitOut`` structure.
-    :type missings: Vector
+    :param tau: Optional, tau level corresponding to the testing hypothesis. Default is to jointly tests across all tau values. To include all tau levels use ``"all"``. Only valid for the :class:`qfitOut` structure.
+    :type tau: Vector
 
-    :param joint:  Optional, specification to test :func:`quantileFit` hypotheses jointly across all coefficients.:class:`qfitOut`` structure. Default = 1.
-    :type missings: Scalar
+    :param joint:  Optional, specification to test :func:`quantileFit` hypotheses jointly across all coefficients for the :class:`qfitOut` structure. Default = 1.
+    :type joint: Scalar
     
     :param df_residuals: Optional, model degrees of freedom for the F-test. Default = 500.
-    :type missings: Scalar
+    :type df_residuals: Scalar
     
     :param varnames: Optional, variable names.
-    :type missings: String array
+    :type varnames: String array
     
     :return waldTest: The statistic for testing the null joint hypothesis specified by the R and q inputs.
     :rtype waldTest: Vector
@@ -161,7 +159,7 @@ The code above will print a test summary.
 
 Example Two: Testing that subset of variables equal zero
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-In the first example we tested all variables. Now suppose we wish to test all variable, except the constant. This is done by specifying a hypothesis matrix, ``R``.
+In the first example we tested all variables. Now suppose we wish to test all variable except the constant. This is done by specifying a hypothesis matrix, ``R``.
 
 ::
 
