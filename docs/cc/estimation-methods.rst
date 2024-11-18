@@ -15,8 +15,10 @@ These functions perform parameter estimation, diagnostics and print reports.
 :doc:`../gmmfitiv`                 Estimate instrumental variables model using the generalized method of moments.
 :doc:`../kerneldensity`            Computes the kernel density estimate of a sample and plots the distribution.
 :doc:`../olsmt`                    Computes a least squares regression.
+:doc:`../qfitslopetest`            Performs post-estimation slope equality test after quantile regression.
 :doc:`../quantilefit`              Perform linear quantile regression.
 :doc:`../quantilefitloc`           Perform local linear or quadratic quantile regression.
+:doc:`../waltest`                  Performs post-estimation tests of hypotheses.
 =========================          ====================================================
 
 
