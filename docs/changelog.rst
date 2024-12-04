@@ -6,10 +6,9 @@ The following is a list of changes from the previous version of GAUSS.
 
 24.0.5
 ------
+
 #. Bug fix: Crash could occur on Windows systems with certain network proxy configurations.
 
-#. New function: :func:`dropunusedcategories` removes any categories from the meta data of a dataframe that are not present in the variable.
-#. Bug fix: :func:`dfwider` will now only create columns from categories that are present in the variable, ignoring categories present in meta data, but not in the current sample.
 24.0.4
 ------
 
