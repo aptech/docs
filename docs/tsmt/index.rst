@@ -38,6 +38,7 @@ Conditional variance models
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ========================== =====================================================================================================================
 :func:`garchfit`           Estimates univariate GARCH model.
+:func:`garchgjrfit`        Estimates GARCH-GJR model. 
 :func:`garchmfit`          Estimates GARCH-in-mean model.
 :func:`igarchfit`          Estimates integrated GARCH model, i.e., a model containing a unit root.
 ========================== =====================================================================================================================
@@ -50,6 +51,7 @@ Conditional mean models
 ========================== =====================================================================================================================
 :func:`varmafit`           Computes exact maximum likelihood parameter estimates for a VARMA model.
 :func:`ecmfit`             Calculate and return parameter estimates for an error correction model.
+:func:`svarfit`            Estimate structural VAR models using short-run, long-run, or sign restrictions. 
 ========================== =====================================================================================================================
 
 Panel data and other models
@@ -75,9 +77,13 @@ Miscellaneous
 ========================== =====================================================================================================================
 :func:`aggdata`            Aggregates time series data from higher to lower frequency.
 :func:`breitung`           Panel series unit root testing.
+:func:`ips`                Conduct the Im, Pesaran, and Shin panel data unit root test.  
 :func:`cdtest`             Runs cross-sectional dependence, CD, tests for panel data.
 :func:`dfgls`              Test for unit root in univariate time series.
+:func:`hansen`             Test for stability of all parameters.
+:func:`httest`             Perform the Harris–Tzavalis panel series unit root testing.
 :func:`kpss`               Test for stationarity using a Lagrange Multiplier score statistic.
+:func:`lagreport`          Compute and graph the autocorrelation function and partial autocorrelation function for a time series.
 :func:`rolling`            Performs rolling OLS regressions for a provided vector of dependent data and matrix of independent regressors.
 :func:`selectlags`         Select lags based on method of statistical inference.
 :func:`startest`           Estimates a p\ :sup:`th` order threshold autoregression and tests the hypothesis of a linear autoregression, using the statistics described in "Inference when a nuisance parameter is not identified under the null hypothesis." (Hansen, 1996).
@@ -119,21 +125,30 @@ Further Reading
     autoregfit
     breitung
     cdtest
+    chowfcst
     covmmt
     cusum
     dfgls
     ecmfit
     garchfit
+    garchgjrfit
+    garchmfit
+    hansen 
+    httest 
     igarchfit
     ips
     kalmanfilter
     kpss
     lagreport
     lsdvfit
+    plotfevd 
+    plotirf
     rolling
+    sarimass 
     sbreak
     selectlags
     startest
+    svarfit
     switchfit
     tartest
     tscsfit
@@ -141,5 +156,6 @@ Further Reading
     varmafit
     varmapredict
     vmdetrendmt
+    vmdiffmt
     vmsdetrend
     zandrews

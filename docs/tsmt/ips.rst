@@ -41,10 +41,10 @@ Example
   library tsmt;
 
   // First load data
-  data = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/panel_g.csv");
+  data = loadd( getGAUSSHome("pkgs/tsmt/examples/panel_g.csv"));
 
   // Take log of data
-  log_yt = log(yt[., 2:9]);
+  log_yt = data[., 1]~log(data[., 2:9]);
 
   // Input the lags used in Enders, Table 4.8
   lags = { 5, 6, 3, 1, 3, 1, 1, 3 };
@@ -63,26 +63,38 @@ The results are printed to screen:
 
 ::
 
-  The IPS test statistic using unmeaned data:
-  ips: ADF tests uses individual lag specification for each series
-    Individual t-stats:
+    Test:                                                    IPS 
+    Test Variable:                                             Y 
+    Timespan:                                     1980Q1:2008Q1  
+    Ho:                                          Panel unit root 
+    Model:                                    Constant and Trend 
+    N. Obs:                                                  113 
+    N. Groups:                                                 8 
+    Panel Type:                                         Balanced 
+    ============================================================
 
-       -2.07
-       -2.04
-       -2.94
-       -3.06
-       -1.75
-       -1.95
-       -2.94
-       -2.57
-  Average t-stat:
-       -2.41
-  The adjusted z-stat is:
-       -2.92
-  The critical values are:
-       -2.51
-       -2.61
-       -2.72
+    Avg. T-stat                                           -2.414 
+    Adj. Z-stat                                           -2.921 
+
+    Critical Values:
+                                1%             5%            10%
+                            -2.719         -2.611         -2.513
+    ============================================================
+
+    Reject the null hypothesis of unit root at the 1% level.
+
+    Individual t-stats:                                         
+    ============================================================
+    Group                             T-stat
+
+    1                                 -2.068 
+    2                                 -2.035 
+    3                                 -2.938 
+    4                                 -3.064 
+    5                                 -1.752 
+    6                                 -1.945 
+    7                                 -2.939 
+    8                                 -2.567 
 
 Library
 -------

@@ -4,6 +4,12 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+24.0.5
+------
+#. Bug fix: Crash could occur on Windows systems with certain network proxy configurations.
+
+#. New function: :func:`dropunusedcategories` removes any categories from the meta data of a dataframe that are not present in the variable.
+#. Bug fix: :func:`dfwider` will now only create columns from categories that are present in the variable, ignoring categories present in meta data, but not in the current sample.
 24.0.4
 ------
 
@@ -148,7 +154,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`getGAUSSHome` can now accept relative paths as an input so they do not have to be appended to the end with the string addition operator.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
-#. Up to 10x speed improvememnt and 50% decrease in memory usage for :func:`lagn`.
+#. Up to 10x speed improvement and 50% decrease in memory usage for :func:`lagn`.
 #. :func:`lagn` now retains variable names and column types from the input.
 #. Improved performance of date format pattern matching with :func:`loadd`.
 #. Improved performance of :func:`indsav` with dataframes.

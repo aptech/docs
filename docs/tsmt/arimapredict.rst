@@ -93,4 +93,4 @@ Source
 ------
 forecastmt.src
 
-.. seealso:: Functions :func:`arimaFit`, :func:`arimaSS`
+.. seealso:: Functions :func:`arimaFit`, :func:`arimaSS`, :func:`simarmamt`

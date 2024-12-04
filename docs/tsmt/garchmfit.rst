@@ -7,8 +7,9 @@ Estimates GARCH-in-mean model.
 
 Format
 ------
-.. function:: out1 = garchMFit(y, p[, q, c0])
-              out1 = garchMFit(dataset, formula, p[, q, c0])
+.. function:: gOut = garchMFit(y, p [, q, gctl])
+              gOut = garchMFit(y, x, p [, q, gctl])
+              gOut = garchMFit(dataset, formula, p [, q, gctl])
 
    :param y: dependent variables.
    :type y: Matrix
@@ -25,65 +26,71 @@ Format
    :param p: order of the GARCH parameters.
    :type p: scalar
 
-   :param q: Optional input order of the ARCH parameters.
+   :param q: Optional input, order of the ARCH parameters.
    :type q: scalar
 
-   :param c0: Optional input garchControl structure.
+   :param gctl: Optional input, :class:`garchControl` structure.
 
-      .. list-table::
-         :widths: auto
+      .. include:: include/garchcontrol.rst
 
-         * - c0.density
-           - scalar, density of error term, 0 - Normal, 1 - Student's t, 3 - skew generalized t.
-         * - c0.asymmetry
-           - scalar, if nonzero assymetry terms are added.
-         * - c0.inmean
-           - scalar, GARCH-in-mean, square root of conditional variance is included in the mean equation.
-         * - c0.stConstraintsType
-           - scalar, type of enforcement of stationarity requirements, 1 - roots of characteristic polynomial constrained outside unit circle, 2 - arch, GARCH parameters constrained to sum to less than one and greater than zero, 3 - none.
-         * - c0.cvConstraintsType
-           - scalar, type of enforcement of nonnegative conditional variances, 0 - direct constraints, 1 - Nelson & Cao constraints.
-         * - c0.covType
-           - scalar, type of covariance matrix of parameters, 1 - ML, 2 - QML, 3 - none.
+   :type gCtl: struct
 
-   :type c0: struct
+   :return gOut: :class:`garchEstimation` structure.
 
-   :return out1: :class:`garchEstimation` structure.
-
-      .. list-table::
-         :widths: auto
-
-         * - out1.aic
-           - scalar, Akiake criterion.
-         * - out1.bic
-           - scalar, Bayesian information criterion.
-         * - out1.lrs
-           - scalar, likelihood ratio statistic.
-         * - out1.numObs
-           - scalar, number of observations.
-         * - out1.df
-           - scalar, degrees of freedom.
-         * - out1.par
-           - instance of PV structure containing parameter estimates.
-         * - out1.retcode
-           - scalar, return code. out1.moment KxK matrix, moment m?atrix of parameter estimates.
-
-             :1: normal convergence.
-             :2: forced exit.
-             :3: function calculation failed.
-             :4: gradient calculation failed.
-             :5: Hessian calculation failed.
-             :6: line search failed.
-             :7: error with constraints.
-             :8: function complex.
-
-         * - out1.moment
-           - KxK matrix, moment matrix of parameter estimates.
-         * - out1.climits
-           - Kx2 matrix, confidence limits.
+      .. include:: include/garchestimation.rst
 
    :rtype out1: struct
 
+Example
+-------
+::
+  
+  new;
+  library tsmt;
+
+
+  // Declare 'c1' to be a garchControl struct
+  // and fill with default values
+  struct garchControl c1;
+  c1 = garchControlCreate();
+
+  // Assign pointer to procedure (defined below)
+  // to apply settings for internal optimization
+   c1.sqpsolvemtControlProc = &sqp;
+
+  proc sqp(struct sqpsolvemtControl c0);
+    c0.printiters = 0;
+    c0.trustRadius = 0;
+    c0.feasibletest = 0;
+    c0.gradproc = 0;
+    retp(c0);
+  endp;
+
+  struct garchEstimation gOut;
+  gOut = garchMFIT(__FILE_DIR $+ "garchx.gdat" ,"Y ~ X1 + X2", 1, 1, c1);
+
+This prints the following out:
+
+::
+  
+  ================================================================================
+  Model:                  GARCHM(1,1)          Dependent variable:               Y
+  Time Span:                  Unknown          Valid cases:                   1000
+  ================================================================================
+                               Coefficient            Upper CI            Lower CI
+
+            beta0[1,1]             0.02920            -0.01682             0.07522 
+             beta[1,1]             0.40281             0.39450             0.41111 
+             beta[2,1]             0.50075             0.49216             0.50934 
+            garch[1,1]             0.11534            -0.21655             0.44723 
+             arch[1,1]             0.25821             0.14992             0.36650 
+            delta[1,1]            -0.07041            -0.39261             0.25179 
+            omega[1,1]             0.01378             0.00702             0.02054 
+  ================================================================================
+
+                  AIC:                                                  1040.04992 
+                  LRS:                                                  1026.04992
+                
 Library
 -------
 tsmt
@@ -92,4 +99,4 @@ Source
 ------
 tsgarch.src
 
-.. seealso:: Functions :func:`garchFit`, :func:`garchGJRFit`
+.. seealso:: Functions :func:`garchFit`, :func:`garchGJRFit`, :func:`igarchFit`

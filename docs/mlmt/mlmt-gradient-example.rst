@@ -9,7 +9,7 @@ Key example features
 - Usages of data from the file *maxlikmttobit.dat* (included with **maxlikmt**).
 - User defined likelihood function, :class:`lpr` with four inputs:  
     - A parameter vector.   
-    - Additional *X* and *y* data matrices, which are passed to :func:`maxlikmt`` as optional arguments.   
+    - Additional *X* and *y* data matrices, which are passed to :func:`maxlikmt` as optional arguments.   
     - The required *ind* input.   
 - The inclusion of analytic gradient computations, as specified in the :class:`lpr` function.
 

@@ -34,27 +34,32 @@ Example
    library tsmt;
 
    // Load Enders data
-   yt = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/erstest.fmt";
+   yt = loadd( getGAUSSHome("pkgs/tsmt/examples/erstest.fmt"));
    yt = trimr(yt, 1, 0);
 
    // Now run full test
    { adf_stat, crit_mat } = dfgls(yt[., 2], 0, 1);
 
-   print "The GAUSS DFGLS stats:";
-   adf_stat;
-
-   print "The ERS critical values:";
-   crit_mat;
 
 The results printed are:
 
 ::
 
-  The GAUSS DFGLS stats:
-  -2.97
+  Test:                                                    ADF 
+  Test Variable:                                            X2 
+  Timespan:                                            Unknown 
+  Ho:                                                Unit Root 
+  Model:                                  No constant or trend 
+  N. Obs:                                                  199 
+  ============================================================
+  ADF-stat                                              -2.970
 
-  The ERS critical values:
-  -3.46 -3.18 -2.93 -2.64
+  Critical Values:
+                            1%             5%            10%
+                        -2.652         -1.991         -1.666
+  ============================================================
+
+  Reject the null hypothesis of unit root at the 1% level.
 
 Library
 -------

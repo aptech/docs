@@ -17,7 +17,7 @@ Format
     :type data: NxK dataframe
 
     :param formula: formula string.
-        E.g ``"df ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df1"`` and ``"df2"``.
+        E.g ``"df1 ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df2"`` and ``"df3"``.
 
     :type formula: string
 
@@ -39,7 +39,10 @@ Format
               - String, the categories to be excluded from table counts. Totals will not include observations in excluded categories. 
             * - tbctl.unusedLevels
               - Scalar, indicates whether to include unused levels in table. Set to 0 to remove unused levels from the table. Default = 1.
-          
+            * - tbctl.rowPercent
+              - Scalar, indicates whether to report row percentages. Set to 1 to report row percentages. Default = 0.
+            * - tbctl.columnPercent
+              - Scalar, indicates whether to report column percentages. Set to 1 to report column percentages. Default = 0.
     :type tbctl: Struct
 
     :return df_long: The input data converted to long form.
@@ -228,6 +231,36 @@ This time the report will omit the unrepresented levels.
               Total             50             50
     =============================================
 
+Reporting row or column percentages
++++++++++++++++++++++++++++++++++++++
+The :class:`tabControl` structure members *tbCtl.rowPercent* and *tbCtl.columnPercent* can be used to compute the row percentages or column perecentages, respectively.
 
+::
+
+    struct tabControl tbctl;
+    tbctl = tabControlCreate();
+
+    // Report row percentages
+    tbctl.rowPercent = 1;
+
+    // Compute and print the frequency table
+    call tabulate(tips, "day ~ smoker", tbctl);
+
+This will now report row percentages.
+
+::
+
+  ============================================================
+              day                   smoker               Total
+  ============================================================
+                              No            Yes
+
+              Thur          73.0           27.0            100 
+              Fri           21.1           78.9            100 
+              Sat           52.8           47.2            100 
+              Sun           75.0           25.0            100 
+
+  ============================================================
+Table reports row percentages.
 
 .. seealso:: Functions :func:`frequency`, :func:`plotFreq`

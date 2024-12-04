@@ -3,7 +3,7 @@ automtControlCreate
 
 Purpose
 -------
-Sets the members of an instance of an automtControl structure to default values.
+Sets the members of an instance of an :class:`automtControl` structure to default values.
 
 Format
 ------
@@ -17,15 +17,15 @@ Example
 
 ::
 
- new;
- cls;
- library tsmt;
+   new;
+   cls;
+   library tsmt;
 
- // Declare control structures
- struct automtControl arc;
+   // Declare control structures
+   struct automtControl arc;
 
- // Create default settings for arima model
- arc = automtControlCreate();
+   // Create default settings for arima model
+   arc = automtControlCreate();
 
 Library
 -------
@@ -35,4 +35,4 @@ Source
 ------
 autoregmt.src
 
-.. seealso:: Functions :func:`autoregFit`
+.. seealso:: Functions  :func:`autoregFit`

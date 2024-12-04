@@ -32,13 +32,14 @@ Format
 
 Example
 -------
+
 ::
 
    new;
    library tsmt;
 
    // Load data
-   fname = getGAUSSHome() $+ "pkgs/tsmt/examples/index.dat";
+   fname = getGAUSSHome("pkgs/tsmt/examples/index.dat");
    y00 = loadd(fname);
 
    // Assign y
@@ -61,13 +62,29 @@ Example
 
    // Compute test statistics
    tstat = breitung(y, trend, const, demean, lags);
-   print "The Breitung test statistic = ";; tstat;
+   
 
 The results printed are:
 
 ::
 
-  The Breitung test statistic = -19.95876
+  Test:                                Breitung and Das (2005) 
+  Test Variable:                                             Y 
+  Timespan:                                            Unknown 
+  Ho:                                                Unit Root 
+  Model:                                    Constant and Trend 
+  N. Obs:                                                  367 
+  N. Groups:                                                 8 
+  Panel Type:                                         Balanced 
+  ============================================================
+  Z-stat                                               -19.959
+
+  Critical Values:
+                              1%             5%            10%
+                          -2.326         -1.645         -1.282
+  ============================================================
+
+  Reject the null hypothesis of unit root at the 1% level.
   
 Remarks
 -------
