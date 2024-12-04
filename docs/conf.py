@@ -134,6 +134,8 @@ html_theme_options = {
     'article_header_start': None
 }
 
+html_show_sourcelink = False
+
 #html_theme_options = {
 #    'prev_next_buttons_location': 'both',
 #    'style_external_links': True,
