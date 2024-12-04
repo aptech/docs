@@ -125,6 +125,8 @@ html_theme_options = {
     'canonical_url': 'https://docs.aptech.com/gauss/'
 }
 
+html_show_sourcelink = False
+
 html_baseurl = 'https://docs.aptech.com/gauss/'
 
 html_short_title = '{} {} documentation'.format(project, version)
