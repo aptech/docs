@@ -24,6 +24,10 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug fix: :func:`gmm` incorrectly computed J-statistic, now uses moments from user-specified moment function for computation of J-statistic.
 
 
+24.0.5
+------
+
+#. Bug fix: Crash could occur on Windows systems with certain network proxy configurations.
 
 24.0.4
 ------
