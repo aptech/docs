@@ -4,6 +4,27 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+25.0.0
+------
+#. New function: :func:`pdAllBalanced` checks if panel data is balanced, i.e., if each individual has the same time periods. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdDiff` computes differences of panel datasets. It intelligently detects group and date variables automatically, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdIsBalanced` checks whether the groups in a panel dataset span the maximum time period of the panel. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdIsConsecutive` checks whether the groups in a panel dataset cover a consecutive time span without gaps. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.#. New function: :func:`pdLag` compute lags of panel data. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdSummary` generates comprehensive summaries of panel datasets, including overall, between-group, and within-group statistics. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdSize` provides a detailed size description of panel datasets, including the number of groups and the number of time observations per group. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`waldTest` performs a Wald test of joint hypothesis on model parameters.
+#. New function: :func:`qfitSlopeTest` performs tests of slope equality across quantiles after :func:`quantileFit`.  
+#. Graphics: :func:`plotFreq` now supports formula string keyword, :class:`by` for splitting data by a specified categorical or string variable and generating the appropriate legend items.
+#. Expanded functionality of :func:`tabulate` with option to find column and row percentages.
+#. Enhanced functionality of :func:`frequency` to use metadata to detect and print variable names when using dataframes. 
+#. Enhanced functionality of :func:`gmmFitIV` to use metadata to detect and print variable names when using dataframes. 
+#. New ability to estimate linear models separately for each subset based on a categorical variable with the :class:`by` keyword and :func:`gmmFitIV`.
+#. Bug fix: :func:`dfwider` would fail with an error if the ``id_cols`` control structure member was used in an unnecessary, but correct manner.
+#. Bug fix: :func:`tabulate` would reports inaccurate error message when no tilde was present in formula string.
+#. Bug fix: :func:`gmm` incorrectly computed J-statistic, now uses moments from user-specified moment function for computation of J-statistic.
+
+
+
 24.0.4
 ------
 
