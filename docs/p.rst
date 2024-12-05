@@ -24,8 +24,14 @@ P
     pdftruncnorm
     pdfweibull
     pdfwishartinv
+    pddiff
+    pdallbalanced 
+    pdisbalanced
+    pdisconsecutive
+    pdlag 
     pdsize 
-    pdsummary 
+    pdsummary
+    pdtimespans 
     pinvmt
     pinv
     pi
