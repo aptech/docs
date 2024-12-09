@@ -10,6 +10,9 @@ P
     packr
     parse
     pause
+    pdallbalanced 
+    pdallconsecutive
+    pddiff
     pdfbinomial
     pdfcauchy
     pdfexp
@@ -24,8 +27,6 @@ P
     pdftruncnorm
     pdfweibull
     pdfwishartinv
-    pddiff
-    pdallbalanced 
     pdisbalanced
     pdisconsecutive
     pdlag 
