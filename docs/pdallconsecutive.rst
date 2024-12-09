@@ -1,13 +1,13 @@
-pdIsConsecutive
+pdAllConsecutive
 ==============================================
 
 Purpose
 ----------------
-Checks if each group in a panel dataset covers consecutive time periods.
+Checks if all groups in a panel dataset are consecutive.
 
 Format
 ----------------
-.. function:: groupIsConsecutive = pdIsConsecutive(df [, groupvar, datevar])
+.. function:: allConsecutive = pdAllConsecutive(df [, groupvar, datevar])
 
     :param df: Contains long-form (stacked) panel data with (N_i * T_i) rows, where (N_i * T_i) is the total number of observations across all groups, and K columns representing variables. Must contain at least one categorical or string variable for identifying group membership and at least one date variable.
     :type df: Dataframe
@@ -18,8 +18,8 @@ Format
     :param datevar: Optional, name of the variable used to identify dates for panel observations. Defaults to the first date variable in the dataframe.
     :type datevar: String
 
-    :return groupIsConsecutive: Indicates whether each group covers consecutive time periods. Each group is assigned a value of 1 if it is consecutive, 0 otherwise.
-    :rtype groupIsConsecutive: Dataframe
+    :return allConsecutive: Indicates whether all groups in the panel dataset cover consecutive time periods. Returns 1 if the entire panel is consecutive, 0 otherwise.
+    :rtype allConsecutive: Scalar
 
 Examples
 ----------------
@@ -35,28 +35,27 @@ Examples
                 "B" 3 25,
                 "B" 4 35 });
 
-    // Check if each group has consecutive time periods
-    groupIsConsecutive = pdIsConsecutive(df);
+    // Check if all groups have consecutive time periods
+    allConsecutive = pdAllConsecutive(df);
 
 The code above will return:
 
 ::
 
-    Group    IsConsecutive
-    ----------------------
-    A        1
-    B        0
+    0
 
 Remarks
 -------
+
+This function evaluates whether all groups in a panel dataset span consecutive time periods. It checks for gaps in the time series of each group and determines if the entire panel is consecutive.
 
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
 - If `groupvar` is not provided, the function defaults to the first categorical or string variable in the dataframe.
 - If `datevar` is not provided, the function defaults to the first date variable in the dataframe.
 
-The resulting dataframe contains an indicator for each group showing whether it spans consecutive time periods.
+The result is a scalar indicating whether the entire panel dataset is consecutive.
 
 See also:
 
-.. seealso:: :func:`pdAllConsecutive`, :func:`pdAllBalanced`, :func:`pdIsBalanced`, :func:`pdSummary`
+.. seealso:: :func:`pdIsConsecutive`, :func:`pdAllBalanced`, :func:`pdIsBalanced`
