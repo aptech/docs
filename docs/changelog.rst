@@ -6,7 +6,8 @@ The following is a list of changes from the previous version of GAUSS.
 
 25.0.0
 ------
-#. New function: :func:`pdAllBalanced` checks if panel data is balanced, i.e., if each individual has the same time periods. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdAllBalanced` checks if panel data is strongly balanced, i.e., if each individual has the same time periods. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdAllConsecutive` checks if all groups in panel are consecutive without gaps.
 #. New function: :func:`pdDiff` computes differences of panel datasets. It intelligently detects group and date variables automatically, while also providing the flexibility for users to specify these variables as needed.
 #. New function: :func:`pdIsBalanced` checks whether the groups in a panel dataset span the maximum time period of the panel. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
 #. New function: :func:`pdIsConsecutive` checks whether the groups in a panel dataset cover a consecutive time span without gaps. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.#. New function: :func:`pdLag` compute lags of panel data. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
@@ -19,6 +20,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. Expanded functionality of :func:`tabulate` with option to find column and row percentages.
 #. Enhanced functionality of :func:`frequency` to use metadata to detect and print variable names when using dataframes. 
 #. Enhanced functionality of :func:`gmmFitIV` to use metadata to detect and print variable names when using dataframes. 
+#. Enhanced result printouts for :func:`gmmFit`, :func:`gmmFitIV`, :func:`olsmt`, :func:`glm`, and :func:`quantileFit` to ensure consistency, expand model descriptions, and model diagnostics. 
+#. Enhanced :func:`gmmFitIV` to use metadata to detect and print variable names when using dataframes. 
 #. New ability to estimate linear models separately for each subset based on a categorical variable with the :class:`by` keyword and :func:`gmmFitIV`.
 #. Bug fix: :func:`dfwider` would fail with an error if the ``id_cols`` control structure member was used in an unnecessary, but correct manner.
 #. Bug fix: :func:`tabulate` would reports inaccurate error message when no tilde was present in formula string.
