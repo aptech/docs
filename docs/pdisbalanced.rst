@@ -48,6 +48,8 @@ The code above will return:
 Remarks
 -------
 
+This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
+
 This function evaluates whether each group in a panel dataset spans the maximum time range observed across all groups. 
 
 - If `groupvar` is not provided, the function defaults to the first categorical or string variable in the dataframe.

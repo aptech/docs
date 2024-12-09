@@ -3,7 +3,7 @@ pdAllBalanced
 
 Purpose
 ----------------
-Checks if a panel dataset is balanced and returns 1 if balanced, 0 otherwise.
+Checks if a panel dataset is strongly balanced and returns 1 if balanced, 0 otherwise.
 
 Format
 ----------------
@@ -45,12 +45,14 @@ The code above will return:
 Remarks
 -------
 
-A balanced panel dataset contains the same number of observations for each group. :func:`pdAllBalanced` examines the provided dataset to determine if it meets this condition.
+This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
+
+A strongly balanced panel dataset contains the same time points for each group. :func:`pdAllBalanced` examines the provided dataset to determine if it meets this condition.
 
 - If `groupvar` is not provided, the function defaults to the first categorical or string variable in the dataframe.
 - If `datevar` is not provided, the function defaults to the first date variable in the dataframe.
 
-For datasets that are not balanced, :func:`pdAllBalanced` returns 0.
+For datasets that are not strongly balanced, :func:`pdAllBalanced` returns 0.
 
 See also:
 
