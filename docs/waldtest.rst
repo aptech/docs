@@ -193,7 +193,7 @@ Note that this is the same as the F-test reported from the OLS estimation:
 
 Example Three: Testing the equality of variables
 +++++++++++++++++++++++++++++++++++++++++++++++++
-The true usefulness of the :func:`waldTest` procedure is the ability to more than if variables are equal to zero. For example, suppose we want to test if the coefficients for the *rep78: Average* and *rep78: Good* categories are equal. We can do this by testing the hypothesis that ``rep78: Average - rep78: Good = 0``.
+The true usefulness of the :func:`waldTest` procedure is the ability to test more than if variables are equal to zero. For example, suppose we want to test if the coefficients for the *rep78: Average* and *rep78: Good* categories are equal. We can do this by testing the hypothesis that ``rep78: Average - rep78: Good = 0``.
 
 ::  
 
