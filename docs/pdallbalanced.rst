@@ -24,23 +24,44 @@ Format
 Examples
 ----------------
 
-::
-
-    // Example dataframe
-    df = asDF("Group Date Variable",
-              { "A" 1 10,
-                "A" 2 20,
-                "B" 1 30,
-                "B" 2 40 });
-
-    // Check if the panel is balanced
-    isBalanced = pdAllBalanced(df);
-
-The code above will return:
+If your group variable is the first categorical variable in your dataframe and the date variable is a GAUSS date variable and not just a numeric column, you can just pass in the panel dataframe and GAUSS will locate the group and date variables for you.
 
 ::
 
-    1
+    // Import data
+    fname = getGAUSSHome("examples/pd_ab.gdat");
+    pd_ab = loadd(fname);
+    
+    // Take a small sample for the example
+    pd_smpl = pd_ab[1:4 8:11,.];
+    
+    // Print our sample
+    print pd_smpl;
+
+::
+
+        id        year        emp       wage 
+         1  1977-01-01     5.0410    13.1516 
+         1  1978-01-01     5.6000    12.3018 
+         1  1979-01-01     5.0150    12.8395 
+         1  1980-01-01     4.7150    13.8039 
+         2  1977-01-01    71.3190    14.7909 
+         2  1978-01-01    70.6430    14.1036 
+         2  1979-01-01    70.9180    14.9534 
+         2  1980-01-01    72.0310    15.4910
+
+::
+
+    // Check to see if the panel is balanced
+    is_balanced = pdallbalanced(pd_smpl);
+
+    print is_balanced;
+
+    The above code will return:
+
+::
+
+     1.000
 
 Remarks
 -------
