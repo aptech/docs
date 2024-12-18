@@ -70,8 +70,8 @@ This function assumes panel is sorted by group and date. Note that panel data ca
 
 A strongly balanced panel dataset contains the same time points for each group. :func:`pdAllBalanced` examines the provided dataset to determine if it meets this condition.
 
-- If `groupvar` is not provided, the function defaults to the first categorical or string variable in the dataframe.
-- If `datevar` is not provided, the function defaults to the first date variable in the dataframe.
+- If ``groupvar`` is not provided, the function defaults to the first categorical or string variable in the dataframe.
+- If ``datevar`` is not provided, the function defaults to the first date variable in the dataframe.
 
 For datasets that are not strongly balanced, :func:`pdAllBalanced` returns 0.
 
