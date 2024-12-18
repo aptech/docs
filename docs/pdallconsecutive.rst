@@ -63,7 +63,6 @@ If your group variable is the first categorical variable in your dataframe and t
 
      1.000
 
-
 Now, let's take a different sample and check for consecutiveness. 
 
 ::
@@ -99,6 +98,7 @@ In the new sample, group 2 has a gap in observations. It is missing an observati
 ::
 
     0.000
+    
 Remarks
 -------
 
