@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: delta_pd = pdDiff(df [, k, d, by_time, groupvar, datevar])
 
-    :param df: Contains long-form (stacked) panel data with (N_i * T_i) rows, where (N_i * T_i) is the total number of observations across all groups, and K columns representing variables. Must contain at least one categorical or string variable for identifying group membership and at least one date variable.
+    :param df: Contains long-form panel data with (N_i * T_i) rows and K columns.
     :type df: Dataframe
 
     :param k: Optional, time lag to use for differencing. Default is 1.
@@ -35,28 +35,50 @@ Examples
 
 ::
 
-    // Example dataframe
-    df = asDF("Group Date Variable",
-              { "A" 1 10,
-                "A" 2 20,
-                "A" 3 30,
-                "B" 1 15,
-                "B" 2 25,
-                "B" 3 35 });
+    // Import data
+    fname = getGAUSSHome("examples/pd_ab.gdat");
+    pd_ab = loadd(fname);
+
+    // Take a small sample for the example
+    pd_smpl = pd_ab[1:4 8:11,.];
+    
+    // Print our sample
+    print pd_smpl;
+    
+::
+
+        id        year        emp       wage 
+         1  1977-01-01     5.0410    13.1516 
+         1  1978-01-01     5.6000    12.3018 
+         1  1979-01-01     5.0150    12.8395 
+         1  1980-01-01     4.7150    13.8039 
+         2  1977-01-01    71.3190    14.7909 
+         2  1978-01-01    70.6430    14.1036 
+         2  1979-01-01    70.9180    14.9534 
+         2  1980-01-01    72.0310    15.4910 
+
+::
 
     // Compute first-order differences with default time lag
-    delta_pd = pdDiff(df);
+    delta_pd = pdDiff(pd_smpl);
+
+    // Print differenced data
+    print delta_pd;
+
 
 The code above will return:
 
 ::
 
-    Group    Date    Variable
-    -------------------------
-    A        2       10
-    A        3       10
-    B        2       10
-    B        3       10
+        id             year              emp             wage 
+         1       1977-01-01                .                . 
+         1       1978-01-01       0.55900002      -0.84980011 
+         1       1979-01-01      -0.58500004       0.53770065 
+         1       1980-01-01      -0.29999971       0.96439934 
+         2       1977-01-01                .                . 
+         2       1978-01-01      -0.67600250      -0.68730068 
+         2       1979-01-01       0.27500153       0.84980011 
+         2       1980-01-01        1.1129990       0.53760052
 
 Remarks
 -------
@@ -65,11 +87,11 @@ This function assumes panel is sorted by group and date. Note that panel data ca
 
 This function computes differences for panel data based on the specified time lag (`k`) and order of differencing (`d`). Differences can be calculated either by row position or by checking differences in the date variable, depending on the `by_time` argument.
 
-- If `groupvar` is not provided, the function defaults to the first categorical or string variable in the dataframe.
-- If `datevar` is not provided, the function defaults to the first date variable in the dataframe.
+- If ``groupvar`` is not provided, the function defaults to the first categorical or string variable in the dataframe.
+- If ``datevar`` is not provided, the function defaults to the first date variable in the dataframe.
 
 The resulting dataframe contains the differenced panel data, excluding rows where differencing cannot be performed (e.g., insufficient lag).
 
 See also:
 
-.. seealso:: :func:`pdAllBalanced`, :func:`pdSummary`, :func:`pdIsBalanced`
+.. seealso:: :func:`pdLag`
