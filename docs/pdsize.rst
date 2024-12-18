@@ -9,8 +9,8 @@ Format
 ----------------
 .. function:: { num_grps, T, balanced } = pdSize(df, groupvar)
 
-    :param df: Dataframe containing panel data with (N_i * T_i) rows (observations) and K columns (variables).
-    :type df: (N_i*T_i)xK dataframe
+    :param df: Contains long-form panel data with (N_i * T_i) rows and K columns.
+    :type df: Dataframe
 
     :param groupvar: A column vector indicating group membership for panel observations.
     :type groupvar: String
@@ -26,32 +26,55 @@ Format
 
 Examples
 ----------------
+If your group variable is the first categorical variable in your dataframe and the date variable is a GAUSS date variable and not just a numeric column, you can just pass in the panel dataframe and GAUSS will locate the group and date variables for you.
 
 ::
-
-    /*
-    ** Example for summarizing panel data
-    */
-    cls;
 
     // Import data
-    fname = getGAUSSHome("examples/nlswork.dta");
-    nlswork = loadd(fname);
-
-    // Check size of panel 
-    { num_grps, T, _isbalanced } = pdSize(nlswork, "idcode");
-
-
-The code above prints the following to screen:
+    fname = getGAUSSHome("examples/pd_ab.gdat");
+    pd_ab = loadd(fname);
+    
+    // Take a small sample for the example
+    pd_smpl = pd_ab[1:4 8:11,.];
+    
+    // Print our sample
+    print pd_smpl;
 
 ::
 
-    ==========================================================================================
-    Group ID:               idcode                                    Balanced:             No
-    Valid cases:             13452                                    Missings:          15082
-    N. Groups:                4711                                  T. Average:          6.057
-    ==========================================================================================
+        id        year        emp       wage 
+         1  1977-01-01     5.0410    13.1516 
+         1  1978-01-01     5.6000    12.3018 
+         1  1979-01-01     5.0150    12.8395 
+         1  1980-01-01     4.7150    13.8039 
+         2  1977-01-01    71.3190    14.7909 
+         2  1978-01-01    70.6430    14.1036 
+         2  1979-01-01    70.9180    14.9534 
+         2  1980-01-01    72.0310    15.4910  
+
+:: 
+
+    
+    // Check size of panel 
+    { num_grps, T_2, _isbalanced } = pdSize(pd_smpl);
+
+    The above code will return:
+
+::
+
+    ============================================================
+    Group ID:              id          Balanced:             Yes
+    Valid cases:            8          Missings:               0
+    N. Groups:              2          T. Average:         4.000
+    ============================================================
+    id                        T[i]     Start Date       End Date
+    ------------------------------------------------------------
+
+    1                            4     1977-01-01     1980-01-01 
+    2                            4     1977-01-01     1980-01-01 
+    ============================================================
+
 
 See also:
 
-.. seealso:: :func:`pdsummary`
+.. seealso:: :func:`pdsummary`, :func:`pdTimeSpans`

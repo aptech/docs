@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: allConsecutive = pdAllConsecutive(df [, groupvar, datevar])
 
-    :param df: Contains long-form (stacked) panel data with (N_i * T_i) rows, where (N_i * T_i) is the total number of observations across all groups, and K columns representing variables. Must contain at least one categorical or string variable for identifying group membership and at least one date variable.
+    :param df: Contains long-form panel data with (N_i * T_i) rows and K columns.
     :type df: Dataframe
 
     :param groupvar: Optional, name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
@@ -98,7 +98,7 @@ In the new sample, group 2 has a gap in observations. It is missing an observati
 ::
 
     0.000
-    
+
 Remarks
 -------
 
