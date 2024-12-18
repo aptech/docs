@@ -21,7 +21,7 @@ Format
     :param datevar: Optional, name of the variable used to identify dates for panel observations. Defaults to the first date variable in the dataframe.
     :type datevar: String
 
-    :return df_tspans: A dataframe containing the time spans for variables specified in ``varlist``.
+    :return df_tspans: A dataframe containing the time spans for variables specified in *varlist*.
     :rtype df_tspans: Dataframe
 
 Examples
