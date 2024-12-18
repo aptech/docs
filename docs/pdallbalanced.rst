@@ -66,6 +66,8 @@ If your group variable is the first categorical variable in your dataframe and t
 Remarks
 -------
 
+This function takes long-form panel data. To transform wide data to long-form data see :func:`dfLonger`.
+
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
 A strongly balanced panel dataset contains the same time points for each group. :func:`pdAllBalanced` examines the provided dataset to determine if it meets this condition.

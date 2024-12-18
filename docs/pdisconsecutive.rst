@@ -106,6 +106,8 @@ In the new sample, group 2 has a gap in observations. It is missing an observati
 Remarks
 -------
 
+This function takes long-form panel data. To transform wide data to long-form data see :func:`dfLonger`.
+
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
 - If ``groupvar`` is not provided, the function defaults to the first categorical or string variable in the dataframe.

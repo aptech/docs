@@ -66,13 +66,15 @@ Examples
 Remarks
 -------
 
+This function takes long-form panel data. To transform wide data to long-form data see :func:`dfLonger`.
+
 This function calculates the time spans for variables in panel data, indicating the earliest and latest dates each variable is observed within groups. The result also includes the length of the time span for each variable.
 
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
-- If ``varlist`` is not provided, the function computes time spans for all variables in the dataframe except the `groupvar` and `datevar`.
-- If ``groupvar`` is not provided, the function defaults to the first categorical or string variable in the dataframe.
-- If ``datevar`` is not provided, the function defaults to the first date variable in the dataframe.
+- If *varlist* is not provided, the function computes time spans for all variables in the dataframe except the *groupvar* and *datevar*.
+- If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
+- If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
 The resulting dataframe provides the start and end dates, along with the calculated time span, for each variable.
 

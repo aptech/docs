@@ -77,6 +77,8 @@ Examples
 Remarks
 -------
 
+This function takes long-form panel data. To transform wide data to long-form data see :func:`dfLonger`.
+
 This function computes lags for panel data based on the specified time lag (`k`). Lags can be calculated either by row position or by checking differences in the date variable, depending on the `by_time` argument.
 
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.

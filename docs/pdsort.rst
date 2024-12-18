@@ -24,6 +24,8 @@ Format
 Remarks
 -------
 
+This function takes long-form panel data. To transform wide data to long-form data see :func:`dfLonger`.
+
 This function sorts panel data by the specified *groupvar* and *datevar*, ensuring the data is arranged in the correct order for panel data analysis. 
 
 - If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.

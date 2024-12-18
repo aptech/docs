@@ -74,6 +74,15 @@ If your group variable is the first categorical variable in your dataframe and t
     2                            4     1977-01-01     1980-01-01 
     ============================================================
 
+Remarks
+-------
+
+This function takes long-form panel data. To transform wide data to long-form data see :func:`dfLonger`.
+
+This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
+
+- If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
+- If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
 See also:
 
