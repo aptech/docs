@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: allConsecutive = pdAllConsecutive(df [, groupvar, datevar])
 
-    :param df: Contains long-form panel data with (N_i * T_i) rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
     :type df: Dataframe
 
     :param groupvar: Optional, name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
@@ -106,8 +106,8 @@ This function evaluates whether all groups in a panel dataset span consecutive t
 
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
-- If ``groupvar`` is not provided, the function defaults to the first categorical or string variable in the dataframe.
-- If ``datevar`` is not provided, the function defaults to the first date variable in the dataframe.
+- If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
+- If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
 The result is a scalar indicating whether the entire panel dataset is consecutive.
 

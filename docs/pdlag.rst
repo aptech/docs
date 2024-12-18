@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: l_pd = pdLag(df [, k, by_time, groupvar, datevar])
 
-    :param df: Contains long-form panel data with (N_i * T_i) rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
     :type df: Dataframe
 
     :param k: Optional, time lag to compute. Default is 1.
@@ -81,8 +81,8 @@ This function computes lags for panel data based on the specified time lag (`k`)
 
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
-- If ``groupvar`` is not provided, the function defaults to the first categorical or string variable in the dataframe.
-- If ``datevar`` is not provided, the function defaults to the first date variable in the dataframe.
+- If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
+- If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
 The resulting dataframe contains lagged values for the specified variables, with rows where lags cannot be computed excluded.
 

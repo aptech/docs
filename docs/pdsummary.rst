@@ -9,14 +9,13 @@ Format
 ----------------
 .. function:: pdOut = pdSummary(df [, varlist, missings, groupvar, datevar])
 
-    :param df: Contains long-form panel data with (N_i * T_i) rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
     :type df: Dataframe
 
     :param varlist: Optional, A list of variables to include in the summary. Default is all variables.
     :type varlist: 1xP string array
 
-    :param missings: Optional, scalar, indicator that missings are present in data. Missing values must be 
-    removed for procedure. Setting to 0 will speed up procedure but should be used only if certain that no missings are present. Default = 1.
+    :param missings: Optional, scalar, indicator that missings are present in data. Missing values must be removed for procedure. Setting to 0 will speed up procedure but should be used only if certain that no missings are present. Default = 1. 
     :type missings: Scalar
 
     :param groupvar: Optional, specifies the name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
@@ -30,8 +29,7 @@ Format
         - Overall statistics: mean, standard deviation, minimum, and maximum for each variable.
         - Between-group statistics: mean, standard deviation, minimum, and maximum.
         - Within-group statistics: mean, standard deviation, minimum, and maximum.
-        - Additional information: number of groups, average number of observations per group (T_ave), balance indicator (_isbalanced), valid and missing observation counts.
-
+  
     :rtype pdOut: Dataframe
 
 Examples
@@ -71,8 +69,8 @@ This function assumes panel is sorted by group and date. Note that panel data ca
 
 A strongly balanced panel dataset contains the same time points for each group. :func:`pdAllBalanced` examines the provided dataset to determine if it meets this condition.
 
-- If ``groupvar`` is not provided, the function defaults to the first categorical or string variable in the dataframe.
-- If ``datevar`` is not provided, the function defaults to the first date variable in the dataframe.
+- If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
+- If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
 See also:
 

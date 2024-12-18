@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: delta_pd = pdDiff(df [, k, d, by_time, groupvar, datevar])
 
-    :param df: Contains long-form panel data with (N_i * T_i) rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
     :type df: Dataframe
 
     :param k: Optional, time lag to use for differencing. Default is 1.
@@ -85,10 +85,10 @@ Remarks
 
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
-This function computes differences for panel data based on the specified time lag (`k`) and order of differencing (`d`). Differences can be calculated either by row position or by checking differences in the date variable, depending on the `by_time` argument.
+This function computes differences for panel data based on the specified time lag (*k*) and order of differencing (*d*). Differences can be calculated either by row position or by checking differences in the date variable, depending on the `by_time` argument.
 
-- If ``groupvar`` is not provided, the function defaults to the first categorical or string variable in the dataframe.
-- If ``datevar`` is not provided, the function defaults to the first date variable in the dataframe.
+- If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
+- If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
 The resulting dataframe contains the differenced panel data, excluding rows where differencing cannot be performed (e.g., insufficient lag).
 
