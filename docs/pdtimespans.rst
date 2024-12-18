@@ -33,10 +33,36 @@ Examples
     fname = getGAUSSHome("examples/pd_ab.gdat");
     pd_ab = loadd(fname);
 
-    // Call timespane and store results in pd_time 
-    pd_time = pdTimeSpans(pd_ab);
+    // Take a small sample for the example
+    pd_smpl = pd_ab[1:4 8:11,.];
+    
+    // Print our sample
+    print pd_smpl;
 
+::
 
+        id        year        emp       wage 
+         1  1977-01-01     5.0410    13.1516 
+         1  1978-01-01     5.6000    12.3018 
+         1  1979-01-01     5.0150    12.8395 
+         1  1980-01-01     4.7150    13.8039 
+         2  1977-01-01    71.3190    14.7909 
+         2  1978-01-01    70.6430    14.1036 
+         2  1979-01-01    70.9180    14.9534 
+         2  1980-01-01    72.0310    15.4910  
+
+::
+
+    // Find time spans of variables 
+    df_timespans = pdTimeSpans(pd_smpl);
+
+    print df_timespans;
+
+::
+
+            id       Start year         End year        emp Start          emp End       wage Start         wage End 
+             1       1977-01-01       1980-01-01       1977-01-01       1980-01-01       1977-01-01       1980-01-01 
+             2       1977-01-01       1980-01-01       1977-01-01       1980-01-01       1977-01-01       1980-01-01
 Remarks
 -------
 
