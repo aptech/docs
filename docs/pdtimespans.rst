@@ -78,6 +78,4 @@ This function assumes panel is sorted by group and date. Note that panel data ca
 
 The resulting dataframe provides the start and end dates, along with the calculated time span, for each variable.
 
-See also:
-
 .. seealso:: :func:`pdSize`, :func:`pdIsBalanced`, :func:`pdAllBalanced`

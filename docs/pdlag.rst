@@ -88,6 +88,4 @@ This function assumes panel is sorted by group and date. Note that panel data ca
 
 The resulting dataframe contains lagged values for the specified variables, with rows where lags cannot be computed excluded.
 
-See also:
-
 .. seealso:: :func:`pdDiff`, :func:`pdAllBalanced`, :func:`pdIsBalanced`

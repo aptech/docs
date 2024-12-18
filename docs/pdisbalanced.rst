@@ -59,6 +59,4 @@ This function evaluates whether each group in a panel dataset spans the maximum 
 
 The resulting dataframe contains each group and a corresponding indicator (`1` or `0`) to represent whether the group covers the full time span.
 
-See also:
-
 .. seealso:: :func:`pdAllBalanced`, :func:`pdSummary`

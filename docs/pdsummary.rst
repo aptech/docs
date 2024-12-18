@@ -74,6 +74,4 @@ A strongly balanced panel dataset contains the same time points for each group. 
 - If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
 - If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
-See also:
-
 .. seealso:: :func:`pdsize`, :func:`pdTimeSpans`

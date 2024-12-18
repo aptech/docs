@@ -33,6 +33,4 @@ This function sorts panel data by the specified *groupvar* and *datevar*, ensuri
 
 Sorting panel data is essential for consistent results in other panel data functions, such as :func:`pdLag`, :func:`pdDiff`, and :func:`pdTimeSpans`.
 
-See also:
-
 .. seealso:: :func:`sort`, :func:`sortmc`

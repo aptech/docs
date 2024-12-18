@@ -115,6 +115,4 @@ This function assumes panel is sorted by group and date. Note that panel data ca
 
 The resulting dataframe contains an indicator for each group showing whether it spans consecutive time periods.
 
-See also:
-
 .. seealso:: :func:`pdAllConsecutive`, :func:`pdAllBalanced`, :func:`pdIsBalanced`, :func:`pdSummary`

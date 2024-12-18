@@ -84,6 +84,4 @@ This function assumes panel is sorted by group and date. Note that panel data ca
 - If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
 - If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
-See also:
-
 .. seealso:: :func:`pdsummary`, :func:`pdTimeSpans`
