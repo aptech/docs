@@ -31,6 +31,7 @@ P
     pdisconsecutive
     pdlag 
     pdsize 
+    pdsort
     pdsummary
     pdtimespans 
     pinvmt
