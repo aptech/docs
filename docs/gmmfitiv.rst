@@ -149,23 +149,20 @@ The above code will print out the following report:
 
 ::
 
-    Dependent Variable:                       mpg
-    Number of Observations:                    74
-    Number of Moments:                          0
-    Number of Parameters:                       3
-    Degrees of freedom:                        71
-
-
-                             Standard                Prob
-    Variable     Estimate      Error     t-value     >|t|
-    -----------------------------------------------------
-
-    CONSTANT    47.884873    7.506021     6.380     0.000
-    weight      -0.003851    0.001947    -1.978     0.052
-    length      -0.079593    0.067753    -1.175     0.244
-
-
-    Instruments: weight, length, Constant
+    Generalized Method of Moments
+    ====================================================================================
+    Valid cases:                       74          Dependent variable:               mpg
+    Number of moments:                  0          Degrees of freedom:                71
+    Number of vars:                     3                                               
+    ====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    ------------------------------------------------------------------------------------
+    Constant          47.885       7.506       6.380       0.000      33.173      62.597 
+    weight            -0.004       0.002      -1.978       0.052      -0.008      -0.000 
+    length            -0.080       0.068      -1.175       0.244      -0.212       0.053 
+    ====================================================================================
+    Instruments: Constant, weight, length
 
 Data Matrix
 +++++++++++++++++++
@@ -175,7 +172,7 @@ Data Matrix
     new;
     cls;
 
-    data = loadd(getGAUSSHome() $+ "examples/hsng.dat");
+    data = loadd(getGAUSSHome("examples/hsng.dat"));
 
     y = data[., 12];
     x = data[., 11 7];
@@ -207,27 +204,21 @@ The above code will print out the following report:
 
 ::
 
-    Dependent Variable:                       Y
-    Number of Observations:                  50
-    Number of Moments:                        0
-    Number of Parameters:                     3
-    Degrees of freedom:                      47
-
-
-                             Standard                Prob
-    Variable     Estimate      Error     t-value     >|t|
-    -----------------------------------------------------
-
-    Beta1      112.122713   10.545763    10.632     0.000
-    Beta2        0.001464    0.000404     3.627     0.001
-    Beta3        0.761548    0.264387     2.880     0.006
-
-
-    Instruments: Z1, Z2, Z3, Z4, Z5, Z6
-
-    Hansen Test Statistic of the Moment Restrictions
-    Chi-Sq(   3) =        6.9753314
-    P-value of J-stat:     0.072688216
+    Generalized Method of Moments
+    ====================================================================================
+    Valid cases:                       50          Dependent variable:              rent
+    Number of moments:                  0          Degrees of freedom:                47
+    J-stat                          6.975          Probability of J:               0.073
+    Number of vars:                     3                                               
+    ====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    ------------------------------------------------------------------------------------
+    Constant         112.123      10.546      10.632       0.000      91.453     132.792 
+    hsngval            0.001       0.000       3.627       0.001       0.001       0.002 
+    pcturban           0.762       0.264       2.880       0.006       0.243       1.280 
+    ====================================================================================
+    Instruments: Constant, pcturban, faminc, reg2, reg3, reg4
 
 Remarks
 -------

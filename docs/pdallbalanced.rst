@@ -1,31 +1,29 @@
-pdSize
+pdAllBalanced
 ==============================================
 
 Purpose
 ----------------
-Provides size description of a panel dataset including the number of groups, number of time observations for each group.
+Checks if a panel dataset is strongly balanced and returns 1 if balanced, 0 otherwise.
 
 Format
 ----------------
-.. function:: { num_grps, T, balanced } = pdSize(df, groupvar)
+.. function:: isBalanced = pdAllBalanced(df [, groupvar, datevar])
 
     :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
     :type df: Dataframe
 
-    :param groupvar: A column vector indicating group membership for panel observations.
+    :param groupvar: Optional, specifies the name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
     :type groupvar: String
 
-    :return num_grps: Number of groups in the panel.        
-    :rtype num_grps: Scalar
+    :param datevar: Optional, specifies the name of the variable used to identify dates for panel observations. Defaults to the first date variable in the dataframe.
+    :type datevar: String
 
-    :return T: Containing number of time observations for each group. 
-    :rtype T: Vector
-
-    :return balanced: Indicator if panel is balanced, report 1 for balanced data, 0 othewise.
-    :rtype: Scalar
+    :return isBalanced: Indicates if the panel dataset is balanced. Returns 1 if balanced, 0 otherwise.
+    :rtype isBalanced: Scalar
 
 Examples
 ----------------
+
 If your group variable is the first categorical variable in your dataframe and the date variable is a GAUSS date variable and not just a numeric column, you can just pass in the panel dataframe and GAUSS will locate the group and date variables for you.
 
 ::
@@ -50,29 +48,20 @@ If your group variable is the first categorical variable in your dataframe and t
          2  1977-01-01    71.3190    14.7909 
          2  1978-01-01    70.6430    14.1036 
          2  1979-01-01    70.9180    14.9534 
-         2  1980-01-01    72.0310    15.4910  
+         2  1980-01-01    72.0310    15.4910
 
-:: 
+::
 
-    
-    // Check size of panel 
-    { num_grps, T_2, _isbalanced } = pdSize(pd_smpl);
+    // Check to see if the panel is balanced
+    is_balanced = pdallbalanced(pd_smpl);
+
+    print is_balanced;
 
     The above code will return:
 
 ::
 
-    ============================================================
-    Group ID:              id          Balanced:             Yes
-    Valid cases:            8          Missings:               0
-    N. Groups:              2          T. Average:         4.000
-    ============================================================
-    id                        T[i]     Start Date       End Date
-    ------------------------------------------------------------
-
-    1                            4     1977-01-01     1980-01-01 
-    2                            4     1977-01-01     1980-01-01 
-    ============================================================
+     1.000
 
 Remarks
 -------
@@ -81,7 +70,13 @@ This function takes long-form panel data. To transform wide data to long-form da
 
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
+A strongly balanced panel dataset contains the same time points for each group. :func:`pdAllBalanced` examines the provided dataset to determine if it meets this condition.
+
 - If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
 - If *datevar* is not provided, the function defaults to the first date variable in the dataframe.
 
-.. seealso:: :func:`pdsummary`, :func:`pdTimeSpans`
+For datasets that are not strongly balanced, :func:`pdAllBalanced` returns 0.
+
+See also:
+
+.. seealso:: :func:`pdSummary`, :func:`pdSize`

@@ -82,5 +82,5 @@ they must both originate from the same column. If this criteria is not met, use
 :func:`indsav` instead.
 
 
-.. seealso:: Functions :func:`contains`, :func:`ismember`, :func:`rowcontains`
+.. seealso:: Functions :func:`indsav`, :func:`contains`, :func:`ismember`, :func:`rowcontains`
 

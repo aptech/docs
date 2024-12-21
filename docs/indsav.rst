@@ -50,3 +50,5 @@ to the GAUSS missing value code.
 
 If there are duplicate elements in *haystack*, the index of the first match
 will be returned.
+
+.. seealso:: Functions :func:`indnv`, :func:`contains`, :func:`ismember`, :func:`rowcontains`

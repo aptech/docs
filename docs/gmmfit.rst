@@ -171,6 +171,20 @@ Use data matrices
         retp(g1~g2);
     endp;
 
+::
+
+    Generalized Method of Moments
+    ====================================================================================
+    Valid cases:                      500          Dependent variable:                 Y
+    Number of moments:                  0          Degrees of freedom:               499
+    Number of vars:                     1                                               
+    ====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    ------------------------------------------------------------------------------------
+    X1                10.104       2.180       4.635       0.000       5.832      14.377
+    ====================================================================================
+
 Remarks
 -------
 

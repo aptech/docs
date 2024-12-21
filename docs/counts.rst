@@ -9,7 +9,7 @@ Counts the numbers of elements of a vector that fall into specified ranges.
 
 Format
 ----------------
-.. function:: c = counts(x, v)
+.. function:: c = counts(x, v [, x_is_sorted])
 
     :param x: the numbers to be counted
     :type x: Nx1 vector
@@ -27,6 +27,9 @@ Format
             v[p-1] < x \leq v[p]
 
     :rtype c: Px1 vector
+
+    :param x_is_sorted: Indicates whether the first input, *x*, is sorted which allows a faster algorithm to be run. Default=0.
+    :type x_is_sorted: Scalar
 
 Examples
 ----------------
@@ -81,6 +84,29 @@ Count how many times each integer from 1 to 10 is present in a vector.
           8      2 
           9      3 
          10      0 
+
+Count sorted integers
++++++++++++++++++++++++
+
+If the number of elements in the second input is large, passing in a sorted *x* and telling :func:`counts` that *x* is sorted can provide a significant speed-up to the computation.
+
+::
+
+    x = { 1, 1, 3, 4, 4, 4, 6, 7 };
+
+    ints = { 1, 2, 3, 4, 5, 6, 7 };
+
+    c = counts(x, ints, 1);
+
+::
+
+          1      2 
+          2      0 
+   ints = 3  c = 0 
+          4      3 
+          5      0 
+          6      1 
+          7      1 
 
 Remarks
 -------
