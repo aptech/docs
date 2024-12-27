@@ -9,6 +9,8 @@ Installation
 --------------
 Please `contact us <https://www.aptech.com/contact-us/>`_ directly to request a copy of the GAUSS Machine Learning library.
 
+Requires GAUSS 22 or higher. 
+
 Commands
 ----------------------
 

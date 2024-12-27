@@ -25,7 +25,7 @@ Example
   library tsmt;
 
   // Create file name with full path
-  fname = getGAUSSHome $+ "pkgs/tsmt/examples/mink.csv";
+  fname = getGAUSSHome("pkgs/tsmt/examples/mink.csv");
 
   // Load two variables from the dataset into matrix 'y'
   y = loadd(fname, "LogMink + LogMusk");

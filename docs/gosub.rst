@@ -7,7 +7,7 @@ Purpose
 
 Causes a branch to a subroutine.
 
-.. NOTE:: This is an advanced function that gives extra flexibility for sophisticated users in some circumstances.
+.. NOTE:: This is an advanced function that gives extra flexibility for sophisticated users in some circumstances. In general, usage is discouraged and procedures should be defined instead.
 
 In most cases, it is prefereable to create a procedure (`proc`).
 
@@ -112,6 +112,8 @@ Remarks
 -------
 
 For multi-line recursive user-defined functions, see `Procedures and Keywords <PK-ProceduresandKeywords.html>`_.
+
+The `gosub` statement is not compatible with `for` loops and will produce unexpected results if used with a `for` loop. If looping with a `gosub` statement `do` loops should be used instead. 
 
 When a `gosub` statement is encountered, the program will branch to the
 label and begin executing from there. When a :func:`return` statement is

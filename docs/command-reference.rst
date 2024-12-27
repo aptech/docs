@@ -13,6 +13,7 @@ Command Reference
     cc/graphics
     cc/optimization-and-solution
     cc/mathematical-functions
+    cc/operators
     cc/statistical-distributions
     cc/time-and-date
     cc/string-handling

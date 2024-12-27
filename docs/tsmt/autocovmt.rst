@@ -33,7 +33,7 @@ Example 1: Calculate autocovariance for a vector
   library tsmt;
 
   // Get file name with full path
-  file = getGAUSSHome() $+ "examples/beef_prices.csv";
+  file = getGAUSSHome("examples/beef_prices.csv");
 
   // Import beef price data
   beef = loadd(fname, "beef_price");
@@ -60,55 +60,55 @@ The results:
 
         Lag   autocovariance
 
-  0.00000000        1800.8245
-   1.0000000        1773.3616
-   2.0000000        1732.3286
-   3.0000000        1693.2025
-   4.0000000        1657.4417
-   5.0000000        1623.1691
+          0        1800.8245
+          1        1773.3616
+          2        1732.3286
+          3        1693.2025
+          4        1657.4417
+          5        1623.1691
 
 Example 2: Calculate autocovariance for a matrix
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
-  new;
+    new;
 
-  // Set up a random seed
- rndseed 22;
+    // Set up a random seed
+    rndseed 22;
 
- // Simulate a data set
- x = rndn(10, 5);
+    // Simulate a data set
+    x = rndn(10, 5);
 
- // Demean data first
- x = x - meanc(x)';
+    // Demean data first
+    x = x - meanc(x)';
 
- // Define first lag, k_f
- k_f = 0;
+    // Define first lag, k_f
+    k_f = 0;
 
- // Define last lag, k_l
- k_l = 6;
+    // Define last lag, k_l
+    k_l = 6;
 
- // Call autocov function
- a = autocov(x, k_f, k_l);
+    // Call autocov function
+    a = autocov(x, k_f, k_l);
 
- // Print results
- print "Lag"$~"autocov of C_1"$~"autocovof C_2"$~"autocovof C_3"$~"autocovof C_4"$~"autocov of C_5";
- print seqa(k_f, 1, k_l - k_f + 1)~a;
+    // Print results
+    print "Lag"$~"autocov of C_1"$~"autocovof C_2"$~"autocovof C_3"$~"autocovof C_4"$~"autocov of C_5";
+    print seqa(k_f, 1, k_l - k_f + 1)~a;
 
 The results are:
 
 ::
 
- Lag           autocov of C_1    autocovof C_2    autocovof C_3   autocovof C_4   autocov of C_5
+   Lag           autocov of C_1    autocovof C_2    autocovof C_3    autocovof C_4   autocov of C_5
 
- 0.00000000       0.65765163        1.1915671       0.75573287       0.50407153       0.39901953
- 1.0000000       -0.15478200      -0.27683779      -0.32744090     -0.062468602       0.18403351
- 2.0000000      -0.089349723       0.38294194      0.011251031      -0.25130128     0.0038837918
- 3.0000000      -0.064330682      -0.11383233      0.016193235      0.027307319     -0.058301173
- 4.0000000        0.16015220      -0.40025065     -0.091298936       0.14776497     0.0077309661
- 5.0000000       -0.15938106       0.18818673     -0.037043030     -0.067221065     0.0052548212
- 6.0000000      -0.059620846      -0.43834313     -0.030975944      -0.19133709     -0.053919130
+      0              0.65765163        1.1915671       0.75573287       0.50407153       0.39901953
+      1             -0.15478200      -0.27683779      -0.32744090     -0.062468602       0.18403351
+      2             -0.08934972       0.38294194      0.011251031      -0.25130128     0.0038837918
+      3             -0.06433068      -0.11383233      0.016193235      0.027307319     -0.058301173
+      4              0.16015220      -0.40025065     -0.091298936       0.14776497     0.0077309661
+      5             -0.15938106       0.18818673     -0.037043030     -0.067221065     0.0052548212
+      6             -0.05962085      -0.43834313     -0.030975944      -0.19133709     -0.053919130
 
 
 Remarks

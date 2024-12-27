@@ -4,6 +4,32 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+25.0.0
+------
+#. New function: :func:`pdAllBalanced` checks if panel data is strongly balanced, i.e., if each individual has the same time periods. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdAllConsecutive` checks if all groups in panel are consecutive without gaps.
+#. New function: :func:`pdDiff` computes differences of panel datasets. It intelligently detects group and date variables automatically, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdIsBalanced` checks whether the groups in a panel dataset span the maximum time period of the panel. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdIsConsecutive` checks whether the groups in a panel dataset cover a consecutive time span without gaps. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdLag` compute lags of panel data. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdSummary` generates comprehensive summaries of panel datasets, including overall, between-group, and within-group statistics. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdIsConsecutive` checks whether the groups in a panel dataset cover a consecutive time span without gaps. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.#. New function: :func:`pdLag` compute lags of panel data. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
+#. New function: :func:`pdSort` sorts panel data using intelligently detected group and date variables.
+#. New function: :func:`waldTest` performs a Wald test of joint hypothesis on model parameters.
+#. New function: :func:`qfitSlopeTest` performs tests of slope equality across quantiles after :func:`quantileFit`.  
+#. Graphics: :func:`plotFreq` now supports formula string keyword, :class:`by` for splitting data by a specified categorical or string variable and generating the appropriate legend items.
+#. Expanded functionality of :func:`tabulate` with option to find column and row percentages.
+#. Enhanced functionality of :func:`frequency` to use metadata to detect and print variable names when using dataframes. 
+#. Enhanced functionality of :func:`gmmFitIV` to use metadata to detect and print variable names when using dataframes. 
+#. Enhanced result printouts for :func:`gmmFit`, :func:`gmmFitIV`, :func:`olsmt`, :func:`glm`, and :func:`quantileFit` to ensure consistency, expand model descriptions, and model diagnostics. 
+#. Enhanced :func:`gmmFitIV` to use metadata to detect and print variable names when using dataframes. 
+#. New ability to estimate linear models separately for each subset based on a categorical variable with the :class:`by` keyword and :func:`gmmFitIV`.
+#. Speed up of :func:`counts` with new option to specify that incoming data is sorted.
+#. Bug fix: :func:`dfwider` would fail with an error if the ``id_cols`` control structure member was used in an unnecessary, but correct manner.
+#. Bug fix: :func:`tabulate` would reports inaccurate error message when no tilde was present in formula string.
+#. Bug fix: :func:`gmm` incorrectly computed J-statistic, now uses moments from user-specified moment function for computation of J-statistic.
+#. Bug fix: :func:`spline` could go in an infinite loop in some rare cases.
+
 24.0.5
 ------
 
@@ -153,7 +179,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. :func:`getGAUSSHome` can now accept relative paths as an input so they do not have to be appended to the end with the string addition operator.
 #. :func:`strctoposix` will now return a missing if the string input matches the current workspace's missing value.
 #. :func:`vartypef` now returns all possible dataframe header types instead of strictly numeric/string.
-#. Up to 10x speed improvememnt and 50% decrease in memory usage for :func:`lagn`.
+#. Up to 10x speed improvement and 50% decrease in memory usage for :func:`lagn`.
 #. :func:`lagn` now retains variable names and column types from the input.
 #. Improved performance of date format pattern matching with :func:`loadd`.
 #. Improved performance of :func:`indsav` with dataframes.

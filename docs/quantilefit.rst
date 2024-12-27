@@ -160,4 +160,4 @@ Source
 
 quantilefit.src
 
-.. seealso:: Functions :func:`glm`, :func:`olsmt`, :func:`quantileFitLoc`
+.. seealso:: Functions :func:`glm`, :func:`olsmt`, :func:`quantileFitLoc`, :func:`qfitSlopeTest`

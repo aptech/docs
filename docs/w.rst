@@ -6,6 +6,7 @@ W
     :caption: Functions:
 
     waitwaitc
+    waldtest
     walkindex
     warninglog
     warninglogat

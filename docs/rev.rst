@@ -32,7 +32,7 @@ Examples
     // Create some random integers
     x = round(rndn(5, 3)*10);
 
-    // Reverse the order of the columns
+    // Reverse the order of the rows
     y = rev(x);
 
     print "x = " x;

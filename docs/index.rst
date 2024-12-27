@@ -2,7 +2,7 @@
 .. title:: Explore
 
 .. meta::
-   :description: Looking for additional resources about GAUSS? Learn more about our built-in and Machine Learning functions. Find GAUSS 21 documentation here. 
+   :description: Looking for additional resources about GAUSS? Learn more about our built-in and Machine Learning functions. Find GAUSS documentation here. 
 
 GAUSS documentation
 ====================

@@ -241,6 +241,26 @@ Basic usage with matrices
     // The empty string, "" indicates that no dataset is used
     call olsmt("", y, x);
 
+::
+
+    Ordinary Least Squares
+    ====================================================================================
+    Valid cases:                        5          Dependent variable:                 Y
+    Missing cases:                      0          Deletion method:                 None
+    Total SS:                      23.200          Degrees of freedom:                 1
+    R-squared:                      0.982          Rbar-squared:                   0.928
+    Residual SS:                    0.417          Std. err of est:                0.646
+    F(3,1):                        18.224          Probability of F:               0.170
+    ====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    ------------------------------------------------------------------------------------
+    CONSTANT          -3.149       1.322      -2.382       0.253      -5.740      -0.558 
+    X1                 1.105       0.201       5.505       0.114       0.711       1.498 
+    X2                 1.728       0.284       6.073       0.104       1.170       2.285 
+    X3                -0.753       0.151      -4.986       0.126      -1.050      -0.457 
+    ====================================================================================
+
 Basic usage with a dataset and a formula string
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -260,20 +280,22 @@ regression. The dependent variable is *homicide*. The independent variables are:
 
 ::
 
-    Valid cases:                    13      Dependent variable:            homicide
-    Missing cases:                   0      Deletion method:                   None
-    Total SS:                 3221.790      Degrees of freedom:                  10
-    R-squared:                   0.834      Rbar-squared:                     0.801
-    Residual SS:               533.814      Std error of est:                 7.306
-    F(2,10):                    25.177      Probability of F:                 0.000
-
-                             Standard                 Prob   Standardized  Cor with
-    Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
-    -----------------------------------------------------------------------------------
-
-    CONSTANT       -35.982790    9.437246   -3.812849     0.003       ---         ---
-    unemployment    -0.004998    0.918817   -0.005440     0.996   -0.000720    0.210142
-    hourly_earn     15.487191    2.242660    6.905722     0.000    0.913572    0.913406
+    Ordinary Least Squares
+    =====================================================================================
+    Valid cases:                       13          Dependent variable:          homicide
+    Missing cases:                      0          Deletion method:                 None
+    Total SS:                    3221.790          Degrees of freedom:                10
+    R-squared:                      0.834          Rbar-squared:                   0.801
+    Residual SS:                  533.814          Std. err of est:                7.306
+    F(2,10):                       25.177          Probability of F:               0.000
+    =====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable         Estimate       Error     t-value        >|t|       Bound       Bound
+    -------------------------------------------------------------------------------------
+    CONSTANT          -35.983       9.437      -3.813       0.003     -54.480     -17.486 
+    unemployment       -0.005       0.919      -0.005       0.996      -1.806       1.796 
+    hourly_earn        15.487       2.243       6.906       0.000      11.092      19.883 
+    =====================================================================================
 
 Basic usage with a dataframe and categorical variable
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -291,23 +313,25 @@ In this example, the dependent variable *price* is regressed on *mpg* and *rep78
 
 ::
 
-    Valid cases:                    69      Dependent variable:               price
-    Missing cases:                   5      Deletion method:               Listwise
-    Total SS:            576796958.870      Degrees of freedom:                  63
-    R-squared:                   0.258      Rbar-squared:                     0.199
-    Residual SS:         427776355.434      Std error of est:              2605.782
-    F(5,63):                     4.389      Probability of F:                 0.002
-  
-                                     Standard                 Prob   Standardized  Cor with
-    Variable             Estimate      Error      t-value     >|t|     Estimate    Dep Var
-    ---------------------------------------------------------------------------------------
-  
-    CONSTANT                10450     2251.04     4.64229     0.000       ---         --- 
-    mpg                  -280.261     61.5767    -4.55142     0.000   -0.564519   -0.455949
-    rep78: Fair           877.635     2063.28    0.425358     0.672   0.0971824  -0.0223477
-    rep78: Average        1425.66     1905.44    0.748204     0.457     0.24444   0.0859051
-    rep78: Good           1693.84     1942.67    0.871914     0.387    0.257252   -0.015317
-    rep78: Excellent      3131.98     2041.05      1.5345     0.130    0.396546   -0.035102
+    Ordinary Least Squares
+    =========================================================================================
+    Valid cases:                         69          Dependent variable:               price
+    Missing cases:                        5          Deletion method:               Listwise
+    Total SS:                 576796958.870          Degrees of freedom:                  63
+    R-squared:                        0.258          Rbar-squared:                     0.199
+    Residual SS:              427776355.434          Std. err of est:               2605.782
+    F(5,63):                          4.389          Probability of F:                 0.002
+    =========================================================================================
+                                    Standard                    Prob       Lower       Upper
+    Variable             Estimate       Error     t-value        >|t|       Bound       Bound
+    -----------------------------------------------------------------------------------------
+    CONSTANT            10449.991    2251.041       4.642       0.000    6037.952   14862.031 
+    mpg                  -280.261      61.577      -4.551       0.000    -400.952    -159.571 
+    rep78: Fair           877.635    2063.285       0.425       0.672   -3166.403    4921.672 
+    rep78: Average       1425.657    1905.438       0.748       0.457   -2309.001    5160.315 
+    rep78: Good          1693.841    1942.669       0.872       0.387   -2113.791    5501.473 
+    rep78: Excellent     3131.982    2041.049       1.534       0.130    -868.473    7132.438 
+    =========================================================================================
 
 
 Estimate a linear model for each subset of a categorical variable
@@ -327,42 +351,43 @@ In this example, we will regress *mpg* and *weight* on *price* for the case wher
 
 ::
 
-    ===============================================================================
-    foreign: Domestic
-    ===============================================================================
-    Valid cases:                    52      Dependent variable:               price
-    Missing cases:                   0      Deletion method:                   None
-    Total SS:            489194800.692      Degrees of freedom:                  49
-    R-squared:                   0.483      Rbar-squared:                     0.462
-    Residual SS:         252934086.227      Std error of est:              2271.986
-    F(2,49):                    22.885      Probability of F:                 0.000
-   
-                             Standard                 Prob   Standardized  Cor with
-    Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
-    -------------------------------------------------------------------------------
-   
-    CONSTANT     -13285.4     5726.03    -2.32018     0.025       ---         ---  
-    mpg           237.691     139.033      1.7096     0.094     0.36403   -0.504263
-    weight        4.41504    0.948391     4.65529     0.000    0.991267    0.672397
-   
-   
-    ===============================================================================
-    foreign: Foreign
-    ===============================================================================
-    Valid cases:                    22      Dependent variable:               price
-    Missing cases:                   0      Deletion method:                   None
-    Total SS:            144363212.773      Degrees of freedom:                  19
-    R-squared:                   0.785      Rbar-squared:                     0.763
-    Residual SS:          30967505.235      Std error of est:              1276.663
-    F(2,19):                    34.787      Probability of F:                 0.000
-   
-                             Standard                 Prob   Standardized  Cor with
-    Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
-    -------------------------------------------------------------------------------
-   
-    CONSTANT     -5065.84     3202.51    -1.58183     0.130       ---         ---  
-    mpg          -19.7774     57.6812   -0.342874     0.735  -0.0498688   -0.631303
-    weight        5.15584    0.880689     5.85433     0.000    0.851476    0.885529
+    Ordinary Least Squares
+    ====================================================================================
+    foreign: Domestic 
+    ====================================================================================
+    Valid cases:                       52          Dependent variable:             price
+    Missing cases:                      0          Deletion method:                 None
+    Total SS:               489194800.692          Degrees of freedom:                49
+    R-squared:                      0.483          Rbar-squared:                   0.462
+    Residual SS:            252934086.227          Std. err of est:             2271.986
+    F(2,49):                       22.885          Probability of F:               0.000
+    ====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    ------------------------------------------------------------------------------------
+    CONSTANT      -13285.444    5726.031      -2.320       0.025  -24508.465   -2062.422 
+    mpg              237.691     139.033       1.710       0.094     -34.815     510.196 
+    weight             4.415       0.948       4.655       0.000       2.556       6.274 
+    ====================================================================================
+
+    Ordinary Least Squares
+    ====================================================================================
+    foreign: Foreign 
+    ====================================================================================
+    Valid cases:                       22          Dependent variable:             price
+    Missing cases:                      0          Deletion method:                 None
+    Total SS:               144363212.773          Degrees of freedom:                19
+    R-squared:                      0.785          Rbar-squared:                   0.763
+    Residual SS:             30967505.235          Std. err of est:             1276.663
+    F(2,19):                       34.787          Probability of F:               0.000
+    ====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    ------------------------------------------------------------------------------------
+    CONSTANT       -5065.841    3202.514      -1.582       0.130  -11342.768    1211.087 
+    mpg              -19.777      57.681      -0.343       0.735    -132.833      93.278 
+    weight             5.156       0.881       5.854       0.000       3.430       6.882 
+    ====================================================================================
 
 
 
@@ -404,6 +429,27 @@ In this example, the dataset :file:`credit.dat` is used to compute a
 regression. The dependent variable is *Limit*. The independent
 variables are: *Balance*, *Income*, and *Age*. The residuals and Durbin-Watson statistic will be computed.
 
+::
+
+  Ordinary Least Squares
+  ====================================================================================
+  Valid cases:                      400          Dependent variable:             Limit
+  Missing cases:                      0          Deletion method:                 None
+  Total SS:              2125784986.000          Degrees of freedom:               396
+  R-squared:                      0.939          Rbar-squared:                   0.939
+  Residual SS:            129727134.947          Std. err of est:              572.358
+  F(3,396):                    2031.029          Probability of F:               0.000
+  Durbin-Watson:                  1.953                                               
+  ====================================================================================
+                              Standard                    Prob       Lower       Upper
+  Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+  ------------------------------------------------------------------------------------
+  CONSTANT        1521.905     102.229      14.887       0.000    1321.536    1722.273 
+  Balance            3.168       0.071      44.857       0.000       3.030       3.307 
+  Income            32.567       0.936      34.797       0.000      30.733      34.401 
+  Age                1.678       1.694       0.990       0.323      -1.643       4.999 
+  ====================================================================================
+
 Use a dataset and variable indices
 +++++++++++++++++++++++++++++++++++
 
@@ -426,20 +472,24 @@ The above code will produce the following output:
 
 ::
 
-    Valid cases:                   400      Dependent variable:              Rating
-    Missing cases:                   0      Deletion method:                   None
-    Total SS:              9551884.560      Degrees of freedom:                 396
-    R-squared:                   0.994      Rbar-squared:                     0.994
-    Residual SS:             59390.952      Std error of est:                12.247
-    F(3,396):                21097.644      Probability of F:                 0.000
+    Ordinary Least Squares
+    ====================================================================================
+    Valid cases:                      400          Dependent variable:            Rating
+    Missing cases:                      0          Deletion method:                 None
+    Total SS:                 9551884.560          Degrees of freedom:               396
+    R-squared:                      0.994          Rbar-squared:                   0.994
+    Residual SS:                59390.952          Std. err of est:               12.247
+    F(3,396):                   21097.644          Probability of F:               0.000
+    ====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    ------------------------------------------------------------------------------------
 
-                             Standard                 Prob   Standardized  Cor with
-    Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
-    -------------------------------------------------------------------------------
-    CONSTANT    37.675546    2.415716   15.596014     0.000       ---         ---
-    Income       0.018253    0.028857    0.632538     0.527    0.004158    0.791378
-    Limit        0.066587    0.000436  152.717620     0.000    0.993363    0.996880
-    Age          0.019892    0.036174    0.549896     0.583    0.002218    0.103165
+    CONSTANT          37.676       2.416      15.596       0.000      32.941      42.410 
+    Income             0.018       0.029       0.633       0.527      -0.038       0.075 
+    Limit              0.067       0.000     152.718       0.000       0.066       0.067 
+    Age                0.020       0.036       0.550       0.583      -0.051       0.091 
+    ====================================================================================
 
 Basic usage with weights
 +++++++++++++++++++++++++
@@ -467,19 +517,21 @@ The above code will produce the following output:
 
 ::
 
-  Valid cases:                     7      Dependent variable:                   Y
-  Missing cases:                   0      Deletion method:                   None
-  Total SS:                  572.494      Degrees of freedom:                   5
-  R-squared:                   0.852      Rbar-squared:                     0.823
-  Residual SS:                 0.061      Std error of est:                 0.110
-  F(1,5):                     28.812      Probability of F:                 0.002
-
-                            Standard                 Prob   Standardized  Cor with
-  Variable     Estimate      Error      t-value     >|t|     Estimate    Dep Var
-  -------------------------------------------------------------------------------
-
-  CONSTANT     0.127964  0.00681124     18.7872     0.000    0.778572    0.999643
-  X1           0.204801   0.0381548     5.36763     0.003    0.222444    0.996209
+  Ordinary Least Squares
+  ====================================================================================
+  Valid cases:                        7          Dependent variable:                 Y
+  Missing cases:                      0          Deletion method:                 None
+  Total SS:                     572.494          Degrees of freedom:                 5
+  R-squared:                      0.852          Rbar-squared:                   0.823
+  Residual SS:                    0.061          Std. err of est:                0.110
+  F(1,5):                        28.812          Probability of F:               0.002
+  ====================================================================================
+                              Standard                    Prob       Lower       Upper
+  Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+  ------------------------------------------------------------------------------------
+  CONSTANT           0.128       0.007      18.787       0.000       0.115       0.141 
+  X1                 0.205       0.038       5.368       0.003       0.130       0.280 
+  ====================================================================================
 
 Remarks
 -------

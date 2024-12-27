@@ -3,7 +3,7 @@ arimamtControlCreate
 
 Purpose
 -------
-Sets the members of an instance of an arimamtControl structure to
+Sets the members of an instance of an :class:`arimatmtControl` structure to
 default values.
 
 Format
@@ -15,6 +15,7 @@ Format
 
 Example
 -------
+
 ::
 
    new;

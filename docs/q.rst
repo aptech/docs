@@ -6,6 +6,7 @@ Q
     :caption: Functions:
 
     qfitcontrolcreate
+    qfitslopetest
     qnewton
     qnewtonmtcontrolcreate
     qnewtonmt

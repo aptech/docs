@@ -195,22 +195,24 @@ This example will compute a least squares regression of *y* on *x*. The results 
 ::
 
     Generalized Linear Model
-
-    Valid cases:                  100     Dependent Variable:                          y
-    Degrees of freedom:            95     Distribution:                           normal
-    Deviance:                   99.37     Link function:                        identity
-    Pearson Chi-square:         99.37     AIC:                                     295.2
-    Log likelihood:            -141.6     BIC:                                     310.8
-    Dispersion:                 1.046     Iterations:                                  2
-
-                                              Standard                              Prob
-    Variable                 Estimate            Error          t-value             >|t|
-    ----------------     ------------     ------------     ------------     ------------
-    CONSTANT                 0.067084          0.10233          0.65556         0.513692
-    x1                      -0.027278         0.097162         -0.28074         0.779517
-    x2                       -0.10747         0.090888          -1.1825         0.239963
-    x3                        0.27659         0.093397           2.9615       0.00386701
-    x4                       0.067915          0.11099           0.6119         0.542062
+    ===================================================================
+    Valid cases:             100           Dependent variable:        y
+    Degrees of freedom:       95           Distribution          normal
+    Deviance:             99.370           Link function:      identity
+    Pearson Chi-square:   99.370           AIC:                 295.156
+    Log likelihood:     -141.578           BIC:                 310.787
+    Dispersion:                1           Iterations:              310
+    Number of vars:            0                                       
+    ===================================================================
+                                      Standard                    Prob
+    Variable               Estimate       Error     t-value        >|t|
+    -------------------------------------------------------------------
+    CONSTANT                  0.067       0.102       0.656       0.514 
+    x1                       -0.027       0.097      -0.281       0.780 
+    x2                       -0.107       0.091      -1.182       0.240 
+    x3                        0.277       0.093       2.962       0.004 
+    x4                        0.068       0.111       0.612       0.542 
+    ===================================================================
 
 Logistic regression using a formula string to reference data in a CSV file containing categorical variables.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -218,38 +220,43 @@ Logistic regression using a formula string to reference data in a CSV file conta
 ::
 
     // Create string with fully pathed file name
-    fname = getGAUSShome() $+ "examples/binary.csv";
-
+    fname = getGAUSShome("examples/binary.csv");
+    
+    // Load data and specify rank and admit as
+    // categorical variables
+    data = loadd(fname, "cat(admit) + cat(rank) + gre + gpa");
+    
     /*
     ** Call glm function with formula string
-    ** using 'factor' keyword to create dummy variables
     */
-    call glm(fname, "admit ~ factor(rank) + gre + gpa", "binomial");
+    call glm(data, "admit ~ rank + gre + gpa", "binomial");
 
 The code above will produce the following output. Note that :math:`rank = 1` is used as the base case.
 
 ::
 
     Generalized Linear Model
+    ===================================================================
+    Valid cases:             400           Dependent variable:    admit
+    Degrees of freedom:      394           Distribution        binomial
+    Deviance:            458.517           Link function:         logit
+    Pearson Chi-square:  397.490           AIC:                 470.517
+    Log likelihood:     -229.259           BIC:                 494.466
+    Dispersion:                1           Iterations:              494
+    Number of vars:            0                                       
+    ===================================================================
+                                      Standard                    Prob
+    Variable               Estimate       Error     z-value        >|z|
+    -------------------------------------------------------------------
+    CONSTANT                 -3.990       1.140      -3.500       0.000 
+    rank: 2                  -0.675       0.316      -2.134       0.033 
+    rank: 3                  -1.340       0.345      -3.881       0.000 
+    rank: 4                  -1.551       0.418      -3.713       0.000 
+    gre                       0.002       0.001       2.070       0.038 
+    gpa                       0.804       0.332       2.423       0.015 
+    ===================================================================
 
-    Valid cases:                  400     Dependent Variable:                      admit
-    Degrees of freedom:           394     Distribution:                         binomial
-    Deviance:                   458.5     Link function:                           logit
-    Pearson Chi-square:         397.5     AIC:                                     470.5
-    Log likelihood:            -229.3     BIC:                                     494.5
-    Dispersion:                     1     Iterations:                                  4
-
-                                              Standard                              Prob
-    Variable                 Estimate            Error          z-value             >|z|
-    ----------------      ------------     ------------     ------------     ------------
-    CONSTANT                     -3.99             1.14          -3.5001      0.000465027
-    rank            2         -0.67544          0.31649          -2.1342        0.0328288
-                    3          -1.3402          0.34531          -3.8812      0.000103942
-                    4          -1.5515          0.41783          -3.7131      0.000204711
-    gre                      0.0022644         0.001094           2.0699        0.0384651
-    gpa                        0.80404          0.33182           2.4231        0.0153879
-
-    // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
+    Note: Dispersion parameter for BINOMIAL distribution taken to be 1
 
 
 Logistic regression for each subset of a categorical variable
@@ -260,7 +267,7 @@ In the example below, we will estimate a logistic regression model for the case 
 ::
 
     // Load all variables from the dataset
-    tips = loadd(getGAUSShome() $+ "examples/tips2.dta");
+    tips = loadd(getGAUSShome("examples/tips2.dta"));
     
     // Estimate a logistic regression model for:
     //     time = Lunch
@@ -274,23 +281,24 @@ In the example below, we will estimate a logistic regression model for the case 
     ====================================================================================
     
     Generalized Linear Model
-    
-    Valid cases:                   68     Dependent Variable:                smoker: Yes 
-    Degrees of freedom:            64     Distribution:                         binomial 
-    Deviance:                   85.79     Link function:                           logit 
-    Pearson Chi-square:          67.8     AIC:                                     93.79
-    Log likelihood:            -42.89     BIC:                                     102.7
-    Dispersion:                     1     Iterations:                                  4
-    
-    
-                                              Standard                              Prob 
-    Variable                 Estimate            Error          z-value             >|z| 
-    ----------------     ------------     ------------     ------------     ------------ 
-    CONSTANT                  -1.0674          0.69733          -1.5307         0.125834 
-    total_bill              -0.023941         0.057074         -0.41947         0.674874 
-    tip                       0.20882          0.35988          0.58025         0.561748 
-    sex: Male                 0.46393          0.52191          0.88891         0.374049 
-    
+    ===================================================================
+    Valid cases:              68           Dependent variable: smoker: Yes
+    Degrees of freedom:       64           Distribution        binomial
+    Deviance:             85.787           Link function:         logit
+    Pearson Chi-square:   67.797           AIC:                  93.787
+    Log likelihood:      -42.893           BIC:                 102.665
+    Dispersion:                1           Iterations:              102
+    Number of vars:            0                                       
+    ===================================================================
+                                      Standard                    Prob
+    Variable               Estimate       Error     z-value        >|z|
+    -------------------------------------------------------------------
+    CONSTANT                 -1.067       0.697      -1.531       0.126 
+    total_bill               -0.024       0.057      -0.419       0.675 
+    tip                       0.209       0.360       0.580       0.562 
+    sex: Male                 0.464       0.522       0.889       0.374 
+    ===================================================================
+
     Note: Dispersion parameter for BINOMIAL distribution taken to be 1 
     
     
@@ -299,24 +307,26 @@ In the example below, we will estimate a logistic regression model for the case 
     ====================================================================================
     
     Generalized Linear Model
-    
-    Valid cases:                  179     Dependent Variable:                smoker: Yes 
-    Degrees of freedom:           175     Distribution:                         binomial 
-    Deviance:                   235.2     Link function:                           logit 
-    Pearson Chi-square:         180.4     AIC:                                     243.2
-    Log likelihood:            -117.6     BIC:                                     255.9
-    Dispersion:                     1     Iterations:                                  4
-    
-    
-                                              Standard                              Prob 
-    Variable                 Estimate            Error          z-value             >|z| 
-    ----------------     ------------     ------------     ------------     ------------ 
-    CONSTANT                  -0.5111           0.4596           -1.112         0.266122 
-    total_bill               0.043252         0.022504            1.922        0.0546098 
-    tip                      -0.19582          0.14327          -1.3668         0.171698 
-    sex: Male                -0.33096           0.3395         -0.97485         0.329636 
-    
-    Note: Dispersion parameter for BINOMIAL distribution taken to be 1
+    ===================================================================
+    Valid cases:             179           Dependent variable: smoker: Yes
+    Degrees of freedom:      175           Distribution        binomial
+    Deviance:            235.159           Link function:         logit
+    Pearson Chi-square:  180.370           AIC:                 243.159
+    Log likelihood:     -117.580           BIC:                 255.909
+    Dispersion:                1           Iterations:              255
+    Number of vars:            0                                       
+    ===================================================================
+                                      Standard                    Prob
+    Variable               Estimate       Error     z-value        >|z|
+    -------------------------------------------------------------------
+
+    CONSTANT                 -0.511       0.460      -1.112       0.266 
+    total_bill                0.043       0.023       1.922       0.055 
+    tip                      -0.196       0.143      -1.367       0.172 
+    sex: Male                -0.331       0.339      -0.975       0.330 
+    ===================================================================
+
+    Note: Dispersion parameter for BINOMIAL distribution taken to be 1 
 
 Running a no intercept model from a STATA DTA file.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -327,33 +337,37 @@ Running a no intercept model from a STATA DTA file.
     cls;
 
     // File name with full path
-    fname = getGAUSShome() $+ "examples/auto2.dta";
+    fname = getGAUSShome("examples/auto2.dta");
 
+    // Load all variables in the auto2 dataset
+    data = loadd(fname);
+        
     // Declare 'fit' to be a glmOut structure
     struct glmOut fit;
 
     // Call 'glm' with no intercept model
-    fit = glm(fname, "mpg ~ -1 + weight + gear_ratio",  "normal");
+    fit = glm(data, "mpg ~ -1 + weight + gear_ratio",  "normal");
 
 After running the code above, the output is :
 
 ::
 
     Generalized Linear Model
-
-    Valid cases:                   74     Dependent Variable:                        mpg
-    Degrees of freedom:            72     Distribution:                           normal
-    Deviance:                    1331     Link function:                        identity
-    Pearson Chi-square:          1331     AIC:                                     429.8
-    Log likelihood:            -211.9     BIC:                                     436.7
-    Dispersion:                 18.48     Iterations:                                  2
-
-
-                                              Standard                              Prob
-    Variable                 Estimate            Error          t-value             >|t|
-    ----------------     ------------     ------------     ------------     ------------
-    weight                 -0.0014124       0.00043663          -3.2348       0.00183956
-    gear_ratio                 8.4236          0.44635           18.872         < 0.0001
+    ===================================================================
+    Valid cases:              74           Dependent variable:      mpg
+    Degrees of freedom:       72           Distribution          normal
+    Deviance:           1330.683           Link function:      identity
+    Pearson Chi-square: 1330.683           AIC:                 429.817
+    Log likelihood:     -211.909           BIC:                 436.729
+    Dispersion:               18           Iterations:              436
+    Number of vars:            0                                       
+    ===================================================================
+                                      Standard                    Prob
+    Variable               Estimate       Error     t-value        >|t|
+    -------------------------------------------------------------------
+    weight                   -0.001       0.000      -3.235       0.002 
+    gear_ratio                8.424       0.446      18.872       0.000 
+    ===================================================================
 
 Running a no intercept model from a SAS sas7bdat file.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -366,32 +380,36 @@ Running a no intercept model from a SAS sas7bdat file.
     // File name with full path
     fname = getGAUSSHome("examples/detroit.dta");
 
+    // Load dataset
+    data = loadd(fname);
+    
     // Declare 'fit' to be a glmOut structure
     struct glmOut fit;
 
     // Call 'glm' with no intercept model
-    fit = glm(fname, "homicide ~ unemployment + hourly_earn",  "normal");
+    fit = glm(data, "homicide ~ unemployment + hourly_earn",  "normal");
 
 After running the code above, the output is :
 
 ::
 
     Generalized Linear Model
-
-    Valid cases:                   13     Dependent Variable:                   homicide
-    Degrees of freedom:            10     Distribution:                           normal
-    Deviance:                   533.8     Link function:                        identity
-    Pearson Chi-square:         533.8     AIC:                                     93.19
-    Log likelihood:            -42.59     BIC:                                     95.45
-    Dispersion:                 53.38     Iterations:                                  2
-
-
-                                              Standard                              Prob
-    Variable                 Estimate            Error          t-value             >|t|
-    ----------------     ------------     ------------     ------------     ------------
-    CONSTANT                  -35.983           9.4372          -3.8128       0.00341326
-    unemployment           -0.0049983          0.91882       -0.0054399         0.995767
-    hourly_earn                15.487           2.2427           6.9057         < 0.0001
+    ===================================================================
+    Valid cases:              13           Dependent variable: homicide
+    Degrees of freedom:       10           Distribution          normal
+    Deviance:            533.814           Link function:      identity
+    Pearson Chi-square:  533.814           AIC:                  93.189
+    Log likelihood:      -42.594           BIC:                  95.448
+    Dispersion:               53           Iterations:               95
+    Number of vars:            0                                       
+    ===================================================================
+                                      Standard                    Prob
+    Variable               Estimate       Error     t-value        >|t|
+    -------------------------------------------------------------------
+    CONSTANT                -35.983       9.437      -3.813       0.003 
+    unemployment             -0.005       0.919      -0.005       0.996 
+    hourly_earn              15.487       2.243       6.906       0.000 
+    ===================================================================
 
 Ordinary linear regression with categorical variables in a matrix.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -430,21 +448,23 @@ Sometimes it is necessary or preferable to reference model variables by index ra
 ::
 
     Generalized Linear Model
-
-    Valid cases:                  400     Dependent Variable:                    Balance
-    Degrees of freedom:           396     Distribution:                           normal
-    Deviance:              6.611e+007     Link function:                        identity
-    Pearson Chi-square:    6.611e+007     AIC:                                      5951
-    Log likelihood:             -2971     BIC:                                      5971
-    Dispersion:            1.669e+005     Iterations:                                  2
-
-                                              Standard                              Prob
-    Variable                 Estimate            Error          t-value             >|t|
-    ----------------     ------------     ------------     ------------     ------------
-    CONSTANT                   246.19           46.535           5.2903         < 0.0001
-    Gender         2           24.577           40.889          0.60108         0.548134
-    Married        2          -21.279           41.963         -0.50708         0.612383
-    Income                     6.0626          0.58077           10.439         < 0.0001
+    ===================================================================
+    Valid cases:             400           Dependent variable:  Balance
+    Degrees of freedom:      396           Distribution          normal
+    Deviance:           66106798.130           Link function:      identity
+    Pearson Chi-square: 66106798.130           AIC:                5951.278
+    Log likelihood:     -2970.639           BIC:                5971.235
+    Dispersion:           166936           Iterations:             5971
+    Number of vars:            0                                       
+    ===================================================================
+                                      Standard                    Prob
+    Variable               Estimate       Error     t-value        >|t|
+    -------------------------------------------------------------------
+    CONSTANT                246.185      46.535       5.290       0.000 
+    Gender: 2                24.577      40.889       0.601       0.548 
+    Married: 2              -21.279      41.963      -0.507       0.612 
+    Income                    6.063       0.581      10.439       0.000 
+    ===================================================================
 
 Ordinary linear regression with categorical variables in a dataframe.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -467,29 +487,30 @@ Ordinary linear regression with categorical variables in a dataframe.
   credit = setcollabels(move(credit), "Single"$|"Married", 0|1, "Married");
 
   // Call glm
-  call glm(credit, "Balance~Gender + Married + Income", "normal");
+  call glm(credit, "Balance ~ Gender + Married + Income", "normal");
 
 The categorical variables code:`"Gender"` and code:`"Married"` are now automatically detected by GAUSS, based on their dataframe types. In addition, the variable names are automatically detected.
 
 ::
 
   Generalized Linear Model
-
-  Valid cases:                  400     Dependent Variable:                    Balance
-  Degrees of freedom:           396     Distribution:                           normal
-  Deviance:               6.611e+07     Link function:                        identity
-  Pearson Chi-square:     6.611e+07     AIC:                                      5951
-  Log likelihood:             -2971     BIC:                                      5971
-  Dispersion:             1.669e+05     Iterations:                                  2
-
-
-                                            Standard                              Prob
-  Variable                 Estimate            Error          t-value             >|t|
-  ----------------     ------------     ------------     ------------     ------------
-  CONSTANT                   246.19           46.535           5.2903         < 0.0001
-  Gender: Female             24.577           40.889          0.60108         0.548134
-  Married: Married          -21.279           41.963         -0.50708         0.612383
-  Income                     6.0626          0.58077           10.439         < 0.0001
+  ===================================================================
+  Valid cases:             400           Dependent variable:  Balance
+  Degrees of freedom:      396           Distribution          normal
+  Deviance:           66106798.130           Link function:      identity
+  Pearson Chi-square: 66106798.130           AIC:                5951.278
+  Log likelihood:     -2970.639           BIC:                5971.235
+  Dispersion:           166936           Iterations:             5971
+  Number of vars:            0                                       
+  ===================================================================
+                                    Standard                    Prob
+  Variable               Estimate       Error     t-value        >|t|
+  -------------------------------------------------------------------
+  CONSTANT                246.185      46.535       5.290       0.000 
+  Gender: Female           24.577      40.889       0.601       0.548 
+  Married: Married        -21.279      41.963      -0.507       0.612 
+  Income                    6.063       0.581      10.439       0.000 
+  ===================================================================
 
 Using a control structure
 +++++++++++++++++++++++++
@@ -501,8 +522,12 @@ Use a :class:`glmControl` structure to control the link function and a :class:`g
     new;
 
     // Create file name with full path
-    fname = getGAUSShome() $+ "examples/binary.csv";
-
+    fname = getGAUSShome("examples/binary.csv");
+    
+    // Load data and specify rank and admit as
+    // categorical variables
+    data = loadd(fname, "cat(admit) + cat(rank) + gre + gpa");
+    
     // Declare 'binary_ctl' as a glmControl structure
     struct glmControl binary_ctl;
 
@@ -511,7 +536,7 @@ Use a :class:`glmControl` structure to control the link function and a :class:`g
 
     // Save out the results in glmOut structure
     struct glmOut out1;
-    out1 = glm(fname, "admit ~ factor(rank) + gre + gpa", "binomial", binary_ctl);
+    out1 = glm(data, "admit ~ factor(rank) + gre + gpa", "binomial", binary_ctl);
 
 After running above code, the model estimates and diagnostic information will be stored in the *out1* structure and the following output report will be displayed.
 
@@ -529,12 +554,12 @@ After running above code, the model estimates and diagnostic information will be
                                               Standard                              Prob
     Variable                 Estimate            Error          z-value             >|z|
     ----------------     ------------     ------------     ------------     ------------
-    CONSTANT                  -2.3868          0.67395          -3.5416      0.000397733
-    rank           2          -0.4154          0.19498          -2.1305        0.0331297
-                   3         -0.81214          0.20836          -3.8978         < 0.0001
-                   4          -0.9359          0.24527          -3.8158      0.000135764
-    gre                     0.0013756       0.00065003           2.1162        0.0343292
-    gpa                       0.47773           0.1972           2.4226        0.0154097
+    CONSTANT                  -2.3868          0.67395          -3.5416      0.000397733 
+    rank: 2                   -0.4154          0.19498          -2.1305        0.0331297 
+    rank: 3                  -0.81214          0.20836          -3.8978         < 0.0001 
+    rank: 4                   -0.9359          0.24527          -3.8158      0.000135764 
+    gre                     0.0013756       0.00065003           2.1162        0.0343292 
+    gpa                       0.47773           0.1972           2.4226        0.0154097 
 
     // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
 
@@ -551,10 +576,10 @@ A Poisson regression model with categorical variables, using matrix inputs.
     data = loadd(fname);
 
     // Index dependent variable, 'num_award'
-    y = data[.,2];
+    y = data[., 2];
 
     // Index independent variable, 'prog' and 'math'
-    x = data[.,3 4];
+    x = data[., 3 4];
 
     /*
     ** Specify the variable names
@@ -610,7 +635,7 @@ Using a :class:`glmOut` structure to save result for a Gamma regression with cat
     cls;
 
     // File name with full path
-    file = getGAUSShome() $+ "examples/yarn.xlsx";
+    file = getGAUSShome("examples/yarn.xlsx");
 
     // Read 4th column as a numeric matrix
     y = xlsReadM(file, "D2:D28");
@@ -682,13 +707,16 @@ Using a "\*.dat" file directly in :func:`glm` for a Inverse Gaussian distributio
     cls;
 
     // File name with full path
-    fname = getGAUSShome() $+ "examples/clotting_time.dat";
+    fname = getGAUSShome("examples/clotting_time.dat");
 
+    // Load plasma and lot1 variables
+    data = loadd(fname, "plasma + lot1");
+    
     // Declare 'fit_inv' to be a glmOut structure
     struct glmOut fit_inv;
 
     // Call 'glm' and fill 'fit_inv' with results
-    fit_inv = glm(fname, "plasma ~ lot1",  "inverse gaussian");
+    fit_inv = glm(data, "plasma ~ lot1",  "inverse gaussian");
 
 After running the code above, the output is:
 
@@ -719,7 +747,7 @@ Running a linear regression model using data transformations with HDF5 file.
     cls;
 
     // Give a fully pathed HDF5 file name
-    file_name = getGAUSShome() $+ "examples/nba_data.h5";
+    file_name = getGAUSShome("examples/nba_data.h5");
 
     /*
     ** Add the file schema "h5://" to the front
@@ -728,6 +756,9 @@ Running a linear regression model using data transformations with HDF5 file.
     */
     dataset = "h5://" $+ file_name $+ "/nba_data";
 
+    // Load 'Weight', 'Height', and  'Age' data
+    data = loadd(dataset, "Weight + Height + Age");
+    
     /*
     ** Define the formula for the linear model,
     ** using 'ln' data transformation
@@ -735,7 +766,7 @@ Running a linear regression model using data transformations with HDF5 file.
     formula = "ln(Weight) ~ ln(Height) + Age";
 
     // Call 'glm'
-    call glm(dataset, formula,  "normal");
+    call glm(data, formula,  "normal");
 
 After running the code above, the output is :
 

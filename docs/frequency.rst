@@ -16,7 +16,7 @@ Format
 
     :param varlist: Names or indices of variables to be counted. If names, should be entered as a formula string. 
     E.g ``"rep78 + foreign"``; 
-    E.g ``"df ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df1"`` and ``"df2"``.
+    E.g ``"df1 ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df2"`` and ``"df3"``.
     
     :type varlist: Vector or string
         
@@ -45,13 +45,16 @@ This code prints the following table:
 
 ::
 
-      Label     Count   Total %    Cum. %
-       Poor         2     2.899     2.899
-       Fair         8     11.59     14.49
-    Average        30     43.48     57.97
-       Good        18     26.09     84.06
-  Excellent        11     15.94       100
-      Total        69       100
+      =============================================
+                rep78     Count   Total %    Cum. %
+      =============================================
+                 Poor         2     2.899     2.899 
+                 Fair         8     11.59     14.49 
+              Average        30     43.48     57.97 
+                 Good        18     26.09     84.06 
+            Excellent        11     15.94       100 
+      =============================================
+                Total        69       100          
 
 Sorted one-way table
 ++++++++++++++++++++++
@@ -70,13 +73,16 @@ This code prints the following tables:
 
 ::
 
-       Label      Count   Total %    Cum. % 
-     Average         30     43.48     43.48 
-        Good         18     26.09     69.57 
-   Excellent         11     15.94     85.51 
-        Fair          8     11.59      97.1 
-        Poor          2     2.899       100 
-       Total         69       100      
+      =============================================
+                rep78     Count   Total %    Cum. %
+      =============================================
+              Average        30     43.48     43.48 
+                 Good        18     26.09     69.57 
+            Excellent        11     15.94     85.51 
+                 Fair         8     11.59      97.1 
+                 Poor         2     2.899       100 
+      =============================================
+                Total        69       100          
 
 
 Multiple one-way tables
@@ -97,19 +103,24 @@ This code prints the following tables:
 
 ::
 
-      Label     Count   Total %    Cum. %
-       Poor         2     2.899     2.899
-       Fair         8     11.59     14.49
-    Average        30     43.48     57.97
-       Good        18     26.09     84.06
-  Excellent        11     15.94       100
-      Total        69       100
+      =============================================
+                rep78     Count   Total %    Cum. %
+      =============================================
+                 Poor         2     2.899     2.899 
+                 Fair         8     11.59     14.49 
+              Average        30     43.48     57.97 
+                 Good        18     26.09     84.06 
+            Excellent        11     15.94       100 
+      =============================================
+                Total        69       100          
 
-
-      Label     Count   Total %    Cum. %
-   Domestic        52     70.27     70.27
-    Foreign        22     29.73       100
-      Total        74       100
+      =============================================
+              foreign     Count   Total %    Cum. %
+      =============================================
+             Domestic        52     70.27     70.27 
+              Foreign        22     29.73       100 
+      =============================================
+                Total        74       100   
 
 Two-way tables
 +++++++++++++++++++++++++
@@ -130,7 +141,6 @@ To create a two-way table, a variable is added on the LHS of the formula string 
          sex               smoker       
       ========================================
                         No       Yes     Total
-
 
       Female            55        33        88 
       Male              99        60       159 

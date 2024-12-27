@@ -41,12 +41,9 @@ Example
    cls;
    library tsmt;
 
-   /********************************************
-   ** LOAD DATA
-   *********************************************/
-   npdb= loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/NPDB_orig.csv")';
-   lrgnp = log(npdb[., 4]);
-   yt =packr(lrgnp);
+   // Load data
+   npdb = loadd( getGAUSSHome("pkgs/tsmt/examples/nelsonplosser.gdat") );
+   yt = packr(npdb[., "lrgnp"]);
 
    // Test using basic KPSS testing: Trend stationary
    // Step One: Set-up testing parameters
@@ -65,7 +62,7 @@ Example
    // Print results to screen
    print_out = 1;
 
-   // Step Two: Running KPSS test
+   // Running KPSS test
    { mat, crit } = kpss(yt, max_lags, trend, qsk, auto, print_out);
 
    print "The tstats for all possible lags:";
@@ -74,25 +71,7 @@ Example
    print "Critical values:";
    crit;
 
-   // Test using basic KPSS testing: Level stationary
-   // Step One: Set-up testing parameters
-   // Use defaults for:
-   // trend = no-trend
-   // qsk = Bno quadratic spectral kernel used
-   // printOut = printing output to screen.
-
-   // Set maxlags, implies no automatic lag calculation
-   max_lags = 8;
-
-   / /Running the KPSS test
-   { mat, crit } = kpss(yt, max_lags);
-
-   print "The tstats for all possible lags:";
-   mat;
-
-   print "Critical values:";
-   crit;
-
+  
 Library
 -------
 tsmt
