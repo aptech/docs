@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GAUSS'
-copyright = '2024, Aptech Systems, Inc'
+copyright = '2025, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
-version = '24'
+version = '25'
 # The full version, including alpha/beta/rc tags
-release = '24'
+release = '25'
 
 
 # -- General configuration ---------------------------------------------------
@@ -144,7 +144,7 @@ html_show_sourcelink = False
 #    'canonical_url': 'https://docs.aptech.com/gauss/'
 #}
 
-html_baseurl = 'https://docs.aptech.com/next/gauss/'
+html_baseurl = 'https://docs.aptech.com/gauss/'
 
 html_short_title = '{} {} documentation'.format(project, version)
 html_title = html_short_title + ' | Aptech'
