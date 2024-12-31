@@ -29,7 +29,6 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug fix: :func:`gmm` incorrectly computed J-statistic, now uses moments from user-specified moment function for computation of J-statistic.
 #. Bug fix: :func:`spline` could go in an infinite loop in some rare cases.
 
-
 24.0.5
 ------
 
