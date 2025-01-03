@@ -33,6 +33,7 @@ Selection
 Merging
 -------------------
 =====================       ===========================================
+:doc:`../dfappend`          Vertically concatenates (or stacks) two dataframes.
 :doc:`../innerjoin`         Performs a left, or full, outer join on two matrices based upon user-specified key columns.
 :doc:`../insertcols`        Inserts one or more new columns into a matrix or dataframe at a specified location.
 :doc:`../outerjoin`         Joins two matrices, or dataframes based upon user-specified key columns, with non-matching rows removed.
@@ -133,6 +134,8 @@ Transform
 :doc:`../maxv`                 Performs an element by element comparison of two matrices and returns the maximum value for each element.
 :doc:`../minv`                 Performs an element by element comparison of two matrices and returns the minimum value for each element.
 :doc:`../order`                Reorder a matrix based on user-specified ordering. Relocates columns to the beginning of the dataset in the order in which the variables are specified.
+:doc:`../pddiff`               Computes time series differences of panel data.
+:doc:`../pdlag`                Computes time series lags of panel data.
 :doc:`../reclassify`           Replaces specified values of a matrix, array or string array
 :doc:`../reclassifycuts`       Replaces values of a matrix or array within specified ranges
 :doc:`../rev`                  Reverses the order of rows of a matrix.

@@ -17,6 +17,7 @@ Descriptive statistics
 :doc:`../median`             Computes medians of the columns of a matrix.
 :doc:`../minc`               Computes minimum value of each column of a matrix.
 :doc:`../modec`              Computes mode of each column of a matrix.
+:doc:`../pdsummary`          Returns summary statistics for panel data, including overall, between-group, and within-group statistics.
 :doc:`../quantile`           Computes quantiles from each column in a matrix, given specified probabilities.
 :doc:`../skew`               Computes the sample skew.
 :doc:`../stdc`               Computes the sample standard deviation of the elements in each column of a matrix.
