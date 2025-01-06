@@ -13,8 +13,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function: :func:`pdIsConsecutive` checks whether the groups in a panel dataset cover a consecutive time span without gaps. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
 #. New function: :func:`pdLag` compute lags of panel data. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
 #. New function: :func:`pdSummary` generates comprehensive summaries of panel datasets, including overall, between-group, and within-group statistics. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
-#. New function: :func:`pdIsConsecutive` checks whether the groups in a panel dataset cover a consecutive time span without gaps. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.#. New function: :func:`pdLag` compute lags of panel data. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
 #. New function: :func:`pdSort` sorts panel data using intelligently detected group and date variables.
+#. New function: :func:`pdTimeSpans` reports the time spans for each variable in a panel.
 #. New function: :func:`waldTest` performs a Wald test of joint hypothesis on model parameters.
 #. New function: :func:`qfitSlopeTest` performs tests of slope equality across quantiles after :func:`quantileFit`.  
 #. Graphics: :func:`plotFreq` now supports formula string keyword, :class:`by` for splitting data by a specified categorical or string variable and generating the appropriate legend items.

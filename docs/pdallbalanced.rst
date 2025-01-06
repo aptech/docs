@@ -57,7 +57,8 @@ If your group variable is the first categorical variable in your dataframe and t
 
     print is_balanced;
 
-    The above code will return:
+
+The above code will return:
 
 ::
 

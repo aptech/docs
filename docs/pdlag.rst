@@ -59,7 +59,7 @@ Examples
     // Compute first lag 
     lag_pd = pdLag(pd_smpl);
 
-    // Print differenced data
+    // Print lagged data
     print lag_pd;
 
 ::

@@ -57,7 +57,7 @@ If your group variable is the first categorical variable in your dataframe and t
 
     print is_consecutive;
 
-    The above code will return:
+The above code will return:
 
 ::
 
@@ -95,7 +95,7 @@ In the new sample, group 2 has a gap in observations. It is missing an observati
 
     print is_consecutive;
 
-    The above code will return:  
+The above code will return:  
 
 :: 
 
