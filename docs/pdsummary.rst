@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: pdOut = pdSummary(df [, varlist, missings, groupvar, datevar])
 
-    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i \times T_i` rows and K columns.
     :type df: Dataframe
 
     :param varlist: Optional, A list of variables to include in the summary. Default is all variables.

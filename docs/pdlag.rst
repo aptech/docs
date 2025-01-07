@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: l_pd = pdLag(df [, k, by_time, groupvar, datevar])
 
-    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i \times T_i` rows and K columns.
     :type df: Dataframe
 
     :param k: Optional, time lag to compute. Default is 1.

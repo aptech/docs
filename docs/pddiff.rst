@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: delta_pd = pdDiff(df [, k, d, by_time, groupvar, datevar])
 
-    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i \times T_i` rows and K columns.
     :type df: Dataframe
 
     :param k: Optional, time lag to use for differencing. Default is 1.
