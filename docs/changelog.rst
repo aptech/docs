@@ -26,7 +26,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Speed up of :func:`counts` with new option to specify that incoming data is sorted.
 #. Bug fix: :func:`dfwider` would fail with an error if the ``id_cols`` control structure member was used in an unnecessary, but correct manner.
 #. Bug fix: :func:`tabulate` would reports inaccurate error message when no tilde was present in formula string.
-#. Bug fix: :func:`gmm` incorrectly computed J-statistic, now uses moments from user-specified moment function for computation of J-statistic.
+#. Bug fix: :func:`gmmfit` incorrectly computed J-statistic, now uses moments from user-specified moment function for computation of J-statistic.
 #. Bug fix: :func:`spline` could go in an infinite loop in some rare cases.
 #. Bug fix: :func:`vec` could crash in a specific case with a column vector dataframe.
 #. Bug fix: :func:`saved` would save dataframe columns as their numeric key value when saving to Excel files.
