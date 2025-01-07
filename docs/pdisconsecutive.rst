@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: groupIsConsecutive = pdIsConsecutive(df [, groupvar, datevar])
 
-    :param df: Contains long-form panel data with (N_i * T_i) rows, where (N_i * T_i) and K columns.
+    :param df: Contains long-form panel data with :math:`N_i \times T_i` rows and K columns.
     :type df: Dataframe
 
     :param groupvar: Optional, name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
