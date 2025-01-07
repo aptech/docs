@@ -237,6 +237,9 @@ The :class:`tabControl` structure members *tbCtl.rowPercent* and *tbCtl.columnPe
 
 ::
 
+    // Load the entire dataset
+    tips = loadd(getGAUSShome("examples/tips2.dta"), "smoker + day");
+
     struct tabControl tbctl;
     tbctl = tabControlCreate();
 

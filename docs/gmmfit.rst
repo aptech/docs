@@ -135,7 +135,7 @@ Use data matrices
     sigma = { 1 0,
               0 1 };
 
-    // Number of observations>
+    // Number of observations
     num = 500;
 
     // Generate data
@@ -182,7 +182,7 @@ Use data matrices
                                 Standard                    Prob       Lower       Upper
     Variable        Estimate       Error     t-value        >|t|       Bound       Bound
     ------------------------------------------------------------------------------------
-    X1                10.104       2.180       4.635       0.000       5.832      14.377
+    X1                10.104      2.1798      4.6354  4.5546e-06      5.8318      14.377
     ====================================================================================
 
 Remarks

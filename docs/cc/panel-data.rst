@@ -5,14 +5,14 @@ Panel Data
 Size
 ---------------------------
 
-=========================       ===========================================
-:doc:`../pdallbalanced`         Returns an indicator of whether all groups in a panel dataset covers the maximum time span.
-:doc:`../pdallconsecutive`      Returns an indicator of whether all groups in a panel dataset covers consecutive time periods.
-:doc:`../pdisbalanced`          Returns an indicator of whether each group in a panel dataset covers the maximum time span.
-:doc:`../pdisconsecutive`       Returns an indicator of whether each group in a panel dataset covers consecutive time periods.
-:doc:`../pdsize`                Returns the number of groups, number of time observations for each group, an indicator of strong balance.
-:doc:`../pdtimespans`           Returns the start date and end date of each requested variable.
-=========================       ===========================================
+==========================       ===========================================
+:doc:`../pdallbalanced`          Returns an indicator of whether all groups in a panel dataset covers the maximum time span.
+:doc:`../pdallconsecutive`       Returns an indicator of whether all groups in a panel dataset covers consecutive time periods.
+:doc:`../pdisbalanced`           Returns an indicator of whether each group in a panel dataset covers the maximum time span.
+:doc:`../pdisconsecutive`        Returns an indicator of whether each group in a panel dataset covers consecutive time periods.
+:doc:`../pdsize`                 Returns the number of groups, number of time observations for each group, an indicator of strong balance.
+:doc:`../pdtimespans`            Returns the start date and end date of each requested variable.
+==========================       ===========================================
 
 
 Tranformation

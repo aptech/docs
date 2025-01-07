@@ -247,18 +247,19 @@ Basic usage with matrices
     ====================================================================================
     Valid cases:                        5          Dependent variable:                 Y
     Missing cases:                      0          Deletion method:                 None
-    Total SS:                      23.200          Degrees of freedom:                 1
+    Total SS:                        23.2          Degrees of freedom:                 1
     R-squared:                      0.982          Rbar-squared:                   0.928
     Residual SS:                    0.417          Std. err of est:                0.646
-    F(3,1):                        18.224          Probability of F:               0.170
+    F(3,1):                          18.2          Probability of F:                0.17
     ====================================================================================
                                 Standard                    Prob       Lower       Upper
     Variable        Estimate       Error     t-value        >|t|       Bound       Bound
     ------------------------------------------------------------------------------------
-    CONSTANT          -3.149       1.322      -2.382       0.253      -5.740      -0.558 
-    X1                 1.105       0.201       5.505       0.114       0.711       1.498 
-    X2                 1.728       0.284       6.073       0.104       1.170       2.285 
-    X3                -0.753       0.151      -4.986       0.126      -1.050      -0.457 
+
+    CONSTANT         -3.1489      1.3221     -2.3818     0.25306     -5.7401    -0.55765 
+    X1                1.1045     0.20065      5.5048      0.1144     0.71127      1.4978 
+    X2                1.7278     0.28449      6.0734     0.10389      1.1702      2.2854 
+    X3              -0.75342     0.15111     -4.9859     0.12601     -1.0496    -0.45725 
     ====================================================================================
 
 Basic usage with a dataset and a formula string
@@ -282,19 +283,20 @@ regression. The dependent variable is *homicide*. The independent variables are:
 
     Ordinary Least Squares
     =====================================================================================
-    Valid cases:                       13          Dependent variable:          homicide
-    Missing cases:                      0          Deletion method:                 None
-    Total SS:                    3221.790          Degrees of freedom:                10
-    R-squared:                      0.834          Rbar-squared:                   0.801
-    Residual SS:                  533.814          Std. err of est:                7.306
-    F(2,10):                       25.177          Probability of F:               0.000
+    Valid cases:                       13           Dependent variable:          homicide
+    Missing cases:                      0           Deletion method:                 None
+    Total SS:                    3.22e+03           Degrees of freedom:                10
+    R-squared:                      0.834           Rbar-squared:                   0.801
+    Residual SS:                      534           Std. err of est:                 7.31
+    F(2,10):                         25.2           Probability of F:            0.000125
     =====================================================================================
-                                Standard                    Prob       Lower       Upper
+                                 Standard                    Prob       Lower       Upper
     Variable         Estimate       Error     t-value        >|t|       Bound       Bound
     -------------------------------------------------------------------------------------
-    CONSTANT          -35.983       9.437      -3.813       0.003     -54.480     -17.486 
-    unemployment       -0.005       0.919      -0.005       0.996      -1.806       1.796 
-    hourly_earn        15.487       2.243       6.906       0.000      11.092      19.883 
+
+    CONSTANT          -35.983      9.4372     -3.8128   0.0034133      -54.48     -17.486 
+    unemployment   -0.0049983     0.91882  -0.0054399     0.99577     -1.8059      1.7959 
+    hourly_earn        15.487      2.2427      6.9057  4.1653e-05      11.092      19.883 
     =====================================================================================
 
 Basic usage with a dataframe and categorical variable
@@ -315,22 +317,23 @@ In this example, the dependent variable *price* is regressed on *mpg* and *rep78
 
     Ordinary Least Squares
     =========================================================================================
-    Valid cases:                         69          Dependent variable:               price
-    Missing cases:                        5          Deletion method:               Listwise
-    Total SS:                 576796958.870          Degrees of freedom:                  63
-    R-squared:                        0.258          Rbar-squared:                     0.199
-    Residual SS:              427776355.434          Std. err of est:               2605.782
-    F(5,63):                          4.389          Probability of F:                 0.002
+    Valid cases:                         69           Dependent variable:               price
+    Missing cases:                        5           Deletion method:               Listwise
+    Total SS:                      5.77e+08           Degrees of freedom:                  63
+    R-squared:                        0.258           Rbar-squared:                     0.199
+    Residual SS:                   4.28e+08           Std. err of est:               2.61e+03
+    F(5,63):                           4.39           Probability of F:               0.00172
     =========================================================================================
-                                    Standard                    Prob       Lower       Upper
+                                     Standard                    Prob       Lower       Upper
     Variable             Estimate       Error     t-value        >|t|       Bound       Bound
     -----------------------------------------------------------------------------------------
-    CONSTANT            10449.991    2251.041       4.642       0.000    6037.952   14862.031 
-    mpg                  -280.261      61.577      -4.551       0.000    -400.952    -159.571 
-    rep78: Fair           877.635    2063.285       0.425       0.672   -3166.403    4921.672 
-    rep78: Average       1425.657    1905.438       0.748       0.457   -2309.001    5160.315 
-    rep78: Good          1693.841    1942.669       0.872       0.387   -2113.791    5501.473 
-    rep78: Excellent     3131.982    2041.049       1.534       0.130    -868.473    7132.438 
+
+    CONSTANT                10450        2251      4.6423  1.7973e-05        6038       14862 
+    mpg                   -280.26      61.577     -4.5514  2.4902e-05     -400.95     -159.57 
+    rep78: Fair            877.63      2063.3     0.42536     0.67203     -3166.4      4921.7 
+    rep78: Average         1425.7      1905.4      0.7482     0.45712       -2309      5160.3 
+    rep78: Good            1693.8      1942.7     0.87191     0.38657     -2113.8      5501.5 
+    rep78: Excellent         3132        2041      1.5345     0.12991     -868.47      7132.4 
     =========================================================================================
 
 
@@ -352,45 +355,46 @@ In this example, we will regress *mpg* and *weight* on *price* for the case wher
 ::
 
     Ordinary Least Squares
+
     ====================================================================================
     foreign: Domestic 
     ====================================================================================
     Valid cases:                       52          Dependent variable:             price
     Missing cases:                      0          Deletion method:                 None
-    Total SS:               489194800.692          Degrees of freedom:                49
+    Total SS:                    4.89e+08          Degrees of freedom:                49
     R-squared:                      0.483          Rbar-squared:                   0.462
-    Residual SS:            252934086.227          Std. err of est:             2271.986
-    F(2,49):                       22.885          Probability of F:               0.000
+    Residual SS:                 2.53e+08          Std. err of est:             2.27e+03
+    F(2,49):                         22.9          Probability of F:            9.58e-08
     ====================================================================================
                                 Standard                    Prob       Lower       Upper
     Variable        Estimate       Error     t-value        >|t|       Bound       Bound
     ------------------------------------------------------------------------------------
-    CONSTANT      -13285.444    5726.031      -2.320       0.025  -24508.465   -2062.422 
-    mpg              237.691     139.033       1.710       0.094     -34.815     510.196 
-    weight             4.415       0.948       4.655       0.000       2.556       6.274 
+
+    CONSTANT          -13285        5726     -2.3202    0.024538      -24508     -2062.4 
+    mpg               237.69      139.03      1.7096    0.093667     -34.815       510.2 
+    weight             4.415     0.94839      4.6553  2.4949e-05      2.5562      6.2739 
     ====================================================================================
 
     Ordinary Least Squares
+
     ====================================================================================
     foreign: Foreign 
     ====================================================================================
     Valid cases:                       22          Dependent variable:             price
     Missing cases:                      0          Deletion method:                 None
-    Total SS:               144363212.773          Degrees of freedom:                19
+    Total SS:                    1.44e+08          Degrees of freedom:                19
     R-squared:                      0.785          Rbar-squared:                   0.763
-    Residual SS:             30967505.235          Std. err of est:             1276.663
-    F(2,19):                       34.787          Probability of F:               0.000
+    Residual SS:                  3.1e+07          Std. err of est:             1.28e+03
+    F(2,19):                         34.8          Probability of F:            4.45e-07
     ====================================================================================
                                 Standard                    Prob       Lower       Upper
     Variable        Estimate       Error     t-value        >|t|       Bound       Bound
     ------------------------------------------------------------------------------------
-    CONSTANT       -5065.841    3202.514      -1.582       0.130  -11342.768    1211.087 
-    mpg              -19.777      57.681      -0.343       0.735    -132.833      93.278 
-    weight             5.156       0.881       5.854       0.000       3.430       6.882 
+
+    CONSTANT         -5065.8      3202.5     -1.5818     0.13019      -11343      1211.1 
+    mpg              -19.777      57.681    -0.34287     0.73546     -132.83      93.278 
+    weight            5.1558     0.88069      5.8543  1.2249e-05      3.4297       6.882 
     ====================================================================================
-
-
-
 
 Use a dataset, a list of variable names plus a control and output structure.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -435,19 +439,20 @@ variables are: *Balance*, *Income*, and *Age*. The residuals and Durbin-Watson s
   ====================================================================================
   Valid cases:                      400          Dependent variable:             Limit
   Missing cases:                      0          Deletion method:                 None
-  Total SS:              2125784986.000          Degrees of freedom:               396
+  Total SS:                    2.13e+09          Degrees of freedom:               396
   R-squared:                      0.939          Rbar-squared:                   0.939
-  Residual SS:            129727134.947          Std. err of est:              572.358
-  F(3,396):                    2031.029          Probability of F:               0.000
-  Durbin-Watson:                  1.953                                               
+  Residual SS:                  1.3e+08          Std. err of est:                  572
+  F(3,396):                    2.03e+03          Probability of F:           5.24e-240
+  Durbin-Watson:                   1.95                                               
   ====================================================================================
                               Standard                    Prob       Lower       Upper
   Variable        Estimate       Error     t-value        >|t|       Bound       Bound
   ------------------------------------------------------------------------------------
-  CONSTANT        1521.905     102.229      14.887       0.000    1321.536    1722.273 
-  Balance            3.168       0.071      44.857       0.000       3.030       3.307 
-  Income            32.567       0.936      34.797       0.000      30.733      34.401 
-  Age                1.678       1.694       0.990       0.323      -1.643       4.999 
+
+  CONSTANT          1521.9      102.23      14.887  4.0076e-40      1321.5      1722.3 
+  Balance           3.1685    0.070635      44.857 2.5832e-157        3.03      3.3069 
+  Income            32.567     0.93593      34.797 1.6866e-122      30.733      34.401 
+  Age               1.6779      1.6943      0.9903     0.32263     -1.6429      4.9987 
   ====================================================================================
 
 Use a dataset and variable indices
@@ -476,19 +481,19 @@ The above code will produce the following output:
     ====================================================================================
     Valid cases:                      400          Dependent variable:            Rating
     Missing cases:                      0          Deletion method:                 None
-    Total SS:                 9551884.560          Degrees of freedom:               396
+    Total SS:                    9.55e+06          Degrees of freedom:               396
     R-squared:                      0.994          Rbar-squared:                   0.994
-    Residual SS:                59390.952          Std. err of est:               12.247
-    F(3,396):                   21097.644          Probability of F:               0.000
+    Residual SS:                 5.94e+04          Std. err of est:                 12.2
+    F(3,396):                    2.11e+04          Probability of F:                   0
     ====================================================================================
                                 Standard                    Prob       Lower       Upper
     Variable        Estimate       Error     t-value        >|t|       Bound       Bound
     ------------------------------------------------------------------------------------
 
-    CONSTANT          37.676       2.416      15.596       0.000      32.941      42.410 
-    Income             0.018       0.029       0.633       0.527      -0.038       0.075 
-    Limit              0.067       0.000     152.718       0.000       0.066       0.067 
-    Age                0.020       0.036       0.550       0.583      -0.051       0.091 
+    CONSTANT          37.676      2.4157      15.596  4.3018e-43      32.941       42.41 
+    Income          0.018253    0.028857     0.63254      0.5274   -0.038306    0.074812 
+    Limit           0.066587  0.00043602      152.72           0    0.065733    0.067442 
+    Age             0.019892    0.036174      0.5499      0.5827   -0.051009    0.090792 
     ====================================================================================
 
 Basic usage with weights
@@ -521,16 +526,17 @@ The above code will produce the following output:
   ====================================================================================
   Valid cases:                        7          Dependent variable:                 Y
   Missing cases:                      0          Deletion method:                 None
-  Total SS:                     572.494          Degrees of freedom:                 5
+  Total SS:                         572          Degrees of freedom:                 5
   R-squared:                      0.852          Rbar-squared:                   0.823
-  Residual SS:                    0.061          Std. err of est:                0.110
-  F(1,5):                        28.812          Probability of F:               0.002
+  Residual SS:                   0.0605          Std. err of est:                 0.11
+  F(1,5):                          28.8          Probability of F:              0.0018
   ====================================================================================
                               Standard                    Prob       Lower       Upper
   Variable        Estimate       Error     t-value        >|t|       Bound       Bound
   ------------------------------------------------------------------------------------
-  CONSTANT           0.128       0.007      18.787       0.000       0.115       0.141 
-  X1                 0.205       0.038       5.368       0.003       0.130       0.280 
+
+  CONSTANT         0.12796   0.0068112      18.787  7.8687e-06     0.11461     0.14131 
+  X1                0.2048    0.038155      5.3676   0.0030205     0.13002     0.27958 
   ====================================================================================
 
 Remarks
