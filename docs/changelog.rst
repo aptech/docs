@@ -30,7 +30,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug fix: :func:`spline` could go in an infinite loop in some rare cases.
 #. Bug fix: :func:`vec` could crash in a specific case with a column vector dataframe.
 #. Bug fix: :func:`saved` would save dataframe columns as their numeric key value when saving to Excel files.
-#. Bug fix: The Pacakge Manager would fail to install by default on Windows 11.
+#. Bug fix: The Package Manager would fail to install by default on Windows 11.
 
 24.0.5
 ------
