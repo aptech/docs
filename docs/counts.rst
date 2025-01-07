@@ -92,17 +92,22 @@ If the number of elements in the second input is large, passing in a sorted *x* 
 
 ::
 
+    // Sorted array of integers in which to search and count
     x = { 1, 1, 3, 4, 4, 4, 6, 7 };
 
+    // Vector of all integers in the range of 'x'
     ints = { 1, 2, 3, 4, 5, 6, 7 };
 
+    // Count the number of instances of each
+    // integer in 'x', telling GAUSS that
+    // 'x' is sorted.
     c = counts(x, ints, 1);
 
 ::
 
           1      2 
           2      0 
-   ints = 3  c = 0 
+   ints = 3  c = 1 
           4      3 
           5      0 
           6      1 

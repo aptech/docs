@@ -21,6 +21,47 @@ Format
     :return pd_sorted: A dataframe containing the sorted panel data.
     :rtype pd_sorted: Dataframe
 
+Examples
+-----------
+
+::
+
+    // Import data
+    fname = getGAUSSHome("examples/pd_ab.gdat");
+    pd_ab = loadd(fname);
+    
+    // Take out of order sample
+    pd_smpl = pd_ab[3 10 8 4 2 9,.];
+    print pd_smpl;
+
+::
+
+              id             year              emp             wage 
+               1       1979-01-01        5.0149999        12.839500 
+               2       1979-01-01        70.917999        14.953400 
+               2       1977-01-01        71.319000        14.790900 
+               1       1980-01-01        4.7150002        13.803900 
+               1       1978-01-01        5.5999999        12.301800 
+               2       1978-01-01        70.642998        14.103600
+
+
+::
+
+    // Sort sample
+    pd_srted = pdSort(pd_smpl);
+
+    print pd_srted;
+
+::
+
+              id             year              emp             wage 
+               1       1978-01-01        5.5999999        12.301800 
+               1       1979-01-01        5.0149999        12.839500 
+               1       1980-01-01        4.7150002        13.803900 
+               2       1977-01-01        71.319000        14.790900 
+               2       1978-01-01        70.642998        14.103600 
+               2       1979-01-01        70.917999        14.953400
+
 Remarks
 -------
 

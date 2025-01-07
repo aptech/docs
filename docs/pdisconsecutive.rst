@@ -52,7 +52,7 @@ If your group variable is the first categorical variable in your dataframe and t
 
 ::
 
-    // Check to see if the panel is consecutive
+    // Check to see if each group in the panel is consecutive
     is_consecutive = pdisconsecutive(pd_smpl);
 
     print is_consecutive;
