@@ -75,6 +75,7 @@ The default settings of the :func:`waldTest` procedure test the joint hypotheses
     // Run ols estimation
     // Load data
     fname = getGAUSSHome("examples/auto2.dta");
+    auto2 = loadd(fname);
 
     // Run OLS estimation
     struct olsmtOut out;
