@@ -45,7 +45,7 @@ The default settings of the :func:`waldTest` procedure test the joint hypotheses
     qOut = quantileFit(fname, "ln_wage~age + age:age + tenure", tau, qCtl);
 
     // Test slope equality
-    qfitSlopeTest(qOut, 1);
+    qfitSlopeTest(qOut);
 
 The code above will print a test summary.
 
@@ -55,10 +55,11 @@ The code above will print a test summary.
     Joint Test of Equality in Slopes : 
     tau in { 0.35 , 0.55 , 0.85 }
     Model: ln_wage ~ 
-    age + age_age + tenure 
+        age + age_age + tenure 
     -----------------------------------
-    F( 9, 28097 ):             138.2428 
-    Prob > F :                   0.0000 
+
+    F( 9, 28097 ):                138.2 
+    Prob > F :                2.378e-25 
     ===================================
 
 .. seealso:: :func:`waldTest`
