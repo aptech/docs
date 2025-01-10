@@ -74,5 +74,21 @@ Any frequency plot can be customized using a ``plotControl`` structure:
 
 .. figure:: _static/images/plotfreq3.jpg
     :scale: 50 %
-    
+
+ Example 4: Plotting by group with 'by'
+++++++++++++++++++++++++++++++++++++++++
+
+The :func:`plotFreq` function supports the use of the ``by`` keyword for plotting categorical frequencies by groups. 
+
+::
+
+  // Load dataset
+  tips2 = loadd("tips2.csv");
+ 
+  // Create a frequency plot of visits per day
+  // for each category of smoker (Yes, or No).
+  plotFreq(tips2, "day + by(smoker)");
+.. figure:: _static\images\g25-plotfreq-day-by-smoker.jpg
+    :scale: 50 %
+
 .. seealso:: Functions :func:`plotHist`, :func:`plotHistP`, :func:`plotHistF`
