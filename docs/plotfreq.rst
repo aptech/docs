@@ -88,6 +88,7 @@ The :func:`plotFreq` function supports the use of the ``by`` keyword for plottin
   // Create a frequency plot of visits per day
   // for each category of smoker (Yes, or No).
   plotFreq(tips2, "day + by(smoker)");
+  
 .. figure:: _static\images\g25-plotfreq-day-by-smoker.jpg
     :scale: 50 %
 
