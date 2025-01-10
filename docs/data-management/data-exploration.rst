@@ -339,7 +339,7 @@ Plotting category frequency
 Plotting sorted frequencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this example, the optional argument is used to specify that the bars should be sorted in order from most frequently to least frequently occurring.
+In this example, the optional argument, *sort*, is used to specify that the bars should be sorted in order from most frequently to least frequently occurring.
 
 ::
 
@@ -354,6 +354,24 @@ In this example, the optional argument is used to specify that the bars should b
 .. figure:: ../_static/images/plotfreq2.jpg
     :scale: 50%
        
+Plotting frequencies percentages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this example, the optional argument, *pct_axis*, is used to specify frequency percentages should be plotted. Note the optional argument, *sort*, must still be specified because optional arguments must be specified in order. 
+
+::
+
+  /*
+  ** This example uses 'auto2' data
+  ** which was previously loaded
+  */
+  
+  // Unsorted, percent frequency plot of 'rep78'
+  plotFreq(auto2, "rep78", 0, 1);
+
+.. figure:: _static\images\g25-percent-frequencies.jpg
+    :scale: 50%
+
 Plotting by groups 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
