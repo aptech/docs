@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: groupIsBalanced = pdIsBalanced(df [, groupvar, datevar])
 
-    :param df: Contains long-form (stacked) panel data with (N_i * T_i) rows, where (N_i * T_i) is the total number of observations across all groups, and K columns representing variables. Must contain at least one categorical or string variable for identifying group membership and at least one date variable.
+    :param df: Contains long-form panel data with :math:`N_i \times T_i` rows and K columns.
     :type df: Dataframe
 
     :param groupvar: Optional, specifies the name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
@@ -26,24 +26,40 @@ Examples
 
 ::
 
-    // Example dataframe
-    df = asDF("Group Date Variable",
-              { "A" 1 10,
-                "A" 2 20,
-                "B" 1 30,
-                "B" 3 40 });
+    // Load panel data and take the first 10 rows
+    pd = loadd(getGAUSSHome("examples/pd_ab.gdat"));
+    pd = pd[1:10,.];
 
-    // Check if each group covers the maximum time span
-    groupIsBalanced = pdIsBalanced(df);
+    print pd;
+
+::
+
+              id             year              emp             wage 
+               1       1977-01-01        5.0409999        13.151600 
+               1       1978-01-01        5.5999999        12.301800 
+               1       1979-01-01        5.0149999        12.839500 
+               1       1980-01-01        4.7150002        13.803900 
+               1       1981-01-01        4.0929999        14.289700 
+               1       1982-01-01        3.1659999        14.868100 
+               1       1983-01-01        2.9360001        13.778400 
+               2       1977-01-01        71.319000        14.790900 
+               2       1978-01-01        70.642998        14.103600 
+               2       1979-01-01        70.917999        14.953400 
+
+::
+
+    // Check to see if each group is balanced
+    is_balanced = pdIsBalanced(pd);
+    print is_balanced;
 
 The code above will return:
 
 ::
 
-    Group    IsBalanced
-    -------------------
-    A        1
-    B        0
+              id         balanced 
+               1        1.0000000 
+               2        0.0000000
+
 
 Remarks
 -------

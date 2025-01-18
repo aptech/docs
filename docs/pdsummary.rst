@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: pdOut = pdSummary(df [, varlist, missings, groupvar, datevar])
 
-    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i \times T_i` rows and K columns.
     :type df: Dataframe
 
     :param varlist: Optional, A list of variables to include in the summary. Default is all variables.
@@ -69,7 +69,7 @@ This function takes long-form panel data. To transform wide data to long-form da
 
 This function assumes panel is sorted by group and date. Note that panel data can be sorted using :func:`pdSort`.
 
-A strongly balanced panel dataset contains the same time points for each group. :func:`pdAllBalanced` examines the provided dataset to determine if it meets this condition.
+This function determines summary statistics for panel data using the specified *groupvar* and *datevar*: 
 
 - If *groupvar* is not provided, the function defaults to the first categorical or string variable in the dataframe.
 - If *datevar* is not provided, the function defaults to the first date variable in the dataframe.

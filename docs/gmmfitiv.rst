@@ -158,11 +158,12 @@ The above code will print out the following report:
                                 Standard                    Prob       Lower       Upper
     Variable        Estimate       Error     t-value        >|t|       Bound       Bound
     ------------------------------------------------------------------------------------
-    Constant          47.885       7.506       6.380       0.000      33.173      62.597 
-    weight            -0.004       0.002      -1.978       0.052      -0.008      -0.000 
-    length            -0.080       0.068      -1.175       0.244      -0.212       0.053 
+
+    CONSTANT          47.885       7.506      6.3795  1.5783e-08      33.173      62.597 
+    weight        -0.0038515   0.0019472      -1.978    0.051812  -0.0076679 -3.5022e-05 
+    length         -0.079593    0.067753     -1.1748     0.24402    -0.21239    0.053203 
     ====================================================================================
-    Instruments: Constant, weight, length
+    Instruments: CONSTANT, weight, length 
 
 Data Matrix
 +++++++++++++++++++
@@ -208,17 +209,18 @@ The above code will print out the following report:
     ====================================================================================
     Valid cases:                       50          Dependent variable:              rent
     Number of moments:                  0          Degrees of freedom:                47
-    J-stat                          6.975          Probability of J:               0.073
+    J-stat                           6.98          Probability of J:              0.0727
     Number of vars:                     3                                               
     ====================================================================================
                                 Standard                    Prob       Lower       Upper
     Variable        Estimate       Error     t-value        >|t|       Bound       Bound
     ------------------------------------------------------------------------------------
-    Constant         112.123      10.546      10.632       0.000      91.453     132.792 
-    hsngval            0.001       0.000       3.627       0.001       0.001       0.002 
-    pcturban           0.762       0.264       2.880       0.006       0.243       1.280 
+
+    CONSTANT          112.12      10.546      10.632  4.2698e-14      91.453      132.79 
+    hsngval        0.0014643  0.00040376      3.6268  0.00070459  0.00067297   0.0022557 
+    pcturban         0.76155     0.26439      2.8804   0.0059646     0.24335      1.2797 
     ====================================================================================
-    Instruments: Constant, pcturban, faminc, reg2, reg3, reg4
+    Instruments: Constant, pcturban, faminc, reg2, reg3, reg4 
 
 Remarks
 -------

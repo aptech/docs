@@ -202,16 +202,17 @@ This example will compute a least squares regression of *y* on *x*. The results 
     Pearson Chi-square:   99.370           AIC:                 295.156
     Log likelihood:     -141.578           BIC:                 310.787
     Dispersion:                1           Iterations:              310
-    Number of vars:            0                                       
+    Number of vars:            5                                       
     ===================================================================
-                                      Standard                    Prob
+                                       Standard                    Prob
     Variable               Estimate       Error     t-value        >|t|
     -------------------------------------------------------------------
-    CONSTANT                  0.067       0.102       0.656       0.514 
-    x1                       -0.027       0.097      -0.281       0.780 
-    x2                       -0.107       0.091      -1.182       0.240 
-    x3                        0.277       0.093       2.962       0.004 
-    x4                        0.068       0.111       0.612       0.542 
+
+    Constant               0.067084     0.10233     0.65556     0.51369 
+    x1                    -0.027278    0.097162    -0.28074     0.77952 
+    x2                     -0.10747    0.090888     -1.1825     0.23996 
+    x3                      0.27659    0.093397      2.9615    0.003867 
+    x4                     0.067915     0.11099      0.6119     0.54206 
     ===================================================================
 
 Logistic regression using a formula string to reference data in a CSV file containing categorical variables.
@@ -239,24 +240,25 @@ The code above will produce the following output. Note that :math:`rank = 1` is 
     ===================================================================
     Valid cases:             400           Dependent variable:    admit
     Degrees of freedom:      394           Distribution        binomial
-    Deviance:            458.517           Link function:         logit
-    Pearson Chi-square:  397.490           AIC:                 470.517
-    Log likelihood:     -229.259           BIC:                 494.466
+    Deviance:                459           Link function:         logit
+    Pearson Chi-square:      397           AIC:                 470.517
+    Log likelihood:         -229           BIC:                 494.466
     Dispersion:                1           Iterations:              494
-    Number of vars:            0                                       
+    Number of vars:            6                                       
     ===================================================================
-                                      Standard                    Prob
+                                       Standard                    Prob
     Variable               Estimate       Error     z-value        >|z|
     -------------------------------------------------------------------
-    CONSTANT                 -3.990       1.140      -3.500       0.000 
-    rank: 2                  -0.675       0.316      -2.134       0.033 
-    rank: 3                  -1.340       0.345      -3.881       0.000 
-    rank: 4                  -1.551       0.418      -3.713       0.000 
-    gre                       0.002       0.001       2.070       0.038 
-    gpa                       0.804       0.332       2.423       0.015 
+
+    CONSTANT                  -3.99        1.14     -3.5001  0.00046503 
+    rank: 2                -0.67544     0.31649     -2.1342    0.032829 
+    rank: 3                 -1.3402     0.34531     -3.8812  0.00010394 
+    rank: 4                 -1.5515     0.41783     -3.7131  0.00020471 
+    gre                   0.0022644    0.001094      2.0699    0.038465 
+    gpa                     0.80404     0.33182      2.4231    0.015388 
     ===================================================================
 
-    Note: Dispersion parameter for BINOMIAL distribution taken to be 1
+    Note: Dispersion parameter for BINOMIAL distribution taken to be 1 
 
 
 Logistic regression for each subset of a categorical variable
@@ -281,25 +283,26 @@ In the example below, we will estimate a logistic regression model for the case 
     ====================================================================================
     
     Generalized Linear Model
-    ===================================================================
+    ======================================================================
     Valid cases:              68           Dependent variable: smoker: Yes
-    Degrees of freedom:       64           Distribution        binomial
-    Deviance:             85.787           Link function:         logit
-    Pearson Chi-square:   67.797           AIC:                  93.787
-    Log likelihood:      -42.893           BIC:                 102.665
-    Dispersion:                1           Iterations:              102
-    Number of vars:            0                                       
-    ===================================================================
-                                      Standard                    Prob
-    Variable               Estimate       Error     z-value        >|z|
-    -------------------------------------------------------------------
-    CONSTANT                 -1.067       0.697      -1.531       0.126 
-    total_bill               -0.024       0.057      -0.419       0.675 
-    tip                       0.209       0.360       0.580       0.562 
-    sex: Male                 0.464       0.522       0.889       0.374 
-    ===================================================================
+    Degrees of freedom:       64           Distribution           binomial
+    Deviance:               85.8           Link function:            logit
+    Pearson Chi-square:     67.8           AIC:                     93.787
+    Log likelihood:        -42.9           BIC:                    102.665
+    Dispersion:                1           Iterations:                 102
+    Number of vars:            4                                       
+    =====================================================================
+                                         Standard                    Prob
+    Variable               Estimate         Error     z-value        >|z|
+    ---------------------------------------------------------------------
 
-    Note: Dispersion parameter for BINOMIAL distribution taken to be 1 
+    CONSTANT                -1.0674      0.69733      -1.5307     0.12583 
+    total_bill            -0.023941     0.057074     -0.41947     0.67487 
+    tip                     0.20882      0.35988      0.58025     0.56175 
+    sex: Male               0.46393      0.52191      0.88891     0.37405 
+    =====================================================================
+
+    Note: Dispersion parameter for BINOMIAL distribution taken to be 1  
     
     
     ====================================================================================
@@ -307,24 +310,24 @@ In the example below, we will estimate a logistic regression model for the case 
     ====================================================================================
     
     Generalized Linear Model
-    ===================================================================
+    ======================================================================
     Valid cases:             179           Dependent variable: smoker: Yes
-    Degrees of freedom:      175           Distribution        binomial
-    Deviance:            235.159           Link function:         logit
-    Pearson Chi-square:  180.370           AIC:                 243.159
-    Log likelihood:     -117.580           BIC:                 255.909
-    Dispersion:                1           Iterations:              255
-    Number of vars:            0                                       
-    ===================================================================
-                                      Standard                    Prob
-    Variable               Estimate       Error     z-value        >|z|
-    -------------------------------------------------------------------
+    Degrees of freedom:      175           Distribution           binomial
+    Deviance:                235           Link function:            logit
+    Pearson Chi-square:      180           AIC:                    243.159
+    Log likelihood:         -118           BIC:                    255.909
+    Dispersion:                1           Iterations:                 255
+    Number of vars:            4                                       
+    ======================================================================
+                                           Standard                   Prob
+    Variable                Estimate          Error     z-value       >|z|
+    ----------------------------------------------------------------------
 
-    CONSTANT                 -0.511       0.460      -1.112       0.266 
-    total_bill                0.043       0.023       1.922       0.055 
-    tip                      -0.196       0.143      -1.367       0.172 
-    sex: Male                -0.331       0.339      -0.975       0.330 
-    ===================================================================
+    CONSTANT                 -0.5111       0.4596        -1.112    0.26612 
+    total_bill              0.043252     0.022504         1.922    0.05461 
+    tip                     -0.19582      0.14327       -1.3668     0.1717 
+    sex: Male               -0.33096       0.3395      -0.97485    0.32964 
+    ======================================================================
 
     Note: Dispersion parameter for BINOMIAL distribution taken to be 1 
 
@@ -356,17 +359,18 @@ After running the code above, the output is :
     ===================================================================
     Valid cases:              74           Dependent variable:      mpg
     Degrees of freedom:       72           Distribution          normal
-    Deviance:           1330.683           Link function:      identity
-    Pearson Chi-square: 1330.683           AIC:                 429.817
-    Log likelihood:     -211.909           BIC:                 436.729
+    Deviance:           1.33e+03           Link function:      identity
+    Pearson Chi-square: 1.33e+03           AIC:                 429.817
+    Log likelihood:         -212           BIC:                 436.729
     Dispersion:               18           Iterations:              436
-    Number of vars:            0                                       
+    Number of vars:            2                                       
     ===================================================================
-                                      Standard                    Prob
+                                       Standard                    Prob
     Variable               Estimate       Error     t-value        >|t|
     -------------------------------------------------------------------
-    weight                   -0.001       0.000      -3.235       0.002 
-    gear_ratio                8.424       0.446      18.872       0.000 
+
+    weight               -0.0014124  0.00043663     -3.2348   0.0018396 
+    gear_ratio               8.4236     0.44635      18.872  1.3699e-29 
     ===================================================================
 
 Running a no intercept model from a SAS sas7bdat file.
@@ -397,18 +401,19 @@ After running the code above, the output is :
     ===================================================================
     Valid cases:              13           Dependent variable: homicide
     Degrees of freedom:       10           Distribution          normal
-    Deviance:            533.814           Link function:      identity
-    Pearson Chi-square:  533.814           AIC:                  93.189
-    Log likelihood:      -42.594           BIC:                  95.448
+    Deviance:                534           Link function:      identity
+    Pearson Chi-square:      534           AIC:                  93.189
+    Log likelihood:        -42.6           BIC:                  95.448
     Dispersion:               53           Iterations:               95
-    Number of vars:            0                                       
+    Number of vars:            3                                       
     ===================================================================
-                                      Standard                    Prob
+                                       Standard                    Prob
     Variable               Estimate       Error     t-value        >|t|
     -------------------------------------------------------------------
-    CONSTANT                -35.983       9.437      -3.813       0.003 
-    unemployment             -0.005       0.919      -0.005       0.996 
-    hourly_earn              15.487       2.243       6.906       0.000 
+
+    CONSTANT                -35.983      9.4372     -3.8128   0.0034133 
+    unemployment         -0.0049983     0.91882  -0.0054399     0.99577 
+    hourly_earn              15.487      2.2427      6.9057  4.1653e-05 
     ===================================================================
 
 Ordinary linear regression with categorical variables in a matrix.
@@ -451,19 +456,20 @@ Sometimes it is necessary or preferable to reference model variables by index ra
     ===================================================================
     Valid cases:             400           Dependent variable:  Balance
     Degrees of freedom:      396           Distribution          normal
-    Deviance:           66106798.130           Link function:      identity
-    Pearson Chi-square: 66106798.130           AIC:                5951.278
-    Log likelihood:     -2970.639           BIC:                5971.235
+    Deviance:           6.61e+07           Link function:      identity
+    Pearson Chi-square: 6.61e+07           AIC:                5951.278
+    Log likelihood:    -2.97e+03           BIC:                5971.235
     Dispersion:           166936           Iterations:             5971
-    Number of vars:            0                                       
+    Number of vars:            4                                       
     ===================================================================
-                                      Standard                    Prob
+                                       Standard                    Prob
     Variable               Estimate       Error     t-value        >|t|
     -------------------------------------------------------------------
-    CONSTANT                246.185      46.535       5.290       0.000 
-    Gender: 2                24.577      40.889       0.601       0.548 
-    Married: 2              -21.279      41.963      -0.507       0.612 
-    Income                    6.063       0.581      10.439       0.000 
+
+    Constant                 246.19      46.535      5.2903  2.0256e-07 
+    Gender: 2                24.577      40.889     0.60108     0.54813 
+    Married: 2              -21.279      41.963    -0.50708     0.61238 
+    Income                   6.0626     0.58077      10.439  1.0685e-22 
     ===================================================================
 
 Ordinary linear regression with categorical variables in a dataframe.
@@ -497,19 +503,20 @@ The categorical variables code:`"Gender"` and code:`"Married"` are now automatic
   ===================================================================
   Valid cases:             400           Dependent variable:  Balance
   Degrees of freedom:      396           Distribution          normal
-  Deviance:           66106798.130           Link function:      identity
-  Pearson Chi-square: 66106798.130           AIC:                5951.278
-  Log likelihood:     -2970.639           BIC:                5971.235
+  Deviance:           6.61e+07           Link function:      identity
+  Pearson Chi-square: 6.61e+07           AIC:                5951.278
+  Log likelihood:    -2.97e+03           BIC:                5971.235
   Dispersion:           166936           Iterations:             5971
-  Number of vars:            0                                       
+  Number of vars:            4                                       
   ===================================================================
-                                    Standard                    Prob
+                                     Standard                    Prob
   Variable               Estimate       Error     t-value        >|t|
   -------------------------------------------------------------------
-  CONSTANT                246.185      46.535       5.290       0.000 
-  Gender: Female           24.577      40.889       0.601       0.548 
-  Married: Married        -21.279      41.963      -0.507       0.612 
-  Income                    6.063       0.581      10.439       0.000 
+
+  CONSTANT                 246.19      46.535      5.2903  2.0256e-07 
+  Gender: Female           24.577      40.889     0.60108     0.54813 
+  Married: Married        -21.279      41.963    -0.50708     0.61238 
+  Income                   6.0626     0.58077      10.439  1.0685e-22 
   ===================================================================
 
 Using a control structure
@@ -543,25 +550,28 @@ After running above code, the model estimates and diagnostic information will be
 ::
 
     Generalized Linear Model
+    ===================================================================
+    Valid cases:             400           Dependent variable:    admit
+    Degrees of freedom:      394           Distribution        binomial
+    Deviance:                458           Link function:        probit
+    Pearson Chi-square:      398           AIC:                 470.413
+    Log likelihood:         -229           BIC:                 494.362
+    Dispersion:                1           Iterations:              494
+    Number of vars:            6                                       
+    ===================================================================
+                                       Standard                    Prob
+    Variable               Estimate       Error     z-value        >|z|
+    -------------------------------------------------------------------
 
-    Valid cases:                  400     Dependent Variable:                      admit
-    Degrees of freedom:           394     Distribution:                         binomial
-    Deviance:                   458.4     Link function:                          probit
-    Pearson Chi-square:         397.7     AIC:                                     470.4
-    Log likelihood:            -229.2     BIC:                                     494.4
-    Dispersion:                     1     Iterations:                                  4
+    CONSTANT                -2.3868     0.67395     -3.5416  0.00039773 
+    rank: 2                 -0.4154     0.19498     -2.1305     0.03313 
+    rank: 3                -0.81214     0.20836     -3.8978  9.7067e-05 
+    rank: 4                 -0.9359     0.24527     -3.8158  0.00013576 
+    gre                   0.0013756  0.00065003      2.1162    0.034329 
+    gpa                     0.47773      0.1972      2.4226     0.01541 
+    ===================================================================
 
-                                              Standard                              Prob
-    Variable                 Estimate            Error          z-value             >|z|
-    ----------------     ------------     ------------     ------------     ------------
-    CONSTANT                  -2.3868          0.67395          -3.5416      0.000397733 
-    rank: 2                   -0.4154          0.19498          -2.1305        0.0331297 
-    rank: 3                  -0.81214          0.20836          -3.8978         < 0.0001 
-    rank: 4                   -0.9359          0.24527          -3.8158      0.000135764 
-    gre                     0.0013756       0.00065003           2.1162        0.0343292 
-    gpa                       0.47773           0.1972           2.4226        0.0154097 
-
-    // Note: Dispersion parameter for BINOMIAL distribution taken to be 1
+    Note: Dispersion parameter for BINOMIAL distribution taken to be 1 
 
 A Poisson regression model with categorical variables, using matrix inputs.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -608,23 +618,26 @@ After running above code, the output is:
 ::
 
     Generalized Linear Model
+    ====================================================================
+    Valid cases:             200           Dependent variable: num_award
+    Degrees of freedom:      196           Distribution          poisson
+    Deviance:                189           Link function:             ln
+    Pearson Chi-square:      212           AIC:                  373.505
+    Log likelihood:         -183           BIC:                  386.698
+    Dispersion:                1           Iterations:               386
+    Number of vars:            4                                       
+    ====================================================================
+                                      Standard                      Prob
+    Variable               Estimate       Error     z-value         >|z|
+    --------------------------------------------------------------------
 
-    Valid cases:                  200     Dependent Variable:                  num_award
-    Degrees of freedom:           196     Distribution:                          poisson
-    Deviance:                   189.4     Link function:                              ln
-    Pearson Chi-square:         212.1     AIC:                                     373.5
-    Log likelihood:            -182.8     BIC:                                     386.7
-    Dispersion:                     1     Iterations:                                  6
+    CONSTANT                -5.2471     0.65845     -7.9689   1.6014e-15 
+    prog: 2                  1.0839     0.35825      3.0254     0.002483 
+    prog: 3                 0.36981     0.44107     0.83844      0.40179 
+    math                   0.070152    0.010599      6.6186    3.625e-11 
+    ====================================================================
 
-                                               Standard                              Prob
-    Variable                  Estimate            Error          z-value             >|z|
-    ----------------      ------------     ------------     ------------     ------------
-    CONSTANT                   -5.2471          0.65845          -7.9689         < 0.0001
-    prog            2           1.0839          0.35825           3.0254       0.00248303
-                    3          0.36981          0.44107          0.83844         0.401786
-    math                      0.070152         0.010599           6.6186         < 0.0001
-
-    // Note: Dispersion parameter for POISSON distribution taken to be 1
+    Note: Dispersion parameter for POISSON distribution taken to be 1 
 
 Using a :class:`glmOut` structure to save result for a Gamma regression with categorical variables.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

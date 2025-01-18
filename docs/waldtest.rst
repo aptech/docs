@@ -75,6 +75,7 @@ The default settings of the :func:`waldTest` procedure test the joint hypotheses
     // Run ols estimation
     // Load data
     fname = getGAUSSHome("examples/auto2.dta");
+    auto2 = loadd(fname);
 
     // Run OLS estimation
     struct olsmtOut out;
@@ -100,6 +101,8 @@ The OLS results are:
     rep78: Average        1425.66     1905.44    0.748204     0.457     0.24444   0.0859051 
     rep78: Good           1693.84     1942.67    0.871914     0.387    0.257252   -0.015317 
     rep78: Excellent      3131.98     2041.05      1.5345     0.130    0.396546   -0.035102 
+
+::
 
     // Call waldTest 
     call waldTest(out);
@@ -131,6 +134,7 @@ The default settings of the :func:`waldTest` procedure test the joint hypotheses
     // Run ols estimation
     // Load data
     fname = getGAUSSHome("examples/auto2.dta");
+    auto2 = loadd(fname);
 
     // Run OLS estimation
     struct olsmtOut out;

@@ -14,6 +14,7 @@ Command Reference
     cc/optimization-and-solution
     cc/mathematical-functions
     cc/operators
+    cc/panel-data
     cc/statistical-distributions
     cc/time-and-date
     cc/string-handling

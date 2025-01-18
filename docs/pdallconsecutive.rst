@@ -9,7 +9,7 @@ Format
 ----------------
 .. function:: allConsecutive = pdAllConsecutive(df [, groupvar, datevar])
 
-    :param df: Contains long-form panel data with :math:`N_i x T_i` rows and K columns.
+    :param df: Contains long-form panel data with :math:`N_i \times T_i` rows and K columns.
     :type df: Dataframe
 
     :param groupvar: Optional, name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
@@ -57,7 +57,7 @@ If your group variable is the first categorical variable in your dataframe and t
 
     print is_consecutive;
 
-    The above code will return:
+The above code will return:
 
 ::
 
@@ -93,7 +93,8 @@ In the new sample, group 2 has a gap in observations. It is missing an observati
 
     print is_consecutive;
 
-    The above code will return:  
+
+The above code will return:  
 
 ::
 
