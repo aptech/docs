@@ -7,13 +7,18 @@ Provides size description of a panel dataset including the number of groups, num
 
 Format
 ----------------
-.. function:: { num_grps, T, balanced } = pdSize(df, groupvar)
-
+.. function:: { num_grps, T, balanced } = pdSize(df [, printon, groupvar, datevar])
     :param df: Contains long-form panel data with :math:`N_i \times T_i` rows and K columns.
     :type df: Dataframe
 
-    :param groupvar: A column vector indicating group membership for panel observations.
+    :param printon: Optional, indicator to print summary report. Default = 1.
+    :type groupvar: Scalar
+    
+    :param groupvar: Optional, specifies the name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
     :type groupvar: String
+
+    :param datevar: Optional, specifies the name of the variable used to identify dates for panel observations. Defaults to the first date variable in the dataframe.
+    :type datevar: String
 
     :return num_grps: Number of groups in the panel.        
     :rtype num_grps: Scalar
