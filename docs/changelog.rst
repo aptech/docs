@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+25.0.1
+------
+
+#. Bug fix: subtraction with sparse matrices would sometimes cause an error of 'could not create sparse marix'.
+
 25.0.0
 ------
 #. New function: :func:`pdAllBalanced` checks if panel data is strongly balanced, i.e., if each individual has the same time periods. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.
