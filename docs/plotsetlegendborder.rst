@@ -8,7 +8,7 @@ Controls the color and thickness of the legend border.
 
 Format
 ----------------
-.. function:: plotSetLegendBorder(&myPlot, clr[, thickness])
+.. function:: plotSetLegendBorder(&myPlot, clr[, thickness, style])
 
     :param &myPlot: A :class:`plotControl` structure pointer.
     :type &myPlot: struct pointer
@@ -18,6 +18,12 @@ Format
 
     :param thickness: Optional input, the thickness of the legend border in pixels.
     :type thickness: scalar
+
+    :param style: Optional input, border line style. Options include:
+
+        .. include:: include/plotpenstyletable.rst
+
+    :type style: scalar
 
 Examples
 ----------------
