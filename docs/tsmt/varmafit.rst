@@ -13,9 +13,6 @@ Format
    :param y: data.
    :type y: Nx1 vector
 
-   :param x: independent data.
-   :type x: Nxk vector
-
    :param dataset: name of data set or null string.
    :type dataset: string
 
