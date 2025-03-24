@@ -31,7 +31,7 @@ Key Features Comparison
      - Function and derivatives computed separately, requiring redundant calculations.
      - Unified procedure for computing log-likelihood, first derivatives, and second derivatives, reducing redundant computations.
    * - Parameter Handling
-     - **Requires a PV structure**, which allows flexible parameter management but increases coding complexity.
+     - Supports only a **simple parameter vector**, which allows flexible parameter management but increases coding complexity.
      - Supports both a **simple parameter vector (easier to use)** and a **PV structure (for advanced parameter management)**. This allows flexible parameter management.
    * - Line Search Methods
      - STEPBT (quadratic/cubic fitting), BRENT, HALF, and BHHHSTEP.
