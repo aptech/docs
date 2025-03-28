@@ -7,24 +7,24 @@ Select lags based on method of statistical inference.
 
 Format
 ------
-.. function:: { stat,p_mat } = selectLags(y, x, maxlag, method, print_out)
+.. function:: { stat,p_mat } = selectLags(y, x [, maxlag, method, print_out])
 
    :param y: Nx1 data to be tested.
-   :type y: Matrix
+   :type y: matrix
 
    :param x: NxK, exogenous regressor. Set equal to 0 if there are no exogenous variables.
-   :type x: Matrix
+   :type x: matrix
 
-   :param maxlag: maximum lags.
-   :type maxlag: Scalar
+   :param maxlag: Optional, maximum lags. Default = 12.
+   :type maxlag: scalar
 
-   :param method: lag selection method:
+   :param method: Optional, lag selection method:
 
       .. list-table::
          :widths: auto
 
          * - AIC
-           - Akaike information criterion.
+           - Akaike information criterion. (Default)
          * - BIC
            - Bayesian information criterion.
          * - HQC
@@ -32,9 +32,12 @@ Format
          * - FPE
            - Final prediction error.
          * - ALL
-           - All methods computed.
+           - All methods computed. 
 
-   :type method: String
+   :type method: string
+
+   :param printOut: Optional, indicator to print out. 1 = print out, 0 = no print out. Default = 1.
+   :type printOut: scalar
 
    :return stat: lag selection criterion values.
    :rtype stat: matrix

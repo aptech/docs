@@ -4,6 +4,19 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+25.0.1
+------
+
+#. Enhancement: Remove non-numeric types from :func:`pdSummary` computations and print note that non-numeric types have been removed. 
+#. Expanded functionality: Add optional style input to :func:`plotSetLegendBorder` for setting line style for legend border.
+#. Expanded functionality: Implement option to turn legend border off using :func:`plotSetLegendBorder`. 
+#. Graphics: :func:`plotBar` now supports formula strings and automatically handles dataframe input to generate the appropriate axis and legend labels.
+#. Graphics: :func:`plotBar` now supports the :class:`by` keeyword and splits data to be plotted by a specified categorical or string variable and automatically handle dataframe input to generate the appropriate legend items.
+#. Graphics: :func:`plotBar` and :func:`plotAddBar` now supports dates as the x-axis labels. 
+#. Bug fix: subtraction with sparse matrices would sometimes cause an error of 'could not create sparse marix'.
+#. Bug fix: Some use cases of :func:`pdSummary` with limited varlists could error with `incompatible type`.
+#. Bug fix: Some cases of :func:`pdSize` would error when empty categories were encountered. 
+
 25.0.0
 ------
 #. New function: :func:`pdAllBalanced` checks if panel data is strongly balanced, i.e., if each individual has the same time periods. It intelligently detects group and date variables, while also providing the flexibility for users to specify these variables as needed.

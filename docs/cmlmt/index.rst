@@ -138,6 +138,9 @@ Control Options
      - Convergence is achieved when the direction vector changes less than this amount.
 
 
+Further Information
+-------------------------
+#. For more information on the advantages **CMLMT** package versus the **CML** packagage, please see the `CMLMT vs. CML <cmlmt/cml_vs_cmlmt>`_.
 
 .. toctree::
     :maxdepth: 2
