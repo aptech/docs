@@ -17,9 +17,9 @@ Format
     :param fmt: containing strftime date/time format characters.
     :type fmt: string or ExE conformable string array 
 
-    :return d: containing dates in POSIX format (seconds since the Jan 1, 1970).
+    :return d: displaying the date in the `fmt` format and containing the dates in POSIX format (seconds since the Jan 1, 1970).
 
-    :rtype d: NxK matrix
+    :rtype d: NxK date variable
 
 Examples
 ----------------
@@ -34,19 +34,60 @@ produces the output:
 
 ::
 
-   1340409600
+              X1
+      2012/06/23
+
+To see the date in seconds since Jan 1, 1970, you can use the :func:`asmatrix` function.
+
+::
+
+    print asmatrix(strctoposix("2012/06/23", "%Y/%m/%d"));
+
+::
+
+    1340409600
 
 Example 2
 +++++++++
+
+Convert a string to a date variable and then change the date format.
+
 ::
 
-   print strctoposix("1945-11-22 18:36:29", "%Y-%m-%d %H:%M:%S");
+   dt = strctoposix("1945-11-22 18:36:29", "%Y-%m-%d %H:%M:%S");
+   print dt;
 
 produces the output:
 
 ::
 
-   -760771411
+                  X1 
+    1945-11-22 18:36
+
+Now change the date format that is printed.
+
+::
+
+    dt = asdate(dt, "%a, %b %d");
+    print dt;
+
+::
+
+              X1 
+     Thu, Nov 22
+
+Now change the variable name:
+
+::
+
+    dt = asdf(dt, "day");
+    print dt;
+
+::
+
+             day 
+     Thu, Nov 22
+    
 
 Example 3
 +++++++++
@@ -58,7 +99,8 @@ produces the output:
 
 ::
 
-   97172340
+                              X1
+    January 29, 1973 at  4:19 PM
 
 Example 4
 +++++++++
@@ -71,8 +113,9 @@ produces *s* equal to:
 
 ::
 
-   1193097600
-   1203120000
+             X1
+   Oct 23, 2007
+   Feb 16, 2008
 
 Example 5
 +++++++++
@@ -85,13 +128,16 @@ produces *s* equal to:
 
 ::
 
-   1193172342
-   1203172342
+                  X1
+   10/23/07 20:45:42
+   02/16/08 14:32:22
 
 Remarks
 -------
 
-The following format specifiers are supported:
+* To change the printed date format, use :func:`asdate`.
+* To view the date in seconds since Jan 1, 1970, use :func:`asmatrix`.
+* The following format specifiers are supported:
 
 +-----------------+-----------------------------------------------------+
 | %A              | The full weekday name.                              |
@@ -198,5 +244,5 @@ The following format specifiers are supported:
 +-----------------+-----------------------------------------------------+
 
 
-.. seealso:: Functions :func:`posixtostrc`, :func:`dttostrc`, :func:`strctodt`, :func:`dttostr`, :func:`strtodt`, :func:`dttoutc`, :func:`utctodt`
+.. seealso:: Functions :func:`asdate`, :func:`asmatrix`, :func:`posixtostrc`, :func:`dttostrc`, :func:`strctodt`, :func:`dttostr`, :func:`strtodt`, :func:`dttoutc`, :func:`utctodt`
 

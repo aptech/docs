@@ -14,9 +14,7 @@ Format
     :param x: Data.
     :type x: NxK dataframe
 
-    :param varlist: Names or indices of variables to be counted. If names, should be entered as a formula string. 
-    E.g ``"rep78 + foreign"``; 
-    E.g ``"df1 ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df2"`` and ``"df3"``.
+    :param varlist: Names or indices of variables to be counted. If names, should be entered as a formula string. E.g ``"rep78 + foreign"``; E.g ``"df1 ~ df2 + df3"``, ``"df1"`` categories will be reported in rows, separate columns will be returned for each category in ``"df2"`` and ``"df3"``.
     
     :type varlist: Vector or string
         
