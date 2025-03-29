@@ -16,6 +16,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug fix: subtraction with sparse matrices would sometimes cause an error of 'could not create sparse marix'.
 #. Bug fix: Some use cases of :func:`pdSummary` with limited varlists could error with `incompatible type`.
 #. Bug fix: Some cases of :func:`pdSize` would error when empty categories were encountered. 
+#. Bug fix: In certain cases the subtraction operator could report an error with sparse matrices.
 
 25.0.0
 ------
