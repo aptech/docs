@@ -11,7 +11,6 @@ The following is a list of changes from the previous version of GAUSS.
 #. Expanded functionality: Add optional style input to :func:`plotSetLegendBorder` for setting line style for legend border.
 #. Expanded functionality: Implement option to turn legend border off using :func:`plotSetLegendBorder`. 
 #. Graphics: :func:`plotBar` now supports formula strings and automatically handles dataframe input to generate the appropriate axis and legend labels.
-#. Graphics: :func:`plotBar` now supports the :class:`by` keeyword and splits data to be plotted by a specified categorical or string variable and automatically handle dataframe input to generate the appropriate legend items.
 #. Graphics: :func:`plotBar` and :func:`plotAddBar` now supports dates as the x-axis labels. 
 #. Bug fix: subtraction with sparse matrices would sometimes cause an error of 'could not create sparse marix'.
 #. Bug fix: Some use cases of :func:`pdSummary` with limited varlists could error with `incompatible type`.
