@@ -1,7 +1,6 @@
 .. list-table::
    :widths: auto
 
-
    * - sumStats.sse
      - Kx1 vector, sum of the squared errors of estimates for endogenous variables in the model.
 

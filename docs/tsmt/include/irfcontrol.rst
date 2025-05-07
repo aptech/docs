@@ -1,7 +1,6 @@
 .. list-table::
    :widths: auto
 
-
    * - ctl.irf.nsteps
      - Scalar, the number of horizons for IRF computations. Default = 20.
    * - ctl.irf.ident

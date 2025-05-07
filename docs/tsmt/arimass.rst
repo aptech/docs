@@ -8,7 +8,7 @@ Estimates ARIMA models using a state space representation, the Kalman filter, an
 Format
 ------
 
-.. function:: vOut = arimaSS(y, p, d, q, trend, const)
+.. function:: vOut = arimaSS(y, p[, d, q, trend, const])
 
    :param y: data.
    :type y: Nx1 vector
@@ -16,16 +16,16 @@ Format
    :param p: the autoregressive order.
    :type p: Scalar
 
-   :param d: the order of differencing.
+   :param d: Optional, the order of differencing. Default = 0.
    :type d: Scalar
 
-   :param q: the moving average order.
+   :param q: Optional, the moving average order. Default = 0.
    :type q: Scalar
 
-   :param trend: an indicator variable to include a trend in the model. Set to 1 to include trend, 0 otherwise.
+   :param trend: Optional, an indicator variable to include a trend in the model. Set to 1 to include trend, 0 otherwise. Default = 0.
    :type trend: Scalar
 
-   :param const: an indicator variable to include a constant in the model. Set to 1 to include trend, 0 otherwise.
+   :param const: Optional, an indicator variable to include a constant in the model. Set to 1 to include constant, 0 otherwise. Default = 1.
    :type const: Scalar
 
    :return vOut: An instance of an :class:`arimamtOut` structure containing the following members:
@@ -58,12 +58,12 @@ Format
          * - amo.tsmtDesc 
            - An instance of the :class:`tsmtModelDesc` structure containing the following members:
   
-              .. include:: include/tsmtmodeldesc.rst
+              .. include:: tsmt/include/tsmtmodeldesc.rst
 
          * - amo.sumStats 
            - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-              .. include:: include/tsmtsummarystats.rst
+              .. include:: tsmt/include/tsmtsummarystats.rst
  
    :rtype vOut: struct
 

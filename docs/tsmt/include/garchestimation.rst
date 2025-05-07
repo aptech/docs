@@ -32,9 +32,9 @@
     * - gout.tsmtDesc
       - An instance of the :class:`tsmtModelDesc` structure containing the following members:
   
-        .. include:: include/tsmtmodeldesc.rst
+        .. include:: tsmt/include/tsmtmodeldesc.rst
 
     * - gout.sumStats 
       - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-        .. include:: include/tsmtsummarystats.rst
+        .. include:: tsmt/include/tsmtsummarystats.rst

@@ -24,13 +24,13 @@ Format
 
    :param vmc: Optional input, an instance of a :class:`varmamtControl` structure. The following members of *vmc* are referenced within this routine:
 
-      .. include:: include/varmamtcontrol.rst
+      .. include:: tsmt/include/varmamtcontrol.rst
 
    :type vmc: struct
 
    :return vmo: An instance of a :class:`varmamtOut` structure containing the following members:
 
-      .. include:: include/varmamtout.rst
+      .. include:: tsmt/include/varmamtout.rst
 
    :rtype vmo: struct
 

@@ -1,7 +1,6 @@
 .. list-table::
    :widths: auto
 
-
    * - tsmtDesc.depvar
      - Kx1 string array, names of endogenous variables.
 

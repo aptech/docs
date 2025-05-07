@@ -7,12 +7,12 @@ Estimate structural vector autoregressive models.
 
 Format
 ------
-.. function:: rslt = svarFit(Y [, maxlags, const, ctl])
+.. function:: rslt = svarFit(Y [, maxlags, const, X_exog, ctl])
 
-    :param Y: NxM data.
+    :param Y: NxM or Nx(M+1) data. May include date variable, which will be removed from the data matrix. The date variable is not included in the model as a regressor.
     :type Y: matrix
 
-    :param maxlags: Optional, maximum number of lags to consider for VAR model.
+    :param maxlags: Optional, maximum number of lags to consider for VAR model. If user_lags is specified in the :class:`svarControl` structure, this parameter is ignored. Default = 8.
     :type maxlags: scalar
 
     :param const: Optional, specifying deterministic components of model. 
@@ -26,6 +26,9 @@ Format
 
     :type const: scalar
     
+    :param X_exog: Optional, exogenous variables. If specified, the model is estimated as a VARX model. The exogenous variables are assumed to be stationary and are included in the model as additional regressors. May include date variable, which will be removed from the data matrix. The date variable is not included in the model as a regressor.
+    :type X_exog: matrix
+
     :param ctl: Optional, an instance of the :class:`svarControl` structure containing the following members.
     
      .. list-table::
@@ -43,7 +46,7 @@ Format
         * - ctl.irf
           - An instance of the :class:`irfControl` structure containing the following members.
 
-          .. include:: include/irfcontrol.rst
+            .. include:: tsmt/include/irfcontrol.rst
 
     :type ctl: struct
     
@@ -74,12 +77,12 @@ Format
             * - rslt.tsmtDesc
               - An instance of the :class:`tsmtModelDesc` structure containing the following members:
 
-              .. include:: include/tsmtmodeldesc.rst
+                .. include:: tsmt/include/tsmtmodeldesc.rst
 
             * - rslt.sumStats 
               - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-              .. include:: include/tsmtsummarystats.rst
+                .. include:: tsmt/include/tsmtsummarystats.rst
 
         :rtype: struct
 
