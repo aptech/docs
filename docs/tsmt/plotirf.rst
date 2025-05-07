@@ -50,5 +50,5 @@ Remarks
 -------
 The :func:`plotIRF` function expects a filled instance of the :class:`svarOut` structure. It must be called after running :func:`svarFit`.
 
-.. seealso:: Functions :func:`svarFit`, :func:`svarControlCreate`, :func:`plotFEVD`
+.. seealso:: Functions :func:`svarFit`, :func:`svarControlCreate`, :func:`plotFEVD`, :func:`plotHD` 
 

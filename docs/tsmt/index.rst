@@ -141,7 +141,8 @@ Further Reading
     kpss
     lagreport
     lsdvfit
-    plotfevd 
+    plotfevd
+    plothd 
     plotirf
     rolling
     sarimass 

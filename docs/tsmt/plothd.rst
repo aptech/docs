@@ -4,11 +4,11 @@ plotFEVD
 Purpose
 -------
 
-The :func:`plotFEVD` function is designed to plot the Factor Error Variance Decompositions from a structural Vector Autoregression (VAR) model. 
+The :func:`plotHD` function is designed to plot the Historical Decompositions from a structural Vector Autoregression (VAR) model. 
 
 Format
 ------
-.. function:: plotFEVD(sOut)
+.. function:: plotHD(sOut)
 
     :param sOut: An instance of the :class:`svarOut` structure containing the results from the :func:`svarFit` estimation procedure.
     :type sOut: struct
@@ -40,11 +40,11 @@ Example
     sout = svarFit(Y);
 
     // Plot the IRFs
-    plotFEVD(sOut);
+    plotHD(sOut);
 
 Remarks
 -------
-The :func:`plotFEVD` function expects a filled instance of the :class:`svarOut` structure. It must be called after running :func:`svarFit`.
+The :func:`plotHD` function expects a filled instance of the :class:`svarOut` structure. It must be called after running :func:`svarFit`.
 
-.. seealso:: Functions :func:`svarFit`, :func:`svarControlCreate`, :func:`plotIRF`, :func:`plotHD`
+.. seealso:: Functions :func:`svarFit`, :func:`svarControlCreate`, :func:`plotIRF`, :func:`plotFEVD` 
 
