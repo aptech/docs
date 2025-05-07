@@ -197,9 +197,9 @@ Economic Review, Sept. 1990.
 
 ::
 
-   y0 = loadd( getGAUSSHome() $+ "pkgs/tsmt/examples/exdata.dat");
+   y0 = loadd( getGAUSSHome("pkgs/tsmt/examples/exdata.dat"));
 
-   y = y0[.,1];
+   y = y0[., 1];
 
    // Estimation parameters
 

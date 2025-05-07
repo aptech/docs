@@ -55,11 +55,13 @@ Format
         .. list-table::
            :widths: auto
 
-            * - rslt.b
-              - NxM matrix, of final estimates for the SVAR reduced form coefficients, computed by OLS.
+            * - rslt.coefficients
+              - NxM matrix, final parameter estimates for the SVAR reduced form coefficients, computed by OLS.
                
-            * - rslt.ll
-              - Scalar, value of the maximized likelihood function.
+            * - rslt.coefficients_se
+              - NxM matrix, standard errors of final estimates for the SVAR reduced form coefficients.
+            
+            
                
             * - rslt.e
               - NxM matrix, residuals.
@@ -67,12 +69,21 @@ Format
             * - rslt.vcb
               - KxK matrix, covariance matrix for the SVAR reduced form coefficients.
                
+            * - rslt.ll
+              - Scalar, value of the maximized likelihood function.
+            
             * - rslt.aic
               - Scalar, Akaike Information Criterion (AIC).
                
             * - rslt.sbc
               - Scalar, Schwarz Bayesian Criterion (SBC).
                
+            * - rslt.aicc
+              - Scalar, corrected Akaike Information Criterion (AICC).
+            
+            * - rslt.hq
+              - Scalar, Hannan-Quinn Criterion (HQ).
+            
             * - rslt.tsmtDesc
               - An instance of the :class:`tsmtModelDesc` structure containing the following members:
 
