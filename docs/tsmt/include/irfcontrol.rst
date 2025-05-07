@@ -5,6 +5,7 @@
      - Scalar, the number of horizons for IRF computations. Default = 20.
    * - ctl.irf.ident
      - String, the identification method. Options include:
+     
         =========== ===========================================================================
         "short"     Zero short-run restrictions.
         "long"      Zero long-run restrictions.

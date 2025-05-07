@@ -78,12 +78,13 @@ Format
          * - aro.tsmtDesc 
            - An instance of the :class:`tsmtModelDesc` structure containing the following members:
   
-              .. include:: tsmt/include/tsmtmodeldesc.rst
+             .. include:: tsmt/include/tsmtmodeldesc.rst
 
          * - aro.sumStats 
            - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-              .. include:: tsmt/include/tsmtsummarystats.rst
+             .. include:: tsmt/include/tsmtsummarystats.rst
+
          * - aro.ll
            - Scalar, the model log-likelihood. 
          * - aro.aic 

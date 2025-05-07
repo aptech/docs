@@ -109,10 +109,10 @@
     * - vmo.tsmtDesc
       - An instance of the :class:`tsmtModelDesc` structure containing the following members:
   
-        .. include:: tsmt/include/tsmtmodeldesc.rst
+         .. include:: include/tsmtmodeldesc.rst
 
     * - vmo.sumStats 
       - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-        .. include:: tsmt/include/tsmtsummarystats.rst
+         .. include:: include/tsmtsummarystats.rst
      

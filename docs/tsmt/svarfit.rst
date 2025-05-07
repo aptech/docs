@@ -52,7 +52,6 @@ Format
     
     :return: An instance of an :class:`svarOut` structure containing the following members.
     
-
         .. list-table::
            :widths: auto
 
@@ -77,12 +76,12 @@ Format
             * - rslt.tsmtDesc
               - An instance of the :class:`tsmtModelDesc` structure containing the following members:
 
-                .. include:: tsmt/include/tsmtmodeldesc.rst
+                 .. include:: include/tsmtmodeldesc.rst
 
             * - rslt.sumStats 
               - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-                .. include:: tsmt/include/tsmtsummarystats.rst
+                 .. include:: include/tsmtsummarystats.rst
 
         :rtype: struct
 

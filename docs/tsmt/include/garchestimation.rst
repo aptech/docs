@@ -15,6 +15,7 @@
       - instance of PV structure containing parameter estimates.
     * - gout.retcode
       - scalar, return code:
+
         =========== =================================================================================
         1           Normal convergence.
         2           Forced exit.
@@ -25,6 +26,7 @@
         7           Error with constraints.
         8           Function complex.
         =========== =================================================================================
+
     * - gout.moment
       - KxK matrix, moment matrix of parameter estimates.
     * - gout.climits
@@ -32,9 +34,9 @@
     * - gout.tsmtDesc
       - An instance of the :class:`tsmtModelDesc` structure containing the following members:
   
-        .. include:: tsmt/include/tsmtmodeldesc.rst
+         .. include:: tsmt/include/tsmtmodeldesc.rst
 
     * - gout.sumStats 
       - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
   
-        .. include:: tsmt/include/tsmtsummarystats.rst
+         .. include:: tsmt/include/tsmtsummarystats.rst

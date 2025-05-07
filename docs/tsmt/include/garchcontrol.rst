@@ -32,7 +32,7 @@
             =========== =================================================================================
 
     * - gctl.covType
-       - scalar, type of covariance matrix of parameters:
+      - scalar, type of covariance matrix of parameters:
 
             =========== =================================================================================
             1           Maximum Likelihood. (Default)
@@ -41,10 +41,10 @@
             =========== =================================================================================
     
     * - gctl.sqpsolvemtControlProc
-       - function pointer, pointer to a function that updates optimization settings by setting the :class:`sqpsolvemtControl` structure members.
+      - function pointer, pointer to a function that updates optimization settings by setting the :class:`sqpsolvemtControl` structure members.
     
     * - gctl.cmlmtControlProc
-       - function pointer, pointer to a function that updates optimization settings by setting the :class:`cmlmtControl` structure members.
+      - function pointer, pointer to a function that updates optimization settings by setting the :class:`cmlmtControl` structure members.
     
     * - gctl.start
-       - PV structure, estimation starting values.
+      - PV structure, estimation starting values.

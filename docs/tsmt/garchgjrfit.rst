@@ -36,13 +36,13 @@ Format
 
       :param gctl: Optional input. :class:`garchControl` structure.
 
-         .. include:: tsmt/include/garchcontrol.rst
+          .. include:: tsmt/include/garchcontrol.rst
 
       :type c0: struct
 
       :return gOut: :class:`garchEstimation` structure containing the following members:
 
-         .. include:: tsmt/include/garchestimation.rst
+          .. include:: tsmt/include/garchestimation.rst
 
       :rtype gOut: struct
 
