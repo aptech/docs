@@ -60,10 +60,14 @@ Format
                
             * - rslt.coefficients_se
               - NxM matrix, standard errors of final estimates for the SVAR reduced form coefficients.
+
+            * - rslt.tstats 
+              - NxM matrix, t-stats of parameter estimates for the SVAR reduced form coefficients.
             
+            * - rslt.yhat
+              - TxM matrix, predicted y values.
             
-               
-            * - rslt.e
+            * - rslt.residuals 
               - NxM matrix, residuals.
                
             * - rslt.vcb
@@ -84,6 +88,45 @@ Format
             * - rslt.hq
               - Scalar, Hannan-Quinn Criterion (HQ).
             
+            * - rslt.nlags
+              - Scalar, number of lags used in the model.
+            
+            * - rslt.F
+              - Matrix, companion matrix.
+            
+            * - rslt.B
+              - Matrix, short-run identification matrix. The `B` matrix represents the contemporaneous relationships between the structural shocks and the observed variables in the SVAR model under the "oir" (orthogonalized impulse response) short-run identification scheme. 
+            
+            * - rslt.C
+              - Matrix, long-run identification matrix. The `C` matrix represents long-run cumulative impact of structural shocks on the observed variables in the SVAR model. It is computed when long-run identification restrictions are specified.
+            
+            * - rslt.wold
+              - TxMxM Array, the moving average (MA) form of the estimated VAR model. Each plane of the array corresponds to a different time period.
+            
+            * - rslt.irf
+              - MxMxh Array, the impulse response functions of the estimated VAR model. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+            * - rslt.irf_boot_upper
+              - MxMxh Array, the upper bound of the bootstrapped confidence intervals for the impulse response functions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+            * - rslt.irf_boot_median 
+              - MxMxh Array, the median of the bootstrapped confidence intervals for the impulse response functions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+            * - rslt.irf_boot_lower
+              - MxMxh Array, the lower bound of the bootstrapped confidence intervals for the impulse response functions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+            * - rslt.fevd
+              - MxMxh Array, the factor error variance decompositions of the estimated VAR model. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+            * - rslt.fevd_upper
+              - MxMxh Array, the upper bound of the bootstrapped confidence intervals for the factor error variance decompositions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+            * - rslt.fevd_lower
+              - MxMxh Array, the lower bound of the bootstrapped confidence intervals for the factor error variance decompositions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+            * - rslt.HD
+              - MxMxT Array, the impulse response functions of the estimated VAR model. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
             * - rslt.tsmtDesc
               - An instance of the :class:`tsmtModelDesc` structure containing the following members:
 
@@ -94,7 +137,7 @@ Format
   
                  .. include:: include/tsmtsummarystats.rst
 
-        :rtype: struct
+    :rtype: struct
 
 Examples
 ---------
@@ -347,5 +390,5 @@ Remarks
 -------
 The procedure :func:`svarFit` is designed to provide flexibility in estimating SVAR models by allowing users to specify various options for the deterministic components, number of lags, and control settings for model estimation and impulse response analysis. The inclusion of bootstrapping methods and sign restrictions further enhances the robustness and interpretability of the resulting SVAR model.
 
-.. seealso:: Functions :func:`arimaFit`, :func:`plotIRF`, :func:`svarControlCreate`, :func:`plotFEVD`
+.. seealso:: Functions :func:`arimaFit`, :func:`plotIRF`, :func:`svarControlCreate`, :func:`plotFEVD`, :func:`plotHD`
 
