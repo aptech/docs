@@ -33,10 +33,10 @@
      - Kx2 matrix, confidence limits.
    * - gout.tsmtDesc
      - An instance of the :class:`tsmtModelDesc` structure containing the following members:
-   
-       .. include:: tsmt/include/tsmtmodeldesc.rst
+       
+       .. include:: include/tsmtmodeldesc.rst
 
    * - gout.sumStats 
      - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
-   
-       .. include:: tsmt/include/tsmtsummarystats.rst
+       
+       .. include:: include/tsmtsummarystats.rst
