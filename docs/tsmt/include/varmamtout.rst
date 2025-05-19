@@ -1,49 +1,49 @@
 .. list-table::
    :widths: auto
+   :header-rows: 0
 
-    * - vmo.aa
-      - Lxr matrix of coefficients, such that :math:`aa*bb=\Pi` (see remarks below).
-    * - vmo.acfm
-      - Lx(p*L) matrix, the autocorrelaton function. The first *L* columns are the lag *l* ACF; the last *L* columns are the lag *p* ACF.
-    * - vmo.aic
-      - Lx1 vector, the Akaike Information Criterion.
-    * - vmo.arroots
-      - px1 vector of AR roots, possibly complex.
-    * - vmo.bb
-      - rxL matrix, eigenvectors spanning the cointegrating space of dimension *r*.
-    * - vmo.bic
-      - Lx1 vector, the Schwarz Bayesian Information Criterion.
-    * - vmo.covpar
-      - QxQ matrix of estimated parameters where Q is the number of estimated parameters. The parameters are in the row-major order: :math:`\Pi`, :math:`AR(1)` to :math:`AR(p)`, *beta* (if *x* variables were present in the estimation), and the constants.
-    * - vmo.fct
-      - Lx1 vector, the likelihood value.
-    * - vmo.lagr
-      - An instance of an sqpsolvemtLagrange structure containing the following members:
+   * - vmo.aa
+     - Lxr matrix of coefficients, such that :math:`aa*bb=\Pi` (see remarks below).
+   * - vmo.acfm
+     - Lx(p*L) matrix, the autocorrelation function. The first *L* columns are the lag *1* ACF; the last *L* columns are the lag *p* ACF.
+   * - vmo.aic
+     - Lx1 vector, the Akaike Information Criterion.
+   * - vmo.arroots
+     - px1 vector of AR roots, possibly complex.
+   * - vmo.bb
+     - rxL matrix, eigenvectors spanning the cointegrating space of dimension *r*.
+   * - vmo.bic
+     - Lx1 vector, the Schwarz Bayesian Information Criterion.
+   * - vmo.covpar
+     - QxQ matrix of estimated parameters where Q is the number of estimated parameters. The parameters are in the row-major order: :math:`\Pi`, :math:`AR(1)` to :math:`AR(p)`, *beta* (if *x* variables were present in the estimation), and the constants.
+   * - vmo.fct
+     - Lx1 vector, the likelihood value.
+   * - vmo.lagr
+     - An instance of an sqpsolvemtLagrange structure containing the following members:
 
-      .. list-table::
-         :widths: auto
+       .. list-table::
+          :widths: auto
+          :header-rows: 0
 
-         * - vmo.lagr.lineq
-           - linear equality constraints.
-         * - vmo.lagr.nlineq
-           - nonlinear equality constraints.
-         * - vmo.lagr.linineq
-           - linear inequality constraints.
-         * - vmo.lagr.nlinineq
-           - nonlinear inequality constraints.
-         * - vmo.lagr.bounds
-           - bounds.
+          * - vmo.lagr.lineq
+            - linear equality constraints.
+          * - vmo.lagr.nlineq
+            - nonlinear equality constraints.
+          * - vmo.lagr.linineq
+            - linear inequality constraints.
+          * - vmo.lagr.nlinineq
+            - nonlinear inequality constraints.
 
-             When an inequality or bounds constraint is active, its associated Lagrangean is nonzero. The linear Lagrangeans precede the nonlinear Lagrangeans in the covariance matrices.
+       When an inequality or bounds constraint is active, its associated Lagrangean is nonzero. The linear Lagrangeans precede the nonlinear Lagrangeans in the covariance matrices.
 
-    * - vmo.lrs
-      - Lx1 vector, the likelihood ratio statistic.
-    * - vmo.maroots
-      - qx1 vector of MA roots, possibly complex.
-    * - vmo.pacfm
-      - Lxp*L matrix, the partial autocorrelation function, computed only if a univariate model is estimated. The first *L* columns are the lag *1* ACF; the last *L* columns are the lag *p* ACF.
-    * - vmo.par
-      - An instance of a PV structure containing the parameter estimates, which can be retrieved using pvUnpack.
+   * - vmo.lrs
+     - Lx1 vector, the likelihood ratio statistic.
+   * - vmo.maroots
+     - qx1 vector of MA roots, possibly complex.
+   * - vmo.pacfm
+     - Lxp*L matrix, the partial autocorrelation function, computed only if a univariate model is estimated. The first *L* columns are the lag *1* ACF; the last *L* columns are the lag *p* ACF.
+   * - vmo.par
+     - An instance of a PV structure containing the parameter estimates, which can be retrieved using pvUnpack.
 
         For example,
 
@@ -51,9 +51,9 @@
 
                 struct varmamtOut vout;
                 vout = varmaFit(y, 2);
-                ph = pvUnpack(v out.par, "zeta");
-                th = pvUnpack (vout.par, "pi");
-                vc = pvUnpack (vout.par, "vc");
+                ph = pvUnpack(vout.par, "zeta");
+                th = pvUnpack(vout.par, "pi");
+                vc = pvUnpack(vout.par, "vc");
 
         The complete set of parameter matrices and arrays that can be unpacked depending on the model is:
 
@@ -71,16 +71,16 @@
            * - beta0
              - Lx1 constant vector.
            * - zeta
-             - Lxpxar array of ecm coefficients.
+             - Lxpxr array of ecm coefficients.
            * - pi
              - LxL matrix. *Note that 'pi' is a reserved word in GAUSS. Users will need to assign this to a different variable name.*
 
-    * - vmo.portman
-      - vmc.lags-(p+q)x3 matrix of portmanteau statistics for the multivariate model and Ljung-Box statistics for the univariate model. The time period is in column one, the *Qs* (portmanteau) statistic in column two and the p_value in column three.
-    * - vmo.residuals
-      - TxL matrix, residuals.
-    * - vmo.retcode
-      - 2x1 vector, return code. First element:
+   * - vmo.portman
+     - vmc.lags-(p+q)x3 matrix of portmanteau statistics for the multivariate model and Ljung-Box statistics for the univariate model. The time period is in column one, the *Qs* (portmanteau) statistic in column two and the p_value in column three.
+   * - vmo.residuals
+     - TxL matrix, residuals.
+   * - vmo.retcode
+     - 2x1 vector, return code. First element:
 
              =========== =================================================================================
              0           Normal convergence.
