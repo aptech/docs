@@ -9,8 +9,9 @@ The following is a list of changes from the previous version of GAUSS.
 
 #. New function: :func:`svarFit` estimates structural vector autoregressive models. Supports zero short-run restrictions, zero long-run restrictions, and sign restrictions for structural identification.
 #. New function: :func:`plotIrf` plots impulse response functions after estimating SVAR models using :func:`svarFit`.
-#. New function: :func:`getFEVD` computes forecast error variance decomposition using IRFs. 
-#. New function: :func:`plotFEVD` generates area plot of forecast error variance decompositions. 
+#. New function: :func:`getFEVD` computes forecast error variance decomposition using IRFs after :func:`svarFit`. 
+#. New function: :func:`plotFEVD` generates area plot of forecast error variance decompositions after :func:`svarFit`.
+#. New function: :func:`plotHD` generates stacked bar plot of historical decompositions after :func:`svarFit`.
 #. New function: :func:`sbreakFit` estimates m-break structural break models. Includes improvements over :func:`sbreak`, such as formula string inputs, user-configurable settings, dataframe metadata support, and structured output formatting.  
 #. New function: :func:`getP0` computes prior covariance initialization for use with :func:`kalmanFilter`. Supports both `diffuse` and `stationary` initialization methods, with automatic root modulus inspection to determine the appropriate approach.
 #. New standardized output printing across all models, including a header with model details and summary evaluation statistics. 
@@ -30,6 +31,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhancement: New improved starting values implemented for :func:`arimaSS` using a naive regression-based approach.
 #. Improved covariance estimation in :func:`arimaSS`: Implemented the delta method (a Jacobian-adjusted sandwich estimator) to compute standard errors that properly account for parameter transformations used to enforce stationarity and invertibility.
 #. Enhancement: :func:`arimaSS` covariance computation now falls back to a pseudo-inverse when the Hessian is singular or near-singular.
+#. Enhancement: :func:`arimaPredict` now checks for metadata and prints dates and variable names.
+#. Enhancement: :func:`arimaPredict` now supports optional graph generation.
 #. Bug fix: :func:`kalmanFilter` previously mishandled trend components. This has been corrected.
 #. Bug fix: :func:`arimaSS` now properly supports models with no AR or MA terms.
  

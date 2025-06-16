@@ -5,7 +5,7 @@ A time series package for GAUSS.
 Description
 ----------------
 Provides tools for comprehensive treatment of time series models, including model diagnostics, MLE and state-space estimation,
-and forecasts. Time Series MT also includes tools for managing panel series data and estimating and diagnosing panel series models,
+and forecasts. `Time Series MT <https://www.aptech.com/blog/time-series-mt-4-0/>`_ also includes tools for managing panel series data and estimating and diagnosing panel series models,
 including random effects and fixed effects.
 
 
@@ -15,7 +15,7 @@ Please `contact us <https://www.aptech.com/contact-us>`_ with to request pricing
 
 If you already own TSMT, you can use the `GAUSS Package Manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_ to install TSMT.
 
-Requires GAUSS/GAUSS Engine v18 or higher.
+Requires `GAUSS/GAUSS Engine v25 <https://www.aptech.com/blog/gauss25/>`_ or higher.
 
 Commands
 ------------------------------
@@ -100,6 +100,9 @@ Miscellaneous
 Further Reading
 -----------------
 
+* `Easier ARIMA Modeling with State Space: Revisiting Inflation Modeling Using TSMT 4.0 <https://www.aptech.com/blog/easier-arima-modeling-with-state-space-revisiting-inflation-modeling-using-tsmt-4-0/>`_
+* `Sign Restricted SVAR in GAUSS <https://www.aptech.com/blog/sign-restricted-svar-in-gauss/>`_
+* `Estimating SVAR Models With GAUSS <https://www.aptech.com/blog/estimating-svar-models-with-gauss/>`_
 * `Introduction to the Fundamentals of Time Series Data and Analysis <https://www.aptech.com/blog/introduction-to-the-fundamentals-of-time-series-data-and-analysis/>`_
 * `Introduction to the Fundamentals of Vector autoregressive Models <https://www.aptech.com/blog/introduction-to-the-fundamentals-of-vector-autoregressive-models/>`_
 * `The Structural VAR Model at Work: Analyzing Monetary Policy <https://www.aptech.com/blog/the-structural-var-model-at-work-analyzing-monetary-policy/>`_
