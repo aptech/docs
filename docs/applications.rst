@@ -16,7 +16,14 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
     :shadow: none
 
     Provides tools for Bayesian estimation in GAUSS.  
-    
+
+.. card:: BHATLIB 
+    :link: bhatlib/index
+    :link-type: doc
+    :shadow: none
+
+    Provides tools developed by Chandra Bhat for choice modeling and advanced econometric modeling. 
+
 .. card:: CMLMT (Constrained Maximum Likelihood MT)
     :link: cmlmt/index
     :link-type: doc
