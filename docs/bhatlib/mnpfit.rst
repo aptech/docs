@@ -156,4 +156,3 @@ Source
 
 bhatlib.src
 
-.. seealso:: Functions :func:`maxlik`, :func:`mnpControlCreate`

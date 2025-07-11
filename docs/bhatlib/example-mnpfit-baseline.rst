@@ -80,6 +80,7 @@ If a variable is not used for a particular alternative, it should be set to `"se
 In addition, the choice dependent variables should be included in the dataset with a separate column for each alternative. In this example, we will use the following independent variables: in-vehicle travel time (IVTT), out-of-vehicle travel time (OVTT), and cost (COST). As an example, the IVTT data is contained in three columns: `"IVTT_DA"`, `"IVTT_SR"`, and `"IVTT_TR"` for the three alternatives.
 
 ::
+    
     /* Independent variable specification below; 
     ** Put alternative specific constants FIRST; 
     ** Have one row for each alternative and for each segment 

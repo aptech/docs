@@ -77,12 +77,12 @@ Columns: Individual-Specific Variables
 Summary Checklist
 ------------------
 
-✅ Use a **GAUSS `loadd` compatible file** with clear column headers.  
-✅ Each **row = one observation/choice situation**.  
-✅ Separate columns for each **alternative with binary choice coding** (`1` for chosen, `0` for non-chosen).  
-✅ **Only one `1` per row** in choice columns.  
-✅ No availability columns needed if all alternatives are available.  
-✅ If availability varies, add one **binary availability column per alternative**.
+- Use a **GAUSS `loadd` compatible file** with clear column headers.  
+- Each **row = one observation/choice situation**.  
+- Separate columns for each **alternative with binary choice coding** (`1` for chosen, `0` for non-chosen).  
+- **Only one `1` per row** in choice columns.  
+- No availability columns needed if all alternatives are available.  
+- If availability varies, add one **binary availability column per alternative**.
 
 Following these guidelines will ensure that your data is ready for **BHATLIB** analysis without additional restructuring, enabling a smooth and efficient estimation process.
 

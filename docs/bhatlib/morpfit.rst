@@ -71,4 +71,4 @@ Source
 ------
 morpfit.src
 
-.. seealso:: :func:`morpControlCreate`, :func:`maxlik`, :func:`maxprt`
+
