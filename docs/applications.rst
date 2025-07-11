@@ -136,6 +136,7 @@ Applications are downloadable libraries that extend the functionality of **GAUSS
 
     ad/index
     bet/index
+    bhatlib/index
     cmlmt/index
     comt/index
     cf/index
