@@ -1,3 +1,0 @@
-grestcholspherunconstcor
-==============================================
-Purpose
