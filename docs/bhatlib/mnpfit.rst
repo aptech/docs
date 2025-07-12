@@ -58,11 +58,11 @@ Format
             * - mCtl.scal
               - Scale matrix for spherical/radial parameterizations. Default = 1.
             * - mCtl.seed10
-              - Seed for SSJ method. Default = 70000000 if method is SSJ.
+              - Seed for `"SSJ"`` method. Default = 70000000 if method is `"SSJ"`.
             * - mCtl.perms
-              - Permutations for SSJ method. Default = 1 if method is SSJ.
+              - Permutations for `"SSJ"` method. Default = 1 if method is `"SSJ"`.
             * - mCtl.method
-              - Analytic approximation method. Default = "OVUS".
+              - Analytic approximation method. Default = `"OVUS"`.
 
     :type mCtl: struct
 
@@ -98,22 +98,33 @@ Basic usage without random coefficients
 
 ::
 
+    // Set up the workspace 
     new;
     cls;
+
+    // Load the libraries
     library bhatlib, maxlik;
 
+    // Specify the dataset file
     fname = __FILE_DIR $+ "TRAVELMODE.csv";
+    
+    // Specify the dependent variables alternatives
     string dvunordname = { "Alt1_ch" "Alt2_ch" "Alt3_ch" };
-    string davunordname = { "uno" "uno" "uno" };
+    
+    // Specify availability restrictions 
+    string davunordname = "none";
 
+    // Specify independent variables for each alternative
     string ivunord = {
         "sero" "sero" "AGE45" "sero" "IVTT_DA" "OVTT_DA" "COST_DA",
         "uno"  "sero" "sero"  "AGE45" "IVTT_SR" "OVTT_SR" "COST_SR",
         "sero" "uno"  "sero"  "sero" "IVTT_TR" "OVTT_TR" "COST_TR"
     };
 
+    // Specify variable names for output reporting
     string var_unordnames = { "CON_SR" "CON_TR" "AGE45_DA" "AGE45_SR" "IVTT" "OVTT" "COST" };
 
+    // Estimate the model
     beta_hat = mnpFit(fname, dvunordname, davunordname, ivunord, var_unordnames);
 
 Usage with random coefficients
@@ -121,35 +132,39 @@ Usage with random coefficients
 
 ::
 
+    // Set up the workspace
     new;
     cls;
+
+    // Load the libraries
     library bhatlib, maxlik;
 
+    // Specify the dataset file
     fname = __FILE_DIR $+ "TRAVELMODE.csv";
+    
+    //  Specify the dependent variables alternatives
     string dvunordname = { "Alt1_ch" "Alt2_ch" "Alt3_ch" };
-    string davunordname = { "uno" "uno" "uno" };
+    
+    // Specify availability restrictions
+    string davunordname = "none";
 
+    // Specify independent variables for each alternative
     string ivunord = {
         "sero" "sero" "AGE45" "sero" "IVTT_DA" "OVTT_DA" "COST_DA",
         "uno"  "sero" "sero"  "AGE45" "IVTT_SR" "OVTT_SR" "COST_SR",
         "sero" "uno"  "sero"  "sero" "IVTT_TR" "OVTT_TR" "COST_TR"
     };
 
+    // Specify variable names for output reporting
     string var_unordnames = { "CON_SR" "CON_TR" "AGE45_DA" "AGE45_SR" "IVTT" "OVTT" "COST" };
 
-    struct mnpControl mCtl;
-    mCtl = mnpControlCreate();
-    mCtl.method = "OVUS";
-
+    // Turn on random coefficients
     mix = 1;
+
+    // Specify random coefficients variables
     ranvars = "OVTT";
 
-    beta_hat = mnpFit(fname, dvunordname, davunordname, ivunord, var_unordnames, mix, ranvars, mCtl);
-
-Library
--------
-
-bhatlib
+    beta_hat = mnpFit(fname, dvunordname, davunordname, ivunord, var_unordnames, mix, ranvars);
 
 Source
 ------

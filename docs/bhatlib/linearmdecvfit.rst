@@ -53,15 +53,28 @@ Estimate an MDCEV model with linear utility using tourism expenditure data:
 
 ::
 
+    // Set up the workspace
     new;
     cls;
+    
+    // Load the libraries 
     library bhatlib, maxlik;
 
+    // Specify the dataset file 
     fname = __FILE_DIR $+ "WorkshopData_ToursimExp_rev.csv";
 
+    // Specify the dependent variables alternatives 
     string dvunordname = { "Transp" "Accomod" "FandB" "Shp" "Recr" };
+    
+    // Specify avaialabaility restrictions 
     davunordname = "none";
 
+    /*
+    ** Specify independent variables for baseline utility
+    ** This string should contain:
+    **   - One row for each alternative
+    **   - One column for each independnet variable variable 
+    */ 
     string ivmt = {
         "sero" "sero" "sero" "sero" "sero" "sero" "sero" "sero" "sero" "sero",
         "uno"  "sero" "sero" "sero" "urban" "sero" "sero" "sero" "stlt3" "st410",
@@ -70,6 +83,9 @@ Estimate an MDCEV model with linear utility using tourism expenditure data:
         "sero" "sero" "sero" "uno"  "sero" "sero" "sero" "urban" "sero" "sero"
     };
 
+    /*
+    ** Specify independent variables for translation
+    */ 
     string ivgt = {
         "uno"  "sero" "sero" "sero" "sero" "sero" "sero" "sero" "sero" "sero" "sero" "sero" "sero",
         "sero" "uno"  "sero" "sero" "sero" "urban" "sero" "sero" "stlt3" "st410" "sero" "sero" "sero",
@@ -78,6 +94,7 @@ Estimate an MDCEV model with linear utility using tourism expenditure data:
         "sero" "sero" "sero" "sero" "uno"  "sero" "sero" "sero" "sero" "sero" "sero"  "sero"  "b51q11"
     };
 
+    // Estimate the model 
     beta_hat = linearMDCEVFit(fname, dvunordname, davunordname, ivmt, ivgt);
 
 Library

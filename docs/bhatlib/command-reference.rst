@@ -6,7 +6,7 @@ Command Reference
     :hidden:
     :caption: BHATLIB Procedures
 
-    linearmdecvfit
+    linearMDECVfit
     mnpfit
     morpatefit
     morpfit
