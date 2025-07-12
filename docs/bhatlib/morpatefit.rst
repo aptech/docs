@@ -78,4 +78,4 @@ Source
 ------
 morpfit.src
 
-.. seealso:: :func:`morpfit`, :func:`morpControlCreate`, :func:`lpr1_morp`
+.. seealso:: :func:`morpfit`

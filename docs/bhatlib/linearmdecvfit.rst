@@ -97,11 +97,6 @@ Estimate an MDCEV model with linear utility using tourism expenditure data:
     // Estimate the model 
     beta_hat = linearMDCEVFit(fname, dvunordname, davunordname, ivmt, ivgt);
 
-Library
--------
-
-bhatlib
-
 Source
 ------
 
