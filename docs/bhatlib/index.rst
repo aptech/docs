@@ -25,7 +25,7 @@ Modeling Procedures
 The **BHATLIB** library provides a wide range of procedures for estimating various econometric models. Below is a summary of the key procedures available in the library:
 
 ========================== =====================================================================================================================
-:func:`linearmdecvfit`     Estimates parameters for the Multiple Discrete-Continuous Extreme Value (MDCEV) model using linear utility for the outside good. Supports input data and specification strings for consumption quantities and explanatory variables.
+:func:`linearmdcevfit`     Estimates parameters for the Multiple Discrete-Continuous Extreme Value (MDCEV) model using linear utility for the outside good. Supports input data and specification strings for consumption quantities and explanatory variables.
 :func:`mnpfit`             Estimates the Multinomial Probit (MNP) model using analytic gradients and a variety of analytic approximation methods for the multivariate cumulative normal distribution, supporting mixture-of-normals random coefficients and flexible covariance restrictions.
 :func:`morpfit`            Estimates a multivariate ordered response probit (MORP) model using flexible correlation structures and efficient maximum likelihood estimation.
 :func:`morpATEFit`         Estimates a multivariate ordered response probit (MORP) model with average treatment effects (ATE) using flexible correlation structures and efficient maximum likelihood estimation.`
