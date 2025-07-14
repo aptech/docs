@@ -1,4 +1,4 @@
-linearMDCEVFit
+linearmdcevFit
 ==========================
 
 Purpose
