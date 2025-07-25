@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+25.0.2
+------
+
+#. Updated licensing system to accommodate macOS changes that restrict access to device MAC addresses.
+
 25.0.1
 ------
 
