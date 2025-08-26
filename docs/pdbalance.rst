@@ -13,12 +13,15 @@ Format
     :type df: Dataframe
 
     :param balance_type: Optional, specifies the method used to balance the panel. Default = ``"fill"``.
-    :type balance_type: String
+
 
         ================ ==============================================================
         "fill"           Each group will have all time periods. Groups that are missing a time period will have them added and data columns filled with missing values.
         "shared_times"   Time periods that are not shared by all groups will be removed.
         ================ ==============================================================
+
+
+    :type balance_type: String
 
     :param groupvar: Optional, specifies the name of the variable used to identify group membership for panel observations. Defaults to the first categorical or string variable in the dataframe.
     :type groupvar: String
