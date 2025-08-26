@@ -74,7 +74,7 @@ After running the above code, each ID in our balanced panel now has all availabl
                2       1978-01-01        70.642998        14.103600 
                2       1979-01-01                .                .
 
-Example 2: Basic panel balancing with default ``"shared_times"`` method.
+Example 2: Basic panel balancing with ``"shared_times"`` method.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
