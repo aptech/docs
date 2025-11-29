@@ -11,7 +11,7 @@ Format
 .. function:: y = upper(x)
 
     :param x: the character data to be converted to uppercase.
-    :type x: string or NxK matrix, or string array 
+    :type x: string,  NxK matrix, dataframe, or string array 
 
     :return y: containing the uppercase equivalent of the data in *x*.
 
@@ -19,6 +19,35 @@ Format
 
 Examples
 ----------------
+
+::
+
+    // Load example dataframe
+    rep78 = loadd(getGAUSSHome("examples/auto2.dta"), "rep78");
+
+    print rep78[1:4];
+
+::
+
+           rep78 
+         Average 
+         Average 
+               . 
+         Average
+
+
+::
+
+   rep78_u = upper(rep78);
+   print rep78_u[1:4];
+
+::
+
+           rep78 
+         AVERAGE 
+         AVERAGE 
+               . 
+         AVERAGE
 
 ::
 
@@ -37,13 +66,6 @@ This code produces:
 ::
 
     UPPERCASE
-
-Remarks
--------
-
-If *x* is a numeric matrix, *y* will contain garbage. No error message will
-be generated since GAUSS does not distinguish between numeric and character data in matrices.
-
 
 .. seealso:: Functions :func:`lower`
 
