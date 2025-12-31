@@ -10,8 +10,9 @@ P
     packr
     parse
     pause
-    pdallbalanced 
+    pdallbalanced
     pdallconsecutive
+    pdbalance
     pddiff
     pdfbinomial
     pdfcauchy

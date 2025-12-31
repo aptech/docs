@@ -15,13 +15,14 @@ Size
 ==========================       ===========================================
 
 
-Tranformation
+Transformation
 --------------------------------------------
 
 ========================        ===========================================
 :doc:`../aggregate`             Aggregates the data in the columns of a matrix or dataframe based upon a column containing group ids with a choice of method.
 :doc:`../dflonger`              Converts a GAUSS dataframe in long panel format to wide panel format.
 :doc:`../dfwider`               Converts a GAUSS dataframe in wide panel format to long panel format.
+:doc:`../pdbalance`              Balances an unbalanced panel, ensuring that each group has the same time periods. This can be accomplished by filling in or dropping observations.
 :doc:`../pddiff`                Computes time series differences of panel data.
 :doc:`../pdlag`                 Computes time series lags of panel data.
 :doc:`../reclassify`            Replaces specified values of a matrix, array or string array.
