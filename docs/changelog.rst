@@ -8,6 +8,7 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. New function: :func:`pdBalance`, balances a panel so that each group has the same number of observations by either filling or removing observations.
+#. New function: :func:`endswith`, returns a 1 if an element of a dataframe or string array ends with a specified pattern.
 #. Enhanced functionality: :func:`aggregate` can now group data by more than one variable.
 #. Bug fix: :func:`dbnomics_series` would return an error when trying to return multiple variables.
 

@@ -1390,6 +1390,9 @@ Searching and replacing is a key part of cleaning strings and categorical data. 
 +-------------------+-------------------------------------+
 |Procedure          |Description                          |
 +===================+=====================================+
+|:func:`endsWith`   |Returns a 1 if a string ends   with  |
+|                   |a specified pattern.                 |
++-------------------+-------------------------------------+
 |:func:`strrindx`   |Finds the index of one string within | 
 |                   |another string. Searches from the end|
 |                   |to the beginning.                    |

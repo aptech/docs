@@ -49,6 +49,7 @@ String and categorical variables
 ===============================     ==========================================================================
 :doc:`../dropcategories`            Removes categories from the variable and the meta data. Resets the keyvalues and labels for the variable.
 :doc:`../dropunusedcategories`      Removes categories from the meta data of a dataframe that are not present in the current variable.
+:doc:`../endswith`                  Returns a 1 if a string ends with a specified pattern.
 :doc:`../getcategories`             Returns the unique set of column labels as a dataframe.
 :doc:`../getcollabels`              Returns the unique set of column labels and corresponding key values for a categorical variable.
 :doc:`../recodecatlabels`           Change categorical variable labels.
