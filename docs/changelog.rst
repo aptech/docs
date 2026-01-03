@@ -14,6 +14,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: :func:`sortc` now accepts an optional `sort_order` parameter to sort in ascending (1) or descending (-1) order.
 #. Enhanced functionality: :func:`sortmc` now accepts an optional `sort_order` parameter to sort in ascending (1) or descending (-1) order.
 #. Bug fix: :func:`dbnomics_series` would return an error when trying to return multiple variables.
+#. Bug fix: :func:`loadd` would not allow more than 95 GAUSS dataset (.gdat) files in certain instances.
 
 25.0.1
 ------
