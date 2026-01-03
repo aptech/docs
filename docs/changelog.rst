@@ -11,6 +11,8 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function: :func:`endswith`, returns a 1 if an element of a dataframe or string array ends with a specified pattern.
 #. Enhanced functionality: :func:`aggregate` can now group data by more than one variable.
 #. Enhanced functionality: :func:`strrindx` can now accept a vector `what` input.
+#. Enhanced functionality: :func:`sortc` now accepts an optional `sort_order` parameter to sort in ascending (1) or descending (-1) order.
+#. Enhanced functionality: :func:`sortmc` now accepts an optional `sort_order` parameter to sort in ascending (1) or descending (-1) order.
 #. Bug fix: :func:`dbnomics_series` would return an error when trying to return multiple variables.
 
 25.0.1

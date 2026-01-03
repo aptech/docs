@@ -9,13 +9,16 @@ Sorts a matrix, dataframe or string array.
 
 Format
 ----------------
-.. function:: y = sortc(x [, c])
+.. function:: y = sortc(x [, c, sort_order])
 
     :param x: data
     :type x: NxK matrix, dataframe or string array.
 
     :param c: Optional input, specifies the column(s) of *x* to sort on. Default=1.
     :type c: scalar, column vector or string array.
+
+    :param sort_order: Optional input, the sort order. 1 for ascending order, -1 for descending order. Default=1.
+    :type sort_order: scalar.
 
     :return y: equal to *x* and sorted on the column(s) represented by *c*.
 
@@ -43,6 +46,27 @@ The above example code produces *y* equal to:
     1 3 2
     3 4 8
     4 7 3
+
+
+Sort rows in descending order
++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    x = { 4 7 3,
+          1 3 2,
+          3 4 8 };
+
+    // Sort 'x' in descending order based upon the first column
+    y = sortc(x, 1, -1);
+
+The above example code produces *y* equal to:
+
+::
+
+    4 7 3
+    3 4 8
+    1 3 2
 
 
 Sort rows of a dataframe based on multiple columns
@@ -269,12 +293,8 @@ Remarks
    and will arrange all rows of the matrix in the same order as the
    sorted column.
 -  Missing values will sort as if their value is below :math:`-\infty`.
--  The sort will be in ascending order.
+-  The sort will be in ascending order by default.
 -  This function uses the Quicksort algorithm.
--  If you need to obtain the matrix sorted in descending order, you can use:
-
-   ::
-
-      rev(sortc(x, c))
+-  To sort in descending order, set the *sort_order* parameter to -1.
 
 .. seealso:: Functions :func:`getcollabels`, :func:`reordercatlabels`, :func:`rev`, :func:`sortind`, :func:`unique`
