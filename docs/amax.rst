@@ -11,14 +11,13 @@ Format
 ----------------
 .. function:: y = amax(x, dim)
 
-    :param x:
+    :param x: The N-dimensional array from which to find the maximum values.
     :type x: N-dimensional array.
 
     :param dim: The dimension across which to find the maximum value.
     :type dim: Scalar
 
-    :return y: 
-
+    :return y: The maximum values found along the specified dimension.
     :rtype y: N-dimensional array
 
 Examples

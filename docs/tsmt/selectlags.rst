@@ -7,7 +7,7 @@ Select lags based on method of statistical inference.
 
 Format
 ------
-.. function:: { stat,p_mat } = selectLags(y, x [, maxlag, method, print_out])
+.. function:: { stat, p_mat } = selectLags(y, x [, maxlag, method, print_out])
 
    :param y: Nx1 data to be tested.
    :type y: matrix

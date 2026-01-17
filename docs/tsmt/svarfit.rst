@@ -7,12 +7,12 @@ Estimate structural vector autoregressive models.
 
 Format
 ------
-.. function:: rslt = svarFit(Y [, maxlags, const, ctl])
+.. function:: rslt = svarFit(Y [, maxlags, const, X_exog, ctl])
 
-    :param Y: NxM data.
+    :param Y: NxM or Nx(M+1) data. May include date variable, which will be removed from the data matrix. The date variable is not included in the model as a regressor.
     :type Y: matrix
 
-    :param maxlags: Optional, maximum number of lags to consider for VAR model.
+    :param maxlags: Optional, maximum number of lags to consider for VAR model. If user_lags is specified in the :class:`svarControl` structure, this parameter is ignored. Default = 8.
     :type maxlags: scalar
 
     :param const: Optional, specifying deterministic components of model. 
@@ -26,6 +26,9 @@ Format
 
     :type const: scalar
     
+    :param X_exog: Optional, exogenous variables. If specified, the model is estimated as a VARX model. The exogenous variables are assumed to be stationary and are included in the model as additional regressors. May include date variable, which will be removed from the data matrix. The date variable is not included in the model as a regressor.
+    :type X_exog: matrix
+
     :param ctl: Optional, an instance of the :class:`svarControl` structure containing the following members.
     
      .. list-table::
@@ -43,45 +46,126 @@ Format
         * - ctl.irf
           - An instance of the :class:`irfControl` structure containing the following members.
 
-          .. include:: include/irfcontrol.rst
+            .. list-table::
+                :widths: auto
+
+                * - ctl.irf.nsteps
+                  - Scalar, the number of horizons for IRF computations. Default = 20.
+                * - ctl.irf.ident
+                  - String, the identification method. Options include:
+                  
+                      =========== ===========================================================================
+                      "short"     Zero short-run restrictions.
+                      "long"      Zero long-run restrictions.
+                      "sign"      Sign restrictions.
+                      =========== ===========================================================================
+                  
+                * - ctl.irf.ndraws
+                  - Scalar, number of draws for bootstrapping IRFs. Default = 10000.
+                * - ctl.irf.cl
+                  - Scalar, confidence level for IRF bootstrap confidence intervals. Default = 0.95.
+                * - ctl.irf.bootMethod
+                  - String, method for bootstrapping the IRF confidence intervals. Default = "bs".
+                * - ctl.irf.signRestrictions
+                  - Matrix, specifies restrictions for sign restricted identification.  There should be a single row for each restricted shock and a column for and a single column for each endogenous variable. 0 specifies that no restrictions are placed on a variable, -1 specifies that the sign should be negative, 1 specifies that the sign should be positive.
+                * - ctl.irf.restrictionHorizon
+                  - Matrix, specifies the number of horizons over which the restrictions hold.
+                * - ctl.irf.restrictedShockNames
+                  - String array, specifies which shock has restricted impulses using variable names. Must be specified if the number of restricted shocks is less than the number of endogenous variables and ctl.irf.restrictedShock index is not specified.
+                * - ctl.irf.restrictedShock
+                  - Matrix, specifies which shock has restricted impulses using an index. Must be specified if the number of restricted shocks is less than the number of endogenous variables and ctl.irf.restrictedShockNames is not specified.
+
 
     :type ctl: struct
     
     :return: An instance of an :class:`svarOut` structure containing the following members.
     
+      .. list-table::
+         :widths: auto
 
-        .. list-table::
-           :widths: auto
+         * - rslt.coefficients
+           - NxM matrix, final parameter estimates for the SVAR reduced form coefficients, computed by OLS.
+               
+         * - rslt.coefficients_se
+           - NxM matrix, standard errors of final estimates for the SVAR reduced form coefficients.
 
-            * - rslt.b
-              - NxM matrix, of final estimates for the SVAR reduced form coefficients, computed by OLS.
+         * - rslt.tstats 
+           - NxM matrix, t-stats of parameter estimates for the SVAR reduced form coefficients.
+            
+         * - rslt.yhat
+           - TxM matrix, predicted y values.
+            
+         * - rslt.residuals 
+           - NxM matrix, residuals.
                
-            * - rslt.ll
-              - Scalar, value of the maximized likelihood function.
+         * - rslt.vcb
+           - KxK matrix, covariance matrix for the SVAR reduced form coefficients.
                
-            * - rslt.e
-              - NxM matrix, residuals.
+         * - rslt.ll
+           - Scalar, value of the maximized likelihood function.
+            
+         * - rslt.aic
+           - Scalar, Akaike Information Criterion (AIC).
                
-            * - rslt.vcb
-              - KxK matrix, covariance matrix for the SVAR reduced form coefficients.
+         * - rslt.sbc
+           - Scalar, Schwarz Bayesian Criterion (SBC).
                
-            * - rslt.aic
-              - Scalar, Akaike Information Criterion (AIC).
-               
-            * - rslt.sbc
-              - Scalar, Schwarz Bayesian Criterion (SBC).
-               
-            * - rslt.tsmtDesc
-              - An instance of the :class:`tsmtModelDesc` structure containing the following members:
-
-              .. include:: include/tsmtmodeldesc.rst
-
-            * - rslt.sumStats 
-              - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
+         * - rslt.aicc
+           - Scalar, corrected Akaike Information Criterion (AICC).
+            
+         * - rslt.hq
+           - Scalar, Hannan-Quinn Criterion (HQ).
+            
+         * - rslt.nlags
+           - Scalar, number of lags used in the model.
+            
+         * - rslt.F
+           - Matrix, companion matrix.
+            
+         * - rslt.B
+           - Matrix, short-run identification matrix. The `B` matrix represents the contemporaneous relationships between the structural shocks and the observed variables in the SVAR model under the "oir" (orthogonalized impulse response) short-run identification scheme. 
+            
+         * - rslt.C
+           - Matrix, long-run identification matrix. The `C` matrix represents long-run cumulative impact of structural shocks on the observed variables in the SVAR model. It is computed when long-run identification restrictions are specified.
+            
+         * - rslt.wold
+           - TxMxM Array, the moving average (MA) form of the estimated VAR model. Each plane of the array corresponds to a different time period.
+            
+         * - rslt.irf
+           - MxMxh Array, the impulse response functions of the estimated VAR model. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+         * - rslt.irf_boot_upper
+           - MxMxh Array, the upper bound of the bootstrapped confidence intervals for the impulse response functions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+         * - rslt.irf_boot_median 
+           - MxMxh Array, the median of the bootstrapped confidence intervals for the impulse response functions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+         * - rslt.irf_boot_lower
+           - MxMxh Array, the lower bound of the bootstrapped confidence intervals for the impulse response functions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+         * - rslt.fevd
+           - MxMxh Array, the forecast error variance decompositions of the estimated VAR model. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+         * - rslt.fevd_upper
+           - MxMxh Array, the upper bound of the bootstrapped confidence intervals for the forecast error variance decompositions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+         * - rslt.fevd_lower
+           - MxMxh Array, the lower bound of the bootstrapped confidence intervals for the forecast error variance decompositions. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+         * - rslt.HD
+           - MxMxT Array, the impulse response functions of the estimated VAR model. Each plane of the array corresponds to different shock variable, and each element in the plane represents the impact of that shock on the endogenous variables at different horizons.
+            
+         * - rslt.tsmtDesc 
+           - An instance of the :class:`tsmtModelDesc` structure containing the following members:
   
-              .. include:: include/tsmtsummarystats.rst
+             .. include:: include/tsmtmodeldesc.rst
 
-        :rtype: struct
+         * - rslt.sumStats 
+           - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
+  
+             .. include:: include/tsmtsummarystats.rst
+
+    :rtype: struct
 
 Examples
 ---------
@@ -334,5 +418,5 @@ Remarks
 -------
 The procedure :func:`svarFit` is designed to provide flexibility in estimating SVAR models by allowing users to specify various options for the deterministic components, number of lags, and control settings for model estimation and impulse response analysis. The inclusion of bootstrapping methods and sign restrictions further enhances the robustness and interpretability of the resulting SVAR model.
 
-.. seealso:: Functions :func:`arimaFit`, :func:`plotIRF`, :func:`svarControlCreate`, :func:`plotFEVD`
+.. seealso:: Functions :func:`arimaFit`, :func:`plotIRF`, :func:`svarControlCreate`, :func:`plotFEVD`, :func:`plotHD`
 

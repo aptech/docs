@@ -95,8 +95,8 @@ This time our pattern input needs to be a  1x2 string array with one search patt
     // for in each column
     pat = "Buick" $~ "Ave";
     
-    // Find all makes that include 'Buick'
-    // and all rep78's that include 'Ave'.
+    // Find all makes that start with 'Buick'
+    // and all rep78's that start with 'Ave'.
     mask = startsWith(auto, pat);
     
     print mask;
@@ -118,7 +118,7 @@ matching rows, we need to convert *mask* to a column vector with a 1 in the case
 
     mask2 = sumr(mask) .== 2;
     
-    // Seliect 'Buick' observations
+    // Select 'Buick' observations
     // that are in average condition
     avg_buicks = selif(auto, mask2);
 
@@ -131,4 +131,4 @@ matching rows, we need to convert *mask* to a column vector with a 1 in the case
    Buick LeSabre          Average
 
 
-.. seealso:: Functions :func:`strindx`, :func:`strsect`, :func:`strtrim`
+.. seealso:: Functions :func:`endswith`, :func:`strindx`, :func:`strsect`, :func:`strtrim`

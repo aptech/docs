@@ -14,6 +14,7 @@ E
     elapsedtradingdays
     endp
     end
+    endswith
     endwind
     envget
     eof

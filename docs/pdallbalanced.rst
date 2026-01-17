@@ -80,4 +80,4 @@ For datasets that are not strongly balanced, :func:`pdAllBalanced` returns 0.
 
 See also:
 
-.. seealso:: :func:`pdSummary`, :func:`pdSize`
+.. seealso:: :func:`pdbalance`, :func:`pdSummary`, :func:`pdSize`

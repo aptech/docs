@@ -39,6 +39,7 @@ T
     trigamma
     trimr
     trunc
+    tsaggregate
     typecv
     typef
     type

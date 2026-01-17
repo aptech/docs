@@ -39,7 +39,7 @@ Format
    :param const: an indicator variable to include a constant in the model. Set to 1 to include trend, 0 otherwise.
    :type const: Scalar
 
-   :return amo: An instance of an arimamtOut structure containing the following members:
+   :return amo: An instance of an :class:`arimamtOut` structure containing the following members:
 
       .. list-table::
          :widths: auto
@@ -66,6 +66,15 @@ Format
            - Scalar, the sum of squares for Y data.
          * - amo.rstl
            - an instance of the kalmanResult structure.
+         * - amo.tsmtDesc 
+           - An instance of the :class:`tsmtModelDesc` structure containing the following members:
+  
+              .. include:: include/tsmtmodeldesc.rst
+
+         * - amo.sumStats 
+           - An instance of the :class:`tsmtSummaryStats` structure containing the following members:
+  
+              .. include:: include/tsmtsummarystats.rst
 
    :rtype amo: struct
 
