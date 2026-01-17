@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 26.0.0
 ------
 
+#. New function: :func:`tsAggregate`, aggregates time series data to lower frequency with support for multiple aggregation methods (last, first, mean, sum, max, min, median, sd, count, mode) and frequencies (second, minute, hourly, daily, monthly, quarterly, yearly).
 #. New function: :func:`pdBalance`, balances a panel so that each group has the same number of observations by either filling or removing observations.
 #. New function: :func:`endswith`, returns a 1 if an element of a dataframe or string array ends with a specified pattern.
 #. Enhanced functionality: :func:`aggregate` can now group data by more than one variable.
