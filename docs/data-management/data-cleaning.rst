@@ -191,7 +191,7 @@ Statistical transformations
 
 Standardize or normalize numeric data:
 
-* **Standardize (Z-score)** - Converts values to z-scores (mean=0, std=1) using ``standardize()``
+* **Standardize (Z-score)** - Converts values to z-scores (mean=0, std=1) using ``rescale()``
 * **Normalize (0-1)** - Rescales values to 0-1 range using ``rescale()``
 
 These transformations are useful for:
@@ -274,11 +274,13 @@ Choose transformation destination
 After selecting the transformation, choose where to place the results:
 
 **Overwrite existing column (default)**
-  The transformation replaces the original column values. Use this when you want to permanently modify the data.
+
+The transformation replaces the original column values. Use this when you want to permanently modify the data.
 
 **Create new column**
-  1. Uncheck the **Overwrite** checkbox
-  2. Enter a name for the new column in the **New Column Name** text box
+
+1. Uncheck the **Overwrite** checkbox
+2. Enter a name for the new column in the **New Column Name** text box
 
   The transformation creates a new column with the specified name, leaving the original column unchanged.
 
