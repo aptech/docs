@@ -264,6 +264,64 @@ Lagged variables are essential for:
 * Autoregressive models
 * Creating differences (Y - lag(Y, 1))
 
+* **First Difference** - Computes the change from the previous period: ``X - lag(X)``
+
+First differences are useful for:
+
+* Converting non-stationary time series to stationary
+* Analyzing period-to-period changes
+* Removing trends from data
+
+* **Percent Change** - Computes the percentage change from the previous period: ``(X - lag(X)) / lag(X) * 100``
+
+Percent changes are useful for:
+
+* Comparing growth rates across variables with different scales
+* Financial returns analysis
+* Measuring relative changes in economic indicators
+
+* **Cumulative Sum** - Computes the running total using ``cumsumc()``
+
+Cumulative sums are useful for:
+
+* Computing cumulative returns or totals
+* Creating time series of accumulated values
+* Visualizing total growth over time
+
+* **Moving Average** - Computes rolling average using ``movingave()``
+
+The **Moving Average** transformation requires one parameter:
+
+* **Window Size**: Number of periods to include in the average (default: 5)
+
+Moving averages are useful for:
+
+* Smoothing noisy time series data
+* Identifying trends by filtering out short-term fluctuations
+* Technical analysis in finance
+
+
+Data quality transformations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **Replace Missing** - Imputes missing values using various methods with ``impute()``
+
+The **Replace Missing** transformation requires one parameter:
+
+* **Method**: The imputation strategy to use
+
+  * **Mean**: Replace missing values with column mean
+  * **Median**: Replace missing values with column median
+  * **Mode**: Replace missing values with most frequent value
+  * **Forward Fill**: Propagate last valid observation forward
+  * **Backward Fill**: Use next valid observation to fill gap
+
+Missing value imputation is useful for:
+
+* Handling incomplete datasets
+* Preparing data for algorithms that cannot handle missing values
+* Time series analysis where forward/backward fill maintains temporal continuity
+
 
 Choose transformation destination
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -279,7 +337,7 @@ The transformation replaces the original column values. Use this when you want t
 
 **Create new column**
 
-1. Uncheck the **Overwrite** checkbox
+1. Select **Create a new column**
 2. Enter a name for the new column in the **New Column Name** text box
 
   The transformation creates a new column with the specified name, leaving the original column unchanged.
@@ -328,15 +386,11 @@ Example generated code:
 
 ::
 
-    // Standardize price column
-    auto = standardize(auto, "price");
+    // Create natural log of mpg in new column
+    auto = auto ~ asdf(ln(auto[., "mpg"]), "mpg_ln");
 
-    // Create log of mpg in new column
-    auto = auto ~ ln(auto[., "mpg"]);
-    auto = setColNames(auto, getColNames(auto[., 1:cols(auto)-1]) $| "log_mpg");
-
-    // Extract year from date column
-    auto[., "year"] = dtYear(auto[., "date"]);
+    // Change "Cad." to "Cadillac" in the 'make' variable
+    auto[., "make"] = strreplace(auto[., "make"], "Cad.", "Cadillac");
 
 
 Transformation examples
@@ -353,7 +407,7 @@ To standardize all numeric columns in a dataset:
 1. Open the **Transform** tab
 2. Select **All Numeric** from the **Source Column** dropdown
 3. Select **Standardize (Z-score)** from the **Transformation** list
-4. Ensure **Overwrite** is checked if you want to replace the original values
+4. Ensure **Modify existing column** is checked if you want to replace the original values
 5. Click **Apply**
 
 All numeric columns will now have mean = 0 and standard deviation = 1.
@@ -367,7 +421,7 @@ To create a new column containing just the month from a date variable:
 1. Open the **Transform** tab
 2. Select your date column (e.g., "purchase_date") from the **Source Column** dropdown
 3. Select **Extract Month** from the **Transformation** list
-4. Uncheck **Overwrite**
+4. Click **Create new column**
 5. Enter "month" in the **New Column Name** text box
 6. Click **Apply**
 
@@ -386,7 +440,7 @@ To create a one-period lag of a sales variable:
 2. Select "sales" from the **Source Column** dropdown
 3. Select **Lag** from the **Transformation** list
 4. Enter **1** in the **N** parameter box
-5. Uncheck **Overwrite**
+5. Click **Create new column**
 6. Enter "sales_lag1" in the **New Column Name** text box
 7. Click **Apply**
 
@@ -410,11 +464,7 @@ All string and categorical columns will have leading and trailing spaces removed
 Multiple transformations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can apply multiple transformations sequentially:
-
-1. Apply the first transformation and click **Apply**
-2. Configure the second transformation
-3. Click **Apply** again
+You can apply multiple transformations sequentially, by selecting **Apply** and then creating a transformation. Alternatively, you can stage multiple transformations and then click **Apply** after the final transformation has been selected.
 
 Each transformation generates its own GAUSS code in the **Command History**, creating a reproducible workflow.
 
@@ -426,7 +476,7 @@ Common transformation workflows
 
 **Preparing data for regression**
   1. Standardize independent variables (All Numeric → Standardize)
-  2. Create log transformations of skewed variables (Individual → Log)
+  2. Create natural log transformations of skewed variables (Individual → Log)
   3. Create interaction terms or lags as needed
 
 **Analyzing time series**
