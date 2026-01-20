@@ -22,8 +22,10 @@ The following is a list of changes from the previous version of GAUSS.
 #. New feature: Command History filter widget with keyboard shortcut (Ctrl+K) allows real-time filtering of command history on the Command page.
 #. New feature: Symbol tree filter widget with keyboard shortcut (Ctrl+K) allows real-time filtering of workspace symbols on the Data page.
 #. Enhanced functionality: Open Symbol dialog on Data page now includes autocomplete that suggests matching symbol names as you type.
+#. Enhanced functionality: Package Manager error messages now include detailed categorization (network, authentication, package not found, dependencies, disk space, permissions, etc.), specific troubleshooting steps for each error type, and comprehensive diagnostic information for tech support, replacing the previous generic error messages.
 #. Bug fix: :func:`dbnomics_series` would return an error when trying to return multiple variables.
 #. Bug fix: :func:`loadd` would not allow more than 95 GAUSS dataset (.gdat) files in certain instances.
+#. Bug fix: license import diagnostics dialog would not find GAUSS Home folder on Windows.
 
 25.0.1
 ------

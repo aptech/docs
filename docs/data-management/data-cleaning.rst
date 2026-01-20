@@ -248,79 +248,79 @@ Time series transformations
 .. figure:: ../_static/images/data-transform-lag.jpg
     :scale: 50%
 
-* **Lag** - Creates lagged or lead variables using ``lag()``
+* **Lag** - Creates lagged or lead variables using :func:`lag`
 
-The **Lag** transformation requires one parameter:
+  The **Lag** transformation requires one parameter:
 
-* **N**: Number of periods to lag (positive) or lead (negative)
+  * **N**: Number of periods to lag (positive) or lead (negative)
 
-  * N = 1: Previous period (lag 1)
-  * N = 2: Two periods ago (lag 2)
-  * N = -1: Next period (lead 1)
+    * N = 1: Previous period (lag 1)
+    * N = 2: Two periods ago (lag 2)
+    * N = -1: Next period (lead 1)
 
-Lagged variables are essential for:
+  Lagged variables are essential for:
 
-* Time series regression models
-* Autoregressive models
-* Creating differences (Y - lag(Y, 1))
+  * Time series regression models
+  * Autoregressive models
+  * Creating differences (Y - lag(Y, 1))
 
 * **First Difference** - Computes the change from the previous period: ``X - lag(X)``
 
-First differences are useful for:
+  First differences are useful for:
 
-* Converting non-stationary time series to stationary
-* Analyzing period-to-period changes
-* Removing trends from data
+  * Converting non-stationary time series to stationary
+  * Analyzing period-to-period changes
+  * Removing trends from data
 
 * **Percent Change** - Computes the percentage change from the previous period: ``(X - lag(X)) / lag(X) * 100``
 
-Percent changes are useful for:
+  Percent changes are useful for:
 
-* Comparing growth rates across variables with different scales
-* Financial returns analysis
-* Measuring relative changes in economic indicators
+  * Comparing growth rates across variables with different scales
+  * Financial returns analysis
+  * Measuring relative changes in economic indicators
 
-* **Cumulative Sum** - Computes the running total using ``cumsumc()``
+* **Cumulative Sum** - Computes the running total using :func:`cumsumc`
 
-Cumulative sums are useful for:
+  Cumulative sums are useful for:
 
-* Computing cumulative returns or totals
-* Creating time series of accumulated values
-* Visualizing total growth over time
+  * Computing cumulative returns or totals
+  * Creating time series of accumulated values
+  * Visualizing total growth over time
 
-* **Moving Average** - Computes rolling average using ``movingave()``
+* **Moving Average** - Computes rolling average using :func:`movingave`
 
-The **Moving Average** transformation requires one parameter:
+  The **Moving Average** transformation requires one parameter:
 
-* **Window Size**: Number of periods to include in the average (default: 5)
+  * **Window Size**: Number of periods to include in the average (default: 5)
 
-Moving averages are useful for:
+  Moving averages are useful for:
 
-* Smoothing noisy time series data
-* Identifying trends by filtering out short-term fluctuations
-* Technical analysis in finance
+  * Smoothing noisy time series data
+  * Identifying trends by filtering out short-term fluctuations
+  * Technical analysis in finance
 
 
 Data quality transformations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* **Replace Missing** - Imputes missing values using various methods with ``impute()``
+* **Replace Missing** - Imputes missing values using various methods with :func:`impute`
 
-The **Replace Missing** transformation requires one parameter:
+  The **Replace Missing** transformation requires one parameter:
 
-* **Method**: The imputation strategy to use
+  * **Method**: The imputation strategy to use
 
-  * **Mean**: Replace missing values with column mean
-  * **Median**: Replace missing values with column median
-  * **Mode**: Replace missing values with most frequent value
-  * **Forward Fill**: Propagate last valid observation forward
-  * **Backward Fill**: Use next valid observation to fill gap
+    * **Mean**: Replace missing values with column mean
+    * **Median**: Replace missing values with column median
+    * **Mode**: Replace missing values with most frequent value
+    * **Forward Fill**: Propagate last valid observation forward
+    * **Backward Fill**: Use next valid observation to fill gap
 
-Missing value imputation is useful for:
+  Missing value imputation is useful for:
 
-* Handling incomplete datasets
-* Preparing data for algorithms that cannot handle missing values
-* Time series analysis where forward/backward fill maintains temporal continuity
+  * Handling incomplete datasets
+  * Preparing data for algorithms that cannot handle missing values
+  * Time series analysis where forward/backward fill maintains temporal continuity
 
 
 Choose transformation destination
