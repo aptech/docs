@@ -12,10 +12,10 @@ Format
 .. function:: idx = strrindx(haystack, needle [, start])
 
     :param haystack: the string, string array or dataframe to be searched.
-    :type haystack: string or scalar
+    :type haystack: string, scalar, string array, or dataframe where all column types are a string or category.
 
-    :param needle: the substring to be searched for in *haystack*.
-    :type needle: string or scalar
+    :param needle: the substring to be searched for in *haystack*. Can be a scalar (applied to all elements), have the same number of rows as *haystack* (one-to-one matching), and can have one column or the same number of columns as *haystack*.
+    :type needle: string, scalar, string array, or dataframe where all column types are a string or category.
 
     :param start: the starting point of the search in *haystack* for an occurrence of *needle*.
         *haystack* will be searched from this point backward for *needle*. Default is the end of the string
@@ -87,5 +87,43 @@ The above code makes the following assignments:
    pos = 11
 
    name = ols.src
+
+Filtering files by extension
+++++++++++++++++++++++++++++++
+
+This example uses :func:`strrindx` with a dataframe to find which files have .csv or .dat extensions:
+
+::
+
+   // Create dataframe with filenames
+   files = asDF("filename",
+       "sales_data.csv" $|
+       "backup.tar.gz" $|
+       "prices.dat" $|
+       "report.xlsx" $|
+       "inventory.csv" $|
+       "notes.txt");
+
+   // Find position of last period in each filename
+   dot_pos = strrindx(files[., "filename"], ".");
+
+   // Extract file extension (everything after the last dot)
+   extension = strsect(files[., "filename"], dot_pos + 1);
+
+   // Find files that are .csv or .dat
+   is_data_file = extension .$== "csv" .or extension .$== "dat";
+
+   // Filter to only data files
+   data_files = selif(files, is_data_file);
+   print data_files;
+
+The above code will print:
+
+::
+
+          filename
+   sales_data.csv
+       prices.dat
+    inventory.csv
 
 .. seealso:: Functions :func:`strindx`, :func:`strlen`, :func:`strsect`, :func:`strput`
