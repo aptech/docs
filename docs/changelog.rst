@@ -14,11 +14,19 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: :func:`aggregate` can now group data by more than one variable.
 #. Enhanced functionality: :func:`strrindx` can now accept a vector `what` input.
 #. Enhanced functionality: :func:`sortc` now accepts an optional `sort_order` parameter to sort in ascending (1) or descending (-1) order.
-#. New feature: Transform Tab in Symbol Editor provides interactive data transformations for numeric columns (ln, exp, log10, sqrt, square, standardize, normalize, rescale), string columns (lowercase, uppercase, trim, replace patterns), and date columns (extract year, month, day, quarter, day of week, day of year).
+#. New feature: Transform Tab in Symbol Editor provides interactive data transformations for numeric columns (ln, exp, sqrt, abs, standardize, normalize, lag, first difference, percent change, cumulative sum, moving average, replace missing), string columns (lowercase, uppercase, trim, replace text), and date columns (extract year, month, day name, day of month, hour, minute, quarter, second, week, lag, first difference, percent change, cumulative sum, moving average).
 #. Enhanced functionality: :func:`sortmc` now accepts an optional `sort_order` parameter to sort in ascending (1) or descending (-1) order.
 #. Enhanced functionality: Symbol Editor now supports "Starts With", "Does Not Start With", "Ends With", and "Does Not End With" filters for string and category columns using the :func:`startsWith` and :func:`endsWith` functions.
+#. New button on Edit and Debug pages to open a matrix, string or dataframe in a symbol editor.
+#. New feature: Graph Settings and Canvas Settings integrated into a single tabbed interface on the Graphics page for improved usability and discoverability, with tabs for Axes, Lines, Symbols, Text, and Canvas settings.
+#. New Graph Settings toolbar button on Graphics page provides quick access to open the Graph Settings dock.
+#. New feature: Command History filter widget with keyboard shortcut (Ctrl+K) allows real-time filtering of command history on the Command page.
+#. New feature: Symbol tree filter widget with keyboard shortcut (Ctrl+K) allows real-time filtering of workspace symbols on the Data page.
+#. Enhanced functionality: Open Symbol dialog on Data page now includes autocomplete that suggests matching symbol names as you type.
+#. Enhanced functionality: Package Manager error messages now include detailed categorization (network, authentication, package not found, dependencies, disk space, permissions, etc.), specific troubleshooting steps for each error type, and comprehensive diagnostic information for tech support, replacing the previous generic error messages.
 #. Bug fix: :func:`dbnomics_series` would return an error when trying to return multiple variables.
 #. Bug fix: :func:`loadd` would not allow more than 95 GAUSS dataset (.gdat) files in certain instances.
+#. Bug fix: license import diagnostics dialog would not find GAUSS Home folder on Windows.
 
 25.0.2
 ------

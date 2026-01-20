@@ -1,8 +1,8 @@
 Data Cleaning
 ==================
 
-Interactive Data Cleaning
------------------------------
+Interactive Data Cleaning and Management
+------------------------------------------
 
 Interactive data cleaning can be performed in the **Data Import** window before import, or in a GAUSS **Symbol Editor** after it is loaded.
 
@@ -23,6 +23,11 @@ The **Data Management** pane contains:
     * Change variable types.
     * Manage category labels and order.
     * Change date display formats.
+* The **Transform** tab that allows you to:
+    * Apply mathematical, statistical, and string transformations.
+    * Extract date/time components.
+    * Create lagged variables.
+    * Transform existing columns or create new columns.
 
 
 Open the Data Management pane
@@ -127,6 +132,376 @@ Filter based numeric value
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: ../_static/images/data-cleaning-filter-inequality-mpg.jpg
+
+
+Data transformations
+++++++++++++++++++++
+
+The **Transform** tab allows you to apply transformations to your data without writing code. Transformations can modify existing columns or create new columns, and all changes auto-generate GAUSS code that appears in your **Command History**.
+
+Open the Transform tab
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-management-transform-tab.jpg
+    :scale: 25%
+
+The **Transform** tab is located in the **Data Management** pane alongside the **Filter** and **Variables** tabs.
+
+1. Double-click the dataframe in the **Symbols** window on the **Data** page.
+2. Click the **Manage** button with the cog icon at the top right of the **Symbol Editor**.
+3. Click the **Transform** tab.
+
+
+Select columns to transform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-transform-column-selection.jpg
+    :scale: 50%
+
+The **Source Column** dropdown allows you to select which column(s) to transform. You can select:
+
+* **Individual columns** by name (e.g., "price", "mpg", "temperature")
+* **All Numeric** - Applies transformation to all numeric columns
+* **All String/Category** - Applies transformation to all string and categorical columns
+* **All Date** - Applies transformation to all date columns
+
+When you select columns, they are highlighted in blue in the data preview, similar to Google Sheets. This visual feedback helps you confirm which columns will be transformed.
+
+.. note:: Bulk selections like "All Numeric" are useful when you want to apply the same transformation (like standardization or log transformation) to multiple columns at once.
+
+
+Available transformations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Mathematical transformations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Apply mathematical functions to numeric columns:
+
+* **Log (natural)** - Natural logarithm using :func:`ln`
+* **Square Root** - Square root using :func:`sqrt`
+* **Exponential** - Exponential function using :func:`exp`
+* **Absolute Value** - Absolute value using :func:`abs`
+
+.. note:: Log and square root transformations are commonly used to reduce skewness in right-skewed data.
+
+
+Statistical transformations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Standardize or normalize numeric data:
+
+* **Standardize (Z-score)** - Converts values to z-scores (mean=0, std=1) using :func:`rescale`
+* **Normalize (0-1)** - Rescales values to 0-1 range using :func:`rescale`
+
+These transformations are useful for:
+
+* Comparing variables on different scales
+* Preparing data for machine learning algorithms
+* Creating standardized plots
+
+
+String transformations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Modify text and categorical data:
+
+* **Uppercase** - Converts text to uppercase using :func:`upper`
+* **Lowercase** - Converts text to lowercase using :func:`lower`
+* **Trim Whitespace** - Removes leading and trailing spaces using :func:`strtrim`
+* **Replace Text** - Find and replace text patterns using :func:`strreplace`
+
+.. figure:: ../_static/images/data-transform-replace-text.jpg
+    :scale: 50%
+
+The **Replace Text** transformation requires two parameters:
+
+1. **Find**: The text pattern to search for
+2. **Replace**: The text to replace it with
+
+
+Date/Time transformations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Extract components from date/time columns:
+
+* **Extract Year** - Extracts year using :func:`dtYear`
+* **Extract Month** - Extracts month number (1-12) using :func:`dtMonth`
+* **Extract Day of Month** - Extracts day (1-31) using :func:`dtDayofMonth`
+* **Extract Day Name** - Extracts day name (Monday, Tuesday, etc.) using :func:`dtDayName`
+* **Extract Quarter** - Extracts quarter (1-4) using :func:`dtQuarter`
+* **Extract Week** - Extracts week number using :func:`dtWeek`
+* **Extract Hour** - Extracts hour (0-23) using :func:`dtHour`
+* **Extract Minute** - Extracts minute (0-59) using :func:`dtMinute`
+* **Extract Second** - Extracts second (0-59) using :func:`dtSecond`
+
+These transformations are useful for:
+
+* Time series analysis (grouping by month, quarter, year)
+* Creating seasonal indicators
+* Analyzing patterns by day of week or hour of day
+
+
+Time series transformations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: ../_static/images/data-transform-lag.jpg
+    :scale: 50%
+
+* **Lag** - Creates lagged or lead variables using :func:`lag`
+
+  The **Lag** transformation requires one parameter:
+
+  * **N**: Number of periods to lag (positive) or lead (negative)
+
+    * N = 1: Previous period (lag 1)
+    * N = 2: Two periods ago (lag 2)
+    * N = -1: Next period (lead 1)
+
+  Lagged variables are essential for:
+
+  * Time series regression models
+  * Autoregressive models
+  * Creating differences (Y - lag(Y, 1))
+
+* **First Difference** - Computes the change from the previous period: ``X - lag(X)``
+
+  First differences are useful for:
+
+  * Converting non-stationary time series to stationary
+  * Analyzing period-to-period changes
+  * Removing trends from data
+
+* **Percent Change** - Computes the percentage change from the previous period: ``(X - lag(X)) / lag(X) * 100``
+
+  Percent changes are useful for:
+
+  * Comparing growth rates across variables with different scales
+  * Financial returns analysis
+  * Measuring relative changes in economic indicators
+
+* **Cumulative Sum** - Computes the running total using :func:`cumsumc`
+
+  Cumulative sums are useful for:
+
+  * Computing cumulative returns or totals
+  * Creating time series of accumulated values
+  * Visualizing total growth over time
+
+* **Moving Average** - Computes rolling average using :func:`movingave`
+
+  The **Moving Average** transformation requires one parameter:
+
+  * **Window Size**: Number of periods to include in the average (default: 5)
+
+  Moving averages are useful for:
+
+  * Smoothing noisy time series data
+  * Identifying trends by filtering out short-term fluctuations
+  * Technical analysis in finance
+
+
+Data quality transformations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **Replace Missing** - Imputes missing values using various methods with :func:`impute`
+
+  The **Replace Missing** transformation requires one parameter:
+
+  * **Method**: The imputation strategy to use
+
+    * **Mean**: Replace missing values with column mean
+    * **Median**: Replace missing values with column median
+    * **Mode**: Replace missing values with most frequent value
+    * **Forward Fill**: Propagate last valid observation forward
+    * **Backward Fill**: Use next valid observation to fill gap
+
+  Missing value imputation is useful for:
+
+  * Handling incomplete datasets
+  * Preparing data for algorithms that cannot handle missing values
+  * Time series analysis where forward/backward fill maintains temporal continuity
+
+
+Choose transformation destination
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-transform-destination.jpg
+    :scale: 50%
+
+After selecting the transformation, choose where to place the results:
+
+**Overwrite existing column (default)**
+
+The transformation replaces the original column values. Use this when you want to permanently modify the data.
+
+**Create new column**
+
+1. Select **Create a new column**
+2. Enter a name for the new column in the **New Column Name** text box
+
+  The transformation creates a new column with the specified name, leaving the original column unchanged.
+
+.. note:: Creating new columns is useful when you want to compare the original and transformed values, or when you need both versions for analysis.
+
+
+Preview transformations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The **Data Preview** window shows how your transformation will affect the data before you apply it.
+
+* Selected columns are highlighted in blue
+* Transformation previews update as you change settings
+* You can see the exact values that will result from the transformation
+
+This lets you verify the transformation is correct before applying it to your data.
+
+
+Apply transformations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-transform-apply.jpg
+    :scale: 50%
+
+Click the **Apply** button at the bottom of the **Data Management** pane to execute the transformation.
+
+To modify the current dataframe, either click **Apply** or click the drop-down and select **Overwrite Existing**.
+
+To create a new dataframe containing your changes, click the drop-down next to the **Apply** button and select **Create New**. A text box will appear allowing you to enter the name of the new dataframe.
+
+
+Autogenerated code
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ../_static/images/data-transform-code-generation.jpg
+    :scale: 50%
+
+The **Transform** tab auto-generates GAUSS code for every transformation. This code appears in the **Command History** window and can be:
+
+* Copied to a program file to repeat the transformation
+* Modified for batch processing
+* Used as a learning tool to understand GAUSS functions
+
+Example generated code:
+
+::
+
+    // Create natural log of mpg in new column
+    auto = auto ~ asdf(ln(auto[., "mpg"]), "mpg_ln");
+
+    // Change "Cad." to "Cadillac" in the 'make' variable
+    auto[., "make"] = strreplace(auto[., "make"], "Cad.", "Cadillac");
+
+
+Transformation examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Example 1: Standardize multiple numeric variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: ../_static/images/data-transform-example-standardize.jpg
+    :scale: 50%
+
+To standardize all numeric columns in a dataset:
+
+1. Open the **Transform** tab
+2. Select **All Numeric** from the **Source Column** dropdown
+3. Select **Standardize (Z-score)** from the **Transformation** list
+4. Ensure **Modify existing column** is checked if you want to replace the original values
+5. Click **Apply**
+
+All numeric columns will now have mean = 0 and standard deviation = 1.
+
+
+Example 2: Extract month from a date column
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To create a new column containing just the month from a date variable:
+
+1. Open the **Transform** tab
+2. Select your date column (e.g., "purchase_date") from the **Source Column** dropdown
+3. Select **Extract Month** from the **Transformation** list
+4. Click **Create new column**
+5. Enter "month" in the **New Column Name** text box
+6. Click **Apply**
+
+A new column called "month" will be created containing month numbers (1-12).
+
+
+Example 3: Create lagged variable for time series
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: ../_static/images/data-transform-example-lag.jpg
+    :scale: 50%
+
+To create a one-period lag of a variable:
+
+1. Open the **Transform** tab
+2. Select "beef_prices" from the **Source Column** dropdown
+3. Select **Lag** from the **Transformation** list
+4. Enter **1** in the **N** parameter box
+5. Click **Create new column**
+6. Enter "beef_prices_lag1" in the **New Column Name** text box
+7. Click **Add Transform**
+7. Click **Apply**.
+
+A new column "beef_prices_lag1" will contain the previous period's sales value for each observation.
+
+
+Example 4: Clean text data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To remove extra whitespace from all string columns:
+
+1. Open the **Transform** tab
+2. Select **All String/Category** from the **Source Column** dropdown
+3. Select **Trim Whitespace** from the **Transformation** list
+4. Ensure **Overwrite** is checked
+5. Click **Apply**
+
+All string and categorical columns will have leading and trailing spaces removed.
+
+
+Multiple transformations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can apply multiple transformations sequentially, by selecting **Apply** and then creating a transformation. Alternatively, you can stage multiple transformations and then click **Apply** after the final transformation has been selected.
+
+Each transformation generates its own GAUSS code in the **Command History**, creating a reproducible workflow.
+
+.. note:: Transformations are applied immediately when you click **Apply**. Use **Create New** if you want to preserve the original data while experimenting with different transformations.
+
+
+Common transformation workflows
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Preparing data for regression**
+  1. Standardize independent variables (All Numeric → Standardize)
+  2. Create natural log transformations of skewed variables (Individual → Log)
+  3. Create interaction terms or lags as needed
+
+**Analyzing time series**
+  1. Extract time components (date → Extract Month, Quarter, Year)
+  2. Create lagged variables (Lag with N=1, 2, etc.)
+  3. Calculate differences using lag (price - lag(price, 1))
+
+**Cleaning survey data**
+  1. Trim whitespace (All String/Category → Trim Whitespace)
+  2. Standardize case (All String/Category → Uppercase or Lowercase)
+  3. Replace inconsistent values (Individual → Replace Text)
+
+**Creating time-based features**
+  1. Extract day of week (date → Extract Day Name)
+  2. Extract hour for intraday analysis (datetime → Extract Hour)
+  3. Create quarter indicators (date → Extract Quarter)
+
+
+Further Reading
+^^^^^^^^^^^^^^^
+
+1. `Data Transformations (Programmatic) <./data-transformations.html>`_ - Learn to write transformation code manually
+2. `Interactive Data Import <./interactive-import.html>`_ - Apply transformations during data import
+3. `Getting to Know Your Data With GAUSS 22 <https://www.aptech.com/blog/getting-to-know-your-data-with-gauss-22/>`_
 
 
 Apply changes
