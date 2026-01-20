@@ -32,8 +32,8 @@ Format
 
     :type method: String
 
-    :param column: Optional, specifies which variable contains the groups on which to aggregate.
-    :type column: string
+    :param column: Optional, specifies which variable(s) contain the groups on which to aggregate. To aggregate by multiple columns, use the ``$|`` operator to concatenate column names (e.g., ``"day" $| "time"``).
+    :type column: string or string array
 
     :param fast: Optional, specifies fast computation that does not check for missing values. Set to 1 to use fast method.
     :type fast: scalar
@@ -143,6 +143,51 @@ The above code will make the following table
   Domestic  6072.423   19.827
   Foreign   6384.682   24.773
 
+Example 4
+++++++++++++
+
+This example aggregates by multiple group columns, finding the maximum value for each combination of day and time.
+
+::
+
+  // Load data
+  tips = loadd(getGAUSSHome("examples/tips2.dta"), "day + time + total_bill + tip");
+
+  // View first few rows
+  head(tips);
+
+::
+
+The above code will print:
+
+::
+
+           day             time       total_bill              tip
+           Sun           Dinner        16.990000        1.0100000
+           Sun           Dinner        10.340000        1.6600000
+           Sun           Dinner        21.010000        3.5000000
+           Sun           Dinner        23.680000        3.3100000
+           Sun           Dinner        24.590000        3.6100000
+
+::
+
+  // Aggregate by day and time, finding max values
+  tips_a = aggregate(tips, "max", "day" $| "time");
+  print tips_a;
+
+::
+
+The above code will print:
+
+::
+
+           day             time       total_bill              tip
+          Thur            Lunch        43.110000        6.7000000
+          Thur           Dinner        18.780000        3.0000000
+           Fri            Lunch        16.270000        3.4800000
+           Fri           Dinner        40.170000        4.7300000
+           Sat           Dinner        50.810000        10.000000
+           Sun           Dinner        48.170000        6.5000000
 
 
 .. seealso:: Functions :func:`meanc`, :func:`modec`, :func:`selif`
