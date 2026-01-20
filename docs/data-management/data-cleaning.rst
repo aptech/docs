@@ -143,7 +143,7 @@ Open the Transform tab
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: ../_static/images/data-management-transform-tab.jpg
-    :scale: 50%
+    :scale: 25%
 
 The **Transform** tab is located in the **Data Management** pane alongside the **Filter** and **Variables** tabs.
 
@@ -178,10 +178,10 @@ Mathematical transformations
 
 Apply mathematical functions to numeric columns:
 
-* **Log (natural)** - Natural logarithm using ``ln()``
-* **Square Root** - Square root using ``sqrt()``
-* **Exponential** - Exponential function using ``exp()``
-* **Absolute Value** - Absolute value using ``abs()``
+* **Log (natural)** - Natural logarithm using :func:`ln`
+* **Square Root** - Square root using :func:`sqrt`
+* **Exponential** - Exponential function using :func:`exp`
+* **Absolute Value** - Absolute value using :func:`abs`
 
 .. note:: Log and square root transformations are commonly used to reduce skewness in right-skewed data.
 
@@ -191,8 +191,8 @@ Statistical transformations
 
 Standardize or normalize numeric data:
 
-* **Standardize (Z-score)** - Converts values to z-scores (mean=0, std=1) using ``rescale()``
-* **Normalize (0-1)** - Rescales values to 0-1 range using ``rescale()``
+* **Standardize (Z-score)** - Converts values to z-scores (mean=0, std=1) using :func:`rescale`
+* **Normalize (0-1)** - Rescales values to 0-1 range using :func:`rescale`
 
 These transformations are useful for:
 
@@ -206,10 +206,10 @@ String transformations
 
 Modify text and categorical data:
 
-* **Uppercase** - Converts text to uppercase using ``upper()``
-* **Lowercase** - Converts text to lowercase using ``lower()``
-* **Trim Whitespace** - Removes leading and trailing spaces using ``strtrim()``
-* **Replace Text** - Find and replace text patterns using ``strreplace()``
+* **Uppercase** - Converts text to uppercase using :func:`upper`
+* **Lowercase** - Converts text to lowercase using :func:`lower`
+* **Trim Whitespace** - Removes leading and trailing spaces using :func:`strtrim`
+* **Replace Text** - Find and replace text patterns using :func:`strreplace`
 
 .. figure:: ../_static/images/data-transform-replace-text.jpg
     :scale: 50%
@@ -225,15 +225,15 @@ Date/Time transformations
 
 Extract components from date/time columns:
 
-* **Extract Year** - Extracts year using ``dtYear()``
-* **Extract Month** - Extracts month number (1-12) using ``dtMonth()``
-* **Extract Day of Month** - Extracts day (1-31) using ``dtDayofMonth()``
-* **Extract Day Name** - Extracts day name (Monday, Tuesday, etc.) using ``dtDayName()``
-* **Extract Quarter** - Extracts quarter (1-4) using ``dtQuarter()``
-* **Extract Week** - Extracts week number using ``dtWeek()``
-* **Extract Hour** - Extracts hour (0-23) using ``dtHour()``
-* **Extract Minute** - Extracts minute (0-59) using ``dtMinute()``
-* **Extract Second** - Extracts second (0-59) using ``dtSecond()``
+* **Extract Year** - Extracts year using :func:`dtYear`
+* **Extract Month** - Extracts month number (1-12) using :func:`dtMonth`
+* **Extract Day of Month** - Extracts day (1-31) using :func:`dtDayofMonth`
+* **Extract Day Name** - Extracts day name (Monday, Tuesday, etc.) using :func:`dtDayName`
+* **Extract Quarter** - Extracts quarter (1-4) using :func:`dtQuarter`
+* **Extract Week** - Extracts week number using :func:`dtWeek`
+* **Extract Hour** - Extracts hour (0-23) using :func:`dtHour`
+* **Extract Minute** - Extracts minute (0-59) using :func:`dtMinute`
+* **Extract Second** - Extracts second (0-59) using :func:`dtSecond`
 
 These transformations are useful for:
 
@@ -434,17 +434,18 @@ Example 3: Create lagged variable for time series
 .. figure:: ../_static/images/data-transform-example-lag.jpg
     :scale: 50%
 
-To create a one-period lag of a sales variable:
+To create a one-period lag of a variable:
 
 1. Open the **Transform** tab
-2. Select "sales" from the **Source Column** dropdown
+2. Select "beef_prices" from the **Source Column** dropdown
 3. Select **Lag** from the **Transformation** list
 4. Enter **1** in the **N** parameter box
 5. Click **Create new column**
-6. Enter "sales_lag1" in the **New Column Name** text box
-7. Click **Apply**
+6. Enter "beef_prices_lag1" in the **New Column Name** text box
+7. Click **Add Transform**
+7. Click **Apply**.
 
-A new column "sales_lag1" will contain the previous period's sales value for each observation.
+A new column "beef_prices_lag1" will contain the previous period's sales value for each observation.
 
 
 Example 4: Clean text data
