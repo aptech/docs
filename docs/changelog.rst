@@ -13,6 +13,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: :func:`plotSetLineSymbol` now accepts string names for marker symbols (e.g., ``"circle"``, ``"diamond"``, ``"triangle_up"``) in addition to numeric values.
 #. Enhanced functionality: :func:`plotSetFill` now accepts string names for fill patterns (e.g., ``"none"``, ``"solid"``, ``"horizontal"``, ``"cross"``) in addition to numeric values.
 #. Enhanced functionality: :func:`plotSetLineStyle` now accepts string names for line styles (e.g., ``"solid"``, ``"dash"``, ``"dot"``, ``"dashdot"``) in addition to numeric values.
+#. Enhanced functionality: :func:`plotSetLinePen` now accepts string names for the line style parameter (e.g., ``"solid"``, ``"dash"``, ``"dot"``, ``"dashdot"``) in addition to numeric values.
 #. Enhanced functionality: :func:`aggregate` can now group data by more than one variable.
 #. Enhanced functionality: :func:`strrindx` can now accept a vector `what` input.
 #. Enhanced functionality: :func:`sortc` now accepts an optional `sort_order` parameter to sort in ascending (1) or descending (-1) order.

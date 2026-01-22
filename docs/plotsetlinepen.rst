@@ -23,7 +23,7 @@ Format
 
         .. include:: include/plotpenstyletable.rst
 
-    :type style: Scalar or Nx1 matrix
+    :type style: Scalar, Nx1 matrix, string, or Nx1 string array
 
 Examples
 ----------------
@@ -69,10 +69,10 @@ Example setting all options
     ** Set XY lines to
     ** 1. Be 2 pixels wide.
     ** 2. Use the colors from the 'accent' color palette
-    ** 3. Set the line styles to be solid=1, dash=2, dot=3
+    ** 3. Set the line styles to be solid, dash, dot
     */
     clrs = getColorPalette("accent");
-    styles = { 1, 2, 3 };
+    styles = "solid" $| "dash" $| "dot";
     plotSetLinePen(&myPlot, 2, clrs, styles);
 
     // Create 3 series of data
