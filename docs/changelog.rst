@@ -10,6 +10,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function: :func:`tsAggregate`, aggregates time series data to lower frequency with support for multiple aggregation methods (last, first, mean, sum, max, min, median, sd, count, mode) and frequencies (second, minute, hourly, daily, monthly, quarterly, yearly).
 #. New function: :func:`pdBalance`, balances a panel so that each group has the same number of observations by either filling or removing observations.
 #. New function: :func:`endswith`, returns a 1 if an element of a dataframe or string array ends with a specified pattern.
+#. Enhanced functionality: :func:`plotSetLineSymbol` now accepts string names for marker symbols (e.g., ``"circle"``, ``"diamond"``, ``"triangle_up"``) in addition to numeric values.
+#. Enhanced functionality: :func:`plotSetFill` now accepts string names for fill patterns (e.g., ``"none"``, ``"solid"``, ``"horizontal"``, ``"cross"``) in addition to numeric values.
+#. Enhanced functionality: :func:`plotSetLineStyle` now accepts string names for line styles (e.g., ``"solid"``, ``"dash"``, ``"dot"``, ``"dashdot"``) in addition to numeric values.
 #. Enhanced functionality: :func:`aggregate` can now group data by more than one variable.
 #. Enhanced functionality: :func:`strrindx` can now accept a vector `what` input.
 #. Enhanced functionality: :func:`sortc` now accepts an optional `sort_order` parameter to sort in ascending (1) or descending (-1) order.

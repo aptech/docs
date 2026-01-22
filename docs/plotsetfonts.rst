@@ -104,7 +104,7 @@ Set the font family, size and color for the x-axis and legend
     plotSetXLabel(&myPlot, "X variable");
 
     // Plot some random normal data
-    plotScatter(myPlot, rndn(100, 1), rndn(100,1);
+    plotScatter(myPlot, rndn(100, 1), rndn(100, 1));
 
 
 .. include:: include/plotattrremark.rst

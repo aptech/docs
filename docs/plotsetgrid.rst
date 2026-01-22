@@ -46,7 +46,7 @@ Examples
 Remarks
 -------
 
-* In most cases, :func:`plotsetgridpen` is preferrred over :func:`plotsetgrid`.
+* In most cases, :func:`plotSetGridPen` is preferred over :func:`plotSetGrid`.
 
 .. include:: include/plotattrremark.rst
 
