@@ -9,9 +9,9 @@ Aggregates the data in the columns of a matrix based upon a column containing gr
 
 Format
 ----------------
-.. function:: x_agg = aggregate(x, method [, column , fast])
+.. function:: x_agg = aggregate(x, method [, id_cols, skip_miss_check])
 
-    :param x: Data, if *column* is not specified, the first column must contain the ids for the groups on which to aggregate.
+    :param x: Data, if *id_cols* is not specified, the first column must contain the ids for the groups on which to aggregate.
     :type x: NxK matrix or dataframe
 
     :param method: Specifies which aggregation method to use.
@@ -32,11 +32,11 @@ Format
 
     :type method: String
 
-    :param column: Optional, specifies which variable(s) contain the groups on which to aggregate. To aggregate by multiple columns, use the ``$|`` operator to concatenate column names (e.g., ``"day" $| "time"``).
-    :type column: string or string array
+    :param id_cols: Optional, specifies which variable(s) contain the groups on which to aggregate. To aggregate by multiple columns, use the ``$|`` operator to concatenate column names (e.g., ``"day" $| "time"``).
+    :type id_cols: string or string array
 
-    :param fast: Optional, specifies fast computation that does not check for missing values. Set to 1 to use fast method.
-    :type fast: scalar
+    :param skip_miss_check: Optional. Default: 0. Set to 1 to skip checking for missing values (faster but missings may affect results). When 0, missing values are handled per-column.
+    :type skip_miss_check: scalar
 
     :return x_agg: The input aggregated by the group id, using the specified method.
     :rtype x_agg: NGROUPSxK matrix
