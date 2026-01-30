@@ -9,7 +9,7 @@ Aggregates time series data to lower frequency.
 
 Format
 ----------------
-.. function:: result = tsAggregate(df, freq, method)
+.. function:: result = tsAggregate(df, freq, method[, skip_miss_check])
 
     :param df: Data with date column.
     :type df: NxK dataframe or matrix
@@ -69,6 +69,9 @@ Format
               - Mode (most frequent value)
 
     :type method: String
+
+    :param skip_miss_check: Optional. Default: 0. Set to 1 to skip checking for missing values (faster but missings may affect results). When 0, missing values are handled per-column.
+    :type skip_miss_check: scalar
 
     :return result: Aggregated data with exactly 1 observation per period. The "count" method returns only 2 columns (date + count).
     :rtype result: MxK dataframe or matrix
