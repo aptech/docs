@@ -48,4 +48,50 @@ Examples
            6           5.70
            8           5.50
 
+Example 2: Finding rows by string value in a dataframe
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Create sample dataframe
+    sales = asdf(seqa(100, 50, 5), "sales");
+    region = asdf("North" $| "South" $| "North" $| "East" $| "South", "region");
+    df = region ~ sales;
+
+    print df;
+
+::
+
+          region            sales
+           North        100.00000
+           South        150.00000
+           North        200.00000
+            East        250.00000
+           South        300.00000
+
+::
+
+    // Find indices of all "South" regions
+    south_idx = indexcat(df[., "region"], "South");
+
+    print south_idx;
+
+::
+
+    2.0000000
+    5.0000000
+
+::
+
+    // Use indices to extract matching rows
+    south_data = df[south_idx, .];
+
+    print south_data;
+
+::
+
+          region            sales
+           South        150.00000
+           South        300.00000
+
 .. seealso:: Functions :func:`contains`, :func:`ismember`, :func:`rowcontains`
