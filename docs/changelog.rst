@@ -28,6 +28,10 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: Open Symbol dialog on Data page now includes autocomplete that suggests matching symbol names as you type.
 #. Enhanced functionality: Package Manager error messages now include detailed categorization (network, authentication, package not found, dependencies, disk space, permissions, etc.), specific troubleshooting steps for each error type, and comprehensive diagnostic information for tech support, replacing the previous generic error messages.
 #. Enhanced functionality: Added highlighting for the selected column in the Filter Tab of the Symbol Editor.
+#. Enhanced functionality: Symbol Editor Variables tab shows pending changes with blue text; column headers show asterisk for columns with pending filters or transforms.
+#. Enhanced functionality: Symbol Editor displays informative message when Transform tab is disabled due to pending filters, and vice versa.
+#. Enhanced functionality: Clicking a column in the Symbol Editor data area populates the source column dropdown in Transform and Filter tabs.
+#. Enhanced functionality: Click a variable name in the Symbol Editor Variables tab to scroll its column into view; double-click to rename.
 #. Bug fix: :func:`dbnomics_series` would return an error when trying to return multiple variables.
 #. Bug fix: :func:`loadd` would not allow more than 95 GAUSS dataset (.gdat) files in certain instances.
 #. Bug fix: license import diagnostics dialog would not find GAUSS Home folder on Windows.
