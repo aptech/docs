@@ -24,9 +24,9 @@ copyright = '2025, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
-version = '25'
+version = '26'
 # The full version, including alpha/beta/rc tags
-release = '25'
+release = '26'
 
 
 # -- General configuration ---------------------------------------------------
@@ -46,7 +46,6 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx_panels',
     'sphinx_tabs.tabs',
 ]
 
@@ -73,7 +72,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
