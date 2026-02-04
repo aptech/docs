@@ -32,6 +32,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: Symbol Editor displays informative message when Transform tab is disabled due to pending filters, and vice versa.
 #. Enhanced functionality: Clicking a column in the Symbol Editor data area populates the source column dropdown in Transform and Filter tabs.
 #. Enhanced functionality: Click a variable name in the Symbol Editor Variables tab to scroll its column into view; double-click to rename.
+#. Bug fix: :func:`plotSetLegend` could ignore legend location settings with certain placement strings.
+#. Bug fix: :func:`strreplace` on dataframe columns could produce corrupted output when the replacement string differed in length from the search string.
+#. Bug fix: importing certain CSV files with special characters in delimiters could cause a crash.
 #. Bug fix: :func:`dbnomics_series` would return an error when trying to return multiple variables.
 #. Bug fix: :func:`loadd` would not allow more than 95 GAUSS dataset (.gdat) files in certain instances.
 #. Bug fix: license import diagnostics dialog would not find GAUSS Home folder on Windows.

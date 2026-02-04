@@ -64,7 +64,7 @@ Format
             * - "sd"
               - Standard deviation
             * - "count"
-              - Count of observations
+              - Count of non-missing values per column
             * - "mode"
               - Mode (most frequent value)
 
@@ -73,7 +73,7 @@ Format
     :param skip_miss_check: Optional. Default: 0. Set to 1 to skip checking for missing values (faster but missings may affect results). When 0, missing values are handled per-column.
     :type skip_miss_check: scalar
 
-    :return result: Aggregated data with exactly 1 observation per period. The "count" method returns only 2 columns (date + count).
+    :return result: Aggregated data with exactly 1 observation per period.
     :rtype result: MxK dataframe or matrix
 
 Examples
@@ -288,7 +288,7 @@ This example demonstrates chaining multiple aggregations to go from daily to mon
 Example 8: Count observations
 +++++++++++++++++++++++++++++++
 
-This example shows the "count" method, which returns the number of observations in each period.
+This example shows the "count" method, which returns the count of non-missing values per column for each period.
 
 ::
 
@@ -296,19 +296,19 @@ This example shows the "count" method, which returns the number of observations 
     fname = getGAUSSHome("examples/xle_daily.xlsx");
     xle = loadd(fname, "date(Date) + Adj Close");
 
-    // Count trading days per month
+    // Count non-missing values per month
     monthly_counts = tsAggregate(xle, "Monthly", "count");
 
     print monthly_counts[1:5,.];
 
 ::
 
-            Date         count
-      2017-06-30            14
-      2017-07-31            20
-      2017-08-31            23
-      2017-09-29            20
-      2017-10-31            22
+            Date        Adj Close
+      2017-06-30               14
+      2017-07-31               20
+      2017-08-31               23
+      2017-09-29               20
+      2017-10-31               22
 
 
 Remarks
@@ -320,7 +320,7 @@ Remarks
 - For the "lastBD" method, business days are Monday through Friday only. No holiday calendar is applied.
 - If no business days are found in a period for the "lastBD" method, the last observation (even if it's a weekend) is used instead.
 - Periods with no data are skipped in the output.
-- The "count" method returns only 2 columns: the date column and a count column.
+- The "count" method returns the count of non-missing values for each column, similar to pandas ``count()``. All data columns are returned with their respective counts.
 - For string frequency parameters, the function is case-insensitive (e.g., "monthly", "Monthly", and "MONTHLY" are all valid).
 
 .. seealso:: Functions :func:`sortc`, :func:`aggregate`, :func:`meanc`, :func:`sumc`
