@@ -109,6 +109,8 @@ Format
             "qOut.df_model", "Scalar, model degrees of freedom."
             "qOut.h", "Vector, bandwidth used in asymptotic variance estimation. Values for each tau are stored in separate columns."
             "qOut.sparsity", "Vector, sparsity used in asymptotic variance estimation. Values for each tau are stored in separate columns."
+            "qOut.converged", "Vector, convergence indicator (1=converged, 0=hit iteration limit). Values for each tau are stored in separate columns."
+            "qOut.iterations", "Vector, number of LP solver iterations used. Values for each tau are stored in separate columns."
 
     :rtype qOut: struct
 
