@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 26.0.1
 ------
 
+#. New feature: Profiler GUI with "Profile Main File" menu item (Shift+F5) in Debug menu. Dockable profiler panel displays Hot Spots (line-level timing sorted by self time), Call Tree (hierarchical procedure call graph), and Output tabs. Double-click any entry to navigate to source.
 #. Enhanced functionality: :func:`sqpSolveMT` improved robustness for challenging optimization problems, including better handling of difficult starting points, adaptive trust region management, and improved numerical stability.
 #. Enhanced functionality: :func:`quantileFit` improved input validation with clear error messages for invalid quantile levels, collinear predictors, and mismatched input dimensions.
 #. Enhanced functionality: :func:`quantileFit` now reports convergence diagnostics via new output members ``qOut.converged`` and ``qOut.iterations``.
