@@ -4,6 +4,14 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+26.0.1
+------
+
+#. Enhanced functionality: :func:`sqpSolveMT` improved robustness for challenging optimization problems, including better handling of difficult starting points, adaptive trust region management, and improved numerical stability.
+#. Enhanced functionality: :func:`quantileFit` improved input validation with clear error messages for invalid quantile levels, collinear predictors, and mismatched input dimensions.
+#. Enhanced functionality: :func:`quantileFit` now reports convergence diagnostics via new output members ``qOut.converged`` and ``qOut.iterations``.
+#. Bug fix: :func:`quantileFit` corrected Bofinger bandwidth formula (``bw_method=2``) to match the published reference.
+
 26.0.0
 ------
 
