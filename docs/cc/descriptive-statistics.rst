@@ -8,6 +8,7 @@ Descriptive statistics
 
 ====================         ===========================================
 :doc:`../aggregate`          Aggregates the data in the columns of a matrix based upon a column containing group ids with a choice of method.
+:doc:`../contingency`        Computes statistics and measures of association for contingency tables.
 :doc:`../dstatmt`            Computes descriptive statistics of a dataset, dataframe, or matrix.
 :doc:`../frequency`          Generate frequency table.
 :doc:`../jarquebera`         Computes the Jarque-Bera goodness-of-fit test.

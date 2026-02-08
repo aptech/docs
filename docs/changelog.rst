@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 26.0.1
 ------
 
+#. New function: :func:`contingency`, computes comprehensive statistics for contingency tables including chi-squared tests, Fisher's exact test, odds ratios, relative risk, and measures of association (Cramer's V, Gamma, Kendall's tau-b, Kappa).
 #. New function: :func:`mvnTest`, tests multivariate normality using Henze-Zirkler (default), Mardia's skewness/kurtosis, Doornik-Hansen, or Royston methods.
 #. New function: :func:`shapiroWilk`, computes the Shapiro-Wilk W test for univariate normality.
 #. New function: :func:`ttest`, performs two-sample and paired t-tests for comparing means.
