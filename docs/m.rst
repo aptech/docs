@@ -34,4 +34,6 @@ M
     movingaveexpwgt
     movingave
     movingavewgt
+    mvntest
+    mvntestcontrolcreate
     msym

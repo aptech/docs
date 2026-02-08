@@ -40,6 +40,8 @@ T
     trimr
     trunc
     tsaggregate
+    ttest
+    ttestcontrolcreate
     typecv
     typef
     type
