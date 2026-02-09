@@ -16,6 +16,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: :func:`quantileFit` improved input validation with clear error messages for invalid quantile levels, collinear predictors, and mismatched input dimensions.
 #. Enhanced functionality: :func:`quantileFit` now reports convergence diagnostics via new output members ``qOut.converged`` and ``qOut.iterations``.
 #. Bug fix: :func:`quantileFit` corrected Bofinger bandwidth formula (``bw_method=2``) to match the published reference.
+#. New feature: The colon operator now creates vectors outside of indexing context. ``x = 1:5`` creates a 5x1 column vector ``{1, 2, 3, 4, 5}``, equivalent to ``seqa(1, 1, 5)``. Works with variables (``a:b``), expressions (``(n-1):(n+1)``), and function calls (``minc(x):maxc(x)``). Inside brackets, the colon continues to work as an index range (``x[1:5]``).
 
 26.0.0
 ------
