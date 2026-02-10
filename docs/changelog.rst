@@ -12,11 +12,13 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function: :func:`shapiroWilk`, computes the Shapiro-Wilk W test for univariate normality.
 #. New function: :func:`ttest`, performs two-sample and paired t-tests for comparing means.
 #. New feature: Profiler GUI with "Profile Main File" menu item (Shift+F5) in Debug menu. Dockable profiler panel displays Hot Spots (line-level timing sorted by self time), Call Tree (hierarchical procedure call graph), and Output tabs. Double-click any entry to navigate to source.
+#. New feature: The colon operator now creates vectors outside of indexing context. ``x = 1:5`` creates a 5x1 column vector ``{1, 2, 3, 4, 5}``, equivalent to ``seqa(1, 1, 5)``. Works with variables (``a:b``), expressions (``(n-1):(n+1)``), and function calls (``minc(x):maxc(x)``). Inside brackets, the colon continues to work as an index range (``x[1:5]``).
+#. New feature: MATLAB-style stepped colon operator ``start:step:end`` creates sequences with custom step sizes. ``1:2:10`` creates ``{1, 3, 5, 7, 9}``, ``10:-2:1`` creates ``{10, 8, 6, 4, 2}``, and ``0:0.5:2`` creates ``{0, 0.5, 1, 1.5, 2}``. Works both outside brackets (creates a vector) and inside brackets for stepped indexing (``m[1:2:10]`` selects every other element).
 #. Enhanced functionality: :func:`sqpSolveMT` improved robustness for challenging optimization problems, including better handling of difficult starting points, adaptive trust region management, and improved numerical stability.
 #. Enhanced functionality: :func:`quantileFit` improved input validation with clear error messages for invalid quantile levels, collinear predictors, and mismatched input dimensions.
 #. Enhanced functionality: :func:`quantileFit` now reports convergence diagnostics via new output members ``qOut.converged`` and ``qOut.iterations``.
 #. Bug fix: :func:`quantileFit` corrected Bofinger bandwidth formula (``bw_method=2``) to match the published reference.
-#. New feature: The colon operator now creates vectors outside of indexing context. ``x = 1:5`` creates a 5x1 column vector ``{1, 2, 3, 4, 5}``, equivalent to ``seqa(1, 1, 5)``. Works with variables (``a:b``), expressions (``(n-1):(n+1)``), and function calls (``minc(x):maxc(x)``). Inside brackets, the colon continues to work as an index range (``x[1:5]``).
+#. Bug fix: Graph legends now display line styles (dash, dot, dash-dot, dash-dot-dot) correctly in both screen display and PDF/SVG vector export. Legend marker width dynamically adjusts based on line style complexity to ensure patterns are clearly distinguishable.
 
 26.0.0
 ------
