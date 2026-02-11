@@ -15,7 +15,7 @@ Format
     // Two-argument form: consecutive integers
     y = start:end
 
-    // Three-argument form: stepped sequence (MATLAB-style)
+    // Three-argument form: stepped sequence
     y = start:step:end
 
     // Inside brackets for indexing
