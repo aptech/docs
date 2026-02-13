@@ -18,8 +18,13 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: :func:`sqpSolveMT` improved robustness for challenging optimization problems, including better handling of difficult starting points, adaptive trust region management, and improved numerical stability.
 #. Enhanced functionality: :func:`quantileFit` improved input validation with clear error messages for invalid quantile levels, collinear predictors, and mismatched input dimensions.
 #. Enhanced functionality: :func:`quantileFit` now reports convergence diagnostics via new output members ``qOut.converged`` and ``qOut.iterations``.
+#. Enhanced functionality: Compiler error messages now provide more specific diagnostic information. "Operator missing" errors show the unexpected token that triggered the error. "Operand missing" errors identify when a function or procedure name is used without parentheses. Assignment to built-in function names (e.g., ``eig = 5``) now produces a clear "Illegal use of reserved word" error.
+#. Enhanced functionality: Runtime argument count errors now display the function name, expected argument range, and actual count received (e.g., "'rndn' requires 2-3 arguments, got 1").
+#. Enhanced functionality: Symbol Editor Transform tab now suggests default variable name suffixes for transformations (e.g., ``price_diff1``, ``price_ma5``) and warns when the destination column name already exists.
+#. Enhanced functionality: Symbol Editor "Create new variable" option now works correctly when bulk selections (e.g., "All Date Columns") match only a single column.
 #. Bug fix: :func:`quantileFit` corrected Bofinger bandwidth formula (``bw_method=2``) to match the published reference.
 #. Bug fix: Graph legends now display line styles (dash, dot, dash-dot, dash-dot-dot) correctly in both screen display and PDF/SVG vector export. Legend marker width dynamically adjusts based on line style complexity to ensure patterns are clearly distinguishable.
+#. Bug fix: Fixed potential memory issue in surface and contour plot handling that could cause unexpected behavior in rare situations.
 
 26.0.0
 ------
