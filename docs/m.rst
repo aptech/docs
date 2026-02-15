@@ -26,6 +26,8 @@ M
     minc
     minindc
     minv
+    minimize
+    minimizecontrolcreate
     missex
     missmissrv
     modec
