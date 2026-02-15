@@ -8,10 +8,12 @@ Descriptive statistics
 
 ====================         ===========================================
 :doc:`../aggregate`          Aggregates the data in the columns of a matrix based upon a column containing group ids with a choice of method.
+:doc:`../contingency`        Computes statistics and measures of association for contingency tables.
 :doc:`../dstatmt`            Computes descriptive statistics of a dataset, dataframe, or matrix.
 :doc:`../frequency`          Generate frequency table.
-:doc:`../jarquebera`         Computes the Jarque-Bera goodness-of-fit test
+:doc:`../jarquebera`         Computes the Jarque-Bera goodness-of-fit test.
 :doc:`../kurtosis`           Computes the sample kurtosis.
+:doc:`../mvntest`            Tests multivariate normality using Henze-Zirkler, Mardia, Doornik-Hansen, or Royston methods.
 :doc:`../maxc`               Computes maximum value of each column of a matrix.
 :doc:`../meanc`              Computes mean value of each column of a matrix.
 :doc:`../median`             Computes medians of the columns of a matrix.
@@ -19,6 +21,7 @@ Descriptive statistics
 :doc:`../modec`              Computes mode of each column of a matrix.
 :doc:`../pdsummary`          Returns summary statistics for panel data, including overall, between-group, and within-group statistics.
 :doc:`../quantile`           Computes quantiles from each column in a matrix, given specified probabilities.
+:doc:`../shapirowilk`        Computes the Shapiro-Wilk W test for univariate normality.
 :doc:`../skew`               Computes the sample skew.
 :doc:`../stdc`               Computes the sample standard deviation of the elements in each column of a matrix.
 :doc:`../tabulate`           Computes and returns two-way tables of frequencies.

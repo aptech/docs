@@ -8,10 +8,23 @@ The following is a list of changes from the previous version of GAUSS.
 ------
 
 #. New feature: Profiler GUI with "Profile Main File" menu item (Shift+F5) in Debug menu. Dockable profiler panel displays Hot Spots (line-level timing sorted by self time), Call Tree (hierarchical procedure call graph), and Output tabs. Double-click any entry to navigate to source.
+#. New feature: The colon operator now creates vectors outside of indexing context. ``x = 1:5`` creates a 5x1 column vector ``{1, 2, 3, 4, 5}``, equivalent to ``seqa(1, 1, 5)``. Works with variables (``a:b``), expressions (``(n-1):(n+1)``), and function calls (``minc(x):maxc(x)``). Inside brackets, the colon continues to work as an index range (``x[1:5]``).
+#. New feature: Stepped colon operator ``start:step:end`` creates sequences with custom step sizes. ``1:2:10`` creates ``{1, 3, 5, 7, 9}``, ``10:-2:1`` creates ``{10, 8, 6, 4, 2}``, and ``0:0.5:2`` creates ``{0, 0.5, 1, 1.5, 2}``. Works both outside brackets (creates a vector) and inside brackets for stepped indexing (``m[1:2:10]`` selects every other element).
+#. New function: :func:`minimize`, bound-constrained optimization using the L-BFGS-B algorithm, the gold standard for smooth unconstrained and bound-constrained problems. Supports passing data arguments to the objective function and returns detailed output including solution, gradient, convergence status, and iteration count.
+#. New function: :func:`ttest`, two-sample and paired t-tests for comparing means, with Welch and pooled variance options, confidence intervals, and F-test for equality of variances.
+#. New function: :func:`mvnTest`, multivariate normality testing using Henze-Zirkler (default), Mardia's skewness/kurtosis, Doornik-Hansen, or Royston methods.
+#. New function: :func:`shapiroWilk`, Shapiro-Wilk W test for univariate normality.
+#. New function: :func:`contingency`, comprehensive statistics for contingency tables including chi-squared tests, Fisher's exact test, odds ratios, relative risk, and measures of association (Cramer's V, Gamma, Kendall's tau-b, Kappa).
 #. Enhanced functionality: :func:`sqpSolveMT` improved robustness for challenging optimization problems, including better handling of difficult starting points, adaptive trust region management, and improved numerical stability.
 #. Enhanced functionality: :func:`quantileFit` improved input validation with clear error messages for invalid quantile levels, collinear predictors, and mismatched input dimensions.
 #. Enhanced functionality: :func:`quantileFit` now reports convergence diagnostics via new output members ``qOut.converged`` and ``qOut.iterations``.
+#. Enhanced functionality: Compiler error messages now provide more specific diagnostic information. "Operator missing" errors show the unexpected token that triggered the error. "Operand missing" errors identify when a function or procedure name is used without parentheses. Assignment to built-in function names (e.g., ``eig = 5``) now produces a clear "Illegal use of reserved word" error.
+#. Enhanced functionality: Runtime argument count errors now display the function name, expected argument range, and actual count received (e.g., "'rndn' requires 2-3 arguments, got 1").
+#. Enhanced functionality: Symbol Editor Transform tab now suggests default variable name suffixes for transformations (e.g., ``price_diff1``, ``price_ma5``) and warns when the destination column name already exists.
+#. Enhanced functionality: Symbol Editor "Create new variable" option now works correctly when bulk selections (e.g., "All Date Columns") match only a single column.
 #. Bug fix: :func:`quantileFit` corrected Bofinger bandwidth formula (``bw_method=2``) to match the published reference.
+#. Bug fix: Graph legends now display line styles (dash, dot, dash-dot, dash-dot-dot) correctly in both screen display and PDF/SVG vector export. Legend marker width dynamically adjusts based on line style complexity to ensure patterns are clearly distinguishable.
+#. Bug fix: Fixed potential memory issue in surface and contour plot handling that could cause unexpected behavior in rare situations.
 
 26.0.0
 ------

@@ -18,6 +18,7 @@ These functions perform parameter estimation, diagnostics and print reports.
 :doc:`../qfitslopetest`            Performs post-estimation slope equality test after quantile regression.
 :doc:`../quantilefit`              Perform linear quantile regression.
 :doc:`../quantilefitloc`           Perform local linear or quadratic quantile regression.
+:doc:`../ttest`                    Performs two-sample and paired t-tests for comparing means.
 :doc:`../waltest`                  Performs post-estimation tests of hypotheses.
 =========================          ====================================================
 
