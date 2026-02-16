@@ -25,6 +25,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug fix: :func:`quantileFit` corrected Bofinger bandwidth formula (``bw_method=2``) to match the published reference.
 #. Bug fix: Graph legends now display line styles (dash, dot, dash-dot, dash-dot-dot) correctly in both screen display and PDF/SVG vector export. Legend marker width dynamically adjusts based on line style complexity to ensure patterns are clearly distinguishable.
 #. Bug fix: Fixed potential memory issue in surface and contour plot handling that could cause unexpected behavior in rare situations.
+#. New feature: Global variables used inside procedures are highlighted with an orange box overlay in the editor. Hover over a highlighted variable to see its name in a tooltip. Can be toggled via the "Highlight globals in procs" checkbox in Edit preferences.
+#. Enhanced functionality: Parser error messages are now more descriptive, showing the unexpected token and what was expected (e.g., ``syntax error, unexpected ';', expecting identifier or 'endp'``).
+#. New feature: :func:`dllcall` now supports a ``-o`` flag for read-only optimization. When specified, ``dllcall -o`` skips the defensive copy normally performed for local variables and function parameters, passing the original data pointer directly to the C function. This provides significant performance improvements for large matrices (up to 135x faster for 800KB data). Should only be used when the C function does not modify input data.
 
 26.0.0
 ------
