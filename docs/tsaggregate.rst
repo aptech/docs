@@ -316,6 +316,8 @@ Remarks
 
 - The date column can be in any position in the input data. It will be automatically detected and moved to the first column in the output.
 - Input data is automatically sorted by date before aggregation.
+- In the case of duplicate dates, the first match found will be returned for row-selection methods ("first", "last", "lastBD").
+- Missing values are removed on a per-column basis before performing the aggregation function. If column A has a missing value in row 5 but column B does not, only column A's aggregation excludes row 5.
 - All data columns (except the date column) are aggregated using the specified method.
 - For the "lastBD" method, business days are Monday through Friday only. No holiday calendar is applied.
 - If no business days are found in a period for the "lastBD" method, the last observation (even if it's a weekend) is used instead.

@@ -36,9 +36,9 @@ Format
             "ctl.maxIters", "scalar, maximum number of iterations. Default = 1000."
             "ctl.factr", "scalar, function convergence tolerance factor. Convergence occurs when ``|f_k - f_{k+1}| < factr * machine_epsilon``. Use 1e12 for low accuracy, 1e7 for moderate accuracy (default), 1e1 for high accuracy."
             "ctl.pgtol", "scalar, projected gradient tolerance. Default = 1e-5."
-            "ctl.printLevel", "scalar, output level: 0 = silent (default), 1 = final summary, 2 = each iteration."
-            "ctl.lb", "scalar or Kx1 vector, lower bounds on parameters. If scalar, applies to all parameters. Default = -1e300 (effectively unbounded)."
-            "ctl.ub", "scalar or Kx1 vector, upper bounds on parameters. If scalar, applies to all parameters. Default = 1e300 (effectively unbounded)."
+            "ctl.bounds", "Kx2 matrix or 1x2 vector specifying parameter bounds. Column 1 contains lower bounds, column 2 contains upper bounds. If 1x2, applies to all parameters. Default = ``{ -1e300 1e300 }`` (effectively unbounded)."
+            "ctl.printSummary", "scalar, print final summary. 0 = no (default), 1 = yes."
+            "ctl.printEvery", "scalar, print progress every N iterations. 0 = never (default), N = every N iterations."
 
     :type ctl: struct
 
@@ -47,9 +47,9 @@ Format
         .. list-table::
             :widths: auto
 
-            * - out.par
-              - Kx1 vector, solution parameter values.
-            * - out.fct
+            * - out.x
+              - Kx1 vector, solution values.
+            * - out.fval
               - scalar, objective function value at solution.
             * - out.gradient
               - Kx1 vector, gradient at solution.
@@ -90,8 +90,8 @@ Example 1: Basic unconstrained minimization
     struct minimizeOut out;
     out = minimize(&rosenbrock, x0);
 
-    print "Solution: " out.par';
-    print "Objective: " out.fct;
+    print "Solution: " out.x';
+    print "Objective: " out.fval;
 
 Example 2: With data arguments
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -118,7 +118,7 @@ Example 2: With data arguments
     out = minimize(&ols_objective, x0, Y, X);
 
     print "Estimated coefficients:";
-    print out.par';
+    print out.x';
 
 Example 3: Bound-constrained optimization
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -134,13 +134,12 @@ Example 3: Bound-constrained optimization
     // Set bounds: all parameters in [0, 10]
     struct minimizeControl ctl;
     ctl = minimizeControlCreate();
-    ctl.lb = 0;
-    ctl.ub = 10;
+    ctl.bounds = { 0 10 };
 
     struct minimizeOut out;
     out = minimize(&myfunc, x0, ctl);
 
-    print "Solution: " out.par';
+    print "Solution: " out.x';
 
 Example 4: Variable-specific bounds
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -153,17 +152,17 @@ Example 4: Variable-specific bounds
 
     x0 = { 0, 0 };
 
-    // x[1] >= 0, x[2] in [0, 2]
+    // x[1] in [0, inf), x[2] in [0, 2]
     struct minimizeControl ctl;
     ctl = minimizeControlCreate();
-    ctl.lb = { 0, 0 };
-    ctl.ub = { 1e300, 2 };
+    ctl.bounds = { 0 1e300,    // x[1] >= 0
+                   0     2 };  // x[2] in [0, 2]
 
     struct minimizeOut out;
     out = minimize(&myfunc, x0, ctl);
 
     // Solution will be constrained: x = {2, 2}
-    print "Solution: " out.par';
+    print "Solution: " out.x';
 
 Remarks
 -------

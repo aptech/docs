@@ -40,6 +40,7 @@ S
     setvars
     setvwrmode
     setwind
+    shapirowilk
     shell
     shiftc
     shiftr

@@ -20,9 +20,9 @@ Format
             "ctl.maxIters", "1000, maximum number of iterations."
             "ctl.factr", "1e7, function convergence tolerance factor (moderate accuracy)."
             "ctl.pgtol", "1e-5, projected gradient tolerance."
-            "ctl.printLevel", "0, silent (no output)."
-            "ctl.lb", "-1e300, lower bound (effectively unbounded below)."
-            "ctl.ub", "1e300, upper bound (effectively unbounded above)."
+            "ctl.bounds", "``{ -1e300 1e300 }``, 1x2 bounds matrix (effectively unbounded)."
+            "ctl.printSummary", "0, no final summary."
+            "ctl.printEvery", "0, no iteration output."
 
     :rtype ctl: struct
 
@@ -48,15 +48,17 @@ Example 2: Modify settings
     struct minimizeControl ctl;
     ctl = minimizeControlCreate();
 
-    // Set bounds
-    ctl.lb = 0;          // All parameters >= 0
-    ctl.ub = 100;        // All parameters <= 100
+    // Set bounds: all parameters in [0, 100]
+    ctl.bounds = { 0 100 };
 
     // High accuracy
     ctl.factr = 1e1;
 
-    // Print results
-    ctl.printLevel = 1;
+    // Print final summary
+    ctl.printSummary = 1;
+
+    // Print progress every 10 iterations
+    ctl.printEvery = 10;
 
     struct minimizeOut out;
     out = minimize(&myfunc, x0, ctl);
