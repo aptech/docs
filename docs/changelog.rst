@@ -28,6 +28,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. New feature: Global variables used inside procedures are highlighted with an orange box overlay in the editor. Hover over a highlighted variable to see its name in a tooltip. Can be toggled via the "Highlight globals in procs" checkbox in Edit preferences.
 #. Enhanced functionality: Parser error messages are now more descriptive, showing the unexpected token and what was expected (e.g., ``syntax error, unexpected ';', expecting identifier or 'endp'``).
 #. New feature: :func:`dllcall` now supports a ``-o`` flag for read-only optimization. When specified, ``dllcall -o`` skips the defensive copy normally performed for local variables and function parameters, passing the original data pointer directly to the C function. This provides significant performance improvements for large matrices (up to 135x faster for 800KB data). Should only be used when the C function does not modify input data.
+#. Performance improvement: :func:`eigv` now uses a fast closed-form solution for 2x2 matrices, providing 2.6x speedup for complex matrices and 1.8x speedup for real matrices. Automatically falls back to standard algorithm for near-repeated eigenvalues where iterative methods are more accurate.
 
 26.0.0
 ------
