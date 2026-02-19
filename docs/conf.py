@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GAUSS'
-copyright = '2025, Aptech Systems, Inc'
+copyright = '2026, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
