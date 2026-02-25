@@ -6,7 +6,7 @@ GAUSS and MATLAB are both matrix-based programming languages. If you're comforta
 
 .. note::
 
-    This guide is written for GAUSS 26. Some features (such as :func:`repmat` and the colon operator for sequences) require GAUSS 26.0.1 or later.
+    This guide is written for GAUSS 26. Some features (such as :func:`repmat`, :func:`findIdx`, :func:`diagmat`, and the colon operator for sequences) require GAUSS 26.0.1 or later.
 
 What Sets GAUSS Apart
 ---------------------
@@ -349,7 +349,7 @@ Common Function Translations
 +-------------------------+---------------------------+---------------------------+
 | Sort columns            | ``sort(x)``               | ``sortc(x, 1)``           |
 +-------------------------+---------------------------+---------------------------+
-| Find indices            | ``find(x > 0)``           | ``indexcat(x, x .> 0)``   |
+| Find indices            | ``find(x > 0)``           | ``findIdx(x .> 0)``       |
 +-------------------------+---------------------------+---------------------------+
 | Check NaN               | ``isnan(x)``              | ``ismiss(x)``             |
 +-------------------------+---------------------------+---------------------------+
@@ -359,7 +359,7 @@ Common Function Translations
 +-------------------------+---------------------------+---------------------------+
 | Flip rows               | ``flipud(x)``             | ``rev(x)``                |
 +-------------------------+---------------------------+---------------------------+
-| Create diagonal matrix  | ``diag(v)``               | ``diagrv(zeros(n,n), v)`` |
+| Create diagonal matrix  | ``diag(v)``               | ``diagmat(v)``            |
 +-------------------------+---------------------------+---------------------------+
 | Number to string        | ``num2str(x)``            | ``ntos(x)``               |
 +-------------------------+---------------------------+---------------------------+

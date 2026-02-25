@@ -20,6 +20,7 @@ F
     fgets
     fgetst
     fgls
+    findidx
     fileinfo
     filesa
     fix
