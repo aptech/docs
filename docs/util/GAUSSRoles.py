@@ -1,7 +1,6 @@
 import re
 
 from docutils import nodes, utils
-from six import iteritems
 
 _amp_re = re.compile(r'(?<!&)&(?![&\s])')
 
@@ -51,7 +50,7 @@ def setup(app):
     # type: (Sphinx) -> Dict[unicode, Any]
     from docutils.parsers.rst import roles
 
-    for rolename, func in iteritems(specific_docroles):
+    for rolename, func in specific_docroles.items():
         roles.register_local_role(rolename, func)
 
     return {

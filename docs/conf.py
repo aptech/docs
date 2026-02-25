@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'GAUSS'
-copyright = '2025, Aptech Systems, Inc'
+copyright = '2026, Aptech Systems, Inc'
 author = 'Aptech Systems, Inc'
 
 # The short X.Y version
@@ -47,7 +47,6 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx_design',
-    'sphinx_tabs.tabs',
 ]
 
 mathjax3_config = {
@@ -107,16 +106,14 @@ templates_path = ['_templates']
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_css_files = [
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
+    'https://fonts.googleapis.com/css?family=Lato',
+    'theme_override.css',
+    'pygments-custom.css',
+]
+
 html_context = {
-    'css_files': [
-        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
-        'https://fonts.googleapis.com/css?family=Lato',
-        '_static/theme_override.css',
-        '_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css',
-        '_static/tabs.css',
-        '_static/pygments-custom.css',
-        '_static/sphinx_design.min.css',
-    ],
     'default_mode': 'light'
 }
 

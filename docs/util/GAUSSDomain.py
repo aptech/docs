@@ -12,13 +12,10 @@ import re
 
 from docutils import nodes
 from docutils.parsers.rst import directives
-from six import iteritems
 from GAUSSHTMLTranslator import desc_returnlist, desc_return
 
 from sphinx import addnodes, locale
 from sphinx.addnodes import desc_signature
-from sphinx.domains.python import pairindextypes
-#from sphinx.deprecation import DeprecatedDict, RemovedInSphinx30Warning
 from sphinx.directives import ObjectDescription
 from sphinx.domains import Domain, ObjType, Index
 from sphinx.locale import _, __
@@ -51,22 +48,15 @@ py_sig_re = re.compile(
           ''', re.VERBOSE)
 
 
-#pairindextypes = {
-#    'module':    _('module'),
-#    'keyword':   _('keyword'),
-#    'operator':  _('operator'),
-#    'object':    _('object'),
-#    'exception': _('exception'),
-#    'statement': _('statement'),
-#    'builtin':   _('built-in function'),
-#}  # Dict[unicode, unicode]
-#
-#locale.pairindextypes = DeprecatedDict(
-#    pairindextypes,
-#    'sphinx.locale.pairindextypes is deprecated. '
-#    'Please use sphinx.domains.python.pairindextypes instead.',
-#    RemovedInSphinx30Warning
-#)
+pairindextypes = {
+    'module':    _('module'),
+    'keyword':   _('keyword'),
+    'operator':  _('operator'),
+    'object':    _('object'),
+    'exception': _('exception'),
+    'statement': _('statement'),
+    'builtin':   _('built-in function'),
+}
 
 
 def _pseudo_parse_generic(signode, arglist, desc_listtype, desc_type):
@@ -135,6 +125,7 @@ class PyXrefMixin(object):
                   innernode=nodes.emphasis,  # type: nodes.Node
                   contnode=None,             # type: nodes.Node
                   env=None,                  # type: BuildEnvironment
+                  **kwargs,
                   ):
         # type: (...) -> nodes.Node
         result = super(PyXrefMixin, self).make_xref(rolename, domain, target,  # type: ignore
@@ -158,6 +149,8 @@ class PyXrefMixin(object):
                    innernode=nodes.emphasis,  # type: nodes.Node
                    contnode=None,             # type: nodes.Node
                    env=None,                  # type: BuildEnvironment
+                   inliner=None,
+                   location=None,
                    ):
         # type: (...) -> List[nodes.Node]
         delims = r'(\s*[\[\]\(\),](?:\s*or\s)?\s*|\s+or\s+)'
@@ -182,7 +175,7 @@ class PyXrefMixin(object):
 
 class PyField(PyXrefMixin, Field):
     def make_xref(self, rolename, domain, target,
-                  innernode=nodes.emphasis, contnode=None, env=None):
+                  innernode=nodes.emphasis, contnode=None, env=None, **kwargs):
         # type: (unicode, unicode, unicode, nodes.Node, nodes.Node, BuildEnvironment) ->  nodes.Node  # NOQA
         if rolename == 'class' and target == 'None':
             # None is not a type, so use obj role instead.
@@ -198,7 +191,7 @@ class PyGroupedField(PyXrefMixin, GroupedField):
 
 class PyTypedField(PyXrefMixin, TypedField):
     def make_xref(self, rolename, domain, target,
-                  innernode=nodes.emphasis, contnode=None, env=None):
+                  innernode=nodes.emphasis, contnode=None, env=None, **kwargs):
         # type: (unicode, unicode, unicode, nodes.Node, nodes.Node, BuildEnvironment) ->  nodes.Node  # NOQA
         if rolename == 'class' and target == 'None':
             # None is not a type, so use obj role instead.
@@ -734,7 +727,7 @@ class PythonModuleIndex(Index):
         ignores = self.domain.env.config['modindex_common_prefix']  # type: ignore
         ignores = sorted(ignores, key=len, reverse=True)
         # list of all modules, sorted by module name
-        modules = sorted(iteritems(self.domain.data['modules']),
+        modules = sorted(self.domain.data['modules'].items(),
                          key=lambda x: x[0].lower())
         # sort out collapsable modules
         prev_modname = ''
@@ -784,7 +777,7 @@ class PythonModuleIndex(Index):
         collapse = len(modules) - num_toplevels < num_toplevels
 
         # sort by first letter
-        sorted_content = sorted(iteritems(content))
+        sorted_content = sorted(content.items())
 
         return sorted_content, collapse
 
@@ -1000,9 +993,9 @@ class GAUSSDomain(Domain):
 
     def get_objects(self):
         # type: () -> Iterator[Tuple[unicode, unicode, unicode, unicode, unicode, int]]
-        for modname, info in iteritems(self.data['modules']):
+        for modname, info in self.data['modules'].items():
             yield (modname, modname, 'module', info[0], 'module-' + modname, 0)
-        for refname, (docname, type) in iteritems(self.data['objects']):
+        for refname, (docname, type) in self.data['objects'].items():
             if type != 'module':  # modules are already handled
                 yield (refname, refname, type, docname, refname, 1)
 
