@@ -139,6 +139,7 @@ Transform
 :doc:`../reclassify`           Replaces specified values of a matrix, array or string array
 :doc:`../reclassifycuts`       Replaces values of a matrix or array within specified ranges
 :doc:`../rev`                  Reverses the order of rows of a matrix.
+:doc:`../repmat`               Tiles (repeats) a matrix to create a larger matrix.
 :doc:`../reshape`              Reshapes a dataframe, matrix or string array to new dimensions.
 :doc:`../rotater`              Rotates the rows of a matrix, wrapping elements as necessary.
 :doc:`../shiftc`               Shifts, lags or leads, columns of a matrix, filling in holes with a specified value.
