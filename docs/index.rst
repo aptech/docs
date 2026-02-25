@@ -4,7 +4,7 @@
 .. meta::
    :description: Looking for additional resources about GAUSS? Learn more about our built-in and Machine Learning functions. Find GAUSS documentation here. 
 
-GAUSS documentation
+GAUSS Documentation
 ====================
 
 The GAUSS Platform provides a fully interactive environment for exploring data, performing calculations and analyzing results. These interactive features speed up your workflow, while the exceptionally fast GAUSS analytics engine will speed up your computations.
@@ -13,42 +13,62 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
 .. grid:: 2
 
-    .. grid-item-card:: 
+    .. grid-item-card::
         :shadow: none
-        :class-header: text-center 
+        :class-header: text-center
+        :class-body: text-center
+        :link: getting-started/index
+        :link-type: doc
+
+        Getting Started
+        ^^^^^^^^^^^^^^^
+
+        .. container:: icon-large
+
+          :fa:`rocket`
+
+        .. container:: text-left
+
+          New to GAUSS? Start here with quickstart guides and tutorials.
+
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center
         :class-body: text-center
         :link: command-reference
         :link-type: doc
 
-        API
-        ^^^^^^
-    
+        Command Reference
+        ^^^^^^^^^^^^^^^^^
+
         .. container:: icon-large
-    
+
           :fa:`code`
-    
+
         .. container:: text-left
-    
+
           View the comprehensive list of built-in commands and detailed help for each in GAUSS.
-    
+
+.. grid:: 2
+
     .. grid-item-card::
         :shadow: none
-        :class-header: text-center 
+        :class-header: text-center
         :class-body: text-center
         :link: learning-resources
         :link-type: doc
 
         Learning Resources
-        ^^^^^^^^^^^^^^^^^^^^
-    
+        ^^^^^^^^^^^^^^^^^^
+
         .. container:: icon-large
-    
+
           :fa:`graduation-cap`
-    
+
         .. container:: text-left
-    
+
           Enhance your GAUSS usage with these valuable learning resources.
-    
+
 .. grid:: 2
 
     .. grid-item-card::
@@ -108,9 +128,10 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
     
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :hidden:
 
+   getting-started/index
    command-reference
    learning-resources
    applications
