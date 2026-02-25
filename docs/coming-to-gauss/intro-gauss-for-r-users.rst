@@ -4,6 +4,10 @@ Introduction to GAUSS for R Users
 
 R and GAUSS are both used for statistical computing, but they approach data differently. This guide helps R users translate their workflows to GAUSS.
 
+.. note::
+
+    This guide is written for GAUSS 26.
+
 What Sets GAUSS Apart
 ---------------------
 

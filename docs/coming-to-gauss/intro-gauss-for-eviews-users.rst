@@ -4,6 +4,10 @@ Introduction to GAUSS for EViews Users
 
 This guide helps EViews users transition to GAUSS. If you're comfortable with VAR models, IRFs, and time series analysis in EViews, you'll find GAUSS handles the same workflows with a code-first approach that offers more flexibility and reproducibility.
 
+.. note::
+
+    This guide is written for GAUSS 26.
+
 What Sets GAUSS Apart
 ---------------------
 

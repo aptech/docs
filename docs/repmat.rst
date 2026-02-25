@@ -82,6 +82,8 @@ After the above code, ``B`` will equal:
 Remarks
 -------
 
+.. versionadded:: 26.0.1
+
 :func:`repmat` uses the Kronecker product to tile the input matrix. It is equivalent to::
 
     B = ones(m, n) .*. A;

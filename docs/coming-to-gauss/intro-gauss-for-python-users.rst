@@ -4,6 +4,10 @@ Introduction to GAUSS for Python/NumPy Users
 
 Python (with NumPy/pandas) and GAUSS are both used for numerical computing. This guide helps Python users translate their workflows to GAUSS.
 
+.. note::
+
+    This guide is written for GAUSS 26.
+
 What Sets GAUSS Apart
 ---------------------
 

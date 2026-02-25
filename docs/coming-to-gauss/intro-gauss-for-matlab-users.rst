@@ -4,6 +4,10 @@ Introduction to GAUSS for MATLAB Users
 
 GAUSS and MATLAB are both matrix-based programming languages. If you're comfortable with MATLAB, you'll find GAUSS syntax familiar—but with important differences. This guide covers the key translations.
 
+.. note::
+
+    This guide is written for GAUSS 26. Some features (such as :func:`repmat` and the colon operator for sequences) require GAUSS 26.0.1 or later.
+
 What Sets GAUSS Apart
 ---------------------
 
