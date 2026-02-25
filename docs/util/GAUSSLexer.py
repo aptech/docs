@@ -156,7 +156,7 @@ class GAUSSLexer(RegexLexer):
     tokens = {
         'whitespace': [
             # preprocessor directives: without whitespace
-            ('^#if\s+0', Comment.Preproc, 'if0'),
+            (r'^#if\s+0', Comment.Preproc, 'if0'),
             ('^#', Comment.Preproc, 'macro'),
             # or with whitespace
             ('^(' + _ws1 + r')(#if\s+0)',
@@ -239,9 +239,9 @@ class GAUSSLexer(RegexLexer):
     }
 
     def analyse_text(text):
-        if re.search('^\s*(?:endp|endfor)\s*;', text, re.MULTILINE): # end of proc
+        if re.search(r'^\s*(?:endp|endfor)\s*;', text, re.MULTILINE): # end of proc
             return 0.2
-        elif re.search('^\s*proc ', text, re.MULTILINE):  # system cmd
+        elif re.search(r'^\s*proc ', text, re.MULTILINE):  # system cmd
             return 0.2
 
 

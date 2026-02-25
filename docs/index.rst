@@ -1,13 +1,11 @@
 
-.. title:: Explore
+.. title:: GAUSS Help
 
 .. meta::
-   :description: Looking for additional resources about GAUSS? Learn more about our built-in and Machine Learning functions. Find GAUSS documentation here. 
+   :description: GAUSS in-app help. Search functions, browse by category, and find what's new.
 
-GAUSS Documentation
-====================
-
-The GAUSS Platform provides a fully interactive environment for exploring data, performing calculations and analyzing results. These interactive features speed up your workflow, while the exceptionally fast GAUSS analytics engine will speed up your computations.
+GAUSS Help
+==========
 
 .. role:: text-left
 
@@ -17,11 +15,11 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
         :shadow: none
         :class-header: text-center
         :class-body: text-center
-        :link: getting-started/index
-        :link-type: doc
+        :link: https://docs.aptech.com/gauss/getting-started/
+        :link-type: url
 
-        Getting Started
-        ^^^^^^^^^^^^^^^
+        New to GAUSS?
+        ^^^^^^^^^^^^^
 
         .. container:: icon-large
 
@@ -29,7 +27,7 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
         .. container:: text-left
 
-          New to GAUSS? Start here with quickstart guides and tutorials.
+          Start here with tutorials, quickstart guides, and language basics on the GAUSS documentation website.
 
     .. grid-item-card::
         :shadow: none
@@ -47,7 +45,7 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
         .. container:: text-left
 
-          View the comprehensive list of built-in commands and detailed help for each in GAUSS.
+          Browse all 1,000+ built-in functions and keywords with detailed help for each.
 
 .. grid:: 2
 
@@ -55,85 +53,43 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
         :shadow: none
         :class-header: text-center
         :class-body: text-center
-        :link: learning-resources
+        :link: command-reference
         :link-type: doc
 
-        Learning Resources
-        ^^^^^^^^^^^^^^^^^^
+        Functions by Category
+        ^^^^^^^^^^^^^^^^^^^^^
 
         .. container:: icon-large
 
-          :fa:`graduation-cap`
+          :fa:`th-large`
 
         .. container:: text-left
 
-          Enhance your GAUSS usage with these valuable learning resources.
-    
-.. grid:: 2
+          Time Series | Statistics | Matrix | I/O | Estimation | Graphics | String | Programming
 
     .. grid-item-card::
         :shadow: none
-        :class-header: text-center 
-        :class-body: text-center
-        :link: applications
-        :link-type: doc
-
-        Apps
-        ^^^^^
-    
-        .. container:: icon-large
-    
-          :fa:`rocket`
-    
-        .. container:: text-left
-    
-          Save time with our pre-built applications.
-    
-    .. grid-item-card::
-        :shadow: none
-        :class-header: text-center 
+        :class-header: text-center
         :class-body: text-center
         :link: changelog
         :link-type: doc
 
-        Changelog
-        ^^^^^^^^^
-    
+        What's New in GAUSS 26
+        ^^^^^^^^^^^^^^^^^^^^^^
+
         .. container:: icon-large
-    
+
           :fa:`list`
-    
+
         .. container:: text-left
-    
-          View the list of updates for each version of GAUSS.
 
-.. grid:: 2
-
-    .. grid-item-card::
-        :shadow: none
-        :class-header: text-center 
-        :class-body: text-center
-        :link: https://www.aptech.com/resources/tutorials
-
-        Tutorials
-        ^^^^^^^^^
-    
-        .. container:: icon-large
-    
-          :fa:`external-link-alt`
-    
-        .. container:: text-left
-    
-          View tutorials on the main aptech.com website.
-    
+          Latest features, improvements, and new functions.
 
 .. toctree::
    :maxdepth: 2
    :hidden:
 
-   getting-started/index
    command-reference
-   learning-resources
+   data-management
    applications
    changelog
-
