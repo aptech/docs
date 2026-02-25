@@ -21,6 +21,8 @@ Selection
 :doc:`../delif`             Removes rows of data based on a logical expression.
 :doc:`../delrows`           Removes observations (rows) from a dataframe by index.
 :doc:`../diag`              Extracts the diagonal of a matrix.
+:doc:`../diagmat`           Creates a diagonal matrix from a vector.
+:doc:`../findidx`           Returns the indices of elements where a condition is true.
 :doc:`../getmatrix`         Gets a contiguous matrix from an N-dimensional array.
 :doc:`../head`              Returns the first ``n`` rows of a matrix, dataframe or string array.
 :doc:`../selif`             Keeps rows of data based on a logical expression.
@@ -139,6 +141,7 @@ Transform
 :doc:`../reclassify`           Replaces specified values of a matrix, array or string array
 :doc:`../reclassifycuts`       Replaces values of a matrix or array within specified ranges
 :doc:`../rev`                  Reverses the order of rows of a matrix.
+:doc:`../repmat`               Tiles (repeats) a matrix to create a larger matrix.
 :doc:`../reshape`              Reshapes a dataframe, matrix or string array to new dimensions.
 :doc:`../rotater`              Rotates the rows of a matrix, wrapping elements as necessary.
 :doc:`../shiftc`               Shifts, lags or leads, columns of a matrix, filling in holes with a specified value.

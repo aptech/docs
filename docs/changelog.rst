@@ -15,6 +15,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. New function: :func:`mvnTest`, multivariate normality testing using Henze-Zirkler (default), Mardia's skewness/kurtosis, Doornik-Hansen, or Royston methods.
 #. New function: :func:`shapiroWilk`, Shapiro-Wilk W test for univariate normality.
 #. New function: :func:`contingency`, comprehensive statistics for contingency tables including chi-squared tests, Fisher's exact test, odds ratios, relative risk, and measures of association (Cramer's V, Gamma, Kendall's tau-b, Kappa).
+#. New function: :func:`repmat`, tiles (repeats) a matrix to create a larger matrix. ``repmat(A, m, n)`` creates an output containing *m* x *n* copies of *A*.
+#. New function: :func:`findIdx`, returns the indices of elements where a condition is true. ``findIdx(x .> 0)`` returns row indices where *x* is positive.
+#. New function: :func:`diagmat`, creates a diagonal matrix from a vector. ``diagmat(v)`` returns an NxN matrix with *v* on the diagonal and zeros elsewhere.
 #. Enhanced functionality: :func:`sqpSolveMT` improved robustness for challenging optimization problems, including better handling of difficult starting points, adaptive trust region management, and improved numerical stability.
 #. Enhanced functionality: :func:`quantileFit` improved input validation with clear error messages for invalid quantile levels, collinear predictors, and mismatched input dimensions.
 #. Enhanced functionality: :func:`quantileFit` now reports convergence diagnostics via new output members ``qOut.converged`` and ``qOut.iterations``.

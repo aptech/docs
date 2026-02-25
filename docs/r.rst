@@ -20,6 +20,7 @@ R
     recservar
     renamefile
     reordercatlabels
+    repmat
     rerun
     resetsourcepaths
     rescale

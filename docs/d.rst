@@ -109,6 +109,7 @@ D
     dfname
     dftype
     diag
+    diagmat
     diagrv
     digamma
     dlibrary
