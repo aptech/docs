@@ -107,7 +107,7 @@ templates_path = ['_templates']
 html_static_path = ['_static']
 
 html_css_files = [
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
     'https://fonts.googleapis.com/css?family=Lato',
     'theme_override.css',
     'pygments-custom.css',

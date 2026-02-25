@@ -4,17 +4,13 @@ Introduction to GAUSS for Python/NumPy Users
 
 Python (with NumPy/pandas) and GAUSS are both used for numerical computing. This guide helps Python users translate their workflows to GAUSS.
 
-Why Consider GAUSS?
--------------------
+What Sets GAUSS Apart
+---------------------
 
-Python with NumPy/pandas is the dominant data science stack. GAUSS offers:
-
-- **Speed without setup**: No need to optimize with Cython, Numba, or careful vectorization—GAUSS is already fast
-- **Econometrics focus**: Strong built-in support for time series, panel data, discrete choice
-- **Stability**: Code runs unchanged for decades, no dependency hell
-- **Simplicity**: One environment, not Jupyter + conda + pip + virtual environments
-
-The tradeoff: Python has a larger ecosystem, more packages, and is free.
+- **Fast without setup**: No Cython, Numba, or careful vectorization needed—GAUSS is compiled and optimized out of the box.
+- **Purpose-built for econometrics**: Time series, panel data, discrete choice, maximum likelihood—native workflows, not imported libraries.
+- **One environment**: No assembling Jupyter + conda + pip + virtual environments. Everything works together.
+- **Stability**: Code runs unchanged for decades. No dependency hell, no breaking API changes.
 
 Key Conceptual Differences
 --------------------------
@@ -292,7 +288,7 @@ Linear Algebra
     { val, vec } = eigv(A);  // Eigenvalues and vectors
     { u, s, v } = svd(A);
     chol(A);
-    inv(A) * b;           // Solve Ax = b
+    b / A;                // Solve Ax = b
 
 Regression
 ----------

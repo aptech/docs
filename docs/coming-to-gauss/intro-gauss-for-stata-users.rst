@@ -867,7 +867,7 @@ In GAUSS missing values can be created with a statement or using the  :func:`err
 
   // Keep missing values
   mss = { . };
-  data = selif(data, data[., "x"] .== mss));
+  data = selif(data, data[., "x"] .== mss);
 
   // Keep non-missing values
   data = selif(data, data[., "x"] .!= error(0));

@@ -4,17 +4,13 @@ Introduction to GAUSS for EViews Users
 
 This guide helps EViews users transition to GAUSS. If you're comfortable with VAR models, IRFs, and time series analysis in EViews, you'll find GAUSS handles the same workflows with a code-first approach that offers more flexibility and reproducibility.
 
-Why Consider GAUSS?
--------------------
+What Sets GAUSS Apart
+---------------------
 
-EViews excels at interactive time series analysis through its GUI. GAUSS offers:
-
-- **Reproducibility**: Your entire analysis is code, not clicks
-- **Flexibility**: Custom estimators, non-standard models, simulation studies
-- **Speed**: Compiled code with Intel MKL for computationally intensive work
-- **Extensibility**: Build your own procedures, integrate with other tools
-
-The tradeoff: GAUSS requires writing code. There's no point-and-click interface for estimation.
+- **Reproducibility**: Your entire analysis is code—version-controlled, shareable, auditable.
+- **Flexibility**: Custom estimators, non-standard models, simulation studies, bootstrap—anything you can write, you can estimate.
+- **Speed**: Compiled code with highly optimized BLAS for computationally intensive work like Monte Carlo and bootstrapping.
+- **Extensibility**: Build your own procedures and share them. Full programming language, not a scripting layer on top of a GUI.
 
 Key Conceptual Differences
 --------------------------
@@ -138,7 +134,7 @@ VAR Estimation
     library tsmt;
 
     // Load Lutkepohl data (included with TSMT)
-    data = loadd(getGAUSShome("pkgs/tsmt/examples/lutkepohl2.gdat"));
+    data = loadd(getGAUSSHome("pkgs/tsmt/examples/lutkepohl2.gdat"));
 
     // Specify variables
     formula = "dln_inv + dln_inc + dln_consump";
@@ -275,7 +271,7 @@ Here's a complete VAR analysis workflow, from data loading to results:
     library tsmt;
 
     // 1. Load data
-    data = loadd(getGAUSShome("pkgs/tsmt/examples/lutkepohl2.gdat"));
+    data = loadd(getGAUSSHome("pkgs/tsmt/examples/lutkepohl2.gdat"));
 
     // 2. Check the data
     print "Variables:" getcolnames(data)';

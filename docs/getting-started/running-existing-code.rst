@@ -246,4 +246,4 @@ Or press F1 with cursor on a function name.
 .. seealso::
 
     :doc:`quickstart` — Learn GAUSS basics from scratch
-    :doc:`../troubleshooting` — Common error messages explained
+    :doc:`troubleshooting` — Common error messages explained

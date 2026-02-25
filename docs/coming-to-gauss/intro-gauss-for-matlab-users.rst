@@ -4,17 +4,15 @@ Introduction to GAUSS for MATLAB Users
 
 GAUSS and MATLAB are both matrix-based programming languages. If you're comfortable with MATLAB, you'll find GAUSS syntax familiar—but with important differences. This guide covers the key translations.
 
-Why Consider GAUSS?
--------------------
+What Sets GAUSS Apart
+---------------------
 
-Both languages excel at matrix computation. GAUSS offers:
+GAUSS shares MATLAB's matrix-first philosophy, but the entire language is oriented around statistics and econometrics rather than engineering.
 
-- **Econometrics focus**: Built-in and add-on functions designed for econometric workflows
-- **Competitive speed**: Intel MKL backend, same as MATLAB
-- **Lower cost**: Especially for academic and small-team use
-- **40-year stability**: Code from the 1990s still runs
-
-The tradeoff: MATLAB has a larger ecosystem (toolboxes, Simulink, community).
+- **Dataframes are matrices**: Named columns, typed variables, and category labels—but matrices under the hood. Run ``olsmt(data, "y ~ x1 + x2")`` and drop into ``A * B`` matrix algebra on the same object with no conversion overhead.
+- **Statistical workflow is native**: Column-wise functions (``meanc``, ``stdc``, ``vcx``), formula strings for model specification, and built-in OLS/MLE/GMM—not toolbox add-ons.
+- **Built for the problems economists solve**: Time series (ARIMA, GARCH, VAR/VECM), panel data, discrete choice, maximum likelihood—purpose-built with dedicated structures and output.
+- **40-year stability**: Code from the 1990s still runs. No toolbox deprecation cycles.
 
 Key Syntax Differences
 ----------------------
@@ -26,7 +24,7 @@ Key Syntax Differences
 +-------------------+---------------------------+---------------------------+
 | Matrix delimiter  | ``[ ]``                   | ``{ }``                   |
 +-------------------+---------------------------+---------------------------+
-| Row separator     | ``;`` or newline          | ``,`` or newline          |
+| Row separator     | ``;`` or newline          | ``,``                     |
 +-------------------+---------------------------+---------------------------+
 | String quotes     | ``" "`` or ``' '``        | ``" "`` only              |
 +-------------------+---------------------------+---------------------------+
@@ -38,7 +36,7 @@ Key Syntax Differences
 +-------------------+---------------------------+---------------------------+
 | Concatenate vert  | ``[A; B]``                | ``A|B``                   |
 +-------------------+---------------------------+---------------------------+
-| Solve ``Ax = b``  | ``A\b``                   | ``inv(A)*b`` or ``solpd`` |
+| Solve ``Ax = b``  | ``A\b``                   | ``b/A``                   |
 +-------------------+---------------------------+---------------------------+
 
 Matrix Creation
@@ -54,7 +52,7 @@ Matrix Creation
     // GAUSS
     A = { 1 2 3, 4 5 6, 7 8 9 };
 
-**Note:** GAUSS uses braces ``{ }`` and commas between rows. Semicolons end statements, not rows.
+**Note:** GAUSS uses braces ``{ }`` and commas between rows. Semicolons end statements, not rows. Unlike MATLAB, newlines are not row separators—you must use commas.
 
 Special matrices:
 
@@ -88,9 +86,10 @@ Sequences:
 ::
 
     // GAUSS
-    seqa(1, 1, 5);      // Column vector, start=1, inc=1, n=5
-    seqa(1, 0.5, 5);    // [1; 1.5; 2; 2.5; 3]
-    seqa(0, 0.25, 5);   // Equivalent to linspace(0,1,5)
+    1:5;                 // Row vector {1, 2, 3, 4, 5} (same colon syntax as MATLAB)
+    1:0.5:3;             // {1, 1.5, 2, 2.5, 3}
+    seqa(1, 1, 5);       // Column vector, start=1, inc=1, n=5
+    seqa(0, 0.25, 5);    // {0; 0.25; 0.5; 0.75; 1}
 
 Indexing
 --------
@@ -137,9 +136,10 @@ Element-wise vs. matrix operations:
     A * B;        // Matrix multiplication (same)
     A .* B;       // Element-wise multiplication (same)
     A .^ 2;       // Element-wise power (same)
-    A';           // Transpose (GAUSS has no conjugate transpose)
+    A';           // Conjugate transpose (same as MATLAB)
+    A.';          // Bookkeeping transpose (same as MATLAB .')
 
-**Good news:** Element-wise operators (``.* ./ .^``) work the same in both languages.
+**Good news:** Element-wise operators (``.* ./ .^``) and transpose operators (``'`` and ``.``) work the same in both languages. For real-valued data, ``A'`` and ``A.'`` are identical, so most code just uses ``A'``.
 
 Concatenation
 -------------
@@ -191,9 +191,9 @@ Linear Algebra
     { u, s, v } = svd(A);
     chol(A);
     rank(A);
-    inv(A) * b;           // Solve Ax = b (no backslash)
+    b / A;                // Solve Ax = b
 
-**Solving linear systems:** GAUSS doesn't have MATLAB's backslash operator. Use ``inv(A)*b`` for small systems or specialized solvers (``solpd`` for positive definite).
+**Solving linear systems:** GAUSS uses the ``/`` operator: ``b / A`` solves ``Ax = b``. You can also use ``solpd(A, b)`` for positive definite systems or ``qrsol(b, A)`` for QR-based solving.
 
 Functions and Procedures
 ------------------------
@@ -296,7 +296,7 @@ Data Import/Export
     save data = "output.gdat";   // GAUSS format
 
     // Or export to CSV/Excel
-    saved(data, "output.csv", getcolnames(data));
+    saved(data, "output.csv");
 
 Statistics and Econometrics
 ---------------------------
@@ -331,6 +331,45 @@ OLS regression:
     // GAUSS (built-in)
     call olsmt(data, "y ~ x1 + x2");
 
+Common Function Translations
+-----------------------------
+
+**Functions with different names:**
+
++-------------------------+---------------------------+---------------------------+
+| Description             | MATLAB                    | GAUSS                     |
++=========================+===========================+===========================+
+| Natural log             | ``log(x)``                | ``ln(x)``                 |
++-------------------------+---------------------------+---------------------------+
+| Log base 10             | ``log10(x)``              | ``log(x)``                |
++-------------------------+---------------------------+---------------------------+
+| Sort columns            | ``sort(x)``               | ``sortc(x, 1)``           |
++-------------------------+---------------------------+---------------------------+
+| Find indices            | ``find(x > 0)``           | ``indexcat(x, x .> 0)``   |
++-------------------------+---------------------------+---------------------------+
+| Check NaN               | ``isnan(x)``              | ``ismiss(x)``             |
++-------------------------+---------------------------+---------------------------+
+| NaN / missing           | ``NaN``                   | ``.`` (dot)               |
++-------------------------+---------------------------+---------------------------+
+| Cumulative sum          | ``cumsum(x)``             | ``cumsumc(x)``            |
++-------------------------+---------------------------+---------------------------+
+| Flip rows               | ``flipud(x)``             | ``rev(x)``                |
++-------------------------+---------------------------+---------------------------+
+| Create diagonal matrix  | ``diag(v)``               | ``diagrv(zeros(n,n), v)`` |
++-------------------------+---------------------------+---------------------------+
+| Number to string        | ``num2str(x)``            | ``ntos(x)``               |
++-------------------------+---------------------------+---------------------------+
+| String compare          | ``strcmp(a,b)``           | ``a $== b``               |
++-------------------------+---------------------------+---------------------------+
+| String concatenation    | ``[a b]`` or ``strcat``   | ``a $+ b``                |
++-------------------------+---------------------------+---------------------------+
+
+**Functions with the same name:** ``repmat``, ``reshape``, ``unique``, ``abs``, ``exp``, ``ceil``, ``floor``, ``round``, ``rank``, ``inv``, ``det``, ``chol``, ``diag``, ``eye``, ``zeros``, ``ones``, ``svd``
+
+.. warning::
+
+    **log vs ln**: In MATLAB, ``log`` is the natural logarithm. In GAUSS, ``log`` is base 10 and ``ln`` is natural. This will silently give wrong results if you don't catch it.
+
 Quick Reference Table
 ---------------------
 
@@ -347,25 +386,25 @@ Quick Reference Table
 +-------------------------+---------------------------+---------------------------+
 | Random normal           | ``randn(n,m)``            | ``rndn(n, m)``            |
 +-------------------------+---------------------------+---------------------------+
-| Sequence                | ``1:n``                   | ``seqa(1, 1, n)``         |
+| Sequence                | ``1:n``                   | ``1:n`` or ``seqa(1,1,n)``|
 +-------------------------+---------------------------+---------------------------+
 | All rows                | ``A(:,j)``                | ``A[.,j]``                |
 +-------------------------+---------------------------+---------------------------+
 | All columns             | ``A(i,:)``                | ``A[i,.]``                |
 +-------------------------+---------------------------+---------------------------+
-| Last element            | ``A(end)``                | ``A[rows(A)*cols(A)]``    |
+| Last row                | ``A(end,:)``              | ``A[rows(A),.]``          |
 +-------------------------+---------------------------+---------------------------+
 | Horizontal concat       | ``[A B]``                 | ``A~B``                   |
 +-------------------------+---------------------------+---------------------------+
 | Vertical concat         | ``[A; B]``                | ``A|B``                   |
 +-------------------------+---------------------------+---------------------------+
-| Transpose               | ``A'`` or ``A.'``         | ``A'``                    |
+| Transpose               | ``A'`` or ``A.'``         | ``A'`` or ``A.'``         |
 +-------------------------+---------------------------+---------------------------+
 | Element-wise mult       | ``A .* B``                | ``A .* B``                |
 +-------------------------+---------------------------+---------------------------+
 | Matrix mult             | ``A * B``                 | ``A * B``                 |
 +-------------------------+---------------------------+---------------------------+
-| Solve Ax=b              | ``A \ b``                 | ``inv(A)*b``              |
+| Solve Ax=b              | ``A \ b``                 | ``b / A``                 |
 +-------------------------+---------------------------+---------------------------+
 | Eigenvalues             | ``eig(A)``                | ``eig(A)``                |
 +-------------------------+---------------------------+---------------------------+
@@ -385,22 +424,23 @@ Common Gotchas
 
 2. **Braces not brackets.** Matrices use ``{ }`` not ``[ ]``
 
-3. **Dot not colon.** "All rows" is ``A[.,1]`` not ``A(:,1)``
+3. **Dot not colon for "all".** "All rows" is ``A[.,1]`` not ``A(:,1)``. But ``:`` works for ranges: ``A[1:5, .]``.
 
-4. **No backslash.** Use ``inv(A)*b`` instead of ``A\b``
+4. **Slash not backslash.** Use ``b/A`` instead of ``A\b``
 
-5. **String quotes.** Only double quotes ``"string"`` work
+5. **log means base 10.** MATLAB ``log`` = natural log. GAUSS ``log`` = base 10. Use ``ln`` for natural log.
 
-6. **Procedure syntax.** Use ``proc``/``endp``/``retp`` not ``function``/``end``/``return``
+6. **String quotes.** Only double quotes ``"string"`` work
 
-7. **Local variables.** Declare with ``local`` inside procedures
+7. **Procedure syntax.** Use ``proc``/``endp``/``retp`` not ``function``/``end``/``return``
+
+8. **Local variables.** Declare with ``local`` inside procedures
 
 What's Next?
 ------------
 
 - :doc:`../getting-started/quickstart` — General GAUSS introduction
 - :doc:`../getting-started/running-existing-code` — If you have existing code
-- `NumPy for MATLAB Users <https://numpy.org/doc/stable/user/numpy-for-matlab-users.html>`_ — Similar guide that inspired this one
 
 .. seealso::
 

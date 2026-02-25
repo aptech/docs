@@ -4,17 +4,13 @@ Introduction to GAUSS for R Users
 
 R and GAUSS are both used for statistical computing, but they approach data differently. This guide helps R users translate their workflows to GAUSS.
 
-Why Consider GAUSS?
--------------------
+What Sets GAUSS Apart
+---------------------
 
-R excels at statistical analysis with its vast package ecosystem. GAUSS offers:
-
-- **Speed**: Compiled code with Intel MKL for matrix operations
-- **Simplicity**: One way to do things, less "there are 5 packages for that"
-- **Stability**: No breaking changes between versions, code runs for decades
-- **Econometrics focus**: Strong built-in and add-on support for time series, panel data, discrete choice
-
-The tradeoff: R has more packages, a larger community, and is free.
+- **Compiled speed, matrix-first**: Highly optimized BLAS throughout. Matrices are the native type, not a secondary data structure.
+- **One way to do things**: No choosing between 5 packages for the same task. Stable API, consistent conventions.
+- **Dataframes that are matrices**: Named columns and types, but you can do matrix algebra directly on them—no conversion step.
+- **Stability**: No breaking changes between versions. Code runs for decades without dependency updates.
 
 Key Conceptual Differences
 --------------------------
@@ -61,7 +57,8 @@ R's data.frame and GAUSS dataframes are similar—tabular data with named column
     score = { 85.5, 92.0, 78.5 };
 
     df = asDF(age ~ score, "age", "score");
-    // Note: string columns handled differently
+    // Note: asDF creates a dataframe from numeric matrices.
+    // String arrays like 'name' are added separately with dfname.
 
 **Loading from CSV:**
 
@@ -191,7 +188,7 @@ Data Manipulation
 
     // GAUSS
     // Use aggregate functions
-    result = aggregate(df, "by category", "mean(value)");
+    result = aggregate(df, "mean", "category");
 
 Statistics
 ----------
@@ -290,7 +287,7 @@ R has matrices, but vectors are more common. GAUSS is matrix-first.
     A .* B;       // Element-wise
     A';           // Transpose
     inv(A);       // Inverse
-    inv(A) * b;   // Solve Ax = b
+    b / A;        // Solve Ax = b
 
 **Note:** In GAUSS, ``*`` is matrix multiplication by default. Use ``.*`` for element-wise.
 
@@ -374,7 +371,7 @@ Missing Values
     // GAUSS
     ismiss(x);            // Check for missing
     packr(df);            // Remove rows with missing
-    selif(x, not ismiss(x));  // Select non-missing
+    delif(x, ismiss(x));  // Select non-missing
 
 GAUSS uses ``.`` (dot) for missing values, not ``NA``.
 

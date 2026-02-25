@@ -1,13 +1,11 @@
 
-.. title:: Explore
+.. title:: GAUSS Documentation
 
 .. meta::
-   :description: Looking for additional resources about GAUSS? Learn more about our built-in and Machine Learning functions. Find GAUSS documentation here. 
+   :description: GAUSS documentation — tutorials, command reference, and guides for the GAUSS matrix programming language.
 
 GAUSS Documentation
 ====================
-
-The GAUSS Platform provides a fully interactive environment for exploring data, performing calculations and analyzing results. These interactive features speed up your workflow, while the exceptionally fast GAUSS analytics engine will speed up your computations.
 
 .. role:: text-left
 
@@ -29,7 +27,7 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
         .. container:: text-left
 
-          New to GAUSS? Start here with quickstart guides and tutorials.
+          New to GAUSS? Quickstart guides, tutorials, and language basics.
 
     .. grid-item-card::
         :shadow: none
@@ -47,7 +45,7 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
         .. container:: text-left
 
-          View the comprehensive list of built-in commands and detailed help for each in GAUSS.
+          Browse all 1,000+ built-in functions and keywords with detailed help for each.
 
 .. grid:: 2
 
@@ -67,65 +65,25 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
 
         .. container:: text-left
 
-          Enhance your GAUSS usage with these valuable learning resources.
-
-.. grid:: 2
+          Coming from Stata, MATLAB, R, EViews, or Python? Migration guides, textbook examples, and data management.
 
     .. grid-item-card::
         :shadow: none
-        :class-header: text-center 
-        :class-body: text-center
-        :link: applications
-        :link-type: doc
-
-        Apps
-        ^^^^^
-    
-        .. container:: icon-large
-    
-          :fa:`rocket`
-    
-        .. container:: text-left
-    
-          Save time with our pre-built applications.
-    
-    .. grid-item-card::
-        :shadow: none
-        :class-header: text-center 
+        :class-header: text-center
         :class-body: text-center
         :link: changelog
         :link-type: doc
 
-        Changelog
-        ^^^^^^^^^
-    
+        What's New in GAUSS 26
+        ^^^^^^^^^^^^^^^^^^^^^^
+
         .. container:: icon-large
-    
+
           :fa:`list`
-    
+
         .. container:: text-left
-    
-          View the list of updates for each version of GAUSS.
 
-.. grid:: 2
-
-    .. grid-item-card::
-        :shadow: none
-        :class-header: text-center 
-        :class-body: text-center
-        :link: https://www.aptech.com/resources/tutorials
-
-        Tutorials
-        ^^^^^^^^^
-    
-        .. container:: icon-large
-    
-          :fa:`external-link-alt`
-    
-        .. container:: text-left
-    
-          View tutorials on the main aptech.com website.
-    
+          Latest features, improvements, and new functions.
 
 .. toctree::
    :maxdepth: 2
@@ -136,4 +94,3 @@ The GAUSS Platform provides a fully interactive environment for exploring data, 
    learning-resources
    applications
    changelog
-
