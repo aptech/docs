@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: idx = findIdx(cond)
 
-    :param cond: boolean vector of 0s and 1s, typically the result of an element-wise comparison such as ``x .> 0``.
-    :type cond: Nx1 vector
+    :param cond: boolean vector of 0s and 1s, typically the result of an element-wise comparison such as ``x .> 0``. Both column vectors and row vectors are accepted.
+    :type cond: Nx1 or 1xN vector
 
     :return idx: the row indices where *cond* is nonzero. If no elements are nonzero, a scalar missing value is returned.
 
