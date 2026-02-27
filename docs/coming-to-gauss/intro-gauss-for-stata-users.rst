@@ -1,12 +1,48 @@
 Introduction to GAUSS for Stata Users
 =======================================
-This page provides a basic overview of how common Stata operations can be implemented in GAUSS. It is not meant to serve as a comprehensive GAUSS guide. However, we do provide references for those who wish to explore topics in greater depth.
+A practical guide to doing common Stata operations in GAUSS, with references for deeper exploration.
+
+.. figure:: ../_static/images/data-import-window-1.jpg
+   :width: 80%
+   :target: https://www.youtube.com/watch?v=0Q0xnbix_Rc
+
+   GAUSS auto-detects variable types, previews your data, and generates reusable code. `Watch the video <https://www.youtube.com/watch?v=0Q0xnbix_Rc>`__ to see a full workflow from data import through ARIMA estimation.
+
+Key Syntax Differences
+-----------------------------------------------------------
+Before diving in, here are a few syntax rules that apply to all GAUSS code:
+
+**Semicolons are required.** Every GAUSS statement ends with a semicolon ``;``. This includes block-closing keywords like ``endfor;``, ``endif;``, and ``endo;``. Forgetting a semicolon causes a syntax error.
+
+::
+
+    // Every statement ends with a semicolon
+    x = 5;
+    print x;
+
+**String operators use a** ``$`` **prefix.** GAUSS uses separate operators for string operations. The most common are:
+
++--------------------+---------------------------------------------+
+| Operator           | Purpose                                     |
++====================+=============================================+
+| ``$+``             | Concatenate two strings.                    |
++--------------------+---------------------------------------------+
+| ``$|``             | Vertically concatenate strings into a list. |
++--------------------+---------------------------------------------+
+
+::
+
+    // Build a file path
+    fname = getGAUSSHome() $+ "examples/auto2.dta";
+
+    // Build a list of variable names (like Stata's varlist)
+    vars = "mpg" $| "weight" $| "price";
+
+**Multiple datasets in memory.** Unlike Stata, GAUSS does not have a single active dataset. You can load multiple datasets into separate variables and use them all at once.
 
 Data Storage
 -----------------------------------------------------------
-GAUSS stores data in matrices, string arrays, and dataframes. One of the key differences between data storage in GAUSS and Stata is that GAUSS allows you to store data from multiple sources simultaneously.
-
-In Stata, people are most familiar with working with a single dataset in memory. Stata does allow you to store multiple datasets in memory using specified dataframes but special commands must be used to switch between frames.
+GAUSS stores data in matrices, string arrays, and dataframes.
 
 +--------------------+-----------------------+--------------------+
 | Reference          | GAUSS                 | Stata              |
@@ -23,77 +59,20 @@ In Stata, people are most familiar with working with a single dataset in memory.
 
 What is a GAUSS dataframe?
 ++++++++++++++++++++++++++++++
-.. figure:: ../_static/images/data-import-window-1.jpg
-    :width: 80%
+A GAUSS dataframe stores data in rows and columns like a Stata dataset, but carries type information (string, numeric, category, date) that estimation functions use automatically — for example, :func:`olsmt` creates dummy variables for categorical predictors and labels output with variable names.
 
-A GAUSS dataframe is used to store two-dimensional data and allows you to store:
-
-  * Data in rows and columns.
-  * Information about the data type and type-related properties.
-  * Different variables together, including categorical data, strings, and dates.
-
-Many internal functions are designed to work intelligently with dataframes to use variable names and types for estimation and reporting.
-
-For example, :func:`olsmt` will use the information stored in a dataframe during estimation to:
-
-  * Properly include dummy variables when categorical independent variables are present.
-  * Include variable names in output reports.
-
-Variables
-^^^^^^^^^^^^^^^^
-Each column of a GAUSS dataframe contains a series of data for a single variable. Variables are stored as strings, numbers, categories, or dates.
-
-In Stata, variables are referenced directly by name.
-
-.. code-block:: Stata
-
-  list mpg
-
-In GAUSS, variables can be referenced by indexing with variable name or by column number. However, we must tell GAUSS which dataframe to look for the variable in.
-
-For example, if the variable ``mpg`` is stored in the fourth column of the dataframe ``auto2`` we could use either
+The key difference from Stata: since GAUSS can hold multiple datasets at once, you always specify *which* dataframe a variable belongs to. Reference variables by name or column number:
 
 ::
 
+    // By name (the . means "all rows")
     auto2[., "mpg"];
 
-or
-
-::
-
+    // By column number
     auto2[., 4];
 
-to reference the variable.
-
-.. note:: The ``.`` indicates to GAUSS that all rows are being indexed. This will be discussed in more detail in the indexing section.
-
-
-+--------------------+---------------------------------------------+------------------------------------+
-| Variable           | Description                                 | Examples                           |
-| Type               |                                             |                                    |
-+====================+=============================================+====================================+
-|String              |The string data type can contain letters,    | Customer names, product names,     |
-|                    |numbers, and other characters.               | or book titles.                    |
-+--------------------+---------------------------------------------+------------------------------------+
-|Number              |Analogous to the data stored in              | Daily temperatures, real GDP,      |
-|                    |GAUSS matrices.                              | stock prices.                      |
-+--------------------+---------------------------------------------+------------------------------------+
-|Categories          |Houses discrete variables that capture       | Marriage status, performance       |
-|                    |qualitative data.                            | ratings, transportation modes.     |
-+--------------------+---------------------------------------------+------------------------------------+
-|Dates               |Houses and displays dates and times.         | Purchase date, shipping date,      |
-|                    |                                             | observation date.                  |
-+--------------------+---------------------------------------------+------------------------------------+
-
-Observations
-^^^^^^^^^^^^^^^^
-Each row of a GAUSS dataframe contains simultaneous observations of variables. In `time series data <https://www.aptech.com/blog/introduction-to-the-fundamentals-of-time-series-data-and-analysis/>`_ or `panel data <https://www.aptech.com/blog/introduction-to-the-fundamentals-of-panel-data/>`_ , this may correspond to dates of observations. In cross-sectional data, this may correspond to some other identifier such as identification number, observation number, or name.
-
-Rows of data are indexed by row number. For example, if we want to access the data stored in the fourth row we use
-
-::
-
-  auto2[4, .];
+    // A specific row
+    auto2[4, .];
 
 Data Input/Output
 --------------------
@@ -126,122 +105,74 @@ In GAUSS, a dataframe can be created from a manually entered matrix and variable
 
 Reading external datasets
 +++++++++++++++++++++++++++++++++++++
-GAUSS can directly read and load data from most data formats, including:
-
-  * CSV
-  * Excel (XLS, XLSX)
-  * HDF 5
-  * GAUSS matrices (FMT)
-  * GAUSS datasets (DAT)
-  * Stata datasets (DTA)
-  * SAS datasets (SAS7BDAT, SAS7BCAT)
-  * SPSS datasets (SAV)
-
-In Stata, the ``import`` command is used to import non-Stata datasets. Additional information must be provided to specify what type of file is being imported.
-
-.. code-block:: Stata
-
-  import excel "nba_ht_wt.xls", clear
-
-Alternatively, the ``tips2.csv`` dataset is loaded into Stata using the import delimited command
+In Stata, different commands are needed for different file types — ``use`` for ``.dta``, ``import delimited`` for CSV, ``import excel`` for spreadsheets — and each requires ``clear`` to replace the current dataset:
 
 .. code-block:: Stata
 
   import delimited "tips2.csv", clear
 
-.. note:: The use of the ``clear`` option is necessary in Stata if the data is already loaded into the workspace. In GAUSS, this is not necessary because multiple data sets can be loaded into the work space simultaneously.
-
-In GAUSS, all data files are usually loaded using the :func:`loadd` procedure. For example, consider loading the ``auto2.dta`` dataset:
+In GAUSS, the :func:`loadd` procedure handles all common formats (CSV, Excel, Stata, SAS, SPSS, HDF5) with the same syntax, and there is no need to clear — you can have multiple datasets loaded at once:
 
 ::
 
-  // Load all variables from the file 'auto2.dta'
-  // using their default types
-  auto2 = loadd(getGAUSSHome $+ "examples/auto2.dta");
+  // Get the full file path to the example dataset
+  fname = getGAUSSHome("examples/auto2.dta");
 
-This loads all the variables in the dataset and auto-detects their type.
+  // Load all variables, auto-detecting their types
+  auto2 = loadd(fname);
 
-.. figure:: ../_static/images/data-import-window-1.jpg
-    :width: 80%
-
-Sometimes, you may need to specify the type and/or variables that you wish to load. This is done using a `formula string <https://www.aptech.com/resources/tutorials/formula-string-syntax/>`_:
-
-For example, let’s consider loading the ``nba_ht_wt.xls`` file in GAUSS
+To load only specific variables, use a formula string with ``+`` to list the ones you want:
 
 ::
 
-  // Create filename
-  fname = getGAUSSHome $+ "examples/nba_ht_wt.xls";
+  // Load only three variables from tips2.csv
+  tips2 = loadd(getGAUSSHome("examples/tips2.csv"), "total_bill + tip + sex");
 
-  // Load the file 'nba_ht_wt.xls'
-  // using a formula string to select variables
-  // and specify variable types
-  nba_ht_wt = loadd(fname, "str(Player) + cat(Pos) + Height + Weight + str(School)");
+.. note::
 
-Similarly, the ``tips2.csv`` data file:
+   Most examples below use ``auto2`` and ``tips2``. To run them all in order, load both datasets first:
+
+   ::
+
+      auto2 = loadd(getGAUSSHome("examples/auto2.dta"));
+      tips2 = loadd(getGAUSSHome("examples/tips2.csv"));
+
+GAUSS auto-detects variable types in most cases. If you need to override the type — most commonly for dates in non-standard formats — use the ``date()``, ``cat()``, or ``str()`` keywords in the formula string:
 
 ::
 
-    // Create filename
-    fname = getGAUSSHome $+ "examples/tips2.csv";
+  // Load ‘Date’ as a date variable (the $ indicates it is stored as a string in the file)
+  yellowstone = loadd(getGAUSSHome("examples/yellowstone.csv"), "Visits + HighTemp + date($Date)");
 
-    // Load the file 'tips2.csv'
-    // using a formula string to select variables
-    // and specify variable types
-    tips2 = loadd(fname, "id + total_bill + tip + cat(sex) + cat(time)");
+**Formula string quick reference:** GAUSS uses formula strings in several contexts. The syntax varies slightly:
 
-.. note:: The :func:`getGAUSSHome` function is a convenience function that returns the full path to the GAUSS home directory.
++--------------------------+----------------------------+--------------------------------+
+| Context                  | Example                    | Separator                      |
++==========================+============================+================================+
+| :func:`loadd` (loading)  | ``"mpg + weight + price"`` | ``+`` lists variables          |
++--------------------------+----------------------------+--------------------------------+
+| :func:`olsmt` (models)   | ``"price ~ mpg + weight"`` | ``~`` separates y from X       |
++--------------------------+----------------------------+--------------------------------+
+| Bracket indexing          | ``auto2[., "mpg" "wt"]``   | Space separates names          |
++--------------------------+----------------------------+--------------------------------+
+| Type overrides            | ``"date($Date) + cat(x)"`` | Keywords wrap variable names   |
++--------------------------+----------------------------+--------------------------------+
 
-Formula strings accept a number of operators and keywords which allow you to:
-
-* Specify variable types.
-* Perform data transformations.
-
-+--------------------+---------------------------------------------+
-|Operator            | Purpose                                     |
-+====================+=============================================+
-|      ``.``         |Represents all variables.                    |
-+--------------------+---------------------------------------------+
-|      ``+``         |Adds a variable.                             |
-+--------------------+---------------------------------------------+
-|      ``-``         |Removes a variable.                          |
-+--------------------+---------------------------------------------+
-|      ``1``         |Represents an intercept term.                |
-+--------------------+---------------------------------------------+
-|      ``*``         |Adds an interaction term and includes both   |
-|                    |original variables.                          |
-+--------------------+---------------------------------------------+
-|      ``:``         |Adds an interaction term between two         |
-|                    |variables but does not include either        |
-|                    |of the original variables.                   |
-+--------------------+---------------------------------------------+
-
-+--------------------+---------------------------------------------+
-|Keyword             | Purpose                                     |
-+====================+=============================================+
-|      ``cat``       |Load a variable as a categorical column.     |
-+--------------------+---------------------------------------------+
-|      ``date``      |Load a variable as a date column.            |
-+--------------------+---------------------------------------------+
-|      ``str``       |Load a variable as a string column.          |
-+--------------------+---------------------------------------------+
-|      ``$``         |Indicate that a variable is stored in the    |
-|                    |file as a string as should be passed to the  |
-|                    |keyword or procedure as a string column.     |
-+--------------------+---------------------------------------------+
-
-The GAUSS Data Management guide provides a complete guide to `Programmatic Data Import <https://docs.aptech.com/gauss/data-management/programmatic-import.html#>`_.
+For a complete guide to formula strings and data import options, see `Programmatic Data Import <https://docs.aptech.com/gauss/data-management/programmatic-import.html#>`_.
 
 Interactively loading data
 +++++++++++++++++++++++++++++++++++++
 The GAUSS **Data Import** window is a completely interactive environment for loading data and performing preliminary data cleaning. It can be used to:
 
 * Select variables and change types.
-* Select observation by range or logic filtering.
+* Select observations by range or logic filtering.
 * Manage date formats and category labels.
 * Preview data.
 
-The **Data Import** window offers a data import experience similar to Stata’s menu driven data import. Like Stata, the GAUSS **Data Import** window auto-generates code that can be reused.
+.. figure:: ../_static/images/data-import-window-1.jpg
+    :width: 80%
+
+Like Stata’s menu-driven import, the **Data Import** window auto-generates reusable code:
 
 .. figure:: ../_static/images/data-import-code-generation.png
     :width: 80%
@@ -258,47 +189,26 @@ A complete `guide to interactively loading data <https://docs.aptech.com/gauss/d
 
 Viewing Data
 +++++++++++++++++
-Data can be viewed in GAUSS a number of ways:
+View data in GAUSS with the **Data Editor**, a floating **Symbols Editor** (``Ctrl+E``), or by printing to the **Command Window**.
 
-* Using the **GAUSS Data Editor**.
 .. figure:: ../_static/images/data-cleaning-open-symbol-editor-filter.jpg
     :width: 80%
-* Opening a floating **Symbols Editor** window using `Ctrl+E`.
-* Printing data to the **Command Window**.
 
-For a quick preview, portions of a dataframe can be printed directly to screen using indexing. For example, the first five rows the `auto2` dataframe can be printed to screen by entering
+Print rows to screen with indexing (like Stata's ``list``):
 
 ::
 
+  // First 5 rows, all columns
   auto2[1:5, .];
 
-This is equivalent to using the ``list`` command in Stata
-
-.. code-block:: Stata
-
-  list 1/5
-
-If we only wanted to view the first five rows of the variable ``mpg`` from the ``auto2`` dataframe, we would use
-
-::
-
+  // First 5 rows, one variable
   auto2[1:5, "mpg"];
 
-which is equivalent to
-
-.. code-block:: Stata
-
-  list mpg 1/5
-
-In GAUSS, you can also preview the beginning or end of your data using the :func:`head` or :func:`tail` functions, respectively.
-
-For example, to view the first five rows of ``make``, ``price``, and ``mpg`` in the dataframe ``auto2``:
+Or use :func:`head` and :func:`tail` for a quick preview. Pass an optional row count (default is 5):
 
 ::
 
   head(auto2[., "make" "price" "mpg"]);
-
-This prints
 
 ::
 
@@ -308,32 +218,6 @@ This prints
       AMC Spirit        3799.0000        22.000000
    Buick Century        4816.0000        20.000000
    Buick Electra        7827.0000        15.000000
-
-We can include an optional input to indicate how many rows to include. A positive number specifies how many rows to print. For example, to print the first ten rows:
-
-::
-
-  head(auto2[., "make" "price" "mpg"], 10);
-
-This prints the first ten rows:
-
-::
-
-          make          price              mpg
-     AMC Pacer      4749.0000        17.000000
- Buick Century      4816.0000        20.000000
- Buick Electra      7827.0000        15.000000
- Buick LeSabre      5788.0000        18.000000
-    Buick Opel      4453.0000        26.000000
-   Buick Regal      5189.0000        20.000000
- Buick Riviera      10372.000        16.000000
- Buick Skylark      4082.0000        19.000000
-
-A negative number indicates how many rows to skip before beginning printing. For example, to print everything after the first 10 rows of data:
-
-::
-
-  head(auto2[., "make" "price" "mpg"], -10);
 
 
 Data Operations
@@ -381,31 +265,29 @@ In Stata, ``generate`` and ``replace`` are required to either transform existing
   replace total_bill = total_bill - 2
   generate new_bill  = total_bill / 2
 
-In GAUSS, these operations are performed using operators. For example, GAUSS uses:
-
-* The  ``-`` operator to subtract values.
-* The ``/`` operator to divide values.
-* The ``=`` to assign the new values to a storage location.
-* The ``~`` to add new columns to a matrix or dataframe.
+In GAUSS, use standard operators and assign back to the dataframe column:
 
 ::
 
-  // Subtract 2 from all observations of the
-  // variable 'total_bill' in the 'tips2' dataframe
+  // Replace: subtract 2 from total_bill
   tips2[., "total_bill"] = tips2[., "total_bill"] - 2;
 
-  // Divide all observations of the variable
-  // 'total_bill' in the 'tips2' dataframe by 2
-  tips2[., "total_bill"] = tips2[., "total_bill"] / 2;
+To create a new variable (Stata's ``generate``), use :func:`insertcols` to insert a named column at a specific position:
 
-  // Divide all observations of the variable
-  // 'total_bill' in the 'tips2' dataframe by 2
-  // and generate 'new_bill'
-  tips2 = tips2 ~ dfname(tips2[.,"total_bill"] / 2, "new_bill");
+::
+
+  // Generate: create new_bill as total_bill / 2, inserted after total_bill
+  new_col = dfname(tips2[., "total_bill"] / 2, "new_bill");
+  tips2 = insertcols(tips2, "total_bill", new_col);
+
+Or append to the end with ``~`` (horizontal concatenation):
+
+::
+
+  tips2 = tips2 ~ dfname(tips2[., "total_bill"] / 2, "new_bill");
 
 Matrix operations
 +++++++++++++++++++
-GAUSS is a matrix based language and matrix operations play a fundamental role in GAUSS computations.
 
 **Common Matrix Operators**
 
@@ -440,7 +322,7 @@ When dealing with matrices, it is important to distinguish matrix operations fro
 |Element-by-element subtraction   | ``z = x - y;``        | ``matrix z = x - y``    |
 +---------------------------------+-----------------------+-------------------------+
 
-For a more in depth look at how matrix operation works in GAUSS you may want to review our blogs:
+For more on matrix operations in GAUSS:
 
 * `GAUSS Basics 3: Intro to Matrices <https://www.aptech.com/blog/gauss-basics-3-introduction-to-matrices/>`_
 * `GAUSS Basics 4: Matrix Operations <https://www.aptech.com/blog/gauss-basics-4-matrix-operations/>`_
@@ -459,12 +341,10 @@ In GAUSS this can be done interactively with the **Data Management Tool**:
 .. figure:: ../_static/images/filtering-tips.jpg
     :width: 80%
 
-Programmatically this is done using the :func:`selif` procedure:
+Programmatically, use :func:`selif`. The ``.>`` operator is an element-by-element comparison — the dot means "compare each row individually":
 
 ::
 
-  // Select observations from the tips2 dataframe
-  // where the total_bill variable is greater than 10
   tips2 = selif(tips2, tips2[., "total_bill"] .> 10);
 
 More information about filtering data can be found in:
@@ -505,7 +385,7 @@ These changes will not be made until you click **Apply**.
 
 Changing variable names
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Variable names can also be changes from the **Variables** list.
+Variable names can also be changed from the **Variables** list.
 
 .. figure:: ../_static/images/data-organization-rename-variable.jpg
     :scale: 50%
@@ -538,49 +418,327 @@ In Stata the ``sort`` command is used for sorting data:
 
   sort sex total_bill
 
-In GAUSS, this is done using :func:`sortc`.
-
-We can accomplish the same sorting as the Stata line above using:
+In GAUSS, use :func:`sortc`:
 
 ::
 
-  // Sort the 'tips2' dataframe based
-  // on 'sex' and 'total_bill' variables
   tips2 = sortc(tips2, "sex" $| "total_bill");
+
+Collapsing / aggregating by group
+++++++++++++++++++++++++++++++++++++
+In Stata, ``collapse`` computes group-level statistics:
+
+.. code-block:: Stata
+
+  collapse (mean) tip (sum) total_bill, by(day)
+
+In GAUSS, use :func:`aggregate`:
+
+::
+
+  // Mean of all numeric columns by 'day'
+  tips_mean = aggregate(tips2, "mean", "day");
+
+  // Aggregate by multiple grouping variables
+  tips_grp = aggregate(tips2, "max", "day" $| "time");
+
+Supported methods: ``"mean"``, ``"median"``, ``"sum"``, ``"min"``, ``"max"``, ``"sd"``, ``"variance"``, ``"mode"``.
+
+Reshaping: wide to long and long to wide
++++++++++++++++++++++++++++++++++++++++++++
+In Stata, ``reshape`` converts between wide and long formats:
+
+.. code-block:: Stata
+
+  reshape long Cars_, i(Years) j(type) string
+  reshape wide num_nests, i(region) j(year)
+
+In GAUSS, use :func:`dfLonger` (wide → long) and :func:`dfWider` (long → wide):
+
+::
+
+  // Wide to long
+  df_wide = loadd(getGAUSSHome("examples/tiny_car_panel.csv"));
+  columns = "Cars_compact" $| "Cars_truck" $| "Cars_SUV";
+  df_long = dfLonger(df_wide, columns, "type", "count");
+
+::
+
+  // Long to wide
+  df_long = loadd(getGAUSSHome("examples/eagle_nests_long.csv"));
+  df_wide = dfWider(df_long, "year", "num_nests");
+
+By-group operations
+++++++++++++++++++++++
+Stata's ``bysort`` runs commands group by group:
+
+.. code-block:: Stata
+
+  bysort day: summarize tip
+
+In GAUSS, use :func:`aggregate` with a grouping column:
+
+::
+
+  // Mean tip by day (Stata's bysort day: summarize tip)
+  tip_by_day = aggregate(tips2[., "day" "tip"], "mean", "day");
+
+Estimation
+--------------------
+
+OLS Regression
++++++++++++++++++++
+In Stata, linear regression is run using the ``regress`` command:
+
+.. code-block:: Stata
+
+  regress price mpg weight
+
+In GAUSS, OLS is run using :func:`olsmt`. GAUSS estimation functions use **formula strings** to specify models: the ``~`` separates the dependent variable (left) from predictors (right).
+
+Results are stored in a **structure** — GAUSS's equivalent of Stata's ``e()`` results. You declare the structure type before calling the function, then access members with dot notation. The pattern is the same for every estimation function: declare, call, access with dots.
+
+::
+
+    // Load data
+    auto2 = loadd(getGAUSSHome("examples/auto2.dta"));
+
+    // Declare output structure (like Stata's e() but typed)
+    struct olsmtOut out;
+
+    // Run OLS: price on mpg and weight
+    out = olsmt(auto2, "price ~ mpg + weight");
+
+This prints a familiar-looking regression table:
+
+::
+
+    Ordinary Least Squares
+    ====================================================================================
+    Valid cases:                       74          Dependent variable:             price
+    Missing cases:                      0          Deletion method:                 None
+    Total SS:                    6.35e+08          Degrees of freedom:                71
+    R-squared:                      0.293          Rbar-squared:                   0.273
+    Residual SS:                 4.49e+08          Std. err of est:             2.51e+03
+    F(2,71):                         14.7          Probability of F:            4.42e-06
+    ====================================================================================
+                                Standard                    Prob       Lower       Upper
+    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    ------------------------------------------------------------------------------------
+
+    CONSTANT          1946.1        3597     0.54102     0.59019     -5104.1      8996.3
+    mpg              -49.512      86.156    -0.57468     0.56732     -218.38      119.35
+    weight            1.7466     0.64135      2.7232   0.0081298     0.48951      3.0036
+    ====================================================================================
+
+To access individual results programmatically — the equivalent of Stata's ``_b[mpg]`` and ``_se[mpg]`` — use the output structure members:
+
+::
+
+    print out.b;        // Coefficient estimates
+    print out.stderr;   // Standard errors
+    print out.rsq;      // R-squared
+
+For robust or clustered standard errors (Stata's ``, robust`` and ``, cluster()``), pass an :class:`olsmtControl` structure — see the :func:`olsmt` reference for details.
+
+Logistic Regression
+++++++++++++++++++++++
+In Stata, logistic regression is run using the ``logit`` command:
+
+.. code-block:: Stata
+
+  logit foreign mpg weight
+
+In GAUSS, this is done using :func:`glm` with the ``"binomial"`` distribution:
+
+::
+
+    struct glmOut gOut;
+    gOut = glm(auto2, "foreign ~ mpg + weight", "binomial");
+
+This prints:
+
+::
+
+    Generalized Linear Model
+    ===================================================================
+    Valid cases:              74           Dependent variable:  foreign
+    Degrees of freedom:       71           Distribution        binomial
+    Deviance:               54.4           Link function:         logit
+    ===================================================================
+                                       Standard                    Prob
+    Variable               Estimate       Error     z-value        >|z|
+    -------------------------------------------------------------------
+
+    CONSTANT                 13.708      4.5187      3.0337   0.0024158
+    mpg                    -0.16859    0.091917     -1.8341    0.066637
+    weight               -0.0039067   0.0010116     -3.8618  0.00011253
+    ===================================================================
+
+Descriptive Statistics
+++++++++++++++++++++++++
+In Stata, ``summarize`` provides descriptive statistics:
+
+.. code-block:: Stata
+
+  summarize price mpg weight
+
+In GAUSS, this is done using :func:`dstatmt`:
+
+::
+
+    call dstatmt(auto2[., "price" "mpg" "weight"]);
+
+This prints:
+
+::
+
+    ----------------------------------------------------------------------------------------
+    Variable        Mean     Std Dev      Variance     Minimum     Maximum     Valid Missing
+    ----------------------------------------------------------------------------------------
+
+    price           6165        2949       8.7e+06        3291   1.591e+04        74    0
+    mpg             21.3       5.786         33.47          12          41        74    0
+    weight          3019       777.2      6.04e+05        1760        4840        74    0
+
+.. seealso:: Functions :func:`olsmt`, :func:`glm`, :func:`quantileFit`, :func:`dstatmt`, :func:`frequency`
+
+For more fully worked estimation examples, see the `Econometrics blog <https://www.aptech.com/blog/category/econometrics/>`__.
+
+Loops and Control Flow
+------------------------
+
+Loops
+++++++++++++++++
+In Stata, loops are written using ``forvalues`` and ``foreach``:
+
+.. code-block:: Stata
+
+  forvalues i = 1/5 {
+      display `i'
+  }
+
+  foreach var of varlist mpg weight price {
+      summarize `var'
+  }
+
+In GAUSS, numeric loops use ``for`` and looping over items uses ``for`` with indexing:
+
+::
+
+    // Numeric loop (equivalent of forvalues)
+    for i(1, 5, 1);
+        print i;
+    endfor;
+
+    // Loop over a list of variable names
+    vars = "mpg" $| "weight" $| "price";
+
+    for i(1, rows(vars), 1);
+        call dstatmt(auto2[., vars[i]]);
+    endfor;
+
+GAUSS also supports ``do while`` and ``do until`` loops:
+
+::
+
+    // Do while loop
+    j = 1;
+    do while j <= 5;
+        print j;
+        j = j + 1;
+    endo;
+
+Conditional Statements
+++++++++++++++++++++++++
+In Stata, ``if``/``else`` is used for control flow in programs:
+
+.. code-block:: Stata
+
+  if `x' > 10 {
+      display "large"
+  }
+  else {
+      display "small"
+  }
+
+In GAUSS:
+
+::
+
+    if x > 10;
+        print "large";
+    else;
+        print "small";
+    endif;
+
+Writing Procedures
++++++++++++++++++++++
+In Stata, reusable code is wrapped in programs or ado-files:
+
+.. code-block:: Stata
+
+  program define demean
+      args varname
+      quietly summarize `varname'
+      replace `varname' = `varname' - r(mean)
+  end
+
+In GAUSS, reusable code is written as a **procedure** using ``proc`` and ``endp``. Variables inside a procedure must be declared ``local`` to avoid conflicts with the global workspace:
+
+::
+
+    proc (1) = demean(x);
+        local m;
+        m = meanc(x);
+        retp(x - m);
+    endp;
+
+    // Use the procedure
+    x_demeaned = demean(auto2[., "price"]);
+
+The ``(1)`` after ``proc`` indicates the procedure returns one value. GAUSS procedures can return multiple values:
+
+::
+
+    proc (2) = meanAndSD(x);
+        retp(meanc(x), stdc(x));
+    endp;
+
+    // Capture both return values
+    { m, s } = meanAndSD(auto2[., "price"]);
+
+To call a procedure that returns nothing (like Stata's ``program`` without ``rclass``), use the ``call`` keyword:
+
+::
+
+    proc (0) = printHeader(title);
+        print "==================================";
+        print title;
+        print "==================================";
+    endp;
+
+    call printHeader("My Analysis");
+
+For more on loops, string handling, and general GAUSS programming, see the `Programming blog <https://www.aptech.com/blog/category/programming/>`__.
 
 Date Functionality
 --------------------
-GAUSS dataframes include a date data type which makes it convenient to read, format, and use dates in analysis.
-
-Date variables can be loaded interactively using the **Data Import** window or programmatically using :func:`loadd` and the ``date`` keyword.
-
 Creating usable dates from raw data
 ++++++++++++++++++++++++++++++++++++++
-In Stata, dates are most often imported as strings from raw data. They must then be converted to usable date types using the ``date()`` function and a readable format is set using ``format``.
-
-For example, when the ``yellowstone.csv`` dataset is imported into Stata, the variable ``date`` is a string variable
-The ``date`` variable must be converted to a date type:
+In Stata, dates are imported as strings and must be manually converted and formatted:
 
 .. code-block:: Stata
 
-    generate date_var = date(date, "YMD");
-
-and the viewing format should be set
-
-.. code-block:: Stata
-
+    generate date_var = date(date, "YMD")
     format date_var %d.
 
-In GAUSS, dates can be directly read in as date variables using the :func:`loadd` procedure and the ``date`` keyword. The :func:`loadd` procedure automatically detects common date formats and doesn’t require a format specification unless a custom format is being used in the raw data:
+In GAUSS, :func:`loadd` auto-detects common date formats — just use the ``date`` keyword in the formula string:
 
 ::
 
-  // Create filename
-  fname = getGAUSSHome $+ "examples/yellowstone.csv";
-
-  // Load the variable Visits, LowtTep, HighTemp and Date
-  // from the file 'yellowstone.csv'
-  yellowstone = loadd(fname, "Visits + LowtTemp + HighTemp + date($Date)");
+  fname = getGAUSSHome("examples/yellowstone.csv");
+  yellowstone = loadd(fname, "Visits + LowTemp + HighTemp + date($Date)");
 
 .. figure:: ../_static/images/yellowstone-dates.jpg
       :width: 80%
@@ -642,216 +800,43 @@ Dates can be managed programmatically using :func:`asDate`:
 
 String Processing
 -------------------
+GAUSS has string functions similar to those in Stata. Here is a quick reference:
 
-Finding the length of a string
-+++++++++++++++++++++++++++++++
-The ``strlen()`` and ``ustrlen()`` functions are used in Stata to find the length of strings:
++-----------------------------+-------------------------------+-----------------------------+
+| Operation                   | Stata                         | GAUSS                       |
++=============================+===============================+=============================+
+| String length               | ``strlen(x)``                 | ``strlen(x)``               |
++-----------------------------+-------------------------------+-----------------------------+
+| Find substring position     | ``strpos(x, "abc")``          | ``strindx(x, "abc")``       |
++-----------------------------+-------------------------------+-----------------------------+
+| Extract substring           | ``substr(x, 1, 3)``           | ``strsect(x, 1, 3)``        |
++-----------------------------+-------------------------------+-----------------------------+
+| Split string                | ``word(x, 1)``                | ``strsplit(x)``              |
++-----------------------------+-------------------------------+-----------------------------+
+| Uppercase                   | ``strupper(x)``               | ``upper(x)``                |
++-----------------------------+-------------------------------+-----------------------------+
+| Lowercase                   | ``strlower(x)``               | ``lower(x)``                |
++-----------------------------+-------------------------------+-----------------------------+
+| String concatenation        | ``x + y``                     | ``x $+ y``                  |
++-----------------------------+-------------------------------+-----------------------------+
 
-.. code-block:: Stata
-
-  generate strlen_time = strlen(time)
-  generate ustrlen_time = ustrlen(time)
-
-GAUSS also uses a :func:`strlen()` procedure to find string lengths:
-
-::
-
-  // Find length of all observations
-  // of the variable 'time' in
-  // the 'tips2' dataframe
-  strlen_time = strlen(tips2[., "time"]);
-
-Finding the position of a substring
-+++++++++++++++++++++++++++++++++++++++
-
-Finding the position of strings can be useful for data searching and cleaning. In Stata, the ``strpos()`` function allows you to find the location of a specified substring within another string:
-
-.. code-block:: Stata
-
-  generate str_position = strpos(sex, "ale")
-
-In GAUSS, this is done using the :func:`strindx()` or :func:`strrindx()` procedures. The :func:`strindx()` procedure searches from the beginning of the string and the :func:`strrindx()` procedure searches from the end of the string.
-
-The functions require two inputs:
-
-*  *where* (string or scalar) – the data to be searched.
-*  *what* (string or scalar) – the substring to be searched for in *where*.
-
-For example consider the ``sex`` variable in the ``tips2`` dataframe. The first ten observations are:
+For example, to change the case of a string variable:
 
 ::
 
-  tips2[1:10, "sex"];
-
-             sex
-          Female
-            Male
-            Male
-            Male
-          Female
-            Male
-            Male
-            Male
-            Male
-            Male
-
-::
-
-  // Find the location of the substring 'ale'
-  // in the variable 'sex' in the 'tips2' dataframe
-  str_pos = strindx(tips2[., "sex"], "ale");
-
-  // Display the first 10 observations of
-  // all variables in 'str_pos'
-  str_pos[1:10, .];
-
-The printed result is:
-
-::
-
-  4.0000000
-  2.0000000
-  2.0000000
-  2.0000000
-  4.0000000
-  2.0000000
-  2.0000000
-  2.0000000
-  2.0000000
-  2.0000000
-
-Extracting a substring by position
-++++++++++++++++++++++++++++++++++++
-In Stata, the ``substr()`` function is used to extract substrings from a string. The ``substr()`` function uses position and string length to specify which substring to extract:
-
-.. code-block:: Stata
-
-  generate short_sex = substr(sex, 1, 1)
-
-The same thing can be done in GAUSS using the :func:`strsect()`:
-
-::
-
-  // Extract first letter from
-  // the variable 'sex' in the
-  // 'tips2' dataframe
-  short_sex = strsect(tips2[., "sex"], 1, 1);
-  short_sex[1:5, .];
-
-The printed result is:
-
-::
-
-  sex
-    F
-    M
-    M
-    M
-    F
-
-Extracting words
-++++++++++++++++++
-Stata allows you to extract the nth word from a string using the :func:`word()` function. For example, to consider if we wish to separate the first and last names from a name into two variables.
-
-.. code-block:: Stata
-
-  clear
-  input str20 name
-  "John Smith"
-  "Jane Cook"
-  end
-
-  generate first_name = word(name, 1)
-  generate last_name = word(name, -1)
-
-
-While GAUSS doesn’t have an exactly analogous function, this can be done fairly easily using the :func:`strsplit` procedure.
-
-The :func:`strsplit` procedure splits the string using an optional specified separator. If no separator is provided, :func:`strsplit` separates strings based on spaces.
-
-For example:
-
-::
-
-  // Generate string array of names
-  string name = { "John Smith", "Jane Cook" };
-
-  // Split into two strings
-  // and name variables 'first_name' and 'last_name'
-  name_split = asDF(strsplit(name), "first_name", "last_name");
-
-This creates the ``name_split`` dataframe:
-
-::
-
-  first_name        last_name
-        John            Smith
-        Jane             Cook
-
-If the original name data has first, middle, and last names, all separated by spaces, then :func:`strsplit` will split the strings into three columns:
-
-::
-
-  // Generate string array of names
-  string full_name = { "John Robert Smith", "Jane Elizabeth Cook" };
-
-  // Split into three strings
-  // and name variables 'first_name', 'middle_name', and 'last_name'
-  name_split = asDF(strsplit(full_name), "first_name", "middle_name", "last_name");
-
-Now the ``name_split`` variable contains three variables:
-
-::
-
-  first_name      middle_name        last_name
-        John           Robert            Smith
-        Jane        Elizabeth             Cook
-
-Finally, suppose our names are separated by a comma and a space, instead of a space:
-
-::
-
-  // Generate string array of names
-  string name = { "Smith,John", "Cook,Jane" };
-
-  // Split into two strings using ', ' as a separator
-  // and name variables 'last_name' and 'first_name'
-  name_split = asDF(strsplit(name, ", "), "last_name", "first_name");
-
-Now our ``name_split`` variable is:
-
-::
-
-  last_name       first_name
-      Smith             John
-       Cook             Jane
-
-Changing case
-++++++++++++++++++++
-GAUSS uses the :func:`upper` and :func:`lower` procedures to change all letters in strings to uppercase and lowercase, respectively.
-
-For example:
-
-::
-
-  // Change time variable in 'tips2' to all uppercase
+  // Change time variable to uppercase
   tips2[., "time"] = upper(tips2[., "time"]);
 
-  // Change sex variable in 'tips2' to all lowercase
+  // Change sex variable to lowercase
   tips2[., "sex"] = lower(tips2[., "sex"]);
 
-This compares to the ``strupper()`` and ``strlower()`` functions in Stata, which change all letters in a string to uppercase and lowercase, respectively.
-
-.. code-block:: Stata
-
-  generate upper_time = strupper(time)
-  generate lower_sex = strlower(sex)
+.. seealso:: Functions :func:`strlen`, :func:`strindx`, :func:`strsect`, :func:`strsplit`, :func:`upper`, :func:`lower`
 
 Missing values
 -------------------
 Missing values are represented by the same dot notation, ``.``, in both Stata and GAUSS.
 
-This notation can be used for filtering data Stata:
+This notation can be used for filtering data in Stata:
 
 .. code-block:: Stata
 
@@ -861,258 +846,97 @@ This notation can be used for filtering data Stata:
   * Keep non-missing values
   list if value_x != .
 
-In GAUSS missing values can be created with a statement or using the  :func:`error` function:
+In GAUSS, a missing value is represented by ``.``. To filter based on missing values, create a missing value scalar and use element-by-element comparison:
 
 ::
+
+  x = { 1,
+        .,
+        3,
+        . };
+
+  // Create a missing value for comparison
+  mss = { . };
 
   // Keep missing values
-  mss = { . };
-  data = selif(data, data[., "x"] .== mss);
+  x_miss = selif(x, x .== mss);       // Returns: . | .
 
   // Keep non-missing values
-  data = selif(data, data[., "x"] .!= error(0));
+  x_clean = selif(x, x .!= mss);      // Returns: 1 | 3
 
 
-Counting missing values
-++++++++++++++++++++++++++
-In Stata, missing values in individual variables can be counted using the ``count`` command. This command works with a logical statement specifying what condition is to be counted:
-
-.. code-block:: Stata
-
-  count if rep78 == .
-
-In GAUSS, missing values can be counted using the :func:`counts` function and ``error(0)``:
+Counting, removing, and replacing missing values
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Count missing values with :func:`counts` (Stata's ``count if rep78 == .``):
 
 ::
 
-  counts(auto2[., "rep78"], error(0));
+  mss = { . };
+  counts(auto2[., "rep78"], mss);
 
-This finds how many missing values there are in the ``rep78`` variable, found in the ``auto2`` dataframe:
+The :func:`dstatmt` output also includes ``Valid`` and ``Missing`` columns for each variable.
 
-::
-
-  5.0000000
-
-Alternatively, missing values are counted as part of the descriptive statistics using :func:`dstatmt`:
+Remove rows containing missing values with :func:`packr` (drops any row with a missing value) or :func:`delif` (drops rows based on a condition):
 
 ::
 
-    // Get descriptive statistics
-    call dstatmt(auto2);
-
-This returns
-
-::
-
-  ---------------------------------------------------------------------------------------------
-  Variable             Mean     Std Dev      Variance     Minimum     Maximum     Valid Missing
-  ---------------------------------------------------------------------------------------------
-  make                -----       -----         -----       -----       -----        74    0
-  price                6165        2949       8.7e+06        3291   1.591e+04        74    0
-  mpg                  21.3       5.786         33.47          12          41        74    0
-  rep78               -----       -----         -----        Poor   Excellent        69    5
-  headroom            2.993       0.846        0.7157         1.5           5        74    0
-  trunk               13.76       4.277          18.3           5          23        74    0
-  weight               3019       777.2      6.04e+05        1760        4840        74    0
-  length              187.9       22.27         495.8         142         233        74    0
-  turn                39.65       4.399         19.35          31          51        74    0
-  displacement        197.3       91.84          8434          79         425        74    0
-  gear_ratio          3.015      0.4563        0.2082        2.19        3.89        74    0
-  foreign             -----       -----         -----    Domestic     Foreign        74    0
-
-Removing missing values
-++++++++++++++++++++++++
-GAUSS provides two options for removing missing values from a matrix:
-
-* The :func:`packr()` procedure removes all rows from a matrix that contain any missing values.
-* The :func:`delif()` procedure removes all rows which meet a particular condition.
-
-::
-
-  // Create matrix
   a = { 1 .,
         . 4,
         5 6 };
 
-  // Remove all rows with a missing value
-  print packr(a);
+  packr(a);                          // Returns: 5 6 (only complete row)
 
-will return
+  mss = { . };
+  delif(a, a[., 2] .== mss);        // Returns rows where column 2 is not missing
 
-::
-
-    5 6
-
-Conversely
+Replace missing values with :func:`missrv` (like Stata's ``replace a = -999 if a >= .``):
 
 ::
 
-  // Create matrix
-  a = { 1 .,
-        . 4,
-        5 6 };
+  missrv(a, -999);                   // Replaces all missing values with -999
 
-  // Remove all rows with a missing value
-  // in the second column
-  print delif(a, a[., 2] .== error(0));
+For statistical imputation (mean, median, mode, predictive mean matching, and more), use :func:`impute`.
 
-will only delete rows with a missing value in the second column
-
-::
-
-  . 4
-  5 6
-
-Replacing missing values
-++++++++++++++++++++++++++
-GAUSS also provides two functions for replacing missing values:
-
-* The :func:`missrv` function.
-* The :func:`impute` function.
-
-The :func:`missrv`  function replaces all missing values in a matrix with a user-specified value
-
-::
-
-  // Create matrix
-  a = { 1 .,
-        . 4,
-        5 6 };
-
-  // Replace all missing values with -999
-  print missrv(a, -999);
-
-returns
-
-::
-
-       1 -999
-    -999    4
-       5    6
-
-This is similar to using the replace variable in Stata
-
-.. code-block:: Stata
-
-  replace a = -999 if a >= .
-
-The :func:`impute()` procedure replaces missing values in the columns of a matrix using a specified imputation method.
-The procedure offers six potential methods for imputation:
-
-* ``"mean"`` - replaces missing values with the mean of the column.
-* ``"median"`` - replaces missing values with the median of the column.
-* ``"mode"`` - replace missing values with the mode of the column.
-* ``"pmm"`` - replaces missing values using predictive mean matching.
-* ``"lrd"`` - replaces missing values using local residual draws.
-* ``"predict"`` - replaces missing values using linear regression prediction.
-
-More details about dealing with missing values are available in:
-
-* `The Introduction to Handling Missing Values blog. <https://www.aptech.com/blog/introduction-to-handling-missing-values/>`_
-* `The Data Cleaning section <https://docs.aptech.com/gauss/data-management/data-cleaning.html#counting-missing-variables>`_ of the GAUSS Data Management Guide.
+.. seealso:: `Handling Missing Values <https://www.aptech.com/blog/introduction-to-handling-missing-values/>`_ and the `Data Cleaning guide <https://docs.aptech.com/gauss/data-management/data-cleaning.html#counting-missing-variables>`_.
 
 Merging
 ----------------
-In Stata merging:
+Stata’s ``merge`` works with one dataset in memory and one on disk, creating a ``_merge`` indicator. GAUSS merges two in-memory dataframes using :func:`outerJoin` or :func:`innerJoin`:
 
-* Is performed using the ``merge`` command.
-* Is done using a dataset in memory and a data file on disk.
-* Keeps all data from the data in memory and the `using` data.
-* Creates a ``_merge`` variable indicating if the data point from the original data, the ``using`` data, or the intersection of the two.
-* Allows for one-to-one, one-to-many, many-to-one, and many-to-many joining operations.
++-------------------+-----------------------------------------+---------------------------------------------+
+|                   | Stata                                   | GAUSS                                       |
++===================+=========================================+=============================================+
+| Function          | ``merge``                               | :func:`outerJoin` / :func:`innerJoin`       |
++-------------------+-----------------------------------------+---------------------------------------------+
+| Data source       | Memory + disk file                      | Both in memory                              |
++-------------------+-----------------------------------------+---------------------------------------------+
+| Keep all rows     | Default (creates ``_merge`` indicator)  | ``outerJoin`` with ``"full"`` option        |
++-------------------+-----------------------------------------+---------------------------------------------+
+| Keep matches only | Not default                             | ``outerJoin`` without ``"full"``, or        |
+|                   |                                         | ``innerJoin``                               |
++-------------------+-----------------------------------------+---------------------------------------------+
+| Join types        | 1:1, 1:M, M:1, M:M                     | Same                                        |
++-------------------+-----------------------------------------+---------------------------------------------+
 
-In GAUSS merging:
-
-* Is done using the :func:`outerJoin` or :func:`innerJoin` procedures.
-* Is done completely with data in memory.
-* The :func:`innerJoin` function only keeps matching observations.
-* The :func:`outerJoin` function keeps observations either from both data sources or the left-hand data source.
-* Allows for one-to-one, one-to-many, many-to-one, and many-to-many joining operations.
-
-As a first example, let’s consider two dataframes. The first contains ``ID`` and ``Age``:
-
-::
-
-     ID      Age
-   John       22
-   Mary       18
-  Susan       34
- Connie       45
-
-The second contains ``ID`` and ``Occupation``:
-
-::
-
-     ID      Occupation
-   John         Teacher
-   Mary         Surgeon
-  Susan       Developer
-  Tyler           Nurse
-
-In Stata, we merge these using ``merge()``:
+In Stata, merging two small datasets requires saving one to disk first:
 
 .. code-block:: Stata
 
-  * Create and save the age dataset
-  clear
-  input str10 ID
-  John Doe
-  Mary Jane
-  Susan Smith
-  Connie Lee
-  end
-
-  input age
-  22
-  18
-  34
-  45
-  end
-  save df1.dta
-
-  * Now create occupation data
-  * and keep in memory
-  clear
-  input str10 ID
-  John
-  Mary
-  Susan
-  Tyler
-  end
-
-  input str10 occupation
-  Teacher
-  Surgeon
-  Developer
-  Nurse
-  end
-
   merge 1:1 ID using df1
 
-We can do the same in GAUSS using :func:`outerJoin`:
+In GAUSS, both datasets stay in memory:
 
 ::
 
-  // Create ID strings
-  string ID1 = { "John", "Mary", "Susan", "Connie" };
-  string ID2 = { "John", "Mary", "Susan", "Tyler" };
+  // Build two small dataframes
+  df1 = asDF("John" $| "Mary" $| "Susan" $| "Connie", "ID")
+      ~ asDF(22 | 18 | 34 | 45, "Age");
 
-  // Create age vector
-  age = { 22, 18, 34, 45 };
+  df2 = asDF("John" $| "Mary" $| "Susan" $| "Tyler", "ID")
+      ~ asDF("Teacher" $| "Surgeon" $| "Developer" $| "Nurse", "Occupation");
 
-  // Create occupation string
-  string Occupation = { "Teacher", "Surgeon", "Developer", "Nurse" };
-
-  // Create first df
-  df1 = asDF(ID1, "ID") ~ asDF(age, "Age");
-
-  // Create second df
-  df2 = asDF(ID2, "ID") ~ asDF(Occupation, "Occupation");
-
-  // Merge dataframes
+  // Full outer join — keep all rows from both dataframes
   df3 = outerJoin(df2, "ID", df1, "ID", "full");
-
-The ``df3`` dataframe contains:
 
 ::
 
@@ -1123,21 +947,21 @@ The ``df3`` dataframe contains:
    Tyler            Nurse                .
   Connie                .        45.000000
 
-The ``df3`` dataframe contains all observations from both the ``df1`` and ``df2`` dataframes, even if they aren't matched, because we included the ``"full"`` option.
-
-If we just wanted to keep the matches to the keys from the ``df2`` dataframe we would exclude the ``"full"`` option:
+Omit ``"full"`` to keep only rows that match the left dataframe:
 
 ::
 
-  // Merge dataframes
   df3 = outerJoin(df2, "ID", df1, "ID");
 
-Now ``df3`` includes:
+What's Next?
+------------
 
-::
-
-    ID       Occupation              Age
-  John          Teacher        22.000000
-  Mary          Surgeon        18.000000
- Susan        Developer        34.000000
- Tyler            Nurse                .
+- `Command Reference <../command-reference.html>`__ — Browse all 1,000+ built-in functions
+- :doc:`../data-management` — Loading, cleaning, and reshaping data
+- :doc:`../textbook-examples/index` — Worked examples from Greene (*Econometric Analysis*) and Brooks (*Introductory Econometrics for Finance*)
+- `Econometrics blog <https://www.aptech.com/blog/category/econometrics/>`__ — Fully worked examples covering regression, panel data, hypothesis testing, and more
+- `Time series blog <https://www.aptech.com/blog/category/time-series/>`__ — ARIMA, VAR, GARCH, cointegration, and forecasting tutorials with complete code
+- `Panel data blog <https://www.aptech.com/blog/category/panel-data/>`__ — Fixed effects, random effects, and dynamic panel models
+- `Programming blog <https://www.aptech.com/blog/category/programming/>`__ — Loops, string handling, data manipulation, and general GAUSS programming
+- :func:`saved` — Export data to CSV, Excel, or other formats (Stata's ``export``)
+- `User Guide <https://docs.aptech.com/gauss/getting-started/installing-modules.html>`__ — Installing and managing add-on modules (Stata's ``ssc install``)
