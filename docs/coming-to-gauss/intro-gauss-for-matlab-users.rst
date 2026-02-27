@@ -8,15 +8,15 @@ GAUSS and MATLAB are both matrix-based programming languages. If you're comforta
 
     This guide is written for GAUSS 26. Some features (such as :func:`repmat`, :func:`findIdx`, :func:`diagmat`, and the colon operator for sequences) require GAUSS 26.0.1 or later.
 
-What Sets GAUSS Apart
----------------------
+How GAUSS Differs from MATLAB
+-----------------------------
 
-GAUSS shares MATLAB's matrix-first philosophy, but the entire language is oriented around statistics and econometrics rather than engineering.
+GAUSS shares MATLAB's matrix-first philosophy but is oriented around statistics and econometrics rather than engineering. The practical differences that affect your code:
 
-- **Dataframes are matrices**: Named columns, typed variables, and category labels—but matrices under the hood. Run ``olsmt(data, "y ~ x1 + x2")`` and drop into ``A * B`` matrix algebra on the same object with no conversion overhead.
-- **Statistical workflow is native**: Column-wise functions (``meanc``, ``stdc``, ``vcx``), formula strings for model specification, and built-in OLS/MLE/GMM—not toolbox add-ons.
-- **Built for the problems economists solve**: Time series (ARIMA, GARCH, VAR/VECM), panel data, discrete choice, maximum likelihood—purpose-built with dedicated structures and output.
-- **40-year stability**: Code from the 1990s still runs. No toolbox deprecation cycles.
+- **Dataframes are matrices**: Named columns and typed variables, but you can do matrix algebra on them directly — no conversion step between "table" and "matrix" types.
+- **Column-wise by default**: Statistical functions operate on columns (``meanc``, ``stdc``, ``sumc``), matching the convention that columns are variables and rows are observations.
+- **Formula strings for estimation**: Model specification uses ``"y ~ x1 + x2"`` syntax. Categorical variables are handled automatically.
+- **Structures for output**: Estimation results are returned in structures with named members (``out.b``, ``out.stderr``), similar to MATLAB structs.
 
 Key Syntax Differences
 ----------------------
@@ -90,10 +90,12 @@ Sequences:
 ::
 
     // GAUSS
-    1:5;                 // Row vector {1, 2, 3, 4, 5} (same colon syntax as MATLAB)
-    1:0.5:3;             // {1, 1.5, 2, 2.5, 3}
+    1:5;                 // Column vector {1, 2, 3, 4, 5} (NOTE: MATLAB gives a row vector)
+    1:0.5:3;             // Column vector {1, 1.5, 2, 2.5, 3}
     seqa(1, 1, 5);       // Column vector, start=1, inc=1, n=5
-    seqa(0, 0.25, 5);    // {0; 0.25; 0.5; 0.75; 1}
+    seqa(0, 0.25, 5);    // Column vector {0, 0.25, 0.5, 0.75, 1}
+
+**Note:** MATLAB's ``linspace(0, 1, 5)`` takes start, end, and count. GAUSS's ``seqa`` takes start, increment, and count — you must compute the step size yourself: ``seqa(0, (1-0)/(5-1), 5)``.
 
 Indexing
 --------
@@ -117,8 +119,17 @@ Both languages use 1-based indexing, but the "all elements" syntax differs:
     A[.,1];       // First column
     A[1:2,.];     // Rows 1-2
     A[rows(A),.]; // Last row
+    A[.,cols(A)]; // Last column
 
-**Key difference:** MATLAB uses ``:`` for "all", GAUSS uses ``.``
+GAUSS dataframes also support indexing by column name:
+
+::
+
+    data[., "mpg"];              // One column by name
+    data[., "mpg" "weight"];    // Multiple columns by name
+    data[1:10, "mpg"];          // First 10 rows of mpg
+
+**Key difference:** MATLAB uses ``:`` for "all", GAUSS uses ``.``. Use ``rows(A)`` and ``cols(A)`` where MATLAB uses ``end``.
 
 Operators
 ---------
@@ -141,7 +152,7 @@ Element-wise vs. matrix operations:
     A .* B;       // Element-wise multiplication (same)
     A .^ 2;       // Element-wise power (same)
     A';           // Conjugate transpose (same as MATLAB)
-    A.';          // Bookkeeping transpose (same as MATLAB .')
+    A.';          // Non-conjugate transpose (same as MATLAB .')
 
 **Good news:** Element-wise operators (``.* ./ .^``) and transpose operators (``'`` and ``.``) work the same in both languages. For real-valued data, ``A'`` and ``A.'`` are identical, so most code just uses ``A'``.
 
@@ -189,15 +200,16 @@ Linear Algebra
 
     // GAUSS
     inv(A);
+    invpd(A);             // Inverse (positive definite, faster)
     det(A);
     eig(A);               // Returns eigenvalues only
     { val, vec } = eigv(A);  // Eigenvalues and vectors
-    { u, s, v } = svd(A);
+    { u, s, v } = svdcusv(A);
     chol(A);
     rank(A);
     b / A;                // Solve Ax = b
 
-**Solving linear systems:** GAUSS uses the ``/`` operator: ``b / A`` solves ``Ax = b``. You can also use ``solpd(A, b)`` for positive definite systems or ``qrsol(b, A)`` for QR-based solving.
+**Solving linear systems:** GAUSS uses the ``/`` operator: ``b / A`` solves ``Ax = b``. Use ``solpd(b, A)`` for positive definite systems or ``olsqr(b, A)`` for QR-based least squares.
 
 Functions and Procedures
 ------------------------
@@ -213,7 +225,9 @@ Functions and Procedures
 
     // GAUSS
     proc (1) = square(x);
-        retp(x.^2);
+        local y;        // Must declare local variables (see Gotcha #8)
+        y = x.^2;
+        retp(y);
     endp;
 
 **Key differences:**
@@ -244,6 +258,27 @@ Multiple outputs:
 
     // Call it
     { result1, result2 } = myFunc(5);
+
+Function pointers:
+
+.. code-block:: matlab
+
+    % MATLAB — anonymous functions capture data via closures
+    f = @(beta) sum((Y - X*beta).^2);
+    result = fminunc(f, x0);
+
+::
+
+    // GAUSS — no anonymous functions; use & to get a pointer to a named proc
+    // Extra data arguments are passed after x0
+    proc (1) = myObj(beta, Y, X);
+        local resid;
+        resid = Y - X * beta;
+        retp(resid'resid);
+    endp;
+
+    struct minimizeOut out;
+    out = minimize(&myObj, x0, Y, X);
 
 Control Flow
 ------------
@@ -280,6 +315,22 @@ Loops and conditionals are similar:
         print "zero";
     endif;
 
+While loops:
+
+.. code-block:: matlab
+
+    % MATLAB
+    while x > 0
+        x = x - 1;
+    end
+
+::
+
+    // GAUSS
+    do while x > 0;
+        x = x - 1;
+    endo;
+
 **Note:** GAUSS requires semicolons after control statements.
 
 Data Import/Export
@@ -290,17 +341,26 @@ Data Import/Export
     % MATLAB
     data = readtable('file.csv');
     data = xlsread('file.xlsx');
-    save('output.mat', 'data')
+    writetable(data, 'output.csv')
 
 ::
 
-    // GAUSS
+    // GAUSS - loadd reads CSV, Excel, Stata, SAS, SPSS, HDF5
     data = loadd("file.csv");
     data = loadd("file.xlsx");
-    save data = "output.gdat";   // GAUSS format
+    data = loadd("auto2.dta");           // Stata
+    data = loadd("survey.sas7bdat");     // SAS
 
-    // Or export to CSV/Excel
+    // Load specific variables with a formula string
+    data = loadd("auto2.dta", "mpg + rep78 + price");
+
+    // Load all variables except one
+    data = loadd("auto2.dta", ". -rep78");
+
+    // Export
     saved(data, "output.csv");
+    saved(data, "output.xlsx");
+    saved(data, "output.gdat");          // GAUSS format
 
 Statistics and Econometrics
 ---------------------------
@@ -325,15 +385,51 @@ Basic statistics:
 
 OLS regression:
 
+GAUSS estimation functions use **formula strings** to specify models: the ``~`` separates the dependent variable (left) from predictors (right), following R-style notation. Results are returned in **structures** — typed containers with named members that you access with dot notation.
+
 .. code-block:: matlab
 
     % MATLAB (Statistics Toolbox)
     mdl = fitlm(X, y);
+    mdl.Coefficients
+    mdl.Residuals.Raw
 
 ::
 
-    // GAUSS (built-in)
-    call olsmt(data, "y ~ x1 + x2");
+    // GAUSS (included in base package)
+    struct olsmtOut out;
+    out = olsmt(data, "y ~ x1 + x2");
+
+    // Access results through the output structure
+    print out.b;          // Coefficient estimates
+    print out.stderr;     // Standard errors
+
+Using ``call olsmt(...)`` prints a summary table without saving the results.
+
+Logistic regression (GLM):
+
+.. code-block:: matlab
+
+    % MATLAB (Statistics Toolbox)
+    mdl = fitglm(X, y, 'Distribution', 'binomial');
+
+::
+
+    // GAUSS (included in base package)
+    struct glmOut out;
+    out = glm(data, "admit ~ gre + gpa + rank", "binomial");
+
+Quantile regression:
+
+.. code-block:: matlab
+
+    % MATLAB — no built-in function
+
+::
+
+    // GAUSS (included in base package)
+    struct qfitOut out;
+    out = quantileFit(data, "y ~ x1 + x2", 0.25 | 0.5 | 0.75);
 
 Common Function Translations
 -----------------------------
@@ -347,7 +443,7 @@ Common Function Translations
 +-------------------------+---------------------------+---------------------------+
 | Log base 10             | ``log10(x)``              | ``log(x)``                |
 +-------------------------+---------------------------+---------------------------+
-| Sort columns            | ``sort(x)``               | ``sortc(x, 1)``           |
+| Sort rows by column     | ``sortrows(x, 1)``        | ``sortc(x, 1)``           |
 +-------------------------+---------------------------+---------------------------+
 | Find indices            | ``find(x > 0)``           | ``findIdx(x .> 0)``       |
 +-------------------------+---------------------------+---------------------------+
@@ -361,64 +457,60 @@ Common Function Translations
 +-------------------------+---------------------------+---------------------------+
 | Create diagonal matrix  | ``diag(v)``               | ``diagmat(v)``            |
 +-------------------------+---------------------------+---------------------------+
+| Full SVD                | ``[U,S,V] = svd(A)``     | ``{u,s,v} = svdcusv(A)`` |
++-------------------------+---------------------------+---------------------------+
 | Number to string        | ``num2str(x)``            | ``ntos(x)``               |
 +-------------------------+---------------------------+---------------------------+
 | String compare          | ``strcmp(a,b)``           | ``a $== b``               |
 +-------------------------+---------------------------+---------------------------+
-| String concatenation    | ``[a b]`` or ``strcat``   | ``a $+ b``                |
+| String concatenation    | ``strcat(a,b)``           | ``a $+ b``                |
++-------------------------+---------------------------+---------------------------+
+| Formatted output        | ``fprintf(fmt, x)``       | ``sprintf(fmt, x)``       |
 +-------------------------+---------------------------+---------------------------+
 
-**Functions with the same name:** ``repmat``, ``reshape``, ``unique``, ``abs``, ``exp``, ``ceil``, ``floor``, ``round``, ``rank``, ``inv``, ``det``, ``chol``, ``diag``, ``eye``, ``zeros``, ``ones``, ``svd``
+**Functions with the same name:** ``repmat``, ``reshape``, ``unique``, ``abs``, ``exp``, ``ceil``, ``floor``, ``round``, ``rank``, ``inv``, ``det``, ``chol``, ``eye``, ``zeros``, ``ones``
+
+.. note::
+
+    **diag vs diagmat**: MATLAB's ``diag`` both creates and extracts diagonal matrices. In GAUSS, ``diag(A)`` only *extracts* the diagonal. To *create* a diagonal matrix from a vector, use ``diagmat(v)``.
 
 .. warning::
 
     **log vs ln**: In MATLAB, ``log`` is the natural logarithm. In GAUSS, ``log`` is base 10 and ``ln`` is natural. This will silently give wrong results if you don't catch it.
 
-Quick Reference Table
----------------------
+Quick Reference Cheat Sheet
+---------------------------
+
+Things that are different (see sections above for details):
 
 +-------------------------+---------------------------+---------------------------+
 | Operation               | MATLAB                    | GAUSS                     |
 +=========================+===========================+===========================+
-| Create matrix           | ``[1 2; 3 4]``            | ``{ 1 2, 3 4 }``          |
+| Matrix literal          | ``[1 2; 3 4]``            | ``{ 1 2, 3 4 }``          |
 +-------------------------+---------------------------+---------------------------+
-| Zeros                   | ``zeros(n,m)``            | ``zeros(n, m)``           |
-+-------------------------+---------------------------+---------------------------+
-| Identity                | ``eye(n)``                | ``eye(n)``                |
-+-------------------------+---------------------------+---------------------------+
-| Random uniform          | ``rand(n,m)``             | ``rndu(n, m)``            |
-+-------------------------+---------------------------+---------------------------+
-| Random normal           | ``randn(n,m)``            | ``rndn(n, m)``            |
-+-------------------------+---------------------------+---------------------------+
-| Sequence                | ``1:n``                   | ``1:n`` or ``seqa(1,1,n)``|
-+-------------------------+---------------------------+---------------------------+
-| All rows                | ``A(:,j)``                | ``A[.,j]``                |
-+-------------------------+---------------------------+---------------------------+
-| All columns             | ``A(i,:)``                | ``A[i,.]``                |
+| All rows/cols           | ``A(:,j)``                | ``A[.,j]``                |
 +-------------------------+---------------------------+---------------------------+
 | Last row                | ``A(end,:)``              | ``A[rows(A),.]``          |
 +-------------------------+---------------------------+---------------------------+
-| Horizontal concat       | ``[A B]``                 | ``A~B``                   |
+| Concatenate             | ``[A B]`` / ``[A; B]``    | ``A~B`` / ``A|B``          |
 +-------------------------+---------------------------+---------------------------+
-| Vertical concat         | ``[A; B]``                | ``A|B``                   |
+| Solve Ax=b              | ``A\b``                   | ``b/A``                   |
 +-------------------------+---------------------------+---------------------------+
-| Transpose               | ``A'`` or ``A.'``         | ``A'`` or ``A.'``         |
+| Random uniform          | ``rand(m,n)``             | ``rndu(m, n)``            |
 +-------------------------+---------------------------+---------------------------+
-| Element-wise mult       | ``A .* B``                | ``A .* B``                |
+| Random normal           | ``randn(m,n)``            | ``rndn(m, n)``            |
 +-------------------------+---------------------------+---------------------------+
-| Matrix mult             | ``A * B``                 | ``A * B``                 |
+| Column mean/sum         | ``mean(A)`` / ``sum(A)``  | ``meanc(A)`` / ``sumc(A)``|
 +-------------------------+---------------------------+---------------------------+
-| Solve Ax=b              | ``A \ b``                 | ``b / A``                 |
+| Natural log             | ``log(x)``                | ``ln(x)``                 |
 +-------------------------+---------------------------+---------------------------+
-| Eigenvalues             | ``eig(A)``                | ``eig(A)``                |
-+-------------------------+---------------------------+---------------------------+
-| Column means            | ``mean(A)``               | ``meanc(A)``              |
-+-------------------------+---------------------------+---------------------------+
-| Column sums             | ``sum(A)``                | ``sumc(A)``               |
-+-------------------------+---------------------------+---------------------------+
-| Print                   | ``disp(x)``               | ``print x``               |
+| Print                   | ``disp(x)``               | ``print x;``              |
 +-------------------------+---------------------------+---------------------------+
 | Comment                 | ``% comment``             | ``// comment``            |
++-------------------------+---------------------------+---------------------------+
+| SVD (full)              | ``[U,S,V] = svd(A)``     | ``{u,s,v} = svdcusv(A)`` |
++-------------------------+---------------------------+---------------------------+
+| Diagonal from vector    | ``diag(v)``               | ``diagmat(v)``            |
 +-------------------------+---------------------------+---------------------------+
 
 Common Gotchas
@@ -438,14 +530,46 @@ Common Gotchas
 
 7. **Procedure syntax.** Use ``proc``/``endp``/``retp`` not ``function``/``end``/``return``
 
-8. **Local variables.** Declare with ``local`` inside procedures
+8. **Local variables are not automatic.** In MATLAB, function variables are local by default. In GAUSS, you must declare them with ``local`` inside ``proc`` or they become global. Forgetting ``local`` creates hard-to-find bugs where procedures silently read or modify variables from the calling scope.
+
+9. **No ``end`` keyword for indexing.** Use ``rows(A)`` instead of ``end``. For the last 5 rows: ``A[rows(A)-4:rows(A), .]``
+
+Putting It Together
+-------------------
+
+Here is a complete, runnable example that loads data, filters it, runs a regression, and prints the results:
+
+::
+
+    // Get full path to dataset in GAUSS examples folder
+    fname = getGAUSSHome("examples/auto2.dta");
+
+    // Load specific variables
+    data = loadd(fname, "mpg + weight + foreign");
+
+    // Keep only domestic cars
+    data = selif(data, data[., "foreign"] .== 0);
+
+    // Run OLS
+    struct olsmtOut out;
+    out = olsmt(data, "mpg ~ weight");
+
+    print out.b;
 
 What's Next?
 ------------
 
-- :doc:`../getting-started/quickstart` — General GAUSS introduction
-- :doc:`../getting-started/running-existing-code` — If you have existing code
+- :doc:`../getting-started/quickstart` — 10-minute introduction to GAUSS basics
+- :doc:`../getting-started/running-existing-code` — If you inherited GAUSS code and need to get it running
+- :doc:`../data-management` — Loading, cleaning, and reshaping data
+- :doc:`../textbook-examples/index` — Worked examples from Greene (*Econometric Analysis*) and Brooks (*Introductory Econometrics for Finance*)
+- `Command Reference <../command-reference.html>`__ — Browse all 1,000+ built-in functions
+- `Econometrics blog <https://www.aptech.com/blog/category/econometrics/>`__ — Fully worked examples covering regression, panel data, hypothesis testing, and more
+- `Time series blog <https://www.aptech.com/blog/category/time-series/>`__ — ARIMA, VAR, GARCH, cointegration, and forecasting tutorials with complete code
+- `Panel data blog <https://www.aptech.com/blog/category/panel-data/>`__ — Fixed effects, random effects, and dynamic panel models
+- `Programming blog <https://www.aptech.com/blog/category/programming/>`__ — Loops, string handling, data manipulation, and general GAUSS programming
+- `Formatted output with sprintf <https://www.aptech.com/blog/how-to-create-a-simple-table-with-sprintf-in-gauss/>`__ — Creating tables and formatted output
 
 .. seealso::
 
-    :func:`loadd`, :func:`olsmt`, :func:`inv`, :func:`eig`, :func:`rndn`
+    :func:`loadd`, :func:`olsmt`, :func:`glm`, :func:`quantileFit`, :func:`minimize`
