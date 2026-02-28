@@ -46,7 +46,7 @@ File Not Found
        print cdir(0);
 
        // Change to the folder containing your data
-       chdir("/path/to/your/data");
+       chdir "/path/to/your/data";
 
 2. **Use absolute paths.** Edit the code to specify the full path:
 
@@ -198,17 +198,12 @@ FANPAC            Financial analysis, GARCH variants
 Setting Up Source Paths
 -----------------------
 
-If code includes files from multiple directories:
-
-::
-
-    // Add a directory to the source path
-    addpath("/path/to/shared/procedures");
-
-Or set paths permanently in GAUSS:
+If code includes files from multiple directories, set paths in the GAUSS IDE:
 
 1. Edit → Preferences → Source Path
 2. Add directories containing your ``.src`` files
+
+This tells GAUSS where to find ``#include`` files and procedure definitions.
 
 Debugging Tips
 --------------
@@ -227,21 +222,14 @@ Debugging Tips
 
 ::
 
-    print type(x);   // 6 = matrix, 13 = dataframe, 15 = string
+    print type(x);   // 6 = matrix/dataframe, 13 = string, 21 = string array
 
 **Run code section by section:** Highlight lines and press F4 to run selection.
 
 Getting Help
 ------------
 
-For specific functions:
-
-::
-
-    // In the command window
-    help loadd
-
-Or press F1 with cursor on a function name.
+Press **F1** with the cursor on a function name to open its documentation. You can also use the Help menu to browse the Command Reference.
 
 .. seealso::
 

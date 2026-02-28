@@ -385,12 +385,11 @@ Real analysis uses data from files, not typed-in numbers::
 
 **How** ``print`` **works:** ``print`` takes a space-separated list of items and displays them on one line. Here, ``rows(data)`` and ``"rows"`` are two separate items printed together.
 
-.. note::
+You can also print expressions directly::
 
-   Because ``print`` treats spaces as separators, ``print a + b`` does **not** print the sum of ``a`` and ``b``. GAUSS reads it as: print ``a``, then ``+``, then ``b``—and ``+`` by itself isn't a valid item, so you get an error. To print a calculated result, store it in a variable first::
-
-       z = a + b;
-       print z;
+    a = 3;
+    b = 4;
+    print a + b;    // Prints 7
 
 The ``loadd`` function reads CSV, Excel, and other formats automatically. It returns a **dataframe**—a matrix where columns have names. This lets you refer to columns by name (like ``data[., "price"]``) instead of by number.
 
@@ -400,9 +399,7 @@ If the file isn't in your working directory, use the full path::
 
 Or use GAUSS's example data::
 
-    data = loadd(getGAUSSHome() $+ "examples/housing.csv");
-
-The ``$+`` joins text strings together.
+    data = loadd(getGAUSSHome("examples/housing.csv"));
 
 Writing a Simple Analysis
 -------------------------
@@ -417,7 +414,7 @@ Now it's time to use the **Editor** instead of the Command Window. When you have
 Let's put it together—load data, calculate statistics, show results::
 
     // Load housing data
-    data = loadd(getGAUSSHome() $+ "examples/housing.csv");
+    data = loadd(getGAUSSHome("examples/housing.csv"));
 
     // Extract the price column (loadd creates a dataframe with named columns)
     prices = data[., "price"];
