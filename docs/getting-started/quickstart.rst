@@ -13,7 +13,7 @@ Prerequisites
 Creating Matrices
 -----------------
 
-GAUSS is built around matrices. Create one by listing values in braces, with commas separating columns and spaces or semicolons separating rows:
+GAUSS is built around matrices. Create one by listing values in braces, with spaces separating columns and commas separating rows:
 
 ::
 
@@ -56,7 +56,7 @@ Generate random data with :func:`rndn` (standard normal):
 Basic Operations
 ----------------
 
-GAUSS operators work element-wise by default. Use `.*` for element-wise and `*` for matrix multiplication:
+GAUSS operators work element-wise by default. Use ``.*`` for element-wise and ``*`` for matrix multiplication:
 
 ::
 
@@ -99,7 +99,7 @@ Use :func:`loadd` to load CSV, Excel, or GAUSS datasets:
 ::
 
     // Load the housing dataset (included with GAUSS)
-    data = loadd(getGAUSSHome() $+ "examples/housing.csv");
+    data = loadd(getGAUSSHome("examples/housing.csv"));
 
     print rows(data) "rows," cols(data) "columns";
 
@@ -139,7 +139,7 @@ Use :func:`olsmt` for OLS regression with a formula interface:
 
 ::
 
-    data = loadd(getGAUSSHome() $+ "examples/housing.csv");
+    data = loadd(getGAUSSHome("examples/housing.csv"));
 
     // Regress price on beds, baths, and size
     call olsmt(data, "price ~ beds + baths + size");
@@ -198,14 +198,14 @@ Customize plots with a :func:`plotControl` structure:
     plotSetXLabel(&myPlot, "Square Feet");
     plotSetYLabel(&myPlot, "Price ($000s)");
 
-    data = loadd(getGAUSSHome() $+ "examples/housing.csv");
+    data = loadd(getGAUSSHome("examples/housing.csv"));
     plotScatter(myPlot, data[., "size"], data[., "price"]);
 
 For histograms:
 
 ::
 
-    data = loadd(getGAUSSHome() $+ "examples/housing.csv");
+    data = loadd(getGAUSSHome("examples/housing.csv"));
     plotHist(data[., "price"], 15);
 
 .. figure:: images/quickstart_histogram.png
@@ -229,10 +229,10 @@ Save data:
 ::
 
     // Save as CSV
-    saved(data, "mydata.csv", getcolnames(data));
+    saved(data, "mydata.csv");
 
-    // Save as GAUSS dataset (preserves types)
-    save data = "mydata.gdat";
+    // Save as GAUSS dataset (preserves column names and types)
+    saved(data, "mydata.gdat");
 
 What's Next?
 ------------
