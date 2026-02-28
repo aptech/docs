@@ -13,7 +13,9 @@ Prerequisites
 Creating Matrices
 -----------------
 
-GAUSS is built around matrices. Create one by listing values in braces, with spaces separating columns and commas separating rows:
+Everything in GAUSS starts with matrices -- grids of numbers that you create, transform, and analyze. When you load real data from a file, GAUSS gives you a **dataframe**: a matrix with named, typed columns. We'll start with plain matrices here and move to dataframes in `Loading Data`_ below.
+
+Create a matrix by listing values in braces, with spaces separating columns and commas separating rows:
 
 ::
 
@@ -98,8 +100,11 @@ Use :func:`loadd` to load CSV, Excel, or GAUSS datasets:
 
 ::
 
-    // Load the housing dataset (included with GAUSS)
-    data = loadd(getGAUSSHome("examples/housing.csv"));
+    // Get full path to a dataset included with GAUSS
+    fname = getGAUSSHome("examples/housing.csv");
+
+    // Load the data
+    data = loadd(fname);
 
     print rows(data) "rows," cols(data) "columns";
 
@@ -111,11 +116,16 @@ View column names:
 
 ::
 
-    print getcolnames(data)';
+    print getcolnames(data);
 
 Output::
 
-               taxes             beds            baths              new            price             size
+           taxes
+            beds
+           baths
+             new
+           price
+            size
 
 Preview the first few rows:
 
@@ -135,11 +145,13 @@ Output::
 Running a Regression
 --------------------
 
-Use :func:`olsmt` for OLS regression with a formula interface:
+Use :func:`olsmt` for OLS regression with a formula string. The ``~`` separates the dependent variable (left) from the independent variables (right), and ``+`` lists the predictors:
 
 ::
 
-    data = loadd(getGAUSSHome("examples/housing.csv"));
+    // Load the housing dataset
+    fname = getGAUSSHome("examples/housing.csv");
+    data = loadd(fname);
 
     // Regress price on beds, baths, and size
     call olsmt(data, "price ~ beds + baths + size");
@@ -198,14 +210,16 @@ Customize plots with a :func:`plotControl` structure:
     plotSetXLabel(&myPlot, "Square Feet");
     plotSetYLabel(&myPlot, "Price ($000s)");
 
-    data = loadd(getGAUSSHome("examples/housing.csv"));
+    fname = getGAUSSHome("examples/housing.csv");
+    data = loadd(fname);
     plotScatter(myPlot, data[., "size"], data[., "price"]);
 
 For histograms:
 
 ::
 
-    data = loadd(getGAUSSHome("examples/housing.csv"));
+    fname = getGAUSSHome("examples/housing.csv");
+    data = loadd(fname);
     plotHist(data[., "price"], 15);
 
 .. figure:: images/quickstart_histogram.png
