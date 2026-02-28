@@ -145,4 +145,4 @@ In this example we will create an indicator variable to show whether the origina
      Buick LeSabre             18              0        Average 
         Buick Opel             26              1        Average
 
-.. seealso:: Functions :func:`delif`, :func:`delrows`, :func:`selif`
+.. seealso:: Functions :func:`dfaddcol`, :func:`delif`, :func:`delrows`, :func:`selif`

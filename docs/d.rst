@@ -101,6 +101,7 @@ D
     design
     detl
     det
+    dfaddcol
     dfappend
     dflonger
     dfwider

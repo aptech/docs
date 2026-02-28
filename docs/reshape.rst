@@ -137,4 +137,4 @@ to fill *y*, then when reshape runs out of elements, it goes back to the
 first element of *x* and starts getting additional elements from there.
 
 
-.. seealso:: Functions :func:`submat`, :func:`vec`
+.. seealso:: Functions :func:`submat`, :func:`vec`, :func:`repmat`

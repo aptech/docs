@@ -87,27 +87,35 @@ Example 1: Basic usage with matrix input
 
 ::
 
+    rndseed 42;
+
     // Generate multivariate normal data
     X = rndn(100, 3);
 
     // Test normality using default Henze-Zirkler method
     out = mvnTest(X);
 
-Example 2: Using dataframe with formula
-+++++++++++++++++++++++++++++++++++++++++
+::
+
+    Multivariate Normality Test
+
+    Observations: 100    Variables: 3
+
+    Henze-Zirkler Test (Henze & Zirkler 1990)
+
+                    Test     Statistic       p-value
+                      HZ        0.6210    7.4283e-01
+                    Beta        1.4788
+
+The large p-value (0.74) indicates a failure to reject normality, as expected for data generated from a multivariate normal distribution.
+
+Example 2: Run all tests
++++++++++++++++++++++++++
 
 ::
 
-    // Load data
-    data = loadd("mydata.csv");
-
-    // Test specific variables
-    out = mvnTest(data, "income + age + education");
-
-Example 3: Run all tests with control structure
-++++++++++++++++++++++++++++++++++++++++++++++++
-
-::
+    rndseed 42;
+    X = rndn(100, 3);
 
     // Create control structure
     struct mvnTestControl ctl;
@@ -117,9 +125,47 @@ Example 3: Run all tests with control structure
     // Run all four tests
     out = mvnTest(X, ctl);
 
-    // Check individual results
+::
+
+    Multivariate Normality Tests
+
+    Observations: 100    Variables: 3
+
+    Mardia's Test (Mardia & Foster 1983)
+
+               Component     Statistic       p-value
+                Skewness       -0.6600    7.4538e-01
+                Kurtosis       -0.7006    7.5822e-01
+                Combined        0.7283    6.9480e-01
+
+    Henze-Zirkler Test (Henze & Zirkler 1990)
+
+                    Test     Statistic       p-value
+                      HZ        0.6210    7.4283e-01
+                    Beta        1.4788
+
+    Doornik-Hansen Test (Doornik & Hansen 2008)
+
+                    Test     Statistic      df       p-value
+                      DH        3.3778       6    7.6015e-01
+
+    Royston Test (Royston 1992)
+
+                    Test     Statistic   eq.df       p-value
+                       H        1.4209    3.00    7.0081e-01
+
+All four tests fail to reject the null hypothesis of multivariate normality.
+
+Example 3: Checking individual results
++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Check individual results programmatically
     if out.hzP < 0.05;
         print "Henze-Zirkler rejects normality";
+    else;
+        print "Henze-Zirkler: fail to reject normality (p = " out.hzP ")";
     endif;
 
 Remarks

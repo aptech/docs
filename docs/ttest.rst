@@ -112,18 +112,34 @@ Example 1: Two-sample t-test with vectors
     // Perform t-test
     out = ttest(y1, y2);
 
-Example 2: Using dataframe with formula
-+++++++++++++++++++++++++++++++++++++++
-
 ::
 
-    // Load data
-    data = loadd("experiment.csv");
+    Two-Sample t-test
 
-    // Test if score differs by treatment group
-    out = ttest(data, "score ~ treatment");
+    Descriptive Statistics
+    ------------------------------------------------------------
+              Group         N        Mean     Std Dev
+            Group 1         5     24.4000      2.3022
+            Group 2         5     31.4000      2.3022
 
-Example 3: Paired t-test
+    Mean Difference:      -7.0000
+
+    Test of Means
+    ------------------------------------------------------------
+                  Method         t        df     p-value
+     Welch (unequal var)   -4.8076       8.0      0.0013
+      Pooled (equal var)   -4.8076         8      0.0013
+
+    Test of Variances
+    ------------------------------------------------------------
+                                 F        df     p-value
+                  F-test    1.0000     4,  4      1.0000
+
+     95% Confidence Interval: [  -10.3576,    -3.6424]
+
+The small p-value (0.0013) indicates a statistically significant difference between the two groups.
+
+Example 2: Paired t-test
 ++++++++++++++++++++++++
 
 ::
@@ -138,16 +154,81 @@ Example 3: Paired t-test
 
     out = ttest(before, after, ctl);
 
-Example 4: One-sided test
+::
+
+    Paired Samples t-test
+
+    Descriptive Statistics
+    ------------------------------------------------------------
+              Group         N        Mean     Std Dev
+            Group 1         5    123.0000      4.6904
+            Group 2         5    118.0000      4.9497
+
+    Mean Difference:       5.0000
+
+    Paired t-test
+    ------------------------------------------------------------
+                                 t        df     p-value
+                  Paired   15.8114         4      0.0001
+
+     95% Confidence Interval: [    4.1220,     5.8780]
+
+Example 3: One-sided test
 +++++++++++++++++++++++++
 
 ::
+
+    y1 = { 23, 25, 28, 22, 24 };
+    y2 = { 30, 32, 29, 35, 31 };
 
     struct ttestControl ctl;
     ctl = ttestControlCreate();
     ctl.alternative = 1;  // test if group1 > group2
 
     out = ttest(y1, y2, ctl);
+
+The one-sided p-value (0.9993) is large because group 1's mean (24.4) is actually *less than* group 2's mean (31.4), contradicting the alternative hypothesis that group 1 > group 2.
+
+Example 4: Using dataframe with formula
++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    // Load data
+    data = loadd(getGAUSSHome("examples/auto2.dta"), "mpg + foreign");
+
+    // Test if mpg differs by origin
+    struct ttestControl ctl;
+    ctl = ttestControlCreate();
+
+    out = ttest(data, "mpg ~ foreign", ctl);
+
+::
+
+    Two-Sample t-test
+
+    Descriptive Statistics
+    ------------------------------------------------------------
+              Group         N        Mean     Std Dev
+            Group 1        52     19.8269      4.7433
+            Group 2        22     24.7727      6.6112
+
+    Mean Difference:      -4.9458
+
+    Test of Means
+    ------------------------------------------------------------
+                  Method         t        df     p-value
+     Welch (unequal var)   -3.1797      30.5      0.0034
+      Pooled (equal var)   -3.6308        72      0.0005
+
+    Test of Variances
+    ------------------------------------------------------------
+                                 F        df     p-value
+                  F-test    1.9427    21, 51      0.0549
+
+     95% Confidence Interval: [   -8.1201,    -1.7716]
+
+Foreign cars average 4.9 more mpg than domestic. The Welch test (p = 0.0034) confirms the difference is statistically significant.
 
 Remarks
 ----------------
@@ -160,5 +241,5 @@ Remarks
 
 - For paired tests, both samples must have the same length.
 
-.. seealso:: Functions :func:`ttestControlCreate`
+.. seealso:: Functions :func:`ttestControlCreate`, :func:`contingency`, :func:`mvnTest`, :func:`shapiroWilk`
 

@@ -29,10 +29,12 @@ Format
 Examples
 ----------------
 
-Example 1: Basic usage
+Example 1: Normal data
 +++++++++++++++++++++++
 
 ::
+
+    rndseed 42;
 
     // Generate normal data
     x = rndn(100, 1);
@@ -42,35 +44,64 @@ Example 1: Basic usage
     out = shapiroWilk(x);
 
     print "W statistic:" out.w;
-    print "p-value:" out.p;
+    print "p-value:    " out.p;
 
-Example 2: Testing non-normal data
+::
+
+    W statistic:      0.97879310
+    p-value:          0.10700545
+
+The p-value (0.107) is above 0.05, so we fail to reject normality — consistent with the data being generated from a normal distribution.
+
+Example 2: Non-normal data
 +++++++++++++++++++++++++++++++++++
 
 ::
 
+    rndseed 42;
+
     // Generate exponential data (non-normal)
     x = -ln(rndu(100, 1));
 
+    struct shapiroWilkOut out;
     out = shapiroWilk(x);
 
-    if out.p < 0.05;
-        print "Reject normality at 5% level";
-    endif;
+    print "W statistic:" out.w;
+    print "p-value:    " out.p;
+
+::
+
+    W statistic:      0.91599435
+    p-value:       8.6824924e-06
+
+The very small p-value (< 0.001) strongly rejects normality, correctly detecting that exponential data is not normally distributed.
 
 Example 3: With missing values
 ++++++++++++++++++++++++++++++
 
 ::
 
+    rndseed 42;
+
     // Data with missing values
     x = rndn(100, 1);
     x[1] = miss(0, 0);
     x[50] = miss(0, 0);
 
+    struct shapiroWilkOut out;
     out = shapiroWilk(x);
 
-    // out.n will be 98
+    print "W statistic:" out.w;
+    print "p-value:    " out.p;
+    print "n:          " out.n;
+
+::
+
+    W statistic:      0.97858132
+    p-value:          0.11011458
+    n:                 98.000000
+
+Missing values are automatically removed. The effective sample size (``out.n = 98``) reflects the two removed observations.
 
 Remarks
 ----------------

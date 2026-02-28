@@ -205,5 +205,5 @@ Agresti, Alan. 2002. *Categorical Data Analysis*. 2nd ed. New York: John Wiley a
 
 Bishop, Yvonne, Stephen Fienberg and Paul Holland. 1975. *Discrete Multivariate Analysis: Theory and Practice*. Cambridge, Mass.: MIT Press.
 
-.. seealso:: Functions :func:`tabulate`, :func:`frequency`, :func:`crossprod`
+.. seealso:: Functions :func:`tabulate`, :func:`frequency`, :func:`crossprod`, :func:`ttest`
 

@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 26.0.1
 ------
 
+#. New function: :func:`dfaddcol`, adds a new named column to a dataframe. ``auto2 = dfaddcol(auto2, "price_k", auto2[., "price"] ./ 1000)`` adds a ``price_k`` column computed from an existing column.
 #. New feature: Profiler GUI with "Profile Main File" menu item (Shift+F5) in Debug menu. Dockable profiler panel displays Hot Spots (line-level timing sorted by self time), Call Tree (hierarchical procedure call graph), and Output tabs. Double-click any entry to navigate to source.
 #. New feature: The colon operator now creates vectors outside of indexing context. ``x = 1:5`` creates a 5x1 column vector ``{1, 2, 3, 4, 5}``, equivalent to ``seqa(1, 1, 5)``. Works with variables (``a:b``), expressions (``(n-1):(n+1)``), and function calls (``minc(x):maxc(x)``). Inside brackets, the colon continues to work as an index range (``x[1:5]``).
 #. New feature: Stepped colon operator ``start:step:end`` creates sequences with custom step sizes. ``1:2:10`` creates ``{1, 3, 5, 7, 9}``, ``10:-2:1`` creates ``{10, 8, 6, 4, 2}``, and ``0:0.5:2`` creates ``{0, 0.5, 1, 1.5, 2}``. Works both outside brackets (creates a vector) and inside brackets for stepped indexing (``m[1:2:10]`` selects every other element).

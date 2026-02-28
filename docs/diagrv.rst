@@ -53,4 +53,4 @@ Remarks
 Use :func:`bandrv` to create a diagonal matrix from a vector.
 
 
-.. seealso:: Functions :func:`diag`
+.. seealso:: Functions :func:`diag`, :func:`diagmat`

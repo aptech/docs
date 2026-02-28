@@ -115,4 +115,4 @@ containing the diagonals of each of the 10 4x4 arrays contained in *x*.
 matrix.
 
 
-.. seealso:: Functions :func:`diagrv`
+.. seealso:: Functions :func:`diagrv`, :func:`diagmat`
