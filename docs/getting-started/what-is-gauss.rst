@@ -24,7 +24,7 @@ Why Choose GAUSS?
 - Statistical functions work the way econometricians expect
 - Time series, panel data, and limited dependent variable tools are available out of the box or through specialized add-ons
 
-**Speed.** GAUSS compiles to native code and uses optimized numerical libraries (Intel MKL). For computationally intensive work—Monte Carlo simulations, bootstrapping, large-scale optimization—this matters.
+**Speed.** GAUSS compiles to native code and uses optimized numerical libraries. For computationally intensive work—Monte Carlo simulations, bootstrapping, large-scale optimization—this matters.
 
 **40 years of reliability.** Code written in GAUSS in the 1990s still runs today. When you build research infrastructure in GAUSS, it lasts.
 
@@ -82,7 +82,7 @@ Aspect          GAUSS           MATLAB          Stata/EViews
 =============== =============== =============== ===============
 Primary focus   Econometrics    Engineering     Statistics/Econ
 Matrix syntax   Native          Native          Command-based
-Speed           Fast (MKL)      Fast (MKL)      Moderate
+Speed           Fast            Fast            Moderate
 Custom code     Easy            Easy            Limited
 Time series     Strong (TSMT)   Moderate        Strong
 GUI workflow    IDE + code      IDE + code      GUI-centric
