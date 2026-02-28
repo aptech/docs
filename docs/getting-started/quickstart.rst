@@ -2,18 +2,28 @@
 GAUSS Quickstart
 ================
 
-This 10-minute guide gets you running GAUSS code quickly. You'll learn to create matrices, load data, run a regression, and make a plot.
+This 10-minute guide gets you writing and running GAUSS code. You'll learn to create matrices, load data, run a regression, and make a plot.
 
 Prerequisites
 -------------
 
-- GAUSS installed and licensed
+- GAUSS installed
 - Basic familiarity with any programming language (helpful but not required)
+
+**Where to type code:** Open GAUSS and create a new program file (File → New). Type or paste the examples below, then click the **Run** button to execute. You can also type single lines in the **Command Window** at the bottom.
+
+.. figure:: images/quickstart-ide.png
+   :width: 100%
+   :alt: The GAUSS IDE showing code in the Editor and output in the Command Window
+
+   Code goes in the **Editor** (top right). Output appears in the **Command Window** (bottom).
 
 Creating Matrices
 -----------------
 
-Everything in GAUSS starts with matrices -- grids of numbers that you create, transform, and analyze. When you load real data from a file, GAUSS gives you a **dataframe**: a matrix with named, typed columns. We'll start with plain matrices here and move to dataframes in `Loading Data`_ below.
+Everything in GAUSS is built on matrices. A **dataframe** is a matrix with named, typed columns -- you get one when you load data with :func:`loadd`. We'll start with plain matrices, then work with dataframes starting in `Loading Data`_ below.
+
+Every GAUSS statement ends with a semicolon (``;``). Lines starting with ``//`` are comments.
 
 Create a matrix by listing values in braces, with spaces separating columns and commas separating rows:
 
@@ -55,19 +65,22 @@ Generate random data with :func:`rndn` (standard normal):
     x = rndn(3, 4);
     print x;
 
+Your output will differ since the values are random.
+
 Basic Operations
 ----------------
 
-GAUSS operators work element-wise by default. Use ``.*`` for element-wise and ``*`` for matrix multiplication:
+GAUSS uses ``*`` for matrix multiplication and ``.*`` for element-wise multiplication. The same dot-prefix pattern applies to division (``./``) and exponentiation (``.^``). Addition and subtraction (``+``, ``-``) always work element-wise:
 
 ::
 
+    // A 5x1 column vector (commas separate rows)
     x = { 1, 2, 3, 4, 5 };
 
     // Element-wise square
     y = x.^2;
 
-    // Horizontal concatenation with ~
+    // Horizontal concatenation with ~ (joins columns side by side)
     print x~y;
 
 Output::
@@ -90,13 +103,14 @@ Common statistical functions:
     print "Column std devs:";
     print stdc(x);
 
+    // sumc sums each column; nest it to get the grand total
     print "Sum of all elements:";
     print sumc(sumc(x));
 
 Loading Data
 ------------
 
-Use :func:`loadd` to load CSV, Excel, or GAUSS datasets:
+Use :func:`loadd` to load CSV, Excel, SAS, Stata, or GAUSS datasets:
 
 ::
 
@@ -127,7 +141,7 @@ Output::
            price
             size
 
-Preview the first few rows:
+Preview the first few rows (the ``.`` means "all columns"):
 
 ::
 
@@ -136,16 +150,18 @@ Preview the first few rows:
 Output::
 
                taxes             beds            baths              new            price             size
-          3104.0000        4.0000000        2.0000000        0.0000000        279.90000        2048.0000
-          1173.0000        2.0000000        1.0000000        0.0000000        146.50000        912.00000
-          3076.0000        4.0000000        2.0000000        0.0000000        237.70000        1654.0000
-          1608.0000        3.0000000        2.0000000        0.0000000        200.00000        2068.0000
-          1454.0000        3.0000000        3.0000000        0.0000000        159.90000        1477.0000
+           3104.0000        4.0000000        2.0000000        0.0000000        279.90000        2048.0000
+           1173.0000        2.0000000        1.0000000        0.0000000        146.50000        912.00000
+           3076.0000        4.0000000        2.0000000        0.0000000        237.70000        1654.0000
+           1608.0000        3.0000000        2.0000000        0.0000000        200.00000        2068.0000
+           1454.0000        3.0000000        3.0000000        0.0000000        159.90000        1477.0000
 
 Running a Regression
 --------------------
 
-Use :func:`olsmt` for OLS regression with a formula string. The ``~`` separates the dependent variable (left) from the independent variables (right), and ``+`` lists the predictors:
+Use :func:`olsmt` for OLS regression with a formula string. Inside the formula, ``~`` separates the dependent variable from the independent variables, and ``+`` lists the predictors. (This ``~`` is unrelated to the concatenation operator — it only has this meaning inside a formula string.)
+
+``call`` discards the return value — use it when you just want the printed report:
 
 ::
 
@@ -177,7 +193,7 @@ Output::
     size             0.13043    0.011951      10.914  1.6423e-18     0.10701     0.15386
     ====================================================================================
 
-The output shows coefficients, standard errors, t-values, p-values, and confidence intervals. House size is the significant predictor (p < 0.001).
+The output shows coefficients, standard errors, t-values, p-values, and confidence intervals. House size is the only significant predictor (p < 0.001).
 
 Creating Plots
 --------------
@@ -199,7 +215,7 @@ GAUSS has built-in plotting functions. Here's a scatter plot:
 
    A basic scatter plot
 
-Customize plots with a :func:`plotControl` structure:
+Customize plots with a ``plotControl`` structure. Create one, set options on it with ``plotSet`` functions, then pass it to the plot call. The ``&`` before the structure name is required so the function can update the settings:
 
 ::
 
@@ -212,6 +228,8 @@ Customize plots with a :func:`plotControl` structure:
 
     fname = getGAUSSHome("examples/housing.csv");
     data = loadd(fname);
+
+    // data[., "size"] selects all rows of the column named "size"
     plotScatter(myPlot, data[., "size"], data[., "price"]);
 
 For histograms:
@@ -231,21 +249,23 @@ For histograms:
 Saving Your Work
 ----------------
 
-Save plots to files:
+Save the most recent plot to a file with :func:`plotSave`. The ``|`` operator stacks values into a column vector — here it creates a 2x1 width-by-height size:
 
 ::
 
-    plotScatter(x, y);
+    // Save the last plot as an 800x600 PNG
     plotSave("my_scatter.png", 800|600, "px");
 
-Save data:
+Files are saved to your GAUSS working directory (shown at the top of the GAUSS window).
+
+Save data with :func:`saved`:
 
 ::
 
     // Save as CSV
     saved(data, "mydata.csv");
 
-    // Save as GAUSS dataset (preserves column names and types)
+    // Save as GAUSS dataset (.gdat preserves column names and types)
     saved(data, "mydata.gdat");
 
 What's Next?

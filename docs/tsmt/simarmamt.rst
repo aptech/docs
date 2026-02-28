@@ -21,11 +21,12 @@ Input
 -----
 +-------+-------------------------------------------------------------+
    | b     | (p + q)x1 vector, coefficient values for theoretical ARMA   |
-   |       | process.                                                    |
+   |       | process. The first *p* elements are AR coefficients and the |
+   |       | last *q* elements are MA coefficients.                      |
    +-------+-------------------------------------------------------------+
-   | p     | scalar, number of moving average (MA) parameters.           |
+   | p     | scalar, number of autoregressive (AR) parameters.            |
    +-------+-------------------------------------------------------------+
-   | q     | scalar, number of autoregressive (AR) parameters.           |
+   | q     | scalar, number of moving average (MA) parameters.           |
    +-------+-------------------------------------------------------------+
    | const | scalar, if a constant, or NxM matrix, if constant includes  |
    |       | time trends or constants with structural breaks.            |
@@ -96,7 +97,7 @@ n = 100;
 // Number of replications
 k = 1;
 
-// Stanadard deviation of error process
+// Standard deviation of error process
 std = 0.5;
 
 // Generate data

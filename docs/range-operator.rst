@@ -253,7 +253,7 @@ Two-Argument Form (start:end)
 Three-Argument Form (start:step:end)
 ++++++++++++++++++++++++++++++++++++
 
-- The three-argument form ``start:step:end`` creates a sequence with custom step size, similar to MATLAB syntax.
+- The three-argument form ``start:step:end`` creates a sequence with custom step size.
 
 - Outside of brackets, ``a:b:c`` is equivalent to ``seqa(a, b, floor((c-a)/b)+1)``.
 

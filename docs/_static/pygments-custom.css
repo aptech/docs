@@ -49,7 +49,7 @@
 .highlight .nt { color: #00557f; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #660 } /* Name.Variable */
 .highlight .ow { color: #0000ff } /* Operator.Word */
-.highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+.highlight .w { color: #f8f8f8 } /* Text.Whitespace */
 .highlight .mb { color: #00007f } /* Literal.Number.Bin */
 .highlight .mf { color: #00007f } /* Literal.Number.Float */
 .highlight .mh { color: #00007f } /* Literal.Number.Hex */

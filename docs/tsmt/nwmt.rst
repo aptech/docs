@@ -15,14 +15,15 @@ tsmt
 
 Format
 ------
-x = nwmt( covb, resid, nwtrunc );
+x = nwmt( x, resid, nwtrunc );
 
 Input
 -----
 +---------+-----------------------------------------------------------+
-   | covb    | QxQ matrix, covariance matrix for the AR parameters.      |
+   | x       | TxQ matrix, regressor matrix used in the original         |
+   |         | regression (including constant column if applicable).     |
    +---------+-----------------------------------------------------------+
-   | resid   | TxL matrix of residuals.                                  |
+   | resid   | Tx1 vector of residuals.                                  |
    +---------+-----------------------------------------------------------+
    | nwtrunc | scalar, the number of autocorrelations to use in          |
    |         | calculating the Newey-West correction (*q* in the Remarks |

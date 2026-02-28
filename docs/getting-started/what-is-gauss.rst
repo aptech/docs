@@ -88,13 +88,13 @@ Time series     Strong (TSMT)   Moderate        Strong
 GUI workflow    IDE + code      IDE + code      GUI-centric
 =============== =============== =============== ===============
 
-See our "Coming from..." guides for detailed comparisons on the `GAUSS documentation website <https://docs.aptech.com/gauss/coming-to-gauss/>`__:
+See our "Coming from..." guides for detailed comparisons:
 
-- `Introduction to GAUSS for Stata Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-stata-users.html>`__
-- `Introduction to GAUSS for EViews Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-eviews-users.html>`__
-- `Introduction to GAUSS for MATLAB Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-matlab-users.html>`__
-- `Introduction to GAUSS for R Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-r-users.html>`__
-- `Introduction to GAUSS for Python Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-python-users.html>`__
+- :doc:`../coming-to-gauss/intro-gauss-for-stata-users`
+- :doc:`../coming-to-gauss/intro-gauss-for-eviews-users`
+- :doc:`../coming-to-gauss/intro-gauss-for-matlab-users`
+- :doc:`../coming-to-gauss/intro-gauss-for-r-users`
+- :doc:`../coming-to-gauss/intro-gauss-for-python-users`
 
 Getting Started
 ---------------
