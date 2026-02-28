@@ -17,12 +17,12 @@ Academic Resources
 
 Coming to GAUSS from somewhere else?
 -------------------------------------
-.. toctree::
-    :maxdepth: 2
 
-    coming-to-gauss/intro-gauss-for-stata-users
-    coming-to-gauss/intro-gauss-for-eviews-users
-    coming-to-gauss/intro-gauss-for-matlab-users
-    coming-to-gauss/intro-gauss-for-r-users
-    coming-to-gauss/intro-gauss-for-python-users
+Migration guides for users of other languages are available on the `GAUSS documentation website <https://docs.aptech.com/gauss/coming-to-gauss/>`__:
+
+- `Introduction to GAUSS for Stata Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-stata-users.html>`__
+- `Introduction to GAUSS for EViews Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-eviews-users.html>`__
+- `Introduction to GAUSS for MATLAB Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-matlab-users.html>`__
+- `Introduction to GAUSS for R Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-r-users.html>`__
+- `Introduction to GAUSS for Python Users <https://docs.aptech.com/gauss/coming-to-gauss/intro-gauss-for-python-users.html>`__
 

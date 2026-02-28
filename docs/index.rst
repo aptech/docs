@@ -15,8 +15,8 @@ GAUSS Help
         :shadow: none
         :class-header: text-center
         :class-body: text-center
-        :link: https://docs.aptech.com/gauss/getting-started/
-        :link-type: url
+        :link: getting-started/index
+        :link-type: doc
 
         New to GAUSS?
         ^^^^^^^^^^^^^
@@ -27,7 +27,7 @@ GAUSS Help
 
         .. container:: text-left
 
-          Start here with tutorials, quickstart guides, and language basics on the GAUSS documentation website.
+          Start here with tutorials, quickstart guides, and language basics.
 
     .. grid-item-card::
         :shadow: none
@@ -89,7 +89,9 @@ GAUSS Help
    :maxdepth: 2
    :hidden:
 
+   getting-started/index
    command-reference
    data-management
    applications
+   learning-resources
    changelog
