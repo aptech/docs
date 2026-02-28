@@ -35,6 +35,7 @@ Selection
 Merging
 -------------------
 =====================       ===========================================
+:doc:`../dfaddcol`          Adds a new named column to a dataframe.
 :doc:`../dfappend`          Vertically concatenates (or stacks) two dataframes.
 :doc:`../innerjoin`         Performs a left, or full, outer join on two matrices based upon user-specified key columns.
 :doc:`../insertcols`        Inserts one or more new columns into a matrix or dataframe at a specified location.

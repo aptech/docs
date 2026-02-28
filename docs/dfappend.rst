@@ -109,3 +109,5 @@ Remarks
 * :func:`dfappend` should be used instead of the vertical concatenation operator for dataframes with categorical or string columns, because :func:`dfappend` will merge the metadata in cases where the keys and labels are not identical.
 
 * Both inputs must be dataframes.
+
+.. seealso:: Functions :func:`dfaddcol`, :func:`insertcols`

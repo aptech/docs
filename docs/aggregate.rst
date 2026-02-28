@@ -190,4 +190,4 @@ The above code will print:
            Sun           Dinner        48.170000        6.5000000
 
 
-.. seealso:: Functions :func:`meanc`, :func:`modec`, :func:`selif`
+.. seealso:: Functions :func:`meanc`, :func:`modec`, :func:`selif`, :func:`tsAggregate`

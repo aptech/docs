@@ -47,4 +47,4 @@ The code above results in the following:
 
 The p-value of 0.2464 indicates a failure to reject the null hypothesis that the residuals are distributed normally.
 
-.. seealso:: Functions :func:`skewness`, :func:`kurtosis`
+.. seealso:: Functions :func:`skewness`, :func:`kurtosis`, :func:`shapiroWilk`, :func:`mvnTest`

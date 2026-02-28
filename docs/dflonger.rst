@@ -414,4 +414,4 @@ Now we can call :func:`dflonger` with the inputs we have created.
 
 
 
-.. seealso:: Functions :func:`dfwider`
+.. seealso:: Functions :func:`dfwider`, :func:`pdBalance`

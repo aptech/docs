@@ -90,13 +90,24 @@ Example 1: Basic unconstrained minimization
     struct minimizeOut out;
     out = minimize(&rosenbrock, x0);
 
-    print "Solution: " out.x';
+    print "Solution:  " out.x';
     print "Objective: " out.fval;
+    print "Iterations:" out.iterations;
+
+::
+
+    Solution:         1.0000000       0.99999999
+    Objective:    2.5073756e-17
+    Iterations:       37.000000
+
+The optimizer finds the known minimum at (1, 1) with an objective value near zero in 37 iterations.
 
 Example 2: With data arguments
 ++++++++++++++++++++++++++++++++++++++++++++
 
 ::
+
+    rndseed 42;
 
     // OLS objective function
     proc (1) = ols_objective(beta, Y, X);
@@ -117,8 +128,15 @@ Example 2: With data arguments
     struct minimizeOut out;
     out = minimize(&ols_objective, x0, Y, X);
 
-    print "Estimated coefficients:";
-    print out.x';
+    print "True coefficients:      " beta_true';
+    print "Estimated coefficients: " out.x';
+
+::
+
+    True coefficients:             1.0000000        2.0000000       -1.0000000
+    Estimated coefficients:       0.94044862        2.0263110       -1.0269490
+
+Data arguments (*Y* and *X*) are passed directly through to the objective function without modification.
 
 Example 3: Bound-constrained optimization
 ++++++++++++++++++++++++++++++++++++++++++++
@@ -141,6 +159,12 @@ Example 3: Bound-constrained optimization
 
     print "Solution: " out.x';
 
+::
+
+    Solution:        0.0000000        0.0000000        0.0000000
+
+When ``ctl.bounds`` is a 1x2 vector, the same bounds apply to all parameters.
+
 Example 4: Variable-specific bounds
 ++++++++++++++++++++++++++++++++++++++++++++
 
@@ -161,8 +185,13 @@ Example 4: Variable-specific bounds
     struct minimizeOut out;
     out = minimize(&myfunc, x0, ctl);
 
-    // Solution will be constrained: x = {2, 2}
     print "Solution: " out.x';
+
+::
+
+    Solution:        2.0000000        2.0000000
+
+The unconstrained minimum is at (2, 3), but the bound ``x[2] <= 2`` forces the solution to (2, 2). When ``ctl.bounds`` is Kx2, each row specifies bounds for the corresponding parameter.
 
 Remarks
 -------
@@ -199,5 +228,5 @@ The algorithm terminates when either:
 If the starting point *x0* violates any bounds, it is automatically projected
 into the feasible region before optimization begins.
 
-.. seealso:: Functions :func:`minimizeControlCreate`, :func:`sqpSolveMT`
+.. seealso:: Functions :func:`minimizeControlCreate`, :func:`sqpSolveMT`, :func:`QNewton`, :func:`optmt`
 
