@@ -1,38 +1,61 @@
 Data Sampling
 =============================
 
-Sampling with replacement from a matrix or dataframe
---------------------------------------------------------
-There are two ways to sample with replacement from a matrix or dataframe:
+Sampling draws a subset of observations from a dataset. Common uses
+include bootstrapping, Monte Carlo simulation, creating holdout sets
+for validation, and working with datasets too large to fit in memory.
 
-*  The :func:`sampleData` procedure.
-*  The :func:`rndi` procedure.
++---------------------------+---------------------------------------------------------------------+
+| Function                  | Description                                                         |
++===========================+=====================================================================+
+| :func:`sampleData`        | Sample rows from a matrix or dataframe, with or without             |
+|                           | replacement.                                                        |
++---------------------------+---------------------------------------------------------------------+
+| :func:`rndi`              | Generate random integers for custom index-based sampling.           |
++---------------------------+---------------------------------------------------------------------+
 
-The :func:`sampleData` procedure directly returns a sample from a matrix or dataframe. The final argument is an indicator for replacement and should be set to 1 to indicate sampling with replacement.
 
-Example: Sampling with replacement from a matrix
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Sampling with Replacement
+--------------------------------------------
+
+Sampling **with replacement** means the same row can appear more than
+once in the sample. This is the basis of bootstrap methods.
+
+Using sampleData
++++++++++++++++++++++++++++++++++
+
+:func:`sampleData` is the simplest way to draw a sample.
+By default, it samples **without** replacement. Set the third argument
+to ``1`` for sampling with replacement:
 
 ::
 
-    // Set seed for repeatable random draws
-    rndseed  23423;
+    sample = sampleData(x, n_rows, 1);
 
-    // Create a 7x2 vector
-    x  = { 1.2 1.8,
-           2.7 2.1,
-           3.0 3.3,
-           4.8 4.1,
-           5.1 5.4,
-           6.0 2.8,
-           7.2 3.9 };
+- *x* — matrix or dataframe to sample from.
+- *n_rows* — number of rows to draw.
+- The third argument: ``1`` = with replacement, ``0`` = without (default).
 
-    replace = 1;
+Example: Bootstrap sample
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    // Take a sample of 5 rows of 'x' with replacement
-    sample = sampleData(x, 5, replace);
+::
 
-After the code above, *sample* is equal to:
+    rndseed 23423;
+
+    x = { 1.2 1.8,
+          2.7 2.1,
+          3.0 3.3,
+          4.8 4.1,
+          5.1 5.4,
+          6.0 2.8,
+          7.2 3.9 };
+
+    // Draw 5 rows with replacement
+    sample = sampleData(x, 5, 1);
+    print sample;
+
+This prints:
 
 ::
 
@@ -42,19 +65,33 @@ After the code above, *sample* is equal to:
     4.8    4.1
     3.0    3.3
 
-Repeated observations of ``3.0`` and ``3.3`` occur because the sampling takes place with replacement.
+Row ``3.0  3.3`` appears twice because sampling with replacement can
+select the same row more than once.
 
-The :func:`rndi` function returns random integers from a uniform distribution with the option to specify a range. These can be used as indices for sampling, enabling you to easily draw corresponding rows from two or more variables.
 
-.. note:: Sampling with random indices maintains the metadata from the original dataframe and will contain variable names, types, etc.
+Using rndi for index-based sampling
+++++++++++++++++++++++++++++++++++++
 
-Example: Sampling with replacement from multiple matrices
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The :func:`rndi` function generates random integers in a specified
+range. Using these as row indices lets you generate one index vector
+and apply it to any number of variables — useful when you need to
+keep *X*, *y*, and other variables aligned:
 
 ::
 
-    // Set seed for repeatable random draws
-    rndseed  73725;
+    // 1|rows(x) creates the 2x1 vector { 1, rows(x) }
+    // using the vertical concatenation operator |
+    idx = rndi(n_rows, 1, 1|rows(x));
+
+- The third argument is a 2x1 vector giving the range:
+  ``min_value | max_value``.
+
+Example: Sampling aligned X and y
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    rndseed 73725;
 
     y = { 9.1,
           2.3,
@@ -68,91 +105,147 @@ Example: Sampling with replacement from multiple matrices
           3.9 4.2,
           8.2 9.1 };
 
-
-    // Create a random sample of
-    // integers from 1 to 5
+    // Random integers from 1 to 5
     idx = rndi(5, 1, 1|5);
 
-    // Use 'idx' to draw corresponding rows from 'y' and 'X'
+    // Index into both variables with the same indices
     y_s = y[idx];
-    X_s = X[idx,.];
+    X_s = X[idx, .];
 
-After the code above:
+    print idx ~ y_s ~ X_s;
 
-::
-
-    idx = 5    y_s = 5.1    X_s = 8.2    9.1
-          4          4.4          3.9    4.2
-          2          2.3          8.8    7.9
-          3          6.7          2.4    1.9
-          5          5.1          8.2    9.1
-
-Example: Generating indices to sample from a matrix
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This prints:
 
 ::
 
-      // Load data from the 'fueleconomy' dataset
-      // in the GAUSS examples directory
-      file_name = getGAUSSHome("examples/fueleconomy.dat");
-      fueleconomy = loadd(file_name);
+       5.0000000        5.1000000        8.2000000        9.1000000
+       4.0000000        4.4000000        3.9000000        4.2000000
+       2.0000000        2.3000000        8.8000000        7.9000000
+       3.0000000        6.7000000        2.4000000        1.9000000
+       5.0000000        5.1000000        8.2000000        9.1000000
 
-      // Create a 100x1 vector of random
-      // integers between 1 and 100
-      range_start = 1;
-      range_end = rows(fueleconomy);
-      idx = rndi(100, 1, range_start | range_end);
+Each row is consistent across all variables because the same ``idx``
+was used for both ``y`` and ``X``.
 
-      // Draw a 100 observation sample from 'fueleconomy'
-      fuel_sample = fueleconomy[idx, .];      
-      
-Sampling without replacement from a matrix
+.. note::
+
+    When sampling from a dataframe, the result preserves column names,
+    types, and other metadata from the original.
+
+
+Example: Sampling from a real dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Load data
+    fname = getGAUSSHome("examples/fueleconomy.dat");
+    fueleconomy = loadd(fname);
+
+    // Draw 100 rows with replacement
+    idx = rndi(100, 1, 1|rows(fueleconomy));
+    fuel_sample = fueleconomy[idx, .];
+
+    print "Original rows:" rows(fueleconomy);
+    print "Sample rows:  " rows(fuel_sample);
+
+
+Sampling without Replacement
 --------------------------------------------
-The :func:`sampleData` procedure can also be used to sample from a matrix or dataframe without replaced.  In this case, the final argument should be set to 0 to indicate sampling without replacement.
 
-Example: Sampling without replacement
-+++++++++++++++++++++++++++++++++++++++++
-
-::
-
-  // Set seed for repeatable random draws
-  rndseed  23423;
-
-  // Create a 7x1 vector
-  x  = { 1,
-         2,
-         3,
-         4,
-         5,
-         6,
-         7 };
-
-  // Take a sample of 3 elements without replacement
-  s  = sampleData(x, 3);
-
-.. note:: Setting the :func:`rndseed` before using :func:`sampleData` should be done if you want to replicate the same sample each draw.
-
-Drawing a random sample from a dataset
-------------------------------------------
-The :func:`exctSmpl` procedure draws a sample with replacement from an existing data file and saves the result as a new data file. Neither the data file drawn from nor the new sample created are saved in the GAUSS workspace.
-
-The :func:`exctSmpl` procedure returns the number of rows in the new data file OR an error code.  Specific error code details are available in Command Reference listing for :func:`exctSmpl`.
-
-Example: Sample from data file
-+++++++++++++++++++++++++++++++++++++++++++
+Sampling **without replacement** means each row can appear at most once.
+This is the default behavior of :func:`sampleData` — when you omit the
+third argument (or set it to ``0``), sampling is without replacement:
 
 ::
 
-  // Create file name with full path
-  fname = getGAUSSHome("examples/credit.dat");
+    sample = sampleData(x, n_rows);
 
-  // Randomly sample 30% of the rows from 'credit.dat'
-  // and write them to a new dataset in the
-  // GAUSS working directory, named 'sample.dat'
-  n_rows = exctsmpl(fname, "sample.dat", 30);
+The sample size must be less than or equal to the number of rows
+in *x*.
 
-After the code above,
+Example: Draw a unique subset
++++++++++++++++++++++++++++++++++
 
 ::
 
-  n_rows = 120
+    rndseed 23423;
+
+    x = { 1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7 };
+
+    // Draw 3 elements without replacement
+    s = sampleData(x, 3);
+    print s;
+
+This prints:
+
+::
+
+       5.0000000
+       3.0000000
+       7.0000000
+
+Every value appears exactly once.
+
+.. tip::
+
+    To **shuffle** the rows of a matrix, sample all rows without
+    replacement::
+
+        shuffled = sampleData(x, rows(x));
+
+
+Setting Seeds for Reproducibility
+--------------------------------------------
+
+Sampling functions use the GAUSS random number generator. To get the
+same sample every time, set the seed with :func:`rndseed` before
+sampling:
+
+::
+
+    rndseed 12345;
+    s1 = sampleData(x, 5, 1);
+
+    rndseed 12345;
+    s2 = sampleData(x, 5, 1);
+
+    // s1 and s2 are identical
+    print (s1 .== s2);
+
+Every element prints ``1``, confirming the two samples match.
+
+
+Choosing a Method
+--------------------------------------------
+
+.. list-table::
+    :widths: 25 40 35
+    :header-rows: 1
+
+    * - Method
+      - Best for
+      - Notes
+
+    * - :func:`sampleData`
+      - General-purpose sampling from a matrix or dataframe
+      - Simplest option; supports with and without replacement
+
+    * - :func:`rndi`
+      - Sampling aligned rows from multiple variables
+      - Generate one index, apply to any number of variables
+
+.. note::
+
+    The GAUSS Machine Learning (GML) add-on provides additional
+    functions for model evaluation workflows: :func:`trainTestSplit`
+    for train/test splits, :func:`cvSplit` for k-fold cross-validation,
+    and :func:`splitData` for splitting a single matrix.
+
+.. seealso:: Functions :func:`sampleData`, :func:`rndi`, :func:`rndseed`
