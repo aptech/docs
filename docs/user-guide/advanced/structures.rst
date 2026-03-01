@@ -1,11 +1,13 @@
 Structures
 ===============================================
 
-Structures group related data into a single variable. In GAUSS, they
-serve two primary purposes: bundling configuration options for a
-function call (a *control structure*), and bundling the results that a
-function returns (an *output structure*). Nearly every estimation
-function in GAUSS follows this pattern.
+When a function has many settings — convergence tolerance, output
+verbosity, covariance method — passing each one as a separate argument
+would be unwieldy. Structures solve this by bundling related data into a
+single variable. In GAUSS, they serve two primary purposes: bundling
+configuration options for a function call (a *control structure*), and
+bundling the results that a function returns (an *output structure*).
+Nearly every estimation function in GAUSS follows this pattern.
 
 ::
 
@@ -62,10 +64,8 @@ Example: OLS with control and output structures
     struct olsmtControl ctl;
     ctl = olsmtControlCreate();
 
-    // Step 2: Change settings
-    ctl.output = 1;         // Print a full report
+    // Step 2: Override only the settings you need
     ctl.cov = "hac";        // HAC (Newey-West) standard errors
-    ctl.con = 1;            // Include an intercept (default)
 
     // Step 3: Call olsmt with the control structure
     struct olsmtOut out;
@@ -102,27 +102,27 @@ Many GAUSS functions follow the same naming convention:
       - Output Structure
 
     * - :func:`olsmt`
-      - ``olsmtControl``
+      - :class:`olsmtControl`
       - :func:`olsmtControlCreate`
-      - ``olsmtOut``
+      - :class:`olsmtOut`
 
     * - :func:`glm`
-      - ``glmControl``
+      - :class:`glmControl`
       - :func:`glmControlCreate`
-      - ``glmOut``
+      - :class:`glmOut`
 
     * - :func:`quantileFit`
-      - ``qfitControl``
+      - :class:`qfitControl`
       - :func:`qfitControlCreate`
-      - ``qfitOut``
+      - :class:`qfitOut`
 
     * - :func:`gmmFit`
-      - ``gmmControl``
+      - :class:`gmmControl`
       - :func:`gmmControlCreate`
-      - ``gmmOut``
+      - :class:`gmmOut`
 
     * - :func:`plotXY`
-      - ``plotControl``
+      - :class:`plotControl`
       - :func:`plotGetDefaults`
       - (none)
 
@@ -210,7 +210,7 @@ To use a structure, declare an instance with the ``struct`` keyword:
     struct olsmtControl ctl;
 
 If the structure type is defined in the GAUSS Run-Time Library (such as
-``olsmtControl``, ``plotControl``, or ``glmControl``), no ``#include``
+:class:`olsmtControl`, :class:`plotControl`, or :class:`glmControl`), no ``#include``
 is needed. For custom structure types defined in a separate file, use
 ``#include``:
 
@@ -341,34 +341,26 @@ function accepts a control structure and returns an output structure.
 Complete Examples
 -----------------------------------------
 
-Example 1: OLS regression with custom settings
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+Example 1: OLS regression with robust standard errors
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Building on the introductory example above, this version requests
+heteroskedasticity-robust standard errors:
 
 ::
 
-    // Load the credit dataset
     fname = getGAUSSHome("examples/credit.dat");
 
-    // Create control structure with defaults
     struct olsmtControl ctl;
     ctl = olsmtControlCreate();
-
-    // Customize settings
     ctl.output = 1;          // Print report
     ctl.cov = "robust";      // Heteroskedasticity-robust SEs
 
-    // Run OLS
     struct olsmtOut out;
     out = olsmt(fname, "Balance ~ Income + Rating", ctl);
 
-    // Access results programmatically
-    print "Coefficients:";
-    print out.b;
-
     print "Robust standard errors:";
     print out.stderr;
-
-    print "R-squared = " out.rsq;
 
 Example 2: GLM with output structure
 +++++++++++++++++++++++++++++++++++++++
@@ -566,7 +558,7 @@ structure directly without returning it:
     print ctl.maxIters;
 
 This is exactly how the ``plotSet*`` functions work: they take a pointer
-to a ``plotControl`` structure and modify it in place.
+to a :class:`plotControl` structure and modify it in place.
 
 .. note::
 
@@ -651,9 +643,12 @@ lets you "pack" named parameter matrices into a single vector, and
     p0 = pvCreate();
 
     // Pack parameters with names
+    garch_start = { 0.1, 0.1 };
+    arch_start  = { 0.1, 0.1 };
+
     p0 = pvPack(p0, 1.0, "constant");
-    p0 = pvPack(p0, { 0.1, 0.1 }, "garch");
-    p0 = pvPack(p0, { 0.1, 0.1 }, "arch");
+    p0 = pvPack(p0, garch_start, "garch");
+    p0 = pvPack(p0, arch_start, "arch");
     p0 = pvPack(p0, 0.1, "omega");
 
     // Later, unpack by name
@@ -680,9 +675,9 @@ Rules and Tips
   procedure do not affect the original. Use structure pointers if you
   need in-place modification.
 
-- **Use** ``local`` **only inside procedures.** Local variables,
-  including local structures, are declared with ``struct`` inside
-  procedure bodies, not at global scope.
+- **Structures inside procedures.** Inside a procedure, declare a
+  structure with ``struct MyType varname;`` — it is automatically
+  local. The ``local`` keyword is not used with structure variables.
 
 - **Structure definitions go in** ``.sdf`` **files.** By convention,
   structure definitions are saved in files with a ``.sdf`` extension
@@ -699,11 +694,12 @@ Rules and Tips
 
 .. tip::
 
-    When exploring an unfamiliar output structure, use :func:`print` to
-    display individual members. For example, after running
-    :func:`olsmt`, try ``print out.b;`` to see the coefficient
-    estimates, ``print out.stderr;`` for standard errors, and
-    ``print out.rsq;`` for the R-squared value.
+    **How to discover structure members:** To see what members an output
+    structure contains, check the function's command reference page (e.g.,
+    the :func:`olsmt` page lists every member of :class:`olsmtOut`). You can
+    also explore interactively by printing individual members:
+    ``print out.b;`` for coefficients, ``print out.stderr;`` for standard
+    errors, ``print out.rsq;`` for R-squared.
 
 
 What's Next
@@ -713,7 +709,7 @@ What's Next
   of the output structure.
 - Try :func:`glm` for generalized linear models, which follows the same
   control-in, output-out pattern.
-- Use ``plotControl`` structures to customize your plots with functions
+- Use :class:`plotControl` structures to customize your plots with functions
   like :func:`plotSetTitle`, :func:`plotSetXLabel`, and
   :func:`plotSetLineColor`.
 

@@ -2,10 +2,12 @@
 Procedures and Keywords
 ===============================================
 
-Procedures let you package a computation into a reusable, self-contained
-unit. Once defined, a procedure can be called like any built-in GAUSS
-function. Procedures keep programs organized, make code easier to test,
-and let you build on your own (and others') previous work.
+As your GAUSS programs grow, you will find yourself repeating the same
+calculations — standardizing columns, computing test statistics, or
+formatting output. Procedures let you package a computation into a
+reusable, self-contained unit that you write once and call wherever you
+need it. They keep programs organized, make code easier to test, and let
+you build on your own (and others') previous work.
 
 ::
 
@@ -20,15 +22,15 @@ and let you build on your own (and others') previous work.
     endp;
 
     // Use it like a built-in function
-    df = loadd(getGAUSSHome("examples/credit.dat"), "Income + Rating");
-    df_std = standardize(df);
+    income = loadd(getGAUSSHome("examples/credit.dat"), "Income");
+    income_std = standardize(income);
 
-    head(df_std);
+    head(income_std);
 
 This page covers everything you need to write, call, and compose
-procedures in GAUSS, along with the related ``keyword`` construct
-and the function pointer pattern used throughout the GAUSS runtime
-library.
+procedures in GAUSS, including the function pointer pattern used
+throughout the GAUSS runtime library and the related ``keyword``
+construct.
 
 
 Defining Procedures
@@ -394,80 +396,6 @@ optional arguments were provided, rather than using defaults:
     endp;
 
 
-Keywords
------------------------------------------
-
-A **keyword** is a special type of subroutine that takes exactly one
-string argument and returns nothing. Keywords are defined with the
-``keyword`` statement instead of ``proc``.
-
-::
-
-    keyword show_file(s);
-        local fname;
-
-        if s $== "";
-            print "Usage: show_file <filename>";
-            retp;
-        endif;
-
-        fname = strtriml(strtrimr(s));
-        print "Contents of: " fname;
-
-        // Display the file (simplified)
-        load string buf[] = ^fname;
-        print buf;
-    endp;
-
-Calling a keyword
-+++++++++++++++++++++++++++++++++
-
-Keywords are called without parentheses. Everything after the keyword
-name up to the semicolon is passed as one string:
-
-::
-
-    show_file mydata.csv;
-
-If called with nothing, the argument is a null string:
-
-::
-
-    show_file;
-
-Keywords vs. procedures
-+++++++++++++++++++++++++++++++++
-
-.. list-table::
-    :widths: 30 35 35
-    :header-rows: 1
-
-    * - Feature
-      - ``proc``
-      - ``keyword``
-
-    * - Arguments
-      - 0 to 1023, typed
-      - Exactly 1, always a string
-
-    * - Return values
-      - 0 to 1023
-      - None
-
-    * - Call syntax
-      - ``name(arg1, arg2)``
-      - ``name text here;``
-
-    * - Typical use
-      - Computation, transformations
-      - Interactive commands, utilities
-
-.. note::
-
-    Keywords are uncommon in modern GAUSS code. For most new work,
-    procedures with ``...`` optional arguments are more flexible.
-
-
 Function Pointers
 -----------------------------------------
 
@@ -495,16 +423,32 @@ Basic example
         retp(sumc(f(x)));
     endp;
 
-    // Pass built-in 'sqrt' as a function pointer
+    // Wrap a built-in function so it can be passed with &
+    proc (1) = mySqrt(x);
+        retp(sqrt(x));
+    endp;
+
     x = { 4, 9, 16, 25 };
-    result = apply_and_sum(&sqrt, x);
+    result = apply_and_sum(&mySqrt, x);
     print result;
 
 ::
 
     14.000000
 
+.. warning::
+
+    The ``&`` operator only works with **user-defined GAUSS procedures**.
+    It does not work with built-in C-level functions such as ``sqrt``,
+    ``ln``, or ``abs``. To pass a built-in, wrap it in a one-line
+    procedure as shown in the ``mySqrt`` example above.
+
 .. note::
+
+    **Why** ``local f:proc;`` **is needed:** GAUSS compiles code before
+    running it. When the compiler sees ``f(x)`` inside the procedure, it
+    needs to know that ``f`` is a callable procedure, not a matrix. The
+    ``:proc`` declaration provides that information.
 
     When a procedure receives a function pointer through its ``&``
     parameter, you only need ``local f:proc;``. The two-step pattern
@@ -519,9 +463,12 @@ Basic example
         endp;
 
         // Case 2: pointer from a variable or array
-        local f;
-        f = func_array[i];
-        local f:proc;
+        proc (1) = dispatch(func_array, i, x);
+            local f;
+            f = func_array[i];
+            local f:proc;
+            retp(f(x));
+        endp;
 
 Passing user-defined procedures
 +++++++++++++++++++++++++++++++++
@@ -593,6 +540,79 @@ The double ``local`` pattern -- first as a matrix to do the indexing,
 then as ``:proc`` to make it callable -- is the key to this technique.
 
 
+Keywords
+-----------------------------------------
+
+A **keyword** is a special type of subroutine that takes exactly one
+string argument and returns nothing. Keywords are defined with the
+``keyword`` statement instead of ``proc``.
+
+::
+
+    keyword show_file(s);
+        local fname;
+
+        if s $== "";
+            print "Usage: show_file <filename>";
+            retp;
+        endif;
+
+        fname = strtriml(strtrimr(s));
+        print "Showing: " fname;
+
+        // Load and preview the file
+        print head(loadd(fname));
+    endp;
+
+Calling a keyword
++++++++++++++++++++++++++++++++++
+
+Keywords are called without parentheses. Everything after the keyword
+name up to the semicolon is passed as one string:
+
+::
+
+    show_file mydata.csv;
+
+If called with nothing, the argument is a null string:
+
+::
+
+    show_file;
+
+Keywords vs. procedures
++++++++++++++++++++++++++++++++++
+
+.. list-table::
+    :widths: 30 35 35
+    :header-rows: 1
+
+    * - Feature
+      - ``proc``
+      - ``keyword``
+
+    * - Arguments
+      - 0 to 1023, typed
+      - Exactly 1, always a string
+
+    * - Return values
+      - 0 to 1023
+      - None
+
+    * - Call syntax
+      - ``name(arg1, arg2)``
+      - ``name text here;``
+
+    * - Typical use
+      - Computation, transformations
+      - Interactive commands, utilities
+
+.. note::
+
+    Keywords are uncommon in modern GAUSS code. For most new work,
+    procedures with ``...`` optional arguments are more flexible.
+
+
 Practical Examples
 -----------------------------------------
 
@@ -657,49 +677,34 @@ A moving average function with configurable window size:
     // Custom 10-period window
     ma10 = moving_avg(data, 10);
 
-Example 3: Optimization with function pointers
-+++++++++++++++++++++++++++++++++++++++++++++++++
+Example 3: Function pointers with optional arguments
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-A simple gradient-descent minimizer that takes a user-supplied
-objective function:
+A procedure that applies a user-supplied function element-by-element,
+with an optional scaling factor:
 
 ::
 
-    proc (1) = gradient_min(&objective, x0, ...);
-        local objective:proc;
+    proc (1) = apply_scaled(&f, x, ...);
+        local f:proc;
 
-        local step_size, tol, max_iter;
-        { step_size, tol, max_iter } = dynargsGet(1|3, 0.01, 1e-8, 1000);
+        local scale;
+        scale = dynargsGet(1, 1);   // Default scale = 1
 
-        local x, grad, i, fx, fx_new, h;
-        x = x0;
-        h = 1e-6;
-
-        for i(1, max_iter, 1);
-            fx = objective(x);
-
-            // Numerical gradient
-            grad = (objective(x + h) - objective(x - h)) / (2 * h);
-
-            x = x - step_size * grad;
-
-            fx_new = objective(x);
-
-            if abs(fx_new - fx) < tol;
-                break;
-            endif;
-        endfor;
-
-        retp(x);
+        retp(scale * f(x));
     endp;
 
-    // Minimize (x - 3)^2
-    proc (1) = my_obj(x);
-        retp((x - 3)^2);
-    endp;
+    // Wrappers for built-in functions (& requires user-defined procs)
+    proc (1) = mySqrt(x);  retp(sqrt(x));  endp;
+    proc (1) = myLn(x);    retp(ln(x));    endp;
 
-    x_min = gradient_min(&my_obj, 0);
-    print "Minimum at x =" x_min;
+    x = { 1, 4, 9, 16 };
+
+    result = apply_scaled(&mySqrt, x);
+    print "sqrt:" result';
+
+    result = apply_scaled(&myLn, x, 100);
+    print "100*ln:" result';
 
 Example 4: Multiple returns with real data
 +++++++++++++++++++++++++++++++++++++++++++++

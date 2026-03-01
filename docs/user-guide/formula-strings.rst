@@ -7,6 +7,11 @@ in a compact, readable way, using the variable names in the dataset. They
 are used throughout GAUSS for loading data, specifying regression models,
 computing descriptive statistics, and controlling plot layouts.
 
+.. admonition:: Prerequisites
+
+    This page assumes you can load data with :func:`loadd`. If you are new
+    to GAUSS, see :doc:`/getting-started/quickstart` first.
+
 ::
 
     // Load two variables by name
@@ -18,8 +23,8 @@ computing descriptive statistics, and controlling plot layouts.
     // Compute descriptive statistics for selected variables
     call dstatmt(getGAUSSHome("examples/auto2.dta"), "mpg + weight + price");
 
-Formula strings work with dataframes loaded by :func:`loadd`.
-Because :func:`loadd` returns a dataframe with named, typed columns,
+Formula strings work with **dataframes** — matrices that carry column names
+and types, returned by :func:`loadd`. Because each column has a name,
 formula strings can reference those names directly for subsetting,
 estimation, and plotting.
 
@@ -257,7 +262,7 @@ January 1, 1970).
     // Preview the first 4 dates
     print dates[1:4];
 
-After the above code:
+This prints:
 
 ::
 
@@ -304,7 +309,7 @@ In plotting functions, ``by`` creates separate series for each group:
     df = loadd(getGAUSSHome("examples/auto2.dta"));
 
     // Scatter plot of mpg vs weight, colored by 'foreign'
-    plotScatter(df, "mpg ~ weight by(foreign)");
+    plotScatter(df, "mpg ~ weight + by(foreign)");
 
 
 Data Transformations
@@ -511,7 +516,7 @@ Example 5: Scatter plot with grouping
     df = loadd(getGAUSSHome("examples/auto2.dta"));
 
     // Scatter plot with groups
-    plotScatter(df, "mpg ~ weight by(foreign)");
+    plotScatter(df, "mpg ~ weight + by(foreign)");
 
 
 Example 6: Quantile regression
