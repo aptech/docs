@@ -48,8 +48,8 @@ Add a computed column
            AMC Concord         4099.000         4.099000
              AMC Pacer         4749.000         4.749000
             AMC Spirit         3799.000         3.799000
-        Buick Century         4816.000         4.816000
-        Buick Electra         7827.000         7.827000
+         Buick Century         4816.000         4.816000
+         Buick Electra         7827.000         7.827000
 
 Add a string column
 ++++++++++++++++++++++++
@@ -65,9 +65,9 @@ Add a string column
 ::
 
     x =          value            label
-           100.00000              low
-           200.00000              mid
-           300.00000             high
+             100.00000              low
+             200.00000              mid
+             300.00000             high
 
 Remarks
 ----------------
@@ -78,4 +78,4 @@ Remarks
 
 * This function is equivalent to ``df ~ asDF(data, name)`` but reads more clearly when adding computed columns.
 
-.. seealso:: Functions :func:`asdf`, :func:`dfappend`, :func:`dfname`, :func:`insertcols`
+.. seealso:: Functions :func:`asdf`, :func:`delcols`, :func:`dfappend`, :func:`dfname`, :func:`insertcols`
