@@ -10,8 +10,17 @@ Fundamentals
 .. toctree::
    :maxdepth: 2
 
+   fundamentals/control-flow
    formula-strings
    fundamentals/procedures
+
+Data Management
+-----------------------------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   /data-management
 
 Advanced
 -----------------------------------------
