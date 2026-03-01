@@ -162,4 +162,4 @@ Source
 
 lag.src
 
-.. seealso:: Functions :func:`lagtrim`
+.. seealso:: Functions :func:`lag`, :func:`lag1`, :func:`lagTrim`

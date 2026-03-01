@@ -5,6 +5,7 @@ L
     :maxdepth: 1
     :caption: Functions:
 
+    lag
     lag1
     lagdataloop
     lagn

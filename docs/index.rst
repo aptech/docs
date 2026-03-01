@@ -33,6 +33,26 @@ GAUSS Documentation
         :shadow: none
         :class-header: text-center
         :class-body: text-center
+        :link: user-guide/index
+        :link-type: doc
+
+        User Guide
+        ^^^^^^^^^^
+
+        .. container:: icon-large
+
+          :fa:`book`
+
+        .. container:: text-left
+
+          Language fundamentals — procedures, structures, formula strings, and more.
+
+.. grid:: 2
+
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center
+        :class-body: text-center
         :link: command-reference
         :link-type: doc
 
@@ -46,8 +66,6 @@ GAUSS Documentation
         .. container:: text-left
 
           Browse all 1,000+ built-in functions and keywords with detailed help for each.
-
-.. grid:: 2
 
     .. grid-item-card::
         :shadow: none
@@ -90,6 +108,7 @@ GAUSS Documentation
    :hidden:
 
    getting-started/index
+   user-guide/index
    command-reference
    learning-resources
    applications
