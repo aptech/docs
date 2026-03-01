@@ -52,4 +52,3 @@ New to GAUSS? Start here.
    quickstart
    running-existing-code
    absolute-basics
-   troubleshooting

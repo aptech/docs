@@ -11,6 +11,9 @@ E
     eighv
     eig
     eigv
+    element-by-element-division
+    element-by-element-multiplication
+    element-by-element-power
     elapsedtradingdays
     endp
     end
@@ -22,6 +25,7 @@ E
     eqsolvemt
     eqsolve
     eqsolveset
+    equality
     erfcplxerfccplx
     erferfc
     erfinverfcinv
@@ -44,6 +48,12 @@ E
     europeanbsput_impvol
     europeanbsput
     exctsmpl
+    exe-equal
+    exe-greater-than
+    exe-greater-than-equal
+    exe-less-than
+    exe-less-than-equal
+    exe-not-equal
     execbg
     exec
     exp

@@ -7,6 +7,8 @@ A
 
     abs
     acf
+    addition
+    address-operator
     aconcat
     aeye
     aggregate
@@ -44,6 +46,7 @@ A
     arraytomat
     asciiload
     asclabel
+    assignment
     asdate
     asdf
     asmatrix

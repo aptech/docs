@@ -5,6 +5,7 @@ R
     :maxdepth: 1
     :caption: Functions:
 
+    range-operator
     rankindx
     rank
     readr

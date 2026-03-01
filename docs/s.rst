@@ -97,6 +97,10 @@ S
     stof
     stop
     strcombine
+    string-combine
+    string-dereference
+    string-horizontal-concat
+    string-vertical-concat
     strctodt
     strctoposix
     strjoin
@@ -121,6 +125,7 @@ S
     submat
     subscat
     substute
+    subtraction
     subvec
     sumc
     sumr

@@ -27,6 +27,8 @@ L
     ldlp
     ldl
     ldlsol
+    less-or-equal
+    less-than
     let
     library
     lib
@@ -60,6 +62,11 @@ L
     loessmtcontrolcreate
     loessmt
     loess
+    logical-and
+    logical-eqv
+    logical-not
+    logical-or
+    logical-xor
     loglog
     log
     logx

@@ -11,4 +11,5 @@ K
     key
     keyword
     keyw
+    kronecker-product
     kurtosis

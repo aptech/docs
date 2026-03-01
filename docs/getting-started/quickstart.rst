@@ -14,7 +14,7 @@ Prerequisites
 
 .. figure:: images/quickstart-ide.png
    :width: 100%
-   :alt: The GAUSS IDE showing code in the Editor and output in the Command Window
+   :alt: The GAUSS application showing code in the Editor and output in the Command Window
 
    Code goes in the **Editor** (top right). Output appears in the **Command Window** (bottom).
 

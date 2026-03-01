@@ -5,6 +5,7 @@ F
     :maxdepth: 1
     :caption: Functions:
 
+    factorial
     fcheckerr
     fclearerr
     feqfgefgtflefltfne

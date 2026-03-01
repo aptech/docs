@@ -34,6 +34,7 @@ T
     topolar
     trace
     tracem
+    transpose
     trapchk
     trap
     trigamma

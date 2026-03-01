@@ -173,12 +173,7 @@ returns:
 
     5.0000000
 
-.. NOTE:: Notice the parentheses in the code above. Remember that `print` statements in GAUSS take
-    a space separated list of items to print. The parentheses tell GAUSS to first evaluate
-    the expression and then print the result. Without the parentheses (i.e. ``print x + 2;``),
-    the statement would tell GAUSS to print a list of three items (first ``print x``, then
-    ``print +``, and finally ``print 2``. Since the second item in that list is an operator
-    (the ``+`` sign), an error will occur.
+.. NOTE:: As of GAUSS 26, ``print`` supports expressions with binary operators directly: ``print x + 2;`` evaluates and prints the result (``5``). Parentheses (``print (x + 2);``) also work and are required in older versions. Be aware that whitespace matters: ``print x + 2;`` (spaces around ``+``) prints the sum, but ``print x +2;`` (no space before ``+2``) prints two items — ``x`` and ``+2`` — because GAUSS interprets ``+2`` as a positive number.
 
 Example 3
 +++++++++
