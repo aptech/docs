@@ -318,7 +318,9 @@ Multiple optional arguments
 +++++++++++++++++++++++++++++++++
 
 Use a 2x1 index vector in :func:`dynargsGet` to request a range of
-optional arguments. Provide one default for each:
+optional arguments. The expression ``1|2`` creates a 2x1 column vector
+``{ 1, 2 }`` using the vertical concatenation operator ``|``. Provide
+one default for each:
 
 ::
 
@@ -525,8 +527,13 @@ at runtime:
 
 ::
 
-    // Assume f1, f2, f3 are already defined
-    procVec = &f1 ~ &f2 ~ &f3;
+    // Define a few simple functions
+    proc (1) = double(x);  retp(2 * x);  endp;
+    proc (1) = triple(x);  retp(3 * x);  endp;
+    proc (1) = negate(x);  retp(-x);     endp;
+
+    // Store pointers in a row vector with ~
+    procVec = &double ~ &triple ~ &negate;
 
     proc (1) = dispatch(x, i);
         local f;
@@ -535,6 +542,10 @@ at runtime:
 
         retp(f(x));
     endp;
+
+    print dispatch(5, 1);   // 10  (double)
+    print dispatch(5, 2);   // 15  (triple)
+    print dispatch(5, 3);   // -5  (negate)
 
 The double ``local`` pattern -- first as a matrix to do the indexing,
 then as ``:proc`` to make it callable -- is the key to this technique.
@@ -708,6 +719,10 @@ with an optional scaling factor:
 
 Example 4: Multiple returns with real data
 +++++++++++++++++++++++++++++++++++++++++++++
+
+This example uses the :class:`olsmtOut` structure returned by
+:func:`olsmt`. For details on structures, see
+:doc:`/user-guide/advanced/structures`.
 
 ::
 

@@ -473,8 +473,24 @@ pattern is:
 Arrays of Structures
 -----------------------------------------
 
-You can create arrays (vectors) of structures using :func:`reshape` or
-vertical concatenation:
+You can create arrays (vectors) of structures using vertical
+concatenation or :func:`reshape`:
+
+::
+
+    struct olsmtControl ctl1, ctl2, ctl_array;
+    ctl1 = olsmtControlCreate();
+    ctl2 = olsmtControlCreate();
+
+    // Vertical concatenation with |
+    ctl_array = ctl1 | ctl2;
+
+    // Set different options for each
+    ctl_array[1].con = 0;
+    ctl_array[2].con = 1;
+
+Use :func:`reshape` to create larger arrays. The following example uses
+the ``DS`` structure described in :ref:`ds-and-pv-structures` below:
 
 ::
 
@@ -485,21 +501,6 @@ vertical concatenation:
     // Access members of individual elements
     d[1].dataMatrix = rndn(100, 3);
     d[2].dataMatrix = rndn(200, 5);
-
-You can also concatenate individual structures:
-
-::
-
-    struct olsmtControl ctl1, ctl2, ctl_array;
-    ctl1 = olsmtControlCreate();
-    ctl2 = olsmtControlCreate();
-
-    // Vertical concatenation
-    ctl_array = ctl1 | ctl2;
-
-    // Set different options for each
-    ctl_array[1].con = 0;
-    ctl_array[2].con = 1;
 
 
 Structure Pointers
@@ -584,6 +585,8 @@ Structures can be saved to disk and loaded back later using
     struct olsmtOut loaded;
     { loaded, ret } = loadStruct("my_results", "olsmtOut");
 
+
+.. _ds-and-pv-structures:
 
 DS and PV Structures
 -----------------------------------------

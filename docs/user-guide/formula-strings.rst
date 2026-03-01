@@ -17,7 +17,8 @@ computing descriptive statistics, and controlling plot layouts.
     // Load two variables by name
     x = loadd(getGAUSSHome("examples/cancer.dat"), "stage + count");
 
-    // Specify a regression model
+    // Specify a regression model (call discards the return value
+    // and prints the report directly)
     call olsmt(getGAUSSHome("examples/credit.dat"), "Limit ~ Income + Rating");
 
     // Compute descriptive statistics for selected variables
@@ -192,14 +193,16 @@ CSV or XLSX) should be reclassified to integer categories. This is useful
 for file types that do not store variable type information.
 
 ``cat`` can be combined with ``factor`` to load string data, convert it to
-integer categories, and create dummy variables in a single step:
+integer categories, and create dummy variables in a single step. Read the
+nesting from the inside out: ``cat(load)`` converts the strings to integers
+first, then ``factor(...)`` creates dummy variables from those integers:
 
 ::
 
     fname = getGAUSSHome("examples/yarn.xlsx");
 
-    // Reclassify 'load' from 'high, med, low' to integers,
-    // then create dummy variables for OLS
+    // cat(load):         'high, med, low' → integers
+    // factor(cat(load)): integers → dummy variables for OLS
     call olsmt(fname, "cycles ~ factor(cat(load))");
 
 The output:
@@ -411,12 +414,16 @@ Estimation functions include an intercept by default. Remove it with
 Multiple dependent variables
 ++++++++++++++++++++++++++++++
 
-Some functions accept multiple dependent variables, separated by
-additional tildes:
+Some functions use additional tildes to separate groups of variables.
+The first tilde always separates the primary dependent variable from the
+independent variables, and a second tilde introduces a secondary
+dependent variable or grouping variable. Functions that accept this
+syntax include :func:`quantileFit` (endogenous variables) and
+:func:`clusterSE` (cluster identifier):
 
 ::
 
-    // Two dependent variables
+    // Primary dependent ~ secondary dependent ~ regressors
     "y1 ~ y2 ~ x1 + x2"
 
 
