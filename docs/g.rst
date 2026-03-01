@@ -81,3 +81,5 @@ G
     gradpgradcplx
     graphprt
     graphset
+    greater-or-equal
+    greater-than

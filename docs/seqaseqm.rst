@@ -74,4 +74,4 @@ For instance,
 
 will create a column vector containing the numbers ``10, 100,..., `10^10```.
 
-.. seealso:: Functions :func:`recserar`, :func:`recsercp`
+.. seealso:: :doc:`range-operator` (the ``:`` operator), :func:`recserar`, :func:`recsercp`

@@ -21,6 +21,7 @@ B
     beta
     between
     blendcolorpalette
+    bookkeeping-transpose
     blockdiag
     boxcox
     box

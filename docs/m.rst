@@ -12,6 +12,8 @@ M
     margin
     matalloc
     matinit
+    matrix-division
+    matrix-multiplication
     mattoarray
     maxbytes
     maxc
@@ -31,6 +33,7 @@ M
     missex
     missmissrv
     modec
+    modulo
     momentd
     moment
     movingaveexpwgt

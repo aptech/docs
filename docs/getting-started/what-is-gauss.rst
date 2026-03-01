@@ -28,7 +28,7 @@ Why Choose GAUSS?
 
 **40 years of reliability.** Code written in GAUSS in the 1990s still runs today. When you build research infrastructure in GAUSS, it lasts.
 
-**Interactive and batch modes.** Explore data interactively in the IDE, then run production jobs in batch mode on servers.
+**Interactive and batch modes.** Explore data interactively in the GUI, then run production jobs in batch mode on servers.
 
 What Can You Do with GAUSS?
 ---------------------------
@@ -85,7 +85,7 @@ Matrix syntax   Native          Native          Command-based
 Speed           Fast            Fast            Moderate
 Custom code     Easy            Easy            Limited
 Time series     Strong (TSMT)   Moderate        Strong
-GUI workflow    IDE + code      IDE + code      GUI-centric
+GUI workflow    GUI + code      GUI + code      GUI-centric
 =============== =============== =============== ===============
 
 See our "Coming from..." guides for detailed comparisons:

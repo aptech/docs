@@ -7,6 +7,7 @@ V
 
     vals
     varcovmsvarcovxs
+    vertical-concatenation
     varcovmvarcovx
     vargetl
     varget

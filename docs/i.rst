@@ -12,6 +12,7 @@ I
     includedir
     indcv
     indexcat
+    inequality
     indices2
     indicesfn
     indicesf

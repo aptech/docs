@@ -32,4 +32,5 @@ H
     histf
     histp
     hist
+    horizontal-concatenation
     hsec
