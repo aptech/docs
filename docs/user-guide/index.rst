@@ -10,6 +10,7 @@ Fundamentals
 .. toctree::
    :maxdepth: 2
 
+   fundamentals/operators
    fundamentals/control-flow
    formula-strings
    fundamentals/procedures
