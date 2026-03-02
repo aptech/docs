@@ -22,8 +22,7 @@ This page explains each mechanism and when to use it.
     - ``#include`` works like C's ``#include`` — text substitution at
       compile time.
     - A GAUSS **library** (``.lcg``) is an index file that maps symbol
-      names to source files — similar in spirit to a Python package's
-      ``__init__.py``, but it is a passive lookup table, not executable
+      names to source files — a passive lookup table, not executable
       code.
     - A ``.gcg`` compiled file is like Python's ``.pyc`` bytecode —
       faster to load, not human-readable, and platform-specific.
@@ -200,7 +199,6 @@ variable. Source files (``.src``, ``.dec``, ``.ext``, ``.sdf``)
 referenced by the library must be on the ``src_path``. These are
 separate configuration variables — placing a ``.lcg`` file on
 ``src_path`` will not make it discoverable as a library.
-
 
 The Autoloader
 --------------------------------------------

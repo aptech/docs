@@ -17,37 +17,37 @@ formats, and support filtering, arithmetic, and plotting.
     combines ``read.csv`` + ``as.Date``; :func:`asDate` is similar to
     ``as.Date()`` or ``pd.to_datetime()``.
 
-    .. list-table::
-        :widths: 30 35 35
-        :header-rows: 1
+.. list-table::
+    :widths: 30 35 35
+    :header-rows: 1
 
-        * - Task
-          - Stata
-          - GAUSS
+    * - Task
+      - Stata
+      - GAUSS
 
-        * - Load with dates
-          - ``import delimited`` + ``gen date = daily(...)``
-          - ``loadd("file.csv")`` (auto-detects)
+    * - Load with dates
+      - ``import delimited`` + ``gen date = daily(...)``
+      - ``loadd("file.csv")`` (auto-detects)
 
-        * - Set date format
-          - ``format date %tq``
-          - ``asDate(data, "%Y-Q%q", "Date")``
+    * - Set date format
+      - ``format date %tq``
+      - ``asDate(data, "%Y-Q%q", "Date")``
 
-        * - Extract year
-          - ``gen yr = year(date)``
-          - ``dtYear(data, "Date")``
+    * - Extract year
+      - ``gen yr = year(date)``
+      - ``dtYear(data, "Date")``
 
-        * - Lag
-          - ``tsset date`` then ``L.x``
-          - ``lagn(data[., "x"], 1)``
+    * - Lag
+      - ``tsset date`` then ``L.x``
+      - ``lagn(data[., "x"], 1)``
 
-        * - Plot time series
-          - ``tsline gdp``
-          - ``plotXY(data, "GDP ~ Date")``
+    * - Plot time series
+      - ``tsline gdp``
+      - ``plotXY(data, "GDP ~ Date")``
 
-        * - Aggregate frequency
-          - ``collapse (mean) x, by(qdate)``
-          - ``tsAggregate(data, "Q", "mean")``
+    * - Aggregate frequency
+      - ``collapse (mean) x, by(qdate)``
+      - ``tsAggregate(data, "Q", "mean")``
 
 
 Under the hood, GAUSS stores all dates as **POSIX seconds** — the
@@ -125,12 +125,16 @@ Handling missing or unparseable dates
 
 When a date column contains blank cells or values that cannot be
 parsed, GAUSS inserts a missing value (``.``). Use :func:`packr` to
-drop rows with missing dates, or :func:`ismiss` to find them:
+drop rows with missing dates, or compare against :func:`miss` to
+find them (:func:`ismiss` returns a scalar, not a row-by-row mask):
 
 ::
 
-    // Find rows with missing dates
-    mask = ismiss(data[., "Date"]);
+    // Find rows with missing dates (element-wise)
+    mask = data[., "Date"] .== miss();
+
+    // Get row indices of missing dates
+    idx = findIdx(mask);
 
     // Drop rows where date is missing
     data = packr(data);
@@ -313,11 +317,18 @@ The simplest way to filter by date range is :func:`between`:
 
 .. note::
 
-    :func:`between` is **inclusive** on both endpoints. A partial
-    string like ``"2021"`` is interpreted as January 1, 2021 at
+    :func:`between` is **inclusive** on both endpoints by default. A
+    partial string like ``"2021"`` is interpreted as January 1, 2021 at
     midnight, so ``between(dates, "2020", "2021")`` includes
-    January 1, 2021. Use explicit dates to avoid off-by-one
-    surprises.
+    January 1, 2021. Use the optional fourth argument to control this:
+
+    ::
+
+        // Exclude the right endpoint
+        mask = between(data[., "Date"], "2020", "2021", "left");
+
+    Options: ``"both"`` (default), ``"left"``, ``"right"``,
+    ``"neither"``.
 
 For more complex conditions, use relational operators on date
 columns — GAUSS automatically compares the string against the stored
@@ -341,11 +352,11 @@ From strings
 
 ::
 
-    // Single date (returns POSIX seconds)
-    dt = strctoposix("2024-03-15", "%Y-%m-%d");
+    // Single date (auto-detects format, returns a date-typed dataframe)
+    dt = asDate("2024-03-15");
 
-    // Mark as a date column in a dataframe
-    dates = asDate(dt);
+    // With explicit format (when auto-detection cannot guess)
+    dt = strctoposix("15-Mar-2024", "%d-%b-%Y");
 
 Date sequences
 ++++++++++++++++++++++++++++++++++++

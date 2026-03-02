@@ -18,7 +18,9 @@ collections of matrices.
     :ref:`dimension-numbering` below.
 
     If you are coming from MATLAB, a GAUSS array is similar to a
-    multidimensional array (e.g., ``A(:,:,k)``).
+    multidimensional array (e.g., ``A(:,:,k)``). **Dimension numbering
+    is reversed:** MATLAB ``size(A,1)`` is rows, but GAUSS dimension 1
+    is columns (innermost). See :ref:`dimension-numbering` below.
 
 .. warning::
 

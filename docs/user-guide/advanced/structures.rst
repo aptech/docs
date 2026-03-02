@@ -165,7 +165,7 @@ A structure can contain members of the following types:
 
     * - ``array``
       - An N-dimensional array.
-      - ``0`` (1-D array set to zero)
+      - 1-element, 1-dimensional array containing ``0``
 
     * - ``string``
       - A single string.
