@@ -11,6 +11,7 @@ Fundamentals
    :maxdepth: 2
 
    fundamentals/operators
+   fundamentals/strings
    fundamentals/control-flow
    formula-strings
    fundamentals/procedures
