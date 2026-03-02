@@ -31,3 +31,4 @@ Advanced
    :maxdepth: 2
 
    advanced/structures
+   advanced/compilation-libraries
