@@ -30,5 +30,6 @@ Advanced
 .. toctree::
    :maxdepth: 2
 
+   advanced/arrays
    advanced/structures
    advanced/compilation-libraries
