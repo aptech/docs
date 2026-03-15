@@ -32,7 +32,7 @@ Examples
           continue;
        endif;
 
-       s = s +s umc(y);
+       s = s + sumc(y);
     endo;
 
 

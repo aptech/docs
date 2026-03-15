@@ -58,12 +58,12 @@ Remarks
 If the only input to :func:`plotCanvasSize` is the string ``"fill"``, then the graph
 canvas will be expanded to fill the available area.
 
-:func:`plotSetCanvas` controls the size of the entire graph canvas, not just a
+:func:`plotCanvasSize` controls the size of the entire graph canvas, not just a
 set of axes. Therefore when used with :func:`plotLayout` to create subplots,
-:func:`plotSetCanvas` will control the size of the bounding box allowed for all
+:func:`plotCanvasSize` will control the size of the bounding box allowed for all
 of the subplots together.
 
-After a call to :func:`plotSetCanvas`, all subsequent graphs will be drawn in a
+After a call to :func:`plotCanvasSize`, all subsequent graphs will be drawn in a
 canvas of the size specified even if a new plot tab is created with
 :func:`plotOpenWindow`.
 

@@ -36,7 +36,7 @@ The above code produces the following output:
 Remarks
 -------
 
-In DT scalar format, 10:50:31 on July 15, 2010 is 20100703105031. A UTC
+In DT scalar format, 10:50:31 on July 3, 2010 is 20100703105031. A UTC
 scalar gives the number of seconds since or before January 1, 1970
 Greenwich Mean Time.
 

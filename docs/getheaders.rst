@@ -90,8 +90,8 @@ After the above code, *headers* will contain:
     gear_ratio
     foreign
 
-SAS dataset
-+++++++++++
+Stata dataset
++++++++++++++
 
 ::
 

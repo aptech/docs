@@ -373,8 +373,8 @@ After running the code above, the output is :
     gear_ratio               8.4236     0.44635      18.872  1.3699e-29 
     ===================================================================
 
-Running a no intercept model from a SAS sas7bdat file.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Running a no intercept model from a Stata dataset.
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 

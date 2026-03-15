@@ -66,7 +66,7 @@ This represents the polynomial:
 
 .. math::
 
-    x^3 - 6x^2 + 11^x - 6
+    x^3 - 6x^2 + 11x - 6
 
 Remarks
 -------

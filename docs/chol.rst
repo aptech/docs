@@ -59,7 +59,7 @@ order bit of the trap flag:
     :widths: auto
 
     "**trap 0**", "Print error message and terminate program."
-    "**trap 1**", "Print error message and terminate program."
+    "**trap 1**", "Return scalar error code (10)."
 
 See :func:`scalerr` and `trap` for more details about error codes.
 

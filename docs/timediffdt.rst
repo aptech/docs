@@ -30,7 +30,7 @@ Format
 
     :return diff: the difference between *dt_1* and *dt_2* in terms of the specified units.
 
-    :rtype diff: Scalar
+    :rtype diff: Scalar or NxK matrix
 
 Examples
 ----------------
@@ -60,7 +60,7 @@ The above code will set *diff* equal to:
     // April 15, 1947 07:53:00
     dt_2 = 194704150753;
     
-    // Increment by 18 months
+    // Compute the difference in terms of minutes
     diff = timeDiffDT(dt_1, dt_2, "minutes");
 
 The above code will set *diff* equal to:
