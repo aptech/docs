@@ -78,6 +78,37 @@ and bounds,
 
    x_{low} \leq x \leq x_{up}
 
+Examples
+--------
+
+::
+
+    // Create input structure
+    struct qprogMTIn qIn;
+    qIn = QProgmtInCreate();
+
+    // Minimize 0.5*x'Q*x - x'R subject to x >= 0
+    qIn.q = { 2 0, 0 2 };
+    qIn.r = { 1, 1 };
+    qIn.start = { 0.5, 0.5 };
+
+    // Bounds: x >= 0
+    qIn.bounds = (0 ~ 1e200) | (0 ~ 1e200);
+
+    // No equality or inequality constraints
+    qIn.a = 0;
+    qIn.b = 0;
+    qIn.c = 0;
+    qIn.d = 0;
+
+    // Solve
+    struct qprogMTOut qOut;
+    qOut = QProgmt(qIn);
+
+    print "Solution:";
+    print qOut.x;
+    print "Return code:" qOut.ret;
+
 Source
 ------
 

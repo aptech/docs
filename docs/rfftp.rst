@@ -41,4 +41,32 @@ that return the negative frequencies as well.)
 
 :func:`rfftp` uses the Temperton FFT algorithm.
 
+Examples
+--------
+
+::
+
+    // Create an 8-element signal
+    x = { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+    // Compute packed FFT (positive frequencies only)
+    y = rfftp(x);
+
+    print "rfftp result (packed format):";
+    print y;
+
+The above code produces the following output:
+
+::
+
+    rfftp result (packed format):
+
+       4.5000000
+     -0.50000000 +        1.2071068i
+     -0.50000000 +       0.50000000i
+     -0.50000000 +       0.20710678i
+     -0.50000000
+
+The packed format returns only positive frequencies and the Nyquist frequency. Use :func:`rfftip` to compute the inverse.
+
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftn`, :func:`rfftnp`

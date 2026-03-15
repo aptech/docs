@@ -28,6 +28,38 @@ Remarks
 the *R* matrix from a QR factorization. :func:`qrsol` may be used, however, in any situation
 where *R* is upper triangular.
 
+Examples
+--------
+
+::
+
+    // Upper triangular matrix R and right-hand side b
+    r = { 3 1,
+          0 2 };
+    b = { 7, 4 };
+
+    // Solve R*x = b
+    x = qrsol(b, r);
+
+    print "Solution x:";
+    print x;
+    print "R*x (should equal b):";
+    print (r * x);
+
+The above code produces the following output:
+
+::
+
+    Solution x:
+
+       1.6666667
+       2.0000000
+
+    R*x (should equal b):
+
+       7.0000000
+       4.0000000
+
 Source
 ------
 

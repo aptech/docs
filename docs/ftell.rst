@@ -31,4 +31,24 @@ what the error was.
 If you pass :func:`ftell` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
+Example
+-------
+
+::
+
+    // Open a file and track the file pointer position
+    fname = tempname("/tmp", "ex", ".txt");
+    fh = fopen(fname, "wb");
+    call fputs(fh, "ABCDEFGHIJ");
+    call close(fh);
+
+    fh = fopen(fname, "rb");
+    pos = ftell(fh);
+    print "Initial position:" pos;
+
+    call fseek(fh, 5, 0);
+    pos = ftell(fh);
+    print "After seeking to byte 5:" pos;
+    call close(fh);
+
 .. seealso:: Functions :func:`fopen`, :func:`fseek`

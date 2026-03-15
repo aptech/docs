@@ -39,6 +39,16 @@ The properties of the pseudo-random numbers in *x* are:
     x > 0\\
     \alpha > 0
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of gamma
+    // random numbers with shape = 5
+    x = rndgam(3, 2, 5);
+    print x;
+
 Source
 ------
 

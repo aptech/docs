@@ -127,4 +127,18 @@ produces the singular value decomposition of :math:`AB^{-1}`:
 
 This procedure calls the LAPACK routines *DGGSVD* and *ZGGSVD*.
 
+Example
+-------
+
+::
+
+    A = { 1 2, 3 4 };
+    B = { 5 6, 7 8 };
+
+    // Compute GSVD returning diagonal and transformation matrices
+    { D1, D2, Z, U, V, Q } = lapgsvdst(A, B);
+
+    print "D1:"; print D1;
+    print "D2:"; print D2;
+
 .. seealso:: Functions :func:`lapgsvds`, :func:`lapgsvdcst`

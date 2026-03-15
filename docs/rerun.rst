@@ -33,6 +33,17 @@ Remarks
 
 :func:`rerun` is used by the :func:`endwind` function.
 
+Examples
+--------
+
+.. NOTE:: This function is for use with the deprecated PQG graphics.
+
+::
+
+    // Redisplay the most recently created graph
+    library pgraph;
+    rerun;
+
 Source
 ------
 

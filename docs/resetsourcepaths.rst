@@ -20,3 +20,14 @@ Remarks
 
 The source path is set by the :file:`src_path` configuration variable in your
 GAUSS configuration file, :file:`gauss.cfg`.
+
+Examples
+--------
+
+::
+
+    // Reset the source path to the gauss.cfg defaults
+    ret = resetsourcepaths();
+    if ret;
+        print "Source paths reset successfully.";
+    endif;

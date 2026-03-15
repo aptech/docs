@@ -59,4 +59,28 @@ are orthonormal.
 The eigenvalues of a complex hermitian or real symmetric matrix are
 always real.
 
+Examples
+----------------
+
+::
+
+    // Symmetric matrix
+    x = { 4 1, 1 3 };
+
+    { va, ve } = eighv(x);
+    print va;
+    print ve;
+
+The code above produces the following output:
+
+::
+
+    2.3819660
+    4.6180340
+
+    0.52573111  -0.85065081
+   -0.85065081  -0.52573111
+
+The columns of *ve* are the eigenvectors corresponding to each eigenvalue.
+
 .. seealso:: Functions :func:`eig`, :func:`eigh`, :func:`eigv`

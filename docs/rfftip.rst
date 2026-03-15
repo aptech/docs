@@ -59,4 +59,49 @@ FFT, including negative frequency information, for input.
 Do not pass :func:`rfftip` the output from :func:`rfft` or :func:`rfftn` - it will return
 incorrect results. Use :func:`rffti` with those routines.
 
+Examples
+--------
+
+::
+
+    // Create an 8-element signal
+    x = { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+    // Forward packed FFT
+    y = rfftp(x);
+
+    // Inverse packed FFT recovers the original signal
+    z = rfftip(y);
+
+    print "Original x:";
+    print x;
+    print "Recovered via rfftip:";
+    print z;
+
+The above code produces the following output:
+
+::
+
+    Original x:
+
+       1.0000000
+       2.0000000
+       3.0000000
+       4.0000000
+       5.0000000
+       6.0000000
+       7.0000000
+       8.0000000
+
+    Recovered via rfftip:
+
+       1.0000000
+       2.0000000
+       3.0000000
+       4.0000000
+       5.0000000
+       6.0000000
+       7.0000000
+       8.0000000
+
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftn`, :func:`rfftnp`, :func:`rfftp`

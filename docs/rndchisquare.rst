@@ -66,6 +66,16 @@ where:
 
    \lambda = s\_ncp^2
 
+Examples
+----------------
+
+::
+
+    // Generate a 100x1 vector of chi-squared
+    // random numbers with 5 degrees of freedom
+    x = rndChiSquare(100, 1, 5);
+    print (meanc(x));
+
 Technical Notes
 --------------------
 

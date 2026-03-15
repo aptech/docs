@@ -75,4 +75,35 @@ vector.)
 
 :func:`rfftn` scales the computed FFT by :math:`\frac{1}{(L*M)}`.
 
+Examples
+--------
+
+::
+
+    // Create an 8-element signal
+    x = { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+    // Compute the real FFT using prime factor algorithm
+    y = rfftn(x);
+
+    print "rfftn result:";
+    print y;
+
+The above code produces the following output:
+
+::
+
+    rfftn result:
+
+       4.5000000
+     -0.50000000 +        1.2071068i
+     -0.50000000 +       0.50000000i
+     -0.50000000 +       0.20710678i
+     -0.50000000
+     -0.50000000 -       0.20710678i
+     -0.50000000 -       0.50000000i
+     -0.50000000 -        1.2071068i
+
+.. note:: :func:`rfftn` handles dimensions that are products of 2, 3, 5, and 7, unlike :func:`rfft` which requires powers of 2.
+
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`fftn`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftnp`, :func:`rfftp`

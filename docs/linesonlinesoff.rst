@@ -54,4 +54,18 @@ did not encounter any line or file records in *xyz* before it crashed.
 When using `#include`'d files, the line number and file name will be
 correct for the file the error was in within the limits stated above.
 
+Examples
+--------
+
+::
+
+    // Enable line tracking for debugging
+    #lineson;
+
+    x = rndn(3, 3);
+    y = inv(x);
+
+    // Disable line tracking for performance
+    #linesoff;
+
 .. seealso:: Functions :func:`trace`

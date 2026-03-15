@@ -14,6 +14,19 @@ Format
     :param qid: query number.
     :type qid: scalar
 
+Examples
+----------------
+
+::
+
+    // Execute a query
+    qid = dbExecQuery(db_id, "SELECT * FROM orders");
+
+    // Process results...
+
+    // Clear the result set and release resources
+    dbQueryClear(qid);
+
 Remarks
 -------
 

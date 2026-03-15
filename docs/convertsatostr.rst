@@ -18,4 +18,22 @@ Format
 
     :rtype str: string
 
+Examples
+----------------
+
+::
+
+    // Create a 1x1 string array
+    string sa = { "hello" };
+
+    // Convert to a string type
+    s = convertsatostr(sa);
+    print s;
+
+The code above produces the following output:
+
+::
+
+    hello
+
 .. seealso:: :func:`convertstrtosa`

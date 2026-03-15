@@ -24,5 +24,27 @@ Format
 
     :rtype y: NxK string array
 
+Examples
+----------------
+
+::
+
+    sa = "Hello" $| "Hi";
+
+    // Truncate or pad to exactly 8 characters
+    y = strtruncpad(sa, 8);
+    print y;
+    print (strlen(y));
+
+The code above produces the following output:
+
+::
+
+    Hello
+    Hi
+
+    8.0000000
+    8.0000000
+
 .. seealso:: Functions :func:`strtriml`, :func:`strtrimr`, :func:`strtrunc`, :func:`strtruncl`, :func:`strtruncr`
 

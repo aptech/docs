@@ -49,4 +49,19 @@ the following statement at the top of each:
 
    use pgraph;
 
+Examples
+--------
+
+::
+
+    // Save all procedures and global variables to a compiled file
+    x = rndn(3, 3);
+
+    proc (1) = double(a);
+        retp(2 * a);
+    endp;
+
+    saveall mystate;
+    // Creates mystate.gcg which can be loaded later with 'run' or 'use'
+
 .. seealso:: Functions `compile`, `run`, `use`

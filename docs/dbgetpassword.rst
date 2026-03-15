@@ -22,3 +22,18 @@ Remarks
 -------
 
 :func:`dbGetPassword` will only return passwords set with :func:`dbSetPassword`.
+
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Set the password before opening
+    dbSetPassword(db_id, "secretpass");
+
+    // Retrieve the password
+    pw = dbGetPassword(db_id);
+    print pw;

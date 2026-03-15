@@ -68,4 +68,21 @@ This keyword will respond by printing:
 
    Sum is: 15
 
+Example
+-------
+
+::
+
+    // Define a keyword that prints each word on a separate line
+    keyword showwords(str);
+        local tok;
+        do until str $== "";
+            { tok, str } = token(str);
+            print tok;
+        endo;
+    endp;
+
+    // Usage:
+    showwords hello world GAUSS;
+
 .. seealso:: Functions `proc`, `local`, `endp`

@@ -18,6 +18,25 @@ Format
 
     :rtype y: NxM string array
 
+Examples
+----------------
+
+::
+
+    // Create a string array with trailing whitespace
+    sa = "hello   " $| "world   ";
+
+    // Strip whitespace from the right
+    y = strtrimr(sa);
+    print y;
+
+The code above produces the following output:
+
+::
+
+    hello
+    world
+
 Source
 ------
 

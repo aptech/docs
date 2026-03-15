@@ -39,3 +39,15 @@ variable name is different from that of the variable to lag, the new
 variable is first created and appended to a temporary dataset. This
 temporary dataset becomes the input dataset for the dataloop, and is
 then automatically deleted.
+
+Example
+-------
+
+::
+
+    // Inside a dataloop, create lagged variables
+    dataloop mydata.dat result.dat;
+        lag xlag = x:1;        // 1-period lag of x
+        lag xlag2 = x:2;       // 2-period lag of x
+        lag xlead = x:-1;      // 1-period lead of x
+    endata;

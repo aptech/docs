@@ -29,6 +29,18 @@ Remarks
 
 If *dbuf* already contains *x*, the new value of *x* will replace the old one.
 
+Examples
+--------
+
+::
+
+    // Create a new data buffer and add items
+    dbuf = vput(0, rndn(3, 2), "X");
+    dbuf = vput(dbuf, "hello world", "msg");
+
+    // Replace an existing item in the buffer
+    dbuf = vput(dbuf, eye(3), "X");
+
 Source
 ------
 

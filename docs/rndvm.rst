@@ -27,6 +27,16 @@ Format
 
     :rtype x: RxC matrix
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of von Mises
+    // random numbers with mean = pi, shape = 2
+    x = rndvm(3, 2, 3.14, 2);
+    print x;
+
 Source
 ------
 

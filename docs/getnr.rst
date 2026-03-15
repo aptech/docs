@@ -34,6 +34,16 @@ number less than 1.0 (e.g. 0.75). The number of rows read will be
 reduced in size by this factor.
 
 
+Example
+-------
+
+::
+
+    // Compute optimal rows to read for a file with 10 columns,
+    // assuming up to 3 copies of the data in memory
+    nr = getnr(3, 10);
+    print "Rows per iteration:" nr;
+
 Source
 ------
 

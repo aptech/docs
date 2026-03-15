@@ -34,5 +34,18 @@ The Windows system command called by :func:`ftell` does not set the internal
 error flag accessed by :func:`fstrerror`. Therefore, calling :func:`fstrerror` after
 :func:`ftell` on Windows will not produce any error information.
 
+Example
+-------
+
+::
+
+    // Check for file I/O errors
+    s = fstrerror;
+    if s $== "";
+        print "No file I/O errors.";
+    else;
+        print "Error:" s;
+    endif;
+
 .. seealso:: Functions :func:`fopen`, :func:`ftell`
 

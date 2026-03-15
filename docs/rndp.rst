@@ -39,6 +39,16 @@ The properties of the pseudo-random numbers in *x* are:
 | *lambda*     | > | 0         |
 +--------------+---+-----------+
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of Poisson
+    // random numbers with lambda = 5
+    x = rndp(3, 2, 5);
+    print x;
+
 Source
 ------
 

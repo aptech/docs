@@ -22,6 +22,15 @@ Calling :func:`doswin` is equivalent to:
 
    call DOSWinOpen("", error(0));
 
+Example
+-------
+
+::
+
+    // Open DOS compatibility window (legacy, no longer supported)
+    // In modern GAUSS, this call can usually be removed
+    doswin;
+
 Source
 ------
 

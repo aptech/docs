@@ -18,6 +18,17 @@ Globals
 `__output`, `__row`, `__rowfac`, `__sort`, `__title`, `__tol`, `__vpad`,
 `__vtype`, `__weight`
 
+Example
+-------
+
+::
+
+    // Reset all global control variables to defaults
+    __output = 0;
+    __con = 1;
+    gausset;
+    // __output and __con are now back to their default values
+
 Source
 ------
 

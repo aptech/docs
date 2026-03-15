@@ -23,5 +23,21 @@ Remarks
 This function must be called before the connection is opened with
 :func:`dbOpen` to have an effect.
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Set connection credentials before opening
+    dbSetUserName(db_id, "admin");
+    dbSetPassword(db_id, "secretpass");
+
+    // Open the connection
+    dbSetDatabaseName(db_id, "mydb");
+    dbOpen(db_id);
+
 .. seealso:: :func:`dbGetPassword`
 

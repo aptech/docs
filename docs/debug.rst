@@ -25,3 +25,11 @@ Remarks
 
 See the `Debugging chapter <CL.4-Debugging.html>`_ for more details.
 
+Example
+-------
+
+::
+
+    // Launch the debugger on a program file
+    debug myprogram.gss;
+

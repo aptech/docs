@@ -34,6 +34,16 @@ The properties of the pseudo-random numbers in *x* are:
 
 .. figure:: _static/images/img832.png
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of negative binomial
+    // random numbers with k = 5 and p = 0.3
+    x = rndnb(3, 2, 5, 0.3);
+    print x;
+
 Source
 ------
 

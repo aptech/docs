@@ -19,4 +19,14 @@ hand corner of the window. It is sometimes useful to put a :func:`cls` statement
 at the beginning of a program that prints a report to the screen so that
 you have fewer lines of data to look at.
 
+Example
+-------
+
+::
+
+    // Clear the screen before printing a report
+    cls;
+    print "Monthly Sales Report";
+    print "====================";
+
 .. seealso:: `locate`

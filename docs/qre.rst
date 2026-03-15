@@ -122,6 +122,40 @@ The explicit formation here of :math:`Q`, which can be a very large matrix, can 
 
 For further discussion of QR factorizations see the remarks under :func:`qqr`.
 
+Examples
+--------
+
+::
+
+    // Create a 3x2 matrix
+    x = { 1 2,
+          3 4,
+          5 6 };
+
+    // Compute R and permutation vector E
+    { r, e } = qre(x);
+
+    print "R (upper triangular):";
+    print r;
+    print "Permutation vector E:";
+    print e;
+
+The above code produces the following output:
+
+::
+
+    R (upper triangular):
+
+      -7.4833148       -5.8797473
+       0.0000000      -0.65465367
+
+    Permutation vector E:
+
+       2.0000000
+       1.0000000
+
+The permutation vector *E* indicates that the columns of *x* were reordered (column 2 first, then column 1) so that :math:`X[.,E] = Q_1R`.
+
 Source
 ------
 

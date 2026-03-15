@@ -43,3 +43,13 @@ expressions, write it like this instead:
 
    print tab(20) (c + d * e);
 
+Examples
+--------
+
+::
+
+    // Use tab to align output in columns
+    print "Name" tab(20) "Score" tab(35) "Grade";
+    print "Alice" tab(20) 95 tab(35) "A";
+    print "Bob" tab(20) 82 tab(35) "B";
+

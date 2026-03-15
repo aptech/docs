@@ -28,6 +28,22 @@ and time. In the DT scalar format, the number:
 
 represents 13:05:25 or 1:05:25 PM on September 6, 2012.
 
+Examples
+--------
+
+::
+
+    // Get today's date in DT scalar format
+    format /rd 16,0;
+    dt = todaydt();
+    print dt;
+
+Example output (run on September 6, 2012):
+
+::
+
+    20120906000000
+
 Source
 ------
 

@@ -17,6 +17,25 @@ Format
 
     :rtype y: NxM string array
 
+Examples
+----------------
+
+::
+
+    // Create a string array with leading whitespace
+    sa = "   hello" $| "   world";
+
+    // Strip whitespace from the left
+    y = strtriml(sa);
+    print y;
+
+The code above produces the following output:
+
+::
+
+    hello
+    world
+
 Source
 ------
 

@@ -20,7 +20,7 @@ Format
 
     :rtype color_blend: n_colorsx1 string array
 
-Format
+Examples
 ----------------
 
 ::

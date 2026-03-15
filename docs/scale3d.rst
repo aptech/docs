@@ -53,6 +53,21 @@ If you want direct control over the axes endpoints and tick marks, use
 `xtics`, `ytics`, or `ztics`. If one of these functions have been called, they
 will override `scale3d`.
 
+Examples
+--------
+
+.. NOTE:: This function is for use with the deprecated PQG graphics.
+
+::
+
+    library pgraph;
+
+    // Fix 3-D axis scaling based on data ranges
+    x = seqa(-3, 0.25, 25);
+    y = seqa(-3, 0.25, 25);
+    z = rndn(25, 25);
+    scale3d(x, y, z);
+
 Source
 ------
 

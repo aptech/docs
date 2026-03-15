@@ -80,6 +80,41 @@ linear dependencies among the columns of :math:`X`, the column of ones for the
 constant may get pivoted away. This column can be forced to be included
 among the linearly independent columns using *pvt*.
 
+Examples
+--------
+
+::
+
+    // Create a 3x2 matrix
+    x = { 1 2,
+          3 4,
+          5 6 };
+
+    // Pivot vector: all columns are free
+    pvt = { 0, 0 };
+
+    // Compute R and permutation vector with controlled pivoting
+    { r, e } = qrep(x, pvt);
+
+    print "R (upper triangular):";
+    print r;
+    print "Permutation vector E:";
+    print e;
+
+The above code produces the following output:
+
+::
+
+    R (upper triangular):
+
+      -7.4833148       -5.8797473
+       0.0000000      -0.65465367
+
+    Permutation vector E:
+
+       2.0000000
+       1.0000000
+
 Source
 ------
 

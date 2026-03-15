@@ -88,4 +88,33 @@ Procedure definitions may not be nested.
 
 For more details on writing procedures, see `Procedures and Keywords <PK-ProceduresandKeywords.html>`_,
 
+Examples
+--------
+
+::
+
+    // Define a procedure that returns the sum of squares
+    proc (1) = sumSquares(x);
+        local ss;
+        ss = sumc(x .* x);
+        retp(ss);
+    endp;
+
+    // Call the procedure
+    x = seqa(1, 1, 5);
+    result = sumSquares(x);
+    print result;
+
+::
+
+    // Procedure returning multiple values
+    proc (2) = meanAndVar(x);
+        local m, v;
+        m = meanc(x);
+        v = stdc(x) .^ 2;
+        retp(m, v);
+    endp;
+
+    { avg, variance } = meanAndVar(rndn(100, 1));
+
 .. seealso:: Functions `keyword`, `call`, `endp`, `local`, `retp`

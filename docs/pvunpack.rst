@@ -21,6 +21,23 @@ Format
 
     :rtype x: matrix or array
 
+Examples
+--------
+
+::
+
+    // Create and populate a PV structure
+    struct PV p1;
+    p1 = pvCreate;
+    p1 = pvPack(p1, 1|2|3, "beta");
+    p1 = pvPack(p1, 0.5~0.8, "gamma");
+
+    // Unpack matrices by name
+    beta = pvUnpack(p1, "beta");
+    gamma = pvUnpack(p1, "gamma");
+    print beta;
+    print gamma;
+
 Source
 ------
 

@@ -18,4 +18,18 @@ Format
 
     :rtype fh_iscplx: scalar
 
+Examples
+----------------
+
+::
+
+    // Open a dataset file
+    open fh = mydata.dat;
+
+    // Check if the dataset contains complex data
+    result = iscplxf(fh);
+    print result;
+
+    fh = close(fh);
+
 .. seealso:: Functions :func:`hasimag`, :func:`iscplx`

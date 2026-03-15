@@ -36,4 +36,26 @@ The following rules apply:
     the previous record.
 
 
+Examples
+----------------
+
+::
+
+    // Execute a query with bidirectional scrolling
+    qid = dbExecQuery(db_id, "SELECT name, price FROM products");
+
+    // Move to the first record
+    dbQuerySeekNext(qid);
+
+    // Move to the second record
+    dbQuerySeekNext(qid);
+
+    // Go back to the first record
+    ret = dbQuerySeekPrevious(qid);
+
+    if ret;
+        name = dbQueryGetField(qid, 1);
+        print name;
+    endif;
+
 .. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekNext`, :func:`dbQuerySeek`, :func:`dbQueryGetPosition`

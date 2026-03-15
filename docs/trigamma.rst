@@ -23,3 +23,18 @@ Remarks
 
 The :func:`trigamma` function is the second derivative of the log of the gamma function with respect to its argument.
 
+Examples
+----------------
+
+::
+
+    // Trigamma of 1 equals pi^2 / 6
+    y = trigamma(1);
+    print y;
+
+The code above produces the following output:
+
+::
+
+    1.6449341
+

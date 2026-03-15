@@ -43,4 +43,18 @@ entry in the ODBC manager:
    dbOpen(db_id);
 
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Set the database name before opening
+    dbSetDatabaseName(db_id, "sales_data");
+
+    // Open the connection
+    dbOpen(db_id);
+
 .. seealso:: :func:`dbGetDatabaseName`

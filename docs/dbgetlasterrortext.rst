@@ -18,3 +18,21 @@ Format
 
     :rtype last_error: string
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+    dbSetDatabaseName(db_id, "mydb");
+
+    // Attempt to open the connection
+    ret = dbOpen(db_id);
+
+    // Check for errors if the open failed
+    if ret == 0;
+        err_text = dbGetLastErrorText(db_id);
+        print err_text;
+    endif;
+

@@ -120,6 +120,56 @@ be avoided by using the function :func:`qtyre`.
 
 For further discussion of QR factorizations see the remarks under :func:`qqr`.
 
+Examples
+--------
+
+::
+
+    // Create a 3x2 matrix
+    x = { 1 2,
+          3 4,
+          5 6 };
+
+    // Compute Q1, R, and permutation vector E
+    { q1, r, e } = qqre(x);
+
+    print "Q1 (orthogonal factor):";
+    print q1;
+    print "R (upper triangular):";
+    print r;
+    print "Permutation vector E:";
+    print e;
+
+    // Verify: Q1*R should equal x with permuted columns
+    print "Q1*R (should equal x[.,E]):";
+    print (q1 * r);
+
+The above code produces the following output:
+
+::
+
+    Q1 (orthogonal factor):
+
+     -0.26726124       0.87287156
+     -0.53452248       0.21821789
+     -0.80178373      -0.43643578
+
+    R (upper triangular):
+
+      -7.4833148       -5.8797473
+       0.0000000      -0.65465367
+
+    Permutation vector E:
+
+       2.0000000
+       1.0000000
+
+    Q1*R (should equal x[.,E]):
+
+       2.0000000        1.0000000
+       4.0000000        3.0000000
+       6.0000000        5.0000000
+
 Source
 ------
 

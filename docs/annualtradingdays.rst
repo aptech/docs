@@ -31,6 +31,25 @@ Globals
 
 .. data:: _fin_holidays
 
+Examples
+--------
+
+::
+
+    // Get the number of NYSE trading days in 2023
+    n = annualTradingDays(2023);
+    print (n);
+
+The above code sets *n* to 250.
+
+::
+
+    // Compare trading days across years
+    for i (2020, 2024, 1);
+        n = annualTradingDays(i);
+        print i;; print " trading days: ";; print n;
+    endfor;
+
 Source
 ------
 

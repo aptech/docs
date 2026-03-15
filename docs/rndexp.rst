@@ -53,4 +53,14 @@ of the *scale* parameter sometimes called :math:`\beta`. This is the reciprocal 
    E(x) = scale = \beta = 1/rate = 1/\lambda\\
    Var(x) = scale^2 =\beta^2 = 1/rate^2 = 1/\lambda^2
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of exponential
+    // random numbers with scale = 2
+    x = rndExp(3, 2, 2);
+    print x;
+
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

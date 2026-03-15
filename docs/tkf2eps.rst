@@ -38,3 +38,18 @@ them in your program before calling :func:`tkf2eps`.
 See the header of the output Encapsulated PostScript file and a
 PostScript manual if you want to modify these parameters.
 
+Examples
+--------
+
+::
+
+    // Convert a TKF graphics file to EPS format
+    ret = tkf2eps("myplot.tkf", "myplot.eps");
+
+.. NOTE:: This function is deprecated. For modern :file:`.plot` files, use :func:`plotSave` instead:
+
+::
+
+    // Preferred modern approach
+    plotSave("myplot.eps");
+

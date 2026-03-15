@@ -53,6 +53,16 @@ The properties of the pseudo-random numbers in *x* are:
 
 *r* and *c* will be truncated to integers if necessary.
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of Poisson
+    // random numbers with lambda = 5
+    { x, newstate } = rndKMp(3, 2, 5, -1);
+    print x;
+
 Technical Notes
 ---------------
 :func:`rndKMp` uses the recur-with-carry KISS+Monster algorithm described in the :func:`rndKMi` Technical Notes.

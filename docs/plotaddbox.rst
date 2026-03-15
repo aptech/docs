@@ -27,4 +27,18 @@ Remarks
 This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
+Examples
+----------------
+
+::
+
+    // Create random data for three groups
+    x = rndn(100, 3);
+
+    // Create initial box plot
+    plotBox(0, x);
+
+    // Add a second set of box plots
+    plotAddBox(0, rndn(100, 2));
+
 .. seealso:: Functions :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`, :func:`plotAddXY`

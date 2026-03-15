@@ -29,5 +29,18 @@ The `system` command always returns an exit code to the operating system
 or invoking program. If you don't supply one, it returns 0. This is
 usually interpreted as indicating success.
 
+Examples
+--------
+
+::
+
+    // Quit GAUSS with default exit code 0
+    system;
+
+::
+
+    // Quit GAUSS with a custom exit code
+    system 1;  // returns exit code 1 to the OS
+
 .. seealso:: Functions :func:`exec`
 

@@ -18,6 +18,16 @@ Remarks
 
 :func:`vlist` lists the names of all the strings and matrices stored in *dbuf*.
 
+Examples
+--------
+
+::
+
+    // Create a data buffer and list its contents
+    dbuf = vput(0, rndn(3, 3), "myMatrix");
+    dbuf = vput(dbuf, "test", "myString");
+    vlist(dbuf);
+
 Source
 ------
 

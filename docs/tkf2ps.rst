@@ -38,3 +38,17 @@ them in your program before calling :func:`tkf2ps`.
 See the header of the output PostScript file and a PostScript manual if
 you want to modify these parameters.
 
+Examples
+--------
+
+::
+
+    // Convert a TKF graphics file to PostScript format
+    ret = tkf2ps("myplot.tkf", "myplot.ps");
+
+.. NOTE:: This function is deprecated. For modern :file:`.plot` files, use :func:`plotSave` instead:
+
+::
+
+    // Preferred modern approach
+    plotSave("myplot.ps");

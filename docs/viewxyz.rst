@@ -36,6 +36,19 @@ If :func:`viewxyz` is not called, a default position will be calculated.
 
 Use :func:`view` to locate the observer in workbox units.
 
+Examples
+--------
+
+.. NOTE:: This function is for use with the deprecated PQG graphics.
+
+::
+
+    library pgraph;
+
+    // Set observer position in plot coordinates for a 3-D plot
+    viewxyz(10, 10, 5);
+    // ... followed by a surface or contour call
+
 Source
 ------
 

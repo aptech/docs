@@ -249,4 +249,22 @@ In the above program:
 This will get the old `loadm` path, set it to :file:`/data`, load :file:`x.fmt` and :file:`y.fmt`,
 and reset the `loadm` path to its original setting.
 
+Examples
+--------
+
+::
+
+    // Load a matrix from a .fmt file
+    loadm x = mydata;
+
+    // Load ASCII data into a matrix
+    load x[100,5] = mydata.asc;
+
+    // Load a string from a .fst file
+    loads s = mystring;
+
+    // Load from a string variable filename
+    filestr = "results/output";
+    loadm y = ^filestr;
+
 .. seealso:: Functions :func:`loadd`, :func:`dataload`, `save`, `let`, :func:`con`, :func:`cons`, :func:`sysstate`

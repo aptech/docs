@@ -38,4 +38,19 @@ Remarks
 This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
+Examples
+----------------
+
+::
+
+    // Create labels and bar heights
+    labels = "A" $| "B" $| "C";
+    ht = 10|20|15;
+
+    // Create initial bar graph
+    plotBar(labels, ht);
+
+    // Add bars for two new categories
+    plotAddBar("D" $| "E", 5|25);
+
 .. seealso:: Functions :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddPolar`, :func:`plotAddXY`

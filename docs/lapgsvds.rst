@@ -115,4 +115,18 @@ produces the singular value decomposition of :math:`AB^{-1}``:
 
 This procedure calls the LAPACK routines *DGGSVD* and *ZGGSVD*.
 
+Example
+-------
+
+::
+
+    A = { 1 2 3, 4 5 6 };
+    B = { 7 8 9, 10 11 12, 13 14 15 };
+
+    // Compute generalized singular values
+    { C, S, R } = lapgsvds(A, B);
+
+    print "Singular values for A:"; print C;
+    print "Singular values for B:"; print S;
+
 .. seealso:: Functions :func:`lapgsvdcst`, :func:`lapgsvdst`

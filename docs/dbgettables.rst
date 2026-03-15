@@ -30,3 +30,21 @@ Format
 
     :rtype tables: Nx1 string array
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+    dbSetDatabaseName(db_id, "mydb");
+    dbOpen(db_id);
+
+    // Get all user tables
+    tables = dbGetTables(db_id);
+    print tables;
+
+    // Get all views
+    views = dbGetTables(db_id, "Views");
+    print views;
+

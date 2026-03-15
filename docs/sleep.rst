@@ -30,3 +30,18 @@ If a program sleeps for the full number of *secs* specified, :func:`sleep` retur
 
 A program may sleep for longer than *secs* seconds, due to system scheduling.
 
+Examples
+----------------
+
+::
+
+    // Sleep for 2 seconds
+    unslept = sleep(2);
+    print unslept;
+
+If the program sleeps for the full 2 seconds, the output is:
+
+::
+
+    0.0000000
+

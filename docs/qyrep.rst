@@ -91,6 +91,52 @@ If :math:`N < P`, the factorization assumes the form:
 where :math:`R_1` is a PxP upper triangular matrix and :math:`R_2` is
 Px(N-P). Thus :math:`Q` is a PxP matrix and :math:`R` is a PxN matrix containing :math:`R_1` and :math:`R_2`.
 
+Examples
+--------
+
+::
+
+    // Create a 3x2 matrix
+    x = { 1 2,
+          3 4,
+          5 6 };
+
+    // Set Y to identity to recover the full Q matrix
+    y = eye(3);
+
+    // Pivot vector: all columns are free
+    pvt = { 0, 0 };
+
+    // Compute Q*Y, R, and permutation vector with controlled pivoting
+    { qy, r, e } = qyrep(y, x, pvt);
+
+    print "Q (full orthogonal matrix):";
+    print qy;
+    print "R (upper triangular):";
+    print r;
+    print "Permutation vector E:";
+    print e;
+
+The above code produces the following output:
+
+::
+
+    Q (full orthogonal matrix):
+
+     -0.26726124       0.87287156       0.40824829
+     -0.53452248       0.21821789      -0.81649658
+     -0.80178373      -0.43643578       0.40824829
+
+    R (upper triangular):
+
+      -7.4833148       -5.8797473
+       0.0000000      -0.65465367
+
+    Permutation vector E:
+
+       2.0000000
+       1.0000000
+
 Source
 ------
 

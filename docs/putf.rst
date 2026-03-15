@@ -62,6 +62,20 @@ the program with an error message, depending on the `trap` state. If bit 2
 message. If bit 2 of the `trap` flag is 1, :func:`putf` will return an error code.
 The value of the `trap` flag can be tested with `trapchk`.
 
+Examples
+--------
+
+::
+
+    // Write a string to a file in ASCII mode, overwriting
+    ret = putf("output.txt", "Hello, GAUSS!", 1, 13, 0, 0);
+    print (ret == 0);  // 1 if successful
+
+::
+
+    // Append text to an existing file
+    ret = putf("output.txt", " More text.", 1, 11, 0, 1);
+
 Source
 ------
 

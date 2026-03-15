@@ -26,5 +26,21 @@ Items are separated by commas.
 
 It is legal to return with no arguments and therefore return nothing.
 
+Examples
+--------
+
+::
+
+    // Use return to pass values back from a gosub subroutine
+    gosub addNums(3, 7);
+    pop result;
+    print result;
+    stop;
+
+    addNums:
+    pop b;
+    pop a;
+    return (a + b);
+
 .. seealso:: `gosub`, `pop`
 

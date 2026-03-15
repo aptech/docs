@@ -36,6 +36,17 @@ Format
 
     :rtype nr: scalar
 
+Example
+-------
+
+::
+
+    // Compute optimal rows per read iteration
+    // 3 copies, 10 columns, no fixed row count,
+    // full size factor, max 80000 elements
+    nr = getnrmt(3, 10, 0, 1.0, 80000);
+    print "Rows per iteration:" nr;
+
 Source
 ------
 

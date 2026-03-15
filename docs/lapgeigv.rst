@@ -57,4 +57,21 @@ and
 
 This procedure calls the LAPACK routines *DGGEV* and *ZGGEV*.
 
+Example
+-------
+
+::
+
+    A = { 1 2, 3 4 };
+    B = { 2 0, 0 1 };
+
+    // Compute generalized eigenvalues and eigenvectors
+    { va1, va2, lve, rve } = lapgeigv(A, B);
+
+    // Eigenvalues are va1 ./ va2
+    print "Generalized eigenvalues:";
+    print (va1 ./ va2);
+    print "Right eigenvectors:";
+    print rve;
+
 .. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`

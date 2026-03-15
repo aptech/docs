@@ -31,4 +31,20 @@ Remarks
 Note that for some drivers, :func:`dbQueryIsNull` will not return accurate
 information until after an attempt is made to retrieve data.
 
+Examples
+----------------
+
+::
+
+    // Execute a query
+    qid = dbExecQuery(db_id, "SELECT name, email FROM customers");
+
+    // Move to the first record
+    dbQuerySeekNext(qid);
+
+    // Check if the second field (email) is NULL
+    if dbQueryIsNull(qid, 2);
+        print "Email field is NULL";
+    endif;
+
 .. seealso:: Functions :func:`dbQueryIsActive`, :func:`dbQueryIsValid`

@@ -18,3 +18,18 @@ Format
 
     :rtype host_name: string
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Set the host name
+    dbSetHostName(db_id, "db.example.com");
+
+    // Retrieve and print the host name
+    host_name = dbGetHostName(db_id);
+    print host_name;
+

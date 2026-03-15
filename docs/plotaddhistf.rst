@@ -28,4 +28,20 @@ Remarks
 This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
+Examples
+----------------
+
+::
+
+    // Create frequency counts and category labels
+    f1 = 10|25|40|15|10;
+    c = 1|2|3|4|5;
+
+    // Plot initial frequency histogram
+    plotHistF(f1, c);
+
+    // Add a second frequency histogram
+    f2 = 5|20|30|25|20;
+    plotAddHistF(f2, c);
+
 .. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistP`, :func:`plotAddPolar`, :func:`plotAddXY`

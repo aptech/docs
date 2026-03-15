@@ -25,3 +25,17 @@ Remarks
 -------
 
 The order in which the fields appear in the record is undefined.
+
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+    dbSetDatabaseName(db_id, "mydb");
+    dbOpen(db_id);
+
+    // Get the column names for the 'customers' table
+    headers = dbGetTableHeaders(db_id, "customers");
+    print headers;

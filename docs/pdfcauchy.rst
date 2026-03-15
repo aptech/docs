@@ -33,4 +33,25 @@ The probability density function for the Cauchy distribution is defined as:
 
    f(x) = \bigg(\pi \sigma \Big(1+\Big(\frac{x−\mu}{\sigma}\Big)^2\Big)\bigg) ^{−1}
 
+Examples
+----------------
+
+::
+
+    // Data points
+    x = { -2, 0, 1, 2 };
+
+    // Cauchy PDF with location = 0, scale = 1
+    p = pdfCauchy(x, 0, 1);
+    print p;
+
+After the code above, *p* is equal to:
+
+::
+
+       0.063661977
+        0.31830989
+        0.15915494
+       0.063661977
+
 .. seealso:: Functions :func:`cdfCauchy`

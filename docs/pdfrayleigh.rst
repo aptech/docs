@@ -30,4 +30,25 @@ as
 
    f(x) = \frac{x}{b^2}exp⁡(\frac{−x^2}{2b^2})
 
+Examples
+----------------
+
+::
+
+    // Data points
+    x = { 0.5, 1, 2, 3 };
+
+    // Rayleigh PDF with scale = 1
+    p = pdfRayleigh(x, 1);
+    print p;
+
+After the code above, *p* is equal to:
+
+::
+
+       0.44124845
+       0.60653066
+       0.27067057
+      0.033326990
+
 .. seealso:: Functions :func:`cdfRayleighinv`

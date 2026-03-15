@@ -23,6 +23,26 @@ Format
 
     :rtype xy: max(N,L) by max(K,M) complex matrix
 
+Examples
+----------------
+
+::
+
+    // Convert polar coordinates (r=5, theta=pi/4)
+    // to Cartesian coordinates
+    r = 5;
+    theta = pi / 4;
+    xy = tocart(r, theta);
+    print xy;
+
+The code above produces the following output:
+
+::
+
+    3.5355339 + 3.5355339i
+
+The real part is the *x* coordinate and the imaginary part is the *y* coordinate.
+
 Source
 ------
 
