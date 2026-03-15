@@ -107,4 +107,4 @@ Positive definite matrices can be inverted by :func:`inv`. However, for
 symmetric, positive definite matrices (such as moment matrices), :func:`invpd`
 is about twice as fast as :func:`inv`.
 
-
+.. seealso:: Functions :func:`solpd`, :func:`chol`, :func:`det`, :func:`pinv`

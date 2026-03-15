@@ -22,7 +22,7 @@ Format
 
     :return p: the probability density function for the Cauchy distribution for the elements in *x*.
 
-    :rtypep: NxK matrix, Nx1 vector or scalar
+    :rtype p: NxK matrix, Nx1 vector or scalar
 
 Remarks
 -------
