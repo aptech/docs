@@ -44,7 +44,7 @@ Examples
 
 ::
 
-    2 4 8 16 32 64 128 512 1024
+    2 4 8 16 32 64 128 256 512 1024
 
 Note that the results have been transposed in this example. Both functions return Nx1 (column) vectors.
 

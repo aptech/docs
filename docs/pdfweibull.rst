@@ -17,7 +17,7 @@ Format
     :type k: NxK matrix, Nx1 vector or scalar
 
     :param lambda: Scale parameter, may be matrix, ExE conformable with *x*. *lambda* must be greater than 0.
-    :type lambda: Nx1 vector or scalar
+    :type lambda: NxK matrix, Nx1 vector or scalar
 
     :return p: the probability density function of a Weibull random variable evaluated at *x*.
     :rtype p: NxK matrix, Nx1 vector or scalar

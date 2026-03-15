@@ -153,7 +153,7 @@ Load specified columns of a GAUSS matrix file, .fmt.
     // Load columns 2 and 4 from 'x.fmt'
     x_2 = loadd("x.fmt", "X2 + X4");
 
-Load three specified variables from a SAS dataset, .sas7bdat.
+Load three specified variables from a Stata dataset.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
