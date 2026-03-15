@@ -202,7 +202,7 @@ The following code plot autocorrelation (ACF) and sample partial autocorrelation
     plotSetXLabel(&cow_ctl, "Lag");
 
     // Place the 2nd plot in the second cell of a 2 by 1 grid
-    plotLayout(2, 1, );
+    plotLayout(2, 1, 2);
 
     // ACF plot
     plotBar(cow_ctl, seqa(1, 1, k), data_acf);

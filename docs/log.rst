@@ -47,6 +47,8 @@ Then *y* will be equal to:
 Remarks
 -------
 
+:func:`log` computes the base-10 logarithm (common logarithm). For the natural logarithm (base *e*), use :func:`ln`.
+
 :func:`log` is defined for :math:`x ≠ 0`.
 
 You can turn the generation of complex numbers for negative inputs on or

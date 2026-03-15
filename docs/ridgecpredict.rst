@@ -10,7 +10,7 @@ Format
 
 .. function:: predictions = ridgeCPredict(mdl, x_test)
 
-    :return mdl: An instance of a :class:`ridgeModel` structure. An instance named *mdl* will have the following members:
+    :param mdl: An instance of a :class:`ridgeModel` structure. An instance named *mdl* will have the following members:
 
         .. csv-table::
             :widths: auto
@@ -20,7 +20,7 @@ Format
             "mdl.mse_train","(*nlambdas x 1 vector*) The mean squared error for each set of parameters, computed on the training set."
             "mdl.lambda","(*nlambdas x 1 vector*) The *lambda* values used in the estimation."
 
-    :rtype mdl: struct
+    :type mdl: struct
 
     :param x_test: The independent variables.
     :type x_test: NxP matrix

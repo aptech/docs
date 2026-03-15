@@ -17,7 +17,7 @@ Format
     :param d: order of moving average.
     :type d: scalar
 
-    :param p: smoothing coefficient where :math:`0 > p > 1`.
+    :param p: smoothing coefficient where :math:`0 < p < 1`.
     :type p: scalar
 
     :return y: filtered series. The first :math:`d-1` rows of *x* are set to missing values.

@@ -11,8 +11,8 @@ Format
 ----------------
 .. function:: mask = between(X, left, right [, inclusive])
 
-    :param x: Data.
-    :type x: NxK matrix or dataframe.
+    :param X: Data.
+    :type X: NxK matrix or dataframe.
 
     :param left: Lower limit of the range.
     :type left: 1x1 matrix or dataframe.

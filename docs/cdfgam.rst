@@ -13,8 +13,8 @@ Format
     :param x: Values at which to evaluate the regularized lower incomplete gamma function. :math:`x > 0`.
     :type x: NxK matrix
 
-    :param int_lim: ExE compatible with *x*, containing the integration limit. :math:`int\_lim > 0`.
-    :type int_lim: LxM matrix
+    :param intlim: ExE compatible with *x*, containing the integration limit. :math:`intlim > 0`.
+    :type intlim: LxM matrix
 
     :return p: Each element in *p* is the regularized lower incomplete gamma function evaluated at the corresponding element in *x*.
 
@@ -44,15 +44,15 @@ Matrix example
     x = { 0.5 1 3 10 };
 
     // Create a 6x1 column vector: 0, 0.2, 0.4, ..., 1.0
-    int_lim = seqa(0,.2,6);
+    intlim = seqa(0,.2,6);
 
     /*
     ** Compute for all combinations of the elements
-    ** of 'x' and 'int_lim'
+    ** of 'x' and 'intlim'
     */
-    p = cdfGam(x, int_lim);
+    p = cdfGam(x, intlim);
 
-    print "intlim = " int_lim;
+    print "intlim = " intlim;
     print "p = " p;
 
 After the code above:
@@ -82,7 +82,7 @@ Remarks
 
 The regularized lower incomplete gamma function returns the integral
 
-.. math:: \text{cdfGam(x, int_lim)} = \int_{0}^{int\_lim} \frac{e^{-t}t^{(x-1)}}{\Gamma(x)}dt
+.. math:: \text{cdfGam(x, intlim)} = \int_{0}^{int\_lim} \frac{e^{-t}t^{(x-1)}}{\Gamma(x)}dt
 
 A -1 is returned for those elements with invalid inputs.
 

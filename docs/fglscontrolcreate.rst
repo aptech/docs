@@ -5,7 +5,7 @@ fglsControlCreate
 Purpose
 ----------------
 
-Creates default olsmtControl structure.
+Creates default fglsControl structure.
 
 Format
 ----------------

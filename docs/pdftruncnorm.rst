@@ -16,7 +16,7 @@ Format
     :param a: lower limit of the integration window.
     :type a: scalar
 
-    :param b: lower limit of the integration window.
+    :param b: upper limit of the integration window.
     :type b: scalar
 
     :param mu_bar: mean parameter.

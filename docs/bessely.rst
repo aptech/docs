@@ -38,7 +38,7 @@ Examples
     ** NOTE: The '~' provides horizontal concatenation
     */
     ord = { 1 3 };
-    y = bessely(n, x~x2);
+    y = bessely(ord, x~x2);
 
 After the code above:
 
