@@ -56,6 +56,6 @@ To convert to the population's standard deviation, multiply by
 
 .. math::
 
-   \sigma = s*\frac{n−1}{n}
+   \sigma = s \cdot \sqrt{\frac{n-1}{n}}
 
 .. seealso:: Functions :func:`meanc`

@@ -35,7 +35,7 @@ First find the day of the week components using a Sunday start.
   fname = getGAUSSHome("examples/yellowstone.csv");
   data = loadd(fname);
 
-  // Get quarters for date column
+  // Get day of the week for date column
   dow = dtDayofWeek(data, "Date");
   
   // Print first and last five dates

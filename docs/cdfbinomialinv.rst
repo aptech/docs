@@ -37,7 +37,7 @@ For our example we will define a reasonable range as falling between the top and
     trials = 82;
 
     // Probabiliy of success
-    prob = 0.6
+    prob = 0.6;
 
     // Call cdfBinomialInv
     s = cdfBinomialInv(range, trials, prob);

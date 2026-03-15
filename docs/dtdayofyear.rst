@@ -37,7 +37,7 @@ Examples
   head(data[., "Date"]);
   tail(data[., "Date"]);
   
-  // Print corresponding years
+  // Print corresponding day of year
   "Day of Year:"
   head(doy);
   tail(doy);

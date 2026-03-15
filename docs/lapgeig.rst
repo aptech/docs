@@ -51,5 +51,5 @@ Example
     print "Generalized eigenvalues:";
     print (va1 ./ va2);
 
-.. seealso:: Functions :func:`lapgeig`, :func:`lapgeigh`
+.. seealso:: Functions :func:`lapgeigh`
 

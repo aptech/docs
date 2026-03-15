@@ -21,7 +21,7 @@ Format
 
     :type ctl: struct
 
-    :param x: Lower limits at which to evaluate the Student's t cumulative distribution function. If *x* has more than one row, each row will be treated as a separate set of upper limits. K is the dimension of the multivariate Student's t distribution. N is the number of MVT cdf integrals.
+    :param x: Upper limits at which to evaluate the Student's t cumulative distribution function. If *x* has more than one row, each row will be treated as a separate set of upper limits. K is the dimension of the multivariate Student's t distribution. N is the number of MVT cdf integrals.
     :type x: NxK matrix
 
     :param corr: correlation matrix.

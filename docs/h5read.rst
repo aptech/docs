@@ -40,7 +40,7 @@ Basic write then read entire contents of an HDF5 file
     // Define a name of a dataset
     dname = "/mydata";
 
-    // Define a size of 4 rows and 3 columns
+    // Define a size of 3 rows and 2 columns
     r = 3;
     c = 2;
     dims  = r|c;

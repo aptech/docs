@@ -25,7 +25,7 @@ Format
             "pds->dsname", "string."
             "pds->type", "scalar."
 
-        The contents, if any, are set by the user and are passed by :func:`inthp1` to the user-provided function without modification.
+        The contents, if any, are set by the user and are passed by :func:`inthp4` to the user-provided function without modification.
 
     :type pds: scalar
 

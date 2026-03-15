@@ -113,7 +113,7 @@ String array example
     // Find the first instance of the
     // letter 'a' starting from
     // the front of the string
-    strrindx(state, "a");
+    strindx(state, "a");
 
 Since the search starts from the first character, the above code will print out:
 

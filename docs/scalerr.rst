@@ -24,6 +24,8 @@ Examples
 
 ::
 
+    x = { 4 2, 2 3 };
+
     trap 1;
     cm = invpd(x);
     trap 0;

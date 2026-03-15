@@ -39,7 +39,7 @@ Examples
     xlims = { 1, 0 };
 
     // Integrate using Simpson's method
-    y = intsimp(&f, xl, 1e-8);
+    y = intsimp(&f, xlims, 1e-8);
     print y;
 
 The code above returns the following:

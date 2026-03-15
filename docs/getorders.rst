@@ -6,7 +6,6 @@ Purpose
 ----------------
 
 Returns a vector containing the size of the dimensions of an array, matrix, or other symbol.
-sss
 
 Format
 ----------------

@@ -125,10 +125,10 @@ Global Input
 
         _sqp_EqProc = &ineqproc;
 
-    tells :func:`sqpSolve` that nonlinear equality constraints are to be placed on the parameters and
+    tells :func:`sqpSolve` that nonlinear inequality constraints are to be placed on the parameters and
     where the procedure computing them is to be found. The procedure must have one input argument,
     the Kx1 vector of parameters, and one output argument, the Rx1 vector of computed constraints that
-    are to be equal to zero. For example, suppose that you wish to place the following constraint:
+    are to be greater than or equal to zero. For example, suppose that you wish to place the following constraint:
 
     .. math:: p[1] * p[2] \geq p[3]
 
@@ -137,7 +137,7 @@ Global Input
     ::
 
         proc ineqproc(p);
-            retp(p[1]*[2]-p[3]);
+            retp(p[1]*p[2]-p[3]);
         endp;
 
 .. data:: _sqp_Bounds

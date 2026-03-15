@@ -140,7 +140,7 @@ dataset name must be provided, e.g.
 
 ::
 
-    glm("h5://C:/gauss/examples/testdata.h5/mydata").
+    dataopen("h5://C:/gauss/examples/testdata.h5/mydata", "read");
 
 Source
 ------

@@ -18,7 +18,7 @@ Format
 
     :type filename: string
 
-    :param size: dimensions of the saved graph in specified *units*. Default *unit* is ``"cm"``. *size* is an optional input when saving a :file:`.plot` file, but is required for all other file types.
+    :param size: dimensions of the saved graph in specified *units*. Default *unit* is ``"px"``. *size* is an optional input when saving a :file:`.plot` file, but is required for all other file types.
     :type size: 2x1 vector
 
     :param unit: Optional input, type of units dimension is specified in. This value is ignored if the filename extension is :file:`.plot`. Valid options include:
@@ -90,7 +90,7 @@ Save as 11x8.5 inch PDF at 300 DPI
     // Plot the data
     plotXY(x, y);
 
-    plotSave("mygraph.png", 11 | 8.5, "in", 300);
+    plotSave("mygraph.pdf", 11 | 8.5, "in", 300);
 
 Remarks
 -------
