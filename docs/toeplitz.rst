@@ -36,7 +36,7 @@ After the code above, *y* is equal to:
     2  1  2  3  4
     3  2  1  2  3
     4  3  2  1  2
-    5  4  2  2  3
+    5  4  3  2  1
 
 Source
 ------

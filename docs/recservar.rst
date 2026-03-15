@@ -63,7 +63,7 @@ VAR(1) with constant
     // Innovations
     eps = rndn(100, 3);
 
-    // Simulate AR(2) model with constant
+    // Simulate VAR(1) model with constant
     y = recserVAR(eps + const, y0, pi_);
 
 Remarks

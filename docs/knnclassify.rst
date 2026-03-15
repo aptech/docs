@@ -12,7 +12,7 @@ Format
     :param mdl: A :class:`knnModel` structure returned from a call to :func:`knnFit`.
     :type mdl: struct
 
-    :param X_train: The training features.
+    :param X: The training features.
     :type X: NxP matrix, or string array.
 
     :return y_hat: The predicted classes.

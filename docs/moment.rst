@@ -54,8 +54,8 @@ Examples
     // Find coefficients
     b = ixx*missrv(x, 0)'y;
 
-    print "b_true~b_est";
-    b_true'~b_est;
+    print "b_true~b";
+    b_true'~b;
 
 ::
 

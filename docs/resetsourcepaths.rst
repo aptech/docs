@@ -9,11 +9,7 @@ Resets the source path to the original GAUSS startup values.
 
 Format
 ----------------
-.. function:: ret = resetsourcepaths()
-
-    :return ret: 1 if reset is successful, 0 otherwise.
-
-    :rtype ret: string
+.. function:: resetsourcepaths()
 
 Remarks
 -------
@@ -27,7 +23,4 @@ Examples
 ::
 
     // Reset the source path to the gauss.cfg defaults
-    ret = resetsourcepaths();
-    if ret;
-        print "Source paths reset successfully.";
-    endif;
+    resetsourcepaths();

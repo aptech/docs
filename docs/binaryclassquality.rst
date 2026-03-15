@@ -15,13 +15,13 @@ Format
     :type y_true:  Nx1 binary vector.
 
     :param y_predict:  That represents the predicted class labels.
-    :type y_true: Nx1 binary vector.
+    :type y_predict: Nx1 binary vector.
 
     :param df_true: That represents the true class labels.
     :type df_true:  Nx1 dataframe, or string array.
 
-    :param y_predict:  That represents the predicted class labels.
-    :type y_true: Nx1 dataframe, or string array.
+    :param df_predict:  That represents the predicted class labels.
+    :type df_predict: Nx1 dataframe, or string array.
 
     :param classes:  The first element of ``classes`` indicates which class should be treated as the positive case. This input is required if the ``true`` and ``predict`` inputs are string arrays or categorical dataframes.
     :type classes: String, 1x1 or 2x1 categorical dataframe, or string array.

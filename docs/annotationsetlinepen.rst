@@ -10,8 +10,8 @@ Format
 ----------------
 .. function:: annotationSetLinePen(&myAnnotation, width [, clr, style])
 
-    :param myAnnotation: A pointer to an instance of a :class:`plotAnnotation` structure
-    :type myAnnotation: struct
+    :param &myAnnotation: A pointer to an instance of a :class:`plotAnnotation` structure
+    :type &myAnnotation: struct pointer
 
     :param width: the width of the line in pixels.
     :type width: scalar

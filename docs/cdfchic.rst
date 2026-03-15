@@ -33,7 +33,7 @@ Examples
     df = 3;
 
     // Call cdfChic
-    p = cdfChic(x, n);
+    p = cdfChic(x, df);
     print "p = " p;
 
 After running the above code,

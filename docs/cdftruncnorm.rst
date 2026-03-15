@@ -13,20 +13,20 @@ Format
     :param x: Values at which to evaluate the cumulative distribution function of the normal distribution.
     :type x: NxK matrix
 
-    :param l_lim: lower limit of the integration window.
-    :type l_lim: Scalar
+    :param a: lower limit of the integration window.
+    :type a: Scalar
 
-    :param u_lim: upper limit of the integration window.
-    :type u_lim: Scalar
+    :param b: upper limit of the integration window.
+    :type b: Scalar
 
     :param mu_bar: mean parameter.
     :type mu_bar: Scalar
 
-    :param std_bar: standard deviation parameter.
-    :type std_bar: Scalar
+    :param sigma_bar: standard deviation parameter.
+    :type sigma_bar: Scalar
 
     :return p: the probability density
-        of the cumulative distribution over the interval from *l_lim* to *u_lim*.
+        of the cumulative distribution over the interval from *a* to *b*.
 
     :rtype p: scalar or NxK matrix or N-dimensional array
 
@@ -39,23 +39,23 @@ Examples
     x = 0.6;
 
     //Lower limit
-    l_lim = -1;
+    a = -1;
 
     // Upper limit
-    u_lim = 1;
+    b = 1;
 
     // Mean parameter
     mu_bar = 2.3;
 
     // Standard deviation parameter
-    std_bar = 1;
+    sigma_bar = 1;
 
     /*
     ** Compute the CDF at x = 0.6
     ** over the closed region [-1,1]
     ** of the distribution N ~ (2.3, 1)
     */
-    p = cdfTruncNorm(x, l_lim, u_lim, mu_bar, std_bar);
+    p = cdfTruncNorm(x, a, b, mu_bar, sigma_bar);
 
 After the above code, *p* equals:
 
