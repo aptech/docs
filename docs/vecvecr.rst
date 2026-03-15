@@ -47,3 +47,4 @@ Remarks
 
 :func:`vecr` is much faster.
 
+.. seealso:: Functions :func:`reshape`, :func:`areshape`

@@ -62,3 +62,4 @@ In particular,
 
 :func:`balance` uses the `BALANC` function from `EISPACK`
 
+.. seealso:: Functions :func:`eig`, :func:`eigv`

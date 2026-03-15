@@ -44,3 +44,5 @@ turn it off, :func:`sqrt` will generate an error for negative inputs.
 
 If *x* is already complex, the complex number state does not matter; :func:`sqrt`
 will compute a complex result.
+
+.. seealso:: Functions :func:`abs`, :func:`exp`

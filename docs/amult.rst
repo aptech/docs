@@ -96,3 +96,4 @@ The multiplication operator, ``*``, performs the same operation for arrays as :f
 All leading dimensions must be strictly conformable, and the two
 trailing dimensions of each array must be matrix-product conformable.
 
+.. seealso:: Functions :func:`areshape`, :func:`aconcat`

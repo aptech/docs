@@ -48,3 +48,4 @@ References
 
 #. Jon Breslaw, 2009
 
+.. seealso:: Functions :func:`gamma`, :func:`beta`

@@ -88,3 +88,4 @@ Source
 
 quantile.src
 
+.. seealso:: Functions :func:`median`, :func:`meanc`, :func:`percentile`

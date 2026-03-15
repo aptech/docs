@@ -156,6 +156,8 @@ After the above code,
 Remarks
 -------
 
+.. note:: When ``__con = 1`` (the default), a column of ones is automatically prepended to the data before computing the moment matrix. This means the resulting matrix will be ``(K+1) x (K+1)`` rather than ``KxK``, where the first row and column correspond to the constant term. Set ``__con = 0`` to suppress this behavior.
+
 -  The supported dataset types are CSV, Excel, HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT),
    Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
 -  Character vectors are supported for backward compatibility, but it has been deprecated.

@@ -64,3 +64,5 @@ Source
 ------
 
 exctsmpl.src
+
+.. seealso:: Functions :func:`sampleData`, :func:`rndi`

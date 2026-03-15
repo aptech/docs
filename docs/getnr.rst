@@ -53,3 +53,5 @@ Globals
 -------
 
 `__row`, `__rowfac`, `__maxvec`
+
+.. seealso:: Functions :func:`getnrmt`, :func:`readr`

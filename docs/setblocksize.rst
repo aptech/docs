@@ -47,3 +47,4 @@ functions which can process datasets in chunks, such as :func:`olsmt` and :func:
 loaded in code which is threaded with `threadbegin`/`threadstat` or
 `threadfor`, you must call :func:`setBlockSize` before the threads are created.
 
+.. seealso:: Functions :func:`maxvec`, :func:`maxbytes`

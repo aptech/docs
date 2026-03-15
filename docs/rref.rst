@@ -71,3 +71,5 @@ Source
 ------
 
 rref.src
+
+.. seealso:: Functions :func:`rank`, :func:`null`, :func:`orth`

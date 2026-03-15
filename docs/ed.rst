@@ -70,3 +70,5 @@ Set the alternate editor to TextEdit.
 
 * See the `edit` command to open a file in the GAUSS editor from the command
   line.
+
+.. seealso:: Functions :func:`edit`, :func:`run`

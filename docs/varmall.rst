@@ -66,3 +66,5 @@ Remarks
 Universidad Complutense de Madrid. It was published as Algorithm AS311
 in Applied Statistics. Also described in "Exact Maximum Likelihood
 Estimation of Stationary Vector ARMA Models," JASA, 90:282-264.
+
+.. seealso:: Functions :func:`varmares`

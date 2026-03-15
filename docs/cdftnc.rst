@@ -75,6 +75,8 @@ After running above code,
 Remarks
 ------------
 
+.. note:: The *nonc* parameter is the **square root** of the noncentrality parameter sometimes denoted :math:`\lambda` in the literature. If your source provides :math:`\lambda` directly, pass :math:`\sqrt{\lambda}` to :func:`cdfTnc`.
+
 ::
 
     cdfTc(x, df) = 1 - cdfTnc(x, df, 0)

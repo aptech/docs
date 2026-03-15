@@ -94,4 +94,4 @@ data sets that are small enough to fit into a single matrix. In
 addition, the moment matrix and its inverse cannot be recovered if the ``/``
 operator is used.
 
-
+.. seealso:: Functions :func:`momentd`, :func:`crossprd`

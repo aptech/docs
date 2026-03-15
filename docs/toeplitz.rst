@@ -42,3 +42,5 @@ Source
 ------
 
 toeplitz.src
+
+.. seealso:: Functions :func:`ones`, :func:`eye`, :func:`diagrv`

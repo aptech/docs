@@ -45,3 +45,4 @@ If the program sleeps for the full 2 seconds, the output is:
 
     0.0000000
 
+.. seealso:: Functions :func:`pause`, :func:`waitc`

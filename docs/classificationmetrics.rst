@@ -200,3 +200,4 @@ We can access any of the structure members from the ``classQuality`` structure u
       versicolor       0.93750000 
        virginica        1.0000000
 
+.. seealso:: Functions :func:`binaryClassMetrics`

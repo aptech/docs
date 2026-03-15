@@ -45,3 +45,5 @@ The code above assigns the variables as follows:
 In this example, a 2x2 matrix of Normal random
 numbers is generated and the absolute value of the
 matrix is computed.
+
+.. seealso:: Functions :func:`ceil`, :func:`floor`, :func:`round`

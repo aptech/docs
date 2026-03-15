@@ -53,3 +53,4 @@ Example output:
 
     /tmp/gssABCD12345.dat
 
+.. seealso:: Functions :func:`fopen`, :func:`close`

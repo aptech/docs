@@ -49,3 +49,4 @@ The :func:`boxcox` function computes:
 
 .. math:: boxcox(x) = (xλ - 1)/λ
 
+.. seealso:: Functions :func:`ln`, :func:`log`

@@ -35,3 +35,5 @@ Source
 ------
 
 gauss.src
+
+.. seealso:: Functions :func:`DOSWinCloseall`

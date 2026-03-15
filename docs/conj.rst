@@ -39,3 +39,4 @@ Remarks
 
 Compare :func:`conj` with the transpose (``'``) operator.
 
+.. seealso:: Functions :func:`complex`, :func:`real`, :func:`imag`, :func:`hasimag`

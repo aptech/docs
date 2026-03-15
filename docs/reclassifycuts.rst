@@ -17,6 +17,9 @@ Format
     :type cut_pts: Kx1 vector
 
     :param close_right: optional argument, 1 if the *cut_pts* should be the right end-point of the interval, or 0 if the values in *cut_pts* should start the next interval. Default = 0.
+
+        .. note:: When ``close_right = 0`` (default), intervals are closed on the right: ``(a, b]``. When ``close_right = 1``, intervals are closed on the left: ``[a, b)``.
+
     :type close_right: Scalar
 
     :return x_new: Contains the recoded values of *x*, will have the same dimensions as the input *x*.

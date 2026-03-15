@@ -49,3 +49,5 @@ Source
 ------
 
 strput.src
+
+.. seealso:: Functions :func:`strindx`, :func:`strsect`

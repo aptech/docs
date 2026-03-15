@@ -68,3 +68,5 @@ Global Input
         "f", "file name being analyzed is to be printed"
 
 :__title: string, title for header.
+
+.. seealso:: Functions :func:`headermt`, :func:`output`

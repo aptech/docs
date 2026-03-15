@@ -103,13 +103,13 @@ Typically, the result would be thought of as :math:`K` vectors of length :math:`
 
 *y0* contains the first :math:`P` values of each of these vectors (thus, these are
 prespecified). The remaining elements are constructed by computing a :math:`P^{th}`
-order "autoregressive" recursion, with weights given by *a*, and then by
+order "autoregressive" recursion, with weights given by *rho*, and then by
 adding the result to the corresponding elements of *x*. That is, the :math:`t^{th}`
 row of *y* is given by:
 
 ::
 
-   y[t,.] = x[t,.] + a[1,.] * y[t-1,.] +...+ a[P,.] * y[t-p,.], t = P + 1,...N
+   y[t,.] = x[t,.] + rho[1,.] * y[t-1,.] +...+ rho[P,.] * y[t-p,.], t = P + 1,...N
 
 and
 

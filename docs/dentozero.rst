@@ -45,3 +45,5 @@ At the end of the example, *y* is equal to:
     1.000e+000
     0.000e+000
     3.000e+000
+
+.. seealso:: Functions :func:`zerosmiss`, :func:`miss`, :func:`missrv`

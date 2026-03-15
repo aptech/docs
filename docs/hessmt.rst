@@ -67,3 +67,5 @@ Source
 ------
 
 hessmt.src
+
+.. seealso:: Functions :func:`hessMTg`, :func:`hessMTm`, :func:`hessMTT`, :func:`gradMT`

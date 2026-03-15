@@ -92,6 +92,8 @@ example, the string:
 
    "1.2 1.9"
 
+.. warning:: If you are parsing delimited text data, split each element into a separate string before calling :func:`strtof`. Strings containing spaces or commas between numbers will be interpreted as complex numbers, not as separate values.
+
 will be converted into the number:
 
 ::
