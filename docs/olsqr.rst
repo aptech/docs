@@ -36,6 +36,8 @@ Examples
     // Solve OLS coefficient using QR decomposition
     b = olsqr(y, x);
 
+.. note:: This example uses a square system (4 equations, 4 unknowns), which has an exact solution rather than a least squares fit. In practice, :func:`olsqr` is most useful when the system is overdetermined (more observations than parameters), where it computes the least squares solution.
+
 Remarks
 -------
 

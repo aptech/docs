@@ -50,3 +50,4 @@ Source
 
 system.src
 
+.. seealso:: Functions :func:`maxvec`, :func:`sysstate`

@@ -65,6 +65,8 @@ Remarks
 -  To convert string arrays to floating point numeric values, or to
    convert strings representing complex data, use :func:`strtof`.
 -  If *x* is a null string (""), :func:`stof` will return a 0.
+
+.. warning:: ``stof("")`` returns 0, not a missing value. If your data may contain empty strings that should be treated as missing, check for empty strings before calling :func:`stof`.
 -  This uses the same input conversion routine as `loadm` and `let`. It will
    convert character elements and missing values. :func:`stof` also converts
    complex numbers in the same manner as `let`.

@@ -33,3 +33,4 @@ Example
     // Launch the debugger on a program file
     debug myprogram.gss;
 
+.. seealso:: Functions :func:`trace`

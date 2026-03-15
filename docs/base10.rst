@@ -47,3 +47,5 @@ Source
 ------------
 
 base10.src
+
+.. seealso:: Functions :func:`log`, :func:`ln`

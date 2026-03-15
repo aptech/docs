@@ -64,3 +64,5 @@ Source
 ------
 
 svdmt.src
+
+.. seealso:: Functions :func:`pinv`, :func:`inv`

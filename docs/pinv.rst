@@ -64,3 +64,5 @@ Source
 ------
 
 svd.src
+
+.. seealso:: Functions :func:`inv`, :func:`invpd`, :func:`solpd`

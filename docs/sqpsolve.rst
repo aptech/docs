@@ -123,7 +123,7 @@ Global Input
 
     ::
 
-        _sqp_EqProc = &ineqproc;
+        _sqp_IneqProc = &ineqproc;
 
     tells :func:`sqpSolve` that nonlinear inequality constraints are to be placed on the parameters and
     where the procedure computing them is to be found. The procedure must have one input argument,
@@ -253,3 +253,5 @@ Source
 ------
 
 sqpsolve.src
+
+.. seealso:: Functions :func:`sqpSolveMT`, :func:`QNewton`

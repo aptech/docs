@@ -127,6 +127,8 @@ After the code above, *r*, should be equal to:
 Remarks
 -------
 
+.. note:: For the quasi-random number generators (``"sobol"`` and ``"niederreiter"``), the second argument specifies the **dimension** of the sequence, not a seed. The maximum dimension for ``"sobol"`` sequences is 40, and for ``"niederreiter"`` it is 318.
+
 The states returned from this function may NOT be used with :func:`rndMTu` or any of the :func:`rndKM` or :func:`rndLC` functions.
 
 .. seealso:: Functions :func:`rndStateSkip`, :func:`rndn`, :func:`rndu`, :func:`rndBeta`

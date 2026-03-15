@@ -51,3 +51,5 @@ Source
 ------
 
 gaussmt.src
+
+.. seealso:: Functions :func:`getnr`, :func:`readr`

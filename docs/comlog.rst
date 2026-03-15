@@ -90,3 +90,4 @@ Remarks
 
 * Interactive commands to run a file, i.e. ``run ols.e;`` will not be logged by `comlog`.
 
+.. seealso:: Functions :func:`screen`, :func:`output`

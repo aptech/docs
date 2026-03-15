@@ -41,3 +41,5 @@ Source
 ------
 
 trig.src
+
+.. seealso:: Functions :func:`cosh`, :func:`tanh`, :func:`arcsin`

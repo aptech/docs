@@ -30,3 +30,5 @@ Source
 ------
 
 ds.src
+
+.. seealso:: Functions :func:`datacreate`, :func:`saved`

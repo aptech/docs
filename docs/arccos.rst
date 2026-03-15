@@ -62,4 +62,4 @@ Source
 
 trig.src
 
-
+.. seealso:: Functions :func:`cos`, :func:`arcsin`, :func:`atan`

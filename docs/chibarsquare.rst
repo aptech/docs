@@ -90,3 +90,5 @@ Source
 ------------
 
 hypotest.src
+
+.. seealso:: Functions :func:`cdfChic`, :func:`cdfChinc`

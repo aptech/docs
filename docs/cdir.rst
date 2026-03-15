@@ -62,4 +62,4 @@ end with a backslash, otherwise it will not.
 A null string or scalar zero can be passed in as an argument to obtain
 the current drive and path name.
 
-
+.. seealso:: Functions :func:`changedir`, :func:`chdir`

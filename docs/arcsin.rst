@@ -47,3 +47,4 @@ Source
 
 trig.src
 
+.. seealso:: Functions :func:`sin`, :func:`arccos`, :func:`atan`

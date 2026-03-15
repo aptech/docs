@@ -105,3 +105,5 @@ Technical Notes
 ----------------
 
 :func:`spEigv` implements functions from the ARPACK library.
+
+.. seealso:: Functions :func:`eig`, :func:`eigv`

@@ -25,3 +25,5 @@ Source
 ------
 
 sqpsolve.src
+
+.. seealso:: Functions :func:`sqpSolve`, :func:`sqpSolveMT`

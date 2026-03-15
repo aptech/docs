@@ -53,3 +53,4 @@ Examples
     print "Alice" tab(20) 95 tab(35) "A";
     print "Bob" tab(20) 82 tab(35) "B";
 
+.. seealso:: Functions :func:`print`, :func:`sprintf`

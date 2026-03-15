@@ -99,7 +99,7 @@ Example 2: Customized plot without formula string
     plotSetYGrid(&plt, "major", "dark gray");
     
     // Draw plot
-    plotScatter(plt, crabs[.,"frontal_lobe"], crabs[.,"rear_width"]);
+    plotScatter(plt, crabs[.,"rear_width"], crabs[.,"frontal_lobe"]);
 
 
 

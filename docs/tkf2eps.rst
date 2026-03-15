@@ -53,3 +53,4 @@ Examples
     // Preferred modern approach
     plotSave("myplot.eps");
 
+.. seealso:: Functions :func:`plotSave`, :func:`tkf2ps`

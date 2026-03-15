@@ -61,3 +61,5 @@ This function can be used to sort several matrices in the same way that
 some other reference matrix is sorted. To do this, create the index of
 the reference matrix, then use :func:`submat` to rearrange the other matrices in
 the same way.
+
+.. seealso:: Functions :func:`sortc`, :func:`sortcc`

@@ -206,4 +206,9 @@ The code above will produce the following output:
     banana
     watermelon
 
+Remarks
+-------
+
+.. note:: :func:`unique` operates element-wise: it extracts unique scalar values from the entire matrix, regardless of shape. It does NOT return unique rows. To find unique rows of a matrix, use :func:`uniqrows` instead.
+
 .. seealso:: Functions :func:`sortc`, :func:`uniquesa`, :func:`uniqindx`

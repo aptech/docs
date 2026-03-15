@@ -39,3 +39,5 @@ Source
 ------
 
 fgls.src
+
+.. seealso:: Functions :func:`ols`, :func:`olsmt`

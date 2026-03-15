@@ -104,4 +104,4 @@ half open interval :math:`[vl, vu]`. :func:`lapeighvb` is based on the LAPACK dr
 *DSYEVX* and *ZHEEVX*. Further documentation of these functions may be found
 in the LAPACK User's Guide.
 
-
+.. seealso:: Functions :func:`eigh`, :func:`eighv`, :func:`lapgeig`

@@ -45,3 +45,5 @@ Source
 ------
 
 trig.src
+
+.. seealso:: Functions :func:`sinh`, :func:`cosh`, :func:`atan`

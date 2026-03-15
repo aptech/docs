@@ -45,5 +45,5 @@ Source
 
 wait.src, waitc.src
 
-.. seealso:: Functions :func:`pause`
+.. seealso:: Functions :func:`sleep`, :func:`pause`, :func:`keyav`
 

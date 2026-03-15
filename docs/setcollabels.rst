@@ -14,7 +14,7 @@ Format
     :param X: data.
     :type X: NxK matrix or dataframe
 
-    :param labels: Names or indices of the categorical variables in *X* to set labels for.
+    :param labels: Category labels (e.g., ``"low" $| "medium" $| "high"``) to assign to the values in the column specified by *columns*.
     :type labels: Mx1 string array
 
     :param values: Optional. Values to assign labels to. Default is 0 to rows(labels) - 1.

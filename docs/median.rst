@@ -49,3 +49,5 @@ Source
 ------
 
 median.src
+
+.. seealso:: Functions :func:`meanc`, :func:`quantile`

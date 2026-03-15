@@ -57,3 +57,5 @@ Remarks
 
 Each element of *y* is from the corresponding row of *x* and the column set
 by the corresponding row of *ci*. In other words, :math:`y[i] = x[i, ci[i]]`.
+
+.. seealso:: Functions :func:`trimr`, :func:`selif`

@@ -37,3 +37,4 @@ Examples
 
     f = close(f);
 
+.. seealso:: Functions :func:`colsf`, :func:`rowsf`

@@ -81,3 +81,5 @@ Source
 ------
 
 gaussmt.src
+
+.. seealso:: Functions :func:`header`, :func:`output`

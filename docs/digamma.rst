@@ -44,3 +44,5 @@ Remarks
 
 The :func:`digamma` function is the first derivative of the log of the :func:`gamma`
 function with respect to its argument.
+
+.. seealso:: Functions :func:`trigamma`, :func:`gamma`, :func:`lnfact`

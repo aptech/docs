@@ -119,3 +119,5 @@ with zeros to :math:`MAX(L) \times MAX(P)`. For each plane in *a*, :func:`spDiag
 the submatrix ``a[i, 1:size[i, 1], 1:size[i, 2]]`` and inserts that into *x* at
 the location indicated by the corresponding row of *inds*. If *size* is a
 scalar 0, then each LxP plane of *a* is inserted into *x* as is.
+
+.. seealso:: Functions :func:`diagrv`, :func:`spCreate`

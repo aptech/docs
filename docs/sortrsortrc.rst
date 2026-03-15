@@ -86,3 +86,5 @@ right in descending order (i.e., ascending right to left), use:
 ::
 
    rev(sortr(x, r)')'
+
+.. seealso:: Functions :func:`sortc`, :func:`sortmc`
