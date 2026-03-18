@@ -1,0 +1,56 @@
+cwTest
+======
+
+Purpose
+-------
+Clark-West test for comparing nested forecast models.
+
+Format
+------
+
+.. function:: t = cwTest(e_r, e_u, fc_r, fc_u)
+
+   :param e_r: forecast errors from the restricted (simpler) model.
+   :type e_r: Nx1 vector
+
+   :param e_u: forecast errors from the unrestricted (larger) model.
+   :type e_u: Nx1 vector
+
+   :param fc_r: point forecasts from the restricted model.
+   :type fc_r: Nx1 vector
+
+   :param fc_u: point forecasts from the unrestricted model.
+   :type fc_u: Nx1 vector
+
+   :return t: An instance of a :class:`testResult` structure.
+   :rtype t: struct
+
+Examples
+--------
+
+::
+
+    new;
+    library timeseries;
+
+    // Restricted: AR(1), Unrestricted: VAR(4)
+    t = cwTest(e_ar1, e_var4, fc_ar1, fc_var4);
+    print "CW statistic:" t.statistic;
+    print "p-value:" t.p_value;
+
+Remarks
+-------
+
+The standard Diebold-Mariano test is biased in favor of the restricted model
+when models are nested (Clark & West 2007). This test adjusts for the noise
+in the unrestricted model's parameter estimates.
+
+Library
+-------
+timeseries
+
+Source
+------
+scoring.src
+
+.. seealso:: Functions :func:`dmTest`, :func:`mcsTest`
