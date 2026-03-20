@@ -132,23 +132,31 @@ Key Findings
         - 1.4s
         - 33.6s
         - 24x
+      * - 10
+        - 13.8s
+        - 2.1 min
+        - 9x
       * - 20
         - 57s
         - 5.9 min
-        - 6.2x
+        - 6x
       * - 50
         - 6.8 min
-        - ~4.8 hours (est.)
-        - ~42x
+        - 26.1 min
+        - 3.8x
       * - 68
         - ~12 min
-        - ~10 hours (est.)
-        - ~50x
+        - **fails** :sup:`2`
+        - --
 
-   BEAR timings measured on MATLAB R2025b with the same data, same lags (p=12),
-   same number of retained draws (500), and same rolling evaluation protocol
-   (60 expanding windows). BEAR m=50 and m=68 estimated from single-estimation
-   benchmarks (286s and ~600s per window respectively).
+   All timings measured on the same machine (Apple M-series), same data (FRED-MD),
+   same lags (p=12), same retained draws (500), same rolling protocol (60 windows).
+   BEAR uses MATLAB R2025b.
+
+   :sup:`2` BEAR's OLS pre-estimation produces near-singular matrices at m=68, p=12
+   (817 coefficients per equation with ~730 observations). GAUSS handles this because
+   the conjugate prior regularizes the system without requiring a well-conditioned OLS
+   step.
 
 
 The Code
