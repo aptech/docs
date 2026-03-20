@@ -62,9 +62,20 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of lognormal
     // random numbers with mu = 0, sigma = 1
     x = rndLogNorm(3, 2, 0, 1);
     print x;
+
+After the code above, *x* is:
+
+::
+
+       3.7047831       0.87171778
+       2.0433690       0.32325784
+       1.0245128       0.21482781
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

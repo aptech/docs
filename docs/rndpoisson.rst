@@ -47,9 +47,19 @@ The example below simulates 100 observations of a Poisson process with a mean of
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     lambda = 17;
 
     x = rndPoisson(100, 1, lambda);
+    print (meanc(x));
+
+::
+
+       16.320000
+
+The sample mean is approximately 16.32, close to the expected value of 17 (lambda).
 
 Remarks
 -------

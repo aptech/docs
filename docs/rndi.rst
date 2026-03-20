@@ -51,6 +51,9 @@ Basic example
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Create a 10x5 vector of random
     // integers between 0 and 2^32 - 1
     r_int = rndi(10, 5);
@@ -60,11 +63,28 @@ Basic range
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Create a 10x1 vector of random
     // integers between 1 and 100
     range_start = 1;
     range_end = 100;
     idx = rndi(10, 1, range_start | range_end);
+    print idx;
+
+::
+
+       91.000000
+       45.000000
+       77.000000
+       13.000000
+       51.000000
+       7.0000000
+       71.000000
+       8.0000000
+       84.000000
+       92.000000
 
 Sample with replacement from a dataset
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++

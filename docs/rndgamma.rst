@@ -52,12 +52,25 @@ Example 1
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     num_rows = 5;
     num_cols = 1;
     shape = 3;
     scale = 2;
 
     x = rndGamma(num_rows, num_cols, shape, scale);
+
+After the code above, *x* is:
+
+::
+
+       4.0057858
+       5.4494189
+       2.4490466
+       4.3893173
+       4.2732468
 
 Example 2
 +++++++++
@@ -77,10 +90,25 @@ reciprocal of the *rate* parameter as the fourth argument to :func:`rndGamma`.
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     shape = 3;
     rate = 2;
 
     x = rndGamma(5, 1, shape, 1/rate);
+
+After the code above, *x* is:
+
+::
+
+       1.0014464
+       1.3623547
+      0.61226164
+       1.0973293
+       1.0683117
+
+The expected value is shape/rate = 3/2 = 1.5, and the sample values are centered around that.
 
 Remarks
 -------

@@ -65,9 +65,20 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of Gumbel
     // random numbers with location = 0, scale = 1
     x = rndGumbel(3, 2, 0, 1);
     print x;
+
+After the code above, *x* is:
+
+::
+
+      -2.3025980      -0.21222789
+      -1.3054204       0.71538115
+     -0.39450916        1.0224755
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

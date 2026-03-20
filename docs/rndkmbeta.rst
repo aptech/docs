@@ -68,9 +68,17 @@ Examples
 
     // Generate a 3x2 matrix of beta random numbers
     // with shape parameters a = 2, b = 5
-    // using the system clock as the seed
-    { x, newstate } = rndKMbeta(3, 2, 2, 5, -1);
+    // using a fixed seed for repeatable output
+    { x, newstate } = rndKMbeta(3, 2, 2, 5, 12345);
     print x;
+
+The output is a 3x2 matrix of beta-distributed values between 0 and 1. The sample mean is approximately 0.29, consistent with the theoretical mean of a/(a+b) = 2/7:
+
+::
+
+      0.19288089       0.38057594
+      0.51686669       0.57522795
+      0.31832075       0.14046662
 
 Technical Notes
 ---------------

@@ -58,17 +58,27 @@ Basic Example
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Population size
     m = 100;
-    
+
     // Number of marked items
     k = 25;
-    
+
     // Number of items drawn
     n = 40;
-    
+
     // Compute 1 random number
     x = rndHyperGeo(1, 1, m, k, n);
+    print x;
+
+::
+
+       13.000000
+
+The expected value is n*k/m = 40*25/100 = 10. A single draw of 13 is a reasonable outcome.
 
 Random matrix in which each column has different parameters.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

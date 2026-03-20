@@ -46,6 +46,9 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // covariance matrix
     cov = {  1   0.5,
            0.5     1 };
@@ -54,11 +57,12 @@ Examples
     df = 7;
 
     X = rndWishart(1, cov, df);
+    print X;
 
 ::
 
-    X = 7.6019339 4.7744799
-        4.7744799 7.7341260
+       4.8754749        2.4840462
+       2.4840462        5.3526816
 
 Remarks
 -------

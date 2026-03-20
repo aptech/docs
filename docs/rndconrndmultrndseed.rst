@@ -98,4 +98,16 @@ Examples
     y = rndu(3, 2);
     print y;
 
+Both ``x`` and ``y`` contain the same values, confirming that resetting the seed reproduces the sequence:
+
+::
+
+      0.89660425       0.65692719
+     0.021991147      0.054529152
+      0.76761078       0.90491182
+
+      0.89660425       0.65692719
+     0.021991147      0.054529152
+      0.76761078       0.90491182
+
 .. seealso:: Functions :func:`rndu`, :func:`rndn`, :func:`rndi`, :func:`rndLCi`, :func:`rndKMi`

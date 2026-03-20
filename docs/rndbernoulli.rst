@@ -50,8 +50,8 @@ Examples
     // binary data (i.e., yes/no, true/false), such as marital
     // status.
 
-    // Set the random seed for repeatable numbers.
-    rndseed 723940439;
+    // Set seed for repeatable output
+    rndseed 12345;
 
     // The percentage of married people in the population we
     // would like to model.
@@ -66,7 +66,7 @@ Examples
 
 ::
 
-    0.70270000
+    0.69750000
 
 Remarks
 -------

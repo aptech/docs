@@ -54,11 +54,25 @@ This example illustrates basic usage of :func:`rndBeta`, leaving the management 
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     num_rows = 100;
     num_cols = 5;
     a = 3;
     b = 2;
     x = rndBeta(num_rows, num_cols, a, b);
+    print (meanc(x));
+
+::
+
+      0.60359473
+      0.58823075
+      0.58101263
+      0.61240728
+      0.59562366
+
+The column means are each close to the expected value of a/(a+b) = 3/5 = 0.60.
 
 Example 2
 +++++++++

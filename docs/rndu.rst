@@ -50,8 +50,19 @@ If a state or seed is not passed in, then only the random numbers are returned.
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Create a 100x1 vector of uniform random numbers
     y = rndu(100, 1);
+
+    print (meanc(y));
+
+The sample mean is approximately 0.5, consistent with the uniform distribution on [0, 1):
+
+::
+
+      0.46593467
 
 Example 2
 +++++++++

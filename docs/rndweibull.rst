@@ -62,9 +62,20 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of Weibull
     // random numbers with shape = 2, scale = 1
     x = rndWeibull(3, 2, 2, 1);
     print x;
+
+After the code above, *x* is:
+
+::
+
+      0.31622572       0.89932217
+      0.52063284        1.4300231
+      0.82098160        1.6673537
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

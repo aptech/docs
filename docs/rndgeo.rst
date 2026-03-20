@@ -60,9 +60,20 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of geometric
     // random numbers with probability = 0.4
     y = rndGeo(3, 2, 0.4);
     print y;
+
+After the code above, *y* is:
+
+::
+
+       0.0000000        1.0000000
+       0.0000000        4.0000000
+       1.0000000        5.0000000
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

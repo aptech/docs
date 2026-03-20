@@ -54,12 +54,22 @@ Simulate the number of failures before 30 successes where each trial has a 70% p
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     num_obs = 100;
 
     num_s = 30;
     prob = 0.70;
 
     num_f = rndNegBinomial(num_obs, 1, num_s, prob);
+    print (meanc(num_f));
+
+::
+
+       12.180000
+
+The sample mean is approximately 12.18, close to the expected value of num_s*(1-prob)/prob = 30*0.3/0.7 = 12.86.
 
 Example 2
 +++++++++

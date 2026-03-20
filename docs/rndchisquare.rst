@@ -71,10 +71,19 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 100x1 vector of chi-squared
     // random numbers with 5 degrees of freedom
     x = rndChiSquare(100, 1, 5);
     print (meanc(x));
+
+::
+
+       4.8899054
+
+The sample mean is approximately 4.89, close to the expected value of 5 (the degrees of freedom).
 
 Technical Notes
 --------------------

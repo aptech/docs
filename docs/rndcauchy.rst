@@ -62,9 +62,20 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x1 vector of standard Cauchy random numbers
     // with location = 0 and scale = 1
     x = rndCauchy(3, 1, 0, 1);
     print x;
+
+After the code above, *x* is:
+
+::
+
+       3.2446955
+     -0.17323020
+       1.0822839
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

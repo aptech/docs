@@ -80,6 +80,12 @@ Examples
     mean = meanc(submean);
     print 0.5-mean;
 
+The difference from 0.5 is approximately zero, confirming the mean of the uniform distribution:
+
+::
+
+       6.2762512e-06
+
 Remarks
 -------
 

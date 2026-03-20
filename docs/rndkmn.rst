@@ -62,6 +62,12 @@ the next generation of random numbers.
     mean = meanc(submean);
     print mean;
 
+The overall mean is approximately zero, consistent with a standard normal distribution:
+
+::
+
+      -8.3387630e-05
+
 Remarks
 -------
 

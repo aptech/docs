@@ -79,8 +79,17 @@ Examples
 
     // Generate a 3x2 matrix of von Mises
     // random numbers with mean = pi, shape = 2
-    { x, newstate } = rndLCvm(3, 2, 3.14, 2, -1);
+    // using a fixed seed for repeatable output
+    { x, newstate } = rndLCvm(3, 2, 3.14, 2, 12345);
     print x;
+
+The output is a 3x2 matrix of von Mises distributed values centered near the mean of 3.14 (pi):
+
+::
+
+       3.1175039       -2.1479505
+       2.4731394        1.5778518
+      0.30247595        2.5394883
 
 Technical Notes
 ---------------
