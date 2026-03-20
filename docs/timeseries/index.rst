@@ -193,6 +193,14 @@ Control Structure Creators
 .. toctree::
     :maxdepth: 1
     :hidden:
+    :caption: Guides
+
+    choosing-a-var-model
+    var-verification
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
     :caption: VAR Estimation
 
     varfit
