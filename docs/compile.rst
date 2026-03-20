@@ -32,20 +32,20 @@ Examples
 
     compile qxy.e;
 
-In this example, the `source path` would be searched for qxy.e, which
+In this example, the ``source path`` would be searched for qxy.e, which
 would be compiled to a file called :file:`qxy.gcg` on the same subdirectory *qxy.e* was found.
 
 ::
 
     compile qxy.e xy;
 
-In this example, the `source path` would be searched for *qxy.e* which
+In this example, the ``source path`` would be searched for *qxy.e* which
 would be compiled to a file called :file:`xy.gcg` on the current subdirectory.
 
 Remarks
 -------
 
--  The source file will be searched for in the `source path` if the full path
+-  The source file will be searched for in the ``source path`` if the full path
    is not specified and it is not present in the current directory.
 
 -  The source file is a regular text file containing a GAUSS program.
@@ -66,7 +66,7 @@ Remarks
 -  The program saved in the compiled file can be run with the `run`
    command. If no extension is given, the `run` command will look for a
    file with the correct extension for the version of GAUSS. The
-   `source path` will be used to locate the file if the full path name is not
+   ``source path`` will be used to locate the file if the full path name is not
    given and it is not located on the current directory.
 
 -  When the compiled file is run, all previous symbols and procedures
@@ -74,10 +74,10 @@ Remarks
    to execute a `new` before running a compiled file.
 
 -  If you want line number records in the compiled file you can put a
-   `#lineson` statement in the source file or turn line tracking on from
+   ``#lineson`` statement in the source file or turn line tracking on from
    the main GAUSS menu, :menuselection:`Tools --> Preferences --> Advanced`.
 
--  Don't try to include compiled files with `#include`.
+-  Don't try to include compiled files with ``#include``.
 
 -  GAUSS compiled files are platform and bit-size specific. For example,
    a file compiled with GAUSS for Windows 64-bit will not run under

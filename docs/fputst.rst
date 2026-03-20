@@ -96,7 +96,7 @@ Remarks
 -------
 
 -  To write to the standard output stream or the standard error stream,
-   pass in `\__STDOUT` or `\__STDERR` as the file handle argument.
+   pass in ``__STDOUT`` or ``__STDERR`` as the file handle argument.
 
    ::
 

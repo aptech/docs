@@ -65,6 +65,6 @@ gauss.src
 Globals
 -------
 
-`\__fmtcv`
+``__fmtcv``
 
 .. seealso:: Functions :func:`formatnv`, :func:`printfm`, :func:`printfmt`

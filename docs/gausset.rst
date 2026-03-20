@@ -14,9 +14,9 @@ Format
 Globals
 -------
 
-`__altnam`, `__con`, `__ff`, `__fmtcv`, `__fmtnv`, `__header`, `__miss`,
-`__output`, `__row`, `__rowfac`, `__sort`, `__title`, `__tol`, `__vpad`,
-`__vtype`, `__weight`
+``__altnam``, ``__con``, ``__ff``, ``__fmtcv``, ``__fmtnv``, ``__header``, ``__miss``,
+``__output``, ``__row``, ``__rowfac``, ``__sort``, ``__title``, ``__tol``, ``__vpad``,
+``__vtype``, ``__weight``
 
 Example
 -------

@@ -43,10 +43,10 @@ because 33600 is a highly composite number,
 :math:`2^15`.
 
 For this reason, you may want to hand-pad matrices to
-optimum dimensions before passing them to :func:`fftn`. The `Run-Time Library`
+optimum dimensions before passing them to :func:`fftn`. The ``Run-Time Library``
 includes a routine, :func:`optn`, for determining optimum dimensions.
 
-The `Run-Time Library` also includes the :func:`nextn` routine, for
+The ``Run-Time Library`` also includes the :func:`nextn` routine, for
 determining allowable dimensions for a matrix. (You can use this to see
 the dimensions to which :func:`fftn` would pad a matrix.)
 

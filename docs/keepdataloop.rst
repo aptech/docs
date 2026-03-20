@@ -31,7 +31,7 @@ Commas are optional in *variable_list*.
 
 Retains only the specified variables in the output dataset. Any
 variables referenced must already exist, either as elements of the
-source dataset, or as the result of a previous `make`, `vector`, or `code`
+source dataset, or as the result of a previous `make`, ``vector``, or `code`
 statement.
 
 If neither `keep` nor `drop` is used, the output dataset will contain all

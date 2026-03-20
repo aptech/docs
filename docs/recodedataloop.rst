@@ -75,8 +75,8 @@ If none of the expressions is ``TRUE`` for a given row (observation), its
 value will remain unchanged.
 
 Any variables referenced must already exist, either as elements of the
-source dataset, as `extern`'s, or as the result of a previous `make`,
-`vector`, or `code` statement.
+source dataset, as ``extern``'s, or as the result of a previous `make`,
+``vector``, or `code` statement.
 
 
 .. seealso:: Functions `code`

@@ -552,7 +552,7 @@ Remarks
   you want output to be placed in a file, you need to open an output
   file before calling :func:`olsmt`.
 - The supported dataset types are CSV, XLS, XLSX, HDF5, FMT, DAT
-- For HDF5 file, the dataset must include `file schema` and both file name and
+- For HDF5 file, the dataset must include ``file schema`` and both file name and
   dataset name must be provided, e.g.
 
   ::
@@ -564,4 +564,4 @@ Source
 
 olsmt.src
 
-.. seealso:: Functions :func:`glm`, :func:`gmmFitIV`, :func:`olsmtControlCreate`, :func:`olsqrmt`, `Formula string`, :func:`clusterSE`, :func:`robustSE`
+.. seealso:: Functions :func:`glm`, :func:`gmmFitIV`, :func:`olsmtControlCreate`, :func:`olsqrmt`, ``Formula string``, :func:`clusterSE`, :func:`robustSE`

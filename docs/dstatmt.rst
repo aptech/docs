@@ -20,7 +20,7 @@ Format
  
       * A Kx1 character vector containing the names of variables.
       * A Kx1 numeric vector containing indices of variables.
-      * A `formula string`. 
+      * A ``formula string``. 
         e.g. :code:`"PAY + WT"` or :code:`". - sex"`
         e.g :code:`"X1 + by(X2)", "by(X2)"` specifies that the data should be separated into different tables based on the groups defined by ``X2``.
           
@@ -346,5 +346,5 @@ Source
 
 dstatmt.src
 
-.. seealso:: Functions :func:`dstatmtControlCreate`, `formula string`
+.. seealso:: Functions :func:`dstatmtControlCreate`, ``formula string``
 

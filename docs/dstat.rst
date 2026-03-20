@@ -23,7 +23,7 @@ Format
 
             * A Kx1 character vector containing the names of variables.
             * A Kx1 numeric vector containing indices of variables.
-            * A `formula string`. e.g. :code:`"PAY + WT"` or :code:`". - sex"`.
+            * A ``formula string``. e.g. :code:`"PAY + WT"` or :code:`". - sex"`.
 
             These can be any size subset of the variables in the dataset and can be in any order. If a scalar 0 is passed, all columns of the dataset will be used.
 
@@ -283,12 +283,12 @@ values for the valid data. The means and standard deviations will be
 computed using the correct number of valid observations for each
 variable.
 
-2. The supported dataset types are `CSV`, `XLS`, `XLSX`, `HDF5`, `FMT`, `DAT`, `DTA`.
+2. The supported dataset types are ``CSV``, ``XLS``, ``XLSX``, ``HDF5``, ``FMT``, ``DAT``, ``DTA``.
 
-For HDF5 file, the dataset must include `file schema` and both file name and dataset name must be provided, e.g.
+For HDF5 file, the dataset must include ``file schema`` and both file name and dataset name must be provided, e.g.
 :code:`dstat("h5://C:/gauss/examples/testdata.h5/mydata", formula)`
 
-.. seealso:: `Formula String`
+.. seealso:: ``Formula String``
 
 Source
 ------

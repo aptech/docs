@@ -104,4 +104,4 @@ Programs can also be run by typing the filename on the OS command line
 when starting GAUSS.
 
 
-.. seealso:: `#include`
+.. seealso:: ``#include``

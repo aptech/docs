@@ -43,11 +43,11 @@ Remarks
 
 Commas in *variable_list* are optional.
 
-The `extern` statement tells the translator not to generate local code for the listed
+The ``extern`` statement tells the translator not to generate local code for the listed
 variables, and not to assume that they are elements of the input data
 set.
 
-All `extern` statements should be placed before any reference to the symbols
+All ``extern`` statements should be placed before any reference to the symbols
 listed. The specified names should not exist in the input dataset, or
 be used in a `make` statement.
 

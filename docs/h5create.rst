@@ -138,14 +138,14 @@ Remarks
    above string, do not yet exist, :func:`h5create` will create them.
 
 -  By default, HDF5 datasets may not change size. To make one of the
-   dimensions expandable, set it to `__INFP`.
+   dimensions expandable, set it to ``__INFP``.
 -  All columns of an HDF5 dataset must be of the same data type.
    However, multiple datasets with different data types may be created
    in a single HDF5 file.
 -  Information about a dataset, called an attribute, may be attached to
    a dataset in an HDF5 file with the function :func:`h5writeAttribute`.
 -  Chunk size must be specified when users create a dataset with more
-   than 2 dimensions and one of those dimensions is unlimited (`__INFP`).
+   than 2 dimensions and one of those dimensions is unlimited (``__INFP``).
 
 
 .. seealso:: Functions :func:`h5read`, :func:`h5write`, `open`, `create`, :func:`writer`, :func:`seekr`, :func:`eof`

@@ -157,4 +157,4 @@ Source
 
 quantile.src
 
-.. seealso:: `Formula string`
+.. seealso:: ``Formula string``

@@ -24,7 +24,7 @@ Format
     :param dataset: name of dataset.
     :type dataset: string
 
-    :param formula: `formula string` of the independent variables.
+    :param formula: ``formula string`` of the independent variables.
         E.g :code:`"X1 + X2"`, '*X1*' and '*X2*' are names of independent variables;
     :type formula: String
 

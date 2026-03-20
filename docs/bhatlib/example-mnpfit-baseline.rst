@@ -51,7 +51,7 @@ Step Three: Specifying choice variables and restrictions
 ---------------------------------------------------------
 In this step, we will specify the choice variables and any restrictions that apply to the model. The choice variables are the alternatives available to the decision-maker, and the restrictions define which alternatives are available in each observation.
 
-These are specified in a string format, where each alternative should be represented by a column in the data. In our example the three choices, Drive Alone (DA), Shared Ride (SR), and Transit (TR) are contained in the `"Alt1_ch"`, `"Alt2_ch"`, and `"Alt3_ch"` columns. We input these as the `dvunordname` varible.
+These are specified in a string format, where each alternative should be represented by a column in the data. In our example the three choices, Drive Alone (DA), Shared Ride (SR), and Transit (TR) are contained in the `"Alt1_ch"`, `"Alt2_ch"`, and `"Alt3_ch"` columns. We input these as the ``dvunordname`` varible.
 
 ::
 
