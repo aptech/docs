@@ -162,7 +162,7 @@ The classic Box-Jenkins airline model — SARIMA(0,1,1)(0,1,1)[12]:
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
 
     // Auto SARIMA with season=12
-    result = arimaFit(y, season=12);
+    result = arimaFit(y, 12);
 
 Selects SARIMA(0,1,1)(0,1,1)[12] — the same model identified by Box & Jenkins (1970)
 on this dataset. The seasonal MA(1) coefficient captures the within-year pattern, while
@@ -179,7 +179,7 @@ Fixed Order with Diagnostics
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
 
     // Force SARIMA(1,1,1)(0,1,1)[12]
-    result = arimaFit(y, order=1|1|1, sorder=0|1|1, season=12);
+    result = arimaFit(y, 12, 1, 1, 1, 0, 1, 1);
 
 Check the Ljung-Box statistic for residual autocorrelation: p > 0.05 indicates no
 remaining serial correlation. Check Jarque-Bera for normality: p > 0.05 indicates
@@ -216,7 +216,8 @@ Fix :math:`d = 1` but auto-select :math:`p` and :math:`q`:
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
 
     // Fix d=1, auto-select p and q
-    result = arimaFit(y, order=-1|1|-1, season=12);
+    // season=12, fix d=1, auto-select p and q (use -1)
+    result = arimaFit(y, 12, -1, 1, -1);
 
 Using BIC for Model Selection
 +++++++++++++++++++++++++++++

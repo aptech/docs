@@ -198,6 +198,8 @@ Control Structure Creators
     getting-started
     choosing-a-var-model
     comparison
+    textbook-mapping
+    bgr-replication
     var-verification
 
 .. toctree::

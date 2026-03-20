@@ -123,7 +123,7 @@ Custom Confidence Level
     library timeseries;
 
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
-    result = arimaFit(y, order=1|1|1, season=12, quiet=1);
+    result = arimaFit(y, 12, 1, 1, 1, 0, 1, 1);
 
     // 99% prediction intervals (wider than 95%)
     fc = arimaForecast(result, 12, level=0.99);
