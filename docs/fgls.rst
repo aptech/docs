@@ -171,7 +171,7 @@ The output for data matrices includes default variable names:
           X3     -0.0228       0.129      -0.177       0.860      -0.275       0.229
   
 Basic usage with a dataframe and a formula string
-++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 

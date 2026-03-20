@@ -858,7 +858,7 @@ Our preview shows that the first element of the *PPI_lag* vector is a missing va
      1913-04-01        12.000000
 
 Computing a different lags of each column of a matrix with ``lagn``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To compute different lags of each column of data at the same time, a vector input of lags specifying a separate lag for each column of data can be used. Note that the lag vector must have the same number of elements as the number of columns in the matrix being lagged:
 
 ::
