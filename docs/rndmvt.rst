@@ -46,6 +46,9 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Degrees of freedom
     df = 8;
 
@@ -54,6 +57,14 @@ Examples
               0.3   1 };
 
     x = rndMVt(100, sigma, df);
+    print (meanc(x));
+
+::
+
+    -0.055890701
+    -0.034103818
+
+The column means are both close to zero, the expected value for a multivariate t-distribution.
 
 Remarks
 -------

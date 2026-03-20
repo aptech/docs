@@ -44,10 +44,21 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of Poisson
     // random numbers with lambda = 5
     x = rndp(3, 2, 5);
     print x;
+
+After the code above, *x* is:
+
+::
+
+       1.0000000        1.0000000
+       5.0000000        6.0000000
+       8.0000000        2.0000000
 
 Source
 ------

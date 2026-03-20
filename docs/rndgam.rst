@@ -44,10 +44,21 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of gamma
     // random numbers with shape = 5
     x = rndgam(3, 2, 5);
     print x;
+
+After the code above, *x* is:
+
+::
+
+       4.3270396        9.4093462
+       3.9689646        4.7393241
+       6.1082705        5.6436564
 
 Source
 ------

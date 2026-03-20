@@ -69,8 +69,17 @@ Examples
 
     // Generate a 3x2 matrix of Poisson
     // random numbers with lambda = 5
-    { x, newstate } = rndLCp(3, 2, 5, -1);
+    // using a fixed seed for repeatable output
+    { x, newstate } = rndLCp(3, 2, 5, 12345);
     print x;
+
+The output is a 3x2 matrix of non-negative integers. The sample mean is approximately 5, consistent with the theoretical mean of lambda:
+
+::
+
+       1.0000000        1.0000000
+       5.0000000        6.0000000
+       8.0000000        2.0000000
 
 Technical Notes
 ---------------

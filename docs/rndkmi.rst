@@ -63,6 +63,13 @@ generation of random numbers.
     print "min " min;
     print "max " max;
 
+produces the following output, showing that values span nearly the full range of :math:`0` to :math:`2^{32} - 1`:
+
+::
+
+    min        4222.0000
+    max    4.2949644e+09
+
 Remarks
 -------
 

@@ -69,9 +69,17 @@ Examples
 ::
 
     // Generate a 3x2 matrix of gamma random numbers
-    // with shape alpha = 5
-    { x, newstate } = rndLCgam(3, 2, 5, -1);
+    // with shape alpha = 5, using a fixed seed for repeatable output
+    { x, newstate } = rndLCgam(3, 2, 5, 12345);
     print x;
+
+The output is a 3x2 matrix of gamma-distributed values. The sample mean is approximately 5, consistent with the theoretical mean of alpha:
+
+::
+
+       4.3270396        9.4093462
+       3.9689646        4.7393241
+       6.1082705        5.6436564
 
 Technical Notes
 ---------------

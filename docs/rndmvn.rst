@@ -46,6 +46,9 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // covariance matrix
     cov = { 1 0.3,
           0.3   1 };
@@ -54,6 +57,14 @@ Examples
     mu = { 0, 0 };
 
     x = rndMVn(100, mu, cov);
+    print (meanc(x));
+
+::
+
+    -0.024045422
+   -0.0015723702
+
+The column means are both close to zero, the expected value for each dimension.
 
 Remarks
 -------

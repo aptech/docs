@@ -25,22 +25,24 @@ Examples
 
 ::
 
-    rndseed 223; 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     cov = { 1 .5,
            .5  1 };
     df = 10;
-    
+
     // A random matrix from inverse Wishart distribution
     y = rndWishartInv(cov, df);
-    
+
     print y;
 
-After above code,
+After the code above, *y* is:
 
 ::
 
-    0.081211791      0.036818644 
-    0.036818644      0.097064472
+      0.12810680      0.058073486
+     0.058073486       0.11794912
 
 .. seealso:: :func:`rndWishart`, :func:`rndMVn`, :func:`rndCreateState`
 

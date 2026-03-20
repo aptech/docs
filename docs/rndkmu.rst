@@ -61,6 +61,12 @@ next generation of random numbers.
     mean = meanc(submean);
     print 0.5-mean;
 
+The difference from 0.5 is approximately zero, confirming the mean of the uniform distribution:
+
+::
+
+       0.00060519278
+
 Remarks
 -------
 

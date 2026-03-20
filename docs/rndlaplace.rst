@@ -61,9 +61,20 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of Laplacian
     // random numbers with location = 0, scale = 1
     x = rndLaplace(3, 2, 0, 1);
     print x;
+
+After the code above, *x* is:
+
+::
+
+     0.099998705       0.27105855
+      0.67401079       0.34634625
+     -0.17962450       0.51272075
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

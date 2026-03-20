@@ -79,9 +79,17 @@ Examples
 ::
 
     // Generate a 3x2 matrix of gamma random numbers
-    // with shape alpha = 5, using the system clock as the seed
-    { x, newstate } = rndKMgam(3, 2, 5, -1);
+    // with shape alpha = 5, using a fixed seed for repeatable output
+    { x, newstate } = rndKMgam(3, 2, 5, 12345);
     print x;
+
+The output is a 3x2 matrix of gamma-distributed values. The sample mean is approximately 5, consistent with the theoretical mean of alpha:
+
+::
+
+       5.6131502        2.6675772
+       4.6622884        3.3561170
+       4.9309951        6.8404543
 
 Technical Notes
 ---------------

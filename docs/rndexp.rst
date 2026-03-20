@@ -58,9 +58,20 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of exponential
     // random numbers with scale = 2
     x = rndExp(3, 2, 2);
     print x;
+
+After the code above, *x* is:
+
+::
+
+      0.19999741        1.6175607
+      0.54211710        4.0899319
+       1.3480216        5.5601364
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

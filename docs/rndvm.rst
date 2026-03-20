@@ -32,10 +32,21 @@ Examples
 
 ::
 
+    // Set seed for repeatable output
+    rndseed 12345;
+
     // Generate a 3x2 matrix of von Mises
     // random numbers with mean = pi, shape = 2
     x = rndvm(3, 2, 3.14, 2);
     print x;
+
+After the code above, *x* is:
+
+::
+
+       3.1175039       -2.1479505
+       2.4731394        1.5778518
+      0.30247595        2.5394883
 
 Source
 ------

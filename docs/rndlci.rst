@@ -83,6 +83,13 @@ Examples
     print "min " min;
     print "max " max;
 
+produces the following output, showing that values span nearly the full range of :math:`0` to :math:`2^{32} - 1`:
+
+::
+
+    min        0.0000000
+    max    4.2949673e+09
+
 Remarks
 -------
 

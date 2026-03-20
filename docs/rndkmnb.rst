@@ -65,8 +65,17 @@ Examples
 
     // Generate a 3x2 matrix of negative binomial
     // random numbers with k = 5 and p = 0.3
-    { x, newstate } = rndKMnb(3, 2, 5, 0.3, -1);
+    // using a fixed seed for repeatable output
+    { x, newstate } = rndKMnb(3, 2, 5, 0.3, 12345);
     print x;
+
+The output is a 3x2 matrix of non-negative integers. The theoretical mean is k*p/(1-p) = 5*0.3/0.7, which is approximately 2.14:
+
+::
+
+       3.0000000        1.0000000
+       1.0000000        3.0000000
+       1.0000000        1.0000000
 
 Technical Notes
 ---------------

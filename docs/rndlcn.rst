@@ -79,6 +79,12 @@ Examples
     mean = meanc(submean);
     print mean;
 
+The overall mean is approximately zero, consistent with a standard normal distribution:
+
+::
+
+       3.9836726e-06
+
 Remarks
 -------
 

@@ -46,8 +46,21 @@ Example 1
 
 ::
 
-    //Create a 100 by 1 vector of standard normal numbers
+    // Set seed for repeatable output
+    rndseed 12345;
+
+    // Create a 100 by 1 vector of standard normal numbers
     my_var = rndn(100, 1);
+
+    print (meanc(my_var));
+    print (stdc(my_var));
+
+The sample mean is approximately zero and the standard deviation is approximately one, consistent with the standard normal distribution:
+
+::
+
+     -0.16514335
+       1.0121976
 
 Example 2
 +++++++++
