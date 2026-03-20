@@ -118,10 +118,37 @@ Key Findings
    hundreds of thousands of posterior draws — runs in approximately 13 minutes on a
    single core.
 
-3. **Estimated BEAR timing for the same exercise:** A single BVAR estimation at m=50
-   takes 4.8 minutes in the ECB BEAR Toolbox (MATLAB). The 60-window rolling evaluation
-   at m=50 alone would take approximately **5 hours**. The full exercise across all
-   system sizes would take over **8 hours**.
+3. **Measured BEAR timing on the same exercise:**
+
+   .. list-table::
+      :widths: 15 20 20 15
+      :header-rows: 1
+
+      * - m
+        - GAUSS
+        - BEAR
+        - Speedup
+      * - 3
+        - 1.4s
+        - 33.6s
+        - 24x
+      * - 20
+        - 57s
+        - 5.9 min
+        - 6.2x
+      * - 50
+        - 6.8 min
+        - ~4.8 hours (est.)
+        - ~42x
+      * - 68
+        - ~12 min
+        - ~10 hours (est.)
+        - ~50x
+
+   BEAR timings measured on MATLAB R2025b with the same data, same lags (p=12),
+   same number of retained draws (500), and same rolling evaluation protocol
+   (60 expanding windows). BEAR m=50 and m=68 estimated from single-estimation
+   benchmarks (286s and ~600s per window respectively).
 
 
 The Code
