@@ -318,7 +318,7 @@ After the above code,
 Example 3
 +++++++++
 
-Pass in a dataset name and a `Formula string`
+Pass in a dataset name and a ``Formula string``
 
 ::
 
@@ -364,7 +364,7 @@ Remarks
   you want output to be placed in a file, you need to open an output
   file before calling :func:`ols`.
 - The supported dataset types are CSV, XLS, XLSX, HDF5, FMT, DAT
-- For HDF5 file, the dataset must include `file schema` and both file name and
+- For HDF5 file, the dataset must include ``file schema`` and both file name and
   dataset name must be provided, e.g.
 
   ::
@@ -376,4 +376,4 @@ Source
 
 ols.src
 
-.. seealso:: Functions :func:`olsqr`, `Formula string`
+.. seealso:: Functions :func:`olsqr`, ``Formula string``

@@ -168,4 +168,4 @@ momentd.src
 See also
 ------------
 
-.. seealso:: `Formula String`
+.. seealso:: ``Formula String``

@@ -36,7 +36,7 @@ Remarks
 :func:`maxvec` returns the value in the global scalar *__maxvec*, which can be
 reset in the calling program.
 
-:func:`maxvec` is called by `Run-Time Library` functions and applications when
+:func:`maxvec` is called by ``Run-Time Library`` functions and applications when
 determining how many rows can be read from a dataset in one call to
 readr.
 

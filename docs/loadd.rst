@@ -285,9 +285,9 @@ Remarks
 -  If *dataset* is a null string or 0, the dataset :file:`temp.dat` will be
    loaded.
 -  To load a matrix file, use an :file:`.fmt` extension on dataset.
--  The supported dataset types are `CSV`, `Excel` (XLS, XLSX), `HDF5`, `GAUSS Matrix (FMT)`,
-   `GAUSS Dataset (DAT)`, `Stata` (DTA) and `SAS` (SAS7BDAT, SAS7BCAT).
--  For `HDF5` file, the dataset must include schema and both file name and
+-  The supported dataset types are ``CSV``, ``Excel`` (XLS, XLSX), ``HDF5``, ``GAUSS Matrix (FMT)``,
+   ``GAUSS Dataset (DAT)``, ``Stata`` (DTA) and ``SAS`` (SAS7BDAT, SAS7BCAT).
+-  For ``HDF5`` file, the dataset must include schema and both file name and
    dataset name must be provided, e.g.
 
 ::

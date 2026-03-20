@@ -30,10 +30,10 @@ Format
     :type weight_var: string, default = ``"uno"``
 
     :param varnam: Optional input. Names of variables in the baseline utility specification.
-    :type varnam: string vector, default = auto-generated from `dvunordname` and `ivmt`
+    :type varnam: string vector, default = auto-generated from ``dvunordname`` and `ivmt`
 
     :param varngam: Optional input. Names of variables in the translation specification.
-    :type varngam: string vector, default = auto-generated from `dvunordname` and `ivgt`
+    :type varngam: string vector, default = auto-generated from ``dvunordname`` and `ivgt`
 
     :return beta_hat: Estimated model coefficients including baseline utility, translation, and scale parameters.
     :rtype beta_hat: column vector

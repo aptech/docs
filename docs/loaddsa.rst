@@ -13,7 +13,7 @@ Format
     :param dataset: name of dataset.
     :type dataset: string
 
-    :param varnames: `Formula string` indicating which variable names to load from the dataset
+    :param varnames: ``Formula string`` indicating which variable names to load from the dataset
 
         E.g ``"."``, include all variables;
 
@@ -134,11 +134,11 @@ Remarks
    be small enough to fit in memory.
 *  If *dataset* is a null string or 0, the dataset :file:`temp.dat` will be
    loaded.
-*  The supported dataset types are `CSV`, `Excel (XLS, XLSX)`, `HDF5`, `GAUSS Matrix (FMT)`,
-   `GAUSS Dataset (DAT)`, `Stata (DTA)` and `SAS (SAS7BDAT, SAS7BCAT)`.
-*  Since `GAUSS Matrix files (FMT)` do not contain data type information, :func:`loaddSA` will assume
+*  The supported dataset types are ``CSV``, ``Excel (XLS, XLSX)``, ``HDF5``, ``GAUSS Matrix (FMT)``,
+   ``GAUSS Dataset (DAT)``, ``Stata (DTA)`` and ``SAS (SAS7BDAT, SAS7BCAT)``.
+*  Since ``GAUSS Matrix files (FMT)`` do not contain data type information, :func:`loaddSA` will assume
    that the entire contents of the file are numeric.
-*  For `HDF5` file, the dataset must include schema and both file name and
+*  For ``HDF5`` file, the dataset must include schema and both file name and
    dataset name must be provided, e.g.
 
 ::
@@ -153,4 +153,4 @@ saveload.src
 See also
 ------------
 
-.. seealso:: `Formula String`, :func:`csvReadSA`, :func:`getHeaders`, :func:`loadd`, :func:`saved`
+.. seealso:: ``Formula String``, :func:`csvReadSA`, :func:`getHeaders`, :func:`loadd`, :func:`saved`
