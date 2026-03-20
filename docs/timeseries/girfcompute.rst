@@ -86,6 +86,50 @@ shock. This means GIRF variance decompositions do not sum to 1.
 - Use **sign/zero restrictions** (SVAR) for theory-driven non-recursive
   identification.
 
+Model
+-----
+
+The generalized IRF (Pesaran & Shin 1998) for a shock to variable :math:`j` is:
+
+.. math::
+
+   \text{GIRF}_j(h) = \frac{\Phi_h \Sigma e_j}{\sqrt{\Sigma_{jj}}}
+
+where :math:`\Phi_h = J F^h J'` is the reduced-form IRF, :math:`\Sigma` is the error
+covariance, and :math:`e_j` is the j-th unit vector. The denominator normalizes to a
+one-standard-deviation shock.
+
+Unlike Cholesky IRF, the GIRF accounts for the typical contemporaneous correlation
+structure rather than imposing orthogonality. The result is invariant to variable ordering.
+
+**Important caveat:** GIRF shocks are correlated, so the GIRF-based FEVD does not sum
+to 1. Use Cholesky (:func:`irfCompute`) or sign-restricted SVAR (:func:`svarIdentify`)
+for a proper variance decomposition.
+
+
+Algorithm
+---------
+
+1. Compute reduced-form IRF matrices :math:`\Phi_0, \ldots, \Phi_h` from the companion form.
+2. For each variable :math:`j`, scale by :math:`\Sigma e_j / \sqrt{\Sigma_{jj}}`.
+
+**Complexity:** Same as :func:`irfCompute`.
+
+
+Verification
+------------
+
+GIRF verified against the analytical relationship with Cholesky IRF: for the
+first variable, GIRF and Cholesky IRF are identical (both equal
+:math:`\Phi_h P e_1`). Tested on the R benchmark data.
+
+
+References
+----------
+
+- Pesaran, M.H. and Y. Shin (1998). "Generalized impulse response analysis in linear multivariate models." *Economics Letters*, 58(1), 17-29.
+
+
 Library
 -------
 timeseries
@@ -94,4 +138,4 @@ Source
 ------
 irf.src
 
-.. seealso:: Functions :func:`irfCompute`, :func:`fevdCompute`
+.. seealso:: Functions :func:`irfCompute`, :func:`fevdCompute`, :func:`svarIdentify`

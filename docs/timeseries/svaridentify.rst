@@ -94,6 +94,60 @@ all sign restrictions on the implied IRFs. Returns the first accepted rotation.
 raises an error. Zero restrictions require the ARW2018 null-space algorithm,
 which is planned for a future release.
 
+Model
+-----
+
+Sign-restricted SVAR decomposes the error covariance as :math:`\Sigma = PP'` where
+:math:`P` is not unique. The set of valid decompositions is :math:`\{PQ : Q \in O(m),\; PQ \text{ satisfies sign restrictions}\}` where :math:`O(m)` is the group of orthogonal matrices.
+
+Given a set of sign restrictions :math:`\Theta_h[i,j] \gtrless 0` (the IRF of variable
+:math:`i` to shock :math:`j` at horizon :math:`h` is positive or negative), the
+function finds a :math:`Q^*` such that :math:`P^* = \text{chol}(\Sigma)' \cdot Q^*`
+produces IRFs satisfying all restrictions.
+
+
+Algorithm
+---------
+
+1. Compute :math:`L = \text{chol}(\Sigma)'`.
+2. Draw :math:`Z \sim N(0, I_{m \times m})` and compute :math:`Q, R = \text{QR}(Z)` with sign correction (Mezzadri 2007 algorithm for Haar-uniform orthogonal matrices).
+3. Form candidate :math:`P = L \cdot Q`.
+4. Compute IRFs :math:`\Theta_h = J F^h J' P` at all restricted horizons.
+5. Check all sign restrictions. If satisfied, return :math:`P`. Otherwise, go to step 2.
+6. Repeat up to *ctl.max_tries* times.
+
+**Complexity:** :math:`O(\text{max\_tries} \cdot h_{\max} \cdot m^2 p^2)` worst case. Acceptance rates depend on how restrictive the sign constraints are.
+
+
+Troubleshooting
+---------------
+
+**No valid rotation found (max_tries exceeded):**
+The sign restrictions may be too numerous, contradictory, or implausible for this data.
+Relax some restrictions or increase *ctl.max_tries*.
+
+**Low acceptance rate (< 1%):**
+Many restrictions at long horizons are hard to satisfy. Start with impact-only
+restrictions and add horizons incrementally.
+
+
+Verification
+------------
+
+Sign restriction algorithm verified against the Rubio-Ramirez, Waggoner & Zha (2010)
+analytical examples for 2-variable and 3-variable systems.
+
+See ``crossval/12_svar_crossval.R``.
+
+
+References
+----------
+
+- Mezzadri, F. (2007). "How to generate random matrices from the classical compact groups." *Notices of the AMS*, 54(5), 592-604.
+- Rubio-Ramirez, J.F., D.F. Waggoner, and T. Zha (2010). "Structural vector autoregressions: Theory of identification and algorithms for inference." *Review of Economic Studies*, 77(2), 665-696.
+- Uhlig, H. (2005). "What are the effects of monetary policy on output? Results from an agnostic identification procedure." *Journal of Monetary Economics*, 52(2), 381-419.
+
+
 Library
 -------
 timeseries

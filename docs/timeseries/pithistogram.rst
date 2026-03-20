@@ -41,6 +41,24 @@ A well-calibrated density forecast produces a uniform PIT histogram.
 Humps indicate underdispersion (too narrow intervals); U-shapes indicate
 overdispersion. Skewness indicates bias.
 
+Model
+-----
+
+The PIT histogram bins the empirical CDF values :math:`u_t = \hat{F}_t(y_t)` into
+equal-width bins on [0, 1]. Under correct calibration, all bins should have
+approximately equal height (:math:`T / n_{\text{bins}}`). Deviations indicate:
+
+- **Hump in center:** Underdispersion (intervals too narrow — overconfident).
+- **U-shape (high at edges):** Overdispersion (intervals too wide — underconfident).
+- **Skewed:** Systematic bias in the predictive mean.
+
+
+References
+----------
+
+- Diebold, F.X., T.A. Gunther, and A.S. Tay (1998). "Evaluating density forecasts." *International Economic Review*, 39(4), 863-883.
+
+
 Library
 -------
 timeseries
@@ -49,4 +67,4 @@ Source
 ------
 scoring.src
 
-.. seealso:: Functions :func:`pitTest`
+.. seealso:: Functions :func:`pitTest`, :func:`fcScore`

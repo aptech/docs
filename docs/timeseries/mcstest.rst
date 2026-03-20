@@ -59,6 +59,28 @@ be rejected for the remaining set.
 
 The surviving set includes all models whose MCS p-value exceeds *alpha*.
 
+Model
+-----
+
+The MCS procedure iteratively tests equal predictive ability across a set of models.
+At each step, the worst-performing model is identified and tested for elimination:
+
+.. math::
+
+   t_{\max,M} = \max_{i \in M} \frac{\bar{d}_{i\cdot}}{\sqrt{\widehat{\text{var}}(\bar{d}_{i\cdot})}}
+
+where :math:`\bar{d}_{i\cdot} = \frac{1}{|M|} \sum_{j \in M} \bar{d}_{ij}` is model
+i's average loss relative to all surviving models. The p-value is computed via
+stationary bootstrap (Politis & Romano 1994).
+
+
+References
+----------
+
+- Hansen, P.R., A. Lunde, and J.M. Nason (2011). "The Model Confidence Set." *Econometrica*, 79(2), 453-497.
+- Politis, D.N. and J.P. Romano (1994). "The stationary bootstrap." *Journal of the American Statistical Association*, 89(428), 1303-1313.
+
+
 Library
 -------
 timeseries

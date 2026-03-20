@@ -98,6 +98,55 @@ denominator degrees of freedom.
 Granger-causes Y" means X contains information useful for forecasting Y
 beyond what Y's own lags provide. It does not imply X structurally causes Y.
 
+Model
+-----
+
+The Granger causality test (Granger 1969) tests the null hypothesis that all :math:`p`
+lags of the cause variable are jointly zero in the effect variable's equation:
+
+.. math::
+
+   H_0: B_{\text{cause},1} = B_{\text{cause},2} = \cdots = B_{\text{cause},p} = 0
+
+in the equation for the effect variable. The F-statistic is:
+
+.. math::
+
+   F = \frac{(\text{RSS}_r - \text{RSS}_u) / p}{\text{RSS}_u / (T - mp - 1)} \sim F(p, T - mp - 1)
+
+where :math:`\text{RSS}_r` and :math:`\text{RSS}_u` are residual sums of squares from
+the restricted and unrestricted regressions.
+
+
+Troubleshooting
+---------------
+
+**Significant Granger causality in both directions:**
+This is possible and common — it means both variables contain predictive information
+about each other. This does not imply feedback causation in a structural sense.
+
+**Result depends on lag order:**
+Granger causality tests are sensitive to p. Use :func:`varLagSelect` to choose p
+before testing.
+
+
+Verification
+------------
+
+Granger causality F-statistics and p-values verified against R ``vars::causality()``
+at :math:`10^{-6}` tolerance on a 2-variable VAR(1) with known DGP. Both directions
+tested (Y1→Y2 and Y2→Y1).
+
+See ``gausslib-var/tests/r_benchmark.rs``.
+
+
+References
+----------
+
+- Granger, C.W.J. (1969). "Investigating causal relations by econometric models and cross-spectral methods." *Econometrica*, 37(3), 424-438.
+- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Section 3.6.
+
+
 Library
 -------
 timeseries

@@ -117,6 +117,63 @@ fields populated — the optimal lambda values plus all other settings carried
 over from the input. Pass it directly to :func:`bvarFit` without further
 modification.
 
+Model
+-----
+
+The marginal likelihood of the data under the conjugate Minnesota prior is:
+
+.. math::
+
+   p(Y | \lambda) = \pi^{-\frac{T m}{2}} \frac{|\bar\Phi|^{m/2}}{|\Omega|^{m/2}} \frac{|\bar{S}|^{-\bar\alpha/2}}{|S_0|^{-\alpha_0/2}} \prod_{i=1}^{m} \frac{\Gamma((\bar\alpha + 1 - i)/2)}{\Gamma((\alpha_0 + 1 - i)/2)}
+
+where :math:`\lambda = (\lambda_1, \lambda_6, \lambda_7)` are the hyperparameters being
+optimized, and the posterior parameters :math:`\bar\Phi, \bar{S}, \bar\alpha` depend on
+:math:`\lambda` through the prior.
+
+The optimum :math:`\lambda^* = \arg\max_\lambda \log p(Y | \lambda)` is the
+empirical Bayes or "type II maximum likelihood" estimate.
+
+
+Algorithm
+---------
+
+1. Evaluate :math:`\log p(Y | \lambda)` analytically (closed form for conjugate NIW).
+2. Maximize using L-BFGS-B with positivity constraints on all :math:`\lambda`.
+3. Starting values: the input *ctl* lambda values (defaults: lambda1=0.2).
+
+The optimization is fast because each function evaluation is :math:`O(K^2 m)` (no MCMC).
+Typical wall-clock time is 0.01-0.05 seconds.
+
+
+Troubleshooting
+---------------
+
+**Optimizer returns lambda1 at the upper bound:**
+The data wants a very loose prior (lambda1 → ∞ approaches OLS). This suggests
+the sample is large enough that the prior doesn't help. Consider using OLS
+(:func:`varFit`) or reducing the search bounds.
+
+**lambda6 or lambda7 optimized to near zero:**
+The data does not support sum-of-coefficients or single-unit-root priors.
+This is informative — the prior is not needed for this dataset.
+
+
+Verification
+------------
+
+GLP hyperparameter optimization verified against R ``BVAR::bvar()`` with
+``hyper = "auto"`` on multiple datasets. Optimal lambda values and maximized
+log marginal likelihoods agree within optimization tolerance.
+
+See ``crossval/23_glp_crossval.R``.
+
+
+References
+----------
+
+- Giannone, D., M. Lenza, and G. E. Primiceri (2015). "Prior selection for vector autoregressions." *Review of Economics and Statistics*, 97(2), 436-451.
+
+
 Library
 -------
 timeseries

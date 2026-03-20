@@ -45,6 +45,27 @@ The standard Diebold-Mariano test is biased in favor of the restricted model
 when models are nested (Clark & West 2007). This test adjusts for the noise
 in the unrestricted model's parameter estimates.
 
+Model
+-----
+
+The Clark-West adjusted statistic adds a correction term for the noise in the
+unrestricted model's forecasts:
+
+.. math::
+
+   \tilde{d}_t = (e_{R,t})^2 - \left[(e_{U,t})^2 - (\hat{y}_{R,t} - \hat{y}_{U,t})^2\right]
+
+where :math:`e_R` and :math:`e_U` are forecast errors from the restricted and unrestricted
+models, and the squared difference in forecasts corrects for the bias. The test statistic
+is the t-statistic of :math:`\bar{\tilde{d}}` with HAC standard errors.
+
+
+References
+----------
+
+- Clark, T.E. and K.D. West (2007). "Approximately normal tests for equal predictive accuracy in nested models." *Journal of Econometrics*, 138(1), 291-311.
+
+
 Library
 -------
 timeseries

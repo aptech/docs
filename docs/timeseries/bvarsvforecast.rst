@@ -194,6 +194,83 @@ underestimates tail risk by ignoring :math:`h_T` uncertainty.
 Setting ``store_draws = 1`` stores an (n_draws * n_paths) x (h * m) matrix.
 For large systems or long horizons, this can be substantial. Default is off.
 
+Model
+-----
+
+The SV-BVAR density forecast accounts for three sources of uncertainty:
+
+1. **Parameter uncertainty:** different :math:`(B^{(s)}, A^{(s)})` draws.
+2. **Volatility uncertainty:** the future path of log-volatilities :math:`h_{T+1}, \ldots, h_{T+h}`.
+3. **Innovation uncertainty:** random :math:`\varepsilon_{T+s}` with time-varying variance.
+
+At each forecast horizon :math:`s = 1, \ldots, h`:
+
+.. math::
+
+   h_{i,T+s} &= \mu_i + \phi_i (h_{i,T+s-1} - \mu_i) + \sigma_i \eta_{i,T+s} \\
+   \varepsilon_{T+s} &\sim N(0, \Sigma_{T+s}) \quad \text{where } \Sigma_{T+s} = A_{T+s}^{-1} D_{T+s} A_{T+s}^{-\prime} \\
+   y_{T+s} &= B_1 y_{T+s-1} + \cdots + B_p y_{T+s-p} + u + \varepsilon_{T+s}
+
+The resulting predictive density is non-Gaussian and potentially fat-tailed due to
+volatility clustering — a key advantage over constant-variance BVAR forecasts.
+
+
+Algorithm
+---------
+
+**Simulate mode:**
+
+1. For each posterior draw :math:`(B^{(s)}, A^{(s)}, \mu^{(s)}, \phi^{(s)}, \sigma^{(s)}, h_T^{(s)})`:
+
+   a. For each of *n_paths* simulation paths:
+      i. Propagate log-volatilities forward: :math:`h_{T+1}, \ldots, h_{T+h}`.
+      ii. Draw innovations from the time-varying covariance.
+      iii. Iterate the VAR forward.
+
+2. Collect all forecast paths and compute quantiles.
+
+**Mean-path mode:**
+Uses the posterior mean volatility at each horizon (no simulation of :math:`\eta`),
+giving a single path per posterior draw. Faster but underestimates tail risk.
+
+**Complexity:** Simulate mode: :math:`O(n\_draws \cdot n\_paths \cdot h \cdot m^2)`.
+
+
+Troubleshooting
+---------------
+
+**Density forecasts are too narrow compared to realized outcomes:**
+Use ``mode = "simulate"`` instead of ``"mean_path"``. The mean-path mode
+underestimates uncertainty by ignoring future volatility randomness.
+
+**Memory issues with large systems:**
+Use ``store_draws = 0`` (default) and rely on the quantile summaries. For systems
+with m > 10, use ``sv_keep = "online"`` in :func:`bvarSvFit`.
+
+**Forecast volatility path seems unreasonable:**
+If :math:`h_T` is at an extreme value (e.g., a crisis period), forecasts may show
+elevated volatility for many periods. This is the model correctly reflecting
+persistent volatility. If the persistence :math:`\phi_i` is near 1, volatility
+shocks take many periods to decay.
+
+
+Verification
+------------
+
+SV-BVAR forecast density calibration verified via PIT (probability integral transform)
+tests on out-of-sample evaluation windows. Forecast paths validated against
+R ``bayesianVARs::predict()`` for structural consistency.
+
+See the :ref:`var-verification` page.
+
+
+References
+----------
+
+- Clark, T.E. (2011). "Real-time density forecasts from Bayesian vector autoregressions with stochastic volatility." *Journal of Business & Economic Statistics*, 29(3), 327-341.
+- Kastner, G. and S. Fruhwirth-Schnatter (2014). "Ancillarity-sufficiency interweaving strategy (ASIS) for boosting MCMC estimation of stochastic volatility models." *Computational Statistics & Data Analysis*, 76, 408-423.
+
+
 Library
 -------
 timeseries
@@ -202,4 +279,4 @@ Source
 ------
 forecast.src
 
-.. seealso:: Functions :func:`bvarSvFit`, :func:`svForecastControlCreate`, :func:`bvarForecast`, :func:`condForecast`
+.. seealso:: Functions :func:`bvarSvFit`, :func:`svForecastControlCreate`, :func:`bvarForecast`, :func:`condForecast`, :func:`pitTest`

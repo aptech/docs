@@ -133,6 +133,68 @@ of columns as the original regressors. An error is raised if omitted.
 **Non-stationary models:** Forecasts from non-stationary VARs (explosive
 eigenvalues) may diverge rapidly. Check *result.is_stationary* before forecasting.
 
+Model
+-----
+
+The h-step-ahead point forecast from a VAR(p) is:
+
+.. math::
+
+   \hat{y}_{T+h|T} = \hat{B}_1 \hat{y}_{T+h-1|T} + \cdots + \hat{B}_p \hat{y}_{T+h-p|T} + \hat{u}
+
+where :math:`\hat{y}_{T+j|T} = y_{T+j}` for :math:`j \leq 0` (observed data) and
+:math:`\hat{y}_{T+j|T}` is the forecast for :math:`j \geq 1`.
+
+The confidence interval at horizon :math:`h` is:
+
+.. math::
+
+   \hat{y}_{T+h|T} \pm z_{\alpha/2} \sqrt{\text{diag}(\text{MSE}_h)}
+
+where the mean squared error matrix is :math:`\text{MSE}_h = \sum_{j=0}^{h-1} \Phi_j \hat\Sigma \Phi_j'`
+and :math:`\Phi_j = J F^j J'` are the impulse response matrices. Intervals widen with the
+horizon as :math:`\text{MSE}_h` accumulates.
+
+
+Algorithm
+---------
+
+1. **Recursive substitution:** Iterate the estimated VAR equations forward, replacing future observations with their forecasts.
+2. **MSE computation:** Accumulate the forecast error covariance via the companion form.
+3. **Intervals:** Gaussian quantiles applied to the diagonal of :math:`\text{MSE}_h`.
+
+**Complexity:** :math:`O(h \cdot m^2 p^2)` — sub-millisecond.
+
+
+Troubleshooting
+---------------
+
+**Forecasts diverge rapidly:**
+The VAR is non-stationary (explosive eigenvalues). Check *result.is_stationary*.
+Consider differencing the data or switching to :func:`bvarFit` with regularization.
+
+**Confidence intervals are unrealistically narrow:**
+Frequentist VAR intervals do not account for parameter estimation uncertainty —
+they condition on :math:`\hat{B}` as if known. For intervals that reflect parameter
+uncertainty, use :func:`bvarForecast` (Bayesian predictive density).
+
+
+Verification
+------------
+
+VAR forecasts verified against R ``vars::predict()`` at :math:`10^{-6}` tolerance
+on a 2-variable VAR(1) with known DGP. Point forecasts and forecast standard errors
+match across 1-4 step horizons.
+
+See ``gausslib-var/tests/r_benchmark.rs`` and the :ref:`var-verification` page.
+
+
+References
+----------
+
+- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Section 3.5.
+
+
 Library
 -------
 timeseries
@@ -141,4 +203,4 @@ Source
 ------
 forecast.src
 
-.. seealso:: Functions :func:`varFit`, :func:`bvarForecast`, :func:`bvarSvForecast`
+.. seealso:: Functions :func:`varFit`, :func:`bvarForecast`, :func:`bvarSvForecast`, :func:`fcScore`, :func:`dmTest`

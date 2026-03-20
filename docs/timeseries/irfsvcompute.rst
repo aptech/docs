@@ -102,6 +102,59 @@ uncertainty but do not control joint coverage across all horizons.
 (the default) so that the posterior draws of B and U are available. If
 ``sv_keep = "online"`` was used, an error is raised.
 
+Model
+-----
+
+For each posterior draw :math:`(B^{(s)}, U^{(s)})` from the SV-BVAR, the structural
+IRF is computed using the time-averaged Cholesky factor:
+
+.. math::
+
+   \Theta_h^{(s)} = J \, (F^{(s)})^h \, J' \, \bar{P}^{(s)}
+
+where :math:`\bar{P}^{(s)}` is derived from the draw-specific :math:`U^{(s)}` and
+the mean of the time-varying diagonal :math:`D_t`. The posterior distribution of
+:math:`\{\Theta_h^{(s)}\}` yields pointwise credible bands.
+
+
+Algorithm
+---------
+
+1. For each of *n_draws* posterior draws:
+
+   a. Construct companion matrix :math:`F^{(s)}` from :math:`B^{(s)}`.
+   b. Construct structural rotation :math:`\bar{P}^{(s)}` from the draw's Cholesky factor.
+   c. Compute :math:`\Theta_0^{(s)}, \ldots, \Theta_h^{(s)}` via companion powers.
+
+2. At each horizon, compute pointwise quantiles across all draws.
+
+**Complexity:** :math:`O(n\_draws \cdot h \cdot m^2 p^2)`.
+
+
+Troubleshooting
+---------------
+
+**"Requires full draws" error:**
+The SV-BVAR was estimated with ``sv_keep = "online"`` or ``"last"``, which does
+not store the individual :math:`(B, U)` draws needed for posterior IRF bands.
+Re-estimate with ``sv_keep = "full"`` (the default).
+
+**Bands are asymmetric:**
+This is expected — the posterior distribution of IRFs is typically skewed,
+especially at longer horizons. Asymmetric bands reflect this correctly.
+
+**Bands include zero at all horizons:**
+The shock may not have a statistically significant effect on the response variable.
+This is a finding, not a problem.
+
+
+References
+----------
+
+- Primiceri, G.E. (2005). "Time varying structural vector autoregressions and monetary policy." *Review of Economic Studies*, 72(3), 821-852.
+- Clark, T.E. (2011). "Real-time density forecasts from Bayesian vector autoregressions with stochastic volatility." *Journal of Business & Economic Statistics*, 29(3), 327-341.
+
+
 Library
 -------
 timeseries
@@ -110,4 +163,4 @@ Source
 ------
 irf.src
 
-.. seealso:: Functions :func:`bvarSvFit`, :func:`irfCompute`, :func:`irfPlotData`
+.. seealso:: Functions :func:`bvarSvFit`, :func:`irfCompute`, :func:`irfPlotData`, :func:`svarIdentify`

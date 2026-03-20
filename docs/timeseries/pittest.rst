@@ -57,6 +57,29 @@ uniformly distributed on [0, 1]. Three tests are applied:
 A well-calibrated forecast should have non-significant p-values for all
 three tests.
 
+Model
+-----
+
+The PIT value for observation :math:`t` is:
+
+.. math::
+
+   u_t = \hat{F}_t(y_t) = \frac{1}{S} \sum_{s=1}^{S} \mathbf{1}(\hat{y}_t^{(s)} \leq y_t)
+
+where :math:`\hat{y}_t^{(s)}` are posterior predictive draws. If the density forecast is
+correctly specified, :math:`u_t \sim U(0,1)` (Diebold, Gunther & Tay 1998).
+
+**Berkowitz test** additionally tests serial independence by fitting an AR(1) to the
+probit-transformed PITs :math:`z_t = \Phi^{-1}(u_t)` and testing :math:`H_0: \mu = 0, \sigma = 1, \rho = 0`.
+
+
+References
+----------
+
+- Diebold, F.X., T.A. Gunther, and A.S. Tay (1998). "Evaluating density forecasts with applications to financial risk management." *International Economic Review*, 39(4), 863-883.
+- Berkowitz, J. (2001). "Testing density forecasts, with applications to risk management." *Journal of Business & Economic Statistics*, 19(4), 465-474.
+
+
 Library
 -------
 timeseries

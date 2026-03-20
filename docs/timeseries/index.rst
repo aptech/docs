@@ -195,7 +195,9 @@ Control Structure Creators
     :hidden:
     :caption: Guides
 
+    getting-started
     choosing-a-var-model
+    comparison
     var-verification
 
 .. toctree::

@@ -104,6 +104,50 @@ where :math:`S_t` is the seasonal component, :math:`T_t` is the trend, and
 pattern can change. Larger values produce a more stable seasonal pattern.
 Must be odd and >= 7. The default is typically ``period + 1`` (rounded to odd).
 
+Algorithm
+---------
+
+STL uses an inner loop of iterative LOESS (locally weighted regression) smoothing:
+
+1. **Detrend:** Subtract the current trend estimate from the series.
+2. **Seasonal smoothing:** Apply LOESS to each subseries (e.g., all Januaries) with window *s_window*.
+3. **Low-pass filter:** Remove high-frequency artifacts from the seasonal estimate.
+4. **Deseasonalize:** Subtract the seasonal estimate from the original series.
+5. **Trend smoothing:** Apply LOESS to the deseasonalized series.
+6. **Iterate** steps 1-5 (typically 2 inner iterations, 1 outer iteration for robustness weights).
+
+See Cleveland et al. (1990) for the complete specification.
+
+
+Troubleshooting
+---------------
+
+**Seasonal component is too smooth / not smooth enough:**
+Increase *s_window* for smoother seasonal patterns; decrease for more adaptive patterns.
+The default is typically ``period + 1``.
+
+**Remainder has visible seasonal pattern:**
+*s_window* is too large — the seasonal smoother can't track changes in the seasonal
+pattern. Reduce *s_window* or use a multiplicative decomposition (take logs first,
+decompose, exponentiate).
+
+
+Verification
+------------
+
+STL decomposition verified against R ``stats::stl()`` with ``s.window=13`` on the
+AirPassengers dataset. Seasonal, trend, and remainder components match at :math:`10^{-4}`
+tolerance.
+
+See ``crossval/03_arima_crossval.R``.
+
+
+References
+----------
+
+- Cleveland, R.B., W.S. Cleveland, J.E. McRae, and I. Terpenning (1990). "STL: A seasonal-trend decomposition procedure based on Loess." *Journal of Official Statistics*, 6(1), 3-73.
+
+
 Library
 -------
 timeseries

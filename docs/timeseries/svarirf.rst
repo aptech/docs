@@ -168,6 +168,71 @@ vertically using ``|``:
         | { 1 3 0 -1 }
         | { 2 3 0 -1 };
 
+Model
+-----
+
+For each posterior draw :math:`(B^{(s)}, \Sigma^{(s)})`, the function searches for a
+sign-satisfying rotation :math:`Q^{(s)}` and computes:
+
+- **IRF:** :math:`\Theta_h^{(s)} = J (F^{(s)})^h J' P^{(s)} Q^{(s)}`
+- **Cumulative IRF:** :math:`C_h^{(s)} = \sum_{\ell=0}^{h} \Theta_\ell^{(s)}`
+- **FEVD:** Variance share from each shock, with posterior uncertainty
+
+The resulting bands integrate over both parameter uncertainty (different draws) and
+set identification uncertainty (different valid rotations within each draw).
+
+
+Algorithm
+---------
+
+1. For each of *n_draws* posterior draws :math:`(B^{(s)}, \Sigma^{(s)})`:
+
+   a. Form :math:`L^{(s)} = \text{chol}(\Sigma^{(s)})'`.
+   b. Draw random rotations :math:`Q` until one satisfies all sign restrictions (accept-reject).
+   c. Compute IRF, cumulative IRF, and FEVD under the accepted rotation.
+
+2. Compute pointwise quantiles across accepted draws.
+
+**Complexity:** :math:`O(n\_accepted \cdot h \cdot m^2 p^2 + n\_total\_tries \cdot m^3)`.
+
+
+Troubleshooting
+---------------
+
+**Very low acceptance rate (< 5%):**
+Too many restrictions for this model. Options:
+
+- Remove restrictions at longer horizons (keep impact only).
+- Remove restrictions on variables weakly related to the shock.
+- Use a wider credible level to see if the posterior spans both signs.
+
+**Bands are very wide:**
+Sign restrictions are set-identifying (not point-identifying). Wide bands reflect
+genuine identification uncertainty — the data is consistent with many structural
+interpretations. This is a feature of the method (Fry & Pagan 2011).
+
+**Cumulative IRF is needed for differenced data:**
+If your VAR is estimated on growth rates, the cumulative IRF gives the level response.
+Use ``sir.cirf_median`` instead of ``sir.irf_median``.
+
+
+Verification
+------------
+
+Sign-restricted posterior IRFs cross-validated against ECB BEAR ``bear.irfres()``
+output and the Rubio-Ramirez, Waggoner & Zha (2010) analytical examples.
+
+See ``crossval/12_svar_crossval.R``.
+
+
+References
+----------
+
+- Fry, R. and A. Pagan (2011). "Sign restrictions in structural vector autoregressions: A critical review." *Journal of Economic Literature*, 49(4), 938-960.
+- Rubio-Ramirez, J.F., D.F. Waggoner, and T. Zha (2010). "Structural vector autoregressions: Theory of identification and algorithms for inference." *Review of Economic Studies*, 77(2), 665-696.
+- Uhlig, H. (2005). "What are the effects of monetary policy on output?" *Journal of Monetary Economics*, 52(2), 381-419.
+
+
 Library
 -------
 timeseries

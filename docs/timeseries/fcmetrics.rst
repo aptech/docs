@@ -69,6 +69,25 @@ Remarks
   means the forecast beats the naive. Requires training data.
 - **sMAPE:** percentage-based (0-200 scale), symmetric to over/under prediction.
 
+Model
+-----
+
+.. math::
+
+   \text{RMSE} &= \sqrt{\frac{1}{T} \sum_{t=1}^{T} (y_t - \hat{y}_t)^2} \\
+   \text{MASE} &= \frac{\frac{1}{T} \sum_{t=1}^{T} |y_t - \hat{y}_t|}{\frac{1}{T_{\text{train}} - s} \sum_{t=s+1}^{T_{\text{train}}} |y_t^{\text{train}} - y_{t-s}^{\text{train}}|} \\
+   \text{sMAPE} &= \frac{200}{T} \sum_{t=1}^{T} \frac{|y_t - \hat{y}_t|}{|y_t| + |\hat{y}_t|}
+
+MASE (Hyndman & Koehler 2006) is the recommended scale-free metric. MASE < 1 means
+the forecast is better than a seasonal naive baseline; MASE > 1 means worse.
+
+
+References
+----------
+
+- Hyndman, R.J. and A.B. Koehler (2006). "Another look at measures of forecast accuracy." *International Journal of Forecasting*, 22(4), 679-688.
+
+
 Library
 -------
 timeseries

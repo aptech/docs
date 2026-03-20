@@ -84,6 +84,35 @@ width) require a :class:`forecastResult` with lower/upper bounds.
 MASE requires training data for the naive-forecast normalization. If *train*
 is not provided, *sc.mase* is missing.
 
+Model
+-----
+
+**Point scores:**
+
+.. math::
+
+   \text{RMSE} &= \sqrt{\frac{1}{T} \sum_{t=1}^{T} (y_t - \hat{y}_t)^2} \\
+   \text{MASE} &= \frac{\sum |y_t - \hat{y}_t|}{\frac{T}{T_{\text{train}} - s} \sum |y_{t}^{\text{train}} - y_{t-s}^{\text{train}}|}
+
+**Density scores:**
+
+.. math::
+
+   \text{CRPS} &= \frac{1}{T} \sum_{t=1}^{T} \left(\frac{1}{S} \sum_{s=1}^{S} |\hat{y}_t^{(s)} - y_t| - \frac{1}{2S^2} \sum_{s,s'} |\hat{y}_t^{(s)} - \hat{y}_t^{(s')}|\right) \\
+   \text{LPS}  &= -\frac{1}{T} \sum_{t=1}^{T} \log \hat{f}_t(y_t)
+
+where CRPS (Continuous Ranked Probability Score) is a proper scoring rule for density
+forecasts and LPS (Log Predictive Score) is the negative log predictive likelihood
+evaluated at the realized value.
+
+
+References
+----------
+
+- Gneiting, T. and A.E. Raftery (2007). "Strictly proper scoring rules, prediction, and estimation." *Journal of the American Statistical Association*, 102(477), 359-378.
+- Hyndman, R.J. and A.B. Koehler (2006). "Another look at measures of forecast accuracy." *International Journal of Forecasting*, 22(4), 679-688.
+
+
 Library
 -------
 timeseries

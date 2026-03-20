@@ -129,6 +129,56 @@ shock j up to time t?"
 **For BVAR,** the decomposition is computed at the posterior mean of B and
 :math:`\Sigma`.
 
+Model
+-----
+
+The observed series is decomposed as:
+
+.. math::
+
+   y_t = \underbrace{\sum_{j=1}^{m} \sum_{s=p+1}^{t} \Theta_{t-s} P^{-1} \hat{u}_s}_{\text{cumulative shock contributions}} + \underbrace{y_t^{\text{init}}}_{\text{initial conditions}}
+
+where :math:`\Theta_h` is the structural IRF at horizon h, :math:`P = \text{chol}(\Sigma)'`,
+and :math:`\hat{u}_t` are the reduced-form residuals. The structural shocks are
+:math:`\hat\varepsilon_t = P^{-1} \hat{u}_t`.
+
+The contribution of shock :math:`j` to variable :math:`i` at time :math:`t` is:
+
+.. math::
+
+   \text{hd}_{j,t,i} = \sum_{s=p+1}^{t} \Theta_{t-s}[i,j] \cdot \hat\varepsilon_{j,s}
+
+
+Algorithm
+---------
+
+1. Compute structural shocks :math:`\hat\varepsilon_t = P^{-1} \hat{u}_t` for all :math:`t`.
+2. Compute IRF matrices :math:`\Theta_0, \ldots, \Theta_{T-p-1}`.
+3. For each time :math:`t`, accumulate shock contributions via MA convolution.
+4. Compute initial conditions as the residual: :math:`y_t^{\text{init}} = y_t - \sum_j \text{hd}_{j,t}`.
+
+**Complexity:** :math:`O(T^2 m^2)` — quadratic in sample size due to the convolution.
+
+
+Troubleshooting
+---------------
+
+**Reconstruction error is not zero:**
+The decomposition should reconstruct the observed series exactly (to machine precision).
+If the error exceeds :math:`10^{-10}`, there may be a mismatch between the estimation
+result and the data. Re-estimate the model.
+
+**One shock dominates the decomposition:**
+Same as FEVD — check the variable ordering and consider alternative identification.
+
+
+References
+----------
+
+- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Section 2.3.4.
+- Kilian, L. and H. Lutkepohl (2017). *Structural Vector Autoregressive Analysis*. Cambridge University Press.
+
+
 Library
 -------
 timeseries

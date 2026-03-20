@@ -107,6 +107,39 @@ The full IC table (*ls.ic_table*) reports all three criteria (AIC, BIC, HQ)
 regardless of which criterion was used for selection. This allows comparison
 when the criteria disagree — AIC tends to select more lags than BIC.
 
+Model
+-----
+
+For each candidate lag order :math:`p = 1, \ldots, p_{\max}`, the VAR(p) is estimated
+by OLS and the information criteria are computed:
+
+.. math::
+
+   \text{AIC}(p) &= \log|\hat\Sigma_p| + \frac{2 K_p m}{T_p} \\
+   \text{BIC}(p) &= \log|\hat\Sigma_p| + \frac{K_p m \log T_p}{T_p} \\
+   \text{HQ}(p)  &= \log|\hat\Sigma_p| + \frac{2 K_p m \log \log T_p}{T_p}
+
+where :math:`K_p = mp + 1` and :math:`T_p = T - p` (sample shrinks with more lags).
+
+The selected :math:`p^*` minimizes the chosen criterion. AIC tends to select larger
+models; BIC tends to select smaller models (Lutkepohl 2005, Section 4.3).
+
+
+Troubleshooting
+---------------
+
+**AIC and BIC disagree:**
+This is common. AIC optimizes forecast accuracy; BIC optimizes model consistency
+(converges to the true order as T → ∞). For forecasting, prefer AIC. For structural
+analysis, prefer BIC. When in doubt, report both.
+
+
+References
+----------
+
+- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Section 4.3.
+
+
 Library
 -------
 timeseries
@@ -115,4 +148,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`varFit`, :func:`bvarFit`
+.. seealso:: Functions :func:`varFit`, :func:`bvarFit`, :func:`bvarHyperopt`

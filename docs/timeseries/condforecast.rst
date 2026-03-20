@@ -203,6 +203,77 @@ all variables leaves no degrees of freedom for the model.
 :math:`(B, \Sigma)`. With more posterior draws (*n_draws*), the bands are
 smoother but computation takes longer. Default of 1000 is typically sufficient.
 
+Model
+-----
+
+The conditional forecast solves: given that certain variables follow a prescribed
+path, what is the posterior predictive distribution of the remaining (free) variables?
+
+For a VAR with structural form :math:`\varepsilon_t = P^{-1} u_t` where
+:math:`u_t = y_t - B_1 y_{t-1} - \cdots - B_p y_{t-p} - c`, the Waggoner & Zha (1999)
+algorithm finds the structural shocks :math:`\varepsilon_{T+1}, \ldots, \varepsilon_{T+h}`
+that satisfy the constraints exactly while being drawn from the correct conditional
+distribution for the free variables.
+
+The constrained forecast at horizon :math:`s` is:
+
+.. math::
+
+   y_{T+s} = B_1 y_{T+s-1} + \cdots + B_p y_{T+s-p} + c + P \varepsilon_{T+s}
+
+where :math:`\varepsilon_{T+s}` is partitioned into constrained and free components,
+and the free components are drawn from their conditional posterior.
+
+
+Algorithm
+---------
+
+For each posterior draw :math:`(B^{(i)}, \Sigma^{(i)})`:
+
+1. Compute :math:`P = \text{chol}(\Sigma^{(i)})'`.
+2. Compute unconditional forecasts :math:`\tilde{y}_{T+1}, \ldots, \tilde{y}_{T+h}`.
+3. For each constrained horizon, solve for the structural shocks that enforce the constraint: :math:`y_{T+s}^{\text{constrained}} - \tilde{y}_{T+s} = R \varepsilon_{T+s}^*` where :math:`R` selects the constrained variables.
+4. Draw the free-variable shocks from :math:`N(0, I)`.
+5. Combine constrained and free shocks, propagate through the VAR.
+
+**Complexity:** :math:`O(n\_draws \cdot h \cdot m^3)`.
+
+
+Troubleshooting
+---------------
+
+**"All variables constrained" error:**
+At least one variable must be free at each horizon. The model needs degrees of
+freedom to satisfy the constraints. If you need to fix all variables, you don't
+need a forecast — you already know the answer.
+
+**Free variable bands are very wide:**
+This is expected when the constrained path is far from the unconditional forecast.
+The model is telling you the scenario requires large structural shocks, which
+create uncertainty in the free variables. Tighter priors help.
+
+**Constraints are not exactly satisfied in output:**
+Check for rounding in the print output. Internally, constraints are satisfied
+to machine precision. The printed table rounds for display.
+
+
+Verification
+------------
+
+Conditional forecasts verified against the ECB BEAR Toolbox conditional forecast
+module on the 3-variable ECB dataset with FFR path constraints. Free-variable
+forecasts agree within Monte Carlo noise.
+
+See the :ref:`var-verification` page.
+
+
+References
+----------
+
+- Waggoner, D.F. and T. Zha (1999). "Conditional forecasts in dynamic multivariate models." *Review of Economics and Statistics*, 81(4), 639-651.
+- Banbura, M., D. Giannone, and M. Lenza (2015). "Conditional forecasts and scenario analysis with vector autoregressions for large cross-sections." *International Journal of Forecasting*, 31(3), 739-756.
+
+
 Library
 -------
 timeseries
