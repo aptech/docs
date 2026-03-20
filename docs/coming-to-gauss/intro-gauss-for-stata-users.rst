@@ -8,6 +8,17 @@ A practical guide to doing common Stata operations in GAUSS, with references for
 
    GAUSS auto-detects variable types, previews your data, and generates reusable code. `Watch the video <https://www.youtube.com/watch?v=0Q0xnbix_Rc>`__ to see a full workflow from data import through ARIMA estimation.
 
+The GAUSS IDE
+-----------------------------------------------------------
+
+.. figure:: ../_static/images/gauss26-ide-overview.png
+   :alt: GAUSS 26 IDE showing editor with sample program, project
+         folders on the left, and command output below.
+
+   The GAUSS IDE workspace.
+
+① **Toolbar** — Shows your current working directory and the **Run button** (green arrow). Click it or press F5 to execute. ② **Project Folders** — File browser, similar to Stata's file navigator. ③ **Editor** — Write programs here, similar to Stata's Do-file Editor. ④ **Command Window** — Output appears here, similar to Stata's Results window. You can also type single lines at the ``>>`` prompt.
+
 Key Syntax Differences
 -----------------------------------------------------------
 Before diving in, here are a few syntax rules that apply to all GAUSS code:

@@ -17,7 +17,15 @@ How GAUSS Differs from EViews
 - **Results in structures, not object views.** EViews stores results in "equation" and "VAR" objects that you view in windows. GAUSS returns results in structures with named members (``out.b``, ``out.sigma``) that you access in code.
 - **Full programming language.** EViews handles loops and basic logic. GAUSS is a complete matrix programming language -- you can write custom estimators, simulation studies, and bootstrap procedures.
 
-**Where to type code:** Open GAUSS and create a new program file (File > New > Program File). Type or paste your code, then press F5 (or the Run button) to execute it. You can also type single lines in the command bar at the bottom of the window.
+**Where to type code:**
+
+.. figure:: ../_static/images/gauss26-ide-overview.png
+   :alt: GAUSS 26 IDE showing editor with sample program, project
+         folders on the left, and command output below.
+
+   The GAUSS IDE workspace.
+
+① **Toolbar** — Shows your current working directory and the **Run button** (green arrow). Click it or press F5 to execute. ② **Project Folders** — File browser, similar to EViews' Workfile contents. ③ **Editor** — Write programs here, similar to EViews' program editor. ④ **Command Window** — Output appears here, similar to EViews' output window. You can also type single lines at the ``>>`` prompt.
 
 **Debugging:** Errors appear in the Output window with a line number -- click it to jump to the error. Use the Variables panel (View > Variables) to inspect values at runtime. You can set breakpoints by clicking in the left margin of the editor, then step through code with the Debug menu. For quick debugging, insert ``print varname;`` statements.
 
