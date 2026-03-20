@@ -92,6 +92,8 @@ GAUSS Help
    getting-started/index
    command-reference
    data-management
-   applications
    learning-resources
+   machine-learning
+   applications
+   ge/index
    changelog

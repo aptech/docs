@@ -11,5 +11,6 @@ K
     key
     keyword
     keyw
+    kmeanscontrolcreate
     kronecker-product
     kurtosis

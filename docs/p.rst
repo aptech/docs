@@ -128,6 +128,7 @@ P
     plotsetxticcount
     plotsetxticinterval
     plotsetxticlabel
+    plotsetxticlabelfont
     plotsetxticposition
     plotsetygrid
     plotsetygridpen
@@ -139,6 +140,7 @@ P
     plotsetyticcount
     plotsetyticinterval
     plotsetyticlabel
+    plotsetyticlabelfont
     plotsetyticposition
     plotsetzlabel
     plotsetzlevels

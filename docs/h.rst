@@ -12,6 +12,7 @@ H
     h5writeattribute
     h5write
     hacSE
+    hacse
     hasimag
     hasmetadata
     head

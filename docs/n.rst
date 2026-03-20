@@ -11,6 +11,7 @@ N
     nextwind
     norm
     normalizecollabels
+    not-equal
     ntos
     null1
     null
