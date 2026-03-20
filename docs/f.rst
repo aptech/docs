@@ -21,6 +21,7 @@ F
     fgets
     fgetst
     fgls
+    fglscontrolcreate
     findidx
     fileinfo
     filesa

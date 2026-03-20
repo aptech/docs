@@ -43,6 +43,7 @@ D
     dbisopenerror
     dbisopen
     dbisvalid
+    dbnomics_search
     dbnomics_series
     dbnomics_set
     dbopen
@@ -107,6 +108,7 @@ D
     dfwider
     dffti
     dfft
+    dfcontrolcreate
     dfname
     dftype
     diag

@@ -71,6 +71,7 @@ C
     closeall
     close
     cls
+    cmlmtinversewaldlimits
     clusterse
     codedataloop
     code
@@ -88,6 +89,7 @@ C
     conscore
     contains
     continue
+    contingency
     contour
     convertsatostr
     convertstrtosa

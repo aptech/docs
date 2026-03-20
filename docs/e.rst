@@ -25,6 +25,7 @@ E
     eqsolvemt
     eqsolve
     eqsolveset
+    equal
     equality
     erfcplxerfccplx
     erferfc

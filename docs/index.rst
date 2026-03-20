@@ -111,5 +111,7 @@ GAUSS Documentation
    user-guide/index
    command-reference
    learning-resources
+   machine-learning
    applications
+   ge/index
    changelog
