@@ -63,7 +63,7 @@ Example 2: Matrix and scalar comparison
     flag = A == B;  // flag will be 1 (true)
 
 Example 3: Row vector and matrix comparison
-++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -78,7 +78,7 @@ Example 3: Row vector and matrix comparison
     flag = A == B;  // flag will be 1 (true)
 
 Example 4: Matrix inequality due to different elements
-++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -93,7 +93,7 @@ Example 4: Matrix inequality due to different elements
     flag = A == B;  // flag will be 0 (false)
 
 Example 5: Scalar and matrix comparison where elements differ
-++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
@@ -107,7 +107,7 @@ Example 5: Scalar and matrix comparison where elements differ
     flag = A == B;  // flag will be 0 (false)
 
 Example 6: Row vector and matrix comparison with differing elements
-++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 

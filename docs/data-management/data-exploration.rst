@@ -355,7 +355,7 @@ In this example, the optional argument, *sort*, is used to specify that the bars
     :scale: 50%
        
 Plotting frequencies percentages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this example, the optional argument, *pct_axis*, is used to specify frequency percentages should be plotted. Note the optional argument, *sort*, must still be specified because optional arguments must be specified in order. 
 

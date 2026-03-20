@@ -1,5 +1,5 @@
 The maxlikmt Procedure
-===================
+======================
 
 First Input Argument: Pointer to Procedure
 ----------------------------------------------
