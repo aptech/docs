@@ -131,5 +131,6 @@ GAUSS Documentation
    learning-resources
    machine-learning
    applications
+   timeseries/index
    ge/index
    changelog
