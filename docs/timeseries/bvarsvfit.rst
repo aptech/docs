@@ -10,28 +10,15 @@ Format
 
 .. function:: result = bvarSvFit(y)
               result = bvarSvFit(y, ctl)
-              result = bvarSvFit(y, ctl, xreg=X)
 
-   :param y: endogenous variables. If a dataframe, column names are used as variable names.
+   :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
    :type y: TxM matrix or dataframe
 
-   :param ctl: Optional input, an instance of a :class:`bvarSvControl` structure. An instance is initialized by calling :func:`bvarSvControlCreate` and the following members can be set:
+   :param ctl: Optional input, an instance of a :class:`bvarSvControl` structure. An instance is initialized by calling :func:`bvarSvControlCreate` and the following members can be set. Set *ctl.xreg* for exogenous regressors.
 
        .. include:: include/bvarsvcontrol.rst
 
    :type ctl: struct
-
-   :param xreg: Optional keyword, exogenous regressors.
-   :type xreg: TxK matrix
-
-   :param xreg_names: Optional keyword, column names for *xreg*.
-   :type xreg_names: Kx1 string array
-
-   :param var_names: Optional keyword, endogenous variable names.
-   :type var_names: Mx1 string array
-
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*.
-   :type quiet: scalar
 
    :return result: An instance of a :class:`bvarSvResult` structure containing:
 
@@ -159,9 +146,10 @@ SV-BVAR with Exogenous Regressors
 
     ctl = bvarSvControlCreate();
     ctl.p = 4;
+    ctl.xreg = X;
+    ctl.quiet = 1;
 
-    result = bvarSvFit(y, ctl, xreg=X,
-        var_names="GDP"$|"CPI"$|"FFR", xreg_names="Oil");
+    result = bvarSvFit(y, ctl);
 
 Model
 -----

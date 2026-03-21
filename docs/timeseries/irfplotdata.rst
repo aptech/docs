@@ -35,7 +35,7 @@ Plot a Single Shock-Response Pair
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
     irf = irfCompute(result, 20, quiet=1);
 
     // GDP response to FFR shock

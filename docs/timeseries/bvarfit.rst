@@ -10,9 +10,8 @@ Format
 
 .. function:: result = bvarFit(y)
               result = bvarFit(y, ctl)
-              result = bvarFit(y, ctl, xreg=X)
 
-   :param y: endogenous variables. If a dataframe, column names are used as variable names.
+   :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
    :type y: TxM matrix or dataframe
 
    :param ctl: Optional input, an instance of a :class:`bvarControl` structure. An instance is initialized by calling :func:`bvarControlCreate` and the following members can be set:
@@ -20,18 +19,6 @@ Format
        .. include:: include/bvarcontrol.rst
 
    :type ctl: struct
-
-   :param xreg: Optional keyword, exogenous regressors.
-   :type xreg: TxK matrix
-
-   :param xreg_names: Optional keyword, column names for *xreg*.
-   :type xreg_names: Kx1 string array
-
-   :param var_names: Optional keyword, endogenous variable names.
-   :type var_names: Mx1 string array
-
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*.
-   :type quiet: scalar
 
    :return result: An instance of a :class:`bvarResult` structure containing:
 
@@ -205,15 +192,16 @@ Compare Lag Orders with Bayes Factors
 
     struct bvarResult r1, r2, r4;
     ctl = bvarControlCreate();
+    ctl.quiet = 1;
 
     ctl.p = 1;
-    r1 = bvarFit(data, ctl, quiet=1);
+    r1 = bvarFit(data, ctl);
 
     ctl.p = 2;
-    r2 = bvarFit(data, ctl, quiet=1);
+    r2 = bvarFit(data, ctl);
 
     ctl.p = 4;
-    r4 = bvarFit(data, ctl, quiet=1);
+    r4 = bvarFit(data, ctl);
 
     print "Log ML(p=1):" r1.log_ml;
     print "Log ML(p=2):" r2.log_ml;
@@ -321,10 +309,10 @@ See ``crossval/bear_matched_prior.e`` and ``crossval/bear_matched_irf.e``.
 Remarks
 -------
 
-**Conjugate vs Gibbs:**
-With ``prior = "minnesota"`` (default), the posterior is available in closed form
-and draws are exact (no MCMC). With ``prior = "flat"``, the posterior is
-sampled via Gibbs with *n_draws*, *n_burn*, *n_thin* iterations.
+**Conjugate draws are exact:**
+With ``prior = "minnesota"`` (default), the posterior is available in closed form.
+All draws are independent (no MCMC chain, no burn-in, no thinning needed).
+For stochastic volatility or non-conjugate priors, use :func:`bvarSvFit`.
 
 **Log marginal likelihood:**
 *result.log_ml* is only available for the conjugate Minnesota prior (closed-form

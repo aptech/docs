@@ -22,14 +22,14 @@ If you just want working code, copy this:
     ctl = bvarControlCreate();
     ctl.p = 4;
     ctl.ar = 0;                  // Growth rates → white noise prior
-    ctl.var_names = "GDP" $| "CPI" $| "FFR";
+    ctl.quiet = 1;
 
     struct bvarResult result;
     result = bvarFit(data, ctl);
 
     // Impulse responses: what happens when the Fed raises rates?
     struct varResult rv;
-    rv = varFit(data, ctl.p, quiet=1);
+    rv = varFit(data, ctl.p);
     irf = irfCompute(rv, 20);
 
     // Forecast the next 8 quarters
@@ -73,7 +73,6 @@ Step 2: Estimate a Bayesian VAR
     ctl = bvarControlCreate();
     ctl.p = 4;                   // 4 lags (1 year of quarterly data)
     ctl.ar = 0;                  // White noise prior (data is in growth rates)
-    ctl.var_names = "GDP" $| "CPI" $| "FFR";
 
     // Estimate
     struct bvarResult result;
@@ -104,7 +103,7 @@ You should see::
 - The FFR coefficient on GDP is -0.08 with wide credible interval [-0.20, 0.03] — a contractionary effect, but not precisely estimated.
 - The log marginal likelihood (-657.84) can be used to compare with other lag orders or priors.
 
-**Checkpoint:** If you see the coefficient table with named equations (GDP, CPI, FFR), you're on track. If you see "Y1, Y2, Y3" instead, add ``ctl.var_names``.
+**Checkpoint:** If you see the coefficient table with named equations (GDP, CPI, FFR), you're on track. If you see "Y1, Y2, Y3" instead, pass a dataframe with column names for labeled output.
 Step 3: What Happens When the Fed Raises Rates?
 ------------------------------------------------
 
@@ -243,7 +242,6 @@ Everything above, in one runnable file:
     ctl = bvarControlCreate();
     ctl.p = 4;
     ctl.ar = 0;
-    ctl.var_names = "GDP" $| "CPI" $| "FFR";
 
     struct bvarResult result;
     result = bvarFit(data[., vars], ctl);

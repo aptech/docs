@@ -10,32 +10,19 @@ Format
 
 .. function:: result = varFit(y)
               result = varFit(y, p)
-              result = varFit(y, p, xreg=X)
               result = varFit(y, ctl)
 
-   :param y: endogenous variables. If a dataframe, column names are used as variable names.
+   :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
    :type y: TxM matrix or dataframe
 
    :param p: Optional input, lag order. Default = 1.
    :type p: scalar
 
-   :param ctl: Optional input, an instance of a :class:`varControl` structure. Overrides *p* if provided. An instance is initialized by calling :func:`varControlCreate` and the following members can be set:
+   :param ctl: Optional input, an instance of a :class:`varControl` structure. Overrides *p* if provided. Set *ctl.xreg* for exogenous regressors. An instance is initialized by calling :func:`varControlCreate` and the following members can be set:
 
        .. include:: include/varcontrol.rst
 
    :type ctl: struct
-
-   :param xreg: Optional keyword, exogenous regressors.
-   :type xreg: TxK matrix
-
-   :param xreg_names: Optional keyword, column names for *xreg*. If omitted, defaults to ``"X1"``, ``"X2"``, etc.
-   :type xreg_names: Kx1 string array
-
-   :param var_names: Optional keyword, endogenous variable names. If omitted and *y* is a dataframe, column headers are used. Otherwise defaults to ``"Y1"``, ``"Y2"``, etc.
-   :type var_names: Mx1 string array
-
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*.
-   :type quiet: scalar
 
    :return result: An instance of a :class:`varResult` structure containing:
 
@@ -169,7 +156,11 @@ Include oil price as an exogenous variable:
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
     X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "oil");
 
-    result = varFit(y, 2, xreg=X, xreg_names="Oil");
+    ctl = varControlCreate();
+    ctl.p = 2;
+    ctl.xreg = X;
+
+    result = varFit(y, ctl);
 
 
 Troubleshooting

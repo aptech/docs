@@ -41,7 +41,7 @@ From Pre-Computed IRF
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
 
     irf = irfCompute(result, 20, quiet=1);
 
@@ -57,7 +57,7 @@ Direct from Estimation Result
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
 
     // Skip the explicit IRF step
     fevd = fevdCompute(result, 20);
@@ -71,7 +71,7 @@ Accessing Decomposition
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
     fevd = fevdCompute(result, 20, quiet=1);
 
     // Fraction of GDP variance explained by each shock at h=20

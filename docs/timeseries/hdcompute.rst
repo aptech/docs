@@ -42,7 +42,7 @@ Full Historical Decomposition
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
 
     struct hdResult hd;
     hd = hdCompute(result);
@@ -56,7 +56,7 @@ Shock Contributions to a Variable
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
     hd = hdCompute(result, quiet=1);
 
     // FFR shock (shock 3) contribution to GDP (variable 1) over time
@@ -76,7 +76,7 @@ Verify Decomposition Sums to Observed
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
     hd = hdCompute(result, quiet=1);
 
     // Reconstruct GDP from shock contributions + initial conditions

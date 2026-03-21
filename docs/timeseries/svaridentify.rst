@@ -58,7 +58,7 @@ Monetary Policy SVAR
     // Load data — ordering determines Cholesky structure
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
 
-    result = varFit(y, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(y, 4);
 
     // Define sign restrictions
     ctl = svarControlCreate();

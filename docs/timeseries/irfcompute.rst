@@ -94,7 +94,7 @@ Trace the effect of a federal funds rate shock on GDP and CPI:
     // Variable ordering: GDP (slow), CPI (medium), FFR (fast policy instrument)
     // This ordering means: FFR shocks can affect GDP and CPI contemporaneously,
     // but GDP shocks take one period to reach FFR.
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
 
     struct irfResult irf;
     irf = irfCompute(result, 20);

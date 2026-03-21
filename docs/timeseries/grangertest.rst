@@ -59,7 +59,7 @@ Single Pair
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
 
     // Does FFR Granger-cause GDP?
     g = grangerTest(result, 3, 1);
@@ -76,7 +76,7 @@ All Pairs
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    result = varFit(data, 4);
 
     for i (1, 3, 1);
         for j (1, 3, 1);

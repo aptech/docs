@@ -53,12 +53,6 @@
    * - ctl.n_draws
      - Scalar, number of posterior draws. Default = 5000.
 
-   * - ctl.n_burn
-     - Scalar, burn-in draws (discarded). Default = 1000.
-
-   * - ctl.n_thin
-     - Scalar, thinning interval. Keep every *n_thin*-th draw. Default = 1.
-
    * - ctl.seed
      - Scalar, random number generator seed for reproducibility. Default = 42.
 

@@ -42,7 +42,8 @@ Monetary Policy SVAR with Posterior Bands
     bctl = bvarControlCreate();
     bctl.p = 4;
     bctl.n_draws = 5000;
-    result = bvarFit(y, bctl, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    bctl.quiet = 1;
+    result = bvarFit(y, bctl);
 
     // Sign restrictions for monetary policy shock
     ctl = svarControlCreate();
@@ -92,7 +93,8 @@ Sign-Restricted IRF from SV-BVAR
     svctl.p = 4;
     svctl.n_draws = 10000;
     svctl.n_burn = 5000;
-    result = bvarSvFit(y, svctl, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
+    svctl.quiet = 1;
+    result = bvarSvFit(y, svctl);
 
     ctl = svarControlCreate();
     ctl.sign_restr = { 3 3 0  1,
