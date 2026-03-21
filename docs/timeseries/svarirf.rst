@@ -160,13 +160,13 @@ at the current volatility state rather than a time-averaged covariance.
 **Restriction matrix format:**
 Each row of *ctl.sign_restr* is ``{variable, shock, horizon, sign}`` where
 indices are 1-based (GAUSS convention). Multiple restrictions are stacked
-vertically using ``|``:
+as rows using commas:
 
 ::
 
-    ctl.sign_restr = { 3 3 0  1 }
-        | { 1 3 0 -1 }
-        | { 2 3 0 -1 };
+    ctl.sign_restr = { 3 3 0  1,
+                       1 3 0 -1,
+                       2 3 0 -1 };
 
 Model
 -----
