@@ -6,8 +6,6 @@ Teaching with GAUSS Time Series
 This page maps GAUSS Time Series functions to chapters in the four textbooks most
 commonly used in PhD econometrics and time series courses. Every exercise below
 can be completed in a single GAUSS script.
-
-
 Hamilton (1994) — *Time Series Analysis*
 -----------------------------------------
 
@@ -58,8 +56,6 @@ filter, spectral analysis, unit roots, cointegration, and regime switching.
      - ARCH / heteroskedasticity
      - :func:`bvarSvFit`
      - Estimate SV-BVAR and show time-varying volatility captures ARCH effects.
-
-
 Lutkepohl (2005) — *New Introduction to Multiple Time Series Analysis*
 -----------------------------------------------------------------------
 
@@ -110,8 +106,6 @@ cointegration, and state-space models for multivariate systems.
      - Structural VARs
      - :func:`irfCompute`, :func:`svarIdentify`
      - Cholesky vs sign-restricted identification. Compare IRFs.
-
-
 Kilian & Lutkepohl (2017) — *Structural Vector Autoregressive Analysis*
 -------------------------------------------------------------------------
 
@@ -158,8 +152,6 @@ estimation, inference, and applications to oil markets and monetary policy.
      - Large BVARs
      - :func:`bvarFit`, :func:`bvarSvFit`
      - Scale to 20 variables. Compare conjugate BVAR (3s) vs SV-BVAR (8s) on large system.
-
-
 Hyndman & Athanasopoulos (2021) — *Forecasting: Principles and Practice* (3rd ed.)
 ------------------------------------------------------------------------------------
 
@@ -211,8 +203,6 @@ Uses R in the text — the table below shows the GAUSS equivalents.
      - VAR forecasting
      - :func:`varForecast`, :func:`bvarForecast`
      - ``predict()``
-
-
 Replication Exercises
 ---------------------
 
@@ -240,7 +230,6 @@ Estimate a 3-variable VAR on GDP, CPI, FFR. Compute IRFs and interpret::
     library timeseries;
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
 
-    struct varControl vctl;
     vctl = varControlCreate();
     vctl.p = 4;
 
@@ -265,7 +254,6 @@ Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
     y_test = asMatrix(data[161:200, .]);
 
     // OLS forecast
-    struct varControl vctl;
     vctl = varControlCreate();
     vctl.p = 4;
     vctl.quiet = 1;
@@ -277,7 +265,6 @@ Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
     fc_ols = varForecast(rv, 40);
 
     // BVAR forecast
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     ctl.ar = 0;
@@ -315,7 +302,6 @@ Use the log marginal likelihood to select the best model::
     print "Maximized log ML:" ho.log_ml;
 
     // Compare with fixed hyperparameters
-    struct bvarControl ctl;
     struct bvarResult r_tight, r_loose, r_opt;
 
     ctl = bvarControlCreate();
@@ -331,6 +317,4 @@ Use the log marginal likelihood to select the best model::
     print "Log ML (tight):" r_tight.log_ml;
     print "Log ML (loose):" r_loose.log_ml;
     print "Log ML (optimal):" r_opt.log_ml;
-
-
 .. seealso:: Guides :ref:`getting-started`, :ref:`choosing-a-var-model`, :ref:`var-comparison`

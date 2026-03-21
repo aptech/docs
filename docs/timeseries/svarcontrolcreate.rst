@@ -24,7 +24,6 @@ Examples
     new;
     library timeseries;
 
-    struct svarControl ctl;
     ctl = svarControlCreate();
 
     // Define sign restrictions: [variable, shock, horizon, sign]

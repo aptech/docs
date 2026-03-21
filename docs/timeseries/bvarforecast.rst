@@ -94,7 +94,6 @@ Compare Forecasts Across Lag Orders
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
 
     ctl.p = 2;
@@ -146,8 +145,6 @@ forecast is the median across all draws; the credible bands are posterior quanti
 This integrates over both **parameter uncertainty** (different :math:`B, \Sigma` draws)
 and **innovation uncertainty** (random :math:`\varepsilon`), giving a proper Bayesian
 predictive density.
-
-
 Algorithm
 ---------
 
@@ -159,8 +156,6 @@ Algorithm
 2. Compute the median and quantiles of :math:`\{\hat{y}_{T+h}^{(s)}\}_{s=1}^{n\_draws}` at each horizon.
 
 **Complexity:** :math:`O(n\_draws \cdot h \cdot m^2 p)`. Sub-second for typical configurations.
-
-
 Troubleshooting
 ---------------
 
@@ -177,8 +172,6 @@ pulls forecasts toward zero. For levels data, use ``ar = 1``.
 The posterior mean may be non-stationary. Check *result.is_stationary*. Add
 regularization via sum-of-coefficients (*lambda6*) or single-unit-root (*lambda7*)
 priors in :func:`bvarFit`.
-
-
 Verification
 ------------
 
@@ -187,15 +180,11 @@ forecast output. Point forecasts agree within Monte Carlo noise (different RNG s
 Prediction interval widths match R within 5% relative error.
 
 See ``crossval/02_bvar_crossval.R`` for R comparison and the :ref:`var-verification` page.
-
-
 References
 ----------
 
 - Banbura, M., D. Giannone, and L. Reichlin (2010). "Large Bayesian vector auto regressions." *Journal of Applied Econometrics*, 25(1), 71-92.
 - Kadiyala, K.R. and S. Karlsson (1997). "Numerical methods for estimation and inference in Bayesian VAR-models." *Journal of Applied Econometrics*, 12(2), 99-132.
-
-
 Library
 -------
 timeseries

@@ -39,14 +39,12 @@ Monetary Policy SVAR with Posterior Bands
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
 
     // Estimate BVAR
-    struct bvarControl bctl;
     bctl = bvarControlCreate();
     bctl.p = 4;
     bctl.n_draws = 5000;
     result = bvarFit(y, bctl, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
 
     // Sign restrictions for monetary policy shock
-    struct svarControl ctl;
     ctl = svarControlCreate();
     ctl.sign_restr = { 3 3 0  1,       // FFR up
                        1 3 0 -1,       // GDP down
@@ -70,7 +68,6 @@ Require that the demand shock (shock 1) keeps GDP and CPI positive for 4 quarter
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
     result = bvarFit(y, quiet=1);
 
-    struct svarControl ctl;
     ctl = svarControlCreate();
 
     // Demand shock: GDP and CPI positive for h=0..3
@@ -91,14 +88,12 @@ Sign-Restricted IRF from SV-BVAR
 
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
 
-    struct bvarSvControl svctl;
     svctl = bvarSvControlCreate();
     svctl.p = 4;
     svctl.n_draws = 10000;
     svctl.n_burn = 5000;
     result = bvarSvFit(y, svctl, var_names="GDP"$|"CPI"$|"FFR", quiet=1);
 
-    struct svarControl ctl;
     ctl = svarControlCreate();
     ctl.sign_restr = { 3 3 0  1,
                        1 3 0 -1,
@@ -180,8 +175,6 @@ sign-satisfying rotation :math:`Q^{(s)}` and computes:
 
 The resulting bands integrate over both parameter uncertainty (different draws) and
 set identification uncertainty (different valid rotations within each draw).
-
-
 Algorithm
 ---------
 
@@ -194,8 +187,6 @@ Algorithm
 2. Compute pointwise quantiles across accepted draws.
 
 **Complexity:** :math:`O(n\_accepted \cdot h \cdot m^2 p^2 + n\_total\_tries \cdot m^3)`.
-
-
 Troubleshooting
 ---------------
 
@@ -214,8 +205,6 @@ interpretations. This is a feature of the method (Fry & Pagan 2011).
 **Cumulative IRF is needed for differenced data:**
 If your VAR is estimated on growth rates, the cumulative IRF gives the level response.
 Use ``sir.cirf_median`` instead of ``sir.irf_median``.
-
-
 Verification
 ------------
 
@@ -223,16 +212,12 @@ Sign-restricted posterior IRFs cross-validated against ECB BEAR ``bear.irfres()`
 output and the Rubio-Ramirez, Waggoner & Zha (2010) analytical examples.
 
 See ``crossval/12_svar_crossval.R``.
-
-
 References
 ----------
 
 - Fry, R. and A. Pagan (2011). "Sign restrictions in structural vector autoregressions: A critical review." *Journal of Economic Literature*, 49(4), 938-960.
 - Rubio-Ramirez, J.F., D.F. Waggoner, and T. Zha (2010). "Structural vector autoregressions: Theory of identification and algorithms for inference." *Review of Economic Studies*, 77(2), 665-696.
 - Uhlig, H. (2005). "What are the effects of monetary policy on output?" *Journal of Monetary Economics*, 52(2), 381-419.
-
-
 Library
 -------
 timeseries

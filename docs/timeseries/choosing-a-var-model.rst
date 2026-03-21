@@ -76,8 +76,6 @@ you need structural identification:
 
 If you just want forecasts and don't need causal interpretation, skip structural
 identification and use reduced-form IRFs.
-
-
 Quick Start Recipes
 -------------------
 
@@ -91,7 +89,6 @@ GDP growth, CPI inflation, federal funds rate. Quarterly data.
 
     data = loadd("macro_quarterly.csv");
 
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     ctl.ar = 0;           // Growth rates
@@ -124,7 +121,6 @@ GDP growth, CPI inflation, federal funds rate. Quarterly data.
 
     data = loadd("returns.csv");
 
-    struct bvarSvControl svctl;
     svctl = bvarSvControlCreate();
     svctl.p = 2;
     svctl.ar = 0;         // Returns are stationary
@@ -144,14 +140,12 @@ Identify supply, demand, and speculative shocks in the oil market (Kilian 2009).
     data = loadd("oil_kilian.csv");
 
     // Estimate reduced-form BVAR
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 24;           // Monthly data, 24 lags
     ctl.ar = 0;
     result = bvarFit(data, ctl);
 
     // Structural identification
-    struct svarControl sctl;
     sctl = svarControlCreate();
     sctl.sign_restrictions = { 1  1 -1,    // Output: + supply, + demand, - speculative
                                1 -1  1,    // Price:  + supply, - demand, + speculative
@@ -160,8 +154,6 @@ Identify supply, demand, and speculative shocks in the oil market (Kilian 2009).
     struct svarResult svar;
     svar = svarIdentify(result, sctl);
     svar_irf = svarIrf(svar, 48);
-
-
 Function Comparison
 -------------------
 
@@ -193,6 +185,4 @@ Function Comparison
      - Yes (Gibbs)
      - Heteroskedastic data, density forecasting
      - 1-2s (10K draws)
-
-
 .. seealso:: Functions :func:`varFit`, :func:`bvarFit`, :func:`bvarSvFit`, :func:`bvarHyperopt`

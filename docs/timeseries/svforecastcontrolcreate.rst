@@ -24,7 +24,6 @@ Examples
     new;
     library timeseries;
 
-    struct svForecastControl fctl;
     fctl = svForecastControlCreate();
 
     // Switch to simulation mode for proper density

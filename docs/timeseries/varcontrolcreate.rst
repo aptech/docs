@@ -24,7 +24,6 @@ Examples
     new;
     library timeseries;
 
-    struct varControl ctl;
     ctl = varControlCreate();
 
     // Remove the constant

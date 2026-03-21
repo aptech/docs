@@ -6,8 +6,6 @@ Getting Started
 This tutorial walks through a complete macroeconomic analysis: estimate a Bayesian
 VAR, compute impulse responses, forecast GDP, and evaluate the forecast — all in
 one script. You will have results in under a minute.
-
-
 The 30-Second Version
 ---------------------
 
@@ -21,7 +19,6 @@ If you just want working code, copy this:
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
 
     // Estimate Bayesian VAR(4)
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     ctl.ar = 0;                  // Growth rates → white noise prior
@@ -39,8 +36,6 @@ If you just want working code, copy this:
     fc = bvarForecast(result, 8);
 
 That's it. The rest of this page explains what each step does and why.
-
-
 Step 1: Load the Data
 ---------------------
 
@@ -66,8 +61,6 @@ The dataset contains 200 quarters of US macroeconomic data:
 - **unemployment**: unemployment rate (%)
 
 We'll use the first three variables — a classic monetary policy VAR.
-
-
 Step 2: Estimate a Bayesian VAR
 -------------------------------
 
@@ -77,7 +70,6 @@ Step 2: Estimate a Bayesian VAR
     vars = "gdp_growth" $| "cpi_inflation" $| "fed_funds";
 
     // Configure the BVAR
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;                   // 4 lags (1 year of quarterly data)
     ctl.ar = 0;                  // White noise prior (data is in growth rates)
@@ -113,8 +105,6 @@ You should see::
 - The log marginal likelihood (-657.84) can be used to compare with other lag orders or priors.
 
 **Checkpoint:** If you see the coefficient table with named equations (GDP, CPI, FFR), you're on track. If you see "Y1, Y2, Y3" instead, add ``ctl.var_names``.
-
-
 Step 3: What Happens When the Fed Raises Rates?
 ------------------------------------------------
 
@@ -124,7 +114,6 @@ shock to one variable on all variables:
 ::
 
     // Estimate OLS VAR for IRF computation
-    struct varControl vctl;
     vctl = varControlCreate();
     vctl.p = 4;
     vctl.quiet = 1;
@@ -162,8 +151,6 @@ The variable ordering matters for Cholesky identification: GDP is ordered first
 bank can respond within the quarter). This is the standard monetary policy ordering.
 
 **Checkpoint:** The impact matrix (h=0) should be lower-triangular — zeros above the diagonal. If it's not, something went wrong.
-
-
 Step 4: Forecast GDP
 --------------------
 
@@ -190,8 +177,6 @@ You should see::
 - **Bands widen over time** — forecasts become less certain at longer horizons. This is expected.
 
 The BVAR forecast accounts for both **parameter uncertainty** (we don't know the true coefficients) and **shock uncertainty** (future shocks are random). This makes BVAR bands wider and more honest than simple plug-in VAR forecast intervals.
-
-
 Step 5: Is the Model Any Good?
 ------------------------------
 
@@ -200,7 +185,6 @@ for model selection:
 
 ::
 
-    struct bvarControl ctl1, ctl2, ctl4;
     struct bvarResult r1, r2, r4;
 
     ctl1 = bvarControlCreate();
@@ -241,8 +225,6 @@ Or let the data choose automatically:
 
 This maximizes the marginal likelihood over the hyperparameters (Giannone, Lenza &
 Primiceri 2015), finding the best balance between prior shrinkage and data fit.
-
-
 Complete Script
 ---------------
 
@@ -258,7 +240,6 @@ Everything above, in one runnable file:
     vars = "gdp_growth" $| "cpi_inflation" $| "fed_funds";
 
     // ---- BVAR(4) with white noise prior ----
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     ctl.ar = 0;
@@ -268,7 +249,6 @@ Everything above, in one runnable file:
     result = bvarFit(data[., vars], ctl);
 
     // ---- Impulse responses ----
-    struct varControl vctl;
     vctl = varControlCreate();
     vctl.p = 4;
     vctl.quiet = 1;
@@ -285,7 +265,6 @@ Everything above, in one runnable file:
 
     // ---- Model comparison ----
     struct bvarResult r2;
-    struct bvarControl ctl2;
     ctl2 = bvarControlCreate();
     ctl2.p = 2;
     ctl2.ar = 0;
@@ -297,8 +276,6 @@ Everything above, in one runnable file:
     print "Log ML(p=2):" r2.log_ml;
     print "Log ML(p=4):" result.log_ml;
     print "BF(4 vs 2):" exp(result.log_ml - r2.log_ml);
-
-
 What's Next
 -----------
 

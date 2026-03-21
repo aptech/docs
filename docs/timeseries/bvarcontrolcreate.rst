@@ -24,7 +24,6 @@ Examples
     new;
     library timeseries;
 
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
 
     // Minnesota BVAR(4) with tighter prior

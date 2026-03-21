@@ -54,7 +54,6 @@ Fix the federal funds rate at 5.0% for 12 quarters and forecast GDP and CPI:
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     result = bvarFit(data, ctl, quiet=1);
@@ -95,7 +94,6 @@ Compare Policy Scenarios
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     result = bvarFit(data, ctl, quiet=1);
@@ -127,7 +125,6 @@ Fix both GDP growth and the FFR path, let CPI adjust:
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     result = bvarFit(data, ctl, quiet=1);
@@ -156,7 +153,6 @@ Conditional Forecast from SV-BVAR
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarSvControl svctl;
     svctl = bvarSvControlCreate();
     svctl.p = 4;
     result = bvarSvFit(data, svctl, quiet=1);
@@ -223,8 +219,6 @@ The constrained forecast at horizon :math:`s` is:
 
 where :math:`\varepsilon_{T+s}` is partitioned into constrained and free components,
 and the free components are drawn from their conditional posterior.
-
-
 Algorithm
 ---------
 
@@ -237,8 +231,6 @@ For each posterior draw :math:`(B^{(i)}, \Sigma^{(i)})`:
 5. Combine constrained and free shocks, propagate through the VAR.
 
 **Complexity:** :math:`O(n\_draws \cdot h \cdot m^3)`.
-
-
 Troubleshooting
 ---------------
 
@@ -255,8 +247,6 @@ create uncertainty in the free variables. Tighter priors help.
 **Constraints are not exactly satisfied in output:**
 Check for rounding in the print output. Internally, constraints are satisfied
 to machine precision. The printed table rounds for display.
-
-
 Verification
 ------------
 
@@ -265,15 +255,11 @@ module on the 3-variable ECB dataset with FFR path constraints. Free-variable
 forecasts agree within Monte Carlo noise.
 
 See the :ref:`var-verification` page.
-
-
 References
 ----------
 
 - Waggoner, D.F. and T. Zha (1999). "Conditional forecasts in dynamic multivariate models." *Review of Economics and Statistics*, 81(4), 639-651.
 - Banbura, M., D. Giannone, and M. Lenza (2015). "Conditional forecasts and scenario analysis with vector autoregressions for large cross-sections." *International Journal of Forecasting*, 31(3), 739-756.
-
-
 Library
 -------
 timeseries

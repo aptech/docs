@@ -84,8 +84,6 @@ When exogenous regressors :math:`X_t` are provided:
 This is a *regression with ARIMA errors* model (Hyndman & Athanasopoulos 2021, Ch. 10),
 not a transfer function model. The distinction matters: the AR/MA structure applies to
 the regression residuals, not directly to :math:`y_t`.
-
-
 Algorithm
 ---------
 
@@ -111,8 +109,6 @@ When ``order`` is omitted, the Hyndman-Khandakar (2008) stepwise algorithm is us
 4. Total models evaluated is typically 15-30 (vs. hundreds for exhaustive search).
 
 Set ``ctl.stepwise = 0`` for exhaustive search over all :math:`(p, q, P, Q)` combinations up to *ctl.max_order*.
-
-
 Examples
 --------
 
@@ -147,8 +143,6 @@ Output:
     Ljung-Box(10):  Q=65.21  p=0.000
     Jarque-Bera:    JB=1.83  p=0.401
     ================================================================================
-
-
 Seasonal ARIMA on Monthly Data
 ++++++++++++++++++++++++++++++
 
@@ -229,15 +223,12 @@ Using BIC for Model Selection
 
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
 
-    struct arimaControl ctl;
     ctl = arimaControlCreate();
     ctl.ic = "bic";
 
     result = arimaFit(y, ctl, season=12);
 
 BIC penalizes model complexity more than AICc, typically selecting more parsimonious models.
-
-
 Troubleshooting
 ---------------
 
@@ -273,8 +264,6 @@ The model has not captured all the serial dependence. Try:
 - Increasing the AR order (higher p).
 - Adding seasonal terms if the data has a seasonal pattern.
 - Adding exogenous regressors if there is an omitted variable.
-
-
 Remarks
 -------
 
@@ -326,8 +315,6 @@ Coefficients in *result.coefs* are ordered: AR(1), ..., AR(p), MA(1), ...,
 MA(q), SAR(1), ..., SAR(P), SMA(1), ..., SMA(Q), Mean/Drift (if present),
 X1, ..., Xm (if xreg). The *result.coef_names* string array provides labels
 in the same order.
-
-
 Verification
 ------------
 
@@ -352,8 +339,6 @@ root test (``nsdiffs``) verified against R ``forecast::nsdiffs()`` on 4 seasonal
 
 Total: **65 passing tests** across R, Python, and Julia references.
 See ``gausslib-ts/tests/r_regression.rs``.
-
-
 References
 ----------
 
@@ -362,8 +347,6 @@ References
 - Hyndman, R.J. and Y. Khandakar (2008). "Automatic time series forecasting: The forecast package for R." *Journal of Statistical Software*, 27(3).
 - Hyndman, R.J. and G. Athanasopoulos (2021). *Forecasting: Principles and Practice*. 3rd ed., OTexts.
 - Kwiatkowski, D., P.C.B. Phillips, P. Schmidt, and Y. Shin (1992). "Testing the null hypothesis of stationarity against the alternative of a unit root." *Journal of Econometrics*, 54(1-3), 159-178.
-
-
 Library
 -------
 timeseries

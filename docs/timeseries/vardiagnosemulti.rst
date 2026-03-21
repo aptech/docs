@@ -45,7 +45,6 @@ Multi-Chain SV-BVAR
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 4;
     ctl.n_draws = 10000;

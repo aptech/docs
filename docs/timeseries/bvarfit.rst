@@ -93,8 +93,6 @@ The conjugate prior yields a closed-form posterior:
 
 Draws are exact — no MCMC iteration, no burn-in, no convergence diagnostics needed.
 The log marginal likelihood is available in closed form for formal Bayesian model comparison.
-
-
 Algorithm
 ---------
 
@@ -116,8 +114,6 @@ Algorithm
 5. **Sum-of-coefficients and single-unit-root priors** (when *lambda6* > 0 or *lambda7* > 0): Implemented via dummy observations appended to the data before the posterior update (Doan, Litterman & Sims 1984; Sims 1993).
 
 **Complexity:** :math:`O(K^2 m)` for the posterior update, plus :math:`O(K^3)` per draw for the Cholesky factorization. With 5,000 draws on a 3-variable VAR(4), typical wall-clock time is 0.05–0.10 seconds.
-
-
 Hyperparameter Guide
 --------------------
 
@@ -152,8 +148,6 @@ Hyperparameter Guide
    * - *alpha0*
      - 0 (= m+2)
      - Inverse-Wishart degrees of freedom. Default of m+2 is the least informative proper prior. Increase for stronger prior on :math:`\Sigma`.
-
-
 Examples
 --------
 
@@ -170,7 +164,6 @@ Estimate a 3-variable BVAR(4) on GDP growth, CPI inflation, and the federal fund
     // Load US macro quarterly data
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     ctl.ar = 0;               // Growth rates → white noise prior
@@ -210,7 +203,6 @@ Compare Lag Orders with Bayes Factors
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarControl ctl;
     struct bvarResult r1, r2, r4;
     ctl = bvarControlCreate();
 
@@ -244,7 +236,6 @@ Sum-of-coefficients and single-unit-root priors stabilize long-horizon forecasts
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarControl ctl;
     ctl = bvarControlCreate();
     ctl.p = 4;
     ctl.lambda6 = 5;          // Sum-of-coefficients
@@ -270,7 +261,6 @@ Let the marginal likelihood choose all :math:`\lambda` values:
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
     // Optimize lambda1, lambda6, lambda7 jointly
-    struct bvarControl ctl_opt;
     ctl_opt = bvarHyperopt(data);
 
     print "Optimal lambda1:" ctl_opt.lambda1;
@@ -282,8 +272,6 @@ Let the marginal likelihood choose all :math:`\lambda` values:
 
 This implements Algorithm 1 of Giannone, Lenza & Primiceri (2015), which maximizes the
 log marginal likelihood over a grid of hyperparameter values.
-
-
 Troubleshooting
 ---------------
 
@@ -303,8 +291,6 @@ The log marginal likelihood is only available for the conjugate Minnesota prior 
 
 **Levels vs growth rates:**
 This is the single most common specification error. If your data is in levels (GDP, not GDP growth), set ``ar = 1`` (random walk prior). If in growth rates, set ``ar = 0``. Using the wrong setting will produce either explosive forecasts (ar=0 on levels) or excessive shrinkage (ar=1 on growth rates). See the :ref:`choosing-a-var-model` guide.
-
-
 Verification
 ------------
 
@@ -332,8 +318,6 @@ to :math:`10^{-8}`. BVAR posterior means agree within 0.06 (prior-form differenc
 between conjugate and independent Normal-Wishart).
 
 See ``crossval/bear_matched_prior.e`` and ``crossval/bear_matched_irf.e``.
-
-
 Remarks
 -------
 
@@ -354,8 +338,6 @@ accuracy (Banbura, Giannone & Reichlin 2010). The prior acts as regularization,
 reducing out-of-sample forecast error by shrinking small, noisy coefficients
 toward zero. This benefit grows with the number of variables. For m > 5, BVAR
 is strongly preferred.
-
-
 References
 ----------
 

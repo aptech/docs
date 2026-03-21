@@ -25,7 +25,6 @@ Examples
     library timeseries;
 
     // Create control structure with defaults
-    struct arimaControl ctl;
     ctl = arimaControlCreate();
 
     // Customize: BIC selection, ML estimation

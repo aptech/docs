@@ -24,7 +24,6 @@ Examples
     new;
     library timeseries;
 
-    struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
 
     // 4-chain SV-BVAR with SSVS

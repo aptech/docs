@@ -86,7 +86,6 @@ Run 4 parallel chains for convergence diagnostics:
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 4;
     ctl.n_draws = 10000;
@@ -108,7 +107,6 @@ Enable stochastic search variable selection to identify which coefficients are n
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 4;
     ctl.ssvs = 1;
@@ -136,7 +134,6 @@ For large systems where storing all draws is infeasible, use online mode:
     // 20-variable system
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/largeMacro.dat"));
 
-    struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 2;
     ctl.sv_keep = "online";
@@ -160,7 +157,6 @@ SV-BVAR with Exogenous Regressors
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
     X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "oil");
 
-    struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 4;
 
@@ -195,8 +191,6 @@ The SV parameters :math:`(\mu_i, \phi_i, \sigma_i^2)` are estimated per equation
 - :math:`\mu_i`: level of log-volatility (prior: :math:`N(0, 100)`)
 - :math:`\phi_i`: persistence (prior: :math:`(\phi_i + 1)/2 \sim \text{Beta}(20, 1.5)`, centering mass near 1)
 - :math:`\sigma_i^2`: volatility of volatility (prior: :math:`IG(0.5, 0.5)`)
-
-
 Algorithm
 ---------
 
@@ -212,8 +206,6 @@ which improves effective sample size by 4-5x (Kastner & Fruhwirth-Schnatter 2014
 
 **Complexity:** :math:`O(T m K^2)` per iteration (dominated by the WLS draws for B).
 With m=3, p=4, T=200, 10K draws: typical wall-clock time is 1-2 seconds.
-
-
 Remarks
 -------
 
@@ -301,8 +293,6 @@ The chain has not converged. Increase *n_burn* and *n_draws*. For persistent vol
 If :math:`\mu_i` is very large (> 5) or :math:`\sigma_i^2` is very small (< 0.001),
 the model may be overfitting volatility to outliers. Check your data for measurement
 errors or structural breaks.
-
-
 Verification
 ------------
 
@@ -327,8 +317,6 @@ FRED-MD large macro dataset, both with and without structural breaks.
 
 All 30 tests pass. See ``gausslib-var/tests/sv_crossval.rs`` and the
 :ref:`var-verification` page for the full chain of trust.
-
-
 References
 ----------
 
@@ -339,8 +327,6 @@ References
 - Kim, S., N. Shephard, and S. Chib (1998). "Stochastic volatility: Likelihood inference and comparison with ARCH models." *Review of Economic Studies*, 65(3), 361-393.
 - McCausland, W.J., S. Miller, and D. Pelletier (2011). "Simulation smoothing for state-space models: A computational efficiency analysis." *Computational Statistics & Data Analysis*, 55(1), 199-212.
 - Primiceri, G.E. (2005). "Time varying structural vector autoregressions and monetary policy." *Review of Economic Studies*, 72(3), 821-852.
-
-
 Library
 -------
 timeseries
