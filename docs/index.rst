@@ -89,6 +89,24 @@ GAUSS Documentation
         :shadow: none
         :class-header: text-center
         :class-body: text-center
+        :link: applications
+        :link-type: doc
+
+        Applications
+        ^^^^^^^^^^^^
+
+        .. container:: icon-large
+
+          :fa:`puzzle-piece`
+
+        .. container:: text-left
+
+          Downloadable libraries that extend GAUSS with additional procedures and examples.
+
+    .. grid-item-card::
+        :shadow: none
+        :class-header: text-center
+        :class-body: text-center
         :link: changelog
         :link-type: doc
 
