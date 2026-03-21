@@ -35,3 +35,4 @@ Advanced
    advanced/arrays
    advanced/structures
    advanced/compilation-libraries
+   advanced/performance
