@@ -6,7 +6,7 @@ Descriptive statistics and computation
 Descriptive statistics
 --------------------------
 
-====================         ===========================================
+======================       ===========================================
 :doc:`../aggregate`          Aggregates the data in the columns of a matrix based upon a column containing group ids with a choice of method.
 :doc:`../contingency`        Computes statistics and measures of association for contingency tables.
 :doc:`../dstatmt`            Computes descriptive statistics of a dataset, dataframe, or matrix.
@@ -26,7 +26,7 @@ Descriptive statistics
 :doc:`../stdc`               Computes the sample standard deviation of the elements in each column of a matrix.
 :doc:`../tabulate`           Computes and returns two-way tables of frequencies.
 :doc:`../vcmvcx`             Computes an unbiased estimate of a variance-covariance matrix from a matrix :math:`x` or a moment matrix, :math:`x'x`.
-====================         ===========================================
+======================       ===========================================
 
 
 Computation
