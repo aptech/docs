@@ -77,15 +77,15 @@ Accessing Decomposition
     // Fraction of GDP variance explained by each shock at h=20
     print "GDP variance decomposition at h=20:";
     print fevd.var_names';
-    print fevd.fevd[21][1, .];
+    print fevd.fevd[21, 1, .];
 
     // Verify rows sum to 1
-    print "Sum:" sumc(fevd.fevd[21][1, .]');
+    print "Sum:" sumc(fevd.fevd[21, 1, .]');
 
     // Track how FFR's contribution to GDP evolves over horizons
     print "FFR contribution to GDP over time:";
     for h (0, 20, 1);
-        print h;; print "  ";; print fevd.fevd[h+1][1, 3];
+        print h;; print "  ";; print fevd.fevd[h+1, 1, 3];
     endfor;
 
 Remarks
@@ -93,7 +93,7 @@ Remarks
 
 **The FEVD partitions** the h-step-ahead forecast error variance of each
 variable into contributions from each orthogonal shock. At horizon h, row i
-of ``fevd.fevd[h+1]`` gives the fraction of variable i's forecast uncertainty
+of ``fevd.fevd[h+1, i, .]`` gives the fraction of variable i's forecast uncertainty
 attributable to each shock. Each row sums to 1.0.
 
 **At h=0 (impact),** the decomposition reflects the contemporaneous Cholesky

@@ -64,24 +64,24 @@ Accessing Median and Bands
     irf = irfSvCompute(result, 20, quiet=1);
 
     // Median response of GDP (1) to FFR shock (3) at h=5
-    print "Median:" irf.median[6][1, 3];
+    print "Median:" irf.median[6, 1, 3];
 
     // 68% credible band
-    print "68% band:" irf.lower_68[6][1, 3] "to" irf.upper_68[6][1, 3];
+    print "68% band:" irf.lower_68[6, 1, 3] "to" irf.upper_68[6, 1, 3];
 
     // 90% credible band
-    print "90% band:" irf.lower_90[6][1, 3] "to" irf.upper_90[6][1, 3];
+    print "90% band:" irf.lower_90[6, 1, 3] "to" irf.upper_90[6, 1, 3];
 
     // Full path with bands
     print "GDP response to FFR shock:";
     print "  h   Median    68%lo   68%hi   90%lo   90%hi";
     for h (0, 20, 1);
         print h;;
-        print irf.median[h+1][1, 3];;
-        print irf.lower_68[h+1][1, 3];;
-        print irf.upper_68[h+1][1, 3];;
-        print irf.lower_90[h+1][1, 3];;
-        print irf.upper_90[h+1][1, 3];
+        print irf.median[h+1, 1, 3];;
+        print irf.lower_68[h+1, 1, 3];;
+        print irf.upper_68[h+1, 1, 3];;
+        print irf.lower_90[h+1, 1, 3];;
+        print irf.upper_90[h+1, 1, 3];
     endfor;
 
 Remarks

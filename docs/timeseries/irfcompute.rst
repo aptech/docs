@@ -214,8 +214,8 @@ see :func:`svarIdentify`.
 For posterior IRF bands, use :func:`irfSvCompute` with an :class:`bvarSvResult`.
 
 **Indexing convention:**
-``irf.irf[1]`` is the impact response (h=0). ``irf.irf[h+1]`` is the response
-at horizon h. Element ``irf.irf[h+1][i, j]`` is the response of variable i to
+``irf.irf[1, ., .]`` is the impact response (h=0). ``irf.irf[h+1, ., .]`` is the response
+at horizon h. Element ``irf.irf[h+1, i, j]`` is the response of variable i to
 a shock to variable j.
 
 

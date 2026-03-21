@@ -57,12 +57,12 @@ Compare Cholesky and Generalized
     girf = girfCompute(result, 20, quiet=1);
 
     // For variable 1's own shock, Cholesky and GIRF are identical
-    print "Cholesky GDP→GDP h=5:" irf.irf[6][1, 1];
-    print "GIRF    GDP→GDP h=5:" girf.irf[6][1, 1];
+    print "Cholesky GDP→GDP h=5:" irf.irf[6, 1, 1];
+    print "GIRF    GDP→GDP h=5:" girf.irf[6, 1, 1];
 
     // For cross-variable responses, they differ
-    print "Cholesky FFR→GDP h=5:" irf.irf[6][1, 3];
-    print "GIRF    FFR→GDP h=5:" girf.irf[6][1, 3];
+    print "Cholesky FFR→GDP h=5:" irf.irf[6, 1, 3];
+    print "GIRF    FFR→GDP h=5:" girf.irf[6, 1, 3];
 
 Remarks
 -------

@@ -60,12 +60,12 @@ Shock Contributions to a Variable
     hd = hdCompute(result, quiet=1);
 
     // FFR shock (shock 3) contribution to GDP (variable 1) over time
-    ffr_to_gdp = hd.hd[3][., 1];
+    ffr_to_gdp = hd.hd[3, ., 1];
     print "FFR shock contribution to GDP:";
     print ffr_to_gdp;
 
     // CPI shock (shock 2) contribution to GDP
-    cpi_to_gdp = hd.hd[2][., 1];
+    cpi_to_gdp = hd.hd[2, ., 1];
 
 Verify Decomposition Sums to Observed
 ++++++++++++++++++++++++++++++++++++++
@@ -82,7 +82,7 @@ Verify Decomposition Sums to Observed
     // Reconstruct GDP from shock contributions + initial conditions
     gdp_reconstructed = hd.initial[., 1];
     for j (1, hd.m, 1);
-        gdp_reconstructed = gdp_reconstructed + hd.hd[j][., 1];
+        gdp_reconstructed = gdp_reconstructed + hd.hd[j, ., 1];
     endfor;
 
     // Compare with observed GDP (should match within numerical precision)
@@ -122,7 +122,7 @@ MA(:math:`\infty`) representation (truncated at *n_steps*).
 :math:`\Sigma` to the reduced-form residuals: :math:`\varepsilon_t = P^{-1} u_t`
 where :math:`\Sigma = PP'`.
 
-**Interpretation:** ``hd.hd[j][t, i]`` answers the question: "How much of
+**Interpretation:** ``hd.hd[j, t, i]`` answers the question: "How much of
 variable i's value at time t is attributable to the cumulative effect of
 shock j up to time t?"
 

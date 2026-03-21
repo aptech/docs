@@ -117,18 +117,18 @@ Accessing Results and Plotting
     // ... (estimate and identify as above) ...
 
     // Median response of GDP to monetary shock at h=5
-    print sir.irf_median[6][1, 3];
+    print sir.irf_median[6, 1, 3];
 
     // 68% band
-    print sir.irf_lower_68[6][1, 3] "to" sir.irf_upper_68[6][1, 3];
+    print sir.irf_lower_68[6, 1, 3] "to" sir.irf_upper_68[6, 1, 3];
 
     // Cumulative response (for differenced VARs)
     print "Cumulative GDP response to monetary shock at h=20:";
-    print sir.cirf_median[21][1, 3];
+    print sir.cirf_median[21, 1, 3];
 
     // FEVD: GDP variance from monetary shock at h=20
     print "GDP variance share from monetary shock:";
-    print sir.fevd_median[21][1, 3];
+    print sir.fevd_median[21, 1, 3];
 
     // Plot using irfPlotData
     df = irfPlotData(sir, 3, 1);    // Monetary shock → GDP
