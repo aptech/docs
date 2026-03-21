@@ -159,10 +159,10 @@ Key Findings
    the conjugate prior regularizes the system without requiring a well-conditioned OLS
    step.
 
-   With reduced lags (p=4, K=273), BEAR can estimate m=68 but takes **52 minutes
-   per window** (measured, 10 windows). The full 60-window evaluation would take
-   approximately **52 hours**. GAUSS completes the harder problem (m=68, p=12) in
-   12 minutes.
+   With reduced lags (p=4, K=273), BEAR can estimate m=68 at approximately
+   **28 seconds per window** (sanity-checked with single-window run). The full
+   60-window evaluation would take approximately **28 minutes**. GAUSS completes the
+   harder problem (m=68, p=12) in 12 minutes.
 
    .. note::
 
