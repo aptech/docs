@@ -150,13 +150,25 @@ Key Findings
         - --
 
    All timings measured on the same machine (Apple M-series), same data (FRED-MD),
-   same lags (p=12), same retained draws (500), same rolling protocol (60 windows).
-   BEAR uses MATLAB R2025b.
+   same retained draws (500), same rolling protocol (60 expanding windows).
+   BEAR: MATLAB R2025b native arm64, BEAR v5.2.2 (commit 29551e6).
+   GAUSS: v26.0.1, gausslib commit 609d023, x86_64 under Rosetta 2.
 
    :sup:`2` BEAR's OLS pre-estimation produces near-singular matrices at m=68, p=12
    (817 coefficients per equation with ~730 observations). GAUSS handles this because
    the conjugate prior regularizes the system without requiring a well-conditioned OLS
    step.
+
+   With reduced lags (p=4, K=273), BEAR can estimate m=68 but takes **52 minutes
+   per window** (measured, 10 windows). The full 60-window evaluation would take
+   approximately **52 hours**. GAUSS completes the harder problem (m=68, p=12) in
+   12 minutes.
+
+   .. note::
+
+      GAUSS timings include Rosetta 2 translation overhead (GAUSS v26 is x86_64,
+      running on ARM via Rosetta). Native arm64 GAUSS will be faster. BEAR timings
+      are native arm64 — its best case.
 
 
 The Code

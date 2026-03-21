@@ -260,6 +260,7 @@ execution times:
      - 0.000s
 
 All measurements on 3-variable, 200-quarter data. 5 runs each, Apple M-series.
+GAUSS runs under Rosetta 2 (x86_64 on ARM) — native arm64 GAUSS will be faster.
 
 
 Scaling: Large Systems
