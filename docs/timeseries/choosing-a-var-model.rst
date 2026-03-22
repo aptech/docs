@@ -172,15 +172,13 @@ e.g., a positive supply shock increases production and decreases prices.
     // Monthly oil market data: production, global activity, real oil price
     data = loadd("oil_kilian.csv");
 
-    // Create an SV-BVAR control structure and fill with default values
-    svctl = bvarSvControlCreate();
-    svctl.p = 24;          // 24 monthly lags = 2 years of history.
+    // Estimate reduced-form BVAR — matches Kilian (2009) specification
+    ctl = bvarControlCreate();
+    ctl.p = 24;            // 24 monthly lags = 2 years of history.
                            //   Oil markets have long adjustment dynamics.
-    svctl.ar = 0;          // Data is in log-differences (stationary)
-    svctl.n_draws = 10000;
-    svctl.n_burn = 5000;
+    ctl.ar = 0;            // Data is in log-differences (stationary)
 
-    result = bvarSvFit(data, svctl);
+    result = bvarFit(data, ctl);
 
     // Structural identification via sign restrictions.
     // Each row is: [variable, shock, horizon, sign].
@@ -194,6 +192,9 @@ e.g., a positive supply shock increases production and decreases prices.
                         3  2  1  1 };  // Var 3 (price):      + to demand
 
     sir = svarIrf(result, sctl);   // Posterior IRF bands with sign-restricted draws
+
+    // For time-varying volatility (modern extension), replace bvarFit/bvarControlCreate
+    // with bvarSvFit/bvarSvControlCreate and add svctl.n_draws = 10000; svctl.n_burn = 5000.
 
 Function Comparison
 -------------------

@@ -3,7 +3,13 @@ varDiagnose
 
 Purpose
 -------
-Run convergence diagnostics on a Bayesian VAR or SV-BVAR result.
+Run MCMC convergence diagnostics on SV-BVAR results from :func:`bvarSvFit`.
+
+.. note::
+
+   Conjugate BVAR draws from :func:`bvarFit` are independent (iid) — not MCMC —
+   and do not require convergence diagnostics. This function is designed for the
+   Gibbs sampler output of :func:`bvarSvFit`.
 
 Format
 ------

@@ -181,7 +181,7 @@ Uses R in the text — the table below shows the GAUSS equivalents.
      - ``auto.arima()``
    * - 9.5
      - Auto ARIMA selection
-     - :func:`arimaFit` (order omitted)
+     - :func:`arimaFit` (automatic order selection)
      - ``auto.arima()``
    * - 9.7
      - Seasonal ARIMA
