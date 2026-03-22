@@ -105,7 +105,6 @@ Examples
     result = arimaFit(y, season=12, quiet=1);
 
     // Forecast 24 months
-    struct forecastResult fc;
     fc = arimaForecast(result, 24);
 
     // Point forecasts and 95% prediction intervals

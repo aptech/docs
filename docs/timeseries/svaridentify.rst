@@ -69,7 +69,6 @@ Monetary Policy SVAR
                        1 3 0 -1,       // GDP negative
                        2 3 0 -1 };     // CPI negative
 
-    struct svarResult sr;
     sr = svarIdentify(result, ctl);
 
     print "Structural impact matrix P:";

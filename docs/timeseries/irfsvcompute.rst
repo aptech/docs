@@ -47,7 +47,6 @@ SV-BVAR IRF with Credible Bands
     ctl.n_burn = 5000;
     result = bvarSvFit(data, ctl, quiet=1);
 
-    struct svIrfResult irf;
     irf = irfSvCompute(result, 20);
 
 Accessing Median and Bands

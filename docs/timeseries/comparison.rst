@@ -24,11 +24,9 @@ GAUSS
     ctl.p = 4;
     ctl.ar = 0;
 
-    struct bvarResult result;
     result = bvarFit(data, ctl);
 
     // IRF
-    struct varResult rv;
     rv = varFit(data, 4, quiet=1);
     irf = irfCompute(rv, 20);
 

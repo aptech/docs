@@ -155,7 +155,6 @@ Estimate a 3-variable BVAR(4) on GDP growth, CPI inflation, and the federal fund
     ctl.p = 4;
     ctl.ar = 0;               // Growth rates → white noise prior
 
-    struct bvarResult result;
     result = bvarFit(data, ctl);
 
 Output:
@@ -190,7 +189,6 @@ Compare Lag Orders with Bayes Factors
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
-    struct bvarResult r1, r2, r4;
     ctl = bvarControlCreate();
     ctl.quiet = 1;
 
@@ -229,11 +227,9 @@ Sum-of-coefficients and single-unit-root priors stabilize long-horizon forecasts
     ctl.lambda6 = 5;          // Sum-of-coefficients
     ctl.lambda7 = 5;          // Single-unit-root
 
-    struct bvarResult result;
     result = bvarFit(data, ctl);
 
     // 8-step-ahead forecast
-    struct forecastResult fc;
     fc = bvarForecast(result, 8);
 
 Data-Driven Hyperparameters (GLP 2015)

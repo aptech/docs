@@ -65,7 +65,6 @@ Fix the federal funds rate at 5.0% for 12 quarters and forecast GDP and CPI:
     // Fix FFR (column 3) at 5.0 for all horizons
     path[., 3] = 5.0 * ones(12, 1);
 
-    struct condForecastResult cfc;
     cfc = condForecast(result, path);
 
 The conditional forecast table is printed:

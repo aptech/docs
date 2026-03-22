@@ -48,7 +48,6 @@ Basic Convergence Check
     ctl.n_burn = 5000;
     result = bvarSvFit(data, ctl, quiet=1);
 
-    struct diagResult diag;
     diag = varDiagnose(result);
 
     // One-bit convergence check

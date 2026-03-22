@@ -24,11 +24,9 @@ If you just want working code, copy this:
     ctl.ar = 0;                  // Growth rates → white noise prior
     ctl.quiet = 1;
 
-    struct bvarResult result;
     result = bvarFit(data, ctl);
 
     // Impulse responses: what happens when the Fed raises rates?
-    struct varResult rv;
     rv = varFit(data, ctl.p);
     irf = irfCompute(rv, 20);
 
@@ -75,7 +73,6 @@ Step 2: Estimate a Bayesian VAR
     ctl.ar = 0;                  // White noise prior (data is in growth rates)
 
     // Estimate
-    struct bvarResult result;
     result = bvarFit(data[., vars], ctl);
 
 You should see::
@@ -117,11 +114,9 @@ shock to one variable on all variables:
     vctl.p = 4;
     vctl.quiet = 1;
 
-    struct varResult rv;
     rv = varFit(data[., vars], vctl);
 
     // Compute Cholesky IRFs, 20 quarters ahead
-    struct irfResult irf;
     irf = irfCompute(rv, 20);
 
 You should see a table like::
@@ -155,7 +150,6 @@ Step 4: Forecast GDP
 
 ::
 
-    struct forecastResult fc;
     fc = bvarForecast(result, 8);
 
 You should see::
@@ -183,8 +177,6 @@ Compare lag orders using the log marginal likelihood — the Bayesian gold stand
 for model selection:
 
 ::
-
-    struct bvarResult r1, r2, r4;
 
     ctl1 = bvarControlCreate();
     ctl1.ar = 0;
@@ -243,7 +235,6 @@ Everything above, in one runnable file:
     ctl.p = 4;
     ctl.ar = 0;
 
-    struct bvarResult result;
     result = bvarFit(data[., vars], ctl);
 
     // ---- Impulse responses ----
@@ -251,18 +242,14 @@ Everything above, in one runnable file:
     vctl.p = 4;
     vctl.quiet = 1;
 
-    struct varResult rv;
     rv = varFit(data[., vars], vctl);
 
-    struct irfResult irf;
     irf = irfCompute(rv, 20);
 
     // ---- Forecast ----
-    struct forecastResult fc;
     fc = bvarForecast(result, 8);
 
     // ---- Model comparison ----
-    struct bvarResult r2;
     ctl2 = bvarControlCreate();
     ctl2.p = 2;
     ctl2.ar = 0;

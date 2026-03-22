@@ -44,7 +44,6 @@ Full Historical Decomposition
 
     result = varFit(data, 4);
 
-    struct hdResult hd;
     hd = hdCompute(result);
 
 Shock Contributions to a Variable

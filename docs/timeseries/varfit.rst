@@ -132,7 +132,6 @@ Compare AIC across lag orders to choose p:
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
     // Automatic selection
-    struct varResult best;
     best = varLagSelect(data, 8);   // Test p = 1..8
 
     print "Selected lag order:" best.p;
@@ -161,7 +160,6 @@ Include oil price as an exogenous variable:
     ctl.xreg = X;
 
     result = varFit(y, ctl);
-
 
 Troubleshooting
 ---------------

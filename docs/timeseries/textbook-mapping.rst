@@ -217,10 +217,8 @@ Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and forecast 24 months::
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv"), "passengers");
 
     // arimaFit(y, season, p, d, q, P, D, Q)
-    struct arimaResult result;
     result = arimaFit(y, 12, 0, 1, 1, 0, 1, 1);
 
-    struct forecastResult fc;
     fc = arimaForecast(result, 24);
 
 **Exercise 2: Monetary Policy VAR** (Hamilton Ch. 11, Lutkepohl Ch. 2-4, K&L Ch. 8)
@@ -233,13 +231,10 @@ Estimate a 3-variable VAR on GDP, CPI, FFR. Compute IRFs and interpret::
     vctl = varControlCreate();
     vctl.p = 4;
 
-    struct varResult result;
     result = varFit(data, vctl);
 
-    struct irfResult irf;
     irf = irfCompute(result, 20);
 
-    struct fevdResult fevd;
     fevd = fevdCompute(irf);
 
 **Exercise 3: Bayesian Shrinkage** (Lutkepohl Ch. 5, K&L Ch. 5)
@@ -258,10 +253,8 @@ Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
     vctl.p = 4;
     vctl.quiet = 1;
 
-    struct varResult rv;
     rv = varFit(y_train, vctl);
 
-    struct forecastResult fc_ols;
     fc_ols = varForecast(rv, 40);
 
     // BVAR forecast
@@ -270,10 +263,8 @@ Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
     ctl.ar = 0;
     ctl.quiet = 1;
 
-    struct bvarResult br;
     br = bvarFit(y_train, ctl);
 
-    struct forecastResult fc_bvar;
     fc_bvar = bvarForecast(br, 40);
 
     // Compare RMSE
@@ -296,13 +287,11 @@ Use the log marginal likelihood to select the best model::
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
 
     // Optimize hyperparameters
-    struct hyperoptResult ho;
     ho = bvarHyperopt(data);
     print "Optimal lambda1:" ho.lambda1;
     print "Maximized log ML:" ho.log_ml;
 
     // Compare with fixed hyperparameters
-    struct bvarResult r_tight, r_loose, r_opt;
 
     ctl = bvarControlCreate();
     ctl.lambda1 = 0.01;

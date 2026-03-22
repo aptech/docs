@@ -49,7 +49,6 @@ Basic VAR Forecast
     // Fit VAR(4) and forecast 12 steps
     result = varFit(data, 4, quiet=1);
 
-    struct forecastResult fc;
     fc = varForecast(result, 12);
 
 The forecast table is printed to the **Command Window**:

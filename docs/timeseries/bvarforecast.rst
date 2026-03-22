@@ -49,7 +49,6 @@ Default BVAR Forecast (68% Credible Bands)
     // Estimate and forecast
     result = bvarFit(data, quiet=1);
 
-    struct forecastResult fc;
     fc = bvarForecast(result, 12);
 
 Forecast with 90% Credible Bands

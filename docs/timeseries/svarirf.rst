@@ -51,7 +51,6 @@ Monetary Policy SVAR with Posterior Bands
                        1 3 0 -1,       // GDP down
                        2 3 0 -1 };     // CPI down
 
-    struct svarPosteriorResult sir;
     sir = svarIrf(result, ctl);
 
     print "Acceptance rate:" sir.accept_rate;

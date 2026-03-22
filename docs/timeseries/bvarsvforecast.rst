@@ -51,7 +51,6 @@ Quick Mean-Path Forecast
 
     result = bvarSvFit(data, quiet=1);
 
-    struct densityForecastResult dfc;
     dfc = bvarSvForecast(result, 12);
 
     print "Mean forecast:";

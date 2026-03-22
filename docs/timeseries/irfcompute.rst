@@ -96,7 +96,6 @@ Trace the effect of a federal funds rate shock on GDP and CPI:
     // but GDP shocks take one period to reach FFR.
     result = varFit(data, 4);
 
-    struct irfResult irf;
     irf = irfCompute(result, 20);
 
 Output:
@@ -134,7 +133,6 @@ IRF from BVAR with Shrinkage
     ctl = bvarControlCreate();
     ctl.p = 4;
 
-    struct bvarResult br;
     br = bvarFit(data, ctl, quiet=1);
 
     // IRF at the posterior mean of B and Sigma

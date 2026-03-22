@@ -45,7 +45,6 @@ From Pre-Computed IRF
 
     irf = irfCompute(result, 20, quiet=1);
 
-    struct fevdResult fevd;
     fevd = fevdCompute(irf);
 
 Direct from Estimation Result
