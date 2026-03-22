@@ -165,6 +165,11 @@ Conditional Forecast from SV-BVAR
 Remarks
 -------
 
+**Hard constraints only:**
+Constraints must be exact values — e.g., "FFR = 5.0 at h=1." Interval
+or range constraints (e.g., "GDP between 1% and 3%") are not supported.
+Use ``miss()`` to leave variables unconstrained at a given horizon.
+
 **Algorithm:**
 Implements the Waggoner & Zha (1999) conditional forecasting algorithm. For
 each posterior draw :math:`(B^{(i)}, \Sigma^{(i)})`, the constrained variable
