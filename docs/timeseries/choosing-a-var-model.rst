@@ -92,15 +92,13 @@ specification from Christiano, Eichenbaum & Evans (1999).
     // Load quarterly US macro data — loadd reads column names from the CSV header
     data = loadd("macro_quarterly.csv", "gdp_growth + cpi_inflation + fed_funds");
 
-    // Set up the Minnesota prior
-    struct bvarControl ctl;
+    // Create a bvarControl structure and fill with default values
     ctl = bvarControlCreate();
     ctl.p = 4;            // 4 quarterly lags = 1 year of history
     ctl.ar = 0;           // White noise prior: growth rates are mean-reverting,
                           //   not persistent. Use ar=1 for levels data instead.
 
     // Estimate — draws are exact (conjugate posterior, no MCMC)
-    struct bvarResult result;
     result = bvarFit(data, ctl);
 
     // Cholesky IRFs: ordering matters — GDP is most exogenous, FFR most endogenous.
@@ -123,15 +121,12 @@ likelihood (Giannone, Lenza & Primiceri 2015).
     // Let the data choose how tight the prior should be.
     // bvarHyperopt maximizes the log marginal likelihood over lambda1
     // (and optionally lambda6, lambda7 for SOC/SUR priors).
-    // It returns a control struct pre-populated with optimal values.
-    struct hyperoptResult ho;
+    // It returns a hyperoptResult with optimal values and a pre-filled control struct.
     ho = bvarHyperopt(data);
 
     // Estimate with the optimized prior
-    struct bvarControl ctl;
     ctl = ho.ctl;                    // Start from optimized settings
     ctl.quiet = 1;                   // Suppress printed output
-    struct bvarResult result;
     result = bvarFit(data, ctl);
 
     // Forecast 8 steps ahead with posterior predictive bands
@@ -149,7 +144,7 @@ which improves density forecast calibration.
 
     data = loadd("returns.csv");
 
-    struct bvarSvControl svctl;
+    // Create an SV-BVAR control structure and fill with default values
     svctl = bvarSvControlCreate();
     svctl.p = 2;           // 2 lags — returns have weak serial dependence
     svctl.ar = 0;          // White noise prior — returns are stationary
@@ -160,7 +155,6 @@ which improves density forecast calibration.
     result = bvarSvFit(data, svctl);
 
     // Density forecasts with time-varying volatility bands
-    struct svForecastControl fctl;
     fctl = svForecastControlCreate();
     fctl.h = 12;
     dfc = bvarSvForecast(result, fctl);
@@ -178,8 +172,7 @@ e.g., a positive supply shock increases production and decreases prices.
     // Monthly oil market data: production, global activity, real oil price
     data = loadd("oil_kilian.csv");
 
-    // Estimate a reduced-form SV-BVAR
-    struct bvarSvControl svctl;
+    // Create an SV-BVAR control structure and fill with default values
     svctl = bvarSvControlCreate();
     svctl.p = 24;          // 24 monthly lags = 2 years of history.
                            //   Oil markets have long adjustment dynamics.
@@ -190,11 +183,8 @@ e.g., a positive supply shock increases production and decreases prices.
     result = bvarSvFit(data, svctl);
 
     // Structural identification via sign restrictions.
-    // Each row constrains one variable's response on impact (horizon 0).
-    // Columns are shocks: [supply, demand, speculative].
-    //   +1 = positive response required
-    //   -1 = negative response required
-    struct svarControl sctl;
+    // Each row is: [variable, shock, horizon, sign].
+    //   sign: +1 = positive response required, -1 = negative
     sctl = svarControlCreate();
     sctl.sign_restr = { 1  1  1  1,    // Var 1 (production): + to supply shock
                         2  1  1 -1,    // Var 2 (activity):   + to supply, - to speculative
