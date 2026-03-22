@@ -77,7 +77,7 @@ you need structural identification:
 If you just want forecasts and don't need causal interpretation, skip structural
 identification and use reduced-form IRFs.
 
-Quick Start Recipes
+Quick-Start Recipes
 -------------------
 
 **Recipe 1: Standard 3-variable monetary policy VAR**
@@ -194,6 +194,7 @@ e.g., a positive supply shock increases production and decreases prices.
                         3  2  1  1 };  // Var 3 (price):      + to demand
 
     sir = svarIrf(result, sctl);   // Posterior IRF bands with sign-restricted draws
+
 Function Comparison
 -------------------
 
