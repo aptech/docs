@@ -290,4 +290,44 @@ GAUSS handles large BVAR systems efficiently. Memory scales with :math:`n_{draws
 
 For systems above m=10, use :func:`bvarSvFit` with ``sv_keep = "online"`` to
 reduce memory from O(n_draws * T * m) to O(reservoir_size * m).
+
+Rolling-Window Performance (vs BEAR)
+-------------------------------------
+
+For production rolling-window evaluations (60 windows, p=12, 500 draws, FRED-MD data),
+GAUSS is 8–67x faster than BEAR across system sizes:
+
+.. list-table::
+   :widths: 10 10 15 15 10
+   :header-rows: 1
+
+   * - m
+     - K
+     - BEAR
+     - GAUSS
+     - Speedup
+   * - 3
+     - 37
+     - 33.6s
+     - 0.5s
+     - 67x
+   * - 10
+     - 121
+     - 2.1 min
+     - 4.2s
+     - 30x
+   * - 20
+     - 241
+     - 5.9 min
+     - 22s
+     - 16x
+   * - 50
+     - 601
+     - 26.1 min
+     - 3.2 min
+     - 8x
+
+BEAR: MATLAB R2025b native arm64. GAUSS: x86_64 under Rosetta 2.
+See :ref:`bgr-replication` for full details and RMSE results.
+
 .. seealso:: Guides :ref:`getting-started`, :ref:`choosing-a-var-model`, :ref:`var-verification`

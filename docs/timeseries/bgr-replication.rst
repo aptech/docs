@@ -64,7 +64,7 @@ Results
      - CPI
      - FFR
    * - 3
-     - 1.4s
+     - 0.5s
      - 0.0245
      - 0.0031
      - 0.351
@@ -72,7 +72,7 @@ Results
      - 0.0029
      - 0.225
    * - 10
-     - 13.8s
+     - 4.2s
      - 0.0254
      - 0.0033
      - 0.374
@@ -80,7 +80,7 @@ Results
      - 0.0029
      - 0.216
    * - 20
-     - 57s
+     - 22s
      - 0.0233
      - 0.0034
      - 0.557
@@ -88,34 +88,26 @@ Results
      - 0.0029
      - 0.216
    * - 50
-     - 6.8 min
+     - 3.2 min
      - 0.0272
      - 0.0031
      - 0.338
      - 0.0082
      - 0.0029
      - 0.221
-   * - 68
-     - ~12 min
-     - **0.0228**
-     - 0.0032
-     - **0.247**
-     - **0.0082**
-     - **0.0029**
-     - **0.208**
 
 
 Key Findings
 ------------
 
-1. **RMSE is stable or improving with system size.** The m=68 system achieves the
-   lowest RMSE for industrial production (0.0228 at h=1) and the federal funds rate
-   (0.247 at h=1, 0.208 at h=12). CPI inflation RMSE is essentially flat across
-   all system sizes. This confirms BGR's central result.
+1. **RMSE is stable or improving with system size.** CPI inflation RMSE is
+   essentially flat across all system sizes. Industrial production and
+   federal funds rate RMSE are stable from m=3 to m=50. This confirms
+   BGR's central result.
 
-2. **The full exercise completes in under 15 minutes.** The 60-window rolling
-   evaluation across all 5 system sizes — 300 BVAR estimations and forecasts totaling
-   hundreds of thousands of posterior draws — runs in approximately 13 minutes on a
+2. **The full exercise completes in under 4 minutes.** The 60-window rolling
+   evaluation across all 4 system sizes — 240 BVAR estimations and forecasts totaling
+   hundreds of thousands of posterior draws — runs in approximately 3.5 minutes on a
    single core.
 
 3. **Measured BEAR timing on the same exercise:**
@@ -129,40 +121,32 @@ Key Findings
         - BEAR
         - Speedup
       * - 3
-        - 1.4s
+        - 0.5s
         - 33.6s
-        - 24x
+        - 67x
       * - 10
-        - 13.8s
+        - 4.2s
         - 2.1 min
-        - 9x
+        - 30x
       * - 20
-        - 57s
+        - 22s
         - 5.9 min
-        - 6x
+        - 16x
       * - 50
-        - 6.8 min
+        - 3.2 min
         - 26.1 min
-        - 3.8x
-      * - 68
-        - ~12 min
-        - **fails** :sup:`2`
-        - --
+        - 8x
 
    All timings measured on the same machine (Apple M-series), same data (FRED-MD),
    same retained draws (500), same rolling protocol (60 expanding windows).
    BEAR: MATLAB R2025b native arm64, BEAR v5.2.2 (commit 29551e6).
-   GAUSS: v26.0.1, gausslib commit 609d023, x86_64 under Rosetta 2.
+   GAUSS: v26.1, gausslib commit d1b3a9b, x86_64 under Rosetta 2.
 
-   :sup:`2` BEAR's OLS pre-estimation produces near-singular matrices at m=68, p=12
-   (817 coefficients per equation with ~730 observations). GAUSS handles this because
-   the conjugate prior regularizes the system without requiring a well-conditioned OLS
-   step.
-
-   With reduced lags (p=4, K=273), BEAR can estimate m=68 at approximately
-   **28 seconds per window** (sanity-checked with single-window run). The full
-   60-window evaluation would take approximately **28 minutes**. GAUSS completes the
-   harder problem (m=68, p=12) in 12 minutes.
+   At m=68 with p=12, BEAR's OLS pre-estimation produces near-singular matrices
+   (817 coefficients per equation with ~730 observations) and fails. With reduced
+   lags (p=4), BEAR can estimate m=68 at approximately **28 seconds per window**
+   — the full 60-window evaluation would take approximately **28 minutes**. GAUSS
+   completes m=68 p=4 in **1.4 minutes** (20x faster).
 
    .. note::
 
@@ -188,7 +172,7 @@ The complete replication is a single GAUSS script::
     // ... (see full script)
 
     // Rolling forecast evaluation at each system size
-    m_vals = { 3, 10, 20, 50, 100 };
+    m_vals = { 3, 10, 20, 50 };
     ww = 1;
     do while ww <= n_eval;
         br = bvarFit(y_train, ctl);
@@ -210,15 +194,15 @@ Why This Matters
 The BGR paper is cited in virtually every large-BVAR application. Replicating it
 demonstrates that GAUSS Time Series handles production-scale forecasting:
 
-- **68 variables, 12 lags** = 817 coefficients per equation, 55,556 total parameters
+- **50 variables, 12 lags** = 601 coefficients per equation, 30,050 total parameters
 - **Rolling evaluation** = the standard methodology for forecast comparison papers
 - **FRED-MD** = the standard dataset used by the Federal Reserve and academic researchers
-- **Under 15 minutes** = interactive, not batch. A researcher can modify the prior,
-  re-run, and see results before their coffee gets cold.
+- **Under 4 minutes** = interactive, not batch. A researcher can modify the prior,
+  re-run, and see results immediately.
 
-For comparison, the same exercise in BEAR would require overnight computation.
-In R, the ``BVAR`` package would take approximately 2-3 hours (Gibbs sampling
-with hierarchical prior).
+For comparison, the same exercise in BEAR takes over 30 minutes (26 min at m=50
+alone). In R, the ``BVAR`` package would take approximately 1-2 hours (Gibbs
+sampling with hierarchical prior).
 
 
 References
