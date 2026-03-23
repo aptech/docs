@@ -230,6 +230,7 @@ Everything above, in one runnable file:
     print "=== Out-of-sample accuracy ===";
     print "RMSE:" rmse;
     print "MASE:" mase;
+    print "sMAPE:" smape;
 What's Next
 -----------
 
