@@ -4,6 +4,17 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+26.1.0
+------
+
+#. New feature: Keyword arguments for procedure calls. Arguments can be passed by name in any order: ``result = arimaFit(y, order = 1|1|1, season = 12)``. Keyword parameters are declared in the procedure signature with ``name = default`` syntax. Omitted keywords use their declared defaults. The compiler rewrites keyword calls as positional calls with zero runtime overhead. Typos produce "did you mean?" suggestions using fuzzy matching.
+#. New feature: Struct type inference. Procedures that return structs no longer require callers to declare the receiving variable. ``result = arimaFit(y)`` now works without first writing ``struct arimaResult result``. The compiler automatically infers the struct type from the procedure's return type. Works for single assignments, multi-return assignments (``{ result, n } = proc()``), and nested return expressions (``retp(arimaFit(y))``).
+#. New feature: Matrix literals in expression context. ``{1, 2, 3}`` and ``{1 2, 3 4}`` can now be used directly as function arguments, in expressions, and as keyword argument defaults: ``print sumc({1, 2, 3})``, ``y = foo({1 2, 3 4})``, ``proc (1) = bar(x, opts={})``.
+#. New feature: String array literals in expression context. ``{"a", "b", "c"}`` now produces a proper string array (type 15) instead of a packed-byte character matrix. Single-element ``{"hello"}`` produces a string (type 13).
+#. New feature: Typed return declarations for procedures. Procedure headers can now declare their return types: ``proc (struct arimaResult) = arimaFit(y)``. For multi-return procedures, list each return type: ``proc (struct mleResult, matrix) = mleEstimate(y, ctl)``. The ``lib`` command automatically detects typed return declarations and records them in ``.lcg`` library files, enabling struct type inference for library procedures without manual configuration.
+#. Enhanced functionality: Struct type mismatch errors (G0506) now display both struct type names (e.g., "Cannot assign struct 'typeB' to variable declared as struct 'typeA'").
+#. Enhanced functionality: Undefined struct member errors (G0504) now display the struct type name alongside the member name.
+
 26.0.1
 ------
 
