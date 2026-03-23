@@ -107,10 +107,19 @@ You should see::
 1. Unit root tests (KPSS) determine the differencing order d
 2. Seasonal unit root test (OCSB) determines seasonal differencing D
 3. Stepwise search over (p, q) and (P, Q) minimizes AICc
-4. CSS initialization followed by ML refinement via Kalman filter
+4. CSS (Conditional Sum of Squares) initialization followed by ML (maximum
+   likelihood) refinement via Kalman filter
 
 This implements the Hyndman-Khandakar (2008) algorithm — the same method
 behind R's ``auto.arima()``.
+
+.. note::
+
+   The auto-selected model may vary slightly depending on the data sample and
+   platform. The stepwise search can take different paths through the model
+   space. The airline dataset reliably selects SARIMA(0,1,1)(0,1,1)[12],
+   but other datasets may produce different results across runs if the AICc
+   values are close.
 Step 4: Forecast 24 Months
 --------------------------
 
@@ -138,6 +147,13 @@ You should see::
 - **Bands widen over time**: longer-horizon forecasts are less certain.
 - **Seasonal pattern is visible**: the forecasts show the same 12-month cycle
   as the training data.
+
+.. note::
+
+   ARIMA uses 95% prediction intervals by default (frequentist convention).
+   Bayesian VAR forecasts from :func:`bvarForecast` use 68% credible bands by
+   default (one posterior standard deviation). Both can be changed via the
+   *level* parameter.
 Step 5: Compare Models
 ----------------------
 

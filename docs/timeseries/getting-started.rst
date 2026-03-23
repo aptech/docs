@@ -242,6 +242,6 @@ Here's where to go next:
    * - **Automatic hyperparameters**
      - Unsure about lambda1? Use :func:`bvarHyperopt` to let the data decide.
    * - **ARIMA / univariate**
-     - Single variable? Use :func:`arimaFit` with automatic order selection.
+     - Single variable? See the :ref:`getting-started-arima` tutorial for ARIMA, SARIMA, and STL decomposition.
    * - **Choosing the right model**
      - Unsure which function to use? See the :ref:`choosing-a-var-model` decision tree.
