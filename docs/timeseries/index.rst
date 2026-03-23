@@ -196,6 +196,7 @@ Control Structure Creators
     :caption: Guides
 
     getting-started
+    getting-started-arima
     choosing-a-var-model
     comparison
     textbook-mapping
