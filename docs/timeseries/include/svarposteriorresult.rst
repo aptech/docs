@@ -4,47 +4,20 @@
    * - sir.irf_median
      - Array of (n_ahead+1) mxm matrices, posterior median impulse responses. ``sir.irf_median[h+1][i, j]`` is the median response of variable i to shock j at horizon h.
 
-   * - sir.irf_lower_68
-     - Array of (n_ahead+1) mxm matrices, lower 68% credible band (16th percentile).
-
-   * - sir.irf_upper_68
-     - Array of (n_ahead+1) mxm matrices, upper 68% credible band (84th percentile).
-
-   * - sir.irf_lower_90
-     - Array of (n_ahead+1) mxm matrices, lower 90% credible band (5th percentile).
-
-   * - sir.irf_upper_90
-     - Array of (n_ahead+1) mxm matrices, upper 90% credible band (95th percentile).
+   * - sir.irf_bands
+     - Array of :class:`credibleBand` structures. Default length 2 (68% and 90%). Access via ``sir.irf_bands[1].level``, ``sir.irf_bands[1].lower``, ``sir.irf_bands[1].upper``. Each ``.lower`` and ``.upper`` is an array of (n_ahead+1) mxm matrices.
 
    * - sir.cirf_median
      - Array of (n_ahead+1) mxm matrices, posterior median cumulative IRF.
 
-   * - sir.cirf_lower_68
-     - Array of (n_ahead+1) mxm matrices, lower 68% cumulative IRF band.
-
-   * - sir.cirf_upper_68
-     - Array of (n_ahead+1) mxm matrices, upper 68% cumulative IRF band.
-
-   * - sir.cirf_lower_90
-     - Array of (n_ahead+1) mxm matrices, lower 90% cumulative IRF band.
-
-   * - sir.cirf_upper_90
-     - Array of (n_ahead+1) mxm matrices, upper 90% cumulative IRF band.
+   * - sir.cirf_bands
+     - Array of :class:`credibleBand` structures. Default length 2 (68% and 90%). Access via ``sir.cirf_bands[1].level``, ``sir.cirf_bands[1].lower``, ``sir.cirf_bands[1].upper``. Each ``.lower`` and ``.upper`` is an array of (n_ahead+1) mxm matrices.
 
    * - sir.fevd_median
      - Array of (n_ahead+1) mxm matrices, posterior median FEVD. Each row sums to 1.0.
 
-   * - sir.fevd_lower_68
-     - Array of (n_ahead+1) mxm matrices, lower 68% FEVD band.
-
-   * - sir.fevd_upper_68
-     - Array of (n_ahead+1) mxm matrices, upper 68% FEVD band.
-
-   * - sir.fevd_lower_90
-     - Array of (n_ahead+1) mxm matrices, lower 90% FEVD band.
-
-   * - sir.fevd_upper_90
-     - Array of (n_ahead+1) mxm matrices, upper 90% FEVD band.
+   * - sir.fevd_bands
+     - Array of :class:`credibleBand` structures. Default length 2 (68% and 90%). Access via ``sir.fevd_bands[1].level``, ``sir.fevd_bands[1].lower``, ``sir.fevd_bands[1].upper``. Each ``.lower`` and ``.upper`` is an array of (n_ahead+1) mxm matrices.
 
    * - sir.n_attempted
      - Scalar, total posterior draws attempted.

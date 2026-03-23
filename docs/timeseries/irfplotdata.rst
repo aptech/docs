@@ -20,7 +20,7 @@ Format
    :param response: Optional, response variable index (1 to m). If omitted, all responses are included.
    :type response: scalar
 
-   :return df: Dataframe. For :class:`irfResult`: columns horizon, shock, response, value. For :class:`svIrfResult`: columns horizon, shock, response, median, lower_68, upper_68, lower_90, upper_90. For :class:`fevdResult`: columns horizon, shock, response, share.
+   :return df: Dataframe. For :class:`irfResult`: columns horizon, shock, response, value. For :class:`svIrfResult`: columns horizon, shock, response, median, plus lower/upper columns for each credible band level. For :class:`fevdResult`: columns horizon, shock, response, share.
    :rtype df: dataframe
 
 Examples
@@ -59,7 +59,7 @@ Plot SV-BVAR IRF with Credible Bands
 
     // Plot median with 68% band
     plotXY(df[., "horizon"],
-        df[., "median"]~df[., "lower_68"]~df[., "upper_68"]);
+        df[., "median"]~df[., "bands[1].lower"]~df[., "bands[1].upper"]);
 
 Extract All Pairs
 +++++++++++++++++

@@ -116,7 +116,7 @@ Accessing Results and Plotting
     print sir.irf_median[6, 1, 3];
 
     // 68% band
-    print sir.irf_lower_68[6, 1, 3] "to" sir.irf_upper_68[6, 1, 3];
+    print sir.irf_bands[1].lower[6, 1, 3] "to" sir.irf_bands[1].upper[6, 1, 3];
 
     // Cumulative response (for differenced VARs)
     print "Cumulative GDP response to monetary shock at h=20:";
@@ -128,7 +128,7 @@ Accessing Results and Plotting
 
     // Plot using irfPlotData
     df = irfPlotData(sir, 3, 1);    // Monetary shock → GDP
-    plotXY(df[., "horizon"], df[., "median"]~df[., "lower_68"]~df[., "upper_68"]);
+    plotXY(df[., "horizon"], df[., "median"]~df[., "bands[1].lower"]~df[., "bands[1].upper"]);
 
 Remarks
 -------
