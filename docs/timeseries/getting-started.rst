@@ -82,6 +82,9 @@ shock to one variable on all variables:
     // Cholesky IRFs, 20 quarters ahead
     irf = irfCompute(result, 20);
 
+    // Visualize as m×m grid
+    plotIrf(irf);
+
 You should see a table like::
 
     ================================================================================
@@ -135,6 +138,9 @@ Now forecast 8 quarters ahead:
 
     // Default 68% credible bands
     fc = bvarForecast(br, 8);
+
+    // Visualize: historical data + forecast fan chart
+    plotForecast(br, fc);
 
     // For publication-standard 90% bands
     fc90 = bvarForecast(br, 8, 0.90);

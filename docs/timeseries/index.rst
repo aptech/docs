@@ -162,6 +162,23 @@ Utilities
    * - :func:`fcMetrics`
      - Compute RMSE, MASE, and sMAPE.
 
+Plotting
++++++++++
+
+.. list-table::
+   :widths: auto
+
+   * - :func:`plotForecast`
+     - Forecast fan chart with historical data and prediction bands.
+   * - :func:`plotIrf`
+     - Impulse response function grid (m × m).
+   * - :func:`plotSvIrf`
+     - Posterior IRF grid with credible bands from SV-BVAR.
+   * - :func:`plotResiduals`
+     - Residual diagnostics: time plot, ACF, histogram.
+   * - :func:`plotStl`
+     - STL decomposition: data, trend, seasonal, remainder.
+
 Control Structure Creators
 +++++++++++++++++++++++++++
 
@@ -281,3 +298,14 @@ Control Structure Creators
     varresults
     stldecompose
     fcmetrics
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Plotting
+
+    plotforecast
+    plotirf
+    plotsvirf
+    plotresiduals
+    plotstl

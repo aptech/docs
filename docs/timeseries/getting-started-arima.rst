@@ -58,6 +58,9 @@ trend, seasonal, and remainder components:
 
     stl = stlDecompose(y, 12);
 
+    // Visualize the decomposition
+    plotStl(y, stl);
+
     print "Seasonal pattern (first year):";
     print stl.seasonal[1:12]';
 
