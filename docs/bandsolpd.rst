@@ -32,4 +32,32 @@ column. That is,
 
 .. math:: A*x[.,i] = b[.,i]
 
+Examples
+--------
+
+::
+
+    // Create a 4x4 tridiagonal positive definite system
+    // In compact banded form: col 1 = sub-diagonal, col 2 = main diagonal
+    A_compact = { 0 4,
+                  1 5,
+                  1 6,
+                  1 7 };
+
+    // Right-hand side vector
+    b = { 8, 11, 13, 14 };
+
+    // Solve Ax = b
+    x = bandsolpd(b, A_compact);
+    print x;
+
+The above code produces:
+
+::
+
+       1.6111851
+       1.5552597
+       1.6125166
+       1.7696405
+
 .. seealso:: Functions :func:`band`, :func:`bandchol`, :func:`bandcholsol`, :func:`bandltsol`, :func:`bandrv`

@@ -113,4 +113,18 @@ Example usage::
     // Combined with return check
     dllcall -ro processData(inputMatrix, rows, cols);
 
+Example
+-------
+
+::
+
+    // Link a shared library and call a function
+    dlibrary mylib;
+    x = rndn(100, 1);
+    dllcall -r computeStats(x);
+
+    // Read-only call for better performance with large data
+    bigmat = rndn(10000, 50);
+    dllcall -ro analyzeData(bigmat);
+
 .. seealso:: `dlibrary`, :func:`sysstate`

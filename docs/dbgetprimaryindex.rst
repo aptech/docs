@@ -21,3 +21,17 @@ Format
 
     :rtype primary_index: 2x1 string array
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+    dbSetDatabaseName(db_id, "mydb");
+    dbOpen(db_id);
+
+    // Get the primary index for the 'orders' table
+    idx = dbGetPrimaryIndex(db_id, "orders");
+    print idx;
+

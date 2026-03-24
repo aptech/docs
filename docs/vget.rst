@@ -24,6 +24,19 @@ Format
 
     :rtype dbufnew: Kx1 vector
 
+Examples
+--------
+
+::
+
+    // Build a data buffer and extract an item
+    dbuf = vput(0, rndn(2, 3), "X");
+    dbuf = vput(dbuf, "hello", "msg");
+
+    // Extract "X", removing it from the buffer
+    { x, dbuf } = vget(dbuf, "X");
+    print x;
+
 Source
 ------
 

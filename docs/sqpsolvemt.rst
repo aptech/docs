@@ -87,6 +87,33 @@ Format
 
     :rtype out: struct
 
+Examples
+--------
+
+::
+
+    // Declare and initialize control structure
+    struct sqpSolveMTControl c0;
+    c0 = sqpSolveMTControlCreate();
+
+    // Set bounds and print options
+    c0.bounds = 0 ~ 100;
+    c0.output = 1;
+
+    // Set up parameters using PV structure
+    struct PV par1;
+    par1 = pvCreate();
+    par1 = pvPack(par1, 1|1|1, "parameters");
+
+    // Solve (assuming 'myObj' is a user-defined objective procedure)
+    struct sqpSolveMTout out;
+    out = sqpSolveMT(&myObj, par1, c0);
+
+    // Retrieve estimated parameters
+    print pvUnpack(out.par, "parameters");
+
+See the Remarks section below for a complete working example.
+
 Remarks
 -------
 

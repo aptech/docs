@@ -46,6 +46,22 @@ Format
 Remarks
 -------
 
+Examples
+--------
+
+::
+
+    // Compute log-likelihood for a VAR(1) model with 2 variables
+    w = rndn(100, 2);
+    phi = 0.5 * eye(2);        // AR(1) coefficient matrix
+    theta = zeros(2, 2);       // No MA terms
+    vc = eye(2);               // Identity covariance
+    ll = varmall(w, phi, theta, vc);
+    print "Log-likelihood:" ll;
+
+Remarks
+-------
+
 :func:`varmall` is adapted from code developed by Jose Alberto Mauricio of the
 Universidad Complutense de Madrid. It was published as Algorithm AS311
 in Applied Statistics. Also described in "Exact Maximum Likelihood

@@ -21,6 +21,24 @@ Format
 
     :rtype y: string array
 
+Examples
+----------------
+
+::
+
+    sa = "Hello World" $| "GAUSS";
+
+    // Remove 3 characters from the left
+    y = strtruncl(sa, 3);
+    print y;
+
+The code above produces the following output:
+
+::
+
+    lo World
+    SS
+
 Source
 ------
 

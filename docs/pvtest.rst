@@ -21,6 +21,20 @@ Format
 
     :rtype i: scalar
 
+Examples
+--------
+
+::
+
+    // Create a valid PV structure
+    struct PV p1;
+    p1 = pvCreate;
+    p1 = pvPack(p1, 1|2|3, "beta");
+
+    // Test if p1 is a valid PV structure
+    i = pvTest(p1);
+    print (i == 0);  // 1 (true) means valid
+
 Source
 ------
 

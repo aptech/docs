@@ -35,5 +35,20 @@ scrollable.
 :func:`dbQueryIsForwardOnly` will always return the correct status of the
 result set.
 
+Examples
+----------------
+
+::
+
+    // Create a query
+    qid = dbCreateQuery(db_id);
+
+    // Disable forward-only mode to allow bidirectional scrolling
+    dbQuerySetForwardOnly(qid, 0);
+
+    // Now prepare and execute the query
+    dbQueryPrepare(qid, "SELECT * FROM products");
+    dbQueryExecPrepared(qid);
+
 .. seealso:: Function :func:`dbQueryIsForwardOnly`
 

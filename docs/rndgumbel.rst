@@ -60,4 +60,14 @@ pseudo-random numbers in *y* are:
 
 *r* and *c* will be truncated to integers if necessary.
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of Gumbel
+    // random numbers with location = 0, scale = 1
+    x = rndGumbel(3, 2, 0, 1);
+    print x;
+
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

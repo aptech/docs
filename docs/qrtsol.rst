@@ -31,6 +31,38 @@ triangular, transpose before calling :func:`qrtsol`.
 
 If *R* is not transposed, use :func:`qrsol`.
 
+Examples
+--------
+
+::
+
+    // Upper triangular matrix R
+    r = { 3 1,
+          0 2 };
+    b = { 7, 4 };
+
+    // Solve R'*x = b by passing R' (lower triangular) to qrtsol
+    x = qrtsol(b, r');
+
+    print "Solution x:";
+    print x;
+    print "R'*x (should equal b):";
+    print (r' * x);
+
+The above code produces the following output:
+
+::
+
+    Solution x:
+
+       2.3333333
+      0.83333333
+
+    R'*x (should equal b):
+
+       7.0000000
+       4.0000000
+
 Source
 ------
 

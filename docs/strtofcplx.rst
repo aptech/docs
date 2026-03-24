@@ -25,4 +25,21 @@ Remarks
 for real matrices. :func:`strtofcplx` requires the presence of the real part.
 The imaginary part can be absent.
 
+Examples
+----------------
+
+::
+
+    // Spaces required around + and -
+    string sa = { "3 + 2i" "1 - 4i" };
+
+    x = strtofcplx(sa);
+    print x;
+
+The code above produces the following output:
+
+::
+
+    3.0000000 + 2.0000000i       1.0000000 - 4.0000000i
+
 .. seealso:: Functions :func:`strtof`, :func:`ftostrC`

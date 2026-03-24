@@ -34,4 +34,25 @@ exponential distribution, which is defined as
 
     f(x) = \frac{1}{b} exp \big( − \frac{x−a}{b} \big)
 
+Examples
+----------------
+
+::
+
+    // Data points
+    x = { 0.5, 1, 2, 5 };
+
+    // Exponential PDF with location = 0, scale = 1
+    p = pdfexp(x, 0, 1);
+    print p;
+
+After the code above, *p* is equal to:
+
+::
+
+       0.60653066
+       0.36787944
+       0.13533528
+     0.0067379470
+
 .. seealso:: Functions :func:`cdfexp`

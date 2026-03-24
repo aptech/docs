@@ -34,4 +34,25 @@ defined as
    f(x) = \frac{exp⁡(z)}{b(1 + exp⁡(z))^2}\\
    z = -⁡ \bigg(\frac{x-a}{b}\bigg)
 
+Examples
+----------------
+
+::
+
+    // Data points
+    x = { -2, 0, 1, 2 };
+
+    // Logistic PDF with location = 0, scale = 1
+    p = pdflogistic(x, 0, 1);
+    print p;
+
+After the code above, *p* is equal to:
+
+::
+
+       0.10499359
+       0.25000000
+       0.19661193
+       0.10499359
+
 .. seealso:: Functions :func:`cdflogistic`

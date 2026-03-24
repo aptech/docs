@@ -55,4 +55,14 @@ The properties of the pseudo-random numbers in *y* are:
 
 *r* and *c* will be truncated to integers if necessary.
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of geometric
+    // random numbers with probability = 0.4
+    y = rndGeo(3, 2, 0.4);
+    print y;
+
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

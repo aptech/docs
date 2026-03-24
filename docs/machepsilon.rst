@@ -15,6 +15,20 @@ Format
 
     :rtype eps: scalar
 
+Examples
+----------------
+
+::
+
+    eps = machEpsilon();
+    print eps;
+
+The code above produces the following output:
+
+::
+
+    2.2300000e-16
+
 Source
 ------
 

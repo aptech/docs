@@ -25,5 +25,17 @@ Remarks
 
 The axes are not automatically labeled. Use the functions :func:`plotSetXLabel` and :func:`plotSetYLabel`.
 
+Examples
+----------------
+
+::
+
+    // Create frequency counts and category labels
+    f = 10|25|40|15|10;
+    c = 1|2|3|4|5;
+
+    // Plot frequency histogram
+    plotHistF(f, c);
+
 .. seealso:: Functions :func:`plotHist`, :func:`plotBar`, :func:`plotSetXLabel`
 

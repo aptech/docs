@@ -21,6 +21,21 @@ Format
 .. WARNING:: Specifying a string name may result in much slower performance than a numeric index. Use with caution.
 
 
+Examples
+----------------
+
+::
+
+    // Execute a query
+    qid = dbExecQuery(db_id, "SELECT forename, surname FROM people");
+
+    // Loop through results and retrieve fields by index
+    do while dbQuerySeekNext(qid);
+        forename = dbQueryGetField(qid, 1);
+        surname = dbQueryGetField(qid, 2);
+        print forename surname;
+    endo;
+
 Remarks
 -------
 

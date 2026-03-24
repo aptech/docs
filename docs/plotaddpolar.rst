@@ -27,4 +27,20 @@ Remarks
 This function will not change any of the current graph's settings other
 than to resize the view as necessary to display the new curve.
 
+Examples
+----------------
+
+::
+
+    // Create angle values
+    theta = seqa(0, 0.1, 63);
+
+    // Plot a circle with radius 2
+    r1 = ones(63, 1) * 2;
+    plotPolar(r1, theta);
+
+    // Add a cardioid curve to the same graph
+    r2 = 1 + cos(theta);
+    plotAddPolar(r2, theta);
+
 .. seealso:: Functions :func:`plotAddBar`, :func:`plotAddHist`, :func:`plotAddHistF`, :func:`plotAddHistP`, :func:`plotAddXY`

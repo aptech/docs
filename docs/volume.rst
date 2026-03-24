@@ -32,6 +32,19 @@ Remarks
 The ratio between these values is what is important. If :func:`volume` is not
 called, a default workbox will be calculated.
 
+Examples
+--------
+
+.. NOTE:: This function is for use with the deprecated PQG graphics.
+
+::
+
+    library pgraph;
+
+    // Set the 3-D workbox to a 2:1:1 ratio (wider in X)
+    volume(2, 1, 1);
+    // ... followed by a surface or contour call
+
 Source
 ------
 

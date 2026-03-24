@@ -77,6 +77,33 @@ type of factorization is useful for the solution of underdetermined
 systems. However, unless the linearly independent columns happen to be
 the initial rows, such an analysis also requires pivoting (see :func:`qre` and :func:`qrep`).
 
+Examples
+--------
+
+::
+
+    // Create a 3x2 matrix
+    x = { 1 2,
+          3 4,
+          5 6 };
+
+    // Compute the R matrix from QR decomposition
+    r = qr(x);
+
+    print "R (upper triangular):";
+    print r;
+
+The above code produces the following output:
+
+::
+
+    R (upper triangular):
+
+      -5.9160798       -7.4373574
+       0.0000000       0.82807867
+
+.. note:: :func:`qr` returns only the *R* matrix. If you also need the *Q* matrix, use :func:`qqr`.
+
 Source
 ------
 

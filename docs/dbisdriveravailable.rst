@@ -18,3 +18,17 @@ Format
 
     :rtype ret: scalar
 
+Examples
+----------------
+
+::
+
+    // Check if the MySQL driver is available
+    ret = dbIsDriverAvailable("MYSQL");
+
+    if ret;
+        print "MySQL driver is available";
+    else;
+        print "MySQL driver is not available";
+    endif;
+

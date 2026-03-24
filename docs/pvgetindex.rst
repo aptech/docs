@@ -21,6 +21,21 @@ Format
 
     :rtype id: Kx1 vector
 
+Examples
+--------
+
+::
+
+    // Create and populate a PV structure
+    struct PV p1;
+    p1 = pvCreate;
+    p1 = pvPack(p1, 1|2|3, "beta");
+    p1 = pvPack(p1, 0.5~0.8, "gamma");
+
+    // Get the row indices of "beta" in the parameter vector
+    id = pvGetIndex(p1, "beta");
+    print id;
+
 Source
 ------
 

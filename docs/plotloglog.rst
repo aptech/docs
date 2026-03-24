@@ -19,5 +19,19 @@ Format
     :param y: Each column contains the Y values for a particular line.
     :type y: Nx1 or NxM matrix
 
+Examples
+----------------
+
+::
+
+    // Create X data
+    x = seqa(1, 1, 50);
+
+    // Create Y as a power function of X
+    y = x .^ 2;
+
+    // Plot with log scaling on both axes
+    plotLogLog(x, y);
+
 .. seealso:: Functions :func:`plotXY`, :func:`plotLogX`, :func:`plotLogY`
 

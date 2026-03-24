@@ -25,4 +25,18 @@ If you have not set any connection options with :func:`dbSetConnectOptions`,
 then this function will return an empty string. For a full list of
 options see :func:`dbSetConnectOptions`.
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Retrieve the current connection options
+    opts = dbGetConnectOptions(db_id);
+
+    // Print the options string
+    print opts;
+
 .. seealso:: :func:`dbSetConnectOptions`

@@ -26,6 +26,19 @@ Remarks
 :func:`vread`, unlike :func:`vget`, does not change the contents of *dbuf*. Reading *x* from
 *dbuf* does not remove it from *dbuf*.
 
+Examples
+--------
+
+::
+
+    // Read an item from a data buffer without removing it
+    dbuf = vput(0, rndn(2, 2), "mymat");
+    dbuf = vput(dbuf, "test", "mystr");
+
+    x = vread(dbuf, "mymat");
+    print x;
+    // dbuf still contains "mymat" and "mystr"
+
 Source
 ------
 

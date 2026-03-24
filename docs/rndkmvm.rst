@@ -48,6 +48,16 @@ Remarks
 
 *r* and *c* will be truncated to integers if necessary.
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of von Mises
+    // random numbers with mean = pi, shape = 2
+    { x, newstate } = rndKMvm(3, 2, 3.14, 2, -1);
+    print x;
+
 Technical Notes
 ---------------
 :func:`rndKMvm` uses the recur-with-carry KISS+Monster algorithm described in the :func:`rndKMi` Technical Notes.

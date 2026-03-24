@@ -97,6 +97,32 @@ and bounds,
 
     x_{low} ≤ x ≤ x_{up}
 
+Examples
+--------
+
+::
+
+    // Minimize 0.5*x'Q*x - x'R subject to x >= 0
+    Q = { 2 0, 0 2 };
+    R = { 1, 1 };
+
+    start = { 0.5, 0.5 };
+
+    // No equality or inequality constraints
+    A = 0;
+    b = 0;
+    C = 0;
+    d = 0;
+
+    // Bounds: x >= 0
+    bnds = (0 ~ 1e200) | (0 ~ 1e200);
+
+    { x, u1, u2, u3, u4, ret } = QProg(start, Q, R, A, b, C, d, bnds);
+
+    print "Solution:";
+    print x;
+    print "Return code:" ret;
+
 Source
 ------
 

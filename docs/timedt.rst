@@ -31,6 +31,22 @@ represents:
 
    07:15:11 or 7:15:11 AM on March 6, 2010.
 
+Examples
+--------
+
+::
+
+    // Get current date and time in DT scalar format
+    format /rd 16,0;
+    dt = timedt();
+    print dt;
+
+Example output (run on March 6, 2010, at 7:15:11 AM):
+
+::
+
+    20100306071511
+
 Source
 ------
 

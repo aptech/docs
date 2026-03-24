@@ -56,4 +56,15 @@ Value       Key Sequence
 1132        :kbd:`Ctrl+PAGE UP`
 =========== ================================
 
+Example
+-------
+
+::
+
+    // Wait for a keypress and display its ASCII value
+    // (interactive mode only)
+    print "Press any key...";
+    k = keyw;
+    print "You pressed key with ASCII value:" k;
+
 .. seealso:: Functions :func:`key`, :func:`vals`, :func:`chrs`, :func:`upper`, :func:`lower`, :func:`con`, :func:`cons`

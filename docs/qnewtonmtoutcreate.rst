@@ -14,6 +14,17 @@ Format
 
     :rtype c: struct
 
+Examples
+--------
+
+::
+
+    // Declare output structure
+    struct QNewtonmtOut out;
+
+    // Initialize with default values
+    out = QNewtonmtOutCreate();
+
 Source
 ------
 

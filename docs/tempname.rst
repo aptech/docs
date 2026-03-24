@@ -38,3 +38,18 @@ returns a null string.
 .. WARNING:: GAUSS does not remove temporary files created by :func:`tempname`. It
     is left to the user to remove them when they are no longer needed.
 
+Examples
+----------------
+
+::
+
+    // Create a temporary file name in /tmp
+    tname = tempname("/tmp", "gss", ".dat");
+    print tname;
+
+Example output:
+
+::
+
+    /tmp/gssABCD12345.dat
+

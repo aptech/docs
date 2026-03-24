@@ -47,6 +47,21 @@ If you want direct control over the axes endpoints and tick marks, use
 `xtics` or `ytics`. If `xtics` or `ytics` have been called after `scale`, they
 will override `scale`.
 
+Examples
+--------
+
+.. NOTE:: This function is for use with the deprecated PQG graphics.
+
+::
+
+    library pgraph;
+
+    // Fix axis scaling based on data range
+    x = seqa(0, 0.1, 50);
+    y = sin(x);
+    scale(x, y);
+    xy(x, y);
+
 Source
 ------
 

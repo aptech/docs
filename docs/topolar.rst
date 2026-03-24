@@ -21,6 +21,26 @@ Format
 
     :rtype theta: NxK real matrix
 
+Examples
+----------------
+
+::
+
+    // Create a Cartesian point (x=3, y=4)
+    // as a complex number
+    xy = complex(3, 4);
+
+    { r, theta } = topolar(xy);
+    print r;
+    print theta;
+
+The code above produces the following output:
+
+::
+
+    5.0000000
+    0.92729522
+
 Source
 ------
 

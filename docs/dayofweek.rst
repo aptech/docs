@@ -49,6 +49,25 @@ After running above code, *d* is 4 which means Wednesday.
 
 
 
+Examples
+--------
+
+::
+
+    // April 15, 2015, 18:32:07
+    a = 20150415183207;
+
+    d = dayofweek(a);
+    print d;
+
+The code above produces the following output:
+
+::
+
+    4.0000000
+
+The return value of 4 indicates Wednesday.
+
 Source
 ------
 

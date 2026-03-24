@@ -23,5 +23,21 @@ Remarks
 This function must be called before the connection is opened with
 :func:`dbOpen` to have an effect.
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Set the port number before opening
+    dbSetPort(db_id, 3306);
+
+    // Configure remaining settings and open
+    dbSetHostName(db_id, "localhost");
+    dbSetDatabaseName(db_id, "mydb");
+    dbOpen(db_id);
+
 .. seealso:: :func:`dbGetPort`
 

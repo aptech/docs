@@ -80,4 +80,22 @@ that should not usually be a problem.
 The parameters set by these commands remain in effect until new commands
 are encountered, or until GAUSS is restarted.
 
+Examples
+----------------
+
+::
+
+    // Set a fixed seed for reproducible results
+    rndseed 54321;
+
+    x = rndu(3, 2);
+    print x;
+
+    // Reset the same seed to reproduce
+    // the same sequence of random numbers
+    rndseed 54321;
+
+    y = rndu(3, 2);
+    print y;
+
 .. seealso:: Functions :func:`rndu`, :func:`rndn`, :func:`rndi`, :func:`rndLCi`, :func:`rndKMi`

@@ -75,4 +75,21 @@ If :func:`fopen` fails, it returns a 0.
 
 Use :func:`close` and `closeall` to close files opened with :func:`fopen`.
 
+Example
+-------
+
+::
+
+    // Write a string to a temp file, then read it back
+    fname = tempname("/tmp", "ex", ".txt");
+    fh = fopen(fname, "w");
+    call fputs(fh, "Hello from GAUSS\n");
+    call close(fh);
+
+    // Open the file for reading
+    fh = fopen(fname, "r");
+    s = fgets(fh, 256);
+    print s;
+    call close(fh);
+
 .. seealso:: Functions :func:`fgets`, :func:`fputs`, :func:`fseek`, :func:`close`, `closeall`

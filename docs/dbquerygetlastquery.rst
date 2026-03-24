@@ -18,3 +18,17 @@ Format
 
     :rtype query_string: string
 
+Examples
+----------------
+
+::
+
+    // Execute a query
+    qid = dbExecQuery(db_id, "SELECT name, price FROM products");
+
+    // Retrieve the SQL text of the current query
+    sql = dbQueryGetLastQuery(qid);
+
+    // Prints: SELECT name, price FROM products
+    print sql;
+

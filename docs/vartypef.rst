@@ -23,3 +23,17 @@ Remarks
 This function should be used in place of older functions that are based
 on the case of the variable names. You should also use the v96 dataset format.
 
+Examples
+----------------
+
+::
+
+    // Open a dataset
+    open f = mydata.dat;
+
+    // Get variable types: 1=numeric, 0=character
+    y = vartypef(f);
+    print y;
+
+    f = close(f);
+

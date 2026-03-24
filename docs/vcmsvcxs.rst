@@ -33,6 +33,24 @@ computed as the moment matrix of deviations about the mean divided by
 the number of observations :math:`N`. For an unbiased estimator covariance
 matrix which uses :math:`N - 1` rather than :math:`N` see :func:`vcm` or :func:`vcx`.
 
+Examples
+--------
+
+::
+
+    // Compute observed variance-covariance matrix from data
+    x = rndn(100, 3);
+    vc = vcxs(x);
+    print vc;
+
+::
+
+    // Compute from a moment matrix (constant term must be first column)
+    x = rndn(100, 3);
+    m = (ones(100, 1) ~ x)'(ones(100, 1) ~ x);
+    vc = vcms(m);
+    print vc;
+
 Source
 ------
 

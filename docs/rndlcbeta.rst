@@ -65,6 +65,16 @@ Format
 
     :rtype newstate: 4x1 vector
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of beta random numbers
+    // with shape parameters a = 2, b = 5
+    { x, newstate } = rndLCbeta(3, 2, 2, 5, -1);
+    print x;
+
 Technical Notes
 ---------------
 

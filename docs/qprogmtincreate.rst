@@ -14,6 +14,21 @@ Format
 
     :rtype s: struct
 
+Examples
+--------
+
+::
+
+    // Create and initialize the input structure
+    struct qprogMTIn qIn;
+    qIn = QProgmtInCreate();
+
+    // Set up the quadratic programming problem
+    qIn.q = { 2 0, 0 2 };
+    qIn.r = { 1, 1 };
+    qIn.start = zeros(2, 1);
+    qIn.maxit = 500;
+
 Source
 ------
 

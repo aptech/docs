@@ -62,4 +62,23 @@ positioned after the last record if :math:`idx >= 0`, (or before the first
 record if *idx* is negative), and 0 is returned. If the record is
 successfully retrieved, 1 is returned.
 
+Examples
+----------------
+
+::
+
+    // Execute a query
+    qid = dbExecQuery(db_id, "SELECT * FROM products");
+
+    // Seek to the 5th record (absolute positioning)
+    ret = dbQuerySeek(qid, 5);
+
+    if ret;
+        val = dbQueryGetField(qid, 1);
+        print val;
+    endif;
+
+    // Seek 2 records forward from current position (relative)
+    ret = dbQuerySeek(qid, 2, 1);
+
 .. seealso:: Functions :func:`dbQuerySeekFirst`, :func:`dbQuerySeekLast`, :func:`dbQuerySeekNext`, :func:`dbQuerySeekPrevious`

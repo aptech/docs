@@ -14,6 +14,24 @@ Format
     :param db_id: database connection index number.
     :type db_id: scalar
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Configure and open the connection
+    dbSetDatabaseName(db_id, "mydb");
+    dbOpen(db_id);
+
+    // Perform database operations...
+    qid = dbExecQuery(db_id, "SELECT * FROM customers");
+
+    // Close the connection when done
+    dbClose(db_id);
+
 Remarks
 -------
 

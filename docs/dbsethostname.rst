@@ -22,3 +22,18 @@ Remarks
 
 For this function to have an effect, it must be called before the
 database connection is opened with :func:`dbOpen`.
+
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Set the host name before opening
+    dbSetHostName(db_id, "db.example.com");
+
+    // Configure remaining settings and open
+    dbSetDatabaseName(db_id, "mydb");
+    dbOpen(db_id);

@@ -78,5 +78,20 @@ unnecessary to execute a `new` before `use`'ing a compiled file.
 
 `use` can appear only ONCE at the TOP of a program.
 
+Examples
+--------
+
+::
+
+    // Load a previously saved compiled file at the top of a program
+    use pgraph;
+    xy(x, sin(x));
+
+::
+
+    // use must appear ONCE at the TOP of a program
+    use mylib;
+    // All procedures and data from mylib.gcg are now available
+
 .. seealso:: Functions `compile`, `run`, `saveall`
 

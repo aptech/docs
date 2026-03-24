@@ -18,3 +18,17 @@ Format
 
     :rtype num_fields: scalar
 
+Examples
+----------------
+
+::
+
+    // Execute a query
+    qid = dbExecQuery(db_id, "SELECT id, name, price FROM products");
+
+    // Get the number of fields in the result set
+    num_fields = dbQueryCols(qid);
+
+    // Should print 3
+    print (num_fields);
+

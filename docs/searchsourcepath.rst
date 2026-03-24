@@ -36,3 +36,12 @@ Remarks
 
 The source path is set by the :file:`src_path` configuration variable in your
 GAUSS configuration file, :file:`gauss.cfg`.
+
+Examples
+--------
+
+::
+
+    // Search the source path for pv.src, checking src subdir first
+    fpath = searchsourcepath("pv.src", 1);
+    print fpath;

@@ -27,5 +27,17 @@ Remarks
 
 The :func:`normalizecollabels` procedure is useful when cleaning and merging categorical variables that may come from different sources. This is primarily a convenience function utilized by multiple string-related functions and in general should not need to be called explicitly by an end-user.
 
+Examples
+--------
+
+::
+
+    // Create a dataframe with categorical data
+    x = asdf(1|2|3|1|2, "group");
+
+    // Normalize category labels so all are unique
+    x_norm = normalizecollabels(x);
+    print x_norm;
+
 .. seealso:: :func:`dfappend`
 

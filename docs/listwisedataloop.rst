@@ -29,3 +29,14 @@ not deleted.
 
 The default is *read*.
 
+Examples
+--------
+
+::
+
+    // Delete rows with missing values before transformations
+    listwise read;
+
+    // Delete rows with missing values after transformations
+    listwise write;
+

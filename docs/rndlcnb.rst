@@ -66,6 +66,16 @@ Format
 
     :rtype newstate: 4x1 vector
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of negative binomial
+    // random numbers with k = 5 and p = 0.3
+    { x, newstate } = rndLCnb(3, 2, 5, 0.3, -1);
+    print x;
+
 Technical Notes
 ---------------
 

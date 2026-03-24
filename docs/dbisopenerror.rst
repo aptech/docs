@@ -18,3 +18,20 @@ Format
 
     :rtype ret: scalar
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+    dbSetDatabaseName(db_id, "mydb");
+
+    // Attempt to open the connection
+    dbOpen(db_id);
+
+    // Check if an error occurred during open
+    if dbIsOpenError(db_id);
+        print "Error opening database connection";
+    endif;
+

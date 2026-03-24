@@ -19,6 +19,18 @@ Remarks
 This function can be used to delay a program, allowing users time to
 view graphics and/or data printed to the program output window.
 
+Examples
+----------------
+
+::
+
+    print "Processing...";
+
+    // Pause for 3 seconds
+    pause(3);
+
+    print "Done.";
+
 Source
 ------
 

@@ -86,6 +86,49 @@ systems. However, unless the linearly independent columns happen to be
 the initial rows, such an analysis also requires pivoting (see :func:`qre` and
 :func:`qrep`).
 
+Examples
+--------
+
+::
+
+    // Create a 3x2 matrix
+    x = { 1 2,
+          3 4,
+          5 6 };
+
+    // Compute Q1 and R
+    { q1, r } = qqr(x);
+
+    print "Q1 (orthogonal factor):";
+    print q1;
+    print "R (upper triangular):";
+    print r;
+
+    // Verify that Q1*R reconstructs x
+    print "Q1*R (should equal x):";
+    print (q1 * r);
+
+The above code produces the following output:
+
+::
+
+    Q1 (orthogonal factor):
+
+     -0.16903085       0.89708523
+     -0.50709255       0.27602622
+     -0.84515425      -0.34503278
+
+    R (upper triangular):
+
+      -5.9160798       -7.4373574
+       0.0000000       0.82807867
+
+    Q1*R (should equal x):
+
+       1.0000000        2.0000000
+       3.0000000        4.0000000
+       5.0000000        6.0000000
+
 Source
 ------
 

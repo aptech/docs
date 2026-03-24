@@ -60,5 +60,23 @@ After the code above:
 
 Note that there must be a separate `pop` statement for each matrix popped.
 
+Examples
+--------
+
+::
+
+    // Use gosub with push/pop to pass data to a subroutine
+    x = 10;
+    y = 20;
+    gosub myLabel(x, y);
+    pop result;
+    print result;
+    stop;
+
+    myLabel:
+    pop b;
+    pop a;
+    return (a + b);
+
 .. seealso:: Functions `gosub`, `goto`, :func:`return`
 

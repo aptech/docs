@@ -57,4 +57,14 @@ The properties of the pseudo-random numbers in *x* are:
 
 *r* and *c* will be truncated to integers if necessary.
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x1 vector of standard Cauchy random numbers
+    // with location = 0 and scale = 1
+    x = rndCauchy(3, 1, 0, 1);
+    print x;
+
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

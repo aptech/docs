@@ -13,6 +13,14 @@ Format
 
 
 
+Examples
+--------
+
+::
+
+    // Reset sqpSolve global variables to defaults
+    sqpSolveSet;
+
 Source
 ------
 

@@ -70,4 +70,21 @@ location, as in
 If you pass :func:`fseek` the handle of a file opened with `open` (i.e., a data
 set or matrix file), your program will terminate with a fatal error.
 
+Example
+-------
+
+::
+
+    // Write data, then seek to a specific position and read
+    fname = tempname("/tmp", "ex", ".txt");
+    fh = fopen(fname, "wb");
+    call fputs(fh, "ABCDEFGHIJ");
+    call close(fh);
+
+    fh = fopen(fname, "rb");
+    call fseek(fh, 5, 0);    // Seek to byte 5 from beginning
+    pos = ftell(fh);
+    print "Current position:" pos;
+    call close(fh);
+
 .. seealso:: Functions :func:`fopen`

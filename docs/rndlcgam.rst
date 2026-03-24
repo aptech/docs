@@ -63,6 +63,16 @@ Format
 
     :rtype newstate: 4x1 vector
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of gamma random numbers
+    // with shape alpha = 5
+    { x, newstate } = rndLCgam(3, 2, 5, -1);
+    print x;
+
 Technical Notes
 ---------------
 

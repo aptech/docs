@@ -27,3 +27,21 @@ a :func:`dbTransaction` has been started.
 .. Note:: For some databases, the rollback will fail and return 0 if there is an active query using the database for a ``SELECT``. Make the query inactive before doing the rollback.
 
 Call :func:`dbGetLastError` to get information about errors.
+
+Examples
+----------------
+
+::
+
+    // Begin a transaction
+    dbTransaction(db_id);
+
+    // Execute an update query
+    qid = dbExecQuery(db_id, "UPDATE accounts SET balance = balance - 100 WHERE id = 1");
+
+    // Rollback if something went wrong
+    ret = dbRollback(db_id);
+
+    if ret == 0;
+        print "Rollback failed";
+    endif;

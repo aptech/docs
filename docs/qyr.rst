@@ -57,6 +57,42 @@ where :math:`Y` is some NxL matrix, which will be a much smaller matrix.
 
 If either :math:`Q'Y` or :math:`Q_1'Y` are required, see :func:`qtyr`.
 
+Examples
+--------
+
+::
+
+    // Create a 3x2 matrix
+    x = { 1 2,
+          3 4,
+          5 6 };
+
+    // Set Y to a conformable identity to recover the full Q matrix
+    y = eye(3);
+
+    // Compute Q*Y and R
+    { qy, r } = qyr(y, x);
+
+    print "Q (full orthogonal matrix):";
+    print qy;
+    print "R (upper triangular):";
+    print r;
+
+The above code produces the following output:
+
+::
+
+    Q (full orthogonal matrix):
+
+     -0.16903085       0.89708523       0.40824829
+     -0.50709255       0.27602622      -0.81649658
+     -0.84515425      -0.34503278       0.40824829
+
+    R (upper triangular):
+
+      -5.9160798       -7.4373574
+       0.0000000       0.82807867
+
 Source
 ------
 

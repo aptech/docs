@@ -35,4 +35,25 @@ The probability density function of a Weibull random variable is defined as
     \end{cases}
 
 
+Examples
+----------------
+
+::
+
+    // Data points
+    x = { 0.5, 1, 2, 3 };
+
+    // Weibull PDF with shape = 2, scale = 1
+    p = pdfWeibull(x, 2, 1);
+    print p;
+
+After the code above, *p* is equal to:
+
+::
+
+       0.77880078
+       0.73575888
+      0.073262556
+    0.00074045882
+
 .. seealso:: Functions :func:`cdfWeibull`, :func:`cdfWeibullInv`

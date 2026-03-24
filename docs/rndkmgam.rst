@@ -73,6 +73,16 @@ has the properties
 
 *r* and *c* will be truncated to integers if necessary.
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of gamma random numbers
+    // with shape alpha = 5, using the system clock as the seed
+    { x, newstate } = rndKMgam(3, 2, 5, -1);
+    print x;
+
 Technical Notes
 ---------------
 :func:`rndKMgam` uses the recur-with-carry KISS+Monster algorithm described in the :func:`rndKMi` Technical Notes.

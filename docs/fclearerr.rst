@@ -32,3 +32,19 @@ error.
 
 The flag accessed by :func:`fclearerr` is not the same as that accessed by
 :func:`fstrerror`.
+
+Example
+-------
+
+::
+
+    // Open a file and check its error status
+    fname = tempname("/tmp", "ex", ".txt");
+    fh = fopen(fname, "w");
+    call fputs(fh, "test data");
+    call close(fh);
+
+    fh = fopen(fname, "r");
+    err = fclearerr(fh);
+    print "Error status (0=none):" err;
+    call close(fh);

@@ -37,3 +37,21 @@ but with reduced degrees of freedom.
 The tolerance used to determine if a pivot element is zero is taken from
 the :func:`crout` singularity tolerance. The corresponding row and column are
 zeroed out. See `Singularity Tolerance <STA-SingularityTolerance.html>`_.
+
+Examples
+----------------
+
+::
+
+    x = { 4 2, 2 3 };
+
+    // Compute generalized sweep inverse
+    xi = invswp(x);
+    print xi;
+
+The code above produces the following output:
+
+::
+
+    0.37500000  -0.25000000
+   -0.25000000   0.50000000

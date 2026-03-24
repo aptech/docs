@@ -62,6 +62,16 @@ Format
 
     :rtype newstate: 4x1 vector
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of Poisson
+    // random numbers with lambda = 5
+    { x, newstate } = rndLCp(3, 2, 5, -1);
+    print x;
+
 Technical Notes
 ---------------
 

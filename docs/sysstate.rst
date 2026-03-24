@@ -149,4 +149,25 @@ The available cases are as follows:
 |                                   | tolerance.                        |
 +-----------------------------------+-----------------------------------+
 
+Examples
+--------
+
+::
+
+    // Get GAUSS version information
+    vi = sysstate(1, 0);
+    print "Major version:" vi[1];
+    print "Minor version:" vi[2];
+
+::
+
+    // Get LU decomposition singularity tolerance
+    tol = sysstate(13, 0);
+    print "LU tolerance:" tol;
+
+::
+
+    // Set Cholesky singularity tolerance
+    sysstate(14, 1e-14);
+
 .. seealso:: Functions `outwidth`, :func:`croutp`, :func:`inv`, :func:`chol`, :func:`solpd`, `screen`, `output`, `format`, `print`, :func:`hasimag`, `dlibrary`, `dllcall`, :func:`rndcon`, :func:`rndn`, :func:`rndu`, :func:`croutp`, :func:`inv`, :func:`chol`, :func:`solpd`, :func:`hasimag`

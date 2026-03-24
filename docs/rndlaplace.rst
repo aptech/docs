@@ -56,4 +56,14 @@ The properties of the pseudo-random numbers in *x* are:
 
 *r* and *c* will be truncated to integers if necessary.
 
+Examples
+----------------
+
+::
+
+    // Generate a 3x2 matrix of Laplacian
+    // random numbers with location = 0, scale = 1
+    x = rndLaplace(3, 2, 0, 1);
+    print x;
+
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndStateSkip`

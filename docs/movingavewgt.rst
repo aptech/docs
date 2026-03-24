@@ -31,5 +31,30 @@ Remarks
 The moving average as performed by column and thus it treats the NxK
 matrix as *K* time series of length *N*.
 
+Examples
+----------------
+
+::
+
+    x = { 1, 3, 5, 7, 9, 11 };
+
+    // Equal weights for a 2-period moving average
+    w = { 0.5, 0.5 };
+    y = movingaveWgt(x, 2, w);
+    print y;
+
+The code above produces the following output:
+
+::
+
+           .
+    2.0000000
+    4.0000000
+    6.0000000
+    8.0000000
+    10.000000
+
+The first element is missing because there are not enough prior observations for the window.
+
 .. seealso:: Functions :func:`movingave`, :func:`movingaveExpwgt`
 

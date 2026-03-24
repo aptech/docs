@@ -52,4 +52,29 @@ the dimensions to which :func:`fftn` would pad a matrix.)
 
 :func:`fftn` scales the computed FFT by :math:`1/(L*M)`.
 
+Examples
+--------
+
+::
+
+    // Create a simple 4-element signal
+    x = { 1, 2, 3, 4 };
+
+    // Compute the complex FFT (scaled by 1/(L*M))
+    y = fftn(x);
+
+    print "FFT of x:";
+    print y;
+
+The above code produces the following output:
+
+::
+
+    FFT of x:
+
+       2.5000000
+     -0.50000000 +       0.50000000i
+     -0.50000000
+     -0.50000000 -       0.50000000i
+
 .. seealso:: Functions :func:`fft`, :func:`ffti`, :func:`fftm`, :func:`fftmi`, :func:`rfft`, :func:`rffti`, :func:`rfftip`, :func:`rfftn`, :func:`rfftnp`, :func:`rfftp`

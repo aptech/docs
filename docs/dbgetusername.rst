@@ -18,4 +18,19 @@ Format
 
     :rtype user_name: string
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+
+    // Set the user name
+    dbSetUserName(db_id, "admin");
+
+    // Retrieve the user name
+    user_name = dbGetUserName(db_id);
+    print user_name;
+
 .. seealso:: Functions :func:`dbSetUserName`

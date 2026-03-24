@@ -21,6 +21,24 @@ Format
 
     :rtype y: string array
 
+Examples
+----------------
+
+::
+
+    sa = "Hello World" $| "GAUSS";
+
+    // Remove 6 characters from the right
+    y = strtruncr(sa, 6);
+    print y;
+
+The code above produces the following output:
+
+::
+
+    Hello
+
+
 Source
 ------
 

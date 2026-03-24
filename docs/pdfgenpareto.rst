@@ -41,4 +41,25 @@ is defined as
     \frac{1}{\sigma}exp(\frac{x-\mu}{\sigma}), &  k = 0
     \end{cases}
 
+Examples
+----------------
+
+::
+
+    // Data points
+    x = { 0.5, 1, 2, 3 };
+
+    // Generalized Pareto PDF with location = 0, scale = 1, shape = 0.5
+    p = pdfGenPareto(x, 0, 1, 0.5);
+    print p;
+
+After the code above, *p* is equal to:
+
+::
+
+       0.51200000
+       0.29629630
+       0.12500000
+      0.064000000
+
 .. seealso:: Functions :func:`cdfGenPareto`

@@ -75,6 +75,16 @@ Remarks
 -------
 If missing values are encountered in the *y* data, they will be ignored
 
+Example
+-------
+
+::
+
+    // Box plot of 3 groups, each with 50 observations
+    y = rndn(50, 3);
+    grp = { 1 2 3 };
+    box(grp, y);
+
 Source
 ------
 pbox.src

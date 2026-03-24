@@ -15,4 +15,18 @@ Format
 
     :rtype x: scalar
 
+Example
+-------
+
+::
+
+    // Check if a key has been pressed
+    // (interactive mode only)
+    k = keyav();
+    if k;
+        print "Key pressed:" k;
+    else;
+        print "No key available.";
+    endif;
+
 .. seealso:: Functions :func:`keyw`, :func:`key`

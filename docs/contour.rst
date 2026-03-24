@@ -52,6 +52,18 @@ To specify a vector of your own unequal contour levels, set the vector
 
 To specify your own evenly spaced contour levels, see :func:`ztics`.
 
+Example
+-------
+
+::
+
+    // Create a contour plot of z = x^2 + y^2
+    x = seqa(-3, 0.5, 13);
+    y = seqa(-3, 0.5, 13);
+    z = x' .*. ones(13, 1);
+    z = z .* z + (ones(1, 13) .*. y) .* (ones(1, 13) .*. y);
+    contour(x', y, z);
+
 Source
 ------
 

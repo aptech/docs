@@ -81,5 +81,20 @@ values that will be returned for:
 
 GAUSS functions that test the trap flag currently test only bits 0 and 1.
 
+Examples
+--------
+
+::
+
+    // Set trap bit 0 and check it
+    trap 1;
+    y = trapchk(1);
+    print (y != 0);  // 1 (true), bit 0 is set
+
+    // Turn off trap and check again
+    trap 0;
+    y = trapchk(1);
+    print (y != 0);  // 0 (false), bit 0 is not set
+
 .. seealso:: Functions :func:`scalerr`, `trap`, :func:`error`
 

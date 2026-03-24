@@ -26,3 +26,17 @@ Format
 
     :rtype prec_policy: scalar
 
+Examples
+----------------
+
+::
+
+    // Add MySQL to the list of database connections
+    db_id = dbAddDatabase("MYSQL");
+    dbSetDatabaseName(db_id, "mydb");
+    dbOpen(db_id);
+
+    // Retrieve the current precision policy
+    prec_policy = dbGetNumericalPrecPolicy(db_id);
+    print (prec_policy);
+

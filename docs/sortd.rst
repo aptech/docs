@@ -39,6 +39,15 @@ The dataset *infile* will be sorted on the variable *keyvar*, and will be placed
 
 If the inputs are null ("" or 0), the procedure will ask for them.
 
+Examples
+----------------
+
+::
+
+    // Sort mydata.dat by the "Age" variable
+    // in ascending numeric order, saving to sorted.dat
+    sortd("mydata.dat", "sorted.dat", "Age", 1);
+
 Source
 ------
 

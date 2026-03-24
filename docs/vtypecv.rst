@@ -17,5 +17,17 @@ Format
 
     :rtype cv: Kx1 character vector
 
+Examples
+--------
+
+::
+
+    // Get the types of items in a data buffer
+    dbuf = vput(0, rndn(2, 2), "X");
+    dbuf = vput(dbuf, "hello", "msg");
+    cv = vtypecv(dbuf);
+    print cv;
+    // Types: 6 = matrix, 13 = string
+
 .. seealso:: Functions :func:`vget`, :func:`vput`, :func:`vread`, :func:`vnamecv`
 

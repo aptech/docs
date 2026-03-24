@@ -153,6 +153,51 @@ it can be shown that
 
    b = qrsol(Q'Y, R1)|zeros(N-P,1);
 
+Examples
+--------
+
+::
+
+    // Create a 3x2 matrix
+    x = { 1 2,
+          3 4,
+          5 6 };
+
+    // Right-hand side vector
+    y = { 1,
+          0,
+          0 };
+
+    // Compute Q'*Y, R, and permutation vector E
+    { qty, r, e } = qtyre(y, x);
+
+    print "Q'*Y:";
+    print qty;
+    print "R (upper triangular):";
+    print r;
+    print "Permutation vector E:";
+    print e;
+
+The above code produces the following output:
+
+::
+
+    Q'*Y:
+
+     -0.26726124
+      0.87287156
+      0.40824829
+
+    R (upper triangular):
+
+      -7.4833148       -5.8797473
+       0.0000000      -0.65465367
+
+    Permutation vector E:
+
+       2.0000000
+       1.0000000
+
 Source
 ------
 
