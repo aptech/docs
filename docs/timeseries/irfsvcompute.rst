@@ -65,10 +65,10 @@ Accessing Median and Bands
     print "Median:" irf.median[6, 1, 3];
 
     // 68% credible band
-    print "68% band:" irf.bands[1].lower[6, 1, 3] "to" irf.bands[1].upper[6, 1, 3];
+    print "68% band:" irf.lower_68[6, 1, 3] "to" irf.upper_68[6, 1, 3];
 
     // 90% credible band
-    print "90% band:" irf.bands[2].lower[6, 1, 3] "to" irf.bands[2].upper[6, 1, 3];
+    print "90% band:" irf.lower_90[6, 1, 3] "to" irf.upper_90[6, 1, 3];
 
     // Full path with bands
     print "GDP response to FFR shock:";
@@ -76,10 +76,10 @@ Accessing Median and Bands
     for h (0, 20, 1);
         print h;;
         print irf.median[h+1, 1, 3];;
-        print irf.bands[1].lower[h+1, 1, 3];;
-        print irf.bands[1].upper[h+1, 1, 3];;
-        print irf.bands[2].lower[h+1, 1, 3];;
-        print irf.bands[2].upper[h+1, 1, 3];
+        print irf.lower_68[h+1, 1, 3];;
+        print irf.upper_68[h+1, 1, 3];;
+        print irf.lower_90[h+1, 1, 3];;
+        print irf.upper_90[h+1, 1, 3];
     endfor;
 
 Remarks
@@ -113,6 +113,7 @@ IRF is computed using the time-averaged Cholesky factor:
 where :math:`\bar{P}^{(s)}` is derived from the draw-specific :math:`U^{(s)}` and
 the mean of the time-varying diagonal :math:`D_t`. The posterior distribution of
 :math:`\{\Theta_h^{(s)}\}` yields pointwise credible bands.
+
 Algorithm
 ---------
 
@@ -125,6 +126,7 @@ Algorithm
 2. At each horizon, compute pointwise quantiles across all draws.
 
 **Complexity:** :math:`O(n\_draws \cdot h \cdot m^2 p^2)`.
+
 Troubleshooting
 ---------------
 
@@ -140,11 +142,13 @@ especially at longer horizons. Asymmetric bands reflect this correctly.
 **Bands include zero at all horizons:**
 The shock may not have a statistically significant effect on the response variable.
 This is a finding, not a problem.
+
 References
 ----------
 
 - Primiceri, G.E. (2005). "Time varying structural vector autoregressions and monetary policy." *Review of Economic Studies*, 72(3), 821-852.
 - Clark, T.E. (2011). "Real-time density forecasts from Bayesian vector autoregressions with stochastic volatility." *Journal of Business & Economic Statistics*, 29(3), 327-341.
+
 Library
 -------
 timeseries

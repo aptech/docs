@@ -1,7 +1,7 @@
 # Sphinx documentation build dependencies
 # Install: pip install -r requirements.txt
 sphinx==7.4.7
-pydata-sphinx-theme>=0.15
+sphinx-rtd-theme==3.0.2
 docutils>=0.20,<0.22
 pygments>=2.17
 sphinx-design==0.7.0

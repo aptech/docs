@@ -8,7 +8,7 @@ Reprint the diagnostics summary table.
 Format
 ------
 
-.. function:: call varDiagnosePrint(diag)
+.. function:: varDiagnosePrint(diag)
 
    :param diag: an instance of a :class:`diagResult` structure from :func:`varDiagnose` or :func:`varDiagnoseMulti`.
    :type diag: struct

@@ -1,11 +1,11 @@
 
-.. title:: GAUSS Documentation
+.. title:: GAUSS Help
 
 .. meta::
-   :description: GAUSS documentation — tutorials, command reference, and guides for the GAUSS matrix programming language.
+   :description: GAUSS in-app help. Search functions, browse by category, and find what's new.
 
-GAUSS Documentation
-====================
+GAUSS Help
+==========
 
 .. role:: text-left
 
@@ -18,8 +18,8 @@ GAUSS Documentation
         :link: getting-started/index
         :link-type: doc
 
-        Getting Started
-        ^^^^^^^^^^^^^^^
+        New to GAUSS?
+        ^^^^^^^^^^^^^
 
         .. container:: icon-large
 
@@ -27,7 +27,7 @@ GAUSS Documentation
 
         .. container:: text-left
 
-          New to GAUSS? Quickstart guides, tutorials, and language basics.
+          Start here with tutorials, quickstart guides, and language basics.
 
     .. grid-item-card::
         :shadow: none
@@ -71,19 +71,19 @@ GAUSS Documentation
         :shadow: none
         :class-header: text-center
         :class-body: text-center
-        :link: learning-resources
+        :link: command-reference
         :link-type: doc
 
-        Learning Resources
-        ^^^^^^^^^^^^^^^^^^
+        Functions by Category
+        ^^^^^^^^^^^^^^^^^^^^^
 
         .. container:: icon-large
 
-          :fa:`graduation-cap`
+          :fa:`th-large`
 
         .. container:: text-left
 
-          Coming from Stata, MATLAB, R, EViews, or Python? Migration guides, textbook examples, and data management.
+          Time Series | Statistics | Matrix | I/O | Estimation | Graphics | String | Programming
 
     .. grid-item-card::
         :shadow: none
@@ -128,6 +128,7 @@ GAUSS Documentation
    getting-started/index
    user-guide/index
    command-reference
+   data-management
    learning-resources
    machine-learning
    applications

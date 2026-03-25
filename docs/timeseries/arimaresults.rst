@@ -8,7 +8,7 @@ Reprint the estimation summary table from a fitted ARIMA model.
 Format
 ------
 
-.. function:: call arimaResults(result)
+.. function:: arimaResults(result)
 
    :param result: an instance of an :class:`arimaResult` structure returned by :func:`arimaFit`.
    :type result: struct

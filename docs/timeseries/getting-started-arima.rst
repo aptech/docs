@@ -5,6 +5,7 @@ Getting Started: ARIMA
 
 This tutorial walks through univariate time series analysis: decompose a series,
 fit an ARIMA model, forecast, and evaluate. You will have results in under 30 seconds.
+
 The 30-Second Version
 ---------------------
 
@@ -25,6 +26,7 @@ If you just want working code, copy this:
     fc = arimaForecast(result, 24);
 
 That's it. The rest of this page explains what each step does and why.
+
 Step 1: Load and Examine the Data
 ---------------------------------
 
@@ -48,6 +50,7 @@ This is the classic Box-Jenkins airline passenger dataset — monthly totals fro
 - **Seasonality**: regular peaks every 12 months (summer travel)
 
 Both must be handled before fitting an ARIMA model.
+
 Step 2: Decompose the Series
 ----------------------------
 
@@ -69,6 +72,7 @@ shows the long-run growth. The remainder is what's left — ideally stationary n
 
 **Why decompose?** Understanding the structure helps you choose the right model.
 Strong seasonality → use seasonal ARIMA. Strong trend → need differencing.
+
 Step 3: Automatic Model Selection
 ----------------------------------
 
@@ -123,6 +127,7 @@ behind R's ``auto.arima()``.
    space. The airline dataset reliably selects SARIMA(0,1,1)(0,1,1)[12],
    but other datasets may produce different results across runs if the AICc
    values are close.
+
 Step 4: Forecast 24 Months
 --------------------------
 
@@ -140,7 +145,10 @@ You should see::
       1      432.3     402.6     462.0
       2      410.2     376.1     444.3
       3      466.8     428.7     504.9
-    ...
+        ⋮
+     22      487.1     412.3     561.9
+     23      510.4     432.8     588.0
+     24      478.9     398.7     559.1
 
 **Reading the forecast table:**
 
@@ -157,6 +165,7 @@ You should see::
    Bayesian VAR forecasts from :func:`bvarForecast` use 68% credible bands by
    default (one posterior standard deviation). Both can be changed via the
    *level* parameter.
+
 Step 5: Compare Models
 ----------------------
 
@@ -176,6 +185,7 @@ Try a different specification and compare:
 
 Lower AICc is better. The seasonal model should win decisively — airline
 passenger data has strong seasonality that a non-seasonal model can't capture.
+
 Step 6: Evaluate Forecast Accuracy
 ----------------------------------
 
@@ -200,6 +210,7 @@ Split the data and measure out-of-sample performance:
 - **RMSE**: root mean squared error (same units as the data)
 - **MASE**: mean absolute scaled error (< 1 means better than naive forecast)
 - **sMAPE**: symmetric mean absolute percentage error
+
 Complete Script
 ---------------
 
@@ -234,6 +245,7 @@ Everything above, in one runnable file:
     print "RMSE:" rmse;
     print "MASE:" mase;
     print "sMAPE:" smape;
+
 What's Next
 -----------
 

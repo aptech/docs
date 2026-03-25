@@ -8,8 +8,8 @@ Reprint the estimation summary table from a fitted VAR or BVAR model.
 Format
 ------
 
-.. function:: call varResults(result)
-              call varResults(result, level=0.90)
+.. function:: varResults(result)
+              varResults(result, level=0.90)
 
    :param result: an instance of a :class:`varResult`, :class:`bvarResult`, or :class:`bvarSvResult` structure.
    :type result: struct

@@ -21,6 +21,7 @@ Selection
 :doc:`../delif`             Removes rows of data based on a logical expression.
 :doc:`../delrows`           Removes observations (rows) from a dataframe by index.
 :doc:`../diag`              Extracts the diagonal of a matrix.
+:doc:`../diagmat`           Creates a diagonal matrix from a vector.
 :doc:`../findidx`           Returns the indices of elements where a condition is true.
 :doc:`../getmatrix`         Gets a contiguous matrix from an N-dimensional array.
 :doc:`../head`              Returns the first ``n`` rows of a matrix, dataframe or string array.
@@ -127,7 +128,6 @@ Transform
 :doc:`../code`                 Allows a new variable to be created (coded) with different values depending upon which one of a set of logical expressions is true.
 :doc:`../dflonger`             Converts a GAUSS dataframe in wide panel format to long panel format.
 :doc:`../dfwider`              Converts a GAUSS dataframe in long panel format to wide panel format.
-:doc:`../diagmat`              Creates a diagonal matrix from a vector.
 :doc:`../diagrv`               Inserts a vector into the diagonal of a matrix.
 :doc:`../dummy`                Creates a set of dummy (0/1) variables by breaking up a variable into specified categories. The highest (rightmost) category is unbounded on the right.
 :doc:`../dummybr`              Creates a set of dummy (0/1) variables. The highest (rightmost) category is bounded on the right.

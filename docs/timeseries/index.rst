@@ -199,17 +199,6 @@ Control Structure Creators
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: ARIMA
-
-    arimafit
-    arimaforecast
-    arimacontrolcreate
-    arimaresults
-    arimacoeftable
-
-.. toctree::
-    :maxdepth: 1
-    :hidden:
     :caption: Guides
 
     getting-started
@@ -219,6 +208,17 @@ Control Structure Creators
     textbook-mapping
     bgr-replication
     var-verification
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: ARIMA
+
+    arimafit
+    arimaforecast
+    arimacontrolcreate
+    arimaresults
+    arimacoeftable
 
 .. toctree::
     :maxdepth: 1

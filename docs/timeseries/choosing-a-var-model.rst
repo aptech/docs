@@ -167,7 +167,7 @@ e.g., a positive supply shock increases production and decreases prices.
 
 ::
 
-    library timeseries;
+    library timeseriesecon
 
     // Monthly oil market data: production, global activity, real oil price
     data = loadd("oil_kilian.csv");

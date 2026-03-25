@@ -49,11 +49,14 @@ extensions = [
     'sphinx_design',
 ]
 
-mathjax3_config = {
+mathjax_config = {
     'extensions': ['tex2jax.js'],
     'jax': ['input/TeX', 'output/HTML-CSS'],
     'HTML-CSS': { 'fonts': ['TeX'] }
 }
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -69,7 +72,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-#language = None
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -88,12 +91,8 @@ highlight_language = 'gauss'
 # a list of builtin themes.
 #
 #html_theme = 'alabaster'
-#html_theme = 'sphinx_rtd_theme'
-#html_theme_path = ["_themes"]
-html_theme = 'pydata_sphinx_theme'
-
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+html_theme = 'sphinx_rtd_theme'   # 6909b4a
+html_theme_path = ["_themes", ]
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -107,27 +106,18 @@ templates_path = ['_templates']
 html_static_path = ['_static']
 
 html_css_files = [
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
-    'https://fonts.googleapis.com/css?family=Lato',
     'theme_override.css',
-    'pygments-custom.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
 ]
 
-html_context = {
-    'default_mode': 'light'
-}
-
-html_js_files = [
-    'https://www.googletagmanager.com/gtag/js?id=G-WLDRLMK7MW',
-    'ga.js',
-    'https://js.hs-scripts.com/4366389.js'
-]
-
-html_logo = '_static/images/aptech-logo.png'
+html_logo = '_static/images/gauss_logo.png'
 
 html_theme_options = {
-    'navbar_end': ['navbar-icon-links'],
-    'article_header_start': None
+    'prev_next_buttons_location': 'both',
+    'style_external_links': True,
+    'style_nav_header_background': '#455560',
+    'logo_only': True,
+    'canonical_url': 'https://docs.aptech.com/gauss/'
 }
 
 html_show_sourcelink = False
@@ -222,6 +212,7 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
+
 # -- Extension configuration -------------------------------------------------
 
 def setup(sphinx):
@@ -240,11 +231,7 @@ def setup(sphinx):
 
     from GAUSSHTMLTranslator import GAUSSHTMLTranslator
 
-    builders = ['html', 'readthedocs', 'readthedocssinglehtmllocalmedia']
-
-    def on_builder_inited(app):
-        if app.builder.name in builders:
-            app.set_translator(app.builder.name, GAUSSHTMLTranslator, override=True)
-
-    # Connect the on_builder_inited function to the 'builder-inited' event
-    sphinx.connect('builder-inited', on_builder_inited)
+    for builder in ['html', 'qthelp', 'readthedocs', 'readthedocssinglehtmllocalmedia']:
+        sphinx.set_translator(builder,
+                              GAUSSHTMLTranslator,
+                              override=True)

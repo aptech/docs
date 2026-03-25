@@ -208,6 +208,7 @@ At each forecast horizon :math:`s = 1, \ldots, h`:
 
 The resulting predictive density is non-Gaussian and potentially fat-tailed due to
 volatility clustering — a key advantage over constant-variance BVAR forecasts.
+
 Algorithm
 ---------
 
@@ -227,6 +228,7 @@ Uses the posterior mean volatility at each horizon (no simulation of :math:`\eta
 giving a single path per posterior draw. Faster but underestimates tail risk.
 
 **Complexity:** Simulate mode: :math:`O(n\_draws \cdot n\_paths \cdot h \cdot m^2)`.
+
 Troubleshooting
 ---------------
 
@@ -243,6 +245,7 @@ If :math:`h_T` is at an extreme value (e.g., a crisis period), forecasts may sho
 elevated volatility for many periods. This is the model correctly reflecting
 persistent volatility. If the persistence :math:`\phi_i` is near 1, volatility
 shocks take many periods to decay.
+
 Verification
 ------------
 
@@ -251,11 +254,13 @@ tests on out-of-sample evaluation windows. Forecast paths validated against
 R ``bayesianVARs::predict()`` for structural consistency.
 
 See the :ref:`var-verification` page.
+
 References
 ----------
 
 - Clark, T.E. (2011). "Real-time density forecasts from Bayesian vector autoregressions with stochastic volatility." *Journal of Business & Economic Statistics*, 29(3), 327-341.
 - Kastner, G. and S. Fruhwirth-Schnatter (2014). "Ancillarity-sufficiency interweaving strategy (ASIS) for boosting MCMC estimation of stochastic volatility models." *Computational Statistics & Data Analysis*, 76, 408-423.
+
 Library
 -------
 timeseries
