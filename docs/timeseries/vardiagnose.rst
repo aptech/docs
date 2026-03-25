@@ -148,11 +148,13 @@ sequence estimator with rank normalization.
 
 **Tail ESS** estimates independent draws for tail quantiles (5th, 95th percentiles)
 by applying the ESS estimator to folded draws :math:`|x - \text{median}(x)|`.
+
 References
 ----------
 
 - Vehtari, A., A. Gelman, D. Simpson, B. Carpenter, and P.C. Burkner (2021). "Rank-normalization, folding, and localization: An improved R-hat for assessing convergence of MCMC." *Bayesian Analysis*, 16(2), 667-718.
 - Geweke, J. (1992). "Evaluating the accuracy of sampling-based approaches to the calculation of posterior moments." In *Bayesian Statistics 4*, 169-193.
+
 Library
 -------
 timeseries

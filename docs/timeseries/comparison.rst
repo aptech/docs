@@ -4,12 +4,14 @@ GAUSS vs R vs BEAR: Side-by-Side
 =================================
 
 Same model, same data, three platforms. All code is copy-paste runnable.
+
 The Task
 --------
 
 Estimate a Bayesian VAR(4) on 200 quarters of US macroeconomic data
 (GDP growth, CPI inflation, federal funds rate), compute impulse responses,
 and forecast 8 quarters ahead.
+
 GAUSS
 -----
 
@@ -34,6 +36,7 @@ GAUSS
     fc = bvarForecast(result, 8);
 
 **12 lines of code.** Estimation, IRF, and forecast in one script, one language.
+
 R (vars + BVAR packages)
 -------------------------
 
@@ -59,6 +62,7 @@ R (vars + BVAR packages)
 **11 lines of code.** Requires two packages (``vars`` for OLS/IRF, ``BVAR`` for
 Bayesian estimation). The ``BVAR`` package uses Gibbs sampling with hierarchical
 hyperparameter tuning — a different algorithm than both GAUSS and BEAR.
+
 MATLAB (ECB BEAR Toolbox)
 --------------------------
 
@@ -88,6 +92,7 @@ MATLAB (ECB BEAR Toolbox)
 strings. Output is saved to Excel and .mat files — not returned to the workspace.
 Applications (IRF, forecast) must be enabled via flags. Each ``BEARmain()`` call
 re-estimates the model from scratch.
+
 Timing Comparison
 -----------------
 
@@ -131,6 +136,7 @@ Bayesian inference — the conjugate form is an algorithmic advantage, not an ap
 BEAR uses an independent Normal-Wishart prior with Gibbs sampling (MATLAB interpreted
 loops). GAUSS uses conjugate posterior draws (compiled Rust backend). The speed
 difference compounds with draws: at 50K draws, BEAR takes 4 minutes vs GAUSS's 0.8 seconds.
+
 Numerical Agreement
 -------------------
 
@@ -140,6 +146,7 @@ independent NW prior form). R's ``BVAR`` package uses a different prior (hierarc
 hyperparameter tuning), so posterior means differ by design.
 
 Full verification details: :ref:`var-verification`.
+
 What You Get With Each Platform
 -------------------------------
 
@@ -199,6 +206,7 @@ What You Get With Each Platform
      - R + BEAR (428 tests)
      - —
      - —
+
 Multi-Run Timing (5 runs, median)
 ----------------------------------
 
@@ -242,6 +250,7 @@ execution times:
 
 All measurements on 3-variable, 200-quarter data. 5 runs each, Apple M-series.
 GAUSS runs under Rosetta 2 (x86_64 on ARM) — native arm64 GAUSS will be faster.
+
 Scaling: Large Systems
 ----------------------
 

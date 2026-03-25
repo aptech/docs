@@ -131,6 +131,7 @@ optimized, and the posterior parameters :math:`\bar\Phi, \bar{S}, \bar\alpha` de
 
 The optimum :math:`\lambda^* = \arg\max_\lambda \log p(Y | \lambda)` is the
 empirical Bayes or "type II maximum likelihood" estimate.
+
 Algorithm
 ---------
 
@@ -140,6 +141,7 @@ Algorithm
 
 The optimization is fast because each function evaluation is :math:`O(K^2 m)` (no MCMC).
 Typical wall-clock time is 0.01-0.05 seconds.
+
 Troubleshooting
 ---------------
 
@@ -151,6 +153,7 @@ the sample is large enough that the prior doesn't help. Consider using OLS
 **lambda6 or lambda7 optimized to near zero:**
 The data does not support sum-of-coefficients or single-unit-root priors.
 This is informative — the prior is not needed for this dataset.
+
 Verification
 ------------
 
@@ -159,10 +162,12 @@ GLP hyperparameter optimization verified against R ``BVAR::bvar()`` with
 log marginal likelihoods agree within optimization tolerance.
 
 See ``crossval/23_glp_crossval.R``.
+
 References
 ----------
 
 - Giannone, D., M. Lenza, and G. E. Primiceri (2015). "Prior selection for vector autoregressions." *Review of Economics and Statistics*, 97(2), 436-451.
+
 Library
 -------
 timeseries

@@ -103,11 +103,13 @@ Model
 where CRPS (Continuous Ranked Probability Score) is a proper scoring rule for density
 forecasts and LPS (Log Predictive Score) is the negative log predictive likelihood
 evaluated at the realized value.
+
 References
 ----------
 
 - Gneiting, T. and A.E. Raftery (2007). "Strictly proper scoring rules, prediction, and estimation." *Journal of the American Statistical Association*, 102(477), 359-378.
 - Hyndman, R.J. and A.B. Koehler (2006). "Another look at measures of forecast accuracy." *International Journal of Forecasting*, 22(4), 679-688.
+
 Library
 -------
 timeseries

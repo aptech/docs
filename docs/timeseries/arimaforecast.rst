@@ -79,7 +79,7 @@ Future regressor values :math:`X_{T+1}, \ldots, X_{T+h}` must be provided via ``
 Algorithm
 ---------
 
-1. **Expand MA(:math:`\infty`) weights:** Compute :math:`\psi_0, \psi_1, \ldots, \psi_{h-1}` from the ARMA polynomial ratio :math:`\psi(L) = \theta(L) / \phi(L)` via recursive convolution. For SARIMA, the seasonal polynomials are multiplied out first.
+1. **Expand MA(∞) weights:** Compute :math:`\psi_0, \psi_1, \ldots, \psi_{h-1}` from the ARMA polynomial ratio :math:`\psi(L) = \theta(L) / \phi(L)` via recursive convolution. For SARIMA, the seasonal polynomials are multiplied out first.
 
 2. **Recursive forecasting:** Starting from :math:`t = T+1`, compute each :math:`\hat{y}_{T+j}` by substituting known past values and previously computed forecasts into the ARMA equation.
 

@@ -59,6 +59,7 @@ to a one-standard-deviation shock to variable :math:`j`.
 Variable 1 can affect all others contemporaneously; variable :math:`m` is affected by all
 others but affects none contemporaneously. This assumption is appropriate when there is a
 natural fast-to-slow ordering (e.g., financial variables respond faster than real activity).
+
 Algorithm
 ---------
 
@@ -76,6 +77,7 @@ Algorithm
 
 **Complexity:** :math:`O(n\_ahead \cdot m^2 p^2)` — dominated by the :math:`mp \times mp` matrix
 multiplications. Sub-millisecond for typical systems.
+
 Examples
 --------
 
@@ -113,7 +115,10 @@ Output:
       0     0.5280     0.0456     0.0919
       1     0.1859     0.0810     0.2753
       2     0.1600     0.0612     0.4442
-     ...
+        ⋮
+     18     0.0089     0.0031     0.0042
+     19     0.0071     0.0025     0.0035
+     20     0.0057     0.0020     0.0029
     ================================================================================
 
 The impact response (h=0) shows that a 1-SD GDP shock raises GDP by 0.528,
@@ -161,6 +166,7 @@ Reshape IRF results into a plot-ready dataframe:
 
     // Plot GDP response to FFR shock
     plotXY(seqa(0, 1, 21), plot_data[., "GDP<-FFR"]);
+
 Troubleshooting
 ---------------
 
@@ -183,6 +189,7 @@ Check the variable ordering. In Cholesky identification, the first variable's sh
 is unrestricted; later variables' shocks are residualized. A monetary policy variable
 (FFR) should typically be ordered last so its shock is "purged" of contemporaneous
 output and price movements.
+
 Remarks
 -------
 
@@ -206,6 +213,7 @@ For posterior IRF bands, use :func:`irfSvCompute` with an :class:`bvarSvResult`.
 ``irf.irf[1, ., .]`` is the impact response (h=0). ``irf.irf[h+1, ., .]`` is the response
 at horizon h. Element ``irf.irf[h+1, i, j]`` is the response of variable i to
 a shock to variable j.
+
 Verification
 ------------
 
@@ -217,12 +225,14 @@ at h=0). See ``gausslib-var/tests/r_benchmark.rs``.
 Additionally verified against ECB BEAR Cholesky IRFs on matched-prior BVAR(4),
 covering all 9 shock-response pairs at horizons 0, 10, and 20 (17 tests).
 See ``crossval/bear_matched_irf.e``.
+
 References
 ----------
 
 - Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Chapter 2.3 (IRF computation), Chapter 9 (structural identification).
 - Pesaran, M.H. and Y. Shin (1998). "Generalized impulse response analysis in linear multivariate models." *Economics Letters*, 58(1), 17-29.
 - Sims, C.A. (1980). "Macroeconomics and reality." *Econometrica*, 48(1), 1-48.
+
 Library
 -------
 timeseries

@@ -6,6 +6,7 @@ Teaching with GAUSS Time Series
 This page maps GAUSS Time Series functions to chapters in the four textbooks most
 commonly used in PhD econometrics and time series courses. Every exercise below
 can be completed in a single GAUSS script.
+
 Hamilton (1994) — *Time Series Analysis*
 -----------------------------------------
 
@@ -56,6 +57,7 @@ filter, spectral analysis, unit roots, cointegration, and regime switching.
      - ARCH / heteroskedasticity
      - :func:`bvarSvFit`
      - Estimate SV-BVAR and show time-varying volatility captures ARCH effects.
+
 Lutkepohl (2005) — *New Introduction to Multiple Time Series Analysis*
 -----------------------------------------------------------------------
 
@@ -106,6 +108,7 @@ cointegration, and state-space models for multivariate systems.
      - Structural VARs
      - :func:`irfCompute`, :func:`svarIdentify`
      - Cholesky vs sign-restricted identification. Compare IRFs.
+
 Kilian & Lutkepohl (2017) — *Structural Vector Autoregressive Analysis*
 -------------------------------------------------------------------------
 
@@ -152,6 +155,7 @@ estimation, inference, and applications to oil markets and monetary policy.
      - Large BVARs
      - :func:`bvarFit`, :func:`bvarSvFit`
      - Scale to 20 variables. Compare conjugate BVAR (3s) vs SV-BVAR (8s) on large system.
+
 Hyndman & Athanasopoulos (2021) — *Forecasting: Principles and Practice* (3rd ed.)
 ------------------------------------------------------------------------------------
 
@@ -203,6 +207,7 @@ Uses R in the text — the table below shows the GAUSS equivalents.
      - VAR forecasting
      - :func:`varForecast`, :func:`bvarForecast`
      - ``predict()``
+
 Replication Exercises
 ---------------------
 

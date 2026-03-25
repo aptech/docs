@@ -80,7 +80,9 @@ The conditional forecast table is printed:
     ---------------------------------------------------------------------------
      1    2.103 [ 1.89  2.31]      3.214 [ 3.01  3.42]    5.000
      2    2.087 [ 1.78  2.39]      3.198 [ 2.89  3.51]    5.000
-    ...
+       ⋮
+    11    2.024 [ 1.48  2.57]      3.139 [ 2.52  3.76]    5.000
+    12    2.018 [ 1.45  2.59]      3.131 [ 2.49  3.77]    5.000
     ================================================================================
 
 Compare Policy Scenarios
@@ -218,6 +220,7 @@ The constrained forecast at horizon :math:`s` is:
 
 where :math:`\varepsilon_{T+s}` is partitioned into constrained and free components,
 and the free components are drawn from their conditional posterior.
+
 Algorithm
 ---------
 
@@ -230,6 +233,7 @@ For each posterior draw :math:`(B^{(i)}, \Sigma^{(i)})`:
 5. Combine constrained and free shocks, propagate through the VAR.
 
 **Complexity:** :math:`O(n\_draws \cdot h \cdot m^3)`.
+
 Troubleshooting
 ---------------
 
@@ -246,6 +250,7 @@ create uncertainty in the free variables. Tighter priors help.
 **Constraints are not exactly satisfied in output:**
 Check for rounding in the print output. Internally, constraints are satisfied
 to machine precision. The printed table rounds for display.
+
 Verification
 ------------
 
@@ -254,11 +259,13 @@ module on the 3-variable ECB dataset with FFR path constraints. Free-variable
 forecasts agree within Monte Carlo noise.
 
 See the :ref:`var-verification` page.
+
 References
 ----------
 
 - Waggoner, D.F. and T. Zha (1999). "Conditional forecasts in dynamic multivariate models." *Review of Economics and Statistics*, 81(4), 639-651.
 - Banbura, M., D. Giannone, and M. Lenza (2015). "Conditional forecasts and scenario analysis with vector autoregressions for large cross-sections." *International Journal of Forecasting*, 31(3), 739-756.
+
 Library
 -------
 timeseries

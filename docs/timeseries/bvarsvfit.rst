@@ -72,7 +72,7 @@ The summary includes stochastic volatility parameters:
     CPI      -1.842    0.984     0.0052       0.41
     FFR       0.402    0.962     0.0134       0.52
     ================================================================================
-    ...
+        ⋮  (Posterior coefficient tables for each equation follow)
 
 Multi-Chain SV-BVAR
 +++++++++++++++++++

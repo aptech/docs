@@ -6,6 +6,7 @@ Getting Started
 This tutorial walks through a complete macroeconomic analysis: estimate a Bayesian
 VAR, compute impulse responses, forecast GDP, and evaluate the forecast — all in
 one script. You will have results in under a minute.
+
 The 30-Second Version
 ---------------------
 
@@ -34,6 +35,7 @@ If you just want working code, copy this:
     fc = bvarForecast(result, 8);
 
 That's it. The rest of this page explains what each step does and why.
+
 Step 1: Load the Data
 ---------------------
 
@@ -59,6 +61,7 @@ The dataset contains 200 quarters of US macroeconomic data:
 - **unemployment**: unemployment rate (%)
 
 We'll use the first three variables — a classic monetary policy VAR.
+
 Step 2: Estimate a Bayesian VAR
 -------------------------------
 
@@ -91,7 +94,11 @@ You should see::
     GDP(-1)            0.7363     0.0663     0.6705     0.8012
     CPI(-1)            0.1528     0.1124     0.0415     0.2645
     FFR(-1)           -0.0846     0.1179    -0.2027     0.0327
-    ...
+        ⋮
+    GDP(-4)            0.0412     0.0598    -0.0181     0.1007
+    CPI(-4)           -0.0233     0.1098    -0.1327     0.0865
+    FFR(-4)            0.0518     0.1143    -0.0622     0.1653
+    Constant           0.0015     0.0019    -0.0004     0.0034
 
 **What this tells you:**
 
@@ -101,6 +108,7 @@ You should see::
 - The log marginal likelihood (-657.84) can be used to compare with other lag orders or priors.
 
 **Checkpoint:** If you see the coefficient table with named equations (GDP, CPI, FFR), you're on track. If you see "Y1, Y2, Y3" instead, pass a dataframe with column names for labeled output.
+
 Step 3: What Happens When the Fed Raises Rates?
 ------------------------------------------------
 
@@ -132,7 +140,10 @@ You should see a table like::
       0     0.9765     0.0485    -0.0876
       1     0.7241     0.0848     0.0110
       2     0.6199     0.0838     0.0498
-    ...
+        ⋮
+     18     0.0412     0.0105     0.0153
+     19     0.0318     0.0089     0.0128
+     20     0.0247     0.0074     0.0107
 
 **Reading the IRF table:**
 
@@ -145,6 +156,7 @@ The variable ordering matters for Cholesky identification: GDP is ordered first
 bank can respond within the quarter). This is the standard monetary policy ordering.
 
 **Checkpoint:** The impact matrix (h=0) should be lower-triangular — zeros above the diagonal. If it's not, something went wrong.
+
 Step 4: Forecast GDP
 --------------------
 
@@ -161,7 +173,9 @@ You should see::
     --------------------------------------------------------------------------------
       1      1.483  [  0.971   1.998 ]     2.397  [  2.091   2.717 ]     4.133  [  3.836   4.424 ]
       2      1.509  [  0.980   2.033 ]     2.464  [  2.133   2.776 ]     4.110  [  3.810   4.404 ]
-    ...
+        ⋮
+      7      1.472  [  0.812   2.134 ]     2.512  [  2.014   3.009 ]     4.087  [  3.541   4.632 ]
+      8      1.468  [  0.793   2.142 ]     2.524  [  2.003   3.046 ]     4.081  [  3.517   4.645 ]
 
 **Reading the forecast table:**
 
@@ -170,6 +184,7 @@ You should see::
 - **Bands widen over time** — forecasts become less certain at longer horizons. This is expected.
 
 The BVAR forecast accounts for both **parameter uncertainty** (we don't know the true coefficients) and **shock uncertainty** (future shocks are random). This makes BVAR bands wider and more honest than simple plug-in VAR forecast intervals.
+
 Step 5: Is the Model Any Good?
 ------------------------------
 
@@ -216,6 +231,7 @@ Or let the data choose automatically:
 
 This maximizes the marginal likelihood over the hyperparameters (Giannone, Lenza &
 Primiceri 2015), finding the best balance between prior shrinkage and data fit.
+
 Complete Script
 ---------------
 
@@ -261,6 +277,7 @@ Everything above, in one runnable file:
     print "Log ML(p=2):" r2.log_ml;
     print "Log ML(p=4):" result.log_ml;
     print "BF(4 vs 2):" exp(result.log_ml - r2.log_ml);
+
 What's Next
 -----------
 
