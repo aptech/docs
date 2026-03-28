@@ -14,6 +14,10 @@ The following is a list of changes from the previous version of GAUSS.
 #. New feature: Typed return declarations for procedures. Procedure headers can now declare their return types: ``proc (struct arimaResult) = arimaFit(y)``. For multi-return procedures, list each return type: ``proc (struct mleResult, matrix) = mleEstimate(y, ctl)``. The ``lib`` command automatically detects typed return declarations and records them in ``.lcg`` library files, enabling struct type inference for library procedures without manual configuration.
 #. Enhanced functionality: Struct type mismatch errors (G0506) now display both struct type names (e.g., "Cannot assign struct 'typeB' to variable declared as struct 'typeA'").
 #. Enhanced functionality: Undefined struct member errors (G0504) now display the struct type name alongside the member name.
+#. Enhanced functionality: :func:`minimize` numerical gradients now respect bound constraints, using one-sided finite differences when parameters are at boundaries.
+#. Enhanced functionality: :func:`minimize` error messages now identify the return type when the objective function returns an incorrect type (e.g., "Objective function returned a struct (arimaResult), expected a real scalar").
+#. Bug fix: :func:`norm` with 2-norm or nuclear norm on matrices containing missing values no longer produces spurious parameter warnings.
+#. Bug fix: High-DPI display scaling on Windows with fractional scale factors (125%, 150%) now renders UI elements at the correct size instead of falling back to 1x scaling.
 
 26.0.1
 ------
