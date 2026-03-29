@@ -13,6 +13,7 @@
        ================= ================================================
        ``"minnesota"``   Minnesota prior with lambda hyperparameters. (Default)
        ``"flat"``        Diffuse prior with variance *ctl.b_prior_var*.
+       ``"horseshoe"``   Horseshoe prior (Carvalho, Polson & Scott 2010) for adaptive shrinkage. Each coefficient gets a local shrinkage λ²_ij and a global τ² with half-Cauchy priors. Replaces Minnesota/SSVS for large systems (m=50+). Reuses *ctl.b_prior_var* as initial τ².
        ================= ================================================
 
    * - ctl.lambda1
@@ -107,6 +108,9 @@
 
    * - ctl.reservoir_size
      - Scalar, reservoir size for ``sv_keep = "online"``. Default = 500.
+
+   * - ctl.u_bandwidth
+     - Scalar, band-limited Cholesky U estimation. 0 = full lower-triangular U (default, m(m-1)/2 parameters). k > 0 = only first k off-diagonals per column estimated, rest fixed at zero. Reduces parameters from m(m-1)/2 to m*k. For m=50, k=3: 150 vs 1225 parameters. **Note:** this changes the model (approximation), not just computation.
 
    * - ctl.quiet
      - Scalar, set to 1 to suppress printed output. Default = 0.

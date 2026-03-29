@@ -81,3 +81,6 @@
 
    * - result.vcov
      - KxK matrix, variance-covariance matrix of estimated coefficients.
+
+   * - result.lambda
+     - Scalar, Box-Cox lambda used for variance stabilization. Missing if no transform was applied. When present, :func:`arimaForecast` automatically back-transforms forecasts to the original scale.

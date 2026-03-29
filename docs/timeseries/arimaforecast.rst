@@ -99,7 +99,8 @@ Examples
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     // Fit seasonal ARIMA
     result = arimaFit(y, season=12, quiet=1);
@@ -121,7 +122,8 @@ Custom Confidence Level
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
     result = arimaFit(y, 12, 1, 1, 1, 0, 1, 1);
 
     // 99% prediction intervals (wider than 95%)
@@ -137,8 +139,9 @@ When the model includes exogenous regressors, you must provide their future valu
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp");
-    X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    y = loadd(fname, "gdp");
+    X = loadd(fname, "cpi + ffr");
 
     // Fit ARIMAX
     result = arimaFit(y, xreg=X, quiet=1);
@@ -192,6 +195,13 @@ Intervals widen with the forecast horizon.
 keyword is required for forecasting. An error is raised if it is omitted:
 ``"Model was fit with M regressors. Provide hxM matrix of future values
 via xreg=X_future."``.
+
+**Box-Cox back-transformation:** If the model was fit with ``lambda``,
+forecasts are automatically back-transformed to the original scale using
+the inverse Box-Cox function. Point forecasts use the median (no bias
+correction), which matches R's ``forecast`` package default. Prediction
+intervals are back-transformed directly — monotonicity of the Box-Cox
+transform preserves coverage.
 
 **Comparison with BVAR forecasts:**
 ARIMA forecasts are univariate — they use only the history of the target variable

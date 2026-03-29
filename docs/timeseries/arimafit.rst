@@ -38,6 +38,27 @@ Format
    :param xreg_names: Optional keyword, column names for *xreg*. If omitted, defaults to ``"X1"``, ``"X2"``, etc.
    :type xreg_names: Mx1 string array
 
+   :param lambda: Optional keyword, Box-Cox variance stabilization.
+
+      ============= =========================================================
+      ``"auto"``    Select lambda via profile likelihood (recommended). Fits
+                    ARIMA(1,1,1) pilot at each candidate λ ∈ {-1, -0.5, 0,
+                    0.5, 1, 1.5, 2} and picks the one that maximizes the
+                    Jacobian-corrected log-likelihood.
+      ``0``         Log transform (λ = 0).
+      ``0.5``       Square root transform.
+      (omitted)     No transform (default, backward compatible).
+      ============= =========================================================
+
+      When active, the data is transformed before fitting and forecasts are
+      automatically back-transformed to the original scale (median, no bias
+      correction). The selected lambda is stored in ``result.lambda``.
+
+      Requires strictly positive data. Silently skipped if data contains
+      zeros or negative values.
+
+   :type lambda: string or scalar
+
    :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*.
    :type quiet: scalar
 
@@ -122,7 +143,8 @@ Auto ARIMA on Airline Passengers
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     // Automatic ARIMA — selects order via AICc
     result = arimaFit(y);
@@ -156,7 +178,8 @@ The classic Box-Jenkins airline model — SARIMA(0,1,1)(0,1,1)[12]:
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     // Auto SARIMA with season=12
     result = arimaFit(y, 12);
@@ -173,7 +196,8 @@ Fixed Order with Diagnostics
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     // Force SARIMA(1,1,1)(0,1,1)[12]
     result = arimaFit(y, 12, 1, 1, 1, 0, 1, 1);
@@ -190,8 +214,9 @@ ARIMAX: GDP with Leading Indicators
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp");
-    X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    y = loadd(fname, "gdp");
+    X = loadd(fname, "cpi + ffr");
 
     // Regression with ARIMA errors
     result = arimaFit(y, xreg=X, xreg_names="CPI"$|"FFR");
@@ -210,7 +235,8 @@ Fix :math:`d = 1` but auto-select :math:`p` and :math:`q`:
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     // Fix d=1, auto-select p and q
     // season=12, fix d=1, auto-select p and q (use -1)
@@ -224,7 +250,8 @@ Using BIC for Model Selection
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     ctl = arimaControlCreate();
     ctl.ic = "bic";
@@ -268,6 +295,49 @@ The model has not captured all the serial dependence. Try:
 - Increasing the AR order (higher p).
 - Adding seasonal terms if the data has a seasonal pattern.
 - Adding exogenous regressors if there is an omitted variable.
+
+Box-Cox Variance Stabilization
+++++++++++++++++++++++++++++++
+
+For series with variance that grows with the level (e.g., airline passengers),
+Box-Cox transformation stabilizes the variance before fitting:
+
+::
+
+    new;
+    library timeseries;
+
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv");
+    y = loadd(fname, "passengers");
+
+    // Auto-select lambda via profile likelihood
+    result = arimaFit(y, season=12, lambda="auto");
+
+    // The selected lambda
+    print "Lambda:" result.lambda;
+
+    // Forecasts are automatically back-transformed
+    fc = arimaForecast(result, 24);
+
+You can also specify a fixed lambda:
+
+::
+
+    // Log transform (lambda = 0)
+    result_log = arimaFit(y, season=12, lambda=0);
+
+    // Square root transform (lambda = 0.5)
+    result_sqrt = arimaFit(y, season=12, lambda=0.5);
+
+.. note::
+
+   Profile likelihood selects the lambda that maximizes the model's
+   Jacobian-corrected log-likelihood. Unlike Guerrero's heuristic, this
+   uses the actual ARIMA fit to choose the transform — if no transform
+   helps, it selects λ = 1 (identity).
+
+   Requires strictly positive data. Silently skipped for series with
+   zeros or negative values.
 
 Remarks
 -------
