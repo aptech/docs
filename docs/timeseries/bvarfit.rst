@@ -152,7 +152,8 @@ Estimate a 3-variable BVAR(4) on GDP growth, CPI inflation, and the federal fund
     library timeseries;
 
     // Load US macro quarterly data
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarControlCreate();
     ctl.p = 4;
@@ -194,7 +195,8 @@ Compare Lag Orders with Bayes Factors
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarControlCreate();
     ctl.quiet = 1;
@@ -227,7 +229,8 @@ Sum-of-coefficients and single-unit-root priors stabilize long-horizon forecasts
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarControlCreate();
     ctl.p = 4;
@@ -249,7 +252,8 @@ Let the marginal likelihood choose all :math:`\lambda` values:
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Optimize lambda1, lambda6, lambda7 jointly
     ctl_opt = bvarHyperopt(data);

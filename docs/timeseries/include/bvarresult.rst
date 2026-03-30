@@ -65,10 +65,10 @@
      - (T-p)xm matrix, residuals at posterior mean.
 
    * - result.b_draws
-     - Array of n_draws Kxm matrices, raw posterior draws of B.
+     - (n_draws*K)xm matrix, stacked raw posterior draws of B. Draw d is rows [(d-1)*K+1 : d*K, .].
 
    * - result.sigma_draws
-     - Array of n_draws mxm matrices, raw posterior draws of :math:`\Sigma`.
+     - (n_draws*m)xm matrix, stacked raw posterior draws of :math:`\Sigma`. Draw d is rows [(d-1)*m+1 : d*m, .].
 
    * - result.y
      - Txm matrix, original data.

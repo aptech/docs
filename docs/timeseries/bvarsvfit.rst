@@ -50,7 +50,8 @@ Default SV-BVAR
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Default SV-BVAR(1)
     result = bvarSvFit(data);
@@ -84,7 +85,8 @@ Run 4 parallel chains for convergence diagnostics:
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
@@ -106,7 +108,8 @@ Enable stochastic search variable selection to identify which coefficients are n
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
@@ -134,7 +137,8 @@ For large systems where storing all draws is infeasible, use online mode:
     library timeseries;
 
     // 20-variable system
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/largeMacro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/largeMacro.dat");
+    data = loadd(fname);
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
@@ -157,8 +161,9 @@ SV-BVAR with Exogenous Regressors
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
-    X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "oil");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    y = loadd(fname, "gdp + cpi + ffr");
+    X = loadd(fname, "oil");
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();

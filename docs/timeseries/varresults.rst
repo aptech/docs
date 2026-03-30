@@ -25,7 +25,8 @@ Examples
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Fit with output suppressed
     result = bvarFit(data, quiet=1);

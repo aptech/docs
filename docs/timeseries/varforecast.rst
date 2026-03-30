@@ -44,7 +44,8 @@ Basic VAR Forecast
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Fit VAR(4) and forecast 12 steps
     result = varFit(data, 4, quiet=1);
@@ -76,7 +77,8 @@ Forecast with 99% Confidence Intervals
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4, quiet=1);
 
     // Wider intervals
@@ -90,8 +92,9 @@ Forecast with Future Exogenous Regressors
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
-    X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "oil");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    y = loadd(fname, "gdp + cpi + ffr");
+    X = loadd(fname, "oil");
 
     result = varFit(y, 2, xreg=X, quiet=1);
 
@@ -107,7 +110,8 @@ Accessing Individual Variables
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4, quiet=1);
     fc = varForecast(result, 12, quiet=1);
 

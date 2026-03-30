@@ -50,7 +50,8 @@ Monthly Data
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     stl = stlDecompose(y, 12);
 
@@ -68,7 +69,8 @@ Deseasonalize then Fit ARIMA
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     stl = stlDecompose(y, 12, quiet=1);
 
@@ -84,7 +86,8 @@ Weekly Data
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/weekly.dat"), "sales");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/weekly.dat");
+    y = loadd(fname, "sales");
 
     stl = stlDecompose(y, 52, s_window=15);
 

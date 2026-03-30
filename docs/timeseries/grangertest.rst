@@ -58,7 +58,8 @@ Single Pair
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4);
 
     // Does FFR Granger-cause GDP?
@@ -75,7 +76,8 @@ All Pairs
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4);
 
     for i (1, 3, 1);

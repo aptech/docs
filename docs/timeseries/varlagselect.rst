@@ -62,7 +62,8 @@ Basic Lag Selection
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Test lags 1 through 8, select by AIC
     ls = varLagSelect(data, 8);
@@ -94,7 +95,8 @@ Pipe into Estimation
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Select lag order, then estimate
     ls = varLagSelect(data, 8, ic="bic", quiet=1);

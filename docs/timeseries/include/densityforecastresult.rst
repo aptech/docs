@@ -7,6 +7,9 @@
    * - dfc.fc_median
      - hxm matrix, median forecast across posterior draws.
 
+   * - dfc.bands
+     - Array of :class:`credibleBand` structures. Access via ``dfc.bands[i].level``, ``dfc.bands[i].lower``, ``dfc.bands[i].upper``.
+
    * - dfc.quantile_bands
      - Array of hxm matrices, one per quantile level. Access the i-th quantile band as ``dfc.quantile_bands[i]``.
 

@@ -89,7 +89,8 @@ Monetary Policy VAR
     library timeseries;
 
     // Load US macro quarterly data
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Fit VAR(4)
     result = varFit(data, 4);
@@ -129,7 +130,8 @@ Compare AIC across lag orders to choose p:
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Automatic selection
     best = varLagSelect(data, 8);   // Test p = 1..8
@@ -152,8 +154,9 @@ Include oil price as an exogenous variable:
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
-    X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "oil");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    y = loadd(fname, "gdp + cpi + ffr");
+    X = loadd(fname, "oil");
 
     ctl = varControlCreate();
     ctl.p = 2;

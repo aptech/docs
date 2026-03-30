@@ -36,7 +36,8 @@ Monetary Policy SVAR with Posterior Bands
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    y = loadd(fname, "gdp + cpi + ffr");
 
     // Estimate BVAR
     bctl = bvarControlCreate();
@@ -65,7 +66,8 @@ Require that the demand shock (shock 1) keeps GDP and CPI positive for 4 quarter
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    y = loadd(fname, "gdp + cpi + ffr");
     result = bvarFit(y, quiet=1);
 
     ctl = svarControlCreate();
@@ -86,7 +88,8 @@ Sign-Restricted IRF from SV-BVAR
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    y = loadd(fname, "gdp + cpi + ffr");
 
     svctl = bvarSvControlCreate();
     svctl.p = 4;
@@ -116,7 +119,7 @@ Accessing Results and Plotting
     print sir.irf_median[6, 1, 3];
 
     // 68% band
-    print sir.irf_lower_68[6, 1, 3] "to" sir.irf_upper_68[6, 1, 3];
+    print sir.irf_bands[1].lower[6, 1, 3] "to" sir.irf_bands[1].upper[6, 1, 3];
 
     // Cumulative response (for differenced VARs)
     print "Cumulative GDP response to monetary shock at h=20:";
@@ -128,7 +131,7 @@ Accessing Results and Plotting
 
     // Plot using irfPlotData
     df = irfPlotData(sir, 3, 1);    // Monetary shock → GDP
-    plotXY(df[., "horizon"], df[., "median"]~df[., "lower_68"]~df[., "upper_68"]);
+    plotXY(df[., "horizon"], df[., "median"]~df[., "bands_1_lower"]~df[., "bands_1_upper"]);
 
 Remarks
 -------

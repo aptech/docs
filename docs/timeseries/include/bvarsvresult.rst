@@ -37,9 +37,6 @@
    * - result.b_upper
      - Kxm matrix, 84th percentile (upper 68% credible band).
 
-   * - result.sigma_mean
-     - mxm matrix, time-averaged posterior mean of :math:`\Sigma`.
-
    * - result.sv_mu
      - mx1 vector, posterior mean of SV level parameter per equation.
 
@@ -64,26 +61,8 @@
    * - result.pip_u
      - (m*(m-1)/2)x1 vector, posterior inclusion probabilities for U off-diagonals (SSVS only).
 
-   * - result.n_included_b
-     - Scalar, mean number of included B coefficients across draws (SSVS only).
-
-   * - result.n_included_u
-     - Scalar, mean number of included U elements across draws (SSVS only).
-
    * - result.phi_accept_rate
      - mx1 vector, Metropolis-Hastings acceptance rates for SV persistence. Values between 0.2 and 0.6 indicate good mixing.
-
-   * - result.b_draws
-     - Array of n_draws Kxm matrices, raw posterior draws of B (``sv_keep = "full"`` only).
-
-   * - result.h_last
-     - mxn_draws matrix, last log-volatility state per draw (``sv_keep = "last"`` or ``"online"``).
-
-   * - result.b_online_mean
-     - Kxm matrix, running posterior mean of B (``sv_keep = "online"`` only).
-
-   * - result.b_online_var
-     - Kxm matrix, running posterior variance of B (``sv_keep = "online"`` only).
 
    * - result.y
      - Txm matrix, original data.
@@ -93,9 +72,6 @@
 
    * - result.n_draws
      - Scalar, number of retained draws.
-
-   * - result.n_chains
-     - Scalar, number of chains used.
 
    * - result.seed
      - Scalar, RNG seed used.

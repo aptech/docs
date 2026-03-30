@@ -36,6 +36,3 @@
 
    * - sir.var_names
      - Mx1 string array, variable names.
-
-   * - sir.shock_names
-     - Mx1 string array, shock labels.

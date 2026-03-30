@@ -21,7 +21,8 @@ Examples
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     // Fit with output suppressed
     result = arimaFit(y, season=12, quiet=1);

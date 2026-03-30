@@ -24,7 +24,8 @@ Examples
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
 
     result = arimaFit(y, order=1|1|1, season=12, quiet=1);
 

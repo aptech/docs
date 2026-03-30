@@ -17,16 +17,8 @@
    * - ctl.n_paths
      - Scalar, number of simulation paths per posterior draw (``"simulate"`` mode only). Default = 100.
 
-   * - ctl.quantile_levels
-     - Vector, quantile levels to report. Default = 0.05|0.16|0.50|0.84|0.95.
-
-   * - ctl.h_init
-     - String, log-volatility initialization for forecasting.
-
-       ==================== ==============================================================
-       ``"stochastic"``     Draw h_T from the reservoir. Captures h_T uncertainty. (Default)
-       ``"posterior_mean"``  Use posterior mean h_T. Faster, underestimates tails.
-       ==================== ==============================================================
+   * - ctl.levels
+     - Vector, credible band levels. Default = 0.68|0.90.
 
    * - ctl.store_draws
      - Scalar, 1 to store raw forecast draws in *dfc.draws*, 0 to discard. Default = 0.

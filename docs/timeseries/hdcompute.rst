@@ -40,7 +40,8 @@ Full Historical Decomposition
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     result = varFit(data, 4);
 
@@ -54,7 +55,8 @@ Shock Contributions to a Variable
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4);
     hd = hdCompute(result, quiet=1);
 
@@ -74,7 +76,8 @@ Verify Decomposition Sums to Observed
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4);
     hd = hdCompute(result, quiet=1);
 
@@ -96,7 +99,8 @@ Extract Structural Shocks
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4, quiet=1);
     hd = hdCompute(result, quiet=1);
 

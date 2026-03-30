@@ -17,7 +17,8 @@ If you just want working code, copy this:
     library timeseries;
 
     // Load US macro data (GDP growth, CPI inflation, Fed Funds rate)
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    data = loadd(fname);
 
     // Estimate Bayesian VAR(4)
     ctl = bvarControlCreate();
@@ -43,7 +44,8 @@ Step 1: Load the Data
 
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    data = loadd(fname);
 
     print rows(data) "observations," cols(data) "variables";
     print getcolnames(data)';
@@ -243,7 +245,8 @@ Everything above, in one runnable file:
     library timeseries;
 
     // ---- Data ----
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    data = loadd(fname);
     vars = "gdp_growth" $| "cpi_inflation" $| "fed_funds";
 
     // ---- BVAR(4) with white noise prior ----

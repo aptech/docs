@@ -34,7 +34,8 @@ Examples
     ctl.parallel = 1;
     ctl.ssvs = 1;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = bvarSvFit(data, ctl);
 
 Library

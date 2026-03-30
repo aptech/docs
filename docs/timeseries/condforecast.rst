@@ -52,7 +52,8 @@ Fix the federal funds rate at 5.0% for 12 quarters and forecast GDP and CPI:
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarControlCreate();
     ctl.p = 4;
@@ -93,7 +94,8 @@ Compare Policy Scenarios
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarControlCreate();
     ctl.p = 4;
@@ -124,7 +126,8 @@ Fix both GDP growth and the FFR path, let CPI adjust:
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarControlCreate();
     ctl.p = 4;
@@ -152,7 +155,8 @@ Conditional Forecast from SV-BVAR
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     svctl = bvarSvControlCreate();
     svctl.p = 4;

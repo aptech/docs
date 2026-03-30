@@ -19,7 +19,8 @@ GAUSS
 
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    data = loadd(fname);
 
     // BVAR(4)
     ctl = bvarControlCreate();

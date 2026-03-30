@@ -34,7 +34,8 @@ Plot a Single Shock-Response Pair
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4);
     irf = irfCompute(result, 20, quiet=1);
 
@@ -50,7 +51,8 @@ Plot SV-BVAR IRF with Credible Bands
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
     irf = irfSvCompute(result, 20, quiet=1);
 
@@ -69,7 +71,8 @@ Extract All Pairs
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4, quiet=1);
     irf = irfCompute(result, 20, quiet=1);
 

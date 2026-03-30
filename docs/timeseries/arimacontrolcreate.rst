@@ -32,7 +32,8 @@ Examples
     ctl.method = "ml";
 
     // Use with arimaFit
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
+    y = loadd(fname, "passengers");
     result = arimaFit(y, ctl, season=12);
 
 Remarks

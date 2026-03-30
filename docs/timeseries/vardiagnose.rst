@@ -40,7 +40,8 @@ Basic Convergence Check
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarSvControlCreate();
     ctl.p = 4;
@@ -66,7 +67,8 @@ SV-BVAR with SSVS Diagnostics
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarSvControlCreate();
     ctl.p = 4;
@@ -96,7 +98,8 @@ Stricter Thresholds
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
 
     // Publication-quality thresholds

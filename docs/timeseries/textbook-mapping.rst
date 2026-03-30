@@ -219,7 +219,8 @@ data or live FRED data and produces publication-quality output.
 Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and forecast 24 months::
 
     library timeseries;
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv");
+    y = loadd(fname, "passengers");
 
     // arimaFit(y, season, p, d, q, P, D, Q)
     result = arimaFit(y, 12, 0, 1, 1, 0, 1, 1);
@@ -231,7 +232,8 @@ Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and forecast 24 months::
 Estimate a 3-variable VAR on GDP, CPI, FFR. Compute IRFs and interpret::
 
     library timeseries;
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    data = loadd(fname);
 
     vctl = varControlCreate();
     vctl.p = 4;
@@ -247,7 +249,8 @@ Estimate a 3-variable VAR on GDP, CPI, FFR. Compute IRFs and interpret::
 Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
 
     library timeseries;
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    data = loadd(fname);
 
     // Split: first 160 obs for estimation, last 40 for evaluation
     y_train = data[1:160, .];
@@ -289,7 +292,8 @@ Replicate the oil market structural analysis using live FRED data::
 Use the log marginal likelihood to select the best model::
 
     library timeseries;
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    data = loadd(fname);
 
     // Optimize hyperparameters
     ho = bvarHyperopt(data);

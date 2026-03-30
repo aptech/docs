@@ -47,7 +47,8 @@ Quick Mean-Path Forecast
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     result = bvarSvFit(data, quiet=1);
 
@@ -67,7 +68,8 @@ Full Density Forecast (Simulate Mode)
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
 
     // Simulate mode for proper predictive density
@@ -85,7 +87,8 @@ Custom Quantiles for VaR
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
 
     fctl = svForecastControlCreate();
@@ -111,7 +114,8 @@ Forecast Log-Volatility Path
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarSvControlCreate();
     ctl.p = 4;
@@ -137,7 +141,8 @@ Store Raw Draws for Custom Analysis
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
 
     fctl = svForecastControlCreate();

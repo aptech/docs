@@ -31,7 +31,8 @@ Examples
     ctl.lambda1 = 0.1;
     ctl.n_draws = 10000;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = bvarFit(data, ctl);
 
 Library

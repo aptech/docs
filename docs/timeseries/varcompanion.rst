@@ -30,7 +30,8 @@ Examples
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4, quiet=1);
 
     // Extract companion matrix and eigenvalues

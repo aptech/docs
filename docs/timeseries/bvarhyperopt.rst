@@ -72,7 +72,8 @@ One-Line Optimal BVAR
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     // Optimize and estimate in two lines
     ho = bvarHyperopt(data);
@@ -89,7 +90,8 @@ Optimize with SOC and SUR
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
 
     ctl = bvarControlCreate();
     ctl.p = 4;

@@ -36,7 +36,8 @@ Examples
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4);
 
     // Generalized IRF — invariant to variable ordering
@@ -50,7 +51,8 @@ Compare Cholesky and Generalized
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    data = loadd(fname);
     result = varFit(data, 4);
 
     irf = irfCompute(result, 20, quiet=1);
