@@ -46,7 +46,8 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx_design',
+    'sphinx_panels',
+    'sphinx_tabs.tabs',
 ]
 
 mathjax_config = {
@@ -105,10 +106,14 @@ html_theme_path = ["_themes", ]
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_css_files = [
-    'theme_override.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
-]
+html_context = {
+    'css_files': [
+        '_static/theme_override.css',  # override wide tables in RTD theme
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/fontawesome.min.css',
+        '_static/panels-bootstrap.min.css',  # override wide tables in RTD theme
+        '_static/tabs.css', # for sphinx_tabs extension
+    ],
+}
 
 html_logo = '_static/images/gauss_logo.png'
 
@@ -231,7 +236,7 @@ def setup(sphinx):
 
     from GAUSSHTMLTranslator import GAUSSHTMLTranslator
 
-    for builder in ['html', 'qthelp', 'readthedocs', 'readthedocssinglehtmllocalmedia']:
+    for builder in ['html', 'readthedocs', 'readthedocssinglehtmllocalmedia']:
         sphinx.set_translator(builder,
                               GAUSSHTMLTranslator,
                               override=True)
