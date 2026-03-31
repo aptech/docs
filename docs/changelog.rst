@@ -14,6 +14,16 @@ The following is a list of changes from the previous version of GAUSS.
 #. New feature: Typed return declarations for procedures. Procedure headers can now declare their return types: ``proc (struct arimaResult) = arimaFit(y)``. For multi-return procedures, list each return type: ``proc (struct mleResult, matrix) = mleEstimate(y, ctl)``. The ``lib`` command automatically detects typed return declarations and records them in ``.lcg`` library files, enabling struct type inference for library procedures without manual configuration.
 #. Enhanced functionality: Struct type mismatch errors (G0506) now display both struct type names (e.g., "Cannot assign struct 'typeB' to variable declared as struct 'typeA'").
 #. Enhanced functionality: Undefined struct member errors (G0504) now display the struct type name alongside the member name.
+#. Enhanced functionality: :func:`minimize` output structure now includes a ``varNames`` member. When the starting vector ``x0`` is a dataframe with column names, :func:`minimize` automatically extracts the names and uses them in printed parameter tables instead of generic ``x[1]``, ``x[2]`` labels.
+#. Enhanced functionality: :func:`minimize` numerical gradients now respect bound constraints, using one-sided finite differences when parameters are at boundaries.
+#. Enhanced functionality: :func:`minimize` error messages now identify the return type when the objective function returns an incorrect type (e.g., "Objective function returned a struct (arimaResult), expected a real scalar").
+#. Bug fix: :func:`norm` with 2-norm or nuclear norm on matrices containing missing values no longer produces spurious parameter warnings.
+#. Bug fix: High-DPI display scaling on Windows with fractional scale factors (125%, 150%) now renders UI elements at the correct size instead of falling back to 1x scaling.
+#. Bug fix: :func:`ttest` no longer crashes when called without an optional control structure (e.g., ``ttest(y1, y2)``).
+#. Bug fix: :func:`contingency` no longer crashes when called without an optional control structure.
+#. Bug fix: :func:`contingency` now accepts raw string arrays as input vectors. Previously, passing string arrays (type 15) instead of dataframe columns caused a type mismatch error.
+#. New example datasets: ``fred_macro.csv`` (quarterly U.S. macro data 1960-2025), ``clinical_trial.csv`` (200-row RCT), ``employee_survey.csv`` (500-row categorical survey), ``wage_returns.csv`` (1000-row Mincer equation), ``state_crime_panel.csv`` (50 states x 15 years panel).
+#. New example programs: ``minimize_rosenbrock.e``, ``minimize_mle.e``, ``ttest_clinical.e``, ``contingency_survey.e``, ``mvntest_residuals.e``, ``colon_operator.e``, ``getting_started_macro.e``, ``getting_started_finance.e``, ``getting_started_wages.e``, ``getting_started_panel.e``.
 
 26.0.1
 ------

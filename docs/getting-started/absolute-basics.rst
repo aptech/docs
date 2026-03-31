@@ -23,15 +23,24 @@ The difference: computers need **precise** instructions in a specific language. 
 The GAUSS Environment
 ---------------------
 
-When you open GAUSS, you'll see several panels. The two most important are:
+When you open GAUSS, you'll see several panels:
 
-**Command Window** (usually at the bottom)
-    Type commands here and press Enter to run them immediately. Good for quick experiments and testing.
+.. figure:: ../_static/images/gauss26-ide-overview.png
+   :alt: GAUSS 26 IDE showing editor with sample program, project
+         folders on the left, and command output below. Four numbered
+         callouts mark key interface elements.
 
-**Editor** (the large panel)
-    Write longer programs here. Save them as ``.e`` files and run them with the Run button (green arrow) or press F5.
+   The GAUSS IDE workspace.
 
-For this guide, we'll start in the **Command Window**. Look for the prompt—it might show ``>>`` or just a blinking cursor. That's where you type.
+① **Toolbar** — Shows your current working directory. The **Run button** (green arrow) is here — click it or press F5 to execute your program.
+
+② **Project Folders** — Browse and open files in your working directory. Double-click any ``.e`` file to open it in the editor.
+
+③ **Editor** — Write and edit programs here. Save as ``.e`` files.
+
+④ **Command Window** — Output appears here after you run code. You can also type single lines directly at the ``>>`` prompt.
+
+For this guide, we'll start in the **Command Window** ④. Look for the prompt — it might show ``>>`` or just a blinking cursor. That's where you type.
 
 Two Ways to Run Code
 --------------------

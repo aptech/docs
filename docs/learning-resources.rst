@@ -1,13 +1,6 @@
 Learning Resources
 ===================
 
-User Guide
------------
-.. toctree::
-    :maxdepth: 2
-
-    data-management
-
 Academic Resources
 -------------------
 .. toctree::

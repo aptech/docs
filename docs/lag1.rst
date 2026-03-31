@@ -92,5 +92,5 @@ Source
 
 lag.src
 
-.. seealso:: Functions :func:`lagn`, :func:`ismiss`, :func:`packr`
+.. seealso:: Functions :func:`lag`, :func:`lagn`, :func:`ismiss`, :func:`packr`
 
