@@ -3,7 +3,8 @@
 GAUSS vs R vs BEAR: Side-by-Side
 ================================
 
-Same model, same data, three platforms. All code is copy-paste runnable.
+This page compares the same BVAR analysis implemented in GAUSS, R, and
+MATLAB (ECB BEAR Toolbox). All code is copy-paste runnable.
 
 The Task
 --------
@@ -36,7 +37,7 @@ GAUSS
     // Forecast
     fc = bvarForecast(result, 8);
 
-**12 lines of code.** Estimation, IRF, and forecast in one script, one language.
+Estimation, IRF, and forecast in one script using the ``timeseries`` library.
 
 R (vars + BVAR packages)
 ------------------------
@@ -60,8 +61,8 @@ R (vars + BVAR packages)
     # Forecast
     fc <- predict(bv, horizon = 8, conf_bands = 0.68)
 
-**11 lines of code.** Requires two packages (``vars`` for OLS/IRF, ``BVAR`` for
-Bayesian estimation). The ``BVAR`` package uses Gibbs sampling with hierarchical
+Requires two packages: ``vars`` for OLS/IRF and ``BVAR`` for
+Bayesian estimation. The ``BVAR`` package uses Gibbs sampling with hierarchical
 hyperparameter tuning — a different algorithm than both GAUSS and BEAR.
 
 MATLAB (ECB BEAR Toolbox)
@@ -89,8 +90,8 @@ MATLAB (ECB BEAR Toolbox)
 
     BEARmain(opts);
 
-**17 lines of code.** Data path, date range, and variable names are configured as
-strings. Output is saved to Excel and .mat files — not returned to the workspace.
+Data path, date range, and variable names are configured as strings.
+Output is saved to Excel and .mat files rather than returned to the workspace.
 Applications (IRF, forecast) must be enabled via flags. Each ``BEARmain()`` call
 re-estimates the model from scratch.
 
@@ -128,15 +129,17 @@ Apple M-series. BEAR on MATLAB R2025b.
 :sup:`1` BEAR re-estimates the full model for each application. Marginal IRF/forecast
 time is ~0.5s after subtracting re-estimation.
 
-**Why GAUSS is faster than R:**
-GAUSS uses the conjugate Normal-Inverse-Wishart posterior, which produces exact
-draws without MCMC. R's ``BVAR`` package uses a Gibbs sampler. Both are correct
-Bayesian inference — the conjugate form is an algorithmic advantage, not an approximation.
+Implementation Differences
+++++++++++++++++++++++++++
 
-**Why GAUSS is faster than BEAR:**
-BEAR uses an independent Normal-Wishart prior with Gibbs sampling (MATLAB interpreted
-loops). GAUSS uses conjugate posterior draws (compiled Rust backend). The speed
-difference compounds with draws: at 50K draws, BEAR takes 4 minutes vs GAUSS's 0.8 seconds.
+**GAUSS vs R:** GAUSS uses the conjugate Normal-Inverse-Wishart posterior, which
+produces exact draws without MCMC. R's ``BVAR`` package uses a Gibbs sampler.
+Both are correct Bayesian inference — the conjugate form avoids iterative sampling.
+
+**GAUSS vs BEAR:** BEAR uses an independent Normal-Wishart prior with Gibbs
+sampling (MATLAB interpreted loops). GAUSS uses conjugate posterior draws
+(compiled backend). The difference compounds with draw count: at 50K draws,
+BEAR takes approximately 4 minutes vs approximately 1 second for GAUSS.
 
 Numerical Agreement
 -------------------

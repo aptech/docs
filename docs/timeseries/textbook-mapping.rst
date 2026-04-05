@@ -3,9 +3,9 @@
 Teaching with GAUSS Time Series
 ===============================
 
-This page maps GAUSS Time Series functions to chapters in the four textbooks most
-commonly used in PhD econometrics and time series courses. Every exercise below
-can be completed in a single GAUSS script.
+This page maps GAUSS Time Series functions to chapters in four textbooks
+commonly used in PhD econometrics and time series courses. Each exercise
+below includes runnable GAUSS code alongside the relevant textbook reference.
 
 Hamilton (1994) — *Time Series Analysis*
 ----------------------------------------
@@ -211,12 +211,12 @@ Uses R in the text — the table below shows the GAUSS equivalents.
 Replication Exercises
 ---------------------
 
-These self-contained exercises can be assigned as homework. Each one uses shipped
-data or live FRED data and produces publication-quality output.
+These self-contained exercises use shipped data or live FRED data and can be
+assigned as homework.
 
 **Exercise 1: The Box-Jenkins Airline Model** (Hamilton Ch. 3-5, FPP3 Ch. 9)
 
-Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and forecast 24 months::
+This exercise fits SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and forecasts 24 months ahead::
 
     library timeseries;
     fname = getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv");
@@ -229,7 +229,7 @@ Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and forecast 24 months::
 
 **Exercise 2: Monetary Policy VAR** (Hamilton Ch. 11, Lutkepohl Ch. 2-4, K&L Ch. 8)
 
-Estimate a 3-variable VAR on GDP, CPI, FFR. Compute IRFs and interpret::
+This exercise estimates a 3-variable VAR on GDP, CPI, and FFR, then computes and interprets IRFs::
 
     library timeseries;
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
@@ -246,7 +246,7 @@ Estimate a 3-variable VAR on GDP, CPI, FFR. Compute IRFs and interpret::
 
 **Exercise 3: Bayesian Shrinkage** (Lutkepohl Ch. 5, K&L Ch. 5)
 
-Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
+This exercise compares OLS and BVAR out-of-sample forecast accuracy using a train/test split::
 
     library timeseries;
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
@@ -283,13 +283,13 @@ Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
 
 **Exercise 4: Kilian (2009) Oil Market SVAR** (K&L Ch. 8, 13)
 
-Replicate the oil market structural analysis using live FRED data::
+This exercise replicates the Kilian (2009) oil market structural analysis using live FRED data::
 
     // See pkgs/timeseries/examples/fred_oil_market_svar.e for the complete script
 
 **Exercise 5: Model Comparison with Bayes Factors** (K&L Ch. 5)
 
-Use the log marginal likelihood to select the best model::
+This exercise uses the log marginal likelihood to compare models with different hyperparameter settings::
 
     library timeseries;
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
