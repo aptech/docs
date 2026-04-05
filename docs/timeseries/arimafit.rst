@@ -68,70 +68,6 @@ Format
 
    :rtype result: struct
 
-Model
------
-
-**ARIMA(p,d,q):**
-After differencing :math:`d` times, the series :math:`w_t = (1-L)^d y_t` follows a
-stationary ARMA(p,q) process:
-
-.. math::
-
-   w_t = \phi_1 w_{t-1} + \cdots + \phi_p w_{t-p} + \varepsilon_t + \theta_1 \varepsilon_{t-1} + \cdots + \theta_q \varepsilon_{t-q}
-
-where :math:`\varepsilon_t \sim N(0, \sigma^2)`. In backshift operator notation:
-
-.. math::
-
-   \phi(L)(1 - L)^d \, y_t = \theta(L) \, \varepsilon_t
-
-**SARIMA(p,d,q)(P,D,Q)[s]:**
-Adds seasonal differencing and seasonal ARMA terms:
-
-.. math::
-
-   \Phi(L^s) \, \phi(L) \, (1 - L)^d (1 - L^s)^D \, y_t = \Theta(L^s) \, \theta(L) \, \varepsilon_t
-
-where :math:`\Phi(L^s) = 1 - \Phi_1 L^s - \cdots - \Phi_P L^{Ps}` and
-:math:`\Theta(L^s) = 1 + \Theta_1 L^s + \cdots + \Theta_Q L^{Qs}`.
-
-**ARIMAX (regression with ARIMA errors):**
-When exogenous regressors :math:`X_t` are provided:
-
-.. math::
-
-   y_t = X_t' \beta + \eta_t, \qquad \phi(L)(1-L)^d \, \eta_t = \theta(L) \, \varepsilon_t
-
-This is a *regression with ARIMA errors* model (Hyndman & Athanasopoulos 2021, Ch. 10),
-not a transfer function model. The distinction matters: the AR/MA structure applies to
-the regression residuals, not directly to :math:`y_t`.
-
-Algorithm
----------
-
-**Estimation (CSS-ML):**
-
-1. **Conditional sum of squares (CSS):** Condition on the first :math:`\max(p, s \cdot P)` observations and minimize the sum of squared one-step-ahead prediction errors. This provides fast initial parameter estimates. Complexity: :math:`O(N)`.
-
-2. **Maximum likelihood refinement (ML):** Starting from the CSS estimates, maximize the exact Gaussian log-likelihood via the state-space representation and Kalman filter. The likelihood is:
-
-   .. math::
-
-      \log \mathcal{L} = -\frac{N}{2} \log(2\pi) - \frac{1}{2} \sum_{t=1}^{N} \left( \log f_t + \frac{v_t^2}{f_t} \right)
-
-   where :math:`v_t` and :math:`f_t` are the innovation and its variance from the Kalman filter. Optimization uses L-BFGS-B with parameter transforms to enforce stationarity and invertibility.
-
-**Auto-selection (stepwise):**
-
-When ``order`` is omitted, the Hyndman-Khandakar (2008) stepwise algorithm is used:
-
-1. Determine :math:`d` via KPSS unit root tests (Kwiatkowski et al. 1992).
-2. Determine :math:`D` via OCSB seasonal unit root tests (Osborn, Chui, Smith & Birchenhall 1988), if seasonal.
-3. Fit an initial model, then search neighboring orders in a stepwise fashion, minimizing AICc (default) or the criterion in *ctl.ic*.
-4. Total models evaluated is typically 15-30 (vs. hundreds for exhaustive search).
-
-Set ``ctl.stepwise = 0`` for exhaustive search over all :math:`(p, q, P, Q)` combinations up to *ctl.max_order*.
-
 Examples
 --------
 
@@ -259,6 +195,70 @@ Using BIC for Model Selection
     result = arimaFit(y, ctl, season=12);
 
 BIC penalizes model complexity more than AICc, typically selecting more parsimonious models.
+
+Model
+-----
+
+**ARIMA(p,d,q):**
+After differencing :math:`d` times, the series :math:`w_t = (1-L)^d y_t` follows a
+stationary ARMA(p,q) process:
+
+.. math::
+
+   w_t = \phi_1 w_{t-1} + \cdots + \phi_p w_{t-p} + \varepsilon_t + \theta_1 \varepsilon_{t-1} + \cdots + \theta_q \varepsilon_{t-q}
+
+where :math:`\varepsilon_t \sim N(0, \sigma^2)`. In backshift operator notation:
+
+.. math::
+
+   \phi(L)(1 - L)^d \, y_t = \theta(L) \, \varepsilon_t
+
+**SARIMA(p,d,q)(P,D,Q)[s]:**
+Adds seasonal differencing and seasonal ARMA terms:
+
+.. math::
+
+   \Phi(L^s) \, \phi(L) \, (1 - L)^d (1 - L^s)^D \, y_t = \Theta(L^s) \, \theta(L) \, \varepsilon_t
+
+where :math:`\Phi(L^s) = 1 - \Phi_1 L^s - \cdots - \Phi_P L^{Ps}` and
+:math:`\Theta(L^s) = 1 + \Theta_1 L^s + \cdots + \Theta_Q L^{Qs}`.
+
+**ARIMAX (regression with ARIMA errors):**
+When exogenous regressors :math:`X_t` are provided:
+
+.. math::
+
+   y_t = X_t' \beta + \eta_t, \qquad \phi(L)(1-L)^d \, \eta_t = \theta(L) \, \varepsilon_t
+
+This is a *regression with ARIMA errors* model (Hyndman & Athanasopoulos 2021, Ch. 10),
+not a transfer function model. The distinction matters: the AR/MA structure applies to
+the regression residuals, not directly to :math:`y_t`.
+
+Algorithm
+---------
+
+**Estimation (CSS-ML):**
+
+1. **Conditional sum of squares (CSS):** Condition on the first :math:`\max(p, s \cdot P)` observations and minimize the sum of squared one-step-ahead prediction errors. This provides fast initial parameter estimates. Complexity: :math:`O(N)`.
+
+2. **Maximum likelihood refinement (ML):** Starting from the CSS estimates, maximize the exact Gaussian log-likelihood via the state-space representation and Kalman filter. The likelihood is:
+
+   .. math::
+
+      \log \mathcal{L} = -\frac{N}{2} \log(2\pi) - \frac{1}{2} \sum_{t=1}^{N} \left( \log f_t + \frac{v_t^2}{f_t} \right)
+
+   where :math:`v_t` and :math:`f_t` are the innovation and its variance from the Kalman filter. Optimization uses L-BFGS-B with parameter transforms to enforce stationarity and invertibility.
+
+**Auto-selection (stepwise):**
+
+When ``order`` is omitted, the Hyndman-Khandakar (2008) stepwise algorithm is used:
+
+1. Determine :math:`d` via KPSS unit root tests (Kwiatkowski et al. 1992).
+2. Determine :math:`D` via OCSB seasonal unit root tests (Osborn, Chui, Smith & Birchenhall 1988), if seasonal.
+3. Fit an initial model, then search neighboring orders in a stepwise fashion, minimizing AICc (default) or the criterion in *ctl.ic*.
+4. Total models evaluated is typically 15-30 (vs. hundreds for exhaustive search).
+
+Set ``ctl.stepwise = 0`` for exhaustive search over all :math:`(p, q, P, Q)` combinations up to *ctl.max_order*.
 
 Troubleshooting
 ---------------

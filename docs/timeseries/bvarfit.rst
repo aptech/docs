@@ -26,118 +26,6 @@ Format
 
    :rtype result: struct
 
-Model
------
-
-The BVAR(p) model is:
-
-.. math::
-
-   y_t = B_1 y_{t-1} + B_2 y_{t-2} + \cdots + B_p y_{t-p} + u + \varepsilon_t, \quad \varepsilon_t \sim N(0, \Sigma)
-
-where :math:`y_t` is an :math:`m \times 1` vector, each :math:`B_\ell` is :math:`m \times m`,
-:math:`u` is an :math:`m \times 1` intercept, and :math:`\Sigma` is the :math:`m \times m`
-error covariance matrix.
-
-Stacking all coefficients, :math:`B = [B_1 \; B_2 \; \cdots \; B_p \; u]'` is :math:`K \times m`
-where :math:`K = mp + 1`.
-
-**Prior:**
-The default Minnesota prior (Kadiyala & Karlsson 1997) places a conjugate
-Normal-Inverse-Wishart prior on :math:`(B, \Sigma)`:
-
-.. math::
-
-   \text{vec}(B) | \Sigma &\sim N\bigl(\text{vec}(B_0),\; \Sigma \otimes \Omega\bigr) \\
-   \Sigma &\sim IW(S_0, \alpha_0)
-
-The prior mean :math:`B_0` encodes the belief that each variable follows a random walk
-(when *ar* = 1) or white noise (when *ar* = 0). Cross-variable coefficients are
-centered at zero.
-
-The diagonal prior covariance :math:`\Omega` is governed by the :math:`\lambda` hyperparameters:
-
-.. math::
-
-   \Omega_{j,\ell} = \begin{cases}
-     (\lambda_1 / \ell^{\lambda_3})^2 & \text{own lag } \ell \\
-     (\lambda_1 \lambda_2 / \ell^{\lambda_3})^2 \cdot (\hat\sigma_j^2 / \hat\sigma_i^2) & \text{cross lag from variable } j \text{ to equation } i \\
-     (\lambda_1 \lambda_4)^2 & \text{constant}
-   \end{cases}
-
-where :math:`\hat\sigma_i^2` are residual variances from univariate AR(p) regressions.
-
-The prior scale :math:`S_0 = (\alpha_0 - m - 1) \cdot \text{diag}(\hat\sigma_1^2, \ldots, \hat\sigma_m^2)`
-centers the prior on the univariate residual variances.
-
-**Posterior:**
-The conjugate prior yields a closed-form posterior:
-
-.. math::
-
-   \Sigma | Y &\sim IW(\bar{S}, \bar{\alpha}) \\
-   \text{vec}(B) | \Sigma, Y &\sim N\bigl(\text{vec}(\bar{B}),\; \Sigma \otimes \bar{\Phi}\bigr)
-
-Draws are exact — no MCMC iteration, no burn-in, no convergence diagnostics needed.
-The log marginal likelihood is available in closed form for formal Bayesian model comparison.
-
-Algorithm
----------
-
-1. **OLS pre-estimation:** Fit univariate AR(p) models to each variable to obtain :math:`\hat\sigma_i^2`, used to scale the prior.
-
-2. **Prior construction:** Build :math:`B_0`, :math:`\Omega`, :math:`S_0`, :math:`\alpha_0` from the hyperparameters and AR residual variances.
-
-3. **Posterior update:** Apply the Normal-Inverse-Wishart conjugate update (Kadiyala & Karlsson 1997, Eqs. 12-14):
-
-   .. math::
-
-      \bar{\Phi} &= (X'X + \Omega^{-1})^{-1} \\
-      \bar{B} &= \bar{\Phi}(X'Y + \Omega^{-1} B_0) \\
-      \bar{S} &= S_0 + \hat{S} + (B_0 - \hat{B})' (\Omega + (X'X)^{-1})^{-1} (B_0 - \hat{B}) \\
-      \bar{\alpha} &= \alpha_0 + T
-
-4. **Draw from posterior:** Sample :math:`\Sigma \sim IW(\bar{S}, \bar{\alpha})` then :math:`B | \Sigma \sim N(\bar{B}, \Sigma \otimes \bar{\Phi})`. Each draw is independent (no Markov chain).
-
-5. **Sum-of-coefficients and single-unit-root priors** (when *lambda6* > 0 or *lambda7* > 0): Implemented via dummy observations appended to the data before the posterior update (Doan, Litterman & Sims 1984; Sims 1993).
-
-**Complexity:** :math:`O(K^2 m)` for the posterior update, plus :math:`O(K^3)` per draw for the Cholesky factorization. With 5,000 draws on a 3-variable VAR(4), typical wall-clock time is 0.05–0.10 seconds.
-
-Hyperparameter Guide
---------------------
-
-.. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
-
-   * - Parameter
-     - Default
-     - Guidance
-   * - *lambda1*
-     - 0.2
-     - Overall tightness. Smaller = prior dominates. For a small system (m=3), 0.1–0.2 works well. For large systems (m > 10), tighter values (0.01–0.05) prevent overfitting. Use :func:`bvarHyperopt` to optimize automatically (Giannone, Lenza & Primiceri 2015).
-   * - *lambda2*
-     - 0.5
-     - Cross-variable shrinkage. A value of 0.5 means other variables' lags are shrunk twice as much as own lags. Range: 0.1–1.0.
-   * - *lambda3*
-     - 1.0
-     - Lag decay exponent. Higher lags are shrunk by :math:`\ell^{-\lambda_3}`. Default of 1.0 is standard. Values above 2 aggressively penalize distant lags.
-   * - *lambda4*
-     - 1e5
-     - Constant tightness. Default is effectively uninformative. Set to 100 if you want the prior to also regularize the intercept (as in BEAR Toolbox).
-   * - *lambda6*
-     - 0 (off)
-     - Sum-of-coefficients prior (Doan, Litterman & Sims 1984). Pulls lag coefficient sums toward the identity, preventing explosive long-horizon forecasts. Typical values: 1–10. Essential for levels data when forecasting beyond 4 steps.
-   * - *lambda7*
-     - 0 (off)
-     - Single-unit-root prior (Sims 1993). Pulls all variables toward a common stochastic trend, stabilizing cointegrated systems. Typical values: 1–10.
-   * - *ar*
-     - 1.0
-     - Prior mean for own first lag. **Set to 1 for levels data** (random walk prior). **Set to 0 for growth rates or stationary data** (white noise prior). Set to 0.8 for "mostly persistent" data. See the :ref:`choosing-a-var-model` guide.
-   * - *alpha0*
-     - 0 (= m+2)
-     - Inverse-Wishart degrees of freedom. Default of m+2 is the least informative proper prior. Increase for stronger prior on :math:`\Sigma`.
-
 Examples
 --------
 
@@ -267,6 +155,118 @@ Let the marginal likelihood choose all :math:`\lambda` values:
 
 This implements Algorithm 1 of Giannone, Lenza & Primiceri (2015), which maximizes the
 log marginal likelihood over a grid of hyperparameter values.
+
+Model
+-----
+
+The BVAR(p) model is:
+
+.. math::
+
+   y_t = B_1 y_{t-1} + B_2 y_{t-2} + \cdots + B_p y_{t-p} + u + \varepsilon_t, \quad \varepsilon_t \sim N(0, \Sigma)
+
+where :math:`y_t` is an :math:`m \times 1` vector, each :math:`B_\ell` is :math:`m \times m`,
+:math:`u` is an :math:`m \times 1` intercept, and :math:`\Sigma` is the :math:`m \times m`
+error covariance matrix.
+
+Stacking all coefficients, :math:`B = [B_1 \; B_2 \; \cdots \; B_p \; u]'` is :math:`K \times m`
+where :math:`K = mp + 1`.
+
+**Prior:**
+The default Minnesota prior (Kadiyala & Karlsson 1997) places a conjugate
+Normal-Inverse-Wishart prior on :math:`(B, \Sigma)`:
+
+.. math::
+
+   \text{vec}(B) | \Sigma &\sim N\bigl(\text{vec}(B_0),\; \Sigma \otimes \Omega\bigr) \\
+   \Sigma &\sim IW(S_0, \alpha_0)
+
+The prior mean :math:`B_0` encodes the belief that each variable follows a random walk
+(when *ar* = 1) or white noise (when *ar* = 0). Cross-variable coefficients are
+centered at zero.
+
+The diagonal prior covariance :math:`\Omega` is governed by the :math:`\lambda` hyperparameters:
+
+.. math::
+
+   \Omega_{j,\ell} = \begin{cases}
+     (\lambda_1 / \ell^{\lambda_3})^2 & \text{own lag } \ell \\
+     (\lambda_1 \lambda_2 / \ell^{\lambda_3})^2 \cdot (\hat\sigma_j^2 / \hat\sigma_i^2) & \text{cross lag from variable } j \text{ to equation } i \\
+     (\lambda_1 \lambda_4)^2 & \text{constant}
+   \end{cases}
+
+where :math:`\hat\sigma_i^2` are residual variances from univariate AR(p) regressions.
+
+The prior scale :math:`S_0 = (\alpha_0 - m - 1) \cdot \text{diag}(\hat\sigma_1^2, \ldots, \hat\sigma_m^2)`
+centers the prior on the univariate residual variances.
+
+**Posterior:**
+The conjugate prior yields a closed-form posterior:
+
+.. math::
+
+   \Sigma | Y &\sim IW(\bar{S}, \bar{\alpha}) \\
+   \text{vec}(B) | \Sigma, Y &\sim N\bigl(\text{vec}(\bar{B}),\; \Sigma \otimes \bar{\Phi}\bigr)
+
+Draws are exact — no MCMC iteration, no burn-in, no convergence diagnostics needed.
+The log marginal likelihood is available in closed form for formal Bayesian model comparison.
+
+Algorithm
+---------
+
+1. **OLS pre-estimation:** Fit univariate AR(p) models to each variable to obtain :math:`\hat\sigma_i^2`, used to scale the prior.
+
+2. **Prior construction:** Build :math:`B_0`, :math:`\Omega`, :math:`S_0`, :math:`\alpha_0` from the hyperparameters and AR residual variances.
+
+3. **Posterior update:** Apply the Normal-Inverse-Wishart conjugate update (Kadiyala & Karlsson 1997, Eqs. 12-14):
+
+   .. math::
+
+      \bar{\Phi} &= (X'X + \Omega^{-1})^{-1} \\
+      \bar{B} &= \bar{\Phi}(X'Y + \Omega^{-1} B_0) \\
+      \bar{S} &= S_0 + \hat{S} + (B_0 - \hat{B})' (\Omega + (X'X)^{-1})^{-1} (B_0 - \hat{B}) \\
+      \bar{\alpha} &= \alpha_0 + T
+
+4. **Draw from posterior:** Sample :math:`\Sigma \sim IW(\bar{S}, \bar{\alpha})` then :math:`B | \Sigma \sim N(\bar{B}, \Sigma \otimes \bar{\Phi})`. Each draw is independent (no Markov chain).
+
+5. **Sum-of-coefficients and single-unit-root priors** (when *lambda6* > 0 or *lambda7* > 0): Implemented via dummy observations appended to the data before the posterior update (Doan, Litterman & Sims 1984; Sims 1993).
+
+**Complexity:** :math:`O(K^2 m)` for the posterior update, plus :math:`O(K^3)` per draw for the Cholesky factorization. With 5,000 draws on a 3-variable VAR(4), typical wall-clock time is 0.05–0.10 seconds.
+
+Hyperparameter Guide
+--------------------
+
+.. list-table::
+   :widths: 15 15 70
+   :header-rows: 1
+
+   * - Parameter
+     - Default
+     - Guidance
+   * - *lambda1*
+     - 0.2
+     - Overall tightness. Smaller = prior dominates. For a small system (m=3), 0.1–0.2 works well. For large systems (m > 10), tighter values (0.01–0.05) prevent overfitting. Use :func:`bvarHyperopt` to optimize automatically (Giannone, Lenza & Primiceri 2015).
+   * - *lambda2*
+     - 0.5
+     - Cross-variable shrinkage. A value of 0.5 means other variables' lags are shrunk twice as much as own lags. Range: 0.1–1.0.
+   * - *lambda3*
+     - 1.0
+     - Lag decay exponent. Higher lags are shrunk by :math:`\ell^{-\lambda_3}`. Default of 1.0 is standard. Values above 2 aggressively penalize distant lags.
+   * - *lambda4*
+     - 1e5
+     - Constant tightness. Default is effectively uninformative. Set to 100 if you want the prior to also regularize the intercept (as in BEAR Toolbox).
+   * - *lambda6*
+     - 0 (off)
+     - Sum-of-coefficients prior (Doan, Litterman & Sims 1984). Pulls lag coefficient sums toward the identity, preventing explosive long-horizon forecasts. Typical values: 1–10. Essential for levels data when forecasting beyond 4 steps.
+   * - *lambda7*
+     - 0 (off)
+     - Single-unit-root prior (Sims 1993). Pulls all variables toward a common stochastic trend, stabilizing cointegrated systems. Typical values: 1–10.
+   * - *ar*
+     - 1.0
+     - Prior mean for own first lag. **Set to 1 for levels data** (random walk prior). **Set to 0 for growth rates or stationary data** (white noise prior). Set to 0.8 for "mostly persistent" data. See the :ref:`choosing-a-var-model` guide.
+   * - *alpha0*
+     - 0 (= m+2)
+     - Inverse-Wishart degrees of freedom. Default of m+2 is the least informative proper prior. Increase for stronger prior on :math:`\Sigma`.
 
 Troubleshooting
 ---------------

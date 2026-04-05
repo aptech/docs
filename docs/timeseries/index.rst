@@ -66,8 +66,8 @@ VAR Estimation
    * - :func:`bvarHyperopt`
      - Optimize Minnesota hyperparameters via marginal likelihood (GLP 2015).
 
-Forecasting
-++++++++++++
+VAR Forecasting
+++++++++++++++++
 
 .. list-table::
    :widths: auto
@@ -81,8 +81,8 @@ Forecasting
    * - :func:`condForecast`
      - Conditional (scenario) forecasts with hard constraints.
 
-Impulse Responses & Structural Analysis
-++++++++++++++++++++++++++++++++++++++++
+Dynamic Analysis (IRF / FEVD / HD)
++++++++++++++++++++++++++++++++++++
 
 .. list-table::
    :widths: auto
@@ -111,8 +111,8 @@ SVAR Identification
    * - :func:`svarIrf`
      - Posterior sign-restricted IRF, cumulative IRF, and FEVD bands.
 
-Diagnostics
-++++++++++++
+Model Diagnostics
++++++++++++++++++++
 
 .. list-table::
    :widths: auto
@@ -237,7 +237,7 @@ Control Structure Creators
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: Forecasting
+    :caption: VAR Forecasting
 
     varforecast
     bvarforecast
@@ -248,7 +248,7 @@ Control Structure Creators
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: IRF / FEVD / HD
+    :caption: Dynamic Analysis (IRF / FEVD / HD)
 
     irfcompute
     irfsvcompute
@@ -269,7 +269,7 @@ Control Structure Creators
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: Diagnostics
+    :caption: Model Diagnostics
 
     vardiagnose
     vardiagnosemulti

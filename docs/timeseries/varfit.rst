@@ -30,53 +30,6 @@ Format
 
    :rtype result: struct
 
-Model
------
-
-The reduced-form VAR(p) is:
-
-.. math::
-
-   y_t = B_1 y_{t-1} + B_2 y_{t-2} + \cdots + B_p y_{t-p} + \Phi x_t + u + \varepsilon_t, \quad \varepsilon_t \sim N(0, \Sigma)
-
-where :math:`y_t` is :math:`m \times 1`, each :math:`B_\ell` is :math:`m \times m`,
-:math:`x_t` are optional exogenous regressors, :math:`u` is the intercept, and
-:math:`\Sigma` is the :math:`m \times m` error covariance.
-
-Stacking the regressors into :math:`X = [Y_{-1} \; Y_{-2} \; \cdots \; Y_{-p} \; X_{\text{exo}} \; \mathbf{1}]`
-(a :math:`T_{\text{eff}} \times K` matrix where :math:`K = mp + n_{\text{exo}} + 1`), the
-system is estimated equation-by-equation by OLS:
-
-.. math::
-
-   \hat{B} = (X'X)^{-1} X'Y, \qquad \hat{\Sigma} = \frac{1}{T_{\text{eff}}} (Y - X\hat{B})'(Y - X\hat{B})
-
-Standard errors, t-statistics, and information criteria (AIC, BIC, HQ) are computed from
-the OLS residuals.
-
-
-Algorithm
----------
-
-1. **Construct lag matrices:** Build :math:`Y` (dependent) and :math:`X` (regressors with lags, exogenous, constant) from the raw data, consuming the first :math:`p` rows as initial conditions.
-
-2. **OLS estimation:** Solve the normal equations via QR decomposition for numerical stability. Complexity: :math:`O(T K^2 m)`.
-
-3. **Residual covariance:** ML estimate :math:`\hat\Sigma = (Y - X\hat{B})'(Y - X\hat{B}) / T_{\text{eff}}`.
-
-4. **Companion form:** Construct the :math:`mp \times mp` companion matrix and compute its eigenvalues to assess stability.
-
-5. **Information criteria:**
-
-   .. math::
-
-      \text{AIC} &= \log|\hat\Sigma| + \frac{2 K m}{T_{\text{eff}}} \\
-      \text{BIC} &= \log|\hat\Sigma| + \frac{K m \log T_{\text{eff}}}{T_{\text{eff}}} \\
-      \text{HQ}  &= \log|\hat\Sigma| + \frac{2 K m \log \log T_{\text{eff}}}{T_{\text{eff}}}
-
-**Complexity:** Sub-millisecond for typical macro systems (m < 10, T < 500).
-
-
 Examples
 --------
 
@@ -163,6 +116,53 @@ Include oil price as an exogenous variable:
     ctl.xreg = X;
 
     result = varFit(y, ctl);
+
+Model
+-----
+
+The reduced-form VAR(p) is:
+
+.. math::
+
+   y_t = B_1 y_{t-1} + B_2 y_{t-2} + \cdots + B_p y_{t-p} + \Phi x_t + u + \varepsilon_t, \quad \varepsilon_t \sim N(0, \Sigma)
+
+where :math:`y_t` is :math:`m \times 1`, each :math:`B_\ell` is :math:`m \times m`,
+:math:`x_t` are optional exogenous regressors, :math:`u` is the intercept, and
+:math:`\Sigma` is the :math:`m \times m` error covariance.
+
+Stacking the regressors into :math:`X = [Y_{-1} \; Y_{-2} \; \cdots \; Y_{-p} \; X_{\text{exo}} \; \mathbf{1}]`
+(a :math:`T_{\text{eff}} \times K` matrix where :math:`K = mp + n_{\text{exo}} + 1`), the
+system is estimated equation-by-equation by OLS:
+
+.. math::
+
+   \hat{B} = (X'X)^{-1} X'Y, \qquad \hat{\Sigma} = \frac{1}{T_{\text{eff}}} (Y - X\hat{B})'(Y - X\hat{B})
+
+Standard errors, t-statistics, and information criteria (AIC, BIC, HQ) are computed from
+the OLS residuals.
+
+
+Algorithm
+---------
+
+1. **Construct lag matrices:** Build :math:`Y` (dependent) and :math:`X` (regressors with lags, exogenous, constant) from the raw data, consuming the first :math:`p` rows as initial conditions.
+
+2. **OLS estimation:** Solve the normal equations via QR decomposition for numerical stability. Complexity: :math:`O(T K^2 m)`.
+
+3. **Residual covariance:** ML estimate :math:`\hat\Sigma = (Y - X\hat{B})'(Y - X\hat{B}) / T_{\text{eff}}`.
+
+4. **Companion form:** Construct the :math:`mp \times mp` companion matrix and compute its eigenvalues to assess stability.
+
+5. **Information criteria:**
+
+   .. math::
+
+      \text{AIC} &= \log|\hat\Sigma| + \frac{2 K m}{T_{\text{eff}}} \\
+      \text{BIC} &= \log|\hat\Sigma| + \frac{K m \log T_{\text{eff}}}{T_{\text{eff}}} \\
+      \text{HQ}  &= \log|\hat\Sigma| + \frac{2 K m \log \log T_{\text{eff}}}{T_{\text{eff}}}
+
+**Complexity:** Sub-millisecond for typical macro systems (m < 10, T < 500).
+
 
 Troubleshooting
 ---------------

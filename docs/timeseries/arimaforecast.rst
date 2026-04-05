@@ -30,64 +30,6 @@ Format
 
    :rtype fc: struct
 
-Model
------
-
-**Point forecast:**
-The h-step-ahead point forecast is the conditional expectation:
-
-.. math::
-
-   \hat{y}_{T+h|T} = E[y_{T+h} | y_1, \ldots, y_T]
-
-For ARIMA models, this is computed by recursively applying the AR and MA polynomials,
-replacing future innovations with zero and future observations with their forecasts.
-
-**Prediction intervals:**
-The forecast error variance at horizon :math:`h` is derived from the MA(:math:`\infty`)
-representation of the model:
-
-.. math::
-
-   y_t = \sum_{j=0}^{\infty} \psi_j \varepsilon_{t-j}, \quad \psi_0 = 1
-
-The h-step forecast variance is:
-
-.. math::
-
-   \text{Var}(\hat{e}_{T+h|T}) = \hat\sigma^2 \sum_{j=0}^{h-1} \psi_j^2
-
-and the :math:`(1-\alpha)` prediction interval is:
-
-.. math::
-
-   \hat{y}_{T+h|T} \pm z_{\alpha/2} \sqrt{\hat\sigma^2 \sum_{j=0}^{h-1} \psi_j^2}
-
-Intervals widen with the horizon because the sum accumulates more :math:`\psi_j^2` terms.
-
-**ARIMAX forecasts:**
-When the model includes exogenous regressors, the forecast is:
-
-.. math::
-
-   \hat{y}_{T+h|T} = X_{T+h}'\hat\beta + \hat\eta_{T+h|T}
-
-where :math:`\hat\eta_{T+h|T}` is the ARIMA forecast of the regression residuals.
-Future regressor values :math:`X_{T+1}, \ldots, X_{T+h}` must be provided via ``xreg``.
-
-
-Algorithm
----------
-
-1. **Expand MA(∞) weights:** Compute :math:`\psi_0, \psi_1, \ldots, \psi_{h-1}` from the ARMA polynomial ratio :math:`\psi(L) = \theta(L) / \phi(L)` via recursive convolution. For SARIMA, the seasonal polynomials are multiplied out first.
-
-2. **Recursive forecasting:** Starting from :math:`t = T+1`, compute each :math:`\hat{y}_{T+j}` by substituting known past values and previously computed forecasts into the ARMA equation.
-
-3. **Prediction intervals:** Compute cumulative forecast error variances from the :math:`\psi_j` weights and form Gaussian intervals at the requested level.
-
-**Complexity:** :math:`O(h \cdot (p + q + s \cdot P + s \cdot Q))` — essentially instantaneous for typical horizons.
-
-
 Examples
 --------
 
@@ -160,6 +102,64 @@ When the model includes exogenous regressors, you must provide their future valu
    in the future regressor values. They condition on the provided :math:`X_{T+h}`
    as if known. If regressor uncertainty is important, consider using BVAR
    (:func:`bvarForecast`) which jointly forecasts all variables.
+
+
+Model
+-----
+
+**Point forecast:**
+The h-step-ahead point forecast is the conditional expectation:
+
+.. math::
+
+   \hat{y}_{T+h|T} = E[y_{T+h} | y_1, \ldots, y_T]
+
+For ARIMA models, this is computed by recursively applying the AR and MA polynomials,
+replacing future innovations with zero and future observations with their forecasts.
+
+**Prediction intervals:**
+The forecast error variance at horizon :math:`h` is derived from the MA(:math:`\infty`)
+representation of the model:
+
+.. math::
+
+   y_t = \sum_{j=0}^{\infty} \psi_j \varepsilon_{t-j}, \quad \psi_0 = 1
+
+The h-step forecast variance is:
+
+.. math::
+
+   \text{Var}(\hat{e}_{T+h|T}) = \hat\sigma^2 \sum_{j=0}^{h-1} \psi_j^2
+
+and the :math:`(1-\alpha)` prediction interval is:
+
+.. math::
+
+   \hat{y}_{T+h|T} \pm z_{\alpha/2} \sqrt{\hat\sigma^2 \sum_{j=0}^{h-1} \psi_j^2}
+
+Intervals widen with the horizon because the sum accumulates more :math:`\psi_j^2` terms.
+
+**ARIMAX forecasts:**
+When the model includes exogenous regressors, the forecast is:
+
+.. math::
+
+   \hat{y}_{T+h|T} = X_{T+h}'\hat\beta + \hat\eta_{T+h|T}
+
+where :math:`\hat\eta_{T+h|T}` is the ARIMA forecast of the regression residuals.
+Future regressor values :math:`X_{T+1}, \ldots, X_{T+h}` must be provided via ``xreg``.
+
+
+Algorithm
+---------
+
+1. **Expand MA(∞) weights:** Compute :math:`\psi_0, \psi_1, \ldots, \psi_{h-1}` from the ARMA polynomial ratio :math:`\psi(L) = \theta(L) / \phi(L)` via recursive convolution. For SARIMA, the seasonal polynomials are multiplied out first.
+
+2. **Recursive forecasting:** Starting from :math:`t = T+1`, compute each :math:`\hat{y}_{T+j}` by substituting known past values and previously computed forecasts into the ARMA equation.
+
+3. **Prediction intervals:** Compute cumulative forecast error variances from the :math:`\psi_j` weights and form Gaussian intervals at the requested level.
+
+**Complexity:** :math:`O(h \cdot (p + q + s \cdot P + s \cdot Q))` — essentially instantaneous for typical horizons.
 
 
 Troubleshooting

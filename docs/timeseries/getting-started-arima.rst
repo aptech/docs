@@ -46,8 +46,8 @@ You should see::
 This is the classic Box-Jenkins airline passenger dataset — monthly totals from
 1949 to 1960. It has two key features:
 
-- **Trend**: passenger numbers increase over time
-- **Seasonality**: regular peaks every 12 months (summer travel)
+- **Trend**: passenger numbers increase over time.
+- **Seasonality**: regular peaks every 12 months (summer travel).
 
 Both must be handled before fitting an ARIMA model.
 
@@ -105,8 +105,7 @@ You should see::
   regular (d=1) and seasonal (D=1) levels. No AR terms needed.
 - **MA(1) = -0.40**: negative moving average coefficient, highly significant.
 - **SMA(1) = -0.56**: seasonal MA coefficient, also highly significant.
-- **Ljung-Box p = 0.145**: no significant residual autocorrelation (p > 0.05).
-  The model adequately captures the serial dependence.
+- **Ljung-Box p = 0.145**: no significant residual autocorrelation (p > 0.05). The model adequately captures the serial dependence.
 - **AICc = 1020.85**: used internally for model comparison during auto-selection.
 
 **How auto-selection works:**
@@ -207,9 +206,9 @@ Split the data and measure out-of-sample performance:
     print "MASE:" mase;
     print "sMAPE:" smape;
 
-- **RMSE**: root mean squared error (same units as the data)
-- **MASE**: mean absolute scaled error (< 1 means better than naive forecast)
-- **sMAPE**: symmetric mean absolute percentage error
+- **RMSE**: root mean squared error (same units as the data).
+- **MASE**: mean absolute scaled error (< 1 means better than naive forecast).
+- **sMAPE**: symmetric mean absolute percentage error.
 
 Complete Script
 ---------------

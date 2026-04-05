@@ -28,56 +28,6 @@ Format
 
    :rtype irf: struct
 
-Model
------
-
-An impulse response function (IRF) traces the dynamic effect of a one-standard-deviation
-structural shock to variable :math:`j` on variable :math:`i` over :math:`h` periods.
-
-For a VAR(p) in companion form :math:`Y_t = F Y_{t-1} + G \varepsilon_t`, the
-reduced-form IRF at horizon :math:`h` is:
-
-.. math::
-
-   \Phi_h = J \, F^h \, J'
-
-where :math:`F` is the :math:`mp \times mp` companion matrix and :math:`J = [I_m \; 0 \; \cdots \; 0]`
-selects the first :math:`m` rows.
-
-**Cholesky identification:** To give shocks a structural interpretation, the
-reduced-form innovations are orthogonalized via the Cholesky factorization
-:math:`\Sigma = P P'` where :math:`P` is lower triangular. The structural IRF is:
-
-.. math::
-
-   \Theta_h = \Phi_h \, P
-
-Element :math:`\Theta_h[i, j]` is the response of variable :math:`i` at horizon :math:`h`
-to a one-standard-deviation shock to variable :math:`j`.
-
-**Identification assumption:** Cholesky identification imposes a recursive causal ordering.
-Variable 1 can affect all others contemporaneously; variable :math:`m` is affected by all
-others but affects none contemporaneously. This assumption is appropriate when there is a
-natural fast-to-slow ordering (e.g., financial variables respond faster than real activity).
-
-Algorithm
----------
-
-1. **Extract companion matrix** :math:`F` and Cholesky factor :math:`P = \text{chol}(\Sigma)'` from the VAR estimates.
-
-2. **Iterate:** For :math:`h = 0, 1, \ldots, n\_ahead`:
-
-   .. math::
-
-      \Theta_h = J \, F^h \, J' \, P
-
-   The companion power :math:`F^h` is computed iteratively (matrix multiplication, not matrix exponentiation) for numerical stability.
-
-3. **Store** :math:`\Theta_0, \Theta_1, \ldots, \Theta_{n\_ahead}` as an array of :math:`m \times m` matrices.
-
-**Complexity:** :math:`O(n\_ahead \cdot m^2 p^2)` — dominated by the :math:`mp \times mp` matrix
-multiplications. Sub-millisecond for typical systems.
-
 Examples
 --------
 
@@ -169,6 +119,56 @@ Reshape IRF results into a plot-ready dataframe:
 
     // Plot GDP response to FFR shock
     plotXY(seqa(0, 1, 21), plot_data[., "GDP<-FFR"]);
+
+Model
+-----
+
+An impulse response function (IRF) traces the dynamic effect of a one-standard-deviation
+structural shock to variable :math:`j` on variable :math:`i` over :math:`h` periods.
+
+For a VAR(p) in companion form :math:`Y_t = F Y_{t-1} + G \varepsilon_t`, the
+reduced-form IRF at horizon :math:`h` is:
+
+.. math::
+
+   \Phi_h = J \, F^h \, J'
+
+where :math:`F` is the :math:`mp \times mp` companion matrix and :math:`J = [I_m \; 0 \; \cdots \; 0]`
+selects the first :math:`m` rows.
+
+**Cholesky identification:** To give shocks a structural interpretation, the
+reduced-form innovations are orthogonalized via the Cholesky factorization
+:math:`\Sigma = P P'` where :math:`P` is lower triangular. The structural IRF is:
+
+.. math::
+
+   \Theta_h = \Phi_h \, P
+
+Element :math:`\Theta_h[i, j]` is the response of variable :math:`i` at horizon :math:`h`
+to a one-standard-deviation shock to variable :math:`j`.
+
+**Identification assumption:** Cholesky identification imposes a recursive causal ordering.
+Variable 1 can affect all others contemporaneously; variable :math:`m` is affected by all
+others but affects none contemporaneously. This assumption is appropriate when there is a
+natural fast-to-slow ordering (e.g., financial variables respond faster than real activity).
+
+Algorithm
+---------
+
+1. **Extract companion matrix** :math:`F` and Cholesky factor :math:`P = \text{chol}(\Sigma)'` from the VAR estimates.
+
+2. **Iterate:** For :math:`h = 0, 1, \ldots, n\_ahead`:
+
+   .. math::
+
+      \Theta_h = J \, F^h \, J' \, P
+
+   The companion power :math:`F^h` is computed iteratively (matrix multiplication, not matrix exponentiation) for numerical stability.
+
+3. **Store** :math:`\Theta_0, \Theta_1, \ldots, \Theta_{n\_ahead}` as an array of :math:`m \times m` matrices.
+
+**Complexity:** :math:`O(n\_ahead \cdot m^2 p^2)` — dominated by the :math:`mp \times mp` matrix
+multiplications. Sub-millisecond for typical systems.
 
 Troubleshooting
 ---------------
