@@ -160,7 +160,7 @@ The Code
 
 The complete replication is a single GAUSS script::
 
-    // bgr_replication.e — see examples/ folder for full code
+    // bgr_replication.e — see pkgs/timeseries/examples/replications/ folder for full code
 
     library timeseries;
 
@@ -184,7 +184,7 @@ The complete replication is a single GAUSS script::
     // Compute RMSE
     rmse = sqrt(meanc(errors .* errors));
 
-The full script is ``examples/bgr_replication.e`` (approximately 100 lines of
+The full script is ``pkgs/timeseries/examples/replications/bgr_replication.e`` (approximately 100 lines of
 substantive code, excluding comments).
 
 

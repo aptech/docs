@@ -190,7 +190,7 @@ VAR forecasts verified against R ``vars::predict()`` at :math:`10^{-6}` toleranc
 on a 2-variable VAR(1) with known DGP. Point forecasts and forecast standard errors
 match across 1-4 step horizons.
 
-See ``gausslib-var/tests/r_benchmark.rs`` and the :ref:`var-verification` page.
+See the :ref:`var-verification` page.
 
 
 References

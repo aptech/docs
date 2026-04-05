@@ -163,7 +163,6 @@ GLP hyperparameter optimization verified against R ``BVAR::bvar()`` with
 ``hyper = "auto"`` on multiple datasets. Optimal lambda values and maximized
 log marginal likelihoods agree within optimization tolerance.
 
-See ``crossval/23_glp_crossval.R``.
 
 References
 ----------

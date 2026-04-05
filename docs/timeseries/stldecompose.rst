@@ -142,7 +142,6 @@ STL decomposition verified against R ``stats::stl()`` with ``s.window=13`` on th
 AirPassengers dataset. Seasonal, trend, and remainder components match at :math:`10^{-4}`
 tolerance.
 
-See ``crossval/03_arima_crossval.R``.
 
 
 References

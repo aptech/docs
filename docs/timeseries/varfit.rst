@@ -243,7 +243,7 @@ Additionally, verified against ECB BEAR Toolbox OLS output at :math:`10^{-8}` to
 on the 3-variable ECB default dataset (YER, HICSA, STN), confirming all 13 coefficients,
 6 :math:`\Sigma` elements, and companion eigenvalues match.
 
-See ``gausslib-var/tests/r_benchmark.rs`` and the :ref:`var-verification` page.
+See the :ref:`var-verification` page.
 
 
 References

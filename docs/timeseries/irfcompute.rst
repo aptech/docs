@@ -223,11 +223,10 @@ Verification
 Verified against R ``vars::irf()`` with ``boot=FALSE`` at :math:`10^{-6}` tolerance
 on a 2-variable VAR(1) with known DGP. Tests cover impact values, decay patterns
 at h=1 and h=2, and the Cholesky lower-triangularity constraint (zero upper-off-diagonal
-at h=0). See ``gausslib-var/tests/r_benchmark.rs``.
+at h=0).
 
 Additionally verified against ECB BEAR Cholesky IRFs on matched-prior BVAR(4),
 covering all 9 shock-response pairs at horizons 0, 10, and 20 (17 tests).
-See ``crossval/bear_matched_irf.e``.
 
 References
 ----------

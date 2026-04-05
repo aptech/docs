@@ -185,7 +185,7 @@ BVAR forecasts verified against R ``BVAR::predict()`` and ECB BEAR ``BEARmain()`
 forecast output. Point forecasts agree within Monte Carlo noise (different RNG streams).
 Prediction interval widths match R within 5% relative error.
 
-See ``crossval/02_bvar_crossval.R`` for R comparison and the :ref:`var-verification` page.
+See the :ref:`var-verification` page.
 
 References
 ----------

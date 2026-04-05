@@ -8,7 +8,7 @@ commonly used in PhD econometrics and time series courses. Every exercise below
 can be completed in a single GAUSS script.
 
 Hamilton (1994) — *Time Series Analysis*
------------------------------------------
+----------------------------------------
 
 The standard reference for PhD time series econometrics. Covers ARMA, VAR, Kalman
 filter, spectral analysis, unit roots, cointegration, and regime switching.
@@ -59,7 +59,7 @@ filter, spectral analysis, unit roots, cointegration, and regime switching.
      - Estimate SV-BVAR and show time-varying volatility captures ARCH effects.
 
 Lutkepohl (2005) — *New Introduction to Multiple Time Series Analysis*
------------------------------------------------------------------------
+----------------------------------------------------------------------
 
 The definitive VAR reference. Covers estimation, specification, structural analysis,
 cointegration, and state-space models for multivariate systems.
@@ -110,7 +110,7 @@ cointegration, and state-space models for multivariate systems.
      - Cholesky vs sign-restricted identification. Compare IRFs.
 
 Kilian & Lutkepohl (2017) — *Structural Vector Autoregressive Analysis*
--------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 The modern SVAR textbook. Covers identification (short-run, long-run, sign restrictions),
 estimation, inference, and applications to oil markets and monetary policy.
@@ -157,7 +157,7 @@ estimation, inference, and applications to oil markets and monetary policy.
      - Scale to 20 variables. Compare conjugate BVAR (3s) vs SV-BVAR (8s) on large system.
 
 Hyndman & Athanasopoulos (2021) — *Forecasting: Principles and Practice* (3rd ed.)
-------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 
 The modern forecasting textbook. Free online at `otexts.com/fpp3 <https://otexts.com/fpp3/>`_.
 Covers ARIMA, exponential smoothing, regression, decomposition, and forecast evaluation.
@@ -285,7 +285,7 @@ Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
 
 Replicate the oil market structural analysis using live FRED data::
 
-    // See examples/fred_oil_market_svar.e for the complete script
+    // See pkgs/timeseries/examples/fred_oil_market_svar.e for the complete script
 
 **Exercise 5: Model Comparison with Bayes Factors** (K&L Ch. 5)
 

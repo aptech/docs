@@ -139,8 +139,6 @@ Granger causality F-statistics and p-values verified against R ``vars::causality
 at :math:`10^{-6}` tolerance on a 2-variable VAR(1) with known DGP. Both directions
 tested (Y1→Y2 and Y2→Y1).
 
-See ``gausslib-var/tests/r_benchmark.rs``.
-
 
 References
 ----------

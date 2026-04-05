@@ -296,7 +296,7 @@ Verification
 **R vars package (OLS component):**
 22 tests at :math:`10^{-6}` tolerance against R 4.5.2 ``vars::VAR()``, covering
 coefficients, :math:`\Sigma`, IRF, FEVD, Granger causality, and forecasts on identical
-data. See ``gausslib-var/tests/r_benchmark.rs``.
+data.
 
 **R BVAR package (Bayesian posterior):**
 7 structural validation tests against the R ``BVAR`` package (Kuschnig & Vashold 2021)
@@ -306,7 +306,6 @@ using 200,000-draw ground truth. Validates:
 - :math:`\Sigma` elements within 50% relative error across three prior forms
 - Shrinkage toward :math:`B_0` exceeds 60% for all methods
 
-See ``gausslib-var/tests/gibbs_crossval.rs``.
 
 **ECB BEAR Toolbox:**
 45 matched-prior coefficient tests (``lambda1=0.1``, ``ar=0.8``, ``lambda4=100``)
@@ -314,7 +313,6 @@ and 17 IRF tests at horizons 0, 10, and 20 against BEAR v5.0. OLS components mat
 to :math:`10^{-8}`. BVAR posterior means agree within 0.06 (prior-form difference
 between conjugate and independent Normal-Wishart).
 
-See ``crossval/bear_matched_prior.e`` and ``crossval/bear_matched_irf.e``.
 
 Remarks
 -------

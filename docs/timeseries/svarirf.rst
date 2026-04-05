@@ -218,7 +218,6 @@ Verification
 Sign-restricted posterior IRFs cross-validated against ECB BEAR ``bear.irfres()``
 output and the Rubio-Ramirez, Waggoner & Zha (2010) analytical examples.
 
-See ``crossval/12_svar_crossval.R``.
 
 References
 ----------

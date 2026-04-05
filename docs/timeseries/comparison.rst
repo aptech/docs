@@ -1,7 +1,7 @@
 .. _var-comparison:
 
 GAUSS vs R vs BEAR: Side-by-Side
-=================================
+================================
 
 Same model, same data, three platforms. All code is copy-paste runnable.
 
@@ -39,7 +39,7 @@ GAUSS
 **12 lines of code.** Estimation, IRF, and forecast in one script, one language.
 
 R (vars + BVAR packages)
--------------------------
+------------------------
 
 ::
 
@@ -65,7 +65,7 @@ Bayesian estimation). The ``BVAR`` package uses Gibbs sampling with hierarchical
 hyperparameter tuning — a different algorithm than both GAUSS and BEAR.
 
 MATLAB (ECB BEAR Toolbox)
---------------------------
+-------------------------
 
 ::
 
@@ -209,7 +209,7 @@ What You Get With Each Platform
      - —
 
 Multi-Run Timing (5 runs, median)
-----------------------------------
+---------------------------------
 
 GAUSS timing variability is minimal — the compiled Rust backend produces deterministic
 execution times:

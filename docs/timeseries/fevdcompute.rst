@@ -153,7 +153,6 @@ FEVD verified against R ``vars::fevd()`` at :math:`10^{-6}` tolerance on a
 2-variable VAR(1), confirming row-sum-to-one property and individual shares
 at h=1 and h=10.
 
-See ``gausslib-var/tests/r_benchmark.rs``.
 
 
 References

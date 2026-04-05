@@ -133,7 +133,6 @@ Verification
 Sign restriction algorithm verified against the Rubio-Ramirez, Waggoner & Zha (2010)
 analytical examples for 2-variable and 3-variable systems.
 
-See ``crossval/12_svar_crossval.R``.
 
 References
 ----------
