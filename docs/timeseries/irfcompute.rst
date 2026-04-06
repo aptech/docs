@@ -41,7 +41,7 @@ Trace the effect of a federal funds rate shock on GDP and CPI:
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     // Variable ordering: GDP (slow), CPI (medium), FFR (fast policy instrument)
@@ -84,7 +84,7 @@ IRF from BVAR with Shrinkage
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     ctl = bvarControlCreate();
@@ -108,7 +108,7 @@ Reshape IRF results into a plot-ready dataframe:
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = varFit(data, 4, quiet=1);
     irf = irfCompute(result, 20, quiet=1);

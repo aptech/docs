@@ -36,7 +36,7 @@ Examples
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = varFit(data, 4);
 
@@ -51,7 +51,7 @@ Compare Cholesky and Generalized
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = varFit(data, 4);
 

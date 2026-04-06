@@ -81,9 +81,9 @@ When the model includes exogenous regressors, you must provide their future valu
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
-    y = loadd(fname, "gdp");
-    X = loadd(fname, "cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth");
+    X = loadd(fname, "cpi_inflation + fed_funds");
 
     // Fit ARIMAX
     result = arimaFit(y, xreg=X, quiet=1);

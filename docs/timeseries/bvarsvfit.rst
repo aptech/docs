@@ -50,7 +50,7 @@ Default SV-BVAR
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     // Default SV-BVAR(1)
@@ -85,7 +85,7 @@ Run 4 parallel chains for convergence diagnostics:
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     struct bvarSvControl ctl;
@@ -108,7 +108,7 @@ Enable stochastic search variable selection to identify which coefficients are n
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     struct bvarSvControl ctl;
@@ -161,16 +161,16 @@ SV-BVAR with Exogenous Regressors
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
-    y = loadd(fname, "gdp + cpi + ffr");
-    X = loadd(fname, "oil");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+    X = loadd(fname, "unemployment");
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 4;
 
     result = bvarSvFit(y, ctl, xreg=X,
-        var_names="GDP"$|"CPI"$|"FFR", xreg_names="Oil");
+        var_names="GDP"$|"CPI"$|"FFR", xreg_names="UNEMP");
 
 Remarks
 -------

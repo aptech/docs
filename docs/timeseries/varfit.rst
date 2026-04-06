@@ -42,7 +42,7 @@ Monetary Policy VAR
     library timeseries;
 
     // Load US macro quarterly data
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     // Fit VAR(4)
@@ -83,7 +83,7 @@ Compare AIC across lag orders to choose p:
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     // Automatic selection
@@ -100,16 +100,16 @@ Compare AIC across lag orders to choose p:
 VAR with Exogenous Regressors
 +++++++++++++++++++++++++++++
 
-Include oil price as an exogenous variable:
+Include unemployment as an exogenous variable:
 
 ::
 
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
-    y = loadd(fname, "gdp + cpi + ffr");
-    X = loadd(fname, "oil");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+    X = loadd(fname, "unemployment");
 
     ctl = varControlCreate();
     ctl.p = 2;

@@ -40,7 +40,7 @@ From Pre-Computed IRF
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = varFit(data, 4);
 
@@ -56,7 +56,7 @@ Direct from Estimation Result
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = varFit(data, 4);
 
@@ -71,7 +71,7 @@ Accessing Decomposition
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = varFit(data, 4);
     fevd = fevdCompute(result, 20, quiet=1);

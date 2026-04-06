@@ -36,8 +36,8 @@ Monetary Policy SVAR with Posterior Bands
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
-    y = loadd(fname, "gdp + cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
     // Estimate BVAR
     bctl = bvarControlCreate();
@@ -66,8 +66,8 @@ Require that the demand shock (shock 1) keeps GDP and CPI positive for 4 quarter
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
-    y = loadd(fname, "gdp + cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
     result = bvarFit(y, quiet=1);
 
     ctl = svarControlCreate();
@@ -88,8 +88,8 @@ Sign-Restricted IRF from SV-BVAR
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
-    y = loadd(fname, "gdp + cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
     svctl = bvarSvControlCreate();
     svctl.p = 4;

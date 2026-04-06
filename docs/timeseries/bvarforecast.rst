@@ -44,7 +44,7 @@ Default BVAR Forecast (68% Credible Bands)
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     // Estimate and forecast
@@ -60,7 +60,7 @@ Forecast with 90% Credible Bands
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = bvarFit(data, quiet=1);
 
@@ -74,7 +74,7 @@ Optimal Hyperparameters to Forecast Pipeline
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     // Optimize hyperparameters
@@ -94,7 +94,7 @@ Compare Forecasts Across Lag Orders
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     ctl = bvarControlCreate();

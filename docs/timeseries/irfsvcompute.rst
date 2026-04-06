@@ -39,7 +39,7 @@ SV-BVAR IRF with Credible Bands
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     ctl = bvarSvControlCreate();
@@ -58,7 +58,7 @@ Accessing Median and Bands
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
     irf = irfSvCompute(result, 20, quiet=1);

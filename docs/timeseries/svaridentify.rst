@@ -56,8 +56,8 @@ Monetary Policy SVAR
     library timeseries;
 
     // Load data — ordering determines Cholesky structure
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
-    y = loadd(fname, "gdp + cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
     result = varFit(y, 4);
 

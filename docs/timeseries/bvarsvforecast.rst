@@ -47,7 +47,7 @@ Quick Mean-Path Forecast
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     result = bvarSvFit(data, quiet=1);
@@ -68,7 +68,7 @@ Full Density Forecast (Simulate Mode)
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
 
@@ -87,7 +87,7 @@ Custom Quantiles for VaR
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
 
@@ -114,7 +114,7 @@ Forecast Log-Volatility Path
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
     ctl = bvarSvControlCreate();
@@ -141,7 +141,7 @@ Store Raw Draws for Custom Analysis
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/macro.dat");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
     result = bvarSvFit(data, quiet=1);
 
