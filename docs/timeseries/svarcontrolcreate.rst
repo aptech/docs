@@ -1,47 +1,72 @@
 svarControlCreate
-=================
+==================
 
 Purpose
 -------
-Create an :class:`svarControl` structure with default values for sign-restricted SVAR identification.
+Initialize an :class:`svarControl` structure with default values for use with :func:`svarIrf` and :func:`svarIrfNarr`.
 
 Format
 ------
 
-.. function:: ctl = svarControlCreate()
+.. function:: adv = svarControlCreate()
 
-   :return ctl: An instance of an :class:`svarControl` structure with the following default values:
+   :return adv: An instance of an :class:`svarControl` structure with the following members:
 
        .. include:: include/svarcontrol.rst
 
-   :rtype ctl: struct
+   :rtype adv: struct
 
 Examples
 --------
+
+Default Settings
+++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    ctl = svarControlCreate();
+    struct svarControl adv;
+    adv = svarControlCreate();
 
-    // Define sign restrictions: [variable, shock, horizon, sign]
-    // Monetary shock (shock 3): FFR up, GDP down, CPI down
-    ctl.sign_restr = { 3 3 0  1,
-                       1 3 0 -1,
-                       2 3 0 -1 };
+Adding Zero Restrictions
+++++++++++++++++++++++++
 
-    // Increase max attempts for tight restrictions
-    ctl.max_tries = 50000;
-    ctl.n_ahead = 24;
+::
+
+    new;
+    library timeseries;
+
+    struct svarControl adv;
+    adv = svarControlCreate();
+
+    // Zero restriction: shock 1 has no contemporaneous
+    // effect on variable 3
+    adv.zero_restr = { 3 1 0 };
+
+Adding Narrative Restrictions
++++++++++++++++++++++++++++++
+
+::
+
+    new;
+    library timeseries;
+
+    struct svarControl adv;
+    adv = svarControlCreate();
+
+    // Narrative restriction: shock 3 was positive at obs 84
+    // [type, variable, shock, date1, date2, sign]
+    adv.narrative_restr = { 1 3 3 84 0 1 };
 
 Remarks
 -------
 
-The *sign_restr* and *zero_restr* fields are empty by default. At least
-one sign restriction must be set before calling :func:`svarIdentify` or
-:func:`svarIrf`.
+The :class:`svarControl` structure is optional. When only sign restrictions
+are needed, :func:`svarIrf` can be called without it. The advanced structure
+is required when using zero restrictions or narrative restrictions, or when
+overriding default algorithm settings.
 
 Library
 -------
@@ -49,6 +74,6 @@ timeseries
 
 Source
 ------
-svar.src
+var.src
 
-.. seealso:: Functions :func:`svarIdentify`, :func:`svarIrf`
+.. seealso:: Functions :func:`svarIrf`, :func:`svarIrfNarr`

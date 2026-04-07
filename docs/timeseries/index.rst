@@ -106,6 +106,8 @@ SVAR Identification
 .. list-table::
    :widths: auto
 
+   * - :func:`longRunSvar`
+     - Blanchard-Quah (1989) long-run SVAR identification and structural IRF.
    * - :func:`svarIdentify`
      - Find a sign-restricted structural rotation.
    * - :func:`svarIrf`
@@ -195,6 +197,8 @@ Control Structure Creators
      - Create :class:`svForecastControl` with defaults.
    * - :func:`svarControlCreate`
      - Create :class:`svarControl` with defaults.
+   * - :func:`longRunSvarControlCreate`
+     - Create :class:`longRunSvarControl` with defaults.
 
 .. toctree::
     :maxdepth: 1
@@ -262,6 +266,8 @@ Control Structure Creators
     :hidden:
     :caption: SVAR
 
+    longrunsvar
+    longrunsvarcontrolcreate
     svaridentify
     svarirf
     svarcontrolcreate
