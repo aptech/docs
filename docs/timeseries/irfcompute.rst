@@ -90,7 +90,7 @@ IRF from BVAR with Shrinkage
     ctl = bvarControlCreate();
     ctl.p = 4;
 
-    br = bvarFit(data, ctl, quiet=1);
+    br = bvarFit(data, ctl=ctl, quiet=1);
 
     // IRF at the posterior mean of B and Sigma
     irf = irfCompute(br, 20);
@@ -180,7 +180,7 @@ Check ``result.max_eigenvalue``. For near-unit-root systems, consider:
 
 - Using longer horizons (40-60 periods instead of 20).
 - Differencing the data.
-- Adding sum-of-coefficients priors (:func:`bvarFit` with lambda6 > 0).
+- Adding sum-of-coefficients priors (:func:`bvarFit` with soc_tightness > 0).
 
 **IRFs are sensitive to variable ordering:**
 This is inherent to Cholesky identification — different orderings produce different

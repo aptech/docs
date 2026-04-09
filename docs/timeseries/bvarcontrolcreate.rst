@@ -28,12 +28,12 @@ Examples
 
     // Minnesota BVAR(4) with tighter prior
     ctl.p = 4;
-    ctl.lambda1 = 0.1;
+    ctl.overall_tightness = 0.1;
     ctl.n_draws = 10000;
 
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
 
 Library
 -------

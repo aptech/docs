@@ -87,7 +87,7 @@ all sign restrictions on the implied IRFs. Returns the first accepted rotation.
 
 **This function finds a single rotation,** which is useful for point estimation
 (e.g., from an OLS VAR). For posterior inference with credible bands, use
-:func:`svarIrf` with a :class:`bvarResult` or :class:`bvarSvResult`.
+:func:`svarIrfCompute` with a :class:`bvarResult` or :class:`bvarSvResult`.
 
 **Zero restrictions** are not currently supported. Setting *ctl.zero_restr*
 raises an error. Zero restrictions require the ARW2018 null-space algorithm,
@@ -149,4 +149,4 @@ Source
 ------
 svar.src
 
-.. seealso:: Functions :func:`svarIrf`, :func:`svarControlCreate`, :func:`irfCompute`
+.. seealso:: Functions :func:`svarIrfCompute`, :func:`svarControlCreate`, :func:`irfCompute`

@@ -10,13 +10,13 @@
    * - ctl.max_d
      - Scalar, maximum differencing order. Default = 2.
 
-   * - ctl.max_bp
+   * - ctl.max_sp
      - Scalar, maximum seasonal AR order. Default = 2.
 
-   * - ctl.max_bq
+   * - ctl.max_sq
      - Scalar, maximum seasonal MA order. Default = 2.
 
-   * - ctl.max_bd
+   * - ctl.max_sd
      - Scalar, maximum seasonal differencing order. Default = 1.
 
    * - ctl.max_order

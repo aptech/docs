@@ -9,42 +9,38 @@ Format
 ------
 
 .. function:: ho = bvarHyperopt(y)
-              ho = bvarHyperopt(y, ctl)
-              ho = bvarHyperopt(y, ctl, xreg=X)
+              ho = bvarHyperopt(y, quiet=0, ctl={})
 
    :param y: endogenous variables.
    :type y: TxM matrix or dataframe
 
-   :param ctl: Optional input, a :class:`bvarControl` structure with initial hyperparameter values. The optimization mode is determined by which lambda values are nonzero:
-
-       - *lambda6* = 0, *lambda7* = 0: optimize lambda1 only
-       - *lambda6* > 0: optimize lambda1 + lambda6 (SOC)
-       - *lambda7* > 0: optimize lambda1 + lambda7 (SUR)
-       - Both > 0: optimize lambda1 + lambda6 + lambda7
-
-   :type ctl: struct
-
-   :param xreg: Optional keyword, exogenous regressors.
-   :type xreg: TxK matrix
-
    :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
    :type quiet: scalar
+
+   :param ctl: Optional keyword, a :class:`bvarControl` structure with initial hyperparameter values. The optimization mode is determined by which tightness values are nonzero:
+
+       - *soc_tightness* = 0, *sur_tightness* = 0: optimize overall_tightness only
+       - *soc_tightness* > 0: optimize overall_tightness + soc_tightness (SOC)
+       - *sur_tightness* > 0: optimize overall_tightness + sur_tightness (SUR)
+       - Both > 0: optimize overall_tightness + soc_tightness + sur_tightness
+
+   :type ctl: struct
 
    :return ho: An instance of a :class:`hyperoptResult` structure containing:
 
        .. list-table::
           :widths: auto
 
-          * - ho.lambda1
+          * - ho.overall_tightness
             - Scalar, optimized overall tightness.
 
-          * - ho.lambda3
+          * - ho.lag_decay
             - Scalar, optimized lag decay (if included in optimization).
 
-          * - ho.lambda6
+          * - ho.soc_tightness
             - Scalar, optimized SOC tightness (if included).
 
-          * - ho.lambda7
+          * - ho.sur_tightness
             - Scalar, optimized SUR tightness (if included).
 
           * - ho.log_ml
@@ -77,9 +73,9 @@ One-Line Optimal BVAR
 
     // Optimize and estimate in two lines
     ho = bvarHyperopt(data);
-    result = bvarFit(data, ho.ctl);
+    result = bvarFit(data, ctl=ho.ctl);
 
-    print "Optimal lambda1:" ho.lambda1;
+    print "Optimal overall_tightness:" ho.overall_tightness;
     print "Log ML:" ho.log_ml;
 
 Optimize with SOC and SUR
@@ -95,15 +91,15 @@ Optimize with SOC and SUR
 
     ctl = bvarControlCreate();
     ctl.p = 4;
-    ctl.lambda6 = 1;      // Enable SOC (initial value)
-    ctl.lambda7 = 1;      // Enable SUR (initial value)
+    ctl.soc_tightness = 1;      // Enable SOC (initial value)
+    ctl.sur_tightness = 1;      // Enable SUR (initial value)
 
-    ho = bvarHyperopt(data, ctl);
-    result = bvarFit(data, ho.ctl);
+    ho = bvarHyperopt(data, ctl=ctl);
+    result = bvarFit(data, ctl=ho.ctl);
 
-    print "Optimal lambda1:" ho.lambda1;
-    print "Optimal lambda6:" ho.lambda6;
-    print "Optimal lambda7:" ho.lambda7;
+    print "Optimal overall_tightness:" ho.overall_tightness;
+    print "Optimal soc_tightness:" ho.soc_tightness;
+    print "Optimal sur_tightness:" ho.sur_tightness;
 
 Remarks
 -------
@@ -114,7 +110,7 @@ optimization, treating the Minnesota hyperparameters as continuous variables
 with positivity constraints.
 
 The returned *ho.ctl* structure is a complete :class:`bvarControl` with all
-fields populated — the optimal lambda values plus all other settings carried
+fields populated — the optimal tightness values plus all other settings carried
 over from the input. Pass it directly to :func:`bvarFit` without further
 modification.
 
@@ -139,7 +135,7 @@ Algorithm
 
 1. Evaluate :math:`\log p(Y | \lambda)` analytically (closed form for conjugate NIW).
 2. Maximize using L-BFGS-B with positivity constraints on all :math:`\lambda`.
-3. Starting values: the input *ctl* lambda values (defaults: lambda1=0.2).
+3. Starting values: the input *ctl* tightness values (defaults: overall_tightness=0.2).
 
 The optimization is fast because each function evaluation is :math:`O(K^2 m)` (no MCMC).
 Typical wall-clock time is 0.01-0.05 seconds.
@@ -147,12 +143,12 @@ Typical wall-clock time is 0.01-0.05 seconds.
 Troubleshooting
 ---------------
 
-**Optimizer returns lambda1 at the upper bound:**
-The data wants a very loose prior (lambda1 → ∞ approaches OLS). This suggests
+**Optimizer returns overall_tightness at the upper bound:**
+The data wants a very loose prior (overall_tightness → ∞ approaches OLS). This suggests
 the sample is large enough that the prior doesn't help. Consider using OLS
 (:func:`varFit`) or reducing the search bounds.
 
-**lambda6 or lambda7 optimized to near zero:**
+**soc_tightness or sur_tightness optimized to near zero:**
 The data does not support sum-of-coefficients or single-unit-root priors.
 This is informative — the prior is not needed for this dataset.
 
@@ -160,7 +156,7 @@ Verification
 ------------
 
 GLP hyperparameter optimization verified against R ``BVAR::bvar()`` with
-``hyper = "auto"`` on multiple datasets. Optimal lambda values and maximized
+``hyper = "auto"`` on multiple datasets. Optimal tightness values and maximized
 log marginal likelihoods agree within optimization tolerance.
 
 

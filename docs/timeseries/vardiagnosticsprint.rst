@@ -1,5 +1,5 @@
-varDiagnosePrint
-================
+varDiagnosticsPrint
+===================
 
 Purpose
 -------
@@ -8,9 +8,9 @@ Reprint the diagnostics summary table.
 Format
 ------
 
-.. function:: varDiagnosePrint(diag)
+.. function:: varDiagnosticsPrint(diag)
 
-   :param diag: an instance of a :class:`diagResult` structure from :func:`varDiagnose` or :func:`varDiagnoseMulti`.
+   :param diag: an instance of a :class:`diagResult` structure from :func:`varDiagnostics` or :func:`varDiagnosticsMulti`.
    :type diag: struct
 
 Examples
@@ -26,10 +26,10 @@ Examples
     result = bvarSvFit(data, quiet=1);
 
     // Suppress initial output, print later
-    diag = varDiagnose(result, quiet=1);
+    diag = varDiagnostics(result, quiet=1);
 
     // Reprint
-    call varDiagnosePrint(diag);
+    call varDiagnosticsPrint(diag);
 
 Library
 -------
@@ -39,4 +39,4 @@ Source
 ------
 diagnostics.src
 
-.. seealso:: Functions :func:`varDiagnose`, :func:`varDiagnoseMulti`
+.. seealso:: Functions :func:`varDiagnostics`, :func:`varDiagnosticsMulti`

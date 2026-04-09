@@ -9,7 +9,7 @@ Format
 ------
 
 .. function:: { rmse_val, mase_val, smape_val } = fcMetrics(actual, predicted)
-              { rmse_val, mase_val, smape_val } = fcMetrics(actual, predicted, train=y_train, season=12)
+              { rmse_val, mase_val, smape_val } = fcMetrics(actual, predicted, train=y_train, period=12)
 
    :param actual: realized values.
    :type actual: Nx1 vector
@@ -20,7 +20,7 @@ Format
    :param train: Optional keyword, training data for MASE normalization. MASE is missing if not provided.
    :type train: vector
 
-   :param season: Optional keyword, seasonality for MASE (seasonal naive baseline). Default = 1.
+   :param period: Optional keyword, seasonality for MASE (seasonal naive baseline). Default = 1.
    :type season: scalar
 
    :return rmse_val: root mean squared error.
@@ -42,7 +42,7 @@ Examples
 
     // Forecast accuracy
     { rmse_val, mase_val, smape_val } = fcMetrics(actual, predicted,
-        train=y_train, season=12);
+        train=y_train, period=12);
 
     print "RMSE:" rmse_val;
     print "MASE:" mase_val;

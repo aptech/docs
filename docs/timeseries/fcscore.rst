@@ -8,24 +8,20 @@ Compute forecast scoring rules for point and density forecasts.
 Format
 ------
 
-.. function:: sc = fcScore(actual, fc)
-              sc = fcScore(actual, fc, train=y_train)
-              sc = fcScore(actual, draws=D)
+.. function:: sc = fcScore(actual)
+              sc = fcScore(actual, predicted={}, train={}, period=1, quiet=0)
 
    :param actual: realized values.
    :type actual: hx1 or hxm matrix
 
-   :param fc: Optional, a :class:`forecastResult` struct or hxm matrix of point forecasts.
-   :type fc: struct or matrix
+   :param predicted: Optional keyword, a :class:`forecastResult` struct or hxm matrix of point forecasts.
+   :type predicted: struct or matrix
 
    :param train: Optional keyword, training data for MASE normalization.
    :type train: Nx1 or Nxm matrix
 
-   :param season: Optional keyword, seasonality for MASE. Default = 1.
-   :type season: scalar
-
-   :param draws: Optional keyword, raw forecast draws for density scores (CRPS, LPS). From *dfc.draws* of :func:`bvarSvForecast` with ``store_draws = 1``.
-   :type draws: (n_draws)x(h*m) matrix
+   :param period: Optional keyword, seasonality for MASE. Default = 1.
+   :type period: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
    :type quiet: scalar

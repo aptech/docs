@@ -76,7 +76,7 @@ Each level validates against an independent source:
     ECB BEAR Toolbox v5.0 (MATLAB)
         │
         ├── OLS: exact match (1e-8) on same data (T_eff=195)
-        ├── BVAR: matched hyperparameters (lambda1=0.1, ar=0.8)
+        ├── BVAR: matched hyperparameters (overall_tightness=0.1, ar=0.8)
         │         max coefficient difference: 0.051 / 39 coefficients
         └── IRF: Cholesky at h=0,10,20 across 9 shock-response pairs
 
@@ -101,7 +101,7 @@ Methodology Notes
 
 GAUSS uses the conjugate Normal-Inverse-Wishart prior (exact posterior draws).
 BEAR uses the independent Normal-Wishart prior (Gibbs sampling required). With
-matched hyperparameters (lambda1=0.1, ar=0.8), posterior means agree within 0.06
+matched hyperparameters (overall_tightness=0.1, ar=0.8), posterior means agree within 0.06
 on all 39 B coefficients. The largest difference (0.051 on YER lag 2) occurs on a
 non-own-lag coefficient where the two prior forms shrink differently:
 

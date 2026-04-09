@@ -3,14 +3,14 @@ arimaFit
 
 Purpose
 -------
-Fit ARIMA, SARIMA, or ARIMAX models. Automatically selects orders when ``order`` is not specified.
+Fit ARIMA, SARIMA, or ARIMAX models. Automatically selects orders when ``p``, ``d``, ``q`` are not specified.
 
 Format
 ------
 
 .. function:: result = arimaFit(y)
-              result = arimaFit(y, order=p|d|q)
-              result = arimaFit(y, order=p|d|q, sorder=P|D|Q, season=s)
+              result = arimaFit(y, p=p, d=d, q=q)
+              result = arimaFit(y, p=p, d=d, q=q, sp=P, sd=D, sq=Q, period=s)
               result = arimaFit(y, xreg=X)
               result = arimaFit(y, ctl)
 
@@ -23,14 +23,26 @@ Format
 
    :type ctl: struct
 
-   :param order: Optional keyword, ARIMA order. If omitted, orders are automatically selected by minimizing the information criterion specified in *ctl.ic*. Individual elements may be set to -1 to auto-select that dimension only. E.g., ``order = -1|1|-1`` fixes d=1 and auto-selects p and q.
-   :type order: 3x1 vector {p, d, q}
+   :param p: Optional keyword, autoregressive order. If omitted, automatically selected by minimizing the information criterion specified in *ctl.ic*. Set to -1 to auto-select.
+   :type p: scalar
 
-   :param sorder: Optional keyword, seasonal ARIMA order. If omitted with *season* set, seasonal orders are auto-selected.
-   :type sorder: 3x1 vector {P, D, Q}
+   :param d: Optional keyword, differencing order. If omitted, automatically selected. Set to -1 to auto-select.
+   :type d: scalar
 
-   :param season: Optional keyword, seasonal period (e.g., 12 for monthly, 4 for quarterly). Required for seasonal models.
-   :type season: scalar
+   :param q: Optional keyword, moving average order. If omitted, automatically selected. Set to -1 to auto-select.
+   :type q: scalar
+
+   :param sp: Optional keyword, seasonal autoregressive order. If omitted with *period* set, auto-selected.
+   :type sp: scalar
+
+   :param sd: Optional keyword, seasonal differencing order. If omitted with *period* set, auto-selected.
+   :type sd: scalar
+
+   :param sq: Optional keyword, seasonal moving average order. If omitted with *period* set, auto-selected.
+   :type sq: scalar
+
+   :param period: Optional keyword, seasonal period (e.g., 12 for monthly, 4 for quarterly). Required for seasonal models.
+   :type period: scalar
 
    :param xreg: Optional keyword, exogenous regressors. Fits a regression with ARIMA errors: :math:`y_t = X_t'\beta + \eta_t` where :math:`\eta_t` follows an ARIMA process.
    :type xreg: NxM matrix
@@ -117,8 +129,8 @@ The classic Box-Jenkins airline model — SARIMA(0,1,1)(0,1,1)[12]:
     fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
     y = loadd(fname, "passengers");
 
-    // Auto SARIMA with season=12
-    result = arimaFit(y, 12);
+    // Auto SARIMA with period=12
+    result = arimaFit(y, period=12);
 
 Selects SARIMA(0,1,1)(0,1,1)[12] — the same model identified by Box & Jenkins (1970)
 on this dataset. The seasonal MA(1) coefficient captures the within-year pattern, while
@@ -136,7 +148,7 @@ Fixed Order with Diagnostics
     y = loadd(fname, "passengers");
 
     // Force SARIMA(1,1,1)(0,1,1)[12]
-    result = arimaFit(y, 12, 1, 1, 1, 0, 1, 1);
+    result = arimaFit(y, p=1, d=1, q=1, sp=0, sd=1, sq=1, period=12);
 
 Check the Ljung-Box statistic for residual autocorrelation: p > 0.05 indicates no
 remaining serial correlation. Check Jarque-Bera for normality: p > 0.05 indicates
@@ -175,8 +187,8 @@ Fix :math:`d = 1` but auto-select :math:`p` and :math:`q`:
     y = loadd(fname, "passengers");
 
     // Fix d=1, auto-select p and q
-    // season=12, fix d=1, auto-select p and q (use -1)
-    result = arimaFit(y, 12, -1, 1, -1);
+    // period=12, fix d=1, auto-select p and q (use -1)
+    result = arimaFit(y, period=12, p=-1, d=1, q=-1);
 
 Using BIC for Model Selection
 +++++++++++++++++++++++++++++
@@ -192,7 +204,7 @@ Using BIC for Model Selection
     ctl = arimaControlCreate();
     ctl.ic = "bic";
 
-    result = arimaFit(y, ctl, season=12);
+    result = arimaFit(y, ctl, period=12);
 
 BIC penalizes model complexity more than AICc, typically selecting more parsimonious models.
 
@@ -251,7 +263,7 @@ Algorithm
 
 **Auto-selection (stepwise):**
 
-When ``order`` is omitted, the Hyndman-Khandakar (2008) stepwise algorithm is used:
+When ``p``, ``d``, ``q`` are omitted, the Hyndman-Khandakar (2008) stepwise algorithm is used:
 
 1. Determine :math:`d` via KPSS unit root tests (Kwiatkowski et al. 1992).
 2. Determine :math:`D` via OCSB seasonal unit root tests (Osborn, Chui, Smith & Birchenhall 1988), if seasonal.
@@ -285,7 +297,7 @@ starting values, or simplify the model.
 
 **Auto-selection picks a simple model when you expected a complex one:**
 AICc penalizes complexity. If you believe a more complex model is correct, fix the
-order explicitly with ``order=p|d|q`` and compare the diagnostic statistics. Remember
+order explicitly with ``p=p, d=d, q=q`` and compare the diagnostic statistics. Remember
 that more parsimonious models often forecast better even when the true DGP is complex
 (Hyndman & Athanasopoulos 2021, Section 8.6).
 
@@ -311,7 +323,7 @@ Box-Cox transformation stabilizes the variance before fitting:
     y = loadd(fname, "passengers");
 
     // Auto-select lambda via profile likelihood
-    result = arimaFit(y, season=12, lambda="auto");
+    result = arimaFit(y, period=12, lambda="auto");
 
     // The selected lambda
     print "Lambda:" result.lambda;
@@ -324,10 +336,10 @@ You can also specify a fixed lambda:
 ::
 
     // Log transform (lambda = 0)
-    result_log = arimaFit(y, season=12, lambda=0);
+    result_log = arimaFit(y, period=12, lambda=0);
 
     // Square root transform (lambda = 0.5)
-    result_sqrt = arimaFit(y, season=12, lambda=0.5);
+    result_sqrt = arimaFit(y, period=12, lambda=0.5);
 
 .. note::
 
@@ -343,7 +355,7 @@ Remarks
 -------
 
 **Auto-selection algorithm:**
-When *order* is omitted, :func:`arimaFit` performs stepwise model selection
+When *p*, *d*, *q* are omitted, :func:`arimaFit` performs stepwise model selection
 (Hyndman & Khandakar 2008) minimizing the information criterion specified
 in *ctl.ic*. The algorithm considers up to *ctl.max_order* total ARMA terms
 (p+q+P+Q). Set *ctl.stepwise* = 0 for exhaustive search.

@@ -34,7 +34,7 @@ Basic Forecast Plot
     ctl.p = 4;
     ctl.ar = 0;
 
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
     fc = bvarForecast(result, 8);
 
     // One line — produces m stacked panels with fan charts

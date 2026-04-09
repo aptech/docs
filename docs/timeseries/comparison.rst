@@ -28,7 +28,7 @@ GAUSS
     ctl.p = 4;
     ctl.ar = 0;
 
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
 
     // IRF
     rv = varFit(data, 4, quiet=1);
@@ -195,7 +195,7 @@ What You Get With Each Platform
      - Built-in
      - opts.hogs=1
    * - MCMC diagnostics
-     - :func:`varDiagnose`
+     - :func:`varDiagnostics`
      - ``coda``
      - (manual)
    * - Forecast evaluation

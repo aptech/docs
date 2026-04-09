@@ -1,5 +1,5 @@
-varDiagnose
-===========
+varDiagnostics
+==============
 
 Purpose
 -------
@@ -8,8 +8,8 @@ Run convergence diagnostics on a Bayesian VAR or SV-BVAR result.
 Format
 ------
 
-.. function:: diag = varDiagnose(result)
-              diag = varDiagnose(result, rhat_threshold=1.01)
+.. function:: diag = varDiagnostics(result)
+              diag = varDiagnostics(result, rhat_threshold=1.01)
 
    :param result: an instance of a :class:`bvarResult` or :class:`bvarSvResult` structure.
    :type result: struct
@@ -47,9 +47,9 @@ Basic Convergence Check
     ctl.p = 4;
     ctl.n_draws = 10000;
     ctl.n_burn = 5000;
-    result = bvarSvFit(data, ctl, quiet=1);
+    result = bvarSvFit(data, ctl=ctl, quiet=1);
 
-    diag = varDiagnose(result);
+    diag = varDiagnostics(result);
 
     // One-bit convergence check
     if diag.converged;
@@ -75,9 +75,9 @@ SV-BVAR with SSVS Diagnostics
     ctl.ssvs = 1;
     ctl.n_draws = 10000;
     ctl.n_burn = 5000;
-    result = bvarSvFit(data, ctl, quiet=1);
+    result = bvarSvFit(data, ctl=ctl, quiet=1);
 
-    diag = varDiagnose(result);
+    diag = varDiagnostics(result);
 
     // SSVS diagnostics
     print "Inclusion probabilities:";
@@ -103,7 +103,7 @@ Stricter Thresholds
     result = bvarSvFit(data, quiet=1);
 
     // Publication-quality thresholds
-    diag = varDiagnose(result, rhat_threshold=1.01, min_ess=1000);
+    diag = varDiagnostics(result, rhat_threshold=1.01, min_ess=1000);
 
 Remarks
 -------
@@ -166,4 +166,4 @@ Source
 ------
 diagnostics.src
 
-.. seealso:: Functions :func:`varDiagnoseMulti`, :func:`varDiagnosePrint`, :func:`bvarSvFit`
+.. seealso:: Functions :func:`varDiagnosticsMulti`, :func:`varDiagnosticsPrint`, :func:`bvarSvFit`

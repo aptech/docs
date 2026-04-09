@@ -32,7 +32,7 @@ Examples
 
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
-    result = varFit(data, ctl);
+    result = varFit(data, ctl=ctl);
 
 Library
 -------

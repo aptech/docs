@@ -110,7 +110,7 @@ SVAR Identification
      - Blanchard-Quah (1989) long-run SVAR identification and structural IRF.
    * - :func:`svarIdentify`
      - Find a sign-restricted structural rotation.
-   * - :func:`svarIrf`
+   * - :func:`svarIrfCompute`
      - Posterior sign-restricted IRF, cumulative IRF, and FEVD bands.
 
 Model Diagnostics
@@ -119,11 +119,11 @@ Model Diagnostics
 .. list-table::
    :widths: auto
 
-   * - :func:`varDiagnose`
+   * - :func:`varDiagnostics`
      - MCMC convergence diagnostics (R-hat, ESS, acceptance rates).
-   * - :func:`varDiagnoseMulti`
+   * - :func:`varDiagnosticsMulti`
      - Multi-chain convergence diagnostics.
-   * - :func:`varDiagnosePrint`
+   * - :func:`varDiagnosticsPrint`
      - Reprint diagnostics summary.
    * - :func:`grangerTest`
      - Granger causality F-test.
@@ -269,7 +269,7 @@ Control Structure Creators
     longrunsvar
     longrunsvarcontrolcreate
     svaridentify
-    svarirf
+    svarirfcompute
     svarcontrolcreate
 
 .. toctree::
@@ -277,9 +277,9 @@ Control Structure Creators
     :hidden:
     :caption: Model Diagnostics
 
-    vardiagnose
-    vardiagnosemulti
-    vardiagnoseprint
+    vardiagnostics
+    vardiagnosticsmulti
+    vardiagnosticsprint
     grangertest
 
 .. toctree::

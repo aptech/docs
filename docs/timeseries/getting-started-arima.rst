@@ -20,7 +20,7 @@ If you just want working code, copy this:
     y = loadd(fname, "passengers");
 
     // Auto SARIMA — GAUSS picks the best model
-    result = arimaFit(y, 12);
+    result = arimaFit(y, period=12);
 
     // Forecast 24 months ahead
     fc = arimaForecast(result, 24);
@@ -80,7 +80,7 @@ Let GAUSS choose the best SARIMA model automatically:
 
 ::
 
-    result = arimaFit(y, 12);
+    result = arimaFit(y, period=12);
 
 You should see::
 
@@ -176,7 +176,7 @@ Try a different specification and compare:
     r_noseas = arimaFit(y);
 
     // Fixed ARIMA(1,1,1) — simple AR + MA with differencing
-    r_simple = arimaFit(y, 12, 1, 1, 1);
+    r_simple = arimaFit(y, period=12, p=1, d=1, q=1);
 
     print "Auto SARIMA AICc:" result.aicc;
     print "Auto ARIMA AICc: " r_noseas.aicc;
@@ -197,7 +197,7 @@ Split the data and measure out-of-sample performance:
     y_test = y[121:144];
 
     // Fit on training data, forecast the holdout period
-    r_train = arimaFit(y_train, 12);
+    r_train = arimaFit(y_train, period=12);
     fc_eval = arimaForecast(r_train, 24);
 
     // Compute accuracy metrics
@@ -228,7 +228,7 @@ Everything above, in one runnable file:
     stl = stlDecompose(y, 12);
 
     // ---- Auto SARIMA ----
-    result = arimaFit(y, 12);
+    result = arimaFit(y, period=12);
 
     // ---- Forecast ----
     fc = arimaForecast(result, 24);
@@ -236,7 +236,7 @@ Everything above, in one runnable file:
     // ---- Evaluate ----
     y_train = y[1:120];
     y_test = y[121:144];
-    r_train = arimaFit(y_train, 12, quiet=1);
+    r_train = arimaFit(y_train, period=12, quiet=1);
     fc_eval = arimaForecast(r_train, 24);
     { rmse, mase, smape } = fcMetrics(y_test, fc_eval.forecasts);
     print "";

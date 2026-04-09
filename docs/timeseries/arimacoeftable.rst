@@ -27,7 +27,7 @@ Examples
     fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
     y = loadd(fname, "passengers");
 
-    result = arimaFit(y, order=1|1|1, season=12, quiet=1);
+    result = arimaFit(y, p=1, d=1, q=1, period=12, quiet=1);
 
     // Get coefficient table as dataframe
     tab = arimaCoefTable(result);

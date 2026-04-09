@@ -3,7 +3,7 @@ svarControlCreate
 
 Purpose
 -------
-Initialize an :class:`svarControl` structure with default values for use with :func:`svarIrf` and :func:`svarIrfNarr`.
+Initialize an :class:`svarControl` structure with default values for use with :func:`svarIrfCompute`.
 
 Format
 ------
@@ -64,9 +64,8 @@ Remarks
 -------
 
 The :class:`svarControl` structure is optional. When only sign restrictions
-are needed, :func:`svarIrf` can be called without it. The advanced structure
-is required when using zero restrictions or narrative restrictions, or when
-overriding default algorithm settings.
+are needed, :func:`svarIrfCompute` can be called without it. The advanced structure
+is required when using zero restrictions, or when overriding default algorithm settings.
 
 Library
 -------
@@ -76,4 +75,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`svarIrf`, :func:`svarIrfNarr`
+.. seealso:: Functions :func:`svarIrfCompute`

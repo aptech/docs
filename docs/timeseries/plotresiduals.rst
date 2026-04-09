@@ -27,11 +27,7 @@ VAR Residual Diagnostics
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    ctl = varControlCreate();
-    ctl.p = 4;
-    ctl.quiet = 1;
-
-    rv = varFit(data, ctl);
+    rv = varFit(data, p=4, quiet=1);
 
     // 3 diagnostic panels per variable
     plotResiduals(rv);
@@ -61,4 +57,4 @@ separate plot window with its own 3-panel diagnostic display.
 - Volatility clustering in the time plot → consider :func:`bvarSvFit`
 - Skewed histogram → model may be misspecified for extreme observations
 
-.. seealso:: Functions :func:`varFit`, :func:`varDiagnose`
+.. seealso:: Functions :func:`varFit`, :func:`varDiagnostics`

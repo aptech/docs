@@ -31,7 +31,7 @@ Cholesky IRF Grid
     ctl.p = 4;
     ctl.quiet = 1;
 
-    rv = varFit(data, ctl);
+    rv = varFit(data, ctl=ctl);
     irf = irfCompute(rv, 20);
 
     // 3×3 grid of impulse responses

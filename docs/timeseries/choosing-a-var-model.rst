@@ -32,7 +32,7 @@ data covering both the Great Moderation and the Global Financial Crisis of 2008 
      - Standard VAR territory. BVAR is preferred for forecasting.
    * - m = 6-20
      - :func:`bvarFit` with tight prior
-     - Shrinkage is essential. Set *lambda1* = 0.01-0.1 or use :func:`bvarHyperopt`.
+     - Shrinkage is essential. Set *overall_tightness* = 0.01-0.1 or use :func:`bvarHyperopt`.
    * - m = 20-100
      - :func:`bvarSvFit` with SSVS
      - Large system needs variable selection to identify relevant predictors.
@@ -99,7 +99,7 @@ specification from Christiano, Eichenbaum & Evans (1999).
                           //   not persistent. Use ar=1 for levels data instead.
 
     // Estimate — draws are exact (conjugate posterior, no MCMC)
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
 
     // Cholesky IRFs: ordering matters — GDP is most exogenous, FFR most endogenous.
     // The ordering in the data (GDP, CPI, FFR) implies GDP doesn't respond
@@ -119,15 +119,15 @@ likelihood (Giannone, Lenza & Primiceri 2015).
     data = loadd("large_macro.csv");
 
     // Let the data choose how tight the prior should be.
-    // bvarHyperopt maximizes the log marginal likelihood over lambda1
-    // (and optionally lambda6, lambda7 for SOC/SUR priors).
+    // bvarHyperopt maximizes the log marginal likelihood over overall_tightness
+    // (and optionally soc_tightness, sur_tightness for SOC/SUR priors).
     // It returns a hyperoptResult with optimal values and a pre-filled control struct.
     ho = bvarHyperopt(data);
 
     // Estimate with the optimized prior
     ctl = ho.ctl;                    // Start from optimized settings
     ctl.quiet = 1;                   // Suppress printed output
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
 
     // Forecast 8 steps ahead with posterior predictive bands
     fc = bvarForecast(result, 8);
@@ -152,7 +152,7 @@ which improves density forecast calibration.
     svctl.n_burn = 5000;   // Discard first 5000 as burn-in (Gibbs sampler
                            //   needs time to converge from starting values)
 
-    result = bvarSvFit(data, svctl);
+    result = bvarSvFit(data, ctl=svctl);
 
     // Density forecasts with time-varying volatility bands
     fctl = svForecastControlCreate();
@@ -178,7 +178,7 @@ e.g., a positive supply shock increases production and decreases prices.
                            //   Oil markets have long adjustment dynamics.
     ctl.ar = 0;            // Data is in log-differences (stationary)
 
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
 
     // Structural identification via sign restrictions.
     // Each row is: [variable, shock, horizon, sign].
@@ -191,7 +191,7 @@ e.g., a positive supply shock increases production and decreases prices.
                         2  2  1  1,    // Var 2 (activity):   + to demand
                         3  2  1  1 };  // Var 3 (price):      + to demand
 
-    sir = svarIrf(result, sctl);   // Posterior IRF bands with sign-restricted draws
+    sir = svarIrfCompute(result, sctl);   // Posterior IRF bands with sign-restricted draws
 
     // For time-varying volatility (modern extension), replace bvarFit/bvarControlCreate
     // with bvarSvFit/bvarSvControlCreate and add svctl.n_draws = 10000; svctl.n_burn = 5000.

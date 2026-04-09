@@ -172,7 +172,7 @@ stationarity with :func:`varFit` before using this function.
 This function provides point-identified structural IRFs from a single OLS VAR
 estimate. There are no posterior uncertainty bands. For inference with uncertainty,
 bootstrap the VAR or use a Bayesian approach with :func:`bvarFit` and
-:func:`svarIrf`.
+:func:`svarIrfCompute`.
 
 **Differenced vs. level data:**
 The Blanchard-Quah method is typically applied to growth rates (first differences
@@ -201,4 +201,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`longRunSvarControlCreate`, :func:`svarIrf`, :func:`varFit`, :func:`irfCompute`
+.. seealso:: Functions :func:`longRunSvarControlCreate`, :func:`svarIrfCompute`, :func:`varFit`, :func:`irfCompute`

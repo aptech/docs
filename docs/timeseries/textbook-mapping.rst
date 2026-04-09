@@ -145,11 +145,11 @@ estimation, inference, and applications to oil markets and monetary policy.
      - Blanchard-Quah decomposition. *Zero restrictions planned for future release.*
    * - 13
      - Sign restrictions
-     - :func:`svarIdentify`, :func:`svarIrf`
+     - :func:`svarIdentify`, :func:`svarIrfCompute`
      - Replicate Uhlig (2005) monetary policy identification. Examine acceptance rates.
    * - 13.5
      - Sign-restricted FEVD
-     - :func:`svarIrf`
+     - :func:`svarIrfCompute`
      - Posterior FEVD bands under sign restrictions.
    * - 16
      - Large BVARs
@@ -189,7 +189,7 @@ Uses R in the text — the table below shows the GAUSS equivalents.
      - ``auto.arima()``
    * - 9.7
      - Seasonal ARIMA
-     - :func:`arimaFit` (``season=12``)
+     - :func:`arimaFit` (``period=12``)
      - ``auto.arima()`` with seasonal
    * - 9.9
      - ARIMA forecasting
@@ -222,8 +222,8 @@ This exercise fits SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and foreca
     fname = getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv");
     y = loadd(fname, "passengers");
 
-    // arimaFit(y, season, p, d, q, P, D, Q)
-    result = arimaFit(y, 12, 0, 1, 1, 0, 1, 1);
+    // arimaFit(y, p, d, q, sp, sd, sq, period)
+    result = arimaFit(y, p=0, d=1, q=1, sp=0, sd=1, sq=1, period=12);
 
     fc = arimaForecast(result, 24);
 
@@ -238,7 +238,7 @@ This exercise estimates a 3-variable VAR on GDP, CPI, and FFR, then computes and
     vctl = varControlCreate();
     vctl.p = 4;
 
-    result = varFit(data, vctl);
+    result = varFit(data, ctl=vctl);
 
     irf = irfCompute(result, 20);
 
@@ -261,7 +261,7 @@ This exercise compares OLS and BVAR out-of-sample forecast accuracy using a trai
     vctl.p = 4;
     vctl.quiet = 1;
 
-    rv = varFit(y_train, vctl);
+    rv = varFit(y_train, ctl=vctl);
 
     fc_ols = varForecast(rv, 40);
 
@@ -271,7 +271,7 @@ This exercise compares OLS and BVAR out-of-sample forecast accuracy using a trai
     ctl.ar = 0;
     ctl.quiet = 1;
 
-    br = bvarFit(y_train, ctl);
+    br = bvarFit(y_train, ctl=ctl);
 
     fc_bvar = bvarForecast(br, 40);
 
@@ -297,20 +297,20 @@ This exercise uses the log marginal likelihood to compare models with different 
 
     // Optimize hyperparameters
     ho = bvarHyperopt(data);
-    print "Optimal lambda1:" ho.lambda1;
+    print "Optimal overall_tightness:" ho.overall_tightness;
     print "Maximized log ML:" ho.log_ml;
 
     // Compare with fixed hyperparameters
 
     ctl = bvarControlCreate();
-    ctl.lambda1 = 0.01;
+    ctl.overall_tightness = 0.01;
     ctl.quiet = 1;
-    r_tight = bvarFit(data, ctl);
+    r_tight = bvarFit(data, ctl=ctl);
 
-    ctl.lambda1 = 1.0;
-    r_loose = bvarFit(data, ctl);
+    ctl.overall_tightness = 1.0;
+    r_loose = bvarFit(data, ctl=ctl);
 
-    r_opt = bvarFit(data, ho.ctl);
+    r_opt = bvarFit(data, ctl=ho.ctl);
 
     print "Log ML (tight):" r_tight.log_ml;
     print "Log ML (loose):" r_loose.log_ml;

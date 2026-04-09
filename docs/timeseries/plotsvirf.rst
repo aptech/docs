@@ -34,7 +34,7 @@ Posterior IRF with Bands
     svctl.n_burn = 2000;
     svctl.quiet = 1;
 
-    svr = bvarSvFit(data, svctl);
+    svr = bvarSvFit(data, ctl=svctl);
     irf = irfSvCompute(svr, 20);
 
     // 3×3 grid with shaded credible bands

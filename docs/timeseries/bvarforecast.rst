@@ -81,7 +81,7 @@ Optimal Hyperparameters to Forecast Pipeline
     ho = bvarHyperopt(data);
 
     // Estimate with optimal lambdas
-    result = bvarFit(data, ho.ctl, quiet=1);
+    result = bvarFit(data, ctl=ho.ctl, quiet=1);
 
     // Forecast
     fc = bvarForecast(result, 24);
@@ -100,10 +100,10 @@ Compare Forecasts Across Lag Orders
     ctl = bvarControlCreate();
 
     ctl.p = 2;
-    r2 = bvarFit(data, ctl, quiet=1);
+    r2 = bvarFit(data, ctl=ctl, quiet=1);
 
     ctl.p = 4;
-    r4 = bvarFit(data, ctl, quiet=1);
+    r4 = bvarFit(data, ctl=ctl, quiet=1);
 
     fc2 = bvarForecast(r2, 12, quiet=1);
     fc4 = bvarForecast(r4, 12, quiet=1);
@@ -165,8 +165,8 @@ Troubleshooting
 ---------------
 
 **Forecast bands are too wide:**
-Tighten the prior (reduce *lambda1* in :func:`bvarFit`) or add sum-of-coefficients
-priors (*lambda6* > 0). Wide bands often reflect parameter uncertainty in an
+Tighten the prior (reduce *overall_tightness* in :func:`bvarFit`) or add sum-of-coefficients
+priors (*soc_tightness* > 0). Wide bands often reflect parameter uncertainty in an
 over-parameterized model.
 
 **Forecasts revert to zero immediately:**
@@ -175,7 +175,7 @@ pulls forecasts toward zero. For levels data, use ``ar = 1``.
 
 **Forecasts explode:**
 The posterior mean may be non-stationary. Check *result.is_stationary*. Add
-regularization via sum-of-coefficients (*lambda6*) or single-unit-root (*lambda7*)
+regularization via sum-of-coefficients (*soc_tightness*) or single-unit-root (*sur_tightness*)
 priors in :func:`bvarFit`.
 
 Verification

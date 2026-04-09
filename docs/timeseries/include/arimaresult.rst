@@ -7,7 +7,7 @@
    * - result.sorder
      - 3x1 vector, seasonal order {P, D, Q}. Empty matrix if non-seasonal.
 
-   * - result.season
+   * - result.period
      - Scalar, seasonal period. 0 if non-seasonal.
 
    * - result.include_mean

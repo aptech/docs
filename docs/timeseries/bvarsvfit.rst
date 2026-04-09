@@ -9,29 +9,19 @@ Format
 ------
 
 .. function:: result = bvarSvFit(y)
-              result = bvarSvFit(y, ctl)
-              result = bvarSvFit(y, ctl, xreg=X)
+              result = bvarSvFit(y, quiet=0, ctl={})
 
    :param y: endogenous variables. If a dataframe, column names are used as variable names.
    :type y: TxM matrix or dataframe
 
-   :param ctl: Optional input, an instance of a :class:`bvarSvControl` structure. An instance is initialized by calling :func:`bvarSvControlCreate` and the following members can be set:
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*. Default = 0.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`bvarSvControl` structure. An instance is initialized by calling :func:`bvarSvControlCreate` and the following members can be set:
 
        .. include:: include/bvarsvcontrol.rst
 
    :type ctl: struct
-
-   :param xreg: Optional keyword, exogenous regressors.
-   :type xreg: TxK matrix
-
-   :param xreg_names: Optional keyword, column names for *xreg*.
-   :type xreg_names: Kx1 string array
-
-   :param var_names: Optional keyword, endogenous variable names.
-   :type var_names: Mx1 string array
-
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*.
-   :type quiet: scalar
 
    :return result: An instance of a :class:`bvarSvResult` structure containing:
 
@@ -96,7 +86,7 @@ Run 4 parallel chains for convergence diagnostics:
     ctl.n_chains = 4;
     ctl.parallel = 1;
 
-    result = bvarSvFit(data, ctl);
+    result = bvarSvFit(data, ctl=ctl);
 
 SV-BVAR with SSVS Variable Selection
 +++++++++++++++++++++++++++++++++++++
@@ -116,7 +106,7 @@ Enable stochastic search variable selection to identify which coefficients are n
     ctl.p = 4;
     ctl.ssvs = 1;
 
-    result = bvarSvFit(data, ctl);
+    result = bvarSvFit(data, ctl=ctl);
 
     // Posterior inclusion probabilities
     print "B inclusion probabilities:";
@@ -148,7 +138,7 @@ For large systems where storing all draws is infeasible, use online mode:
     ctl.n_draws = 50000;
     ctl.n_burn = 10000;
 
-    result = bvarSvFit(data, ctl);
+    result = bvarSvFit(data, ctl=ctl);
 
     // Posterior means available via streaming moments
     print result.b_online_mean;
@@ -169,8 +159,7 @@ SV-BVAR with Exogenous Regressors
     ctl = bvarSvControlCreate();
     ctl.p = 4;
 
-    result = bvarSvFit(y, ctl, xreg=X,
-        var_names="GDP"$|"CPI"$|"FFR", xreg_names="UNEMP");
+    result = bvarSvFit(y, ctl=ctl);
 
 Remarks
 -------
@@ -234,7 +223,7 @@ to the natural scale.
 **Multi-chain inference:**
 When ``ctl.n_chains > 1``, each chain starts from an independent random state.
 Draws from all chains are pooled before computing posterior summaries. Use
-multiple chains to assess convergence via split-R-hat (see :func:`varDiagnose`).
+multiple chains to assess convergence via split-R-hat (see :func:`varDiagnostics`).
 
 Library
 -------

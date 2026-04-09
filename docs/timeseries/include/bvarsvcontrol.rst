@@ -16,28 +16,28 @@
        ``"horseshoe"``   Horseshoe prior (Carvalho, Polson & Scott 2010) for adaptive shrinkage. Each coefficient gets a local shrinkage λ²_ij and a global τ² with half-Cauchy priors. Replaces Minnesota/SSVS for large systems (m=50+). Reuses *ctl.b_prior_var* as initial τ².
        ================= ================================================
 
-   * - ctl.lambda1
+   * - ctl.overall_tightness
      - Scalar, overall tightness (Minnesota only). Default = 0.2.
 
-   * - ctl.lambda2
+   * - ctl.cross_shrinkage
      - Scalar, cross-variable shrinkage (Minnesota only). Default = 0.5.
 
-   * - ctl.lambda3
+   * - ctl.lag_decay
      - Scalar, lag decay (Minnesota only). Default = 1.0.
 
-   * - ctl.lambda4
+   * - ctl.constant_tightness
      - Scalar, constant tightness (Minnesota only). Default = 1e5.
 
-   * - ctl.lambda5
+   * - ctl.exogenous_tightness
      - Scalar, exogenous tightness (Minnesota only). Default = 1.0.
 
-   * - ctl.lambda6
+   * - ctl.soc_tightness
      - Scalar, sum-of-coefficients (Minnesota only). 0 = disabled. Default = 0.
 
-   * - ctl.lambda7
+   * - ctl.sur_tightness
      - Scalar, single-unit-root (Minnesota only). 0 = disabled. Default = 0.
 
-   * - ctl.lambda_exo
+   * - ctl.exogenous_scale
      - Scalar, exogenous regressor tightness (Minnesota only). Default = 1.0.
 
    * - ctl.ar

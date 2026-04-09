@@ -34,13 +34,13 @@ Examples
     // Use with arimaFit
     fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
     y = loadd(fname, "passengers");
-    result = arimaFit(y, ctl, season=12);
+    result = arimaFit(y, ctl, period=12);
 
 Remarks
 -------
 
 All members of the :class:`arimaControl` structure apply only to auto-selection.
-When a fixed *order* is passed to :func:`arimaFit`, the search-related members
+When fixed *p*, *d*, *q* are passed to :func:`arimaFit`, the search-related members
 (*max_p*, *max_q*, *max_d*, *ic*, *stepwise*, etc.) are ignored.
 
 Library

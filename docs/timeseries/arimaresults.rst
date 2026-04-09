@@ -25,7 +25,7 @@ Examples
     y = loadd(fname, "passengers");
 
     // Fit with output suppressed
-    result = arimaFit(y, season=12, quiet=1);
+    result = arimaFit(y, period=12, quiet=1);
 
     // Print results later
     call arimaResults(result);

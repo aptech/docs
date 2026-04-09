@@ -1,5 +1,5 @@
-varDiagnoseMulti
-================
+varDiagnosticsMulti
+===================
 
 Purpose
 -------
@@ -8,8 +8,8 @@ Run multi-chain convergence diagnostics with cross-chain R-hat.
 Format
 ------
 
-.. function:: diag = varDiagnoseMulti(result)
-              diag = varDiagnoseMulti(results)
+.. function:: diag = varDiagnosticsMulti(result)
+              diag = varDiagnosticsMulti(results)
 
    :param result: a :class:`bvarSvResult` from :func:`bvarSvFit` with ``n_chains > 1``.
    :type result: struct
@@ -53,10 +53,10 @@ Multi-Chain SV-BVAR
     ctl.n_chains = 4;
     ctl.parallel = 1;
 
-    result = bvarSvFit(data, ctl, quiet=1);
+    result = bvarSvFit(data, ctl=ctl, quiet=1);
 
     // Multi-chain diagnostics (cross-chain R-hat)
-    diag = varDiagnoseMulti(result);
+    diag = varDiagnosticsMulti(result);
 
 Remarks
 -------
@@ -75,4 +75,4 @@ Source
 ------
 diagnostics.src
 
-.. seealso:: Functions :func:`varDiagnose`, :func:`varDiagnosePrint`
+.. seealso:: Functions :func:`varDiagnostics`, :func:`varDiagnosticsPrint`

@@ -9,16 +9,24 @@ Format
 ------
 
 .. function:: result = varFit(y)
-              result = varFit(y, p)
-              result = varFit(y, ctl)
+              result = varFit(y, p=1, include_const=1, xreg={}, quiet=0, ctl={})
 
    :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
    :type y: TxM matrix or dataframe
 
-   :param p: Optional input, lag order. Default = 1.
+   :param p: Optional keyword, lag order. Default = 1.
    :type p: scalar
 
-   :param ctl: Optional input, an instance of a :class:`varControl` structure. Overrides *p* if provided. Set *ctl.xreg* for exogenous regressors. An instance is initialized by calling :func:`varControlCreate` and the following members can be set:
+   :param include_const: Optional keyword, 1 to include a constant, 0 to exclude. Default = 1.
+   :type include_const: scalar
+
+   :param xreg: Optional keyword, exogenous regressors.
+   :type xreg: TxK matrix
+
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`varControl` structure. An instance is initialized by calling :func:`varControlCreate` and the following members can be set:
 
        .. include:: include/varcontrol.rst
 
@@ -115,7 +123,7 @@ Include unemployment as an exogenous variable:
     ctl.p = 2;
     ctl.xreg = X;
 
-    result = varFit(y, ctl);
+    result = varFit(y, ctl=ctl);
 
 Model
 -----

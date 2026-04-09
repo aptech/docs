@@ -15,28 +15,28 @@
        ``"flat"``        Diffuse prior with Gibbs sampling.
        ================= ==========================================================
 
-   * - ctl.lambda1
+   * - ctl.overall_tightness
      - Scalar, overall tightness. Controls how much data vs prior matters. Smaller values = tighter prior. Default = 0.2.
 
-   * - ctl.lambda2
+   * - ctl.cross_shrinkage
      - Scalar, cross-variable shrinkage. Other variables' lags are shrunk by this factor relative to own lags. Default = 0.5.
 
-   * - ctl.lambda3
+   * - ctl.lag_decay
      - Scalar, lag decay. Higher lags are shrunk by :math:`\ell^{-\lambda_3}`. Default = 1.0.
 
-   * - ctl.lambda4
+   * - ctl.constant_tightness
      - Scalar, constant tightness. Default = 1e5 (effectively uninformative).
 
-   * - ctl.lambda5
+   * - ctl.exogenous_tightness
      - Scalar, exogenous variable tightness. Default = 1.0.
 
-   * - ctl.lambda6
+   * - ctl.soc_tightness
      - Scalar, sum-of-coefficients tightness (Doan, Litterman & Sims 1984). Set to 0 to disable. Typical range: 1-10. Default = 0 (disabled).
 
-   * - ctl.lambda7
+   * - ctl.sur_tightness
      - Scalar, single-unit-root tightness (Sims 1993). Set to 0 to disable. Typical range: 1-10. Default = 0 (disabled).
 
-   * - ctl.lambda_exo
+   * - ctl.exogenous_scale
      - Scalar, exogenous regressor prior tightness. Default = 1.0.
 
    * - ctl.ar

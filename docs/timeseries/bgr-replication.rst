@@ -175,7 +175,7 @@ The complete replication is a single GAUSS script::
     m_vals = { 3, 10, 20, 50 };
     ww = 1;
     do while ww <= n_eval;
-        br = bvarFit(y_train, ctl);
+        br = bvarFit(y_train, ctl=ctl);
         fc = bvarForecast(br, h_max);
         // store forecast errors
         ww = ww + 1;

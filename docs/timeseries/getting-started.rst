@@ -26,10 +26,10 @@ If you just want working code, copy this:
     ctl.ar = 0;                  // Growth rates → white noise prior
     ctl.quiet = 1;
 
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
 
     // Impulse responses: what happens when the Fed raises rates?
-    rv = varFit(data, ctl.p);
+    rv = varFit(data, p=ctl.p);
     irf = irfCompute(rv, 20);
 
     // Forecast the next 8 quarters
@@ -78,7 +78,7 @@ Step 2: Estimate a Bayesian VAR
     ctl.ar = 0;                  // White noise prior (data is in growth rates)
 
     // Estimate
-    result = bvarFit(data[., vars], ctl);
+    result = bvarFit(data[., vars], ctl=ctl);
 
 You should see::
 
@@ -124,7 +124,7 @@ shock to one variable on all variables:
     vctl.p = 4;
     vctl.quiet = 1;
 
-    rv = varFit(data[., vars], vctl);
+    rv = varFit(data[., vars], ctl=vctl);
 
     // Compute Cholesky IRFs, 20 quarters ahead
     irf = irfCompute(rv, 20);
@@ -228,8 +228,8 @@ Or let the data choose automatically:
 ::
 
     ho = bvarHyperopt(data[., vars]);
-    print "Optimal lambda1:" ho.lambda1;
-    result_opt = bvarFit(data[., vars], ho.ctl);
+    print "Optimal overall_tightness:" ho.overall_tightness;
+    result_opt = bvarFit(data[., vars], ctl=ho.ctl);
 
 This maximizes the marginal likelihood over the hyperparameters (Giannone, Lenza &
 Primiceri 2015), finding the best balance between prior shrinkage and data fit.
@@ -254,14 +254,14 @@ Everything above, in one runnable file:
     ctl.p = 4;
     ctl.ar = 0;
 
-    result = bvarFit(data[., vars], ctl);
+    result = bvarFit(data[., vars], ctl=ctl);
 
     // ---- Impulse responses ----
     vctl = varControlCreate();
     vctl.p = 4;
     vctl.quiet = 1;
 
-    rv = varFit(data[., vars], vctl);
+    rv = varFit(data[., vars], ctl=vctl);
 
     irf = irfCompute(rv, 20);
 
@@ -297,7 +297,7 @@ Here's where to go next:
    * - **Conditional forecasts**
      - "What if the Fed holds rates at 5%?" Use :func:`condForecast` for scenario analysis.
    * - **Automatic hyperparameters**
-     - Unsure about lambda1? Use :func:`bvarHyperopt` to let the data decide.
+     - Unsure about overall_tightness? Use :func:`bvarHyperopt` to let the data decide.
    * - **ARIMA / univariate**
      - Single variable? Use :func:`arimaFit` with automatic order selection.
    * - **Choosing the right model**

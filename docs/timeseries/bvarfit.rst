@@ -9,12 +9,24 @@ Format
 ------
 
 .. function:: result = bvarFit(y)
-              result = bvarFit(y, ctl)
+              result = bvarFit(y, p=1, n_draws=5000, overall_tightness=0.2, quiet=0, ctl={})
 
    :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
    :type y: TxM matrix or dataframe
 
-   :param ctl: Optional input, an instance of a :class:`bvarControl` structure. An instance is initialized by calling :func:`bvarControlCreate` and the following members can be set:
+   :param p: Optional keyword, lag order. Default = 1.
+   :type p: scalar
+
+   :param n_draws: Optional keyword, number of posterior draws. Default = 5000.
+   :type n_draws: scalar
+
+   :param overall_tightness: Optional keyword, overall tightness. Controls how much data vs prior matters. Default = 0.2.
+   :type overall_tightness: scalar
+
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure. An instance is initialized by calling :func:`bvarControlCreate` and the following members can be set:
 
        .. include:: include/bvarcontrol.rst
 
@@ -47,7 +59,7 @@ Estimate a 3-variable BVAR(4) on GDP growth, CPI inflation, and the federal fund
     ctl.p = 4;
     ctl.ar = 0;               // Growth rates → white noise prior
 
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
 
 Output:
 
@@ -90,13 +102,13 @@ Compare Lag Orders with Bayes Factors
     ctl.quiet = 1;
 
     ctl.p = 1;
-    r1 = bvarFit(data, ctl);
+    r1 = bvarFit(data, ctl=ctl);
 
     ctl.p = 2;
-    r2 = bvarFit(data, ctl);
+    r2 = bvarFit(data, ctl=ctl);
 
     ctl.p = 4;
-    r4 = bvarFit(data, ctl);
+    r4 = bvarFit(data, ctl=ctl);
 
     print "Log ML(p=1):" r1.log_ml;
     print "Log ML(p=2):" r2.log_ml;
@@ -122,10 +134,10 @@ Sum-of-coefficients and single-unit-root priors stabilize long-horizon forecasts
 
     ctl = bvarControlCreate();
     ctl.p = 4;
-    ctl.lambda6 = 5;          // Sum-of-coefficients
-    ctl.lambda7 = 5;          // Single-unit-root
+    ctl.soc_tightness = 5;          // Sum-of-coefficients
+    ctl.sur_tightness = 5;          // Single-unit-root
 
-    result = bvarFit(data, ctl);
+    result = bvarFit(data, ctl=ctl);
 
     // 8-step-ahead forecast
     fc = bvarForecast(result, 8);
@@ -143,15 +155,15 @@ Let the marginal likelihood choose all :math:`\lambda` values:
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    // Optimize lambda1, lambda6, lambda7 jointly
-    ctl_opt = bvarHyperopt(data);
+    // Optimize overall_tightness, soc_tightness, sur_tightness jointly
+    ho = bvarHyperopt(data);
 
-    print "Optimal lambda1:" ctl_opt.lambda1;
-    print "Optimal lambda6:" ctl_opt.lambda6;
-    print "Optimal lambda7:" ctl_opt.lambda7;
+    print "Optimal overall_tightness:" ho.overall_tightness;
+    print "Optimal soc_tightness:" ho.soc_tightness;
+    print "Optimal sur_tightness:" ho.sur_tightness;
 
     // Fit with optimized hyperparameters
-    result = bvarFit(data, ctl_opt);
+    result = bvarFit(data, ctl=ho.ctl);
 
 This implements Algorithm 1 of Giannone, Lenza & Primiceri (2015), which maximizes the
 log marginal likelihood over a grid of hyperparameter values.
@@ -229,7 +241,7 @@ Algorithm
 
 4. **Draw from posterior:** Sample :math:`\Sigma \sim IW(\bar{S}, \bar{\alpha})` then :math:`B | \Sigma \sim N(\bar{B}, \Sigma \otimes \bar{\Phi})`. Each draw is independent (no Markov chain).
 
-5. **Sum-of-coefficients and single-unit-root priors** (when *lambda6* > 0 or *lambda7* > 0): Implemented via dummy observations appended to the data before the posterior update (Doan, Litterman & Sims 1984; Sims 1993).
+5. **Sum-of-coefficients and single-unit-root priors** (when *soc_tightness* > 0 or *sur_tightness* > 0): Implemented via dummy observations appended to the data before the posterior update (Doan, Litterman & Sims 1984; Sims 1993).
 
 **Complexity:** :math:`O(K^2 m)` for the posterior update, plus :math:`O(K^3)` per draw for the Cholesky factorization. With 5,000 draws on a 3-variable VAR(4), typical wall-clock time is 0.05–0.10 seconds.
 
@@ -243,22 +255,22 @@ Hyperparameter Guide
    * - Parameter
      - Default
      - Guidance
-   * - *lambda1*
+   * - *overall_tightness*
      - 0.2
      - Overall tightness. Smaller = prior dominates. For a small system (m=3), 0.1–0.2 works well. For large systems (m > 10), tighter values (0.01–0.05) prevent overfitting. Use :func:`bvarHyperopt` to optimize automatically (Giannone, Lenza & Primiceri 2015).
-   * - *lambda2*
+   * - *cross_shrinkage*
      - 0.5
      - Cross-variable shrinkage. A value of 0.5 means other variables' lags are shrunk twice as much as own lags. Range: 0.1–1.0.
-   * - *lambda3*
+   * - *lag_decay*
      - 1.0
      - Lag decay exponent. Higher lags are shrunk by :math:`\ell^{-\lambda_3}`. Default of 1.0 is standard. Values above 2 aggressively penalize distant lags.
-   * - *lambda4*
+   * - *constant_tightness*
      - 1e5
      - Constant tightness. Default is effectively uninformative. Set to 100 if you want the prior to also regularize the intercept (as in BEAR Toolbox).
-   * - *lambda6*
+   * - *soc_tightness*
      - 0 (off)
      - Sum-of-coefficients prior (Doan, Litterman & Sims 1984). Pulls lag coefficient sums toward the identity, preventing explosive long-horizon forecasts. Typical values: 1–10. Essential for levels data when forecasting beyond 4 steps.
-   * - *lambda7*
+   * - *sur_tightness*
      - 0 (off)
      - Single-unit-root prior (Sims 1993). Pulls all variables toward a common stochastic trend, stabilizing cointegrated systems. Typical values: 1–10.
    * - *ar*
@@ -276,11 +288,11 @@ The largest eigenvalue of the companion matrix exceeds 1. This means the posteri
 mean coefficients imply explosive dynamics. Common fixes:
 
 - Set ``ar = 0`` if your data is in growth rates (you may be using the wrong prior).
-- Increase ``lambda6`` (sum-of-coefficients) to pull lag sums toward unity.
-- Tighten the prior (reduce ``lambda1``).
+- Increase ``soc_tightness`` (sum-of-coefficients) to pull lag sums toward unity.
+- Tighten the prior (reduce ``overall_tightness``).
 
 **Prior too tight / too loose:**
-If all coefficients are near zero, the prior is too tight — increase ``lambda1`` or use :func:`bvarHyperopt`. If the posterior equals OLS (credible bands match frequentist confidence intervals), the prior is too loose — decrease ``lambda1``.
+If all coefficients are near zero, the prior is too tight — increase ``overall_tightness`` or use :func:`bvarHyperopt`. If the posterior equals OLS (credible bands match frequentist confidence intervals), the prior is too loose — decrease ``overall_tightness``.
 
 **"Log ML is missing":**
 The log marginal likelihood is only available for the conjugate Minnesota prior (``prior = "minnesota"``). For flat priors, consider using the DIC or WAIC instead.
@@ -308,7 +320,7 @@ using 200,000-draw ground truth. Validates:
 
 
 **ECB BEAR Toolbox:**
-45 matched-prior coefficient tests (``lambda1=0.1``, ``ar=0.8``, ``lambda4=100``)
+45 matched-prior coefficient tests (``overall_tightness=0.1``, ``ar=0.8``, ``constant_tightness=100``)
 and 17 IRF tests at horizons 0, 10, and 20 against BEAR v5.0. OLS components match
 to :math:`10^{-8}`. BVAR posterior means agree within 0.06 (prior-form difference
 between conjugate and independent Normal-Wishart).

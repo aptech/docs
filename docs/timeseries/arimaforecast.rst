@@ -45,7 +45,7 @@ Examples
     y = loadd(fname, "passengers");
 
     // Fit seasonal ARIMA
-    result = arimaFit(y, season=12, quiet=1);
+    result = arimaFit(y, period=12, quiet=1);
 
     // Forecast 24 months
     fc = arimaForecast(result, 24);
@@ -66,7 +66,7 @@ Custom Confidence Level
 
     fname = getGAUSSHome("pkgs/timeseries/examples/data/airline.dat");
     y = loadd(fname, "passengers");
-    result = arimaFit(y, 12, 1, 1, 1, 0, 1, 1);
+    result = arimaFit(y, p=1, d=1, q=1, sp=0, sd=1, sq=1, period=12);
 
     // 99% prediction intervals (wider than 95%)
     fc = arimaForecast(result, 12, level=0.99);
