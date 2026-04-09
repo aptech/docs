@@ -265,6 +265,11 @@ Everything above, in one runnable file:
 
     irf = irfCompute(rv, 20);
 
+    // ---- Bayesian IRFs with posterior bands ----
+    // For SV-BVAR, use irfSvCompute for proper uncertainty bands:
+    //   svIrf = irfSvCompute(svResult, 20);
+    // See :func:`irfSvCompute` for details.
+
     // ---- Forecast ----
     fc = bvarForecast(result, 8);
 

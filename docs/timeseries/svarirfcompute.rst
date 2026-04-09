@@ -101,9 +101,12 @@ Basic Monetary Policy SVAR
 
     // Sign restrictions for monetary policy shock
     // [variable, shock, horizon, sign]
-    sign_restr = { 3 3 0  1,       // FFR up
-                   1 3 0 -1,       // GDP down
-                   2 3 0 -1 };     // CPI down
+    // variable and shock: 1-indexed (GAUSS convention)
+    // horizon: 0 = impact, 1 = one step ahead, etc.
+    // sign: 1 = positive, -1 = negative
+    sign_restr = { 3 3 0  1,       // FFR up on impact
+                   1 3 0 -1,       // GDP down on impact
+                   2 3 0 -1 };     // CPI down on impact
 
     sir = svarIrfCompute(result, sign_restr);
 

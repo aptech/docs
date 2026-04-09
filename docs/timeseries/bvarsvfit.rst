@@ -153,7 +153,6 @@ SV-BVAR with Exogenous Regressors
 
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
-    X = loadd(fname, "unemployment");
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
