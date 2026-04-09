@@ -9,25 +9,29 @@ Format
 ------
 
 .. function:: result = tvpSvFit(y)
-              result = tvpSvFit(y, p)
-              result = tvpSvFit(y, p, n_draws)
-              result = tvpSvFit(y, p, n_draws, n_burn)
-              result = tvpSvFit(y, p, n_draws, n_burn, adv)
-              result = tvpSvFit(y, adv)
+              result = tvpSvFit(y, p=2, n_draws=10000)
+              result = tvpSvFit(y, p=2, n_draws=10000, n_burn=10000, seed=123)
+              result = tvpSvFit(y, ctl=adv)
 
    :param y: endogenous variables. If a dataframe, column names are used as variable names.
    :type y: TxM matrix or dataframe
 
-   :param p: Optional input, lag order. Default = 1.
+   :param p: Optional keyword, lag order. Default = 1.
    :type p: scalar
 
-   :param n_draws: Optional input, number of posterior draws to keep. Default = 5000.
+   :param n_draws: Optional keyword, number of posterior draws to keep. Default = 5000.
    :type n_draws: scalar
 
-   :param n_burn: Optional input, number of burn-in iterations to discard. Default = 5000.
+   :param n_burn: Optional keyword, number of burn-in iterations to discard. Default = 5000.
    :type n_burn: scalar
 
-   :param adv: Optional input, an instance of a :class:`tvpSvControl` structure. An instance is initialized by calling :func:`tvpSvControlCreate` and the following members can be set:
+   :param seed: Optional keyword, RNG seed. Default = 42.
+   :type seed: scalar
+
+   :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`tvpSvControl` structure. When provided, struct values are used and keywords are ignored. An instance is initialized by calling :func:`tvpSvControlCreate` and the following members can be set:
 
        .. include:: include/tvpsvcontrol.rst
 
@@ -83,7 +87,7 @@ Increase the lag order and posterior draws directly:
     y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
     // TVP-SV-VAR(2) with 10000 draws and 10000 burn-in
-    result = tvpSvFit(y, 2, 10000, 10000);
+    result = tvpSvFit(y, p=2, n_draws=10000, n_burn=10000);
 
     // Terminal B_T (coefficients at the last observation)
     print "Terminal B_T posterior mean:";
@@ -112,7 +116,7 @@ Use the :class:`tvpSvControl` structure for fine-grained prior control:
     // Wider diffuse initialization
     adv.p0_b_kappa = 25.0;
 
-    result = tvpSvFit(y, 4, 10000, 10000, adv);
+    result = tvpSvFit(y, p=4, n_draws=10000, n_burn=10000, ctl=adv);
 
     // SV parameters
     print "SV persistence (phi):";

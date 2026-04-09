@@ -9,7 +9,7 @@ Format
 ------
 
 .. function:: result = varFit(y)
-              result = varFit(y, p=1, include_const=1, xreg={}, quiet=0, ctl={})
+              result = varFit(y, p=1, const=1, xreg={}, quiet=0, ctl={})
 
    :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
    :type y: TxM matrix or dataframe
@@ -17,8 +17,8 @@ Format
    :param p: Optional keyword, lag order. Default = 1.
    :type p: scalar
 
-   :param include_const: Optional keyword, 1 to include a constant, 0 to exclude. Default = 1.
-   :type include_const: scalar
+   :param const: Optional keyword, 1 to include a constant, 0 to exclude. Default = 1.
+   :type const: scalar
 
    :param xreg: Optional keyword, exogenous regressors.
    :type xreg: TxK matrix
@@ -119,11 +119,7 @@ Include unemployment as an exogenous variable:
     y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
     X = loadd(fname, "unemployment");
 
-    ctl = varControlCreate();
-    ctl.p = 2;
-    ctl.xreg = X;
-
-    result = varFit(y, ctl=ctl);
+    result = varFit(y, p=2, xreg=X);
 
 Model
 -----
@@ -200,7 +196,7 @@ Remarks
 
 **Coefficient layout in result.b:**
 
-The coefficient matrix *result.b* is Kxm where K = m*p + n_exo + include_const
+The coefficient matrix *result.b* is Kxm where K = m*p + n_exo + const
 and m is the number of endogenous variables:
 
 .. list-table::
@@ -220,7 +216,7 @@ and m is the number of endogenous variables:
    * - pm+1 to pm+n_exo
      - Exogenous coefficients (if any)
    * - K
-     - Constant (if *include_const* = 1)
+     - Constant (if *const* = 1)
 
 Column j corresponds to equation j (variable j as dependent variable).
 This layout matches the standard convention in Lutkepohl (2005, Section 3.2.1).

@@ -9,6 +9,7 @@ Format
 ------
 
 .. function:: t = cwTest(e_r, e_u, fc_r, fc_u)
+              t = cwTest(e_r, e_u, fc_r, fc_u, quiet=1)
 
    :param e_r: forecast errors from the restricted (simpler) model.
    :type e_r: Nx1 vector
@@ -21,6 +22,9 @@ Format
 
    :param fc_u: point forecasts from the unrestricted model.
    :type fc_u: Nx1 vector
+
+   :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
+   :type quiet: scalar
 
    :return t: An instance of a :class:`testResult` structure.
    :rtype t: struct

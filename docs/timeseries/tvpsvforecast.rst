@@ -9,8 +9,8 @@ Format
 ------
 
 .. function:: dfc = tvpSvForecast(result, h)
-              dfc = tvpSvForecast(result, h, level)
-              dfc = tvpSvForecast(result, h, fctl)
+              dfc = tvpSvForecast(result, h, mode="simulate", n_paths=500)
+              dfc = tvpSvForecast(result, h, ctl=fctl)
 
    :param result: an instance of a :class:`tvpSvResult` structure returned by :func:`tvpSvFit`.
    :type result: struct
@@ -18,10 +18,22 @@ Format
    :param h: forecast horizon (number of steps ahead).
    :type h: scalar
 
-   :param level: Optional input, credible band level (e.g., 0.90 or 0.95). Default = 0.95. Ignored when *fctl* is provided.
-   :type level: scalar
+   :param mode: Optional keyword, forecast mode: ``"mean_path"`` (default) or ``"simulate"``.
+   :type mode: string
 
-   :param fctl: Optional input, an instance of an :class:`svForecastControl` structure. An instance is initialized by calling :func:`svForecastControlCreate` and the following members can be set:
+   :param n_paths: Optional keyword, simulation paths per draw (simulate mode only). Default = 100.
+   :type n_paths: scalar
+
+   :param seed: Optional keyword, RNG seed for simulation. Default = 42.
+   :type seed: scalar
+
+   :param level: Optional keyword, credible band level(s). Scalar or vector. Default = 0.68|0.90.
+   :type level: scalar or vector
+
+   :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of an :class:`svForecastControl` structure. When provided, struct values are used and keywords are ignored. An instance is initialized by calling :func:`svForecastControlCreate` and the following members can be set:
 
        .. include:: include/svforecastcontrol.rst
 
@@ -47,7 +59,7 @@ Basic Forecast
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    result = tvpSvFit(y, 2, 5000, 5000);
+    result = tvpSvFit(y, p=2, n_draws=5000, n_burn=5000);
 
     // 12-step-ahead density forecast
     dfc = tvpSvForecast(result, 12);
@@ -85,7 +97,7 @@ Custom Credible Level
     result = tvpSvFit(y);
 
     // 80% credible bands
-    dfc = tvpSvForecast(result, 8, 0.80);
+    dfc = tvpSvForecast(result, 8, level=0.80);
 
     // Access bands
     print "80% lower:";

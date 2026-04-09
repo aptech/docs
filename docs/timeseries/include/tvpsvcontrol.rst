@@ -1,7 +1,7 @@
 .. list-table::
    :widths: auto
 
-   * - adv.include_const
+   * - adv.const
      - Scalar, include constant (1) or not (0). Default = 1.
 
    * - adv.n_thin

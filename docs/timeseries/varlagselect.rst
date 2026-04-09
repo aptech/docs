@@ -23,8 +23,8 @@ Format
    :param xreg: Optional keyword, exogenous regressors.
    :type xreg: TxK matrix
 
-   :param include_const: Optional keyword, 1 to include constant (default), 0 to exclude.
-   :type include_const: scalar
+   :param const: Optional keyword, 1 to include constant (default), 0 to exclude.
+   :type const: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress the IC table. Default = 0.
    :type quiet: scalar

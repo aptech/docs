@@ -235,10 +235,7 @@ This exercise estimates a 3-variable VAR on GDP, CPI, and FFR, then computes and
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    vctl = varControlCreate();
-    vctl.p = 4;
-
-    result = varFit(data, ctl=vctl);
+    result = varFit(data, p=4);
 
     irf = irfCompute(result, 20);
 
@@ -257,21 +254,12 @@ This exercise compares OLS and BVAR out-of-sample forecast accuracy using a trai
     y_test = asMatrix(data[161:200, .]);
 
     // OLS forecast
-    vctl = varControlCreate();
-    vctl.p = 4;
-    vctl.quiet = 1;
-
-    rv = varFit(y_train, ctl=vctl);
+    rv = varFit(y_train, p=4, quiet=1);
 
     fc_ols = varForecast(rv, 40);
 
     // BVAR forecast
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.ar = 0;
-    ctl.quiet = 1;
-
-    br = bvarFit(y_train, ctl=ctl);
+    br = bvarFit(y_train, p=4, ar=0, quiet=1);
 
     fc_bvar = bvarForecast(br, 40);
 
@@ -301,14 +289,8 @@ This exercise uses the log marginal likelihood to compare models with different 
     print "Maximized log ML:" ho.log_ml;
 
     // Compare with fixed hyperparameters
-
-    ctl = bvarControlCreate();
-    ctl.overall_tightness = 0.01;
-    ctl.quiet = 1;
-    r_tight = bvarFit(data, ctl=ctl);
-
-    ctl.overall_tightness = 1.0;
-    r_loose = bvarFit(data, ctl=ctl);
+    r_tight = bvarFit(data, overall_tightness=0.01, quiet=1);
+    r_loose = bvarFit(data, overall_tightness=1.0, quiet=1);
 
     r_opt = bvarFit(data, ctl=ho.ctl);
 

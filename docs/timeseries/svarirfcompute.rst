@@ -9,7 +9,7 @@ Format
 ------
 
 .. function:: sir = svarIrfCompute(result, sign_restr)
-              sir = svarIrfCompute(result, sign_restr, n_ahead=20, narr_restr={}, ctl={}, quiet=0)
+              sir = svarIrfCompute(result, sign_restr, n_ahead=20, narr_restr={}, max_tries=10000, seed=42, quiet=0, ctl={})
 
    :param result: an instance of a :class:`bvarSvResult` structure with posterior draws from :func:`bvarSvFit`.
    :type result: struct
@@ -60,6 +60,12 @@ Format
 
    :type narr_restr: Nx6 matrix
 
+   :param max_tries: Optional keyword, maximum number of rotation attempts per posterior draw before giving up. Default = 10000.
+   :type max_tries: scalar
+
+   :param seed: Optional keyword, RNG seed for reproducible rotation draws. Default = 42.
+   :type seed: scalar
+
    :param ctl: Optional keyword, an instance of an :class:`svarControl` structure for zero restrictions and advanced settings. An instance is initialized by calling :func:`svarControlCreate` and the following members can be set:
 
        .. include:: include/svarcontrol.rst
@@ -90,14 +96,7 @@ Basic Monetary Policy SVAR
     y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
     // Estimate SV-BVAR
-    struct bvarSvControl svctl;
-    svctl = bvarSvControlCreate();
-    svctl.p = 4;
-    svctl.n_draws = 10000;
-    svctl.n_burn = 5000;
-    svctl.quiet = 1;
-
-    result = bvarSvFit(y, ctl=svctl);
+    result = bvarSvFit(y, p=4, n_draws=10000, n_burn=5000, quiet=1);
 
     // Sign restrictions for monetary policy shock
     // [variable, shock, horizon, sign]
@@ -179,14 +178,7 @@ Oil Market SVAR with Narrative Restrictions
     y = loadd(fname, "oil_production + real_activity + real_oil_price");
 
     // Estimate SV-BVAR
-    struct bvarSvControl svctl;
-    svctl = bvarSvControlCreate();
-    svctl.p = 12;
-    svctl.n_draws = 10000;
-    svctl.n_burn = 5000;
-    svctl.quiet = 1;
-
-    result = bvarSvFit(y, ctl=svctl);
+    result = bvarSvFit(y, p=12, n_draws=10000, n_burn=5000, quiet=1);
 
     // Sign restrictions: oil supply shock
     sign_restr = { 1 1 0 -1,       // Production falls

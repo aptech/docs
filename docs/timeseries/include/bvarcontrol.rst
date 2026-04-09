@@ -4,7 +4,7 @@
    * - ctl.p
      - Scalar, lag order. Default = 1.
 
-   * - ctl.include_const
+   * - ctl.const
      - Scalar, 1 to include a constant, 0 to exclude. Default = 1.
 
    * - ctl.prior

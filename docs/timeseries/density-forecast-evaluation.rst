@@ -21,15 +21,8 @@ Quick Example
     y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
     // Estimate two competing models
-    struct bvarControl ctl1;
-    ctl1 = bvarControlCreate();
-    ctl1.p = 2;
-    r1 = bvarFit(y, ctl1);
-
-    struct bvarControl ctl2;
-    ctl2 = bvarControlCreate();
-    ctl2.p = 4;
-    r2 = bvarFit(y, ctl2);
+    r1 = bvarFit(y, p=2);
+    r2 = bvarFit(y, p=4);
 
     // Generate density forecasts (h=4 quarters ahead)
     fc1 = bvarForecast(r1, 4);

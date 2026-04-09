@@ -9,8 +9,7 @@ Format
 ------
 
 .. function:: dfc = bvarSvForecast(result, h)
-              dfc = bvarSvForecast(result, h, ctl)
-              dfc = bvarSvForecast(result, h, ctl, xreg=X_future)
+              dfc = bvarSvForecast(result, h, mode="mean_path", n_paths=100, seed=42, level=0.68|0.90, quiet=0, ctl={})
 
    :param result: an instance of a :class:`bvarSvResult` structure returned by :func:`bvarSvFit`.
    :type result: struct
@@ -18,17 +17,29 @@ Format
    :param h: forecast horizon (number of steps ahead).
    :type h: scalar
 
-   :param ctl: Optional input, an instance of an :class:`svForecastControl` structure. An instance is initialized by calling :func:`svForecastControlCreate` and the following members can be set:
+   :param mode: Optional keyword, forecast mode. ``"mean_path"`` (default) uses posterior mean volatility for a fast point forecast. ``"simulate"`` draws *n_paths* innovation paths per posterior draw for a proper predictive density.
+   :type mode: string
 
-       .. include:: include/svforecastcontrol.rst
+   :param n_paths: Optional keyword, number of simulation paths per posterior draw (only used when ``mode = "simulate"``). Default = 100.
+   :type n_paths: scalar
 
-   :type ctl: struct
+   :param seed: Optional keyword, RNG seed for reproducible forecast draws. Default = 42.
+   :type seed: scalar
+
+   :param level: Optional keyword, credible level(s) for prediction bands. Pass a scalar (e.g., ``0.68``) or a column vector of levels (e.g., ``0.68|0.90``). Default = ``0.68|0.90``.
+   :type level: scalar or Nx1 vector
 
    :param xreg: Optional keyword, future values of exogenous regressors. Required if the model was fit with *xreg*.
    :type xreg: hxK matrix
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of an :class:`svForecastControl` structure. An instance is initialized by calling :func:`svForecastControlCreate` and the following members can be set:
+
+       .. include:: include/svforecastcontrol.rst
+
+   :type ctl: struct
 
    :return dfc: An instance of a :class:`densityForecastResult` structure containing:
 
@@ -73,11 +84,7 @@ Full Density Forecast (Simulate Mode)
     result = bvarSvFit(data, quiet=1);
 
     // Simulate mode for proper predictive density
-    fctl = svForecastControlCreate();
-    fctl.mode = "simulate";
-    fctl.n_paths = 500;
-
-    dfc = bvarSvForecast(result, 24, fctl);
+    dfc = bvarSvForecast(result, 24, mode="simulate", n_paths=500);
 
 Custom Quantiles for VaR
 +++++++++++++++++++++++++
@@ -92,11 +99,9 @@ Custom Quantiles for VaR
     result = bvarSvFit(data, quiet=1);
 
     fctl = svForecastControlCreate();
-    fctl.mode = "simulate";
-    fctl.n_paths = 1000;
     fctl.quantile_levels = 0.01|0.05|0.10|0.50|0.90|0.95|0.99;
 
-    dfc = bvarSvForecast(result, 12, fctl);
+    dfc = bvarSvForecast(result, 12, mode="simulate", n_paths=1000, ctl=fctl);
 
     // 1% VaR forecast (first quantile band)
     var_01 = dfc.quantile_bands[1];
@@ -117,11 +122,7 @@ Forecast Log-Volatility Path
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarSvControlCreate();
-    ctl.p = 4;
-    ctl.n_draws = 10000;
-    ctl.n_burn = 5000;
-    result = bvarSvFit(data, ctl, quiet=1);
+    result = bvarSvFit(data, p=4, n_draws=10000, n_burn=5000, quiet=1);
 
     dfc = bvarSvForecast(result, 24);
 
@@ -146,10 +147,9 @@ Store Raw Draws for Custom Analysis
     result = bvarSvFit(data, quiet=1);
 
     fctl = svForecastControlCreate();
-    fctl.mode = "simulate";
     fctl.store_draws = 1;
 
-    dfc = bvarSvForecast(result, 12, fctl);
+    dfc = bvarSvForecast(result, 12, mode="simulate", ctl=fctl);
 
     // Raw draws: each row is one draw, columns are h1_v1, h1_v2, ..., h1_vm, h2_v1, ...
     print "Draw matrix:" rows(dfc.draws) "x" cols(dfc.draws);

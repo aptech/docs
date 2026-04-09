@@ -24,11 +24,7 @@ GAUSS
     data = loadd(fname);
 
     // BVAR(4)
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.ar = 0;
-
-    result = bvarFit(data, ctl=ctl);
+    result = bvarFit(data, p=4, ar=0);
 
     // IRF
     rv = varFit(data, 4, quiet=1);

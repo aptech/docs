@@ -55,9 +55,7 @@ Fix the federal funds rate at 5.0% for 12 quarters and forecast GDP and CPI:
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    result = bvarFit(data, ctl, quiet=1);
+    result = bvarFit(data, p=4, quiet=1);
 
     // Build constraint path: 12 horizons, 3 variables (GDP, CPI, FFR)
     // miss() = unconstrained, finite = fixed
@@ -97,9 +95,7 @@ Compare Policy Scenarios
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    result = bvarFit(data, ctl, quiet=1);
+    result = bvarFit(data, p=4, quiet=1);
 
     // Scenario 1: FFR holds at 5.0
     path1 = miss(zeros(12, 3), 0);
@@ -129,9 +125,7 @@ Fix both GDP growth and the FFR path, let CPI adjust:
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    result = bvarFit(data, ctl, quiet=1);
+    result = bvarFit(data, p=4, quiet=1);
 
     path = miss(zeros(8, 3), 0);
 
@@ -158,9 +152,7 @@ Conditional Forecast from SV-BVAR
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    svctl = bvarSvControlCreate();
-    svctl.p = 4;
-    result = bvarSvFit(data, svctl, quiet=1);
+    result = bvarSvFit(data, p=4, quiet=1);
 
     path = miss(zeros(12, 3), 0);
     path[., 3] = 5.0;

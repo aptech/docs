@@ -37,7 +37,7 @@ Examples
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    result = tvpSvFit(y, 2, 10000, 10000, adv);
+    result = tvpSvFit(y, p=2, n_draws=10000, n_burn=10000, ctl=adv);
 
 Library
 -------

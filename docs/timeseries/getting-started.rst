@@ -21,15 +21,10 @@ If you just want working code, copy this:
     data = loadd(fname);
 
     // Estimate Bayesian VAR(4)
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.ar = 0;                  // Growth rates → white noise prior
-    ctl.quiet = 1;
-
-    result = bvarFit(data, ctl=ctl);
+    result = bvarFit(data, p=4, ar=0, quiet=1);
 
     // Impulse responses: what happens when the Fed raises rates?
-    rv = varFit(data, p=ctl.p);
+    rv = varFit(data, p=4);
     irf = irfCompute(rv, 20);
 
     // Forecast the next 8 quarters
@@ -72,13 +67,8 @@ Step 2: Estimate a Bayesian VAR
     // Select variables
     vars = "gdp_growth" $| "cpi_inflation" $| "fed_funds";
 
-    // Configure the BVAR
-    ctl = bvarControlCreate();
-    ctl.p = 4;                   // 4 lags (1 year of quarterly data)
-    ctl.ar = 0;                  // White noise prior (data is in growth rates)
-
-    // Estimate
-    result = bvarFit(data[., vars], ctl=ctl);
+    // Estimate BVAR(4) with white noise prior (data is in growth rates)
+    result = bvarFit(data[., vars], p=4, ar=0);
 
 You should see::
 
@@ -120,11 +110,7 @@ shock to one variable on all variables:
 ::
 
     // Estimate OLS VAR for IRF computation
-    vctl = varControlCreate();
-    vctl.p = 4;
-    vctl.quiet = 1;
-
-    rv = varFit(data[., vars], ctl=vctl);
+    rv = varFit(data[., vars], p=4, quiet=1);
 
     // Compute Cholesky IRFs, 20 quarters ahead
     irf = irfCompute(rv, 20);
@@ -195,23 +181,9 @@ for model selection:
 
 ::
 
-    ctl1 = bvarControlCreate();
-    ctl1.ar = 0;
-    ctl1.quiet = 1;
-
-    ctl2 = bvarControlCreate();
-    ctl2.p = 2;
-    ctl2.ar = 0;
-    ctl2.quiet = 1;
-
-    ctl4 = bvarControlCreate();
-    ctl4.p = 4;
-    ctl4.ar = 0;
-    ctl4.quiet = 1;
-
-    r1 = bvarFit(data[., vars], ctl1);
-    r2 = bvarFit(data[., vars], ctl2);
-    r4 = bvarFit(data[., vars], ctl4);
+    r1 = bvarFit(data[., vars], ar=0, quiet=1);
+    r2 = bvarFit(data[., vars], p=2, ar=0, quiet=1);
+    r4 = bvarFit(data[., vars], p=4, ar=0, quiet=1);
 
     print "Log ML(p=1):" r1.log_ml;
     print "Log ML(p=2):" r2.log_ml;
@@ -250,18 +222,10 @@ Everything above, in one runnable file:
     vars = "gdp_growth" $| "cpi_inflation" $| "fed_funds";
 
     // ---- BVAR(4) with white noise prior ----
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.ar = 0;
-
-    result = bvarFit(data[., vars], ctl=ctl);
+    result = bvarFit(data[., vars], p=4, ar=0);
 
     // ---- Impulse responses ----
-    vctl = varControlCreate();
-    vctl.p = 4;
-    vctl.quiet = 1;
-
-    rv = varFit(data[., vars], ctl=vctl);
+    rv = varFit(data[., vars], p=4, quiet=1);
 
     irf = irfCompute(rv, 20);
 
@@ -274,11 +238,7 @@ Everything above, in one runnable file:
     fc = bvarForecast(result, 8);
 
     // ---- Model comparison ----
-    ctl2 = bvarControlCreate();
-    ctl2.p = 2;
-    ctl2.ar = 0;
-    ctl2.quiet = 1;
-    r2 = bvarFit(data[., vars], ctl2);
+    r2 = bvarFit(data[., vars], p=2, ar=0, quiet=1);
 
     print "";
     print "=== Model Comparison ===";

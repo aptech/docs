@@ -92,14 +92,11 @@ specification from Christiano, Eichenbaum & Evans (1999).
     // Load quarterly US macro data — loadd reads column names from the CSV header
     data = loadd("macro_quarterly.csv", "gdp_growth + cpi_inflation + fed_funds");
 
-    // Create a bvarControl structure and fill with default values
-    ctl = bvarControlCreate();
-    ctl.p = 4;            // 4 quarterly lags = 1 year of history
-    ctl.ar = 0;           // White noise prior: growth rates are mean-reverting,
-                          //   not persistent. Use ar=1 for levels data instead.
-
     // Estimate — draws are exact (conjugate posterior, no MCMC)
-    result = bvarFit(data, ctl=ctl);
+    // p=4: 4 quarterly lags = 1 year of history
+    // ar=0: White noise prior — growth rates are mean-reverting,
+    //   not persistent. Use ar=1 for levels data instead.
+    result = bvarFit(data, p=4, ar=0);
 
     // Cholesky IRFs: ordering matters — GDP is most exogenous, FFR most endogenous.
     // The ordering in the data (GDP, CPI, FFR) implies GDP doesn't respond
@@ -125,9 +122,7 @@ likelihood (Giannone, Lenza & Primiceri 2015).
     ho = bvarHyperopt(data);
 
     // Estimate with the optimized prior
-    ctl = ho.ctl;                    // Start from optimized settings
-    ctl.quiet = 1;                   // Suppress printed output
-    result = bvarFit(data, ctl=ctl);
+    result = bvarFit(data, ctl=ho.ctl, quiet=1);
 
     // Forecast 8 steps ahead with posterior predictive bands
     fc = bvarForecast(result, 8);
@@ -144,20 +139,11 @@ which improves density forecast calibration.
 
     data = loadd("returns.csv");
 
-    // Create an SV-BVAR control structure and fill with default values
-    svctl = bvarSvControlCreate();
-    svctl.p = 2;           // 2 lags — returns have weak serial dependence
-    svctl.ar = 0;          // White noise prior — returns are stationary
-    svctl.n_draws = 10000; // More draws for reliable tail quantiles (VaR)
-    svctl.n_burn = 5000;   // Discard first 5000 as burn-in (Gibbs sampler
-                           //   needs time to converge from starting values)
-
-    result = bvarSvFit(data, ctl=svctl);
+    // SV-BVAR: 2 lags, white noise prior, 10K draws for reliable tail quantiles
+    result = bvarSvFit(data, p=2, ar=0, n_draws=10000, n_burn=5000);
 
     // Density forecasts with time-varying volatility bands
-    fctl = svForecastControlCreate();
-    fctl.h = 12;
-    dfc = bvarSvForecast(result, fctl);
+    dfc = bvarSvForecast(result, 12);
 
 **Recipe 4: Oil market SVAR with sign restrictions**
 
@@ -173,28 +159,24 @@ e.g., a positive supply shock increases production and decreases prices.
     data = loadd("oil_kilian.csv");
 
     // Estimate reduced-form BVAR — matches Kilian (2009) specification
-    ctl = bvarControlCreate();
-    ctl.p = 24;            // 24 monthly lags = 2 years of history.
-                           //   Oil markets have long adjustment dynamics.
-    ctl.ar = 0;            // Data is in log-differences (stationary)
-
-    result = bvarFit(data, ctl=ctl);
+    // p=24: 24 monthly lags = 2 years (oil markets have long adjustment dynamics)
+    // ar=0: Data is in log-differences (stationary)
+    result = bvarFit(data, p=24, ar=0);
 
     // Structural identification via sign restrictions.
     // Each row is: [variable, shock, horizon, sign].
     //   sign: +1 = positive response required, -1 = negative
-    sctl = svarControlCreate();
-    sctl.sign_restr = { 1  1  1  1,    // Var 1 (production): + to supply shock
-                        2  1  1 -1,    // Var 2 (activity):   + to supply, - to speculative
-                        3  1  1  1,    // Var 3 (price):      + to supply
-                        1  2  1 -1,    // Var 1 (production): - to demand shock
-                        2  2  1  1,    // Var 2 (activity):   + to demand
-                        3  2  1  1 };  // Var 3 (price):      + to demand
+    sign_restr = { 1  1  1  1,    // Var 1 (production): + to supply shock
+                    2  1  1 -1,    // Var 2 (activity):   + to supply, - to speculative
+                    3  1  1  1,    // Var 3 (price):      + to supply
+                    1  2  1 -1,    // Var 1 (production): - to demand shock
+                    2  2  1  1,    // Var 2 (activity):   + to demand
+                    3  2  1  1 };  // Var 3 (price):      + to demand
 
-    sir = svarIrfCompute(result, sctl);   // Posterior IRF bands with sign-restricted draws
+    sir = svarIrfCompute(result, sign_restr);   // Posterior IRF bands with sign-restricted draws
 
-    // For time-varying volatility (modern extension), replace bvarFit/bvarControlCreate
-    // with bvarSvFit/bvarSvControlCreate and add svctl.n_draws = 10000; svctl.n_burn = 5000.
+    // For time-varying volatility (modern extension), replace bvarFit with
+    // bvarSvFit and add n_draws=10000, n_burn=5000 as keyword arguments.
 
 Function Comparison
 -------------------

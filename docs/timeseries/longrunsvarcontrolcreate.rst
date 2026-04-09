@@ -24,16 +24,14 @@ Examples
     new;
     library timeseries;
 
-    adv = longRunSvarControlCreate();
-
-    // Remove the constant and suppress output
-    adv.include_const = 0;
-    adv.quiet = 1;
-
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     y = loadd(fname, "gdp_growth + cpi_inflation");
 
-    lr = longRunSvar(y, 20, 4, adv);
+    // Remove the constant — use struct for non-keyword settings
+    adv = longRunSvarControlCreate();
+    adv.const = 0;
+
+    lr = longRunSvar(y, 20, p=4, quiet=1, ctl=adv);
 
 Library
 -------

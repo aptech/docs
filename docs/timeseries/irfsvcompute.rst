@@ -42,11 +42,7 @@ SV-BVAR IRF with Credible Bands
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarSvControlCreate();
-    ctl.p = 4;
-    ctl.n_draws = 10000;
-    ctl.n_burn = 5000;
-    result = bvarSvFit(data, ctl, quiet=1);
+    result = bvarSvFit(data, p=4, n_draws=10000, n_burn=5000, quiet=1);
 
     irf = irfSvCompute(result, 20);
 

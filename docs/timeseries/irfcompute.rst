@@ -87,10 +87,7 @@ IRF from BVAR with Shrinkage
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-
-    br = bvarFit(data, ctl=ctl, quiet=1);
+    br = bvarFit(data, p=4, quiet=1);
 
     // IRF at the posterior mean of B and Sigma
     irf = irfCompute(br, 20);

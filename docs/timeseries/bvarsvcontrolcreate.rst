@@ -27,16 +27,12 @@ Examples
     ctl = bvarSvControlCreate();
 
     // 4-chain SV-BVAR with SSVS
-    ctl.p = 4;
-    ctl.n_draws = 10000;
-    ctl.n_burn = 5000;
     ctl.n_chains = 4;
     ctl.parallel = 1;
-    ctl.ssvs = 1;
 
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
-    result = bvarSvFit(data, ctl=ctl);
+    result = bvarSvFit(data, p=4, ssvs=1, n_draws=10000, n_burn=5000, ctl=ctl);
 
 Library
 -------

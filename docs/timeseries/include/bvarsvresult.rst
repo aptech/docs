@@ -13,7 +13,7 @@
    * - result.n_total
      - Scalar, total number of observations (T).
 
-   * - result.include_const
+   * - result.const
      - Scalar, 1 if a constant was included.
 
    * - result.var_names

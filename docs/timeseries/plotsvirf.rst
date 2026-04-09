@@ -27,14 +27,7 @@ Posterior IRF with Bands
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    svctl = bvarSvControlCreate();
-    svctl.p = 4;
-    svctl.ar = 0;
-    svctl.n_draws = 5000;
-    svctl.n_burn = 2000;
-    svctl.quiet = 1;
-
-    svr = bvarSvFit(data, ctl=svctl);
+    svr = bvarSvFit(data, p=4, ar=0, n_draws=5000, n_burn=2000, quiet=1);
     irf = irfSvCompute(svr, 20);
 
     // 3×3 grid with shaded credible bands

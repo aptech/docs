@@ -30,11 +30,7 @@ Basic Forecast Plot
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.ar = 0;
-
-    result = bvarFit(data, ctl=ctl);
+    result = bvarFit(data, p=4, ar=0);
     fc = bvarForecast(result, 8);
 
     // One line — produces m stacked panels with fan charts

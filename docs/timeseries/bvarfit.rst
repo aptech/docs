@@ -9,7 +9,7 @@ Format
 ------
 
 .. function:: result = bvarFit(y)
-              result = bvarFit(y, p=1, n_draws=5000, overall_tightness=0.2, quiet=0, ctl={})
+              result = bvarFit(y, p=1, prior="minnesota", n_draws=5000, seed=42, overall_tightness=0.2, xreg={}, quiet=0, ctl={})
 
    :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
    :type y: TxM matrix or dataframe
@@ -17,11 +17,20 @@ Format
    :param p: Optional keyword, lag order. Default = 1.
    :type p: scalar
 
+   :param prior: Optional keyword, prior type. ``"minnesota"`` for conjugate Normal-Inverse-Wishart (default), ``"flat"`` for diffuse prior estimated via Gibbs sampling.
+   :type prior: string
+
    :param n_draws: Optional keyword, number of posterior draws. Default = 5000.
    :type n_draws: scalar
 
+   :param seed: Optional keyword, RNG seed for reproducible posterior draws. Default = 42.
+   :type seed: scalar
+
    :param overall_tightness: Optional keyword, overall tightness. Controls how much data vs prior matters. Default = 0.2.
    :type overall_tightness: scalar
+
+   :param xreg: Optional keyword, exogenous regressors included in every equation. Pass ``{}`` (default) for no exogenous variables.
+   :type xreg: TxK matrix or dataframe
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
@@ -55,11 +64,7 @@ Estimate a 3-variable BVAR(4) on GDP growth, CPI inflation, and the federal fund
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.ar = 0;               // Growth rates → white noise prior
-
-    result = bvarFit(data, ctl=ctl);
+    result = bvarFit(data, p=4, ar=0);
 
 Output:
 
@@ -98,17 +103,9 @@ Compare Lag Orders with Bayes Factors
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarControlCreate();
-    ctl.quiet = 1;
-
-    ctl.p = 1;
-    r1 = bvarFit(data, ctl=ctl);
-
-    ctl.p = 2;
-    r2 = bvarFit(data, ctl=ctl);
-
-    ctl.p = 4;
-    r4 = bvarFit(data, ctl=ctl);
+    r1 = bvarFit(data, p=1, quiet=1);
+    r2 = bvarFit(data, p=2, quiet=1);
+    r4 = bvarFit(data, p=4, quiet=1);
 
     print "Log ML(p=1):" r1.log_ml;
     print "Log ML(p=2):" r2.log_ml;
@@ -133,11 +130,10 @@ Sum-of-coefficients and single-unit-root priors stabilize long-horizon forecasts
     data = loadd(fname);
 
     ctl = bvarControlCreate();
-    ctl.p = 4;
     ctl.soc_tightness = 5;          // Sum-of-coefficients
     ctl.sur_tightness = 5;          // Single-unit-root
 
-    result = bvarFit(data, ctl=ctl);
+    result = bvarFit(data, p=4, ctl=ctl);
 
     // 8-step-ahead forecast
     fc = bvarForecast(result, 8);

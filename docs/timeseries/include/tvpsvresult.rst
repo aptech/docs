@@ -16,7 +16,7 @@
    * - result.n_draws
      - Scalar, number of posterior draws kept.
 
-   * - result.include_const
+   * - result.const
      - Scalar, 1 if a constant was included.
 
    * - result.var_names

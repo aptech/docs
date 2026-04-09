@@ -47,13 +47,10 @@ Multi-Chain SV-BVAR
     data = loadd(fname);
 
     ctl = bvarSvControlCreate();
-    ctl.p = 4;
-    ctl.n_draws = 10000;
-    ctl.n_burn = 5000;
     ctl.n_chains = 4;
     ctl.parallel = 1;
 
-    result = bvarSvFit(data, ctl=ctl, quiet=1);
+    result = bvarSvFit(data, p=4, n_draws=10000, n_burn=5000, ctl=ctl, quiet=1);
 
     // Multi-chain diagnostics (cross-chain R-hat)
     diag = varDiagnosticsMulti(result);

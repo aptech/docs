@@ -9,7 +9,7 @@ Format
 ------
 
 .. function:: t = dmTest(loss_a, loss_b)
-              t = dmTest(loss_a, loss_b, h=4)
+              t = dmTest(loss_a, loss_b, h=1, quiet=0)
 
    :param loss_a: loss series for model A (e.g., squared forecast errors).
    :type loss_a: Nx1 vector
@@ -19,6 +19,9 @@ Format
 
    :param h: Optional keyword, forecast horizon for HLN small-sample correction (Harvey, Leybourne & Newbold 1997). Default = 1 (no correction).
    :type h: scalar
+
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :type quiet: scalar
 
    :return t: An instance of a :class:`testResult` structure containing statistic, p_value, p_value_one_sided, and n.
    :rtype t: struct

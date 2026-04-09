@@ -9,15 +9,22 @@ Format
 ------
 
 .. function:: ho = bvarHyperopt(y)
-              ho = bvarHyperopt(y, quiet=0, ctl={})
+              ho = bvarHyperopt(y, p=4)
+              ho = bvarHyperopt(y, p=4, ctl=ctl)
 
    :param y: endogenous variables.
    :type y: TxM matrix or dataframe
 
+   :param p: Optional keyword, lag order. Default = 1.
+   :type p: scalar
+
+   :param xreg: Optional keyword, exogenous regressors. Default = {} (none).
+   :type xreg: TxK matrix or dataframe
+
    :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
    :type quiet: scalar
 
-   :param ctl: Optional keyword, a :class:`bvarControl` structure with initial hyperparameter values. The optimization mode is determined by which tightness values are nonzero:
+   :param ctl: Optional keyword, a :class:`bvarControl` structure with initial hyperparameter values. When provided, struct values are used and keywords are ignored. The optimization mode is determined by which tightness values are nonzero:
 
        - *soc_tightness* = 0, *sur_tightness* = 0: optimize overall_tightness only
        - *soc_tightness* > 0: optimize overall_tightness + soc_tightness (SOC)
@@ -90,11 +97,10 @@ Optimize with SOC and SUR
     data = loadd(fname);
 
     ctl = bvarControlCreate();
-    ctl.p = 4;
     ctl.soc_tightness = 1;      // Enable SOC (initial value)
     ctl.sur_tightness = 1;      // Enable SUR (initial value)
 
-    ho = bvarHyperopt(data, ctl=ctl);
+    ho = bvarHyperopt(data, p=4, ctl=ctl);
     result = bvarFit(data, ctl=ho.ctl);
 
     print "Optimal overall_tightness:" ho.overall_tightness;

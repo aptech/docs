@@ -1,7 +1,7 @@
 .. list-table::
    :widths: auto
 
-   * - adv.include_const
+   * - adv.const
      - Scalar, 1 to include a constant (intercept), 0 to exclude. Default = 1.
 
    * - adv.xreg

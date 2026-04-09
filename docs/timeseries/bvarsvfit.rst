@@ -9,10 +9,34 @@ Format
 ------
 
 .. function:: result = bvarSvFit(y)
-              result = bvarSvFit(y, quiet=0, ctl={})
+              result = bvarSvFit(y, p=1, const=1, ssvs=0, n_draws=5000, n_burn={}, seed=42, overall_tightness=0.2, xreg={}, quiet=0, ctl={})
 
    :param y: endogenous variables. If a dataframe, column names are used as variable names.
    :type y: TxM matrix or dataframe
+
+   :param p: Optional keyword, lag order. Default = 1.
+   :type p: scalar
+
+   :param const: Optional keyword, 1 to include a constant (default), 0 to exclude.
+   :type const: scalar
+
+   :param ssvs: Optional keyword, set to 1 to enable stochastic search variable selection (SSVS). Default = 0.
+   :type ssvs: scalar
+
+   :param n_draws: Optional keyword, number of posterior draws to retain after burn-in. Default = 5000.
+   :type n_draws: scalar
+
+   :param n_burn: Optional keyword, number of burn-in draws to discard. Pass ``{}`` to use the default (equal to *n_draws*).
+   :type n_burn: scalar
+
+   :param seed: Optional keyword, RNG seed for reproducible posterior draws. Default = 42.
+   :type seed: scalar
+
+   :param overall_tightness: Optional keyword, overall tightness of the Minnesota prior. Controls how much data vs prior matters. Default = 0.2.
+   :type overall_tightness: scalar
+
+   :param xreg: Optional keyword, exogenous regressors included in every equation. Pass ``{}`` (default) for no exogenous variables.
+   :type xreg: TxK matrix or dataframe
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*. Default = 0.
    :type quiet: scalar
@@ -80,13 +104,10 @@ Run 4 parallel chains for convergence diagnostics:
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
-    ctl.p = 4;
-    ctl.n_draws = 10000;
-    ctl.n_burn = 5000;
     ctl.n_chains = 4;
     ctl.parallel = 1;
 
-    result = bvarSvFit(data, ctl=ctl);
+    result = bvarSvFit(data, p=4, n_draws=10000, n_burn=5000, ctl=ctl);
 
 SV-BVAR with SSVS Variable Selection
 +++++++++++++++++++++++++++++++++++++
@@ -101,12 +122,7 @@ Enable stochastic search variable selection to identify which coefficients are n
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    struct bvarSvControl ctl;
-    ctl = bvarSvControlCreate();
-    ctl.p = 4;
-    ctl.ssvs = 1;
-
-    result = bvarSvFit(data, ctl=ctl);
+    result = bvarSvFit(data, p=4, ssvs=1);
 
     // Posterior inclusion probabilities
     print "B inclusion probabilities:";
@@ -132,13 +148,10 @@ For large systems where storing all draws is infeasible, use online mode:
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
-    ctl.p = 2;
     ctl.sv_keep = "online";
     ctl.reservoir_size = 1000;
-    ctl.n_draws = 50000;
-    ctl.n_burn = 10000;
 
-    result = bvarSvFit(data, ctl=ctl);
+    result = bvarSvFit(data, p=2, n_draws=50000, n_burn=10000, ctl=ctl);
 
     // Posterior means available via streaming moments
     print result.b_online_mean;
@@ -154,11 +167,7 @@ SV-BVAR with Exogenous Regressors
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    struct bvarSvControl ctl;
-    ctl = bvarSvControlCreate();
-    ctl.p = 4;
-
-    result = bvarSvFit(y, ctl=ctl);
+    result = bvarSvFit(y, p=4);
 
 Remarks
 -------

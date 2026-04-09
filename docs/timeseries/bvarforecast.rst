@@ -9,8 +9,8 @@ Format
 ------
 
 .. function:: fc = bvarForecast(result, h)
-              fc = bvarForecast(result, h, xreg=X_future)
               fc = bvarForecast(result, h, level=0.90)
+              fc = bvarForecast(result, h, level=0.68, n_draws={}, seed=42, quiet=0)
 
    :param result: an instance of a :class:`bvarResult` structure returned by :func:`bvarFit`.
    :type result: struct
@@ -23,6 +23,12 @@ Format
 
    :param level: Optional keyword, credible level for prediction bands. Default = 0.68.
    :type level: scalar
+
+   :param n_draws: Optional keyword, number of forecast draws. Pass ``{}`` (default) to use the number of posterior draws from the fitted model.
+   :type n_draws: scalar
+
+   :param seed: Optional keyword, RNG seed for reproducible forecast draws. Default = 42.
+   :type seed: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
@@ -97,13 +103,8 @@ Compare Forecasts Across Lag Orders
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     data = loadd(fname);
 
-    ctl = bvarControlCreate();
-
-    ctl.p = 2;
-    r2 = bvarFit(data, ctl=ctl, quiet=1);
-
-    ctl.p = 4;
-    r4 = bvarFit(data, ctl=ctl, quiet=1);
+    r2 = bvarFit(data, p=2, quiet=1);
+    r4 = bvarFit(data, p=4, quiet=1);
 
     fc2 = bvarForecast(r2, 12, quiet=1);
     fc4 = bvarForecast(r4, 12, quiet=1);

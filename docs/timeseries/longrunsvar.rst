@@ -9,9 +9,8 @@ Format
 ------
 
 .. function:: lr = longRunSvar(y, n_ahead)
-              lr = longRunSvar(y, n_ahead, p)
-              lr = longRunSvar(y, n_ahead, adv)
-              lr = longRunSvar(y, n_ahead, p, adv)
+              lr = longRunSvar(y, n_ahead, p=4)
+              lr = longRunSvar(y, n_ahead, p=4, xreg=X)
 
    :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
    :type y: TxM matrix or dataframe
@@ -19,10 +18,16 @@ Format
    :param n_ahead: number of impulse response horizons to compute (h = 0, 1, ..., n_ahead).
    :type n_ahead: scalar
 
-   :param p: Optional input, lag order. Default = 1.
+   :param p: Optional keyword, lag order. Default = 1.
    :type p: scalar
 
-   :param adv: Optional input, an instance of a :class:`longRunSvarControl` structure. An instance is initialized by calling :func:`longRunSvarControlCreate` and the following members can be set:
+   :param xreg: Optional keyword, TxK exogenous regressors. Default = {} (none).
+   :type xreg: matrix or dataframe
+
+   :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`longRunSvarControl` structure. When provided, struct values are used and keywords are ignored. An instance is initialized by calling :func:`longRunSvarControlCreate` and the following members can be set:
 
        .. include:: include/longrunsvarcontrol.rst
 
@@ -52,7 +57,7 @@ The classic Blanchard and Quah (1989) decomposition with GDP growth and unemploy
     y = loadd(fname, "gdp_growth + unemployment");
 
     // Long-run SVAR with 4 lags and 20-step IRF
-    lr = longRunSvar(y, 20, 4);
+    lr = longRunSvar(y, 20, p=4);
 
 Output:
 
@@ -86,7 +91,7 @@ Identify technology shocks using labor productivity and hours worked. Only the t
     // Ordering: productivity first, hours second
     // Technology shock = permanent productivity effect
     // Non-technology shock = zero long-run productivity effect
-    lr = longRunSvar(y, 40, 8);
+    lr = longRunSvar(y, 40, p=8);
 
     // Access IRF at horizon 10: response of hours to technology shock
     print "Hours response to technology shock at h=10:";
@@ -105,12 +110,7 @@ Include a time trend as an exogenous regressor:
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
     y = loadd(fname, "gdp_growth + cpi_inflation");
 
-    adv = longRunSvarControlCreate();
-    adv.p = 4;
-    adv.xreg = seqa(1, 1, rows(y));   // linear trend
-    adv.quiet = 1;
-
-    lr = longRunSvar(y, 20, adv);
+    lr = longRunSvar(y, 20, p=4, xreg=seqa(1, 1, rows(y)), quiet=1);
 
     print "Structural impact matrix:";
     print lr.impact;
