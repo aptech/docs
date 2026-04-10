@@ -4,6 +4,16 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+26.1.1
+------
+
+#. New feature: Autocomplete calltips for library procedures. Typing ``varFit(`` now shows the full argument signature with keyword defaults in a tooltip, e.g., ``varFit(y, p = 1, const = 1, xreg = {}, quiet = 0, ctl = {})``. Works for all procedures in active libraries and for libraries referenced by ``library`` statements in the current file, even before the code is run.
+#. Enhanced functionality: Struct type inference now works for procedures that use ``proc (N) = name(...)`` headers without typed return declarations. The compiler scans the procedure body for ``struct`` local declarations and ``retp()`` calls to infer return types automatically.
+#. Enhanced functionality: ``plotGetDefaults`` return type is now inferred automatically. ``plt = plotGetDefaults("xy")`` works without first declaring ``struct plotControl plt``.
+#. Enhanced functionality: External links (http/https) in the help viewer now open in the system browser instead of the internal help panel.
+#. Bug fix: Keyword argument calls at the beginning of a statement (e.g., ``simulate(4, nvars=2);``) were incorrectly identified as assignment statements, producing G0156 and G0136 errors.
+#. Bug fix: Library procedures called with keyword argument syntax produced G0165 "undefined symbol" errors at runtime because the eager-parse stub prevented the library source from being compiled.
+
 26.1.0
 ------
 
