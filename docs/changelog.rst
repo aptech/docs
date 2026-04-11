@@ -16,6 +16,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: ``gpkg`` package installer now accepts zip files with an extra wrapper folder, which occurs when browsers auto-extract a download and the user re-zips it.
 #. Enhanced functionality: ``gpkg`` package installer security and robustness improvements, including path validation, write-error detection, and platform file filtering.
 #. Bug fix: Keyword argument calls that omit a required positional argument (e.g., ``f(x, name=val)`` when ``f`` requires two positional arguments) now produce a clear error message (G0744) instead of the misleading G0029 "Missing left parenthesis."
+#. Bug fix: :func:`minimize` now reports the correct number of function evaluations when using numerical gradients. Previously, only the base evaluations were counted and the evaluations for finite-difference gradient approximation were omitted.
+#. Enhanced functionality: :func:`minimize` numerical gradient computation now checks for non-finite objective values before computing the gradient, and falls back to one-sided finite differences when a perturbed evaluation returns NaN or Inf instead of aborting. Produces a clear diagnostic when bounds should be tightened.
+#. Bug fix: Struct return type inference for library procedures with multi-line ``proc`` headers (declaration spanning multiple lines) now works correctly.
 
 26.1.0
 ------
