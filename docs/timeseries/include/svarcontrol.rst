@@ -35,11 +35,5 @@
        2   ARW2018 null-space construction. Required for zero restrictions. Also works for pure sign restrictions.
        === ==================================================================
 
-   * - adv.max_tries
-     - Scalar, maximum rotation attempts per posterior draw. Default = 10000.
-
-   * - adv.seed
-     - Scalar, RNG seed for reproducibility. Default = 42.
-
    * - adv.quiet
      - Scalar, set to 1 to suppress printed output. Default = 0.

@@ -8,16 +8,34 @@ Find a structural rotation satisfying sign restrictions for a single VAR or BVAR
 Format
 ------
 
-.. function:: sr = svarIdentify(result, ctl)
+.. function:: sr = svarIdentify(result, sign_restr)
+              sr = svarIdentify(result, sign_restr, n_ahead=20, max_tries=10000, seed=42, quiet=0)
 
    :param result: an instance of a :class:`varResult` or :class:`bvarResult` structure.
    :type result: struct
 
-   :param ctl: an instance of an :class:`svarControl` structure with sign restrictions defined. An instance is initialized by calling :func:`svarControlCreate` and the following members can be set:
+   :param sign_restr: Nx4 matrix of sign restrictions on impulse responses. Each row specifies one restriction:
 
-       .. include:: include/svarcontrol.rst
+       === ==================================================================
+       1   Variable index (1 to m) -- the responding variable.
+       2   Shock index (1 to m) -- the structural shock.
+       3   Horizon (0 = impact, 1 = one step ahead, etc.).
+       4   Sign: 1 for positive response, -1 for negative response.
+       === ==================================================================
 
-   :type ctl: struct
+   :type sign_restr: Nx4 matrix
+
+   :param n_ahead: Optional keyword, number of IRF horizons to compute. Default = 20.
+   :type n_ahead: scalar
+
+   :param max_tries: Optional keyword, maximum number of rotation attempts before giving up. Default = 10000.
+   :type max_tries: scalar
+
+   :param seed: Optional keyword, RNG seed for reproducible rotation draws. Default = 42.
+   :type seed: scalar
+
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :type quiet: scalar
 
    :return sr: An instance of an :class:`svarResult` structure containing:
 
@@ -61,16 +79,13 @@ Monetary Policy SVAR
 
     result = varFit(y, 4);
 
-    // Define sign restrictions
-    ctl = svarControlCreate();
-
-    // [variable, shock, horizon, sign]
+    // Sign restrictions: [variable, shock, horizon, sign]
     // Monetary shock (shock 3): FFR up, GDP down, CPI down at impact
-    ctl.sign_restr = { 3 3 0  1,       // FFR positive
-                       1 3 0 -1,       // GDP negative
-                       2 3 0 -1 };     // CPI negative
+    sign_restr = { 3 3 0  1,       // FFR positive
+                   1 3 0 -1,       // GDP negative
+                   2 3 0 -1 };     // CPI negative
 
-    sr = svarIdentify(result, ctl);
+    sr = svarIdentify(result, sign_restr);
 
     print "Structural impact matrix P:";
     print sr.p;
@@ -89,9 +104,9 @@ all sign restrictions on the implied IRFs. Returns the first accepted rotation.
 (e.g., from an OLS VAR). For posterior inference with credible bands, use
 :func:`svarIrfCompute` with a :class:`bvarResult` or :class:`bvarSvResult`.
 
-**Zero restrictions** are not currently supported. Setting *ctl.zero_restr*
-raises an error. Zero restrictions require the ARW2018 null-space algorithm,
-which is planned for a future release.
+**Zero restrictions** are not currently supported in :func:`svarIdentify`.
+Zero restrictions require the ARW2018 null-space algorithm; use
+:func:`svarIrfCompute` with an :class:`svarControl` struct for zero restrictions.
 
 Model
 -----
@@ -112,7 +127,7 @@ Algorithm
 3. Form candidate :math:`P = L \cdot Q`.
 4. Compute IRFs :math:`\Theta_h = J F^h J' P` at all restricted horizons.
 5. Check all sign restrictions. If satisfied, return :math:`P`. Otherwise, go to step 2.
-6. Repeat up to *ctl.max_tries* times.
+6. Repeat up to *max_tries* times.
 
 **Complexity:** :math:`O(\text{max\_tries} \cdot h_{\max} \cdot m^2 p^2)` worst case. Acceptance rates depend on how restrictive the sign constraints are.
 
@@ -121,7 +136,7 @@ Troubleshooting
 
 **No valid rotation found (max_tries exceeded):**
 The sign restrictions may be too numerous, contradictory, or implausible for this data.
-Relax some restrictions or increase *ctl.max_tries*.
+Relax some restrictions or increase *max_tries*.
 
 **Low acceptance rate (< 1%):**
 Many restrictions at long horizons are hard to satisfy. Start with impact-only
