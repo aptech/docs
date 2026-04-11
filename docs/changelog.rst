@@ -13,6 +13,9 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: External links (http/https) in the help viewer now open in the system browser instead of the internal help panel.
 #. Bug fix: Keyword argument calls at the beginning of a statement (e.g., ``simulate(4, nvars=2);``) were incorrectly identified as assignment statements, producing G0156 and G0136 errors.
 #. Bug fix: Library procedures called with keyword argument syntax produced G0165 "undefined symbol" errors at runtime because the eager-parse stub prevented the library source from being compiled.
+#. Enhanced functionality: ``gpkg`` package installer now accepts zip files with an extra wrapper folder, which occurs when browsers auto-extract a download and the user re-zips it.
+#. Enhanced functionality: ``gpkg`` package installer security and robustness improvements, including path validation, write-error detection, and platform file filtering.
+#. Bug fix: Keyword argument calls that omit a required positional argument (e.g., ``f(x, name=val)`` when ``f`` requires two positional arguments) now produce a clear error message (G0744) instead of the misleading G0029 "Missing left parenthesis."
 
 26.1.0
 ------
