@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+26.1.2
+------
+
+#. Bug fix: Keyword procedures called before their definition now resolve default arguments correctly. This includes forward references within a single file (calling ``myproc()`` above ``proc myproc(x=1)``) and keyword procs defined in ``#include``d files. Previously produced a confusing ``G0029 Missing left parenthesis`` error at runtime.
+
 26.1.1
 ------
 
