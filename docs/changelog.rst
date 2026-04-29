@@ -4,6 +4,11 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+26.1.3
+------
+
+#. Bug fix: Profiler GUI on the GAUSS Engine failed with "tcollect not found" because the Engine ships the profiler binary as ``encollect``. The GUI now selects the correct binary name based on the build SKU.
+
 26.1.2
 ------
 
