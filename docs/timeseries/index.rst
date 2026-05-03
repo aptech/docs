@@ -12,6 +12,7 @@ Description
 It provides:
 
 - **Univariate models:** ARIMA, SARIMA, ARIMAX with automatic order selection
+- **Exponential smoothing:** ETS model selection, fitting, forecasting, and diagnostics
 - **Vector autoregression:** OLS VAR, Bayesian VAR (Minnesota prior), BVAR with stochastic volatility
 - **Structural identification:** Cholesky IRF, generalized IRF, sign-restricted SVAR
 - **Forecasting:** Point, density, and conditional (scenario) forecasts
@@ -48,6 +49,25 @@ ARIMA / Univariate
      - Reprint estimation summary table.
    * - :func:`arimaCoefTable`
      - Return coefficient table as dataframe.
+
+ETS / Exponential Smoothing
++++++++++++++++++++++++++++
+
+.. list-table::
+   :widths: auto
+
+   * - :func:`autoEts`
+     - Automatically select and fit a supported ETS model by AICc.
+   * - :func:`etsFit`
+     - Fit a fixed or semi-automatic ETS(error, trend, season) specification.
+   * - :func:`etsForecast`
+     - Generate forecasts from a fitted ETS model.
+   * - :func:`etsResults`
+     - Reprint the ETS estimation summary.
+   * - :func:`etsCoefTable`
+     - Return ETS smoothing parameters and summary fields as a dataframe.
+   * - :func:`etsDiagnostics`
+     - Compute residual diagnostics for a fitted ETS model.
 
 VAR Estimation
 +++++++++++++++
@@ -170,6 +190,10 @@ Plotting
 
    * - :func:`plotForecast`
      - Forecast fan chart with historical data and prediction bands.
+   * - :func:`etsPlotForecast`
+     - ETS forecast chart with historical data and prediction bands.
+   * - :func:`etsPlotResiduals`
+     - ETS residual diagnostics plot.
    * - :func:`plotIrf`
      - Impulse response function grid (m × m).
    * - :func:`plotSvIrf`
@@ -195,6 +219,8 @@ Control Structure Creators
      - Create :class:`svForecastControl` with defaults.
    * - :func:`svarControlCreate`
      - Create :class:`svarControl` with defaults.
+   * - :func:`etsControlCreate`
+     - Create :class:`etsControl` with defaults.
 
 .. toctree::
     :maxdepth: 1
@@ -208,6 +234,7 @@ Control Structure Creators
     textbook-mapping
     bgr-replication
     var-verification
+    getting-started-ets
 
 .. toctree::
     :maxdepth: 1
@@ -219,6 +246,21 @@ Control Structure Creators
     arimacontrolcreate
     arimaresults
     arimacoeftable
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: ETS
+
+    autoets
+    etsfit
+    etsforecast
+    etscontrolcreate
+    etsresults
+    etscoeftable
+    etsdiagnostics
+    etsplotforecast
+    etsplotresiduals
 
 .. toctree::
     :maxdepth: 1
@@ -305,6 +347,8 @@ Control Structure Creators
     :caption: Plotting
 
     plotforecast
+    etsplotforecast
+    etsplotresiduals
     plotirf
     plotsvirf
     plotresiduals
