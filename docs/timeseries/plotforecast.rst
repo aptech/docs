@@ -10,12 +10,19 @@ Format
 ------
 
 .. function:: plotForecast(result, fc)
+              plotForecast(result, fc, history=24)
 
    :param result: Estimation result containing historical data.
    :type result: struct bvarResult
 
    :param fc: Forecast result from :func:`bvarForecast`.
    :type fc: struct forecastResult
+
+   :param history: Optional keyword, number of final historical observations to
+       show before the forecast begins. If omitted, the plot shows the last 20%
+       of the sample or 40 observations, whichever is larger, capped at the
+       sample length.
+   :type history: scalar
 
 Examples
 --------
@@ -36,6 +43,13 @@ Basic Forecast Plot
     // One line — produces m stacked panels with fan charts
     plotForecast(result, fc);
 
+Compact History Window
+++++++++++++++++++++++
+
+::
+
+    plotForecast(result, fc, history=24);
+
 Save to File
 ++++++++++++
 
@@ -50,9 +64,11 @@ Remarks
 **Layout:** For multivariate models, each variable gets its own panel in a
 vertical stack. Panels are auto-titled with variable names from the result struct.
 
-**Historical context:** The plot shows the last 20% of the training data (or 40
-observations, whichever is larger) leading into the forecast horizon. This lets
-you see how the forecast extends from the observed data.
+**Historical context:** By default, the plot shows the last 20% of the training
+data or 40 observations, whichever is larger, leading into the forecast horizon.
+The displayed history is capped at the sample length. Use ``history=N`` to show
+the last ``N`` historical observations instead; this is also capped at the sample
+length.
 
 **Layering:** Historical data is plotted as a solid black line. The forecast band
 is a shaded gray area between the lower and upper bounds. The forecast median is
@@ -61,4 +77,4 @@ a solid blue line.
 **Band level:** The band corresponds to the *level* used in the :func:`bvarForecast`
 call (default 68%). To show 90% bands, use ``bvarForecast(result, h, 0.90)``.
 
-.. seealso:: Functions :func:`bvarForecast`, :func:`bvarFit`
+.. seealso:: Functions :func:`bvarForecast`, :func:`bvarFit`, :func:`bvarMacroForecastPlot`
