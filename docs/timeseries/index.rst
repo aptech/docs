@@ -96,6 +96,10 @@ Forecasting
      - Point forecasts with confidence intervals from VAR.
    * - :func:`bvarForecast`
      - Posterior predictive forecasts with credible bands.
+   * - :func:`bvarMacroForecast`
+     - Run the standard reduced-form macro BVAR forecasting workflow.
+   * - :func:`bvarMacroForecastPrint`
+     - Print a workflow summary and forecast tables from :func:`bvarMacroForecast`.
    * - :func:`bvarSvForecast`
      - Density forecasts from SV-BVAR with time-varying volatility.
    * - :func:`condForecast`
@@ -190,6 +194,8 @@ Plotting
 
    * - :func:`plotForecast`
      - Forecast fan chart with historical data and prediction bands.
+   * - :func:`bvarMacroForecastPlot`
+     - Plot the forecast fan chart from a :func:`bvarMacroForecast` workflow result.
    * - :func:`etsPlotForecast`
      - ETS forecast chart with historical data and prediction bands.
    * - :func:`etsPlotResiduals`
@@ -234,6 +240,7 @@ Control Structure Creators
     textbook-mapping
     bgr-replication
     var-verification
+    getting-started-bvar-forecast
     getting-started-ets
 
 .. toctree::
@@ -283,6 +290,8 @@ Control Structure Creators
 
     varforecast
     bvarforecast
+    bvarmacroforecast
+    bvarmacroforecastprint
     bvarsvforecast
     condforecast
     svforecastcontrolcreate
@@ -347,6 +356,7 @@ Control Structure Creators
     :caption: Plotting
 
     plotforecast
+    bvarmacroforecastplot
     etsplotforecast
     etsplotresiduals
     plotirf
