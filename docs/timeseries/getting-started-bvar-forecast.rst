@@ -36,8 +36,8 @@ The Canonical Workflow
         seed=42,
         quiet=1);
 
-    call bvarMacroForecastPrint(wf, horizons=8);
-    call bvarMacroForecastPlot(wf, history=24);
+    call printForecast(wf, horizons=8);
+    plotForecast(wf, history=24);
 
 This is the same W1 pattern used by the shipped
 ``bvar_macro_forecast_fred_qd.e`` and ``bvar_macro_forecast_plot.e`` examples.
@@ -95,9 +95,9 @@ Step 3: Print Workflow Output
 
 ::
 
-    call bvarMacroForecastPrint(wf, horizons=8);
+    call printForecast(wf, horizons=8);
 
-The print helper reports the selected lag order, prior tightness, log marginal
+:func:`printForecast` reports the selected lag order, prior tightness, log marginal
 likelihoods, optional holdout scores, and forecast mean/lower/upper tables.
 
 To print a subset of variables by name:
@@ -105,13 +105,13 @@ To print a subset of variables by name:
 ::
 
     string vars = { "gdp", "cons", "inv" };
-    call bvarMacroForecastPrint(wf, vars=vars, horizons=8);
+    call printForecast(wf, vars=vars, horizons=8);
 
 To print variables by column index:
 
 ::
 
-    call bvarMacroForecastPrint(wf, vars={ 1, 3 }, horizons={ 1, 4, 8 });
+    call printForecast(wf, vars={ 1, 3 }, horizons={ 1, 4, 8 });
 
 ``vars`` and ``horizons`` follow these rules:
 
@@ -139,10 +139,10 @@ Step 4: Plot the Forecast
 
 ::
 
-    call bvarMacroForecastPlot(wf, history=24);
+    plotForecast(wf, history=24);
 
-The plot helper draws the W1 forecast fan chart from the final full-sample BVAR
-fit and forecast stored in ``wf``.
+:func:`plotForecast` draws the W1 forecast fan chart from the final
+full-sample BVAR fit and forecast stored in ``wf``.
 
 ``history`` controls how many final historical observations are shown before the
 forecast:
@@ -183,7 +183,7 @@ Concise 3-Variable Example
         seed=42,
         quiet=1);
 
-    call bvarMacroForecastPrint(wf, horizons=8);
+    call printForecast(wf, horizons=8);
 
 This matches the compact shipped example
 ``bvar_macro_forecast_3var_holdout.e``.
@@ -191,6 +191,6 @@ This matches the compact shipped example
 Related Functions
 -----------------
 
-See :func:`bvarMacroForecast`, :func:`bvarMacroForecastPrint`,
-:func:`bvarMacroForecastPlot`, and :func:`plotForecast` for function-level
-details.
+See :func:`bvarMacroForecast`, :func:`printForecast`,
+:func:`plotForecast`, :func:`bvarMacroForecastPrint`, and
+:func:`bvarMacroForecastPlot` for function-level details.

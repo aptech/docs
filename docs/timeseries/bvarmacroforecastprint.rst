@@ -3,7 +3,8 @@ bvarMacroForecastPrint
 
 Purpose
 -------
-Print a W1 macro BVAR workflow summary and forecast tables.
+Compatibility alias for printing W1 macro BVAR workflow forecast output. New
+code should use :func:`printForecast`.
 
 Format
 ------
@@ -30,23 +31,17 @@ Format
 Examples
 --------
 
-Print the First 8 Horizons
-++++++++++++++++++++++++++
+Preferred Form
+++++++++++++++
 
 ::
 
-    wf = bvarMacroForecast(y,
-        horizon=8,
-        holdout=20,
-        data_type="stationary",
-        max_lags=4,
-        lag_ic="bic",
-        tune="glp",
-        baseline="ols_var",
-        level=0.68,
-        n_draws=2000,
-        seed=42,
-        quiet=1);
+    call printForecast(wf, horizons=8);
+
+Compatibility Form
+++++++++++++++++++
+
+::
 
     call bvarMacroForecastPrint(wf, horizons=8);
 
@@ -68,12 +63,11 @@ Select Variables and Horizons by Index
 Remarks
 -------
 
-The printed summary includes the selected lag order, Minnesota prior tightness,
-training-sample and full-sample log marginal likelihoods, and holdout scores
-when the workflow was run with ``holdout > 0``.
+:func:`bvarMacroForecastPrint` remains available for existing workflow code. It
+prints the same workflow summary and forecast tables as
+``call printForecast(wf, ...)``.
 
-The forecast output includes three tables for the selected variables and
-horizons: forecast means, lower forecast bands, and upper forecast bands.
+For a lower-level :class:`forecastResult`, use :func:`printForecast` directly.
 
 Selection Rules
 ---------------
@@ -111,4 +105,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarMacroForecast`, :func:`bvarMacroForecastPlot`, :func:`plotForecast`
+.. seealso:: Functions :func:`printForecast`, :func:`bvarMacroForecast`, :func:`bvarMacroForecastPlot`, :func:`plotForecast`
