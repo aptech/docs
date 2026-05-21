@@ -47,22 +47,23 @@ Plot a Compact History Window
         seed=42,
         quiet=1);
 
-    call bvarMacroForecastPrint(wf, horizons=8);
-    call bvarMacroForecastPlot(wf, history=24);
+    call printForecast(wf, horizons=8);
+    plotForecast(wf, history=24);
 
 Default History Window
 ++++++++++++++++++++++
 
 ::
 
-    call bvarMacroForecastPlot(wf);
+    plotForecast(wf);
 
 Remarks
 -------
 
-:func:`bvarMacroForecastPlot` is a workflow-level wrapper around
-:func:`plotForecast`. It plots ``wf.fit`` and ``wf.forecast``, which are the
-final full-sample BVAR fit and forecast returned by :func:`bvarMacroForecast`.
+:func:`bvarMacroForecastPlot` remains available as a compatibility alias. New
+code can call :func:`plotForecast` directly with the workflow result. Both forms
+plot ``wf.fit`` and ``wf.forecast``, which are the final full-sample BVAR fit
+and forecast returned by :func:`bvarMacroForecast`.
 
 ``history`` follows the same rules as :func:`plotForecast`:
 
@@ -90,4 +91,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarMacroForecast`, :func:`bvarMacroForecastPrint`, :func:`plotForecast`
+.. seealso:: Functions :func:`bvarMacroForecast`, :func:`printForecast`, :func:`bvarMacroForecastPrint`, :func:`plotForecast`

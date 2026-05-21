@@ -115,7 +115,7 @@ Canonical W1 Forecast
         seed=42,
         quiet=1);
 
-    call bvarMacroForecastPrint(wf, horizons=8);
+    call printForecast(wf, horizons=8);
 
 Forecast and Plot
 +++++++++++++++++
@@ -138,8 +138,8 @@ Forecast and Plot
         seed=42,
         quiet=1);
 
-    call bvarMacroForecastPrint(wf, horizons=8);
-    call bvarMacroForecastPlot(wf, history=24);
+    call printForecast(wf, horizons=8);
+    plotForecast(wf, history=24);
 
 Remarks
 -------
@@ -154,8 +154,8 @@ conditional forecasts, stochastic volatility, TVP-VAR, or VECM analysis.
 **Dataframe labels:**
 Load data with :func:`loadd` and keep the dataframe when possible. Do not call
 ``asmatrix()`` on dataframe input before calling :func:`bvarMacroForecast`;
-that conversion drops variable names used by :func:`bvarMacroForecastPrint` and
-:func:`bvarMacroForecastPlot`.
+that conversion drops variable names used by :func:`printForecast` and
+:func:`plotForecast`.
 
 **Holdout behavior:**
 When ``holdout`` is positive, the workflow estimates and scores on the training
@@ -180,4 +180,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarMacroForecastPrint`, :func:`bvarMacroForecastPlot`, :func:`bvarForecast`, :func:`bvarFit`, :func:`varLagSelect`, :func:`bvarHyperopt`
+.. seealso:: Functions :func:`printForecast`, :func:`plotForecast`, :func:`bvarMacroForecastPrint`, :func:`bvarMacroForecastPlot`, :func:`bvarForecast`, :func:`bvarFit`, :func:`varLagSelect`, :func:`bvarHyperopt`
