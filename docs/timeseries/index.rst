@@ -98,8 +98,10 @@ Forecasting
      - Posterior predictive forecasts with credible bands.
    * - :func:`bvarMacroForecast`
      - Run the standard reduced-form macro BVAR forecasting workflow.
+   * - :func:`printForecast`
+     - Print forecast output from a workflow result or forecast result.
    * - :func:`bvarMacroForecastPrint`
-     - Print a workflow summary and forecast tables from :func:`bvarMacroForecast`.
+     - Compatibility alias for workflow forecast printing.
    * - :func:`bvarSvForecast`
      - Density forecasts from SV-BVAR with time-varying volatility.
    * - :func:`condForecast`
@@ -195,7 +197,7 @@ Plotting
    * - :func:`plotForecast`
      - Forecast fan chart with historical data and prediction bands.
    * - :func:`bvarMacroForecastPlot`
-     - Plot the forecast fan chart from a :func:`bvarMacroForecast` workflow result.
+     - Compatibility alias for plotting a :func:`bvarMacroForecast` workflow result.
    * - :func:`etsPlotForecast`
      - ETS forecast chart with historical data and prediction bands.
    * - :func:`etsPlotResiduals`
@@ -291,6 +293,7 @@ Control Structure Creators
     varforecast
     bvarforecast
     bvarmacroforecast
+    printforecast
     bvarmacroforecastprint
     bvarsvforecast
     condforecast
