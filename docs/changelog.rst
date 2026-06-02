@@ -7,6 +7,7 @@ The following is a list of changes from the previous version of GAUSS.
 26.1.4
 ------
 
+#. Bug fix: :func:`plotSetLinePen` now accepts string names for the line style parameter, such as ``"solid"``, ``"dash"``, and ``"dot"``.
 #. Bug fix: Fixed parser/scanner crashes that could occur when parsing unsaved editor buffers or large inputs requiring Flex ``REJECT`` state buffer growth.
 #. Bug fix: Keyword procedure declarations now reject required parameters after keyword parameters with defaults, and invalid keyword default expressions now produce clear compiler errors.
 #. Bug fix: Fixed string byte-length handling for scalar strings in procedure default argument processing.
