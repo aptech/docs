@@ -4,6 +4,16 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+26.1.4
+------
+
+#. Bug fix: Fixed parser/scanner crashes that could occur when parsing unsaved editor buffers or large inputs requiring Flex ``REJECT`` state buffer growth.
+#. Bug fix: Keyword procedure declarations now reject required parameters after keyword parameters with defaults, and invalid keyword default expressions now produce clear compiler errors.
+#. Bug fix: Fixed string byte-length handling for scalar strings in procedure default argument processing.
+#. Bug fix: :func:`minimize` no longer frees caller-owned dynamic arguments during L-BFGS-B callback evaluation.
+#. Bug fix: Improved CSV delimiter detection for files where competing delimiter candidates previously received incorrect scores.
+#. Removed legacy GAUSSplot/TecPlot kernel support. Calls now return a clear "GAUSSplot no longer supported" error instead of relying on disabled TecPlot linkage.
+
 26.0.1
 ------
 
