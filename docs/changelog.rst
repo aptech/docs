@@ -4,6 +4,7 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+
 26.1.4
 ------
 
