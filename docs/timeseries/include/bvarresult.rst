@@ -40,6 +40,26 @@
    * - result.sigma_mean
      - mxm matrix, posterior mean of the error covariance :math:`\Sigma`.
 
+   * - result.b_post
+     - Kxm matrix, exact analytic posterior coefficient matrix (conjugate
+       Minnesota prior only; empty otherwise). For the conjugate posterior the
+       coefficient distribution is symmetric, so this single matrix is the
+       posterior mean, median, and mode, with no simulation noise. Use this
+       field when comparing coefficients against other packages.
+
+   * - result.sigma_post_mean
+     - mxm matrix, analytic posterior mean of :math:`\Sigma`,
+       :math:`S_{post}/(\alpha_{post}-m-1)` (conjugate prior only; empty
+       otherwise, and empty when :math:`\alpha_{post} \le m+1`). This is the
+       Bayes point summary of the error covariance.
+
+   * - result.sigma_post_mode
+     - mxm matrix, analytic posterior mode of :math:`\Sigma`,
+       :math:`S_{post}/(\alpha_{post}+m+1)` (conjugate prior only; empty
+       otherwise). This is the plug-in covariance used by Giannone, Lenza,
+       and Primiceri (2015); use it to reproduce GLP-style impulse response
+       and forecast calculations exactly.
+
    * - result.log_ml
      - Scalar, log marginal likelihood. Only available for conjugate Minnesota prior; missing otherwise.
 

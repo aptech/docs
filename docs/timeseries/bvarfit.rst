@@ -320,6 +320,18 @@ With ``prior = "minnesota"`` (default), the posterior is available in closed for
 All draws are independent (no MCMC chain, no burn-in, no thinning needed).
 For stochastic volatility or non-conjugate priors, use :func:`bvarSvFit`.
 
+**Analytic vs draw-based summaries:**
+On the conjugate tier the result carries both. *result.b_post*,
+*result.sigma_post_mean*, and *result.sigma_post_mode* are exact closed-form
+values with no simulation noise — use *b_post* for coefficient comparisons
+against other packages, and *sigma_post_mode* (the plug-in covariance of
+Giannone, Lenza & Primiceri 2015) to reproduce GLP-style impulse responses and
+forecasts exactly. The draw-based fields (*b_mean*, *b_median*, *b_sd*,
+*b_lower*, *b_upper*, *sigma_mean*) are computed from the posterior draws,
+carry :math:`1/\sqrt{n_{draws}}` simulation noise, and behave identically
+across all prior tiers. The printed coefficient table shows *b_post* when it
+is available.
+
 **Log marginal likelihood:**
 *result.log_ml* is only available for the conjugate Minnesota prior (closed-form
 computation). It can be used for formal Bayesian model comparison — the model
