@@ -10,7 +10,8 @@ Format
 
 .. function:: tab = arimaCoefTable(result)
 
-   :param result: an instance of an :class:`arimaResult` structure returned by :func:`arimaFit`.
+   :param result: an instance of an :class:`arimaResult` structure returned by
+                  :func:`arimaFit` or :func:`autoArima`.
    :type result: struct
 
    :return tab: Kx6 dataframe with columns: Coef, SE, t-stat, p-value, CI_lo, CI_hi. Row names are the coefficient labels.
@@ -26,7 +27,7 @@ Examples
 
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
 
-    result = arimaFit(y, order=1|1|1, season=12, quiet=1);
+    result = arimaFit(y, p=1, d=1, q=1, sq=1, period=12, quiet=1);
 
     // Get coefficient table as dataframe
     tab = arimaCoefTable(result);
@@ -60,4 +61,4 @@ Source
 ------
 arima.src
 
-.. seealso:: Functions :func:`arimaFit`, :func:`arimaResults`
+.. seealso:: Functions :func:`autoArima`, :func:`arimaFit`, :func:`arimaResults`

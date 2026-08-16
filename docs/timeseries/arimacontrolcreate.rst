@@ -27,20 +27,21 @@ Examples
     // Create control structure with defaults
     ctl = arimaControlCreate();
 
-    // Customize: BIC selection, ML estimation
+    // Customize automatic search: BIC selection and ML estimation
     ctl.ic = "bic";
     ctl.method = "ml";
 
-    // Use with arimaFit
+    // Use with autoArima
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
-    result = arimaFit(y, ctl, season=12);
+    result = autoArima(y, period=12, ctl=ctl);
 
 Remarks
 -------
 
-All members of the :class:`arimaControl` structure apply only to auto-selection.
-When a fixed *order* is passed to :func:`arimaFit`, the search-related members
-(*max_p*, *max_q*, *max_d*, *ic*, *stepwise*, etc.) are ignored.
+The search bounds, information criterion, and stepwise setting apply only to
+:func:`autoArima`. Estimation, output, optimizer, and Box-Cox settings apply to
+both :func:`autoArima` and :func:`arimaFit`. The *include* overrides apply only
+to :func:`arimaFit`; :func:`autoArima` requires ``ctl.include = "auto"``.
 
 Library
 -------
@@ -50,4 +51,4 @@ Source
 ------
 arima.src
 
-.. seealso:: Functions :func:`arimaFit`
+.. seealso:: Functions :func:`autoArima`, :func:`arimaFit`

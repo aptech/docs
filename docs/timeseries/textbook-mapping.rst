@@ -23,11 +23,11 @@ filter, spectral analysis, unit roots, cointegration, and regime switching.
      - Exercise idea
    * - 3-4
      - ARMA processes, forecasting
-     - :func:`arimaFit`, :func:`arimaForecast`
+     - :func:`arimaFit`, :func:`autoArima`, :func:`arimaForecast`
      - Fit ARIMA to Nile river data. Compare auto-selected vs fixed order.
    * - 5
      - Maximum likelihood estimation
-     - :func:`arimaFit` (``method="ml"``)
+     - :func:`arimaFit` (``ctl.method="ml"``)
      - Compare CSS vs ML estimation on AirPassengers. Examine log-likelihood surface.
    * - 11
      - Vector autoregressions
@@ -181,15 +181,15 @@ Uses R in the text — the table below shows the GAUSS equivalents.
      - ``accuracy()``
    * - 9
      - ARIMA models
-     - :func:`arimaFit`
-     - ``auto.arima()``
+     - :func:`arimaFit`, :func:`autoArima`
+     - ``Arima()``, ``auto.arima()``
    * - 9.5
      - Auto ARIMA selection
-     - :func:`arimaFit` (order omitted)
+     - :func:`autoArima`
      - ``auto.arima()``
    * - 9.7
      - Seasonal ARIMA
-     - :func:`arimaFit` (``season=12``)
+     - :func:`autoArima` (``period=12``) or :func:`arimaFit`
      - ``auto.arima()`` with seasonal
    * - 9.9
      - ARIMA forecasting
@@ -197,7 +197,7 @@ Uses R in the text — the table below shows the GAUSS equivalents.
      - ``forecast()``
    * - 10
      - Dynamic regression (ARIMAX)
-     - :func:`arimaFit` (``xreg=X``)
+     - :func:`autoArima` or :func:`arimaFit` (``xreg=X``)
      - ``auto.arima(xreg=X)``
    * - 12.3
      - VAR models
@@ -221,8 +221,8 @@ Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and forecast 24 months::
     library timeseries;
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv"), "passengers");
 
-    // arimaFit(y, season, p, d, q, P, D, Q)
-    result = arimaFit(y, 12, 0, 1, 1, 0, 1, 1);
+    // arimaFit(y, p, d, q, sp, sd, sq, period)
+    result = arimaFit(y, 0, 1, 1, 0, 1, 1, 12);
 
     fc = arimaForecast(result, 24);
 

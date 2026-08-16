@@ -74,7 +74,7 @@ Deseasonalize then Fit ARIMA
 
     // Fit ARIMA on seasonally adjusted series
     y_adj = y - stl.seasonal;
-    result = arimaFit(y_adj);
+    result = autoArima(y_adj);
 
 Weekly Data
 +++++++++++
@@ -156,4 +156,4 @@ Source
 ------
 stl.src
 
-.. seealso:: Functions :func:`arimaFit`
+.. seealso:: Functions :func:`autoArima`, :func:`arimaFit`

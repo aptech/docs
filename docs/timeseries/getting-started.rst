@@ -296,6 +296,6 @@ Here's where to go next:
    * - **Automatic hyperparameters**
      - Unsure about lambda1? Use :func:`bvarHyperopt` to let the data decide.
    * - **ARIMA / univariate**
-     - Single variable? Use :func:`arimaFit` with automatic order selection.
+     - Single variable? Use :func:`autoArima` for automatic order selection or :func:`arimaFit` for a fixed specification.
    * - **Choosing the right model**
      - Unsure which function to use? See the :ref:`choosing-a-var-model` decision tree.

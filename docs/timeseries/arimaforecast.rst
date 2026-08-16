@@ -12,7 +12,8 @@ Format
               fc = arimaForecast(result, h, xreg=X_future)
               fc = arimaForecast(result, h, level=0.99)
 
-   :param result: an instance of an :class:`arimaResult` structure returned by :func:`arimaFit`.
+   :param result: an instance of an :class:`arimaResult` structure returned by
+                  :func:`arimaFit` or :func:`autoArima`.
    :type result: struct
 
    :param h: forecast horizon (number of steps ahead).
@@ -102,7 +103,7 @@ Examples
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
 
     // Fit seasonal ARIMA
-    result = arimaFit(y, season=12, quiet=1);
+    result = autoArima(y, period=12, quiet=1);
 
     // Forecast 24 months
     fc = arimaForecast(result, 24);
@@ -122,7 +123,7 @@ Custom Confidence Level
     library timeseries;
 
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
-    result = arimaFit(y, 12, 1, 1, 1, 0, 1, 1);
+    result = arimaFit(y, 1, 1, 1, 0, 1, 1, 12);
 
     // 99% prediction intervals (wider than 95%)
     fc = arimaForecast(result, 12, level=0.99);
@@ -141,7 +142,7 @@ When the model includes exogenous regressors, you must provide their future valu
     X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "cpi + ffr");
 
     // Fit ARIMAX
-    result = arimaFit(y, xreg=X, quiet=1);
+    result = arimaFit(y, p=1, d=1, q=1, xreg=X, quiet=1);
 
     // Projected future regressor values (4 quarters)
     X_future = { 2.1 3.5,
@@ -228,4 +229,4 @@ Source
 ------
 arima.src
 
-.. seealso:: Functions :func:`arimaFit`, :func:`arimaResults`, :func:`bvarForecast`, :func:`fcScore`, :func:`dmTest`
+.. seealso:: Functions :func:`autoArima`, :func:`arimaFit`, :func:`arimaResults`, :func:`bvarForecast`, :func:`fcScore`, :func:`dmTest`

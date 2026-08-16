@@ -20,7 +20,7 @@ If you just want working code, copy this:
     y = loadd(fname, "passengers");
 
     // Auto SARIMA — GAUSS picks the best model
-    result = arimaFit(y, 12);
+    result = autoArima(y, 12);
 
     // Forecast 24 months ahead
     fc = arimaForecast(result, 24);
@@ -80,34 +80,35 @@ Let GAUSS choose the best SARIMA model automatically:
 
 ::
 
-    result = arimaFit(y, 12);
+    result = autoArima(y, 12);
 
 You should see::
 
     ================================================================================
-    SARIMA(0,1,1)(0,1,1)[12]
-    Method: CSS-ML                       Observations:           144
-    ================================================================================
-    Log-Lik:      -508.32          AICc:       1020.85
+    Model: SARIMA(1,0,1)(2,1,0)[12]        Observations:           144
+    Method: CSS-ML                         Log-Likelihood:      -488.621
     ================================================================================
                         Coef    Std.Err.     t-stat    p-value
     --------------------------------------------------------------------------------
-    MA(1)            -0.4018     0.0896    -4.4841      0.000
-    SMA(1)           -0.5569     0.0731    -7.6168      0.000
+    AR(1)             0.8567     0.1006      8.513      0.000
+    MA(1)            -0.9355     0.0969     -9.652      0.000
+    SAR(1)           -0.5483     0.0876     -6.260      0.000
+    SAR(2)           -0.2948     0.0890     -3.313      0.001
+    Mean              2.5114     0.0196    128.277      0.000
     ================================================================================
-    Ljung-Box(12):    17.12    p = 0.145
+    AICc: 989.91       Ljung-Box(10): 6.91       p = 0.228
     ================================================================================
 
 **What this tells you:**
 
-- GAUSS selected SARIMA(0,1,1)(0,1,1)[12] — the classic "airline model."
-  This means: one regular MA term, one seasonal MA term, differencing at both
-  regular (d=1) and seasonal (D=1) levels. No AR terms needed.
-- **MA(1) = -0.40**: negative moving average coefficient, highly significant.
-- **SMA(1) = -0.56**: seasonal MA coefficient, also highly significant.
-- **Ljung-Box p = 0.145**: no significant residual autocorrelation (p > 0.05).
+- This run selected SARIMA(1,0,1)(2,1,0)[12]. The selected order can change
+  when search bounds, estimation settings, data, or package versions change.
+- **Seasonal differencing D=1** removes the repeating annual level pattern.
+- The reported AR, MA, and seasonal AR coefficients describe the remaining
+  dependence after seasonal differencing.
+- **Ljung-Box p = 0.228**: no significant residual autocorrelation (p > 0.05).
   The model adequately captures the serial dependence.
-- **AICc = 1020.85**: used internally for model comparison during auto-selection.
+- **AICc = 989.91**: used internally for model comparison during auto-selection.
 
 **How auto-selection works:**
 
@@ -124,9 +125,8 @@ behind R's ``auto.arima()``.
 
    The auto-selected model may vary slightly depending on the data sample and
    platform. The stepwise search can take different paths through the model
-   space. The airline dataset reliably selects SARIMA(0,1,1)(0,1,1)[12],
-   but other datasets may produce different results across runs if the AICc
-   values are close.
+   space. Treat the printed selected order as the result of the current search,
+   not as a dataset invariant, especially when candidate AICc values are close.
 
 Step 4: Forecast 24 Months
 --------------------------
@@ -174,10 +174,10 @@ Try a different specification and compare:
 ::
 
     // Auto ARIMA (no seasonal component)
-    r_noseas = arimaFit(y);
+    r_noseas = autoArima(y);
 
     // Fixed ARIMA(1,1,1) — simple AR + MA with differencing
-    r_simple = arimaFit(y, 12, 1, 1, 1);
+    r_simple = arimaFit(y, 1, 1, 1);
 
     print "Auto SARIMA AICc:" result.aicc;
     print "Auto ARIMA AICc: " r_noseas.aicc;
@@ -198,7 +198,7 @@ Split the data and measure out-of-sample performance:
     y_test = y[121:144];
 
     // Fit on training data, forecast the holdout period
-    r_train = arimaFit(y_train, 12);
+    r_train = autoArima(y_train, 12);
     fc_eval = arimaForecast(r_train, 24);
 
     // Compute accuracy metrics
@@ -229,7 +229,7 @@ Everything above, in one runnable file:
     stl = stlDecompose(y, 12);
 
     // ---- Auto SARIMA ----
-    result = arimaFit(y, 12);
+    result = autoArima(y, 12);
 
     // ---- Forecast ----
     fc = arimaForecast(result, 24);
@@ -237,7 +237,7 @@ Everything above, in one runnable file:
     // ---- Evaluate ----
     y_train = y[1:120];
     y_test = y[121:144];
-    r_train = arimaFit(y_train, 12, quiet=1);
+    r_train = autoArima(y_train, 12, quiet=1);
     fc_eval = arimaForecast(r_train, 24);
     { rmse, mase, smape } = fcMetrics(y_test, fc_eval.forecasts);
     print "";
@@ -256,7 +256,7 @@ Here's where to go next:
    :widths: 30 70
 
    * - **Exogenous regressors**
-     - Add external predictors with ``arimaFit(y, xreg=X)`` for ARIMAX models.
+     - Add external predictors with ``autoArima(y, xreg=X)`` for automatic ARIMAX selection or :func:`arimaFit` for fixed ARIMAX orders.
    * - **Model diagnostics**
      - Check residual autocorrelation and normality with :func:`arimaResults`.
    * - **Multiple series**

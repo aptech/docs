@@ -7,7 +7,7 @@
    * - result.sorder
      - 3x1 vector, seasonal order {P, D, Q}. Empty matrix if non-seasonal.
 
-   * - result.season
+   * - result.period
      - Scalar, seasonal period. 0 if non-seasonal.
 
    * - result.include_mean
@@ -35,7 +35,10 @@
      - Kx1 string array, coefficient labels (e.g., ``"AR(1)"``, ``"MA(1)"``, ``"Mean"``).
 
    * - result.sigma2
-     - Scalar, estimated innovation variance.
+     - Scalar, maximum-likelihood innovation variance.
+
+   * - result.sigma2_bc
+     - Scalar, bias-corrected innovation variance used for forecasts.
 
    * - result.loglik
      - Scalar, maximized log-likelihood.
@@ -50,10 +53,12 @@
      - Scalar, Bayesian information criterion (Schwarz).
 
    * - result.residuals
-     - Nx1 vector, standardized residuals.
+     - Nx1 vector, innovation residuals on the series scale. Rows excluded
+       from the diffuse likelihood are GAUSS missing values.
 
    * - result.fitted
-     - Nx1 vector, in-sample fitted values.
+     - Nx1 vector, row-aligned in-sample fitted values. Rows excluded from the
+       diffuse likelihood are GAUSS missing values.
 
    * - result.n_obs
      - Scalar, number of observations used in estimation.
@@ -79,5 +84,15 @@
    * - result.intercept
      - Scalar, mean or drift value. Missing if none.
 
-   * - result.vcov
-     - KxK matrix, variance-covariance matrix of estimated coefficients.
+   * - result.n_candidates
+     - Scalar, number of candidate models evaluated by :func:`autoArima`.
+       Equal to 0 for :func:`arimaFit`.
+
+   * - result.n_failed
+     - Scalar, number of automatic-search candidates that failed estimation.
+
+   * - result.n_rejected
+     - Scalar, number of automatic-search candidates rejected by validity checks.
+
+   * - result.lambda
+     - Scalar, Box-Cox lambda used. Missing when no transformation was applied.

@@ -40,7 +40,9 @@ ARIMA / Univariate
    :widths: auto
 
    * - :func:`arimaFit`
-     - Fit ARIMA, SARIMA, or ARIMAX models with automatic or fixed order selection.
+     - Fit a fixed ARIMA, SARIMA, or ARIMAX specification.
+   * - :func:`autoArima`
+     - Automatically select and fit an ARIMA, SARIMA, or ARIMAX model.
    * - :func:`arimaForecast`
      - Generate h-step-ahead forecasts with prediction intervals.
    * - :func:`arimaControlCreate`
@@ -250,6 +252,7 @@ Control Structure Creators
     :hidden:
     :caption: ARIMA
 
+    autoarima
     arimafit
     arimaforecast
     arimacontrolcreate

@@ -65,4 +65,4 @@ The decomposition is additive: Data = Trend + Seasonal + Remainder.
   didn't capture all the structure — the ARIMA model on the remainder should
   handle it.
 
-.. seealso:: Functions :func:`stlDecompose`, :func:`arimaFit`
+.. seealso:: Functions :func:`stlDecompose`, :func:`autoArima`, :func:`arimaFit`

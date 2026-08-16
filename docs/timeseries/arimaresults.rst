@@ -10,7 +10,8 @@ Format
 
 .. function:: arimaResults(result)
 
-   :param result: an instance of an :class:`arimaResult` structure returned by :func:`arimaFit`.
+   :param result: an instance of an :class:`arimaResult` structure returned by
+                  :func:`arimaFit` or :func:`autoArima`.
    :type result: struct
 
 Examples
@@ -24,7 +25,7 @@ Examples
     y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
 
     // Fit with output suppressed
-    result = arimaFit(y, season=12, quiet=1);
+    result = autoArima(y, period=12, quiet=1);
 
     // Print results later
     call arimaResults(result);
@@ -32,8 +33,9 @@ Examples
 Remarks
 -------
 
-This function prints the same summary table that :func:`arimaFit` prints
-by default. Use this to re-display results after fitting with ``quiet=1``.
+This function prints the same summary table that :func:`arimaFit` and
+:func:`autoArima` print by default. Use it to re-display results after fitting
+with ``quiet=1``.
 
 The table includes:
 
@@ -50,4 +52,4 @@ Source
 ------
 arima.src
 
-.. seealso:: Functions :func:`arimaFit`, :func:`arimaCoefTable`
+.. seealso:: Functions :func:`autoArima`, :func:`arimaFit`, :func:`arimaCoefTable`

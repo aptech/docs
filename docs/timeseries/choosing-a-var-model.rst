@@ -25,7 +25,7 @@ data covering both the Great Moderation and the Global Financial Crisis of 2008 
      - Recommendation
      - Why
    * - m = 1
-     - :func:`arimaFit`
+     - :func:`autoArima` or :func:`arimaFit`
      - Univariate models are more appropriate.
    * - m = 2-5
      - :func:`bvarFit` or :func:`varFit`
