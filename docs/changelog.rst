@@ -10,10 +10,15 @@ The following is a list of changes from the previous version of GAUSS.
 
 #. Bug fix: :func:`plotSetLinePen` now accepts string names for the line style parameter, such as ``"solid"``, ``"dash"``, and ``"dot"``.
 #. Bug fix: Fixed parser/scanner crashes that could occur when parsing unsaved editor buffers or large inputs requiring Flex ``REJECT`` state buffer growth.
+#. Bug fix: Whitespace in ``print`` statements and matrix indices is now handled correctly around binary, unary, transpose, factorial, and completed function-call expressions. A following print item is no longer interpreted as an extra function argument; for example, ``datestrymd(date) "label"`` no longer produces a G0159 argument-count error.
 #. Bug fix: Keyword procedure declarations now reject required parameters after keyword parameters with defaults, and invalid keyword default expressions now produce clear compiler errors.
+#. Bug fix: Forward procedure-signature scanning now handles comments, multiline declarations, nested expressions, and multiline string defaults more reliably. This improves discovery of keyword parameters and typed return declarations for forward-referenced procedures.
 #. Bug fix: Fixed string byte-length handling for scalar strings in procedure default argument processing.
 #. Bug fix: :func:`minimize` no longer frees caller-owned dynamic arguments during L-BFGS-B callback evaluation.
 #. Bug fix: Improved CSV delimiter detection for files where competing delimiter candidates previously received incorrect scores.
+#. Bug fix: Formula and dataset readers now remove cached file handles after they are closed at EOF, allowing subsequent reads to reopen the file correctly.
+#. Enhanced functionality: The GAUSS Package Manager now rejects unsafe ZIP paths, handles wrapper directories and nested package metadata more reliably, reports disk-full extraction failures, and accepts packages that contain no files for the current platform.
+#. Configuration change: Increased the default ``maxglobals`` setting in :file:`gauss.cfg` from 5,500 to 6,500.
 #. Removed legacy GAUSSplot/TecPlot kernel support. Calls now return a clear "GAUSSplot no longer supported" error instead of relying on disabled TecPlot linkage.
 
 26.1.3
