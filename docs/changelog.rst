@@ -4,6 +4,34 @@ Change Log
 
 The following is a list of changes from the previous version of GAUSS.
 
+27.0.0
+------
+
+#. New feature: Graphs open beside your code. When a program run from the Edit page creates a graph, the graph opens in a tab group next to the source file instead of switching to the Graphics page. The tab group can be split, and graphs can be dragged between tab groups. This is controlled by the **When a graph is added** setting on the Graphics page of the Preferences dialog, which has a new option, **Open beside the code (Edit page)**. It is the default in GAUSS 27. Choose **Change to graphics page** for the previous behavior.
+#. New feature: Pop out a graph. Any graph can be moved into its own window with **Pop Out** (graph tab context menu, the Graphics toolbar, or :menuselection:`File --> Pop Out Graph`). The window stays above the GAUSS main window, has its own Save, Export, Copy and Print buttons, and **Return to tab** puts the graph back where it was. Closing the window closes the graph.
+#. New feature: **Move to Graphics** and **Move to Edit** in a graph tab's context menu move a graph between the two pages.
+#. New feature: Symbols list on the Edit page. A new **Symbols** panel next to **Project Folders** lists the matrices, strings, structures and control variables in your workspace, with a filter box. It shows the same symbols as the list on the Data page.
+#. New feature: Data windows beside your code. Double-clicking a symbol in the Edit page's Symbols list opens its editor as a tab next to the source file, in the same tab group as your graphs. Use the editor's float button or the tab's context menu (**Float**, **Move to Data**, **Move to Edit**) to change where it lives. :kbd:`Ctrl+E`, a double-click in the debugger's Locals or Watch window, and the Open Symbol dialog still open a floating window.
+#. New feature: Command History on the Edit page. A new **History** panel on the Edit page shows the same command history as the Command page. Double-click an entry to run it without leaving the Edit page; filter the list; copy entries or send them to a new file from the context menu. On a new installation the panel is a tab next to **Project Folders** and **Symbols**; click the tab to bring it to the front, or drag it anywhere.
+#. New feature: Command History entries are syntax-colored like the Command window, and the History lists use the editor's background and text colors, including dark themes.
+#. Enhanced functionality: A symbol editor that is already open is found regardless of the case of the name, and is raised or moved to where you are working instead of a second editor being opened on the same data. Previously an editor with unapplied changes was not found, and a second editor was opened.
+#. Enhanced functionality: :menuselection:`Edit --> Copy`, **Paste**, **Undo** and **Redo** act on the symbol editor that has keyboard focus, whether it is floating or docked on the Edit or Data page.
+#. Enhanced functionality: In the Symbols lists, a collapsed structure stays collapsed and the selected symbol stays selected after a program runs. **Expand All** and **Collapse All** act on the selected row. All four categories are shown whenever the filter is empty.
+#. Enhanced functionality: Symbol editors, and the tooltip, Edit, Delete and double-click actions of the Symbols lists, are locked while a program is running, including editors opened during the run.
+#. Enhanced functionality: In the Command History, **Copy** and **Send to File** follow the order of the list rather than the order in which rows were clicked, and skip group rows such as "Today". **Send to File** always opens a new file.
+#. Enhanced functionality: In the Command History, **Delete** removes only entries that are visible. With a filter active, deleting a selected group such as "Archived" no longer removes entries hidden by the filter.
+#. Enhanced functionality: **Toggle View Mode** in the Command History applies to the History lists on both pages, since they show one shared history.
+#. Enhanced functionality: :kbd:`Ctrl+K` now opens and raises its panel before moving the cursor to the filter box: the History panel on the Command page, Project Folders (Locate) on the Edit page. Previously the shortcut did nothing when the panel was closed or behind another tab.
+#. Enhanced functionality: GAUSS starts faster with a long command history.
+#. Behavior change: ``plotAdd*`` functions and graph-tab reuse now target the graph that GAUSS last created or added to, not the graph tab that was last clicked. This makes programs draw to the same graph regardless of what is clicked while they run. A graph opened from a ``.plot`` file is no longer used as the target of the next plot.
+#. Behavior change: During a debugging session a new graph opens beside the code and never switches pages. The preference **Undock page if debugging** no longer has an effect.
+#. Bug fix: Entering any command could take several seconds in a workspace holding many instances of the same structure type, because the autocomplete list grew with the square of the number of instances. It now grows linearly.
+#. Bug fix: A command run after a History filter was typed and cleared could be missing from the History list until GAUSS was restarted.
+#. Bug fix: A command History entry stamped exactly on the boundary of the "Archived" group was dropped the next time the history was saved.
+#. Bug fix: Closing a tab in one tab group could change the active tab of a different tab group.
+#. Bug fix: A 3D graph popped out from the tab context menu could appear as a very small window.
+#. Bug fix: The Run and Debug buttons could be re-enabled while a command queued during a debugging session was still running.
+
 26.1.4
 ------
 
