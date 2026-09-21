@@ -25,7 +25,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Enhanced functionality: :kbd:`Ctrl+K` now opens and raises its panel before moving the cursor to the filter box: the History panel on the Command page, Project Folders (Locate) on the Edit page. Previously the shortcut did nothing when the panel was closed or behind another tab.
 #. Enhanced functionality: GAUSS starts faster with a long command history.
 #. Behavior change: ``plotAdd*`` functions and graph-tab reuse now target the graph that GAUSS last created or added to, not the graph tab that was last clicked. This makes programs draw to the same graph regardless of what is clicked while they run. A graph opened from a ``.plot`` file is no longer used as the target of the next plot.
-#. Behavior change: During a debugging session a new graph opens beside the code and never switches pages. The preference **Undock page if debugging** no longer has an effect.
+#. Behavior change: During a debugging session a new graph opens beside the code and never switches pages. The preference **Undock page if debugging** has been removed.
 #. Bug fix: Entering any command could take several seconds in a workspace holding many instances of the same structure type, because the autocomplete list grew with the square of the number of instances. It now grows linearly.
 #. Bug fix: A command run after a History filter was typed and cleared could be missing from the History list until GAUSS was restarted.
 #. Bug fix: A command History entry stamped exactly on the boundary of the "Archived" group was dropped the next time the history was saved.
