@@ -47,6 +47,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug fix: Closing a tab in one tab group could change the active tab of a different tab group.
 #. Bug fix: A 3D graph popped out from the tab context menu could appear as a very small window.
 #. Bug fix: The Run and Debug buttons could be re-enabled while a command queued during a debugging session was still running.
+#. Bug fix: Surface and contour graphs with explicit contour levels set by :func:`plotSetZLevels` leaked memory on every call, which added up in programs that draw many such graphs.
 
 26.1.4
 ------
