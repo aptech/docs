@@ -60,10 +60,9 @@ The dashed lines mark :math:`\pm z_{(1+\text{level})/2} / \sqrt{T}`, the usual
 approximate band for a white-noise series, where :math:`T` is the number of
 values after differencing.
 
-Autocorrelations are the Box-Jenkins estimates, the same as R's ``acf()`` and
-``pacf()``. The layout follows ``gg_tsdisplay(..., plot_type = "partial")`` in
-the R feasts package (Hyndman & Athanasopoulos, *Forecasting: Principles and
-Practice*, 3rd ed., section 9.5).
+Autocorrelations are the standard Box-Jenkins sample estimates. The layout
+follows Hyndman & Athanasopoulos, *Forecasting: Principles and Practice*,
+3rd ed., section 9.5.
 
 Each call opens its own graph window.
 

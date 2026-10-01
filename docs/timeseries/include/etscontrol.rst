@@ -39,7 +39,7 @@
      - Scalar, maximum iterations of each Nelder-Mead run. The fit restarts from its best point until a run no longer improves the likelihood, so the total can exceed this. Default = 2000.
 
    * - ctl.tol
-     - Scalar, relative convergence tolerance: a run stops when the objective values in the simplex agree to *tol* times (1 + \|objective\|), as R's ``forecast::ets``. Default = 1e-8.
+     - Scalar, relative convergence tolerance: a run stops when the objective values in the simplex agree to *tol* times (1 + \|objective\|). Default = 1e-8.
 
    * - ctl.optimizer_scale_policy
      - Scalar, Nelder-Mead coordinate scaling policy. Default = 0.

@@ -126,7 +126,7 @@ counted in the printout; they do not stop the run.
 
 **Diebold-Mariano test.** Stars compare each model with the benchmark using
 :func:`dmTest` on squared errors with the Harvey-Leybourne-Newbold correction
-(two-sided; the same as R's ``forecast::dm.test``).
+(two-sided).
 
 Central banks call this exercise pseudo out-of-sample forecast evaluation with
 a recursive (expanding) or rolling window; Hyndman & Athanasopoulos
