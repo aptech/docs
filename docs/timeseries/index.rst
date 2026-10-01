@@ -51,6 +51,10 @@ ARIMA / Univariate
      - Reprint estimation summary table.
    * - :func:`arimaCoefTable`
      - Return coefficient table as dataframe.
+   * - :func:`tsDisplay`
+     - Plot a series with its ACF and PACF.
+   * - :func:`stationarityTests`
+     - ADF and KPSS (optionally PP) tests in one table with a reading of the result.
 
 ETS / Exponential Smoothing
 +++++++++++++++++++++++++++
@@ -160,6 +164,8 @@ Forecast Evaluation
 .. list-table::
    :widths: auto
 
+   * - :func:`forecastEval`
+     - Pseudo out-of-sample evaluation: refit at repeated origins, RMSE relative to a benchmark with Diebold-Mariano tests.
    * - :func:`fcScore`
      - Compute scoring rules (RMSE, MASE, sMAPE).
    * - :func:`dmTest`
@@ -200,6 +206,8 @@ Plotting
      - Forecast fan chart with historical data and prediction bands.
    * - :func:`bvarMacroForecastPlot`
      - Compatibility alias for plotting a :func:`bvarMacroForecast` workflow result.
+   * - :func:`arimaPlotForecast`
+     - ARIMA forecast chart with historical data and prediction band.
    * - :func:`etsPlotForecast`
      - ETS forecast chart with historical data and prediction bands.
    * - :func:`etsPlotResiduals`
@@ -258,6 +266,8 @@ Control Structure Creators
     arimacontrolcreate
     arimaresults
     arimacoeftable
+    tsdisplay
+    stationaritytests
 
 .. toctree::
     :maxdepth: 1
@@ -338,6 +348,7 @@ Control Structure Creators
     :hidden:
     :caption: Forecast Evaluation
 
+    forecasteval
     fcscore
     dmtest
     cwtest
@@ -363,6 +374,7 @@ Control Structure Creators
 
     plotforecast
     bvarmacroforecastplot
+    arimaplotforecast
     etsplotforecast
     etsplotresiduals
     plotirf
