@@ -55,6 +55,7 @@ The following is a list of changes from the previous version of GAUSS.
 #. Bug fix: A range set with :func:`plotSetXRange` or :func:`plotSetYRange`, or typed in the graph settings, is now shown exactly as given, as documented. Previously, unless a tick interval was also given, it was widened to round numbers, so -3.2 to 3.1 was drawn from -4 to 4. A range set together with a tick count is also drawn exactly; a count that divides the range evenly at round values is kept, and otherwise the count is treated as a target, with round tick values as near to it as the range allows.
 #. Bug fix: Setting only Range Min or only Range Max for a 2D graph axis in the graph settings moved the other end of the axis to 0 unless the range had been set from code. The other end now stays where the axis was, the graph settings show the range the axis is drawn with rather than the range of the data, and a value that would leave the axis with no range is refused.
 #. Bug fix: In graph legends, bar and box plot series again show a filled box with an edge in the line color, and filled areas drawn with :func:`plotXYFill` or :func:`plotArea` now show one too, with the transparency of the fill. They were drawn as a short line. This applies on screen and in saved and exported graphs.
+#. Bug fix: A line symbol width of 0, set with :func:`plotSetLineSymbol`, now turns the symbol off in the legend as well as on the plot, in every export format. Previously the legend still showed the symbol. Scatter plots keep their symbols.
 
 26.1.4
 ------
