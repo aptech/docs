@@ -27,3 +27,6 @@
 
    * - fevd.shock_names
      - Mx1 string array, shock names.
+
+   * - fevd.shown_shocks
+     - Vector, columns of *fevd.fevd* that are identified shocks: every column, except under sign identification, where only the restricted shocks are identified.

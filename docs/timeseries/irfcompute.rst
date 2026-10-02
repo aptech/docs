@@ -165,9 +165,8 @@ A monetary policy shock identified with sign restrictions
 
     // A contractionary monetary shock raises the funds rate and lowers
     // inflation for the first four quarters (Uhlig 2005).
-    signs = signRestrictions(
-        "fed_funds"     $~ "monetary" $~ "0:4" $~ "+" $|
-        "cpi_inflation" $~ "monetary" $~ "0:4" $~ "-");
+    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
+                               "cpi_inflation" "monetary" "0:4" "-" });
 
     irf = irfCompute(fit, 20, restrictions=signs);
 

@@ -25,7 +25,9 @@ Format
            * - sign
              - ``"+"`` for a positive response, ``"-"`` for a negative response, ``"0"`` for a zero response.
 
-       Build each row with ``$~`` and stack the rows with ``$|``.
+       Pass the rows in braces, ``{ "FFR" "monetary" "0:5" "+", ... }``, one row
+       per line. To keep the table in a variable, declare it with ``string``:
+       ``string table = { ... };``.
    :type table: Nx4 string array
 
    :return signs: an instance of an :class:`irfRestrictions` structure, passed to :func:`irfCompute` with ``restrictions=signs``.
@@ -47,9 +49,8 @@ Uhlig (2005) monetary policy shock
 
     fit = bvarFit(y, p=4, quiet=1);
 
-    signs = signRestrictions(
-        "fed_funds"     $~ "monetary" $~ "0:4" $~ "+" $|
-        "cpi_inflation" $~ "monetary" $~ "0:4" $~ "-");
+    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
+                               "cpi_inflation" "monetary" "0:4" "-" });
 
     irf = irfCompute(fit, 20, restrictions=signs);
 
@@ -58,13 +59,12 @@ Several shocks and a zero restriction
 
 ::
 
-    signs = signRestrictions(
-        "gdp_growth"    $~ "demand"   $~ "0" $~ "+" $|
-        "cpi_inflation" $~ "demand"   $~ "0" $~ "+" $|
-        "gdp_growth"    $~ "supply"   $~ "0" $~ "-" $|
-        "cpi_inflation" $~ "supply"   $~ "0" $~ "+" $|
-        "fed_funds"     $~ "monetary" $~ "0" $~ "+" $|
-        "gdp_growth"    $~ "monetary" $~ "0" $~ "0");
+    signs = signRestrictions({ "gdp_growth"    "demand"   "0" "+",
+                               "cpi_inflation" "demand"   "0" "+",
+                               "gdp_growth"    "supply"   "0" "-",
+                               "cpi_inflation" "supply"   "0" "+",
+                               "fed_funds"     "monetary" "0" "+",
+                               "gdp_growth"    "monetary" "0" "0" });
 
     irf = irfCompute(fit, 20, restrictions=signs);
 

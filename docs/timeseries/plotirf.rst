@@ -12,6 +12,7 @@ Format
 .. function:: plotIrf(irf)
               plotIrf(irf, plot_type="cirf")
               plotIrf(irf, plot_type="fevd")
+              plotIrf(irf, shock="fed_funds")
 
    :param irf: an instance of an :class:`irfResult` structure from :func:`irfCompute`.
    :type irf: struct
@@ -29,6 +30,9 @@ Format
              - Forecast error variance shares (see :func:`fevdCompute`).
 
    :type plot_type: string
+
+   :param shock: Optional keyword, the shocks to plot, by name (*irf.shock_names*) or by number. A string array or a vector selects several. Default = every shock, or only the restricted shocks under sign identification.
+   :type shock: string, string array, scalar or vector
 
 Examples
 --------
@@ -50,6 +54,10 @@ Responses from a VAR
     // 3 x 3 grid: one row per variable, one column per shock
     plotIrf(irf);
 
+    // One column: the responses to the funds rate shock. With recursive
+    // identification each shock is named after its variable.
+    plotIrf(irf, shock="fed_funds");
+
 Posterior bands and a sign-restricted shock
 +++++++++++++++++++++++++++++++++++++++++++
 
@@ -57,9 +65,8 @@ Posterior bands and a sign-restricted shock
 
     fit = bvarFit(y, p=4, quiet=1);
 
-    signs = signRestrictions(
-        "fed_funds"     $~ "monetary" $~ "0:4" $~ "+" $|
-        "cpi_inflation" $~ "monetary" $~ "0:4" $~ "-");
+    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
+                               "cpi_inflation" "monetary" "0:4" "-" });
     irf = irfCompute(fit, 20, restrictions=signs, cumulative=1, quiet=1);
 
     // One column: the responses to the monetary shock

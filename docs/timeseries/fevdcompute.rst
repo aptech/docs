@@ -51,9 +51,8 @@ With posterior bands
 
     fit = bvarFit(y, p=4, quiet=1);
 
-    signs = signRestrictions(
-        "fed_funds"     $~ "monetary" $~ "0:4" $~ "+" $|
-        "cpi_inflation" $~ "monetary" $~ "0:4" $~ "-");
+    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
+                               "cpi_inflation" "monetary" "0:4" "-" });
     irf = irfCompute(fit, 20, restrictions=signs, quiet=1);
 
     fevd = fevdCompute(irf);
@@ -85,6 +84,12 @@ each draw and then summarized; *fevd.fevd* is the pointwise median and
 1; each draw's shares do. :func:`bvarSvFit` results with Cholesky
 identification carry no draw-by-draw shares, so :func:`fevdCompute` does
 not accept them.
+
+**Sign restrictions.** Only the restricted shocks are identified; the
+other shocks are an arbitrary rotation, so their individual shares mean
+nothing. The printout shows the identified shocks only, and
+*fevd.shown_shocks* lists their columns. Within each draw the identified
+shares plus the remaining shocks' combined share sum to 1.
 
 **Shock size.** Variance shares need one-standard-deviation shocks, so
 responses computed with ``normalization="unit_own_impact"`` are rejected.

@@ -30,9 +30,8 @@ Examples
 
     fit = bvarFit(y, p=4, quiet=1);
 
-    signs = signRestrictions(
-        "fed_funds"     $~ "monetary" $~ "0:4" $~ "+" $|
-        "cpi_inflation" $~ "monetary" $~ "0:4" $~ "-");
+    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
+                               "cpi_inflation" "monetary" "0:4" "-" });
 
     ctl = svarControlCreate();
 

@@ -20,11 +20,8 @@ Format
    :param ic: Optional keyword, selection criterion. ``"aic"`` (default), ``"bic"``, or ``"hq"``.
    :type ic: string
 
-   :param xreg: Optional keyword, exogenous regressors.
-   :type xreg: TxK matrix
-
-   :param include_const: Optional keyword, 1 to include constant (default), 0 to exclude.
-   :type include_const: scalar
+   :param const: Optional keyword, 1 to include a constant (default), 0 to exclude it.
+   :type const: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress the IC table. Default = 0.
    :type quiet: scalar
@@ -62,41 +59,38 @@ Basic Lag Selection
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"),
+                 "gdp_growth + cpi_inflation + fed_funds");
 
     // Test lags 1 through 8, select by AIC
     ls = varLagSelect(data, 8);
 
+The output is:
+
 ::
 
+    VAR lag selection
     ================================================================================
-    VAR Lag Selection (M=3, T=200)
-    ================================================================================
-    Lag      AIC         BIC         HQ
-    ----------------------------------------
-      1   -12.384     -11.927*    -12.198*
-      2   -12.401*    -11.689     -12.115
-      3   -12.378     -11.410     -11.993
-      4   -12.356     -11.133     -11.871
-      5   -12.331     -10.853     -11.746
-      6   -12.312     -10.578     -11.627
-      7   -12.289     -10.300     -11.504
-      8   -12.270     -10.026     -11.385
-    ================================================================================
-    Selected: p=2 (AIC)
-    ================================================================================
+    Selected lags     1 (smallest AIC)
+    Smaller is better; * marks the smallest value of each criterion.
+
+    Lags      AIC      BIC       HQ
+    -------------------------------
+    1     -6.447*  -6.244*  -6.365*
+    2     -6.406   -6.050   -6.262
+    3     -6.361   -5.852   -6.155
+    4     -6.308   -5.646   -6.040
+    5     -6.236   -5.421   -5.906
+    6     -6.208   -5.241   -5.816
+    7     -6.157   -5.038   -5.704
+    8     -6.132   -4.860   -5.617
 
 Pipe into Estimation
 ++++++++++++++++++++
 
 ::
 
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-
-    // Select lag order, then estimate
+    // Select the lag order by BIC, then estimate
     ls = varLagSelect(data, 8, ic="bic", quiet=1);
     result = varFit(data, ls.best_p);
 

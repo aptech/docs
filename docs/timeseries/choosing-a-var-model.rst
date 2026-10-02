@@ -182,13 +182,12 @@ e.g., a positive supply shock increases production and decreases prices.
 
     // Structural identification via sign restrictions.
     // Each row is: variable, shock, horizons, sign.
-    signs = signRestrictions(
-        "1" $~ "supply" $~ "1" $~ "+" $|
-        "2" $~ "supply" $~ "1" $~ "-" $|
-        "3" $~ "supply" $~ "1" $~ "+" $|
-        "1" $~ "demand" $~ "1" $~ "-" $|
-        "2" $~ "demand" $~ "1" $~ "+" $|
-        "3" $~ "demand" $~ "1" $~ "+");
+    signs = signRestrictions({ "1" "supply" "1" "+",
+                               "2" "supply" "1" "-",
+                               "3" "supply" "1" "+",
+                               "1" "demand" "1" "-",
+                               "2" "demand" "1" "+",
+                               "3" "demand" "1" "+" });
 
     // Posterior IRF bands from sign-restricted draws
     sir = irfCompute(result, 20, restrictions=signs);
