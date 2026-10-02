@@ -78,7 +78,7 @@ Format
    :param n_draws: Optional keyword, :func:`bvarFit` results only: number of posterior draws to use. Default = all stored draws.
    :type n_draws: scalar
 
-   :param max_tries: Optional keyword, sign identification: random rotations tried for each posterior draw before the draw is dropped. Default = 10000.
+   :param max_tries: Optional keyword, sign identification: random rotations tried for each posterior draw before the draw is dropped. ``1`` gives the one-rotation-per-draw sampler of Uhlig (2005); see Remarks. Default = 10000.
    :type max_tries: scalar
 
    :param seed: Optional keyword, sign identification: random seed. Default = 42.
@@ -242,6 +242,16 @@ Rubio-Ramirez and Waggoner 2018). Narrative restrictions (Antolin-Diaz and
 Rubio-Ramirez 2018) are checked on each accepted draw and are available for
 :func:`bvarFit` results. Sign identification needs posterior draws, so it is
 not available for :func:`varFit` results.
+
+*max_tries* decides how posterior draws are weighted. With ``max_tries=1``
+each posterior draw gets one rotation and is kept only if it satisfies the
+restrictions, the sampler of Uhlig (2005) and Arias, Rubio-Ramirez and
+Waggoner (2018): a draw counts in proportion to the share of rotations that
+satisfy the restrictions. Only that share of draws is kept, so fit with
+correspondingly more posterior draws (for example ``n_draws=50000`` when
+about 2% are kept). With a large *max_tries* (the default) nearly every draw
+that can satisfy the restrictions is kept and counts equally; the two can
+give noticeably different bands when the restrictions are tight.
 
 **Long-run restrictions** (Blanchard and Quah 1989) make the long-run
 impact matrix lower triangular: shock *j* has no permanent effect on the
