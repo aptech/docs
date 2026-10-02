@@ -3,25 +3,32 @@ hdCompute
 
 Purpose
 -------
-Compute historical decomposition of observed series into structural shock contributions.
+Decompose the observed series of a VAR or BVAR fit into the contributions of
+the structural shocks and of the initial conditions.
 
 Format
 ------
 
-.. function:: hd = hdCompute(result)
-              hd = hdCompute(result, n_steps)
+.. function:: hd = hdCompute(fit)
+              hd = hdCompute(fit, bands=1)
 
-   :param result: an instance of a :class:`varResult` or :class:`bvarResult` structure.
-   :type result: struct
-
-   :param n_steps: Optional, number of MA steps for the decomposition. Default = T-p (full sample).
-   :type n_steps: scalar
-
-   :param var_names: Optional keyword, override variable names.
-   :type var_names: Mx1 string array
+   :param fit: result from :func:`varFit` or :func:`bvarFit`.
+   :type fit: struct
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
+
+   :param identification: Optional keyword, ``"cholesky"`` (the only option at present).
+   :type identification: string
+
+   :param bands: Optional keyword, :func:`bvarFit` results: set to 1 to add pointwise posterior bands for each shock's contribution. Default = 0.
+   :type bands: scalar
+
+   :param levels: Optional keyword, central masses of the bands. Default = ``0.68|0.90``.
+   :type levels: scalar or vector
+
+   :param n_draws: Optional keyword, number of posterior draws used for the bands. Default = all stored draws.
+   :type n_draws: scalar
 
    :return hd: An instance of an :class:`hdResult` structure containing:
 
@@ -32,144 +39,69 @@ Format
 Examples
 --------
 
-Full Historical Decomposition
-+++++++++++++++++++++++++++++
+Contributions to GDP growth
++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    result = varFit(data, 4);
+    fit = varFit(y, p=4, quiet=1);
+    hd = hdCompute(fit);
 
-    hd = hdCompute(result);
+    // Contribution of the funds rate shock (shock 3) to GDP growth (column 1)
+    t = hd.t_eff;
+    ffr_to_gdp = hd.hd[2 * t + 1:3 * t, 1];
 
-Shock Contributions to a Variable
-++++++++++++++++++++++++++++++++++
-
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4);
-    hd = hdCompute(result, quiet=1);
-
-    // FFR shock (shock 3) contribution to GDP (variable 1) over time
-    ffr_to_gdp = hd.hd[3, ., 1];
-    print "FFR shock contribution to GDP:";
-    print ffr_to_gdp;
-
-    // CPI shock (shock 2) contribution to GDP
-    cpi_to_gdp = hd.hd[2, ., 1];
-
-Verify Decomposition Sums to Observed
-++++++++++++++++++++++++++++++++++++++
+The contributions add up to the data
+++++++++++++++++++++++++++++++++++++
 
 ::
 
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4);
-    hd = hdCompute(result, quiet=1);
-
-    // Reconstruct GDP from shock contributions + initial conditions
-    gdp_reconstructed = hd.initial[., 1];
+    gdp = hd.initial[., 1];
     for j (1, hd.m, 1);
-        gdp_reconstructed = gdp_reconstructed + hd.hd[j, ., 1];
+        gdp = gdp + hd.hd[(j - 1) * t + 1:j * t, 1];
     endfor;
 
-    // Compare with observed GDP (should match within numerical precision)
-    gdp_observed = result.y[result.p+1:rows(result.y), 1];
-    print "Max reconstruction error:" maxc(abs(gdp_reconstructed - gdp_observed));
+    // Equals the data after the first p observations
+    print maxc(abs(gdp - y[fit.p + 1:rows(y), 1]));
 
-Extract Structural Shocks
-+++++++++++++++++++++++++
+Posterior bands from a BVAR
++++++++++++++++++++++++++++
 
 ::
 
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, quiet=1);
-    hd = hdCompute(result, quiet=1);
-
-    // Structural (orthogonalized) shocks
-    print "Structural shocks:";
-    print hd.shocks[1:5, .];
+    fit = bvarFit(y, p=4, quiet=1);
+    hd = hdCompute(fit, bands=1, n_draws=1000);
 
 Remarks
 -------
 
-**Historical decomposition** expresses each observed variable as the sum of
-contributions from each structural shock plus initial conditions:
+**Decomposition.** Each observation is the sum of the contributions of the
+structural shocks up to that date plus the contribution of the initial
+conditions:
 
 .. math::
 
-   y_t = \sum_{j=1}^{m} \text{contribution}_{j,t} + \text{initial}_t
+   y_t = \sum_{j=1}^{m} \sum_{s=p+1}^{t} \Theta_{t-s}[\cdot, j]\, \varepsilon_{j,s} + y_t^{\text{init}}
 
-The contributions are computed by filtering the structural shocks through the
-MA(:math:`\infty`) representation (truncated at *n_steps*).
+where :math:`\Theta_h` are the Cholesky responses and
+:math:`\varepsilon_t = P^{-1} u_t` the structural shocks, with
+:math:`\Sigma = P P'`. *hd.max_abs_gap* reports the largest difference
+between the data and the sum of the parts.
 
-**Structural shocks** are obtained by applying the Cholesky decomposition of
-:math:`\Sigma` to the reduced-form residuals: :math:`\varepsilon_t = P^{-1} u_t`
-where :math:`\Sigma = PP'`.
+**Layout.** *hd.hd* stacks the shocks: rows (*j* - 1) · *t_eff* + 1 to
+*j* · *t_eff* hold the contribution of shock *j*, one column per variable.
 
-**Interpretation:** ``hd.hd[j, t, i]`` answers the question: "How much of
-variable i's value at time t is attributable to the cumulative effect of
-shock j up to time t?"
-
-**For BVAR,** the decomposition is computed at the posterior mean of B and
-:math:`\Sigma`.
-
-Model
------
-
-The observed series is decomposed as:
-
-.. math::
-
-   y_t = \underbrace{\sum_{j=1}^{m} \sum_{s=p+1}^{t} \Theta_{t-s} P^{-1} \hat{u}_s}_{\text{cumulative shock contributions}} + \underbrace{y_t^{\text{init}}}_{\text{initial conditions}}
-
-where :math:`\Theta_h` is the structural IRF at horizon h, :math:`P = \text{chol}(\Sigma)'`,
-and :math:`\hat{u}_t` are the reduced-form residuals. The structural shocks are
-:math:`\hat\varepsilon_t = P^{-1} \hat{u}_t`.
-
-The contribution of shock :math:`j` to variable :math:`i` at time :math:`t` is:
-
-.. math::
-
-   \text{hd}_{j,t,i} = \sum_{s=p+1}^{t} \Theta_{t-s}[i,j] \cdot \hat\varepsilon_{j,s}
-
-
-Algorithm
----------
-
-1. Compute structural shocks :math:`\hat\varepsilon_t = P^{-1} \hat{u}_t` for all :math:`t`.
-2. Compute IRF matrices :math:`\Theta_0, \ldots, \Theta_{T-p-1}`.
-3. For each time :math:`t`, accumulate shock contributions via MA convolution.
-4. Compute initial conditions as the residual: :math:`y_t^{\text{init}} = y_t - \sum_j \text{hd}_{j,t}`.
-
-**Complexity:** :math:`O(T^2 m^2)` — quadratic in sample size due to the convolution.
-
-
-Troubleshooting
----------------
-
-**Reconstruction error is not zero:**
-The decomposition should reconstruct the observed series exactly (to machine precision).
-If the error exceeds :math:`10^{-10}`, there may be a mismatch between the estimation
-result and the data. Re-estimate the model.
-
-**One shock dominates the decomposition:**
-Same as FEVD — check the variable ordering and consider alternative identification.
-
+**BVAR fits.** The decomposition is evaluated at the posterior mean of the
+coefficients and covariance matrix, so it adds up exactly. With
+``bands=1``, *hd.hd_median* and *hd.hd_bands* summarize the contributions
+draw by draw; these summaries do not add up to the data, only each draw's
+contributions do.
 
 References
 ----------
@@ -177,13 +109,12 @@ References
 - Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Section 2.3.4.
 - Kilian, L. and H. Lutkepohl (2017). *Structural Vector Autoregressive Analysis*. Cambridge University Press.
 
-
 Library
 -------
 timeseries
 
 Source
 ------
-hd.src
+var.src
 
 .. seealso:: Functions :func:`irfCompute`, :func:`fevdCompute`, :func:`varFit`, :func:`bvarFit`

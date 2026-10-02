@@ -1,30 +1,16 @@
 .. list-table::
    :widths: auto
 
-   * - ctl.sign_restr
-     - Nx4 matrix, sign restrictions on impulse responses. Each row specifies one restriction with columns:
+   * - ctl.narrative_restr
+     - Nx6 matrix of narrative restrictions, one per row: [type, variable, shock, date1, date2, sign]. Default = {} (none).
 
-       === ==================================================================
-       1   Variable index (1 to m) — the responding variable.
-       2   Shock index (1 to m) — the structural shock.
-       3   Horizon (0 = impact, 1 = one step ahead, etc.).
-       4   Sign: 1 for positive response, -1 for negative response.
-       === ==================================================================
+       === ========================================================================================
+       1   Shock sign: the shock had the given sign (1 or -1) at observation date1. Set variable and date2 to 0.
+       2   Shock dominance: from date1 to date2 the shock was the largest contributor to the unexpected movement in the variable. Set sign to 0.
+       3   Contribution sign: from date1 to date2 the shock's contribution to the variable had the given sign (1 or -1).
+       === ========================================================================================
 
-   * - ctl.zero_restr
-     - Nx3 matrix, zero restrictions. **Reserved for future ARW2018 implementation.** Currently raises an error if populated. Columns: variable, shock, horizon.
+       Variables and shocks are numbers. Dates are observation numbers in the estimation sample, where 1 is the first observation after the lags.
 
-   * - ctl.max_tries
-     - Scalar, maximum rotation attempts per posterior draw. Default = 10000.
-
-   * - ctl.min_accept_rate
-     - Scalar, minimum acceptable fraction of draws yielding a valid rotation. An error is raised if the rate falls below this threshold. Default = 0.01.
-
-   * - ctl.n_ahead
-     - Scalar, number of IRF horizons. Default = 20.
-
-   * - ctl.seed
-     - Scalar, RNG seed for reproducibility. Default = 42.
-
-   * - ctl.quiet
-     - Scalar, set to 1 to suppress printed output. Default = 0.
+   * - ctl.algorithm
+     - Scalar, rotation sampler: 0 = automatic (default), 1 = random rotations with accept-reject, 2 = column-by-column construction that satisfies zero restrictions exactly. The automatic choice uses 2 when there are zero restrictions and 1 otherwise.

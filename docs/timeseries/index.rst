@@ -120,11 +120,9 @@ Impulse Responses & Structural Analysis
    :widths: auto
 
    * - :func:`irfCompute`
-     - Orthogonalized (Cholesky) impulse response functions.
-   * - :func:`irfSvCompute`
-     - Posterior IRF bands from SV-BVAR draws.
-   * - :func:`girfCompute`
-     - Generalized IRF (Pesaran & Shin 1998), ordering-invariant.
+     - Impulse responses from VAR, BVAR and SV-BVAR fits: Cholesky, generalized, sign-restricted or long-run identification, with posterior bands.
+   * - :func:`signRestrictions`
+     - Build a table of sign and zero restrictions for :func:`irfCompute`.
    * - :func:`fevdCompute`
      - Forecast error variance decomposition.
    * - :func:`hdCompute`
@@ -138,10 +136,10 @@ SVAR Identification
 .. list-table::
    :widths: auto
 
-   * - :func:`svarIdentify`
-     - Find a sign-restricted structural rotation.
-   * - :func:`svarIrf`
-     - Posterior sign-restricted IRF, cumulative IRF, and FEVD bands.
+   * - :func:`signRestrictions`
+     - Sign and zero restrictions on impulse responses, by variable and shock name.
+   * - :func:`svarControlCreate`
+     - Narrative restrictions and the rotation sampler choice for sign identification.
 
 Diagnostics
 ++++++++++++
@@ -213,9 +211,7 @@ Plotting
    * - :func:`etsPlotResiduals`
      - ETS residual diagnostics plot.
    * - :func:`plotIrf`
-     - Impulse response function grid (m × m).
-   * - :func:`plotSvIrf`
-     - Posterior IRF grid with credible bands from SV-BVAR.
+     - Impulse response grid, with credible bands for posterior results.
    * - :func:`plotResiduals`
      - Residual diagnostics: time plot, ACF, histogram.
    * - :func:`plotStl`
@@ -318,8 +314,6 @@ Control Structure Creators
     :caption: IRF / FEVD / HD
 
     irfcompute
-    irfsvcompute
-    girfcompute
     fevdcompute
     hdcompute
     irfplotdata
@@ -329,8 +323,7 @@ Control Structure Creators
     :hidden:
     :caption: SVAR
 
-    svaridentify
-    svarirf
+    signrestrictions
     svarcontrolcreate
 
 .. toctree::
@@ -378,6 +371,5 @@ Control Structure Creators
     etsplotforecast
     etsplotresiduals
     plotirf
-    plotsvirf
     plotresiduals
     plotstl

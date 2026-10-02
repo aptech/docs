@@ -175,7 +175,7 @@ What You Get With Each Platform
      - ``vars::irf``
      - opts.IRF=1
    * - Sign restrictions
-     - :func:`svarIdentify`
+     - :func:`irfCompute`, :func:`signRestrictions`
      - ``bayesianVARs``
      - opts.IRFt=4
    * - Conditional forecast

@@ -2,13 +2,28 @@
    :widths: auto
 
    * - fevd.fevd
-     - Array of (n_ahead+1) mxm matrices. ``fevd.fevd[h+1][i, j]`` is the fraction of variable i's forecast error variance at horizon h explained by shock j. Each row sums to 1.0.
+     - n_ahead·m x m matrix of variance shares: point estimates for a :func:`varFit` result, pointwise posterior medians otherwise. Rows b·m+1 to (b+1)·m hold the (b+1)-step decomposition; element [i, j] is the share of variable i's forecast error variance due to shock j.
+
+   * - fevd.bands
+     - Array of :class:`credibleBand` structures, one per level (posterior results only), with the layout of *fevd.fevd*.
+
+   * - fevd.levels
+     - Vector, central masses of the bands. Empty for :func:`varFit` results.
+
+   * - fevd.fevd_point
+     - :func:`bvarFit` results with Cholesky identification: shares at the posterior mean. Empty otherwise.
 
    * - fevd.n_ahead
-     - Scalar, number of horizons computed.
+     - Scalar, number of forecast horizons.
 
    * - fevd.m
      - Scalar, number of variables.
 
+   * - fevd.n_draws
+     - Scalar, number of posterior draws used. 0 for :func:`varFit` results.
+
    * - fevd.var_names
      - Mx1 string array, variable names.
+
+   * - fevd.shock_names
+     - Mx1 string array, shock names.

@@ -290,7 +290,7 @@ Here's where to go next:
    * - **Time-varying volatility**
      - Your data has heteroskedastic errors? Use :func:`bvarSvFit` for stochastic volatility.
    * - **Structural shocks**
-     - Cholesky ordering too restrictive? Use :func:`svarIdentify` for sign restrictions.
+     - Cholesky ordering too restrictive? Use :func:`irfCompute` with :func:`signRestrictions`.
    * - **Conditional forecasts**
      - "What if the Fed holds rates at 5%?" Use :func:`condForecast` for scenario analysis.
    * - **Automatic hyperparameters**

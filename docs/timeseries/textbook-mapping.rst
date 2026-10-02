@@ -106,7 +106,7 @@ cointegration, and state-space models for multivariate systems.
      - Minnesota prior BVAR. Compare posterior with OLS to visualize shrinkage.
    * - 9
      - Structural VARs
-     - :func:`irfCompute`, :func:`svarIdentify`
+     - :func:`irfCompute`, :func:`signRestrictions`
      - Cholesky vs sign-restricted identification. Compare IRFs.
 
 Kilian & Lutkepohl (2017) — *Structural Vector Autoregressive Analysis*
@@ -145,11 +145,11 @@ estimation, inference, and applications to oil markets and monetary policy.
      - Blanchard-Quah decomposition. *Zero restrictions planned for future release.*
    * - 13
      - Sign restrictions
-     - :func:`svarIdentify`, :func:`svarIrf`
+     - :func:`irfCompute`, :func:`signRestrictions`
      - Replicate Uhlig (2005) monetary policy identification. Examine acceptance rates.
    * - 13.5
      - Sign-restricted FEVD
-     - :func:`svarIrf`
+     - :func:`irfCompute`, :func:`fevdCompute`
      - Posterior FEVD bands under sign restrictions.
    * - 16
      - Large BVARs

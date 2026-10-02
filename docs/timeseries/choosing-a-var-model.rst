@@ -69,9 +69,9 @@ you need structural identification:
      - When to use
    * - Cholesky (:func:`irfCompute`)
      - You have a clear recursive ordering (fast-moving → slow-moving variables).
-   * - Sign restrictions (:func:`svarIdentify`)
+   * - Sign restrictions (:func:`irfCompute` with :func:`signRestrictions`)
      - You want to use sign restrictions to impose economic theory (e.g., "supply shocks raise prices").
-   * - Generalized IRF (:func:`girfCompute`)
+   * - Generalized IRF (:func:`irfCompute` with ``identification="generalized"``)
      - You want ordering-invariant results without structural assumptions.
 
 If you just want forecasts and don't need causal interpretation, skip structural
@@ -181,17 +181,17 @@ e.g., a positive supply shock increases production and decreases prices.
     result = bvarFit(data, ctl);
 
     // Structural identification via sign restrictions.
-    // Each row is: [variable, shock, horizon, sign].
-    //   sign: +1 = positive response required, -1 = negative
-    sctl = svarControlCreate();
-    sctl.sign_restr = { 1  1  1  1,    // Var 1 (production): + to supply shock
-                        2  1  1 -1,    // Var 2 (activity):   + to supply, - to speculative
-                        3  1  1  1,    // Var 3 (price):      + to supply
-                        1  2  1 -1,    // Var 1 (production): - to demand shock
-                        2  2  1  1,    // Var 2 (activity):   + to demand
-                        3  2  1  1 };  // Var 3 (price):      + to demand
+    // Each row is: variable, shock, horizons, sign.
+    signs = signRestrictions(
+        "1" $~ "supply" $~ "1" $~ "+" $|
+        "2" $~ "supply" $~ "1" $~ "-" $|
+        "3" $~ "supply" $~ "1" $~ "+" $|
+        "1" $~ "demand" $~ "1" $~ "-" $|
+        "2" $~ "demand" $~ "1" $~ "+" $|
+        "3" $~ "demand" $~ "1" $~ "+");
 
-    sir = svarIrf(result, sctl);   // Posterior IRF bands with sign-restricted draws
+    // Posterior IRF bands from sign-restricted draws
+    sir = irfCompute(result, 20, restrictions=signs);
 
     // For time-varying volatility (modern extension), replace bvarFit/bvarControlCreate
     // with bvarSvFit/bvarSvControlCreate and add svctl.n_draws = 10000; svctl.n_burn = 5000.

@@ -3,20 +3,94 @@ irfCompute
 
 Purpose
 -------
-Compute orthogonalized impulse response functions using Cholesky identification.
+Compute impulse responses from a VAR, BVAR or SV-BVAR fit, with Cholesky,
+generalized, sign-restricted or long-run identification.
 
 Format
 ------
 
-.. function:: irf = irfCompute(result, n_ahead)
+.. function:: irf = irfCompute(fit, n_ahead)
+              irf = irfCompute(fit, n_ahead, identification="generalized")
+              irf = irfCompute(fit, n_ahead, restrictions=signs)
+              irf = irfCompute(fit, n_ahead, identification="long_run")
 
-   :param result: an instance of a :class:`varResult` or :class:`bvarResult` structure.
-   :type result: struct
+   :param fit: result from :func:`varFit`, :func:`bvarFit` or :func:`bvarSvFit`.
+   :type fit: struct
 
-   :param n_ahead: number of horizons to compute (e.g., 20).
+   :param n_ahead: last horizon. Responses are returned for horizons 0 (impact) to *n_ahead*.
    :type n_ahead: scalar
 
-   :param var_names: Optional keyword, override variable names from the estimation result.
+   :param identification: Optional keyword, how the structural shocks are identified.
+
+       .. list-table::
+           :widths: auto
+
+           * - "cholesky"
+             - Recursive ordering of the variables (default).
+           * - "generalized"
+             - Generalized responses, which do not depend on the ordering.
+           * - "sign"
+             - Sign and zero restrictions given with *restrictions*. Implied when *restrictions* is given.
+           * - "long_run"
+             - Long-run restrictions: shock *j* has no long-run effect on variables 1 to *j*-1.
+
+       Supported combinations:
+
+       .. list-table::
+           :widths: auto
+           :header-rows: 1
+
+           * - Fit
+             - Identifications
+           * - :func:`varFit`
+             - cholesky, generalized, long_run
+           * - :func:`bvarFit`
+             - cholesky, sign, long_run
+           * - :func:`bvarSvFit`
+             - cholesky, sign
+
+   :type identification: string
+
+   :param normalization: Optional keyword, the size of the shock under Cholesky identification.
+
+       .. list-table::
+           :widths: auto
+
+           * - "chol_one_sd"
+             - One standard deviation (default for :func:`varFit` and :func:`bvarFit` results).
+           * - "unit_own_impact"
+             - Each shock moves its own variable by exactly 1 on impact (:func:`varFit` and :func:`bvarSvFit` results).
+           * - "one_sd_at(t)"
+             - :func:`bvarSvFit` results only: one standard deviation at period *t*, where *t* is the last sample period (``fit.n_obs``).
+
+       Under stochastic volatility the size of a one-standard-deviation shock changes
+       every period, so :func:`bvarSvFit` results have no default: choose
+       ``"unit_own_impact"`` or ``"one_sd_at(t)"``. Sign, generalized and long-run
+       responses are one-standard-deviation shocks.
+   :type normalization: string
+
+   :param restrictions: Optional keyword, sign and zero restrictions from :func:`signRestrictions`, or the restriction table itself.
+   :type restrictions: struct or Nx4 string array
+
+   :param levels: Optional keyword, central masses of the pointwise credible bands. Default = ``0.68|0.90``. Sign-restricted responses, long-run responses from :func:`bvarFit` results and :func:`bvarSvFit` results support 0.68 and 0.90.
+   :type levels: scalar or vector
+
+   :param n_draws: Optional keyword, :func:`bvarFit` results only: number of posterior draws to use. Default = all stored draws.
+   :type n_draws: scalar
+
+   :param max_tries: Optional keyword, sign identification: random rotations tried for each posterior draw before the draw is dropped. Default = 10000.
+   :type max_tries: scalar
+
+   :param seed: Optional keyword, sign identification: random seed. Default = 42.
+   :type seed: scalar
+
+   :param cumulative: Optional keyword, set to 1 to also return cumulative responses in *irf.cirf*. Default = 0.
+   :type cumulative: scalar
+
+   :param ctl: Optional keyword, an instance of an :class:`svarControl` structure (:func:`svarControlCreate`) with narrative restrictions and the rotation sampler choice.
+   :type ctl: struct
+
+   :param var_names: Optional keyword, variable names for the output. Default = the names stored in *fit*.
    :type var_names: Mx1 string array
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -28,104 +102,10 @@ Format
 
    :rtype irf: struct
 
-Model
------
-
-An impulse response function (IRF) traces the dynamic effect of a one-standard-deviation
-structural shock to variable :math:`j` on variable :math:`i` over :math:`h` periods.
-
-For a VAR(p) in companion form :math:`Y_t = F Y_{t-1} + G \varepsilon_t`, the
-reduced-form IRF at horizon :math:`h` is:
-
-.. math::
-
-   \Phi_h = J \, F^h \, J'
-
-where :math:`F` is the :math:`mp \times mp` companion matrix and :math:`J = [I_m \; 0 \; \cdots \; 0]`
-selects the first :math:`m` rows.
-
-**Cholesky identification:** To give shocks a structural interpretation, the
-reduced-form innovations are orthogonalized via the Cholesky factorization
-:math:`\Sigma = P P'` where :math:`P` is lower triangular. The structural IRF is:
-
-.. math::
-
-   \Theta_h = \Phi_h \, P
-
-Element :math:`\Theta_h[i, j]` is the response of variable :math:`i` at horizon :math:`h`
-to a one-standard-deviation shock to variable :math:`j`.
-
-**Identification assumption:** Cholesky identification imposes a recursive causal ordering.
-Variable 1 can affect all others contemporaneously; variable :math:`m` is affected by all
-others but affects none contemporaneously. This assumption is appropriate when there is a
-natural fast-to-slow ordering (e.g., financial variables respond faster than real activity).
-
-Algorithm
----------
-
-1. **Extract companion matrix** :math:`F` and Cholesky factor :math:`P = \text{chol}(\Sigma)'` from the VAR estimates.
-
-2. **Iterate:** For :math:`h = 0, 1, \ldots, n\_ahead`:
-
-   .. math::
-
-      \Theta_h = J \, F^h \, J' \, P
-
-   The companion power :math:`F^h` is computed iteratively (matrix multiplication, not matrix exponentiation) for numerical stability.
-
-3. **Store** :math:`\Theta_0, \Theta_1, \ldots, \Theta_{n\_ahead}` as an array of :math:`m \times m` matrices.
-
-**Complexity:** :math:`O(n\_ahead \cdot m^2 p^2)` — dominated by the :math:`mp \times mp` matrix
-multiplications. Sub-millisecond for typical systems.
-
 Examples
 --------
 
-Monetary Policy Shock
-+++++++++++++++++++++
-
-Trace the effect of a federal funds rate shock on GDP and CPI:
-
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-
-    // Variable ordering: GDP (slow), CPI (medium), FFR (fast policy instrument)
-    // This ordering means: FFR shocks can affect GDP and CPI contemporaneously,
-    // but GDP shocks take one period to reach FFR.
-    result = varFit(data, 4);
-
-    irf = irfCompute(result, 20);
-
-Output:
-
-::
-
-    ================================================================================
-    Impulse Response Functions (cholesky)
-    Horizons: 0-20
-    ================================================================================
-
-    Shock to: GDP
-      h          GDP       CPI       FFR
-    --------------------------------------------------------------------------------
-      0     0.5280     0.0456     0.0919
-      1     0.1859     0.0810     0.2753
-      2     0.1600     0.0612     0.4442
-        ⋮
-     18     0.0089     0.0031     0.0042
-     19     0.0071     0.0025     0.0035
-     20     0.0057     0.0020     0.0029
-    ================================================================================
-
-The impact response (h=0) shows that a 1-SD GDP shock raises GDP by 0.528,
-CPI by 0.046, and FFR by 0.092 — consistent with the central bank responding
-to output movements within the quarter.
-
-IRF from BVAR with Shrinkage
+Cholesky responses from a VAR
 +++++++++++++++++++++++++++++
 
 ::
@@ -133,105 +113,159 @@ IRF from BVAR with Shrinkage
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    ctl = bvarControlCreate();
-    ctl.p = 4;
+    // The ordering GDP, inflation, funds rate lets the funds rate react to
+    // output and prices within the quarter.
+    fit = varFit(y, p=4, quiet=1);
 
-    br = bvarFit(data, ctl, quiet=1);
+    irf = irfCompute(fit, 12);
 
-    // IRF at the posterior mean of B and Sigma
-    irf = irfCompute(br, 20);
+The printout starts with the model and shock description, followed by one
+table per shock. Row *h* of the table for a shock holds the responses of
+every variable *h* quarters after the shock.
 
-For posterior IRF bands (credible intervals), use :func:`irfSvCompute` with
-an SV-BVAR result.
-
-Plotting IRFs
-+++++++++++++
-
-Reshape IRF results into a plot-ready dataframe:
+Posterior bands from a BVAR
++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, quiet=1);
-    irf = irfCompute(result, 20, quiet=1);
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    // Get plot data: (n_ahead+1) x (m*m) matrix with column names
-    struct DataFrame plot_data;
-    plot_data = irfPlotData(irf);
+    fit = bvarFit(y, p=4, quiet=1);
 
-    // Plot GDP response to FFR shock
-    plotXY(seqa(0, 1, 21), plot_data[., "GDP<-FFR"]);
+    irf = irfCompute(fit, 12, quiet=1);
 
-Troubleshooting
----------------
+    // Response of GDP growth to a funds rate shock, with the 68% band
+    h = seqa(0, 1, 13);
+    gdp_row = 3 * h + 1;
+    print h ~ irf.bands[1].lower[gdp_row, 3] ~ irf.irf[gdp_row, 3]
+            ~ irf.bands[1].upper[gdp_row, 3];
 
-**IRFs don't decay to zero:**
-If the VAR is near-nonstationary (max eigenvalue close to 1), IRFs can be very
-persistent. This is not a numerical error — it reflects the model's dynamics.
-Check ``result.max_eigenvalue``. For near-unit-root systems, consider:
+Each posterior draw gives one set of responses; *irf.irf* is the pointwise
+median and *irf.bands* holds the pointwise quantiles across draws.
 
-- Using longer horizons (40-60 periods instead of 20).
-- Differencing the data.
-- Adding sum-of-coefficients priors (:func:`bvarFit` with lambda6 > 0).
+A monetary policy shock identified with sign restrictions
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-**IRFs are sensitive to variable ordering:**
-This is inherent to Cholesky identification — different orderings produce different
-structural shocks. If the ordering is uncertain, use :func:`girfCompute` (generalized
-IRF, ordering-invariant) or :func:`svarIdentify` (sign restrictions).
+::
 
-**Impact response has wrong sign:**
-Check the variable ordering. In Cholesky identification, the first variable's shock
-is unrestricted; later variables' shocks are residualized. A monetary policy variable
-(FFR) should typically be ordered last so its shock is "purged" of contemporaneous
-output and price movements.
+    new;
+    library timeseries;
+
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+
+    fit = bvarFit(y, p=4, quiet=1);
+
+    // A contractionary monetary shock raises the funds rate and lowers
+    // inflation for the first four quarters (Uhlig 2005).
+    signs = signRestrictions(
+        "fed_funds"     $~ "monetary" $~ "0:4" $~ "+" $|
+        "cpi_inflation" $~ "monetary" $~ "0:4" $~ "-");
+
+    irf = irfCompute(fit, 20, restrictions=signs);
+
+    plotIrf(irf);
+
+The printout lists the restrictions as resolved against the fit, the number
+of posterior draws for which a rotation satisfying every restriction was
+found, and the responses to the *monetary* shock. Shocks without
+restrictions are not identified and are left out of the printout and the
+plot.
+
+Narrative restrictions
+++++++++++++++++++++++
+
+Narrative restrictions constrain the identified shocks in particular
+historical episodes. Continuing the example above, set them on an
+:class:`svarControl` structure:
+
+::
+
+    ctl = svarControlCreate();
+
+    // The monetary shock (shock 1, the first shock named in the table)
+    // was positive at observation 95 of the estimation sample.
+    ctl.narrative_restr = { 1 0 1 95 0 1 };
+
+    irf_n = irfCompute(fit, 20, restrictions=signs, ctl=ctl);
+
+Long-run identification
++++++++++++++++++++++++
+
+::
+
+    new;
+    library timeseries;
+
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/blanchard_quah_1989.csv");
+    y = loadd(fname, "gnp_growth + unemployment");
+
+    fit = varFit(y, p=8, quiet=1);
+
+    // Shock 2 has no long-run effect on the level of output
+    irf = irfCompute(fit, 40, identification="long_run", quiet=1);
+
+    // Block 0 of the responses is the structural impact matrix
+    print irf.irf[1:2, .];
 
 Remarks
 -------
 
-**Identification:**
-The Cholesky decomposition of :math:`\Sigma` is used to orthogonalize the
-innovations. The ordering of variables in the data determines the recursive
-causal structure: variable 1 can affect all others contemporaneously, variable
-2 can affect variables 3, ..., m but not 1, and so on.
+**Layout of the responses.** *irf.irf* has (*n_ahead* + 1) · *m* rows and
+*m* columns. Rows *h* · *m* + 1 to (*h* + 1) · *m* hold horizon *h*;
+element [*i*, *j*] of that block is the response of variable *i* to shock
+*j*. The first block is the impact matrix. The bands, the cumulative
+responses and the point responses use the same layout.
 
-**To change the identification ordering,** reorder the columns of the data
-before calling :func:`varFit` or :func:`bvarFit`.
+**Cholesky identification** orthogonalizes the innovations with the lower
+Cholesky factor of their covariance matrix, so variable 1 can affect all
+others within the period and variable *m* affects none of the others
+within the period. Reorder the data columns to change the ordering.
 
-**For ordering-invariant responses,** use :func:`girfCompute` (generalized IRF,
-Pesaran & Shin 1998). For theory-based identification with sign/zero restrictions,
-see :func:`svarIdentify`.
+**Generalized responses** (Pesaran and Shin 1998) shock one innovation at a
+time and integrate out the others using their historical correlation. They
+do not depend on the ordering, but the shocks are not orthogonal.
 
-**For BVAR,** the IRF is computed at the posterior mean of B and :math:`\Sigma`.
-For posterior IRF bands, use :func:`irfSvCompute` with an :class:`bvarSvResult`.
+**Sign restrictions** (Uhlig 2005; Rubio-Ramirez, Waggoner and Zha 2010).
+For each posterior draw of the coefficients and covariance matrix, random
+orthogonal rotations of the Cholesky factor are drawn until one satisfies
+every restriction; if none does within *max_tries*, the draw is dropped and
+counted in *irf.n_attempted* but not in *irf.n_accepted*. Zero restrictions
+are imposed exactly by building the rotation one column at a time (Arias,
+Rubio-Ramirez and Waggoner 2018). Narrative restrictions (Antolin-Diaz and
+Rubio-Ramirez 2018) are checked on each accepted draw and are available for
+:func:`bvarFit` results. Sign identification needs posterior draws, so it is
+not available for :func:`varFit` results.
 
-**Indexing convention:**
-``irf.irf[1, ., .]`` is the impact response (h=0). ``irf.irf[h+1, ., .]`` is the response
-at horizon h. Element ``irf.irf[h+1, i, j]`` is the response of variable i to
-a shock to variable j.
+**Long-run restrictions** (Blanchard and Quah 1989) make the long-run
+impact matrix lower triangular: shock *j* has no permanent effect on the
+level of variables 1 to *j*-1 when those variables enter in differences.
 
-Verification
-------------
+**Posterior summaries are pointwise.** Responses are computed draw by draw
+and then summarized horizon by horizon; the band at one horizon is not a
+joint statement about the whole path.
 
-Verified against R ``vars::irf()`` with ``boot=FALSE`` at :math:`10^{-6}` tolerance
-on a 2-variable VAR(1) with known DGP. Tests cover impact values, decay patterns
-at h=1 and h=2, and the Cholesky lower-triangularity constraint (zero upper-off-diagonal
-at h=0). See ``gausslib-var/tests/r_benchmark.rs``.
-
-Additionally verified against ECB BEAR Cholesky IRFs on matched-prior BVAR(4),
-covering all 9 shock-response pairs at horizons 0, 10, and 20 (17 tests).
-See ``crossval/bear_matched_irf.e``.
+**SV-BVAR fits.** Cholesky responses from a :func:`bvarSvFit` result use
+the posterior draws of the contemporaneous structure; sign-restricted
+responses use the covariance matrix of the last sample period.
 
 References
 ----------
 
-- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Chapter 2.3 (IRF computation), Chapter 9 (structural identification).
+- Antolin-Diaz, J. and J.F. Rubio-Ramirez (2018). "Narrative sign restrictions for SVARs." *American Economic Review*, 108(10), 2802-2829.
+- Arias, J.E., J.F. Rubio-Ramirez and D.F. Waggoner (2018). "Inference based on structural vector autoregressions identified with sign and zero restrictions: theory and applications." *Econometrica*, 86(2), 685-720.
+- Blanchard, O.J. and D. Quah (1989). "The dynamic effects of aggregate demand and supply disturbances." *American Economic Review*, 79(4), 655-673.
+- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Chapters 2.3 and 9.
 - Pesaran, M.H. and Y. Shin (1998). "Generalized impulse response analysis in linear multivariate models." *Economics Letters*, 58(1), 17-29.
-- Sims, C.A. (1980). "Macroeconomics and reality." *Econometrica*, 48(1), 1-48.
+- Rubio-Ramirez, J.F., D.F. Waggoner and T. Zha (2010). "Structural vector autoregressions: theory of identification and algorithms for inference." *Review of Economic Studies*, 77(2), 665-696.
+- Uhlig, H. (2005). "What are the effects of monetary policy on output? Results from an agnostic identification procedure." *Journal of Monetary Economics*, 52(2), 381-419.
 
 Library
 -------
@@ -239,8 +273,6 @@ timeseries
 
 Source
 ------
-irf.src
+var.src
 
-.. seealso:: Functions :func:`irfSvCompute`, :func:`girfCompute`, :func:`fevdCompute`, :func:`hdCompute`, :func:`irfPlotData`, :func:`svarIdentify`
-
-.. seealso:: Guides :ref:`choosing-a-var-model`, :ref:`var-verification`
+.. seealso:: Functions :func:`signRestrictions`, :func:`fevdCompute`, :func:`hdCompute`, :func:`plotIrf`, :func:`irfPlotData`, :func:`svarControlCreate`

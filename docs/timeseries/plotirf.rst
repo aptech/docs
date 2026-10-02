@@ -3,41 +3,72 @@ plotIrf
 
 Purpose
 -------
-Plot impulse response functions in an m × m grid. Each cell shows the
-response of one variable to a one-standard-deviation shock to another.
+Plot impulse responses, cumulative responses or forecast error variance
+shares in a grid, with credible bands for posterior results.
 
 Format
 ------
 
 .. function:: plotIrf(irf)
+              plotIrf(irf, plot_type="cirf")
+              plotIrf(irf, plot_type="fevd")
 
-   :param irf: IRF result from :func:`irfCompute` or :func:`girfCompute`.
-   :type irf: struct irfResult
+   :param irf: an instance of an :class:`irfResult` structure from :func:`irfCompute`.
+   :type irf: struct
+
+   :param plot_type: Optional keyword, what to plot:
+
+       .. list-table::
+           :widths: auto
+
+           * - "irf"
+             - Responses (default).
+           * - "cirf"
+             - Cumulative responses. Compute *irf* with ``cumulative=1``.
+           * - "fevd"
+             - Forecast error variance shares (see :func:`fevdCompute`).
+
+   :type plot_type: string
 
 Examples
 --------
 
-Cholesky IRF Grid
-+++++++++++++++++
+Responses from a VAR
+++++++++++++++++++++
 
 ::
 
+    new;
     library timeseries;
 
     fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
-    data = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    ctl = varControlCreate();
-    ctl.p = 4;
-    ctl.quiet = 1;
+    fit = varFit(y, p=4, quiet=1);
+    irf = irfCompute(fit, 20, quiet=1);
 
-    rv = varFit(data, ctl);
-    irf = irfCompute(rv, 20);
-
-    // 3×3 grid of impulse responses
+    // 3 x 3 grid: one row per variable, one column per shock
     plotIrf(irf);
 
-Save to File
+Posterior bands and a sign-restricted shock
++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    fit = bvarFit(y, p=4, quiet=1);
+
+    signs = signRestrictions(
+        "fed_funds"     $~ "monetary" $~ "0:4" $~ "+" $|
+        "cpi_inflation" $~ "monetary" $~ "0:4" $~ "-");
+    irf = irfCompute(fit, 20, restrictions=signs, cumulative=1, quiet=1);
+
+    // One column: the responses to the monetary shock
+    plotIrf(irf);
+
+    // Cumulative responses
+    plotIrf(irf, plot_type="cirf");
+
+Save to file
 ++++++++++++
 
 ::
@@ -48,19 +79,23 @@ Save to File
 Remarks
 -------
 
-**Grid layout:** Row *i*, column *j* shows the response of variable *i* to a
-shock to variable *j*. Each cell is titled "response ← shock" using the
-variable names from the estimation result.
+**Grid layout.** Row *i*, column *j* shows the response of variable *i* to
+shock *j*. Each panel is titled "variable ← shock" using the variable and
+shock names stored in *irf*. Under sign identification only the restricted
+shocks are plotted.
 
-**Zero line:** A horizontal dashed gray line at zero is drawn in every cell.
-If the IRF stays above (or below) zero at all horizons, the effect is
-consistently positive (or negative).
+**Bands.** For posterior results the median is drawn as a line over shaded
+pointwise credible bands; the darker band is the narrower one. A dashed
+gray line marks zero.
 
-**Diagonal cells:** These show each variable's response to its own shock. For
-Cholesky identification, the impact response (h=0) on the diagonal equals
-the Cholesky factor of :math:`\Sigma`.
+**Variance shares** are plotted from horizon 1, the one-step decomposition.
 
-**For credible bands:** Use :func:`plotSvIrf` with an :class:`svIrfResult` from
-:func:`irfSvCompute`. The point-estimate :func:`plotIrf` does not show bands.
+Library
+-------
+timeseries
 
-.. seealso:: Functions :func:`irfCompute`, :func:`girfCompute`, :func:`plotSvIrf`
+Source
+------
+var.src
+
+.. seealso:: Functions :func:`irfCompute`, :func:`fevdCompute`, :func:`irfPlotData`

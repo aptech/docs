@@ -3,88 +3,61 @@ irfPlotData
 
 Purpose
 -------
-Reshape IRF, FEVD, or SV-BVAR IRF results into a plot-ready long-format dataframe.
+Return impulse responses as a long-format dataframe for plotting or export.
 
 Format
 ------
 
-.. function:: df = irfPlotData(result, shock, response)
-              df = irfPlotData(result)
+.. function:: df = irfPlotData(irf)
+              df = irfPlotData(irf, shock, response)
 
-   :param result: an instance of an :class:`irfResult`, :class:`svIrfResult`, or :class:`fevdResult` structure.
-   :type result: struct
+   :param irf: an instance of an :class:`irfResult` structure from :func:`irfCompute`.
+   :type irf: struct
 
-   :param shock: Optional, shock index (1 to m). If omitted, all shocks are included.
-   :type shock: scalar
+   :param shock: Optional, shock name or number. Give *shock* and *response* together to get one response path.
+   :type shock: string or scalar
 
-   :param response: Optional, response variable index (1 to m). If omitted, all responses are included.
-   :type response: scalar
+   :param response: Optional, response variable name or number.
+   :type response: string or scalar
 
-   :return df: Dataframe. For :class:`irfResult`: columns horizon, shock, response, value. For :class:`svIrfResult`: columns horizon, shock, response, median, plus lower/upper columns for each credible band level. For :class:`fevdResult`: columns horizon, shock, response, share.
+   :return df: Dataframe. For all pairs: columns horizon, shock, response, value. For one pair: columns horizon, value. *value* is the point response or the posterior median. For posterior results, lower and upper band columns follow for each level, for example lower_68, upper_68, lower_90, upper_90.
    :rtype df: dataframe
 
 Examples
 --------
 
-Plot a Single Shock-Response Pair
-+++++++++++++++++++++++++++++++++
+One response with its bands
++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4);
-    irf = irfCompute(result, 20, quiet=1);
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    // GDP response to FFR shock
-    df = irfPlotData(irf, 3, 1);
-    plotXY(df[., "horizon"], df[., "value"]);
+    fit = bvarFit(y, p=4, quiet=1);
+    irf = irfCompute(fit, 20, quiet=1);
 
-Plot SV-BVAR IRF with Credible Bands
-+++++++++++++++++++++++++++++++++++++
+    // GDP growth response to the funds rate shock
+    df = irfPlotData(irf, "fed_funds", "gdp_growth");
+    plotXY(df[., "horizon"], df[., "value" "lower_68" "upper_68"]);
 
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = bvarSvFit(data, quiet=1);
-    irf = irfSvCompute(result, 20, quiet=1);
-
-    // GDP response to FFR shock with bands
-    df = irfPlotData(irf, 3, 1);
-
-    // Plot median with 68% band
-    plotXY(df[., "horizon"],
-        df[., "median"]~df[., "bands[1].lower"]~df[., "bands[1].upper"]);
-
-Extract All Pairs
-+++++++++++++++++
+All pairs
++++++++++
 
 ::
 
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, quiet=1);
-    irf = irfCompute(result, 20, quiet=1);
-
-    // All m*m pairs in long format
     df = irfPlotData(irf);
     print df[1:10, .];
 
 Remarks
 -------
 
-This is a convenience function for plotting. It reshapes the array-of-matrices
-representation into a long-format dataframe that can be passed directly to
-:func:`plotXY` or exported to CSV.
-
-**No Rust FFI call** — this is a pure GAUSS reshape operation.
+In the all-pairs form, *shock* and *response* are numbers; the names are in
+*irf.shock_names* and *irf.var_names*. Under sign identification only the
+restricted shocks are included.
 
 Library
 -------
@@ -92,6 +65,6 @@ timeseries
 
 Source
 ------
-irf.src
+var.src
 
-.. seealso:: Functions :func:`irfCompute`, :func:`irfSvCompute`, :func:`fevdCompute`
+.. seealso:: Functions :func:`irfCompute`, :func:`plotIrf`

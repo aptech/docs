@@ -3,22 +3,15 @@ fevdCompute
 
 Purpose
 -------
-Compute forecast error variance decomposition.
+Compute the forecast error variance decomposition from impulse responses.
 
 Format
 ------
 
 .. function:: fevd = fevdCompute(irf)
-              fevd = fevdCompute(result, n_ahead)
 
    :param irf: an instance of an :class:`irfResult` structure from :func:`irfCompute`.
    :type irf: struct
-
-   :param result: alternatively, a :class:`varResult` or :class:`bvarResult` structure (IRF is computed internally).
-   :type result: struct
-
-   :param n_ahead: number of horizons (required when passing *result*).
-   :type n_ahead: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
@@ -32,132 +25,74 @@ Format
 Examples
 --------
 
-From Pre-Computed IRF
-+++++++++++++++++++++
+From a VAR
+++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4);
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
+    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
 
-    irf = irfCompute(result, 20, quiet=1);
+    fit = varFit(y, p=4, quiet=1);
+    irf = irfCompute(fit, 12, quiet=1);
 
     fevd = fevdCompute(irf);
 
-Direct from Estimation Result
-+++++++++++++++++++++++++++++
+    // Share of GDP growth's 8-quarter forecast error variance due to each shock
+    print fevd.fevd[7 * 3 + 1, .];
+
+With posterior bands
+++++++++++++++++++++
 
 ::
 
-    new;
-    library timeseries;
+    fit = bvarFit(y, p=4, quiet=1);
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4);
+    signs = signRestrictions(
+        "fed_funds"     $~ "monetary" $~ "0:4" $~ "+" $|
+        "cpi_inflation" $~ "monetary" $~ "0:4" $~ "-");
+    irf = irfCompute(fit, 20, restrictions=signs, quiet=1);
 
-    // Skip the explicit IRF step
-    fevd = fevdCompute(result, 20);
+    fevd = fevdCompute(irf);
 
-Accessing Decomposition
-+++++++++++++++++++++++
-
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4);
-    fevd = fevdCompute(result, 20, quiet=1);
-
-    // Fraction of GDP variance explained by each shock at h=20
-    print "GDP variance decomposition at h=20:";
-    print fevd.var_names';
-    print fevd.fevd[21, 1, .];
-
-    // Verify rows sum to 1
-    print "Sum:" sumc(fevd.fevd[21, 1, .]');
-
-    // Track how FFR's contribution to GDP evolves over horizons
-    print "FFR contribution to GDP over time:";
-    for h (0, 20, 1);
-        print h;; print "  ";; print fevd.fevd[h+1, 1, 3];
-    endfor;
+    // 68% band for the monetary shock's share of GDP growth at 8 quarters
+    print fevd.bands[1].lower[7 * 3 + 1, 1] ~ fevd.fevd[7 * 3 + 1, 1]
+          ~ fevd.bands[1].upper[7 * 3 + 1, 1];
 
 Remarks
 -------
 
-**The FEVD partitions** the h-step-ahead forecast error variance of each
-variable into contributions from each orthogonal shock. At horizon h, row i
-of ``fevd.fevd[h+1, i, .]`` gives the fraction of variable i's forecast uncertainty
-attributable to each shock. Each row sums to 1.0.
-
-**At h=0 (impact),** the decomposition reflects the contemporaneous Cholesky
-structure: variable 1's variance is 100% from its own shock, other variables'
-variance includes contributions from earlier-ordered variables.
-
-**As h increases,** the decomposition typically converges to long-run shares
-that reflect the relative importance of each shock in driving each variable.
-
-**This function accepts either** a pre-computed :class:`irfResult` (if you
-already computed IRFs) or an estimation result (computes IRFs internally).
-Both produce identical results.
-
-Model
------
-
-The FEVD partitions the h-step forecast error variance of variable :math:`i` into
-contributions from each orthogonal shock :math:`j`:
+**Definition.** The share of variable *i*'s *h*-step forecast error
+variance due to shock *j* is
 
 .. math::
 
-   \text{FEVD}_{i,j}(h) = \frac{\sum_{\ell=0}^{h-1} (\Theta_\ell[i,j])^2}{\sum_{\ell=0}^{h-1} \sum_{k=1}^{m} (\Theta_\ell[i,k])^2}
+   \text{FEVD}_{i,j}(h) = \frac{\sum_{\ell=0}^{h-1} \Theta_\ell[i,j]^2}{\sum_{\ell=0}^{h-1} \sum_{k=1}^{m} \Theta_\ell[i,k]^2}
 
-where :math:`\Theta_\ell` is the structural IRF at horizon :math:`\ell`. Each row sums to 1.
+where :math:`\Theta_\ell` is the response matrix at horizon :math:`\ell`.
+Each row of shares sums to 1.
 
-At :math:`h \to \infty`, the FEVD converges to the long-run variance shares.
+**Layout.** *fevd.fevd* has *n_ahead* · *m* rows: rows *b* · *m* + 1 to
+(*b* + 1) · *m* hold the (*b* + 1)-step shares, so the first block is the
+one-step decomposition.
 
+**Posterior results.** For posterior responses the shares are computed for
+each draw and then summarized; *fevd.fevd* is the pointwise median and
+*fevd.bands* the pointwise bands. Medians of shares need not sum exactly to
+1; each draw's shares do. :func:`bvarSvFit` results with Cholesky
+identification carry no draw-by-draw shares, so :func:`fevdCompute` does
+not accept them.
 
-Algorithm
----------
-
-1. Compute Cholesky IRF matrices :math:`\Theta_0, \ldots, \Theta_{h-1}` (from :func:`irfCompute` or internally).
-2. For each horizon, compute cumulative squared responses and normalize.
-
-**Complexity:** :math:`O(h \cdot m^2)` on top of the IRF computation.
-
-
-Troubleshooting
----------------
-
-**FEVD shares don't change much across horizons:**
-The model has weak dynamic interactions — shocks are mostly absorbed within
-the first few periods. This is common in growth-rate data.
-
-**One shock dominates everything:**
-Check the variable ordering. With Cholesky identification, the first variable's
-shock can absorb variance that should be attributed to other shocks.
-Try :func:`girfCompute` or :func:`svarIdentify` for alternative decompositions.
-
-
-Verification
-------------
-
-FEVD verified against R ``vars::fevd()`` at :math:`10^{-6}` tolerance on a
-2-variable VAR(1), confirming row-sum-to-one property and individual shares
-at h=1 and h=10.
-
-See ``gausslib-var/tests/r_benchmark.rs``.
-
+**Shock size.** Variance shares need one-standard-deviation shocks, so
+responses computed with ``normalization="unit_own_impact"`` are rejected.
 
 References
 ----------
 
 - Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer. Section 2.3.3.
-
 
 Library
 -------
@@ -165,6 +100,6 @@ timeseries
 
 Source
 ------
-fevd.src
+var.src
 
-.. seealso:: Functions :func:`irfCompute`, :func:`hdCompute`, :func:`irfPlotData`
+.. seealso:: Functions :func:`irfCompute`, :func:`hdCompute`, :func:`plotIrf`
