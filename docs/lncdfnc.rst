@@ -12,13 +12,13 @@ Format
 .. function:: y = lncdfnc(x)
 
     :param x: values at which to evaluate the complement of the cumulative distribution function.
-    :type x: NxK matrix
+    :type x: NxK matrix or N-dimensional array
 
     :return y: the natural log of the complement of the cumulative distribution function.
 
         .. math:: ln\ (1 - Pr(X < x))
 
-    :rtype y: NxK matrix
+    :rtype y: NxK matrix or N-dimensional array
 
 Examples
 ----------------
@@ -32,7 +32,7 @@ Examples
     pc = cdfnc(x);
 
     // Compute ln of the complement of the cdf
-    lnpc = lncdfnc(x)
+    lnpc = lncdfnc(x);
 
     print "pc ="; pc;
     print "ln(pc)"; lnpc;
@@ -43,8 +43,3 @@ Examples
   0.30854
   ln(pc) =
   -1.17591
-
-Source
-------
-
-lncdfn.src
