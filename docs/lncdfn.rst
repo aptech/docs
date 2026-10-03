@@ -39,8 +39,3 @@ After the above code:
   -0.55374
   -0.43491
   -0.33157
-
-Source
-------
-
-lncdfn.src
