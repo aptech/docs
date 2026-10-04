@@ -111,7 +111,11 @@ Forecasting
    * - :func:`bvarSvForecast`
      - Density forecasts from SV-BVAR with time-varying volatility.
    * - :func:`condForecast`
-     - Conditional (scenario) forecasts with hard constraints.
+     - Scenario forecasts: the forecast given assumed future values.
+   * - :func:`scenarioCompare`
+     - Two scenarios on the same model, with the difference and its bands.
+   * - :func:`scenarioPath`
+     - Build a scenario path by variable name.
 
 Impulse Responses & Structural Analysis
 ++++++++++++++++++++++++++++++++++++++++
@@ -306,6 +310,8 @@ Control Structure Creators
     bvarmacroforecastprint
     bvarsvforecast
     condforecast
+    scenariocompare
+    scenariopath
     svforecastcontrolcreate
 
 .. toctree::
