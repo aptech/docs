@@ -3,165 +3,174 @@ bvarHyperopt
 
 Purpose
 -------
-Optimize Minnesota prior hyperparameters by maximizing the log marginal likelihood.
+Choose the overall tightness of a Minnesota prior (and, optionally, the tightness of the sum-of-coefficients and single-unit-root priors) by marginal likelihood.
 
 Format
 ------
 
 .. function:: ho = bvarHyperopt(y)
-              ho = bvarHyperopt(y, ctl)
-              ho = bvarHyperopt(y, ctl, xreg=X)
+              ho = bvarHyperopt(y, p=4)
+              ho = bvarHyperopt(y, ctl=ctl)
 
-   :param y: endogenous variables.
+   :param y: endogenous variables. A single date column in a dataframe is used as the time index and left out of the model.
    :type y: TxM matrix or dataframe
 
-   :param ctl: Optional input, a :class:`bvarControl` structure with initial hyperparameter values. The optimization mode is determined by which lambda values are nonzero:
+   :param p: Optional keyword, lag order. Default = 1. Ignored when *ctl* is given (set *ctl.p*).
+   :type p: scalar
 
-       - *lambda6* = 0, *lambda7* = 0: optimize lambda1 only
-       - *lambda6* > 0: optimize lambda1 + lambda6 (SOC)
-       - *lambda7* > 0: optimize lambda1 + lambda7 (SUR)
-       - Both > 0: optimize lambda1 + lambda6 + lambda7
-
-   :type ctl: struct
-
-   :param xreg: Optional keyword, exogenous regressors.
+   :param xreg: Optional keyword, exogenous regressors. Ignored when *ctl* is given (set *ctl.xreg*).
    :type xreg: TxK matrix
 
-   :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure (see :func:`bvarControlCreate`). Its prior settings are held fixed while the tightness is chosen; *ctl.overall_tightness* is the starting value. When *ctl* is given, *p* and *xreg* are ignored. Settings that matter here:
+
+       .. list-table::
+          :widths: auto
+
+          * - ctl.hyperopt_map
+            - Scalar, the objective. 1 (default): log marginal likelihood plus the log of a Gamma prior on each tightness chosen (overall tightness: mode 0.2, standard deviation 0.4; sum-of-coefficients and single-unit-root tightness: mode 1, standard deviation 1), as in Giannone, Lenza and Primiceri (2015). 0: log marginal likelihood alone.
+
+          * - ctl.soc_tightness
+            - Scalar. 0 (default): no sum-of-coefficients prior. A positive value adds that prior and chooses its tightness too, starting from this value, together with the lag decay (*ctl.lag_decay*, between 0.5 and 3).
+
+          * - ctl.sur_tightness
+            - Scalar. 0 (default): no single-unit-root prior. A positive value adds that prior and chooses its tightness too; it requires *ctl.soc_tightness* > 0.
+
+          * - ctl.ar
+            - Scalar, the prior mean of each variable's own first lag, one value for all variables. Default = 1 (random walk). Use 0 for data in changes or growth rates.
+
+          * - ctl.intercept_prior
+            - String. "fixed_vc" (default) holds the prior variance of the constants at *ctl.constant_vc* (default 1e7) while the tightness changes; "litterman_coupled" scales it with the overall tightness. The two give different choices.
+
+          * - ctl.residual_variance_policy
+            - String, how the prior's residual scales are estimated. Default: "arp_full_training". :func:`bvarGlp2015ControlCreate` sets the scales Giannone, Lenza and Primiceri use.
+
+   :type ctl: struct
 
    :return ho: An instance of a :class:`hyperoptResult` structure containing:
 
        .. list-table::
           :widths: auto
 
-          * - ho.lambda1
-            - Scalar, optimized overall tightness.
+          * - ho.overall_tightness
+            - Scalar, the chosen overall tightness.
 
-          * - ho.lambda3
-            - Scalar, optimized lag decay (if included in optimization).
+          * - ho.soc_tightness
+            - Scalar, the chosen sum-of-coefficients tightness; 0 if that prior is not used.
 
-          * - ho.lambda6
-            - Scalar, optimized SOC tightness (if included).
+          * - ho.sur_tightness
+            - Scalar, the chosen single-unit-root tightness; 0 if that prior is not used.
 
-          * - ho.lambda7
-            - Scalar, optimized SUR tightness (if included).
+          * - ho.lag_decay
+            - Scalar, the lag decay: chosen when the sum-of-coefficients prior is used, otherwise *ctl.lag_decay*.
 
           * - ho.log_ml
-            - Scalar, maximized log marginal likelihood.
+            - Scalar, the log marginal likelihood at the chosen values.
+
+          * - ho.log_hyperprior
+            - Scalar, the log prior of the chosen tightness values; 0 when *ctl.hyperopt_map* = 0. The maximized objective is *ho.log_ml* + *ho.log_hyperprior*.
 
           * - ho.converged
-            - Scalar, 1 if optimizer converged.
+            - Scalar, 1 if the search converged: for the overall tightness alone, to a peak inside its range; with the sum-of-coefficients prior, to a point that meets the optimality conditions, which may lie on a bound of one of the values.
+
+          * - ho.at_bound
+            - Scalar, 1 if the overall tightness stopped at the edge of its range (0.001 or 5) in the search for the overall tightness alone: the objective was still rising there, so no peak was found. *ho.converged* is then 0. With the sum-of-coefficients prior the values are chosen jointly, and the search checks its own optimality conditions at the bounds, so *ho.at_bound* is 0 and *ho.converged* gives the result.
+
+          * - ho.status
+            - String, "converged", "not_converged" or "at_bound".
 
           * - ho.n_evals
-            - Scalar, number of function evaluations.
+            - Scalar, number of marginal-likelihood evaluations.
+
+          * - ho.residual_variances
+            - Mx1 vector, the residual scales used by the prior.
+
+          * - ho.residual_variance_policy
+            - String, how those scales were estimated.
 
           * - ho.ctl
-            - :class:`bvarControl` struct, pre-populated with all optimal values. Ready to pass directly to :func:`bvarFit`.
+            - :class:`bvarControl` structure: the input settings with the chosen tightness values filled in, ready to pass to :func:`bvarFit` as *ctl*.
 
    :rtype ho: struct
 
 Examples
 --------
 
-One-Line Optimal BVAR
-+++++++++++++++++++++
+Choose the Tightness, Then Fit
+++++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    // Seven quarterly US series in log levels and the federal funds rate,
+    // 1959Q1-2008Q4 (the data of Giannone, Lenza and Primiceri 2015). The
+    // default prior centre, a random walk (ctl.ar = 1), suits levels.
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/glp_2015_datasw.csv"));
 
-    // Optimize and estimate in two lines
-    ho = bvarHyperopt(data);
-    result = bvarFit(data, ho.ctl);
-
-    print "Optimal lambda1:" ho.lambda1;
-    print "Log ML:" ho.log_ml;
-
-Optimize with SOC and SUR
-++++++++++++++++++++++++++
-
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-
+    struct bvarControl ctl;
     ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.lambda6 = 1;      // Enable SOC (initial value)
-    ctl.lambda7 = 1;      // Enable SUR (initial value)
+    ctl.p = 5;
 
-    ho = bvarHyperopt(data, ctl);
-    result = bvarFit(data, ho.ctl);
+    ho = bvarHyperopt(data, ctl=ctl);
+    fit = bvarFit(data, ctl=ho.ctl);
 
-    print "Optimal lambda1:" ho.lambda1;
-    print "Optimal lambda6:" ho.lambda6;
-    print "Optimal lambda7:" ho.lambda7;
+The printout shows the chosen overall tightness (about 0.14 here), the log
+marginal likelihood, the log prior of the tightness and their sum, then the
+fit at the chosen tightness.
+
+Add the Sum-of-Coefficients and Single-Unit-Root Priors
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    new;
+    library timeseries;
+
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/glp_2015_datasw.csv"));
+
+    struct bvarControl ctl;
+    ctl = bvarControlCreate();
+    ctl.p = 5;
+    ctl.soc_tightness = 1;     // add the prior; start the search at 1
+    ctl.sur_tightness = 1;
+
+    ho = bvarHyperopt(data, ctl=ctl);
+
+The overall, sum-of-coefficients and single-unit-root tightness and the
+lag decay are chosen together.
 
 Remarks
 -------
 
-Implements the Giannone, Lenza & Primiceri (2015) approach to hyperparameter
-selection. The marginal likelihood is maximized using L-BFGS-B constrained
-optimization, treating the Minnesota hyperparameters as continuous variables
-with positivity constraints.
+The marginal likelihood of a tightness value is the probability the model
+assigned, before seeing the data, to the sample it then observed. Under
+the conjugate Minnesota prior it has a closed form, so each evaluation is
+fast and the search needs no simulation. A very tight prior predicts the
+sample badly because it rules out dynamics the data have; a very loose
+prior spreads its predictions over coefficient values the data never
+support. Giannone, Lenza and Primiceri (2015) show that choosing the
+tightness this way forecasts well.
 
-The returned *ho.ctl* structure is a complete :class:`bvarControl` with all
-fields populated — the optimal lambda values plus all other settings carried
-over from the input. Pass it directly to :func:`bvarFit` without further
-modification.
+With the overall tightness alone, the search is one-dimensional: a grid
+followed by golden-section refinement on the log scale, between 0.001 and
+5. With the sum-of-coefficients (and single-unit-root) prior added, the
+values (and the lag decay) are chosen jointly by a bounded quasi-Newton
+search.
 
-Model
------
+*ho.status* = "at_bound" means the objective keeps rising toward the edge
+of the search range, so the returned overall tightness is that edge, not a
+peak. At the lower edge the data favour shrinking the coefficients all the
+way to the prior mean; at the upper edge the prior hardly matters. The
+printout says so, and *ho.converged* is 0. *ho.ctl* still holds the edge
+value: check *ho.status* before fitting with it.
 
-The marginal likelihood of the data under the conjugate Minnesota prior is:
-
-.. math::
-
-   p(Y | \lambda) = \pi^{-\frac{T m}{2}} \frac{|\bar\Phi|^{m/2}}{|\Omega|^{m/2}} \frac{|\bar{S}|^{-\bar\alpha/2}}{|S_0|^{-\alpha_0/2}} \prod_{i=1}^{m} \frac{\Gamma((\bar\alpha + 1 - i)/2)}{\Gamma((\alpha_0 + 1 - i)/2)}
-
-where :math:`\lambda = (\lambda_1, \lambda_6, \lambda_7)` are the hyperparameters being
-optimized, and the posterior parameters :math:`\bar\Phi, \bar{S}, \bar\alpha` depend on
-:math:`\lambda` through the prior.
-
-The optimum :math:`\lambda^* = \arg\max_\lambda \log p(Y | \lambda)` is the
-empirical Bayes or "type II maximum likelihood" estimate.
-
-Algorithm
----------
-
-1. Evaluate :math:`\log p(Y | \lambda)` analytically (closed form for conjugate NIW).
-2. Maximize using L-BFGS-B with positivity constraints on all :math:`\lambda`.
-3. Starting values: the input *ctl* lambda values (defaults: lambda1=0.2).
-
-The optimization is fast because each function evaluation is :math:`O(K^2 m)` (no MCMC).
-Typical wall-clock time is 0.01-0.05 seconds.
-
-Troubleshooting
----------------
-
-**Optimizer returns lambda1 at the upper bound:**
-The data wants a very loose prior (lambda1 → ∞ approaches OLS). This suggests
-the sample is large enough that the prior doesn't help. Consider using OLS
-(:func:`varFit`) or reducing the search bounds.
-
-**lambda6 or lambda7 optimized to near zero:**
-The data does not support sum-of-coefficients or single-unit-root priors.
-This is informative — the prior is not needed for this dataset.
-
-Verification
-------------
-
-GLP hyperparameter optimization verified against R ``BVAR::bvar()`` with
-``hyper = "auto"`` on multiple datasets. Optimal lambda values and maximized
-log marginal likelihoods agree within optimization tolerance.
-
-See ``crossval/23_glp_crossval.R``.
+To evaluate the choice on forecasts, use :func:`bvarRollingOrigin` with
+*choose_tightness="map"*, which repeats the choice on each forecast
+origin's data.
 
 References
 ----------
@@ -174,6 +183,6 @@ timeseries
 
 Source
 ------
-bvar.src
+var.src
 
-.. seealso:: Functions :func:`bvarFit`, :func:`bvarControlCreate`
+.. seealso:: Functions :func:`bvarFit`, :func:`bvarControlCreate`, :func:`bvarGlp2015ControlCreate`, :func:`bvarRollingOrigin`
