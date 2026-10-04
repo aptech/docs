@@ -3,32 +3,41 @@ condForecast
 
 Purpose
 -------
-Generate conditional (scenario) forecasts with hard constraints on variable paths.
+Forecast a VAR or Bayesian VAR given assumed future values of some variables (a scenario forecast).
 
 Format
 ------
 
-.. function:: cfc = condForecast(result, path)
-              cfc = condForecast(result, path, xreg=X_future)
-              cfc = condForecast(result, path, level=0.90)
+.. function:: cfc = condForecast(fit, path)
+              cfc = condForecast(fit, path, averages=avg, average_of=var)
+              cfc = condForecast(fit, path, level=0.90, n_draws=5000, seed=42)
 
-   :param result: an instance of a :class:`bvarResult` or :class:`bvarSvResult` structure.
-   :type result: struct
+   :param fit: result from :func:`bvarFit` (one simulated path per posterior draw) or :func:`varFit` (coefficients fixed at their least-squares estimates and the residual covariance at its maximum likelihood value, divisor *T*, as in :func:`varForecast`).
+   :type fit: struct
 
-   :param path: constraint matrix. Finite values impose hard constraints; missing values (via :func:`miss`) indicate unconstrained cells. At least one variable must be unconstrained at each horizon.
+   :param path: the forecast horizon is the number of rows. A finite entry fixes that variable at that step; a missing value (see :func:`miss`) leaves it free.
    :type path: hxm matrix
 
-   :param xreg: Optional keyword, future values of exogenous regressors. Required if the model was fit with *xreg*.
-   :type xreg: hxK matrix
+   :param averages: Optional keyword, conditions on averages, one row per condition: first step, last step, value. The average of the variable over steps *first* to *last* must equal *value*.
+   :type averages: Nx3 matrix
 
-   :param level: Optional keyword, credible level for bands on free variables. Default = 0.68.
-   :type level: scalar
+   :param average_of: Optional keyword, the variable of each *averages* row, by name or number: one for every row, or one per row.
+   :type average_of: string, string array or vector
 
-   :param n_draws: Optional keyword, number of posterior draws for computing bands. Default = 1000.
+   :param level: Optional keyword, central mass of each pointwise band. Default = 0.68|0.90. *levels* is accepted as another name for it.
+   :type level: scalar or vector
+
+   :param n_draws: Optional keyword. For a :func:`bvarFit` result, the number of posterior draws to use (default and maximum: all stored draws). For a :func:`varFit` result, the number of simulated paths (default 5000).
    :type n_draws: scalar
 
-   :param seed: Optional keyword, RNG seed for reproducibility. Default = 42.
+   :param seed: Optional keyword, seed for the simulated future shocks. Default = 42.
    :type seed: scalar
+
+   :param store_draws: Optional keyword, 1 to keep every simulated path in *cfc.draws* and every draw's scenario effect in *cfc.effect_draws*. Default = 0.
+   :type store_draws: scalar
+
+   :param xreg_future: Optional keyword, future values of the exogenous regressors. Required when the model was fit with *xreg*.
+   :type xreg_future: hxK matrix
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
@@ -42,109 +51,7 @@ Format
 Examples
 --------
 
-Fix One Variable, Forecast the Rest
-++++++++++++++++++++++++++++++++++++
-
-Fix the federal funds rate at 5.0% for 12 quarters and forecast GDP and CPI:
-
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    result = bvarFit(data, ctl, quiet=1);
-
-    // Build constraint path: 12 horizons, 3 variables (GDP, CPI, FFR)
-    // miss() = unconstrained, finite = fixed
-    path = miss(zeros(12, 3), 0);
-
-    // Fix FFR (column 3) at 5.0 for all horizons
-    path[., 3] = 5.0 * ones(12, 1);
-
-    cfc = condForecast(result, path);
-
-The conditional forecast table is printed:
-
-::
-
-    ================================================================================
-    Conditional Forecast: 12 steps               Level: 68%
-    Constraints: FFR fixed (all 12 horizons)     Draws: 1000
-    ================================================================================
-             GDP (free)             CPI (free)             FFR (fixed)
-    h    Median [Lower Upper]     Median [Lower Upper]    Path
-    ---------------------------------------------------------------------------
-     1    2.103 [ 1.89  2.31]      3.214 [ 3.01  3.42]    5.000
-     2    2.087 [ 1.78  2.39]      3.198 [ 2.89  3.51]    5.000
-       ⋮
-    11    2.024 [ 1.48  2.57]      3.139 [ 2.52  3.76]    5.000
-    12    2.018 [ 1.45  2.59]      3.131 [ 2.49  3.77]    5.000
-    ================================================================================
-
-Compare Policy Scenarios
-++++++++++++++++++++++++
-
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    result = bvarFit(data, ctl, quiet=1);
-
-    // Scenario 1: FFR holds at 5.0
-    path1 = miss(zeros(12, 3), 0);
-    path1[., 3] = 5.0;
-
-    // Scenario 2: FFR cut from 5.0 to 3.5 over 4 quarters, then hold
-    path2 = miss(zeros(12, 3), 0);
-    path2[., 3] = 5.0|4.5|4.0|3.5|3.5|3.5|3.5|3.5|3.5|3.5|3.5|3.5;
-
-    cfc1 = condForecast(result, path1, quiet=1);
-    cfc2 = condForecast(result, path2, quiet=1);
-
-    print "GDP under rate hold:" cfc1.median[., 1];
-    print "GDP under rate cut: " cfc2.median[., 1];
-    print "Difference:         " cfc2.median[., 1] - cfc1.median[., 1];
-
-Constrain Multiple Variables
-++++++++++++++++++++++++++++
-
-Fix both GDP growth and the FFR path, let CPI adjust:
-
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    result = bvarFit(data, ctl, quiet=1);
-
-    path = miss(zeros(8, 3), 0);
-
-    // Fix GDP (column 1) at 2.0 for all horizons
-    path[., 1] = 2.0;
-
-    // Fix FFR (column 3) with a cutting path
-    path[., 3] = 4.5|4.0|3.5|3.0|3.0|3.0|3.0|3.0;
-
-    // CPI (column 2) is free
-    cfc = condForecast(result, path);
-
-    print "CPI under GDP=2%, FFR cutting:";
-    print cfc.median[., 2];
-
-Conditional Forecast from SV-BVAR
+Hold the Funds Rate for Two Years
 +++++++++++++++++++++++++++++++++
 
 ::
@@ -152,119 +59,135 @@ Conditional Forecast from SV-BVAR
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    // Seven quarterly US series, 1960Q1-2019Q4; the last is the funds rate
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
+    fit = bvarFit(data, p=3, n_draws=2000, quiet=1);
 
-    svctl = bvarSvControlCreate();
-    svctl.p = 4;
-    result = bvarSvFit(data, svctl, quiet=1);
+    // Eight quarters; only the funds rate (column 7) is fixed
+    path = miss(zeros(8, 7), 0);
+    path[., 7] = 1.64 * ones(8, 1);
 
-    path = miss(zeros(12, 3), 0);
-    path[., 3] = 5.0;
+    cfc = condForecast(fit, path);
 
-    // Works with bvarSvResult too
-    cfc = condForecast(result, path, level=0.90);
+The printout shows the median forecast of every variable and the scenario
+effect: the expected path with the condition minus the expected path
+without it.
+
+Compare Two Rate Paths
+++++++++++++++++++++++
+
+Both calls below use the same posterior draws in the same order, so the
+difference of their stored effects is, draw by draw, the difference between
+the two expected paths:
+
+::
+
+    new;
+    library timeseries;
+
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
+    fit = bvarFit(data, p=3, n_draws=2000, quiet=1);
+
+    hold = miss(zeros(8, 7), 0);
+    hold[., 7] = 1.64 * ones(8, 1);
+    cut = hold;
+    cut[., 7] = 1.64 - (0.25|0.5|0.75|1|1|1|1|1);
+
+    a = condForecast(fit, hold, store_draws=1, quiet=1);
+    b = condForecast(fit, cut, store_draws=1, quiet=1);
+
+    // Inflation (column 4): one row per draw, one column per quarter
+    d = reshape(b.effect_draws[., 4] - a.effect_draws[., 4], a.n_draws, 8);
+    print "Cut minus hold, inflation: median and 68% band";
+    print quantile(d, 0.5|0.16|0.84)';
+
+Condition on Yearly Averages
+++++++++++++++++++++++++++++
+
+A monthly model can be given a yearly assumption: here the funds rate must
+average 16.38% in the first twelve months and 12.26% in the next twelve,
+without fixing any single month. The coefficients are fixed at their
+least-squares estimates:
+
+::
+
+    new;
+    library timeseries;
+
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/waggoner_zha_1999_monthly.csv"));
+    fit = varFit(data[1:264, .], p=13, quiet=1);
+
+    path = miss(zeros(24, 6), 0);
+    avg = { 1 12 16.38,
+           13 24 12.26 };
+
+    cfc = condForecast(fit, path, averages=avg, average_of="FFR");
 
 Remarks
 -------
 
-**Algorithm:**
-Implements the Waggoner & Zha (1999) conditional forecasting algorithm. For
-each posterior draw :math:`(B^{(i)}, \Sigma^{(i)})`, the constrained variable
-paths are imposed exactly and the free variables are drawn from their
-conditional distribution. The reported bands reflect posterior uncertainty
-in the free variables given the constraints.
+**What a scenario forecast answers.** Every future shock may move to
+deliver the assumed path, so the result is the forecast the model expects
+when the conditioned variables follow that path. It is not the effect of
+deciding the path: if, in the data, a variable rose when the economy was
+strong, a high assumed path comes with a strong economy in the forecast.
 
-**Building the constraint path:**
+**Conditions.** Fixed cells in *path* and rows of *averages* can be
+combined. Every simulated path meets every condition exactly. Conditions
+must not be redundant: an average together with every value it covers is
+refused.
 
-The *path* matrix has *h* rows and *m* columns (same number of variables as
-the model). Use :func:`miss` to mark unconstrained cells:
+**Averages over calendar periods.** An *averages* row covers forecast steps
+only. If the forecast starts part way through a year and the assumption is
+for that year's average, subtract the months already observed: with *k*
+months observed and an assumed yearly average *a*, the remaining
+12 - *k* steps must average (12 *a* - sum of the observed months) / (12 - *k*).
 
-::
+**Scenario effect.** For each parameter draw the effect is the expected
+path given the conditions minus the expected path without them. It does
+not include simulated shocks, so with a :func:`varFit` result it is the
+same for every path and its bands collapse onto it.
 
-    // Start with all-missing matrix (nothing constrained)
-    path = miss(zeros(h, m), 0);
-
-    // Fix variable j at value v for all horizons
-    path[., j] = v * ones(h, 1);
-
-    // Fix variable j at specific path
-    path[., j] = v1|v2|v3|v4;
-
-    // Fix at specific horizons only
-    path[1:4, j] = v1|v2|v3|v4;    // Fix first 4, free after
-
-**At least one variable must be unconstrained** at each horizon. Constraining
-all variables leaves no degrees of freedom for the model.
-
-**Credible bands** on free variables come from the posterior distribution of
-:math:`(B, \Sigma)`. With more posterior draws (*n_draws*), the bands are
-smoother but computation takes longer. Default of 1000 is typically sufficient.
+**Parameter uncertainty.** With a :func:`bvarFit` result each simulated
+path uses its own posterior draw. The conditions do not update the
+posterior: the draws are those of the fit. That suits a hypothetical
+scenario, which should not change what the model believes about the
+economy. When the conditioning values are information (for example data
+that have since been published), Waggoner and Zha (1999) argue that they
+should also update the coefficients; they do so with a Gibbs sampler
+(their Algorithm 1), which this function does not use.
 
 Model
 -----
 
-The conditional forecast solves: given that certain variables follow a prescribed
-path, what is the posterior predictive distribution of the remaining (free) variables?
-
-For a VAR with structural form :math:`\varepsilon_t = P^{-1} u_t` where
-:math:`u_t = y_t - B_1 y_{t-1} - \cdots - B_p y_{t-p} - c`, the Waggoner & Zha (1999)
-algorithm finds the structural shocks :math:`\varepsilon_{T+1}, \ldots, \varepsilon_{T+h}`
-that satisfy the constraints exactly while being drawn from the correct conditional
-distribution for the free variables.
-
-The constrained forecast at horizon :math:`s` is:
-
-.. math::
-
-   y_{T+s} = B_1 y_{T+s-1} + \cdots + B_p y_{T+s-p} + c + P \varepsilon_{T+s}
-
-where :math:`\varepsilon_{T+s}` is partitioned into constrained and free components,
-and the free components are drawn from their conditional posterior.
+Write the future values as the forecast without shocks plus the effect of
+the future structural shocks :math:`e` (orthogonalized with the Cholesky
+factor of :math:`\Sigma`), :math:`y = \tilde{y} + M e`,
+:math:`e \sim N(0, I)`. Each condition is one row of :math:`C y = c`, so
+the shocks must satisfy :math:`R e = r` with :math:`R = C M` and
+:math:`r = c - C \tilde{y}`. Given the parameters, the shocks are then
+normal with mean :math:`R'(RR')^{-1} r` and variance
+:math:`I - R'(RR')^{-1} R` (Waggoner and Zha 1999, Proposition 2). The
+mean part, :math:`M R'(RR')^{-1} r`, is the scenario effect. The
+distribution does not depend on the order of the variables (Waggoner and
+Zha 1999, Proposition 1).
 
 Algorithm
 ---------
 
-For each posterior draw :math:`(B^{(i)}, \Sigma^{(i)})`:
+For each simulated path:
 
-1. Compute :math:`P = \text{chol}(\Sigma^{(i)})'`.
-2. Compute unconditional forecasts :math:`\tilde{y}_{T+1}, \ldots, \tilde{y}_{T+h}`.
-3. For each constrained horizon, solve for the structural shocks that enforce the constraint: :math:`y_{T+s}^{\text{constrained}} - \tilde{y}_{T+s} = R \varepsilon_{T+s}^*` where :math:`R` selects the constrained variables.
-4. Draw the free-variable shocks from :math:`N(0, I)`.
-5. Combine constrained and free shocks, propagate through the VAR.
+1. Take the parameter draw (or the least-squares estimates).
+2. Compute the forecast without shocks and the orthogonalized impulse responses.
+3. Build :math:`R` and :math:`r` from the conditions; factor :math:`R` by a singular value decomposition.
+4. Draw the shocks from their distribution given the conditions and propagate them through the VAR.
 
-**Complexity:** :math:`O(n\_draws \cdot h \cdot m^3)`.
-
-Troubleshooting
----------------
-
-**"All variables constrained" error:**
-At least one variable must be free at each horizon. The model needs degrees of
-freedom to satisfy the constraints. If you need to fix all variables, you don't
-need a forecast — you already know the answer.
-
-**Free variable bands are very wide:**
-This is expected when the constrained path is far from the unconditional forecast.
-The model is telling you the scenario requires large structural shocks, which
-create uncertainty in the free variables. Tighter priors help.
-
-**Constraints are not exactly satisfied in output:**
-Check for rounding in the print output. Internally, constraints are satisfied
-to machine precision. The printed table rounds for display.
-
-Verification
-------------
-
-Conditional forecasts verified against the ECB BEAR Toolbox conditional forecast
-module on the 3-variable ECB dataset with FFR path constraints. Free-variable
-forecasts agree within Monte Carlo noise.
-
-See the :ref:`var-verification` page.
+Quantiles are pointwise, across the simulated paths.
 
 References
 ----------
 
 - Waggoner, D.F. and T. Zha (1999). "Conditional forecasts in dynamic multivariate models." *Review of Economics and Statistics*, 81(4), 639-651.
-- Banbura, M., D. Giannone, and M. Lenza (2015). "Conditional forecasts and scenario analysis with vector autoregressions for large cross-sections." *International Journal of Forecasting*, 31(3), 739-756.
 
 Library
 -------
@@ -272,6 +195,6 @@ timeseries
 
 Source
 ------
-forecast.src
+var.src
 
-.. seealso:: Functions :func:`bvarFit`, :func:`bvarSvFit`, :func:`bvarForecast`, :func:`bvarSvForecast`
+.. seealso:: Functions :func:`bvarFit`, :func:`varFit`, :func:`bvarForecast`
