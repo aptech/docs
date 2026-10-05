@@ -348,6 +348,7 @@ Control Structure Creators
     :caption: Forecast Evaluation
 
     forecasteval
+    forecastmodel
     fcscore
     dmtest
     cwtest
