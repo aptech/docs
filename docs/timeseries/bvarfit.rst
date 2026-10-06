@@ -3,357 +3,248 @@ bvarFit
 
 Purpose
 -------
-Fit a Bayesian VAR with conjugate Minnesota prior.
+Fit a Bayesian VAR with the conjugate Minnesota prior.
 
 Format
 ------
 
-.. function:: result = bvarFit(y)
-              result = bvarFit(y, ctl)
+.. function:: fit = bvarFit(y)
+              fit = bvarFit(y, p=4, lag1_prior_mean=0|1|1|1, overall_tightness=0.2)
+              fit = bvarFit(y, ctl=ctl)
 
-   :param y: endogenous variables. If a dataframe, column names are used as variable labels in output. If a matrix, variables are labeled "Y1", "Y2", etc.
+   :param y: the data, one column per variable. A dataframe's column names label the output; a single date-typed column is used as the time index and left out of the model. A matrix's variables are labeled "Y1", "Y2", ...
    :type y: TxM matrix or dataframe
 
-   :param ctl: Optional input, an instance of a :class:`bvarControl` structure. An instance is initialized by calling :func:`bvarControlCreate` and the following members can be set:
+   :param p: Optional keyword, lag order. Default = 1.
+   :type p: scalar
+
+   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag: ``"random_walk"`` (1, for persistent series such as levels, rates and inflation), ``"zero"`` (for growth rates), one value for every variable, or a vector with one value per variable, each in [0,1]. Every other coefficient has prior mean 0. Default = ``"random_walk"``.
+   :type lag1_prior_mean: string, scalar or Mx1 vector
+
+   :param overall_tightness: Optional keyword, how hard the prior pulls: roughly the prior standard deviation of each variable's coefficient on its own first lag. Smaller values pull harder. Default = 0.2.
+   :type overall_tightness: scalar
+
+   :param n_draws: Optional keyword, number of posterior draws. Default = 5000.
+   :type n_draws: scalar
+
+   :param seed: Optional keyword, random number seed. Default = 42.
+   :type seed: scalar
+
+   :param xreg: Optional keyword, exogenous regressors, one row per observation of *y*. Default = none.
+   :type xreg: TxK matrix
+
+   :param exogenous_scale: Optional keyword, prior standard deviation of the coefficients on *xreg*, relative to the equation's error standard deviation. Default = 1.
+   :type exogenous_scale: scalar
+
+   :param dates: Optional keyword, POSIX dates for matrix input. Not needed when *y* is a dataframe with a date column. Default = none.
+   :type dates: Tx1 vector
+
+   :param freq: Optional keyword, frequency of the dates: ``"annual"``, ``"quarterly"``, ``"monthly"``, ``"weekly"`` or ``"daily"``. Default = inferred from the dates.
+   :type freq: string
+
+   :param quiet: Optional keyword, 1 to suppress printing. Default = 0.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure, for settings that have no keyword (sum-of-coefficients and single-unit-root priors, lag decay, intercept prior, prior residual scales). When *ctl* is given, keywords other than *dates*, *freq* and *quiet* are ignored. An instance is created by :func:`bvarControlCreate` and has these members:
 
        .. include:: include/bvarcontrol.rst
 
    :type ctl: struct
 
-   :return result: An instance of a :class:`bvarResult` structure containing:
+   :return fit: An instance of a :class:`bvarResult` structure containing:
 
        .. include:: include/bvarresult.rst
 
-   :rtype result: struct
-
-Model
------
-
-The BVAR(p) model is:
-
-.. math::
-
-   y_t = B_1 y_{t-1} + B_2 y_{t-2} + \cdots + B_p y_{t-p} + u + \varepsilon_t, \quad \varepsilon_t \sim N(0, \Sigma)
-
-where :math:`y_t` is an :math:`m \times 1` vector, each :math:`B_\ell` is :math:`m \times m`,
-:math:`u` is an :math:`m \times 1` intercept, and :math:`\Sigma` is the :math:`m \times m`
-error covariance matrix.
-
-Stacking all coefficients, :math:`B = [B_1 \; B_2 \; \cdots \; B_p \; u]'` is :math:`K \times m`
-where :math:`K = mp + 1`.
-
-**Prior:**
-The default Minnesota prior (Kadiyala & Karlsson 1997) places a conjugate
-Normal-Inverse-Wishart prior on :math:`(B, \Sigma)`:
-
-.. math::
-
-   \text{vec}(B) | \Sigma &\sim N\bigl(\text{vec}(B_0),\; \Sigma \otimes \Omega\bigr) \\
-   \Sigma &\sim IW(S_0, \alpha_0)
-
-The prior mean :math:`B_0` encodes the belief that each variable follows a random walk
-(when *ar* = 1) or white noise (when *ar* = 0). Cross-variable coefficients are
-centered at zero.
-
-The diagonal prior covariance :math:`\Omega` is governed by the :math:`\lambda` hyperparameters:
-
-.. math::
-
-   \Omega_{j,\ell} = \begin{cases}
-     (\lambda_1 / \ell^{\lambda_3})^2 & \text{own lag } \ell \\
-     (\lambda_1 \lambda_2 / \ell^{\lambda_3})^2 \cdot (\hat\sigma_j^2 / \hat\sigma_i^2) & \text{cross lag from variable } j \text{ to equation } i \\
-     (\lambda_1 \lambda_4)^2 & \text{constant}
-   \end{cases}
-
-where :math:`\hat\sigma_i^2` are residual variances from univariate AR(p) regressions.
-
-The prior scale :math:`S_0 = (\alpha_0 - m - 1) \cdot \text{diag}(\hat\sigma_1^2, \ldots, \hat\sigma_m^2)`
-centers the prior on the univariate residual variances.
-
-**Posterior:**
-The conjugate prior yields a closed-form posterior:
-
-.. math::
-
-   \Sigma | Y &\sim IW(\bar{S}, \bar{\alpha}) \\
-   \text{vec}(B) | \Sigma, Y &\sim N\bigl(\text{vec}(\bar{B}),\; \Sigma \otimes \bar{\Phi}\bigr)
-
-Draws are exact — no MCMC iteration, no burn-in, no convergence diagnostics needed.
-The log marginal likelihood is available in closed form for formal Bayesian model comparison.
-
-Algorithm
----------
-
-1. **OLS pre-estimation:** Fit univariate AR(p) models to each variable to obtain :math:`\hat\sigma_i^2`, used to scale the prior.
-
-2. **Prior construction:** Build :math:`B_0`, :math:`\Omega`, :math:`S_0`, :math:`\alpha_0` from the hyperparameters and AR residual variances.
-
-3. **Posterior update:** Apply the Normal-Inverse-Wishart conjugate update (Kadiyala & Karlsson 1997, Eqs. 12-14):
-
-   .. math::
-
-      \bar{\Phi} &= (X'X + \Omega^{-1})^{-1} \\
-      \bar{B} &= \bar{\Phi}(X'Y + \Omega^{-1} B_0) \\
-      \bar{S} &= S_0 + \hat{S} + (B_0 - \hat{B})' (\Omega + (X'X)^{-1})^{-1} (B_0 - \hat{B}) \\
-      \bar{\alpha} &= \alpha_0 + T
-
-4. **Draw from posterior:** Sample :math:`\Sigma \sim IW(\bar{S}, \bar{\alpha})` then :math:`B | \Sigma \sim N(\bar{B}, \Sigma \otimes \bar{\Phi})`. Each draw is independent (no Markov chain).
-
-5. **Sum-of-coefficients and single-unit-root priors** (when *lambda6* > 0 or *lambda7* > 0): Implemented via dummy observations appended to the data before the posterior update (Doan, Litterman & Sims 1984; Sims 1993).
-
-**Complexity:** :math:`O(K^2 m)` for the posterior update, plus :math:`O(K^3)` per draw for the Cholesky factorization. With 5,000 draws on a 3-variable VAR(4), typical wall-clock time is 0.05–0.10 seconds.
-
-Hyperparameter Guide
---------------------
-
-.. list-table::
-   :widths: 15 15 70
-   :header-rows: 1
-
-   * - Parameter
-     - Default
-     - Guidance
-   * - *lambda1*
-     - 0.2
-     - Overall tightness. Smaller = prior dominates. For a small system (m=3), 0.1–0.2 works well. For large systems (m > 10), tighter values (0.01–0.05) prevent overfitting. Use :func:`bvarHyperopt` to optimize automatically (Giannone, Lenza & Primiceri 2015).
-   * - *lambda2*
-     - 0.5
-     - Cross-variable shrinkage. A value of 0.5 means other variables' lags are shrunk twice as much as own lags. Range: 0.1–1.0.
-   * - *lambda3*
-     - 1.0
-     - Lag decay exponent. Higher lags are shrunk by :math:`\ell^{-\lambda_3}`. Default of 1.0 is standard. Values above 2 aggressively penalize distant lags.
-   * - *lambda4*
-     - 1e5
-     - Constant tightness. Default is effectively uninformative. Set to 100 if you want the prior to also regularize the intercept (as in BEAR Toolbox).
-   * - *lambda6*
-     - 0 (off)
-     - Sum-of-coefficients prior (Doan, Litterman & Sims 1984). Pulls lag coefficient sums toward the identity, preventing explosive long-horizon forecasts. Typical values: 1–10. Essential for levels data when forecasting beyond 4 steps.
-   * - *lambda7*
-     - 0 (off)
-     - Single-unit-root prior (Sims 1993). Pulls all variables toward a common stochastic trend, stabilizing cointegrated systems. Typical values: 1–10.
-   * - *ar*
-     - 1.0
-     - Prior mean for own first lag. **Set to 1 for levels data** (random walk prior). **Set to 0 for growth rates or stationary data** (white noise prior). Set to 0.8 for "mostly persistent" data. See the :ref:`choosing-a-var-model` guide.
-   * - *alpha0*
-     - 0 (= m+2)
-     - Inverse-Wishart degrees of freedom. Default of m+2 is the least informative proper prior. Increase for stronger prior on :math:`\Sigma`.
+   :rtype fit: struct
 
 Examples
 --------
 
-Monetary Policy VAR on US Macro Data
-+++++++++++++++++++++++++++++++++++++
-
-Estimate a 3-variable BVAR(4) on GDP growth, CPI inflation, and the federal funds rate:
+Four US series
+++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    // Load US macro quarterly data
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    // Four quarterly US series, 1960Q1-2019Q4: GDP growth and inflation
+    // (annualized percent changes), unemployment and the funds rate (percent)
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.lag1_prior_mean = 0;               // Growth rates → white noise prior
+    // Prior centre 0 for GDP growth, 1 (random walk) for the three
+    // persistent series; overall tightness 0.2
+    fit = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, overall_tightness=0.2);
 
-    result = bvarFit(data, ctl);
-
-Output:
+The output starts:
 
 ::
 
     ================================================================================
-    BVAR(4) with Conjugate Minnesota Prior    Variables:             3
-    Draws: 5000                               Observations:        200
-    Prior: minnesota (conjugate NIW)          Effective obs:       196
+    BVAR(2) Conjugate Minnesota                             Variables:             4
+    Draws: 5000                                          Observations:           240
+    Effective obs: 238                                       Constant:           Yes
+    ================================================================================
+    Log ML:     -1394.7686
     ================================================================================
 
-    Posterior Mean of B (68% Credible Intervals)
-    Equation: GDP
-                                    Mean    Std.Dev      [16%      84%]
-    -----------------------------------------------------------------------
-    GDP(-1)                       0.2414     0.0724    0.1695    0.3126
-    CPI(-1)                       0.0312     0.0485   -0.0170    0.0798
-    FFR(-1)                      -0.0031     0.0074   -0.0105    0.0043
-        ⋮
-    GDP(-4)                       0.0189     0.0612   -0.0418    0.0801
-    CPI(-4)                      -0.0104     0.0473   -0.0574    0.0369
-    FFR(-4)                       0.0008     0.0071   -0.0063    0.0079
-    Constant                      0.0023     0.0018   -0.0013    0.0059
-
-    Log marginal likelihood: -812.34
+    Equation 1: gdp_growth
+    Regressor             Posterior center  Posterior SD   68% credible interval
+    ----------------------------------------------------------------------------
+    gdp_growth(-1)                  0.1696        0.0676    [  0.1011,   0.2358]
+    inflation(-1)                  -0.1486        0.0962    [ -0.2450,  -0.0538]
+    unemployment(-1)               -1.0931        0.6748    [ -1.7798,  -0.4458]
+    fed_funds(-1)                   0.0244        0.2025    [ -0.1715,   0.2305]
+    gdp_growth(-2)                  0.1191        0.0556    [  0.0642,   0.1752]
+    inflation(-2)                  -0.0691        0.0864    [ -0.1550,   0.0180]
+    unemployment(-2)                1.3124        0.6629    [  0.6700,   1.9808]
+    fed_funds(-2)                  -0.0059        0.1961    [ -0.2065,   0.1873]
+    Constant                        1.5249        0.8405    [  0.6868,   2.3681]
     ================================================================================
 
-Compare Lag Orders with Bayes Factors
-+++++++++++++++++++++++++++++++++++++
+and continues with the other three equations in the same layout, ending:
+
+::
+
+    Center: analytic matrix-t posterior mean (= median = mode).
+    SD and 68% interval: equal-tailed quantiles of 5,000 posterior draws.
+
+Choosing the lag order by marginal likelihood
+++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
+    // Log marginal likelihood of one to six lags. Marginal likelihoods compare
+    // only on the same observations, so each fit starts late enough that all
+    // of them explain the same 234 quarters (1961Q3-2019Q4).
+    max_lags = 6;
+    print "Lags   Log ML";
+    for lag (1, max_lags, 1);
+        fit = bvarFit(y[max_lags-lag+1:rows(y), .], p=lag, lag1_prior_mean=0|1|1|1, quiet=1);
+        print sprintf("%4d%10.2f", lag, fit.log_ml);
+    endfor;
+
+The output is:
+
+::
+
+    Lags   Log ML
+       1  -1403.38
+       2  -1370.87
+       3  -1357.99
+       4  -1357.53
+       5  -1355.53
+       6  -1355.30
+
+A difference in log marginal likelihood is a log Bayes factor: three lags
+improve on two by 12.9, after which the gains are small.
+
+Levels data and the sum-of-coefficients prior
+++++++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    new;
+    library timeseries;
+
+    // Seven quarterly US series in levels (logs of GDP, prices, consumption,
+    // investment, hours and compensation, and the funds rate), 1959Q1-2008Q4,
+    // the data of Giannone, Lenza and Primiceri (2015)
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/glp_2015_datasw.csv"));
+
+    // The control struct sets the fields that have no keyword: here the
+    // sum-of-coefficients prior, which pulls the lag sums toward a unit root
+    struct bvarControl ctl;
     ctl = bvarControlCreate();
+    ctl.p = 5;
+    ctl.overall_tightness = 0.2;
+    ctl.lag1_prior_mean = 1;
+    ctl.soc_tightness = 1;
     ctl.quiet = 1;
+    with_soc = bvarFit(data, ctl=ctl);
 
-    ctl.p = 1;
-    r1 = bvarFit(data, ctl);
+    ctl.soc_tightness = 0;
+    without_soc = bvarFit(data, ctl=ctl);
 
-    ctl.p = 2;
-    r2 = bvarFit(data, ctl);
+    print "Log ML with the sum-of-coefficients prior:    " sprintf("%.2f", with_soc.log_ml);
+    print "Log ML without it:                            " sprintf("%.2f", without_soc.log_ml);
 
-    ctl.p = 4;
-    r4 = bvarFit(data, ctl);
-
-    print "Log ML(p=1):" r1.log_ml;
-    print "Log ML(p=2):" r2.log_ml;
-    print "Log ML(p=4):" r4.log_ml;
-
-    // Bayes factor: p=4 vs p=2
-    print "BF(4 vs 2):" exp(r4.log_ml - r2.log_ml);
-
-A Bayes factor above 3 is "substantial evidence" (Kass & Raftery 1995); above 20 is "strong."
-
-Forecasting GDP with SOC/SUR Priors
-++++++++++++++++++++++++++++++++++++
-
-Sum-of-coefficients and single-unit-root priors stabilize long-horizon forecasts for levels data:
+The output is:
 
 ::
 
-    new;
-    library timeseries;
+    Log ML with the sum-of-coefficients prior:    3108.22
+    Log ML without it:                            3094.62
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.lambda6 = 5;          // Sum-of-coefficients
-    ctl.lambda7 = 5;          // Single-unit-root
-
-    result = bvarFit(data, ctl);
-
-    // 8-step-ahead forecast
-    fc = bvarForecast(result, 8);
-
-Data-Driven Hyperparameters (GLP 2015)
-+++++++++++++++++++++++++++++++++++++++
-
-Let the marginal likelihood choose all :math:`\lambda` values:
-
-::
-
-    new;
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-
-    // Optimize lambda1, lambda6, lambda7 jointly
-    ctl_opt = bvarHyperopt(data);
-
-    print "Optimal lambda1:" ctl_opt.lambda1;
-    print "Optimal lambda6:" ctl_opt.lambda6;
-    print "Optimal lambda7:" ctl_opt.lambda7;
-
-    // Fit with optimized hyperparameters
-    result = bvarFit(data, ctl_opt);
-
-This implements Algorithm 1 of Giannone, Lenza & Primiceri (2015), which maximizes the
-log marginal likelihood over a grid of hyperparameter values.
-
-Troubleshooting
----------------
-
-**Non-stationary posterior mean:**
-The largest eigenvalue of the companion matrix exceeds 1. This means the posterior
-mean coefficients imply explosive dynamics. Common fixes:
-
-- Set ``ar = 0`` if your data is in growth rates (you may be using the wrong prior).
-- Increase ``lambda6`` (sum-of-coefficients) to pull lag sums toward unity.
-- Tighten the prior (reduce ``lambda1``).
-
-**Prior too tight / too loose:**
-If all coefficients are near zero, the prior is too tight — increase ``lambda1`` or use :func:`bvarHyperopt`. If the posterior equals OLS (credible bands match frequentist confidence intervals), the prior is too loose — decrease ``lambda1``.
-
-**"Log ML is missing":**
-The log marginal likelihood is only available for the conjugate Minnesota prior (``prior = "minnesota"``). For flat priors, consider using the DIC or WAIC instead.
-
-**Levels vs growth rates:**
-This is the single most common specification error. If your data is in levels (GDP, not GDP growth), set ``ar = 1`` (random walk prior). If in growth rates, set ``ar = 0``. Using the wrong setting will produce either explosive forecasts (ar=0 on levels) or excessive shrinkage (ar=1 on growth rates). See the :ref:`choosing-a-var-model` guide.
-
-Verification
-------------
-
-``bvarFit`` has been verified against two independent reference implementations:
-
-**R vars package (OLS component):**
-22 tests at :math:`10^{-6}` tolerance against R 4.5.2 ``vars::VAR()``, covering
-coefficients, :math:`\Sigma`, IRF, FEVD, Granger causality, and forecasts on identical
-data. See ``gausslib-var/tests/r_benchmark.rs``.
-
-**R BVAR package (Bayesian posterior):**
-7 structural validation tests against the R ``BVAR`` package (Kuschnig & Vashold 2021)
-using 200,000-draw ground truth. Validates:
-
-- Conjugate posterior RMSE < Gibbs RMSE < 1.0 vs R reference
-- :math:`\Sigma` elements within 50% relative error across three prior forms
-- Shrinkage toward :math:`B_0` exceeds 60% for all methods
-
-See ``gausslib-var/tests/gibbs_crossval.rs``.
-
-**ECB BEAR Toolbox:**
-45 matched-prior coefficient tests (``lambda1=0.1``, ``ar=0.8``, ``lambda4=100``)
-and 17 IRF tests at horizons 0, 10, and 20 against BEAR v5.0. OLS components match
-to :math:`10^{-8}`. BVAR posterior means agree within 0.06 (prior-form difference
-between conjugate and independent Normal-Wishart).
-
-See ``crossval/bear_matched_prior.e`` and ``crossval/bear_matched_irf.e``.
+On these data the prior raises the log marginal likelihood by 13.6.
+:func:`bvarHyperopt` chooses the overall tightness, and with
+*ctl.soc_tightness* > 0 the sum-of-coefficients tightness too, by marginal
+likelihood.
 
 Remarks
 -------
 
-**Conjugate draws are exact:**
-With ``prior = "minnesota"`` (default), the posterior is available in closed form.
-All draws are independent (no MCMC chain, no burn-in, no thinning needed).
-For stochastic volatility or non-conjugate priors, use :func:`bvarSvFit`.
+**Model.** With :math:`y_t` the M variables at time *t*,
 
-**Analytic vs draw-based summaries:**
-On the conjugate tier the result carries both. *result.b_post*,
-*result.sigma_post_mean*, and *result.sigma_post_mode* are exact closed-form
-values with no simulation noise — use *b_post* for coefficient comparisons
-against other packages, and *sigma_post_mode* (the plug-in covariance of
-Giannone, Lenza & Primiceri 2015) to reproduce GLP-style impulse responses and
-forecasts exactly. The draw-based fields (*b_mean*, *b_median*, *b_sd*,
-*b_lower*, *b_upper*, *sigma_mean*) are computed from the posterior draws,
-carry :math:`1/\sqrt{n_{draws}}` simulation noise, and behave identically
-across all prior tiers. The printed coefficient table shows *b_post* when it
-is available.
+.. math::
 
-**Log marginal likelihood:**
-*result.log_ml* is only available for the conjugate Minnesota prior (closed-form
-computation). It can be used for formal Bayesian model comparison — the model
-with the highest log ML is preferred. The Bayes factor between models A and B is
-:math:`\exp(\log ML_A - \log ML_B)`. See Kass & Raftery (1995) for interpretation guidelines.
+   y_t = c + B_1 y_{t-1} + \cdots + B_p y_{t-p} + \varepsilon_t, \qquad \varepsilon_t \sim N(0, \Sigma).
 
-**When to use BVAR instead of OLS VAR:**
-A BVAR with Minnesota prior always weakly dominates an OLS VAR in forecast
-accuracy (Banbura, Giannone & Reichlin 2010). The prior acts as regularization,
-reducing out-of-sample forecast error by shrinking small, noisy coefficients
-toward zero. This benefit grows with the number of variables. For m > 5, BVAR
-is strongly preferred.
+Stacking the coefficients in the Kxm matrix :math:`B = [B_1 \cdots B_p \; c]'` (K = Mp + 1, plus
+the columns of *xreg*), the conjugate Minnesota prior is
+
+.. math::
+
+   \text{vec}(B) \mid \Sigma \sim N\bigl(\text{vec}(B_0),\; \Sigma \otimes \Omega\bigr), \qquad
+   \Sigma \sim IW\bigl((\alpha_0 - M - 1)\,\text{diag}(\sigma_1^2, \ldots, \sigma_M^2),\; \alpha_0\bigr).
+
+:math:`B_0` is zero except each variable's coefficient on its own first lag
+(*lag1_prior_mean*). :math:`\Omega` is diagonal: the row for lag *l* of variable *j* is
+:math:`\lambda^2 / (l^{2d} \sigma_j^2)`, with :math:`\lambda` the overall tightness and *d* the lag decay, and the
+constant's row is *ctl.constant_vc* (1e7, effectively flat). The residual scales
+:math:`\sigma_j^2` come from each variable's own AR(p) regression on the estimation
+sample. :math:`\alpha_0` defaults to M + 2.
+
+Because the prior covariance has this Kronecker form, a variable's own lags
+and the other variables' lags are shrunk alike, apart from each variable's
+scale; this is what keeps the posterior in closed form.
+
+**Posterior.** The posterior is again Normal-inverse-Wishart, so *b_post* is
+the exact posterior mean of the coefficients, and the draws are independent
+draws from the posterior: there is no burn-in and no convergence to check.
+The draws give the standard deviations and credible intervals, which move a
+little with the seed. *log_ml* is the log marginal likelihood, in closed form.
+
+**Choosing the prior centre.** Use 1 (a random walk) for series that drift,
+such as levels, interest rates and inflation, and 0 for growth rates
+(Banbura, Giannone & Reichlin 2010). A random-walk centre on a growth rate
+pulls toward a persistent series the data do not show; a zero centre on a
+level pulls toward a series that returns quickly to its mean.
+
+**Settings in the control struct.** The sum-of-coefficients and
+single-unit-root priors (*ctl.soc_tightness*, *ctl.sur_tightness*), the lag
+decay, the intercept prior and the residual-scale rule have no keyword; set
+them in a :class:`bvarControl` structure. The fit's settings, with resolved
+values, are kept in *fit.fit_settings*.
 
 References
 ----------
 
 - Banbura, M., D. Giannone, and L. Reichlin (2010). "Large Bayesian vector auto regressions." *Journal of Applied Econometrics*, 25(1), 71-92.
-- Doan, T., R. Litterman, and C. Sims (1984). "Forecasting and conditional projection using realistic prior distributions." *Econometric Reviews*, 3, 1-100.
+- Doan, T., R. Litterman, and C. Sims (1984). "Forecasting and conditional projection using realistic prior distributions." *Econometric Reviews*, 3(1), 1-100.
 - Giannone, D., M. Lenza, and G. E. Primiceri (2015). "Prior selection for vector autoregressions." *Review of Economics and Statistics*, 97(2), 436-451.
-- Kadiyala, K.R. and S. Karlsson (1997). "Numerical methods for estimation and inference in Bayesian VAR-models." *Journal of Applied Econometrics*, 12(2), 99-132.
-- Kass, R.E. and A.E. Raftery (1995). "Bayes factors." *Journal of the American Statistical Association*, 90(430), 773-795.
-- Sims, C. (1993). "A nine-variable probabilistic macroeconomic forecasting model." In *Business Cycles, Indicators, and Forecasting*, 179-212. NBER.
+- Kadiyala, K. R. and S. Karlsson (1997). "Numerical methods for estimation and inference in Bayesian VAR-models." *Journal of Applied Econometrics*, 12(2), 99-132.
+- Litterman, R. B. (1986). "Forecasting with Bayesian vector autoregressions: five years of experience." *Journal of Business & Economic Statistics*, 4(1), 25-38.
+- Sims, C. A. (1993). "A nine-variable probabilistic macroeconomic forecasting model." In J. H. Stock and M. W. Watson (eds.), *Business Cycles, Indicators and Forecasting*, University of Chicago Press, 179-212.
 
 Library
 -------
@@ -361,8 +252,6 @@ timeseries
 
 Source
 ------
-bvar.src
+var.src
 
-.. seealso:: Functions :func:`bvarControlCreate`, :func:`bvarSvFit`, :func:`bvarHyperopt`, :func:`bvarForecast`, :func:`irfCompute`, :func:`varFit`
-
-.. seealso:: Guides :ref:`choosing-a-var-model`, :ref:`var-verification`
+.. seealso:: Functions :func:`bvarControlCreate`, :func:`bvarForecast`, :func:`bvarHyperopt`, :func:`varFit`, :func:`varLagSelect`, :func:`forecastEval`

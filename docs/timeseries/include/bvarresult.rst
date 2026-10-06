@@ -1,6 +1,9 @@
 .. list-table::
    :widths: auto
 
+   * - result.fit_settings
+     - :class:`bvarControl` structure, the settings the fit used, with resolved values: *alpha0* (m+2 when given as 0) and *lag1_prior_mean* (one value per variable).
+
    * - result.m
      - Scalar, number of endogenous variables.
 
@@ -13,14 +16,23 @@
    * - result.n_total
      - Scalar, total number of observations (T).
 
-   * - result.include_const
+   * - result.const
      - Scalar, 1 if a constant was included.
 
    * - result.var_names
      - Mx1 string array, variable names.
 
    * - result.prior_type
-     - String, ``"minnesota"`` or ``"flat"``.
+     - String, ``"minnesota"``.
+
+   * - result.coefficient_prior_mean
+     - Kxm matrix, the prior mean of B. Only each variable's coefficient on its own first lag can be nonzero.
+
+   * - result.residual_variance_policy
+     - String, how the prior's residual scales were set (``"arp_full_training"``, ``"glp2015_post_var_trim_ar1"`` or ``"supplied"``).
+
+   * - result.residual_variances
+     - Mx1 vector, the residual scales the prior used.
 
    * - result.b_mean
      - Kxm matrix, posterior mean of B.
@@ -82,19 +94,28 @@
      - Scalar, largest eigenvalue modulus at posterior mean.
 
    * - result.residuals
-     - (T-p)xm matrix, residuals at posterior mean.
+     - (T-p)xm matrix, residuals at the posterior centre *b_post*.
+
+   * - result.fitted
+     - (T-p)xm matrix, fitted values at *b_post*.
 
    * - result.b_draws
-     - Array of n_draws Kxm matrices, raw posterior draws of B.
+     - (n_draws K)xm matrix, posterior draws of B stacked: draw d is rows (d-1)K+1 to dK.
 
    * - result.sigma_draws
-     - Array of n_draws mxm matrices, raw posterior draws of :math:`\Sigma`.
+     - (n_draws m)xm matrix, posterior draws of :math:`\Sigma` stacked: draw d is rows (d-1)m+1 to dm.
 
    * - result.y
      - Txm matrix, original data.
 
    * - result.xreg
      - TxK matrix, exogenous regressors. Empty matrix if none.
+
+   * - result.dates
+     - Tx1 POSIX dates of the data (empty if undated).
+
+   * - result.freq
+     - String, frequency of the dates (``""`` if undated).
 
    * - result.n_draws
      - Scalar, number of retained draws.
