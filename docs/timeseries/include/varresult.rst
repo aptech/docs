@@ -13,7 +13,7 @@
    * - result.n_total
      - Scalar, total number of observations (T).
 
-   * - result.include_const
+   * - result.const
      - Scalar, 1 if a constant was included.
 
    * - result.var_names
@@ -32,7 +32,10 @@
      - Kxm matrix, two-sided p-values.
 
    * - result.sigma
-     - mxm matrix, residual covariance (ML estimate).
+     - mxm matrix, residual covariance with the degrees-of-freedom divisor: residual cross-products divided by T - p - K, where K is the number of coefficients per equation.
+
+   * - result.sigma_ml
+     - mxm matrix, maximum-likelihood residual covariance: residual cross-products divided by T - p. Used for forecast intervals, impulse responses and the information criteria.
 
    * - result.vcov
      - (Km)x(Km) matrix, full variance-covariance of vec(B).
@@ -69,3 +72,9 @@
 
    * - result.xreg
      - TxK matrix, exogenous regressors. Empty matrix if none.
+
+   * - result.dates
+     - Tx1 POSIX dates of the data (empty if undated).
+
+   * - result.freq
+     - String, frequency of the dates (``""`` if undated).
