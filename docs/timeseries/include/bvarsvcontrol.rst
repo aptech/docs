@@ -39,8 +39,8 @@
    * - ctl.lambda_exo
      - Scalar, exogenous regressor tightness (Minnesota only). Default = 1.0.
 
-   * - ctl.ar
-     - Scalar, AR(1) prior mean for own lags (Minnesota only). 1.0 = random walk, 0.0 = white noise. Default = 1.0.
+   * - ctl.lag1_prior_mean
+     - Scalar, prior mean of each variable's coefficient on its own first lag, one value for every variable (Minnesota only). 1.0 = random walk, 0.0 = white noise. Default = 1.0. Same as the *lag1_prior_mean* keyword.
 
    * - ctl.b_prior_var
      - Scalar, B prior variance (flat prior only). Default = 10.0.

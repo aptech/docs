@@ -67,7 +67,7 @@ Basic Forecast Plot
 
     ctl = bvarControlCreate();
     ctl.p = 4;
-    ctl.ar = 0;
+    ctl.lag1_prior_mean = 0;
 
     result = bvarFit(data, ctl=ctl);
     fc = bvarForecast(result, 8);

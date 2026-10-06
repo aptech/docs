@@ -156,7 +156,7 @@ Estimate a 3-variable BVAR(4) on GDP growth, CPI inflation, and the federal fund
 
     ctl = bvarControlCreate();
     ctl.p = 4;
-    ctl.ar = 0;               // Growth rates → white noise prior
+    ctl.lag1_prior_mean = 0;               // Growth rates → white noise prior
 
     result = bvarFit(data, ctl);
 

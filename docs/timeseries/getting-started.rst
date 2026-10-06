@@ -22,7 +22,7 @@ If you just want working code, copy this:
     // Estimate Bayesian VAR(4)
     ctl = bvarControlCreate();
     ctl.p = 4;
-    ctl.ar = 0;                  // Growth rates → white noise prior
+    ctl.lag1_prior_mean = 0;                  // Growth rates → white noise prior
     ctl.quiet = 1;
 
     result = bvarFit(data, ctl);
@@ -73,7 +73,7 @@ Step 2: Estimate a Bayesian VAR
     // Configure the BVAR
     ctl = bvarControlCreate();
     ctl.p = 4;                   // 4 lags (1 year of quarterly data)
-    ctl.ar = 0;                  // White noise prior (data is in growth rates)
+    ctl.lag1_prior_mean = 0;                  // White noise prior (data is in growth rates)
 
     // Estimate
     result = bvarFit(data[., vars], ctl);
@@ -194,17 +194,17 @@ for model selection:
 ::
 
     ctl1 = bvarControlCreate();
-    ctl1.ar = 0;
+    ctl1.lag1_prior_mean = 0;
     ctl1.quiet = 1;
 
     ctl2 = bvarControlCreate();
     ctl2.p = 2;
-    ctl2.ar = 0;
+    ctl2.lag1_prior_mean = 0;
     ctl2.quiet = 1;
 
     ctl4 = bvarControlCreate();
     ctl4.p = 4;
-    ctl4.ar = 0;
+    ctl4.lag1_prior_mean = 0;
     ctl4.quiet = 1;
 
     r1 = bvarFit(data[., vars], ctl1);
@@ -249,7 +249,7 @@ Everything above, in one runnable file:
     // ---- BVAR(4) with white noise prior ----
     ctl = bvarControlCreate();
     ctl.p = 4;
-    ctl.ar = 0;
+    ctl.lag1_prior_mean = 0;
 
     result = bvarFit(data[., vars], ctl);
 
@@ -268,7 +268,7 @@ Everything above, in one runnable file:
     // ---- Model comparison ----
     ctl2 = bvarControlCreate();
     ctl2.p = 2;
-    ctl2.ar = 0;
+    ctl2.lag1_prior_mean = 0;
     ctl2.quiet = 1;
     r2 = bvarFit(data[., vars], ctl2);
 

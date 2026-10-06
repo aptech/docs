@@ -38,7 +38,7 @@ Format
           * - ctl.sur_tightness
             - Scalar. 0 (default): no single-unit-root prior. A positive value adds that prior and chooses its tightness too; it requires *ctl.soc_tightness* > 0.
 
-          * - ctl.ar
+          * - ctl.lag1_prior_mean
             - Scalar, the prior mean of each variable's own first lag, one value for all variables. Default = 1 (random walk). Use 0 for data in changes or growth rates.
 
           * - ctl.intercept_prior
@@ -108,7 +108,7 @@ Choose the Tightness, Then Fit
 
     // Seven quarterly US series in log levels and the federal funds rate,
     // 1959Q1-2008Q4 (the data of Giannone, Lenza and Primiceri 2015). The
-    // default prior centre, a random walk (ctl.ar = 1), suits levels.
+    // default prior centre, a random walk (ctl.lag1_prior_mean = 1), suits levels.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/glp_2015_datasw.csv"));
 
     struct bvarControl ctl;

@@ -265,7 +265,7 @@ Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
     // BVAR forecast
     ctl = bvarControlCreate();
     ctl.p = 4;
-    ctl.ar = 0;
+    ctl.lag1_prior_mean = 0;
     ctl.quiet = 1;
 
     br = bvarFit(y_train, ctl);

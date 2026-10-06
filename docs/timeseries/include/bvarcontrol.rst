@@ -39,8 +39,8 @@
    * - ctl.lambda_exo
      - Scalar, exogenous regressor prior tightness. Default = 1.0.
 
-   * - ctl.ar
-     - Scalar, AR(1) prior mean for own-lag coefficients.
+   * - ctl.lag1_prior_mean
+     - Prior mean of each variable's coefficient on its own first lag: one value for every variable, or a vector with one value per variable, each in [0,1] (one value per variable only for :func:`bvarFit` with fixed tightness). Same as the *lag1_prior_mean* keyword. After a fit, *fit_settings.lag1_prior_mean* holds the value used for each variable.
 
        ===== =====================================================
        1.0   Random walk prior (for levels data). (Default)

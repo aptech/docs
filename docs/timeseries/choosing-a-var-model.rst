@@ -95,7 +95,7 @@ specification from Christiano, Eichenbaum & Evans (1999).
     // Create a bvarControl structure and fill with default values
     ctl = bvarControlCreate();
     ctl.p = 4;            // 4 quarterly lags = 1 year of history
-    ctl.ar = 0;           // White noise prior: growth rates are mean-reverting,
+    ctl.lag1_prior_mean = 0;           // White noise prior: growth rates are mean-reverting,
                           //   not persistent. Use ar=1 for levels data instead.
 
     // Estimate — draws are exact (conjugate posterior, no MCMC)
@@ -147,7 +147,7 @@ which improves density forecast calibration.
     // Create an SV-BVAR control structure and fill with default values
     svctl = bvarSvControlCreate();
     svctl.p = 2;           // 2 lags — returns have weak serial dependence
-    svctl.ar = 0;          // White noise prior — returns are stationary
+    svctl.lag1_prior_mean = 0;          // White noise prior — returns are stationary
     svctl.n_draws = 10000; // More draws for reliable tail quantiles (VaR)
     svctl.n_burn = 5000;   // Discard first 5000 as burn-in (Gibbs sampler
                            //   needs time to converge from starting values)
@@ -176,7 +176,7 @@ e.g., a positive supply shock increases production and decreases prices.
     ctl = bvarControlCreate();
     ctl.p = 24;            // 24 monthly lags = 2 years of history.
                            //   Oil markets have long adjustment dynamics.
-    ctl.ar = 0;            // Data is in log-differences (stationary)
+    ctl.lag1_prior_mean = 0;            // Data is in log-differences (stationary)
 
     result = bvarFit(data, ctl);
 
