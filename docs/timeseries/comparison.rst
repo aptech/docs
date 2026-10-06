@@ -191,7 +191,7 @@ What You Get With Each Platform
      - Built-in
      - opts.hogs=1
    * - MCMC diagnostics
-     - :func:`varDiagnose`
+     - :func:`mcmcDiagnostics`
      - ``coda``
      - (manual)
    * - Forecast evaluation

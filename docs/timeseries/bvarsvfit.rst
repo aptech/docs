@@ -229,7 +229,7 @@ to the natural scale.
 **Multi-chain inference:**
 When ``ctl.n_chains > 1``, each chain starts from an independent random state.
 Draws from all chains are pooled before computing posterior summaries. Use
-multiple chains to assess convergence via split-R-hat (see :func:`varDiagnose`).
+multiple chains to assess convergence via split-R-hat (see :func:`mcmcDiagnostics`).
 
 Library
 -------

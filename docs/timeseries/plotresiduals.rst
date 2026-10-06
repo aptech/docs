@@ -61,4 +61,4 @@ separate plot window with its own 3-panel diagnostic display.
 - Volatility clustering in the time plot → consider :func:`bvarSvFit`
 - Skewed histogram → model may be misspecified for extreme observations
 
-.. seealso:: Functions :func:`varFit`, :func:`varDiagnose`
+.. seealso:: Functions :func:`varFit`, :func:`varDiagnostics`

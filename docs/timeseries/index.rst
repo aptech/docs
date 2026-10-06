@@ -151,12 +151,14 @@ Diagnostics
 .. list-table::
    :widths: auto
 
-   * - :func:`varDiagnose`
-     - MCMC convergence diagnostics (R-hat, ESS, acceptance rates).
-   * - :func:`varDiagnoseMulti`
-     - Multi-chain convergence diagnostics.
-   * - :func:`varDiagnosePrint`
-     - Reprint diagnostics summary.
+   * - :func:`varDiagnostics`
+     - Residual checks of a VAR or BVAR fit: portmanteau, Ljung-Box by equation, normality, ARCH.
+   * - :func:`ljungBoxTest`
+     - Ljung-Box test of autocorrelation in one or more series.
+   * - :func:`mcmcDiagnostics`
+     - Sampler convergence of a stochastic-volatility BVAR (R-hat, effective sample size, acceptance rates).
+   * - :func:`mcmcDiagnosticsPrint`
+     - Reprint an mcmcDiagnostics summary.
    * - :func:`grangerTest`
      - Granger causality F-test.
 
@@ -337,9 +339,10 @@ Control Structure Creators
     :hidden:
     :caption: Diagnostics
 
-    vardiagnose
-    vardiagnosemulti
-    vardiagnoseprint
+    vardiagnostics
+    ljungboxtest
+    mcmcdiagnostics
+    mcmcdiagnosticsprint
     grangertest
 
 .. toctree::
