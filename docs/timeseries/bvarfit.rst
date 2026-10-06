@@ -82,27 +82,26 @@ The output starts:
 
 ::
 
+    BVAR(2), conjugate Minnesota prior
     ================================================================================
-    BVAR(2) Conjugate Minnesota                             Variables:             4
-    Draws: 5000                                          Observations:           240
-    Effective obs: 238                                       Constant:           Yes
-    ================================================================================
-    Log ML:     -1394.7686
-    ================================================================================
+    Variables:                         4    Observations:                        240
+    Lags:                              2    Effective obs.:                      238
+    Constant:                        Yes    Posterior draws:                   5,000
+    Tightness:                       0.2    Log marg. lik.:                 -1394.77
+    Own-lag mean:            by equation
 
-    Equation 1: gdp_growth
-    Regressor             Posterior center  Posterior SD   68% credible interval
-    ----------------------------------------------------------------------------
-    gdp_growth(-1)                  0.1696        0.0676    [  0.1011,   0.2358]
-    inflation(-1)                  -0.1486        0.0962    [ -0.2450,  -0.0538]
-    unemployment(-1)               -1.0931        0.6748    [ -1.7798,  -0.4458]
-    fed_funds(-1)                   0.0244        0.2025    [ -0.1715,   0.2305]
-    gdp_growth(-2)                  0.1191        0.0556    [  0.0642,   0.1752]
-    inflation(-2)                  -0.0691        0.0864    [ -0.1550,   0.0180]
-    unemployment(-2)                1.3124        0.6629    [  0.6700,   1.9808]
-    fed_funds(-2)                  -0.0059        0.1961    [ -0.2065,   0.1873]
-    Constant                        1.5249        0.8405    [  0.6868,   2.3681]
-    ================================================================================
+    Equation 1: gdp_growth (own first-lag prior mean 0)
+    Regressor          Center      SD  Lower 68%  Upper 68%
+    -------------------------------------------------------
+    gdp_growth(-1)     0.1696  0.0676     0.1011     0.2358
+    inflation(-1)     -0.1486  0.0962    -0.2450    -0.0538
+    unemployment(-1)  -1.0931  0.6748    -1.7798    -0.4458
+    fed_funds(-1)      0.0244  0.2025    -0.1715     0.2305
+    gdp_growth(-2)     0.1191  0.0556     0.0642     0.1752
+    inflation(-2)     -0.0691  0.0864    -0.1550     0.0180
+    unemployment(-2)   1.3124  0.6629     0.6700     1.9808
+    fed_funds(-2)     -0.0059  0.1961    -0.2065     0.1873
+    Constant           1.5249  0.8405     0.6868     2.3681
 
 and continues with the other three equations in the same layout, ending:
 
