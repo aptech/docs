@@ -146,7 +146,7 @@ settings are kept and their coefficients re-estimated at every start date:
 
     // Set the models up as you would fit them on the full sample
     v = varFit(y, p=2, quiet=1);
-    b = bvarFit(y, p=2, overall_tightness=0.2, ar=0, quiet=1);
+    b = bvarFit(y, p=2, overall_tightness=0.2, lag1_prior_mean="zero", quiet=1);
 
     // Refit both at every quarter from 2009Q4, forecast inflation (defl)
     // 1-4 quarters ahead, and compare with an autoregression

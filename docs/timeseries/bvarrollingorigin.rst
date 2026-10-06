@@ -48,8 +48,8 @@ Format
    :param n_draws: Optional keyword, simulated paths per model and origin. Default = 5000.
    :type n_draws: scalar
 
-   :param ar: Optional keyword, prior mean of each variable's own first lag, one value for all variables. Default = 0 (suits data in changes or growth rates; use 1 for levels).
-   :type ar: scalar
+   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag, one value for all variables: ``"zero"``, ``"random_walk"`` (1) or a number in [0,1]. Default = ``"zero"`` (suits data in changes or growth rates; use ``"random_walk"`` for levels).
+   :type lag1_prior_mean: string or scalar
 
    :param lag_decay: Optional keyword, Minnesota lag decay. Default = 1.
    :type lag_decay: scalar
@@ -130,7 +130,7 @@ Fixed Tightness Against the Marginal-Likelihood Choice
     library timeseries;
 
     // Quarterly US data, 1960Q1-2019Q4: the date and six growth rates
-    // (the default prior centre, ar = 0, suits growth rates)
+    // (the default prior centre, lag1_prior_mean = "zero", suits growth rates)
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
     y = data[., "date" "gdp" "cons" "inv" "defl" "wage" "hours"];
 
