@@ -55,6 +55,16 @@ ARIMA / Univariate
      - Plot a series with its ACF and PACF.
    * - :func:`stationarityTests`
      - ADF and KPSS (optionally PP) tests in one table with a reading of the result.
+   * - :func:`adfTest`
+     - Augmented Dickey-Fuller unit-root test.
+   * - :func:`ppTest`
+     - Phillips-Perron unit-root test with Bartlett bandwidth correction.
+   * - :func:`kpssTest`
+     - Test stationarity around a constant or a linear trend.
+   * - :func:`engleGrangerTest`
+     - Residual test for cointegration among I(1) series.
+   * - :func:`dfglsTest`
+     - Dickey-Fuller GLS unit-root test with modified AIC lag selection.
 
 ETS / Exponential Smoothing
 +++++++++++++++++++++++++++
@@ -270,6 +280,11 @@ Control Structure Creators
     arimacoeftable
     tsdisplay
     stationaritytests
+    adftest
+    pptest
+    kpsstest
+    englegrangertest
+    dfglstest
 
 .. toctree::
     :maxdepth: 1
