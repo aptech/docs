@@ -95,13 +95,19 @@ the cointegrating rank is correct.
 regressors and on their own lags 1 to *h*, with residuals before the
 sample set to zero. The VECM's regressors are the estimated cointegrating
 relations :math:`\hat\beta' y_{t-1}` (including a restricted constant or
-trend), the lagged differences, the unrestricted constant and trend, the
-seasonal dummies and any exogenous columns of the fit. This is the
-auxiliary regression of Bruggemann, Lutkepohl and Saikkonen (2006, eq. 4.4
-and Remarks 1 and 2; numbers from their working paper of January 2004)
-without their additional score terms, the version their simulations
-favour. With :math:`\hat\Sigma_u` and :math:`\hat\Sigma_e` the residual
-covariances of the VECM and of this regression (both divided by *T*),
+trend), the lagged differences, the unrestricted constant, the seasonal
+dummies, and, when the fit has them, the unrestricted trend and exogenous
+columns. This is the auxiliary regression of Bruggemann, Lutkepohl and
+Saikkonen (2006, eq. 4.4 and Remarks 1 and 2; numbers from their working
+paper of January 2004) without their additional score terms, the version
+their simulations favour; their model has no unrestricted trend or
+exogenous columns, and these enter as the model's own regressors, as in
+Kilian and Lutkepohl (2017, eq. 2.6.2). The residuals are used as they
+are, not demeaned (Kilian and Lutkepohl 2017, eq. 2.6.2). In a model
+without an unrestricted constant their mean is not zero, and
+implementations that demean them report larger values. With
+:math:`\hat\Sigma_u` and :math:`\hat\Sigma_e` the residual covariances of
+the VECM and of this regression (both divided by *T*),
 
 .. math::
 
@@ -110,10 +116,14 @@ covariances of the VECM and of this regression (both divided by *T*),
 compared with a chi-square on :math:`h m^2` degrees of freedom. Unlike the
 portmanteau test, it needs no adjustment for the cointegrating rank
 (Kilian and Lutkepohl 2017, section 3.4). Only this chi-square form is
-reported: the small-sample F form that :func:`varDiagnostics` prints is
-documented for a VAR's regressors, not for the VECM regression.
-*lm_lags* is refused when the regression has no residual degrees of
-freedom left.
+reported. Bruggemann, Lutkepohl and Saikkonen study it (and LR and Wald
+forms, which reject too often) for VECMs and leave small-sample F
+corrections aside; the F approximation that :func:`varDiagnostics` prints
+(Doornik 1996) is derived for multivariate regressions in general but has
+not been evaluated for VECMs.
+When *lm_lags* leaves fewer residual degrees of freedom in the regression
+than equations, the LM test is shown as missing with a note giving the
+largest *lm_lags* that works; the other tests are still reported.
 
 **Normality.** Multivariate Jarque-Bera test on the residuals standardized
 by the Cholesky factor of their covariance, chi-square on :math:`2m`
@@ -129,6 +139,7 @@ References
 ----------
 
 - Bruggemann, R., H. Lutkepohl and P. Saikkonen (2006). "Residual autocorrelation testing for vector error correction models." *Journal of Econometrics*, 134(2), 579-604.
+- Doornik, J.A. (1996). "Testing vector error autocorrelation and heteroscedasticity." Working paper, Nuffield College, Oxford.
 - Engle, R.F. (1982). "Autoregressive conditional heteroscedasticity with estimates of the variance of United Kingdom inflation." *Econometrica*, 50(4), 987-1007.
 - Kilian, L. and H. Lutkepohl (2017). *Structural Vector Autoregressive Analysis*. Cambridge University Press.
 

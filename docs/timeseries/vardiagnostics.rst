@@ -61,7 +61,7 @@ The printout begins:
     ----------------------------------------------------------------------
     Portmanteau, 12 lags                      196.86         112   <0.0001
     LM (Breusch-Godfrey), 5 lags              137.91          80   <0.0001
-    LM, F form (Edgerton-Shukur), 5 lags        1.67   80, 755.9    0.0004
+    LM, F form (Rao), 5 lags                    1.67   80, 755.9    0.0004
     Normality (Jarque-Bera)                  2742.06           8   <0.0001
     ARCH-LM, 4 lags                            59.83          16   <0.0001
 
@@ -120,8 +120,11 @@ regressors per equation in the VAR (:math:`k = mp + 1` with a constant),
 
 compared with an F distribution on :math:`hm^2` and
 :math:`Ns - \frac{1}{2}m^2 h + 1` degrees of freedom, which is not
-rounded. *lm_lags* is refused when the regression has no residual degrees
-of freedom left or the second degrees of freedom are not positive.
+rounded. The F form needs :math:`|\hat\Sigma_e| > 0`. When the regression
+leaves fewer residual degrees of freedom than equations
+(:math:`T - k - mh < m`) or the second degrees of freedom are not positive,
+both LM rows are shown as "-" (missing values in *vd*) with a note giving
+the largest *lm_lags* that works; the other tests are still reported.
 
 On the investment/income/consumption VAR(2) of Lutkepohl (2005, Table
 4.8), varDiagnostics gives LM statistics 6.37, 15.52, 32.81 and 46.60 and
