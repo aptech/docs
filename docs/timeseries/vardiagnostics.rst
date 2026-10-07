@@ -3,7 +3,7 @@ varDiagnostics
 
 Purpose
 -------
-Check the residuals of a fitted VAR or BVAR: autocorrelation, normality and changing variance.
+Check the residuals of a fitted least-squares VAR: autocorrelation, normality and changing variance.
 
 Format
 ------
@@ -11,7 +11,7 @@ Format
 .. function:: vd = varDiagnostics(fit)
               vd = varDiagnostics(fit, lags=12, arch_lags=4, quiet=1)
 
-   :param fit: An instance of a :class:`varResult` structure returned by :func:`varFit`, or a :class:`bvarResult` structure returned by :func:`bvarFit`.
+   :param fit: An instance of a :class:`varResult` structure returned by :func:`varFit`.
    :type fit: struct
 
    :param lags: Optional keyword, number of autocorrelation lags tested. Must be larger than the fit's lag order. Default = 12.
@@ -43,12 +43,10 @@ Examples
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
 
     ols = varFit(y, p=5, quiet=1);
-    bvar = bvarFit(y, p=5, lag1_prior_mean=0|1|1|1, quiet=1);
 
     diag_ols = varDiagnostics(ols);
-    diag_bvar = varDiagnostics(bvar);
 
-The least-squares VAR's printout begins:
+The printout begins:
 
 ::
 
@@ -67,7 +65,7 @@ Remarks
 
 **Portmanteau.** Tests whether the residuals of all equations, taken
 together, still have autocorrelation at lags 1 to *lags*. The statistic is
-the adjusted portmanteau of Lutkepohl (2005, section 4.4.3),
+the modified portmanteau of Kilian and Lutkepohl (2017, section 2.6.2),
 
 .. math::
 
@@ -76,17 +74,9 @@ the adjusted portmanteau of Lutkepohl (2005, section 4.4.3),
    \qquad \hat C_j = \frac{1}{T}\sum_{t=j+1}^{T} \hat u_t \hat u_{t-j}',
 
 compared with a chi-square on :math:`m^2(h-p)` degrees of freedom, where *m*
-is the number of equations and *p* the lag order. A BVAR's prior shrinks its
-lags instead of estimating them freely, so for a :func:`bvarFit` result the
-right reference lies between :math:`m^2(h-p)` and :math:`m^2 h` degrees of
-freedom; both p-values are reported. The approximation needs *lags* well
-above *p*.
-
-**Ljung-Box by equation.** The Ljung-Box *Q* of each equation's residuals
-over the same lags shows where autocorrelation remains. It is reported
-without a p-value: in a VAR, one equation's residual autocorrelations do
-not have a chi-square reference. For a single series, use
-:func:`ljungBoxTest`.
+is the number of equations and *p* the lag order. The same section asks
+for *lags* considerably larger than *p*, and notes that the chi-square
+reference is not reliable when some variables are nonstationary.
 
 **Normality.** Multivariate Jarque-Bera test on the residuals standardized
 by the Cholesky factor of their covariance, chi-square on :math:`2m`
@@ -99,13 +89,11 @@ equations of :math:`(T - q)R^2` (Engle 1982), chi-square on
 whether the size of the shocks changes over time, equation by equation;
 it is not the full multivariate ARCH test.
 
-BVAR residuals are those stored by :func:`bvarFit`, at the analytic posterior mean.
-
 References
 ----------
 
 - Engle, R.F. (1982). "Autoregressive conditional heteroscedasticity with estimates of the variance of United Kingdom inflation." *Econometrica*, 50(4), 987-1007.
-- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer.
+- Kilian, L. and H. Lutkepohl (2017). *Structural Vector Autoregressive Analysis*. Cambridge University Press.
 
 Library
 -------

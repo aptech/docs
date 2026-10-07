@@ -2,7 +2,7 @@
    :widths: auto
 
    * - vd.model
-     - String, the model checked, for example "VAR(5), least squares" or "BVAR(5)".
+     - String, the model checked, for example "VAR(5), least squares".
    * - vd.var_names
      - mx1 string array, equation names.
    * - vd.m
@@ -19,12 +19,6 @@
      - Scalar, :math:`m^2(\text{lags} - p)`.
    * - vd.portmanteau_pval
      - Scalar, p-value with *portmanteau_df* degrees of freedom.
-   * - vd.portmanteau_df_max
-     - Scalar, :math:`m^2 \cdot \text{lags}`.
-   * - vd.portmanteau_pval_max
-     - Scalar, p-value with *portmanteau_df_max* degrees of freedom (BVAR only; missing for a least-squares fit).
-   * - vd.lb_stat
-     - mx1 vector, Ljung-Box *Q* of each equation's residuals.
    * - vd.jb_stat, vd.jb_df, vd.jb_pval
      - Scalars, multivariate Jarque-Bera statistic, degrees of freedom (:math:`2m`) and p-value.
    * - vd.arch_lags
