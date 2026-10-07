@@ -162,7 +162,9 @@ Diagnostics
    :widths: auto
 
    * - :func:`varDiagnostics`
-     - Residual checks of a VAR or BVAR fit: portmanteau, Ljung-Box by equation, normality, ARCH.
+     - Residual checks of a least-squares VAR fit: portmanteau and LM autocorrelation tests, normality, ARCH.
+   * - :func:`vecmDiagnostics`
+     - Residual checks of a VECM fit: portmanteau and LM autocorrelation tests, normality, ARCH.
    * - :func:`ljungBoxTest`
      - Ljung-Box test of autocorrelation in one or more series.
    * - :func:`mcmcDiagnostics`
@@ -355,6 +357,7 @@ Control Structure Creators
     :caption: Diagnostics
 
     vardiagnostics
+    vecmdiagnostics
     ljungboxtest
     mcmcdiagnostics
     mcmcdiagnosticsprint

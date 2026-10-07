@@ -84,8 +84,9 @@ after removing its mean, compared with a chi-square on *lags* - *n_params*
 degrees of freedom (Ljung and Box 1978). For the residuals of a fitted
 model, set *n_params* to the number of estimated ARMA parameters.
 
-For the residuals of a VAR or BVAR use :func:`varDiagnostics`: in a VAR one
-equation's residual autocorrelations do not have this chi-square reference.
+For the residuals of a VAR use :func:`varDiagnostics`, and of a VECM
+:func:`vecmDiagnostics`: in these models one equation's residual
+autocorrelations do not have this chi-square reference.
 
 References
 ----------
