@@ -61,7 +61,7 @@ The printout begins:
     ----------------------------------------------------------------------
     Portmanteau, 12 lags                      196.86         112   <0.0001
     LM (Breusch-Godfrey), 5 lags              137.91          80   <0.0001
-    LM, F form (Rao), 5 lags                    1.67   80, 755.9    0.0004
+    LM, F form (Rao), 5 lags                    1.67     80, 755    0.0004
     Normality (Jarque-Bera)                  2742.06           8   <0.0001
     ARCH-LM, 4 lags                            59.83          16   <0.0001
 
@@ -116,20 +116,21 @@ regressors per equation in the VAR (:math:`k = mp + 1` with a constant),
    \frac{Ns - \frac{1}{2}m^2 h + 1}{m^2 h},
 
    s = \left(\frac{m^4 h^2 - 4}{m^2 + m^2 h^2 - 5}\right)^{1/2}, \qquad
-   N = T - k - mh - \tfrac{1}{2}(m - mh + 1),
+   N = T - k - mh - \tfrac{1}{2}(m - mh + 1).
 
-compared with an F distribution on :math:`hm^2` and
-:math:`Ns - \frac{1}{2}m^2 h + 1` degrees of freedom, which is not
-rounded. The F form needs :math:`|\hat\Sigma_e| > 0`. When the regression
-leaves fewer residual degrees of freedom than equations
-(:math:`T - k - mh < m`) or the second degrees of freedom are not positive,
+The statistic uses :math:`Ns - \frac{1}{2}m^2 h + 1` as written; its
+p-value comes from an F distribution on :math:`hm^2` and
+:math:`[Ns - \frac{1}{2}m^2 h + 1]` degrees of freedom, the integer part,
+which is the second degrees of freedom Lutkepohl (2005, Table 4.8) prints.
+The F form needs :math:`|\hat\Sigma_e| > 0`. When the regression leaves
+fewer residual degrees of freedom than equations (:math:`T - k - mh < m`),
 both LM rows are shown as "-" (missing values in *vd*) with a note giving
 the largest *lm_lags* that works; the other tests are still reported.
 
 On the investment/income/consumption VAR(2) of Lutkepohl (2005, Table
 4.8), varDiagnostics gives LM statistics 6.37, 15.52, 32.81 and 46.60 and
-:math:`F_{Rao}` values 0.62, 0.76, 1.14 and 1.26 for *lm_lags* = 1 to 4,
-as printed there.
+:math:`F_{Rao}` values 0.62, 0.76, 1.14 and 1.26, on 148, 164, 161 and 154
+second degrees of freedom, for *lm_lags* = 1 to 4, as printed there.
 
 **Normality.** Multivariate Jarque-Bera test on the residuals standardized
 by the Cholesky factor of their covariance, chi-square on :math:`2m`
