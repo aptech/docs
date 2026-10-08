@@ -101,9 +101,9 @@ exogenous columns. This is the auxiliary regression of Bruggemann, Lutkepohl and
 Saikkonen (2006, eq. 4.4 and Remarks 1 and 2; numbers from their working
 paper of January 2004) without their additional score terms, the version
 their simulations favour. Their model has no unrestricted trend or
-exogenous columns; these enter with the model's other regressors, as in
-Lutkepohl and Kratzig's implementation of the test. The residuals are used
-as they are, not demeaned, as in Kilian and Lutkepohl (2017, eq. 2.6.2). In
+exogenous columns; these enter with the model's other regressors. The
+residuals are used as they are, not demeaned, as in Kilian and Lutkepohl
+(2017, eq. 2.6.2). In
 a model without an unrestricted constant their mean is not zero, so
 implementations that demean them can report different values. With
 :math:`\hat\Sigma_u` and :math:`\hat\Sigma_e` the residual covariances of
