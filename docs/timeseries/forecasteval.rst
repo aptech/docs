@@ -227,6 +227,8 @@ start date with only the data available then, on each target variable alone:
      - Automatic or fixed ETS (error A/M, trend N/A/Ad, season N/A/M).
    * - ``"naive"``
      - Last observed value (random walk).
+   * - ``"drift"``
+     - Last observed value plus *h* times the average change over the estimation sample (random walk with drift).
    * - ``"snaive"``
      - Value one season earlier (needs *period*).
    * - ``"mean"``
@@ -262,8 +264,8 @@ England's forecast evaluation (Abiry et al. 2026).
 **Band coverage.** The share of outcomes inside each band; an outcome on a
 band edge counts as inside. BVAR bands are quantiles of the predictive
 draws; VAR, ARIMA and ETS bands are the models' own intervals (VAR intervals
-leave out coefficient uncertainty). Naive, snaive and mean forecasts have no
-band.
+leave out coefficient uncertainty). Naive, snaive, drift and mean forecasts
+have no band.
 
 **Failed fits** are recorded in *status* and *status_messages*, excluded, and
 counted in the printout; they do not stop the run.
