@@ -71,6 +71,9 @@
    * - ctl.xreg
      - TxK matrix, exogenous regressors. Default = empty (none).
 
+   * - ctl.stability_check
+     - Scalar, 1 to compute the largest companion root and the stationary flag in the fit, 0 to skip them (*result.is_stationary* and *result.max_eigenvalue* are then missing; :func:`varFitInspect` and :func:`forecastCompare` compute them when they report them). The eigenvalue solve takes most of a fit's time. Default = 0.
+
    * - ctl.quiet
      - Scalar, 1 to suppress printed output. Default = 0.
 
