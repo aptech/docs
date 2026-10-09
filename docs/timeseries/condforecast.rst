@@ -36,7 +36,7 @@ Format
    :param store_draws: Optional keyword, 1 to keep every simulated path in *cfc.draws* and every draw's scenario effect in *cfc.effect_draws*. Default = 0.
    :type store_draws: scalar
 
-   :param xreg_future: Optional keyword, future values of the exogenous regressors. Required when the model was fit with *xreg*.
+   :param xreg_future: Optional keyword, future values of the user's exogenous regressors, excluding the generated VAR trend. Required when the model was fit with *xreg*.
    :type xreg_future: hxK matrix
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -123,8 +123,25 @@ least-squares estimates:
 
     cfc = condForecast(fit, path, averages=avg, average_of="FFR");
 
+VAR with a trend
+++++++++++++++++
+
+::
+
+    struct varResult fit_var;
+    fit_var = varFit(data[1:264, .], p=13, trend=1, quiet=1);
+    cfc_var = condForecast(fit_var, path, averages=avg, average_of="FFR");
+
+The trend continues automatically; the bands use the fit's df covariance.
+
 Remarks
 -------
+
+**VAR fits.** Conditional paths use *fit.sigma*, the covariance selected
+by :func:`varFit`'s *resid_cov*. Coefficients remain fixed. A fitted trend
+continues automatically at T + 1, T + 2, ..., and *xreg_future* holds only
+the user's regressors. A :func:`vecmToVar` result is refused; use
+:func:`vecmForecast` for VECM forecasts.
 
 **What a scenario forecast answers.** Every future shock may move to
 deliver the assumed path, so the result is the forecast the model expects

@@ -2,7 +2,7 @@
    :widths: auto
 
    * - cfc.median
-     - hxm matrix, pointwise median of the simulated paths.
+     - hxm matrix, pointwise median of the simulated paths. For a VAR fit the shocks use its selected *sigma* and the trend is continued automatically.
 
    * - cfc.lower
      - hxm matrix, lower edge of the first band in *cfc.bands*.
@@ -65,7 +65,7 @@
      - Scalar, the seed used.
 
    * - cfc.xreg_future
-     - hxK matrix, future exogenous values used; empty if none.
+     - hxK matrix, future user exogenous values as supplied, without the generated VAR trend; empty if none.
 
    * - cfc.var_names
      - Mx1 string array, variable names.

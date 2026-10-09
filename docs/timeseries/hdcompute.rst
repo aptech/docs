@@ -4,7 +4,7 @@ hdCompute
 Purpose
 -------
 Decompose the observed series of a VAR or BVAR fit into the contributions of
-the structural shocks and of the initial conditions.
+the structural shocks and of the path with no shocks.
 
 Format
 ------
@@ -53,6 +53,9 @@ Contributions to GDP growth
     fit = varFit(y, p=4, quiet=1);
     hd = hdCompute(fit);
 
+    // The first usable row includes its contemporaneous shock
+    print hd.shocks[1, .];
+
     // Contribution of the funds rate shock (shock 3) to GDP growth (column 1)
     t = hd.t_eff;
     ffr_to_gdp = hd.hd[2 * t + 1:3 * t, 1];
@@ -81,9 +84,23 @@ Posterior bands from a BVAR
 Remarks
 -------
 
+**Initial path and first shock.** *hd.initial* is the path with no shocks:
+the initial p observed lag values plus the constant, data-row trend and
+*xreg* terms carried forward through the fitted VAR. The first usable
+innovation, at data row p + 1, is included in its shock contributions and
+in every later observation it affects. VAR fits with *xreg* are supported.
+
+**VAR covariance.** Structural shocks use *fit.sigma*, following
+*resid_cov*. Switching from ``"ml"`` to ``"df"`` divides these standardized
+shocks by :math:`\sqrt{(T-p)/(T-p-K)}`. The corresponding impact matrix
+increases by that factor, so the contributions and the initial path do
+not change. A hand-built *varResult* must supply *sigma* and the data,
+coefficients and deterministic settings. A :func:`vecmToVar` result is
+refused.
+
 **Decomposition.** Each observation is the sum of the contributions of the
 structural shocks up to that date plus the contribution of the initial
-conditions:
+lag values and deterministic terms:
 
 .. math::
 

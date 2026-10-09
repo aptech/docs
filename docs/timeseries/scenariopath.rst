@@ -44,8 +44,24 @@ Examples
 
     cfc = condForecast(fit, cut);
 
+Classical VAR
++++++++++++++
+
+::
+
+    struct varResult fit_var;
+    fit_var = varFit(data, p=3, trend=1, resid_cov="df", quiet=1);
+    hold_var = scenarioPath(fit_var, 8, "ffr", 1.64);
+    cfc_var = condForecast(fit_var, hold_var);
+
 Remarks
 -------
+
+A :func:`vecmToVar` result is refused. This function only builds the
+condition matrix; it does not compute forecasts or use a covariance.
+When the path is passed to :func:`condForecast` or :func:`scenarioCompare`,
+the VAR branch uses *fit.sigma* and continues the fitted trend
+automatically. *xreg_future* then contains only the user's regressors.
 
 To fix more than one variable, build the path for one and set the other
 column directly, for example ``path[., 2] = values2;``.

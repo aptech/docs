@@ -3,21 +3,21 @@ varCompanion
 
 Purpose
 -------
-Extract the companion matrix and stability diagnostics from a fitted VAR or BVAR model.
+Extract the companion matrix and stability diagnostics from a fitted VAR model.
 
 Format
 ------
 
 .. function:: { companion, eigenvalues, is_stable } = varCompanion(result)
 
-   :param result: an instance of a :class:`varResult` or :class:`bvarResult` structure.
+   :param result: an instance of a :class:`varResult` structure.
    :type result: struct
 
    :return companion: (mp)x(mp) companion matrix.
    :rtype companion: matrix
 
-   :return eigenvalues: (mp)x2 matrix with columns [real, imaginary] for each eigenvalue.
-   :rtype eigenvalues: matrix
+   :return eigenvalues: (mp)x1 vector of eigenvalues, complex when any imaginary part exceeds 1e-12 times the largest modulus; otherwise a real vector.
+   :rtype eigenvalues: complex or real vector
 
    :return is_stable: 1 if all eigenvalues are inside the unit circle, 0 otherwise.
    :rtype is_stable: scalar
@@ -30,7 +30,7 @@ Examples
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
     result = varFit(data, 4, quiet=1);
 
     // Extract companion matrix and eigenvalues
@@ -43,9 +43,22 @@ Examples
     endif;
 
     // Eigenvalue moduli
-    moduli = sqrt(eigenvalues[., 1]^2 + eigenvalues[., 2]^2);
+    moduli = abs(eigenvalues);
     print "Eigenvalue moduli:";
     print moduli;
+
+    // sprintf needs real-valued arguments
+    for root_idx (1, rows(eigenvalues), 1);
+        print sprintf("%.6f %+.6fi", real(eigenvalues[root_idx]),
+                      imag(eigenvalues[root_idx]));
+    endfor;
+
+Remarks
+-------
+
+Use ``abs(eigenvalues)`` for the moduli, and ``real()`` and ``imag()``
+for formatted printing. *is_stable* is the fit's stored
+*result.is_stationary* value.
 
 Library
 -------
@@ -55,4 +68,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`varFit`, :func:`bvarFit`
+.. seealso:: Functions :func:`varFit`

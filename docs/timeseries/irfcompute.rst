@@ -17,7 +17,7 @@ Format
    :param fit: result from :func:`varFit`, :func:`bvarFit` or :func:`bvarSvFit`.
    :type fit: struct
 
-   :param n_ahead: last horizon. Responses are returned for horizons 0 (impact) to *n_ahead*.
+   :param n_ahead: positive integer last horizon. Responses are returned for horizons 0 (impact) to *n_ahead*.
    :type n_ahead: scalar
 
    :param identification: Optional keyword, how the structural shocks are identified.
@@ -122,6 +122,9 @@ Cholesky responses from a VAR
 
     irf = irfCompute(fit, 12);
 
+    // Normalize each own-variable impact to 1
+    irf_unit = irfCompute(fit, 12, normalization="unit_own_impact", quiet=1);
+
 The printout starts with the model and shock description, followed by one
 table per shock. Row *h* of the table for a shock holds the responses of
 every variable *h* quarters after the shock.
@@ -217,6 +220,18 @@ Long-run identification
 Remarks
 -------
 
+**VAR covariance.** Cholesky and generalized responses use *fit.sigma*,
+the covariance chosen by :func:`varFit`'s *resid_cov*. Long-run responses
+follow the same divisor when refitting. A change from ``"ml"`` to ``"df"``
+multiplies one-standard-deviation responses by
+:math:`\sqrt{(T-p)/(T-p-K)}` for the same model. Unit-own-impact responses
+and forecast error variance shares are unchanged by this scalar choice.
+
+**Accepted VAR results.** A :func:`vecmToVar` result is refused; use
+:func:`vecmIrf`. A *varResult* built by hand must supply *sigma* for
+Cholesky or generalized responses, together with its companion matrix and
+model dimensions; *sigma_ml* alone is insufficient.
+
 **Layout of the responses.** *irf.irf* has (*n_ahead* + 1) · *m* rows and
 *m* columns. Rows *h* · *m* + 1 to (*h* + 1) · *m* hold horizon *h*;
 element [*i*, *j*] of that block is the response of variable *i* to shock
@@ -256,6 +271,10 @@ give noticeably different bands when the restrictions are tight.
 **Long-run restrictions** (Blanchard and Quah 1989) make the long-run
 impact matrix lower triangular: shock *j* has no permanent effect on the
 level of variables 1 to *j*-1 when those variables enter in differences.
+A VAR fit must be stable (*fit.is_stationary* = 1). The function refits the
+original data with its constant, data-row trend and user *xreg* before
+identifying the long-run responses. For a hand-built result this route
+therefore needs the original data and deterministic settings.
 
 **Posterior summaries are pointwise.** Responses are computed draw by draw
 and then summarized horizon by horizon; the band at one horizon is not a

@@ -2,7 +2,7 @@
    :widths: auto
 
    * - sc.baseline
-     - :class:`condForecastResult` of the first scenario (without stored draws).
+     - :class:`condForecastResult` of the first scenario (without stored draws); the VAR branch uses the fit's selected *sigma* and automatically extends its trend.
 
    * - sc.alternative
      - :class:`condForecastResult` of the second scenario (without stored draws).
@@ -23,7 +23,7 @@
      - Vector, the central masses of the bands.
 
    * - sc.fixed_coefficients
-     - Scalar, 1 for a :func:`varFit` result (the difference has no uncertainty), 0 otherwise.
+     - Scalar, 1 for a :func:`varFit` result (the difference has no coefficient uncertainty), 0 otherwise.
 
    * - sc.n_draws
      - Scalar, number of draws.

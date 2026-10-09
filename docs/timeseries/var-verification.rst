@@ -3,12 +3,22 @@
 Verification and Cross-Validation
 =================================
 
-GAUSS Time Series is verified against two independent reference implementations
-(R and MATLAB/BEAR) at multiple levels: exact numerical match for deterministic
-computations, structural property validation for stochastic samplers.
+VAR reference checks compare numerical values with independent calculations
+on fixed data. The covariance divisor, lag order and deterministic terms
+must match. The default residual covariance divides by T - p - K;
+``resid_cov="ml"`` divides by T - p. Likelihood and information criteria
+use ML in both cases.
 
-Test Summary
-------------
+Current VAR checks cover coefficient inference, covariance choices, common-sample
+lag criteria including FPE, one-effect Granger tests, responses, forecasts and
+historical decomposition. Deterministic agreement is within each check's
+stated tolerance, rather than bit-for-bit equality.
+
+The historical summary below describes earlier fixture checks. It is not a
+count of the current test suite or a general guarantee for every model.
+
+Historical Test Summary
+-----------------------
 
 .. list-table::
    :widths: 35 15 20 30
@@ -18,27 +28,27 @@ Test Summary
      - Tests
      - Tolerance
      - What it verifies
-   * - OLS VAR vs R ``vars``
+   * - OLS VAR reference fixture
      - 22
      - :math:`10^{-6}`
      - Coefficients, :math:`\Sigma`, IRF, FEVD, Granger, forecasts
-   * - BVAR Gibbs vs R ``BVAR`` 200K
+   * - BVAR Gibbs reference fixture, 200K draws
      - 7
      - Structural
      - Posterior mean RMSE ordering, :math:`\Sigma` magnitude, shrinkage behavior
-   * - SV-BVAR vs R ``stochvol`` + ``bayesianVARs``
+   * - SV-BVAR reference fixtures
      - 30
      - Structural
      - KSC sampler, SV parameters, canonical DGPs (Clark, CCM, GLP), FRED-MD
-   * - BVAR matched-prior vs ECB BEAR
+   * - BVAR compared-prior fixture
      - 45
      - 0.06
      - All 39 B coefficients + 6 :math:`\Sigma` elements, identical hyperparameters
-   * - IRF matched-prior vs BEAR
+   * - IRF compared-prior fixture
      - 17
      - 0.04-0.25
      - Cholesky IRF at h=0, 10, 20 for all shock-response pairs
-   * - OLS exact vs BEAR
+   * - OLS deterministic reference fixture
      - 14
      - :math:`10^{-8}`
      - B, :math:`\Sigma`, eigenvalues, Cholesky factors
@@ -55,27 +65,27 @@ Each level validates against an independent source:
 
 ::
 
-    R vars 1.6-1 / R 4.5.2
+    Least-squares reference fixture
         │
-        ├── OLS: 22 tests, exact match (1e-6)
+        ├── OLS: 22 historical checks, agreement within 1e-6
         │
-        └── BVAR: 7 tests, structural properties vs R BVAR 200K reference
+        └── BVAR: 7 tests, structural properties against a 200K-draw reference
                 │
                 └── Conjugate RMSE < Gibbs RMSE < 1.0
                     Sigma within 50% relative error
                     Shrinkage > 60%
 
-    R stochvol / bayesianVARs
+    Stochastic-volatility reference fixtures
         │
         └── SV-BVAR: 30 tests
-            ├── KSC mixture sampler vs stochvol (same algorithm)
+            ├── KSC mixture sampler against a mixture-sampler reference
             ├── Canonical DGPs: Clark (2011), CCM (2019), GLP (2015)
             ├── Real FRED-MD data
             └── ASIS interweaving, permutation correctness
 
-    ECB BEAR Toolbox v5.0 (MATLAB)
+    Separate estimation reference fixtures
         │
-        ├── OLS: exact match (1e-8) on same data (T_eff=195)
+        ├── OLS: agreement within 1e-8 on same data (T_eff=195)
         ├── BVAR: matched hyperparameters (lambda1=0.1, ar=0.8)
         │         max coefficient difference: 0.051 / 39 coefficients
         └── IRF: Cholesky at h=0,10,20 across 9 shock-response pairs
@@ -93,14 +103,14 @@ Methodology Notes
   forms (conjugate vs independent Normal-Wishart) produce Monte Carlo variation.
   The tolerance is calibrated to 2 posterior standard deviations.
 
-- **SV-BVAR (structural):** Different R packages use different samplers, priors,
+- **SV-BVAR (structural):** Different reference calculations use different samplers, priors,
   and parameterizations. We validate structural properties (convergence, shrinkage,
   parameter recovery on known DGPs) rather than expecting exact draws to match.
 
 **The conjugate vs independent NW prior-form difference:**
 
 GAUSS uses the conjugate Normal-Inverse-Wishart prior (exact posterior draws).
-BEAR uses the independent Normal-Wishart prior (Gibbs sampling required). With
+The reference uses the independent Normal-Wishart prior (Gibbs sampling required). With
 matched hyperparameters (lambda1=0.1, ar=0.8), posterior means agree within 0.06
 on all 39 B coefficients. The largest difference (0.051 on YER lag 2) occurs on a
 non-own-lag coefficient where the two prior forms shrink differently:
@@ -116,29 +126,25 @@ of the OLS signal. This is expected and well-documented behavior.
 Running the Tests
 -----------------
 
-**Rust-level tests** (R cross-validation):
-
-::
-
-    cd gausslib/crates/gausslib-var
-    cargo test --test r_benchmark         # 22 OLS tests
-    cargo test --test gibbs_crossval      # 7 BVAR tests
-    cargo test --test sv_crossval         # 30 SV-BVAR tests
-
-**GAUSS-level tests** (BEAR cross-validation):
+**Installed VAR reference checks:**
 
 ::
 
     library timeseries;
-    run verify_vs_bear.e;             // 14 OLS exact + timing
-    run bear_matched_prior.e;         // 45 matched-prior BVAR
-    run bear_matched_irf.e;           // 17 matched-prior IRF
+    run test_var_reference.e;
+    run test_var_invariance.e;
+    run test_kl2017_ch2.e;
+    run test_kl2017_ch4.e;
 
+The reference checks use full-precision constants with per-output tolerances.
+The invariance checks cover covariance scaling, deterministic terms and input
+errors. The published-example checks use Kilian and Lutkepohl (2017),
+chapters 2 and 4. Passing these fixtures does not establish forecast coverage
+in new data or validate every prior and sampler setting.
 
 References
 ----------
 
 - Kadiyala, K.R. and S. Karlsson (1997). "Numerical methods for estimation and inference in Bayesian VAR-models." *Journal of Applied Econometrics*, 12(2), 99-132.
-- Kastner, G. (2016). "Dealing with stochastic volatility in time series using the R package stochvol." *Journal of Statistical Software*, 69(5).
-- Kuschnig, N. and L. Vashold (2021). "BVAR: Bayesian vector autoregressions with hierarchical prior selection in R." *Journal of Statistical Software*, 100(14).
-- Dieppe, A., R. Legrand, and B. van Roye (2016). "The BEAR Toolbox." ECB Working Paper No. 1934.
+- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer, chapters 3 and 4.
+- Kilian, L. and H. Lutkepohl (2017). *Structural Vector Autoregressive Analysis*. Cambridge University Press, chapters 2 and 4.

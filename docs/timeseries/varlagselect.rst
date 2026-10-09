@@ -9,7 +9,7 @@ Format
 ------
 
 .. function:: ls = varLagSelect(y, max_p)
-              ls = varLagSelect(y, max_p, ic="bic")
+              ls = varLagSelect(y, max_p, ic="fpe", trend=1)
 
    :param y: endogenous variables.
    :type y: TxM matrix or dataframe
@@ -17,7 +17,7 @@ Format
    :param max_p: maximum lag order to test.
    :type max_p: scalar
 
-   :param ic: Optional keyword, selection criterion. ``"aic"`` (default), ``"bic"``, or ``"hq"``.
+   :param ic: Optional keyword, selection criterion. ``"aic"`` (default), ``"bic"``, ``"hq"``, or ``"fpe"``.
    :type ic: string
 
    :param const: Optional keyword, 1 to include a constant (default), 0 to exclude it.
@@ -25,6 +25,9 @@ Format
 
    :param quiet: Optional keyword, set to 1 to suppress the IC table. Default = 0.
    :type quiet: scalar
+
+   :param trend: Optional keyword, 1 to include a linear data-row trend, 0 to exclude it, independent of *const*. Default = 0.
+   :type trend: scalar
 
    :return ls: An instance of a :class:`lagSelectResult` structure containing:
 
@@ -35,16 +38,16 @@ Format
             - Scalar, selected lag order (argmin of chosen criterion).
 
           * - ls.criterion
-            - String, criterion used for selection (``"aic"``, ``"bic"``, or ``"hq"``).
+            - String, criterion used for selection (``"aic"``, ``"bic"``, ``"hq"``, or ``"fpe"``).
 
           * - ls.ic_table
-            - max_p x 3 matrix, information criterion values for each lag order. Columns: AIC, BIC, HQ.
+            - max_p x 4 matrix, one row per lag order 1 through max_p. Columns: AIC, BIC, HQ, FPE.
 
           * - ls.max_p
             - Scalar, maximum lag tested.
 
           * - ls.ic_names
-            - 3x1 string array, ``{"AIC", "BIC", "HQ"}``.
+            - 4x1 string array, ``"AIC"``, ``"BIC"``, ``"HQ"``, ``"FPE"``.
 
    :rtype ls: struct
 
@@ -65,25 +68,7 @@ Basic Lag Selection
     // Test lags 1 through 8, select by AIC
     ls = varLagSelect(data, 8);
 
-The output is:
-
-::
-
-    VAR lag selection
-    ================================================================================
-    Selected lags     1 (smallest AIC)
-    Smaller is better; * marks the smallest value of each criterion.
-
-    Lags      AIC      BIC       HQ
-    -------------------------------
-    1     -6.447*  -6.244*  -6.365*
-    2     -6.406   -6.050   -6.262
-    3     -6.361   -5.852   -6.155
-    4     -6.308   -5.646   -6.040
-    5     -6.236   -5.421   -5.906
-    6     -6.208   -5.241   -5.816
-    7     -6.157   -5.038   -5.704
-    8     -6.132   -4.860   -5.617
+The printout shows all four criteria and marks the minimum of each.
 
 Pipe into Estimation
 ++++++++++++++++++++
@@ -94,10 +79,20 @@ Pipe into Estimation
     ls = varLagSelect(data, 8, ic="bic", quiet=1);
     result = varFit(data, ls.best_p);
 
+    // Keep the trend setting when fitting the selected model
+    ls_trend = varLagSelect(data, 8, ic="fpe", trend=1, quiet=1);
+    fit_trend = varFit(data, p=ls_trend.best_p, trend=1);
+
 Remarks
 -------
 
-The full IC table (*ls.ic_table*) reports all three criteria (AIC, BIC, HQ)
+*max_p* must be a positive integer and cannot exceed the common sample's
+feasible limit. An error reports the largest feasible value; the requested
+limit is not silently reduced. *const* and *trend* must be 0 or 1. Missing
+or nonfinite data raise an error naming the row and column. A generated
+trend uses the original data-row numbers on the common sample.
+
+The full IC table (*ls.ic_table*) reports all four criteria (AIC, BIC, HQ, FPE)
 regardless of which criterion was used for selection. This allows comparison
 when the criteria disagree — AIC tends to select more lags than BIC.
 
@@ -113,7 +108,18 @@ by OLS and the information criteria are computed:
    \text{BIC}(p) &= \log|\hat\Sigma_p| + \frac{K_p m \log T_p}{T_p} \\
    \text{HQ}(p)  &= \log|\hat\Sigma_p| + \frac{2 K_p m \log \log T_p}{T_p}
 
-where :math:`K_p = mp + 1` and :math:`T_p = T - p` (sample shrinks with more lags).
+where :math:`K_p = mp + \mathrm{const} + \mathrm{trend}` and
+:math:`T_p = T_c = T - \mathrm{max\_p}` for every candidate. All candidates
+use the same response rows, starting at data row max_p + 1, and
+:math:`\hat\Sigma_p = U_p'U_p/T_c` is the ML covariance. FPE is
+
+.. math::
+
+   \mathrm{FPE}(p) = \left(\frac{T_c+K_p}{T_c-K_p}\right)^m
+   \det(\hat\Sigma_p).
+
+FPE is the fourth table column; ``ic="fpe"`` selects its minimum. Criterion
+names are accepted in any letter case. Lag zero is not a candidate.
 
 The selected :math:`p^*` minimizes the chosen criterion. AIC tends to select larger
 models; BIC tends to select smaller models (Lutkepohl 2005, Section 4.3).

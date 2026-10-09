@@ -10,7 +10,7 @@ Format
 
 .. function:: fit = varFit(y)
               fit = varFit(y, p=4)
-              fit = varFit(y, p=4, const=0, xreg=X)
+              fit = varFit(y, p=4, const=0, trend=1, xreg=X, resid_cov="ml")
               fit = varFit(y, ctl=ctl)
 
    :param y: the data, one column per variable. A dataframe's column names label the output; a single date-typed column is used as the time index and left out of the model. A matrix's variables are labeled "Y1", "Y2", ...
@@ -22,8 +22,14 @@ Format
    :param const: Optional keyword, 1 to include a constant in each equation, 0 to leave it out. Default = 1.
    :type const: scalar
 
+   :param trend: Optional keyword, 1 to include a linear trend, 0 to leave it out. Independent of *const*. Default = 0.
+   :type trend: scalar
+
+   :param resid_cov: Optional keyword, residual covariance divisor: ``"df"`` (default) divides by T - p - K; ``"ml"`` divides by T - p. Accepted in any letter case. K counts all coefficients per equation.
+   :type resid_cov: string
+
    :param xreg: Optional keyword, exogenous regressors, one row per observation of *y*. Default = none.
-   :type xreg: TxK matrix
+   :type xreg: TxJ matrix
 
    :param dates: Optional keyword, POSIX dates for matrix input. Not needed when *y* is a dataframe with a date column. Default = none.
    :type dates: Tx1 vector
@@ -74,6 +80,7 @@ The output starts:
     Variables:                         4    Observations:                        240
     Lags:                              2    Effective obs.:                      238
     Constant:                        Yes    Log-likelihood:                 -1254.68
+    Trend:                            No
     AIC:                         -0.5054    BIC:                              0.0198
     HQ:                          -0.2937    Largest root:            0.9651 (stable)
 
@@ -129,17 +136,42 @@ Remarks
 
 .. math::
 
-   y_t = c + B_1 y_{t-1} + \cdots + B_p y_{t-p} + \Phi x_t + \varepsilon_t, \qquad \varepsilon_t \sim N(0, \Sigma),
+   y_t = c + d t + B_1 y_{t-1} + \cdots + B_p y_{t-p} + \Phi x_t + \varepsilon_t, \qquad \varepsilon_t \sim N(0, \Sigma),
 
 where :math:`x_t` are the exogenous regressors (*xreg*). The first *p* observations
 are the initial conditions, so T - p observations are explained. Each equation is
 estimated by least squares on the same K regressors (Mp lags, the
-exogenous regressors and the constant).
+exogenous regressors, the optional constant and the optional trend).
 
-**Covariance.** *sigma* divides the residual cross-products by T - p - K; *sigma_ml*
-divides by T - p and is the maximum-likelihood estimate. *se*, *tstat* and *pval*
-use *sigma*; the log-likelihood, the information criteria, forecast intervals and
-impulse responses use *sigma_ml*.
+**Covariance.** *sigma* follows *resid_cov*: ``"df"`` divides the residual
+cross-products by T - p - K, and ``"ml"`` divides by T - p. *sigma_ml*
+always divides by T - p. Cholesky, generalized and long-run impulse
+responses, forecast standard errors and bands, conditional forecasts and
+scenarios, historical-decomposition shocks, and coefficient *se*, *tstat*,
+*pval* and *vcov* follow the chosen covariance. Log-likelihood and information
+criteria always use the ML covariance. The coefficient p-values use the
+Student t distribution with T - p - K degrees of freedom.
+
+**Coefficient covariance.** *vcov* is the (K·m)x(K·m) covariance of
+``vec(b)``: all K coefficients of equation 1, then equation 2, and so on.
+It is :math:`\hat\Sigma \otimes (X'X)^{-1}`. *se* contains the square
+roots of its diagonal, arranged in the same Kxm layout as *b*.
+
+**Trend and coefficient rows.** With ``trend=1``, row *t* of the input has
+trend value *t*, so the first usable observation has t = p + 1, whether
+or not a constant is included. Coefficient rows are lag 1 through lag p,
+then the constant, trend and user's *xreg*, omitting absent terms.
+*result.trend* records the setting. If a trend is counted from 1 at the
+first usable observation instead, the constant increases by p times the
+trend coefficient when both models include a constant.
+
+**Input errors.** *p* must be a positive integer; *const* and *trend* must
+be scalar 0 or 1; *resid_cov* must be ``"df"`` or ``"ml"``. Data and
+*xreg* must be finite, with the same number of rows. There must be at least
+p + 2 rows, more usable observations than coefficients per equation, and
+T - p - K must be at least m for the residual covariance. A rank-deficient
+design raises an error naming the dependent series, lag, constant, trend
+or *xreg* columns. Remove redundant columns or reduce the model.
 
 **Information criteria.** With :math:`T_e = T - p`,
 
@@ -153,7 +185,8 @@ They compare models fitted on the same observations; to choose the lag order,
 use :func:`varLagSelect`, which fits every lag order on a common sample.
 
 **Stability.** *max_eigenvalue* is the largest modulus of the companion matrix's
-eigenvalues; below 1 the VAR is stable and its forecasts return to the mean.
+eigenvalues; below 1 the autoregressive dynamics are stable. With a trend or
+exogenous regressors the forecast also follows those deterministic terms.
 
 References
 ----------

@@ -41,6 +41,11 @@ From a VAR
 
     fevd = fevdCompute(irf);
 
+    // An ML fit gives the same variance shares
+    fit_ml = varFit(y, p=4, resid_cov="ml", quiet=1);
+    irf_ml = irfCompute(fit_ml, 12, quiet=1);
+    fevd_ml = fevdCompute(irf_ml, quiet=1);
+
     // Share of GDP growth's 8-quarter forecast error variance due to each shock
     print fevd.fevd[7 * 3 + 1, .];
 
@@ -63,6 +68,14 @@ With posterior bands
 
 Remarks
 -------
+
+**VAR covariance choice.** For the same fitted model, changing
+:func:`varFit`'s *resid_cov* scales every one-standard-deviation response
+by the same factor. It cancels from the variance shares, so FEVD is
+unchanged. Generalized responses are refused because this function
+requires orthogonal shocks. Recompute with Cholesky or long-run
+identification. A :func:`vecmToVar` result cannot be passed through
+:func:`irfCompute`; use :func:`vecmIrf` for VECM responses.
 
 **Definition.** The share of variable *i*'s *h*-step forecast error
 variance due to shock *j* is

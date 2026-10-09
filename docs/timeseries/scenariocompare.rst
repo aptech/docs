@@ -44,7 +44,7 @@ Format
    :param store_draws: Optional keyword, 1 to keep every draw's difference in *sc.difference_draws*. Default = 0.
    :type store_draws: scalar
 
-   :param xreg_future: Optional keyword, future values of the exogenous regressors. Required when the model was fit with *xreg*.
+   :param xreg_future: Optional keyword, future values of the user's exogenous regressors, excluding the generated VAR trend. Required when the model was fit with *xreg*.
    :type xreg_future: hxK matrix
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -81,8 +81,25 @@ For each variable named, the printout shows the model's own forecast with no
 assumed path, each scenario's median, and the difference (cut minus hold)
 with its 68% band.
 
+Classical VAR
++++++++++++++
+
+::
+
+    struct varResult fit_var;
+    fit_var = varFit(data, p=3, trend=1, resid_cov="df", quiet=1);
+    hold_var = scenarioPath(fit_var, 8, "ffr", 1.64);
+    cut_var = scenarioPath(fit_var, 8, "ffr", 0.64);
+    sc_var = scenarioCompare(fit_var, hold_var, cut_var);
+
 Remarks
 -------
+
+**VAR fits.** Conditional paths use *fit.sigma*, the covariance selected
+by :func:`varFit`'s *resid_cov*. Coefficients remain fixed. A fitted trend
+continues automatically at T + 1, T + 2, ..., and *xreg_future* holds only
+the user's regressors. A :func:`vecmToVar` result is refused; use
+:func:`vecmForecast` for VECM forecasts.
 
 **Pairing.** Both scenarios are run on the same fit, so they use the same
 posterior draws in the same order. For each draw the difference is taken

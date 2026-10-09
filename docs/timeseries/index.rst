@@ -8,7 +8,7 @@ and forecast evaluation.
 Description
 -----------
 
-**GAUSS Time Series** consolidates TSMT, SSLIB, and FANPAC into a single product.
+**GAUSS Time Series** brings time series estimation and forecasting into a single product.
 It provides:
 
 - **Univariate models:** ARIMA, SARIMA, ARIMAX with automatic order selection
@@ -98,7 +98,9 @@ VAR Estimation
    * - :func:`bvarSvFit`
      - Fit BVAR with stochastic volatility and optional SSVS variable selection.
    * - :func:`varLagSelect`
-     - Select lag order by AIC, BIC, or Hannan-Quinn.
+     - Select lag order by AIC, BIC, Hannan-Quinn, or FPE.
+   * - :func:`periodDummies`
+     - Create historical-quarter indicators and their future values.
    * - :func:`bvarHyperopt`
      - Optimize Minnesota hyperparameters via marginal likelihood (GLP 2015).
 
@@ -314,6 +316,7 @@ Control Structure Creators
     varlagselect
     bvarhyperopt
     varcontrolcreate
+    perioddummies
     bvarcontrolcreate
     bvarsvcontrolcreate
 
@@ -348,6 +351,7 @@ Control Structure Creators
     :hidden:
     :caption: SVAR
 
+    longrunsvar
     signrestrictions
     svarcontrolcreate
 
