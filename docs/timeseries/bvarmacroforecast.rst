@@ -163,6 +163,18 @@ sample and holdout window, then refits the final BVAR on all available data
 using the selected lag order and prior settings. The returned ``wf.forecast`` is
 the final full-sample forecast.
 
+**Tightness search stopped at the edge of its range:**
+When the overall tightness is chosen by the search, it is looked for between
+0.001 and 5. If the search stops at either end, no peak was found: the value
+is the edge of the range, not a value chosen by the data. The workflow prints
+a note saying so as soon as the search ends, before the model is fitted, and
+then fits and forecasts with the edge value. At the lower edge the prior holds
+the coefficients close to their prior means; at the upper edge the prior barely
+restrains them. The result records the case in ``wf.hyperopt.status``
+(``"at_bound"``) and ``wf.hyperopt.at_bound`` (1). The note is not printed
+with ``quiet=1``. To set the tightness yourself, pass a number as
+``overall_tightness``.
+
 Source Examples
 ---------------
 
