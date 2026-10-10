@@ -35,4 +35,11 @@ Examples
 Remarks
 -------
 
-The file on the disk will be given a :file:`.fsr` extension
+The file on the disk will be given a :file:`.fsr` extension.
+
+For the development GDAT v2 format, use :func:`saved` with an explicit
+``.gdat`` filename. It supports nested structures and retains dataframe
+metadata inside their members. :func:`saveStruct` continues to write the
+existing ``.fsr`` format.
+
+.. seealso:: :func:`loadStruct`, :func:`saved`, :func:`loadd`

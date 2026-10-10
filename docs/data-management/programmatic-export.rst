@@ -23,7 +23,17 @@ Exporting datasets
 ----------------------------------------------
 The :func:`saved` procedure exports matrices and dataframes in the GAUSS workspace to datasets in GDAT, CSV, DAT, XLS, or XLSX format.
 
-The GDAT file type should be used to save all data attributes within a GAUSS dataframe. It is the only file format that can be used to save and load GAUSS dataframes without losing any data characteristics such as variable names, types, and formats.
+Use GDAT to retain dataframe metadata. GDAT v2 preserves column names and
+types, exact date display formats, and the codes and labels for string and
+category columns, including unused labels. It also stores structures and
+the metadata in their dataframe members.
+
+.. note::
+
+    GDAT v2 is an unreleased development feature. In builds with v2 support,
+    :func:`saved` writes v2 by default and :func:`loadd` reads both v1 and v2.
+    Older GAUSS releases cannot read v2. To share a table with an older
+    release, use ``saved(data, "legacy.gdat", 0, 1)``.
 
 When using :func:`saved` to save non-GDAT file types:
 
@@ -66,16 +76,27 @@ Example: Load Stata dataset and save to a .gdat file
     // Load 'rep78' as a categorical variable and 'mpg' as a numeric variable
     auto = loadd(fname, "cat(rep78) + mpg");
 
-    // Save the data to a CSV dataset
+    // Save the data and its metadata to a GDAT file
     call saved(auto, "auto.gdat");
 
-Opening the file `auto.gdat` in the *Data Import* window provides a preview of the created file, *auto.gdat*:
+    // Restore the dataframe
+    auto_restored = loadd("auto.gdat");
 
-.. figure:: ../_static/images/autogdat.jpg
-   :scale: 50 %
-
+The reloaded dataframe retains the category labels for ``rep78``.
 
 Full details and more examples can be found in the Command Reference page for :func:`saved`.
+
+Saving structures
+-----------------
+
+With GDAT v2, pass a populated structure to :func:`saved` with a ``.gdat``
+filename. Nested structures, structure arrays, and dataframe metadata are
+saved together. To restore a structure with :func:`loadd`, first declare the
+matching structure type. To load only a member, pass its path as the second
+argument, for example ``loadd("results.gdat", "coefficients")``.
+
+See :func:`saved` and :func:`loadd` for runnable structure examples and the
+supported value types.
 
 
 Advanced exporting to Excel spreadsheets

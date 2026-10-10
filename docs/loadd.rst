@@ -4,22 +4,31 @@ loadd
 
 Purpose
 ----------------
-Loads data from a dataset. The supported dataset types are CSV, Excel (xlsx, xlsx), HDF5, 
-GAUSS Matrix (fmt), GAUSS Dataset (dat), Stata (dta), and SAS (sas7bdat, sas7bcat). Existing dataframes are also supported.
+Loads data from a dataset, or a stored value from a GDAT v2 file. Supported
+dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT),
+GAUSS Dataset (GDAT, DAT), Stata (DTA), and SAS (SAS7BDAT, SAS7BCAT).
+Existing dataframes are also supported.
+
+.. note::
+
+    GDAT v2 is an unreleased development feature. The v2 behavior below
+    requires a development build with GDAT v2 support.
 
 Format
 ----------------
-.. function:: y = loadd(dataset[, varnames, ldCtl])
+.. function:: y = loadd(dataset [, varnames [, ldCtl]])
+              y = loadd(dataset, ldCtl)
 
     :param dataset: filepath to the dataset on disk, URL, or existing dataframe.
     
-        If the a URL is provided (with http or https schema), the dataset will be downloaded first.
+        If a URL is provided (with http or https schema), the dataset will be downloaded first.
         Since libcurl is used for all web operations, various proxy settings can be set using the
         relevant libcurl environment variables (see https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html).
 
     :type dataset: String or existing dataframe
 
-    :param varnames: Optional, formula string indicating which variable names to load from the dataset
+    :param varnames: Optional, formula string or vector of one-based column
+        indices indicating which columns to load from a table. Default = ``"."``.
 
         E.g ``"."``, include all variables;
 
@@ -27,9 +36,13 @@ Format
 
         E.g ``". - Cards"``, include all variables except for ``"Cards"``.
 
-    :type varnames: String
+        For a GDAT v2 structure, use a member path instead, as described below.
 
-    :param ldctl: Optional, instance of an :class:`LoadFileControl` structure containing the following members:
+    :type varnames: string or numeric vector
+
+    :param ldctl: Optional, instance of an :class:`LoadFileControl` structure
+        for loading tables. It does not apply to structure member selection.
+        Contains the following members:
 
         .. list-table::
             :widths: auto
@@ -50,12 +63,72 @@ Format
               - string, Specifies how missing variables should be represented for string types. Default = ``" "``.
     :type ldctl: struct
                   
-    :return y: data.
+    :return y: loaded data, or the stored GDAT v2 value or selected member.
 
-    :rtype y: NxK matrix
+    :rtype y: NxK matrix or dataframe, or the type stored in GDAT v2
+
+For GDAT v2 structures, the second argument is a member path, such as
+``"coefficients"`` or ``"settings.method_name"``. Names are case-insensitive.
+Use one-based ``[row,column]`` indices for structure arrays, for example
+``"[2,3].coefficients"`` or ``"results[2,3].coefficients"``. A path such as
+``"results"`` selects the entire structure-array member. Paths do not evaluate
+expressions or select matrix rows or columns. Omit the selector, or use
+``""`` or ``"."``, to load the whole value.
+
+When the returned value is a structure, its matching type declaration must
+already be available. Type names, member names, member order, member kinds,
+and nested types must match. Definitions are not created from the file.
+A matrix, string, or other non-structure member can be loaded without the
+enclosing structure declarations.
 
 Examples
 ----------------
+
+Load a structure or an individual member
+++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    struct fitSettings {
+        string method_name;
+    };
+
+    struct fitRecord {
+        matrix coefficients;
+        struct fitSettings settings;
+    };
+
+    struct fitRecord fit_out, fit_restored;
+    fit_out.coefficients = { 1.5, 0.25 };
+    fit_out.settings.method_name = "OLS";
+    call saved(fit_out, "fit_record.gdat");
+
+    // Restore the complete structure
+    fit_restored = loadd("fit_record.gdat");
+
+    // Load individual members
+    coef_vec = loadd("fit_record.gdat", "coefficients");
+    method_name = loadd("fit_record.gdat", "settings.method_name");
+
+The last two calls can also run in a fresh session without declaring
+``fitSettings`` or ``fitRecord``. They return the coefficient vector and the
+string ``"OLS"``, respectively.
+
+Load a member of a structure array
+++++++++++++++++++++++++++++++++++
+
+Continuing with ``fit_out`` from the previous example:
+
+::
+
+    struct fitRecord fit_runs;
+    fit_runs = reshape(fit_out, 2, 3);
+    fit_runs[2,3].coefficients = { 2.0, 0.5 };
+    call saved(fit_runs, "fit_runs.gdat");
+
+    coef_vec = loadd("fit_runs.gdat", "[2,3].coefficients");
+
+This returns ``{ 2.0, 0.5 }`` from the structure at row 2, column 3.
 
 Load all contents of a GAUSS dataset
 +++++++++++++++++++++++++++++++++++++
@@ -282,11 +355,24 @@ Remarks
 -  Since :func:`loadd` will load the entire dataset at once, the dataset must
    be small enough to fit in memory. To read chunks of a dataset in an
    iterative manner, use :func:`dataopen` and :func:`readr`.
+-  For GDAT v2 tables, the entire table is loaded into memory before applying
+   a formula, column indices, or a row range. Selecting a structure member
+   loads that member without loading unrelated payloads. For a dataframe
+   member, load it first, then use ``loadd(dataframe, formula)`` to select columns.
+-  GDAT v1 and v2 are detected automatically. Use an explicit ``.gdat``
+   extension; filenames without an extension continue to select ``.dat``.
+   Older GAUSS releases cannot read v2. Use :func:`saved` with version 1
+   when exporting a table for an older release.
+-  GDAT v2 preserves dataframe column names, types, date display formats,
+   and category/string codes and labels. See :ref:`saved-gdat-v2` for supported
+   values and current restrictions.
+-  A GDAT v2 load failure raises a GAUSS runtime error and leaves the
+   destination unchanged.
 -  If *dataset* is a null string or 0, the dataset :file:`temp.dat` will be
    loaded.
 -  To load a matrix file, use an :file:`.fmt` extension on dataset.
 -  The supported dataset types are ``CSV``, ``Excel`` (XLS, XLSX), ``HDF5``, ``GAUSS Matrix (FMT)``,
-   ``GAUSS Dataset (DAT)``, ``Stata`` (DTA) and ``SAS`` (SAS7BDAT, SAS7BCAT).
+   ``GAUSS Dataset (GDAT, DAT)``, ``Stata`` (DTA) and ``SAS`` (SAS7BDAT, SAS7BCAT).
 -  For ``HDF5`` file, the dataset must include schema and both file name and
    dataset name must be provided, e.g.
 

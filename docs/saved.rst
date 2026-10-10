@@ -5,34 +5,97 @@ saved
 Purpose
 ----------------
 
-Writes a matrix or dataframe in memory to a dataset in a specified format.
+Writes a matrix or dataframe to a dataset. GDAT v2 also saves structures,
+strings, and arrays, including dataframe metadata inside structures.
+
+.. note::
+
+    GDAT v2 is an unreleased development feature. The v2 behavior below
+    requires a development build with GDAT v2 support.
 
 Format
 ----------------
-.. function:: ret = saved(x, dataset [, vnames])
+.. function:: ret = saved(x, dataset [, vnames [, gdat_version]])
 
-    :param x: data to save
-    :type x: NxK matrix or dataframe
+    :param x: data to save. GDAT v2 supports the additional values listed
+        under :ref:`saved-gdat-v2`.
+    :type x: NxK matrix or dataframe, or a supported GAUSS value for GDAT v2
 
     :param dataset: name of dataset. The type of file to create is inferred from the file extension.
         Valid file extensions include CSV, GDAT, DAT, XLS, XLSX.
     :type dataset: string
 
-    :param vnames: Optional input, names for the columns of the dataset. If ``vnames`` is not passed in:
+    :param vnames: Optional input, names for the columns of the dataset.
+        If ``vnames`` is not passed in:
 
-                   - Dataframe variable names will be used.
-                   - Matrix data will be saved with variable names *X1, X2...XP*.
-    :type vnames: string or Kx1 string array.
+        - Dataframe variable names will be used.
+        - Matrix data will be saved with variable names *X1, X2...XP*.
 
-    :return ret: 1 if successful, otherwise 0.
+        For GDAT, pass 0 to keep these defaults. Explicit column names apply
+        only to real, nonempty matrices and dataframes.
+    :type vnames: string, Kx1 string array, or 0
+
+    :param gdat_version: Optional, GDAT version: 2 (default) or 1 for a legacy
+        table file readable by older GAUSS releases. This argument applies
+        only to filenames with a ``.gdat`` extension.
+    :type gdat_version: scalar
+
+    :return ret: 1 if successful, otherwise 0. GDAT v2 failures raise a
+        GAUSS runtime error instead of returning 0.
 
     :rtype ret: scalar
 
 
-.. NOTE:: GDAT files are the new standard GAUSS dataset format. They allow you to save dataframes with string, category and date columns.
-
 Examples
 ----------------
+
+Save a dataframe with its metadata
+++++++++++++++++++++++++++++++++++
+
+::
+
+    auto_data = loadd(getGAUSSHome("examples/auto2.dta"),
+                     "str(make) + price + cat(foreign)");
+    call saved(auto_data, "auto.gdat");
+    auto_restored = loadd("auto.gdat");
+
+GDAT v2 preserves column names and types, date display formats, and the
+codes and labels for string and category columns, including unused labels.
+
+Save a structure and load it back
++++++++++++++++++++++++++++++++++
+
+::
+
+    struct savedFit {
+        matrix coefficients;
+        matrix training_data;
+    };
+
+    struct savedFit fit_out, fit_restored;
+    fit_out.coefficients = { 1.5, 0.25 };
+    fit_out.training_data = asdf({ 10 1, 20 2, 30 3 }, "y" $| "x");
+
+    call saved(fit_out, "fit.gdat");
+    fit_restored = loadd("fit.gdat");
+
+The dataframe metadata in ``training_data`` is retained. When loading the
+file in another session, define or include the same ``savedFit`` structure
+before declaring ``fit_restored``. See :func:`loadd` for loading an individual
+member without loading the whole structure.
+
+Save a table for an older GAUSS release
++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    legacy_data = asdf({ 10 1, 20 2, 30 3 }, "y" $| "x");
+
+    // Keep column names and write a GDAT v1 table
+    call saved(legacy_data, "legacy.gdat", 0, 1);
+
+Older GAUSS releases cannot read GDAT v2. Version 1 supports tables;
+it cannot store structures, standalone strings, or N-dimensional arrays.
 
 Save a dataframe to a CSV file
 ++++++++++++++++++++++++++++++
@@ -127,7 +190,8 @@ To save the data to as a comma separated text file, all we have to change is the
 Error checking
 ++++++++++++++
 
-The return value of :func:`saved` can be used to check whether the dataset save was successful. The example below checks the return value and creates an error if the save fails.
+For formats that return 0 on failure, the return value can be checked as
+shown below. GDAT v2 instead raises a runtime error if saving fails.
 
 ::
 
@@ -147,8 +211,32 @@ Remarks
 -------
 
 -  You can add variable names to a matrix with :func:`dfname`.
+-  Use an explicit ``.gdat`` extension to select GDAT. A filename without an
+   extension continues to select the legacy ``.dat`` format.
 
-**CSV**
+.. _saved-gdat-v2:
+
+GDAT v2
++++++++
+
+-  Supported values are structures and structure arrays (including nested
+   structures), scalars, real or complex matrices and N-dimensional arrays,
+   strings, string arrays, and real, nonempty dataframes.
+-  A real, nonempty matrix saved as the top-level value is stored as a
+   dataframe with column names. A scalar becomes a 1x1 dataframe. Matrix
+   members inside structures retain their original metadata, if any.
+-  Sparse matrices, complex or empty dataframes, and empty N-dimensional
+   arrays are not supported. Empty matrices are supported.
+-  Text must be valid UTF-8 without embedded NUL characters. Structure type
+   and member names must use ASCII characters.
+-  Saving replaces the whole file. An existing file is replaced only after
+   the new file has been written successfully. In-place append and update
+   through :func:`dataopen` are not supported for v2.
+-  :func:`loadd` detects v1 and v2 automatically. Reading a v1 file does not
+   convert it to v2; saving to ``.gdat`` uses v2 unless version 1 is specified.
+
+CSV
++++
 
 -  The line endings for CSV files on Windows will be ``\r\n`` and ``\n`` on Linux and macOS.
 -  Fifteen digits of precision will be written.
@@ -156,7 +244,8 @@ Remarks
    separator to be something other than a comma, to control the line
    endings, or the precision to write the data.
 
-**DAT**
+DAT
++++
 
 -  If *dataset* is null or 0, the dataset name will be :file:`temp.dat`.
 -  If *vnames* is a null or 0, the variable names will begin with ``"X"`` and be numbered 1-K.

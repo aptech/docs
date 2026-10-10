@@ -4,7 +4,7 @@ loaddSA
 
 Purpose
 ----------------
-Loads data from a dataset into a string array. The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
+Loads data from a dataset into a string array. The supported dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT), GAUSS Dataset (GDAT, DAT), Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT).
 
 Format
 ----------------
@@ -125,17 +125,22 @@ After the above code,
 Remarks
 --------
 
-*  :func:`loaddSA` is the same as :func:`loadd`, except that it:
+*  For tables, :func:`loaddSA` is the same as :func:`loadd`, except that it:
 
        * returns a string array.
        * only supports the formula string operators ``+`` and ``-``.
 
 *  Since :func:`loaddSA` will load the entire dataset at once, the dataset must
    be small enough to fit in memory.
+*  In development builds with GDAT v2 support, :func:`loaddSA` reads v2
+   tables, including their string and category labels. The entire table
+   must fit in memory even when selecting only some columns. Use
+   :func:`loadd` for a saved structure, structure member, or standalone string
+   array; :func:`loaddSA` reads tables.
 *  If *dataset* is a null string or 0, the dataset :file:`temp.dat` will be
    loaded.
 *  The supported dataset types are ``CSV``, ``Excel (XLS, XLSX)``, ``HDF5``, ``GAUSS Matrix (FMT)``,
-   ``GAUSS Dataset (DAT)``, ``Stata (DTA)`` and ``SAS (SAS7BDAT, SAS7BCAT)``.
+   ``GAUSS Dataset (GDAT, DAT)``, ``Stata (DTA)`` and ``SAS (SAS7BDAT, SAS7BCAT)``.
 *  Since ``GAUSS Matrix files (FMT)`` do not contain data type information, :func:`loaddSA` will assume
    that the entire contents of the file are numeric.
 *  For ``HDF5`` file, the dataset must include schema and both file name and

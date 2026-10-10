@@ -23,6 +23,8 @@ Format
             "append", "Open file for append. The file pointer will start at the end of the file to add new rows."
             "update", "Open file for update. Allows reading and writing. The file pointer will start at the first row."
 
+        GDAT v2 tables support only ``"read"``; see the remarks below.
+
     :type mode: string
 
     :return fh: file handle.
@@ -95,8 +97,9 @@ command (to create a new file, see :func:`datacreate` or :func:`datasave`).
 positive integer value that uniquely identifies each file. This value is
 assigned by GAUSS when the `create`, :func:`datacreate`, :func:`datacreatecomplex`, `open`
 or :func:`dataopen` commands are executed. The file handle is used to reference
-the file in the commands :func:`readr` and :func:`writer`. If :func:`dataopen` fails, it returns
-a -1.
+the file in the commands :func:`readr` and :func:`writer`. Open failures can
+return -1; invalid GDAT v2 files and unsupported v2 operations raise a GAUSS
+runtime error.
 
 3. A file can be opened simultaneously under more than one handle. If
 the value that is in the file handle when the :func:`dataopen` command begins to
@@ -133,7 +136,26 @@ of a file.
 pointer is set to the beginning of the file. This mode is used to make
 changes in a file.
 
-9. The supported dataset types are :file:`.dat`, ``.h5``, :file:`.fmt`.
+9. The supported dataset types are :file:`.gdat`, :file:`.dat`, ``.h5``, :file:`.fmt`.
+
+GDAT v2 tables (development feature)
+++++++++++++++++++++++++++++++++++++
+
+In development builds with GDAT v2 support, :func:`dataopen` can read a
+``.gdat`` file whose top-level value is a real, nonempty dataframe. This
+includes real matrices saved as tables by :func:`saved`.
+
+-  Open the file with ``dataopen(filename, "read")``. :func:`readr` reads
+   rows incrementally and returns numeric values and the numeric codes for
+   string/category columns. Use :func:`loadd` to restore a dataframe with
+   its labels and date formats.
+-  ``"append"`` and ``"update"`` are not supported for v2. Use :func:`saved`
+   to replace the whole file, or retain GDAT v1 for existing append/update
+   workflows.
+-  Structure files require :func:`loadd`; they cannot be opened as tables.
+
+HDF5 datasets
++++++++++++++
 
 For HDF5 files, the dataset must include schema and both file name and
 dataset name must be provided, e.g.

@@ -121,10 +121,16 @@ After the above code, *headers* will contain:
     accident_death
     assault
 
-The supported dataset types are `CSV <FIO.1-DelimitedTextFiles.html>`_, `Excel (XLS, XLSX) <FIO.3-Spreadsheets.html>`_, `HDF5 <FIO.4-HDF5Files.html>`_ , `GAUSS Matrix (FMT) <FIO.6-GAUSSMatrixFiles.html>`_ , `GAUSS Dataset (DAT) <FIO.5-GAUSSDatasets.html>`_, `Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`_.
+The supported dataset types are `CSV <FIO.1-DelimitedTextFiles.html>`_, `Excel (XLS, XLSX) <FIO.3-Spreadsheets.html>`_, `HDF5 <FIO.4-HDF5Files.html>`_ , `GAUSS Matrix (FMT) <FIO.6-GAUSSMatrixFiles.html>`_ , GDAT, `GAUSS Dataset (DAT) <FIO.5-GAUSSDatasets.html>`_, `Stata (DTA) and SAS (SAS7BDAT, SAS7BCAT) <FIO.4-SAS_STATADatasets.html>`_.
 
 Remarks
 -------
+
+For GDAT files, use the ``.gdat`` filename directly. In development builds
+with GDAT v2 support, :func:`getHeaders` reads the saved column names when
+the top-level value is a real, nonempty dataframe. For a dataframe inside a
+structure, first load the member with :func:`loadd`, then use
+:func:`getColNames` on the returned dataframe.
 
 For convenience, :func:`getHeaders` will try to read variable names from Excel
 and CSV files. However, since these file types do not have a standard
@@ -134,7 +140,8 @@ be returned.
 CSV file names with a file extension other than :file:`.csv` will need to start
 with the schema ``csv://``.
 
-HDF5 file names must start with the schema ``h5://``
+General HDF5 file names must start with the schema ``h5://``. GDAT files
+do not require this prefix.
 
 
 .. seealso:: Functions :func:`csvReadSA`, :func:`dataopen`, :func:`getnamef`, :func:`loadd`, :func:`xlsReadSA`

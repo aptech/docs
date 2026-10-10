@@ -570,20 +570,40 @@ to a :class:`plotControl` structure and modify it in place.
 Saving and Loading Structures
 -----------------------------------------
 
-Structures can be saved to disk and loaded back later using
-:func:`saveStruct` and :func:`loadStruct`. The file is saved with an
-``.fsr`` extension.
+Use :func:`saved` and :func:`loadd` with a ``.gdat`` filename to save and
+restore structures in GDAT v2. Nested structures, structure arrays, and
+dataframe metadata inside members are retained.
+
+.. note::
+
+    GDAT v2 is an unreleased development feature and requires a build with
+    v2 support. Older GAUSS releases cannot read v2 files.
 
 ::
 
-    // Save a structure to disk
-    struct olsmtOut out;
-    // ... (populate 'out' from an estimation) ...
-    ret = saveStruct(out, "my_results");
+    struct storedResult {
+        matrix coefficients;
+        string method_name;
+    };
 
-    // Load it back later
-    struct olsmtOut loaded;
-    { loaded, ret } = loadStruct("my_results", "olsmtOut");
+    struct storedResult fit_out, fit_restored;
+    fit_out.coefficients = { 1.5, 0.25 };
+    fit_out.method_name = "OLS";
+
+    call saved(fit_out, "my_results.gdat");
+    fit_restored = loadd("my_results.gdat");
+
+    // Load just the coefficients
+    coef_vec = loadd("my_results.gdat", "coefficients");
+
+To load the complete structure in another session, define or include the
+same structure type before declaring the destination. The declaration must
+match the saved member names, order, kinds, and nested types. Loading a
+matrix or string member does not require the enclosing declarations.
+
+:func:`saveStruct` and :func:`loadStruct` remain available for the existing
+``.fsr`` format. They use their existing signatures and return codes.
+See :func:`loadd` for nested member and structure-array selection.
 
 
 .. _ds-and-pv-structures:
@@ -716,4 +736,4 @@ What's Next
   like :func:`plotSetTitle`, :func:`plotSetXLabel`, and
   :func:`plotSetLineColor`.
 
-.. seealso:: Functions :func:`olsmt`, :func:`olsmtControlCreate`, :func:`glm`, :func:`glmControlCreate`, :func:`quantileFit`, :func:`pvPack`, :func:`pvUnpack`, :func:`pvCreate`, :func:`dsCreate`, :func:`saveStruct`, :func:`loadStruct`, :func:`plotGetDefaults`
+.. seealso:: Functions :func:`olsmt`, :func:`olsmtControlCreate`, :func:`glm`, :func:`glmControlCreate`, :func:`quantileFit`, :func:`pvPack`, :func:`pvUnpack`, :func:`pvCreate`, :func:`dsCreate`, :func:`saved`, :func:`loadd`, :func:`saveStruct`, :func:`loadStruct`, :func:`plotGetDefaults`
