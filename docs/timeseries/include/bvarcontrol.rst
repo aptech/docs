@@ -17,7 +17,7 @@
      - Scalar, how much harder longer lags are pulled: the prior standard deviation for lag *l* is the one for lag 1 divided by :math:`l^{\text{lag\_decay}}`. Default = 1.
 
    * - ctl.lag1_prior_mean
-     - Prior mean of each variable's coefficient on its own first lag: one value for every variable, or a vector with one value per variable, each in [0,1] (one value per variable only for :func:`bvarFit` with fixed tightness). Same as the *lag1_prior_mean* keyword. After a fit, *fit_settings.lag1_prior_mean* holds the value used for each variable.
+     - Prior mean of each variable's coefficient on its own first lag: one value for every variable, or a vector with one value per variable, each in [0,1] (one value per variable for :func:`bvarFit` and :func:`bvarHyperopt`). Same as the *lag1_prior_mean* keyword. After a fit, *fit_settings.lag1_prior_mean* holds the value used for each variable.
 
        ===== =====================================================
        1.0   Random walk prior (for levels data). (Default)

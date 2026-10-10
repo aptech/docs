@@ -48,8 +48,8 @@ Format
    :param n_draws: Optional keyword, simulated paths per model and origin. Default = 5000.
    :type n_draws: scalar
 
-   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag, one value for all variables: ``"zero"``, ``"random_walk"`` (1) or a number in [0,1]. Default = ``"zero"`` (suits data in changes or growth rates; use ``"random_walk"`` for levels).
-   :type lag1_prior_mean: string or scalar
+   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag: ``"zero"``, ``"random_walk"`` (1), one number in [0,1] for every variable, or a vector with one number per variable. Default = ``"zero"`` (suits data in changes or growth rates; use ``"random_walk"`` for levels). It applies to every model, the fixed tightness values and a chosen tightness alike.
+   :type lag1_prior_mean: string, scalar or Mx1 vector
 
    :param lag_decay: Optional keyword, Minnesota lag decay. Default = 1.
    :type lag_decay: scalar

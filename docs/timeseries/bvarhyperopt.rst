@@ -10,6 +10,7 @@ Format
 
 .. function:: ho = bvarHyperopt(y)
               ho = bvarHyperopt(y, p=4)
+              ho = bvarHyperopt(y, p=4, lag1_prior_mean=prior_means)
               ho = bvarHyperopt(y, ctl=ctl)
 
    :param y: endogenous variables. A single date column in a dataframe is used as the time index and left out of the model.
@@ -18,13 +19,16 @@ Format
    :param p: Optional keyword, lag order. Default = 1. Ignored when *ctl* is given (set *ctl.p*).
    :type p: scalar
 
+   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag, as in :func:`bvarFit`: ``"random_walk"`` (1, for persistent series such as levels), ``"zero"`` (for changes or growth rates), one number in [0,1] for every variable, or a vector with one number per variable. Default = ``"random_walk"``. The prior means are a fixed part of the prior: the search chooses the tightness, not the means. Ignored when *ctl* is given (set *ctl.lag1_prior_mean*).
+   :type lag1_prior_mean: string, scalar or Mx1 vector
+
    :param xreg: Optional keyword, exogenous regressors. Ignored when *ctl* is given (set *ctl.xreg*).
    :type xreg: TxK matrix
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
 
-   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure (see :func:`bvarControlCreate`). Its prior settings are held fixed while the tightness is chosen; *ctl.overall_tightness* is the starting value. When *ctl* is given, *p* and *xreg* are ignored. Settings that matter here:
+   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure (see :func:`bvarControlCreate`). Its prior settings are held fixed while the tightness is chosen; *ctl.overall_tightness* is the starting value. When *ctl* is given, *p*, *lag1_prior_mean* and *xreg* are ignored. Settings that matter here:
 
        .. list-table::
           :widths: auto
@@ -39,7 +43,7 @@ Format
             - Scalar. 0 (default): no single-unit-root prior. A positive value adds that prior and chooses its tightness too; it requires *ctl.soc_tightness* > 0.
 
           * - ctl.lag1_prior_mean
-            - Scalar, the prior mean of each variable's own first lag, one value for all variables. Default = 1 (random walk). Use 0 for data in changes or growth rates.
+            - Scalar or vector, the prior mean of each variable's own first lag: one value for all variables, or a row or column vector with one value per variable, each in [0,1]. Default = 1 (random walk). Use 0 for series in changes or growth rates.
 
           * - ctl.intercept_prior
             - String. "fixed_vc" (default) holds the prior variance of the constants at *ctl.constant_vc* (default 1e7) while the tightness changes; "litterman_coupled" scales it with the overall tightness. The two give different choices.
@@ -91,7 +95,7 @@ Format
             - String, how those scales were estimated.
 
           * - ho.ctl
-            - :class:`bvarControl` structure: the input settings with the chosen tightness values filled in, ready to pass to :func:`bvarFit` as *ctl*.
+            - :class:`bvarControl` structure: the input settings, including the prior means, with the chosen tightness values filled in, ready to pass to :func:`bvarFit` as *ctl*.
 
    :rtype ho: struct
 
@@ -106,7 +110,7 @@ Choose the Tightness, Then Fit
     new;
     library timeseries;
 
-    // Seven quarterly US series in log levels and the federal funds rate,
+    // Seven quarterly US series (six in log levels, and the federal funds rate),
     // 1959Q1-2008Q4 (the data of Giannone, Lenza and Primiceri 2015). The
     // default prior centre, a random walk (ctl.lag1_prior_mean = 1), suits levels.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/glp_2015_datasw.csv"));
@@ -118,9 +122,35 @@ Choose the Tightness, Then Fit
     ho = bvarHyperopt(data, ctl=ctl);
     fit = bvarFit(data, ctl=ho.ctl);
 
-The printout shows the chosen overall tightness (about 0.14 here), the log
-marginal likelihood, the log prior of the tightness and their sum, then the
-fit at the chosen tightness.
+The printout shows the lag order and the own-lag prior mean the search
+used, the chosen overall tightness (about 0.14 here), the log marginal
+likelihood, the log prior of the tightness and their sum, then the fit at
+the chosen tightness.
+
+Different Prior Means for Different Series
+++++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    new;
+    library timeseries;
+
+    // Quarterly US GDP growth, inflation, unemployment and the federal funds
+    // rate, 1960Q1-2019Q4. GDP growth is not persistent, so its own first lag
+    // is centred at 0; the other three series are persistent and centred at 1.
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+
+    ho = bvarHyperopt(y, p=4, lag1_prior_mean={ 0, 1, 1, 1 });
+    fit = bvarFit(y, ctl=ho.ctl);
+
+    // The same search with every series centred at 1 (the default).
+    ho_rw = bvarHyperopt(y, p=4);
+
+With GDP growth centred at 0 the search chooses an overall tightness of
+about 0.25, with a log marginal likelihood of -1367.5; with every series
+centred at 1 it chooses about 0.33, with -1376.2. *ho.ctl* carries the prior
+means, so the fit uses them too.
 
 Add the Sum-of-Coefficients and Single-Unit-Root Priors
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -155,6 +185,13 @@ prior spreads its predictions over coefficient values the data never
 support. Giannone, Lenza and Primiceri (2015) show that choosing the
 tightness this way forecasts well.
 
+The prior means of the own first lags (*lag1_prior_mean*) are part of the
+prior whose tightness is being chosen; they stay fixed during the search.
+Giannone, Lenza and Primiceri centre every own first lag at 1, for data in
+levels; a mean of 0 for a series that is not persistent keeps the same
+closed form. The sum-of-coefficients prior, when added, centres the sum of
+each variable's own-lag coefficients at 1 whatever its *lag1_prior_mean*.
+
 With the overall tightness alone, the search is one-dimensional: a grid
 followed by golden-section refinement on the log scale, between 0.001 and
 5. With the sum-of-coefficients (and single-unit-root) prior added, the
@@ -170,7 +207,8 @@ value: check *ho.status* before fitting with it.
 
 To evaluate the choice on forecasts, use :func:`bvarRollingOrigin` with
 *choose_tightness="map"*, which repeats the choice on each forecast
-origin's data.
+origin's data. Pass it the same *lag1_prior_mean*: its default is
+``"zero"``, not ``"random_walk"``.
 
 References
 ----------
