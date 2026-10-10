@@ -237,10 +237,10 @@ start date with only the data available then, on each target variable alone:
      - Autoregression with a constant; lag order by BIC (0 to max(4, 2 *period*)) or fixed.
 
 **Fitted VAR and BVAR models.** A :func:`varFit` or :func:`bvarFit` result
-passed directly or through :func:`forecastModel` is a recipe: its lag order,
-constant, prior and prior settings are kept, and the model is refitted on
-its own variables at every start date. The lag order and prior settings are
-not re-chosen at each start date. Models with exogenous regressors are not
+passed directly or through :func:`forecastModel` is a recipe: its lag order
+and constant, a VAR's trend and residual covariance choice, and a BVAR's
+prior and prior settings are kept, and the model is refitted on its own
+variables at every start date. These are not re-chosen at each start date. Models with exogenous regressors are not
 supported yet.
 
 **No look-ahead.** Every fit, including the automatic ARIMA and ETS searches,
@@ -256,6 +256,13 @@ Diebold-Mariano test use the point forecast that minimises expected squared
 error: the mean of the predictive draws for a BVAR, the point forecast
 otherwise. MAE uses the predictive median.
 
+A BVAR made by :func:`forecastModel` with ``point="posterior_mean"`` is
+instead forecast from its posterior-mean coefficients, iterated forward,
+without draws (Banbura, Giannone and Reichlin 2010). RMSE, bias and MAE all
+use that forecast, and the model has no bands. Its memory and time do not
+grow with the number of draws, which suits systems too large to simulate at
+every start date.
+
 **Bias.** The average error at each horizon, with a test that it is zero:
 the errors are regressed on a constant with a Newey-West standard error
 (Bartlett weights, *h* - 1 lags) and a normal reference, as in the Bank of
@@ -265,7 +272,7 @@ England's forecast evaluation (Abiry et al. 2026).
 band edge counts as inside. BVAR bands are quantiles of the predictive
 draws; VAR, ARIMA and ETS bands are the models' own intervals (VAR intervals
 leave out coefficient uncertainty). Naive, snaive, drift and mean forecasts
-have no band.
+have no band, nor does a BVAR with ``point="posterior_mean"``.
 
 **Failed fits** are recorded in *status* and *status_messages*, excluded, and
 counted in the printout; they do not stop the run.
@@ -346,6 +353,7 @@ With one target the rows are just the start dates or horizons.
 References
 ----------
 
+- Banbura, M., D. Giannone and L. Reichlin (2010). "Large Bayesian vector auto regressions." *Journal of Applied Econometrics*, 25(1), 71-92.
 - Diebold, F.X. and R.S. Mariano (1995). "Comparing predictive accuracy." *Journal of Business & Economic Statistics*, 13(3), 253-263.
 - Abiry, R., J. Hurley, P. Labonne, D. Latto, H. Li, A. Moreira, J. Oyegoke and S. Singh (2026). "Learning from forecast errors: the Bank's enhanced approach to forecast evaluation." Bank of England Macro Technical Paper No. 6.
 - Harvey, D., S. Leybourne, and P. Newbold (1997). "Testing the equality of prediction mean squared errors." *International Journal of Forecasting*, 13(2), 281-291.

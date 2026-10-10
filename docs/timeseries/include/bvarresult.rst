@@ -85,13 +85,13 @@
      - Scalar, Hannan-Quinn information criterion.
 
    * - result.companion_mean
-     - (mp)x(mp) matrix, companion matrix at posterior mean.
+     - (mp)x(mp) matrix, companion matrix at the posterior mean of the coefficients (*result.b_post*).
 
    * - result.is_stationary
-     - Scalar, 1 if stationary at posterior mean. Missing unless *ctl.stability_check* = 1.
+     - Scalar, 1 if stationary at the posterior mean (*result.b_post*). Missing unless *ctl.stability_check* = 1.
 
    * - result.max_eigenvalue
-     - Scalar, largest eigenvalue modulus at posterior mean. Missing unless *ctl.stability_check* = 1.
+     - Scalar, largest eigenvalue modulus at the posterior mean (*result.b_post*). Missing unless *ctl.stability_check* = 1.
 
    * - result.residuals
      - (T-p)xm matrix, residuals at the posterior centre *b_post*.
