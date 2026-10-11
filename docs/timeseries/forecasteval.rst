@@ -261,7 +261,8 @@ instead forecast from its posterior-mean coefficients, iterated forward,
 without draws (Banbura, Giannone and Reichlin 2010). RMSE, bias and MAE all
 use that forecast, and the model has no bands. Its memory and time do not
 grow with the number of draws, which suits systems too large to simulate at
-every start date.
+every start date. The printout names the models forecast this way, and
+*model_points* in the result records it.
 
 **Bias.** The average error at each horizon, with a test that it is zero:
 the errors are regressed on a constant with a Newey-West standard error
@@ -275,7 +276,11 @@ leave out coefficient uncertainty). Naive, snaive, drift and mean forecasts
 have no band, nor does a BVAR with ``point="posterior_mean"``.
 
 **Failed fits** are recorded in *status* and *status_messages*, excluded, and
-counted in the printout; they do not stop the run.
+counted in the printout; they do not stop the run. A least-squares VAR fails
+at a start date whose sample has no more observations than coefficients per
+equation. A BVAR does not: its prior supplies what the data cannot, so it can
+have more coefficients per equation than observations (Banbura, Giannone and
+Reichlin 2010).
 
 **Diebold-Mariano test.** Stars compare each model with the benchmark using
 :func:`dmTest` on squared errors, two-sided, with the horizon as *h*; the
@@ -305,6 +310,8 @@ With one target the rows are just the start dates or horizons.
      - Mx1 string array, specifications ("" for fitted and *forecasts* models).
    * - model_kinds
      - Mx1 string array, ``"spec"``, ``"var"``, ``"bvar"`` or ``"user"``.
+   * - model_points
+     - Mx1 string array, how each BVAR was forecast: ``"predictive"`` (mean of the predictive draws) or ``"posterior_mean"`` (from the posterior-mean coefficients, no bands); "" for other models.
    * - benchmark
      - String, benchmark name.
    * - benchmark_index

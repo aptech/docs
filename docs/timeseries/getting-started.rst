@@ -3,299 +3,241 @@
 Getting Started
 ===============
 
-This tutorial walks through a complete macroeconomic analysis: estimate a Bayesian
-VAR, compute impulse responses, forecast GDP, and evaluate the forecast — all in
-one script. You will have results in under a minute.
-
-The 30-Second Version
----------------------
-
-If you just want working code, copy this:
-
-::
-
-    library timeseries;
-
-    // Load US macro data (GDP growth, CPI inflation, Fed Funds rate)
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
-
-    // Estimate Bayesian VAR(4)
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.lag1_prior_mean = 0;                  // Growth rates → white noise prior
-    ctl.quiet = 1;
-
-    result = bvarFit(data, ctl);
-
-    // Impulse responses: what happens when the Fed raises rates?
-    rv = varFit(data, ctl.p);
-    irf = irfCompute(rv, 20);
-
-    // Forecast the next 8 quarters
-    fc = bvarForecast(result, 8);
-
-That's it. The rest of this page explains what each step does and why.
-
-Step 1: Load the Data
----------------------
-
-::
-
-    library timeseries;
-
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
-
-    print rows(data) "observations," cols(data) "variables";
-    print getcolnames(data)';
-
-You should see::
-
-    200 observations, 4 variables
-    gdp_growth  cpi_inflation  fed_funds  unemployment
-
-The dataset contains 200 quarters of US macroeconomic data:
-
-- **gdp_growth**: real GDP growth (annualized, %)
-- **cpi_inflation**: CPI inflation (annualized, %)
-- **fed_funds**: federal funds rate (%)
-- **unemployment**: unemployment rate (%)
-
-We'll use the first three variables — a classic monetary policy VAR.
-
-Step 2: Estimate a Bayesian VAR
--------------------------------
-
-::
-
-    // Select variables
-    vars = "gdp_growth" $| "cpi_inflation" $| "fed_funds";
-
-    // Configure the BVAR
-    ctl = bvarControlCreate();
-    ctl.p = 4;                   // 4 lags (1 year of quarterly data)
-    ctl.lag1_prior_mean = 0;                  // White noise prior (data is in growth rates)
-
-    // Estimate
-    result = bvarFit(data[., vars], ctl);
-
-You should see::
-
-    ================================================================================
-    BVAR(4) with Minnesota Prior         Variables:             3
-    Draws: 5000                               Observations:           200
-    Effective obs:   196
-    ================================================================================
-    Log ML:     -657.84
-    ================================================================================
-
-    Equation 1: GDP
-                        Mean        SD       16%       84%
-    --------------------------------------------------------------------------------
-    GDP(-1)            0.7363     0.0663     0.6705     0.8012
-    CPI(-1)            0.1528     0.1124     0.0415     0.2645
-    FFR(-1)           -0.0846     0.1179    -0.2027     0.0327
-        ⋮
-    GDP(-4)            0.0412     0.0598    -0.0181     0.1007
-    CPI(-4)           -0.0233     0.1098    -0.1327     0.0865
-    FFR(-4)            0.0518     0.1143    -0.0622     0.1653
-    Constant           0.0015     0.0019    -0.0004     0.0034
-
-**What this tells you:**
-
-- GDP is persistent: its own first lag is 0.74 (strong positive effect).
-- CPI has a positive effect on GDP: higher inflation is associated with higher growth in the next quarter.
-- The FFR coefficient on GDP is -0.08 with wide credible interval [-0.20, 0.03] — a contractionary effect, but not precisely estimated.
-- The log marginal likelihood (-657.84) can be used to compare with other lag orders or priors.
-
-**Checkpoint:** If you see the coefficient table with named equations (GDP, CPI, FFR), you're on track. If you see "Y1, Y2, Y3" instead, pass a dataframe with column names for labeled output.
-
-Step 3: What Happens When the Fed Raises Rates?
-------------------------------------------------
-
-Impulse response functions trace the dynamic effect of a one-standard-deviation
-shock to one variable on all variables:
-
-::
-
-    // Estimate OLS VAR for IRF computation
-    vctl = varControlCreate();
-    vctl.p = 4;
-    vctl.quiet = 1;
-
-    rv = varFit(data[., vars], vctl);
-
-    // Compute Cholesky IRFs, 20 quarters ahead
-    irf = irfCompute(rv, 20);
-
-You should see a table like::
-
-    ================================================================================
-    Impulse Response Functions (cholesky)
-    Horizons: 0-20
-    ================================================================================
-
-    Shock to: GDP
-      h         GDP       CPI       FFR
-    --------------------------------------------------------------------------------
-      0     0.9765     0.0485    -0.0876
-      1     0.7241     0.0848     0.0110
-      2     0.6199     0.0838     0.0498
-        ⋮
-     18     0.0412     0.0105     0.0153
-     19     0.0318     0.0089     0.0128
-     20     0.0247     0.0074     0.0107
-
-**Reading the IRF table:**
-
-- **Column = shock source.** "Shock to GDP" means an unexpected increase in GDP growth.
-- **Rows = response over time.** h=0 is the impact quarter, h=1 is one quarter later, etc.
-- **Each cell = response size.** A shock of 1 standard deviation to GDP raises CPI by 0.049 on impact.
-
-The variable ordering matters for Cholesky identification: GDP is ordered first
-(most exogenous — it takes time for policy to affect output), FFR last (the central
-bank can respond within the quarter). This is the standard monetary policy ordering.
-
-**Checkpoint:** The impact matrix (h=0) should be lower-triangular — zeros above the diagonal. If it's not, something went wrong.
-
-Step 4: Forecast GDP
---------------------
-
-::
-
-    fc = bvarForecast(result, 8);
-
-You should see::
-
-    ================================================================================
-    Forecast: 8 steps ahead                      Level: 68%
-    ================================================================================
-      h         GDP  [Lower   Upper]       CPI  [Lower   Upper]       FFR  [Lower   Upper]
-    --------------------------------------------------------------------------------
-      1      1.483  [  0.971   1.998 ]     2.397  [  2.091   2.717 ]     4.133  [  3.836   4.424 ]
-      2      1.509  [  0.980   2.033 ]     2.464  [  2.133   2.776 ]     4.110  [  3.810   4.404 ]
-        ⋮
-      7      1.472  [  0.812   2.134 ]     2.512  [  2.014   3.009 ]     4.087  [  3.541   4.632 ]
-      8      1.468  [  0.793   2.142 ]     2.524  [  2.003   3.046 ]     4.081  [  3.517   4.645 ]
-
-**Reading the forecast table:**
-
-- The point forecast is the **median** of the posterior predictive distribution.
-- The **68% bands** (default) show approximately :math:`\pm 1` standard deviation. For wider intervals, use ``level=0.90`` or ``level=0.95``.
-- **Bands widen over time** — forecasts become less certain at longer horizons. This is expected.
-
-The BVAR forecast accounts for both **parameter uncertainty** (we don't know the true coefficients) and **shock uncertainty** (future shocks are random). This makes BVAR bands wider and more honest than simple plug-in VAR forecast intervals.
-
-Step 5: Is the Model Any Good?
-------------------------------
-
-Compare lag orders using the log marginal likelihood — the Bayesian gold standard
-for model selection:
-
-::
-
-    ctl1 = bvarControlCreate();
-    ctl1.lag1_prior_mean = 0;
-    ctl1.quiet = 1;
-
-    ctl2 = bvarControlCreate();
-    ctl2.p = 2;
-    ctl2.lag1_prior_mean = 0;
-    ctl2.quiet = 1;
-
-    ctl4 = bvarControlCreate();
-    ctl4.p = 4;
-    ctl4.lag1_prior_mean = 0;
-    ctl4.quiet = 1;
-
-    r1 = bvarFit(data[., vars], ctl1);
-    r2 = bvarFit(data[., vars], ctl2);
-    r4 = bvarFit(data[., vars], ctl4);
-
-    print "Log ML(p=1):" r1.log_ml;
-    print "Log ML(p=2):" r2.log_ml;
-    print "Log ML(p=4):" r4.log_ml;
-
-    // Bayes factor: p=4 vs p=2
-    print "BF(4 vs 2):" exp(r4.log_ml - r2.log_ml);
-
-If the Bayes factor is above 3, there's "substantial evidence" in favor of p=4.
-Above 20 is "strong evidence." Below 1 means p=2 is better.
-
-Or let the data choose automatically:
-
-::
-
-    ho = bvarHyperopt(data[., vars]);
-    print "Optimal lambda1:" ho.lambda1;
-    result_opt = bvarFit(data[., vars], ho.ctl);
-
-This maximizes the marginal likelihood over the hyperparameters (Giannone, Lenza &
-Primiceri 2015), finding the best balance between prior shrinkage and data fit.
-
-Complete Script
----------------
-
-Everything above, in one runnable file:
+This page takes four quarterly US series through a complete forecasting
+exercise: choose the lags, fit a Bayesian VAR, check it on quarters it had not
+seen, and forecast two years ahead with bands. The script takes about 20
+seconds to run.
+
+It is the short version of the workflow example
+``examples/workflows/bvar_first_forecast.e`` in the ``timeseries`` package
+folder; the guide next to it, ``bvar_first_forecast.md``, explains every step
+at length.
+
+The Script
+----------
 
 ::
 
     new;
     library timeseries;
 
-    // ---- Data ----
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
-    vars = "gdp_growth" $| "cpi_inflation" $| "fed_funds";
+    // Step 1: load the data and keep 1960Q1-2019Q4.
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    series = y[., "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
-    // ---- BVAR(4) with white noise prior ----
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.lag1_prior_mean = 0;
+    // Step 2: choose the number of lags.
+    lags = varLagSelect(series, 8);
 
-    result = bvarFit(data[., vars], ctl);
+    // Step 3: fit the Bayesian VAR. The prior centres each variable's own
+    // first lag at 0 for GDP growth and at 1 for the three persistent series.
+    bvar = bvarFit(y, p=lags.best_p, lag1_prior_mean=0|1|1|1, overall_tightness=0.2, quiet=1);
+    call varFitInspect(bvar, name="BVAR(" $+ ntos(lags.best_p) $+ "), Minnesota prior");
 
-    // ---- Impulse responses ----
-    vctl = varControlCreate();
-    vctl.p = 4;
-    vctl.quiet = 1;
+    // Step 4: check it on quarters it had not seen, against a least-squares VAR.
+    ols = varFit(y, p=lags.best_p, quiet=1);
+    models = forecastModel(ols, name="VAR") | forecastModel(bvar, name="BVAR");
+    fe = forecastEval(y, models, target="inflation", train_end="1984-Q4", h=4, benchmark="VAR", seed=42);
 
-    rv = varFit(data[., vars], vctl);
+    // Step 5: forecast two years ahead and draw the fan chart.
+    fc = bvarForecast(bvar, 8, seed=42);
+    plotForecast(bvar, fc, history=40, output_dir=".");
 
-    irf = irfCompute(rv, 20);
+The rest of this page goes through the five steps and what each prints.
 
-    // ---- Forecast ----
-    fc = bvarForecast(result, 8);
+Step 1: The Data
+----------------
 
-    // ---- Model comparison ----
-    ctl2 = bvarControlCreate();
-    ctl2.p = 2;
-    ctl2.lag1_prior_mean = 0;
-    ctl2.quiet = 1;
-    r2 = bvarFit(data[., vars], ctl2);
+``us_macro_fred_qd.csv`` holds quarterly US data from the February 2026
+vintage of the FRED-QD database of the Federal Reserve Bank of St. Louis. The
+script keeps the 240 quarters from 1960Q1 to 2019Q4 and leaves the pandemic
+years out.
 
-    print "";
-    print "=== Model Comparison ===";
-    print "Log ML(p=2):" r2.log_ml;
-    print "Log ML(p=4):" result.log_ml;
-    print "BF(4 vs 2):" exp(result.log_ml - r2.log_ml);
+.. list-table::
+   :widths: 20 50 30
+   :header-rows: 1
+
+   * - Column
+     - Meaning
+     - Unit
+   * - ``gdp_growth``
+     - Growth of real GDP on the previous quarter
+     - percent, annual rate
+   * - ``inflation``
+     - Change in the consumer price index on the previous quarter
+     - percent, annual rate
+   * - ``unemployment``
+     - Unemployment rate
+     - percent
+   * - ``fed_funds``
+     - Federal funds rate
+     - percent
+
+Keep the data as a dataframe with its ``date`` column: the functions below
+use the column names in their tables and the dates in their forecasts.
+
+Step 2: Choose the Lags
+-----------------------
+
+:func:`varLagSelect` fits a VAR with one to eight lags and compares them::
+
+    VAR lag selection
+    ================================================================================
+    Selected lags     5 (smallest AIC)
+    Smaller is better; * marks the smallest value of each criterion.
+
+    Lags        AIC       BIC         HQ          FPE
+    -------------------------------------------------
+    1     -0.108     0.189      0.012     0.897657
+    2     -0.496     0.039*    -0.280     0.609114
+    3     -0.670     0.103     -0.358*    0.512031
+    4     -0.636     0.374     -0.229     0.529991
+    5     -0.720*    0.528     -0.216     0.487938*
+    6     -0.720     0.766     -0.120     0.488625
+    7     -0.711     1.013     -0.016     0.493905
+    8     -0.654     1.307      0.137     0.524139
+
+AIC picks five lags, BIC two and HQ three. The script uses AIC's five
+(``lags.best_p``). With four variables that is 21 coefficients per equation,
+which is where a prior starts to help.
+
+Step 3: Fit the Bayesian VAR
+----------------------------
+
+A Bayesian VAR adds a prior that pulls the coefficients toward a simple model
+and lets the data pull them away where the evidence is strong. The Minnesota
+prior centres each variable's coefficient on its own first lag, and every
+other coefficient on zero. ``lag1_prior_mean = 0|1|1|1`` sets that centre to 0
+for GDP growth, which moves around a stable mean, and to 1 (a random walk)
+for inflation, unemployment and the funds rate, which drift.
+``overall_tightness = 0.2`` sets how hard the prior pulls; it is the common
+default.
+
+``varFitInspect`` prints a summary of the fit::
+
+    BVAR(5), Minnesota prior
+    ================================================================================
+    Sample:                1960Q1-2019Q4    Lags:                                  5
+    Observations:                    240    Used after lags:                     235
+    Intercept:                       yes    Regressors:                            0
+    Coefficients:        21 per equation    Largest root:                     0.9614
+    Stable:                          yes    Overall tightness:                   0.2
+    Posterior draws:               5,000    Exogenous scale:                       1
+    Seed:                             42
+
+    Largest root and stability refer to the posterior-mean coefficients.
+
+A largest root below 1 means the fitted model is stable: its forecasts settle
+down instead of exploding. To see the coefficient tables, call
+:func:`bvarFit` without ``quiet=1``.
+
+Step 4: Check It on Quarters It Had Not Seen
+--------------------------------------------
+
+:func:`forecastEval` stands at every quarter from 1984Q4 to 2019Q3, refits
+each model on the data up to that quarter, forecasts the next four quarters,
+and compares the forecasts with what happened. Here the BVAR is compared
+with a least-squares VAR with the same five lags, for inflation::
+
+    Pseudo out-of-sample forecast evaluation: inflation
+    ================================================================================
+    Estimation samples: 1960Q1-1984Q4 (first), expanding to 1960Q1-2019Q3; 140 start dates
+    Models refitted at every start date; lag order and prior settings held as given.
+    BVAR forecasts scored at the mean of the predictive draws.
+    RMSE relative to VAR (below 1 is better).
+    Diebold-Mariano test vs VAR: * 10%  ** 5%  *** 1%
+
+    Horizon  VAR RMSE  BVAR  Obs
+    ----------------------------
+    1           2.054  0.97  140
+    2           2.368  0.95  139
+    3           2.383  0.95  138
+    4           2.408  0.95  137
+
+The BVAR column is the BVAR's root mean squared error divided by the VAR's:
+0.95 means errors 5% smaller. The prior helps at every horizon, by about 3%
+one quarter ahead and about 5% beyond. No star follows these numbers, so the
+Diebold-Mariano test does not separate the two models at the 10% level: the
+gain is steady but small next to the noise in 140 overlapping forecasts.
+
+The function prints two more tables for each variable: the average error
+(forecast minus outcome), and how often the outcome fell inside the 68% and
+90% bands. Leave out ``target=`` to score all four variables, and add more
+models with ``|``; ``"AR(bic)"`` adds a one-variable autoregression as a
+yardstick.
+
+Step 5: Forecast
+----------------
+
+:func:`bvarForecast` simulates 5,000 future paths from the fitted model and
+reports their medians and bands::
+
+    BVAR forecast, 8 quarters ahead
+    ================================================================================
+    Point: predictive median of 5,000 simulated paths.
+    Band: 68% equal-tailed quantiles of the same paths.
+
+    Period  gdp_growth  Lower 68%  Upper 68%  inflation  Lower 68%  Upper 68%
+    -------------------------------------------------------------------------
+    2020Q1       3.156      0.307      6.031      2.269      0.488      4.129
+    2020Q2       3.157      0.243      6.069      2.195      0.017      4.419
+    2020Q3       3.053      0.061      6.044      2.568      0.064      4.819
+    2020Q4       2.699     -0.307      5.738      2.561     -0.007      4.969
+    2021Q1       2.706     -0.544      5.864      2.628     -0.087      5.260
+    2021Q2       2.679     -0.419      5.851      2.717     -0.090      5.577
+    2021Q3       2.728     -0.450      5.926      2.829     -0.122      5.667
+    2021Q4       2.685     -0.524      5.839      2.790     -0.120      5.769
+
+    Period  unemployment  Lower 68%  Upper 68%  fed_funds  Lower 68%  Upper 68%
+    ---------------------------------------------------------------------------
+    2020Q1         3.606      3.384      3.834      1.714      0.907      2.525
+    2020Q2         3.618      3.229      4.021      1.904      0.703      3.120
+    2020Q3         3.662      3.095      4.224      2.113      0.569      3.621
+    2020Q4         3.706      2.997      4.405      2.204      0.340      4.008
+    2021Q1         3.759      2.930      4.593      2.342      0.166      4.364
+    2021Q2         3.846      2.887      4.754      2.413      0.025      4.706
+    2021Q3         3.918      2.874      4.941      2.523     -0.134      5.004
+    2021Q4         3.966      2.885      5.098      2.557     -0.210      5.268
+
+The bands include both sources of uncertainty: the coefficients are not known
+exactly, and future shocks are random. They are wide: two years ahead the 68%
+band for GDP growth runs from -0.5% to 5.8%. These are forecasts made with
+data to the end of 2019; they know nothing of 2020.
+
+:func:`plotForecast` writes the fan chart ``forecast.png`` to the working
+directory, with the last ten years of data and the 68% and 90% bands.
+
+The paths are simulated, so another ``seed`` gives slightly different
+numbers; more paths (``n_draws`` in :func:`bvarFit`) make them steadier.
+
+What to Change for Your Data
+----------------------------
+
+- Replace the file, the date range and the column list in step 1.
+- Give each variable a prior centre in step 3: 1 for series that drift
+  (levels, rates), 0 for growth rates.
+- Set the first start date (``train_end``), the horizon (``h``) and the
+  variable to score (``target``) in step 4.
 
 What's Next
 -----------
 
-You've estimated a BVAR, computed IRFs, generated forecasts, and compared models.
-Here's where to go next:
-
 .. list-table::
    :widths: 30 70
 
-   * - **Time-varying volatility**
-     - Your data has heteroskedastic errors? Use :func:`bvarSvFit` for stochastic volatility.
+   * - **The full workflow**
+     - ``examples/workflows/bvar_first_forecast.e`` and its guide add a look at the data, a third model, residual checks with :func:`varDiagnostics` and a discussion of every table.
+   * - **How much shrinkage**
+     - :func:`bvarHyperopt` chooses the overall tightness by marginal likelihood; see ``examples/workflows/bvar_shrinkage_choice.e``.
+   * - **Scenarios**
+     - "What if the policy rate follows this path?" :func:`condForecast` and ``examples/workflows/conditional_scenarios.e``.
    * - **Structural shocks**
-     - Cholesky ordering too restrictive? Use :func:`irfCompute` with :func:`signRestrictions`.
-   * - **Conditional forecasts**
-     - "What if the Fed holds rates at 5%?" Use :func:`condForecast` for scenario analysis.
-   * - **Automatic hyperparameters**
-     - Unsure about lambda1? Use :func:`bvarHyperopt` to let the data decide.
-   * - **ARIMA / univariate**
-     - Single variable? Use :func:`autoArima` for automatic order selection or :func:`arimaFit` for a fixed specification.
-   * - **Choosing the right model**
-     - Unsure which function to use? See the :ref:`choosing-a-var-model` decision tree.
+     - :func:`irfCompute` and :func:`signRestrictions`; see ``examples/workflows/svar_monetary_policy.e``.
+   * - **One call**
+     - :func:`bvarMacroForecast` chooses the lags and the tightness, fits and forecasts in one call.
+   * - **Changing volatility**
+     - :func:`bvarSvFit` fits a BVAR with stochastic volatility.
+   * - **One series**
+     - :func:`autoArima` or :func:`arimaFit`; see :ref:`getting-started-arima`.
+   * - **Choosing a model**
+     - See the :ref:`choosing-a-var-model` decision tree.

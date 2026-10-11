@@ -26,10 +26,10 @@ The Canonical Workflow
     wf = bvarMacroForecast(y,
         horizon=8,
         holdout=20,
-        data_type="stationary",
+        lag1_prior_mean="zero",
         max_lags=8,
         lag_ic="bic",
-        tune="glp",
+        overall_tightness="map",
         baseline="ols_var",
         level=0.68,
         n_draws=2000,
@@ -67,10 +67,10 @@ Step 2: Run the W1 Forecast
     wf = bvarMacroForecast(y,
         horizon=8,
         holdout=20,
-        data_type="stationary",
+        lag1_prior_mean="zero",
         max_lags=4,
         lag_ic="bic",
-        tune="glp",
+        overall_tightness="map",
         baseline="ols_var",
         level=0.68,
         n_draws=2000,
@@ -80,15 +80,16 @@ Step 2: Run the W1 Forecast
 The workflow runs the reduced-form forecast path:
 
 - select the VAR lag order using :func:`varLagSelect`
-- choose Minnesota shrinkage using :func:`bvarHyperopt` when ``tune="glp"``
+- choose the prior's overall tightness using :func:`bvarHyperopt` when
+  ``overall_tightness="map"``
 - fit the conjugate BVAR using :func:`bvarFit`
 - generate posterior predictive forecasts using :func:`bvarForecast`
 - if ``holdout`` is positive, score the holdout window and then refit on the
   full sample for the final production forecast
 
-For transformed growth-rate or stationary macro data, use
-``data_type="stationary"``. For persistent levels data, use
-``data_type="levels"``.
+For growth rates and other series that move around a stable mean, use
+``lag1_prior_mean="zero"``. For persistent series such as levels and rates,
+use ``lag1_prior_mean="random_walk"``, or give one value per variable.
 
 Step 3: Print Workflow Output
 -----------------------------
@@ -173,10 +174,10 @@ Concise 3-Variable Example
     wf = bvarMacroForecast(y,
         horizon=8,
         holdout=20,
-        data_type="stationary",
+        lag1_prior_mean="zero",
         max_lags=4,
         lag_ic="bic",
-        tune="glp",
+        overall_tightness="map",
         baseline="ols_var",
         level=0.68,
         n_draws=2000,
