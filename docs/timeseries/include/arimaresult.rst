@@ -61,10 +61,12 @@
      - Scalar, Akaike information criterion.
 
    * - result.aicc
-     - Scalar, corrected Akaike information criterion.
+     - Scalar, corrected Akaike information criterion. Its sample size is
+       the number of observations that enter the likelihood.
 
    * - result.bic
-     - Scalar, Bayesian information criterion (Schwarz).
+     - Scalar, Bayesian information criterion (Schwarz). Its sample size is
+       the number of observations that enter the likelihood.
 
    * - result.residuals
      - Nx1 vector, innovation residuals on the series scale. Rows excluded

@@ -209,7 +209,7 @@ table and two residual tests:
     ARIMA(1,1,1): Flow
     ================================================================================
     Method:                       CSS-ML    Observations:                        100
-    Log-likelihood:              -630.63    Sigma^2 (df-adj.):                 20180
+    Log-likelihood:              -630.63    Sigma^2 (df-adj.):                 20177
     AIC:                         1267.25    AICc:                            1267.51
     BIC:                         1275.04    Obs. used:                            99
 
@@ -315,14 +315,22 @@ the likelihood. The log-likelihood and the information criteria use it.
 *result.sigma2_bc* divides the same sum by that number less the number of
 estimated coefficients. The printed summary shows it as "Sigma^2 (df-adj.)"
 and :func:`arimaForecast` uses it for the prediction intervals. The summary
-also prints "Obs. used" when differencing or missing values leave fewer
-observations in the likelihood than rows in *y*.
+shows it to four significant figures below 10,000 and as a whole number from
+10,000 up. The summary also prints "Obs. used" when differencing or missing
+values leave fewer observations in the likelihood than rows in *y*.
+
+**Information criteria.** *result.aicc* and *result.bic* use the number of
+observations that enter the likelihood, the "Obs. used" count *N*. Rows lost
+to differencing and rows with a missing *y* are not counted. With *k* the
+number of estimated coefficients plus one for the innovation variance,
+AICc = AIC + 2k(k+1)/(N-k-1) and BIC = -2 loglik + k ln(N).
 
 **Missing values.** Missing values in *y* are allowed. Each missing
 observation keeps its place in time and is skipped in the likelihood, so the
 fit is the exact maximum-likelihood fit to the observed values. This holds
 with regressors too: a row whose *y* is missing is skipped, and the regressors
 themselves must be complete. A fixed *lambda* is applied to the observed
+values, and ``lambda="auto"`` chooses the transformation from the observed
 values. Infinite values and missing values in *xreg* are not allowed.
 
 **Coefficients at the estimation limit.** Each AR and MA coefficient is kept
@@ -393,8 +401,11 @@ level is more than about a million times its variation is treated the same
 way, because it cannot be told apart from a constant; subtract a constant
 from it first.
 
-With ``lambda="auto"`` and a zero, negative or missing value in *y*, no
-transformation is applied and *result.lambda* is missing.
+``lambda="auto"`` needs at least 20 observed values in *y*, all positive.
+With a zero or negative value, or with fewer than 20 observed values, no
+transformation is applied and *result.lambda* is missing. A series that is
+constant after the model's differencing is refused before a transformation
+is chosen, as it is without *lambda*.
 
 If the optimizer stops without converging, the result is returned with
 ``result.converged = 0`` and a warning is printed.

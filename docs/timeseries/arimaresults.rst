@@ -41,8 +41,9 @@ The table includes:
 
 - Model specification and fit statistics (AIC, AICc, BIC, log-likelihood)
 - "Sigma^2 (df-adj.)", the degrees-of-freedom-adjusted innovation variance
-  *result.sigma2_bc* that the forecast intervals use. The maximum-likelihood
-  value is in *result.sigma2*.
+  *result.sigma2_bc* that the forecast intervals use, to four significant
+  figures below 10,000 and as a whole number from 10,000 up. The
+  maximum-likelihood value is in *result.sigma2*.
 - "Obs. used", the number of observations that enter the likelihood, when
   differencing or missing values make it smaller than the number of rows
 - For a model selected by :func:`autoArima`, the search type, the criterion
