@@ -2,16 +2,16 @@
    :widths: auto
 
    * - fc.forecasts
-     - hxm matrix, point forecasts. hx1 for univariate (ARIMA), hxm for multivariate (VAR/BVAR).
+     - hxm matrix, point forecasts. hx1 for univariate (ARIMA), hxm for multivariate (VAR/BVAR). Untransformed ARIMA returns conditional means; log-transformed ARIMA returns original-unit medians without bias adjustment. Other Box-Cox ARIMA points are inverse-transformed. See :func:`arimaForecast` for scale conventions.
 
    * - fc.se
-     - hxm matrix, forecast standard errors. For :func:`varForecast`, the standard errors use the fit's selected residual covariance. They include future shocks only by default; ``coef_uncertainty=1`` adds approximate coefficient estimation uncertainty for a fit without trend or xreg. The setting is not stored in this result.
+     - hxm matrix, forecast standard errors. For transformed ARIMA, these remain on the estimation scale (log units when lambda=0), while points and interval bounds are returned in original units. For :func:`varForecast`, the standard errors use the fit's selected residual covariance. They include future shocks only by default; ``coef_uncertainty=1`` adds approximate coefficient estimation uncertainty for a fit without trend or xreg. The setting is not stored in this result.
 
    * - fc.lower
-     - hxm matrix, lower confidence or credible bound.
+     - hxm matrix, lower confidence or credible bound. For ARIMA this is a prediction bound; transformed ARIMA bounds are inverse-transformed to original data units.
 
    * - fc.upper
-     - hxm matrix, upper confidence or credible bound.
+     - hxm matrix, upper confidence or credible bound. For ARIMA this is a prediction bound; transformed ARIMA bounds are inverse-transformed to original data units.
 
    * - fc.level
      - Scalar, confidence or credible level used (e.g., 0.95).

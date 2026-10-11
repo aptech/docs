@@ -54,17 +54,30 @@
 
        ============ =====================================================================
        ``"auto"``   Automatic deterministic-term handling. (Default)
-       ``"mean"``   Force a mean in :func:`arimaFit`.
-       ``"drift"``  Force a drift in :func:`arimaFit`.
+       ``"mean"``   Include a constant in :func:`arimaFit`.
+       ``"drift"``  Include a constant in :func:`arimaFit`.
        ``"none"``   Suppress deterministic terms in :func:`arimaFit`.
        ============ =====================================================================
 
        :func:`autoArima` requires ``"auto"``. For :func:`arimaFit`, ``"auto"``
        includes a mean only when d=D=0 and otherwise includes no deterministic
-       term.
+       term. ``"mean"`` and ``"drift"`` both include the constant: it is a
+       mean when the model has no differencing and a drift when it has any.
+       A model with two or more differences in total has no constant to
+       estimate, so :func:`arimaFit` refuses ``"mean"`` and ``"drift"`` there.
 
    * - ctl.quiet
      - Scalar, output control. Set to 1 to suppress printed output. Default = 0.
+
+   * - ctl.on_error
+     - String, what happens when no model can be fitted.
+
+       ============ =====================================================================
+       ``"stop"``   Print the reason and end the program. (Default)
+       ``"return"`` Return the result with *result.status* and
+                    *result.status_message* set, so that a loop over many
+                    series can continue.
+       ============ =====================================================================
 
    * - ctl.max_iter
      - Scalar, maximum optimizer iterations. Default = 1000.

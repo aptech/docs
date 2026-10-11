@@ -16,13 +16,13 @@ Format
                   :func:`arimaFit` or :func:`autoArima`.
    :type result: struct
 
-   :param h: forecast horizon (number of steps ahead).
-   :type h: scalar
+   :param h: forecast horizon (number of steps ahead). Must be at least 1.
+   :type h: positive integer scalar
 
    :param xreg: Optional keyword, future values of exogenous regressors. Required if the model was fit with *xreg*.
    :type xreg: hxM matrix
 
-   :param level: Optional keyword, confidence level for prediction intervals. Default = 0.95.
+   :param level: Optional keyword, finite confidence level strictly between 0 and 1. Default = 0.95.
    :type level: scalar
 
    :return fc: An instance of a :class:`forecastResult` structure containing:
@@ -31,66 +31,161 @@ Format
 
    :rtype fc: struct
 
+Units and Uncertainty
+---------------------
+
+For ARIMA, *fc.h* is the requested horizon, *fc.m* is 1, and *fc.level* is
+the requested confidence level. Each forecast array has h rows and one column.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 40 35
+
+   * - Fitted transformation
+     - *forecasts*, *lower*, *upper*
+     - *se*
+   * - None
+     - Conditional mean and prediction limits in data units
+     - Forecast standard error in data units
+   * - Natural log (lambda=0)
+     - Median and prediction limits in original data units
+     - Forecast standard error in log units
+   * - Other Box-Cox lambda
+     - Inverse-transformed point and prediction limits
+     - Forecast standard error on the transformed scale
+
+The log point forecast is the exponential of the predicted log value.
+It is **not** a bias-adjusted arithmetic mean. Do not construct original-unit
+intervals by adding or subtracting log-scale *se* from *forecasts*: use *lower*
+and *upper*. No bias-adjusted mean option is provided here.
+
+Intervals use *result.sigma2_bc*, the corrected innovation variance, rather
+than the ML variance *result.sigma2*. They condition on the fitted parameters,
+selected model and supplied future regressors. They account for future
+innovations and filtered-state uncertainty, not parameter, model-selection or
+future-regressor uncertainty.
+Invalid inputs and forecast calculations that produce a nonfinite value end
+the program with a message; no partial forecast is returned.
+
 Model
 -----
 
 **Point forecast:**
-The h-step-ahead point forecast is the conditional expectation:
+Without a fitted transformation, the h-step-ahead point forecast is the conditional expectation:
 
 .. math::
 
    \hat{y}_{T+h|T} = E[y_{T+h} | y_1, \ldots, y_T]
 
-For ARIMA models, this is computed by recursively applying the AR and MA polynomials,
-replacing future innovations with zero and future observations with their forecasts.
+The recursion includes ordinary and seasonal differencing as well as AR and
+MA factors. Included mean, drift and regression terms are restored after
+forecasting the adjusted series. With a fitted transformation, the conditional
+expectation is computed on the estimation scale and then inverse-transformed.
 
 **Prediction intervals:**
-The forecast error variance at horizon :math:`h` is derived from the MA(:math:`\infty`)
-representation of the model:
+Let :math:`z_t` be the estimation-scale series (equal to :math:`y_t` when
+transformation is off). After removing any deterministic and regression terms,
+the impulse weights for forecasting its **undifferenced level** are defined by
+the formal power series
 
 .. math::
 
-   y_t = \sum_{j=0}^{\infty} \psi_j \varepsilon_{t-j}, \quad \psi_0 = 1
+   \psi(L) =
+   \frac{\theta(L)\Theta(L^s)}
+   {\phi(L)\Phi(L^s)(1-L)^d(1-L^s)^D}
+   = \sum_{j=0}^{\infty}\psi_j L^j,
+   \qquad \psi_0=1.
 
-The h-step forecast variance is:
+Here :math:`\phi(L)=1-\sum_{i=1}^p\phi_i L^i` and
+:math:`\theta(L)=1+\sum_{i=1}^q\theta_i L^i`; seasonal factors use the same
+sign conventions and powers of :math:`L^s`. Absent factors equal 1.
+For integrated models this defines finite-horizon impulse responses, not a
+stationary infinite moving-average representation of the levels.
+
+When past innovations and the forecast-origin state are treated as known,
+future innovations contribute the forecast error and variance
 
 .. math::
 
-   \text{Var}(\hat{e}_{T+h|T}) = \hat\sigma^2 \sum_{j=0}^{h-1} \psi_j^2
+   e_{T+h|T} = \sum_{j=0}^{h-1}\psi_j\varepsilon_{T+h-j},
+   \qquad v_h^{\mathrm{future}} =
+   \hat\sigma^2 \sum_{j=0}^{h-1}\psi_j^2.
 
-and the :math:`(1-\alpha)` prediction interval is:
+For example, ARIMA(0,1,0) has :math:`\psi(L)=1/(1-L)`, so every
+:math:`\psi_j=1` and :math:`v_h^{\mathrm{future}}=h\hat\sigma^2`.
+Omitting the differencing factor would incorrectly give constant variance.
+
+The implementation propagates the filtered state covariance as well as future
+innovation variance. Thus its finite-sample variance :math:`v_h` can also
+include uncertainty in the state at the forecast origin; the impulse sum alone
+does not describe that additional term. Using :math:`v_h`, the
+:math:`(1-\alpha)` Gaussian interval on the estimation scale is
 
 .. math::
 
-   \hat{y}_{T+h|T} \pm z_{\alpha/2} \sqrt{\hat\sigma^2 \sum_{j=0}^{h-1} \psi_j^2}
+   \hat z_{T+h|T} \pm \Phi_{\mathrm{N}}^{-1}(1-\alpha/2)\sqrt{v_h},
 
-Intervals widen with the horizon because the sum accumulates more :math:`\psi_j^2` terms.
+where :math:`\Phi_{\mathrm{N}}` is the standard normal CDF. Without
+transformation this is already in data units. With transformation, the point
+and both endpoints are inverse-transformed separately; *se* remains
+:math:`\sqrt{v_h}` on the estimation scale. In particular, exponentiating a
+log forecast gives a median, and the original-unit interval is asymmetric.
 
 **ARIMAX forecasts:**
 When the model includes exogenous regressors, the forecast is:
 
 .. math::
 
-   \hat{y}_{T+h|T} = X_{T+h}'\hat\beta + \hat\eta_{T+h|T}
+   \hat{z}_{T+h|T} = X_{T+h}'\hat\beta + \hat\eta_{T+h|T}
 
 where :math:`\hat\eta_{T+h|T}` is the ARIMA forecast of the regression residuals.
+It includes any fitted mean or drift. This equation is on the estimation
+scale; transformed models are then inverse-transformed.
 Future regressor values :math:`X_{T+1}, \ldots, X_{T+h}` must be provided via ``xreg``.
 
 
 Algorithm
 ---------
 
-1. **Expand MA(∞) weights:** Compute :math:`\psi_0, \psi_1, \ldots, \psi_{h-1}` from the ARMA polynomial ratio :math:`\psi(L) = \theta(L) / \phi(L)` via recursive convolution. For SARIMA, the seasonal polynomials are multiplied out first.
+1. **Reconstruct and filter:** Build the fitted state-space model with expanded AR/MA coefficients and ordinary/seasonal differencing. Transform the observations if requested, subtract included mean/drift and regression terms, and filter to obtain the final state and its covariance.
 
-2. **Recursive forecasting:** Starting from :math:`t = T+1`, compute each :math:`\hat{y}_{T+j}` by substituting known past values and previously computed forecasts into the ARMA equation.
+2. **Propagate state and covariance:** For each horizon, compute :math:`a_h=F a_{h-1}` and :math:`P_h=F P_{h-1}F'+RR'`, with innovation variance normalized to one. The estimation-scale forecast variance is :math:`v_h=\hat\sigma^2 Z'P_h Z`. Restore deterministic terms and supplied future regression contributions to the point forecast.
 
-3. **Prediction intervals:** Compute cumulative forecast error variances from the :math:`\psi_j` weights and form Gaussian intervals at the requested level.
+3. **Form intervals and restore scale:** Use the Gaussian quantile and :math:`\sqrt{v_h}`; inverse-transform the point and bounds when required, while retaining estimation-scale SE.
 
-**Complexity:** :math:`O(h \cdot (p + q + s \cdot P + s \cdot Q))` — essentially instantaneous for typical horizons.
+Here :math:`F` is the state transition matrix, :math:`R` the innovation
+loading vector and :math:`Z` the observation vector. The horizon loop costs
+:math:`O(h r^2)` for state dimension :math:`r`, after filtering the history.
 
 
 Examples
 --------
+
+Log Nile Forecast and Plot
+++++++++++++++++++++++++++
+
+::
+
+    library timeseries;
+    nile_flow = loadd(getGAUSSHome("pkgs/timeseries/examples/data/nile.csv"), "Flow");
+    result = arimaFit(nile_flow, p=1, d=1, q=1, lambda=0);
+    fc = arimaForecast(result, 8);
+    year_vec = seqa(1971, 1, 8);
+
+    // Original-unit medians and 95% limits; fc.se remains in log units.
+    struct plotControl forecast_plot;
+    forecast_plot = plotGetDefaults("xy");
+    plotSetTitle(&forecast_plot, "Nile: median and 95% prediction limits");
+    plotSetXLabel(&forecast_plot, "Year");
+    plotSetYLabel(&forecast_plot, "Flow (10^8 m^3)");
+    plotSetLegend(&forecast_plot, "Median" $| "Lower 95%" $| "Upper 95%");
+    plotXY(forecast_plot, year_vec, fc.forecasts ~ fc.lower ~ fc.upper);
+    plotSave("nile_log_forecast.svg", 900|600, "px");
+
+Run this in a writable directory, because ``plotSave`` writes the figure
+there. The first forecast is a median of 811.5 with limits 592.4 and 1111.6,
+all in the units of the data, while ``fc.se[1]`` is 0.1605 in log units.
+
 
 24-Month Seasonal Forecast
 ++++++++++++++++++++++++++
@@ -100,7 +195,7 @@ Examples
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airpassengers.csv"), "value");
 
     // Fit seasonal ARIMA
     result = autoArima(y, period=12, quiet=1);
@@ -122,7 +217,7 @@ Custom Confidence Level
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airpassengers.csv"), "value");
     result = arimaFit(y, 1, 1, 1, 0, 1, 1, 12);
 
     // 99% prediction intervals (wider than 95%)
@@ -138,17 +233,20 @@ When the model includes exogenous regressors, you must provide their future valu
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp");
-    X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "cpi + ffr");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/uschange.csv");
+    data = loadd(fname, "Consumption + Income");
+    y = data[., "Consumption"];
+    X = data[., "Income"];
 
-    // Fit ARIMAX
-    result = arimaFit(y, p=1, d=1, q=1, xreg=X, quiet=1);
+    // Fit a regression of consumption growth on income growth
+    // with ARMA(1,1) errors
+    result = arimaFit(y, p=1, q=1, xreg=X, xreg_names="Income", quiet=1);
 
-    // Projected future regressor values (4 quarters)
-    X_future = { 2.1 3.5,
-                 2.2 3.6,
-                 2.3 3.7,
-                 2.4 3.8 };
+    // Assumed income growth for the next 4 quarters
+    X_future = { 0.7,
+                 0.7,
+                 0.8,
+                 0.8 };
 
     fc = arimaForecast(result, 4, xreg=X_future);
 
@@ -186,8 +284,10 @@ Remarks
 -------
 
 **Prediction intervals** assume Gaussian innovations and are computed
-analytically from the MA(:math:`\infty`) representation of the model.
-Intervals widen with the forecast horizon.
+from the propagated state covariance. The future-innovation component
+:math:`\hat\sigma^2\sum_{j=0}^{h-1}\psi_j^2` is nondecreasing with horizon.
+Original-unit intervals for transformed fits are obtained by transforming
+the endpoints, not by adding estimation-scale SE to the returned point.
 
 **Exogenous regressors:** If the model was fit with *xreg*, the *xreg*
 keyword is required for forecasting. An error is raised if it is omitted:
@@ -198,20 +298,17 @@ via xreg=X_future."``.
 ARIMA forecasts are univariate — they use only the history of the target variable
 (plus exogenous regressors if provided). BVAR forecasts (:func:`bvarForecast`)
 are multivariate — they use the joint dynamics of all variables to forecast each one.
-For multivariate systems, BVAR typically produces more accurate forecasts because
-it exploits cross-variable predictability.
+Whether additional series improve forecast accuracy should be assessed on an appropriate holdout.
 
 
 Verification
 ------------
 
-Forecast point values and prediction intervals verified against R ``forecast::forecast()``
-on multiple datasets (AirPassengers, USAccDeaths, LakeHuron) and model types
-(ARIMA, SARIMA, ARIMAX). ARIMAX forecast with exogenous regressors verified against
-both R and Python ``statsmodels``.
-
-See ``gausslib-ts/tests/r_regression.rs`` (tests ``test_xreg_forecast_uschange_income``
-and ``test_py_xreg_forecast_uschange_income``).
+Point forecasts, standard errors and prediction limits at fixed coefficients
+are checked against two independent implementations of the same state-space
+forecast for ARIMA, seasonal ARIMA and transformed models, and forecasts with
+exogenous regressors are checked against independent regression-with-ARIMA-errors
+fits.
 
 
 References

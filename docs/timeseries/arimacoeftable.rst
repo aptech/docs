@@ -8,14 +8,14 @@ Return the coefficient table from a fitted ARIMA model as a dataframe.
 Format
 ------
 
-.. function:: tab = arimaCoefTable(result)
+.. function:: coef_tab = arimaCoefTable(result)
 
    :param result: an instance of an :class:`arimaResult` structure returned by
                   :func:`arimaFit` or :func:`autoArima`.
    :type result: struct
 
-   :return tab: Kx6 dataframe with columns: Coef, SE, t-stat, p-value, CI_lo, CI_hi. Row names are the coefficient labels.
-   :rtype tab: dataframe
+   :return coef_tab: Kx6 dataframe with columns: Coef, SE, t-stat, p-value, CI_lo, CI_hi. The rows are in the order of *result.coef_names*.
+   :rtype coef_tab: dataframe
 
 Examples
 --------
@@ -25,20 +25,23 @@ Examples
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airpassengers.csv"), "value");
 
-    result = arimaFit(y, p=1, d=1, q=1, sq=1, period=12, quiet=1);
+    // Airline model for the logged series
+    result = arimaFit(ln(y), d=1, q=1, sd=1, sq=1, period=12, quiet=1);
 
     // Get coefficient table as dataframe
-    tab = arimaCoefTable(result);
-    print tab;
+    coef_tab = arimaCoefTable(result);
+    print result.coef_names;
+    print coef_tab;
+
+The rows are MA(1) and SMA(1):
 
 ::
 
-                  Coef        SE    t-stat   p-value     CI_lo     CI_hi
-    AR(1)       0.8731    0.0543   16.076     0.000     0.767     0.979
-    MA(1)      -0.4018    0.1237   -3.248     0.001    -0.644    -0.159
-    SMA(1)     -0.5569    0.0730   -7.630     0.000    -0.700    -0.414
+            Coef               SE           t-stat          p-value            CI_lo            CI_hi
+     -0.40182313      0.089644652       -4.4823993    7.3808461e-06      -0.57752342      -0.22612284
+     -0.55693650      0.073105100       -7.6182989    2.5704063e-14      -0.70021987      -0.41365314
 
 Remarks
 -------
@@ -48,10 +51,10 @@ The returned dataframe can be used for programmatic access to coefficients:
 ::
 
     // Extract p-values column
-    pvals = tab[., "p-value"];
+    pvals = coef_tab[., "p-value"];
 
     // Find significant coefficients (p < 0.05)
-    sig = selif(tab, tab[., "p-value"] .< 0.05);
+    sig = selif(coef_tab, coef_tab[., "p-value"] .< 0.05);
 
 Library
 -------

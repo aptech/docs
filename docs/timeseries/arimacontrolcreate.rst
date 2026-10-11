@@ -32,7 +32,7 @@ Examples
     ctl.method = "ml";
 
     // Use with autoArima
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airpassengers.csv"), "value");
     result = autoArima(y, period=12, ctl=ctl);
 
 Remarks
