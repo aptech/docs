@@ -1,0 +1,84 @@
+vecmAuto
+========
+
+Purpose
+-------
+Choose the cointegrating rank with the Johansen trace test and estimate the VECM at that rank, in one call.
+
+Format
+------
+
+.. function:: vr = vecmAuto(y)
+              vr = vecmAuto(y, p=1, det_case=3, season=0, quiet=0)
+
+   :param y: the series in levels. If a dataframe, the column names label the output.
+   :type y: TxM matrix or dataframe
+
+   :param p: Optional keyword, lag order of the model written in levels. It is used as given; :func:`vecmAuto` does not choose the lag order. Default = 1.
+   :type p: scalar
+
+   :param det_case: Optional keyword, deterministic terms, 1 to 5 (see :func:`vecmFit`). Default = 3.
+   :type det_case: scalar
+
+   :param season: Optional keyword, number of seasons per year. Adds ``season-1`` centered seasonal dummies. 0 or 1 = none. Default = 0.
+   :type season: scalar
+
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :type quiet: scalar
+
+   :return vr: An instance of a :class:`vecmResult` structure, the same as :func:`vecmFit` returns at the selected rank:
+
+       .. include:: include/vecmresult.rst
+
+   :rtype vr: struct
+
+Examples
+--------
+
+::
+
+    new;
+    library timeseries;
+
+    // Canadian employment, productivity, real wage and unemployment, 1980Q1-2000Q4
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/canada.csv");
+    y = loadd(fname);
+
+    struct vecmResult vr;
+    vr = vecmAuto(y, p=2, det_case=3);
+
+    print "Selected rank: " vr.r;
+
+The trace test selects rank 1 for these data, so the result is the same as
+``vecmFit(y, 1, p=2, det_case=3)``.
+
+Remarks
+-------
+
+:func:`vecmAuto` runs :func:`johansenTest` with the same *p*, *det_case* and
+*season*, takes the rank selected by the trace statistic at the 5% level, and
+calls :func:`vecmFit` with that rank. It fits exactly the rank the test
+selects:
+
+- If the test selects rank 0 (no cointegration), :func:`vecmAuto` stops with
+  an error, because a VECM needs rank at least 1. Fit a VAR in differences, or
+  call :func:`vecmFit` with a rank you choose.
+- If critical values are not tabulated for this many series (more than 12 in
+  cases 1, 3 and 5; more than 11 in cases 2 and 4), :func:`vecmAuto` stops
+  with an error. Call :func:`vecmFit` with a rank you choose.
+- If the test selects full rank (*r* = *M*), the fit is kept and a note says
+  that it is a VAR in levels written in error-correction form.
+
+To see the test table, or to select the rank with the maximum-eigenvalue
+statistic, call :func:`johansenTest` yourself and pass its rank to
+:func:`vecmFit`.
+
+Library
+-------
+timeseries
+
+Source
+------
+vecm.src
+
+.. seealso:: Functions :func:`johansenTest`, :func:`vecmFit`, :func:`vecmBootstrap`

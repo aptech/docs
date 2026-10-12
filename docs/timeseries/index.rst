@@ -14,6 +14,7 @@ It provides:
 - **Univariate models:** ARIMA, SARIMA, ARIMAX with automatic order selection
 - **Exponential smoothing:** ETS model selection, fitting, forecasting, and diagnostics
 - **Vector autoregression:** OLS VAR, Bayesian VAR (Minnesota prior), BVAR with stochastic volatility
+- **Cointegration:** Johansen rank tests, vector error correction models, restriction tests, forecasts and impulse responses
 - **Structural identification:** Cholesky IRF, generalized IRF, sign-restricted SVAR
 - **Forecasting:** Point, density, and conditional (scenario) forecasts
 - **Model comparison:** Marginal likelihood, Diebold-Mariano test, Model Confidence Set
@@ -103,6 +104,35 @@ VAR Estimation
      - Create historical-quarter indicators and their future values.
    * - :func:`bvarHyperopt`
      - Optimize Minnesota hyperparameters via marginal likelihood (GLP 2015).
+
+Cointegration and VECM
++++++++++++++++++++++++
+
+.. list-table::
+   :widths: auto
+
+   * - :func:`johansenTest`
+     - Johansen trace and maximum-eigenvalue tests for the number of cointegrating relations.
+   * - :func:`vecmFit`
+     - Fit a vector error correction model with a chosen cointegrating rank by maximum likelihood.
+   * - :func:`vecmAuto`
+     - Select the cointegrating rank with the Johansen test, then fit the VECM.
+   * - :func:`vecmResults`
+     - Reprint the summary of a fitted VECM.
+   * - :func:`vecmGamma`
+     - Extract the short-run coefficient matrix of one lagged difference.
+   * - :func:`vecmForecast`
+     - Forecast the levels of the series from a VECM, with prediction intervals.
+   * - :func:`vecmIrf`
+     - Impulse responses of the levels from a VECM (Cholesky or generalized).
+   * - :func:`vecmToVar`
+     - Write a fitted VECM as a VAR in levels.
+   * - :func:`vecmBetaTest`
+     - Likelihood ratio test of linear restrictions on the cointegrating vectors.
+   * - :func:`vecmAlphaTest`
+     - Likelihood ratio test of weak exogeneity of one variable.
+   * - :func:`vecmBootstrap`
+     - Wild bootstrap of the Johansen trace test for a chosen rank.
 
 Forecasting
 ++++++++++++
@@ -255,6 +285,8 @@ Control Structure Creators
      - Create :class:`svarControl` with defaults.
    * - :func:`etsControlCreate`
      - Create :class:`etsControl` with defaults.
+   * - :func:`vecmControlCreate`
+     - Create :class:`vecmControl` with defaults.
 
 .. toctree::
     :maxdepth: 1
@@ -270,6 +302,7 @@ Control Structure Creators
     var-verification
     getting-started-bvar-forecast
     getting-started-ets
+    getting-started-vecm
 
 .. toctree::
     :maxdepth: 1
@@ -319,6 +352,24 @@ Control Structure Creators
     perioddummies
     bvarcontrolcreate
     bvarsvcontrolcreate
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Cointegration / VECM
+
+    johansentest
+    vecmfit
+    vecmauto
+    vecmcontrolcreate
+    vecmresults
+    vecmgamma
+    vecmforecast
+    vecmirf
+    vecmtovar
+    vecmbetatest
+    vecmalphatest
+    vecmbootstrap
 
 .. toctree::
     :maxdepth: 1
