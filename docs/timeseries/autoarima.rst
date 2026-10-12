@@ -114,6 +114,11 @@ transformation is applied first and the search then treats the transformed
 series in the same way. The units of a regressor do not matter either:
 multiplying a column of *xreg* by a positive constant divides its
 coefficient and standard error by that constant and changes nothing else.
+The fit of a candidate model with a mean or a difference does not depend on
+the level of a regressor either (see :func:`arimaFit`). One limit: the
+search checks the regressors once before it starts, and it stops with the
+message below when two columns both have a level of more than about a
+million times their variation; subtract a constant from such columns first.
 
 **Regressors that cannot be estimated.** The search stops with a message
 when a column of *xreg* is zero, is removed by the selected differencing, or

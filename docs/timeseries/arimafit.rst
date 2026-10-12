@@ -396,10 +396,25 @@ not constant and is fitted.
 A regressor is removed by the differencing when its differences are zero:
 a linear trend in a model with two differences, seasonal dummy variables or
 sine and cosine terms at the seasonal period in a model with a seasonal
-difference, a step that changes only where *y* is missing. A regressor whose
-level is more than about a million times its variation is treated the same
-way, because it cannot be told apart from a constant; subtract a constant
-from it first.
+difference, a step that changes only where *y* is missing.
+
+**The level of a regressor.** When the model has a mean or takes a
+difference, adding a constant to a column of *xreg* changes nothing except
+the mean: the regression coefficients, their standard errors, the
+log-likelihood, the residuals and the forecasts stay the same, and the mean
+moves by minus the coefficient times the constant, with its standard error
+adjusted to match. A drift does not change. In a model with neither a mean
+nor a difference the level of a regressor is part of the model. The values
+of a regressor on rows where *y* is missing are not used in estimation.
+
+Two limits apply to very large levels. When the level of a column exceeds
+about :math:`10^{11}` times its variation, adding the level has already
+rounded the stored values, and the results are those of the values as
+stored; a column whose variation cannot be told apart from that rounding is
+refused with the message above. And because the mean is returned as one
+number, forecasts from such a model are exact only to the spacing of that
+number (about :math:`10^{-5}` at a level of :math:`10^{11}`). Subtracting a
+constant from the column first avoids both.
 
 ``lambda="auto"`` needs at least 20 observed values in *y*, all positive.
 With a zero or negative value, or with fewer than 20 observed values, no
