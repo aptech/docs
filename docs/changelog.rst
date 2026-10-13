@@ -8,6 +8,8 @@ The following is a list of changes from the previous version of GAUSS.
 27.0.0
 ------
 
+#. New functions: :func:`ln1p` and :func:`expm1` retain small changes when computing logarithms and exponentials near zero.
+
 #. New feature: Graphs open beside your code. When a program run from the Edit page creates a graph, the graph opens in a tab group next to the source file instead of switching to the Graphics page. The tab group can be split, and graphs can be dragged between tab groups. This is controlled by the **When a graph is added** setting on the Graphics page of the Preferences dialog, which has a new option, **Open beside the code (Edit page)**. It is the default in GAUSS 27. Choose **Change to graphics page** for the previous behavior.
 #. New feature: Pop out a graph. Any graph can be moved into its own window with **Pop Out** (graph tab context menu, the Graphics toolbar, or :menuselection:`File --> Pop Out Graph`). The window stays above the GAUSS main window, has its own Save, Export, Copy and Print buttons, and **Return to tab** puts the graph back where it was. Closing the window closes the graph.
 #. New feature: **Move to Graphics** and **Move to Edit** in a graph tab's context menu move a graph between the two pages.

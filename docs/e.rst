@@ -58,6 +58,7 @@ E
     execbg
     exec
     exp
+    expm1
     external
     externdataloop
     eye

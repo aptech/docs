@@ -51,6 +51,7 @@ L
     lnpdfn
     lnpdft
     ln
+    ln1p
     loadarray
     loadd
     loaddsa
