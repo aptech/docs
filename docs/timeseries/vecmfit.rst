@@ -191,9 +191,9 @@ used in estimation, *T - p*, must be at least the larger of *Mp + 1* and the
 following sum: the number of lagged differences, unrestricted deterministic
 terms, seasonal dummies and your own regressors in one equation, plus the
 number of rows of ``vr.beta``.
-Series on very different scales, for example one in billions and one in
-percent, can be refused as nearly collinear; put the series on comparable
-scales.
+A series that is an exact or near-exact linear combination of the others is
+refused. The units of the series do not matter: a series in billions next
+to one in percent is fine.
 
 Library
 -------
