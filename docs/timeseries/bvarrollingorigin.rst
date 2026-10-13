@@ -10,15 +10,15 @@ Format
 
 .. function:: ev = bvarRollingOrigin(y, tightness, model_names, reestimation_policy, truth_vintage)
               ev = bvarRollingOrigin(y, tightness, model_names, "expanding", truth_vintage, p=2, initial_window=160, h=8)
-              ev = bvarRollingOrigin(y, tightness, model_names, "expanding", truth_vintage, choose_tightness="map")
+              ev = bvarRollingOrigin(y, tightness, model_names, "expanding", truth_vintage, prior_selection="tightness")
 
    :param y: the data, oldest row first. A single date column in a dataframe is used as the time index and left out of the model.
    :type y: TxM matrix or dataframe
 
-   :param tightness: overall tightness of each fixed-tightness model. May be empty when *choose_tightness* is set.
+   :param tightness: overall tightness of each fixed-tightness model. May be empty when *prior_selection* adds a chosen model.
    :type tightness: vector
 
-   :param model_names: one label per value in *tightness*, plus one for the chosen model when *choose_tightness* is set.
+   :param model_names: one label per value in *tightness*, plus one for the chosen model when *prior_selection* adds one.
    :type model_names: string array
 
    :param reestimation_policy: "expanding" (each origin's training window starts at the first row) or "rolling" (a window of *initial_window* rows that moves with the origin).
@@ -27,8 +27,11 @@ Format
    :param truth_vintage: a label for the data the forecasts are scored against (for example the database vintage), kept in the result.
    :type truth_vintage: string
 
-   :param choose_tightness: Optional keyword. "" (default): fixed values only. "map" adds a model whose overall tightness is chosen again on each origin's training window, as :func:`bvarHyperopt` chooses it by default (log marginal likelihood plus a Gamma prior on the tightness, mode 0.2, standard deviation 0.4). "ml" chooses by the log marginal likelihood alone. The chosen model comes after the fixed ones.
-   :type choose_tightness: string
+   :param prior_selection: Optional keyword. ``"none"`` (default): fixed values only. ``"tightness"`` adds a model whose overall tightness is chosen again on each origin's training window, as :func:`bvarPriorSelect` chooses it. ``"tightness_and_residual_variances"`` adds a model for which the residual variances the prior is built on are chosen as well, each between 1/100 and 100 times the value *residual_variance_policy* gives on that window; the fit at that origin uses the chosen variances. The chosen model comes after the fixed ones.
+   :type prior_selection: string
+
+   :param prior_selection_criterion: Optional keyword, used only when *prior_selection* adds a chosen model. ``"map"`` (default): log marginal likelihood plus the priors of Giannone, Lenza and Primiceri (2015) on what is chosen (a Gamma prior on the tightness, mode 0.2, standard deviation 0.4; an inverse-gamma prior on each chosen residual variance, with its peak near 0.02 squared, which suits data in logs multiplied by four and rates in decimals; see the Remarks of :func:`bvarPriorSelect`), :func:`bvarPriorSelect`'s default. ``"ml"``: log marginal likelihood alone.
+   :type prior_selection_criterion: string
 
    :param p: Optional keyword, lag order. Default = 1.
    :type p: scalar
@@ -90,10 +93,19 @@ Format
             - n_models x 1, each model's tightness; missing for the chosen model.
 
           * - ev.chosen_tightness
-            - n_origins x 1, the tightness chosen at each origin; empty without *choose_tightness*.
+            - n_origins x 1, the tightness chosen at each origin; empty when *prior_selection* is ``"none"``.
+
+          * - ev.prior_selection, ev.prior_selection_criterion
+            - Strings, the two settings in lower case.
+
+          * - ev.prior_residual_variances
+            - n_origins x M, the residual variances *residual_variance_policy* gives on each training window. Fixed-tightness models and a model that chooses only its tightness use them; a model that chooses its residual variances starts from them. The energy score of every model is standardized by them.
+
+          * - ev.energy_score
+            - (n_origins x h) x n_models, the energy score of each forecast (a score of the joint forecast of all variables; lower is better), with each variable divided by the square root of its value in *ev.prior_residual_variances*.
 
           * - ev.status
-            - n_origins x (1 + n_models), 0 where the cell succeeded; the first column is the least-squares VAR. A tightness search that does not converge or stops at the edge of its range (where :func:`bvarHyperopt` reports *status* "at_bound") is a fit failure (1), and its *chosen_tightness* entry is missing.
+            - n_origins x (1 + n_models), 0 where the cell succeeded; the first column is the least-squares VAR. A search that does not converge, or in which the tightness or a residual variance stops at the edge of its range (where :func:`bvarPriorSelect` reports *status* "at_bound"), is a fit failure (1), and its *chosen_tightness* entry is missing.
 
           * - ev.mean_crps
             - h x (n_models x m), the continuous ranked probability score averaged over origins; lower is better. Columns: model, then variable.
@@ -137,7 +149,7 @@ Fixed Tightness Against the Marginal-Likelihood Choice
     // A forecast every fourth quarter from 2000Q1, eight quarters ahead
     string names = { "fixed 0.2", "tight 0.05", "chosen" };
     ev = bvarRollingOrigin(y, 0.2 | 0.05, names, "expanding", "FRED-QD 2026-02",
-        p=2, initial_window=160, h=8, step=4, n_draws=1000, choose_tightness="map");
+        p=2, initial_window=160, h=8, step=4, n_draws=1000, prior_selection="tightness");
 
     print "Forecast origins:" ev.n_origins;
     print "Chosen tightness, first and last origin:" ev.chosen_tightness[1 ev.n_origins]';
@@ -158,7 +170,20 @@ all recomputed from those rows. Forecasts that start at consecutive origins
 overlap, so the scores of different origins are not independent.
 
 The chosen model at an origin is exactly the model with its tightness fixed
-at the chosen value: the same prior, the same seeds, the same scores.
+at the chosen value: the same prior, the same seeds, the same scores. With
+``prior_selection="tightness_and_residual_variances"`` it is the model with
+its tightness fixed at the chosen value and the chosen residual variances
+supplied, with the same forecasts and scores except the energy score (see
+below). The chosen variances are not returned: *ev.prior_residual_variances*
+holds the values *residual_variance_policy* gives on each training window,
+which are where that model's search starts. To see the variances chosen at
+an origin, call :func:`bvarPriorSelect` on that origin's training rows. The
+energy score is standardized by the values in *ev.prior_residual_variances*
+for every model, so that all models are scored on one scale. Whether choosing the residual variances improves forecasts differs
+from one system to the next, and a tightness chosen with estimated residual
+variances cannot be compared with one chosen with fixed ones: run the
+evaluation once with each setting and compare the scores, as in the last
+example of :func:`bvarPriorSelect`.
 
 Library
 -------
@@ -168,4 +193,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarHyperopt`, :func:`bvarFit`, :func:`bvarForecast`
+.. seealso:: Functions :func:`bvarPriorSelect`, :func:`bvarFit`, :func:`bvarForecast`

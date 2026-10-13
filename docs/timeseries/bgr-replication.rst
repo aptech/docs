@@ -213,6 +213,6 @@ References
 - McCracken, M.W. and S. Ng (2016). "FRED-MD: A monthly database for macroeconomic research." *Journal of Business & Economic Statistics*, 34(4), 574-589.
 
 
-.. seealso:: Functions :func:`bvarFit`, :func:`bvarForecast`, :func:`bvarHyperopt`
+.. seealso:: Functions :func:`bvarFit`, :func:`bvarForecast`, :func:`bvarPriorSelect`
 
 .. seealso:: Guides :ref:`getting-started`, :ref:`choosing-a-var-model`, :ref:`var-comparison`

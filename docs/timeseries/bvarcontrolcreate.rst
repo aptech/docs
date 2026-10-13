@@ -42,4 +42,4 @@ Source
 ------
 bvar.src
 
-.. seealso:: Functions :func:`bvarFit`, :func:`bvarHyperopt`
+.. seealso:: Functions :func:`bvarFit`, :func:`bvarPriorSelect`

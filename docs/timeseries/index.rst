@@ -102,7 +102,7 @@ VAR Estimation
      - Select lag order by AIC, BIC, Hannan-Quinn, or FPE.
    * - :func:`periodDummies`
      - Create historical-quarter indicators and their future values.
-   * - :func:`bvarHyperopt`
+   * - :func:`bvarPriorSelect`
      - Optimize Minnesota hyperparameters via marginal likelihood (GLP 2015).
 
 Cointegration and VECM
@@ -347,7 +347,7 @@ Control Structure Creators
     bvarfit
     bvarsvfit
     varlagselect
-    bvarhyperopt
+    bvarpriorselect
     varcontrolcreate
     perioddummies
     bvarcontrolcreate

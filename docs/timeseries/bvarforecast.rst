@@ -75,10 +75,10 @@ Optimal Hyperparameters to Forecast Pipeline
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
 
     // Optimize hyperparameters
-    ho = bvarHyperopt(data);
+    ps = bvarPriorSelect(data);
 
     // Estimate with optimal lambdas
-    result = bvarFit(data, ho.ctl, quiet=1);
+    result = bvarFit(data, ps.ctl, quiet=1);
 
     // Forecast
     fc = bvarForecast(result, 24);

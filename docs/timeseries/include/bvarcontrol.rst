@@ -17,7 +17,7 @@
      - Scalar, how much harder longer lags are pulled: the prior standard deviation for lag *l* is the one for lag 1 divided by :math:`l^{\text{lag\_decay}}`. Default = 1.
 
    * - ctl.lag1_prior_mean
-     - Prior mean of each variable's coefficient on its own first lag: one value for every variable, or a vector with one value per variable, each in [0,1] (one value per variable for :func:`bvarFit` and :func:`bvarHyperopt`). Same as the *lag1_prior_mean* keyword. After a fit, *fit_settings.lag1_prior_mean* holds the value used for each variable.
+     - Prior mean of each variable's coefficient on its own first lag: one value for every variable, or a vector with one value per variable, each in [0,1] (one value per variable for :func:`bvarFit` and :func:`bvarPriorSelect`). Same as the *lag1_prior_mean* keyword. After a fit, *fit_settings.lag1_prior_mean* holds the value used for each variable.
 
        ===== =====================================================
        1.0   Random walk prior (for levels data). (Default)
@@ -77,8 +77,11 @@
    * - ctl.quiet
      - Scalar, 1 to suppress printed output. Default = 0.
 
-   * - ctl.hyperopt_map
-     - Scalar, used by :func:`bvarHyperopt` only: 1 (default) chooses the tightness by marginal likelihood plus the Giannone, Lenza & Primiceri (2015) hyperprior, 0 by marginal likelihood alone.
+   * - ctl.prior_selection
+     - String, used by :func:`bvarPriorSelect` only: what the search chooses. ``"tightness"`` (default): the tightness, with the residual variances held at the values *ctl.residual_variance_policy* gives. ``"tightness_and_residual_variances"``: the residual variances as well, each between 1/100 and 100 times that value.
+
+   * - ctl.prior_selection_criterion
+     - String, used by :func:`bvarPriorSelect` only: ``"map"`` (default) chooses by marginal likelihood plus the Giannone, Lenza & Primiceri (2015) priors on what is chosen, ``"ml"`` by marginal likelihood alone.
 
    * - ctl.cross_shrinkage, ctl.exogenous_tightness
      - Kept for other estimators; :func:`bvarFit` does not use them. Its conjugate prior treats a variable's own lags and other variables' lags alike, apart from each variable's scale.

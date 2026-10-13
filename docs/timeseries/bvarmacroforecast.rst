@@ -50,12 +50,24 @@ Format
        Default = ``"bic"``.
    :type lag_ic: string
 
-   :param overall_tightness: Optional keyword, how strongly the prior pulls
-       the coefficients toward their prior means. ``"map"`` chooses it with
-       :func:`bvarHyperopt` (the value with the highest marginal likelihood
-       times a weak prior on the tightness, between 0.001 and 5); a positive
-       number fixes it. Smaller values pull harder. Default = ``"map"``.
-   :type overall_tightness: string or scalar
+   :param overall_tightness: Optional keyword, a positive number: how
+       strongly the prior pulls the coefficients toward their prior means.
+       Smaller values pull harder. Giving a number fixes the tightness and
+       skips the search. Leave it out to have the tightness chosen (see
+       *prior_selection*); a number together with a *prior_selection* other
+       than ``"none"`` is refused.
+   :type overall_tightness: scalar
+
+   :param prior_selection: Optional keyword, what is chosen from the data
+       with :func:`bvarPriorSelect` before the model is fitted.
+       ``"tightness"`` (default): the overall tightness (the value with the
+       highest marginal likelihood times a weak prior on the tightness,
+       between 0.001 and 5). ``"tightness_and_residual_variances"``: the
+       tightness and the residual variance of each series that the prior is
+       built on; see the Remarks. ``"none"``: nothing; the tightness is the
+       number given as *overall_tightness*, or the *overall_tightness* of
+       *spec* (0.2 unless changed).
+   :type prior_selection: string
 
    :param baseline: Optional keyword, the model the holdout check compares
        with: ``"ols_var"`` for a least-squares VAR with the same lags, or
@@ -114,8 +126,8 @@ Format
           * - wf.lag_selection
             - Structure returned by :func:`varLagSelect`.
 
-          * - wf.hyperopt
-            - :class:`hyperoptResult` structure. *wf.hyperopt.overall_tightness* is the tightness used; *wf.hyperopt.status* is "converged", "not_converged" or "at_bound" after a search and "not_run" when the tightness was given.
+          * - wf.prior_selection
+            - :class:`priorSelectResult` structure. *wf.prior_selection.overall_tightness* is the tightness used; *wf.prior_selection.status* is "converged", "not_converged" or "at_bound" after a search and "not_run" when the tightness was given; *wf.prior_selection.residual_variances* holds the chosen residual variances when they were chosen.
 
           * - wf.spec
             - :class:`bvarMacroForecastSpec` structure, every setting as used.
@@ -259,7 +271,7 @@ variables you name.
         overall_tightness=0.2, level=0.90, quiet=1);
 
     print "Lags chosen: " $+ ntos(wf.selected_p);
-    print "Tightness:   " $+ ntos(wf.hyperopt.overall_tightness) $+ " (" $+ wf.hyperopt.status $+ ")";
+    print "Tightness:   " $+ ntos(wf.prior_selection.overall_tightness) $+ " (" $+ wf.prior_selection.status $+ ")";
     print "";
 
     // The forecast for two of the variables.
@@ -318,7 +330,7 @@ structure.
     wf_b = bvarMacroForecast(y, lag1_prior_mean=0|1|1|1, horizon=4, spec=spec);
 
     print "Forecast rows: " $+ ntos(rows(wf_a.forecast.forecasts)) $+ " and " $+ ntos(rows(wf_b.forecast.forecasts));
-    print "Lags: " $+ ntos(wf_a.selected_p) $+ "; tightness chosen: " $+ sprintf("%.4f", wf_a.hyperopt.overall_tightness);
+    print "Lags: " $+ ntos(wf_a.selected_p) $+ "; tightness chosen: " $+ sprintf("%.4f", wf_a.prior_selection.overall_tightness);
 
 ::
 
@@ -329,11 +341,12 @@ Remarks
 -------
 
 **What the call does.** In order: :func:`varLagSelect` chooses the lag order;
-with ``overall_tightness="map"``, :func:`bvarHyperopt` chooses the tightness;
+unless the tightness is fixed, :func:`bvarPriorSelect` chooses it;
 :func:`bvarFit` fits the model; :func:`bvarForecast` simulates the forecast.
 With a holdout, these steps run first on the sample without the held-out
 observations, the held-out observations are forecast and scored, and the
-model is then fitted on all the data with the same lag order and tightness.
+model is then fitted on all the data with the same lag order and tightness
+(and the same residual variances, when they were chosen).
 The function makes forecasts that do not condition on a future path of any
 variable. For impulse responses use :func:`irfCompute`, for forecasts given an
 assumed path :func:`condForecast`, for changing volatility :func:`bvarSvFit`.
@@ -343,25 +356,43 @@ variable's coefficient on its own first lag; every other coefficient is
 centred on zero. Use 1 for series that drift (levels, rates) and 0 for growth
 rates. The default, ``"zero"``, suits data that are all growth rates. With one
 value per variable the printed summary lists them. The prior means are a
-fixed part of the prior: with ``overall_tightness="map"`` the search chooses
-the tightness, not the means.
+fixed part of the prior: the search chooses the tightness, not the means.
 
-**The tightness search.** ``"map"`` looks for the overall tightness alone,
+**The tightness search.** The default looks for the overall tightness alone,
 with the Minnesota prior's lag decay at 1 and without the sum-of-coefficients
 and single-unit-root priors. To choose those as well, call
-:func:`bvarHyperopt` and :func:`bvarFit` yourself.
+:func:`bvarPriorSelect` and :func:`bvarFit` yourself.
+
+**Choosing the residual variances.** The prior is built on one residual
+variance per series, by default the residual variance of an autoregression
+of that series. With ``prior_selection="tightness_and_residual_variances"``
+the search chooses them together with the tightness, each between 1/100 and
+100 times its autoregression value, with the priors of Giannone, Lenza and
+Primiceri (2015); the tightness is then looked for between 0.0001 and 5. A
+tightness chosen this way cannot be compared with one chosen with fixed
+residual variances, and it belongs with them: to fit that prior again use
+``bvarFit(y, ctl=wf.prior_selection.ctl)``, not the tightness alone. The
+paper's prior on the residual variances has its peak near 0.02 squared and
+is written for data in logs multiplied by four and rates in decimals. This
+function always uses it, so put the data in those units before choosing the
+residual variances here; for data in other units call
+:func:`bvarPriorSelect` yourself (its Remarks explain the choice, and say
+when the setting has helped).
 
 **Tightness search stopped at the edge of its range.**
 When the overall tightness is chosen by the search, it is looked for between
-0.001 and 5. If the search stops at either end, no peak was found: the value
+0.001 and 5 (between 0.0001 and 5 when the residual variances are chosen
+too). If the search stops at either end, no peak was found: the value
 is the edge of the range, not a value chosen by the data. The workflow prints
 a note saying so as soon as the search ends, before the model is fitted, and
 then fits and forecasts with the edge value. At the lower edge the prior holds
 the coefficients close to their prior means; at the upper edge the prior barely
-restrains them. The result records the case in ``wf.hyperopt.status``
-(``"at_bound"``) and ``wf.hyperopt.at_bound`` (1). The note is not printed
-with ``quiet=1``. To set the tightness yourself, pass a number as
-``overall_tightness``.
+restrains them. The result records the case in ``wf.prior_selection.status``
+(``"at_bound"``) and ``wf.prior_selection.at_bound`` (``"tightness"``). When
+the residual variances are chosen and one of them stops at an edge of its
+range, the note names the series and *at_bound* contains
+``"residual_variances"``. The note is not printed with ``quiet=1``. To set
+the tightness yourself, pass a number as ``overall_tightness``.
 
 **The holdout check.** The held-out observations are forecast once, from the
 end of the training sample, so the errors at different horizons come from one
@@ -392,4 +423,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`printForecast`, :func:`plotForecast`, :func:`bvarMacroForecastPrint`, :func:`bvarMacroForecastPlot`, :func:`bvarForecast`, :func:`bvarFit`, :func:`varLagSelect`, :func:`bvarHyperopt`, :func:`forecastEval`
+.. seealso:: Functions :func:`printForecast`, :func:`plotForecast`, :func:`bvarMacroForecastPrint`, :func:`bvarMacroForecastPlot`, :func:`bvarForecast`, :func:`bvarFit`, :func:`varLagSelect`, :func:`bvarPriorSelect`, :func:`forecastEval`

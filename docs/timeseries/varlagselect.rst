@@ -148,4 +148,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`varFit`, :func:`bvarFit`, :func:`bvarHyperopt`
+.. seealso:: Functions :func:`varFit`, :func:`bvarFit`, :func:`bvarPriorSelect`

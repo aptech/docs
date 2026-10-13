@@ -32,7 +32,7 @@ data covering both the Great Moderation and the Global Financial Crisis of 2008 
      - Standard VAR territory. BVAR is preferred for forecasting.
    * - m = 6-20
      - :func:`bvarFit` with tight prior
-     - Shrinkage is essential. Set *lambda1* = 0.01-0.1 or use :func:`bvarHyperopt`.
+     - Shrinkage is essential. Set *lambda1* = 0.01-0.1 or use :func:`bvarPriorSelect`.
    * - m = 20-100
      - :func:`bvarSvFit` with SSVS
      - Large system needs variable selection to identify relevant predictors.
@@ -53,7 +53,7 @@ data covering both the Great Moderation and the Global Financial Crisis of 2008 
      - ``ar = 0``
      - White noise prior. Variables are assumed to be mean-reverting.
    * - Mixed or uncertain
-     - Use :func:`bvarHyperopt`
+     - Use :func:`bvarPriorSelect`
      - Let the data choose via marginal likelihood optimization.
 
 **Step 4: Do you need structural identification?**
@@ -109,7 +109,7 @@ specification from Christiano, Eichenbaum & Evans (1999).
 **Recipe 2: Large forecasting model**
 
 20+ macro variables from FRED-MD. The Minnesota prior shrinks the large parameter
-space, and :func:`bvarHyperopt` selects the tightness automatically via marginal
+space, and :func:`bvarPriorSelect` selects the tightness automatically via marginal
 likelihood (Giannone, Lenza & Primiceri 2015).
 
 ::
@@ -119,13 +119,13 @@ likelihood (Giannone, Lenza & Primiceri 2015).
     data = loadd("large_macro.csv");
 
     // Let the data choose how tight the prior should be.
-    // bvarHyperopt maximizes the log marginal likelihood over lambda1
+    // bvarPriorSelect maximizes the log marginal likelihood over lambda1
     // (and optionally lambda6, lambda7 for SOC/SUR priors).
-    // It returns a hyperoptResult with optimal values and a pre-filled control struct.
-    ho = bvarHyperopt(data);
+    // It returns a priorSelectResult with optimal values and a pre-filled control struct.
+    ps = bvarPriorSelect(data);
 
     // Estimate with the optimized prior
-    ctl = ho.ctl;                    // Start from optimized settings
+    ctl = ps.ctl;                    // Start from optimized settings
     ctl.quiet = 1;                   // Suppress printed output
     result = bvarFit(data, ctl);
 
@@ -226,4 +226,4 @@ Function Comparison
      - Yes (Gibbs)
      - Heteroskedastic data, density forecasting
      - 1-2s (10K draws)
-.. seealso:: Functions :func:`varFit`, :func:`bvarFit`, :func:`bvarSvFit`, :func:`bvarHyperopt`
+.. seealso:: Functions :func:`varFit`, :func:`bvarFit`, :func:`bvarSvFit`, :func:`bvarPriorSelect`

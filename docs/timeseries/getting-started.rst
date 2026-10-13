@@ -228,7 +228,7 @@ What's Next
    * - **The full workflow**
      - ``examples/workflows/bvar_first_forecast.e`` and its guide add a look at the data, a third model, residual checks with :func:`varDiagnostics` and a discussion of every table.
    * - **How much shrinkage**
-     - :func:`bvarHyperopt` chooses the overall tightness by marginal likelihood; see ``examples/workflows/bvar_shrinkage_choice.e``.
+     - :func:`bvarPriorSelect` chooses the overall tightness by marginal likelihood; see ``examples/workflows/bvar_shrinkage_choice.e``.
    * - **Scenarios**
      - "What if the policy rate follows this path?" :func:`condForecast` and ``examples/workflows/conditional_scenarios.e``.
    * - **Structural shocks**

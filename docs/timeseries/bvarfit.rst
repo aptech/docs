@@ -185,7 +185,7 @@ The output is:
     Log ML without it:                            3094.62
 
 On these data the prior raises the log marginal likelihood by 13.6.
-:func:`bvarHyperopt` chooses the overall tightness, and with
+:func:`bvarPriorSelect` chooses the overall tightness, and with
 *ctl.soc_tightness* > 0 the sum-of-coefficients tightness too, by marginal
 likelihood.
 
@@ -253,4 +253,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarControlCreate`, :func:`bvarForecast`, :func:`bvarHyperopt`, :func:`varFit`, :func:`varLagSelect`, :func:`forecastEval`
+.. seealso:: Functions :func:`bvarControlCreate`, :func:`bvarForecast`, :func:`bvarPriorSelect`, :func:`varFit`, :func:`varLagSelect`, :func:`forecastEval`

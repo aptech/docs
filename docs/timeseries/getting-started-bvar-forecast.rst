@@ -29,7 +29,7 @@ The Canonical Workflow
         lag1_prior_mean="zero",
         max_lags=8,
         lag_ic="bic",
-        overall_tightness="map",
+        prior_selection="tightness",
         baseline="ols_var",
         level=0.68,
         n_draws=2000,
@@ -70,7 +70,7 @@ Step 2: Run the W1 Forecast
         lag1_prior_mean="zero",
         max_lags=4,
         lag_ic="bic",
-        overall_tightness="map",
+        prior_selection="tightness",
         baseline="ols_var",
         level=0.68,
         n_draws=2000,
@@ -80,8 +80,8 @@ Step 2: Run the W1 Forecast
 The workflow runs the reduced-form forecast path:
 
 - select the VAR lag order using :func:`varLagSelect`
-- choose the prior's overall tightness using :func:`bvarHyperopt` when
-  ``overall_tightness="map"``
+- choose the prior's overall tightness using :func:`bvarPriorSelect`
+  (``prior_selection="tightness"``, the default)
 - fit the conjugate BVAR using :func:`bvarFit`
 - generate posterior predictive forecasts using :func:`bvarForecast`
 - if ``holdout`` is positive, score the holdout window and then refit on the
@@ -177,7 +177,7 @@ Concise 3-Variable Example
         lag1_prior_mean="zero",
         max_lags=4,
         lag_ic="bic",
-        overall_tightness="map",
+        prior_selection="tightness",
         baseline="ols_var",
         level=0.68,
         n_draws=2000,

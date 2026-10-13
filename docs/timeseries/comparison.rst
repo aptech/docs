@@ -187,7 +187,7 @@ What You Get With Each Platform
      - ``bayesianVARs``
      - (manual)
    * - Hyperparameter opt
-     - :func:`bvarHyperopt`
+     - :func:`bvarPriorSelect`
      - Built-in
      - opts.hogs=1
    * - MCMC diagnostics

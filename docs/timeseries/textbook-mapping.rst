@@ -47,7 +47,7 @@ filter, spectral analysis, unit roots, cointegration, and regime switching.
      - Compare frequentist vs Bayesian forecast intervals.
    * - 12
      - Bayesian analysis
-     - :func:`bvarFit`, :func:`bvarHyperopt`
+     - :func:`bvarFit`, :func:`bvarPriorSelect`
      - Estimate Minnesota BVAR. Compare log marginal likelihood across priors.
    * - 13
      - Kalman filter
@@ -133,7 +133,7 @@ estimation, inference, and applications to oil markets and monetary policy.
      - Full structural analysis pipeline: IRF → FEVD → HD.
    * - 5
      - Bayesian VAR analysis
-     - :func:`bvarFit`, :func:`bvarHyperopt`
+     - :func:`bvarFit`, :func:`bvarPriorSelect`
      - Minnesota prior with GLP hyperparameter optimization. Compare marginal likelihoods.
    * - 8
      - Short-run restrictions
@@ -292,9 +292,9 @@ Use the log marginal likelihood to select the best model::
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
 
     // Optimize hyperparameters
-    ho = bvarHyperopt(data);
-    print "Optimal lambda1:" ho.lambda1;
-    print "Maximized log ML:" ho.log_ml;
+    ps = bvarPriorSelect(data);
+    print "Optimal lambda1:" ps.overall_tightness;
+    print "Maximized log ML:" ps.log_ml;
 
     // Compare with fixed hyperparameters
 
@@ -306,7 +306,7 @@ Use the log marginal likelihood to select the best model::
     ctl.lambda1 = 1.0;
     r_loose = bvarFit(data, ctl);
 
-    r_opt = bvarFit(data, ho.ctl);
+    r_opt = bvarFit(data, ps.ctl);
 
     print "Log ML (tight):" r_tight.log_ml;
     print "Log ML (loose):" r_loose.log_ml;
