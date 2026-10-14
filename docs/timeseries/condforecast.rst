@@ -12,7 +12,7 @@ Format
               cfc = condForecast(fit, path, averages=avg, average_of=var)
               cfc = condForecast(fit, path, level=0.90, n_draws=5000, seed=42)
 
-   :param fit: result from :func:`bvarFit` (one simulated path per posterior draw) or :func:`varFit` (coefficients fixed at their least-squares estimates and the residual covariance at its maximum likelihood value, divisor *T*, as in :func:`varForecast`).
+   :param fit: result from :func:`bvarFit` (one simulated path per posterior draw) or :func:`varFit` (coefficients fixed at their least-squares estimates and the residual covariance at its maximum likelihood value, divisor *T*, as in :func:`varForecast`), or a VECM written as a VAR by :func:`vecmToVar` (coefficients and the VECM's maximum likelihood covariance held fixed; refused when the VECM was fit with seasonal dummies or your own regressors).
    :type fit: struct
 
    :param path: the forecast horizon is the number of rows. A finite entry fixes that variable at that step; a missing value (see :func:`miss`) leaves it free.
@@ -27,7 +27,7 @@ Format
    :param level: Optional keyword, central mass of each pointwise band. Default = 0.68|0.90. *levels* is accepted as another name for it.
    :type level: scalar or vector
 
-   :param n_draws: Optional keyword. For a :func:`bvarFit` result, the number of posterior draws to use (default and maximum: all stored draws). For a :func:`varFit` result, the number of simulated paths (default 5000).
+   :param n_draws: Optional keyword. For a :func:`bvarFit` result, the number of posterior draws to use (default and maximum: all stored draws). For a :func:`varFit` or :func:`vecmToVar` result, the number of simulated paths (default 5000).
    :type n_draws: scalar
 
    :param seed: Optional keyword, seed for the simulated future shocks. Default = 42.

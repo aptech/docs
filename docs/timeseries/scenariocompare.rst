@@ -11,7 +11,7 @@ Format
 .. function:: sc = scenarioCompare(fit, baseline, alternative)
               sc = scenarioCompare(fit, baseline, alternative, names="Hold" $| "Cut", variable="defl" $| "gdp")
 
-   :param fit: result from :func:`bvarFit` (posterior draws) or :func:`varFit` (coefficients fixed at their least-squares estimates).
+   :param fit: result from :func:`bvarFit` (posterior draws), :func:`varFit` (coefficients fixed at their least-squares estimates) or :func:`vecmToVar` (the VECM's coefficients fixed; refused when the VECM was fit with seasonal dummies or your own regressors). For a :func:`vecmToVar` result the forecast without conditions is the VECM's point forecast.
    :type fit: struct
 
    :param baseline: path of the first scenario: a finite entry fixes that variable at that step, a missing value leaves it free, as for :func:`condForecast`. :func:`scenarioPath` builds one by variable name.

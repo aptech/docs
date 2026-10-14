@@ -92,14 +92,19 @@ missing values, because those rows are not used in the fit, followed by
 filled. ``var_result.is_stationary`` is 0 whenever *r* is less than *M*,
 because the VAR in levels then has unit roots.
 
-**Where the result can be used.** The result is for reading the levels
-coefficients. These procedures do not accept it: :func:`varForecast`,
-:func:`condForecast`, :func:`scenarioPath`, :func:`scenarioCompare`,
-:func:`irfCompute`, :func:`hdCompute`, :func:`varDiagnostics`,
-:func:`forecastModel`, :func:`forecastEval`, ``forecastCompare``,
-:func:`grangerTest`, :func:`varResults` and :func:`varCoefTable`. Use
-:func:`vecmForecast`, :func:`vecmIrf` and :func:`vecmDiagnostics` for
-forecasts, impulse responses and residual checks of a VECM.
+**Where the result can be used.** :func:`condForecast`,
+:func:`scenarioPath` and :func:`scenarioCompare` accept the result when the
+VECM was fit without seasonal dummies or your own regressors: they need only
+the coefficients, the residual covariance and the data, so conditional
+forecasts and scenarios keep the long-run relations of the VECM. A result
+from a fit with seasonal dummies or regressors is refused, because their
+future values would be needed. These procedures do not accept the result:
+:func:`varForecast`, :func:`irfCompute`, :func:`hdCompute`,
+:func:`varDiagnostics`, :func:`forecastModel`, :func:`forecastEval`,
+``forecastCompare``, :func:`grangerTest`, :func:`varResults` and
+:func:`varCoefTable`. Use :func:`vecmForecast`, :func:`vecmIrf` and
+:func:`vecmDiagnostics` for forecasts, impulse responses and residual checks
+of a VECM.
 
 References
 ----------

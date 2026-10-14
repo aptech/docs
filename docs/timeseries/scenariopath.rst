@@ -10,7 +10,7 @@ Format
 
 .. function:: path = scenarioPath(fit, h, variable, values)
 
-   :param fit: result from :func:`bvarFit` or :func:`varFit` (gives the variables).
+   :param fit: result from :func:`bvarFit`, :func:`varFit` or :func:`vecmToVar` (gives the variables). A :func:`vecmToVar` result from a VECM fit with seasonal dummies or your own regressors is refused.
    :type fit: struct
 
    :param h: forecast horizon, the number of rows of the path.
