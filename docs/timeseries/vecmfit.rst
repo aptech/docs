@@ -187,10 +187,13 @@ regressors. Compare criteria only between fits that use the same rows.
 error-correction form.
 
 **Data requirements.** *y* must have no missing values. The number of rows
-used in estimation, *T - p*, must be at least the larger of *Mp + 1* and the
-following sum: the number of lagged differences, unrestricted deterministic
-terms, seasonal dummies and your own regressors in one equation, plus the
-number of rows of ``vr.beta``.
+used in estimation, *T - p*, must be at least *k + M*, where *k* counts the
+coefficients in one equation of the full-rank model: the lagged differences,
+unrestricted deterministic terms, seasonal dummies and your own regressors,
+plus the number of rows of ``vr.beta``. With fewer rows the error covariance
+is singular and the fit is refused, whatever the rank. For example, four
+series with *p* = 2 and *det_case* = 3 have *k* = 4 + 1 + 4 = 9, so they need
+13 rows in estimation, or 15 rows of data.
 A series that is an exact or near-exact linear combination of the others is
 refused. The units of the series do not matter: a series in billions next
 to one in percent is fine.

@@ -140,6 +140,11 @@ and the other critical values are still returned.
 **p-values.** ``jt.trace_pval`` and ``jt.max_eigen_pval`` are not computed and
 hold missing values. Use the critical values.
 
+**Data requirements.** The number of rows used in estimation, *T - p*, must
+be at least *k + M*, the same count as in :func:`vecmFit`; with fewer rows
+the test is refused, because the largest eigenvalues equal one and the
+statistics are infinite.
+
 References
 ----------
 
