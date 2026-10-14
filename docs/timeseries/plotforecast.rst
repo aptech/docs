@@ -14,6 +14,7 @@ Format
               plotForecast(wf, 24)
               plotForecast(result, fc)
               plotForecast(result, fc, history=24)
+              plotForecast(result, fc, vars=names)
 
    :param wf: Workflow result returned by :func:`bvarMacroForecast`.
    :type wf: struct bvarMacroForecastResult
@@ -31,6 +32,12 @@ Format
        sample length. With workflow input, a scalar second argument is accepted
        as shorthand for ``history``.
    :type history: scalar
+
+   :param vars: Optional keyword, the variables to draw, one panel each, in
+       the order given: a string array of variable names or a vector of
+       column numbers. A name or number may appear once. Default: every
+       variable.
+   :type vars: string array or vector
 
 Examples
 --------
@@ -82,6 +89,16 @@ Compact History Window
     plotForecast(wf, 24);
     plotForecast(result, fc, history=24);
 
+Some Variables of a Large Model
++++++++++++++++++++++++++++++++
+
+A model of many series draws one panel per series. Name the ones to draw:
+
+::
+
+    string key_series = { "PAYEMS", "CPIAUCSL", "FEDFUNDS" };
+    plotForecast(fit, fc, vars=key_series, history=48);
+
 Save to File
 ++++++++++++
 
@@ -102,7 +119,8 @@ and ``wf.forecast``, the final full-sample BVAR fit and forecast returned by
 
 **Layout:** For multivariate models, each variable gets its own panel in a
 vertical stack. Panels are auto-titled with variable names from the forecast
-metadata when available.
+metadata when available. With *vars*, only the variables named are drawn,
+in the order given.
 
 **Historical context:** By default, the plot shows the last 20% of the training
 data or 40 observations, whichever is larger, leading into the forecast horizon.
