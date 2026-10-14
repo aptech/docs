@@ -18,11 +18,11 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param shape: *shape* argument for gamma distribution, scalar or ExE conformable matrix with *r* and *c*.
-    :type shape: matrix or vector or scalar
+    :param shape: Positive scalar shape parameter for the gamma distribution.
+    :type shape: scalar
 
-    :param scale: *scale* argument for gamma distribution, scalar or ExE conformable matrix with *r* and *c*.
-    :type scale: matrix or vector or scalar
+    :param scale: Positive scalar scale parameter for the gamma distribution.
+    :type scale: scalar
 
     :param state: Optional argument.
 
@@ -109,6 +109,37 @@ After the code above, *x* is:
        1.0683117
 
 The expected value is shape/rate = 3/2 = 1.5, and the sample values are centered around that.
+
+Keyword arguments (GAUSS 27)
+----------------------------
+
+Use ``shape=`` and ``scale=`` to make the gamma parameterization explicit.
+The population mean is ``shape*scale`` and the variance is ``shape*scale^2``.
+For example, shape 3 and scale 2 give a population mean of 6.
+
+The parameter names are ``r``, ``c``, ``shape``, ``scale`` and ``state``.
+The first four are required. ``state`` is optional; omitting it uses the global
+random stream. Named arguments can be reordered and must follow any positional
+arguments. Existing positional calls keep their behavior.
+
+.. code-block:: gauss
+
+    // Shape-scale parameterization: population mean = 3*2 = 6.
+    rndseed 12345;
+    gamma_draws = rndGamma(1000, 1, shape=3, scale=2);
+
+    // For rate=2, pass its reciprocal as scale: population mean = 3/2.
+    rate_val = 2;
+    gamma_rate_draws = rndGamma(1000, 1, shape=3, scale=1/rate_val);
+
+    // A supplied seed/state returns both the draws and the updated state.
+    { gamma_first, gamma_state } = rndGamma(5, 1, shape=3, scale=2, state=12345);
+    { gamma_next, gamma_state } = rndGamma(5, 1, shape=3, scale=2, state=gamma_state);
+
+``rate`` is not a keyword. Use ``scale=1/rate_val`` when your model specifies
+a rate. Shape and scale must be positive scalars.
+With ``state``, request both outputs and retain the returned state for later draws.
+
 
 Remarks
 -------
