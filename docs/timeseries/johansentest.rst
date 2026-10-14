@@ -54,27 +54,27 @@ The printout:
 
 ::
 
-    ================================================================================
+    ==============================================================================================
     Johansen Cointegration Test
     Det. case 3: Unrestricted constant
-    Lags: 2        Variables: 4        Obs: 84
-    ================================================================================
-    H0: rank      Eigenvalue    Trace Stat           10%            5%            1%
-    --------------------------------------------------------------------------------
-    r <= 0            0.4386       75.9321       44.4929       47.8545       54.6815
-    r <= 1            0.2128       28.5952       27.0669       29.7961       35.4628
-    r <= 2            0.1001        8.9711       13.4294       15.4943       19.9349
-    r <= 3            0.0039        0.3227        2.7055        3.8415        6.6349
+    Lags: 2        Variables: 4        Obs: 82 (84 rows)
+    ==============================================================================================
+    H0: rank      Eigenvalue    Trace Stat           10%            5%            1%       P value
+    ----------------------------------------------------------------------------------------------
+    r <= 0            0.4386       75.9321       44.4929       47.8545       54.6815       <0.0001
+    r <= 1            0.2128       28.5952       27.0669       29.7961       35.4628        0.0683
+    r <= 2            0.1001        8.9711       13.4294       15.4943       19.9349        0.3681
+    r <= 3            0.0039        0.3227        2.7055        3.8415        6.6349        0.5700
 
-    H0: rank      Eigenvalue      Max Stat           10%            5%            1%
-    --------------------------------------------------------------------------------
-    r =  0            0.4386       47.3369       25.1236       27.5858       32.7172
-    r =  1            0.2128       19.6241       18.8928       21.1314       25.8650
-    r =  2            0.1001        8.6483       12.2971       14.2639       18.5200
-    r =  3            0.0039        0.3227        2.7055        3.8415        6.6349
+    H0: rank      Eigenvalue      Max Stat           10%            5%            1%       P value
+    ----------------------------------------------------------------------------------------------
+    r =  0            0.4386       47.3369       25.1236       27.5858       32.7172       <0.0001
+    r =  1            0.2128       19.6241       18.8928       21.1314       25.8650        0.0802
+    r =  2            0.1001        8.6483       12.2971       14.2639       18.5200        0.3166
+    r =  3            0.0039        0.3227        2.7055        3.8415        6.6349        0.5700
 
     Selected rank (trace, 5%): 1
-    ================================================================================
+    ==============================================================================================
 
 The trace statistic rejects rank 0 at the 5% level (75.93 > 47.85) and does
 not reject rank 1 (28.60 < 29.80), so ``jt.rank`` is 1. Pass it to
@@ -137,8 +137,23 @@ above 12 hold missing critical values. The first row
 (*r* = 0) is one of them, so ``jt.rank`` is a missing value. The statistics
 and the other critical values are still returned.
 
-**p-values.** ``jt.trace_pval`` and ``jt.max_eigen_pval`` are not computed and
-hold missing values. Use the critical values.
+**Observations.** ``Obs`` is the number of rows used in estimation, the rows
+of *y* minus *p*; the total number of rows follows in parentheses.
+
+**p-values.** ``jt.trace_pval`` and ``jt.max_eigen_pval`` hold the asymptotic
+p-values of the trace and maximum eigenvalue statistics, in the same order as
+the statistics. They are computed from the authors' tables of 221 quantiles of
+each limiting distribution by the local approximation of MacKinnon (1996) and
+MacKinnon, Haug and Michelis (1999): a weighted cubic fit of the inverse normal
+probability on the eleven quantiles nearest the statistic. The tables cover
+p-values from 0.0001 to 0.9999; beyond them the bound is returned and printed
+as ``<0.0001`` or ``>0.9999``. With more than 12 variables the p-values of
+rows whose *M - r* is above 12 are missing values.
+
+**Source of the tables.** The critical values and p-values use the tables of
+MacKinnon, Haug and Michelis (1999), published with the paper in the Journal
+of Applied Econometrics data archive (DOI 10.15456/jae.2022314.0707472522).
+They are used with credit to the authors.
 
 **Data requirements.** The number of rows used in estimation, *T - p*, must
 be at least *k + M*, the same count as in :func:`vecmFit`; with fewer rows
@@ -149,6 +164,7 @@ References
 ----------
 
 - Johansen, S. (1995). *Likelihood-Based Inference in Cointegrated Vector Autoregressive Models*. Oxford University Press.
+- MacKinnon, J.G. (1996). "Numerical distribution functions for unit root and cointegration tests." *Journal of Applied Econometrics*, 11(6), 601-618.
 - MacKinnon, J.G., A.A. Haug and L. Michelis (1999). "Numerical distribution functions of likelihood ratio tests for cointegration." *Journal of Applied Econometrics*, 14(5), 563-577.
 - Reimers, H.-E. (1992). "Comparisons of tests for multivariate cointegration." *Statistical Papers*, 33, 335-359.
 
