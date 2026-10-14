@@ -24,7 +24,7 @@ Format
    :param det_case: Optional keyword, deterministic terms, 1 to 5 (see Remarks). Default = 3.
    :type det_case: scalar
 
-   :param season: Optional keyword, number of seasons per year (4 for quarterly data, 12 for monthly). Adds ``season-1`` centered seasonal dummies. 0 or 1 = none. Default = 0.
+   :param season: Optional keyword, 0 for no seasonal dummies; otherwise a whole number giving the number of seasons per year, at least 2 (4 for quarterly data, 12 for monthly). Adds ``season-1`` centered seasonal dummies. 1 is refused. Default = 0.
    :type season: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -64,45 +64,92 @@ The printout:
 
 ::
 
+    VECM, maximum likelihood
     ================================================================================
-    VECM(2)     Rank: 1                                     Variables:             4
-    Method: Johansen ML                                  Observations:            84
-    Det. case 3: Unrestricted constant                                            82
-    ================================================================================
-    AIC:            -6.056          BIC:            -5.264          HQ:             -5.738
-    Log-Lik:       -190.12
-    ================================================================================
+    Rank:                              1    Lags:                                  2
+    Deterministic:  Unrestricted constant
+    Variables:                         4    Observations:                         84
+    Usable obs.:       82 (rows 3 to 84)    Log-likelihood:                  -190.12
+    AIC:                         -6.0560    BIC:                             -5.2635
+    HQ:                          -5.7378
+    Largest root (excl. M-r unit roots):              0.8534
 
-    Cointegrating vectors (beta, Johansen normalization):
+    Cointegrating vectors (beta): first r rows set to the identity
+    Cointegrating relation CE1
+    Coefficient    Coef.  Std. err.       z  p-value
+    ------------------------------------------------
+    e             1.0000          -       -        -
+    prod          0.1503     0.2012   0.747    0.455
+    rw           -0.2465     0.0303  -8.127  < 0.001
+    U             3.6128     0.3326  10.864  < 0.001
 
-        1.0000
-        0.1503
-       -0.2465
-        3.6128
+    Equation 1: D.e
+    Coefficient     Coef.  Std. err.       z  p-value
+    -------------------------------------------------
+    CE1            0.0132     0.0158   0.838    0.402
+    D.e(-1)        0.7656     0.1412   5.424  < 0.001
+    D.prod(-1)     0.1651     0.0638   2.588    0.010
+    D.rw(-1)      -0.0236     0.0560  -0.422    0.673
+    D.U(-1)        0.1421     0.1934   0.735    0.463
+    Constant     -12.2255    14.7387  -0.829    0.407
 
-    Adjustment coefficients (alpha):
-    CE1:
-      e               0.0132
-      prod            0.0666
-      rw             -0.1817
-      U              -0.0438
+    Equation 2: D.prod
+    Coefficient     Coef.  Std. err.       z  p-value
+    -------------------------------------------------
+    CE1            0.0666     0.0265   2.512    0.012
+    D.e(-1)       -0.2986     0.2372  -1.259    0.208
+    D.prod(-1)     0.1479     0.1072   1.379    0.168
+    D.rw(-1)       0.1232     0.0940   1.310    0.190
+    D.U(-1)       -0.8435     0.3250  -2.595    0.009
+    Constant     -61.9059    24.7637  -2.500    0.012
 
-    ================================================================================
-    Short-run dynamics (Gamma):
+    Equation 3: D.rw
+    Coefficient     Coef.  Std. err.       z  p-value
+    -------------------------------------------------
+    CE1           -0.1817     0.0322  -5.635  < 0.001
+    D.e(-1)       -0.1962     0.2883  -0.681    0.496
+    D.prod(-1)    -0.0437     0.1303  -0.336    0.737
+    D.rw(-1)      -0.0570     0.1143  -0.498    0.618
+    D.U(-1)        0.4351     0.3950   1.102    0.271
+    Constant     170.2479    30.0977   5.657  < 0.001
 
-        0.7656     0.1651    -0.0236     0.1421
-       -0.2986     0.1479     0.1232    -0.8435
-       -0.1962    -0.0437    -0.0570     0.4351
-       -0.5846    -0.0731    -0.0291    -0.1331
+    Equation 4: D.U
+    Coefficient    Coef.  Std. err.       z  p-value
+    ------------------------------------------------
+    CE1          -0.0438     0.0119  -3.696  < 0.001
+    D.e(-1)      -0.5846     0.1060  -5.514  < 0.001
+    D.prod(-1)   -0.0731     0.0479  -1.525    0.127
+    D.rw(-1)     -0.0291     0.0420  -0.692    0.489
+    D.U(-1)      -0.1331     0.1453  -0.916    0.360
+    Constant     41.0526    11.0694   3.709  < 0.001
 
-    Companion eigenvalues: max modulus =  1.000
-    ================================================================================
+The header gives the rank, lag order in levels, deterministic terms,
+number of series, total data rows, usable observations and the data rows
+used in estimation (``p+1`` to ``T``): here 84 rows, of which rows 3 to 84
+are used. It also shows the log-likelihood, AIC, BIC and HQ. The
+cointegrating relation is ``e + 0.150 prod - 0.247 rw + 3.613 U``.
 
-The header shows 84 rows of data and 82 rows used in estimation (84 minus
-*p*). The cointegrating relation is ``e + 0.150 prod - 0.247 rw + 3.613 U``.
-The last line reports the largest modulus among the eigenvalues of the
-companion matrix of the model written as a VAR in levels; a model with rank
-*r* has at least *M-r* of them equal to 1.
+The largest root is the largest modulus of the companion matrix
+eigenvalues after setting aside the *M-r* imposed unit roots. These are
+identified as the *M-r* moduli closest to 1, so an explosive root remains
+in the comparison. At full rank, all moduli are used.
+
+Each cointegrating relation has a beta table with named rows. The first
+*r* rows of beta are fixed to the identity by the normalization; their
+standard error, z and p-value are shown as ``-``.
+
+Each differenced equation has its own table. Rows are shown in this order:
+loadings on the cointegrating relations, lagged differences, unrestricted
+constant and trend, your regressors, then seasonal columns. Only terms
+present in the fitted model appear. Regressors use their column names when
+available, or numbered labels; seasonal columns have numbered labels.
+
+The columns are coefficient, standard error, z and p-value. The z statistic
+is the coefficient divided by its standard error; p-values are two-sided
+standard-normal probabilities. Standard errors for the loadings, lagged
+differences, unrestricted deterministic terms and regressors are conditional
+on the estimated beta. They use ``sigma_u``, with divisor ``n_obs = T-p``
+for the residual cross-products, and no degrees-of-freedom correction.
 
 Choose the rank with the Johansen test first
 ++++++++++++++++++++++++++++++++++++++++++++

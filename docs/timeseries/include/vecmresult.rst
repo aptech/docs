@@ -14,7 +14,7 @@
      - Scalar, deterministic terms (1 to 5).
 
    * - vr.season
-     - Scalar, number of seasons used for the seasonal dummies. 0 = none.
+     - Scalar, number of seasons used for the seasonal dummies. 0 = none; otherwise a whole number at least 2.
 
    * - vr.n_total
      - Scalar, rows of *y*.
@@ -46,11 +46,20 @@
    * - vr.Gamma
      - (M*(p-1))xM matrix, :math:`\Gamma_1` to :math:`\Gamma_{p-1}` stacked by rows. Empty when ``p = 1``. :func:`vecmGamma` returns one of them.
 
+   * - vr.Gamma_se
+     - (M*(p-1))xM matrix, standard errors in the same stacked layout as ``Gamma``. Empty when ``Gamma`` is empty (``p = 1``).
+
    * - vr.phi_det
      - Mxd matrix, coefficients of the unrestricted deterministic terms: the constant (cases 3 and 4), or the constant and the trend (case 5). Empty in cases 1 and 2.
 
+   * - vr.phi_det_se
+     - Mxd matrix, standard errors with the same shape as ``phi_det``. Empty when ``phi_det`` is empty (no unrestricted deterministic terms, cases 1 and 2).
+
    * - vr.phi_exo
      - Mx(n_exo) matrix, coefficients of your own regressors, then of the seasonal dummies. Empty if there are none.
+
+   * - vr.phi_exo_se
+     - Mx(n_exo) matrix, standard errors with the same shape as ``phi_exo``: your regressors first, then seasonal columns. Empty when ``phi_exo`` is empty (no regressors or seasonal dummies).
 
    * - vr.sigma_u
      - MxM matrix, maximum likelihood residual covariance (divided by ``n_obs``).
@@ -92,4 +101,9 @@
      - TxM matrix, the data.
 
    * - vr.xreg
-     - (n_obs)x(n_exo) matrix, your own regressors and the seasonal dummies in the rows used in estimation (data rows p+1 to T). Empty if there are none.
+     - (n_obs)x(n_exo) matrix, your own regressors and the seasonal dummies in the rows used in estimation (data rows p+1 to T). Column names from your regressors are retained in the metadata. Empty if there are none.
+
+Standard errors for ``alpha``, ``Gamma``, ``phi_det`` and ``phi_exo`` are
+conditional on the estimated beta. They use ``sigma_u``, with divisor
+``n_obs = T-p`` for the residual cross-products, and no degrees-of-freedom
+correction.

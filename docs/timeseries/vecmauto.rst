@@ -20,7 +20,7 @@ Format
    :param det_case: Optional keyword, deterministic terms, 1 to 5 (see :func:`vecmFit`). Default = 3.
    :type det_case: scalar
 
-   :param season: Optional keyword, number of seasons per year. Adds ``season-1`` centered seasonal dummies. 0 or 1 = none. Default = 0.
+   :param season: Optional keyword, 0 for no seasonal dummies; otherwise a whole number giving the number of seasons per year, at least 2 (4 for quarterly data, 12 for monthly). Adds ``season-1`` centered seasonal dummies. 1 is refused. Default = 0.
    :type season: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -71,6 +71,10 @@ selects:
   choose.
 - If the test selects full rank (*r* = *M*), the fit is kept and a note says
   that it is a VAR in levels written in error-correction form.
+
+When *quiet* is 0, the fitted model prints as :func:`vecmFit` does, with
+labelled beta and equation tables and coefficient standard errors. The
+returned structure has the same standard-error members.
 
 To see the test table, or to select the rank with the maximum-eigenvalue
 statistic, call :func:`johansenTest` yourself and pass its rank to

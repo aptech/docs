@@ -55,7 +55,7 @@ Format
           * - ir.normalization
             - String, the shock size: ``"chol_one_sd"``, ``"unit_own_impact"``, or ``"one_sd"`` for generalized responses.
 
-       The responses are point estimates without bands. The other members of the structure, which other impulse response procedures use, are left empty or zero; ``ir.fit_type`` is ``"var"``.
+       The responses are point estimates without bands. The other members of the structure, which other impulse response procedures use, are left empty or zero; ``ir.fit_type`` is ``"VECM, rank r"`` with the fitted rank, the name shown on the Model line of the printout.
 
    :rtype ir: struct
 
@@ -83,7 +83,7 @@ The first block of the printout:
 
     Impulse responses: Cholesky (recursive) identification
     ================================================================================
-    Model             VAR (point estimates)
+    Model             VECM, rank 1
     Shock size        one standard deviation
     Horizons          0 to 8
 

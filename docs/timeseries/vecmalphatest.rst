@@ -8,13 +8,16 @@ Likelihood ratio test that one series does not adjust to the cointegrating relat
 Format
 ------
 
-.. function:: test = vecmAlphaTest(vr, var_idx)
+.. function:: test = vecmAlphaTest(vr, var_idx, quiet=0)
 
    :param vr: an instance of a :class:`vecmResult` structure returned by :func:`vecmFit` or :func:`vecmAuto`, fit without seasonal dummies or regressors and with rank at most M-1.
    :type vr: struct
 
    :param var_idx: which series to test, 1 to M, in the order of the columns of *y*.
    :type var_idx: scalar
+
+   :param quiet: Optional keyword, 0 prints a short block with the null hypothesis, LR statistic, degrees of freedom and chi-square p-value; 1 prints nothing. Default = 0.
+   :type quiet: scalar
 
    :return test: An instance of an :class:`lrTestResult` structure containing:
 
@@ -42,11 +45,17 @@ Test whether productivity (the second series) is weakly exogenous:
     struct lrTestResult test;
     test = vecmAlphaTest(vr, 2);
 
-    print "LR statistic: " test.lr_stat;
-    print "df:           " test.df;
-    print "p-value:      " test.p_value;
+The procedure prints:
 
-The statistic is 5.481 on 1 degree of freedom, p-value 0.0192: at the 5%
+::
+
+    Weak exogeneity test
+    ================================================================================
+    Null hypothesis: All adjustment coefficients for prod are zero.
+    LR statistic:                 5.4808    Degrees of freedom:                     1
+    Chi-square p:                  0.019
+
+The statistic is 5.4808 on 1 degree of freedom, p-value 0.019: at the 5%
 level the hypothesis that productivity does not adjust to the relation is
 rejected.
 
@@ -74,7 +83,9 @@ is correct.
 One series is tested per call. With rank *r* = *M* no row of
 :math:`\alpha` can be zero, so the test is not available at full rank.
 
-The procedure prints nothing; read the result from *test*.
+By default, the procedure prints the null hypothesis, LR statistic, degrees
+of freedom and chi-square p-value. The weak-exogeneity block names the tested
+series. Use ``quiet=1`` to suppress the block and read the members of *test*.
 
 References
 ----------

@@ -8,13 +8,16 @@ Likelihood ratio test of linear restrictions on the cointegrating vectors of a f
 Format
 ------
 
-.. function:: test = vecmBetaTest(vr, h_mat)
+.. function:: test = vecmBetaTest(vr, h_mat, quiet=0)
 
    :param vr: an instance of a :class:`vecmResult` structure returned by :func:`vecmFit` or :func:`vecmAuto`, fit without seasonal dummies or regressors.
    :type vr: struct
 
    :param h_mat: restriction matrix *H*. It has as many rows as ``vr.beta`` (M, or M+1 in deterministic cases 2 and 4) and *s* linearly independent columns, with *s* at least the rank *r*.
    :type h_mat: kxs matrix
+
+   :param quiet: Optional keyword, 0 prints a short block with the null hypothesis, LR statistic, degrees of freedom and chi-square p-value; 1 prints nothing. Default = 0.
+   :type quiet: scalar
 
    :return test: An instance of an :class:`lrTestResult` structure containing:
 
@@ -49,11 +52,17 @@ of the columns of *H*, which span the first three series only:
     struct lrTestResult test;
     test = vecmBetaTest(vr, h_mat);
 
-    print "LR statistic: " test.lr_stat;
-    print "df:           " test.df;
-    print "p-value:      " test.p_value;
+The procedure prints:
 
-The statistic is 5.058 on 1 degree of freedom, p-value 0.0245: at the 5%
+::
+
+    Cointegrating coefficient restriction test
+    ================================================================================
+    Null hypothesis: Each cointegrating vector is a linear combination of the columns of H (beta = H * phi).
+    LR statistic:                 5.0576    Degrees of freedom:                     1
+    Chi-square p:                  0.025
+
+The statistic is 5.0576 on 1 degree of freedom, p-value 0.025: at the 5%
 level the hypothesis that unemployment does not enter the relation is
 rejected.
 
@@ -80,7 +89,9 @@ of rows used in estimation. The test assumes the rank *r* is correct.
 Multiplying a column of *H* by a nonzero number does not change the
 hypothesis or the result.
 
-The procedure prints nothing; read the result from *test*.
+By default, the procedure prints the null hypothesis ``beta = H * phi``,
+LR statistic, degrees of freedom and chi-square p-value. Use ``quiet=1`` to
+suppress the block and read the members of *test*.
 
 References
 ----------

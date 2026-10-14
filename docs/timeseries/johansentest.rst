@@ -23,7 +23,7 @@ Format
    :param test_type: Optional keyword, the statistic that sets ``jt.rank``: ``"trace"`` or ``"max"``. Both tables are always computed and printed. Default = ``"trace"``.
    :type test_type: string
 
-   :param season: Optional keyword, number of seasons per year (4 for quarterly data, 12 for monthly). Adds ``season-1`` centered seasonal dummies. 0 or 1 = none. Default = 0.
+   :param season: Optional keyword, 0 for no seasonal dummies; otherwise a whole number giving the number of seasons per year, at least 2 (4 for quarterly data, 12 for monthly). Adds ``season-1`` centered seasonal dummies. 1 is refused. Default = 0.
    :type season: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
