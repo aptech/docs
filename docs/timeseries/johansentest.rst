@@ -131,10 +131,9 @@ dummies sum to zero over a full year, so they do not add a trend to the
 levels, and the critical values of the chosen case are used unchanged.
 
 **Critical values.** The 10%, 5% and 1% critical values are from MacKinnon,
-Haug and Michelis (1999) for cases 1, 3 and 5 (up to 12 variables) and from
-Osterwald-Lenum (1992) for cases 2 and 4 (up to 11 variables). The tables
-are indexed by *M - r*. With more series than the limit, the rows whose
-*M - r* is above the limit hold missing critical values. The first row
+Haug and Michelis (1999) for all five cases, up to 12 variables. The tables
+are indexed by *M - r*. With more than 12 series, the rows whose *M - r* is
+above 12 hold missing critical values. The first row
 (*r* = 0) is one of them, so ``jt.rank`` is a missing value. The statistics
 and the other critical values are still returned.
 
@@ -146,7 +145,6 @@ References
 
 - Johansen, S. (1995). *Likelihood-Based Inference in Cointegrated Vector Autoregressive Models*. Oxford University Press.
 - MacKinnon, J.G., A.A. Haug and L. Michelis (1999). "Numerical distribution functions of likelihood ratio tests for cointegration." *Journal of Applied Econometrics*, 14(5), 563-577.
-- Osterwald-Lenum, M. (1992). "A note with quantiles of the asymptotic distribution of the maximum likelihood cointegration rank test statistics." *Oxford Bulletin of Economics and Statistics*, 54(3), 461-472.
 - Reimers, H.-E. (1992). "Comparisons of tests for multivariate cointegration." *Statistical Papers*, 33, 335-359.
 
 Library

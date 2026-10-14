@@ -63,9 +63,9 @@ selects:
 - If the test selects rank 0 (no cointegration), :func:`vecmAuto` stops with
   an error, because a VECM needs rank at least 1. Fit a VAR in differences, or
   call :func:`vecmFit` with a rank you choose.
-- If critical values are not tabulated for this many series (more than 12 in
-  cases 1, 3 and 5; more than 11 in cases 2 and 4), :func:`vecmAuto` stops
-  with an error. Call :func:`vecmFit` with a rank you choose.
+- If critical values are not tabulated for this many series (more than 12),
+  :func:`vecmAuto` stops with an error. Call :func:`vecmFit` with a rank you
+  choose.
 - If the test selects full rank (*r* = *M*), the fit is kept and a note says
   that it is a VAR in levels written in error-correction form.
 
