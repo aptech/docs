@@ -61,22 +61,22 @@ The printout:
     ==============================================================================================
     H0: rank      Eigenvalue    Trace Stat           10%            5%            1%       P value
     ----------------------------------------------------------------------------------------------
-    r <= 0            0.4386       75.9321       44.4929       47.8545       54.6815       <0.0001
-    r <= 1            0.2128       28.5952       27.0669       29.7961       35.4628        0.0683
-    r <= 2            0.1001        8.9711       13.4294       15.4943       19.9349        0.3681
+    r <= 0            0.4386       75.9321       44.4932       47.8564       54.6847       <0.0001
+    r <= 1            0.2128       28.5952       27.0660       29.7976       35.4657        0.0683
+    r <= 2            0.1001        8.9711       13.4295       15.4948       19.9396        0.3681
     r <= 3            0.0039        0.3227        2.7055        3.8415        6.6349        0.5700
 
     H0: rank      Eigenvalue      Max Stat           10%            5%            1%       P value
     ----------------------------------------------------------------------------------------------
-    r =  0            0.4386       47.3369       25.1236       27.5858       32.7172       <0.0001
-    r =  1            0.2128       19.6241       18.8928       21.1314       25.8650        0.0802
-    r =  2            0.1001        8.6483       12.2971       14.2639       18.5200        0.3166
+    r =  0            0.4386       47.3369       25.1238       27.5856       32.7171       <0.0001
+    r =  1            0.2128       19.6241       18.8925       21.1323       25.8613        0.0802
+    r =  2            0.1001        8.6483       12.2969       14.2644       18.5193        0.3166
     r =  3            0.0039        0.3227        2.7055        3.8415        6.6349        0.5700
 
     Selected rank (trace, 5%): 1
     ==============================================================================================
 
-The trace statistic rejects rank 0 at the 5% level (75.93 > 47.85) and does
+The trace statistic rejects rank 0 at the 5% level (75.93 > 47.86) and does
 not reject rank 1 (28.60 < 29.80), so ``jt.rank`` is 1. Pass it to
 :func:`vecmFit`:
 
@@ -131,7 +131,8 @@ dummies sum to zero over a full year, so they do not add a trend to the
 levels, and the critical values of the chosen case are used unchanged.
 
 **Critical values.** The 10%, 5% and 1% critical values are from MacKinnon,
-Haug and Michelis (1999) for all five cases, up to 12 variables. The tables
+Haug and Michelis (1999), computed with the authors' program ``johval``
+and printed to four decimals, for all five cases up to 12 variables. The tables
 are indexed by *M - r*. With more than 12 series, the rows whose *M - r* is
 above 12 hold missing critical values. The first row
 (*r* = 0) is one of them, so ``jt.rank`` is a missing value. The statistics
