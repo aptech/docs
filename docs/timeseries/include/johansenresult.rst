@@ -26,7 +26,7 @@
      - Scalar, number of rows used in estimation (rows of *y* minus *p*).
 
    * - jt.trace_pval
-     - Mx1 vector of missing values. p-values are not computed.
+     - Mx1 vector of upper-tail asymptotic p-values for the trace statistics, in rank order, computed from the tables of MacKinnon, Haug and Michelis (1999) by a local polynomial approximation. Values are bounded to [0.0001, 0.9999] and print as ``<0.0001`` or ``>0.9999`` at those bounds. All entries are missing with more than 12 series.
 
    * - jt.max_eigen_pval
-     - Mx1 vector of missing values. p-values are not computed.
+     - Mx1 vector of upper-tail asymptotic p-values for the maximum-eigenvalue statistics, in rank order, with the same approximation, bounds and missing-value rule as ``jt.trace_pval``.

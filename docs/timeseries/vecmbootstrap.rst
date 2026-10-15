@@ -3,7 +3,7 @@ vecmBootstrap
 
 Purpose
 -------
-Bootstrap p-value for the Johansen trace test of the cointegrating rank. Useful in small samples and when the variance of the shocks changes over time.
+Bootstrap p-value for the Johansen trace test of the cointegrating rank, using recursive wild resampling of the fitted residuals.
 
 Format
 ------
@@ -54,8 +54,6 @@ Examples
     // Is there more than one relation?
     boot = vecmBootstrap(vr, r0=1);
 
-The two printouts:
-
 ::
 
     ================================================================================
@@ -70,7 +68,6 @@ The two printouts:
 
     Reject H0: rank <= 0 at the 5% level.
     ================================================================================
-
     ================================================================================
     Wild Bootstrap Johansen Trace Test
     Cavaliere, Rahbek & Taylor (2012, 2014)
@@ -84,8 +81,9 @@ The two printouts:
     Do not reject H0: rank <= 1 at the 5% level.
     ================================================================================
 
-Rank 0 is rejected and rank 1 is not, which agrees with the rank that
-:func:`johansenTest` selects from its critical values for these data.
+Compare each returned p-value with the chosen significance level. To compare
+with the asymptotic rank selection, also run :func:`johansenTest` with the
+same lag order and deterministic case.
 
 Remarks
 -------
@@ -106,7 +104,14 @@ Remarks
         {1 + \text{number of valid replications}} .
 
 Unlike the published algorithm, the procedure does not check the roots of
-the model estimated in step 1 before simulating from it.
+the model estimated in step 1 before simulating from it. For *r0* greater
+than zero, fit ``vecmFit(y, r0, p=vr.p, det_case=vr.det_case)`` on the same
+data and read ``Largest root (excl. M-r unit roots):`` in its printout. This
+is the largest companion modulus after setting aside the imposed unit
+roots; check that it is less than one. With *r0* = 0, :func:`vecmFit` is not
+available: for *p* at least 2, fit the VAR in differences described in
+:func:`vecmAuto` and check its companion roots. With *p* = 1 there are no
+lagged differences and hence no autoregressive roots to check.
 
 To choose a rank, test *r0* = 0, 1, 2, ... in turn and take the first *r0*
 that is not rejected.

@@ -12,7 +12,7 @@ Format
               vr = vecmFit(y, r, p=1, det_case=3, season=0, quiet=0)
               vr = vecmFit(y, r, ctl=ctl)
 
-   :param y: the series in levels, not differences. If a dataframe, the column names label the output.
+   :param y: the series in levels, not differences. If a dataframe, one date-typed column is removed before estimation and the remaining column names label the output; two or more date-typed columns are refused. Dates are not stored in the result.
    :type y: TxM matrix or dataframe
 
    :param r: cointegrating rank, 1 to M.
@@ -176,7 +176,7 @@ Remarks
 :math:`\alpha` (``vr.alpha``) the speed at which each series adjusts to them,
 and :math:`\Gamma_i` (``vr.Gamma``, or :func:`vecmGamma`) the short-run
 dynamics. :math:`\beta` is normalized so that its first *r* rows are the
-identity matrix.
+identity matrix; the first *r* series must enter and identify the cointegrating relations, so very large ``vr.beta_se`` values can signal an unsuitable choice of these series: reorder the columns of *y* and refit.
 
 **Deterministic terms.**
 

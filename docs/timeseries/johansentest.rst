@@ -11,7 +11,7 @@ Format
 .. function:: jt = johansenTest(y)
               jt = johansenTest(y, p=1, det_case=3, test_type="trace", season=0, quiet=0)
 
-   :param y: the series in levels. If a dataframe, the column names label the output.
+   :param y: the series in levels. If a dataframe, one date-typed column is removed before estimation and the remaining column names label the output; two or more date-typed columns are refused. Dates are not stored in the result.
    :type y: TxM matrix or dataframe
 
    :param p: Optional keyword, lag order of the model written in levels. The test regression uses ``p-1`` lagged differences. Default = 1.
@@ -147,8 +147,7 @@ each limiting distribution by the local approximation of MacKinnon (1996) and
 MacKinnon, Haug and Michelis (1999): a weighted cubic fit of the inverse normal
 probability on the eleven quantiles nearest the statistic. The tables cover
 p-values from 0.0001 to 0.9999; beyond them the bound is returned and printed
-as ``<0.0001`` or ``>0.9999``. With more than 12 variables the p-values of
-rows whose *M - r* is above 12 are missing values.
+as ``<0.0001`` or ``>0.9999``. With more than 12 variables all p-values are missing values.
 
 **Source of the tables.** The critical values and p-values use the tables of
 MacKinnon, Haug and Michelis (1999), published with the paper in the Journal

@@ -11,7 +11,7 @@ Format
 .. function:: vr = vecmAuto(y)
               vr = vecmAuto(y, p=1, det_case=3, season=0, quiet=0)
 
-   :param y: the series in levels. If a dataframe, the column names label the output.
+   :param y: the series in levels. If a dataframe, one date-typed column is removed before estimation and the remaining column names label the output; two or more date-typed columns are refused. Dates are not stored in the result.
    :type y: TxM matrix or dataframe
 
    :param p: Optional keyword, lag order of the model written in levels. It is used as given; :func:`vecmAuto` does not choose the lag order. Default = 1.
@@ -61,8 +61,8 @@ calls :func:`vecmFit` with that rank. It fits exactly the rank the test
 selects:
 
 - If the test selects rank 0 (no cointegration), :func:`vecmAuto` stops with
-  an error, because a VECM needs rank at least 1. Fit a VAR in differences, or
-  call :func:`vecmFit` with a rank you choose.
+  an error, because a VECM needs rank at least 1. Fit a VAR in differences
+  as described below, or call :func:`vecmFit` with a rank you choose.
 - If the sample is too short for the full-rank model (fewer than *k + M* rows
   in estimation, see :func:`vecmFit`), :func:`vecmAuto` stops with an error
   before running the test.
@@ -75,6 +75,41 @@ selects:
 When *quiet* is 0, the fitted model prints as :func:`vecmFit` does, with
 labelled beta and equation tables and coefficient standard errors. The
 returned structure has the same standard-error members.
+
+**Rank zero.** Use only the series without the date column in *y* before
+forming differences; the automatic removal inside :func:`vecmAuto` does not
+change the dataframe in your program. With *p* at least 2, form the first
+differences and fit ``p-1`` lags. For Case III (the default) or IV, the call is::
+
+    dy = y[2:rows(y),.] - y[1:rows(y)-1,.];
+    struct varResult diff_fit;
+    diff_fit = varFit(dy, p=p-1, const=1, trend=0);
+
+Here *p* is the levels lag order supplied to :func:`vecmAuto`. In Cases I
+and II use ``const=0, trend=0``: a restricted constant disappears at rank
+zero. In Case V use ``const=1, trend=1``. The trend in *dy* starts one
+period later in the original data, which its unrestricted constant absorbs.
+To retain the maximum-likelihood covariance convention, also pass
+``resid_cov="ml"``; :func:`varFit` otherwise uses its degrees-of-freedom divisor.
+
+If *season* was nonzero, also pass ``xreg=season_diff`` with the same centered
+seasonal columns for original data rows 2 to T. Constructing these columns
+before dropping the first row preserves the seasonal alignment::
+
+    season_diff = zeros(rows(y), season-1);
+    for season_idx (1, season-1, 1);
+        season_diff[.,season_idx] = ((seqa(0,1,rows(y)) % season) .== (season_idx-1)) - 1/season;
+    endfor;
+    season_diff = season_diff[2:rows(y),.];
+    diff_fit = varFit(dy, p=p-1, const=1, trend=0, xreg=season_diff);
+
+Use the same ``const`` and ``trend`` choices above for the selected case.
+With *p* = 1 there are no lagged differences, and :func:`varFit` does not fit
+zero lags. For Cases III and IV without seasonals, fit the mean of the
+differences, ``meanc(dy)'``. Cases I and II have zero fitted mean; Case V
+requires a regression of the differences on a constant and trend. With
+seasonals, regress the differences on the chosen deterministic terms and
+centered seasonal columns.
 
 To see the test table, or to select the rank with the maximum-eigenvalue
 statistic, call :func:`johansenTest` yourself and pass its rank to

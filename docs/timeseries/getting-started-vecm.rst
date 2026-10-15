@@ -65,34 +65,34 @@ Step 2: Choose the cointegrating rank
 
 ::
 
-    ================================================================================
+    ==============================================================================================
     Johansen Cointegration Test
     Det. case 3: Unrestricted constant
-    Lags: 2        Variables: 4        Obs: 84
-    ================================================================================
-    H0: rank      Eigenvalue    Trace Stat           10%            5%            1%
-    --------------------------------------------------------------------------------
-    r <= 0            0.4386       75.9321       44.4929       47.8545       54.6815
-    r <= 1            0.2128       28.5952       27.0669       29.7961       35.4628
-    r <= 2            0.1001        8.9711       13.4294       15.4943       19.9349
-    r <= 3            0.0039        0.3227        2.7055        3.8415        6.6349
+    Lags: 2        Variables: 4        Obs: 82 (84 rows)
+    ==============================================================================================
+    H0: rank      Eigenvalue    Trace Stat           10%            5%            1%       P value
+    ----------------------------------------------------------------------------------------------
+    r <= 0            0.4386       75.9321       44.4929       47.8545       54.6815       <0.0001
+    r <= 1            0.2128       28.5952       27.0669       29.7961       35.4628        0.0683
+    r <= 2            0.1001        8.9711       13.4294       15.4943       19.9349        0.3681
+    r <= 3            0.0039        0.3227        2.7055        3.8415        6.6349        0.5700
 
-    H0: rank      Eigenvalue      Max Stat           10%            5%            1%
-    --------------------------------------------------------------------------------
-    r =  0            0.4386       47.3369       25.1236       27.5858       32.7172
-    r =  1            0.2128       19.6241       18.8928       21.1314       25.8650
-    r =  2            0.1001        8.6483       12.2971       14.2639       18.5200
-    r =  3            0.0039        0.3227        2.7055        3.8415        6.6349
+    H0: rank      Eigenvalue      Max Stat           10%            5%            1%       P value
+    ----------------------------------------------------------------------------------------------
+    r =  0            0.4386       47.3369       25.1236       27.5858       32.7172       <0.0001
+    r =  1            0.2128       19.6241       18.8928       21.1314       25.8650        0.0802
+    r =  2            0.1001        8.6483       12.2971       14.2639       18.5200        0.3166
+    r =  3            0.0039        0.3227        2.7055        3.8415        6.6349        0.5700
 
     Selected rank (trace, 5%): 1
-    ================================================================================
+    ==============================================================================================
 
-Read the trace table from the top: rank 0 is rejected at 5% (75.93 is above
-47.85), rank at most 1 is not (28.60 is below 29.80). The selected rank,
-``jt.rank``, is 1.
+Read the trace table from the top: reject a rank while its statistic exceeds
+the 5% critical value and stop at the first rank that is not rejected. For
+these data, ``jt.rank`` is 1.
 
-With a short sample the critical values can be unreliable.
-:func:`vecmBootstrap` gives a bootstrap p-value for the same test:
+The critical values describe the asymptotic distribution.
+:func:`vecmBootstrap` also gives a bootstrap p-value for the trace test:
 
 ::
 
@@ -101,11 +101,13 @@ With a short sample the critical values can be unreliable.
 
     struct bootstrapResult boot;
     boot = vecmBootstrap(vr, r0=0, quiet=1);
-    print "p-value, rank 0:         " boot.p_value;       // 0.004
+    print "p-value, rank 0:         " boot.p_value;
     boot = vecmBootstrap(vr, r0=1, quiet=1);
-    print "p-value, rank at most 1: " boot.p_value;       // 0.352
+    print "p-value, rank at most 1: " boot.p_value;
 
-It agrees here: rank 0 is rejected, rank 1 is not.
+Compare each returned p-value with the chosen significance level. The
+bootstrap does not check the roots of the fit under the tested rank; see
+:func:`vecmBootstrap` before interpreting it.
 
 Step 3: Estimate the model
 --------------------------
@@ -117,46 +119,73 @@ Step 3: Estimate the model
 
 ::
 
+    VECM, maximum likelihood
     ================================================================================
-    VECM(2)     Rank: 1                                     Variables:             4
-    Method: Johansen ML                                  Observations:            84
-    Det. case 3: Unrestricted constant                                            82
-    ================================================================================
-    AIC:            -6.056          BIC:            -5.264          HQ:             -5.738
-    Log-Lik:       -190.12
-    ================================================================================
+    Rank:                              1    Lags:                                  2
+    Deterministic:  Unrestricted constant
+    Variables:                         4    Observations:                         84
+    Usable obs.:       82 (rows 3 to 84)    Log-likelihood:                  -190.12
+    AIC:                         -6.0560    BIC:                             -5.2635
+    HQ:                          -5.7378
+    Largest root (excl. M-r unit roots):              0.8534
 
-    Cointegrating vectors (beta, Johansen normalization):
+    Cointegrating vectors (beta): first r rows set to the identity
+    Cointegrating relation CE1
+    Coefficient    Coef.  Std. err.       z  p-value
+    ------------------------------------------------
+    e             1.0000          -       -        -
+    prod          0.1503     0.2012   0.747    0.455
+    rw           -0.2465     0.0303  -8.127  < 0.001
+    U             3.6128     0.3326  10.864  < 0.001
 
-        1.0000
-        0.1503
-       -0.2465
-        3.6128
+    Equation 1: D.e
+    Coefficient     Coef.  Std. err.       z  p-value
+    -------------------------------------------------
+    CE1            0.0132     0.0158   0.838    0.402
+    D.e(-1)        0.7656     0.1412   5.424  < 0.001
+    D.prod(-1)     0.1651     0.0638   2.588    0.010
+    D.rw(-1)      -0.0236     0.0560  -0.422    0.673
+    D.U(-1)        0.1421     0.1934   0.735    0.463
+    Constant     -12.2255    14.7387  -0.829    0.407
 
-    Adjustment coefficients (alpha):
-    CE1:
-      e               0.0132
-      prod            0.0666
-      rw             -0.1817
-      U              -0.0438
+    Equation 2: D.prod
+    Coefficient     Coef.  Std. err.       z  p-value
+    -------------------------------------------------
+    CE1            0.0666     0.0265   2.512    0.012
+    D.e(-1)       -0.2986     0.2372  -1.259    0.208
+    D.prod(-1)     0.1479     0.1072   1.379    0.168
+    D.rw(-1)       0.1232     0.0940   1.310    0.190
+    D.U(-1)       -0.8435     0.3250  -2.595    0.009
+    Constant     -61.9059    24.7637  -2.500    0.012
 
-    ================================================================================
-    Short-run dynamics (Gamma):
+    Equation 3: D.rw
+    Coefficient     Coef.  Std. err.       z  p-value
+    -------------------------------------------------
+    CE1           -0.1817     0.0322  -5.635  < 0.001
+    D.e(-1)       -0.1962     0.2883  -0.681    0.496
+    D.prod(-1)    -0.0437     0.1303  -0.336    0.737
+    D.rw(-1)      -0.0570     0.1143  -0.498    0.618
+    D.U(-1)        0.4351     0.3950   1.102    0.271
+    Constant     170.2479    30.0977   5.657  < 0.001
 
-        0.7656     0.1651    -0.0236     0.1421
-       -0.2986     0.1479     0.1232    -0.8435
-       -0.1962    -0.0437    -0.0570     0.4351
-       -0.5846    -0.0731    -0.0291    -0.1331
+    Equation 4: D.U
+    Coefficient    Coef.  Std. err.       z  p-value
+    ------------------------------------------------
+    CE1          -0.0438     0.0119  -3.696  < 0.001
+    D.e(-1)      -0.5846     0.1060  -5.514  < 0.001
+    D.prod(-1)   -0.0731     0.0479  -1.525    0.127
+    D.rw(-1)     -0.0291     0.0420  -0.692    0.489
+    D.U(-1)      -0.1331     0.1453  -0.916    0.360
+    Constant     41.0526    11.0694   3.709  < 0.001
 
-    Companion eigenvalues: max modulus =  1.000
-    ================================================================================
-
-- ``vr.beta`` is the long-run relation: ``e + 0.150 prod - 0.247 rw + 3.613 U``
-  is stationary.
+- ``vr.beta`` estimates the long-run relation, normalized on employment
+  (the first series).
 - ``vr.alpha`` says how each series reacts when that relation is away from
-  its mean. The real wage has the largest coefficient (-0.182).
+  its long-run value. The coefficient sign and size depend on the normalization
+  and the units of each series.
 - ``vr.Gamma`` holds the short-run dynamics; ``vr.alpha_se`` and
-  ``vr.beta_se`` hold standard errors.
+  ``vr.beta_se`` hold standard errors. ``vr.Gamma_se`` holds standard errors
+  for the lagged differences.
 
 :func:`vecmAuto` does steps 2 and 3 in one call.
 
@@ -187,16 +216,16 @@ relation involves the first three series only:
 
     struct lrTestResult test;
     test = vecmBetaTest(vr, h_mat);
-    print test.lr_stat test.df test.p_value;      // 5.058  1  0.0245
+    print test.lr_stat test.df test.p_value;
 
 Does productivity react to the relation at all?
 
 ::
 
     test = vecmAlphaTest(vr, 2);
-    print test.lr_stat test.df test.p_value;      // 5.481  1  0.0192
+    print test.lr_stat test.df test.p_value;
 
-Both hypotheses are rejected at the 5% level.
+Compare ``test.p_value`` with 0.05 for a test at the 5% level.
 
 Step 6: Forecast
 ----------------
@@ -235,6 +264,41 @@ Step 7: Impulse responses
 
     struct irfResult ir;
     ir = vecmIrf(vr, 20);
+
+::
+
+    Impulse responses: Cholesky (recursive) identification
+    ================================================================================
+    Model             VECM, rank 1
+    Shock size        one standard deviation
+    Horizons          0 to 20
+
+    Responses to e shock (point estimates)
+    h              e       prod         rw          U
+    -------------------------------------------------
+    0         0.3743     0.0020    -0.0726    -0.2000
+    1         0.6302     0.0282    -0.1691    -0.3758
+    2         0.7987     0.0467    -0.1676    -0.4712
+    3         0.9058     0.0228    -0.0876    -0.5209
+    4         0.9623    -0.0243     0.0390    -0.5358
+    5         0.9797    -0.0858     0.1956    -0.5238
+    6         0.9679    -0.1557     0.3681    -0.4929
+    7         0.9354    -0.2291     0.5456    -0.4494
+    8         0.8890    -0.3023     0.7198    -0.3984
+    9         0.8343    -0.3723     0.8848    -0.3439
+    10        0.7757    -0.4374     1.0369    -0.2890
+    11        0.7165    -0.4965     1.1737    -0.2358
+    12        0.6591    -0.5488     1.2940    -0.1860
+    13        0.6052    -0.5942     1.3977    -0.1406
+    14        0.5561    -0.6328     1.4853    -0.1001
+    15        0.5122    -0.6650     1.5577    -0.0648
+    16        0.4739    -0.6912     1.6164    -0.0346
+    17        0.4411    -0.7122     1.6628    -0.0093
+    18        0.4136    -0.7284     1.6984     0.0115
+    19        0.3910    -0.7406     1.7248     0.0282
+    20        0.3728    -0.7494     1.7434     0.0412
+
+    (The responses to the prod, rw and U shocks follow in three tables of the same form.)
 
 The responses are of the levels of the series to one-standard-deviation
 shocks, identified recursively in the order of the columns of *y*. In a
