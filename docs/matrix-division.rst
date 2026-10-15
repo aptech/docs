@@ -68,7 +68,14 @@ When either operand is a scalar, element-by-element division is performed:
 Remarks
 -------
 
-- For matrix division, computes the least squares solution using QR decomposition.
+- For a square, nonsingular coefficient matrix, matrix division solves ``a * y = b``.
+- For a tall coefficient matrix with full column rank, matrix division computes
+  the least squares solution. Real and complex matrices and multiple right-hand
+  sides are supported. For complex matrices, the solution satisfies
+  ``a' * (a * y - b) ≈ 0``, where ``'`` is conjugate transpose.
+- The dense tall-system calculation uses normal equations and Cholesky
+  factorization. This squares the condition number of ``a`` and can reduce
+  accuracy for poorly conditioned inputs.
 - If either operand is a scalar, element-by-element division is performed (equivalent to ``./``).
 
 .. seealso:: Operators :doc:`element-by-element-division`, :doc:`matrix-multiplication`, Functions :func:`solve`, :func:`inv`
