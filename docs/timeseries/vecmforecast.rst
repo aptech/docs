@@ -135,9 +135,17 @@ horizon grows for every series that is itself integrated. Only the forecast
 errors of the cointegrating combinations :math:`\beta' y`, which the
 procedure does not report, stay bounded.
 
-**Seasonal dummies and regressors.** A model fit with seasonal dummies or
-your own regressors cannot be forecast, because the forecast would need
-future values of those regressors.
+**Seasonal dummies.** Models fitted with ``season=s`` can be forecast.
+The procedure continues the seasonal cycle from the last data row and uses
+the same centered columns as estimation: column *j* is ``1-1/s`` in season
+*j* and ``-1/s`` otherwise, for *j* = 1, ..., *s*-1. The first input row is
+season 1; row *i* is season ``mod(i-1,s)+1``. For quarterly data ending in
+season 3, the first forecast uses season 4, then seasons 1, 2 and 3.
+These dummies are known, so their future values require no extra input.
+
+**User regressors.** A model fitted with user regressors in ``ctl.xreg``
+cannot be forecast because their future values are required. This also
+applies when the fit includes both user regressors and seasonal dummies.
 
 References
 ----------

@@ -305,6 +305,68 @@ shocks, identified recursively in the order of the columns of *y*. In a
 cointegrated system a shock can move the levels permanently, so the
 responses need not return to zero.
 
+Quarterly Denmark example
+-------------------------
+
+The Denmark data of Johansen and Juselius (1990) contain log real money
+(``LRM``), log real income (``LRY``), the bond rate (``IBO``) and the deposit
+rate (``IDE``), in that order. This example uses two lags in levels, a
+constant inside the cointegrating relation (case 2), and centered quarterly
+dummies. The first data row is season 1.
+
+For this specification, the trace test does not reject rank zero at 5%:
+the statistic is 49.1444 against a critical value of 54.0779, with P value
+0.1282. The maximum-eigenvalue test does reject rank zero: 30.0875 against
+28.5876, with P value 0.0319. The two tests therefore give different evidence
+at this step. This example uses rank one, the choice of Johansen and
+Juselius (1990) for these data. Inspect the rank tests and residual
+diagnostics before using the forecasts.
+
+::
+
+    new;
+    library timeseries;
+    struct johansenResult denmark_rank;
+    struct johansenResult denmark_max;
+    struct vecmResult denmark_fit;
+    struct diagResult denmark_diag;
+    struct lrTestResult deposit_test;
+    struct lrTestResult income_test;
+    struct forecastResult denmark_fc;
+
+    denmark_data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/vecm_family_denmark.csv"));
+    denmark_rank = johansenTest(denmark_data, p=2, det_case=2, season=4);
+    denmark_max = johansenTest(denmark_data, p=2, det_case=2, season=4, test_type="max");
+    denmark_fit = vecmFit(denmark_data, 1, p=2, det_case=2, season=4);
+    denmark_diag = vecmDiagnostics(denmark_fit);
+
+    // Exclude IDE while allowing LRM, LRY, IBO and the restricted constant.
+    money_h = { 1 0 0 0,
+                0 1 0 0,
+                0 0 1 0,
+                0 0 0 0,
+                0 0 0 1 };
+    deposit_test = vecmBetaTest(denmark_fit, money_h);
+
+    // Test whether income does not adjust to the cointegrating relation.
+    income_test = vecmAlphaTest(denmark_fit, 2);
+
+    denmark_fc = vecmForecast(denmark_fit, 8, level=0.95);
+
+``deposit_test`` tests whether the deposit rate can be excluded from the
+relation. ``income_test`` tests whether real income is weakly exogenous for
+the cointegrating vector. Compare each returned ``p_value`` with the chosen
+significance level; failure to reject does not establish the hypothesis.
+The seasonal coefficients remain unrestricted in both tests.
+
+``denmark_fc.forecasts`` contains eight rows of level forecasts, in the
+same four-column order as the data. ``denmark_fc.lower`` and
+``denmark_fc.upper`` hold the corresponding 95% bounds. The 55 data rows end
+in season 3, so the forecast begins in season 4. Future seasonal dummies are
+constructed automatically. The intervals include future shocks only.
+User regressors in ``ctl.xreg`` remain unavailable in these three procedures;
+:func:`vecmBootstrap` also remains unavailable for seasonal fits.
+
 What Next
 ---------
 
@@ -314,3 +376,11 @@ What Next
 - :func:`vecmToVar` writes the fitted model as a VAR in levels.
 
 .. seealso:: Functions :func:`johansenTest`, :func:`vecmFit`, :func:`vecmAuto`, :func:`vecmDiagnostics`, :func:`vecmBetaTest`, :func:`vecmAlphaTest`, :func:`vecmBootstrap`, :func:`vecmForecast`, :func:`vecmIrf`, :func:`vecmToVar`
+
+References
+----------
+
+- Johansen, S. and K. Juselius (1990). Maximum likelihood estimation and
+  inference on cointegration, with applications to the demand for money.
+  *Oxford Bulletin of Economics and Statistics*, 52(2), 169-210.
+  `doi:10.1111/j.1468-0084.1990.mp52002003.x <https://doi.org/10.1111/j.1468-0084.1990.mp52002003.x>`_.

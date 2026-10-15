@@ -10,7 +10,7 @@ Format
 
 .. function:: test = vecmBetaTest(vr, h_mat, quiet=0)
 
-   :param vr: an instance of a :class:`vecmResult` structure returned by :func:`vecmFit` or :func:`vecmAuto`, fit without seasonal dummies or regressors.
+   :param vr: an instance of a :class:`vecmResult` structure returned by :func:`vecmFit` or :func:`vecmAuto`, fit without user regressors in ``ctl.xreg``.
    :type vr: struct
 
    :param h_mat: restriction matrix *H*. It has as many rows as ``vr.beta`` (M, or M+1 in deterministic cases 2 and 4) and *s* linearly independent columns, with *s* at least the rank *r*.
@@ -92,6 +92,14 @@ hypothesis or the result.
 By default, the procedure prints the null hypothesis ``beta = H * phi``,
 LR statistic, degrees of freedom and chi-square p-value. Use ``quiet=1`` to
 suppress the block and read the members of *test*.
+
+Models fitted with ``season=s`` are supported. The stored centered
+seasonal columns are included in both the unrestricted and restricted
+estimation. Their coefficients are unrestricted; the hypothesis still
+applies only to the cointegrating vectors.
+
+Fits with user regressors in ``ctl.xreg`` are not supported, including fits
+that also contain seasonal dummies.
 
 References
 ----------

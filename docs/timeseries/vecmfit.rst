@@ -206,8 +206,10 @@ then the seasonal dummies.
 
 A fit with seasonal dummies or your own regressors can be passed to
 :func:`vecmIrf`, :func:`vecmDiagnostics` and :func:`vecmToVar`.
-:func:`vecmForecast`, :func:`vecmBetaTest`, :func:`vecmAlphaTest` and
-:func:`vecmBootstrap` do not accept it.
+:func:`vecmForecast`, :func:`vecmBetaTest` and :func:`vecmAlphaTest` also accept
+seasonal dummies, but refuse user regressors in ``ctl.xreg``. Future seasonal
+columns are constructed automatically for forecasts. :func:`vecmBootstrap`
+continues to refuse both seasonal dummies and user regressors.
 
 **Residual covariance.** ``vr.sigma_u`` is the maximum likelihood estimate
 :math:`\hat U'\hat U / T`, with *T* the number of rows used in estimation. It

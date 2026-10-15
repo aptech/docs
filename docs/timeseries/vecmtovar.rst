@@ -97,8 +97,8 @@ because the VAR in levels then has unit roots.
 VECM was fit without seasonal dummies or your own regressors: they need only
 the coefficients, the residual covariance and the data, so conditional
 forecasts and scenarios keep the long-run relations of the VECM. A result
-from a fit with seasonal dummies or regressors is refused, because their
-future values would be needed. These procedures do not accept the result:
+from a fit with seasonal dummies or user regressors is refused by these
+three procedures. These procedures do not accept the result:
 :func:`varForecast`, :func:`irfCompute`, :func:`hdCompute`,
 :func:`varDiagnostics`, :func:`forecastModel`, :func:`forecastEval`,
 ``forecastCompare``, :func:`grangerTest`, :func:`varResults` and

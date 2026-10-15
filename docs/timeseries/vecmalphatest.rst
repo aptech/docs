@@ -10,7 +10,7 @@ Format
 
 .. function:: test = vecmAlphaTest(vr, var_idx, quiet=0)
 
-   :param vr: an instance of a :class:`vecmResult` structure returned by :func:`vecmFit` or :func:`vecmAuto`, fit without seasonal dummies or regressors and with rank at most M-1.
+   :param vr: an instance of a :class:`vecmResult` structure returned by :func:`vecmFit` or :func:`vecmAuto`, fit without user regressors in ``ctl.xreg`` and with rank at most M-1.
    :type vr: struct
 
    :param var_idx: which series to test, 1 to M, in the order of the columns of *y*.
@@ -86,6 +86,14 @@ One series is tested per call. With rank *r* = *M* no row of
 By default, the procedure prints the null hypothesis, LR statistic, degrees
 of freedom and chi-square p-value. The weak-exogeneity block names the tested
 series. Use ``quiet=1`` to suppress the block and read the members of *test*.
+
+Models fitted with ``season=s`` are supported. The stored centered
+seasonal columns are included in both the unrestricted and restricted
+estimation. Their coefficients are unrestricted; the hypothesis still
+applies only to the selected row of the adjustment matrix.
+
+Fits with user regressors in ``ctl.xreg`` are not supported, including fits
+that also contain seasonal dummies.
 
 References
 ----------
