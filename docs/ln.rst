@@ -47,4 +47,4 @@ will compute a complex result.
 *x* can be any expression that returns a matrix.
 
 
-.. seealso:: Functions :func:`log`, :func:`ln1p`
+.. seealso:: Functions :func:`log`, :func:`ln1p`, :func:`lnsumexp`, :func:`lndiffexp`

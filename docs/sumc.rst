@@ -89,4 +89,4 @@ Variable ``z`` is a 2x4x1 array equal to:
           57.000000
           60.000000
 
-.. seealso:: Functions :func:`cumsumc`, :func:`meanc`, :func:`stdc`
+.. seealso:: Functions :func:`cumsumc`, :func:`meanc`, :func:`stdc`, :func:`lnsumexp`

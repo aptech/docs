@@ -45,4 +45,4 @@ its elements.
 
 .. NOTE:: :code:`exp(1)` returns *e*, the base of natural logs.
 
-.. seealso:: Functions :func:`ln`, :func:`expm1`
+.. seealso:: Functions :func:`ln`, :func:`expm1`, :func:`lnsumexp`, :func:`lndiffexp`

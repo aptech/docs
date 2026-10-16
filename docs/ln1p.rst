@@ -50,4 +50,4 @@ zero. Any nonzero imaginary element generates an error, regardless of the
 complex-number setting or imaginary tolerance. Strings, structs, sparse
 matrices and dataframes are not accepted.
 
-.. seealso:: Functions :func:`ln`, :func:`exp`, :func:`expm1`
+.. seealso:: Functions :func:`ln`, :func:`exp`, :func:`expm1`, :func:`lnsumexp`, :func:`lndiffexp`

@@ -43,6 +43,7 @@ L
     lncdfnc
     lncdfn
     lncdfmvn
+    lndiffexp
     lnfact
     lngamma
     lngammacplx
@@ -52,6 +53,7 @@ L
     lnpdft
     ln
     ln1p
+    lnsumexp
     loadarray
     loadd
     loaddsa
