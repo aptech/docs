@@ -9,9 +9,9 @@ Format
 ------
 
 .. function:: vr = vecmAuto(y)
-              vr = vecmAuto(y, p=1, det_case=3, season=0, quiet=0)
+              vr = vecmAuto(y, p=1, det_case=3, season=0, quiet=0, freq="")
 
-   :param y: the series in levels. If a dataframe, one date-typed column is removed before estimation and the remaining column names label the output; two or more date-typed columns are refused. Dates are not stored in the result.
+   :param y: the series in levels. If a dataframe, one date-typed column is removed before estimation and the remaining column names label the output; two or more date-typed columns are refused. The input-row dates are stored in ``vr.dates`` and the resolved frequency in ``vr.freq``. There is no ``dates=`` keyword.
    :type y: TxM matrix or dataframe
 
    :param p: Optional keyword, lag order of the model written in levels. It is used as given; :func:`vecmAuto` does not choose the lag order. Default = 1.
@@ -26,11 +26,25 @@ Format
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
 
+   :param freq: Optional keyword, calendar frequency: ``"annual"``, ``"quarterly"`` (or ``"q"``), ``"monthly"``, ``"weekly"`` or ``"daily"``. Default = ``""``, inferred from a date column. Irregular spacing or fewer than three dates requires an explicit frequency. A nonempty frequency without a date column is refused.
+   :type freq: string
+
    :return vr: An instance of a :class:`vecmResult` structure, the same as :func:`vecmFit` returns at the selected rank:
 
        .. include:: include/vecmresult.rst
 
    :rtype vr: struct
+
+Dates and seasons
+-----------------
+
+An undated fit has empty ``dates`` and ``freq`` members. A dated fit keeps
+one date for every input row, including the rows used only for lags.
+:func:`vecmForecast` extends that index and prints period labels.
+Dates must be finite and strictly increasing even when ``freq`` is supplied.
+
+Seasonal dummies use row order: data row 1 is season 1 and row *i* is season
+``mod(i-1,season)+1``. Calendar dates and ``freq`` do not change this rule.
 
 Examples
 --------

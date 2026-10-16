@@ -83,6 +83,8 @@ column per equation, with the rows ordered as in a :func:`varFit` result.
 ``var_result.sigma`` is the maximum likelihood residual covariance of the
 VECM (``var_result.resid_cov`` is ``"vecm"``). The residuals, the fitted
 levels, the data and the information criteria of the VECM are carried over.
+``dates`` and ``freq`` also carry over unchanged. An undated fit keeps them
+empty. Dates do not change the seasonal rule: data row 1 is season 1.
 No standard errors are computed for the levels coefficients: ``se``,
 ``tstat``, ``pval`` and ``vcov`` are empty.
 
@@ -96,7 +98,8 @@ because the VAR in levels then has unit roots.
 :func:`scenarioPath` and :func:`scenarioCompare` accept the result when the
 VECM was fit without seasonal dummies or your own regressors: they need only
 the coefficients, the residual covariance and the data, so conditional
-forecasts and scenarios keep the long-run relations of the VECM. A result
+forecasts and scenarios keep the long-run relations of the VECM. Their
+forecast dates and frequency come from the converted record. A result
 from a fit with seasonal dummies or user regressors is refused by these
 three procedures. These procedures do not accept the result:
 :func:`varForecast`, :func:`irfCompute`, :func:`hdCompute`,

@@ -103,6 +103,12 @@
    * - vr.xreg
      - (n_obs)x(n_exo) matrix, your own regressors and the seasonal dummies in the rows used in estimation (data rows p+1 to T). Column names from your regressors are retained in the metadata. Empty if there are none.
 
+   * - vr.dates
+     - Tx1 POSIX date index of all input rows, including initial lag rows. Empty for an undated fit.
+
+   * - vr.freq
+     - String, resolved calendar frequency: annual, quarterly, monthly, weekly or daily. Empty for an undated fit. Seasonal dummies still start with season 1 in data row 1, independently of dates.
+
 Standard errors for ``alpha``, ``Gamma``, ``phi_det`` and ``phi_exo`` are
 conditional on the estimated beta. They use ``sigma_u``, with divisor
 ``n_obs = T-p`` for the residual cross-products, and no degrees-of-freedom

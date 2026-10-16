@@ -9,10 +9,10 @@ Format
 ------
 
 .. function:: vr = vecmFit(y, r)
-              vr = vecmFit(y, r, p=1, det_case=3, season=0, quiet=0)
+              vr = vecmFit(y, r, p=1, det_case=3, season=0, quiet=0, ctl={}, freq="")
               vr = vecmFit(y, r, ctl=ctl)
 
-   :param y: the series in levels, not differences. If a dataframe, one date-typed column is removed before estimation and the remaining column names label the output; two or more date-typed columns are refused. Dates are not stored in the result.
+   :param y: the series in levels, not differences. If a dataframe, one date-typed column is removed before estimation and the remaining column names label the output; two or more date-typed columns are refused. The input-row dates are stored in ``vr.dates`` and the resolved frequency in ``vr.freq``. There is no ``dates=`` keyword.
    :type y: TxM matrix or dataframe
 
    :param r: cointegrating rank, 1 to M.
@@ -36,11 +36,26 @@ Format
 
    :type ctl: struct
 
+   :param freq: Optional keyword, calendar frequency: ``"annual"``, ``"quarterly"`` (or ``"q"``), ``"monthly"``, ``"weekly"`` or ``"daily"``. Default = ``""``, inferred from a date column. Irregular spacing or fewer than three dates requires an explicit frequency. A nonempty frequency without a date column is refused. This keyword also applies when *ctl* is supplied.
+   :type freq: string
+
    :return vr: An instance of a :class:`vecmResult` structure containing:
 
        .. include:: include/vecmresult.rst
 
    :rtype vr: struct
+
+Dates and seasons
+-----------------
+
+An undated fit has empty ``dates`` and ``freq`` members. A dated fit keeps
+one date for every input row, including the rows used only for lags.
+:func:`vecmForecast` extends that index and prints period labels.
+Dates must be finite and strictly increasing even when ``freq`` is supplied.
+
+Seasonal dummies use row order: data row 1 is season 1 and row *i* is season
+``mod(i-1,season)+1``. Calendar dates and ``freq`` do not change this rule.
+For example, if data row 1 is 1990Q3, Season 1 is the third quarter.
 
 Examples
 --------

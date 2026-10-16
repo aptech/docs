@@ -130,7 +130,7 @@ Cointegration and VECM
    * - :func:`vecmBetaTest`
      - Likelihood ratio test of linear restrictions on the cointegrating vectors.
    * - :func:`vecmAlphaTest`
-     - Likelihood ratio test of weak exogeneity of one variable.
+     - Likelihood ratio test of joint weak exogeneity for a chosen set of variables.
    * - :func:`vecmBootstrap`
      - Wild bootstrap of the Johansen trace test for a chosen rank.
 

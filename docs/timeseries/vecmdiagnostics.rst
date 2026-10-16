@@ -44,6 +44,8 @@ Examples
     fname = getGAUSSHome("pkgs/timeseries/examples/data/canada.csv");
     y = loadd(fname);
 
+    struct vecmResult vr;
+    struct diagResult d;
     vr = vecmFit(y, 1, p=2, det_case=3, quiet=1);
     d = vecmDiagnostics(vr);
 
@@ -51,23 +53,14 @@ The printout:
 
 ::
 
-    ================================================================================
     VECM Residual Diagnostics
     ================================================================================
-
-    Portmanteau (Ljung-Box), lags=12:
-      Q statistic:     160.860   df:   172   p-value:    0.7184
-
-    Breusch-Godfrey LM, lags=5:
-      LM statistic:      89.176   df:    80   p-value:    0.2261
-
-    Jarque-Bera (normality):
-      JB statistic:       4.721   df:     8   p-value:    0.7870
-
-    ARCH-LM, lags=4:
-      LM statistic:      20.793   df:    16   p-value:    0.1866
-
-    ================================================================================
+    Test                                     Statistic      df     p-value
+    ----------------------------------------------------------------------
+    Portmanteau (Ljung-Box), lags=12           160.860     172      0.7184
+    Breusch-Godfrey LM, lags=5                  89.176      80      0.2261
+    Jarque-Bera (normality)                      4.721       8      0.7870
+    ARCH-LM, lags=4                             20.793      16      0.1866
 
 Remarks
 -------

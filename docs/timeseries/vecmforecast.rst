@@ -55,6 +55,15 @@ Format
           * - fc.model
             - String, ``"VECM"``.
 
+          * - fc.training_dates
+            - Tx1 POSIX date index from the fit; empty for an undated fit.
+
+          * - fc.freq
+            - String, resolved frequency from the fit; empty for an undated fit.
+
+          * - fc.forecast_dates
+            - hx1 POSIX dates following the last input date; empty for an undated fit.
+
        The other members of the structure, which other forecast procedures use, are left empty or zero.
 
    :rtype fc: struct
@@ -135,12 +144,22 @@ horizon grows for every series that is itself integrated. Only the forecast
 errors of the cointegrating combinations :math:`\beta' y`, which the
 procedure does not report, stay bounded.
 
+**Dates.** A fit with a date column gives dated forecasts. The printed table
+uses period labels (for example, ``2001Q1`` or ``2001M01``); an undated fit
+uses step numbers. Monthly and quarterly forecasts stay at month end when
+every input date is a month end; otherwise they keep the day of month of
+the last input date, cut back for shorter months.
+Weekly and daily forecasts advance by seven days and one day respectively.
+Seasonal dummies remain based on row order: input row 1 is season 1,
+independently of the calendar dates or frequency.
+
 **Seasonal dummies.** Models fitted with ``season=s`` can be forecast.
 The procedure continues the seasonal cycle from the last data row and uses
 the same centered columns as estimation: column *j* is ``1-1/s`` in season
 *j* and ``-1/s`` otherwise, for *j* = 1, ..., *s*-1. The first input row is
-season 1; row *i* is season ``mod(i-1,s)+1``. For quarterly data ending in
-season 3, the first forecast uses season 4, then seasons 1, 2 and 3.
+season 1; row *i* is season ``mod(i-1,s)+1``.
+For example, if data row 1 is 1990Q3, Season 1 is the third quarter.
+For quarterly data ending in season 3, the first forecast uses season 4, then seasons 1, 2 and 3.
 These dummies are known, so their future values require no extra input.
 
 **User regressors.** A model fitted with user regressors in ``ctl.xreg``

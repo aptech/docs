@@ -58,8 +58,8 @@ The procedure prints:
 
     Cointegrating coefficient restriction test
     ================================================================================
-    Null hypothesis: Each cointegrating vector is a linear combination of the columns of H (beta = H * phi).
-    LR statistic:                 5.0576    Degrees of freedom:                     1
+    Null hypothesis: Every beta column is a linear combination of the columns of H.
+    LR statistic:                 5.0576    Chi-square df:                         1
     Chi-square p:                  0.025
 
 The statistic is 5.0576 on 1 degree of freedom, p-value 0.025: at the 5%

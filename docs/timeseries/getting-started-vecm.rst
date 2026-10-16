@@ -55,6 +55,12 @@ Two settings are yours to choose and are used by every step:
   constant and suits series with linear trends. See :func:`vecmFit` for the
   five cases.
 
+If the input dataframe includes one date-typed column, ``vecmFit`` and
+``vecmAuto`` keep that calendar and ``vecmForecast`` supplies the following
+periods in ``fc.forecast_dates``. Use ``freq=`` for irregular dates or fewer
+than three dates. An undated input keeps empty date members. Dates never
+set the seasonal phase: data row 1 remains season 1.
+
 Step 2: Choose the cointegrating rank
 -------------------------------------
 
@@ -65,11 +71,11 @@ Step 2: Choose the cointegrating rank
 
 ::
 
-    ==============================================================================================
     Johansen Cointegration Test
+    ================================================================================
     Det. case 3: Unrestricted constant
     Lags: 2        Variables: 4        Obs: 82 (84 rows)
-    ==============================================================================================
+
     H0: rank      Eigenvalue    Trace Stat           10%            5%            1%       P value
     ----------------------------------------------------------------------------------------------
     r <= 0            0.4386       75.9321       44.4932       47.8564       54.6847       <0.0001
@@ -79,13 +85,12 @@ Step 2: Choose the cointegrating rank
 
     H0: rank      Eigenvalue      Max Stat           10%            5%            1%       P value
     ----------------------------------------------------------------------------------------------
-    r =  0            0.4386       47.3369       25.1238       27.5856       32.7171       <0.0001
-    r =  1            0.2128       19.6241       18.8925       21.1323       25.8613        0.0802
-    r =  2            0.1001        8.6483       12.2969       14.2644       18.5193        0.3166
-    r =  3            0.0039        0.3227        2.7055        3.8415        6.6349        0.5700
+    r = 0             0.4386       47.3369       25.1238       27.5856       32.7171       <0.0001
+    r = 1             0.2128       19.6241       18.8925       21.1323       25.8613        0.0802
+    r = 2             0.1001        8.6483       12.2969       14.2644       18.5193        0.3166
+    r = 3             0.0039        0.3227        2.7055        3.8415        6.6349        0.5700
 
     Selected rank (trace, 5%): 1
-    ==============================================================================================
 
 Read the trace table from the top: reject a rank while its statistic exceeds
 the 5% critical value and stop at the first rank that is not rejected. For
@@ -222,6 +227,7 @@ Does productivity react to the relation at all?
 
 ::
 
+    print "";
     test = vecmAlphaTest(vr, 2);
     print test.lr_stat test.df test.p_value;
 
