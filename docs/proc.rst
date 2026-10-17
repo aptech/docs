@@ -88,6 +88,21 @@ Procedure definitions may not be nested.
 
 For more details on writing procedures, see `Procedures and Keywords <PK-ProceduresandKeywords.html>`_,
 
+Named options with dynamic arguments
+------------------------------------
+
+In GAUSS 27, a procedure can declare defaulted named options before a final
+``...``. Required arguments come first. At a call, positional arguments after
+the required arguments belong to ``...``; supply options by name after the data.
+For example, ``proc f(x, scale=1, ...);`` accepts ``f(x, data, scale=2)``.
+``f(x, data)`` uses ``scale=1`` and still passes ``data`` as a dynamic argument.
+The option is not included in :func:`dynargsCount`.
+
+This is the pattern used by ``minimize(&f, x0, data, method="nelder-mead")``.
+Calls to procedures without ``...`` retain their existing positional handling
+of defaulted parameters. Unknown or repeated option names, and positional
+arguments following named options, are errors.
+
 Examples
 --------
 
