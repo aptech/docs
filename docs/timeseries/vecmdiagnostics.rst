@@ -20,7 +20,7 @@ Format
    :param lm_lags: Optional keyword, number of lagged residuals in the LM test. Default = 5.
    :type lm_lags: scalar
 
-   :param arch_lags: Optional keyword, number of lags of squared residuals in the ARCH-LM test. Default = 4.
+   :param arch_lags: Optional keyword, number of lags of residual products in the ARCH-LM tests. Default = 4.
    :type arch_lags: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -57,10 +57,76 @@ The printout:
     ================================================================================
     Test                                     Statistic      df     p-value
     ----------------------------------------------------------------------
-    Portmanteau (Ljung-Box), lags=12           160.860     172      0.7184
-    Breusch-Godfrey LM, lags=5                  89.176      80      0.2261
+    Portmanteau (Ljung-Box), 12 lags           160.860     172      0.7184
+    Breusch-Godfrey LM, 5 lags                  89.176      80      0.2261
     Jarque-Bera (normality)                      4.721       8      0.7870
-    ARCH-LM, lags=4                             20.793      16      0.1866
+    ARCH-LM, multivariate, 4 lags              478.648     400      0.0041
+
+    ARCH-LM per equation, 4 lags
+    Equation                   Statistic      df     p-value
+    --------------------------------------------------------
+    e                               6.91       4      0.1405
+    prod                            3.77       4      0.4378
+    rw                              1.72       4      0.7879
+    U                               8.39       4      0.0782
+
+The installed example gives the following multivariate ARCH-LM results.
+The default remains *arch_lags* = 4.
+
+.. list-table:: Canada VECM, rank 1 and two lags in levels
+   :header-rows: 1
+
+   * - arch_lags
+     - Auxiliary observations (*n*)
+     - Statistic
+     - df
+     - p-value
+   * - 1
+     - 81
+     - 119.791837
+     - 100
+     - 0.086444
+   * - 2
+     - 80
+     - 235.342802
+     - 200
+     - 0.044052
+   * - 3
+     - 79
+     - 367.488101
+     - 300
+     - 0.004677
+   * - 4
+     - 78
+     - 478.647715
+     - 400
+     - 0.004145
+
+At four lags, the separate equation tests each have four degrees of freedom:
+
+.. list-table:: Separate equation tests, arch_lags = 4
+   :header-rows: 1
+
+   * - Equation
+     - Statistic
+     - p-value
+   * - e
+     - 6.913911
+     - 0.140508
+   * - prod
+     - 3.771291
+     - 0.437842
+   * - rw
+     - 1.715304
+     - 0.787936
+   * - U
+     - 8.392944
+     - 0.078200
+
+The four-lag multivariate test rejects at 5%, while none of these separate
+equation tests does. The multivariate result depends on the lag count and
+uses a chi-square approximation with 400 degrees of freedom for 78 auxiliary
+observations, so interpret it with the finite-sample caveat below.
 
 Remarks
 -------
@@ -120,11 +186,51 @@ largest *lm_lags* that works; the other tests are still reported.
 by the Cholesky factor of their covariance, chi-square on :math:`2m`
 degrees of freedom. The result depends on the order of the variables.
 
-**ARCH-LM.** For each equation, the squared residual is regressed on a
-constant and its own *arch_lags* lags; the statistic is the sum over
-equations of :math:`(T - q)R^2` (Engle 1982), chi-square on
-:math:`m \cdot q` degrees of freedom with :math:`q` = *arch_lags*. It is
-not the full multivariate ARCH test.
+**Multivariate ARCH-LM.** Demean each residual over all *T* observations.
+Form :math:`v_t=\operatorname{vech}(u_tu_t')`, stacking columns from the
+main diagonal down, and regress it on a constant and *q* = *arch_lags*
+lags of itself. Drop the first *q* rows, so :math:`n=T-q`. With
+:math:`d=m(m+1)/2`, the statistic is
+
+.. math::
+
+   LM_{ARCH}(q)=n\left[d-\operatorname{tr}(\hat\Omega_0^{-1}\hat\Omega)\right],
+   \qquad df=q d^2= q m^2(m+1)^2/4.
+
+Here :math:`\hat\Omega` is the covariance of the auxiliary residuals and
+:math:`\hat\Omega_0` is the covariance from a constant-only regression
+on the same *n* rows, with the same divisor. The p-value uses a chi-square
+with *df* degrees of freedom. No adjustment is made for the estimated
+cointegrating vectors. This tests changes in variances and
+cross-equation covariances (Kilian and Lutkepohl 2017, section 2.7.3;
+Lutkepohl 2005, section 16.5.1; Doornik and Hendry 1997, section 10.9.2.4).
+
+GaussLib requires at least *d* residual degrees of freedom after the
+:math:`1+qd` regressors. This is GaussLib's sample guard, not a requirement
+stated by the textbook. The multivariate statistic and p-value are missing
+when :math:`n-(1+qd)<d`, the auxiliary regression is singular, or
+:math:`\hat\Omega_0` is not positive definite. The nominal degrees of
+freedom remain available. For too few observations, *arch_note* gives the
+largest *arch_lags* allowed by the sample guard,
+:math:`\max(0,\lfloor(T-1-d)/(d+1)\rfloor)`; the design and covariance must
+also be nonsingular.
+
+The test can have low power in finite samples, and the chi-square with
+:math:`qd^2` degrees of freedom can be a poor approximation when that number
+is large relative to the sample. Bootstrap critical values are an alternative
+(Kilian and Lutkepohl 2017, section 2.7.3).
+
+**Per-equation ARCH-LM.** Each demeaned residual squared is regressed on
+a constant and *q* own lags, also dropping the first *q* rows.
+The separate Engle (1982) statistics are :math:`nR_i^2`, each compared
+with chi-square(*q*). They are retained when the multivariate test is
+unavailable. A constant squared residual or a singular regression gives
+a missing result for that equation and an *arch_eq_reason* code.
+Each equation needs at least :math:`q+2` auxiliary observations, leaving
+at least one residual degree of freedom; a saturated fit is missing with
+reason 1. These are separate tests, each at its own significance level,
+not a joint test: testing *m* equations at 5% rejects more often than 5%
+overall. Their statistics are not added together for joint inference.
 
 References
 ----------
@@ -132,6 +238,10 @@ References
 - Bruggemann, R., H. Lutkepohl and P. Saikkonen (2006). "Residual autocorrelation testing for vector error correction models." *Journal of Econometrics*, 134(2), 579-604.
 - Engle, R.F. (1982). "Autoregressive conditional heteroscedasticity with estimates of the variance of United Kingdom inflation." *Econometrica*, 50(4), 987-1007.
 - Kilian, L. and H. Lutkepohl (2017). *Structural Vector Autoregressive Analysis*. Cambridge University Press.
+
+- Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer.
+
+- Doornik, J.A. and D.F. Hendry (1997). *Modelling Dynamic Systems Using PcFiml 9.0 for Windows*. International Thomson Business Press.
 
 Library
 -------

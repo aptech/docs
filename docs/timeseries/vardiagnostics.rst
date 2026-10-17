@@ -20,7 +20,7 @@ Format
    :param lm_lags: Optional keyword, number of lagged residuals in the LM test. Default = 5.
    :type lm_lags: scalar
 
-   :param arch_lags: Optional keyword, number of lags of squared residuals in the ARCH-LM test. Default = 4.
+   :param arch_lags: Optional keyword, number of lags of residual products in the ARCH-LM tests. Default = 4.
    :type arch_lags: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -63,7 +63,15 @@ The printout begins:
     LM (Breusch-Godfrey), 5 lags              137.91          80   <0.0001
     LM, F form (Rao), 5 lags                    1.67     80, 755    0.0004
     Normality (Jarque-Bera)                  2742.06           8   <0.0001
-    ARCH-LM, 4 lags                            59.83          16   <0.0001
+    ARCH-LM, multivariate, 4 lags             792.35         400   <0.0001
+
+    ARCH-LM per equation, 4 lags
+    Equation                   Statistic      df     p-value
+    --------------------------------------------------------
+    gdp_growth                      1.36       4      0.8509
+    inflation                       1.42       4      0.8412
+    unemployment                   21.84       4      0.0002
+    fed_funds                      35.21       4     <0.0001
 
 Remarks
 -------
@@ -136,12 +144,51 @@ second degrees of freedom, for *lm_lags* = 1 to 4, as printed there.
 by the Cholesky factor of their covariance, chi-square on :math:`2m`
 degrees of freedom. The result depends on the order of the variables.
 
-**ARCH-LM.** For each equation, the squared residual is regressed on a
-constant and its own *arch_lags* lags; the statistic is the sum over
-equations of :math:`(T - q)R^2` (Engle 1982), chi-square on
-:math:`m \cdot q` degrees of freedom with :math:`q` = *arch_lags*. It tests
-whether the size of the shocks changes over time, equation by equation;
-it is not the full multivariate ARCH test.
+**Multivariate ARCH-LM.** Demean each residual over all *T* observations.
+Form :math:`v_t=\operatorname{vech}(u_tu_t')`, stacking columns from the
+main diagonal down, and regress it on a constant and *q* = *arch_lags*
+lags of itself. Drop the first *q* rows, so :math:`n=T-q`. With
+:math:`d=m(m+1)/2`, the statistic is
+
+.. math::
+
+   LM_{ARCH}(q)=n\left[d-\operatorname{tr}(\hat\Omega_0^{-1}\hat\Omega)\right],
+   \qquad df=q d^2= q m^2(m+1)^2/4.
+
+Here :math:`\hat\Omega` is the covariance of the auxiliary residuals and
+:math:`\hat\Omega_0` is the covariance from a constant-only regression
+on the same *n* rows, with the same divisor. The p-value uses a chi-square
+with *df* degrees of freedom. This tests changes in variances and
+cross-equation covariances (Kilian and Lutkepohl 2017, section 2.7.3;
+Lutkepohl 2005, section 16.5.1; Doornik and Hendry 1997, section 10.9.2.4).
+
+GaussLib requires at least *d* residual degrees of freedom after the
+:math:`1+qd` regressors. This is GaussLib's sample guard, not a requirement
+stated by the textbook. The multivariate statistic and p-value are missing
+when :math:`n-(1+qd)<d`, the auxiliary regression is singular, or
+:math:`\hat\Omega_0` is not positive definite. The nominal degrees of
+freedom remain available. For too few observations, *arch_note* gives the
+largest *arch_lags* allowed by the sample guard,
+:math:`\max(0,\lfloor(T-1-d)/(d+1)\rfloor)`; the design and covariance must
+also be nonsingular.
+
+The test can have low power in finite samples, and the chi-square with
+:math:`qd^2` degrees of freedom can be a poor approximation when that number
+is large relative to the sample. Bootstrap critical values are an alternative
+(Kilian and Lutkepohl 2017, section 2.7.3).
+
+**Per-equation ARCH-LM.** Each demeaned residual squared is regressed on
+a constant and *q* own lags, also dropping the first *q* rows.
+The separate Engle (1982) statistics are :math:`nR_i^2`, each compared
+with chi-square(*q*). They are retained when the multivariate test is
+unavailable. A constant squared residual or a singular regression gives
+a missing result for that equation and an *arch_eq_reason* code.
+Each equation needs at least :math:`q+2` auxiliary observations, leaving
+at least one residual degree of freedom; a saturated fit is missing with
+reason 1. These are separate tests, each at its own significance level,
+not a joint test: testing *m* equations at 5% rejects more often than 5%
+overall. Their statistics are not added together for joint inference.
+
 
 varDiagnostics takes least-squares fits only: the reference distributions
 above are derived for least-squares residuals, and results from
@@ -156,6 +203,8 @@ References
 - Engle, R.F. (1982). "Autoregressive conditional heteroscedasticity with estimates of the variance of United Kingdom inflation." *Econometrica*, 50(4), 987-1007.
 - Kilian, L. and H. Lutkepohl (2017). *Structural Vector Autoregressive Analysis*. Cambridge University Press.
 - Lutkepohl, H. (2005). *New Introduction to Multiple Time Series Analysis*. Springer.
+
+- Doornik, J.A. and D.F. Hendry (1997). *Modelling Dynamic Systems Using PcFiml 9.0 for Windows*. International Thomson Business Press.
 
 Library
 -------

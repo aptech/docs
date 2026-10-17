@@ -3,7 +3,7 @@ forecastModel
 
 Purpose
 -------
-Names one model for :func:`forecastEval`: a fitted VAR or BVAR whose settings are refitted at every start date, or a model specification such as ``"AR(bic)"``.
+Names one model for :func:`forecastEval`: a fitted VAR, BVAR or VECM whose settings are refitted at every start date, or a model specification such as ``"AR(bic)"``.
 
 Format
 ------
@@ -11,15 +11,19 @@ Format
 .. function:: md = forecastModel(model)
               md = forecastModel(model, name="Minnesota BVAR")
               md = forecastModel(bvar_fit, point="posterior_mean")
+              md = forecastModel(vecm_fit, rank=0)
 
-   :param model: a :func:`varFit` or :func:`bvarFit` result, or a specification string accepted by :func:`forecastEval` (``"AR(bic)"``, ``"naive"``, ``"ARIMA(1,0,0)"``, ...).
+   :param model: a :func:`varFit`, :func:`bvarFit` or :func:`vecmFit` result, or a specification string accepted by :func:`forecastEval` (``"AR(bic)"``, ``"naive"``, ``"ARIMA(1,0,0)"``, ...).
    :type model: struct or string
 
-   :param name: Optional keyword, label used in the tables. Default = the specification, ``"VAR(p)"`` or ``"BVAR(p)"`` (``"BVAR(p), posterior mean"`` with ``point="posterior_mean"``).
+   :param name: Optional keyword, label used in the tables. Default = the specification, ``"VAR(p)"``, ``"BVAR(p)"`` (``"BVAR(p), posterior mean"`` with ``point="posterior_mean"``), ``"VECM(p), rank r"`` or ``"VAR in differences (rank 0, p=p)"``. Here *p* is the levels lag order and *r* is the cointegration rank.
    :type name: string
 
    :param point: Optional keyword, the point forecast of a BVAR. ``"predictive"``: the mean of the predictive draws, with bands. ``"posterior_mean"``: iterated from the posterior-mean coefficients; no draws are made, so the model has no bands. Only for a :func:`bvarFit` result. Default = ``"predictive"``.
    :type point: string
+
+   :param rank: Optional keyword for a :func:`vecmFit` result. ``{}`` keeps the fitted rank. An explicit rank must be a whole number from 0 to M - 1, where M is the number of variables. ``rank=0`` fits a VAR in differences, with forecasts cumulated to levels. Default = ``{}``.
+   :type rank: scalar
 
    :return md: An instance of a :class:`forecastModel` structure. Join several with ``|`` to pass them to :func:`forecastEval`.
    :rtype md: struct
@@ -63,7 +67,24 @@ A fitted model is a recipe. :func:`forecastEval` keeps its lag order and
 constant, a VAR's trend and residual covariance choice, and a BVAR's prior
 and prior settings, and re-estimates it at every start date on the data
 available then; its estimates are not used. Models with
-exogenous regressors (*xreg*) are not supported yet.
+user regressors (*xreg* or ``ctl.xreg``) are not supported yet.
+
+**VECM models.** Pass the :func:`vecmFit` result, including a result with
+seasonal dummies. A :func:`vecmToVar` result cannot be refitted as a VECM
+because it does not retain the rank, deterministic case and seasonal frequency.
+The VECM descriptor stores those settings, the lag order *p* in levels and the
+variable names. Its coefficients and residual covariance are re-estimated at
+every start date; its rank is held fixed and rank selection is not repeated.
+Fits with user regressors in ``ctl.xreg``, unfitted results and
+``point="posterior_mean"`` are refused.
+
+With ``rank=0``, the model has no error-correction term. Johansen (1995),
+chapter 5, gives these remaining terms in the equation for differences:
+Cases I and II, none; Cases III and IV, a constant; Case V, a constant and
+linear trend. Seasonal dummies are included when fitted. The default name is
+``"VAR in differences (rank 0, p=p)"``, with the fitted lag order substituted
+for the last *p*. Forecasts and bands are in levels. The default positive-rank
+name is ``"VECM(p), rank r"``.
 
 Each model in a list needs a different *name*.
 
@@ -87,13 +108,19 @@ forecastModel
    * - name
      - String, label in the tables.
    * - kind
-     - String, ``"spec"``, ``"var"`` or ``"bvar"``.
+     - String, ``"spec"``, ``"var"``, ``"bvar"`` or ``"vecm"``.
    * - spec
      - String, the specification ("" for a fitted model).
    * - var_names
      - String array, the variables of a fitted model.
    * - p, const
-     - Scalars, lag order and constant flag of a fitted model.
+     - Scalars, lag order in levels and constant flag of a fitted model.
+   * - rank
+     - Scalar, VECM rank held fixed at every start date; 0 gives a VAR in differences.
+   * - det_case
+     - Scalar, VECM Johansen deterministic case (1 to 5).
+   * - season
+     - Scalar, VECM seasonal frequency (0 for none; otherwise at least 2).
    * - trend
      - Scalar, 1 if a fitted VAR has a linear trend.
    * - resid_cov
@@ -106,6 +133,7 @@ forecastModel
 References
 ----------
 
+- Johansen, S. (1995). *Likelihood-Based Inference in Cointegrated Vector Autoregressive Models*, chapter 5.
 - Banbura, M., D. Giannone and L. Reichlin (2010). "Large Bayesian vector auto regressions." *Journal of Applied Econometrics*, 25(1), 71-92.
 
 Library
@@ -116,4 +144,4 @@ Source
 ------
 forecast_eval.src
 
-.. seealso:: Functions :func:`forecastEval`, :func:`varFit`, :func:`bvarFit`
+.. seealso:: Functions :func:`forecastEval`, :func:`varFit`, :func:`bvarFit`, :func:`vecmFit`

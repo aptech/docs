@@ -13,10 +13,10 @@ Format
               fe = forecastEval(y, models, target="defl", train_end="2009-Q4", h=4, benchmark="AR(bic)", periods=P)
               fe = forecastEval(y, forecasts=F, names="My model", train_end="1920", h=5)
 
-   :param y: the data: one series, or a dataframe with named columns and an optional date column. Fitted VAR and BVAR models find their variables in *y* by name.
+   :param y: the data: one series, or a dataframe with named columns and an optional date column. Fitted VAR, BVAR and VECM models find their variables in *y* by name.
    :type y: Nx1 vector or dataframe
 
-   :param models: the models to evaluate: a string array of model specifications, each refitted on every target variable alone (see Remarks); a :func:`varFit` or :func:`bvarFit` result; or several models made by :func:`forecastModel` and joined with ``|``.
+   :param models: the models to evaluate: a string array of model specifications, each refitted on every selected variable alone (see Remarks); a :func:`varFit`, :func:`bvarFit` or :func:`vecmFit` result; or several models made by :func:`forecastModel` and joined with ``|``.
    :type models: string array or struct
 
    :param target: Optional keyword, name of the variable to score, or a string array of names. Default = the variables of the first fitted model, or the series when *y* has one column.
@@ -210,6 +210,196 @@ Model specifications are strings, so a list can also be kept in a variable:
     string models = { "auto", "ETS", "AR(bic)" };
     fe = forecastEval(nile, models, train_end="1920", h=5);
 
+VECM models
++++++++++++
+
+A :func:`forecastModel` made from a :func:`vecmFit` result is refitted on the
+training rows at each start date. Its levels lag order, cointegration rank,
+Johansen deterministic case and seasonal frequency are held fixed; rank
+selection is not repeated. A rank chosen using later observations can therefore
+influence the evaluation. Choose the specification on the initial training
+sample when the comparison must exclude that information.
+
+Use ``forecastModel(fit, rank=0)`` for a VAR in differences with the same levels
+lag order and seasonal dummies. Cases I/II have no deterministic term in the
+differences; III/IV have a constant; V has a constant and trend. The forecasts
+are cumulated to levels and scored against observed levels. All fitted models
+find their variables in *y* by name and can be joined in the same model list.
+
+For nested models, such as a VECM against its ``rank=0`` model or a VAR
+against a smaller VAR, the DM test of whether the larger model is more
+accurate has the wrong size: its nominal p-values for that one-sided
+question are too large (Clark and McCracken 2001; Clark and West 2007).
+:func:`cwTest` gives the Clark and West adjusted test for that question.
+This issue is not limited to expanding estimation windows. A slightly
+higher RMSE for the larger model can reflect estimation noise even when
+it is the right model.
+
+Centered seasonal dummies keep the calendar of the complete data in expanding
+and rolling samples: data row 1 is season 1.
+Consistently restarting the training and future seasonal calendar changes the
+centered dummy basis, requiring no intercept shift and leaving levels forecasts
+equal apart from numerical rounding.
+Deterministic trends use the row
+indices within each training sample and continue into its forecast period.
+Each requested band level is computed from normal quantiles and levels forecast
+standard errors using the fitted ML residual covariance. These intervals include
+future shocks only. The predictive median equals the point forecast. Empirical
+coverage is the observed share inside each band, rather than a guarantee of
+nominal coverage. Too few observations or a native estimation failure produces
+a failed fit and a message; evaluation continues at the later start dates.
+
+For example, compare eight one-quarter forecasts of Danish money demand:
+
+::
+
+    new;
+    library timeseries;
+    string series_names = { "a", "b", "c", "d" };
+    y = asMatrix(loadd(getGAUSSHome("pkgs/timeseries/examples/data/vecm_family_denmark.csv")));
+    y = asdf(y, series_names);
+    fit = vecmFit(y, 1, p=2, det_case=2, season=4, quiet=1);
+    models = forecastModel(fit, name="VECM")
+           | forecastModel(fit, rank=0, name="Differences");
+    fe = forecastEval(y, models, train_end=47, h=1, benchmark="Differences",
+        levels=0.68 | 0.90);
+
+The output is:
+
+::
+
+    Pseudo out-of-sample forecast evaluation: a
+    ================================================================================
+    Estimation samples: rows 1-47 (first), expanding to rows 1-54; 8 start dates
+    Models refitted at every start date; lag order and prior settings held as given.
+    VECM rank, lag order, deterministic case and seasonals held fixed at every start date.
+    RMSE relative to Differences (below 1 is better).
+    Diebold-Mariano test vs Differences: * 10%  ** 5%  *** 1%
+
+    Horizon  Differences RMSE  VECM  Obs
+    ------------------------------------
+    1                  0.0206  1.03    8
+
+    Bias: average of forecast minus outcome (positive: forecasts too high).
+    Test of zero bias (Newey-West): * 10%  ** 5%  *** 1%
+
+    Horizon  Differences       VECM
+    -------------------------------
+    1            -0.0001  0.0120*  
+
+    Share of outcomes inside the 68% band (%)
+
+    Horizon  Differences  VECM
+    --------------------------
+    1                 88    62
+
+    Share of outcomes inside the 90% band (%)
+
+    Horizon  Differences  VECM
+    --------------------------
+    1                 88    88
+
+    Failed fits: none
+
+    Pseudo out-of-sample forecast evaluation: b
+    ================================================================================
+    Estimation samples: rows 1-47 (first), expanding to rows 1-54; 8 start dates
+    Models refitted at every start date; lag order and prior settings held as given.
+    VECM rank, lag order, deterministic case and seasonals held fixed at every start date.
+    RMSE relative to Differences (below 1 is better).
+    Diebold-Mariano test vs Differences: * 10%  ** 5%  *** 1%
+
+    Horizon  Differences RMSE  VECM  Obs
+    ------------------------------------
+    1                  0.0157  1.09    8
+
+    Bias: average of forecast minus outcome (positive: forecasts too high).
+    Test of zero bias (Newey-West): * 10%  ** 5%  *** 1%
+
+    Horizon  Differences    VECM
+    ----------------------------
+    1             0.0062  0.0002
+
+    Share of outcomes inside the 68% band (%)
+
+    Horizon  Differences  VECM
+    --------------------------
+    1                 88    75
+
+    Share of outcomes inside the 90% band (%)
+
+    Horizon  Differences  VECM
+    --------------------------
+    1                100   100
+
+    Failed fits: none
+
+    Pseudo out-of-sample forecast evaluation: c
+    ================================================================================
+    Estimation samples: rows 1-47 (first), expanding to rows 1-54; 8 start dates
+    Models refitted at every start date; lag order and prior settings held as given.
+    VECM rank, lag order, deterministic case and seasonals held fixed at every start date.
+    RMSE relative to Differences (below 1 is better).
+    Diebold-Mariano test vs Differences: * 10%  ** 5%  *** 1%
+
+    Horizon  Differences RMSE  VECM  Obs
+    ------------------------------------
+    1                  0.0067  1.01    8
+
+    Bias: average of forecast minus outcome (positive: forecasts too high).
+    Test of zero bias (Newey-West): * 10%  ** 5%  *** 1%
+
+    Horizon  Differences     VECM
+    -----------------------------
+    1             0.0000  -0.0016
+
+    Share of outcomes inside the 68% band (%)
+
+    Horizon  Differences  VECM
+    --------------------------
+    1                 62    75
+
+    Share of outcomes inside the 90% band (%)
+
+    Horizon  Differences  VECM
+    --------------------------
+    1                100    88
+
+    Failed fits: none
+
+    Pseudo out-of-sample forecast evaluation: d
+    ================================================================================
+    Estimation samples: rows 1-47 (first), expanding to rows 1-54; 8 start dates
+    Models refitted at every start date; lag order and prior settings held as given.
+    VECM rank, lag order, deterministic case and seasonals held fixed at every start date.
+    RMSE relative to Differences (below 1 is better).
+    Diebold-Mariano test vs Differences: * 10%  ** 5%  *** 1%
+
+    Horizon  Differences RMSE  VECM  Obs
+    ------------------------------------
+    1                  0.0022  0.88    8
+
+    Bias: average of forecast minus outcome (positive: forecasts too high).
+    Test of zero bias (Newey-West): * 10%  ** 5%  *** 1%
+
+    Horizon  Differences     VECM
+    -----------------------------
+    1             0.0011  -0.0005
+
+    Share of outcomes inside the 68% band (%)
+
+    Horizon  Differences  VECM
+    --------------------------
+    1                100   100
+
+    Share of outcomes inside the 90% band (%)
+
+    Horizon  Differences  VECM
+    --------------------------
+    1                100   100
+
+    Failed fits: none
+
 Remarks
 -------
 
@@ -236,12 +426,14 @@ start date with only the data available then, on each target variable alone:
    * - ``"AR(bic)"``, ``"AR(p)"``
      - Autoregression with a constant; lag order by BIC (0 to max(4, 2 *period*)) or fixed.
 
-**Fitted VAR and BVAR models.** A :func:`varFit` or :func:`bvarFit` result
+**Fitted VAR, BVAR and VECM models.** A :func:`varFit`, :func:`bvarFit` or
+:func:`vecmFit` result
 passed directly or through :func:`forecastModel` is a recipe: its lag order
-and constant, a VAR's trend and residual covariance choice, and a BVAR's
-prior and prior settings are kept, and the model is refitted on its own
-variables at every start date. These are not re-chosen at each start date. Models with exogenous regressors are not
-supported yet.
+and constant, a VAR's trend and residual covariance choice, a BVAR's
+prior settings, and a VECM's rank, deterministic case and seasonal frequency
+are kept, and the model is refitted on its own
+variables at every start date. These are not re-chosen at each start date.
+Models with user regressors in *xreg* or ``ctl.xreg`` are not supported yet.
 
 **No look-ahead.** Every fit, including the automatic ARIMA and ETS searches,
 the BIC lag choice and a BVAR's prior residual scales, uses only observations
@@ -271,8 +463,9 @@ England's forecast evaluation (Abiry et al. 2026).
 
 **Band coverage.** The share of outcomes inside each band; an outcome on a
 band edge counts as inside. BVAR bands are quantiles of the predictive
-draws; VAR, ARIMA and ETS bands are the models' own intervals (VAR intervals
-leave out coefficient uncertainty). Naive, snaive, drift and mean forecasts
+draws; VAR, VECM, ARIMA and ETS bands are the models' own intervals (VAR and
+VECM intervals include future shocks only and leave out coefficient
+uncertainty). Naive, snaive, drift and mean forecasts
 have no band, nor does a BVAR with ``point="posterior_mean"``.
 
 **Failed fits** are recorded in *status* and *status_messages*, excluded, and
@@ -285,6 +478,19 @@ Reichlin 2010).
 **Diebold-Mariano test.** Stars compare each model with the benchmark using
 :func:`dmTest` on squared errors, two-sided, with the horizon as *h*; the
 default variant has the Harvey-Leybourne-Newbold correction.
+For nested models, such as a VECM against its ``rank=0`` model or a VAR
+against a smaller VAR, the DM test of whether the larger model is more
+accurate has the wrong size: its nominal p-values for that one-sided
+question are too large (Clark and McCracken 2001; Clark and West 2007).
+:func:`cwTest` gives the Clark and West adjusted test for that question.
+This issue is not limited to expanding estimation windows. A slightly
+higher RMSE for the larger model can reflect estimation noise even when
+it is the right model.
+
+Here a positive DM statistic means the model has higher observed squared
+loss than the benchmark. For the larger model against its nested smaller
+model, the statistic is shifted upward under the null, so a positive
+statistic's nominal two-sided p-value is too small.
 
 Central banks call this exercise pseudo out-of-sample forecast evaluation with
 a recursive (expanding) or rolling window; Hyndman & Athanasopoulos
@@ -309,7 +515,7 @@ With one target the rows are just the start dates or horizons.
    * - specs
      - Mx1 string array, specifications ("" for fitted and *forecasts* models).
    * - model_kinds
-     - Mx1 string array, ``"spec"``, ``"var"``, ``"bvar"`` or ``"user"``.
+     - Mx1 string array, ``"spec"``, ``"var"``, ``"bvar"``, ``"vecm"`` or ``"user"``.
    * - model_points
      - Mx1 string array, how each BVAR was forecast: ``"predictive"`` (mean of the predictive draws) or ``"posterior_mean"`` (from the posterior-mean coefficients, no bands); "" for other models.
    * - benchmark
@@ -360,6 +566,8 @@ With one target the rows are just the start dates or horizons.
 References
 ----------
 
+- Clark, T.E. and M.W. McCracken (2001). "Tests of equal forecast accuracy and encompassing for nested models." *Journal of Econometrics*, 105(1), 85-110.
+- Clark, T.E. and K.D. West (2007). "Approximately normal tests for equal predictive accuracy in nested models." *Journal of Econometrics*, 138(1), 291-311.
 - Banbura, M., D. Giannone and L. Reichlin (2010). "Large Bayesian vector auto regressions." *Journal of Applied Econometrics*, 25(1), 71-92.
 - Diebold, F.X. and R.S. Mariano (1995). "Comparing predictive accuracy." *Journal of Business & Economic Statistics*, 13(3), 253-263.
 - Abiry, R., J. Hurley, P. Labonne, D. Latto, H. Li, A. Moreira, J. Oyegoke and S. Singh (2026). "Learning from forecast errors: the Bank's enhanced approach to forecast evaluation." Bank of England Macro Technical Paper No. 6.
@@ -375,4 +583,4 @@ Source
 ------
 forecast_eval.src
 
-.. seealso:: Functions :func:`forecastModel`, :func:`dmTest`, :func:`fcScore`, :func:`varFit`, :func:`bvarFit`, :func:`arimaFit`, :func:`autoArima`, :func:`etsFit`
+.. seealso:: Functions :func:`forecastModel`, :func:`dmTest`, :func:`cwTest`, :func:`fcScore`, :func:`varFit`, :func:`bvarFit`, :func:`arimaFit`, :func:`autoArima`, :func:`etsFit`

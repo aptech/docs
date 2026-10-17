@@ -32,4 +32,12 @@
    * - vd.arch_lags
      - Scalar, lags in each ARCH-LM regression.
    * - vd.arch_stat, vd.arch_df, vd.arch_pval
-     - Scalars, ARCH-LM statistic, degrees of freedom (:math:`m \cdot` *arch_lags*) and p-value.
+     - Scalars, multivariate ARCH-LM statistic, degrees of freedom (:math:`q m^2(m+1)^2/4`, :math:`q` = *arch_lags*) and p-value.
+   * - vd.arch_note, vd.arch_reason
+     - String explanation and numeric code: 0 available, 1 too few observations, 3 singular auxiliary regression, 4 non-positive-definite covariance of residual products, 5 numerical failure. The statistic and p-value are missing when unavailable; the nominal df is retained.
+   * - vd.arch_eq_stat, vd.arch_eq_pval
+     - mx1 vectors of separate per-equation Engle ARCH-LM statistics and p-values, computed from demeaned residuals.
+   * - vd.arch_eq_df
+     - Scalar, *arch_lags* degrees of freedom for each equation.
+   * - vd.arch_eq_reason
+     - mx1 numeric codes, as for *arch_reason*; code 2 means constant squared residuals. An unavailable equation has missing statistic and p-value.

@@ -149,6 +149,8 @@ uses period labels (for example, ``2001Q1`` or ``2001M01``); an undated fit
 uses step numbers. Monthly and quarterly forecasts stay at month end when
 every input date is a month end; otherwise they keep the day of month of
 the last input date, cut back for shorter months.
+Annual forecasts keep the day of month of the last input date, cut back
+for shorter months.
 Weekly and daily forecasts advance by seven days and one day respectively.
 Seasonal dummies remain based on row order: input row 1 is season 1,
 independently of the calendar dates or frequency.

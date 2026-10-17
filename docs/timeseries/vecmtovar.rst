@@ -107,7 +107,10 @@ three procedures. These procedures do not accept the result:
 ``forecastCompare``, :func:`grangerTest`, :func:`varResults` and
 :func:`varCoefTable`. Use :func:`vecmForecast`, :func:`vecmIrf` and
 :func:`vecmDiagnostics` for forecasts, impulse responses and residual checks
-of a VECM.
+of a VECM. For forecast evaluation, pass the original :func:`vecmFit`
+result to :func:`forecastModel` and :func:`forecastEval`. That result retains
+the rank, lag order, deterministic case and seasonal frequency needed for
+refitting; a converted VAR does not.
 
 References
 ----------

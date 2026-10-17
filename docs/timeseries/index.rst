@@ -194,9 +194,9 @@ Diagnostics
    :widths: auto
 
    * - :func:`varDiagnostics`
-     - Residual checks of a least-squares VAR fit: portmanteau and LM autocorrelation tests, normality, ARCH.
+     - Residual checks of a least-squares VAR fit: portmanteau and LM autocorrelation tests, normality, multivariate and per-equation ARCH-LM.
    * - :func:`vecmDiagnostics`
-     - Residual checks of a VECM fit: portmanteau and LM autocorrelation tests, normality, ARCH.
+     - Residual checks of a VECM fit: portmanteau and LM autocorrelation tests, normality, multivariate and per-equation ARCH-LM.
    * - :func:`ljungBoxTest`
      - Ljung-Box test of autocorrelation in one or more series.
    * - :func:`mcmcDiagnostics`
