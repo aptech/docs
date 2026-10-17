@@ -16,13 +16,13 @@ Format
    :param model: a :func:`varFit`, :func:`bvarFit` or :func:`vecmFit` result, or a specification string accepted by :func:`forecastEval` (``"AR(bic)"``, ``"naive"``, ``"ARIMA(1,0,0)"``, ...).
    :type model: struct or string
 
-   :param name: Optional keyword, label used in the tables. Default = the specification, ``"VAR(p)"``, ``"BVAR(p)"`` (``"BVAR(p), posterior mean"`` with ``point="posterior_mean"``), ``"VECM(p), rank r"`` or ``"VAR in differences (rank 0, p=p)"``. Here *p* is the levels lag order and *r* is the cointegration rank.
+   :param name: Optional keyword, label used in the tables. Default = the specification, ``"VAR(p)"``, ``"BVAR(p)"`` (``"BVAR(p), posterior mean"`` with ``point="posterior_mean"``), ``"VECM(p), rank r"``, ``"VAR in differences (rank 0, p=p)"`` or ``"VAR in levels (rank M, p=p)"``. Here *p* is the levels lag order and *r* is the cointegration rank.
    :type name: string
 
    :param point: Optional keyword, the point forecast of a BVAR. ``"predictive"``: the mean of the predictive draws, with bands. ``"posterior_mean"``: iterated from the posterior-mean coefficients; no draws are made, so the model has no bands. Only for a :func:`bvarFit` result. Default = ``"predictive"``.
    :type point: string
 
-   :param rank: Optional keyword for a :func:`vecmFit` result. ``{}`` keeps the fitted rank. An explicit rank must be a whole number from 0 to M - 1, where M is the number of variables. ``rank=0`` fits a VAR in differences, with forecasts cumulated to levels. Default = ``{}``.
+   :param rank: Optional keyword for a :func:`vecmFit` result. ``{}`` keeps the fitted rank. An explicit rank must be a whole number from 0 to M, where M is the number of variables. ``rank=0`` fits a VAR in differences, with forecasts cumulated to levels. Default = ``{}``.
    :type rank: scalar
 
    :return md: An instance of a :class:`forecastModel` structure. Join several with ``|`` to pass them to :func:`forecastEval`.
@@ -83,7 +83,7 @@ chapter 5, gives these remaining terms in the equation for differences:
 Cases I and II, none; Cases III and IV, a constant; Case V, a constant and
 linear trend. Seasonal dummies are included when fitted. The default name is
 ``"VAR in differences (rank 0, p=p)"``, with the fitted lag order substituted
-for the last *p*. Forecasts and bands are in levels. The default positive-rank
+for the last *p*. Forecasts and bands are in levels. For ranks 1 through M-1 the default
 name is ``"VECM(p), rank r"``.
 
 Each model in a list needs a different *name*.
@@ -145,3 +145,12 @@ Source
 forecast_eval.src
 
 .. seealso:: Functions :func:`forecastEval`, :func:`varFit`, :func:`bvarFit`, :func:`vecmFit`
+
+An explicit ``rank=M`` is accepted, just as ``rank={}`` retains a fitted full
+rank. This model is a VAR in levels and its default name says so. It should
+not be described as a cointegrated model. GaussLib offers no adjusted test
+for a VECM against rank zero: its added regressor is I(1) under the null.
+The derivation of :func:`cwTest` in Clark and West (RWP 05-05, section 3)
+assumes stationary predictors; it applies to nested stationary models,
+such as a VAR against a smaller VAR. See their `working paper
+<https://www.kansascityfed.org/documents/5368/pdf-RWP05-05.pdf>`_.

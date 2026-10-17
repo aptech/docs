@@ -230,7 +230,10 @@ For nested models, such as a VECM against its ``rank=0`` model or a VAR
 against a smaller VAR, the DM test of whether the larger model is more
 accurate has the wrong size: its nominal p-values for that one-sided
 question are too large (Clark and McCracken 2001; Clark and West 2007).
-:func:`cwTest` gives the Clark and West adjusted test for that question.
+GaussLib offers no adjusted test for a VECM against rank zero:
+the added levels regressor is I(1) under the null. The derivation of
+:func:`cwTest` in Clark and West (RWP 05-05, section 3) assumes stationary predictors and applies to nested stationary
+models, such as a VAR against a smaller VAR.
 This issue is not limited to expanding estimation windows. A slightly
 higher RMSE for the larger model can reflect estimation noise even when
 it is the right model.
@@ -460,6 +463,7 @@ every start date. The printout names the models forecast this way, and
 the errors are regressed on a constant with a Newey-West standard error
 (Bartlett weights, *h* - 1 lags) and a normal reference, as in the Bank of
 England's forecast evaluation (Abiry et al. 2026).
+With few forecast errors, this normal approximation can be poor.
 
 **Band coverage.** The share of outcomes inside each band; an outcome on a
 band edge counts as inside. BVAR bands are quantiles of the predictive
@@ -482,7 +486,10 @@ For nested models, such as a VECM against its ``rank=0`` model or a VAR
 against a smaller VAR, the DM test of whether the larger model is more
 accurate has the wrong size: its nominal p-values for that one-sided
 question are too large (Clark and McCracken 2001; Clark and West 2007).
-:func:`cwTest` gives the Clark and West adjusted test for that question.
+GaussLib offers no adjusted test for a VECM against rank zero:
+the added levels regressor is I(1) under the null. The derivation of
+:func:`cwTest` in Clark and West (RWP 05-05, section 3) assumes stationary predictors and applies to nested stationary
+models, such as a VAR against a smaller VAR.
 This issue is not limited to expanding estimation windows. A slightly
 higher RMSE for the larger model can reflect estimation noise even when
 it is the right model.
@@ -567,7 +574,7 @@ References
 ----------
 
 - Clark, T.E. and M.W. McCracken (2001). "Tests of equal forecast accuracy and encompassing for nested models." *Journal of Econometrics*, 105(1), 85-110.
-- Clark, T.E. and K.D. West (2007). "Approximately normal tests for equal predictive accuracy in nested models." *Journal of Econometrics*, 138(1), 291-311.
+- Clark, T.E. and K.D. West (2007). "Approximately normal tests for equal predictive accuracy in nested models." *Journal of Econometrics*, 138(1), 291-311. Stationarity: authors' working paper RWP 05-05, section 3, pp. 10-11 (`PDF <https://www.kansascityfed.org/documents/5368/pdf-RWP05-05.pdf>`_).
 - Banbura, M., D. Giannone and L. Reichlin (2010). "Large Bayesian vector auto regressions." *Journal of Applied Econometrics*, 25(1), 71-92.
 - Diebold, F.X. and R.S. Mariano (1995). "Comparing predictive accuracy." *Journal of Business & Economic Statistics*, 13(3), 253-263.
 - Abiry, R., J. Hurley, P. Labonne, D. Latto, H. Li, A. Moreira, J. Oyegoke and S. Singh (2026). "Learning from forecast errors: the Bank's enhanced approach to forecast evaluation." Bank of England Macro Technical Paper No. 6.
