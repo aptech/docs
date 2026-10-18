@@ -37,18 +37,18 @@ Examples
   // Number of observations
   numObs = 150;
 
-  // Compute AIC
+  // Compute AICc
   aicc = ssgetAICC(ll, df_model, numObs);
 
 The code above results in the following:
 
 ::
 
-  aic = 80.682
+  aicc = 80.682
 
 Source
 ------
 
-ssmain.src
+ssdiagnostics.src
 
 .. seealso:: Functions :func:`ssgetAIC`, :func:`ssgetBIC`, :func:`ssgetHQIC`

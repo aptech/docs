@@ -43,6 +43,6 @@ The code above results in the following:
 Source
 ------
 
-ssmain.src
+ssdiagnostics.src
 
 .. seealso:: Functions :func:`ssgetAICC`, :func:`ssgetBIC`, :func:`ssgetHQIC`

@@ -5,7 +5,7 @@ ssLjungBox
 Purpose
 ----------------
 
-Computes the Ljung-Box test of the null hypothesis that the residuals are independently distributed..
+Computes the Ljung-Box test for autocorrelation.
 
 Format
 ----------------
@@ -14,11 +14,11 @@ Format
     :param resid: Model residuals.
     :type resid: Vector
 
-    :return Q_stat: Ljung-Box test statistic for the heteroskedasticity.
+    :return Q_stat: Ljung-Box test statistic for residual autocorrelation.
     :rtype Q_stat: Scalar
 
-    :return p_value: P-value for the test statistic for the Ljung-Box test statistic.
-    :rtype p_value: Scalar
+    :return p_val: P-value of the Ljung-Box test statistic.
+    :rtype p_val: Scalar
 
 Examples
 ----------------
@@ -29,7 +29,7 @@ Examples
   rndseed 929212;
   resid = rndn(150, 1);
 
-  // Test for heteroskedasticity
+  // Test for autocorrelation
   { Q_stat, p_val } = ssLjungBox(resid);
 
 The code above results in the following:
@@ -39,11 +39,10 @@ The code above results in the following:
   Q_stat = 2.0876
   p_val = 0.1485
 
-In this case, the p-values suggests that we fail to reject the null hypothesis that the residuals are independently distributed.
 
 Source
 ------
 
-ssmain.src
+ssdiagnostics.src
 
 .. seealso:: Functions :func:`ssHeteroskedasticityTest`, :func:`ssJarqueBera`

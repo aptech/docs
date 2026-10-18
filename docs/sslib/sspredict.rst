@@ -7,6 +7,12 @@ Purpose
 
 Computes in-sample predictions or out-of-sample forecasts based on the final parameters contained in the filled :class:`ssOut` structure.
 
+.. note::
+   **GAUSS 26.1.4+ (sslib 2.0.0).** The optional arguments below are
+   keyword arguments and may be supplied by name, in any order. The
+   positional order is unchanged from 1.0.0, so existing positional calls
+   keep working. See :ref:`v1-to-v2-migration`.
+
 Format
 ----------------
 .. function:: forecasts = ssPredict(sOut, y [, start_pred, end_pred])
@@ -39,7 +45,8 @@ Examples
   */
   // Filename
   fname = getGAUSShome $+ "pkgs/tsmt/examples/enders_sim2.dat";
-  y = loadd(fname, "ar2");
+  y = loadd(fname);
+  y = y[., "ar2"];
 
   // Set up parameter vector and start values
   param_vec_st = asDF(zeros(3, 1), "param");
@@ -53,12 +60,12 @@ Examples
   k_states = 2;
 
   // Declare ssControl structure
-  struct ssControl ssCtl;
+  struct ssControl ssctl;
   ssCtl = ssControlCreate(k_states, k_endog);
 
   // Set fixed parameters of model
-  ssCtl.ssm.Z = { 1 0 };
-  ssCtl.ssm.R[1, 1] = 1;
+  ssctl.ssm.Z = { 1 0 };
+  ssctl.ssm.R[1, 1] = 1;
 
   // Constraint variables
   ssCtl.stationary_vars = 1|2;
@@ -66,7 +73,7 @@ Examples
 
   // Call ssFit function
   struct ssOut sOut;
-  sOut = ssFit(&updateSSModel, param_vec_st, y, ssCtl);
+  sOut = ssFit(&updateSSModel, param_vec_st, y, ssctl);
 
   // Compute forecasts
   forecasts= ssPredict(sOut, y);
@@ -102,4 +109,4 @@ Source
 
 ssmain.src
 
-.. seealso:: Functions :func:`ssFit`, :func:`ssIRF`
+.. seealso:: Functions :func:`ssFit`, :func:`ssIRF`, :func:`ssPredictSE`, :func:`ssPredictTVP`

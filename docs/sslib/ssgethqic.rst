@@ -5,7 +5,7 @@ ssgetHQIC
 Purpose
 ----------------
 
-Computes the Hannan–Quinn information criterion from loglikelihood.
+Computes the Hannan-Quinn information criterion from loglikelihood.
 
 Format
 ----------------
@@ -20,7 +20,7 @@ Format
     :param numObs: Number of observations.
     :type numObs: Scalar
 
-    :return hqic: Computed Hannan–Quinn information criterion.
+    :return hqic: Computed Hannan-Quinn information criterion.
     :rtype hqic: Scalar
 
 Examples
@@ -49,6 +49,6 @@ The code above results in the following:
 Source
 ------
 
-ssmain.src
+ssdiagnostics.src
 
 .. seealso:: Functions :func:`ssgetAICC`, :func:`ssgetBIC`, :func:`ssgetAIC`

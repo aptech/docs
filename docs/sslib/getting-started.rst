@@ -1,26 +1,42 @@
-Getting Started
+Getting Started with State Space Modeling in GAUSS
 ===================================================
-This page provides an overview of how to implement custom state-space models in GAUSS. It covers everything needed to get working with the GAUSS state-space library including:
+This page provides a basic overview of how to implement custom state space models with the GAUSS State Space library (``sslib``). It covers:
 
 * Installation and library dependencies.
 * Data loading.
-* The basics of state-space models.
-* Specifying state-space models in GAUSS.
-* Post-estimation impulse response functions and forecasting.
+* The state space representation used by the library.
+* Specifying and estimating a custom model with :func:`ssFit`.
+* Fine tuning the estimation.
+* Post-estimation impulse response functions, forecasting and smoothing.
+* Time-varying-parameter models and the pre-built models.
 
 Installation
 -----------------------------------------------------------
-The GAUSS state-space library can be installed and updated using the `GAUSS package manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_.
+The GAUSS state space library can be installed and updated using the `GAUSS package manager <https://www.aptech.com/blog/gauss-package-manager-basics/>`_. More information about installing the GAUSS package manager is available in our blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
 
-More information about installing the GAUSS package manager is available in our blog, `Installing the GAUSS Package Manager <https://www.aptech.com/blog/installing-gauss-package-manager/>`_.
+The state space library requires:
 
-The state-space library requires:
+1.  A working copy of **GAUSS 26.1.4+**. Version 2.0.0 and later of ``sslib`` use typed
+    structure returns and keyword arguments, both of which require GAUSS 26.1.4.
+    (Version 1.0.0 remains the **GAUSS 22+** compatible release -- stay on it if
+    you need to support GAUSS 22-26.0.)
+2.  The `Constrained Maximum Likelihood MT library <https://store.aptech.com/gauss-applications-category/constrained-maximum-likelihood-mt.html>`_ for GAUSS.
+3.  The `Time Series MT library <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_ for GAUSS.
 
-#. A working copy of **GAUSS 22+**.
-#. The `Constrained Maximum Likelihood MT library <https://store.aptech.com/gauss-applications-category/constrained-maximum-likelihood-mt.html>`_ for GAUSS.
-#. The `Time Series MT library <https://store.aptech.com/gauss-applications-category/time-series-mt.html>`_ for GAUSS.
+Before using the functions in ``sslib`` you will need to load the ``sslib`` library, along with the ``cmlmt`` and ``tsmt`` libraries. This can be done in a number of ways:
 
-Data Loading
+* Navigate to the library tool view window and click the small wrench located next to the ``sslib`` library. Select ``Load Library``.
+* Enter ``library sslib, cmlmt, tsmt`` in the program input/output window.
+* Put the line ``library sslib, cmlmt, tsmt;`` at the beginning of your program files.
+
+It is good practice to begin your state space program files with the following statements:
+
+::
+
+  new;
+  library sslib, cmlmt, tsmt;
+
+Data loading
 --------------------
 The preferred method for loading data is the :func:`loadd` procedure. The :func:`loadd` function allows you to load data from:
 
@@ -32,12 +48,12 @@ The preferred method for loading data is the :func:`loadd` procedure. The :func:
 The :func:`loadd` function uses two inputs:
 
 * The filename.
-* A `formula string <https://docs.aptech.com/gauss/data-management/programmatic-import.html?highlight=formula%20string#gauss-formula-string-basics>`_ .
+* An optional `formula string <https://docs.aptech.com/gauss/data-management/programmatic-import.html#gauss-formula-string-basics>`_ selecting the variables to load.
 
 ::
 
     // Create file name with full path
-    dataset = getGAUSSHome() $+ "examples/detroit.sas7bdat";
+    dataset = getGAUSSHome("examples/detroit.dta");
 
     // Load two specific variables from the file
     detroit = loadd(dataset, "unemployment + hourly_earn");
@@ -48,72 +64,75 @@ The variable name can be used to directly reference individual variables within 
 
   y = detroit[., "unemployment"];
 
-
 For more information on data loading, cleaning and management in GAUSS see our `GAUSS Data Management Guide <https://docs.aptech.com/gauss/data-management.html>`_.
 
-State-Space Model Specification
+State Space Model Specification
 ---------------------------------------------------
-The GAUSS :class:`sslib` library uses the state-space representation of a linear model written as
+The ``sslib`` library uses the state space representation of a linear model written as
 
 .. math:: y_t = d + Z\alpha_t + \epsilon_t
+
 .. math:: \alpha_{t+1} = c + T\alpha_t + R\eta_t
 
 where
 
-.. math:: \epsilon_t  \sim N(0, H)
-.. math:: \eta_t  \sim N(0, Q)
+.. math:: \epsilon_t \sim N(0, H)
+
+.. math:: \eta_t \sim N(0, Q)
 
 and
 
-+--------------------+-------------------------+----------------------+
-| Object             | Description             | Dimension            |
-+====================+=========================+======================+
-| :math:`y_t`        | Observed data.          | :math:`p \times 1`   |
-+--------------------+-------------------------+----------------------+
-| :math:`\alpha_t`   | Unobserved state.       | :math:`m \times 1`   |
-+--------------------+-------------------------+----------------------+
-| :math:`d`          | Observation intercept.  | :math:`m \times 1`   |
-+--------------------+-------------------------+----------------------+
-| :math:`Z`          | Design matrix.          | :math:`p \times m`   |
-+--------------------+-------------------------+----------------------+
-| :math:`H`          | Observation disturbance | :math:`p \times 1`   |
-|                    | covariance matrix.      |                      |
-+--------------------+-------------------------+----------------------+
-| :math:`c`          | State intercept.        | :math:`m \times 1`   |
-+--------------------+-------------------------+----------------------+
-| :math:`T`          | Transition matrix.      | :math:`m \times m`   |
-+--------------------+-------------------------+----------------------+
-| :math:`R`          | Selection matrix.       | :math:`m \times r`   |
-+--------------------+-------------------------+----------------------+
-| :math:`\eta_t`     | State disturbance.      | :math:`r \times 1`   |
-+--------------------+-------------------------+----------------------+
-| :math:`Q`          | State disturbance       | :math:`r \times r`   |
-|                    | covariance matrix.      |                      |
-+--------------------+-------------------------+----------------------+
++--------------------+---------------------------+--------------------------+-------------------------+
+| Object             | Description               | Dimension                | ``ssModel`` member      |
++====================+===========================+==========================+=========================+
+| :math:`y_t`        | Observed data.            | :math:`p \times 1`       |                         |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`\alpha_t`   | Unobserved state.         | :math:`m \times 1`       |                         |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`d`          | Observation intercept.    | :math:`p \times 1`       | ``d``                   |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`Z`          | Design matrix.            | :math:`p \times m`       | ``Z``                   |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`H`          | Observation disturbance   | :math:`p \times p`       | ``H``                   |
+|                    | covariance matrix.        |                          |                         |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`c`          | State intercept.          | :math:`m \times 1`       | ``c``                   |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`T`          | Transition matrix.        | :math:`m \times m`       | ``T``                   |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`R`          | Selection matrix.         | :math:`m \times r`       | ``R``                   |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`\eta_t`     | State disturbance.        | :math:`r \times 1`       |                         |
++--------------------+---------------------------+--------------------------+-------------------------+
+| :math:`Q`          | State disturbance         | :math:`r \times r`       | ``Q``                   |
+|                    | covariance matrix.        |                          |                         |
++--------------------+---------------------------+--------------------------+-------------------------+
 
-Notice that the current GAUSS :class:`sslib` only supports time-invariant state-space models such that all state-space representation matrices are constant.
+In the library, :math:`p` is called ``k_endog`` (the number of observed series), :math:`m` is ``k_states`` (the number of states) and :math:`r` is ``k_posdef`` (the dimension of the state disturbance).
 
-This state-space representation is a flexible platform for modeling and supports a variety of `time series models <https://www.aptech.com/blog/getting-started-with-time-series-in-gauss/>`_ including ARIMA, SARIMA, VAR, unobserved components, and dynamic factor models.
+:func:`ssFit` estimates models in which every system matrix is constant over time. Models in which some system matrices change from period to period (:math:`Z_t`, :math:`T_t`, and so on) are estimated with :func:`ssFitTVP` instead -- see `Time-varying-parameter models`_ below.
+
+State space representation is a flexible platform for modeling and supports a variety of `time series models <https://www.aptech.com/blog/getting-started-with-time-series-in-gauss/>`_ including ARIMA, SARIMA, VAR, unobserved components, and dynamic factor models.
 
 Example: AR(2)
 +++++++++++++++++++++
 Consider the :math:`AR(2)` model
 
 .. math:: y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + e_t
+
 .. math:: e_t \sim N(0, \sigma^2)
 
-There are a number of ways to transform this model to state-space representation. Consider, for example, letting :math:`\alpha_t = (y_t, y_{t-1})'`.
+There are a number of ways to transform this model to state space representation. Consider, for example, letting :math:`\alpha_t = (y_t, y_{t-1})'`.
 
 **Transition Equation:**
 
-.. math:: \alpha_t = \begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0\end{bmatrix} \alpha_{t-1}  + \begin{bmatrix} 1\\ 0 \end{bmatrix} \eta_t
+.. math:: \alpha_{t+1} = \begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0\end{bmatrix} \alpha_t + \begin{bmatrix} 1\\ 0 \end{bmatrix} \eta_t
 
 **Measurement Equation:**
 
 .. math:: y_t = \begin{bmatrix} 1 & 0 \end{bmatrix} \alpha_t
 
-
-In this representation the system matrices are:
+In this representation :math:`p = 1`, :math:`m = 2`, :math:`r = 1`, and the system matrices are:
 
 +--------------------+------------------------------------------------------------------+
 | Object             | Specification                                                    |
@@ -126,22 +145,21 @@ In this representation the system matrices are:
 +--------------------+------------------------------------------------------------------+
 | :math:`c`          | 0                                                                |
 +--------------------+------------------------------------------------------------------+
-| :math:`T`          |:math:`\begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0 \end{bmatrix}`     |
+| :math:`T`          | :math:`\begin{bmatrix} \phi_1 & \phi_2\\ 1 & 0 \end{bmatrix}`    |
 +--------------------+------------------------------------------------------------------+
-| :math:`R`          |:math:`\begin{bmatrix} 1 \\ 0 \end{bmatrix}`                      |
+| :math:`R`          | :math:`\begin{bmatrix} 1 \\ 0 \end{bmatrix}`                     |
 +--------------------+------------------------------------------------------------------+
 | :math:`Q`          | :math:`\sigma^2`                                                 |
 +--------------------+------------------------------------------------------------------+
 
-The unknown parameters are :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`.
+In this model the unknown parameters are :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`.
 
-Estimation of State-Space Models
+Estimation of State Space Models
 ---------------------------------------------------
-The GAUSS :class:`sslib` relies on two tools for estimating state-space models, the `Kalman filter <https://docs.aptech.com/gauss/tsmt/kalmanfilter.html>`_ and maximum likelihood estimation.
-
+The ``sslib`` library relies on two tools for estimating state space models, the Kalman filter and maximum likelihood estimation.
 
 +--------------------+------------------------------------------------------------------+
-|Tool                | Purpose                                                          |
+| Tool               | Purpose                                                          |
 +====================+==================================================================+
 | Kalman filter      | The Kalman filter uses recursive iteration to estimate the       |
 |                    | unknown state.                                                   |
@@ -150,58 +168,49 @@ The GAUSS :class:`sslib` relies on two tools for estimating state-space models, 
 |                    | to estimate the unknown parameters.                              |
 +--------------------+------------------------------------------------------------------+
 
-You will never need to interact with these two tools directly when using the GAUSS state-space framework. However, for more information about either of these please see the following:
+You do not need to call either tool directly when using the GAUSS state space framework: :func:`ssFit` runs the Kalman filter inside a CMLMT maximum likelihood estimation. For more information about either tool please see the following:
 
-#. `Filtering data with the Kalman Filter <https://www.aptech.com/resources/tutorials/tsmt/filtering-data-with-the-kalman-filter/>`_
-#. `Beginner's Guide To Maximum Likelihood Estimation <https://www.aptech.com/blog/beginners-guide-to-maximum-likelihood-estimation-in-gauss/>`_
-#. `Maximum Likelihood Estimation in GAUSS <https://www.aptech.com/blog/maximum-likelihood-estimation-in-gauss/>`_
+1. `Beginner's Guide To Maximum Likelihood Estimation <https://www.aptech.com/blog/beginners-guide-to-maximum-likelihood-estimation-in-gauss/>`_
+2. `Maximum Likelihood Estimation in GAUSS <https://www.aptech.com/blog/maximum-likelihood-estimation-in-gauss/>`_
 
-State-Space Models in GAUSS
+:func:`ssKalmanFilter` is also available for running the Kalman filter on a model whose parameters are already known.
+
+State Space Models in GAUSS
 ---------------------------------------------------
-The :class:`sslib` library contains a suite of tools that allows you to specify, estimate, diagnose, and perform post-estimation forecasts.
+The ``sslib`` library contains a suite of tools that allows you to specify, estimate, diagnose, and perform post-estimation forecasts. The primary procedure for estimating custom state space models is the :func:`ssFit` procedure.
 
-Prior to estimating the model with :func:`ssFit`, there are several simple steps that must be taken:
+Estimating a custom model takes six steps:
 
-#. Load data and required libraries.
-#. Set up parameter vector and start values.
-#. Set up control structures.
-#. Initialize system matrices.
-#. Specify variable constraints.
-#. Set up procedure for updating system matrices.
+1. Load the required libraries and data.
+2. Set up the parameter vector and start values.
+3. Set up the control structure.
+4. Set the fixed system matrices and parameter constraints.
+5. Write a procedure that places the parameters in the system matrices.
+6. Call :func:`ssFit`.
 
-Step One: Load data and libraries
-+++++++++++++++++++++++++++++++++++++++++++
-The first step to estimating state-space models in GAUSS is to load the data and proper libraries:
+The steps below estimate the :math:`AR(2)` example above.
 
+Step One: Load the required libraries and data
++++++++++++++++++++++++++++++++++++++++++++++++++
 ::
 
   new;
-  library sslib, tsmt, cmlmt;
+  library sslib, cmlmt, tsmt;
 
-  /*
-  ** Step one: Load data
-  */
-  fname = getGAUSShome $+ "pkgs/tsmt/examples/enders_sim2.dat";
+  // Simulated AR(2) data shipped with TSMT
+  fname = getGAUSSHome("pkgs/tsmt/examples/enders_sim2.dat");
   y = loadd(fname, "ar2");
 
-Step Two: Set up parameter vector and start values
+Step Two: Set up the parameter vector and start values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
-If you are estimating a custom state-space model, a vector of parameter starting values is required. The parameter vector should be a column vector which contains a starting value for each unknown parameter.
-
-In the :math:`AR(2)` model there are three unknown parameters :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`.
+A custom state space model needs a column vector containing a starting value for each unknown parameter. In the :math:`AR(2)` example there are three unknown parameters, :math:`\phi_1`, :math:`\phi_2`, and :math:`\sigma^2`.
 
 ::
-
-  /*
-  ** Set up parameter vector
-  ** and start values
-  */
 
   // Create a dataframe
   param_vec_st = asDF(zeros(3, 1), "param");
 
-  // Starting values for phi_1,
-  // phi_2, and sigma2
+  // Starting values for phi_1, phi_2 and sigma2
   param_vec_st[1] = -0.322;
   param_vec_st[2] = 0.433;
   param_vec_st[3] = 0.0025;
@@ -210,274 +219,147 @@ Step Three: Set up the control structure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The :class:`ssControl` structure is used to:
 
-#. Specify the state-space system matrices.
-#. Implement stationarity and non-negativity constraints on parameters.
-#. Control modeling features.
-#. Specify advanced maximum likelihood controls.
+1. Specify the state space system matrices.
+2. Implement stationarity and non-negativity constraints on parameters.
+3. Control modeling features such as the Kalman filter initialization.
+4. Specify advanced maximum likelihood controls.
 
-Before using the :class:`ssControl` structure:
-
-#. The model dimensions must be specified.
-#. The control structure must be initialized.
-#. The default values must be filled.
-
-Specifying the model dimensions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The model dimensions are defined by three variables:
 
 +--------------------+------------------------------------------------------------------+
-|Variable            | Description                                                      |
+| Variable           | Description                                                      |
 +====================+==================================================================+
-| `k_endog`          | Number of endogenous variables.                                  |
+| ``k_endog``        | Number of endogenous (observed) variables, :math:`p`.            |
 +--------------------+------------------------------------------------------------------+
-| `k_states`         | Number of state variables.                                       |
+| ``k_states``       | Number of state variables, :math:`m`.                            |
 +--------------------+------------------------------------------------------------------+
-| `k_posdef`         | Optional, dimension of the state innovation with                 |
-|                    | a positive definite covariance matrix.                           |
-|                    | Default = k_states.                                              |
+| ``k_posdef``       | Dimension of the state disturbance, :math:`r`. Optional; it      |
+|                    | defaults to ``k_states``.                                        |
 +--------------------+------------------------------------------------------------------+
 
-The :math:`AR(2)` model has one endogenous variable and two state variables:
+:func:`ssControlCreate` returns an :class:`ssControl` structure filled with default values, with every system matrix in ``ssctl.ssm`` set to zeros of the correct size. Because :func:`ssControlCreate` declares its return type, no preceding ``struct ssControl ssctl;`` declaration is needed:
 
 ::
 
-  /*
-  ** Declare shape
-  */
-  // Number of endogenous variables
+  // Model dimensions
   k_endog = 1;
-
-  // Number of states
   k_states = 2;
+  k_posdef = 1;
 
-Initialize control structure and system matrices
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-After specifying the model dimensions, the :class:`ssControl` structure and the system matrices should be initialized using the :func:`ssControlCreate` procedure.
+  // Control structure with default values
+  ssctl = ssControlCreate(k_states, k_endog, k_posdef);
+
+Step Four: Set the fixed system matrices and constraints
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+System matrices that do not depend on any parameter are set once, directly on ``ssctl.ssm``. In the :math:`AR(2)` example, :math:`Z` and :math:`R` are fixed; :math:`d`, :math:`H` and :math:`c` are zero, which is already their default:
 
 ::
 
-  // Declare an instance of
-  // ssControl structure
-  struct ssControl ssCtl;
+  // Fixed system matrices
+  ssctl.ssm.Z = { 1 0 };
+  ssctl.ssm.R = { 1, 0 };
 
-  // Fill the control structure with defaults
-  // and sets up the system matrices.
-  ssCtl = ssControlCreate(k_states, k_endog);
+  // Parameter names used in the printed output
+  ssctl.param_names = "phi1"$|"phi2"$|"sigma2";
 
+Parameters can be constrained by listing their positions in the parameter vector. ``ssctl.stationary_vars`` constrains the listed parameters to be stationary, and ``ssctl.positive_vars`` constrains the listed parameters to be positive:
 
-The :func:`ssControlCreate` procedure initiates the state-space system matrices in a :class:`ssModel` structure. The matrices are all set to zeroes in the following dimensions:
+::
 
-+--------------------+------------------------------------------------------------------+
-| Object             | Specification                                                    |
-+====================+==================================================================+
-| :math:`ssm.d`      | :math:`k_{endog} \times 1`                                       |
-+--------------------+------------------------------------------------------------------+
-| :math:`ssm.Z`      | :math:`k_{endog} \times k_{states}`                              |
-+--------------------+------------------------------------------------------------------+
-| :math:`ssm.H`      | :math:`k_{endog} \times k_{endog}`                               |
-+--------------------+------------------------------------------------------------------+
-| :math:`ssm.c`      | :math:`k_{states} \times k_{states}`                             |
-+--------------------+------------------------------------------------------------------+
-| :math:`ssm.T`      | :math:`k_{states} \times k_{states}`                             |
-+--------------------+------------------------------------------------------------------+
-| :math:`ssm.R`      | :math:`k_{states} \times k_{posdef}`                             |
-+--------------------+------------------------------------------------------------------+
-| :math:`ssm.Q`      | :math:`k_{posdef} \times k_{posdef}`                             |
-+--------------------+------------------------------------------------------------------+
+  // phi1 and phi2 stationary, sigma2 positive
+  ssctl.stationary_vars = 1|2;
+  ssctl.positive_vars = 3;
 
-Step Four: Set up fixed system matrices
+Step Five: Write the update procedure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
-After initializing the :class:`ssControl` structure any elements of the system matrices that are fixed and do not contain parameters to be estimated should be specified using `GAUSS matrix notation <https://www.aptech.com/blog/gauss-basics-3-introduction-to-matrices/>`_.
-
-For example, in the :math:`AR(2)` example above, the design matrix, :math:`Z`, is given by
-
-.. math:: \begin{bmatrix} 1 & 0 \end{bmatrix}
-
-and the selection matrix, :math:`R`, is given by
-
-.. math:: \begin{bmatrix} 1 \\ 0 \end{bmatrix}
-
-These matrices have no relationship to the model parameters and should be specified before calling the :func:`ssFit` procedure:
+The update procedure places the current parameter values in the system matrices that depend on them. It always takes two inputs: a pointer to an :class:`ssModel` structure and the parameter vector. Members of the structure are set with the arrow (``->``) notation:
 
 ::
 
-  /*
-  ** Step four: Set up fixed system
-  **            matrices
-  **
-  ** The system matrices are stored in the
-  ** control structure in ssModel structure ssm:
-  **
-  */
-
-  // Set design matrix by
-  // specifying full matrix
-  ssCtl.ssm.Z = { 1 0 };
-
-  // Set selection matrix by
-  // specifying the 1,1 element
-  ssCtl.ssm.R[1, 1] = 1;
-
-In the example above, two different approaches are taken to setting the fixed elements in the system matrices.
-
-* The first is to set the entire transition (:math:`Z`) matrix.
-* The second is to just change the 1,1 element of the selection matrix (:math:`R`).
-
-After setting the fixed elements, the transition and selection matrices are:
-
-::
-
-  ssCtl.ssm.Z
-       1.0000000        0.0000000
-
-  ssCtl.ssm.R
-       1.0000000        0.0000000
-       0.0000000        0.0000000
-
-Step Five: Set up parameter constraints
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-The :class:`sslib` library includes tools for implementing two types of parameter constraints:
-
-* Non-negativity constraint using the :class:`positive_vars` member of the :class:`ssControl` structure.
-* Stationarity constraint using the :class:`stationary_vars` member of the :class:`ssControl` structure.
-
-In the :math:`AR(2)` model:
-
-* :math:`\phi_1` and :math:`\phi_2` should be stationary.
-* :math:`\sigma^2` should be non-negative.
-
-::
-
-  /*
-  ** Constrained variables
-  */
-
-  /*
-  ** This stationary_vars member
-  ** indicates which variables should be
-  ** constrained to stationarity.
-  */
-  // Set the first and second parameters in
-  // the parameter vector to be stationary
-  ssCtl.stationary_vars = 1|2;
-
-  /*
-  ** This positive_vars member
-  ** indicates which variables should be
-  ** constrained to positive.
-  */
-  // Set the third parameters in
-  // the parameter vector to be positive
-  ssCtl.positive_vars = 3;
-
-Step Six: Set procedure for updating the `ssModel` structure with parameters
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-The final step before calling the :func:`ssFit` procedure is to specify the relationship between the state-space system matrices and the model parameters using a :class:`updateSSModel` `procedure <https://www.aptech.com/blog/basics-of-gauss-procedures/>`_.
-
-The :class:`updateSSModel` function should always include two input parameters:
-
-+--------------------+------------------------------------------------+
-| Object             | Specification                                  |
-+====================+================================================+
-| :code:`*ssmod`     | A pointer to the :class:`ssmod` structure.     |
-+--------------------+------------------------------------------------+
-| :code:`param`      | The parameter vector.                          |
-+--------------------+------------------------------------------------+
-
-The :class:`updateSSModel` is a user-defined function whose body describes how the parameters fit into the system matrices. The function uses a pointer to the :class:`*ssmod` structure and the :code:`->` method for assigning values to members within the structures.
-
-
-For example, the :class:`updateSSModel` for the :math:`AR(2)` model is:
-
-::
-
-  /*
-  ** Step five: Set up procedure for updating SS model
-  ** structure.
-  **
-  */
   proc (0) = updateSSModel(struct ssModel *ssmod, param);
-
-    // Specify transition matrix
-    ssmod->T =  param[1 2]'|(1~0);
-
-    // Specify state covariance
-    ssmod->Q[1, 1] = param[3];
-
+      ssmod->T = param[1 2]'|(1~0);
+      ssmod->Q = param[3];
   endp;
 
-Estimating the model
-+++++++++++++++++++++++++
-Once the model is specified and the constraints are set, the parameters are estimated using the :func:`ssFit` procedure. This procedure requires four inputs:
-
-+--------------------+------------------------------------------------------------------+
-|Variable            | Description                                                      |
-+====================+==================================================================+
-| `&updateSSModel`   | A pointer to the user-defined, state-space                       |
-|                    | system update function.                                          |
-+--------------------+------------------------------------------------------------------+
-| `param_vec_st`     | Parameter vector with starting values.                           |
-+--------------------+------------------------------------------------------------------+
-| `y`                | Data.                                                            |
-+--------------------+------------------------------------------------------------------+
-| `ssCtl`            | An instance of the `ssControl` structure. Should be              |
-|                    | initialized using the `ssControlCreate` procedure.               |
-+--------------------+------------------------------------------------------------------+
+Step Six: Estimate the model
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+:func:`ssFit` takes a pointer to the update procedure, the starting values, the data and the control structure. It estimates the parameters, computes the parameter covariance, residual diagnostics and model summary statistics, and prints the results:
 
 ::
 
-  /*
-  ** Step six: Call the ssFit procedure.
-  **            This will:
-  **              1. Estimate model parameters.
-  **              2. Estimate inference statistics (se, t-stats).
-  **              3. Perform model residual diagnostics.
-  **              4. Compute model diagnostics and summary statistics.
-  */
-  struct ssOut sOut;
-  sOut = ssFit(&updateSSModel, param_vec_st, y, ssCtl);
+  sOut = ssFit(&updateSSModel, param_vec_st, y, ssctl);
 
+The returned :class:`ssOut` structure holds the estimates (``sOut.final_params``), the system matrices at the estimates (``sOut.ssmFinal``), the Kalman filter results (``sOut.kfResults``), and the diagnostics. See :func:`ssFit` for the full list of members.
 
-The :func:`ssFit` procedure estimates the model parameters and their inference statistics:
+Fine tuning
+---------------------------------------------------
+Several members of the :class:`ssControl` structure change how the model is estimated. The most commonly used are:
 
-::
++------------------------------+--------------------------------------------------------------+
+| Member                       | Purpose                                                      |
++==============================+==============================================================+
+| ``ssctl.init``               | Kalman filter initialization: ``"diffuse"`` (the default,    |
+|                              | exact diffuse initialization), ``"stationary"`` or           |
+|                              | ``"mixed"``.                                                 |
++------------------------------+--------------------------------------------------------------+
+| ``ssctl.stationary_states``  | With ``ssctl.init = "mixed"``, the states initialized at     |
+|                              | their stationary distribution.                               |
++------------------------------+--------------------------------------------------------------+
+| ``ssctl.gradproc``           | Pointer to a procedure supplying an analytic gradient.       |
++------------------------------+--------------------------------------------------------------+
+| ``ssctl.ctl``                | An instance of a :class:`cmlmtControl` structure, passed to  |
+|                              | CMLMT to control the maximum likelihood estimation.          |
++------------------------------+--------------------------------------------------------------+
 
-  Return Code:                                                             0
-  Log-likelihood:                                                     -37.38
-  Number of Cases:                                                        99
-  AIC:                                                                 80.75
-  AICC:                                                                   81
-  BIC:                                                                 88.57
-  HQIC:                                                                79.34
-  Covariance Method:                                    ML covariance matrix
-  ==========================================================================
+See :func:`ssFit` for details of each.
 
-  Parameters   Estimates   Std. Err.      T-stat       Prob.    Gradient
-  --------------------------------------------------------------------------
-        phi1      0.6845      0.0890      7.6913      0.0000     -0.0000
-        phi2     -0.4639      0.0904     -5.1333      0.0000      0.0000
-      sigma2      0.0884      0.0126      6.9972      0.0000      0.0000
-
- Wald 95% Confidence Limits
- --------------------------------------------------------------------------
- Parameters   Estimates Lower Limit Upper Limit    Gradient
- --------------------------------------------------------------------------
-      phi1      0.6845     -0.6826     -0.3753     -0.0000
-      phi2     -0.4639      0.2657      0.7817      0.0000
-    sigma2      0.0884      0.2552      0.3395      0.0000
-
-It also prints model and residual diagnostics:
+Post-estimation
+---------------------------------------------------
+After estimation, the filled :class:`ssOut` structure can be used to compute impulse responses, forecasts with their standard errors, and smoothed states:
 
 ::
 
-  Model and residual diagnostics:
-  ==========================================================================
-  Ljung-Box (Q):                                                       0.024
-  Prob(Q):                                                             0.877
-  Heteroskedasticity (H):                                               1.04
-  Prob(H):                                                             0.908
-  Jarque-Bera (JB):                                                     6.34
-  Prob(JB):                                                           0.0421
-  Skew:                                                                0.021
-  Kurtosis:                                                             1.76
-  ==========================================================================
+  // Impulse responses of y to the first state disturbance,
+  // over 20 periods
+  irf = ssIRF(sOut.ssmFinal, 20, 1);
+
+  // 20 out-of-sample forecasts (the default) and their standard errors
+  forecasts = ssPredict(sOut, y);
+  se = ssPredictSE(sOut, y);
+
+  // Forecasts through 8 periods past the end of the sample
+  forecasts8 = ssPredict(sOut, y, end_pred=rows(y)+8);
+
+  // Smoothed states, reusing the Kalman filter results from ssFit
+  { a_smooth, p_smooth } = ssKalmanSmooth(sOut.ssmFinal, sOut.kfResults);
+
+See :func:`ssIRF`, :func:`ssPredict`, :func:`ssPredictSE` and :func:`ssKalmanSmooth` for details.
+
+Time-varying-parameter models
+---------------------------------------------------
+:func:`ssFitTVP` estimates models in which some system matrices change over time. It follows the same steps as :func:`ssFit`, with three differences:
+
+* Pass the number of observations as the fourth argument to :func:`ssControlCreate`, ``ssControlCreate(k_states, k_endog, k_posdef, nobs)``. This allocates ``ssctl.tvp``, a :class:`tvpModel` structure, instead of ``ssctl.ssm``.
+* Each system matrix in ``ssctl.tvp`` is an array with one page per period. A scalar is applied to every period automatically; any other matrix must be supplied as a full nobs-page array.
+* The update procedure takes a pointer to a :class:`tvpModel` instead of an :class:`ssModel`.
+
+Post-estimation uses :func:`ssIRFTVP`, :func:`ssPredictTVP`, :func:`ssPredictSETVP` and :func:`ssKalmanSmoothTVP`. See :func:`ssFitTVP` for a complete example.
+
+Pre-built models
+---------------------------------------------------
+Several common models can be estimated without writing an update procedure:
+
+* :func:`ssARIMA` and :func:`ssSARIMA` estimate ARIMA and seasonal ARIMA models.
+* :func:`ssStructuralTS` estimates structural time series (unobserved-components) models, and :func:`ssStructuralComponents` decomposes the fit into its trend, seasonal, cycle and regression components.
+* :func:`ssDFM` estimates dynamic factor models for nowcasting monthly and quarterly series, and :func:`ssDFMPredict` forecasts from them.
+
+For example:
+
+::
+
+  // Monthly airline passengers, 1949-1960, in logs
+  fname = getGAUSSHome("pkgs/sslib/examples/airline.dat");
+  passengers_ln = loadd(fname, "ln(passengers)");
+
+  // Local linear trend with a monthly seasonal component
+  sOut_sts = ssStructuralTS(passengers_ln, trend="trend", seasonal_period=12);

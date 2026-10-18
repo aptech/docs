@@ -5,7 +5,13 @@ ssJarqueBera
 Purpose
 ----------------
 
-Performs the Jarque-Bera goodness-of-fit test on model residuals. Tests the null hypothesis that the residuals are normally distributed.
+Performs the Jarque-Bera goodness-of-fit test on model residuals.
+
+.. note::
+   **GAUSS 26.1.4+ (sslib 2.0.0).** The optional arguments below are
+   keyword arguments and may be supplied by name, in any order. The
+   positional order is unchanged from 1.0.0, so existing positional calls
+   keep working. See :ref:`v1-to-v2-migration`.
 
 Format
 ----------------
@@ -45,11 +51,9 @@ The code above results in the following:
   jb_stat = 2.8019
   jb_pval = 0.2464
 
-The p-value of 0.2464 indicates a failure to reject the null hypothesis that the residuals are distributed normally.
-
 Source
 ------
 
-ssmain.src
+ssdiagnostics.src
 
 .. seealso:: Functions :func:`ssHeteroskedasticityTest`, :func:`ssSkewness`, :func:`ssKurtosis`, :func:`ssLjungBox`

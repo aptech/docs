@@ -5,7 +5,7 @@ ssgetBIC
 Purpose
 ----------------
 
-Computes the Schwarz’s Bayesian information criterion from loglikelihood.
+Computes the Schwarz' Bayesian information criterion from loglikelihood.
 
 Format
 ----------------
@@ -20,7 +20,7 @@ Format
     :param numObs: Number of observations.
     :type numObs: Scalar
 
-    :return bic: Computed Schwarz’ Bayesian information criterion.
+    :return bic: Computed Schwarz' Bayesian information criterion.
     :rtype bic: Scalar
 
 Examples
@@ -37,7 +37,7 @@ Examples
   // Number of observations
   numObs = 150;
 
-  // Compute AIC
+  // Compute BIC
   bic = ssgetBIC(ll, df_model, numObs);
 
 The code above results in the following:
@@ -49,6 +49,6 @@ The code above results in the following:
 Source
 ------
 
-ssmain.src
+ssdiagnostics.src
 
 .. seealso:: Functions :func:`ssgetAICC`, :func:`ssgetAIC`, :func:`ssgetHQIC`
