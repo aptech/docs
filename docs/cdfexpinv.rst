@@ -8,7 +8,7 @@ Computes the exponential inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: x = cdfExpInv(p, loc, m)
+.. function:: x = cdfExpInv(p, loc, scale)
 
     :param p: Probabilities at which to compute the inverse of the exponential cumulative distribution function. :math:`0 \lt p \lt 1`.
     :type p: NxK matrix, Nx1 vector or scalar
@@ -16,10 +16,10 @@ Format
     :param loc: Location parameter, ExE conformable with *p*. :math:`loc < x`.
     :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param m: Mean parameter, ExE conformable with *p*. *m* is the reciprocal of the rate parameter sometimes called :math:`\lambda`. :math:`m > 0`.
-    :type m: NxK matrix, Nx1 vector or scalar
+    :param scale: Scale parameter, ExE conformable with *p*. *scale* is the reciprocal of the rate parameter sometimes called :math:`\lambda`. :math:`scale > 0`.
+    :type scale: NxK matrix, Nx1 vector or scalar
 
-    :return x: each value of *x* is the value such that the exponential cdf with *loc* location and *m* mean evaluated at *x* is equal to the corresponding value of *p*.
+    :return x: each value of *x* is the value such that the exponential cdf with *loc* location and *scale* scale evaluated at *x* is equal to the corresponding value of *p*.
 
     :rtype x: NxK matrix, Nx1 vector or scalar
 
@@ -34,11 +34,11 @@ Examples
       // Location parameter
       loc = 0;
 
-      // Mean parameter
-      m = 2;
+      // Scale parameter
+      scale = 2;
 
       // Call cdfExp
-      x = cdfExpInv(p, loc, m);
+      x = cdfExpInv(p, loc, scale);
       print "x = " x;
 
 After above code,

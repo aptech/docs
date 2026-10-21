@@ -9,19 +9,19 @@ Computes the probability mass function for the hypergeometric distribution.
 
 Format
 ----------------
-.. function:: p = pdfHyperGeo(x, m, k, n)
+.. function:: p = pdfHyperGeo(x, pop_size, n_marked, n_drawn)
 
-    :param x: must be a positive number and < *m*
+    :param x: must be a positive number and < *pop_size*
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param m: The size of the population from which draws will be made. ExE conformable with *x*. *m* must be > *x*, *k* and *n*.
-    :type m: NxK matrix, Nx1 vector or scalar
+    :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. *pop_size* must be > *x*, *n_marked* and *n_drawn*.
+    :type pop_size: NxK matrix, Nx1 vector or scalar
 
-    :param k: The number of marked items. ExE conformable with *x*.
-    :type k: NxK matrix, Nx1 vector or scalar
+    :param n_marked: The number of marked items. ExE conformable with *x*.
+    :type n_marked: NxK matrix, Nx1 vector or scalar
 
-    :param n: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < k < m`.
-    :type n: NxK matrix, Nx1 vector or scalar
+    :param n_drawn: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < n\_drawn < pop\_size`.
+    :type n_drawn: NxK matrix, Nx1 vector or scalar
 
     :return p: The probability of drawing *x* marked items.
 
@@ -72,6 +72,8 @@ x \\
 m \\
 n \\
 \end{pmatrix}}`
+
+where *m* is *pop_size*, *k* is *n_marked* and *n* is *n_drawn*.
 
 For invalid inputs, :func:`pdfHyperGeo` will return a scalar error code which,
 when its value is assessed by function :func:`scalerr`, corresponds to the

@@ -9,18 +9,18 @@ Computes the binomial probability density function.
 
 Format
 ----------------
-.. function:: p = pdfBinomial(successes, trials, prob)
+.. function:: p = pdfBinomial(x, trials, prob)
 
-    :param successes: must be a positive number and < *trials*
-    :type successes: NxK matrix, Nx1 vector or scalar
+    :param x: the number of successes. Must be a positive number and < *trials*
+    :type x: NxK matrix, Nx1 vector or scalar
 
-    :param trials: ExE conformable with *successes*. *trials* must be > *successes*.
+    :param trials: ExE conformable with *x*. *trials* must be > *x*.
     :type trials: NxK matrix, Nx1 vector or scalar
 
-    :param prob: The probability of success on any given trial. ExE conformable with *successes*. :math:`0 < prob < 1`.
+    :param prob: The probability of success on any given trial. ExE conformable with *x*. :math:`0 < prob < 1`.
     :type prob: NxK matrix, Nx1 vector or scalar
 
-    :return p: The probability of the specified number of *successes*.
+    :return p: The probability of *x* successes.
     :rtype p: NxK matrix, Nx1 vector or scalar
 
 Examples
@@ -64,8 +64,8 @@ n \\
 k \\
 \end{pmatrix}p^{k}\left( 1 - p \right)^{n - k}`
 
-where *k* is the number of successes, *n* is the number of trials and *p* is
-the probability of success on each trial.
+where *k* is the number of successes (*x*), *n* is the number of trials (*trials*) and *p* is
+the probability of success on each trial (*prob*).
 
 For invalid inputs, :func:`pdfBinomial` will return a scalar error code which,
 when its value is assessed by function :func:`scalerr`, corresponds to the

@@ -9,16 +9,16 @@ Computes the probability density function for the Laplace distribution.
 
 Format
 ----------------
-.. function:: p = pdfLaplace(x, a, b)
+.. function:: p = pdfLaplace(x, loc, scale)
 
     :param x: data
     :type x: NxK matrix, Nx1 vector or scalar.
 
-    :param a: location parameter.
-    :type a: scalar
+    :param loc: location parameter.
+    :type loc: scalar
 
-    :param b: scale parameter. *b* must be greater than 0.
-    :type b: scalar
+    :param scale: scale parameter. *scale* must be greater than 0.
+    :type scale: scalar
 
     :return p: the probability density function for the Laplace distribution at the elements in *x*.
     :rtype p: NxK matrix, Nx1 vector or scalar
@@ -30,7 +30,7 @@ The probability density function for the Laplace distribution is defined as
 
 .. math::
 
-   f(x) = \frac{1}{2b} exp \bigg(- \frac{|x-a|}{b} \bigg)
+   f(x) = \frac{1}{2 \cdot scale} exp \bigg(- \frac{|x-loc|}{scale} \bigg)
 
 Examples
 ----------------

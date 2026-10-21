@@ -16,11 +16,11 @@ Format
     :param x: Values at which to evaluate the normal cumulative distribution function or the complement of the normal cdf.
     :type x: NxK matrix
 
-    :param mu: Optional input, mean parameter.
+    :param mu: Optional input, mean parameter. :func:`cdfn` only; :func:`cdfnc` takes only *x*.
     :type mu: scalar
 
-    :param std: Optional input, standard deviation.
-    :type std: scalar
+    :param sigma: Optional input, standard deviation. :func:`cdfn` only.
+    :type sigma: scalar
 
     :return p: Each element in *p* is the normal cumulative distribution function evaluated at the corresponding element in *x*.
 
@@ -63,9 +63,9 @@ Example 2: Specify mean and standard deviation
     mu = 1.1;
 
     // Standard deviation
-    std = 3;
+    sigma = 3;
 
-    p = cdfn(x, mu, std);
+    p = cdfn(x, mu, sigma);
 
 After above code,
 

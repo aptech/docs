@@ -9,13 +9,13 @@ Computes the probability density function of the inverse Wishart distribution.
 
 Format
 ----------------
-.. function:: p = pdfWishartInv(IW, S, df)
+.. function:: p = pdfWishartInv(x, scale, df)
 
-    :param IW: :math:`T`, the values used to compute the inverse Wishart distribution.
-    :type IW: p x p positive definite matrix
+    :param x: :math:`T`, the values used to compute the inverse Wishart distribution.
+    :type x: p x p positive definite matrix
 
-    :param S: :math:`\Psi`, the positive definite scale matrix parameter
-    :type S: p x p matrix
+    :param scale: :math:`\Psi`, the positive definite scale matrix parameter. It is not a covariance matrix: draws from this distribution average :math:`\Psi/(\nu - p - 1)` for :math:`\nu > p + 1`.
+    :type scale: p x p matrix
 
     :param df: :math:`\nu`, degrees of freedom.
     :type df: Scalar
@@ -35,12 +35,12 @@ Examples
     x = {9.2517907  7.4283670,
          7.4283670 10.503325 };
 
-    S = {1 .5, .5 1};
+    scale = {1 .5, .5 1};
 
     df = 3;
 
     // pdf of inverse Wishart distribution
-    y = pdfWishartInv(x, S, df);
+    y = pdfWishartInv(x, scale, df);
 
     print y;
 

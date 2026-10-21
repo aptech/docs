@@ -9,16 +9,16 @@ Computes the probability density function for the exponential distribution.
 
 Format
 ----------------
-.. function:: p = pdfexp(x, a, b)
+.. function:: p = pdfexp(x, loc, scale)
 
-    :param x: *x* must be greater than *a*.
+    :param x: *x* must be greater than *loc*.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param a: Location parameter. ExE conformable with *x*.
-    :type a: NxK matrix, Nx1 vector or scalar
+    :param loc: Location parameter. ExE conformable with *x*.
+    :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param b: the scale parameter. sometimes called *beta*. *b* must be greater than 0.
-    :type b: scalar
+    :param scale: the scale parameter. sometimes called *beta*. *scale* must be greater than 0.
+    :type scale: scalar
 
     :return p: the probability density function for the exponential distribution for the elements in *x*.
 
@@ -32,7 +32,7 @@ exponential distribution, which is defined as
 
 .. math::
 
-    f(x) = \frac{1}{b} exp \big( − \frac{x−a}{b} \big)
+    f(x) = \frac{1}{scale} exp \big( − \frac{x−loc}{scale} \big)
 
 Examples
 ----------------

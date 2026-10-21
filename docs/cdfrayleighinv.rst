@@ -9,13 +9,13 @@ Computes the Rayleigh inverse cumulative distribution function.
 
 Format
 ----------------
-.. function:: x = cdfRayleighInv(p, shape)
+.. function:: x = cdfRayleighInv(p, scale)
 
     :param p: Probabilities at which to compute the Rayleigh inverse cumulative distribution function. :math:`0 < p < 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
-    :param shape: Shape parameter, ExE conformable with *p*. *shape* must be greater than 0.
-    :type shape: NxK matrix, Nx1 vector or scalar
+    :param scale: Scale parameter, ExE conformable with *p*. *scale* must be greater than 0.
+    :type scale: NxK matrix, Nx1 vector or scalar
 
     :return x: each value of *x* is the value such that the Rayleigh cumulative distribution function is equal to the corresponding value of *p*.
 
@@ -52,6 +52,6 @@ Remarks
 
 ::
 
-   cdfRayleighInv(cdfRayleigh(x, shape), shape) = x
+   cdfRayleighInv(cdfRayleigh(x, scale), scale) = x
 
 .. seealso:: :func:`pdfRayleigh`, :func:`cdfRayleigh`

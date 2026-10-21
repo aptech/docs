@@ -9,13 +9,13 @@ Computes multivariate Student's t log-probabilities.
 
 Format
 ----------------
-.. function:: z = lnpdfmvt(x, corr, df)
+.. function:: z = lnpdfmvt(x, scale, df)
 
     :param x: values at which to evaluate the multivariate Student's t log-probabilities.
     :type x: NxK matrix
 
-    :param corr: correlation matrix.
-    :type corr: KxK matrix
+    :param scale: scale matrix. It is not the covariance matrix: for :math:`df > 2` the covariance is :math:`df/(df-2)` times *scale*.
+    :type scale: KxK matrix
 
     :param df: degrees of freedom.
     :type df: scalar
@@ -32,8 +32,8 @@ Uncorrelated variables
 
 ::
 
-  // Correlation matrix
-  corr = { 1 0 , 0 1 };
+  // Scale matrix
+  scale = { 1 0 , 0 1 };
 
   // Degrees of freedom
   df = 5;
@@ -43,7 +43,7 @@ Uncorrelated variables
   x2 = seqa(-3, .2, 3/.2);
   x = x1~x2;
 
-  t = lnpdfmvt(x, corr, df);
+  t = lnpdfmvt(x, scale, df);
 
   print "t =";
   t;
@@ -71,8 +71,8 @@ Example 2
 
 ::
 
-  // Correlation matrix
-  corr = { 1 0.60 , 0.60 1 };
+  // Scale matrix
+  scale = { 1 0.60 , 0.60 1 };
 
   // Degrees of freedom
   df = 5;
@@ -82,7 +82,7 @@ Example 2
   x2 = seqa(-3, .2, 3/.2);
   x = x1~x2;
 
-  t = lnpdfmvt(x, corr, df);
+  t = lnpdfmvt(x, scale, df);
 
   print "t =";
   t;

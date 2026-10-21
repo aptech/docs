@@ -9,25 +9,25 @@ Returns the bivariate Normal cumulative distribution function of a bounded recta
 
 Format
 ----------------
-.. function:: p = cdfBvn2(h, dh, k, dk, r)
+.. function:: p = cdfBvn2(x1, dx1, x2, dx2, corr)
 
-    :param h: starting points of integration for variable 1.
-    :type h: Nx1 vector
+    :param x1: starting points of integration for variable 1.
+    :type x1: Nx1 vector
 
-    :param dh: increments for variable 1.
-    :type dh: Nx1 vector
+    :param dx1: increments for variable 1.
+    :type dx1: Nx1 vector
 
-    :param k: starting points of integration for variable 2.
-    :type k: Nx1 vector
+    :param x2: starting points of integration for variable 2.
+    :type x2: Nx1 vector
 
-    :param dk: increments for variable 2.
-    :type dk: Nx1 vector
+    :param dx2: increments for variable 2.
+    :type dx2: Nx1 vector
 
-    :param r: correlation coefficients between the two variables.
-    :type r: Nx1 vector
+    :param corr: correlation coefficients between the two variables.
+    :type corr: Nx1 vector
 
-    :return p: the integral over the rectangle bounded by *h*, *h* + *dh*,
-        *k*, and *k* + *dk* of the standardized bivariate Normal distribution.
+    :return p: the integral over the rectangle bounded by *x1*, *x1* + *dx1*,
+        *x2*, and *x2* + *dx2* of the standardized bivariate Normal distribution.
 
     :rtype p: Nx1 vector
 
@@ -40,21 +40,21 @@ Example 1
 ::
 
     // Starting point of integration for variable 1
-    h = 1;
+    x1 = 1;
 
     // Increments for variable 1
-    dh = -1;
+    dx1 = -1;
 
     // Starting point of integration for variable 2
-    k = 1;
+    x2 = 1;
 
     // Increments for variable 2
-    dk = -1;
+    dx2 = -1;
 
     // Correlation coefficient
-    rho = 0.5;
+    corr = 0.5;
 
-    print  cdfBvn2(h, dh, k, dk, rho);
+    print  cdfBvn2(x1, dx1, x2, dx2, corr);
 
 After running the above code,
 
@@ -113,7 +113,7 @@ Scalar input arguments are okay; they will be expanded to Nx1 vectors.
 
 ::
 
-     cdfBvn(h + dh, k+ dk, r) + cdfBvn(h, k, r) - cdfBvn(h, k + dk, r) - cdfBvn(h + dh, k, r)
+     cdfBvn(x1 + dx1, x2+ dx2, corr) + cdfBvn(x1, x2, corr) - cdfBvn(x1, x2 + dx2, corr) - cdfBvn(x1 + dx1, x2, corr)
 
 :func:`cdfBvn2` computes an error estimate for each set of inputs. The size of
 the error depends on the input arguments. If **trap 2** is set, a

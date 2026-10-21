@@ -9,19 +9,19 @@ Computes the probability density function for the Generalized Pareto distributio
 
 Format
 ----------------
-.. function:: y = pdfGenPareto(x, a, sigma, k)
+.. function:: y = pdfGenPareto(x, loc, scale, shape)
 
     :param x: data
     :type x: NxK matrix, Nx1 vector or scalar.
 
-    :param a: Location parameter, ExE conformable with *x*.
-    :type a: NxK matrix, Nx1 vector or scalar
+    :param loc: Location parameter (:math:`\mu` below), ExE conformable with *x*.
+    :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param sigma: Scale parameter, ExE conformable with *x*. *sigma* must be greater than 0.
-    :type sigma: NxK matrix, Nx1 vector or scalar
+    :param scale: Scale parameter (:math:`\sigma` below), ExE conformable with *x*. *scale* must be greater than 0.
+    :type scale: NxK matrix, Nx1 vector or scalar
 
-    :param k: Shape parameter, ExE conformable with *x*.
-    :type k: NxK matrix, Nx1 vector or scalar
+    :param shape: Shape parameter (:math:`k` below), ExE conformable with *x*.
+    :type shape: NxK matrix, Nx1 vector or scalar
 
     :return p: the probability density function for the Generalized Pareto distribution for the elements in *x*.
 

@@ -8,15 +8,15 @@ Computes the regularized lower incomplete gamma function.
 
 Format
 ----------------
-.. function:: p = cdfGam(x, intlim)
+.. function:: p = cdfGam(shape, x)
 
-    :param x: Values at which to evaluate the regularized lower incomplete gamma function. :math:`x > 0`.
-    :type x: NxK matrix
+    :param shape: The shape parameter of the gamma distribution. :math:`shape > 0`.
+    :type shape: NxK matrix
 
-    :param intlim: ExE compatible with *x*, containing the integration limit. :math:`intlim > 0`.
-    :type intlim: LxM matrix
+    :param x: ExE compatible with *shape*, the values at which to evaluate the function (the upper limit of integration). :math:`x \geq 0`.
+    :type x: LxM matrix
 
-    :return p: Each element in *p* is the regularized lower incomplete gamma function evaluated at the corresponding element in *x*.
+    :return p: Each element in *p* is the regularized lower incomplete gamma function with the corresponding shape in *shape*, evaluated at the corresponding element in *x*.
 
     :rtype p: matrix, max(N,L) by max(K,M)
 
@@ -41,25 +41,25 @@ Matrix example
 ::
 
     // Create a 1x4 row vector
-    x = { 0.5 1 3 10 };
+    shape = { 0.5 1 3 10 };
 
     // Create a 6x1 column vector: 0, 0.2, 0.4, ..., 1.0
-    intlim = seqa(0,.2,6);
+    x = seqa(0,.2,6);
 
     /*
     ** Compute for all combinations of the elements
-    ** of 'x' and 'intlim'
+    ** of 'shape' and 'x'
     */
-    p = cdfGam(x, intlim);
+    p = cdfGam(shape, x);
 
-    print "intlim = " intlim;
+    print "x = " x;
     print "p = " p;
 
 After the code above:
 
 ::
 
-    intlim =
+    x =
     0.00000000
     0.20000000
     0.40000000
@@ -75,14 +75,14 @@ After the code above:
     0.79409679       0.55067104      0.047422596   1.4331002e-008
     0.84270079       0.63212056      0.080301397   1.1142548e-007
 
-This computes the integrals over the range from 0 to 1, in increments of 0.2, at the parameter values 0.5, 1, 3, 10.
+This computes the integrals from 0 to each value of *x* (0 to 1, in increments of 0.2) for the shape values 0.5, 1, 3, 10.
 
 Remarks
 -------
 
 The regularized lower incomplete gamma function returns the integral
 
-.. math:: \text{cdfGam(x, intlim)} = \int_{0}^{int\_lim} \frac{e^{-t}t^{(x-1)}}{\Gamma(x)}dt
+.. math:: \text{cdfGam(shape, x)} = \int_{0}^{x} \frac{e^{-t}t^{(shape-1)}}{\Gamma(shape)}dt
 
 A -1 is returned for those elements with invalid inputs.
 

@@ -4,14 +4,14 @@ rndWishartInv
 
 Purpose
 ----------------
-Computes the inverse Wishart distributed random numbers given a covariance matrix.
+Computes the inverse Wishart distributed random numbers given a scale matrix.
 
 Format
 ----------------
-.. function:: y = rndWishartInv(cov, df)
+.. function:: y = rndWishartInv(scale, df)
 
-    :param cov: p x p positive definite covariance matrix
-    :type cov: matrix
+    :param scale: p x p positive definite scale matrix. It is not a covariance matrix: the draws average :math:`scale/(df - p - 1)` for :math:`df > p + 1`.
+    :type scale: matrix
 
     :param df: degrees of freedom.
     :type df: scalar
@@ -28,12 +28,12 @@ Examples
     // Set seed for repeatable output
     rndseed 12345;
 
-    cov = { 1 .5,
-           .5  1 };
+    scale = { 1 .5,
+             .5  1 };
     df = 10;
 
     // A random matrix from inverse Wishart distribution
-    y = rndWishartInv(cov, df);
+    y = rndWishartInv(scale, df);
 
     print y;
 

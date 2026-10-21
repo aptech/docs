@@ -9,12 +9,12 @@ Computes the cumulative distribution function for the hypergeometric distributio
 
 Format
 ----------------
-.. function:: p = cdfHyperGeo(x, pop_size, n_marked, n_items)
+.. function:: p = cdfHyperGeo(x, pop_size, n_marked, n_drawn)
 
     :param x: must be a positive number and :math:`0 < x < pop\_size`
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. :math:`pop\_size > x,\:\ n\_marked\:\ and\:\ n\_items`.
+    :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. :math:`pop\_size > x,\:\ n\_marked\:\ and\:\ n\_drawn`.
     :type pop_size: matrix
 
     :param n_marked: The number of marked items. ExE conformable with *x*. :math:`0 < n\_marked`.

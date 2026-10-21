@@ -9,19 +9,19 @@ Computes Cauchy random numbers with a choice of underlying random number generat
 
 Format
 ----------------
-.. function:: r = rndCauchy(rows, cols, location, scale)
-              { r, newstate } = rndCauchy(rows, cols, location, scale, state)
+.. function:: x = rndCauchy(r, c, loc, scale)
+              { x, newstate } = rndCauchy(r, c, loc, scale, state)
 
-    :param rows: number of rows of resulting matrix.
-    :type rows: scalar
+    :param r: number of rows of resulting matrix.
+    :type r: scalar
 
-    :param cols: number of columns of resulting matrix.
-    :type cols: scalar
+    :param c: number of columns of resulting matrix.
+    :type c: scalar
 
-    :param location: Cauchy location parameter, scalar or ExE conformable matrix with *rows* and *cols*
-    :type location: scalar or matrix
+    :param loc: Cauchy location parameter, scalar or ExE conformable matrix with *r* and *c*
+    :type loc: scalar or matrix
 
-    :param scale: Cauchy scale parameter, scalar or ExE conformable matrix with *rows* and *cols*
+    :param scale: Cauchy scale parameter, scalar or ExE conformable matrix with *r* and *c*
     :type scale: scalar or matrix
 
     :param state: Optional argument.
@@ -36,9 +36,9 @@ Format
 
     :type state: scalar or opaque vector
 
-    :return r: Cauchy distributed random numbers.
+    :return x: Cauchy distributed random numbers.
 
-    :rtype r: *rows* x *cols* matrix
+    :rtype x: RxC matrix
 
     :return newstate: the updated state.
 
@@ -53,7 +53,7 @@ The properties of the pseudo-random numbers in *x* are:
 
    E(x) = \text{undefined} \\
    Var(x) = \text{undefined} \\
-   Median(x) = \text{location}
+   Median(x) = \text{loc}
 
 *r* and *c* will be truncated to integers if necessary.
 

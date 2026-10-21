@@ -8,16 +8,16 @@ Computes the probability density function of a Weibull random variable.
 
 Format
 ----------------
-.. function:: p = pdfWeibull(x, k, lambda)
+.. function:: p = pdfWeibull(x, shape, scale)
 
     :param x: *x* must be greater than 0.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param k: Shape parameter, ExE conformable with *x*. *k* must be greater than 0.
-    :type k: NxK matrix, Nx1 vector or scalar
+    :param shape: Shape parameter (:math:`k` below), ExE conformable with *x*. *shape* must be greater than 0.
+    :type shape: NxK matrix, Nx1 vector or scalar
 
-    :param lambda: Scale parameter, may be matrix, ExE conformable with *x*. *lambda* must be greater than 0.
-    :type lambda: NxK matrix, Nx1 vector or scalar
+    :param scale: Scale parameter (:math:`\lambda` below), may be matrix, ExE conformable with *x*. *scale* must be greater than 0.
+    :type scale: NxK matrix, Nx1 vector or scalar
 
     :return p: the probability density function of a Weibull random variable evaluated at *x*.
     :rtype p: NxK matrix, Nx1 vector or scalar

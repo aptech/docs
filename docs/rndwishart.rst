@@ -5,18 +5,18 @@ rndWishart
 Purpose
 ----------------
 
-Computes Wishart distributed random numbers given a covariance matrix.
+Computes Wishart distributed random numbers given a scale matrix.
 
 Format
 ----------------
-.. function:: r = rndWishart(numMats, cov, df)
-              { r, newstate } = rndWishart(numMats, cov, df, state)
+.. function:: r = rndWishart(num, scale, df)
+              { r, newstate } = rndWishart(num, scale, df, state)
 
-    :param numMats: number of Wishart random matrices to create.
-    :type numMats: scalar
+    :param num: number of Wishart random matrices to create.
+    :type num: scalar
 
-    :param cov: NxM covariance matrix
-    :type cov: matrix
+    :param scale: NxM scale matrix. The draws average *df* times *scale*.
+    :type scale: matrix
 
     :param df: degrees of freedom.
     :type df: scalar
@@ -35,7 +35,7 @@ Format
 
     :return r: Wishart random matrices.
 
-    :rtype r: numMats * rows(cov) x N matrix
+    :rtype r: num * rows(scale) x N matrix
 
     :return newstate: the updated state.
 
@@ -49,14 +49,14 @@ Examples
     // Set seed for repeatable output
     rndseed 12345;
 
-    // covariance matrix
-    cov = {  1   0.5,
-           0.5     1 };
+    // scale matrix
+    scale = {  1   0.5,
+             0.5     1 };
 
     // degrees of freedom
     df = 7;
 
-    X = rndWishart(1, cov, df);
+    X = rndWishart(1, scale, df);
     print X;
 
 ::
@@ -71,9 +71,9 @@ The properties of the pseudo-random numbers in *X* are:
 
 .. math::
 
-   E(X) = df * cov\\
+   E(X) = df * scale\\
 
-   Var(X_{ij}) = df * (cov_{ij}^2 + cov_{ii}*cov_{jj})
+   Var(X_{ij}) = df * (scale_{ij}^2 + scale_{ii}*scale_{jj})
 
 
 .. seealso:: Functions :func:`rndWishartInv`, :func:`rndMVn`, :func:`rndCreateState`

@@ -9,13 +9,13 @@ Computes multivariate Normal log-probabilities.
 
 Format
 ----------------
-.. function:: z = lnpdfmvn(x, corr)
+.. function:: z = lnpdfmvn(x, cov)
 
     :param x: values at which to evaluate the multivariate normal log probabilities.
     :type x: NxK matrix
 
-    :param corr: correlation matrix.
-    :type corr: KxK matrix
+    :param cov: covariance matrix.
+    :type cov: KxK matrix
 
     :return z: log-probabilities.
 
@@ -29,15 +29,15 @@ Uncorrelated variables
 
 ::
 
-      // Correlation matrix
-      corr = { 1 0 , 0 1 };
+      // Covariance matrix
+      cov = { 1 0 , 0 1 };
 
       // X values
       x1 = seqa(-3, .2, 3/.2);
       x2 = seqa(-3, .2, 3/.2);
       x = x1~x2;
 
-      z = lnpdfmvn(x, corr);
+      z = lnpdfmvn(x, cov);
 
       print "z =";
       z;
@@ -65,15 +65,15 @@ Example 2
 
 ::
 
-      // Correlation matrix
-      corr = { 1 0.60 , 0.60 1 };
+      // Covariance matrix
+      cov = { 1 0.60 , 0.60 1 };
 
       // X values
       x1 = seqa(-3, .2, 3/.2);
       x2 = seqa(-3, .2, 3/.2);
       x = x1~x2;
 
-      z = lnpdfmvn(x, corr);
+      z = lnpdfmvn(x, cov);
 
       print "z =";
       z;

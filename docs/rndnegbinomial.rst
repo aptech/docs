@@ -9,8 +9,8 @@ Computes negative binomial pseudo-random numbers with a choice of underlying ran
 
 Format
 ----------------
-.. function:: x = rndNegBinomial(r, c, ns, prob)
-              { x, newstate } = rndNegBinomial(r, c, ns, prob, state)
+.. function:: x = rndNegBinomial(r, c, s, prob)
+              { x, newstate } = rndNegBinomial(r, c, s, prob, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar
@@ -18,8 +18,8 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param ns: "event" argument for negative binomial distribution, scalar or ExE conformable matrix with *r* and *c*.
-    :type ns: matrix, vector or scalar
+    :param s: the number of successes, scalar or ExE conformable matrix with *r* and *c*.
+    :type s: matrix, vector or scalar
 
     :param prob: "probability" argument for negative binomial distribution, scalar or ExE conformable matrix with *r* and *c*.
     :type prob: matrix, vector or scalar
@@ -59,22 +59,22 @@ Simulate the number of failures before 30 successes where each trial has a 70% p
 
     num_obs = 100;
 
-    num_s = 30;
+    s = 30;
     prob = 0.70;
 
-    num_f = rndNegBinomial(num_obs, 1, num_s, prob);
+    num_f = rndNegBinomial(num_obs, 1, s, prob);
     print (meanc(num_f));
 
 ::
 
        12.180000
 
-The sample mean is approximately 12.18, close to the expected value of num_s*(1-prob)/prob = 30*0.3/0.7 = 12.86.
+The sample mean is approximately 12.18, close to the expected value of s*(1-prob)/prob = 30*0.3/0.7 = 12.86.
 
 Example 2
 +++++++++
 
-An alternative parameterization specifies the negative binomial distribution in terms of a dispersion parameter (*dp*) and a mean parameter (*mu*). If you would prefer to think of it in those terms, you may do so by passing in the dispersion parameter *dp*, in place of *num_s* and passing in :math:`dp/(dp + mu)` in place of *prob*.
+An alternative parameterization specifies the negative binomial distribution in terms of a dispersion parameter (*dp*) and a mean parameter (*mu*). If you would prefer to think of it in those terms, you may do so by passing in the dispersion parameter *dp*, in place of *s* and passing in :math:`dp/(dp + mu)` in place of *prob*.
 
 ::
 
@@ -93,11 +93,11 @@ The properties of the pseudo-random numbers in *x* are:
 
 .. math::
 
-   E(x) = num\_s*\frac{1 - prob}{prob}\\
+   E(x) = s*\frac{1 - prob}{prob}\\
 
-   Var(x) = num\_s*\frac{1 - prob}{prob^2}\\
+   Var(x) = s*\frac{1 - prob}{prob^2}\\
 
-   num\_s > 0\\
+   s > 0\\
 
    0 < prob < 1
 

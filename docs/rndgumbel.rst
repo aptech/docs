@@ -9,19 +9,19 @@ Computes Gumbel distributed random numbers with a choice of underlying random nu
 
 Format
 ----------------
-.. function:: r = rndGumbel(rows, cols, location, scale)
-              { r, newstate } = rndGumbel(rows, cols, location, scale, state)
+.. function:: x = rndGumbel(r, c, loc, scale)
+              { x, newstate } = rndGumbel(r, c, loc, scale, state)
 
-    :param rows: number of rows of resulting matrix.
-    :type rows: scalar
+    :param r: number of rows of resulting matrix.
+    :type r: scalar
 
-    :param cols: number of columns of resulting matrix.
-    :type cols: scalar
+    :param c: number of columns of resulting matrix.
+    :type c: scalar
 
-    :param location: location parameter, scalar or ExE conformable matrix with *rows* and *cols*
-    :type location: scalar or matrix
+    :param loc: location parameter, scalar or ExE conformable matrix with *r* and *c*
+    :type loc: scalar or matrix
 
-    :param scale: scaler parameter, scalar or ExE conformable matrix with *rows* and *cols*
+    :param scale: scaler parameter, scalar or ExE conformable matrix with *r* and *c*
     :type scale: scalar or matrix
 
     :param state: Optional argument.
@@ -36,9 +36,9 @@ Format
 
     :type state: scalar or opaque vector
 
-    :return r: Gumbel distributed random numbers.
+    :return x: Gumbel distributed random numbers.
 
-    :rtype r: rows x cols matrix
+    :rtype x: RxC matrix
 
     :return newstate: the updated state.
 
@@ -53,8 +53,8 @@ pseudo-random numbers in *y* are:
 
 .. math::
 
-   E(y) = location - \gamma*scale \approx\\
-   location - 0.5772*scale\\
+   E(y) = loc - \gamma*scale \approx\\
+   loc - 0.5772*scale\\
    \gamma = \text{Euler-Mascheroni constant}\\
    Var(y) = \frac{(\pi*scale)^2}{6}
 

@@ -9,14 +9,14 @@ Computes exponentially distributed random numbers with a choice of underlying ra
 
 Format
 ----------------
-.. function:: r = rndExp(rows, cols, scale)
-              { r, newstate } = rndExp(rows, cols, scale, state)
+.. function:: x = rndExp(r, c, scale)
+              { x, newstate } = rndExp(r, c, scale, state)
 
-    :param rows: number of rows of resulting matrix.
-    :type rows: scalar
+    :param r: number of rows of resulting matrix.
+    :type r: scalar
 
-    :param cols: number of columns of resulting matrix.
-    :type cols: scalar
+    :param c: number of columns of resulting matrix.
+    :type c: scalar
 
     :param scale: scalar or matrix that is ExE conformable with the dimensions of the output. The scale parameter sometimes called :math:`\beta`
     :type scale: scalar or matrix
@@ -33,9 +33,9 @@ Format
 
     :type state: scalar or opaque vector
 
-    :return r: exponentially distributed random numbers.
+    :return x: exponentially distributed random numbers.
 
-    :rtype r: rows x cols matrix
+    :rtype x: RxC matrix
 
     :return newstate: the updated state.
 

@@ -8,7 +8,7 @@ Computes the probability distribution function of the normal distribution over t
 
 Format
 ----------------
-.. function:: p = pdfTruncNorm(x, a, b, mu_bar, sigma_bar)
+.. function:: p = pdfTruncNorm(x, a, b, mu, sigma)
 
     :param x: NxK matrix, or N-dimensional array.
     :type x: scalar
@@ -19,11 +19,11 @@ Format
     :param b: upper limit of the integration window.
     :type b: scalar
 
-    :param mu_bar: mean parameter.
-    :type mu_bar: scalar
+    :param mu: mean parameter.
+    :type mu: scalar
 
-    :param sigma_bar: standard deviation parameter.
-    :type sigma_bar: scalar
+    :param sigma: standard deviation parameter.
+    :type sigma: scalar
 
     :return p: the probability density over the interval from *a* to *b*.
 
@@ -38,11 +38,11 @@ Examples
     a = -1;
     b = 1;
     mu = 0;
-    s = 1;
+    sigma = 1;
 
     // Compute the PDF at x = 0.5
     // over the closed region [-1, 1]
-    p = pdfTruncNorm(x, a, b, mu, s);
+    p = pdfTruncNorm(x, a, b, mu, sigma);
 
 After the above code, *p* equals:
 

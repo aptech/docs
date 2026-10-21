@@ -9,15 +9,15 @@ Computes the binomial cumulative distribution function.
 
 Format
 ----------------
-.. function:: p = cdfBinomial(successes, trials, prob)
+.. function:: p = cdfBinomial(x, trials, prob)
 
-    :param successes: Must be a positive number and must be less than *trials*
-    :type successes: NxK matrix, Nx1 vector or scalar
+    :param x: The number of successes. Must be a positive number and must be less than *trials*
+    :type x: NxK matrix, Nx1 vector or scalar
 
-    :param trials: ExE conformable with *successes*. *trials* must be greater than *successes*.
+    :param trials: ExE conformable with *x*. *trials* must be greater than *x*.
     :type trials: LxM matrix
 
-    :param prob: ExE conformable with *successes*. The probability of *success* on any given *trial* with *successes*  :math:`0 < prob < 1`.
+    :param prob: ExE conformable with *x*. The probability of *success* on any given *trial*. :math:`0 < prob < 1`.
     :type prob: PxQ matrix
 
     :return p: Each element in *p* is the binomial cdf value evaluated at the corresponding element in *x*.
@@ -37,7 +37,7 @@ What are the chances that a baseball player with a long-term batting average of 
     */
 
     // Number of successes
-    successes = 270;
+    x = 270;
 
     // Number of trials
     trials = 704;
@@ -46,14 +46,19 @@ What are the chances that a baseball player with a long-term batting average of 
     prob = 0.317;
 
     // Call cdfBinomial
-    p = cdfBinomial(successes, trials, prob);
+    p = cdfBinomial(x, trials, prob);
+
+After the code above:
+
+::
+
     p = 0.9999199430052614
 
 Therefore the odds of this player breaking Ichiro's record:
 
 ::
 
-    1-p = 0.0000000000037863 or 0.0000000003786305%
+    1-p = 0.0000800569947386 or 0.00800569947386%
 
 
 Remarks
@@ -65,6 +70,8 @@ Remarks
    n \\
    i \\
    \end{pmatrix}\, p^{i}\left( 1 - p \right)^{n - i}}
+
+where *k* is *x*, *n* is *trials* and *p* is *prob*.
 
 For invalid inputs, :func:`cdfBinomial` will return a scalar error code which,
 when its value is assessed by function :func:`scalerr`, corresponds to the

@@ -10,7 +10,7 @@ standardized trivariate Normal density (lower tail).
 
 Format
 ----------------
-.. function:: p = cdfTvn(x1, x2, x3, rho12, rho23, rho13)
+.. function:: p = cdfTvn(x1, x2, x3, corr12, corr23, corr13)
 
     :param x1: upper limits of integration for variable 1
     :type x1: Nx1 vector
@@ -21,14 +21,14 @@ Format
     :param x3: upper limits of integration for variable 3
     :type x3: Nx1 vector
 
-    :param rho12: correlation coefficients between the two variables *x1* and *x2*
-    :type rho12: scalar or Nx1 vector
+    :param corr12: correlation coefficients between the two variables *x1* and *x2*
+    :type corr12: scalar or Nx1 vector
 
-    :param rho23: correlation coefficients between the two variables *x2* and *x3*
-    :type rho23: scalar or Nx1 vector
+    :param corr23: correlation coefficients between the two variables *x2* and *x3*
+    :type corr23: scalar or Nx1 vector
 
-    :param rho13: correlation coefficients between the two variables *x1* and *x3*
-    :type rho13: scalar or Nx1 vector
+    :param corr13: correlation coefficients between the two variables *x1* and *x3*
+    :type corr13: scalar or Nx1 vector
 
     :return p: result of the triple integral
         from :math:`-\infty\:\ to\:\ x_1`, :math:`-\infty\:\ to\:\ x_2`, and :math:`-\infty\:\ to\:\ x_3`
@@ -47,14 +47,14 @@ Examples
     x3 = 0.46;
 
     //Correlations
-    rho12 = 0.2;
-    rho23 = 0.65;
-    rho13 = 0.78;
+    corr12 = 0.2;
+    corr23 = 0.65;
+    corr13 = 0.78;
 
     /*
     ** Compute the CDF
     */
-    p = cdfTvn(x1, x2, x3, rho12, rho23, rho13);
+    p = cdfTvn(x1, x2, x3, corr12, corr23, corr13);
     print "p =" p;
 
 After the above code, `x` will equal:
@@ -73,11 +73,11 @@ Allowable ranges for the arguments are:
      −\infty < x1 < \infty\\
      −\infty \lt x2 \lt \infty\\
      −\infty \lt x3 \lt \infty\\
-     −1 \lt rho12 \lt 1\\
-     −1 \lt rho23 \lt 1\\
-     −1 \lt rho13 \lt 1\\
+     −1 \lt corr12 \lt 1\\
+     −1 \lt corr23 \lt 1\\
+     −1 \lt corr13 \lt 1\\
 
-In addition, *rho12*, *rho23* and *rho13* must come from a legitimate positive
+In addition, *corr12*, *corr23* and *corr13* must come from a legitimate positive
 definite matrix. A -1 is returned for those rows with invalid inputs.
 
 A separate integral is computed for each row of the inputs.

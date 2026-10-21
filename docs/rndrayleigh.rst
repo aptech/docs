@@ -9,8 +9,8 @@ Computes rayleigh pseudo-random numbers with the choice of underlying random num
 
 Format
 ----------------
-.. function:: x = rndRayleigh(r, c, sigma)
-              { x, newstate } = rndRayleigh(r, c, sigma, state)
+.. function:: x = rndRayleigh(r, c, scale)
+              { x, newstate } = rndRayleigh(r, c, scale, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar
@@ -18,8 +18,8 @@ Format
     :param c: number of columns of resulting matrix.
     :type c: scalar
 
-    :param sigma: scale parameter, ExE conformable with '*r*' and '*c*'.
-    :type sigma: scalar or matrix
+    :param scale: scale parameter (:math:`\sigma` below), ExE conformable with '*r*' and '*c*'.
+    :type scale: scalar or matrix
 
     :param state: Optional argument.
 
@@ -53,7 +53,7 @@ Basic example
     rndseed 4323;
 
     // Create a 3x1 column vector of Rayleigh distributed
-    // random deviates with sigma equal to 2
+    // random deviates with scale equal to 2
     x = rndRayleigh(3, 1, 2);
 
 After the above code, '*x*' should be equal to:
@@ -62,9 +62,9 @@ After the above code, '*x*' should be equal to:
 
     0.28950290
     1.9994478
-    5.089132
+    5.0891327
 
-Columns with different sigma values
+Columns with different scale values
 +++++++++++++++++++++++++++++++++++
 
 ::
@@ -73,16 +73,16 @@ Columns with different sigma values
     rndseed 4323;
 
     // Create a 3x2 column vector of Rayleigh distributed
-    // random deviates with sigma equal to 1 for the
+    // random deviates with scale equal to 1 for the
     // first column and equal to 3 for the second column
-    sigma = { 1 3 };
-    x = rndRayleigh(3, 2, sigma);
+    scale = { 1 3 };
+    x = rndRayleigh(3, 2, scale);
 
 After the above code, '*x*' should be equal to:
 
 ::
 
-    0.1447515        2.9991717
+    0.14475145       2.9991717
     2.5445664        2.4191846
     1.1406313        5.0636878
 
@@ -92,7 +92,7 @@ Using a state vector
 ::
 
     // Create a 3x1 column vector of Rayleigh distributed
-    // random deviates with sigma equal to 2
+    // random deviates with scale equal to 2
     seed = 4323;
     { x1, state } = rndRayleigh(3, 1, 2, seed);
 

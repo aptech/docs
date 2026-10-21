@@ -9,16 +9,16 @@ Computes the probability density function for the Cauchy distribution.
 
 Format
 ----------------
-.. function:: p = pdfCauchy(x, mu, sigma)
+.. function:: p = pdfCauchy(x, loc, scale)
 
     :param x: data
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param mu: Location parameter. ExE conformable with *x*.
-    :type mu: NxK matrix, Nx1 vector or scalar
+    :param loc: Location parameter (:math:`\mu` below). ExE conformable with *x*.
+    :type loc: NxK matrix, Nx1 vector or scalar
 
-    :param sigma: Scale parameter. ExE conformable with *x*. *sigma* must be greater than 0.
-    :type sigma: NxK matrix, Nx1 vector or scalar
+    :param scale: Scale parameter (:math:`\sigma` below). ExE conformable with *x*. *scale* must be greater than 0.
+    :type scale: NxK matrix, Nx1 vector or scalar
 
     :return p: the probability density function for the Cauchy distribution for the elements in *x*.
 

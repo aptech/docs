@@ -8,7 +8,7 @@ Computes the cumulative distribution function of the normal distribution over th
 
 Format
 ----------------
-.. function:: p = cdfTruncNorm(x, a, b, mu_bar, sigma_bar)
+.. function:: p = cdfTruncNorm(x, a, b, mu, sigma)
 
     :param x: Values at which to evaluate the cumulative distribution function of the normal distribution.
     :type x: NxK matrix
@@ -19,11 +19,11 @@ Format
     :param b: upper limit of the integration window.
     :type b: Scalar
 
-    :param mu_bar: mean parameter.
-    :type mu_bar: Scalar
+    :param mu: mean parameter.
+    :type mu: Scalar
 
-    :param sigma_bar: standard deviation parameter.
-    :type sigma_bar: Scalar
+    :param sigma: standard deviation parameter.
+    :type sigma: Scalar
 
     :return p: the probability density
         of the cumulative distribution over the interval from *a* to *b*.
@@ -45,17 +45,17 @@ Examples
     b = 1;
 
     // Mean parameter
-    mu_bar = 2.3;
+    mu = 2.3;
 
     // Standard deviation parameter
-    sigma_bar = 1;
+    sigma = 1;
 
     /*
     ** Compute the CDF at x = 0.6
     ** over the closed region [-1,1]
     ** of the distribution N ~ (2.3, 1)
     */
-    p = cdfTruncNorm(x, a, b, mu_bar, sigma_bar);
+    p = cdfTruncNorm(x, a, b, mu, sigma);
 
 After the above code, *p* equals:
 

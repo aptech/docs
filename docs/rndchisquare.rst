@@ -9,8 +9,8 @@ Creates pseudo-random numbers with a chi-squared distribution, with an optional 
 
 Format
 ----------------
-.. function:: x = rndChiSquare(r, c, df[, s_ncp])
-              { x, newstate } = rndChiSquare(r, c, df, s_ncp, state)
+.. function:: x = rndChiSquare(r, c, df[, nonc])
+              { x, newstate } = rndChiSquare(r, c, df, nonc, state)
 
     :param r: number of rows of resulting matrix.
     :type r: scalar
@@ -21,11 +21,11 @@ Format
     :param df: degrees of freedom.
     :type df: scalar
 
-    :param s_ncp: Optional argument, non-centrality parameter.
+    :param nonc: Optional argument, non-centrality parameter.
 
         .. NOTE:: This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.
 
-    :type s_ncp: scalar
+    :type nonc: scalar
 
     :param state: Optional argument.
 
@@ -64,7 +64,7 @@ where:
 
    k = df
 
-   \lambda = s\_ncp^2
+   \lambda = nonc^2
 
 Examples
 ----------------

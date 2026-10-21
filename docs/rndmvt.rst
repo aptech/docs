@@ -5,18 +5,18 @@ rndMVt
 Purpose
 ----------------
 
-Computes multivariate Student-t distributed random numbers given a covariance matrix.
+Computes multivariate Student-t distributed random numbers given a scale matrix.
 
 Format
 ----------------
-.. function:: r = rndMVt(num, cov, df)
-              { r, newstate } = rndMVt(num, cov, df, state)
+.. function:: r = rndMVt(num, scale, df)
+              { r, newstate } = rndMVt(num, scale, df, state)
 
     :param num: number of random vectors to create.
     :type num: scalar
 
-    :param cov: covariance matrix
-    :type cov: NxN matrix
+    :param scale: scale matrix. It is not the covariance matrix: for :math:`df > 2` the draws have covariance :math:`df/(df-2)` times *scale*.
+    :type scale: NxN matrix
 
     :param df: degrees of freedom.
     :type df: scalar
@@ -52,11 +52,11 @@ Examples
     // Degrees of freedom
     df = 8;
 
-    // Covariance matrix
-    sigma = {   1 0.3,
+    // Scale matrix
+    scale = {   1 0.3,
               0.3   1 };
 
-    x = rndMVt(100, sigma, df);
+    x = rndMVt(100, scale, df);
     print (meanc(x));
 
 ::
@@ -75,7 +75,7 @@ The properties of the pseudo-random numbers in *x* are:
 
    E(x) = 0\\
 
-   Var(x) = \bigg(\frac{df}{df - 2}\bigg) * \sigma
+   Var(x) = \bigg(\frac{df}{df - 2}\bigg) * scale
 
 
 .. seealso:: Functions :func:`rndMVn`, :func:`rndCreateState`

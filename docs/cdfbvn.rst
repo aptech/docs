@@ -8,19 +8,19 @@ Computes the cumulative distribution function of the standardized bivariate Norm
 
 Format
 ----------------
-.. function:: p = cdfBvn(h, k, r)
+.. function:: p = cdfBvn(x1, x2, corr)
 
-    :param h: the upper limits of integration for variable 1.
-    :type h: NxK matrix
+    :param x1: the upper limits of integration for variable 1.
+    :type x1: NxK matrix
 
-    :param k: ExE conformable with *h*, the upper limits of integration for variable 2.
-    :type k: LxM matrix
+    :param x2: ExE conformable with *x1*, the upper limits of integration for variable 2.
+    :type x2: LxM matrix
 
-    :param r: ExE conformable with *h* and *k*, the correlation coefficients between the two variables.
-    :type r: PxQ matrix
+    :param corr: ExE conformable with *x1* and *x2*, the correlation coefficients between the two variables.
+    :type corr: PxQ matrix
 
     :return p: the result of the double integral
-        from :math:`-∞` to h and :math:`-∞` to *k* of the standardized bivariate Normal density :math:`f(x, y, r)`.
+        from :math:`-∞` to *x1* and :math:`-∞` to *x2* of the standardized bivariate Normal density :math:`f(x, y, r)`.
 
     :rtype p: matrix), max(N,L,P) by max(K,M,Q) matrix
 
@@ -33,22 +33,22 @@ Examples
   rndseed 777;
 
   // Upper integration bounds of variable 1
-  x = rndn(10, 1);
+  x1 = rndn(10, 1);
 
   // Upper integration bounds of variable 2
-  y = rndn(10, 1);
+  x2 = rndn(10, 1);
 
   // Correlation parameter
-  rho = rndu(10, 1);
+  corr = rndu(10, 1);
 
   // Call cdfBvn
-  p = cdfBvn(x, y, rho);
+  p = cdfBvn(x1, x2, corr);
 
 After above code,
 
 ::
 
-    p =   0.1508   x = 0.5242  y = -0.8802 
+    p =   0.1508  x1 = 0.5242 x2 = -0.8802 
           0.4379       1.3741      -0.0757 
           0.0037      -2.6114      -1.2862 
           0.6522       0.6770       0.4337 
@@ -70,15 +70,15 @@ with
 
 .. math:: w⁢ = \frac{x^2 − 2rxy + y^2}{1−r^2}
 
-Thus, *x* and *y* have 0 means, unit variances, and :math:`correlation = r`.
+Thus, *x* and *y* have 0 means, unit variances, and :math:`correlation = r`, where *r* is *corr*.
 
 Allowable ranges for the arguments are:
 
 .. math::
 
-   -∞ \leq h \leq +∞ \\
-   -∞ \leq k \leq +∞ \\
-   -1 \lt r \lt 1
+   -∞ \leq x1 \leq +∞ \\
+   -∞ \leq x2 \leq +∞ \\
+   -1 \lt corr \lt 1
 
 A -1 is returned for those elements with invalid inputs.
 
@@ -88,11 +88,11 @@ transformation equations:
 
 .. math::
 
-   h = (ht - ux)/ sx\\
-   k = (kt - uy)\\
+   x1 = (x1t - ux)/ sx\\
+   x2 = (x2t - uy)/ sy\\
 
 where *ux* and *uy* are the (vectors of) means of *x* and *y*, *sx* and *sy* are the
-(vectors of) standard deviations of *x* and *y*, and *ht* and *kt* are the
+(vectors of) standard deviations of *x* and *y*, and *x1t* and *x2t* are the
 (vectors of) upper integration limits for the untransformed variables,
 respectively.
 

@@ -8,18 +8,18 @@ Computes the cumulative distribution function for the negative binomial distribu
 
 Format
 ----------------
-.. function:: p = cdfNegBinomial(f, s, prob)
+.. function:: p = cdfNegBinomial(x, s, prob)
 
-    :param f: Number of failures. :math:`0 < f`.
-    :type f: NxK matrix, Nx1 vector or scalar
+    :param x: Number of failures. :math:`0 < x`.
+    :type x: NxK matrix, Nx1 vector or scalar
 
-    :param s: ExE conformable with *f*, the number of successes. :math:`0 < s`.
+    :param s: ExE conformable with *x*, the number of successes. :math:`0 < s`.
     :type s: matrix
 
-    :param prob: The probability of success on any given trial. ExE conformable with *f*. :math:`0 < prob < 1`.
+    :param prob: The probability of success on any given trial. ExE conformable with *x*. :math:`0 < prob < 1`.
     :type prob: matrix
 
-    :return p: The probability of observing *f* failures before observing *s* successes.
+    :return p: The probability of observing *x* failures before observing *s* successes.
 
     :rtype p: NxK matrix, Nx1 vector or scalar
 
@@ -44,8 +44,8 @@ eight?
 
 ::
 
-   // f is number of failures, f = 0, 1, 2, 3
-   f = seqa(0, 1, 4);
+   // x is number of failures, x = 0, 1, 2, 3
+   x = seqa(0, 1, 4);
 
    // Probability of selling each candy bar is 0.4
    prob = 0.4;
@@ -53,10 +53,10 @@ eight?
    // Number of successes (sold candy bars)
    s = 5;
 
-   p = cdfNegBinomial(f, s, prob);
+   p = cdfNegBinomial(x, s, prob);
 
-   // 5 successes + f failures = total houses visited
-   h = f + 5;
+   // 5 successes + x failures = total houses visited
+   h = x + 5;
 
    print  "After nth try, the probability =";
    print h~p;
