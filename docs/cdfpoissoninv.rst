@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: x = cdfPoissonInv(p, lambda)
 
-    :param p: Probabilities at which to compute the Poisson inverse cumulative distribution function. :math:`0 < p < 1`.
+    :param p: Probabilities at which to compute the Poisson inverse cumulative distribution function. :math:`0 \leq p \leq 1`.
     :type p: NxK matrix
 
-    :param lambda: The mean parameter.
+    :param lambda: The mean parameter. :math:`lambda \geq 0`.
     :type lambda: ExE conformable with *p*
 
     :return x: each value of *x* is the smallest integer such that the Poisson cumulative distribution function is equal to or exceeds the corresponding value of *p*.
@@ -46,9 +46,12 @@ After running above code, the hospital should expect to see 224 or few patients 
 Remarks
 -------
 
-For invalid inputs, :func:`cdfPoissoninv` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+The number of events has no upper limit, so *p* = 1 returns +INF (unless
+*lambda* = 0, when every result is 0).
+
+If *p* is outside [0, 1] or *lambda* is below 0, :func:`cdfPoissonInv` returns
+a scalar error code and :func:`scalerr` returns the position of that argument: 1
+for *p*, 2 for *lambda*. A missing value in either argument returns a missing
+value.
 
 .. seealso:: Functions :func:`cdfPoisson`, :func:`pdfPoisson`, :func:`cdfBinomial`, :func:`cdfNegBinomial`

@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: p = cdfBinomial(x, trials, prob)
 
-    :param x: The number of successes. Must be a positive number and must be less than *trials*
+    :param x: The number of successes. A fractional *x* is rounded down. An *x* below 0 returns 0 and an *x* above *trials* returns 1.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param trials: ExE conformable with *x*. *trials* must be greater than *x*.
+    :param trials: ExE conformable with *x*. The number of trials, :math:`trials > 0`.
     :type trials: LxM matrix
 
-    :param prob: ExE conformable with *x*. The probability of *success* on any given *trial*. :math:`0 < prob < 1`.
+    :param prob: ExE conformable with *x*. The probability of *success* on any given *trial*. :math:`0 \leq prob \leq 1`.
     :type prob: PxQ matrix
 
     :return p: Each element in *p* is the binomial cdf value evaluated at the corresponding element in *x*.
@@ -73,9 +73,10 @@ Remarks
 
 where *k* is *x*, *n* is *trials* and *p* is *prob*.
 
-For invalid inputs, :func:`cdfBinomial` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+If *trials* is not greater than 0 or *prob* is outside [0, 1],
+:func:`cdfBinomial` returns a scalar error code and :func:`scalerr` returns the
+position of that argument: 2 for *trials*, 3 for *prob*. An *x* below 0 or above
+*trials* is not an error: it returns 0 or 1. A missing value in any argument
+returns a missing value.
 
 .. seealso:: Functions :func:`cdfBinomialInv`, :func:`cdfNegBinomial`, :func:`pdfBinomial`

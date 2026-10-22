@@ -10,10 +10,10 @@ Format
 ----------------
 .. function:: p = cdfPoisson(x, lambda)
 
-    :param x: Values at which to evaluate the cumulative distribution function for the Poisson distribution. :math:`x > 0`.
+    :param x: Values at which to evaluate the cumulative distribution function for the Poisson distribution. A fractional *x* is rounded down. An *x* below 0 returns 0.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param lambda: The mean parameter.
+    :param lambda: The mean parameter. :math:`lambda \geq 0`.
     :type lambda: ExE conformable with *x*
 
     :return p: Each element in *p* is the cumulative distribution function of the Poisson distribution evaluated at the corresponding element in *x*.
@@ -44,9 +44,9 @@ After running above code,
 Remarks
 -------
 
-For invalid inputs, :func:`cdfPoisson` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+If *lambda* is below 0, :func:`cdfPoisson` returns a scalar error code and
+:func:`scalerr` returns 2, the position of *lambda*. An *x* below 0 is not an
+error: it returns 0. A missing value in either argument returns a missing
+value.
 
 .. seealso:: Functions :func:`cdfPoissonInv`, :func:`pdfPoisson`, :func:`cdfBinomial`, :func:`cdfNegBinomial`

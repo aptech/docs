@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: f = cdfNegBinomialInv(p, s, prob)
 
-    :param p: The probability of observing *f* failures before observing *s* successes. :math:`0 < p < 1`.
+    :param p: The probability of observing *f* failures before observing *s* successes. :math:`0 \leq p \leq 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
-    :param s: ExE conformable with *p*, the number of successes. :math:`0 < s`.
+    :param s: ExE conformable with *p*, the number of successes. :math:`s \geq 0`.
     :type s: matrix
 
-    :param prob: The probability of success on any given trial. ExE conformable with *p*. :math:`0 < prob < 1`.
+    :param prob: The probability of success on any given trial. ExE conformable with *p*. :math:`0 \leq prob \leq 1`.
     :type prob: matrix
 
     :return f: The number of failures that will be observed before *s* successes.
@@ -26,10 +26,15 @@ Format
 Remarks
 -------
 
-For invalid inputs, :func:`cdfNegBinomialInv` will return a scalar error code
-which, when its value is assessed by function :func:`scalerr`, corresponds to
-the invalid input. If the first input is out of range, scalerr will
-return a 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+*f* is the smallest number of failures whose cumulative probability is at
+least *p*. The number of failures has no upper limit, so *p* = 1 returns +INF
+(unless *s* = 0 or *prob* = 1, when every result is 0). With *prob* = 0 no
+success ever happens, so every *p* above 0 returns +INF.
+
+If *p* is outside [0, 1], *s* is below 0, or *prob* is outside [0, 1],
+:func:`cdfNegBinomialInv` returns a scalar error code and :func:`scalerr`
+returns the position of that argument: 1 for *p*, 2 for *s*, 3 for *prob*. A
+missing value in any argument returns a missing value.
 
 Example
 -------

@@ -81,4 +81,8 @@ Remarks
 
     cdfTc(x, df) = 1 - cdfTnc(x, df, 0)
 
+If *df* is not greater than 0, :func:`cdfTnc` returns a scalar error code and
+:func:`scalerr` returns 2, the position of *df*. A missing value in any argument
+returns a missing value.
+
 .. seealso:: Functions :func:`cdfFnc`, :func:`cdfChinc`

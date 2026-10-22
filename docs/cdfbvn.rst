@@ -78,9 +78,11 @@ Allowable ranges for the arguments are:
 
    -∞ \leq x1 \leq +∞ \\
    -∞ \leq x2 \leq +∞ \\
-   -1 \lt corr \lt 1
+   -1 \leq corr \leq 1
 
-A -1 is returned for those elements with invalid inputs.
+If *corr* is outside this range, :func:`cdfBvn` returns a scalar error code and
+:func:`scalerr` returns 3, the position of *corr*. A missing value in any
+argument returns a missing value.
 
 To find the integral under a general bivariate density, with *x* and *y*
 having nonzero means and any positive standard deviations, use the

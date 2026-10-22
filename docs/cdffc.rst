@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: p = cdfFc(x, df_n, df_d)
 
-    :param x: Values at which to evaluate the complement of the F distribution cdf. :math:`x > 0`.
+    :param x: Values at which to evaluate the complement of the F distribution cdf. An *x* below 0 returns 1.
     :type x: NxK matrix
 
     :param df_n: ExE conformable with *x*. Degrees of freedom of numerator, :math:`df_n > 0`.
@@ -71,6 +71,9 @@ The complement of the cdf is computed because this is what is most
 commonly needed in statistical applications, and because it can be
 computed with fewer problems of roundoff error.
 
-A -1 is returned for those elements with invalid inputs.
+If *df_n* or *df_d* is not greater than 0, :func:`cdfFc` returns a scalar error
+code and :func:`scalerr` returns the position of that argument: 2 for *df_n*,
+3 for *df_d*. An *x* below 0 is not an error: it returns 1. A missing value in
+any argument returns a missing value.
 
 .. seealso:: Functions :func:`cdfBeta`, :func:`cdfChic`, :func:`cdfN`, :func:`cdfNc`, :func:`cdfTc`, :func:`gamma`

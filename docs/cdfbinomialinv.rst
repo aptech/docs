@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: s = cdfBinomialInv(p, trials, prob)
 
-    :param p: Probabilities at which to compute the inverse of the Binomial cumulative distribution function. :math:`0 \lt p \lt 1`.
+    :param p: Probabilities at which to compute the inverse of the Binomial cumulative distribution function. :math:`0 \leq p \leq 1`.
     :type p: NxK matrix, Nx1 vector or scalar
 
     :param trials: ExE conformable with *p*. :math:`trials > 0`.
     :type trials: LxM matrix
 
-    :param prob: The probability of *success* on any given trial. ExE conformable with *p*. :math:`0 < prob < 1`.
+    :param prob: The probability of *success* on any given trial. ExE conformable with *p*. :math:`0 \leq prob \leq 1`.
     :type prob: PxQ matrix
 
     :return s: The number of successes.
@@ -56,10 +56,13 @@ This means that a team with a 60% chance of winning any one game would win betwe
 Remarks
 -----------
 
-For invalid inputs, :func:`cdfBinomialInv` will return a scalar error code
-which, when its value is assessed by function :func:`scalerr`, corresponds to
-the invalid input. If the first input is out of range, :func:`scalerr` will
-return a 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+*s* is the smallest number of successes whose cumulative probability is at
+least *p*.
+
+If *p* is outside [0, 1], *trials* is not greater than 0, or *prob* is outside
+[0, 1], :func:`cdfBinomialInv` returns a scalar error code and :func:`scalerr`
+returns the position of that argument: 1 for *p*, 2 for *trials*, 3 for *prob*.
+A missing value in any argument returns a missing value.
 
 
 .. seealso:: Functions :func:`cdfBinomial`, :func:`pdfBinomial`, :func:`cdfNegBinomial`, :func:`cdfNegBinomialInv`

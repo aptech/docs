@@ -77,8 +77,12 @@ Allowable ranges for the arguments are:
      −1 \lt corr23 \lt 1\\
      −1 \lt corr13 \lt 1\\
 
-In addition, *corr12*, *corr23* and *corr13* must come from a legitimate positive
-definite matrix. A -1 is returned for those rows with invalid inputs.
+In addition, *corr12*, *corr23* and *corr13* must come from a positive definite
+matrix. For a row with a correlation outside its range, :func:`cdfTvn` returns a
+scalar error code and :func:`scalerr` returns the position of that argument: 4
+for *corr12*, 5 for *corr23*, 6 for *corr13*. If the three correlations do not
+form a positive definite matrix, :func:`scalerr` returns 4. A missing value in
+any argument returns a missing value.
 
 A separate integral is computed for each row of the inputs.
 

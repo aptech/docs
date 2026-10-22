@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: p = cdfFnc(x, df_n, df_d, nonc)
 
-    :param x: Values at which to evaluate the cdf of the noncentral F distribution. :math:`x > 0`.
+    :param x: Values at which to evaluate the cdf of the noncentral F distribution. An *x* below 0 returns 0.
     :type x: NxK matrix
 
     :param df_n: ExE conformable with *x*. Degrees of freedom of numerator, :math:`df_n > 0`.
@@ -64,9 +64,9 @@ will return:
 Remarks
 -------
 
-For invalid inputs, :func:`cdfFnc` will return a scalar error code which, when
-its value is assessed by function :func:`scalerr`, corresponds to the invalid
-input. If the first input is out of range, :func:`scalerr` will return a 1; if
-the second is out of range, :func:`scalerr` will return a 2; etc.
+If *df_n* or *df_d* is not greater than 0, :func:`cdfFnc` returns a scalar
+error code and :func:`scalerr` returns the position of that argument: 2 for
+*df_n*, 3 for *df_d*. An *x* below 0 is not an error: it returns 0. A missing
+value in any argument returns a missing value.
 
 .. seealso:: :func:`cdfTnc`, :func:`cdfChinc`

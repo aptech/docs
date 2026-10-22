@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: p = cdfNegBinomial(x, s, prob)
 
-    :param x: Number of failures. :math:`0 < x`.
+    :param x: Number of failures. An *x* below 0 returns 0.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param s: ExE conformable with *x*, the number of successes. :math:`0 < s`.
+    :param s: ExE conformable with *x*, the number of successes. :math:`s \geq 0`.
     :type s: matrix
 
-    :param prob: The probability of success on any given trial. ExE conformable with *x*. :math:`0 < prob < 1`.
+    :param prob: The probability of success on any given trial. ExE conformable with *x*. :math:`0 \leq prob \leq 1`.
     :type prob: matrix
 
     :return p: The probability of observing *x* failures before observing *s* successes.
@@ -26,10 +26,10 @@ Format
 Remarks
 -------
 
-For invalid inputs, :func:`cdfNegBinomial` will return a scalar error code
-which, when its value is assessed by function :func:`scalerr`, corresponds to
-the invalid input. If the first input is out of range, scalerr will
-return a 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+If *s* is below 0 or *prob* is outside [0, 1], :func:`cdfNegBinomial` returns a
+scalar error code and :func:`scalerr` returns the position of that argument: 2
+for *s*, 3 for *prob*. An *x* below 0 is not an error: it returns 0. A missing
+value in any argument returns a missing value.
 
 Example
 -------

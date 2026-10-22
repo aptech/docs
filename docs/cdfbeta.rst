@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: p = cdfBeta(x, a, b)
 
-    :param x: Values at which to evaluate the Beta cdf. :math:`0 \leq x \leq 1`
+    :param x: Values at which to evaluate the Beta cdf. An *x* below 0 returns 0 and an *x* above 1 returns 1.
     :type x: NxK matrix
 
     :param a: ExE conformable with *x*. :math:`a > 0`
@@ -20,7 +20,7 @@ Format
     :param b: ExE conformable with *x* and *a*. :math:`b > 0`
     :type b: PxQ matrix
 
-    :return p: *p* is the integral from 0 to *x* of the beta distribution with parameters *a* and *b*. A -1 is returned for those elements with invalid inputs.
+    :return p: *p* is the integral from 0 to *x* of the beta distribution with parameters *a* and *b*.
 
     :rtype p: matrix, max(N,L,P) by max(K,M,Q)
 
@@ -49,6 +49,13 @@ After running above code,
     0.2000
     0.3000
     0.4000
+
+Remarks
+-------
+
+If *a* or *b* is not greater than 0, :func:`cdfBeta` returns a scalar error code
+and :func:`scalerr` returns the position of that argument: 2 for *a*, 3 for *b*.
+A missing value in any argument returns a missing value.
 
 
 .. seealso:: Functions :func:`cdfChic`, :func:`cdfFc`, :func:`cdfN`, :func:`cdfNc`, :func:`cdfTc`, :func:`gamma`

@@ -10,13 +10,13 @@ Format
 ----------------
 .. function:: p = cdfChinc(x, df, nonc)
 
-    :param x: Values at which to evaluate the cdf of the noncentral chi-squared distribution. :math:`x > 0`.
+    :param x: Values at which to evaluate the cdf of the noncentral chi-squared distribution. An *x* below 0 returns 0.
     :type x: Nx1 vector
 
     :param df: degrees of freedom, :math:`df > 0`.
     :type df: scalar
 
-    :param nonc: noncentrality parameter, :math:`nonc > 0`. Note: This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.  :math:`nonc > 0`.
+    :param nonc: noncentrality parameter, :math:`nonc \geq 0`. Note: This is the square root of the noncentrality parameter that sometimes goes under the symbol :math:`\lambda`.
     :type nonc: scalar
 
     :return p: Each element in *p* is the noncentral chi-squared cdf value evaluated at the corresponding element in *x*.
@@ -57,10 +57,10 @@ with *df* degrees of freedom and noncentrality *nonc*.
 :func:`cdfChinc` can return a vector of values, but the degrees of freedom and
 noncentrality parameter must be the same for all values of *x*.
 
-For invalid inputs, :func:`cdfChinc` will return a scalar error code which, when
-its value is assessed by function :func:`scalerr`, corresponds to the invalid
-input. If the first input is out of range, :func:`scalerr` will return a 1; if
-the second is out of range, :func:`scalerr` will return a 2; etc.
+If *df* is not greater than 0 or *nonc* is below 0, :func:`cdfChinc` returns a
+scalar error code and :func:`scalerr` returns the position of that argument: 2
+for *df*, 3 for *nonc*. An *x* below 0 is not an error: it returns 0. A missing
+value in any argument returns a missing value.
 
 Relation to :func:`cdfChic`:
 

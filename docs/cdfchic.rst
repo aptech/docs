@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: p = cdfChic(x, df)
 
-    :param x: Values at which to evaluate the complement of the chi-squared cdf. :math:`x > 0`
+    :param x: Values at which to evaluate the complement of the chi-squared cdf. An *x* below 0 returns 1.
     :type x: NxK matrix. 
 
     :param df: ExE conformable with *x*, degrees of freedom. :math:`df > 0`
@@ -49,7 +49,10 @@ After running the above code,
 Remarks
 -------
 
-A -1 is returned for those elements with invalid inputs.
+If *df* is not greater than 0, :func:`cdfChic` returns a scalar error code and
+:func:`scalerr` returns 2, the position of *df*. An *x* below 0 is not an
+error: it returns 1. A missing value in either argument returns a missing
+value.
 
 This equals :math:`1 - Χ_{df}^2(x)`, Thus, to get the chi-squared cdf, subtract
 :code:`cdfChic(x, df)` from 1. The complement of the cdf is computed because this

@@ -13,7 +13,7 @@ Format
     :param x: values at which to evaluate the cumulative distribution function for the Student's t distribution. :math:`−\infty \leq x \leq \infty`.
     :type x: NxK matrix
 
-    :param df: ExE conformable with *x*. Degrees of freedom. :math:`df > 1`.
+    :param df: ExE conformable with *x*. Degrees of freedom. :math:`df > 0`.
     :type df: LxM matrix
 
     :return p: Each element in *p* is the complement of the cumulative distribution function of the Student's t distribution evaluated at the corresponding element in *x*.
@@ -46,7 +46,9 @@ After running above code,
 Remarks
 -------
 
-A -1 is returned for those elements with invalid inputs.
+If *df* is not greater than 0, :func:`cdfTc` returns a scalar error code and
+:func:`scalerr` returns 2, the position of *df*. A missing value in either
+argument returns a missing value.
 
 This equals:
 

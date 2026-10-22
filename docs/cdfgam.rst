@@ -13,7 +13,7 @@ Format
     :param shape: The shape parameter of the gamma distribution. :math:`shape > 0`.
     :type shape: NxK matrix
 
-    :param x: ExE compatible with *shape*, the values at which to evaluate the function (the upper limit of integration). :math:`x \geq 0`.
+    :param x: ExE compatible with *shape*, the values at which to evaluate the function (the upper limit of integration). An *x* below 0 returns 0.
     :type x: LxM matrix
 
     :return p: Each element in *p* is the regularized lower incomplete gamma function with the corresponding shape in *shape*, evaluated at the corresponding element in *x*.
@@ -84,5 +84,8 @@ The regularized lower incomplete gamma function returns the integral
 
 .. math:: \text{cdfGam(shape, x)} = \int_{0}^{x} \frac{e^{-t}t^{(shape-1)}}{\Gamma(shape)}dt
 
-A -1 is returned for those elements with invalid inputs.
+If *shape* is not greater than 0, :func:`cdfGam` returns a scalar error code
+and :func:`scalerr` returns 1, the position of *shape*. An *x* below 0 is not
+an error: it returns 0. A missing value in either argument returns a missing
+value.
 
