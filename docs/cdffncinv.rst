@@ -71,4 +71,6 @@ when its value is assessed by function :func:`scalerr`, corresponds to the
 invalid input. If the first input is out of range, :func:`scalerr` will return a
 1; if the second is out of range, :func:`scalerr` will return a 2; etc.
 
+A missing value in any argument returns a missing value.
+
 .. seealso:: :func:`cdfFnc`, :func:`cdfChinc`, :func:`cdfChic`, :func:`cdfTnc`
