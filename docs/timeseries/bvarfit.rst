@@ -11,6 +11,7 @@ Format
 .. function:: fit = bvarFit(y)
               fit = bvarFit(y, p=4, lag1_prior_mean=0|1|1|1, overall_tightness=0.2)
               fit = bvarFit(y, ctl=ctl)
+              fit = bvarFit(y, p=4, overall_tightness=bvarChoose(0.2))
 
    :param y: the data, one column per variable. A dataframe's column names label the output; a single date-typed column is used as the time index and left out of the model. A matrix's variables are labeled "Y1", "Y2", ...
    :type y: TxM matrix or dataframe
@@ -21,8 +22,26 @@ Format
    :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag: ``"random_walk"`` (1, for persistent series such as levels, rates and inflation), ``"zero"`` (for growth rates), one value for every variable, or a vector with one value per variable, each in [0,1]. Every other coefficient has prior mean 0. Default = ``"random_walk"``.
    :type lag1_prior_mean: string, scalar or Mx1 vector
 
-   :param overall_tightness: Optional keyword, how hard the prior pulls: roughly the prior standard deviation of each variable's coefficient on its own first lag. Smaller values pull harder. Default = 0.2.
-   :type overall_tightness: scalar
+   :param overall_tightness: Optional keyword, how hard the prior pulls: roughly the prior standard deviation of each variable's coefficient on its own first lag. Smaller values pull harder. A number holds it at that value; ``bvarChoose(start)`` chooses it by marginal likelihood before the fit (see the Remarks). Default = 0.2.
+   :type overall_tightness: scalar or struct
+
+   :param lag_decay: Optional keyword, how much harder longer lags are pulled: the prior standard deviation for lag *l* is the one for lag 1 divided by :math:`l^{\text{lag\_decay}}`. A number, or ``bvarChoose(start)`` to choose it. Default = 1.
+   :type lag_decay: scalar or struct
+
+   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior (Doan, Litterman & Sims 1984), which pulls the sum of each variable's own-lag coefficients toward 1. 0 turns it off; a positive value turns it on, and smaller values pull harder. A number, or ``bvarChoose(start)`` to choose it (``bvarChoose()`` on a value of 0 adds the prior and starts at 1). Default = 0.
+   :type soc_tightness: scalar or struct
+
+   :param sur_tightness: Optional keyword, tightness of the single-unit-root prior (Sims 1993), which pulls the system toward a common stochastic trend. 0 turns it off. A number, or ``bvarChoose(start)`` to choose it, as *soc_tightness*. Default = 0.
+   :type sur_tightness: scalar or struct
+
+   :param residual_variance_policy: Optional keyword, how the residual scales that set the prior's units are found: ``"arp_full_training"`` (default: the residual variance of each variable's own AR(p) with a constant, on the estimation sample), ``"glp2015_post_var_trim_ar1"`` (AR(1) residual variance after dropping the first *p* observations, as Giannone, Lenza & Primiceri 2015) or ``"supplied"`` (the values in *residual_variances*).
+   :type residual_variance_policy: string
+
+   :param residual_variances: Optional keyword, Mx1 residual scales for ``"supplied"``, or ``bvarChoose()`` / ``bvarChoose(v)`` to choose them before the fit (``bvarChoose()`` starts at the values *residual_variance_policy* gives; ``bvarChoose(v)`` starts at *v* and needs ``"supplied"``). Default = empty.
+   :type residual_variances: Mx1 vector or struct
+
+   :param choose_by: Optional keyword, the objective of a prior search, as in :func:`bvarPriorSelect`: ``"map"`` (default) or ``"ml"``. Used only when a setting is marked with :func:`bvarChoose`.
+   :type choose_by: string
 
    :param n_draws: Optional keyword, number of posterior draws. Default = 5000.
    :type n_draws: scalar
@@ -45,7 +64,7 @@ Format
    :param quiet: Optional keyword, 1 to suppress printing. Default = 0.
    :type quiet: scalar
 
-   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure, for settings that have no keyword (sum-of-coefficients and single-unit-root priors, lag decay, intercept prior, prior residual scales). When *ctl* is given, keywords other than *dates*, *freq* and *quiet* are ignored. An instance is created by :func:`bvarControlCreate` and has these members:
+   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure, which holds every setting, including those that have no keyword (such as the intercept prior). When *ctl* is given, its values are used except where a keyword is also given: a keyword given together with *ctl* replaces that field for this call, and *ctl* itself is not changed. *dates* and *freq* are not fields of *ctl* and always apply. A control holds values only: a setting to be chosen is marked in the call with :func:`bvarChoose`. An instance is created by :func:`bvarControlCreate` and has these members:
 
        .. include:: include/bvarcontrol.rst
 
@@ -54,6 +73,12 @@ Format
    :return fit: An instance of a :class:`bvarResult` structure containing:
 
        .. include:: include/bvarresult.rst
+
+       .. list-table::
+          :widths: auto
+
+          * - result.prior_search
+            - :class:`priorSelectResult` structure, the search run before the fit when a setting was marked with :func:`bvarChoose`; its members are described on the :func:`bvarPriorSelect` page. With nothing marked there is no search: *result.prior_search.ran* is 0 and *result.prior_search.status* is ``"not_run"``.
 
    :rtype fit: struct
 
@@ -184,10 +209,12 @@ The output is:
     Log ML with the sum-of-coefficients prior:    3108.22
     Log ML without it:                            3094.62
 
-On these data the prior raises the log marginal likelihood by 13.6.
-:func:`bvarPriorSelect` chooses the overall tightness, and with
-*ctl.soc_tightness* > 0 the sum-of-coefficients tightness too, by marginal
-likelihood.
+On these data the prior raises the log marginal likelihood by 13.6. To
+choose the tightness values by marginal likelihood instead, mark them with
+:func:`bvarChoose`:
+``bvarFit(data, p=5, overall_tightness=bvarChoose(), lag_decay=bvarChoose(), soc_tightness=bvarChoose())``
+chooses the overall and sum-of-coefficients tightness and the lag decay,
+then fits at the values found.
 
 Remarks
 -------
@@ -229,11 +256,21 @@ such as levels, interest rates and inflation, and 0 for growth rates
 pulls toward a persistent series the data do not show; a zero centre on a
 level pulls toward a series that returns quickly to its mean.
 
-**Settings in the control struct.** The sum-of-coefficients and
-single-unit-root priors (*ctl.soc_tightness*, *ctl.sur_tightness*), the lag
-decay, the intercept prior and the residual-scale rule have no keyword; set
-them in a :class:`bvarControl` structure. The fit's settings, with resolved
-values, are kept in *fit.fit_settings*.
+**Choosing the prior in the same call.** A prior setting given as a plain
+number is held at that value. Given as ``bvarChoose(x)``, it is chosen by
+marginal likelihood before the fit, starting at *x* (``bvarChoose()`` starts
+at the setting's value in *ctl*, or its default), and the model is then
+fitted at the values found. The settings :func:`bvarPriorSelect` can choose,
+and the combinations it offers, apply here too. The result is the fit that
+:func:`bvarPriorSelect` with the same keywords followed by
+``bvarFit(y, ctl=ps.ctl)`` gives, and *result.prior_search* holds that
+search; its printout comes before the fit's unless *quiet* = 1. With nothing
+marked there is no search, so ``bvarFit(y, ctl=ps.ctl)`` fits the chosen
+prior without searching again.
+
+**Settings in the control struct.** The intercept prior and the other
+settings that have no keyword are set in a :class:`bvarControl` structure.
+The fit's settings, with resolved values, are kept in *fit.fit_settings*.
 
 References
 ----------
@@ -253,4 +290,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarControlCreate`, :func:`bvarForecast`, :func:`bvarPriorSelect`, :func:`varFit`, :func:`varLagSelect`, :func:`forecastEval`
+.. seealso:: Functions :func:`bvarControlCreate`, :func:`bvarChoose`, :func:`bvarForecast`, :func:`bvarPriorSelect`, :func:`varFit`, :func:`varLagSelect`, :func:`forecastEval`

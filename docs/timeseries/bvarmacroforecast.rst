@@ -14,6 +14,7 @@ Format
 .. function:: wf = bvarMacroForecast(y)
               wf = bvarMacroForecast(y, horizon=8, holdout=20)
               wf = bvarMacroForecast(y, lag1_prior_mean="random_walk", overall_tightness=0.2)
+              wf = bvarMacroForecast(y, overall_tightness=bvarChoose(0.1), residual_variances=bvarChoose())
               wf = bvarMacroForecast(y, spec=spec)
 
    :param y: The series to forecast, one column per variable, with no missing
@@ -50,24 +51,23 @@ Format
        Default = ``"bic"``.
    :type lag_ic: string
 
-   :param overall_tightness: Optional keyword, a positive number: how
-       strongly the prior pulls the coefficients toward their prior means.
-       Smaller values pull harder. Giving a number fixes the tightness and
-       skips the search. Leave it out to have the tightness chosen (see
-       *prior_selection*); a number together with a *prior_selection* other
-       than ``"none"`` is refused.
-   :type overall_tightness: scalar
+   :param overall_tightness: Optional keyword, how strongly the prior pulls
+       the coefficients toward their prior means; smaller values pull harder.
+       Left out (the default), the tightness is chosen from the training rows
+       with :func:`bvarPriorSelect` (the value with the highest marginal
+       likelihood times a weak prior on the tightness, between 0.001 and 5),
+       starting at the *overall_tightness* of *spec* (0.2 unless changed).
+       ``bvarChoose(x)`` chooses it starting at *x*, and ``bvarChoose()``
+       starting at the *spec* value. A positive number holds the tightness at
+       that value and skips the search; a value in *spec* alone never does.
+   :type overall_tightness: scalar or struct
 
-   :param prior_selection: Optional keyword, what is chosen from the data
-       with :func:`bvarPriorSelect` before the model is fitted.
-       ``"tightness"`` (default): the overall tightness (the value with the
-       highest marginal likelihood times a weak prior on the tightness,
-       between 0.001 and 5). ``"tightness_and_residual_variances"``: the
-       tightness and the residual variance of each series that the prior is
-       built on; see the Remarks. ``"none"``: nothing; the tightness is the
-       number given as *overall_tightness*, or the *overall_tightness* of
-       *spec* (0.2 unless changed).
-   :type prior_selection: string
+   :param residual_variances: Optional keyword, ``bvarChoose()`` to choose
+       the residual variance of each series that the prior is built on
+       together with the tightness, starting at their autoregression values;
+       see the Remarks. It needs the tightness chosen too. Default: not
+       chosen.
+   :type residual_variances: struct
 
    :param baseline: Optional keyword, the model the holdout check compares
        with: ``"ols_var"`` for a least-squares VAR with the same lags, or
@@ -105,7 +105,9 @@ Format
 
    :param spec: Optional keyword, a :class:`bvarMacroForecastSpec` structure
        from ``bvarMacroForecastSpecCreate`` holding the settings above. A
-       keyword given in the call replaces the value in *spec*.
+       keyword given in the call replaces the value in *spec*. A spec holds
+       values only: what is chosen is set in the call, and
+       *spec.overall_tightness* is where the search starts.
    :type spec: struct
 
    :return wf: An instance of a :class:`bvarMacroForecastResult` structure
@@ -127,7 +129,7 @@ Format
             - Structure returned by :func:`varLagSelect`.
 
           * - wf.prior_selection
-            - :class:`priorSelectResult` structure. *wf.prior_selection.overall_tightness* is the tightness used; *wf.prior_selection.status* is "converged", "not_converged" or "at_bound" after a search and "not_run" when the tightness was given; *wf.prior_selection.residual_variances* holds the chosen residual variances when they were chosen.
+            - :class:`priorSelectResult` structure. *wf.prior_selection.overall_tightness* is the tightness used; *wf.prior_selection.status* is "converged", "not_converged" or "at_bound" after a search and "not_run" when the tightness was given; *wf.prior_selection.choose* lists what was chosen (``""`` when nothing was); *wf.prior_selection.residual_variances* holds the chosen residual variances when they were chosen.
 
           * - wf.spec
             - :class:`bvarMacroForecastSpec` structure, every setting as used.
@@ -360,12 +362,13 @@ fixed part of the prior: the search chooses the tightness, not the means.
 
 **The tightness search.** The default looks for the overall tightness alone,
 with the Minnesota prior's lag decay at 1 and without the sum-of-coefficients
-and single-unit-root priors. To choose those as well, call
+and single-unit-root priors. Only the overall tightness and the residual
+variances can be chosen here. To choose the others as well, call
 :func:`bvarPriorSelect` and :func:`bvarFit` yourself.
 
 **Choosing the residual variances.** The prior is built on one residual
 variance per series, by default the residual variance of an autoregression
-of that series. With ``prior_selection="tightness_and_residual_variances"``
+of that series. With ``residual_variances=bvarChoose()``
 the search chooses them together with the tightness, each between 1/100 and
 100 times its autoregression value, with the priors of Giannone, Lenza and
 Primiceri (2015); the tightness is then looked for between 0.0001 and 5. A
@@ -388,7 +391,7 @@ a note saying so as soon as the search ends, before the model is fitted, and
 then fits and forecasts with the edge value. At the lower edge the prior holds
 the coefficients close to their prior means; at the upper edge the prior barely
 restrains them. The result records the case in ``wf.prior_selection.status``
-(``"at_bound"``) and ``wf.prior_selection.at_bound`` (``"tightness"``). When
+(``"at_bound"``) and ``wf.prior_selection.at_bound`` (``"overall_tightness"``). When
 the residual variances are chosen and one of them stops at an edge of its
 range, the note names the series and *at_bound* contains
 ``"residual_variances"``. The note is not printed with ``quiet=1``. To set
@@ -423,4 +426,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`printForecast`, :func:`plotForecast`, :func:`bvarMacroForecastPrint`, :func:`bvarMacroForecastPlot`, :func:`bvarForecast`, :func:`bvarFit`, :func:`varLagSelect`, :func:`bvarPriorSelect`, :func:`forecastEval`
+.. seealso:: Functions :func:`bvarChoose`, :func:`printForecast`, :func:`plotForecast`, :func:`bvarMacroForecastPrint`, :func:`bvarMacroForecastPlot`, :func:`bvarForecast`, :func:`bvarFit`, :func:`varLagSelect`, :func:`bvarPriorSelect`, :func:`forecastEval`

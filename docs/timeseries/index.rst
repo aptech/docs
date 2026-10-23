@@ -104,6 +104,8 @@ VAR Estimation
      - Create historical-quarter indicators and their future values.
    * - :func:`bvarPriorSelect`
      - Optimize Minnesota hyperparameters via marginal likelihood (GLP 2015).
+   * - :func:`bvarChoose`
+     - Mark a prior setting to be chosen by the prior search.
 
 Cointegration and VECM
 +++++++++++++++++++++++
@@ -348,6 +350,7 @@ Control Structure Creators
     bvarsvfit
     varlagselect
     bvarpriorselect
+    bvarchoose
     varcontrolcreate
     perioddummies
     bvarcontrolcreate

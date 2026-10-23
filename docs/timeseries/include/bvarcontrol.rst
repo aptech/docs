@@ -77,11 +77,8 @@
    * - ctl.quiet
      - Scalar, 1 to suppress printed output. Default = 0.
 
-   * - ctl.prior_selection
-     - String, used by :func:`bvarPriorSelect` only: what the search chooses. ``"tightness"`` (default): the tightness, with the residual variances held at the values *ctl.residual_variance_policy* gives. ``"tightness_and_residual_variances"``: the residual variances as well, each between 1/100 and 100 times that value.
-
-   * - ctl.prior_selection_criterion
-     - String, used by :func:`bvarPriorSelect` only: ``"map"`` (default) chooses by marginal likelihood plus the Giannone, Lenza & Primiceri (2015) priors on what is chosen, ``"ml"`` by marginal likelihood alone.
+   * - ctl.choose_by
+     - String, the objective of a prior search (:func:`bvarPriorSelect`, or :func:`bvarFit` with a setting marked by :func:`bvarChoose`): ``"map"`` (default) chooses by marginal likelihood plus the Giannone, Lenza & Primiceri (2015) priors on what is chosen, ``"ml"`` by marginal likelihood alone. The control holds values only: what a search chooses is marked in the call, never stored here.
 
    * - ctl.cross_shrinkage, ctl.exogenous_tightness
      - Kept for other estimators; :func:`bvarFit` does not use them. Its conjugate prior treats a variable's own lags and other variables' lags alike, apart from each variable's scale.
