@@ -11,16 +11,16 @@ Format
 ----------------
 .. function:: p = cdfHyperGeo(x, pop_size, n_marked, n_drawn)
 
-    :param x: must be a positive number and :math:`0 < x < pop\_size`
+    :param x: The number of marked items drawn. A fractional *x* is rounded down. An *x* below 0 returns 0 and an *x* above *n_marked* or *n_drawn* returns 1.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. :math:`pop\_size > x,\:\ n\_marked\:\ and\:\ n\_drawn`.
+    :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. *pop_size* must be at least *n_marked* and *n_drawn*.
     :type pop_size: matrix
 
-    :param n_marked: The number of marked items. ExE conformable with *x*. :math:`0 < n\_marked`.
+    :param n_marked: The number of marked items. ExE conformable with *x*. :math:`n\_marked \geq 0`.
     :type n_marked: matrix
 
-    :param n_drawn: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < n\_drawn < pop\_size`.
+    :param n_drawn: The number of items drawn from the population. ExE conformable with *x*. :math:`0 \leq n\_drawn \leq pop\_size`.
     :type n_drawn: matrix
 
     :return p: The probability of drawing *x* or fewer marked items.
@@ -83,9 +83,11 @@ After running the code above, *p* is equal to:
 Remarks
 ------------
 
-For invalid inputs, :func:`cdfHyperGeo` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+If *pop_size* is negative or smaller than *n_marked* or *n_drawn*, or
+*n_marked* or *n_drawn* is negative, :func:`cdfHyperGeo` returns a scalar error code
+and :func:`scalerr` returns the position of that argument: 2 for *pop_size*,
+3 for *n_marked*, 4 for *n_drawn*. An *x* outside
+the range is not an error: it returns 0 or 1. A missing value in any argument
+returns a missing value.
 
 .. seealso:: Functions :func:`pdfHyperGeo`, :func:`rndHyperGeo`, :func:`cdfBinomial`

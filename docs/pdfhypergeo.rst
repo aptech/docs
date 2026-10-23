@@ -11,16 +11,16 @@ Format
 ----------------
 .. function:: p = pdfHyperGeo(x, pop_size, n_marked, n_drawn)
 
-    :param x: must be a positive number and < *pop_size*
+    :param x: The number of marked items drawn. An *x* below 0, above *n_marked* or *n_drawn*, or not a whole number returns 0.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. *pop_size* must be > *x*, *n_marked* and *n_drawn*.
+    :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. *pop_size* must be at least *n_marked* and *n_drawn*.
     :type pop_size: NxK matrix, Nx1 vector or scalar
 
-    :param n_marked: The number of marked items. ExE conformable with *x*.
+    :param n_marked: The number of marked items. ExE conformable with *x*. :math:`n\_marked \geq 0`.
     :type n_marked: NxK matrix, Nx1 vector or scalar
 
-    :param n_drawn: The number of items drawn from the population. ExE conformable with *x*. :math:`0 < n\_drawn < pop\_size`.
+    :param n_drawn: The number of items drawn from the population. ExE conformable with *x*. :math:`0 \leq n\_drawn \leq pop\_size`.
     :type n_drawn: NxK matrix, Nx1 vector or scalar
 
     :return p: The probability of drawing *x* marked items.
@@ -75,9 +75,11 @@ n \\
 
 where *m* is *pop_size*, *k* is *n_marked* and *n* is *n_drawn*.
 
-For invalid inputs, :func:`pdfHyperGeo` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+If *pop_size* is negative or smaller than *n_marked* or *n_drawn*, or
+*n_marked* or *n_drawn* is negative, :func:`pdfHyperGeo` returns a scalar error code
+and :func:`scalerr` returns the position of that argument: 2 for *pop_size*,
+3 for *n_marked*, 4 for *n_drawn*. An *x* that
+cannot be drawn is not an error: it returns 0. A missing value in any argument
+returns a missing value.
 
 .. seealso:: Functions :func:`cdfHyperGeo`, :func:`rndHyperGeo`, :func:`pdfBinomial`
