@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: p = pdfPoisson(x, lambda)
 
-    :param x: *x* must be a positive whole number.
+    :param x: The number of events. An *x* within 1e-9 (relative) of a whole number is treated as that whole number. Any other non-whole *x* returns 0, as does a negative or infinite *x*.
     :type x: NxK matrix, Nx1 vector or scalar
 
     :param lambda: The mean parameter. ExE conformable with *x*.
@@ -83,10 +83,8 @@ After the code above, *p* is equal to:
 Remarks
 -------
 
-For invalid inputs, :func:`pdfPoisson` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+An *x* that cannot occur is not an error: it returns 0. A missing value in
+either argument returns a missing value.
 
 
 .. seealso:: Functions :func:`cdfPoisson`, :func:`cdfPoissonInv`, :func:`rndPoisson`

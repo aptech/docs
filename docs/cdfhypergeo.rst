@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: p = cdfHyperGeo(x, pop_size, n_marked, n_drawn)
 
-    :param x: The number of marked items drawn. A fractional *x* is rounded down. An *x* below 0 returns 0 and an *x* above *n_marked* or *n_drawn* returns 1.
+    :param x: The number of marked items drawn. An *x* within 1e-9 (relative) of a whole number is treated as that whole number. Any other fractional *x* is rounded down. An *x* below 0 returns 0 and an *x* above *n_marked* or *n_drawn* returns 1.
     :type x: NxK matrix, Nx1 vector or scalar
 
     :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. *pop_size* must be at least *n_marked* and *n_drawn*.
@@ -29,7 +29,7 @@ Format
 
 Examples
 ----------------
-You are given 120 hard drives, 14 of which are known to be bad. What is the probability of drawing 2 or fewer bad hard drive if you randomly select 12 drives?
+You are given 120 hard drives, 14 of which are known to be bad. What is the probability of drawing 2 or fewer bad hard drives if you randomly select 12 drives?
 
 ::
 

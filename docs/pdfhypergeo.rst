@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: p = pdfHyperGeo(x, pop_size, n_marked, n_drawn)
 
-    :param x: The number of marked items drawn. An *x* below 0, above *n_marked* or *n_drawn*, or not a whole number returns 0.
+    :param x: The number of marked items drawn. An *x* within 1e-9 (relative) of a whole number is treated as that whole number. Any other non-whole *x* returns 0, as does an *x* that cannot be drawn: below 0 or below *n_drawn* - (*pop_size* - *n_marked*), or above *n_marked* or *n_drawn*.
     :type x: NxK matrix, Nx1 vector or scalar
 
     :param pop_size: The size of the population from which draws will be made. ExE conformable with *x*. *pop_size* must be at least *n_marked* and *n_drawn*.
@@ -59,19 +59,11 @@ After running the code above, *p* is equal to:
 Remarks
 -------
 
-The probability density function for the hypergeometric distribution is defined as:
+The probability mass function for the hypergeometric distribution is defined as:
 
-:math:`P\left( x \middle| m,k,n \right)\text{ = }`
-:math:`\frac{\left( \left. \begin{matrix}
-k \\
-x \\
-\end{matrix} \right)\left( \left. \begin{matrix}
-{m - k} \\
-{n - x} \\
-\end{matrix} \right) \right. \right.}{\begin{pmatrix}
-m \\
-n \\
-\end{pmatrix}}`
+.. math::
+
+    P(X = x \mid m, k, n) = \frac{\binom{k}{x}\binom{m-k}{n-x}}{\binom{m}{n}}
 
 where *m* is *pop_size*, *k* is *n_marked* and *n* is *n_drawn*.
 

@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: p = cdfNegBinomial(x, s, prob)
 
-    :param x: Number of failures. An *x* below 0 returns 0.
+    :param x: Number of failures. An *x* within 1e-9 (relative) of a whole number is treated as that whole number. Any other fractional *x* is rounded down. An *x* below 0 returns 0.
     :type x: NxK matrix, Nx1 vector or scalar
 
     :param s: ExE conformable with *x*, the number of successes. :math:`s \geq 0`.

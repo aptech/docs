@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: p = cdfBinomial(x, trials, prob)
 
-    :param x: The number of successes. A fractional *x* is rounded down. An *x* below 0 returns 0 and an *x* above *trials* returns 1.
+    :param x: The number of successes. An *x* within 1e-9 (relative) of a whole number is treated as that whole number. Any other fractional *x* is rounded down. An *x* below 0 returns 0 and an *x* above *trials* returns 1.
     :type x: NxK matrix, Nx1 vector or scalar
 
     :param trials: ExE conformable with *x*. The number of trials, :math:`trials > 0`.

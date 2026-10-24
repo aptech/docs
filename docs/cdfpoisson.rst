@@ -10,7 +10,7 @@ Format
 ----------------
 .. function:: p = cdfPoisson(x, lambda)
 
-    :param x: Values at which to evaluate the cumulative distribution function for the Poisson distribution. A fractional *x* is rounded down. An *x* below 0 returns 0.
+    :param x: Values at which to evaluate the cumulative distribution function for the Poisson distribution. An *x* within 1e-9 (relative) of a whole number is treated as that whole number. Any other fractional *x* is rounded down. An *x* below 0 returns 0.
     :type x: NxK matrix, Nx1 vector or scalar
 
     :param lambda: The mean parameter. :math:`lambda \geq 0`.

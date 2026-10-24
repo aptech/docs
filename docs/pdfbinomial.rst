@@ -11,13 +11,13 @@ Format
 ----------------
 .. function:: p = pdfBinomial(x, trials, prob)
 
-    :param x: the number of successes. Must be a positive number and < *trials*
+    :param x: The number of successes. An *x* within 1e-9 (relative) of a whole number is treated as that whole number. Any other non-whole *x* returns 0, as does an *x* below 0 or above *trials*.
     :type x: NxK matrix, Nx1 vector or scalar
 
-    :param trials: ExE conformable with *x*. *trials* must be > *x*.
+    :param trials: ExE conformable with *x*. The number of trials, :math:`trials \geq 0`.
     :type trials: NxK matrix, Nx1 vector or scalar
 
-    :param prob: The probability of success on any given trial. ExE conformable with *x*. :math:`0 < prob < 1`.
+    :param prob: The probability of success on any given trial. ExE conformable with *x*. :math:`0 \leq prob \leq 1`.
     :type prob: NxK matrix, Nx1 vector or scalar
 
     :return p: The probability of *x* successes.
@@ -55,7 +55,7 @@ After running the code above, *p* is equal to:
 
 Remarks
 -------
-The probability density function for the binomial distribution is
+The probability mass function for the binomial distribution is
 defined as:
 
 :math:`P\left( x = k \middle| n,p \right) =`
@@ -67,9 +67,9 @@ k \\
 where *k* is the number of successes (*x*), *n* is the number of trials (*trials*) and *p* is
 the probability of success on each trial (*prob*).
 
-For invalid inputs, :func:`pdfBinomial` will return a scalar error code which,
-when its value is assessed by function :func:`scalerr`, corresponds to the
-invalid input. If the first input is out of range, :func:`scalerr` will return a
-1; if the second is out of range, :func:`scalerr` will return a 2; etc.
+If *trials* is below 0 or infinite, or *prob* is outside [0, 1], :func:`pdfBinomial`
+returns a scalar error code and :func:`scalerr` returns the position of that
+argument: 2 for *trials*, 3 for *prob*. An *x* that cannot occur is not an
+error: it returns 0. A missing value in any argument returns a missing value.
 
 .. seealso:: Functions :func:`cdfBinomial`, :func:`cdfBinomialInv`
