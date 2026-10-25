@@ -30,19 +30,19 @@
    * - ctl.sur_tightness
      - Scalar, single-unit-root prior (Sims 1993): pulls the system toward a common stochastic trend. 0 turns it off; a positive value turns it on, and smaller values pull harder. Default = 0.
 
-   * - ctl.intercept_prior
+   * - ctl.const_prior
      - String, the prior on the constants.
 
        ========================= ===============================================================
-       ``"fixed_vc"``            A fixed, very wide prior variance *ctl.constant_vc*. (Default)
-       ``"litterman_coupled"``   Variance :math:`(\text{overall\_tightness} \cdot \text{constant\_tightness})^2`, which changes with the overall tightness.
+       ``"fixed"``               A fixed, very wide prior variance *ctl.const_prior_variance*. (Default)
+       ``"litterman_coupled"``   Variance :math:`(\text{overall\_tightness} \cdot \text{const\_tightness})^2`, which changes with the overall tightness.
        ========================= ===============================================================
 
-   * - ctl.constant_vc
-     - Scalar, prior variance of the constants under ``"fixed_vc"``. Default = 1e7.
+   * - ctl.const_prior_variance
+     - Scalar, prior variance of the constants under ``"fixed"``. Default = 1e7.
 
-   * - ctl.constant_tightness
-     - Scalar, used only under ``"litterman_coupled"`` (see *ctl.intercept_prior*). Default = 1e4.
+   * - ctl.const_tightness
+     - Scalar, used only under ``"litterman_coupled"`` (see *ctl.const_prior*). Default = 1e4.
 
    * - ctl.exogenous_scale
      - Positive scalar, prior standard deviation of the coefficients on exogenous regressors (*xreg*), relative to the equation's error standard deviation. Default = 1.

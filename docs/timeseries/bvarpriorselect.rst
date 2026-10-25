@@ -55,8 +55,8 @@ Format
        .. list-table::
           :widths: auto
 
-          * - ctl.intercept_prior
-            - String. "fixed_vc" (default) holds the prior variance of the constants at *ctl.constant_vc* (default 1e7) while the tightness changes; "litterman_coupled" scales it with the overall tightness. The two give different choices.
+          * - ctl.const_prior
+            - String. "fixed" (default) holds the prior variance of the constants at *ctl.const_prior_variance* (default 1e7) while the tightness changes; "litterman_coupled" scales it with the overall tightness. The two give different choices.
 
    :type ctl: struct
 
@@ -110,8 +110,8 @@ Format
           * - ps.residual_variance_policy
             - String, the rule that gave the residual variances; when the search chooses them, the rule that gave their starting values.
 
-          * - ps.ctl
-            - :class:`bvarControl` structure: every setting at the value to fit at, the chosen ones and the held ones, including the prior means, ready to pass to :func:`bvarFit` as *ctl*. ``bvarFit(y, ctl=ps.ctl)`` fits the chosen prior without searching again, on these data or on new data. When the residual variances are chosen it carries them (*residual_variance_policy* = ``"supplied"``), so the fit uses them. To search again from the previous answer, repeat the call with ``ctl=ps.ctl`` and the same marks: with nothing marked, only the overall tightness is searched and everything else is held.
+          * - ps.fit_settings
+            - :class:`bvarControl` structure: every setting at the value to fit at, the chosen ones and the held ones, including the prior means, ready to pass to :func:`bvarFit` as *ctl*. ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen prior without searching again, on these data or on new data. When the residual variances are chosen it carries them (*residual_variance_policy* = ``"supplied"``), so the fit uses them. To search again from the previous answer, repeat the call with ``ctl=ps.fit_settings`` and the same marks: with nothing marked, only the overall tightness is searched and everything else is held.
 
    :rtype ps: struct
 
@@ -136,7 +136,7 @@ Choose the Tightness, Then Fit
     ctl.p = 5;
 
     ps = bvarPriorSelect(data, ctl=ctl);
-    fit = bvarFit(data, ctl=ps.ctl);
+    fit = bvarFit(data, ctl=ps.fit_settings);
 
 With nothing marked, the overall tightness is chosen, starting at
 *ctl.overall_tightness*, and every other setting is held. The printout shows
@@ -161,14 +161,14 @@ Different Prior Means for Different Series
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
 
     ps = bvarPriorSelect(y, p=4, lag1_prior_mean={ 0, 1, 1, 1 });
-    fit = bvarFit(y, ctl=ps.ctl);
+    fit = bvarFit(y, ctl=ps.fit_settings);
 
     // The same search with every series centred at 1 (the default).
     ps_rw = bvarPriorSelect(y, p=4);
 
 With GDP growth centred at 0 the search chooses an overall tightness of
 about 0.25, with a log marginal likelihood of -1367.5; with every series
-centred at 1 it chooses about 0.33, with -1376.2. *ps.ctl* carries the prior
+centred at 1 it chooses about 0.33, with -1376.2. *ps.fit_settings* carries the prior
 means, so the fit uses them too.
 
 Add the Sum-of-Coefficients and Single-Unit-Root Priors
@@ -213,7 +213,7 @@ Choose the Residual Variances Too, and Compare the Forecasts
 
     // Residual variances chosen together with the tightness.
     ps = bvarPriorSelect(data, ctl=ctl, residual_variances=bvarChoose());
-    fit = bvarFit(data, ctl=ps.ctl);
+    fit = bvarFit(data, ctl=ps.fit_settings);
 
     // Which setting forecasts better on these data? Choose the prior again
     // at each of 20 forecast dates (1989Q1 to 2008Q1) and score the forecasts.
@@ -310,8 +310,8 @@ chooses them together with the tightness, as Giannone, Lenza and Primiceri
 (2015) do: each is searched between 1/100 and 100 times its autoregression
 value, starting there, by a
 bounded quasi-Newton search with exact derivatives, from one starting
-point. *ps.residual_variances* holds the chosen values and *ps.ctl* carries
-them, so ``bvarFit(y, ctl=ps.ctl)`` fits the chosen prior.
+point. *ps.residual_variances* holds the chosen values and *ps.fit_settings* carries
+them, so ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen prior.
 
 A tightness chosen together with the residual variances cannot be compared
 with one chosen with fixed residual variances. Larger residual variances
@@ -344,8 +344,8 @@ which repeats the choice at each forecast date, as in the last example
 above. That example prints root mean squared errors; the setting also
 changes the width of the forecast bands, which *ev.mean_crps* scores.
 
-*ps.ctl* holds the residual variances chosen on the sample given to
-:func:`bvarPriorSelect`. A procedure that refits with *ps.ctl* on other
+*ps.fit_settings* holds the residual variances chosen on the sample given to
+:func:`bvarPriorSelect`. A procedure that refits with *ps.fit_settings* on other
 samples keeps those variances; it does not choose them again.
 
 **Units of the data.** Under the default criterion (``"map"``) each chosen
@@ -371,7 +371,7 @@ the way to the prior mean; at the upper edge the prior hardly matters. For a
 residual variance: the data favour a value more than 100 times away from its
 starting value. The printout gives the range of each setting that stopped
 and, for the residual variances, which series and which edge, and
-*ps.converged* is 0. A held setting is never named. *ps.ctl* still holds
+*ps.converged* is 0. A held setting is never named. *ps.fit_settings* still holds
 the edge values: check *ps.status* before fitting with it.
 
 To evaluate the choice on forecasts, use :func:`bvarRollingOrigin` with

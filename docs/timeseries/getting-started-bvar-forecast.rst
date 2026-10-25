@@ -24,7 +24,7 @@ The Canonical Workflow
     y = loadd(fname);
 
     wf = bvarMacroForecast(y,
-        horizon=8,
+        h=8,
         holdout=20,
         lag1_prior_mean="zero",
         max_lags=8,
@@ -64,7 +64,7 @@ Step 2: Run the W1 Forecast
 ::
 
     wf = bvarMacroForecast(y,
-        horizon=8,
+        h=8,
         holdout=20,
         lag1_prior_mean="zero",
         max_lags=4,
@@ -172,7 +172,7 @@ Concise 3-Variable Example
     y = loadd(fname);
 
     wf = bvarMacroForecast(y,
-        horizon=8,
+        h=8,
         holdout=20,
         lag1_prior_mean="zero",
         max_lags=4,

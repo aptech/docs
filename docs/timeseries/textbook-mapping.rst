@@ -306,7 +306,7 @@ Use the log marginal likelihood to select the best model::
     ctl.lambda1 = 1.0;
     r_loose = bvarFit(data, ctl);
 
-    r_opt = bvarFit(data, ps.ctl);
+    r_opt = bvarFit(data, ps.fit_settings);
 
     print "Log ML (tight):" r_tight.log_ml;
     print "Log ML (loose):" r_loose.log_ml;

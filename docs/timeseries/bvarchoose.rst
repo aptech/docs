@@ -38,7 +38,7 @@ Choose the Tightness and the Residual Variances
         residual_variances=bvarChoose());
 
     // Fit at the values found
-    fit = bvarFit(data, ctl=ps.ctl);
+    fit = bvarFit(data, ctl=ps.fit_settings);
 
 Choose and Fit in One Call
 ++++++++++++++++++++++++++

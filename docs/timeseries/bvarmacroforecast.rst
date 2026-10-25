@@ -12,7 +12,7 @@ Format
 ------
 
 .. function:: wf = bvarMacroForecast(y)
-              wf = bvarMacroForecast(y, horizon=8, holdout=20)
+              wf = bvarMacroForecast(y, h=8, holdout=20)
               wf = bvarMacroForecast(y, lag1_prior_mean="random_walk", overall_tightness=0.2)
               wf = bvarMacroForecast(y, overall_tightness=bvarChoose(0.1), residual_variances=bvarChoose())
               wf = bvarMacroForecast(y, spec=spec)
@@ -23,9 +23,9 @@ Format
        out of the model. A matrix is labelled ``Y1``, ``Y2``, and so on.
    :type y: TxM matrix or dataframe
 
-   :param horizon: Optional keyword, number of periods to forecast.
+   :param h: Optional keyword, number of periods to forecast.
        Default = 8.
-   :type horizon: scalar
+   :type h: scalar
 
    :param holdout: Optional keyword, number of final observations set aside to
        check the model. The lags and the tightness are chosen and the model is
@@ -128,8 +128,8 @@ Format
           * - wf.lag_selection
             - Structure returned by :func:`varLagSelect`.
 
-          * - wf.prior_selection
-            - :class:`priorSelectResult` structure. *wf.prior_selection.overall_tightness* is the tightness used; *wf.prior_selection.status* is "converged", "not_converged" or "at_bound" after a search and "not_run" when the tightness was given; *wf.prior_selection.choose* lists what was chosen (``""`` when nothing was); *wf.prior_selection.residual_variances* holds the chosen residual variances when they were chosen.
+          * - wf.prior_search
+            - :class:`priorSelectResult` structure. *wf.prior_search.overall_tightness* is the tightness used; *wf.prior_search.status* is "converged", "not_converged" or "at_bound" after a search and "not_run" when the tightness was given; *wf.prior_search.choose* lists what was chosen (``""`` when nothing was); *wf.prior_search.residual_variances* holds the chosen residual variances when they were chosen.
 
           * - wf.spec
             - :class:`bvarMacroForecastSpec` structure, every setting as used.
@@ -180,7 +180,7 @@ model.
 
     // Prior centre of each variable's own first lag: 0 for GDP growth, 1 for
     // inflation, unemployment and the funds rate.
-    wf = bvarMacroForecast(y, horizon=8, holdout=20, lag1_prior_mean=0|1|1|1);
+    wf = bvarMacroForecast(y, h=8, holdout=20, lag1_prior_mean=0|1|1|1);
 
 ::
 
@@ -269,11 +269,11 @@ variables you name.
 
     // Tightness fixed at 0.2, lags chosen by AIC from 1 to 4, a 90% band, and
     // nothing printed by the call itself.
-    wf = bvarMacroForecast(y, horizon=4, lag1_prior_mean=0|1|1|1, max_lags=4, lag_ic="aic",
+    wf = bvarMacroForecast(y, h=4, lag1_prior_mean=0|1|1|1, max_lags=4, lag_ic="aic",
         overall_tightness=0.2, level=0.90, quiet=1);
 
     print "Lags chosen: " $+ ntos(wf.selected_p);
-    print "Tightness:   " $+ ntos(wf.prior_selection.overall_tightness) $+ " (" $+ wf.prior_selection.status $+ ")";
+    print "Tightness:   " $+ ntos(wf.prior_search.overall_tightness) $+ " (" $+ wf.prior_search.status $+ ")";
     print "";
 
     // The forecast for two of the variables.
@@ -320,7 +320,7 @@ structure.
     // Settings kept in one place and reused.
     struct bvarMacroForecastSpec spec;
     spec = bvarMacroForecastSpecCreate();
-    spec.horizon = 12;
+    spec.h = 12;
     spec.max_lags = 4;
     spec.lag_ic = "aic";
     spec.n_draws = 2000;
@@ -329,10 +329,10 @@ structure.
     struct bvarMacroForecastResult wf_a, wf_b;
     wf_a = bvarMacroForecast(y, lag1_prior_mean=0|1|1|1, spec=spec);
     // A keyword given in the call replaces the value in spec.
-    wf_b = bvarMacroForecast(y, lag1_prior_mean=0|1|1|1, horizon=4, spec=spec);
+    wf_b = bvarMacroForecast(y, lag1_prior_mean=0|1|1|1, h=4, spec=spec);
 
     print "Forecast rows: " $+ ntos(rows(wf_a.forecast.forecasts)) $+ " and " $+ ntos(rows(wf_b.forecast.forecasts));
-    print "Lags: " $+ ntos(wf_a.selected_p) $+ "; tightness chosen: " $+ sprintf("%.4f", wf_a.prior_selection.overall_tightness);
+    print "Lags: " $+ ntos(wf_a.selected_p) $+ "; tightness chosen: " $+ sprintf("%.4f", wf_a.prior_search.overall_tightness);
 
 ::
 
@@ -374,7 +374,7 @@ the search chooses them together with the tightness, each between 1/100 and
 Primiceri (2015); the tightness is then looked for between 0.0001 and 5. A
 tightness chosen this way cannot be compared with one chosen with fixed
 residual variances, and it belongs with them: to fit that prior again use
-``bvarFit(y, ctl=wf.prior_selection.ctl)``, not the tightness alone. The
+``bvarFit(y, ctl=wf.prior_search.fit_settings)``, not the tightness alone. The
 paper's prior on the residual variances has its peak near 0.02 squared and
 is written for data in logs multiplied by four and rates in decimals. This
 function always uses it, so put the data in those units before choosing the
@@ -390,8 +390,8 @@ is the edge of the range, not a value chosen by the data. The workflow prints
 a note saying so as soon as the search ends, before the model is fitted, and
 then fits and forecasts with the edge value. At the lower edge the prior holds
 the coefficients close to their prior means; at the upper edge the prior barely
-restrains them. The result records the case in ``wf.prior_selection.status``
-(``"at_bound"``) and ``wf.prior_selection.at_bound`` (``"overall_tightness"``). When
+restrains them. The result records the case in ``wf.prior_search.status``
+(``"at_bound"``) and ``wf.prior_search.at_bound`` (``"overall_tightness"``). When
 the residual variances are chosen and one of them stops at an edge of its
 range, the note names the series and *at_bound* contains
 ``"residual_variances"``. The note is not printed with ``quiet=1``. To set

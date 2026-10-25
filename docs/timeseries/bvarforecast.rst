@@ -78,7 +78,7 @@ Optimal Hyperparameters to Forecast Pipeline
     ps = bvarPriorSelect(data);
 
     // Estimate with optimal lambdas
-    result = bvarFit(data, ps.ctl, quiet=1);
+    result = bvarFit(data, ps.fit_settings, quiet=1);
 
     // Forecast
     fc = bvarForecast(result, 24);

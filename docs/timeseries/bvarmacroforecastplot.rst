@@ -35,7 +35,7 @@ Plot a Compact History Window
     y = loadd(fname);
 
     wf = bvarMacroForecast(y,
-        horizon=8,
+        h=8,
         holdout=20,
         data_type="stationary",
         max_lags=4,

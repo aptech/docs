@@ -236,7 +236,7 @@ the columns of *xreg*), the conjugate Minnesota prior is
 :math:`B_0` is zero except each variable's coefficient on its own first lag
 (*lag1_prior_mean*). :math:`\Omega` is diagonal: the row for lag *l* of variable *j* is
 :math:`\lambda^2 / (l^{2d} \sigma_j^2)`, with :math:`\lambda` the overall tightness and *d* the lag decay, and the
-constant's row is *ctl.constant_vc* (1e7, effectively flat). The residual scales
+constant's row is *ctl.const_prior_variance* (1e7, effectively flat). The residual scales
 :math:`\sigma_j^2` come from each variable's own AR(p) regression on the estimation
 sample. :math:`\alpha_0` defaults to M + 2.
 
@@ -263,9 +263,9 @@ at the setting's value in *ctl*, or its default), and the model is then
 fitted at the values found. The settings :func:`bvarPriorSelect` can choose,
 and the combinations it offers, apply here too. The result is the fit that
 :func:`bvarPriorSelect` with the same keywords followed by
-``bvarFit(y, ctl=ps.ctl)`` gives, and *result.prior_search* holds that
+``bvarFit(y, ctl=ps.fit_settings)`` gives, and *result.prior_search* holds that
 search; its printout comes before the fit's unless *quiet* = 1. With nothing
-marked there is no search, so ``bvarFit(y, ctl=ps.ctl)`` fits the chosen
+marked there is no search, so ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen
 prior without searching again.
 
 **Settings in the control struct.** The intercept prior and the other

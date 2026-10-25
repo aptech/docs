@@ -125,7 +125,7 @@ likelihood (Giannone, Lenza & Primiceri 2015).
     ps = bvarPriorSelect(data);
 
     // Estimate with the optimized prior
-    ctl = ps.ctl;                    // Start from optimized settings
+    ctl = ps.fit_settings;           // Start from optimized settings
     ctl.quiet = 1;                   // Suppress printed output
     result = bvarFit(data, ctl);
 
