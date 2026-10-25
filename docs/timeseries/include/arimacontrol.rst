@@ -36,7 +36,7 @@
 
        === ======================================================
        1   Stepwise search (faster, recommended). (Default)
-       0   Exhaustive search (slower, guaranteed global optimum).
+       0   Exhaustive search over every candidate within the order limits (slower).
        === ======================================================
 
    * - ctl.method

@@ -340,6 +340,14 @@ the summary prints a note: the estimates are then the best fit inside the
 limit, not the unconstrained maximum likelihood. An AR coefficient held at the
 limit often means that the series needs another difference.
 
+**Models not supported in this beta release.** Models with two or more AR
+coefficients and two or more MA coefficients (:math:`p \ge 2` and
+:math:`q \ge 2`, for example ARIMA(2,0,2) or ARIMA(3,1,3)) are not supported
+in this beta release, with or without *xreg*. For these models the fit can
+stop short of the maximum likelihood: *result.loglik* can be lower than the
+best value the model reaches, and the coefficients are then not the
+maximum-likelihood estimates.
+
 Refusals and Messages
 ---------------------
 
@@ -392,6 +400,16 @@ Refusals and Messages
 A series that is constant after differencing includes an exactly linear
 series fitted with ``d=1``. An exactly linear series fitted with ``d=0`` is
 not constant and is fitted.
+
+With missing values in *y*, this check is exact for a model with no
+differencing and for a model with one ordinary difference (``d=1``,
+``D=0``). With ``d`` of 2 or more, or ``D`` of 1 or more, it uses only the
+stretches of consecutive observed values, and it can be wrong in two ways.
+It can refuse a series that is not constant after differencing, for example
+1, 2, 3, missing, 1, 2, 3, missing, ... with ``d=2``, because each stretch is
+a straight line. And it can fit a series that leaves nothing to estimate,
+for example a straight line with every other value missing, with ``d=2``;
+such a fit describes only rounding error.
 
 A regressor is removed by the differencing when its differences are zero:
 a linear trend in a model with two differences, seasonal dummy variables or

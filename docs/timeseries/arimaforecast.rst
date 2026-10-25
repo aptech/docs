@@ -59,13 +59,21 @@ It is **not** a bias-adjusted arithmetic mean. Do not construct original-unit
 intervals by adding or subtracting log-scale *se* from *forecasts*: use *lower*
 and *upper*. No bias-adjusted mean option is provided here.
 
+With a negative *lambda*, the transformation maps every positive value below
+:math:`-1/\lambda`. A point forecast or prediction limit at or above
+:math:`-1/\lambda` on the transformed scale has no value in data units and is
+returned as a missing value. This happens most often for the upper limit at a
+high confidence level. :func:`arimaPlotForecast` draws no band when a limit
+is missing.
+
 Intervals use *result.sigma2_bc*, the corrected innovation variance, rather
 than the ML variance *result.sigma2*. They condition on the fitted parameters,
 selected model and supplied future regressors. They account for future
 innovations and filtered-state uncertainty, not parameter, model-selection or
 future-regressor uncertainty.
-Invalid inputs and forecast calculations that produce a nonfinite value end
-the program with a message; no partial forecast is returned.
+Invalid inputs and forecast calculations that produce a nonfinite value,
+other than the missing limits of a negative *lambda* described above, end the
+program with a message; no partial forecast is returned.
 
 Model
 -----
