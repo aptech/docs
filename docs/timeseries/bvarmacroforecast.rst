@@ -13,7 +13,7 @@ Format
 
 .. function:: wf = bvarMacroForecast(y)
               wf = bvarMacroForecast(y, h=8, holdout=20)
-              wf = bvarMacroForecast(y, lag1_prior_mean="random_walk", overall_tightness=0.2)
+              wf = bvarMacroForecast(y, lag1_prior_mean="zero", overall_tightness=0.2)
               wf = bvarMacroForecast(y, overall_tightness=bvarChoose(0.1), residual_variances=bvarChoose())
               wf = bvarMacroForecast(y, spec=spec)
 
@@ -35,11 +35,11 @@ Format
    :type holdout: scalar
 
    :param lag1_prior_mean: Optional keyword, prior mean of each variable's
-       coefficient on its own first lag: ``"zero"`` (for growth rates and
-       other series that move around a stable mean), ``"random_walk"`` (1, for
-       persistent series such as levels and rates), one value for every
-       variable, or a vector with one value per variable, each in [0,1].
-       Default = ``"zero"``.
+       coefficient on its own first lag: ``"random_walk"`` (1, for
+       persistent series such as levels and rates), ``"zero"`` (for growth
+       rates and other series that move around a stable mean), one value for
+       every variable, or a vector with one value per variable, each in
+       [0,1]. Default = ``"random_walk"``.
    :type lag1_prior_mean: string, scalar or Mx1 vector
 
    :param max_lags: Optional keyword, largest lag order considered.
@@ -356,8 +356,9 @@ assumed path :func:`condForecast`, for changing volatility :func:`bvarSvFit`.
 **Prior means.** *lag1_prior_mean* is the centre of the prior for each
 variable's coefficient on its own first lag; every other coefficient is
 centred on zero. Use 1 for series that drift (levels, rates) and 0 for growth
-rates. The default, ``"zero"``, suits data that are all growth rates. With one
-value per variable the printed summary lists them. The prior means are a
+rates. The default, ``"random_walk"``, suits data that are all levels or
+rates; data that are all growth rates take ``"zero"``. With one value per
+variable the printed summary lists them. The prior means are a
 fixed part of the prior: the search chooses the tightness, not the means.
 
 **The tightness search.** The default looks for the overall tightness alone,

@@ -54,7 +54,7 @@ Format
    :param n_draws: Optional keyword, simulated paths per model and origin. Default = 5000.
    :type n_draws: scalar
 
-   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag: ``"zero"``, ``"random_walk"`` (1), one number in [0,1] for every variable, or a vector with one number per variable. Default = ``"zero"`` (suits data in changes or growth rates; use ``"random_walk"`` for levels). It applies to every model, the fixed tightness values and a chosen tightness alike.
+   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag: ``"zero"``, ``"random_walk"`` (1), one number in [0,1] for every variable, or a vector with one number per variable. Default = ``"random_walk"`` (suits levels and rates; use ``"zero"`` for data in changes or growth rates). It applies to every model, the fixed tightness values and a chosen tightness alike.
    :type lag1_prior_mean: string, scalar or Mx1 vector
 
    :param lag_decay: Optional keyword, Minnesota lag decay, held in every model; it cannot be chosen here. Default = 1.
@@ -148,14 +148,15 @@ Fixed Tightness Against the Marginal-Likelihood Choice
     library timeseries;
 
     // Quarterly US data, 1960Q1-2019Q4: the date and six growth rates
-    // (the default prior centre, lag1_prior_mean = "zero", suits growth rates)
+    // (growth rates take the prior centre lag1_prior_mean = "zero")
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
     y = data[., "date" "gdp" "cons" "inv" "defl" "wage" "hours"];
 
     // A forecast every fourth quarter from 2000Q1, eight quarters ahead
     string names = { "fixed 0.2", "tight 0.05", "chosen" };
     ev = bvarRollingOrigin(y, 0.2 | 0.05, names, "expanding", "FRED-QD 2026-02",
-        p=2, initial_window=160, h=8, step=4, n_draws=1000, overall_tightness=bvarChoose());
+        p=2, initial_window=160, h=8, step=4, n_draws=1000, overall_tightness=bvarChoose(),
+        lag1_prior_mean="zero");
 
     print "Forecast origins:" ev.n_origins;
     print "Chosen tightness, first and last origin:" ev.chosen_tightness[1 ev.n_origins]';
