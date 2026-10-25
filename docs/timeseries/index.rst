@@ -95,7 +95,7 @@ VAR Estimation
    * - :func:`varFit`
      - Fit VAR(p) by OLS with stability diagnostics.
    * - :func:`bvarFit`
-     - Fit Bayesian VAR with conjugate Minnesota or flat prior.
+     - Fit Bayesian VAR with the conjugate Minnesota prior.
    * - :func:`bvarSvFit`
      - Fit BVAR with stochastic volatility and optional SSVS variable selection.
    * - :func:`varLagSelect`
@@ -197,6 +197,8 @@ Diagnostics
 
    * - :func:`varDiagnostics`
      - Residual checks of a least-squares VAR fit: portmanteau and LM autocorrelation tests, normality, multivariate and per-equation ARCH-LM.
+   * - :func:`varFitInspect`
+     - Summary of a VAR, VECM or Bayesian VAR fit: sample, lags, largest companion root and stability, with an optional coefficient table and residual summary.
    * - :func:`vecmDiagnostics`
      - Residual checks of a VECM fit: portmanteau and LM autocorrelation tests, normality, multivariate and per-equation ARCH-LM.
    * - :func:`ljungBoxTest`
@@ -415,6 +417,7 @@ Control Structure Creators
     :caption: Diagnostics
 
     vardiagnostics
+    varfitinspect
     vecmdiagnostics
     ljungboxtest
     mcmcdiagnostics

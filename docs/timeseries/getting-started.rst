@@ -113,7 +113,7 @@ for inflation, unemployment and the funds rate, which drift.
 ``overall_tightness = 0.2`` sets how hard the prior pulls; it is the common
 default.
 
-``varFitInspect`` prints a summary of the fit::
+:func:`varFitInspect` prints a summary of the fit::
 
     BVAR(5), Minnesota prior
     ================================================================================
