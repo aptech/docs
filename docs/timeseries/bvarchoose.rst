@@ -76,14 +76,16 @@ Remarks
 A prior setting given as a plain number is held at that value. Given as
 ``bvarChoose(x)``, it is chosen by marginal likelihood, and the search starts
 at *x*; ``bvarChoose()`` starts at the setting's own value (see *start*).
+A setting left out is held at its own value, with one exception: with
+nothing marked, :func:`bvarPriorSelect` chooses the overall tightness.
 
 The settings that can be chosen are *overall_tightness*,
 *residual_variances*, *lag_decay*, *soc_tightness* and *sur_tightness* in
 :func:`bvarFit` and :func:`bvarPriorSelect`. :func:`bvarRollingOrigin` and
 :func:`bvarMacroForecast` choose *overall_tightness* and
-*residual_variances* only. The combinations available, the search range of
-each setting and what happens when nothing is marked are listed on the
-:func:`bvarPriorSelect` page. A start outside its search range is refused.
+*residual_variances* only. The combinations available and the search range
+of each setting are listed on the :func:`bvarPriorSelect` page. A start
+outside its search range is refused.
 
 A control structure (:class:`bvarControl`) or a spec
 (:class:`bvarMacroForecastSpec`) holds values only. What is chosen is
