@@ -29,7 +29,7 @@ Format
    :param lag_decay: Optional keyword, how much harder longer lags are pulled: a number (held) or ``bvarChoose(start)`` (chosen, between 0.5 and 3). Default = 1, held. It cannot be chosen with one lag, where the prior does not depend on it.
    :type lag_decay: scalar or struct
 
-   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior: a number (held; 0 means the prior is off) or ``bvarChoose(start)`` (chosen, between 0.001 and 50). ``bvarChoose()`` on a value of 0 adds the prior and starts the search at 1. Default = 0.
+   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior: a number (held; 0 means the prior is off) or ``bvarChoose(start)`` (chosen, between 0.0001 and 50). ``bvarChoose()`` on a value of 0 adds the prior and starts the search at 1. Default = 0.
    :type soc_tightness: scalar or struct
 
    :param sur_tightness: Optional keyword, tightness of the single-unit-root prior, as *soc_tightness*. Default = 0.
@@ -285,7 +285,7 @@ The other combinations choose every included dummy-observation prior. Any
 other combination is refused as not yet available.
 
 Search ranges: overall tightness 0.0001 to 5; lag decay 0.5 to 3;
-sum-of-coefficients and single-unit-root tightness 0.001 to 50. A start
+sum-of-coefficients and single-unit-root tightness 0.0001 to 50. A start
 outside its range is refused. Each residual variance is searched between
 1/100 and 100 times its start, so a supplied start moves both the start and
 the range; the usual call, ``residual_variances=bvarChoose()``, starts at
