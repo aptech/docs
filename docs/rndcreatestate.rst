@@ -131,4 +131,6 @@ Remarks
 
 The states returned from this function may NOT be used with :func:`rndMTu` or any of the :func:`rndKM` or :func:`rndLC` functions.
 
+.. note:: On macOS with Apple silicon, ``"sfmt19937"``, ``"mt19937"`` and ``"mrg32k3a"`` are available and give the same uniform numbers as on Windows and Linux for the same seed. ``"mt2203"``, ``"wh"``, ``"sobol"`` and ``"niederreiter"`` are not available there: :func:`rndCreateState` stops with error G0639. The results printed for the ``"mt2203"``, ``"wh"`` and ``"sobol"`` examples above are from Windows and Linux. A state is specific to the platform that created it.
+
 .. seealso:: Functions :func:`rndStateSkip`, :func:`rndn`, :func:`rndu`, :func:`rndBeta`

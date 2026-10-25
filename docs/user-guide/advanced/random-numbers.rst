@@ -248,6 +248,33 @@ BigCrush test suite (160 tests). All generators pass DIEHARD.
 SFMT19937 was not tested because its output is not compatible with
 the scalar-at-a-time interface required by TestU01.
 
+Generators on macOS with Apple silicon
+++++++++++++++++++++++++++++++++++++++
+
+On Windows and Linux, GAUSS uses the Intel MKL random
+number generators. On Macs with Apple silicon, GAUSS has its own
+random number engine, which provides SFMT19937 (the default, also
+named ``"mt19937fast"``), MT19937 and MRG32k3a:
+
+- For the same seed, these give the same uniform numbers
+  (:func:`rndu`), integers (:func:`rndi`) and skips
+  (:func:`rndStateSkip`) as on the other platforms. So do
+  :func:`rndGeo`, :func:`rndBernoulli`, and :func:`rndBinomial`
+  when *ntrial* times the smaller of *p* and 1 - *p* is below 30.
+- With SFMT19937 and MT19937, a skip takes time in proportion to its
+  length, up to about 0.4 seconds for each 10\ :sup:`9` values. For
+  large skips use MRG32k3a, whose skips take no noticeable time.
+- :func:`rndn` and most other continuous distributions agree to 7 to
+  8 digits. :func:`rndBeta`, :func:`rndPoisson`,
+  :func:`rndNegBinomial`, :func:`rndLaplace`, :func:`rndGamma` with a
+  shape below 1, and :func:`rndBinomial` when *ntrial* times the
+  smaller of *p* and 1 - *p* is 30 or more, use other algorithms there
+  and give other numbers.
+- MT2203, Wichmann-Hill, Sobol and Niederreiter are not available:
+  :func:`rndCreateState` stops with error G0639.
+- A state is specific to the platform that created it and cannot be
+  used on another.
+
 Choosing a generator
 ++++++++++++++++++++++++++++++++++++
 
@@ -256,8 +283,8 @@ is an excellent choice. Consider switching when:
 
 - **You need parallel streams** — use MT2203 (6024 streams) or
   Wichmann-Hill (273 streams)
-- **You need block-skipping** — use MRG32k3a or Wichmann-Hill
-  (the generators that support :func:`rndStateSkip`)
+- **You need block-skipping** — use MRG32k3a or Wichmann-Hill.
+  :func:`rndStateSkip` works with every generator except MT2203
 - **You need top statistical quality** — use MRG32k3a (zero BigCrush
   failures)
 - **You need quasi-random sequences** — use Sobol or Niederreiter for
@@ -428,10 +455,9 @@ generating 4 x 10\ :sup:`8` values — just processed in parallel.
 
 .. note::
 
-    Block-skipping via :func:`rndStateSkip` is available with the
-    **MRG32k3a** and **Wichmann-Hill** generators. For other
-    generators, use multiple independent streams (MT2203) or
-    separate seeds instead.
+    Block-skipping via :func:`rndStateSkip` is available with every
+    generator except **MT2203**. With MT2203, use its multiple
+    independent streams or separate seeds instead.
 
 
 Performance Tips

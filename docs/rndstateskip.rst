@@ -11,7 +11,7 @@ Format
 ----------------
 .. function:: newState = rndStateSkip(n_skip, state)
 
-    :param n_skip: the number of values to skip.
+    :param n_skip: the number of values to skip, 0 or more. Negative values are not supported; the result differs by platform and generator.
     :type n_skip: scalar
 
     :param state: opaque state vector
@@ -52,6 +52,6 @@ Examples
 Technical Notes
 ---------------
 
-This function applies ONLY to the MRG32K3A and Wichmann-Hill random number generators.
+This function works with every generator except MT2203, for which it stops with error G0645. On macOS with Apple silicon, it works with the generators available there: SFMT19937, MT19937 and MRG32k3a. Each skip gives the same numbers as on Windows and Linux. With SFMT19937 and MT19937, a skip there takes time in proportion to its length, up to about 0.4 seconds for each 10\ :sup:`9` values skipped. For large skips use MRG32k3a, whose skips take no noticeable time. The example above uses Wichmann-Hill, which is not available on Apple silicon.
 
 .. seealso:: Functions :func:`rndCreateState`, :func:`rndn`, :func:`rndu`, :func:`rndBeta`, :func:`rndGamma`
