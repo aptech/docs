@@ -66,6 +66,13 @@ returned as a missing value. This happens most often for the upper limit at a
 high confidence level. :func:`arimaPlotForecast` draws no band when a limit
 is missing.
 
+With a positive *lambda*, the transformation maps every positive value above
+:math:`-1/\lambda`. A point forecast or prediction limit :math:`z` below
+:math:`-1/\lambda` on the transformed scale becomes the negative value
+:math:`-|\lambda z + 1|^{1/\lambda}` in data units. This happens most often
+for the lower limit at a high confidence level. With *lambda* = 1 the
+forecasts and limits equal those of the same model without a transformation.
+
 Intervals use *result.sigma2_bc*, the corrected innovation variance, rather
 than the ML variance *result.sigma2*. They condition on the fitted parameters,
 selected model and supplied future regressors. They account for future

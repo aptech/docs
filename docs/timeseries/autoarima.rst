@@ -130,7 +130,8 @@ are multiplied by :math:`c^2`; and the log-likelihood changes by
 :math:`-n^* \ln c`, where :math:`n^*` is the number of observations that
 enter the likelihood. When a *lambda* is given or selected, the
 transformation is applied first and the search then treats the transformed
-series in the same way. The units of a regressor do not matter either:
+series in the same way; a selected *lambda* does not depend on the units of
+*y*. The units of a regressor do not matter either:
 multiplying a column of *xreg* by a positive constant divides its
 coefficient and standard error by that constant and changes nothing else.
 The fit of a candidate model with a mean or a difference does not depend on
@@ -167,7 +168,11 @@ estimate. :func:`autoArima` stops with::
 
 The message reports the differencing orders at which the series became
 constant. With ``lambda="auto"`` the check uses the series as given, before a
-transformation is chosen, as :func:`arimaFit` does.
+transformation is chosen, as :func:`arimaFit` does. The search also stops
+when a *lambda* it would compare makes the series constant after
+differencing, and the message names that *lambda*, for example
+``autoArima: with lambda 0 the series is constant after differencing; there
+is nothing to estimate.`` for ``exp(0.1*seqa(1, 1, 40))``.
 
 **Short series.** At least 3 observations are required.
 
