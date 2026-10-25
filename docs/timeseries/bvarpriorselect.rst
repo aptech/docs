@@ -273,6 +273,8 @@ The settings that can be chosen, and the combinations available:
 
 - overall_tightness (the default)
 - overall_tightness, residual_variances
+- overall_tightness, soc_tightness
+- overall_tightness, soc_tightness, sur_tightness
 - overall_tightness, lag_decay, soc_tightness
 - overall_tightness, lag_decay, soc_tightness, sur_tightness
 - overall_tightness, residual_variances, lag_decay, soc_tightness
@@ -281,8 +283,14 @@ The settings that can be chosen, and the combinations available:
 
 With the overall tightness alone, or with the residual variances, an
 included sum-of-coefficients or single-unit-root prior is held at its value.
+With the overall tightness alone, holding such a prior can make the search
+slower: its faster method works only without the dummy-observation priors.
 The other combinations choose every included dummy-observation prior. Any
-other combination is refused as not yet available.
+other combination is refused as not yet available. A setting not in the
+chosen combination is held: for example,
+``soc_tightness=bvarChoose(1), sur_tightness=bvarChoose(1)`` chooses the
+overall, sum-of-coefficients and single-unit-root tightness with the lag
+decay held at its value.
 
 Search ranges: overall tightness 0.0001 to 5; lag decay 0.5 to 3;
 sum-of-coefficients and single-unit-root tightness 0.0001 to 50. A start
@@ -292,7 +300,7 @@ the range; the usual call, ``residual_variances=bvarChoose()``, starts at
 the values of *residual_variance_policy*.
 
 With the overall tightness alone, the search is one-dimensional: a grid of
-25 points followed by golden-section refinement on the log scale. The start
+32 points followed by golden-section refinement on the log scale. The start
 is one extra point tried after the grid, and the result depends on it only
 when it is the best point tried. When other settings are chosen too, they
 are chosen jointly by a bounded quasi-Newton search.

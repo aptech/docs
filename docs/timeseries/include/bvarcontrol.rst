@@ -25,10 +25,10 @@
        ===== =====================================================
 
    * - ctl.soc_tightness
-     - Scalar, sum-of-coefficients prior (Doan, Litterman & Sims 1984): pulls the sum of each variable's own-lag coefficients toward 1, which helps forecasts of data in levels. 0 turns it off; a positive value turns it on, and smaller values pull harder. Default = 0.
+     - Scalar, sum-of-coefficients prior (Doan, Litterman & Sims 1984): pulls the sum of each variable's own-lag coefficients toward 1, which helps forecasts of data in levels. 0 turns it off; a positive value turns it on, and smaller values pull harder. Its dummy observations are built from the mean of the first *p* observations (the presample). Default = 0.
 
    * - ctl.sur_tightness
-     - Scalar, single-unit-root prior (Sims 1993): pulls the system toward a common stochastic trend. 0 turns it off; a positive value turns it on, and smaller values pull harder. Default = 0.
+     - Scalar, single-unit-root prior (Sims 1993): pulls the system toward a common stochastic trend. 0 turns it off; a positive value turns it on, and smaller values pull harder. Its dummy observation is built from the same presample mean. Default = 0.
 
    * - ctl.const_prior
      - String, the prior on the constants.
@@ -72,7 +72,7 @@
      - TxK matrix, exogenous regressors. Default = empty (none).
 
    * - ctl.stability_check
-     - Scalar, 1 to compute the largest companion root and the stationary flag in the fit, 0 to skip them (*result.is_stationary* and *result.max_eigenvalue* are then missing; :func:`varFitInspect` and :func:`forecastCompare` compute them when they report them). The eigenvalue solve takes most of a fit's time. Default = 0.
+     - Scalar, 1 to compute the largest companion root and the stationary flag in the fit, 0 to skip them (*result.is_stationary* and *result.max_eigenvalue* are then missing; :func:`varFitInspect` and ``forecastCompare`` compute them when they report them). The eigenvalue solve takes most of a fit's time. Default = 0.
 
    * - ctl.quiet
      - Scalar, 1 to suppress printed output. Default = 0.
