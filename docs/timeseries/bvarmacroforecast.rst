@@ -57,7 +57,7 @@ Format
        A positive number holds the tightness at that value. ``bvarChoose()``
        chooses it from the training rows with :func:`bvarPriorSelect` (the
        value with the highest marginal likelihood times a weak prior on the
-       tightness, between 0.001 and 5), starting at the *overall_tightness*
+       tightness, between 0.0001 and 5), starting at the *overall_tightness*
        of *spec*; ``bvarChoose(x)`` starts the search at *x*. Default: held
        at the *overall_tightness* of *spec*, 0.2 unless changed, with no
        search.
@@ -192,12 +192,12 @@ model.
     ================================================================================
     Model:        BVAR(2), conjugate Minnesota prior, constant, 5,000 draws, seed 42
     Lag order:    2, selected by BIC over 1-8 (training sample)
-    Tightness:    lambda1 = 0.2581 MAP (log ML + Gamma hyperprior); converged, 52 evaluations
+    Tightness:    lambda1 = 0.2581 MAP (log ML + Gamma hyperprior); converged, 59 evaluations
     Prior centre: own first lag 0, 1, 1, 1; constant variance 1e+07
     Sample:       training 1960Q1-2014Q4, holdout 2015Q1-2019Q4
 
     Trust checks
-    Optimizer:    converged (52 evaluations); log ML (train) -1307.44
+    Optimizer:    converged (59 evaluations); log ML (train) -1307.44
     Stability:    largest companion root 0.9664 (below 1: stationary)
 
     Residuals at the posterior centre
@@ -382,9 +382,9 @@ variance per series, by default the residual variance of an autoregression
 of that series. With ``residual_variances=bvarChoose()``
 the search chooses them together with the tightness, each between 1/100 and
 100 times its autoregression value, with the priors of Giannone, Lenza and
-Primiceri (2015); the tightness is then looked for between 0.0001 and 5. A
-tightness chosen this way cannot be compared with one chosen with fixed
-residual variances, and it belongs with them: to fit that prior again use
+Primiceri (2015). A tightness chosen this way cannot be compared with one
+chosen with fixed residual variances, and it belongs with them: to fit that
+prior again use
 ``bvarFit(y, ctl=wf.prior_search.fit_settings)``, not the tightness alone. The
 paper's prior on the residual variances has its peak near 0.02 squared and
 is written for data in logs multiplied by four and rates in decimals. This
@@ -395,8 +395,7 @@ when the setting has helped).
 
 **Tightness search stopped at the edge of its range.**
 When the overall tightness is chosen by the search, it is looked for between
-0.001 and 5 (between 0.0001 and 5 when the residual variances are chosen
-too). If the search stops at either end, no peak was found: the value
+0.0001 and 5. If the search stops at either end, no peak was found: the value
 is the edge of the range, not a value chosen by the data. The workflow prints
 a note saying so as soon as the search ends, before the model is fitted, and
 then fits and forecasts with the edge value. At the lower edge the prior holds

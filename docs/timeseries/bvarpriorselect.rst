@@ -284,13 +284,12 @@ included sum-of-coefficients or single-unit-root prior is held at its value.
 The other combinations choose every included dummy-observation prior. Any
 other combination is refused as not yet available.
 
-Search ranges: overall tightness 0.001 to 5, or 0.0001 to 5 when the
-residual variances are chosen too; lag decay 0.5 to 3; sum-of-coefficients
-and single-unit-root tightness 0.001 to 50. A start outside its range is
-refused. Each residual variance is searched between 1/100 and 100 times its
-start, so a supplied start moves both the start and the range; the usual
-call, ``residual_variances=bvarChoose()``, starts at the values of
-*residual_variance_policy*.
+Search ranges: overall tightness 0.0001 to 5; lag decay 0.5 to 3;
+sum-of-coefficients and single-unit-root tightness 0.001 to 50. A start
+outside its range is refused. Each residual variance is searched between
+1/100 and 100 times its start, so a supplied start moves both the start and
+the range; the usual call, ``residual_variances=bvarChoose()``, starts at
+the values of *residual_variance_policy*.
 
 With the overall tightness alone, the search is one-dimensional: a grid of
 25 points followed by golden-section refinement on the log scale. The start
