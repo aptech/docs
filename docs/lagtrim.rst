@@ -119,26 +119,27 @@ Single lag with multi-column dataframe
     // and trim missing values
     auto_lag = lagTrim(auto, nlags);
 
-will assign *auto_lag* to equal:
+will assign *auto_lag* to equal the matrix below. It doesn't keep the variable names, and *rep78* holds its category keys (3 for Average, 4 for Good):
 
 ::
 
-           price            rep78 
-       4099.0000          Average 
-       4749.0000          Average 
-       3799.0000                . 
-       4816.0000          Average 
-       7827.0000             Good 
-       5788.0000          Average 
-       4453.0000                . 
-       5189.0000          Average
+       4099.0000        3.0000000
+       4749.0000        3.0000000
+       3799.0000                .
+       4816.0000        3.0000000
+       7827.0000        4.0000000
+       5788.0000        3.0000000
+       4453.0000                .
+       5189.0000        3.0000000
 
 Remarks
 ----------
 
 - If *t* is positive, :func:`lagTrim` lags *y* back *t* time periods, so the first ``maxc(t)`` observations of *y* are removed.
 
-- If *t* is negative, :func:`lagTrim` leads *y* forward *t* time periods, so the last ``maxc(t)`` observations of *y* are removed.
+- If *t* is negative, :func:`lagTrim` leads *y* forward *t* time periods, so the last ``abs(minc(t))`` observations of *y* are removed.
+
+- Each element of *t* is truncated to a whole number of periods, and must not be a missing value or an infinity. *y* must have more rows than the span of the truncated lags, ``maxc(trunc(t)|0) - minc(trunc(t)|0)``, so that at least one row remains. Otherwise :func:`lagTrim` gives an error. An empty *y* is returned unchanged.
 
 - :func:`lagn` is similar to :func:`lagTrim`, but :func:`lagn`:
 
