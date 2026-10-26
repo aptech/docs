@@ -8,7 +8,7 @@ The following is a list of changes from the previous version of GAUSS.
 27.0.0
 ------
 
-#. New feature: ``kernel proc`` defines a procedure that GAUSS compiles to native code, so loops that cannot be vectorized, such as recursions, simulations and filters, run much faster. Write ``kernel proc`` in place of ``proc`` and call the procedure as usual. A procedure that uses something kernel procedures do not support yet runs as an ordinary procedure, with a warning that says why. Use ``kernel proc`` for code built around loops. For code that is already vectorized, an ordinary proc is usually as fast or faster.
+#. New feature: ``kernel proc`` defines a procedure that GAUSS compiles to native code, so loops that cannot be vectorized, such as recursions, simulations and filters, run much faster. Write ``kernel proc`` in place of ``proc`` and call the procedure as usual. Use ``kernel proc`` for code built around loops. For code that is already vectorized, an ordinary proc is usually as fast or faster.
 #. New functions: :func:`ln1p` and :func:`expm1` retain small changes when computing logarithms and exponentials near zero.
 #. New functions: :func:`lnsumexp` and :func:`lndiffexp` add and subtract quantities stored as logarithms, such as log likelihoods and log probabilities, without overflow, underflow or loss of small terms.
 #. New feature: :func:`minimize` supports unconstrained Nelder-Mead optimization for scalar objectives without derivatives. Use ``minimize(&f, x0, method="nelder-mead")``. Results include a stopping message, objective evaluation count and simplex spreads. Use L-BFGS-B when bounds are required.
