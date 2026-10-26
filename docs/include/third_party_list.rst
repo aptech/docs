@@ -153,7 +153,7 @@
      - LGPL-2.1-or-later; contains minizip (Zlib)
      - all
    * - POSIX Threads for Windows (pthreads-win32)
-     - 2.8.0
+     - 2.9.0.0 (a development snapshot of July 2011, between releases 2.8.0 and 2.9.1)
      - LGPL-2.1-or-later
      - Windows
    * - Google Breakpad
@@ -676,6 +676,23 @@ Third-party code inside Qt
      -
      - Historical Permission Notice and Disclaimer - sell variant
      - all
+
+Source code offer
+^^^^^^^^^^^^^^^^^
+
+These parts of GAUSS are, or contain, software licensed under the GNU
+Lesser General Public License (LGPL):
+
+- GNU libiconv 1.14
+- QuaZip 0.7.2
+- POSIX Threads for Windows (pthreads-win32) 2.9.0.0 (Windows only)
+- Qt WebEngine, whose Chromium includes FFmpeg and other LGPL code
+
+Aptech Systems, Inc. will give anyone who has a copy of this version of
+GAUSS the complete corresponding source code of these parts, for no more
+than the cost of making and sending it. The offer is good for three years
+after Aptech last ships this version of GAUSS. To ask for the source code,
+write to support@aptech.com, and name your GAUSS version and platform.
 
 Acknowledgements
 ^^^^^^^^^^^^^^^^
