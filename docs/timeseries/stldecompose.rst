@@ -11,10 +11,10 @@ Format
 .. function:: stl = stlDecompose(y, period)
               stl = stlDecompose(y, period, s_window=7)
 
-   :param y: time series data.
+   :param y: time series data, with at least 2 x *period* + 1 observations.
    :type y: Nx1 vector
 
-   :param period: seasonal period (e.g., 12 for monthly, 4 for quarterly, 52 for weekly).
+   :param period: seasonal period, an integer of at least 2 (e.g., 12 for monthly, 4 for quarterly, 52 for weekly).
    :type period: scalar
 
    :param s_window: Optional keyword, seasonal smoothing window (must be odd, >= 7). Default = auto.
@@ -99,6 +99,11 @@ STL decomposes a time series into three additive components:
 
 where :math:`S_t` is the seasonal component, :math:`T_t` is the trend, and
 :math:`R_t` is the remainder.
+
+**Series length.** *y* needs two full periods and one more observation,
+2 x *period* + 1: at least 25 observations for monthly data and 9 for quarterly
+data. :func:`stlDecompose` stops with an error message for a shorter series or
+for a *period* that is not an integer of at least 2.
 
 **The seasonal smoothing window** (*s_window*) controls how rapidly the seasonal
 pattern can change. Larger values produce a more stable seasonal pattern.
