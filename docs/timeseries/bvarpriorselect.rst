@@ -87,7 +87,7 @@ Format
             - Scalar, the log prior of the chosen values; 0 when *choose_by* = ``"ml"``. The maximized objective is *ps.log_ml* + *ps.log_hyperprior*.
 
           * - ps.converged
-            - Scalar, 1 if the search met its convergence test; 0 whenever *ps.at_bound* names a setting. It can be 1 after a line-search abort; *ps.stop_reason* shows it.
+            - Scalar, 1 if the search met its convergence test at the point it returns; 0 whenever *ps.at_bound* names a setting, and 0 for any other *ps.stop_reason* than ``"converged"`` or ``"golden_section"``.
 
           * - ps.at_bound
             - String array naming the chosen settings that stopped at an edge of their range, where the objective was still rising, so that no peak was found: ``""`` (none), or one or more of ``"overall_tightness"``, ``"residual_variances"``, ``"lag_decay"``, ``"soc_tightness"`` and ``"sur_tightness"``. Any name makes *ps.status* ``"at_bound"`` and *ps.converged* 0.
@@ -96,10 +96,10 @@ Format
             - String, "converged", "not_converged" or "at_bound". Test ``ps.status $== "at_bound"`` to ask whether anything stopped at an edge.
 
           * - ps.stop_reason
-            - String, how the search ended: ``"converged"``, ``"line_search_abort"``, ``"warning"``, ``"iteration_limit"``, ``"other"``, or ``"golden_section"`` for the search of the overall tightness alone.
+            - String, how the search ended: ``"converged"``, ``"line_search_abort"``, ``"warning"``, ``"iteration_limit"``, ``"other"``, ``"golden_section"`` for the search of the overall tightness alone, or ``"earlier_point"`` when the search ended at a point clearly worse than one it had already tried, and that earlier point is returned.
 
           * - ps.projected_gradient_norm
-            - Scalar, the largest projected-gradient component at the end of the search; missing for ``"golden_section"``.
+            - Scalar, the largest projected-gradient component at the returned point; missing for the search of the overall tightness alone.
 
           * - ps.n_evals
             - Scalar, number of marginal-likelihood evaluations.
