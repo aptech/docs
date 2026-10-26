@@ -184,6 +184,15 @@ uncertainty about the current volatility state.
 ``"posterior_mean"`` uses the posterior mean :math:`h_T`. Faster but
 underestimates tail risk by ignoring :math:`h_T` uncertainty.
 
+**Ordering of the variables:**
+
+The forecasts come from the model :func:`bvarSvFit` fitted, which orders its
+shocks from the last column of *y* to the first; the ordering can change the
+forecasts. For the usual ordering, in which the first column's shock comes
+first, fit with the columns of *y* reversed (``y[., cols(y):1]``) and read
+the forecasts in the reversed column order. :func:`tvpSvFit` orders its
+shocks from the first column to the last.
+
 **Memory considerations:**
 
 Setting ``store_draws = 1`` stores an (n_draws * n_paths) x (h * m) matrix.

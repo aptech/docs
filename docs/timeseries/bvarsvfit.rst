@@ -171,14 +171,29 @@ Remarks
 -------
 
 **Stochastic volatility model:**
-Each equation :math:`i` has a time-varying log-variance :math:`h_{i,t}` that
-follows an AR(1) process:
+The residuals are built from *m* uncorrelated structural shocks with a
+recursive (triangular) model. Each shock :math:`i` has a time-varying
+log-variance :math:`h_{i,t}` that follows an AR(1) process:
 
 .. math::
 
    h_{i,t} = \mu_i + \phi_i (h_{i,t-1} - \mu_i) + \sigma_i \eta_{i,t}, \quad \eta_{i,t} \sim N(0, 1)
 
-The SV parameters :math:`(\mu_i, \phi_i, \sigma_i^2)` are estimated per equation.
+The SV parameters :math:`(\mu_i, \phi_i, \sigma_i^2)` are estimated per
+structural shock, in the order described next.
+
+**Ordering of the shocks:**
+:func:`bvarSvFit` orders the shocks from the last column of *y* to the first.
+The last column's shock comes first: that variable's residual is its own
+shock. Shock *i* moves variable *i* and the variables in the columns before
+it within the period, but not the variables after it. Element *i* of
+*result.sv_mu*, *result.sv_phi* and *result.sv_sigma2* belongs to shock *i*
+in this order. The ordering can change the estimates and the forecasts.
+
+For the usual ordering, in which the first column's shock comes first,
+reverse the columns of *y* before fitting, ``y = y[., cols(y):1];``, and
+read every result in the reversed order. :func:`tvpSvFit` orders its shocks
+from the first column to the last.
 The persistence parameter :math:`\phi_i` is drawn via Metropolis-Hastings; the
 acceptance rate is reported in *result.phi_accept_rate*. Rates between 0.2 and
 0.6 indicate good mixing.

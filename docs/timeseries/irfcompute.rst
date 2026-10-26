@@ -47,7 +47,7 @@ Format
            * - :func:`bvarFit`
              - cholesky, sign, long_run
            * - :func:`bvarSvFit`
-             - cholesky, sign
+             - sign (Cholesky identification is not available for :func:`bvarSvFit` results in this beta)
 
    :type identification: string
 
@@ -59,14 +59,9 @@ Format
            * - "chol_one_sd"
              - One standard deviation (default for :func:`varFit` and :func:`bvarFit` results).
            * - "unit_own_impact"
-             - Each shock moves its own variable by exactly 1 on impact (:func:`varFit` and :func:`bvarSvFit` results).
-           * - "one_sd_at(t)"
-             - :func:`bvarSvFit` results only: one standard deviation at period *t*, where *t* is the last sample period (``fit.n_obs``).
+             - Each shock moves its own variable by exactly 1 on impact (:func:`varFit` results).
 
-       Under stochastic volatility the size of a one-standard-deviation shock changes
-       every period, so :func:`bvarSvFit` results have no default: choose
-       ``"unit_own_impact"`` or ``"one_sd_at(t)"``. Sign, generalized and long-run
-       responses are one-standard-deviation shocks.
+       Sign, generalized and long-run responses are one-standard-deviation shocks.
    :type normalization: string
 
    :param restrictions: Optional keyword, sign and zero restrictions from :func:`signRestrictions`, or the restriction table itself.
@@ -242,6 +237,11 @@ responses and the point responses use the same layout.
 Cholesky factor of their covariance matrix, so variable 1 can affect all
 others within the period and variable *m* affects none of the others
 within the period. Reorder the data columns to change the ordering.
+
+Cholesky identification is not available for :func:`bvarSvFit` results in
+this beta. :func:`bvarSvFit` orders its shocks from the last column to the
+first (see :func:`bvarSvFit`), the reverse of the ordering above. Use sign
+restrictions with :func:`bvarSvFit` results.
 
 **Generalized responses** (Pesaran and Shin 1998) shock one innovation at a
 time and integrate out the others using their historical correlation. They

@@ -41,13 +41,13 @@
      - mxm matrix, time-averaged posterior mean of :math:`\Sigma`.
 
    * - result.sv_mu
-     - mx1 vector, posterior mean of SV level parameter per equation.
+     - mx1 vector, posterior mean of SV level parameter per structural shock (see Remarks for the order).
 
    * - result.sv_phi
-     - mx1 vector, posterior mean of SV persistence per equation.
+     - mx1 vector, posterior mean of SV persistence per structural shock (see Remarks for the order).
 
    * - result.sv_sigma2
-     - mx1 vector, posterior mean of SV innovation variance per equation.
+     - mx1 vector, posterior mean of SV innovation variance per structural shock (see Remarks for the order).
 
    * - result.sv_mu_sd
      - mx1 vector, posterior standard deviation of SV level.
