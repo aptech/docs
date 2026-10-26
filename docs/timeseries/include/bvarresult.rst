@@ -56,8 +56,7 @@
      - Kxm matrix, exact analytic posterior coefficient matrix (conjugate
        Minnesota prior only; empty otherwise). For the conjugate posterior the
        coefficient distribution is symmetric, so this single matrix is the
-       posterior mean, median, and mode, with no simulation noise. Use this
-       field when comparing coefficients against other packages.
+       posterior mean, median, and mode, with no simulation noise.
 
    * - result.sigma_post_mean
      - mxm matrix, analytic posterior mean of :math:`\Sigma`,

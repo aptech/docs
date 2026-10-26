@@ -300,10 +300,8 @@ Control Structure Creators
     getting-started
     getting-started-arima
     choosing-a-var-model
-    comparison
     textbook-mapping
     bgr-replication
-    var-verification
     getting-started-bvar-forecast
     getting-started-ets
     getting-started-vecm

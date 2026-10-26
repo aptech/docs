@@ -255,15 +255,6 @@ elevated volatility for many periods. This is the model correctly reflecting
 persistent volatility. If the persistence :math:`\phi_i` is near 1, volatility
 shocks take many periods to decay.
 
-Verification
-------------
-
-SV-BVAR forecast density calibration verified via PIT (probability integral transform)
-tests on out-of-sample evaluation windows. Forecast paths validated against
-R ``bayesianVARs::predict()`` for structural consistency.
-
-See the :ref:`var-verification` page.
-
 References
 ----------
 

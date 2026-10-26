@@ -208,14 +208,6 @@ uncertainty. :func:`bvarForecast` provides posterior predictive bands for
 Bayesian fits.
 
 
-Verification
-------------
-
-Forecast checks compare point forecasts and standard errors with independent
-reference calculations using the same residual-covariance divisor. The default
-bands include future shocks only. See :ref:`var-verification`.
-
-
 References
 ----------
 

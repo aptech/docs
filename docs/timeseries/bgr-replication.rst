@@ -110,50 +110,6 @@ Key Findings
    hundreds of thousands of posterior draws — runs in approximately 3.5 minutes on a
    single core.
 
-3. **Measured BEAR timing on the same exercise:**
-
-   .. list-table::
-      :widths: 15 20 20 15
-      :header-rows: 1
-
-      * - m
-        - GAUSS
-        - BEAR
-        - Speedup
-      * - 3
-        - 0.5s
-        - 33.6s
-        - 67x
-      * - 10
-        - 4.2s
-        - 2.1 min
-        - 30x
-      * - 20
-        - 22s
-        - 5.9 min
-        - 16x
-      * - 50
-        - 3.2 min
-        - 26.1 min
-        - 8x
-
-   All timings measured on the same machine (Apple M-series), same data (FRED-MD),
-   same retained draws (500), same rolling protocol (60 expanding windows).
-   BEAR: MATLAB R2025b native arm64, BEAR v5.2.2 (commit 29551e6).
-   GAUSS: v26.1, gausslib commit d1b3a9b, x86_64 under Rosetta 2.
-
-   At m=68 with p=12, BEAR's OLS pre-estimation produces near-singular matrices
-   (817 coefficients per equation with ~730 observations) and fails. With reduced
-   lags (p=4), BEAR can estimate m=68 at approximately **28 seconds per window**
-   — the full 60-window evaluation would take approximately **28 minutes**. GAUSS
-   completes m=68 p=4 in **1.4 minutes** (20x faster).
-
-   .. note::
-
-      GAUSS timings include Rosetta 2 translation overhead (GAUSS v26 is x86_64,
-      running on ARM via Rosetta). Native arm64 GAUSS will be faster. BEAR timings
-      are native arm64 — its best case.
-
 
 The Code
 --------
@@ -200,10 +156,6 @@ demonstrates that GAUSS Time Series handles production-scale forecasting:
 - **Under 4 minutes** = interactive, not batch. A researcher can modify the prior,
   re-run, and see results immediately.
 
-For comparison, the same exercise in BEAR takes over 30 minutes (26 min at m=50
-alone). In R, the ``BVAR`` package would take approximately 1-2 hours (Gibbs
-sampling with hierarchical prior).
-
 
 References
 ----------
@@ -215,4 +167,4 @@ References
 
 .. seealso:: Functions :func:`bvarFit`, :func:`bvarForecast`, :func:`bvarPriorSelect`
 
-.. seealso:: Guides :ref:`getting-started`, :ref:`choosing-a-var-model`, :ref:`var-comparison`
+.. seealso:: Guides :ref:`getting-started`, :ref:`choosing-a-var-model`

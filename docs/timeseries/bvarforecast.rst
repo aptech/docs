@@ -209,11 +209,6 @@ The posterior mean may be non-stationary. Check *result.is_stationary*, which
 missing. Add regularization via the sum-of-coefficients (*soc_tightness*) or
 single-unit-root (*sur_tightness*) priors in :func:`bvarFit`.
 
-Verification
-------------
-
-See the :ref:`var-verification` page.
-
 References
 ----------
 

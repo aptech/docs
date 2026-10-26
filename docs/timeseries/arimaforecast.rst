@@ -316,16 +316,6 @@ are multivariate — they use the joint dynamics of all variables to forecast ea
 Whether additional series improve forecast accuracy should be assessed on an appropriate holdout.
 
 
-Verification
-------------
-
-Point forecasts, standard errors and prediction limits at fixed coefficients
-are checked against two independent implementations of the same state-space
-forecast for ARIMA, seasonal ARIMA and transformed models, and forecasts with
-exogenous regressors are checked against independent regression-with-ARIMA-errors
-fits.
-
-
 References
 ----------
 

@@ -161,52 +161,41 @@ Hyndman & Athanasopoulos (2021) — *Forecasting: Principles and Practice* (3rd 
 
 The modern forecasting textbook. Free online at `otexts.com/fpp3 <https://otexts.com/fpp3/>`_.
 Covers ARIMA, exponential smoothing, regression, decomposition, and forecast evaluation.
-Uses R in the text — the table below shows the GAUSS equivalents.
 
 .. list-table::
-   :widths: 10 40 25 25
+   :widths: 10 45 45
    :header-rows: 1
 
    * - Ch.
      - Topic
      - GAUSS function
-     - R equivalent
    * - 3
      - STL decomposition
      - :func:`stlDecompose`
-     - ``stl()``
    * - 5.8
      - Forecast accuracy (RMSE, MASE)
      - :func:`fcMetrics`, :func:`fcScore`
-     - ``accuracy()``
    * - 9
      - ARIMA models
      - :func:`arimaFit`, :func:`autoArima`
-     - ``Arima()``, ``auto.arima()``
    * - 9.5
      - Auto ARIMA selection
      - :func:`autoArima`
-     - ``auto.arima()``
    * - 9.7
      - Seasonal ARIMA
      - :func:`autoArima` (``period=12``) or :func:`arimaFit`
-     - ``auto.arima()`` with seasonal
    * - 9.9
      - ARIMA forecasting
      - :func:`arimaForecast`
-     - ``forecast()``
    * - 10
      - Dynamic regression (ARIMAX)
      - :func:`autoArima` or :func:`arimaFit` (``xreg=X``)
-     - ``auto.arima(xreg=X)``
    * - 12.3
      - VAR models
      - :func:`varFit`, :func:`bvarFit`
-     - ``vars::VAR()``
    * - 12.3
      - VAR forecasting
      - :func:`varForecast`, :func:`bvarForecast`
-     - ``predict()``
 
 Replication Exercises
 ---------------------
@@ -312,4 +301,5 @@ Use the log marginal likelihood to select the best model::
     print "Log ML (tight):" r_tight.log_ml;
     print "Log ML (loose):" r_loose.log_ml;
     print "Log ML (optimal):" r_opt.log_ml;
-.. seealso:: Guides :ref:`getting-started`, :ref:`choosing-a-var-model`, :ref:`var-comparison`
+
+.. seealso:: Guides :ref:`getting-started`, :ref:`choosing-a-var-model`

@@ -161,14 +161,6 @@ Granger causality tests are sensitive to p. Use :func:`varLagSelect` to choose p
 before testing.
 
 
-Verification
-------------
-
-Reference checks use restricted and unrestricted least-squares regressions
-for one effect equation, with the same regressors and degrees of freedom.
-The p-value is the upper tail of F(q·p, T_eff - k).
-
-
 References
 ----------
 

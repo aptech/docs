@@ -480,15 +480,6 @@ If the optimizer does not converge, increase *ctl.max_iter*, try
 coefficients often indicate over-differencing or an unnecessarily complex
 specification.
 
-Verification
-------------
-
-Fixed ARIMA, SARIMA, and ARIMAX estimates, log-likelihoods, standard errors
-and forecasts are checked against independent implementations of the exact
-Gaussian likelihood and against a published seasonal example. The rows
-excluded from the diffuse likelihood are missing in *result.residuals*, so
-residual diagnostics use only the observations that enter the likelihood.
-
 References
 ----------
 
