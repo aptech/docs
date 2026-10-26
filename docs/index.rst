@@ -135,3 +135,4 @@ GAUSS Help
    timeseries/index
    ge/index
    changelog
+   third-party-software
