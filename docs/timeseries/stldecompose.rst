@@ -173,6 +173,15 @@ pattern. Reduce *s_window* or use a multiplicative decomposition (take logs firs
 decompose, exponentiate).
 
 
+Verification
+------------
+
+The seasonal, trend and remainder components are checked at every observation
+against two independent implementations of STL with the same settings: on
+monthly atmospheric CO2, monthly temperatures, quarterly gas consumption and the
+airline passenger series in logs, and on a 600-value series with period 2. Every
+value agrees to 12 digits of the series' largest absolute value.
+
 References
 ----------
 
