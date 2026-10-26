@@ -17,7 +17,7 @@ Format
    :param period: seasonal period, an integer of at least 2 (e.g., 12 for monthly, 4 for quarterly, 52 for weekly).
    :type period: scalar
 
-   :param s_window: Optional keyword, seasonal smoothing window (must be odd, >= 7). Default = auto.
+   :param s_window: Optional keyword, seasonal smoothing window: an odd number of at least 7 (see Remarks). Default = the smallest odd number greater than *period*, and at least 7 (13 for monthly data).
    :type s_window: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
@@ -45,12 +45,17 @@ Examples
 Monthly Data
 ++++++++++++
 
+Monthly international airline passengers, January 1949 to December 1960. The
+seasonal swing grows with the number of passengers, so the series is decomposed
+in logs.
+
 ::
 
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airpassengers.csv");
+    y = ln(loadd(fname, "value"));
 
     stl = stlDecompose(y, 12);
 
@@ -68,25 +73,49 @@ Deseasonalize then Fit ARIMA
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/airline.dat"), "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airpassengers.csv");
+    y = ln(loadd(fname, "value"));
 
     stl = stlDecompose(y, 12, quiet=1);
 
-    // Fit ARIMA on seasonally adjusted series
+    // Fit ARIMA on the seasonally adjusted series
     y_adj = y - stl.seasonal;
     result = autoArima(y_adj);
 
-Weekly Data
-+++++++++++
+Choosing the Seasonal Window
+++++++++++++++++++++++++++++
+
+Monthly carbon dioxide concentration at Mauna Loa, January 1959 to December
+1997, in parts per million. With the default window of 13, the seasonal swing
+(the largest month minus the smallest) grows from 5.86 in the first year to 6.71
+in the last. A window of 35 lets the seasonal pattern change more slowly: the
+swing grows only from 5.95 to 6.45.
 
 ::
 
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/weekly.dat"), "sales");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/co2.csv");
+    y = loadd(fname, "value");
 
-    stl = stlDecompose(y, 52, s_window=15);
+    stl_13 = stlDecompose(y, 12, quiet=1);
+    stl_35 = stlDecompose(y, 12, s_window=35, quiet=1);
+
+    // Seasonal swing in the first and last year
+    first = seqa(1, 1, 12);
+    last = seqa(rows(y) - 11, 1, 12);
+    print "s_window = 13: " (maxc(stl_13.seasonal[first]) - minc(stl_13.seasonal[first]))
+        (maxc(stl_13.seasonal[last]) - minc(stl_13.seasonal[last]));
+    print "s_window = 35: " (maxc(stl_35.seasonal[first]) - minc(stl_35.seasonal[first]))
+        (maxc(stl_35.seasonal[last]) - minc(stl_35.seasonal[last]));
+
+The output:
+
+::
+
+    s_window = 13:        5.8618313        6.7080267
+    s_window = 35:        5.9461446        6.4532171
 
 Remarks
 -------
@@ -105,9 +134,13 @@ where :math:`S_t` is the seasonal component, :math:`T_t` is the trend, and
 data. :func:`stlDecompose` stops with an error message for a shorter series or
 for a *period* that is not an integer of at least 2.
 
-**The seasonal smoothing window** (*s_window*) controls how rapidly the seasonal
-pattern can change. Larger values produce a more stable seasonal pattern.
-Must be odd and >= 7. The default is typically ``period + 1`` (rounded to odd).
+**The seasonal smoothing window** (*s_window*) controls how quickly the seasonal
+pattern can change. Each seasonal value is a weighted average over *s_window*
+consecutive values of its cycle-subseries (for example, 13 consecutive
+Januaries), so a larger window gives a more stable seasonal pattern. *s_window*
+is an odd number of at least 7: a smaller value is raised to 7, and an even value
+to the next odd number. The default is the smallest odd number greater than
+*period*, and at least 7: 13 for monthly data and 7 for quarterly data.
 
 Algorithm
 ---------
@@ -119,7 +152,10 @@ STL uses an inner loop of iterative LOESS (locally weighted regression) smoothin
 3. **Low-pass filter:** Remove high-frequency artifacts from the seasonal estimate.
 4. **Deseasonalize:** Subtract the seasonal estimate from the original series.
 5. **Trend smoothing:** Apply LOESS to the deseasonalized series.
-6. **Iterate** steps 1-5 (typically 2 inner iterations, 1 outer iteration for robustness weights).
+6. **Repeat** steps 1-5 once, for two passes in all.
+
+:func:`stlDecompose` does not compute robustness weights, so an outlier can move
+the seasonal and trend values near it.
 
 See Cleveland et al. (1990) for the complete specification.
 
@@ -129,22 +165,12 @@ Troubleshooting
 
 **Seasonal component is too smooth / not smooth enough:**
 Increase *s_window* for smoother seasonal patterns; decrease for more adaptive patterns.
-The default is typically ``period + 1``.
+The default is the smallest odd number greater than *period*, and at least 7.
 
 **Remainder has visible seasonal pattern:**
 *s_window* is too large — the seasonal smoother can't track changes in the seasonal
 pattern. Reduce *s_window* or use a multiplicative decomposition (take logs first,
 decompose, exponentiate).
-
-
-Verification
-------------
-
-STL decomposition verified against R ``stats::stl()`` with ``s.window=13`` on the
-AirPassengers dataset. Seasonal, trend, and remainder components match at :math:`10^{-4}`
-tolerance.
-
-See ``crossval/03_arima_crossval.R``.
 
 
 References
@@ -159,6 +185,6 @@ timeseries
 
 Source
 ------
-stl.src
+arima.src
 
 .. seealso:: Functions :func:`autoArima`, :func:`arimaFit`
