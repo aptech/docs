@@ -84,6 +84,48 @@ you want a fully fixed ETS(error, trend, season) specification.
 Use ``etsResults`` to reprint the formatted summary, :func:`etsForecast` to
 generate forecasts, and ``etsDiagnostics`` to run residual checks.
 
+**Data that are not positive.** A model with a multiplicative error or a
+multiplicative season needs strictly positive data. :func:`etsFit` refuses
+such a model when *y* has a zero or negative value, for example
+``etsFit: ETS(MNN): a multiplicative error or season requires strictly
+positive data; y has a zero or negative value.`` Fit a model with an additive
+error and season instead.
+
+**Short series.** A model needs more observations than its number of
+parameters plus 4. The parameters are the smoothing parameters and the initial
+states: 2 for the level, 2 more for a trend, 1 more for damping and *period*
+more for a season. A shorter series is refused with a message that names the
+minimum, for example ``etsFit: ETS(ANA) needs at least 19 observations for
+period 12 (14 parameters + 5); y has 18.``
+
+These two checks apply to a fixed specification. When ``ctl.trend`` or
+``ctl.season`` is ``-1``, :func:`autoEts` makes the choice instead.
+
+**Constant series.** A model fitted to a series whose values are all equal
+fits it exactly: the residuals and ``result.sigma2`` are 0,
+``result.log_likelihood`` is +INF, the information criteria are -INF, and
+:func:`etsForecast` gives an interval of zero width.
+
+By default a refusal ends the program. With ``ctl.on_error = "return"``,
+:func:`etsFit` instead returns a result whose *status* is nonzero (1 for a
+short series, 4 for data that are not positive) and whose *status_message*
+holds the message, so that a loop over many series can record the failure and
+continue:
+
+::
+
+    ctl = etsControlCreate();
+    ctl.error = 1;
+    ctl.trend = 0;
+    ctl.season = 0;
+    ctl.on_error = "return";
+    ctl.quiet = 1;
+
+    result = etsFit(y, ctl);
+    if result.status /= 0;
+        print result.status_message;
+    endif;
+
 Library
 -------
 timeseries

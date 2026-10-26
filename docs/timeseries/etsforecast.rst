@@ -53,6 +53,12 @@ fit, so you can call :func:`etsForecast` directly on the returned result
 structure without re-supplying the data. Forecasts use the fitted model
 components and smoothing parameters stored in ``result``.
 
+The prediction intervals use the innovation variance SSE / (*n* -
+``result.n_params``), which allows for the estimated parameters. For the
+result :func:`autoEts` returns on a constant series, which estimates nothing,
+that is ``result.sigma2``. An exact fit, with all residuals 0, gives an interval of
+zero width.
+
 Library
 -------
 timeseries

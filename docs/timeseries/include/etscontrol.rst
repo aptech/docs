@@ -55,3 +55,13 @@
 
    * - ctl.quiet
      - Scalar, set to 1 to suppress printed output. Default = 0.
+
+   * - ctl.on_error
+     - String, what happens when no model can be fitted.
+
+       ============ =====================================================================
+       ``"stop"``   Print the reason and end the program. (Default)
+       ``"return"`` Return the result with *result.status* and
+                    *result.status_message* set, so that a loop over many
+                    series can continue.
+       ============ =====================================================================

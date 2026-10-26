@@ -59,6 +59,21 @@ specification automatically. The selected model label is stored in
 :class:`etsResult`. For seasonal data, set ``ctl.period`` or pass the
 ``period`` keyword so seasonal candidates use the intended frequency.
 
+The search leaves out models that cannot be fitted to *y*: models with a
+multiplicative error or season when *y* has a zero or negative value, and
+models with at least *n* - 1 parameters. The minimum length that
+:func:`etsFit` requires of a fixed model does not apply here.
+
+**Constant series.** When *y* is constant to about 8 significant digits (the
+values that differ from the first value differ from it, on average, by at most
+1.5e-8 of their mean absolute value), :func:`autoEts` does not search. It
+returns simple exponential smoothing, ``"ANN"``, with ``result.alpha`` =
+0.99999 and the first value of *y* as the initial level. Nothing is estimated:
+``result.n_params`` is 0, ``result.sigma2`` is the mean squared residual (0 for
+a series whose values are all equal), and the log-likelihood and information
+criteria are missing values. :func:`etsForecast` forecasts the last level, with
+an interval of zero width for a series whose values are all equal.
+
 Library
 -------
 timeseries

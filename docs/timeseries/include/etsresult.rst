@@ -29,16 +29,21 @@
      - Scalar, estimated innovation variance.
 
    * - result.log_likelihood
-     - Scalar, maximized log-likelihood.
+     - Scalar, maximized log-likelihood. +INF for an exact fit, with all
+       residuals 0. A missing value for the result :func:`autoEts` returns on
+       a constant series.
 
    * - result.aic
-     - Scalar, Akaike information criterion.
+     - Scalar, Akaike information criterion. -INF for an exact fit; a missing
+       value when *result.log_likelihood* is missing.
 
    * - result.aicc
-     - Scalar, corrected Akaike information criterion.
+     - Scalar, corrected Akaike information criterion. -INF for an exact fit;
+       a missing value when *result.log_likelihood* is missing.
 
    * - result.bic
-     - Scalar, Bayesian information criterion (Schwarz).
+     - Scalar, Bayesian information criterion (Schwarz). -INF for an exact
+       fit; a missing value when *result.log_likelihood* is missing.
 
    * - result.residuals
      - Nx1 vector, in-sample residuals.
@@ -50,7 +55,9 @@
      - Scalar, 1 if the optimizer converged, 0 otherwise.
 
    * - result.n_params
-     - Scalar, number of estimated parameters in the fitted model.
+     - Scalar, number of estimated parameters in the fitted model: the
+       smoothing parameters and the initial states. 0 for the result
+       :func:`autoEts` returns on a constant series, which estimates nothing.
 
    * - result.error_type
      - Scalar, encoded error type: 0 = additive, 1 = multiplicative.
@@ -69,3 +76,21 @@
 
    * - result.y
      - Nx1 vector, original series stored for use by :func:`etsForecast`.
+
+   * - result.status
+     - Scalar, 0 when a model was fitted (see *result.converged*). Any other
+       value means that no model was fitted; it can be seen only with
+       ``ctl.on_error = "return"``, because the default is to stop with the
+       message.
+
+       === ==============================================================
+       1   *y* is too short for the model (:func:`etsFit`).
+       3   No model was found for the requested error type (:func:`autoEts`).
+       4   The model has a multiplicative error or season and *y* has a
+           zero or negative value (:func:`etsFit`).
+       5   Internal error.
+       === ==============================================================
+
+   * - result.status_message
+     - String, the reason no model was fitted. Empty when *result.status* is
+       0.
