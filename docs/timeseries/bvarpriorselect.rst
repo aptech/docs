@@ -303,7 +303,9 @@ With the overall tightness alone, the search is one-dimensional: a grid of
 32 points followed by golden-section refinement on the log scale. The start
 is one extra point tried after the grid, and the result depends on it only
 when it is the best point tried. When other settings are chosen too, they
-are chosen jointly by a bounded quasi-Newton search.
+are chosen jointly by a bounded quasi-Newton search. That search moves from
+its start to a nearby peak of its objective, which need not be the highest;
+compare ``log_ml + log_hyperprior`` from more than one start.
 
 **The residual variances.** The Minnesota prior needs one residual variance
 per series: it sets the scale of the prior on the error covariance, and it
