@@ -264,7 +264,11 @@ fitted at the values found. The settings :func:`bvarPriorSelect` can choose,
 and the combinations it offers, apply here too. The result is the fit that
 :func:`bvarPriorSelect` with the same keywords followed by
 ``bvarFit(y, ctl=ps.fit_settings)`` gives, and *result.prior_search* holds that
-search; its printout comes before the fit's unless *quiet* = 1. With nothing
+search; its printout comes before the fit's unless *quiet* = 1. One
+difference: an *overall_tightness* that is left out is held here, at its value
+in *ctl* or its default, while :func:`bvarPriorSelect` chooses it; give
+:func:`bvarPriorSelect` ``overall_tightness=`` that value to hold it there
+too. With nothing
 marked there is no search, so ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen
 prior without searching again.
 
