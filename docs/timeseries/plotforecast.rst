@@ -105,7 +105,7 @@ Save to File
 ::
 
     plotForecast(wf, history=24);
-    plotSave("forecast_fan_chart.png", "px", 800 | 600);
+    plotSave("forecast_fan_chart.png", 800 | 600, "px");
 
 Remarks
 -------
