@@ -28,7 +28,7 @@ Format
    :param lag_decay: Optional keyword, how much harder longer lags are pulled: the prior standard deviation for lag *l* is the one for lag 1 divided by :math:`l^{\text{lag\_decay}}`. A number, or ``bvarChoose(start)`` to choose it. Default = 1.
    :type lag_decay: scalar or struct
 
-   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior (Doan, Litterman & Sims 1984), which pulls the sum of each variable's own-lag coefficients toward 1. 0 turns it off; a positive value turns it on, and smaller values pull harder. Its dummy observations are built from the mean of the first *p* observations (the presample). A number, or ``bvarChoose(start)`` to choose it (``bvarChoose()`` on a value of 0 adds the prior and starts at 1). Default = 0.
+   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior (Doan, Litterman & Sims 1984), which pulls the sum of each variable's own-lag coefficients toward 1. It does so whatever *lag1_prior_mean* says, also for a variable whose first own lag is centred at 0. 0 turns it off; a positive value turns it on, and smaller values pull harder. Its dummy observations are built from the mean of the first *p* observations (the presample). A number, or ``bvarChoose(start)`` to choose it (``bvarChoose()`` on a value of 0 adds the prior and starts at 1). Default = 0.
    :type soc_tightness: scalar or struct
 
    :param sur_tightness: Optional keyword, tightness of the single-unit-root prior (Sims 1993), which pulls the system toward a common stochastic trend. 0 turns it off. Its dummy observation is built from the same presample mean. A number, or ``bvarChoose(start)`` to choose it, as *soc_tightness*. Default = 0.
