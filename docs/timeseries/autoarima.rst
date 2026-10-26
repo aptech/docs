@@ -172,7 +172,12 @@ transformation is chosen, as :func:`arimaFit` does. The search also stops
 when a *lambda* it would compare makes the series constant after
 differencing, and the message names that *lambda*, for example
 ``autoArima: with lambda 0 the series is constant after differencing; there
-is nothing to estimate.`` for ``exp(0.1*seqa(1, 1, 40))``.
+is nothing to estimate.`` for ``exp(0.1*seqa(1, 1, 40))``. The choice of
+*lambda* compares the candidates through a model with one difference, so it
+also stops when a *lambda* makes the series a straight line that the
+selected differencing keeps, for example ``autoArima: with lambda 0 the series
+is a straight line, so the automatic lambda choice is undefined; give a fixed
+lambda.`` for the same series with ``ctl.max_d = 0``.
 
 **Short series.** At least 3 observations are required.
 

@@ -439,10 +439,15 @@ With a zero or negative value, or with fewer than 20 observed values, no
 transformation is applied and *result.lambda* is missing. A series that is
 constant after the model's differencing is refused before a transformation
 is chosen, as it is without *lambda*. So is a series that a *lambda* the
-choice compares makes constant after that differencing or after one
-difference, with a message that names the *lambda*, for example
-``arimaFit: with lambda 0 the series is constant after differencing; there is
-nothing to estimate.`` for ``exp(0.1*seqa(1, 1, 40))``. The chosen *lambda*
+choice compares makes constant after that differencing, with a message that
+names the *lambda*, for example ``arimaFit: with lambda 0 the series is
+constant after differencing; there is nothing to estimate.`` for
+``exp(0.1*seqa(1, 1, 40))`` with ``d=1``. The choice compares the candidates
+through a model with one difference, so a *lambda* that makes the series a
+straight line leaves the choice undefined even when the model keeps the line;
+that series is refused too, for example ``arimaFit: with lambda 0 the series is a
+straight line, so the automatic lambda choice is undefined; give a fixed
+lambda.`` for the same series with ``d=0``. The chosen *lambda*
 does not depend on the units of *y*.
 
 If the optimizer stops without converging, the result is returned with
