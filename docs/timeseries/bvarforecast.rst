@@ -9,8 +9,8 @@ Format
 ------
 
 .. function:: fc = bvarForecast(result, h)
-              fc = bvarForecast(result, h, xreg=X_future)
               fc = bvarForecast(result, h, level=0.90)
+              fc = bvarForecast(result, h, xreg_future=X_future)
 
    :param result: an instance of a :class:`bvarResult` structure returned by :func:`bvarFit`.
    :type result: struct
@@ -18,67 +18,85 @@ Format
    :param h: forecast horizon (number of steps ahead).
    :type h: scalar
 
-   :param xreg: Optional keyword, future values of exogenous regressors. Required if the model was fit with *xreg*.
-   :type xreg: hxK matrix
+   :param level: Optional keyword, central mass of each credible band, strictly between 0 and 1. A vector gives one band per value, in ascending order. Default = ``0.68|0.90``.
+   :type level: scalar or vector
 
-   :param level: Optional keyword, credible level for prediction bands. Default = 0.68.
-   :type level: scalar
+   :param levels: Optional keyword, another name for *level*. Pass one or the other, not both.
+   :type levels: scalar or vector
+
+   :param n_draws: Optional keyword, number of posterior draws to simulate from: the first *n_draws* draws stored in *result*, at most *result.n_draws*. Default = all stored draws.
+   :type n_draws: scalar
+
+   :param seed: Optional keyword, seed of the forecast simulation. Default = 42.
+   :type seed: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
 
-   :return fc: An instance of a :class:`forecastResult` structure containing:
+   :param xreg_future: Optional keyword, future values of the exogenous regressors: *h* rows and one column per regressor in the fit. Required if the model was fit with *xreg*, and not allowed otherwise. If both have column names, they must match the fit's, in the same order.
+   :type xreg_future: hxK matrix
 
-       .. include:: include/forecastresult.rst
+   :return fc: An instance of a :class:`bvarForecastResult` structure containing:
+
+       .. include:: include/bvarforecastresult.rst
 
    :rtype fc: struct
 
 Examples
 --------
 
-Default BVAR Forecast (68% Credible Bands)
-++++++++++++++++++++++++++++++++++++++++++
+Default BVAR Forecast (68% and 90% Credible Bands)
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    // Four quarterly US series, 1960Q1-2019Q4: GDP growth and inflation
+    // (annualized percent changes), unemployment and the funds rate (percent)
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
-    // Estimate and forecast
-    result = bvarFit(data, quiet=1);
+    // Estimate and forecast 12 quarters
+    result = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, quiet=1);
 
     fc = bvarForecast(result, 12);
 
-Forecast with 90% Credible Bands
-+++++++++++++++++++++++++++++++++
+Forecast with a 90% Credible Band Only
+++++++++++++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = bvarFit(data, quiet=1);
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
+
+    result = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, quiet=1);
 
     fc = bvarForecast(result, 12, level=0.90);
 
-Optimal Hyperparameters to Forecast Pipeline
-+++++++++++++++++++++++++++++++++++++++++++++
+Choose the Prior Tightness, then Forecast
++++++++++++++++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
-    // Optimize hyperparameters
-    ps = bvarPriorSelect(data);
+    // Choose the overall tightness by marginal likelihood
+    ps = bvarPriorSelect(y, p=4, lag1_prior_mean=0|1|1|1, quiet=1);
 
-    // Estimate with optimal lambdas
-    result = bvarFit(data, ps.fit_settings, quiet=1);
+    // Estimate with the chosen settings
+    result = bvarFit(y, ctl=ps.fit_settings, quiet=1);
 
     // Forecast
     fc = bvarForecast(result, 24);
@@ -91,21 +109,18 @@ Compare Forecasts Across Lag Orders
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
-    ctl = bvarControlCreate();
-
-    ctl.p = 2;
-    r2 = bvarFit(data, ctl, quiet=1);
-
-    ctl.p = 4;
-    r4 = bvarFit(data, ctl, quiet=1);
+    r2 = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, quiet=1);
+    r4 = bvarFit(y, p=4, lag1_prior_mean=0|1|1|1, quiet=1);
 
     fc2 = bvarForecast(r2, 12, quiet=1);
     fc4 = bvarForecast(r4, 12, quiet=1);
 
-    print "GDP forecast (p=2):" fc2.forecasts[., 1];
-    print "GDP forecast (p=4):" fc4.forecasts[., 1];
+    print "GDP growth forecast (p=2):" fc2.forecasts[., 1];
+    print "GDP growth forecast (p=4):" fc4.forecasts[., 1];
 
 Remarks
 -------
@@ -114,19 +129,21 @@ Remarks
 For each posterior draw :math:`(B^{(i)}, \Sigma^{(i)})`, the function simulates
 an h-step forecast path by iterating the VAR forward with innovations drawn
 from :math:`N(0, \Sigma^{(i)})`. The reported *fc.forecasts* is the median of
-the resulting predictive distribution. The *fc.lower* and *fc.upper* bands are
-quantiles at ``(1-level)/2`` and ``(1+level)/2``.
+the resulting predictive distribution and *fc.mean_path* its mean. Each band in
+*fc.bands* holds the quantiles at ``(1-level)/2`` and ``(1+level)/2`` of the
+same simulated paths, so the bands nest.
 
-**68% vs 95% bands:**
-The default credible level of 0.68 corresponds to approximately :math:`\pm 1`
-posterior standard deviation and is the convention in macroeconomic BVAR
-applications. For publication or comparison with frequentist intervals, use
-``level=0.90`` or ``level=0.95``.
+**68% and 90% bands:**
+By default *fc.bands* holds a 68% and a 90% band. The 68% level corresponds
+to approximately :math:`\pm 1` posterior standard deviation and is the
+convention in macroeconomic BVAR applications. The printed table shows the
+median and the first band only; the other bands stay on *fc*. For a single
+band, pass one level, for example ``level=0.95``.
 
-**Conjugate vs Gibbs:**
-For models fit with ``prior="minnesota"`` (conjugate), exact posterior draws are
-used. For ``prior="flat"`` (Gibbs), the retained MCMC draws are used. In both
-cases, the number of forecast draws equals *result.n_draws*.
+**Posterior draws:**
+:func:`bvarFit` draws :math:`(B, \Sigma)` from the conjugate Minnesota
+posterior. :func:`bvarForecast` simulates one path from each of the first
+*n_draws* stored draws; by default it uses all *result.n_draws* of them.
 
 Model
 -----
@@ -161,27 +178,25 @@ Troubleshooting
 ---------------
 
 **Forecast bands are too wide:**
-Tighten the prior (reduce *lambda1* in :func:`bvarFit`) or add sum-of-coefficients
-priors (*lambda6* > 0). Wide bands often reflect parameter uncertainty in an
-over-parameterized model.
+Tighten the prior (reduce *overall_tightness* in :func:`bvarFit`) or add the
+sum-of-coefficients prior (*soc_tightness* > 0). Wide bands often reflect
+parameter uncertainty in an over-parameterized model.
 
-**Forecasts revert to zero immediately:**
-Check that *ar* is set correctly. With ``ar = 0`` (white noise prior), the BVAR
-pulls forecasts toward zero. For levels data, use ``ar = 1``.
+**Forecasts revert to the mean immediately:**
+Check *lag1_prior_mean*. With ``lag1_prior_mean = 0`` (white noise prior), the
+BVAR pulls each series toward its mean. For data in levels, use the default,
+``lag1_prior_mean = 1`` (random walk).
 
 **Forecasts explode:**
-The posterior mean may be non-stationary. Check *result.is_stationary*. Add
-regularization via sum-of-coefficients (*lambda6*) or single-unit-root (*lambda7*)
-priors in :func:`bvarFit`.
+The posterior mean may be non-stationary. Check *result.is_stationary*, which
+:func:`bvarFit` sets only with ``ctl.stability_check = 1``; otherwise it is
+missing. Add regularization via the sum-of-coefficients (*soc_tightness*) or
+single-unit-root (*sur_tightness*) priors in :func:`bvarFit`.
 
 Verification
 ------------
 
-BVAR forecasts verified against R ``BVAR::predict()`` and ECB BEAR ``BEARmain()``
-forecast output. Point forecasts agree within Monte Carlo noise (different RNG streams).
-Prediction interval widths match R within 5% relative error.
-
-See ``crossval/02_bvar_crossval.R`` for R comparison and the :ref:`var-verification` page.
+See the :ref:`var-verification` page.
 
 References
 ----------
@@ -195,6 +210,6 @@ timeseries
 
 Source
 ------
-forecast.src
+var.src
 
 .. seealso:: Functions :func:`bvarFit`, :func:`varForecast`, :func:`bvarSvForecast`, :func:`condForecast`, :func:`fcScore`, :func:`dmTest`
