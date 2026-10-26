@@ -301,7 +301,6 @@ Control Structure Creators
     getting-started-arima
     choosing-a-var-model
     textbook-mapping
-    bgr-replication
     getting-started-bvar-forecast
     getting-started-ets
     getting-started-vecm

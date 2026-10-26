@@ -162,8 +162,8 @@ with *df* degrees of freedom. This tests changes in variances and
 cross-equation covariances (Kilian and Lutkepohl 2017, section 2.7.3;
 Lutkepohl 2005, section 16.5.1; Doornik and Hendry 1997, section 10.9.2.4).
 
-GaussLib requires at least *d* residual degrees of freedom after the
-:math:`1+qd` regressors. This is GaussLib's sample guard, not a requirement
+TSMT requires at least *d* residual degrees of freedom after the
+:math:`1+qd` regressors. This is TSMT's sample guard, not a requirement
 stated by the textbook. The multivariate statistic and p-value are missing
 when :math:`n-(1+qd)<d`, the auxiliary regression is singular, or
 :math:`\hat\Omega_0` is not positive definite. The nominal degrees of

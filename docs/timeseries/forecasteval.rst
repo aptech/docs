@@ -230,7 +230,7 @@ For nested models, such as a VECM against its ``rank=0`` model or a VAR
 against a smaller VAR, the DM test of whether the larger model is more
 accurate has the wrong size: its nominal p-values for that one-sided
 question are too large (Clark and McCracken 2001; Clark and West 2007).
-GaussLib offers no adjusted test for a VECM against rank zero:
+TSMT offers no adjusted test for a VECM against rank zero:
 the added levels regressor is I(1) under the null. The derivation of
 :func:`cwTest` in Clark and West (RWP 05-05, section 3) assumes stationary predictors and applies to nested stationary
 models, such as a VAR against a smaller VAR.
@@ -486,7 +486,7 @@ For nested models, such as a VECM against its ``rank=0`` model or a VAR
 against a smaller VAR, the DM test of whether the larger model is more
 accurate has the wrong size: its nominal p-values for that one-sided
 question are too large (Clark and McCracken 2001; Clark and West 2007).
-GaussLib offers no adjusted test for a VECM against rank zero:
+TSMT offers no adjusted test for a VECM against rank zero:
 the added levels regressor is I(1) under the null. The derivation of
 :func:`cwTest` in Clark and West (RWP 05-05, section 3) assumes stationary predictors and applies to nested stationary
 models, such as a VAR against a smaller VAR.

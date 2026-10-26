@@ -148,7 +148,7 @@ forecast_eval.src
 
 An explicit ``rank=M`` is accepted, just as ``rank={}`` retains a fitted full
 rank. This model is a VAR in levels and its default name says so. It should
-not be described as a cointegrated model. GaussLib offers no adjusted test
+not be described as a cointegrated model. TSMT offers no adjusted test
 for a VECM against rank zero: its added regressor is I(1) under the null.
 The derivation of :func:`cwTest` in Clark and West (RWP 05-05, section 3)
 assumes stationary predictors; it applies to nested stationary models,
