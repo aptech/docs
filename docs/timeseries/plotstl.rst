@@ -23,12 +23,17 @@ Examples
 Airline Passengers Decomposition
 +++++++++++++++++++++++++++++++++
 
+Monthly international airline passengers, January 1949 to December 1960,
+decomposed in logs: the yearly seasonal swing grows from 44 thousand
+passengers in 1949 to 232 thousand in 1960, but in logs it stays between
+0.32 and 0.49.
+
 ::
 
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv");
-    y = loadd(fname, "passengers");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/airpassengers.csv");
+    y = ln(loadd(fname, "value"));
 
     stl = stlDecompose(y, 12);
 
@@ -41,7 +46,7 @@ Save to File
 ::
 
     plotStl(y, stl);
-    plotSave("stl_decomposition.png", "px", 800 | 800);
+    plotSave("stl_decomposition.png", 800 | 800, "px");
 
 Remarks
 -------

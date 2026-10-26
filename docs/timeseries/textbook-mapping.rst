@@ -216,13 +216,14 @@ data or live FRED data and produces publication-quality output.
 
 **Exercise 1: The Box-Jenkins Airline Model** (Hamilton Ch. 3-5, FPP3 Ch. 9)
 
-Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data and forecast 24 months::
+Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data in natural logs and forecast
+24 months::
 
     library timeseries;
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airline_passengers.csv"), "passengers");
+    y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/airpassengers.csv"), "value");
 
-    // arimaFit(y, p, d, q, sp, sd, sq, period)
-    result = arimaFit(y, 0, 1, 1, 0, 1, 1, 12);
+    // arimaFit(y, p, d, q, sp, sd, sq, period); lambda=0 fits in logs
+    result = arimaFit(y, 0, 1, 1, 0, 1, 1, 12, lambda=0);
 
     fc = arimaForecast(result, 24);
 
