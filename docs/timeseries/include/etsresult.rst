@@ -26,7 +26,15 @@
      - px1 vector, initial seasonal states. Empty matrix if non-seasonal.
 
    * - result.sigma2
-     - Scalar, estimated innovation variance.
+     - Scalar, maximum-likelihood innovation variance, SSE / *n*. With a
+       multiplicative error the errors are relative, so it is not in the
+       units of the data.
+
+   * - result.sigma2_bc
+     - Scalar, innovation variance allowing for the estimated parameters,
+       SSE / (*n* - *result.n_params*). :func:`etsResults` prints it as
+       Sigma^2 (df-adj.), and :func:`etsForecast` uses it for the prediction
+       intervals.
 
    * - result.log_likelihood
      - Scalar, maximized log-likelihood. +INF for an exact fit, with all
@@ -76,6 +84,17 @@
 
    * - result.y
      - Nx1 vector, original series stored for use by :func:`etsForecast`.
+
+   * - result.dates
+     - Nx1 vector of dates when *y* was supplied with a date column. Empty
+       otherwise.
+
+   * - result.freq
+     - String, frequency of *result.dates*: ``"annual"``, ``"quarterly"``,
+       ``"monthly"``, ``"weekly"`` or ``"daily"``. Empty when *y* has no dates.
+
+   * - result.series_name
+     - String, column name of the fitted series. Empty if it has none.
 
    * - result.status
      - Scalar, 0 when a model was fitted (see *result.converged*). Any other

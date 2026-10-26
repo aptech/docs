@@ -23,7 +23,16 @@
      - Scalar, number of variables (1 for ARIMA).
 
    * - fc.var_names
-     - Mx1 string array, variable names. Empty for univariate models.
+     - Mx1 string array, variable names. For :func:`arimaForecast` and :func:`etsForecast`, the name of the fitted series, or ``"Forecast"`` when it has none.
+
+   * - fc.forecast_dates
+     - hx1 vector, dates of the forecast periods, continuing the dates of the fitted data. Empty when the fitted data have no dates.
+
+   * - fc.freq
+     - String, frequency of *fc.forecast_dates*: ``"annual"``, ``"quarterly"``, ``"monthly"``, ``"weekly"`` or ``"daily"``. Empty when there are no dates.
+
+   * - fc.model
+     - String, the fitted model, for example ``"ARIMA(1,1,1)"`` from :func:`arimaForecast` or ``"ETS(ANN)"`` from :func:`etsForecast`. Empty from :func:`varForecast`.
 
    * - fc.levels
      - Vector of requested central masses. ARIMA and ETS may leave it empty.

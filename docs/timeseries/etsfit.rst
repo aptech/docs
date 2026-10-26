@@ -76,10 +76,11 @@ Seasonal ETS
 Remarks
 -------
 
-If ``ctl.trend`` or ``ctl.season`` is set to ``-1``, :func:`etsFit` delegates
-to :func:`autoEts` and returns the automatically selected model. Set
-``ctl.error``, ``ctl.trend``, and ``ctl.season`` to fixed numeric values when
-you want a fully fixed ETS(error, trend, season) specification.
+If ``ctl.trend`` or ``ctl.season`` is ``-1``, the default for both,
+:func:`etsFit` hands the whole choice to :func:`autoEts` and returns the model
+it selects; a fixed value of the other one is not kept. Set ``ctl.trend`` and
+``ctl.season`` to fixed values for a fixed ETS(error, trend, season)
+specification. ``ctl.error = -1``, its default, then means an additive error.
 
 Use ``etsResults`` to reprint the formatted summary, :func:`etsForecast` to
 generate forecasts, and ``etsDiagnostics`` to run residual checks.

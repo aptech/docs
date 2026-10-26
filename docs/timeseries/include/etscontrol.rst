@@ -4,33 +4,38 @@
    * - ctl.error
      - Scalar, error specification.
 
-       === =========================================================
-       0   Additive error.
-       1   Multiplicative error. Requires positive fitted values.
-       === =========================================================
-
-       Default = 0. Automatic ETS selection chooses the error type through
-       :func:`autoEts`.
+       === ==================================================================
+       -1  Additive error in :func:`etsFit`; both error types are searched
+           in :func:`autoEts`. (Default)
+       0   Additive error. :func:`autoEts` searches only additive-error
+           models.
+       1   Multiplicative error, which needs strictly positive data.
+           :func:`autoEts` searches only multiplicative-error models.
+       === ==================================================================
 
    * - ctl.trend
      - Scalar, trend specification.
 
        === ===========================================================
-       -1  Auto-select trend component. (Default)
+       -1  :func:`autoEts` chooses the model. (Default)
        0   No trend.
        1   Additive trend.
        2   Damped additive trend.
        === ===========================================================
 
+       In :func:`etsFit`, -1 in *ctl.trend* or *ctl.season* hands the whole
+       choice to :func:`autoEts`, so a fixed value of the other is not kept.
+       :func:`autoEts` does not use *ctl.trend* or *ctl.season*.
+
    * - ctl.season
      - Scalar, seasonal specification.
 
-       === ================================================
-       -1  Auto-select seasonality. (Default)
+       === ================================================================
+       -1  :func:`autoEts` chooses the model (see *ctl.trend*). (Default)
        0   No seasonal component.
        1   Additive seasonality.
-       2   Multiplicative seasonality.
-       === ================================================
+       2   Multiplicative seasonality, which needs strictly positive data.
+       === ================================================================
 
    * - ctl.period
      - Scalar, seasonal period. Use 1 for non-seasonal series. Default = 1.

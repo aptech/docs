@@ -59,7 +59,13 @@ specification automatically. The selected model label is stored in
 :class:`etsResult`. For seasonal data, set ``ctl.period`` or pass the
 ``period`` keyword so seasonal candidates use the intended frequency.
 
-The search leaves out models that cannot be fitted to *y*: models with a
+:func:`autoEts` does not use ``ctl.trend`` or ``ctl.season``. It searches no,
+additive and damped trends with no, additive and multiplicative seasons,
+except an additive error with a multiplicative season. It searches seasonal
+forms only when *period* is 2 to 24 and *y* has at least two full seasons.
+``ctl.error`` limits the search to one error type.
+
+The search also leaves out models that cannot be fitted to *y*: models with a
 multiplicative error or season when *y* has a zero or negative value, and
 models with at least *n* - 1 parameters. The minimum length that
 :func:`etsFit` requires of a fixed model does not apply here.
