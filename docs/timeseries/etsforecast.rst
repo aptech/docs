@@ -59,6 +59,10 @@ result :func:`autoEts` returns on a constant series, which estimates nothing,
 that is ``result.sigma2``. An exact fit, with all residuals 0, gives an interval of
 zero width.
 
+Models with additive errors and a multiplicative season, ETS(A,N,M),
+ETS(A,A,M) and ETS(A,Ad,M), have no analytic prediction interval: their
+``fc.se``, ``fc.lower`` and ``fc.upper`` are missing.
+
 Library
 -------
 timeseries

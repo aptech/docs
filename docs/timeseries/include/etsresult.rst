@@ -37,7 +37,14 @@
        intervals.
 
    * - result.log_likelihood
-     - Scalar, maximized log-likelihood. +INF for an exact fit, with all
+     - Scalar, maximized log-likelihood with the innovation variance
+       concentrated out, :math:`-\tfrac{n}{2}\ln \mathrm{SSE} - \sum_t \ln|\hat{y}_t|`.
+       SSE is the sum of the squared residuals (relative errors for a
+       multiplicative-error model), and the sum over the one-step fitted
+       values :math:`\hat{y}_t` appears only for multiplicative error. It
+       leaves out terms that do not depend on the parameters: the full Gaussian
+       log-likelihood at :math:`\sigma^2 = \mathrm{SSE}/n` is this value plus
+       :math:`\tfrac{n}{2}(\ln n - \ln 2\pi - 1)`. +INF for an exact fit, with all
        residuals 0. A missing value for the result :func:`autoEts` returns on
        a constant series.
 

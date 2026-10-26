@@ -103,9 +103,14 @@ These two checks apply to a fixed specification. When ``ctl.trend`` or
 ``ctl.season`` is ``-1``, :func:`autoEts` makes the choice instead.
 
 **Constant series.** A model fitted to a series whose values are all equal
-fits it exactly: the residuals and ``result.sigma2`` are 0,
+can fit it exactly. Then the residuals and ``result.sigma2`` are 0,
 ``result.log_likelihood`` is +INF, the information criteria are -INF, and
-:func:`etsForecast` gives an interval of zero width.
+:func:`etsForecast` gives an interval of zero width (no interval for
+ETS(A,N,M), ETS(A,A,M) and ETS(A,Ad,M); see :func:`etsForecast`). For some
+models and values the residuals end at the size of rounding error instead of
+0, for example ETS(A,N,A) on 30 values of 0.1 or ETS(A,A,N) on 30 values of
+2.3. Then ``result.sigma2`` is tiny but positive and the log-likelihood is
+large but finite.
 
 By default a refusal ends the program. With ``ctl.on_error = "return"``,
 :func:`etsFit` instead returns a result whose *status* is nonzero (1 for a
