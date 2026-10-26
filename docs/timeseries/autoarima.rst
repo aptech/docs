@@ -83,11 +83,12 @@ The search uses these stages:
 The default stepwise search is faster than exhaustive enumeration, but it can
 miss the model with the best ``ctl.ic``: it moves from model to neighbouring
 model while the criterion improves and stops when no neighbour improves it.
-On the packaged ``airline_passengers.csv`` series with period 12 it stops at
-(1,0,0)(1,1,0)[12] with drift, AICc 997.87, although (1,0,1)(2,1,0)[12] with
-drift has AICc 989.91. Set ``ctl.stepwise = 0`` to evaluate every candidate
-within the order limits ``ctl.max_p``, ``ctl.max_q``, ``ctl.max_sp``,
-``ctl.max_sq`` and ``ctl.max_order``; that search finds 989.91 on this series.
+On the packaged synthetic series ``airline_passengers.csv`` with period 12 it
+stops at (1,0,0)(1,1,0)[12] with drift, AICc 997.87, although
+(1,0,1)(2,1,0)[12] with drift has AICc 989.91. Set ``ctl.stepwise = 0`` to
+evaluate every candidate within the order limits ``ctl.max_p``, ``ctl.max_q``,
+``ctl.max_sp``, ``ctl.max_sq`` and ``ctl.max_order``; that search finds 989.91
+on this series.
 The stepwise search also skips candidates with :math:`p+q+P+Q` above
 ``ctl.max_order``.
 
@@ -105,18 +106,15 @@ selected orders. If the search selects no seasonal terms, the result is a
 nonseasonal model: *result.sorder* is empty and ``result.period = 0``, even
 when *period* was supplied.
 
-Each candidate is fitted as :func:`arimaFit` fits it: every AR and MA
-coefficient is kept inside a limit just short of the nonstationary or
-noninvertible boundary, so a candidate whose unconstrained maximum lies
-outside the limit is compared at its best fit inside the limit.
+As in :func:`arimaFit`, every AR and MA coefficient of a candidate is kept
+inside a limit just short of the nonstationary or noninvertible boundary, so
+a candidate whose unconstrained maximum lies outside the limit is compared at
+its best fit inside the limit.
 
-**Models not supported in this beta release.** The search can select a model
-with two or more AR coefficients and two or more MA coefficients
-(:math:`p \ge 2` and :math:`q \ge 2`). Such models are not supported in this
-beta release, because their fit can stop short of the maximum likelihood
-(see :func:`arimaFit`), and the search then judges such a candidate by a
-log-likelihood lower than the model reaches. To leave these models out of the
-search, set ``ctl.max_p`` or ``ctl.max_q`` to 1.
+**Models with several AR and MA coefficients.** The search judges each
+candidate by a fit from one start, so a candidate whose fit stops at a lower
+peak can be passed over; the selected model is then fitted from the full set
+of starting values, as :func:`arimaFit` does.
 
 Data Requirements
 -----------------

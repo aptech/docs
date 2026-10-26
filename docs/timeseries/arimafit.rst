@@ -340,13 +340,12 @@ the summary prints a note: the estimates are then the best fit inside the
 limit, not the unconstrained maximum likelihood. An AR coefficient held at the
 limit often means that the series needs another difference.
 
-**Models not supported in this beta release.** Models with two or more AR
-coefficients and two or more MA coefficients (:math:`p \ge 2` and
-:math:`q \ge 2`, for example ARIMA(2,0,2) or ARIMA(3,1,3)) are not supported
-in this beta release, with or without *xreg*. For these models the fit can
-stop short of the maximum likelihood: *result.loglik* can be lower than the
-best value the model reaches, and the coefficients are then not the
-maximum-likelihood estimates.
+**Models with several AR and MA coefficients.** For these models the
+likelihood can have more than one peak. :func:`arimaFit` tries a standard set
+of starting values and returns the best fit it reaches, which can still be a
+lower peak than the model's highest. One sign of this: *result.loglik* is
+lower than the log-likelihood of a smaller model nested inside it, for
+example ARIMA(1,1,1) inside ARIMA(2,1,2).
 
 Refusals and Messages
 ---------------------
