@@ -1,0 +1,11 @@
+{
+  "elapsed_seconds": 197.86098414403386,
+  "exit_code": 0,
+  "sampled_cgroup_peak_bytes": 1123495936,
+  "sample_interval_seconds": 0.02,
+  "memory.peak": "1123495936",
+  "memory.max": "2147483648",
+  "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
+  "cpu.stat": "usage_usec 262133323\nuser_usec 251951260\nsystem_usec 10182063\nnice_usec 0\ncore_sched.force_idle_usec 0",
+  "peak_method": "kernel cgroup memory.peak"
+}

@@ -1,0 +1,12 @@
+{
+  "gauss.qch": {
+    "byte_identical": false,
+    "logical_content_identical": true,
+    "different_tables": []
+  },
+  "gauss.qhc": {
+    "byte_identical": false,
+    "logical_content_identical": true,
+    "different_tables": []
+  }
+}
