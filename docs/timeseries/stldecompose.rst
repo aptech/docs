@@ -11,13 +11,13 @@ Format
 .. function:: stl = stlDecompose(y, period)
               stl = stlDecompose(y, period, s_window=7)
 
-   :param y: time series data, with no missing or infinite values and at least 2 x *period* + 1 observations.
-   :type y: Nx1 vector
+   :param y: time series data, one series with no missing or infinite values and at least 2 x *period* + 1 observations. A dataframe may contain one date-typed column, which is removed, and one series.
+   :type y: Nx1 vector or dataframe
 
-   :param period: seasonal period, an integer of at least 2 (e.g., 12 for monthly, 4 for quarterly, 52 for weekly).
+   :param period: seasonal period, a whole number of at least 2 (e.g., 12 for monthly, 4 for quarterly, 52 for weekly).
    :type period: scalar
 
-   :param s_window: Optional keyword, seasonal smoothing window, a whole number (see Remarks). Default = the smallest odd number greater than *period*, and at least 7 (13 for monthly data).
+   :param s_window: Optional keyword, seasonal smoothing window, a whole number of at least 1 (see Remarks). Default = the smallest odd number greater than *period*, and at least 7 (13 for monthly data).
    :type s_window: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
@@ -131,17 +131,32 @@ where :math:`S_t` is the seasonal component, :math:`T_t` is the trend, and
 
 **Series length.** *y* needs two full periods and one more observation,
 2 x *period* + 1: at least 25 observations for monthly data and 9 for quarterly
-data. :func:`stlDecompose` stops with an error message for a shorter series or
-for a *period* that is not an integer of at least 2.
+data. A shorter series is refused with a message that names the minimum, for
+example ``stlDecompose: y needs at least 2 x period + 1 = 25 observations for
+period 12; it has 24.``
+
+**Input checks.** :func:`stlDecompose` also refuses, with a message:
+
+- a *period* that is not a whole number of at least 2, for example
+  ``stlDecompose: period must be a whole number of at least 2; got 2.5.``
+- an *s_window* that is not a whole number of at least 1, for example
+  ``stlDecompose: s_window must be a whole number of at least 1; got 7.5.`` A
+  value above 2^53 - 1 is refused too.
+- a *y* with more than one series, for example ``stlDecompose: y must be one
+  series: one column, or a dataframe with a date column and one series; it has
+  2 columns.``
+- a missing or infinite value in *y*, with its row, for example
+  ``stlDecompose: y has a missing or infinite value at row 30. STL needs a
+  complete series; fill the gaps first.``
 
 **The seasonal smoothing window** (*s_window*) controls how quickly the seasonal
-pattern can change. A fraction is cut to the whole number below it. The window
-used is then odd and at least 7: a value from 1 to 6 gives 7, and an even value
-gives the next odd number. A value below 1 or a missing value gives the default:
-the smallest odd number greater than *period*, and at least 7, which is 13 for
-monthly data and 7 for quarterly data. Each seasonal value is a weighted average
-over up to that many consecutive values of its cycle-subseries (for example, 13
-consecutive Januaries), so a larger window gives a more stable seasonal pattern.
+pattern can change. The window used is odd and at least 7: a value from 1 to 6
+gives 7, and an even value gives the next odd number. When *s_window* is not
+given, the default is the smallest odd number greater than *period*, and at
+least 7: 13 for monthly data and 7 for quarterly data. Each seasonal value is a
+weighted average over up to that many consecutive values of its cycle-subseries
+(for example, 13 consecutive Januaries), so a larger window gives a more stable
+seasonal pattern.
 
 Algorithm
 ---------
