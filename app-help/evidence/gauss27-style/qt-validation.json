@@ -1,0 +1,100 @@
+{
+  "qt_version": "5.15.8",
+  "namespace": "com.aptech.gauss.25.0",
+  "pages": {
+    "welcome.html": {
+      "text_characters": 505,
+      "signature_style": "",
+      "loaded_images": 0.0,
+      "math_elements": 0.0,
+      "screenshot": "welcome.html.png"
+    },
+    "ols.html": {
+      "text_characters": 10524,
+      "signature_style": {
+        "background": "rgb(248, 248, 248)",
+        "borderTopColor": "rgb(69, 85, 96)",
+        "borderTopWidth": "3px",
+        "color": "rgb(69, 85, 96)",
+        "functionColor": "rgb(0, 85, 127)",
+        "padding": "12px"
+      },
+      "loaded_images": 0.0,
+      "math_elements": 9.0,
+      "screenshot": "ols.html.png"
+    },
+    "cdfncdfnc.html": {
+      "text_characters": 2820,
+      "signature_style": {
+        "background": "rgb(248, 248, 248)",
+        "borderTopColor": "rgb(69, 85, 96)",
+        "borderTopWidth": "3px",
+        "color": "rgb(69, 85, 96)",
+        "functionColor": "rgb(0, 85, 127)",
+        "padding": "12px"
+      },
+      "loaded_images": 0.0,
+      "math_elements": 6.0,
+      "screenshot": "cdfncdfnc.html.png"
+    },
+    "IN-Introduction.html": {
+      "text_characters": 1825,
+      "signature_style": "",
+      "loaded_images": 0.0,
+      "math_elements": 0.0,
+      "screenshot": "IN-Introduction.html.png"
+    },
+    "plotxy.html": {
+      "text_characters": 2962,
+      "signature_style": {
+        "background": "rgb(248, 248, 248)",
+        "borderTopColor": "rgb(69, 85, 96)",
+        "borderTopWidth": "3px",
+        "color": "rgb(69, 85, 96)",
+        "functionColor": "rgb(0, 85, 127)",
+        "padding": "12px"
+      },
+      "loaded_images": 2.0,
+      "math_elements": 0.0,
+      "screenshot": "plotxy.html.png"
+    },
+    "changelog.html": {
+      "text_characters": 134362,
+      "signature_style": "",
+      "loaded_images": 0.0,
+      "math_elements": 0.0,
+      "screenshot": "changelog.html.png"
+    },
+    "minimize.html": {
+      "text_characters": 11031,
+      "signature_style": {
+        "background": "rgb(248, 248, 248)",
+        "borderTopColor": "rgb(69, 85, 96)",
+        "borderTopWidth": "3px",
+        "color": "rgb(69, 85, 96)",
+        "functionColor": "rgb(0, 85, 127)",
+        "padding": "12px"
+      },
+      "loaded_images": 0.0,
+      "math_elements": 0.0,
+      "screenshot": "minimize.html.png"
+    },
+    "tsaggregate.html": {
+      "text_characters": 7678,
+      "signature_style": {
+        "background": "rgb(248, 248, 248)",
+        "borderTopColor": "rgb(69, 85, 96)",
+        "borderTopWidth": "3px",
+        "color": "rgb(69, 85, 96)",
+        "functionColor": "rgb(0, 85, 127)",
+        "padding": "12px"
+      },
+      "loaded_images": 0.0,
+      "math_elements": 0.0,
+      "screenshot": "tsaggregate.html.png"
+    }
+  },
+  "requests_failed": [],
+  "search_results_regression": 41,
+  "application_home_resolved": "qthelp://com.aptech.gauss.25.0/doc/welcome.html"
+}

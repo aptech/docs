@@ -1,0 +1,57 @@
+{
+    "application_home_resolves": true,
+    "namespace": "com.aptech.gauss.25.0",
+    "pages": [
+        {
+            "loaded_images": 0,
+            "math_elements": 0,
+            "page": "welcome.html",
+            "text_characters": 505
+        },
+        {
+            "loaded_images": 0,
+            "math_elements": 9,
+            "page": "ols.html",
+            "text_characters": 10524
+        },
+        {
+            "loaded_images": 0,
+            "math_elements": 6,
+            "page": "cdfncdfnc.html",
+            "text_characters": 2820
+        },
+        {
+            "loaded_images": 0,
+            "math_elements": 0,
+            "page": "IN-Introduction.html",
+            "text_characters": 1825
+        },
+        {
+            "loaded_images": 2,
+            "math_elements": 0,
+            "page": "plotxy.html",
+            "text_characters": 2962
+        },
+        {
+            "loaded_images": 0,
+            "math_elements": 0,
+            "page": "changelog.html",
+            "text_characters": 134362
+        },
+        {
+            "loaded_images": 0,
+            "math_elements": 0,
+            "page": "minimize.html",
+            "text_characters": 11031
+        },
+        {
+            "loaded_images": 0,
+            "math_elements": 0,
+            "page": "tsaggregate.html",
+            "text_characters": 7678
+        }
+    ],
+    "qch_sha256": "678acc678d7937ce7c8356fbd94d298dc5efa1e8a505df22fc6efcc0ef43a32b",
+    "qt_version": "5.15.19",
+    "search_results_regression": 41
+}

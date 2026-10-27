@@ -1,6 +1,28 @@
 # Validation record — 2026-10-26
 
-## GAUSS 27 content correction (latest installed build)
+## App-help styling correction (latest installed build)
+
+Restored the gray signature boxes shown in the user's reference. The website
+stylesheet switched its override to `.bd-content` in `b79b5aa3`; Qt help uses
+`.rst-content`, so it fell back to RTD's blue boxes. `app-help.css` now applies
+the previous palette, padding and parameter-header border behavior to GAUSS
+definitions using the actual app container and literal colors.
+
+- Qt 5.15.8 computed styles on both minimize and tsAggregate: background
+  `rgb(248,248,248)`, text/top border `rgb(69,85,96)`, top border 3px, padding
+  12px, function name `rgb(0,85,127)`. Screenshots inspected in Qt 5.15.8 and
+  application Qt 5.15.19. Both pages now use the gray style.
+- All checks passed; 204.84 s, kernel peak 1,267,044,352 bytes, 2 GiB cap.
+- Compared every embedded resource with the preceding GAUSS 27 build:
+  **only `theme_override.css` changed**. Content and release remain unchanged.
+- Installed in `~/gauss27-arm/help` and verified both hashes. Backup:
+  `.backup-app-help-20261026-195133/`. Restart GAUSS to reload the collection.
+- Local output: `app-help/artifacts/gauss27-style/`; native screenshots:
+  `app-help/artifacts/native27-style/`; evidence: `app-help/evidence/gauss27-style/`.
+- Linux output: `run27-style-final/`; same sealed `inputs-27/`. The current
+  image ID is recorded in `evidence/gauss27-style/image-id.txt`.
+
+## GAUSS 27 content correction
 
 The original validated archive replay stopped at **26.1.4**. Installing that pair
 in GAUSS 27 did not make its content current. The user caught this; the source pin

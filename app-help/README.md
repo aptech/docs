@@ -4,6 +4,12 @@ Builds the custom GAUSS application help (`gauss.qch` and `gauss.qhc`), includin
 the legacy user guide, command identifiers and navigation. This does **not** use
 Sphinx's generic qthelp builder or run the website publishing scripts.
 
+`app-help.css` restores the gray function-signature boxes, padding and parameter
+header borders used before the website stylesheet moved to `.bd-content`.
+The app's RTD template uses `.rst-content`, so website-only selectors do not
+apply there. This scoped stylesheet is appended during packaging; source docs
+and website builds are unchanged. Qt previews include minimize and tsAggregate.
+
 **GAUSS 27:** use documentation commit
 `f7b290e34a849af3d1670ad52d0c521e54ec0090` from published `qthelp`, and pass
 `--release 27` to `prepare.py`. The original archive replay below ends at 26.1.4;

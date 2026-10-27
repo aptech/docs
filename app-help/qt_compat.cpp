@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
         view.resize(1100, 850); view.page()->setNetworkAccessManager(new Network(engine, &view));
         view.show();
         QJsonArray pages;
-        for (const auto &name : {"welcome.html", "ols.html", "cdfncdfnc.html", "IN-Introduction.html", "plotxy.html", "changelog.html"}) {
+        for (const auto &name : {"welcome.html", "ols.html", "cdfncdfnc.html", "IN-Introduction.html", "plotxy.html", "changelog.html", "minimize.html", "tsaggregate.html"}) {
             bool loaded = false, okay = false;
             auto connection = QObject::connect(&view, &QWebView::loadFinished, [&](bool ok) { loaded = true; okay = ok; });
             view.load(QUrl("qthelp://"+names.first()+"/doc/"+name));
@@ -106,6 +106,8 @@ int main(int argc, char **argv) {
                 require(images > 0, "Plot image did not render");
                 frame->evaluateJavaScript("document.images[0].scrollIntoView()");
             }
+            if (QString(name) == "minimize.html" || QString(name) == "tsaggregate.html")
+                frame->evaluateJavaScript("document.getElementById('format').scrollIntoView()");
             QImage image(view.size(), QImage::Format_ARGB32); image.fill(Qt::white);
             QPainter painter(&image); frame->render(&painter); painter.end();
             require(image.save(out.absoluteFilePath(QString("qt-native-")+name+".png")), "Screenshot save failed");

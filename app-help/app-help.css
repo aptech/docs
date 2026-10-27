@@ -1,0 +1,24 @@
+/* App-help presentation from theme_override.css before b79b5aa3 switched
+ * website selectors to .bd-content. The Qt help template uses .rst-content.
+ * Keep literal colors here so the stylesheet also works in older Qt WebKit.
+ */
+.rst-content dl.gauss > dt {
+    color: #455560 !important;
+    background-color: #f8f8f8 !important;
+    border: 1px solid #e1e4e5 !important;
+    border-top: 3px solid #455560 !important;
+    padding: 12px !important;
+}
+
+.rst-content dl.gauss > dt code.descname {
+    color: #00557f;
+}
+
+.rst-content .field-list th {
+    border: none !important;
+}
+
+.rst-content #format .highlight-gauss {
+    border-top-width: 3px;
+    border-top-color: #455560;
+}

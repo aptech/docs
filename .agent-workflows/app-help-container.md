@@ -19,6 +19,22 @@ verified as 27.0.0. Runtime 204.39 s / peak 1.17 GiB under a 2 GiB limit.
 Evidence: `app-help/evidence/gauss27/`; local output: `app-help/artifacts/gauss27/`.
 NEXT: User restarts GAUSS to reload help. BLOCKER: none.
 
+Styling follow-up: user supplied blue minimize and gray tsAggregate screenshots.
+Both current packaged pages use the same markup/styles; the intended gray CSS
+was converted to website `.bd-content` selectors in `b79b5aa3`, while app help
+renders `.rst-content`. Added scoped `app-help/app-help.css` to restore the
+previous gray signature palette, borders/padding and parameter heading border
+behavior. Content inputs remain published qthelp f7b290e / release 27. Build
+`run27-style` passed; Qt previews of both reported pages show matching gray boxes
+and 12px padding. Comparing every QCH resource hash found only
+`theme_override.css` changed. Final build `run27-style-final` extends the same
+scope to all GAUSS definitions (including the existing data definitions).
+Final build passed all checks and Qt 5.15.8/5.15.19 screenshots were inspected.
+Installed and hash-verified in `~/gauss27-arm/help`, with backup
+`.backup-app-help-20261026-195133/`. Evidence is in
+`app-help/evidence/gauss27-style/`; local artifacts in
+`app-help/artifacts/gauss27-style/`. NEXT: Restart GAUSS. BLOCKER: none.
+
 ## Objective and scope
 
 Produce the application help files `gauss.qch` and `gauss.qhc` in a disposable

@@ -14,6 +14,7 @@ COPY requirements.lock /opt/requirements.lock
 RUN pip install --no-cache-dir --no-deps --require-hashes -r /opt/requirements.lock && \
     pip freeze > /opt/python-packages.lock
 COPY generate.py html_build.py inputs.py validate.py qt_probe.py runner.py /opt/app-help/
+COPY app-help.css /opt/app-help/app-help.css
 ENV QT_QPA_PLATFORM=offscreen PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 WORKDIR /scratch
 ENTRYPOINT ["python", "/opt/app-help/runner.py"]

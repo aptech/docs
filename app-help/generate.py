@@ -102,6 +102,7 @@ def main():
                 'div.wy-nav-content { max-width: initial !important; } '
                 'div.section#command-reference > div.toctree-wrapper:first-of-type '
                 '{ display: none !important; }\n')
+        f.write(Path('/opt/app-help/app-help.css').read_text())
     for f in sorted(stage.iterdir()):
         if f.suffix in ('.html', '.css'):
             transform(f)

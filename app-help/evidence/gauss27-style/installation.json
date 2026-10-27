@@ -1,0 +1,12 @@
+{
+  "destination": "/Users/jason/gauss27-arm/help",
+  "backup": "/Users/jason/gauss27-arm/help/.backup-app-help-20261026-195133",
+  "sha256": {
+    "gauss.qch": "678acc678d7937ce7c8356fbd94d298dc5efa1e8a505df22fc6efcc0ef43a32b",
+    "gauss.qhc": "ea0e08609224ac1064e3a8c5af02264fc6a18def3a0b9fae9ba4624d9b22e107"
+  },
+  "changed_resources": [
+    "theme_override.css"
+  ],
+  "input_manifest": "../gauss27/inputs.lock.json"
+}

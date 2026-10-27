@@ -74,7 +74,7 @@ view.resize(1100, 850)
 network = Network(view)
 view.page().setNetworkAccessManager(network)
 view.show()
-for name in ['welcome.html', 'ols.html', 'cdfncdfnc.html', 'IN-Introduction.html', 'plotxy.html', 'changelog.html']:
+for name in ['welcome.html', 'ols.html', 'cdfncdfnc.html', 'IN-Introduction.html', 'plotxy.html', 'changelog.html', 'minimize.html', 'tsaggregate.html']:
     loaded = []
     def done(ok):
         loaded.append(ok)
@@ -92,6 +92,16 @@ for name in ['welcome.html', 'ols.html', 'cdfncdfnc.html', 'IN-Introduction.html
     if name == 'plotxy.html':
         assert images > 0, 'Plot image did not render'
         frame.evaluateJavaScript('document.images[0].scrollIntoView()')
+    signature_style = frame.evaluateJavaScript('''(function(){
+        var el=document.querySelector('.rst-content dl.gauss.function > dt');
+        if(!el) return null;
+        var s=window.getComputedStyle(el);
+        return {color:s.color, background:s.backgroundColor,
+                borderTopColor:s.borderTopColor, borderTopWidth:s.borderTopWidth,
+                padding:s.padding, functionColor:window.getComputedStyle(el.querySelector('code.descname')).color};
+    })()''')
+    if name in ('minimize.html', 'tsaggregate.html'):
+        frame.evaluateJavaScript('document.getElementById("format").scrollIntoView()')
     png = output/(name+'.png')
     img = QImage(view.size(), QImage.Format_ARGB32)
     img.fill(0xffffffff)
@@ -100,6 +110,7 @@ for name in ['welcome.html', 'ols.html', 'cdfncdfnc.html', 'IN-Introduction.html
     painter.end()
     assert img.save(str(png))
     report['pages'][name] = {'text_characters': len(text),
+        'signature_style': signature_style,
         'loaded_images': images,
         'math_elements': frame.evaluateJavaScript('document.querySelectorAll(".MathJax, .MathJax_Display").length'),
         'screenshot': png.name}
