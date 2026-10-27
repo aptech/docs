@@ -11,13 +11,13 @@ Format
 .. function:: stl = stlDecompose(y, period)
               stl = stlDecompose(y, period, s_window=7)
 
-   :param y: time series data, with at least 2 x *period* + 1 observations.
+   :param y: time series data, with no missing or infinite values and at least 2 x *period* + 1 observations.
    :type y: Nx1 vector
 
    :param period: seasonal period, an integer of at least 2 (e.g., 12 for monthly, 4 for quarterly, 52 for weekly).
    :type period: scalar
 
-   :param s_window: Optional keyword, seasonal smoothing window: an odd number of at least 7 (see Remarks). Default = the smallest odd number greater than *period*, and at least 7 (13 for monthly data).
+   :param s_window: Optional keyword, seasonal smoothing window, a whole number (see Remarks). Default = the smallest odd number greater than *period*, and at least 7 (13 for monthly data).
    :type s_window: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
@@ -135,12 +135,13 @@ data. :func:`stlDecompose` stops with an error message for a shorter series or
 for a *period* that is not an integer of at least 2.
 
 **The seasonal smoothing window** (*s_window*) controls how quickly the seasonal
-pattern can change. Each seasonal value is a weighted average over *s_window*
-consecutive values of its cycle-subseries (for example, 13 consecutive
-Januaries), so a larger window gives a more stable seasonal pattern. *s_window*
-is an odd number of at least 7: a smaller value is raised to 7, and an even value
-to the next odd number. The default is the smallest odd number greater than
-*period*, and at least 7: 13 for monthly data and 7 for quarterly data.
+pattern can change. A fraction is cut to the whole number below it. The window
+used is then odd and at least 7: a value from 1 to 6 gives 7, and an even value
+gives the next odd number. A value below 1 or a missing value gives the default:
+the smallest odd number greater than *period*, and at least 7, which is 13 for
+monthly data and 7 for quarterly data. Each seasonal value is a weighted average
+over up to that many consecutive values of its cycle-subseries (for example, 13
+consecutive Januaries), so a larger window gives a more stable seasonal pattern.
 
 Algorithm
 ---------
@@ -148,8 +149,8 @@ Algorithm
 STL uses an inner loop of iterative LOESS (locally weighted regression) smoothing:
 
 1. **Detrend:** Subtract the current trend estimate from the series.
-2. **Seasonal smoothing:** Apply LOESS to each subseries (e.g., all Januaries) with window *s_window*.
-3. **Low-pass filter:** Remove high-frequency artifacts from the seasonal estimate.
+2. **Seasonal smoothing:** Apply LOESS to each subseries (e.g., all Januaries), with the window used for *s_window* (see Remarks).
+3. **Low-pass filter:** Take the low-frequency part of the smoothed subseries (moving averages, then LOESS) and subtract it, so that no trend is left in the seasonal estimate.
 4. **Deseasonalize:** Subtract the seasonal estimate from the original series.
 5. **Trend smoothing:** Apply LOESS to the deseasonalized series.
 6. **Repeat** steps 1-5 once, for two passes in all.
@@ -164,7 +165,7 @@ Troubleshooting
 ---------------
 
 **Seasonal component is too smooth / not smooth enough:**
-Increase *s_window* for smoother seasonal patterns; decrease for more adaptive patterns.
+Increase *s_window* for smoother seasonal patterns; decrease for more adaptive patterns, down to 7, the smallest window used.
 The default is the smallest odd number greater than *period*, and at least 7.
 
 **Remainder has visible seasonal pattern:**
@@ -172,15 +173,6 @@ The default is the smallest odd number greater than *period*, and at least 7.
 pattern. Reduce *s_window* or use a multiplicative decomposition (take logs first,
 decompose, exponentiate).
 
-
-Verification
-------------
-
-The seasonal, trend and remainder components are checked at every observation
-against two independent implementations of STL with the same settings: on
-monthly atmospheric CO2, monthly temperatures, quarterly gas consumption and the
-airline passenger series in logs, and on a 600-value series with period 2. Every
-value agrees to 12 digits of the series' largest absolute value.
 
 References
 ----------
