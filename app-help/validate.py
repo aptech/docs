@@ -99,7 +99,17 @@ def main():
     assert files['pxyf1.png'] == baseline['pxyf1.png'], 'Representative plot image changed'
     broken, external, anchors = audit(files)
     old_broken, old_external, old_anchors = audit(baseline)
+    release = json.loads((a.output/'inputs.lock.json').read_text())['provenance'].get('release')
+    changelog = files['changelog.html'].decode()
+    latest = re.search(r'<h2[^>]*>([0-9]+\.[0-9]+\.[0-9]+)', changelog)
+    latest_version = latest[1] if latest else None
+    if release:
+        assert latest_version and latest_version.split('.')[0] == release, 'Wrong changelog release'
+        assert 'Welcome to GAUSS '+release in files['welcome.html'].decode(), 'Wrong welcome release'
+        assert re.search(r"VERSION:\s*['\"]"+re.escape(release)+r"['\"]",
+                         files['documentation_options.js'].decode()), 'Wrong Sphinx release'
     report = {
+        'expected_release': release, 'latest_changelog_version': latest_version,
         'namespace': namespace, 'files': len(files), 'baseline_files': len(baseline),
         'missing_toc_targets': missing_toc,
         'toc_entries': len(toc), 'keywords': len(keywords),

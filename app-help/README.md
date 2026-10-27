@@ -4,12 +4,18 @@ Builds the custom GAUSS application help (`gauss.qch` and `gauss.qhc`), includin
 the legacy user guide, command identifiers and navigation. This does **not** use
 Sphinx's generic qthelp builder or run the website publishing scripts.
 
+**GAUSS 27:** use documentation commit
+`f7b290e34a849af3d1670ad52d0c521e54ec0090` from published `qthelp`, and pass
+`--release 27` to `prepare.py`. The original archive replay below ends at 26.1.4;
+it establishes packaging compatibility, not current GAUSS 27 content. A newer
+application executable does not update the content inside its help files.
+
 ## Build from prepared inputs
 
 On a Linux machine with Podman (tested) or Docker and Python 3:
 
 ```sh
-./app-help/build.sh --inputs /absolute/path/inputs --output /absolute/path/new-output
+./app-help/build.sh --inputs /absolute/path/inputs-27 --output /absolute/path/new-output
 ```
 
 The output directory must be empty. Default concurrency is 2, memory limit 4 GB.
@@ -48,7 +54,7 @@ The image records installed native and Python versions in every build output.
 ## Prepare explicit source inputs
 
 The recipe checkout's branch is **not** the documentation input. The tested input
-is `aptech/docs` archive/qthelp commit
+for the original archive replay is `aptech/docs` archive/qthelp commit
 `7c9e3736fd4c7e557b69e2e6c0c127efc528b69f`. The original local qthelp and its remote
 tracking branch differed from this revision. Do not substitute master or a moving
 branch. No unrelated source-workspace changes belong in the bundle.
@@ -92,11 +98,11 @@ Record the actual owner/revision/local changes in a JSON file, then:
 ```sh
 python3 app-help/prepare.py \
   --docs-repo /path/to/aptech-docs \
-  --docs-revision 7c9e3736fd4c7e557b69e2e6c0c127efc528b69f \
+  --docs-revision f7b290e34a849af3d1670ad52d0c521e54ec0090 --release 27 \
   --packaging source-snapshot/packaging \
   --baseline source-snapshot/baseline \
   --packaging-provenance packaging-provenance.json \
-  --output inputs
+  --output inputs-27
 ```
 
 Preparation exports committed docs (ignoring dirty working files), fetches fixed
@@ -104,10 +110,17 @@ theme/textbook/tspdlib revisions and downloads SHA256-verified MathJax 2.7.9.
 It does not modify any source repository. The resulting `inputs.lock.json` seals
 every file. Build verifies it both before and inside the container. Keep that
 manifest with the input artifact; changing the manifest constitutes a new input.
-The checked-in `evidence/inputs.lock.json` records the tested snapshot. Compare
+The checked-in `evidence/gauss27/inputs.lock.json` records the GAUSS 27 snapshot;
+`evidence/inputs.lock.json` records the original archive replay. Compare
 its `sha256` mapping with a newly prepared bundle before claiming an exact replay;
 preparation intentionally seals the caller's chosen packaging snapshot rather
 than assuming today's mutable checkout still has the tested bytes.
+
+`--release 27` rejects a source whose first changelog section is not 27.x.
+The sealed release also sets Sphinx's version and the staged welcome heading;
+output validation checks all three. This changes no source checkout and preserves
+the compatible legacy help namespace. To replay the original GAUSS 26 archive,
+use commit `7c9e3736fd4c7e557b69e2e6c0c127efc528b69f` and omit `--release`.
 
 Pinned supporting sources:
 

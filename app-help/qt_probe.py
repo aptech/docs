@@ -74,7 +74,7 @@ view.resize(1100, 850)
 network = Network(view)
 view.page().setNetworkAccessManager(network)
 view.show()
-for name in ['welcome.html', 'ols.html', 'cdfncdfnc.html', 'IN-Introduction.html', 'plotxy.html']:
+for name in ['welcome.html', 'ols.html', 'cdfncdfnc.html', 'IN-Introduction.html', 'plotxy.html', 'changelog.html']:
     loaded = []
     def done(ok):
         loaded.append(ok)
@@ -105,7 +105,8 @@ for name in ['welcome.html', 'ols.html', 'cdfncdfnc.html', 'IN-Introduction.html
         'screenshot': png.name}
     view.loadFinished.disconnect(done)
 # GAUSS sets this differently from the packager namespace. Verify Qt's fallback.
-home = QUrl('qthelp://aptech.com.gauss.26.0/doc/welcome.html')
+release = json.loads((output/'inputs.lock.json').read_text())['provenance'].get('release', '26')
+home = QUrl('qthelp://aptech.com.gauss.'+release+'.0/doc/welcome.html')
 report['application_home_resolved'] = engine.findFile(home).toString()
 assert engine.fileData(home), 'GAUSS home URL does not resolve'
 (output/'qt-validation.json').write_text(json.dumps(report, indent=2))

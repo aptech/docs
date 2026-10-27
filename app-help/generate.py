@@ -62,6 +62,7 @@ def main():
     start = time.monotonic()
     root, work, out = Path('/inputs'), Path('/scratch'), Path('/out')
     lock = verify(root)
+    release = lock['provenance'].get('release', '')
     if any(out.iterdir()):
         raise ValueError('Output directory must be empty')
     pkg = root/'packaging'
@@ -69,7 +70,7 @@ def main():
     stage.mkdir()
     html = work/'html'
     # The archive conf.py and custom GAUSS domain/translator remain authoritative.
-    run(['python', '/opt/app-help/html_build.py', root/'docs/docs', html, str(a.jobs)])
+    run(['python', '/opt/app-help/html_build.py', root/'docs/docs', html, str(a.jobs), release])
     collisions = []
     origins = {}
     def copy(files):
@@ -92,6 +93,10 @@ def main():
     copy((html/'_images').rglob('*'))
     copy((pkg/'etc/fonts').rglob('*'))
     copy((pkg/'etc/mathjax').rglob('*'))
+    if release:
+        welcome = stage/'welcome.html'
+        welcome.write_text(re.sub(r'Welcome to GAUSS \d+', 'Welcome to GAUSS '+release,
+                                  welcome.read_text()))
     with (stage/'theme_override.css').open('a') as f:
         f.write('\n.wy-nav-content-wrap { margin-left: 0px !important; } '
                 'div.wy-nav-content { max-width: initial !important; } '

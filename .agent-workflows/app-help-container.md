@@ -4,6 +4,21 @@ Date: 2026-10-26
 Status: Implemented and validated. Offline end-to-end builds, application-version
 Qt consumer checks, repeatability and 2 GiB resource test passed. See final handoff.
 
+Follow-up complete: user found the installed help stops at 26.1.4. That was the
+pinned archive's content, not an installation/cache error. Rebuilt from published
+qthelp `f7b290e34a849af3d1670ad52d0c521e54ec0090` with explicit release 27;
+no master/develop merge is needed. New release validation rejects mismatched
+source changelogs and mismatched generated changelog/welcome/Sphinx versions.
+Local qthelp has eight unpublished commits, remote has thirteen unique commits;
+neither source branch nor dirty files are modified. Published origin/qthelp is
+the chosen input. The new bundle is `inputs-27/` and build `run27-01/` on the
+same Alma9 validation host. All checks passed, including Qt 5.15.8/5.15.19 and
+rendered changelog 27.0.0. Installed in `~/gauss27-arm/help` with backup
+`.backup-app-help-20261026-193041/`. Actual installed QCH first changelog section
+verified as 27.0.0. Runtime 204.39 s / peak 1.17 GiB under a 2 GiB limit.
+Evidence: `app-help/evidence/gauss27/`; local output: `app-help/artifacts/gauss27/`.
+NEXT: User restarts GAUSS to reload help. BLOCKER: none.
+
 ## Objective and scope
 
 Produce the application help files `gauss.qch` and `gauss.qhc` in a disposable

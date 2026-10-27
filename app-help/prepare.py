@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import io
 import json
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -31,6 +32,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--docs-repo', required=True, type=Path)
     p.add_argument('--docs-revision', required=True)
+    p.add_argument('--release', help='Expected major release, e.g. 27; checked against changelog')
     p.add_argument('--packaging', required=True, type=Path)
     p.add_argument('--baseline', required=True, type=Path)
     p.add_argument('--packaging-provenance', required=True, type=Path)
@@ -38,6 +40,13 @@ def main():
     a = p.parse_args()
     a.output.mkdir(parents=True, exist_ok=False)
     archive(a.docs_repo, a.docs_revision, a.output/'docs')
+    if a.release:
+        if not re.fullmatch(r'[1-9][0-9]*', a.release):
+            p.error('--release must be a positive major version')
+        latest = re.search(r'^([0-9]+\.[0-9]+\.[0-9]+)\n-+',
+                           (a.output/'docs/docs/changelog.rst').read_text(), re.M)
+        if not latest or latest[1].split('.')[0] != a.release:
+            raise ValueError('Requested release does not match the latest source changelog')
     submodules = {
         'docs/_themes/sphinx_rtd_theme': ('https://github.com/readthedocs/sphinx_rtd_theme',
                                         'd64dadf1ceec4f9ff6c1ca2d3ea4c3d0fdb0e8d2'),
@@ -74,6 +83,8 @@ def main():
         'submodules': submodules,
         'packaging': json.loads(a.packaging_provenance.read_text()),
         'MathJax': {'url': url, 'sha256': MATHJAX_SHA256}}
+    if a.release:
+        provenance['release'] = a.release
     (a.output/'inputs.lock.json').write_text(json.dumps({
         'provenance': provenance, 'sha256': hashes(a.output)}, indent=2, sort_keys=True))
     print('Prepared:', a.output)

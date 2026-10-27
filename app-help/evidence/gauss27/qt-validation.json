@@ -1,0 +1,45 @@
+{
+  "qt_version": "5.15.8",
+  "namespace": "com.aptech.gauss.25.0",
+  "pages": {
+    "welcome.html": {
+      "text_characters": 505,
+      "loaded_images": 0.0,
+      "math_elements": 0.0,
+      "screenshot": "welcome.html.png"
+    },
+    "ols.html": {
+      "text_characters": 10524,
+      "loaded_images": 0.0,
+      "math_elements": 9.0,
+      "screenshot": "ols.html.png"
+    },
+    "cdfncdfnc.html": {
+      "text_characters": 2820,
+      "loaded_images": 0.0,
+      "math_elements": 6.0,
+      "screenshot": "cdfncdfnc.html.png"
+    },
+    "IN-Introduction.html": {
+      "text_characters": 1825,
+      "loaded_images": 0.0,
+      "math_elements": 0.0,
+      "screenshot": "IN-Introduction.html.png"
+    },
+    "plotxy.html": {
+      "text_characters": 2962,
+      "loaded_images": 2.0,
+      "math_elements": 0.0,
+      "screenshot": "plotxy.html.png"
+    },
+    "changelog.html": {
+      "text_characters": 134362,
+      "loaded_images": 0.0,
+      "math_elements": 0.0,
+      "screenshot": "changelog.html.png"
+    }
+  },
+  "requests_failed": [],
+  "search_results_regression": 41,
+  "application_home_resolved": "qthelp://com.aptech.gauss.25.0/doc/welcome.html"
+}

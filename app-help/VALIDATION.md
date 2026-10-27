@@ -1,5 +1,37 @@
 # Validation record — 2026-10-26
 
+## GAUSS 27 content correction (latest installed build)
+
+The original validated archive replay stopped at **26.1.4**. Installing that pair
+in GAUSS 27 did not make its content current. The user caught this; the source pin
+was the cause, not a failed copy or a need to merge master/develop.
+
+Rebuilt from published `origin/qthelp`
+`f7b290e34a849af3d1670ad52d0c521e54ec0090` (118 commits after the archive) with
+explicit release **27**. Local qthelp has eight unpublished commits and the remote
+has thirteen unique commits; this build uses the published revision and includes
+no dirty files or local-only commits. No source branches were merged or changed.
+
+- Latest changelog **27.0.0**, welcome **GAUSS 27**, Sphinx release **27** verified
+  from the actual QCH. Preparation and validation now reject release mismatches.
+- Two negative checks reject the old archive source/artifact when 27 is requested.
+- Offline build passed in **204.39 s**, kernel cgroup peak **1,260,621,824 bytes**
+  (1.17 GiB), 2 GiB limit, no OOMs.
+- 5,733 resources, 1,742 TOC entries, 1,741 keywords; no new missing local links.
+- Qt 5.15.8 and 5.15.19 passed; changelog added to rendering checks. Screenshot
+  inspected: 27.0.0 appears first. GAUSS 27's home URL resolves correctly.
+- Installed both files in `/Users/jason/gauss27-arm/help`; verified both hashes
+  and read the installed changelog directly. Backup:
+  `help/.backup-app-help-20261026-193041/`. Restart GAUSS to reload an open engine.
+- Local artifacts: `app-help/artifacts/gauss27/`; native screenshots in
+  `app-help/artifacts/native27/`; durable evidence in `app-help/evidence/gauss27/`.
+- Linux inputs/output: the existing isolated work directory's `inputs-27/` and
+  `run27-01/`. Image ID:
+  `c10700d882c836f7bde9196e372763b7ae5bfcb6594f8892403102234048ea1e`.
+
+The remaining sections record the original archive-baseline validation, not the
+current installed content. Its artifacts and evidence remain available unchanged.
+
 Implementation and tests ran in this independent docs worktree and in
 `alma9-janus:/home/jason/work/app-help-container-20261026`. Production aliases,
 webroots, installed GAUSS help, original packaging files and SVN were not changed.

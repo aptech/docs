@@ -73,6 +73,7 @@ int main(int argc, char **argv) {
         require(names.size() == 1, "Unexpected namespace count");
         require(!engine.linksForIdentifier("ols").isEmpty(), "OLS context help missing");
         require(!engine.fileData(QUrl("qthelp://aptech.com.gauss.26.0/doc/welcome.html")).isEmpty(), "Application home fallback failed");
+        require(!engine.fileData(QUrl("qthelp://aptech.com.gauss.27.0/doc/welcome.html")).isEmpty(), "GAUSS 27 home fallback failed");
         QJsonObject result{{"qt_version", qVersion()}, {"namespace", names.first()}, {"application_home_resolves", true}, {"qch_sha256", QString(qchHash)}};
         bool indexed = false;
         auto search = engine.searchEngine();
@@ -87,7 +88,7 @@ int main(int argc, char **argv) {
         view.resize(1100, 850); view.page()->setNetworkAccessManager(new Network(engine, &view));
         view.show();
         QJsonArray pages;
-        for (const auto &name : {"welcome.html", "ols.html", "cdfncdfnc.html", "IN-Introduction.html", "plotxy.html"}) {
+        for (const auto &name : {"welcome.html", "ols.html", "cdfncdfnc.html", "IN-Introduction.html", "plotxy.html", "changelog.html"}) {
             bool loaded = false, okay = false;
             auto connection = QObject::connect(&view, &QWebView::loadFinished, [&](bool ok) { loaded = true; okay = ok; });
             view.load(QUrl("qthelp://"+names.first()+"/doc/"+name));

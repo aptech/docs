@@ -1,0 +1,9 @@
+{
+  "destination": "/Users/jason/gauss27-arm/help",
+  "backup": "/Users/jason/gauss27-arm/help/.backup-app-help-20261026-193041",
+  "latest_changelog": "27.0.0",
+  "sha256": {
+    "gauss.qch": "c7a06c78a3fa0782f3ef2c65103ca5b4fdc15230aaa0d3106dce21740856cd0c",
+    "gauss.qhc": "fb30f8dc833cef33ed87edbd43033c6942618ce9caa5a350bdac5d6f44f1335e"
+  }
+}
