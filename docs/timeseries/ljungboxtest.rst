@@ -84,6 +84,10 @@ after removing its mean, compared with a chi-square on *lags* - *n_params*
 degrees of freedom (Ljung and Box 1978). For the residuals of a fitted
 model, set *n_params* to the number of estimated ARMA parameters.
 
+For a fitted ARIMA model, :func:`arimaDiagnostics` chooses the lag count
+and uses *p* + *q* + *P* + *Q* for this adjustment, including the seasonal
+AR and MA orders. It also returns Jarque-Bera results and the residual ACF.
+
 For the residuals of a VAR use :func:`varDiagnostics`, and of a VECM
 :func:`vecmDiagnostics`: in these models one equation's residual
 autocorrelations do not have this chi-square reference.

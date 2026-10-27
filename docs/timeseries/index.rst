@@ -52,6 +52,8 @@ ARIMA / Univariate
      - Reprint estimation summary table.
    * - :func:`arimaCoefTable`
      - Return coefficient table as dataframe.
+   * - :func:`arimaDiagnostics`
+     - Return Ljung-Box, Jarque-Bera and residual ACF diagnostics.
    * - :func:`tsDisplay`
      - Plot a series with its ACF and PACF.
    * - :func:`stationarityTests`
@@ -316,6 +318,7 @@ Control Structure Creators
     arimacontrolcreate
     arimaresults
     arimacoeftable
+    arimadiagnostics
     tsdisplay
     stationaritytests
     adftest
