@@ -51,7 +51,14 @@ by the two trailing dimensions of *x*. For example, for a 10x4x4 array,
 the result will be a 1-dimensional array of 10 elements containing the
 determinants of each of the 10 4x4 arrays contained in *x*.
 
-:func:`det` computes an LU decomposition.
+:func:`det` computes an LU decomposition. For a real matrix, it returns 0
+when a pivot is at or below ``crout_tol * min(1, largest absolute element)``,
+or at or below the smallest normal double (about 2.2e-308) when
+``crout_tol`` is at least that large. NaN elements are skipped when finding
+the largest absolute element. The ``crout_tol`` tolerance is set by
+:func:`sysstate`, case 13. This scaling allows a well-conditioned matrix
+with small elements, such as ``1e-15*eye(2)``, to have a nonzero
+determinant.
 
 :func:`detl` can be much faster in many applications.
 
