@@ -83,6 +83,9 @@ Remarks
       // Check for success or failure of each submatrix
       if ismiss(s[., 1, 1]);
 
+#. If *x* contains a NaN, an infinity or a missing value, :func:`svds` stops with
+   error G0674, or with ``trap 1`` sets :math:`s[1]` to the scalar error code 674.
+
 #. Call either :func:`svdcusv` or :func:`svdusv`, to also calculate the right and left
    singular vectors
 

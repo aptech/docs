@@ -66,3 +66,9 @@ will create the following output:
 
     cond(X)   =    2.7008906e+09 
     cond(X_s) =        1.2504154 
+
+Remarks
+-------
+
+If *x* contains a NaN, an infinity or a missing value, :func:`cond` stops with
+error G0674, or with ``trap 1`` returns 1e300.

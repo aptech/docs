@@ -39,6 +39,12 @@ For this example, the rank of both ``x1`` and  ``x1~x2`` is one:
   1.0000000
   1.0000000
 
+Remarks
+-------
+
+If *x* contains a NaN, an infinity or a missing value, :func:`rank` stops with
+error G0674, or with ``trap 1`` returns 0 and sets ``_svderr`` to 674.
+
 Global Input
 ------------
 
