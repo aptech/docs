@@ -63,12 +63,16 @@ Format
        search.
    :type overall_tightness: scalar or struct
 
-   :param residual_variances: Optional keyword, ``bvarChoose()`` to choose
-       the residual variance of each series that the prior is built on
-       together with the tightness, starting at their autoregression values;
-       see the Remarks. It needs ``overall_tightness=bvarChoose()`` too.
-       Default: not chosen.
-   :type residual_variances: struct
+   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. This keyword, including a mark, clears variance values inherited from the spec. Values supplied through *residual_variances_values* in the same call still win.
+   :type residual_variances: string or struct
+
+   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
+   :type residual_variances_values: Mx1 or 1xM vector, or struct
+
+   The spec has the same *residual_variances* and *residual_variances_values*
+   fields. Keywords override those fields. A variance search here also needs
+   ``overall_tightness=bvarChoose()``. Chosen values are held for the full-sample
+   refit after the holdout fit.
 
    :param baseline: Optional keyword, the model the holdout check compares
        with: ``"ols_var"`` for a least-squares VAR with the same lags, or
@@ -131,7 +135,7 @@ Format
             - Structure returned by :func:`varLagSelect`.
 
           * - wf.prior_search
-            - :class:`priorSelectResult` structure. *wf.prior_search.overall_tightness* is the tightness used; *wf.prior_search.status* is "converged", "not_converged" or "at_bound" after a search and "not_run" when the tightness was held; *wf.prior_search.choose* lists what was chosen (``""`` when nothing was); *wf.prior_search.residual_variances* holds the chosen residual variances when they were chosen.
+            - :class:`priorSelectResult` structure. *wf.prior_search.overall_tightness* is the tightness used; *wf.prior_search.status* is "converged", "not_converged" or "at_bound" after a search and "not_run" when the tightness was held; *wf.prior_search.choose* lists what was chosen (``""`` when nothing was); *wf.prior_search.residual_variances_values* holds the chosen residual variances when they were chosen.
 
           * - wf.spec
             - :class:`bvarMacroForecastSpec` structure, every setting as used.

@@ -28,10 +28,10 @@
    * - result.coefficient_prior_mean
      - Kxm matrix, the prior mean of B. Only each variable's coefficient on its own first lag can be nonzero.
 
-   * - result.residual_variance_policy
-     - String, how the prior's residual scales were set (``"arp_full_training"``, ``"glp2015_post_var_trim_ar1"`` or ``"supplied"``).
-
    * - result.residual_variances
+     - String, how the prior's residual scales were set (``"ar_p"``, ``"ar_1"`` or ``"values"``).
+
+   * - result.residual_variances_values
      - Mx1 vector, the residual scales the prior used.
 
    * - result.b_mean

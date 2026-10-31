@@ -23,8 +23,11 @@ Format
    :param overall_tightness: Optional keyword, a number (held at that value) or ``bvarChoose(start)`` (chosen, starting at *start*). Default: chosen, starting at 0.2, or at *ctl.overall_tightness* when *ctl* is given. A plain number with nothing else marked is refused: nothing would be chosen.
    :type overall_tightness: scalar or struct
 
-   :param residual_variances: Optional keyword, a vector of residual variances, one per series (held; needs *residual_variance_policy* = ``"supplied"``), ``bvarChoose()`` (chosen, starting at the values *residual_variance_policy* gives) or ``bvarChoose(v)`` (chosen, starting at *v*; needs *residual_variance_policy* = ``"supplied"``). Each chosen variance is searched between 1/100 and 100 times its start. Default: held at the values *residual_variance_policy* gives.
-   :type residual_variances: Mx1 vector or struct
+   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. This keyword, including a mark, clears variance values inherited from the control. Values supplied through *residual_variances_values* in the same call still win.
+   :type residual_variances: string or struct
+
+   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
+   :type residual_variances_values: Mx1 or 1xM vector, or struct
 
    :param lag_decay: Optional keyword, how much harder longer lags are pulled: a number (held) or ``bvarChoose(start)`` (chosen, between 0.5 and 3). Default = 1, held. It cannot be chosen with one lag, where the prior does not depend on it.
    :type lag_decay: scalar or struct
@@ -35,8 +38,6 @@ Format
    :param sur_tightness: Optional keyword, tightness of the single-unit-root prior, as *soc_tightness*. Default = 0.
    :type sur_tightness: scalar or struct
 
-   :param residual_variance_policy: Optional keyword, how the prior's residual variances are found, as in :func:`bvarFit`: ``"arp_full_training"`` (default: the residual variance of an autoregression with *p* lags for each series), ``"glp2015_post_var_trim_ar1"`` (the variances Giannone, Lenza and Primiceri use; :func:`bvarGlp2015ControlCreate` sets it) or ``"supplied"`` (the values in *residual_variances*). When the residual variances are chosen, these values are where the search starts and the centre of each variance's range.
-   :type residual_variance_policy: string
 
    :param choose_by: Optional keyword, the objective. ``"map"`` (default): log marginal likelihood plus the log of the priors Giannone, Lenza and Primiceri (2015) put on what is chosen: a Gamma prior on each tightness (overall tightness: mode 0.2, standard deviation 0.4; sum-of-coefficients and single-unit-root tightness: mode 1, standard deviation 1) and, when the residual variances are chosen, an inverse-gamma prior on each of them (shape and scale 0.02 squared). An included sum-of-coefficients or single-unit-root prior that is held keeps its Gamma term, as a constant. ``"ml"``: log marginal likelihood alone, with none of these priors.
    :type choose_by: string
@@ -104,14 +105,14 @@ Format
           * - ps.n_evals
             - Scalar, number of marginal-likelihood evaluations.
 
-          * - ps.residual_variances
-            - Mx1 vector, the residual variances of the chosen prior: the values *residual_variance_policy* gives, or the chosen values when the search chooses them.
+          * - ps.residual_variances_values
+            - Mx1 vector, the residual variances of the chosen prior: the values *residual_variances* gives, or the chosen values when the search chooses them.
 
-          * - ps.residual_variance_policy
+          * - ps.residual_variances
             - String, the rule that gave the residual variances; when the search chooses them, the rule that gave their starting values.
 
           * - ps.fit_settings
-            - :class:`bvarControl` structure: every setting at the value to fit at, the chosen ones and the held ones, including the prior means, ready to pass to :func:`bvarFit` as *ctl*. ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen prior without searching again, on these data or on new data. When the residual variances are chosen it carries them (*residual_variance_policy* = ``"supplied"``), so the fit uses them. To search again from the previous answer, repeat the call with ``ctl=ps.fit_settings`` and the same marks: with nothing marked, only the overall tightness is searched and everything else is held.
+            - :class:`bvarControl` structure: every setting at the value to fit at, the chosen ones and the held ones, including the prior means, ready to pass to :func:`bvarFit` as *ctl*. ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen prior without searching again, on these data or on new data. When the residual variances are chosen it carries them (in *ps.fit_settings.residual_variances_values*), so the fit uses them. To search the variances again from the previous answer, use ``ctl=ps.fit_settings, residual_variances_values=bvarChoose()``. A method keyword or method mark recomputes the starting variances instead. With nothing marked, only the overall tightness is searched and everything else is held.
 
    :rtype ps: struct
 
@@ -142,7 +143,7 @@ With nothing marked, the overall tightness is chosen, starting at
 *ctl.overall_tightness*, and every other setting is held. The printout shows
 the lag order and the own-lag prior mean the search used, the overall
 tightness (about 0.14 here) marked "chosen", the residual variances marked
-"from the rule" (the values *residual_variance_policy* gives), the log
+"from the rule" (the values *residual_variances* gives), the log
 marginal likelihood, the log prior of the tightness and their sum, then the
 fit at the chosen tightness.
 
@@ -297,7 +298,7 @@ sum-of-coefficients and single-unit-root tightness 0.0001 to 50. A start
 outside its range is refused. Each residual variance is searched between
 1/100 and 100 times its start, so a supplied start moves both the start and
 the range; the usual call, ``residual_variances=bvarChoose()``, starts at
-the values of *residual_variance_policy*.
+the values of *residual_variances*.
 
 With the overall tightness alone, the search is one-dimensional: a grid of
 32 points followed by golden-section refinement on the log scale. The start
@@ -319,7 +320,7 @@ chooses them together with the tightness, as Giannone, Lenza and Primiceri
 (2015) do: each is searched between 1/100 and 100 times its autoregression
 value, starting there, by a
 bounded quasi-Newton search with exact derivatives, from one starting
-point. *ps.residual_variances* holds the chosen values and *ps.fit_settings* carries
+point. *ps.residual_variances_values* holds the chosen values and *ps.fit_settings* carries
 them, so ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen prior.
 
 A tightness chosen together with the residual variances cannot be compared
@@ -402,4 +403,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarChoose`, :func:`bvarFit`, :func:`bvarControlCreate`, :func:`bvarGlp2015ControlCreate`, :func:`bvarRollingOrigin`
+.. seealso:: Functions :func:`bvarChoose`, :func:`bvarFit`, :func:`bvarControlCreate`, :func:`bvarRollingOrigin`

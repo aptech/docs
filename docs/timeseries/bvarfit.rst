@@ -34,11 +34,12 @@ Format
    :param sur_tightness: Optional keyword, tightness of the single-unit-root prior (Sims 1993), which pulls the system toward a common stochastic trend. 0 turns it off. Its dummy observation is built from the same presample mean. A number, or ``bvarChoose(start)`` to choose it, as *soc_tightness*. Default = 0.
    :type sur_tightness: scalar or struct
 
-   :param residual_variance_policy: Optional keyword, how the residual scales that set the prior's units are found: ``"arp_full_training"`` (default: the residual variance of each variable's own AR(p) with a constant, on the estimation sample), ``"glp2015_post_var_trim_ar1"`` (AR(1) residual variance after dropping the first *p* observations, as Giannone, Lenza & Primiceri 2015) or ``"supplied"`` (the values in *residual_variances*).
-   :type residual_variance_policy: string
+   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. This keyword, including a mark, clears variance values inherited from the control. Values supplied through *residual_variances_values* in the same call still win.
+   :type residual_variances: string or struct
 
-   :param residual_variances: Optional keyword, Mx1 residual scales for ``"supplied"``, or ``bvarChoose()`` / ``bvarChoose(v)`` to choose them before the fit (``bvarChoose()`` starts at the values *residual_variance_policy* gives; ``bvarChoose(v)`` starts at *v* and needs ``"supplied"``). Default = empty.
-   :type residual_variances: Mx1 vector or struct
+   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
+   :type residual_variances_values: Mx1 or 1xM vector, or struct
+
 
    :param choose_by: Optional keyword, the objective of a prior search, as in :func:`bvarPriorSelect`: ``"map"`` (default) or ``"ml"``. Used only when a setting is marked with :func:`bvarChoose`.
    :type choose_by: string

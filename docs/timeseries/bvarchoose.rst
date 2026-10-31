@@ -11,8 +11,8 @@ Format
 .. function:: c = bvarChoose()
               c = bvarChoose(start)
 
-   :param start: Optional input, the value the search starts from: a positive number, or for *residual_variances* a vector with one value per series. Default = {}, the setting's own start: its value in the control structure (or, in :func:`bvarMacroForecast`, the spec) when one is passed, otherwise its default (0.2 for *overall_tightness*); for *residual_variances*, the values *residual_variance_policy* gives; for *soc_tightness* and *sur_tightness*, 1 when the value is 0 (0 means the prior is off and cannot start a search).
-   :type start: scalar or Mx1 vector
+   :param start: Optional input, a positive number, a positive vector with one value per series, or ``"ar_p"`` / ``"ar_1"``. Default = {}, using the setting in the control or spec, otherwise its default. For an inactive SOC or SUR prior the default start is 1. Use a method mark with *residual_variances* and a vector mark with *residual_variances_values*. A method mark clears variance values inherited from the control or spec. Variance values supplied in the same call still win. To search from values already held in the control, use ``residual_variances_values=bvarChoose()``.
+   :type start: scalar, vector or string
 
    :return c: An instance of a :class:`bvarChoice` structure holding the start. Pass it as the value of the setting's keyword.
    :rtype c: struct

@@ -50,17 +50,16 @@
    * - ctl.alpha0
      - Scalar, degrees of freedom of the inverse-Wishart prior on the error covariance. Default = 0, which uses m+2, the least informative proper value.
 
-   * - ctl.residual_variance_policy
+   * - ctl.residual_variances
      - String, how the residual scales that set the prior's units are found.
 
-       ================================= ==================================================================
-       ``"arp_full_training"``           Residual variance of each variable's own AR(p) with a constant, on the estimation sample. (Default)
-       ``"glp2015_post_var_trim_ar1"``   AR(1) residual variance after dropping the first *p* observations, as Giannone, Lenza & Primiceri (2015).
-       ``"supplied"``                    The values in *ctl.residual_variances*.
-       ================================= ==================================================================
+       ``"ar_p"`` (default) uses each variable's AR(p) with a constant
+       on the full training sample, dividing RSS by Traw-2p-1.
+       ``"ar_1"`` drops the first p rows, then fits AR(1) with a constant,
+       dividing RSS by Traw-p-3, as Giannone, Lenza & Primiceri (2015).
 
-   * - ctl.residual_variances
-     - Mx1 vector, residual scales for ``"supplied"``. Default = empty.
+   * - ctl.residual_variances_values
+     - Positive Mx1 or 1xM vector, used instead of the method. Default = empty. A *residual_variances* keyword (including a method mark) clears these inherited values for that call. Values supplied as a keyword in the same call still win.
 
    * - ctl.n_draws
      - Scalar, number of posterior draws. Default = 5000.

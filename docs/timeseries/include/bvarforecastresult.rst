@@ -61,8 +61,8 @@
    * - fc.coefficient_prior_mean
      - Kxm matrix, the prior mean of B used by the fit.
 
-   * - fc.residual_variance_policy
-     - String, how the fit's prior set its residual scales (``"arp_full_training"``, ``"glp2015_post_var_trim_ar1"`` or ``"supplied"``).
-
    * - fc.residual_variances
+     - String, how the fit's prior set its residual scales (``"ar_p"``, ``"ar_1"`` or ``"values"``).
+
+   * - fc.residual_variances_values
      - Mx1 vector, the residual scales the fit's prior used.

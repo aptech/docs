@@ -30,8 +30,11 @@ Format
    :param overall_tightness: Optional keyword, ``bvarChoose(x)`` adds one model, after the fixed ones, whose overall tightness is chosen again on each origin's training window, as :func:`bvarPriorSelect` chooses it, starting at *x* (``bvarChoose()`` starts at 0.2). Left out (the default), only the fixed tightness values are evaluated. Fixed values go in *tightness*, not here.
    :type overall_tightness: struct
 
-   :param residual_variances: Optional keyword. A vector *v* of residual variances, one per series, is held in every model; it needs *residual_variance_policy* = ``"supplied"``. ``bvarChoose()``, together with ``overall_tightness=bvarChoose()``, chooses the residual variances the prior is built on as well in the chosen model, starting at the values *residual_variance_policy* gives on that window, each between 1/100 and 100 times that value; the fit at that origin uses the chosen variances. ``bvarChoose(v)`` starts them at *v* and holds *v* in the fixed models; it also needs ``"supplied"``. Only the overall tightness and the residual variances can be chosen here.
-   :type residual_variances: Mx1 vector or struct
+   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. The search starts from the method values unless explicit values override them.
+   :type residual_variances: string or struct
+
+   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
+   :type residual_variances_values: Mx1 or 1xM vector, or struct
 
    :param choose_by: Optional keyword, used only when a model is chosen. ``"map"`` (default): log marginal likelihood plus the priors of Giannone, Lenza and Primiceri (2015) on what is chosen (a Gamma prior on the tightness, mode 0.2, standard deviation 0.4; an inverse-gamma prior on each chosen residual variance, with its peak near 0.02 squared, which suits data in logs multiplied by four and rates in decimals; see the Remarks of :func:`bvarPriorSelect`), :func:`bvarPriorSelect`'s default. ``"ml"``: log marginal likelihood alone.
    :type choose_by: string
@@ -66,8 +69,6 @@ Format
    :param intercept_vc: Optional keyword, prior variance of the constants. Default = 1e7.
    :type intercept_vc: scalar
 
-   :param residual_variance_policy: Optional keyword, how the prior's residual scales are estimated on each training window. Default = "arp_full_training".
-   :type residual_variance_policy: string
 
    :param posterior_seed_base: Optional keyword, seed of the first origin's posterior draws; origin *k* uses *posterior_seed_base* + (*k* - 1) x *origin_seed_stride*. Every model at an origin uses the same seeds. Default = 120260723.
    :type posterior_seed_base: scalar
@@ -105,7 +106,7 @@ Format
             - String, ``"map"`` or ``"ml"``, in lower case; used only when a model is chosen.
 
           * - ev.prior_residual_variances
-            - n_origins x M, the residual variances *residual_variance_policy* gives on each training window. Fixed-tightness models and a model that chooses only its tightness use them; a model that chooses its residual variances starts from them. The energy score of every model is standardized by them.
+            - n_origins x M, the residual variances *residual_variances* gives on each training window. Fixed-tightness models and a model that chooses only its tightness use them; a model that chooses its residual variances starts from them. The energy score of every model is standardized by them.
 
           * - ev.energy_score
             - (n_origins x h) x n_models, the energy score of each forecast (a score of the joint forecast of all variables; lower is better), with each variable divided by the square root of its value in *ev.prior_residual_variances*.
@@ -182,7 +183,7 @@ at the chosen value: the same prior, the same seeds, the same scores. With
 its tightness fixed at the chosen value and the chosen residual variances
 supplied, with the same forecasts and scores except the energy score (see
 below). The chosen variances are not returned: *ev.prior_residual_variances*
-holds the values *residual_variance_policy* gives on each training window,
+holds the values *residual_variances* gives on each training window,
 which are where that model's search starts. To see the variances chosen at
 an origin, call :func:`bvarPriorSelect` on that origin's training rows. The
 energy score is standardized by the values in *ev.prior_residual_variances*
