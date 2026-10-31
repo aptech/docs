@@ -270,9 +270,9 @@ Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
 
 **Exercise 4: Kilian (2009) Oil Market SVAR** (K&L Ch. 8, 13)
 
-Replicate the oil market structural analysis using live FRED data::
+Replicate the oil market structural analysis on Kilian's data::
 
-    // See examples/fred_oil_market_svar.e for the complete script
+    // See examples/workflows/oil_market_var.e for the complete script
 
 **Exercise 5: Model Comparison with Bayes Factors** (K&L Ch. 5)
 
