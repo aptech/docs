@@ -57,4 +57,4 @@ Remarks
 
 If either *t* or *b* is zero, then no rows will be trimmed from that end of the matrix.
 
-.. seealso:: Functions :func:`submat`, :func:`rotater`, :func:`shiftr`
+.. seealso:: Functions :func:`submat`, :func:`rotater`, :func:`shiftr`, :func:`diff`

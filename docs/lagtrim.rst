@@ -146,4 +146,4 @@ Remarks
     -  Fills the first *t* rows of each column with missing values.
     -  Uses more memory and is slower than :func:`lagTrim`.
 
-.. seealso:: Functions :func:`lagn`
+.. seealso:: Functions :func:`lagn`, :func:`diff`

@@ -114,6 +114,7 @@ D
     diag
     diagmat
     diagrv
+    diff
     digamma
     dlibrary
     dllcall

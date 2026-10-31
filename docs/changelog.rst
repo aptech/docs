@@ -8,6 +8,8 @@ The following is a list of changes from the previous version of GAUSS.
 27.0.0
 ------
 
+#. New function: :func:`diff` computes repeated lag differences of vectors, matrices and numeric dataframes. Leading rows are missing by default; use ``fill=0`` for zeros or ``trimr(y, lag*order, 0)`` to remove them.
+
 #. New feature: ``kernel proc`` defines a procedure that GAUSS compiles to native code, so loops that cannot be vectorized, such as recursions, simulations and filters, run much faster. Write ``kernel proc`` in place of ``proc`` and call the procedure as usual. Use ``kernel proc`` for code built around loops. For code that is already vectorized, an ordinary proc is usually as fast or faster.
 #. New functions: :func:`ln1p` and :func:`expm1` retain small changes when computing logarithms and exponentials near zero.
 #. New functions: :func:`lnsumexp` and :func:`lndiffexp` add and subtract quantities stored as logarithms, such as log likelihoods and log probabilities, without overflow, underflow or loss of small terms.

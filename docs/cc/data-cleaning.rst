@@ -129,6 +129,7 @@ Transform
 :doc:`../dflonger`             Converts a GAUSS dataframe in wide panel format to long panel format.
 :doc:`../dfwider`              Converts a GAUSS dataframe in long panel format to wide panel format.
 :doc:`../diagrv`               Inserts a vector into the diagonal of a matrix.
+:doc:`../diff`                 Computes repeated lag differences of each column of a time series.
 :doc:`../dummy`                Creates a set of dummy (0/1) variables by breaking up a variable into specified categories. The highest (rightmost) category is unbounded on the right.
 :doc:`../dummybr`              Creates a set of dummy (0/1) variables. The highest (rightmost) category is bounded on the right.
 :doc:`../dummydn`              Creates a set of dummy (0/1) variables by breaking up a variable into specified categories. The highest (rightmost) category is unbounded on the right, and a specified column of dummies is dropped.
