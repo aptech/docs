@@ -84,7 +84,11 @@ Remarks
       if ismiss(s[., 1, 1]);
 
 #. If *x* contains a NaN, an infinity or a missing value, :func:`svds` stops with
-   error G0674, or with ``trap 1`` sets :math:`s[1]` to the scalar error code 674.
+   error G0674, or with ``trap 1`` sets :math:`s[1]` to the scalar error code 674
+   and the remaining singular values to missing values. For an array, only
+   the affected submatrix is marked. For :func:`svdusv` and :func:`svdcusv`,
+   the affected singular vectors are also missing; off-diagonal entries of
+   the singular-value matrix remain zero.
 
 #. Call either :func:`svdcusv` or :func:`svdusv`, to also calculate the right and left
    singular vectors
