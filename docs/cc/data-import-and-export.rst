@@ -191,7 +191,7 @@ Query Information
 :doc:`../dbqueryisselect`                  Reports whether the specified query is a SELECT statement.
 :doc:`../dbqueryisvalid`                   Reports whether the specified query is positioned on a valid record.
 :doc:`../dbqueryrows`                      Returns the size of the result (number of rows returned), or -1 if the size cannot be determined or if the database does not support reporting information about query sizes.
-:doc:`../dbquerysetforwardonly`            Sets forward only mode to forward. If forward is true, only :doc:`../dbQuerySeekNext` and :doc:`../dbQuerySeek` with positive values, are allowed for navigating the results.
+:doc:`../dbquerysetforwardonly`            Sets forward only mode to forward. If forward is true, only :doc:`../dbqueryseeknext` and :doc:`../dbqueryseek` with positive values, are allowed for navigating the results.
 ===================================       ====================================================================================
 
 Query Iteration
