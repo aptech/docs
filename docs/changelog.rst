@@ -54,6 +54,7 @@ Changes that can affect existing programs
 #. :func:`minimize`: ``maxIters`` reads -1 (automatic) until set. Nelder-Mead defaults to 200 iterations per parameter; L-BFGS-B keeps 1,000.
 #. On Apple silicon, ``"mt19937"``, seeds of 2\ :sup:`31` or more, and :func:`rndi` with very wide ranges give the same numbers as on Windows and Linux, and so different numbers than GAUSS 26 on that platform.
 #. Assigning to a member of a variable that does not hold a structure, such as ``r.nm = "x"`` when ``r`` is a number, is error G0181.
+#. A procedure whose header declares a structure, such as ``proc (struct myOut) = f(x);``, must return that structure on every path. Assigning the result of a call that returns a number instead, such as an error code from :func:`error`, gives error G0181, also when calls are joined with ``|`` or ``~``, as in ``r = f(1) | f(2)``. Report a failure in a member of the structure instead.
 #. :func:`shiftc`, :func:`lag`, :func:`lagn` and :func:`lagTrim` reject missing, infinite and out-of-range lags with an error, and treat a scalar with several lags as a 1x1 matrix.
 #. :func:`svds`, :func:`svdusv`, :func:`svdcusv`, :func:`svd`, :func:`svd1` and :func:`svd2` give error G0674 for NaN, infinite or missing input. Under ``trap 1`` these functions, and :func:`rank`, :func:`cond` and :func:`pinv`, report the error as their help pages describe.
 
