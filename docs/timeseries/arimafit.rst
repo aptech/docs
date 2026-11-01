@@ -273,7 +273,7 @@ With the default ``ctl.include = "auto"``, a mean is included only when both
 ``d=0`` and ``sd=0``. Any differencing suppresses the deterministic term by
 default. Set *ctl.include* to ``"mean"``, ``"drift"``, or ``"none"`` to
 override that fixed-model choice. ``"mean"`` and ``"drift"`` both include
-the constant; it is labelled ``"Mean"`` when the model has no differencing
+the constant; it is labeled ``"Mean"`` when the model has no differencing
 and ``"Drift"`` when it has any, ordinary or seasonal. A model that takes two
 or more differences in total (``d + sd`` of 2 or more) has no constant to
 estimate: ``"mean"`` and ``"drift"`` are refused there, and ``"auto"`` and

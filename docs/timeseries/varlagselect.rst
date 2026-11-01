@@ -11,7 +11,7 @@ Format
 .. function:: ls = varLagSelect(y, max_p)
               ls = varLagSelect(y, max_p, ic="fpe", trend=1)
 
-   :param y: endogenous variables.
+   :param y: the data, one column per variable. A single date-typed column is left out, so a dataframe loaded with its dates can be passed as it is.
    :type y: TxM matrix or dataframe
 
    :param max_p: maximum lag order to test.

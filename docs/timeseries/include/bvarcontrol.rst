@@ -11,7 +11,7 @@
      - String, ``"minnesota"`` (the only prior :func:`bvarFit` supports). Default = ``"minnesota"``.
 
    * - ctl.overall_tightness
-     - Scalar, how hard the prior pulls the coefficients toward its centre: roughly the prior standard deviation of each variable's coefficient on its own first lag. Smaller values pull harder. Default = 0.2.
+     - Scalar, how hard the prior pulls the coefficients toward its center: roughly the prior standard deviation of each variable's coefficient on its own first lag. Smaller values pull harder. Default = 0.2.
 
    * - ctl.lag_decay
      - Scalar, how much harder longer lags are pulled: the prior standard deviation for lag *l* is the one for lag 1 divided by :math:`l^{\text{lag\_decay}}`. Default = 1.

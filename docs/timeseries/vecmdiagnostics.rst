@@ -159,7 +159,7 @@ the seasonal dummies, and, when the fit has them, the unrestricted trend and
 exogenous columns. This is the auxiliary regression of Bruggemann, Lutkepohl and
 Saikkonen (2006, eq. 4.4 and Remarks 1 and 2; numbers from their working
 paper of January 2004) without their additional score terms, the version
-their simulations favour. Their model has no unrestricted trend or
+their simulations favor. Their model has no unrestricted trend or
 exogenous columns; these enter with the model's other regressors. The
 residuals are used as they are, not demeaned, as in Kilian and Lutkepohl
 (2017, eq. 2.6.2). In

@@ -20,7 +20,7 @@ Format
    :param y: The series to forecast, one column per variable, with no missing
        values. A dataframe supplies the variable names used in the tables and
        plots; one date column, if present, is used as the time index and left
-       out of the model. A matrix is labelled ``Y1``, ``Y2``, and so on.
+       out of the model. A matrix is labeled ``Y1``, ``Y2``, and so on.
    :type y: TxM matrix or dataframe
 
    :param h: Optional keyword, number of periods to forecast.
@@ -184,7 +184,7 @@ model.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
 
-    // Prior centre of each variable's own first lag: 0 for GDP growth, 1 for
+    // Prior center of each variable's own first lag: 0 for GDP growth, 1 for
     // inflation, unemployment and the funds rate. The tightness is chosen
     // by marginal likelihood.
     wf = bvarMacroForecast(y, h=8, holdout=20, lag1_prior_mean=0|1|1|1,
@@ -197,14 +197,14 @@ model.
     Model:        BVAR(2), conjugate Minnesota prior, constant, 5,000 draws, seed 42
     Lag order:    2, selected by BIC over 1-8 (training sample)
     Tightness:    lambda1 = 0.2581 MAP (log ML + Gamma hyperprior); converged, 59 evaluations
-    Prior centre: own first lag 0, 1, 1, 1; constant variance 1e+07
+    Prior center: own first lag 0, 1, 1, 1; constant variance 1e+07
     Sample:       training 1960Q1-2014Q4, holdout 2015Q1-2019Q4
 
     Trust checks
     Optimizer:    converged (59 evaluations); log ML (train) -1307.44
     Stability:    largest companion root 0.9664 (below 1: stationary)
 
-    Residuals at the posterior centre
+    Residuals at the posterior center
     Variable      Variance  Max |ACF|
     ---------------------------------
     gdp_growth      8.4169      0.102
@@ -365,9 +365,9 @@ The function makes forecasts that do not condition on a future path of any
 variable. For impulse responses use :func:`irfCompute`, for forecasts given an
 assumed path :func:`condForecast`, for changing volatility :func:`bvarSvFit`.
 
-**Prior means.** *lag1_prior_mean* is the centre of the prior for each
+**Prior means.** *lag1_prior_mean* is the center of the prior for each
 variable's coefficient on its own first lag; every other coefficient is
-centred on zero. Use 1 for series that drift (levels, rates) and 0 for growth
+centered on zero. Use 1 for series that drift (levels, rates) and 0 for growth
 rates. The default, ``"random_walk"``, suits data that are all levels or
 rates; data that are all growth rates take ``"zero"``. With one value per
 variable the printed summary lists them. The prior means are a

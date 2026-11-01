@@ -87,7 +87,7 @@ selects:
   that it is a VAR in levels written in error-correction form.
 
 When *quiet* is 0, the fitted model prints as :func:`vecmFit` does, with
-labelled beta and equation tables and coefficient standard errors. The
+labeled beta and equation tables and coefficient standard errors. The
 returned structure has the same standard-error members.
 
 **Rank zero.** Use only the series without the date column in *y* before

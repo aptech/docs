@@ -93,7 +93,7 @@
      - Scalar, largest eigenvalue modulus at the posterior mean (*result.b_post*). Missing unless *ctl.stability_check* = 1.
 
    * - result.residuals
-     - (T-p)xm matrix, residuals at the posterior centre *b_post*.
+     - (T-p)xm matrix, residuals at the posterior center *b_post*.
 
    * - result.fitted
      - (T-p)xm matrix, fitted values at *b_post*.

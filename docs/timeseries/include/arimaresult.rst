@@ -40,7 +40,7 @@
 
    * - result.coef_names
      - Kx1 string array, coefficient labels (e.g., ``"AR(1)"``, ``"MA(1)"``,
-       ``"SMA(1)"``). The constant is labelled ``"Mean"`` when the model has
+       ``"SMA(1)"``). The constant is labeled ``"Mean"`` when the model has
        no differencing and ``"Drift"`` when it has any, ordinary or seasonal.
 
    * - result.sigma2

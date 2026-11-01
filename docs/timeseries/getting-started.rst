@@ -24,19 +24,19 @@ The Script
     // Step 1: load the data and keep 1960Q1-2019Q4.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
-    series = y[., "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
     // Step 2: choose the number of lags.
-    lags = varLagSelect(series, 8);
+    lags = varLagSelect(y, 8);
 
-    // Step 3: fit the Bayesian VAR. The prior centres each variable's own
+    // Step 3: fit the Bayesian VAR. The prior centers each variable's own
     // first lag at 0 for GDP growth and at 1 for the three persistent series.
     bvar = bvarFit(y, p=lags.best_p, lag1_prior_mean=0|1|1|1, overall_tightness=0.2, quiet=1);
     call varFitInspect(bvar, name="BVAR(" $+ ntos(lags.best_p) $+ "), Minnesota prior");
 
     // Step 4: check it on quarters it had not seen, against a least-squares VAR.
-    ols = varFit(y, p=lags.best_p, quiet=1);
-    models = forecastModel(ols, name="VAR") | forecastModel(bvar, name="BVAR");
+    ols_fit = varFit(y, p=lags.best_p, quiet=1);
+    struct forecastModel models;
+    models = forecastModel(ols_fit, name="VAR") | forecastModel(bvar, name="BVAR");
     fe = forecastEval(y, models, target="inflation", train_end="1984-Q4", h=4, benchmark="VAR", seed=42);
 
     // Step 5: forecast two years ahead and draw the fan chart.
@@ -83,19 +83,20 @@ Step 2: Choose the Lags
 
     VAR lag selection
     ================================================================================
-    Selected lags     5 (smallest AIC)
-    Smaller is better; * marks the smallest value of each criterion.
+    Selected lags:      5 (smallest AIC)
 
-    Lags        AIC       BIC         HQ          FPE
-    -------------------------------------------------
-    1     -0.108     0.189      0.012     0.897657
-    2     -0.496     0.039*    -0.280     0.609114
-    3     -0.670     0.103     -0.358*    0.512031
-    4     -0.636     0.374     -0.229     0.529991
-    5     -0.720*    0.528     -0.216     0.487938*
-    6     -0.720     0.766     -0.120     0.488625
-    7     -0.711     1.013     -0.016     0.493905
-    8     -0.654     1.307      0.137     0.524139
+    Lags     AIC     BIC       HQ      FPE
+    ---------------------------------------
+    1     -0.108   0.189    0.012   0.8977
+    2     -0.496   0.039*  -0.280   0.6091
+    3     -0.670   0.103   -0.358*  0.5120
+    4     -0.636   0.374   -0.229   0.5300
+    5     -0.720*  0.528   -0.216   0.4879*
+    6     -0.720   0.766   -0.120   0.4886
+    7     -0.711   1.013   -0.016   0.4939
+    8     -0.654   1.307    0.137   0.5241
+
+    * smallest of each criterion
 
 AIC picks five lags, BIC two and HQ three. The script uses AIC's five
 (``lags.best_p``). With four variables that is 21 coefficients per equation,
@@ -106,8 +107,8 @@ Step 3: Fit the Bayesian VAR
 
 A Bayesian VAR adds a prior that pulls the coefficients toward a simple model
 and lets the data pull them away where the evidence is strong. The Minnesota
-prior centres each variable's coefficient on its own first lag, and every
-other coefficient on zero. ``lag1_prior_mean = 0|1|1|1`` sets that centre to 0
+prior centers each variable's coefficient on its own first lag, and every
+other coefficient on zero. ``lag1_prior_mean = 0|1|1|1`` sets that center to 0
 for GDP growth, which moves around a stable mean, and to 1 (a random walk)
 for inflation, unemployment and the funds rate, which drift.
 ``overall_tightness = 0.2`` sets how hard the prior pulls; it is the common
@@ -214,7 +215,7 @@ What to Change for Your Data
 ----------------------------
 
 - Replace the file, the date range and the column list in step 1.
-- Give each variable a prior centre in step 3: 1 for series that drift
+- Give each variable a prior center in step 3: 1 for series that drift
   (levels, rates), 0 for growth rates.
 - Set the first start date (``train_end``), the horizon (``h``) and the
   variable to score (``target``) in step 4.

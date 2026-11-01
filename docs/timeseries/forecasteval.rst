@@ -262,6 +262,7 @@ For example, compare eight one-quarter forecasts of Danish money demand:
     y = asMatrix(loadd(getGAUSSHome("pkgs/timeseries/examples/data/vecm_family_denmark.csv")));
     y = asdf(y, series_names);
     fit = vecmFit(y, 1, p=2, det_case=2, season=4, quiet=1);
+    struct forecastModel models;
     models = forecastModel(fit, name="VECM")
            | forecastModel(fit, rank=0, name="Differences");
     fe = forecastEval(y, models, train_end=47, h=1, benchmark="Differences",
@@ -447,7 +448,7 @@ dates: those where every model produced a forecast and the outcome exists.
 The *Obs* column reports how many.
 
 **What is scored.** Errors are forecast minus outcome. RMSE, bias and the
-Diebold-Mariano test use the point forecast that minimises expected squared
+Diebold-Mariano test use the point forecast that minimizes expected squared
 error: the mean of the predictive draws for a BVAR, the point forecast
 otherwise. MAE uses the predictive median.
 

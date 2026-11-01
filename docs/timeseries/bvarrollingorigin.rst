@@ -149,7 +149,7 @@ Fixed Tightness Against the Marginal-Likelihood Choice
     library timeseries;
 
     // Quarterly US data, 1960Q1-2019Q4: the date and six growth rates
-    // (growth rates take the prior centre lag1_prior_mean = "zero")
+    // (growth rates take the prior center lag1_prior_mean = "zero")
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
     y = data[., "date" "gdp" "cons" "inv" "defl" "wage" "hours"];
 

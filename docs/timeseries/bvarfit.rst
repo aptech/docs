@@ -28,7 +28,7 @@ Format
    :param lag_decay: Optional keyword, how much harder longer lags are pulled: the prior standard deviation for lag *l* is the one for lag 1 divided by :math:`l^{\text{lag\_decay}}`. A number, or ``bvarChoose(start)`` to choose it. Default = 1.
    :type lag_decay: scalar or struct
 
-   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior (Doan, Litterman & Sims 1984), which pulls the sum of each variable's own-lag coefficients toward 1. It does so whatever *lag1_prior_mean* says, also for a variable whose first own lag is centred at 0. 0 turns it off; a positive value turns it on, and smaller values pull harder. Its dummy observations are built from the mean of the first *p* observations (the presample). A number, or ``bvarChoose(start)`` to choose it (``bvarChoose()`` on a value of 0 adds the prior and starts at 1). Default = 0.
+   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior (Doan, Litterman & Sims 1984), which pulls the sum of each variable's own-lag coefficients toward 1. It does so whatever *lag1_prior_mean* says, also for a variable whose first own lag is centered at 0. 0 turns it off; a positive value turns it on, and smaller values pull harder. Its dummy observations are built from the mean of the first *p* observations (the presample). A number, or ``bvarChoose(start)`` to choose it (``bvarChoose()`` on a value of 0 adds the prior and starts at 1). Default = 0.
    :type soc_tightness: scalar or struct
 
    :param sur_tightness: Optional keyword, tightness of the single-unit-root prior (Sims 1993), which pulls the system toward a common stochastic trend. 0 turns it off. Its dummy observation is built from the same presample mean. A number, or ``bvarChoose(start)`` to choose it, as *soc_tightness*. Default = 0.
@@ -100,7 +100,7 @@ Four US series
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
     y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
-    // Prior centre 0 for GDP growth, 1 (random walk) for the three
+    // Prior center 0 for GDP growth, 1 (random walk) for the three
     // persistent series; overall tightness 0.2
     fit = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, overall_tightness=0.2);
 
@@ -251,10 +251,10 @@ draws from the posterior: there is no burn-in and no convergence to check.
 The draws give the standard deviations and credible intervals, which move a
 little with the seed. *log_ml* is the log marginal likelihood, in closed form.
 
-**Choosing the prior centre.** Use 1 (a random walk) for series that drift,
+**Choosing the prior center.** Use 1 (a random walk) for series that drift,
 such as levels, interest rates and inflation, and 0 for growth rates
-(Banbura, Giannone & Reichlin 2010). A random-walk centre on a growth rate
-pulls toward a persistent series the data do not show; a zero centre on a
+(Banbura, Giannone & Reichlin 2010). A random-walk center on a growth rate
+pulls toward a persistent series the data do not show; a zero center on a
 level pulls toward a series that returns quickly to its mean.
 
 **Choosing the prior in the same call.** A prior setting given as a plain

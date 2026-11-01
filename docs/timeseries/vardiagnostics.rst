@@ -45,9 +45,9 @@ Examples
     data = data[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
 
-    ols = varFit(y, p=5, quiet=1);
+    ols_fit = varFit(y, p=5, quiet=1);
 
-    diag_ols = varDiagnostics(ols);
+    diag_ols = varDiagnostics(ols_fit);
 
 The printout begins:
 

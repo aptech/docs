@@ -129,7 +129,7 @@ Choose the Tightness, Then Fit
 
     // Seven quarterly US series (six in log levels, and the federal funds rate),
     // 1959Q1-2008Q4 (the data of Giannone, Lenza and Primiceri 2015). The
-    // default prior centre, a random walk (ctl.lag1_prior_mean = 1), suits levels.
+    // default prior center, a random walk (ctl.lag1_prior_mean = 1), suits levels.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/glp_2015_datasw.csv"));
 
     struct bvarControl ctl;
@@ -140,12 +140,13 @@ Choose the Tightness, Then Fit
     fit = bvarFit(data, ctl=ps.fit_settings);
 
 With nothing marked, the overall tightness is chosen, starting at
-*ctl.overall_tightness*, and every other setting is held. The printout shows
-the lag order and the own-lag prior mean the search used, the overall
-tightness (about 0.14 here) marked "chosen", the residual variances marked
-"from the rule" (the values *residual_variances* gives), the log
-marginal likelihood, the log prior of the tightness and their sum, then the
-fit at the chosen tightness.
+*ctl.overall_tightness*, and every other setting is held. The printout's
+title names the objective, "Prior chosen by posterior mode (map)". It shows
+the lag order and the own-lag prior mean the search used, then every setting
+the search can choose, with * on the ones it chose: here the overall tightness
+(about 0.14). The residual variances show their *residual_variances* rule,
+ar_p. Then come the log marginal likelihood, the log prior of the tightness
+and their sum, then the fit at the chosen tightness.
 
 Different Prior Means for Different Series
 ++++++++++++++++++++++++++++++++++++++++++
@@ -157,19 +158,19 @@ Different Prior Means for Different Series
 
     // Quarterly US GDP growth, inflation, unemployment and the federal funds
     // rate, 1960Q1-2019Q4. GDP growth is not persistent, so its own first lag
-    // is centred at 0; the other three series are persistent and centred at 1.
+    // is centered at 0; the other three series are persistent and centered at 1.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
 
     ps = bvarPriorSelect(y, p=4, lag1_prior_mean={ 0, 1, 1, 1 });
     fit = bvarFit(y, ctl=ps.fit_settings);
 
-    // The same search with every series centred at 1 (the default).
+    // The same search with every series centered at 1 (the default).
     ps_rw = bvarPriorSelect(y, p=4);
 
-With GDP growth centred at 0 the search chooses an overall tightness of
+With GDP growth centered at 0 the search chooses an overall tightness of
 about 0.25, with a log marginal likelihood of -1367.5; with every series
-centred at 1 it chooses about 0.33, with -1376.2. *ps.fit_settings* carries the prior
+centered at 1 it chooses about 0.33, with -1376.2. *ps.fit_settings* carries the prior
 means, so the fit uses them too.
 
 Add the Sum-of-Coefficients and Single-Unit-Root Priors
@@ -233,7 +234,8 @@ Choose the Residual Variances Too, and Compare the Forecasts
 With fixed residual variances the search chooses a tightness of about 0.14;
 with the residual variances chosen too, about 0.22, and the log marginal
 likelihood rises from 3098.8 to 3117.0. The first printout reports the
-residual variances as "from the rule", the second as "chosen". The two
+residual variances as ar_p, the second as "chosen*", followed by a table of
+each series' starting value and chosen value. The two
 tightness values are not
 comparable: the chosen residual variances are up to seven times the
 autoregression values, and a prior with larger residual variances is tighter
@@ -255,9 +257,9 @@ tightness this way forecasts well.
 
 The prior means of the own first lags (*lag1_prior_mean*) are part of the
 prior whose tightness is being chosen; they stay fixed during the search.
-Giannone, Lenza and Primiceri centre every own first lag at 1, for data in
+Giannone, Lenza and Primiceri center every own first lag at 1, for data in
 levels; a mean of 0 for a series that is not persistent keeps the same
-closed form. The sum-of-coefficients prior, when added, centres the sum of
+closed form. The sum-of-coefficients prior, when added, centers the sum of
 each variable's own-lag coefficients at 1 whatever its *lag1_prior_mean*.
 
 **What is chosen and what is held.** A setting given as a plain number is
@@ -376,9 +378,9 @@ on the units of the data.
 *ps.status* = "at_bound" means the objective keeps rising toward the edge
 of a search range, so the returned value is that edge, not a peak;
 *ps.at_bound* names the chosen settings that stopped. For the overall
-tightness: at the lower edge the data favour shrinking the coefficients all
+tightness: at the lower edge the data favor shrinking the coefficients all
 the way to the prior mean; at the upper edge the prior hardly matters. For a
-residual variance: the data favour a value more than 100 times away from its
+residual variance: the data favor a value more than 100 times away from its
 starting value. The printout gives the range of each setting that stopped
 and, for the residual variances, which series and which edge, and
 *ps.converged* is 0. A held setting is never named. *ps.fit_settings* still holds

@@ -49,7 +49,7 @@ The table includes:
 - For a model selected by :func:`autoArima`, the search type, the criterion
   and the number of candidate models
 - Coefficient table with standard errors, t-statistics, p-values, and 95% confidence intervals.
-  The constant is labelled "Mean" when the model has no differencing and
+  The constant is labeled "Mean" when the model has no differencing and
   "Drift" when it has any, ordinary or seasonal.
 - A note when an AR or MA coefficient is held at the estimation limit
 - Ljung-Box portmanteau test for residual autocorrelation

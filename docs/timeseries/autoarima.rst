@@ -81,8 +81,8 @@ The search uses these stages:
 4. The model minimizing ``ctl.ic`` is returned. AICc is the default.
 
 The default stepwise search is faster than exhaustive enumeration, but it can
-miss the model with the best ``ctl.ic``: it moves from model to neighbouring
-model while the criterion improves and stops when no neighbour improves it.
+miss the model with the best ``ctl.ic``: it moves from model to neighboring
+model while the criterion improves and stops when no neighbor improves it.
 On the packaged synthetic series ``airline_passengers.csv`` with period 12 it
 stops at (1,0,0)(1,1,0)[12] with drift, AICc 997.87, although
 (1,0,1)(2,1,0)[12] with drift has AICc 989.91. Set ``ctl.stepwise = 0`` to
@@ -272,7 +272,7 @@ separately with :func:`arimaFit`.
 
 Automatic selection determines the appropriate mean or drift for each
 candidate. Consequently, *ctl.include* must remain ``"auto"`` for this
-function. The constant is labelled ``"Mean"`` in *result.coef_names* when the
+function. The constant is labeled ``"Mean"`` in *result.coef_names* when the
 selected model has no differencing and ``"Drift"`` when it has any, ordinary
 or seasonal. The estimation methods accepted by *ctl.method* are ``"css-ml"``
 and ``"ml"``; matching is case-insensitive.

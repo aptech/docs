@@ -46,10 +46,10 @@ Least-Squares VAR and Bayesian VAR
     data = data[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
 
-    ols = varFit(y, p=5, quiet=1);
-    call varFitInspect(ols, name="VAR(5), least squares");
+    ols_fit = varFit(y, p=5, quiet=1);
+    call varFitInspect(ols_fit, name="VAR(5), least squares");
 
-    // Prior centre of each variable's own first lag: 0 for GDP growth,
+    // Prior center of each variable's own first lag: 0 for GDP growth,
     // 1 for the other three
     bvar = bvarFit(y, p=5, lag1_prior_mean=0|1|1|1, overall_tightness=0.2, quiet=1);
     call varFitInspect(bvar, name="BVAR(5), Minnesota prior");
@@ -97,8 +97,8 @@ Coefficient Table and Residual Summary
     data = data[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
     y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
 
-    ols = varFit(y, p=2, quiet=1);
-    call varFitInspect(ols, name="VAR(2), least squares", details=1);
+    ols_fit = varFit(y, p=2, quiet=1);
+    call varFitInspect(ols_fit, name="VAR(2), least squares", details=1);
 
 The printout:
 
