@@ -224,3 +224,6 @@ and a concrete integration example are in scope. No new VM is required.
   app-Qt probe (`probe-20261102/src/help_probe`, adapted from q30r-01) and diffs against the trial. A dry run
   reproduced the trial QCH byte for byte.
 - Final build waits on GMM commit B docs and a GDAT decision. Report: ~/orca/pillars/reports/help-rebuild-beta.md.
+- Final: docs qthelp 6b3db60f (GDAT 5c45a5fb + 0f237eab, GMM B 6b3db60f). qtgui commit 4d8570f8 on
+  `jason-d-jones/help-rebuild-beta` (parent 5a3d3800), qch 93d98f91, qhc 65290428. Built pre-push from a bundle in
+  the builder clone (`ALLOW_UNPUBLISHED=1`), then confirmed the published head is the same SHA.
