@@ -227,3 +227,6 @@ and a concrete integration example are in scope. No new VM is required.
 - Final: docs qthelp 6b3db60f (GDAT 5c45a5fb + 0f237eab, GMM B 6b3db60f). qtgui commit 4d8570f8 on
   `jason-d-jones/help-rebuild-beta` (parent 5a3d3800), qch 93d98f91, qhc 65290428. Built pre-push from a bundle in
   the builder clone (`ALLOW_UNPUBLISHED=1`), then confirmed the published head is the same SHA.
+- Content audit after 4d8570f8: fixed docs (qthelp 4461374c) and packaging (cc/ and coming-to-gauss/ pages,
+  unshipped links as text, straight quotes). qtgui 63f5ed5f. Image beta-20261102 a54f581e. Always scan the
+  page text (competitors, internal paths, "unreleased", raw markup) and view new screenshots before shipping.
