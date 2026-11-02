@@ -144,6 +144,8 @@ def main():
         if not target or target in shipped:
             return m[0]
         unlinked.append([page, m[2]])
+        if re.search(r'\bclass="[^"]*\bbtn\b', m[0]):  # Previous/Next button
+            return ''
         return '<span class="app-help-unlinked">'+m[3]+'</span>'
     for f in sorted(stage.glob('*.html')):
         text = f.read_text()
