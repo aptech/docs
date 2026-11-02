@@ -15,6 +15,7 @@ New features
 #. New function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
 #. New functions :func:`ln1p`, :func:`expm1`, :func:`lnsumexp` and :func:`lndiffexp` keep full precision near zero and when adding or subtracting log likelihoods and log probabilities.
 #. :func:`minimize` adds Nelder-Mead for unconstrained objectives without derivatives: ``minimize(&f, x0, method="nelder-mead")``. Use L-BFGS-B when bounds are needed.
+#. :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``. :func:`saveStruct` and :func:`loadStruct` keep dataframe members' metadata too.
 #. 54 procedures that return a structure, among them :func:`olsmtControlCreate`, :func:`QNewtonmtControlCreate` and :func:`pvPack`, now declare it, so ``ctl = olsmtControlCreate()`` works without declaring ``ctl`` first.
 
 Graphics and the editor
@@ -43,6 +44,7 @@ Speed and accuracy
 Changes that can affect existing programs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. :func:`saved` writes ``.gdat`` files in a new format, GDAT 2.0, that GAUSS 26 and earlier cannot read. To write a table they can read, pass 1 as the fourth argument: ``saved(x, "file.gdat", 0, 1)``. Files from :func:`saveStruct` also use the new format, and :func:`loadStruct` in GAUSS 26 returns 1 for them.
 #. ``plotAdd*`` functions add to the graph GAUSS last created or added to, not the graph tab last clicked.
 #. During debugging a new graph opens beside the code; the **Undock page if debugging** preference is removed.
 #. 3D surfaces use orthographic projection, fill their cell and are unshaded by default. Set **Lighting** to 5, **Projection** to Perspective and **Box** to Cube for the GAUSS 26 look. The **Below** camera presets now look from below. A ``.plot`` file saved by GAUSS 27 with a surface beside other graphs shows only the surface in GAUSS 26. Adding a 2D curve to a surface graph, or a surface to a 2D graph, opens a new graph.

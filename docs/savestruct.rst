@@ -37,9 +37,17 @@ Remarks
 
 The file on the disk will be given a :file:`.fsr` extension.
 
-For the development GDAT v2 format, use :func:`saved` with an explicit
-``.gdat`` filename. It supports nested structures and retains dataframe
-metadata inside their members. :func:`saveStruct` continues to write the
-existing ``.fsr`` format.
+:func:`saveStruct` writes the GDAT v2 format (see :func:`saved`) under the
+:file:`.fsr` name. Dataframe members keep their column names, types, date
+formats and labels when the file is loaded with :func:`loadStruct` in another
+session. A structure holding a value GDAT v2 does not support, such as a
+string that is not valid UTF-8, is written in the older :file:`.fsr` format,
+where dataframe members load as plain matrices.
+
+GAUSS 26 and earlier cannot read files that :func:`saveStruct` writes in
+GAUSS 27: their :func:`loadStruct` returns 1.
+
+To save a structure to a ``.gdat`` file and load single members of it, use
+:func:`saved` and :func:`loadd`.
 
 .. seealso:: :func:`loadStruct`, :func:`saved`, :func:`loadd`

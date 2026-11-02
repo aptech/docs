@@ -76,8 +76,12 @@ Remarks
 
 *instance* can be an array of structures.
 
-Use :func:`loadd` for structures saved in the development GDAT v2 format.
-:func:`loadStruct` reads the existing ``.fsr`` format; it does not read
-``.gdat`` files.
+:func:`loadStruct` reads :file:`.fsr` files in the GDAT v2 format that
+:func:`saveStruct` writes, and in the older format. The structure type,
+member names, order and kinds must match the file. Dataframe members of
+older-format files load as plain matrices, without column names or types.
+
+:func:`loadStruct` does not read ``.gdat`` files; use :func:`loadd` for
+structures saved with :func:`saved`.
 
 .. seealso:: :func:`saveStruct`, :func:`loadd`, :func:`saved`

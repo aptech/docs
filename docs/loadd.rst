@@ -9,11 +9,6 @@ dataset types are CSV, Excel (XLS, XLSX), HDF5, GAUSS Matrix (FMT),
 GAUSS Dataset (GDAT, DAT), Stata (DTA), and SAS (SAS7BDAT, SAS7BCAT).
 Existing dataframes are also supported.
 
-.. note::
-
-    GDAT v2 is an unreleased development feature. The v2 behavior below
-    requires a development build with GDAT v2 support.
-
 Format
 ----------------
 .. function:: y = loadd(dataset [, varnames [, ldCtl]])

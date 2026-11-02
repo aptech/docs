@@ -6,12 +6,8 @@ Purpose
 ----------------
 
 Writes a matrix or dataframe to a dataset. GDAT v2 also saves structures,
-strings, and arrays, including dataframe metadata inside structures.
-
-.. note::
-
-    GDAT v2 is an unreleased development feature. The v2 behavior below
-    requires a development build with GDAT v2 support.
+strings, arrays and sparse matrices, including dataframe metadata inside
+structures.
 
 Format
 ----------------
@@ -220,13 +216,13 @@ GDAT v2
 +++++++
 
 -  Supported values are structures and structure arrays (including nested
-   structures), scalars, real or complex matrices and N-dimensional arrays,
-   strings, string arrays, and real, nonempty dataframes.
+   structures), scalars, real or complex matrices, N-dimensional arrays and
+   sparse matrices, strings, string arrays, and real, nonempty dataframes.
 -  A real, nonempty matrix saved as the top-level value is stored as a
    dataframe with column names. A scalar becomes a 1x1 dataframe. Matrix
    members inside structures retain their original metadata, if any.
--  Sparse matrices, complex or empty dataframes, and empty N-dimensional
-   arrays are not supported. Empty matrices are supported.
+-  Complex or empty dataframes and empty N-dimensional arrays are not
+   supported. Empty matrices are supported.
 -  Text must be valid UTF-8 without embedded NUL characters. Structure type
    and member names must use ASCII characters.
 -  Saving replaces the whole file. An existing file is replaced only after
@@ -234,6 +230,10 @@ GDAT v2
    through :func:`dataopen` are not supported for v2.
 -  :func:`loadd` detects v1 and v2 automatically. Reading a v1 file does not
    convert it to v2; saving to ``.gdat`` uses v2 unless version 1 is specified.
+-  Each file records its format version (2.0 in GAUSS 27) and the GAUSS
+   version that wrote it. Later GAUSS releases read these files. A file
+   written by a later release can use features this release does not know;
+   the error then says that a newer GAUSS may be needed.
 
 CSV
 +++
