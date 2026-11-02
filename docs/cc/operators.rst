@@ -17,7 +17,7 @@ Arithmetic operators
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
 | `.*`     | :doc:`ExE Multiplication <../element-by-element-multiplication>`     | ``a .* b`` Multiplies elements of ``a`` and ``b``.                                                   |
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| `.*. `   | :doc:`Kronecker Product <../kronecker-product>`                      | ``a .*. b`` Computes the Kronecker (tensor) product of ``a`` and ``b``.                              |
+| ``.*.``  | :doc:`Kronecker Product <../kronecker-product>`                      | ``a .*. b`` Computes the Kronecker (tensor) product of ``a`` and ``b``.                              |
 +----------+----------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
 | `/`      | :doc:`Matrix Division <../matrix-division>`                          | ``a / b`` Computes the least squares solution if ``a`` and ``b`` are matrices or vectors.            |
 |          |                                                                      | If either operand is a scalar, element-by-element division will be performed.                        |
