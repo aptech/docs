@@ -75,6 +75,7 @@ Other fixes
 #. :func:`varget` and :func:`varput` on the name of a procedure give error G0752.
 #. :func:`gmmFitIV` with plain matrices, :func:`gdadstat` with variable indices, ``spline1D`` with sigma 0, and ``pvRepacki`` and ``pvGetMask`` on a PV with no parameters.
 #. :func:`gmmFit` and :func:`gmmFitIV` estimates, standard errors and J statistics, which could stop short of the minimum or use the wrong weight. Iterative GMM stops when both the estimate and the weight matrix have settled, and ``gOut.converged`` reports whether it did; the default tolerances ``gIter.paramTol`` and ``gIter.wTol`` are now 1e-6 (were 1e-5). :func:`gmmFit` with a HAC weight or covariance and ``gmmlags = 0`` uses no lags instead of stopping with an error. The example ``gmmSV1.gss`` uses the correct stochastic volatility moments and a HAC weight and covariance, and ``gmmSvSim.gss`` simulates from the stationary distribution.
+#. :func:`fred_load` and the other web data functions no longer print the request, including your FRED API key, on the screen or in error messages. FRED error replies show FRED's message instead of error G0117.
 #. :func:`cdfFnc` and :func:`cdfFncInv` with missing values.
 #. Memory use when drawing many surface or contour graphs with :func:`plotSetZLevels`.
 #. Axes with a tick interval label their first and last ticks; setting only Range Min or Range Max in the graph settings keeps the other end.
