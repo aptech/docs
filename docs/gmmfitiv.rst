@@ -87,11 +87,11 @@ Format
               - string, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Else:
 
                   :"identity": Identity matrix.
-                  :"unadj": Weight matrix :math:`1/n*inv(Z'Z)`. Assumes moments are i.i.d. Default = :code:`"unadj"`
+                  :"unadj": Weight matrix :math:`inv(Z'Z/n)`. Assumes moments are i.i.d. Default = :code:`"unadj"`
             * - gCtl.gIter
               - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
 
-                  :gCtl.gIter.maxIter: scalar, maximum number of iterations, at least 1. Default = 500.
+                  :gCtl.gIter.maxIters: scalar, maximum number of iterations, at least 1. Default = 500.
                   :gCtl.gIter.paramTol: scalar, tolerance level for convergence based on parameter estimates. Default = 1e-6.
                   :gCtl.gIter.wTol: scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-6.
             * - gCtl.jStatWeight

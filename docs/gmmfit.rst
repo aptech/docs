@@ -42,13 +42,13 @@ Format
             * - gCtl.vceType
               - string, variance-covariance matrix type. Default = :code:`"robust"`.
 
-                  :"unadj": Unadjusted, non-robust SE. This option is only available if the formula string syntax is used. It assumes a moment function of the form :math:`m = f(Z, u)` or :math:`m = f(X, u)`. The :code:`"unadj"` vce is given by :math:`\sigma_{u}^2 (x'(z(z'z)^{-1}z)x)^{-1}`.
+                  :"unadj": Not available in :func:`gmmFit`, which uses :code:`"robust"` instead. Use :func:`gmmFitIV` for the unadjusted covariance of a linear model.
                   :"robust": Heteroscedastic robust SE.
                   :"hac": Heteroscedastic-autocorrelation robust SE.
             * - gCtl.wType
               - string, type of weight matrix used. Ignored for one-step case. Default = :code:`"robust"`.
 
-                  :"unadj": Unadjusted, non-robust SE. This option is only available if the formula string syntax is used.
+                  :"unadj": Not available in :func:`gmmFit`, which uses :code:`"robust"` instead.
                   :"robust": Heteroscedastic robust SE.
                   :"hac": Heteroscedastic-autocorrelation robust SE.
             * - gCtl.hacKernel
@@ -65,13 +65,13 @@ Format
               - string or data matrix, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Default = :code:`"identity"`.
 
                   :"identity": Identity matrix.
-                  :"unadj": Weight matrix :math:`\frac{1}{n}*inv(Z'Z)`. Assumes moments are i.i.d. This option is only available if the formula string syntax is used.
+                  :"unadj": Not available in :func:`gmmFit`, which uses the identity matrix instead.
             * - gCtl.gIter
               - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
 
-                  :gCtl.gIter.maxIter: scalar, maximum number of iterations, at least 1.
-                  :gCtl.gIter.parmTol: scalar, tolerance level for convergence based on parameter estimates. Default = 1e-5.
-                  :gCtl.gIter.wTol: scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-5.
+                  :gCtl.gIter.maxIters: scalar, maximum number of iterations, at least 1. Default = 500.
+                  :gCtl.gIter.paramTol: scalar, tolerance for the largest relative change in the parameter estimates. Default = 1e-6.
+                  :gCtl.gIter.wTol: scalar, tolerance for the relative change in the weight matrix (Frobenius norm). Default = 1e-6.
 
             * - gCtl.jStatWeight
               - string, weight matrix used in the J statistic of two-step and iterative GMM. Default = :code:`"final"`.
