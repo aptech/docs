@@ -102,8 +102,6 @@ VAR Estimation
      - Fit BVAR with stochastic volatility and optional SSVS variable selection.
    * - :func:`varLagSelect`
      - Select lag order by AIC, BIC, Hannan-Quinn, or FPE.
-   * - :func:`periodDummies`
-     - Create historical-quarter indicators and their future values.
    * - :func:`bvarPriorSelect`
      - Optimize Minnesota hyperparameters via marginal likelihood (GLP 2015).
    * - :func:`bvarChoose`
@@ -354,7 +352,6 @@ Control Structure Creators
     bvarpriorselect
     bvarchoose
     varcontrolcreate
-    perioddummies
     bvarcontrolcreate
     bvarsvcontrolcreate
 
