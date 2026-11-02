@@ -126,8 +126,8 @@ The supported dataset types are `CSV <FIO.1-DelimitedTextFiles.html>`_, `Excel (
 Remarks
 -------
 
-For GDAT files, use the ``.gdat`` filename directly. In development builds
-with GDAT v2 support, :func:`getHeaders` reads the saved column names when
+For GDAT files, use the ``.gdat`` filename directly. For GDAT v2 files,
+:func:`getHeaders` reads the saved column names when
 the top-level value is a real, nonempty dataframe. For a dataframe inside a
 structure, first load the member with :func:`loadd`, then use
 :func:`getColNames` on the returned dataframe.

@@ -31,13 +31,13 @@ Many GAUSS commands accept literal string arguments without quotes:
 ::
 
     // Direct literal string
-    output file=/Users/jason/gauss26/foo.txt on;
+    output file=/Users/MyUserName/gauss/foo.txt on;
 
 To use a variable instead, use the ``^`` dereference operator:
 
 ::
 
-    fname = "/Users/jason/gauss26/foo.txt";
+    fname = "/Users/MyUserName/gauss/foo.txt";
     output file=^fname on;
 
 Load Command
@@ -65,7 +65,7 @@ Multiple Substitutions
 
 ::
 
-    dirname = "/Users/jason/data/";
+    dirname = "/Users/MyUserName/data/";
     filename = "results.csv";
     fullpath = dirname $+ filename;
 

@@ -48,35 +48,35 @@ Format
             * - gCtl.method
               - string, GMM method to be used.
 
-                  :"onestep": One-step GMM
-                  :"twostep": Two-step GMM
-                  :"iterative": Iterative GMM (or :code:`"iterated"`)
+                  :\"onestep\": One-step GMM
+                  :\"twostep\": Two-step GMM
+                  :\"iterative\": Iterative GMM (or :code:`"iterated"`)
 
                 Default = :code:`"twostep"`. The names are not case sensitive. Continuous updating GMM (:code:`"CU"`) is not available in :func:`gmmFitIV` and stops with an error, as does any other name; use :func:`gmmFit` for continuously updated GMM.
             * - gCtl.vceType
               - string, variance-covariance matrix type.
 
-                  :"unadj": Unadjusted, non-robust SE.
-                  :"robust": Heteroscedastic robust SE.
-                  :"hac": Heteroscedastic-autocorrelation robust SE.
+                  :\"unadj\": Unadjusted, non-robust SE.
+                  :\"robust\": Heteroscedastic robust SE.
+                  :\"hac\": Heteroscedastic-autocorrelation robust SE.
 
                 Default = :code:`"robust"`. Any other name stops with an error.
             * - gCtl.wType
               - string, type of weight matrix used. Ignored for one-step case.
 
-                  :"unadj": Unadjusted, non-robust SE.
-                  :"robust": Heteroscedastic robust SE.
-                  :"hac": Heteroscedastic-autocorrelation robust SE.
+                  :\"unadj\": Unadjusted, non-robust SE.
+                  :\"robust\": Heteroscedastic robust SE.
+                  :\"hac\": Heteroscedastic-autocorrelation robust SE.
 
                 Default = :code:`"robust"`. Any other name stops with an error.
             * - gCtl.hacKernel
               - string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using :code:`"hac"` weight matrix and/or variance-covariance matrix.
 
-                  .. NOTE:: Unless *gCtl.gmmlags* is set, the bandwidth is chosen by the Newey-West (1994) method from the sum of the moment conditions, without prewhitening. It depends on the units of the moments and does not reproduce Stata's automatic bandwidth. The bandwidth of the weight matrix is chosen once, at the first-step estimate, and kept for every weight matrix of the fit, for *gOut.wFinal* and for the J statistic; the HAC variance-covariance matrix chooses its own bandwidth at the final estimate.
+                  .. NOTE:: Unless *gCtl.gmmlags* is set, the bandwidth is chosen by the Newey-West (1994) method from the sum of the moment conditions, without prewhitening. It depends on the units of the moments. The bandwidth of the weight matrix is chosen once, at the first-step estimate, and kept for every weight matrix of the fit, for *gOut.wFinal* and for the J statistic; the HAC variance-covariance matrix chooses its own bandwidth at the final estimate.
 
-                  :"bartlett": Bartlett kernel.
-                  :"parzen": Parzen kernel.
-                  :"quad": Quadratic spectral kernel. It uses every lag, so its cost grows with the square of the number of observations.
+                  :\"bartlett\": Bartlett kernel.
+                  :\"parzen\": Parzen kernel.
+                  :\"quad\": Quadratic spectral kernel. It uses every lag, so its cost grows with the square of the number of observations.
 
                 Default = :code:`"bartlett"`
             * - gCtl.gmmlags
@@ -86,8 +86,8 @@ Format
             * - gCtl.wInit
               - string, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Else:
 
-                  :"identity": Identity matrix.
-                  :"unadj": Weight matrix :math:`inv(Z'Z/n)`. Assumes moments are i.i.d. Default = :code:`"unadj"`. Any other name stops with an error.
+                  :\"identity\": Identity matrix.
+                  :\"unadj\": Weight matrix :math:`inv(Z'Z/n)`. Assumes moments are i.i.d. Default = :code:`"unadj"`. Any other name stops with an error.
             * - gCtl.gIter
               - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
 
@@ -97,8 +97,8 @@ Format
             * - gCtl.jStatWeight
               - string, weight matrix used in the J statistic of two-step and iterative GMM. Default = :code:`"final"`.
 
-                  :"final": The weight matrix of type *wType* at the final estimate, as R's momentfit.
-                  :"estimation": The weight matrix used to compute the final estimate (*N* times the objective), as Stata. The two agree for iterative GMM once it has converged.
+                  :\"final\": The weight matrix of type *wType* at the final estimate, as R's momentfit.
+                  :\"estimation\": The weight matrix used to compute the final estimate (*N* times the objective). The two agree for iterative GMM once it has converged.
 
                 One-step GMM (2SLS) has a valid J only with the unadjusted weight and covariance (:code:`wInit = "unadj"`, no *wInitMat*, :code:`vceType = "unadj"`). J is then Sargan's statistic, whatever *jStatWeight* is, and the printout says so. For every other one-step fit J is missing.
             * - gCtl.noconstant

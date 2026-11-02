@@ -576,8 +576,7 @@ dataframe metadata inside members are retained.
 
 .. note::
 
-    GDAT v2 is an unreleased development feature and requires a build with
-    v2 support. Older GAUSS releases cannot read v2 files.
+    GAUSS 26 and earlier cannot read GDAT v2 files.
 
 ::
 

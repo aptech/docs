@@ -68,10 +68,10 @@ Format
             - String, the prediction method used for LRD or linear prediction. Default = :code:`"bayes"`
               Acceptable values:
 
-                :"predict": OLS :math:`\beta` is used for predicting in missing cases.
-                :"noise": OLS :math:`\beta` is used for predicting in missing cases and a random disturbance drawn from :math:`N(0, \hat{\sigma})` is added to the prediction.
-                :"bayes": Uses :math:`\dot{\beta}` drawn from the posterior distribution for predicting missing cases and a random disturbance drawn from :math:`N(0, \dot{\sigma})` is added to the prediction. :math:`\dot{\sigma}` is drawn from the posterior distribution.
-                :"bootstrap": Coefficient and sigma are the least squares estimates calculated from a bootstrap sample taken from the observed data. A random disturbance is drawn from :math:`N(0, \dot{sigma})` is added to the prediction.
+                :\"predict\": OLS :math:`\beta` is used for predicting in missing cases.
+                :\"noise\": OLS :math:`\beta` is used for predicting in missing cases and a random disturbance drawn from :math:`N(0, \hat{\sigma})` is added to the prediction.
+                :\"bayes\": Uses :math:`\dot{\beta}` drawn from the posterior distribution for predicting missing cases and a random disturbance drawn from :math:`N(0, \dot{\sigma})` is added to the prediction. :math:`\dot{\sigma}` is drawn from the posterior distribution.
+                :\"bootstrap\": Coefficient and sigma are the least squares estimates calculated from a bootstrap sample taken from the observed data. A random disturbance is drawn from :math:`N(0, \dot{sigma})` is added to the prediction.
 
           * - *iCtl.adaptiveDmax*
             - Scalar, indicator variable, either one or zero. When set to one uses an adaptive method that uses the *numberDonors* member to determine the number of potential candidates when no potential donors meet the max distance criteria. When set to zero missing values will be kept in dataset if no potential candidates meet the max distance criteria. Default = 0.

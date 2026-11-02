@@ -138,10 +138,10 @@ changes in a file.
 
 9. The supported dataset types are :file:`.gdat`, :file:`.dat`, ``.h5``, :file:`.fmt`.
 
-GDAT v2 tables (development feature)
-++++++++++++++++++++++++++++++++++++
+GDAT v2 tables
+++++++++++++++
 
-In development builds with GDAT v2 support, :func:`dataopen` can read a
+:func:`dataopen` can read a GDAT v2
 ``.gdat`` file whose top-level value is a real, nonempty dataframe. This
 includes real matrices saved as tables by :func:`saved`.
 

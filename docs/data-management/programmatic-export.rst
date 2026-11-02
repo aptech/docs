@@ -30,9 +30,8 @@ the metadata in their dataframe members.
 
 .. note::
 
-    GDAT v2 is an unreleased development feature. In builds with v2 support,
-    :func:`saved` writes v2 by default and :func:`loadd` reads both v1 and v2.
-    Older GAUSS releases cannot read v2. To share a table with an older
+    :func:`saved` writes GDAT v2 by default and :func:`loadd` reads both v1
+    and v2. GAUSS 26 and earlier cannot read v2. To share a table with an older
     release, use ``saved(data, "legacy.gdat", 0, 1)``.
 
 When using :func:`saved` to save non-GDAT file types:

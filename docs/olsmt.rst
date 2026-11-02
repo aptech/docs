@@ -13,7 +13,7 @@ Format
               out = olsmt(data, depvar, indvars[, ctl])
 
     :param data: name of dataset, dataframe in memory, or an empty string.
-        If *data* is an empty string,``""``, the procedure assumes that the actual data has been passed in the next two arguments.
+        If *data* is an empty string, ``""``, the procedure assumes that the actual data has been passed in the next two arguments.
     :type data: string or dataframe
 
     :param formula: formula string of the model.

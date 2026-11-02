@@ -132,7 +132,7 @@ Remarks
 
 *  Since :func:`loaddSA` will load the entire dataset at once, the dataset must
    be small enough to fit in memory.
-*  In development builds with GDAT v2 support, :func:`loaddSA` reads v2
+*  :func:`loaddSA` reads GDAT v2
    tables, including their string and category labels. The entire table
    must fit in memory even when selecting only some columns. Use
    :func:`loadd` for a saved structure, structure member, or standalone string

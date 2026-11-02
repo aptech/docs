@@ -114,7 +114,7 @@ This function is useful for handling missing values by "listwise
 deletion," particularly prior to using the ``/`` operator to compute least
 squares coefficients.
 
-If all rows of a matrix contain missing values,:func:` packr` returns a scalar
+If all rows of a matrix contain missing values, :func:`packr` returns a scalar
 missing value. This can be tested for quickly with the :func:`scalmiss` function.
 
 
