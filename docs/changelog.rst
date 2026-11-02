@@ -38,7 +38,7 @@ Speed and accuracy
 #. Accuracy improvements in the multivariate normal and *t* probabilities (:func:`cdfMvne`, :func:`cdfMvte` and related functions) for perfectly correlated variables, large degrees of freedom, and infinite or very large limits. Results agree with Genz's reference code.
 #. Accuracy improvements in the discrete distribution functions for extreme probabilities, very large answers and *x* values computed in floating point. The inverse functions :func:`cdfBinomialInv`, :func:`cdfNegBinomialInv` and :func:`cdfPoissonInv` return the smallest value whose cumulative probability is at least *p*.
 #. On AMD processors with AVX2, GAUSS uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
-#. :func:`det` handles well-conditioned matrices with very small elements.
+#. :func:`det` returns the correct determinant for matrices whose elements are all very small, where GAUSS 26 returned 0, for example for ``1e-15*eye(4)``.
 #. On Apple silicon, :func:`rndCreateState` supports ``"mrg32k3a"``, and random number streams match Windows and Linux.
 
 Changes that can affect existing programs
