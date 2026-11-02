@@ -8,75 +8,87 @@ The following is a list of changes from the previous version of GAUSS.
 27.0.0
 ------
 
-New features
-~~~~~~~~~~~~
+GAUSS 27 makes slow loops dramatically faster, makes your statistical results more accurate, and puts your graphs and data right beside your code. It is built to run the programs you already have, and most programs need no changes.
 
-#. Dramatic speed-up for loops that cannot be vectorized, such as GARCH-in-mean likelihoods and Kalman filters: write ``kernel proc`` in place of ``proc`` and GAUSS compiles the procedure to native code.
-#. 3D surfaces beside your other graphs. Put a surface next to XY, scatter, bar and other 2D graphs in :func:`plotLayout` and :func:`plotCustomLayout`, and move, resize, pop out and export it like any other graph. Titles fit the graph and are centered over the surface. Label it with text boxes, including LaTeX. Text is sharp at any display scaling and stays real text in PDF and SVG exports. New **Projection** and **Box** settings and **Front Left** and **Front Right** camera presets, and your mouse rotation is saved in ``.plot`` files.
-#. More accurate GMM. :func:`gmmFit` and :func:`gmmFitIV` compute standard errors from the full sandwich and choose HAC bandwidths from the moment conditions, and :func:`gmmFit` counts the observations the moment function returns. Iterative GMM runs until both the estimate and the weight matrix settle, and ``gOut.converged`` reports whether it did. The new member ``gCtl.jStatWeight`` chooses the weight in the J statistic.
-#. New function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
-#. Accurate log likelihoods for maximum likelihood and optimization, even when probabilities are tiny. New functions :func:`lnsumexp` and :func:`lndiffexp` add and subtract log likelihoods and log probabilities without overflow, underflow or lost precision, for example in mixture models or ``lndiffexp(lncdfn(b), lncdfn(a))`` for ordered and interval probabilities. :func:`ln1p` and :func:`expm1` keep full precision near zero.
-#. :func:`minimize` adds Nelder-Mead for unconstrained objectives without derivatives: ``minimize(&f, x0, method="nelder-mead")``. Use L-BFGS-B when bounds are needed.
-#. :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``. :func:`saveStruct` and :func:`loadStruct` keep dataframe members' metadata too, and :func:`loadStruct` prints why it cannot read a file it returns 1 for.
-#. 54 procedures that return a structure, among them :func:`olsmtControlCreate`, :func:`QNewtonmtControlCreate` and :func:`pvPack`, now declare it, so ``ctl = olsmtControlCreate()`` works without declaring ``ctl`` first.
+Speed
+~~~~~
 
-Graphics and the editor
-~~~~~~~~~~~~~~~~~~~~~~~
+#. **Much faster loops.** Loops that cannot be vectorized, such as GARCH-in-mean likelihoods and Kalman filters, get a dramatic speed-up: write ``kernel proc`` in place of ``proc`` and GAUSS compiles the procedure to native code.
+#. **Faster normal probabilities.** :func:`lncdfn` and :func:`lncdfnc` are now built in and 10 to 20 times faster on large matrices, and :func:`cdfnc` is up to 30 times faster. All three are accurate to about 15 significant digits for every *x*, and :func:`lncdfn` and :func:`lncdfnc` accept N-dimensional arrays.
+#. **Faster on AMD processors.** On processors with AVX2, GAUSS now uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
+#. **Quicker start.** GAUSS starts faster with a long command history, and stays responsive in workspaces with many structures.
 
-#. Graphs open beside your code. A graph created from the Edit page opens in a tab group next to the source file. Tab groups can be split, and graphs dragged between them. Set **When a graph is added** in the Graphics preferences to **Change to graphics page** for the previous behavior.
-#. Pop out any graph into its own window with **Pop Out**, and move graphs between pages with **Move to Graphics** and **Move to Edit**.
-#. The Edit page has new **Symbols** and **History** panels. Double-click a symbol to open its editor beside your code; double-click a history entry to run it. History entries are syntax-colored and follow the editor theme.
-#. Graphs of the same size in a layout line up: the axes in each row and column align whatever their titles, labels or fonts. Titles are centered over the plot area.
-#. Smarter axes. The number of tick labels fits the size of the graph, labels stay round when you zoom or pan, very large and very small values share a power of ten (for example, ×10\ :sup:`12`), and ranges set with :func:`plotSetXRange` or :func:`plotSetYRange` are drawn exactly as given.
-#. Legends show bar, box and filled-area series as filled boxes, and hide a line symbol whose width is 0.
-#. GAUSS starts faster with a long command history, and stays responsive in workspaces with many structures.
+Statistics and estimation
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Speed and accuracy
-~~~~~~~~~~~~~~~~~~
+#. **Optimize without derivatives.** :func:`minimize` adds Nelder-Mead for unconstrained objectives: ``minimize(&f, x0, method="nelder-mead")``. Use L-BFGS-B when you need bounds.
+#. **Accurate log likelihoods, even when probabilities are tiny.** New functions :func:`lnsumexp` and :func:`lndiffexp` add and subtract log likelihoods and log probabilities without overflow, underflow or lost precision, for example in mixture models or ``lndiffexp(lncdfn(b), lncdfn(a))`` for ordered and interval probabilities. :func:`ln1p` and :func:`expm1` keep full precision near zero.
+#. **More accurate GMM.** :func:`gmmFit` and :func:`gmmFitIV` give more accurate standard errors, J statistics and convergence, and a new ``gCtl.jStatWeight`` option chooses the weight in the J statistic. Their reference pages give the details.
+#. **More accurate multivariate probabilities.** :func:`cdfMvne`, :func:`cdfMvte` and related functions are more accurate for perfectly correlated variables, large degrees of freedom, and infinite or very large limits. Results agree with Genz's reference code.
+#. **More accurate discrete distributions.** The discrete distribution functions and their inverses, such as :func:`cdfBinomialInv`, are more accurate for extreme probabilities and very large answers.
+#. **More accurate determinants.** :func:`det` is more accurate for matrices with very small elements.
 
-#. :func:`lncdfn` and :func:`lncdfnc` are built in, 10 to 20 times faster on large matrices, accurate to about 15 significant digits for every *x*, and accept N-dimensional arrays.
-#. :func:`cdfnc` is up to 30 times faster on large matrices and accurate to about 15 significant digits for every *x*.
-#. Accuracy improvements in the multivariate normal and *t* probabilities (:func:`cdfMvne`, :func:`cdfMvte` and related functions) for perfectly correlated variables, large degrees of freedom, and infinite or very large limits. Results agree with Genz's reference code.
-#. Accuracy improvements in the discrete distribution functions for extreme probabilities, very large answers and *x* values computed in floating point. The inverse functions :func:`cdfBinomialInv`, :func:`cdfNegBinomialInv` and :func:`cdfPoissonInv` return the smallest value whose cumulative probability is at least *p*.
-#. On AMD processors with AVX2, GAUSS uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
-#. Increased accuracy of :func:`det` for matrices with very small elements, which GAUSS 26 could return as 0.
-#. On Apple silicon, :func:`rndCreateState` supports ``"mrg32k3a"``, and random number streams match Windows and Linux.
+Graphics
+~~~~~~~~
+
+#. **3D surfaces beside your other graphs.** Put a surface next to XY, scatter, bar and other 2D graphs in :func:`plotLayout` and :func:`plotCustomLayout`, and move, resize, pop out and export it like any other graph. Titles fit the graph and are centered over the surface. Label it with text boxes, including LaTeX. Text is sharp at any display scaling and stays real text in PDF and SVG exports. New **Projection** and **Box** settings, new **Front Left** and **Front Right** camera presets, and your mouse rotation is saved in ``.plot`` files.
+#. **Layouts that line up.** Graphs of the same size in a layout align their axes in every row and column, whatever their titles, labels or fonts. Titles are centered over the plot area.
+#. **Smarter axes.** The number of tick labels fits the size of the graph, an axis ends at the data unless a round number is close, labels stay round when you zoom or pan, very large and very small values share a power of ten (for example, ×10\ :sup:`12`), and ranges set with :func:`plotSetXRange` or :func:`plotSetYRange` are drawn exactly as you give them.
+#. **Clearer legends.** Bar, box and filled-area series show as filled boxes, and a line symbol whose width is 0 is hidden.
+#. **Pop out any graph** into its own window with **Pop Out**, and move graphs between pages with **Move to Graphics** and **Move to Edit**.
+
+The editor
+~~~~~~~~~~
+
+#. **Graphs open beside your code.** A graph created from the Edit page opens in a tab group next to your program, so you see your code and its results together. Split the tab group, or drag graphs from one group to another. Prefer the Graphics page? Set **When a graph is added** in the Graphics preferences to **Change to graphics page**.
+#. **Your workspace on the Edit page.** New **Symbols** and **History** panels: double-click a symbol to open its editor beside your code, or double-click a history entry to run it again. History entries are syntax-colored and follow your editor theme.
+#. **Quicker navigation.** :kbd:`Ctrl+K` opens its panel when needed, and opening a symbol that already has an editor brings that editor forward.
+
+Data and programming
+~~~~~~~~~~~~~~~~~~~~
+
+#. **Save a whole set of results in one file.** :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load just one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``. :func:`saveStruct` and :func:`loadStruct` keep dataframe members' metadata too, and :func:`loadStruct` tells you why it cannot read a file it returns 1 for.
+#. **Differences in one call.** The new function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
+#. **Less typing with structures.** 54 procedures that return a structure, among them :func:`olsmtControlCreate`, :func:`QNewtonmtControlCreate` and :func:`pvPack`, now declare it, so ``ctl = olsmtControlCreate()`` works without declaring ``ctl`` first.
+#. **Your FRED API key stays private** in the output and error messages of :func:`fred_load` and the other web data functions.
 
 Upgrading from GAUSS 26
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-GAUSS 27 brings increased accuracy, clearer errors and more error checking.
+Most programs need no changes. Here is what to check.
 
-#. :func:`saved` writes ``.gdat`` files in GDAT 2.0, which keeps structures, strings and dataframe metadata. To share a table with GAUSS 26 or earlier, which cannot read GDAT 2.0, pass 1 as the fourth argument: ``saved(x, "file.gdat", 0, 1)``. Files from :func:`saveStruct` also use GDAT 2.0.
-#. ``plotAdd*`` functions add to the graph GAUSS last created or added to, not the graph tab last clicked. During debugging a new graph opens beside the code, and the **Undock page if debugging** preference is removed.
-#. 3D surfaces have a cleaner default look: orthographic projection, filling their cell, unshaded. For the GAUSS 26 look, set **Lighting** to 5, **Projection** to Perspective and **Box** to Cube. The **Below** camera presets now look from below. GAUSS 26 shows a GAUSS 27 ``.plot`` file with a surface beside other graphs as the surface alone. Adding a 2D curve to a surface graph, or a surface to a 2D graph, opens a new graph.
-#. 2D axes without tick settings of their own fit their ticks to the graph: they can end at the data instead of a round number, show more labels in a large export, and use a common power of ten. A tick count from :func:`plotSetXTicCount` or :func:`plotSetYTicCount` is a target rather than an exact count. Graphs in a layout grid can have slightly smaller plot areas than in GAUSS 26.
-#. More accurate GMM results; the :func:`gmmFit` and :func:`gmmFitIV` pages describe the standard errors, J statistics, HAC bandwidths and the printout's ``z-value`` column. Both functions check their settings: an unknown ``method``, ``vceType``, ``wType``, ``wInit`` or ``hacKernel`` name, a ``gmmlags`` that is not a finite scalar of 0 or more, or a ``gIter.maxIters`` below 1 stops with an error instead of falling back to another choice. For continuously updated GMM use :func:`gmmFit`; :func:`gmmFitIV` stops for ``"CU"``, which used to compute iterated GMM. The default initial weight of :func:`gmmFitIV` is ``"unadj"``.
+**Sharing data files with GAUSS 26**
+
+#. :func:`saved` writes ``.gdat`` files in the new GDAT 2.0 format, which keeps structures, strings and dataframe metadata. To share a table with someone using GAUSS 26 or earlier, which cannot read GDAT 2.0, pass 1 as the fourth argument: ``saved(x, "file.gdat", 0, 1)``. Files from :func:`saveStruct` also use GDAT 2.0.
+
+**Graphs**
+
+#. ``plotAdd*`` functions add to the graph GAUSS last created or added to, even if you click another graph tab while your program runs. During debugging a new graph opens beside the code, so the **Undock page if debugging** preference has been removed.
+#. For the GAUSS 26 look of 3D surfaces, set **Lighting** to 5, **Projection** to Perspective and **Box** to Cube. The **Below** camera presets now look from below. A GAUSS 27 ``.plot`` file with a surface beside other graphs opens in GAUSS 26 as the surface alone. Adding a 2D curve to a surface graph, or a surface to a 2D graph, opens a new graph.
+#. A tick count from :func:`plotSetXTicCount` or :func:`plotSetYTicCount` is a target, with round tick values. Axes with a tick interval, and log, date, category and polar axes, are drawn as before.
+
+**Clearer errors and checks**
+
+#. :func:`gmmFit` and :func:`gmmFitIV` stop with an error for an unknown ``method``, ``vceType``, ``wType``, ``wInit`` or ``hacKernel``, a ``gmmlags`` that is not a finite scalar of 0 or more, or a ``gIter.maxIters`` below 1. For continuously updated GMM use :func:`gmmFit`; :func:`gmmFitIV` stops for ``"CU"``.
+#. :func:`cdfMvne`, :func:`cdfMvte` and related functions return *retcode* 1, as documented, when the error estimate is above the requested tolerance; raise ``ctl.maxEvaluations`` or loosen the tolerance. In :func:`cdfMvn2e` and :func:`cdfMvt2e`, a row whose lower limit is above its upper limit returns 0.
 #. The cumulative distribution functions handle invalid input consistently: an *x* outside the distribution's range returns 0 or 1, and a parameter outside its range returns a scalar error code, with :func:`scalerr` giving the argument's position. They no longer return -1 or 2. Discrete CDFs round a fractional *x* down, discrete PDFs give 0 for it, and an *x* within 1e-9 of a whole number counts as that whole number.
-#. :func:`cdfMvne`, :func:`cdfMvte` and related functions return *retcode* 1, as documented, when the error estimate is above the requested tolerance; raise ``ctl.maxEvaluations`` or loosen the tolerance to meet it. In :func:`cdfMvn2e` and :func:`cdfMvt2e`, a row whose lower limit is above its upper limit returns 0; put the smaller coordinate of each pair in the lower limits.
-#. Clear errors for invalid input. :func:`reshape` gives error G0104 for a missing, NaN or infinite dimension, or another value it cannot use, and counts a single string as one element when it infers a dimension. :func:`shiftc`, :func:`lag`, :func:`lagn` and :func:`lagTrim` give an error for missing, infinite and out-of-range lags, and treat a scalar with several lags as a 1x1 matrix. :func:`svds`, :func:`svdusv`, :func:`svdcusv`, :func:`svd`, :func:`svd1` and :func:`svd2` give error G0674 for NaN, infinite or missing input; under ``trap 1`` these functions, and :func:`rank`, :func:`cond` and :func:`pinv`, report the error as their help pages describe.
+#. :func:`reshape` gives error G0104 for a missing, NaN or infinite dimension, or another value it cannot use, and counts a single string as one element when it infers a dimension. :func:`shiftc`, :func:`lag`, :func:`lagn` and :func:`lagTrim` give an error for missing, infinite and out-of-range lags, and treat a scalar with several lags as a 1x1 matrix. :func:`svds`, :func:`svdusv`, :func:`svdcusv`, :func:`svd`, :func:`svd1` and :func:`svd2` give error G0674 for NaN, infinite or missing input; under ``trap 1`` these functions, and :func:`rank`, :func:`cond` and :func:`pinv`, report the error as their help pages describe.
 #. Structure mistakes are caught where they happen, with error G0181: assigning to a member of a variable that does not hold a structure, such as ``r.nm = "x"`` when ``r`` is a number, and assigning a number returned by a procedure whose header declares a structure, such as ``proc (struct myOut) = f(x);`` returning an error code from :func:`error`, also when calls are joined with ``|`` or ``~``. Return the structure on every path, and report a failure in one of its members.
-#. :func:`lncdfn`, :func:`lncdfnc`, :func:`ln1p`, :func:`expm1`, :func:`lnsumexp` and :func:`lndiffexp` are now built in, so rename a procedure of your own with one of these names. A procedure of your own named ``diff`` still works, but it replaces the new :func:`diff` everywhere in your program, including in library code, so we recommend renaming it. With ``library tspdlib;`` active, ``diff`` calls tspdlib's own ``diff(x, k)``, which fills the first rows with 0 instead of a missing value.
-#. On Apple silicon, ``"mt19937"``, seeds of 2\ :sup:`31` or more, and :func:`rndi` with very wide ranges give the same numbers as on Windows and Linux, and so different numbers than GAUSS 26 on that platform.
-#. :func:`minimize`: ``maxIters`` reads -1 (automatic) until set. Nelder-Mead defaults to 200 iterations per parameter; L-BFGS-B keeps 1,000.
 
-Other fixes
-~~~~~~~~~~~
+Also fixed
+~~~~~~~~~~
 
-#. Assignments to descending ranges, such as ``x[3:1] = z``.
-#. Reusing a variable for a matrix and then a structure returned by a procedure, and structure arrays after ``saveall`` and ``use``.
-#. :func:`lib` and ``gpkg`` with keyword calls between files of a library.
-#. :func:`loadStruct` with older-format structure files saved on another platform.
-#. GAUSS and ``gpkg`` start when the package folder holds an unreadable folder.
-#. Struct type inference in several cases involving comments, procedures defined later in a file, and calls such as ``rows(f(x))``.
-#. :func:`varget` and :func:`varput` on the name of a procedure give error G0752.
-#. :func:`gmmFitIV` with plain matrices, :func:`gdadstat` with variable indices, ``spline1D`` with sigma 0, and ``pvRepacki`` and ``pvGetMask`` on a PV with no parameters.
-#. :func:`gmmFit` and :func:`gmmFitIV` estimates, standard errors and J statistics, which could stop short of the minimum or use the wrong weight. Iterative GMM stops when both the estimate and the weight matrix have settled, and ``gOut.converged`` reports whether it did. ``gOut.converged`` is also 0 when the one-step fit that chooses the HAC bandwidth of continuously updated GMM, or the Gauss-Newton steps that finish a fit, stop at their iteration limit. Continuously updated GMM of a just-identified model with no constraints other than bounds returns the one-step estimate when its mean moments are zero, which also minimizes the CU objective (minimizing that objective could stop short of it and still report convergence); when they are not zero and the one-step fit did not converge, ``gOut.converged`` is 0. In other continuously updated fits, ``gOut.converged`` is 0 when the moment variance at the estimate is nearly singular. The default tolerances ``gIter.paramTol`` and ``gIter.wTol`` are now 1e-6 (were 1e-5). :func:`gmmFit` with a HAC weight or covariance and ``gmmlags = 0`` uses no lags instead of stopping with an error. The example ``gmmSV1.gss`` uses the correct stochastic volatility moments and a HAC weight and covariance, and ``gmmSvSim.gss`` simulates from the stationary distribution.
-#. :func:`fred_load` and the other web data functions no longer print the request, including your FRED API key, on the screen or in error messages. FRED error replies show FRED's message instead of error G0117.
-#. :func:`cdfFnc` and :func:`cdfFncInv` with missing values.
-#. Memory use when drawing many surface or contour graphs with :func:`plotSetZLevels`.
-#. Axes with a tick interval label their first and last ticks; setting only Range Min or Range Max in the graph settings keeps the other end.
-#. Command History, tab groups, symbol editors, :kbd:`Ctrl+K`, and the Run and Debug buttons during debugging.
+#. More reliable indexed assignment and structures in rare cases, such as reusing a variable for a matrix and then a structure, structure arrays in a workspace loaded with ``use``, and recognizing the structure a procedure returns.
+#. More reliable library builds with :func:`lib` and package installs with ``gpkg``, including libraries that use keyword arguments.
+#. More reliable start-up of GAUSS and ``gpkg``.
+#. :func:`loadStruct` reads older-format structure files saved on another platform.
+#. :func:`varget` and :func:`varput` give a clear error for the name of a procedure.
+#. :func:`gmmFitIV` accepts plain matrices, and :func:`gdadstat` accepts variable numbers as well as names.
+#. ``spline1D`` works with sigma 0, and ``pvRepacki`` and ``pvGetMask`` work with a PV structure that has no parameters.
+#. More reliable handling of missing values in :func:`cdfFnc` and :func:`cdfFncInv`.
+#. Lower memory use when drawing many surface or contour graphs.
+#. Axes with a tick interval label their first and last ticks, and setting only **Range Min** or **Range Max** in the graph settings keeps the other end.
+#. More reliable Command History, tab groups, and Run and Debug buttons.
 
 26.1.4
 ------
