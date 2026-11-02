@@ -33,11 +33,11 @@ Format
             * - gCtl.bStart
               - column vector of parameter starting values. For all methods except continuous updating GMM default = 0.1. For continuous updating GMM default equals estimation from onestep GMM. Must be specified if data matrix syntax is used and gCtl.numParms* is not specified. For estimation stability it is highly recommended to speficy starting parameters.
             * - gCtl.method
-              - string, GMM method to be used. Default = :code:`"twostep"`.
+              - string, GMM method to be used. Default = :code:`"twostep"`. The names are not case sensitive; any other name stops with an error.
 
                   :"onestep": One-step GMM
                   :"twostep": Two-step GMM
-                  :"iterative": Iterative GMM
+                  :"iterative": Iterative GMM (or :code:`"iterated"`)
                   :"CU": Continuous updating GMM
             * - gCtl.vceType
               - string, variance-covariance matrix type. Default = :code:`"robust"`.
@@ -58,9 +58,9 @@ Format
                   :"parzen": Parzen kernel.
                   :"quad": Quadraticspectral kernel.
             * - gCtl.gmmlags
-              - Scalar, Scalar, user specified lag truncation for HAC weight matrix and variance computations.
+              - scalar, user specified lag truncation for the HAC weight matrix and variance: lags 1 to the integer part of *gmmlags* are used, and 0 gives the robust (no lags) result. Must be a finite scalar of 0 or more. Default = empty, the Newey-West automatic bandwidth.
             * - gCtl.wInitMat
-              - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of gCtl.wInit*.
+              - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of gCtl.wInit*. It must be symmetric positive definite, with one row and column per moment.
             * - gCtl.wInit
               - string or data matrix, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Default = :code:`"identity"`.
 
@@ -69,10 +69,15 @@ Format
             * - gCtl.gIter
               - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
 
-                  :gCtl.gIter.maxIter: scalar, maximum number of iterations.
+                  :gCtl.gIter.maxIter: scalar, maximum number of iterations, at least 1.
                   :gCtl.gIter.parmTol: scalar, tolerance level for convergence based on parameter estimates. Default = 1e-5.
                   :gCtl.gIter.wTol: scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-5.
 
+            * - gCtl.jStatWeight
+              - string, weight matrix used in the J statistic of two-step and iterative GMM. Default = :code:`"final"`.
+
+                  :"final": The weight matrix of type *wType* at the final estimate, as R's momentfit.
+                  :"estimation": The weight matrix used to compute the final estimate (*N* times the objective), as Stata. The two agree for iterative GMM once it has converged.
             * - gCtl.noconstant
               - scalar, specified to indicate if constant is included in model. Only valid if data vector input method is used. Set to 1 to exclude constant from model. Constant is always first parameter in parameter vector. Default = 0 [constant included].For dataset and string formula method to remove constant from model specify :code:`"-1"` as first dependent variable: e.g. : :code:`"y ~ -1 + X1 + X2"`
             * - gCtl.varNames
@@ -107,9 +112,9 @@ Format
             "gOut.gradient", "matrix, Gradient of mean of moment equation wrt parameters."
             "gOut.numParms", "scalar, number of parameters estimated in model."
             "gOut.numMoments", "scalar, number of moments."
-            "gOut.numObs", "scalar, number of observations."
+            "gOut.numObs", "scalar, number of observations: the number of rows the moment function returns."
             "gOut.numInstruments", "scalar, number of instruments."
-            "gOut.JStat", "scalar, Hansen statistic of overidentification."
+            "gOut.JStat", "scalar, Hansen statistic of overidentification. Missing for one-step GMM and just-identified models. See gCtl.jStatWeight."
             "gOut.df", "scalar, degrees of freedom."
 
     :rtype gOut: struct
@@ -176,13 +181,14 @@ Use data matrices
     Generalized Method of Moments
     ====================================================================================
     Valid cases:                      500          Dependent variable:                 Y
-    Number of moments:                  0          Degrees of freedom:               499
-    Number of vars:                     1                                               
+    Number of moments:                  2          Degrees of freedom:               499
+    J-stat                         0.0541          Probability of J:               0.816
+    Number of vars:                     1
     ====================================================================================
                                 Standard                    Prob       Lower       Upper
-    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    Variable        Estimate       Error     z-value        >|z|       Bound       Bound
     ------------------------------------------------------------------------------------
-    X1                10.104      2.1798      4.6354  4.5546e-06      5.8318      14.377
+    X1                10.105      2.1803      4.6346  3.5757e-06      5.8316      14.378
     ====================================================================================
 
 Remarks

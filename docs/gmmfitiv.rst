@@ -50,10 +50,9 @@ Format
 
                   :"onestep": One-step GMM
                   :"twostep": Two-step GMM
-                  :"iterative": Iterative GMM
-                  :"CU": Continuous updating GMM.
+                  :"iterative": Iterative GMM (or :code:`"iterated"`)
 
-                Default = :code:`"twostep"`
+                Default = :code:`"twostep"`. The names are not case sensitive. Continuous updating GMM (:code:`"CU"`) is not available in :func:`gmmFitIV` and stops with an error, as does any other name; use :func:`gmmFit` for continuously updated GMM.
             * - gCtl.vceType
               - string, variance-covariance matrix type.
 
@@ -81,7 +80,7 @@ Format
 
                 Default = :code:`"bartlett"`
             * - gCtl.gmmlags
-              - Scalar, Scalar, user specified lag truncation for HAC weight matrix and variance computations.
+              - scalar, user specified lag truncation for the HAC weight matrix and variance: lags 1 to the integer part of *gmmlags* are used, and 0 gives the robust (no lags) result. Must be a finite scalar of 0 or more. Default = empty, the Newey-West automatic bandwidth.
             * - gCtl.wInitMat
               - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of gCtl.wInit*.
             * - gCtl.wInit
@@ -92,9 +91,16 @@ Format
             * - gCtl.gIter
               - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
 
-                  :gCtl.gIter.maxIter: scalar, maximum number of iterations. Default = 500.
+                  :gCtl.gIter.maxIter: scalar, maximum number of iterations, at least 1. Default = 500.
                   :gCtl.gIter.paramTol: scalar, tolerance level for convergence based on parameter estimates. Default = 1e-6.
                   :gCtl.gIter.wTol: scalar, tolerance level for convergence based on weight matrix estimates. Default = 1e-6.
+            * - gCtl.jStatWeight
+              - string, weight matrix used in the J statistic of two-step and iterative GMM. Default = :code:`"final"`.
+
+                  :"final": The weight matrix of type *wType* at the final estimate, as R's momentfit.
+                  :"estimation": The weight matrix used to compute the final estimate (*N* times the objective), as Stata. The two agree for iterative GMM once it has converged.
+
+                One-step GMM (2SLS) has a valid J only with the unadjusted weight and covariance (:code:`wInit = "unadj"`, no *wInitMat*, :code:`vceType = "unadj"`). J is then Sargan's statistic, whatever *jStatWeight* is, and the printout says so. For every other one-step fit J is missing.
             * - gCtl.noconstant
               - scalar, specified to indicate if constant is included in model. Only valid if data vector input method is used. Set to 1 to exclude constant from model. Constant is always first parameter in parameter vector. Default = 0 [constant included].For dataset and string formula method to remove constant from model specify :code:`"-1"` as first dependent variable: e.g.: :code:`"y ~ -1 + X1 + X2"`
             * - gCtl.varNames
@@ -117,7 +123,7 @@ Format
             "gOut.numObs", "scalar, number of observations."
             "gOut.numInstruments", "scalar, number of instruments."
             "gOut.numMoments", "scalar, number of moments."
-            "gOut.JStat", "scalar, Hansen statistic of overidentification."
+            "gOut.JStat", "scalar, Hansen statistic of overidentification (Sargan's statistic for one-step GMM with the unadjusted weight and covariance). Missing for just-identified models and other one-step fits. See gCtl.jStatWeight."
             "gOut.df", "scalar, degrees of freedom."
 
     :rtype gOut: struct
@@ -152,18 +158,18 @@ The above code will print out the following report:
     Generalized Method of Moments
     ====================================================================================
     Valid cases:                       74          Dependent variable:               mpg
-    Number of moments:                  0          Degrees of freedom:                71
-    Number of vars:                     3                                               
+    Number of moments:                  3          Degrees of freedom:                71
+    Number of vars:                     3
     ====================================================================================
                                 Standard                    Prob       Lower       Upper
-    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    Variable        Estimate       Error     z-value        >|z|       Bound       Bound
     ------------------------------------------------------------------------------------
 
-    CONSTANT          47.885       7.506      6.3795  1.5783e-08      33.173      62.597 
-    weight        -0.0038515   0.0019472      -1.978    0.051812  -0.0076679 -3.5022e-05 
-    length         -0.079593    0.067753     -1.1748     0.24402    -0.21239    0.053203 
+    CONSTANT          47.885       7.506      6.3795  1.7763e-10      33.173      62.596
+    weight        -0.0038515   0.0019472      -1.978     0.04793  -0.0076679 -3.5092e-05
+    length         -0.079593    0.067753     -1.1748     0.24009    -0.21239      0.0532
     ====================================================================================
-    Instruments: CONSTANT, weight, length 
+    Instruments: CONSTANT, weight, length
 
 Data Matrix
 +++++++++++++++++++
@@ -208,19 +214,19 @@ The above code will print out the following report:
     Generalized Method of Moments
     ====================================================================================
     Valid cases:                       50          Dependent variable:              rent
-    Number of moments:                  0          Degrees of freedom:                47
+    Number of moments:                  6          Degrees of freedom:                47
     J-stat                           6.98          Probability of J:              0.0727
-    Number of vars:                     3                                               
+    Number of vars:                     3
     ====================================================================================
                                 Standard                    Prob       Lower       Upper
-    Variable        Estimate       Error     t-value        >|t|       Bound       Bound
+    Variable        Estimate       Error     z-value        >|z|       Bound       Bound
     ------------------------------------------------------------------------------------
 
-    CONSTANT          112.12      10.546      10.632  4.2698e-14      91.453      132.79 
-    hsngval        0.0014643  0.00040376      3.6268  0.00070459  0.00067297   0.0022557 
-    pcturban         0.76155     0.26439      2.8804   0.0059646     0.24335      1.2797 
+    CONSTANT          112.12      10.802      10.379  3.0743e-25      90.951      133.29
+    hsngval        0.0014643  0.00044727      3.2739   0.0010607  0.00058769    0.002341
+    pcturban         0.76155     0.28951      2.6305   0.0085267     0.19412       1.329
     ====================================================================================
-    Instruments: Constant, pcturban, faminc, reg2, reg3, reg4 
+    Instruments: Constant, pcturban, faminc, reg2, reg3, reg4
 
 Remarks
 -------
