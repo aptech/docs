@@ -54,7 +54,7 @@ Example 3
     y = inv(x);
     e = x*y;
 
-In this case, GAUSS will execute the lines after the run command. If the
+In this case, GAUSS will execute the lines after the run command. If
 the ``-r`` is omitted, the lines following the run command will not be executed within a program.
 
 Remarks

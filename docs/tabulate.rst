@@ -201,14 +201,14 @@ In this case, the following will be printed:
               Total             50              0             50
     ============================================================
 
-In some situations, you may not want to report these unrepresented categories. In that case, you can use the ``unusedLevels`` member of the ``tabControl`` structure to supress those levels.
+In some situations, you may not want to report these unrepresented categories. In that case, you can use the ``unusedLevels`` member of the ``tabControl`` structure to suppress those levels.
 
 ::
 
     struct tabControl tbctl;
     tbctl = tabControlCreate();
 
-    // Supress unrepresented categories
+    // Suppress unrepresented categories
     tbctl.unusedLevels = 0;
 
     // Compute and print the frequency table

@@ -556,7 +556,7 @@ The *unusedCategories* member of the :class:`tabControl` structure can be used t
     struct tabControl tbctl;
     tbctl = tabControlCreate();
 
-    // Supress unrepresented categories
+    // Suppress unrepresented categories
     // by setting unusedLevels member to 0
     tbctl.unusedLevels = 0;
 

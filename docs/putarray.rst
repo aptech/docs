@@ -61,7 +61,7 @@ After the above code, *a* will equal:
       0.0000   0.0000   0.0000   0.0000 
       0.0000   0.0000   0.0000   0.0000
 
-Note that in the above call to :func:`putarray`, a complete copy of the *dest* array will be made to copy into *a*. In this case, it is obvious that is is needed. However, even if we change the code to:
+Note that in the above call to :func:`putarray`, a complete copy of the *dest* array will be made to copy into *a*. In this case, it is obvious that it is needed. However, even if we change the code to:
 
 ::
 

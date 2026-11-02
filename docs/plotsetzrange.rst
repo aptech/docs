@@ -30,7 +30,7 @@ Examples
     // Initialize plotControl structure
     myPlot = plotGetDefaults("surface");
 
-    // Set Z-axis to to range from 0 to 10
+    // Set Z-axis to range from 0 to 10
     plotSetZRange(&myPlot, 0, 10);
 
     // Create and plot data using our Z-range

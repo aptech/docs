@@ -53,7 +53,7 @@ Basic usage
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
 
-    // Set x-axis to to range from -5 to +5
+    // Set x-axis to range from -5 to +5
     plotSetXRange(&myPlot, -5, 5);
 
     // Create and plot data using our x-range

@@ -40,7 +40,7 @@ Basic example
     // Initialize plotControl structure
     myPlot = plotGetDefaults("scatter");
     
-    // Set left y-axis to to range from 0 to 2
+    // Set left y-axis to range from 0 to 2
     plotSetYRange(&myPlot, 0, 2);
     
     // Create and plot data using our y-range

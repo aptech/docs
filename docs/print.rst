@@ -82,7 +82,7 @@ Format
             */rz*  This will give a format like ``/rd`` or ``/re`` depending on which is most compact
                    for the number being printed. A format like ``/re`` will be used only if the
                    exponent value is less than -4 or greater than the precision. If a ``/re``
-                   format is used, trailing zeros will be supressed and a decimal point will appear
+                   format is used, trailing zeros will be suppressed and a decimal point will appear
                    only if one or more digits follow it. The precision signifies the number of significant
                    digits displayed.
             ====== =======================================================
@@ -108,7 +108,7 @@ Format
             */lz*  This will give a format like ``/ld`` or ``/le`` depending on which is most compact for the
                    number being printed. A format like ``/le`` will be used only if the exponent value is less
                    than -4 or greater than the precision. If a ``/le`` format is used, trailing zeros will be
-                   supressed and a decimal point will appear only if one or more digits follow it.
+                   suppressed and a decimal point will appear only if one or more digits follow it.
                    If the number is positive, a space character will replace the leading minus sign.
                    The precision specifies the number of significant digits displayed.
             ====== =======================================================
