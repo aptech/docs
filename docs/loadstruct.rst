@@ -81,6 +81,11 @@ Remarks
 member names, order and kinds must match the file. Dataframe members of
 older-format files load as plain matrices, without column names or types.
 
+When :func:`loadStruct` cannot read a GDAT v2 file, for example because the
+structure declaration differs or a newer GAUSS wrote the file, it returns a
+status of 1 and prints the reason. It prints nothing for a file that does not
+exist.
+
 :func:`loadStruct` does not read ``.gdat`` files; use :func:`loadd` for
 structures saved with :func:`saved`.
 

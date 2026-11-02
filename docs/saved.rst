@@ -228,10 +228,16 @@ GDAT v2
 -  Saving replaces the whole file. An existing file is replaced only after
    the new file has been written successfully. In-place append and update
    through :func:`dataopen` are not supported for v2.
+-  On macOS and Linux, a new file gets the usual permissions (mode 0666
+   less the umask), and a replaced file keeps its permissions. If *dataset*
+   is a symbolic link, the link stays and the file it points to is replaced;
+   if that file does not exist, :func:`saved` reports an error and creates
+   nothing. The replaced file is a new file, so it belongs to the user who
+   saved it, and hard links to the old file keep the old content.
 -  :func:`loadd` detects v1 and v2 automatically. Reading a v1 file does not
    convert it to v2; saving to ``.gdat`` uses v2 unless version 1 is specified.
 -  Each file records its format version (2.0 in GAUSS 27) and the GAUSS
-   version that wrote it. Later GAUSS releases read these files. A file
+   version and build that wrote it. Later GAUSS releases read these files. A file
    written by a later release can use features this release does not know;
    the error then says that a newer GAUSS may be needed.
 

@@ -15,7 +15,7 @@ New features
 #. New function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
 #. New functions :func:`ln1p`, :func:`expm1`, :func:`lnsumexp` and :func:`lndiffexp` keep full precision near zero and when adding or subtracting log likelihoods and log probabilities.
 #. :func:`minimize` adds Nelder-Mead for unconstrained objectives without derivatives: ``minimize(&f, x0, method="nelder-mead")``. Use L-BFGS-B when bounds are needed.
-#. :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``. :func:`saveStruct` and :func:`loadStruct` keep dataframe members' metadata too.
+#. :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``. :func:`saveStruct` and :func:`loadStruct` keep dataframe members' metadata too, and :func:`loadStruct` prints why it cannot read a file it returns 1 for.
 #. 54 procedures that return a structure, among them :func:`olsmtControlCreate`, :func:`QNewtonmtControlCreate` and :func:`pvPack`, now declare it, so ``ctl = olsmtControlCreate()`` works without declaring ``ctl`` first.
 
 Graphics and the editor
