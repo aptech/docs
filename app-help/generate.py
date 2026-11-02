@@ -89,6 +89,12 @@ def main():
     (stage/'ChangeLog.html').unlink(missing_ok=True)
     copy(f for f in html.iterdir() if f.name not in ('index.html', 'genindex.html'))
     copy((html/'data-management').glob('*'))
+    # Command Reference links to the category pages and Learning Resources to
+    # the "coming to GAUSS" guides; without them those links are dead. The
+    # flat layout keeps data-management's data-cleaning.html, which the
+    # category link already resolves to.
+    copy(f for f in (html/'cc').glob('*') if f.name != 'data-cleaning.html')
+    copy((html/'coming-to-gauss').glob('*'))
     copy((html/'_static').rglob('*'))
     copy((html/'_images').rglob('*'))
     copy((pkg/'etc/fonts').rglob('*'))
