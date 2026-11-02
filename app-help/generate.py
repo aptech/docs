@@ -135,6 +135,22 @@ def main():
             if member.isfile():
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 dest.write_bytes(tar.extractfile(member).read())
+    # Links to pages that are not shipped (add-on products, guides kept only on
+    # the website) would open nothing in the application; show their text.
+    shipped = {f.name for f in stage.iterdir() if f.is_file()}
+    unlinked = []
+    def unlink(m, page):
+        target = m[2].split('#', 1)[0].split('?', 1)[0]
+        if not target or target in shipped:
+            return m[0]
+        unlinked.append([page, m[2]])
+        return '<span class="app-help-unlinked">'+m[3]+'</span>'
+    for f in sorted(stage.glob('*.html')):
+        text = f.read_text()
+        new = re.sub(r'<a\b([^>]*?)\bhref="(?!(?:https?:|//|mailto:|javascript:|data:|#))([^"]*)"[^>]*>(.*?)</a>',
+                     lambda m: unlink(m, f.name), text, flags=re.S)
+        if new != text:
+            f.write_text(new)
     for name in ['help.properties.head', 'help.properties.tail']:
         shutil.copyfile(pkg/name, work/name)
     head = work/'help.properties.head'
@@ -164,7 +180,7 @@ def main():
         shutil.copyfile(src, out/Path(src).name)
     (out/'generation.json').write_text(json.dumps({
         'seconds': time.monotonic()-start, 'jobs': a.jobs,
-        'namespace': project.findtext('namespace'), 'collisions': collisions,
+        'namespace': project.findtext('namespace'), 'collisions': collisions, 'unlinked': unlinked,
         'provenance': lock['provenance']}, indent=2))
     run(['python', '/opt/app-help/validate.py', out,
          '--baseline', root/'baseline/gauss.qch'])
