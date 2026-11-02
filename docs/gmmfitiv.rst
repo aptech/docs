@@ -60,7 +60,7 @@ Format
                   :"robust": Heteroscedastic robust SE.
                   :"hac": Heteroscedastic-autocorrelation robust SE.
 
-                Default = :code:`"robust"`
+                Default = :code:`"robust"`. Any other name stops with an error.
             * - gCtl.wType
               - string, type of weight matrix used. Ignored for one-step case.
 
@@ -68,26 +68,26 @@ Format
                   :"robust": Heteroscedastic robust SE.
                   :"hac": Heteroscedastic-autocorrelation robust SE.
 
-                Default = :code:`"robust"`
+                Default = :code:`"robust"`. Any other name stops with an error.
             * - gCtl.hacKernel
               - string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using :code:`"hac"` weight matrix and/or variance-covariance matrix.
 
-                  .. NOTE:: Bandwidth is determined using the Newey-West optimal lag length selection method.
+                  .. NOTE:: Unless *gCtl.gmmlags* is set, the bandwidth is chosen by the Newey-West (1994) method from the sum of the moment conditions, without prewhitening. It depends on the units of the moments and does not reproduce Stata's automatic bandwidth. The bandwidth of the weight matrix is chosen once, at the first-step estimate, and kept for every weight matrix of the fit, for *gOut.wFinal* and for the J statistic; the HAC variance-covariance matrix chooses its own bandwidth at the final estimate.
 
                   :"bartlett": Bartlett kernel.
                   :"parzen": Parzen kernel.
-                  :"quad": Quadraticspectral kernel.
+                  :"quad": Quadratic spectral kernel. It uses every lag, so its cost grows with the square of the number of observations.
 
                 Default = :code:`"bartlett"`
             * - gCtl.gmmlags
-              - scalar, user specified lag truncation for the HAC weight matrix and variance: lags 1 to the integer part of *gmmlags* are used, and 0 gives the robust (no lags) result. Must be a finite scalar of 0 or more. Default = empty, the Newey-West automatic bandwidth.
+              - scalar, user specified bandwidth for the HAC weight matrix and variance. For the Bartlett and Parzen kernels it is the number of lags: lags 1 to the integer part *L* of *gmmlags* are used, with weights :math:`k(j/(L+1))`. For the quadratic spectral kernel it is the bandwidth, and every lag is used, with weights :math:`k(j/gmmlags)`. 0 gives the robust (no lags) result. Must be a finite scalar of 0 or more. Default = empty, the Newey-West automatic bandwidth.
             * - gCtl.wInitMat
-              - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of gCtl.wInit*.
+              - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*.
             * - gCtl.wInit
               - string, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Else:
 
                   :"identity": Identity matrix.
-                  :"unadj": Weight matrix :math:`inv(Z'Z/n)`. Assumes moments are i.i.d. Default = :code:`"unadj"`
+                  :"unadj": Weight matrix :math:`inv(Z'Z/n)`. Assumes moments are i.i.d. Default = :code:`"unadj"`. Any other name stops with an error.
             * - gCtl.gIter
               - instance of :class:`gmmIterative` structure. This structure houses the tolerances for convergence for iterative GMM. Ignored if iterative GMM is not specified. The members include:
 

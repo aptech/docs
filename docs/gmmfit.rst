@@ -19,7 +19,7 @@ Format
 
     :type &fct: function pointer
 
-    :param y: independent data vector.
+    :param y: data passed to the moment function as its second argument.
     :type y: Nx1 matrix
 
     :param \.\.\.: Optional inputs. These arguments are passed untouched to the user-provided moment function by :func:`gmmFit`.
@@ -31,38 +31,38 @@ Format
             :widths: auto
 
             * - gCtl.bStart
-              - column vector of parameter starting values. For all methods except continuous updating GMM default = 0.1. For continuous updating GMM default equals estimation from onestep GMM. Must be specified if data matrix syntax is used and gCtl.numParms* is not specified. For estimation stability it is highly recommended to speficy starting parameters.
+              - column vector of parameter starting values. For all methods except continuous updating GMM default = 0.1. For continuous updating GMM default equals estimation from onestep GMM. Must be specified if data matrix syntax is used and *gCtl.numParams* is not specified. For estimation stability it is highly recommended to specify starting parameters.
             * - gCtl.method
               - string, GMM method to be used. Default = :code:`"twostep"`. The names are not case sensitive; any other name stops with an error.
 
                   :"onestep": One-step GMM
                   :"twostep": Two-step GMM
                   :"iterative": Iterative GMM (or :code:`"iterated"`)
-                  :"CU": Continuous updating GMM
+                  :"CU": Continuous updating GMM. It starts from the one-step estimate. For a just-identified model with no constraints other than bounds, whose one-step estimate has mean moments of zero (no active bound), it returns that estimate, which also minimizes the CU objective; if they are not zero and the one-step fit did not converge, *gOut.converged* is 0. Otherwise, if the moment variance at the CU estimate is nearly singular, *gOut.converged* is 0.
             * - gCtl.vceType
-              - string, variance-covariance matrix type. Default = :code:`"robust"`.
+              - string, variance-covariance matrix type. Default = :code:`"robust"`. Any other name stops with an error.
 
                   :"unadj": Not available in :func:`gmmFit`, which uses :code:`"robust"` instead. Use :func:`gmmFitIV` for the unadjusted covariance of a linear model.
                   :"robust": Heteroscedastic robust SE.
                   :"hac": Heteroscedastic-autocorrelation robust SE.
             * - gCtl.wType
-              - string, type of weight matrix used. Ignored for one-step case. Default = :code:`"robust"`.
+              - string, type of weight matrix used. Ignored for one-step case. Default = :code:`"robust"`. Any other name stops with an error.
 
                   :"unadj": Not available in :func:`gmmFit`, which uses :code:`"robust"` instead.
                   :"robust": Heteroscedastic robust SE.
                   :"hac": Heteroscedastic-autocorrelation robust SE.
             * - gCtl.hacKernel
-              - string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using :code:`"hac"` weight matrix and/or variance-covariance matrix. Bandwidth is determined using the Newey-West optimal lag length selection method. Default = :code:`"bartlett"`.
+              - string, type of kernel used for estimation of HAC robust weight matrix and/or variance-covariance matrix. Ignored if not using :code:`"hac"` weight matrix and/or variance-covariance matrix. Unless *gCtl.gmmlags* is set, the bandwidth is chosen by the Newey-West (1994) method from the sum of the moment conditions, without prewhitening. It depends on the units of the moments and does not reproduce Stata's automatic bandwidth. The bandwidth of the weight matrix is chosen once, at the first-step estimate (for continuously updated GMM, at the one-step start), and kept for every weight matrix of the fit, for *gOut.wFinal* and for the J statistic; the HAC variance-covariance matrix chooses its own bandwidth at the final estimate. Default = :code:`"bartlett"`.
 
                   :"bartlett": Bartlett kernel.
                   :"parzen": Parzen kernel.
-                  :"quad": Quadraticspectral kernel.
+                  :"quad": Quadratic spectral kernel. It uses every lag, so its cost grows with the square of the number of observations.
             * - gCtl.gmmlags
-              - scalar, user specified lag truncation for the HAC weight matrix and variance: lags 1 to the integer part of *gmmlags* are used, and 0 gives the robust (no lags) result. Must be a finite scalar of 0 or more. Default = empty, the Newey-West automatic bandwidth.
+              - scalar, user specified bandwidth for the HAC weight matrix and variance. For the Bartlett and Parzen kernels it is the number of lags: lags 1 to the integer part *L* of *gmmlags* are used, with weights :math:`k(j/(L+1))`. For the quadratic spectral kernel it is the bandwidth, and every lag is used, with weights :math:`k(j/gmmlags)`. 0 gives the robust (no lags) result. Must be a finite scalar of 0 or more. Default = empty, the Newey-West automatic bandwidth.
             * - gCtl.wInitMat
-              - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of gCtl.wInit*. It must be symmetric positive definite, with one row and column per moment.
+              - data matrix, initial weight matrix to be used. If specified the matrix is used as initial weighting matrix and overrides specification of *gCtl.wInit*. It must be symmetric positive definite, with one row and column per moment.
             * - gCtl.wInit
-              - string or data matrix, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Default = :code:`"identity"`.
+              - string or data matrix, type of initial weight matrix used. If data matrix, the specified matrix is used as initial weighting matrix. Default = :code:`"identity"`. Any other name stops with an error.
 
                   :"identity": Identity matrix.
                   :"unadj": Not available in :func:`gmmFit`, which uses the identity matrix instead.
@@ -84,8 +84,8 @@ Format
               - string array, dependent variable names. Only used for data vector input case. Default = :code:`"X1", "X2", ...`
             * - gCtl.instNames
               - string array, instrumental variable names. Only used for data vector input case. Default = :code:`"Z1", "Z2", ...`
-            * - gCtl.numParms
-              - scalar, number of parameters estimated in model. Must be specified if data matrix syntax is used and gCtl.bStart* is not specified.
+            * - gCtl.numParams
+              - scalar, number of parameters estimated in model. Must be specified if data matrix syntax is used and *gCtl.bStart* is not specified.
             * - gCtl.A
               - MxK matrix, linear equality constraint coefficients: :code:`gctl.A * p = gctl.B` where *p* is a vector of the parameters.
             * - gCtl.B
@@ -110,7 +110,7 @@ Format
             "gOut.fct", "vector, mean value of the moment equations."
             "gOut.hessian", "matrix, Hessian of mean of moment equation wrt parameters."
             "gOut.gradient", "matrix, Gradient of mean of moment equation wrt parameters."
-            "gOut.numParms", "scalar, number of parameters estimated in model."
+            "gOut.numParams", "scalar, number of parameters estimated in model."
             "gOut.numMoments", "scalar, number of moments."
             "gOut.numObs", "scalar, number of observations: the number of rows the moment function returns."
             "gOut.numInstruments", "scalar, number of instruments."
