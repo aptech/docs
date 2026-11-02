@@ -149,6 +149,9 @@ def main():
         text = f.read_text()
         new = re.sub(r'<a\b([^>]*?)\bhref="(?!(?:https?:|//|mailto:|javascript:|data:|#))([^"]*)"[^>]*>(.*?)</a>',
                      lambda m: unlink(m, f.name), text, flags=re.S)
+        # Header prev/next links to unshipped pages: not clickable, drop them.
+        new = re.sub(r'<link\b[^>]*\bhref="(?!(?:https?:|//|#))([^"#?]+)[^"]*"[^>]*>',
+                     lambda m: m[0] if m[1] in shipped or not m[1].endswith('.html') else '', new)
         if new != text:
             f.write_text(new)
     for name in ['help.properties.head', 'help.properties.tail']:
