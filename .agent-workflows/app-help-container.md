@@ -215,3 +215,12 @@ and a concrete integration example are in scope. No new VM is required.
 - The launching session is transferring ownership, not supervising you. Proceed
   autonomously with implementation and testing; ask only for unresolved inputs or
   permissions that actually block progress. Update your Orca workspace comment.
+
+## Beta rebuild (2026-11-02, app-help-container-0e)
+
+- Trial from published qthelp 63f9762d passed on alma9-janus (205.7 s, 1.05 GiB peak, 2 GiB cap). Only
+  changelog, gmmfit, gmmfitiv and searchindex.js differ from the 259bae2e build; counts unchanged.
+- Builder script `final-build-20261102.sh <sha> <tag>` prepares from published qthelp only, builds, runs the
+  app-Qt probe (`probe-20261102/src/help_probe`, adapted from q30r-01) and diffs against the trial. A dry run
+  reproduced the trial QCH byte for byte.
+- Final build waits on GMM commit B docs and a GDAT decision. Report: ~/orca/pillars/reports/help-rebuild-beta.md.
