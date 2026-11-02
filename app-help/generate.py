@@ -151,6 +151,9 @@ def main():
         text = f.read_text()
         new = re.sub(r'<a\b([^>]*?)\bhref="(?!(?:https?:|//|mailto:|javascript:|data:|#))([^"]*)"[^>]*>(.*?)</a>',
                      lambda m: unlink(m, f.name), text, flags=re.S)
+        # Sphinx smart quotes turn an option name standing alone, such as "mean"
+        # in a table cell, into ”mean” (two closing quotes); show it straight.
+        new = re.sub('”([^\\s<>“”]{1,40})”', r'"\1"', new)
         # Header prev/next links to unshipped pages: not clickable, drop them.
         new = re.sub(r'<link\b[^>]*\bhref="(?!(?:https?:|//|#))([^"#?]+)[^"]*"[^>]*>',
                      lambda m: m[0] if m[1] in shipped or not m[1].endswith('.html') else '', new)
