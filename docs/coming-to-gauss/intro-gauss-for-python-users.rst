@@ -6,7 +6,7 @@ This guide assumes you know Python with NumPy/pandas and shows you how to do the
 
 .. note::
 
-    This guide is written for GAUSS 26.
+    This guide is written for GAUSS 26 and later.
 
 How GAUSS Differs from Python
 ------------------------------
@@ -19,13 +19,10 @@ How GAUSS Differs from Python
 
 **Where to type code:**
 
-.. figure:: ../_static/images/gauss26-ide-overview.png
-   :alt: GAUSS 26 IDE showing editor with sample program, project
-         folders on the left, and command output below.
-
-   The GAUSS IDE workspace.
-
-① **Toolbar** — Shows your current working directory and the **Run button** (green arrow). Click it or press F5 to execute. ② **Project Folders** — File browser, similar to VS Code's Explorer or Jupyter's file browser. ③ **Editor** — Write programs here, similar to a VS Code editor tab or Jupyter code cell. ④ **Command Window** — Output appears here, similar to a terminal or Jupyter cell output. You can also type single lines at the ``>>`` prompt.
+- **Toolbar** — Shows your current working directory and the **Run button** (green arrow). Click it or press F5 to execute.
+- **Project Folders** — File browser, similar to VS Code's Explorer or Jupyter's file browser.
+- **Editor** — Write programs here, similar to a VS Code editor tab or Jupyter code cell.
+- **Command Window** — Output appears here, similar to a terminal or Jupyter cell output. You can also type single lines at the ``>>`` prompt.
 
 **Debugging:** Errors appear in the Output window with a line number -- click it to jump to the error. Use the Variables panel (View > Variables) to inspect values at runtime. You can set breakpoints by clicking in the left margin of the editor, then step through code with the Debug menu. For quick debugging, insert ``print varname;`` statements.
 

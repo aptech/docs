@@ -6,7 +6,7 @@ This guide helps EViews users do the same things in GAUSS. If you're comfortable
 
 .. note::
 
-    This guide is written for GAUSS 26. Time series functions (ARIMA, VAR, GARCH) require the **TSMT** add-on.
+    This guide is written for GAUSS 26 and later. Time series functions (ARIMA, VAR, GARCH) require the **TSMT** add-on.
 
 How GAUSS Differs from EViews
 ------------------------------
@@ -19,13 +19,10 @@ How GAUSS Differs from EViews
 
 **Where to type code:**
 
-.. figure:: ../_static/images/gauss26-ide-overview.png
-   :alt: GAUSS 26 IDE showing editor with sample program, project
-         folders on the left, and command output below.
-
-   The GAUSS IDE workspace.
-
-① **Toolbar** — Shows your current working directory and the **Run button** (green arrow). Click it or press F5 to execute. ② **Project Folders** — File browser, similar to EViews' Workfile contents. ③ **Editor** — Write programs here, similar to EViews' program editor. ④ **Command Window** — Output appears here, similar to EViews' output window. You can also type single lines at the ``>>`` prompt.
+- **Toolbar** — Shows your current working directory and the **Run button** (green arrow). Click it or press F5 to execute.
+- **Project Folders** — File browser, similar to EViews' Workfile contents.
+- **Editor** — Write programs here, similar to EViews' program editor.
+- **Command Window** — Output appears here, similar to EViews' output window. You can also type single lines at the ``>>`` prompt.
 
 **Debugging:** Errors appear in the Output window with a line number -- click it to jump to the error. Use the Variables panel (View > Variables) to inspect values at runtime. You can set breakpoints by clicking in the left margin of the editor, then step through code with the Debug menu. For quick debugging, insert ``print varname;`` statements.
 
