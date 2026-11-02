@@ -11,7 +11,7 @@ The following is a list of changes from the previous version of GAUSS.
 New features
 ~~~~~~~~~~~~
 
-#. Loops that cannot be vectorized, such as GARCH recursions, ARIMA simulations and filters, run dramatically faster: write ``kernel proc`` in place of ``proc`` and GAUSS compiles the procedure to native code.
+#. Dramatic speed-up for loops that cannot be vectorized, such as GARCH recursions, ARIMA simulations and filters: write ``kernel proc`` in place of ``proc`` and GAUSS compiles the procedure to native code.
 #. 3D surfaces beside your other graphs. Put a surface next to XY, scatter, bar and other 2D graphs in :func:`plotLayout` and :func:`plotCustomLayout`, and move, resize, pop out and export it like any other graph. Titles fit the graph and are centered over the surface. Label it with text boxes, including LaTeX. Text is sharp at any display scaling and stays real text in PDF and SVG exports. New **Projection** and **Box** settings and **Front Left** and **Front Right** camera presets, and your mouse rotation is saved in ``.plot`` files.
 #. New function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
 #. Accurate log likelihoods for maximum likelihood and optimization, even when probabilities are tiny. New functions :func:`lnsumexp` and :func:`lndiffexp` add and subtract log likelihoods and log probabilities without overflow, underflow or lost precision, for example in mixture models or ``lndiffexp(lncdfn(b), lncdfn(a))`` for ordered and interval probabilities. :func:`ln1p` and :func:`expm1` keep full precision near zero.
