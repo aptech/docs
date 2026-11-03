@@ -230,3 +230,7 @@ and a concrete integration example are in scope. No new VM is required.
 - Content audit after 4d8570f8: fixed docs (qthelp 4461374c) and packaging (cc/ and coming-to-gauss/ pages,
   unshipped links as text, straight quotes). qtgui 63f5ed5f. Image beta-20261102 a54f581e. Always scan the
   page text (competitors, internal paths, "unreleased", raw markup) and view new screenshots before shipping.
+- Friendly changelog (app-help-container-cd): docs qthelp c845d4d9 built on alma9-janus with image beta-20261102
+  a54f581e, packaging from inputs-20261031: `run-final3-c845d4d9/`, 206.5 s, 1.13 GiB peak. Only changelog.html and
+  searchindex.js differ from run-final2-4461374c; broken refs 5 -> 5, no new defects; Qt probe renders changelog,
+  gmmfit, gmmfitiv. qch 656ca8dd, qhc 568d579a. Mac copy: app-help/artifacts/gauss27-c845d4d9/. qtgui master 2d9f9338 (parent 63f5ed5f).
