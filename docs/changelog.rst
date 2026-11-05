@@ -51,6 +51,7 @@ Data and programming
 #. **Differences in one call.** The new function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
 #. **Write numbers exactly.** :func:`csvWriteM` and :func:`ntos` accept up to 17 digits, or ``"exact"`` for the fewest digits that read back as exactly the same number (0.1 stays ``0.1``). Numbers smaller than about 2.2e-308 are written as digits instead of ``+DEN``, so :func:`csvReadM` no longer reads them back as missing.
 #. **Less typing with structures.** 54 procedures that return a structure, among them :func:`olsmtControlCreate`, :func:`QNewtonmtControlCreate` and :func:`pvPack`, now declare it, so ``ctl = olsmtControlCreate()`` works without declaring ``ctl`` first.
+#. **Room for larger programs.** The default ``maxglobals`` in :file:`gauss.cfg` is 8,000, up from 6,500, so larger programs and libraries load without error G0026, "Too many symbols".
 #. **Your FRED API key stays private** in the output and error messages of :func:`fred_load` and the other web data functions.
 
 Upgrading from GAUSS 26
@@ -61,6 +62,10 @@ Most programs need no changes. Here is what to check.
 **Sharing data files with GAUSS 26**
 
 #. :func:`saved` writes ``.gdat`` files in the new GDAT 2.0 format, which keeps structures, strings and dataframe metadata. To share a table with someone using GAUSS 26 or earlier, which cannot read GDAT 2.0, pass 1 as the fourth argument: ``saved(x, "file.gdat", 0, 1)``. Files from :func:`saveStruct` also use GDAT 2.0.
+
+**Your configuration file**
+
+#. If you copy your GAUSS 26 :file:`gauss.cfg` into GAUSS 27, set ``maxglobals`` to 8000, the new default, or larger programs may stop with error G0026, "Too many symbols".
 
 **Graphs**
 
