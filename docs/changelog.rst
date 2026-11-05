@@ -26,7 +26,7 @@ Statistics and estimation
 #. **More accurate GMM.** :func:`gmmFit` and :func:`gmmFitIV` give more accurate standard errors, J statistics and convergence, and a new ``gCtl.jStatWeight`` option chooses the weight in the J statistic. Their reference pages give the details.
 #. **More accurate multivariate probabilities.** :func:`cdfMvne`, :func:`cdfMvte` and related functions are more accurate for perfectly correlated variables, large degrees of freedom, and infinite or very large limits. Results agree with Genz's reference code.
 #. **More accurate discrete distributions.** The discrete distribution functions and their inverses, such as :func:`cdfBinomialInv`, are more accurate for extreme probabilities and very large answers.
-#. **More accurate determinants.** :func:`det` is more accurate for matrices with very small elements.
+#. **Faster, more accurate determinants.** :func:`det` and :func:`detl` are faster and more accurate, including for matrices with very small elements.
 
 Graphics
 ~~~~~~~~
@@ -49,6 +49,7 @@ Data and programming
 
 #. **Save a whole set of results in one file.** :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load just one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``. :func:`saveStruct` and :func:`loadStruct` keep dataframe members' metadata too, and :func:`loadStruct` tells you why it cannot read a file it returns 1 for.
 #. **Differences in one call.** The new function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
+#. **Write numbers exactly.** :func:`csvWriteM` and :func:`ntos` accept up to 17 digits, or ``"exact"`` for the fewest digits that read back as exactly the same number (0.1 stays ``0.1``). Numbers smaller than about 2.2e-308 are written as digits instead of ``+DEN``, so :func:`csvReadM` no longer reads them back as missing.
 #. **Less typing with structures.** 54 procedures that return a structure, among them :func:`olsmtControlCreate`, :func:`QNewtonmtControlCreate` and :func:`pvPack`, now declare it, so ``ctl = olsmtControlCreate()`` works without declaring ``ctl`` first.
 #. **Your FRED API key stays private** in the output and error messages of :func:`fred_load` and the other web data functions.
 
@@ -84,6 +85,7 @@ Also fixed
 #. :func:`loadStruct` reads older-format structure files saved on another platform.
 #. :func:`varget` and :func:`varput` give a clear error for the name of a procedure.
 #. :func:`gmmFitIV` accepts plain matrices, and :func:`gdadstat` accepts variable numbers as well as names.
+#. :func:`gmmFitIV` with ``noconstant = 1`` labels each coefficient with its own variable name, and runs with a single regressor.
 #. ``spline1D`` works with sigma 0, and ``pvRepacki`` and ``pvGetMask`` work with a PV structure that has no parameters.
 #. More reliable handling of missing values in :func:`cdfFnc` and :func:`cdfFncInv`.
 #. Lower memory use when drawing many surface or contour graphs.

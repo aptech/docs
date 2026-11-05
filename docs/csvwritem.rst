@@ -19,8 +19,11 @@ Format
     :param sep: optional. the character to separate the data. Default = ``","``.
     :type sep: string
 
-    :param prec: optional. the number of digits of precision to retain. Default = 15.
-    :type prec: scalar
+    :param prec: optional. the number of significant digits to write, from 1 to 17, or ``"exact"``. Default = 15.
+
+        With ``"exact"`` or 17, :func:`csvReadM` reads back every finite number exactly as written. ``"exact"`` uses the fewest digits that do that, so 0.1 is written ``0.1``.
+
+    :type prec: scalar or string
 
     :param append: optional. 0 to overwrite entire file or 1 to append to file. Default = 0.
     :type append: scalar
@@ -85,6 +88,20 @@ Specify the precision with which to write the data
     // Write the data to the file 'myfile.csv'
     ret = csvWriteM(x, "myfile.csv", sep, prec);
 
+Write numbers so they read back exactly
++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    x = { 0.1 0.30000000000000004,
+          1e-300 3.141592653589793 };
+
+    // Fewest digits that read back as the same numbers
+    ret = csvWriteM(x, "exact.csv", ",", "exact");
+
+    // y equals x exactly
+    y = csvReadM("exact.csv");
+
 Append to an existing file
 ++++++++++++++++++++++++++
 
@@ -144,6 +161,14 @@ Remarks
 ------------
 
 - Use :func:`saved` to create a CSV dataset.
+
+- The default of 15 digits can change a number on its way through a CSV
+  file: 0.1+0.2 is written ``0.3``, and the largest double,
+  1.7976931348623157e308, is written ``1.79769313486232e+308``, which reads
+  back as ``+INF``. Use ``"exact"`` or 17 to keep every number.
+
+- Missing values are written as ``.``. Infinities are written as ``+INF`` and
+  ``-INF``, which :func:`csvReadM` reads back as missing values.
 
 - The standard output and standard error streams (stdout, stderr) can be
   written to with :func:`csvWriteM` by passing in the variable ``__STDOUT``, or

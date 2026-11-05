@@ -14,11 +14,11 @@ Format
     :param num: the numbers to be converted to a string
     :type num: scalar or NxK matrix
 
-    :param prec: optional argument, the number of digits to display. If the precision input is not specified, the default value is 6.
+    :param prec: optional argument, the number of significant digits to display, from 1 to 17, or ``"exact"``. Default = 6.
 
-        Valid input values are: :math:`1 ≤ prec ≤ 15`.
+        ``"exact"`` writes each number with the fewest digits that read back as exactly the same number, so 0.1 is ``0.1`` and 0.1+0.2 is ``0.30000000000000004``. 17 digits are enough for any number to read back exactly, but 0.1 becomes ``0.10000000000000001``.
 
-    :type prec: scalar
+    :type prec: scalar or string
 
     :return str: contains the string representation of the input.
 
@@ -87,6 +87,28 @@ returns
         1983           2.2027
         1984            2.551
 
+Example 4
++++++++++
+
+::
+
+    x = 0.1 | 0.1 + 0.2;
+
+    print ntos(x, 15);
+    print ntos(x, "exact");
+
+returns
+
+::
+
+                 0.1
+                 0.3
+
+                 0.1
+    0.30000000000000004
+
+The two numbers are not equal, but 15 digits write them as 0.1 and 0.3. ``"exact"`` writes the shortest string that reads back as each number.
+
 Remarks
 -------
 
@@ -95,5 +117,9 @@ scientific notation, depending upon which is most compact. The behavior
 is equivalent to the '%g' format specifier to the 'C' language function
 ``printf``. The precision of an individual number will be the smaller of the
 *prec* input and the maximum number of significant digits.
+
+Missing values are written as ``.`` and infinities as ``+INF`` and ``-INF``.
+Numbers smaller than about 2.2e-308 are written as digits, for example
+``2.5e-310``, at any precision.
 
 .. seealso:: Functions :func:`ftos`, :func:`stof`
