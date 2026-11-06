@@ -34,6 +34,9 @@ The counter is strictly local to the loop. The expressions, *start*, *stop*
 and *step* are evaluated only once when the loop initializes and are
 stored local to the loop.
 
+*start*, *stop* and *step* must not be missing values or NaN, and *step*
+must not be 0 (errors G0753, G0754 and G0538); infinite values are allowed.
+
 The commands `break` and `continue` are supported. The `continue` command
 steps the counter and jumps to the top of the loop. The `break` command
 terminates the current loop.

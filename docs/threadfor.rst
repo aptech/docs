@@ -115,6 +115,8 @@ Remarks
        0.52594285
        34.700000
 
+#. As in a `for` loop, *start*, *stop* and *step* must not be missing values
+   or NaN, and *step* must not be 0 (errors G0753, G0754 and G0538).
 #. `threadfor` loops may not be nested
 #. Debugging inside of `threadfor` loops is currently not supported.
 

@@ -100,6 +100,7 @@ Also fixed
 #. Lower memory use when drawing many surface or contour graphs.
 #. Axes with a tick interval label their first and last ticks, and setting only **Range Min** or **Range Max** in the graph settings keeps the other end.
 #. More reliable Command History, tab groups, and Run and Debug buttons.
+#. ``for`` and ``threadfor`` loops now stop with an error right away when the start, stop or step is a missing value or NaN.
 
 26.1.4
 ------
