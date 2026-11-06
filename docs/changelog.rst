@@ -93,6 +93,7 @@ Also fixed
 #. :func:`varget` and :func:`varput` give a clear error for the name of a procedure.
 #. :func:`gmmFitIV` accepts plain matrices, and :func:`gdadstat` accepts variable numbers as well as names.
 #. :func:`gmmFitIV` with ``noconstant = 1`` labels each coefficient with its own variable name, and runs with a single regressor.
+#. Under ``trap 1``, :func:`linsolve` returns the scalar error code 50 for a singular matrix, as :func:`inv` does. Before, the assignment stopped with error G0136.
 #. ``spline1D`` works with sigma 0, and ``pvRepacki`` and ``pvGetMask`` work with a PV structure that has no parameters.
 #. More reliable handling of missing values in :func:`cdfFnc` and :func:`cdfFncInv`.
 #. Lower memory use when drawing many surface or contour graphs.

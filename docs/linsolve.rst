@@ -54,5 +54,9 @@ while the slash operator ``/`` is accurate to within approximately 4e-13.
 However, the accuracy sacrifice can be much greater for poorly
 conditioned matrices.
 
+If *A* is singular, :func:`linsolve` ends the program with error G0048,
+"Matrix singular". If `trap` is set to 1, it returns the scalar error code
+50 instead, which can be tested with :func:`scalerr`, as :func:`inv` does.
+
 
 .. seealso:: Functions :func:`qrsol`, :func:`qrtsol`, :func:`solpd`, :func:`cholsol`
