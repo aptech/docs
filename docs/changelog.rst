@@ -101,6 +101,7 @@ Also fixed
 #. Axes with a tick interval label their first and last ticks, and setting only **Range Min** or **Range Max** in the graph settings keeps the other end.
 #. More reliable Command History, tab groups, and Run and Debug buttons.
 #. ``for`` and ``threadfor`` loops now stop with an error right away when the start, stop or step is a missing value or NaN.
+#. Assigning a string to an element of an N-dimensional array, such as ``a[1,1] = "ab"``, stores up to the string's first 8 bytes in the element, zero-padded, as it does for a matrix. Before, GAUSS crashed.
 
 26.1.4
 ------
