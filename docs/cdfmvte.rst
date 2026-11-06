@@ -30,7 +30,7 @@ Format
     :param nonc: noncentralities.
     :type nonc: Kx1 vector
 
-    :param df: degrees of freedom.
+    :param df: degrees of freedom, 0 or more. *df* need not be a whole number, for example 4.5. 0 or ``__INFP`` gives the multivariate Normal probability. A negative, missing or NaN *df*, or one that is not a real scalar, stops the program with an error.
     :type df: scalar
 
     :return p: Each element in *p* is the cumulative distribution function of the multivariate Student's t distribution for the corresponding elements in *x*.
