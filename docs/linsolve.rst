@@ -15,7 +15,7 @@ Format
     :type b: NxK matrix
 
     :param A: data
-    :type A: NxN matrix
+    :type A: NxN matrix, real or complex
 
     :return x: the linear solution of :math:`b/A` for each column in *b*.
 
