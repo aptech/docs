@@ -13,7 +13,7 @@ GAUSS 27 makes slow loops dramatically faster, makes your statistical results mo
 Speed
 ~~~~~
 
-#. **Much faster loops.** Loops that cannot be vectorized, such as GARCH-in-mean likelihoods and Kalman filters, get a dramatic speed-up: write ``kernel proc`` in place of ``proc`` and GAUSS compiles the procedure to native code.
+#. **Much faster loops.** Loops that cannot be vectorized, such as GARCH-in-mean likelihoods and Kalman filters, get a dramatic speed-up: write ``kernel proc`` in place of ``proc`` and GAUSS compiles the procedure to native code. Kernel procs accept dataframes, such as data loaded with :func:`loadd`, and return the same values, column names, types and labels as the ordinary procedure.
 #. **Faster normal probabilities.** :func:`lncdfn` and :func:`lncdfnc` are now built in and 10 to 20 times faster on large matrices, and :func:`cdfnc` is up to 30 times faster. All three are accurate to about 15 significant digits for every *x*, and :func:`lncdfn` and :func:`lncdfnc` accept N-dimensional arrays.
 #. **Faster on AMD processors.** On processors with AVX2, GAUSS now uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
 #. **Quicker start.** GAUSS starts faster with a long command history, and stays responsive in workspaces with many structures.
