@@ -11,34 +11,54 @@ Format
 ----------------
 .. function:: { va, ve } = spEigv(a, nev, which, tol, maxit, ncv)
 
-    :param a: NxN square, sparse matrix.
+    :param a: NxN square, real sparse matrix.
     :type a: sparse matrix
 
-    :param nev: number of eigenvalues to compute.
+    :param nev: number of eigenvalues to compute, a whole number from 1 to N-2.
     :type nev: scalar
 
-    :param which: may be one of the following: ``"LM"`` largest magnitude, ``"LR"`` largest real, ``"LI"`` largest imaginary, ``"SR"`` smallest real, or "SI" smallest imaginary. Default input 0, sets *which* to ``"LM"``.
+    :param which: which eigenvalues to compute, in upper or lower case:
+
+        .. list-table::
+            :widths: auto
+
+            * - "LM"
+              - Largest magnitude (the default; 0 also selects it).
+            * - "SM"
+              - Smallest magnitude.
+            * - "LR"
+              - Largest real part.
+            * - "SR"
+              - Smallest real part.
+            * - "LI"
+              - Largest imaginary part, in absolute value.
+            * - "SI"
+              - Smallest imaginary part, in absolute value.
+
     :type which: string
 
-    :param tol: tolerance for eigenvalues. Default input 0, sets *tol* to 1e-15.
+    :param tol: relative accuracy of the eigenvalues, 0 or more. Default input 0 sets *tol* to 1e-15.
     :type tol: scalar
 
-    :param maxit: maximum number of iterations. Default input 0, sets *maxit* to  :math:`nev * (\text{columns of  a}) * 100`.
+    :param maxit: maximum number of Arnoldi restarts, a whole number of 0 or more. Default input 0 sets *maxit* to :math:`nev * N * 100`.
     :type maxit: scalar
 
-    :param ncv: size of Arnoldi factorization. The minimum setting is the greater of :math:`nev+2` and 20. See Remarks on how to set *ncv*. Default input 0, sets *ncv* to  :math:`2 * (nev+1)`.
+    :param ncv: number of Arnoldi vectors, a whole number of 0 or more. Default input 0 sets *ncv* to the larger of :math:`2 * nev + 1` and 20, but no more than N. Other values are raised to at least the larger of :math:`nev + 2` and 20, and lowered to at most N. See Remarks.
     :type ncv: scalar
 
-    :return va: containing the computed eigenvalues of input matrix *a*.
+    :return va: the eigenvalues, sorted by *which*: by magnitude for ``"LM"`` and ``"SM"``, by real part for ``"LR"`` and ``"SR"``, and by the absolute value of the imaginary part for ``"LI"`` and ``"SI"``, the wanted eigenvalues first. The two eigenvalues of a complex conjugate pair are next to each other, the one with the positive imaginary part first.
 
-    :rtype va: nevx1 dense vector
+    :rtype va: nevx1 complex vector
 
-    :return ve: containing the corresponding eigenvectors of input matrix *a*.
+    :return ve: the eigenvectors; column *i* belongs to ``va[i]``.
 
-    :rtype ve: Nxnev dense matrix
+    :rtype ve: Nxnev complex matrix
 
 Examples
 ----------------
+
+Largest eigenvalues
++++++++++++++++++++
 
 ::
 
@@ -51,59 +71,110 @@ Examples
     // Create random matrix x
     x = 10*rndn(5, 5);
 
-    // Convert x to dense matrix
+    // Convert x to a sparse matrix, dropping elements smaller than 4 in magnitude
     a = densetosp(x, 4);
 
-::
+    // The 2 eigenvalues of largest magnitude, with the default settings
+    { va, ve } = spEigv(a, 2, "LM", 0, 0, 0);
 
-        21.276135  5.4078872 -19.817044  9.6771132 -19.211952
-        0.0000000 -4.4011007  10.445221 -5.1742289 -16.336474
-    a = 0.0000000 -20.853017  7.6285434  0.0000000 -15.626397
-       -12.637055  8.1227002  0.0000000 -8.7817892  0.0000000
-        0.0000000 -7.8181517  15.326816  0.0000000  0.0000000
+The results are:
 
 ::
 
-    /*
-    ** This call is equivalent to calling
-    ** { va, ve } = spEigv(a, 2,"LM", 1e-15, 2*5*100, 5);
-    */
-    { va, ve } = spEigv(a, 2, 0, 0, 0, 0);
+    va = 22.243033
+         1.2721326 + 19.674188i
+
+    ve = -0.41242526   -0.053404520 + 0.024343329i
+         -0.52805398     0.14690080 - 0.25069356i
+         -0.22729706     0.58688261 + 0.012127271i
+          0.19822788    0.076225392 + 0.53603640i
+          0.67831125     0.51827223 + 0.076148155i
+
+The second eigenvalue is one of a complex conjugate pair; its conjugate, ``1.2721326 - 19.674188i``, would come next with ``nev = 3``.
+The first eigenvalue times its eigenvector equals the matrix times the eigenvector:
 
 ::
 
-    va = 21.089832
-        -3.4769986 + 20.141970i
+    va[1]*ve[.,1]      a*ve[.,1]
+     -9.1735886       -9.1735886
+     -11.745522       -11.745522
+     -5.0557761       -5.0557761
+      4.4091892        4.4091892
+      15.087699        15.087699
 
-    ve = -0.92097057   0.29490584 - 0.38519280i
-         -0.10091920  -0.18070330 - 0.38405816i
-         0.061241324   0.24121182 - 0.56419722i
-          0.36217049  0.017643612 + 0.26254313i
-         0.081917964  -0.31466284 - 0.19936942i
-
-Below we show that the first eigenvalue times the corresponding eigenvector (1) equals the input matrix times the first eigenvector (2).
+Smallest eigenvalues
+++++++++++++++++++++
 
 ::
 
-    (1) va[1]*ve[.,1]     =      (2) a*ve[.,1] =
-     -19.423115                  -19.423115
-     -2.1283690                  -2.1283690
-      1.2915693                   1.2915693
-      7.6381149                   7.6381149
-      1.7276361                   1.7276361
+    // 1-D Laplacian: 2 on the diagonal, -1 beside it
+    n = 10000;
+    i = seqa(1, 1, n);
+    j = seqa(1, 1, n-1);
+    p = (2*ones(n, 1)~i~i) | (-ones(n-1, 1)~j~(j+1)) | (-ones(n-1, 1)~(j+1)~j);
+    sparse matrix a;
+    a = packedToSp(n, n, p);
+
+    // The 3 eigenvalues of smallest magnitude
+    { va, ve } = spEigv(a, 3, "SM", 0, 0, 0);
+
+::
+
+    va = 9.8676307e-08
+         3.9470522e-07
+         8.8808670e-07
+
+These equal the exact eigenvalues, :math:`2 - 2\cos(k \pi / (n+1))` for *k* = 1, 2, 3.
+
+When the eigenvalues do not converge
+++++++++++++++++++++++++++++++++++++
+
+::
+
+    trap 1;
+    { va, ve } = spEigv(a, 6, "SR", 1e-14, 1, 0);
+    trap 0;
+
+    if scalmiss(va);
+        print "spEigv failed, error " scalerr(va);
+    endif;
+
+::
+
+    spEigv failed, error 580.00000
 
 Remarks
 -------
 
-The ideal setting for input *ncv* is problem dependent and cannot be
-easily predicted ahead of time. Increasing *ncv* will increase the amount
-of memory used during computation. For a large, sparse matrix, *ncv*
-should be small compared to the order of input matrix *a*. :func:`spEigv` is not
-thread-safe.
+- ``"SM"`` factors *a* once with a sparse LU factorization and then works with the inverse of *a*. This
+  finds the smallest eigenvalues much faster than the other settings, and needs memory for the LU factors.
+  If *a* is singular or nearly singular, as a graph Laplacian is, :func:`spEigv` checks the results and, when
+  needed, searches again without the factorization. The results are just as accurate, but this can be much
+  slower.
+
+- If not all *nev* eigenvalues converge within *maxit* restarts, :func:`spEigv` stops with error G0580,
+  or G0590 if none converged. Other failures of the eigensolver stop with an error too. Under ``trap 1``,
+  *va* and *ve* are instead scalar error codes holding the error number; test them with :func:`scalmiss`
+  and read the number with :func:`scalerr`. To get convergence, raise *maxit* or *ncv*, or loosen *tol*.
+
+- *nev*, *maxit* and *ncv* must be whole numbers, *tol* must be 0 or more, and *which* must be one of the
+  six settings. Otherwise :func:`spEigv` stops with an error, whatever the ``trap`` setting.
+
+- The ideal setting for input *ncv* is problem dependent and cannot be easily predicted ahead of time.
+  Increasing *ncv* increases the memory used, about :math:`8 * N * ncv` bytes, and often reduces the number of
+  restarts. For a large, sparse matrix, *ncv* should be small compared to N.
+
+- When *nev* falls between the two eigenvalues of a complex conjugate pair, only the first of them, the one
+  with the positive imaginary part, is returned.
+
+- :func:`spEigv` starts from the same vector on every call, so repeating a call normally gives the same results.
+
+- Calls to :func:`spEigv` from different threads run one at a time.
 
 Technical Notes
 ----------------
 
-:func:`spEigv` implements functions from the ARPACK library.
+:func:`spEigv` uses the implicitly restarted Arnoldi method from the ARPACK library. For ``"SM"`` it uses
+the shift-invert mode of ARPACK, with the LU factorization from SuperLU.
 
 .. seealso:: Functions :func:`eig`, :func:`eigv`
