@@ -77,6 +77,7 @@ S
     spreadsheetwrite
     sprintf
     spscale
+    spsolpd
     spsubmat
     sptodense
     sptrtdense
