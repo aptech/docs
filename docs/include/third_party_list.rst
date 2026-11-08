@@ -88,9 +88,9 @@
      - as included in SuperLU 4.0
      - COLAMD license (University of Florida)
      - all
-   * - TAUCS
-     - 2.2, modified by Aptech Systems, Inc. (taucs_ccs_base, taucs_ccs_factor_llt, taucs_malloc only)
-     - TAUCS License (or LGPL; GAUSS uses the TAUCS License)
+   * - faer and the Rust crates it uses
+     - faer 0.24.4 (vendor package gsparse-faer-crates 0.24.4-1; the crates and versions are in the text)
+     - MIT (crates offering MIT OR Apache-2.0 and similar are used under MIT); atomic-wait BSD-2-Clause; faer's ported SuiteSparse AMD, SuiteSparse COLAMD and LAPACK code BSD-3-Clause
      - all
    * - ARPACK
      - 2 (translated to C with f2c), modified by Aptech Systems, Inc.
@@ -698,7 +698,6 @@ Acknowledgements
 ^^^^^^^^^^^^^^^^
 
 - This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/). This product includes cryptographic software written by Eric Young (eay@cryptsoft.com).
-- TAUCS is used by permission.
 - GAUSS uses L-BFGS-B. R. H. Byrd, P. Lu and J. Nocedal. A Limited Memory Algorithm for Bound Constrained Optimization, (1995), SIAM Journal on Scientific and Statistical Computing, 16, 5, pp. 1190-1208. C. Zhu, R. H. Byrd and J. Nocedal. L-BFGS-B: Algorithm 778: L-BFGS-B, FORTRAN routines for large scale bound constrained optimization (1997), ACM Transactions on Mathematical Software, 23, 4, pp. 550-560. J. L. Morales and J. Nocedal. L-BFGS-B: Remark on Algorithm 778: L-BFGS-B, FORTRAN routines for large scale bound constrained optimization (2011), ACM Transactions on Mathematical Software, 38, 1.
 - Portions of this software are copyright (c) 2024 The FreeType Project (www.freetype.org). All rights reserved.
 - This software is based in part on the work of the Independent JPEG Group.
@@ -785,35 +784,6 @@ Intel Math Kernel Library license
     Software.
 
     *Other names and brands may be claimed as the property of others.
-
-TAUCS license
-^^^^^^^^^^^^^
-
-::
-
-    TAUCS Version 1.0, November 29, 2001. Copyright (c) 2001 by Sivan Toledo, Tel-Aviv
-    Univesity, stoledo@tau.ac.il. All Rights Reserved.
-
-    TAUCS License:
-
-    Your use or distribution of TAUCS or any derivative code implies that you agree to
-    this License OR to the GNU LGPL.
-
-    THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
-    EXPRESSED OR IMPLIED. ANY USE IS AT YOUR OWN RISK.
-
-    Permission is hereby granted to use or copy this program, provided that the Copyright,
-    this License, and the Availability of the original version is retained on all copies. User
-    documentation of any code that uses this code or any derivative code must cite the
-    Copyright, this License, the Availability note, and "Used by permission." If this code or
-    any derivative code is accessible from within MATLAB, then typing "help taucs" must
-    cite the Copyright, and "type taucs" must also cite this License and the Availability
-    note. Permission to modify the code and to distribute modified code is granted,
-    provided the Copyright, this License, and the Availability note are retained, and a
-    notice that the code was modified is included. This software is provided to you free
-    of charge.
-
-    Availability: http://www.tau.ac.il/~stoledo/taucs
 
 David M. Gay's dtoa.c license
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
