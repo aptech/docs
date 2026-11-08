@@ -18,6 +18,7 @@ Speed
 #. **Faster on AMD processors.** On processors with AVX2, GAUSS now uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
 #. **Quicker start.** GAUSS starts faster with a long command history, and stays responsive in workspaces with many structures.
 #. **Much faster sparse solves and smallest eigenvalues.** Solving a large sparse system with ``/`` is about 100 times faster for 160,000 unknowns, and :func:`spEigv` finds the smallest eigenvalues (``"SM"``) of a typical 5,000-row matrix in milliseconds instead of 15 seconds.
+#. **Much faster sparse positive definite solves.** ``b / a`` with a large sparse, symmetric positive definite *a*, such as the :math:`X'X` of a sparse design, now uses a sparse Cholesky factorization, as :func:`spSolPD` does, and is much faster.
 
 Statistics and estimation
 ~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -80,11 +80,12 @@ Remarks
 -  :func:`spSolPD` is the fastest way to solve a large sparse system when
    *A* is symmetric, for example a finite-element or grid matrix, a
    covariance or precision matrix, or the :math:`X'X` of a sparse design.
-   Use :func:`spSolPD` rather than ``b/A`` for such systems: ``b/A`` uses a
-   general sparse LU solver, which can be very slow and use a lot of memory
-   on large symmetric systems. On normal equations with 210,000 unknowns,
-   ``b/A`` did not finish in 20 minutes and used more than 8.5 GB of memory,
-   while :func:`spSolPD` took 0.6 seconds.
+   ``b/A`` uses the same Cholesky factorization when *A* is exactly
+   symmetric and positive definite, and gives the same solution in about the
+   same time. For any other *A*, ``b/A`` uses a general sparse LU solver,
+   which can be very slow and use a lot of memory on large systems. Use
+   :func:`spSolPD` when *A* is symmetric but not positive definite, or
+   symmetric only up to rounding: it reads only the upper triangle.
 
 -  If *A* is banded and positive definite, for example the precision matrix
    of a state-space or trend model, :func:`bandchol` and :func:`bandcholsol`

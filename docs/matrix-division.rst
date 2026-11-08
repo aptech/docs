@@ -76,11 +76,14 @@ Remarks
 - The dense tall-system calculation uses normal equations and Cholesky
   factorization. This squares the condition number of ``a`` and can reduce
   accuracy for poorly conditioned inputs.
-- If *a* is a sparse matrix, ``b / a`` uses a general sparse LU solver. If *a* is
-  symmetric positive definite, for example the :math:`X'X` of a sparse design, use
-  :func:`spSolPD` instead: it is much faster and uses much less memory. On normal
-  equations with 210,000 unknowns, ``b / a`` did not finish in 20 minutes and used
-  more than 8.5 GB of memory, while :func:`spSolPD` took 0.6 seconds.
+- If *a* is a sparse matrix that is symmetric with a positive diagonal, for example
+  the :math:`X'X` of a sparse design, ``b / a`` first tries a sparse Cholesky
+  factorization, as :func:`spSolPD` does. If *a* is positive definite, that is much
+  faster and uses much less memory. For any other sparse *a*, or if *a* is not
+  positive definite, ``b / a`` uses a general sparse LU solver, which can be slow on
+  large systems. *a* must be exactly symmetric. If it is symmetric only up to
+  rounding, ``b / a`` uses the LU solver; use :func:`spSolPD`, which reads only the
+  upper triangle.
 - If either operand is a scalar, element-by-element division is performed (equivalent to ``./``).
 
 .. seealso:: Operators :doc:`element-by-element-division`, :doc:`matrix-multiplication`, Functions :func:`solve`, :func:`inv`, :func:`spSolPD`
