@@ -90,7 +90,8 @@ Format
    :type presample_residual: scalar
 
    :param presample_state: Optional keyword, pre-sample variance for
-                           ``"fixed_presample_state"`` and first variance for
+                           ``"fixed_presample_state"``, and the first
+                           max(*garch*, *arch*) variances for
                            ``"explicit_backcast_value"``. Must be positive.
                            Default = 1.
    :type presample_state: scalar
@@ -256,21 +257,25 @@ available. No covariance has a small-sample correction.
    * - ``"persistence_boundary"``
      - The fitted persistence is within 1e-6 of 1, the edge of the
        stationary region, no other parameter is at a bound, and the Hessian
-       can be used. Standard errors, p-values and limits are computed, and a
-       warning is printed: they assume a fit inside that region and may be
-       unreliable. If the likelihood still rises beyond persistence 1, the
-       status is ``"nonregular"`` instead.
+       is positive definite. Standard errors, p-values and limits are
+       computed, and a warning is printed: they assume a fit inside that
+       region and may be unreliable. This holds even when the likelihood
+       still rises beyond persistence 1.
    * - ``"nonregular"``
      - The fit is at or very near a bound: :math:`\omega`, an
        :math:`\alpha_i` or a :math:`\beta_j` at 0, :math:`\alpha + \gamma`
        at 0 for GJR, the *t* degrees of freedom at 2.05 or 500, or the
-       persistence at 1 when the likelihood still rises beyond it or another
-       parameter is also at a bound. The usual standard errors do not apply
-       there, so none are given. *result.inference_message* says which case it is: "Persistence
-       at 1 and the likelihood still rises beyond it", "alpha1 at 0 and the
-       likelihood still rises toward it" (or another parameter, such as
-       omega or alpha1 + gamma1), or "Boundary or near-boundary fit" for the
-       others.
+       persistence at 1 together with another bound. When the Hessian is not
+       positive definite, a fit held by a constraint is also
+       ``"nonregular"``: the persistence at 1 with the likelihood still
+       rising beyond it, or a parameter at 0 with the likelihood still rising
+       toward it. The usual standard errors do not apply there, so none are
+       given. *result.inference_message* says which case it is: "Persistence
+       at 1 and the likelihood still rises beyond it: Wald inference
+       suppressed", "alpha1 at 0 and the likelihood still rises toward it:
+       Wald inference suppressed" (or another parameter, such as omega or
+       alpha1 + gamma1), or "Boundary or near-boundary fit: Wald inference
+       suppressed" for the others.
    * - ``"failed"``
      - The standard errors could not be computed; the fit is kept.
        *result.inference_message* gives the reason: too few observations,
