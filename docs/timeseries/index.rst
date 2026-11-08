@@ -13,6 +13,7 @@ It provides:
 
 - **Univariate models:** ARIMA, SARIMA, ARIMAX with automatic order selection
 - **Exponential smoothing:** ETS model selection, fitting, forecasting, and diagnostics
+- **Volatility:** GARCH and GJR-GARCH with normal or Student's t errors, AR terms and regressors in the mean, and variance forecasts
 - **Vector autoregression:** OLS VAR, Bayesian VAR (Minnesota prior), BVAR with stochastic volatility
 - **Cointegration:** Johansen rank tests, vector error correction models, restriction tests, forecasts and impulse responses
 - **Structural identification:** Cholesky IRF, generalized IRF, sign-restricted SVAR
@@ -87,6 +88,23 @@ ETS / Exponential Smoothing
      - Return ETS smoothing parameters and summary fields as a dataframe.
    * - :func:`etsDiagnostics`
      - Compute residual diagnostics for a fitted ETS model.
+
+GARCH / Volatility
++++++++++++++++++++
+
+.. list-table::
+   :widths: auto
+
+   * - :func:`garchFit`
+     - Fit a GARCH(p,q) or GJR-GARCH(1,1) model with normal or Student's t errors, and AR terms or regressors in the mean.
+   * - :func:`garchForecast`
+     - Forecast the conditional variance, volatility and mean after the last observation.
+   * - :func:`garchControlCreate`
+     - Create :class:`garchControl` with defaults.
+   * - :func:`garchResults`
+     - Reprint the summary of a GARCH fit.
+   * - :func:`garchDiagnostics`
+     - ARCH-LM and sign-bias tests on the standardized residuals.
 
 VAR Estimation
 +++++++++++++++
@@ -291,6 +309,8 @@ Control Structure Creators
      - Create :class:`etsControl` with defaults.
    * - :func:`vecmControlCreate`
      - Create :class:`vecmControl` with defaults.
+   * - :func:`garchControlCreate`
+     - Create :class:`garchControl` with defaults.
 
 .. toctree::
     :maxdepth: 1
@@ -339,6 +359,13 @@ Control Structure Creators
     etsdiagnostics
     etsplotforecast
     etsplotresiduals
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: GARCH
+
+    garchfit
 
 .. toctree::
     :maxdepth: 1
