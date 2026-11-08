@@ -11,6 +11,7 @@ Format
 .. function:: gOut = garchFit(y, p [, q, gctl])
               gOut = garchFit(y, x, p [, q, gctl])
               gOut = garchFit(dataset, formula, p [, q, gctl])
+   :noindex:
 
    :param y: dependent variables.
    :type y: Matrix
