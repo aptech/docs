@@ -243,13 +243,6 @@ available. No covariance has a small-sample correction.
 
 *result.standard_error_status* says which case applies:
 
-.. TODO (GARCH-27 docs, worker F): the persistence_boundary, nonregular and
-   failed rows below are on hold. Worker B is changing these statuses and
-   their messages (a fit at persistence 1 or with alpha near 0 whose
-   likelihood still rises past the bound becomes nonregular; failed names the
-   check). Rewrite these rows and re-run the chk*.e scripts after B's change
-   merges and the GAUSS home is rebuilt.
-
 .. list-table::
    :header-rows: 1
    :widths: 30 70
@@ -260,18 +253,29 @@ available. No covariance has a small-sample correction.
      - Standard errors, p-values and limits are computed.
    * - ``"persistence_boundary"``
      - The fitted persistence is within 1e-6 of 1, the edge of the
-       stationary region, and no other parameter is at a bound. Standard
-       errors, p-values and limits are computed, and a warning is printed:
-       they assume a fit inside that region and may be unreliable.
+       stationary region, no other parameter is at a bound, and the Hessian
+       can be used. Standard errors, p-values and limits are computed, and a
+       warning is printed: they assume a fit inside that region and may be
+       unreliable. If the likelihood still rises beyond persistence 1, the
+       status is ``"nonregular"`` instead.
    * - ``"nonregular"``
-     - Another parameter is at or very near a bound: :math:`\omega`, an
-       :math:`\alpha_i` or a :math:`\beta_j` at 0, :math:`\alpha + \gamma` at
-       0 for GJR, or the *t* degrees of freedom at 2.05 or 500 (also
-       together with persistence at 1). The usual standard errors do not
-       apply there, so none are given.
+     - The fit is at or very near a bound: :math:`\omega`, an
+       :math:`\alpha_i` or a :math:`\beta_j` at 0, :math:`\alpha + \gamma`
+       at 0 for GJR, the *t* degrees of freedom at 2.05 or 500, or the
+       persistence at 1 when the likelihood still rises beyond it or another
+       parameter is also at a bound. The usual standard errors do not apply
+       there, so none are given. *result.inference_message* says which case it is: "Persistence
+       at 1 and the likelihood still rises beyond it", "alpha1 at 0 and the
+       likelihood still rises toward it" (or another parameter, such as
+       omega or alpha1 + gamma1), or "Boundary or near-boundary fit" for the
+       others.
    * - ``"failed"``
-     - The standard errors could not be computed: too few observations,
-       or the derivative or covariance check failed. The fit is kept.
+     - The standard errors could not be computed; the fit is kept.
+       *result.inference_message* gives the reason: too few observations,
+       derivatives that are not finite, a Hessian that is not positive
+       definite, a covariance that could not be computed or is not positive
+       definite, or a covariance that overflows or underflows on the data
+       scale.
    * - ``"skipped"``
      - ``covariance="none"``.
    * - ``"skipped: fit did not converge"``

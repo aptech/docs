@@ -89,11 +89,6 @@ on the :func:`garchFit` page.
 Monthly S&P 500 returns: an asymmetry
 +++++++++++++++++++++++++++++++++++++
 
-.. TODO (GARCH-27 docs, worker F): the GJR fit below has alpha1 near 0, so
-   its standard errors are withheld (nonregular). Worker B is changing the
-   nonregular statuses and messages; re-run this example after B's change
-   merges and the GAUSS home is rebuilt.
-
 ::
 
     fname = getGAUSSHome("pkgs/timeseries/examples/data/garch_sp500_monthly.csv");
