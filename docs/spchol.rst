@@ -106,6 +106,9 @@ Remarks
 - For large matrices, use ``order="amd"``. In the matrix's own order, *L* can have
   far more nonzeros than *a*, which takes more memory and time.
 - To solve :math:`Ax = b`, use :func:`spSolPD`, which orders, factors and solves in one call.
+- If *a* is banded, for example the precision matrix of a state-space or trend model,
+  :func:`bandchol` (and :func:`bandcholsol` to solve) is much faster. It takes the matrix
+  in compact band form, which :func:`band` makes from a dense matrix.
 - If *a* is not positive definite, :func:`spChol` stops with error G0121, "Matrix not
   positive definite". With ``trap 1``, it returns error code 10 instead, as :func:`chol`
   does: *L* is a 1x1 sparse matrix and *p* a scalar, and :func:`scalerr` returns 10 for
@@ -127,4 +130,4 @@ Technical Notes
 (1996), *An approximate minimum degree ordering algorithm*, SIAM Journal on Matrix
 Analysis and Applications 17(4).
 
-.. seealso:: Functions :func:`spLDL`, :func:`spSolPD`, :func:`chol`, :func:`spLU`
+.. seealso:: Functions :func:`spLDL`, :func:`spSolPD`, :func:`chol`, :func:`spLU`, :func:`bandchol`
