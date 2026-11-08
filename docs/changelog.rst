@@ -107,6 +107,8 @@ Also fixed
 #. ``for`` and ``threadfor`` loops now stop with an error right away when the start, stop or step is a missing value or NaN.
 #. Assigning a string to an element of an N-dimensional array, such as ``a[1,1] = "ab"``, stores up to the string's first 8 bytes in the element, zero-padded, as it does for a matrix. Before, GAUSS crashed.
 #. A missing value or NaN index in :func:`putarray`, :func:`setarray`, :func:`getarray`, :func:`getmatrix`, :func:`getmatrix4D`, :func:`getscalar3D`, :func:`getscalar4D` or :func:`subvec` gives error G0058; before, these read or changed the wrong elements. A missing or NaN start or length in :func:`strsect`, or start, step or end in ``a:b`` and ``a:s:b``, gives error G0674, and ``a:b`` with an infinite end gives G0037; before, the result was wrong or GAUSS crashed. An infinite or very large :func:`strsect` start or length follows the usual rules: a start past the end gives an empty string, a very negative start counts from the beginning, and a very large length takes the rest of the string, so ``strsect("hello", 2, __INFP)`` is ``"ello"``; before, the result depended on the platform, or GAUSS stopped or crashed. ``1:__INFP:5`` now gives 1 instead of a missing value.
+#. :func:`spCreate` adds together the values given more than once for the same row and column, and leaves out zeros. Before, a repeated or zero value could silently drop another value in the same row, so everything computed from the matrix was wrong.
+#. Multiplying or dividing a sparse matrix by a scalar now takes time in proportion to its nonzeros: on a 100,000 x 100,000 tridiagonal matrix it took about a minute before.
 
 26.1.4
 ------
