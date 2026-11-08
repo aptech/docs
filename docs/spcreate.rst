@@ -66,4 +66,8 @@ Remarks
 Since sparse matrices are strongly typed in GAUSS, *y* must be defined as
 a sparse matrix before the call to :func:`spCreate`.
 
+If the same row and column index pair appears more than once, :func:`spCreate`
+adds the values together; zeros, including repeated values that add up to zero,
+are not stored.
+
 .. seealso:: Functions :func:`packedToSp`, :func:`denseToSp`, :func:`spEye`
