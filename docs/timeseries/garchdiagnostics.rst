@@ -47,7 +47,9 @@ model describes the variance well, :math:`z_t^2` is unrelated to the past.
 number of observations in that regression times its :math:`R^2`, compared
 with a chi-squared distribution with *L* degrees of freedom. A small p-value
 says the fitted model leaves ARCH effects in the residuals: try a higher
-order.
+order. On standardized residuals of a fitted GARCH model this chi-squared
+distribution is only an approximation, and the test tends to reject less
+often than its nominal level (Li and Mak 1994).
 
 **Sign bias** (Engle and Ng 1993) regresses :math:`z_t^2` on a constant and
 :math:`S^-_{t-1}`, which is 1 when :math:`z_{t-1} < 0` and 0 otherwise. The
@@ -82,9 +84,9 @@ DM/£ returns: no evidence left
     ARCH-LM(12): 9.77121  p-value: 0.636024
     Sign bias t: 1.54186  p-value: 0.123267
 
-Neither test rejects at usual levels: the GARCH(1,1) leaves no ARCH effect in
-12 lags, and the sign-bias test agrees with the small *gamma1* of the GJR fit
-on the :func:`garchFit` page.
+Neither test rejects at usual levels: there is no evidence of an ARCH effect
+left in 12 lags, nor of an asymmetry, in line with the small *gamma1* of the
+GJR fit on the :func:`garchFit` page.
 
 Monthly S&P 500 returns: an asymmetry
 +++++++++++++++++++++++++++++++++++++
@@ -171,6 +173,7 @@ References
 
 - Engle, R.F. (1982). Autoregressive conditional heteroscedasticity with estimates of the variance of United Kingdom inflation. *Econometrica* 50, 987-1007.
 - Engle, R.F. and V.K. Ng (1993). Measuring and testing the impact of news on volatility. *Journal of Finance* 48, 1749-1778.
+- Li, W.K. and T.K. Mak (1994). On the squared residual autocorrelations in non-linear time series with conditional heteroskedasticity. *Journal of Time Series Analysis* 15, 627-636.
 
 Library
 -------

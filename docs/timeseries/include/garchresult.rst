@@ -90,7 +90,8 @@
      - Scalar, *alpha* + *beta* summed over lags, plus *gamma* / 2 for GJR.
 
    * - result.persistence_classification
-     - String, ``"admissible"`` (below 1) or ``"boundary"`` (within 1e-6 of 1).
+     - String, ``"admissible"`` (below 1), ``"boundary"`` (within 1e-6 of 1) or
+       ``"rejected"`` (1 or above).
 
    * - result.status
      - Scalar, 0 for a converged fit, 2 for a fit that did not converge

@@ -196,9 +196,10 @@ over the rows the likelihood uses.
    fit.
 
 ``"sample_variance"``
-   The first conditional variance is set to *v*, and the recursion starts
-   at the second observation. This is the start-up rule of TSMT 4.1; see
-   :doc:`garch-from-tsmt`.
+   The first max(*garch*, *arch*) conditional variances are set to *v*,
+   and the recursion starts after them. In a GARCH(1,1) the first
+   conditional variance is *v* and the recursion starts at the second
+   observation, as in TSMT 4.1; see :doc:`garch-from-tsmt`.
 
 ``"exponential_backcast"``
    Every pre-sample variance and squared residual equals a weighted average
@@ -214,7 +215,8 @@ Other rules:
    parameters (GJR negative part half of it).
 
 ``"explicit_backcast_value"``
-   The first conditional variance is set to *presample_state*, as
+   The first max(*garch*, *arch*) conditional variances are set to
+   *presample_state*, and the recursion starts after them, as
    ``"sample_variance"`` does with *v*. Requires a positive
    *presample_state*.
 
@@ -387,7 +389,8 @@ The log likelihood rises by 116.8 for one more parameter, and *df* = 4.3: the
 returns have fat tails. Under *t* errors the fitted persistence is 1 to within
 6e-8, so the standard errors come with the persistence warning. The
 estimates are the highest likelihood the fit finds in the stationary
-region, at its edge.
+region, at its edge. The *df* p-value tests *df* = 0, which is outside the
+allowed range, so it is not a standard test (see `Remarks`_).
 
 GJR-GARCH
 +++++++++
@@ -408,8 +411,8 @@ The parameter table adds *gamma1*:
               gamma1      0.028350751      0.028966292      0.043494293       0.51451283     -0.056896496       0.11359800
                beta1       0.80144124      0.034858456      0.077064835    2.4905114e-25       0.65039694       0.95248554
 
-For this exchange rate *gamma1* is small (robust p-value 0.51): falls and
-rises of the Deutschmark move its volatility about equally. Use
+For this exchange rate *gamma1* is small (robust p-value 0.51): there is no
+evidence that falls of the Deutschmark move its volatility more than rises. Use
 :func:`garchDiagnostics` to test for this asymmetry after a GARCH fit.
 
 AR terms and regressors with a formula
@@ -495,8 +498,46 @@ and is not part of the series; two or more date columns are refused. With
 ``"y ~ ."`` the date column must be dropped in the formula
 (``"y ~ . - date"``). The dates must increase from row to row.
 
-Fits with different *ar* use different rows, so compare their AIC and BIC
-only on a common sample: fit each model to the rows the largest *ar* leaves.
+Each p-value tests whether its parameter is 0. For *df*, 0 is outside the
+allowed range, and for *omega*, the *alpha* and the *beta*, 0 is the lower
+bound, so these p-values are not standard tests; read them as a rough guide.
+
+Each fit leaves out its first *ar* rows, so fits with different *ar* use
+different rows. To compare their AIC and BIC, fit them on a common sample:
+with *r_max* the largest *ar*, give the model with ``ar=r`` the rows
+*r_max* - *r* + 1 to *N*. Every likelihood then covers rows *r_max* + 1 to
+*N*. For AR(0), AR(1) and AR(2) on the monthly S&P 500 returns:
+
+::
+
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/garch_sp500_monthly.csv");
+    sp = loadd(fname);
+    y = sp[., "y"];
+    n = rows(y);
+
+    // The largest ar is 2. The model with ar=r gets rows r_max-r+1 to n,
+    // so every likelihood covers rows 3 to n.
+    r_max = 2;
+    struct garchResult f0, f1, f2;
+    f0 = garchFit(y[r_max+1:n], garch=1, arch=1, quiet=1);
+    f1 = garchFit(y[r_max:n], ar=1, garch=1, arch=1, quiet=1);
+    f2 = garchFit(y[r_max-1:n], ar=2, garch=1, arch=1, quiet=1);
+
+    print sprintf("%-6s %8s %12s %12s %12s", "", "Obs.", "Log lik.", "AIC", "BIC");
+    print sprintf("%-6s %8d %12.4f %12.4f %12.4f", "AR(0)" $| "AR(1)" $| "AR(2)",
+        f0.effective_nobs | f1.effective_nobs | f2.effective_nobs,
+        f0.loglik | f1.loglik | f2.loglik, f0.aic | f1.aic | f2.aic, f0.bic | f1.bic | f2.bic);
+
+::
+
+               Obs.     Log lik.          AIC          BIC
+
+    AR(0)       801   -2127.5959    4263.1918    4281.9352
+    AR(1)       801   -2114.7468    4239.4935    4262.9228
+    AR(2)       801   -2112.6943    4237.3885    4265.5037
+
+All three likelihoods cover the same 801 months. AIC prefers AR(2) and BIC
+prefers AR(1).
 
 ``model="gjr_garch"`` is accepted for ``"gjr"`` and ``dist="student_t"`` for
 ``"t"``. EGARCH, skewed *t*, GED, GARCH-in-mean and IGARCH are planned for a
@@ -528,7 +569,10 @@ By default a refusal ends the program with its message. With
        parameters).``
    * - 2
      - The optimizer did not converge. The estimates are returned, with no
-       standard errors, and the message is printed as a warning. The advice
+       standard errors. With ``on_error="stop"`` the message is printed as a
+       warning; with ``on_error="return"`` it is only stored in
+       *status_message*. Unless *quiet* is 1, the printed summary ends with a
+       warning either way. The advice
        at the end depends on why the optimizer stopped. The message shown is
        from a run with ``dist="t"``, ``ctl.max_iter = 1`` and
        ``ctl.tol = 1e-14``.
@@ -559,6 +603,9 @@ By default a refusal ends the program with its message. With
      - No starting value gives a finite likelihood
      - ``garchFit: no starting value gave a finite likelihood. Check the scale
        of y and the model.``
+   * - 11
+     - A refusal by the estimator itself
+     - ``garchFit: the estimator refused this request (category n).``
    * - 17
      - A model or setting not offered
      - ``garchFit: GJR fitting supports garch=1, arch=1, leverage_order=1.``,
@@ -584,7 +631,7 @@ By default a refusal ends the program with its message. With
      - The mean terms fit *y* exactly
      - ``garchFit: the mean terms fit y exactly; there is no volatility to
        model.``
-   * - 5, 11, 12, -1
+   * - 5, 12, -1
      - Internal errors
      - ``garchFit: internal error in the numerical library.`` and similar.
        Please report them to Aptech support with the data and the call.

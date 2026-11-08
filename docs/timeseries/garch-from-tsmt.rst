@@ -153,8 +153,10 @@ Start-up rule and how to compare with TSMT 4.1
 The recursion for the conditional variance needs values before the first
 observation. The GAUSS 27 default, ``init_policy="sample_variance_presample"``,
 sets the pre-sample variance and squared residual to the mean squared
-residual. TSMT 4.1 instead set the first conditional variance to the mean
-squared residual; ``init_policy="sample_variance"`` does the same. TSMT 4.1
+residual. In a GARCH(1,1), TSMT 4.1 instead set the first conditional
+variance to the mean squared residual, and ``init_policy="sample_variance"``
+does the same; for higher orders that rule sets the first max(*garch*,
+*arch*) conditional variances. TSMT 4.1
 also left the first observation out of the log likelihood it maximized and
 printed, while GAUSS 27 includes every observation. So with
 ``init_policy="sample_variance"`` the estimates are close to those of TSMT

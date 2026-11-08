@@ -87,7 +87,9 @@ moving-average form of the AR part. *fc.variance* is
 :math:`\sigma^2_{T+j|T}`, the variance of the shock, and
 *fc.y_error_variance* is this sum. Without AR terms the two are equal, and the
 printed table shows only *Variance*; with AR terms it shows both. The total
-over the h periods, *fc.total_variance*, adds up the shock variances only.
+over the h periods, *fc.total_variance*, adds up the shock variances only:
+with AR terms it is the variance of the sum of the shocks, not of the sum of
+the returns.
 
 Forecast dates
 --------------
@@ -96,7 +98,8 @@ When the fit has dates, *fc.forecast_dates* continue them. Annual,
 quarterly, monthly, weekly and daily dates step by their own frequency. Dates
 that fall only on Monday to Friday, with mostly one-day steps, as for daily
 market data, continue on the next weekdays (``fc.freq = "weekdays"``); there
-is no holiday calendar. Without dates the periods are 1 to h and print as
+is no holiday calendar. Without dates, or with dates whose frequency is not
+one of these, the periods are 1 to h, *fc.freq* is empty, and they print as
 T+1, T+2, ...
 
 Warnings
@@ -114,7 +117,9 @@ Two warnings are stored in *fc.warning_message*; neither changes
   Printed unless *quiet* is 1.
 
 A forecast from a fit that did not converge (status 2) is computed from its
-estimates, with *fc.status* = 2 and a printed warning. A forecast whose values
+estimates, with *fc.status* = 2. With ``on_error="stop"`` a warning is
+printed; with ``on_error="return"`` the message is only stored in
+*fc.status_message*. A forecast whose values
 overflow, for example from a nonstationary AR part at a long horizon, is
 refused (status 11); it is never returned with infinite or missing values.
 
@@ -216,8 +221,8 @@ this example holds them at the same values.
     struct garchResult fit_x;
     fit_x = garchFit(sp, "y ~ x1_spread_lag1 + x2_ipgrowth_lag1", ar=1, garch=1, arch=1, quiet=1);
 
-    // Regressors for February to April 2026: the January 2026 values from the
-    // FRED-MD file (known before February), held flat for March and April.
+    // Regressors for February to April 2026: the January 2026 values in the
+    // FRED-MD file, held flat for March and April.
     fm = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_md_large.csv"), "T10YFFM + INDPRO");
     n = rows(fm);
     spread = fm[n, "T10YFFM"];
@@ -243,6 +248,9 @@ In March, *Y_Error_Variance* is the March shock variance plus *ar1*\ :sup:`2`
 times the February one: 8.8846 + 0.20198\ :sup:`2` × 8.2448 = 9.2210. Use
 *Y_Error_Variance* for an interval around the mean forecast of the return,
 and *Variance* or *Volatility* for the risk of the shock itself.
+*Total_Variance* adds up the shock variances (8.2448 + 8.8846 = 17.1294 in
+March), so with the AR term it is the variance of the summed shocks, not of
+the summed returns.
 
 Remarks
 -------
@@ -273,8 +281,9 @@ By default a refusal ends the program with its message. With
      - ``garchForecast: the fit has n observations after the AR lags;
        forecasts need at least m.``
    * - 2
-     - The fit did not converge. The forecast is computed and the message is
-       printed as a warning.
+     - The fit did not converge. The forecast is computed. With
+       ``on_error="stop"`` the message is printed as a warning; with
+       ``on_error="return"`` it is only stored in *fc.status_message*.
      - ``garchForecast: Warning: the fit did not converge, so these forecasts
        use its best finite run.``
    * - 6

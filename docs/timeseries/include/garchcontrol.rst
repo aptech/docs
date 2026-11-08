@@ -33,8 +33,9 @@
      - Scalar, pre-sample residual for ``init_policy="fixed_presample_state"``. Default = 0.
 
    * - ctl.presample_state
-     - Scalar, pre-sample variance for ``"fixed_presample_state"`` and first
-       variance for ``"explicit_backcast_value"``. Default = 1.
+     - Scalar, pre-sample variance for ``"fixed_presample_state"``, and the
+       first max(*garch*, *arch*) variances for ``"explicit_backcast_value"``.
+       Default = 1.
 
    * - ctl.max_iter
      - Scalar, iteration limit of the optimizer's main run from each
