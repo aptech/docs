@@ -324,6 +324,7 @@ Control Structure Creators
     getting-started-bvar-forecast
     getting-started-ets
     getting-started-vecm
+    garch-from-tsmt
 
 .. toctree::
     :maxdepth: 1
@@ -366,6 +367,10 @@ Control Structure Creators
     :caption: GARCH
 
     garchfit
+    garchforecast
+    garchcontrolcreate
+    garchresults
+    garchdiagnostics
 
 .. toctree::
     :maxdepth: 1
