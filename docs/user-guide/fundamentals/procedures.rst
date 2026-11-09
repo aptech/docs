@@ -800,5 +800,7 @@ What's Next
   that accept formula strings referencing user-defined procedures.
 - Use :func:`dynargsGet` and :func:`dynargsCount` to write flexible
   interfaces.
+- Write ``kernel proc`` in place of ``proc`` to compile a loop-heavy
+  procedure to native code. See :doc:`kernel-procedures`.
 
-.. seealso:: Functions :func:`retp`, :func:`dynargsGet`, :func:`dynargsCount`, :func:`dynargsTypes`, :func:`local`, :func:`call`, :func:`olsmt`, :func:`loadd`, :func:`head`
+.. seealso:: :doc:`kernel-procedures`, Functions :func:`retp`, :func:`dynargsGet`, :func:`dynargsCount`, :func:`dynargsTypes`, :func:`local`, :func:`call`, :func:`olsmt`, :func:`loadd`, :func:`head`

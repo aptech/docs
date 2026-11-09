@@ -132,4 +132,4 @@ Examples
 
     { avg, variance } = meanAndVar(rndn(100, 1));
 
-.. seealso:: Functions `keyword`, `call`, `endp`, `local`, `retp`
+.. seealso:: Functions `keyword`, `call`, `endp`, `local`, `retp`, :doc:`/user-guide/fundamentals/kernel-procedures`

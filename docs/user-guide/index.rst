@@ -15,6 +15,7 @@ Fundamentals
    fundamentals/control-flow
    formula-strings
    fundamentals/procedures
+   fundamentals/kernel-procedures
 
 Data Management
 -----------------------------------------
