@@ -443,7 +443,7 @@ column, which :func:`garchFit` stores for :func:`garchForecast`.
     Model:        GARCH(1,0,1)
     Mean model:   constant_mean
     Mean terms:   AR(1), 2 regressors
-    AR inverse roots: largest modulus 0.201978 (below 1, stationary)
+    AR inverse roots: largest modulus 0.201979 (below 1, stationary)
     Distribution: normal
     Observations: 802
     Log likelihood: -2114.32
@@ -452,20 +452,20 @@ column, which :func:`garchFit` stores for :func:`garchForecast`.
     Parameters on the original data scale
 
            Parameter         Estimate       SE_Hessian        SE_Robust  P_Robust_Normal Lower_95_Robust_ Upper_95_Robust_
-                  mu       0.37893964       0.14724014       0.19464608      0.051557077    -0.0025596571       0.76043894
-                 ar1       0.20197845      0.039326237      0.039741250    3.7281777e-07       0.12408704       0.27986987
-      x1_spread_lag1       0.17513280      0.077098630      0.092282478      0.057723698    -0.0057375321       0.35600313
-    x2_ipgrowth_lag1     -0.029014878       0.14030933       0.13905858       0.83471976      -0.30156469       0.24353493
-               omega        1.7095014       0.57211585       0.61838353     0.0057015735       0.49749191        2.9215108
-              alpha1       0.14636684      0.039082537      0.068005221      0.031374653      0.013079059       0.27965463
-               beta1       0.72389090      0.064741431      0.076324664    2.4386528e-21       0.57429731       0.87348450
+                  mu       0.37893966       0.14724013       0.19464607      0.051557064    -0.0025596356       0.76043895
+                 ar1       0.20197851      0.039326236      0.039741253    3.7281572e-07       0.12408709       0.27986994
+      x1_spread_lag1       0.17513292      0.077098626      0.092282478      0.057723531    -0.0057374151       0.35600325
+    x2_ipgrowth_lag1     -0.029014967       0.14030933       0.13905859       0.83471927      -0.30156479       0.24353485
+               omega        1.7095015       0.57211583       0.61838348     0.0057015662       0.49749212        2.9215108
+              alpha1       0.14636683      0.039082525      0.068005196      0.031374604      0.013079097       0.27965457
+               beta1       0.72389088      0.064741434      0.076324672    2.4386846e-21       0.57429727       0.87348448
     Inference: available; Hessian and unadjusted score sandwich; robust normal p-values and limits
     Initialization: sample_variance_presample
     P-values and limits: robust asymptotic normal, level=0.95
 
     Optimizer: lbfgsb_tight_repolish; projected_gradient_at_or_below_pgtol
-    Iterations: 15; function evaluations: 19
-    Projected-gradient norm: 5.54024e-05 (requested 0.0001)
+    Iterations: 16; function evaluations: 18
+    Projected-gradient norm: 2.75144e-05 (requested 0.0001)
     Persistence: 0.870258 (admissible)
 
 The file has 803 months; the first supplies the lag, so 802 enter the

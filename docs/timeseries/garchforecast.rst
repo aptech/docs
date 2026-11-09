@@ -237,9 +237,9 @@ this example holds them at the same values.
     GARCH forecasts: GARCH(1,0,1), constant mean with AR(1) and 2 regressors, normal errors
 
               Period             Mean         Variance       Volatility   Total_Variance Y_Error_Variance
-             2026M02       0.68154343        8.2448014        2.8713762        8.2448014        8.2448014
-             2026M03       0.59617730        8.8846037        2.9807052        17.129405        9.2209528
-             2026M04       0.57893518        9.4413965        3.0726856        26.570802        9.8175680
+             2026M02       0.68154351        8.2448004        2.8713760        8.2448004        8.2448004
+             2026M03       0.59617738        8.8846026        2.9807050        17.129403        9.2209519
+             2026M04       0.57893525        9.4413954        3.0726854        26.570798        9.8175670
     Variance is the conditional variance of the shock; Y_Error_Variance adds the earlier
     shocks carried forward by the AR terms.
 
