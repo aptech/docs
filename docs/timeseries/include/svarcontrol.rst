@@ -10,7 +10,7 @@
        3   Contribution sign: from date1 to date2 the shock's contribution to the variable had the given sign (1 or -1).
        === ========================================================================================
 
-       Variables and shocks are numbers. Dates are observation numbers in the estimation sample, where 1 is the first observation after the lags.
+       Variables and shocks are numbers. Dates are observation numbers in the estimation sample, where 1 is the first observation after the lags. For types 2 and 3 both dates are included: the shocks of every period from date1 through date2 count, so date1 = date2 = t restricts period t alone.
 
    * - ctl.algorithm
      - Scalar, rotation sampler: 0 = automatic (default), 1 = random rotations with accept-reject, 2 = column-by-column construction that satisfies zero restrictions exactly. The automatic choice uses 2 when there are zero restrictions and 1 otherwise.
