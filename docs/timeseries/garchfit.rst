@@ -286,7 +286,9 @@ available. No covariance has a small-sample correction.
    * - ``"skipped"``
      - ``covariance="none"``.
    * - ``"skipped: fit did not converge"``
-     - Status 2: no standard errors for a fit that did not converge.
+     - Status 2: no standard errors for a fit that did not converge,
+       including a fit whose log-likelihood has no maximum (see
+       `Runs of Unchanged Values`_).
    * - ``"skipped: no fit"``
      - The fit was refused.
 
@@ -548,6 +550,52 @@ prefers AR(1).
 ``"t"``. EGARCH, skewed *t*, GED, GARCH-in-mean and IGARCH are planned for a
 later release; ``model="egarch"`` is refused with a message that says so.
 
+Runs of Unchanged Values
+------------------------
+
+When a series has runs of repeated values, such as prices or readings that
+did not change, the residuals can be 0 (to within 1e-6 standard deviations)
+on many rows in a row. On those rows the fitted variance falls toward a level
+proportional to :math:`\omega`, and the log-likelihood keeps rising as
+:math:`\omega` falls.
+The likelihood then has no maximum: :math:`\omega` ends at its lower limit,
+and the other estimates depend on where the optimizer stopped.
+
+garchFit detects this point, for GARCH and GJR with normal or *t* errors,
+when all three hold:
+
+- :math:`\omega` is within 10 times its lower limit;
+- the log-likelihood still rises as :math:`\omega` falls;
+- residuals of 0 in runs of 2 or more cover at least 1% of the rows.
+
+Such a fit is returned with *status* 2 (not converged) and no standard
+errors, and *result.warning_state* is ``"omega_floor_no_maximum"``. It is
+reported this way even when another start reached a point that passed the
+convergence checks, if that point has a lower log-likelihood. The message
+gives :math:`\omega` and the number of zero residuals:
+
+::
+
+    garchFit: Warning: the log-likelihood has no maximum. omega is at its
+    lower limit (7.92974e-13) and the log-likelihood still rises as omega
+    falls, because 100 of 500 residuals are 0 (within 1e-6 standard
+    deviations) in runs of repeated values, so the variance can shrink
+    without limit on those rows. The estimates are the last point reached and
+    have no standard errors. Check the data for runs of unchanged values (for
+    example rounded or stale readings).
+
+Unless *quiet* is 1, the printed summary ends with:
+
+::
+
+    WARNING: the log-likelihood has no maximum (omega at its lower limit; 100 residuals of 0 in runs).
+             No standard errors. See result.status_message.
+
+TSMT 5 beta builds before this change reported such fits as converged, with
+standard errors marked ``"nonregular"``. To fit these data, remove or model
+the runs of unchanged values (for example, drop stale readings or fit only
+the period with trading).
+
 Refusals and Messages
 ---------------------
 
@@ -581,10 +629,16 @@ By default a refusal ends the program with its message. With
        at the end depends on why the optimizer stopped. The message shown is
        from a run with ``dist="t"``, ``ctl.max_iter = 1`` and
        ``ctl.tol = 1e-14``.
+       Status 2 is also returned when the log-likelihood has no maximum
+       because of runs of zero residuals (see `Runs of Unchanged Values`_);
+       *result.warning_state* is then ``"omega_floor_no_maximum"``.
      - ``garchFit: Warning: the optimizer did not converge (L-BFGS-B task 31,
        projected gradient 1.55204e-06, requested 1e-14). The estimates are the
        best finite run and have no standard errors. Try a larger
-       ctl.max_iter.``
+       ctl.max_iter.`` or ``garchFit: Warning: the
+       log-likelihood has no maximum. omega is at its lower limit
+       (7.92974e-13) and the log-likelihood still rises as omega falls,
+       because 100 of 500 residuals are 0 ...``
    * - 6
      - A missing or non-finite value in *y* or *x*
      - ``garchFit: y has a missing or non-finite value at row 7. Remove or
