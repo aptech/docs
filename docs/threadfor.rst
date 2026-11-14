@@ -93,6 +93,8 @@ Remarks
 #. The iterations of a `threadfor` loop may execute in any order.
 #. Indexed assignments to global variables that use the loop counter
    behave the same as in a standard `for` loop.
+#. Two iterations must not assign to the same element, or to the same global
+   variable with :func:`varput`. Such a loop is not supported and can stop GAUSS.
 #. Non-indexed assignments will create a temporary variable that
    persists only through the remainder of the current loop iteration.
    For example:
