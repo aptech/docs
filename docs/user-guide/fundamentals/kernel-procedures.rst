@@ -8,9 +8,9 @@ that updates one observation at a time. In an ordinary procedure, such a
 loop runs one GAUSS statement at a time.
 
 Write ``kernel proc`` in place of ``proc``, and GAUSS compiles the
-procedure to native code, so loops like these run much faster. You call
-a kernel proc exactly as you call any other procedure, and it gives the
-same results.
+procedure to native code, so loops like these, and the scalar and
+small-matrix operations inside them, run much faster. You call a kernel
+proc exactly as you call any other procedure, and it gives the same results.
 
 ::
 
@@ -93,12 +93,16 @@ kernel proc. The only difference is the word ``kernel``.
 The kernel proc is called the same way, with the same arguments, and
 returns the same variances.
 
+See ``kernelproc_ar1.e`` and ``kernelproc_loopsum.e`` in the ``examples``
+folder for timing comparisons.
+
 
 When to Use a Kernel Proc
 -----------------------------------------
 
-Use ``kernel proc`` for code built around loops. For code that is
-already vectorized, an ordinary proc is usually as fast or faster.
+Use ``kernel proc`` for code built around loops and scalar or small-matrix
+operations. For code that is already vectorized, an ordinary proc is
+usually as fast or faster.
 
 Good candidates are procedures that:
 
@@ -111,6 +115,11 @@ Good candidates are procedures that:
 A procedure whose work is done by a few large matrix operations, such as
 ``inv(x'x) * x'y``, already runs in optimized code and does not need to
 be a kernel proc.
+
+A kernel proc speeds up the code inside it that works on one or a few
+numbers at a time: loops, and scalar and small-matrix operations. How much
+faster a whole program runs depends on how much of its time is spent in
+that kind of code.
 
 
 When GAUSS Compiles a Kernel Proc
@@ -341,8 +350,9 @@ Results
 
 A kernel proc gives the same results as the same procedure written with
 ``proc``, with the same missing values and the same shapes. In some
-calculations, the last one or two digits can differ, as they can
-between two computers.
+calculations, results can differ in the last few digits, as they can
+between two computers. Sums built up in a loop may add the terms in a
+different order.
 
 
 Libraries
