@@ -20,6 +20,8 @@ Format
         Since libcurl is used for all web operations, various proxy settings can be set using the
         relevant libcurl environment variables (see https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html).
 
+        For HDF5, ``h5://file.h5`` reads ``/data``; use ``h5://file.h5/dataset`` to select another dataset.
+
     :type dataset: String or existing dataframe
 
     :param varnames: Optional, formula string or vector of one-based column

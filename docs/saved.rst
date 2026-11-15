@@ -19,6 +19,7 @@ Format
 
     :param dataset: name of dataset. The type of file to create is inferred from the file extension.
         Valid file extensions include CSV, GDAT, DAT, XLS, XLSX.
+        For HDF5, use ``h5://file.h5`` or ``h5://file.h5/dataset``.
     :type dataset: string
 
     :param vnames: Optional input, names for the columns of the dataset.
@@ -202,6 +203,31 @@ shown below. GDAT v2 instead raises a runtime error if saving fails.
        errorlog "saved failed to write: "$+dataset;
        end;
     endif;
+
+Save numbers and column names to HDF5
++++++++++++++++++++++++++++++++++++++
+
+::
+
+    x = asdf({ 1.5 4, 2.5 5, 3.5 6 }, "amount" $| "count");
+
+    // Write /data, the default dataset
+    call saved(x, "h5://results.h5");
+    restored = loadd("h5://results.h5");
+
+    // Select a named dataset inside the file
+    call saved(x, "h5://results.h5/run1/beta");
+    named = loadd("h5://results.h5/run1/beta");
+
+HDF5 saves real, nonempty matrices and dataframes as numbers with column names.
+If the dataset name is omitted, both :func:`saved` and :func:`loadd` use ``/data``.
+An existing dataset is overwritten only when its row and column counts match;
+a different size raises an error naming the dataset and file before anything is written.
+Other datasets in the same file are retained.
+
+HDF5 preserves numbers, missing values and column names only. Category and string
+labels are lost: their numeric codes are stored. Dates are stored as numbers.
+Use ``.gdat`` to preserve dataframe types, labels and date display formats.
 
 Remarks
 -------
