@@ -209,6 +209,12 @@ Remarks
 -  You can add variable names to a matrix with :func:`dfname`.
 -  Use an explicit ``.gdat`` extension to select GDAT. A filename without an
    extension continues to select the legacy ``.dat`` format.
+-  In a ``.dat`` file, category and string columns are saved as text, cut
+   to 8 characters per value (:func:`saved` prints a warning when it cuts a
+   label). Load them back as text with ``cat()`` or ``str()`` in the
+   :func:`loadd` formula, for example
+   ``loadd("mydata.dat", "cat(colour) + amount")``. Use ``.gdat`` to keep a
+   dataframe's types.
 
 .. _saved-gdat-v2:
 
