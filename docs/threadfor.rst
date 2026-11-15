@@ -119,6 +119,10 @@ Remarks
 
 #. As in a `for` loop, *start*, *stop* and *step* must not be missing values
    or NaN, and *step* must not be 0 (errors G0753, G0754 and G0538).
+#. `break` and `continue` cannot be used inside a `threadfor` loop. A `retp`,
+   `return` or `goto` in the loop body that leaves the loop stops the program
+   with error G0759. To leave early, set a flag or store the result, and return
+   after `threadendfor`. A `retp` inside a procedure that the loop calls is fine.
 #. `threadfor` loops may not be nested
 #. Debugging inside of `threadfor` loops is currently not supported.
 
