@@ -46,7 +46,7 @@ Format
         .. csv-table::
             :widths: auto
 
-            "0", "normal completion with ``err <= max(ctl.absErrorTolerance, abs(y)*ctl.relErrorTolerance)``."
+            "0", "normal completion. For finite df >= 100, ``err <= max(ctl.absErrorTolerance, abs(y)*ctl.relErrorTolerance)``."
             "1", "requested accuracy was not achieved, or a numerical calculation failed. See the notes below."
             "2", ":math:`K > 100` or :math:`K < 1`."
             "3", "*R* not positive semi-definite."
@@ -58,11 +58,16 @@ A return code of 1 can indicate that randomized integration exhausted
 ``ctl.maxEvaluations``. More evaluations may reduce that integration error.
 They cannot repair a numerical failure, reduce a fixed special-case error
 estimate, or remove an approximation error. Numerical failures return
-``err = 1`` and ``retcode = 1``; do not treat the probability as meeting the
-requested accuracy. This also applies when finite *df* exceeds 100000000
-and the calculation requires the approximate chi inverse. Central one- and
-two-variable special cases use separate evaluators and may still succeed.
-Every special-case estimate is checked against the requested tolerance.
+``err = 1`` and ``retcode = 1``; the probability may be a missing value.
+Do not treat it as meeting the requested accuracy. Noncentral cases or
+cases with three or more active variables that require the chi inverse
+also report ``err = 1`` and ``retcode = 1`` when finite *df* exceeds
+100000000. Central one- and two-variable special cases use separate
+evaluators and may still succeed. For normal probabilities, pass
+``df = 0`` or ``df = __INFP`` instead of an extremely large finite value.
+For finite *df* >= 100, every special-case error estimate is checked
+against the requested tolerance. Normal probabilities and *df* < 100
+retain their existing return-code behavior.
 
 
 Examples
