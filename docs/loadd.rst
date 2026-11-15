@@ -21,6 +21,7 @@ Format
         relevant libcurl environment variables (see https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html).
 
         For HDF5, ``h5://file.h5`` reads ``/data``; use ``h5://file.h5/dataset`` to select another dataset.
+        Plain ``.h5``/``.hdf5`` names (any case), including ``file.h5/run1/beta``, are accepted without ``h5://``.
 
     :type dataset: String or existing dataframe
 

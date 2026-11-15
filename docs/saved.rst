@@ -224,6 +224,7 @@ If the dataset name is omitted, both :func:`saved` and :func:`loadd` use ``/data
 An existing dataset is overwritten only when its row and column counts match;
 a different size raises an error naming the dataset and file before anything is written.
 Other datasets in the same file are retained.
+Plain ``.h5``/``.hdf5`` names (any case), including ``file.h5/run1/beta``, are accepted without ``h5://``.
 
 HDF5 preserves numbers, missing values and column names only. Category and string
 labels are lost: their numeric codes are stored. Dates are stored as numbers.
