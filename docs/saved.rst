@@ -18,8 +18,8 @@ Format
     :type x: NxK matrix or dataframe, or a supported GAUSS value for GDAT v2
 
     :param dataset: name of dataset. The type of file to create is inferred from the file extension.
-        Valid file extensions include CSV, GDAT, DAT, XLS, XLSX.
-        For HDF5, use ``h5://file.h5`` or ``h5://file.h5/dataset``.
+        Valid file extensions include CSV, GDAT, DAT, XLS, XLSX, H5 and HDF5.
+        HDF5 accepts plain filenames or selectors such as ``h5://file.h5/dataset``.
     :type dataset: string
 
     :param vnames: Optional input, names for the columns of the dataset.
@@ -30,6 +30,7 @@ Format
 
         For GDAT, pass 0 to keep these defaults. Explicit column names apply
         only to real, nonempty matrices and dataframes.
+        For HDF5, provide exactly one name per column.
     :type vnames: string, Kx1 string array, or 0
 
     :param gdat_version: Optional, GDAT version: 2 (default) or 1 for a legacy
@@ -221,10 +222,13 @@ Save numbers and column names to HDF5
 
 HDF5 saves real, nonempty matrices and dataframes as numbers with column names.
 If the dataset name is omitted, both :func:`saved` and :func:`loadd` use ``/data``.
-An existing dataset is overwritten only when its row and column counts match;
-a different size raises an error naming the dataset and file before anything is written.
+An existing dataset is overwritten only if it stores IEEE binary64 (8-byte double
+precision) numbers and its row and column counts match. A type or size mismatch
+raises an error naming the dataset and file before anything is written.
 Other datasets in the same file are retained.
 Plain ``.h5``/``.hdf5`` names (any case), including ``file.h5/run1/beta``, are accepted without ``h5://``.
+The first ``.h5/`` or ``.hdf5/`` (any case) separates the filename from the dataset path.
+Folders ending in ``.h5`` or ``.hdf5`` are unsupported, both with and without ``h5://``.
 
 HDF5 preserves numbers, missing values and column names only. Category and string
 labels are lost: their numeric codes are stored. Dates are stored as numbers.

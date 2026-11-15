@@ -22,6 +22,8 @@ Format
 
         For HDF5, ``h5://file.h5`` reads ``/data``; use ``h5://file.h5/dataset`` to select another dataset.
         Plain ``.h5``/``.hdf5`` names (any case), including ``file.h5/run1/beta``, are accepted without ``h5://``.
+        The first ``.h5/`` or ``.hdf5/`` (any case) separates the filename from the dataset path.
+        Folders ending in ``.h5`` or ``.hdf5`` are unsupported, both with and without ``h5://``.
 
     :type dataset: String or existing dataframe
 
