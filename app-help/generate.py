@@ -89,6 +89,8 @@ def main():
     (stage/'ChangeLog.html').unlink(missing_ok=True)
     copy(f for f in html.iterdir() if f.name not in ('index.html', 'genindex.html'))
     copy((html/'data-management').glob('*'))
+    # Ship only this GAUSS 27 guide page; other nested guides stay excluded.
+    copy([html/'user-guide/fundamentals/kernel-procedures.html'])
     # Command Reference links to the category pages and Learning Resources to
     # the "coming to GAUSS" guides; without them those links are dead. The
     # flat layout keeps data-management's data-cleaning.html, which the
@@ -167,6 +169,11 @@ def main():
     run(['python', pkg/'genhelpproperties.py'], cwd=work)
     run(['python', pkg/'help.py'], cwd=work)
     project = ET.parse(stage/'gauss.qhp')
+    if (stage/'kernel-procedures.html').is_file():
+        ET.SubElement(project.find('.//toc/section[@title="User Guide"]'),
+                      'section', title='Kernel Procedures', ref='kernel-procedures.html')
+        ET.SubElement(project.find('.//keywords'), 'keyword',
+                      name='Kernel Procedures', id='kernel-procedures', ref='kernel-procedures.html')
     files = project.find('.//files')
     files.clear()
     for f in sorted(stage.rglob('*')):

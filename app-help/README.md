@@ -10,6 +10,11 @@ The app's RTD template uses `.rst-content`, so website-only selectors do not
 apply there. This scoped stylesheet is appended during packaging; source docs
 and website builds are unchanged. Qt previews include minimize and tsAggregate.
 
+The GAUSS 27 Kernel Procedures guide is included as `kernel-procedures.html`,
+with a User Guide contents entry and a `Kernel Procedures` index keyword.
+Other nested user-guide and Time Series pages remain excluded. Links to omitted
+pages become plain text; the generation report lists every such conversion.
+
 **GAUSS 27:** use documentation commit
 `f7b290e34a849af3d1670ad52d0c521e54ec0090` from published `qthelp`, and pass
 `--release 27` to `prepare.py`. The original archive replay below ends at 26.1.4;
