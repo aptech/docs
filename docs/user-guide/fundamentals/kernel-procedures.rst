@@ -352,7 +352,7 @@ A kernel proc gives the same results as the same procedure written with
 ``proc``, with the same missing values and the same shapes. In some
 calculations, results can differ in the last few digits, as they can
 between two computers. Sums built up in a loop may add the terms in a
-different order.
+different order, so they can differ in the last few digits.
 
 
 Libraries
