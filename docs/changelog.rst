@@ -8,39 +8,37 @@ The following is a list of changes from the previous version of GAUSS.
 27.0.0
 ------
 
-GAUSS 27 makes slow loops dramatically faster, makes your statistical results more accurate, and puts your graphs and data right beside your code. It is built to run the programs you already have, and most programs need no changes.
+GAUSS 27 makes slow loops dramatically faster, makes your statistical results more accurate, and puts your graphs and data right beside your code. It runs the programs you already have, and most need no changes.
 
 Speed
 ~~~~~
 
-#. **Much faster loops.** Loops that cannot be vectorized, such as GARCH-in-mean likelihoods and Kalman filters, get a dramatic speed-up: write ``kernel proc`` in place of ``proc`` and GAUSS compiles the procedure to native code. Kernel procs accept dataframes, such as data loaded with :func:`loadd`, and return the same values, column names, types and labels as the ordinary procedure. See :doc:`user-guide/fundamentals/kernel-procedures`. Ordinary procedures run faster too, with no changes to your code: in our tests, loops that update one element at a time, such as Gauss-Seidel iterations, ran 1.7 to 2.1 times faster, AR(2) recursions 1.3 to 1.45 times faster, and loops that call a procedure about 1.2 times faster.
+#. **Loops 50 to 200 times faster.** Write ``kernel proc`` in place of ``proc`` and GAUSS compiles the procedure to native code. Recursions, filters, simulations and likelihoods that update one observation at a time, the loops you cannot vectorize, get the biggest gains: in our tests an AR(1) filter ran about 50 times faster than in GAUSS 26, and a loop that sums a vector over 200 times faster. How much a whole program gains depends on how much of its time it spends in such loops. You call a kernel proc like any other procedure and it accepts dataframes. It gives the same results, except that long sums built up in a loop can differ in the last few digits. See :doc:`user-guide/fundamentals/kernel-procedures`.
+#. **Your existing programs run faster.** Ordinary procedures need no changes: in our tests, loops that update one element at a time, such as Gauss-Seidel iterations, ran 1.7 to 2.1 times faster, AR(2) recursions 1.3 to 1.45 times faster, and loops that call a procedure about 1.2 times faster.
 #. **Faster normal probabilities.** :func:`lncdfn` and :func:`lncdfnc` are now built in and 10 to 20 times faster on large matrices, and :func:`cdfnc` is up to 30 times faster. All three are accurate to about 15 significant digits for every *x*, and :func:`lncdfn` and :func:`lncdfnc` accept N-dimensional arrays.
-#. **Faster on AMD processors.** On processors with AVX2, GAUSS now uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
-#. **Quicker start.** GAUSS starts faster with a long command history, and stays responsive in workspaces with many structures.
-#. **Faster work with large matrices.** Programs that create and replace large matrices again and again, such as Monte Carlo simulations, bootstraps and iterative updates, run faster on Windows and macOS. In our tests on Windows, an OLS Monte Carlo ran up to 40% faster, a bootstrap 27% faster, and a loop updating a 2000x2000 matrix took less than half the time. Results are unchanged.
-#. **Much faster sparse solves and smallest eigenvalues.** Solving a large sparse system with ``/`` is about 100 times faster for 160,000 unknowns, and :func:`spEigv` finds the smallest eigenvalues (``"SM"``) of a typical 5,000-row matrix in milliseconds instead of 15 seconds.
-#. **Much faster sparse positive definite solves.** ``b / a`` with a large sparse, symmetric positive definite *a*, such as the :math:`X'X` of a sparse design, now uses a sparse Cholesky factorization, as :func:`spSolPD` does, and is much faster.
+#. **Much faster sparse matrices.** Solving a large sparse system with ``/`` is about 100 times faster for 160,000 unknowns. ``b / a`` with a sparse symmetric positive definite *a*, such as the :math:`X'X` of a sparse design, uses a sparse Cholesky factorization. :func:`spEigv` finds the smallest eigenvalues of a 5,000-row matrix in milliseconds instead of 15 seconds, and :func:`spChol` and :func:`spLDL` have a new ``order="amd"`` option that is much faster on large matrices.
+#. **Faster Monte Carlo and bootstrap.** Programs that create and replace large matrices again and again run faster on Windows and macOS. In our tests on Windows, an OLS Monte Carlo ran up to 40% faster, a bootstrap 27% faster, and a loop updating a 2000x2000 matrix twice as fast.
+#. **Faster on AMD processors.** On processors with AVX2, GAUSS uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
+#. **Quick to start,** even with a long command history, and responsive in workspaces with many structures.
 
 Statistics and estimation
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. **Optimize without derivatives.** :func:`minimize` adds Nelder-Mead for unconstrained objectives: ``minimize(&f, x0, method="nelder-mead")``. Use L-BFGS-B when you need bounds.
-#. **GARCH models in the Time Series package.** :func:`garchFit` (``library timeseries``) fits GARCH(p,q) and GJR-GARCH(1,1) models with normal or Student's *t* errors and AR terms and regressors in the mean, and shows Hessian and robust standard errors. :func:`garchForecast` forecasts the variance, volatility and mean, with dates, and :func:`garchDiagnostics` tests the standardized residuals. TSMT 4.1 users: see :doc:`timeseries/garch-from-tsmt`.
 #. **Accurate log likelihoods, even when probabilities are tiny.** New functions :func:`lnsumexp` and :func:`lndiffexp` add and subtract log likelihoods and log probabilities without overflow, underflow or lost precision, for example in mixture models or ``lndiffexp(lncdfn(b), lncdfn(a))`` for ordered and interval probabilities. :func:`ln1p` and :func:`expm1` keep full precision near zero.
-#. **More accurate GMM.** :func:`gmmFit` and :func:`gmmFitIV` give more accurate standard errors, J statistics and convergence, and a new ``gCtl.jStatWeight`` option chooses the weight in the J statistic. Their reference pages give the details.
-#. **More accurate multivariate probabilities.** :func:`cdfMvne`, :func:`cdfMvte` and related functions are more accurate for perfectly or almost perfectly correlated variables, large degrees of freedom, and infinite or very large limits. Results agree with Genz's reference code.
-#. **Fractional degrees of freedom for multivariate t probabilities.** :func:`cdfMvte`, :func:`cdfMvtce` and :func:`cdfMvt2e` accept any degrees of freedom above 0, such as 4.5 or 0.5. Before, the degrees of freedom were rounded down to a whole number, and values below 1 gave the Normal probability. Whole-number degrees of freedom give the same results as before.
+#. **More accurate GMM.** :func:`gmmFit` and :func:`gmmFitIV` give more accurate standard errors, J statistics and convergence, and a new ``gCtl.jStatWeight`` option chooses the weight in the J statistic.
+#. **Multivariate normal and t probabilities you can rely on.** :func:`cdfMvne`, :func:`cdfMvte` and related functions are more accurate for highly correlated variables, large degrees of freedom, and infinite or very large limits, and much faster for large degrees of freedom. They now accept any degrees of freedom above 0, such as 4.5 or 0.5.
 #. **More accurate discrete distributions.** The discrete distribution functions and their inverses, such as :func:`cdfBinomialInv`, are more accurate for extreme probabilities and very large answers.
-#. **Faster, more accurate determinants.** :func:`det` and :func:`detl` are faster and more accurate, including for matrices with very small elements.
-#. **More reliable sparse eigenvalues.** :func:`spEigv` returns the eigenvalues you ask for, sorted, with each complex conjugate pair together, also works for small matrices, and stops with an error, which you can trap, instead of returning zeros when the eigenvalues do not converge.
+#. **Faster, more accurate determinants.** :func:`det` and :func:`detl` are faster and more accurate.
+#. **Sparse eigenvalues in the order you expect.** :func:`spEigv` returns the eigenvalues you ask for, sorted, with complex conjugate pairs together, works for small matrices too, and tells you when the eigenvalues do not converge.
 
 Graphics
 ~~~~~~~~
 
-#. **3D surfaces beside your other graphs.** Put a surface next to XY, scatter, bar and other 2D graphs in :func:`plotLayout` and :func:`plotCustomLayout`, and move, resize, pop out and export it like any other graph. Titles fit the graph and are centered over the surface. Label it with text boxes, including LaTeX. Text is sharp at any display scaling and stays real text in PDF and SVG exports. New **Projection** and **Box** settings, new **Front Left** and **Front Right** camera presets, and your mouse rotation is saved in ``.plot`` files.
+#. **3D surfaces beside your other graphs.** Put a surface next to XY, scatter, bar and other 2D graphs in :func:`plotLayout` and :func:`plotCustomLayout`, and move, resize, pop out and export it like any other graph. Label it with text boxes, including LaTeX. Text is sharp at any display scaling and stays real text in PDF and SVG exports. New **Projection** and **Box** settings, new **Front Left** and **Front Right** camera presets, and your mouse rotation is saved in ``.plot`` files.
 #. **Layouts that line up.** Graphs of the same size in a layout align their axes in every row and column, whatever their titles, labels or fonts. Titles are centered over the plot area.
 #. **Smarter axes.** The number of tick labels fits the size of the graph, an axis ends at the data unless a round number is close, labels stay round when you zoom or pan, very large and very small values share a power of ten (for example, ×10\ :sup:`12`), and ranges set with :func:`plotSetXRange` or :func:`plotSetYRange` are drawn exactly as you give them.
-#. **Clearer legends.** Bar, box and filled-area series show as filled boxes, and a line symbol whose width is 0 is hidden.
+#. **Clearer legends.** Bar, box and filled-area series show as filled boxes.
 #. **Pop out any graph** into its own window with **Pop Out**, and move graphs between pages with **Move to Graphics** and **Move to Edit**.
 
 The editor
@@ -53,12 +51,11 @@ The editor
 Data and programming
 ~~~~~~~~~~~~~~~~~~~~
 
-#. **Save a whole set of results in one file.** :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load just one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``. :func:`saveStruct` and :func:`loadStruct` keep dataframe members' metadata too, and :func:`loadStruct` tells you why it cannot read a file it returns 1 for.
+#. **Save a whole set of results in one file.** :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load just one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``.
+#. **Write HDF5 files.** :func:`saved` writes HDF5 files, for example ``saved(x, "results.h5")``, and :func:`loadd` reads them back.
 #. **Differences in one call.** The new function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
-#. **Write numbers exactly.** :func:`csvWriteM` and :func:`ntos` accept up to 17 digits, or ``"exact"`` for the fewest digits that read back as exactly the same number (0.1 stays ``0.1``). Numbers smaller than about 2.2e-308 are written as digits instead of ``+DEN``, so :func:`csvReadM` no longer reads them back as missing.
-#. **Less typing with structures.** 54 procedures that return a structure, among them :func:`olsmtControlCreate`, :func:`QNewtonmtControlCreate` and :func:`pvPack`, now declare it, so ``ctl = olsmtControlCreate()`` works without declaring ``ctl`` first.
-#. **Room for larger programs.** The default ``maxglobals`` in :file:`gauss.cfg` is 8,000, up from 6,500, so larger programs and libraries load without error G0026, "Too many symbols".
-#. **Your FRED API key stays private** in the output and error messages of :func:`fred_load` and the other web data functions.
+#. **Write numbers exactly.** :func:`csvWriteM` and :func:`ntos` accept up to 17 digits, or ``"exact"`` for the fewest digits that read back as exactly the same number (0.1 stays ``0.1``).
+#. **Less typing with structures.** ``ctl = olsmtControlCreate();`` now works without declaring ``struct olsmtControl ctl;`` first, for 54 procedures that return a structure, among them :func:`QNewtonmtControlCreate` and :func:`pvPack`.
 
 Upgrading from GAUSS 26
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,51 +64,35 @@ Most programs need no changes. Here is what to check.
 
 **Sharing data files with GAUSS 26**
 
-#. :func:`saved` writes ``.gdat`` files in the new GDAT 2.0 format, which keeps structures, strings and dataframe metadata. To share a table with someone using GAUSS 26 or earlier, which cannot read GDAT 2.0, pass 1 as the fourth argument: ``saved(x, "file.gdat", 0, 1)``. Files from :func:`saveStruct` also use GDAT 2.0.
+#. :func:`saved` writes ``.gdat`` files in the new GDAT 2.0 format, which keeps structures, strings and dataframe metadata. To share a table with someone using GAUSS 26 or earlier, pass 1 as the fourth argument: ``saved(x, "file.gdat", 0, 1)``. Files from :func:`saveStruct` also use GDAT 2.0.
 
-**Your configuration file**
+**Results that can differ from GAUSS 26**
 
-#. If you copy your GAUSS 26 :file:`gauss.cfg` into GAUSS 27, set ``maxglobals`` to 8000, the new default, or larger programs may stop with error G0026, "Too many symbols".
+#. :func:`spEigv` returns its eigenvalues sorted, for example largest magnitude first for ``"LM"``.
+#. :func:`spCreate` adds together values given more than once for the same row and column, as other sparse tools do.
+#. :func:`cdfMvne`, :func:`cdfMvte` and related functions return *retcode* 1 when the error estimate is above the requested tolerance; raise ``ctl.maxEvaluations`` or loosen the tolerance.
+#. The cumulative distribution functions return 0 or 1 for an *x* outside the distribution's range, and an error code for a parameter outside its range, instead of -1 or 2.
+
+**Invalid input now stops with an error**
+
+#. Functions given input they cannot use, such as a missing, NaN or infinite size, index, lag or degrees of freedom, or a matrix that is not positive definite in :func:`spChol`, now stop with a clear error at the line where the problem is. Under ``trap 1`` they return an error code. The reference pages list the cases.
+#. Assigning to a member of a variable that is not a structure, or returning a number from a procedure declared to return a structure, stops with error G0181 at that line.
 
 **Graphs**
 
-#. ``plotAdd*`` functions add to the graph GAUSS last created or added to, even if you click another graph tab while your program runs. During debugging a new graph opens beside the code, so the **Undock page if debugging** preference has been removed.
-#. For the GAUSS 26 look of 3D surfaces, set **Lighting** to 5, **Projection** to Perspective and **Box** to Cube. The **Below** camera presets now look from below. A GAUSS 27 ``.plot`` file with a surface beside other graphs opens in GAUSS 26 as the surface alone. Adding a 2D curve to a surface graph, or a surface to a 2D graph, opens a new graph.
-#. A tick count from :func:`plotSetXTicCount` or :func:`plotSetYTicCount` is a target, with round tick values. Axes with a tick interval, and log, date, category and polar axes, are drawn as before.
+#. ``plotAdd*`` functions add to the graph GAUSS last created or added to, even if you click another graph tab while your program runs.
+#. For the GAUSS 26 look of 3D surfaces, set **Lighting** to 5, **Projection** to Perspective and **Box** to Cube. A GAUSS 27 ``.plot`` file with a surface beside other graphs opens in GAUSS 26 as the surface alone.
+#. With a tick count from :func:`plotSetXTicCount` or :func:`plotSetYTicCount` on an automatic range, the axis ends at the data instead of being widened to a round number, and the number of tick labels is closer to the count you set, so the axis can look different from GAUSS 26.
 
-**Clearer errors and checks**
+Also improved
+~~~~~~~~~~~~~
 
-#. :func:`gmmFit` and :func:`gmmFitIV` stop with an error for an unknown ``method``, ``vceType``, ``wType``, ``wInit`` or ``hacKernel``, a ``gmmlags`` that is not a finite scalar of 0 or more, or a ``gIter.maxIters`` below 1. For continuously updated GMM use :func:`gmmFit`; :func:`gmmFitIV` stops for ``"CU"``.
-#. :func:`cdfMvne`, :func:`cdfMvte` and related functions return *retcode* 1, as documented, when the error estimate is above the requested tolerance; raise ``ctl.maxEvaluations`` or loosen the tolerance. In :func:`cdfMvn2e` and :func:`cdfMvt2e`, a row whose lower limit is above its upper limit returns 0.
-#. :func:`spEigv` returns its eigenvalues sorted, for example largest magnitude first for ``"LM"``, so the order can differ from GAUSS 26. It stops with an error when *nev*, *tol*, *maxit* or *ncv* is not a valid number, when *which* is not one of the six settings, or when the eigenvalues do not converge. Under ``trap 1`` the convergence errors return error codes instead; see :func:`spEigv`.
-#. :func:`spChol` and :func:`spLDL` now stop with an error when the matrix is not positive definite (G0121) or meets a zero pivot (G0062), as :func:`chol` does, instead of returning invalid values; under ``trap 1`` they return error code 10. A new ``order="amd"`` option makes them much faster on large matrices.
-#. :func:`cdfMvte`, :func:`cdfMvtce` and :func:`cdfMvt2e` stop with an error for degrees of freedom that are negative, missing or NaN, or not a real scalar. 0 and ``__INFP`` give the multivariate Normal probability; before, ``__INFP`` gave a wrong or missing result.
-#. The cumulative distribution functions handle invalid input consistently: an *x* outside the distribution's range returns 0 or 1, and a parameter outside its range returns a scalar error code, with :func:`scalerr` giving the argument's position. They no longer return -1 or 2. Discrete CDFs round a fractional *x* down, discrete PDFs give 0 for it, and an *x* within 1e-9 of a whole number counts as that whole number.
-#. :func:`reshape` gives error G0104 for a missing, NaN or infinite dimension, or another value it cannot use, and counts a single string as one element when it infers a dimension. :func:`shiftc`, :func:`lag`, :func:`lagn` and :func:`lagTrim` give an error for missing, infinite and out-of-range lags, and treat a scalar with several lags as a 1x1 matrix. :func:`svds`, :func:`svdusv`, :func:`svdcusv`, :func:`svd`, :func:`svd1` and :func:`svd2` give error G0674 for NaN, infinite or missing input; under ``trap 1`` these functions, and :func:`rank`, :func:`cond` and :func:`pinv`, report the error as their help pages describe. ``svdsol``, which :func:`ols` and :func:`olsmt` use for the svd method, also gives error G0674 for NaN, infinite or missing input on every platform, or the scalar error code 674 under ``trap 1``; before, it could return zeros or missing values, or stop with an internal error or another error.
-#. Structure mistakes are caught where they happen, with error G0181: assigning to a member of a variable that does not hold a structure, such as ``r.nm = "x"`` when ``r`` is a number, and assigning a number returned by a procedure whose header declares a structure, such as ``proc (struct myOut) = f(x);`` returning an error code from :func:`error`, also when calls are joined with ``|`` or ``~``. Return the structure on every path, and report a failure in one of its members.
-
-Also fixed
-~~~~~~~~~~
-
-#. More reliable indexed assignment and structures in rare cases, such as reusing a variable for a matrix and then a structure, structure arrays in a workspace loaded with ``use``, and recognizing the structure a procedure returns.
-#. More reliable library builds with :func:`lib` and package installs with ``gpkg``, including libraries that use keyword arguments.
-#. More reliable start-up of GAUSS and ``gpkg``.
-#. :func:`loadStruct` reads older-format structure files saved on another platform.
-#. :func:`varget` and :func:`varput` give a clear error for the name of a procedure.
-#. :func:`gmmFitIV` accepts plain matrices, and :func:`gdadstat` accepts variable numbers as well as names.
-#. :func:`gmmFitIV` with ``noconstant = 1`` labels each coefficient with its own variable name, and runs with a single regressor.
-#. :func:`linsolve` with a complex *A* solves the system. Before, it returned *b* unchanged, and with a 1x1 complex *A* or *b* and a scalar as the other argument it ignored an imaginary part.
-#. Under ``trap 1``, :func:`linsolve` returns the scalar error code 50 for a singular matrix, as :func:`inv` does. Before, the assignment stopped with error G0136.
-#. ``spline1D`` works with sigma 0, and ``pvRepacki`` and ``pvGetMask`` work with a PV structure that has no parameters.
-#. More reliable handling of missing values in :func:`cdfFnc` and :func:`cdfFncInv`.
-#. Lower memory use when drawing many surface or contour graphs.
-#. Axes with a tick interval label their first and last ticks, and setting only **Range Min** or **Range Max** in the graph settings keeps the other end.
-#. More reliable Command History, tab groups, and Run and Debug buttons.
-#. ``for`` and ``threadfor`` loops now stop with an error right away when the start, stop or step is a missing value or NaN.
-#. Assigning a string to an element of an N-dimensional array, such as ``a[1,1] = "ab"``, stores up to the string's first 8 bytes in the element, zero-padded, as it does for a matrix. Before, GAUSS crashed.
-#. A missing value or NaN index in :func:`putarray`, :func:`setarray`, :func:`getarray`, :func:`getmatrix`, :func:`getmatrix4D`, :func:`getscalar3D`, :func:`getscalar4D` or :func:`subvec` gives error G0058; before, these read or changed the wrong elements. A missing or NaN start or length in :func:`strsect`, or start, step or end in ``a:b`` and ``a:s:b``, gives error G0674, and ``a:b`` with an infinite end gives G0037; before, the result was wrong or GAUSS crashed. An infinite or very large :func:`strsect` start or length follows the usual rules: a start past the end gives an empty string, a very negative start counts from the beginning, and a very large length takes the rest of the string, so ``strsect("hello", 2, __INFP)`` is ``"ello"``; before, the result depended on the platform, or GAUSS stopped or crashed. ``1:__INFP:5`` now gives 1 instead of a missing value.
-#. :func:`spCreate` adds together the values given more than once for the same row and column, and leaves out zeros. Before, a repeated or zero value could silently drop another value in the same row, so everything computed from the matrix was wrong.
-#. Multiplying or dividing a sparse matrix by a scalar now takes time in proportion to its nonzeros: on a 100,000 x 100,000 tridiagonal matrix it took about a minute before.
+#. :func:`loadd` reads Excel columns of numbers stored as text, and text columns of files written with :func:`saved`, including columns with missing values.
+#. :func:`linsolve` solves systems with a complex *A*.
+#. Web data functions such as :func:`fred_load` keep your API key out of printed output and error messages.
+#. More reliable structures, structure arrays and indexed assignment, library builds with :func:`lib`, package installs with ``gpkg``, and start-up.
+#. Multiplying or dividing a large sparse matrix by a scalar is much faster.
+#. More reliable Command History, tab groups, and Run and Debug buttons, and lower memory use when drawing many surface or contour graphs.
 
 26.1.4
 ------
