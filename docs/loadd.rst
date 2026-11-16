@@ -313,6 +313,32 @@ After the above code,
     The number of variables equals:        3.0000000
     The number of observations equals:        13.000000
 
+.. _loadd-dates-two-ways:
+
+Dates that can be read two ways
++++++++++++++++++++++++++++++++++
+
+When every date in a column fits both month-first and day-first order,
+GAUSS reads the column month-first, without a warning, on every platform.
+For example, ``01/02/2020`` is read as January 2, 2020. If the column
+contains a day greater than 12, GAUSS uses the only order that fits.
+
+To read a UK file in day-first order, specify the format in the formula
+string. For a column named ``when`` containing ``01/02/2020``, this reads
+February 1, 2020:
+
+::
+
+    data = loadd("uk_dates.csv", "date(when, '%d/%m/%Y')");
+
+For dates such as ``01-02-2020`` or ``01.02.2020``, match the separator in
+the format:
+
+::
+
+    data = loadd("uk_dates_dash.csv", "date(when, '%d-%m-%Y')");
+    data = loadd("uk_dates_dot.csv", "date(when, '%d.%m.%Y')");
+
 Loading different variable types
 +++++++++++++++++++++++++++++++++
 

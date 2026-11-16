@@ -257,6 +257,8 @@ Load dates using a formula string
 
 GAUSS will automatically detect date variables if they are in one of the `recognizable, pre-existing formats <https://www.aptech.com/blog/reading-dates-and-times-in-gauss/#recognizable-date-formats>`_.
 
+If every date fits both day-first and month-first order, GAUSS reads the column month-first. See :ref:`loadd-dates-two-ways` to choose day-first explicitly.
+
 ::
 
     // Create file name with full path
