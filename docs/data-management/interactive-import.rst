@@ -248,6 +248,8 @@ If GAUSS does not automatically detect your date format, you will be asked to ma
 
 Build a format string in the **Date Format** box, using the BSD strftime specifiers, that represents your data.
 
+The date format you choose is kept in the generated :func:`loadd` code.
+
 
 If your data looked like this ``03/12/2017``, the correct format string would be ``%m/%d/%Y``. The table below explains this.
 

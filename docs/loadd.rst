@@ -318,10 +318,12 @@ After the above code,
 Dates that can be read two ways
 +++++++++++++++++++++++++++++++++
 
-When every date in a column fits both month-first and day-first order,
-GAUSS reads the column month-first, without a warning, on every platform.
-For example, ``01/02/2020`` is read as January 2, 2020. If the column
-contains a day greater than 12, GAUSS uses the only order that fits.
+When every date or date-time in a column fits both month-first and
+day-first order, GAUSS reads the column month-first, without a warning,
+on every platform. For example, ``01/02/2020`` is read as January 2, 2020.
+This also applies to date-times with hyphens: ``01-02-2020 10:30`` is read
+as January 2, 2020 at 10:30. If the column contains a day greater than 12,
+GAUSS uses the only order that fits.
 
 To read a UK file in day-first order, specify the format in the formula
 string. For a column named ``when`` containing ``01/02/2020``, this reads
@@ -331,13 +333,20 @@ February 1, 2020:
 
     data = loadd("uk_dates.csv", "date(when, '%d/%m/%Y')");
 
-For dates such as ``01-02-2020`` or ``01.02.2020``, match the separator in
-the format:
+For dates such as ``01-02-2020``, use ``%d-%m-%Y`` for day-first order:
 
 ::
 
     data = loadd("uk_dates_dash.csv", "date(when, '%d-%m-%Y')");
+
+Dates with dots, such as ``01.02.2020``, and hyphen dates with two-digit
+years, such as ``01-02-20``, are not recognized automatically. They load
+as text. To read them as dates in day-first order, give an explicit format:
+
+::
+
     data = loadd("uk_dates_dot.csv", "date(when, '%d.%m.%Y')");
+    data = loadd("uk_dates_short.csv", "date(when, '%d-%m-%y')");
 
 Loading different variable types
 +++++++++++++++++++++++++++++++++
