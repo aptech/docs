@@ -65,8 +65,10 @@ Posterior bands and a sign-restricted shock
 
     fit = bvarFit(y, p=4, quiet=1);
 
-    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
-                               "cpi_inflation" "monetary" "0:4" "-" });
+    signs = signRestrictions(
+        { "fed_funds"     "monetary" "0:4" "+",
+                               "cpi_inflation" "monetary" "0:4" "-" }
+    );
     irf = irfCompute(fit, 20, restrictions=signs, cumulative=1, quiet=1);
 
     // One column: the responses to the monetary shock
@@ -81,7 +83,7 @@ Save to file
 ::
 
     plotIrf(irf);
-    plotSave("irf_grid.png", "px", 900 | 900);
+    plotSave("irf_grid.png", "px", { 900, 900 });
 
 Remarks
 -------

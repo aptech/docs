@@ -19,7 +19,7 @@ Format
    :param p: Optional keyword (or second argument), lag order. Default = 1.
    :type p: scalar
 
-   :param const: Optional keyword, 1 to include a constant in each equation, 0 to leave it out. Default = 1.
+   :param const: Optional keyword, 1 to include a constant in each equation, 0 to leave it out. Default = 1. Must be a scalar 0 or 1; the same rule applies to *ctl.const*.
    :type const: scalar
 
    :param trend: Optional keyword, 1 to include a linear trend, 0 to leave it out. Independent of *const*. Default = 0.
@@ -37,7 +37,7 @@ Format
    :param freq: Optional keyword, frequency of the dates: ``"annual"``, ``"quarterly"``, ``"monthly"``, ``"weekly"`` or ``"daily"``. Default = inferred from the dates.
    :type freq: string
 
-   :param quiet: Optional keyword, 1 to suppress printing. Default = 0.
+   :param quiet: Optional keyword, 1 to suppress printing. Default = 0. Must be a scalar 0 or 1; the same rule applies to *ctl.quiet*.
    :type quiet: scalar
 
    :param ctl: Optional keyword, an instance of a :class:`varControl` structure holding the same settings. When *ctl* is given, the other keywords except *dates* and *freq* are ignored. An instance is created by :func:`varControlCreate` and has these members:
@@ -45,6 +45,9 @@ Format
        .. include:: include/varcontrol.rst
 
    :type ctl: struct
+
+   *ctl* must be a ``varControl`` structure or ``{}`` (omitted).
+   Other values or structure types are refused.
 
    :return fit: An instance of a :class:`varResult` structure containing:
 
@@ -87,6 +90,7 @@ The output starts:
     Equation 1: gdp_growth
                         Coef.  Std. err.      t  p-value
     ----------------------------------------------------
+    Constant           1.3875     0.8694   1.60    0.112
     gdp_growth(-1)     0.1568     0.0772   2.03    0.043
     inflation(-1)     -0.1431     0.1075  -1.33    0.184
     unemployment(-1)  -1.4559     0.9292  -1.57    0.119
@@ -95,7 +99,6 @@ The output starts:
     inflation(-2)     -0.0882     0.1080  -0.82    0.415
     unemployment(-2)   1.6837     0.9148   1.84    0.067
     fed_funds(-2)      0.0826     0.2598   0.32    0.751
-    Constant           1.3875     0.8694   1.60    0.112
 
 and continues with the other three equations in the same layout.
 
@@ -154,13 +157,19 @@ Student t distribution with T - p - K degrees of freedom.
 
 **Coefficient covariance.** *vcov* is the (K·m)x(K·m) covariance of
 ``vec(b)``: all K coefficients of equation 1, then equation 2, and so on.
-It is :math:`\hat\Sigma \otimes (X'X)^{-1}`. *se* contains the square
+Within each equation, both covariance axes follow the rows of *b*: constant,
+trend, lag 1 through lag p, then exogenous regressors, omitting absent terms.
+It is :math:`\hat\Sigma \otimes (X'X)^{-1}`, with the columns of X in that
+same order. *se* contains the square
 roots of its diagonal, arranged in the same Kxm layout as *b*.
 
 **Trend and coefficient rows.** With ``trend=1``, row *t* of the input has
 trend value *t*, so the first usable observation has t = p + 1, whether
-or not a constant is included. Coefficient rows are lag 1 through lag p,
-then the constant, trend and user's *xreg*, omitting absent terms.
+or not a constant is included. Coefficient rows are the constant (when
+present), trend (when present), lag 1 through lag p, then exogenous
+regressors in *xreg* column order. Each lag block follows the variable
+order; equations are in columns. Printed labels are ``"Constant"``,
+``"trend"``, and variable names with their lag, such as ``"inflation(-2)"``.
 *result.trend* records the setting. If a trend is counted from 1 at the
 first usable observation instead, the constant increases by p times the
 trend coefficient when both models include a constant.

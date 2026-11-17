@@ -2,7 +2,7 @@
    :widths: auto
 
    * - result.fit_settings
-     - :class:`bvarControl` structure, the settings the fit used, with resolved values: *alpha0* (m+2 when given as 0) and *lag1_prior_mean* (one value per variable).
+     - :class:`bvarControl` structure, the settings the fit used, with resolved values: *sigma_prior_df* (m+2 when given as ``{}``) and *lag1_prior_mean* (one value per variable).
 
    * - result.m
      - Scalar, number of endogenous variables.
@@ -22,7 +22,7 @@
    * - result.var_names
      - Mx1 string array, variable names.
 
-   * - result.prior_type
+   * - result.prior
      - String, ``"minnesota"``.
 
    * - result.coefficient_prior_mean
@@ -99,7 +99,7 @@
      - (T-p)xm matrix, fitted values at *b_post*.
 
    * - result.b_draws
-     - (n_draws K)xm matrix, posterior draws of B stacked: draw d is rows (d-1)K+1 to dK.
+     - (n_draws K)xm matrix, posterior draws of B stacked: draw d is rows (d-1)K+1 to dK. Each K-row block has equations in columns and rows ordered as constant (when present), lag 1 through lag p (each block in variable order), then exogenous regressors in *xreg* column order. No trend is added. The coefficient summaries and prior-mean matrix use this same row order.
 
    * - result.sigma_draws
      - (n_draws m)xm matrix, posterior draws of :math:`\Sigma` stacked: draw d is rows (d-1)m+1 to dm.

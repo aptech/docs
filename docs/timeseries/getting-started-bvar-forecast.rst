@@ -23,10 +23,11 @@ The Canonical Workflow
     fname = getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium.csv");
     y = loadd(fname);
 
-    wf = bvarMacroForecast(y,
+    wf = bvarMacroForecast(
+        y,
         h=8,
         holdout=20,
-        lag1_prior_mean="zero",
+        lag1_prior_mean=0,
         max_lags=8,
         lag_ic="bic",
         overall_tightness=bvarChoose(),
@@ -34,7 +35,8 @@ The Canonical Workflow
         level=0.68,
         n_draws=2000,
         seed=42,
-        quiet=1);
+        quiet=1
+    );
 
     call printForecast(wf, horizons=8);
     plotForecast(wf, history=24);
@@ -64,10 +66,11 @@ Step 2: Run the W1 Forecast
 
 ::
 
-    wf = bvarMacroForecast(y,
+    wf = bvarMacroForecast(
+        y,
         h=8,
         holdout=20,
-        lag1_prior_mean="zero",
+        lag1_prior_mean=0,
         max_lags=4,
         lag_ic="bic",
         overall_tightness=bvarChoose(),
@@ -75,7 +78,8 @@ Step 2: Run the W1 Forecast
         level=0.68,
         n_draws=2000,
         seed=42,
-        quiet=1);
+        quiet=1
+    );
 
 The workflow runs the reduced-form forecast path:
 
@@ -91,8 +95,8 @@ The workflow runs the reduced-form forecast path:
   full sample for the final production forecast
 
 For growth rates and other series that move around a stable mean, use
-``lag1_prior_mean="zero"``. For persistent series such as levels and rates,
-use ``lag1_prior_mean="random_walk"``, or give one value per variable.
+``lag1_prior_mean=0``. For persistent series such as levels and rates,
+use ``lag1_prior_mean=1``, or give one value per variable.
 
 Step 3: Print Workflow Output
 -----------------------------
@@ -174,10 +178,11 @@ Concise 3-Variable Example
     fname = getGAUSSHome("pkgs/timeseries/examples/data/macrodata_logdiff.csv");
     y = loadd(fname);
 
-    wf = bvarMacroForecast(y,
+    wf = bvarMacroForecast(
+        y,
         h=8,
         holdout=20,
-        lag1_prior_mean="zero",
+        lag1_prior_mean=0,
         max_lags=4,
         lag_ic="bic",
         overall_tightness=bvarChoose(),
@@ -185,7 +190,8 @@ Concise 3-Variable Example
         level=0.68,
         n_draws=2000,
         seed=42,
-        quiet=1);
+        quiet=1
+    );
 
     call printForecast(wf, horizons=8);
 

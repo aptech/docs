@@ -3,19 +3,15 @@ varResults
 
 Purpose
 -------
-Reprint the estimation summary table from a fitted VAR or BVAR model.
+Reprint the estimation summary table from a fitted OLS VAR model.
 
 Format
 ------
 
 .. function:: varResults(result)
-              varResults(result, level=0.90)
 
-   :param result: an instance of a :class:`varResult`, :class:`bvarResult`, or :class:`bvarSvResult` structure.
+   :param result: an instance of a :class:`varResult` structure returned by :func:`varFit`.
    :type result: struct
-
-   :param level: Optional keyword, credible interval level for Bayesian models. Default = 0.68 (68% bands, standard in macro). For frequentist :class:`varResult`, controls the confidence level.
-   :type level: scalar
 
 Examples
 --------
@@ -25,27 +21,22 @@ Examples
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    // Fit with output suppressed
-    result = bvarFit(data, quiet=1);
-
-    // Print with default 68% credible bands
+    // Fit with output suppressed, then print the stored OLS VAR summary.
+    result = varFit(data, p=1, quiet=1);
     call varResults(result);
-
-    // Reprint with 90% credible bands
-    call varResults(result, level=0.90);
 
 Remarks
 -------
 
-Accepts any of the three VAR result struct types (:class:`varResult`,
-:class:`bvarResult`, :class:`bvarSvResult`). The printed format adapts
-automatically:
-
-- **varResult:** frequentist table with Coef, SE, t-stat, p-value
-- **bvarResult:** Bayesian table with Mean, SD, lower/upper credible bands
-- **bvarSvResult:** Bayesian table + SV parameters + acceptance rates + PIPs (if SSVS)
+Reprints the stored OLS VAR estimates, standard errors, t-statistics and
+p-values. It has no ``level`` keyword. A :func:`vecmToVar` result is refused;
+use :func:`vecmResults` for the original VECM. Bayesian fits print their own
+summaries when ``quiet=0``.
 
 Library
 -------

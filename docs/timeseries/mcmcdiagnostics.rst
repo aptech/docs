@@ -8,16 +8,15 @@ Check whether the sampler behind a stochastic-volatility BVAR has converged.
 Format
 ------
 
-.. function:: dx = mcmcDiagnostics(result)
-              dx = mcmcDiagnostics(result, rhat_threshold=1.01, min_ess=1000)
+.. function:: dx = mcmcDiagnostics(result, rhat_threshold=1.01, min_ess=400, quiet=0)
 
    :param result: An instance of a :class:`bvarSvResult` structure returned by :func:`bvarSvFit`, in the same GAUSS session.
    :type result: struct
 
-   :param rhat_threshold: Optional keyword, largest R-hat shown as PASS in the printout. Default = 1.05.
+   :param rhat_threshold: Optional keyword, strict upper bound on the maximum R-hat for convergence. Controls the convergence flag, warning count and printout. Default = 1.01.
    :type rhat_threshold: scalar
 
-   :param min_ess: Optional keyword, smallest bulk effective sample size shown as PASS in the printout. Default = 400.
+   :param min_ess: Optional keyword, strict lower bound on both minimum bulk and minimum tail effective sample size for convergence. Controls the convergence flag, warning count and printout. Default = 400.
    :type min_ess: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
@@ -46,12 +45,12 @@ Examples
 Remarks
 -------
 
-The checks use split R-hat and bulk effective sample size of the VAR
-coefficients and R-hat of the volatility parameters. *rhat_threshold* and
-*min_ess* only set the PASS/FAIL labels of the printout; *dx.converged*
-comes from the library's own thresholds (R-hat below 1.05 and bulk effective
-sample size above 400). A short run often fails the sample-size check: run
-more draws.
+The convergence flag is 1 only when the maximum R-hat is strictly below
+*rhat_threshold* (default 1.01) and both the minimum bulk ESS and the
+minimum tail ESS are strictly above *min_ess* (default 400). The keywords
+set the native convergence flag and warning count as well as the printout.
+*dx.min_tail_ess* contains the computed minimum tail ESS. A short run often
+fails the sample-size checks: run more draws.
 
 The result must come from :func:`bvarSvFit` in the same session; a result
 loaded from a file is refused and must be refit.

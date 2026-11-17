@@ -34,10 +34,11 @@ Plot a Compact History Window
     fname = getGAUSSHome("pkgs/timeseries/examples/data/macrodata_logdiff.csv");
     y = loadd(fname);
 
-    wf = bvarMacroForecast(y,
+    wf = bvarMacroForecast(
+        y,
         h=8,
         holdout=20,
-        lag1_prior_mean="zero",
+        lag1_prior_mean=0,
         max_lags=4,
         lag_ic="bic",
         overall_tightness=bvarChoose(),
@@ -45,7 +46,8 @@ Plot a Compact History Window
         level=0.68,
         n_draws=2000,
         seed=42,
-        quiet=1);
+        quiet=1
+    );
 
     call printForecast(wf, horizons=8);
     plotForecast(wf, history=24);

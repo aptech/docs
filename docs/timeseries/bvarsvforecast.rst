@@ -8,9 +8,7 @@ Generate density forecasts from a fitted SV-BVAR model with time-varying volatil
 Format
 ------
 
-.. function:: dfc = bvarSvForecast(result, h)
-              dfc = bvarSvForecast(result, h, ctl)
-              dfc = bvarSvForecast(result, h, ctl, xreg=X_future)
+.. function:: dfc = bvarSvForecast(result, h, mode={}, n_paths={}, seed={}, level={}, quiet=0, ctl={})
 
    :param result: an instance of a :class:`bvarSvResult` structure returned by :func:`bvarSvFit`.
    :type result: struct
@@ -18,17 +16,29 @@ Format
    :param h: forecast horizon (number of steps ahead).
    :type h: scalar
 
-   :param ctl: Optional input, an instance of an :class:`svForecastControl` structure. An instance is initialized by calling :func:`svForecastControlCreate` and the following members can be set:
+   :param mode: Optional keyword, ``"simulate"`` (default) or ``"mean_path"``. Overrides the control. Simulation bands include parameter uncertainty, future volatility changes and future shocks.
+   :type mode: string
+
+   :param n_paths: Optional keyword, simulation paths per posterior draw. Default = 100; overrides the control.
+   :type n_paths: scalar
+
+   :param seed: Optional keyword, simulation seed. Default = 42; overrides the control.
+   :type seed: scalar
+
+   :param level: Optional keyword, central band masses in ascending order: 0.68, 0.90, or both. Default = ``{ 0.68, 0.90 }``; overrides the control. The headline interval uses *level[1]*.
+   :type level: scalar or vector
+
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of an :class:`svForecastControl` structure. An instance is initialized by calling :func:`svForecastControlCreate` and the following members can be set:
 
        .. include:: include/svforecastcontrol.rst
 
    :type ctl: struct
 
-   :param xreg: Optional keyword, future values of exogenous regressors. Required if the model was fit with *xreg*.
-   :type xreg: hxK matrix
-
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
-   :type quiet: scalar
+   *ctl* must be a ``svForecastControl`` structure or ``{}`` (omitted).
+   Other values or structure types are refused.
 
    :return dfc: An instance of a :class:`densityForecastResult` structure containing:
 
@@ -39,25 +49,29 @@ Format
 Examples
 --------
 
-Quick Mean-Path Forecast
-++++++++++++++++++++++++
+Default Simulation Forecast
++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    result = bvarSvFit(data, quiet=1);
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    result = bvarSvFit(data, p=1, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
 
     dfc = bvarSvForecast(result, 12);
 
     print "Mean forecast:";
-    print dfc.fc_mean;
+    print dfc.mean;
 
     print "Median forecast:";
-    print dfc.fc_median;
+    print dfc.median;
 
 Full Density Forecast (Simulate Mode)
 +++++++++++++++++++++++++++++++++++++
@@ -67,41 +81,36 @@ Full Density Forecast (Simulate Mode)
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = bvarSvFit(data, quiet=1);
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    result = bvarSvFit(data, p=1, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
 
     // Simulate mode for proper predictive density
     fctl = svForecastControlCreate();
     fctl.mode = "simulate";
-    fctl.n_paths = 500;
+    fctl.n_paths = 200;
 
-    dfc = bvarSvForecast(result, 24, fctl);
+    dfc = bvarSvForecast(result, 24, ctl=fctl);
 
-Custom Quantiles for VaR
-+++++++++++++++++++++++++
+Choose a Central Band
++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = bvarSvFit(data, quiet=1);
+    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
+    // GDP growth is centered at 0; inflation and the funds rate at 1.
+    data = data[., "date" "gdp_growth" "inflation" "fed_funds"];
+    result = bvarSvFit(data, p=2, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
 
-    fctl = svForecastControlCreate();
-    fctl.mode = "simulate";
-    fctl.n_paths = 1000;
-    fctl.quantile_levels = 0.01|0.05|0.10|0.50|0.90|0.95|0.99;
-
-    dfc = bvarSvForecast(result, 12, fctl);
-
-    // 1% VaR forecast (first quantile band)
-    var_01 = dfc.quantile_bands[1];
-    print "1% quantile forecast (VaR):";
-    print var_01;
-
-    // 5% VaR forecast (second quantile band)
-    var_05 = dfc.quantile_bands[2];
+    dfc = bvarSvForecast(result, 12, level=0.90);
+    print dfc.bands[1].lower;
+    print dfc.bands[1].upper;
 
 Forecast Log-Volatility Path
 +++++++++++++++++++++++++++++
@@ -111,13 +120,18 @@ Forecast Log-Volatility Path
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
     ctl = bvarSvControlCreate();
     ctl.p = 4;
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    ctl.lag1_prior_mean = { 0, 1, 1 };
     ctl.n_draws = 10000;
     ctl.n_burn = 5000;
-    result = bvarSvFit(data, ctl, quiet=1);
+    result = bvarSvFit(data, p=ctl.p, ctl=ctl, quiet=1);
 
     dfc = bvarSvForecast(result, 24);
 
@@ -137,33 +151,45 @@ Store Raw Draws for Custom Analysis
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = bvarSvFit(data, quiet=1);
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    result = bvarSvFit(data, p=1, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
 
     fctl = svForecastControlCreate();
     fctl.mode = "simulate";
     fctl.store_draws = 1;
+    // Ten paths per draw keep the stored example compact.
+    fctl.n_paths = 10;
 
-    dfc = bvarSvForecast(result, 12, fctl);
+    dfc = bvarSvForecast(result, 12, ctl=fctl);
 
-    // Raw draws: each row is one draw, columns are h1_v1, h1_v2, ..., h1_vm, h2_v1, ...
+    // Each path occupies h consecutive rows, with variables in columns.
     print "Draw matrix:" rows(dfc.draws) "x" cols(dfc.draws);
 
-    // Extract GDP (variable 1) draws at horizon 1
-    m = dfc.m;
-    gdp_h1_draws = dfc.draws[., 1];    // First column = h1, variable 1
+    // GDP is the first fitted variable. Take horizon 1 from every path.
+    h1_rows = 1:dfc.h:rows(dfc.draws);
+    gdp_h1_draws = dfc.draws[h1_rows, 1];
+    print "Mean GDP growth at horizon 1:" meanc(gdp_h1_draws);
 
 Remarks
 -------
 
 **Forecast modes:**
 
-``"mean_path"`` (default) uses the posterior mean innovation variance at each
+With no mode keyword, an empty *ctl.mode* resolves to ``"simulate"``.
+This default also applies when a freshly created control is supplied.
+Simulation bands include parameter uncertainty, future volatility changes
+and future shocks. The default bands have central masses 68% and 90%.
+
+``"mean_path"`` uses the posterior mean innovation variance at each
 forecast horizon. This is fast but underestimates forecast uncertainty due to
 Jensen's inequality — the mean of convex functions exceeds the function of
 the mean. Use this for quick point forecasts.
 
-``"simulate"`` draws *n_paths* innovation paths per posterior draw from the
+``"simulate"`` (default) draws *n_paths* innovation paths per posterior draw from the
 SV-implied time-varying covariance. The log-volatility :math:`h_{i,t}` is
 propagated forward:
 
@@ -174,15 +200,6 @@ propagated forward:
 and innovations are drawn from :math:`N(0, \text{diag}(\exp(h_{T+s})))`.
 This gives a proper predictive density that captures volatility clustering
 and parameter uncertainty. Required for density forecast evaluation.
-
-**h_T initialization:**
-
-``"stochastic"`` draws the initial log-volatility :math:`h_T` from the reservoir
-of posterior draws (when ``sv_keep = "online"`` or ``"full"``). This captures
-uncertainty about the current volatility state.
-
-``"posterior_mean"`` uses the posterior mean :math:`h_T`. Faster but
-underestimates tail risk by ignoring :math:`h_T` uncertainty.
 
 **Ordering of the variables:**
 
@@ -195,7 +212,8 @@ shocks from the first column to the last.
 
 **Memory considerations:**
 
-Setting ``store_draws = 1`` stores an (n_draws * n_paths) x (h * m) matrix.
+Setting ``store_draws = 1`` stores a (dfc.n_draws * h) x m matrix.
+Each path occupies h consecutive rows; variables are in columns.
 For large systems or long horizons, this can be substantial. Default is off.
 
 Model

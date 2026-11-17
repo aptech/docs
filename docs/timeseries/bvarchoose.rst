@@ -34,11 +34,15 @@ Choose the Tightness and the Residual Variances
 
     // Choose the overall tightness, starting at 0.2, and the residual
     // variances, starting at their autoregression values
-    ps = bvarPriorSelect(data, p=5, overall_tightness=bvarChoose(0.2),
-        residual_variances=bvarChoose());
+    ps = bvarPriorSelect(
+        data,
+        p=5,
+        overall_tightness=bvarChoose(0.2),
+        residual_variances=bvarChoose()
+    );
 
     // Fit at the values found
-    fit = bvarFit(data, ctl=ps.fit_settings);
+    fit = bvarFit(data, p=ps.fit_settings.p, ctl=ps.fit_settings);
 
 Choose and Fit in One Call
 ++++++++++++++++++++++++++
@@ -67,8 +71,13 @@ Hold One Setting, Choose Others
 
     // A plain number holds the lag decay at 2; the overall tightness and
     // the residual variances are chosen
-    ps = bvarPriorSelect(data, p=5, lag_decay=2, overall_tightness=bvarChoose(),
-        residual_variances=bvarChoose());
+    ps = bvarPriorSelect(
+        data,
+        p=5,
+        lag_decay=2,
+        overall_tightness=bvarChoose(),
+        residual_variances=bvarChoose()
+    );
 
 Remarks
 -------

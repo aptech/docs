@@ -27,7 +27,7 @@ Format
    :param season: Optional keyword, 0 for no seasonal dummies; otherwise a whole number giving the number of seasons per year, at least 2 (4 for quarterly data, 12 for monthly). Adds ``season-1`` centered seasonal dummies. 1 is refused. Default = 0.
    :type season: scalar
 
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0. Must be a scalar 0 or 1; the same rule applies to *ctl.quiet*.
    :type quiet: scalar
 
    :param ctl: Optional keyword, an instance of a :class:`vecmControl` structure, needed only to add your own regressors. When *ctl* is passed, ``p``, ``det_case`` and ``quiet`` are read from it and the keywords of the same name are ignored. ``season`` is not a member of the structure; pass it as a keyword together with *ctl*, as in ``vecmFit(y, r, ctl=ctl, season=4)``. An instance is initialized by calling :func:`vecmControlCreate` and the following members can be set:
@@ -35,6 +35,9 @@ Format
        .. include:: include/vecmcontrol.rst
 
    :type ctl: struct
+
+   *ctl* must be a ``vecmControl`` structure or ``{}`` (omitted).
+   Other values or structure types are refused.
 
    :param freq: Optional keyword, calendar frequency: ``"annual"``, ``"quarterly"`` (or ``"q"``), ``"monthly"``, ``"weekly"`` or ``"daily"``. Default = ``""``, inferred from a date column. Irregular spacing or fewer than three dates requires an explicit frequency. A nonempty frequency without a date column is refused. This keyword also applies when *ctl* is supplied.
    :type freq: string

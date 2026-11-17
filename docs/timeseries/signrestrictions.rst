@@ -44,13 +44,18 @@ Uhlig (2005) monetary policy shock
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
-    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    y = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    y = selif(y, between(y[., "date"], "1960", "2020", "left"));
 
-    fit = bvarFit(y, p=4, quiet=1);
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    fit = bvarFit(y, p=4, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
 
-    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
-                               "cpi_inflation" "monetary" "0:4" "-" });
+    signs = signRestrictions(
+        { "fed_funds"     "monetary" "0:4" "+",
+                               "inflation" "monetary" "0:4" "-" }
+    );
 
     irf = irfCompute(fit, 20, restrictions=signs);
 
@@ -59,12 +64,14 @@ Several shocks and a zero restriction
 
 ::
 
-    signs = signRestrictions({ "gdp_growth"    "demand"   "0" "+",
-                               "cpi_inflation" "demand"   "0" "+",
+    signs = signRestrictions(
+        { "gdp_growth"    "demand"   "0" "+",
+                               "inflation" "demand"   "0" "+",
                                "gdp_growth"    "supply"   "0" "-",
-                               "cpi_inflation" "supply"   "0" "+",
+                               "inflation" "supply"   "0" "+",
                                "fed_funds"     "monetary" "0" "+",
-                               "gdp_growth"    "monetary" "0" "0" });
+                               "gdp_growth"    "monetary" "0" "0" }
+    );
 
     irf = irfCompute(fit, 20, restrictions=signs);
 
@@ -85,7 +92,7 @@ refer to shocks by these numbers.
 **Checks.** :func:`signRestrictions` checks the shape of the table, the
 horizons and the signs, and names the row of any error. :func:`irfCompute`
 then checks the variable names against the fit and that no horizon is
-beyond *n_ahead*.
+beyond *h*.
 
 **A table can be passed directly.** ``irfCompute(fit, 20, restrictions=table)``
 calls :func:`signRestrictions` on the table.

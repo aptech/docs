@@ -23,21 +23,38 @@ The Script
 
     // Step 1: load the data and keep 1960Q1-2019Q4.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
 
     // Step 2: choose the number of lags.
     lags = varLagSelect(y, 8);
 
     // Step 3: fit the Bayesian VAR. The prior centers each variable's own
     // first lag at 0 for GDP growth and at 1 for the three persistent series.
-    bvar = bvarFit(y, p=lags.best_p, lag1_prior_mean=0|1|1|1, overall_tightness=0.2, quiet=1);
+    bvar = bvarFit(
+        y,
+        p=lags.best_p,
+        lag1_prior_mean={ 0, 1, 1, 1 },
+        overall_tightness=0.2,
+        quiet=1
+    );
     call varFitInspect(bvar, name="BVAR(" $+ ntos(lags.best_p) $+ "), Minnesota prior");
 
     // Step 4: check it on quarters it had not seen, against a least-squares VAR.
     ols_fit = varFit(y, p=lags.best_p, quiet=1);
     struct forecastModel models;
     models = forecastModel(ols_fit, name="VAR") | forecastModel(bvar, name="BVAR");
-    fe = forecastEval(y, models, target="inflation", train_end="1984-Q4", h=4, benchmark="VAR", seed=42);
+    fe = forecastEval(
+        y,
+        models,
+        target="inflation",
+        train_end="1984-Q4",
+        h=4,
+        benchmark="VAR",
+        seed=42
+    );
 
     // Step 5: forecast two years ahead and draw the fan chart.
     fc = bvarForecast(bvar, 8, seed=42);
@@ -108,7 +125,7 @@ Step 3: Fit the Bayesian VAR
 A Bayesian VAR adds a prior that pulls the coefficients toward a simple model
 and lets the data pull them away where the evidence is strong. The Minnesota
 prior centers each variable's coefficient on its own first lag, and every
-other coefficient on zero. ``lag1_prior_mean = 0|1|1|1`` sets that center to 0
+other coefficient on zero. ``lag1_prior_mean = { 0, 1, 1, 1 }`` sets that center to 0
 for GDP growth, which moves around a stable mean, and to 1 (a random walk)
 for inflation, unemployment and the funds rate, which drift.
 ``overall_tightness = 0.2`` sets how hard the prior pulls; it is the common

@@ -8,9 +8,7 @@ Forecast a VAR or Bayesian VAR given assumed future values of some variables (a 
 Format
 ------
 
-.. function:: cfc = condForecast(fit, path)
-              cfc = condForecast(fit, path, averages=avg, average_of=var)
-              cfc = condForecast(fit, path, level=0.90, n_draws=5000, seed=42)
+.. function:: cfc = condForecast(fit, path, level={0.68, 0.90}, n_draws={}, seed=42, quiet=0, xreg_future={}, averages={}, average_of={}, store_draws=0)
 
    :param fit: result from :func:`bvarFit` (one simulated path per posterior draw) or :func:`varFit` (coefficients fixed at their least-squares estimates and the residual covariance at its maximum likelihood value, divisor *T*, as in :func:`varForecast`), or a VECM written as a VAR by :func:`vecmToVar` (coefficients and the VECM's maximum likelihood covariance held fixed; refused when the VECM was fit with seasonal dummies or your own regressors).
    :type fit: struct
@@ -18,13 +16,7 @@ Format
    :param path: the forecast horizon is the number of rows. A finite entry fixes that variable at that step; a missing value (see :func:`miss`) leaves it free.
    :type path: hxm matrix
 
-   :param averages: Optional keyword, conditions on averages, one row per condition: first step, last step, value. The average of the variable over steps *first* to *last* must equal *value*.
-   :type averages: Nx3 matrix
-
-   :param average_of: Optional keyword, the variable of each *averages* row, by name or number: one for every row, or one per row.
-   :type average_of: string, string array or vector
-
-   :param level: Optional keyword, central mass of each pointwise band. Default = 0.68|0.90. *levels* is accepted as another name for it.
+   :param level: Optional keyword, central mass of each pointwise band. Default = ``{ 0.68, 0.90 }``.
    :type level: scalar or vector
 
    :param n_draws: Optional keyword. For a :func:`bvarFit` result, the number of posterior draws to use (default and maximum: all stored draws). For a :func:`varFit` or :func:`vecmToVar` result, the number of simulated paths (default 5000).
@@ -33,14 +25,20 @@ Format
    :param seed: Optional keyword, seed for the simulated future shocks. Default = 42.
    :type seed: scalar
 
-   :param store_draws: Optional keyword, 1 to keep every simulated path in *cfc.draws* and every draw's scenario effect in *cfc.effect_draws*. Default = 0.
-   :type store_draws: scalar
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :type quiet: scalar
 
    :param xreg_future: Optional keyword, future values of the user's exogenous regressors, excluding the generated VAR trend. Required when the model was fit with *xreg*.
    :type xreg_future: hxK matrix
 
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
-   :type quiet: scalar
+   :param averages: Optional keyword, conditions on averages, one row per condition: first step, last step, value. The average of the variable over steps *first* to *last* must equal *value*.
+   :type averages: Nx3 matrix
+
+   :param average_of: Optional keyword, the variable of each *averages* row, by name or number: one for every row, or one per row.
+   :type average_of: string, string array or vector
+
+   :param store_draws: Optional keyword, 1 to keep every simulated path in *cfc.draws* and every draw's scenario effect in *cfc.effect_draws*. Default = 0.
+   :type store_draws: scalar
 
    :return cfc: An instance of a :class:`condForecastResult` structure containing:
 
@@ -60,7 +58,9 @@ Hold the Funds Rate for Two Years
     library timeseries;
 
     // Seven quarterly US series, 1960Q1-2019Q4; the last is the funds rate
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
+    data = loadd(
+        getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv")
+    );
     fit = bvarFit(data, p=3, n_draws=2000, quiet=1);
 
     // Eight quarters; only the funds rate (column 7) is fixed
@@ -85,13 +85,15 @@ the two expected paths:
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
+    data = loadd(
+        getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv")
+    );
     fit = bvarFit(data, p=3, n_draws=2000, quiet=1);
 
     hold = miss(zeros(8, 7), 0);
     hold[., 7] = 1.64 * ones(8, 1);
     cut = hold;
-    cut[., 7] = 1.64 - (0.25|0.5|0.75|1|1|1|1|1);
+    cut[., 7] = 1.64 - ({ 0.25, 0.5, 0.75, 1, 1, 1, 1, 1 });
 
     a = condForecast(fit, hold, store_draws=1, quiet=1);
     b = condForecast(fit, cut, store_draws=1, quiet=1);
@@ -99,7 +101,7 @@ the two expected paths:
     // Inflation (column 4): one row per draw, one column per quarter
     d = reshape(b.effect_draws[., 4] - a.effect_draws[., 4], a.n_draws, 8);
     print "Cut minus hold, inflation: median and 68% band";
-    print quantile(d, 0.5|0.16|0.84)';
+    print quantile(d, { 0.5, 0.16, 0.84 })';
 
 Condition on Yearly Averages
 ++++++++++++++++++++++++++++
@@ -114,7 +116,9 @@ least-squares estimates:
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/waggoner_zha_1999_monthly.csv"));
+    data = loadd(
+        getGAUSSHome("pkgs/timeseries/examples/data/waggoner_zha_1999_monthly.csv")
+    );
     fit = varFit(data[1:264, .], p=13, quiet=1);
 
     path = miss(zeros(24, 6), 0);

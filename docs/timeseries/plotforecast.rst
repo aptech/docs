@@ -47,10 +47,11 @@ Workflow Forecast Plot
 
 ::
 
-    wf = bvarMacroForecast(y,
+    wf = bvarMacroForecast(
+        y,
         h=8,
         holdout=20,
-        lag1_prior_mean="zero",
+        lag1_prior_mean=0,
         max_lags=4,
         lag_ic="bic",
         overall_tightness=bvarChoose(),
@@ -58,7 +59,8 @@ Workflow Forecast Plot
         level=0.68,
         n_draws=2000,
         seed=42,
-        quiet=1);
+        quiet=1
+    );
 
     plotForecast(wf, history=24);
 
@@ -69,14 +71,17 @@ Basic Forecast Plot
 
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
-    data = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
     ctl = bvarControlCreate();
     ctl.p = 4;
-    ctl.lag1_prior_mean = 0;
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    ctl.lag1_prior_mean = { 0, 1, 1 };
 
-    result = bvarFit(data, ctl=ctl);
+    result = bvarFit(data, p=ctl.p, ctl=ctl);
     fc = bvarForecast(result, 8);
 
     plotForecast(result, fc);
@@ -105,7 +110,7 @@ Save to File
 ::
 
     plotForecast(wf, history=24);
-    plotSave("forecast_fan_chart.png", 800 | 600, "px");
+    plotSave("forecast_fan_chart.png", { 800, 600 }, "px");
 
 Remarks
 -------

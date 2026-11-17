@@ -40,16 +40,23 @@ Examples
     y = y[., "date" "gdp" "defl" "ffr"];
 
     v = varFit(y, p=2, quiet=1);
-    b = bvarFit(y, p=2, overall_tightness=0.2, lag1_prior_mean="zero", quiet=1);
+    b = bvarFit(y, p=2, overall_tightness=0.2, lag1_prior_mean=0, quiet=1);
 
     // Three models in one list: the VAR, the BVAR and a random walk
     struct forecastModel models;
     models = forecastModel(v)
-           | forecastModel(b, name="Minnesota BVAR")
-           | forecastModel("naive", name="Random walk");
+        | forecastModel(b, name="Minnesota BVAR")
+        | forecastModel("naive", name="Random walk");
 
-    fe = forecastEval(y, models, target="defl", train_end="2009-Q4", h=4,
-        benchmark="AR(bic)", quiet=1);
+    fe = forecastEval(
+        y,
+        models,
+        target="defl",
+        train_end="2009-Q4",
+        h=4,
+        benchmark="AR(bic)",
+        quiet=1
+    );
     print fe.model_names;
 
 The output is:

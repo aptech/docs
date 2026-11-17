@@ -14,10 +14,10 @@
      - Mx1 string array, variable names.
 
    * - inspection.coefficient_names
-     - Kx1 string array, the row names of *inspection.coefficients*, for example ``"inflation(-2)"`` for the second lag of inflation and ``"Constant"``.
+     - Kx1 string array, the row names of *inspection.coefficients*, in matching order: ``"Constant"`` and ``"trend"`` when present, lag names such as ``"inflation(-2)"``, then exogenous column names (or ``"column_1"``, ``"column_2"``, ... when unnamed).
 
    * - inspection.coefficients
-     - Kxm matrix, the coefficients that *details* = 1 prints, one column per equation, rows in the order of *inspection.coefficient_names*: lag 1 (m rows), ..., lag p (m rows), constant, trend, then regressors, omitting absent terms. For a :func:`varFit` result, the least-squares estimates *result.b*; for a :func:`vecmToVar` result, the VECM's coefficients written as a VAR in levels, *result.b*; for a :func:`bvarFit` result, the posterior mean *result.b_post*.
+     - Kxm matrix, the coefficients that *details* = 1 prints, one column per equation, with rows matching *inspection.coefficient_names*. For :func:`varFit`, :func:`bvarFit` and :func:`vecmToVar`, the order is constant (when present), trend (when present), lag 1 (m rows), ..., lag p (m rows), then regressors in *xreg* column order; each lag block follows the variable order. :func:`bvarFit` has no trend. For a :func:`varFit` result these are the least-squares estimates *result.b*; for a :func:`bvarFit` result, the posterior mean *result.b_post*. For a :func:`vecmToVar` result these are the converted coefficients *result.b*, in the same row order.
 
    * - inspection.residuals
      - (T-p)xm matrix, the fit's residuals, *result.residuals*.

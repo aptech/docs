@@ -8,19 +8,40 @@ Fit a Bayesian VAR with the conjugate Minnesota prior.
 Format
 ------
 
-.. function:: fit = bvarFit(y)
-              fit = bvarFit(y, p=4, lag1_prior_mean=0|1|1|1, overall_tightness=0.2)
-              fit = bvarFit(y, ctl=ctl)
-              fit = bvarFit(y, p=4, overall_tightness=bvarChoose(0.2))
+.. function:: fit = bvarFit(y, p={}, const={}, xreg={}, quiet={}, ctl={}, dates={}, freq="", lag1_prior_mean={}, overall_tightness={}, lag_decay={}, soc_tightness={}, sur_tightness={}, exogenous_scale={}, residual_variances={}, residual_variances_values={}, choose_by={}, prior={}, n_draws={}, seed={})
 
    :param y: the data, one column per variable. A dataframe's column names label the output; a single date-typed column is used as the time index and left out of the model. A matrix's variables are labeled "Y1", "Y2", ...
    :type y: TxM matrix or dataframe
 
-   :param p: Optional keyword, lag order. Default = 1.
+   :param p: Required lag order, supplied as ``p=`` or in *ctl.p*. There is no default.
    :type p: scalar
 
-   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag: ``"random_walk"`` (1, for persistent series such as levels, rates and inflation), ``"zero"`` (for growth rates), one value for every variable, or a vector with one value per variable, each in [0,1]. Every other coefficient has prior mean 0. Default = ``"random_walk"``.
-   :type lag1_prior_mean: string, scalar or Mx1 vector
+   :param const: Optional keyword, 1 to include a constant, 0 to omit it. Overrides *ctl.const* for this call. Default = 1. Must be a scalar 0 or 1; the same rule applies to *ctl.const*.
+   :type const: scalar
+
+   :param xreg: Optional keyword, exogenous regressors, one row per observation of *y*. Default = none.
+   :type xreg: TxK matrix
+
+   :param quiet: Optional keyword, 1 to suppress printing. Default = 0. Must be a scalar 0 or 1; the same rule applies to *ctl.quiet*.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure, which holds every setting, including those that have no keyword (such as the intercept prior). When *ctl* is given, its values are used except where a keyword is also given: a keyword given together with *ctl* replaces that field for this call, and *ctl* itself is not changed. *dates* and *freq* are not fields of *ctl* and always apply. A control holds values only: a setting to be chosen is marked in the call with :func:`bvarChoose`. An instance is created by :func:`bvarControlCreate` and has these members:
+
+       .. include:: include/bvarcontrol.rst
+
+   :type ctl: struct
+
+   *ctl* must be a ``bvarControl`` structure or ``{}`` (omitted).
+   Other values or structure types are refused.
+
+   :param dates: Optional keyword, POSIX dates for matrix input. Not needed when *y* is a dataframe with a date column. Default = none.
+   :type dates: Tx1 vector
+
+   :param freq: Optional keyword, frequency of the dates: ``"annual"``, ``"quarterly"``, ``"monthly"``, ``"weekly"`` or ``"daily"``. Default = inferred from the dates.
+   :type freq: string
+
+   :param lag1_prior_mean: Optional keyword, numeric prior mean of each variable's own first-lag coefficient: one value for all variables or one per variable, each in [0,1]. Use 1 for persistent levels and rates, 0 for growth rates. Default = 1. The search holds these means fixed.
+   :type lag1_prior_mean: scalar or Mx1 vector
 
    :param overall_tightness: Optional keyword, how hard the prior pulls: roughly the prior standard deviation of each variable's coefficient on its own first lag. Smaller values pull harder. A number holds it at that value; ``bvarChoose(start)`` chooses it by marginal likelihood before the fit (see the Remarks). Default = 0.2.
    :type overall_tightness: scalar or struct
@@ -34,6 +55,9 @@ Format
    :param sur_tightness: Optional keyword, tightness of the single-unit-root prior (Sims 1993), which pulls the system toward a common stochastic trend. 0 turns it off. Its dummy observation is built from the same presample mean. A number, or ``bvarChoose(start)`` to choose it, as *soc_tightness*. Default = 0.
    :type sur_tightness: scalar or struct
 
+   :param exogenous_scale: Optional keyword, prior standard deviation of the coefficients on *xreg*, relative to the equation's error standard deviation. Default = 1.
+   :type exogenous_scale: scalar
+
    :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. This keyword, including a mark, clears variance values inherited from the control. Values supplied through *residual_variances_values* in the same call still win.
    :type residual_variances: string or struct
 
@@ -44,32 +68,14 @@ Format
    :param choose_by: Optional keyword, the objective of a prior search, as in :func:`bvarPriorSelect`: ``"map"`` (default) or ``"ml"``. Used only when a setting is marked with :func:`bvarChoose`.
    :type choose_by: string
 
+   :param prior: Optional keyword, coefficient prior. Only ``"minnesota"`` is supported. Overrides *ctl.prior*.
+   :type prior: string
+
    :param n_draws: Optional keyword, number of posterior draws. Default = 5000.
    :type n_draws: scalar
 
    :param seed: Optional keyword, random number seed. Default = 42.
    :type seed: scalar
-
-   :param xreg: Optional keyword, exogenous regressors, one row per observation of *y*. Default = none.
-   :type xreg: TxK matrix
-
-   :param exogenous_scale: Optional keyword, prior standard deviation of the coefficients on *xreg*, relative to the equation's error standard deviation. Default = 1.
-   :type exogenous_scale: scalar
-
-   :param dates: Optional keyword, POSIX dates for matrix input. Not needed when *y* is a dataframe with a date column. Default = none.
-   :type dates: Tx1 vector
-
-   :param freq: Optional keyword, frequency of the dates: ``"annual"``, ``"quarterly"``, ``"monthly"``, ``"weekly"`` or ``"daily"``. Default = inferred from the dates.
-   :type freq: string
-
-   :param quiet: Optional keyword, 1 to suppress printing. Default = 0.
-   :type quiet: scalar
-
-   :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure, which holds every setting, including those that have no keyword (such as the intercept prior). When *ctl* is given, its values are used except where a keyword is also given: a keyword given together with *ctl* replaces that field for this call, and *ctl* itself is not changed. *dates* and *freq* are not fields of *ctl* and always apply. A control holds values only: a setting to be chosen is marked in the call with :func:`bvarChoose`. An instance is created by :func:`bvarControlCreate` and has these members:
-
-       .. include:: include/bvarcontrol.rst
-
-   :type ctl: struct
 
    :return fit: An instance of a :class:`bvarResult` structure containing:
 
@@ -97,12 +103,15 @@ Four US series
     // Four quarterly US series, 1960Q1-2019Q4: GDP growth and inflation
     // (annualized percent changes), unemployment and the funds rate (percent)
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
     y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
     // Prior center 0 for GDP growth, 1 (random walk) for the three
     // persistent series; overall tightness 0.2
-    fit = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, overall_tightness=0.2);
+    fit = bvarFit(y, p=2, lag1_prior_mean={ 0, 1, 1, 1 }, overall_tightness=0.2);
 
 The output starts:
 
@@ -119,6 +128,7 @@ The output starts:
     Equation 1: gdp_growth (own first-lag prior mean 0)
     Regressor          Center      SD  Lower 68%  Upper 68%
     -------------------------------------------------------
+    Constant           1.5249  0.8405     0.6868     2.3681
     gdp_growth(-1)     0.1696  0.0676     0.1011     0.2358
     inflation(-1)     -0.1486  0.0962    -0.2450    -0.0538
     unemployment(-1)  -1.0931  0.6748    -1.7798    -0.4458
@@ -127,7 +137,6 @@ The output starts:
     inflation(-2)     -0.0691  0.0864    -0.1550     0.0180
     unemployment(-2)   1.3124  0.6629     0.6700     1.9808
     fed_funds(-2)     -0.0059  0.1961    -0.2065     0.1873
-    Constant           1.5249  0.8405     0.6868     2.3681
 
 and continues with the other three equations in the same layout, ending:
 
@@ -145,7 +154,10 @@ Choosing the lag order by marginal likelihood
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
     y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
     // Log marginal likelihood of one to six lags. Marginal likelihoods compare
@@ -154,7 +166,12 @@ Choosing the lag order by marginal likelihood
     max_lags = 6;
     print "Lags   Log ML";
     for lag (1, max_lags, 1);
-        fit = bvarFit(y[max_lags-lag+1:rows(y), .], p=lag, lag1_prior_mean=0|1|1|1, quiet=1);
+        fit = bvarFit(
+            y[max_lags-lag+1:rows(y), .],
+            p=lag,
+            lag1_prior_mean={ 0, 1, 1, 1 },
+            quiet=1
+        );
         print sprintf("%4d%10.2f", lag, fit.log_ml);
     endfor;
 
@@ -195,13 +212,19 @@ Levels data and the sum-of-coefficients prior
     ctl.lag1_prior_mean = 1;
     ctl.soc_tightness = 1;
     ctl.quiet = 1;
-    with_soc = bvarFit(data, ctl=ctl);
+    with_soc = bvarFit(data, p=ctl.p, ctl=ctl);
 
     ctl.soc_tightness = 0;
-    without_soc = bvarFit(data, ctl=ctl);
+    without_soc = bvarFit(data, p=ctl.p, ctl=ctl);
 
-    print "Log ML with the sum-of-coefficients prior:    " sprintf("%.2f", with_soc.log_ml);
-    print "Log ML without it:                            " sprintf("%.2f", without_soc.log_ml);
+    print "Log ML with the sum-of-coefficients prior:    " sprintf(
+        "%.2f",
+        with_soc.log_ml
+    );
+    print "Log ML without it:                            " sprintf(
+        "%.2f",
+        without_soc.log_ml
+    );
 
 The output is:
 
@@ -226,8 +249,13 @@ Remarks
 
    y_t = c + B_1 y_{t-1} + \cdots + B_p y_{t-p} + \varepsilon_t, \qquad \varepsilon_t \sim N(0, \Sigma).
 
-Stacking the coefficients in the Kxm matrix :math:`B = [B_1 \cdots B_p \; c]'` (K = Mp + 1, plus
-the columns of *xreg*), the conjugate Minnesota prior is
+The Kxm coefficient matrix has equations in columns. Its rows are the
+constant (when present), lag 1 for all variables in data-column order,
+then lag 2 through lag p in the same order, then the exogenous regressors
+in *xreg* column order. No trend is added by :func:`bvarFit`. With a constant
+and no exogenous regressors, :math:`B = [c \; B_1 \cdots B_p]'` and K = Mp + 1.
+Omitting the constant removes its row; each *xreg* column adds one row.
+The conjugate Minnesota prior is
 
 .. math::
 
@@ -237,7 +265,10 @@ the columns of *xreg*), the conjugate Minnesota prior is
 :math:`B_0` is zero except each variable's coefficient on its own first lag
 (*lag1_prior_mean*). :math:`\Omega` is diagonal: the row for lag *l* of variable *j* is
 :math:`\lambda^2 / (l^{2d} \sigma_j^2)`, with :math:`\lambda` the overall tightness and *d* the lag decay, and the
-constant's row is *ctl.const_prior_variance* (1e7, effectively flat). The residual scales
+constant's row, the first row when present, is *ctl.const_prior_variance*
+(1e7, effectively flat). Both axes of :math:`\Omega` follow this coefficient
+row order. The covariance of :math:`\text{vec}(B)` groups all K rows of
+equation 1, then equation 2, and so on, on both axes. The residual scales
 :math:`\sigma_j^2` come from each variable's own AR(p) regression on the estimation
 sample. :math:`\alpha_0` defaults to M + 2.
 
@@ -264,13 +295,13 @@ at the setting's value in *ctl*, or its default), and the model is then
 fitted at the values found. The settings :func:`bvarPriorSelect` can choose,
 and the combinations it offers, apply here too. The result is the fit that
 :func:`bvarPriorSelect` with the same keywords followed by
-``bvarFit(y, ctl=ps.fit_settings)`` gives, and *result.prior_search* holds that
+``bvarFit(y, p=ps.fit_settings.p, ctl=ps.fit_settings)`` gives, and *result.prior_search* holds that
 search; its printout comes before the fit's unless *quiet* = 1. One
 difference: an *overall_tightness* that is left out is held here, at its value
 in *ctl* or its default, while :func:`bvarPriorSelect` chooses it; give
 :func:`bvarPriorSelect` ``overall_tightness=`` that value to hold it there
 too. With nothing
-marked there is no search, so ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen
+marked there is no search, so ``bvarFit(y, p=ps.fit_settings.p, ctl=ps.fit_settings)`` fits the chosen
 prior without searching again.
 
 **Settings in the control struct.** The intercept prior and the other

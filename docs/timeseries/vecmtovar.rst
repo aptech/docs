@@ -34,12 +34,13 @@ Examples
     struct varResult var_result;
     var_result = vecmToVar(vr);
 
-    // Rows: lag 1 of e, prod, rw, U; lag 2 of the same; the constant.
+    // Rows: constant; lag 1 of e, prod, rw, U; lag 2 of the same.
     // Columns: equations.
     print var_result.b;
 
 ::
 
+      -12.225480       -61.905895        170.24794        41.052610
        1.7788626      -0.23192895      -0.37795767      -0.62843471
       0.16712385        1.1579201     -0.071036449     -0.079677352
     -0.026870094       0.10678987       0.98783225     -0.018299590
@@ -48,7 +49,6 @@ Examples
      -0.16513409      -0.14790495      0.043727644      0.073088979
      0.023606252      -0.12321796      0.056962902      0.029106624
      -0.14208335       0.84347705      -0.43511122       0.13306833
-      -12.225480       -61.905895        170.24794        41.052610
 
 Remarks
 -------
@@ -79,7 +79,12 @@ Coefficients of seasonal dummies and of your own regressors carry over
 unchanged.
 
 **What the result contains.** ``var_result.b`` holds the coefficients, one
-column per equation, with the rows ordered as in a :func:`varFit` result.
+column per equation. Its rows follow the same order as :func:`varFit`:
+constant (when present), trend (when present), lag 1 through lag p, then
+regressors in ``var_result.xreg`` column order. Each lag block follows the
+variable order. :func:`varFitInspect` uses this order for both coefficients
+and labels. The original :class:`vecmResult` matrices keep their own layouts;
+the conversion does not reorder them.
 ``var_result.sigma`` is the maximum likelihood residual covariance of the
 VECM (``var_result.resid_cov`` is ``"vecm"``). The residuals, the fitted
 levels, the data and the information criteria of the VECM are carried over.

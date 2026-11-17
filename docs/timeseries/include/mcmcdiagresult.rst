@@ -2,13 +2,13 @@
    :widths: auto
 
    * - dx.converged
-     - Scalar, 1 if every convergence check passes, 0 otherwise.
+     - Scalar, 1 if *max_rhat* < *rhat_threshold* and both *min_bulk_ess* and *min_tail_ess* > *min_ess*, 0 otherwise. Defaults are 1.01 and 400.
    * - dx.max_rhat
      - Scalar, worst (highest) split R-hat across the parameters.
    * - dx.min_bulk_ess
      - Scalar, worst (lowest) bulk effective sample size.
    * - dx.min_tail_ess
-     - Scalar, not computed yet (0).
+     - Scalar, worst (lowest) tail effective sample size.
    * - dx.b_rhat
      - Kxm matrix, split R-hat of each VAR coefficient.
    * - dx.b_bulk_ess
@@ -22,7 +22,7 @@
    * - dx.phi_accept_rate
      - mx1 vector, Metropolis-Hastings acceptance rate of each persistence parameter.
    * - dx.n_warnings
-     - Scalar, number of warnings.
+     - Scalar, number of warnings using the thresholds supplied to :func:`mcmcDiagnostics`.
    * - dx.n_draws
      - Scalar, number of posterior draws.
    * - dx.m

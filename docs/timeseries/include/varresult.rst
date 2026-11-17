@@ -27,7 +27,7 @@ impulse-response, historical-decomposition and scenario functions.
      - Mx1 string array, variable names.
 
    * - result.b
-     - Kxm matrix, OLS coefficient estimates. Row layout: lag 1 coefficients (m rows), ..., lag p (m rows), constant, trend, then user exogenous regressors, omitting absent terms. K counts all coefficients per equation. Column j = equation j.
+     - Kxm matrix, OLS coefficient estimates. Row layout: constant (when present), trend (when present), lag 1 coefficients (m rows), ..., lag p (m rows), then exogenous regressors in *xreg* column order. Each lag block follows the variable order. K counts all coefficients per equation. Column j = equation j.
 
    * - result.se
      - Kxm matrix, square roots of the diagonal of *result.vcov*, arranged equation by equation.
@@ -48,7 +48,7 @@ impulse-response, historical-decomposition and scenario functions.
      - mxm matrix, maximum-likelihood residual covariance: residual cross-products divided by T - p. Used for likelihood and information criteria regardless of *resid_cov*.
 
    * - result.vcov
-     - (Km)x(Km) matrix, covariance of vec(b), with all K coefficients of each equation together. Equals Sigma kron (X'X)^-1 using *result.sigma*.
+     - (Km)x(Km) matrix, covariance of vec(b). Both axes group all K coefficients of equation 1, then equation 2, and so on; each equation uses the row order of *result.b*. Equals Sigma kron (X'X)^-1 using *result.sigma*, with the columns of X in that same coefficient order.
 
    * - result.loglik
      - Scalar, log-likelihood.

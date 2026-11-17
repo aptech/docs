@@ -116,10 +116,14 @@ VAR Estimation
      - Fit VAR(p) by OLS with stability diagnostics.
    * - :func:`bvarFit`
      - Fit Bayesian VAR with the conjugate Minnesota prior.
+   * - :func:`tvpSvFit`
+     - Fit a time-varying-parameter VAR with stochastic volatility.
    * - :func:`bvarSvFit`
      - Fit BVAR with stochastic volatility and optional SSVS variable selection.
    * - :func:`varLagSelect`
      - Select lag order by AIC, BIC, Hannan-Quinn, or FPE.
+   * - :func:`bvarPriorInspect`
+     - Inspect a Minnesota prior with an explicit lag order in the control.
    * - :func:`bvarPriorSelect`
      - Optimize Minnesota hyperparameters via marginal likelihood (GLP 2015).
    * - :func:`bvarChoose`
@@ -170,6 +174,8 @@ Forecasting
      - Print forecast output from a workflow result or forecast result.
    * - :func:`bvarMacroForecastPrint`
      - Compatibility alias for workflow forecast printing.
+   * - :func:`tvpSvForecast`
+     - Forecast with parameter-only bands from a time-varying-parameter VAR.
    * - :func:`bvarSvForecast`
      - Density forecasts from SV-BVAR with time-varying volatility.
    * - :func:`condForecast`
@@ -380,8 +386,10 @@ Control Structure Creators
     varfit
     bvarfit
     bvarsvfit
+    tvpsvfit
     varlagselect
     bvarpriorselect
+    bvarpriorinspect
     bvarchoose
     varcontrolcreate
     bvarcontrolcreate
@@ -416,6 +424,7 @@ Control Structure Creators
     printforecast
     bvarmacroforecastprint
     bvarsvforecast
+    tvpsvforecast
     condforecast
     scenariocompare
     scenariopath

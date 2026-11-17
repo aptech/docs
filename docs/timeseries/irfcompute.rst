@@ -9,16 +9,19 @@ generalized, sign-restricted or long-run identification.
 Format
 ------
 
-.. function:: irf = irfCompute(fit, n_ahead)
-              irf = irfCompute(fit, n_ahead, identification="generalized")
-              irf = irfCompute(fit, n_ahead, restrictions=signs)
-              irf = irfCompute(fit, n_ahead, identification="long_run")
+.. function:: irf = irfCompute(fit, h={}, var_names={}, quiet=0, identification="", normalization="", restrictions={}, level={0.68, 0.90}, n_draws={}, max_tries=10000, seed=42, cumulative=0, ctl={})
 
    :param fit: result from :func:`varFit`, :func:`bvarFit` or :func:`bvarSvFit`.
    :type fit: struct
 
-   :param n_ahead: positive integer last horizon. Responses are returned for horizons 0 (impact) to *n_ahead*.
-   :type n_ahead: scalar
+   :param h: positive integer last horizon. Responses are returned for horizons 0 (impact) to *h*.
+   :type h: scalar
+
+   :param var_names: Optional keyword, variable names for the output. Default = the names stored in *fit*.
+   :type var_names: Mx1 string array
+
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :type quiet: scalar
 
    :param identification: Optional keyword, how the structural shocks are identified.
 
@@ -67,8 +70,8 @@ Format
    :param restrictions: Optional keyword, sign and zero restrictions from :func:`signRestrictions`, or the restriction table itself.
    :type restrictions: struct or Nx4 string array
 
-   :param levels: Optional keyword, central masses of the pointwise credible bands. Default = ``0.68|0.90``. Sign-restricted responses, long-run responses from :func:`bvarFit` results and :func:`bvarSvFit` results support 0.68 and 0.90.
-   :type levels: scalar or vector
+   :param level: Optional keyword, central masses of the pointwise credible bands. Default = ``{ 0.68, 0.90 }``. Sign-restricted responses, long-run responses from :func:`bvarFit` results and :func:`bvarSvFit` results support 0.68 and 0.90.
+   :type level: scalar or vector
 
    :param n_draws: Optional keyword, :func:`bvarFit` results only: number of posterior draws to use. Default = all stored draws.
    :type n_draws: scalar
@@ -85,11 +88,8 @@ Format
    :param ctl: Optional keyword, an instance of an :class:`svarControl` structure (:func:`svarControlCreate`) with narrative restrictions and the rotation sampler choice.
    :type ctl: struct
 
-   :param var_names: Optional keyword, variable names for the output. Default = the names stored in *fit*.
-   :type var_names: Mx1 string array
-
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
-   :type quiet: scalar
+   *ctl* must be a ``svarControl`` structure or ``{}`` (omitted).
+   Other values or structure types are refused.
 
    :return irf: An instance of an :class:`irfResult` structure containing:
 
@@ -108,8 +108,9 @@ Cholesky responses from a VAR
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
-    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    y = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    y = selif(y, between(y[., "date"], "1960", "2020", "left"));
 
     // The ordering GDP, inflation, funds rate lets the funds rate react to
     // output and prices within the quarter.
@@ -118,7 +119,7 @@ Cholesky responses from a VAR
     irf = irfCompute(fit, 12);
 
     // Normalize each own-variable impact to 1
-    irf_unit = irfCompute(fit, 12, normalization="unit_own_impact", quiet=1);
+    irf_unit = irfCompute(fit, 12, normalization="unit_own_impact");
 
 The printout starts with the model and shock description, followed by one
 table per shock. Row *h* of the table for a shock holds the responses of
@@ -132,15 +133,18 @@ Posterior bands from a BVAR
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
-    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    y = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    y = selif(y, between(y[., "date"], "1960", "2020", "left"));
 
-    fit = bvarFit(y, p=4, quiet=1);
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    fit = bvarFit(y, p=4, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
 
     irf = irfCompute(fit, 12, quiet=1);
 
     // Response of GDP growth to a funds rate shock, with the 68% band
-    h = seqa(0, 1, 13);
+    h = 0:12;
     gdp_row = 3 * h + 1;
     print h ~ irf.bands[1].lower[gdp_row, 3] ~ irf.irf[gdp_row, 3]
             ~ irf.bands[1].upper[gdp_row, 3];
@@ -156,15 +160,20 @@ A monetary policy shock identified with sign restrictions
     new;
     library timeseries;
 
-    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv");
-    y = loadd(fname, "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    y = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    y = selif(y, between(y[., "date"], "1960", "2020", "left"));
 
-    fit = bvarFit(y, p=4, quiet=1);
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    fit = bvarFit(y, p=4, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
 
     // A contractionary monetary shock raises the funds rate and lowers
     // inflation for the first four quarters (Uhlig 2005).
-    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
-                               "cpi_inflation" "monetary" "0:4" "-" });
+    signs = signRestrictions(
+        { "fed_funds"     "monetary" "0:4" "+",
+                               "inflation" "monetary" "0:4" "-" }
+    );
 
     irf = irfCompute(fit, 20, restrictions=signs);
 
@@ -215,6 +224,10 @@ Long-run identification
 Remarks
 -------
 
+The literal default ``level={0.68, 0.90}`` has no effect on point-only
+results. Other band requests require a posterior or band-enabled route.
+The requested masses must be ascending; the headline band uses ``level[1]``.
+
 **VAR covariance.** Cholesky and generalized responses use *fit.sigma*,
 the covariance chosen by :func:`varFit`'s *resid_cov*. Long-run responses
 follow the same divisor when refitting. A change from ``"ml"`` to ``"df"``
@@ -227,7 +240,7 @@ and forecast error variance shares are unchanged by this scalar choice.
 Cholesky or generalized responses, together with its companion matrix and
 model dimensions; *sigma_ml* alone is insufficient.
 
-**Layout of the responses.** *irf.irf* has (*n_ahead* + 1) · *m* rows and
+**Layout of the responses.** *irf.irf* has (*h* + 1) · *m* rows and
 *m* columns. Rows *h* · *m* + 1 to (*h* + 1) · *m* hold horizon *h*;
 element [*i*, *j*] of that block is the response of variable *i* to shock
 *j*. The first block is the impact matrix. The bands, the cumulative
@@ -251,7 +264,7 @@ do not depend on the ordering, but the shocks are not orthogonal.
 For each posterior draw of the coefficients and covariance matrix, random
 orthogonal rotations of the Cholesky factor are drawn until one satisfies
 every restriction; if none does within *max_tries*, the draw is dropped and
-counted in *irf.n_attempted* but not in *irf.n_accepted*. Zero restrictions
+counted in *irf.n_draws_attempted* but not in *irf.n_draws_accepted*. Zero restrictions
 are imposed exactly by building the rotation one column at a time (Arias,
 Rubio-Ramirez and Waggoner 2018). Narrative restrictions (Antolin-Diaz and
 Rubio-Ramirez 2018) are checked on each accepted draw and are available for

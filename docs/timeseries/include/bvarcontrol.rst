@@ -2,10 +2,10 @@
    :widths: auto
 
    * - ctl.p
-     - Scalar, lag order. Default = 1.
+     - Scalar, required lag order. Default = ``{}``; set *ctl.p* or pass ``p=`` before fitting.
 
    * - ctl.const
-     - Scalar, 1 to include a constant in each equation, 0 to leave it out. Default = 1.
+     - Scalar, 1 to include a constant in each equation, 0 to leave it out. Default = 1. Must be a scalar 0 or 1.
 
    * - ctl.prior
      - String, ``"minnesota"`` (the only prior :func:`bvarFit` supports). Default = ``"minnesota"``.
@@ -47,8 +47,8 @@
    * - ctl.exogenous_scale
      - Positive scalar, prior standard deviation of the coefficients on exogenous regressors (*xreg*), relative to the equation's error standard deviation. Default = 1.
 
-   * - ctl.alpha0
-     - Scalar, degrees of freedom of the inverse-Wishart prior on the error covariance. Default = 0, which uses m+2, the least informative proper value.
+   * - ctl.sigma_prior_df
+     - Scalar, degrees of freedom of the inverse-Wishart prior on the error covariance. Default = ``{}``, which resolves to m+2. An explicit value must exceed m+1.
 
    * - ctl.residual_variances
      - String, how the residual scales that set the prior's units are found.
@@ -74,10 +74,10 @@
      - Scalar, 1 to compute the largest companion root and the stationary flag in the fit, 0 to skip them (*result.is_stationary* and *result.max_eigenvalue* are then missing; :func:`varFitInspect` and ``forecastCompare`` compute them when they report them). The eigenvalue solve takes most of a fit's time. Default = 0.
 
    * - ctl.quiet
-     - Scalar, 1 to suppress printed output. Default = 0.
+     - Scalar, 1 to suppress printed output. Default = 0. Must be a scalar 0 or 1.
 
    * - ctl.choose_by
      - String, the objective of a prior search (:func:`bvarPriorSelect`, or :func:`bvarFit` with a setting marked by :func:`bvarChoose`): ``"map"`` (default) chooses by marginal likelihood plus the Giannone, Lenza & Primiceri (2015) priors on what is chosen, ``"ml"`` by marginal likelihood alone. The control holds values only: what a search chooses is marked in the call, never stored here.
 
-   * - ctl.cross_shrinkage, ctl.exogenous_tightness
-     - Kept for other estimators; :func:`bvarFit` does not use them. Its conjugate prior treats a variable's own lags and other variables' lags alike, apart from each variable's scale.
+   * - ctl.exogenous_tightness
+     - Kept for other estimators; :func:`bvarFit` does not use it. Its conjugate prior treats a variable's own lags and other variables' lags alike, apart from each variable's scale.

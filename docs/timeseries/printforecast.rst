@@ -44,10 +44,11 @@ Print Workflow Forecast Output
 
 ::
 
-    wf = bvarMacroForecast(y,
+    wf = bvarMacroForecast(
+        y,
         h=8,
         holdout=20,
-        lag1_prior_mean="zero",
+        lag1_prior_mean=0,
         max_lags=4,
         lag_ic="bic",
         overall_tightness=bvarChoose(),
@@ -55,7 +56,8 @@ Print Workflow Forecast Output
         level=0.68,
         n_draws=2000,
         seed=42,
-        quiet=1);
+        quiet=1
+    );
 
     call printForecast(wf, horizons=8);
 
@@ -79,7 +81,7 @@ Print a Lower-Level Forecast Result
 
 ::
 
-    result = bvarFit(y, ctl=ctl);
+    result = bvarFit(y, p=ctl.p, ctl=ctl);
     fc = bvarForecast(result, 8);
 
     call printForecast(fc);

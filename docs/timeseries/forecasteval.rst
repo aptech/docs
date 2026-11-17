@@ -8,10 +8,7 @@ Pseudo out-of-sample forecast evaluation: refit each model at repeated start dat
 Format
 ------
 
-.. function:: fe = forecastEval(y, models, train_end="1920", h=5)
-              fe = forecastEval(y, models, train_end="2019-Q4", h=8, benchmark="AR(bic)", window="rolling", step=1, period=4)
-              fe = forecastEval(y, models, target="defl", train_end="2009-Q4", h=4, benchmark="AR(bic)", periods=P)
-              fe = forecastEval(y, forecasts=F, names="My model", train_end="1920", h=5)
+.. function:: fe = forecastEval(y, models = "", train_end = "", h = 0, benchmark = "", window = "expanding", step = 1, period = 1, forecasts = {}, names = "", target = "", origins = {}, level = {0.68, 0.90}, dm = "hln", periods = {}, seed = 42, quiet = 0)
 
    :param y: the data: one series, or a dataframe with named columns and an optional date column. Fitted VAR, BVAR and VECM models find their variables in *y* by name.
    :type y: Nx1 vector or dataframe
@@ -19,14 +16,8 @@ Format
    :param models: the models to evaluate: a string array of model specifications, each refitted on every selected variable alone (see Remarks); a :func:`varFit`, :func:`bvarFit` or :func:`vecmFit` result; or several models made by :func:`forecastModel` and joined with ``|``.
    :type models: string array or struct
 
-   :param target: Optional keyword, name of the variable to score, or a string array of names. Default = the variables of the first fitted model, or the series when *y* has one column.
-   :type target: string or string array
-
    :param train_end: end of the first estimation sample. For dated data, a GAUSS date string read as a point in time: ``"1920"`` is 1920-01-01, ``"2019-12"`` is 2019-12-01, ``"2019-Q4"`` is 2019-10-01, ``"2019-12-31"``. The first fit uses every observation dated on or before it. For undated data, a row number.
    :type train_end: string or scalar
-
-   :param origins: Optional keyword, start dates given one by one instead of *train_end* and *step*: date strings for dated data, row numbers otherwise. Each is the last observation used.
-   :type origins: string array or vector
 
    :param h: largest forecast horizon.
    :type h: scalar
@@ -43,8 +34,20 @@ Format
    :param period: Optional keyword, seasonal period for ``"snaive"``, seasonal ARIMA and ETS. Default = 1.
    :type period: scalar
 
-   :param levels: Optional keyword, band levels whose coverage is reported. Default = ``0.68|0.90``.
-   :type levels: vector
+   :param forecasts: Optional keyword, forecasts made elsewhere for one target: one row per start date and *h* columns per model. The start dates must be those implied by *train_end* and *step* (or *origins*). Benchmark forecasts are still made by the function.
+   :type forecasts: matrix
+
+   :param names: Optional keyword, names of the *forecasts* models.
+   :type names: string array
+
+   :param target: Optional keyword, name of the variable to score, or a string array of names. Default = the variables of the first fitted model, or the series when *y* has one column.
+   :type target: string or string array
+
+   :param origins: Optional keyword, start dates given one by one instead of *train_end* and *step*: date strings for dated data, row numbers otherwise. Each is the last observation used.
+   :type origins: string array or vector
+
+   :param level: Optional keyword, band levels whose coverage is reported. Values must be strictly between 0 and 1 and strictly ascending without repeats. Descending or repeated values are refused; the function does not sort them. Default = ``{ 0.68, 0.90 }``.
+   :type level: vector
 
    :param dm: Optional keyword, Diebold-Mariano variant passed to :func:`dmTest`: ``"hln"``, ``"hac_hln_t"`` or ``"asymptotic"``. Default = ``"hln"``.
    :type dm: string
@@ -54,12 +57,6 @@ Format
 
    :param seed: Optional keyword, random seed for BVAR draws; start date *i* uses *seed* + *i* - 1. Default = 42.
    :type seed: scalar
-
-   :param forecasts: Optional keyword, forecasts made elsewhere for one target: one row per start date and *h* columns per model. The start dates must be those implied by *train_end* and *step* (or *origins*). Benchmark forecasts are still made by the function.
-   :type forecasts: matrix
-
-   :param names: Optional keyword, names of the *forecasts* models.
-   :type names: string array
 
    :param quiet: Optional keyword, 1 to suppress printing. Default = 0.
    :type quiet: scalar
@@ -146,13 +143,19 @@ settings are kept and their coefficients re-estimated at every start date:
 
     // Set the models up as you would fit them on the full sample
     v = varFit(y, p=2, quiet=1);
-    b = bvarFit(y, p=2, overall_tightness=0.2, lag1_prior_mean="zero", quiet=1);
+    b = bvarFit(y, p=2, overall_tightness=0.2, lag1_prior_mean=0, quiet=1);
 
     // Refit both at every quarter from 2009Q4, forecast inflation (defl)
     // 1-4 quarters ahead, and compare with an autoregression
     models = forecastModel(v) | forecastModel(b, name="Minnesota BVAR");
-    fe = forecastEval(y, models, target="defl", train_end="2009-Q4", h=4,
-        benchmark="AR(bic)");
+    fe = forecastEval(
+        y,
+        models,
+        target="defl",
+        train_end="2009-Q4",
+        h=4,
+        benchmark="AR(bic)"
+    );
 
 The output is:
 
@@ -259,14 +262,22 @@ For example, compare eight one-quarter forecasts of Danish money demand:
     new;
     library timeseries;
     string series_names = { "a", "b", "c", "d" };
-    y = asMatrix(loadd(getGAUSSHome("pkgs/timeseries/examples/data/vecm_family_denmark.csv")));
+    y = asMatrix(
+        loadd(getGAUSSHome("pkgs/timeseries/examples/data/vecm_family_denmark.csv"))
+    );
     y = asdf(y, series_names);
     fit = vecmFit(y, 1, p=2, det_case=2, season=4, quiet=1);
     struct forecastModel models;
     models = forecastModel(fit, name="VECM")
-           | forecastModel(fit, rank=0, name="Differences");
-    fe = forecastEval(y, models, train_end=47, h=1, benchmark="Differences",
-        levels=0.68 | 0.90);
+        | forecastModel(fit, rank=0, name="Differences");
+    fe = forecastEval(
+        y,
+        models,
+        train_end=47,
+        h=1,
+        benchmark="Differences",
+        level={ 0.68, 0.90 }
+    );
 
 The output is:
 
@@ -540,7 +551,7 @@ With one target the rows are just the start dates or horizons.
      - Ox1 POSIX dates of those observations (empty if undated).
    * - freq
      - String, frequency of the date index ("" if undated).
-   * - h, window, step, period, levels, dm_variant, seed
+   * - h, window, step, period, level, dm_variant, seed
      - The settings used (*step* is 0 when *origins* gave the start dates).
    * - actual
      - (TO) x h outcomes (missing beyond the data).

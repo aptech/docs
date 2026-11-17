@@ -1,10 +1,16 @@
 .. list-table::
    :widths: auto
 
-   * - dfc.fc_mean
-     - hxm matrix, mean forecast across posterior draws.
+   * - dfc.level
+     - Vector, requested central masses in ascending order; the headline interval uses *dfc.level[1]*. Default = ``{ 0.68, 0.90 }``.
 
-   * - dfc.fc_median
+   * - dfc.bands
+     - Array of :class:`credibleBand` structures with *level*, *q_lower*, *q_upper*, *lower* and *upper*. TVP-SV bands cover parameter uncertainty only; no future shocks are simulated.
+
+   * - dfc.mean
+     - hxm matrix, arithmetic mean across forecast paths, including the TVP-SV parameter-only paths.
+
+   * - dfc.median
      - hxm matrix, median forecast across posterior draws.
 
    * - dfc.quantile_bands
@@ -35,4 +41,4 @@
      - Mx1 string array, variable names.
 
    * - dfc.draws
-     - (n_draws)x(h*m) matrix, raw forecast draws. Empty matrix unless ``ctl.store_draws = 1``. Row layout: each row is one draw, columns ordered as h1_v1, h1_v2, ..., h1_vm, h2_v1, ...
+     - (dfc.n_draws * h) x m matrix, raw forecast paths. Empty unless ``ctl.store_draws = 1``. Each path occupies h consecutive rows, ordered by horizon; variables are in columns.

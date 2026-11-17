@@ -8,9 +8,7 @@ Evaluate Bayesian VAR forecasts out of sample: refit at a series of forecast ori
 Format
 ------
 
-.. function:: ev = bvarRollingOrigin(y, tightness, model_names, reestimation_policy, truth_vintage)
-              ev = bvarRollingOrigin(y, tightness, model_names, "expanding", truth_vintage, p=2, initial_window=160, h=8)
-              ev = bvarRollingOrigin(y, tightness, model_names, "expanding", truth_vintage, overall_tightness=bvarChoose())
+.. function:: ev = bvarRollingOrigin(y, tightness, model_names, reestimation_policy, truth_vintage, p={}, const=1, initial_window=0, h=1, step=1, n_draws=5000, posterior_seed_base=120260723, origin_seed_stride=1000003, forecast_seed_offset=500000, energy_draw_stride=5, lag_decay=1, lag1_prior_mean=1, sigma_prior_df={}, intercept_vc=1e7, residual_variances="ar_p", residual_variances_values={}, pit_bins=10, overall_tightness={}, choose_by="map")
 
    :param y: the data, oldest row first. A single date column in a dataframe is used as the time index and left out of the model.
    :type y: TxM matrix or dataframe
@@ -27,22 +25,10 @@ Format
    :param truth_vintage: a label for the data the forecasts are scored against (for example the database vintage), kept in the result.
    :type truth_vintage: string
 
-   :param overall_tightness: Optional keyword, ``bvarChoose(x)`` adds one model, after the fixed ones, whose overall tightness is chosen again on each origin's training window, as :func:`bvarPriorSelect` chooses it, starting at *x* (``bvarChoose()`` starts at 0.2). Left out (the default), only the fixed tightness values are evaluated. Fixed values go in *tightness*, not here.
-   :type overall_tightness: struct
-
-   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. The search starts from the method values unless explicit values override them.
-   :type residual_variances: string or struct
-
-   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
-   :type residual_variances_values: Mx1 or 1xM vector, or struct
-
-   :param choose_by: Optional keyword, used only when a model is chosen. ``"map"`` (default): log marginal likelihood plus the priors of Giannone, Lenza and Primiceri (2015) on what is chosen (a Gamma prior on the tightness, mode 0.2, standard deviation 0.4; an inverse-gamma prior on each chosen residual variance, with its peak near 0.02 squared, which suits data in logs multiplied by four and rates in decimals; see the Remarks of :func:`bvarPriorSelect`), :func:`bvarPriorSelect`'s default. ``"ml"``: log marginal likelihood alone.
-   :type choose_by: string
-
-   :param p: Optional keyword, lag order. Default = 1.
+   :param p: Required keyword, lag order. There is no default.
    :type p: scalar
 
-   :param const: Optional keyword, 1 to include a constant. Default = 1.
+   :param const: Optional keyword, 1 to include a constant, 0 to omit it. Must be a scalar 0 or 1. Default = 1.
    :type const: scalar
 
    :param initial_window: Optional keyword, number of rows in the first training window; the first forecast starts at row *initial_window* + 1. Required in practice: the default 0 is refused.
@@ -57,24 +43,45 @@ Format
    :param n_draws: Optional keyword, simulated paths per model and origin. Default = 5000.
    :type n_draws: scalar
 
-   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag: ``"zero"``, ``"random_walk"`` (1), one number in [0,1] for every variable, or a vector with one number per variable. Default = ``"random_walk"`` (suits levels and rates; use ``"zero"`` for data in changes or growth rates). It applies to every model, the fixed tightness values and a chosen tightness alike.
-   :type lag1_prior_mean: string, scalar or Mx1 vector
+   :param posterior_seed_base: Optional keyword, seed of the first origin's posterior draws; origin *k* uses *posterior_seed_base* + (*k* - 1) x *origin_seed_stride*. Every model at an origin uses the same seeds. Default = 120260723.
+   :type posterior_seed_base: scalar
+
+   :param origin_seed_stride: Optional keyword, increment between origin seeds. Default = 1000003.
+   :type origin_seed_stride: scalar
+
+   :param forecast_seed_offset: Optional keyword, offset from an origin's posterior seed to its forecast seed. Default = 500000.
+   :type forecast_seed_offset: scalar
+
+   :param energy_draw_stride: Optional keyword, stride for subsampling paths when computing the energy score. Default = 5.
+   :type energy_draw_stride: scalar
 
    :param lag_decay: Optional keyword, Minnesota lag decay, held in every model; it cannot be chosen here. Default = 1.
    :type lag_decay: scalar
 
-   :param alpha0: Optional keyword, prior degrees of freedom of the residual covariance; 0 (default) uses *m* + 2.
-   :type alpha0: scalar
+   :param lag1_prior_mean: Optional keyword, numeric prior mean of each variable's own first-lag coefficient: one value for all variables or one per variable, each in [0,1]. Use 1 for persistent levels and rates, 0 for growth rates. Default = 1. The search holds these means fixed.
+   :type lag1_prior_mean: scalar or Mx1 vector
+
+   :param sigma_prior_df: Optional keyword, prior degrees of freedom of the residual covariance. Default = ``{}``, which resolves to *m* + 2. An explicit value must exceed *m* + 1.
+   :type sigma_prior_df: scalar
 
    :param intercept_vc: Optional keyword, prior variance of the constants. Default = 1e7.
    :type intercept_vc: scalar
 
 
-   :param posterior_seed_base: Optional keyword, seed of the first origin's posterior draws; origin *k* uses *posterior_seed_base* + (*k* - 1) x *origin_seed_stride*. Every model at an origin uses the same seeds. Default = 120260723.
-   :type posterior_seed_base: scalar
+   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. The search starts from the method values unless explicit values override them.
+   :type residual_variances: string or struct
+
+   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
+   :type residual_variances_values: Mx1 or 1xM vector, or struct
 
    :param pit_bins: Optional keyword, number of bins of the probability integral transform histograms. Default = 10.
    :type pit_bins: scalar
+
+   :param overall_tightness: Optional keyword, ``bvarChoose(x)`` adds one model, after the fixed ones, whose overall tightness is chosen again on each origin's training window, as :func:`bvarPriorSelect` chooses it, starting at *x* (``bvarChoose()`` starts at 0.2). Left out (the default), only the fixed tightness values are evaluated. Fixed values go in *tightness*, not here.
+   :type overall_tightness: struct
+
+   :param choose_by: Optional keyword, used only when a model is chosen. ``"map"`` (default): log marginal likelihood plus the priors of Giannone, Lenza and Primiceri (2015) on what is chosen (a Gamma prior on the tightness, mode 0.2, standard deviation 0.4; an inverse-gamma prior on each chosen residual variance, with its peak near 0.02 squared, which suits data in logs multiplied by four and rates in decimals; see the Remarks of :func:`bvarPriorSelect`), :func:`bvarPriorSelect`'s default. ``"ml"``: log marginal likelihood alone.
+   :type choose_by: string
 
    :return ev: An instance of a :class:`bvarRollingResult` structure. The main members:
 
@@ -149,15 +156,28 @@ Fixed Tightness Against the Marginal-Likelihood Choice
     library timeseries;
 
     // Quarterly US data, 1960Q1-2019Q4: the date and six growth rates
-    // (growth rates take the prior center lag1_prior_mean = "zero")
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
+    // (growth rates take the prior center lag1_prior_mean = 0)
+    data = loadd(
+        getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv")
+    );
     y = data[., "date" "gdp" "cons" "inv" "defl" "wage" "hours"];
 
     // A forecast every fourth quarter from 2000Q1, eight quarters ahead
     string names = { "fixed 0.2", "tight 0.05", "chosen" };
-    ev = bvarRollingOrigin(y, 0.2 | 0.05, names, "expanding", "FRED-QD 2026-02",
-        p=2, initial_window=160, h=8, step=4, n_draws=1000, overall_tightness=bvarChoose(),
-        lag1_prior_mean="zero");
+    ev = bvarRollingOrigin(
+        y,
+        { 0.2, 0.05 },
+        names,
+        "expanding",
+        "FRED-QD 2026-02",
+        p=2,
+        initial_window=160,
+        h=8,
+        step=4,
+        n_draws=1000,
+        overall_tightness=bvarChoose(),
+        lag1_prior_mean=0
+    );
 
     print "Forecast origins:" ev.n_origins;
     print "Chosen tightness, first and last origin:" ev.chosen_tightness[1 ev.n_origins]';

@@ -8,7 +8,7 @@
      - Scalar, deterministic terms, 1 to 5. Default = 3.
 
    * - ctl.quiet
-     - Scalar, set to 1 to suppress printed output. Default = 0.
+     - Scalar, set to 1 to suppress printed output. Default = 0. Must be a scalar 0 or 1.
 
    * - ctl.xreg
      - Matrix of your own regressors, one column each, with T rows (the rows of *y*) or T-p rows (the rows used in estimation). They enter every equation unrestricted. Default = {} (none).

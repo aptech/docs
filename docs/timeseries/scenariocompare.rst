@@ -8,8 +8,7 @@ Compare two scenario forecasts on the same fitted model: each scenario's forecas
 Format
 ------
 
-.. function:: sc = scenarioCompare(fit, baseline, alternative)
-              sc = scenarioCompare(fit, baseline, alternative, names="Hold" $| "Cut", variable="defl" $| "gdp")
+.. function:: sc = scenarioCompare(fit, baseline, alternative, names={}, variable={}, units="", label="Scenario comparison", level={0.68, 0.90}, n_draws={}, seed=42, store_draws=0, quiet=0, xreg_future={})
 
    :param fit: result from :func:`bvarFit` (posterior draws), :func:`varFit` (coefficients fixed at their least-squares estimates) or :func:`vecmToVar` (the VECM's coefficients fixed; refused when the VECM was fit with seasonal dummies or your own regressors). For a :func:`vecmToVar` result the forecast without conditions is the VECM's point forecast.
    :type fit: struct
@@ -32,7 +31,7 @@ Format
    :param label: Optional keyword, title of the printed tables. Default = "Scenario comparison".
    :type label: string
 
-   :param level: Optional keyword, central mass of each band. Default = 0.68|0.90. *levels* is accepted as another name for it.
+   :param level: Optional keyword, central mass of each band. Default = ``{ 0.68, 0.90 }``.
    :type level: scalar or vector
 
    :param n_draws: Optional keyword, as for :func:`condForecast`.
@@ -44,11 +43,11 @@ Format
    :param store_draws: Optional keyword, 1 to keep every draw's difference in *sc.difference_draws*. Default = 0.
    :type store_draws: scalar
 
-   :param xreg_future: Optional keyword, future values of the user's exogenous regressors, excluding the generated VAR trend. Required when the model was fit with *xreg*.
-   :type xreg_future: hxK matrix
-
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
+
+   :param xreg_future: Optional keyword, future values of the user's exogenous regressors, excluding the generated VAR trend. Required when the model was fit with *xreg*.
+   :type xreg_future: hxK matrix
 
    :return sc: An instance of a :class:`scenarioComparison` structure containing:
 
@@ -68,14 +67,22 @@ Hold the Funds Rate or Cut It
     library timeseries;
 
     // Seven quarterly US series, 1960Q1-2019Q4; the last is the funds rate
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
+    data = loadd(
+        getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv")
+    );
     fit = bvarFit(data, p=3, n_draws=2000, quiet=1);
 
     hold = scenarioPath(fit, 8, "ffr", 1.64);
-    cut = scenarioPath(fit, 8, "ffr", 1.64 - (0.25|0.5|0.75|1|1|1|1|1));
+    cut = scenarioPath(fit, 8, "ffr", 1.64 - ({ 0.25, 0.5, 0.75, 1, 1, 1, 1, 1 }));
 
-    sc = scenarioCompare(fit, hold, cut, names="Hold" $| "Cut",
-        variable="defl" $| "gdp", label="Cut minus hold");
+    sc = scenarioCompare(
+        fit,
+        hold,
+        cut,
+        names="Hold" $| "Cut",
+        variable="defl" $| "gdp",
+        label="Cut minus hold"
+    );
 
 For each variable named, the printout shows the model's own forecast with no
 assumed path, each scenario's median, and the difference (cut minus hold)

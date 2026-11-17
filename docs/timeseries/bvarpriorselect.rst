@@ -8,47 +8,21 @@ Choose prior settings of a Minnesota BVAR by marginal likelihood: the overall ti
 Format
 ------
 
-.. function:: ps = bvarPriorSelect(y)
-              ps = bvarPriorSelect(y, p=4)
-              ps = bvarPriorSelect(y, p=4, residual_variances=bvarChoose())
-              ps = bvarPriorSelect(y, p=4, lag1_prior_mean=prior_means)
-              ps = bvarPriorSelect(y, ctl=ctl)
+.. function:: ps = bvarPriorSelect(y, p={}, const={}, xreg={}, quiet={}, ctl={}, lag1_prior_mean={}, overall_tightness={}, lag_decay={}, soc_tightness={}, sur_tightness={}, exogenous_scale={}, residual_variances={}, residual_variances_values={}, choose_by={})
 
    :param y: endogenous variables. A single date column in a dataframe is used as the time index and left out of the model.
    :type y: TxM matrix or dataframe
 
-   :param p: Optional keyword, lag order. Default = 1.
+   :param p: Required lag order, supplied as ``p=`` or in *ctl.p*. There is no default.
    :type p: scalar
 
-   :param overall_tightness: Optional keyword, a number (held at that value) or ``bvarChoose(start)`` (chosen, starting at *start*). Default: chosen, starting at 0.2, or at *ctl.overall_tightness* when *ctl* is given. A plain number with nothing else marked is refused: nothing would be chosen.
-   :type overall_tightness: scalar or struct
-
-   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. This keyword, including a mark, clears variance values inherited from the control. Values supplied through *residual_variances_values* in the same call still win.
-   :type residual_variances: string or struct
-
-   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
-   :type residual_variances_values: Mx1 or 1xM vector, or struct
-
-   :param lag_decay: Optional keyword, how much harder longer lags are pulled: a number (held) or ``bvarChoose(start)`` (chosen, between 0.5 and 3). Default = 1, held. It cannot be chosen with one lag, where the prior does not depend on it.
-   :type lag_decay: scalar or struct
-
-   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior: a number (held; 0 means the prior is off) or ``bvarChoose(start)`` (chosen, between 0.0001 and 50). ``bvarChoose()`` on a value of 0 adds the prior and starts the search at 1. Default = 0.
-   :type soc_tightness: scalar or struct
-
-   :param sur_tightness: Optional keyword, tightness of the single-unit-root prior, as *soc_tightness*. Default = 0.
-   :type sur_tightness: scalar or struct
-
-
-   :param choose_by: Optional keyword, the objective. ``"map"`` (default): log marginal likelihood plus the log of the priors Giannone, Lenza and Primiceri (2015) put on what is chosen: a Gamma prior on each tightness (overall tightness: mode 0.2, standard deviation 0.4; sum-of-coefficients and single-unit-root tightness: mode 1, standard deviation 1) and, when the residual variances are chosen, an inverse-gamma prior on each of them (shape and scale 0.02 squared). An included sum-of-coefficients or single-unit-root prior that is held keeps its Gamma term, as a constant. ``"ml"``: log marginal likelihood alone, with none of these priors.
-   :type choose_by: string
-
-   :param lag1_prior_mean: Optional keyword, prior mean of each variable's coefficient on its own first lag, as in :func:`bvarFit`: ``"random_walk"`` (1, for persistent series such as levels), ``"zero"`` (for changes or growth rates), one number in [0,1] for every variable, or a vector with one number per variable. Default = ``"random_walk"``. The prior means are a fixed part of the prior: the search chooses the tightness, not the means.
-   :type lag1_prior_mean: string, scalar or Mx1 vector
+   :param const: Optional keyword, 1 to include a constant, 0 to omit it. Overrides *ctl.const* for this call. Default = 1. Must be a scalar 0 or 1; the same rule applies to *ctl.const*.
+   :type const: scalar
 
    :param xreg: Optional keyword, exogenous regressors. The prior scale of their coefficients (*exogenous_scale*) is held.
    :type xreg: TxK matrix
 
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0. Must be a scalar 0 or 1; the same rule applies to *ctl.quiet*.
    :type quiet: scalar
 
    :param ctl: Optional keyword, an instance of a :class:`bvarControl` structure (see :func:`bvarControlCreate`). Its values are used except where a keyword is also given: a keyword given together with *ctl* replaces that field for this call, and *ctl* itself is not changed. A control holds values only; what is chosen is marked in the call with :func:`bvarChoose`, and ``bvarChoose()`` starts at the control's value. A setting that matters here and has no keyword:
@@ -60,6 +34,37 @@ Format
             - String. "fixed" (default) holds the prior variance of the constants at *ctl.const_prior_variance* (default 1e7) while the tightness changes; "litterman_coupled" scales it with the overall tightness. The two give different choices.
 
    :type ctl: struct
+
+   *ctl* must be a ``bvarControl`` structure or ``{}`` (omitted).
+   Other values or structure types are refused.
+
+   :param lag1_prior_mean: Optional keyword, numeric prior mean of each variable's own first-lag coefficient: one value for all variables or one per variable, each in [0,1]. Use 1 for persistent levels and rates, 0 for growth rates. Default = 1. The search holds these means fixed.
+   :type lag1_prior_mean: scalar or Mx1 vector
+
+   :param overall_tightness: Optional keyword, a number (held at that value) or ``bvarChoose(start)`` (chosen, starting at *start*). Default: chosen, starting at 0.2, or at *ctl.overall_tightness* when *ctl* is given. A plain number with nothing else marked is refused: nothing would be chosen.
+   :type overall_tightness: scalar or struct
+
+   :param lag_decay: Optional keyword, how much harder longer lags are pulled: a number (held) or ``bvarChoose(start)`` (chosen, between 0.5 and 3). Default = 1, held. It cannot be chosen with one lag, where the prior does not depend on it.
+   :type lag_decay: scalar or struct
+
+   :param soc_tightness: Optional keyword, tightness of the sum-of-coefficients prior: a number (held; 0 means the prior is off) or ``bvarChoose(start)`` (chosen, between 0.0001 and 50). ``bvarChoose()`` on a value of 0 adds the prior and starts the search at 1. Default = 0.
+   :type soc_tightness: scalar or struct
+
+   :param sur_tightness: Optional keyword, tightness of the single-unit-root prior, as *soc_tightness*. Default = 0.
+   :type sur_tightness: scalar or struct
+
+
+   :param exogenous_scale: Optional keyword, prior standard deviation of the coefficients on *xreg*, relative to the equation error standard deviation. Default = 1; overrides the control.
+   :type exogenous_scale: scalar
+
+   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. This keyword, including a mark, clears variance values inherited from the control. Values supplied through *residual_variances_values* in the same call still win.
+   :type residual_variances: string or struct
+
+   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
+   :type residual_variances_values: Mx1 or 1xM vector, or struct
+
+   :param choose_by: Optional keyword, the objective. ``"map"`` (default): log marginal likelihood plus the log of the priors Giannone, Lenza and Primiceri (2015) put on what is chosen: a Gamma prior on each tightness (overall tightness: mode 0.2, standard deviation 0.4; sum-of-coefficients and single-unit-root tightness: mode 1, standard deviation 1) and, when the residual variances are chosen, an inverse-gamma prior on each of them (shape and scale 0.02 squared). An included sum-of-coefficients or single-unit-root prior that is held keeps its Gamma term, as a constant. ``"ml"``: log marginal likelihood alone, with none of these priors.
+   :type choose_by: string
 
    :return ps: An instance of a :class:`priorSelectResult` structure containing:
 
@@ -112,7 +117,7 @@ Format
             - String, the rule that gave the residual variances; when the search chooses them, the rule that gave their starting values.
 
           * - ps.fit_settings
-            - :class:`bvarControl` structure: every setting at the value to fit at, the chosen ones and the held ones, including the prior means, ready to pass to :func:`bvarFit` as *ctl*. ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen prior without searching again, on these data or on new data. When the residual variances are chosen it carries them (in *ps.fit_settings.residual_variances_values*), so the fit uses them. To search the variances again from the previous answer, use ``ctl=ps.fit_settings, residual_variances_values=bvarChoose()``. A method keyword or method mark recomputes the starting variances instead. With nothing marked, only the overall tightness is searched and everything else is held.
+            - :class:`bvarControl` structure: every setting at the value to fit at, the chosen ones and the held ones, including the prior means, ready to pass to :func:`bvarFit` as *ctl*. ``bvarFit(y, p=ps.fit_settings.p, ctl=ps.fit_settings)`` fits the chosen prior without searching again, on these data or on new data. When the residual variances are chosen it carries them (in *ps.fit_settings.residual_variances_values*), so the fit uses them. To search the variances again from the previous answer, use ``ctl=ps.fit_settings, residual_variances_values=bvarChoose()``. A method keyword or method mark recomputes the starting variances instead. With nothing marked, only the overall tightness is searched and everything else is held.
 
    :rtype ps: struct
 
@@ -136,8 +141,8 @@ Choose the Tightness, Then Fit
     ctl = bvarControlCreate();
     ctl.p = 5;
 
-    ps = bvarPriorSelect(data, ctl=ctl);
-    fit = bvarFit(data, ctl=ps.fit_settings);
+    ps = bvarPriorSelect(data, p=ctl.p, ctl=ctl);
+    fit = bvarFit(data, p=ps.fit_settings.p, ctl=ps.fit_settings);
 
 With nothing marked, the overall tightness is chosen, starting at
 *ctl.overall_tightness*, and every other setting is held. The printout's
@@ -160,10 +165,13 @@ Different Prior Means for Different Series
     // rate, 1960Q1-2019Q4. GDP growth is not persistent, so its own first lag
     // is centered at 0; the other three series are persistent and centered at 1.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
 
     ps = bvarPriorSelect(y, p=4, lag1_prior_mean={ 0, 1, 1, 1 });
-    fit = bvarFit(y, ctl=ps.fit_settings);
+    fit = bvarFit(y, p=ps.fit_settings.p, ctl=ps.fit_settings);
 
     // The same search with every series centered at 1 (the default).
     ps_rw = bvarPriorSelect(y, p=4);
@@ -185,9 +193,14 @@ Add the Sum-of-Coefficients and Single-Unit-Root Priors
 
     // Add both priors and choose their tightness, starting at 1, together
     // with the overall tightness and the lag decay
-    ps = bvarPriorSelect(data, p=5, overall_tightness=bvarChoose(),
-        lag_decay=bvarChoose(), soc_tightness=bvarChoose(1),
-        sur_tightness=bvarChoose(1));
+    ps = bvarPriorSelect(
+        data,
+        p=5,
+        overall_tightness=bvarChoose(),
+        lag_decay=bvarChoose(),
+        soc_tightness=bvarChoose(1),
+        sur_tightness=bvarChoose(1)
+    );
 
 The overall, sum-of-coefficients and single-unit-root tightness and the
 lag decay are chosen together. Given as plain numbers instead
@@ -211,21 +224,43 @@ Choose the Residual Variances Too, and Compare the Forecasts
     ctl.p = 5;
 
     // Residual variances fixed at their autoregression values (the default).
-    ps_fixed = bvarPriorSelect(data, ctl=ctl);
+    ps_fixed = bvarPriorSelect(data, p=ctl.p, ctl=ctl);
 
     // Residual variances chosen together with the tightness.
-    ps = bvarPriorSelect(data, ctl=ctl, residual_variances=bvarChoose());
-    fit = bvarFit(data, ctl=ps.fit_settings);
+    ps = bvarPriorSelect(data, p=ctl.p, ctl=ctl, residual_variances=bvarChoose());
+    fit = bvarFit(data, p=ps.fit_settings.p, ctl=ps.fit_settings);
 
     // Which setting forecasts better on these data? Choose the prior again
     // at each of 20 forecast dates (1989Q1 to 2008Q1) and score the forecasts.
-    ev_fixed = bvarRollingOrigin(data, {}, "variances fixed", "expanding", "2015 data",
-        p=5, initial_window=120, h=4, step=4, n_draws=1000,
-        lag1_prior_mean="random_walk", overall_tightness=bvarChoose());
-    ev_chosen = bvarRollingOrigin(data, {}, "variances chosen", "expanding", "2015 data",
-        p=5, initial_window=120, h=4, step=4, n_draws=1000,
-        lag1_prior_mean="random_walk", overall_tightness=bvarChoose(),
-        residual_variances=bvarChoose());
+    ev_fixed = bvarRollingOrigin(
+        data,
+        {},
+        "variances fixed",
+        "expanding",
+        "2015 data",
+        p=5,
+        initial_window=120,
+        h=4,
+        step=4,
+        n_draws=1000,
+        lag1_prior_mean=1,
+        overall_tightness=bvarChoose()
+    );
+    ev_chosen = bvarRollingOrigin(
+        data,
+        {},
+        "variances chosen",
+        "expanding",
+        "2015 data",
+        p=5,
+        initial_window=120,
+        h=4,
+        step=4,
+        n_draws=1000,
+        lag1_prior_mean=1,
+        overall_tightness=bvarChoose(),
+        residual_variances=bvarChoose()
+    );
 
     // Root mean squared error with chosen variances relative to fixed ones:
     // horizons 1 to 4 in rows, the seven series in columns. Below 1 is better.
@@ -323,7 +358,7 @@ chooses them together with the tightness, as Giannone, Lenza and Primiceri
 value, starting there, by a
 bounded quasi-Newton search with exact derivatives, from one starting
 point. *ps.residual_variances_values* holds the chosen values and *ps.fit_settings* carries
-them, so ``bvarFit(y, ctl=ps.fit_settings)`` fits the chosen prior.
+them, so ``bvarFit(y, p=ps.fit_settings.p, ctl=ps.fit_settings)`` fits the chosen prior.
 
 A tightness chosen together with the residual variances cannot be compared
 with one chosen with fixed residual variances. Larger residual variances
@@ -390,7 +425,7 @@ To evaluate the choice on forecasts, use :func:`bvarRollingOrigin` with
 ``overall_tightness=bvarChoose()``, and ``residual_variances=bvarChoose()``
 as well to choose the residual variances, which repeats the choice on each
 forecast origin's data. Pass it the same *lag1_prior_mean*: its default is
-``"zero"``, not ``"random_walk"``.
+``0``, not ``1``.
 
 References
 ----------

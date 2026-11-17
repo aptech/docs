@@ -9,8 +9,7 @@ the structural shocks and of the path with no shocks.
 Format
 ------
 
-.. function:: hd = hdCompute(fit)
-              hd = hdCompute(fit, bands=1)
+.. function:: hd = hdCompute(fit, quiet=0, identification="", bands=0, level={0.68, 0.90}, n_draws={})
 
    :param fit: result from :func:`varFit` or :func:`bvarFit`.
    :type fit: struct
@@ -24,8 +23,8 @@ Format
    :param bands: Optional keyword, :func:`bvarFit` results: set to 1 to add pointwise posterior bands for each shock's contribution. Default = 0.
    :type bands: scalar
 
-   :param levels: Optional keyword, central masses of the bands. Default = ``0.68|0.90``.
-   :type levels: scalar or vector
+   :param level: Optional keyword, central masses of the bands. Default = ``{ 0.68, 0.90 }``.
+   :type level: scalar or vector
 
    :param n_draws: Optional keyword, number of posterior draws used for the bands. Default = all stored draws.
    :type n_draws: scalar
@@ -83,6 +82,10 @@ Posterior bands from a BVAR
 
 Remarks
 -------
+
+The literal default ``level={0.68, 0.90}`` has no effect on point-only
+results. Other band requests require a posterior or band-enabled route.
+The requested masses must be ascending; the headline band uses ``level[1]``.
 
 **Initial path and first shock.** *hd.initial* is the path with no shocks:
 the initial p observed lag values plus the constant, data-row trend and

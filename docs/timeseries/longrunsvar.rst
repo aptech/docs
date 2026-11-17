@@ -24,11 +24,14 @@ Format
    :param xreg: Optional keyword, finite exogenous regressors with one row per observation. Default = none.
    :type xreg: TxJ matrix
 
-   :param quiet: Optional keyword, 1 to suppress printing. Default = 0.
+   :param quiet: Optional keyword, 1 to suppress printing. Default = 0. Must be a scalar 0 or 1; the same rule applies to *ctl.quiet*.
    :type quiet: scalar
 
    :param ctl: Optional keyword, a *longRunSvarControl* from ``longRunSvarControlCreate()``. Its *const* (0 or 1, default 1), *xreg* and *resid_cov* fields control the fit. With *ctl* supplied, the *xreg* and *resid_cov* keywords are ignored; *p* remains a keyword. There is no trend keyword; a deterministic regressor can be supplied through *xreg*.
    :type ctl: struct
+
+   *ctl* must be a ``longRunSvarControl`` structure or ``{}`` (omitted).
+   Other values or structure types are refused.
 
    :param resid_cov: Optional keyword, ``"df"`` (default) or ``"ml"``, accepted in any letter case. The first divides residual cross-products by T - p - K, the second by T - p, where K = mp + const + number of xreg columns. An empty *ctl.resid_cov* uses ``"df"``.
    :type resid_cov: string

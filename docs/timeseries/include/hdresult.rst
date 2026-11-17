@@ -31,7 +31,7 @@
    * - hd.hd_bands
      - :func:`bvarFit` results with ``bands=1``: array of :class:`credibleBand` structures, one per level.
 
-   * - hd.levels
+   * - hd.level
      - Vector, central masses of *hd.hd_bands*. Empty if no bands.
 
    * - hd.n_draws

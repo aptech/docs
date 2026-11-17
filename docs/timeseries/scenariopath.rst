@@ -33,14 +33,16 @@ Examples
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv"));
+    data = loadd(
+        getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_medium_dated.csv")
+    );
     fit = bvarFit(data, p=3, n_draws=2000, quiet=1);
 
     // Funds rate held at 1.64% for eight quarters
     hold = scenarioPath(fit, 8, "ffr", 1.64);
 
     // Cut by a quarter point a quarter through the first year, then held
-    cut = scenarioPath(fit, 8, "ffr", 1.64 - (0.25|0.5|0.75|1|1|1|1|1));
+    cut = scenarioPath(fit, 8, "ffr", 1.64 - ({ 0.25, 0.5, 0.75, 1, 1, 1, 1, 1 }));
 
     cfc = condForecast(fit, cut);
 

@@ -1,17 +1,17 @@
 .. list-table::
    :widths: auto
 
-   * - fc.forecasts
+   * - fc.median
      - hxm matrix, point forecasts: the pointwise median of the simulated paths, with the column names of the fitted data. It is the same whatever levels are requested.
 
-   * - fc.mean_path
+   * - fc.mean
      - hxm matrix, pointwise mean of the same simulated paths.
 
    * - fc.bands
-     - Array of :class:`credibleBand` structures, one per value in *fc.levels*, in the same order: *level*, *q_lower* = (1 - *level*)/2, *q_upper* = (1 + *level*)/2, and the hxm matrices *lower* and *upper*, the quantiles of the simulated paths at *q_lower* and *q_upper*.
+     - Array of :class:`credibleBand` structures, one per value in *fc.level*, in the same order: *level*, *q_lower* = (1 - *level*)/2, *q_upper* = (1 + *level*)/2, and the hxm matrices *lower* and *upper*, the quantiles of the simulated paths at *q_lower* and *q_upper*.
 
-   * - fc.levels
-     - Vector, the central masses of the bands, in ascending order.
+   * - fc.level
+     - Vector, the central masses of the bands, in ascending order. The headline interval uses *fc.level[1]*.
 
    * - fc.forecast_dates
      - hx1 vector, dates of the forecast periods, continuing the dates of the fitted data. Empty when the fit has no dates.

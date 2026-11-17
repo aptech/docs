@@ -32,7 +32,7 @@ data covering both the Great Moderation and the Global Financial Crisis of 2008 
      - Standard VAR territory. BVAR is preferred for forecasting.
    * - m = 6-20
      - :func:`bvarFit` with tight prior
-     - Shrinkage is essential. Set *lambda1* = 0.01-0.1 or use :func:`bvarPriorSelect`.
+     - Shrinkage is essential. Set *overall_tightness* = 0.01-0.1 or use :func:`bvarPriorSelect`.
    * - m = 20-100
      - :func:`bvarSvFit` with SSVS
      - Large system needs variable selection to identify relevant predictors.
@@ -47,10 +47,10 @@ data covering both the Great Moderation and the Global Financial Crisis of 2008 
      - Setting
      - Explanation
    * - Levels (GDP, price index)
-     - ``ar = 1``
+     - ``lag1_prior_mean = 1``
      - Random walk prior. Variables are assumed to be persistent.
    * - Growth rates, log-differences
-     - ``ar = 0``
+     - ``lag1_prior_mean = 0``
      - White noise prior. Variables are assumed to be mean-reverting.
    * - Mixed or uncertain
      - Use :func:`bvarPriorSelect`
@@ -87,113 +87,114 @@ specification from Christiano, Eichenbaum & Evans (1999).
 
 ::
 
+    new;
     library timeseries;
 
-    // Load quarterly US macro data — loadd reads column names from the CSV header
-    data = loadd("macro_quarterly.csv", "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    // Create a bvarControl structure and fill with default values
+    struct bvarControl ctl;
     ctl = bvarControlCreate();
-    ctl.p = 4;            // 4 quarterly lags = 1 year of history
-    ctl.lag1_prior_mean = 0;           // White noise prior: growth rates are mean-reverting,
-                          //   not persistent. Use ar=1 for levels data instead.
+    ctl.p = 4;       // Four quarterly lags give one year of history.
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    ctl.lag1_prior_mean = { 0, 1, 1 };
+    result = bvarFit(data, p=ctl.p, ctl=ctl);
 
-    // Estimate — draws are exact (conjugate posterior, no MCMC)
-    result = bvarFit(data, ctl);
-
-    // Cholesky IRFs: ordering matters — GDP is most exogenous, FFR most endogenous.
-    // The ordering in the data (GDP, CPI, FFR) implies GDP doesn't respond
-    // contemporaneously to monetary policy shocks.
-    irf = irfCompute(result, 20);   // 20 quarters = 5 years of impulse responses
+    // GDP, inflation, funds rate: GDP cannot react to a monetary shock
+    // within the same quarter under this recursive identification.
+    irf = irfCompute(result, 20);
 
 **Recipe 2: Large forecasting model**
 
-20+ macro variables from FRED-MD. The Minnesota prior shrinks the large parameter
+Twenty macro variables from the shipped FRED-QD sample, 1960Q1-2019Q4. The Minnesota prior shrinks the large parameter
 space, and :func:`bvarPriorSelect` selects the tightness automatically via marginal
 likelihood (Giannone, Lenza & Primiceri 2015).
 
 ::
 
+    new;
     library timeseries;
 
-    data = loadd("large_macro.csv");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_large.csv");
+    data = loadd(
+        fname,
+        "gdp + cons + inv + defl + cpi + pce_core + payroll + unemp + hours + wage + indpro + caputil + housing + m2 + ffr + gs10 + tbill + sp500 + spread + exrate"
+    );
 
-    // Let the data choose how tight the prior should be.
-    // bvarPriorSelect maximizes the log marginal likelihood over lambda1
-    // (and optionally lambda6, lambda7 for SOC/SUR priors).
-    // It returns a priorSelectResult with optimal values and a pre-filled control struct.
-    ps = bvarPriorSelect(data);
+    // Growth series are centered at 0. Unemployment, capacity utilization,
+    // interest-rate levels and the yield spread are centered at 1.
+    prior_means = { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0 };
+    ps = bvarPriorSelect(data, p=1, lag1_prior_mean=prior_means);
 
-    // Estimate with the optimized prior
-    ctl = ps.fit_settings;           // Start from optimized settings
-    ctl.quiet = 1;                   // Suppress printed output
-    result = bvarFit(data, ctl);
-
-    // Forecast 8 steps ahead with posterior predictive bands
+    // Declare the control type before assigning the selected settings.
+    struct bvarControl ctl;
+    ctl = ps.fit_settings;
+    result = bvarFit(data, p=ctl.p, ctl=ctl);
     fc = bvarForecast(result, 8);
 
 **Recipe 3: Financial volatility modeling**
 
-3 asset returns with time-varying volatility. The SV-BVAR captures
+Monthly stock and exchange-rate returns with time-varying volatility. The SV-BVAR captures
 volatility clustering (GARCH-like behavior) in a multivariate setting,
 which improves density forecast calibration.
 
 ::
 
+    new;
     library timeseries;
 
-    data = loadd("returns.csv");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/fred_md_large.csv");
+    data = loadd(fname, "date + SP500 + EXJPUSx + EXUSUKx");
+    data = selif(data, between(data[., "date"], "1973", "2020", "left"));
 
-    // Create an SV-BVAR control structure and fill with default values
+    // Monthly stock and exchange-rate returns, in log percentage points.
+    data[., "SP500"] = 100 * (ln(data[., "SP500"]) - lagn(ln(data[., "SP500"]), 1));
+    data[., "EXJPUSx"] = 100 * (ln(data[., "EXJPUSx"])
+        - lagn(ln(data[., "EXJPUSx"]), 1));
+    data[., "EXUSUKx"] = 100 * (ln(data[., "EXUSUKx"])
+        - lagn(ln(data[., "EXUSUKx"]), 1));
+    data = trimr(data, 1, 0);
+
+    struct bvarSvControl svctl;
     svctl = bvarSvControlCreate();
-    svctl.p = 2;           // 2 lags — returns have weak serial dependence
-    svctl.lag1_prior_mean = 0;          // White noise prior — returns are stationary
-    svctl.n_draws = 10000; // More draws for reliable tail quantiles (VaR)
-    svctl.n_burn = 5000;   // Discard first 5000 as burn-in (Gibbs sampler
-                           //   needs time to converge from starting values)
+    svctl.p = 2;
+    // Returns have weak serial dependence: center own-first-lag means at 0.
+    svctl.lag1_prior_mean = 0;
+    svctl.n_draws = 10000;
+    result = bvarSvFit(data, p=svctl.p, ctl=svctl);
 
-    result = bvarSvFit(data, svctl);
-
-    // Density forecasts with time-varying volatility bands
-    fctl = svForecastControlCreate();
-    fctl.h = 12;
-    dfc = bvarSvForecast(result, fctl);
+    // Future shocks and changing volatility contribute to the bands.
+    dfc = bvarSvForecast(result, 12);
 
 **Recipe 4: Oil market SVAR with sign restrictions**
 
-Identify supply, demand, and speculative shocks in the oil market
-following Kilian (2009). Sign restrictions encode economic theory:
+Illustrate supply and demand restrictions with the shipped oil-market data.
+This is a sign-restriction example, not a replication of Kilian's recursive identification. Sign restrictions encode economic theory:
 e.g., a positive supply shock increases production and decreases prices.
 
 ::
 
-    library timeseriesecon
+    new;
+    library timeseries;
 
-    // Monthly oil market data: production, global activity, real oil price
-    data = loadd("oil_kilian.csv");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/kl2017_oil.csv");
+    data = loadd(fname, "dprod + rea + rpoil");
 
-    // Estimate reduced-form BVAR — matches Kilian (2009) specification
-    ctl = bvarControlCreate();
-    ctl.p = 24;            // 24 monthly lags = 2 years of history.
-                           //   Oil markets have long adjustment dynamics.
-    ctl.lag1_prior_mean = 0;            // Data is in log-differences (stationary)
+    // Production growth is centered at 0; activity and oil-price levels at 1.
+    // Twenty-four monthly lags allow two years of adjustment.
+    result = bvarFit(data, p=24, lag1_prior_mean={ 0, 1, 1 });
 
-    result = bvarFit(data, ctl);
-
-    // Structural identification via sign restrictions.
-    // Each row is: variable, shock, horizons, sign.
-    signs = signRestrictions({ "1" "supply" "1" "+",
-                               "2" "supply" "1" "-",
-                               "3" "supply" "1" "+",
-                               "1" "demand" "1" "-",
-                               "2" "demand" "1" "+",
-                               "3" "demand" "1" "+" });
-
-    // Posterior IRF bands from sign-restricted draws
+    // A positive supply shock raises production and lowers the real oil price.
+    // A demand shock raises activity and the real oil price.
+    signs = signRestrictions(
+        { "dprod" "supply" "0" "+",
+          "rpoil" "supply" "0" "-",
+          "rea" "demand" "0" "+",
+          "rpoil" "demand" "0" "+" }
+    );
     sir = irfCompute(result, 20, restrictions=signs);
-
-    // For time-varying volatility (modern extension), replace bvarFit/bvarControlCreate
-    // with bvarSvFit/bvarSvControlCreate and add svctl.n_draws = 10000; svctl.n_burn = 5000.
 
 Function Comparison
 -------------------

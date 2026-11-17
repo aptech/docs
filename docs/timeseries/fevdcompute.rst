@@ -56,8 +56,10 @@ With posterior bands
 
     fit = bvarFit(y, p=4, quiet=1);
 
-    signs = signRestrictions({ "fed_funds"     "monetary" "0:4" "+",
-                               "cpi_inflation" "monetary" "0:4" "-" });
+    signs = signRestrictions(
+        { "fed_funds"     "monetary" "0:4" "+",
+                               "cpi_inflation" "monetary" "0:4" "-" }
+    );
     irf = irfCompute(fit, 20, restrictions=signs, quiet=1);
 
     fevd = fevdCompute(irf);
@@ -87,7 +89,7 @@ variance due to shock *j* is
 where :math:`\Theta_\ell` is the response matrix at horizon :math:`\ell`.
 Each row of shares sums to 1.
 
-**Layout.** *fevd.fevd* has *n_ahead* · *m* rows: rows *b* · *m* + 1 to
+**Layout.** *fevd.fevd* has *h* · *m* rows: rows *b* · *m* + 1 to
 (*b* + 1) · *m* hold the (*b* + 1)-step shares, so the first block is the
 one-step decomposition.
 

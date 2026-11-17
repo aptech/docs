@@ -3,34 +3,29 @@ fcScore
 
 Purpose
 -------
-Compute forecast scoring rules for point and density forecasts.
+Compute RMSE, MASE and sMAPE for point forecasts; related ensemble functions score predictive densities.
 
 Format
 ------
 
-.. function:: sc = fcScore(actual, fc)
-              sc = fcScore(actual, fc, train=y_train)
-              sc = fcScore(actual, draws=D)
+.. function:: sc = fcScore(actual, predicted={}, train={}, period=1, quiet=0)
 
-   :param actual: realized values.
-   :type actual: hx1 or hxm matrix
+   :param actual: Realized values.
+   :type actual: Nx1 vector
 
-   :param fc: Optional, a :class:`forecastResult` struct or hxm matrix of point forecasts.
-   :type fc: struct or matrix
+   :param predicted: Point forecasts, one per realized value.
+   :type predicted: Nx1 vector
 
-   :param train: Optional keyword, training data for MASE normalization.
-   :type train: Nx1 or Nxm matrix
+   :param train: Optional training series for MASE normalization.
+   :type train: Tx1 vector
 
-   :param season: Optional keyword, seasonality for MASE. Default = 1.
-   :type season: scalar
+   :param period: Optional seasonal period for the MASE denominator. Default = 1.
+   :type period: scalar
 
-   :param draws: Optional keyword, raw forecast draws for density scores (CRPS, LPS). From *dfc.draws* of :func:`bvarSvForecast` with ``store_draws = 1``.
-   :type draws: (n_draws)x(h*m) matrix
-
-   :param quiet: Optional keyword, set to 1 to suppress output. Default = 0.
+   :param quiet: Set to 1 to suppress printing. Default = 0.
    :type quiet: scalar
 
-   :return sc: An instance of a :class:`scoreResult` structure containing RMSE, MASE, SMAPE, CRPS, LPS, energy score, PI coverage, and PI width.
+   :return sc: A :class:`scoreResult` containing RMSE, MASE and sMAPE.
    :rtype sc: struct
 
 Examples
@@ -44,14 +39,20 @@ Point Forecast Scores
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = varFit(data, 4, quiet=1);
-    fc = varForecast(result, 12, quiet=1);
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    sc = fcScore(actual, fc, train=data);
-    print "RMSE:" sc.rmse;
-    print "MASE:" sc.mase;
-    print "sMAPE:" sc.smape;
+    // Reserve the last 12 quarters for evaluation.
+    h = 12;
+    n_train = rows(data) - h;
+    y_train = data[1:n_train, .];
+    actual = asMatrix(data[n_train+1:rows(data), "gdp_growth"]);
+
+    result = varFit(y_train, 4, quiet=1);
+    fc = varForecast(result, h, quiet=1);
+    sc = fcScore(actual, fc.forecasts[., "gdp_growth"], train=y_train[., "gdp_growth"]);
 
 Density Forecast Scores
 +++++++++++++++++++++++
@@ -61,27 +62,40 @@ Density Forecast Scores
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
-    result = bvarSvFit(data, quiet=1);
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
+    // Reserve the last 12 quarters for evaluation.
+    h = 12;
+    n_train = rows(data) - h;
+    y_train = data[1:n_train, .];
+    actual = asMatrix(data[n_train+1:rows(data), "gdp_growth"]);
+
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    result = bvarSvFit(y_train, p=1, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
     fctl = svForecastControlCreate();
-    fctl.mode = "simulate";
     fctl.store_draws = 1;
-    dfc = bvarSvForecast(result, 12, fctl, quiet=1);
+    // Keep the stored ensemble compact; each posterior draw gets ten paths.
+    fctl.n_paths = 10;
+    dfc = bvarSvForecast(result, h, ctl=fctl, quiet=1);
 
-    sc = fcScore(actual, draws=dfc.draws);
-    print "CRPS:" sc.crps;
-    print "LPS:" sc.lps;
+    // Path blocks have h rows; GDP growth is the first fitted variable.
+    // Scoring expects one row per path and one column per target quarter.
+    gdp_draws = reshape(dfc.draws[., 1], dfc.n_draws, h);
+    crps = crpsEnsemble(gdp_draws, actual);
+    log_loss = logScoreEnsemble(gdp_draws, actual);
+    print "Mean CRPS:" meanc(crps);
+    print "Mean negative log predictive density:" meanc(log_loss);
 
 Remarks
 -------
 
-**Point scores** (RMSE, MASE, SMAPE) require point forecasts. **Density scores**
-(CRPS, LPS) require the raw draw matrix. **Interval scores** (PI coverage, PI
-width) require a :class:`forecastResult` with lower/upper bounds.
-
-MASE requires training data for the naive-forecast normalization. If *train*
-is not provided, *sc.mase* is missing.
+``fcScore`` accepts numeric point forecasts, not a forecast structure or a
+``draws`` keyword. Score one variable at a time. Without *train*, MASE is missing.
+For predictive draws, use :func:`crpsEnsemble` and :func:`logScoreEnsemble`, as in
+the density example. Both return losses, so lower values are better.
 
 Model
 -----

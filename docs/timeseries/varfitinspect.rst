@@ -44,14 +44,23 @@ Least-Squares VAR and Bayesian VAR
     // Four quarterly US series, 1960Q1-2019Q4
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
     data = data[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
 
     ols_fit = varFit(y, p=5, quiet=1);
     call varFitInspect(ols_fit, name="VAR(5), least squares");
 
     // Prior center of each variable's own first lag: 0 for GDP growth,
     // 1 for the other three
-    bvar = bvarFit(y, p=5, lag1_prior_mean=0|1|1|1, overall_tightness=0.2, quiet=1);
+    bvar = bvarFit(
+        y,
+        p=5,
+        lag1_prior_mean={ 0, 1, 1, 1 },
+        overall_tightness=0.2,
+        quiet=1
+    );
     call varFitInspect(bvar, name="BVAR(5), Minnesota prior");
 
 The least-squares VAR's summary:
@@ -95,7 +104,10 @@ Coefficient Table and Residual Summary
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
     data = data[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
 
     ols_fit = varFit(y, p=2, quiet=1);
     call varFitInspect(ols_fit, name="VAR(2), least squares", details=1);
@@ -117,6 +129,7 @@ The printout:
 
                       gdp_growth  inflation  unemployment  fed_funds
     ----------------------------------------------------------------
+    Constant              1.3875     0.9569        0.2594     0.0085
     gdp_growth(-1)        0.1568    -0.0091       -0.0199     0.0518
     inflation(-1)        -0.1431     0.4786        0.0058    -0.0262
     unemployment(-1)     -1.4559    -0.9221        1.3947    -0.4424
@@ -125,7 +138,6 @@ The printout:
     inflation(-2)        -0.0882     0.1657       -0.0023     0.1078
     unemployment(-2)      1.6837     0.9051       -0.4345     0.4189
     fed_funds(-2)         0.0826    -0.5557        0.0023    -0.1521
-    Constant              1.3875     0.9569        0.2594     0.0085
 
     Residuals (descriptive summary)
 
@@ -149,9 +161,18 @@ Check Stability in a Program
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
     data = data[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
 
-    bvar = bvarFit(y, p=5, lag1_prior_mean=0|1|1|1, overall_tightness=0.2, quiet=1);
+    bvar = bvarFit(
+        y,
+        p=5,
+        lag1_prior_mean={ 0, 1, 1, 1 },
+        overall_tightness=0.2,
+        quiet=1
+    );
 
     // Nothing printed; read the result instead
     inspection = varFitInspect(bvar, quiet=1);

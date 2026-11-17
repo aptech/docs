@@ -201,7 +201,7 @@ Replication Exercises
 ---------------------
 
 These self-contained exercises can be assigned as homework. Each one uses shipped
-data or live FRED data and produces publication-quality output.
+data and prints results for interpretation.
 
 **Exercise 1: The Box-Jenkins Airline Model** (Hamilton Ch. 3-5, FPP3 Ch. 9)
 
@@ -220,13 +220,14 @@ Fit SARIMA(0,1,1)(0,1,1)[12] to the AirPassengers data in natural logs and forec
 
 Estimate a 3-variable VAR on GDP, CPI, FFR. Compute IRFs and interpret::
 
+    new;
     library timeseries;
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
 
-    vctl = varControlCreate();
-    vctl.p = 4;
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    result = varFit(data, vctl);
+    result = varFit(data, p=4);
 
     irf = irfCompute(result, 20);
 
@@ -234,39 +235,35 @@ Estimate a 3-variable VAR on GDP, CPI, FFR. Compute IRFs and interpret::
 
 **Exercise 3: Bayesian Shrinkage** (Lutkepohl Ch. 5, K&L Ch. 5)
 
-Compare OLS and BVAR forecasts. Show that BVAR dominates out-of-sample::
+Compare OLS and BVAR forecasts on the same holdout; lower RMSE is better::
 
+    new;
     library timeseries;
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
 
-    // Split: first 160 obs for estimation, last 40 for evaluation
-    y_train = data[1:160, .];
-    y_test = asMatrix(data[161:200, .]);
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    // OLS forecast
-    vctl = varControlCreate();
-    vctl.p = 4;
-    vctl.quiet = 1;
+    // Estimate through 2009Q4; evaluate the 40 quarters of 2010-2019.
+    y_train = data[1:200, .];
+    y_test = asMatrix(data[201:240, "gdp_growth" "inflation" "fed_funds"]);
 
-    rv = varFit(y_train, vctl);
-
+    rv = varFit(y_train, p=4, quiet=1);
     fc_ols = varForecast(rv, 40);
 
-    // BVAR forecast
-    ctl = bvarControlCreate();
-    ctl.p = 4;
-    ctl.lag1_prior_mean = 0;
-    ctl.quiet = 1;
-
-    br = bvarFit(y_train, ctl);
-
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    br = bvarFit(y_train, p=4, lag1_prior_mean={ 0, 1, 1 }, quiet=1);
     fc_bvar = bvarForecast(br, 40);
 
-    // Compare RMSE
-    { rmse_ols, mase_ols, smape_ols } = fcMetrics(y_test, fc_ols.forecasts);
-    { rmse_bvar, mase_bvar, smape_bvar } = fcMetrics(y_test, fc_bvar.forecasts);
-    print "RMSE OLS:" rmse_ols;
-    print "RMSE BVAR:" rmse_bvar;
+    // Score each variable on the same held-out quarters.
+    for j (1, 3, 1);
+        print rv.var_names[j];
+        sc_ols = fcScore(y_test[., j], fc_ols.forecasts[., j], quiet=1);
+        sc_bvar = fcScore(y_test[., j], fc_bvar.median[., j], quiet=1);
+        print "RMSE OLS:" sc_ols.rmse;
+        print "RMSE BVAR:" sc_bvar.rmse;
+    endfor;
 
 **Exercise 4: Kilian (2009) Oil Market SVAR** (K&L Ch. 8, 13)
 
@@ -278,28 +275,30 @@ Replicate the oil market structural analysis on Kilian's data::
 
 Use the log marginal likelihood to select the best model::
 
+    new;
     library timeseries;
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"));
 
-    // Optimize hyperparameters
-    ps = bvarPriorSelect(data);
-    print "Optimal lambda1:" ps.overall_tightness;
-    print "Maximized log ML:" ps.log_ml;
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    // Compare with fixed hyperparameters
+    // All candidates use p=1 and the same rows and prior centers.
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    ps = bvarPriorSelect(data, p=1, lag1_prior_mean={ 0, 1, 1 });
+    r_opt = bvarFit(data, p=ps.fit_settings.p, ctl=ps.fit_settings, quiet=1);
 
-    ctl = bvarControlCreate();
-    ctl.lambda1 = 0.01;
-    ctl.quiet = 1;
-    r_tight = bvarFit(data, ctl);
-
-    ctl.lambda1 = 1.0;
-    r_loose = bvarFit(data, ctl);
-
-    r_opt = bvarFit(data, ps.fit_settings);
+    struct bvarControl ctl;
+    ctl = ps.fit_settings;
+    // Tight and loose alternatives vary only overall tightness.
+    ctl.overall_tightness = 0.01;
+    r_tight = bvarFit(data, p=ctl.p, ctl=ctl, quiet=1);
+    ctl.overall_tightness = 1;
+    r_loose = bvarFit(data, p=ctl.p, ctl=ctl, quiet=1);
 
     print "Log ML (tight):" r_tight.log_ml;
     print "Log ML (loose):" r_loose.log_ml;
-    print "Log ML (optimal):" r_opt.log_ml;
+    print "Log ML (selected):" r_opt.log_ml;
+    print "Log Bayes factor (selected vs tight):" r_opt.log_ml - r_tight.log_ml;
 
 .. seealso:: Guides :ref:`getting-started`, :ref:`choosing-a-var-model`

@@ -8,9 +8,7 @@ Generate h-step-ahead forecasts with confidence intervals from a fitted VAR mode
 Format
 ------
 
-.. function:: fc = varForecast(result, h)
-              fc = varForecast(result, h, xreg_future=X_future)
-              fc = varForecast(result, h, level=0.99)
+.. function:: fc = varForecast(result, h, level=0.95, quiet=0, xreg_future={}, coef_uncertainty=0)
 
    :param result: an instance of a :class:`varResult` structure returned by :func:`varFit`.
    :type result: struct
@@ -18,17 +16,17 @@ Format
    :param h: positive integer forecast horizon (number of steps ahead).
    :type h: scalar
 
-   :param xreg_future: Optional keyword, future values of exogenous regressors. Required if the model was fit with *xreg*.
-   :type xreg_future: hxK matrix
-
-   :param level: Optional keyword, central mass of each prediction band. Default = 0.95. Multiple masses must be strictly ascending and between 0 and 1. *levels* is an alias; supply only one of them.
+   :param level: Optional keyword, central mass of each prediction band. Default = 0.95. Multiple masses must be strictly ascending and between 0 and 1.
    :type level: scalar or vector
-
-   :param coef_uncertainty: Optional keyword, scalar 0 (default) for future shocks only, or 1 to add approximate coefficient estimation uncertainty. Only fits without trend or xreg are supported.
-   :type coef_uncertainty: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.
    :type quiet: scalar
+
+   :param xreg_future: Optional keyword, future values of exogenous regressors. Required if the model was fit with *xreg*.
+   :type xreg_future: hxK matrix
+
+   :param coef_uncertainty: Optional keyword, scalar 0 (default) for future shocks only, or 1 to add approximate coefficient estimation uncertainty. Only fits without trend or xreg are supported.
+   :type coef_uncertainty: scalar
 
    :return fc: An instance of a :class:`forecastResult` structure containing:
 
@@ -47,8 +45,10 @@ Basic VAR Forecast
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"),
-                 "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
     // Fit VAR(4) and forecast 12 steps
     result = varFit(data, 4, quiet=1);
@@ -66,8 +66,10 @@ Forecast with 99% Confidence Intervals
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"),
-                 "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
     result = varFit(data, 4, quiet=1);
 
     // Wider intervals
@@ -81,9 +83,13 @@ Forecast with Future Exogenous Regressors
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"),
-              "gdp_growth + cpi_inflation + fed_funds");
-    X = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"), "unemployment");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    y = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    y = selif(y, between(y[., "date"], "1960", "2020", "left"));
+    X = loadd(fname, "date + unemployment");
+    X = selif(X, between(X[., "date"], "1960", "2020", "left"));
+    X = X[., "unemployment"];
 
     result = varFit(y, 2, trend=1, xreg=X, quiet=1);
 
@@ -113,15 +119,17 @@ Accessing Individual Variables
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_quarterly.csv"),
-                 "gdp_growth + cpi_inflation + fed_funds");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
     result = varFit(data, 4, quiet=1);
     fc = varForecast(result, 12, quiet=1);
 
-    // GDP forecast (column 1)
-    gdp_fc = fc.forecasts[., 1];
-    gdp_lo = fc.lower[., 1];
-    gdp_hi = fc.upper[., 1];
+    // Select GDP growth by name
+    gdp_fc = fc.forecasts[., "gdp_growth"];
+    gdp_lo = fc.lower[., "gdp_growth"];
+    gdp_hi = fc.upper[., "gdp_growth"];
 
     print "GDP forecast with 95% CI:";
     print gdp_fc~gdp_lo~gdp_hi;

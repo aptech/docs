@@ -8,30 +8,52 @@ Fit a Bayesian VAR with stochastic volatility and optional SSVS variable selecti
 Format
 ------
 
-.. function:: result = bvarSvFit(y)
-              result = bvarSvFit(y, ctl)
-              result = bvarSvFit(y, ctl, xreg=X)
+.. function:: result = bvarSvFit(y, p={}, const={}, xreg={}, quiet={}, ctl={}, lag1_prior_mean={}, overall_tightness={}, prior={}, ssvs={}, n_draws={}, n_burn={}, seed={})
 
    :param y: endogenous variables. If a dataframe, column names are used as variable names.
    :type y: TxM matrix or dataframe
 
-   :param ctl: Optional input, an instance of a :class:`bvarSvControl` structure. An instance is initialized by calling :func:`bvarSvControlCreate` and the following members can be set:
+   :param p: Required lag order, supplied as ``p=`` or in *ctl.p*. There is no default.
+   :type p: scalar
+
+   :param const: Optional keyword, 1 to include a constant, 0 to omit it. Overrides *ctl.const* for this call. Default = 1. Must be a scalar 0 or 1; the same rule applies to *ctl.const*.
+   :type const: scalar
+
+   :param xreg: Optional keyword, exogenous regressors.
+   :type xreg: TxK matrix
+
+   :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*. Must be a scalar 0 or 1; the same rule applies to *ctl.quiet*.
+   :type quiet: scalar
+
+   :param ctl: Optional keyword, an instance of a :class:`bvarSvControl` structure. An instance is initialized by calling :func:`bvarSvControlCreate` and the following members can be set:
 
        .. include:: include/bvarsvcontrol.rst
 
    :type ctl: struct
 
-   :param xreg: Optional keyword, exogenous regressors.
-   :type xreg: TxK matrix
+   *ctl* must be a ``bvarSvControl`` structure or ``{}`` (omitted).
+   Other values or structure types are refused.
 
-   :param xreg_names: Optional keyword, column names for *xreg*.
-   :type xreg_names: Kx1 string array
+   :param lag1_prior_mean: Optional keyword, numeric own-first-lag prior mean: one value or one per variable in [0,1]. Default = 1; overrides the control. Values outside [0,1] are refused. With ``prior="horseshoe"`` or SSVS enabled, only the default mean 1 is accepted (every entry must be 1 for a vector).
+   :type lag1_prior_mean: scalar or vector
 
-   :param var_names: Optional keyword, endogenous variable names.
-   :type var_names: Mx1 string array
+   :param overall_tightness: Optional keyword, Minnesota prior tightness. Default = 0.2; overrides the control.
+   :type overall_tightness: scalar
 
-   :param quiet: Optional keyword, set to 1 to suppress printed output. Overrides *ctl.quiet*.
-   :type quiet: scalar
+   :param prior: Optional keyword, coefficient prior: ``"minnesota"``, ``"flat"`` or ``"horseshoe"``. Default = ``"minnesota"``; overrides *ctl.prior*.
+   :type prior: string
+
+   :param ssvs: Optional keyword, 1 to enable variable selection, 0 to disable it. Default = 0; overrides the control.
+   :type ssvs: scalar
+
+   :param n_draws: Optional keyword, posterior draws. Default = 5000; overrides the control.
+   :type n_draws: scalar
+
+   :param n_burn: Optional keyword, burn-in draws. Default = 5000; overrides the control.
+   :type n_burn: scalar
+
+   :param seed: Optional keyword, random seed. Default = 42; overrides the control.
+   :type seed: scalar
 
    :return result: An instance of a :class:`bvarSvResult` structure containing:
 
@@ -42,62 +64,101 @@ Format
 Examples
 --------
 
-Default SV-BVAR
-+++++++++++++++
+Minnesota SV-BVAR
++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    // Default SV-BVAR(1)
-    result = bvarSvFit(data);
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    result = bvarSvFit(data, p=1, lag1_prior_mean={ 0, 1, 1 });
 
 The summary includes stochastic volatility parameters:
 
 ::
 
+    BVAR-SV(1), minnesota prior on the coefficients
     ================================================================================
-    BVAR-SV(1) with Minnesota Prior         Variables:             3
-    Draws: 5000  Burn: 5000  Thin: 1       Observations:        200
-    Chains: 1                               Effective obs:       199
-    ================================================================================
+    Variables:                         3    Observations:                        240
+    Lags:                              1    Effective obs.:                      239
+    Constant:                        Yes    Posterior draws:                   5,000
+    SSVS:                            Off    Burn-in draws:                     5,000
 
-    Stochastic Volatility Parameters
-               mu        phi      sigma2    phi_accept
-    ------------------------------------------------------
-    GDP      -0.231    0.971     0.0089       0.47
-    CPI      -1.842    0.984     0.0052       0.41
-    FFR       0.402    0.962     0.0134       0.52
-    ================================================================================
-        ⋮  (Posterior coefficient tables for each equation follow)
+    Stochastic volatility parameters (posterior means)
+    Variable        mu    phi  sigma2  phi acceptance
+    -------------------------------------------------
+    gdp_growth   1.805  0.896   0.173           0.862
+    inflation    0.709  0.843   0.248           0.917
+    fed_funds   -2.015  0.918   0.946           0.861
 
-Multi-Chain SV-BVAR
-+++++++++++++++++++
+    Equation 1: gdp_growth
+    Regressor        Center      SD  Lower 68%  Upper 68%
+    -----------------------------------------------------
+    Constant         2.5559  0.3519     2.2158     2.9084
+    gdp_growth(-1)   0.2005  0.0654     0.1363     0.2653
+    inflation(-1)   -0.1844  0.0786    -0.2613    -0.1054
+    fed_funds(-1)    0.0994  0.0588     0.0411     0.1574
 
-Run 4 parallel chains for convergence diagnostics:
+    Equation 2: inflation
+    Regressor       Center      SD  Lower 68%  Upper 68%
+    ----------------------------------------------------
+    Constant        0.3501  0.2219     0.1279     0.5707
+    gdp_growth(-1)  0.0066  0.0296    -0.0225     0.0360
+    inflation(-1)   0.6351  0.0585     0.5768     0.6918
+    fed_funds(-1)   0.1740  0.0402     0.1338     0.2135
+
+    Equation 3: fed_funds
+    Regressor        Center      SD  Lower 68%  Upper 68%
+    -----------------------------------------------------
+    Constant        -0.0187  0.0151    -0.0338    -0.0037
+    gdp_growth(-1)   0.0087  0.0045     0.0042     0.0132
+    inflation(-1)    0.0002  0.0045    -0.0039     0.0046
+    fed_funds(-1)    1.0004  0.0060     0.9946     1.0061
+
+    Center: posterior draw mean.
+    SD and 68% interval: equal-tailed quantiles of 5,000 posterior draws.
+
+Independent SV-BVAR Fits
+++++++++++++++++++++++++
+
+Run four seeds sequentially and inspect diagnostics for each fit. The API does
+not pool chains or calculate between-fit R-hat:
 
 ::
 
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 4;
     ctl.n_draws = 10000;
-    ctl.n_burn = 5000;
-    ctl.n_chains = 4;
-    ctl.parallel = 1;
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    ctl.lag1_prior_mean = { 0, 1, 1 };
 
-    result = bvarSvFit(data, ctl);
+    // Run four independent seeds sequentially. Diagnostics describe each fit;
+    // these are not pooled, between-chain convergence statistics.
+    for chain (1, 4, 1);
+        ctl.seed = 41 + chain;
+        result = bvarSvFit(data, p=ctl.p, ctl=ctl, quiet=1);
+        print sprintf("Fit %d (seed %d)", chain, ctl.seed);
+        dx = mcmcDiagnostics(result);
+    endfor;
 
 SV-BVAR with SSVS Variable Selection
-+++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
 
 Enable stochastic search variable selection to identify which coefficients are nonzero:
 
@@ -106,66 +167,73 @@ Enable stochastic search variable selection to identify which coefficients are n
     new;
     library timeseries;
 
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 4;
     ctl.ssvs = 1;
+    // SSVS requires the default own-first-lag prior mean of 1.
+    result = bvarSvFit(data, p=ctl.p, ctl=ctl);
 
-    result = bvarSvFit(data, ctl);
-
-    // Posterior inclusion probabilities
     print "B inclusion probabilities:";
     print result.pip_b;
-
-    // Coefficients with PIP > 0.5
     mask = result.pip_b .> 0.5;
-    print "Number of included coefficients:" sumc(vecr(mask));
+    print "Number of coefficients with PIP > 0.5:" sumc(vecr(mask));
 
-Large System with Online Storage
-++++++++++++++++++++++++++++++++
+Larger System and Coefficient Summaries
++++++++++++++++++++++++++++++++++++++++
 
-For large systems where storing all draws is infeasible, use online mode:
+Fit twenty quarterly series from 1960Q1-2019Q4 and inspect the public coefficient means. The
+backend retains sampler draws; there is no public online-storage control:
 
 ::
 
     new;
     library timeseries;
 
-    // 20-variable system
-    data = loadd(getGAUSSHome("pkgs/timeseries/examples/largeMacro.dat"));
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/fred_qd_large.csv");
+    data = loadd(
+        fname,
+        "gdp + cons + inv + defl + cpi + pce_core + payroll + unemp + hours + wage + indpro + caputil + housing + m2 + ffr + gs10 + tbill + sp500 + spread + exrate"
+    );
 
     struct bvarSvControl ctl;
     ctl = bvarSvControlCreate();
     ctl.p = 2;
-    ctl.sv_keep = "online";
-    ctl.reservoir_size = 1000;
-    ctl.n_draws = 50000;
-    ctl.n_burn = 10000;
+    // Growth series are centered at 0. Unemployment, capacity utilization,
+    // interest-rate levels and the yield spread are centered at 1.
+    prior_means = { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0 };
+    ctl.lag1_prior_mean = prior_means;
+    // More shrinkage for the larger system.
+    ctl.overall_tightness = 0.1;
 
-    result = bvarSvFit(data, ctl);
+    result = bvarSvFit(data, p=ctl.p, ctl=ctl);
 
-    // Posterior means available via streaming moments
-    print result.b_online_mean;
+    // Public coefficient summaries; no raw draws are copied into this matrix.
+    print result.b_mean;
 
 SV-BVAR with Exogenous Regressors
-++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++
 
 ::
 
     new;
     library timeseries;
 
-    y = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "gdp + cpi + ffr");
-    X = loadd(getGAUSSHome("pkgs/timeseries/examples/macro.dat"), "oil");
+    fname = getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv");
+    data = loadd(fname, "date + gdp_growth + inflation + fed_funds + unemployment");
+    // Use 1960Q1-2019Q4 from the shipped vintage.
+    data = selif(data, between(data[., "date"], "1960", "2020", "left"));
 
-    struct bvarSvControl ctl;
-    ctl = bvarSvControlCreate();
-    ctl.p = 4;
+    y = data[., "date" "gdp_growth" "inflation" "fed_funds"];
+    X = data[., "unemployment"];
 
-    result = bvarSvFit(y, ctl, xreg=X,
-        var_names="GDP"$|"CPI"$|"FFR", xreg_names="Oil");
+    // Growth is centered at 0; persistent inflation and the funds rate at 1.
+    result = bvarSvFit(y, p=4, xreg=X, lag1_prior_mean={ 0, 1, 1 });
 
 Remarks
 -------
@@ -222,29 +290,16 @@ Scaling is semiautomatic (George, Sun & Ni 2008): the spike and slab widths
 are scaled by each coefficient's OLS standard error, making the prior adaptive
 to the natural scale.
 
-**Storage modes:**
+**Repeated fits and storage:**
+Use distinct seeds for independent fits. :func:`mcmcDiagnostics` reports
+within-fit split-chain diagnostics, not a pooled diagnostic across those fits.
+The independent-seed example can print diagnostic warnings because its minimum
+bulk effective sample size is below the default threshold. Running without a
+GAUSS error does not establish convergence; extend the runs and recheck the
+diagnostics before using their estimates for inference.
 
-.. list-table::
-   :widths: auto
-   :header-rows: 1
-
-   * - sv_keep
-     - Memory
-     - Use case
-   * - ``"full"``
-     - O(n_draws * T * m)
-     - Small systems (m < 10), need full posterior
-   * - ``"last"``
-     - O(n_draws * m)
-     - Medium systems, need last h for forecasting
-   * - ``"online"``
-     - O(reservoir * m)
-     - Large systems (m > 10), production use
-
-**Multi-chain inference:**
-When ``ctl.n_chains > 1``, each chain starts from an independent random state.
-Draws from all chains are pooled before computing posterior summaries. Use
-multiple chains to assess convergence via split-R-hat (see :func:`mcmcDiagnostics`).
+The public result exposes coefficient summaries and a process-local sampler
+handle. It has no online-storage or multi-chain controls.
 
 Library
 -------

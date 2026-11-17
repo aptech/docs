@@ -19,7 +19,7 @@
    * - sc.difference_draws
      - (n_draws*h)xm matrix, every draw's difference when *store_draws* = 1 (rows (d-1)*h+1 to d*h belong to draw d); empty otherwise.
 
-   * - sc.levels
+   * - sc.level
      - Vector, the central masses of the bands.
 
    * - sc.fixed_coefficients

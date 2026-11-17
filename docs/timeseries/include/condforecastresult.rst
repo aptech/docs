@@ -1,6 +1,9 @@
 .. list-table::
    :widths: auto
 
+   * - cfc.mean
+     - hxm matrix, arithmetic mean of the same paths summarized by *cfc.median* and the bands.
+
    * - cfc.median
      - hxm matrix, pointwise median of the simulated paths. For a VAR fit the shocks use its selected *sigma* and the trend is continued automatically.
 
@@ -10,14 +13,8 @@
    * - cfc.upper
      - hxm matrix, upper edge of the first band in *cfc.bands*.
 
-   * - cfc.level
-     - Scalar, central mass of the first band.
-
    * - cfc.bands
      - Array of :class:`credibleBand` structures, one per requested level: *level*, *lower*, *upper*, *q_lower*, *q_upper*.
-
-   * - cfc.levels
-     - Vector, the requested central masses.
 
    * - cfc.effect
      - hxm matrix, scenario effect: for each parameter draw, the expected path with the conditions minus the expected path without them; pointwise median across draws.
@@ -69,3 +66,6 @@
 
    * - cfc.var_names
      - Mx1 string array, variable names.
+
+   * - cfc.level
+     - Vector, requested central masses in ascending order. The headline interval uses *cfc.level[1]*.

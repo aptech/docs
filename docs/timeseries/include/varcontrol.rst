@@ -5,7 +5,7 @@
      - Scalar, positive integer lag order. Default = 1.
 
    * - ctl.const
-     - Scalar, 1 to include a constant (intercept), 0 to exclude. Default = 1.
+     - Scalar, 1 to include a constant (intercept), 0 to exclude. Default = 1. Must be a scalar 0 or 1.
 
    * - ctl.trend
      - Scalar, 1 for a linear trend counted by data row, 0 to exclude it, independent of *ctl.const*. Default = 0.
@@ -17,4 +17,4 @@
      - TxJ matrix, user exogenous regressors. Default = empty (none).
 
    * - ctl.quiet
-     - Scalar, set to 1 to suppress printed output. Default = 0.
+     - Scalar, set to 1 to suppress printed output. Default = 0. Must be a scalar 0 or 1.

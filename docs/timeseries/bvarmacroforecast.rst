@@ -11,11 +11,7 @@ a least-squares VAR.
 Format
 ------
 
-.. function:: wf = bvarMacroForecast(y)
-              wf = bvarMacroForecast(y, h=8, holdout=20)
-              wf = bvarMacroForecast(y, lag1_prior_mean="zero", overall_tightness=0.2)
-              wf = bvarMacroForecast(y, overall_tightness=bvarChoose(0.1), residual_variances=bvarChoose())
-              wf = bvarMacroForecast(y, spec=spec)
+.. function:: wf = bvarMacroForecast(y, h={}, holdout={}, lag1_prior_mean={}, max_lags={}, lag_ic="", overall_tightness={}, baseline="", level={}, dates={}, freq="", n_draws={}, seed={}, const={}, quiet={}, spec={}, residual_variances={}, residual_variances_values={})
 
    :param y: The series to forecast, one column per variable, with no missing
        values. A dataframe supplies the variable names used in the tables and
@@ -35,13 +31,8 @@ Format
        *wf.forecast*. Default = 0 (no check).
    :type holdout: scalar
 
-   :param lag1_prior_mean: Optional keyword, prior mean of each variable's
-       coefficient on its own first lag: ``"random_walk"`` (1, for
-       persistent series such as levels and rates), ``"zero"`` (for growth
-       rates and other series that move around a stable mean), one value for
-       every variable, or a vector with one value per variable, each in
-       [0,1]. Default = ``"random_walk"``.
-   :type lag1_prior_mean: string, scalar or Mx1 vector
+   :param lag1_prior_mean: Optional keyword, numeric own-first-lag prior mean: one value for all variables or one per variable, each in [0,1]. Use 1 for persistent levels and rates, 0 for growth rates. Default = 1.
+   :type lag1_prior_mean: scalar or Mx1 vector
 
    :param max_lags: Optional keyword, largest lag order considered.
        Default = 8.
@@ -63,17 +54,6 @@ Format
        search.
    :type overall_tightness: scalar or struct
 
-   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. This keyword, including a mark, clears variance values inherited from the spec. Values supplied through *residual_variances_values* in the same call still win.
-   :type residual_variances: string or struct
-
-   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
-   :type residual_variances_values: Mx1 or 1xM vector, or struct
-
-   The spec has the same *residual_variances* and *residual_variances_values*
-   fields. Keywords override those fields. A variance search here also needs
-   ``overall_tightness=bvarChoose()``. Chosen values are held for the full-sample
-   refit after the holdout fit.
-
    :param baseline: Optional keyword, the model the holdout check compares
        with: ``"ols_var"`` for a least-squares VAR with the same lags, or
        ``"none"``. Used only when *holdout* is positive.
@@ -82,7 +62,7 @@ Format
 
    :param level: Optional keyword, one or more band levels, each between 0 and
        1, in ascending order. All are stored; printed tables show the first.
-       Default = 0.68|0.90.
+       Default = ``{ 0.68, 0.90 }``.
    :type level: scalar or vector
 
    :param dates: Optional keyword, dates of the observations (POSIX), for
@@ -102,7 +82,7 @@ Format
    :type seed: scalar
 
    :param const: Optional keyword, 1 to include a constant, 0 to leave it
-       out. Default = 1.
+       out. Must be a scalar 0 or 1. Default = 1.
    :type const: scalar
 
    :param quiet: Optional keyword, 1 to print nothing. Default = 0.
@@ -116,6 +96,17 @@ Format
        ``bvarChoose()`` starts the search.
    :type spec: struct
 
+   :param residual_variances: Optional keyword, ``"ar_p"`` (default: each series' AR(p) with a constant on the full training sample) or ``"ar_1"`` (drop the first *p* rows, then fit AR(1) with a constant, as in GLP 2015). ``bvarChoose()`` or ``bvarChoose("ar_1")`` marks the variances for search. This keyword, including a mark, clears variance values inherited from the spec. Values supplied through *residual_variances_values* in the same call still win.
+   :type residual_variances: string or struct
+
+   :param residual_variances_values: Optional keyword, a positive vector with one variance per series. These values override the method. ``bvarChoose(v)`` marks the variances for search starting at *v*. Default = empty.
+   :type residual_variances_values: Mx1 or 1xM vector, or struct
+
+   The spec has the same *residual_variances* and *residual_variances_values*
+   fields. Keywords override those fields. A variance search here also needs
+   ``overall_tightness=bvarChoose()``. Chosen values are held for the full-sample
+   refit after the holdout fit.
+
    :return wf: An instance of a :class:`bvarMacroForecastResult` structure
        containing:
 
@@ -123,7 +114,7 @@ Format
           :widths: auto
 
           * - wf.forecast
-            - :class:`bvarForecastResult` structure, the forecast from the model fitted on all the data: *wf.forecast.forecasts* (medians, horizon x M), *wf.forecast.bands* (one lower and upper matrix per level) and *wf.forecast.forecast_dates*.
+            - :class:`bvarForecastResult` structure, the forecast from the model fitted on all the data: *wf.forecast.median* (medians, horizon x M), *wf.forecast.bands* (one lower and upper matrix per level) and *wf.forecast.forecast_dates*.
 
           * - wf.fit
             - :class:`bvarResult` structure, the model fitted on all the data.
@@ -182,13 +173,21 @@ model.
 
     // Four quarterly US series, 1960Q1-2019Q4.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
 
     // Prior center of each variable's own first lag: 0 for GDP growth, 1 for
     // inflation, unemployment and the funds rate. The tightness is chosen
     // by marginal likelihood.
-    wf = bvarMacroForecast(y, h=8, holdout=20, lag1_prior_mean=0|1|1|1,
-        overall_tightness=bvarChoose());
+    wf = bvarMacroForecast(
+        y,
+        h=8,
+        holdout=20,
+        lag1_prior_mean={ 0, 1, 1, 1 },
+        overall_tightness=bvarChoose()
+    );
 
 ::
 
@@ -273,15 +272,27 @@ forecast for the variables you name.
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
 
     // Tightness fixed at 0.2, lags chosen by AIC from 1 to 4, a 90% band, and
     // nothing printed by the call itself.
-    wf = bvarMacroForecast(y, h=4, lag1_prior_mean=0|1|1|1, max_lags=4, lag_ic="aic",
-        overall_tightness=0.2, level=0.90, quiet=1);
+    wf = bvarMacroForecast(
+        y,
+        h=4,
+        lag1_prior_mean={ 0, 1, 1, 1 },
+        max_lags=4,
+        lag_ic="aic",
+        overall_tightness=0.2,
+        level=0.90,
+        quiet=1
+    );
 
     print "Lags chosen: " $+ ntos(wf.selected_p);
-    print "Tightness:   " $+ ntos(wf.prior_search.overall_tightness) $+ " (" $+ wf.prior_search.status $+ ")";
+    print "Tightness:   " $+ ntos(wf.prior_search.overall_tightness)
+        $+ " (" $+ wf.prior_search.status $+ ")";
     print "";
 
     // The forecast for two of the variables.
@@ -323,7 +334,10 @@ structure.
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
 
     // Settings kept in one place and reused. What is chosen is marked in
     // each call.
@@ -336,14 +350,25 @@ structure.
     spec.quiet = 1;
 
     struct bvarMacroForecastResult wf_a, wf_b;
-    wf_a = bvarMacroForecast(y, lag1_prior_mean=0|1|1|1,
-        overall_tightness=bvarChoose(), spec=spec);
+    wf_a = bvarMacroForecast(
+        y,
+        lag1_prior_mean={ 0, 1, 1, 1 },
+        overall_tightness=bvarChoose(),
+        spec=spec
+    );
     // A keyword given in the call replaces the value in spec.
-    wf_b = bvarMacroForecast(y, lag1_prior_mean=0|1|1|1, h=4,
-        overall_tightness=bvarChoose(), spec=spec);
+    wf_b = bvarMacroForecast(
+        y,
+        lag1_prior_mean={ 0, 1, 1, 1 },
+        h=4,
+        overall_tightness=bvarChoose(),
+        spec=spec
+    );
 
-    print "Forecast rows: " $+ ntos(rows(wf_a.forecast.forecasts)) $+ " and " $+ ntos(rows(wf_b.forecast.forecasts));
-    print "Lags: " $+ ntos(wf_a.selected_p) $+ "; tightness chosen: " $+ sprintf("%.4f", wf_a.prior_search.overall_tightness);
+    print "Forecast rows: " $+ ntos(rows(wf_a.forecast.median))
+        $+ " and " $+ ntos(rows(wf_b.forecast.median));
+    print "Lags: " $+ ntos(wf_a.selected_p) $+ "; tightness chosen: "
+        $+ sprintf("%.4f", wf_a.prior_search.overall_tightness);
 
 ::
 
@@ -368,8 +393,8 @@ assumed path :func:`condForecast`, for changing volatility :func:`bvarSvFit`.
 **Prior means.** *lag1_prior_mean* is the center of the prior for each
 variable's coefficient on its own first lag; every other coefficient is
 centered on zero. Use 1 for series that drift (levels, rates) and 0 for growth
-rates. The default, ``"random_walk"``, suits data that are all levels or
-rates; data that are all growth rates take ``"zero"``. With one value per
+rates. The default, ``1``, suits data that are all levels or
+rates; data that are all growth rates take ``0``. With one value per
 variable the printed summary lists them. The prior means are a
 fixed part of the prior: the search chooses the tightness, not the means.
 
@@ -389,7 +414,7 @@ the search chooses them together with the tightness, each between 1/100 and
 Primiceri (2015). A tightness chosen this way cannot be compared with one
 chosen with fixed residual variances, and it belongs with them: to fit that
 prior again use
-``bvarFit(y, ctl=wf.prior_search.fit_settings)``, not the tightness alone. The
+``bvarFit(y, p=wf.prior_search.fit_settings.p, ctl=wf.prior_search.fit_settings)``, not the tightness alone. The
 paper's prior on the residual variances has its peak near 0.02 squared and
 is written for data in logs multiplied by four and rates in decimals. This
 function always uses it, so put the data in those units before choosing the

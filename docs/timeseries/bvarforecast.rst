@@ -8,9 +8,7 @@ Generate posterior predictive forecasts with credible bands from a fitted Bayesi
 Format
 ------
 
-.. function:: fc = bvarForecast(result, h)
-              fc = bvarForecast(result, h, level=0.90)
-              fc = bvarForecast(result, h, xreg_future=X_future)
+.. function:: fc = bvarForecast(result, h, level={0.68, 0.90}, n_draws={}, seed=42, quiet=0, xreg_future={})
 
    :param result: an instance of a :class:`bvarResult` structure returned by :func:`bvarFit`.
    :type result: struct
@@ -18,11 +16,8 @@ Format
    :param h: forecast horizon (number of steps ahead).
    :type h: scalar
 
-   :param level: Optional keyword, central mass of each credible band, strictly between 0 and 1. A vector gives one band per value, in ascending order. Default = ``0.68|0.90``.
+   :param level: Optional keyword, central mass of each credible band, strictly between 0 and 1. A vector gives one band per value, in ascending order. Default = ``{ 0.68, 0.90 }``.
    :type level: scalar or vector
-
-   :param levels: Optional keyword, another name for *level*. Pass one or the other, not both.
-   :type levels: scalar or vector
 
    :param n_draws: Optional keyword, number of posterior draws to simulate from: the first *n_draws* draws stored in *result*, at most *result.n_draws*. Default = all stored draws.
    :type n_draws: scalar
@@ -56,11 +51,14 @@ Default BVAR Forecast (68% and 90% Credible Bands)
     // Four quarterly US series, 1960Q1-2019Q4: GDP growth and inflation
     // (annualized percent changes), unemployment and the funds rate (percent)
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
     y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
     // Estimate and forecast 12 quarters
-    result = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, quiet=1);
+    result = bvarFit(y, p=2, lag1_prior_mean={ 0, 1, 1, 1 }, quiet=1);
 
     fc = bvarForecast(result, 12);
 
@@ -73,10 +71,13 @@ Forecast with a 90% Credible Band Only
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
     y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
-    result = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, quiet=1);
+    result = bvarFit(y, p=2, lag1_prior_mean={ 0, 1, 1, 1 }, quiet=1);
 
     fc = bvarForecast(result, 12, level=0.90);
 
@@ -89,14 +90,17 @@ Choose the Prior Tightness, then Forecast
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
     y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
     // Choose the overall tightness by marginal likelihood
-    ps = bvarPriorSelect(y, p=4, lag1_prior_mean=0|1|1|1, quiet=1);
+    ps = bvarPriorSelect(y, p=4, lag1_prior_mean={ 0, 1, 1, 1 }, quiet=1);
 
     // Estimate with the chosen settings
-    result = bvarFit(y, ctl=ps.fit_settings, quiet=1);
+    result = bvarFit(y, p=ps.fit_settings.p, ctl=ps.fit_settings, quiet=1);
 
     // Forecast
     fc = bvarForecast(result, 24);
@@ -110,17 +114,20 @@ Compare Forecasts Across Lag Orders
     library timeseries;
 
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/us_macro_fred_qd.csv"));
-    y = selif(data, data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01");
+    y = selif(
+        data,
+        data[., "date"] .>= "1960-01-01" .and data[., "date"] .<= "2019-10-01"
+    );
     y = y[., "date" "gdp_growth" "inflation" "unemployment" "fed_funds"];
 
-    r2 = bvarFit(y, p=2, lag1_prior_mean=0|1|1|1, quiet=1);
-    r4 = bvarFit(y, p=4, lag1_prior_mean=0|1|1|1, quiet=1);
+    r2 = bvarFit(y, p=2, lag1_prior_mean={ 0, 1, 1, 1 }, quiet=1);
+    r4 = bvarFit(y, p=4, lag1_prior_mean={ 0, 1, 1, 1 }, quiet=1);
 
     fc2 = bvarForecast(r2, 12, quiet=1);
     fc4 = bvarForecast(r4, 12, quiet=1);
 
-    print "GDP growth forecast (p=2):" fc2.forecasts[., 1];
-    print "GDP growth forecast (p=4):" fc4.forecasts[., 1];
+    print "GDP growth forecast (p=2):" fc2.median[., 1];
+    print "GDP growth forecast (p=4):" fc4.median[., 1];
 
 Remarks
 -------
@@ -128,8 +135,8 @@ Remarks
 **Posterior predictive distribution:**
 For each posterior draw :math:`(B^{(i)}, \Sigma^{(i)})`, the function simulates
 an h-step forecast path by iterating the VAR forward with innovations drawn
-from :math:`N(0, \Sigma^{(i)})`. The reported *fc.forecasts* is the median of
-the resulting predictive distribution and *fc.mean_path* its mean. Each band in
+from :math:`N(0, \Sigma^{(i)})`. The reported *fc.median* is the median of
+the resulting predictive distribution and *fc.mean* its mean. Each band in
 *fc.bands* holds the quantiles at ``(1-level)/2`` and ``(1+level)/2`` of the
 same simulated paths, so the bands nest.
 
@@ -170,8 +177,11 @@ where:
   where :math:`L^{(s)}` is the lower Cholesky factor of :math:`\Sigma^{(s)}` and
   :math:`z_{T+h}^{(s)}` is a vector of *m* independent standard normal draws.
 
-:math:`B^{(s)}` stacks :math:`B_1^{(s)}, \ldots, B_p^{(s)}`, :math:`c^{(s)}`
-and :math:`\Gamma^{(s)}`. No trend term is added. The reported point
+:math:`B^{(s)}` has equations in columns. Its rows are the constant
+:math:`c^{(s)}` (when present), the lag 1 block through the lag p block,
+then the coefficients of :math:`\Gamma^{(s)}` in *xreg* column order.
+Each lag block follows the fitted variable order. Each K-row block of
+*result.b_draws* uses this same order. No trend term is added. The reported point
 forecast is the median across all draws; the credible bands are posterior quantiles.
 
 This integrates over both **parameter uncertainty** (different :math:`B, \Sigma` draws)
