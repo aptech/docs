@@ -3,7 +3,7 @@ bvarChoose
 
 Purpose
 -------
-Mark a prior setting to be chosen by the prior search, in a call to :func:`bvarFit`, :func:`bvarPriorSelect`, :func:`bvarRollingOrigin` or :func:`bvarMacroForecast`.
+Mark a prior setting to be chosen by the prior search, in a call to :func:`bvarFit`, :func:`bvarPriorSelect` or :func:`bvarMacroForecast`.
 
 Format
 ------
@@ -90,11 +90,17 @@ nothing marked, :func:`bvarPriorSelect` chooses the overall tightness.
 
 The settings that can be chosen are *overall_tightness*,
 *residual_variances*, *lag_decay*, *soc_tightness* and *sur_tightness* in
-:func:`bvarFit` and :func:`bvarPriorSelect`. :func:`bvarRollingOrigin` and
-:func:`bvarMacroForecast` choose *overall_tightness* and
+:func:`bvarFit` and :func:`bvarPriorSelect`.
+:func:`bvarMacroForecast` chooses *overall_tightness* and
 *residual_variances* only. The combinations available and the search range
 of each setting are listed on the :func:`bvarPriorSelect` page. A start
 outside its search range is refused.
+
+``bvarRollingOrigin`` is retired. For forecast evaluation, use
+:func:`forecastEval` and :func:`forecastModel`. Select priors with
+:func:`bvarPriorSelect` using only the initial training sample, then pass the
+fitted model as a recipe; selected settings are held, not reselected at each
+origin. See the forecast comparison in :func:`bvarPriorSelect`.
 
 A control structure (:class:`bvarControl`) or a spec
 (:class:`bvarMacroForecastSpec`) holds values only. What is chosen is
@@ -109,4 +115,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarPriorSelect`, :func:`bvarFit`, :func:`bvarRollingOrigin`, :func:`bvarMacroForecast`, :func:`bvarControlCreate`
+.. seealso:: Functions :func:`bvarPriorSelect`, :func:`bvarFit`, :func:`forecastEval`, :func:`forecastModel`, :func:`bvarMacroForecast`, :func:`bvarControlCreate`

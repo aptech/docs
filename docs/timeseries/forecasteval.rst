@@ -130,8 +130,10 @@ The output is:
 
     Failed fits: none
 
-VAR and BVAR models are set up as you would fit them on the full sample; their
-settings are kept and their coefficients re-estimated at every start date:
+For pre-specified VAR and BVAR settings, a full-sample fit can supply the
+model recipe; its coefficients are re-estimated at every start date. If you
+choose settings from the data, use only the initial training sample for that
+choice (see **Avoiding look-ahead** below):
 
 ::
 
@@ -450,9 +452,19 @@ are kept, and the model is refitted on its own
 variables at every start date. These are not re-chosen at each start date.
 Models with user regressors in *xreg* or ``ctl.xreg`` are not supported yet.
 
-**No look-ahead.** Every fit, including the automatic ARIMA and ETS searches,
-the BIC lag choice and a BVAR's prior residual scales, uses only observations
-up to its start date.
+**Avoiding look-ahead.** Each refit uses observations only up to its start
+date. Automatic ARIMA and ETS searches and the BIC lag choice run on that
+training sample. A BVAR's prior residual variances are recomputed there from
+``ar_p`` or ``ar_1`` only when no explicit ``residual_variances_values`` are
+held in its settings. User-supplied values and values previously selected
+with :func:`bvarChoose` or :func:`bvarPriorSelect` are reused unchanged.
+
+Lag orders and prior settings, including selected tightness and explicit
+residual variances, are not selected again at each start date. Choosing them
+on the full sample can introduce look-ahead even though coefficients are
+refitted. Choose them using data ending at the initial training cutoff, then
+pass that fit to :func:`forecastModel`. This evaluates those fixed choices;
+it does not evaluate a strategy that repeats prior selection at every origin.
 
 **Common sample.** At each horizon all models are scored on the same start
 dates: those where every model produced a forecast and the outcome exists.

@@ -1,8 +1,19 @@
 bvarRollingOrigin
 =================
 
-Purpose
--------
+.. warning::
+
+   ``bvarRollingOrigin`` is retired. Use :func:`forecastEval` with
+   :func:`forecastModel` for current forecast evaluation. Select prior
+   settings using only the initial training sample, as shown in the
+   :func:`bvarPriorSelect` forecast comparison. Those settings are held
+   during evaluation; the prior search is not repeated at every origin.
+
+The following is a historical reference for older programs, not the current
+forecast-evaluation API.
+
+Historical purpose
+------------------
 Evaluate Bayesian VAR forecasts out of sample: refit at a series of forecast origins and score the forecasts of the following periods, for several prior tightness values at once.
 
 Format

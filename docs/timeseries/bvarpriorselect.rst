@@ -219,64 +219,48 @@ Choose the Residual Variances Too, and Compare the Forecasts
     // four, the federal funds rate in decimals.
     data = loadd(getGAUSSHome("pkgs/timeseries/examples/data/glp_2015_datasw.csv"));
 
-    struct bvarControl ctl;
-    ctl = bvarControlCreate();
-    ctl.p = 5;
-
-    // Residual variances fixed at their autoregression values (the default).
-    ps_fixed = bvarPriorSelect(data, p=ctl.p, ctl=ctl);
-
-    // Residual variances chosen together with the tightness.
-    ps = bvarPriorSelect(data, p=ctl.p, ctl=ctl, residual_variances=bvarChoose());
-    fit = bvarFit(data, p=ps.fit_settings.p, ctl=ps.fit_settings);
-
-    // Which setting forecasts better on these data? Choose the prior again
-    // at each of 20 forecast dates (1989Q1 to 2008Q1) and score the forecasts.
-    ev_fixed = bvarRollingOrigin(
-        data,
-        {},
-        "variances fixed",
-        "expanding",
-        "2015 data",
+    // Select both priors using only the first evaluation training sample.
+    initial_window = 120;
+    train = data[1:initial_window, .];
+    ps_ar = bvarPriorSelect(train, p=5, lag1_prior_mean=1);
+    ps_chosen = bvarPriorSelect(
+        train,
         p=5,
-        initial_window=120,
-        h=4,
-        step=4,
-        n_draws=1000,
         lag1_prior_mean=1,
-        overall_tightness=bvarChoose()
-    );
-    ev_chosen = bvarRollingOrigin(
-        data,
-        {},
-        "variances chosen",
-        "expanding",
-        "2015 data",
-        p=5,
-        initial_window=120,
-        h=4,
-        step=4,
-        n_draws=1000,
-        lag1_prior_mean=1,
-        overall_tightness=bvarChoose(),
         residual_variances=bvarChoose()
     );
 
-    // Root mean squared error with chosen variances relative to fixed ones:
-    // horizons 1 to 4 in rows, the seven series in columns. Below 1 is better.
-    print ev_chosen.rmse ./ ev_fixed.rmse;
+    // Check the searches before using their settings.
+    if ps_ar.converged == 0 or ps_chosen.converged == 0;
+        print "Review prior search status before evaluating forecasts.";
+        end;
+    endif;
+    fit_ar = bvarFit(train, p=5, ctl=ps_ar.fit_settings, n_draws=1000, quiet=1);
+    fit_chosen = bvarFit(
+        train, p=5, ctl=ps_chosen.fit_settings, n_draws=1000, quiet=1
+    );
 
-With fixed residual variances the search chooses a tightness of about 0.14;
-with the residual variances chosen too, about 0.22, and the log marginal
-likelihood rises from 3098.8 to 3117.0. The first printout reports the
-residual variances as ar_p, the second as "chosen*", followed by a table of
-each series' starting value and chosen value. The two
-tightness values are not
-comparable: the chosen residual variances are up to seven times the
-autoregression values, and a prior with larger residual variances is tighter
-at the same tightness (see the Remarks). On these data the two settings
-forecast about equally well: every ratio in the last table is between 0.96
-and 1.02.
+    struct forecastModel models;
+    models = forecastModel(fit_ar, name="AR scales")
+        | forecastModel(fit_chosen, name="Chosen scales");
+    fe = forecastEval(
+        data,
+        models,
+        train_end=ntos(train[initial_window, "date"]),
+        h=4,
+        step=4,
+        benchmark="AR scales"
+    );
+
+The data are dated, so *train_end* is the date in row 120 (1988Q4), the same
+cutoff used for both prior searches. The table reports RMSE relative to the AR-scales model
+for each series and horizon; a value below 1 favors the chosen-scales model.
+Both models hold the tightness selected on rows 1--120 and their other prior
+settings. The AR-scales model recomputes its ``ar_p`` residual variances on
+each training sample; the chosen-scales model reuses the explicit variances
+selected on rows 1--120. Coefficients are refitted at each origin, but neither
+prior search is repeated. This comparison therefore evaluates settings
+chosen at the initial cutoff, not a strategy that reselects priors every year.
 
 Remarks
 -------
@@ -386,10 +370,11 @@ follows:
 - 125 series: employment and the funds rate better at every horizon,
   consumer prices worse at one month and better beyond.
 
-Compare the two settings on your own data with :func:`bvarRollingOrigin`,
-which repeats the choice at each forecast date, as in the last example
-above. That example prints root mean squared errors; the setting also
-changes the width of the forecast bands, which *ev.mean_crps* scores.
+Compare initial-sample prior choices on your own data with
+:func:`forecastEval` and :func:`forecastModel`, as in the last example above.
+That example reports relative RMSE and forecast-band coverage. It does not
+repeat the prior search at each forecast date, unlike the separate
+calculation described above.
 
 *ps.fit_settings* holds the residual variances chosen on the sample given to
 :func:`bvarPriorSelect`. A procedure that refits with *ps.fit_settings* on other
@@ -421,11 +406,12 @@ and, for the residual variances, which series and which edge, and
 *ps.converged* is 0. A held setting is never named. *ps.fit_settings* still holds
 the edge values: check *ps.status* before fitting with it.
 
-To evaluate the choice on forecasts, use :func:`bvarRollingOrigin` with
-``overall_tightness=bvarChoose()``, and ``residual_variances=bvarChoose()``
-as well to choose the residual variances, which repeats the choice on each
-forecast origin's data. Pass it the same *lag1_prior_mean*: its default is
-``0``, not ``1``.
+Choose tightness and any explicit residual variances using only data ending
+at the initial evaluation cutoff. Selecting them on the full sample can
+introduce look-ahead. Carry the same *lag1_prior_mean* through the fits using
+*ps.fit_settings*. ``bvarRollingOrigin`` is retired; use the supported
+:func:`forecastEval`/:func:`forecastModel` example above for fixed prior
+choices. These functions do not repeat :func:`bvarPriorSelect` at each origin.
 
 References
 ----------
@@ -440,4 +426,4 @@ Source
 ------
 var.src
 
-.. seealso:: Functions :func:`bvarChoose`, :func:`bvarFit`, :func:`bvarControlCreate`, :func:`bvarRollingOrigin`
+.. seealso:: Functions :func:`bvarChoose`, :func:`bvarFit`, :func:`bvarControlCreate`, :func:`forecastEval`, :func:`forecastModel`
