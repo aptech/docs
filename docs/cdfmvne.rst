@@ -44,12 +44,31 @@ Format
             :widths: auto
 
             "0", "normal completion with err < ctl.absErrorTolerance."
-            "1", ":math:`err > ctl.absErrorTolerance` and ctl.maxEvaluations exceeded; increase ctl.maxEvaluations to decrease error"
+            "1", "requested accuracy was not achieved; the error may include integration error or a near-singular approximation bound. See the notes below."
             "2", ":math:`K > 100` or :math:`K < 1`"
             "3", "*R* not positive semi-definite"
             "missing", "*R* not properly defined"
 
     :rtype retcode: Nx1 vector
+
+A return code of 1 can indicate that randomized integration exhausted
+``ctl.maxEvaluations``. More evaluations may reduce that integration error,
+but they cannot reduce the approximation bound described below.
+
+For a near-singular correlation matrix, the calculation may treat a small
+positive conditional variance as zero. The returned *err* then includes a
+bound for this approximation, which depends on the dropped variance and the
+finite integration limits. Increasing ``ctl.maxEvaluations`` cannot reduce
+this component, so return code 1 does not necessarily mean that the
+evaluation budget was exhausted.
+
+Compare the returned absolute error estimate *err* with the accuracy your
+application requires. The requested tolerance is
+``max(ctl.absErrorTolerance, abs(p)*ctl.relErrorTolerance)``. If *err* is too
+large for your purpose, the returned probability is not established to that
+accuracy. More evaluations help only the integration component; do not
+assume they will resolve return code 1.
+
 
 Examples
 ----------------

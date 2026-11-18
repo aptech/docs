@@ -70,7 +70,7 @@ Most programs need no changes. Here is what to check.
 
 #. :func:`spEigv` returns its eigenvalues sorted, for example largest magnitude first for ``"LM"``.
 #. :func:`spCreate` adds together values given more than once for the same row and column, as other sparse tools do.
-#. :func:`cdfMvne`, :func:`cdfMvte` and related functions return *retcode* 1 when the error estimate is above the requested tolerance; raise ``ctl.maxEvaluations`` or loosen the tolerance.
+#. :func:`cdfMvne`, :func:`cdfMvte` and related functions can return *retcode* 1 when the error estimate exceeds the requested tolerance. More evaluations may reduce integration error, but cannot reduce the bound from treating a near-singular correlation matrix as singular. Compare the returned *err* with the accuracy your application requires; raising ``ctl.maxEvaluations`` does not always resolve status 1.
 #. The cumulative distribution functions return 0 or 1 for an *x* outside the distribution's range, and an error code for a parameter outside its range, instead of -1 or 2.
 
 **Invalid input now stops with an error**

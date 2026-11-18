@@ -70,6 +70,20 @@ against the requested tolerance. Normal probabilities and *df* < 100
 retain their existing return-code behavior.
 
 
+For a near-singular correlation matrix, the calculation may treat a small
+positive conditional variance as zero. The returned *err* then includes a
+bound for this approximation, which depends on the dropped variance and the
+finite integration limits. Increasing ``ctl.maxEvaluations`` cannot reduce
+this component, so return code 1 does not necessarily mean that the
+evaluation budget was exhausted.
+
+Compare the returned absolute error estimate *err* with the accuracy your
+application requires. The requested tolerance is
+``max(ctl.absErrorTolerance, abs(p)*ctl.relErrorTolerance)``. If *err* is too
+large for your purpose, the returned probability is not established to that
+accuracy. More evaluations help only the integration component; do not
+assume they will resolve return code 1.
+
 Examples
 ----------------
 
