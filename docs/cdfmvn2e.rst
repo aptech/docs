@@ -47,7 +47,7 @@ Format
             :widths: auto
 
             "0", "normal completion with :math:`err < ctl.absErrorTolerance`."
-            "1", "requested accuracy was not achieved; the error may include integration error or a near-singular approximation bound. See the notes below."
+            "1", "requested accuracy was not achieved; the error may include integration error, a fixed special-case estimate, or a near-singular approximation bound. See the notes below."
             "2", ":math:`K > 100` or :math:`K < 1`."
             "3", "*corr* not positive semi-definite."
             "missing", "*corr* not properly defined."
@@ -57,6 +57,11 @@ Format
 A return code of 1 can indicate that randomized integration exhausted
 ``ctl.maxEvaluations``. More evaluations may reduce that integration error,
 but they cannot reduce the approximation bound described below.
+
+A two-variable shortcut can also return code 1 when its fixed absolute error
+estimate exceeds the requested tolerance. This shortcut does not use the
+randomized integration budget, so increasing ``ctl.maxEvaluations`` does not
+reduce its error estimate.
 
 For a near-singular correlation matrix, the calculation may treat a small
 positive conditional variance as zero. The returned *err* then includes a
