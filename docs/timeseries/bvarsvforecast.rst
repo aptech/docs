@@ -5,6 +5,9 @@ Purpose
 -------
 Generate density forecasts from a fitted SV-BVAR model with time-varying volatility propagation.
 
+Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+Here ``level=`` accepts only 0.68 and 0.90.
+
 Format
 ------
 

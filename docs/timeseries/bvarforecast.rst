@@ -17,6 +17,9 @@ Format
    :type h: scalar
 
    :param level: Optional keyword, central mass of each credible band, strictly between 0 and 1. A vector gives one band per value, in ascending order. Default = ``{ 0.68, 0.90 }``.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+
    :type level: scalar or vector
 
    :param n_draws: Optional keyword, number of posterior draws to simulate from: the first *n_draws* draws stored in *result*, at most *result.n_draws*. Default = all stored draws.

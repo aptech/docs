@@ -24,6 +24,10 @@ Format
    :type bands: scalar
 
    :param level: Optional keyword, central masses of the bands. Default = ``{ 0.68, 0.90 }``.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+       hdCompute adds posterior bands only when ``bands=1``.
+
    :type level: scalar or vector
 
    :param n_draws: Optional keyword, number of posterior draws used for the bands. Default = all stored draws.

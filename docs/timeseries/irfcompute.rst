@@ -71,6 +71,10 @@ Format
    :type restrictions: struct or Nx4 string array
 
    :param level: Optional keyword, central masses of the pointwise credible bands. Default = ``{ 0.68, 0.90 }``. Sign-restricted responses, long-run responses from :func:`bvarFit` results and :func:`bvarSvFit` results support 0.68 and 0.90.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+       For sign restrictions, SV fits and long-run BVAR responses, ``level=`` accepts only 0.68 and 0.90.
+
    :type level: scalar or vector
 
    :param n_draws: Optional keyword, :func:`bvarFit` results only: number of posterior draws to use. Default = all stored draws.

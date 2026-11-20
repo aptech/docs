@@ -23,6 +23,9 @@ Format
    :type xreg: hxM matrix
 
    :param level: Optional keyword, finite confidence level strictly between 0 and 1. Default = 0.95.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+
    :type level: scalar
 
    :return fc: An instance of a :class:`forecastResult` structure containing:

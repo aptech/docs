@@ -17,6 +17,10 @@ Format
    :type path: hxm matrix
 
    :param level: Optional keyword, central mass of each pointwise band. Default = ``{ 0.68, 0.90 }``.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+       condForecast defaults to 68% and 90% bands for every fit, classical fits included.
+
    :type level: scalar or vector
 
    :param n_draws: Optional keyword. For a :func:`bvarFit` result, the number of posterior draws to use (default and maximum: all stored draws). For a :func:`varFit` or :func:`vecmToVar` result, the number of simulated paths (default 5000).

@@ -18,6 +18,9 @@ Format
    :type h: scalar
 
    :param level: Optional keyword, prediction interval level. Default = 0.95.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+
    :type level: scalar
 
    :param quiet: Optional keyword, reserved output-control argument. Default = 0.

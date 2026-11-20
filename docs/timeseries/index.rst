@@ -445,7 +445,6 @@ Control Structure Creators
     :hidden:
     :caption: SVAR
 
-    longrunsvar
     signrestrictions
     svarcontrolcreate
 

@@ -47,6 +47,10 @@ Format
    :type origins: string array or vector
 
    :param level: Optional keyword, band levels whose coverage is reported. Values must be strictly between 0 and 1 and strictly ascending without repeats. Descending or repeated values are refused; the function does not sort them. Default = ``{ 0.68, 0.90 }``.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+       forecastEval requests 68% and 90% band coverage by default for every model.
+
    :type level: vector
 
    :param dm: Optional keyword, Diebold-Mariano variant passed to :func:`dmTest`: ``"hln"``, ``"hac_hln_t"`` or ``"asymptotic"``. Default = ``"hln"``.

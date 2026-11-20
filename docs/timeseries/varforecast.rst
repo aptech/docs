@@ -17,6 +17,9 @@ Format
    :type h: scalar
 
    :param level: Optional keyword, central mass of each prediction band. Default = 0.95. Multiple masses must be strictly ascending and between 0 and 1.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+
    :type level: scalar or vector
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.

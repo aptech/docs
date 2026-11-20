@@ -32,6 +32,10 @@ Format
    :type label: string
 
    :param level: Optional keyword, central mass of each band. Default = ``{ 0.68, 0.90 }``.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+       scenarioCompare defaults to 68% and 90% bands for every fit, classical fits included.
+
    :type level: scalar or vector
 
    :param n_draws: Optional keyword, as for :func:`condForecast`.

@@ -18,6 +18,9 @@ Format
    :type h: scalar
 
    :param level: Optional keyword, coverage of the forecast intervals, strictly between 0 and 1. Default = 0.95.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+
    :type level: scalar
 
    :param quiet: Optional keyword, set to 1 to suppress printed output. Default = 0.

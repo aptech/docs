@@ -63,6 +63,9 @@ Format
    :param level: Optional keyword, one or more band levels, each between 0 and
        1, in ascending order. All are stored; printed tables show the first.
        Default = ``{ 0.68, 0.90 }``.
+
+       Bayesian results show 68% and 90% bands; classical forecasts show 95%; use ``level=`` for any other.
+
    :type level: scalar or vector
 
    :param dates: Optional keyword, dates of the observations (POSIX), for
