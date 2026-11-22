@@ -77,6 +77,13 @@ Most programs need no changes. Here is what to check.
 
 #. Functions given input they cannot use, such as a missing, NaN or infinite size, index, lag or degrees of freedom, or a matrix that is not positive definite in :func:`spChol`, now stop with a clear error at the line where the problem is. Under ``trap 1`` they return an error code. The reference pages list the cases.
 #. Assigning to a member of a variable that is not a structure, or returning a number from a procedure declared to return a structure, stops with error G0181 at that line.
+#. An extra index on a string or string array, such as ``s[1, 1, 2]``, stops with error G0058, as it does for a matrix. A third index of 1 or ``.`` is still accepted.
+#. :func:`lapgeigv` stops with error G0674 when its input contains a missing value, NaN or Inf.
+
+**Programs that use fn**
+
+#. If two procedures, keywords or your main program define an ``fn`` with the same name, GAUSS now prints a warning when it compiles them. fn names are global, so every call runs the definition compiled last. Give each fn its own name. See :doc:`fn`.
+#. Recompile saved programs (``.gcg`` files) made with an earlier version of GAUSS if they pass an fn that uses a procedure's local variables to another procedure, such as :func:`gradp` or an optimizer. Compiled with GAUSS 27, such an fn uses the variables of the procedure that defined it.
 
 **Graphs**
 
@@ -93,6 +100,8 @@ Also improved
 #. More reliable structures, structure arrays and indexed assignment, library builds with :func:`lib`, package installs with ``gpkg``, and start-up.
 #. Multiplying or dividing a large sparse matrix by a scalar is much faster.
 #. More reliable Command History, tab groups, and Run and Debug buttons, and lower memory use when drawing many surface or contour graphs.
+#. :func:`ftos` formats complex numbers, as its reference page shows.
+#. Input errors in :func:`lapeighb`, :func:`lapeighvb`, :func:`lapeighi`, :func:`lapeighvi`, :func:`lapgeig`, :func:`lapgeigh`, :func:`lapgeighv` and :func:`lapgeigv` name the function and the argument, for example ``lapeighvb: fourth input (abstol) must be a scalar.`` The error codes are unchanged. :func:`lapeighi` now also checks that its tolerance is a scalar.
 
 26.1.4
 ------
