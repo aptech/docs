@@ -367,7 +367,8 @@ value as a data argument or use a keyword-free wrapper. Detection will not put
 **Checking a supplied gradient:**
 
 Set ``gradCheck=1`` or ``ctl.gradCheck=1`` to check g at x0 before either solver
-runs. The check makes one g-only request and two f-only requests per parameter,
+runs. The check makes one g-only request, one f-only request at x0, and two
+f-only requests per free parameter,
 then prints the supplied g, central-difference g and relative difference.
 The always-both form computes both outputs on each of these calls. A one-return
 objective cannot be checked.
@@ -377,9 +378,10 @@ The check fails with code 3 if any absolute difference exceeds
 it is a control member, not a keyword. Failure names the worst element and
 returns missing f and g without starting optimization. A nonfinite numerical
 difference also fails the check. L-BFGS-B checks the starting point after
-projecting it into the supplied bounds. The check's central differences are
-not clamped to bounds, so the objective must be defined on both sides of that
-point. Calls made by the check are included in ``out.fnEvals``.
+projecting it into the supplied bounds. Differences stop at bounds, as in the
+solver; if one side is nonfinite, a finite one-sided difference uses f(x0).
+A fixed parameter has numerical derivative zero. If neither direction is usable,
+the error names the element. Calls made by the check are included in ``out.fnEvals``.
 
 If an L-BFGS-B line search fails, ``out.retcode`` is 2 (abnormal termination).
 For a supplied gradient, the message suggests trying ``gradCheck``.
