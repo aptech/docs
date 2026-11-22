@@ -94,33 +94,33 @@ The summary includes stochastic volatility parameters:
     Stochastic volatility parameters (posterior means)
     Variable        mu    phi  sigma2  phi acceptance
     -------------------------------------------------
-    gdp_growth   1.805  0.896   0.173           0.862
-    inflation    0.709  0.843   0.248           0.917
-    fed_funds   -2.015  0.918   0.946           0.861
+    gdp_growth   1.822  0.900   0.164           0.859
+    inflation    0.715  0.851   0.232           0.921
+    fed_funds   -1.979  0.921   0.889           0.859
 
     Equation 1: gdp_growth
     Regressor        Center      SD  Lower 68%  Upper 68%
     -----------------------------------------------------
-    Constant         2.5559  0.3519     2.2158     2.9084
-    gdp_growth(-1)   0.2005  0.0654     0.1363     0.2653
-    inflation(-1)   -0.1844  0.0786    -0.2613    -0.1054
-    fed_funds(-1)    0.0994  0.0588     0.0411     0.1574
+    Constant         2.5385  0.3552     2.1853     2.8902
+    gdp_growth(-1)   0.2011  0.0668     0.1363     0.2677
+    inflation(-1)   -0.1821  0.0797    -0.2622    -0.1035
+    fed_funds(-1)    0.1002  0.0590     0.0425     0.1585
 
     Equation 2: inflation
     Regressor       Center      SD  Lower 68%  Upper 68%
     ----------------------------------------------------
-    Constant        0.3501  0.2219     0.1279     0.5707
-    gdp_growth(-1)  0.0066  0.0296    -0.0225     0.0360
-    inflation(-1)   0.6351  0.0585     0.5768     0.6918
-    fed_funds(-1)   0.1740  0.0402     0.1338     0.2135
+    Constant        0.3369  0.2192     0.1184     0.5546
+    gdp_growth(-1)  0.0086  0.0293    -0.0205     0.0383
+    inflation(-1)   0.6381  0.0566     0.5810     0.6944
+    fed_funds(-1)   0.1731  0.0405     0.1332     0.2138
 
     Equation 3: fed_funds
     Regressor        Center      SD  Lower 68%  Upper 68%
     -----------------------------------------------------
-    Constant        -0.0187  0.0151    -0.0338    -0.0037
-    gdp_growth(-1)   0.0087  0.0045     0.0042     0.0132
-    inflation(-1)    0.0002  0.0045    -0.0039     0.0046
-    fed_funds(-1)    1.0004  0.0060     0.9946     1.0061
+    Constant        -0.0202  0.0154    -0.0351    -0.0053
+    gdp_growth(-1)   0.0091  0.0045     0.0047     0.0135
+    inflation(-1)    0.0006  0.0048    -0.0039     0.0051
+    fed_funds(-1)    1.0002  0.0062     0.9944     1.0062
 
     Center: posterior draw mean.
     SD and 68% interval: equal-tailed quantiles of 5,000 posterior draws.
