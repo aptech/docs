@@ -368,8 +368,8 @@ value as a data argument or use a keyword-free wrapper. Detection will not put
 
 Set ``gradCheck=1`` or ``ctl.gradCheck=1`` to check g at x0 before either solver
 runs. The check makes one g-only request, one f-only request at x0, and two
-f-only requests per free parameter,
-then prints the supplied g, central-difference g and relative difference.
+or three f-only requests per free parameter,
+then prints the supplied g, numerical g and relative difference.
 The always-both form computes both outputs on each of these calls. A one-return
 objective cannot be checked.
 
@@ -378,8 +378,10 @@ The check fails with code 3 if any absolute difference exceeds
 it is a control member, not a keyword. On failure, ``out.retmsg`` names the worst element and
 returns missing f and g without starting optimization. A nonfinite numerical
 difference also fails the check. L-BFGS-B checks the starting point after
-projecting it into the supplied bounds. Differences stop at bounds, as in the
-solver; if one side is nonfinite, a finite one-sided difference uses f(x0).
+projecting it into the supplied bounds. If the central stencil does not fit
+inside the bounds or one side is nonfinite, the check uses a second-order
+one-sided difference. It falls back to a two-point difference if the second
+sample in that direction is outside the bounds or nonfinite.
 A fixed parameter is printed as "fixed, not checked" and excluded from the check.
 If neither direction is usable,
 the error names the element. Calls made by the check are included in ``out.fnEvals``.
