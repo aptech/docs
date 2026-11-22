@@ -16,8 +16,8 @@ Format
     :param range: Optional input, range to read, e.g. "A2:B20" or the starting point of the read, e.g. "A2". Default = "A1".
     :type range: string
 
-    :param sheet: Optional input, sheet number. Default = 1.
-    :type sheet: scalar
+    :param sheet: Optional input, sheet number or name. Default = 1. A missing sheet name is an error naming the sheet and file.
+    :type sheet: scalar or string
 
     :param vls: Optional input, specifies the conversion of Excel® empty cells and special types into 
         GAUSS (see Remarks). A null string results in all empty cells and special types 

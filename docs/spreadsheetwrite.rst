@@ -20,8 +20,8 @@ Format
     :param range: range to read or write; e.g., ``"A1:B20"``. Default = ``"A1"``.
     :type range: string
 
-    :param sheet: sheet number. Default = 1.
-    :type sheet: scalar
+    :param sheet: Optional input, sheet number or name. Default = 1. A missing name creates a new sheet; an existing name updates that sheet.
+    :type sheet: scalar or string
 
     :return ret: 0 if successful, else error code.
 

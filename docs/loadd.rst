@@ -13,6 +13,7 @@ Format
 ----------------
 .. function:: y = loadd(dataset [, varnames [, ldCtl]])
               y = loadd(dataset, ldCtl)
+              y = loadd(dataset [, varnames], sheet={}, header_row={}, row_range={}, missing={}, delimiter={}, quote_char={}, ctl={})
 
     :param dataset: filepath to the dataset on disk, URL, or existing dataframe.
     
@@ -48,11 +49,11 @@ Format
             :widths: auto
 
             * - ldctl.header_row
-              - scalar, Specifies the row location of the variable name headers. Data loading row range will default to begin at first row after headers. Default = 1.
+              - scalar, Header row. Default = -1 (row 1 with an explicit control); 0 means no header.
             * - ldctl.row_range.first
-              - scalar, Specifies the first row to begin loading data from. Default = 2 (or first row after headers).
+              - scalar, First file row to load. Default = 0 (first row after the header).
             * - ldctl.row_range.last
-              - scalar, Specifies the last row to stop loading data from. Default = -1 (last row).
+              - scalar, Last file row to load. Default = 0 (through the last row).
             * - ldctl.xls.sheet
               - scalar, Specifies the XLS sheet number to be loaded. Valid only for XLS, XLSX files. Default = 1.
             * - ldctl.csv.delimiter
@@ -60,12 +61,58 @@ Format
             * - ldctl.csv.quotechar
               - string, Specifies the CSV quotation character. Valid only for CSV files. Default = Double quotes.
             * - ldctl.missing_vals_str
-              - string, Specifies how missing variables should be represented for string types. Default = ``" "``.
+              - string array, Values treated as missing in text, category and numeric columns. Default = ``"."``.
     :type ldctl: struct
                   
     :return y: loaded data, or the stored GDAT v2 value or selected member.
 
     :rtype y: NxK matrix or dataframe, or the type stored in GDAT v2
+
+Named loading options
++++++++++++++++++++++
+
+For CSV and Excel files, supply options directly in the call. ``{}`` means
+the option was not supplied. Existing positional calls remain supported.
+
+.. list-table::
+    :header-rows: 1
+    :widths: 18 25 57
+
+    * - Keyword
+      - Applies to
+      - Meaning
+    * - ``sheet``
+      - Excel
+      - Positive sheet number or sheet name. Default: first sheet. A missing name is an error.
+    * - ``header_row``
+      - CSV, Excel
+      - Header's file row number; 0 means no header and names columns X1, X2, etc. Default: detected automatically.
+    * - ``row_range``
+      - CSV, Excel
+      - ``first`` or ``first|last``; positive, inclusive file row numbers, counting the header. A single value reads through the end.
+    * - ``missing``
+      - CSV, Excel
+      - Number(s) or string(s) treated as missing, including in numeric columns. Adds to the default ``"."`` and any control's missing-value list.
+    * - ``delimiter``
+      - CSV
+      - One-character field separator. Default: detected automatically.
+    * - ``quote_char``
+      - CSV
+      - One-character quotation mark. Default: detected automatically.
+    * - ``ctl``
+      - CSV, Excel
+      - A :class:`LoadFileControl` to copy and override with the named options.
+
+Without a control, each named option fixes only that setting: for example,
+``header_row=0`` still detects the CSV delimiter and quotation mark.
+An explicit control keeps its existing detection behavior. Named options
+override a copy, leaving the caller's control unchanged. Supplying a control
+both positionally and as ``ctl=`` is an error.
+
+An option that does not apply to the file type is an error. For example,
+``sheet=`` cannot be used with CSV, and ``delimiter=`` cannot be used with
+Excel. These named loading options do not apply to DAT, GDAT, FMT, HDF5,
+Stata/SAS/SPSS files, saved GDAT v2 objects, or existing dataframes.
 
 For GDAT v2 structures, the second argument is a member path, such as
 ``"coefficients"`` or ``"settings.method_name"``. Names are case-insensitive.
@@ -83,6 +130,16 @@ enclosing structure declarations.
 
 Examples
 ----------------
+
+Load a named sheet with fewer setup steps
+++++++++++++++++++++++++++++++++++++++++
+
+::
+
+    sales = loadd("sales.xlsx", "date(Month) + Revenue",
+        sheet="Q3", header_row=2, row_range=10|200);
+
+    data = loadd("survey.csv", header_row=0, missing=-999);
 
 Load a structure or an individual member
 ++++++++++++++++++++++++++++++++++++++++

@@ -17,8 +17,8 @@ Format
     :param range: range to read or write; e.g., ``"A1:B20"``. Default =  ``"A1"``.
     :type range: string
 
-    :param sheet: sheet number. Default = 1.
-    :type sheet: scalar
+    :param sheet: Optional input, sheet number or name. Default = 1. A missing sheet name is an error naming the sheet and file.
+    :type sheet: scalar or string
 
     :return sa: read from Excel.
 

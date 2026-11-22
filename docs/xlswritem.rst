@@ -19,8 +19,8 @@ Format
     :param range: Optional input, the starting point of the write, e.g. "A2". Default = "A1"
     :type range: string
 
-    :param sheet: Optional input, sheet number. Default = 1.
-    :type sheet: scalar
+    :param sheet: Optional input, sheet number or name. Default = 1. A missing name creates a new sheet; an existing name updates that sheet.
+    :type sheet: scalar or string
 
     :param vls: Optional input, specifies the conversion of GAUSS values into Excel® empty cells
         and special types (see Remarks). A null string results in all GAUSS missing
