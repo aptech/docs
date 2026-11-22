@@ -25,29 +25,21 @@
      - Apache-2.0, with the third-party notices of its release (in the libraries GAUSS ships: ITT Notify and gperftools code, BSD-3-Clause)
      - macOS
    * - HDF5
-     - 1.8.17
-     - HDF5 license (BSD-style)
-     - Linux, Windows
-   * - HDF5
      - 1.8.23
      - HDF5 license (BSD-style)
-     - macOS
-   * - SZIP
-     - 2.1
-     - SZIP license (ICs, LLC): decompression free; compression for non-commercial scientific use only
-     - Linux, Windows
+     - all
+   * - libaec (Adaptive Entropy Coding library)
+     - 1.1.8
+     - BSD-2-Clause
+     - all
    * - zlib
      - (the copies in the HDF5 package and in QuaZip; Qt's own copy is listed with Qt)
      - Zlib
      - all
    * - OpenSSL
-     - 1.1.1q
-     - OpenSSL License and SSLeay License
-     - Linux, Windows
-   * - OpenSSL
-     - 3.6.3
+     - 3.5.9
      - Apache-2.0
-     - macOS
+     - all
    * - LLVM
      - 23.1.3
      - Apache-2.0 WITH LLVM-exception
@@ -72,12 +64,24 @@
      - 2.1
      - BSD-3-Clause
      - all
+   * - MVTDSTPACK (Alan Genz)
+     - mvtdstpack.f, adapted to C in 2004; MVCHNC from the 2023 release
+     - BSD-3-Clause
+     - all
+   * - strptime from NetBSD
+     - NetBSD libc strptime.c (1997-2008), modified by Aptech Systems, Inc.
+     - BSD-2-Clause (The NetBSD Foundation)
+     - all
+   * - Reference LAPACK
+     - 3.12.0
+     - BSD-3-Clause (modified BSD, LAPACK)
+     - macOS
    * - CityHash
      - 1.1.1
      - MIT
      - all
    * - libcurl
-     - 7.84.0
+     - 8.23.0
      - curl license (MIT-style)
      - all
    * - SuperLU
@@ -153,8 +157,8 @@
      - LGPL-2.1-or-later; contains minizip (Zlib)
      - all
    * - POSIX Threads for Windows (pthreads-win32)
-     - 2.9.0.0 (a development snapshot of July 2011, between releases 2.8.0 and 2.9.1)
-     - LGPL-2.1-or-later
+     - 2.11.0
+     - LGPL-3.0-or-later
      - Windows
    * - Google Breakpad
      -
@@ -178,6 +182,42 @@
      - all
    * - jQuery
      - 2.0.3
+     - MIT
+     - all
+   * - MathJax
+     - 2.7.9, with its fonts and its accessibility extension's Speech Rule Engine
+     - Apache-2.0; its STIX Web, Asana Math and Neo Euler fonts OFL-1.1; its Latin Modern, Gyre Pagella and Gyre Termes fonts the GUST Font License
+     - all
+   * - Wicked Good XPath (in MathJax 2's accessibility extension)
+     -
+     - MIT
+     - all
+   * - CSS3 PIE, as changed by MadCap Software
+     - 1.0beta5
+     - Apache-2.0 or GPL-2.0 (GAUSS uses it under Apache-2.0)
+     - all
+   * - Lato fonts
+     - 2.015 and 1.104
+     - OFL-1.1
+     - all
+   * - Roboto and Roboto Slab fonts
+     - Roboto 2.137; Roboto Slab 1.100263
+     - Apache-2.0
+     - all
+   * - Inconsolata font
+     - 2.000 and 1.013
+     - OFL-1.1
+     - all
+   * - Font Awesome font
+     - 4.7.0
+     - OFL-1.1
+     - all
+   * - Read the Docs Sphinx theme (sphinx_rtd_theme)
+     - 0.5.2
+     - MIT
+     - all
+   * - sphinx-design
+     - 0.0.13
      - MIT
      - all
    * - CONREC contouring routine (Nicholas Yue's C++ version)
@@ -233,9 +273,13 @@
      - XLware commercial license held by Aptech Systems, Inc.
      - all
    * - Reprise License Manager client
-     - 13.0
+     - 18.1
      - Reprise Software commercial license held by Aptech Systems, Inc.
      - all
+   * - OpenSSL, inside the Reprise License Manager server
+     - 3.0.15
+     - Apache-2.0
+     - Linux, Windows
    * - Microsoft Visual C++ runtime, Universal C Runtime, D3DCompiler
      - Visual Studio 2022
      - Microsoft redistributable terms
@@ -685,7 +729,7 @@ Lesser General Public License (LGPL):
 
 - GNU libiconv 1.14
 - QuaZip 0.7.2
-- POSIX Threads for Windows (pthreads-win32) 2.9.0.0 (Windows only)
+- POSIX Threads for Windows (pthreads-win32) 2.11.0 (Windows only)
 - Qt WebEngine, whose Chromium includes FFmpeg and other LGPL code
 
 Aptech Systems, Inc. will give anyone who has a copy of this version of
@@ -697,7 +741,6 @@ write to support@aptech.com, and name your GAUSS version and platform.
 Acknowledgements
 ^^^^^^^^^^^^^^^^
 
-- This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/). This product includes cryptographic software written by Eric Young (eay@cryptsoft.com).
 - GAUSS uses L-BFGS-B. R. H. Byrd, P. Lu and J. Nocedal. A Limited Memory Algorithm for Bound Constrained Optimization, (1995), SIAM Journal on Scientific and Statistical Computing, 16, 5, pp. 1190-1208. C. Zhu, R. H. Byrd and J. Nocedal. L-BFGS-B: Algorithm 778: L-BFGS-B, FORTRAN routines for large scale bound constrained optimization (1997), ACM Transactions on Mathematical Software, 23, 4, pp. 550-560. J. L. Morales and J. Nocedal. L-BFGS-B: Remark on Algorithm 778: L-BFGS-B, FORTRAN routines for large scale bound constrained optimization (2011), ACM Transactions on Mathematical Software, 38, 1.
 - Portions of this software are copyright (c) 2024 The FreeType Project (www.freetype.org). All rights reserved.
 - This software is based in part on the work of the Independent JPEG Group.
