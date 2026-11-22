@@ -64,7 +64,7 @@ Format
             "ctl.printSummary", "scalar, print final summary. 0 = no (default), 1 = yes."
             "ctl.printEvery", "scalar, print progress every N iterations. 0 = never (default), N = every N iterations. Nelder-Mead requires 0; use printSummary for final output."
             "ctl.grad_check", "0 (default) or 1; check the supplied gradient at x0 before optimization. Either the member or keyword set to 1 enables it."
-            "ctl.gradCheckTol", "Positive finite relative tolerance for grad_check. Default = 1e-4. Member only."
+            "ctl.grad_check_tol", "Positive finite relative tolerance for grad_check. Default = 1e-4. Member only."
 
     :type ctl: struct
 
@@ -374,7 +374,7 @@ The always-both form computes both outputs on each of these calls. A one-return
 objective cannot be checked.
 
 The check fails with code 3 if any absolute difference exceeds
-``ctl.gradCheckTol * max(1, |numerical g|)``. The default tolerance is ``1e-4``;
+``ctl.grad_check_tol * max(1, |numerical g|)``. The default tolerance is ``1e-4``;
 it is a control member, not a keyword. On failure, ``out.retmsg`` names the worst element and
 returns missing f and g without starting optimization. A nonfinite numerical
 difference also fails the check. L-BFGS-B checks the starting point after

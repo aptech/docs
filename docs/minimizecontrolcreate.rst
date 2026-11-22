@@ -32,7 +32,7 @@ Format
             "ctl.printSummary", "0, no final summary."
             "ctl.printEvery", "0, no iteration output. Required for Nelder-Mead."
             "ctl.grad_check", "0, off. Set to 1 to check the supplied gradient at x0 before either solver runs. Either this member or the minimize keyword grad_check set to 1 enables the check."
-            "ctl.gradCheckTol", "1e-4, positive finite relative tolerance for grad_check. Member only; a failed check returns code 3."
+            "ctl.grad_check_tol", "1e-4, positive finite relative tolerance for grad_check. Member only; a failed check returns code 3."
 
     :rtype ctl: struct
 
