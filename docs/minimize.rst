@@ -311,7 +311,7 @@ epsilon times the parameter's size) in each direction. Near a bound, the move
 stops at the bound; if the objective is not finite on one side, a one-sided
 difference is used. This step suits smooth objectives whose parameters vary on
 a scale of about 1 or more. If a parameter near 0 matters on a much smaller
-scale, rescale it.
+scale, rescale it or supply g.
 
 You can supply your own gradient without a flag. The procedure's declared
 argument and return counts select its form (``data`` denotes all supplied data
