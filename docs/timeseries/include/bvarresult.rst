@@ -74,15 +74,6 @@
    * - result.log_ml
      - Scalar, log marginal likelihood. Only available for conjugate Minnesota prior; missing otherwise.
 
-   * - result.aic
-     - Scalar, Akaike information criterion (evaluated at posterior mean).
-
-   * - result.bic
-     - Scalar, Bayesian information criterion.
-
-   * - result.hq
-     - Scalar, Hannan-Quinn information criterion.
-
    * - result.companion_mean
      - (mp)x(mp) matrix, companion matrix at the posterior mean of the coefficients (*result.b_post*).
 
