@@ -61,7 +61,7 @@ Format
             * - ldctl.csv.quotechar
               - string, Specifies the CSV quotation character. Valid only for CSV files. Default = Double quotes.
             * - ldctl.missing_vals_str
-              - string array, Values treated as missing in text, category and numeric columns. Default = ``"."``.
+              - string array, Values treated as missing in text and category columns; numeric columns are unchanged. Default = ``"."``.
     :type ldctl: struct
                   
     :return y: loaded data, or the stored GDAT v2 value or selected member.
@@ -71,7 +71,8 @@ Format
 Named loading options
 +++++++++++++++++++++
 
-For CSV and Excel files, supply options directly in the call. ``{}`` means
+For CSV and Excel files, supply options directly in the call. Files read by
+the CSV reader, including .prn, .asc and .data, accept the CSV options. ``{}`` means
 the option was not supplied. Existing positional calls remain supported.
 
 .. list-table::
@@ -105,7 +106,9 @@ the option was not supplied. Existing positional calls remain supported.
 
 Without a control, each named option fixes only that setting: for example,
 ``header_row=0`` still detects the CSV delimiter and quotation mark.
-An explicit control keeps its existing detection behavior. Named options
+An explicit control keeps its existing detection behavior. Only the ``missing=``
+keyword matches number columns; ``ctl.missing_vals_str`` keeps its existing
+text/category behavior. Named options
 override a copy, leaving the caller's control unchanged. Supplying a control
 both positionally and as ``ctl=`` is an error.
 
