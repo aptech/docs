@@ -16,6 +16,7 @@ Format
               out = minimize(&fct, x0, ..., ctl)
               out = minimize(&fct, x0, method="nelder-mead")
               out = minimize(&fct, x0, ..., ctl, method="nelder-mead")
+              out = minimize(&fct, x0, ..., gradCheck=1)
 
     :param &fct: pointer to a procedure that computes the objective function to be minimized.
         The procedure receives the parameter vector *x* as its first argument, plus any additional
@@ -30,6 +31,12 @@ Format
         Otherwise uses ``ctl.method``, whose default is L-BFGS-B. Place any
         positional data arguments and control structure before the named option.
     :type method: string
+
+    :param gradCheck: Optional 0 or 1 (default 0). Set to 1 to print and check
+        the supplied gradient at the starting point. Either this keyword or
+        ``ctl.gradCheck`` set to 1 enables the check. Requires a ``proc (2)``
+        objective. See Gradient computation below.
+    :type gradCheck: scalar
 
     :param ...: Optional extra arguments. These arguments are passed untouched to the user-provided objective function.
     :type ...: any
@@ -56,6 +63,8 @@ Format
             "ctl.bounds", "Kx2 matrix or 1x2 vector specifying parameter bounds. Column 1 contains lower bounds, column 2 contains upper bounds. If 1x2, applies to all parameters. Default = ``{ -1e300 1e300 }`` (effectively unbounded)."
             "ctl.printSummary", "scalar, print final summary. 0 = no (default), 1 = yes."
             "ctl.printEvery", "scalar, print progress every N iterations. 0 = never (default), N = every N iterations. Nelder-Mead requires 0; use printSummary for final output."
+            "ctl.gradCheck", "0 (default) or 1; check the supplied gradient at x0 before optimization. Either the member or keyword set to 1 enables it."
+            "ctl.gradCheckTol", "Positive finite relative tolerance for gradCheck. Default = 1e-4. Member only."
 
     :type ctl: struct
 
@@ -69,7 +78,7 @@ Format
             * - out.fval
               - scalar, objective function value at solution.
             * - out.gradient
-              - Kx1 vector, gradient at solution for L-BFGS-B. All entries are missing for Nelder-Mead; no gradient is computed.
+              - Kx1 vector, gradient at solution for L-BFGS-B. All entries are missing for Nelder-Mead; the optional starting-point gradient check does not populate this output.
             * - out.retcode
               - scalar, L-BFGS-B return code:
 
@@ -115,8 +124,10 @@ Nelder-Mead without derivatives
 --------------------------------
 
 Use Nelder-Mead for an unconstrained objective returning one real scalar.
-It does not accept a second return value containing a gradient. Data arguments
-are passed to the objective in the same order as for L-BFGS-B.
+It also accepts either two-return form described below, ignoring the gradient.
+An f-only procedure is faster for Nelder-Mead than one that always computes both
+f and g. With ``ind``, the objective can skip g. Data arguments are passed in
+the same order as for L-BFGS-B.
 
 ::
 
@@ -177,8 +188,8 @@ Example 1: Basic unconstrained minimization
 
 ::
 
-    Solution:         1.0000000       0.99999999
-    Objective:    2.5073756e-17
+    Solution:        0.99999999       0.99999998
+    Objective:    1.3717997e-16
     Iterations:       37.000000
 
 The optimizer finds the known minimum at (1, 1) with an objective value near zero in 37 iterations.
@@ -215,7 +226,7 @@ Example 2: With data arguments
 ::
 
     True coefficients:             1.0000000        2.0000000       -1.0000000
-    Estimated coefficients:       0.94044862        2.0263110       -1.0269490
+    Estimated coefficients:       0.94044863        2.0263110       -1.0269490
 
 Data arguments (*Y* and *X*) are passed directly through to the objective function without modification.
 
@@ -293,8 +304,85 @@ nonlinear constraints), use :func:`sqpSolveMT` instead.
 
 **Gradient computation:**
 
-:func:`minimize` automatically computes gradients numerically using finite differences.
-Future versions may support user-provided analytical gradients.
+By default, L-BFGS-B computes the gradient by central differences. Each
+gradient costs two objective evaluations per parameter. Parameter *i* is moved
+by ``h = 6.0554544523933395e-6 * max(|x_i|, 1)`` (the cube root of machine
+epsilon times the parameter's size) in each direction. Near a bound, the move
+stops at the bound; if the objective is not finite on one side, a one-sided
+difference is used. This step suits smooth objectives whose parameters vary on
+a scale of about 1 or more. If a parameter near 0 matters on a much smaller
+scale, rescale it.
+
+You can supply your own gradient without a flag. The procedure's declared
+argument and return counts select its form (``data`` denotes all supplied data
+arguments):
+
+.. list-table::
+    :header-rows: 1
+    :widths: auto
+
+    * - Objective declaration
+      - Behavior
+    * - ``proc (1) = obj(x, data)``
+      - Returns f only; L-BFGS-B computes numerical differences.
+    * - ``proc (2) = obj(x, data, ind)``
+      - Returns f and g as requested by the 2x1 vector ``ind``.
+    * - ``proc (2) = obj(x, data)``
+      - Always returns f and g; methods needing only f discard g.
+
+``ind[1]`` asks for f and ``ind[2]`` asks for g, using OPTMT's indexes.
+L-BFGS-B requests ``{1,1}``; Nelder-Mead requests ``{1,0}``. Unrequested
+returns are ignored and may be empty. A requested gradient must be a finite,
+real Kx1 vector (a scalar is accepted for one parameter). Wrong size, complex,
+string, nonfinite or partly missing gradients return code 3 with missing
+``out.fval`` and ``out.gradient``. Missing elements are not filled numerically.
+
+::
+
+    proc (2) = squared_error(b, y, X, ind);
+        local e, f, g;
+        e = y - X*b;
+        f = {}; g = {};
+        if ind[1]; f = e'e; endif;
+        if ind[2]; g = -2*X'e; endif;
+        retp(f, g);
+    endp;
+
+    out = minimize(&squared_error, b0, y, X, gradCheck=1);
+
+A ``proc (2)`` declared with ``...`` always receives ``ind`` as its last dynamic
+argument. Read it with ``dynargsGet(dynargsCount(), 0)``. For example, for
+``obj(b, ...)`` with two data arguments, obtain the data with
+``{ y, X } = dynargsGet(1|2, 0, 0);`` and call a fixed-argument helper as
+``helper(b, y, X)``. Forwarding all of ``...`` would also forward ``ind``.
+A ``proc (1)`` never receives ``ind``.
+
+Other argument or return counts produce a setup error before the first call.
+Pass every data argument: forgetting the last data argument of a two-return
+objective can cause ``ind`` to be interpreted as that argument. ``printSummary``
+names the detected form. Objectives cannot rely on keyword defaults; pass the
+value as a data argument or use a keyword-free wrapper. Detection will not put
+``ind`` into a parameter declared with a keyword default.
+
+**Checking a supplied gradient:**
+
+Set ``gradCheck=1`` or ``ctl.gradCheck=1`` to check g at x0 before either solver
+runs. The check makes one g-only request and two f-only requests per parameter,
+then prints the supplied g, central-difference g and relative difference.
+The always-both form computes both outputs on each of these calls. A one-return
+objective cannot be checked.
+
+The check fails with code 3 if any absolute difference exceeds
+``ctl.gradCheckTol * max(1, |numerical g|)``. The default tolerance is ``1e-4``;
+it is a control member, not a keyword. Failure names the worst element and
+returns missing f and g without starting optimization. A nonfinite numerical
+difference also fails the check. L-BFGS-B checks the starting point after
+projecting it into the supplied bounds. The check's central differences are
+not clamped to bounds, so the objective must be defined on both sides of that
+point. Calls made by the check are included in ``out.fnEvals``.
+
+If an L-BFGS-B line search fails, ``out.retcode`` is 2 (abnormal termination).
+For a supplied gradient, the message suggests trying ``gradCheck``.
 
 **Convergence criteria:**
 

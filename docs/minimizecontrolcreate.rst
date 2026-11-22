@@ -31,6 +31,8 @@ Format
             "ctl.bounds", "``{ -1e300 1e300 }``, 1x2 bounds matrix (effectively unbounded)."
             "ctl.printSummary", "0, no final summary."
             "ctl.printEvery", "0, no iteration output. Required for Nelder-Mead."
+            "ctl.gradCheck", "0, off. Set to 1 to check the supplied gradient at x0 before either solver runs. Either this member or the minimize keyword set to 1 enables the check."
+            "ctl.gradCheckTol", "1e-4, positive finite relative tolerance for gradCheck. Member only; a failed check returns code 3."
 
     :rtype ctl: struct
 
