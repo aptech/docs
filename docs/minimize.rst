@@ -380,7 +380,8 @@ returns missing f and g without starting optimization. A nonfinite numerical
 difference also fails the check. L-BFGS-B checks the starting point after
 projecting it into the supplied bounds. Differences stop at bounds, as in the
 solver; if one side is nonfinite, a finite one-sided difference uses f(x0).
-A fixed parameter has numerical derivative zero. If neither direction is usable,
+A fixed parameter is printed as "fixed, not checked" and excluded from the check.
+If neither direction is usable,
 the error names the element. Calls made by the check are included in ``out.fnEvals``.
 
 If an L-BFGS-B line search fails, ``out.retcode`` is 2 (abnormal termination).
