@@ -25,6 +25,7 @@ Statistics and estimation
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. **Optimize without derivatives.** :func:`minimize` adds Nelder-Mead for unconstrained objectives: ``minimize(&f, x0, method="nelder-mead")``. Use L-BFGS-B when you need bounds.
+#. **Use your own gradient with minimize.** Give :func:`minimize` an objective that returns the function value and its gradient, and check the gradient against numerical differences before optimizing with ``grad_check=1``. The same objective works with both L-BFGS-B and Nelder-Mead, and computes only what each method needs.
 #. **Accurate log likelihoods, even when probabilities are tiny.** New functions :func:`lnsumexp` and :func:`lndiffexp` add and subtract log likelihoods and log probabilities without overflow, underflow or lost precision, for example in mixture models or ``lndiffexp(lncdfn(b), lncdfn(a))`` for ordered and interval probabilities. :func:`ln1p` and :func:`expm1` keep full precision near zero.
 #. **More accurate GMM.** :func:`gmmFit` and :func:`gmmFitIV` give more accurate standard errors, J statistics and convergence, and a new ``gCtl.jStatWeight`` option chooses the weight in the J statistic.
 #. **Multivariate normal and t probabilities you can rely on.** :func:`cdfMvne`, :func:`cdfMvte` and related functions are more accurate for highly correlated variables, large degrees of freedom, and infinite or very large limits, and much faster for large degrees of freedom. They now accept any degrees of freedom above 0, such as 4.5 or 0.5.
@@ -79,6 +80,7 @@ Most programs need no changes. Here is what to check.
 #. Assigning to a member of a variable that is not a structure, or returning a number from a procedure declared to return a structure, stops with error G0181 at that line.
 #. An extra index on a string or string array, such as ``s[1, 1, 2]``, stops with error G0058, as it does for a matrix. A third index of 1 or ``.`` is still accepted.
 #. :func:`lapgeigv` stops with error G0674 when its input contains a missing value, NaN or Inf.
+#. :func:`minimize` stops with an error when ``ctl.m`` is less than 1.
 
 **Programs that use fn**
 
@@ -102,6 +104,8 @@ Also improved
 #. More reliable Command History, tab groups, and Run and Debug buttons, and lower memory use when drawing many surface or contour graphs.
 #. :func:`ftos` formats complex numbers, as its reference page shows.
 #. Input errors in :func:`lapeighb`, :func:`lapeighvb`, :func:`lapeighi`, :func:`lapeighvi`, :func:`lapgeig`, :func:`lapgeigh`, :func:`lapgeighv` and :func:`lapgeigv` name the function and the argument, for example ``lapeighvb: fourth input (abstol) must be a scalar.`` The error codes are unchanged. :func:`lapeighi` now also checks that its tolerance is a scalar.
+#. :func:`minimize` computes more accurate numerical gradients when you don't supply one.
+#. :func:`minimize` reports a failed L-BFGS-B line search as return code 2, "Abnormal termination", as its reference page describes.
 
 26.1.4
 ------
