@@ -34,7 +34,7 @@ Format
 
     :param grad_check: Optional 0 or 1 (default 0). Set to 1 to print and check
         the supplied gradient at the starting point. Either this keyword or
-        ``ctl.gradCheck`` set to 1 enables the check. Requires a ``proc (2)``
+        ``ctl.grad_check`` set to 1 enables the check. Requires a ``proc (2)``
         objective. See Gradient computation below.
     :type grad_check: scalar
 
@@ -63,7 +63,7 @@ Format
             "ctl.bounds", "Kx2 matrix or 1x2 vector specifying parameter bounds. Column 1 contains lower bounds, column 2 contains upper bounds. If 1x2, applies to all parameters. Default = ``{ -1e300 1e300 }`` (effectively unbounded)."
             "ctl.printSummary", "scalar, print final summary. 0 = no (default), 1 = yes."
             "ctl.printEvery", "scalar, print progress every N iterations. 0 = never (default), N = every N iterations. Nelder-Mead requires 0; use printSummary for final output."
-            "ctl.gradCheck", "0 (default) or 1; check the supplied gradient at x0 before optimization. Either the member or keyword set to 1 enables it."
+            "ctl.grad_check", "0 (default) or 1; check the supplied gradient at x0 before optimization. Either the member or keyword set to 1 enables it."
             "ctl.gradCheckTol", "Positive finite relative tolerance for grad_check. Default = 1e-4. Member only."
 
     :type ctl: struct
@@ -366,7 +366,7 @@ value as a data argument or use a keyword-free wrapper. Detection will not put
 
 **Checking a supplied gradient:**
 
-Set ``grad_check=1`` or ``ctl.gradCheck=1`` to check g at x0 before either solver
+Set ``grad_check=1`` or ``ctl.grad_check=1`` to check g at x0 before either solver
 runs. The check makes one g-only request, one f-only request at x0, and two
 or three f-only requests per free parameter,
 then prints the supplied g, numerical g and relative difference.
