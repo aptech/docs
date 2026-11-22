@@ -375,7 +375,7 @@ objective cannot be checked.
 
 The check fails with code 3 if any absolute difference exceeds
 ``ctl.gradCheckTol * max(1, |numerical g|)``. The default tolerance is ``1e-4``;
-it is a control member, not a keyword. Failure names the worst element and
+it is a control member, not a keyword. On failure, ``out.retmsg`` names the worst element and
 returns missing f and g without starting optimization. A nonfinite numerical
 difference also fails the check. L-BFGS-B checks the starting point after
 projecting it into the supplied bounds. Differences stop at bounds, as in the
