@@ -123,7 +123,7 @@ Format
    :param ctl: Optional :class:`garchControl` structure. Create one with
                :func:`garchControlCreate`. A keyword that is given overrides
                the matching member for this call; *ctl* itself is not
-               changed. *ctl.max_iter* and *ctl.tol* are set only here.
+               changed. *ctl.max_iters* and *ctl.tol* are set only here.
 
        .. include:: include/garchcontrol.rst
 
@@ -627,7 +627,7 @@ By default a refusal ends the program with its message. With
        *status_message*. Unless *quiet* is 1, the printed summary ends with a
        warning either way. The advice
        at the end depends on why the optimizer stopped. The message shown is
-       from a run with ``dist="t"``, ``ctl.max_iter = 1`` and
+       from a run with ``dist="t"``, ``ctl.max_iters = 1`` and
        ``ctl.tol = 1e-14``.
        Status 2 is also returned when the log-likelihood has no maximum
        because of runs of zero residuals (see `Runs of Unchanged Values`_);
@@ -635,7 +635,7 @@ By default a refusal ends the program with its message. With
      - ``garchFit: Warning: the optimizer did not converge (L-BFGS-B task 31,
        projected gradient 1.55204e-06, requested 1e-14). The estimates are the
        best finite run and have no standard errors. Try a larger
-       ctl.max_iter.`` or ``garchFit: Warning: the
+       ctl.max_iters.`` or ``garchFit: Warning: the
        log-likelihood has no maximum. omega is at its lower limit
        (7.92974e-13) and the log-likelihood still rises as omega falls,
        because 100 of 500 residuals are 0 ...``
@@ -656,7 +656,7 @@ By default a refusal ends the program with its message. With
        ``garchFit: covariance must be both, opg or none.``,
        ``garchFit: level must be a finite scalar strictly between 0 and 1.``,
        ``garchFit: presample_state must be finite and positive for the
-       selected init_policy.``, ``garchFit: ctl.max_iter must be a positive
+       selected init_policy.``, ``garchFit: ctl.max_iters must be a positive
        integer.``
    * - 9
      - No starting value gives a finite likelihood

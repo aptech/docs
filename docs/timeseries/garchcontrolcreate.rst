@@ -63,7 +63,7 @@ The persistence warnings print even with ``ctl.quiet = 1``; see
 Remarks
 -------
 
-Every member except *max_iter* and *tol* can also be given as a keyword to
+Every member except *max_iters* and *tol* can also be given as a keyword to
 :func:`garchFit`, and a keyword overrides the member for that call only. The
 orders are *ctl.p* (GARCH) and *ctl.q* (ARCH); the matching keywords are
 *garch* and *arch*.

@@ -96,7 +96,7 @@ structure from :func:`garchControlCreate`. The members are new:
    * - ``gctl.start``
      - No setting: starting values are chosen by :func:`garchFit`
    * - ``gctl.sqpsolvemtControlProc``, ``gctl.cmlmtControlProc``
-     - ``ctl.max_iter`` and ``ctl.tol``
+     - ``ctl.max_iters`` and ``ctl.tol``
 
 The constant mean is still the default. ``mean_model="zero_mean"`` fits
 without it.

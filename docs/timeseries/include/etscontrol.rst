@@ -40,7 +40,7 @@
    * - ctl.period
      - Scalar, seasonal period. Use 1 for non-seasonal series. Default = 1.
 
-   * - ctl.max_iter
+   * - ctl.max_iters
      - Scalar, maximum iterations of each Nelder-Mead run. The fit restarts from its best point until a run no longer improves the likelihood, so the total can exceed this. Default = 2000.
 
    * - ctl.tol

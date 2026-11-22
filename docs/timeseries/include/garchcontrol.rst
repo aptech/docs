@@ -37,7 +37,7 @@
        first max(*garch*, *arch*) variances for ``"explicit_backcast_value"``.
        Default = 1.
 
-   * - ctl.max_iter
+   * - ctl.max_iters
      - Scalar, iteration limit of the optimizer's main run from each
        starting value. A short final polishing pass may run after it.
        Default = 1000.

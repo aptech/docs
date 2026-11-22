@@ -475,7 +475,7 @@ order or an *xreg* with the wrong number of rows, always end the program.
 Troubleshooting
 ---------------
 
-If the optimizer does not converge, increase *ctl.max_iter*, try
+If the optimizer does not converge, increase *ctl.max_iters*, try
 ``ctl.method = "ml"``, or fit a more parsimonious order. Near-unit-root AR or MA
 coefficients often indicate over-differencing or an unnecessarily complex
 specification.

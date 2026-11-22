@@ -79,7 +79,7 @@
                     series can continue.
        ============ =====================================================================
 
-   * - ctl.max_iter
+   * - ctl.max_iters
      - Scalar, maximum optimizer iterations. Default = 1000.
 
    * - ctl.tol
