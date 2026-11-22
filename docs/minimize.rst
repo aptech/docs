@@ -16,7 +16,7 @@ Format
               out = minimize(&fct, x0, ..., ctl)
               out = minimize(&fct, x0, method="nelder-mead")
               out = minimize(&fct, x0, ..., ctl, method="nelder-mead")
-              out = minimize(&fct, x0, ..., gradCheck=1)
+              out = minimize(&fct, x0, ..., grad_check=1)
 
     :param &fct: pointer to a procedure that computes the objective function to be minimized.
         The procedure receives the parameter vector *x* as its first argument, plus any additional
@@ -32,11 +32,11 @@ Format
         positional data arguments and control structure before the named option.
     :type method: string
 
-    :param gradCheck: Optional 0 or 1 (default 0). Set to 1 to print and check
+    :param grad_check: Optional 0 or 1 (default 0). Set to 1 to print and check
         the supplied gradient at the starting point. Either this keyword or
         ``ctl.gradCheck`` set to 1 enables the check. Requires a ``proc (2)``
         objective. See Gradient computation below.
-    :type gradCheck: scalar
+    :type grad_check: scalar
 
     :param ...: Optional extra arguments. These arguments are passed untouched to the user-provided objective function.
     :type ...: any
@@ -64,7 +64,7 @@ Format
             "ctl.printSummary", "scalar, print final summary. 0 = no (default), 1 = yes."
             "ctl.printEvery", "scalar, print progress every N iterations. 0 = never (default), N = every N iterations. Nelder-Mead requires 0; use printSummary for final output."
             "ctl.gradCheck", "0 (default) or 1; check the supplied gradient at x0 before optimization. Either the member or keyword set to 1 enables it."
-            "ctl.gradCheckTol", "Positive finite relative tolerance for gradCheck. Default = 1e-4. Member only."
+            "ctl.gradCheckTol", "Positive finite relative tolerance for grad_check. Default = 1e-4. Member only."
 
     :type ctl: struct
 
@@ -348,7 +348,7 @@ string, nonfinite or partly missing gradients return code 3 with missing
         retp(f, g);
     endp;
 
-    out = minimize(&squared_error, b0, y, X, gradCheck=1);
+    out = minimize(&squared_error, b0, y, X, grad_check=1);
 
 A ``proc (2)`` declared with ``...`` always receives ``ind`` as its last dynamic
 argument. Read it with ``dynargsGet(dynargsCount(), 0)``. For example, for
@@ -366,7 +366,7 @@ value as a data argument or use a keyword-free wrapper. Detection will not put
 
 **Checking a supplied gradient:**
 
-Set ``gradCheck=1`` or ``ctl.gradCheck=1`` to check g at x0 before either solver
+Set ``grad_check=1`` or ``ctl.gradCheck=1`` to check g at x0 before either solver
 runs. The check makes one g-only request, one f-only request at x0, and two
 or three f-only requests per free parameter,
 then prints the supplied g, numerical g and relative difference.
@@ -387,7 +387,7 @@ If neither direction is usable,
 the error names the element. Calls made by the check are included in ``out.fnEvals``.
 
 If an L-BFGS-B line search fails, ``out.retcode`` is 2 (abnormal termination).
-For a supplied gradient, the message suggests trying ``gradCheck``.
+For a supplied gradient, the message suggests trying ``grad_check``.
 
 **Convergence criteria:**
 
