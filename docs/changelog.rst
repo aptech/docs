@@ -52,6 +52,7 @@ The editor
 Data and programming
 ~~~~~~~~~~~~~~~~~~~~
 
+#. **Load data with fewer steps.** Give :func:`loadd` its file options by name, with no control structure: ``x = loadd("sales.xlsx", "Revenue + Cost", sheet="Q3", header_row=2)``. Choose the sheet by number or name, the header row, the rows to read, the CSV delimiter and quotation mark, and missing-value codes such as ``missing=-999``, which also work in number columns.
 #. **Save a whole set of results in one file.** :func:`saved` and :func:`loadd` save and load structures, structure arrays, strings, N-dimensional arrays and sparse matrices in ``.gdat`` files, keeping the column names, types, date formats and labels of dataframes inside structures. Load just one member with a path, for example ``loadd("fit.gdat", "settings.method_name")``.
 #. **Write HDF5 files.** :func:`saved` writes HDF5 files, for example ``saved(x, "results.h5")``, and :func:`loadd` reads them back.
 #. **Differences in one call.** The new function :func:`diff` computes repeated lag differences of vectors, matrices and dataframes.
@@ -97,6 +98,8 @@ Also improved
 ~~~~~~~~~~~~~
 
 #. :func:`loadd` reads Excel columns of numbers stored as text, and text columns of files written with :func:`saved`, including columns with missing values.
+#. With ``trap 1``, :func:`loadd` returns an error code you can test when a spreadsheet file does not exist, instead of stopping.
+#. Accented and other non-English text in spreadsheets now reads and writes correctly on Linux and macOS, whatever the system language setting, including in batch jobs.
 #. :func:`linsolve` solves systems with a complex *A*.
 #. Web data functions such as :func:`fred_load` keep your API key out of printed output and error messages.
 #. More reliable structures, structure arrays and indexed assignment, library builds with :func:`lib`, package installs with ``gpkg``, and start-up.
