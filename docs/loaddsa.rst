@@ -53,7 +53,7 @@ Named loading options
       - ``first`` or ``first | last`` in inclusive file row numbers, counting the header. A single value reads through the last row.
     * - ``missing``
       - CSV, Excel
-      - Match the given numbers or strings against the text of each cell. With ``missing=`` supplied, cells matching those tokens or the default ``"."`` become empty strings.
+      - With ``missing=`` supplied, cells matching the given tokens or the default ``"."`` become empty strings. Numeric tokens also match cells whose complete text represents the same number, so ``"-999.0"`` matches ``missing=-999``.
     * - ``delimiter``
       - CSV
       - One-character field separator. Defaults to automatic detection.
