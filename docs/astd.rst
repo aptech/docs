@@ -8,7 +8,7 @@ Computes the standard deviation of the elements across one dimension of an N-dim
 
 Format
 ----------------
-.. function:: y = astd(x, dim)
+.. function:: y = astd(x, dim[, divisor="sample"])
 
     :param x:
     :type x: N-dimensional array
@@ -16,12 +16,28 @@ Format
     :param dim: number of dimension to sum across.
     :type dim: scalar
 
+    :param divisor: Optional string, ``"sample"`` (the default) divides by N-1;
+        ``"population"`` divides by N. Other values are errors.
+    :type divisor: string
+
     :return y: standard deviation across specified dimension of *x*.
 
     :rtype y: N-dimensional array
 
 Examples
 ----------------
+
+Keyword arguments
++++++++++++++++++
+
+Arguments can be named to make their meaning clear::
+
+    y = astd(areshape({1,2,3,4}, 4|1), dim=2, divisor="population");
+
+Omitting ``divisor`` keeps the sample standard deviation.
+Positional arguments must come before named arguments. An argument cannot
+be supplied twice, and unknown keyword names are errors.
+
 
 ::
 
@@ -48,7 +64,7 @@ Remarks
 The output *y*, will have the same sizes of dimensions as *x*, except that
 the dimension indicated by *dim* will be collapsed to 1.
 
-For each column, this function essentially computes sample standard
+By default, for each column this function computes sample standard
 deviation, *s*:
 
 .. math:: s = \sqrt{\frac{1}{n−1⁢}×\Sigma_{i=1}^n(X_i − \bar{X})^2}

@@ -44,6 +44,18 @@ Format
 Examples
 ----------------
 
+Keyword arguments
++++++++++++++++++
+
+Arguments can be named to make their meaning clear::
+
+    y = rndMVt(8, scale={2 0.5,0.5 1}, df=5);
+
+Omitting ``state`` uses the global random stream.
+Positional arguments must come before named arguments. An argument cannot
+be supplied twice, and unknown keyword names are errors.
+
+
 ::
 
     // Set seed for repeatable output

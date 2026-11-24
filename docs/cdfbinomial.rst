@@ -26,6 +26,17 @@ Format
 
 Examples
 ----------------
+
+Keyword arguments
++++++++++++++++++
+
+Arguments can be named to make their meaning clear::
+
+    y = cdfBinomial({1,5,9}, trials=20, prob=0.3);
+
+Positional arguments must come before named arguments. An argument cannot
+be supplied twice, and unknown keyword names are errors.
+
 What are the chances that a baseball player with a long-term batting average of .317 could break Ichiro Suzuki's record of 270 hits in a season if he had as many at bats as Ichiro had that year, 704?
 
 ::

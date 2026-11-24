@@ -4,14 +4,18 @@ stdc
 
 Purpose
 ----------------
-Computes the sample standard deviation of the elements in each column of a matrix.
+Computes the standard deviation of the elements in each column of a matrix.
 
 Format
 ----------------
-.. function:: y = stdc(x)
+.. function:: y = stdc(x[, divisor="sample"])
 
     :param x: data
     :type x: NxK matrix
+
+    :param divisor: Optional string, ``"sample"`` (the default) divides by N-1;
+        ``"population"`` divides by N. Other values are errors.
+    :type divisor: string
 
     :return y: the standard deviation of each column of *x*.
 
@@ -20,6 +24,18 @@ Format
 
 Examples
 ----------------
+
+Keyword arguments
++++++++++++++++++
+
+Arguments can be named to make their meaning clear::
+
+    y = stdc({1,2,3,4}, divisor="population");
+
+Omitting ``divisor`` keeps the sample standard deviation.
+Positional arguments must come before named arguments. An argument cannot
+be supplied twice, and unknown keyword names are errors.
+
 
 ::
 
@@ -42,7 +58,7 @@ The standard deviation, in variable *std*, is equal to:
 Remarks
 -------
 
-This function essentially computes sample standard deviation, *s*:
+By default, this function computes sample standard deviation, *s*:
 
 .. math::
 

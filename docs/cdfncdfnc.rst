@@ -10,16 +10,16 @@ minus the cdf of the Normal distribution.
 
 Format
 ----------------
-.. function:: p = cdfn(x[, mu, sigma])
+.. function:: p = cdfn(x[, mu=0, sigma=1])
               p = cdfnc(x)
 
     :param x: Values at which to evaluate the normal cumulative distribution function or the complement of the normal cdf.
     :type x: NxK matrix
 
-    :param mu: Optional input, mean parameter. :func:`cdfn` only; :func:`cdfnc` takes only *x*.
+    :param mu: Optional input, mean parameter. Default: 0. :func:`cdfn` only; :func:`cdfnc` takes only *x*.
     :type mu: scalar
 
-    :param sigma: Optional input, standard deviation. :func:`cdfn` only.
+    :param sigma: Optional input, standard deviation. Default: 1. :func:`cdfn` only.
     :type sigma: scalar
 
     :return p: Each element in *p* is the normal cumulative distribution function evaluated at the corresponding element in *x*.
@@ -32,6 +32,18 @@ Format
 
 Examples
 ----------------
+
+Keyword arguments
++++++++++++++++++
+
+Arguments can be named to make their meaning clear::
+
+    y = cdfn({-1,0,1}, sigma=2);
+
+Omitted ``mu`` and ``sigma`` default to 0 and 1, respectively.
+Positional arguments must come before named arguments. An argument cannot
+be supplied twice, and unknown keyword names are errors.
+
 
 Example 1: Basic use
 ++++++++++++++++++++

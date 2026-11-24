@@ -47,6 +47,18 @@ Format
 Examples
 ----------------
 
+Keyword arguments
++++++++++++++++++
+
+Arguments can be named to make their meaning clear::
+
+    y = rndBeta(8, c=2, a=2, b=5);
+
+Omitting ``state`` uses the global random stream.
+Positional arguments must come before named arguments. An argument cannot
+be supplied twice, and unknown keyword names are errors.
+
+
 Example 1
 +++++++++
 

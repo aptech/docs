@@ -25,6 +25,17 @@ Format
 
 Examples
 ----------------
+
+Keyword arguments
++++++++++++++++++
+
+Arguments can be named to make their meaning clear::
+
+    y = cdfBinomialInv({0.1,0.5,0.9}, trials=20, prob=0.3);
+
+Positional arguments must come before named arguments. An argument cannot
+be supplied twice, and unknown keyword names are errors.
+
 What is a reasonable range of wins for a basketball team playing 82 games in a season, with a 60% chance of winning any game?
 For our example we will define a reasonable range as falling between the top and bottom deciles.
 
