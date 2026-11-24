@@ -8,7 +8,8 @@ Generates a bar graph.
 
 Format
 ----------------
-.. function:: plotBar([myPlot, ]labels, height) 
+.. function:: plotBar([myPlot, ]labels, height [, title={}, xlabel={}, ylabel={}, ylim={}, colors={}, legend={}, legend_location={}, line_width={}, line_style={}, grid={}, stacked={}])
+              plotBar([myPlot, ]df, formula [, title={}, xlabel={}, ylabel={}, ylim={}, colors={}, legend={}, legend_location={}, line_width={}, line_style={}, grid={}, stacked={}])
 
     :param myPlot: Optional argument, a :class:`plotControl` structure
     :type myPlot: struct
@@ -18,6 +19,63 @@ Format
 
     :param height: bar heights. *K* overlapping or side-by-side sets of *N* bars will be graphed.
     :type height: NxK numeric vector
+
+    :param df: Data referenced by the formula string.
+    :type df: dataframe
+
+    :param formula: Formula for the bar heights and labels, such as ``"sales ~ quarter"``.
+    :type formula: string
+
+Plot keywords
+++++++++++++++++++++++++
+
+Named settings override the corresponding settings on a copy of ``myPlot``.
+Omit a keyword or use ``{}`` to use the control or plot defaults.
+Named labels take precedence over labels generated from the data.
+
+.. list-table::
+    :header-rows: 1
+    :widths: 25 75
+
+    * - Keyword
+      - Meaning
+    * - ``title``
+      - Plot title. Use ``""`` to clear it.
+    * - ``xlabel``
+      - X-axis label. Use ``""`` to clear it.
+    * - ``ylabel``
+      - Y-axis label. Use ``""`` to clear it.
+    * - ``xlim``
+      - Unavailable on ``plotBar``. Its X axis uses categories, including when labels are numbers.
+    * - ``ylim``
+      - Two numbers, ``min | max`` or ``min ~ max``, for a numeric Y axis.
+    * - ``colors``
+      - Color names or RGB values as accepted by :func:`plotSetLineColor`.
+    * - ``legend``
+      - One string label per series. Use ``""`` to clear the legend.
+    * - ``legend_location``
+      - Up to three words from ``top``, ``vcenter`` (or ``middle``), ``bottom``, ``left``, ``hcenter``, ``right``, ``inside`` and ``outside``. ``center`` fills an unspecified direction, or both when used alone.
+    * - ``line_width``
+      - A nonnegative numeric width, or a vector of widths.
+    * - ``line_style``
+      - Style numbers 1 through 5, or ``solid``, ``dash``, ``dot``, ``dashdot`` and ``dashdotdot``. Also accepts ``dashed``, ``dotted``, ``dash-dot``, ``dash-dot-dot``, ``-``, ``--``, ``:`` and ``-.``.
+    * - ``marker``
+      - Unavailable on ``plotBar``.
+    * - ``grid``
+      - ``0`` (off), ``1`` (major grid), ``"major"``, ``"minor"`` or ``"both"``.
+    * - ``stacked``
+      - ``1`` stacks the series. ``0`` puts the bars side by side.
+
+Keywords in a plot call
+++++++++++++++++++++++++
+
+::
+
+    labels = "Q1" $| "Q2" $| "Q3";
+    sales = { 12 17, 15 20, 14 22 };
+    plotBar(labels, sales, title="Sales by quarter", stacked=1,
+        colors="steelblue" $| "orange", legend="Online" $| "In store");
+
 
 Examples
 ----------------

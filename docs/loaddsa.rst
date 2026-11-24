@@ -8,7 +8,9 @@ Loads data from a dataset into a string array. The supported dataset types are C
 
 Format
 ----------------
-.. function:: y = loaddSA(dataset[, varnames])
+.. function:: y = loaddSA(dataset [, varnames [, ldCtl]])
+              y = loaddSA(dataset, ldCtl)
+              y = loaddSA(dataset [, varnames], sheet={}, header_row={}, row_range={}, missing={}, delimiter={}, quote_char={}, ctl={})
 
     :param dataset: name of dataset.
     :type dataset: string
@@ -23,12 +25,58 @@ Format
 
     :type varnames: string
 
-    :return y: of data.
+    :param ldCtl: Optional :class:`LoadFileControl` for loading tables.
+    :type ldCtl: struct
+
+    :return y: Loaded data.
 
     :rtype y: NxK string array
 
+Named loading options
++++++++++++++++++++++
+
+.. list-table::
+    :header-rows: 1
+    :widths: 18 18 64
+
+    * - Keyword
+      - Applies to
+      - Meaning
+    * - ``sheet``
+      - Excel
+      - Positive sheet number or sheet name. Defaults to the first sheet.
+    * - ``header_row``
+      - CSV, Excel
+      - Header row number in the file. Use ``0`` for no header. Defaults to automatic detection.
+    * - ``row_range``
+      - CSV, Excel
+      - ``first`` or ``first | last`` in inclusive file row numbers, counting the header. A single value reads through the last row.
+    * - ``missing``
+      - CSV, Excel
+      - Match the given numbers or strings against the text of each cell. With ``missing=`` supplied, cells matching those tokens or the default ``"."`` become empty strings.
+    * - ``delimiter``
+      - CSV
+      - One-character field separator. Defaults to automatic detection.
+    * - ``quote_char``
+      - CSV
+      - One-character quotation mark. Defaults to automatic detection.
+    * - ``ctl``
+      - CSV, Excel
+      - A :class:`LoadFileControl` to copy and override with named options.
+
+Use ``{}`` to omit an option. With no control, options such as ``header_row``
+leave detection enabled for other settings. Supply a control once, either
+positionally or as ``ctl=``. Options for another file type produce an error.
+
 Examples
 ----------------
+
+Read a CSV with a header on row 2
+++++++++++++++++++++++++++++++++++
+
+::
+
+    responses = loaddSA("survey.csv", header_row=2, missing="NA");
 
 Load single string column from STATA dataset 
 ++++++++++++++++++++++++++++++++++++++++++++++

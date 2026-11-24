@@ -9,8 +9,8 @@ Graphs X vs. Y using Cartesian coordinates.
 
 Format
 ----------------
-.. function:: plotXY([myPlot, ]x, y)
-              plotXY([myPlot, ]df, formula)
+.. function:: plotXY([myPlot, ]x, y [, title={}, xlabel={}, ylabel={}, xlim={}, ylim={}, colors={}, legend={}, legend_location={}, line_width={}, line_style={}, marker={}, grid={}])
+              plotXY([myPlot, ]df, formula [, title={}, xlabel={}, ylabel={}, xlim={}, ylim={}, colors={}, legend={}, legend_location={}, line_width={}, line_style={}, marker={}, grid={}])
 
     :param myPlot: Optional argument, a :class:`plotControl` structure.
     :type myPlot: struct
@@ -31,6 +31,55 @@ Format
 
     :type formula: string
     
+Plot keywords
+++++++++++++++++++++++++
+
+Named settings override the corresponding settings on a copy of ``myPlot``.
+Omit a keyword or use ``{}`` to use the control or plot defaults.
+Named labels take precedence over labels generated from the data.
+
+.. list-table::
+    :header-rows: 1
+    :widths: 25 75
+
+    * - Keyword
+      - Meaning
+    * - ``title``
+      - Plot title. Use ``""`` to clear it.
+    * - ``xlabel``
+      - X-axis label. Use ``""`` to clear it.
+    * - ``ylabel``
+      - Y-axis label. Use ``""`` to clear it.
+    * - ``xlim``
+      - Two numbers, ``min | max`` or ``min ~ max``, for a numeric X axis.
+    * - ``ylim``
+      - Two numbers, ``min | max`` or ``min ~ max``, for a numeric Y axis.
+    * - ``colors``
+      - Color names or RGB values as accepted by :func:`plotSetLineColor`.
+    * - ``legend``
+      - One string label per series. Use ``""`` to clear the legend.
+    * - ``legend_location``
+      - Up to three words from ``top``, ``vcenter`` (or ``middle``), ``bottom``, ``left``, ``hcenter``, ``right``, ``inside`` and ``outside``. ``center`` fills an unspecified direction, or both when used alone.
+    * - ``line_width``
+      - A nonnegative numeric width, or a vector of widths.
+    * - ``line_style``
+      - Style numbers 1 through 5, or ``solid``, ``dash``, ``dot``, ``dashdot`` and ``dashdotdot``. Also accepts ``dashed``, ``dotted``, ``dash-dot``, ``dash-dot-dot``, ``-``, ``--``, ``:`` and ``-.``.
+    * - ``marker``
+      - Symbol numbers −1 through 14 and names from :func:`plotSetLineSymbol`, with shortcuts ``o``, ``s``, ``d``, ``^``, ``v``, ``+``, ``x``, ``*`` and ``h``.
+    * - ``grid``
+      - ``0`` (off), ``1`` (major grid), ``"major"``, ``"minor"`` or ``"both"``.
+
+Keywords in a plot call
+++++++++++++++++++++++++
+
+::
+
+    years = 2020:2025;
+    growth = { 1.2, 2.1, 1.5, 2.4, 1.9, 2.3 };
+    plotXY(years, growth, title="GDP growth", xlabel="Year",
+        ylabel="Percent", line_style="--", marker="o", grid=1, xlim=2020|2025);
+
+
 Examples
 ----------------
 
