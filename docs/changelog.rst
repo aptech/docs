@@ -19,6 +19,7 @@ Speed
 #. **Much faster sparse matrices.** Solving a large sparse system with ``/`` is about 100 times faster for 160,000 unknowns. ``b / a`` with a sparse symmetric positive definite *a*, such as the :math:`X'X` of a sparse design, uses a sparse Cholesky factorization. :func:`spEigv` finds the smallest eigenvalues of a 5,000-row matrix in milliseconds instead of 15 seconds, and :func:`spChol` and :func:`spLDL` have a new ``order="amd"`` option that is much faster on large matrices.
 #. **Faster Monte Carlo and bootstrap.** Programs that create and replace large matrices again and again run faster on Windows and macOS. In our tests on Windows, an OLS Monte Carlo ran up to 40% faster, a bootstrap 27% faster, and a loop updating a 2000x2000 matrix twice as fast.
 #. **Faster on AMD processors.** On processors with AVX2, GAUSS uses the faster AVX2 code in its math library. In our tests on a recent AMD processor, :func:`chol` is about 2 times faster, :func:`cdfnc` about 2.4 times, and matrix multiplication about 1.4 times for 500x500 matrices.
+#. **Native on Apple silicon.** GAUSS runs natively on Macs with Apple silicon (M1 and later), with no Rosetta translation. It needs macOS 14 or later.
 #. **Quick to start,** even with a long command history, and responsive in workspaces with many structures.
 
 Statistics and estimation
